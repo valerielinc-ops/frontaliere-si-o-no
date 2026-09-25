@@ -42,6 +42,7 @@
  * │ decision_moment_next_action │ Explicit next useful action after completion │
  * │ job_qualified_session │ One qualified job-detail session │
  * │ job_apply_handoff │ External application destination hand-off │
+ * │ l2_useful_action │ One measurable main-conversion action per session │
  * ├──────────────────────┼──────────────────────────────────────┤
  * │ APP-SPECIFIC — Feature usage │
  * ├──────────────────────┼──────────────────────────────────────┤
@@ -107,10 +108,12 @@ import {
  isBenignErrorMessage,
  isIndexedDbError,
  isOriginRedactedThirdPartyStack,
+ isGoogleIosAppInjectedStackOverflow,
  BROWSER_EXTENSION_ORIGIN_PATTERN,
 } from './benignErrorPatterns';
 import { safeAffiliateToken } from '../functions/src/lib/affiliateLinks.js';
 import { readBuildIdForTelemetry } from './buildInfo';
+import { jobGateNewsletterTags } from './jobGateExperiment';
 
 export interface AnalyticsPageViewIdentity {
  jobSlug?: string;
@@ -133,8 +136,9 @@ export const JOB_QUALIFIED_SESSION_EVENT = 'job_qualified_session';
 export const JOB_APPLY_HANDOFF_EVENT = 'job_apply_handoff';
 export const DECISION_MOMENT_COMPLETED_EVENT = 'decision_moment_completed';
 export const DECISION_MOMENT_NEXT_ACTION_EVENT = 'decision_moment_next_action';
+export const L2_USEFUL_ACTION_EVENT = 'l2_useful_action';
 
-export type JobAuthGateSurface = 'inline' | 'modal' | 'expired' | 'orphan' | 'unknown';
+export type JobAuthGateSurface = 'inline' | 'modal' | 'expired' | 'orphan' | 'bridge' | 'unknown';
 export type JobAuthGateState = 'anonymous' | 'pending_email' | 'registered' | 'unknown';
 
 export interface JobAuthGateTelemetry {
@@ -410,6 +414,42 @@ const logPostHogOnly = (eventName: string, params?: Record<string, any>) => {
  posthogCapture(eventName, params);
 };
 
+const L2_USEFUL_ACTION_SESSION_KEY = 'fr_l2_useful_action_v1';
+const L2_USEFUL_ACTION_STEPS = new Set(['calculate', 'compare', 'cta_click']);
+let l2UsefulActionEmitted = false;
+
+function claimL2UsefulAction(): boolean {
+ if (l2UsefulActionEmitted) return false;
+ try {
+  if (sessionStorage.getItem(L2_USEFUL_ACTION_SESSION_KEY) === '1') return false;
+  sessionStorage.setItem(L2_USEFUL_ACTION_SESSION_KEY, '1');
+ } catch {
+  // Private browsing or blocked storage: the module guard still deduplicates
+  // repeated events during the current page lifetime.
+ }
+ l2UsefulActionEmitted = true;
+ return true;
+}
+
+function isL2UsefulAction(eventName: string, params: Record<string, any>): boolean {
+ if (eventName === 'simulation_complete' || eventName === 'generate_lead') return true;
+ return eventName === 'funnel_step'
+  && params.funnel === 'main_conversion'
+  && typeof params.step === 'string'
+  && L2_USEFUL_ACTION_STEPS.has(params.step);
+}
+
+/**
+ * Emit one low-cardinality Firebase/GA4 event for the L2 useful-action
+ * denominator. It is deliberately Firebase-only: the PostHog quota policy
+ * samples ordinary page/funnel events and cannot be an L2 source of truth.
+ */
+function maybeEmitL2UsefulAction(eventName: string, params: Record<string, any>): void {
+ if (isL2UsefulAction(eventName, params) && claimL2UsefulAction()) {
+  logFirebaseOnly(L2_USEFUL_ACTION_EVENT);
+ }
+}
+
 const log = (eventName: string, params?: Record<string, any>) => {
  const enrichedParams = enrichEventParams(params);
  // Mirror to PostHog (fire-and-forget, independent of Firebase)
@@ -426,6 +466,7 @@ const log = (eventName: string, params?: Record<string, any>) => {
  }
 
  logFirebaseOnly(eventName, enrichedParams);
+ maybeEmitL2UsefulAction(eventName, enrichedParams);
 };
 
 const setProps = (properties: Record<string, string>) => {
@@ -1455,6 +1496,10 @@ export const Analytics = {
  // but are third-party; no fix is possible on our end.
  if (event.filename && BROWSER_EXTENSION_ORIGIN_PATTERN.test(event.filename)) return;
  const errorStack = event.error?.stack || '';
+ // Same for the scripts Chrome for iOS / the Google app inject into the
+ // page: WebKit gives their frames the document URL, so they would read as
+ // a first-party crash (issue #8773 — see isGoogleIosAppInjectedStackOverflow).
+ if (isGoogleIosAppInjectedStackOverflow(msg, `${errorStack}\n${event.filename || ''}`, navigator.userAgent || '')) return;
  // Re-classify errors whose ENTIRE stack had its source URLs redacted by the
  // engine: a cross-origin script we do not control, never our own modules
  // (issue #4173 — see isOriginRedactedThirdPartyStack). Reported as
@@ -1496,6 +1541,8 @@ export const Analytics = {
  // Drop errors from browser extensions — they run in page context but are
  // third-party; no fix is possible on our end.
  if (stack && BROWSER_EXTENSION_ORIGIN_PATTERN.test(stack)) return;
+ // …and from the scripts Chrome for iOS / the Google app inject (#8773).
+ if (isGoogleIosAppInjectedStackOverflow(message, stack, navigator.userAgent || '')) return;
  // Same origin-redaction re-classification as the `error` handler above
  // (issue #4173): a stack with zero resolvable sources cannot come from our
  // own modules, so it is third-party rather than an app rejection.
@@ -2260,6 +2307,9 @@ export const Analytics = {
    action,
    email_domain: emailDomain,
    source_cta: context.sourceCta,
+   // jobgate-v3: the JobBoard gate's subscribe carries the visitor's arm
+   // (empty object for every other CTA or when the experiment is off).
+   ...jobGateNewsletterTags(context.sourceCta),
   });
 
   // `source_channel`/`source_cta` were historically emitted as free-form
@@ -2539,7 +2589,18 @@ export const Analytics = {
  keywords?: string;
  location?: string;
  frequency?: string;
+ // 'post_auth_auto' survives only for a pending intent written before the
+ // replay carried its CTA origin (issue 9576): it is outside the
+ // alert_funnel_conversion allowlist on purpose, because nothing emits a
+ // `job_alert_cta_shown` for it.
  surface?: 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'sticky_banner' | 'end_card' | 'preferences' | 'post_auth_auto' | 'job_match_pill' | 'job_board_filters' | 'saved_jobs_nudge' | 'calculator_results' | 'company_follow_button';
+ /**
+  * HOW the alert was written, kept apart from the surface (issue 9576):
+  * `post_auth_replay` = a guest submit replayed after the sign-in round-trip,
+  * `direct` = an authenticated user created it on the spot. Diagnostic only —
+  * the funnel attributes on `cta_surface`, never on this field.
+  */
+ authPath?: 'direct' | 'post_auth_replay';
  } = {}) => {
  // Defensive: collapse undefined/empty to clear sentinels rather than null
  // so PostHog HogQL queries never see mixed null/empty values for the same
@@ -2564,6 +2625,7 @@ export const Analytics = {
  // could not be attributed to the surface that produced it. `cta_surface`
  // IS registered; `alert_surface` stays for the PostHog queries that read it.
  cta_surface: surface,
+ alert_auth_path: details.authPath || 'direct',
  });
  },
 

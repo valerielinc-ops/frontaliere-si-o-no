@@ -14,6 +14,8 @@ import { listCantonOptions, getCantonLabel, CANTON_CODES, type CantonLocale } fr
 import { ABOVE_MOBILE_NAV_BOTTOM } from '@/components/shared/mobileNavClearance';
 import { consumeJobAlertOpen } from '@/services/jobAlertOpenSignal';
 import { savePendingJobAlert, consumePendingJobAlert } from '@/services/pendingJobAlert';
+import { useImpressionTracker } from '@/hooks/useImpressionTracker';
+import { Analytics } from '@/services/analytics';
 import ProfileEnrichmentPrompt from './ProfileEnrichmentPrompt';
 import { SECTORS } from './jobAlertConstants';
 import { loadEnrichmentProfileFields } from '@/services/profileFirestore';
@@ -66,6 +68,42 @@ const CONTRACT_TYPES = [
  { value: 'internship', labelKey: 'jobBoard.contract.internship' },
 ];
 
+/**
+ * Analytics is best-effort: a tracking failure must never break the alert flow.
+ * Static import on purpose (issue 9577): the funnel events are the observable
+ * contract of this form, and the previous `import('@/services/analytics')`
+ * per call never settled under the shared test stub, so no test could pin the
+ * shown→action→created chain. The module is already in the entry bundle
+ * (App and JobBoard import it statically), and this component is lazy-loaded.
+ */
+function track(emit: (analytics: typeof Analytics) => void): void {
+ try {
+ emit(Analytics);
+ } catch {
+ /* best-effort */
+ }
+}
+
+/**
+ * One in-flight import of the Firestore-backed service for every caller. At
+ * mount a signed-in form needs it twice at once — the alert list and the
+ * post-auth replay of a guest submit (issue 9576) — and sharing the promise
+ * keeps both on the same module instance (two concurrent first imports of a
+ * mocked module race under vitest and one of them gets the real service,
+ * which is what kept the create path untested). A failed chunk load is not
+ * cached, so a later attempt retries.
+ */
+let jobAlertServicePromise: Promise<typeof import('@/services/jobAlertService')> | null = null;
+function loadJobAlertService(): Promise<typeof import('@/services/jobAlertService')> {
+ if (!jobAlertServicePromise) {
+ jobAlertServicePromise = import('@/services/jobAlertService').catch((err) => {
+ jobAlertServicePromise = null;
+ throw err;
+ });
+ }
+ return jobAlertServicePromise;
+}
+
 // ── Component ────────────────────────────────────────────────
 
 export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword = '', initialCantonCode = null }: JobAlertFormProps) {
@@ -86,9 +124,15 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  const [frequency, setFrequency] = useState<'daily' | 'weekly'>('daily');
  const [saving, setSaving] = useState(false);
  const [alerts, setAlerts] = useState<JobAlert[]>([]);
- const [loadingAlerts, setLoadingAlerts] = useState(false);
+ // Starts true for a signed-in user so the inline CTA impression below is not
+ // armed before their alerts have been read (see `inlineImpressionRef`).
+ const [loadingAlerts, setLoadingAlerts] = useState(Boolean(authUser));
  const [editingAlertId, setEditingAlertId] = useState<string | null>(null);
  const [toast, setToast] = useState<string | null>(null);
+ // Issue 9575: set when a guest submit could not stash the pending intent.
+ // The auth round-trip would come back to nothing, so the form stays here and
+ // says so instead of navigating to sign-in on a promise it cannot keep.
+ const [pendingStorageFailed, setPendingStorageFailed] = useState(false);
 
  const oneTapKeyword = initialKeyword.trim();
  const [oneTapEligible, setOneTapEligible] = useState(false);
@@ -148,12 +192,10 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  if (distinctSearchesRef.current.size >= 2) {
  autoExpandedRef.current = true;
  setExpanded(true);
- // Impression, not intent — kept out of `cta_click` so the funnel
- // ratio open→accept stays meaningful (auto_expand was 380 vs 33
- // real opens in 14 days, fully drowning the "open" signal).
- import('@/services/analytics')
- .then(({ Analytics }) => Analytics.trackJobAlertCtaShown('inline_card', k))
- .catch(() => {});
+ // No impression here (issue 9577): expanding is neither intent (kept
+ // out of `cta_click`, auto_expand was 380 vs 33 real opens in 14 days)
+ // nor the moment the CTA became visible — the trigger card below owns
+ // the single `inline_card` impression, fired on real visibility.
  }
  }, 800);
  return () => window.clearTimeout(timer);
@@ -199,7 +241,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  return;
  }
  setLoadingAlerts(true);
- import('@/services/jobAlertService')
+ loadJobAlertService()
  .then((m) => m.getUserAlerts(authUser.uid))
  .then(setAlerts)
  .catch(() => {})
@@ -208,6 +250,25 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
 
  const typedLocale = (locale as CantonLocale) || 'it';
  const cantonOptions = useMemo(() => listCantonOptions(typedLocale), [typedLocale]);
+
+ // Issue 9577 — one contract for the inline CTA, form and one-tap alike:
+ //   shown  once, when the trigger card is actually visible (shared observer,
+ //          not a mount/expand effect) and the user's alerts are resolved;
+ //   open   the trigger card click (below);
+ //   accept a create attempt (form submit or one-tap), after validation;
+ //   success/error the outcome of that attempt — including the post-auth
+ //          replay of a guest submit and a pending intent that could not be
+ //          stored (issue 9575).
+ // Every step reports `cta_surface: inline_card`, so shown→action→created is
+ // one homogeneous chain in the alert_funnel_conversion goal.
+ const inlineImpressionRef = useImpressionTracker(
+ () => track((a) => a.trackJobAlertCtaShown('inline_card', initialKeyword.trim())),
+ { enabled: !loadingAlerts },
+ );
+
+ const trackInlineCtaAction = useCallback((action: 'accept' | 'success' | 'error', ctaKeyword: string) => {
+ track((a) => a.trackJobAlertCtaClick('inline_card', action, ctaKeyword));
+ }, []);
 
  const showToast = useCallback((msg: string) => {
  setToast(msg);
@@ -245,20 +306,25 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
   const configIsEmpty = (c: JobAlertConfig): boolean => c.keywords.length === 0 && c.locations.length === 0;
 
   const persistAlert = useCallback(
-    async (uid: string, email: string, config: JobAlertConfig, surface: 'inline_card' | 'post_auth_auto'): Promise<JobAlert> => {
-      const { createAlert } = await import("@/services/jobAlertService");
+    async (
+      uid: string,
+      email: string,
+      config: JobAlertConfig,
+      surface: 'inline_card' | 'post_auth_auto',
+      authPath: 'direct' | 'post_auth_replay',
+    ): Promise<JobAlert> => {
+      const { createAlert } = await loadJobAlertService();
       const alert = await createAlert(uid, email, config);
       setAlerts((prev) => [alert, ...prev]);
-      import("@/services/analytics")
-        .then(({ Analytics }) =>
-          Analytics.trackJobAlertCreated({
-            keywords: config.keywords.join(", "),
-            location: config.locations.join(", "),
-            frequency: config.frequency,
-            surface,
-          }),
-        )
-        .catch(() => {});
+      track((a) =>
+        a.trackJobAlertCreated({
+          keywords: config.keywords.join(", "),
+          location: config.locations.join(", "),
+          frequency: config.frequency,
+          surface,
+          authPath,
+        }),
+      );
       return alert;
     },
     [],
@@ -312,9 +378,16 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
     const pending = consumePendingJobAlert();
     if (!pending) return;
     pendingConsumedRef.current = true;
+    // Issue 9576: the replay is attributed to the CTA the guest submitted from
+    // (the surface that emitted the impression), with the auth hop recorded
+    // apart in `authPath`. Only an intent stored before the origin was carried
+    // falls back to the diagnostic `post_auth_auto`, outside the funnel.
+    const replaySurface = pending.origin ?? "post_auth_auto";
+    const replayKeyword = pending.config.keywords.join(", ");
     (async () => {
       try {
-        const created = await persistAlert(authUser.uid, authUser.email || "", pending, "post_auth_auto");
+        const created = await persistAlert(authUser.uid, authUser.email || "", pending.config, replaySurface, "post_auth_replay");
+        if (pending.origin) trackInlineCtaAction("success", replayKeyword);
         showToast(t("jobAlert.created") || "Alert creata! Riceverai una email con le nuove offerte.");
         // Reset like the manual path so the now-authenticated user can't re-submit
         // the still-populated form and create a duplicate alert.
@@ -325,34 +398,50 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
         // Surface the failure (e.g. quota full = permanent) instead of swallowing
         // it. Leave pendingConsumedRef set so we don't retry-loop on re-render;
         // the now-authenticated user can re-submit manually if needed.
+        if (pending.origin) trackInlineCtaAction("error", replayKeyword);
         showToast(err?.message || (t("jobAlert.error.generic") as string) || "Errore durante la creazione dell'alert.");
       }
     })();
-  }, [authUser, persistAlert, showToast, resetForm, t, maybeShowEnrichmentPrompt]);
+  }, [authUser, persistAlert, showToast, resetForm, t, maybeShowEnrichmentPrompt, trackInlineCtaAction]);
 
 
  const handleCreate = async () => {
- if (!authUser) {
- const pendingConfig = buildConfig();
-          if (!configIsEmpty(pendingConfig)) savePendingJobAlert(pendingConfig);
-          onRequireAuth?.();
+ const config = buildConfig();
+ // Same validation for guests and signed-in users: an empty config has
+ // nothing to replay, so sending a guest through sign-in for it would be a
+ // round-trip that promises an alert it cannot create.
+ if (configIsEmpty(config)) {
+ showToast(t('jobAlert.error.emptyFields') || 'Inserisci almeno una keyword o una zona.');
  return;
  }
+ const ctaKeyword = config.keywords.join(', ');
+ trackInlineCtaAction('accept', ctaKeyword);
 
- if (!keyword.trim() && selectedLocations.length === 0) {
- showToast(t('jobAlert.error.emptyFields') || 'Inserisci almeno una keyword o una zona.');
+ if (!authUser) {
+ // Issue 9575: the stash outcome decides the next step. Only a stored
+ // intent can be replayed after sign-in; otherwise stay on the form, keep
+ // what the user typed and make the extra step explicit.
+ const saved = savePendingJobAlert(config, 'inline_card');
+ if (!saved.ok) {
+ setPendingStorageFailed(true);
+ trackInlineCtaAction('error', ctaKeyword);
+ return;
+ }
+ setPendingStorageFailed(false);
+ onRequireAuth?.();
  return;
  }
 
  setSaving(true);
  try {
- const config = buildConfig();
-      const created = await persistAlert(authUser.uid, authUser.email || '', config, 'inline_card');
+      const created = await persistAlert(authUser.uid, authUser.email || '', config, 'inline_card', 'direct');
+      trackInlineCtaAction('success', ctaKeyword);
  showToast(t('jobAlert.created') || 'Alert creata! Riceverai una email con le nuove offerte.');
  resetForm();
       if (authUser.email) maybeShowEnrichmentPrompt(authUser.email, created);
       try { localStorage.setItem(JOB_ALERT_SUBSCRIBED_KEY, 'true'); } catch { /* no-op */ }
  } catch (err: any) {
+ trackInlineCtaAction('error', ctaKeyword);
  showToast(err?.message || 'Errore durante la creazione dell\'alert.');
  } finally {
  setSaving(false);
@@ -361,16 +450,19 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
 
  const handleOneTapCreate = async () => {
    if (!authUser?.uid || !authUser.email || !oneTapEligible || !oneTapKeyword) return;
+   trackInlineCtaAction('accept', oneTapKeyword);
    setSaving(true);
    try {
      const config = buildOneTapConfig();
-     const created = await persistAlert(authUser.uid, authUser.email, config, 'inline_card');
+     const created = await persistAlert(authUser.uid, authUser.email, config, 'inline_card', 'direct');
+     trackInlineCtaAction('success', oneTapKeyword);
      showToast(t('jobAlert.created') || 'Alert creata! Riceverai una email con le nuove offerte.');
      setOneTapEligible(false);
      resetForm();
      if (authUser.email) maybeShowEnrichmentPrompt(authUser.email, created);
      try { localStorage.setItem(JOB_ALERT_SUBSCRIBED_KEY, 'true'); } catch { /* no-op */ }
    } catch (err: any) {
+     trackInlineCtaAction('error', oneTapKeyword);
      showToast(err?.message || (t('jobAlert.error.generic') as string) || 'Errore durante la creazione dell\'alert.');
    } finally {
      setSaving(false);
@@ -385,10 +477,10 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  return;
  }
  try {
- const { deleteAlert } = await import('@/services/jobAlertService');
+ const { deleteAlert } = await loadJobAlertService();
  await deleteAlert(email, alertId);
  // FRO-334: Track alert deletion
- import('@/services/analytics').then(({ Analytics }) => Analytics.trackJobAlertDeleted()).catch(() => {});
+ track((a) => a.trackJobAlertDeleted());
  setAlerts((prev) => prev.filter((a) => a.id !== alertId));
  showToast(t('jobAlert.deleted') || 'Alert eliminata.');
  } catch {
@@ -409,7 +501,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  return;
  }
  try {
- const { updateAlert } = await import('@/services/jobAlertService');
+ const { updateAlert } = await loadJobAlertService();
  // A manual pick from this select is always a sticky pin — see
  // frequencyOverride on services/jobAlertService.ts JobAlertConfig.
  await updateAlert(email, alertId, { frequency: newFrequency, frequencyOverride: true });
@@ -431,7 +523,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  return;
  }
  try {
- const { updateAlert } = await import('@/services/jobAlertService');
+ const { updateAlert } = await loadJobAlertService();
  await updateAlert(email, alertId, { frequencyOverride: false });
  setAlerts((prev) =>
  prev.map((a) => (a.id === alertId ? { ...a, frequencyOverride: false } : a)),
@@ -489,14 +581,13 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  </button>
  </div>
  )}
- {/* Trigger card */}
+ {/* Trigger card — its visibility is the inline CTA impression (issue 9577). */}
  <button
+ ref={inlineImpressionRef}
  type="button"
  onClick={() => {
  if (!expanded) {
- import('@/services/analytics')
- .then(({ Analytics }) => Analytics.trackJobAlertCtaClick('inline_card', 'open', initialKeyword))
- .catch(() => {});
+ track((a) => a.trackJobAlertCtaClick('inline_card', 'open', initialKeyword));
  }
  setExpanded(!expanded);
  }}
@@ -569,6 +660,28 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  ? (t('jobAlert.create') || 'Crea alert')
  : (t('jobAlert.loginRequired') || 'Accedi per creare un alert')}
  </button>
+
+ {/* Issue 9575: the pending intent could not be stored, so no automatic
+ replay will happen after sign-in. Say it, keep the typed criteria,
+ and leave the (now honest) sign-in step to the user. */}
+ {pendingStorageFailed && !authUser && (
+ <div
+ role="alert"
+ data-testid="job-alert-pending-storage-failed"
+ className="p-3 rounded-lg border border-edge bg-surface text-xs text-subtle space-y-2"
+ >
+ <p>
+ {t('jobAlert.pendingStorageUnavailable') || 'Questo browser non ci permette di conservare l\'alert durante l\'accesso (navigazione privata o memoria piena). Dopo l\'accesso torna qui e premi di nuovo «Crea alert».'}
+ </p>
+ <button
+ type="button"
+ onClick={() => onRequireAuth?.()}
+ className="text-xs text-accent underline underline-offset-2 hover:no-underline"
+ >
+ {t('jobAlert.loginAnyway') || 'Accedi comunque'}
+ </button>
+ </div>
+ )}
 
  {/* Advanced filters toggle */}
  <button

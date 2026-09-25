@@ -36,6 +36,7 @@ import {
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
+import { fetchWorkdayPrimarySwissLocation } from './workday-swiss-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -180,8 +181,16 @@ export async function fetchAllKsbJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = listing.location || 'Baden';
-    const canton = inferSwissTargetCanton(location) || 'AG';
+    // `listing.location` is '' for an "N Locations" roll-up: only the req's own
+    // primary workplace (Baden, Muri, ...) may place it, never the Baden main
+    // site (issue 9842: no HQ fallback on unknown geography).
+    const location = normalizeSpace(listing.location || '')
+      || await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath);
+    const canton = location ? inferSwissTargetCanton(location) : '';
+    if (!canton) {
+      console.log(`  ⏭️  Skipped location without a Swiss canton: ${listing.location || '(roll-up without Swiss primary)'} — ${title}`);
+      continue;
+    }
     const publicUrl = listing.url || CAREER_URL;
 
     // Workday listing endpoint NEVER returns the job body — see workday-client.mjs.

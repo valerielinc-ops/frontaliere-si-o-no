@@ -148,11 +148,9 @@ export function manualDispatchPR(raw) {
  * model reads authors via `gh pr list --json author`, whose GraphQL form prefixes
  * apps with `app/` and drops `[bot]` (e.g. `app/frontaliere-automation`). We
  * canonicalise both forms to a bare login so the allowlist matches regardless of
- * source — same author SCOPE as the original trigger, no expansion.
- */
-/**
- * Keep the site accounts as the default, while allowing the adapted workflow
- * and isolated tests to provide the eligible accounts explicitly.
+ * source — same author SCOPE as the original trigger, no expansion. The adapted
+ * workflow and isolated tests may replace the site defaults through
+ * `FOLLOWUP_ELIGIBLE_AUTHORS` before module load.
  */
 const ELIGIBLE_AUTHORS = new Set(
   (process.env.FOLLOWUP_ELIGIBLE_AUTHORS || 'valerielinc-ops,frontaliere-automation')
@@ -313,6 +311,27 @@ export function latestTriageCommentBody(commentsJson, prefix = TRIAGE_COMMENT_PR
   return bodies.length ? bodies[bodies.length - 1] : null;
 }
 
+// Un conteggio e' il NUMERO davanti a `item`/`issue`/`element…`, ovunque stia
+// sulla riga di claim: il template canonico di FOLLOWUP.md lo mette DOPO il
+// bucket («Created/updated: daily bucket #<id> ... con N item»). `#N`, date e
+// decimali non sono conteggi a zero (`0.5 item` resta non-zero).
+const CLAIM_COUNT_RE = /(?<![0-9.,#])([0-9]+(?:[.,][0-9]+)?)\s+(?:item|issue|element)/gi;
+const CLAIM_LEADING_ZERO_RE = /^\s*(?:[-*]\s+)?Created(?:\/updated)?:\s*0(?![0-9.])/i;
+
+/**
+ * Una riga di claim dichiara ZERO item quando nessun conteggio e' diverso da
+ * zero E lo zero e' scritto in cifre: un conteggio `0` ovunque sulla riga,
+ * oppure `Created: 0` in testa. Gemello di `claim_line_is_zero` nello step
+ * «Verify complete follow-up triage» di post-merge-followup.yml; la parita'
+ * e' ESEGUITA da tests/followup-marker-zero-claim.test.ts.
+ */
+export function isZeroClaimLine(line) {
+  const text = String(line || '');
+  const counts = [...text.matchAll(CLAIM_COUNT_RE)].map((match) => match[1]);
+  if (counts.some((count) => count !== '0')) return false;
+  return counts.length > 0 || CLAIM_LEADING_ZERO_RE.test(text);
+}
+
 /**
  * Extract the persistence claim from a marker.  A zero-result/backfill marker
  * intentionally needs no bucket; every other successful marker must name one or
@@ -327,7 +346,9 @@ export function triageMarkerPersistenceExpectation(markerBody) {
   const claim = body.split(/\r?\n/)
     .filter((line) => /^\s*(?:[-*]\s+)?Created(?:\/updated)?:/i.test(line))
     .join('\n');
-  const buckets = [...claim.matchAll(/\bbucket\s+#([1-9]\d*)\b/gi)]
+  // `bucket: #N` vale quanto `bucket #N`, come nel gemello bash
+  // (`bucket[[:space:]]*:?[[:space:]]*#[0-9]+`).
+  const buckets = [...claim.matchAll(/\bbucket\s*:?\s*#([1-9]\d*)\b/gi)]
     .map((match) => Number(match[1]));
   const uniqueBuckets = [...new Set(buckets)];
   // Il discriminante e' STRUTTURALE: sulla riga di claim gia' isolata sopra
@@ -339,9 +360,12 @@ export function triageMarkerPersistenceExpectation(markerBody) {
   // aveva mai nominato: `persistence_ok=false` e run rossa su un marker giusto.
   // Un claim a zero non promette nulla da verificare, qualunque parola usi.
   const claimLines = claim.split(/\r?\n/).filter((line) => line.trim());
-  // `0(?![0-9.])`: un `Created: 0.5 item` non e' un claim a zero.
-  const zeroClaim = claimLines.length > 0
-    && claimLines.every((line) => /^\s*(?:[-*]\s+)?Created(?:\/updated)?:\s*0(?![0-9.])/i.test(line));
+  // Il NUMERO conta ovunque sulla riga, non solo in testa: dal 2026-09-19 lo
+  // zero scritto DOPO il bucket ha reso rosse run su marker giusti —
+  // «nessun bucket giornaliero; 0 item.» (PR #9039/#9045/#9053) e il template
+  // canonico con N=0, «daily bucket #9609 ... con 0 item da questa PR.»
+  // (run 35947247334, PR #9518). La prosa senza cifre resta fail-closed.
+  const zeroClaim = claimLines.length > 0 && claimLines.every((line) => isZeroClaimLine(line));
   // Le formule d'intestazione valgono SOLO in assenza di una riga di claim.
   // Cercarle nell'intero corpo anche quando un claim NON-zero esiste lasciava a
   // una prosa successiva la possibilita' di scavalcare la verifica del bucket
@@ -398,12 +422,14 @@ export function verifyTriageMarkerPersistence(markerBody, prNumber, readIssue) {
 }
 
 /**
- * Turni Claude proporzionati al batch: min(26 + 8*n, 80), floor 26 (mai abbassare).
- * Era min(20+6n,60) — bump fleet-wide 2026-07-17 (owner) di tutti i cap max-turns
- * Claude dopo l'ennesimo error_max_turns (cap = anti-runaway, non budget di lavoro).
+ * Turni provider proporzionati al batch: min(26 + 8*n, 240), floor 26
+ * (mai abbassare). La misura del gemello corpus ha osservato 113 turni per una
+ * finestra da 11 PR: la formula richiede 114 e il ceiling 240 lascia headroom
+ * per i batch più larghi senza rendere illimitata la sessione. Il cap è un
+ * anti-runaway, non un budget per nascondere PR rinviate.
  */
 export function maxTurnsFor(batchCount) {
-  return Math.min(26 + 8 * Math.max(0, Number(batchCount) || 0), 80);
+  return Math.min(26 + 8 * Math.max(0, Number(batchCount) || 0), 240);
 }
 
 /**

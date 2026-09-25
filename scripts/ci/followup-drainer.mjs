@@ -76,7 +76,7 @@ import {
   readQuotaFloorLedger,
   releaseQuotaFloorLease,
 } from './quota-floor-lease.mjs';
-import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
+import { FIX_OUTCOME_RE, TITLE_RE as RECONCILER_TITLE_RE } from './close-recovered-failure-issues.mjs';
 import { runBudgetFromEnv } from './lib/run-budget.mjs';
 import { intFromEnv, positiveIntFromEnv } from '../lib/int-from-env.mjs';
 import {
@@ -1783,6 +1783,56 @@ export function isPermanentTracker(iss) {
 }
 
 /**
+ * Le famiglie di titoli con un chiuditore PROPRIO fuori dal reconciler centrale,
+ * ciascuna con chi la chiude:
+ *   - `CI Failure (build): …`       → job `resolve-build-alarm` del workflow di
+ *                                     deploy, solo a run con TUTTE le gambe verdi;
+ *   - `CI Failure (deploy): …`      → step gemello `--resolve` del workflow di
+ *                                     pubblicazione;
+ *   - `Validation Failure (dist): …` → `report-validate-dist-failure.mjs --mode resolve`;
+ *   - `Validation Failure (live): …` → step gemello `--resolve` del validatore live.
+ * `tests/followup-drainer-ageout-alarm-issues.test.ts` verifica che ognuno di
+ * questi chiuditori esista davvero: una famiglia qui senza chiuditore sarebbe una
+ * issue immortale.
+ */
+const OWNER_CLOSED_SCOPED_ALARM_RE = /^(?:CI Failure \((?:build|deploy)\)|Validation Failure \((?:dist|live)\)): /;
+
+/**
+ * La issue è un ALLARME automatico che ha un chiuditore proprio? Pura → testabile.
+ *
+ * Un allarme di fallimento ha un ciclo di vita che appartiene a chi lo apre: si
+ * apre o si RIAPRE sul rosso e si chiude sul verde. L'age-out non ha niente da
+ * dire su quella condizione, e chiudendola la rende invisibile mentre è ancora
+ * vera. Il caso che l'ha provato, 2026-09-25: `CI Failure (build): Deploy to
+ * GitHub Pages` (#7918), creata il 07/09, è stata RIAPERTA dal leg del deploy
+ * alle 23:56:22Z per un build rosso e chiusa da questo drainer alle 00:07:16Z
+ * come «nessun evento significativo da ≥7gg»: la riapertura e il suo commento 🔁
+ * li scrive un bot, quindi non contano come attività, e l'età si misura dalla
+ * creazione. Undici minuti dopo l'allarme il deploy era rosso e nessuna issue
+ * aperta lo diceva.
+ *
+ * Il discriminante è il titolo, e NON l'intero `AUTO_TITLE_RE` del
+ * raggruppamento: dentro quella famiglia ci sono allarmi che nessuno chiude, e
+ * per loro l'age-out è l'unico chiuditore che esiste. Sono
+ *   - `CI Failure (<evento>): …`, che `scopedTitle` di `scan-job-timeouts.mjs`
+ *     conia per una run FUORI da `main` e che il reconciler lascia stare per
+ *     costruzione;
+ *   - `Campaign goal FAILED: …`, per cui `campaign-goal-check.mjs` dichiara
+ *     «Non esiste un closer automatico».
+ * Coprono invece il resto il `TITLE_RE` del reconciler
+ * (`close-recovered-failure-issues.mjs`, importato e non ricopiato: se cambia la
+ * sua forma cambia anche questa esclusione) e le famiglie con scope elencate in
+ * `OWNER_CLOSED_SCOPED_ALARM_RE`.
+ *
+ * @param {{title?: string}} iss
+ * @returns {boolean}
+ */
+export function isOwnerClosedFailureAlarm(iss) {
+  const title = String(iss?.title || '');
+  return RECONCILER_TITLE_RE.test(title) || OWNER_CLOSED_SCOPED_ALARM_RE.test(title);
+}
+
+/**
  * Tutto cio' che rende una issue eleggibile all'age-out TRANNE l'inattivita'.
  * Puro (niente gh) → testabile. Estratto da `isAgeOutEligible` perche' il
  * chiamante deve poter decidere se vale la pena SPENDERE una lettura commenti
@@ -1795,6 +1845,8 @@ export function isAgeOutCandidate(iss, { now, ageOutDays }) {
   if (!ageOutDays || ageOutDays <= 0) return false;
   if (!isQueueManaged(iss)) return false;
   if (hasActiveAgentClaim(iss)) return false;
+  // La chiusura di un allarme spetta a chi lo apre, non all'inattività.
+  if (isOwnerClosedFailureAlarm(iss)) return false;
   const ls = (iss?.labels || []).map((l) => l.name);
   if (isPermanentTracker(iss)) return false; // issue-contatore/tracker permanente, mai eleggibile
   if (ls.includes(LBL_FIX) || ls.includes(LBL_QUEUED)) return false; // in lavorazione/coda

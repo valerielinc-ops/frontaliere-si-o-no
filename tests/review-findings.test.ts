@@ -346,6 +346,41 @@ describe('ledger: confirmed-fixed solo da conferma esplicita (review #9318, find
     expect(historicalImportantFindings(reviews, { includeLatest: true })).toEqual(open);
   });
 
+  it('chiude due finding spostati sullo stesso file solo con due conferme distinte', () => {
+    const reviews = [[
+      bot(1, [
+        '## Findings (Important: 2, Nit: 0)',
+        '',
+        '`scripts/ci/shared.mjs:L465`: 🔴 Important: il parser non legge il country.',
+        '`scripts/ci/shared.mjs:L715`: 🔴 Important: il listing estero passa il gate.',
+      ].join('\n'), HEAD_B, '2026-09-19T10:00:00Z'),
+      bot(2, [
+        '## Findings (Important: 0, Nit: 0)',
+        '',
+        'Fix di `scripts/ci/shared.mjs:L472`: ok.',
+        'Fix di `scripts/ci/shared.mjs:L733`: ok.',
+        '',
+        '## LGTM',
+      ].join('\n'), HEAD_A, '2026-09-19T11:00:00Z'),
+    ]];
+
+    const { open, confirmed } = partitionHistoricalImportantFindings(reviews, { includeLatest: true });
+    expect(open).toHaveLength(0);
+    expect(confirmed).toHaveLength(2);
+
+    const incomplete = [[
+      reviews[0][0],
+      bot(3, [
+        '## Findings (Important: 0, Nit: 0)',
+        '',
+        'Fix di `scripts/ci/shared.mjs:L472`: ok.',
+        '',
+        '## LGTM',
+      ].join('\n'), HEAD_A, '2026-09-19T12:00:00Z'),
+    ]];
+    expect(partitionHistoricalImportantFindings(incomplete, { includeLatest: true }).open).toHaveLength(2);
+  });
+
   it('un finding mai confermato non finisce nel ledger come chiuso', () => {
     const reviews = [[
       bot(1, '## Findings (Important: 1, Nit: 0)\n\n`scripts/ci/uno.mjs:L3`: 🔴 Important: `alfa()` rotto.\n', HEAD_B, '2026-09-19T10:00:00Z'),

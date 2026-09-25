@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pallas-kliniken",
-  "assembledAt": "2026-09-24T14:28:59.763Z",
+  "assembledAt": "2026-09-25T14:49:01.786Z",
   "jobs": [
     {
       "id": "pallas-kliniken-acf85005b712",
@@ -16,25 +16,24 @@
       "companyDomain": "pallas-kliniken.ch",
       "title": "Flexible/-r MPA als Springer/-in gesucht!",
       "titleByLocale": {
-        "it": "Flessibile /-r MPA voluto come un saltatore!",
-        "en": "Flexible/-r MPA als Springer/-in gesucht!",
+        "it": "Cercasi MPA flessibile come saltatore/trice!",
+        "en": "Flexible MPA as a stand-in wanted!",
         "de": "Flexible/-r MPA als Springer/-in gesucht!",
-        "fr": "MPA flexible/-r recherché comme sauteur!"
+        "fr": "Flexible/-r MPA voulu comme un pull!"
       },
       "description": "Die Pallas Kliniken sind auf die Bereiche Augenheilkunde, Dermatologie und ästhetische Medizin spezialisiert. Mit mehr als 350 Mitarbeitenden an 17 Standorten gehört die Klinikgruppe zu den führenden und unabhängigen Privatkliniken in der Deutschschweiz. Exzellente Medizin und die menschliche Behandlung ist dabei die gelebte Leitidee. Der Hauptsitz in Olten, mit rund 50 Mitarbeitenden, übernimmt dabei die operative Leitung. Für unsere Standorte suchen wir eine/-n flexible/-n MPA als Springer/in im Stundenlohn, die/der unser Team unterstützt und flexibel einsetzbar ist.",
       "descriptionByLocale": {
-        "it": "Pallas Clinics è specializzata nelle aree di oftalmologia, dermatologia e medicina estetica. Con oltre 350 dipendenti in 17 sedi, il gruppo clinico è una delle principali e indipendenti cliniche private della Svizzera tedesca. La medicina eccellente e il trattamento umano è il principio guida. La sede centrale di Olten, con circa 50 dipendenti, prende il controllo della gestione operativa. Per le nostre posizioni siamo alla ricerca di un MPA flessibile come saltatore nel salario orario, che supporta il nostro team e può essere utilizzato in modo flessibile.",
-        "en": "Pallas Clinics specialize in the areas of ophthalmology, dermatology and aesthetic medicine. With more than 350 employees at 17 locations, the clinic group is one of the leading and independent private clinics in German-speaking Switzerland. Excellent medicine and human treatment is the guiding principle. The headquarters in Olten, with around 50 employees, takes over the operational management. For our locations we are looking for a flexible MPA as a jumper in the hourly wage, which supports our team and can be used flexibly.",
+        "it": "Le cliniche Pallas sono specializzate nei settori dell'oftalmologia, della dermatologia e della medicina estetica. Con oltre 350 dipendenti in 17 sedi, il gruppo di cliniche è una delle cliniche private leader e indipendenti della Svizzera tedesca. L'idea guida è la medicina eccellente e il trattamento umano. La sede principale di Olten, con circa 50 dipendenti, assume la direzione operativa. Per le nostre sedi siamo alla ricerca di un MPa flessibile con retribuzione oraria che sostenga il nostro team e possa essere impiegato in modo flessibile.",
+        "en": "The Palas Clinics are specialized in the fields of ophthalmology, dermatology and aesthetic medicine. With more than 350 employees at 17 locations, the clinic group is one of the leading and independent private clinics in German-speaking Switzerland. Excellent medicine and human treatment are the living guiding principles. The headquarters in Olten, with around 50 employees, takes over the operational management. For our locations, we are looking for a flexible MPA as a jumper in hourly pay, which is supported by our team and can be used flexibly.",
         "de": "Die Pallas Kliniken sind auf die Bereiche Augenheilkunde, Dermatologie und ästhetische Medizin spezialisiert. Mit mehr als 350 Mitarbeitenden an 17 Standorten gehört die Klinikgruppe zu den führenden und unabhängigen Privatkliniken in der Deutschschweiz. Exzellente Medizin und die menschliche Behandlung ist dabei die gelebte Leitidee. Der Hauptsitz in Olten, mit rund 50 Mitarbeitenden, übernimmt dabei die operative Leitung. Für unsere Standorte suchen wir eine/-n flexible/-n MPA als Springer/in im Stundenlohn, die/der unser Team unterstützt und flexibel einsetzbar ist.",
-        "fr": "Les cliniques Pallas se spécialisent dans les domaines de l'ophtalmologie, de la dermatologie et de la médecine esthétique. Avec plus de 350 employés sur 17 sites, le groupe clinique est l'une des cliniques privées leader et indépendante en Suisse germanophone. Excellente médecine et traitement humain est le principe directeur. L'administration centrale d'Olten, avec une cinquantaine d'employés, prend en charge la gestion opérationnelle. Pour nos emplacements, nous recherchons un MPA flexible comme sauteur dans le salaire horaire, qui soutient notre équipe et peut être utilisé avec souplesse."
+        "fr": "Les cliniques Palas sont spécialisées dans les domaines de l'ophtalmologie, de la dératologie et de la médecine esthétique. Avec plus de 350 employés dans 17 sites, le groupe clinique est l'un des principaux et indépendants cliniques privées en Suisse germanophone. L'excellente médecine et traitement humain sont les principes directeurs vivants. Le siège social d'Olten, avec environ 50 employés, prend la direction opérationnelle."
       },
-      "needsRetranslation": true,
       "location": "Olten",
       "canton": "SO",
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000Kb2yb2AB",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:28:54.066Z",
+      "crawledAt": "2026-09-25T14:48:57.102Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -75,7 +74,10 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 575
     },
     {
       "id": "pallas-kliniken-16b3fff6239b",
@@ -109,7 +111,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000HYXar2AH",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:28:53.666Z",
+      "crawledAt": "2026-09-25T14:48:56.705Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -172,17 +174,17 @@
       "companyDomain": "pallas-kliniken.ch",
       "title": "Application Manager/-in KIS/PIS (80-100%)",
       "titleByLocale": {
-        "it": "Application Manager Kis/PIS (80-100%)",
+        "it": "Application Manager HIS/PIS (80-100%)",
         "en": "Application Manager/-in KIS/PIS (80-100%)",
         "de": "Application Manager/-in KIS/PIS (80-100%)",
-        "fr": "Application Manager Kis/PIS (80-100%)"
+        "fr": "Gestionnaire d'applications HIS/PIS (80-100 %)"
       },
       "description": "Pallas Kliniken AG ist die führende Klinikgruppe für Augenheilkunde und Dermatologie in der Schweiz. An zahlreichen Standorten setzen wir auf moderne, digital gestützte Prozesse, um unseren Patientinnen und Patienten eine erstklassige medizinische Versorgung zu bieten. Unsere IT-Landschaft verbindet klassische Infrastruktur mit klinischen Fachanwendungen (KIS/PIS), Cloud-Diensten und hohen regulatorischen\n• Anforderungen an Datenschutz und Informationssicherheit im Gesundheitswesen. Zur Verstärkung unseres ICT-Teams am Hauptsitz in Olten suchen wir per sofort oder nach Vereinbarung eine engagierte, service- und lösungsorientierte Persönlichkeit als Application Manager/-in, welche den reibungslosen Betrieb und die kontinuierliche Weiterentwicklung unseres klinischen Informationssystems (KIS/PIS) verantwortet. Application Manager/-in KIS/PIS (80-100%)",
       "descriptionByLocale": {
-        "it": "Pallas Kliniken AG è il principale gruppo clinico di oftalmologia e dermatologia in Svizzera. In numerose sedi ci affidiamo a processi moderni e supportati digitalmente per offrire ai nostri pazienti un'assistenza medica di prima classe. Il nostro panorama IT combina l'infrastruttura classica con le applicazioni cliniche specialistiche (Kis/PIS), i servizi cloud e gli elevati standard normativi\n• Requisiti per la protezione dei dati e la sicurezza delle informazioni nel settore sanitario. Per rafforzare il nostro team ICT presso la sede centrale di Olten, siamo alla ricerca di una persona impegnata, orientata al servizio e alla soluzione come Application Manager, che sia responsabile del corretto funzionamento e del continuo sviluppo del nostro sistema informativo clinico (Kis/PIS). Application Manager Kis/PIS (80-100%)",
-        "en": "The leading group of clinics for ophthalmology and dermatology in Switzerland, is the company's leading group. We rely on modern, digitally-based processes at numerous locations to provide our patients with first-class medical care. Our IT landscape combines classic infrastructure with clinical applications (KIS/PIS), cloud services and high regulatory requirements for data protection and information security in healthcare.\n\nTo strengthen our ICT team at our headquarters in Olten, we are looking for an active, service- and solution-oriented personality as application manager, who is responsible for the smooth operation and continuous development of our clinical information system (KIS/PIS). Application Manager/-in KIS/PIS (80-100%)",
+        "it": "Il gruppo leader in Svizzera di cliniche per l'oftalmologia e la dermatologia è il gruppo leader dell'azienda. Ci avvaliamo di processi moderni e basati sul digitale in numerose sedi per fornire ai nostri pazienti cure mediche di prima classe. Il nostro panorama IT combina infrastrutture classiche con applicazioni cliniche (KIS/PIS), servizi cloud e requisiti elevati di regolamentazione per la protezione dei dati e la sicurezza dell'informazione in ambito sanitario.\n\nPer rafforzare il nostro team ICT presso la nostra sede di Olten, stiamo cercando una personalità attiva, orientata al servizio e alla soluzione come responsabile delle applicazioni, responsabile del funzionamento regolare e dello sviluppo continuo del nostro sistema informativo clinico (KIS/PIS).",
+        "en": "The leading group of clinics for ophthalmology and dermatology in Switzerland, is the company's leading group. We rely on modern, digitally-based processes at numerous locations to provide our patients with first-class medical care. Our IT landscape combines classic infrastructure with clinical applications (KIS/PIS), cloud services and high regulatory requirements for data protection and information security in healthcare.\n\nTo strengthen our ICT team at our headquarters in Olten, we are looking for an active, service- and solution-oriented personality as an application manager, who is responsible for the smooth operation and continuous development of our clinical information system (KIS/PIS). Application Manager/-in KIS/PIS (80-100%)",
         "de": "Pallas Kliniken AG ist die führende Klinikgruppe für Augenheilkunde und Dermatologie in der Schweiz. An zahlreichen Standorten setzen wir auf moderne, digital gestützte Prozesse, um unseren Patientinnen und Patienten eine erstklassige medizinische Versorgung zu bieten. Unsere IT-Landschaft verbindet klassische Infrastruktur mit klinischen Fachanwendungen (KIS/PIS), Cloud-Diensten und hohen regulatorischen\n• Anforderungen an Datenschutz und Informationssicherheit im Gesundheitswesen. Zur Verstärkung unseres ICT-Teams am Hauptsitz in Olten suchen wir per sofort oder nach Vereinbarung eine engagierte, service- und lösungsorientierte Persönlichkeit als Application Manager/-in, welche den reibungslosen Betrieb und die kontinuierliche Weiterentwicklung unseres klinischen Informationssystems (KIS/PIS) verantwortet. Application Manager/-in KIS/PIS (80-100%)",
-        "fr": "Le groupe de cliniques d'ophtalmologie et de dératologie leader en Suisse est le groupe leader de l'entreprise. Nous comptons sur des processus modernes et numériques dans de nombreux endroits pour fournir à nos patients des soins médicaux de première qualité. Notre paysage informatique combine une infrastructure classique avec des applications cliniques (KIS/PIS), des services cloud et des exigences réglementaires élevées pour la protection des données et la sécurité de l'information dans les soins de santé.\n\nPour renforcer notre équipe TIC à notre siège social à Olten, nous recherchons une personnalité active, orientée vers le service et la solution en tant que gestionnaire d'applications, qui est responsable du fonctionnement sans heurt et du développement continu de notre système d'information clinique (KIS/PIS)."
+        "fr": "Le groupe de cliniques d'ophtalmologie et de dératologie leader en Suisse est le groupe leader de l'entreprise. Nous nous appuyons sur des processus modernes et numériques dans de nombreux endroits pour fournir à nos patients des soins médicaux de première classe. Notre paysage informatique combine une infrastructure classique avec des applications cliniques (KIS/PIS), des services cloud et des exigences réglementaires élevées pour la protection des données et la sécurité de l'information dans les soins de santé.\n\nPour renforcer notre équipe TIC à notre siège social à Olten, nous recherchons une personnalité active, orientée service et solution en tant que gestionnaire d'applications, qui est responsable du fonctionnement en douceur et du développement continu de notre système d'information clinique (SIC/SIP)."
       },
       "needsRetranslation": true,
       "location": "Olten",
@@ -190,7 +192,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000PEwHL2A1",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:28:53.260Z",
+      "crawledAt": "2026-09-25T14:48:56.309Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -223,7 +225,7 @@
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 861,
-      "retranslationAttempts": 3,
+      "retranslationAttempts": 4,
       "firstSeenAt": "2026-07-31T11:52:12.206Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
@@ -271,7 +273,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000PETyF2AX",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:28:52.847Z",
+      "crawledAt": "2026-09-25T14:48:55.804Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -336,7 +338,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000PmTir2AF",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:28:52.446Z",
+      "crawledAt": "2026-09-25T14:48:55.304Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -417,7 +419,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000JQ0iz2AD",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:28:51.995Z",
+      "crawledAt": "2026-09-25T14:48:54.791Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -509,7 +511,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000IDWsX2AX",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:28:51.599Z",
+      "crawledAt": "2026-09-25T14:48:54.179Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -584,7 +586,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000FwYzx2AF",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:28:51.201Z",
+      "crawledAt": "2026-09-25T14:48:53.568Z",
       "addressLocality": "Wohlen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -675,7 +677,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000QbKVS2A3",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:28:50.727Z",
+      "crawledAt": "2026-09-25T14:48:53.025Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -756,7 +758,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000QbCXw2AN",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:28:50.323Z",
+      "crawledAt": "2026-09-25T14:48:52.518Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",

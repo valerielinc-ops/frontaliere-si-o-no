@@ -49,6 +49,10 @@ on:
         description: 'Dry run (no commit)'
         type: boolean
         default: false
+      collect_company_served:
+        description: 'Collect raw companyServed rows for the translation-thinking-ab measurement'
+        type: boolean
+        default: false
 
 concurrency:
   group: jobs-data-pipeline
@@ -69,6 +73,9 @@ env:
   # times per run, so give Node headroom above its ~4GB implicit default
   # while leaving ~4GB for the OS/git/npm subprocesses (issue #3767 OOM).
   NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169 --max-old-space-size=12288'
+  # The existing thinking A/B remains opt-in: data collection must not change
+  # the scheduled translation behavior unless a caller explicitly asks for it.
+  TRANSLATION_THINKING_AB: ${{ inputs.collect_company_served == true && '1' || '' }}
 
 jobs:
   translate:
@@ -132,12 +139,17 @@ jobs:
       # IT/EN/DE/FR directions). First run downloads from the HF CDN once (~minutes,
       # one-time); cached runs reuse them so the in-cascade local tier pays no
       # cold-start. Mirrors the embedding-build workflows' .cache/transformers cache.
-      - name: Cache Opus-MT models
+      # Same directory also holds the ~470MB e5 model of the Argos semantic gate;
+      # the old immutable key never re-saved it (#9677). See
+      # translate-pending-logic.yml for the full note.
+      - name: Cache local MT models (Opus-MT + e5 semantic judge)
         uses: actions/cache@v5
         with:
           path: .cache/transformers
-          key: opus-mt-models-v1
-          restore-keys: opus-mt-models-
+          key: local-mt-models-v2-opus-e5
+          restore-keys: |
+            local-mt-models-
+            opus-mt-models-
 
       # Cache the installed Argos Translate packages (it/en/de/fr <-> en, ~a few
       # hundred MB total). install_models() in local-mt-translate.py downloads
@@ -225,6 +237,11 @@ jobs:
         continue-on-error: true
         env:
           LOCAL_MT_TIME_BUDGET_MS: '9000000'  # 150 * 60 * 1000
+          # Argos semantic gate rollout (#9677): kill-switch, per-phase cap,
+          # telemetry file. See translate-pending-logic.yml.
+          LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
+          LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2a.json
           # Dispatch inputs reach the shell as DATA, never as script text.
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
@@ -367,6 +384,15 @@ jobs:
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
         run: node scripts/log-translation-stats.mjs after
 
+      - name: Upload translation thinking A/B observations
+        if: always() && inputs.collect_company_served == true && inputs.skip_translate != true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: translation-thinking-ab-${{ github.run_id }}-${{ github.run_attempt }}.json
+          path: ${{ runner.temp }}/translation-thinking-ab.json
+          retention-days: 30
+          if-no-files-found: error
+
       - name: Scatter changes back to per-crawler slices
         # always()-guarded so partial work is scattered to per-crawler slices for
         # the commit step even if the translate step errored or was cut short by
@@ -405,11 +431,26 @@ jobs:
           # local-mt-translate.py flushes each request's JSONL as soon as its units
           # resolve, and the mop-up parses + commits the partial stdout (timedOut branch).
           LOCAL_MT_TIME_BUDGET_MS: '9000000'  # 150 * 60 * 1000
+          # Argos semantic gate rollout (#9677): kill-switch, per-phase cap,
+          # telemetry file. See translate-pending-logic.yml.
+          LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
+          LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2c.json
           # Dispatch inputs reach the shell as DATA, never as script text.
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         # --max-jobs is DECOUPLED from the `max_jobs` input (which caps the quota-bound
         # cascade). Argos is free + unlimited, so the mop-up drains whatever remains.
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
+
+      - name: Upload Argos semantic telemetry
+        if: always() && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
+        continue-on-error: true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: local-mt-semantic-telemetry-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/local-mt-semantic-telemetry-*.json
+          retention-days: 30
+          if-no-files-found: warn
 
       - name: Commit translations
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true

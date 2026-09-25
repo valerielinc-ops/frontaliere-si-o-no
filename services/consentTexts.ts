@@ -362,7 +362,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsOptIn: entry({
     id: 'communications_opt_in',
-    version: '2026-09-16.1',
+    version: '2026-09-25.2',
     text: COMMUNICATIONS_OPT_IN.it,
     texts: COMMUNICATIONS_OPT_IN,
     displayed: true,
@@ -388,7 +388,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsSignIn: entry({
     id: 'communications_sign_in',
-    version: '2026-09-16.1',
+    version: '2026-09-25.2',
     text: COMMUNICATIONS_SIGN_IN.it,
     texts: COMMUNICATIONS_SIGN_IN,
     displayed: true,
@@ -420,7 +420,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsSignInEmail: entry({
     id: 'communications_sign_in_email',
-    version: '2026-09-16.1',
+    version: '2026-09-25.2',
     text: COMMUNICATIONS_SIGN_IN.it,
     texts: COMMUNICATIONS_SIGN_IN,
     displayed: true,
@@ -639,6 +639,65 @@ export function registrationTermsProof(
     consentMethod: REGISTRATION_TERMS_CONSENT_METHOD,
     consentPurpose: UNIFIED_EMAIL_CONSENT_PURPOSE,
   };
+}
+
+/**
+ * WHERE a registration act happened, stored as `consent_origin` — the field the
+ * banner already uses to name itself (`communications_consent_banner`), so one
+ * key answers "from which surface" for every writer and firestore.rules already
+ * guards it. Named by what the person was looking at, not by the provider:
+ * a Google login started from the job gate is `job_gate`, the same Google
+ * account from the One Tap prompt of a plain page is `auth_one_tap`.
+ *
+ * `component` is the attribution a sign-in surface parks (`source_component`);
+ * the entries are exactly the components that start a login today.
+ */
+export const CONSENT_SURFACE_BY_COMPONENT: Readonly<Record<string, string>> = Object.freeze({
+  JobBoard: 'job_gate',
+  JobBridgeView: 'job_gate',
+  JobExpiredView: 'job_gate',
+  JobOrphanView: 'job_gate',
+  NewsletterPopup: 'newsletter_popup',
+  NewsletterCompact: 'newsletter_page',
+  CalculatorPaywall: 'calculator_paywall',
+  MobileCalcLayout: 'mobile_calc_gate',
+  OfferwallNewsletterGate: 'offerwall_gate',
+  CompanyFollowButton: 'company_follow',
+  SaveSignInPromptModal: 'save_job_prompt',
+  LeadMagnetCTA: 'lead_magnet',
+  PdfDownloadGate: 'pdf_download_gate',
+  SubscriptionCTA: 'subscription_cta',
+  AiChatbot: 'ai_chatbot',
+  auth_one_tap: 'auth_one_tap',
+});
+
+/** The surface of a login nobody attributed, by provider. */
+export const AUTH_PROVIDER_SURFACES: Readonly<Record<string, string>> = Object.freeze({
+  google: 'auth_google_button',
+  linkedin: 'auth_linkedin',
+  facebook: 'auth_facebook',
+  email: 'auth_email_password',
+});
+
+const SURFACE_TOKEN_RE = /^[a-z0-9_]{1,40}$/;
+
+/**
+ * The `consent_origin` of a write: an explicit surface wins, then the
+ * component that started it, then the source channel the capture already
+ * records (`popup`, `job_gate`, `tax_calendar`, …). Always a token, never a
+ * free-text value, so the field stays groupable.
+ */
+export function consentSurfaceFor(opts: {
+  surface?: string | null;
+  component?: string | null;
+  channel?: string | null;
+}): string | null {
+  const explicit = String(opts.surface || '').trim().toLowerCase();
+  if (SURFACE_TOKEN_RE.test(explicit)) return explicit;
+  const byComponent = opts.component ? CONSENT_SURFACE_BY_COMPONENT[String(opts.component).trim()] : undefined;
+  if (byComponent) return byComponent;
+  const channel = String(opts.channel || '').trim().toLowerCase();
+  return SURFACE_TOKEN_RE.test(channel) ? channel : null;
 }
 
 /**

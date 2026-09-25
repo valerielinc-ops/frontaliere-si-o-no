@@ -289,6 +289,17 @@ export function protectAccountDeletedSubscriberUpdate(update, subscriber) {
  * open/click or bounce event. `transactionDb` is optional for existing callers
  * and tests: Admin document references expose `.firestore`, while lightweight
  * doubles often expose `runTransaction` on the database itself.
+ *
+ * A provider event never CREATES the subscriber record: when the document does
+ * not exist nothing is written and the function returns `null`, and the caller
+ * must stop there (see UNKNOWN_RECIPIENT). Delivery telemetry can enrich a
+ * relationship; it cannot create one — the rule services/newsletterSubscribers.ts
+ * applies to the SPA's own delivery writers and inboundBounceReport.js to
+ * bounce reports. Before, a transactional email to an address with no
+ * document (a calculator PDF, which deliberately does not create one) came
+ * back as a merge that created a record holding only counters, with no
+ * consent basis — and `syncNewsletterSubscriberAuth` then gave it a shadow
+ * Auth account (5 such records measured on 2026-09-25, the last on 2026-09-07).
  */
 export async function mergeAccountDeletedSubscriberUpdate(
   subscriberRef,
@@ -303,7 +314,8 @@ export async function mergeAccountDeletedSubscriberUpdate(
 
   return firestore.runTransaction(async (tx) => {
     const snapshot = await tx.get(subscriberRef);
-    const current = snapshot?.exists ? (snapshot.data() || {}) : {};
+    if (!snapshot?.exists) return null;
+    const current = snapshot.data() || {};
     const update = { ...(baseUpdate || {}) };
     if (typeof buildDynamicUpdate === 'function') {
       Object.assign(update, buildDynamicUpdate(current));
@@ -313,6 +325,17 @@ export async function mergeAccountDeletedSubscriberUpdate(
     return safeUpdate;
   });
 }
+
+/**
+ * The skip reason every webhook core returns when the recipient has no
+ * subscriber document — the same word inboundBounceReport.js already uses.
+ * Nothing is recorded for that event: not the counters, not the delivery row,
+ * not the event log, whose subcollection writes would otherwise hang under a
+ * document that does not exist. The provider keeps its own log and its own
+ * suppression list for that address; a record of ours would be data about a
+ * person who never subscribed.
+ */
+export const UNKNOWN_RECIPIENT = 'unknown_recipient';
 
 /**
  * Narrow newsletter-sunset reactivation (issue #2852 item 2): the "only an

@@ -160,6 +160,21 @@ jobs:
     permissions:
       contents: read
     steps:
+      - name: Restore runner CA trust before checkout (#9681)
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Rebuild the standard bundle only when it is missing, then make the
+          # trust paths explicit for actions/checkout. Never disable TLS checks.
+          ca_file=/etc/ssl/certs/ca-certificates.crt
+          if [[ ! -s "$ca_file" ]]; then
+            sudo update-ca-certificates --fresh
+          fi
+          test -s "$ca_file"
+          {
+            echo "GIT_SSL_CAINFO=$ca_file"
+            echo "GIT_SSL_CAPATH=/etc/ssl/certs"
+          } >> "$GITHUB_ENV"
       - name: Checkout promotion gate
         uses: actions/checkout@v5
         with:
@@ -219,6 +234,21 @@ jobs:
     needs: matrix-setup
     runs-on: ubuntu-latest
     steps:
+      - name: Restore runner CA trust before checkout (#9681)
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Rebuild the standard bundle only when it is missing, then make the
+          # trust paths explicit for actions/checkout. Never disable TLS checks.
+          ca_file=/etc/ssl/certs/ca-certificates.crt
+          if [[ ! -s "$ca_file" ]]; then
+            sudo update-ca-certificates --fresh
+          fi
+          test -s "$ca_file"
+          {
+            echo "GIT_SSL_CAINFO=$ca_file"
+            echo "GIT_SSL_CAPATH=/etc/ssl/certs"
+          } >> "$GITHUB_ENV"
       - name: Checkout
         uses: actions/checkout@v5
       - name: Setup Node.js
@@ -387,6 +417,13 @@ jobs:
       POST_WALK_WORKERS: '2'
       SEQUENTIAL_PROFILE: ${{ fromJSON('["1",""]')[github.event_name == 'workflow_dispatch' && github.event.inputs.parallel_plugins == 'true' && 1 || 0] }}
       JOBS_SEO_PROFILE_PHASES: '1'
+      # The canonical-fallback pre-pass is the peak RSS hotspot on the 16 GiB
+      # runner: run 36148322951 reached ~12.9 GiB with the detected 4-worker
+      # pool and then stopped emitting logs while the host was swapping. The
+      # inline path has the same deterministic output and avoids cloning the
+      # ~20k tuple corpus into worker threads. Raise this only after an Actions
+      # run demonstrates a safe RSS margin.
+      JOBS_SEO_FALLBACK_WORKERS: '1'
       WEEKLY_EMPLOYERS_PROFILE: ''
       RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
       RELATED_SEARCH_PREPASS_CONCURRENCY: '1'
@@ -474,6 +511,24 @@ jobs:
           echo "::group::Disk usage AFTER cleanup"
           df -h /
           echo "::endgroup::"
+
+      - name: Restore runner CA trust before checkout (#9681)
+        shell: bash
+        run: |
+          set -euo pipefail
+          # A hosted runner intermittently reached actions/checkout with no
+          # libcurl CAfile (run 35913755610: "CAfile: none"). Rebuild the
+          # standard bundle only when it is missing, then make the trust paths
+          # explicit for the checkout action. Never disable certificate checks.
+          ca_file=/etc/ssl/certs/ca-certificates.crt
+          if [[ ! -s "$ca_file" ]]; then
+            sudo update-ca-certificates --fresh
+          fi
+          test -s "$ca_file"
+          {
+            echo "GIT_SSL_CAINFO=$ca_file"
+            echo "GIT_SSL_CAPATH=/etc/ssl/certs"
+          } >> "$GITHUB_ENV"
 
       - name: Checkout
         uses: actions/checkout@v5
@@ -846,6 +901,71 @@ jobs:
       - name: Verify build profile markers before upload
         if: matrix.locale == 'it'
         run: node scripts/validate-build-profile-markers.mjs /tmp/build.log
+
+      # Il build IT di produzione E' la misura full-corpus (#9618): questo step
+      # certifica che la MISURA sia completa (marker, bridge, righe di profilo,
+      # rilascio del corpus). Non certifica il sito, e per questo NON e' un
+      # gate del deploy: `continue-on-error` lascia proseguire la pubblicazione
+      # e un FAIL apre la issue dedicata "la misura full-corpus del build jobs
+      # SEO non e' verificabile" (coppia report/resolve in fondo al job).
+      #
+      # Perche'. Da #9754 lo step era fail-closed, e un'invariante sbagliata
+      # (`previousSlugEntries > 0`, mentre il plugin tiene i previous-slug
+      # fuori dalla sitemap di proposito: in produzione vale sempre 0) ha
+      # fatto fallire ogni deploy che ha completato la build: run 36065965021
+      # (24-09 22:11Z) e 36077807468 (25-09 00:29Z), con build sane, finche'
+      # #9773 non ha corretto l'invariante. `deploy-publish.yml` pubblica solo
+      # se QUESTA run e' `success`, quindi qualunque rosso di questo job, anche
+      # a valle della build, spegne la produzione: una misura non puo' avere
+      # quel potere. #9618 chiedeva di impedire una chiusura verde della issue
+      # di misura, non il deploy.
+      #
+      # Cosa resta bloccante, e dove. Una build campionata o troncata non puo'
+      # arrivare qui PER COSTRUZIONE: il campionamento jobs SEO lancia su
+      # refs/heads/main (build-plugins/shared/jobsSeoSample.ts) e le variabili
+      # di campionamento e di arresto anticipato non compaiono in questo file
+      # (lo pinna tests/jobs-seo-build-metrics-workflow.test.ts). Le invarianti del
+      # validatore passano sui marker REALI di produzione in
+      # tests/fixtures/jobs-seo-full-corpus-markers/ (replay in
+      # tests/report-jobs-seo-build-metrics.test.ts): un'invariante nuova che
+      # la produzione non soddisfa diventa rossa sulla PR, non sul deploy.
+      #
+      # Lo stderr del validatore contiene SOLO le righe `FAIL:` (validazione o
+      # crash dello script): finisce nel diag-file, che e' l'unico estratto che
+      # il reporter puo' allegare da dentro un job ancora in corso.
+      - name: Validate full-corpus jobs SEO evidence
+        id: jobs_seo_evidence
+        if: always() && matrix.locale == 'it'
+        continue-on-error: true
+        shell: bash
+        env:
+          JOBS_SEO_BUILD_LOG: /tmp/build.log
+          JOBS_SEO_MARKERS_OUT: ${{ runner.temp }}/jobs-seo-markers.txt
+          JOBS_SEO_EVIDENCE_DIAG: ${{ runner.temp }}/jobs-seo-evidence-diag.txt
+          JOBS_SEO_WALL_SECONDS: ${{ steps.build_step.outputs.wall_seconds }}
+        run: |
+          set +e
+          node scripts/ci/report-jobs-seo-build-metrics.mjs "$JOBS_SEO_BUILD_LOG" \
+            --require-full-corpus \
+            --markers-out="$JOBS_SEO_MARKERS_OUT" \
+            --summary-label="production/${{ matrix.locale }}" \
+            --wall-seconds="${JOBS_SEO_WALL_SECONDS:-?}" \
+            2> "$JOBS_SEO_EVIDENCE_DIAG"
+          status=$?
+          cat "$JOBS_SEO_EVIDENCE_DIAG" >&2
+          if [ "$status" -ne 0 ]; then
+            echo "::warning title=jobs SEO full-corpus evidence::misura incompleta, il deploy prosegue; vedi la issue dedicata e il summary"
+          fi
+          exit "$status"
+
+      - name: Upload full-corpus jobs SEO markers
+        if: always() && matrix.locale == 'it'
+        uses: actions/upload-artifact@v7
+        with:
+          name: jobs-seo-full-corpus-markers-${{ github.run_id }}
+          path: ${{ runner.temp }}/jobs-seo-markers.txt
+          retention-days: 14
+          if-no-files-found: warn
 
       # The in-build BUILD_LOCALE filter only gates WriteCollector writes;
       # direct-fs.writeFileSync emitters (redirect/bridge/weather/alias) still
@@ -2875,9 +2995,12 @@ jobs:
       # test. La condizione su `steps.memguard.outputs.breach` e' cio' che
       # tiene il titolo onesto: senza, ogni build rossa aprirebbe questa issue.
       #
-      # CHI CHIUDE: lo step gemello "Resolve build memory issue on green" qui
-      # sotto, con `mode: resolve` e il TITOLO IDENTICO — e' il modello
-      # `sibling-resolve-step`. Il reconciler centrale NON copre questo titolo
+      # CHI CHIUDE: lo step gemello "Resolve build memory issue on green" del
+      # job `resolve-build-alarm` in fondo al file, con `mode: resolve` e il
+      # TITOLO IDENTICO — e' il modello `sibling-resolve-step`. Sta li' e non in
+      # questa gamba perche' il titolo e' lo stesso per le quattro gambe: uno
+      # step `if: success()` di una gamba verde chiudeva la issue aperta da una
+      # gamba rossa della stessa run. Il reconciler centrale NON copre questo titolo
       # (non matcha il suo `TITLE_RE`, `Workflow|Crawler|CI Failure: `), quindi
       # quella meta' locale e' l'unica che c'e'. Cambiare il titolo qui senza
       # cambiarlo la' lascia la issue aperta per sempre: e' il guasto di #5470,
@@ -2923,35 +3046,72 @@ jobs:
               issue è aperta, la strada è ridurre la retention (vedi i checkpoint
               `[mem]` di jobsSeoPagesPlugin), non allargare le soglie.
 
-      - name: Resolve build memory issue on green
-        if: success()
+      # ── La misura full-corpus del build jobs SEO (#9618) ─────────────────
+      #
+      # L'allarme dello step "Validate full-corpus jobs SEO evidence", che NON
+      # blocca il deploy (il perche' e' nel commento di quello step). Senza
+      # questa coppia il `continue-on-error` renderebbe muto un FAIL: il run
+      # resterebbe verde e la misura incompleta non la vedrebbe nessuno.
+      #
+      # `steps.build_step.outcome == 'success'` tiene il titolo onesto: su una
+      # build rossa i marker mancano per forza, e quel guasto lo apre gia'
+      # "CI Failure (build)". Qui arriva solo il caso "sito pubblicato, misura
+      # non verificabile".
+      #
+      # CHI CHIUDE: lo step gemello qui sotto, col TITOLO IDENTICO, appena una
+      # run IT ha la misura completa (`sibling-resolve-step`; il test
+      # tests/failure-issue-closers.test.ts verifica l'accoppiamento).
+      #
+      # `continue-on-error` anche qui: l'action esce 0 per contratto, ma se il
+      # reporting stesso si rompesse (API, checkout parziale) il job diventerebbe
+      # rosso e `deploy-publish.yml` non pubblicherebbe, cioe' il blocco che lo
+      # step di misura ha appena smesso di causare.
+      - name: Report jobs SEO full-corpus evidence gap to GitHub Issues
+        if: always() && matrix.locale == 'it' && steps.build_step.outcome == 'success' && steps.jobs_seo_evidence.outcome == 'failure'
+        continue-on-error: true
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'la misura full-corpus del build jobs SEO non è verificabile'
+          closed-by: sibling-resolve-step
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          priority: '3'
+          labels: Bug
+          entity: ${{ matrix.locale }}
+          diag-file: ${{ runner.temp }}/jobs-seo-evidence-diag.txt
+          context: |
+            - **Il deploy NON è stato bloccato**: la build è verde e il sito è
+              proseguito verso la pubblicazione. A fallire è la verifica della
+              MISURA (`scripts/ci/report-jobs-seo-build-metrics.mjs
+              --require-full-corpus`), cioè i marker `[mem] jobsSeoPages` e
+              `[jobs-seo-profile]` che #9618 usa come prova.
+            - L'estratto qui sotto elenca le invarianti fallite. Il summary del
+              job e l'artifact `jobs-seo-full-corpus-markers-<run_id>` hanno i
+              marker completi.
+            - **Prima di correggere il produttore**, chiediti se è l'invariante
+              a essere sbagliata: #9754 pretendeva `previousSlugEntries > 0`,
+              che in produzione vale 0 per scelta (#9773). Riproduci in locale
+              con `node scripts/ci/report-jobs-seo-build-metrics.mjs
+              <jobs-seo-markers.txt> --require-full-corpus`.
+            - Se la produzione ha ragione, aggiungi l'artifact di questa run a
+              `tests/fixtures/jobs-seo-full-corpus-markers/` insieme alla
+              correzione del validatore: è il replay che impedisce all'errore
+              di tornare.
+
+      - name: Resolve jobs SEO full-corpus evidence issue on pass
+        if: always() && matrix.locale == 'it' && steps.jobs_seo_evidence.outcome == 'success'
         continue-on-error: true
         uses: ./.github/actions/report-failure
         with:
           mode: resolve
-          title: 'il picco di memoria della build risale sopra la soglia'
+          title: 'la misura full-corpus del build jobs SEO non è verificabile'
           closed-by: sibling-resolve-step
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Resolve build GitHub Issue on success
-        if: success()
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Build succeeded → close the canonical "CI Failure (build)" issue if
-          # open. Paired with the reopen window of the reporter above so the
-          # close↔reopen cycle stays on ONE canonical issue (no per-run storm,
-          # no stale issue while green). Idempotent no-op when nothing is open.
-          # Quel reporter (report-validate-dist-failure.mjs, reportBuild) NON
-          # nomina più `reopenWithinHours: 6`: eredita i 720h di default, ed è
-          # ciò che rende vera questa riga — con 6h la coppia si spezzava a ogni
-          # ricaduta oltre le 6h dal verde, e le issue canoniche erano 22.
-          node scripts/lib/github-issue-creator.mjs \
-            --resolve \
-            --title "CI Failure (build): ${{ github.workflow }}" \
-            --workflow "${{ github.workflow }}" \
-            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+      # La chiusura di "CI Failure (build)" NON sta più qui: la fa il job
+      # `resolve-build-alarm` in fondo al file, solo quando TUTTE le gambe
+      # della run sono verdi. Uno step `if: success()` di una gamba vede solo la
+      # propria gamba: il 2026-09-25 la gamba fr della run 36077807468 ha chiuso
+      # #9179 alle 04:53 mentre la gamba it della STESSA run era rossa.
 
       # Marker del profilo + wall-time delle fasi POST-build del leg (#7301).
       # I marker finiscono nella stessa riga bounded del JSONL per permettere
@@ -3197,6 +3357,21 @@ jobs:
       contents: read
       actions: write   # read this workflow's run list + POST /dispatches
     steps:
+      - name: Restore runner CA trust before checkout (#9681)
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Rebuild the standard bundle only when it is missing, then make the
+          # trust paths explicit for actions/checkout. Never disable TLS checks.
+          ca_file=/etc/ssl/certs/ca-certificates.crt
+          if [[ ! -s "$ca_file" ]]; then
+            sudo update-ca-certificates --fresh
+          fi
+          test -s "$ca_file"
+          {
+            echo "GIT_SSL_CAINFO=$ca_file"
+            echo "GIT_SSL_CAPATH=/etc/ssl/certs"
+          } >> "$GITHUB_ENV"
       - name: Checkout
         uses: actions/checkout@v5
         with:
@@ -3225,16 +3400,330 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
 
+      # A run dispatched with GITHUB_TOKEN (actor github-actions[bot]) never
+      # fires `workflow_run` downstream, so deploy-publish.yml was never started
+      # for a re-armed build: it went green and its artifact was never deployed
+      # (e.g. runs 35896695642, 35956754182). Dispatch with the App token so the
+      # re-armed build is published like any push build. The App token is used
+      # only when its installation grants `actions: write` (APP_TOKEN_ACTIONS,
+      # read from the minted token's own permissions): a token that can mint
+      # but not dispatch would 403 here and silently leave the build unpublished.
+      - name: Mint GitHub App token (so the re-armed run triggers deploy-publish)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       - name: Re-arm the build pipeline if it has stopped with work outstanding
         # Never fail the deploy over this. A red job here would be a second
         # failure stacked on the one that stopped the pipeline, and
         # pages-publish-lag-watchdog.yml remains the backstop either way.
         continue-on-error: true
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ env.APP_TOKEN_ACTIONS == 'true' && env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           # At most this many build attempts per commit. The caller's own run
           # counts, so the default of 2 means exactly ONE automatic retry: a
           # commit whose build is genuinely broken is retried once and then left
           # to the "CI Failure (build)" issue this workflow already files.
           REARM_MAX_BUILDS_PER_SHA: '2'
         run: node scripts/ci/rearm-deploy-build.mjs
+
+  # ───────────────────────────────────────────────────────────────────────
+  # resolve-build-alarm: gli allarmi di build con un titolo UNICO per tutte le
+  # gambe ("CI Failure (build)" e il gate di memoria) si chiudono solo a run
+  # TUTTA verde. Quelli per-locale (shard, guard CDN) restano nella gamba: il
+  # locale è nel titolo, quindi ogni gamba chiude solo il proprio.
+  #
+  # Prima la chiusura era uno step `if: success()` dentro ogni gamba di
+  # `build-locale`, e uno step vede solo la propria gamba. Il 2026-09-25 la
+  # gamba it della run 36077807468 ha riaperto #9179 e alle 04:53 una gamba
+  # verde della STESSA run l'ha chiusa come «tornata verde»: la produzione era
+  # rossa e l'allarme spento. `needs.build-locale.result` è l'esito aggregato
+  # della matrice, cioè `success` solo se le quattro gambe lo sono.
+  #
+  # NON può rendere rossa una run verde: `continue-on-error` a livello di job.
+  # Una run rossa per colpa di questo job non avvierebbe la pubblicazione
+  # (`workflow_run` con conclusion success), e un guasto del reporter non deve
+  # mai costare un deploy. Gira in parallelo a `rearm`, quindi non allunga la
+  # tenuta del lock di concorrenza del build.
+  # ───────────────────────────────────────────────────────────────────────
+  resolve-build-alarm:
+    name: close the build alarm when every leg is green
+    needs: [build-locale]
+    if: needs.build-locale.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    continue-on-error: true
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Restore runner CA trust before checkout (#9681)
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Rebuild the standard bundle only when it is missing, then make the
+          # trust paths explicit for actions/checkout. Never disable TLS checks.
+          ca_file=/etc/ssl/certs/ca-certificates.crt
+          if [[ ! -s "$ca_file" ]]; then
+            sudo update-ca-certificates --fresh
+          fi
+          test -s "$ca_file"
+          {
+            echo "GIT_SSL_CAINFO=$ca_file"
+            echo "GIT_SSL_CAPATH=/etc/ssl/certs"
+          } >> "$GITHUB_ENV"
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Resolve build GitHub Issue on success
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Tutte le gambe verdi → chiude la issue canonica "CI Failure (build)"
+          # se è aperta. Il reporter di ogni gamba la riapre entro 720h invece
+          # di coniarne una nuova: la coppia riapri↔chiudi resta su UNA issue
+          # canonica. No-op se non c'è niente di aperto. Il TITOLO deve restare
+          # identico a quello del reporter.
+          node scripts/lib/github-issue-creator.mjs \
+            --resolve \
+            --title "CI Failure (build): ${{ github.workflow }}" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+      # Stesso difetto, stesso rimedio: il titolo del gate di memoria è unico
+      # per le quattro gambe (l'`entity` va nel body, non nel titolo), quindi
+      # lo chiude solo una run in cui nessuna gamba è rossa.
+      - name: Resolve build memory issue on green
+        continue-on-error: true
+        uses: ./.github/actions/report-failure
+        with:
+          mode: resolve
+          title: 'il picco di memoria della build risale sopra la soglia'
+          closed-by: sibling-resolve-step
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  # ───────────────────────────────────────────────────────────────────────
+  # in-run-alarm: la seconda rete dell'allarme di deploy, per le run che
+  # l'osservatore esterno non può vedere.
+  #
+  # IL BUCO. `deploy-failure-alarm.yml` parte su `workflow_run: completed` di
+  # questo workflow, e GitHub NON emette quell'evento per una run avviata con il
+  # GITHUB_TOKEN (actor `github-actions[bot]`): è la regola anti-ricorsione già
+  # descritta nel job `rearm` qui sopra. La run 36065965021 del 2026-09-24,
+  # dispatchata da `rearm` col token interno, è fallita nel leg it e
+  # l'osservatore esterno non è mai partito. #9715 fa dispatchare `rearm` col
+  # token dell'App, ma il ripiego sul GITHUB_TOKEN resta quando l'App non dà un
+  # token con `actions: write`: dal 2026-09-18 ci sono state 15 run così.
+  #
+  # PERCHÉ SOLO QUELLE RUN. Una run avviata da un utente, da un PAT o dall'App
+  # emette `workflow_run`, e l'osservatore esterno la vede a run CONCLUSA, con
+  # la conclusion vera. Accendere anche questo job per quelle run non aggiunge
+  # copertura: aggiunge un secondo commento 🔁 sulla stessa issue per ogni
+  # guasto. Con il filtro sull'actor ogni run rossa è vista da UN osservatore.
+  # `triggering_actor` copre un re-run lanciato col GITHUB_TOKEN; `actor` il
+  # dispatch originale. Se capitassero tutti e due (un re-run manuale di una
+  # run del bot), il titolo è IDENTICO a quello dell'osservatore esterno e il
+  # dedup del creator li collassa sulla stessa issue: al peggio un commento in
+  # più, mai una issue doppia.
+  #
+  # PERCHÉ `!cancelled()` E NON `always()`. Serve partire anche quando i job
+  # osservati sono falliti, ma non su una run cancellata: le cancellazioni
+  # newest-wins avvengono in coda e non avviano nessun job, una cancellazione a
+  # metà run è un'azione deliberata, e l'osservatore esterno tace sulle
+  # `cancelled` per la stessa ragione. `contains(..., 'failure')` esclude anche
+  # i job `cancelled` e `skipped`.
+  #
+  # NON è un gate: gira dopo il verdetto dei job osservati, il suo esito non
+  # conta per la run (`continue-on-error`), e scrive solo una issue.
+  # ───────────────────────────────────────────────────────────────────────
+  in-run-alarm:
+    name: in-run deploy alarm (run without workflow_run)
+    needs: [validate-promotion-trigger, matrix-setup, prep, build-locale]
+    if: >-
+      ${{ !cancelled() && github.ref == 'refs/heads/main' &&
+          (github.actor == 'github-actions[bot]' || github.triggering_actor == 'github-actions[bot]') &&
+          contains(needs.*.result, 'failure') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    continue-on-error: true
+    permissions:
+      contents: read
+      issues: write
+      # Senza questa riga la Jobs API risponde 403 e il body degrada a «job non
+      # attribuito» in silenzio: un blocco `permissions:` esplicito azzera gli
+      # scope non elencati.
+      actions: read
+    steps:
+      - name: Restore runner CA trust before checkout (#9681)
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Rebuild the standard bundle only when it is missing, then make the
+          # trust paths explicit for actions/checkout. Never disable TLS checks.
+          ca_file=/etc/ssl/certs/ca-certificates.crt
+          if [[ ! -s "$ca_file" ]]; then
+            sudo update-ca-certificates --fresh
+          fi
+          test -s "$ca_file"
+          {
+            echo "GIT_SSL_CAINFO=$ca_file"
+            echo "GIT_SSL_CAPATH=/etc/ssl/certs"
+          } >> "$GITHUB_ENV"
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Digest the failing deploy run
+        id: digest
+        # Lo script esce 0 per contratto; `continue-on-error` copre il crash
+        # imprevisto, perché lo step successivo deve partire comunque: senza
+        # body usa il testo di ripiego invece di tacere.
+        continue-on-error: true
+        env:
+          # Tutti gli input passano da env, mai come testo di script.
+          ALARM_WORKFLOW_NAME: ${{ github.workflow }}
+          ALARM_REPO: ${{ github.repository }}
+          ALARM_RUN_ID: ${{ github.run_id }}
+          ALARM_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          # La run è ancora in corso, quindi non ha una conclusion da leggere:
+          # il `failure` l'ha già provato l'`if:` del job su `needs.*.result`.
+          ALARM_RUN_CONCLUSION: failure
+          ALARM_OBSERVER: in-run
+          ALARM_DESCRIPTION_FILE: alarm-description.md
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/ci/report-deploy-run-failure.mjs --mode report
+      - name: Open or update the deploy alarm issue
+        id: open
+        # Ogni job di `needs:` è elencato per esteso: è la forma che
+        # `isFailureGated` (scripts/ci/failure-issue-inventory.mjs) riconosce,
+        # così il gate di accoppiamento verifica che qualcuno chiuda questo
+        # titolo. `tests/deploy-in-run-alarm.test.ts` pretende che l'elenco
+        # copra tutti i `needs:` del job.
+        if: >-
+          needs.validate-promotion-trigger.result == 'failure' ||
+          needs.matrix-setup.result == 'failure' ||
+          needs.prep.result == 'failure' ||
+          needs.build-locale.result == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ALARM_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          # Se il digest non ha potuto scrivere il body (Jobs API 403, rete),
+          # l'allarme suona lo stesso con meno dettaglio.
+          if [ ! -s alarm-description.md ]; then
+            cat > alarm-description.md <<'FALLBACK'
+          Il deploy e' rosso su main in una run avviata dal token interno di
+          GitHub Actions, che l'osservatore esterno non vede, e il digest della
+          run non e' stato leggibile. Il guasto resta: apri la run e leggi il
+          primo job rosso.
+          FALLBACK
+          fi
+          # Titolo IDENTICO a quello dell'osservatore esterno: una sola issue
+          # canonica per il deploy rosso, chiusa al primo verde dall'osservatore
+          # esterno o dal reconciler orario.
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "$(cat alarm-description.md)" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}" \
+            --run-url "${ALARM_RUN_URL}"
+      - name: Open the deploy alarm without the checkout (fallback)
+        # Lo step sopra ha il `success()` implicito: se il checkout o il setup di
+        # Node falliscono, salta, e per una run del bot non c'è un osservatore
+        # esterno che rimedi. Questo parte comunque (`always()`), tranne su
+        # una run cancellata, che non allarma come nel resto del job,
+        # solo quando lo step sopra non ha scritto. Il creator non ha dipendenze
+        # oltre ai moduli di Node: se il checkout manca lo scarica con `gh`
+        # allo SHA della run e lo esegue col Node di sistema del runner, quindi
+        # dedup, riapertura e titolo restano quelli canonici.
+        if: >-
+          always() && !cancelled() && steps.open.outcome != 'success' &&
+          (needs.validate-promotion-trigger.result == 'failure' ||
+           needs.matrix-setup.result == 'failure' ||
+           needs.prep.result == 'failure' ||
+           needs.build-locale.result == 'failure')
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Senza checkout la cwd non è un repo git: `gh` deve sapere dove scrivere.
+          GH_REPO: ${{ github.repository }}
+          ALARM_SHA: ${{ github.sha }}
+          ALARM_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          creator=scripts/lib/github-issue-creator.mjs
+          if [ ! -s "$creator" ]; then
+            creator="$RUNNER_TEMP/github-issue-creator.mjs"
+            gh api -H 'Accept: application/vnd.github.raw' \
+              "repos/${GH_REPO}/contents/scripts/lib/github-issue-creator.mjs?ref=${ALARM_SHA}" \
+              > "$creator" || true
+          fi
+          if [ ! -s "$creator" ]; then
+            echo "::error title=Deploy alarm not written::il creator delle issue non è leggibile né dal checkout né via API; apri a mano ${ALARM_RUN_URL}"
+            exit 0
+          fi
+          node "$creator" \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "Il deploy e' rosso su main in una run avviata dal token interno di GitHub Actions, che l'osservatore esterno non vede. Il job di allarme interno non ha potuto preparare il digest (checkout o setup falliti): apri la run e leggi il primo job rosso." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}" \
+            --run-url "${ALARM_RUN_URL}" \
+            || echo "::error title=Deploy alarm not written::il creator è uscito non-zero; apri a mano ${ALARM_RUN_URL}"

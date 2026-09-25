@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, isSwissLocationText } from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
@@ -22,6 +22,7 @@ import {
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
+import { fetchWorkdayPrimarySwissLocation } from './workday-swiss-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -36,7 +37,17 @@ const CAREER_URL = `https://${WORKDAY_TENANT_HOST}/${WORKDAY_SITE_PATH}`;
 const WORKDAY_API_BASE = buildWorkdayApiBase(WORKDAY_TENANT_HOST, WORKDAY_SITE_PATH);
 
 // Switzerland country facet — standard Workday country UUID used across most tenants.
+// It is NOT enforced by the Roche tenant: the published slice carried 540/862
+// rows from Hyderabad, Penzberg, Mannheim… (#9508 FU-2026-09-22-018), so every
+// listing must also prove Swiss membership below.
 const SWISS_LOCATION_IDS = ['187134fccb084a0ea9b4b95f23890dbe'];
+
+// Roche Swiss sites that Workday names by locality rather than by BFS
+// municipality: Rotkreuz is a village of Risch (ZG), so the generic Swiss
+// resolver cannot recognise the bare name.
+const ROCHE_SWISS_LOCALITY_CANTONS = new Map([
+  ['rotkreuz', 'ZG'],
+]);
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -87,6 +98,22 @@ export function isTrustedDomain(rawUrl = '') {
   } catch {
     return false;
   }
+}
+
+/**
+ * Canton of a Roche Workday location with positive Swiss evidence, or '' when
+ * the location cannot be proven Swiss. An empty location, or a Swiss one that
+ * resolves to no canton, is '' too: the Basel HQ is never a substitute (issue
+ * 9842 — an `N Locations` roll-up has an empty listing location, and the old
+ * Basel default published reqs worked in Warsaw, Shanghai or Madrid as `BS`).
+ */
+export function rocheSwissCanton(rawLocation = '') {
+  const location = normalizeSpace(rawLocation);
+  if (!location) return '';
+  const localityCanton = ROCHE_SWISS_LOCALITY_CANTONS.get(normalize(location));
+  if (localityCanton) return localityCanton;
+  if (isLocationExplicitlyForeign(location) || !isSwissLocationText(location)) return '';
+  return inferSwissTargetCanton(location) || '';
 }
 
 /* ── Category Detection ────────────────────────────────────── */
@@ -185,14 +212,17 @@ export async function fetchAllRocheJobs() {
     if (!title || title.length < 3) continue;
 
     const rawLocation = String(listing.location || '').trim();
-    if (rawLocation && isLocationExplicitlyForeign(rawLocation)) {
-      console.log(`  ⏭️  Skipped foreign location: ${rawLocation} — ${title}`);
+    // An empty listing location is an `N Locations` roll-up (or a req with no
+    // location text): only the req's own primary workplace, read from the
+    // detail, may place it in Switzerland.
+    const location = rawLocation
+      || await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath);
+    const canton = rocheSwissCanton(location);
+    if (!canton) {
+      console.log(`  ⏭️  Skipped non-Swiss location: ${rawLocation || '(roll-up without Swiss primary)'} — ${title}`);
       continue;
     }
 
-    // Roche HQ is Basel (BS); fall back there if Workday omits the location.
-    const location = rawLocation || 'Basel';
-    const canton = inferSwissTargetCanton(location) || 'BS';
     const publicUrl = String(listing.url || '').trim();
     if (!publicUrl) {
       missingDetailUrlCount += 1;

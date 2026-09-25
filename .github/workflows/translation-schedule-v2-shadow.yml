@@ -5,11 +5,16 @@ on:
     - cron: '17 */6 * * *'
   workflow_dispatch:
     inputs:
-      enable_generation:
-        description: 'Enable the zero-cost provider for this observed run'
+      canary_exposure_percent:
+        description: 'Stable canary exposure percentage (default 0)'
         required: false
-        default: false
-        type: boolean
+        default: '0'
+        type: string
+      canary_max_units:
+        description: 'Maximum distinct canary identities for this run'
+        required: false
+        default: '25'
+        type: string
       max_units:
         description: 'Maximum translation units for this run'
         required: false
@@ -18,6 +23,7 @@ on:
 
 permissions:
   contents: write
+  actions: read
   # The shadow lane had no failure reporting at all, which is why it ran red on
   # every single run from its first (2026-09-12) to 2026-09-18 without anyone
   # being told. `github-issue-creator.mjs` dedups on a stable title, so a
@@ -33,9 +39,20 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
-      TRANSLATION_SHADOW_ENABLE_GENERATION: ${{ vars.TRANSLATION_SHADOW_ENABLE_GENERATION || '0' }}
+      # Generation is opt-in through a bounded, deterministic cohort. The
+      # zero-default keeps scheduled runs observational until a reviewed repo
+      # variable or explicit dispatch selects a cohort.
+      TRANSLATION_SHADOW_CANARY_EXPOSURE_PERCENT: ${{ inputs.canary_exposure_percent || vars.TRANSLATION_SHADOW_CANARY_EXPOSURE_PERCENT || '0' }}
+      TRANSLATION_SHADOW_CANARY_MAX_UNITS: ${{ inputs.canary_max_units || vars.TRANSLATION_SHADOW_CANARY_MAX_UNITS || '25' }}
+      # Publication is a separate boundary from provider generation. Keep it
+      # fail-closed until an explicitly reviewed publisher is wired; an absent
+      # repository variable must never promote a shadow candidate.
+      TRANSLATION_SCHEDULER_PUBLISH_ENABLED: ${{ vars.TRANSLATION_SCHEDULER_PUBLISH_ENABLED || '0' }}
       TRANSLATION_SHADOW_MAX_JOBS: '250'
       TRANSLATION_SHADOW_MAX_UNITS: ${{ inputs.max_units || '25' }}
+      TRANSLATION_STATE_REMOTE_V2: origin
+      TRANSLATION_STATE_REF_V2: refs/heads/translation-state-v2
+      TRANSLATION_SHADOW_WORKFLOW_FILE: .github/workflows/translation-schedule-v2-shadow.yml
     steps:
       - name: Check out source data and runtime
         uses: actions/checkout@v5
@@ -65,9 +82,6 @@ jobs:
           # downstream. It cannot simply be hoisted to the job-level `env:`,
           # because the `runner` context is not available there.
           echo "TRANSLATION_SHADOW_REPORT_PATH=$TRANSLATION_SHADOW_REPORT_PATH" >> "$GITHUB_ENV"
-          if [ "${{ inputs.enable_generation }}" = "true" ]; then
-            export TRANSLATION_SHADOW_ENABLE_GENERATION=1
-          fi
           node scripts/translation-schedule-run-v2.mjs --shadow --report "$TRANSLATION_SHADOW_REPORT_PATH"
 
       # The runner can only commit to refs/heads/translation-state-v2. This
@@ -77,11 +91,35 @@ jobs:
           git diff --exit-code -- .
           git diff --cached --exit-code -- .
 
+      - name: Verify live translation generation series
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRANSLATION_GENERATION_TALLY_PATH: ${{ runner.temp }}/translation-generation-live-tally.json
+        run: |
+          echo "TRANSLATION_GENERATION_TALLY_PATH=$TRANSLATION_GENERATION_TALLY_PATH" >> "$GITHUB_ENV"
+          node scripts/audit-translation-generation-live-tally.mjs \
+            --workflow .github/workflows/translation-schedule-v2-shadow.yml \
+            --required 14 \
+            --repository "$GITHUB_REPOSITORY" \
+            --state-ref "$TRANSLATION_STATE_REF_V2" \
+            --current-report "$TRANSLATION_SHADOW_REPORT_PATH" \
+            --report "$TRANSLATION_GENERATION_TALLY_PATH" \
+            --runner-temp "$RUNNER_TEMP" \
+            --json
+
       - name: Upload scheduler metrics
         uses: actions/upload-artifact@v7
         with:
           name: translation-scheduler-v2-shadow
           path: ${{ env.TRANSLATION_SHADOW_REPORT_PATH }}
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload live generation tally
+        uses: actions/upload-artifact@v7
+        with:
+          name: translation-generation-live-tally
+          path: ${{ env.TRANSLATION_GENERATION_TALLY_PATH }}
           if-no-files-found: error
           retention-days: 14
 

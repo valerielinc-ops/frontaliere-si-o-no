@@ -95,6 +95,10 @@ import {
   TOKEN_SCOPES,
 } from '../functions/src/lib/newsletterActionToken.js';
 import { normalizeLocale } from '../functions/src/emailI18n.js';
+import {
+  confirmationJobContextForSend,
+  sanitizeConfirmationReturnPath,
+} from '../functions/src/lib/confirmationJobContext.js';
 import { resolveSubscriberLocale } from '../functions/src/lib/subscriberLocale.js';
 import { hasConfirmationProof } from '../services/subscriberConsent.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
@@ -194,14 +198,10 @@ export function planConfirmationFollowups(docs, { now, epochMs }) {
  * @returns {string | null}
  */
 export function confirmationReturnPath(data) {
-  const raw = data?.source_page ?? data?.sourcePage;
-  if (!raw || typeof raw !== 'string') return null;
-  const pathOnly = raw.split('?')[0].split('#')[0];
-  if (!pathOnly) return null;
-  if (!pathOnly.startsWith('/')) return null;
-  if (pathOnly.startsWith('//')) return null;
-  if (pathOnly.includes('\\')) return null;
-  return pathOnly;
+  // The sanitizer lives next to the job-context snapshot, which stores the
+  // same kind of path for the Cloud Function's request #1 (a Cloud Functions
+  // file cannot import this script).
+  return sanitizeConfirmationReturnPath(data?.source_page ?? data?.sourcePage);
 }
 
 /**
@@ -226,20 +226,40 @@ export function buildFollowupRequest(item, { secret, tokenPolicy } = {}) {
     policy: tokenPolicy,
   });
   const frame = confirmationFrameForAttempt(item.decision.attempt);
+  // The offer request #1 named, and the page its link returned to, repeated
+  // from the snapshot the ledger froze — never re-read from `job_company`,
+  // `job_location`, `source_cta` or `source_page`, which a later signup
+  // overwrites (the #9716 review nit: 35 cycles measured where the offer
+  // changed between request #1 and the last reminder). A document asked before
+  // the snapshot existed is resolved once here and frozen by the ledger write
+  // below. The reminder is still the first email plus a banner, whichever
+  // variant that was.
+  const { jobContext, returnPath, snapshot } = confirmationJobContextForSend(item.data, {
+    attemptsBefore: item.decision.attempts,
+    returnPath: confirmationReturnPath(item.data),
+  });
   const { subject, html, tags } = buildConfirmationRequestEmail({
     locale,
-    confirmUrl: confirmationConfirmUrl({ email, token, sourcePath: confirmationReturnPath(item.data) }),
+    confirmUrl: confirmationConfirmUrl({ email, token, sourcePath: returnPath }),
     frame,
     // Strictly the FIRST send, never the last one — the banner states a date to
     // somebody who has not consented to hear from us, so it is either right or
     // absent. `confirmationFirstSentAt` returns null on a document that has no
     // anchor and the copy falls back to an undated wording.
     firstSentAt: confirmationFirstSentAt(item.data),
+    jobContext,
   });
   return {
     payload: { from: CONFIRMATION_FROM_EMAIL, to: email, subject, html, tags },
     recipient: { email },
-    meta: { id: email, locale, frame, attemptsBefore: item.decision.attempts, ref: item.ref },
+    meta: {
+      id: email,
+      locale,
+      frame,
+      attemptsBefore: item.decision.attempts,
+      jobSnapshot: snapshot,
+      ref: item.ref,
+    },
   };
 }
 
@@ -310,6 +330,7 @@ export async function sendConfirmationRequests(db, due, { nowIso, secret, tokenP
           messageId: s.messageId || null,
           locale: s.meta.locale,
           stamp: nowIso,
+          jobSnapshot: s.meta.jobSnapshot,
         }),
         { merge: true },
       );

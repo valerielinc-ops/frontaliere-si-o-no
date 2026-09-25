@@ -6,10 +6,12 @@ import {
  positiveEventRecoveryFields,
  positiveEventStatusFields,
  mergeAccountDeletedSubscriberUpdate,
+ UNKNOWN_RECIPIENT,
 } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 import { uniqueUnknownFallback } from './lib/deliveryDocId.js';
 import { recordJobEmailRankingClick } from './lib/jobEmailRankingStore.js';
+import { isDeletedEmailAccount } from './authAccountCleanup.js';
 
 /**
  * Mailjet webhook handler — receives delivery events and stores them in Firestore.
@@ -66,8 +68,23 @@ function extractCampaignId(eventData) {
  return uniqueUnknownFallback(extractMessageId(eventData), eventData.time ? String(eventData.time) : null);
 }
 
+/**
+ * The event's message id: `Message_GUID`, the string counterpart of the Send
+ * API's `MessageUUID` that emailCascade.js now stores as the send's id — which
+ * is what lets a delivery, an open and a click of one message be joined.
+ *
+ * `MessageID` is only a fallback, and only when it is still exact: Mailjet's
+ * numeric ids sit around 1.15e18, past 2^53, and the JSON body has already
+ * rounded them by the time this runs (1152921544112431917 arrives as
+ * …431872). A rounded id is a fabricated one that 255 real messages share,
+ * so it is refused rather than stored, exactly as the sender refuses it.
+ */
 function extractMessageId(eventData) {
- return String(eventData.Message_GUID || eventData.MessageID || '');
+ const guid = typeof eventData.Message_GUID === 'string' ? eventData.Message_GUID.trim() : '';
+ if (guid) return guid;
+ const numeric = eventData.MessageID;
+ if (typeof numeric === 'string') return numeric.trim();
+ return Number.isSafeInteger(numeric) && numeric > 0 ? String(numeric) : '';
 }
 
 // ── Persist a single Mailjet event to Firestore ──────────────
@@ -79,6 +96,10 @@ export async function persistMailjetEvent(db, eventData) {
  const mjEvent = eventData.event;
  const type = mapMailjetEvent(mjEvent);
  if (!type) return { skipped: true, reason: `unknown_event: ${mjEvent}` };
+
+ if (await isDeletedEmailAccount(db, email)) {
+   return { skipped: true, reason: 'account_deleted' };
+ }
 
  const campaignId = extractCampaignId(eventData);
  const messageId = extractMessageId(eventData);
@@ -156,8 +177,10 @@ export async function persistMailjetEvent(db, eventData) {
  // The doc read happens only on these three event types. ('delivered' is
  // unreachable for Mailjet — mapMailjetEvent has no such mapping — but the
  // guard is kept identical across the 5 providers so the class cannot drift.)
- if (Object.keys(subscriberUpdate).length > 1) {
- await mergeAccountDeletedSubscriberUpdate(
+ // Unconditional, like the other four cores: the merge is also where an
+ // unknown recipient is found, and every mapped event type adds a field
+ // (the old `Object.keys(subscriberUpdate).length > 1` guard was always true).
+ const merged = await mergeAccountDeletedSubscriberUpdate(
  subscriberRef,
  subscriberUpdate,
  type === 'delivered' || type === 'open' || type === 'click'
@@ -170,7 +193,7 @@ export async function persistMailjetEvent(db, eventData) {
  : null,
  db,
  );
- }
+ if (merged === null) return { skipped: true, reason: UNKNOWN_RECIPIENT };
 
  if (bounceSeverity === 'soft') {
  await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
@@ -270,7 +293,7 @@ async function persistJobAlertMailjetEvent(db, { email, type, mjEvent, messageId
  // promotion. This used to be an UNCONDITIONAL `topUpdate.status = 'active'`,
  // which would overwrite 'complained' — a human's spam complaint — with a
  // machine's inference, and equally resurrect a proven-permanent hard bounce.
- await mergeAccountDeletedSubscriberUpdate(
+ const merged = await mergeAccountDeletedSubscriberUpdate(
  subscriberRef,
  topUpdate,
  type === 'delivered' || type === 'open' || type === 'click'
@@ -283,6 +306,7 @@ async function persistJobAlertMailjetEvent(db, { email, type, mjEvent, messageId
  : null,
  db,
  );
+ if (merged === null) return { skipped: true, reason: UNKNOWN_RECIPIENT };
 
  if (bounceSeverity === 'soft') {
  await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
@@ -337,7 +361,7 @@ export async function handleMailjetWebhookRequest({ body, query, webhookSecret, 
  try {
  const result = await persistMailjetEvent(db, eventData);
  results.push(result);
- console.log(`[mailjetWebhook] ${eventData.event} → ${result.type || 'skipped'} for ${eventData.email || '?'}`);
+ console.log(`[mailjetWebhook] ${result.reason || result.type || 'skipped'}`);
  } catch (err) {
  console.error(`[mailjetWebhook] Error processing event: ${err.message}`);
  results.push({ skipped: true, reason: err.message });

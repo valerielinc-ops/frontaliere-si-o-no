@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ardian",
-  "assembledAt": "2026-09-24T14:52:09.511Z",
+  "assembledAt": "2026-09-25T15:13:18.349Z",
   "jobs": [
     {
       "id": "ardian-9f5eec77bfad",
@@ -34,7 +34,7 @@
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Investor-Relations-Intern---January-2027-I-Zurich_JR1002219",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:52:04.466Z",
+      "crawledAt": "2026-09-25T15:13:12.996Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Secondaries---Primaries-Intern---January-2027-I-Zurich_JR1002220",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:52:03.747Z",
+      "crawledAt": "2026-09-25T15:13:12.328Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -192,7 +192,7 @@
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Fund-Finance-Secondaries---Primaries-Intern---February-2027-I-Zurich--M-F-_JR1002246",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:52:03.001Z",
+      "crawledAt": "2026-09-25T15:13:11.617Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -208,10 +208,14 @@
       "applyUrl": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Fund-Finance-Secondaries---Primaries-Intern---February-2027-I-Zurich--M-F-_JR1002246",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-24T00:08:00.352Z",
+      "previousSlugs": [
+        "fund-finance-secondaries-primaries-intern-february-2027-i-zurich-m-f-ardian-ch",
+        "fund-finanza-secondaries-primaries-tirocinante-february-2027-i-zurich-m-f-ardian-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "fund-finance-secondaries-primaries-intern-february-2027-i-zurich-m-f-ardian-ch"
+          "fund-finance-secondaries-primaries-intern-february-2027-i-zurich-m-f-ardian-ch",
+          "fund-finanza-secondaries-primaries-tirocinante-february-2027-i-zurich-m-f-ardian-zurich"
         ],
         "de": [
           "fund-finance-secondaries-primaries-intern-february-2027-i-zurich-m-f-ardian-ch"
@@ -220,9 +224,7 @@
           "fund-finance-secondaries-primaries-intern-february-2027-i-zurich-m-f-ardian-ch"
         ]
       },
-      "previousSlugs": [
-        "fund-finance-secondaries-primaries-intern-february-2027-i-zurich-m-f-ardian-ch"
-      ],
+      "firstSeenAt": "2026-09-24T00:08:00.352Z",
       "salaryMin": 79000,
       "salaryMax": 138500,
       "salarySource": "estimated",

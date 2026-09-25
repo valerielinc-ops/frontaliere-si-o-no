@@ -6,9 +6,10 @@ import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
-import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
+import { buildOrphanLandingPath } from '../lib/orphan-landing-path.mjs';
 import {
   actionClassForPolicy,
+  buildOutcome,
   buildDecision,
   buildObservation,
   loadLoopPolicyForRun,
@@ -21,6 +22,9 @@ export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-regis
 export const DEFAULT_MAX_AGE_HOURS = 168;
 export const MINIMUM_SAMPLE = 1000;
 export const MAX_CANDIDATES = 25;
+export const OUTCOME_JOIN_ISSUE_TITLE = 'L2 Demand to Utility: outcome join is not measurable';
+export const OUTCOME_SAMPLE_ISSUE_TITLE = 'L2 Demand to Utility: outcome sample is below minimum';
+export const STALE_SOURCE_ISSUE_TITLE = 'L2 Demand to Utility: GSC snapshot is stale';
 const LOCALES = new Set(['it', 'en', 'de', 'fr']);
 
 function finiteDate(value) {
@@ -143,7 +147,7 @@ export function validateDemandSnapshot(payload, {
       canonicalSlug: slug,
       totalImpressions: impressions,
       totalClicks: clicks,
-      landingPath: `/${slug}/`,
+      landingPath: buildOrphanLandingPath(cluster.locale, slug),
     });
   }
 
@@ -204,6 +208,7 @@ export function validateDemandSnapshot(payload, {
         : outcomeShapeValid
           ? 'joined'
           : 'missing',
+    minimumSample,
     outcomes: declaredOutcomeCounts({
       eligibleLandingSessions,
       usefulActions,
@@ -229,6 +234,31 @@ export function validateDemandSnapshot(payload, {
     snapshot,
     candidates,
   });
+}
+
+function hasUnderMinimumSample(verdict) {
+  const eligibleLandingSessions = verdict?.snapshot?.outcomes?.eligibleLandingSessions;
+  const minimumSample = verdict?.snapshot?.minimumSample;
+  return verdict?.snapshot?.outcomeJoin === 'joined'
+    && integer(eligibleLandingSessions)
+    && integer(minimumSample)
+    && eligibleLandingSessions < minimumSample;
+}
+
+export function l2FindingKind(verdict) {
+  if (verdict?.snapshot?.outcomeJoin !== 'joined') return 'outcome-join';
+  if (verdict.quality === 'stale') return 'stale-source';
+  if (hasUnderMinimumSample(verdict)) return 'underpowered-sample';
+  return 'snapshot-validation';
+}
+
+export function issueTitleForVerdict(verdict) {
+  switch (l2FindingKind(verdict)) {
+    case 'underpowered-sample': return OUTCOME_SAMPLE_ISSUE_TITLE;
+    case 'stale-source': return STALE_SOURCE_ISSUE_TITLE;
+    case 'snapshot-validation': return 'L2 Demand to Utility: demand snapshot is not valid';
+    default: return OUTCOME_JOIN_ISSUE_TITLE;
+  }
 }
 
 function reportMarkdown(verdict, observation, decision) {
@@ -265,7 +295,7 @@ function writeReports(reportDir, verdict, observation, decision) {
   return files.map(([name]) => path.join(dir, name));
 }
 
-function writeResult(reportDir, { verdict, issued, candidatesWritten, outcomes }) {
+function writeResult(reportDir, { verdict, issued, candidatesWritten, outcomes, outcome }) {
   if (!reportDir) return null;
   const file = path.join(path.resolve(reportDir), 'l2-result.json');
   fs.writeFileSync(file, `${JSON.stringify({
@@ -275,18 +305,33 @@ function writeResult(reportDir, { verdict, issued, candidatesWritten, outcomes }
     issued,
     candidatesWritten,
     outcomes,
+    outcome,
   }, null, 2)}\n`);
   return file;
 }
 
 function issueBody(verdict, decision) {
+  const outcomeJoin = verdict.snapshot?.outcomeJoin || 'missing';
+  const outcomes = verdict.snapshot?.outcomes || {};
+  const finding = l2FindingKind(verdict);
+  const opening = finding === 'underpowered-sample'
+    ? 'L2 ha collegato la coorte GSC alle sessioni GA4, ma il campione è sotto la soglia necessaria per dichiarare un risultato utilizzabile.'
+    : finding === 'stale-source'
+      ? 'L2 ha un join di outcome strutturalmente valido, ma lo snapshot GSC è troppo vecchio per sostenere una decisione.'
+      : finding === 'snapshot-validation'
+        ? 'L2 ha trovato un difetto di validazione nello snapshot della domanda; il join non può sostenere una decisione.'
+        : 'L2 ha trovato domanda GSC utilizzabile per candidati, ma il risultato “next useful action” non è ancora un numero misurabile.';
   return [
-    'L2 ha trovato domanda GSC utilizzabile per candidati, ma il risultato “next useful action” non è ancora un numero misurabile.',
+    opening,
     '',
     `- Source: ${verdict.sourcePath}`,
     `- Quality: ${verdict.quality}`,
     `- Reason: ${verdict.reason}`,
     `- Candidate count: ${verdict.candidates.length}`,
+    `- Outcome join: ${outcomeJoin}`,
+    `- Eligible landing sessions: ${Number.isInteger(outcomes.eligibleLandingSessions) ? outcomes.eligibleLandingSessions : 'unavailable'}`,
+    `- Useful actions: ${Number.isInteger(outcomes.usefulActions) ? outcomes.usefulActions : 'unavailable'}`,
+    `- Minimum sample: ${Number.isInteger(verdict.snapshot?.minimumSample) ? verdict.snapshot.minimumSample : 'unavailable'}`,
     `- Decision: ${decision.decision} / ${decision.actionClass}`,
     '',
     'Azione sicura: conservare i candidati come artefatto e proporre soltanto una PR con fonte, internal link/FAQ/CTA e gate SEO. Collegare la coorte di sessioni e azioni prima di dichiarare un risultato; non creare pagine sottili e non convertire impression in utilità.',
@@ -352,13 +397,21 @@ export async function runL2({
   const observationStart = generatedAt && generatedAt.getTime() <= now.getTime()
     ? generatedAt.toISOString()
     : now.toISOString();
+  const sourceSnapshot = {
+    ...(verdict.snapshot || { source: 'gsc-orphan-query-clusters', path: sourcePath }),
+    source: 'gsc-orphan-query-clusters+ga4-landing-path',
+    sourceRefs: loopPolicy.sourceRefs,
+    outcomeSource: verdict.snapshot?.outcomeJoin === 'joined'
+      ? 'GA4 landing-page sessions joined to GSC paths'
+      : 'GA4 landing-page session export unavailable or incomplete',
+  };
   const observation = buildObservation({
     loopId: LOOP_ID,
     goal: loopPolicy.goal,
     owner: loopPolicy.owner,
     oracle: loopPolicy.oracle,
     hypothesis: 'Existing demand becomes useful only when a reviewed, sourced next action is measured on the same eligible landing cohort.',
-    sourceSnapshot: verdict.snapshot || { source: 'gsc-orphan-query-clusters', path: sourcePath },
+    sourceSnapshot,
     observationWindow: {
       start: observationStart,
       end: now.toISOString(),
@@ -374,27 +427,40 @@ export async function runL2({
     quality: verdict.quality,
     recordedAt: now.toISOString(),
   });
-  const validatedOutcome = buildValidatedLoopOutcome({
-    registry: loopRegistry,
-    loopId: LOOP_ID,
-    quality: verdict.quality,
-    independent: verdict.ok,
-    numerator: verdict.ok ? verdict.snapshot.outcomes?.usefulActions ?? 0 : null,
-    denominator: verdict.ok ? verdict.snapshot.outcomes?.eligibleLandingSessions ?? 0 : null,
-    observedAt: generatedAt?.toISOString() || null,
-    reason: verdict.ok
-      ? 'GSC and landing-path sources agree on the eligible session/action join'
-      : `useful-action outcome is ${verdict.quality}; no landing change is authorized`,
-    now,
-  });
   const outcomes = declaredOutcomeCounts({
     eligibleLandingSessions: verdict.snapshot?.outcomes?.eligibleLandingSessions,
     usefulActions: verdict.snapshot?.outcomes?.usefulActions,
     usable: integer(verdict.snapshot?.outcomes?.eligibleLandingSessions)
       && integer(verdict.snapshot?.outcomes?.usefulActions),
   });
+  const measuredOutcome = measurable && verdict.ok;
+  const outcomeStatus = measuredOutcome
+    ? 'observed'
+    : (verdict.quality === 'zero' ? 'partial' : verdict.quality);
+  const outcomeRequiredFields = [
+    generatedAt ? 'generatedAt' : null,
+    measuredOutcome ? 'numerator' : null,
+    measuredOutcome ? 'denominator' : null,
+  ].filter(Boolean);
+  const outcomeCandidate = buildOutcome({
+    outcomeId: loopPolicy.outcome.outcomeId,
+    status: outcomeStatus,
+    independent: measuredOutcome,
+    sourceRefs: loopPolicy.outcome.sourceRefs,
+    primaryMetric: loopPolicy.primaryMetric,
+    numerator: measuredOutcome ? outcomes.usefulActions : null,
+    denominator: measuredOutcome ? outcomes.eligibleLandingSessions : null,
+    requiredFieldsPresent: outcomeRequiredFields,
+    missingFields: loopPolicy.outcome.requiredFields.filter((field) => !outcomeRequiredFields.includes(field)),
+    reason: measuredOutcome
+      ? 'GSC and GA4 landing-path sources agree on the eligible session/action join'
+      : `useful-action outcome is ${verdict.quality}; no landing change is authorized`,
+    observedAt: generatedAt?.toISOString() || null,
+    allowNumeratorExceedDenominator: loopPolicy.outcome.allowNumeratorExceedDenominator,
+    recordedAt: now.toISOString(),
+  });
   observation.outcome = {
-    ...validatedOutcome,
+    ...outcomeCandidate,
     loopId: LOOP_ID,
     generatedAt: generatedAt?.toISOString() || null,
     eligibleLandingSessions: outcomes.eligibleLandingSessions,
@@ -405,13 +471,13 @@ export async function runL2({
     },
     evidence: {
       source: verdict.snapshot?.outcomeJoin === 'joined'
-        ? 'PostHog landing-path session/action export joined to GSC paths'
-        : 'PostHog landing-path session/action export unavailable or incomplete',
+        ? 'GA4 landing-page session/useful-action export joined to GSC paths'
+        : 'GA4 landing-page session/useful-action export unavailable or incomplete',
       sourcePath,
       sourceRefs: loopPolicy.outcome.sourceRefs,
       outcomeJoin: verdict.snapshot?.outcomeJoin || 'missing',
     },
-    evidenceStatus: verdict.snapshot?.outcomeJoin === 'joined' && validatedOutcome.independent ? 'verified' : 'unverified',
+    evidenceStatus: verdict.snapshot?.outcomeJoin === 'joined' && outcomeCandidate.independent ? 'verified' : 'unverified',
     sourcePath,
     safeToAct: false,
     publishedDataUntouched: true,
@@ -427,7 +493,10 @@ export async function runL2({
     sourceSnapshot: observation.sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
-    decision: verdict.ok ? 'observing' : 'candidate',
+    // A measured outcome is still a candidate in the evidence lifecycle. The
+    // recorder links this decision to its recordId before promoting the
+    // independent outcome; `observing` would fail that provenance contract.
+    decision: 'candidate',
     reason: verdict.reason,
     actionClass,
     rollbackPlan: 'discard runner-local candidate and leave the published landing graph unchanged',
@@ -451,7 +520,7 @@ export async function runL2({
   }
   if (issue && !verdict.ok) {
     await createIssueImpl({
-      title: 'L2 Demand to Utility: outcome join is not measurable',
+      title: issueTitleForVerdict(verdict),
       description: issueBody(verdict, decision),
       priority: 3,
       labels: ['monitoring', 'seo', 'loop-l2'],
@@ -459,7 +528,13 @@ export async function runL2({
     });
     issued = true;
   }
-  const resultFile = writeResult(reportDir, { verdict, issued, candidatesWritten, outcomes });
+  const resultFile = writeResult(reportDir, {
+    verdict,
+    issued,
+    candidatesWritten,
+    outcomes,
+    outcome: observation.outcome,
+  });
   logger.log(`[L2] ${verdict.ok ? 'OK' : 'ACTION REQUIRED'} — ${verdict.reason}`);
   return {
     verdict,

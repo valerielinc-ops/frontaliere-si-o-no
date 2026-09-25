@@ -15,6 +15,7 @@ import { fetchSgPlateAuctions } from './connectors/sg.mjs';
 import { fetchShPlateAuctions } from './connectors/sh.mjs';
 import { fetchSzPlateAuctions } from './connectors/sz.mjs';
 import { fetchTgPlateAuctions } from './connectors/tg.mjs';
+import { fetchTiPlateAuctions } from './connectors/ti.mjs';
 import { fetchVsPlateAuctions } from './connectors/vs.mjs';
 import { fetchZhPlateAuctions } from './connectors/zh.mjs';
 import { fetchExpandedCard, fetchExpandedEcari } from './connectors/expanded.mjs';
@@ -28,10 +29,12 @@ import {
 import {
   checkPlateAuctionQuality,
   derivePlateAuctionDataConfidence,
+  PLATE_AUCTION_MISSING_GRACE_MS,
   PLATE_AUCTION_SALE_RECOGNITION,
   observeCatalogueDisappearance,
   recognizeCatalogueSales,
 } from '../../functions/src/plateAuctionQualityCore.js';
+import { isExplicitlyEmptyCatalogue } from '../../functions/src/plateAuctionsCore.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DEFAULT_OUTPUT = resolve(__dirname, '../../public/data/plate-auctions.json');
@@ -42,10 +45,16 @@ export const FETCHERS = {
   be: () => fetchExpandedCard('be'),
   bl: () => fetchExpandedEcari('bl'),
   bs: fetchBsFixedPrice,
-  // fr and ti have no fetcher on purpose: their registry status is `blocked`
-  // because the canton endpoints are unreachable, and check-health.mjs treats a
-  // fetcher without an active source as an error. The parser configs stay in
-  // connectors/ so re-activating them is a registry change plus one line here.
+  // FR e TI sono geo-fenced su IP svizzeri: dal runner la fetch diretta
+  // fallisce e le righe arrivano dal relay della Cloud Function di Zurigo
+  // (connectors/api-relay.mjs), come per SZ.
+  fr: () => fetchExpandedEcari('fr'),
+  // GE ha il connettore (connectors/ge.mjs) ma non ancora il fetcher: resta
+  // `blocked` finché ge.ch non pubblica la lista d'autunno 2026. Fra due
+  // sessioni la lista dà il catalogo esplicitamente vuoto, e una fonte attiva
+  // senza nessuna riga nello snapshot è fatale per check-health.mjs; con le
+  // righe della prima sessione (poi chiuse e conservate) non lo è più.
+  // Attivarla = registry `active` in entrambe le copie + una riga qui.
   gl: fetchGlFixedPrice,
   gr: fetchGrPlateAuctions,
   lu: fetchLuFixedPrice,
@@ -56,6 +65,7 @@ export const FETCHERS = {
   so: () => fetchExpandedEcari('so'),
   sz: fetchSzPlateAuctions,
   tg: fetchTgPlateAuctions,
+  ti: fetchTiPlateAuctions,
   ur: fetchUrFixedPrice,
   vd: () => fetchExpandedCard('vd'),
   vs: fetchVsPlateAuctions,
@@ -140,7 +150,12 @@ function applyQualityPolicy(rows, previousRows, now) {
 }
 
 export const PLATE_AUCTION_HISTORY_CAP = 5000;
-export { PLATE_AUCTION_SALE_RECOGNITION, observeCatalogueDisappearance, recognizeCatalogueSales };
+export {
+  PLATE_AUCTION_MISSING_GRACE_MS,
+  PLATE_AUCTION_SALE_RECOGNITION,
+  observeCatalogueDisappearance,
+  recognizeCatalogueSales,
+};
 
 
 
@@ -171,6 +186,11 @@ function isUnexpiredActiveObservation(row, now) {
   return !Number.isFinite(endsAt) || endsAt > now.getTime();
 }
 
+/** Epoch ms of the run that first preserved this row as missing, or NaN. */
+function missingSinceMs(row) {
+  return Date.parse(row?.missingSince || '');
+}
+
 /**
  * @param {{
  *   fetchers?: Record<string, () => Promise<any[]>>,
@@ -193,12 +213,17 @@ export async function collectPlateAuctions({
     const fetchedAt = now.toISOString();
     try {
       const rows = await fetchers[key]();
+      // An empty fetch is a failure UNLESS the source itself said its
+      // catalogue is empty (eCari between two rounds). That answer is as
+      // authoritative as a non-empty catalogue: its missing rows take the
+      // normal path — archived past their deadline, otherwise preserved and
+      // judged — instead of the `zero_rows` carry-over of a broken fetch.
+      const answered = rows.length > 0 || isExplicitlyEmptyCatalogue(rows);
       const previousForSource = previousRows.filter((row) => row.sourceKey === source.plateCode);
       const previousSuccessAt = previous?.sources?.[key]?.lastSuccessAt || previous?.generatedAt;
       const mergedRows = mergeWithPrevious(rows, previousRows, source.plateCode);
       const quality = applyQualityPolicy(mergedRows, previousForSource, now);
       const normalizedRows = quality.rows;
-      const sourceDisappeared = rows.length > 0 && quality.issues.some((item) => item.code === 'source-disappeared');
       const fetchedIds = new Set(normalizedRows.map((row) => row.id));
       const missingPreviousRows = previousForSource.filter((row) => !fetchedIds.has(row.id));
       const expiredCarry = missingPreviousRows
@@ -210,9 +235,19 @@ export async function collectPlateAuctions({
       // its own published deadline is an upstream anomaly whatever the shape
       // of the loss — the auction should still have been listed — so it keeps
       // the existing preserve-as-live behaviour and is never read as a sale.
+      // Preservation is bounded either way: a row still absent after
+      // PLATE_AUCTION_MISSING_GRACE_MS is recorded as gone (see below).
       // Deadline-less rows are the fixed-price catalogue (16'976 of 17'260),
       // where disappearance is the only sale signal that exists.
       const stillLive = missingPreviousRows.filter((row) => isUnexpiredActiveObservation(row, now));
+      // A row an earlier run preserved carries `missingSince`. That run already
+      // judged and reported its absence, so it is not evidence about THIS
+      // fetch. Judged again, the same rows re-tripped the guard on every run and
+      // no source could ever recover: UR logged previous=460 fetched=447
+      // vanished=13 on 2026-09-20 and again on 2026-09-24, and LU's preserved
+      // rows grew from 146 to 188 while its PDF kept listing ~140 plates.
+      const newlyMissing = stillLive.filter((row) => !Number.isFinite(missingSinceMs(row)));
+      const knownMissing = stillLive.filter((row) => Number.isFinite(missingSinceMs(row)));
       // A sale candidate must be a fixed-price row AND have no usable deadline.
       // Requiring the type matters: a malformed timed-auction row whose
       // `endsAt` is missing or unparseable would otherwise be stamped `closed`
@@ -221,55 +256,82 @@ export async function collectPlateAuctions({
       // protected and preserved.
       const isSaleCandidate = (row) => row.listingType === 'fixed-price'
         && !Number.isFinite(Date.parse(row.endsAt || ''));
-      const saleCandidates = stillLive.filter(isSaleCandidate);
-      const protectedRows = stillLive.filter((row) => !isSaleCandidate(row));
-      // Same denominator rule as the Firestore pipeline: archived rows carried
-      // by `expiredCarry` end up in the next run's `previous.auctions`, so
-      // counting them here would inflate the denominator over time and
-      // eventually starve the band exactly as it would there.
+      const saleCandidates = newlyMissing.filter(isSaleCandidate);
+      const protectedRows = newlyMissing.filter((row) => !isSaleCandidate(row));
+      // The denominator is what the LAST fetch listed. Archived rows carried
+      // by `expiredCarry` are excluded (they end up in the next run's
+      // `previous.auctions` and would inflate it over time until the band
+      // starved), and so are rows still preserved from an earlier run: the
+      // upstream did not list them last time either, so counting them measured
+      // a healthy catalogue against its own ghosts and failed the band forever.
       const previousLiveCount = previousForSource
-        .filter((row) => ['active', 'upcoming'].includes(row?.auctionStatus)).length;
+        .filter((row) => ['active', 'upcoming'].includes(row?.auctionStatus) && !Number.isFinite(missingSinceMs(row))).length;
       const saleDecision = recognizeCatalogueSales({
+        sourceKey: key,
         previousCount: previousLiveCount,
         fetchedCount: rows.length,
         vanishedCount: saleCandidates.length,
       });
+      // A known-missing row is resolved only by a fetch that is itself healthy
+      // (non-empty, band and cap passed on the NEW losses) once the grace
+      // window has elapsed: a run that may be truncated is no evidence that an
+      // older absence is final. An explicitly empty page does not qualify
+      // either: it lists nothing to measure against, and retiring the last
+      // rows of a source there would leave it with none, which check-health
+      // rejects as fatal for an active source and would freeze every baseline.
+      const healthyFetch = rows.length > 0 && saleDecision.recognized;
+      const expiredMissing = healthyFetch
+        ? knownMissing.filter((row) => now.getTime() - missingSinceMs(row) >= PLATE_AUCTION_MISSING_GRACE_MS)
+        : [];
+      const expiredMissingIds = new Set(expiredMissing.map((row) => row.id));
       // Logged on EVERY run, including when sales are recognised: without the
       // four numbers the first week of real data is not verifiable and the
       // retuning would be done by eye.
       console.log(
         `[collectPlateAuctions:${key}] sale-recognition previous=${previousLiveCount} `
         + `fetched=${rows.length} vanished=${saleCandidates.length} cap=${saleDecision.cap} `
-        + `protected=${protectedRows.length} `
+        + `protected=${protectedRows.length} known-missing=${knownMissing.length} expired-missing=${expiredMissing.length} `
         + (saleDecision.recognized ? `decision=sales sold=${saleCandidates.length}` : `decision=preserve-as-live blocked-by=${saleDecision.blockedBy.join('+')}`),
       );
-      const catalogueSales = saleDecision.recognized
-        ? saleCandidates.map((row) => observeCatalogueDisappearance(row, now))
-        : [];
-      // Not recognised: keep the rows visible rather than assert a sale. Rows
-      // with a future deadline are preserved either way.
-      const demoteConfidence = (row) => ({
+      // An expired known-missing row goes through the same record as a sale:
+      // closed, `disappearedFromCatalogue`, last asking price, never a final.
+      // For a timed-auction row that is a withdrawal record, not a result.
+      const catalogueSales = [
+        ...(saleDecision.recognized ? saleCandidates : []),
+        ...expiredMissing,
+      ].map((row) => observeCatalogueDisappearance(row, now));
+      // Not recognised: keep the rows visible rather than assert a sale, and
+      // stamp the run that first missed them so the next run does not judge
+      // the same absence again. Rows with a future deadline are preserved
+      // either way; a known-missing row keeps its original stamp.
+      const preserveMissing = (row) => ({
         ...row,
         dataConfidence: row.dataConfidence === 'verified' ? 'partial' : row.dataConfidence,
+        missingSince: Number.isFinite(missingSinceMs(row)) ? row.missingSince : now.toISOString(),
       });
       const preservedMissing = [
-        ...protectedRows.map(demoteConfidence),
-        ...(saleDecision.recognized ? [] : saleCandidates.map(demoteConfidence)),
-      ];
+        ...protectedRows,
+        ...(saleDecision.recognized ? [] : saleCandidates),
+        ...knownMissing.filter((row) => !expiredMissingIds.has(row.id)),
+      ].map(preserveMissing);
       const displayRows = [...normalizedRows, ...expiredCarry, ...preservedMissing];
-      // An empty response is degraded and preserves the last good snapshot.
+      // An empty response is degraded and preserves the last good snapshot,
+      // unless it is the source's explicit empty catalogue (see `answered`).
       // A non-empty response is authoritative when quality checks do not flag
       // a source disappearance. A partial catalogue must retain unexpired
       // live rows so a markup regression cannot erase the public view.
-      const outputRows = rows.length === 0
-        ? previousForSource.map((row) => closeExpiredObservation(row, now))
-        : displayRows;
-      // The source is only healthy-despite-losses when EVERY missing active row
-      // was a recognized sale. One protected row means the feed also lost
-      // something checkDisappearedSources() calls an upstream anomaly, and a
-      // single recognized sale must not launder that into `active`.
-      const allLossesAreSales = saleDecision.recognized && protectedRows.length === 0 && catalogueSales.length > 0;
-      results[key] = { rows: outputRows, fetchedAt, fetchedRowCount: rows.length, previousRows: previousForSource, previousSuccessAt, zeroRows: rows.length === 0, sourceDisappeared, allLossesAreSales, catalogueSales, qualityIssues: quality.issues, error: null };
+      const outputRows = answered
+        ? displayRows
+        : previousForSource.map((row) => closeExpiredObservation(row, now));
+      // Only a row the last fetch still listed can make THIS fetch look broken;
+      // a known-missing row was reported by the run that first missed it.
+      const sourceDisappeared = answered && newlyMissing.length > 0;
+      // The source is only healthy-despite-losses when EVERY newly missing
+      // active row was a recognized sale. One protected row means the feed also
+      // lost something checkDisappearedSources() calls an upstream anomaly, and
+      // a single recognized sale must not launder that into `active`.
+      const allLossesAreSales = saleDecision.recognized && protectedRows.length === 0 && saleCandidates.length > 0;
+      results[key] = { rows: outputRows, fetchedAt, fetchedRowCount: rows.length, previousRows: previousForSource, previousSuccessAt, zeroRows: !answered, sourceDisappeared, allLossesAreSales, catalogueSales, qualityIssues: quality.issues, error: null };
     } catch (error) {
       const previousForSource = previousRows.filter((row) => row.sourceKey === source.plateCode);
       console.warn(`[collectPlateAuctions:${key}] ${error instanceof Error ? error.message : String(error)}`);

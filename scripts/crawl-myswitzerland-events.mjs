@@ -84,8 +84,12 @@ import {
   extractDetailContactName,
   extractDetailTableValue,
   extractEventPeopleFromText,
+  extractEventPeopleFromTitle,
+  extractEventOfferMetadata,
+  eventOfferPriceAmount,
   firstEventImageUrl,
   firstEventImageUrlFromHtml,
+  mergeEventOfferMetadata,
   normalizeEventPeople,
 } from './lib/event-metadata.mjs';
 
@@ -346,16 +350,23 @@ export function humanizeCategory(rawType) {
 }
 
 /** Price from JSON-LD `offers`, `isAccessibleForFree`, or the detail table. */
-export function extractPrice(ld, detailHtml) {
+export function extractPrice(ld, detailHtml, detailUrl) {
   const offersRaw = ld?.offers;
   const offers = Array.isArray(offersRaw) ? offersRaw : offersRaw ? [offersRaw] : [];
   const priced = offers
-    .map((o) => (o && o.price !== undefined && o.price !== null ? Number(o.price) : NaN))
-    .filter((n) => Number.isFinite(n));
+    .map((offer) => ({ offer, amount: eventOfferPriceAmount(offer?.price) }))
+    .filter(({ amount }) => Number.isFinite(amount));
   if (priced.length) {
-    const amount = Math.min(...priced);
-    const currency = offers.find((o) => typeof o?.priceCurrency === 'string')?.priceCurrency || 'CHF';
-    return { amount, currency, isFree: amount === 0 };
+    const cheapest = priced.reduce((best, candidate) => (candidate.amount < best.amount ? candidate : best));
+    const currency = typeof cheapest.offer?.priceCurrency === 'string'
+      ? cheapest.offer.priceCurrency
+      : offers.find((o) => typeof o?.priceCurrency === 'string')?.priceCurrency || 'CHF';
+    return {
+      amount: cheapest.amount,
+      currency,
+      isFree: cheapest.amount === 0,
+      ...(extractEventOfferMetadata(cheapest.offer, detailUrl || SITE_ORIGIN) || {}),
+    };
   }
   if (ld?.isAccessibleForFree === true) return { amount: 0, currency: 'CHF', isFree: true };
   const tablePrice = extractDetailTableValue(detailHtml, ['Prezzo', 'Preis', 'Price', 'Prix']);
@@ -476,6 +487,8 @@ export function mergeDetailEventMetadata(primaryLd, candidateLd, primaryUrl = SI
     const people = normalizeEventPeople(candidateLd[field], candidateUrl);
     if (people) merged[field] = people;
   }
+  const mergedOffers = mergeEventOfferMetadata(merged.offers, candidateLd.offers, primaryUrl, candidateUrl);
+  if (mergedOffers !== undefined) merged.offers = mergedOffers;
   return merged;
 }
 
@@ -491,7 +504,16 @@ export function mergeDetailEventMetadata(primaryLd, candidateLd, primaryUrl = SI
  * locale hit when the primary locale omits its image.
  */
 export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
-  const { detailLd, detailUrl, detailHtml, detailAddress, detailContactName, detailImageSourceUrl, detailPrice } = enrichment;
+  const {
+    detailLd,
+    detailUrl,
+    detailHtml,
+    detailAddress,
+    detailContactName,
+    detailImageSourceUrl,
+    detailPrice,
+    detailPeople,
+  } = enrichment;
   const primaryLocale = LOCALES.find((l) => perLocaleHits[l]);
   const primary = primaryLocale ? perLocaleHits[primaryLocale] : undefined;
   if (!primary) return null;
@@ -514,9 +536,17 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
 
   const rawUrl = detailUrl
     || `${SITE_ORIGIN}/${LOCALE_URL_PREFIX[primaryLocale]}${String(primary.url || '').startsWith('/') ? primary.url : `/${primary.url || ''}`}`;
-  const sourcePeople = extractEventPeopleFromText(
+  const indexedPeople = extractEventPeopleFromText(
     LOCALES.flatMap((locale) => [perLocaleHits[locale]?.content, perLocaleHits[locale]?.leadText]).filter(Boolean).join('. '),
   );
+  const indexedTitlePeople = LOCALES
+    .map((locale) => extractEventPeopleFromTitle(perLocaleHits[locale]?.title).performer)
+    .find(Boolean);
+  const detailPeopleFromHtml = extractEventPeopleFromText(detailHtml);
+  const sourcePeople = {
+    organizer: detailPeople?.organizer || detailPeopleFromHtml.organizer || indexedPeople.organizer,
+    performer: detailPeople?.performer || detailPeopleFromHtml.performer || indexedPeople.performer || indexedTitlePeople,
+  };
   const organizer = normalizeEventPeople(detailLd?.organizer, detailUrl || SITE_ORIGIN)
     || normalizeEventPeople(sourcePeople.organizer, SITE_ORIGIN)
     || (detailContactName ? { '@type': 'Organization', name: detailContactName } : undefined);
@@ -556,7 +586,7 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
       url: rawUrl,
       sourceKey: SOURCE.key,
       sourceName: SOURCE.label,
-      price: extractPrice(detailLd, detailHtml) || detailPrice,
+      price: extractPrice(detailLd, detailHtml, detailUrl) || detailPrice,
       address,
       geo: extractGeo(primary),
       recurring: dateInfo.recurring,
@@ -574,6 +604,10 @@ async function fetchDetailEnrichment(perLocaleHits) {
   const sourcePeople = extractEventPeopleFromText(
     LOCALES.flatMap((locale) => [perLocaleHits[locale]?.content, perLocaleHits[locale]?.leadText]).filter(Boolean).join('. '),
   );
+  const sourceTitlePeople = LOCALES
+    .map((locale) => extractEventPeopleFromTitle(perLocaleHits[locale]?.title).performer)
+    .find(Boolean);
+  if (!sourcePeople.performer && sourceTitlePeople) sourcePeople.performer = sourceTitlePeople;
   for (const locale of LOCALES) {
     const hit = perLocaleHits[locale];
     if (!hit?.url) continue;
@@ -583,10 +617,18 @@ async function fetchDetailEnrichment(perLocaleHits) {
     if (!html) continue;
     const ld = extractEventJsonLd(html);
     const candidateAddress = extractAddress(ld) || extractDetailAddress(html);
-    const candidatePrice = extractPrice(ld, html);
+    const candidatePrice = extractPrice(ld, html, url);
     const candidateContactName = extractDetailContactName(html);
     const candidateImageSourceUrl = firstEventImageUrlFromHtml(html, url);
-    const hasHtmlMetadata = Boolean(candidateAddress || candidatePrice || candidateContactName || candidateImageSourceUrl);
+    const candidatePeople = extractEventPeopleFromText(html);
+    const hasHtmlMetadata = Boolean(
+      candidateAddress
+      || candidatePrice
+      || candidateContactName
+      || candidateImageSourceUrl
+      || candidatePeople.organizer
+      || candidatePeople.performer
+    );
     if (!ld && !hasHtmlMetadata) continue;
     if (!enrichment) {
       enrichment = {
@@ -597,6 +639,7 @@ async function fetchDetailEnrichment(perLocaleHits) {
         detailContactName: candidateContactName,
         detailImageSourceUrl: candidateImageSourceUrl,
         detailPrice: candidatePrice,
+        detailPeople: candidatePeople,
       };
     } else if (ld && enrichment.detailLd) {
       enrichment.detailLd = mergeDetailEventMetadata(enrichment.detailLd, ld, enrichment.detailUrl, url);
@@ -610,6 +653,12 @@ async function fetchDetailEnrichment(perLocaleHits) {
     }
     if (!enrichment.detailContactName && candidateContactName) enrichment.detailContactName = candidateContactName;
     if (!enrichment.detailImageSourceUrl && candidateImageSourceUrl) enrichment.detailImageSourceUrl = candidateImageSourceUrl;
+    if (!enrichment.detailPeople?.organizer && candidatePeople.organizer) {
+      enrichment.detailPeople = { ...enrichment.detailPeople, organizer: candidatePeople.organizer };
+    }
+    if (!enrichment.detailPeople?.performer && candidatePeople.performer) {
+      enrichment.detailPeople = { ...enrichment.detailPeople, performer: candidatePeople.performer };
+    }
 
     if (detailEnrichmentReady(enrichment, perLocaleHits, sourcePeople)) break;
   }
@@ -630,11 +679,13 @@ export function detailEnrichmentReady(enrichment, perLocaleHits = {}, sourcePeop
   const organizerReady = Boolean(
     normalizeEventPeople(enrichment?.detailLd?.organizer, enrichment?.detailUrl || SITE_ORIGIN)
     || sourcePeople.organizer
+    || normalizeEventPeople(enrichment?.detailPeople?.organizer, enrichment?.detailUrl || SITE_ORIGIN)
     || enrichment?.detailContactName,
   );
   const performerReady = Boolean(
     normalizeEventPeople(enrichment?.detailLd?.performer, enrichment?.detailUrl || SITE_ORIGIN)
-    || sourcePeople.performer,
+    || sourcePeople.performer
+    || normalizeEventPeople(enrichment?.detailPeople?.performer, enrichment?.detailUrl || SITE_ORIGIN),
   );
   const addressReady = Boolean(enrichment?.detailAddress);
   const priceReady = Boolean(enrichment?.detailPrice);

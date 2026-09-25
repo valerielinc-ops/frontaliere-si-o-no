@@ -88,3 +88,56 @@ describe('GitHub Actions read-only client', () => {
     expect(missing).toHaveBeenCalledTimes(1);
   });
 });
+
+// #9729: `releaseLock()` is reader cleanup. Older WHATWG streams and polyfilled
+// bodies throw from it (pending read, stream left mid-cancel); thrown from the
+// `finally` it replaced the verdict and the outer catch turned a completed read
+// into a retried "transport" failure. Both site copies are exercised: the
+// `.github/corpus-workflows` one is the `identical` source that descends to the
+// corpus as `scripts/ci/lib/github-actions-read-client.mjs`.
+describe.each([
+  ['scripts/lib', () => import('../scripts/lib/github-actions-read-client.mjs')],
+  ['corpus-workflows observer copy', () => import('../.github/corpus-workflows/observers/scripts/lib/github-actions-read-client.mjs')],
+])('releaseLock() that throws is non-fatal (%s)', (_label, load) => {
+  function responseWithThrowingRelease(chunks: number[][]) {
+    const queue = chunks.map((chunk) => Uint8Array.from(chunk));
+    let cancelled = false;
+    const reader = {
+      read: async () => (queue.length
+        ? { done: false, value: queue.shift() }
+        : { done: true, value: undefined }),
+      cancel: async () => { cancelled = true; },
+      releaseLock() { throw new TypeError('Invalid state: reader released with pending read requests'); },
+    };
+    const response = {
+      ok: true,
+      status: 200,
+      headers: new Headers(),
+      body: { getReader: () => reader, cancel: async () => { cancelled = true; } },
+    };
+    return { response, wasCancelled: () => cancelled };
+  }
+
+  it('keeps a fully read body and does not retry', async () => {
+    const { createGitHubActionsReadClient } = await load();
+    const { response } = responseWithThrowingRelease([[123, 34, 111], [107, 34, 58, 49, 125]]);
+    const fetchImpl = vi.fn().mockResolvedValue(response);
+    const readClient = createGitHubActionsReadClient({
+      apiUrl: 'https://api.github.test', token: 't', fetchImpl, sleep: vi.fn(), timeoutMs: 1_000,
+    });
+    await expect(readClient.json('/repos/o/r/actions/runs/1')).resolves.toEqual({ ok: 1 });
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+  });
+
+  it('keeps the oversize verdict (chunked, no Content-Length) and cancels the stream', async () => {
+    const { createGitHubActionsReadClient } = await load();
+    const { response, wasCancelled } = responseWithThrowingRelease([[1, 2, 3], [4, 5, 6]]);
+    const fetchImpl = vi.fn().mockResolvedValue(response);
+    const readClient = createGitHubActionsReadClient({
+      apiUrl: 'https://api.github.test', token: 't', fetchImpl, sleep: vi.fn(), timeoutMs: 1_000,
+    });
+    await expect(readClient.bytes('/repos/o/r/actions/runs/1', 4)).rejects.toThrow(/github_response_too_large/);
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(wasCancelled()).toBe(true);
+  });
+});

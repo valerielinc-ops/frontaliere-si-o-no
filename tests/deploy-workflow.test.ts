@@ -592,6 +592,40 @@ describe('deploy.yml — shard push mode and advisory delta verification', () =>
   });
 });
 
+describe('deploy.yml — every checkout has an explicit CA bundle (#9681)', () => {
+  const workflow = YAML.parse(DEPLOY_YML) as any;
+  const checkoutSteps = Object.entries(workflow.jobs).flatMap(([jobName, job]: [string, any]) => {
+    const steps: Array<Record<string, any>> = Array.isArray(job.steps) ? job.steps : [];
+    return steps.flatMap((step, index) =>
+      step.uses === 'actions/checkout@v5' ? [{ jobName, steps, index }] : [],
+    );
+  });
+
+  it('repairs a missing bundle and exports explicit trust paths before every checkout', () => {
+    expect(checkoutSteps.length).toBeGreaterThan(0);
+
+    for (const { jobName, steps, index } of checkoutSteps) {
+      const caStep = steps[index - 1];
+      expect(caStep?.name, `${jobName}: checkout must follow the CA preflight`).toBe(
+        'Restore runner CA trust before checkout (#9681)',
+      );
+      expect(caStep.run).toContain('sudo update-ca-certificates --fresh');
+      expect(caStep.run).toContain('test -s "$ca_file"');
+      expect(caStep.run).toContain('GIT_SSL_CAINFO=$ca_file');
+      expect(caStep.run).toContain('GIT_SSL_CAPATH=/etc/ssl/certs');
+    }
+  });
+
+  it('does not weaken TLS verification while handling the runner defect', () => {
+    for (const { jobName, steps, index } of checkoutSteps) {
+      const caStep = steps[index - 1];
+      expect(caStep.run, `${jobName}: CA preflight must keep TLS verification enabled`).not.toMatch(
+        /GIT_SSL_NO_VERIFY|sslVerify\s+false/i,
+      );
+    }
+  });
+});
+
 describe('deploy.yml — benchmark-only controls never enter production', () => {
   it('does not set the experiment stop, sample, or benchmark guard', () => {
     expect(DEPLOY_YML).not.toContain('BUILD_STOP_AFTER');
@@ -613,6 +647,15 @@ describe('deploy.yml — closeBundle serializzati in produzione (OOM run 3510058
     expect(sequentialProfile).toContain("github.event_name == 'workflow_dispatch'");
     expect(sequentialProfile).toContain("github.event.inputs.parallel_plugins == 'true'");
     expect(sequentialProfile).not.toContain('profile_sequential');
+  });
+});
+
+describe('deploy.yml — canonical fallback stays inline on the 16 GiB runner', () => {
+  it('caps the jobs SEO fallback pre-pass at one worker', () => {
+    // `JOBS_SEO_FALLBACK_WORKERS=1` selects the plugin's inline path: it keeps
+    // the output unchanged while avoiding one structured clone per worker of
+    // the full canonical tuple set.
+    expect(BUILD_LOCALE_ENV.JOBS_SEO_FALLBACK_WORKERS).toBe('1');
   });
 });
 

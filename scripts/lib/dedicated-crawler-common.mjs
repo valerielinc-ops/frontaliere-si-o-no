@@ -16,6 +16,7 @@ import {
   inferAnyCanton,
   isKnownSwissMunicipality,
   isKnownSwissMunicipalityInCanton,
+  isKnownSwissCity,
 } from './target-swiss-locations.mjs';
 import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
 let _aiModels = null;
@@ -59,6 +60,8 @@ import { intFromEnv } from './int-from-env.mjs';
 import { isSystemicRejection } from './source-record-quarantine.mjs';
 import { sourceChangedSinceSuppression } from './source-changed-since-suppression.mjs';
 import { normalizeCompanyKey, normalizeKey } from './company-key.mjs';
+import { buildStableJobIdentity } from './job-identity.mjs';
+import { inferCantonFromJobEvidence } from './canton-evidence.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
@@ -3826,9 +3829,14 @@ export function healTruncatedStLocalities(jobs) {
   const isBare = (j) => TRUNCATED_ST_LOCALITY_RE.test(String(j.addressLocality || j.location || '').trim());
 
   const applyCity = (job, city) => {
+    const sourceLocation = String(job.location || '').trim();
     job.location = city;
     job.addressLocality = city;
-    const cant = inferAnyCanton(city);
+    const cant = inferCantonFromJobEvidence({
+      cityText: city,
+      locationText: sourceLocation || city,
+      crawlerCanton: job.canton,
+    });
     if (cant) { job.addressRegion = cant; job.canton = cant; }
     // Heal a postalCode that was stamped via the canton-capital fallback (the
     // recovered locality was absent from swiss-postal-codes.json) so it matches
@@ -3903,6 +3911,24 @@ export function sameLocalityAsHq(city, hqLocality) {
     || cityNorm.includes(` ${hqNorm}`);
 }
 
+/**
+ * Postal code a crawler may fall back to when the source exposes none for a
+ * vacancy: the company-HQ one (`hqPostalCode`), which describes the HQ, not
+ * the vacancy (#9841: Helsana's 8600 Dübendorf on every Chur or Lausanne
+ * job). Kept for a vacancy in the HQ locality or without a city of its own
+ * (`sameLocalityAsHq`); '' for a vacancy in another known Swiss city, whose
+ * CAP the assembler derives from the city itself. An ambiguous or unknown
+ * locality ("Biel", "Wil", a clinic name) keeps it: the assembler's
+ * Swiss-municipality whitelist accepts such a locality only with a Swiss CAP
+ * on record, and the job pages never print a CAP next to a locality it does
+ * not belong to (`postalCodeBelongsToLocality`).
+ */
+export function hqPostalCodeForLocality(city, hqLocality, hqPostalCode) {
+  if (!hqPostalCode) return hqPostalCode;
+  if (sameLocalityAsHq(city, hqLocality)) return hqPostalCode;
+  return isKnownSwissCity(city) ? '' : hqPostalCode;
+}
+
 export function applyCompanyDefaults(job, companySlug) {
   const slug = companySlug || job?.companyKey || '';
   const defaults = COMPANY_DEFAULTS[slug];
@@ -3913,7 +3939,13 @@ export function applyCompanyDefaults(job, companySlug) {
     // the real per-job city; in that case derive the region from the city and
     // leave street/CAP empty for the PLZ/city fallback to resolve.
     const cityForCanton = String(job.addressLocality || job.location || '').trim();
-    const cityCanton = cityForCanton ? inferAnyCanton(cityForCanton) : '';
+    const cityCanton = cityForCanton
+      ? inferCantonFromJobEvidence({
+        cityText: cityForCanton,
+        locationText: job.location,
+        crawlerCanton: job.canton,
+      })
+      : '';
     const sameCanton = !cityCanton || cityCanton === defaults.addressRegion;
 
     // #3513: street+CAP are CITY-anchored — same canton is not enough. An
@@ -3993,7 +4025,11 @@ export function hardenJobsRichResultsData({ dataJobsPath }) {
     // If applyCompanyDefaults healed the locality away from the HQ default,
     // re-infer canton from the now-correct locality so it matches reality.
     if (aLBefore !== aLAfter && aLAfter) {
-      const inferred = inferAnyCanton(aLAfter);
+      const inferred = inferCantonFromJobEvidence({
+        cityText: aLAfter,
+        locationText: job.location,
+        crawlerCanton: job.canton,
+      });
       if (inferred && inferred !== job.canton) {
         job.canton = inferred;
         job.addressRegion = inferred;
@@ -5202,9 +5238,12 @@ export function isLikelyJobDetailUrl(rawUrl = '') {
     /\/jobs\/[^/?#]+/.test(url) ||
     /\/vacanc/.test(url) ||
     /\/offene-stellen\/[^/?#]+/.test(url) ||
+    /\/stelle\/[^/?#]+/.test(url) ||
+    /\/stellenangebote\/[^/?#]+_j_\d+(?:[/?#]|$)/.test(url) ||
     /\/posti-vacanti\/[^/?#]+/.test(url) ||
     /\/open-positions?\/[^/?#]+/.test(url) ||
     /\/offres?-emploi\/[^/?#]+/.test(url) ||
+    /\/work\/\d+\/[^/?#]+/.test(url) ||
     /\/careers?\/job/.test(url) ||
     /[?&](jobid|jobid=|gh_jid|lever-source|wdjobid|job_id|yid)=/.test(url) ||
     /\/position\//.test(url)
@@ -5591,6 +5630,54 @@ export function fingerprintJob(job) {
   const domain = registrableDomain(hostOf(job.url || '')) || normalizeSpace(job.company).toLowerCase();
   const key = `${normalizeSpace(job.title).toLowerCase()}|${normalizeSpace(job.location).toLowerCase()}|${domain}`;
   return `tl|${key.replace(/\s+/g, ' ')}`;
+}
+
+const EOC_UMANTIS_HOST = 'recruitingapp-2761.umantis.com';
+const EOC_COMPANY_KEY = 'eoc-ente-ospedaliero-cantonale';
+
+function normalizeContinuityPart(value = '') {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+/**
+ * Continuity key for EOC's Umantis records.
+ *
+ * Umantis has replaced live vacancy numbers while keeping the source slug,
+ * title, and location unchanged (for example 2670 → 2696). The numeric URL
+ * identity is still the canonical identity for every other purpose; this
+ * key is an opt-in bridge used only when the shared merge sees exactly one
+ * old and one fresh EOC record with the same source-facing shape.
+ *
+ * Empty/ambiguous keys deliberately return an empty string. A semantic bridge
+ * must never merge two same-title openings merely because they share a weak
+ * heuristic.
+ */
+export function eocContinuityKey(job = {}) {
+  let host = '';
+  try {
+    host = normalizeHost(hostOf(job?.url || ''));
+  } catch {
+    host = '';
+  }
+  const companyKey = normalizeCompanyKey(job?.companyKey || '');
+  if (host !== EOC_UMANTIS_HOST || companyKey !== EOC_COMPANY_KEY) return '';
+
+  const sourceLang = normalizeContinuityPart(job?.sourceLang || 'it') || 'it';
+  const sourceSlug = job?.slugByLocale?.[sourceLang]
+    || job?.slugByLocale?.it
+    || job?.slug
+    || '';
+  const slug = normalizeContinuityPart(sourceSlug);
+  const title = normalizeContinuityPart(job?.title || '');
+  const location = normalizeContinuityPart(job?.location || '');
+  if (slug.length < 12 || !title || !location) return '';
+
+  return `eoc:${slug}|${title}|${location}`;
 }
 
 export function dedupHeuristicKey(job) {
@@ -6169,6 +6256,24 @@ export function isJobPortalRelevant(job = {}) {
   return hasSeedMetaTargetScope(job);
 }
 
+// Toponym lists are matched as WHOLE WORDS with Unicode boundaries, never as
+// substrings: "berlin" sits inside Oberlindach (BE), where a Tertianum home
+// was dropped as a Berlin posting (#9846), and "roma" inside Romanshorn. A
+// hyphen or a space is a boundary, so "Berlin-Mitte" and "Wien 1010" still
+// match. Compiled once per list, on first use.
+const wholeWordMarkerReCache = new Map();
+function hasWholeWordMarker(lower, cacheKey, markers) {
+  let re = wholeWordMarkerReCache.get(cacheKey);
+  if (!re) {
+    const alternation = markers
+      .map((marker) => marker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+'))
+      .join('|');
+    re = new RegExp(`(?<![\\p{L}\\p{N}])(?:${alternation})(?![\\p{L}\\p{N}])`, 'iu');
+    wholeWordMarkerReCache.set(cacheKey, re);
+  }
+  return re.test(lower);
+}
+
 export function isExplicitlyOutsideTarget(text) {
   const lower = String(text || '').toLowerCase();
   const outsideMarkers = [
@@ -6217,7 +6322,7 @@ export function isExplicitlyOutsideTarget(text) {
     'australia', 'sydney', 'melbourne',
     'south africa', 'johannesburg', 'cape town',
   ];
-  const hitOutside = outsideMarkers.some((k) => lower.includes(k));
+  const hitOutside = hasWholeWordMarker(lower, 'outside-target', outsideMarkers);
   if (!hitOutside) return false;
   // Safeguard: if text also mentions any target Swiss location, it's not outside.
   // Word-boundary aware (via isTargetSwissLocation) — NOT a substring scan, which
@@ -6244,6 +6349,17 @@ const EXPLICIT_FOREIGN_COUNTRY_MARKERS = [
   'netherlands', 'belgium', 'sweden', 'norway', 'denmark', 'finland',
   'poland', 'czech republic', 'hungary', 'romania', 'greece',
   'russia', 'ukraine', 'turkey', 'bermuda',
+  // #9846: named in location fields of the 2026-09-25 slices and not
+  // recognised, so "Santiago de Chile, Chile" reached the Swiss whitelist and
+  // was kept on the strength of its Chilean postcode 2206.
+  'chile', 'costa rica', 'kazakhstan', 'ireland',
+  'argentina', 'colombia', 'peru', 'ecuador', 'uruguay', 'panama', 'guatemala',
+  'puerto rico', 'dominican republic', 'israel', 'egypt', 'morocco', 'tunisia',
+  'nigeria', 'kenya', 'pakistan', 'new zealand', 'bulgaria', 'croatia',
+  'serbia', 'slovakia', 'slovenia', 'estonia', 'latvia', 'lithuania',
+  // The German state whose name starts with the Aargau town Baden: explicit
+  // foreign geography whatever canton the record carries (#9846 review).
+  'württemberg', 'wuerttemberg', 'wurttemberg', 'wurtemberg',
 ];
 const EXPLICIT_FOREIGN_COUNTRY_RE = new RegExp(
   `(?:^|[^\\p{L}])(?:${EXPLICIT_FOREIGN_COUNTRY_MARKERS
@@ -6292,6 +6408,31 @@ const FOREIGN_ONLY_COUNTRY_CODES = new Set(
   FOREIGN_COUNTRY_CODES.filter((code) => !SWISS_LOCATION_CODES.has(code)),
 );
 
+// Lever's TSMG feed has exposed US locations as `City, ST` while omitting the
+// structured country. These are state abbreviations, not ISO country codes;
+// keep only the abbreviations that cannot also be Swiss canton codes so a
+// genuine `Bern, BE` / `Appenzell, AR` location remains ambiguous and safe.
+const US_STATE_CODES = new Set(`
+  AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT
+  NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY
+`.trim().split(/\s+/));
+const US_STATE_SUFFIX_RE = /(?:^|[,;])\s*([a-z]{2})\s*$/iu;
+
+function hasExplicitUsStateSuffix(lower) {
+  const match = String(lower || '').match(US_STATE_SUFFIX_RE);
+  if (!match) return false;
+  const code = String(match[1] || '').toUpperCase();
+  if (!US_STATE_CODES.has(code) || SWISS_LOCATION_CODES.has(code)) return false;
+
+  const locality = String(lower).slice(0, match.index).replace(/[,;]\s*$/, '').trim();
+  if (!locality) return false;
+  // A Swiss locality elsewhere in the field wins over an ambiguous suffix.
+  // This mirrors the existing country-code guards and prevents a department
+  // or free-text label from becoming a foreign verdict.
+  if (isTargetSwissLocation(locality, { includeBorderProximity: false })) return false;
+  return true;
+}
+
 // Region-prefixed ATS location fields put the country code in the MIDDLE,
 // where an end-of-field anchor cannot see it. This is not hypothetical: the
 // three tenants that reached production with a wrong published city all
@@ -6326,6 +6467,7 @@ function segmentNamesForeignCountry(lower) {
 }
 
 function hasExplicitForeignCountryCode(lower) {
+  if (hasExplicitUsStateSuffix(lower)) return true;
   // A labelled field is authoritative even when its two-letter value also
   // names a Swiss canton (for example, country: FR).
   if (EXPLICIT_FOREIGN_COUNTRY_FIELD_CODE_RE.test(lower)) return true;
@@ -6394,6 +6536,10 @@ export function isLocationExplicitlyForeign(locationField) {
     'venezia', 'venice', 'forte dei marmi', 'toscana', 'lombardia',
     // Western Europe
     'paris', 'lyon', 'marseille', 'london', 'birmingham', 'sutton coldfield',
+    // French/Italian forms of cities in this list, as translated descriptions
+    // write them (#9846: "bureaux à Genève, Zurich, Barcelone, Londres").
+    'londres', 'londra', 'parigi', 'barcelone', 'barcellona', 'lisbonne', 'lisbona',
+    'varsovie', 'varsavia', 'francoforte', 'monaco di baviera', 'amburgo',
     'berlin', 'munich', 'münchen',
     'frankfurt', 'hamburg', 'köln', 'koeln', 'cologne', 'vienna', 'wien', 'madrid', 'barcelona',
     'amsterdam', 'brussels', 'bruxelles', 'stockholm', 'oslo', 'copenhagen',
@@ -6414,11 +6560,12 @@ export function isLocationExplicitlyForeign(locationField) {
     'dallas', 'west hartford', 'durham', 'warren', 'miami',
     // Oceania & Africa
     'sydney', 'melbourne', 'cape town', 'johannesburg',
+    'windeck', // German municipality observed in TSMG rows with country=null
     // Liechtenstein & micro-states
     'ruggell', 'barberà del vallès', 'barbera del valles',
     'montecarlo', 'monte carlo', 'monte-carlo', 'monaco-ville',
   ];
-  return foreignCities.some((k) => lower.includes(k));
+  return hasWholeWordMarker(lower, 'foreign-cities', foreignCities);
 }
 
 // A SuccessFactors / SAP "career site" job page (used by Swatch Group, Omega,
@@ -7971,6 +8118,9 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     (job) => fingerprintJob(job),
     (base) => base.startsWith('id|eta.ch|'),
   );
+  const continuityKey = typeof options.continuityKey === 'function'
+    ? options.continuityKey
+    : null;
   let duplicateExisting = 0;
 
   for (const job of existingJobs) {
@@ -7994,6 +8144,39 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     }
     duplicateExisting += 1;
     map.set(fp, mergeDuplicateJobPreservingSlugHistory(prev, normalized));
+  }
+
+  // A source may rotate a vacancy URL while leaving the source-facing job
+  // unchanged. Build a bridge only for an injective one-to-one pair: any
+  // collision on either side is left alone so distinct openings cannot inherit
+  // one another's id, translations, or firstSeenAt.
+  const continuityBridgeByIncomingFingerprint = new Map();
+  if (continuityKey) {
+    const existingByContinuity = new Map();
+    const incomingByContinuity = new Map();
+    const collect = (index, jobs) => {
+      for (const job of jobs) {
+        const key = continuityKey(job);
+        if (!key) continue;
+        const group = index.get(key) || [];
+        group.push(job);
+        index.set(key, group);
+      }
+    };
+    collect(existingByContinuity, existingJobs);
+    collect(incomingByContinuity, incomingJobs);
+
+    for (const [key, existingGroup] of existingByContinuity) {
+      const incomingGroup = incomingByContinuity.get(key) || [];
+      if (existingGroup.length !== 1 || incomingGroup.length !== 1) continue;
+
+      const oldFingerprint = mergeFingerprint(existingGroup[0]);
+      const incomingFingerprint = mergeFingerprint(incomingGroup[0]);
+      if (!oldFingerprint || !incomingFingerprint || oldFingerprint === incomingFingerprint) continue;
+      if (!map.has(oldFingerprint) || map.has(incomingFingerprint)) continue;
+
+      continuityBridgeByIncomingFingerprint.set(incomingFingerprint, oldFingerprint);
+    }
   }
 
   let inserted = 0;
@@ -8020,7 +8203,16 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       id: raw.id || buildStableId(raw),
       crawledAt: nowIsoTs,
     };
-    const prev = map.get(fp);
+    let bridgedFromFingerprint = null;
+    let prev = map.get(fp);
+    if (!prev) {
+      const bridgeFingerprint = continuityBridgeByIncomingFingerprint.get(fp);
+      if (bridgeFingerprint && map.has(bridgeFingerprint)) {
+        bridgedFromFingerprint = bridgeFingerprint;
+        prev = map.get(bridgeFingerprint);
+        map.delete(bridgeFingerprint);
+      }
+    }
     if (!prev) {
       map.set(fp, { ...next, firstSeenAt: next.firstSeenAt || nowIsoTs });
       inserted += 1;
@@ -8064,6 +8256,44 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       previousSlugs: mergedPreviousSlugsCapped,
       previousSlugsByLocale: mergePreviousSlugsByLocale(prev.previousSlugsByLocale, next.previousSlugsByLocale, mergeJobId, 'mergeAndDeduplicate'),
     };
+    if (bridgedFromFingerprint) {
+      const currentIdentity = buildStableJobIdentity(next) || next.sourceIdentity || '';
+      if (currentIdentity) {
+        const historyByIdentity = new Map();
+        const addHistory = (identity, firstSeenAt, title) => {
+          if (!identity || identity === currentIdentity || historyByIdentity.has(identity)) return;
+          historyByIdentity.set(identity, {
+            sourceIdentity: identity,
+            ...(firstSeenAt ? { firstSeenAt } : {}),
+            ...(title ? { title } : {}),
+          });
+        };
+        for (const record of [prev, next]) {
+          addHistory(
+            record?.sourceIdentity || buildStableJobIdentity(record),
+            record?.firstSeenAt,
+            record?.title,
+          );
+          for (const history of Array.isArray(record?.sourceIdentityHistory)
+            ? record.sourceIdentityHistory
+            : []) {
+            addHistory(
+              history?.sourceIdentity,
+              history?.firstSeenAt || record?.firstSeenAt,
+              history?.title || record?.title,
+            );
+          }
+        }
+        best.sourceIdentity = currentIdentity;
+        const sourceIdentityHistory = [...historyByIdentity.values()]
+          .sort((a, b) => a.sourceIdentity.localeCompare(b.sourceIdentity));
+        if (sourceIdentityHistory.length > 0) {
+          best.sourceIdentityHistory = sourceIdentityHistory;
+        } else {
+          delete best.sourceIdentityHistory;
+        }
+      }
+    }
     if (shouldReusePreviousLocalization(prev, next, options.contentReuse || {})) {
       best.titleByLocale = { ...(prev.titleByLocale || {}) };
       best.descriptionByLocale = { ...(prev.descriptionByLocale || {}) };
@@ -8142,6 +8372,14 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     // every crawledAt-based freshness window — force the merged timestamp
     // onto whichever side was picked.
     chosen.crawledAt = best.crawledAt;
+    if (bridgedFromFingerprint && best.sourceIdentity) {
+      chosen.sourceIdentity = best.sourceIdentity;
+      if (best.sourceIdentityHistory?.length) {
+        chosen.sourceIdentityHistory = best.sourceIdentityHistory;
+      } else {
+        delete chosen.sourceIdentityHistory;
+      }
+    }
     // Preserve lost slugs: applied after preferJob so it works regardless of which
     // object was picked. Uses shared captureLostSlugs function.
     captureLostSlugs(chosen, prev.slugByLocale || {}, prev.slug || '');

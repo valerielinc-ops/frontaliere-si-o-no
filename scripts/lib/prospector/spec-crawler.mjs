@@ -114,9 +114,16 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
     timeoutMs: runtime.timeoutMs,
     headers: runtime.headers,
   });
-  if (result.ok) return result;
-
   let wafProxyExhausted = false;
+  const directChallenge = result.ok && looksLikeAntiBotChallenge(result.body);
+
+  // A WAF may answer HTTP 200 with an interstitial instead of a hard block.
+  // Treat that response like the existing 403/406/415/451 rescue path: a
+  // successful status is not evidence that the source page was observed when
+  // the body is an explicit anti-bot challenge. Without this check a promoted
+  // spec crawler feeds the interstitial to vacancy extraction, gets zero rows,
+  // and the standard pipeline records a misleading `no-jobs-parsed` bail-out.
+  if (result.ok && !directChallenge) return result;
 
   // A public career page can answer 403/406/415/451 only to the GitHub
   // Actions egress IP while serving the same URL to a clean residential IP.
@@ -127,7 +134,7 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
   // anti-bot outage so the standard pipeline preserves the previous slice and
   // the next scheduled run can retry it without opening a false crawler red.
   if (!result.policyBlocked && !result.blockedByRobots
-    && WAF_IP_BLOCK_STATUS.has(Number(result.status))
+    && (directChallenge || WAF_IP_BLOCK_STATUS.has(Number(result.status)))
     && runtime.disableWafProxy !== true) {
     const proxiedBody = await fetchHtmlViaJinaWithRetry(url, {
       timeoutMs: runtime.timeoutMs,
@@ -150,6 +157,10 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
     // challenge variants are valid-looking 200 bodies. Keep the same
     // anti-bot safe-fail semantics for those variants instead of parsing a
     // challenge as an empty listing page.
+    wafProxyExhausted = true;
+  } else if (directChallenge) {
+    // Proxy rescue was disabled or the response was otherwise not eligible;
+    // the body is still a confirmed anti-bot fence, not an empty source.
     wafProxyExhausted = true;
   }
 
@@ -258,6 +269,15 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       try { host = normalizeHost(new URL(effectiveSeedUrl).hostname); } catch { /* skip override */ }
       const direct = host ? matchKnownTemplate(links, templateRx, host) : [];
       if (direct.length) candidates = direct;
+    }
+    if (!candidates.length) {
+      // Un seed che risponde 200 senza nessun annuncio è indistinguibile, a
+      // valle, da un datore di lavoro senza offerte: `vereinaklosters`
+      // (hotelcareer.ch) dà due annunci da un IP pulito e zero righe dal
+      // runner CI, senza altra traccia nel log. Il titolo e il numero di link
+      // della pagina ricevuta dicono se era la pagina attesa o un interstiziale.
+      const pageTitle = (/<title[^>]*>([\s\S]{0,200}?)<\/title>/i.exec(html)?.[1] || '').replace(/\s+/g, ' ').trim();
+      console.warn(`[prospector:${spec.companyKey}] nessun annuncio su ${effectiveSeedUrl}: title="${pageTitle}", ${links.length} link, ${html.length} byte`);
     }
     for (const v of candidates) {
       if (!v.title || !v.url) continue;

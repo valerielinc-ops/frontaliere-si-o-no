@@ -243,6 +243,10 @@ import {
  exchangeLinkedInCode,
  saveUserProfileToFirestore,
  consumeAuthJobContext,
+ consumeAuthAttributionContext,
+ resolveAuthConsentSurface,
+ jobGateSubscriberVariantFor,
+ sanitizeAuthReturnPath,
 } from '@/services/authService';
 import { settleNewsletterAutologin, parseNewsletterAutologin } from '@/services/newsletterAutologinSignal';
 import { claimOneTapPrompt, ONETAP_PENDING_KEY, ONETAP_PROMPTED_KEY } from '@/services/oneTapPromptGate';
@@ -344,6 +348,17 @@ function safeCompanyFollowPath(value: unknown): string | null {
   return null;
  }
 }
+
+/**
+ * The assistant's fallback Google button (the one App.tsx hands to the chat as
+ * `onSignIn` when the GIS button is not ready). Its own cta keeps it apart from
+ * the rendered button's `ai_chatbot_social`; the component names the surface,
+ * so the registration records `ai_chatbot` rather than an anonymous login.
+ */
+const AI_CHATBOT_FALLBACK_AUTH_ATTRIBUTION = Object.freeze({
+ cta: 'ai_chatbot_fallback_google',
+ component: 'AiChatbot',
+});
 
 const App: React.FC = () => {
  const { t, locale } = useTranslation();
@@ -711,6 +726,9 @@ const App: React.FC = () => {
  return;
  }
  if (!decodedState.startsWith('/')) return;
+ // Same-origin paths only: `//host` or `/\host` would make the final
+ // location.replace an open redirect.
+ if (!sanitizeAuthReturnPath(decodedState)) return;
 
  // Only handle on expected callback path OR on root (fallback when the
  // sessionStorage-based SPA restoration from /auth/linkedin/callback/ fails).
@@ -718,6 +736,10 @@ const App: React.FC = () => {
  if (path !== '/auth/linkedin/callback' && path !== '/') return;
 
  Analytics.trackUIInteraction('auth', 'linkedin', 'login', 'callback-return');
+
+ // The surface that started the login, parked by signInWithLinkedIn under
+ // this exact `state`; without it the origin page is the state path itself.
+ const linkedInAttribution = consumeAuthAttributionContext({ linkedinState: state }) || { page: decodedState };
 
  if (errorParam) {
  // User cancelled or LinkedIn returned an error
@@ -730,7 +752,20 @@ const App: React.FC = () => {
 
  setLinkedInCallbackProcessing(true);
 
- const customToken = await exchangeLinkedInCode(code);
+ // Read before the exchange: the job context also names the consent
+ // surface (the job gate) of the registration the Cloud Function writes.
+ const savedJobCtx = consumeAuthJobContext();
+ const linkedInConsentSurface = resolveAuthConsentSurface({
+  provider: 'linkedin',
+  attribution: linkedInAttribution,
+  jobContext: savedJobCtx,
+ });
+ const customToken = await exchangeLinkedInCode(code, linkedInAttribution, {
+  surface: linkedInConsentSurface,
+  // jobgate-v3 arm of an enrolled gate login: the Cloud Function creates the
+  // subscriber, so the readout's join key has to reach it.
+  variant: jobGateSubscriberVariantFor(savedJobCtx, linkedInConsentSurface),
+ });
 
  if (cancelled) return;
 
@@ -746,11 +781,11 @@ const App: React.FC = () => {
  Analytics.trackUIInteraction('auth', 'linkedin', 'login', user ? 'success' : 'no-user');
 
  if (user) {
- // Best-effort: save/update user profile in Firestore for personalization
- saveUserProfileToFirestore(user, 'linkedin').catch(() => {});
+ // Best-effort: save/update user profile in Firestore for personalization,
+ // with the job and surface contexts that started this LinkedIn login.
+ saveUserProfileToFirestore(user, 'linkedin', savedJobCtx, linkedInAttribution).catch(() => {});
 
  const email = getAuthEmail(user);
- const savedJobCtx = consumeAuthJobContext();
 
  // Google/Email emit job_auth_funnel:auth_success inline; LinkedIn lands here
  // after a full-page OAuth redirect so the success event must be emitted from
@@ -1406,7 +1441,9 @@ const App: React.FC = () => {
  }, [activeTab, authLoading, authUser, isPrivilegedAdmin, locale]);
 
  const chatbotGoogleSignIn = async (): Promise<any | null> => {
- return googleSignIn();
+ // The assistant's fallback button: attributed to the assistant, so its
+ // registration names the surface it came from.
+ return googleSignIn(AI_CHATBOT_FALLBACK_AUTH_ATTRIBUTION);
  };
 
  const chatbotFacebookSignIn = async (): Promise<any | null> => {

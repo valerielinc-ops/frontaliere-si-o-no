@@ -149,3 +149,114 @@ because the model hook only fired on `JobBoard`, not on the orphan/expired
 views). Owner decision: **drop it.** Applied by removing `useAuthGateModelVariant`
 and the `value_first` branch from `JobBoard` (preview box reverts to the control
 ~220-char teaser) and deactivating PostHog flag `authgate-model-v1` (id `211373`).
+
+---
+
+## Round 3 — `jobgate-v3` — LIVE since 2026-09-25 (~04:55 UTC), 25/25/25/25
+
+First *randomised* multi-arm round. Rounds 1-2 and the model test set the arm
+globally (PostHog flag, later `AUTHGATE_HEADLINE_VARIANT`); v3 assigns each
+visitor deterministically and stickily, so all arms run at the same time on
+comparable traffic.
+
+**Wiring.**
+
+- Core (pure, shared with the publisher script): `services/jobGateExperimentCore.mjs`;
+  typed facade + page-session state: `services/jobGateExperiment.ts`;
+  Remote Config loader, hook and exposure: `hooks/useJobGateExperiment.ts`.
+- Arm = `hash(browser id + "jobgate-v3")` over the integer weights, walked in
+  the canonical arm order (re-ordering JSON keys never reshuffles visitors).
+  Browser id = the non-PII `frontaliere_assisted_application_distinct_id`
+  (localStorage); no id → not enrolled.
+- Remote Config (all strings, allowlisted in `functions/src/publicConfigKeys.js`,
+  safe defaults in `services/firebase.ts`):
+  - `JOBGATE_EXPERIMENT_ENABLED` — kill switch; anything but `true` = today's gate
+    for everybody, no v3 tags (default `false`);
+  - `JOBGATE_EXPERIMENT_ARMS` — e.g. `{"control":25,"similar_alerts":25,"social_first":25,"email_first":25}`;
+    invalid JSON/unknown arm/non-integer → `{"control":100}` (default);
+  - `JOBGATE_EXPERIMENT_FORCE` — a valid arm forces it for everybody while
+    ENABLED is `true` (QA/promotion); default empty.
+- Remote Config slower than 3 s, or throwing → not enrolled for that page view
+  (no late flip). Crawlers/bots are bypassed and never tagged.
+- Publish: `node scripts/experiments/jobgate-v3-rc.mjs` (dry-run: reads the
+  template, validates, prints the diff of the three keys) then `--apply`
+  (etag-guarded publish, no `force`). `--kill --apply` flips the kill switch.
+
+**Telemetry contract** (shared with `scripts/analytics/job-gate-experiment-readout.mjs`):
+
+- `experiment_assigned {experiment_id:'jobgate-v3', variant}` once per visitor,
+  at the first gate shown while enrolled;
+- every `job_auth_funnel` (`gate_view`, `auth_method_click`, `auth_success`,
+  `auth_fail`) and the gate's `newsletter` `subscribe` carry
+  `experiment_id='jobgate-v3'` + `variant` while enrolled;
+- the subscriber written by the gate gets `newsletter_subscribers.variant =
+  'jobgate-v3:<arm>'`.
+
+The GA4 params `experiment_id`/`variant` on `job_auth_funnel` exist only from
+#9662 (2026-09-24): earlier `job_auth_funnel` rows read `(not set)` on those
+dimensions, so no v3 comparison can reach back before launch.
+
+**Arms and hypotheses.** Baseline (GA4 + Firestore, 30 days to 2026-09-24):
+49,308 persons saw the gate, 877 became new subscribers from it (1.8%): 478
+via a provider (confirmed at once), 399 via email of which only ~32% confirm.
+Only ~5% of gate viewers click any method, so the arms split between the
+*value* problem (the 95% who never try) and the *method* problem.
+
+| arm | change (inline gate only) | hypothesis |
+| --- | --- | --- |
+| `control` | none — byte-identical gate | baseline |
+| `similar_alerts` | headline + first benefit promise email alerts for similar jobs; after an email unlock the pending notice says "confirm to get jobs similar to «title»" and offers "Open Gmail/Outlook…" for known providers | a concrete, recurring benefit (the job-alert backfill already derives alerts from `job_category`/`job_location`) beats the generic "free forever"; restating it at the confirmation step lifts the ~32% email confirmation |
+| `social_first` | the email form starts collapsed (one tap to open) | fewer choices; shifts the mix toward provider sign-ins, which are confirmed immediately |
+| `email_first` | the email form moves above the Google/LinkedIn buttons | the email path unlocks instantly without a popup/redirect or a third-party account choice — mostly mobile readers without a Google session (mobile is 30% of gate viewers but 65% of auth_success) |
+
+Not re-tested: the longer teaser (`authgate-model-v1`/`value_first`, dropped
+above); "unlock by email without waiting for confirmation" is already today's
+behaviour (the email unlock is immediate).
+
+**Metrics.** Primary: persons with a new gate subscription / persons with a
+v3 `gate_view`, per arm. Secondary: `auth_success`/`gate_view` per person,
+email confirmation rate (`newsletter_subscribers` with `variant` prefix
+`jobgate-v3:`), `job_apply`.
+
+**Power.** Two-sided, 80% power, Bonferroni over 3 comparisons (α=0.0167),
+baseline 1.78%, 4 arms at 25%:
+
+| detectable relative lift | persons/arm | days @1,600/day | days @1,000/day |
+| --- | --- | --- | --- |
+| +30% | 14,730 | 39 | 62 |
+| +40% | 8,636 | 23 | 37 |
+| +50% | 5,750 | 16 | 25 |
+
+Daily gate persons: 1,675 mean over 28 days, but ~1,000/day over 2026-09-13…23.
+**Minimum duration: 28 days** (four whole weeks; +40% at 1,600/day), **42 days**
+if traffic stays at ~1,000/day. No early stop on a peek: decide once, at the
+planned end. Round 1 moved auth_success by +50.8%, so +40% on structural
+levers is an ambitious but not unprecedented target.
+
+**Re-plan without robots (2026-09-25).** The table above used a baseline
+diluted by an automation fleet (Windows + Chrome, 1280x1200 screen, from
+Singapore: ~1,650 "persons"/day on the gate on 1-12/09, back in bursts from
+24/09). It now never enters the experiment (`matchesAutomationScreenSignature`
+in `services/botPatterns.ts`, part of `isLikelyBot()`) and the readout drops it
+from every GA4 count (`GA4_EXCLUDED_TRAFFIC` in `scripts/lib/experiment-stats.mjs`,
+printed per signature and arm). Without it, 16-24/09: 7,226 gate persons, 208
+new gate subscribers (after the 2026-09-25 `created_at` backfill), **baseline
+2.88%** (2.24% with the robots in the denominator); ~700 unique gate
+persons/day over 21-42-day windows. The plan in
+`scripts/experiments/jobgate-v3-plan.mjs`: +30% relative, 80% power, α 0.05/3
+→ **8,981 persons per arm**, **56 days** (analysis from 2026-09-26: the launch
+day had a CDN outage 04:55-06:30 UTC), decisions on whole weeks only, maximum
+70 days.
+
+**Monitor and automatic promotion.** `.github/workflows/jobgate-experiment-monitor.yml`
+runs `scripts/experiments/jobgate-v3-monitor.mjs` daily: it rewrites one status
+issue (`[jobgate-v3] Monitor esperimento: stato giornaliero`), opens/closes
+alarm issues (SRM p < 0.001, an arm significantly worse than control by ≥10%
+after Holm, gate subscribers missing the arm tag) and never changes anything
+for an alarm. It publishes `JOBGATE_EXPERIMENT_FORCE=<winner>` (etag, no
+`force`) only when the whole-week window has ≥ the planned days and persons per
+arm, no SRM, a challenger beating control on the primary metric with Holm
+p < 0.05, the winner not significantly worse on auth/gate or confirmation, and
+≥80% of gate subscribers carrying their arm. Past 70 days without that it asks
+the owner. Once FORCE is set the monitor pauses (idempotent). The decision
+rules are pinned in `tests/experiment-monitor.test.ts`.

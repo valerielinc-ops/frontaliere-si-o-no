@@ -5,8 +5,10 @@ const workflow = readFileSync(
   new URL('../.github/workflows/backfill-expired-from-history.yml', import.meta.url),
   'utf8',
 );
-
-const gate = "steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'";
+const recoveryWorkflow = readFileSync(
+  new URL('../.github/workflows/backfill-expired-from-history-recovery.yml', import.meta.url),
+  'utf8',
+);
 
 describe('backfill-expired-from-history.yml — durable checkpoints', () => {
   it('processes one crawler at a time and checkpoints partial batches', () => {
@@ -16,12 +18,26 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
 
     expect(backfillStart).toBeGreaterThanOrEqual(0);
     expect(reassembleStart).toBeGreaterThan(backfillStart);
-    expect(block).toContain(`if: ${gate}`);
+    expect(block).toContain("if: inputs.dry_run != true && inputs.dry_run != 'true'");
     expect(block).toContain('BACKFILL_CHECKPOINT_BATCH_SIZE');
+    expect(block).toContain("BACKFILL_CHECKPOINT_BATCH_SIZE: '16'");
+    expect(workflow).not.toContain('human_approval:');
+    expect(workflow).not.toContain('human-side-effect-gate.mjs');
     expect(block).toContain('CRAWLER_KEYS="$key" node scripts/backfill-expired-from-history.mjs');
     expect(block).toContain('trap on_exit EXIT');
+    expect(block).toContain("trap 'on_signal 143' TERM");
+    expect(block).toContain("trap 'on_signal 130' INT");
+    expect(block).toContain('backfill-expired-from-history-progress.tsv');
+    expect(block).toContain('last_completed_key');
+    expect(block).toContain('workset_hash');
+    expect(block).toContain('checkpoint_cursor="${last_completed_key:--}"');
+    expect(block).toContain('"$saved_last" != \'-\'');
+    expect(block).toContain('checkpoint 1');
     expect(block).toContain('has_dirty_slices');
+    expect(block).toContain('has_dirty_checkpoint');
     expect(block).toContain('data/jobs/by-crawler data/jobs/expired/by-crawler');
+    expect(block).toContain('grep . >/dev/null');
+    expect(block).not.toContain('rg -q');
     expect(block).toContain('node scripts/assemble-jobs-dataset.mjs');
     expect(block).toContain('npm run test:backfill');
     expect(block).toContain('node scripts/audit-expired-at-parsable.mjs');
@@ -34,6 +50,14 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(block).toContain('for key in "${key_list[@]}"; do');
     expect(block).toContain('checkpoint history backfill slices');
     expect(block.indexOf('npm run test:backfill')).toBeLessThan(block.indexOf('git-commit-data.sh --slice-only'));
+  });
+
+  it('riavvia automaticamente solo la run fallita/cancellata e con un tetto di tentativi', () => {
+    expect(recoveryWorkflow).toContain('workflow_run:');
+    expect(recoveryWorkflow).toContain('Backfill Expired Jobs From History');
+    expect(recoveryWorkflow).toContain("github.event.workflow_run.path == '.github/workflows/backfill-expired-from-history.yml'");
+    expect(recoveryWorkflow).toContain("github.event.workflow_run.run_attempt < 3");
+    expect(recoveryWorkflow).toContain('reRunWorkflow');
   });
 
   it('deploys after a successful rerun even when the checkpoint is already on main', () => {

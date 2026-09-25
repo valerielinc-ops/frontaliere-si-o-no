@@ -5,6 +5,8 @@ import {
   fetchHtml,
   fetchPdfText,
   FIXED_PRICE_SOURCE_CONFIGS,
+  fetchGePlateAuctions,
+  GE_PLATE_AUCTION_SOURCE,
   resolveVariantPdfUrl,
   parseAiFixedPricePdfText,
   parseBsFixedPricePdfText,
@@ -13,8 +15,11 @@ import {
   parseEcariAuctionRows,
   parseUrFixedPricePdfText,
   parseZhAuctionCards,
+  isExplicitlyEmptyCatalogue,
   SWISSSIGN_RSA_TLS_OV_ICA_2022_1,
+  withEcariEmptyState,
 } from './plateAuctionsCore.js';
+import { FieldValue } from 'firebase-admin/firestore';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY } from './plateAuctionSourceRegistry.js';
 import { chunkPlateAuctionWrites } from './plateAuctionBatch.js';
@@ -22,6 +27,7 @@ import {
   checkPlateAuctionQuality,
   derivePlateAuctionDataConfidence,
   observeCatalogueDisappearance,
+  PLATE_AUCTION_MISSING_GRACE_MS,
   recognizeCatalogueSales,
 } from './plateAuctionQualityCore.js';
 
@@ -141,6 +147,17 @@ const CONNECTORS = {
   bl: makeEcariConnector({ canton: 'Basilea Campagna', plateCode: 'BL', url: 'https://eauktion.bl.ch/ecari-auction/ui/app/init' }),
   bs: makeFixedPriceConnector({ sourceKey: 'bs', parse: parseBsFixedPricePdfText }),
   fr: makeEcariConnector({ canton: 'Friburgo', plateCode: 'FR', url: 'https://appls.ocn.ch/ecari-auction/ui/app/init?locale=fr_ch' }),
+  // Ginevra: lista PDF dell'OCV su ge.ch (numeri e date, nessun prezzo);
+  // Ricardo è solo un link. Gira solo quando il registry la segna `active`.
+  ge: {
+    canton: GE_PLATE_AUCTION_SOURCE.canton,
+    plateCode: GE_PLATE_AUCTION_SOURCE.plateCode,
+    url: GE_PLATE_AUCTION_SOURCE.pageUrl,
+    parserVersion: GE_PLATE_AUCTION_SOURCE.parserVersion,
+    fetchSource({ fetchedAt, injectedFetcher } = {}) {
+      return fetchGePlateAuctions({ fetchedAt, now: new Date(fetchedAt), injectedFetcher });
+    },
+  },
   gl: makeFixedPriceConnector({ sourceKey: 'gl', parse: parseGlFixedPriceJson }),
   gr: {
     canton: 'Grigioni',
@@ -148,12 +165,13 @@ const CONNECTORS = {
     url: 'https://eauktion.gr.ch/',
     parserVersion: '2.0.0',
     parse(html, fetchedAt) {
-      return [
+      const tabs = [
         ['tabContent1', 'active', 'auction', 'gr'],
         ['tabContent2', 'upcoming', 'future-registration', 'gr-future'],
         ['tabContent3', 'active', 'fixed-price', 'gr-fixed'],
         ['tabContent4', 'upcoming', 'wanted', 'gr-wanted'],
-      ].flatMap(([tab, auctionStatus, listingType, idPrefix]) => parseEcariAuctionRows(extractEcariTabSection(html, tab), {
+      ];
+      return withEcariEmptyState(tabs.flatMap(([tab, auctionStatus, listingType, idPrefix]) => parseEcariAuctionRows(extractEcariTabSection(html, tab), {
         canton: 'Grigioni',
         plateCode: 'GR',
         officialAuctionUrl: 'https://eauktion.gr.ch/',
@@ -162,7 +180,7 @@ const CONNECTORS = {
         listingType,
         idPrefix,
         detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl('https://eauktion.gr.ch/', sourceRecordId),
-      }));
+      })), html, tabs.map(([tab]) => tab));
     },
   },
   nw: makeEcariConnector({ canton: 'Nidvaldo', plateCode: 'NW', url: 'https://ecarinwprod.ilz.info/ecari-auction/' }),
@@ -174,11 +192,12 @@ const CONNECTORS = {
     url: 'https://ecari.vs.ch/ecari-auction/',
     parserVersion: '2.0.0',
     parse(html, fetchedAt) {
-      return [
+      const tabs = [
         ['tabContent1', 'active', 'auction', 'vs'],
         ['tabContent2', 'upcoming', 'future-registration', 'vs-future'],
         ['tabContent4', 'upcoming', 'wanted', 'vs-wanted'],
-      ].flatMap(([tab, status, listingType, idPrefix]) => parseEcariAuctionRows(extractEcariTabSection(html, tab), {
+      ];
+      return withEcariEmptyState(tabs.flatMap(([tab, status, listingType, idPrefix]) => parseEcariAuctionRows(extractEcariTabSection(html, tab), {
         canton: 'Vallese',
         plateCode: 'VS',
         officialAuctionUrl: 'https://ecari.vs.ch/ecari-auction/',
@@ -187,7 +206,7 @@ const CONNECTORS = {
         listingType,
         idPrefix,
         detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl('https://ecari.vs.ch/ecari-auction/', sourceRecordId),
-      }));
+      })), html, tabs.map(([tab]) => tab));
     },
   },
   vd: makeCardConnector({
@@ -202,12 +221,13 @@ const CONNECTORS = {
     url: 'https://www.carieauktion.ti.ch/ecari-auktion/',
     parserVersion: '2.0.0',
     parse(html, fetchedAt) {
-      return [
+      const tabs = [
         ['tabContent1', 'active', 'auction', 'ti'],
         ['tabContent2', 'upcoming', 'future-registration', 'ti-future'],
         ['tabContent3', 'active', 'fixed-price', 'ti-fixed'],
         ['tabContent4', 'upcoming', 'wanted', 'ti-wanted'],
-      ].flatMap(([tab, auctionStatus, listingType, idPrefix]) => parseEcariAuctionRows(extractEcariTabSection(html, tab), {
+      ];
+      return withEcariEmptyState(tabs.flatMap(([tab, auctionStatus, listingType, idPrefix]) => parseEcariAuctionRows(extractEcariTabSection(html, tab), {
         canton: 'Ticino',
         plateCode: 'TI',
         officialAuctionUrl: 'https://www.carieauktion.ti.ch/ecari-auktion/',
@@ -216,7 +236,7 @@ const CONNECTORS = {
         listingType,
         idPrefix,
         detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl('https://www.carieauktion.ti.ch/ecari-auktion/', sourceRecordId),
-      }));
+      })), html, tabs.map(([tab]) => tab));
     },
   },
   lu: makeFixedPriceConnector({ sourceKey: 'lu', parse: parseLuFixedPricePdfText }),
@@ -302,7 +322,7 @@ const ECARI_TABS = [
 ];
 
 function parseEcariSource(html, { canton, plateCode, officialAuctionUrl, fetchedAt, tabs = ECARI_TABS }) {
-  return tabs.flatMap(([tabContentId, auctionStatus, listingType, idSuffix]) => parseEcariAuctionRows(
+  return withEcariEmptyState(tabs.flatMap(([tabContentId, auctionStatus, listingType, idSuffix]) => parseEcariAuctionRows(
     extractEcariTabSection(html, tabContentId),
     {
       canton,
@@ -314,7 +334,7 @@ function parseEcariSource(html, { canton, plateCode, officialAuctionUrl, fetched
       idPrefix: idSuffix === 'auction' ? plateCode.toLowerCase() : `${plateCode.toLowerCase()}-${idSuffix}`,
       detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl(officialAuctionUrl, sourceRecordId),
     },
-  ));
+  )), html, tabs.map(([tabContentId]) => tabContentId));
 }
 
 function parseCardSource(html, { canton, plateCode, officialAuctionUrl, detailBaseUrl, fetchedAt }) {
@@ -566,12 +586,28 @@ function sourceDocument(sourceKey, config, fetchedAt, patch = {}) {
 }
 
 /**
+ * Sources whose fetch and Firestore write dominate the run (BS: ~16'000 rows)
+ * go last, so a slow or failing heavy source can never leave the small
+ * catalogues after it — SZ, FR and TI among them, which the static collector
+ * reads through the API relay — on an old snapshot.
+ */
+const PLATE_AUCTION_HEAVY_SOURCES = new Set(['bs']);
+
+export function plateAuctionRefreshOrder(keys) {
+  return [
+    ...keys.filter((key) => !PLATE_AUCTION_HEAVY_SOURCES.has(key)),
+    ...keys.filter((key) => PLATE_AUCTION_HEAVY_SOURCES.has(key)),
+  ];
+}
+
+/**
  * @param {{db?: any, fetcher?: (url: string, options?: Record<string, unknown>) => Promise<any>, now?: Date}} options
  */
 export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = new Date() } = {}) {
   const fetchedAt = now.toISOString();
   const summaries = {};
-  for (const [key, config] of Object.entries(CONNECTORS)) {
+  for (const key of plateAuctionRefreshOrder(Object.keys(CONNECTORS))) {
+    const config = CONNECTORS[key];
     if (PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY[key]?.status !== 'active') continue;
     try {
       const parsedRows = typeof config.fetchSource === 'function'
@@ -583,7 +619,10 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
       const sourceRef = db.collection(PLATE_AUCTION_SOURCE_COLLECTION).doc(key);
       const previous = { docs: await readSourceRows(db, config.plateCode) };
       const previousById = new Map(previous.docs.map((doc) => [doc.id, { id: doc.id, ...doc.data() }]));
-      if (parsedRows.length === 0) {
+      // eCari's own "no auction running" page is an answered, empty catalogue:
+      // it takes the normal path below. Only an empty parse WITHOUT that
+      // explicit state is a broken fetch and stays `zero_rows`.
+      if (parsedRows.length === 0 && !isExplicitlyEmptyCatalogue(parsedRows)) {
         // An empty upstream response is degraded, but it must not leave a
         // record visibly active after its official deadline. Close expired
         // observations in both current and history collections while keeping
@@ -629,7 +668,12 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
         const old = previousById.get(row.id) || {};
         const ref = db.collection(PLATE_AUCTION_COLLECTION).doc(row.id);
         const record = { ...row, firstSeenAt: old.firstSeenAt || row.firstSeenAt || fetchedAt, lastSeenAt: fetchedAt };
-        writes.push({ ref, record, merge: true });
+        // Listed again, so no longer missing. A merge keeps every field the
+        // record does not name, so the stamp has to be deleted explicitly —
+        // only on the current document: history is a plain set, where a
+        // delete sentinel is rejected.
+        const currentRecord = old.missingSince === undefined ? record : { ...record, missingSince: FieldValue.delete() };
+        writes.push({ ref, record: currentRecord, merge: true });
         writes.push({ ref: db.collection(PLATE_AUCTION_HISTORY_COLLECTION).doc(`${row.id}-${fetchedAt.replace(/[^0-9]/g, '').slice(0, 14)}`), record });
       }
       const currentIds = new Set(rows.map((row) => row.id));
@@ -645,35 +689,70 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
       const isSaleCandidate = (row) => row.listingType === 'fixed-price'
         && timestampMs(row.endsAt) === undefined
         && ['active', 'upcoming'].includes(row.auctionStatus);
-      const saleCandidates = vanished.filter(([, old]) => isSaleCandidate(old));
-      const protectedVanished = vanished.filter(([, old]) => !isSaleCandidate(old)
-        && ['active', 'upcoming'].includes(old.auctionStatus));
-      // Only LIVE observations may enter the denominator. This same path
-      // writes closed records back into PLATE_AUCTION_COLLECTION below, so
-      // `previousById.size` grows with every accumulated sale while
-      // `rows.length` only ever counts the live feed: the 95% band would
-      // tighten run after run until a healthy feed was classified
-      // preserve-as-live and sales stopped being recorded altogether.
+      const isLive = (row) => ['active', 'upcoming'].includes(row?.auctionStatus);
+      const isUnexpiredLive = (row) => isLive(row)
+        && (timestampMs(row.endsAt) === undefined || timestampMs(row.endsAt) > now.getTime());
+      // Same ratchet as scripts/plate-auctions/ingest.mjs: a vanished row this
+      // path neither sold nor archived stayed `active` in the collection, came
+      // back as `previous` on the next run and was judged again with the same
+      // numbers, forever. The run that first misses a row stamps it
+      // `missingSince`; a stamped row was already judged, so it leaves the
+      // denominator and the vanished count, and is resolved by the grace window.
+      const missingSinceOf = (row) => timestampMs(row?.missingSince);
+      const stillLive = vanished.filter(([, old]) => isUnexpiredLive(old));
+      const newlyMissing = stillLive.filter(([, old]) => missingSinceOf(old) === undefined);
+      const knownMissing = stillLive.filter(([, old]) => missingSinceOf(old) !== undefined);
+      const saleCandidates = newlyMissing.filter(([, old]) => isSaleCandidate(old));
+      // Only unexpired rows: a row past its deadline is archived below, as in
+      // ingest, and is not an upstream anomaly.
+      const protectedVanished = newlyMissing.filter(([, old]) => !isSaleCandidate(old));
+      // Only LIVE observations the LAST fetch still listed may enter the
+      // denominator. This same path writes closed records back into
+      // PLATE_AUCTION_COLLECTION below, so `previousById.size` grows with every
+      // accumulated sale while `rows.length` only ever counts the live feed:
+      // the 95% band would tighten run after run until a healthy feed was
+      // classified preserve-as-live and sales stopped being recorded
+      // altogether. A stamped row is the same trap: the upstream did not list
+      // it last time either.
       const previousLiveCount = [...previousById.values()]
-        .filter((row) => ['active', 'upcoming'].includes(row?.auctionStatus)).length;
+        .filter((row) => isLive(row) && missingSinceOf(row) === undefined).length;
       const saleDecision = recognizeCatalogueSales({
+        sourceKey: key,
         previousCount: previousLiveCount,
         fetchedCount: rows.length,
         vanishedCount: saleCandidates.length,
       });
+      // A stamped row still absent after the grace window is recorded, but
+      // only by a fetch that is itself healthy (non-empty, band and cap passed
+      // on the new losses): a run that may be truncated is no evidence an
+      // older absence is final, and an explicitly empty eCari page lists
+      // nothing to measure against. Same rule as ingest.
+      const expiredMissingIds = new Set(rows.length > 0 && saleDecision.recognized
+        ? knownMissing
+          .filter(([, old]) => now.getTime() - missingSinceOf(old) >= PLATE_AUCTION_MISSING_GRACE_MS)
+          .map(([id]) => id)
+        : []);
       console.log(
         `[refreshPlateAuctions:${key}] sale-recognition previous=${previousLiveCount} `
         + `fetched=${rows.length} vanished=${saleCandidates.length} protected=${protectedVanished.length} cap=${saleDecision.cap} `
+        + `known-missing=${knownMissing.length} expired-missing=${expiredMissingIds.size} `
         + (saleDecision.recognized ? `decision=sales sold=${saleCandidates.length}` : `decision=preserve-as-live blocked-by=${saleDecision.blockedBy.join('+')}`),
       );
       const recognizedSaleIds = new Set(saleDecision.recognized ? saleCandidates.map(([id]) => id) : []);
       for (const [id, old] of vanished) {
         // A deadline that has passed archives the row; a catalogue removal in
-        // a healthy catalogue is a sale. Neither ever carries a final price.
-        const record = recognizedSaleIds.has(id)
+        // a healthy catalogue is a sale, and so is an absence that outlived
+        // the grace window. None of them ever carries a final price.
+        const record = recognizedSaleIds.has(id) || expiredMissingIds.has(id)
           ? observeCatalogueDisappearance({ ...old, id }, now)
           : closeExpiredObservation(old, now);
-        if (!record) continue;
+        if (!record) {
+          // Preserved as live: stamp the first run that missed it, once.
+          if (isUnexpiredLive(old) && missingSinceOf(old) === undefined) {
+            writes.push({ ref: db.collection(PLATE_AUCTION_COLLECTION).doc(id), record: { missingSince: fetchedAt }, merge: true });
+          }
+          continue;
+        }
         writes.push({ ref: db.collection(PLATE_AUCTION_COLLECTION).doc(id), record, merge: true });
         writes.push({ ref: db.collection(PLATE_AUCTION_HISTORY_COLLECTION).doc(`${id}-${fetchedAt.replace(/[^0-9]/g, '').slice(0, 14)}-closed`), record });
       }
@@ -707,7 +786,10 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
       const allLossesAreSales = saleDecision.recognized
         && protectedVanished.length === 0
         && recognizedSaleIds.size > 0;
-      const sourcePatch = sourceDisappeared && !allLossesAreSales
+      // The raw `sourceDisappeared` flag still guards the delete block above;
+      // the source's health is judged on the NEW losses only, because a
+      // stamped row was reported by the run that first missed it.
+      const sourcePatch = newlyMissing.length > 0 && !allLossesAreSales
         ? { status: 'degraded', rowCount: rows.length, errorCode: 'source_disappeared' }
         : { status: 'active', rowCount: rows.length, lastSuccessAt: fetchedAt, errorCode: null };
       await sourceRef.set(sourceDocument(key, config, fetchedAt, sourcePatch), { merge: true });

@@ -18,6 +18,18 @@ import {
  hasFirebaseAuthPersistence,
  setFirebaseAuthSessionMarker,
 } from '@/services/firebaseAuthPersistence';
+import {
+ AUTH_PROVIDER_SURFACES,
+ CONSENT_SURFACE_BY_COMPONENT,
+ CONSENT_TEXTS,
+ consentDisplayText,
+ consentLocale,
+} from '@/services/consentTexts';
+import {
+ JOBGATE_EXPERIMENT_ID,
+ jobGateSubscriberVariant,
+ normalizeJobGateArm,
+} from '@/services/jobGateExperimentCore.mjs';
 // ─── Lazy Firebase Auth Loading ────────────────────────────────
 
 let _auth: any = null;
@@ -145,17 +157,121 @@ function authProviderFromUser(user: any): 'google' | 'facebook' | 'linkedin' | '
 }
 
 /**
- * Register every authenticated account in the base communications
+ * Upsert fields for the attribution of an authentication-driven write.
+ *
+ * With a surface context (a box that started the login, One Tap, the
+ * LinkedIn callback) the write is a real touch and overwrites the last-touch
+ * fields. Without one it is a reconciliation (session restore, generic login)
+ * and only fills what the row lacks, so it cannot erase the box that actually
+ * produced the signup. First-touch `source`/`source_channel` never change here.
+ */
+export function buildAuthAttributionUpsertFields(
+ attribution: AuthAttributionContext | null,
+ currentPath: string | null,
+): {
+ sourcePage: string | null;
+ sourceCta: string | null;
+ sourceComponent: string;
+ sourceRouteFamily: string | null;
+ attributionMode: 'overwrite' | 'fill';
+} {
+ const normalized = normalizeAuthAttribution(attribution);
+ if (normalized && (normalized.cta || normalized.component)) {
+  return {
+   sourcePage: normalized.page || currentPath,
+   sourceCta: normalized.cta || null,
+   sourceComponent: normalized.component || 'authService',
+   sourceRouteFamily: normalized.routeFamily || null,
+   attributionMode: 'overwrite',
+  };
+ }
+ // A page-only context (generic LinkedIn button) still knows the origin page,
+ // which the callback URL does not; the route family is derived from it.
+ return {
+  sourcePage: normalized?.page || currentPath,
+  sourceCta: null,
+  sourceComponent: 'authService',
+  sourceRouteFamily: normalized?.page ? null : 'authentication',
+  attributionMode: 'fill',
+ };
+}
+
+// Auth writes for one tab run one at a time: the auth-state listener and the
+// foreground sign-in handler both reconcile the same row, and two concurrent
+// read-modify-write cycles would let the background one clobber the box
+// attribution written by the foreground one.
+let authProfileWriteQueue: Promise<void> = Promise.resolve();
+
+/**
+ * What started a profile write, which decides whether it may register.
+ *
+ *  - `sign_in` (default): a login the person just performed — the act the
+ *    #8754 policy counts as registration under the terms.
+ *  - `session_restore`: the auth-state listener re-reading a persisted
+ *    session on page load. Nobody did anything; it is not an act.
+ *  - `custom_token`: a session minted from a link — the `ac` autologin of a
+ *    newsletter email, the DOI confirmation, the unsubscribe/resubscribe
+ *    actions. Opening a link is not consent either: a document without a
+ *    relationship keeps none, and the communications banner asks instead.
+ */
+export type AuthProfileTrigger = 'sign_in' | 'session_restore' | 'custom_token';
+
+export interface SaveUserProfileOptions {
+ trigger?: AuthProfileTrigger;
+ /** A surface the caller knows better than the attribution (email link). */
+ consentSurface?: string | null;
+ /** GIS `select_by` of a One Tap credential, kept in the audit event. */
+ oneTapSelectBy?: string | null;
+}
+
+/**
+ * Register the account that just signed in in the base communications
  * relationship, then enrich its profile. The registration terms describe the
  * newsletter + job-alert relationship; feature-specific alerts are added by
  * the source channel (or by the backfill trigger when context arrives later).
  * This is intentionally best-effort so a Firestore outage never prevents
  * Firebase Authentication from completing.
+ *
+ * The consent record says what really happened: the surface the login came
+ * from and whether a notice was on screen, measured at the act. A reconciling
+ * trigger (session restore, link autologin) only refreshes the profile of a
+ * document that already carries a relationship; it never creates one.
+ *
+ * `jobContext`/`attribution` left `undefined` mean "foreground sign-in":
+ * the pending contexts saved before the login are consumed synchronously,
+ * at call time, so they bind to this login and not to a later one. Passing
+ * `null` consumes nothing.
  */
 export async function saveUserProfileToFirestore(
  user: any,
  provider: 'google' | 'facebook' | 'linkedin' | 'email',
  jobContext?: AuthJobContext | null,
+ attribution?: AuthAttributionContext | null,
+ options: SaveUserProfileOptions = {},
+): Promise<void> {
+ const trigger: AuthProfileTrigger = options.trigger || 'sign_in';
+ const foreground = trigger === 'sign_in';
+ const context = foreground && jobContext === undefined ? consumeAuthJobContext() : (jobContext ?? null);
+ const attributionContext = attribution !== undefined
+  ? attribution
+  : (foreground && jobContext === undefined ? consumeAuthAttributionContext() : null);
+ const run = authProfileWriteQueue.then(() => writeUserProfileToFirestore(
+  user,
+  provider,
+  context,
+  attributionContext,
+  { ...options, trigger },
+ ));
+ authProfileWriteQueue = run.catch(() => {});
+ return run;
+}
+
+async function writeUserProfileToFirestore(
+ user: any,
+ provider: 'google' | 'facebook' | 'linkedin' | 'email',
+ context: AuthJobContext | null,
+ attribution: AuthAttributionContext | null,
+ options: SaveUserProfileOptions & { trigger: AuthProfileTrigger },
 ): Promise<void> {
  try {
  const email = getAuthEmail(user)?.trim().toLowerCase();
@@ -167,38 +283,6 @@ export async function saveUserProfileToFirestore(
  ]);
 
  const db = fsModule.getFirestore(await getApp());
- const { upsertNewsletterSubscriber } = await import('./newsletterSubscribers');
- const context = jobContext === undefined ? consumeAuthJobContext() : jobContext;
- const sourceChannel = authProviderSourceChannel(provider);
- await upsertNewsletterSubscriber(db, {
-  email,
-  userId: user.uid || null,
-  name: user.displayName || null,
-  source: sourceChannel,
-  sourceChannel,
-  sourcePage: typeof window !== 'undefined' ? window.location.pathname : null,
-  sourceComponent: 'authService',
-  sourceRouteFamily: 'authentication',
-  locale: typeof navigator !== 'undefined' ? navigator.language : 'it',
-  jobContext: context
-   ? {
-    slug: context.slug || null,
-    company: context.company || null,
-    title: context.title || null,
-    location: context.location || null,
-    category: context.category || null,
-    searchQuery: context.searchQuery || null,
-   }
-   : null,
-  registrationTermsAccepted: true,
-  registrationMethod: provider === 'email' ? 'email' : 'authenticated',
-  skipConfirmationEmail: provider !== 'email',
- }, {
-  // This function is called both by the sign-in handler and the auth-state
-  // listener. It reconciles an existing account profile; it is not a new
-  // interactive newsletter/alert subscription attempt.
-  skipRateLimit: true,
- });
  const subRef = fsModule.doc(db, 'newsletter_subscribers', email);
 
  const displayName = user.displayName || null;
@@ -215,9 +299,80 @@ export async function saveUserProfileToFirestore(
  updatedAt: fsModule.serverTimestamp(),
  };
 
+ if (options.trigger !== 'sign_in') {
+  // Reconciliation: a restored session or a link autologin is not an act.
+  // Only a document that already carries a relationship gets its login
+  // fields refreshed; a missing one stays missing (no profile-only rows)
+  // and one without a relationship stays without — the communications
+  // banner is where that person is asked.
+  const existing = await fsModule.getDoc(subRef);
+  if (!existing.exists()) return;
+  const { hasSubscriptionBasis } = await import('./subscriberConsent.mjs');
+  if (!hasSubscriptionBasis(existing.data())) return;
+  await fsModule.setDoc(subRef, profileData, { merge: true });
+  return;
+ }
+
+ const { upsertNewsletterSubscriber } = await import('./newsletterSubscribers');
+ const sourceChannel = authProviderSourceChannel(provider);
+ const consentSurface = resolveAuthConsentSurface({
+  provider,
+  attribution,
+  jobContext: context,
+  oneTapPromptSurface: lastOneTapPromptSurface,
+  explicitSurface: options.consentSurface ?? null,
+ });
+ const jobGateVariant = jobGateSubscriberVariantFor(context, consentSurface);
+ await upsertNewsletterSubscriber(db, {
+  email,
+  userId: user.uid || null,
+  name: user.displayName || null,
+  source: sourceChannel,
+  sourceChannel,
+  ...buildAuthAttributionUpsertFields(
+   attribution,
+   typeof window !== 'undefined' ? window.location.pathname : null,
+  ),
+  locale: typeof navigator !== 'undefined' ? navigator.language : 'it',
+  jobContext: context
+   ? {
+    slug: context.slug || null,
+    company: context.company || null,
+    title: context.title || null,
+    location: context.location || null,
+    category: context.category || null,
+    searchQuery: context.searchQuery || null,
+   }
+   : null,
+  registrationTermsAccepted: true,
+  registrationMethod: provider === 'email' ? 'email' : 'authenticated',
+  skipConfirmationEmail: provider !== 'email',
+  ...(jobGateVariant ? { variant: jobGateVariant } : {}),
+  // The consent record of this login. Owner decision of 2026-09-25: a sign-in
+  // is the registration act under the terms, so it is recorded with the
+  // current registration formula as displayed, on every surface; the surface
+  // the login came from is kept as `consentOrigin`.
+  consentOrigin: consentSurface,
+  consentTextDisplayed: true,
+  confirmationMethod: user?.emailVerified === false ? 'none' : 'provider_verified_email',
+  confirmedViaSurface: consentSurface,
+  consentAudit: {
+   trigger: options.trigger,
+   provider,
+   ...(options.oneTapSelectBy ? { one_tap_select_by: options.oneTapSelectBy } : {}),
+  },
+ }, {
+  // An idempotent login write, not a new interactive newsletter/alert
+  // subscription attempt: the per-device subscription limit does not apply.
+  skipRateLimit: true,
+ });
+
  await fsModule.setDoc(subRef, profileData, { merge: true });
  } catch (err) {
- // Best-effort: don't break login if Firestore write fails
+ // Best-effort: don't break login if Firestore write fails. When the
+ // registration itself was refused, no profile row is written either: a
+ // document with login fields and no relationship is exactly the
+ // profile-only shape the senders had to learn to skip.
  console.warn('[Auth] Failed to register/enrich subscriber profile:', err);
  }
 }
@@ -243,8 +398,12 @@ function setAuthRedirectState(provider: 'google' | 'facebook'): void {
  * - Mobile: signInWithRedirect (popups are often blocked on mobile browsers)
  * - Popup fallback: if popup is blocked or closed, silently fall back to redirect
  */
-export async function signInWithGoogle(): Promise<any | null> {
+export async function signInWithGoogle(attribution?: AuthAttributionContext | null): Promise<any | null> {
  try {
+ // Saved before any await: the redirect branch leaves the page, and the
+ // popup branch consumes it in saveUserProfileToFirestore on success.
+ const surface = explicitAuthAttribution(attribution);
+ if (surface) setAuthAttributionContext(surface);
  await ensureFirebaseAuth();
  const authInstance = getAuthInstance();
  if (!authInstance || !_authModule) return null;
@@ -281,7 +440,10 @@ export async function signInWithGoogle(): Promise<any | null> {
  return result.user;
  } catch (popupError: any) {
  // User closed the popup intentionally — treat as cancellation, no error
- if (popupError?.code === 'auth/popup-closed-by-user') return null;
+ if (popupError?.code === 'auth/popup-closed-by-user') {
+  clearAuthAttributionContext();
+  return null;
+ }
 
  // Popup blocked by browser or COOP prevented communication → redirect fallback
  if (
@@ -398,7 +560,12 @@ export async function signInWithNewsletterEmailLink(email: string, href?: string
 
  const result = await _authModule.signInWithEmailLink(authInstance, normalizedEmail, link);
  mirrorAuthSessionMarker(result?.user);
- if (result?.user) saveUserProfileToFirestore(result.user, 'email').catch(() => {});
+ // Landing from an emailed sign-in link: the surface is the link itself.
+ if (result?.user) {
+  saveUserProfileToFirestore(result.user, 'email', null, null, {
+   consentSurface: 'auth_email_link',
+  }).catch(() => {});
+ }
  const { Analytics } = await import('@/services/analytics');
  Analytics.trackUIInteraction('auth', 'newsletter', 'login', 'email-link-success');
  return result?.user || null;
@@ -417,7 +584,16 @@ export async function signInWithCustomAuthToken(token: string): Promise<any | nu
  if (!authInstance || !_authModule) return null;
  const result = await _authModule.signInWithCustomToken(authInstance, token);
  mirrorAuthSessionMarker(result?.user);
- if (result?.user) saveUserProfileToFirestore(result.user, authProviderFromUser(result.user)).catch(() => {});
+ // Reconciliation only. A custom token is minted from a link (newsletter
+ // `ac` autologin, DOI confirmation, unsubscribe/resubscribe actions) or by
+ // the LinkedIn callback, whose caller in App.tsx writes the attributed
+ // sign-in itself. Following a link is not a registration act: a document
+ // without a relationship must not gain one here — the banner asks instead.
+ if (result?.user) {
+  saveUserProfileToFirestore(result.user, authProviderFromUser(result.user), null, null, {
+   trigger: 'custom_token',
+  }).catch(() => {});
+ }
  return result?.user || null;
  } catch (error) {
  reportCaughtError(error, 'auth.signInWithCustomToken');
@@ -771,8 +947,10 @@ async function patchFacebookData(result: any): Promise<void> {
  }
 }
 
-export async function signInWithFacebook(): Promise<any | null> {
+export async function signInWithFacebook(attribution?: AuthAttributionContext | null): Promise<any | null> {
  try {
+ const surface = explicitAuthAttribution(attribution);
+ if (surface) setAuthAttributionContext(surface);
  await ensureFirebaseAuth();
  const authInstance = getAuthInstance();
  if (!authInstance || !_authModule) return null;
@@ -955,12 +1133,201 @@ export function consumeAuthJobContext(): AuthJobContext | null {
  }
 }
 
+// ─── Auth Attribution Context (which surface started the login) ──────────
+
+const AUTH_ATTRIBUTION_CONTEXT_KEY = 'auth_attribution_context';
+const AUTH_ATTRIBUTION_TTL_MS = 30 * 60 * 1000;
+const ATTRIBUTION_TOKEN_RE = /^[A-Za-z0-9_.:-]{1,80}$/;
+
+/**
+ * The surface that started a login: the box's CTA id, its component name and
+ * the page it was on. Written as the last-touch `source_cta` /
+ * `source_component` / `source_page` of the subscriber row.
+ */
+export interface AuthAttributionContext {
+ cta?: string | null;
+ component?: string | null;
+ page?: string | null;
+ routeFamily?: string | null;
+}
+
+interface StoredAuthAttributionContext extends AuthAttributionContext {
+ savedAt: number;
+ linkedinState?: string;
+}
+
+/**
+ * A same-origin path, or null. Rejects protocol-relative (`//host`),
+ * backslash tricks (`/\host`), control characters and absolute URLs, so the
+ * value is safe both as a redirect target and as a stored `source_page`.
+ */
+export function sanitizeAuthReturnPath(raw: unknown): string | null {
+ if (typeof raw !== 'string') return null;
+ const value = raw.trim();
+ if (!value.startsWith('/') || value.startsWith('//') || value.startsWith('/\\')) return null;
+ if (value.length > 512 || /[\u0000-\u001f\u007f\\]/.test(value)) return null;
+ return value;
+}
+
+function sanitizeAttributionToken(raw: unknown): string | null {
+ if (typeof raw !== 'string') return null;
+ const value = raw.trim();
+ return ATTRIBUTION_TOKEN_RE.test(value) ? value : null;
+}
+
+/** Normalize an attribution context: pathname-only page, strict id charset. */
+export function normalizeAuthAttribution(ctx: AuthAttributionContext | null | undefined): AuthAttributionContext | null {
+ if (!ctx || typeof ctx !== 'object') return null;
+ const path = sanitizeAuthReturnPath(ctx.page);
+ // Pathname only: query strings can carry personal data (email, tokens).
+ const page = path ? path.split(/[?#]/)[0] || null : null;
+ const cta = sanitizeAttributionToken(ctx.cta);
+ const component = sanitizeAttributionToken(ctx.component);
+ const routeFamily = sanitizeAttributionToken(ctx.routeFamily);
+ if (!cta && !component && !page) return null;
+ return { cta, component, page, routeFamily };
+}
+
+/**
+ * A context that names a surface (cta or component), or null. Guards the
+ * sign-in entry points against callers that pass a click event as argument.
+ */
+export function explicitAuthAttribution(ctx: unknown): AuthAttributionContext | null {
+ const normalized = normalizeAuthAttribution(ctx as AuthAttributionContext);
+ return normalized && (normalized.cta || normalized.component) ? normalized : null;
+}
+
+/**
+ * Remember which surface is starting a login, for flows that leave the page
+ * (OAuth redirect, LinkedIn) or complete in a callback (Google rendered
+ * button). The next foreground profile write consumes it once.
+ */
+export function setAuthAttributionContext(
+ ctx: AuthAttributionContext | null | undefined,
+ options: { linkedinState?: string } = {},
+): void {
+ if (typeof window === 'undefined') return;
+ const normalized = normalizeAuthAttribution({
+  ...ctx,
+  page: ctx?.page || window.location.pathname,
+ });
+ try {
+  if (!normalized) {
+   window.sessionStorage.removeItem(AUTH_ATTRIBUTION_CONTEXT_KEY);
+   return;
+  }
+  const stored: StoredAuthAttributionContext = {
+   ...normalized,
+   savedAt: Date.now(),
+   ...(options.linkedinState ? { linkedinState: options.linkedinState } : {}),
+  };
+  window.sessionStorage.setItem(AUTH_ATTRIBUTION_CONTEXT_KEY, JSON.stringify(stored));
+ } catch { /* quota or private browsing */ }
+}
+
+/** Drop a pending context (e.g. the user closed the provider popup). */
+export function clearAuthAttributionContext(): void {
+ try {
+  if (typeof window !== 'undefined') window.sessionStorage.removeItem(AUTH_ATTRIBUTION_CONTEXT_KEY);
+ } catch { /* ignore */ }
+}
+
+/**
+ * Read and clear the pending context (one-shot). Expired contexts are
+ * dropped. A context saved for a LinkedIn redirect is returned only to the
+ * callback that presents the same OAuth `state` it was saved with.
+ */
+export function consumeAuthAttributionContext(
+ options: { linkedinState?: string; now?: number } = {},
+): AuthAttributionContext | null {
+ if (typeof window === 'undefined') return null;
+ try {
+  const raw = window.sessionStorage.getItem(AUTH_ATTRIBUTION_CONTEXT_KEY);
+  window.sessionStorage.removeItem(AUTH_ATTRIBUTION_CONTEXT_KEY);
+  if (!raw) return null;
+  const stored = JSON.parse(raw) as StoredAuthAttributionContext;
+  const now = options.now ?? Date.now();
+  if (!stored || typeof stored.savedAt !== 'number' || now - stored.savedAt > AUTH_ATTRIBUTION_TTL_MS) return null;
+  if ((stored.linkedinState || options.linkedinState) && stored.linkedinState !== options.linkedinState) return null;
+  return normalizeAuthAttribution(stored);
+ } catch {
+  return null;
+ }
+}
+
+/** Attribution recorded for a Google One Tap prompt (not a rendered button). */
+export const ONE_TAP_ATTRIBUTION: Readonly<AuthAttributionContext> = Object.freeze({
+ cta: 'one_tap',
+ component: 'auth_one_tap',
+});
+
+/**
+ * `newsletter_subscribers.variant` for a login that started from the JobBoard
+ * gate of a visitor enrolled in jobgate-v3 — the same `jobgate-v3:<arm>` the
+ * gate's email unlock writes (`upsertJobGateSubscriber`), which is the
+ * readout's join key. The arm travels in the job context JobBoard parks at the
+ * gate (`variant` + `experimentId`, re-parked when the assignment resolves)
+ * and, for LinkedIn, through the OAuth round trip. Null for any other login:
+ * not enrolled (kill switch, Remote Config timeout, bot bypass — the context
+ * then carries the headline experiment's id), a job view outside the
+ * experiment (no experiment id), or a One Tap prompt of another page that
+ * merely found a stale context.
+ */
+export function jobGateSubscriberVariantFor(
+ context: AuthJobContext | null | undefined,
+ consentSurface: string,
+): string | null {
+ if (consentSurface !== 'job_gate' || !context || context.experimentId !== JOBGATE_EXPERIMENT_ID) return null;
+ const arm = normalizeJobGateArm(context.variant);
+ return arm ? jobGateSubscriberVariant(arm) : null;
+}
+
+/** The surface a One Tap prompt was last shown for (`promptOneTap({ surface })`). */
+let lastOneTapPromptSurface: string | null = null;
+
+/**
+ * The consent surface (`consentOrigin`) of a sign-in: the box that started
+ * it, the job gate whose context was parked, the job gate that prompted One
+ * Tap, or — when nothing named a surface — the provider itself.
+ */
+export function resolveAuthConsentSurface(opts: {
+ provider: 'google' | 'facebook' | 'linkedin' | 'email';
+ attribution?: AuthAttributionContext | null;
+ jobContext?: AuthJobContext | null;
+ oneTapPromptSurface?: string | null;
+ explicitSurface?: string | null;
+}): string {
+ if (opts.explicitSurface) return opts.explicitSurface;
+ const component = normalizeAuthAttribution(opts.attribution ?? null)?.component || null;
+ if (component === ONE_TAP_ATTRIBUTION.component) {
+  return String(opts.oneTapPromptSurface || '').startsWith('job_gate') ? 'job_gate' : 'auth_one_tap';
+ }
+ if (component && CONSENT_SURFACE_BY_COMPONENT[component]) return CONSENT_SURFACE_BY_COMPONENT[component];
+ if (opts.jobContext) return 'job_gate';
+ return AUTH_PROVIDER_SURFACES[opts.provider] || 'auth_google_button';
+}
+
+/**
+ * GIS calls the same credential callback for the One Tap prompt and for the
+ * rendered "Sign in with Google" button; `select_by` tells them apart
+ * (`btn*` = button, everything else = the prompt / auto sign-in).
+ */
+export function isGoogleButtonSelection(selectBy: unknown): boolean {
+ return typeof selectBy === 'string' && selectBy.startsWith('btn');
+}
+
 /**
  * Redirect the user to LinkedIn's OAuth2 authorization endpoint.
  * After authorization LinkedIn redirects to /auth/linkedin/callback.
- * The original path is preserved via the `state` query parameter.
+ * The original path is preserved via the `state` query parameter (a
+ * same-origin path only). The surface attribution is parked in
+ * sessionStorage bound to that exact `state`; the callback forwards it to the
+ * Cloud Function, which writes it on the subscriber row.
  */
-export async function signInWithLinkedIn(redirectPath?: string): Promise<void> {
+export async function signInWithLinkedIn(
+ redirectPath?: string,
+ attribution?: AuthAttributionContext | null,
+): Promise<void> {
  try {
  const { getConfigValue } = await resilientImport(() => import('@/services/firebase'), (m) => typeof m.getConfigValue === 'function');
  const { Analytics } = await resilientImport(() => import('@/services/analytics'));
@@ -973,7 +1340,12 @@ export async function signInWithLinkedIn(redirectPath?: string): Promise<void> {
 
  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://frontaliereticino.ch';
  const callbackUri = `${origin}/auth/linkedin/callback`;
- const state = encodeURIComponent(redirectPath || (typeof window !== 'undefined' ? window.location.pathname + window.location.search : '/'));
+ const currentPath = typeof window !== 'undefined' ? window.location.pathname + window.location.search : '/';
+ const returnPath = sanitizeAuthReturnPath(redirectPath) || sanitizeAuthReturnPath(currentPath) || '/';
+ const state = encodeURIComponent(returnPath);
+ // Always parked (page-only for a generic button): the callback runs on
+ // /auth/linkedin/callback or `/`, so the origin page exists only here.
+ setAuthAttributionContext(explicitAuthAttribution(attribution) || {}, { linkedinState: state });
 
  Analytics.trackUIInteraction('auth', 'linkedin', 'login', 'button');
 
@@ -996,15 +1368,27 @@ export async function signInWithLinkedIn(redirectPath?: string): Promise<void> {
  * Exchange a LinkedIn authorization code for a Firebase custom token.
  * Called by the /auth/linkedin/callback SPA page.
  */
-export async function exchangeLinkedInCode(code: string): Promise<string | null> {
+export async function exchangeLinkedInCode(
+ code: string,
+ attribution?: AuthAttributionContext | null,
+ consent?: { surface: string; variant?: string | null } | null,
+): Promise<string | null> {
  try {
  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://frontaliereticino.ch';
  const redirectUri = `${origin}/auth/linkedin/callback`;
+ const normalizedAttribution = normalizeAuthAttribution(attribution);
+ // The Cloud Function writes the LinkedIn registration with the Admin SDK,
+ // so it needs the consent record: the surface the login came from and the
+ // current registration sentence/version in the visitor's locale.
+ const consentRecord = consent ? await buildLinkedInConsentRecord(consent) : null;
+ const attributionPayload = normalizedAttribution || consentRecord
+  ? { ...(normalizedAttribution || {}), ...(consentRecord ? { consent: consentRecord } : {}) }
+  : null;
 
  const res = await fetch(`${LINKEDIN_CF_BASE}/linkedinAuthCallback`, {
  method: 'POST',
  headers: { 'Content-Type': 'application/json' },
- body: JSON.stringify({ code, redirectUri }),
+ body: JSON.stringify({ code, redirectUri, ...(attributionPayload ? { attribution: attributionPayload } : {}) }),
  });
 
  if (!res.ok) {
@@ -1021,6 +1405,39 @@ export async function exchangeLinkedInCode(code: string): Promise<string | null>
  }
 }
 
+/**
+ * The consent block the LinkedIn Cloud Function stores: the current
+ * registration sentence in the site locale, its version, the surface, and —
+ * by the owner decision of 2026-09-25, as for every sign-in — displayed.
+ */
+async function buildLinkedInConsentRecord(consent: {
+ surface: string;
+ variant?: string | null;
+}): Promise<{
+ surface: string;
+ displayed: boolean;
+ key: string;
+ locale: string;
+ text: string;
+ version: string;
+ variant?: string;
+}> {
+ let siteLocale: string | null = null;
+ try {
+  siteLocale = (await import('@/services/i18n')).getLocale();
+ } catch { /* the register falls back to Italian */ }
+ const locale = consentLocale(siteLocale);
+ return {
+  surface: consent.surface,
+  displayed: true,
+  key: 'communicationsOptIn',
+  locale,
+  text: consentDisplayText('communicationsOptIn', locale),
+  version: CONSENT_TEXTS.communicationsOptIn.version,
+  ...(consent.variant ? { variant: consent.variant } : {}),
+ };
+}
+
 // ─── Auth Hook ───────────────────────────────────────────────
 
 export interface AuthState {
@@ -1029,7 +1446,7 @@ export interface AuthState {
 }
 
 export function useAuth(): AuthState & {
- signIn: () => Promise<any | null>;
+ signIn: (attribution?: AuthAttributionContext | null) => Promise<any | null>;
  signInFacebook: () => Promise<any | null>;
  signInEmail: (email: string, password: string) => Promise<any | null>;
  logout: () => Promise<void>;
@@ -1139,10 +1556,14 @@ export function useAuth(): AuthState & {
  mirrorAuthSessionMarker(u);
  setUser(u);
  setLoading(false);
- // Authentication is also a site registration under the product terms. Pass
- // null explicitly so the background listener never consumes job context that
- // belongs to the foreground OAuth result handler.
- if (u) saveUserProfileToFirestore(u, authProviderFromUser(u), null).catch(() => {});
+ // A restored session is not a login act: it refreshes the profile of a
+ // registered document and registers nobody. The foreground handlers own
+ // the registration; null contexts leave their parked context untouched.
+ if (u) {
+  saveUserProfileToFirestore(u, authProviderFromUser(u), null, null, {
+   trigger: 'session_restore',
+  }).catch(() => {});
+ }
  });
  }).catch((e) => {
  logAuthDebug('useAuth:startAuth:error', {
@@ -1193,11 +1614,11 @@ export function useAuth(): AuthState & {
  }
  }, []);
 
- const signIn = useCallback(async () => {
+ const signIn = useCallback(async (attribution?: AuthAttributionContext | null) => {
  // Desktop: signInWithGoogle uses popup — returns user immediately.
  // Mobile/fallback: uses redirect — returns null (page navigates away),
  // user is set by getRedirectResult + onAuthStateChanged on return.
- const googleUser = await signInWithGoogle();
+ const googleUser = await signInWithGoogle(attribution);
  if (googleUser) setUser(Object.create(googleUser));
  return googleUser;
  }, []);
@@ -1452,7 +1873,21 @@ async function handleOneTapResponse(response: OneTapResponse): Promise<void> {
  // Authentication is a registration channel under the site terms. The central
  // writer records the same newsletter + job-alert relationship as every other
  // signup source; the feature context, when present, is passed separately.
- saveUserProfileToFirestore(result.user, 'google').catch(() => { /* best-effort */ });
+ // A rendered button (`select_by=btn*`) carries the box context its click
+ // listener parked; the One Tap prompt is attributed to One Tap itself.
+ if (isGoogleButtonSelection(response.select_by)) {
+  saveUserProfileToFirestore(result.user, 'google').catch(() => { /* best-effort */ });
+ } else {
+  const oneTapContext: AuthAttributionContext = {
+   ...ONE_TAP_ATTRIBUTION,
+   page: typeof window !== 'undefined' ? window.location.pathname : null,
+  };
+  // A parked box context belongs to a click that did not complete; drop it.
+  clearAuthAttributionContext();
+  saveUserProfileToFirestore(result.user, 'google', undefined, oneTapContext, {
+   oneTapSelectBy: String(response.select_by || 'unknown').slice(0, 40),
+  }).catch(() => { /* best-effort */ });
+ }
 
  // Redirect to saved path if present (e.g., expired/bridge job → listing)
  const savedPath = sessionStorage.getItem('auth_redirect_path');
@@ -1502,6 +1937,10 @@ export async function promptOneTap(options: { surface?: string } = {}): Promise<
  }
 
  trackOneTapMetric('prompted', `surface=${surface}`);
+ // Names the consent surface of a credential from this prompt (`job_gate`
+ // when the job gate asked). Whether its notice was on screen is measured
+ // separately, at the callback.
+ lastOneTapPromptSurface = surface;
  window.google?.accounts?.id.prompt((notification) => {
   if (!notification) {
    trackOneTapMetric('callback', `surface=${surface}|reason=no_moment_details`);
@@ -1528,15 +1967,21 @@ export async function promptOneTap(options: { surface?: string } = {}): Promise<
 /**
  * Render a Google Sign-In button in a container
  */
+export type GoogleButtonRenderOptions = Partial<OneTapButtonOptions> & {
+ /** Surface attribution parked when the user clicks this button. */
+ attribution?: AuthAttributionContext | null;
+};
+
 export async function renderGoogleButton(
  container: HTMLElement,
- options?: Partial<OneTapButtonOptions>
+ options?: GoogleButtonRenderOptions
 ): Promise<void> {
  if (!oneTapInitialized) {
  const initialized = await initOneTap();
  if (!initialized) return;
  }
- 
+
+ const { attribution, click_listener: clickListener, ...gisOptions } = options || {};
  window.google?.accounts?.id.renderButton(container, {
  type: 'standard',
  theme: 'outline',
@@ -1544,13 +1989,21 @@ export async function renderGoogleButton(
  text: 'signin_with',
  shape: 'rectangular',
  logo_alignment: 'left',
- ...options,
+ ...gisOptions,
+ ...(attribution || clickListener
+  ? {
+   click_listener: () => {
+    if (attribution) setAuthAttributionContext(attribution);
+    clickListener?.();
+   },
+  }
+  : {}),
  });
 }
 
 export async function renderGoogleButtonWithReadiness(
  container: HTMLElement | null,
- options?: Partial<OneTapButtonOptions>,
+ options?: GoogleButtonRenderOptions,
  readinessDelayMs = 450,
 ): Promise<boolean> {
  if (!container) return false;

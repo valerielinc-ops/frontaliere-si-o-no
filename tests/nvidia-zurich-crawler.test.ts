@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 import {
   NVIDIA_ZURICH_KEY,
   NVIDIA_ZURICH_COMPANY_NAME,
@@ -6,8 +6,30 @@ import {
   isTrustedDomain,
   hasNvidiaSwissLocation,
   hasNvidiaSwissPrimaryLocation,
+  resolveNvidiaPrimarySwissLocation,
+  fetchAllNvidiaZurichJobs,
 } from '../scripts/lib/nvidia-zurich-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+// Replay harness for fetchAllNvidiaZurichJobs: the Workday network calls are
+// replaced by the payloads below, every pure helper of the client stays real.
+const workdayReplay = vi.hoisted(() => ({
+  listings: [] as Array<Record<string, unknown>>,
+  details: new Map<string, Record<string, unknown>>(),
+}));
+
+vi.mock('../scripts/lib/ats-clients/workday-client.mjs', async (importOriginal) => {
+  const actual = await importOriginal<Record<string, unknown>>();
+  return {
+    ...actual,
+    async *fetchWorkdayJobs() {
+      yield* workdayReplay.listings;
+    },
+    fetchWorkdayJobDetail: async (_apiBase: string, externalPath: string) =>
+      workdayReplay.details.get(externalPath) ?? null,
+    fetchWorkdayJobDescriptionText: async () => '',
+  };
+});
 
 describe('NVIDIA (ufficio Zurich) crawler parser', () => {
   // ── Constants ──
@@ -138,7 +160,44 @@ describe('NVIDIA (ufficio Zurich) crawler parser', () => {
       expect(hasNvidiaSwissPrimaryLocation({
         location: { descriptor: 'Zurich, Switzerland', country: { alpha2Code: 'CH' } },
       })).toBe(true);
-      expect(hasNvidiaSwissPrimaryLocation({ location: 'Switzerland, Remote' })).toBe(true);
+    });
+
+    it('refuses a Swiss primary that names no municipality (issue 9839)', () => {
+      // `Switzerland, Remote` is a country plus a work mode: no commune for the
+      // record to carry. It used to be published as Zürich / ZH, a place the
+      // source does not name. Unknown geography stays fail-closed, and a Swiss
+      // additional location does not license the stamp any more than it does
+      // for a foreign primary.
+      expect(hasNvidiaSwissPrimaryLocation({ location: 'Switzerland, Remote' })).toBe(false);
+      expect(hasNvidiaSwissPrimaryLocation({
+        location: 'Switzerland, Remote',
+        additionalLocations: ['Switzerland, Zurich'],
+      })).toBe(false);
+      expect(hasNvidiaSwissPrimaryLocation({ location: 'Switzerland' })).toBe(false);
+      expect(hasNvidiaSwissPrimaryLocation({ location: 'CH-ZH' })).toBe(false);
+    });
+
+    // Work-mode primaries decorated with a country, region or canton, in
+    // EN/DE/FR/IT: none names a municipality, so none may become Zürich.
+    it.each([
+  'Remote, Switzerland',
+  'Home Office - Switzerland',
+  'Switzerland - Remote',
+  'Hybrid (CH)',
+  'Hybrid (ZH)',
+  'Homeoffice',
+  'Télétravail, Suisse',
+  'Telelavoro - Ticino',
+])('refuses the work-mode primary %s', (label) => {
+      expect(resolveNvidiaPrimarySwissLocation({ location: label })).toBeNull();
+      expect(hasNvidiaSwissPrimaryLocation({ location: label })).toBe(false);
+    });
+
+    it('keeps a work-mode primary that names Zurich as Zürich / ZH', () => {
+      expect(resolveNvidiaPrimarySwissLocation({ location: 'Switzerland, Remote - Zurich' }))
+        .toEqual({ city: 'Zürich', canton: 'ZH' });
+      expect(resolveNvidiaPrimarySwissLocation({ location: 'Remote - Zurich' }))
+        .toEqual({ city: 'Zürich', canton: 'ZH' });
     });
 
     it('fails closed when the primary location is unreadable', () => {
@@ -158,6 +217,105 @@ describe('NVIDIA (ufficio Zurich) crawler parser', () => {
         location: 'Poland, Remote',
         jobRequisitionLocation: { descriptor: 'Zurich, Switzerland' },
       })).toBe(false);
+    });
+  });
+
+  // Replay of the Workday payloads behind issue 9839, captured live on
+  // 2026-09-25 from the Switzerland facet of the NVIDIA tenant (locations and
+  // external paths verbatim). The published slice then carried 8 records whose
+  // Workday path is `Switzerland-Remote`, all stamped `Zürich / ZH`.
+  describe('fetchAllNvidiaZurichJobs replay: primary location decides the record', () => {
+    const description = 'NVIDIA is looking for an engineer to join the team. '.repeat(4);
+    const replay = [
+      {
+        posting: {
+          title: 'Senior HPC Performance Engineer',
+          externalPath: '/job/Switzerland-Remote/Senior-HPC-Performance-Engineer_JR2016204',
+          locationsText: 'Switzerland, Remote',
+          postedOn: 'Posted 30+ Days Ago',
+          bulletFields: ['JR2016204'],
+        },
+        info: { location: 'Switzerland, Remote', additionalLocations: [] },
+      },
+      {
+        posting: {
+          title: 'Senior Performance Engineer',
+          externalPath: '/job/Switzerland-Remote/Senior-Performance-Engineer_JR2022529',
+          locationsText: '2 Locations',
+          postedOn: 'Posted 30+ Days Ago',
+          bulletFields: ['JR2022529'],
+        },
+        info: {
+          location: 'Switzerland, Remote',
+          additionalLocations: ['Switzerland, Zurich'],
+          jobRequisitionLocation: {
+            descriptor: 'Switzerland, Remote',
+            country: { descriptor: 'Switzerland', alpha2Code: 'CH' },
+          },
+        },
+      },
+      {
+        posting: {
+          title: 'Senior HPC and AI Network Software Architect',
+          externalPath: '/job/Switzerland-Zurich/Senior-HPC-and-AI-Network-Software-Architect_JR2022878',
+          locationsText: 'Switzerland, Zurich',
+          postedOn: 'Posted 24 Days Ago',
+          bulletFields: ['JR2022878'],
+        },
+        info: { location: 'Switzerland, Zurich', additionalLocations: [] },
+      },
+      {
+        posting: {
+          title: 'Senior Solutions Architect, Remote France',
+          externalPath: '/job/France-Remote/Senior-Solutions-Architect_JR0000001',
+          locationsText: '2 Locations',
+          postedOn: 'Posted 3 Days Ago',
+          bulletFields: ['JR0000001'],
+        },
+        info: { location: 'France, Remote', additionalLocations: ['Switzerland, Zurich'] },
+      },
+    ];
+
+    afterEach(() => {
+      workdayReplay.listings = [];
+      workdayReplay.details.clear();
+      vi.restoreAllMocks();
+    });
+
+    async function runReplay() {
+      for (const { posting, info } of replay) {
+        workdayReplay.listings.push(posting);
+        workdayReplay.details.set(posting.externalPath, {
+          jobPostingInfo: { ...info, title: posting.title, timeType: 'Full time', jobDescription: `<p>${description}</p>` },
+        });
+      }
+      // The parser paces detail fetches with setTimeout; the replay has no network.
+      vi.spyOn(globalThis, 'setTimeout').mockImplementation(((fn: () => void) => {
+        fn();
+        return 0;
+      }) as unknown as typeof setTimeout);
+      vi.spyOn(console, 'log').mockImplementation(() => {});
+      return fetchAllNvidiaZurichJobs();
+    }
+
+    it('publishes no job for a `Switzerland, Remote` primary, with or without a Swiss additional location', async () => {
+      const jobs = await runReplay();
+      const remote = jobs.filter((job: { url: string }) => job.url.includes('/job/Switzerland-Remote/'));
+      expect(remote).toEqual([]);
+    });
+
+    it('publishes a `Switzerland, Zurich` primary as Zürich / ZH and nothing else', async () => {
+      const jobs = await runReplay();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({
+        title: 'Senior HPC and AI Network Software Architect',
+        location: 'Zürich',
+        canton: 'ZH',
+        addressLocality: 'Zürich',
+        addressRegion: 'ZH',
+        addressCountry: 'CH',
+        jobReqId: 'JR2022878',
+      });
     });
   });
 

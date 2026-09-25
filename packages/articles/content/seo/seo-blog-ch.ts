@@ -15346,16 +15346,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-naspi-frontendalieri-requisiti-calcolo-2024': {
     title: 'NASPI per ex-frontalieri: requisiti e calcolo | Frontaliere Ticino',
-    description: 'Il Nuovo Accordo Frontalieri prevede l\'introduzione del NASPI per i frontalieri in Svizzera. Ecco i requisiti, il calcolo dell\'importo, la durata e come fare',
+    description: 'La NASpI del frontaliere residente in Italia la paga l\'INPS: 13 settimane di contributi in quattro anni, periodi svizzeri compresi. Requisiti e calcolo 2026.',
     keywords: 'frontalieri, ticino, svizzera, italia, naspi, ex-frontalieri, requisiti, calcolo',
     ogTitle: 'NASPI per ex-frontalieri: requisiti, calcolo importo, durata, come fare domanda, differenze con la disoccupazione svizzera',
-    ogDescription: 'Il Nuovo Accordo Frontalieri prevede l\'introduzione del NASPI per i frontalieri in Svizzera. Ecco i requisiti, il calcolo dell\'importo, la durata e come fare',
+    ogDescription: 'Al frontaliere residente in Italia la NASpI la paga l\'INPS: servono 13 settimane di contributi in quattro anni, periodi svizzeri compresi. Requisiti, calcolo 2026, durata e domanda.',
     canonicalPath: '/articoli-svizzera/naspi-frontendalieri-requisiti-calcolo-2024/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "NASPI per ex-frontalieri: requisiti e calcolo",
-      "description": "Il Nuovo Accordo Frontalieri prevede l'introduzione del NASPI per i frontalieri in Svizzera. Ecco i requisiti, il calcolo dell'importo, la durata e come fare",
+      "description": "La NASpI del frontaliere residente in Italia la paga l'INPS: 13 settimane di contributi in quattro anni, periodi svizzeri compresi. Requisiti e calcolo 2026.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -15369,7 +15369,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "caption": "Immagine di un frontaliere che si trova in una situazione simile"
       },
       "datePublished": "2026-07-17T12:17:07+00:00",
-      "dateModified": "2026-07-17T12:17:07+00:00",
+      "dateModified": "2026-09-25T00:00:00+00:00",
       "inLanguage": "it",
       "author": {
         "@type": "Person",
@@ -18817,16 +18817,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-terzo-pilastro-3a-vantaggi-2026-canton-san-gallo': {
     title: 'Terzo pilastro 3a svizzero: vantaggi 2026 nel Canton San Gallo',
-    description: 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 dicembre 1976. I nuovi frontalieri hanno una franchigia di €10.000. Dati aggiornati 2026',
+    description: 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 marzo 1976. I nuovi frontalieri hanno una franchigia di €10.000. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, terzo, pilastro, svizzero, vantaggi',
     ogTitle: 'Terzo pilastro 3a svizzero: vantaggi 2026 nel Canton San Gallo',
-    ogDescription: 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 dicembre 1976. I nuovi frontalieri hanno una franchigia di €10.000.',
+    ogDescription: 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 marzo 1976. I nuovi frontalieri hanno una franchigia di €10.000.',
     canonicalPath: '/articoli-svizzera/terzo-pilastro-3a-vantaggi-2026-canton-san-gallo/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Terzo pilastro 3a svizzero: vantaggi 2026 nel Canton San Gallo",
-      "description": "La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 dicembre 1976. I nuovi frontalieri hanno una franchigia di €10.000. Dati aggiornati 2026",
+      "description": "La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 marzo 1976. I nuovi frontalieri hanno una franchigia di €10.000. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -86362,6 +86362,786 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/parlamento-nega-naturalizzazione-dopo-5-anni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tubercolosi-svizzera-aumento-2025': {
+    title: 'Tubercolosi in Svizzera: 544 casi nel 2025, massimo dal 2018',
+    description: 'Nel 2025 la Svizzera ha registrato 544 casi di tubercolosi, il livello più alto dal 2018, con un aumento di 112 casi rispetto al 2024 e un tasso',
+    keywords: 'frontalieri, ticino, svizzera, italia, tubercolosi, casi, massimo, registrato',
+    ogTitle: 'Tubercolosi in Svizzera: 544 casi nel 2025, massimo dal 2018',
+    ogDescription: 'La tubercolosi in Svizzera ha raggiunto nel 2025 il livello più alto dal 2018, con 544 casi totali (Liechtenstein incluso) e un aumento di 112 unità rispetto al 2024. Il tasso di dichiarazione è passato da 4,8 a 6,0 ogni 100\'000 abitanti',
+    canonicalPath: '/articoli-svizzera/tubercolosi-svizzera-aumento-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tubercolosi in Svizzera: 544 casi nel 2025, massimo dal 2018",
+      "description": "Nel 2025 la Svizzera ha registrato 544 casi di tubercolosi, il livello più alto dal 2018, con un aumento di 112 casi rispetto al 2024 e un tasso",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tubercolosi-svizzera-aumento-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Operatore sanitario svizzero che analizza risultati di test per tubercolosi in clinica con vista sulle Alpi"
+      },
+      "datePublished": "2026-09-24T17:43:40+00:00",
+      "dateModified": "2026-09-24T17:43:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tubercolosi-svizzera-aumento-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-indennita-maltempo-sei-mesi': {
+    title: 'Interinali: indennità per intemperie dopo sei mesi',
+    description: 'Il Consiglio nazionale estende l\'indennità per intemperie agli interinali impiegati da almeno sei mesi in rapporti continuativi. L\'attuazione passa al governo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, interinali, indennità, intemperie, dopo',
+    ogTitle: 'Interinali, indennità per intemperie dopo sei mesi',
+    ogDescription: 'Il Consiglio nazionale protegge gli interinali impiegati a lungo termine dalle interruzioni per maltempo: il testo riguarda rapporti continuativi di almeno sei mesi. Gli incarichi brevi restano fuori; la mozione modificata dagli Stati è trasmessa',
+    canonicalPath: '/articoli-svizzera/indennita-maltempo-sei-mesi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Interinali: indennità per intemperie dopo sei mesi",
+      "description": "Il Consiglio nazionale estende l'indennità per intemperie agli interinali impiegati da almeno sei mesi in rapporti continuativi. L'attuazione passa al governo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/indennita-maltempo-sei-mesi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula parlamentare svizzera durante il dibattito sulla tutela dei lavoratori interinali."
+      },
+      "datePublished": "2026-09-24T19:15:47+00:00",
+      "dateModified": "2026-09-24T19:15:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/indennita-maltempo-sei-mesi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ubs-capitale-90-bns': {
+    title: 'UBS, la BNS approva requisiti di capitale al 90%',
+    description: 'La BNS approva la decisione del Consiglio degli Stati: il 90% delle filiali estere di UBS sarà coperto con capitale CET1, contro il 100% proposto dal Consiglio',
+    keywords: 'frontalieri, ticino, svizzera, italia, approva, requisiti, capitale, decisione',
+    ogTitle: 'UBS, la BNS approva il requisito di capitale al 90%',
+    ogDescription: 'Il Consiglio degli Stati ha deciso di coprire al 90% il valore delle filiali estere di UBS con capitale CET1. La BNS considera buona la proposta, mentre il Consiglio federale aveva sostenuto il 100% per una maggiore stabilità finanziaria.',
+    canonicalPath: '/articoli-svizzera/ubs-capitale-90-bns/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UBS, la BNS approva requisiti di capitale al 90%",
+      "description": "La BNS approva la decisione del Consiglio degli Stati: il 90% delle filiali estere di UBS sarà coperto con capitale CET1, contro il 100% proposto dal Consiglio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ubs-capitale-90-bns.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio bancario svizzero con bandiera nazionale in una scena finanziaria"
+      },
+      "datePublished": "2026-09-24T20:09:09+00:00",
+      "dateModified": "2026-09-24T20:09:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ubs-capitale-90-bns/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mozione-costi-manifestazioni-stati': {
+    title: 'Mozione Stati: gli organizzatori pagano i costi sicurezza',
+    description: 'Gli Stati approvano la mozione 24-18 con 3 astensioni: il Consiglio federale dovrà preparare una base legale per far pagare agli organizzatori i costi',
+    keywords: 'frontalieri, ticino, svizzera, italia, mozione, stati, organizzatori, pagano',
+    ogTitle: 'Mozione Stati: gli organizzatori pagano i costi sicurezza',
+    ogDescription: 'Il Consiglio degli Stati ha approvato con 24 voti a favore, 18 contrari e 3 astensioni una mozione che chiede al Consiglio federale di elaborare una base legale per far pagare agli organizzatori delle manifestazioni i costi di intervento e sicurezza',
+    canonicalPath: '/articoli-svizzera/mozione-costi-manifestazioni-stati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mozione Stati: gli organizzatori pagano i costi sicurezza",
+      "description": "Gli Stati approvano la mozione 24-18 con 3 astensioni: il Consiglio federale dovrà preparare una base legale per far pagare agli organizzatori i costi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mozione-costi-manifestazioni-stati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione svizzera con forze dell'ordine in primo piano"
+      },
+      "datePublished": "2026-09-24T21:22:12+00:00",
+      "dateModified": "2026-09-24T21:22:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mozione-costi-manifestazioni-stati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bns-tasso-guida-zero-2026': {
+    title: 'BNS lascia tasso guida allo 0% e rialza stime PIL 2026',
+    description: 'La Banca nazionale svizzera mantiene il tasso guida allo 0% da giugno 2025. Inflazione agosto allo 0,8%; PIL 2026 previsto tra 1,5% e 2%, PIL 2027 intorno',
+    keywords: 'frontalieri, ticino, svizzera, italia, lascia, tasso, allo, rialza',
+    ogTitle: 'BNS lascia tasso guida allo 0% e rialza stime PIL 2026',
+    ogDescription: 'La decisione della BNS di lasciare il tasso guida allo 0% influisce sull\'inflazione, prevista allo 0,8% ad agosto e con ulteriori variazioni nei prossimi anni, e sulle stime di crescita del PIL svizzero, ora riviste al rialzo per il 2026 tra l\'1,5%',
+    canonicalPath: '/articoli-svizzera/bns-tasso-guida-zero-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BNS lascia tasso guida allo 0% e rialza stime PIL 2026",
+      "description": "La Banca nazionale svizzera mantiene il tasso guida allo 0% da giugno 2025. Inflazione agosto allo 0,8%; PIL 2026 previsto tra 1,5% e 2%, PIL 2027 intorno",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bns-tasso-guida-zero-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con montagne e edifici finanziari sullo sfondo"
+      },
+      "datePublished": "2026-09-24T22:00:35+00:00",
+      "dateModified": "2026-09-24T22:00:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bns-tasso-guida-zero-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-turismo-agosto-ospiti-estero': {
+    title: 'Fine estate con meno turisti stranieri in Svizzera',
+    description: 'I pernottamenti turistici in Svizzera calano dell\'1,9% in agosto su base annua: -2,3% per gli ospiti stranieri, -1,4% per la domanda interna e -9,2% in Asia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fine, estate, meno, turisti',
+    ogTitle: 'Pernottamenti turistici in calo in agosto',
+    ogDescription: 'Il bilancio di agosto mostra una flessione dell\'1,9% dei pernottamenti su base annua. Il calo riguarda soprattutto gli ospiti dall\'estero; l\'Asia arretra del 9,2%, mentre l\'Europa resta quasi stabile. I dati regionali arriveranno il 5 ottobre.',
+    canonicalPath: '/articoli-svizzera/turismo-agosto-ospiti-estero/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fine estate con meno turisti stranieri in Svizzera",
+      "description": "I pernottamenti turistici in Svizzera calano dell'1,9% in agosto su base annua: -2,3% per gli ospiti stranieri, -1,4% per la domanda interna e -9,2% in Asia.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/turismo-agosto-ospiti-estero.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Turisti sul lungolago svizzero in una scena di fine estate."
+      },
+      "datePublished": "2026-09-24T22:53:54+00:00",
+      "dateModified": "2026-09-24T22:53:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/turismo-agosto-ospiti-estero/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-salasso-alla-pompa-benzina': {
+    title: 'Salasso alla pompa: diesel caro, benzina in rialzo',
+    description: 'Il 24 settembre 2026 a Zurigo il diesel raggiunge 2,46 CHF/l, la benzina 95 2,14 CHF/l e il petrolio supera i 100 USD/barile. Scopri le prospettive di rialzo',
+    keywords: 'frontalieri, ticino, svizzera, italia, salasso, alla, pompa, diesel',
+    ogTitle: 'Salasso alla pompa: diesel caro, benzina in rialzo',
+    ogDescription: 'A Zurigo, il 24 settembre 2026, il diesel costa in media 2,46 franchi al litro con picchi oltre 2,50, mentre la benzina senza piombo 95 è a 2,14 franchi di mediana. Il petrolio supera i 100 dollari al barile e le prospettive di Goldman Sachs indicano',
+    canonicalPath: '/articoli-svizzera/salasso-alla-pompa-benzina/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salasso alla pompa: diesel caro, benzina in rialzo",
+      "description": "Il 24 settembre 2026 a Zurigo il diesel raggiunge 2,46 CHF/l, la benzina 95 2,14 CHF/l e il petrolio supera i 100 USD/barile. Scopri le prospettive di rialzo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salasso-alla-pompa-benzina.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di servizio a Zurigo con display prezzi diesel e benzina"
+      },
+      "datePublished": "2026-09-25T01:29:16+00:00",
+      "dateModified": "2026-09-25T01:29:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salasso-alla-pompa-benzina/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-made-in-europe-svizzera': {
+    title: 'Made in Europe: la Svizzera cerca posto negli appalti UE',
+    description: 'Il 24 settembre 2026 a Bruxelles si discute l\'inclusione della Svizzera nella legge sull\'accelerazione industriale UE: Germania favorevole, Francia contraria',
+    keywords: 'frontalieri, ticino, svizzera, italia, made, europe, cerca, posto',
+    ogTitle: 'Made in Europe: la Svizzera cerca posto negli appalti UE',
+    ogDescription: 'A Bruxelles il 24 settembre 2026 ministri di Germania, Francia, Polonia e Spagna hanno dibattuto se la Svizzera possa beneficiare della «preferenza europea» negli appalti pubblici prevista dalla legge sull\'accelerazione industriale. La Germania',
+    canonicalPath: '/articoli-svizzera/made-in-europe-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Made in Europe: la Svizzera cerca posto negli appalti UE",
+      "description": "Il 24 settembre 2026 a Bruxelles si discute l'inclusione della Svizzera nella legge sull'accelerazione industriale UE: Germania favorevole, Francia contraria",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/made-in-europe-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Impianto industriale svizzero con bandiera UE sullo sfondo, simbolo del dibattito 'Made in Europe'"
+      },
+      "datePublished": "2026-09-25T02:02:08+00:00",
+      "dateModified": "2026-09-25T02:02:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/made-in-europe-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-urne-due-iniziative-2026': {
+    title: 'Voto Svizzera: neutralità e alimentazione | Frontaliere Ticino',
+    description: 'Il 27 settembre 2026 la Svizzera vota su neutralità e alimentazione. La fonte invita a partecipare al sondaggio di 20 minuti e Tamedia. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, voto, neutralità, alimentazione, settembre',
+    ogTitle: 'Voto Svizzera: neutralità e alimentazione',
+    ogDescription: 'Domenica 27 settembre 2026 il popolo svizzero sarà chiamato alle urne su due iniziative popolari: la salvaguardia della neutralità svizzera e un\'alimentazione sicura. 20 minuti e Tamedia chiedono ai lettori come hanno votato.',
+    canonicalPath: '/articoli-svizzera/urne-due-iniziative-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Voto Svizzera: neutralità e alimentazione",
+      "description": "Il 27 settembre 2026 la Svizzera vota su neutralità e alimentazione. La fonte invita a partecipare al sondaggio di 20 minuti e Tamedia. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/urne-due-iniziative-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Voto svizzero sulle iniziative per neutralità e alimentazione"
+      },
+      "datePublished": "2026-09-25T03:15:17+00:00",
+      "dateModified": "2026-09-25T03:15:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/urne-due-iniziative-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-conferenza-protezione-popolazione-berna': {
+    title: 'Conferenza protezione popolazione: cell broadcast accelerato',
+    description: 'Berna, 23 settembre 2026: la Conferenza dei capi ufficio discute resilienza e conflitto armato. Il Consiglio federale accelera il cell broadcast.',
+    keywords: 'frontalieri, ticino, svizzera, italia, conferenza, protezione, popolazione, cell',
+    ogTitle: 'Conferenza protezione popolazione: cell broadcast accelerato',
+    ogDescription: 'Il 23 settembre 2026 a Berna si è riunita la Conferenza dei capi ufficio della protezione della popolazione. Al centro dei lavori: il rafforzamento delle capacità, il progetto sul conflitto armato e l\'accelerazione del cell broadcast decisa',
+    canonicalPath: '/articoli-svizzera/conferenza-protezione-popolazione-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Conferenza protezione popolazione: cell broadcast accelerato",
+      "description": "Berna, 23 settembre 2026: la Conferenza dei capi ufficio discute resilienza e conflitto armato. Il Consiglio federale accelera il cell broadcast.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/conferenza-protezione-popolazione-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Rappresentanti dei cantoni riuniti in conferenza a Berna per discutere la protezione della popolazione e il cell broadcast."
+      },
+      "datePublished": "2026-09-25T04:12:08+00:00",
+      "dateModified": "2026-09-25T04:12:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/conferenza-protezione-popolazione-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lumpy-skin-disease-fine-vaccinazione': {
+    title: 'LSD: fine vaccinazione bovini il 30 settembre 2026',
+    description: 'La campagna di vaccinazione contro la LSD termina il 30 settembre 2026. Dal 1° ottobre inizia un periodo di attesa di 8 mesi con sorveglianza rafforzata.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fine, vaccinazione, bovini, settembre',
+    ogTitle: 'LSD: fine vaccinazione bovini il 30 settembre 2026',
+    ogDescription: 'La Svizzera termina la vaccinazione obbligatoria contro la LSD il 30 settembre 2026. Dal 1° ottobre inizia un\'attesa di 8 mesi con sorveglianza mirata nei Cantoni di Ginevra, Vaud e Vallese. Status indenne non prima di giugno 2027.',
+    canonicalPath: '/articoli-svizzera/lumpy-skin-disease-fine-vaccinazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "LSD: fine vaccinazione bovini il 30 settembre 2026",
+      "description": "La campagna di vaccinazione contro la LSD termina il 30 settembre 2026. Dal 1° ottobre inizia un periodo di attesa di 8 mesi con sorveglianza rafforzata.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lumpy-skin-disease-fine-vaccinazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mucca in un pascolo svizzero con montagne sullo sfondo, contesto della campagna di sorveglianza LSD"
+      },
+      "datePublished": "2026-09-25T04:56:43+00:00",
+      "dateModified": "2026-09-25T04:56:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lumpy-skin-disease-fine-vaccinazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-canicola-danni-economici-2026': {
+    title: 'Canicola in Svizzera: 400 milioni di danni nel 2026',
+    description: 'L\'estate torrida 2026 ha causato 400 milioni di franchi di danni in Svizzera. Allianz Trade stima i rischi di El Niño nel 2027 e indica la prevenzione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, canicola, milioni, danni, estate',
+    ogTitle: 'Svizzera, caldo 2026: danni per 400 milioni',
+    ogDescription: 'Il bilancio dell\'estate torrida pesa sull\'economia svizzera: 400 milioni di franchi e produttività del lavoro colpita da pause più lunghe e assenze per malattia. Lo studio Allianz Trade guarda già al forte El Niño del 2027.',
+    canonicalPath: '/articoli-svizzera/canicola-danni-economici-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Canicola in Svizzera: 400 milioni di danni nel 2026",
+      "description": "L'estate torrida 2026 ha causato 400 milioni di franchi di danni in Svizzera. Allianz Trade stima i rischi di El Niño nel 2027 e indica la prevenzione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/canicola-danni-economici-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratori in pausa durante la canicola in una città svizzera"
+      },
+      "datePublished": "2026-09-25T06:41:56+00:00",
+      "dateModified": "2026-09-25T06:41:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/canicola-danni-economici-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-nuova-legge-cibersicurezza-lcib': {
+    title: 'Svizzera: nuova legge autonoma sulla cibersicurezza LCib',
+    description: 'Il Consiglio federale introduce la LCib entro giugno 2027. Nuove norme su prodotti digitali, cloud e dati basate sul Cyber Resilience Act europeo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuova, legge, autonoma, sulla',
+    ogTitle: 'Svizzera: al via la nuova legge sulla cibersicurezza LCib',
+    ogDescription: 'Il DDPS elaborerà entro giugno 2027 la LCib, una legge autonoma per la cibersicurezza di prodotti, dati e infrastrutture digitali, allineata al CRA europeo.',
+    canonicalPath: '/articoli-svizzera/nuova-legge-cibersicurezza-lcib/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera: nuova legge autonoma sulla cibersicurezza LCib",
+      "description": "Il Consiglio federale introduce la LCib entro giugno 2027. Nuove norme su prodotti digitali, cloud e dati basate sul Cyber Resilience Act europeo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/nuova-legge-cibersicurezza-lcib.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Infrastruttura digitale e server per la sicurezza informatica in Svizzera"
+      },
+      "datePublished": "2026-09-25T09:35:23+00:00",
+      "dateModified": "2026-09-25T09:35:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/nuova-legge-cibersicurezza-lcib/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-omologazione-fitosanitari-arretrato-2032': {
+    title: 'Omologazione fitosanitari: arretrato azzerato entro il 2032',
+    description: 'Il Consiglio federale fissa il 2032 per evadere 525 domande pendenti. Tasse in aumento dal 2028, 18 milioni investiti, credito suppletivo 2027. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, omologazione, fitosanitari, arretrato, azzerato',
+    ogTitle: 'Omologazione fitosanitari: piano per azzerare l\'arretrato entro il 2032',
+    ogDescription: 'Il Consiglio federale decide l\'evasione di 525 domande pendenti entro il 2032. Investiti 18 milioni, tasse raddoppiate dal 2028 per coprire il 50% dei costi. Misure: più personale e digitalizzazione.',
+    canonicalPath: '/articoli-svizzera/omologazione-fitosanitari-arretrato-2032/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Omologazione fitosanitari: arretrato azzerato entro il 2032",
+      "description": "Il Consiglio federale fissa il 2032 per evadere 525 domande pendenti. Tasse in aumento dal 2028, 18 milioni investiti, credito suppletivo 2027. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/omologazione-fitosanitari-arretrato-2032.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna con campi agricoli sullo sfondo"
+      },
+      "datePublished": "2026-09-25T11:39:48+00:00",
+      "dateModified": "2026-09-25T11:39:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/omologazione-fitosanitari-arretrato-2032/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-finanziamento-federale-universita-sup': {
+    title: 'Finanziamento federale università cantonali e SUP',
+    description: 'Il 25 settembre 2026 il Consiglio federale ha approvato il rapporto sul finanziamento equo delle scuole universitarie, fissando al 20% e 30% i massimi',
+    keywords: 'frontalieri, ticino, svizzera, italia, finanziamento, federale, università, cantonali',
+    ogTitle: 'Finanziamento federale università cantonali e SUP',
+    ogDescription: 'Il Consiglio federale ha confermato il 25 settembre 2026 le quote massime di finanziamento diretto: 20% per le università cantonali e 30% per le SUP, valori in vigore dal 1° gennaio 2027. Il rapporto, basato sulla valutazione BSS Volkswirtschaftliche',
+    canonicalPath: '/articoli-svizzera/finanziamento-federale-universita-sup/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Finanziamento federale università cantonali e SUP",
+      "description": "Il 25 settembre 2026 il Consiglio federale ha approvato il rapporto sul finanziamento equo delle scuole universitarie, fissando al 20% e 30% i massimi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/finanziamento-federale-universita-sup.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campus universitario moderno a Lugano con studenti e laboratori di ricerca sotto il cielo alpino"
+      },
+      "datePublished": "2026-09-25T12:24:28+00:00",
+      "dateModified": "2026-09-25T12:24:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/finanziamento-federale-universita-sup/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-fondi-integrazione-svizzera-2028': {
+    title: 'Più fondi federali per l\'integrazione 2028-2032',
+    description: 'Il Consiglio federale stanzia 334,5 milioni per l\'integrazione in Svizzera nel periodo 2028-2032, con 66,9 milioni annui per programmi cantonali e nazionali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fondi, federali, integrazione, 2028-2032',
+    ogTitle: 'Più fondi per l\'integrazione in Svizzera',
+    ogDescription: 'Nel periodo 2028-2032 la Confederazione investirà 334,5 milioni di franchi nella promozione dell\'integrazione. Ogni anno 66,9 milioni finanzieranno programmi cantonali e nazionali, con priorità a lingua, formazione, lavoro e integrazione delle donne.',
+    canonicalPath: '/articoli-svizzera/fondi-integrazione-svizzera-2028/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Più fondi federali per l'integrazione 2028-2032",
+      "description": "Il Consiglio federale stanzia 334,5 milioni per l'integrazione in Svizzera nel periodo 2028-2032, con 66,9 milioni annui per programmi cantonali e nazionali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fondi-integrazione-svizzera-2028.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sessione informativa svizzera sui programmi cantonali d'integrazione"
+      },
+      "datePublished": "2026-09-25T13:28:59+00:00",
+      "dateModified": "2026-09-25T13:28:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fondi-integrazione-svizzera-2028/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-incentivo-fiscale-acquisto-locale': {
+    title: 'Incentivo fiscale per acquisti locali in Ticino: proposta',
+    description: 'Il Centro propone un credito d\'imposta fino al 25% per chi acquista presso esercenti ticinesi tramite wallet digitale o carta elettronica. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, incentivo, fiscale, acquisti, locali',
+    ogTitle: 'Incentivo fiscale per acquisti locali in Ticino',
+    ogDescription: 'Il Centro propone di sostenere il commercio ticinese con un credito d\'imposta fino al 25% per chi destina quote di stipendio o reddito a un circuito locale. Massimale di 5.000 franchi annui.',
+    canonicalPath: '/articoli-svizzera/incentivo-fiscale-acquisto-locale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incentivo fiscale per acquisti locali in Ticino: proposta",
+      "description": "Il Centro propone un credito d'imposta fino al 25% per chi acquista presso esercenti ticinesi tramite wallet digitale o carta elettronica. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incentivo-fiscale-acquisto-locale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Smartphone con wallet digitale per acquisti locali in Ticino"
+      },
+      "datePublished": "2026-09-25T14:19:43+00:00",
+      "dateModified": "2026-09-25T14:19:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/incentivo-fiscale-acquisto-locale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-franco-svizzero-ribasso-settembre-novembre': {
+    title: 'Franco svizzero ribasso: segnali da seguire fino a novembre',
+    description: 'Il franco svizzero è sceso circa il 5% dai massimi di primavera 2026, simile al 2023 e inferiore al >6% del 2024. La finestra stagionale da fine settembre',
+    keywords: 'frontalieri, ticino, svizzera, italia, franco, svizzero, ribasso, segnali',
+    ogTitle: 'Franco svizzero ribasso: segnali da seguire fino a novembre',
+    ogDescription: 'Analisi del movimento del franco svizzero rispetto all\'euro: perdita di circa il 5% dai massimi di primavera 2026, confronto con il 2023 e il 2024, e indicazioni sulla finestra stagionale fine settembre‑inizio novembre utile per frontalieri',
+    canonicalPath: '/articoli-svizzera/franco-svizzero-ribasso-settembre-novembre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Franco svizzero ribasso: segnali da seguire fino a novembre",
+      "description": "Il franco svizzero è sceso circa il 5% dai massimi di primavera 2026, simile al 2023 e inferiore al >6% del 2024. La finestra stagionale da fine settembre",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/franco-svizzero-ribasso-settembre-novembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione del franco svizzero e dell'euro con sfondo del lago di Lugano"
+      },
+      "datePublished": "2026-09-25T15:24:07+00:00",
+      "dateModified": "2026-09-25T15:24:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/franco-svizzero-ribasso-settembre-novembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sanzioni-onu-ordinanze-2026': {
+    title: 'Svizzera armonizza le ordinanze sulle sanzioni ONU del 2026',
+    description: 'Il 25 settembre 2026 il Consiglio federale ha armonizzato quattro ordinanze sulle sanzioni ONU, estendendo alle organizzazioni internazionali l\'esenzione',
+    keywords: 'frontalieri, ticino, svizzera, italia, armonizza, ordinanze, sulle, sanzioni',
+    ogTitle: 'Svizzera armonizza le ordinanze sulle sanzioni ONU 2026',
+    ogDescription: 'Il 25 settembre 2026 il Consiglio federale ha deciso di uniformare e precisare le disposizioni finanziarie di quattro ordinanze che attuano le sanzioni dell\'ONU su terrorismo e proliferazione. L\'intervento sposta il focus dalle sanzioni UE',
+    canonicalPath: '/articoli-svizzera/sanzioni-onu-ordinanze-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera armonizza le ordinanze sulle sanzioni ONU del 2026",
+      "description": "Il 25 settembre 2026 il Consiglio federale ha armonizzato quattro ordinanze sulle sanzioni ONU, estendendo alle organizzazioni internazionali l'esenzione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sanzioni-onu-ordinanze-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti ufficiali SECO sulle sanzioni ONU con sfondo del Palazzo federale a Berna"
+      },
+      "datePublished": "2026-09-25T17:20:40+00:00",
+      "dateModified": "2026-09-25T17:20:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sanzioni-onu-ordinanze-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-francese-autonomia-cantoni': {
+    title: 'Francese a scuola: i Cantoni difendono l\'autonomia',
+    description: 'La CDPE difende l\'autonomia dei Cantoni sulle lingue: il Governo consulta due varianti sul francese alle elementari, con scadenza il 5 ottobre. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, francese, scuola, cantoni, difendono',
+    ogTitle: 'Francese alle elementari: autonomia ai Cantoni',
+    ogDescription: 'Il confronto sul francese alle scuole elementari coinvolge alcuni Cantoni germanofoni. La CDPE non sceglie tra le varianti del Consiglio federale, difende la cooperazione intercantonale e indica il 5 ottobre come termine della consultazione.',
+    canonicalPath: '/articoli-svizzera/francese-autonomia-cantoni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Francese a scuola: i Cantoni difendono l'autonomia",
+      "description": "La CDPE difende l'autonomia dei Cantoni sulle lingue: il Governo consulta due varianti sul francese alle elementari, con scadenza il 5 ottobre. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/francese-autonomia-cantoni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scuola svizzera con libri di francese e tedesco"
+      },
+      "datePublished": "2026-09-25T18:17:09+00:00",
+      "dateModified": "2026-09-25T18:17:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/francese-autonomia-cantoni/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

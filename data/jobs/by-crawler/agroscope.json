@@ -1,10 +1,10 @@
 {
   "crawlerKey": "agroscope",
-  "assembledAt": "2026-09-24T14:17:00.822Z",
+  "assembledAt": "2026-09-25T14:41:08.014Z",
   "jobs": [
     {
       "title": "Administrative/-r Mitarbeiter/-in",
-      "slug": "administrative-r-collaboratore-trice-in-agroscope-posieux",
+      "slug": "dipendenti-amministrativi-agroscope-posieux",
       "url": "https://jobs.admin.ch/posti-vacanti/administrative-r-mitarbeiter-in/fee031f9-d7d6-4520-a39d-0c1d34216d13",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20439",
       "company": "Agroscope",
@@ -39,7 +39,7 @@
         "fr": "• Coordination de la réception sur le site Posieux ainsi que soutien à l'échange téléphonique, à la boîte aux lettres d'appui centrale et aux bains pour visiteurs\n\n• Personne-ressource pour les cartes à puce et le contrôle d'accès pour tous les employés du site\n\n• Soutien administratif de l'équipe « Soutien central » pour un large éventail de tâches et de services\n\n• Coordination des manifestations et des visites\n\n• Coordination de la logistique et des postes\n\n• Accompagner et soutenir les stagiaires dans l'accomplissement de leurs tâches\n\n• EFZ en tant que marchand ayant une expérience dans le domaine du secrétariat\n\n• Personnalité communicative et orientée vers le client avec une grande capacité d'apprentissage et ouverture au changement\n\n• Bonnes connaissances en TI (Bureau du SM)\n\n• Très bonne connaissance de deux langues officielles et de l'anglais en paroles et en écriture"
       },
       "slugByLocale": {
-        "it": "administrative-r-collaboratore-trice-in-agroscope-posieux",
+        "it": "dipendenti-amministrativi-agroscope-posieux",
         "en": "administrative-r-employees-agroscope-posieux",
         "de": "administrative-r-mitarbeiter-in-agroscope-posieux",
         "fr": "employes-administratifs-r-agroscope-posieux"
@@ -62,6 +62,7 @@
       "firstSeenAt": "2026-09-23T23:34:58.444Z",
       "previousSlugsByLocale": {
         "it": [
+          "administrative-r-collaboratore-trice-in-agroscope-posieux",
           "administrative-r-mitarbeiter-in-agroscope-posieux"
         ],
         "en": [
@@ -72,8 +73,10 @@
         ]
       },
       "previousSlugs": [
+        "administrative-r-collaboratore-trice-in-agroscope-posieux",
         "administrative-r-mitarbeiter-in-agroscope-posieux"
-      ]
+      ],
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/administrative-r-mitarbeiter-in/fee031f9-d7d6-4520-a39d-0c1d34216d13"
     },
     {
       "title": "PhD Entscheidungsunterstützung landwirtschaftliches Wassermanagement",
@@ -133,6 +136,7 @@
       },
       "firstSeenAt": "2026-09-16T23:45:19.150Z",
       "postalCode": "",
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/phd-entscheidungsunterstuetzung-landwirtschaftliches-wassermanagement/8956961b-b686-4d77-986d-0912616e26df",
       "previousSlugsByLocale": {
         "it": [
           "phd-entscheidungsunterstutzung-landwirtschaftliches-wassermanagement-agroscope-zurich"
@@ -221,7 +225,8 @@
         }
       },
       "firstSeenAt": "2026-09-16T23:45:19.150Z",
-      "postalCode": ""
+      "postalCode": "",
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/phd-zu-wertschoepfungsketten-fuer-huelsenfruechte-in-der-schweiz/f81977d9-6003-49d6-84ba-8397a36e8d31"
     },
     {
       "title": "Postdoktorand/-in zum Thema «Modellbasierte Bewertung von Ernährungssystemen»",
@@ -281,6 +286,7 @@
       },
       "firstSeenAt": "2026-09-11T13:34:01.138Z",
       "postalCode": "8356",
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/postdoktorand-in-zum-thema-modellbasierte-bewertung-von-ernaehrungssystemen/e5aa02a8-7175-48a9-bfab-c308bfdca70b",
       "previousSlugsByLocale": {
         "it": [
           "postdoktorand-in-zum-thema-modellbasierte-bewertung-von-ernahrungssystemen-agroscope-ettenhausen"
@@ -356,8 +362,8 @@
       "firstSeenAt": "2026-09-23T23:34:58.444Z",
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftlicher-mitarbeiter-in-im-bereich-graslandsysteme-agroscope-posieux",
-          "wissenschaftlicher-collaboratore-trice-in-im-bereich-graslandsysteme-agroscope-posieux"
+          "wissenschaftlicher-collaboratore-trice-in-im-bereich-graslandsysteme-agroscope-posieux",
+          "wissenschaftlicher-mitarbeiter-in-im-bereich-graslandsysteme-agroscope-posieux"
         ],
         "en": [
           "wissenschaftlicher-mitarbeiter-in-im-bereich-graslandsysteme-agroscope-posieux"
@@ -367,9 +373,10 @@
         ]
       },
       "previousSlugs": [
-        "wissenschaftlicher-mitarbeiter-in-im-bereich-graslandsysteme-agroscope-posieux",
-        "wissenschaftlicher-collaboratore-trice-in-im-bereich-graslandsysteme-agroscope-posieux"
-      ]
+        "wissenschaftlicher-collaboratore-trice-in-im-bereich-graslandsysteme-agroscope-posieux",
+        "wissenschaftlicher-mitarbeiter-in-im-bereich-graslandsysteme-agroscope-posieux"
+      ],
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftlicher-mitarbeiter-in-im-bereich-graslandsysteme/0fc8d7c2-557b-4dde-9ffb-f7b32b405d2c"
     },
     {
       "title": "Jurist/in",
@@ -429,6 +436,7 @@
       },
       "firstSeenAt": "2026-09-10T23:06:37.551Z",
       "postalCode": "",
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/jurist-in/8273841a-9747-4441-919d-29a9b01d68aa",
       "previousSlugsByLocale": {
         "it": [
           "jurist-in-agroscope-posieux"
@@ -471,7 +479,7 @@
         "it": "Risorse Umane Business Partner/-in",
         "en": "HR Business Partner",
         "de": "Personalwesen Business Partner/-in",
-        "fr": "HR Business Partner/-in"
+        "fr": "Partenaire commercial RH"
       },
       "descriptionByLocale": {
         "it": "• Consulenza dei supervisori su tutte le questioni relative al ciclo di vita dei dipendenti\n\n• Sostegno ai supervisori nel bilancio del personale\n\n• Sostegno a progetti di ristrutturazione e trasformazione, nonché partecipazione attiva alle riunioni di gestione\n\n• Responsabilità per l'attuazione dei processi HR in conformità alle norme e ai regolamenti applicabili\n\n• Partecipazione attiva all'ulteriore sviluppo dei processi HR all'interno di progetti e gruppi di lavoro\n\n• Studi completi in Risorse Umane e Business Administration (FH/University) con Federal FA in HR\n\n• Diversi anni di esperienza nella consulenza HR e nel supporto ai processi di sviluppo e cambiamento organizzativi\n\n• Personalità indipendente, orientata al team con forte comunicazione e forza di negoziazione\n\n• Stile di lavoro orientato alle prestazioni e alle soluzioni, combinato con agilità, struttura, resilienza e elevata resilienza\n\n• Competenze di MS Office molto buone; la conoscenza di SAP è un vantaggio\n\n• Molto buona conoscenza di due lingue ufficiali e inglese in parola e scrittura",
@@ -515,7 +523,8 @@
         "partenaire-d-affaires-rh-agroscope-posieux",
         "partenaire-operationnel-rh-agroscope-posieux"
       ],
-      "postalCode": ""
+      "postalCode": "",
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hr-business-partner-in/ab7460ad-9b24-4543-a241-614ba5d10867"
     },
     {
       "title": "Landwirtschaftliche/r Fachmitarbeiter/in Obstbau",
@@ -575,6 +584,7 @@
       },
       "firstSeenAt": "2026-09-04T13:27:18.232Z",
       "postalCode": "",
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/landwirtschaftliche-r-fachmitarbeiter-in-obstbau/1b44425b-ad7c-4a43-9795-972b21b47f66",
       "previousSlugsByLocale": {
         "it": [
           "landwirtschaftliche-r-fachmitarbeiter-in-obstbau-agroscope-wadenswil"
@@ -668,7 +678,8 @@
         "responsable-du-groupe-de-recherche-en-extension-horticole-agroscope-8046-zurich",
         "forschungsgruppenleiter-in-extension-gemusebau-agroscope-zurich"
       ],
-      "postalCode": "8046"
+      "postalCode": "8046",
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/forschungsgruppenleiter-in-extension-gemuesebau/29bbeb33-c800-4870-aeab-f1a7c02e34a0"
     }
   ]
 }

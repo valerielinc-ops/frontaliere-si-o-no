@@ -3401,10 +3401,10 @@ async function main() {
           ...d18Ga4Options,
           includeEmissionId: true,
         });
-      } catch (err) {
+      } catch (error) {
         d18Ga4Result = null;
         ga4UnavailableReason = 'GA4 emission_id evidence probe fallita; registrazione o dati forward-only non disponibili';
-        console.warn(`::warning::D18 GA4 emission_id probe failed: ${String(err?.message || err).split('\n')[0]}`);
+        console.warn(`::warning::D18 GA4 emission_id probe failed: ${String(error?.message || error).split('\n')[0]}`);
       }
       if (process.env.POSTHOG_PERSONAL_API_KEY && process.env.POSTHOG_PROJECT_ID) {
         try {
@@ -3425,10 +3425,10 @@ async function main() {
           ...d18Ga4Options,
           includeEmissionId: true,
         });
-      } catch (err) {
+      } catch (error) {
         d18Ga4Result = null;
         ga4UnavailableReason = 'GA4 emission_id evidence probe fallita; registrazione o dati forward-only non disponibili';
-        console.warn(`::warning::D18 GA4 emission_id probe failed: ${String(err?.message || err).split('\n')[0]}`);
+        console.warn(`::warning::D18 GA4 emission_id probe failed: ${String(error?.message || error).split('\n')[0]}`);
       }
     }
 

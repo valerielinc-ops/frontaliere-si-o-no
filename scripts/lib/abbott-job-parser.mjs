@@ -19,7 +19,9 @@
  *
  * Location text format: `Switzerland - {Canton} - {City}` (Basel, Zurich,
  * Fribourg, Remote, …). We strip the leading "Switzerland - " then use the
- * first remaining segment as the city.
+ * first remaining segment as the city. A work mode ("Remote") is not a city:
+ * without a requisition site that names one, the job is skipped rather than
+ * published as the Basel HQ (same rule as issue 9839 on nvidia-zurich).
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllAbbottJobs() — Fetch and parse all Swiss jobs
@@ -30,7 +32,11 @@
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { normalizeDescriptionBullets, slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton, swissCityFromLocationField } from './target-swiss-locations.mjs';
+import {
+  inferSwissTargetCanton,
+  isWorkModeLocationLabel,
+  swissCityFromLocationField,
+} from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
@@ -41,6 +47,7 @@ import {
   workdayPrimaryLocationState,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
+import { resolveWorkdayPrimarySwissLocation } from './workday-swiss-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -80,10 +87,18 @@ function cleanAbbottLocation(raw = '') {
   const trimmed = String(raw || '').trim();
   if (!trimmed) return '';
   if (/\d+\s+location/i.test(trimmed)) return '';
+  // A work mode with no municipality (`Switzerland - Remote`,
+  // `Home Office - Switzerland`, `Switzerland - Télétravail - Vaud`) names no
+  // place: no segment of it may become the locality.
+  if (isWorkModeLocationLabel(trimmed)) return '';
   // Strip leading "Switzerland - " (and language variants)
   const stripped = trimmed.replace(/^\s*(switzerland|schweiz|suisse|svizzera)\s*-\s*/i, '').trim();
   if (!stripped) return '';
-  const parts = stripped.split(/\s*-\s*/).map((p) => p.trim()).filter(Boolean);
+  // A work-mode segment beside a named place (`Switzerland - Zurich - Remote`)
+  // is dropped so the place stays the locality.
+  const parts = stripped.split(/\s*-\s*/)
+    .map((p) => p.trim())
+    .filter((p) => p && !isWorkModeLocationLabel(p));
   // Last segment is usually the city (when present), else the canton/region.
   return parts[parts.length - 1] || '';
 }
@@ -216,7 +231,7 @@ export async function fetchAllAbbottJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const rawLocation = listing.locationRaw || 'Basel';
+    const rawLocation = normalizeSpace(listing.locationRaw || '');
     if (isLocationExplicitlyForeign(rawLocation)) {
       console.log(`  ⏭️  Skipped foreign location: ${rawLocation} — ${title}`);
       continue;
@@ -231,8 +246,18 @@ export async function fetchAllAbbottJobs() {
       console.log(`  ⏭️  Skipped unresolved requisition location: ${requisitionState.text || '(unreadable)'} — ${title}`);
       continue;
     }
-    const location = cleaned || 'Basel';
-    const canton = inferSwissTargetCanton(location) || 'BS';
+    // An `N Locations` roll-up or an empty listing location carries no site:
+    // only the req's own primary workplace may place it in Switzerland. The
+    // Basel HQ used to fill the gap and published a req worked in Neustadt am
+    // Rübenberge (Germany) as `Basel/BS` (issue 9842).
+    const location = cleaned || resolveWorkdayPrimarySwissLocation(detailInfo);
+    const canton = location && !isWorkModeLocationLabel(location)
+      ? inferSwissTargetCanton(location)
+      : '';
+    if (!location || !canton) {
+      console.log(`  ⏭️  Skipped location without a Swiss canton: ${rawLocation || '(none)'} — ${title}`);
+      continue;
+    }
     const publicUrl = listing.url || CAREER_URL;
     const employmentType = detectEmploymentType(listing.timeType || '', title);
 

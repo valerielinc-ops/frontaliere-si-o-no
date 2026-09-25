@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 621,
+  "crawlerCount": 624,
   "groups": {
     "10": [
       "atec-personal",
@@ -60,8 +60,7 @@
       "spitex-ch",
       "stellenpartner",
       "swiss-re",
-      "tecan",
-      "tpl-lugano"
+      "tecan"
     ],
     "12": [
       "agie-charmilles",
@@ -401,8 +400,6 @@
       "albergo-gardenia",
       "artificialy",
       "brefispersonal",
-      "capri-holdings",
-      "confederazione-ticino",
       "csd-engineers",
       "ecam",
       "fust",
@@ -414,12 +411,18 @@
       "postauto"
     ],
     "24": [
+      "anicura",
+      "capri-holdings",
       "cnp",
+      "confederazione-ticino",
       "fachkraft",
+      "fisba",
       "fondation-domus",
       "mcdonald-s-switzerland",
       "pole-sante-pays-enhaut",
       "postfinance",
+      "protectas",
+      "tpl-lugano",
       "tsmg"
     ],
     "01": [
@@ -698,6 +701,7 @@
     "amina-bank": "data/jobs/by-crawler/amina-bank.json",
     "amministrazione-cantonale-ti": "data/jobs/by-crawler/amministrazione-cantonale-ti.json",
     "amstein-walthert": "data/jobs/by-crawler/amstein-walthert.json",
+    "anicura": "data/jobs/by-crawler/anicura.json",
     "anker-swiss": "data/jobs/by-crawler/anker-swiss.json",
     "answerconsulting": "data/jobs/by-crawler/answerconsulting.json",
     "anybotics": "data/jobs/by-crawler/anybotics.json",
@@ -874,6 +878,7 @@
     "fhgr": "data/jobs/by-crawler/fhgr.json",
     "fielmann": "data/jobs/by-crawler/fielmann.json",
     "fincons-group": "data/jobs/by-crawler/fincons-group.json",
+    "fisba": "data/jobs/by-crawler/fisba.json",
     "flury-stiftung": "data/jobs/by-crawler/flury-stiftung.json",
     "fmi": "data/jobs/by-crawler/fmi.json",
     "fnz": "data/jobs/by-crawler/fnz.json",
@@ -1112,6 +1117,7 @@
     "privatklinik-obach": "data/jobs/by-crawler/privatklinik-obach.json",
     "privatklinik-wyss": "data/jobs/by-crawler/privatklinik-wyss.json",
     "prosenectute-ti": "data/jobs/by-crawler/prosenectute-ti.json",
+    "protectas": "data/jobs/by-crawler/protectas.json",
     "proton": "data/jobs/by-crawler/proton.json",
     "psgn": "data/jobs/by-crawler/psgn.json",
     "puk-zuerich": "data/jobs/by-crawler/puk-zuerich.json",
@@ -1296,5 +1302,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:6e4506a55989a1ebf277b2ddb528dcd4a963102a265b99b64422305eae23d2b2"
+  "digest": "sha256:fafef249451f285254d1a3603cb5adcb48f1832e95cd412a3f3bbc8dba7b415e"
 }

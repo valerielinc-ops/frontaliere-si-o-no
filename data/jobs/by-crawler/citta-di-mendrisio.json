@@ -1,6 +1,6 @@
 {
   "crawlerKey": "citta-di-mendrisio",
-  "assembledAt": "2026-09-24T14:17:21.360Z",
+  "assembledAt": "2026-09-25T14:42:08.241Z",
   "jobs": [
     {
       "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=67c1fc6e-8449-4514-bbc8-0a3f2ab28bda",
@@ -64,6 +64,7 @@
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "firstSeenAt": "2026-09-17T23:32:16.368Z",
+      "sourceIdentity": "url:https://mendrisio.ch/downloadconcorsipdf?uuid=67c1fc6e-8449-4514-bbc8-0a3f2ab28bda",
       "needsRetranslation": true
     },
     {
@@ -140,6 +141,7 @@
         "zwei-unschatzbare-nahrungsmittelhilfe-zu-40-vorherige-zwei-interne-termine-citta-di-mendrisio-mendrisio",
         "two-invaluable-food-aid-to-40-previous-two-internal-appointments-citta-di-mendrisio-mendrisio"
       ],
+      "sourceIdentity": "url:https://mendrisio.ch/downloadconcorsipdf?uuid=decd3ad3-5164-460d-8815-1babeacdf2da",
       "needsRetranslation": true
     },
     {
@@ -216,6 +218,7 @@
         "100-elektroinstallateur-oder-installateur-citta-di-mendrisio-mendrisio",
         "100-electrical-installer-or-installer-citta-di-mendrisio-mendrisio"
       ],
+      "sourceIdentity": "url:https://mendrisio.ch/downloadconcorsipdf?uuid=01f9e1bd-f874-494b-a49e-1716eefab0ba",
       "needsRetranslation": true
     },
     {
@@ -293,6 +296,7 @@
         "100-legal-practitioners-citta-di-mendrisio-mendrisio"
       ],
       "salarySource": "estimated",
+      "sourceIdentity": "url:https://mendrisio.ch/downloadconcorsipdf?uuid=b73e0e64-5744-4538-aa9e-51144606f363",
       "needsRetranslation": true
     }
   ]

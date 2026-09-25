@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cseb",
-  "assembledAt": "2026-09-24T14:51:23.217Z",
+  "assembledAt": "2026-09-25T14:58:21.348Z",
   "jobs": [
     {
       "id": "cseb-ae5115104b13",
@@ -17,7 +17,7 @@
       "title": "Physiotherapeut/-in FH/HF (80-100%)",
       "titleByLocale": {
         "it": "Fisioterapista FH/HF (80-100%)",
-        "en": "Physiotherapist FH/HF (80-100%)",
+        "en": "Physiotherapeut/-in FH/HF (80-100%)",
         "de": "Physiotherapeut/-in FH/HF (80-100%)",
         "fr": "Physiothérapeute FH/HF (80-100%)"
       },
@@ -33,7 +33,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/e1cca88f-6983-6558-1f9e-165da51616ad",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.444Z",
+      "crawledAt": "2026-09-25T14:58:16.945Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -73,6 +73,7 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:49:54.930Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -119,7 +120,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/f910b490-39a2-ff4d-6a4e-cd4be69a89dc",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.440Z",
+      "crawledAt": "2026-09-25T14:58:16.943Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -204,7 +205,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/4e778dc6-464f-c653-3085-bb6b8ee9fda3",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.437Z",
+      "crawledAt": "2026-09-25T14:58:16.940Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -292,7 +293,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/503105ab-ee65-b500-19e8-988c5592f6c5",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.434Z",
+      "crawledAt": "2026-09-25T14:58:16.938Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -376,7 +377,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/8547edd4-1bb9-2695-7194-8bf5fc43cd96",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.432Z",
+      "crawledAt": "2026-09-25T14:58:16.936Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -461,7 +462,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/439cb41c-0371-94c9-6c59-909203c12844",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.430Z",
+      "crawledAt": "2026-09-25T14:58:16.934Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -553,7 +554,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/08090cea-a5af-e391-1b01-d1e40cf402a3",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.428Z",
+      "crawledAt": "2026-09-25T14:58:16.932Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -630,24 +631,24 @@
       "companyDomain": "cseb.ch",
       "title": "Psychologiepraktikant/-in Clinica Curativa (60-100%)",
       "titleByLocale": {
-        "it": "Psicologo/a Clinica Curativa (60-100%)",
-        "en": "Clinical Psychology Practitioner/Practitioner (60-100%)",
+        "it": "Psicologo/a in tirocinio Clinica Curativa (60-100%)",
+        "en": "Psychology Intern Clinica Curativa (60-100%)",
         "de": "Psychologiepraktikant/-in Clinica Curativa (60-100%)",
-        "fr": "Psychologiepraktikant/-in Clinica Curativa (60-100%)"
+        "fr": "Stagiaire en psychologie à la Clinica Curativa (60-100%)"
       },
       "description": "Wir suchen nach Vereinbarung\n\nAufgaben:\nHauptaufgaben\n\n• Mitarbeit und Durchführung von Gruppengesprächen, unter psychologischer und psychiatrischer Supervision bei psychosomatischen und psychoonkologischen Rehabilitationspatienten\n\n• Begleitete und supervidierte Durchführung von psychoedukativen Gruppen, psychotherapeutischen Gruppen sowie Gruppen-Settings, welche ressourcenorientiert die umgebende Natur mit einbeziehen\n\n• Supervidiertes Verfassen von Anamnesen, psychotherapeutischen Berichten und Psychostatus.\n\n• Mitarbeit bei der Erarbeitung von Strategien für den Übergang von der Rehabilitation in die ambulante Therapie\n\n• Integrative Zusammenarbeit mit anderen Fachbereichen im interdisziplinären Rehabilitationsteam wie &Auml;rzten, Pflege, komplementärmedizinischen Therapeuten, Physio- und Ergotherapeuten\n\nAnforderungen:\nAnforderungsprofil\n\n• Psychologiestudium im Masterstudium oder kurz vor Bachelorabschluss\n\n• Interesse am klinischen Tätigkeitsfeld mit dem Ziel, das Studium in Richtung klinische Psychologie und Psychotherapie zu vertiefen\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Selbständigkeit, Initiative, Belastbarkeit und Freude an der Zusammenarbeit in einem interdisziplinären Team\n\n• Interesse an Komplementärmedizin und an einem, den Körper, die Seele und den Geist umfassenden, interdisziplinären Behandlungsmodell sowie an naturbezogenen Therapieinhalten\n\n• Teamorientiertes und interdisziplinäres Handeln sowie gute Kommunikationsfähigkeit\n\nWir bieten:\nUnser Angebot\n\n• Sorgfältige Einführung in das Feld der Klinischen Psychologie\n\n• Einen vielfältigen und abwechslungsreichen Arbeitsalltag im Bereich der innovativen integrativen Medizin\n\n• Multiprofessionelle Zusammenarbeit und gute Arbeitsatmosphäre in einem kleinen Team\n\n• Begleitende Intervision und Supervision, innerbetriebliche Weiterbildung\n\n• Entlöhnung nach kantonalen Richtlinien\n\n• Arbeit und Leben in einer Gesundheitsregion, in der andere ihre Ferien verbringen\n\nUnter dem Dach «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg. In der Nationalparkregion erwartet Sie eine wunderbare Umgebung mit vielseitigen Erholungs- und Sportmöglichkeiten.\n\nDie Clinica Curativa bietet integrative onkologische, medizinische und psychosomatische Rehabilitationsprogramme an. Körper, Seele und Geist werden in die Diagnosestellung und die Behandlung mit einbezogen. Im integrativen Therapieansatz wird zeitgemässe Komplementär- mit Schulmedizin verbunden. Die integrative Medizin geht von einem ganzheitlichen Menschenbild aus.\n\nFür weitere Auskünfte stehen Ihnen Dr. med. Melitta Breznik oder Dr. med. Hannes Graf, Telefon +41 81 861 13 00, gerne zur Verfügung\n\nWir freuen uns auf Ihre Online-Bewerbung.",
       "descriptionByLocale": {
-        "it": "Accordo\n• Cerchiamo accordo Descrizione Compiti: Compiti principali - Collaborazione e realizzazione di colloqui di gruppo, sotto supervisione psicologica e psichiatrica per pazienti in riabilitazione psicosomatica e psico-oncologica - Realizzazione accompagnata e supervisionata di gruppi psicoeducativi, gruppi psicoterapeutici e setting di gruppo, che incorporino la natura circostante in modo orientato alle risorse - Redazione supervisionata di anamnesi, rapporti psicoterapeutici e psicostato. - Partecipazione allo sviluppo di strategie per il passaggio dalla riabilitazione alla terapia ambulatoriale - Collaborazione integrativa con altri reparti dell'équipe riabilitativa interdisciplinare come medici, infermieri, terapisti della medicina complementare, fisioterapisti e terapisti occupazionali Profilo dei requisiti - Studi di psicologia nel programma di master o poco prima della laurea - Interesse per il campo di attività clinico con l'obiettivo di approfondire gli studi in direzione della psicologia clinica e della psicoterapia - Buona conoscenza della lingua tedesca parlata e scritta - Autonomia, iniziativa, resilienza e Piacere di lavorare in un team interdisciplinare - Interesse per la medicina complementare e per un modello di trattamento interdisciplinare che comprende corpo, anima e spirito, nonché contenuti terapeutici legati alla natura - Azione orientata al team e interdisciplinare, nonché buone capacità comunicative\n• Cosa offriamo La nostra offerta - Un'accurata introduzione al campo della psicologia clinica - Una vita lavorativa quotidiana varia e diversificata nel campo della medicina integrativa innovativa - Collaborazione multiprofessionale e un buon clima di lavoro in un piccolo team - Intervisione e supervisione di accompagnamento, perfezionamento interno - Retribuzione secondo direttive cantonali - Lavorare e vivere in una regione sanitaria dove altri trascorrono le vacanze Contatto Sotto l'egida del “Center da sandà Engiadina Bassa” (CSEB) / “Centro sanitario della Bassa Engadina”, importanti fornitori regionali nei settori della sanità e del benessere stanno seguendo un percorso comune. Nella regione del Parco Nazionale vi aspetta un ambiente meraviglioso con una vasta gamma di opportunità ricreative e sportive. La Clinica Curativa offre programmi riabilitativi integrativi oncologici, medici e psicosomatici. Corpo, anima e spirito sono inclusi nella diagnosi e nel trattamento. Nell’approccio terapeutico integrativo, la medicina complementare contemporanea è combinata con la medicina convenzionale. La medicina integrativa si basa su una visione olistica dell’umanità. Per ulteriori informazioni contattare il Dott. med. Melitta Breznik o Dr. med. Hannes Graf, telefono 41 81 861 13 00, felice di aiutarvi. Non vediamo l'ora di ricevere la tua candidatura online.",
-        "en": "Agreement We are looking for agreement Descrizione tasks: main tasks - cooperation and implementation of group discussions, under psychological and psychiatric supervision of psychosomatic and psycho-oncological rehabilitation patients - Accompanied and supervised implementation of psycho-educational groups, psycho-therapeutic groups as well as group settings that involve the surrounding nature in a resource-oriented manner - Supervised writing of medical records, psycho-therapeutic reports and psycho-status. - Collaboration in the development of strategies for the transition from rehabilitation to outpatient therapy - Integrative cooperation with other specialist areas in the interdisciplinary rehabilitation team such as doctors, nursing, complementary medical therapists, physio- and occupational therapists\n• Requisiti Requirement profile - Psychology study in the Master's degree or shortly before Bachelor's degree - Interest in the field of clinical activity with the aim of deepening the study in the direction of clinical psychology and psychotherapy - Good German skills in speech and writing - Self-employment, initiative, resilience and joy in cooperation in an interdisciplinary team - Interest in complementary medicine and in nature-related therapy contents - Team-oriented and interdisciplinary action as well as good communication skills\n• Cosa offriamo Our offer - Careful introduction to the field of clinical psychology - A diverse and varied everyday work in the field of innovative integrative medicine - Multiprofessional cooperation and good working atmosphere in a small team - Accompanying intervision and supervision, in-house training - Work and life in a health region in which others spend their holidays In the national park region, a wonderful environment awaits you with versatile recreation and sports opportunities. Clinica Curativa offers integrative oncological, medical and psychosomatic rehabilitation programs. Body, soul and spirit are included in the diagnosis and treatment. In the integrative therapy approach, contemporary complementary medicine is combined with conventional medicine. Integrative medicine starts from a holistic image of the human being. For further information, Dr. med. Melitta Breznik or Dr. med. Hannes Graf, telephone +41 81 861 13 00, we look forward to your online application.",
+        "it": "Siamo alla ricerca di un accordo\n\nCompiti principali •\n\nCollaborazione ed esecuzione di colloqui di gruppo, sotto supervisione psicologica e psichiatrica in pazienti di riabilitazione psicosomatica e psico-oncologica\n\n• Esecuzione accompagnata e supervisionata di gruppi psicoeducativi, gruppi psicoterapeutici e impostazioni di gruppo che coinvolgono la natura circostante in modo orientato alle risorse\n\n• Scrittura supervisionata di anamnesi, rapporti psicoterapeutici e stato psicoterapeutico.\n\n• Collaborazione all'elaborazione di strategie per il passaggio dalla riabilitazione alla terapia ambulatoriale\n\n• Collaborazione integrativa con altri dipartimenti del team di riabilitazione interdisciplinare come medici, infermieri, terapisti di medicina complementare, fisioterapisti ed ergoterapisti\n\nRequisiti:\nprofilo dei requisiti\n\n• Studi di psicologia nel programma del Master o poco prima della laurea\n\n• Interesse per il campo di attività clinica con l'obiettivo di approfondire gli studi verso la psicologia clinica e la psicoterapia\n\n• Buona conoscenza del tedesco parlato e scritto\n\n• Autonomia, iniziativa, resilienza e gioia di lavorare in un team interdisciplinare\n\n• Interesse per la medicina complementare e per un modello di trattamento interdisciplinare che coinvolga il corpo, l'anima e la mente, nonché per contenuti terapeutici legati alla natura\n\n• Azione orientata al team e interdisciplinare, nonché buone",
+        "en": "We are looking for an agreement\n\nTasks: Main tasks\n\n• Cooperation and organisation of group discussions, under psychological and psychiatric supervision in psychosomatic and psychooncological rehabilitation patients\n\n• Accompanied and supervised implementation of psycho-educative groups, psychotherapeutic groups and group settings, which involve resource-oriented the surrounding nature\n\n• Supervised writing of history, psychotherapeutic reports and psychostatus.\n\n• Work in the development of strategies for the transition from rehabilitation to outpatient therapy\n\n• Integrative cooperation with other departments in the interdisciplinary rehabilitation team such as: doctors, care, complementary therapists, physiotherapists and occupational therapists\n\nRequirements: Requirements profile\n\n• Psychology studies in master's degree or shortly before bachelor's degree\n\n• Interest in the field of clinical activity with the aim of deepening the study towards clinical psychology and psychotherapy\n\n• Good German knowledge in word and writing\n\n• Self-employment, initiative, resilience and joy in working together in an interdisciplinary team\n\n• Interest in complementary medicine and in a comprehensive, interdisciplinary treatment model, including body, soul and mind, as well as in natural therapeutic content\n\n• Team-oriented and interdisciplinary action and good communication skills\n\nWe offer: Our offer\n\n• Careful introduction to the field of clinical psychology\n\n• A varied and varied everyday work in the field of innovative integrative medicine\n\n• Multiprofessional cooperation and good working atmosphere in a small team\n\n• Accompanying intervision and supervision, in-company training\n\n• Renewal according to cantonal guidelines\n\n• Work and life in a health region where others spend their holidays\n\nUnder the umbrella «Center da Sandà Engiadina Bassa» (CSEB) / «Health centre of Lower Engadin», important regional providers in the fields of health care and wellness are taking a common path. In the national park region, you will find a wonderful environment with a wide range of recreational and sports facilities.\n\nThe clinica Curativa offers integrative oncological, medical and psychosomatic rehabilitation programs. Body, soul and mind are involved in diagnosis and treatment. Integrative therapy approaches combine contemporary complementary medicine with conventional medicine. Integrative medicine is based on a holistic human image.\n\nFor further information please contact Dr. med. Melitta Breznik or Dr. med. janne Graf, telephone +41 81 861 13 00\n\nWe look forward to receiving your online application.",
         "de": "Wir suchen nach Vereinbarung\n\nAufgaben:\nHauptaufgaben\n\n• Mitarbeit und Durchführung von Gruppengesprächen, unter psychologischer und psychiatrischer Supervision bei psychosomatischen und psychoonkologischen Rehabilitationspatienten\n\n• Begleitete und supervidierte Durchführung von psychoedukativen Gruppen, psychotherapeutischen Gruppen sowie Gruppen-Settings, welche ressourcenorientiert die umgebende Natur mit einbeziehen\n\n• Supervidiertes Verfassen von Anamnesen, psychotherapeutischen Berichten und Psychostatus.\n\n• Mitarbeit bei der Erarbeitung von Strategien für den Übergang von der Rehabilitation in die ambulante Therapie\n\n• Integrative Zusammenarbeit mit anderen Fachbereichen im interdisziplinären Rehabilitationsteam wie &Auml;rzten, Pflege, komplementärmedizinischen Therapeuten, Physio- und Ergotherapeuten\n\nAnforderungen:\nAnforderungsprofil\n\n• Psychologiestudium im Masterstudium oder kurz vor Bachelorabschluss\n\n• Interesse am klinischen Tätigkeitsfeld mit dem Ziel, das Studium in Richtung klinische Psychologie und Psychotherapie zu vertiefen\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Selbständigkeit, Initiative, Belastbarkeit und Freude an der Zusammenarbeit in einem interdisziplinären Team\n\n• Interesse an Komplementärmedizin und an einem, den Körper, die Seele und den Geist umfassenden, interdisziplinären Behandlungsmodell sowie an naturbezogenen Therapieinhalten\n\n• Teamorientiertes und interdisziplinäres Handeln sowie gute Kommunikationsfähigkeit\n\nWir bieten:\nUnser Angebot\n\n• Sorgfältige Einführung in das Feld der Klinischen Psychologie\n\n• Einen vielfältigen und abwechslungsreichen Arbeitsalltag im Bereich der innovativen integrativen Medizin\n\n• Multiprofessionelle Zusammenarbeit und gute Arbeitsatmosphäre in einem kleinen Team\n\n• Begleitende Intervision und Supervision, innerbetriebliche Weiterbildung\n\n• Entlöhnung nach kantonalen Richtlinien\n\n• Arbeit und Leben in einer Gesundheitsregion, in der andere ihre Ferien verbringen\n\nUnter dem Dach «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg. In der Nationalparkregion erwartet Sie eine wunderbare Umgebung mit vielseitigen Erholungs- und Sportmöglichkeiten.\n\nDie Clinica Curativa bietet integrative onkologische, medizinische und psychosomatische Rehabilitationsprogramme an. Körper, Seele und Geist werden in die Diagnosestellung und die Behandlung mit einbezogen. Im integrativen Therapieansatz wird zeitgemässe Komplementär- mit Schulmedizin verbunden. Die integrative Medizin geht von einem ganzheitlichen Menschenbild aus.\n\nFür weitere Auskünfte stehen Ihnen Dr. med. Melitta Breznik oder Dr. med. Hannes Graf, Telefon +41 81 861 13 00, gerne zur Verfügung\n\nWir freuen uns auf Ihre Online-Bewerbung.",
-        "fr": "Accord Nous recherchons un accord Descrizione Tâches : Tâches principales - Collaboration et mise en œuvre de discussions de groupe, sous surveillance psychologique et psychiatrique pour des patients en réadaptation psychosomatique et psycho-oncologique - Mise en place accompagnée et supervisée de groupes psychoéducatifs, de groupes psychothérapeutiques et de milieux de groupe, qui intègrent la nature environnante de manière orientée ressources - Rédaction supervisée de l'anamnèse, des rapports psychothérapeutiques et du psychostatut. - Participation à l'élaboration de stratégies de transition de la réadaptation à la thérapie ambulatoire - Collaboration intégrative avec d'autres départements de l'équipe interdisciplinaire de réadaptation tels que médecins, infirmiers, thérapeutes en médecine complémentaire, physiothérapeutes et ergothérapeutes Profil des exigences - Études de psychologie au programme de maîtrise ou peu avant un baccalauréat - Intérêt pour le domaine d'activité clinique dans le but d'approfondir les études en direction de la psychologie clinique et de la psychothérapie - Bonne connaissance de l'allemand parlé et écrit - Indépendance, initiative, résilience et plaisir de travailler dans un équipe interdisciplinaire - Intérêt pour la médecine complémentaire et pour un modèle de traitement interdisciplinaire qui englobe le corps, l'âme et l'esprit ainsi que le contenu thérapeutique lié à la nature - Action axée sur l'équipe et interdisciplinaire ainsi que de bonnes capacités de communication Cosa ofriamo Notre offre - Introduction soignée au domaine de la psychologie clinique - Une vie quotidienne diversifiée et variée dans le domaine de la médecine intégrative innovante - Collaboration multiprofessionnelle et bonne ambiance de travail dans une petite équipe - Accompagnement d'intervision et de supervision, formation continue en interne - Rémunération selon les directives cantonales - Travailler et vivre dans une région sanitaire où d'autres passent leurs vacances Contatto Sous l'égide du « Centre da sandà Engiadina Bassa » (CSEB) / « Centre de santé de Basse-Engadine », d'importants prestataires régionaux dans les domaines de la santé et du bien-être suivent un chemin commun. Un environnement merveilleux offrant une panoplie de possibilités récréatives et sportives vous attend dans la région du parc national. La Clinica Curativa propose des programmes intégratifs de réadaptation oncologique, médicale et psychosomatique. Le corps, l'âme et l'esprit sont inclus dans le diagnostic et le traitement. Dans l’approche thérapeutique intégrative, la médecine complémentaire contemporaine est combinée à la médecine conventionnelle. La médecine intégrative repose sur une vision holistique de l’humanité. Pour plus d'informations, veuillez contacter le Dr med. Melitta Breznik ou Dr med. Hannes Graf, téléphone 41 81 861 13 00, heureux de vous aider. Nous attendons avec impatience de recevoir votre candidature en ligne."
+        "fr": "Nous cherchons un accord\n\nTâches principales\n\n• Coopération et organisation de discussions de groupe, sous supervision psychologique et psychiatrique chez les patients en réadaptation psychosomatique et psychooncologique\n\n• Mise en œuvre accompagnée et supervisée de groupes psychoéducatifs, de groupes psychothérapeutiques et de groupes de groupes, qui impliquent une approche axée sur les ressources et la nature environnante\n\n• Écrire en chef l'histoire, les rapports psychothérapeutiques et psychostatus.\n\n• Travailler à l'élaboration de stratégies de transition de la réadaptation à la thérapie ambulatoire\n\n• Coopération intégrative avec d'autres départements de l'équipe de réadaptation interdisciplinaire, tels que : médecins, soins, thérapeutes complémentaires, physiothérapeutes et ergothérapeutes\n\nExigences: profil des exigences\n\n• Études de psychologie en master ou peu avant le baccalauréat\n\n• Intérêt dans le domaine de l'activité clinique dans le but d'approfondir l'étude vers la psychologie clinique et la psychothérapie\n\n• Bonne connaissance allemande en paroles et en écriture\n\n• Travail indépendant, initiative, résilience et joie de travailler ensemble dans une équipe interdisciplinaire\n\n• Intérêt pour la médecine complémentaire et pour un modèle de traitement complet et interdisciplinaire, incluant corps, âme et esprit, ainsi que pour le contenu thérapeutique naturel\n\n• Action en équipe et interdisciplinaire et bonnes compétences en communication\n\nNous offrons: Notre offre\n\n• Introduction attentive au domaine de la psychologie clinique\n\n• Un travail quotidien varié et varié dans le domaine de la médecine intégrative innovante\n\n• Coopération multiprofessionnelle et bonne ambiance de travail dans une petite équipe\n\n• Accompagner l'intervision et la supervision, la formation en entreprise\n\n• Renouvellement selon les directives cantonales\n\n• Travail et vie dans une région sanitaire où les autres passent leurs vacances\n\nSous le parapluie «Center da Sandà Engiadina Bassa» (CSEB) / «Centre de santé de Lower Engadin», d'importants prestataires régionaux dans les domaines de la santé et du bien-être s'engagent dans un parcours commun. Dans la région du parc national, vous trouverez un environnement merveilleux avec une large gamme d'installations récréatives et sportives.\n\nLa clinique Curativa propose des programmes de réadaptation oncologique, médicale et psychosomatique intégrative. Le corps, l'âme et l'esprit sont impliqués dans le diagnostic et le traitement. Les approches de thérapie intégrative combinent la médecine complémentaire contemporaine avec la médecine conventionnelle.\n\nPour de plus amples informations, veuillez contacter M. Melitta Breznik ou M. janne Graf, téléphone +41 81 861 13 00\n\nNous sommes impatients de recevoir votre demande en ligne."
       },
       "location": "Scuol",
       "canton": "GR",
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/0aae7b8e-6401-ca9e-3f64-552a05cd547d",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.427Z",
+      "crawledAt": "2026-09-25T14:58:16.931Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -681,21 +682,24 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
-      "needsRetranslation": true,
-      "salaryMin": 81500,
-      "salaryMax": 114000,
+      "salaryMin": 73000,
+      "salaryMax": 102000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
+          "minValue": 73000,
+          "maxValue": 102000,
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2837,
+      "needsRetranslation": true
     },
     {
       "id": "cseb-6e595e5e5892",
@@ -728,7 +732,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/de22c979-5108-b752-c983-e0d5bc4bf2bf",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.425Z",
+      "crawledAt": "2026-09-25T14:58:16.929Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -818,7 +822,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/18e63da7-2e49-eb9c-601d-b22238e3ef49",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.423Z",
+      "crawledAt": "2026-09-25T14:58:16.927Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -908,7 +912,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/14b338b2-6622-bade-427a-7760f0bba7f7",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.420Z",
+      "crawledAt": "2026-09-25T14:58:16.924Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -995,7 +999,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/a356d4be-f8e0-8a97-0c2c-121cd5f89c14",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.417Z",
+      "crawledAt": "2026-09-25T14:58:16.922Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1088,7 +1092,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9789088f-9f3e-b7a4-bf69-6d9c765dbea3",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.415Z",
+      "crawledAt": "2026-09-25T14:58:16.919Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1178,7 +1182,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/4fd73428-f73e-6f49-2855-8204b00cbdc0",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.412Z",
+      "crawledAt": "2026-09-25T14:58:16.916Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1264,7 +1268,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/1ef3689c-79c6-eae7-139e-1ad10eb84ac7",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.409Z",
+      "crawledAt": "2026-09-25T14:58:16.913Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1354,7 +1358,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/e9f51ab1-b60e-a609-9b43-ea1cde468af8",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.405Z",
+      "crawledAt": "2026-09-25T14:58:16.910Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1441,7 +1445,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9b888521-c84d-59c9-4222-e9cc2d551af6",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.403Z",
+      "crawledAt": "2026-09-25T14:58:16.908Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1538,7 +1542,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/b572e71d-482e-bc3a-6aef-b24595f38cb4",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.401Z",
+      "crawledAt": "2026-09-25T14:58:16.906Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1626,7 +1630,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/d42b368b-500b-999e-0f77-ed4017b03b98",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.390Z",
+      "crawledAt": "2026-09-25T14:58:16.896Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1673,7 +1677,7 @@
           "activation-des-employes-40-60-center-da-sanadad-engiadina-bassa-scuol"
         ]
       },
-      "firstSeenAt": "2026-06-10T11:55:25.758Z",
+      "firstSeenAt": "2026-04-13T10:23:37.991Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -1688,83 +1692,6 @@
         }
       },
       "addressRegion": "GR"
-    },
-    {
-      "id": "cseb-e54bb7dc202c",
-      "slug": "responsabile-komplementarmedizinische-therapie-50-70-center-da-sanadad-engiadina-bassa-scuol",
-      "slugByLocale": {
-        "it": "responsabile-komplementarmedizinische-therapie-50-70-center-da-sanadad-engiadina-bassa-scuol",
-        "en": "leiter-in-komplementarmedizinische-therapie-50-70-center-da-sanadad-engiadina-bassa-scuol",
-        "de": "leiter-in-komplementarmedizinische-therapie-50-70-cseb-ch",
-        "fr": "leiter-in-komplementarmedizinische-therapie-50-70-center-da-sanadad-engiadina-bassa-scuol"
-      },
-      "company": "Center da Sanadad Engiadina Bassa",
-      "companyKey": "cseb",
-      "companyDomain": "cseb.ch",
-      "title": "Leiter/-in komplementärmedizinische Therapie (50-70%)",
-      "titleByLocale": {
-        "it": "Responsabile della terapia complementare (50-70%)",
-        "en": "Head of Complementary Medicine Therapy (50-70%)",
-        "de": "Leiter/-in komplementärmedizinische Therapie (50-70%)",
-        "fr": "Responsable de la thérapie en médecine complémentaire (50-70%)"
-      },
-      "description": "Im Rahmen der Nachfolgeregelung suchen wir infolge Pensionierung der bisherigen Stelleninhaberin per 1. Januar 2027 oder nach Vereinbarung eine engagierte Persönlichkeit für die Leitung des Bereichs Komplementärtherapie. Gemeinsam mit Ihnen möchten wir die Zukunft der komplementärmedizinischen und anthroposophischen Therapie weiterentwickeln und die stationäre Schmerztherapie aufbauen.\n\nAufgaben:\nHauptaufgaben\n\n• Sie übernehmen die fachliche und organisatorische Leitung des Bereichs Komplementärtherapie\n\n• Sie führen, begleiten und fördern Ihr Team und schaffen ein wertschätzendes Arbeitsumfeld, in dem sich Mitarbeitende entwickeln können\n\n• Sie unterstützen bei der Personaleinsatzplanung, der Rekrutierung neuer Mitarbeitender sowie deren Einführung und Einarbeitung\n\n• Sie sorgen für gut organisierte Abläufe und einen reibungslosen Betrieb im Alltag\n\n• Sie bringen sich aktiv in die Weiterentwicklung des Fachbereichs sowie in Qualitäts- und Organisationsprojekte ein\n\n• Sie arbeiten eng mit &Auml;rztinnen und &Auml;rzten, Pflegefachpersonen, Therapeutinnen und Therapeuten sowie weiteren Berufsgruppen zusammen\n\n• Sie vertreten die Komplementärtherapie in interdisziplinären Gremien und teilen Ihr Fachwissen mit Kolleginnen und Kollegen\n\n• Sie bleiben in Ihrem therapeutischen Spezialgebiet tätig und begleiten Patientinnen und Patienten auch weiterhin direkt in der Behandlung\n\n• Mitgestaltung innovativer Projekte\n\nAnforderungen:\nAnforderungsprofil\n\n• Sie verfügen über die Höhere Fachprüfung Komplementärtherapie (HFP) oder sind bereit, diese zu absolvieren\n\n• Sie besitzen idealerweise, eine Anerkennung bei EMR, ASCA und/oder EGK\n\n• Sie haben bereits Führungserfahrung oder möchten sich gezielt in diesem Bereich weiterentwickeln\n\n• Sie bringen ein eigenes anthroposophisch-komplementärtherapeutisches Spezialgebiet mit\n\n• Sie kommunizieren offen, wertschätzend und begegnen Menschen mit Empathie und Respekt\n\n• Die Zusammenarbeit in einem interprofessionellen Umfeld bereitet Ihnen Freude\n\n• Sie arbeiten strukturiert, verantwortungsbewusst und behalten auch in anspruchsvollen Situationen den Überblick\n\n• Sie bringen Organisationsgeschick, Eigeninitiative und die Fähigkeit mit, Entscheidungen klar und verbindlich umzusetzen\n\nWir bieten:\nUnser Angebot\n\n• Verantwortungsvolle Funktion (Kaderstelle) mit grossem Gestaltungsspielraum\n\n• Klar strukturierte Arbeitszeiten, hohe Lebensqualität in einer Ferienregion mit vielseitigen Erholungs- und Sportmöglichkeiten\n\n• Integration in ein engagiertes, multiprofessionelles Team in einem inspirierenden Umfeld im Engadin\n\n• Ausgezeichnete Zusammenarbeit mit dem Ospidal und den anderen Teilbetrieben des Gesundheitszentrums\n\n• Interdisziplinäres Arbeitsumfeld mit kurzen Entscheidungswegen\n\n• Attraktive Anstellungsbedingungen und Unterstützung bei Fort- und Weiterbildung\n\n• Möglichkeit zur Entwicklung integrativer Konzepte in der Schmerzmedizin\n\nUnter dem Dach «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg. In der Nationalparkregion erwartet Sie eine wunderbare Umgebung mit vielseitigen Erholungs- und Sportmöglichkeiten.\n\nDie Angebote des Regionalspitals, des Rettungsdienstes, der Rehabilitationsklinik, der Spitex, der Pflegegruppen, der Pflegeheime und des Mineralbads Bogn Engiadina werden optimal aufeinander abgestimmt. Mit diesem integrierten Versorgungsmodell hat das CSEB in der Region und über die Landesgrenzen hinaus Pionierarbeit geleistet.\n\nDie Clinica Curativa vereint schulmedizinische Exzellenz mit komplementärmedizinischen Kompetenzen. Unsere integrative Klinik steht für eine patientenzentrierte und ganzheitliche Behandlung in den Bereichen Komplementärmedizin, Psychosomatik und Onkologie. Sie befindet sich im Aufbau eines innovativen und integrativen Schmerzzentrums, das Patientinnen und Patienten mit akuten und chronischen Schmerzen in einem interdisziplinären und multimodalen Setting stationär betreut.\n\nFür weitere Auskünfte stehen Ihnen Rita Schönthaler, aktuelle Stelleninhaberin, Telefonnummer +41 81 861 13 42 und Aldo Sala, Leitung Medizinische Dienste, Telefon +41 81 861 10 41, gerne zur Verfügung.\n\nWir freuen uns auf Ihre Online-Bewerbung.",
-      "descriptionByLocale": {
-        "it": "Nell'ambito della pianificazione della successione, cerchiamo, a seguito del pensionamento dell'attuale titolare della posizione, una persona impegnata per la direzione dell'area di terapia complementare a partire dal 1° gennaio 2027 o secondo accordi. Insieme a voi, desideriamo sviluppare ulteriormente il futuro della terapia complementare e antroposofica e costruire la terapia del dolore stazionaria.\n\nCompiti:\nPrincipali compiti\n\n• Assumete la direzione tecnica e organizzativa dell'area di terapia complementare\n\n• Guidate, accompagnate e promuovete il vostro team, creando un ambiente di lavoro rispettoso in cui i collaboratori possano svilupparsi\n\n• Supportate la pianificazione dell'impiego del personale, il reclutamento di nuovi collaboratori, nonché la loro introduzione e formazione\n\n• Garantite processi ben organizzati e un funzionamento quotidiano senza intoppi\n\n• Partecipate attivamente allo sviluppo del settore, nonché a progetti di qualità e organizzazione\n\n• Collaborate strettamente con medici, infermieri, terapisti e altri gruppi professionali\n\n• Rappresentate la terapia complementare in comitati interdisciplinari e condividete le vostre conoscenze con colleghi e colleghe\n\n• Continuate a lavorare nel vostro campo terapeutico di specializzazione e accompagnate direttamente i pazienti nel trattamento\n\n• Contribuite alla realizzazione di progetti innovativi\n\nRequisiti:\nProfilo richiesto\n\n• Possedete l'esame professionale superiore di terapia complementare (HFP) o siete disposti a conseguirlo\n\n• Possedete idealmente un riconoscimento presso EMR, ASCA e/o EGK\n\n• Avete già esperienza di leadership o desiderate svilupparvi in questo ambito\n\n• Portate con voi un proprio campo di specializzazione antroposofico-complementare\n\n• Comunicate apertamente, con rispetto e incontrate le persone con empatia\n\n• Vi piace collaborare in un ambiente interprofessionale\n\n• Lavorate in modo strutturato, responsabile e mantenete la calma anche in situazioni impegnative\n\n• Possedete capacità organizzative, iniziativa personale e la capacità di prendere decisioni chiare e vincolanti\n\nOffriamo:\nLa nostra offerta\n\n• Funzione di responsabilità (posizione dirigenziale) con ampio margine di manovra\n\n• Orari di lavoro chiaramente strutturati, alta qualità della vita in una regione turistica con molteplici possibilità di svago e sport\n\n• Integrazione in un team impegnato e multiprofessionale in un ambiente stimolante nell'Engadina\n\n• Eccellente collaborazione con l'ospedale e le altre unità operative del centro sanitario\n\n• Ambiente di lavoro interdisciplinare con brevi tempi di decisione\n\n• Condizioni di impiego attraenti e supporto per la formazione e il perfezionamento\n\n• Possibilità di sviluppare concetti integrativi nella medicina del dolore\n\nSotto il tetto «Center da sandà Engiadina Bassa» (CSEB) / «Centro sanitario dell'Engadina Bassa», importanti fornitori regionali nei settori dell'assistenza sanitaria e del benessere seguono un percorso comune. Nella regione del Parco Nazionale vi aspetta un ambiente meraviglioso con molteplici possibilità di svago e sport.\n\nLe offerte dell'ospedale regionale, del servizio di emergenza, della clinica di riabilitazione, della Spitex, dei gruppi di assistenza, delle case di riposo e delle terme Bogn Engiadina sono ottimamente coordinate. Con questo modello di assistenza integrata, il CSEB ha svolto un lavoro pionieristico nella regione e oltre i confini nazionali.\n\nLa Clinica Curativa unisce l'eccellenza della medicina tradizionale con le competenze della medicina complementare. La nostra clinica integrativa si distingue per un trattamento centrato sul paziente e olistico nei settori della medicina complementare, psicosomatica e oncologia. È in fase di sviluppo un centro innovativo e integrativo per il trattamento del dolore, che si occupa di pazienti con dolori acuti e cronici in un contesto interdisciplinare e multimodale.\n\nPer ulteriori informazioni, Rita Schönthaler, attuale titolare della posizione, telefono +41 81 861 13 42, e Aldo Sala, Direttore dei Servizi Medici, telefono +41 81 861 10 41, sono a vostra disposizione.\n\nAttendiamo con piacere la vostra candidatura online.",
-        "en": "As part of succession planning, we are seeking a committed individual to lead the complementary therapy department starting January 1, 2027, or as agreed, following the retirement of the current position holder. Together, we aim to further develop the future of complementary and anthroposophical therapy and establish inpatient pain therapy.\n\nResponsibilities:\nMain tasks\n\n• You will take on the technical and organizational leadership of the complementary therapy department\n\n• You will lead, support, and promote your team, creating a respectful work environment where employees can thrive\n\n• You will assist with staff deployment planning, recruitment of new employees, and their onboarding and training\n\n• You will ensure well-organized processes and smooth daily operations\n\n• You will actively contribute to the development of the department as well as quality and organizational projects\n\n• You will collaborate closely with physicians, nursing staff, therapists, and other professional groups\n\n• You will represent complementary therapy in interdisciplinary committees and share your expertise with colleagues\n\n• You will continue to work in your therapeutic specialty and directly support patients in treatment\n\n• You will contribute to the development of innovative projects\n\nRequirements:\nProfile requirements\n\n• You hold the Advanced Federal Diploma of Higher Education in Complementary Therapy (HFP) or are willing to obtain it\n\n• Ideally, you have recognition from EMR, ASCA, and/or EGK\n\n• You have leadership experience or are keen to develop in this area\n\n• You bring your own anthroposophical-complementary therapeutic specialty\n\n• You communicate openly, respectfully, and approach people with empathy\n\n• You enjoy working in an interdisciplinary environment\n\n• You work in a structured and responsible manner, maintaining composure in challenging situations\n\n• You possess organizational skills, initiative, and the ability to make clear and decisive decisions\n\nWe offer:\nOur offer\n\n• A responsible position (management role) with significant creative freedom\n\n• Clearly structured working hours, high quality of life in a vacation region with diverse recreational and sports opportunities\n\n• Integration into a committed, multiprofessional team in an inspiring environment in the Engadine\n\n• Excellent collaboration with the hospital and other operational units of the health center\n\n• Interdisciplinary work environment with short decision-making paths\n\n• Attractive employment conditions and support for further education and training\n\n• Opportunity to develop integrative concepts in pain medicine\n\nUnder the umbrella of the \"Center da sandà Engiadina Bassa\" (CSEB) / \"Gesundheitszentrum Unterengadin,\" key regional providers in healthcare and wellness are working together. In the National Park region, you will find a wonderful environment with diverse recreational and sports opportunities.\n\nThe offerings of the regional hospital, emergency services, rehabilitation clinic, Spitex, care groups, nursing homes, and the Bogn Engiadina mineral baths are optimally coordinated. With this integrated care model, CSEB has been a pioneer in the region and beyond national borders.\n\nClinica Curativa combines excellence in conventional medicine with complementary medicine expertise. Our integrative clinic stands for patient-centered and holistic treatment in the fields of complementary medicine, psychosomatics, and oncology. It is currently developing an innovative and integrative pain center that provides inpatient care for patients with acute and chronic pain in an interdisciplinary and multimodal setting.\n\nFor further information, Rita Schönthaler, current position holder, phone +41 81 861 13 42, and Aldo Sala, Head of Medical Services, phone +41 81 861 10 41, are happy to assist you.\n\nWe look forward to receiving your online application.",
-        "de": "Im Rahmen der Nachfolgeregelung suchen wir infolge Pensionierung der bisherigen Stelleninhaberin per 1. Januar 2027 oder nach Vereinbarung eine engagierte Persönlichkeit für die Leitung des Bereichs Komplementärtherapie. Gemeinsam mit Ihnen möchten wir die Zukunft der komplementärmedizinischen und anthroposophischen Therapie weiterentwickeln und die stationäre Schmerztherapie aufbauen.\n\nAufgaben:\nHauptaufgaben\n\n• Sie übernehmen die fachliche und organisatorische Leitung des Bereichs Komplementärtherapie\n\n• Sie führen, begleiten und fördern Ihr Team und schaffen ein wertschätzendes Arbeitsumfeld, in dem sich Mitarbeitende entwickeln können\n\n• Sie unterstützen bei der Personaleinsatzplanung, der Rekrutierung neuer Mitarbeitender sowie deren Einführung und Einarbeitung\n\n• Sie sorgen für gut organisierte Abläufe und einen reibungslosen Betrieb im Alltag\n\n• Sie bringen sich aktiv in die Weiterentwicklung des Fachbereichs sowie in Qualitäts- und Organisationsprojekte ein\n\n• Sie arbeiten eng mit &Auml;rztinnen und &Auml;rzten, Pflegefachpersonen, Therapeutinnen und Therapeuten sowie weiteren Berufsgruppen zusammen\n\n• Sie vertreten die Komplementärtherapie in interdisziplinären Gremien und teilen Ihr Fachwissen mit Kolleginnen und Kollegen\n\n• Sie bleiben in Ihrem therapeutischen Spezialgebiet tätig und begleiten Patientinnen und Patienten auch weiterhin direkt in der Behandlung\n\n• Mitgestaltung innovativer Projekte\n\nAnforderungen:\nAnforderungsprofil\n\n• Sie verfügen über die Höhere Fachprüfung Komplementärtherapie (HFP) oder sind bereit, diese zu absolvieren\n\n• Sie besitzen idealerweise, eine Anerkennung bei EMR, ASCA und/oder EGK\n\n• Sie haben bereits Führungserfahrung oder möchten sich gezielt in diesem Bereich weiterentwickeln\n\n• Sie bringen ein eigenes anthroposophisch-komplementärtherapeutisches Spezialgebiet mit\n\n• Sie kommunizieren offen, wertschätzend und begegnen Menschen mit Empathie und Respekt\n\n• Die Zusammenarbeit in einem interprofessionellen Umfeld bereitet Ihnen Freude\n\n• Sie arbeiten strukturiert, verantwortungsbewusst und behalten auch in anspruchsvollen Situationen den Überblick\n\n• Sie bringen Organisationsgeschick, Eigeninitiative und die Fähigkeit mit, Entscheidungen klar und verbindlich umzusetzen\n\nWir bieten:\nUnser Angebot\n\n• Verantwortungsvolle Funktion (Kaderstelle) mit grossem Gestaltungsspielraum\n\n• Klar strukturierte Arbeitszeiten, hohe Lebensqualität in einer Ferienregion mit vielseitigen Erholungs- und Sportmöglichkeiten\n\n• Integration in ein engagiertes, multiprofessionelles Team in einem inspirierenden Umfeld im Engadin\n\n• Ausgezeichnete Zusammenarbeit mit dem Ospidal und den anderen Teilbetrieben des Gesundheitszentrums\n\n• Interdisziplinäres Arbeitsumfeld mit kurzen Entscheidungswegen\n\n• Attraktive Anstellungsbedingungen und Unterstützung bei Fort- und Weiterbildung\n\n• Möglichkeit zur Entwicklung integrativer Konzepte in der Schmerzmedizin\n\nUnter dem Dach «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg. In der Nationalparkregion erwartet Sie eine wunderbare Umgebung mit vielseitigen Erholungs- und Sportmöglichkeiten.\n\nDie Angebote des Regionalspitals, des Rettungsdienstes, der Rehabilitationsklinik, der Spitex, der Pflegegruppen, der Pflegeheime und des Mineralbads Bogn Engiadina werden optimal aufeinander abgestimmt. Mit diesem integrierten Versorgungsmodell hat das CSEB in der Region und über die Landesgrenzen hinaus Pionierarbeit geleistet.\n\nDie Clinica Curativa vereint schulmedizinische Exzellenz mit komplementärmedizinischen Kompetenzen. Unsere integrative Klinik steht für eine patientenzentrierte und ganzheitliche Behandlung in den Bereichen Komplementärmedizin, Psychosomatik und Onkologie. Sie befindet sich im Aufbau eines innovativen und integrativen Schmerzzentrums, das Patientinnen und Patienten mit akuten und chronischen Schmerzen in einem interdisziplinären und multimodalen Setting stationär betreut.\n\nFür weitere Auskünfte stehen Ihnen Rita Schönthaler, aktuelle Stelleninhaberin, Telefonnummer +41 81 861 13 42 und Aldo Sala, Leitung Medizinische Dienste, Telefon +41 81 861 10 41, gerne zur Verfügung.\n\nWir freuen uns auf Ihre Online-Bewerbung.",
-        "fr": "Dans le cadre de la planification de la succession, nous recherchons une personne engagée pour diriger le département de thérapie complémentaire à partir du 1er janvier 2027 ou selon accord, suite au départ à la retraite de l'actuelle titulaire du poste. Ensemble, nous souhaitons développer l'avenir de la thérapie complémentaire et anthroposophique et mettre en place une thérapie de la douleur en hospitalisation.\n\nResponsabilités :\nTâches principales\n\n• Vous assumez la direction technique et organisationnelle du département de thérapie complémentaire\n\n• Vous dirigez, accompagnez et encouragez votre équipe, en créant un environnement de travail respectueux où les collaborateurs peuvent s'épanouir\n\n• Vous participez à la planification des affectations du personnel, au recrutement de nouveaux collaborateurs ainsi qu'à leur intégration et formation\n\n• Vous assurez des processus bien organisés et un fonctionnement quotidien fluide\n\n• Vous contribuez activement au développement du département ainsi qu'à des projets de qualité et d'organisation\n\n• Vous collaborez étroitement avec les médecins, le personnel soignant, les thérapeutes et d'autres groupes professionnels\n\n• Vous représentez la thérapie complémentaire dans des comités interdisciplinaires et partagez votre expertise avec vos collègues\n\n• Vous continuez à travailler dans votre spécialité thérapeutique et accompagnez directement les patients dans leur traitement\n\n• Vous participez à la réalisation de projets innovants\n\nExigences :\nProfil requis\n\n• Vous possédez le Diplôme Fédéral Supérieur en Thérapie Complémentaire (HFP) ou êtes prêt(e) à l'obtenir\n\n• Vous disposez idéalement d'une reconnaissance auprès de EMR, ASCA et/ou EGK\n\n• Vous avez déjà une expérience en gestion ou souhaitez vous développer dans ce domaine\n\n• Vous apportez une spécialité thérapeutique anthroposophique et complémentaire\n\n• Vous communiquez de manière ouverte, respectueuse et faites preuve d'empathie\n\n• Vous appréciez travailler dans un environnement interprofessionnel\n\n• Vous travaillez de manière structurée, responsable et gardez votre calme même dans des situations exigeantes\n\n• Vous avez des compétences organisationnelles, de l'initiative personnelle et la capacité de prendre des décisions claires et engageantes\n\nNous offrons :\nNotre offre\n\n• Poste à responsabilité (fonction cadre) avec une grande liberté de création\n\n• Horaires de travail clairement structurés, qualité de vie élevée dans une région touristique offrant de nombreuses possibilités de loisirs et de sport\n\n• Intégration dans une équipe engagée et multiprofessionnelle dans un environnement inspirant en Engadine\n\n• Collaboration excellente avec l'hôpital et les autres unités opérationnelles du centre de santé\n\n• Environnement de travail interdisciplinaire avec des processus décisionnels rapides\n\n• Conditions d'emploi attractives et soutien pour la formation et le perfectionnement\n\n• Possibilité de développer des concepts intégratifs en médecine de la douleur\n\nSous l'égide du « Center da sandà Engiadina Bassa » (CSEB) / « Centre de santé de la Basse-Engadine », des prestataires régionaux clés dans les domaines des soins de santé et du bien-être travaillent ensemble. Dans la région du Parc National, vous trouverez un environnement merveilleux avec de nombreuses possibilités de loisirs et de sport.\n\nLes offres de l'hôpital régional, du service d'urgence, de la clinique de réhabilitation, de Spitex, des groupes de soins, des maisons de retraite et des bains minéraux Bogn Engiadina sont parfaitement coordonnées. Avec ce modèle de soins intégrés, le CSEB a été pionnier dans la région et au-delà des frontières nationales.\n\nLa Clinica Curativa combine l'excellence de la médecine conventionnelle avec les compétences de la médecine complémentaire. Notre clinique intégrative se distingue par un traitement centré sur le patient et holistique dans les domaines de la médecine complémentaire, de la psychosomatique et de l'oncologie. Elle est en train de développer un centre innovant et intégratif pour le traitement de la douleur, qui prend en charge les patients souffrant de douleurs aiguës et chroniques dans un cadre interdisciplinaire et multimodal.\n\nPour plus d'informations, Rita Schönthaler, actuelle titulaire du poste, téléphone +41 81 861 13 42, et Aldo Sala, Directeur des Services Médicaux, téléphone +41 81 861 10 41, se tiennent à votre disposition.\n\nNous nous réjouissons de recevoir votre candidature en ligne."
-      },
-      "location": "Scuol",
-      "canton": "GR",
-      "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/e85699a6-f2e8-24ee-fc5b-541e90c75e7d",
-      "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:16:35.782Z",
-      "addressLocality": "Scuol",
-      "postalCode": "7550",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Terapia",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-22",
-      "applyUrl": "https://jobs.cseb.ch/application-process/d9c5a048-f665-4e64-a2c7-cdd8231bac77/e85699a6-f2e8-24ee-fc5b-541e90c75e7d",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "streetAddress": "Via da l'Ospidal 280",
-      "pensumMin": 50,
-      "pensumMax": 70,
-      "pensum": "50 - 70%",
-      "contactPerson": "Corsina Feuerstein Betschart",
-      "previousSlugs": [
-        "leiter-in-komplementarmedizinische-therapie-50-70-cseb-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leiter-in-komplementarmedizinische-therapie-50-70-cseb-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-22T14:09:32.562Z",
-      "salaryMin": 77400,
-      "salaryMax": 107800,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77400,
-          "maxValue": 107800,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "crawlerMissStreak": 2
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "apg-sga",
-  "assembledAt": "2026-09-24T14:30:00.015Z",
+  "assembledAt": "2026-09-25T14:52:45.277Z",
   "jobs": [
     {
       "id": "apg-sga-cc265091c6cd",
@@ -33,7 +33,7 @@
       "url": "https://jobs.apgsga.ch/publication/software-engineer-zuerich/fq77rwsz40tq2rk03aosn5kdlrimsc8r82avvqk4zlmb67ptcjlynfhsx0aw2lzt",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:29:55.663Z",
+      "crawledAt": "2026-09-25T14:52:40.243Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "url": "https://jobs.apgsga.ch/publication/junior-software-engineer-java-spring-zuerich/5c4lusdhri8wsbixw0vcpfsisgh8c4g0tdg0vwik66vv3rjgfdu5yybrvw2y1m4g",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:29:54.981Z",
+      "crawledAt": "2026-09-25T14:52:39.489Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -127,19 +127,21 @@
       "applyUrl": "https://jobs.apgsga.ch/publication/junior-software-engineer-java-spring-zuerich/5c4lusdhri8wsbixw0vcpfsisgh8c4g0tdg0vwik66vv3rjgfdu5yybrvw2y1m4g",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-23T23:45:29.841Z",
+      "previousSlugs": [
+        "junior-software-engineer-java-spring-80-100-zurich-apg-sga-ch",
+        "junior-software-ingegnere-java-spring-80-100-zurich-apg-sga-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-software-engineer-java-spring-80-100-zurich-apg-sga-ch"
+          "junior-software-engineer-java-spring-80-100-zurich-apg-sga-ch",
+          "junior-software-ingegnere-java-spring-80-100-zurich-apg-sga-zurich"
         ],
         "fr": [
           "junior-software-engineer-java-spring-80-100-zurich-apg-sga-ch"
         ]
       },
-      "previousSlugs": [
-        "junior-software-engineer-java-spring-80-100-zurich-apg-sga-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-23T23:45:29.841Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",

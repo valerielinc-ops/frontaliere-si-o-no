@@ -8,9 +8,11 @@ import {
   positiveEventRecoveryFields,
   positiveEventStatusFields,
   mergeAccountDeletedSubscriberUpdate,
+  UNKNOWN_RECIPIENT,
 } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 import { recordJobEmailRankingClick } from './lib/jobEmailRankingStore.js';
+import { isDeletedEmailAccount } from './authAccountCleanup.js';
 
 /**
  * Maileroo webhook handler — receives delivery events and stores them in Firestore.
@@ -155,6 +157,9 @@ export async function persistMailerooEvent(db, event) {
   const meta = (metaDoc && typeof metaDoc.email === 'string' && metaDoc.email.includes('@')) ? metaDoc : null;
   const email = meta ? meta.email : getRecipient(event);
   if (!email || !email.includes('@')) return { skipped: true, reason: 'invalid_email' };
+  if (await isDeletedEmailAccount(db, email)) {
+    return { skipped: true, reason: 'account_deleted' };
+  }
 
   const isJobAlert = meta ? !!meta.is_job_alert : isJobAlertEvent(event);
   const campaignId = (meta && meta.campaign_id) ? meta.campaign_id : extractCampaignId(event);
@@ -213,7 +218,7 @@ export async function persistMailerooEvent(db, event) {
   // 'suppressed', or a 'bounced' that is NOT proven-permanent. It never
   // clears a human-declared 'complained'/'unsubscribed', nor a hard bounce.
   // The doc read happens only on these three event types.
-  await mergeAccountDeletedSubscriberUpdate(
+  const merged = await mergeAccountDeletedSubscriberUpdate(
     subscriberRef,
     subscriberUpdate,
     type === 'delivered' || type === 'open' || type === 'click'
@@ -226,6 +231,7 @@ export async function persistMailerooEvent(db, event) {
       : null,
     db,
   );
+  if (merged === null) return { skipped: true, reason: UNKNOWN_RECIPIENT };
 
   if (bounceSeverity === 'soft') {
     await maybeEscalateSoftBounce(subscriberRef, bounceReason);
@@ -315,7 +321,7 @@ async function persistJobAlertMailerooEvent(db, { email, type, event, messageId,
   // promotion. This used to be an UNCONDITIONAL `topUpdate.status = 'active'`,
   // which would overwrite 'complained' — a human's spam complaint — with a
   // machine's inference, and equally resurrect a proven-permanent hard bounce.
-  await mergeAccountDeletedSubscriberUpdate(
+  const merged = await mergeAccountDeletedSubscriberUpdate(
     subscriberRef,
     topUpdate,
     type === 'delivered' || type === 'open' || type === 'click'
@@ -328,6 +334,7 @@ async function persistJobAlertMailerooEvent(db, { email, type, event, messageId,
       : null,
     db,
   );
+  if (merged === null) return { skipped: true, reason: UNKNOWN_RECIPIENT };
 
   if (bounceSeverity === 'soft') {
     await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
@@ -384,7 +391,7 @@ export async function handleMailerooWebhookRequest({ payload, headers, signingSe
     try {
       const result = await persistMailerooEvent(db, event);
       results.push(result);
-      console.log(`[mailerooWebhook] ${event.event_type} → ${result.type || 'skipped'} for ${getRecipient(event) || '?'}`);
+      console.log(`[mailerooWebhook] ${result.reason || result.type || 'skipped'}`);
     } catch (err) {
       console.error(`[mailerooWebhook] Error processing ${event.event_type}: ${err.message}`);
       results.push({ error: err.message, event: event.event_type });

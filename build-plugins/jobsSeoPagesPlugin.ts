@@ -50,6 +50,7 @@ import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import {
  buildActiveJobPageInput,
+ buildActiveJobPageReuseInput,
  buildExpiredSoftLandingPageInput,
  buildMinimalJobInput,
  getIncrementalManifestInputCache,
@@ -239,6 +240,7 @@ import {
  buildRoleHubMeta,
 } from '../services/seo/meta-descriptions';
 import { COMPANY_HQ_ADDRESSES, CANTON_CAPITAL_ADDRESSES, localityMatchesHq } from './shared/companyHqAddresses';
+import { normalizePostalCityKey } from './shared/postalCodes';
 import { buildJobPostingSchema, sanitizeLocalityForRegion, type JobInput } from './shared/jobPostingSchema';
 import { normalizeCantonCode, inferAnyCanton } from '../scripts/lib/target-swiss-locations.mjs';
 import { formatJobLocation, splitJobLocation } from '../scripts/lib/job-location-display.mjs';
@@ -729,6 +731,231 @@ export function deriveJobAddressLocality(job: Record<string, unknown>, region: s
  return CANTON_CAPITAL_ADDRESSES[region]?.addressLocality || DEFAULT_CANTON_DISPLAY;
 }
 
+ /** Sanitize address fields — reject crawler artifacts */
+ const isValidAddress = (s: string): boolean => {
+ if (!s || s.length > 100) return false;
+ // Reject strings with too many spaces (likely scraped garbage)
+ if ((s.match(/\s/g) || []).length > 8) return false;
+ // Reject strings with navigation/UI artifacts
+ if (/stampa|segnalazione|descrizione|annuncio|verifica|attività|dillo/i.test(s)) return false;
+ return true;
+ };
+ // COMPANY_HQ_ADDRESSES is imported at module scope from
+ // ./shared/companyHqAddresses — shared with weeklyEmployersPlugin.
+
+ /** Does the value look like an actual street address (not just a city/region name)? */
+ const isStreetLikeAddress = (s: string): boolean => {
+ if (!s || s.length < 3) return false;
+ // Must contain a known street keyword
+ if (/\b(via|piazza|piazzale|piazzetta|viale|strada|corso|vicolo|salita|sentiero|contrada|largo|riva|lungolago|rampa|passaggio)\b/i.test(s)) return true;
+ // Accept strings with both letters AND digits (e.g. "Rue de Lausanne 42") —
+ // but reject pure-digit strings like "2026" that are years, not addresses
+ if (/[a-zA-Z]/.test(s) && /\d/.test(s)) return true;
+ return false;
+ };
+
+ /** City → generic central street address for last-resort fallback */
+ const CITY_GENERIC_ADDRESS: Record<string, string> = {
+ // Luganese
+ 'lugano': 'Piazza Riforma 1', 'paradiso': 'Riva Albertolli 1', 'massagno': 'Via S. Gottardo 52',
+ 'viganello': 'Via San Gottardo 87', 'pregassona': 'Via Pregassona 29', 'breganzona': 'Via Breganzona 16',
+ 'montagnola': 'Via Cantonale 24', 'grancia': 'Via Cantonale 18', 'muzzano': 'Via Municipio 8',
+ 'cadempino': 'Via Cantonale 31', 'lamone': 'Via Cantonale 31', 'comano': 'Via Cantonale 4',
+ 'canobbio': 'Via Cantone 1', 'tesserete': 'Via Stazione 2', 'capriasca': 'Via Stazione 2',
+ 'agno': 'Piazza Luini 2', 'bioggio': 'Via Cantonale 19', 'manno': 'Via Cantonale 2c', 'caslano': 'Piazza Lago 2',
+ 'novaggio': 'Via Cantonale 5', 'noranco': 'Via Noranco 10', 'neggio': 'Via Cantonale 12',
+ 'luganese': 'Piazza Riforma 1', 'malcantone': 'Piazza Lago 2',
+ // Bellinzonese
+ 'bellinzona': 'Piazza Governo', 'giubiasco': 'Piazza Grande 1', 'sementina': 'Via Cantonale 35',
+ 'camorino': 'Via Cantonale 20', 'arbedo': 'Via Cantonale 1', 'castione': 'Via Cantonale 8',
+ 'cadenazzo': 'Via Stazione 10', 's. antonino': 'Via Serrai 1', 's.antonino': 'Via Serrai 1',
+ 'castione-arbedo': 'Via Cantonale 1', 'belinzona': 'Piazza Governo',
+ // Sopraceneri
+ 'lodrino': 'Via Cantonale 1', 'sopraceneri': 'Piazza Governo',
+ // Locarnese
+ 'locarno': 'Piazza Grande 18', 'muralto': 'Via Stazione 1', 'minusio': 'Via San Gottardo 73',
+ 'gordola': 'Via Cantonale 40', 'tenero': 'Via Brere 7', 'ascona': 'Via Borgo 34',
+ 'losone': 'Via Municipio 9', 'magadino': 'Via Cantonale 32', 'quartino': 'Via Cantonale 32',
+ // Mendrisiotto
+ 'mendrisio': 'Via Luigi Benteler 1', 'chiasso': 'Corso San Gottardo 84', 'stabio': 'Via Industria 1',
+ 'balerna': 'Via Municipio 13', 'coldrerio': 'Via Municipio 12', 'novazzano': 'Via Cantonale 5',
+ 'castel san pietro': 'Via Municipio 1', 'morbio inferiore': 'Via Cantonale 46', 'vacallo': 'Via Municipio 8',
+ // Leventina / Blenio
+ 'airolo': 'Piazza Stazione 1', 'faido': 'Piazza Municipio 1', 'bodio': 'Via Cantonale 3',
+ 'biasca': 'Via Giuseppe Lepori 1', 'mezzovico': 'Via Vedeggio 4', 'rivera': 'Via Cantonale 1',
+ 'taverne': 'Via Cantonale 20', 'pazzallo': 'Via Pazzallo 10', 'cadro': 'Via Cadro 5',
+ 'riazzino': 'Via Cantonale 12', 'castelrotto': 'Via Pratocarasso 1',
+ 'bedano': 'Via Cantonale 31', 'pollegio': 'Via Cantonale 1',
+ // Graubünden / Grigioni
+ 'chur': 'Bahnhofstrasse 1', 'coira': 'Bahnhofstrasse 1',
+ 'landquart': 'Bahnhofstrasse 1', 'davos': 'Promenade 68',
+ 'st. moritz': 'Via Maistra 12', 'samedan': 'Plazzet 4', 'pontresina': 'Via Maistra 133',
+ 'walenstadt': 'Bahnhofstrasse 19', 'obervaz': 'Voa Principala 22',
+ 'ilanz': 'Via Centrala 2', 'thusis': 'Neudorfstrasse 60', 'poschiavo': 'Via da la Stazione 1',
+ // Ginevra
+ 'plan-les-ouates': 'Route de Saint-Julien 7',
+ 'genève': 'Rue du Rhône 1', 'ginevra': 'Rue du Rhône 1', 'genf': 'Rue du Rhône 1', 'geneva': 'Rue du Rhône 1',
+ // Major Swiss cities outside Ticino/GR
+ 'zürich': 'Bahnhofstrasse 1', 'zurich': 'Bahnhofstrasse 1', 'zurigo': 'Bahnhofstrasse 1',
+ 'bern': 'Bundesplatz 1', 'berna': 'Bundesplatz 1',
+ 'basel': 'Marktplatz 1', 'basilea': 'Marktplatz 1',
+ 'lausanne': 'Place de la Palud 2', 'losanna': 'Place de la Palud 2',
+ 'luzern': 'Bahnhofstrasse 1', 'lucerna': 'Bahnhofstrasse 1', 'lucerne': 'Bahnhofstrasse 1',
+ 'st. gallen': 'Bahnhofplatz 1', 'san gallo': 'Bahnhofplatz 1',
+ 'winterthur': 'Bahnhofplatz 1',
+ 'zug': 'Bahnhofstrasse 1',
+ 'aarau': 'Bahnhofstrasse 1',
+ 'fribourg': 'Rue de Romont 1', 'friburgo': 'Rue de Romont 1',
+ 'neuchâtel': 'Place du Port 1',
+ 'schaffhausen': 'Bahnhofstrasse 1',
+ 'solothurn': 'Hauptgasse 1',
+ 'thun': 'Bahnhofstrasse 1',
+ 'baden': 'Bahnhofstrasse 1',
+ 'olten': 'Bahnhofstrasse 1',
+ };
+
+ // Accent/punctuation-folded view of the table above, so the lookup accepts the
+ // emitted locality in any spelling the sanitizer lets through ("Zurich").
+ const CITY_GENERIC_ADDRESS_BY_KEY = new Map<string, string>();
+ for (const [city, street] of Object.entries(CITY_GENERIC_ADDRESS)) {
+ const key = normalizePostalCityKey(city);
+ if (key && !CITY_GENERIC_ADDRESS_BY_KEY.has(key)) CITY_GENERIC_ADDRESS_BY_KEY.set(key, street);
+ }
+
+/**
+ * Derive the job page's streetAddress: the job's own street, else a street of
+ * the locality the page emits (`locality`, already sanitized by
+ * deriveJobAddressLocality): the company HQ when it sits in that city, or the
+ * curated central street of that city. Returns '' when none applies: the
+ * canonical builder (`resolveAddress` in ./shared/jobPostingSchema) then uses
+ * "<city> centro".
+ *
+ * Every lookup is anchored on the EMITTED locality (issue 9852). The previous
+ * chain also searched the raw location parts ("Lyssach · Bern"), the raw street
+ * and fuzzy variants, and ended on the canton capital's street: the street of
+ * another place (Bern's "Bundesplatz 1", Lausanne's "Place de la Palud 2",
+ * the Ticino default "Piazza Governo" on a TG job) next to the emitted
+ * locality.
+ */
+export function deriveJobStreetAddress(job: any, locality: string): string {
+ // 1. The job's own streetAddress — only if it looks like a real street.
+ const raw = String(job.streetAddress || '').trim();
+ if (isValidAddress(raw) && isStreetLikeAddress(raw)) return raw;
+ // 2. Company HQ — ONLY in the emitted city (#3513). Same-canton is not
+ // enough: pairing the HQ street with a different posting locality (e.g. HQ
+ // Manno street on a Winterthur job) emits a contradictory PostalAddress.
+ const companyKey = String(job.companyKey || '').toLowerCase().trim();
+ const hq = companyKey ? COMPANY_HQ_ADDRESSES[companyKey] : undefined;
+ if (hq && locality && localityMatchesHq(locality, hq)) return hq.streetAddress;
+ // 3. Curated central street of the emitted city.
+ const key = normalizePostalCityKey(locality);
+ return (key && CITY_GENERIC_ADDRESS_BY_KEY.get(key)) || '';
+}
+
+const ACTIVE_JOB_REUSE_MARKERS = Object.freeze({
+ jobPosting: 'job-posting',
+ heroBadges: 'hero-badges',
+ mobileAction: 'mobile-action',
+ recentArticles: 'recent-articles',
+});
+
+type ActiveJobReuseFragments = {
+ jobPostingDatePosted: string;
+ jobPostingValidThrough: string;
+ heroBadges: string;
+ mobileAction: string;
+ recentArticles: string;
+};
+
+function replaceActiveJobReuseFragment(
+ html: string,
+ name: string,
+ replacement: string | ((current: string) => string),
+): string {
+ const startMarker = `<!-- jobs-seo-reuse:${name}:start -->`;
+ const endMarker = `<!-- jobs-seo-reuse:${name}:end -->`;
+ const start = html.indexOf(startMarker);
+ const contentStart = start < 0 ? -1 : start + startMarker.length;
+ const end = contentStart < 0 ? -1 : html.indexOf(endMarker, contentStart);
+ if (start < 0 || end < 0) throw new Error(`missing active-page reuse markers: ${name}`);
+ const current = html.slice(contentStart, end);
+ const next = typeof replacement === 'function' ? replacement(current) : replacement;
+ return `${html.slice(0, contentStart)}${next}${html.slice(end)}`;
+}
+
+export function replaceActiveJobPostingDates(
+ fragment: string,
+ datePosted: string,
+ validThrough: string,
+): string {
+ const scriptMatch = fragment.match(
+  /<script\b[^>]*type=(['"])application\/ld\+json\1[^>]*>[\s\S]*?<\/script>/i,
+ );
+ if (!scriptMatch) throw new Error('missing JobPosting JSON-LD fragment');
+ let script = scriptMatch[0];
+ for (const [field, value] of [['datePosted', datePosted], ['validThrough', validThrough]] as const) {
+  const fieldPattern = new RegExp(`("${field}"\\s*:\\s*)"[^"]*"`);
+  if (!fieldPattern.test(script)) throw new Error(`missing JobPosting JSON-LD field: ${field}`);
+  const next = script.replace(fieldPattern, `$1${JSON.stringify(value)}`);
+  script = next;
+ }
+ const scriptStart = scriptMatch.index ?? 0;
+ return `${fragment.slice(0, scriptStart)}${script}${fragment.slice(
+  scriptStart + scriptMatch[0].length,
+ )}`;
+}
+
+function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFragments): string {
+ let rewritten = replaceActiveJobReuseFragment(
+  html,
+  ACTIVE_JOB_REUSE_MARKERS.jobPosting,
+  (current) => replaceActiveJobPostingDates(
+   current,
+   fragments.jobPostingDatePosted,
+   fragments.jobPostingValidThrough,
+  ),
+ );
+ rewritten = replaceActiveJobReuseFragment(
+  rewritten,
+  ACTIVE_JOB_REUSE_MARKERS.heroBadges,
+  fragments.heroBadges,
+ );
+ rewritten = replaceActiveJobReuseFragment(
+  rewritten,
+  ACTIVE_JOB_REUSE_MARKERS.mobileAction,
+  fragments.mobileAction,
+ );
+ return replaceActiveJobReuseFragment(
+  rewritten,
+  ACTIVE_JOB_REUSE_MARKERS.recentArticles,
+  fragments.recentArticles,
+ );
+}
+
+function formatActiveJobSalaryText(
+ locale: 'it' | 'en' | 'de' | 'fr',
+ salaryMin: number,
+ salaryMax: number,
+ salaryCurrency: string,
+): string {
+ const salaryFormatter = new Intl.NumberFormat(
+  locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : locale === 'en' ? 'en-CH' : 'it-CH',
+  { maximumFractionDigits: 0 },
+ );
+ if (Number.isFinite(salaryMin)) {
+  return Number.isFinite(salaryMax) && salaryMax > salaryMin
+   ? `${salaryCurrency} ${salaryFormatter.format(salaryMin)} - ${salaryFormatter.format(salaryMax)}`
+   : `${salaryCurrency} ${salaryFormatter.format(salaryMin)}`;
+ }
+ return locale === 'de'
+  ? 'nicht angegeben'
+  : locale === 'fr'
+  ? 'non indiqué'
+  : locale === 'en'
+  ? 'not specified'
+  : 'non indicato';
+}
+
 // Local feature flag: strip generic SEO prose ("Informazioni per frontalieri",
 // "Domande frequenti", "Mercato del lavoro in Ticino") from expired-job
 // static pages. Default ON (set STRIP_EXPIRED_JOB_PROSE=0 to keep prose).
@@ -785,8 +1012,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    manifest.setJobsSeoEmitterFingerprint(jobsSeoEmitterFingerprints);
   }
  }
- const registerIncrementalPage = (locale: (typeof JOB_SEO_LOCALES)[number], pagePath: string, kind: string, input: unknown) => {
-  incrementalManifests?.get(locale)?.register(pagePath, kind, input);
+ const registerIncrementalPage = (
+  locale: (typeof JOB_SEO_LOCALES)[number],
+  pagePath: string,
+  kind: string,
+  input: unknown,
+  reuseInput: unknown = input,
+ ) => {
+  incrementalManifests?.get(locale)?.register(pagePath, kind, input, undefined, undefined, reuseInput);
  };
 
  // BFS-depth closure (2026-06-11): the per-canton "Esplora" navigator only
@@ -2160,15 +2393,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const domain = job?.companyDomain || hostFromUrl(job?.url);
  return domain ? `https://www.${domain}` : BASE_URL;
  };
- /** Sanitize address fields — reject crawler artifacts */
- const isValidAddress = (s: string): boolean => {
- if (!s || s.length > 100) return false;
- // Reject strings with too many spaces (likely scraped garbage)
- if ((s.match(/\s/g) || []).length > 8) return false;
- // Reject strings with navigation/UI artifacts
- if (/stampa|segnalazione|descrizione|annuncio|verifica|attività|dillo/i.test(s)) return false;
- return true;
- };
  const isValidPostalCode = (s: string): boolean => {
  if (!s) return false;
  // Swiss postal codes: 4 digits starting with 1-9
@@ -2179,162 +2403,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return true;
  };
 
- // COMPANY_HQ_ADDRESSES is imported at module scope from
- // ./shared/companyHqAddresses — shared with weeklyEmployersPlugin.
-
- /** Does the value look like an actual street address (not just a city/region name)? */
- const isStreetLikeAddress = (s: string): boolean => {
- if (!s || s.length < 3) return false;
- // Must contain a known street keyword
- if (/\b(via|piazza|piazzale|piazzetta|viale|strada|corso|vicolo|salita|sentiero|contrada|largo|riva|lungolago|rampa|passaggio)\b/i.test(s)) return true;
- // Accept strings with both letters AND digits (e.g. "Rue de Lausanne 42") —
- // but reject pure-digit strings like "2026" that are years, not addresses
- if (/[a-zA-Z]/.test(s) && /\d/.test(s)) return true;
- return false;
- };
-
- /** City → generic central street address for last-resort fallback */
- const CITY_GENERIC_ADDRESS: Record<string, string> = {
- // Luganese
- 'lugano': 'Piazza Riforma 1', 'paradiso': 'Riva Albertolli 1', 'massagno': 'Via S. Gottardo 52',
- 'viganello': 'Via San Gottardo 87', 'pregassona': 'Via Pregassona 29', 'breganzona': 'Via Breganzona 16',
- 'montagnola': 'Via Cantonale 24', 'grancia': 'Via Cantonale 18', 'muzzano': 'Via Municipio 8',
- 'cadempino': 'Via Cantonale 31', 'lamone': 'Via Cantonale 31', 'comano': 'Via Cantonale 4',
- 'canobbio': 'Via Cantone 1', 'tesserete': 'Via Stazione 2', 'capriasca': 'Via Stazione 2',
- 'agno': 'Piazza Luini 2', 'bioggio': 'Via Cantonale 19', 'manno': 'Via Cantonale 2c', 'caslano': 'Piazza Lago 2',
- 'novaggio': 'Via Cantonale 5', 'noranco': 'Via Noranco 10', 'neggio': 'Via Cantonale 12',
- 'luganese': 'Piazza Riforma 1', 'malcantone': 'Piazza Lago 2',
- // Bellinzonese
- 'bellinzona': 'Piazza Governo', 'giubiasco': 'Piazza Grande 1', 'sementina': 'Via Cantonale 35',
- 'camorino': 'Via Cantonale 20', 'arbedo': 'Via Cantonale 1', 'castione': 'Via Cantonale 8',
- 'cadenazzo': 'Via Stazione 10', 's. antonino': 'Via Serrai 1', 's.antonino': 'Via Serrai 1',
- 'castione-arbedo': 'Via Cantonale 1', 'belinzona': 'Piazza Governo',
- // Sopraceneri
- 'lodrino': 'Via Cantonale 1', 'sopraceneri': 'Piazza Governo',
- // Locarnese
- 'locarno': 'Piazza Grande 18', 'muralto': 'Via Stazione 1', 'minusio': 'Via San Gottardo 73',
- 'gordola': 'Via Cantonale 40', 'tenero': 'Via Brere 7', 'ascona': 'Via Borgo 34',
- 'losone': 'Via Municipio 9', 'magadino': 'Via Cantonale 32', 'quartino': 'Via Cantonale 32',
- // Mendrisiotto
- 'mendrisio': 'Via Luigi Benteler 1', 'chiasso': 'Corso San Gottardo 84', 'stabio': 'Via Industria 1',
- 'balerna': 'Via Municipio 13', 'coldrerio': 'Via Municipio 12', 'novazzano': 'Via Cantonale 5',
- 'castel san pietro': 'Via Municipio 1', 'morbio inferiore': 'Via Cantonale 46', 'vacallo': 'Via Municipio 8',
- // Leventina / Blenio
- 'airolo': 'Piazza Stazione 1', 'faido': 'Piazza Municipio 1', 'bodio': 'Via Cantonale 3',
- 'biasca': 'Via Giuseppe Lepori 1', 'mezzovico': 'Via Vedeggio 4', 'rivera': 'Via Cantonale 1',
- 'taverne': 'Via Cantonale 20', 'pazzallo': 'Via Pazzallo 10', 'cadro': 'Via Cadro 5',
- 'riazzino': 'Via Cantonale 12', 'castelrotto': 'Via Pratocarasso 1',
- 'bedano': 'Via Cantonale 31', 'pollegio': 'Via Cantonale 1',
- // Graubünden / Grigioni
- 'chur': 'Bahnhofstrasse 1', 'coira': 'Bahnhofstrasse 1',
- 'landquart': 'Bahnhofstrasse 1', 'davos': 'Promenade 68',
- 'st. moritz': 'Via Maistra 12', 'samedan': 'Plazzet 4', 'pontresina': 'Via Maistra 133',
- 'walenstadt': 'Bahnhofstrasse 19', 'obervaz': 'Voa Principala 22',
- 'ilanz': 'Via Centrala 2', 'thusis': 'Neudorfstrasse 60', 'poschiavo': 'Via da la Stazione 1',
- // Ginevra
- 'plan-les-ouates': 'Route de Saint-Julien 7',
- 'genève': 'Rue du Rhône 1', 'ginevra': 'Rue du Rhône 1', 'genf': 'Rue du Rhône 1', 'geneva': 'Rue du Rhône 1',
- // Major Swiss cities outside Ticino/GR
- 'zürich': 'Bahnhofstrasse 1', 'zurich': 'Bahnhofstrasse 1', 'zurigo': 'Bahnhofstrasse 1',
- 'bern': 'Bundesplatz 1', 'berna': 'Bundesplatz 1',
- 'basel': 'Marktplatz 1', 'basilea': 'Marktplatz 1',
- 'lausanne': 'Place de la Palud 2', 'losanna': 'Place de la Palud 2',
- 'luzern': 'Bahnhofstrasse 1', 'lucerna': 'Bahnhofstrasse 1', 'lucerne': 'Bahnhofstrasse 1',
- 'st. gallen': 'Bahnhofplatz 1', 'san gallo': 'Bahnhofplatz 1',
- 'winterthur': 'Bahnhofplatz 1',
- 'zug': 'Bahnhofstrasse 1',
- 'aarau': 'Bahnhofstrasse 1',
- 'fribourg': 'Rue de Romont 1', 'friburgo': 'Rue de Romont 1',
- 'neuchâtel': 'Place du Port 1',
- 'schaffhausen': 'Bahnhofstrasse 1',
- 'solothurn': 'Hauptgasse 1',
- 'thun': 'Bahnhofstrasse 1',
- 'baden': 'Bahnhofstrasse 1',
- 'olten': 'Bahnhofstrasse 1',
- };
-
- /** Normalise a locality string to extract the core city name for lookup.
- * Strips suffixes like ", Switzerland", ", Ticino", "TI + smart working", postal codes, etc. */
- const normaliseCityName = (raw: string): string[] => {
- const candidates: string[] = [];
- const s = raw.replace(/[_]/g, ' ').trim();
- // Split on comma, dot-separator, or dash-separated compound
- const parts = s.split(/[,·]/).map(p => p.trim()).filter(Boolean);
- for (const part of parts) {
- // Strip known suffixes
- const cleaned = part
- .replace(/\b(switzerland|svizzera|suisse|schweiz|ticino|ti|gr|ge|ch)\b/gi, '')
- .replace(/\+\s*smart\s*working/gi, '')
- .replace(/\b\d{4}\b/g, '') // postal codes
- .replace(/\s+/g, ' ')
- .trim();
- if (cleaned.length >= 2) candidates.push(cleaned.toLowerCase());
- }
- // Also try the raw first part before any comma
- if (parts[0]) candidates.unshift(parts[0].trim().toLowerCase());
- return [...new Set(candidates)];
- };
-
- /** Canton capital fallback — used as ultimate last resort */
- const CANTON_CAPITAL_ADDRESS: Record<string, string> = {
- 'TI': 'Piazza Governo', 'GR': 'Bahnhofstrasse 1', 'GE': 'Rue du Rhône 1',
- 'ZH': 'Bahnhofstrasse 1', 'BE': 'Bundesplatz 1', 'LU': 'Bahnhofstrasse 1',
- 'VS': 'Place de la Planta 1', 'VD': 'Place de la Palud 2',
- 'BS': 'Marktplatz 1', 'SG': 'Bahnhofplatz 1', 'AG': 'Bahnhofstrasse 1',
- 'FR': 'Rue de Romont 1', 'NE': 'Place du Port 1', 'ZG': 'Bahnhofstrasse 1',
- 'SH': 'Bahnhofstrasse 1', 'SO': 'Hauptgasse 1', 'BL': 'Marktplatz 1',
- };
-
  // City→canton dict + regex-only explicit-canton acceptance replaced by the
  // module-level deriveJobCanton (validated against the real 26-canton
  // registry + BFS city inference — see above; eliminates this hand-rolled
  // ~50-city duplicate, AGENTS.md #6).
  const deriveCanton = deriveJobCanton;
 
- /** Derive streetAddress from job data, company HQ, or city generic.
- * Always returns a street address (canton capital as last resort). */
- const deriveStreetAddress = (job: any): string => {
- // 1. Try job's own streetAddress — only if it looks like a real street
- const raw = String(job.streetAddress || '').trim();
- if (isValidAddress(raw) && isStreetLikeAddress(raw)) return raw;
- // 2. Try company HQ address — ONLY when the job has no own locality or is
- // in the HQ's own city (#3513). Same-canton is not enough: pairing the
- // HQ street with a different posting locality (e.g. HQ Manno street on a
- // Winterthur job) emits a contradictory JSON-LD PostalAddress.
- const companyKey = String(job.companyKey || '').toLowerCase().trim();
- if (companyKey && COMPANY_HQ_ADDRESSES[companyKey]
- && localityMatchesHq(String(job.addressLocality || job.location || ''), COMPANY_HQ_ADDRESSES[companyKey])) {
- return COMPANY_HQ_ADDRESSES[companyKey].streetAddress;
- }
- // 3. Try city-based generic address (exact match)
- const locality = String(job.addressLocality || '').toLowerCase().trim();
- if (locality && CITY_GENERIC_ADDRESS[locality]) return CITY_GENERIC_ADDRESS[locality];
- // 4. Try location field parts (split on ·)
- const loc = String(job.location || '');
- const locParts = loc.split('·').map((s: string) => s.trim()).filter(Boolean);
- for (const part of locParts) {
- const key = part.toLowerCase().trim();
- if (key && CITY_GENERIC_ADDRESS[key]) return CITY_GENERIC_ADDRESS[key];
- }
- // 5. If job.streetAddress is non-empty but not street-like, try as city lookup
- const rawLower = raw.toLowerCase();
- if (rawLower && CITY_GENERIC_ADDRESS[rawLower]) return CITY_GENERIC_ADDRESS[rawLower];
- // 6. Fuzzy: normalise locality/location by stripping suffixes and try again
- const candidates = [
- ...normaliseCityName(String(job.addressLocality || '')),
- ...normaliseCityName(loc),
- ...normaliseCityName(raw),
- ];
- for (const c of candidates) {
- if (CITY_GENERIC_ADDRESS[c]) return CITY_GENERIC_ADDRESS[c];
- }
- // 7. Canton capital fallback — always produces a result. Uses the
- // validated deriveCanton (not a raw job.canton||job.addressRegion
- // regex-only read) so an untrusted well-formed-but-wrong canton code
- // never picks the wrong capital street (same bug class as #6 above).
- const canton = deriveCanton(job);
- return CANTON_CAPITAL_ADDRESS[canton] || CANTON_CAPITAL_ADDRESS[DEFAULT_CANTON] || 'Piazza Governo';
- };
  // job.category → O*NET-SOC major group code + `industry`/
  // `applicantLocationRequirements` (remote-only) are now resolved inside
  // the canonical `buildJobPostingSchema` builder (build-plugins/shared/
@@ -3103,7 +3177,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const perJob_addressLocality = deriveJobAddressLocality(job, perJob_addressRegion);
  const perJob_addressCountry = String(job.addressCountry || 'CH');
  const perJob_postalCode = deriveJobPostalCode(job);
- const perJob_streetAddress = deriveStreetAddress(job);
+ const perJob_streetAddress = deriveJobStreetAddress(job, perJob_addressLocality);
  // NOTE: `isRemote` is intentionally NOT hoisted here. The original test
  // ran against the LOCALE-specific normalized description (which can
  // differ across translations — "remote" may appear in the EN copy and
@@ -3145,9 +3219,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // The page itself is still emitted with its own URL (breadcrumbs,
  // JobPosting, etc. describe THIS page) so existing backlinks resolve.
  const effectiveCanonicalUrl = resolveCanonicalUrl(perLocaleSlug[locale], canonicalUrl);
- // `relatedArticlesHtml` is the SAME string the template below interpolates
- // (`recentArticlesHtmlFor(locale)`, memoized per locale): the input digests
- // exactly the bytes the page emits, so the two cannot drift apart.
+ const recentArticlesHtml = recentArticlesHtmlFor(locale);
+ // `relatedArticlesHtml` is the SAME string the template below interpolates:
+ // the publish input digests exactly the bytes the page emits, so the two
+ // cannot drift apart. The separate reuse input intentionally omits this
+ // digest; the cached fragment is replaced before the page is reused.
  const activeJobManifestInput = incrementalManifests
   ? buildActiveJobPageInput({
    job,
@@ -3158,10 +3234,59 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    canonicalJob: job,
    canton: jobCanton,
    canonicalUrl: effectiveCanonicalUrl,
-   relatedArticlesHtml: recentArticlesHtmlFor(locale),
+   relatedArticlesHtml: recentArticlesHtml,
    renderDateBucket: jobsSeoReuseBuildDay,
   })
  : null;
+ const activeJobReuseInput = activeJobManifestInput
+  ? buildActiveJobPageReuseInput(activeJobManifestInput)
+  : null;
+ const buildActiveReuseFragments = activeJobManifestInput
+  ? (): ActiveJobReuseFragments => {
+   const salaryText = formatActiveJobSalaryText(
+    locale,
+    perJob_salaryMin,
+    perJob_salaryMax,
+    perJob_salaryCurrency,
+   );
+   return {
+   jobPostingDatePosted: safeIsoDate(job?.postedDate)
+    || safeIsoDate(job?.crawledAt)
+    || toIsoDateTime('', jobsSeoReuseBuildNow),
+   jobPostingValidThrough: toValidThrough(
+    String(job?.postedDate || ''),
+    job?.crawledAt,
+    jobsSeoReuseBuildNow,
+   ),
+   heroBadges: renderHeroBadges({
+    job,
+    locale,
+    salaryMin: perJob_salaryMin,
+    salaryText,
+    esc,
+    now: jobsSeoReuseBuildNow,
+   }),
+   mobileAction: renderMobileActionBlock({
+    job,
+    locale,
+    canonicalUrl,
+    addressLocality: perJob_addressLocality,
+    salaryMin: perJob_salaryMin,
+    salaryText,
+    localeLabels: {
+     applyNow: localeCopy[locale].applyNow,
+     quickDetails: localeCopy[locale].quickDetails,
+     location: localeCopy[locale].location,
+     contract: localeCopy[locale].contract,
+    },
+    referralUrl,
+    esc,
+    now: jobsSeoReuseBuildNow,
+   }),
+   recentArticles: recentArticlesHtml,
+   };
+  }
+  : null;
  const outDir = np.join(distDir, canonicalPath.slice(1));
  const activeReuse = jobsSeoReuse?.lookup(
   locale,
@@ -3170,6 +3295,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   activeJobManifestInput,
   'active',
   jobsSeoProbeShapeHints(job),
+  {
+   reuseInput: activeJobReuseInput,
+   rewriteHtml: buildActiveReuseFragments
+    ? (html: string) => rewriteActiveJobHtml(html, buildActiveReuseFragments())
+    : undefined,
+  },
  );
  let html: string;
  if (!activeReuse?.hit || jobsSeoReuse?.shouldRender(activeReuse)) {
@@ -3476,21 +3607,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const salaryMin = perJob_salaryMin;
  const salaryMax = perJob_salaryMax;
  const salaryCurrency = perJob_salaryCurrency;
- const salaryFormatter = new Intl.NumberFormat(
- locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : locale === 'en' ? 'en-CH' : 'it-CH',
- { maximumFractionDigits: 0 }
- );
- const salaryText = Number.isFinite(salaryMin)
- ? (Number.isFinite(salaryMax) && salaryMax > salaryMin
- ? `${salaryCurrency} ${salaryFormatter.format(salaryMin)} - ${salaryFormatter.format(salaryMax)}`
- : `${salaryCurrency} ${salaryFormatter.format(salaryMin)}`)
- : (locale === 'de'
- ? 'nicht angegeben'
- : locale === 'fr'
- ? 'non indiqué'
- : locale === 'en'
- ? 'not specified'
- : 'non indicato');
+ const salaryText = formatActiveJobSalaryText(locale, salaryMin, salaryMax, salaryCurrency);
  // Address fields hoisted to perJob block — all derived from job alone.
  const addressLocality = perJob_addressLocality;
  const addressRegion = perJob_addressRegion;
@@ -3697,7 +3814,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <meta property="og:image:alt" content="${esc(ogTitle)}">
  <link rel="canonical" href="${effectiveCanonicalUrl}">
 ${hreflangHtml}
- <script type="application/ld+json">${jobLd}</script>
+ <!-- jobs-seo-reuse:job-posting:start --><script type="application/ld+json">${jobLd}</script><!-- jobs-seo-reuse:job-posting:end -->
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${jobFaqLd}</script>
  <script type="application/ld+json">${inlineScriptJson({'@context':'https://schema.org','@type':'WebPage',url:canonicalUrl,inLanguage:locale,isPartOf:{'@type':'CollectionPage','@id':`${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g,'/'))}`,name:cantonSectionName(locale,dc)}})}</script>
@@ -3714,7 +3831,7 @@ ${jobBoardOfferwallTag}${staticAnalyticsHtml}
  <article class="proposal">
  <section class="hero">
  <h1 class="hero-title">${esc(composeJobPageH1(localizedTitle, String(job.company || '')))}</h1>
- ${renderHeroBadges({ job, locale, salaryMin, salaryText, esc, now: jobsSeoReuseBuildNow })}
+ <!-- jobs-seo-reuse:hero-badges:start -->${renderHeroBadges({ job, locale, salaryMin, salaryText, esc, now: jobsSeoReuseBuildNow })}<!-- jobs-seo-reuse:hero-badges:end -->
  <div class="hero-sub">${esc(job.company)} · ${esc(formatJobLocation(job.location, job.canton || DEFAULT_CANTON))}</div>
  <div class="hero-meta">
  <span>${esc(`Categoria: ${String(job.category || 'other')}`)}</span>
@@ -3722,7 +3839,7 @@ ${jobBoardOfferwallTag}${staticAnalyticsHtml}
  <span>${esc(`Salario: ${salaryText}`)}</span>
  </div>
  </section>
- ${renderMobileActionBlock({ job, locale, canonicalUrl, addressLocality, salaryMin, salaryText, localeLabels: { applyNow: localeCopy[locale].applyNow, quickDetails: localeCopy[locale].quickDetails, location: localeCopy[locale].location, contract: localeCopy[locale].contract }, referralUrl, esc, now: jobsSeoReuseBuildNow })}
+ <!-- jobs-seo-reuse:mobile-action:start -->${renderMobileActionBlock({ job, locale, canonicalUrl, addressLocality, salaryMin, salaryText, localeLabels: { applyNow: localeCopy[locale].applyNow, quickDetails: localeCopy[locale].quickDetails, location: localeCopy[locale].location, contract: localeCopy[locale].contract }, referralUrl, esc, now: jobsSeoReuseBuildNow })}<!-- jobs-seo-reuse:mobile-action:end -->
  <section class="section">
  <h4>${esc(localeCopy[locale].summaryLabel)}</h4>
  ${summaryHtml}
@@ -3788,7 +3905,7 @@ ${jobBoardOfferwallTag}${staticAnalyticsHtml}
  return card + ctaLink + hubLink;
  })()}
  ${related.length > 0 ? `<section class="related"><h2>${esc(localeCopy[locale].relatedJobs)}</h2><ul class="rul">${relatedHtml}</ul></section>` : ''}
- ${recentArticlesHtmlFor(locale)}
+ <!-- jobs-seo-reuse:recent-articles:start -->${recentArticlesHtml}<!-- jobs-seo-reuse:recent-articles:end -->
  ${(() => {
  const __tPh_prose = phaseTimer();
  // loc/co/cat/contractKey are job-invariant — sourced from the perJob
@@ -4060,7 +4177,7 @@ ${jobBoardOfferwallTag}${staticAnalyticsHtml}
  const __tPh_write = phaseTimer();
  _qw(np.join(outDir, 'index.html'), html);
  if (incrementalManifests) {
-  registerIncrementalPage(locale, canonicalPath, 'active-job', activeJobManifestInput);
+  registerIncrementalPage(locale, canonicalPath, 'active-job', activeJobManifestInput, activeJobReuseInput);
  }
  const activeJobInputHash = incrementalManifests?.get(locale)?.getHash(
   canonicalPath,

@@ -53,8 +53,9 @@ import { carryForwardMarks, dedupeByIdentityPreservingMarks } from './lib/job-ma
 import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
-import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator } from './lib/dedicated-crawler-common.mjs';
-import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, isKnownSwissMunicipalityInCanton, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
+import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator, isLikelyJobDetailUrl } from './lib/dedicated-crawler-common.mjs';
+import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, isKnownSwissMunicipalityInCanton, locationFieldHasSwissSignal, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
+import { inferCantonFromJobEvidence } from './lib/canton-evidence.mjs';
 import { getCantonDisplayName, markLocationDerivedFromVacancyText } from './lib/crawler-location-config.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
@@ -73,6 +74,52 @@ import { decontaminateEntries } from './decontaminate-prev-slugs.mjs';
 import { extractNarrativeJobTitle } from './lib/job-title-normalization.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+export { inferCantonFromJobEvidence };
+
+function isHttpsJobUrl(value) {
+  if (typeof value !== 'string' || !value.trim()) return false;
+  try {
+    const parsed = new URL(value);
+    return parsed.protocol === 'https:' && Boolean(parsed.hostname);
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Restore the minimum trusted handoff when a crawler omitted applyUrl.
+ *
+ * The canonical job URL is allowed as a handoff only when the URL classifier
+ * proves that it is a job-detail page. Listing/search pages are deliberately
+ * excluded: a syntactically valid HTTPS URL is not evidence of an individual
+ * vacancy or an application destination. If a source supplied a mailto CTA,
+ * keep its address as provenance while publishing the HTTPS detail page so
+ * the L3 validator can distinguish a navigable handoff from a broken href.
+ *
+ * @param {object} job job being normalized in place
+ * @returns {boolean} whether applyUrl was repaired
+ */
+function backfillApplyUrlFromDetail(job) {
+  if (!job || typeof job !== 'object') return false;
+
+  const absoluteUrl = absoluteJobUrl(job.url);
+  if (absoluteUrl && absoluteUrl !== job.url && isHttpsJobUrl(absoluteUrl)) {
+    job.url = absoluteUrl;
+  }
+  if (isHttpsJobUrl(job.applyUrl)) return false;
+  if (!isHttpsJobUrl(job.url) || !isLikelyJobDetailUrl(job.url)) return false;
+
+  const rawApplyUrl = String(job.applyUrl || '').trim();
+  if (/^mailto:/i.test(rawApplyUrl)) {
+    const email = rawApplyUrl.slice('mailto:'.length).split('?')[0].trim();
+    if (email && !job.applicationEmail && !job.contactEmail) {
+      job.applicationEmail = email;
+    }
+  }
+  job.applyUrl = job.url;
+  return true;
+}
 
 /* ── Summary guard — ensures every crawler writes a summary on exit ──── */
 
@@ -215,6 +262,10 @@ function sanitizeJobLocationField(rawValue, fallbackLocality = 'Ticino') {
     // Shared with alten-job-parser.mjs — see swiss-locality-sentence-split.mjs.
     .split(SWISS_LOCALITY_SENTENCE_SPLIT_RX)[0]
     .replace(/^[\s:]+/, '')
+    // `Worblaufen & Homeoffice`: un suffisso di lavoro ibrido dopo la città non
+    // è prosa. Senza toglierlo, la regola «home office» qui sotto buttava la
+    // città vera e pubblicava il nome del cantone (issue 5253).
+    .replace(/\s*[&+\/,]\s*home[\s-]?off(?:ice)?\.?\s*$/i, '')
     .trim();
   if (s.length > 60 || /\b(availability|offer you|requirements|inspektionen|home ?office|company address|posizione esclusivamente|ottima conoscenza|befristet)\b/i.test(s)) {
     return fallback;
@@ -435,7 +486,7 @@ function humanizeCompanyKey(key) {
  * authority is exactly the one the source wrote, only spelled absolutely.
  *
  * @param {object[]} jobs jobs about to be persisted in a slice (mutated in place)
- * @returns {{ locationFixed: number, localityBackfilled: number, regionDefaulted: number, urlNormalized: number }}
+ * @returns {{ locationFixed: number, localityBackfilled: number, regionDefaulted: number, urlNormalized: number, applyUrlBackfilled: number }}
  */
 export function normalizeParsedJobsForSlice(jobs) {
   let locationFixed = 0;
@@ -443,6 +494,7 @@ export function normalizeParsedJobsForSlice(jobs) {
   let localityBackfilled = 0;
   let regionDefaulted = 0;
   let urlNormalized = 0;
+  let applyUrlBackfilled = 0;
   for (const job of jobs) {
     if (!job || typeof job !== 'object') continue;
 
@@ -453,6 +505,8 @@ export function normalizeParsedJobsForSlice(jobs) {
         urlNormalized++;
       }
     }
+
+    if (backfillApplyUrlFromDetail(job)) applyUrlBackfilled++;
 
     const localityFallback = cantonFallbackLocality(job);
 
@@ -496,7 +550,7 @@ export function normalizeParsedJobsForSlice(jobs) {
       regionDefaulted++;
     }
   }
-  return { locationFixed, localityBackfilled, regionDefaulted, urlNormalized };
+  return { locationFixed, localityBackfilled, regionDefaulted, urlNormalized, applyUrlBackfilled };
 }
 
 function assemblerIdentity(job = {}) {
@@ -1520,10 +1574,147 @@ export function isSwissPostalCode(pc) {
  * @param {string} haystack - job description text (all locales) + street.
  * @returns {boolean}
  */
-export function acceptBadLocalityViaCanton(canton, postalCode, haystack) {
+export function acceptBadLocalityViaCanton(canton, postalCode, haystack, rescueOptions = {}) {
   if (!isTargetCanton(canton)) return false;
   if (isSwissPostalCode(postalCode)) return true;
-  return Boolean(rescueSwissCityFromText(haystack));
+  return Boolean(rescueSwissCityFromText(haystack, rescueOptions));
+}
+
+/**
+ * Description-rescue options for a job whose primary locality is neither a
+ * known Swiss city nor a canton-only label (whitelist step 4). When that
+ * locality carries no Swiss signal at all — no country word, no canton name or
+ * code, no municipality — and the record has no Swiss postal code either, the
+ * job is unknown geography, which the owner's rule keeps fail-closed (#9846):
+ * "Mississauga", "Penzberg", "Venlo", and also "Baden-Württemberg" on a Ticino
+ * record, where the Aargau Baden is only glued to a foreign word. The
+ * description may then rescue it only with a city that is not inside a foreign
+ * compound, is written as a proper noun, is not the employer's headquarters and
+ * is not one entry of a list of sites.
+ *
+ * @param {string} primaryLoc
+ * @param {string|number|null|undefined} postalCode
+ * @param {string} [canton] - the record's own canton, see locationFieldHasSwissSignal()
+ * @returns {{ foreignContext: boolean, isForeignPlace: (item: string) => boolean }}
+ */
+export function textRescueOptionsForLocality(primaryLoc, postalCode, canton) {
+  const knownGeography = locationFieldHasSwissSignal(primaryLoc, canton) || isSwissPostalCode(postalCode);
+  return { foreignContext: !knownGeography, isForeignPlace: isLocationExplicitlyForeign };
+}
+
+// Match: 5-digit ZIP within ~40 chars of an unambiguous foreign-country
+// word. Avoids false positives on lone numbers in tax/salary text.
+const FOREIGN_ADDRESS_RE = /\b\d{5}\b[\s\S]{0,40}?\b(?:Italy|Italia|Italie|Italien|France|Frankreich|Francia|Germany|Deutschland|Allemagne|Germania|Austria|Österreich|Autriche|Spagna|España|Spain|Espagne|Portugal|United Kingdom|UK\b|Belgium|Belgio|Belgien|Belgique|Netherlands|Nederland|Pays-Bas)\b/i;
+
+/**
+ * Foreign filter + Swiss-municipality whitelist of the assembly, as a pure
+ * function over the deduped jobs. Mutates the locality of a job the whitelist
+ * rescues (step 4) and returns the survivors with the per-reason counts.
+ *
+ * Jobs in explicitly foreign locations (London, Luxembourg, Singapore, etc.)
+ * should not appear on the Swiss job board, so they are dropped before they
+ * reach the frontend or static page generation.
+ *
+ * The blacklist only catches jobs whose location *string* names a known
+ * foreign place. Swatch Group's Italian retail jobs slipped through because
+ * the crawler hardcoded `location: "Ticino"`, `postalCode: "6500"`,
+ * `addressCountry: "CH"` (all forged HQ defaults) while the actual city
+ * ("Forte dei Marmi, 55042") only appeared in the description body. Hence the
+ * whitelist:
+ *   1. Negative signal first: if the description body contains explicit
+ *      foreign markers (5-digit postal codes — Italian/DE/FR format — next to
+ *      a country word like "Italy/Italia/Italie"), drop. This overrides any
+ *      potentially-forged metadata fields.
+ *   2. Positive signal: primary location must resolve to a known Swiss
+ *      municipality (BFS dataset, 2,110 entries + aliases). A canton-only
+ *      label ("Ticino", "TI") needs a Swiss anchor: Swiss postal code on the
+ *      record OR a known Swiss city of ≥4 chars in description.
+ *
+ * @param {object[]} jobs
+ * @returns {{ jobs: object[], foreignCount: number, droppedBadSwissCity: number, droppedCantonOnlyNoCity: number, droppedForeignAddress: number }}
+ */
+export function applySwissLocationGate(jobs) {
+  const foreignFiltered = jobs.filter((job) => {
+    const loc = String(job.addressLocality || job.location || '');
+    return !isLocationExplicitlyForeign(loc);
+  });
+  const foreignCount = jobs.length - foreignFiltered.length;
+
+  let droppedBadSwissCity = 0;
+  let droppedCantonOnlyNoCity = 0;
+  let droppedForeignAddress = 0;
+  const swissValidated = foreignFiltered.filter((job) => {
+    const haystack = `${job.description || ''} ${job.descriptionByLocale?.it || ''} ${job.descriptionByLocale?.en || ''} ${job.descriptionByLocale?.de || ''} ${job.descriptionByLocale?.fr || ''} ${job.streetAddress || ''}`;
+
+    // (1) Strong negative: description body explicitly states a foreign
+    // address (5-digit ZIP next to a non-Swiss country name). Drop even
+    // if metadata fields claim Switzerland — those are likely forged.
+    if (FOREIGN_ADDRESS_RE.test(haystack)) {
+      droppedForeignAddress++;
+      return false;
+    }
+
+    const primaryLoc = String(job.addressLocality || job.location || '').trim();
+    if (!primaryLoc) return false; // no location at all → drop
+
+    // (2) Strong positive: primary location names a known Swiss city.
+    if (isKnownSwissCity(primaryLoc)) return true;
+
+    // (3) Canton-only labels need a Swiss anchor.
+    if (isCantonOnlyLabel(primaryLoc)) {
+      if (isSwissPostalCode(job.postalCode)) return true;
+      // Look for a real Swiss city in the description. rescueSwissCityFromText
+      // is the single source of truth for description scanning: it applies both
+      // the ≥4-char rule and the everyday-word blocklist. Calling the raw
+      // findSwissCityInText here used to bypass the blocklist, which is exactly
+      // how "alle"/"rolle" descriptions anchored non-Swiss postings.
+      if (rescueSwissCityFromText(haystack)) return true;
+      droppedCantonOnlyNoCity++;
+      return false;
+    }
+
+    // (4) primaryLoc is neither a known city nor a canton-only label —
+    // likely garbage (e.g. a company name leaking through a free-text
+    // intake field instead of a real location). Give the structured
+    // `canton` field the same second chance as a canton-only label. When
+    // primaryLoc carries no Swiss signal it is unknown geography, and the
+    // description rescue runs with the foreign-context guards (#9846).
+    const rescueOptions = textRescueOptionsForLocality(primaryLoc, job.postalCode, job.canton);
+    if (acceptBadLocalityViaCanton(job.canton, job.postalCode, haystack, rescueOptions)) {
+      // Sanitize: never ship the garbage primaryLoc verbatim — it would
+      // leak into the JobPosting schema, sitemap slug, and search/filter
+      // UI (e.g. Hirslanden Arbeitsort leak: "Bern - Futsal Minerva…
+      // Besetzung per: 1").
+      //
+      // Order matters. Prefer a city recovered from primaryLoc ITSELF: the
+      // field usually still contains the true city with a suffix that stopped
+      // isKnownSwissCity from matching the whole string ("Geneva, Switzerland",
+      // "Baden, Aargau", "Luzern / hybrid", "2540 Grenchen Phone"). The
+      // description is a much weaker signal and is only consulted when the
+      // locality yields nothing — reaching for it first is what published
+      // Geneva postings as Root (LU) and Baden postings as Alle (JU).
+      //
+      // No blocklist on primaryLoc: an explicit locality field naming "Rolle"
+      // or "Fully" is a location the author typed on purpose. The blocklist
+      // exists for free-text description scanning only.
+      const cityFromLocalityField = swissCityFromLocationField(primaryLoc);
+      const cityFromVacancyText = cityFromLocalityField ? '' : rescueSwissCityFromText(haystack, rescueOptions);
+      const rescuedCity = cityFromLocalityField || cityFromVacancyText;
+      if (rescuedCity) {
+        job.addressLocality = rescuedCity;
+        job.location = rescuedCity;
+        if (cityFromVacancyText) markLocationDerivedFromVacancyText(job);
+      }
+      return true;
+    }
+
+    // Neither a known Swiss city, canton-only label, nor an anchored
+    // canton — likely a non-Swiss locality that escaped the explicit-
+    // foreign blacklist (e.g. small Italian town).
+    droppedBadSwissCity++;
+    return false;
+  });
+  return { jobs: swissValidated, foreignCount, droppedBadSwissCity, droppedCantonOnlyNoCity, droppedForeignAddress };
 }
 
 /**
@@ -1969,8 +2160,8 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // gate so corrupted location strings never reach the assemble-time Swiss
   // whitelist (the biggest dropper). Idempotent with the assemble-time net.
   const norm = normalizeParsedJobsForSlice(jobs);
-  if (norm.locationFixed > 0 || norm.localityBackfilled > 0 || norm.regionDefaulted > 0 || norm.urlNormalized > 0) {
-    console.log(`  🧭 Upstream normalize: location cleaned ${norm.locationFixed}, addressLocality backfilled ${norm.localityBackfilled}, addressRegion defaulted ${norm.regionDefaulted}, url absolutized ${norm.urlNormalized}`);
+  if (norm.locationFixed > 0 || norm.localityBackfilled > 0 || norm.regionDefaulted > 0 || norm.urlNormalized > 0 || norm.applyUrlBackfilled > 0) {
+    console.log(`  🧭 Upstream normalize: location cleaned ${norm.locationFixed}, addressLocality backfilled ${norm.localityBackfilled}, addressRegion defaulted ${norm.regionDefaulted}, url absolutized ${norm.urlNormalized}, applyUrl backfilled ${norm.applyUrlBackfilled}`);
   }
 
   // Quality gate: flag jobs where any locale has content in the wrong language.
@@ -2342,6 +2533,7 @@ export function writeSummaryCrawlerSlice(summaryEntry) {
   const HEAVY_FIELDS = ['descriptionByLocale', 'titleByLocale', 'slugByLocale', 'description', 'baseSalary', 'previousSlugs', 'previousSlugsByLocale', 'requirementsByLocale', 'requirements'];
   const stripJob = (job) => {
     if (!job || typeof job !== 'object') return job;
+    backfillApplyUrlFromDetail(job);
     // Compute quality score while full data is still available
     if (computeJobQualityScore) {
       try {
@@ -2425,6 +2617,20 @@ async function assembleJobs() {
   }
 
   if (slices.length === 0) return null;
+
+  // Existing slices may have been written by a producer before the shared
+  // handoff contract was hardened. Repair only source-backed detail URLs at
+  // assembly too, so a deploy does not keep publishing a broken apply CTA
+  // until that crawler happens to run again.
+  let assembledApplyUrlBackfilled = 0;
+  for (const slice of slices) {
+    for (const job of slice.jobs) {
+      if (backfillApplyUrlFromDetail(job)) assembledApplyUrlBackfilled++;
+    }
+  }
+  if (assembledApplyUrlBackfilled > 0) {
+    console.log(`  🔗 Assembly handoff normalize: applyUrl backfilled ${assembledApplyUrlBackfilled}`);
+  }
 
   // Collect the set of crawlerKeys that have been migrated
   const migratedKeys = new Set(slices.map((s) => s.crawlerKey).filter(Boolean));
@@ -2604,110 +2810,15 @@ async function assembleJobs() {
     console.log(`  🏷️  Brand relabel: realigned ${relabel.relabelled} job(s) to the label their parser declares (${perKey})`);
   }
 
-  // ── Filter out foreign jobs ─────────────────────────────────────────
-  // Jobs in explicitly foreign locations (London, Luxembourg, Singapore, etc.)
-  // should not appear on the Swiss job board. Filter them out at assembly time
-  // so they never reach the frontend or static page generation.
-  const beforeForeignFilter = deduped.length;
-  const foreignFiltered = deduped.filter((job) => {
-    const loc = String(job.addressLocality || job.location || '');
-    return !isLocationExplicitlyForeign(loc);
-  });
-  const foreignCount = beforeForeignFilter - foreignFiltered.length;
+  // ── Foreign filter + Swiss-municipality whitelist ───────────────────
+  // See applySwissLocationGate() for the rules; it is a pure function so the
+  // #9846 replay test runs the exact gate this assembly runs.
+  const swissGate = applySwissLocationGate(deduped);
+  let swissValidated = swissGate.jobs;
+  const { foreignCount, droppedBadSwissCity, droppedCantonOnlyNoCity, droppedForeignAddress } = swissGate;
   if (foreignCount > 0) {
-    console.log(`  🌍 Foreign location filter: excluded ${foreignCount} non-Swiss jobs (${foreignFiltered.length} remaining)`);
+    console.log(`  🌍 Foreign location filter: excluded ${foreignCount} non-Swiss jobs (${deduped.length - foreignCount} remaining)`);
   }
-
-  // ── Swiss-municipality whitelist (BFS) ─────────────────────────────
-  // The blacklist above only catches jobs whose location *string* names a
-  // known foreign city. Swatch Group's Italian retail jobs slipped through
-  // because the crawler hardcoded `location: "Ticino"`, `postalCode: "6500"`,
-  // `addressCountry: "CH"` (all forged HQ defaults) while the actual city
-  // ("Forte dei Marmi, 55042") only appeared in the description body.
-  //
-  // Two-stage validation:
-  //   1. Negative signal first: if the description body contains explicit
-  //      foreign markers (5-digit postal codes — Italian/DE/FR format —
-  //      next to a country word like "Italy/Italia/Italie"), drop. This
-  //      overrides any potentially-forged metadata fields.
-  //   2. Positive signal: primary location must resolve to a known Swiss
-  //      municipality (BFS dataset, 2,110 entries + aliases). A canton-only
-  //      label ("Ticino", "TI") needs a Swiss anchor: Swiss postal code on
-  //      the record OR a known Swiss city of ≥4 chars in description.
-  // Match: 5-digit ZIP within ~30 chars of an unambiguous foreign-country
-  // word. Avoids false positives on lone numbers in tax/salary text.
-  const FOREIGN_ADDRESS_RE = /\b\d{5}\b[\s\S]{0,40}?\b(?:Italy|Italia|Italie|Italien|France|Frankreich|Francia|Germany|Deutschland|Allemagne|Germania|Austria|Österreich|Autriche|Spagna|España|Spain|Espagne|Portugal|United Kingdom|UK\b|Belgium|Belgio|Belgien|Belgique|Netherlands|Nederland|Pays-Bas)\b/i;
-  let droppedBadSwissCity = 0;
-  let droppedCantonOnlyNoCity = 0;
-  let droppedForeignAddress = 0;
-  let swissValidated = foreignFiltered.filter((job) => {
-    const haystack = `${job.description || ''} ${job.descriptionByLocale?.it || ''} ${job.descriptionByLocale?.en || ''} ${job.descriptionByLocale?.de || ''} ${job.descriptionByLocale?.fr || ''} ${job.streetAddress || ''}`;
-
-    // (1) Strong negative: description body explicitly states a foreign
-    // address (5-digit ZIP next to a non-Swiss country name). Drop even
-    // if metadata fields claim Switzerland — those are likely forged.
-    if (FOREIGN_ADDRESS_RE.test(haystack)) {
-      droppedForeignAddress++;
-      return false;
-    }
-
-    const primaryLoc = String(job.addressLocality || job.location || '').trim();
-    if (!primaryLoc) return false; // no location at all → drop
-
-    // (2) Strong positive: primary location names a known Swiss city.
-    if (isKnownSwissCity(primaryLoc)) return true;
-
-    // (3) Canton-only labels need a Swiss anchor.
-    if (isCantonOnlyLabel(primaryLoc)) {
-      if (isSwissPostalCode(job.postalCode)) return true;
-      // Look for a real Swiss city in the description. rescueSwissCityFromText
-      // is the single source of truth for description scanning: it applies both
-      // the ≥4-char rule and the everyday-word blocklist. Calling the raw
-      // findSwissCityInText here used to bypass the blocklist, which is exactly
-      // how "alle"/"rolle" descriptions anchored non-Swiss postings.
-      if (rescueSwissCityFromText(haystack)) return true;
-      droppedCantonOnlyNoCity++;
-      return false;
-    }
-
-    // (4) primaryLoc is neither a known city nor a canton-only label —
-    // likely garbage (e.g. a company name leaking through a free-text
-    // intake field instead of a real location). Give the structured
-    // `canton` field the same second chance as a canton-only label.
-    if (acceptBadLocalityViaCanton(job.canton, job.postalCode, haystack)) {
-      // Sanitize: never ship the garbage primaryLoc verbatim — it would
-      // leak into the JobPosting schema, sitemap slug, and search/filter
-      // UI (e.g. Hirslanden Arbeitsort leak: "Bern - Futsal Minerva…
-      // Besetzung per: 1").
-      //
-      // Order matters. Prefer a city recovered from primaryLoc ITSELF: the
-      // field usually still contains the true city with a suffix that stopped
-      // isKnownSwissCity from matching the whole string ("Geneva, Switzerland",
-      // "Baden, Aargau", "Luzern / hybrid", "2540 Grenchen Phone"). The
-      // description is a much weaker signal and is only consulted when the
-      // locality yields nothing — reaching for it first is what published
-      // Geneva postings as Root (LU) and Baden postings as Alle (JU).
-      //
-      // No blocklist on primaryLoc: an explicit locality field naming "Rolle"
-      // or "Fully" is a location the author typed on purpose. The blocklist
-      // exists for free-text description scanning only.
-      const cityFromLocalityField = swissCityFromLocationField(primaryLoc);
-      const cityFromVacancyText = cityFromLocalityField ? '' : rescueSwissCityFromText(haystack);
-      const rescuedCity = cityFromLocalityField || cityFromVacancyText;
-      if (rescuedCity) {
-        job.addressLocality = rescuedCity;
-        job.location = rescuedCity;
-        if (cityFromVacancyText) markLocationDerivedFromVacancyText(job);
-      }
-      return true;
-    }
-
-    // Neither a known Swiss city, canton-only label, nor an anchored
-    // canton — likely a non-Swiss locality that escaped the explicit-
-    // foreign blacklist (e.g. small Italian town).
-    droppedBadSwissCity++;
-    return false;
-  });
   const totalDropped = droppedBadSwissCity + droppedCantonOnlyNoCity + droppedForeignAddress;
   if (totalDropped > 0) {
     console.log(`  🇨🇭 Swiss whitelist: excluded ${totalDropped} jobs (${droppedBadSwissCity} unknown locality, ${droppedCantonOnlyNoCity} canton-only without anchor, ${droppedForeignAddress} foreign address in description; ${swissValidated.length} remaining)`);
@@ -2775,7 +2886,13 @@ async function assembleJobs() {
     const crawlerCanton = job.canton || '';
     const city = String(job.addressLocality || job.location || '').trim();
     const hasCity = city.length >= 2 && city !== 'CH';
-    const rawInferred = hasCity ? inferAnyCanton(city) : null;
+    const rawInferred = hasCity
+      ? inferCantonFromJobEvidence({
+        cityText: city,
+        locationText: job.location,
+        crawlerCanton,
+      })
+      : null;
     // Guard: only accept the inference if it lands in a canton the funnel
     // actually serves (has a URL section). Otherwise leave the canton as-is
     // (empty stays empty — recognizable — rather than silently becoming an
@@ -2934,6 +3051,19 @@ function assembleSummaries() {
       malformedSummary.map((m) => `  - ${m}`).join('\n') +
       `\nResolve before re-running.`,
     );
+  }
+
+  let assembledSummaryApplyUrlBackfilled = 0;
+  for (const entry of sliceEntries) {
+    for (const listKey of ['newJobs', 'updatedJobs', 'removedJobs', 'unchangedJobs']) {
+      if (!Array.isArray(entry[listKey])) continue;
+      for (const job of entry[listKey]) {
+        if (backfillApplyUrlFromDetail(job)) assembledSummaryApplyUrlBackfilled++;
+      }
+    }
+  }
+  if (assembledSummaryApplyUrlBackfilled > 0) {
+    console.log(`  🔗 Summary handoff normalize: applyUrl backfilled ${assembledSummaryApplyUrlBackfilled}`);
   }
 
   // Merge with existing global summaries: slice entries take precedence over

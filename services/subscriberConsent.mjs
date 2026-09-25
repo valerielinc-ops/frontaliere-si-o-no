@@ -15,7 +15,10 @@
  */
 export {
   CONFIRMATION_LINK_PROOF,
+  CONFIRMATION_METHODS,
   hasConfirmationProof,
+  hasSubscriberCreationStamp,
+  hasSubscriptionBasis,
   hasUnifiedEmailConsent,
   isBaseCommunicationsReady,
   isNewsletterConfirmationEvent,

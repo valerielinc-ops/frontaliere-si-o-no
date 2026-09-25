@@ -1,9 +1,18 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
+
+const { fetchHtml } = vi.hoisted(() => ({ fetchHtml: vi.fn() }));
+vi.mock('@/scripts/lib/crawler-template.mjs', async (importOriginal) => {
+  const actual = (await importOriginal()) as Record<string, unknown>;
+  return { ...actual, fetchHtml };
+});
+
 import {
   NOVELIS_KEY,
   NOVELIS_COMPANY_NAME,
   isNovelisJob,
   isTrustedDomain,
+  parseLocationCode,
+  fetchAllNovelisJobs,
 } from '../scripts/lib/novelis-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -125,5 +134,69 @@ describe('Novelis crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+describe('Novelis — multi-site iCIMS location codes (issue 5253)', () => {
+  it('reads the Swiss entry of a multi-site code instead of the whole string', () => {
+    // Forme reali della pagina iCIMS filtrata sulla Svizzera (2026-09-24).
+    expect(parseLocationCode('CH-ZH-Küsnacht | DE-Göttingen | DE-RP-Koblenz | IT-Bresso'))
+      .toEqual({ city: 'Küsnacht', canton: 'ZH' });
+    expect(parseLocationCode('DE-Göttingen | DE-RP-Koblenz | CH-ZH-Küsnacht | DE-NW-Plettenberg'))
+      .toEqual({ city: 'Küsnacht', canton: 'ZH' });
+    expect(parseLocationCode('CH-VS-Sierre')).toEqual({ city: 'Sierre', canton: 'VS' });
+  });
+});
+
+// Issue 9840: senza una voce `CH-` la vacancy non ha un luogo svizzero. Prima
+// si ripiegava sulla prima voce estera e poi sull'HQ, e il replay pubblicava
+// `DE-Göttingen | DE-RP-Koblenz` come Göttingen/VS e una stringa vuota come
+// Sierre/VS. Regola del proprietario: nessun ripiego su HQ, record scartato.
+describe('Novelis — nessun ripiego HQ senza voce CH (issue 9840)', () => {
+  const card = (href: string, title: string, rawLocation: string) => `
+    <li class="iCIMS_JobCardItem">
+      <div class="header left">
+        <span class="sr-only field-label">Job Locations</span>
+        <span>${rawLocation}</span>
+      </div>
+      <a class="iCIMS_Anchor" href="${href}"><h3>${title}</h3></a>
+    </li>`;
+  const listingPage = (cards: string[]) => `<html><body><ul>${cards.join('')}</ul></body></html>`;
+  const DETAIL_PAGE = '<html><body><div class="iCIMS_JobContent"><p>Job description.</p></div></body></html>';
+
+  beforeEach(() => {
+    fetchHtml.mockReset();
+  });
+
+  it('non legge la prima voce estera quando manca la voce CH', () => {
+    expect(parseLocationCode('DE-Göttingen | DE-RP-Koblenz')).toEqual({ city: '', canton: '' });
+    // `Koblenz` è anche un comune argoviese: una voce estera sola non deve
+    // diventare Koblenz/AG.
+    expect(parseLocationCode('DE-RP-Koblenz')).toEqual({ city: '', canton: '' });
+    expect(parseLocationCode('')).toEqual({ city: '', canton: '' });
+    // Il codice paese da solo non è una città.
+    expect(parseLocationCode('CH-')).toEqual({ city: '', canton: '' });
+  });
+
+  it('scarta le vacancy senza voce CH o senza località e non cade mai su Sierre/VS', async () => {
+    fetchHtml.mockImplementation(async (url: string) => {
+      if (url.includes('/jobs/search')) {
+        return listingPage([
+          card('/jobs/1001/foreign-only/job', 'Process Engineer', 'DE-Göttingen | DE-RP-Koblenz'),
+          card('/jobs/1002/no-location/job', 'Maintenance Technician', ''),
+          card('/jobs/1003/swiss/job', 'Finance Analyst', 'DE-Göttingen | CH-ZH-Küsnacht | IT-Bresso'),
+        ]);
+      }
+      return DETAIL_PAGE;
+    });
+
+    const jobs = await fetchAllNovelisJobs();
+
+    expect(jobs.map((job: { url: string }) => job.url)).toEqual([
+      'https://jobs-novelis.icims.com/jobs/1003/swiss/job',
+    ]);
+    expect(jobs[0]).toMatchObject({ location: 'Küsnacht', canton: 'ZH', postalCode: '' });
+    expect(jobs.some((job: { location: string; canton: string }) => job.location === 'Sierre' || job.canton === 'VS'))
+      .toBe(false);
   });
 });

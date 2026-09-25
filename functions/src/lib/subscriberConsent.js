@@ -41,6 +41,32 @@ function readField(row, ...fields) {
 export const CONFIRMATION_LINK_PROOF = 'confirmation_link';
 
 /**
+ * How the address behind a relationship was confirmed, stored as
+ * `confirmation_method` by the writer that performs the confirmation, beside
+ * `confirmed_via_surface` (where it happened). One vocabulary for the browser
+ * writer (services/newsletterSubscribers.ts) and the LinkedIn Cloud Function,
+ * which is why it lives in this shared module and not in either of them.
+ *
+ *  - `provider_verified_email`: an authentication provider vouched for the
+ *    address (`email_verified`) when the login registered it;
+ *  - `doi_click`: the double opt-in link. The server handler records the same
+ *    fact as `confirmed_via: CONFIRMATION_LINK_PROOF`, the older spelling that
+ *    the proof readers above already key on;
+ *  - `none`: the relationship exists but nothing verified the address (a
+ *    provider that did not assert `email_verified`).
+ *
+ * The communications banner does not confirm an address, it confirms the
+ * wish to receive: its writers record that as `consent_act:
+ * communications_banner_confirm_click` with `consent_origin:
+ * communications_consent_banner`, and it stamps no `confirmed_at`.
+ */
+export const CONFIRMATION_METHODS = Object.freeze({
+  PROVIDER_VERIFIED_EMAIL: 'provider_verified_email',
+  DOI_CLICK: 'doi_click',
+  NONE: 'none',
+});
+
+/**
  * Purpose recorded by the shared communications checkbox. Keep this value in
  * the canonical consent reader too: senders must not infer the saved-jobs
  * channel from a generic confirmation stamp or from a profile default.
@@ -177,6 +203,81 @@ export function hasConfirmationProof(row) {
  */
 export function isBaseCommunicationsReady(_row) {
   return true;
+}
+
+function hasText(value) {
+  return typeof value === 'string' && value.trim() !== '';
+}
+
+/**
+ * The fields that date a subscriber row's creation, in both spellings. The
+ * dashboard and the signup monitors count registrations by `created_at`, so a
+ * writer that turns a row into a relationship must leave one of these behind.
+ * Shared by the browser writer (`isUncapturedSubscriberRow` in
+ * services/newsletterSubscribers.ts) and the Admin-SDK activation paths
+ * (functions/src/newsletterSubscriptionManagement.js, linkedinAuthCallback.js).
+ */
+export const SUBSCRIBER_CREATION_STAMP_FIELDS = Object.freeze([
+  'created_at', 'createdAt', 'subscribed_at', 'subscribedAt',
+]);
+
+/** Whether the row already carries a creation stamp (see above). */
+export function hasSubscriberCreationStamp(row) {
+  if (!row || typeof row !== 'object') return false;
+  return SUBSCRIBER_CREATION_STAMP_FIELDS.some((field) => readField(row, field) != null);
+}
+
+/**
+ * Whether the row records ANY relationship that allows ordinary
+ * communications — the floor under the #8754 policy, not a proof gate.
+ *
+ * #8754 removed the double-opt-in proof from delivery: registration terms,
+ * not a second checkbox, establish the base relationship. That policy still
+ * needs a relationship to exist. #8341 separated consent from login, and from
+ * then on a generic sign-in could write a PROFILE-ONLY document into
+ * `newsletter_subscribers` (name, photo, `auth_uid`, `lastLoginAt`) with no
+ * status, no accepted registration terms, no consent and no confirmation. The
+ * senders read "no status" as the legacy mailable status `''`, so those rows
+ * joined the audience. Measured 2026-09-24 on 13.064 documents: 235 rows carry
+ * none of the markers below, and all of them sit in the `weekly_2026-09-14`
+ * and `weekly_2026-09-21` resume logs.
+ *
+ * Any ONE of these is a relationship, so every row the #8754 policy accepts
+ * still passes (no proof, no confirmation, no second checkbox required):
+ *   - a subscription `status` of any value — `pending` included. Excluded
+ *     statuses stay the job of `NEWSLETTER_EXCLUDED_STATUSES`, not of this;
+ *   - accepted registration terms or a recorded `consent_basis`;
+ *   - a recorded consent act: `consent_given` or a stored `consent_text`
+ *     (the communications banner records the text it displayed);
+ *   - a confirmation stamp (`confirmed_at`), whatever its provenance;
+ *   - the legacy subscription shape that predates all of the above
+ *     (`isActive` / `active` / `confirmed` booleans, a `preferences` map, a
+ *     `subscribed_at` stamp) — the same shape `hasNewsletterSubscriberRecord`
+ *     in `jobAlertBackfillCore.js` treats as a subscriber record.
+ *
+ * Opt-outs and hard suppression are NOT read here: a row with a basis can
+ * still be excluded by the channel's own stop predicates, and a row without
+ * one is excluded whatever those say.
+ *
+ * @param {({doc?: object} & Record<string, unknown>) | null | undefined} row
+ *   Raw Firestore row or a projection carrying it on `.doc`.
+ * @returns {boolean}
+ */
+export function hasSubscriptionBasis(row) {
+  if (!row || typeof row !== 'object') return false;
+  if (hasText(readField(row, 'status'))) return true;
+  if (readField(row, 'registration_terms_accepted', 'registrationTermsAccepted') === true) return true;
+  if (hasText(readField(row, 'consent_basis', 'consentBasis'))) return true;
+  if (readField(row, 'consent_given', 'consentGiven') === true) return true;
+  if (hasText(readField(row, 'consent_text', 'consentText'))) return true;
+  if (hasConfirmationStamp(row)) return true;
+  for (const field of ['isActive', 'active', 'confirmed']) {
+    if (typeof readField(row, field) === 'boolean') return true;
+  }
+  const preferences = readField(row, 'preferences');
+  if (preferences && typeof preferences === 'object') return true;
+  if (readField(row, 'subscribed_at', 'subscribedAt')) return true;
+  return false;
 }
 
 /**

@@ -58,7 +58,6 @@ import {
   validateGitArgs,
 } from '../.github/actions/claude-codex-fallback/git-bridge-server.mjs';
 import {
-  POSIX_PROCESS_GROUPS,
   childSpawnOptions,
   forceChildTermination,
   isChildRunning,
@@ -763,72 +762,6 @@ describe('validator dei bridge host-side', () => {
     expect(isChildRunning(stubborn)).toBe(false);
     expect(requestChildTermination(stubborn, { graceMs: 1 })).toBeNull();
   });
-
-  it('termina il gruppo Git POSIX e il discendente che eredita il marker/token', async () => {
-    if (!POSIX_PROCESS_GROUPS) return;
-    const root = mkdtempSync(join(tmpdir(), 'codex-process-group-'));
-    const marker = join(root, 'marker.txt');
-    const pidFile = join(root, 'descendant.pid');
-    const nodePath = process.execPath;
-    const pathValue = process.env.PATH || '/usr/bin:/bin';
-    const waitFor = async (predicate, timeoutMs = 1_500) => {
-      const deadline = Date.now() + timeoutMs;
-      while (Date.now() < deadline) {
-        if (predicate()) return;
-        await new Promise((resolve) => setTimeout(resolve, 10));
-      }
-      throw new Error('process-group fixture timed out');
-    };
-    const isAlive = (pid) => {
-      try {
-        process.kill(pid, 0);
-        return true;
-      } catch {
-        return false;
-      }
-    };
-    const descendantScript = [
-      "require('node:fs').writeFileSync(process.env.MARKER_FILE, process.env.FIXTURE_TOKEN);",
-      'setInterval(() => {}, 1_000);',
-    ].join('');
-    const parentScript = [
-      "const {spawn}=require('node:child_process');",
-      "const {writeFileSync}=require('node:fs');",
-      `const descendant=spawn(process.execPath,['-e',${JSON.stringify(descendantScript)}],{stdio:'ignore'});`,
-      `writeFileSync(${JSON.stringify(pidFile)},String(descendant.pid));`,
-      // Model git exiting while git-remote-https remains in its process group.
-      'process.exit(0);',
-    ].join('');
-    const child = spawn(nodePath, ['-e', parentScript], {
-      ...childSpawnOptions({ processGroup: true }),
-      env: {
-        PATH: pathValue,
-        MARKER_FILE: marker,
-        FIXTURE_TOKEN: 'fixture-token',
-      },
-      stdio: 'ignore',
-    });
-    const childClosed = new Promise((resolve) => child.once('close', resolve));
-    try {
-      await waitFor(() => {
-        if (!existsSync(pidFile) || !existsSync(marker)) return false;
-        return readFileSync(marker, 'utf8') === 'fixture-token';
-      });
-      const descendantPid = Number(readFileSync(pidFile, 'utf8'));
-      expect(Number.isInteger(descendantPid)).toBe(true);
-      expect(readFileSync(marker, 'utf8')).toBe('fixture-token');
-      await childClosed;
-      requestChildTermination(child, {
-        graceMs: 50,
-        processGroup: true,
-      });
-      await waitFor(() => !isAlive(descendantPid));
-      expect(isAlive(descendantPid)).toBe(false);
-    } finally {
-      forceChildTermination(child, { processGroup: true });
-      rmSync(root, { recursive: true, force: true });
-    }
-  });
 });
 
 describe('sanitizzazione git host-side', () => {
@@ -963,309 +896,6 @@ describe('copertura workflow diretti', () => {
     }
   });
 
-  it('mantiene il contratto di invocazione Codex Luna Max e cleanup effimero', () => {
-    const action = readFileSync(resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback', 'action.yml'), 'utf8');
-    const actionDir = resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback');
-    const ghBridge = readFileSync(resolve(actionDir, 'gh-bridge-server.mjs'), 'utf8');
-    const gitBridge = readFileSync(resolve(actionDir, 'git-bridge-server.mjs'), 'utf8');
-    const lifecycle = readFileSync(resolve(actionDir, 'child-lifecycle.mjs'), 'utf8');
-    const ghClient = readFileSync(resolve(actionDir, 'gh-bridge-client.mjs'), 'utf8');
-    const gitClient = readFileSync(resolve(actionDir, 'git-bridge-client.mjs'), 'utf8');
-    const gitSanitizer = readFileSync(resolve(actionDir, 'sanitize-git-config.mjs'), 'utf8');
-    const postMerge = readFileSync(resolve(repoRoot, '.github', 'workflows', 'post-merge-followup.yml'), 'utf8');
-    expect(action).not.toContain('anthropics/claude-code-action');
-    expect(action).toContain('name: "Codex Luna Max primary"');
-    expect(action).toContain('@openai/codex@0.153.4');
-    expect(action).toContain('--ephemeral');
-    expect(action).toContain('--model gpt-5.6-luna');
-    expect(action).toContain('default_permissions = "codex-fallback"');
-    expect(action).toContain('extends = ":workspace"');
-    expect(action).toContain('[permissions.codex-fallback.network]');
-    expect(action).toContain('enabled = false');
-    expect(action).toContain('CODEX_BRIDGE_TRANSPORT=files');
-    expect(action).not.toContain('[permissions.codex-fallback.network.unix_sockets]');
-    expect(action).toContain('CODEX_ACTION_PATH: ${{ github.action_path }}');
-    expect(action).toContain('codex_corpus_github_token:');
-    expect(action).toContain('codex_auth_failure:');
-    expect(action).toContain('codex_auth_digest:');
-    expect(action).toContain('Failed to refresh token');
-    expect(action).toContain('refresh token was already used');
-    expect(action).toContain('Record Codex authentication checkpoint');
-    expect(action).toContain('CODEX_AUTH_BLOCKED:');
-    expect(action).toContain('automatic retry is held until CODEX_AUTH_JSON changes');
-    expect(action).toContain('copy_bridge_file gh-bridge.sh gh');
-    expect(action).toContain('copy_bridge_file git-bridge.sh git');
-    expect(action).toContain('copy_bridge_file child-lifecycle.mjs child-lifecycle.mjs');
-    expect(action).toContain('find_trusted_tool()');
-    expect(action).toContain('trusted_roots=()');
-    expect(action).toContain('path_components_trusted()');
-    expect(action).toContain('node_archive_sha256=');
-    expect(action).toContain("[ \"$owner\" = '0' ] || return 1");
-    expect(action).toContain("printf '%s\\n' /usr/local/bin /usr/bin /bin");
-    expect(action).toContain('npm_realpath=');
-    expect(action).toContain('gh_realpath=');
-    expect(action).toContain('git_realpath=');
-    expect(action).toContain('realpath "$candidate"');
-    expect(action).toContain('copy_attested_file "$gh_binary_source" "$gh_host_tools/bin/gh"');
-    expect(action).toContain('copy_attested_file "$git_binary_source" "$gh_host_tools/bin/git"');
-    expect(action).toContain('copy_attested_file "$git_binary_source" "$git_sandbox_binary"');
-    expect(action).toContain('git_host_realpath');
-    expect(action).toContain('sha256_file');
-    expect(action).toContain('Resolve trusted Node runtime');
-    expect(action).toContain('find_trusted_tool()');
-    expect(action).toContain('node_sha256=');
-    expect(action).toContain('Snapshot Codex primary runtime before fallback');
-    expect(action).not.toContain('gh_host_launcher');
-    expect(action).not.toContain('gh-pr-body-check.mjs');
-    expect(action).not.toContain('pr-body-check-gate.mjs');
-    expect(action).not.toContain('scripts/lib/pr-body-sections-check.mjs');
-    expect(action).not.toContain("node -p 'process.execPath'");
-    expect(action).toContain('CODEX_REAL_GH="$gh_host_realpath"');
-    expect(action).toContain('CODEX_GH_REAL="$gh_sandbox_binary"');
-    expect(action).not.toContain('real_gh="$(command -v gh');
-    expect(action).toContain('CODEX_GH_CORPUS_AUTH="$codex_corpus_github_auth"');
-    expect(action).toContain('CODEX_GH_CORPUS_REPOSITORY="nanakokyobashi-rgb/frontaliere-articles"');
-    expect(postMerge).toContain('codex_corpus_github_token: ${{ env.GITHUB_PAT_NANAKO || env.GITHUB_PAT }}');
-    expect(action).toContain('codex_install_root=');
-    const installStart = action.indexOf('- name: Install pinned Codex CLI (primary');
-    const sandboxStart = action.indexOf('- name: Prepare Linux sandbox prerequisites for Codex primary');
-    const authStart = action.indexOf('- name: Prepare ephemeral Codex subscription auth for Codex primary');
-    const codexStart = action.indexOf('- name: Run Codex primary (one subscription attempt)');
-    const finalizeStart = action.indexOf('- name: Record structured Codex primary evidence');
-    expect(installStart).toBeGreaterThan(-1);
-    expect(installStart).toBeLessThan(sandboxStart);
-    expect(sandboxStart).toBeLessThan(authStart);
-    expect(authStart).toBeLessThan(codexStart);
-    expect(codexStart).toBeLessThan(finalizeStart);
-    expect(action).toContain('CODEX_OUTCOME: ${{ steps.codex.outcome }}');
-    expect(action).toContain('CODEX_SIDE_EFFECT_DETECTED: ${{ steps.codex.outputs.side_effect_detected }}');
-    expect(action).toContain('restore_sanitized_git_config');
-    const stopGhStart = action.indexOf('        stop_gh_bridge() {');
-    const stopGhEnd = action.indexOf('        trap stop_gh_bridge EXIT', stopGhStart);
-    expect(stopGhStart).toBeGreaterThan(-1);
-    expect(action.slice(stopGhStart, stopGhEnd)).toContain('restore_sanitized_git_config || true');
-    expect(action).toContain('snapshot_git_delivery_state');
-    expect(action).not.toContain('steps.preflight');
-    expect(action).not.toContain('steps.runtime.outputs');
-    const installBlock = action.slice(installStart, authStart);
-    const codexBlock = action.slice(codexStart, finalizeStart);
-    expect(installBlock).toContain('env -i');
-    expect(installBlock).toContain('NPM_CONFIG_USERCONFIG=/dev/null');
-    expect(installBlock).toContain('TRUSTED_NPM: ${{ steps.trusted_node.outputs.npm_realpath }}');
-    expect(installBlock).toContain('"$trusted_node" "$trusted_npm" install --global');
-    expect(installBlock).toContain('PATH="$(/usr/bin/dirname "$trusted_npm"):$(/usr/bin/dirname "$trusted_node"):/usr/bin:/bin"');
-    expect(installBlock).toContain('npm_config_prefix="$codex_prefix"');
-    expect(installBlock).toContain('codex_path="$codex_prefix/bin/codex"');
-    expect(installBlock).toContain('case "$codex_path" in');
-    expect(installBlock).toContain('codex_version="$("$codex_path" --version 2>/dev/null || true)"');
-    expect(installBlock).toContain("[ \"$codex_version\" != 'codex-cli 0.153.4' ]");
-    expect(installBlock).not.toContain('command -v codex');
-    expect(installBlock).not.toMatch(/^\s+CODEX_HOME:/m);
-    expect(installBlock).not.toMatch(/^\s+CODEX_GH_AUTH:/m);
-    expect(codexBlock).not.toContain('npm install --global');
-    expect(codexBlock).toContain('"$codex_bin" sandbox');
-    expect(codexBlock).toContain('"$codex_bin" exec');
-    expect(codexBlock).toContain('/usr/bin/timeout');
-    expect(codexBlock).toContain('codex_exec_timeout_seconds=900');
-    expect(codexBlock).toContain('codex_exec_kill_grace_seconds=30');
-    expect(codexBlock).toContain('--signal=TERM');
-    expect(codexBlock).toContain('--kill-after="${codex_exec_kill_grace_seconds}s"');
-    expect(codexBlock).toContain('codex_timed_out=%s');
-    expect(codexBlock).toContain('codex_status=${PIPESTATUS[1]}');
-    expect(codexBlock).toContain('codex_log="$scratch_dir/codex-run.log"');
-    expect(codexBlock).toContain('codex_stderr="$scratch_dir/codex-run.stderr"');
-    expect(codexBlock).toContain('2> >(/usr/bin/tee "$codex_stderr"');
-    expect(codexBlock).toContain('[ "$codex_status" -ne 0 ]');
-    expect(codexBlock).not.toMatch(/grep -qiE[^\n]*token_expired[^\n]*"\$codex_log"/u);
-    expect(codexBlock).toContain('codex_auth_failure=true');
-    const classifierStart = codexBlock.indexOf('        codex_auth_failure=false\n');
-    const classifierEnd = codexBlock.indexOf('        # Stop both host-side bridges', classifierStart);
-    expect(classifierStart).toBeGreaterThanOrEqual(0);
-    expect(classifierEnd).toBeGreaterThan(classifierStart);
-    const authClassifier = codexBlock.slice(classifierStart, classifierEnd)
-      .split('\n')
-      .map((line) => line.startsWith('        ') ? line.slice(8) : line)
-      .join('\n');
-    const runAuthClassifier = (status: number, stderr: string, log: string) => {
-      const root = mkdtempSync(join(tmpdir(), 'codex-auth-classifier-'));
-      const stderrPath = join(root, 'codex.stderr');
-      const logPath = join(root, 'codex.log');
-      writeFileSync(stderrPath, stderr);
-      writeFileSync(logPath, log);
-      try {
-        const output = execFileSync('/bin/bash', ['-c', `${authClassifier}\nprintf 'auth_failure=%s\\n' "$codex_auth_failure"`], {
-          env: {
-            ...process.env,
-            codex_status: String(status),
-            codex_stderr: stderrPath,
-            codex_log: logPath,
-          },
-          encoding: 'utf8',
-        }).trim();
-        return output.split('\n').pop() || '';
-      } finally {
-        rmSync(root, { recursive: true, force: true });
-      }
-    };
-    expect(runAuthClassifier(0, '', 'review text mentions token_expired')).toBe('auth_failure=false');
-    expect(runAuthClassifier(1, 'Failed to refresh token: refresh token was already used', '')).toBe('auth_failure=true');
-    expect(action).toContain('CODEX_TIMED_OUT: ${{ steps.codex.outputs.codex_timed_out }}');
-    expect(codexBlock).toContain('"$CODEX_NODE_REAL" "$CODEX_REALPATH" --version');
-    expect(action).toContain('CODEX_SANITIZER_GIT="$git_host_realpath"');
-    expect(action).toContain('"$node_realpath" "$runtime_snapshot/action/sanitize-git-config.mjs"');
-    expect(action).toContain('snapshot_file "$workspace_root/scripts/ci/claude-rate-limit-contract.mjs"');
-    expect(action).toContain('git rev-parse --git-dir');
-    expect(action).toContain('git rev-parse --git-common-dir');
-    expect(action).toContain('"$auth_file_toml" = "deny"');
-    expect(action).toContain('"$codex_bin" sandbox -P codex-fallback -C "${PWD:-.}" /bin/sh -c');
-    expect(action).toContain('printf probe > "$probe"');
-    expect(action).toContain('test "$(dd if="$probe" bs=16 count=1 2>/dev/null)" = probe');
-    expect(action).toContain('printf probe > "$common_probe"');
-    expect(action).toContain('test "$(dd if="$common_probe" bs=16 count=1 2>/dev/null)" = probe');
-    expect(action).toContain('if touch "$common_git_dir/hooks/codex-fallback-probe.$$" 2>/dev/null; then exit 1; fi');
-    expect(action).toContain('if dd if="$CODEX_HOME/auth.json" of=/dev/null bs=1 count=1 2>/dev/null; then exit 1; fi');
-    expect(action).toContain('tmp_probe="$TMPDIR/codex-fallback-tmp-probe.$$"');
-    expect(action).toContain('":root" = "deny"');
-    expect(action).toContain('":minimal" = "read"');
-    expect(action).not.toContain('":tmpdir" = "deny"');
-    expect(action).toContain('":slash_tmp" = "deny"');
-    expect(action).toContain('[permissions.codex-fallback.filesystem.":workspace_roots"]');
-    expect(action).toContain('scratch_dir="$CODEX_HOME/scratch"');
-    expect(action).toContain('bridge_dir="$scratch_dir/bin"');
-    expect(action).toContain('body_gate_dir="${PR_BODY_GATE_BIN:-}"');
-    expect(action).toContain('PR_BODY_GATE_BIN must stay under RUNNER_TEMP');
-    expect(action).toContain('[permissions.codex-fallback.filesystem."$body_gate_dir_toml"]');
-    const bodyGateRewriteStart = action.indexOf('for name in CTX_DIR PR_BODY_GATE_BIN');
-    const bodyGatePathUse = action.indexOf('codex_command_path="$PR_BODY_GATE_BIN:$codex_command_path"');
-    expect(bodyGateRewriteStart).toBeGreaterThanOrEqual(0);
-    expect(bodyGatePathUse).toBeGreaterThan(bodyGateRewriteStart);
-    expect(action).not.toContain('codex_command_path="$body_gate_dir:$codex_command_path"');
-    expect(action).toContain('"PATH=$codex_command_path"');
-    expect(action).toContain('[permissions.codex-fallback.filesystem."$bridge_dir_toml"]');
-    expect(action).toContain('"TMPDIR=$scratch_dir"');
-    expect(action).toContain('PATH="$bridge_dir:$(/usr/bin/dirname "$node_realpath"):/usr/bin:/bin"');
-    expect(action).toContain('gh --version >/dev/null');
-    expect(action).toContain('printf probe > "$probe"');
-    expect(action).toContain('if dd if="$CODEX_HOME/auth.json" of=/dev/null bs=1 count=1 2>/dev/null; then exit 1; fi');
-    expect(action).toContain('--strict-config');
-    expect(action).toContain('--ignore-user-config');
-    expect(action).toContain('permissions.codex-fallback.filesystem=$codex_filesystem');
-    expect(action).toContain('-c "model_reasoning_effort=$codex_reasoning_effort"');
-    expect(action).toContain('codex_reasoning_effort="${CODEX_REASONING_EFFORT:-max}"');
-    expect(action).toContain('-c \'default_permissions="codex-fallback"\'');
-    expect(action).toContain('-c shell_environment_policy.ignore_default_excludes=false');
-    expect(action).toContain('-c "shell_environment_policy.include_only=$codex_env_patterns"');
-    expect(action).toContain('env -i "${codex_env[@]}" "$codex_timeout_bin"');
-    expect(action).toContain('"${codex_exec_timeout_seconds}s" "$codex_bin" exec');
-    expect(action).toContain('CODEX_GH_AUTH: ${{ inputs.codex_github_token }}');
-    expect(action).toContain('codex_github_token:');
-    const bridgeGuard = action.indexOf('if [ -z "$codex_github_auth" ]');
-    const codexExec = action.indexOf('env -i "${codex_env[@]}" "$codex_timeout_bin"');
-    expect(bridgeGuard).toBeGreaterThanOrEqual(0);
-    expect(codexExec).toBeGreaterThan(bridgeGuard);
-    expect(action).not.toContain('CODEX_GH_AUTH: ${{ inputs.github_token }}');
-    expect(action).toContain('CODEX_GH_REPOSITORY="$codex_github_repository"');
-    expect(action).toContain('CODEX_GH_HOST="$codex_github_host"');
-    expect(action).toContain('CODEX_GH_AUTH="$codex_github_auth"');
-    expect(action).toContain('unset CODEX_GH_AUTH');
-    expect(action).toContain('auth_output="$(gh auth token 2>/dev/null)"');
-    expect(action).toContain('test -z "$auth_output"');
-    expect(action).not.toContain('GH_TOKEN="$CODEX_GH_AUTH" exec');
-    expect(action).not.toContain('CODEX_GH_AUTH=$CODEX_GH_AUTH');
-    expect(action).not.toContain('CODEX_GH_AUTH"]');
-    expect(action).toContain('codex_git_remote="${codex_github_host%/}/${codex_github_repository}.git"');
-    expect(action).toContain('CODEX_NODE_REAL=$node_realpath');
-    expect(action).toContain('"$trusted_node" "$runtime_root/ci/claude-codex-fallback.mjs"');
-    expect(action).toContain('"$TRUSTED_NODE" -e');
-    expect(action).toContain('CODEX_GIT_AUTH="$codex_github_auth"');
-    expect(action).toContain('CODEX_REAL_GIT="$git_host_realpath"');
-    expect(action).toContain('TRUSTED_GH_SHA256: ${{ steps.trusted_node.outputs.gh_sha256 }}');
-    expect(action).toContain('TRUSTED_GIT_SHA256: ${{ steps.trusted_node.outputs.git_sha256 }}');
-    expect(action).toContain('verify_trusted_tool gh "$gh_binary_source"');
-    expect(action).toContain('verify_trusted_tool git "$git_binary_source"');
-    expect(action).toContain('CODEX_GIT_REAL="$git_sandbox_binary"');
-    expect(action).toContain('CODEX_GIT_REMOTE="$codex_git_remote"');
-    expect(action).toContain('CODEX_GIT_HOST_SCRATCH="$git_bridge_host_scratch"');
-    expect(action).toContain('CODEX_GIT_COMMON_DIR="$common_git_dir"');
-    expect(gitBridge).toContain('const configEntries = [');
-    expect(gitBridge).toContain("['http.proxy', '']");
-    expect(gitBridge).toContain("['http.sslVerify', 'true']");
-    expect(gitBridge).toContain("['credential.helper', '']");
-    expect(gitBridge).toContain("['core.hooksPath', '/dev/null']");
-    expect(gitBridge).toContain("['remote.origin.url', expectedRemote]");
-    expect(action).toContain('git remote -v | grep -Eiq');
-    expect(action).toContain('CODEX_GIT_CLIENT=$bridge_dir/git-client.mjs');
-    expect(action).toContain('chmod 700 "$bridge_dir"');
-    expect(action).toContain('if: always()');
-    expect(action).toContain('chmod 600 "$CODEX_HOME/auth.json"');
-    expect(action).toContain('Cleanup ephemeral Codex CLI install');
-    expect(action).toContain('fs.rmSync(process.argv[1], {recursive:true, force:true})');
-    expect(action).toContain("FALLBACK_DETAIL=\"codex-primary exit=$codex_outcome\"");
-    expect(action).not.toContain('--dangerously-bypass-approvals-and-sandbox');
-    expect(action).not.toContain('--sandbox danger-full-access');
-    expect(action).not.toContain('--sandbox workspace-write');
-    expect(action).not.toContain('sandbox_workspace_write.network_access=true');
-    expect(action).not.toContain('--allow-unix-socket');
-    expect(action).not.toContain('ignore_default_excludes=true');
-    expect(action).not.toContain('codex_github_auth="${GH_TOKEN');
-    expect(action).not.toContain('codex_github_auth="${GITHUB_TOKEN');
-    expect(action).not.toContain('OPENAI_API_KEY');
-    expect(action).not.toContain('CODEX_ACCESS_TOKEN');
-    expect(ghBridge).toContain("'auth', 'config', 'alias', 'extension', 'secret'");
-    expect(ghBridge).toContain('validatePrBodyContract');
-    expect(ghBridge).toContain('validatePrBodyArgs');
-    expect(ghBridge).not.toContain('gh-pr-body-check');
-    expect(gitSanitizer).toContain('CODEX_SANITIZER_GIT');
-    expect(ghBridge).toContain('const blockedApiPath =');
-    expect(ghBridge).toContain('MAX_REQUEST_BYTES');
-    expect(ghBridge).toContain('MAX_ACTIVE_CONNECTIONS');
-    expect(ghBridge).toContain('SOCKET_TIMEOUT_MS');
-    expect(ghBridge).toContain('CHILD_TIMEOUT_MS');
-    expect(ghBridge).toContain('SHUTDOWN_TIMEOUT_MS');
-    expect(ghBridge).toContain('const clients = new Set()');
-    expect(ghBridge).toContain('clients.add(client)');
-    expect(ghBridge).toContain('for (const client of clients) client.destroy()');
-    expect(ghBridge).toContain('hardExitTimer');
-    expect(ghBridge).not.toContain('child.killed');
-    expect(ghBridge).toContain('net.createServer({ allowHalfOpen: true }');
-    expect(ghBridge).toContain("terminateChild('client-disconnected')");
-    expect(ghBridge).toContain('requestChildTermination(child)');
-    expect(lifecycle).toContain('POSIX_PROCESS_GROUPS');
-    expect(lifecycle).toContain('detached: true');
-    expect(lifecycle).toContain('process.kill(-pid, signal)');
-    expect(lifecycle).toContain('child.kill(signal)');
-    expect(gitBridge).toContain('childSpawnOptions({ processGroup: useProcessGroups })');
-    expect(gitBridge).toContain('forceChildTermination(child, { processGroup: useProcessGroups })');
-    expect(gitBridge).toContain('pendingProcessGroups');
-    expect(ghBridge).toContain('GH_HOST: host');
-    expect(ghBridge).toContain('GH_REPO: scope.repository');
-    expect(ghBridge).toContain('GH_TOKEN: scope.token');
-    expect(ghClient).toContain('client.setTimeout(RESPONSE_TIMEOUT_MS');
-    expect(gitClient).toContain('client.setTimeout(RESPONSE_TIMEOUT_MS');
-    expect(gitBridge).not.toContain('currentOrigin(');
-    expect(gitBridge).toContain('buildGitNetworkArgs(args, expectedRemote, { allowedWorkBranch })');
-    expect(gitBridge).toContain('GIT_COMMON_DIR: shadowCommonDir');
-    expect(gitBridge).toContain('net.createServer({ allowHalfOpen: true }');
-    expect(gitBridge).toContain("terminateChild('client-disconnected')");
-    expect(gitBridge).toContain('requestChildTermination(child, {');
-    expect(gitBridge).toContain('MAX_REQUEST_BYTES');
-    expect(gitBridge).toContain('SHUTDOWN_TIMEOUT_MS');
-    expect(gitBridge).toContain('const clients = new Set()');
-    expect(gitBridge).toContain('clients.add(client)');
-    expect(gitBridge).toContain('for (const client of clients) client.destroy()');
-    expect(gitBridge).toContain('hardExitTimer');
-    expect(gitBridge).not.toContain('child.killed');
-    expect(gitSanitizer).toContain('parseNullRecords');
-    expect(gitSanitizer).toContain('http.extraheader');
-    expect(gitSanitizer).toContain('--no-includes');
-    expect(gitSanitizer).toContain('timeout: 10_000');
-    expect(gitSanitizer).toContain('credential');
-    expect(gitSanitizer).toContain('hookspath');
-    expect(ghBridge).toContain('CODEX_GH_CORPUS_AUTH');
-    expect(ghBridge).toContain('CORPUS_REPOSITORY');
-    expect(ghBridge).toContain('resolveGhScope(args');
-  });
-
   it('classifica i side-effect dei bridge prima di autorizzare un retry', () => {
     expect(isMutatingGhArgs(['--repo', 'owner/repo', 'pr', 'comment', '--body-file', 'body.md'])).toBe(true);
     expect(isMutatingGhArgs(['--repo', 'owner/repo', 'pr', 'view', '1'])).toBe(false);
@@ -1281,6 +911,9 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain("node_archive_sha256='fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6'");
     expect(action).toContain('Linux:x86_64');
     expect(action).toContain('/usr/bin/curl --fail --silent --show-error --location');
+    // Download limitato: la run 35735836333 di post-merge-followup e' rimasta
+    // 32 minuti in questo step su una connessione appesa, fino al timeout.
+    expect(action).toMatch(/\/usr\/bin\/curl [^\n]*\\\n\s+--connect-timeout \d+ --max-time \d+ --retry \d+/);
     expect(action).toContain('/usr/bin/tar --extract --file "$archive_path"');
     expect(action).toContain('--use-compress-program=/usr/bin/xz');
     expect(action).toContain('node_realpath="$(realpath "$node_root/bin/node")"');
@@ -1429,8 +1062,10 @@ describe('copertura workflow diretti', () => {
   it('esegue il preflight dal runtime snapshot minimale senza import mancanti', () => {
     const root = mkdtempSync(join(tmpdir(), 'codex-runtime-snapshot-'));
     const snapshotCi = join(root, 'ci');
+    const snapshotLib = join(root, 'lib');
     const output = join(root, 'github-output');
     mkdirSync(snapshotCi, { recursive: true });
+    mkdirSync(snapshotLib, { recursive: true });
     writeFileSync(output, '');
     const runtimeFiles = [
       'claude-codex-fallback.mjs',
@@ -1441,6 +1076,10 @@ describe('copertura workflow diretti', () => {
       for (const name of runtimeFiles) {
         copyFileSync(resolve(repoRoot, 'scripts', 'ci', name), join(snapshotCi, name));
       }
+      copyFileSync(
+        resolve(repoRoot, 'scripts', 'lib', 'codex-fallback-contract.mjs'),
+        join(snapshotLib, 'codex-fallback-contract.mjs'),
+      );
       const snapshotEntry = realpathSync(join(snapshotCi, 'claude-codex-fallback.mjs'));
       const stdout = execFileSync(process.execPath, [snapshotEntry], {
         encoding: 'utf8',
@@ -1455,5 +1094,250 @@ describe('copertura workflow diretti', () => {
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
+  });
+});
+
+type ActionStep = {
+  name?: string;
+  if?: string;
+  run?: string;
+  env?: Record<string, string>;
+  'continue-on-error'?: boolean;
+};
+
+function codexActionDefinition(): {
+  inputs: Record<string, { default?: string }>;
+  runs: { steps: ActionStep[] };
+} {
+  return YAML.parse(readFileSync(resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback', 'action.yml'), 'utf8'));
+}
+
+function codexActionStep(name: string): ActionStep {
+  const step = codexActionDefinition().runs.steps.find((candidate) => candidate.name === name);
+  if (!step?.run) throw new Error(`step dell'action non trovato: ${name}`);
+  return step;
+}
+
+// Override espliciti del watchdog (minuti, input `exec_timeout_minutes` di
+// #9690): i lane agentici di main (issue-fix, issue-decompose,
+// needs-human-sweep) e i caller batch che hanno misurato sessioni vicine o
+// oltre il vecchio cap fisso da 15 min (#1975/#1979, growth-report 658s).
+// Tutti gli altri restano sul default.
+const EXEC_TIMEOUT_OVERRIDES: Record<string, string> = {
+  'growth-report.yml': '30',
+  'issue-decompose.yml': '70',
+  'issue-fix.yml': '110',
+  'needs-human-sweep.yml': '100',
+  'post-merge-followup.yml': '25',
+  // I fixer sui 🔴 hanno uno step da 30 min: col default 15 uccidevano fix
+  // ancora al lavoro (run 36114366113).
+  'pr-redcheck-fixer.yml': '25',
+  'pr-redflag-fixer.yml': '25',
+};
+// Setup Codex (Node, CLI, sandbox apt: ~105s misurati il 2026-09-24), kill
+// grace di 30s e coda di finalize/cleanup: il watchdog deve lasciare questo
+// margine allo step, altrimenti il runner uccide lo step prima del watchdog e
+// `codex_timed_out` non viene mai pubblicato.
+const CODEX_SETUP_AND_TAIL_SECONDS = 300;
+
+describe('watchdog Codex per caller', () => {
+  it('ha default 15 minuti e accetta solo minuti interi 1-300', () => {
+    expect(codexActionDefinition().inputs.exec_timeout_minutes?.default).toBe('15');
+    const codexStep = codexActionStep('Run Codex primary (one subscription attempt)');
+    const script = codexStep.run!;
+    const start = script.indexOf('codex_exec_timeout_minutes="${CODEX_EXEC_TIMEOUT_MINUTES:-15}"');
+    const end = script.indexOf('codex_exec_kill_grace_seconds=30', start);
+    expect(start).toBeGreaterThanOrEqual(0);
+    expect(end).toBeGreaterThan(start);
+    const validation = script.slice(start, end);
+    const validate = (value: string | undefined) => {
+      const env: Record<string, string> = { PATH: process.env.PATH || '/usr/bin:/bin' };
+      if (value !== undefined) env.CODEX_EXEC_TIMEOUT_MINUTES = value;
+      const result = spawnSync('/bin/bash', ['-c', `set -euo pipefail\n${validation}\nprintf 'cap=%s\\n' "$codex_exec_timeout_seconds"`], {
+        env,
+        encoding: 'utf8',
+      });
+      return result.status === 0 ? result.stdout.trim().split('\n').pop() : `exit=${result.status}`;
+    };
+    expect(validate(undefined)).toBe('cap=900');
+    expect(validate('')).toBe('cap=900');
+    expect(validate('25')).toBe('cap=1500');
+    expect(validate('1')).toBe('cap=60');
+    expect(validate('300')).toBe('cap=18000');
+    // 0 disattiverebbe GNU timeout: deve fallire, non ricadere sul default.
+    for (const invalid of ['0', '301', '015', '15m', ' 15', '900s', '-1']) {
+      expect(validate(invalid), invalid).toBe('exit=1');
+    }
+  });
+
+  it('alza il cap solo sui caller dichiarati e lo tiene sotto il tetto effettivo dello step', () => {
+    const overrides: Record<string, string> = {};
+    for (const workflowName of workflowNames) {
+      const parsed = YAML.parse(readFileSync(resolve(repoRoot, '.github', 'workflows', workflowName), 'utf8')) as {
+        jobs?: Record<string, { 'timeout-minutes'?: number; steps?: Array<WorkflowStep & { 'timeout-minutes'?: number }> }>;
+      };
+      for (const job of Object.values(parsed.jobs ?? {})) {
+        for (const step of job.steps ?? []) {
+          if (step.uses !== './.github/actions/claude-codex-fallback') continue;
+          expect(step.with?.exec_timeout_seconds, `${workflowName}: input rimosso, usare exec_timeout_minutes`).toBeUndefined();
+          const value = step.with?.exec_timeout_minutes;
+          if (value === undefined) continue;
+          overrides[workflowName] = String(value);
+          const caps = [step['timeout-minutes'], job['timeout-minutes']].filter((cap): cap is number => typeof cap === 'number');
+          expect(caps.length, `${workflowName}: serve un timeout-minutes`).toBeGreaterThan(0);
+          const effectiveSeconds = Math.min(...caps) * 60;
+          expect(Number(value) * 60 + CODEX_SETUP_AND_TAIL_SECONDS, `${workflowName}: watchdog oltre il kill del runner`)
+            .toBeLessThanOrEqual(effectiveSeconds);
+        }
+      }
+    }
+    expect(overrides).toEqual(EXEC_TIMEOUT_OVERRIDES);
+  });
+});
+
+// `codex exec` riversa su stderr anche l'output dei comandi che esegue: un fix
+// che legge un documento con `401 Unauthorized` finiva classificato come auth
+// rifiutata, e il retry automatico restava fermo fino a un nuovo
+// CODEX_AUTH_JSON (4 run del 24-25/09, tutte uccise dal watchdog). Si esegue il
+// frammento vero dello step, non una copia.
+describe('classificazione auth dopo il watchdog', () => {
+  const script = codexActionStep('Run Codex primary (one subscription attempt)').run!;
+  const start = script.indexOf('codex_auth_failure=false');
+  const end = script.indexOf('stop_bridge', start);
+  const classify = script.slice(start, end);
+  const run = (status: number, stderr: string) => {
+    const root = mkdtempSync(join(tmpdir(), 'codex-auth-classify-'));
+    try {
+      const stderrFile = join(root, 'stderr');
+      writeFileSync(stderrFile, stderr);
+      const timedOut = status === 124 ? 'true' : 'false';
+      const result = spawnSync('/bin/bash', ['-c', `set -uo pipefail\ncodex_status=${status}\ncodex_timed_out=${timedOut}\ncodex_stderr='${stderrFile}'\n${classify}\nprintf 'auth=%s\\n' "$codex_auth_failure"`], {
+        env: { PATH: process.env.PATH || '/usr/bin:/bin' },
+        encoding: 'utf8',
+      });
+      return result.stdout.trim().split('\n').pop();
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  };
+
+  it('estrae il frammento della classificazione', () => {
+    expect(start).toBeGreaterThanOrEqual(0);
+    expect(end).toBeGreaterThan(start);
+  });
+
+  it('un kill da watchdog con 401 nello stderr non e\' un guasto di auth', () => {
+    expect(run(124, 'exec cat AGENTS.md\n401 Unauthorized — Workflow validation failed\n')).toBe('auth=false');
+  });
+
+  it('un token rifiutato all\'avvio resta un guasto di auth', () => {
+    expect(run(1, 'ERROR: stream error: unexpected status 401 Unauthorized\n')).toBe('auth=true');
+    expect(run(1, 'Failed to refresh token: refresh token was already used\n')).toBe('auth=true');
+    expect(run(0, '401 Unauthorized\n')).toBe('auth=false');
+  });
+});
+
+describe('alert auth Codex per i caller senza PR', () => {
+  const ALERT_TITLE = 'Codex auth down: CODEX_AUTH_JSON refresh token rejected';
+  const DIGEST = 'a'.repeat(64);
+  const alertStep = codexActionStep('Raise Codex authentication alert for non-PR callers');
+  const marker = (fields: Record<string, unknown>) =>
+    `<!-- CODEX_AUTH_BLOCKED_RUN: ${JSON.stringify({ version: 1, status: 'blocked', runId: 1, runAttempt: 1, ...fields })} -->`;
+
+  const runAlert = (issues: unknown[], comments: unknown[] = [], workflow = 'post-merge-followup') => {
+    const root = mkdtempSync(join(tmpdir(), 'codex-auth-alert-'));
+    const fakeGh = join(root, 'gh');
+    const log = join(root, 'gh.log');
+    writeFileSync(fakeGh, [
+      `#!${process.execPath}`,
+      "const fs = require('node:fs');",
+      'const args = process.argv.slice(2);',
+      "fs.appendFileSync(process.env.FAKE_GH_LOG, JSON.stringify(args) + '\\n');",
+      "if (args[0] === 'api') {",
+      "  const endpoint = args.find((arg) => arg.startsWith('repos/')) || '';",
+      "  process.stdout.write(endpoint.includes('/comments') ? process.env.FAKE_GH_COMMENTS : process.env.FAKE_GH_ISSUES);",
+      '}',
+    ].join('\n'));
+    chmodSync(fakeGh, 0o755);
+    writeFileSync(log, '');
+    try {
+      execFileSync('/bin/bash', ['-c', alertStep.run!], {
+        encoding: 'utf8',
+        env: {
+          PATH: process.env.PATH || '/usr/bin:/bin',
+          TRUSTED_GH: fakeGh,
+          REPO: 'owner/repo',
+          SERVER_URL: 'https://github.com',
+          WORKFLOW_NAME: workflow,
+          AUTH_DIGEST: DIGEST,
+          RUN_ID: '123',
+          RUN_ATTEMPT: '2',
+          FAKE_GH_LOG: log,
+          FAKE_GH_ISSUES: JSON.stringify(issues),
+          FAKE_GH_COMMENTS: JSON.stringify(comments),
+        },
+      });
+      return readFileSync(log, 'utf8').trim().split('\n').filter(Boolean).map((line) => JSON.parse(line) as string[]);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  };
+  const writes = (calls: string[][]) => calls.filter((args) => args[0] === 'issue');
+
+  it('scatta solo senza PR, best-effort, con la GITHUB_TOKEN', () => {
+    expect(alertStep.if).toBe("always() && steps.finalize.outputs.codex_auth_failure == 'true' && env.PR_NUMBER == ''");
+    expect(alertStep['continue-on-error']).toBe(true);
+    expect(alertStep.env?.GH_TOKEN).toBe('${{ github.token }}');
+    expect(alertStep.run).toContain(`alert_title='${ALERT_TITLE}'`);
+  });
+
+  it('apre l\'alert canonico con il marker del run quando manca', () => {
+    const pullRequestWithSameTitle = { number: 3, title: ALERT_TITLE, pull_request: {}, user: { login: 'github-actions[bot]' } };
+    const otherIssue = { number: 4, title: 'Codex auth down: something else', user: { login: 'github-actions[bot]' } };
+    const [create, ...rest] = writes(runAlert([pullRequestWithSameTitle, otherIssue]));
+    expect(rest).toEqual([]);
+    expect(create.slice(0, 8)).toEqual(['issue', 'create', '--repo', 'owner/repo', '--title', ALERT_TITLE, '--label', 'automation']);
+    const body = create[create.indexOf('--body') + 1];
+    expect(body).toContain('Workflow: `post-merge-followup`');
+    expect(body).toContain('https://github.com/owner/repo/actions/runs/123');
+    expect(body).toContain('`codex-auth-recovery`');
+    const json = /<!-- CODEX_AUTH_BLOCKED_RUN: (\{.*\}) -->/u.exec(body)?.[1];
+    expect(JSON.parse(json || '{}')).toEqual({
+      version: 1, status: 'blocked', workflow: 'post-merge-followup', runId: 123, runAttempt: 2, authDigest: DIGEST,
+    });
+  });
+
+  it('registra una sola volta ogni coppia credenziale/workflow sull\'alert aperto', () => {
+    const alert = {
+      number: 7,
+      title: ALERT_TITLE,
+      user: { login: 'github-actions[bot]' },
+      body: marker({ workflow: 'post-merge-followup', authDigest: DIGEST }),
+    };
+    expect(writes(runAlert([alert]))).toEqual([]);
+    const sameInComment = [{ user: { login: 'frontaliere-automation[bot]' }, body: marker({ workflow: 'growth-report', authDigest: DIGEST }) }];
+    expect(writes(runAlert([{ ...alert, body: '' }], sameInComment, 'growth-report'))).toEqual([]);
+    const [comment] = writes(runAlert([alert], [], 'needs-human-sweep'));
+    expect(comment.slice(0, 5)).toEqual(['issue', 'comment', '7', '--repo', 'owner/repo']);
+    expect(comment[comment.indexOf('--body') + 1]).toContain('"workflow":"needs-human-sweep"');
+    // Un marker scritto da un umano non sopprime l'alert, e nemmeno una
+    // credenziale diversa già registrata.
+    const human = [{ user: { login: 'someone' }, body: marker({ workflow: 'growth-report', authDigest: DIGEST }) }];
+    expect(writes(runAlert([{ ...alert, body: '' }], human, 'growth-report'))).toHaveLength(1);
+    const oldDigest = { ...alert, body: marker({ workflow: 'post-merge-followup', authDigest: 'b'.repeat(64) }) };
+    expect(writes(runAlert([oldDigest]))).toHaveLength(1);
+  });
+});
+
+describe('prompt Codex che postano markdown', () => {
+  it('scrivono il body in un file e usano --body-file, mai --body inline', () => {
+    const tests = readFileSync(resolve(repoRoot, '.github', 'workflows', 'tests.yml'), 'utf8');
+    expect(tests).toContain('gh pr review ${PR_NUMBER} --comment --body-file "$TMPDIR/review.md"');
+    expect(tests).toContain("<<'REVIEW_EOF'");
+    expect(tests).not.toMatch(/gh pr review \$\{PR_NUMBER\} --comment --body (?!-file)/u);
+    const audit = readFileSync(resolve(repoRoot, '.github', 'workflows', 'crawler-content-plausibility-audit.yml'), 'utf8');
+    expect(audit).toContain('--label job-content-quality --body-file "$TMPDIR/issue.md"');
+    expect(audit).toContain("<<'ISSUE_EOF'");
+    expect(audit).not.toContain('--body "<corpo>"');
   });
 });

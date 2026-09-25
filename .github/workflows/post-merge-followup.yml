@@ -54,7 +54,7 @@ jobs:
     # `follow-up` quando il filtro scopo passa. Vedi FOLLOWUP.md.
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
-    # 30→40 (2026-07-17): headroom per il cap turni dinamico alzato (max 60→80).
+    # 30→40 (2026-07-17): headroom per il cap turni dinamico alzato (max 80→240).
     timeout-minutes: 40 # batch di N PR in una sessione (era 10 per una sola PR)
     steps:
       - name: Checkout
@@ -199,7 +199,8 @@ jobs:
               echo '```'
               echo "Reviews:"
               echo '```json'
-              gh api "repos/$REPO/pulls/$n/reviews" 2>/dev/null || echo '[]'
+              # Paginata: oltre 30 review le ultime (quelle che contano) restavano fuori.
+              { gh api "repos/$REPO/pulls/$n/reviews?per_page=100" --paginate --slurp 2>/dev/null | jq 'add // []' 2>/dev/null; } || echo '[]'
               echo '```'
               echo
             } >> "$CTX_DIR/prs.md"
@@ -266,7 +267,7 @@ jobs:
           codex_corpus_github_token: ${{ env.GITHUB_PAT_NANAKO || env.GITHUB_PAT }}
           # Il merge che alimenta questo workflow può arrivare da automation interna:
           # i token host-side restano limitati ai permessi del job e ai bridge espliciti.
-          # max-turns DINAMICO = min(26 + 8*batch_count, 80), floor 26: il cap cresce
+          # max-turns DINAMICO = min(26 + 8*batch_count, 240), floor 26: il cap cresce
           # con il numero di PR, senza consentire sessioni illimitate.
           # Se il batch satura il cap, il residuo è dichiarato in `deferred_count`
           # e ricade nella finestra successiva; l'idempotenza salta le PR già
@@ -274,6 +275,13 @@ jobs:
           # Percorsi storici non presenti in questo repository: `auto-merge-on-lgtm.yml`
           # e `pr-review-loop.yml`. Il triage corrente vive in questo workflow e in
           # `tests.yml`; i nomi sopra sono solo riferimenti documentali di confine.
+          # Watchdog Codex 25→31 min: il gemello corpus ha misurato ~7,35 s/turno
+          # su una finestra da 11 PR; il ceiling 240 richiede ~29 min. I 31 min
+          # lasciano margine misurato sotto lo step da 32 min e il job da 40 min,
+          # evitando che il watchdog diventi un cap più basso del collector.
+          # Benchmark batch_count=27: provider+setup post 1.816.453 ms (30,27 min),
+          # watchdog 31 min e step 32 min non attivati; margine watchdog 43.547 ms.
+          exec_timeout_minutes: "31"
           prompt: |
             Triage automatico follow-up in BATCH (${{ github.event_name }}).
             PR da processare (CSV): ${{ steps.collect.outputs.batch_prs }}
@@ -427,6 +435,34 @@ jobs:
             return 1
           }
 
+          # `grep -Ei` e non `sed -n -E`: la grammatica del claim e'
+          # case-insensitive nel gemello JS, e un `created/updated:` in
+          # minuscolo non deve sparire da questo lato (finding review L478).
+          claim_head='^[[:space:]]*(-[[:space:]]+|\*[[:space:]]+)?Created(/updated)?:'
+          # Una riga di claim dichiara ZERO item quando nessun conteggio e' diverso
+          # da zero E lo zero e' scritto in cifre: un conteggio `0` ovunque sulla
+          # riga, oppure `Created: 0` in testa. Il template canonico di
+          # FOLLOWUP.md mette il numero DOPO il bucket («Created/updated: daily
+          # bucket #<id> ... con N item»): con N=0 la run 35947247334 (PR #9518)
+          # e' finita rossa su un marker giusto, e «nessun bucket giornaliero;
+          # 0 item.» (PR #9039/#9045/#9053) ha fatto lo stesso il 2026-09-19.
+          # `#N`, date e decimali non sono conteggi: `0([^0-9.]|$)` e il prefisso
+          # `[^0-9.,#]` tengono `Created: 0.5 item` e `#10 item` fuori dallo zero.
+          # Gemello di `isZeroClaimLine` in scripts/ci/collect-followup-batch.mjs;
+          # tests/followup-marker-zero-claim.test.ts estrae ed ESEGUE questo
+          # blocco sulle stesse righe reali del JS.
+          claim_line_is_zero() {
+            local line="$1" counts
+            counts=$(printf '%s\n' "$line" \
+              | grep -Eoi '(^|[^0-9.,#])[0-9]+([.,][0-9]+)?[[:space:]]+(item|issue|element)' \
+              | sed -E 's/^[^0-9]*([0-9]+([.,][0-9]+)?).*$/\1/' || true)
+            if printf '%s\n' "$counts" | grep -Eqv '^(0|)$'; then
+              return 1
+            fi
+            [ -n "$counts" ] && return 0
+            printf '%s\n' "$line" | grep -Eqi "${claim_head}[[:space:]]*0([^0-9.]|\$)"
+          }
+
           if [ "$collection_ok" != true ]; then
             echo "triage incompleta: collection_ok non è true (raccolta fallita/illeggibile)"
             marker_ok=false
@@ -466,28 +502,27 @@ jobs:
                 marker_ok=false
               else
                 marker_body=$(printf '%s' "$comments" | jq -r '[.comments[]?.body // "" | select(contains("## Post-merge follow-up triage"))] | last // ""' 2>/dev/null || true)
-                # `grep -Ei` e non `sed -n -E`: la grammatica del claim e'
-                # case-insensitive nel gemello JS, e un `created/updated:` in
-                # minuscolo non deve sparire da questo lato (finding review L478).
-                claim_head='^[[:space:]]*(-[[:space:]]+|\*[[:space:]]+)?Created(/updated)?:'
                 claim_lines=$(printf '%s\n' "$marker_body" | grep -Ei "$claim_head" || true)
                 bucket_refs=$(printf '%s\n' "$claim_lines" | grep -Eio 'bucket[[:space:]]*:?[[:space:]]*#[0-9]+' | sed -E 's/.*#//' | sort -un || true)
                 # A zero-candidate summary may name the unchanged daily bucket for
                 # audit context. That is not a claim that this PR was persisted in
                 # the bucket, so it must use the empty-result path below.
                 # Discriminante STRUTTURALE, gemello di `triageMarkerPersistenceExpectation`
-                # in scripts/ci/collect-followup-batch.mjs (il legame e' coperto da
-                # tests/followup-marker-zero-claim.test.ts): sulla riga di claim
-                # isolata qui sopra conta il NUMERO dichiarato, non la prosa. La
-                # lista di formule ammesse che stava qui e' stata superata tre volte
-                # dalla variante successiva; l'ultima il 2026-09-18 con
+                # in scripts/ci/collect-followup-batch.mjs: su OGNI riga di claim
+                # conta il NUMERO dichiarato, non la prosa (`claim_line_is_zero`).
+                # La lista di formule ammesse che stava qui e' stata superata tre
+                # volte dalla variante successiva; l'ultima il 2026-09-18 con
                 # «Created/updated: 0 item; nessun bucket creato.», marker corretto
                 # per un esito legittimo, run rossa.
-                # `0([^0-9.]|$)`: un `Created: 0.5 item` non e' un claim a zero.
                 zero_claim=false
-                if [ -n "$claim_lines" ] && ! printf '%s\n' "$claim_lines" \
-                  | grep -Eqvi "${claim_head}[[:space:]]*0([^0-9.]|\$)"; then
+                if [ -n "$claim_lines" ]; then
                   zero_claim=true
+                  while IFS= read -r claim_line; do
+                    if ! claim_line_is_zero "$claim_line"; then
+                      zero_claim=false
+                      break
+                    fi
+                  done <<< "$claim_lines"
                 fi
                 # Variante prodotta in produzione e responsabile di #9286:
                 # «nessun item per questa PR; bucket #N non modificato da questa
@@ -570,6 +605,12 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
+          # I daily del sito contengono anche item instradati dal corpus
+          # (FOLLOWUP.md § Routing cross-repository) con `Sources: PR #N` di
+          # frontaliere-articles: senza questo repository gemello il recovery
+          # storico non li risolveva mai e i daily restavano `collecting`.
+          GATE_ALT_PR_REPO: nanakokyobashi-rgb/frontaliere-articles
+          GATE_ALT_PR_TOKEN: ${{ env.GITHUB_PAT_NANAKO || env.GITHUB_PAT }}
           BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
           TRIAGE_DAILY_KEY: ${{ steps.collect.outputs.daily_key }}
           COLLECTION_OK: ${{ steps.collect.outputs.collection_ok }}

@@ -1215,14 +1215,14 @@ export const linkedinAuthCallback = onRequest(
  return;
  }
 
- const { code, redirectUri } = req.body || {};
+ const { code, redirectUri, attribution } = req.body || {};
  if (!code || !redirectUri) {
  res.status(400).json({ ok: false, error: 'missing_code_or_redirect_uri' });
  return;
  }
 
  try {
- const result = await handleLinkedInCallback({ code, redirectUri });
+ const result = await handleLinkedInCallback({ code, redirectUri, attribution });
  res.status(200).json({ ok: true, ...result });
  } catch (err) {
  const status = err.status || 500;
@@ -2175,8 +2175,20 @@ export const reapPublisherPendingPayments = onSchedule(
 // that returns zero rows or errors is marked degraded and never purges the
 // previous Firestore snapshot; this avoids publishing a false empty market
 // during an upstream outage while keeping the full 26-canton health matrix.
+// Timeout and memory are explicit: with the 2nd-gen defaults (60 s, 256 MiB)
+// every run was cut off at BS, the 16'000-row PDF, from 2026-09-15 on — the
+// sources after it (GR, SG, SH, SZ, TG, VS, ZH) kept their 09-15 snapshot and
+// the SZ relay that the static collector relies on went stale. The same pass
+// takes ~95 s on a GitHub runner.
+// The schedule is fixed-time cron, not `every 6 hours`: that App Engine
+// interval counts from the end of the previous attempt and moves when a deploy
+// updates the job. On 2026-09-25 it attempted at 03:28 UTC and then not again
+// before a manual run at 10:24, while FR, TI and SZ reach the static collector
+// only through this relay (PLATE_AUCTION_API_RELAY_MAX_AGE_MS, 8 h). Four runs
+// a day, the cap the registry declares, 30 min before each nominal slot of
+// refresh-plate-auctions.yml (`17 */6 * * *`).
 export const refreshPlateAuctions = onSchedule(
- { region: 'europe-west6', schedule: 'every 6 hours', timeZone: 'Europe/Zurich' },
+ { region: 'europe-west6', schedule: '47 5,11,17,23 * * *', timeZone: 'UTC', timeoutSeconds: 540, memory: '1GiB' },
  async () => {
  try {
  const result = await runPlateAuctionRefresh();

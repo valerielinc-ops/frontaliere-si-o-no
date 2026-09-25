@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sika",
-  "assembledAt": "2026-09-24T09:46:35.969Z",
+  "assembledAt": "2026-09-25T14:51:54.116Z",
   "jobs": [
     {
       "id": "sika-830dc4ea55aa",
@@ -33,7 +33,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-801917fc-80ba-4766-a2ec-8beac8c4bb54.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:34.753Z",
+      "crawledAt": "2026-09-25T14:51:49.609Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -62,6 +62,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:50.424Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -107,7 +108,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a9d9e454-ab4b-43ec-872c-8b47bfc67c7a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:33.414Z",
+      "crawledAt": "2026-09-25T14:51:48.796Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -157,6 +158,73 @@
       }
     },
     {
+      "id": "sika-5f372ae9687e",
+      "slug": "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch",
+      "slugByLocale": {
+        "de": "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch",
+        "it": "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch",
+        "en": "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch",
+        "fr": "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch"
+      },
+      "company": "Sika",
+      "companyKey": "sika",
+      "companyDomain": "sika.com",
+      "title": "Chemical plant worker (m/f) / Chemiemitarbeiter/Chemikant (m/w)",
+      "titleByLocale": {
+        "de": "Chemical plant worker (m/f) / Chemiemitarbeiter/Chemikant (m/w)",
+        "it": "Chemical plant worker (m/f) / Chemiemitarbeiter/Chemikant (m/w)",
+        "en": "Chemical plant worker (m/f) / Chemiemitarbeiter/Chemikant (m/w)",
+        "fr": "Chemical plant worker (m/f) / Chemiemitarbeiter/Chemikant (m/w)"
+      },
+      "description": "Für den Produktionsstandort in Düdingen/FR suchen wir per 01. Januar 2027 oder nach Vereinbarung einen Chemiebetriebsmitarbeiter / Chemikant (m/w) . Folgende spannende Arbeiten erwarten Sie: Produktion chemischer Zwischenprodukte inklusive Inprozesskontrollen Gleichzeitiges steuern und überwachen am Prozessleitsystem von mehreren Anlagen/Reaktoren Ziehen von Mustern, selbständige Durchführung der Inprozesskontrollen sowie anfallende Wartungsarbeiten an der Anlage Kontinuierliche Verbesserung der Arbeitsabläufe im Team",
+      "descriptionByLocale": {
+        "de": "Für den Produktionsstandort in Düdingen/FR suchen wir per 01. Januar 2027 oder nach Vereinbarung einen Chemiebetriebsmitarbeiter / Chemikant (m/w) . Folgende spannende Arbeiten erwarten Sie: Produktion chemischer Zwischenprodukte inklusive Inprozesskontrollen Gleichzeitiges steuern und überwachen am Prozessleitsystem von mehreren Anlagen/Reaktoren Ziehen von Mustern, selbständige Durchführung der Inprozesskontrollen sowie anfallende Wartungsarbeiten an der Anlage Kontinuierliche Verbesserung der Arbeitsabläufe im Team",
+        "it": "Für den Produktionsstandort in Düdingen/FR suchen wir per 01. Januar 2027 oder nach Vereinbarung einen Chemiebetriebsmitarbeiter / Chemikant (m/w) . Folgende spannende Arbeiten erwarten Sie: Produktion chemischer Zwischenprodukte inklusive Inprozesskontrollen Gleichzeitiges steuern und überwachen am Prozessleitsystem von mehreren Anlagen/Reaktoren Ziehen von Mustern, selbständige Durchführung der Inprozesskontrollen sowie anfallende Wartungsarbeiten an der Anlage Kontinuierliche Verbesserung der Arbeitsabläufe im Team",
+        "en": "Für den Produktionsstandort in Düdingen/FR suchen wir per 01. Januar 2027 oder nach Vereinbarung einen Chemiebetriebsmitarbeiter / Chemikant (m/w) . Folgende spannende Arbeiten erwarten Sie: Produktion chemischer Zwischenprodukte inklusive Inprozesskontrollen Gleichzeitiges steuern und überwachen am Prozessleitsystem von mehreren Anlagen/Reaktoren Ziehen von Mustern, selbständige Durchführung der Inprozesskontrollen sowie anfallende Wartungsarbeiten an der Anlage Kontinuierliche Verbesserung der Arbeitsabläufe im Team",
+        "fr": "Für den Produktionsstandort in Düdingen/FR suchen wir per 01. Januar 2027 oder nach Vereinbarung einen Chemiebetriebsmitarbeiter / Chemikant (m/w) . Folgende spannende Arbeiten erwarten Sie: Produktion chemischer Zwischenprodukte inklusive Inprozesskontrollen Gleichzeitiges steuern und überwachen am Prozessleitsystem von mehreren Anlagen/Reaktoren Ziehen von Mustern, selbständige Durchführung der Inprozesskontrollen sowie anfallende Wartungsarbeiten an der Anlage Kontinuierliche Verbesserung der Arbeitsabläufe im Team"
+      },
+      "location": "Düdingen, Canton of Fribourg",
+      "canton": "FR",
+      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-06c3ea52-4733-4376-92fa-edc4842d799a.html",
+      "source": "Sika Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-25T14:51:47.898Z",
+      "addressLocality": "Düdingen",
+      "postalCode": "",
+      "streetAddress": "",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Specialty chemicals (construction & industrial)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-10-14",
+      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-06c3ea52-4733-4376-92fa-edc4842d799a.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-25T14:51:47.898Z"
+    },
+    {
       "id": "sika-eddd20ef7319",
       "slug": "senior-technical-consulente-sap-development-transportation-management-sika-zurich",
       "slugByLocale": {
@@ -187,7 +255,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-5c159c3b-6f5e-407d-ac74-ef35ffc50d29.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:43:32.161Z",
+      "crawledAt": "2026-09-25T14:51:46.979Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -222,6 +290,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:32.932Z",
+      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -267,7 +336,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a83ab262-97a6-4d10-a5a4-e2269c5bfc4a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:43:31.280Z",
+      "crawledAt": "2026-09-25T14:51:45.997Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -302,6 +371,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:30.183Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -318,11 +388,11 @@
     },
     {
       "id": "sika-c641d6c8e75f",
-      "slug": "global-innovation-platform-process-manager-sika-ch",
+      "slug": "piattaforma-di-innovazione-globale-amp-gestione-dei-processi-sika-zurich-zurich",
       "slugByLocale": {
+        "it": "piattaforma-di-innovazione-globale-amp-gestione-dei-processi-sika-zurich-zurich",
         "en": "global-innovation-platform-process-manager-sika-ch",
-        "it": "global-innovation-platform-process-manager-sika-ch",
-        "de": "global-innovation-platform-process-manager-sika-ch",
+        "de": "globale-innovationsplattform-und-prozessmanager-sika-zurich-zurich",
         "fr": "global-innovation-platform-process-manager-sika-ch"
       },
       "company": "Sika",
@@ -331,14 +401,14 @@
       "title": "Global Innovation Platform & Process Manager",
       "titleByLocale": {
         "en": "Global Innovation Platform & Process Manager",
-        "it": "Piattaforma di innovazione globale &amp; Gestione dei processi",
+        "it": "Piattaforma di innovazione globale & Gestione dei processi",
         "de": "Globale Innovationsplattform und Prozessmanager",
-        "fr": "Global Innovation Platform & Process Manager"
+        "fr": "Plateforme mondiale d'innovation et gestionnaire de processus"
       },
       "description": "Shape the Future of Innovation at Sika! Innovation is a key driver of Sika's success. To strengthen our Global Innovation Management team, we are looking for a motivated and technically savvy professional who will help shape and continuously improve our global innovation ecosystem. In this role, you will combine innovation management, digital platform administration, process optimization, user enablement, and stakeholder engagement. You will act as the bridge between business users, innovation teams, IT, and software providers to ensure that our innovation platforms and processes create value for employees worldwide. Own and continuously enhance Sika’s global innovation platforms (HYPE), including configuration, administration, and implementation of new functionalities. Translate business requirements into scalable digital solutions, workflows, and user-friendly platform capabilities. Drive the optimization, digitalization, and standardization of global innovation processes and best practices. Partner with innovation teams, business stakeholders, IT, and external software providers to deliver effective platform and process solutions. Troubleshoot platform-related issues and drive continuous improvement initiatives. Develop and deliver training, user guidance, and enablement activities to support adoption and engagement across the organization. Foster collaboration, knowledge sharing, and a strong global innovation community. Monitor platform usage, process performance, and key metrics, providing data-driven insights and recommendations to support decision-making and continuous improvement.",
       "descriptionByLocale": {
-        "en": "Shape the Future of Innovation at Sika! Innovation is a key driver of Sika's success. To strengthen our Global Innovation Management team, we are looking for a motivated and technically savvy professional who will help shape and continuously improve our global innovation ecosystem. In this role, you will combine innovation management, digital platform administration, process optimization, user enablement, and stakeholder engagement. You will act as the bridge between business users, innovation teams, IT, and software providers to ensure that our innovation platforms and processes create value for employees worldwide. Own and continuously enhance Sika’s global innovation platforms (HYPE), including configuration, administration, and implementation of new functionalities. Translate business requirements into scalable digital solutions, workflows, and user-friendly platform capabilities. Drive the optimization, digitalization, and standardization of global innovation processes and best practices. Partner with innovation teams, business stakeholders, IT, and external software providers to deliver effective platform and process solutions. Troubleshoot platform-related issues and drive continuous improvement initiatives. Develop and deliver training, user guidance, and enablement activities to support adoption and engagement across the organization. Foster collaboration, knowledge sharing, and a strong global innovation community. Monitor platform usage, process performance, and key metrics, providing data-driven insights and recommendations to support decision-making and continuous improvement.",
         "it": "Forma il futuro dell'innovazione a Sika! L'innovazione è un driver chiave del successo di Sika. Per rafforzare il nostro team di Global Innovation Management, stiamo cercando un professionista motivato e tecnicamente esperto che aiuterà a plasmare e migliorare continuamente il nostro ecosistema di innovazione globale. In questo ruolo, unirete la gestione dell'innovazione, l'amministrazione della piattaforma digitale, l'ottimizzazione dei processi, l'attivazione degli utenti e il coinvolgimento degli stakeholder. Potrai fungere da ponte tra utenti di business, team di innovazione, IT e fornitori di software per garantire che le nostre piattaforme e processi di innovazione creino valore per i dipendenti in tutto il mondo. Possedere e migliorare continuamente le piattaforme di innovazione globali di Sika (HYPE), tra cui la configurazione, l'amministrazione e l'implementazione di nuove funzionalità. Traduci i requisiti aziendali in soluzioni digitali scalabili, flussi di lavoro e funzionalità di piattaforma user-friendly. Guidare l'ottimizzazione, la digitalizzazione e la standardizzazione dei processi di innovazione globale e delle migliori pratiche. Partner con team di innovazione, stakeholder aziendali, IT e fornitori di software esterni per offrire soluzioni di piattaforma e processo efficaci. Risoluzione dei problemi legati alla piattaforma e alle iniziative di miglioramento continuo. Sviluppare e fornire attività di formazione, guida degli utenti e abilitazione per supportare l'adozione e il coinvolgimento in tutta l'organizzazione. Promuovere la collaborazione, la condivisione delle conoscenze e una forte comunità di innovazione globale. Monitorare l'utilizzo della piattaforma, le prestazioni del processo e le metriche chiave, fornendo informazioni e raccomandazioni basate sui dati per supportare il processo decisionale e il miglioramento continuo.",
+        "en": "Shape the Future of Innovation at Sika! Innovation is a key driver of Sika's success. To strengthen our Global Innovation Management team, we are looking for a motivated and technically savvy professional who will help shape and continuously improve our global innovation ecosystem. In this role, you will combine innovation management, digital platform administration, process optimization, user enablement, and stakeholder engagement. You will act as the bridge between business users, innovation teams, IT, and software providers to ensure that our innovation platforms and processes create value for employees worldwide. Own and continuously enhance Sika’s global innovation platforms (HYPE), including configuration, administration, and implementation of new functionalities. Translate business requirements into scalable digital solutions, workflows, and user-friendly platform capabilities. Drive the optimization, digitalization, and standardization of global innovation processes and best practices. Partner with innovation teams, business stakeholders, IT, and external software providers to deliver effective platform and process solutions. Troubleshoot platform-related issues and drive continuous improvement initiatives. Develop and deliver training, user guidance, and enablement activities to support adoption and engagement across the organization. Foster collaboration, knowledge sharing, and a strong global innovation community. Monitor platform usage, process performance, and key metrics, providing data-driven insights and recommendations to support decision-making and continuous improvement.",
         "de": "Gestalten Sie die Zukunft der Innovation bei Sika! Innovation ist ein wesentlicher Treiber des Erfolgs von Sika. Um unser Global Innovation Management Team zu stärken, suchen wir einen motivierten und technisch versierten Fachmann, der unser globales Innovations-Ökosystem mitgestaltet und kontinuierlich verbessert. In dieser Rolle kombinieren Sie Innovationsmanagement, Verwaltung digitaler Plattformen, Prozessoptimierung, Benutzerbefähigung und Stakeholder-Engagement. Sie bilden die Brücke zwischen Geschäftsanwendern, Innovationsteams, IT- und Softwareanbietern, um sicherzustellen, dass unsere Innovationsplattformen und -prozesse Mehrwert für Mitarbeiter weltweit schaffen. Eigene und kontinuierliche Weiterentwicklung der globalen Innovationsplattformen (HYPE) von Sika, einschließlich Konfiguration, Verwaltung und Implementierung neuer Funktionen. Übersetzen Sie Geschäftsanforderungen in skalierbare digitale Lösungen, Workflows und benutzerfreundliche Plattformfunktionen. Förderung der Optimierung, Digitalisierung und Standardisierung globaler Innovationsprozesse und Best Practices. Partnerschaft mit Innovationsteams, Geschäftsinteressenten, IT und externen Softwareanbietern, um effektive Plattform- und Prozesslösungen zu liefern. Beheben Sie plattformbezogene Probleme und fördern Sie kontinuierliche Verbesserungsinitiativen. Entwicklung und Bereitstellung von Schulungen, Benutzerberatung und Aktivierungsaktivitäten zur Unterstützung der Akzeptanz und des Engagements im gesamten Unternehmen. Förderung von Zusammenarbeit, Wissensaustausch und einer starken globalen Innovationsgemeinschaft. Überwachen Sie die Nutzung der Plattform, die Prozessleistung und die wichtigsten Metriken und bieten Sie datengesteuerte Einblicke und Empfehlungen zur Unterstützung der Entscheidungsfindung und kontinuierlichen Verbesserung.",
         "fr": "Formez l'avenir de l'innovation à Sika! L'innovation est un moteur clé du succès de Sika. Pour renforcer notre équipe Global Innovation Management, nous recherchons un professionnel motivé et techniquement averti qui aidera à façonner et à améliorer continuellement notre écosystème mondial d'innovation. Dans ce rôle, vous combinerez la gestion de l'innovation, l'administration des plateformes numériques, l'optimisation des processus, l'habilitation des utilisateurs et l'engagement des parties prenantes. Vous jouerez le rôle de pont entre les utilisateurs commerciaux, les équipes d'innovation, les TI et les fournisseurs de logiciels pour s'assurer que nos plateformes et processus d'innovation créent de la valeur pour les employés du monde entier. Les plates-formes mondiales d'innovation (HYPE) de Sika, y compris la configuration, l'administration et la mise en œuvre de nouvelles fonctionnalités, sont elles-mêmes et continuellement améliorées. Traduire les exigences commerciales en solutions numériques évolutives, en workflows et en fonctionnalités de plate-forme conviviales. Favoriser l'optimisation, la numérisation et la normalisation des processus d'innovation et des meilleures pratiques à l'échelle mondiale. S'associer avec des équipes d'innovation, des partenaires commerciaux, des fournisseurs informatiques et des fournisseurs de logiciels externes pour offrir des solutions de plateforme et de processus efficaces. Dépanner les problèmes liés à la plateforme et mener des initiatives d'amélioration continue. Élaborer et offrir des activités de formation, d'orientation des utilisateurs et de facilitation pour appuyer l'adoption et l'engagement dans l'ensemble de l'organisation. Favoriser la collaboration, le partage des connaissances et une solide communauté mondiale de l'innovation. Surveiller l'utilisation de la plateforme, le rendement des processus et les principales mesures, en fournissant des renseignements et des recommandations fondés sur les données pour appuyer la prise de décisions et l'amélioration continue."
       },
@@ -347,7 +417,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-7a72a172-4966-459e-b87f-3c6d36cd60f3.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:43:30.361Z",
+      "crawledAt": "2026-09-25T14:51:44.749Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -364,9 +434,7 @@
       "postedDate": "2026-02-10",
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-7a72a172-4966-459e-b87f-3c6d36cd60f3.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -381,7 +449,20 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:43:30.361Z"
+      "firstSeenAt": "2026-09-23T23:43:30.361Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-innovation-platform-process-manager-sika-ch",
+          "piattaforma-di-innovazione-globale-amp-gestione-dei-processi-sika-zurich-zurich"
+        ],
+        "de": [
+          "global-innovation-platform-process-manager-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-innovation-platform-process-manager-sika-ch",
+        "piattaforma-di-innovazione-globale-amp-gestione-dei-processi-sika-zurich-zurich"
+      ]
     },
     {
       "id": "sika-44d37d89fa1d",
@@ -414,7 +495,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-03295a71-729c-4904-8b5e-f2574649a9c0.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:43:29.426Z",
+      "crawledAt": "2026-09-25T14:51:43.642Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -449,6 +530,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T12:46:37.005Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -494,7 +576,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-14ec562b-e189-4f29-a2f7-af58ab74c7f4.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:43:28.607Z",
+      "crawledAt": "2026-09-25T14:51:43.307Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -542,6 +624,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:19.553Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -587,7 +670,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-5deb4953-a448-4e1f-8090-10c715bad5df.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:43:27.751Z",
+      "crawledAt": "2026-09-25T14:51:42.272Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -651,7 +734,7 @@
       "title": "Automatiker / SPS-Programmierer / Automatisierungstechniker",
       "titleByLocale": {
         "it": "Automatico (m/f/d)",
-        "en": "Automatic / PLC programmer / automation technician",
+        "en": "Automatiker / SPS-Programmierer / Automatisierungstechniker",
         "de": "Automatiker / SPS-Programmierer / Automatisierungstechniker",
         "fr": "Automatique (m/f/d)"
       },
@@ -667,7 +750,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f6406866-8261-42b2-b18c-75a219d69ce1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:26.898Z",
+      "crawledAt": "2026-09-25T14:51:41.491Z",
       "addressLocality": "Romanshorn",
       "postalCode": "",
       "streetAddress": "",
@@ -711,6 +794,7 @@
         "automatico-m-f-d-sika-romanshorn-thurgau-switzerland"
       ],
       "firstSeenAt": "2026-06-17T13:57:12.304Z",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -724,6 +808,73 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "sika-7b725bb749fd",
+      "slug": "strategic-hr-projects-specialist-sika-ch",
+      "slugByLocale": {
+        "en": "strategic-hr-projects-specialist-sika-ch",
+        "it": "strategic-hr-projects-specialist-sika-ch",
+        "de": "strategic-hr-projects-specialist-sika-ch",
+        "fr": "strategic-hr-projects-specialist-sika-ch"
+      },
+      "company": "Sika",
+      "companyKey": "sika",
+      "companyDomain": "sika.com",
+      "title": "Strategic HR Projects Specialist",
+      "titleByLocale": {
+        "en": "Strategic HR Projects Specialist",
+        "it": "Strategic Risorse Umane Projects Specialista",
+        "de": "Strategic Personalwesen Projects Spezialist",
+        "fr": "Strategic Ressources Humaines Projects Spécialiste"
+      },
+      "description": "Key \n• Responsibilities In this role, you will contribute to global projects, from strategical design to execution: Support strategic HR initiatives from concept through to global roll-out, collaborating with regions, and cross-functional stakeholders to ensure alignment and consistent execution Translate evolving business needs into targeted actions that strengthen talent attraction, engagement, and retention Leverage HR data and workforce analytics to generate actionable insights and provide evidence-based recommendations Develop clear, impactful presentations that communicate insights, opportunities, and progress to diverse audiences Manage multiple projects end-to-end, including scoping, planning, stakeholder alignment, and delivery Contribute to and drive cross-functional HR initiatives across Talent Management, Employee Experience, and Early Careers",
+      "descriptionByLocale": {
+        "en": "Key \n• Responsibilities In this role, you will contribute to global projects, from strategical design to execution: Support strategic HR initiatives from concept through to global roll-out, collaborating with regions, and cross-functional stakeholders to ensure alignment and consistent execution Translate evolving business needs into targeted actions that strengthen talent attraction, engagement, and retention Leverage HR data and workforce analytics to generate actionable insights and provide evidence-based recommendations Develop clear, impactful presentations that communicate insights, opportunities, and progress to diverse audiences Manage multiple projects end-to-end, including scoping, planning, stakeholder alignment, and delivery Contribute to and drive cross-functional HR initiatives across Talent Management, Employee Experience, and Early Careers",
+        "it": "Key \n• Responsibilities In this role, you will contribute to global projects, from strategical design to execution: Support strategic HR initiatives from concept through to global roll-out, collaborating with regions, and cross-functional stakeholders to ensure alignment and consistent execution Translate evolving business needs into targeted actions that strengthen talent attraction, engagement, and retention Leverage HR data and workforce analytics to generate actionable insights and provide evidence-based recommendations Develop clear, impactful presentations that communicate insights, opportunities, and progress to diverse audiences Manage multiple projects end-to-end, including scoping, planning, stakeholder alignment, and delivery Contribute to and drive cross-functional HR initiatives across Talent Management, Employee Experience, and Early Careers",
+        "de": "Key \n• Responsibilities In this role, you will contribute to global projects, from strategical design to execution: Support strategic HR initiatives from concept through to global roll-out, collaborating with regions, and cross-functional stakeholders to ensure alignment and consistent execution Translate evolving business needs into targeted actions that strengthen talent attraction, engagement, and retention Leverage HR data and workforce analytics to generate actionable insights and provide evidence-based recommendations Develop clear, impactful presentations that communicate insights, opportunities, and progress to diverse audiences Manage multiple projects end-to-end, including scoping, planning, stakeholder alignment, and delivery Contribute to and drive cross-functional HR initiatives across Talent Management, Employee Experience, and Early Careers",
+        "fr": "Key \n• Responsibilities In this role, you will contribute to global projects, from strategical design to execution: Support strategic HR initiatives from concept through to global roll-out, collaborating with regions, and cross-functional stakeholders to ensure alignment and consistent execution Translate evolving business needs into targeted actions that strengthen talent attraction, engagement, and retention Leverage HR data and workforce analytics to generate actionable insights and provide evidence-based recommendations Develop clear, impactful presentations that communicate insights, opportunities, and progress to diverse audiences Manage multiple projects end-to-end, including scoping, planning, stakeholder alignment, and delivery Contribute to and drive cross-functional HR initiatives across Talent Management, Employee Experience, and Early Careers"
+      },
+      "location": "Zürich, Zurich",
+      "canton": "ZH",
+      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-57c3529d-e8d3-45be-a901-3d8db18a42b2.html",
+      "source": "Sika Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-25T14:51:40.428Z",
+      "addressLocality": "Zürich",
+      "postalCode": "",
+      "streetAddress": "",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Specialty chemicals (construction & industrial)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-21",
+      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-57c3529d-e8d3-45be-a901-3d8db18a42b2.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-25T14:51:40.428Z"
     },
     {
       "id": "sika-f29f6c1b2d83",
@@ -756,7 +907,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-e62349e4-b260-46b1-b5b1-558137b84dfa.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:25.811Z",
+      "crawledAt": "2026-09-25T14:51:39.477Z",
       "addressLocality": "Sarnen",
       "postalCode": "",
       "streetAddress": "",
@@ -791,6 +942,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:10.542Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -819,10 +971,10 @@
       "companyDomain": "sika.com",
       "title": "Lehrstelle als Polymechaniker/-in EFZ 2027",
       "titleByLocale": {
-        "fr": "Lehrstelle als Polymechaniker/-in EFZ 2027",
-        "de": "Lehrstelle als Polymechaniker/-in EFZ 2027",
         "it": "Apprendistato come Polymechaniker/-in CFC 2027",
-        "en": "Lehrstelle als Polymechaniker/-in EFZ 2027"
+        "en": "Lehrstelle als Polymechaniker/-in EFZ 2027",
+        "de": "Lehrstelle als Polymechaniker/-in EFZ 2027",
+        "fr": "Lehrstelle als Polymechaniker/-in EFZ 2027"
       },
       "description": "Du sorgst im Team dafür, dass unsere Produktionsanlagen störungsfrei laufen Du überprüfst, wartest und reparierst Anlagenteile Du unterstützt aktiv die Produktion unserer Kunststoffmembranen",
       "descriptionByLocale": {
@@ -836,7 +988,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f60aaabf-46d6-48de-bd14-7b67aa95a9ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:43:24.972Z",
+      "crawledAt": "2026-09-25T14:51:38.639Z",
       "addressLocality": "Sarnen",
       "postalCode": "",
       "streetAddress": "",
@@ -854,7 +1006,6 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f60aaabf-46d6-48de-bd14-7b67aa95a9ba.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "lehrstelle-als-polymechaniker-in-efz-2027-sika-ch",
         "apprendistato-come-polymechaniker-in-cfc-2027-sika-sarnen"
@@ -871,6 +1022,7 @@
           "lehrstelle-als-polymechaniker-in-efz-2027-sika-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:57:08.974Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
@@ -917,7 +1069,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-465ec003-7a5e-4cd9-881a-2b492edbf36f.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:24.202Z",
+      "crawledAt": "2026-09-25T14:51:37.686Z",
       "addressLocality": "Sarnen",
       "postalCode": "",
       "streetAddress": "",
@@ -997,7 +1149,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-00070f8e-b43c-46c7-9d5d-94e7dab3912d.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:23.052Z",
+      "crawledAt": "2026-09-25T14:51:36.717Z",
       "addressLocality": "Sarnen",
       "postalCode": "",
       "streetAddress": "",
@@ -1032,6 +1184,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:05.923Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -1061,7 +1214,7 @@
       "title": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
       "titleByLocale": {
         "it": "Linee di estrusione (m/f/d) - Operatore di processo (m/f/d)",
-        "en": "Plant Manager (m/f/d) Extrusion Lines - Process Operator (m/f/d)",
+        "en": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
         "de": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
         "fr": "Plant Manager (h/f/d) Lignes d'extrusion - Opérateur de processus (h/f/d)"
       },
@@ -1077,7 +1230,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-bdfb0e95-97e0-4a0d-af2c-174bfdd23681.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:21.783Z",
+      "crawledAt": "2026-09-25T14:51:35.793Z",
       "addressLocality": "Sarnen",
       "postalCode": "",
       "streetAddress": "",
@@ -1113,6 +1266,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:02.407Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 97000,
       "salarySource": "estimated",
@@ -1142,7 +1296,7 @@
       "title": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
       "titleByLocale": {
         "it": "Plant Manager Recycling (m/f/d) - Process Operator Recycling (m/f/d)",
-        "en": "Plant Manager Recycling (m/f/d) - Process Operator Recycling (m/f/d)",
+        "en": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
         "de": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
         "fr": "Gestionnaire d'usine Recyclage (h/f/d) - Recyclage de l'opérateur de processus (h/f/d)"
       },
@@ -1158,7 +1312,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-0923cb82-640a-4fe7-a00e-b8832c0307a9.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:20.747Z",
+      "crawledAt": "2026-09-25T14:51:34.752Z",
       "addressLocality": "Sarnen",
       "postalCode": "",
       "streetAddress": "",
@@ -1190,6 +1344,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:00.845Z",
+      "needsRetranslation": true,
       "salaryMin": 127000,
       "salaryMax": 171000,
       "salarySource": "estimated",
@@ -1235,7 +1390,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d49d212d-425b-4df8-b472-647e7f47b720.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:19.828Z",
+      "crawledAt": "2026-09-25T14:51:33.718Z",
       "addressLocality": "Sarnen",
       "postalCode": "",
       "streetAddress": "",
@@ -1283,6 +1438,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:36:50.859Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -1328,7 +1484,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-16cc041b-642b-405a-8c8b-1eb258ed05ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:18.565Z",
+      "crawledAt": "2026-09-25T14:51:33.389Z",
       "addressLocality": "Sarnen",
       "postalCode": "",
       "streetAddress": "",
@@ -1393,7 +1549,7 @@
       "companyDomain": "sika.com",
       "title": "Palettierer",
       "titleByLocale": {
-        "it": "Palletizzatori",
+        "it": "Palettierer",
         "en": "Palletizers",
         "de": "Palettierer",
         "fr": "Palettisants"
@@ -1410,7 +1566,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9b6bfb1d-bd31-45c4-ba52-1678901ee794.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:17.619Z",
+      "crawledAt": "2026-09-25T14:51:33.044Z",
       "addressLocality": "Altstätten",
       "postalCode": "",
       "streetAddress": "",
@@ -1447,6 +1603,7 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:33:58.578Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1492,7 +1649,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3e5739e9-cee4-4b47-92c7-67b01f151b2e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:17.298Z",
+      "crawledAt": "2026-09-25T14:51:32.133Z",
       "addressLocality": "Widen",
       "postalCode": "",
       "streetAddress": "",
@@ -1574,7 +1731,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d60c6ce1-5511-421d-bb24-b7240688f0c5.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:16.523Z",
+      "crawledAt": "2026-09-25T14:51:31.188Z",
       "addressLocality": "Düdingen",
       "postalCode": "",
       "streetAddress": "",
@@ -1609,6 +1766,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:56:50.007Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1654,7 +1812,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-6a2c4b22-d8ce-4c8f-a8ae-ebef8bb94bb6.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:15.928Z",
+      "crawledAt": "2026-09-25T14:51:30.130Z",
       "addressLocality": "Düdingen",
       "postalCode": "",
       "streetAddress": "",
@@ -1720,7 +1878,7 @@
         "it": "Programma internazionale di formazione professionale - A&I - Dipartimento tecnico",
         "en": "International Traineeship Program - A&I - Technical Department",
         "de": "International Traineeship Program - A&I - Technische Abteilung",
-        "fr": "Programme de stages internationaux - A et I - Département technique"
+        "fr": "International Traineeship Program - A&I - Technical Department"
       },
       "description": "Sika is gearing up for the next edition of its International Traineeship Program 2026! This exciting journey lasts 12 months , starting in Switzerland—primarily at our hub in Widen . During this rotational program , you’ll gain hands-on experience across different areas, build a strong network, and prepare for your next big step: an international assignment. Ready to launch your international career with us? We are currently looking for at least one additional Trainee for our Business Unit Automotive & Industry to join the Technical Services / Market Field Engineering Team. This Traineeship will take place in Widen, Switzerland, for 12 months, before joining our Technical Team in Bad Urach, Germany . What could the job of such Engineer look like after the Traineeship? Providing technical advice and support independently of selected key accounts, engineering offices, consultants, etc. (including visits) for assigned product groups Technical interpretation of customer and market needs and initiation of new developments based on PCP Develop innovating solutions for new or existing applications Implementation of new products (including field tests) and solutions in close cooperation with sales and marketing and other involved departments Technical responsibility for the specific product portfolio including maintenance Identification of corresponding and competitive gaps, niches and opportunities Supporting local sales organizations and global key accounts in case of complaints/claims Arrange and support of trainings for customers and local SO’s Work out of technical argumentation for sales and marketing",
       "descriptionByLocale": {
@@ -1734,7 +1892,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3cbc69e7-e55b-46ad-bd21-83adbb7da047.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:43:15.158Z",
+      "crawledAt": "2026-09-25T14:51:28.139Z",
       "addressLocality": "Widen",
       "postalCode": "",
       "streetAddress": "",
@@ -1769,6 +1927,7 @@
         ]
       },
       "firstSeenAt": "2026-06-24T12:15:19.902Z",
+      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -1798,7 +1957,7 @@
       "title": "Anlagenführer (w/m) / Process Operator (f/m)",
       "titleByLocale": {
         "it": "Gestione del sistema (m/f) / Operatore di processo (m/f)",
-        "en": "System Manager (m/f) / Process Operator (m/f)",
+        "en": "Anlagenführer (w/m) / Process Operator (f/m)",
         "de": "Anlagenführer (w/m) / Process Operator (f/m)",
         "fr": "Gestionnaire de système (h/f) / Opérateur de processus (h/f)"
       },
@@ -1814,7 +1973,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f6219ca1-f42f-4e64-8889-27137b4bfc59.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:14.336Z",
+      "crawledAt": "2026-09-25T14:51:27.816Z",
       "addressLocality": "Düdingen",
       "postalCode": "",
       "streetAddress": "",
@@ -1849,6 +2008,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:33:55.431Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "salarySource": "estimated",
@@ -1894,7 +2054,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-84394ce8-7a82-4266-a4ed-e5430c33a22c.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:43:13.251Z",
+      "crawledAt": "2026-09-25T14:51:26.875Z",
       "addressLocality": "Widen",
       "postalCode": "",
       "streetAddress": "",
@@ -1926,6 +2086,7 @@
         ]
       },
       "firstSeenAt": "2026-06-24T12:15:17.810Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -1971,7 +2132,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-7935c6a5-a982-417c-a831-a729f915110a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:12.429Z",
+      "crawledAt": "2026-09-25T14:51:25.861Z",
       "addressLocality": "Romanshorn",
       "postalCode": "",
       "streetAddress": "",
@@ -2049,7 +2210,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-11c0233a-49dd-4757-87a2-ab955f3fe3ae.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:11.652Z",
+      "crawledAt": "2026-09-25T14:51:25.527Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -2084,6 +2245,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:04:47.537Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2129,7 +2291,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-efd2a596-305a-4daa-bcd2-b8e6a6aeb483.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:11.320Z",
+      "crawledAt": "2026-09-25T14:51:24.400Z",
       "addressLocality": "Sarnen",
       "postalCode": "",
       "streetAddress": "",
@@ -2156,10 +2318,10 @@
           "mitarbeiter-facility-management-post-und-service-desk-80-100-m-w-d-sika-ch",
           "collaboratore-trice-facility-management-post-e-service-desk-80-100-m-w-d-sika-sarnen"
         ],
-        "fr": [
+        "en": [
           "mitarbeiter-facility-management-post-und-service-desk-80-100-m-w-d-sika-ch"
         ],
-        "en": [
+        "fr": [
           "mitarbeiter-facility-management-post-und-service-desk-80-100-m-w-d-sika-ch"
         ]
       },
@@ -2176,7 +2338,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-0731946ae70b",
@@ -2209,7 +2372,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9c76864a-9d47-46eb-af82-10893fcfc91e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:43:10.538Z",
+      "crawledAt": "2026-09-25T14:51:23.461Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -2275,7 +2438,7 @@
       "companyDomain": "sika.com",
       "title": "Accountant Administrator 80-100% (m/w/d)",
       "titleByLocale": {
-        "it": "Accountant Administrator 80-100% (m/w/d)",
+        "it": "Amministratore Contabile 80-100% (m/f/d)",
         "en": "Accountant Administrator 80-100% (m/f/d)",
         "de": "Buchhalter Administrator 80-100% (m/w/d)",
         "fr": "Comptable Administrator 80-100% (m/w/d)"
@@ -2292,7 +2455,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d897ff96-9443-4d94-9960-aa782e205a4e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:09.251Z",
+      "crawledAt": "2026-09-25T14:51:23.127Z",
       "addressLocality": "Sarnen",
       "postalCode": "",
       "streetAddress": "",
@@ -2333,7 +2496,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-d98934919978",
@@ -2366,7 +2530,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-ceb48e09-8c2c-4301-8606-3eb66706399e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:08.496Z",
+      "crawledAt": "2026-09-25T14:51:22.100Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -2452,7 +2616,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-598b5ba4-0f88-44a2-a6f6-3f57a14b3489.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:07.746Z",
+      "crawledAt": "2026-09-25T14:51:21.022Z",
       "addressLocality": "Romanshorn",
       "postalCode": "",
       "streetAddress": "",
@@ -2487,6 +2651,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:29:24.819Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -2532,7 +2697,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a59da0b4-eae8-4a6a-bbe8-eb7b46d5097a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:06.906Z",
+      "crawledAt": "2026-09-25T14:51:19.778Z",
       "addressLocality": "Romanshorn",
       "postalCode": "",
       "streetAddress": "",
@@ -2569,6 +2734,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:29:23.952Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -2614,7 +2780,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-20c6a9ab-10e9-4574-b3da-f46b36088efb.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:05.774Z",
+      "crawledAt": "2026-09-25T14:51:18.869Z",
       "addressLocality": "Romanshorn",
       "postalCode": "",
       "streetAddress": "",
@@ -2666,6 +2832,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:29:22.601Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -2711,7 +2878,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-40cd3de7-667b-42a1-8711-7f423ba87261.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:04.480Z",
+      "crawledAt": "2026-09-25T14:51:17.822Z",
       "addressLocality": "Arbon / Romanshorn",
       "postalCode": "",
       "streetAddress": "",
@@ -2750,6 +2917,7 @@
         ]
       },
       "firstSeenAt": "2026-08-05T11:43:39.273Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -2795,7 +2963,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f8349eaa-d440-4a6a-9632-85b45ced7aac.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:43:03.596Z",
+      "crawledAt": "2026-09-25T14:51:16.799Z",
       "addressLocality": "Widen",
       "postalCode": "",
       "streetAddress": "",
@@ -2830,6 +2998,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:04:36.555Z",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -2875,7 +3044,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-cb6e612b-ff81-44e4-9192-a70e20d8cd24.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:03.245Z",
+      "crawledAt": "2026-09-25T14:51:16.471Z",
       "addressLocality": "Romanshorn",
       "postalCode": "",
       "streetAddress": "",
@@ -2949,7 +3118,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f8c274e8-611d-4253-9602-49e5c5a31e35.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:43:00.911Z",
+      "crawledAt": "2026-09-25T14:51:15.549Z",
       "addressLocality": "Birr",
       "postalCode": "",
       "streetAddress": "",
@@ -2984,6 +3153,7 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:27:27.990Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -3029,7 +3199,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-17f2ace7-6f20-4008-8a3a-75c49582965e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:42:59.958Z",
+      "crawledAt": "2026-09-25T14:51:14.570Z",
       "addressLocality": "Sarnen",
       "postalCode": "",
       "streetAddress": "",
@@ -3056,10 +3226,10 @@
           "produktionsplaner-production-planner-sika-ch",
           "pianificatore-di-produzione-pianificatore-di-produzione-sika-sarnen-obwalden"
         ],
-        "fr": [
+        "en": [
           "produktionsplaner-production-planner-sika-ch"
         ],
-        "en": [
+        "fr": [
           "produktionsplaner-production-planner-sika-ch"
         ]
       },
@@ -3109,7 +3279,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-361ed442-ee02-45af-bc96-ad72b2960b3e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:42:58.889Z",
+      "crawledAt": "2026-09-25T14:51:14.224Z",
       "addressLocality": "Baar",
       "postalCode": "6341",
       "streetAddress": "",
@@ -3179,7 +3349,7 @@
       "descriptionByLocale": {
         "it": "In qualità di Vertical Market Residential Intern, assisterai i team di costruzione residenziali e modulari del mercato verticale EMEA con i seguenti compiti: comunicazione, monitoraggio, supporto tecnico e altro ancora. Preparazione di documenti tecnici di informazione e specificazione Istituzione di strumenti di comunicazione interna Gestione delle condotte di progetto Attuazione degli strumenti di reporting interni, esecuzione del bilancio di vendita, panoramica cruscotti, ecc. Organizzazione di eventi e congressi dei clienti Supporto tecnico per i progetti dei clienti in tutta Europa",
         "en": "As a Vertical Market Residential Intern, you will assist the EMEA vertical market residential and modular construction teams with the following tasks around the topics communication, monitoring, technical support and more. Preparation of technical information and specification documents Establishing internal communication tools Project pipeline management Implementation of internal reporting tools, sales budget execution, dashboards overview, etc. Organization of customer events and congresses Technical support for customer projects across Europe",
-        "de": "Als Vertical Market Residential Intern unterstützen Sie die vertikalen EMEA-Wohn- und Modulbauteams bei den folgenden \n• Aufgaben rund um die Themen Kommunikation, Überwachung, technischer Support und mehr. Erstellung von technischen Informationen und Spezifikationsdokumenten Einrichtung interner Kommunikationstools Projektpipeline-Management Implementierung interner Reporting-Tools, Ausführung des Verkaufsbudgets, Übersicht der Dashboards usw. Organisation von Kundenveranstaltungen und Kongressen Technischer Support für Kundenprojekte in ganz Europa",
+        "de": "Als Vertical Market Residential Intern unterstützen Sie die vertikalen EMEA-Wohn- und Modulbauteams bei den folgenden\n• Aufgaben rund um die Themen Kommunikation, Überwachung, technischer Support und mehr. Erstellung von technischen Informationen und Spezifikationsdokumenten Einrichtung interner Kommunikationstools Projektpipeline-Management Implementierung interner Reporting-Tools, Ausführung des Verkaufsbudgets, Übersicht der Dashboards usw. Organisation von Kundenveranstaltungen und Kongressen Technischer Support für Kundenprojekte in ganz Europa",
         "fr": "En tant que stagiaire résidentiel du marché vertical, vous assisterez les équipes de construction résidentielle et modulaire du marché vertical de l'EMEA dans les tâches suivantes : communication, suivi, support technique, etc. Élaboration de documents d'information technique et de spécifications Établissement d'outils de communication interne Gestion des pipelines de projets Mise en oeuvre d'outils de rapport interne, exécution du budget de vente, tableau de bord, etc. Organisation d'événements et de congrès clients Assistance technique pour les projets clients dans toute l'Europe"
       },
       "location": "Zürich, Zurich",
@@ -3187,7 +3357,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-fe672698-3d58-4497-869a-177533567acd.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:42:58.284Z",
+      "crawledAt": "2026-09-25T14:51:13.204Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -3205,10 +3375,14 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-fe672698-3d58-4497-869a-177533567acd.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-19T23:04:29.661Z",
+      "previousSlugs": [
+        "intern-vertical-market-residential-sika-ch",
+        "tirocinante-vertical-market-residential-sika-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "intern-vertical-market-residential-sika-ch"
+          "intern-vertical-market-residential-sika-ch",
+          "tirocinante-vertical-market-residential-sika-zurich"
         ],
         "de": [
           "intern-vertical-market-residential-sika-ch"
@@ -3217,9 +3391,7 @@
           "intern-vertical-market-residential-sika-ch"
         ]
       },
-      "previousSlugs": [
-        "intern-vertical-market-residential-sika-ch"
-      ],
+      "firstSeenAt": "2026-09-19T23:04:29.661Z",
       "salaryMin": 63500,
       "salaryMax": 112500,
       "salarySource": "estimated",
@@ -3265,7 +3437,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a63c423e-926d-4bc3-9fe6-dff0557bd56d.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:42:56.844Z",
+      "crawledAt": "2026-09-25T14:51:12.012Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -3298,6 +3470,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:04:27.461Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -3343,7 +3516,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-876da52f-e983-4a7f-a401-e43daa0a535a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:42:55.713Z",
+      "crawledAt": "2026-09-25T14:51:10.874Z",
       "addressLocality": "Birr",
       "postalCode": "",
       "streetAddress": "",
@@ -3380,6 +3553,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:04:26.508Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -3393,6 +3567,73 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "sika-1f9bcd5b2c78",
+      "slug": "regulatory-data-digital-solutions-manager-sika-ch",
+      "slugByLocale": {
+        "en": "regulatory-data-digital-solutions-manager-sika-ch",
+        "it": "regulatory-data-digital-solutions-manager-sika-ch",
+        "de": "regulatory-data-digital-solutions-manager-sika-ch",
+        "fr": "regulatory-data-digital-solutions-manager-sika-ch"
+      },
+      "company": "Sika",
+      "companyKey": "sika",
+      "companyDomain": "sika.com",
+      "title": "Regulatory Data & Digital Solutions Manager",
+      "titleByLocale": {
+        "en": "Regulatory Data & Digital Solutions Manager",
+        "it": "Regulatory Data & Digital Solutions Manager",
+        "de": "Regulatory Data & Digital Solutions Manager",
+        "fr": "Regulatory Data & Digital Solutions Manager"
+      },
+      "description": "Develop and drive the regulatory data strategy, target architecture, and capability roadmap Translate regulatory requirements into structured data, metadata, traceability, retention, access, and reporting requirements Define regulatory data objects, ownership models, quality standards, controls, and lifecycle governance Collaborate with Product Conformity, Data Management, IT, Procurement, Supply Chain, Sustainability, and business stakeholders to identify and prioritize requirements Coordinate solution design and integration across enterprise platforms such as SAP, PIM, EDMS, and related systems Support packaging and supplier information management, Digital Product Passport (DPP) initiatives, and external information publication requirements Establish and maintain a transparent regulatory data and digital solutions backlog Design reusable data models, interfaces, and governance components for current and future regulatory frameworks Prepare implementation roadmaps and transition plans while ensuring alignment with corporate Data and IT standards",
+      "descriptionByLocale": {
+        "en": "Develop and drive the regulatory data strategy, target architecture, and capability roadmap Translate regulatory requirements into structured data, metadata, traceability, retention, access, and reporting requirements Define regulatory data objects, ownership models, quality standards, controls, and lifecycle governance Collaborate with Product Conformity, Data Management, IT, Procurement, Supply Chain, Sustainability, and business stakeholders to identify and prioritize requirements Coordinate solution design and integration across enterprise platforms such as SAP, PIM, EDMS, and related systems Support packaging and supplier information management, Digital Product Passport (DPP) initiatives, and external information publication requirements Establish and maintain a transparent regulatory data and digital solutions backlog Design reusable data models, interfaces, and governance components for current and future regulatory frameworks Prepare implementation roadmaps and transition plans while ensuring alignment with corporate Data and IT standards",
+        "it": "Develop and drive the regulatory data strategy, target architecture, and capability roadmap Translate regulatory requirements into structured data, metadata, traceability, retention, access, and reporting requirements Define regulatory data objects, ownership models, quality standards, controls, and lifecycle governance Collaborate with Product Conformity, Data Management, IT, Procurement, Supply Chain, Sustainability, and business stakeholders to identify and prioritize requirements Coordinate solution design and integration across enterprise platforms such as SAP, PIM, EDMS, and related systems Support packaging and supplier information management, Digital Product Passport (DPP) initiatives, and external information publication requirements Establish and maintain a transparent regulatory data and digital solutions backlog Design reusable data models, interfaces, and governance components for current and future regulatory frameworks Prepare implementation roadmaps and transition plans while ensuring alignment with corporate Data and IT standards",
+        "de": "Develop and drive the regulatory data strategy, target architecture, and capability roadmap Translate regulatory requirements into structured data, metadata, traceability, retention, access, and reporting requirements Define regulatory data objects, ownership models, quality standards, controls, and lifecycle governance Collaborate with Product Conformity, Data Management, IT, Procurement, Supply Chain, Sustainability, and business stakeholders to identify and prioritize requirements Coordinate solution design and integration across enterprise platforms such as SAP, PIM, EDMS, and related systems Support packaging and supplier information management, Digital Product Passport (DPP) initiatives, and external information publication requirements Establish and maintain a transparent regulatory data and digital solutions backlog Design reusable data models, interfaces, and governance components for current and future regulatory frameworks Prepare implementation roadmaps and transition plans while ensuring alignment with corporate Data and IT standards",
+        "fr": "Develop and drive the regulatory data strategy, target architecture, and capability roadmap Translate regulatory requirements into structured data, metadata, traceability, retention, access, and reporting requirements Define regulatory data objects, ownership models, quality standards, controls, and lifecycle governance Collaborate with Product Conformity, Data Management, IT, Procurement, Supply Chain, Sustainability, and business stakeholders to identify and prioritize requirements Coordinate solution design and integration across enterprise platforms such as SAP, PIM, EDMS, and related systems Support packaging and supplier information management, Digital Product Passport (DPP) initiatives, and external information publication requirements Establish and maintain a transparent regulatory data and digital solutions backlog Design reusable data models, interfaces, and governance components for current and future regulatory frameworks Prepare implementation roadmaps and transition plans while ensuring alignment with corporate Data and IT standards"
+      },
+      "location": "Zürich, Zurich",
+      "canton": "ZH",
+      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-056d3c3e-9158-4e55-82ab-f4f6be0c76c0.html",
+      "source": "Sika Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-25T14:51:09.823Z",
+      "addressLocality": "Zürich",
+      "postalCode": "",
+      "streetAddress": "",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Specialty chemicals (construction & industrial)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-056d3c3e-9158-4e55-82ab-f4f6be0c76c0.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-25T14:51:09.823Z"
     },
     {
       "id": "sika-d613c2147364",
@@ -3425,7 +3666,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-0dbecc32-10e1-4d94-be74-f6326d4f2bbe.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:42:54.921Z",
+      "crawledAt": "2026-09-25T14:51:08.788Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -3460,6 +3701,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:04:24.346Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -3505,7 +3747,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f0e3bbbd-3961-486f-ab8e-49a3c9614bfe.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:42:54.102Z",
+      "crawledAt": "2026-09-25T14:51:07.584Z",
       "addressLocality": "Romanshorn",
       "postalCode": "",
       "streetAddress": "",
@@ -3523,10 +3765,14 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f0e3bbbd-3961-486f-ab8e-49a3c9614bfe.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-19T23:04:23.358Z",
+      "previousSlugs": [
+        "supplier-quality-engineer-injection-molding-emea-sika-ch",
+        "supplier-quality-ingegnere-injection-molding-emea-sika-romanshorn"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "supplier-quality-engineer-injection-molding-emea-sika-ch"
+          "supplier-quality-engineer-injection-molding-emea-sika-ch",
+          "supplier-quality-ingegnere-injection-molding-emea-sika-romanshorn"
         ],
         "de": [
           "supplier-quality-engineer-injection-molding-emea-sika-ch"
@@ -3535,9 +3781,7 @@
           "supplier-quality-engineer-injection-molding-emea-sika-ch"
         ]
       },
-      "previousSlugs": [
-        "supplier-quality-engineer-injection-molding-emea-sika-ch"
-      ],
+      "firstSeenAt": "2026-09-19T23:04:23.358Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -3550,7 +3794,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }

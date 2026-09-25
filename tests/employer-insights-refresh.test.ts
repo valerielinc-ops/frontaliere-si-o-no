@@ -9,10 +9,6 @@ const REFRESH_WORKFLOW_SOURCE = readFileSync(
   new URL('../.github/workflows/employer-insights-refresh.yml', import.meta.url),
   'utf8',
 );
-const ANALYTICS_REPORT_SOURCE = readFileSync(
-  new URL('../scripts/analytics-report.mjs', import.meta.url),
-  'utf8',
-);
 
 describe('employer insights refresh rollback', () => {
   it('runs and validates the bounded D18 two-regime artifact beside the legacy writer', () => {
@@ -26,11 +22,11 @@ describe('employer insights refresh rollback', () => {
     expect(REFRESH_WORKFLOW_SOURCE).not.toMatch(/^\s+- posthog$/m);
   });
 
-  it('provisions the D18 emission dimension before the live GA4 probe', () => {
-    expect(ANALYTICS_REPORT_SOURCE).toMatch(
-      /parameterName: 'emission_id',[\s\S]*?scope: 'EVENT'/,
-    );
-    expect(ANALYTICS_REPORT_SOURCE).toContain('Stable analytics emission identifier for employer-insights deduplication');
+  it('provisions GA4 custom dimensions before the fail-closed builder query', () => {
+    const provisionIndex = REFRESH_WORKFLOW_SOURCE.indexOf('node scripts/ensure-employer-insights-ga4-dimensions.mjs');
+    const builderIndex = REFRESH_WORKFLOW_SOURCE.indexOf('node scripts/build-employer-insights.mjs');
+    expect(provisionIndex).toBeGreaterThan(-1);
+    expect(builderIndex).toBeGreaterThan(provisionIndex);
   });
 
   it('accepts a D18 fixture with both regimes and keeps the period total non-summable', () => {

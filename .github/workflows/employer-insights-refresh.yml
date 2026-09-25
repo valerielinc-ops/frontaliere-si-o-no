@@ -101,6 +101,9 @@ jobs:
               ;;
           esac
 
+      - name: Ensure employer insights GA4 dimensions
+        run: node scripts/ensure-employer-insights-ga4-dimensions.mjs
+
       - name: Count current employer snapshots
         run: |
           set -euo pipefail

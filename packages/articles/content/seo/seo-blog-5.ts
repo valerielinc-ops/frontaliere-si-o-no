@@ -47536,16 +47536,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-insegnanti-frontalieri-stipendio-requisiti-ticino': {
     title: 'Frontaliere insegnante scuola Ticino stipendio requisiti',
-    description: 'La nuova convenzione italo-svizzera del 9 dicembre 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730). Dati aggiornati 2026 per',
+    description: 'La nuova convenzione italo-svizzera del 9 marzo 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730). Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, insegnante, scuola, stipendio, requisiti',
     ogTitle: 'Frontaliere insegnante scuola Ticino stipendio requisiti',
-    ogDescription: 'La nuova convenzione italo-svizzera del 9 dicembre 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730).',
+    ogDescription: 'La nuova convenzione italo-svizzera del 9 marzo 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730).',
     canonicalPath: '/articoli-frontaliere/insegnanti-frontalieri-stipendio-requisiti-ticino',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Frontaliere insegnante scuola Ticino stipendio requisiti",
-      "description": "La nuova convenzione italo-svizzera del 9 dicembre 1976 evita la doppia imposizione con il credito d'imposta (quadro CE del 730). Dati aggiornati 2026 per",
+      "description": "La nuova convenzione italo-svizzera del 9 marzo 1976 evita la doppia imposizione con il credito d'imposta (quadro CE del 730). Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -73122,16 +73122,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-vivere-fagnano-olona-lavorare-ticino': {
     title: 'Vivere a Fagnano Olona e lavorare in Ticino da frontaliere',
-    description: 'Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 dicembre 1976. Dati aggiornati 2026 per frontalieri in Ticino.',
+    description: 'Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 marzo 1976. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, vivere, fagnano, olona, lavorare',
     ogTitle: 'Vivere a Fagnano Olona e lavorare in Ticino da frontaliere',
-    ogDescription: 'Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 dicembre 1976',
+    ogDescription: 'Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 marzo 1976',
     canonicalPath: '/articoli-frontaliere/vivere-fagnano-olona-lavorare-ticino',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Vivere a Fagnano Olona e lavorare in Ticino da frontaliere",
-      "description": "Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 dicembre 1976. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "description": "Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 marzo 1976. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -92811,6 +92811,708 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/decisione-bns-cambio-franco-euro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cgil-regio-insubrica-incontro-novembre': {
+    title: 'Cgil chiede al Piemonte soluzione tassa salute',
+    description: 'La Cgil chiede al Piemonte di chiudere la partita sulla tassa della salute: contributo sanitario senza decreti, ristorni 2026 a 108 milioni, tavolo',
+    keywords: 'frontalieri, ticino, svizzera, italia, cgil, chiede, piemonte, soluzione',
+    ogTitle: 'Cgil chiede al Piemonte soluzione tassa salute',
+    ogDescription: 'La Cgil sollecita il Piemonte a utilizzare la presidenza della Regio Insubrica per risolvere la questione della tassa sulla salute, ancora senza decreti attuativi dopo due anni e mezzo, mentre i ristorni 2026 raggiungono 108 milioni di euro',
+    canonicalPath: '/articoli-frontaliere/cgil-regio-insubrica-incontro-novembre',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cgil chiede al Piemonte soluzione tassa salute",
+      "description": "La Cgil chiede al Piemonte di chiudere la partita sulla tassa della salute: contributo sanitario senza decreti, ristorni 2026 a 108 milioni, tavolo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cgil-regio-insubrica-incontro-novembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere che cammina vicino al lago di Lugano con le Alpi sullo sfondo"
+      },
+      "datePublished": "2026-09-24T18:07:31+00:00",
+      "dateModified": "2026-09-24T18:07:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cgil-regio-insubrica-incontro-novembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pensione-pubblica-svizzera-non-tassata-italia': {
+    title: 'Pensione pubblica svizzera: nessuna tassazione in Italia',
+    description: 'Scopri come la risposta a interpello n. 177/2026 dell’Agenzia delle Entrate esclude la tassazione in Italia sulle pensioni pubbliche svizzere erogate dal DDPS',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensione, pubblica, nessuna, tassazione',
+    ogTitle: 'Pensione pubblica svizzera: nessuna tassazione in Italia',
+    ogDescription: 'La risposta a interpello n. 177/2026 dell’Agenzia delle Entrate chiarisce che le pensioni pubbliche svizzere erogate dalla Cassa PUBLICA del DDPS non sono tassabili in Italia per i soggetti con doppia cittadinanza italiana e svizzera, grazie',
+    canonicalPath: '/articoli-frontaliere/pensione-pubblica-svizzera-non-tassata-italia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensione pubblica svizzera: nessuna tassazione in Italia",
+      "description": "Scopri come la risposta a interpello n. 177/2026 dell’Agenzia delle Entrate esclude la tassazione in Italia sulle pensioni pubbliche svizzere erogate dal DDPS",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pensione-pubblica-svizzera-non-tassata-italia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista sul lago di Lugano con montagne sullo sfondo, rappresentante la vita finanziaria transfrontaliera in Ticino"
+      },
+      "datePublished": "2026-09-24T18:59:17+00:00",
+      "dateModified": "2026-09-24T18:59:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pensione-pubblica-svizzera-non-tassata-italia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mobilizzazione-ferroviaria-luino-svizzera': {
+    title: 'Linea Luino-Svizzera: Azione aderisce a Lombardia si muove',
+    description: 'Sabato 26 settembre mobilitazione ferroviaria in Lombardia. Focus sulla tratta Luino-Svizzera: frequenze S30 ridotte e raccolta firme per il Ministro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, linea, luino-svizzera, azione, aderisce',
+    ogTitle: 'Linea Luino-Svizzera: mobilitazione il 26 settembre',
+    ogDescription: 'Azione aderisce al presidio di \'Lombardia si muove\' per denunciare il calo delle corse S30 (da 2/h a 4 al giorno) e lo stato delle stazioni di Luino e Maccagno.',
+    canonicalPath: '/articoli-frontaliere/mobilizzazione-ferroviaria-luino-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Linea Luino-Svizzera: Azione aderisce a Lombardia si muove",
+      "description": "Sabato 26 settembre mobilitazione ferroviaria in Lombardia. Focus sulla tratta Luino-Svizzera: frequenze S30 ridotte e raccolta firme per il Ministro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mobilizzazione-ferroviaria-luino-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno regionale in arrivo in una stazione del Ticino"
+      },
+      "datePublished": "2026-09-24T23:41:49+00:00",
+      "dateModified": "2026-09-24T23:41:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mobilizzazione-ferroviaria-luino-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bns-franco-euro-cambio': {
+    title: 'BNS: franco debole, euro a 0,9423 CHF | Frontaliere Ticino',
+    description: 'La BNS conferma il tasso allo zero percento. L\'euro sale a 0,9423 franchi e il dollaro a 0,8268. Analisi dell\'impatto sul controvalore per i frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, franco, debole, euro, 9423',
+    ogTitle: 'BNS: franco debole, euro a 0,9423 CHF',
+    ogDescription: 'Dopo la decisione della BNS di mantenere il tasso allo zero, il franco perde terreno: l\'euro sale a 0,9423 CHF e il dollaro a 0,8268 CHF. Cosa significa per il controvalore del reddito dei frontalieri? Analisi basata sui dati di mercato.',
+    canonicalPath: '/articoli-frontaliere/bns-franco-euro-cambio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BNS: franco debole, euro a 0,9423 CHF",
+      "description": "La BNS conferma il tasso allo zero percento. L'euro sale a 0,9423 franchi e il dollaro a 0,8268. Analisi dell'impatto sul controvalore per i frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bns-franco-euro-cambio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista sul Lago di Lugano con la città sullo sfondo, luce mattutina"
+      },
+      "datePublished": "2026-09-25T01:44:38+00:00",
+      "dateModified": "2026-09-25T01:44:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bns-franco-euro-cambio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-gornate-olona-regime-fiscale': {
+    title: 'Gornate Olona: lavorare in Ticino da frontaliere',
+    description: 'Vivere a Gornate Olona e lavorare in Ticino: guida per il frontaliere su imposta alla fonte, franchigie 2024, AVS, LPP, LAMal e 730 prima del trasferimento.',
+    keywords: 'frontalieri, ticino, svizzera, italia, gornate, olona, lavorare, accordo',
+    ogTitle: 'Gornate Olona e lavoro in Ticino da frontaliere',
+    ogDescription: 'Dalla scelta della casa alla lettura della busta paga: cosa considerare per vivere a Gornate Olona e lavorare in Ticino, tra imposta alla fonte, credito d’imposta nel 730, franchigia e contributi svizzeri.',
+    canonicalPath: '/articoli-frontaliere/gornate-olona-regime-fiscale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gornate Olona: lavorare in Ticino da frontaliere",
+      "description": "Vivere a Gornate Olona e lavorare in Ticino: guida per il frontaliere su imposta alla fonte, franchigie 2024, AVS, LPP, LAMal e 730 prima del trasferimento.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/gornate-olona-regime-fiscale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratore frontaliere tra Gornate Olona e il Canton Ticino"
+      },
+      "datePublished": "2026-09-25T03:48:19+00:00",
+      "dateModified": "2026-09-25T03:48:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gornate-olona-regime-fiscale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bns-decisione-tasso-invariato-2026': {
+    title: 'BNS lascia tasso allo 0% e alza PIL 2026 | Frontaliere Ticino',
+    description: 'La BNS mantiene il tasso di riferimento allo 0% (invariato da giugno 2025), prevede inflazione 0,7% nel 2026 e 0,8% nel 2027 e PIL 2026 tra l’1,5% e il 2,0%',
+    keywords: 'frontalieri, ticino, svizzera, italia, lascia, tasso, allo, alza',
+    ogTitle: 'BNS lascia tasso allo 0% e alza PIL 2026',
+    ogDescription: 'Il 24 settembre 2026 la Banca nazionale svizzera ha confermato il tasso di riferimento allo 0%, livello invariato da giugno 2025. Ha rivisto al rialzo le stime di inflazione (0,7% 2026, 0,8% 2027) e del PIL 2026 tra l’1,5% e il 2,0%. Un articolo',
+    canonicalPath: '/articoli-frontaliere/bns-decisione-tasso-invariato-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BNS lascia tasso allo 0% e alza PIL 2026",
+      "description": "La BNS mantiene il tasso di riferimento allo 0% (invariato da giugno 2025), prevede inflazione 0,7% nel 2026 e 0,8% nel 2027 e PIL 2026 tra l’1,5% e il 2,0%",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bns-decisione-tasso-invariato-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con le montagne sullo sfondo, luce mattutina"
+      },
+      "datePublished": "2026-09-25T04:30:31+00:00",
+      "dateModified": "2026-09-25T04:30:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bns-decisione-tasso-invariato-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-riassetto-ferroviario-lavoratori': {
+    title: 'Ffs Cargo, le prospettive occupazionali fanno discutere',
+    description: 'FFS Cargo riorganizza: Governo, Ferrovie e sindacati fanno il punto su 80 dipendenti; tre sono ancora senza proposte lavorative. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, cargo, prospettive, occupazionali, fanno',
+    ogTitle: 'FFS Cargo: 80 dipendenti nella riorganizzazione',
+    ogDescription: 'Il confronto sulla riorganizzazione di FFS Cargo coinvolge 80 dipendenti. Governo, direzione delle Ferrovie e sigle sindacali hanno fatto il punto; tre collaboratori restano senza proposte lavorative.',
+    canonicalPath: '/articoli-frontaliere/riassetto-ferroviario-lavoratori',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ffs Cargo, le prospettive occupazionali fanno discutere",
+      "description": "FFS Cargo riorganizza: Governo, Ferrovie e sindacati fanno il punto su 80 dipendenti; tre sono ancora senza proposte lavorative. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/riassetto-ferroviario-lavoratori.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno merci FFS Cargo in uno scalo ferroviario del Ticino"
+      },
+      "datePublished": "2026-09-25T09:17:00+00:00",
+      "dateModified": "2026-09-25T09:17:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/riassetto-ferroviario-lavoratori/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ridurre-tempi-ripristino-a2-mezzovico': {
+    title: 'Ridurre i tempi di ripristino dopo incidente A2 Mezzovico',
+    description: 'Lorenzo Quadri presenta una mozione al Consiglio federale per ridurre i tempi di ripristino dopo incidenti sulla A2 a Mezzovico, dove la chiusura è durata oltre',
+    keywords: 'frontalieri, ticino, svizzera, italia, ridurre, tempi, ripristino, dopo',
+    ogTitle: 'Ridurre i tempi di ripristino dopo incidente A2 Mezzovico',
+    ogDescription: 'La mozione di Lorenzo Quadri sollecita il Consiglio federale a esaminare e accorciare i tempi di ripristino della viabilità dopo incidenti autostradali, citando il caso della A2 a Mezzovico con chiusura oltre cinque ore e colonne fino a 13',
+    canonicalPath: '/articoli-frontaliere/ridurre-tempi-ripristino-a2-mezzovico',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ridurre i tempi di ripristino dopo incidente A2 Mezzovico",
+      "description": "Lorenzo Quadri presenta una mozione al Consiglio federale per ridurre i tempi di ripristino dopo incidenti sulla A2 a Mezzovico, dove la chiusura è durata oltre",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ridurre-tempi-ripristino-a2-mezzovico.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea dell'autostrada A2 vicino a Mezzovico con coda di veicoli e mezzi di soccorso"
+      },
+      "datePublished": "2026-09-25T10:00:16+00:00",
+      "dateModified": "2026-09-25T10:00:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ridurre-tempi-ripristino-a2-mezzovico/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-09-25': {
+    title: 'Bollettino del frontaliere – 25 settembre 2026: 1716 nuovi annunci di lavoro ieri',
+    description: 'Bollettino frontalieri del 25 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Bollettino del frontaliere – 25 settembre 2026: 1716 nuovi annunci di lavoro ieri',
+    ogDescription: 'I numeri del 25 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-09-25',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollettino del frontaliere – 25 settembre 2026: 1716 nuovi annunci di lavoro ieri",
+      "description": "Bollettino frontalieri del 25 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-09-25.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 25 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-09-25T10:05:05+00:00",
+      "dateModified": "2026-09-25T10:05:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-09-25/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pasture-cambio-operatore': {
+    title: 'A Pasture cambia l\'operatore: posti di lavoro a rischio',
+    description: 'A Pasture il mandato federale del Centro d\'asilo passerà da AOZ a ORS a gennaio. In Ticino sono 120 i dipendenti oggi in servizio: non tutti saranno riassunti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pasture, cambia, operatore, posti',
+    ogTitle: 'Pasture, da AOZ a ORS: posti di lavoro a rischio',
+    ogDescription: 'A Pasture cambia l\'operatore per l\'assistenza: a gennaio il mandato federale del Centro d\'asilo passa da AOZ a ORS. In Ticino i dipendenti oggi in servizio sono 120, ma ORS non li riassumerà tutti. La fonte non indica quanti posti siano a rischio.',
+    canonicalPath: '/articoli-frontaliere/pasture-cambio-operatore',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A Pasture cambia l'operatore: posti di lavoro a rischio",
+      "description": "A Pasture il mandato federale del Centro d'asilo passerà da AOZ a ORS a gennaio. In Ticino sono 120 i dipendenti oggi in servizio: non tutti saranno riassunti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pasture-cambio-operatore.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pasture, cambio dell'operatore per l'assistenza nel Canton Ticino"
+      },
+      "datePublished": "2026-09-25T11:13:59+00:00",
+      "dateModified": "2026-09-25T11:13:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pasture-cambio-operatore/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-eta-pensione-2030-ragioneria': {
+    title: 'Età pensione: 67 anni e 6 mesi nel 2030 | Frontaliere Ticino',
+    description: 'Il Rapporto n. 27 della Ragioneria prevede 67 anni e 6 mesi nel 2030 e analizza la spesa per pensioni, sanità e assistenza agli anziani nei prossimi anni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensione, anni, mesi, ragioneria',
+    ogTitle: 'Età pensione: 67 anni e 6 mesi nel 2030',
+    ogDescription: 'Il Rapporto n. 27 del 22 settembre 2026 non cambia le regole, ma proietta l\'età pensionabile a 67 anni e 6 mesi nel 2030, a 68 anni e 2 mesi nel 2040 e a 70 anni nel 2050. Il tema resta distinto da permesso G, AVS e LPP, che la fonte non esamina.',
+    canonicalPath: '/articoli-frontaliere/eta-pensione-2030-ragioneria',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Età pensione: 67 anni e 6 mesi nel 2030",
+      "description": "Il Rapporto n. 27 della Ragioneria prevede 67 anni e 6 mesi nel 2030 e analizza la spesa per pensioni, sanità e assistenza agli anziani nei prossimi anni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/eta-pensione-2030-ragioneria.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratore maturo consulta documenti sulla pensione con il paesaggio ticinese sullo sfondo"
+      },
+      "datePublished": "2026-09-25T12:01:41+00:00",
+      "dateModified": "2026-09-25T12:01:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/eta-pensione-2030-ragioneria/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-chiusura-cantonale-neggia-fosano': {
+    title: 'Cantonale chiusa tra Neggia e Fosano il 28 settembre',
+    description: 'La Cantonale tra Neggia e Fosano, nel comune di Gambarogno, sarà chiusa lunedì 28 settembre dalle 8 alle 16.30 per lavori di pavimentazione in giornata.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cantonale, chiusa, neggia, fosano',
+    ogTitle: 'Cantonale chiusa tra Neggia e Fosano il 28 settembre',
+    ogDescription: 'La Cantonale tra Neggia e Fosano sarà totalmente sbarrata al traffico lunedì 28 settembre, dalle 8 alle 16.30. Il blocco, disposto per lavori di pavimentazione, riguarda La Stràda d\'lndéman 88 nel comune di Gambarogno.',
+    canonicalPath: '/articoli-frontaliere/chiusura-cantonale-neggia-fosano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cantonale chiusa tra Neggia e Fosano il 28 settembre",
+      "description": "La Cantonale tra Neggia e Fosano, nel comune di Gambarogno, sarà chiusa lunedì 28 settembre dalle 8 alle 16.30 per lavori di pavimentazione in giornata.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/chiusura-cantonale-neggia-fosano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada Cantonale tra Neggia e Fosano chiusa per lavori di pavimentazione"
+      },
+      "datePublished": "2026-09-25T12:46:46+00:00",
+      "dateModified": "2026-09-25T12:46:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusura-cantonale-neggia-fosano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-gehri-finanze-preventivo-27': {
+    title: 'Gehri lancia l\'allarme sul deficit del Ticino | Frontaliere Ticino',
+    description: 'Prima del Preventivo \'27, il presidente della Camera di commercio Gehri definisce insostenibile il deficit cantonale e critica l\'inerzia politica del Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, gehri, lancia, allarme, deficit',
+    ogTitle: 'Gehri: deficit insostenibile per il Ticino',
+    ogDescription: 'Prima del Preventivo \'27, Gehri, presidente della Camera di commercio, lancia un appello alla politica sulle finanze cantonali: il deficit è definito insostenibile e l\'inerzia difficile da giustificare.',
+    canonicalPath: '/articoli-frontaliere/gehri-finanze-preventivo-27',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gehri lancia l'allarme sul deficit del Ticino",
+      "description": "Prima del Preventivo '27, il presidente della Camera di commercio Gehri definisce insostenibile il deficit cantonale e critica l'inerzia politica del Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/gehri-finanze-preventivo-27.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona e il Castelgrande in una giornata luminosa"
+      },
+      "datePublished": "2026-09-25T13:54:56+00:00",
+      "dateModified": "2026-09-25T13:54:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gehri-finanze-preventivo-27/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-chiusura-gazzada-varese-ss707': {
+    title: 'Superstrada Gazzada-Varese chiusa il 24 settembre',
+    description: 'La SS 707 Raccordo Gazzada-Varese sarà chiusa verso Varese il 24 settembre, dalle 9 alle 17: lavori Anas tra km 3+100 e km 4+500, limite a 50 km/h nell\'area.',
+    keywords: 'frontalieri, ticino, svizzera, italia, superstrada, gazzada-varese, chiusa, settembre',
+    ogTitle: 'SS 707 Gazzada-Varese: chiusura verso Varese',
+    ogDescription: 'L\'ordinanza Anas prevede lo stop alla circolazione sulla SS 707 Raccordo Gazzada-Varese, in direzione Varese, dalle 9 alle 17 di giovedì 24 settembre. Coinvolti i chilometri dal 3+100 al 4+500 e limite di 50 km/h nell\'area dei lavori.',
+    canonicalPath: '/articoli-frontaliere/chiusura-gazzada-varese-ss707',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Superstrada Gazzada-Varese chiusa il 24 settembre",
+      "description": "La SS 707 Raccordo Gazzada-Varese sarà chiusa verso Varese il 24 settembre, dalle 9 alle 17: lavori Anas tra km 3+100 e km 4+500, limite a 50 km/h nell'area.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/chiusura-gazzada-varese-ss707.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Chiusura della SS 707 Gazzada-Varese in direzione del capoluogo"
+      },
+      "datePublished": "2026-09-25T14:53:02+00:00",
+      "dateModified": "2026-09-25T14:53:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusura-gazzada-varese-ss707/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-roberto-gatti-11-promozioni-podcast': {
+    title: 'Roberto Gatti a Figli di un gol minore: 11 promozioni',
+    description: 'L\'ex difensore del Varese e \'Mister Promozione\' con 11 salti di categoria tra Italia e Svizzera è protagonista del podcast Figli di un gol minore su Radio',
+    keywords: 'frontalieri, ticino, svizzera, italia, roberto, gatti, figli, minore',
+    ogTitle: 'Roberto Gatti: 11 promozioni da Chiasso alla Solbiatese',
+    ogDescription: 'L\'ex calciatore del Varese e allenatore \'Mister Promozione\' racconta le undici gioie tra Svizzera e Italia nel podcast Figli di un gol minore. Ascolta ogni giorno alle 12 su Radio Materia.',
+    canonicalPath: '/articoli-frontaliere/roberto-gatti-11-promozioni-podcast',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Roberto Gatti a Figli di un gol minore: 11 promozioni",
+      "description": "L'ex difensore del Varese e 'Mister Promozione' con 11 salti di categoria tra Italia e Svizzera è protagonista del podcast Figli di un gol minore su Radio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/roberto-gatti-11-promozioni-podcast.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stadio di calcio a Lugano con montagne sullo sfondo"
+      },
+      "datePublished": "2026-09-25T15:46:26+00:00",
+      "dateModified": "2026-09-25T15:46:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/roberto-gatti-11-promozioni-podcast/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-trenord-abbandono-passeggeri-gallarate': {
+    title: 'Trenord lascia 30 passeggeri a Gallarate, Regione intervenga',
+    description: 'Nella notte tra il 22 e il 23 settembre, circa 30 passeggeri diretti a Malpensa sono stati abbandonati a Gallarate dopo la partenza di un convoglio vuoto',
+    keywords: 'frontalieri, ticino, svizzera, italia, trenord, lascia, passeggeri, gallarate',
+    ogTitle: 'Trenord lascia 30 passeggeri a Gallarate, Regione intervenga',
+    ogDescription: 'Durante la notte tra il 22 e il 23 settembre, una trentina di viaggiatori diretti all’aeroporto di Malpensa è rimasta bloccata alla stazione di Gallarate dopo che l’ultimo treno è partito senza passeggeri, senza alcun collegamento o assistenza',
+    canonicalPath: '/articoli-frontaliere/trenord-abbandono-passeggeri-gallarate',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trenord lascia 30 passeggeri a Gallarate, Regione intervenga",
+      "description": "Nella notte tra il 22 e il 23 settembre, circa 30 passeggeri diretti a Malpensa sono stati abbandonati a Gallarate dopo la partenza di un convoglio vuoto",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trenord-abbandono-passeggeri-gallarate.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione ticinese di notte, banchine vuote e viaggiatore solo davanti al tabellone degli orari"
+      },
+      "datePublished": "2026-09-25T17:01:16+00:00",
+      "dateModified": "2026-09-25T17:01:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trenord-abbandono-passeggeri-gallarate/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lavori-verde-a8-d08': {
+    title: 'Chiusure notturne A8 e D08: deviazioni nel Varesotto dal 28 settembre',
+    description: 'Tre notti di lavori di manutenzione del verde sulla A8 e D08 tra Busto Arsizio, Besnate e Cavaria, con chiusure dalle 21:00 alle 5:00 e deviazioni indicate',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiusure, notturne, deviazioni, varesotto',
+    ogTitle: 'Chiusure notturne A8 e D08: deviazioni nel Varesotto dal 28 settembre',
+    ogDescription: 'Durante le notti del 28-29, 29-30 settembre e 30 settembre-1 ottobre, Autostrade per l’Italia effettua lavori di manutenzione del verde lungo la A8 Milano-Varese e la Diramazione Gallarate-Gattico (D08). Le chiusure, attive dalle 21:00 alle 5:00',
+    canonicalPath: '/articoli-frontaliere/lavori-verde-a8-d08',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiusure notturne A8 e D08: deviazioni nel Varesotto dal 28 settembre",
+      "description": "Tre notti di lavori di manutenzione del verde sulla A8 e D08 tra Busto Arsizio, Besnate e Cavaria, con chiusure dalle 21:00 alle 5:00 e deviazioni indicate",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavori-verde-a8-d08.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavori di manutenzione del verde sull'autostrada A8 vicino a Busto Arsizio di notte"
+      },
+      "datePublished": "2026-09-25T17:54:10+00:00",
+      "dateModified": "2026-09-25T17:54:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-verde-a8-d08/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ticket-stipendio-acquisti-ticino': {
+    title: 'Ticket-stipendio: la proposta per comprare in Ticino',
+    description: 'Ticket-stipendio in Ticino: i Giovani del Centro propongono di destinare fino al 5% dello stipendio agli acquisti locali, con un buono fiscale sul 25%.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ticket-stipendio, proposta, comprare, giovani',
+    ogTitle: 'Ticket-stipendio per il consumo locale',
+    ogDescription: 'Salari bassi, premi di cassa malati e affitti più cari spingono molti a fare acquisti in Italia o online. I Giovani del Centro propongono un ticket volontario fino al 5% dello stipendio e un buono fiscale sul 25% del ticket per sostenere le imprese',
+    canonicalPath: '/articoli-frontaliere/ticket-stipendio-acquisti-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticket-stipendio: la proposta per comprare in Ticino",
+      "description": "Ticket-stipendio in Ticino: i Giovani del Centro propongono di destinare fino al 5% dello stipendio agli acquisti locali, con un buono fiscale sul 25%.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ticket-stipendio-acquisti-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Voucher salariale e acquisti in un negozio del Ticino"
+      },
+      "datePublished": "2026-09-25T18:43:54+00:00",
+      "dateModified": "2026-09-25T18:43:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticket-stipendio-acquisti-ticino/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

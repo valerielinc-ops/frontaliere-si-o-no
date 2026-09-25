@@ -340,6 +340,142 @@ describe('the consent block written alongside the text', () => {
   });
 });
 
+describe('the record of the act: displayed only when shown, surface, language, confirmation (2026-09-25)', () => {
+  beforeEach(() => {
+    setDocMock.mockClear();
+    addDocMock.mockClear();
+    getDocMock.mockReset();
+    getDocMock.mockResolvedValue(NOT_EXISTS);
+  });
+
+  it('keeps a caller\'s "not displayed" instead of forcing it to true', async () => {
+    await captureNewsletterSubscriber({} as any, {
+      email: 'onetap@example.com',
+      source: 'auth_google',
+      sourceChannel: 'auth_google',
+      registrationTermsAccepted: true,
+      registrationMethod: 'authenticated',
+      consentTextDisplayed: false,
+      consentOrigin: 'auth_one_tap',
+    });
+    const payload = payloadOf();
+    expect(payload.consent_text_displayed).toBe(false);
+    expect(payload.consent_origin).toBe('auth_one_tap');
+    // The governing formula is still what the relationship is under.
+    expect(payload.consent_text).toBe(CONSENT_TEXTS.communicationsOptIn.text);
+    expect(payload.consent_given_at).toBe('__server_timestamp__');
+    expect(payload.confirmation_method).toBe('provider_verified_email');
+    expect(payload.confirmed_via_surface).toBe('auth_one_tap');
+    const event = (addDocMock.mock.calls[0] as unknown[])[1] as Record<string, any>;
+    expect(event.metadata.consent).toMatchObject({
+      confirmation_method: 'provider_verified_email',
+      confirmed_via_surface: 'auth_one_tap',
+    });
+  });
+
+  it('a form gate that passes nothing is the rendered notice, and is named by its component', async () => {
+    await captureNewsletterSubscriber({} as any, {
+      email: 'popup@example.com',
+      source: 'popup',
+      sourceChannel: 'popup',
+      sourceComponent: 'NewsletterPopup',
+      registrationMethod: 'email',
+    });
+    const payload = payloadOf();
+    expect(payload.consent_text_displayed).toBe(true);
+    expect(payload.consent_origin).toBe('newsletter_popup');
+    // Typed address: nothing confirmed it yet, so no confirmation origin.
+    expect(payload).not.toHaveProperty('confirmation_method');
+    const event = (addDocMock.mock.calls[0] as unknown[])[1] as Record<string, any>;
+    expect(event.metadata.consent.confirmation_method).toBeNull();
+  });
+
+  it('stores the sentence in the site locale the notice rendered in, not the browser language', async () => {
+    await captureNewsletterSubscriber({} as any, {
+      email: 'browser-de@example.com',
+      source: 'job_gate',
+      locale: 'de-DE',
+      registrationMethod: 'email',
+    });
+    expect(payloadOf().consent_text).toBe(CONSENT_TEXTS.communicationsOptIn.texts!.it);
+  });
+
+  it('an explicit locale is stored as shown', async () => {
+    await captureNewsletterSubscriber({} as any, {
+      email: 'fr@example.com',
+      source: 'auth_google',
+      registrationTermsAccepted: true,
+      registrationMethod: 'authenticated',
+      consentTextDisplayed: true,
+      consentLocale: 'fr',
+    });
+    expect(payloadOf().consent_text).toBe(CONSENT_TEXTS.communicationsOptIn.texts!.fr);
+  });
+
+  it('writes the same block, append-only, into the event of the act', async () => {
+    await captureNewsletterSubscriber({} as any, {
+      email: 'audit@example.com',
+      source: 'auth_google',
+      sourceChannel: 'auth_google',
+      sourcePage: '/cerca-lavoro-ticino/?ne=audit%40example.com&ac=secret',
+      registrationTermsAccepted: true,
+      registrationMethod: 'authenticated',
+      consentTextDisplayed: false,
+      consentOrigin: 'auth_one_tap',
+      consentAudit: { trigger: 'sign_in', one_tap_select_by: 'auto', 'bad key': 'dropped' },
+    });
+    const event = (addDocMock.mock.calls[0] as unknown[])[1] as Record<string, any>;
+    expect(event.metadata.consent).toEqual({
+      trigger: 'sign_in',
+      one_tap_select_by: 'auto',
+      act: 'registration_terms_acceptance',
+      method: 'terms_and_conditions',
+      basis: 'registration_terms',
+      purpose: UNIFIED_EMAIL_CONSENT_PURPOSE,
+      origin: 'auth_one_tap',
+      text_version: CONSENT_TEXTS.communicationsOptIn.version,
+      text_displayed: false,
+      text_locale: 'it',
+      // Pathname only: the query of a newsletter link carries the address.
+      page: '/cerca-lavoro-ticino/',
+      registration_method: 'authenticated',
+      confirmation_method: 'provider_verified_email',
+      confirmed_via_surface: 'auth_one_tap',
+    });
+  });
+
+  it('a login on a registered row carries the earlier record forward and records no new act', async () => {
+    getDocMock.mockResolvedValue({
+      exists: () => true,
+      data: () => ({
+        email: 'known@example.com',
+        status: 'confirmed',
+        isActive: true,
+        active: true,
+        confirmed_at: 'then',
+        registration_terms_accepted: true,
+        consent_text: 'formula precedente',
+        consent_text_displayed: true,
+        consent_origin: 'job_gate',
+      }),
+    });
+    await captureNewsletterSubscriber({} as any, {
+      email: 'known@example.com',
+      source: 'auth_google',
+      registrationTermsAccepted: true,
+      registrationMethod: 'authenticated',
+      consentTextDisplayed: false,
+      consentOrigin: 'auth_one_tap',
+    });
+    const payload = payloadOf();
+    expect(payload.consent_text_displayed).toBe(true);
+    expect(payload).not.toHaveProperty('consent_origin');
+    expect(payload).not.toHaveProperty('confirmation_method');
+    const event = (addDocMock.mock.calls[0] as unknown[])[1] as Record<string, any>;
+    expect(event.metadata).not.toHaveProperty('consent');
+  });
+});
+
 describe('consent_ip — the network the consent came from (#5676)', () => {
   beforeEach(() => {
     setDocMock.mockClear();
@@ -487,20 +623,20 @@ describe('the register is versioned, and editing a formula cannot be silent', ()
    */
   const PINNED: Record<string, { version: string; text: string }> = {
     communicationsOptIn: {
-      version: '2026-09-16.1',
-      text: 'Registrandomi accetto le condizioni e mi iscrivo alle comunicazioni di Frontaliere Ticino. Condizioni (v. 2026-09-15.1).',
+      version: '2026-09-25.2',
+      text: 'Registrandomi accetto le condizioni e mi iscrivo alle comunicazioni di Frontaliere Ticino. Condizioni (v. 2026-09-25.2).',
     },
     communicationsSignIn: {
-      version: '2026-09-16.1',
-      text: 'Registrandomi o accedendo accetto le condizioni e mi iscrivo alle comunicazioni di Frontaliere Ticino. Condizioni (v. 2026-09-15.1).',
+      version: '2026-09-25.2',
+      text: 'Registrandomi o accedendo accetto le condizioni e mi iscrivo alle comunicazioni di Frontaliere Ticino. Condizioni (v. 2026-09-25.2).',
     },
     // Same sentence as `communicationsSignIn`, different act — the email branch
     // of an access gate, which since #5765 shows ONE notice for both branches.
     // The duplication in this table is the point: a divergence between the two
     // would mean one branch stores something the screen never said.
     communicationsSignInEmail: {
-      version: '2026-09-16.1',
-      text: 'Registrandomi o accedendo accetto le condizioni e mi iscrivo alle comunicazioni di Frontaliere Ticino. Condizioni (v. 2026-09-15.1).',
+      version: '2026-09-25.2',
+      text: 'Registrandomi o accedendo accetto le condizioni e mi iscrivo alle comunicazioni di Frontaliere Ticino. Condizioni (v. 2026-09-25.2).',
     },
     signInAutoSubscribe: {
       version: '2026-08-12.2',
@@ -577,16 +713,16 @@ describe('the register is versioned, and editing a formula cannot be silent', ()
    * editing one without bumping `version` has to fail here.
    */
   const SIGN_IN_LOCALES = {
-    en: 'By registering or signing in I accept the terms and subscribe to Frontaliere Ticino communications. Terms (v. 2026-09-15.1).',
-    de: 'Mit der Registrierung oder Anmeldung akzeptiere ich die Bedingungen und abonniere die Mitteilungen von Frontaliere Ticino. Bedingungen (V. 2026-09-15.1).',
-    fr: 'En m’inscrivant ou en me connectant, j’accepte les conditions et m’inscris aux communications de Frontaliere Ticino. Conditions (v. 2026-09-15.1).',
+    en: 'By registering or signing in I accept the terms and subscribe to Frontaliere Ticino communications. Terms (v. 2026-09-25.2).',
+    de: 'Mit der Registrierung oder Anmeldung akzeptiere ich die Bedingungen und abonniere die Mitteilungen von Frontaliere Ticino. Bedingungen (V. 2026-09-25.2).',
+    fr: 'En m’inscrivant ou en me connectant, j’accepte les conditions et m’inscris aux communications de Frontaliere Ticino. Conditions (v. 2026-09-25.2).',
   } as const;
 
   const PINNED_LOCALES: Record<string, Record<'en' | 'de' | 'fr', string>> = {
     communicationsOptIn: {
-      en: 'By registering I accept the terms and subscribe to Frontaliere Ticino communications. Terms (v. 2026-09-15.1).',
-      de: 'Mit der Registrierung akzeptiere ich die Bedingungen und abonniere die Mitteilungen von Frontaliere Ticino. Bedingungen (V. 2026-09-15.1).',
-      fr: 'En m’inscrivant, j’accepte les conditions et m’inscris aux communications de Frontaliere Ticino. Conditions (v. 2026-09-15.1).',
+    en: 'By registering I accept the terms and subscribe to Frontaliere Ticino communications. Terms (v. 2026-09-25.2).',
+    de: 'Mit der Registrierung akzeptiere ich die Bedingungen und abonniere die Mitteilungen von Frontaliere Ticino. Bedingungen (V. 2026-09-25.2).',
+    fr: 'En m’inscrivant, j’accepte les conditions et m’inscris aux communications de Frontaliere Ticino. Conditions (v. 2026-09-25.2).',
     },
     communicationsSignIn: { ...SIGN_IN_LOCALES },
     communicationsSignInEmail: { ...SIGN_IN_LOCALES },

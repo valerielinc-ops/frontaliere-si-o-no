@@ -44,6 +44,8 @@ import {
   getSourceDetailImplementationVersions,
   SOURCE_DETAIL_EXTRACTOR_VERSION_FILES,
   SOURCE_DETAIL_NORMALIZER_VERSION_FILES,
+  vacancyHeadingSublineFields,
+  workdayPrimaryLocationFromUrl,
 } from '../../scripts/audit-parser-quality.mjs';
 import {
   SOURCE_DETAIL_EVIDENCE_FAILURE_FORMAT,
@@ -1655,6 +1657,92 @@ describe('source-detail fidelity checks', () => {
       errorSpy.mockRestore();
       fs.rmSync(dir, { recursive: true, force: true });
     }
+  });
+});
+
+describe('source-detail location measurement (issue 5253)', () => {
+  const desc = 'Ausführliche Stellenbeschreibung '.repeat(20);
+  const compare = (published: string, source: string, url = '') => compareSourceDetail(
+    { url, location: published, sourceLang: 'de', description: desc },
+    { location: source, description: desc },
+    { locationEvidence: 'jsonld', crawlerKey: 'fixture' },
+  );
+
+  it('reads the Italian exonym and the hybrid-work suffix as the same locality', () => {
+    // helsana: pubblicato `San Gallo`, la fonte scrive `Standort: St. Gallen & Homeoffice`.
+    expect(sourceLocationMatches('San Gallo', 'Standort: St. Gallen & Homeoffice')).toBe(true);
+    expect(sourceLocationMatches('San Gallo', 'St. Gallen')).toBe(true);
+    expect(sourceLocationMatches('Worblaufen', 'Standort: Worblaufen & Homeoffice')).toBe(true);
+    // Un altro comune resta una contraddizione, e l'alias non riapre il
+    // contenimento revertito (`Fribourg` ⊄ `Freiburg im Breisgau`).
+    expect(sourceLocationMatches('Zurigo', 'Standort: Worblaufen & Homeoffice')).toBe(false);
+    expect(sourceLocationMatches('San Gallo', 'Wil SG')).toBe(false);
+    expect(sourceLocationMatches('Fribourg', 'Freiburg im Breisgau')).toBe(false);
+  });
+
+  it('treats a bare "Remote" source as inconclusive but keeps a foreign remote as a contradiction', () => {
+    const swissRemote = compare('Zürich', 'Switzerland, Remote');
+    expect(swissRemote.locationMismatch).toBe(false);
+    expect(swissRemote.locationInconclusive).toBe(true);
+    expect(compare('Zürich', 'Germany, Remote').locationMismatch).toBe(true);
+  });
+
+  it('does not let a canton-only source contradict a commune of that canton', () => {
+    // capri-holdings: Workday dice solo `Graubünden`, la vacancy è lo store di Landquart.
+    const sameCanton = compare('Landquart', 'Graubünden');
+    expect(sameCanton.locationMismatch).toBe(false);
+    expect(sameCanton.locationInconclusive).toBe(true);
+    expect(compare('Zürich', 'Graubünden').locationMismatch).toBe(true);
+    // Il caso inverso — pubblicare il cantone al posto del comune — resta un difetto.
+    expect(compare('Graubunden', 'Seewis').locationMismatch).toBe(true);
+  });
+
+  it('reads the Workday primary location from the vacancy URL against a requisition-org JSON-LD', () => {
+    const medtronic = 'https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Luzern-Luzern-Switzerland/Sales-Representative-Endoscopy--m-w-d-_R70257-1';
+    expect(workdayPrimaryLocationFromUrl(medtronic)).toBe('Luzern Luzern Switzerland');
+    expect(workdayPrimaryLocationFromUrl('https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Only-Slug')).toBe('');
+    expect(workdayPrimaryLocationFromUrl('https://jobs.example.ch/job/Luzern/Sales_R1')).toBe('');
+    const luzern = compare('Luzern', 'CHE-BE Bern', medtronic);
+    expect(luzern.locationMismatch).toBe(false);
+    expect(luzern.locationAuthority).toBe('source-corroborated');
+    // L'HQ di ripiego non è il luogo primario: resta una contraddizione.
+    expect(compare('Tolochenaz', 'CHE-BE Bern', medtronic).locationMismatch).toBe(true);
+    const swissLife = 'https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Buchs-SG/Sales-Support--w-m-d--40----60--Generalagentur-Glarus-Rheintal_R10449-1';
+    expect(compare('Buchs SG', 'GA Glarus-Rheintal', swissLife).locationMismatch).toBe(false);
+    expect(compare('St. Gallen', 'GA Glarus-Rheintal', swissLife).locationMismatch).toBe(true);
+  });
+
+  it('reads the location field of the line under the vacancy title against a tenant-seat JSON-LD', async () => {
+    // jobs.sbb.ch: JSON-LD con la sede SBB (Hilfikerstrasse 1, 3000 Bern) per
+    // ogni vacancy; la località è il primo campo della riga sotto l'H1, che il
+    // sito ripete anche nell'header sticky.
+    const sbb = `<html><head><script type="application/ld+json">{"@context":"https://schema.org","@type":"JobPosting",
+      "title":"Quereinstieg Rangierspezialist:in","description":"${desc}",
+      "jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Bern","addressRegion":"Bern","streetAddress":"Hilfikerstrasse 1","postalCode":"3000","addressCountry":"Schweiz"}}}</script></head>
+      <body><header><div class="sticky-header"><h1>Quereinstieg Rangierspezialist:in</h1><div id="social-stickyheader"><div>Share</div></div></div></header>
+      <div id="titel-box"><h1><span>Quereinstieg Rangierspezialist:in</span></h1>
+      <div id="subtitel"> Zürich, 01.05.2027, 60-100% </div></div></body></html>`;
+    // jobs.livit.ch: JSON-LD con la sede Livit a Zürich, località nell'<h2> sotto l'H1.
+    const livit = `<html><head><script type="application/ld+json">{"@context":"https://schema.org","@type":"JobPosting",
+      "title":"Gérant/e d'immeubles","description":"${desc}",
+      "jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Zürich","addressRegion":"Zürich","streetAddress":"Altstetterstrasse 124","postalCode":"8048"}}}</script></head>
+      <body><h1 id="stellenTitel"><span class="extraTitle">Superjobs</span><br>Gérant/e d'immeubles</h1>
+      <h2 class="ortHeader"> Gérance <br> Genève | <span>Taux d&#39;occupation: 100%</span></h2></body></html>`;
+    const run = async (body: string, published: string) => {
+      const url = 'https://jobs.example.ch/offene-stellen/x/2dffeba3';
+      const [result] = await checkSourceDetailsBatch(
+        [{ url, crawlerKey: 'fixture', job: { url, location: published, description: desc } }],
+        1,
+        { fetchPage: async () => ({ ok: true, status: 200, body, url, host: 'jobs.example.ch' }) },
+      );
+      return result;
+    };
+    expect((await run(sbb, 'Zürich')).locationMismatch).toBe(false);
+    expect((await run(sbb, 'Winterthur')).locationMismatch).toBe(true);
+    expect((await run(livit, 'Genève')).locationMismatch).toBe(false);
+    expect((await run(livit, 'Lausanne')).locationMismatch).toBe(true);
+    // Una riga dopo un H1 che non è il titolo della vacancy non è un campo della vacancy.
+    expect(vacancyHeadingSublineFields('<h1>Karriere bei uns</h1><p>Zürich, Basel, Bern</p>', 'Chef de Rang')).toEqual([]);
   });
 });
 
