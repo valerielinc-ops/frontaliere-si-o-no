@@ -117,6 +117,15 @@ export function jinaProxiedRequest(targetUrl, { format = 'html' } = {}) {
   return { url: `${JINA_READER_BASE}${encodeJinaTargetUrl(targetUrl)}`, headers };
 }
 
+// Akamai crypto challenge (hotelcareer.ch / Vereinaklosters, #9653): keep
+// these markers shared by the Jina-response validator and the direct-response
+// detector below, so a blocked Jina IP is retried instead of being returned as
+// a false-positive "clean" page.
+const AKAMAI_CHALLENGE_MARKERS = Object.freeze([
+  'challenge validation',
+  'sec-cpt',
+]);
+
 /**
  * Fetch a URL through the Jina proxy with an AbortController timeout, so a slow
  * or hanging Jina request can never stall a crawler run until the global job
@@ -271,6 +280,7 @@ export function detectJinaErrorBody(body, { minLength = 200 } = {}) {
     // webdriver/plugin/mimeType fingerprint check — no cf/incapsula marker,
     // so it needs its own signature.
     'please wait while your request is being verified',
+    ...AKAMAI_CHALLENGE_MARKERS,
   ];
   const hit = ERROR_MARKERS.find((m) => lower.includes(m));
   return hit ? `error/challenge marker: "${hit}"` : null;
@@ -383,6 +393,7 @@ const ANTI_BOT_CHALLENGE_MARKERS = [
   '_incapsula_resource',
   // BotGuard-style JS fingerprint checkpoint (ergolz.cardiance.com, #6693).
   'please wait while your request is being verified',
+  ...AKAMAI_CHALLENGE_MARKERS,
 ];
 
 /**
