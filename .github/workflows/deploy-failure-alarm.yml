@@ -33,6 +33,14 @@ name: Deploy Failure Alarm
 # stessa decisione e' ri-testabile come funzione pura (`alarmVerdict`) in
 # `tests/deploy-failure-alarm.test.ts`, sui payload reali delle due run.
 #
+# UN PUNTO CIECO, coperto altrove. GitHub non emette `workflow_run` per una run
+# avviata con il GITHUB_TOKEN (actor `github-actions[bot]`, per esempio un
+# dispatch di ripiego del job `rearm`): per quelle run questo file non parte
+# mai. Le copre il job `in-run-alarm` di `deploy.yml`, che apre lo STESSO titolo
+# da dentro la run e solo per quell'actor — run 36065965021 del 2026-09-24,
+# rossa e mai vista da qui. `tests/deploy-in-run-alarm.test.ts` pinna che ogni
+# run rossa sia vista da uno dei due osservatori, e con lo stesso titolo.
+#
 # Titolo fisso => dedup: `scripts/lib/github-issue-creator.mjs` commenta 🔁 con
 # il contesto nuovo sulla issue canonica invece di coniarne una seconda, e la
 # chiude il job `resolve` qui sotto al primo deploy verde (piu' il reconciler

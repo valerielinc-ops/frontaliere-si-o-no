@@ -521,20 +521,22 @@ jobs:
       issues: write     # github-issue-creator on publish failure
       deployments: read # post-deploy-publish validates deployment provenance
 
-  # `workflow_run` is the preferred trigger for the watchdog, but GitHub can
-  # omit a chained workflow_run event when this workflow was itself started by
-  # workflow_run. Dispatch explicitly after the publish tail so a successful
-  # Pages/live cycle always gets an immediate runtime check. The watchdog's
-  # schedule and manual trigger remain independent backstops.
+  # Dispatch the runtime watchdog after EVERY successful Pages deploy. GitHub
+  # does not deliver a `workflow_run` hop off this workflow (itself started by
+  # workflow_run): the watchdog's old trigger on this workflow fired 0 times in
+  # its last 100 runs, so this explicit dispatch is the only post-publish
+  # check. It used to also require `validate-live` to be green — i.e. it
+  # skipped precisely the runs where the live site was broken. The watchdog
+  # walks the full chunk graph and repairs a stale edge by exact-URL purge; it
+  # reports on its own run and issue, and this job only dispatches it — it
+  # never waits for the verdict, so the publish is not gated on it. The
+  # watchdog also runs on the build's completion (when the CDN half lands) and
+  # on its schedule.
   runtime-watchdog:
     needs: [deploy, validate-dist, validate-live, publish]
     if: >-
       ${{ always() &&
-          needs.deploy.result == 'success' &&
-          needs.validate-live.result == 'success' &&
-          (needs.publish.result == 'success' ||
-           needs.publish.result == 'failure' ||
-           needs.publish.result == 'skipped') }}
+          needs.deploy.result == 'success' }}
     runs-on: ubuntu-latest
     permissions:
       actions: write  # workflow_dispatch is the explicit chained trigger

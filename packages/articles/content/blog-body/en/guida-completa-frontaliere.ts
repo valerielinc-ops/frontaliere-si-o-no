@@ -193,7 +193,7 @@ For new cross-border workers, the tax return becomes mandatory:
 
 1. **Convert income** from CHF to EUR at the annual average rate (published by Agenzia delle Entrate)
 2. **Apply the €10,000 exemption** (deduction from taxable income)
-3. **Calculate IRPEF** on 2026 Italian brackets (23% up to €28,000, 35% up to €50,000, 43% above)
+3. **Calculate IRPEF** on 2026 Italian brackets (23% up to €28,000, 33% up to €50,000, 43% above)
 4. **Deduct the tax credit** for taxes paid in Switzerland
 5. **Add regional and municipal surcharges**
 
