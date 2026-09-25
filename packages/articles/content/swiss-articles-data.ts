@@ -20048,6 +20048,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'lumpy-skin-disease-fine-vaccinazione',
+    category: 'novita',
+    date: '2026-09-25T04:56:43.458Z',
+    image: '/images/blog/lumpy-skin-disease-fine-vaccinazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

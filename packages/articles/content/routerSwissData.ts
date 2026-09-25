@@ -2253,6 +2253,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'made-in-europe-svizzera': { it: 'made-in-europe-svizzera', en: 'made-in-europe-switzerland', de: 'made-in-europe-schweiz', fr: 'made-in-europe-suisse' },
  'urne-due-iniziative-2026': { it: 'urne-due-iniziative-2026', en: 'swiss-vote-two-initiatives-2026', de: 'schweiz-zwei-initiativen-2026', fr: 'suisse-deux-initiatives-2026' },
  'conferenza-protezione-popolazione-berna': { it: 'conferenza-protezione-popolazione-berna', en: 'civil-protection-conference-bern', de: 'volksschutz-konferenz-bern', fr: 'conference-protection-population-berne' },
+ 'lumpy-skin-disease-fine-vaccinazione': { it: 'lumpy-skin-disease-fine-vaccinazione', en: 'lumpy-skin-disease-vaccination-end', de: 'lumpy-skin-disease-impfende', fr: 'fin-vaccination-lumpy-skin-disease' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

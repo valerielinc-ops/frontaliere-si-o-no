@@ -6692,6 +6692,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.conferenza-protezione-popolazione-berna.title': 'Conferenza protezione popolazione: cell broadcast accelerato',
     'blog.article.conferenza-protezione-popolazione-berna.excerpt': 'Il 23 settembre 2026 a Berna, il Consiglio federale accelera il cell broadcast e Marc Siegenthaler partecipa alla conferenza.',
     'blog.article.conferenza-protezione-popolazione-berna.imageAlt': 'Rappresentanti dei cantoni riuniti in conferenza a Berna per discutere la protezione della popolazione e il cell broadcast.',
+    'blog.article.lumpy-skin-disease-fine-vaccinazione.title': 'LSD: fine vaccinazione bovini il 30 settembre 2026',
+    'blog.article.lumpy-skin-disease-fine-vaccinazione.excerpt': 'La campagna termina il 30/09/2026. Dal 1° ottobre inizia un\'attesa di 8 mesi con sorveglianza mirata fino a giugno 2027.',
+    'blog.article.lumpy-skin-disease-fine-vaccinazione.imageAlt': 'Mucca in un pascolo svizzero con montagne sullo sfondo, contesto della campagna di sorveglianza LSD',
 };
 
 export default blogMetaChIt;
