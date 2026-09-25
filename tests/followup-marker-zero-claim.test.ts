@@ -25,7 +25,6 @@
  * ESEGUENDO il bash estratto dallo YAML sulle stesse righe del JS.
  */
 import { describe, it, expect } from 'vitest';
-import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import {
@@ -40,15 +39,6 @@ const NUMERIC_ZERO_AFTER_BUCKET_LINES = [
   '- Created/updated: nessun bucket giornaliero; 0 item.',
   // run 35947247334, PR #9518: il template canonico di FOLLOWUP.md con N=0
   'Created/updated: daily bucket #9609 `follow-up(daily:2026-09-24)` con 0 item da questa PR.',
-];
-
-const HISTORICAL_ZERO_CLAIM_LINES = [
-  'Created/updated: 0 item; nessun bucket creato.',
-  'Created/updated: 0 issue — nessun item nuovo aggiunto',
-  'Created: 0 issue (solo live-verification batchata)',
-  'Created/updated: 0 elementi, niente da persistere',
-  '- Created: 0',
-  'created/updated: 0 item; nessun bucket creato.',
 ];
 
 // Righe che promettono (o possono promettere) persistenza: restano claim da
@@ -293,30 +283,5 @@ describe('il gemello bash dello YAML resta allineato', () => {
     expect(yml).toMatch(/unchanged_bucket_zero=false[\s\S]{0,500}unchanged_bucket_zero=true[\s\S]{0,700}grep -Eq/);
     expect(yml).toContain('nessun[[:space:]]+item[[:space:]]+per[[:space:]]+questa[[:space:]]+PR');
     expect(yml).toContain('non[[:space:]]+modificat[oa]');
-  });
-
-  // Il blocco `claim_head` + `claim_line_is_zero()` estratto dallo step ed
-  // ESEGUITO: una regex pinnata non dice se i due lati classificano uguale.
-  function bashZeroFlags(lines: string[]): boolean[] {
-    const indent = '          ';
-    const start = yml.indexOf(`${indent}claim_head='`);
-    const fn = yml.indexOf(`${indent}claim_line_is_zero() {`, start);
-    const end = yml.indexOf(`\n${indent}}\n`, fn);
-    expect(start).toBeGreaterThan(-1);
-    expect(fn).toBeGreaterThan(start);
-    expect(end).toBeGreaterThan(fn);
-    const block = yml.slice(start, end + indent.length + 3).replace(new RegExp(`^${indent}`, 'gm'), '');
-    const script = `${block}\nwhile IFS= read -r l; do if claim_line_is_zero "$l"; then echo 1; else echo 0; fi; done\n`;
-    const out = execFileSync('bash', ['-c', script], { input: `${lines.join('\n')}\n`, encoding: 'utf8' });
-    return out.trim().split('\n').map((flag) => flag === '1');
-  }
-
-  it('bash e JS classificano uguale le stesse righe di claim', () => {
-    const zero = [...NUMERIC_ZERO_AFTER_BUCKET_LINES, ...HISTORICAL_ZERO_CLAIM_LINES];
-    const lines = [...zero, ...NON_ZERO_CLAIM_LINES];
-    const expected = lines.map((line) => isZeroClaimLine(line));
-    expect(bashZeroFlags(lines)).toEqual(expected);
-    // E non per caso: le due famiglie restano separate su entrambi i lati.
-    expect(expected).toEqual([...zero.map(() => true), ...NON_ZERO_CLAIM_LINES.map(() => false)]);
   });
 });

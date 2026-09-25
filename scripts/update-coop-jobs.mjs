@@ -908,8 +908,8 @@ async function postProcessCoopJobs() {
           const lines = [`## ${job.title || ldTitle}`, ''];
           // Add company from OG or hiringOrganization
           const company = jsonLd.hiringOrganization?.name || 'Coop';
-          const locality = jsonLd.jobLocation?.address?.addressLocality || job.location || '';
-          const region = jsonLd.jobLocation?.address?.addressRegion || '';
+          const locality = job.location || jsonLd.jobLocation?.address?.addressLocality || '';
+          const region = job.addressRegion || job.canton || jsonLd.jobLocation?.address?.addressRegion || '';
           if (locality) {
             lines.push(`**${company}** — ${locality}${region ? `, ${region}` : ''}, Svizzera`, '');
           }

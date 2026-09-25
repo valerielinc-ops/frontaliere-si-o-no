@@ -41,7 +41,7 @@ import {
   canonicalCompanyProfileSlug,
   companyDisplayIdentityKeys,
 } from '../build-plugins/shared/companyProfileSlug.mjs';
-import { locTokenHit } from './locToken.mjs';
+import { normalizeLocToken } from './locToken.mjs';
 import { municipalityToCantons } from './provinceCantonAffinity.ts';
 
 /** @typedef {Set<string>} TokenSet */
@@ -419,13 +419,18 @@ export function partitionByGeoPreference(jobs, profile, { minLocal = GEO_PREFERE
   const prefCanton = profile.preferredCantons || [];
   if (prefLoc.length === 0 && prefCanton.length === 0) return list;
 
+  // `locTokenHit(jobLoc, l)` for every preferred location, with the needles
+  // normalized once per call and the job side once per job (#9314).
+  const prefLocNeedles = paddedLocNeedles(prefLoc);
   const inArea = [];
   const rest = [];
   for (const job of list) {
     const jobCanton = String(job?.canton || '').toLowerCase();
-    const jobLoc = `${job?.location || ''} ${job?.addressLocality || ''} ${job?.addressRegion || ''} ${job?.canton || ''}`.toLowerCase();
     const hit = (prefCanton.length > 0 && jobCanton && prefCanton.includes(jobCanton))
-      || prefLoc.some((l) => locTokenHit(jobLoc, l));
+      || (prefLocNeedles.length > 0 && includesAny(
+        paddedLocHaystack(`${job?.location || ''} ${job?.addressLocality || ''} ${job?.addressRegion || ''} ${job?.canton || ''}`),
+        prefLocNeedles,
+      ));
     (hit ? inArea : rest).push(job);
   }
   return inArea.length >= minLocal ? inArea : inArea.concat(rest);
@@ -464,28 +469,361 @@ export function jobMatchFeatures(job, locale) {
 }
 
 /**
+ * Location haystack in the exact shape `locTokenHit` compares against:
+ * normalized and space-padded, so `padded.includes(' needle ')` answers
+ * `locTokenHit(jobLoc, needle)` without normalizing the job side again.
+ * An empty normalization pads to two spaces, which no padded needle (at least
+ * three characters) can be found in — the same `false` locTokenHit returns.
+ *
+ * @param {string} jobLoc
+ * @returns {string}
+ */
+function paddedLocHaystack(jobLoc) {
+  return ` ${normalizeLocToken(jobLoc)} `;
+}
+
+/**
+ * The profile side of `locTokenHit`, normalized once per alert instead of once
+ * per job: empty normalizations are dropped (locTokenHit answers `false` for
+ * them), the rest are space-padded for {@link paddedLocHaystack}.
+ *
+ * @param {string[]} needles
+ * @returns {string[]}
+ */
+function paddedLocNeedles(needles) {
+  const out = [];
+  for (const needle of needles || []) {
+    const n = normalizeLocToken(needle);
+    if (n) out.push(` ${n} `);
+  }
+  return out;
+}
+
+/**
+ * Whether `haystack` contains any of the padded `needles`
+ * ({@link paddedLocHaystack} / {@link paddedLocNeedles}).
+ *
+ * @param {string} haystack
+ * @param {string[]} needles
+ * @returns {boolean}
+ */
+function includesAny(haystack, needles) {
+  for (let i = 0; i < needles.length; i++) if (haystack.includes(needles[i])) return true;
+  return false;
+}
+
+/**
+ * Two bitmaps over an index space: `known` says the answer was computed, `hit`
+ * holds it. Grown on demand, so the memo never needs to know the pool size up
+ * front.
+ */
+function createSubstringMemo() {
+  return { known: new Uint32Array(64), hit: new Uint32Array(64) };
+}
+
+/** @returns {-1|0|1} unknown, miss, hit */
+function memoRead(memo, index) {
+  const word = index >>> 5;
+  if (word >= memo.known.length) return -1;
+  const bit = 1 << (index & 31);
+  if ((memo.known[word] & bit) === 0) return -1;
+  return (memo.hit[word] & bit) !== 0 ? 1 : 0;
+}
+
+function memoWrite(memo, index, found) {
+  const word = index >>> 5;
+  if (word >= memo.known.length) {
+    let size = memo.known.length;
+    while (size <= word) size *= 2;
+    const known = new Uint32Array(size);
+    known.set(memo.known);
+    const hit = new Uint32Array(size);
+    hit.set(memo.hit);
+    memo.known = known;
+    memo.hit = hit;
+  }
+  const bit = 1 << (index & 31);
+  memo.known[word] |= bit;
+  if (found) memo.hit[word] |= bit;
+}
+
+/**
+ * `features.fullText.includes(keyword)` for one cache entry, answered at most
+ * once per (locale, keyword, job) — and the description scan at most once per
+ * (keyword, job) across locales.
+ *
+ * `fullText` is `titleText + ' ' + description`, and only `titleText` depends
+ * on the locale. An occurrence of the keyword therefore lies inside the title,
+ * inside the description, or across the joining space; the three checks below
+ * cover exactly those cases, so the answer is the plain `includes` answer.
+ *
+ * @param {{features: {titleText: string, fullText: string}, index: number, jobIndex: number}} entry
+ * @param {ReturnType<typeof createSubstringMemo>} localeMemo (locale, keyword) memo over entry indexes
+ * @param {ReturnType<typeof createSubstringMemo>} descriptionMemo keyword memo over job indexes
+ * @param {string} keyword
+ * @returns {boolean}
+ */
+function memoKeywordInFullText(entry, localeMemo, descriptionMemo, keyword) {
+  const known = memoRead(localeMemo, entry.index);
+  if (known !== -1) return known === 1;
+  const { titleText, fullText } = entry.features;
+  const join = titleText.length; // fullText[join] is the joining space
+  let found = titleText.includes(keyword);
+  if (!found) {
+    const inDescription = memoRead(descriptionMemo, entry.jobIndex);
+    if (inDescription !== -1) {
+      found = inDescription === 1;
+    } else {
+      found = fullText.includes(keyword, join + 1);
+      memoWrite(descriptionMemo, entry.jobIndex, found);
+    }
+  }
+  if (!found) {
+    found = fullText
+      .slice(Math.max(0, join - keyword.length + 1), join + keyword.length)
+      .includes(keyword);
+  }
+  memoWrite(localeMemo, entry.index, found);
+  return found;
+}
+
+/**
  * Memo of {@link jobMatchFeatures} for one scoring pass over an IMMUTABLE job
  * pool (keyed by object identity, then locale). Opt-in via the 4th argument of
  * {@link scoreJobForAlert}: a caller that mutates a job between two scores must
  * not pass one, and the default (no cache) recomputes exactly as before.
+ *
+ * Besides the features it memoises, per job/locale, the other answers that
+ * depend only on the job and never on the alert (#9314): the normalized
+ * location haystack, the pinned-company identity keys, and — per locale and
+ * hard keyword — whether `fullText` contains that keyword. Since #9471 every
+ * alert is scored against the recipient's whole catch-up window (~19K rows in
+ * production), and #9695 expands each profession keyword into its 8-27
+ * cross-locale aliases: the same `fullText.includes(alias)` scan over a ~2.4 KB
+ * description was repeated for every alert that shares the alias. The memo is
+ * a pair of bitmaps per (locale, keyword) plus one per keyword for the
+ * locale-independent description, a few KB each.
  */
 export function createJobFeatureCache() {
   const byJob = new WeakMap();
+  const pinnedKeysByJob = new WeakMap();
+  const jobIndexByJob = new WeakMap();
+  let jobCount = 0;
+  /** @type {Map<string, ReturnType<typeof createSubstringMemo>>} */
+  const descriptionMemos = new Map();
+  /** @type {Map<string, {size: number, keywordMemos: Map<string, ReturnType<typeof createSubstringMemo>>}>} */
+  const spaces = new Map();
+  const spaceFor = (key) => {
+    let space = spaces.get(key);
+    if (!space) {
+      space = { size: 0, keywordMemos: new Map() };
+      spaces.set(key, space);
+    }
+    return space;
+  };
+  const entry = (job, locale) => {
+    let byLocale = byJob.get(job);
+    if (!byLocale) {
+      byLocale = new Map();
+      byJob.set(job, byLocale);
+    }
+    const key = locale || '';
+    let found = byLocale.get(key);
+    if (!found) {
+      let jobIndex = jobIndexByJob.get(job);
+      if (jobIndex === undefined) {
+        jobIndex = jobCount++;
+        jobIndexByJob.set(job, jobIndex);
+      }
+      const features = jobMatchFeatures(job, locale);
+      found = { features, index: spaceFor(key).size++, jobIndex, locHaystack: null };
+      byLocale.set(key, found);
+    }
+    return found;
+  };
   return {
     get(job, locale) {
-      let byLocale = byJob.get(job);
-      if (!byLocale) {
-        byLocale = new Map();
-        byJob.set(job, byLocale);
-      }
-      const key = locale || '';
-      let features = byLocale.get(key);
-      if (!features) {
-        features = jobMatchFeatures(job, locale);
-        byLocale.set(key, features);
-      }
-      return features;
+      return entry(job, locale).features;
     },
+    /**
+     * Internal to {@link createAlertScorer}: the cache entry of `job` in
+     * `locale` — its features, its index in that locale's keyword bitmaps and
+     * its lazily normalized location haystack.
+     */
+    entry,
+    /**
+     * Internal to {@link createAlertScorer}: `(entry) => fullText.includes(keyword)`
+     * for `locale`, memoised as described on {@link memoKeywordInFullText}.
+     */
+    keywordTest(locale, keyword) {
+      const space = spaceFor(locale || '');
+      let localeMemo = space.keywordMemos.get(keyword);
+      if (!localeMemo) {
+        localeMemo = createSubstringMemo();
+        space.keywordMemos.set(keyword, localeMemo);
+      }
+      let descriptionMemo = descriptionMemos.get(keyword);
+      if (!descriptionMemo) {
+        descriptionMemo = createSubstringMemo();
+        descriptionMemos.set(keyword, descriptionMemo);
+      }
+      return (entry) => memoKeywordInFullText(entry, localeMemo, descriptionMemo, keyword);
+    },
+    /** Internal to {@link createAlertScorer}: {@link pinnedCompanyIdentityKeys}, once per job. */
+    pinnedKeys(job) {
+      let keys = pinnedKeysByJob.get(job);
+      if (!keys) {
+        keys = pinnedCompanyIdentityKeys(job);
+        pinnedKeysByJob.set(job, keys);
+      }
+      return keys;
+    },
+  };
+}
+
+/**
+ * Compile the per-alert half of {@link scoreJobForAlert} once, so the send
+ * loop can score a whole candidate window with it (#9314). Returns
+ * `(job) => score` with exactly the result of
+ * `scoreJobForAlert(job, profile, locale, featureCache)`; the latter is now a
+ * one-shot call of this function, so there is one implementation only.
+ *
+ * What moves out of the per-job path, without changing any answer:
+ *   - the profile's location needles are normalized once per alert, the job's
+ *     location once per job/locale (cache) — `locTokenHit` normalized both
+ *     sides on every call;
+ *   - with a cache, each hard-keyword `fullText.includes` is answered at most
+ *     once per (locale, keyword, job) for the whole run;
+ *   - the hard geo filter runs before the hard keyword filter. Both are
+ *     necessary conditions that return 0, the checks are pure, so the order
+ *     changes only how cheaply a non-matching job is rejected (a location
+ *     string of ~30 chars instead of a ~2.4 KB description).
+ *
+ * @param {AlertProfile|null|undefined} profile Output of {@link buildAlertProfile}.
+ * @param {string} [locale] See {@link scoreJobForAlert}.
+ * @param {ReturnType<typeof createJobFeatureCache>|null} [featureCache] See {@link scoreJobForAlert}.
+ * @returns {(job: object) => number}
+ */
+export function createAlertScorer(profile, locale, featureCache = null) {
+  if (!profile) return () => 0;
+
+  // Job-specific scope: a pinned alert ("notify me about THIS job/company")
+  // surfaces ONLY the pinned job(s) / company, bypassing keyword/intent scoring.
+  const pinnedJobs = profile.specificJobIds || [];
+  const pinnedCompany = profile.specificCompanyKey || '';
+  if (pinnedJobs.length > 0 || pinnedCompany) {
+    return (job) => {
+      if (!job) return 0;
+      // `companyKey` identifies the crawler and can cover several employer labels
+      // (the Migros crawler also publishes Galaxus jobs). The display name is the
+      // employer identity used by the public profile and the writer. Use the
+      // shared canonical resolver on that display name only; never let a crawler
+      // key, substring, or missing display name broaden a company follow.
+      const jobCompanyKeys = featureCache ? featureCache.pinnedKeys(job) : pinnedCompanyIdentityKeys(job);
+      const idHit = pinnedJobs.includes(String(job.id || ''))
+        || pinnedJobs.includes(String(job.publisherJobId || ''));
+      const companyHit = Boolean(pinnedCompany && jobCompanyKeys.includes(pinnedCompany));
+      return (idHit || companyHit) ? 10 : 0;
+    };
+  }
+
+  const { hardKeywords, softTokens, cantons, sectors, contractTypes } = profile;
+  const hardList = [...hardKeywords];
+  const keywordTests = featureCache ? hardList.map((kw) => featureCache.keywordTest(locale, kw)) : null;
+  const alertLocationNeedles = paddedLocNeedles(profile.alertLocations);
+  const locationNeedles = paddedLocNeedles(profile.locations);
+  const needsLocation = alertLocationNeedles.length > 0 || locationNeedles.length > 0;
+  const hasGeoScope = profile.alertLocations.length > 0 || cantons.length > 0;
+  const hasIntentProfile = softTokens.size > 0 || Boolean(profile.company);
+  // A profile without a single signal scores every job 0 (nothing can add to
+  // the score, and the no-keyword/no-intent policy then drops score 0): answer
+  // that without touching the job — 588 of 5.157 alerts in run 36097910375.
+  const neverMatches = hardList.length === 0 && !hasGeoScope && !hasIntentProfile
+    && locationNeedles.length === 0 && sectors.length === 0 && contractTypes.length === 0;
+
+  return (job) => {
+    if (!job || neverMatches) return 0;
+    const cached = featureCache ? featureCache.entry(job, locale) : null;
+    const {
+      titleText, fullText, jobTokens, jobCompany, jobLoc, jobCanton, jobSector, jobContract,
+    } = cached ? cached.features : jobMatchFeatures(job, locale);
+    let locHaystack = '';
+    if (needsLocation) {
+      if (cached) {
+        if (cached.locHaystack === null) cached.locHaystack = paddedLocHaystack(jobLoc);
+        locHaystack = cached.locHaystack;
+      } else {
+        locHaystack = paddedLocHaystack(jobLoc);
+      }
+    }
+
+    // HARD geo filter: when the user scoped the alert to explicit locations and/or
+    // cantons, a job OUTSIDE that geography is dropped — even when keywords or
+    // company/sector match. Without this the location was only a +2 ranking nudge,
+    // so a "Lugano, Mendrisio, Bellinzona" alert still surfaced Basel/Lausanne jobs
+    // whose title matched the keyword. Only the alert's OWN locations/cantons are
+    // hard; soft profile-derived locations (geo_city, pref cities) still only rank.
+    if (hasGeoScope) {
+      const geoHit = includesAny(locHaystack, alertLocationNeedles)
+        || (cantons.length > 0 && jobCanton && cantons.includes(jobCanton));
+      if (!geoHit) return 0;
+    }
+
+    let score = 0;
+
+    // 1. HARD keyword filter — preserve the legacy contract: when the user typed
+    //    keywords, at least one MUST appear in the job text or the job is dropped.
+    if (hardList.length > 0) {
+      let hit = false;
+      for (let k = 0; k < hardList.length; k++) {
+        const found = keywordTests ? keywordTests[k](cached) : fullText.includes(hardList[k]);
+        if (found) { hit = true; break; }
+      }
+      if (!hit) return 0;
+      score += 3;
+      // Tokenized overlap bonus: jobs matching MORE keyword tokens rank higher.
+      let overlap = 0;
+      for (const kw of hardList) if (jobTokens.has(kw)) overlap++;
+      score += Math.min(3, overlap);
+    }
+
+    // Company affinity (strong signal — same employer).
+    const companyMatch = Boolean(profile.company && jobCompany && jobCompany === profile.company);
+    if (companyMatch) score += 4;
+
+    // Soft keyword overlap (tokenized, proportional, capped).
+    let softOverlap = 0;
+    for (const t of softTokens) if (jobTokens.has(t)) softOverlap++;
+    if (softOverlap > 0) score += Math.min(5, softOverlap * 2);
+
+    // Location (jobLoc: see jobMatchFeatures).
+    const locationMatch = includesAny(locHaystack, locationNeedles);
+    if (locationMatch) score += 2;
+    const cantonMatch = cantons.length > 0 && cantons.includes(jobCanton);
+    if (cantonMatch) score += 1;
+
+    // Sector (match against sector/category AND title — sectors often surface in titles).
+    const sectorMatch = sectors.some((s) => jobSector.includes(s) || titleText.includes(s));
+    if (sectorMatch) score += 2;
+
+    // Contract type.
+    const contractMatch = contractTypes.some((c) => jobContract.includes(c));
+    if (contractMatch) score += 1;
+
+    // 2. Filtering policy when there are NO explicit keywords.
+    if (hardList.length === 0) {
+      if (hasIntentProfile) {
+        // One-tap / onboarding subscriber: require at least ONE targeted signal,
+        // otherwise we'd surface every recent job (the legacy noise this fixes).
+        if (softOverlap === 0 && !companyMatch && !sectorMatch && !locationMatch) return 0;
+      } else if (score === 0) {
+        // Pure location/sector alert with no intent profile (legacy behavior):
+        // location / sector / contract sufficient; nothing matched → exclude.
+        return 0;
+      }
+    }
+
+    return Math.max(score, 1);
   };
 }
 
@@ -493,6 +831,8 @@ export function createJobFeatureCache() {
  * Score one job against a pre-built alert profile.
  * Returns 0 when the job should NOT be surfaced; a positive integer otherwise
  * (higher = more relevant). The send loop sorts by this score, then recency.
+ * A caller scoring many jobs against the same alert should compile it once
+ * with {@link createAlertScorer} (same answer, per-alert work done once).
  *
  * @param {object} job          Job from data/jobs.json.
  * @param {AlertProfile} profile Output of {@link buildAlertProfile}.
@@ -509,97 +849,5 @@ export function createJobFeatureCache() {
  */
 export function scoreJobForAlert(job, profile, locale, featureCache = null) {
   if (!job || !profile) return 0;
-
-  // Job-specific scope: a pinned alert ("notify me about THIS job/company")
-  // surfaces ONLY the pinned job(s) / company, bypassing keyword/intent scoring.
-  const pinnedJobs = profile.specificJobIds || [];
-  const pinnedCompany = profile.specificCompanyKey || '';
-  if (pinnedJobs.length > 0 || pinnedCompany) {
-    // `companyKey` identifies the crawler and can cover several employer labels
-    // (the Migros crawler also publishes Galaxus jobs). The display name is the
-    // employer identity used by the public profile and the writer. Use the
-    // shared canonical resolver on that display name only; never let a crawler
-    // key, substring, or missing display name broaden a company follow.
-    const jobCompanyKeys = pinnedCompanyIdentityKeys(job);
-    const idHit = pinnedJobs.includes(String(job.id || ''))
-      || pinnedJobs.includes(String(job.publisherJobId || ''));
-    const companyHit = Boolean(pinnedCompany && jobCompanyKeys.includes(pinnedCompany));
-    return (idHit || companyHit) ? 10 : 0;
-  }
-
-  const {
-    titleText, fullText, jobTokens, jobCompany, jobLoc, jobCanton, jobSector, jobContract,
-  } = featureCache ? featureCache.get(job, locale) : jobMatchFeatures(job, locale);
-
-  let score = 0;
-
-  // 1. HARD keyword filter — preserve the legacy contract: when the user typed
-  //    keywords, at least one MUST appear in the job text or the job is dropped.
-  const { hardKeywords } = profile;
-  if (hardKeywords.size > 0) {
-    let hit = false;
-    for (const kw of hardKeywords) {
-      if (fullText.includes(kw)) { hit = true; break; }
-    }
-    if (!hit) return 0;
-    score += 3;
-    // Tokenized overlap bonus: jobs matching MORE keyword tokens rank higher.
-    let overlap = 0;
-    for (const kw of hardKeywords) if (jobTokens.has(kw)) overlap++;
-    score += Math.min(3, overlap);
-  }
-
-  // Company affinity (strong signal — same employer).
-  const companyMatch = Boolean(profile.company && jobCompany && jobCompany === profile.company);
-  if (companyMatch) score += 4;
-
-  // Soft keyword overlap (tokenized, proportional, capped).
-  let softOverlap = 0;
-  for (const t of profile.softTokens) if (jobTokens.has(t)) softOverlap++;
-  if (softOverlap > 0) score += Math.min(5, softOverlap * 2);
-
-  // Location (jobLoc: see jobMatchFeatures).
-
-  // HARD geo filter: when the user scoped the alert to explicit locations and/or
-  // cantons, a job OUTSIDE that geography is dropped — even when keywords or
-  // company/sector match. Without this the location was only a +2 ranking nudge,
-  // so a "Lugano, Mendrisio, Bellinzona" alert still surfaced Basel/Lausanne jobs
-  // whose title matched the keyword. Only the alert's OWN locations/cantons are
-  // hard; soft profile-derived locations (geo_city, pref cities) still only rank.
-  const hasGeoScope = profile.alertLocations.length > 0 || profile.cantons.length > 0;
-  if (hasGeoScope) {
-    const geoHit =
-      profile.alertLocations.some((l) => locTokenHit(jobLoc, l)) ||
-      (profile.cantons.length > 0 && jobCanton && profile.cantons.includes(jobCanton));
-    if (!geoHit) return 0;
-  }
-
-  const locationMatch = profile.locations.some((l) => locTokenHit(jobLoc, l));
-  if (locationMatch) score += 2;
-  const cantonMatch = profile.cantons.length > 0 && profile.cantons.includes(jobCanton);
-  if (cantonMatch) score += 1;
-
-  // Sector (match against sector/category AND title — sectors often surface in titles).
-  const sectorMatch = profile.sectors.some((s) => jobSector.includes(s) || titleText.includes(s));
-  if (sectorMatch) score += 2;
-
-  // Contract type.
-  const contractMatch = profile.contractTypes.some((c) => jobContract.includes(c));
-  if (contractMatch) score += 1;
-
-  // 2. Filtering policy when there are NO explicit keywords.
-  if (hardKeywords.size === 0) {
-    const hasIntentProfile = profile.softTokens.size > 0 || Boolean(profile.company);
-    if (hasIntentProfile) {
-      // One-tap / onboarding subscriber: require at least ONE targeted signal,
-      // otherwise we'd surface every recent job (the legacy noise this fixes).
-      if (softOverlap === 0 && !companyMatch && !sectorMatch && !locationMatch) return 0;
-    } else if (score === 0) {
-      // Pure location/sector alert with no intent profile (legacy behavior):
-      // location / sector / contract sufficient; nothing matched → exclude.
-      return 0;
-    }
-  }
-
-  return Math.max(score, 1);
+  return createAlertScorer(profile, locale, featureCache)(job);
 }
