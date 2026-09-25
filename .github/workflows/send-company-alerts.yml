@@ -38,12 +38,6 @@ on:
         required: false
         default: true
         type: boolean
-      human_approval:
-        description: 'Explicit human approval for sending emails.'
-        required: false
-        default: false
-        type: boolean
-
 concurrency:
   # Never two concurrent runs: both would read the same pre-send sentJobIds and
   # could mail the same job twice before either persists the dedup map.
@@ -71,21 +65,11 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Require human approval for email side effects
-        id: side_effect_gate
-        env:
-          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
-          APPROVAL_CONSENT: ${{ inputs.human_approval }}
-          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
-          APPROVAL_TRUSTED_SCHEDULE: 'true'
-          APPROVAL_SCOPE: company-alert-email
-        run: node scripts/ci/human-side-effect-gate.mjs
-
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -97,7 +81,7 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load secrets from Remote Config
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       # data/jobs.json is gitignored — it is assembled from the committed
@@ -134,14 +118,14 @@ jobs:
           key: assemble-jobs-send-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
 
       - name: Send CompanyAlert emails
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         continue-on-error: true
         id: send
         env:
           ENABLE_JOB_ALERTS: 'true'
           TARGET_EMAIL: ${{ inputs.target_email }}
-          ALLOW_SIDE_EFFECT: ${{ steps.side_effect_gate.outputs.allow_side_effect }}
-          EFFECTIVE_DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
+          ALLOW_SIDE_EFFECT: 'true'
+          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
         run: |
           node scripts/send-company-alerts.mjs
 

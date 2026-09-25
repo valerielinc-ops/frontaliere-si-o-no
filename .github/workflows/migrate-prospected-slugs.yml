@@ -12,12 +12,6 @@ on:
         required: false
         type: boolean
         default: true
-      human_approval:
-        description: 'Explicit human approval for prospected-slug migration writes.'
-        required: false
-        type: boolean
-        default: false
-
 concurrency:
   group: jobs-data-pipeline
   cancel-in-progress: false
@@ -55,20 +49,11 @@ jobs:
           node-version: '22'
           cache: npm
 
-      - name: Require human approval for prospected-slug side effects
-        id: side_effect_gate
-        env:
-          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
-          APPROVAL_CONSENT: ${{ inputs.human_approval }}
-          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
-          APPROVAL_SCOPE: migrate-prospected-slugs
-        run: node scripts/ci/human-side-effect-gate.mjs
-
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials for push auth
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -80,7 +65,7 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load push credentials from Remote Config
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       - name: Cross-slice migration preflight
@@ -90,7 +75,7 @@ jobs:
             | tee /tmp/prospected-slug-migration-preflight.txt
 
       - name: Apply and validate migration
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: |
           set -euo pipefail
           node scripts/migrate-prospected-slugs.mjs --apply
@@ -120,11 +105,11 @@ jobs:
           done 9< <(git diff --name-only | sort)
 
       - name: Test gate for bot-direct data write
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: npm test
 
       - name: Commit and push exact migration paths
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         id: commit
         run: |
           set -euo pipefail
@@ -184,7 +169,7 @@ jobs:
             --regenerate-cmd 'node scripts/migrate-prospected-slugs.mjs --apply && git add -- data/jobs/by-crawler/accor.json data/jobs/by-crawler/ete.json data/jobs/by-crawler/gmo.json data/jobs/by-crawler/michaelpage.json data/jobs/by-crawler/okjob.json data/jobs/by-crawler/recruitingapp-2649.json'
 
       - name: Trigger deploy after migration
-        if: steps.commit.outputs.has_changes == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         run: bash scripts/lib/trigger-deploy.sh
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}

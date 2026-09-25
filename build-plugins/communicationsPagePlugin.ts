@@ -155,10 +155,10 @@ const CATEGORY_HEADING: Record<NamedConsentCategory, Record<PageLocale, string>>
  */
 const CATEGORY_NOTE: Partial<Record<NamedConsentCategory, Record<PageLocale, string>>> = {
   advertising: {
-    it: 'Questa categoria fa parte dell’attivazione base delle comunicazioni ed è attiva per impostazione predefinita dopo la conferma dell’indirizzo. La mostriamo come interruttore separato nelle preferenze per permetterti di disattivarla senza toccare newsletter, bollettino o avvisi di lavoro. Se il canale verrà riattivato, potrà raggiungere chi non l’ha disattivato.',
-    en: 'This category is part of the base communications activation and is on by default after the address is confirmed. We show it as a separate preference switch so you can turn it off without changing the newsletter, daily brief or job alerts. If the channel is switched back on, it may reach people who have not switched it off.',
-    de: 'Diese Kategorie gehört zur Basisaktivierung der Mitteilungen und ist nach der Bestätigung der Adresse standardmässig aktiv. Wir führen sie als eigenen Schalter in den Einstellungen, damit Sie sie ausschalten können, ohne Newsletter, Tagesbulletin oder Stellenbenachrichtigungen zu ändern. Wird der Kanal wieder eingeschaltet, kann er Personen erreichen, die ihn nicht deaktiviert haben.',
-    fr: 'Cette catégorie fait partie de l’activation de base des communications et est active par défaut après la confirmation de l’adresse. Nous l’affichons comme un interrupteur distinct dans les préférences afin que vous puissiez la désactiver sans modifier la newsletter, le bulletin quotidien ni les alertes emploi. Si le canal est réactivé, il pourra atteindre les personnes qui ne l’ont pas désactivé.',
+    it: 'Questa categoria fa parte dell’attivazione base delle comunicazioni ed è attiva per impostazione predefinita dopo la conferma dell’indirizzo. La mostriamo come interruttore separato nelle preferenze per permetterti di disattivarla senza toccare newsletter, bollettino o avvisi di lavoro. Il canale è attivo e può raggiungere chi non l’ha disattivato.',
+    en: 'This category is part of the base communications activation and is on by default after the address is confirmed. We show it as a separate preference switch so you can turn it off without changing the newsletter, daily brief or job alerts. The channel is live and may reach people who have not switched it off.',
+    de: 'Diese Kategorie gehört zur Basisaktivierung der Mitteilungen und ist nach der Bestätigung der Adresse standardmässig aktiv. Wir führen sie als eigenen Schalter in den Einstellungen, damit Sie sie ausschalten können, ohne Newsletter, Tagesbulletin oder Stellenbenachrichtigungen zu ändern. Der Kanal ist aktiv und kann Personen erreichen, die ihn nicht deaktiviert haben.',
+    fr: 'Cette catégorie fait partie de l’activation de base des communications et est active par défaut après la confirmation de l’adresse. Nous l’affichons comme un interrupteur distinct dans les préférences afin que vous puissiez la désactiver sans modifier la newsletter, le bulletin quotidien ni les alertes emploi. Le canal est actif et pourra atteindre les personnes qui ne l’ont pas désactivé.',
   },
 };
 
@@ -316,7 +316,7 @@ const SHARING_ITEMS: Record<PageLocale, readonly { lead: string; body: string }[
   it: [
     {
       lead: 'Annunci di terzi.',
-      body: 'Il canale email degli annunci di terzi è oggi sospeso. Se verrà riattivato, potremo inviare messaggi promozionali di terzi agli iscritti del rapporto base che non avranno disattivato questa categoria e potremo comunicare, mettere a disposizione o cedere il loro indirizzo email e le informazioni dichiarate o derivate dalle interazioni agli inserzionisti e ai partner pubblicitari per le loro finalità commerciali. I circuiti pubblicitari presenti sulle pagine del sito possono raccogliere identificativi del browser e dati di navigazione secondo il consenso cookie e sono descritti nell’informativa completa.',
+      body: 'Il canale email degli annunci di terzi è attivo. Potremo inviare messaggi promozionali di terzi agli iscritti del rapporto base che non avranno disattivato questa categoria e potremo comunicare, mettere a disposizione o cedere il loro indirizzo email e le informazioni dichiarate o derivate dalle interazioni agli inserzionisti e ai partner pubblicitari per le loro finalità commerciali. I circuiti pubblicitari presenti sulle pagine del sito possono raccogliere identificativi del browser e dati di navigazione secondo il consenso cookie e sono descritti nell’informativa completa.',
     },
     {
       lead: 'Profilazione a fini commerciali.',
@@ -334,7 +334,7 @@ const SHARING_ITEMS: Record<PageLocale, readonly { lead: string; body: string }[
   en: [
     {
       lead: 'Third-party advertising.',
-      body: 'The third-party email-ad channel is currently suspended. If it is reactivated, we may send promotional messages from third parties to base subscribers who have not switched this category off, and may communicate, make available or transfer their email address and declared or interaction-derived information to advertisers and advertising partners for their own commercial purposes. Advertising networks on site pages may collect browser identifiers and browsing data under the cookie consent choice; they are described in the full privacy notice.',
+      body: 'The third-party email-ad channel is live. We may send promotional messages from third parties to base subscribers who have not switched this category off, and may communicate, make available or transfer their email address and declared or interaction-derived information to advertisers and advertising partners for their own commercial purposes. Advertising networks on site pages may collect browser identifiers and browsing data under the cookie consent choice; they are described in the full privacy notice.',
     },
     {
       lead: 'Profiling for relevant content.',
@@ -352,7 +352,7 @@ const SHARING_ITEMS: Record<PageLocale, readonly { lead: string; body: string }[
   de: [
     {
       lead: 'Werbung Dritter.',
-      body: 'Der E-Mail-Kanal für Werbung Dritter ist derzeit ausgesetzt. Bei einer Reaktivierung können wir Werbenachrichten von Dritten an Basis-Abonnenten senden, die diese Kategorie nicht deaktiviert haben, und ihre E-Mail-Adresse sowie angegebene oder aus Interaktionen abgeleitete Informationen Inserenten und Werbepartnern für deren eigene kommerzielle Zwecke mitteilen, zur Verfügung stellen oder übertragen. Werbenetzwerke auf den Seiten der Website können unter der Cookie-Einwilligung Browser-Kennungen und Nutzungsdaten erheben; sie sind in der vollständigen Datenschutzerklärung beschrieben.',
+      body: 'Der E-Mail-Kanal für Werbung Dritter ist aktiv. Wir können Werbenachrichten von Dritten an Basis-Abonnenten senden, die diese Kategorie nicht deaktiviert haben, und ihre E-Mail-Adresse sowie angegebene oder aus Interaktionen abgeleitete Informationen Inserenten und Werbepartnern für deren eigene kommerzielle Zwecke mitteilen, zur Verfügung stellen oder übertragen. Werbenetzwerke auf den Seiten der Website können unter der Cookie-Einwilligung Browser-Kennungen und Nutzungsdaten erheben; sie sind in der vollständigen Datenschutzerklärung beschrieben.',
     },
     {
       lead: 'Profilbildung für relevante Inhalte.',
@@ -370,7 +370,7 @@ const SHARING_ITEMS: Record<PageLocale, readonly { lead: string; body: string }[
   fr: [
     {
       lead: 'Publicité de tiers.',
-      body: 'Le canal d’e-mails publicitaires de tiers est actuellement suspendu. S’il est réactivé, nous pourrons envoyer des messages promotionnels de tiers aux abonnés de base qui n’auront pas désactivé cette catégorie, et communiquer, mettre à disposition ou transférer leur adresse e-mail ainsi que les informations déclarées ou déduites des interactions aux annonceurs et partenaires publicitaires pour leurs propres finalités commerciales. Les régies publicitaires présentes sur les pages du site peuvent collecter des identifiants de navigateur et des données de navigation selon le choix de consentement aux cookies ; elles sont décrites dans la politique complète.',
+      body: 'Le canal d’e-mails publicitaires de tiers est actif. Nous pourrons envoyer des messages promotionnels de tiers aux abonnés de base qui n’auront pas désactivé cette catégorie, et communiquer, mettre à disposition ou transférer leur adresse e-mail ainsi que les informations déclarées ou déduites des interactions aux annonceurs et partenaires publicitaires pour leurs propres finalités commerciales. Les régies publicitaires présentes sur les pages du site peuvent collecter des identifiants de navigateur et des données de navigation selon le choix de consentement aux cookies ; elles sont décrites dans la politique complète.',
     },
     {
       lead: 'Profilage pour des contenus pertinents.',

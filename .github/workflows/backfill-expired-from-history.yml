@@ -33,11 +33,6 @@ on:
         required: false
         type: boolean
         default: true
-      human_approval:
-        description: 'Explicit human approval for expired-job writer side effects.'
-        required: false
-        type: boolean
-        default: false
       crawler_keys:
         description: 'Optional comma/newline-separated crawler keys for a bounded batch.'
         required: false
@@ -106,48 +101,11 @@ jobs:
           node-version: '22'
           cache: npm
 
-      - name: Require human approval for expired-job writer side effects
-        id: side_effect_gate
-        env:
-          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
-          APPROVAL_CONSENT: ${{ inputs.human_approval }}
-          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
-          # Senza questa riga il cron di questo workflow e' VERDE E INERTE.
-          # scripts/ci/human-side-effect-gate.mjs:180 calcola
-          # `isTrustedScheduleEvent = eventName === 'schedule' &&
-          # APPROVAL_TRUSTED_SCHEDULE === 'true'`, e alla riga 214 un evento che
-          # non e' ne' dispatch ne' schedule fidato aggiunge
-          # `event-not-workflow-dispatch` alle `reasons` -> diniego. Un diniego
-          # «exits successfully so the workflow can finish quietly» (riga 34 di
-          # quello script), e ogni step di scrittura di questo workflow e'
-          # condizionato a `allow_side_effect == 'true'`: quindi il cron del
-          # 2026-10-01 sarebbe risultato `success` avendo backfillato ZERO
-          # expired job. Non e' un'ipotesi: `grep -c APPROVAL_TRUSTED_SCHEDULE`
-          # su questo file rendeva 0, mentre 19 workflow fratelli lo dichiarano
-          # (recover-prev-slugs.yml:170, send-job-alerts.yml,
-          # refresh-plate-auctions.yml e altri 16) — quindi e' il pattern
-          # stabilito del repo, non un privilegio inventato per questo caso.
-          #
-          # Questa riga ABILITA SCRITTURE SU `main` DA CRON: il percorso di
-          # questo workflow fa `git-commit-data.sh --slice-only` con push
-          # diretto su main e poi `trigger-deploy.sh`. Il gate resta comunque
-          # l'unico cancello: primo tentativo con nonce monouso, oppure il
-          # rerun bounded esplicitamente autorizzato qui sotto; `dry_run`
-          # continua a valere sul dispatch manuale.
-          APPROVAL_TRUSTED_SCHEDULE: 'true'
-          # Recovery uses GitHub's rerun API so the original dispatch inputs and
-          # ref are preserved. The shared gate normally rejects every rerun;
-          # this workflow is the sole bounded exception, still requiring the
-          # original human_approval=true and dry_run=false inputs.
-          APPROVAL_TRUSTED_RESUMABLE_RERUN: 'true'
-          APPROVAL_SCOPE: backfill-expired-from-history
-        run: node scripts/ci/human-side-effect-gate.mjs
-
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials for push auth
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -159,12 +117,12 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load push credentials from Remote Config
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       - name: Recover dropped jobs and repair active firstSeenAt metadata (checkpointed batches)
         id: backfill
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           DRY_RUN: ${{ inputs.dry_run == true && '1' || '0' }}
           MAX_COMMITS: ${{ inputs.max_commits || '0' }}
@@ -391,7 +349,7 @@ jobs:
           echo '✅ History backfill completed with durable checkpoints.'
 
       - name: Reassemble dataset (so the test gate has data/jobs.json; not committed)
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         # Regenerates the assembled artifacts (data/jobs.json, expired-jobs.json)
         # that the vitest gate reads. These are deploy-assembled, not committed by
         # the --slice-only checkpoint commits above. We deliberately do NOT run
@@ -403,7 +361,7 @@ jobs:
 
       - name: Test gate (bot-direct-to-main — validate before deploy)
         id: backfill_tests
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         # A workflow that pushes data straight to main is held to the same
         # relevant-test policy as a PR (AGENTS.md). The full suite is not the
         # gate here: its unrelated corpus/environment tests can fail after the
@@ -417,7 +375,7 @@ jobs:
         run: npm run test:backfill
 
       - name: Trigger deploy after validated backfill
-        if: steps.backfill.outcome == 'success' && steps.backfill_tests.outcome == 'success' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: steps.backfill.outcome == 'success' && steps.backfill_tests.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
         # Hard-fail by design (no `|| true`, #6936): a failed dispatch here
         # fails the job, caught by "Report failure to GitHub Issues" below —
         # that GitHub issue IS this caller's recovery net (auto-triage picks

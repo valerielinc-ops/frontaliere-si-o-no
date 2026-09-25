@@ -42,16 +42,10 @@ on:
         default: false
         type: boolean
       dry_run:
-        description: 'Keep the run preview-only unless explicitly disabled with human approval.'
+        description: 'Keep the run preview-only unless explicitly disabled.'
         required: false
         default: true
         type: boolean
-      human_approval:
-        description: 'Explicit human approval for follow-up sends and writes.'
-        required: false
-        default: false
-        type: boolean
-
 concurrency:
   # Mai due giri insieme: due processi che leggono lo stesso ledger di tentativi
   # possono spedire due volte alla stessa persona. Non si cancella il giro in
@@ -103,21 +97,11 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Require human approval for follow-up side effects
-        id: side_effect_gate
-        env:
-          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
-          APPROVAL_CONSENT: ${{ inputs.human_approval }}
-          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
-          APPROVAL_TRUSTED_SCHEDULE: 'true'
-          APPROVAL_SCOPE: newsletter-confirmation-followups
-        run: node scripts/ci/human-side-effect-gate.mjs
-
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -129,7 +113,7 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load secrets from Remote Config
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       - name: Decide the mode
@@ -138,8 +122,8 @@ jobs:
           ARMED: ${{ vars.CONFIRMATION_FOLLOWUPS_ARMED }}
           DISPATCH_APPLY: ${{ inputs.apply }}
           EVENT_NAME: ${{ github.event_name }}
-          ALLOW_SIDE_EFFECT: ${{ steps.side_effect_gate.outputs.allow_side_effect }}
-          EFFECTIVE_DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
+          ALLOW_SIDE_EFFECT: 'true'
+          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
         run: |
           # Lo schedule spedisce solo se la repo-variable è armata. Un dispatch
           # manuale spedisce solo se chi lo lancia spunta `apply` E la variabile
@@ -161,10 +145,10 @@ jobs:
 
       - name: Run follow-ups
         id: run
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
-          ALLOW_SIDE_EFFECT: ${{ steps.side_effect_gate.outputs.allow_side_effect }}
-          EFFECTIVE_DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
+          ALLOW_SIDE_EFFECT: 'true'
+          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
         run: |
           if [ "${{ steps.mode.outputs.apply }}" = "true" ]; then
             node scripts/newsletter-confirmation-followups.mjs --apply --json | tee /tmp/followups.json

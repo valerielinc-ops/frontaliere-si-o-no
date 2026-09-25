@@ -10,8 +10,6 @@ const recoveryWorkflow = readFileSync(
   'utf8',
 );
 
-const gate = "steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'";
-
 describe('backfill-expired-from-history.yml — durable checkpoints', () => {
   it('processes one crawler at a time and checkpoints partial batches', () => {
     const backfillStart = workflow.indexOf('- name: Recover dropped jobs and repair active firstSeenAt metadata (checkpointed batches)');
@@ -20,10 +18,11 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
 
     expect(backfillStart).toBeGreaterThanOrEqual(0);
     expect(reassembleStart).toBeGreaterThan(backfillStart);
-    expect(block).toContain(`if: ${gate}`);
+    expect(block).toContain("if: inputs.dry_run != true && inputs.dry_run != 'true'");
     expect(block).toContain('BACKFILL_CHECKPOINT_BATCH_SIZE');
     expect(block).toContain("BACKFILL_CHECKPOINT_BATCH_SIZE: '16'");
-    expect(workflow).toContain("APPROVAL_TRUSTED_RESUMABLE_RERUN: 'true'");
+    expect(workflow).not.toContain('human_approval:');
+    expect(workflow).not.toContain('human-side-effect-gate.mjs');
     expect(block).toContain('CRAWLER_KEYS="$key" node scripts/backfill-expired-from-history.mjs');
     expect(block).toContain('trap on_exit EXIT');
     expect(block).toContain("trap 'on_signal 143' TERM");

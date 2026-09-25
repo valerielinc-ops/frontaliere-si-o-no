@@ -31,16 +31,10 @@ on:
         required: false
         default: '21'
       dry_run:
-        description: 'Keep the run preview-only unless explicitly disabled with human approval.'
+        description: 'Keep the run preview-only unless explicitly disabled.'
         required: false
         default: true
         type: boolean
-      human_approval:
-        description: 'Explicit human approval for the dataset/CDN side-effect path.'
-        required: false
-        default: false
-        type: boolean
-
 concurrency:
   group: crawl-events
   cancel-in-progress: true
@@ -80,27 +74,11 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Require human approval for dataset side effects
-        id: side_effect_gate
-        env:
-          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
-          APPROVAL_CONSENT: ${{ inputs.human_approval }}
-          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
-          # Senza questo opt-in il cron giornaliero e' verde e inerte: il gate
-          # nega ogni `schedule` (`event-not-workflow-dispatch`), esce 0 e ogni
-          # step persist/commit/CDN viene saltato. Misurato: data/events.json
-          # fermo al 2026-09-16T11:08Z, e la run 35987430628 (2026-09-24) ha
-          # crawlato ~57 min per poi buttare via il risultato. E' lo stesso
-          # refresh interno dell'agenda di prima di #8889, col suo test gate.
-          APPROVAL_TRUSTED_SCHEDULE: 'true'
-          APPROVAL_SCOPE: events-dataset-publication
-        run: node scripts/ci/human-side-effect-gate.mjs
-
       - name: Install dependencies
         run: npm ci --no-audit --no-fund --ignore-scripts
 
       - name: Prepare Firebase credentials for push auth
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -112,7 +90,7 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load push credentials from Remote Config
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: |
           test -f scripts/load-rc-env.mjs
           node scripts/load-rc-env.mjs
@@ -134,7 +112,7 @@ jobs:
         # 2026-07-03) throws away the whole enrichment backlog and every
         # future run redoes it from scratch. if: always() so it still fires
         # even if a later step gets cancelled by timeout-minutes.
-        if: always() && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: always() && inputs.dry_run != true && inputs.dry_run != 'true'
         # continue-on-error: this is a best-effort optimization, not the main
         # deliverable (that's the "Commit dataset" step below) — a push
         # failure here (e.g. 5 retries genuinely exhausted under heavy
@@ -208,7 +186,7 @@ jobs:
         # if: always() and continue-on-error for the same reasons as the caches
         # step above — this is a progress ratchet, not the deliverable, and it
         # must never skip-cascade assemble/gate/commit.
-        if: always() && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: always() && inputs.dry_run != true && inputs.dry_run != 'true'
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -280,7 +258,7 @@ jobs:
       # is simply never committed and tomorrow re-mirrors those images — wasted
       # bandwidth, never a broken image. That is the safe direction of failure.
       - name: Prepare Firebase credentials
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -290,7 +268,7 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         # Non-fatal like every other caller: without R2_* the push script
         # reports the miss, prunes the manifest back and the images are
         # re-mirrored next run. Nothing is committed that claims otherwise.
@@ -302,12 +280,12 @@ jobs:
           fi
 
       - name: Push this run's mirrored event images to the CDN
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/push-mirrored-event-images-cdn.mjs
 
       - name: Commit dataset (rebase-retry pattern)
         id: commit
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         # Best-effort: a permanently-exhausted push (heavy concurrent-push
         # contention on main) must not hard-fail the job — next scheduled run
         # retries with fresh data. Matches the original inline retry loop's

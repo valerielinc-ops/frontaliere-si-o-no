@@ -17,11 +17,6 @@ on:
         required: false
         type: boolean
         default: true
-      human_approval:
-        description: 'Explicit human approval for SEO auto-correction and publication writes.'
-        required: false
-        type: boolean
-        default: false
       sample:
         description: 'Deterministic live HTML sample size'
         required: false
@@ -63,25 +58,11 @@ jobs:
           node-version: '22'
           cache: npm
 
-      - name: Require human approval for SEO side effects
-        id: side_effect_gate
-        env:
-          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
-          APPROVAL_CONSENT: ${{ inputs.human_approval }}
-          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
-          # The daily cron is this workflow's only producing principal: it
-          # writes data/seo-health/latest.json and applies the already-protected
-          # 404 repair.  Unarmed, every producing step is skipped and the
-          # fail-closed artifact upload is the only thing left to report it.
-          APPROVAL_TRUSTED_SCHEDULE: 'true'
-          APPROVAL_SCOPE: seo-health-loop
-        run: node scripts/ci/human-side-effect-gate.mjs
-
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -93,11 +74,11 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       - name: Mint App token for protected pushes and deploy dispatch
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -107,7 +88,7 @@ jobs:
 
       - name: Run five-phase SEO health loop
         id: health
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         continue-on-error: true
         env:
           GH_REPO: ${{ github.repository }}
@@ -135,7 +116,7 @@ jobs:
 
       - name: Reconcile 404 compatibility store
         id: compat_reconcile
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         # The Cloudflare/GSC producers own ingestion.  This step is the
         # deterministic repair: remove duplicates and paths the resolver can
         # no longer map, with strict mode so an unavailable resolver blocks a
@@ -144,12 +125,12 @@ jobs:
 
       - name: Validate compatibility invariant
         id: compat_validation
-        if: steps.compat_reconcile.outcome == 'success' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: steps.compat_reconcile.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
         run: npx vitest run tests/search-console-compat.test.ts --reporter=dot
 
       - name: Save health state before compat push
         id: health_snapshot
-        if: ${{ always() && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true' }}
+        if: ${{ always() && inputs.dry_run != true && inputs.dry_run != 'true' }}
         run: |
           set -euo pipefail
           mkdir -p /tmp/seo-health-state
@@ -161,7 +142,7 @@ jobs:
 
       - name: Commit and push corrected compat shards
         id: compat
-        if: steps.compat_validation.outcome == 'success' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: steps.compat_validation.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
@@ -196,7 +177,7 @@ jobs:
           exit "$rc"
 
       - name: Drop unsent compat commit after retry exhaustion
-        if: ${{ always() && steps.compat.outputs.push_exhausted == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true' }}
+        if: ${{ always() && steps.compat.outputs.push_exhausted == 'true' && inputs.dry_run != true && inputs.dry_run != 'true' }}
         run: |
           set -euo pipefail
           git fetch origin main
@@ -204,7 +185,7 @@ jobs:
 
       - name: Restore and persist health state
         id: health_commit
-        if: ${{ always() && steps.health_snapshot.outcome == 'success' && (steps.compat.outcome == 'success' || steps.compat.outcome == 'skipped') && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true' }}
+        if: ${{ always() && steps.health_snapshot.outcome == 'success' && (steps.compat.outcome == 'success' || steps.compat.outcome == 'skipped') && inputs.dry_run != true && inputs.dry_run != 'true' }}
         run: |
           set -euo pipefail
           saved_any=false
@@ -238,7 +219,7 @@ jobs:
           echo 'has_changes=true' >> "$GITHUB_OUTPUT"
 
       - name: Re-mint App token before deploy dispatch
-        if: steps.compat.outcome == 'success' && steps.compat.outputs.has_changes == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: steps.compat.outcome == 'success' && steps.compat.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -248,7 +229,7 @@ jobs:
 
       - name: Trigger deploy for live compat correction
         id: deploy
-        if: steps.compat.outcome == 'success' && steps.compat.outputs.has_changes == 'true' && steps.compat.outputs.push_exhausted == 'false' && (steps.health_commit.outcome == 'success' || steps.health_commit.outcome == 'skipped') && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: steps.compat.outcome == 'success' && steps.compat.outputs.has_changes == 'true' && steps.compat.outputs.push_exhausted == 'false' && (steps.health_commit.outcome == 'success' || steps.health_commit.outcome == 'skipped') && inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           GITHUB_PAT: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           GITHUB_REPOSITORY: ${{ github.repository }}

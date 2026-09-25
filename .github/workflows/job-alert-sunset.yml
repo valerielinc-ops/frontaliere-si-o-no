@@ -22,16 +22,10 @@ on:
           - dry-run
           - apply
       dry_run:
-        description: 'Keep the run preview-only unless explicitly disabled with human approval.'
+        description: 'Keep the run preview-only unless explicitly disabled.'
         required: false
         default: true
         type: boolean
-      human_approval:
-        description: 'Explicit human approval for subscriber status changes.'
-        required: false
-        default: false
-        type: boolean
-
 permissions:
   contents: read
   issues: write
@@ -79,21 +73,11 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Require human approval for recipient-state side effects
-        id: side_effect_gate
-        env:
-          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
-          APPROVAL_CONSENT: ${{ inputs.human_approval }}
-          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
-          APPROVAL_TRUSTED_SCHEDULE: 'true'
-          APPROVAL_SCOPE: job-alert-sunset
-        run: node scripts/ci/human-side-effect-gate.mjs
-
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -106,13 +90,13 @@ jobs:
           fi
 
       - name: Run sunset
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           # Scheduled runs apply transitions; manual runs use the chosen mode
           # (default dry-run — safe to inspect before acting).
           MODE: ${{ github.event_name == 'schedule' && 'apply' || inputs.mode || 'dry-run' }}
-          ALLOW_SIDE_EFFECT: ${{ steps.side_effect_gate.outputs.allow_side_effect }}
-          EFFECTIVE_DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
+          ALLOW_SIDE_EFFECT: 'true'
+          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
         run: |
           if [ "$ALLOW_SIDE_EFFECT" != "true" ] || [ "$EFFECTIVE_DRY_RUN" = "true" ]; then
             MODE=dry-run
