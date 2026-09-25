@@ -14,6 +14,7 @@ import {
   ASSISTED_APPLICATIONS_COLLECTION,
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
 } from './assistedApplicationConstants.js';
+import { isAutomationAgent, isCrawlerVisitorAgent } from './lib/returnVisit.js';
 
 export const ASSISTED_APPLICATION_PRODUCT = 'assisted_application';
 export const ASSISTED_APPLICATION_PRICE_CENTS = ASSISTED_APPLICATION_PRICE_EUR_CENTS;
@@ -53,6 +54,18 @@ function validHttpsUrl(value) {
 function validRequestKey(value) {
   const result = boundedString(value, 128);
   return REQUEST_KEY_RE.test(result) ? result : '';
+}
+
+function requestUserAgent(req) {
+  const value = typeof req?.get === 'function'
+    ? req.get('user-agent')
+    : req?.headers?.['user-agent'];
+  return Array.isArray(value) ? String(value[0] || '') : String(value || '');
+}
+
+function isAutomatedCheckoutRequest(req) {
+  const userAgent = requestUserAgent(req);
+  return isCrawlerVisitorAgent(userAgent) || isAutomationAgent(userAgent);
 }
 
 function isFullChargeRefund(charge) {
@@ -170,6 +183,9 @@ function pendingOrderData(order, orderId, userId, requestKeyHash, checkoutAttemp
 export async function handleCreateAssistedApplicationCheckout(req) {
   if (req.method !== 'POST') {
     return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
+  }
+  if (isAutomatedCheckoutRequest(req)) {
+    return { status: 403, body: { ok: false, error: 'automation_not_allowed' } };
   }
 
   const decoded = await verifyCaller(req);
