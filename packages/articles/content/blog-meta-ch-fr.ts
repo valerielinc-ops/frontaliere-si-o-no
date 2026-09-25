@@ -6719,6 +6719,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sanzioni-onu-ordinanze-2026.title': 'La Suisse harmonise les ordonnances relatives aux sanctions de l\'ONU de 2026',
     'blog.article.sanzioni-onu-ordinanze-2026.excerpt': 'Le 25 septembre 2026, le Conseil fédéral a décidé d\'harmoniser quatre ordonnances sur les sanctions, étendant aux organisations internationales l\'exemption de notification et d\'autorisation pour certaines transactions iraniennes.',
     'blog.article.sanzioni-onu-ordinanze-2026.imageAlt': 'Documents officiels de la SECO sur les sanctions de l\'ONU avec le Palais fédéral de Berne en arrière-plan',
+    'blog.article.francese-autonomia-cantoni.title': 'Le français à l\'école : les cantons défendent l\'autonomie',
+    'blog.article.francese-autonomia-cantoni.excerpt': 'La CDPE défend les prérogatives cantonales en matière de langues et ne choisit pas entre les deux variantes fédérales : consultation jusqu’au 5 octobre.',
+    'blog.article.francese-autonomia-cantoni.imageAlt': 'École suisse avec des livres de français et d’allemand',
 };
 
 export default blogMetaChFr;

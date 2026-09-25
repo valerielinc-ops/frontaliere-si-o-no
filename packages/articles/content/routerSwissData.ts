@@ -2262,6 +2262,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'incentivo-fiscale-acquisto-locale': { it: 'incentivo-fiscale-acquisto-locale', en: 'tax-incentive-local-shopping-ticino', de: 'steuerbonus-lokale-einkaeufe-tessin', fr: 'incentive-fiscal-achats-locaux-tessin' },
  'franco-svizzero-ribasso-settembre-novembre': { it: 'franco-svizzero-ribasso-settembre-novembre', en: 'swiss-franc-decline-signals-to-watch-through-november', de: 'schweizer-franken-im-abwartstrend-signale-die-bis-november-zu-beobachten-sind', fr: 'franc-suisse-en-baisse-les-signaux-a-suivre-jusqu-en-novembre' },
  'sanzioni-onu-ordinanze-2026': { it: 'sanzioni-onu-ordinanze-2026', en: 'sanctions-un-ordinances-2026', de: 'sanktionen-un-verordnungen-2026', fr: 'sanctions-onu-ordonnances-2026' },
+ 'francese-autonomia-cantoni': { it: 'francese-autonomia-cantoni', en: 'french-language-canton-autonomy', de: 'franzoesisch-kantone-autonomie', fr: 'francais-autonomie-cantons' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

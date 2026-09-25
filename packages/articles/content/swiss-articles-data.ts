@@ -20183,6 +20183,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'francese-autonomia-cantoni',
+    category: 'novita',
+    date: '2026-09-25T18:17:09.866Z',
+    image: '/images/blog/francese-autonomia-cantoni.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -6719,6 +6719,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sanzioni-onu-ordinanze-2026.title': 'Switzerland harmonizes the 2026 UN sanctions ordinances',
     'blog.article.sanzioni-onu-ordinanze-2026.excerpt': 'On 25 September 2026, the Federal Council decided to harmonise four sanctions ordinances, extending the exemption from notification and authorisation for certain Iranian transactions to international organisations.',
     'blog.article.sanzioni-onu-ordinanze-2026.imageAlt': 'SECO official documents on UN sanctions with the Federal Palace in Bern in the background',
+    'blog.article.francese-autonomia-cantoni.title': 'French at school: the cantons defend autonomy',
+    'blog.article.francese-autonomia-cantoni.excerpt': 'The CDPE defends cantonal prerogatives regarding languages and does not choose between the two federal variants: consultation until 5 October.',
+    'blog.article.francese-autonomia-cantoni.imageAlt': 'Swiss school with French and German language books',
 };
 
 export default blogMetaChEn;
