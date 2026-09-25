@@ -26,7 +26,8 @@ type Written = { path: string; data: Record<string, any>; options?: unknown };
 const writes: Written[] = [];
 const events: Written[] = [];
 let docs: Record<string, Record<string, any>> = {};
-let refuseUndisplayedRegistrations = false;
+/** Model of firestore.rules for the one decision that matters here. */
+let rulesMode: 'accept' | 'unverified-owner' = 'accept';
 
 vi.mock('firebase/firestore', () => {
   const pathOf = (parent: any, segments: string[]) =>
@@ -40,13 +41,10 @@ vi.mock('firebase/firestore', () => {
       data: () => docs[ref.path],
     })),
     setDoc: vi.fn(async (ref: { path: string }, data: Record<string, any>, options?: unknown) => {
-      // The one thing firestore.rules decide that matters here: a browser may
-      // create/promote a terms registration only with a displayed notice.
-      if (
-        refuseUndisplayedRegistrations
-        && data.registration_terms_accepted === true
-        && data.consent_text_displayed !== true
-      ) {
+      // firestore.rules accept a verified owner's terms registration whether
+      // or not the notice was displayed; without a verified owner they refuse
+      // it (`isTermsBasedConfirmedCreate/Update` need isVerifiedSubscriberOwner).
+      if (rulesMode === 'unverified-owner' && data.registration_terms_accepted === true) {
         throw Object.assign(new Error('Missing or insufficient permissions.'), { code: 'permission-denied' });
       }
       writes.push({ path: ref.path, data, options });
@@ -124,7 +122,7 @@ beforeEach(() => {
   writes.length = 0;
   events.length = 0;
   docs = {};
-  refuseUndisplayedRegistrations = false;
+  rulesMode = 'accept';
   document.body.innerHTML = '';
   window.sessionStorage.clear();
   window.history.replaceState(null, '', '/calcolatore/');
@@ -353,9 +351,22 @@ describe('reconciliation never creates a relationship', { timeout: 30_000 }, () 
   });
 });
 
-describe('when firestore.rules refuse an undisplayed registration', { timeout: 30_000 }, () => {
-  it('records the refused attempt truthfully and writes no profile-only row', async () => {
-    refuseUndisplayedRegistrations = true;
+describe('firestore.rules and the undisplayed registration (owner decision of 2026-09-25)', { timeout: 30_000 }, () => {
+  it('a login with nothing on screen is registered, with the record saying so, and no refusal is logged', async () => {
+    await auth.promptOneTap();
+    await gisCallback!({ credential: 'jwt', select_by: 'user' });
+    await settleWrite();
+    const d = registration();
+    expect(d.status).toBe('confirmed');
+    expect(d.consent_text_displayed).toBe(false);
+    expect(d.consent_origin).toBe('auth_one_tap');
+    expect(d.confirmation_method).toBe('provider_verified_email');
+    expect(consentEvent().metadata.consent).toMatchObject({ text_displayed: false, origin: 'auth_one_tap' });
+    expect(events.some((e) => e.data.event_type === 'registration_refused')).toBe(false);
+  });
+
+  it('a refusal (no verified owner) is still recorded truthfully, with no profile-only row', async () => {
+    rulesMode = 'unverified-owner';
     await auth.promptOneTap();
     await gisCallback!({ credential: 'jwt', select_by: 'user' });
     await settleWrite();
@@ -364,18 +375,9 @@ describe('when firestore.rules refuse an undisplayed registration', { timeout: 3
     const refused = events.find((e) => e.data.event_type === 'registration_refused');
     expect(refused?.path).toBe(`${SUB(GOOGLE_USER.email)}/events`);
     expect(refused?.data.metadata).toMatchObject({
-      reason: 'firestore_rules_require_displayed_notice',
+      reason: 'firestore_rules_refused',
       consent: { origin: 'auth_one_tap', text_displayed: false, act: 'registration_terms_acceptance' },
     });
-  });
-
-  it('a displayed registration is not affected', async () => {
-    refuseUndisplayedRegistrations = true;
-    renderNotice(consentDisplayText('communicationsOptIn', 'it'));
-    auth.parkConsentEvidence(auth.captureConsentNoticeEvidence());
-    await auth.saveUserProfileToFirestore(GOOGLE_USER, 'google');
-    expect(registration().consent_text_displayed).toBe(true);
-    expect(events.some((e) => e.data.event_type === 'registration_refused')).toBe(false);
   });
 });
 
