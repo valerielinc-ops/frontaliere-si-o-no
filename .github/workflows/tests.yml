@@ -2053,7 +2053,10 @@ jobs:
                 rm -f "$local_diff_file"
                 return 1
               fi
-              mv "$local_diff_file" changed-paths.txt
+              if ! mv "$local_diff_file" changed-paths.txt 2>/dev/null; then
+                rm -f "$local_diff_file"
+                return 1
+              fi
               printf '%s\n' complete > changed-paths-status.txt
               return 0
             fi
@@ -2072,8 +2075,11 @@ jobs:
           count="$(wc -l < changed-paths.txt | tr -d ' ')"
           echo "path toccati: $count"
           if [ "$count" = "0" ]; then
-            echo "elenco vuoto → related-only senza candidati Vitest"
-            exit 0
+            if [ "$(cat changed-paths-status.txt 2>/dev/null || true)" = "complete" ]; then
+              echo "elenco vuoto → related-only senza candidati Vitest"
+              exit 0
+            fi
+            echo "elenco vuoto con misura non completa → selezione conservativa"
           fi
           # The compare endpoint returns HTTP 200 with only its first 300
           # files and no truncation flag. On push/merge_group the checkout has
