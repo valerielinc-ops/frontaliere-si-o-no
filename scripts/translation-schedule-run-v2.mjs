@@ -38,7 +38,9 @@ import {
 import { executeTranslationCandidateV2 } from './lib/translation-candidate-executor-v2.mjs';
 import {
   MAX_TRANSLATION_STATE_BATCH_V2,
-  DEFAULT_TRANSLATION_STATE_REF_V2,
+  TRANSLATION_STATE_REF_V2,
+  TRANSLATION_STATE_REMOTE_V2,
+  assertTranslationStateTargetV2,
   createTranslationStateStoreV2,
 } from './lib/translation-state-store-v2.mjs';
 import {
@@ -489,8 +491,8 @@ export async function runTranslationScheduleV2(options = {}) {
   if (mode !== 'shadow') throw new TypeError('translation scheduler v2 only supports shadow mode');
   const scopeKey = options.scopeKey || process.env.TRANSLATION_SCHEDULER_SCOPE || TRANSLATION_SCHEDULER_V2_SCOPE;
   const configuredStateRef = options.stateRef
-    || process.env.TRANSLATION_STATE_REF_V2
-    || DEFAULT_TRANSLATION_STATE_REF_V2;
+    ?? process.env.TRANSLATION_STATE_REF_V2
+    ?? TRANSLATION_STATE_REF_V2;
   const logger = options.logger || console;
   const promotionGuard = createTranslationPromotionGuardV2({
     env: options.promotionEnv ?? options.env ?? process.env,
@@ -534,6 +536,10 @@ export async function runTranslationScheduleV2(options = {}) {
     'translation scheduler providerTimeoutMs',
     300_000,
   );
+  const stateRemote = options.stateRemote
+    ?? process.env.TRANSLATION_STATE_REMOTE_V2
+    ?? TRANSLATION_STATE_REMOTE_V2;
+  assertTranslationStateTargetV2({ remote: stateRemote, ref: configuredStateRef });
 
   let stateStore = null;
   let provider = null;
@@ -551,7 +557,12 @@ export async function runTranslationScheduleV2(options = {}) {
   try {
     stateStore = options.stateStore || createTranslationStateStoreV2({
       repository,
+      remote: stateRemote,
       ref: configuredStateRef,
+    });
+    assertTranslationStateTargetV2({
+      remote: stateStore.remote,
+      ref: stateStore.ref,
     });
     provider = options.provider || normalizeProvider({
       repository,
@@ -602,6 +613,7 @@ export async function runTranslationScheduleV2(options = {}) {
     if (planned.plan.selectedJobs.length === 0) {
       const report = {
         mode,
+        stateRemote: stateStore.remote,
         status: 'empty',
         scopeKey,
         stateRef: stateStore.ref,
@@ -656,6 +668,7 @@ export async function runTranslationScheduleV2(options = {}) {
     const selectedUnits = planned.plan.selectedJobs.reduce((sum, job) => sum + job.units.length, 0);
     const report = {
       mode,
+      stateRemote: stateStore.remote,
       status: 'settled',
       scopeKey,
       stateRef: stateStore.ref,
@@ -712,9 +725,9 @@ export async function runTranslationScheduleV2(options = {}) {
     try {
       await writeReport(failureReport, options.reportPath || process.env.TRANSLATION_SHADOW_REPORT_PATH);
     } catch (reportError) {
-      logger.error(`translation scheduler v2 failure report could not be written: ${reportError?.message || reportError}`);
+      logger.error?.(`translation scheduler v2 failure report could not be written: ${reportError?.message || reportError}`);
     }
-    logger.error(`translation scheduler v2 shadow failed (${phase}): ${error?.message || error}`);
+    logger.error?.(`translation scheduler v2 shadow failed (${phase}): ${error?.message || error}`);
     return Promise.reject(error);
   }
 }
@@ -730,6 +743,7 @@ function parseCli(argv) {
     ['--provider-module', 'providerModule'],
     ['--provider-export', 'providerExportName'],
     ['--scope', 'scopeKey'],
+    ['--state-remote', 'stateRemote'],
     ['--state-ref', 'stateRef'],
     ['--report', 'reportPath'],
   ]);
