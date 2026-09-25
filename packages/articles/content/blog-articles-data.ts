@@ -25780,6 +25780,7 @@ const RAW_ARTICLES = [
  id: 'naspi-frontalieri-italia-requisiti-calcolo-domanda',
  category: 'pratico',
  date: '2026-07-17T12:43:15.884Z',
+ updatedAt: '2026-09-25',
  image: '/images/blog/naspi-frontalieri-italia-requisiti-calcolo-domanda.webp',
  hasCalculator: true,
  authorSlug: 'redazione',
