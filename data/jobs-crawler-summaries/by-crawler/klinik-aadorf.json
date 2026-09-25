@@ -1,23 +1,24 @@
 {
   "key": "klinik-aadorf",
   "label": "Klinik Aadorf",
-  "generatedAt": "2026-09-24T14:20:41.126Z",
+  "generatedAt": "2026-09-25T14:39:30.667Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
   "lastFetchOutcome": null,
   "written": 5,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4995,
-  "avgDurationMs": 4995,
+  "durationMs": 5041,
+  "avgDurationMs": 5041,
   "durationHistory": [
-    4995
+    5041
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "klinik-aadorf-0be29d66ceae",
       "slug": "praktikant-in-psychologie-w-m-d-80-100-klinik-aadorf-aadorf",
@@ -31,7 +32,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/81bb4cc3-0079-49a3-9e87-179919822f8f/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:20:32.500Z",
+      "crawledAt": "2026-09-25T14:39:20.946Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -46,16 +47,14 @@
       "featured": false,
       "postedDate": "2026-09-24",
       "applyUrl": "https://jobs.dualoo.com/portal/3ibnwlo9/81bb4cc3-0079-49a3-9e87-179919822f8f/detail?lang=DE",
-      "_qualityScore": 61,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 20,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "klinik-aadorf-54951a2960e8",
       "slug": "mitarbeiterin-mitarbeiter-hausdienst-w-m-d-60-klinik-aadorf-aadorf",
@@ -69,7 +68,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/41921d06-3a31-4c81-a961-7a46ba6e54b2/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:20:33.877Z",
+      "crawledAt": "2026-09-25T14:39:22.252Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -106,7 +105,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/ec61d00e-038b-4056-b9b4-7b3dfe0b3821/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:20:32.037Z",
+      "crawledAt": "2026-09-25T14:39:20.514Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -143,7 +142,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/0f84dc0a-aebd-499f-964f-415dbe22fb1f/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:20:33.416Z",
+      "crawledAt": "2026-09-25T14:39:21.818Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -180,7 +179,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/8216cfc3-8d7e-4f66-9b5b-979dd7655622/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:20:32.961Z",
+      "crawledAt": "2026-09-25T14:39:21.382Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
