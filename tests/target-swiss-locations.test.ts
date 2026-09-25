@@ -9,9 +9,24 @@ import {
   isKnownSwissMunicipalityInCanton,
   isTargetSwissLocation,
   isTicinoRelevant,
+  isWorkModeLocationLabel,
   TICINO_MUNICIPALITIES,
 } from '../scripts/lib/target-swiss-locations.mjs';
 import { ALL_CANTON_CODES, TARGET_CANTONS } from '../scripts/lib/crawler-location-config.mjs';
+
+describe('isWorkModeLocationLabel', () => {
+  it('flags a work mode written where a city would go (issue 9839)', () => {
+    for (const label of ['Remote', ' remote ', 'Home Office', 'HomeOffice', 'Hybrid']) {
+      expect(isWorkModeLocationLabel(label), label).toBe(true);
+    }
+  });
+
+  it('does not flag a place, a decorated place or an empty label', () => {
+    for (const label of ['Basel (City)', 'Remote, Switzerland', 'Rotkreuz (Office-Based)', 'Zürich', '', undefined]) {
+      expect(isWorkModeLocationLabel(label as string), String(label)).toBe(false);
+    }
+  });
+});
 
 describe('target swiss locations', () => {
   it('recognizes extended Ticino municipalities like Bedano', () => {

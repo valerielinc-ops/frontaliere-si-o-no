@@ -19,7 +19,9 @@
  *
  * Location text format: `Switzerland - {Canton} - {City}` (Basel, Zurich,
  * Fribourg, Remote, …). We strip the leading "Switzerland - " then use the
- * first remaining segment as the city.
+ * first remaining segment as the city. A work mode ("Remote") is not a city:
+ * without a requisition site that names one, the job is skipped rather than
+ * published as the Basel HQ (same rule as issue 9839 on nvidia-zurich).
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllAbbottJobs() — Fetch and parse all Swiss jobs
@@ -30,7 +32,11 @@
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { normalizeDescriptionBullets, slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton, swissCityFromLocationField } from './target-swiss-locations.mjs';
+import {
+  inferSwissTargetCanton,
+  isWorkModeLocationLabel,
+  swissCityFromLocationField,
+} from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
@@ -86,7 +92,9 @@ function cleanAbbottLocation(raw = '') {
   if (!stripped) return '';
   const parts = stripped.split(/\s*-\s*/).map((p) => p.trim()).filter(Boolean);
   // Last segment is usually the city (when present), else the canton/region.
-  return parts[parts.length - 1] || '';
+  const last = parts[parts.length - 1] || '';
+  // A work mode (`Switzerland - Remote`) names no place.
+  return isWorkModeLocationLabel(last) ? '' : last;
 }
 
 export function resolveAbbottLocation(listingLocation = '', requisitionLocation = '') {
@@ -237,8 +245,10 @@ export async function fetchAllAbbottJobs() {
     // Basel HQ used to fill the gap and published a req worked in Neustadt am
     // Rübenberge (Germany) as `Basel/BS` (issue 9842).
     const location = cleaned || resolveWorkdayPrimarySwissLocation(detailInfo);
-    const canton = location ? inferSwissTargetCanton(location) : '';
-    if (!canton) {
+    const canton = location && !isWorkModeLocationLabel(location)
+      ? inferSwissTargetCanton(location)
+      : '';
+    if (!location || !canton) {
       console.log(`  ⏭️  Skipped location without a Swiss canton: ${rawLocation || '(none)'} — ${title}`);
       continue;
     }

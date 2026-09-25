@@ -842,6 +842,21 @@ export function swissCityFromLocationField(value = '') {
   return canonicalSwissCityName(findSwissCityInText(value));
 }
 
+// A location label that names a work mode instead of a place. Workday and
+// Greenhouse boards emit it where a city would go (`Switzerland - Remote`,
+// `Remote, Switzerland`, a bare `Remote`).
+const WORK_MODE_LOCATION_LABEL_RE = /^(?:remote|home\s*office|hybrid)$/i;
+
+/**
+ * True when a location label (or one segment of it) is a work mode —
+ * "Remote", "Home Office", "Hybrid" — rather than a place. Such a label names
+ * no municipality, so a crawler must skip the job instead of stamping it with
+ * its HQ city or canton: unknown geography stays fail-closed (issue 9839).
+ */
+export function isWorkModeLocationLabel(value = '') {
+  return WORK_MODE_LOCATION_LABEL_RE.test(String(value || '').trim());
+}
+
 // ─── Liechtenstein postal-code helper ──────────────────────────────────────
 // Liechtenstein (FL) shares CH-style 4-digit postcodes in the 9485-9498 range.
 // Crawlers must reject these because FL is not part of CH and is out of scope

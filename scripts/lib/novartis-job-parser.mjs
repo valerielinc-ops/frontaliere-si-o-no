@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, isWorkModeLocationLabel } from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
@@ -190,8 +190,10 @@ export async function fetchAllNovartisJobs() {
     // (issue 9842).
     const location = normalizeSpace(listing.location || '')
       || await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath);
-    const canton = location ? inferSwissTargetCanton(location) : '';
-    if (!canton) {
+    const canton = location && !isWorkModeLocationLabel(location)
+      ? inferSwissTargetCanton(location)
+      : '';
+    if (!location || !canton) {
       console.log(`  ⏭️  Skipped location without a Swiss canton: ${listing.location || '(roll-up without Swiss primary)'} — ${title}`);
       continue;
     }

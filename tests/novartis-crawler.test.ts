@@ -1,13 +1,80 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 import {
   NOVARTIS_KEY,
   NOVARTIS_COMPANY_NAME,
   isNovartisJob,
   isTrustedDomain,
+  fetchAllNovartisJobs,
 } from '../scripts/lib/novartis-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
+// Replay harness for fetchAllNovartisJobs: the Workday network calls are
+// replaced by the payloads below, every pure helper of the client stays real.
+const workdayReplay = vi.hoisted(() => ({
+  listings: [] as Array<Record<string, unknown>>,
+  details: new Map<string, Record<string, unknown>>(),
+}));
+
+vi.mock('../scripts/lib/ats-clients/workday-client.mjs', async (importOriginal) => {
+  const actual = await importOriginal<Record<string, unknown>>();
+  return {
+    ...actual,
+    async *fetchWorkdayJobs() {
+      yield* workdayReplay.listings;
+    },
+    fetchWorkdayJobDetail: async (_apiBase: string, externalPath: string) =>
+      workdayReplay.details.get(externalPath) ?? null,
+    fetchWorkdayJobDescriptionText: async () => '',
+  };
+});
+
 describe('Novartis crawler parser', () => {
+  // Sibling of issue 9839 (nvidia-zurich). Live board of 2026-09-25 (labels,
+  // external paths and detail locations verbatim): the `Remote` listing is a
+  // US job (requisition `Remote Position (USA)`) that went out as `Remote / BS`,
+  // and each `4 Locations` rollup went out as the Basel HQ default, although one
+  // of them is also US-remote.
+  describe('fetchAllNovartisJobs replay: a job needs a named Swiss locality', () => {
+    const replay = [
+      { title: 'Director, AI Platform Engineer - Remote', path: '/job/Remote/Director--AI-Platform-Engineer---Remote_REQ-10080349', label: 'Remote', primary: 'Remote' },
+      { title: 'AD, Patient & Community Liaison Northeast - REMOTE', path: '/job/Remote/AD--Patient---Community-Liaison-Northeast---REMOTE_REQ-10083010-1', label: '4 Locations', primary: 'Remote' },
+      { title: 'Director, CRM DU Strategy & Engagement (80-100%)', path: '/job/Basel-City/Director--CRM-DU-Strategy---Engagement--80-100--_REQ-10087647-1', label: '4 Locations', primary: 'Basel (City)' },
+      { title: 'Scientist', path: '/job/Stein-Aargau/Scientist_REQ-10000001', label: 'Stein Aargau', primary: 'Stein Aargau' },
+    ];
+
+    afterEach(() => {
+      workdayReplay.listings = [];
+      workdayReplay.details.clear();
+      vi.restoreAllMocks();
+    });
+
+    it('skips a location that names no Swiss place and resolves a rollup from its detail primary', async () => {
+      for (const job of replay) {
+        workdayReplay.listings.push({
+          title: job.title,
+          externalPath: job.path,
+          locationsText: job.label,
+          postedOn: 'Posted 3 Days Ago',
+          bulletFields: [job.path.split('_').pop()],
+        });
+        workdayReplay.details.set(job.path, { jobPostingInfo: { title: job.title, location: job.primary } });
+      }
+      vi.spyOn(globalThis, 'setTimeout').mockImplementation(((fn: () => void) => {
+        fn();
+        return 0;
+      }) as unknown as typeof setTimeout);
+      vi.spyOn(console, 'log').mockImplementation(() => {});
+
+      const jobs = await fetchAllNovartisJobs();
+
+      expect(jobs.map((job: { title: string; location: string; canton: string }) => [job.title, job.location, job.canton]))
+        .toEqual([
+          ['Director, CRM DU Strategy & Engagement (80-100%)', 'Basel (City)', 'BS'],
+          ['Scientist', 'Stein Aargau', 'AG'],
+        ]);
+    });
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(NOVARTIS_KEY).toBe('novartis');
