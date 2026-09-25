@@ -400,14 +400,13 @@ describe('the record of the act: displayed only when shown, surface, language, c
     expect(payloadOf().consent_text).toBe(CONSENT_TEXTS.communicationsOptIn.texts!.it);
   });
 
-  it('an explicit notice key and locale are stored as shown', async () => {
+  it('an explicit locale is stored as shown', async () => {
     await captureNewsletterSubscriber({} as any, {
       email: 'fr@example.com',
       source: 'auth_google',
       registrationTermsAccepted: true,
       registrationMethod: 'authenticated',
       consentTextDisplayed: true,
-      consentNoticeKey: 'communicationsOptIn',
       consentLocale: 'fr',
     });
     expect(payloadOf().consent_text).toBe(CONSENT_TEXTS.communicationsOptIn.texts!.fr);
