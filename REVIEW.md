@@ -213,7 +213,7 @@ Dopo prima review:
 - 🔴 senza file: se risolto, conferma «Fix di `<testo normalizzato>`: ok.» senza
   backtick interni.
 - No rilanciare nit già detti.
-- Bundle con `## Risposta del 🔴-fixer`: prima dei 🔴 nuovi giudica ogni voce (prevale sul riporto per anchor, anche a codice invariato). `fixed`: Accettazione soddisfatta? `disputed`: l'evidenza regge? Sì → `Fix di \`path:L<n>\`: ok` (+ `(ritirato: <motivo>)`); no → 🔴 con `Replica: <cosa manca>`, mai identico.
+- Se c'è `## Risposta del 🔴-fixer`: prima dei 🔴 nuovi e del riporto per anchor giudica ogni voce, anche a codice invariato. `fixed`: regge l'Accettazione, o la proposta del fixer? `disputed`: regge l'evidenza? Sì → `Fix di \`path:L<n>\`: ok` (+ `(ritirato: <motivo>)`); no → 🔴 e `Replica: <cosa manca>`, mai identico.
 
 ## Output format
 

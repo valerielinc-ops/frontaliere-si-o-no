@@ -59,6 +59,20 @@ describe('REVIEW.md e prompt: ogni 🔴 è chiudibile e la re-review risponde al
     expect(prompt).toContain('first judge every answered finding');
   });
 
+  it('un 🔴 senza Accettazione riceve quella proposta dal fixer, e la review giudica su quella', () => {
+    // Scelta del proprietario (2026-09-25): nessun gate nuovo sull'Accettazione
+    // mancante; la propone il fixer e il reviewer la usa come metro.
+    expect(convergence).toContain('o la proposta del fixer');
+    const fixer = REDFLAG.jobs['redflag-fix'].steps.find((s: any) => /^Run Codex Luna Max/.test(s.name));
+    const fixerPrompt = String(fixer.with.prompt);
+    expect(fixerPrompt).toContain('dichiaralo nella risposta come `Accettazione proposta:`');
+    expect(fixerPrompt).toContain('Accettazione proposta: <il controllo eseguito>');
+    const review = TESTS.jobs.vitest.steps.find((s: any) => s.name === 'Run Codex Luna Max review');
+    expect(String(review.with.prompt)).toContain('judge the fix against the `Accettazione proposta` the fixer wrote');
+    const prefetch = stepRun(TESTS, 'vitest', 'Prefetch review context (zero-Claude, saves turns)');
+    expect(prefetch).toContain('Accettazione proposta');
+  });
+
   it('la re-review giudica fixed/disputed prima dei 🔴 nuovi e non ripete un 🔴 senza Replica', () => {
     for (const token of ['## Risposta del 🔴-fixer', 'prima dei 🔴 nuovi', 'anche a codice invariato', '`fixed`', '`disputed`', '(ritirato: <motivo>)', 'Replica: <cosa manca>', 'mai identico']) {
       expect(convergence).toContain(token);
