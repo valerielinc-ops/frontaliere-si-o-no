@@ -177,12 +177,13 @@ export function resolveConfirmationJobContext(data) {
     const company = sanitizeCompany(data.job_company);
     if (!title && !company) return null;
 
-    // "Zurich, Switzerland" → "Zurich": the country is noise in a sentence that
-    // already says "in the area of".
-    const rawLocation = [data.job_location, data.location_interest].find(
-      (v) => typeof v === 'string' && v.trim(),
-    );
-    const location = rawLocation ? sanitizeLocation(String(rawLocation).split(',')[0]) : null;
+    // `source` is the only offer field this document keeps from first touch.
+    // `job_location` and `location_interest` are last-touch fields, so using
+    // either here can pair offer A's title/company with offer B's location —
+    // including two offers from the same company. Until the first-touch write
+    // carries a location that can be corroborated in the same way, degrade to
+    // no location rather than guessing.
+    const location = null;
 
     return { kind, title, company, location };
   } catch {
@@ -302,18 +303,19 @@ export function readConfirmationJobSnapshot(data) {
  * @returns {{jobContext: ConfirmationJobContext|null, returnPath: string|null, snapshot: ConfirmationJobSnapshot|null}}
  */
 export function confirmationJobContextForSend(data, { attemptsBefore, returnPath = null } = {}) {
+  const cleanReturnPath = sanitizeConfirmationReturnPath(returnPath);
   const stored = attemptsBefore > 0 ? readConfirmationJobSnapshot(data) : undefined;
   if (stored !== undefined) {
     // A generic request #1 stays generic, and keeps this sender's link: with
     // no offer named there is no return promise for the link to contradict.
-    if (stored === null) return { jobContext: null, returnPath: returnPath ?? null, snapshot: null };
+    if (stored === null) return { jobContext: null, returnPath: cleanReturnPath, snapshot: null };
     const { return_path: frozenPath, ...jobContext } = stored;
     return { jobContext, returnPath: frozenPath, snapshot: stored };
   }
   const jobContext = resolveConfirmationJobContext(data);
   return {
     jobContext,
-    returnPath: returnPath ?? null,
-    snapshot: jobContext ? { ...jobContext, return_path: sanitizeConfirmationReturnPath(returnPath) } : null,
+    returnPath: cleanReturnPath,
+    snapshot: jobContext ? { ...jobContext, return_path: cleanReturnPath } : null,
   };
 }

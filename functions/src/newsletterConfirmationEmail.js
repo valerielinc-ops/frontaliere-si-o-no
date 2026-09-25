@@ -34,7 +34,10 @@ import {
   confirmationFrameForAttempt,
 } from './lib/confirmationEmailContent.js';
 import { makeMailerooRefOnSent } from './lib/mailerooRef.js';
-import { confirmationJobContextForSend } from './lib/confirmationJobContext.js';
+import {
+  confirmationJobContextForSend,
+  sanitizeConfirmationReturnPath,
+} from './lib/confirmationJobContext.js';
 import {
   confirmationSendRefusal,
   isConfirmationCycleSend,
@@ -262,7 +265,7 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  const finalUrl = confirmationConfirmUrl({
    email: normalizedEmail,
    token,
-   sourcePath: jobSend ? jobSend.returnPath : sourcePath,
+   sourcePath: jobSend ? jobSend.returnPath : sanitizeConfirmationReturnPath(sourcePath),
    // A passwordless login link must never be able to revive an opt-out when
    // an old link is opened later. The management handler uses this explicit
    // mode to mint a session without changing newsletter state.

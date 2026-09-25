@@ -53,12 +53,27 @@ const jobGateDoc = (overrides: Record<string, any> = {}) => ({
 });
 
 describe('resolveConfirmationJobContext: which offer, if any', () => {
-  it('reads title, company and location from a job-gate document', () => {
+  it('reads the corroborated title and company, but omits last-touch location', () => {
     expect(resolveConfirmationJobContext(jobGateDoc())).toEqual({
       kind: 'unlocked',
       title: 'Driver (m/w/d)',
       company: 'Kulm Hotel St. Moritz',
-      location: 'Pontresina',
+      location: null,
+    });
+  });
+
+  it('does not pair a first-touch offer with a same-company last-touch location', () => {
+    const sameCompanyDifferentOffer = jobGateDoc({
+      source: 'job_gate:Acme SA:Offerta A',
+      job_company: 'Acme SA',
+      job_location: 'Loc B, Switzerland',
+      location_interest: 'Loc B',
+    });
+    expect(resolveConfirmationJobContext(sameCompanyDifferentOffer)).toEqual({
+      kind: 'unlocked',
+      title: 'Offerta A',
+      company: 'Acme SA',
+      location: null,
     });
   });
 
@@ -117,7 +132,7 @@ describe('the contextual request, in each of the four languages', () => {
       expect(req.subject, locale).toContain('Driver (m/w/d)');
       expect(req.subject, locale).not.toBe(t(locale, 'confirmSubject'));
       expect(req.html, locale).toContain('Kulm Hotel St. Moritz');
-      expect(req.html, locale).toContain('Pontresina');
+      expect(req.html, locale).not.toContain('Pontresina');
       expect(req.html, locale).toContain(t(locale, 'confirmJobButton'));
       expect(req.html, locale).toContain(t(locale, 'confirmJobReturn'));
       expect(req.html, locale).not.toContain(t(locale, 'confirmIntro'));
@@ -322,7 +337,7 @@ describe('title and company always come from the same offer', () => {
     // JobExpiredView stamps `source: 'job_expired'`: the company is the only
     // slot, and nothing contradicts it.
     const ctx = resolveConfirmationJobContext(jobGateDoc({ source: 'job_expired', source_cta: 'job_expired_email_unlock' }));
-    expect(ctx).toEqual({ kind: 'expired', title: null, company: 'Kulm Hotel St. Moritz', location: 'Pontresina' });
+    expect(ctx).toEqual({ kind: 'expired', title: null, company: 'Kulm Hotel St. Moritz', location: null });
   });
 });
 
@@ -332,7 +347,7 @@ describe('the snapshot: request #1 decides, the reminders repeat', () => {
 
   it('request #1 resolves the offer and freezes it with its return path', () => {
     const send = confirmationJobContextForSend(jobGateDoc(), { attemptsBefore: 0, returnPath: A_PATH });
-    expect(send.jobContext).toEqual({ kind: 'unlocked', title: 'Driver (m/w/d)', company: 'Kulm Hotel St. Moritz', location: 'Pontresina' });
+    expect(send.jobContext).toEqual({ kind: 'unlocked', title: 'Driver (m/w/d)', company: 'Kulm Hotel St. Moritz', location: null });
     expect(send.returnPath).toBe(A_PATH);
     expect(send.snapshot).toEqual({ ...send.jobContext, return_path: A_PATH });
 
@@ -409,7 +424,7 @@ describe('the snapshot: request #1 decides, the reminders repeat', () => {
     );
     expect(req.payload.subject).toContain('Driver (m/w/d)');
     expect(req.meta.jobSnapshot).toEqual({
-      kind: 'unlocked', title: 'Driver (m/w/d)', company: 'Kulm Hotel St. Moritz', location: 'Pontresina', return_path: A_PATH,
+      kind: 'unlocked', title: 'Driver (m/w/d)', company: 'Kulm Hotel St. Moritz', location: null, return_path: A_PATH,
     });
   });
 

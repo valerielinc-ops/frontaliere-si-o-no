@@ -8,8 +8,8 @@
  * between request #1 and the last reminder. These tests drive both senders
  * end to end, with the provider mocked so no email can leave:
  *   - the Cloud Function writes the snapshot in the same transaction as the
- *     counter, and a "resend" on the same cycle repeats it — title, company,
- *     location and the page the link returns to;
+ *     counter, and a "resend" on the same cycle repeats it — title, company
+ *     and the page the link returns to;
  *   - the follow-up runner writes it in the same batch as the counter.
  */
 import { readFileSync } from 'node:fs';
@@ -111,7 +111,7 @@ describe('the Cloud Function freezes request #1 and repeats it on a resend', () 
     const store = memoryDb(offerA());
 
     const first = await sendNewsletterConfirmationEmail({
-      email: EMAIL, locale: 'it', sourcePath: A_PATH, secret: 'test-secret', db: store.db, purpose: 'confirm',
+      email: EMAIL, locale: 'it', sourcePath: `${A_PATH}?utm_source=mail#offer`, secret: 'test-secret', db: store.db, purpose: 'confirm',
     });
     expect(first.success).toBe(true);
     expect(cascade.sent).toHaveLength(1);
@@ -123,9 +123,11 @@ describe('the Cloud Function freezes request #1 and repeats it on a resend', () 
       kind: 'unlocked',
       title: 'Driver (m/w/d)',
       company: 'Kulm Hotel St. Moritz',
-      location: 'Pontresina',
+      location: null,
       return_path: A_PATH,
     });
+    expect(cascade.sent[0].payload.html).toContain(`${A_PATH}?action=confirm_newsletter`);
+    expect(cascade.sent[0].payload.html).not.toContain('utm_source=mail');
 
     // A day later the person unlocks offer B; the last-touch fields move. The
     // stamps are rewritten as ISO strings so the cooldown reads a real date.
@@ -200,7 +202,7 @@ describe('the follow-up runner writes the snapshot in the same batch as the coun
     expect(docWrite.data).toMatchObject({
       confirmation_attempts: 2,
       [CONFIRMATION_JOB_CONTEXT_FIELD]: {
-        kind: 'unlocked', title: 'Driver (m/w/d)', company: 'Kulm Hotel St. Moritz', location: 'Pontresina', return_path: A_PATH,
+        kind: 'unlocked', title: 'Driver (m/w/d)', company: 'Kulm Hotel St. Moritz', location: null, return_path: A_PATH,
       },
     });
     expect(eventWrite.data.event_type).toBe('confirmation_email_sent');
