@@ -1066,7 +1066,9 @@ describe('copertura workflow diretti', () => {
     expect(codexBlock).toContain('"$codex_bin" sandbox');
     expect(codexBlock).toContain('"$codex_bin" exec');
     expect(codexBlock).toContain('/usr/bin/timeout');
-    expect(codexBlock).toContain('codex_exec_timeout_seconds=900');
+    expect(action).toMatch(/exec_timeout_minutes:\n\s+description:[^\n]*\n\s+required: false\n\s+default: "15"/);
+    expect(codexBlock).toContain('codex_exec_timeout_minutes="${CODEX_EXEC_TIMEOUT_MINUTES:-15}"');
+    expect(codexBlock).toContain('codex_exec_timeout_seconds=$((codex_exec_timeout_minutes * 60))');
     expect(codexBlock).toContain('codex_exec_kill_grace_seconds=30');
     expect(codexBlock).toContain('--signal=TERM');
     expect(codexBlock).toContain('--kill-after="${codex_exec_kill_grace_seconds}s"');
@@ -1109,6 +1111,64 @@ describe('copertura workflow diretti', () => {
     };
     expect(runAuthClassifier(0, '', 'review text mentions token_expired')).toBe('auth_failure=false');
     expect(runAuthClassifier(1, 'Failed to refresh token: refresh token was already used', '')).toBe('auth_failure=true');
+    // The real run segment with a fake Codex. In `auth-late` Codex exits at
+    // once while a child that keeps stderr open writes the auth line a second
+    // later: the classifier only sees it because the stderr tee feeds the
+    // awaited `tee "$codex_log"` pipeline stage. With both tees as unwaited
+    // process substitutions the grep ran before the flush.
+    const pipelineStart = codexBlock.indexOf('        codex_log="$scratch_dir/codex-run.log"\n');
+    expect(pipelineStart).toBeGreaterThanOrEqual(0);
+    const codexPipeline = codexBlock.slice(pipelineStart, classifierEnd)
+      .split('\n')
+      .map((line) => line.startsWith('        ') ? line.slice(8) : line)
+      .join('\n');
+    const runCodexPipeline = (mode: string) => {
+      const root = mkdtempSync(join(tmpdir(), 'codex-pipeline-'));
+      const fakeCodex = join(root, 'codex');
+      writeFileSync(fakeCodex, [
+        '#!/bin/bash',
+        'cat >/dev/null',
+        'case "$FAKE_MODE" in',
+        "  ok) echo 'review done'; exit 0 ;;",
+        "  auth-late) ( sleep 1; echo 'ERROR codex_login: Failed to refresh token: refresh token was already used' >&2 ) >/dev/null & exit 1 ;;",
+        'esac',
+        '',
+      ].join('\n'));
+      chmodSync(fakeCodex, 0o755);
+      const script = [
+        "prompt='review please'",
+        'codex_env=("PATH=/usr/bin:/bin" "FAKE_MODE=$FAKE_MODE")',
+        'codex_timeout_bin=/usr/bin/timeout',
+        'codex_exec_kill_grace_seconds=1',
+        'codex_exec_timeout_minutes=1',
+        'codex_exec_timeout_seconds=60',
+        'codex_bin="$FAKE_CODEX"',
+        "codex_filesystem='{}'",
+        'codex_reasoning_effort=high',
+        "codex_env_patterns='[]'",
+        'CODEX_OUTPUT="$TEST_ROOT/last.txt"',
+        'codex_output_destination="$CODEX_OUTPUT"',
+        'scratch_dir="$TEST_ROOT"',
+        codexPipeline,
+        'printf "RESULT status=%s auth=%s\\n" "$codex_status" "$codex_auth_failure"',
+      ].join('\n');
+      try {
+        const result = spawnSync('/bin/bash', ['-c', script], {
+          encoding: 'utf8',
+          timeout: 20_000,
+          env: { PATH: '/usr/bin:/bin', FAKE_MODE: mode, FAKE_CODEX: fakeCodex, TEST_ROOT: root },
+        });
+        return { stdout: result.stdout, log: readFileSync(join(root, 'codex-run.log'), 'utf8') };
+      } finally {
+        rmSync(root, { recursive: true, force: true });
+      }
+    };
+    const late = runCodexPipeline('auth-late');
+    expect(late.stdout).toContain('RESULT status=1 auth=true');
+    expect(late.log).toContain('refresh token was already used');
+    const ok = runCodexPipeline('ok');
+    expect(ok.stdout).toContain('RESULT status=0 auth=false');
+    expect(ok.log).toContain('review done');
     expect(action).toContain('CODEX_TIMED_OUT: ${{ steps.codex.outputs.codex_timed_out }}');
     expect(codexBlock).toContain('"$CODEX_NODE_REAL" "$CODEX_REALPATH" --version');
     expect(action).toContain('CODEX_SANITIZER_GIT="$git_host_realpath"');
@@ -1281,6 +1341,9 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain("node_archive_sha256='fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6'");
     expect(action).toContain('Linux:x86_64');
     expect(action).toContain('/usr/bin/curl --fail --silent --show-error --location');
+    // Download limitato: la run 35735836333 di post-merge-followup e' rimasta
+    // 32 minuti in questo step su una connessione appesa, fino al timeout.
+    expect(action).toMatch(/\/usr\/bin\/curl [^\n]*\\\n\s+--connect-timeout \d+ --max-time \d+ --retry \d+/);
     expect(action).toContain('/usr/bin/tar --extract --file "$archive_path"');
     expect(action).toContain('--use-compress-program=/usr/bin/xz');
     expect(action).toContain('node_realpath="$(realpath "$node_root/bin/node")"');
@@ -1455,5 +1518,204 @@ describe('copertura workflow diretti', () => {
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
+  });
+});
+
+type ActionStep = {
+  name?: string;
+  if?: string;
+  run?: string;
+  env?: Record<string, string>;
+  'continue-on-error'?: boolean;
+};
+
+function codexActionDefinition(): {
+  inputs: Record<string, { default?: string }>;
+  runs: { steps: ActionStep[] };
+} {
+  return YAML.parse(readFileSync(resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback', 'action.yml'), 'utf8'));
+}
+
+function codexActionStep(name: string): ActionStep {
+  const step = codexActionDefinition().runs.steps.find((candidate) => candidate.name === name);
+  if (!step?.run) throw new Error(`step dell'action non trovato: ${name}`);
+  return step;
+}
+
+// Override espliciti del watchdog (minuti, input `exec_timeout_minutes` di
+// #9690): i lane agentici di main (issue-fix, issue-decompose,
+// needs-human-sweep) e i caller batch che hanno misurato sessioni vicine o
+// oltre il vecchio cap fisso da 15 min (#1975/#1979, growth-report 658s).
+// Tutti gli altri restano sul default.
+const EXEC_TIMEOUT_OVERRIDES: Record<string, string> = {
+  'growth-report.yml': '30',
+  'issue-decompose.yml': '70',
+  'issue-fix.yml': '110',
+  'needs-human-sweep.yml': '100',
+  'post-merge-followup.yml': '25',
+};
+// Setup Codex (Node, CLI, sandbox apt: ~105s misurati il 2026-09-24), kill
+// grace di 30s e coda di finalize/cleanup: il watchdog deve lasciare questo
+// margine allo step, altrimenti il runner uccide lo step prima del watchdog e
+// `codex_timed_out` non viene mai pubblicato.
+const CODEX_SETUP_AND_TAIL_SECONDS = 300;
+
+describe('watchdog Codex per caller', () => {
+  it('ha default 15 minuti e accetta solo minuti interi 1-300', () => {
+    expect(codexActionDefinition().inputs.exec_timeout_minutes?.default).toBe('15');
+    const codexStep = codexActionStep('Run Codex primary (one subscription attempt)');
+    const script = codexStep.run!;
+    const start = script.indexOf('codex_exec_timeout_minutes="${CODEX_EXEC_TIMEOUT_MINUTES:-15}"');
+    const end = script.indexOf('codex_exec_kill_grace_seconds=30', start);
+    expect(start).toBeGreaterThanOrEqual(0);
+    expect(end).toBeGreaterThan(start);
+    const validation = script.slice(start, end);
+    const validate = (value: string | undefined) => {
+      const env: Record<string, string> = { PATH: process.env.PATH || '/usr/bin:/bin' };
+      if (value !== undefined) env.CODEX_EXEC_TIMEOUT_MINUTES = value;
+      const result = spawnSync('/bin/bash', ['-c', `set -euo pipefail\n${validation}\nprintf 'cap=%s\\n' "$codex_exec_timeout_seconds"`], {
+        env,
+        encoding: 'utf8',
+      });
+      return result.status === 0 ? result.stdout.trim().split('\n').pop() : `exit=${result.status}`;
+    };
+    expect(validate(undefined)).toBe('cap=900');
+    expect(validate('')).toBe('cap=900');
+    expect(validate('25')).toBe('cap=1500');
+    expect(validate('1')).toBe('cap=60');
+    expect(validate('300')).toBe('cap=18000');
+    // 0 disattiverebbe GNU timeout: deve fallire, non ricadere sul default.
+    for (const invalid of ['0', '301', '015', '15m', ' 15', '900s', '-1']) {
+      expect(validate(invalid), invalid).toBe('exit=1');
+    }
+  });
+
+  it('alza il cap solo sui caller dichiarati e lo tiene sotto il tetto effettivo dello step', () => {
+    const overrides: Record<string, string> = {};
+    for (const workflowName of workflowNames) {
+      const parsed = YAML.parse(readFileSync(resolve(repoRoot, '.github', 'workflows', workflowName), 'utf8')) as {
+        jobs?: Record<string, { 'timeout-minutes'?: number; steps?: Array<WorkflowStep & { 'timeout-minutes'?: number }> }>;
+      };
+      for (const job of Object.values(parsed.jobs ?? {})) {
+        for (const step of job.steps ?? []) {
+          if (step.uses !== './.github/actions/claude-codex-fallback') continue;
+          expect(step.with?.exec_timeout_seconds, `${workflowName}: input rimosso, usare exec_timeout_minutes`).toBeUndefined();
+          const value = step.with?.exec_timeout_minutes;
+          if (value === undefined) continue;
+          overrides[workflowName] = String(value);
+          const caps = [step['timeout-minutes'], job['timeout-minutes']].filter((cap): cap is number => typeof cap === 'number');
+          expect(caps.length, `${workflowName}: serve un timeout-minutes`).toBeGreaterThan(0);
+          const effectiveSeconds = Math.min(...caps) * 60;
+          expect(Number(value) * 60 + CODEX_SETUP_AND_TAIL_SECONDS, `${workflowName}: watchdog oltre il kill del runner`)
+            .toBeLessThanOrEqual(effectiveSeconds);
+        }
+      }
+    }
+    expect(overrides).toEqual(EXEC_TIMEOUT_OVERRIDES);
+  });
+});
+
+describe('alert auth Codex per i caller senza PR', () => {
+  const ALERT_TITLE = 'Codex auth down: CODEX_AUTH_JSON refresh token rejected';
+  const DIGEST = 'a'.repeat(64);
+  const alertStep = codexActionStep('Raise Codex authentication alert for non-PR callers');
+  const marker = (fields: Record<string, unknown>) =>
+    `<!-- CODEX_AUTH_BLOCKED_RUN: ${JSON.stringify({ version: 1, status: 'blocked', runId: 1, runAttempt: 1, ...fields })} -->`;
+
+  const runAlert = (issues: unknown[], comments: unknown[] = [], workflow = 'post-merge-followup') => {
+    const root = mkdtempSync(join(tmpdir(), 'codex-auth-alert-'));
+    const fakeGh = join(root, 'gh');
+    const log = join(root, 'gh.log');
+    writeFileSync(fakeGh, [
+      `#!${process.execPath}`,
+      "const fs = require('node:fs');",
+      'const args = process.argv.slice(2);',
+      "fs.appendFileSync(process.env.FAKE_GH_LOG, JSON.stringify(args) + '\\n');",
+      "if (args[0] === 'api') {",
+      "  const endpoint = args.find((arg) => arg.startsWith('repos/')) || '';",
+      "  process.stdout.write(endpoint.includes('/comments') ? process.env.FAKE_GH_COMMENTS : process.env.FAKE_GH_ISSUES);",
+      '}',
+    ].join('\n'));
+    chmodSync(fakeGh, 0o755);
+    writeFileSync(log, '');
+    try {
+      execFileSync('/bin/bash', ['-c', alertStep.run!], {
+        encoding: 'utf8',
+        env: {
+          PATH: process.env.PATH || '/usr/bin:/bin',
+          TRUSTED_GH: fakeGh,
+          REPO: 'owner/repo',
+          SERVER_URL: 'https://github.com',
+          WORKFLOW_NAME: workflow,
+          AUTH_DIGEST: DIGEST,
+          RUN_ID: '123',
+          RUN_ATTEMPT: '2',
+          FAKE_GH_LOG: log,
+          FAKE_GH_ISSUES: JSON.stringify(issues),
+          FAKE_GH_COMMENTS: JSON.stringify(comments),
+        },
+      });
+      return readFileSync(log, 'utf8').trim().split('\n').filter(Boolean).map((line) => JSON.parse(line) as string[]);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  };
+  const writes = (calls: string[][]) => calls.filter((args) => args[0] === 'issue');
+
+  it('scatta solo senza PR, best-effort, con la GITHUB_TOKEN', () => {
+    expect(alertStep.if).toBe("always() && steps.finalize.outputs.codex_auth_failure == 'true' && env.PR_NUMBER == ''");
+    expect(alertStep['continue-on-error']).toBe(true);
+    expect(alertStep.env?.GH_TOKEN).toBe('${{ github.token }}');
+    expect(alertStep.run).toContain(`alert_title='${ALERT_TITLE}'`);
+  });
+
+  it('apre l\'alert canonico con il marker del run quando manca', () => {
+    const pullRequestWithSameTitle = { number: 3, title: ALERT_TITLE, pull_request: {}, user: { login: 'github-actions[bot]' } };
+    const otherIssue = { number: 4, title: 'Codex auth down: something else', user: { login: 'github-actions[bot]' } };
+    const [create, ...rest] = writes(runAlert([pullRequestWithSameTitle, otherIssue]));
+    expect(rest).toEqual([]);
+    expect(create.slice(0, 8)).toEqual(['issue', 'create', '--repo', 'owner/repo', '--title', ALERT_TITLE, '--label', 'automation']);
+    const body = create[create.indexOf('--body') + 1];
+    expect(body).toContain('Workflow: `post-merge-followup`');
+    expect(body).toContain('https://github.com/owner/repo/actions/runs/123');
+    expect(body).toContain('`codex-auth-recovery`');
+    const json = /<!-- CODEX_AUTH_BLOCKED_RUN: (\{.*\}) -->/u.exec(body)?.[1];
+    expect(JSON.parse(json || '{}')).toEqual({
+      version: 1, status: 'blocked', workflow: 'post-merge-followup', runId: 123, runAttempt: 2, authDigest: DIGEST,
+    });
+  });
+
+  it('registra una sola volta ogni coppia credenziale/workflow sull\'alert aperto', () => {
+    const alert = {
+      number: 7,
+      title: ALERT_TITLE,
+      user: { login: 'github-actions[bot]' },
+      body: marker({ workflow: 'post-merge-followup', authDigest: DIGEST }),
+    };
+    expect(writes(runAlert([alert]))).toEqual([]);
+    const sameInComment = [{ user: { login: 'frontaliere-automation[bot]' }, body: marker({ workflow: 'growth-report', authDigest: DIGEST }) }];
+    expect(writes(runAlert([{ ...alert, body: '' }], sameInComment, 'growth-report'))).toEqual([]);
+    const [comment] = writes(runAlert([alert], [], 'needs-human-sweep'));
+    expect(comment.slice(0, 5)).toEqual(['issue', 'comment', '7', '--repo', 'owner/repo']);
+    expect(comment[comment.indexOf('--body') + 1]).toContain('"workflow":"needs-human-sweep"');
+    // Un marker scritto da un umano non sopprime l'alert, e nemmeno una
+    // credenziale diversa già registrata.
+    const human = [{ user: { login: 'someone' }, body: marker({ workflow: 'growth-report', authDigest: DIGEST }) }];
+    expect(writes(runAlert([{ ...alert, body: '' }], human, 'growth-report'))).toHaveLength(1);
+    const oldDigest = { ...alert, body: marker({ workflow: 'post-merge-followup', authDigest: 'b'.repeat(64) }) };
+    expect(writes(runAlert([oldDigest]))).toHaveLength(1);
+  });
+});
+
+describe('prompt Codex che postano markdown', () => {
+  it('scrivono il body in un file e usano --body-file, mai --body inline', () => {
+    const tests = readFileSync(resolve(repoRoot, '.github', 'workflows', 'tests.yml'), 'utf8');
+    expect(tests).toContain('gh pr review ${PR_NUMBER} --comment --body-file "$TMPDIR/review.md"');
+    expect(tests).toContain("<<'REVIEW_EOF'");
+    expect(tests).not.toMatch(/gh pr review \$\{PR_NUMBER\} --comment --body (?!-file)/u);
+    const audit = readFileSync(resolve(repoRoot, '.github', 'workflows', 'crawler-content-plausibility-audit.yml'), 'utf8');
+    expect(audit).toContain('--label job-content-quality --body-file "$TMPDIR/issue.md"');
+    expect(audit).toContain("<<'ISSUE_EOF'");
+    expect(audit).not.toContain('--body "<corpo>"');
   });
 });

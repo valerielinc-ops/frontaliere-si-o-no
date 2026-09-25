@@ -2906,6 +2906,22 @@ jobs:
             cp "$CTX_DIR/sibling-check.md" "$CTX_DIR/sibling-signal.md" 2>/dev/null \
               || echo "No sibling-check signal available." > "$CTX_DIR/sibling-signal.md"
           fi
+          # >>> fixer-response
+          # La risposta del 🔴-fixer (fixed/disputed/not-fixable per anchor)
+          # all'ULTIMA review del bot: la pubblica `pr-redflag-fixer.yml` come
+          # commento `REDFLAG_RESPONSE` di github-actions. Senza questa sezione
+          # il reviewer non vedeva mai una contestazione e ripeteva lo stesso 🔴
+          # (#9147: quattro review identiche dopo «già risolto alla riga 282»).
+          # Solo una risposta successiva all'ultima review bot: quelle vecchie
+          # sono già state giudicate.
+          last_bot_review_at=$(jq -r '[.[][]? | select(.user.type == "Bot" and ((.user.login // "") | test("^(claude(\\[bot\\])?|frontaliere-automation\\[bot\\])$"; "i"))) | .submitted_at // empty] | max // ""' "$CTX_DIR/reviews.json" 2>/dev/null || echo "")
+          "$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
+            --jq '.[] | select(.user.type == "Bot" and ((.body // "") | startswith("<!-- REDFLAG_RESPONSE"))) | {created_at, body} | @json' \
+            > "$CTX_DIR/fixer-responses.jsonl" 2>/dev/null || : > "$CTX_DIR/fixer-responses.jsonl"
+          jq -rs --arg since "$last_bot_review_at" \
+            '[.[] | select(.created_at > $since)] | last | .body // empty' \
+            "$CTX_DIR/fixer-responses.jsonl" > "$CTX_DIR/fixer-response.md" 2>/dev/null || : > "$CTX_DIR/fixer-response.md"
+          # <<< fixer-response
           # Unico input Claude: assembla una fotografia deterministica del
           # contesto già raccolto, così il reviewer fa un solo Read iniziale e
           # non ricostruisce il contesto con gh/grep in turni successivi.
@@ -2928,7 +2944,7 @@ jobs:
             echo
             if [ -n "${CODE_UNCHANGED_SINCE:-}" ]; then
               echo "## Code contribution unchanged"
-              echo "The PR code contribution is identical to the one reviewed at ${CODE_UNCHANGED_SINCE} (same contribution fingerprint, no PR code file changed since). This is a body-only re-review: judge only the PR body, carry every historical code Important below verbatim with its anchor, and never write \`Fix di\` for a code anchor."
+              echo "The PR code contribution is identical to the one reviewed at ${CODE_UNCHANGED_SINCE} (same contribution fingerprint, no PR code file changed since). This is a body-only re-review: judge only the PR body, carry every historical code Important below verbatim with its anchor, and never write \`Fix di\` for a code anchor unless \`## Risposta del 🔴-fixer\` below answers that finding: then judge that answer as REVIEW.md «Re-review convergence» requires."
               echo
             fi
             echo "## Deterministic body contract"
@@ -2944,6 +2960,13 @@ jobs:
             echo
             cat "$CTX_DIR/inherited-findings.md"
             echo
+            if [ -s "$CTX_DIR/fixer-response.md" ]; then
+              echo "## Risposta del 🔴-fixer"
+              echo "Risposta all'ultima review, per anchor: giudica ogni voce PRIMA di qualunque finding nuovo, come prescrive REVIEW.md «Re-review convergence» (\`fixed\` → verifica l'Accettazione; \`disputed\` → verifica l'evidenza; in entrambi i casi \`Fix di ...: ok\` oppure 🔴 con \`Replica:\`)."
+              echo
+              cat "$CTX_DIR/fixer-response.md"
+              echo
+            fi
             echo "## Changed code-file list"
             cat "$CTX_DIR/review-code-files.txt"
             echo
@@ -3123,17 +3146,19 @@ jobs:
 
             The deterministic review bundle is already prepared in `${{ runner.temp }}/review-ctx/`: `review-bundle.md` is the primary input and includes PR metadata, historical open Important findings with their path+line anchors, the review-scoped code-file list, code-only diff, incremental delta (when present), and sibling signal. Generated data/static paths are intentionally omitted from the bundle. Read it before using GitHub or repository tools. Do not repeat `gh pr view`, `gh pr diff`, or `gh api compare` unless the bundle explicitly reports that a section is incomplete.
 
-            If `INCREMENTAL_BASE` is set, review only the delta and its interactions, but do not treat the prior Codex review as permission to erase an open Important finding. The bundle's historical section is authoritative: if a cited anchor is unchanged or the delta is only a base alignment, carry that finding into this review with the same path and line and do not append `## LGTM`; if the cited code was actually fixed, write `Fix di \`path:L<line>\`: ok.` for every cited anchor before allowing `Important: 0` and `## LGTM`. For an Important without a file citation, carry it unless it is explicitly resolved with `Fix di \`<normalized finding text>\`: ok.` (omit inner backticks). A merge-only delta can never resolve a prior Important by silence. If the bundle says the code contribution is unchanged, post a short review only when the historical section has no open Important findings.
+            If `INCREMENTAL_BASE` is set, review only the delta and its interactions, but do not treat the prior Codex review as permission to erase an open Important finding. The bundle's historical section is authoritative: when the bundle has `## Risposta del 🔴-fixer`, first judge every answered finding as REVIEW.md «Re-review convergence» requires; otherwise, if a cited anchor is unchanged or the delta is only a base alignment, carry that finding into this review with the same path and line and do not append `## LGTM`; if the cited code was actually fixed, write `Fix di \`path:L<line>\`: ok.` for every cited anchor before allowing `Important: 0` and `## LGTM`. For an Important without a file citation, carry it unless it is explicitly resolved with `Fix di \`<normalized finding text>\`: ok.` (omit inner backticks). A merge-only delta can never resolve a prior Important by silence. If the bundle says the code contribution is unchanged, post a short review only when the historical section has no open Important findings.
 
-            If the bundle has a `## Code contribution unchanged` section, the code has not changed since that review: re-judge only the PR body, carry every historical code Important verbatim with the same path and line, never write `Fix di` for a code anchor, and resolve a PR-body Important only when the current body fixes it.
+            If the bundle has a `## Code contribution unchanged` section, the code has not changed since that review: re-judge only the PR body, carry every historical code Important verbatim with the same path and line, never write `Fix di` for a code anchor unless `## Risposta del 🔴-fixer` answers that finding (then judge the answer as REVIEW.md requires), and resolve a PR-body Important only when the current body fixes it.
 
             If the bundle identifies a historical Important on the PR body with an anchor `PR body:L<n>`, its resolution MUST be written exactly as `Fix di \`PR body:L<n>\`: ok.` (one line per anchor), before `Important: 0` and `## LGTM`; never replace that metadata anchor with a prose paraphrase. For an Important without a file or PR-body anchor, use the normalized finding text required above, inside the confirmation backticks.
+
+            **Every `🔴 Important` must be closable by an agent that reads only that line.** End it with `Accettazione: <check>` on the same line: a test to add or make pass (file and name), an invariant checkable with a command (`rg`, `node -e`), or an input with its expected output. One remedy only, never «X or Y»; a class finding lists every known site with its `path:L<n>` now, because a site of the same class found only in a later round is a 🟣 Pre-existing unless the delta introduced it. The 🔴-fixer runs that check and answers per anchor (`fixed` / `disputed` / `not-fixable`); in the next review you judge its answer against the same check, not against a new reading of the problem. Measured on 46 bot PRs (15-25/09): after a fix commit 44% of the Importants repeated and 28% of the transitions added new ones, because the criterion moved between rounds.
 
             Review in one pass with a hard repository-tool budget: read the two contract files and the bundle, then use at most one batched read/search call for direct delta interactions. Never scan the whole repository, enumerate all siblings, or re-fetch the PR through GitHub. Validate the body contract, inspect only concrete interactions, verify declared performance claims against supplied evidence, and stop probing once the verdict is determined. Do not invent missing-test findings. Use sibling candidates as leads, not verdicts. For high tiers, include exactly three concise unresolved items in `## Adversarial check`; they must be real unverified risks, not generic missing coverage. Every non-funnel `❓ q:` in that section MUST end with the exact disposition `— deferred, non funnel-critical.`. The words `report-only`, `deferred`, or `non-funnel-critical` inside the question do not dispose it; a funnel-critical question must be promoted to `🔴 Important` instead.
 
             **PR body: one source of truth.** The deterministic body contract (`scripts/lib/pr-body-sections-check.mjs`, step `PR-body completeness`) already validated sections, bullet states, `Motivo`/`Prossimo passo`, placeholders and `Closes`; its verdict is in the bundle under `## Deterministic body contract`. When it is ✅, do not re-validate those rules and never emit a `🔴 Important` about the body: a doubt about those rules is at most a `🟡 Nit` anchored as `PR body:L<n>`, and the review gate declassifies such a 🔴 on a green contract anyway. REVIEW.md step 7 (a perf claim without a baseline) is not a contract rule and still applies. The states it accepts in `## Non implementato (ancora)` — `in questa PR`, `PR concatenata #N`, `per scelta`, `by construction`, `blocked: decisione del proprietario` (the five `CLOSING_STATES` of `scripts/ci/followup-has-candidates.mjs`) and any other `blocked: <causa>`, which keeps the task open without blocking the PR — are valid, e su quelli **non si emette 🔴**. A `PR concatenata` without `#N` is not a state and the contract already rejects it (non passa). Re-raising a 🔴 on a bullet the contract accepted deadlocks the loop: the fixer declines with a reason, the round cap trips, and `needs-human` lands with the wrong diagnosis on a PR that has nothing to fix. Tier `minimal` carries the same rule: check that both sections exist and that **nessun placeholder vuoto** (`TBD`, `N/A`, empty bullet) fills them — but a bullet closed with specific fields **non è un finding**.
 
-            Post exactly one review with `gh pr review ${PR_NUMBER} --comment --body ...`. The review body MUST contain, as its own unchanged line, `<!-- REVIEW_INPUT_REVISION: ${{ steps.review_input.outputs.review_revision }} -->`; this binds the verdict to the trusted body revision supplied by the workflow. End with `## LGTM` only when there is no open `🔴 Important`, no unresolved funnel-critical question, and the bundle/body contract is valid. If uncertain, emit `❓ q:`; never use `## LGTM` beside an unresolved Important finding. Work read-only: do not edit files, commit, push, run npm, or run tests. Batch independent reads/searches in one tool call and stop immediately after posting the review.
+            Post exactly one review: first write the markdown body to a file with a quoted-delimiter heredoc (`cat > "$TMPDIR/review.md" <<'REVIEW_EOF'` … `REVIEW_EOF`, real newlines, never a literal `\n`), then, in a separate shell command, run `gh pr review ${PR_NUMBER} --comment --body-file "$TMPDIR/review.md"`. Never pass the body inline with `--body`: inside double quotes the shell runs the markdown backticks as command substitution and keeps `\n` as text, and the review gate then discards the review. The review body MUST contain, as its own unchanged line, `<!-- REVIEW_INPUT_REVISION: ${{ steps.review_input.outputs.review_revision }} -->`; this binds the verdict to the trusted body revision supplied by the workflow. End with `## LGTM` only when there is no open `🔴 Important`, no unresolved funnel-critical question, and the bundle/body contract is valid. If uncertain, emit `❓ q:`; never use `## LGTM` beside an unresolved Important finding. Work read-only: do not edit files, commit, push, run npm, or run tests. Batch independent reads/searches in one tool call and stop immediately after posting the review.
       # The transient-error classifier invokes the fallback detector after the
       # model step.  Its import cone is also policy, so it must not inherit the
       # mutable bootstrap path after npm/PR code has run.

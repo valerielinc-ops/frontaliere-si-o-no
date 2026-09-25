@@ -1,6 +1,13 @@
+import { readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { FieldValue } from 'firebase-admin/firestore';
 import { describe, expect, it } from 'vitest';
 import { chunkPlateAuctionWrites, PLATE_AUCTION_BATCH_SIZE } from '../functions/src/plateAuctionBatch.js';
-import { PLATE_AUCTION_COLLECTION, PLATE_AUCTION_SOURCE_COLLECTION, refreshPlateAuctions } from '../functions/src/plateAuctions.js';
+import { PLATE_AUCTION_MISSING_GRACE_MS } from '../functions/src/plateAuctionQualityCore.js';
+import { PLATE_AUCTION_COLLECTION, PLATE_AUCTION_SOURCE_COLLECTION, plateAuctionRefreshOrder, refreshPlateAuctions } from '../functions/src/plateAuctions.js';
+
+const ECARI_NO_RUNNING_AUCTION = readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'fixtures/ecari-no-running-auction.html'), 'utf8');
 
 const GR_PARTIAL_FEED = `
   <div id="tabContent1"><table><tbody><tr class="L">
@@ -51,6 +58,25 @@ function fakeFirestore(previousRows: Record<string, unknown>[]) {
     writes,
   };
 }
+
+describe('plate-auction Cloud Function schedule', () => {
+  // From 2026-09-15 every run was cut off at BS (60 s / 256 MiB defaults) and
+  // GR, SG, SH, SZ, TG, VS, ZH kept their 09-15 snapshot in the API relay.
+  it('declares a timeout and memory that fit the whole pass', () => {
+    const index = readFileSync(new URL('../functions/index.js', import.meta.url), 'utf8');
+    const start = index.indexOf('export const refreshPlateAuctions = onSchedule(');
+    expect(start).toBeGreaterThan(-1);
+    const options = index.slice(start, index.indexOf('\n', index.indexOf('{', start)));
+    expect(options).toMatch(/timeoutSeconds: 540/);
+    expect(options).toMatch(/memory: '1GiB'/);
+  });
+
+  it('refreshes the heavy BS catalogue last, after every small source', () => {
+    const keys = ['ag', 'bl', 'bs', 'gr', 'sz', 'zh'];
+    expect(plateAuctionRefreshOrder(keys)).toEqual(['ag', 'bl', 'gr', 'sz', 'zh', 'bs']);
+    expect(plateAuctionRefreshOrder(['ag', 'sz'])).toEqual(['ag', 'sz']);
+  });
+});
 
 describe('plate-auction Firestore batching', () => {
   it('keeps every commit below Firestore’s 500-write limit', () => {
@@ -149,5 +175,177 @@ describe('plate-auction Firestore batching', () => {
       expect.objectContaining({ collection: PLATE_AUCTION_COLLECTION, id: 'gr-expired', value: expect.objectContaining({ auctionStatus: 'closed', closedAt: '2026-09-13T11:00:00.000Z' }) }),
       expect.objectContaining({ collection: 'plate_auctions_history', id: expect.stringContaining('gr-expired-'), value: expect.objectContaining({ auctionStatus: 'closed' }) }),
     ]));
+  });
+});
+
+/**
+ * A Firestore that remembers between runs: merges, deletes and the
+ * FieldValue.delete() sentinel are applied, so a second refresh reads what
+ * the first one wrote — which is exactly where the ratchet lived.
+ */
+function statefulFirestore(initial: Record<string, unknown>[] = []) {
+  type Doc = Record<string, unknown>;
+  const stores: Record<string, Map<string, Doc>> = {
+    [PLATE_AUCTION_COLLECTION]: new Map(initial.map((row) => [String(row.id), { ...row }])),
+    [PLATE_AUCTION_SOURCE_COLLECTION]: new Map(),
+    plate_auctions_history: new Map(),
+  };
+  const store = (name: string) => (stores[name] ||= new Map());
+  const isDelete = (value: unknown) => value instanceof FieldValue && value.isEqual(FieldValue.delete());
+  const apply = (name: string, id: string, value: Doc, merge: boolean) => {
+    const next: Doc = merge ? { ...(store(name).get(id) || {}) } : {};
+    for (const [field, fieldValue] of Object.entries(value)) {
+      if (isDelete(fieldValue)) {
+        if (!merge) throw new Error('FieldValue.delete() cannot be used with set() without merge');
+        delete next[field];
+      } else next[field] = fieldValue;
+    }
+    store(name).set(id, next);
+  };
+  const collection = (name: string) => ({
+    doc: (id: string) => ({
+      collection: name,
+      id,
+      async set(value: Doc, options?: { merge?: boolean }) { apply(name, id, value, options?.merge === true); },
+    }),
+    where: (field: string, _operator: string, value: unknown) => ({
+      limit: () => ({
+        get: async () => ({
+          docs: [...store(name).entries()]
+            .filter(([, doc]) => doc[field] === value)
+            .map(([id, doc]) => ({ id, data: () => ({ ...doc }) })),
+        }),
+      }),
+    }),
+    limit: () => ({ get: async () => ({ docs: [] }) }),
+  });
+  return {
+    db: {
+      collection,
+      batch() {
+        const operations: Array<() => void> = [];
+        return {
+          set(ref: { collection: string; id: string }, value: Doc, options?: { merge?: boolean }) {
+            operations.push(() => apply(ref.collection, ref.id, value, options?.merge === true));
+          },
+          delete(ref: { collection: string; id: string }) {
+            operations.push(() => { store(ref.collection).delete(ref.id); });
+          },
+          async commit() { for (const operation of operations) operation(); },
+        };
+      },
+    },
+    current: stores[PLATE_AUCTION_COLLECTION],
+    history: stores.plate_auctions_history,
+    sources: stores[PLATE_AUCTION_SOURCE_COLLECTION],
+  };
+}
+
+describe('plate-auction Firestore pipeline: a preserved loss converges instead of ratcheting', () => {
+  // Relative dates only: what matters is the spacing between runs.
+  const HOUR = 60 * 60 * 1000;
+  const base = new Date();
+  const at = (hours: number) => new Date(base.getTime() + hours * HOUR);
+  const afterGrace = new Date(base.getTime() + PLATE_AUCTION_MISSING_GRACE_MS);
+  // The SO eCari catalogue's fixed-price tab: rows without a deadline, the
+  // only kind a disappearance can be read as a sale for.
+  const soFixedPricePage = (plates: number[]) => `
+    <div id="tabContent1"><table><tbody></tbody></table></div>
+    <div id="tabContent3"><table><tbody>${plates.map((plate) => `
+      <tr class="L"><td><a onclick="openDetails(${plate})"><div class="number">${plate}</div></a></td><td class="amount">${300 + plate}</td></tr>`).join('')}
+    </tbody></table></div>`;
+  const plates = (count: number) => Array.from({ length: count }, (_unused, index) => 100 + index);
+  const refresh = (firestore: ReturnType<typeof statefulFirestore>, now: Date, listed: number[]) => refreshPlateAuctions({
+    db: firestore.db as never,
+    fetcher: async (url: string) => (url.includes('eauktion.so.ch') ? soFixedPricePage(listed) : ''),
+    now,
+  });
+  const vanishedIds = ['so-fixed-116', 'so-fixed-117', 'so-fixed-118', 'so-fixed-119'];
+  const stamped = (firestore: ReturnType<typeof statefulFirestore>) => [...firestore.current.values()]
+    .filter((doc) => doc.sourceKey === 'SO' && doc.missingSince !== undefined);
+
+  it('reports a sudden loss once, then records it after the grace window', async () => {
+    const firestore = statefulFirestore();
+    await refresh(firestore, at(-6), plates(20));
+    // 20 → 16: four vanish against a cap of three, so the guard trips.
+    const run1 = await refresh(firestore, at(0), plates(16));
+    expect(run1.summaries.so).toMatchObject({ status: 'degraded', errorCode: 'source_disappeared' });
+    expect(stamped(firestore).map((doc) => doc.id).sort()).toEqual(vanishedIds);
+    for (const doc of stamped(firestore)) expect(doc).toMatchObject({ auctionStatus: 'active', missingSince: at(0).toISOString() });
+
+    // Same catalogue six hours later. Before, the four ghosts were judged
+    // again with the same numbers and the source never left `degraded`.
+    const run2 = await refresh(firestore, at(6), plates(16));
+    expect(run2.summaries.so).toMatchObject({ status: 'active', rowCount: 16 });
+    expect(stamped(firestore).map((doc) => doc.missingSince)).toEqual(Array(4).fill(at(0).toISOString()));
+    expect([...firestore.history.values()].filter((doc) => doc.disappearedFromCatalogue)).toEqual([]);
+
+    const run3 = await refresh(firestore, afterGrace, plates(16));
+    expect(run3.summaries.so).toMatchObject({ status: 'active', rowCount: 16 });
+    for (const id of vanishedIds) {
+      const doc = firestore.current.get(id);
+      expect(doc, id).toMatchObject({ auctionStatus: 'closed', disappearedFromCatalogue: true, dataConfidence: 'partial' });
+      expect(doc, id).not.toHaveProperty('finalPriceChf');
+      expect(doc, id).not.toHaveProperty('finalPriceVerifiedAt');
+    }
+    const recorded = [...firestore.history.values()].filter((doc) => doc.disappearedFromCatalogue);
+    expect(recorded.map((doc) => doc.id).sort()).toEqual(vanishedIds);
+  });
+
+  it('never resolves an old absence on a run that may itself be truncated', async () => {
+    const firestore = statefulFirestore();
+    await refresh(firestore, at(-6), plates(20));
+    await refresh(firestore, at(0), plates(16));
+    // Past the grace window, but the page came back half as long.
+    const run2 = await refresh(firestore, afterGrace, plates(8));
+    expect(run2.summaries.so).toMatchObject({ status: 'degraded', errorCode: 'source_disappeared' });
+    expect([...firestore.history.values()].filter((doc) => doc.disappearedFromCatalogue)).toEqual([]);
+    const stamps = stamped(firestore).reduce<Record<string, number>>((count, doc) => ({
+      ...count, [String(doc.missingSince)]: (count[String(doc.missingSince)] || 0) + 1,
+    }), {});
+    expect(stamps).toEqual({ [at(0).toISOString()]: 4, [afterGrace.toISOString()]: 8 });
+  });
+
+  it('deletes the stamp when a preserved row is listed again', async () => {
+    const firestore = statefulFirestore();
+    await refresh(firestore, at(-6), plates(20));
+    await refresh(firestore, at(0), plates(16));
+    const run2 = await refresh(firestore, at(6), plates(20));
+    expect(run2.summaries.so).toMatchObject({ status: 'active', rowCount: 20 });
+    expect(stamped(firestore)).toEqual([]);
+    for (const id of vanishedIds) expect(firestore.current.get(id)).not.toHaveProperty('missingSince');
+  });
+});
+
+describe('plate-auction Firestore pipeline: an eCari page that says no auction is running', () => {
+  const HOUR = 60 * 60 * 1000;
+  const base = new Date();
+  const at = (hours: number) => new Date(base.getTime() + hours * HOUR);
+  const endedNwAuction = {
+    id: 'nw-1491', sourceKey: 'NW', canton: 'Nidvaldo', platePrefix: 'NW', plateNumber: '1491', normalizedPlate: 'NW1491',
+    listingType: 'auction', auctionStatus: 'active', startingPriceChf: 500, endsAt: at(-72).toISOString(),
+    officialAuctionUrl: 'https://ecarinwprod.ilz.info/ecari-auction/', sourceFetchedAt: at(-80).toISOString(),
+    lastVerifiedAt: at(-80).toISOString(), dataConfidence: 'partial', firstSeenAt: at(-150).toISOString(),
+  };
+  const refresh = (firestore: ReturnType<typeof statefulFirestore>, page: string) => refreshPlateAuctions({
+    db: firestore.db as never,
+    fetcher: async (url: string) => (url.includes('ecarinwprod.ilz.info') ? page : ''),
+    now: at(0),
+  });
+
+  it('marks the source healthy and archives the ended rows', async () => {
+    const firestore = statefulFirestore([endedNwAuction]);
+    const result = await refresh(firestore, ECARI_NO_RUNNING_AUCTION);
+    expect(result.summaries.nw).toMatchObject({ status: 'active', rowCount: 0 });
+    expect(firestore.sources.get('nw')).toMatchObject({ status: 'active', errorCode: null, lastSuccessAt: at(0).toISOString() });
+    expect(firestore.current.get('nw-1491')).toMatchObject({ auctionStatus: 'closed', closedAt: at(-72).toISOString() });
+    expect([...firestore.history.keys()].some((id) => id.startsWith('nw-1491-'))).toBe(true);
+  });
+
+  it('keeps `zero_rows` for the same page without the explicit label', async () => {
+    const firestore = statefulFirestore([endedNwAuction]);
+    const result = await refresh(firestore, ECARI_NO_RUNNING_AUCTION.replaceAll('Keine laufende Versteigerung', ''));
+    expect(result.summaries.nw).toMatchObject({ status: 'degraded', rowCount: 0 });
+    expect(firestore.sources.get('nw')).toMatchObject({ status: 'degraded', errorCode: 'zero_rows' });
   });
 });

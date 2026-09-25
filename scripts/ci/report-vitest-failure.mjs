@@ -13,6 +13,7 @@
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import { countRedTestFiles } from './lib/vitest-json-report.mjs';
 
 const MAX_FAILURES = 20;
 const MAX_MESSAGE_LENGTH = 1800;
@@ -74,7 +75,9 @@ export function collectFailures(files = reportFilesFromEnv()) {
       groups.push({
         file,
         failedTests: Number(report.numFailedTests || failures.length),
-        failedSuites: Number(report.numFailedTestSuites || 0),
+        // File, da `testResults`: `numFailedTestSuites` conta anche ogni
+        // `describe` rosso e qui veniva stampato come «file suite falliti».
+        failedFiles: countRedTestFiles(report),
         failures,
       });
     }
@@ -99,7 +102,7 @@ export function buildComment(groups, {
   }
   for (const group of groups) {
     lines.push(`### ${group.file}`);
-    lines.push(`- Test falliti: **${group.failedTests}**${group.failedSuites ? ` — file suite falliti: **${group.failedSuites}**` : ''}`);
+    lines.push(`- Test falliti: **${group.failedTests}**${group.failedFiles ? ` — file falliti: **${group.failedFiles}**` : ''}`);
     for (const failure of group.failures.slice(0, MAX_FAILURES)) {
       lines.push('- **' + failure.file + '** — `' + failure.test + '`');
       lines.push('  ```text');
@@ -120,7 +123,14 @@ export function buildComment(groups, {
   return lines.join('\n').slice(0, MAX_BODY_LENGTH);
 }
 
-function gh(args) {
+function describeExecError(error) {
+  const status = Number.isInteger(error?.status) ? ` exit ${error.status}` : '';
+  const stderr = String(error?.stderr || '').trim();
+  const message = stderr || String(error?.message || '').trim() || 'errore sconosciuto';
+  return `${message}${status}`.trim();
+}
+
+function gh(args, onError) {
   try {
     execFileSync(trustedGhBin(), args, {
       encoding: 'utf8',
@@ -128,37 +138,60 @@ function gh(args) {
       stdio: ['ignore', 'pipe', 'inherit'],
     });
     return true;
-  } catch {
+  } catch (error) {
+    onError?.(describeExecError(error));
     return false;
   }
 }
 
-function ghOutput(args) {
+function ghOutput(args, onError) {
   try {
     return execFileSync(trustedGhBin(), args, {
       encoding: 'utf8',
       timeout: 120_000,
       stdio: ['ignore', 'pipe', 'inherit'],
     });
-  } catch {
+  } catch (error) {
+    onError?.(describeExecError(error));
     return '';
   }
 }
 
 function publishComment(repo, prNumber, body) {
-  const raw = ghOutput(['api', `repos/${repo}/issues/${prNumber}/comments?per_page=100`]);
+  let cause = '';
+  const onError = (message) => { cause = message; };
+  const raw = ghOutput(['api', `repos/${repo}/issues/${prNumber}/comments?per_page=100`], onError);
   let comments = [];
   try { comments = JSON.parse(raw); } catch { /* best-effort: fall back to a new comment */ }
   const previous = comments.find((comment) => String(comment.body || '').includes(MARKER));
-  if (previous?.id) {
-    return gh([
+  const posted = previous?.id
+    ? gh([
       'api',
       '--method', 'PATCH',
       `repos/${repo}/issues/comments/${previous.id}`,
       '-f', `body=${body}`,
-    ]);
+    ], onError)
+    : gh(['pr', 'comment', prNumber, '--repo', repo, '--body', body], onError);
+  return { posted, cause };
+}
+
+function writeStepSummary(repo, prNumber, cause, body) {
+  const summaryFile = String(process.env.GITHUB_STEP_SUMMARY || '').trim();
+  if (!summaryFile) return;
+  const lines = [
+    '## ⚠️ Commento failure Vitest non pubblicato',
+    '',
+    `Pubblicazione fallita per la PR #${prNumber} (${repo}): ${cause || 'causa sconosciuta'}.`,
+    'Dettaglio previsto per il commento sticky, riportato qui perché il publisher non ha potuto scriverlo sulla PR:',
+    '',
+    body,
+    '',
+  ];
+  try {
+    fs.appendFileSync(summaryFile, lines.join('\n'));
+  } catch {
+    /* best-effort: non deve mai aggiungere un secondo rosso */
   }
-  return gh(['pr', 'comment', prNumber, '--repo', repo, '--body', body]);
 }
 
 function main() {
@@ -174,8 +207,14 @@ function main() {
     runId: process.env.RUN_ID || '',
     headSha: process.env.HEAD_SHA || '',
   });
-  const posted = publishComment(repo, prNumber, body);
-  console.log(posted ? `Commento failure Vitest pubblicato/aggiornato sulla PR #${prNumber}.` : 'Impossibile pubblicare il commento failure Vitest (best-effort).');
+  const { posted, cause } = publishComment(repo, prNumber, body);
+  if (posted) {
+    console.log(`Commento failure Vitest pubblicato/aggiornato sulla PR #${prNumber}.`);
+    return;
+  }
+  const reason = cause || 'causa sconosciuta';
+  console.log(`::warning title=Vitest failure report::Impossibile pubblicare il commento sulla PR #${prNumber} (${repo}): ${reason}`);
+  writeStepSummary(repo, prNumber, reason, body);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(new URL(import.meta.url).pathname)) main();

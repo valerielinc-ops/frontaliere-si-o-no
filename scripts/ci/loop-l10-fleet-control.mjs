@@ -22,6 +22,7 @@ import {
   loadLoopPolicyForRun,
   QUALITY_STATES,
   validateActionClassAgainstPolicy,
+  validateHistoricalOutcomeAgainstPolicy,
   validateOutcomeAgainstPolicy,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
@@ -343,7 +344,7 @@ function validateCanonicalHealthHistory(history, {
       if (!object(row.outcome)) rowIssues.push('outcome is missing');
       else {
         try {
-          validateOutcomeAgainstPolicy(registry, row.loopId, row.outcome);
+          validateHistoricalOutcomeAgainstPolicy(registry, row.loopId, row.outcome);
         } catch (error) {
           rowIssues.push(`outcome violates registry: ${error.message}`);
         }

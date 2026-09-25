@@ -19,6 +19,23 @@
  *   - Double-decoded HTML entities (jobup returns `&amp;nbsp;` → ` `)
  */
 import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
+
+// Fallback anti-bot del feed (Jina → Playwright): stub per i test del
+// challenge 200-HTML. Gli altri test non li raggiungono (il feed stub risponde
+// JSON), quindi il comportamento reale del modulo resta invariato per loro.
+const { fetchHtmlViaJinaWithRetry, launchChromium } = vi.hoisted(() => ({
+  fetchHtmlViaJinaWithRetry: vi.fn(),
+  launchChromium: vi.fn(),
+}));
+vi.mock('../../scripts/lib/jina-proxy.mjs', async (importOriginal) => {
+  const actual = (await importOriginal()) as Record<string, unknown>;
+  return { ...actual, fetchHtmlViaJinaWithRetry };
+});
+vi.mock('../../scripts/lib/ensure-chromium.mjs', async (importOriginal) => {
+  const actual = (await importOriginal()) as Record<string, unknown>;
+  return { ...actual, launchChromium };
+});
+
 import {
   createJobupChFeedParser,
   parseJobupLieu,
@@ -489,5 +506,66 @@ describe('createJobupChFeedParser — fail-closed detail contract', () => {
     const parser = createJobupChFeedParser(JOBUP_CONSUMERS[0]);
 
     await expect(parser.fetchAllJobs()).resolves.toEqual([]);
+  });
+});
+
+/**
+ * Il WAF di jobup può rispondere 200 con una pagina HTML di challenge al posto
+ * del feed (2026-09-23 dai runner GitHub: `Unexpected token '<', "<!doctype "...
+ * is not valid JSON` ha fatto fallire pole-sante-pays-enhaut e cnp nella stessa
+ * wave). Il corpo non-JSON deve seguire lo stesso percorso anti-bot di un 403
+ * (Jina → Playwright → `antiBotExhausted`), non emergere come errore di parse.
+ */
+describe('createJobupChFeedParser — 200 HTML challenge on the feed', () => {
+  const CHALLENGE_PAGE = '<!doctype html><html><head><title>Just a moment...</title></head><body>challenge</body></html>';
+
+  function stubChallengedFeed() {
+    const feedFetches: string[] = [];
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.includes('/masks/')) {
+        feedFetches.push(url);
+        return new Response(CHALLENGE_PAGE, { status: 200, headers: { 'content-type': 'text/html' } });
+      }
+      if (url === JOBUP_DETAIL_URL) return new Response(RICH_JOBUP_DETAIL, { status: 200 });
+      return new Response('', { status: 404 });
+    }));
+    return feedFetches;
+  }
+
+  beforeEach(() => {
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    fetchHtmlViaJinaWithRetry.mockReset();
+    launchChromium.mockReset();
+    launchChromium.mockRejectedValue(new Error('chromium unavailable in test'));
+  });
+
+  it('marks the run antiBotExhausted (soft-exit) instead of throwing a JSON parse error', async () => {
+    const feedFetches = stubChallengedFeed();
+    fetchHtmlViaJinaWithRetry.mockResolvedValue(null);
+    const parser = createJobupChFeedParser(JOBUP_CONSUMERS[1]);
+
+    const failure = await parser.fetchAllJobs().then(() => null, (err) => err);
+
+    expect(failure).toBeInstanceOf(Error);
+    expect(failure.message).not.toMatch(/Unexpected token|not valid JSON/);
+    expect(failure.message).toMatch(/HTTP 200 non-JSON/);
+    expect(failure).toMatchObject({ status: 200, challengeBody: true, antiBotExhausted: true });
+    // Il challenge non è transitorio per il fetch diretto: nessun retry a vuoto.
+    expect(feedFetches).toHaveLength(1);
+    expect(fetchHtmlViaJinaWithRetry).toHaveBeenCalledOnce();
+    expect(launchChromium).toHaveBeenCalledOnce();
+  });
+
+  it('recovers the feed through the Jina fallback when the clean IP gets the JSON', async () => {
+    stubChallengedFeed();
+    const feedJson = JSON.stringify({ jobcount: '1', jobs: [JOBUP_FEED_JOB] });
+    fetchHtmlViaJinaWithRetry.mockResolvedValue(`<html><head></head><body><pre style="word-wrap: break-word;">${feedJson}</pre></body></html>`);
+    const parser = createJobupChFeedParser(JOBUP_CONSUMERS[1]);
+
+    const jobs = await parser.fetchAllJobs();
+
+    expect(jobs.map((job) => job.url)).toEqual([JOBUP_DETAIL_URL]);
+    expect(launchChromium).not.toHaveBeenCalled();
   });
 });

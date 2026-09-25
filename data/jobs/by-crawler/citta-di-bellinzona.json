@@ -62,7 +62,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://bellinz.pi-asp.de/bewerber-web?company=*-firma-id&tenant=&lang=is"
     },
     {
       "id": "citta-di-bellinzona-assistente-dentale-presso-il-settore-attivita-sociali-servizio-clinica-dentaria-bellinzona",
@@ -125,7 +126,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://bellinz.pi-asp.de/bewerber-web?company=*-firma-id&tenant=&lang=i"
     }
   ]
 }

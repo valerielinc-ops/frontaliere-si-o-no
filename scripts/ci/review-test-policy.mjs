@@ -14,9 +14,9 @@ import { isTerminalManagedReview } from './lib/pr-review-admission.mjs';
 import {
   validateActionClassAgainstPolicy,
   validateDecisionLifecycle,
-  validateLifecycleEvent,
+  validateHistoricalLifecycleEvent,
+  validateHistoricalOutcomeAgainstPolicy,
   validateLoopRegistry,
-  validateOutcomeAgainstPolicy,
 } from '../lib/loop-fleet-contract.mjs';
 
 export const TEST_REVIEW_MARKER = '<!-- TEST_ONLY_AUTOMATIC_REVIEW -->';
@@ -100,11 +100,11 @@ function validateLedgerRecordAgainstRegistry(record, expectedType, registry) {
   if (!registry) return '';
   try {
     if (expectedType === 'lifecycle-event') {
-      validateLifecycleEvent(registry, record.loopId, record);
+      validateHistoricalLifecycleEvent(registry, record.loopId, record);
     } else {
       validateActionClassAgainstPolicy(registry, record.loopId, record.actionClass);
       if (expectedType === 'decision') validateDecisionLifecycle(registry, record.loopId, record);
-      validateOutcomeAgainstPolicy(registry, record.loopId, record.outcome);
+      validateHistoricalOutcomeAgainstPolicy(registry, record.loopId, record.outcome);
     }
     return '';
   } catch (error) {

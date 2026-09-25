@@ -20,6 +20,8 @@ import {
 import {
   createTranslationStateStoreV2,
   MAX_TRANSLATION_STATE_ARTIFACT_BYTES_V2,
+  TRANSLATION_STATE_REF_V2,
+  TRANSLATION_STATE_REMOTE_V2,
   validateTranslationSlicePathV2,
 } from '../scripts/lib/translation-state-store-v2.mjs';
 import { digestTranslationDocumentV2 } from '../scripts/lib/translation-unit-identity-v2.mjs';
@@ -171,11 +173,13 @@ describe('translation state store v2', () => {
     expect(git(one, 'ls-tree', '-r', '--name-only', initialized.commit)).toBe('v2/schema.json');
     expect(git(one, 'ls-remote', '--refs', 'origin', 'refs/heads/main')).not.toContain(initialized.commit);
     expect(() => createTranslationStateStoreV2({ repository: one, ref: 'refs/heads/main' })).toThrow(/dedicated/);
-    git(one, 'push', '-q', 'origin', 'origin/main:refs/heads/translation-state-invalid-v2');
-    const invalid = createTranslationStateStoreV2({
-      repository: one,
-      ref: 'refs/heads/translation-state-invalid-v2',
-    });
+    expect(() => createTranslationStateStoreV2({ repository: one, ref: 'refs/heads/translation-state-invalid-v2' }))
+      .toThrow(/must target/);
+    expect(() => createTranslationStateStoreV2({ repository: one, remote: 'backup' })).toThrow(/must target/);
+    expect(store.remote).toBe(TRANSLATION_STATE_REMOTE_V2);
+    expect(store.ref).toBe(TRANSLATION_STATE_REF_V2);
+    git(one, 'push', '-q', '-f', 'origin', 'origin/main:refs/heads/translation-state-v2');
+    const invalid = createTranslationStateStoreV2({ repository: one });
     await expect(invalid.initialize()).rejects.toThrow(/outside v2/);
     expect(() => validateTranslationSlicePathV2('../data/jobs/by-crawler/a.json')).toThrow(/slicePath/);
     expect(() => validateTranslationSlicePathV2('data/jobs/expired/a.json')).toThrow(/slicePath/);
@@ -239,10 +243,9 @@ describe('translation state store v2', () => {
     writeFileSync(join(one, 'v2', 'after-merge.json'), '{}\n');
     git(one, 'add', 'v2/after-merge.json');
     git(one, 'commit', '-q', '-m', 'single-parent tip');
-    const ref = 'refs/heads/translation-state-merge-history-v2';
-    git(one, 'push', '-q', 'origin', `HEAD:${ref}`);
+    git(one, 'push', '-q', '-f', 'origin', 'HEAD:refs/heads/translation-state-v2');
 
-    const store = createTranslationStateStoreV2({ repository: one, ref });
+    const store = createTranslationStateStoreV2({ repository: one });
     await expect(store.initialize()).rejects.toThrow(/single-parent/);
   });
 
@@ -255,10 +258,9 @@ describe('translation state store v2', () => {
     git(one, 'commit', '-q', '-m', 'contaminate state history');
     git(one, 'rm', '-q', 'outside-state.txt');
     git(one, 'commit', '-q', '-m', 'hide state contamination');
-    const ref = 'refs/heads/translation-state-outside-history-v2';
-    git(one, 'push', '-q', 'origin', `HEAD:${ref}`);
+    git(one, 'push', '-q', '-f', 'origin', 'HEAD:refs/heads/translation-state-v2');
 
-    const store = createTranslationStateStoreV2({ repository: one, ref });
+    const store = createTranslationStateStoreV2({ repository: one });
     await expect(store.initialize()).rejects.toThrow(/history contains paths outside v2/);
   });
 

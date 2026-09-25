@@ -59,6 +59,7 @@ import { intFromEnv } from './int-from-env.mjs';
 import { isSystemicRejection } from './source-record-quarantine.mjs';
 import { sourceChangedSinceSuppression } from './source-changed-since-suppression.mjs';
 import { normalizeCompanyKey, normalizeKey } from './company-key.mjs';
+import { buildStableJobIdentity } from './job-identity.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
@@ -5202,9 +5203,12 @@ export function isLikelyJobDetailUrl(rawUrl = '') {
     /\/jobs\/[^/?#]+/.test(url) ||
     /\/vacanc/.test(url) ||
     /\/offene-stellen\/[^/?#]+/.test(url) ||
+    /\/stelle\/[^/?#]+/.test(url) ||
+    /\/stellenangebote\/[^/?#]+_j_\d+(?:[/?#]|$)/.test(url) ||
     /\/posti-vacanti\/[^/?#]+/.test(url) ||
     /\/open-positions?\/[^/?#]+/.test(url) ||
     /\/offres?-emploi\/[^/?#]+/.test(url) ||
+    /\/work\/\d+\/[^/?#]+/.test(url) ||
     /\/careers?\/job/.test(url) ||
     /[?&](jobid|jobid=|gh_jid|lever-source|wdjobid|job_id|yid)=/.test(url) ||
     /\/position\//.test(url)
@@ -5591,6 +5595,54 @@ export function fingerprintJob(job) {
   const domain = registrableDomain(hostOf(job.url || '')) || normalizeSpace(job.company).toLowerCase();
   const key = `${normalizeSpace(job.title).toLowerCase()}|${normalizeSpace(job.location).toLowerCase()}|${domain}`;
   return `tl|${key.replace(/\s+/g, ' ')}`;
+}
+
+const EOC_UMANTIS_HOST = 'recruitingapp-2761.umantis.com';
+const EOC_COMPANY_KEY = 'eoc-ente-ospedaliero-cantonale';
+
+function normalizeContinuityPart(value = '') {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+/**
+ * Continuity key for EOC's Umantis records.
+ *
+ * Umantis has replaced live vacancy numbers while keeping the source slug,
+ * title, and location unchanged (for example 2670 → 2696). The numeric URL
+ * identity is still the canonical identity for every other purpose; this
+ * key is an opt-in bridge used only when the shared merge sees exactly one
+ * old and one fresh EOC record with the same source-facing shape.
+ *
+ * Empty/ambiguous keys deliberately return an empty string. A semantic bridge
+ * must never merge two same-title openings merely because they share a weak
+ * heuristic.
+ */
+export function eocContinuityKey(job = {}) {
+  let host = '';
+  try {
+    host = normalizeHost(hostOf(job?.url || ''));
+  } catch {
+    host = '';
+  }
+  const companyKey = normalizeCompanyKey(job?.companyKey || '');
+  if (host !== EOC_UMANTIS_HOST || companyKey !== EOC_COMPANY_KEY) return '';
+
+  const sourceLang = normalizeContinuityPart(job?.sourceLang || 'it') || 'it';
+  const sourceSlug = job?.slugByLocale?.[sourceLang]
+    || job?.slugByLocale?.it
+    || job?.slug
+    || '';
+  const slug = normalizeContinuityPart(sourceSlug);
+  const title = normalizeContinuityPart(job?.title || '');
+  const location = normalizeContinuityPart(job?.location || '');
+  if (slug.length < 12 || !title || !location) return '';
+
+  return `eoc:${slug}|${title}|${location}`;
 }
 
 export function dedupHeuristicKey(job) {
@@ -7971,6 +8023,9 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     (job) => fingerprintJob(job),
     (base) => base.startsWith('id|eta.ch|'),
   );
+  const continuityKey = typeof options.continuityKey === 'function'
+    ? options.continuityKey
+    : null;
   let duplicateExisting = 0;
 
   for (const job of existingJobs) {
@@ -7994,6 +8049,39 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     }
     duplicateExisting += 1;
     map.set(fp, mergeDuplicateJobPreservingSlugHistory(prev, normalized));
+  }
+
+  // A source may rotate a vacancy URL while leaving the source-facing job
+  // unchanged. Build a bridge only for an injective one-to-one pair: any
+  // collision on either side is left alone so distinct openings cannot inherit
+  // one another's id, translations, or firstSeenAt.
+  const continuityBridgeByIncomingFingerprint = new Map();
+  if (continuityKey) {
+    const existingByContinuity = new Map();
+    const incomingByContinuity = new Map();
+    const collect = (index, jobs) => {
+      for (const job of jobs) {
+        const key = continuityKey(job);
+        if (!key) continue;
+        const group = index.get(key) || [];
+        group.push(job);
+        index.set(key, group);
+      }
+    };
+    collect(existingByContinuity, existingJobs);
+    collect(incomingByContinuity, incomingJobs);
+
+    for (const [key, existingGroup] of existingByContinuity) {
+      const incomingGroup = incomingByContinuity.get(key) || [];
+      if (existingGroup.length !== 1 || incomingGroup.length !== 1) continue;
+
+      const oldFingerprint = mergeFingerprint(existingGroup[0]);
+      const incomingFingerprint = mergeFingerprint(incomingGroup[0]);
+      if (!oldFingerprint || !incomingFingerprint || oldFingerprint === incomingFingerprint) continue;
+      if (!map.has(oldFingerprint) || map.has(incomingFingerprint)) continue;
+
+      continuityBridgeByIncomingFingerprint.set(incomingFingerprint, oldFingerprint);
+    }
   }
 
   let inserted = 0;
@@ -8020,7 +8108,16 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       id: raw.id || buildStableId(raw),
       crawledAt: nowIsoTs,
     };
-    const prev = map.get(fp);
+    let bridgedFromFingerprint = null;
+    let prev = map.get(fp);
+    if (!prev) {
+      const bridgeFingerprint = continuityBridgeByIncomingFingerprint.get(fp);
+      if (bridgeFingerprint && map.has(bridgeFingerprint)) {
+        bridgedFromFingerprint = bridgeFingerprint;
+        prev = map.get(bridgeFingerprint);
+        map.delete(bridgeFingerprint);
+      }
+    }
     if (!prev) {
       map.set(fp, { ...next, firstSeenAt: next.firstSeenAt || nowIsoTs });
       inserted += 1;
@@ -8064,6 +8161,44 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       previousSlugs: mergedPreviousSlugsCapped,
       previousSlugsByLocale: mergePreviousSlugsByLocale(prev.previousSlugsByLocale, next.previousSlugsByLocale, mergeJobId, 'mergeAndDeduplicate'),
     };
+    if (bridgedFromFingerprint) {
+      const currentIdentity = buildStableJobIdentity(next) || next.sourceIdentity || '';
+      if (currentIdentity) {
+        const historyByIdentity = new Map();
+        const addHistory = (identity, firstSeenAt, title) => {
+          if (!identity || identity === currentIdentity || historyByIdentity.has(identity)) return;
+          historyByIdentity.set(identity, {
+            sourceIdentity: identity,
+            ...(firstSeenAt ? { firstSeenAt } : {}),
+            ...(title ? { title } : {}),
+          });
+        };
+        for (const record of [prev, next]) {
+          addHistory(
+            record?.sourceIdentity || buildStableJobIdentity(record),
+            record?.firstSeenAt,
+            record?.title,
+          );
+          for (const history of Array.isArray(record?.sourceIdentityHistory)
+            ? record.sourceIdentityHistory
+            : []) {
+            addHistory(
+              history?.sourceIdentity,
+              history?.firstSeenAt || record?.firstSeenAt,
+              history?.title || record?.title,
+            );
+          }
+        }
+        best.sourceIdentity = currentIdentity;
+        const sourceIdentityHistory = [...historyByIdentity.values()]
+          .sort((a, b) => a.sourceIdentity.localeCompare(b.sourceIdentity));
+        if (sourceIdentityHistory.length > 0) {
+          best.sourceIdentityHistory = sourceIdentityHistory;
+        } else {
+          delete best.sourceIdentityHistory;
+        }
+      }
+    }
     if (shouldReusePreviousLocalization(prev, next, options.contentReuse || {})) {
       best.titleByLocale = { ...(prev.titleByLocale || {}) };
       best.descriptionByLocale = { ...(prev.descriptionByLocale || {}) };
@@ -8142,6 +8277,14 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     // every crawledAt-based freshness window — force the merged timestamp
     // onto whichever side was picked.
     chosen.crawledAt = best.crawledAt;
+    if (bridgedFromFingerprint && best.sourceIdentity) {
+      chosen.sourceIdentity = best.sourceIdentity;
+      if (best.sourceIdentityHistory?.length) {
+        chosen.sourceIdentityHistory = best.sourceIdentityHistory;
+      } else {
+        delete chosen.sourceIdentityHistory;
+      }
+    }
     // Preserve lost slugs: applied after preferJob so it works regardless of which
     // object was picked. Uses shared captureLostSlugs function.
     captureLostSlugs(chosen, prev.slugByLocale || {}, prev.slug || '');

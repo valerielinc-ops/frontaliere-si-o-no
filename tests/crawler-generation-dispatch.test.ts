@@ -1547,6 +1547,54 @@ describe('generation checkpoint and preflight', () => {
     expect(sleeps).toEqual(PREFLIGHT_ALIGNMENT_BACKOFF_MS);
   });
 
+  it('fails closed immediately when the pinned corpus tree also has different workflow bytes', async () => {
+    // Run 36074224339: the site contract was at generator ca6de7…, while the
+    // pinned corpus contract was at 9fb227… and group 24 had older bytes.
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-preflight-artifact-lineage-'));
+    tempRoots.push(root);
+    const observer = Buffer.from('observer-workflow\n');
+    const localArtifacts = groupArtifactFixture();
+    const remoteArtifacts = {
+      ...localArtifacts,
+      'crawler-group-24.yml': Buffer.from('name: crawler-group-24 (historical)\n'),
+    };
+    const localContract = {
+      ...preflightFixture(observer, localArtifacts),
+      sourceRepository: 'valerielinc-ops/frontaliere-si-o-no',
+      sourceCommit: '48207b409aef44cded1e4b04510aaadad0549df0',
+      generatorSha256: 'ca6de7edbb725fa6cb7fdb508ee51888025c39696c01bdbde20b71dba06fe4c4',
+    };
+    const staleRemoteContract = {
+      ...preflightFixture(observer, remoteArtifacts),
+      sourceRepository: 'valerielinc-ops/frontaliere-si-o-no',
+      sourceCommit: '12a413d1f42a9958cc7e0b0d142423f18d169878',
+      generatorSha256: '9fb227fa39c74241ca722a49708158dd2d2e50fbfbbde939bd2c2fa3d7eaf1f5',
+    };
+    const contractPath = path.join(root, 'contract.json');
+    const observerPath = path.join(root, 'observer.yml');
+    fs.writeFileSync(contractPath, JSON.stringify(localContract));
+    fs.writeFileSync(observerPath, observer);
+    const sleeps: number[] = [];
+    const request = vi.fn(async (input: any) => (
+      preflightResponse(input, staleRemoteContract, observer, remoteArtifacts)
+    ));
+
+    await expect(runPreflight({
+      request,
+      contractPath,
+      observerPath,
+      sleep: async (milliseconds) => { sleeps.push(milliseconds); },
+    })).resolves.toEqual({
+      ready: false,
+      dispatchMode: 'blocked',
+      corpusCodeCommit: null,
+      reasons: ['contract_mismatch', 'crawler_artifact_lineage_mismatch'],
+      warnings: [],
+    });
+    expect(sleeps).toEqual([]);
+    expect(request.mock.calls.filter(([input]) => input.path.includes('/commits/main'))).toHaveLength(1);
+  });
+
   it('fails closed without reconciliation when the remote source repository is different', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-preflight-lineage-invalid-'));
     tempRoots.push(root);
@@ -1709,13 +1757,16 @@ describe('generation checkpoint and preflight', () => {
       ready: false,
       dispatchMode: 'blocked',
       corpusCodeCommit: null,
-      reasons: ['contract_mismatch'],
+      reasons: ['contract_mismatch', 'crawler_artifact_lineage_mismatch'],
       warnings: [],
     });
     expect(evaluateCrawlerGenerationPreflight({
       ...input,
       localContract: { ...input.localContract, generatorSha256: 'c'.repeat(64), sourceRepository: 'someone-else/fork' },
-    })).toMatchObject({ ready: false, reasons: ['contract_mismatch'] });
+    })).toMatchObject({
+      ready: false,
+      reasons: ['contract_mismatch', 'crawler_artifact_lineage_mismatch'],
+    });
   });
 
   it('blocks a lockstep skew whose pinned corpus tree is not self-consistent', () => {
