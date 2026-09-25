@@ -247,3 +247,21 @@ describe('deriveJobStreetAddress — street of the emitted locality only (#9852)
     expect(deriveJobStreetAddress({ addressLocality: 'Zurich' }, 'Zurich')).toBe('Bahnhofstrasse 1');
   });
 });
+
+describe('JobPosting locality equals the page locality (review of #9870)', () => {
+  it('a known locality without any official CAP is not replaced by the canton capital', async () => {
+    const { resolveJobPostingAddress } = await import('../build-plugins/shared/jobPostingSchema');
+    const job = { addressLocality: 'Oerlikon', canton: 'ZH' };
+    const region = deriveJobCanton(job);
+    const pageLocality = deriveJobAddressLocality(job, region);
+    const address = resolveJobPostingAddress({
+      addressLocality: pageLocality,
+      addressRegion: region,
+      streetAddress: deriveJobStreetAddress(job, pageLocality),
+    }, 'de');
+    expect(pageLocality).toBe('Oerlikon');
+    expect(address.addressLocality).toBe(pageLocality);
+    expect(address.postalCode).toMatch(/^\d{4}$/);
+    expect(address.streetAddress).toBe('Oerlikon Stadtzentrum');
+  });
+});

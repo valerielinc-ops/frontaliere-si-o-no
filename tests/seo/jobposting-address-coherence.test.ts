@@ -283,17 +283,22 @@ describe('buildJobPostingSchema — no canton-capital street/CAP beside another 
     expect(massagno.postalCode).toBe('6900');
   });
 
-  it('a known alias without any CAP of its own gets the complete capital tuple, never a mix', () => {
-    const addr = buildJobPostingSchema({ ...baseJob, addressLocality: 'Oerlikon', addressRegion: 'ZH' }, OPTS)
-      .jobLocation.address;
-    expect(addr).toMatchObject({
-      addressLocality: CANTON_CAPITAL_ADDRESSES.ZH.addressLocality,
-      postalCode: CANTON_CAPITAL_ADDRESSES.ZH.postalCode,
-      streetAddress: CANTON_CAPITAL_ADDRESSES.ZH.streetAddress,
-    });
+  it('a known locality without any CAP of its own keeps the locality the page shows (review of #9870)', () => {
+    // "Oerlikon" is a curated ZH alias that the official directory does not
+    // list. The page shows Oerlikon, so the JSON-LD must too: postalCode stays
+    // mandatory (Non-Negotiable #3) and takes the canton safe default, while
+    // the street is Oerlikon's own, never the capital's.
+    const addr = resolveJobPostingAddress({ addressLocality: 'Oerlikon', addressRegion: 'ZH' }, 'it');
+    expect(addr.addressLocality).toBe('Oerlikon');
+    expect(addr.addressRegion).toBe('ZH');
+    expect(addr.postalCode).toMatch(/^\d{4}$/);
+    expect(addr.streetAddress).toBe('Oerlikon centro');
+    expect(addr.streetAddress).not.toBe(CANTON_CAPITAL_ADDRESSES.ZH.streetAddress);
+    expect(buildJobPostingSchema({ ...baseJob, addressLocality: 'Oerlikon', addressRegion: 'ZH' }, OPTS)
+      .jobLocation.address.addressLocality).toBe('Oerlikon');
   });
 
-  it('the SPA JobBoard JobPosting gets its on-site address from the same resolver', () => {
+  it('the SPA JobBoard JobPosting gets every address from the same resolver', () => {
     // JobBoard replaces the static JSON-LD at runtime; its own fallback CAP
     // (deriveJobPostalCode → Lugano's 6900) must not survive beside Pully.
     expect(resolveJobPostingAddress(
@@ -301,8 +306,30 @@ describe('buildJobPostingSchema — no canton-capital street/CAP beside another 
       'fr',
     )).toMatchObject({ addressLocality: 'Pully', postalCode: '1009', streetAddress: 'Pully centre-ville' });
     const jobBoard = readFileSync(new URL('../../components/community/JobBoard.tsx', import.meta.url), 'utf8');
-    expect(jobBoard).toMatch(/const onSiteAddress = isRemote \|\| multiLoc\s*\? null\s*: resolveJobPostingAddress\(/);
-    expect(jobBoard).toContain('address: onSiteAddress || {');
+    expect(jobBoard).toMatch(/const jobAddress = resolveJobPostingAddress\(/);
+    expect(jobBoard).toMatch(/jobLocation: \{\s*'@type': 'Place',\s*address: jobAddress,\s*\}/);
+  });
+
+  it('remote and multi-location JobBoard postings never pair "Switzerland" with a concrete CAP or street (review of #9870)', () => {
+    // A country-level address cannot carry the postalCode/streetAddress that
+    // Non-Negotiable #3 makes mandatory, so JobBoard no longer rewrites the
+    // locality to "Switzerland"/"CH": a remote posting keeps one coherent
+    // place tuple, as on the static page, and remoteness stays in
+    // jobLocationType (TELECOMMUTE) and applicantLocationRequirements.
+    const jobBoard = readFileSync(new URL('../../components/community/JobBoard.tsx', import.meta.url), 'utf8');
+    expect(jobBoard).not.toMatch(/addressLocality: (?:isRemote|multiLoc) \? 'Switzerland'/);
+    expect(jobBoard).not.toMatch(/addressRegion: (?:isRemote|multiLoc) \? 'CH'/);
+    expect(jobBoard).not.toContain('CANTON_FALLBACK_POSTAL');
+    expect(jobBoard).toMatch(/jobLocationType: isRemote \? 'TELECOMMUTE' : undefined/);
+    const remote = resolveJobPostingAddress(
+      { addressLocality: 'Pully', addressRegion: 'VD', postalCode: '1009', streetAddress: 'Avenue de Lavaux 1' },
+      'fr',
+    );
+    expect(remote).toMatchObject({ addressLocality: 'Pully', postalCode: '1009', streetAddress: 'Avenue de Lavaux 1' });
+    expect(remote.addressLocality).not.toBe('Switzerland');
+    // A multi-location label is not a locality: one coherent canton tuple.
+    const multi = resolveJobPostingAddress({ addressLocality: 'Lugano · Bellinzona · Mendrisio', addressRegion: 'TI' }, 'it');
+    expect(multi).toMatchObject(CANTON_CAPITAL_ADDRESSES.TI);
   });
 
   it('every BFS municipality resolves to a CAP of its own, canton-scoped', () => {

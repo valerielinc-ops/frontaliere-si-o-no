@@ -627,22 +627,14 @@ function resolveAddress(
     ? sourcePostalCode
     : (hqUsable && hqEntry.postalCode && isValidPostalCode(hqEntry.postalCode) ? hqEntry.postalCode : '') ||
       localityPostalCode ||
-      (fallbackDescribesLocality ? fallback.postalCode : '');
-
-  // A known locality that no postal table lists (a city-quarter alias such as
-  // "Oerlikon"): it has no CAP of its own here, and borrowing the capital's
-  // would rebuild the incoherent tuple. Emit the complete, coherent fallback
-  // address instead; postalCode and streetAddress stay mandatory (rule #3).
-  if (!postalCode) {
-    return {
-      '@type': 'PostalAddress',
-      streetAddress: fallback.streetAddress,
-      postalCode: fallback.postalCode,
-      addressLocality: fallback.addressLocality,
-      addressRegion: region,
-      addressCountry: 'CH',
-    };
-  }
+      // Non-Negotiable #3 safe default. When the fallback tuple is this
+      // locality, that is its own CAP. Otherwise the locality is known but no
+      // postal table lists it (a city quarter such as "Oerlikon", a region
+      // alias): no official CAP exists, postalCode is mandatory, and the
+      // locality must stay the one the page shows. Only this canton-level CAP
+      // is borrowed; the street below stays the locality's own "<city> centro",
+      // never the capital's.
+      fallback.postalCode;
 
   const streetAddressRaw = String(job.streetAddress || job.address || '').trim();
   const streetAddress =

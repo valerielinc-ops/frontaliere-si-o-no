@@ -284,7 +284,6 @@ import {
 // See scripts/lib/crawler-location-config.mjs for the crawler-side switch.
 const DEFAULT_CANTON = 'TI';
 const DEFAULT_CANTON_DISPLAY = 'Ticino';
-const DEFAULT_POSTAL_CODE = '6900';
 const TARGET_CANTONS_ORDERED = ['TI', 'GR', 'VS'] as const;
 
 // Search-broaden floor: when a canton-scoped search yields FEWER than this many
@@ -418,16 +417,6 @@ const CANTON_DISPLAY: Record<string, string> = {
  'BL': 'Basel-Landschaft', 'TG': 'Thurgau', 'SZ': 'Schwyz', 'GL': 'Glarus',
  'JU': 'Jura', 'NW': 'Nidwalden', 'OW': 'Obwalden', 'AR': 'Appenzell AR',
  'AI': 'Appenzell AI', 'UR': 'Uri',
-};
-
-const CANTON_FALLBACK_POSTAL: Record<string, string> = {
- 'TI': '6900', 'GR': '7000', 'ZH': '8001', 'BE': '3001',
- 'LU': '6003', 'BS': '4001', 'GE': '1201', 'VD': '1003',
- 'AG': '5001', 'SG': '9001', 'VS': '1950', 'FR': '1700',
- 'NE': '2000', 'ZG': '6300', 'SH': '8200', 'SO': '4500',
- 'BL': '4410', 'TG': '8500', 'SZ': '6430', 'GL': '8750',
- 'JU': '2800', 'NW': '6370', 'OW': '6060', 'AR': '9100',
- 'AI': '9050', 'UR': '6460',
 };
 
 type ContractType = 'full-time' | 'part-time' | 'temporary' | 'internship' | 'contract';
@@ -5791,21 +5780,22 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Sanitize address fields — reject crawler artifacts and non-geographic strings
  const isValidAddr = (s: string) => s && s.length <= 100 && (s.match(/\s/g) || []).length <= 8 && !/stampa|segnalazione|descrizione|annuncio|verifica|attività|dillo/i.test(s);
  const rawLocality = String(job.addressLocality || '').trim();
- const multiLoc = isMultiLocation(job.location) || isMultiLocation(rawLocality);
- const addressLocality = multiLoc ? 'Switzerland' : (isValidAddr(rawLocality) ? rawLocality : String(job.location || DEFAULT_CANTON_DISPLAY));
- const addressRegion = multiLoc ? 'CH' : String(job.canton || DEFAULT_CANTON);
- const addressCountry = String(job.addressCountry || 'CH');
+ const addressLocality = isValidAddr(rawLocality) ? rawLocality : String(job.location || DEFAULT_CANTON_DISPLAY);
+ const addressRegion = String(job.canton || DEFAULT_CANTON);
  const postalCode = deriveJobPostalCode(job);
  const rawStreet = String(job.streetAddress || '').trim();
  const streetAddress = isValidAddr(rawStreet) ? rawStreet : '';
- // On-site address from the canonical resolver the static page uses: same
- // locality sanitizer, and never a CAP or street of another place beside the
- // locality (issue 9852: `deriveJobPostalCode` falls back to Lugano's 6900,
- // crawlers stamp capital CAPs). Remote and multi-location postings keep
- // their country-level address below.
- const onSiteAddress = isRemote || multiLoc
- ? null
- : resolveJobPostingAddress({
+ // One address for every posting, from the canonical resolver the static
+ // page uses: same locality sanitizer, and never a CAP or street of another
+ // place beside the locality (issue 9852: `deriveJobPostalCode` falls back to
+ // Lugano's 6900, crawlers stamp capital CAPs). Remote and multi-location
+ // postings get the same single-place tuple as their static page (a
+ // multi-location label resolves to the canton's coherent fallback): a
+ // country-level "Switzerland"/"CH" address cannot carry the postalCode and
+ // streetAddress that Non-Negotiable #3 makes mandatory without borrowing a
+ // concrete place's. Remoteness stays in jobLocationType and
+ // applicantLocationRequirements.
+ const jobAddress = resolveJobPostingAddress({
  companyKey: job.companyKey,
  addressLocality,
  addressRegion,
@@ -5842,14 +5832,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  jobLocationType: isRemote ? 'TELECOMMUTE' : undefined,
  jobLocation: {
  '@type': 'Place',
- address: onSiteAddress || {
- '@type': 'PostalAddress',
- addressLocality: isRemote ? 'Switzerland' : addressLocality,
- addressRegion: isRemote ? 'CH' : addressRegion,
- addressCountry,
- postalCode: postalCode || CANTON_FALLBACK_POSTAL[addressRegion] || DEFAULT_POSTAL_CODE,
- streetAddress: streetAddress || addressLocality || DEFAULT_CANTON_DISPLAY,
- },
+ address: jobAddress,
  },
  directApply: isEmployerOwnedApplyUrl(job),
  url: canonicalUrl,
