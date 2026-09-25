@@ -6701,6 +6701,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.nuova-legge-cibersicurezza-lcib.title': 'Schweiz: neues eigenständiges Cybersicherheitsgesetz LCib',
     'blog.article.nuova-legge-cibersicurezza-lcib.excerpt': 'Der Bundesrat beauftragt das VBS, bis Juni 2027 das LCib auszuarbeiten, das auf dem europäischen Cyber Resilience Act für digitale Produkte und Daten basiert.',
     'blog.article.nuova-legge-cibersicurezza-lcib.imageAlt': 'Digitale Infrastruktur und Server für Cybersicherheit in der Schweiz',
+    'blog.article.omologazione-fitosanitari-arretrato-2032.title': 'Zulassung von Pflanzenschutzmitteln: Rückstand bis 2032 beseitigt',
+    'blog.article.omologazione-fitosanitari-arretrato-2032.excerpt': 'Bundesrat setzt 2032 fest, um 525 anhängige Gesuche zu bearbeiten; Gebühren steigen ab 2028, um Kosten zu 50% zu decken.',
+    'blog.article.omologazione-fitosanitari-arretrato-2032.imageAlt': 'Bundeshaus in Bern mit Ackerland im Hintergrund',
 };
 
 export default blogMetaChDe;

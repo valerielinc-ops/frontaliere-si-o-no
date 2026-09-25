@@ -20129,6 +20129,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'omologazione-fitosanitari-arretrato-2032',
+    category: 'novita',
+    date: '2026-09-25T11:39:48.329Z',
+    image: '/images/blog/omologazione-fitosanitari-arretrato-2032.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

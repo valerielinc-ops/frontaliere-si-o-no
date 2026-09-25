@@ -86873,6 +86873,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-omologazione-fitosanitari-arretrato-2032': {
+    title: 'Omologazione fitosanitari: arretrato azzerato entro il 2032',
+    description: 'Il Consiglio federale fissa il 2032 per evadere 525 domande pendenti. Tasse in aumento dal 2028, 18 milioni investiti, credito suppletivo 2027. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, omologazione, fitosanitari, arretrato, azzerato',
+    ogTitle: 'Omologazione fitosanitari: piano per azzerare l\'arretrato entro il 2032',
+    ogDescription: 'Il Consiglio federale decide l\'evasione di 525 domande pendenti entro il 2032. Investiti 18 milioni, tasse raddoppiate dal 2028 per coprire il 50% dei costi. Misure: più personale e digitalizzazione.',
+    canonicalPath: '/articoli-svizzera/omologazione-fitosanitari-arretrato-2032/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Omologazione fitosanitari: arretrato azzerato entro il 2032",
+      "description": "Il Consiglio federale fissa il 2032 per evadere 525 domande pendenti. Tasse in aumento dal 2028, 18 milioni investiti, credito suppletivo 2027. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/omologazione-fitosanitari-arretrato-2032.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna con campi agricoli sullo sfondo"
+      },
+      "datePublished": "2026-09-25T11:39:48+00:00",
+      "dateModified": "2026-09-25T11:39:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/omologazione-fitosanitari-arretrato-2032/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
