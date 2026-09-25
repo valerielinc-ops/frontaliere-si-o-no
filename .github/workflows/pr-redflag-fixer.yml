@@ -8,7 +8,7 @@ name: PR 🔴 fixer (bounded loop-closure on bot PRs)
 # resta esclusa.
 #
 # ANTI-LOOP: un marker nascosto `<!-- REDFLAG_FIX_ROUND: N HEAD: <sha> -->` sulla PR conta i
-# round. A N>=2 → label `needs-human` + escalation, STOP senza Claude: il limite
+# round. A N>=3 → label `needs-human` + escalation, STOP senza Claude: il limite
 # protegge il branch da tentativi ripetitivi che non producono progresso.
 
 on:
@@ -895,7 +895,7 @@ jobs:
         run: echo "Verdetto 🔴 già acquisito per questa PR+HEAD → nessun secondo round Claude."
 
       # ── Round cap + capability guard (deterministico, prima di Claude) ────
-      # Conta i marker `<!-- REDFLAG_FIX_ROUND: N -->` già sulla PR. A N>=2 →
+      # Conta i marker `<!-- REDFLAG_FIX_ROUND: N -->` già sulla PR. A N>=3 →
       # escalation a needs-human, STOP senza Claude. Altrimenti incrementa.
       # Capability guard: se la PR tocca .github/workflows/** e non c'è nessun token
       # capace, il push verrebbe rifiutato (scope workflows) → skip senza bruciare
@@ -935,7 +935,11 @@ jobs:
           HAS_PAT: ${{ env.APP_TOKEN_WORKFLOWS == 'true' || env.GITHUB_PAT != '' }}
         run: |
           set -uo pipefail
-          MAX_ROUNDS=2
+          # 3 dal 2026-09-25: con la risposta per anchor un round può servire a
+          # una contestazione (una re-review, non un fix), e sulle 46 PR bot del
+          # 15-25/09 una correzione convergeva al round successivo nel 45-54% dei
+          # casi (~75% entro 2 round, ~88% entro 3).
+          MAX_ROUNDS=3
 
           # GITHUB_TOKEN è un installation token di Actions, non un token utente:
           # `gh api user` non può identificarlo e fallisce anche se le API della
@@ -1566,7 +1570,7 @@ jobs:
           # 45->60 (2026-07-17, owner): bump fleet-wide di tutti i cap max-turns
           # Claude dopo l'ennesimo error_max_turns (pr-review-loop run 29556645538).
           prompt: |
-            Sei l'agent di chiusura 🔴 per la PR #${{ github.event.pull_request.number }} ("${{ github.event.pull_request.title }}"). Tier: ${{ steps.guard.outputs.tier }}. Round: ${{ steps.guard.outputs.round }}/2.
+            Sei l'agent di chiusura 🔴 per la PR #${{ github.event.pull_request.number }} ("${{ github.event.pull_request.title }}"). Tier: ${{ steps.guard.outputs.tier }}. Round: ${{ steps.guard.outputs.round }}/3.
 
             **Contratto documentale vincolante (prefetch zero-Claude):**
             Le sezioni vincolanti sono già dentro questa richiesta, non in un output del tool:
@@ -1631,7 +1635,7 @@ jobs:
       # è il commit vuoto che il prompt vieta (quello nasce da un round che non
       # ha fatto NIENTE e produce una seconda review sullo stesso lavoro —
       # storm #9066/#9074). Qui la condizione è l'opposta: si spinge solo se una
-      # modifica c'è stata, ed è limitata dal round cap a 2.
+      # modifica c'è stata, ed è limitata dal round cap (MAX_ROUNDS, oggi 3).
       - name: Advance HEAD after a PR-body fix (un body nuovo non è rivedibile senza un commit)
         id: body_advance
         if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
@@ -1687,8 +1691,8 @@ jobs:
           # si esce verdi. Si rende visibile e si attiva il percorso di sblocco.
           echo "::error::Push del commit di sblocco fallito: il body è corretto ma nessuna review nuova può essere emessa sulla HEAD $BASE_SHA."
           echo "advanced=push-failed" >> "$GITHUB_OUTPUT"
-          # Idempotente sul marker, come l'escalation del round cap: il round 2
-          # ripasserebbe di qui e riposterebbe la stessa diagnosi. Here-string,
+          # Idempotente sul marker, come l'escalation del round cap: un round
+          # successivo ripasserebbe di qui e riposterebbe la stessa diagnosi. Here-string,
           # non `printf | grep -q`: con pipefail il SIGPIPE su un elenco
           # commenti grande rende falso il guard (stessa trappola di #9283).
           comments=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
@@ -1710,7 +1714,7 @@ jobs:
       # della PR. Su #9147 il fixer ha scritto «già risolto alla riga 282» e il
       # reviewer ha ripetuto lo stesso 🔴 in altre quattro review. Qui, se il
       # round non ha pushato codice e la risposta contiene un `disputed`, un
-      # commit vuoto (uno per round, round cap 2) chiede quel giudizio.
+      # commit vuoto (uno per round, round cap 3) chiede quel giudizio.
       - name: Publish the per-finding response (zero-Claude)
         id: response
         if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
@@ -1886,7 +1890,7 @@ jobs:
             exit 0
           fi
           if [ "$ACTION_OUTCOME" = "failure" ]; then
-            echo "::error::🔴-fix: nessun commit pushato e l'azione è fallita ('$ACTION_OUTCOME') → non-progress reale. Job RED (segnale preservato; round-cap → needs-human a N>=2)."
+            echo "::error::🔴-fix: nessun commit pushato e l'azione è fallita ('$ACTION_OUTCOME') → non-progress reale. Job RED (segnale preservato; round-cap → needs-human a N>=3)."
             exit 1
           fi
           # Un body riscritto SENZA una HEAD nuova non è un terminale
@@ -1905,7 +1909,7 @@ jobs:
           fi
           NOW_COMMENTS=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq 'length' 2>/dev/null || echo "${BASE_COMMENTS:-0}")
           if [ "${NOW_COMMENTS:-0}" -le "${BASE_COMMENTS:-0}" ]; then
-            echo "::error::🔴-fix: nessun commit pushato, l'azione è uscita '$ACTION_OUTCOME', e nessun commento nuovo a spiegare perché (comments $BASE_COMMENTS→$NOW_COMMENTS) → non-progress SILENZIOSO, non un terminale legittimo. Job RED (segnale preservato; round-cap → needs-human a N>=2)."
+            echo "::error::🔴-fix: nessun commit pushato, l'azione è uscita '$ACTION_OUTCOME', e nessun commento nuovo a spiegare perché (comments $BASE_COMMENTS→$NOW_COMMENTS) → non-progress SILENZIOSO, non un terminale legittimo. Job RED (segnale preservato; round-cap → needs-human a N>=3)."
             exit 1
           fi
           echo "Nessun push ma l'azione è terminata pulita ('$ACTION_OUTCOME') con una spiegazione nuova sulla PR → terminale legittimo (es. non auto-fixabile). Job verde."
