@@ -250,7 +250,8 @@ describe('prospector public-only polite transport', () => {
     const seed = 'https://employer.example/jobs';
     const detail = 'https://employer.example/careers/detail/1';
     const challenge = '<html><head><title>Challenge Validation</title></head>'
-      + '<body><meta name="sec-cpt-if" content="provider=crypto"></body></html>';
+      + '<body><meta name="sec-cpt-if" content="provider=crypto">'
+      + `${' blocked'.repeat(30)}</body></html>`;
     const listing = `<a href="/careers/detail/1">Platform Engineer</a>${' listing'.repeat(60)}`;
     const detailHtml = '<h1>Platform Engineer</h1><div class="job-location">Zürich</div>'
       + '<article class="vacancy-description">Build reliable systems for our engineering organisation, '
@@ -262,7 +263,13 @@ describe('prospector public-only polite transport', () => {
       if (url === detail) return response(url, 200, null, detailHtml);
       throw new Error(`unexpected direct URL ${url}`);
     });
-    const jinaFetchImpl = vi.fn(async (url: string) => response(url, 200, null, listing));
+    let jinaCalls = 0;
+    const jinaFetchImpl = vi.fn(async (url: string) => response(
+      url,
+      200,
+      null,
+      jinaCalls++ === 0 ? challenge : listing,
+    ));
 
     const rows = await runSpecInProduction({
       companyKey: 'employer', companyName: 'Employer', companyHost: 'employer.example',
@@ -270,7 +277,7 @@ describe('prospector public-only polite transport', () => {
     } as any, {
       fetchImpl,
       jinaFetchImpl,
-      jinaRetries: 0,
+      jinaRetries: 1,
       lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
       sleepImpl: async () => {},
       jinaSleepImpl: async () => {},
@@ -279,7 +286,7 @@ describe('prospector public-only polite transport', () => {
     expect(rows).toEqual([expect.objectContaining({
       title: 'Platform Engineer', url: detail, location: 'Zürich', canton: 'ZH',
     })]);
-    expect(jinaFetchImpl).toHaveBeenCalledOnce();
+    expect(jinaFetchImpl).toHaveBeenCalledTimes(2);
   });
 
   it('marks an exhausted WAF rescue as anti-bot so the prior slice can be preserved', async () => {
@@ -349,7 +356,8 @@ describe('prospector public-only polite transport', () => {
   it('marks an exhausted HTTP 200 challenge as anti-bot instead of returning zero rows', async () => {
     const seed = 'https://employer.example/jobs';
     const challenge = '<html><head><title>Challenge Validation</title></head>'
-      + '<body><meta name="sec-cpt-if" content="provider=crypto"></body></html>';
+      + '<body><meta name="sec-cpt-if" content="provider=crypto">'
+      + `${' blocked'.repeat(30)}</body></html>`;
     const fetchImpl = vi.fn(async (url: string) => response(
       url,
       200,
