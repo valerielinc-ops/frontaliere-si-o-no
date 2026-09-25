@@ -109,6 +109,49 @@ describe('jobAlertMatching — explicit keyword contract (legacy preserved)', ()
     expect(scoreJobForAlert(unrelated, profile, 'it')).toBe(0);
     expect(scoreJobForAlert(relevant, profile, 'it')).toBeGreaterThan(0);
   });
+
+  it('treats a recovered source-job title as soft intent, including on legacy alerts', () => {
+    const subscriber = {
+      job_search_query: 'Senior Fisioterapista',
+      job_category: 'health',
+      job_context_backfill_source: 'active_job_exact',
+    };
+    const alert = {
+      backfilled_from: 'newsletter_subscribers:job_gate',
+      keywords: ['Senior Fisioterapista'],
+      locations: ['Lugano'],
+      sourceJobSlug: 'senior-fisioterapista-lugano',
+    };
+    const profile = buildAlertProfile(alert, subscriber);
+    const related = job({
+      title: 'Fisioterapista',
+      description: 'Ruolo sanitario in riabilitazione.',
+      location: 'Lugano',
+      addressLocality: 'Lugano',
+      sector: 'Sanità',
+      category: 'Fisioterapia',
+    });
+
+    expect(profile.hardKeywords.size).toBe(0);
+    expect(scoreJobForAlert(related, profile, 'it')).toBeGreaterThan(0);
+  });
+
+  it('keeps an edited backfill keyword array hard', () => {
+    const profile = buildAlertProfile(
+      {
+        backfilled_from: 'newsletter_subscribers:job_gate',
+        keywords: ['Senior Fisioterapista', 'riabilitazione'],
+        sourceJobTitle: 'Senior Fisioterapista',
+      },
+      {
+        job_search_query: 'Senior Fisioterapista',
+        job_category: 'health',
+        job_context_backfill_source: 'active_job_exact',
+      },
+    );
+
+    expect(profile.hardKeywords.has('riabilitazione')).toBe(true);
+  });
 });
 
 describe('jobAlertMatching — one-tap subscriber (source-job intent, no keywords)', () => {

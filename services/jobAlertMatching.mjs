@@ -131,6 +131,60 @@ export function freshnessBoost(job, nowMs) {
 
 const uniq = (arr) => [...new Set(arr.filter(Boolean))];
 
+function normalizedCriteria(values) {
+  return (values || []).map((value) => String(value || '').trim().toLowerCase());
+}
+
+function sameCriteriaOrder(left, right) {
+  const a = normalizedCriteria(left);
+  const b = normalizedCriteria(right);
+  return a.length === b.length && a.every((value, index) => value === b[index]);
+}
+
+/**
+ * Remove only the source-context criteria that the newsletter backfill writer
+ * generated before it learned to keep a recovered offer title soft. Explicit
+ * or edited alert criteria remain hard: an extra, removed, or reordered value
+ * means the array no longer matches one of the writer's exact legacy forms.
+ *
+ * `backfill-newsletter-job-context.mjs` uses `job_search_query` for a recovered
+ * offer title. When that marker is present, even that one value is source-job
+ * intent rather than a typed query. The writer's earlier forms are retained
+ * here so existing alerts self-heal at read time without a destructive data
+ * migration.
+ */
+function hardKeywordValuesForAlert(alert, subscriber) {
+  const values = Array.isArray(alert?.keywords) ? alert.keywords : [];
+  const marker = String(alert?.backfilled_from || alert?.backfilledFrom || '').trim();
+  if (!marker.startsWith('newsletter_subscribers:') || values.length === 0) return values;
+
+  const sub = subscriber || {};
+  const query = String(sub.job_search_query || '').trim();
+  const category = String(sub.job_category || '').trim();
+  const title = String(sub.job_title || alert?.sourceJobTitle || '').trim();
+  const recoveredSourceJobContext = Boolean(
+    String(sub.job_context_backfill_source || '').trim()
+      || String(sub.job_context_backfill_slug || '').trim(),
+  );
+  const legacyContext = uniq([query, category, title]);
+  const legacyWriterContext = legacyContext.filter((value) => {
+    const normalized = value.toLowerCase();
+    return normalized !== category.toLowerCase()
+      || normalized === query.toLowerCase()
+      || normalized === title.toLowerCase();
+  });
+  const generatedForms = [legacyContext, legacyWriterContext, uniq([query])]
+    .filter((form) => form.length > 0);
+  if (!generatedForms.some((form) => sameCriteriaOrder(values, form))) return values;
+
+  const generatedValues = new Set(normalizedCriteria([query, category, title]));
+  const explicitQuery = recoveredSourceJobContext ? '' : query.toLowerCase();
+  return values.filter((value) => {
+    const normalized = String(value || '').trim().toLowerCase();
+    return normalized === explicitQuery || !generatedValues.has(normalized);
+  });
+}
+
 /**
  * Normalize a company display name / key into a compact, canonical token:
  * lowercased, accent-stripped, alphanumerics only, with declared brand aliases
@@ -246,7 +300,7 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
 
   // 1. Explicit user keywords — hard requirement when present (legacy contract).
   const hardKeywordInputs = [];
-  for (const kw of a.keywords || []) {
+  for (const kw of hardKeywordValuesForAlert(a, sub)) {
     const t = String(kw || '').toLowerCase().trim();
     if (t) hardKeywordInputs.push(t);
   }
