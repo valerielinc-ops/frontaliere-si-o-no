@@ -47,7 +47,8 @@ describe('Offerwall controlled messaging — held until "Candidati"', () => {
     expect(CONTROLLED_MESSAGING_BLOCK).toContain('/^\\/cerca-lavoro-ticino(?:\\/|$)/');
     expect(CONTROLLED_MESSAGING_BLOCK).toContain('__ftOfferwallGate');
     expect(CONTROLLED_MESSAGING_BLOCK).toContain('w.release = function()');
-    expect(CONTROLLED_MESSAGING_BLOCK).not.toContain('proceed(false');
+    // Before a consent decision only the Offerwall is suppressed, so the CMP shows.
+    expect(CONTROLLED_MESSAGING_BLOCK).toContain('message.proceed(false, [E.OFFERWALL])');
     expect(CONTROLLED_MESSAGING_BLOCK).toContain('message.proceed(true)');
   });
 

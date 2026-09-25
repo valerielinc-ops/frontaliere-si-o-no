@@ -41,7 +41,6 @@ describe('OFFERWALL_FC_SNIPPET — Funding Choices messaging loader', () => {
   it('holds the native Offerwall on the Italian job board until "Candidati"', () => {
     // Behaviour is executed in tests/offerwall-click-gate-parity.test.ts.
     expect(OFFERWALL_FC_SNIPPET).toContain(FC_JOBBOARD_OFFERWALL_GATE_JS);
-    expect(OFFERWALL_FC_SNIPPET).not.toContain('proceed(false');
   });
 
   it('injects the publisher-id messaging loader (not the network-code one)', () => {

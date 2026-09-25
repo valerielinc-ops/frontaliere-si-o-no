@@ -11,8 +11,9 @@ import {
   grantRewardedApplicationAccess,
 } from '@/services/rewardedApplicationAccess';
 import {
-  isOfferwallHeld,
+  offerwallGateStatus,
   releaseHeldOfferwall,
+  type OfferwallGateStatus,
   type OfferwallReleaseResult,
 } from '@/services/offerwallClickGate';
 import {
@@ -34,6 +35,13 @@ const OFFERWALL_FORMAT = 'offerwall';
  * `gpt`: no Offerwall this time; the GPT rewarded request runs as before.
  */
 type OfferPhase = 'offerwall' | 'offerwall_visible' | 'offerwall_done' | 'gpt';
+
+/** Why no Offerwall was waiting for this click (tracked before the GPT path). */
+const NOT_HELD_REASON: Record<Exclude<OfferwallGateStatus, 'held'>, string> = {
+  suppressed: 'no_consent_decision',
+  released: 'already_released',
+  absent: 'not_held',
+};
 
 const now = () => (typeof performance !== 'undefined' ? performance.now() : Date.now());
 
@@ -68,7 +76,8 @@ export default function RewardedApplicationOffer({
   const [retryToken, setRetryToken] = useState(0);
   // The AdSense Offerwall is the site's only rewarded demand: when Funding
   // Choices holds one for this page view, the click releases it first.
-  const [phase, setPhase] = useState<OfferPhase>(() => (isOfferwallHeld() ? 'offerwall' : 'gpt'));
+  const [initialGateStatus] = useState(() => offerwallGateStatus());
+  const [phase, setPhase] = useState<OfferPhase>(() => (initialGateStatus === 'held' ? 'offerwall' : 'gpt'));
   const grantedRef = useRef(false);
   const openedAtRef = useRef(now());
   const mountedRef = useRef(true);
@@ -143,8 +152,8 @@ export default function RewardedApplicationOffer({
     });
   };
 
-  // The Offerwall closes only after its rewarded choice (it has no dismiss
-  // button), so its completion unlocks the application like a GPT grant.
+  // `completed` means Funding Choices closed the Offerwall and granted its
+  // reward (entitlement cookie), so it unlocks the application like a GPT grant.
   const handleOfferwallCompleted = (result: Extract<OfferwallReleaseResult, { outcome: 'completed' }>) => {
     if (grantedRef.current) return;
     grantedRef.current = true;
@@ -165,6 +174,16 @@ export default function RewardedApplicationOffer({
   };
 
   useEffect(() => {
+    if (initialGateStatus === 'held') return;
+    trackAssistedApplicationEvent('rewarded_offerwall_not_shown', {
+      ...offerwallContext(),
+      reason: NOT_HELD_REASON[initialGateStatus],
+    });
+    // Once per offer: the gate status is read when the click opens it.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
     if (phase !== 'offerwall' || offerwallStartedRef.current) return;
     offerwallStartedRef.current = true;
     trackAssistedApplicationEvent('rewarded_offerwall_released', offerwallContext());
@@ -182,6 +201,18 @@ export default function RewardedApplicationOffer({
       if (!mountedRef.current) return;
       if (result.outcome === 'completed') {
         handleOfferwallCompleted(result);
+        return;
+      }
+      if (result.outcome === 'closed_without_reward') {
+        // Closed with no entitlement from Google: nothing to unlock, and no
+        // second ad after this one. Direct employer hand-off.
+        trackAssistedApplicationEvent('rewarded_offerwall_closed_without_reward', {
+          ...offerwallContext(),
+          shown_ms: result.shownMs,
+          closed_ms: result.closedMs,
+          fc_root: result.root,
+        });
+        onUnavailable('offerwall_closed_without_reward');
         return;
       }
       if (result.outcome === 'not_shown') {

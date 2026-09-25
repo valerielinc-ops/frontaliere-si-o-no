@@ -2,8 +2,11 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import {
+  FC_OFFERWALL_ENTITLEMENT_COOKIE,
   OFFERWALL_APPEAR_TIMEOUT_MS,
+  OFFERWALL_ENTITLEMENT_GRACE_MS,
   isOfferwallHeld,
+  offerwallGateStatus,
   releaseHeldOfferwall,
 } from '@/services/offerwallClickGate';
 
@@ -26,6 +29,10 @@ function mountRoot(className: string): HTMLDivElement {
   return el;
 }
 
+function setEntitlement(value: string): void {
+  document.cookie = `${FC_OFFERWALL_ENTITLEMENT_COOKIE}=${value}; path=/`;
+}
+
 describe('offerwallClickGate', () => {
   beforeEach(() => {
     vi.useFakeTimers();
@@ -35,6 +42,20 @@ describe('offerwallClickGate', () => {
     vi.useRealTimers();
     delete window.__ftOfferwallGate;
     document.body.innerHTML = '';
+    document.cookie = `${FC_OFFERWALL_ENTITLEMENT_COOKIE}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
+  });
+
+  it('reports the gate status the click finds', () => {
+    expect(offerwallGateStatus()).toBe('absent');
+    window.__ftOfferwallGate = { state: 'suppressed' };
+    expect(offerwallGateStatus()).toBe('suppressed');
+    window.__ftOfferwallGate = { state: 'released' };
+    expect(offerwallGateStatus()).toBe('released');
+    window.__ftOfferwallGate = { state: 'held' };
+    expect(offerwallGateStatus(), 'held without a release function is unusable').toBe('absent');
+    holdOfferwall();
+    expect(offerwallGateStatus()).toBe('held');
+    expect(isOfferwallHeld()).toBe(true);
   });
 
   it('reports not_held when Funding Choices never held an Offerwall on this page', async () => {
@@ -57,25 +78,28 @@ describe('offerwallClickGate', () => {
     expect(onShown).not.toHaveBeenCalled();
   });
 
-  it('follows the Offerwall root from release to completion', async () => {
+  it('completes when the root closes after Google granted the reward', async () => {
     let root: HTMLDivElement | null = null;
     holdOfferwall(() => {
       setTimeout(() => {
-        root = mountRoot('fc-monetization-root');
+        root = mountRoot('fc-message-root');
       }, 600);
     });
     const onShown = vi.fn();
     const pending = releaseHeldOfferwall({ onShown });
 
     await vi.advanceTimersByTimeAsync(1000);
-    expect(onShown).toHaveBeenCalledWith(expect.objectContaining({ root: 'fc-monetization-root' }));
+    expect(onShown).toHaveBeenCalledWith(expect.objectContaining({ root: 'fc-message-root' }));
 
+    // Live order: entitlement cookie on the thank-you screen, root removed ~3 s later.
+    setEntitlement('granted-1');
+    await vi.advanceTimersByTimeAsync(3000);
     root!.remove();
     await vi.advanceTimersByTimeAsync(400);
-    await expect(pending).resolves.toMatchObject({ outcome: 'completed', root: 'fc-monetization-root' });
+    await expect(pending).resolves.toMatchObject({ outcome: 'completed', root: 'fc-message-root' });
   });
 
-  it('treats a root hidden in place as completed', async () => {
+  it('waits a short grace for an entitlement set right after the close', async () => {
     let root: HTMLDivElement | null = null;
     holdOfferwall(() => {
       root = mountRoot('fc-offerwall-root');
@@ -83,8 +107,35 @@ describe('offerwallClickGate', () => {
     const pending = releaseHeldOfferwall();
     await vi.advanceTimersByTimeAsync(400);
     root!.style.display = 'none';
+    await vi.advanceTimersByTimeAsync(OFFERWALL_ENTITLEMENT_GRACE_MS / 2);
+    setEntitlement('granted-2');
     await vi.advanceTimersByTimeAsync(400);
     await expect(pending).resolves.toMatchObject({ outcome: 'completed' });
+  });
+
+  it('reports closed_without_reward when no entitlement follows the close', async () => {
+    let root: HTMLDivElement | null = null;
+    holdOfferwall(() => {
+      root = mountRoot('fc-message-root');
+    });
+    const pending = releaseHeldOfferwall();
+    await vi.advanceTimersByTimeAsync(400);
+    root!.remove();
+    await vi.advanceTimersByTimeAsync(OFFERWALL_ENTITLEMENT_GRACE_MS + 400);
+    await expect(pending).resolves.toMatchObject({ outcome: 'closed_without_reward', root: 'fc-message-root' });
+  });
+
+  it('does not count an entitlement that predates the release', async () => {
+    setEntitlement('earlier-visit');
+    let root: HTMLDivElement | null = null;
+    holdOfferwall(() => {
+      root = mountRoot('fc-message-root');
+    });
+    const pending = releaseHeldOfferwall();
+    await vi.advanceTimersByTimeAsync(400);
+    root!.remove();
+    await vi.advanceTimersByTimeAsync(OFFERWALL_ENTITLEMENT_GRACE_MS + 400);
+    await expect(pending).resolves.toMatchObject({ outcome: 'closed_without_reward' });
   });
 
   it('never mistakes the consent message already on screen for the Offerwall', async () => {
@@ -99,10 +150,10 @@ describe('offerwallClickGate', () => {
 
   it('stops waiting once the completion bound is reached', async () => {
     holdOfferwall(() => {
-      mountRoot('fc-monetization-root');
+      mountRoot('fc-message-root');
     });
     const pending = releaseHeldOfferwall({ completionTimeoutMs: 5000 });
     await vi.advanceTimersByTimeAsync(6000);
-    await expect(pending).resolves.toMatchObject({ outcome: 'timed_out', root: 'fc-monetization-root' });
+    await expect(pending).resolves.toMatchObject({ outcome: 'timed_out', root: 'fc-message-root' });
   });
 });

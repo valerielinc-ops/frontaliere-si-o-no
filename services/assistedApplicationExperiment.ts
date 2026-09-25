@@ -28,6 +28,7 @@ export const ASSISTED_APPLICATION_EVENT_NAMES = [
   'rewarded_offerwall_released',
   'rewarded_offerwall_shown',
   'rewarded_offerwall_completed',
+  'rewarded_offerwall_closed_without_reward',
   'rewarded_offerwall_not_shown',
   'rewarded_offerwall_timed_out',
   'external_apply_redirected',

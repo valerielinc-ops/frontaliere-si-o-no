@@ -743,10 +743,19 @@ export const FC_ADBLOCK_SIGNAL_EVENT = 'frontaliere:adblock-data';
  * site has, and it must appear only when the visitor clicks "Candidati",
  * never on entry to a listing or job page. Funding Choices calls
  * `controlledMessagingFunction` twice per page view: first with an empty
- * MessageTypeEnum, then with OFFERWALL/AD_BLOCKING populated. On
- * /cerca-lavoro-ticino pages the second call is HELD rather than proceeded;
- * `window.__ftOfferwallGate.release()` (services/offerwallClickGate.ts, from
- * the rewarded application offer) proceeds it. Live probe on the job board
+ * MessageTypeEnum, then with OFFERWALL/AD_BLOCKING populated. The second
+ * call also carries the GDPR consent message: holding it for a visitor with
+ * no consent decision kept the CMP off screen until the release (live probe,
+ * 24-09). So on /cerca-lavoro-ticino pages the call is HELD only when a
+ * decision is stored on both sides: `frontaliere_ads_consent` (our bridge)
+ * AND a TC string in Funding Choices' own `FCCDCF` cookie (before consent its
+ * TC slot is null; a TCF v2 string always starts with "C"). Our key alone
+ * outlives the Funding Choices cookie, and a held re-prompt would hide the
+ * CMP for the whole SPA session. Otherwise it suppresses only the Offerwall
+ * (the CMP shows at once; no Offerwall on that page view) and marks the gate
+ * `suppressed` so the click can report why. `window.__ftOfferwallGate.release()`
+ * (services/offerwallClickGate.ts, from the rewarded application offer)
+ * proceeds a held call. Live probe on the job board
  * with consent stored: holding only that call left the TCF signal and the
  * first AdSense request on schedule (11.9 s vs 7.7-16.5 s in two controls),
  * while holding the first call pushed the first ad request from 16.5 s to
@@ -760,7 +769,7 @@ export const FC_ADBLOCK_SIGNAL_EVENT = 'frontaliere:adblock-data';
  * the gate and the others step aside. tests/offerwall-click-gate-parity.test.ts
  * executes the copies.
  */
-export const FC_JOBBOARD_OFFERWALL_GATE_JS = `(function(){var g=window.googlefc=window.googlefc||{};if(g.controlledMessagingFunction)return;g.controlledMessagingFunction=function(message){var E=g.MessageTypeEnum||{};var p=window.location&&window.location.pathname||'';if(E.OFFERWALL===undefined||!/^\\/cerca-lavoro-ticino(?:\\/|$)/.test(p)){message.proceed(true);return;}var w=window.__ftOfferwallGate=window.__ftOfferwallGate||{state:'idle',held:[]};if(w.state==='released'){message.proceed(true);return;}w.held.push(message);w.state='held';w.release=function(){if(w.state!=='held')return false;w.state='released';var h=w.held.splice(0);for(var i=0;i<h.length;i++){try{h[i].proceed(true);}catch(e){}}return true;};};})();`;
+export const FC_JOBBOARD_OFFERWALL_GATE_JS = `(function(){var g=window.googlefc=window.googlefc||{};if(g.controlledMessagingFunction)return;g.controlledMessagingFunction=function(message){var E=g.MessageTypeEnum||{};var p=window.location&&window.location.pathname||'';if(E.OFFERWALL===undefined||!/^\\/cerca-lavoro-ticino(?:\\/|$)/.test(p)){message.proceed(true);return;}var d=false;try{d=!!window.localStorage.getItem('${ADS_CONSENT_STORAGE_KEY}');}catch(e){}if(d){var c=(window.document&&window.document.cookie||'').match(/(?:^|;\\s*)FCCDCF=([^;]*)/),v='';try{v=c?decodeURIComponent(c[1]):'';}catch(e){}d=/\\x22C[A-Za-z0-9_-]{20,}/.test(v);}if(!d){window.__ftOfferwallGate=window.__ftOfferwallGate||{state:'suppressed',held:[]};message.proceed(false,[E.OFFERWALL]);return;}var w=window.__ftOfferwallGate=window.__ftOfferwallGate||{state:'idle',held:[]};if(w.state==='released'){message.proceed(true);return;}w.held.push(message);w.state='held';w.release=function(){if(w.state!=='held')return false;w.state='released';var h=w.held.splice(0);for(var i=0;i<h.length;i++){try{h[i].proceed(true);}catch(e){}}return true;};};})();`;
 
 export const FC_ADBLOCK_BRIDGE_JS = `(function(){if(window.__ftFcAdBlockBridge)return;window.__ftFcAdBlockBridge=1;var g=window.googlefc=window.googlefc||{};g.callbackQueue=g.callbackQueue||[];g.callbackQueue.push({'AD_BLOCK_DATA_READY':function(){try{var E=g.AdBlockerStatusEnum||{},A=g.AllowAdsStatusEnum||{};var s=typeof g.getAdBlockerStatus==='function'?g.getAdBlockerStatus():null;var a=typeof g.getAllowAdsStatus==='function'?g.getAllowAdsStatus():null;function eq(v,e){return v!==undefined&&e!==undefined&&v===e;}window.__ftAdBlock={status:s,allowAds:a,blocked:eq(s,E.EXTENSION_LEVEL_AD_BLOCKER)||eq(s,E.NETWORK_LEVEL_AD_BLOCKER),adsAllowed:eq(a,A.ADS_ALLOWED)};try{window.dispatchEvent(new CustomEvent('${FC_ADBLOCK_SIGNAL_EVENT}'));}catch(e){}}catch(e){}}});})();`;
 

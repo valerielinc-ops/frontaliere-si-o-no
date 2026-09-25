@@ -11,11 +11,12 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 type ReleaseOptions = { onShown?: (info: { shownMs: number; root: string }) => void };
 type ReleaseResult =
   | { outcome: 'completed'; shownMs: number; completedMs: number; root: string }
+  | { outcome: 'closed_without_reward'; shownMs: number; closedMs: number; root: string }
   | { outcome: 'not_shown'; reason: string }
   | { outcome: 'timed_out'; shownMs: number; root: string };
 
 const mocks = vi.hoisted(() => ({
-  held: false,
+  status: 'absent' as 'held' | 'released' | 'suppressed' | 'absent',
   releaseOptions: null as ReleaseOptions | null,
   resolveRelease: null as ((result: ReleaseResult) => void) | null,
   releaseHeldOfferwall: vi.fn(),
@@ -37,7 +38,7 @@ vi.mock('@/services/assistedApplicationExperiment', () => ({
   trackAssistedApplicationEvent: mocks.trackAssistedApplicationEvent,
 }));
 vi.mock('@/services/offerwallClickGate', () => ({
-  isOfferwallHeld: () => mocks.held,
+  offerwallGateStatus: () => mocks.status,
   releaseHeldOfferwall: mocks.releaseHeldOfferwall,
 }));
 
@@ -75,7 +76,7 @@ const settle = async (result: ReleaseResult) => {
 
 beforeEach(() => {
   vi.clearAllMocks();
-  mocks.held = false;
+  mocks.status = 'absent';
   mocks.releaseOptions = null;
   mocks.resolveRelease = null;
   mocks.releaseHeldOfferwall.mockImplementation((options: ReleaseOptions) => {
@@ -92,16 +93,33 @@ afterEach(() => {
 });
 
 describe('RewardedApplicationOffer — click-only Offerwall', () => {
-  it('runs the GPT path untouched when no Offerwall is held', () => {
+  it('runs the GPT path untouched when no Offerwall is held, and says why', () => {
     render(<RewardedApplicationOffer {...props} />);
 
     expect(screen.getByTestId('mock-google-rewarded')).toBeInTheDocument();
     expect(mocks.releaseHeldOfferwall).not.toHaveBeenCalled();
     expect(tracked('rewarded_offerwall_released')).toEqual([]);
+    expect(tracked('rewarded_offerwall_not_shown')).toEqual([
+      expect.objectContaining({ ...offerwallContext, reason: 'not_held' }),
+    ]);
+  });
+
+  it.each([
+    ['suppressed', 'no_consent_decision'],
+    ['released', 'already_released'],
+  ] as const)('reports a %s gate as %s before the GPT path', (status, reason) => {
+    mocks.status = status;
+    render(<RewardedApplicationOffer {...props} />);
+
+    expect(screen.getByTestId('mock-google-rewarded')).toBeInTheDocument();
+    expect(mocks.releaseHeldOfferwall).not.toHaveBeenCalled();
+    expect(tracked('rewarded_offerwall_not_shown')).toEqual([
+      expect.objectContaining({ ...offerwallContext, reason }),
+    ]);
   });
 
   it('releases the held Offerwall on the click, before any GPT request', () => {
-    mocks.held = true;
+    mocks.status = 'held';
     render(<RewardedApplicationOffer {...props} />);
 
     expect(mocks.releaseHeldOfferwall).toHaveBeenCalledTimes(1);
@@ -111,7 +129,7 @@ describe('RewardedApplicationOffer — click-only Offerwall', () => {
   });
 
   it('steps out of the way while the Offerwall is on screen, then unlocks on completion', async () => {
-    mocks.held = true;
+    mocks.status = 'held';
     render(<RewardedApplicationOffer {...props} />);
 
     act(() => {
@@ -141,7 +159,7 @@ describe('RewardedApplicationOffer — click-only Offerwall', () => {
   });
 
   it('hands over to the GPT request when the Offerwall does not show', async () => {
-    mocks.held = true;
+    mocks.status = 'held';
     render(<RewardedApplicationOffer {...props} />);
 
     await settle({ outcome: 'not_shown', reason: 'appear_timeout' });
@@ -154,7 +172,7 @@ describe('RewardedApplicationOffer — click-only Offerwall', () => {
   });
 
   it('unlocks nothing when the Offerwall outlives the completion bound', async () => {
-    mocks.held = true;
+    mocks.status = 'held';
     render(<RewardedApplicationOffer {...props} />);
     act(() => {
       mocks.releaseOptions?.onShown?.({ shownMs: 500, root: 'fc-monetization-root' });
@@ -166,6 +184,25 @@ describe('RewardedApplicationOffer — click-only Offerwall', () => {
       expect.objectContaining({ ...offerwallContext, shown_ms: 500 }),
     ]);
     expect(mocks.grantRewardedApplicationAccess).not.toHaveBeenCalled();
+    expect(screen.queryByTestId('mock-google-rewarded')).not.toBeInTheDocument();
+  });
+
+  it('hands the visitor to the employer when the Offerwall closes without a reward', async () => {
+    mocks.status = 'held';
+    render(<RewardedApplicationOffer {...props} />);
+    act(() => {
+      mocks.releaseOptions?.onShown?.({ shownMs: 700, root: 'fc-message-root' });
+    });
+
+    await settle({ outcome: 'closed_without_reward', shownMs: 700, closedMs: 9_000, root: 'fc-message-root' });
+
+    expect(tracked('rewarded_offerwall_closed_without_reward')).toEqual([
+      expect.objectContaining({ ...offerwallContext, shown_ms: 700, closed_ms: 9_000, fc_root: 'fc-message-root' }),
+    ]);
+    expect(props.onUnavailable).toHaveBeenCalledWith('offerwall_closed_without_reward');
+    expect(mocks.grantRewardedApplicationAccess).not.toHaveBeenCalled();
+    expect(tracked('rewarded_offerwall_completed')).toEqual([]);
+    // No second ad after the Offerwall.
     expect(screen.queryByTestId('mock-google-rewarded')).not.toBeInTheDocument();
   });
 });

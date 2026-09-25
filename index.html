@@ -528,6 +528,23 @@
             message.proceed(true);
             return;
           }
+          // This call also carries the GDPR consent message. Hold it only
+          // when a decision is stored on both sides: our bridge's key AND a
+          // TC string in Funding Choices' own FCCDCF cookie (a TCF v2 string
+          // starts with "C"). Otherwise the CMP must show now: suppress only
+          // the Offerwall for this page view instead of holding everything.
+          var d = false;
+          try { d = !!window.localStorage.getItem('frontaliere_ads_consent'); } catch (e) {}
+          if (d) {
+            var c = (window.document && window.document.cookie || '').match(/(?:^|;\s*)FCCDCF=([^;]*)/), v = '';
+            try { v = c ? decodeURIComponent(c[1]) : ''; } catch (e) {}
+            d = /"C[A-Za-z0-9_-]{20,}/.test(v);
+          }
+          if (!d) {
+            window.__ftOfferwallGate = window.__ftOfferwallGate || { state: 'suppressed', held: [] };
+            message.proceed(false, [E.OFFERWALL]);
+            return;
+          }
           var w = window.__ftOfferwallGate = window.__ftOfferwallGate || { state: 'idle', held: [] };
           if (w.state === 'released') {
             message.proceed(true);
