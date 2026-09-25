@@ -536,18 +536,79 @@ describe('firestore.rules — newsletter_subscribers consent field guard', () =>
     ));
   });
 
-  it('a registration whose notice was not displayed is refused by the current rules (logged as registration_refused)', async () => {
-    // Pins today's rule: `isTermsBasedConfirmedCreate` requires
-    // `consent_text_displayed == true`. Admitting a verified-provider
-    // registration without a displayed notice is a pending rules change; when
-    // it lands, this case flips to assertSucceeds.
+  // Owner decision of 2026-09-25: the login keeps registering in silence, and
+  // the record says truthfully that no notice was on screen (One Tap over a
+  // plain page, the assistant, the profile page). The displayed flag is a
+  // recorded fact, not a condition; the verified owner is.
+  it('a verified owner registers under the terms with the notice NOT displayed, recorded as such', async () => {
+    const owner = testEnv.authenticatedContext('owner-uid', {
+      email: 'owner@example.com',
+      email_verified: true,
+    });
+    await assertSucceeds(setDoc(
+      doc(owner.firestore(), 'newsletter_subscribers', 'owner@example.com'),
+      termsRegistration(false),
+    ));
+  });
+
+  it('a verified owner\'s login confirms an existing pending record with the notice not displayed', async () => {
+    await testEnv.withSecurityRulesDisabled(async (context) => {
+      await setDoc(doc(context.firestore(), 'newsletter_subscribers', 'owner@example.com'), {
+        email: 'owner@example.com',
+        status: 'pending',
+        isActive: false,
+        active: false,
+        source_channel: 'job_gate',
+      });
+    });
+    const owner = testEnv.authenticatedContext('owner-uid', {
+      email: 'owner@example.com',
+      email_verified: true,
+    });
+    await assertSucceeds(setDoc(
+      doc(owner.firestore(), 'newsletter_subscribers', 'owner@example.com'),
+      termsRegistration(false),
+      { merge: true },
+    ));
+  });
+
+  it('the same undisplayed registration stays refused without a verified owner', async () => {
+    const unauthed = testEnv.unauthenticatedContext();
+    await assertFails(setDoc(
+      doc(unauthed.firestore(), 'newsletter_subscribers', 'owner@example.com'),
+      termsRegistration(false),
+    ));
+    const unverified = testEnv.authenticatedContext('shell-uid', {
+      email: 'owner@example.com',
+      email_verified: false,
+    });
+    await assertFails(setDoc(
+      doc(unverified.firestore(), 'newsletter_subscribers', 'owner@example.com'),
+      termsRegistration(false),
+    ));
+    const otherOwner = testEnv.authenticatedContext('other-uid', {
+      email: 'someone-else@example.com',
+      email_verified: true,
+    });
+    await assertFails(setDoc(
+      doc(otherOwner.firestore(), 'newsletter_subscribers', 'owner@example.com'),
+      termsRegistration(false),
+    ));
+  });
+
+  it('the displayed flag must still be a boolean, and the terms record complete', async () => {
     const owner = testEnv.authenticatedContext('owner-uid', {
       email: 'owner@example.com',
       email_verified: true,
     });
     await assertFails(setDoc(
       doc(owner.firestore(), 'newsletter_subscribers', 'owner@example.com'),
-      termsRegistration(false),
+      { ...termsRegistration(false), consent_text_displayed: 'no' },
+    ));
+    const { consent_text: _text, ...withoutText } = termsRegistration(false);
+    await assertFails(setDoc(
+      doc(owner.firestore(), 'newsletter_subscribers', 'owner@example.com'),
+      withoutText,
     ));
   });
 });
