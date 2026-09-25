@@ -43,14 +43,22 @@
  *
  * `agent:local` è un segnale esplicito di una sessione interattiva. Una sessione
  * locale può durare più del job CI e non espone un heartbeat affidabile via
- * GitHub, quindi ha una soglia molto più lunga (`STALE_LOCAL_CLAIM_HOURS`,
- * default 72h = 6× il tetto del fixer). Il comando locale resta il modo normale
+ * GitHub, quindi ha una soglia più lunga (`STALE_LOCAL_CLAIM_HOURS`,
+ * default 24h = 4× il tetto del fixer). Il comando locale resta il modo normale
  * di rilasciarla (`CLAIM_ACTION=release`). Prima del 2026-09-24 restava appesa
  * fino a una verifica umana: misurato quel giorno, le sole 5 issue
  * `agent:fix-queued` portavano tutte `agent:local`, due ferme dal 20-09, e il
  * drainer vedeva la coda vuota. Una verifica umana obbligatoria contraddice
- * DECISIONS 2026-09-24 (nessun intervento umano nel ciclo). Un'attività sulla
- * issue sposta `updatedAt` e rinvia il rilascio; una PR aperta lo impedisce.
+ * DECISIONS 2026-09-24 (nessun intervento umano nel ciclo). Una PR aperta
+ * impedisce il rilascio.
+ *
+ * Per il claim locale l'età si misura dall'ULTIMO evento `labeled
+ * agent:local`, non da `updatedAt`. Misurato il 2026-09-25: `updatedAt` si
+ * sposta a ogni commento o label dei bot (pre-pass, recurrence, triage), quindi
+ * un claim locale non scadeva mai. La #9285 era reclamata dal 22-09 e 26 issue
+ * `agent:fix-queued` su 32 restavano ferme sotto `agent:local`, mentre la
+ * sessione locale lavorava altre issue. Se gli eventi non sono leggibili si
+ * ricade su `updatedAt`, che è sempre ≥ del claim: il lato sicuro.
  * `agent:remote` e i claim senza owner usano la soglia normale; un claim conteso
  * (entrambi gli owner) resta intoccato.
  *
@@ -91,8 +99,8 @@ const MARKER = '<!-- STALE-CLAIM-RELEASED -->';
 
 /** 2× il timeout-minutes di issue-fix.yml (360). Vedi l'intestazione. */
 export const DEFAULT_STALE_CLAIM_HOURS = 12;
-/** 6× il timeout del fixer: una sessione locale silenziosa per 3 giorni è morta. */
-export const DEFAULT_STALE_LOCAL_CLAIM_HOURS = 72;
+/** 4× il timeout del fixer, contato dal claim: oltre, senza PR, il claim non lavora. */
+export const DEFAULT_STALE_LOCAL_CLAIM_HOURS = 24;
 
 export function claimOwner(labels) {
   const names = new Set((labels || []).map((label) => String(label?.name || label || '')));
@@ -226,6 +234,30 @@ function loadClaimIssues() {
   }));
 }
 
+/**
+ * Istante dell'ultimo `labeled agent:local` sulla issue, o null se gli eventi
+ * non sono leggibili (il chiamante ricade su `updatedAt`).
+ */
+export function lastLocalClaimAt(events) {
+  if (!Array.isArray(events)) return null;
+  let last = null;
+  for (const ev of events) {
+    if (ev?.event !== 'labeled' || ev?.label?.name !== CLAIM_OWNER_LABELS.local) continue;
+    const at = Date.parse(ev.created_at || '');
+    if (Number.isFinite(at) && (last === null || at > last)) last = at;
+  }
+  return last === null ? null : new Date(last).toISOString();
+}
+
+function loadLocalClaimAt(num) {
+  try {
+    return lastLocalClaimAt(paginatedApiItems(`repos/${REPO}/issues/${num}/events?per_page=100`));
+  } catch (e) {
+    console.log(`::warning::eventi #${num} non leggibili: ${String(e).slice(0, 160)} — uso updatedAt.`);
+    return null;
+  }
+}
+
 function loadOpenPrs() {
   const items = paginatedApiItems(`repos/${REPO}/pulls?state=open&per_page=100`);
   if (!items.every((item) => Number.isInteger(item.number)
@@ -333,7 +365,9 @@ export function selectStaleClaims(
     const owner = claimOwner(iss.labels);
     if (owner === 'contended') return false;
     if (live.has(iss.number)) return false;
-    const updated = Date.parse(iss.updatedAt || '');
+    // Locale: conta dal claim, non dall'ultima attività dei bot (vedi l'intestazione).
+    const since = owner === 'local' && iss.claimedAt ? iss.claimedAt : iss.updatedAt;
+    const updated = Date.parse(since || '');
     if (!Number.isFinite(updated)) return false;
     return updated < (owner === 'local' ? localCutoff : cutoff);
   });
@@ -358,6 +392,11 @@ function main() {
   }
 
   const referenced = referencedIssueNumbers(prs || []);
+  for (const iss of issues || []) {
+    if (claimOwner(iss.labels) === 'local' && !referenced.has(iss.number)) {
+      iss.claimedAt = loadLocalClaimAt(iss.number);
+    }
+  }
   const stale = selectStaleClaims(issues || [], referenced, Date.now(), hours, localHours);
 
   const localClaims = (issues || []).filter((iss) => claimOwner(iss.labels) === 'local').length;
@@ -366,7 +405,7 @@ function main() {
   console.log(`Claim stale: ${stale.length}`);
 
   for (const iss of stale) {
-    console.log(`  #${iss.number} fermo dal ${iss.updatedAt} — ${String(iss.title).slice(0, 80)}`);
+    console.log(`  #${iss.number} fermo dal ${iss.claimedAt || iss.updatedAt} — ${String(iss.title).slice(0, 80)}`);
 
     // ORDINE LOAD-BEARING, ed è l'INVERSO di parked-pr-detector.mjs perché la
     // selezione è invertita: là si seleziona chi NON ha la label, qui chi ce
