@@ -7,6 +7,7 @@ import { describe, it, expect } from 'vitest';
 import {
   professionSynonymText,
   expandKeywordsWithSynonyms,
+  expandKeywordsWithSynonymPhrases,
 } from '@/services/professionSynonyms';
 
 describe('professionSynonymText', () => {
@@ -88,5 +89,13 @@ describe('expandKeywordsWithSynonyms', () => {
 
   it('returns empty array for empty input', () => {
     expect(expandKeywordsWithSynonyms([])).toEqual([]);
+  });
+
+  it('preserves multi-word aliases for hard filters', () => {
+    const expanded = expandKeywordsWithSynonymPhrases(['oss']);
+    expect(expanded).toContain('health care assistant');
+    expect(expanded).not.toContain('health');
+    expect(expanded).not.toContain('care');
+    expect(expanded).not.toContain('assistant');
   });
 });

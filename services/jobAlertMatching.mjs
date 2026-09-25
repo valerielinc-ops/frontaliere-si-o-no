@@ -34,6 +34,10 @@
 
 import { extractKeywords } from './newsletter-content.mjs';
 import {
+  expandKeywordsWithSynonymPhrases,
+  professionSynonymText,
+} from './professionSynonymsCore.mjs';
+import {
   canonicalCompanyProfileSlug,
   companyDisplayIdentityKeys,
 } from '../build-plugins/shared/companyProfileSlug.mjs';
@@ -241,11 +245,17 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
   const ex = extras || {};
 
   // 1. Explicit user keywords — hard requirement when present (legacy contract).
-  const hardKeywords = new Set();
+  const hardKeywordInputs = [];
   for (const kw of a.keywords || []) {
     const t = String(kw || '').toLowerCase().trim();
-    if (t) hardKeywords.add(t);
+    if (t) hardKeywordInputs.push(t);
   }
+  // The alert's hard-filter contract stays intact (at least one profession
+  // keyword must match), but cross-locale aliases now count as the same
+  // profession. Without this, an English "nurse" alert could never match an
+  // Italian "infermiere" listing even though the shared job-search taxonomy
+  // already knows both terms.
+  const hardKeywords = new Set(expandKeywordsWithSynonymPhrases(hardKeywordInputs));
 
   // 2. Soft intent tokens — boost relevance and, for keyword-less alerts, act as
   //    the matching filter. Sourced from the job the user engaged with plus the
@@ -254,6 +264,11 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
   const addTokens = (text) => {
     if (!text) return;
     for (const t of extractKeywords(text)) softTokens.add(t);
+    // Source-job titles and profile queries are also cross-locale intent. Add
+    // the aliases for the complete phrase so multi-word professions (for
+    // example "chef de partie") expand before token scoring.
+    const aliases = professionSynonymText(text);
+    for (const t of extractKeywords(aliases)) softTokens.add(t);
   };
   addTokens(a.sourceJobTitle);
   addTokens(a.sourceJobSlug);
