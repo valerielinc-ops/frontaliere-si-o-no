@@ -193,7 +193,7 @@ Pour les nouveaux frontaliers, la déclaration d'impôts devient obligatoire :
 
 1. **Convertir le revenu** de CHF en EUR au taux moyen annuel (publié par l'Agenzia delle Entrate)
 2. **Appliquer la franchise** de €10 000 (déduction du revenu imposable)
-3. **Calculer l'IRPEF** selon les tranches italiennes 2026 (23% jusqu'à €28 000, 35% jusqu'à €50 000, 43% au-delà)
+3. **Calculer l'IRPEF** selon les tranches italiennes 2026 (23% jusqu'à €28 000, 33% jusqu'à €50 000, 43% au-delà)
 4. **Déduire le crédit d'impôt** pour les impôts payés en Suisse
 5. **Ajouter les surtaxes** régionales et communales
 
