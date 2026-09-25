@@ -6725,6 +6725,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzera-difesa-bilancio-iva.title': 'TVA à 0,2 % et fonds de défense de 24 milliards : le compromis aux États',
     'blog.article.svizzera-difesa-bilancio-iva.excerpt': 'Par 25 voix contre 17, le Conseil des États approuve +0,2 point de TVA pendant 18 ans, un fonds de défense allant jusqu’à 24 milliards et un endettement allant jusqu’à 12 milliards. Réduction des F-35 à ~30 et crédit supplémentaire de 394 millions.',
     'blog.article.svizzera-difesa-bilancio-iva.imageAlt': 'Vue aérienne des Alpes suisses avec silhouette d\'un avion de chasse, symbole du débat sur les dépenses de défense',
+    'blog.article.costi-sanita-incentivi.title': 'Le système de santé tessinois a besoin de nouvelles incitations',
+    'blog.article.costi-sanita-incentivi.excerpt': 'La Covid a laissé des coûts extraordinaires et durables ; les caisses-maladie ne retiennent au maximum que 5 % des dépenses ; jusqu’à un cinquième des dépenses de santé est lié à des prestations inutiles.',
+    'blog.article.costi-sanita-incentivi.imageAlt': 'Le lac de Lugano entouré de montagnes, représentant les défis des coûts de santé au Tessin.',
 };
 
 export default blogMetaChFr;

@@ -87185,6 +87185,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-costi-sanita-incentivi': {
+    title: 'La sanità ticinese ha bisogno di nuovi incentivi',
+    description: 'Analisi dei costi sanitari in Ticino dopo il Covid: limiti del 5% per le casse malati, fino al 20% di spesa in prestazioni inutili e necessità di nuovi',
+    keywords: 'frontalieri, ticino, svizzera, italia, sanità, ticinese, bisogno, nuovi',
+    ogTitle: 'La sanità ticinese ha bisogno di nuovi incentivi',
+    ogDescription: 'L\'articolo esamina la situazione della sanità ticinese sottolineando come i costi straordinari e duraturi legati al Covid abbiano messo in luce le debolezze del modello attuale, dove nessun attore ha incentivi reali a ridurre le prestazioni inutili',
+    canonicalPath: '/articoli-svizzera/costi-sanita-incentivi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La sanità ticinese ha bisogno di nuovi incentivi",
+      "description": "Analisi dei costi sanitari in Ticino dopo il Covid: limiti del 5% per le casse malati, fino al 20% di spesa in prestazioni inutili e necessità di nuovi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/costi-sanita-incentivi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago Lugano con montagne, simbolo delle sfide dei costi sanitari in Ticino."
+      },
+      "datePublished": "2026-09-25T21:17:42+00:00",
+      "dateModified": "2026-09-25T21:17:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/costi-sanita-incentivi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
