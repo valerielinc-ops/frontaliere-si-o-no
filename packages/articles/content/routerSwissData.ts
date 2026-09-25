@@ -2251,6 +2251,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'turismo-agosto-ospiti-estero': { it: 'turismo-agosto-ospiti-estero', en: 'swiss-tourism-august-foreign-guests', de: 'schweiz-tourismus-august-auslandgaeste', fr: 'tourisme-suisse-aout-visiteurs-etrangers' },
  'salasso-alla-pompa-benzina': { it: 'salasso-alla-pompa-benzina', en: 'fuel-price-surge-switzerland', de: 'kraftstoffpreis-anstieg-schweiz', fr: 'hausse-des-prix-du-carburant-suisse' },
  'made-in-europe-svizzera': { it: 'made-in-europe-svizzera', en: 'made-in-europe-switzerland', de: 'made-in-europe-schweiz', fr: 'made-in-europe-suisse' },
+ 'urne-due-iniziative-2026': { it: 'urne-due-iniziative-2026', en: 'swiss-vote-two-initiatives-2026', de: 'schweiz-zwei-initiativen-2026', fr: 'suisse-deux-initiatives-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
