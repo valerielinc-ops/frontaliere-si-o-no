@@ -108,6 +108,7 @@ import {
  isBenignErrorMessage,
  isIndexedDbError,
  isOriginRedactedThirdPartyStack,
+ isGoogleIosAppInjectedStackOverflow,
  BROWSER_EXTENSION_ORIGIN_PATTERN,
 } from './benignErrorPatterns';
 import { safeAffiliateToken } from '../functions/src/lib/affiliateLinks.js';
@@ -1495,6 +1496,10 @@ export const Analytics = {
  // but are third-party; no fix is possible on our end.
  if (event.filename && BROWSER_EXTENSION_ORIGIN_PATTERN.test(event.filename)) return;
  const errorStack = event.error?.stack || '';
+ // Same for the scripts Chrome for iOS / the Google app inject into the
+ // page: WebKit gives their frames the document URL, so they would read as
+ // a first-party crash (issue #8773 — see isGoogleIosAppInjectedStackOverflow).
+ if (isGoogleIosAppInjectedStackOverflow(msg, `${errorStack}\n${event.filename || ''}`, navigator.userAgent || '')) return;
  // Re-classify errors whose ENTIRE stack had its source URLs redacted by the
  // engine: a cross-origin script we do not control, never our own modules
  // (issue #4173 — see isOriginRedactedThirdPartyStack). Reported as
@@ -1536,6 +1541,8 @@ export const Analytics = {
  // Drop errors from browser extensions — they run in page context but are
  // third-party; no fix is possible on our end.
  if (stack && BROWSER_EXTENSION_ORIGIN_PATTERN.test(stack)) return;
+ // …and from the scripts Chrome for iOS / the Google app inject (#8773).
+ if (isGoogleIosAppInjectedStackOverflow(message, stack, navigator.userAgent || '')) return;
  // Same origin-redaction re-classification as the `error` handler above
  // (issue #4173): a stack with zero resolvable sources cannot come from our
  // own modules, so it is third-party rather than an app rejection.
