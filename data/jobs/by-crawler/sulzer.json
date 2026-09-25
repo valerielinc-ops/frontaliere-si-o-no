@@ -26930,7 +26930,7 @@
       "slugByLocale": {
         "it": "controllore-di-affari-sulzer-casalecchio-di-reno",
         "en": "business-controller-sulzer-ch",
-        "de": "business-controller-sulzer-ch-2",
+        "de": "geschaftsleiter-sulzer-casalecchio-di-reno",
         "fr": "business-controller-sulzer-casalecchio-di-reno"
       },
       "company": "Sulzer",
@@ -26985,6 +26985,9 @@
         "fr": [
           "controleur-d-entreprise-sulzer-casalecchio-di-reno",
           "business-controller-sulzer-casalecchio-di-reno"
+        ],
+        "de": [
+          "business-controller-sulzer-ch-2"
         ]
       },
       "firstSeenAt": "2026-09-24T00:02:51.543Z",
@@ -27006,9 +27009,9 @@
     },
     {
       "id": "sulzer-5e8aa049f51e",
-      "slug": "cnc-machinist-union-sulzer-ch",
+      "slug": "sindacato-dei-meccanisti-cnc-sulzer-barboursville",
       "slugByLocale": {
-        "it": "cnc-machinist-union-sulzer-ch",
+        "it": "sindacato-dei-meccanisti-cnc-sulzer-barboursville",
         "en": "cnc-machinist-union-sulzer-ch",
         "de": "cnc-maschinist-union-sulzer-barboursville",
         "fr": "union-des-machinistes-du-cnc-sulzer-barboursville"
@@ -27066,7 +27069,15 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "cnc-machinist-union-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cnc-machinist-union-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-8d72345d06d6",
@@ -27463,7 +27474,7 @@
       "slugByLocale": {
         "it": "ventilatori-fitter-sulzer-leeds",
         "en": "winder-fitter-sulzer-ch",
-        "de": "winder-fitter-sulzer-leeds",
+        "de": "aufzieher-fitter-sulzer-leeds",
         "fr": "ventilateur-atterrisseur-sulzer-leeds"
       },
       "company": "Sulzer",
@@ -27511,10 +27522,14 @@
         ],
         "fr": [
           "winder-fitter-sulzer-ch"
+        ],
+        "de": [
+          "winder-fitter-sulzer-leeds"
         ]
       },
       "previousSlugs": [
-        "winder-fitter-sulzer-ch"
+        "winder-fitter-sulzer-ch",
+        "winder-fitter-sulzer-leeds"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

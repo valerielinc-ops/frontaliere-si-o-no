@@ -951,7 +951,7 @@
     },
     {
       "id": "company-778qlk",
-      "slug": "sachbearbeiter-in-ersatzteilwesen-fust-oberburen",
+      "slug": "addetto-ai-pezzi-di-ricambio-fust-oberburen",
       "company": "Fust",
       "title": "Sachbearbeiter:in Ersatzteilwesen",
       "location": "Oberbüren",
@@ -989,10 +989,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "sachbearbeiter-in-ersatzteilwesen-fust-oberburen",
-        "en": "sachbearbeiter-in-ersatzteilwesen-fust-oberburen",
+        "it": "addetto-ai-pezzi-di-ricambio-fust-oberburen",
+        "en": "spare-parts-clerk-fust-oberburen",
         "de": "sachbearbeiter-in-ersatzteilwesen-fust-oberburen",
-        "fr": "sachbearbeiter-in-ersatzteilwesen-fust-oberburen"
+        "fr": "employe-de-pieces-detachees-fust-oberburen"
       },
       "requirementsByLocale": {},
       "addressLocality": "Oberbüren",
@@ -1014,7 +1014,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-ersatzteilwesen-fust-oberburen"
+        ],
+        "en": [
+          "sachbearbeiter-in-ersatzteilwesen-fust-oberburen"
+        ],
+        "fr": [
+          "sachbearbeiter-in-ersatzteilwesen-fust-oberburen"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-ersatzteilwesen-fust-oberburen"
+      ]
     },
     {
       "id": "company-9duvq8",

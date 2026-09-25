@@ -6620,9 +6620,9 @@
       "slug": "stv-filialleiter-in-denner",
       "slugByLocale": {
         "it": "stv-filialleiter-in-denner",
-        "en": "stv-filialleiter-in-denner-cham",
+        "en": "branch-manager-denner-cham",
         "de": "stv-filialleiter-in-denner-cham",
-        "fr": "stv-filialleiter-in-denner-cham"
+        "fr": "directeur-de-branche-denner-cham"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -6683,10 +6683,17 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner-2"
+        ],
+        "en": [
+          "stv-filialleiter-in-denner-cham"
+        ],
+        "fr": [
+          "stv-filialleiter-in-denner-cham"
         ]
       },
       "previousSlugs": [
-        "stv-filialleiter-in-denner-2"
+        "stv-filialleiter-in-denner-2",
+        "stv-filialleiter-in-denner-cham"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,

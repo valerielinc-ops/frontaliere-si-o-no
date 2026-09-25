@@ -27778,12 +27778,12 @@
     },
     {
       "id": "stadt-zuerich-f8fc543332a0",
-      "slug": "fachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich",
+      "slug": "inventario-specialistico-beni-per-figli-80-100-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "fachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich",
-        "en": "fachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich",
         "de": "fachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zuerich-zurigo-51706",
-        "fr": "fachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich"
+        "it": "inventario-specialistico-beni-per-figli-80-100-stadt-zurich-zurich",
+        "en": "specialist-inventory-child-assets-80-100-stadt-zurich-zurich",
+        "fr": "inventaire-specialise-biens-pour-enfants-80-100-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -27833,6 +27833,12 @@
         "it": [
           "fachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zuerich-zurigo-51706",
           "fachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich"
+        ],
+        "en": [
+          "fachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "fachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
@@ -27856,12 +27862,12 @@
     },
     {
       "id": "stadt-zuerich-9114dd88ff55",
-      "slug": "sachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich",
+      "slug": "inventario-del-cancelliere-beni-dei-figli-80-100-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich",
-        "en": "sachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich",
         "de": "sachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zuerich-zurigo-51705",
-        "fr": "sachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich"
+        "it": "inventario-del-cancelliere-beni-dei-figli-80-100-stadt-zurich-zurich",
+        "en": "clerk-inventory-child-assets-80-100-stadt-zurich-zurich",
+        "fr": "inventaire-du-commis-biens-des-enfants-80-100-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -27910,6 +27916,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zuerich-zurigo-51705",
+          "sachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich"
+        ],
+        "en": [
+          "sachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich"
+        ],
+        "fr": [
           "sachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich"
         ]
       },
@@ -32273,9 +32285,9 @@
     },
     {
       "id": "stadt-zuerich-03e1c66d2bf1",
-      "slug": "profiinstruktor-in-korps-stadt-zurich-zurich",
+      "slug": "corpo-istruttori-professionali-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "profiinstruktor-in-korps-stadt-zurich-zurich",
+        "it": "corpo-istruttori-professionali-stadt-zurich-zurich",
         "en": "professional-instructor-corps-stadt-zurich-zurich",
         "de": "profiinstruktor-in-korps-stadt-zuerich-zurigo-51744",
         "fr": "corps-des-instructeurs-professionnels-stadt-zurich-zurich"
@@ -32351,12 +32363,12 @@
     },
     {
       "id": "stadt-zuerich-f6b9fc6d0600",
-      "slug": "sozialpadagog-in-schule-riedhof-punten-stadt-zuerich-zurigo-51729",
+      "slug": "scuola-di-pedagogia-sociale-riedhof-punten-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "sozialpadagog-in-schule-riedhof-punten-stadt-zuerich-zurigo-51729",
-        "en": "sozialpadagog-in-schule-riedhof-punten-stadt-zuerich-zurigo-51729",
+        "it": "scuola-di-pedagogia-sociale-riedhof-punten-stadt-zurich-zurich",
+        "en": "social-pedagogue-school-riedhof-punten-stadt-zurich-zurich",
         "de": "sozialpadagog-in-schule-riedhof-punten-stadt-zuerich-zurigo-51729",
-        "fr": "sozialpadagog-in-schule-riedhof-punten-stadt-zuerich-zurigo-51729"
+        "fr": "ecole-de-pedagogue-sociale-riedhof-punten-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -32415,7 +32427,21 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialpadagog-in-schule-riedhof-punten-stadt-zuerich-zurigo-51729"
+        ],
+        "en": [
+          "sozialpadagog-in-schule-riedhof-punten-stadt-zuerich-zurigo-51729"
+        ],
+        "fr": [
+          "sozialpadagog-in-schule-riedhof-punten-stadt-zuerich-zurigo-51729"
+        ]
+      },
+      "previousSlugs": [
+        "sozialpadagog-in-schule-riedhof-punten-stadt-zuerich-zurigo-51729"
+      ]
     },
     {
       "id": "stadt-zuerich-a75f267bb572",
@@ -32669,10 +32695,10 @@
       "id": "stadt-zuerich-e80fb7468bf8",
       "slug": "architekt-in-eth-fh-come-projektleiter-in-der-projektentwicklung-stadt-zurich",
       "slugByLocale": {
-        "it": "architekt-in-eth-fh-come-projektleiter-in-der-projektentwicklung-stadt-zurich",
-        "en": "architekt-in-eth-fh-als-projektleiter-in-in-der-projektentwicklung-stadt-zurich-zurich",
         "de": "architekt-in-eth-fh-als-projektleiter-in-in-der-projektentwicklung-stadt-zuerich-zurigo",
-        "fr": "architekt-in-eth-fh-als-projektleiter-in-in-der-projektentwicklung-stadt-zurich-zurich"
+        "it": "architekt-in-eth-fh-come-projektleiter-in-der-projektentwicklung-stadt-zurich",
+        "en": "architect-eth-fh-as-project-manager-in-project-development-stadt-zurich-zurich",
+        "fr": "architecte-eth-fh-en-tant-que-chef-de-projet-dans-le-developpement-de-projet-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -32722,11 +32748,18 @@
         "it": [
           "architekt-in-eth-fh-als-projektleiter-in-in-der-projektentwicklung-stadt-zuerich-zurigo",
           "architekt-in-eth-fh-come-projektleiter-in-der-projektentwicklung-stadt-zurich"
+        ],
+        "en": [
+          "architekt-in-eth-fh-als-projektleiter-in-in-der-projektentwicklung-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "architekt-in-eth-fh-als-projektleiter-in-in-der-projektentwicklung-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
         "architekt-in-eth-fh-als-projektleiter-in-in-der-projektentwicklung-stadt-zuerich-zurigo",
-        "architekt-in-eth-fh-come-projektleiter-in-der-projektentwicklung-stadt-zurich"
+        "architekt-in-eth-fh-come-projektleiter-in-der-projektentwicklung-stadt-zurich",
+        "architekt-in-eth-fh-als-projektleiter-in-in-der-projektentwicklung-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -33496,12 +33529,12 @@
     },
     {
       "id": "stadt-zuerich-3fc78aa62049",
-      "slug": "hortleiter-in-sozialpadagog-in-stadt-zuerich-zurigo-51751",
+      "slug": "capo-dell-assistenza-extrascolastica-pedagogico-sociale-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "hortleiter-in-sozialpadagog-in-stadt-zuerich-zurigo-51751",
-        "en": "hortleiter-in-sozialpadagog-in-stadt-zuerich-zurigo-51751",
         "de": "hortleiter-in-sozialpadagog-in-stadt-zuerich-zurigo-51751",
-        "fr": "hortleiter-in-sozialpadagog-in-stadt-zuerich-zurigo-51751"
+        "it": "capo-dell-assistenza-extrascolastica-pedagogico-sociale-stadt-zurich-zurich",
+        "en": "head-of-after-school-care-social-pedagogue-stadt-zurich-zurich",
+        "fr": "responsable-de-la-garde-apres-l-ecole-pedagogue-social-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -33560,16 +33593,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:43:19.009Z"
+      "firstSeenAt": "2026-09-24T14:43:19.009Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hortleiter-in-sozialpadagog-in-stadt-zuerich-zurigo-51751"
+        ],
+        "en": [
+          "hortleiter-in-sozialpadagog-in-stadt-zuerich-zurigo-51751"
+        ],
+        "fr": [
+          "hortleiter-in-sozialpadagog-in-stadt-zuerich-zurigo-51751"
+        ]
+      },
+      "previousSlugs": [
+        "hortleiter-in-sozialpadagog-in-stadt-zuerich-zurigo-51751"
+      ]
     },
     {
       "id": "stadt-zuerich-ad9706a0fb49",
-      "slug": "projektleiter-in-baumanagement-stadt-zurich",
+      "slug": "project-manager-gestione-delle-costruzioni-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "projektleiter-in-baumanagement-stadt-zurich",
-        "en": "projektleiter-in-baumanagement-stadt-zuerich-zurigo-51753",
         "de": "projektleiter-in-baumanagement-stadt-zuerich-zurigo-51753",
-        "fr": "projektleiter-in-baumanagement-stadt-zuerich-zurigo-51753"
+        "it": "project-manager-gestione-delle-costruzioni-stadt-zurich-zurich",
+        "en": "project-manager-construction-management-stadt-zurich-zurich",
+        "fr": "chef-de-projet-gestion-de-la-construction-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -33619,6 +33666,12 @@
         "it": [
           "projektleiter-in-baumanagement-stadt-zuerich-zurigo-51753",
           "projektleiter-in-baumanagement-stadt-zurich"
+        ],
+        "en": [
+          "projektleiter-in-baumanagement-stadt-zuerich-zurigo-51753"
+        ],
+        "fr": [
+          "projektleiter-in-baumanagement-stadt-zuerich-zurigo-51753"
         ]
       },
       "previousSlugs": [
@@ -33642,12 +33695,12 @@
     },
     {
       "id": "stadt-zuerich-d9d40522eb6d",
-      "slug": "fachbearbeiter-in-immobilienokonomie-stadt-zurich-zurich",
+      "slug": "specialista-in-economia-immobiliare-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "fachbearbeiter-in-immobilienokonomie-stadt-zurich-zurich",
-        "en": "fachbearbeiter-in-immobilienokonomie-stadt-zurich-zurich",
         "de": "fachbearbeiter-in-immobilienokonomie-stadt-zuerich-zurigo-51740",
-        "fr": "fachbearbeiter-in-immobilienokonomie-stadt-zurich-zurich"
+        "it": "specialista-in-economia-immobiliare-stadt-zurich-zurich",
+        "en": "real-estate-economics-specialist-stadt-zurich-zurich",
+        "fr": "specialiste-en-economie-immobiliere-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -33696,6 +33749,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachbearbeiter-in-immobilienokonomie-stadt-zuerich-zurigo-51740",
+          "fachbearbeiter-in-immobilienokonomie-stadt-zurich-zurich"
+        ],
+        "en": [
+          "fachbearbeiter-in-immobilienokonomie-stadt-zurich-zurich"
+        ],
+        "fr": [
           "fachbearbeiter-in-immobilienokonomie-stadt-zurich-zurich"
         ]
       },
@@ -33973,12 +34032,12 @@
     },
     {
       "id": "stadt-zuerich-3873165adfea",
-      "slug": "leiter-in-support-bildung-stadt-zurich",
+      "slug": "responsabile-del-supporto-e-dell-istruzione-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "leiter-in-support-bildung-stadt-zurich",
-        "en": "leiter-in-support-bildung-stadt-zuerich-zurigo-51746",
         "de": "leiter-in-support-bildung-stadt-zuerich-zurigo-51746",
-        "fr": "leiter-in-support-bildung-stadt-zuerich-zurigo-51746"
+        "it": "responsabile-del-supporto-e-dell-istruzione-stadt-zurich-zurich",
+        "en": "head-of-support-education-stadt-zurich-zurich",
+        "fr": "responsable-du-support-et-de-l-education-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -34026,11 +34085,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-support-bildung-stadt-zuerich-zurigo-51746",
+          "leiter-in-support-bildung-stadt-zurich"
+        ],
+        "en": [
+          "leiter-in-support-bildung-stadt-zuerich-zurigo-51746"
+        ],
+        "fr": [
           "leiter-in-support-bildung-stadt-zuerich-zurigo-51746"
         ]
       },
       "previousSlugs": [
-        "leiter-in-support-bildung-stadt-zuerich-zurigo-51746"
+        "leiter-in-support-bildung-stadt-zuerich-zurigo-51746",
+        "leiter-in-support-bildung-stadt-zurich"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -37551,12 +37618,12 @@
     },
     {
       "id": "stadt-zuerich-d777a0107b35",
-      "slug": "reinigungsmitarbeiter-in-schule-himmeri-staudenbuhl-stadt-zurich-zurich",
+      "slug": "scuola-per-le-pulizie-himmeri-staudenbuhl-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "reinigungsmitarbeiter-in-schule-himmeri-staudenbuhl-stadt-zuerich-zurigo-51755",
-        "it": "reinigungsmitarbeiter-in-schule-himmeri-staudenbuhl-stadt-zurich-zurich",
-        "en": "reinigungsmitarbeiter-in-schule-himmeri-staudenbuhl-stadt-zurich-zurich",
-        "fr": "reinigungsmitarbeiter-in-schule-himmeri-staudenbuhl-stadt-zurich-zurich"
+        "it": "scuola-per-le-pulizie-himmeri-staudenbuhl-stadt-zurich-zurich",
+        "en": "cleaning-employee-school-himmeri-staudenbuhl-stadt-zurich-zurich",
+        "fr": "ecole-des-employes-de-nettoyage-himmeri-staudenbuhl-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -37606,11 +37673,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "reinigungsmitarbeiter-in-schule-himmeri-staudenbuhl-stadt-zuerich-zurigo-51755"
+          "reinigungsmitarbeiter-in-schule-himmeri-staudenbuhl-stadt-zuerich-zurigo-51755",
+          "reinigungsmitarbeiter-in-schule-himmeri-staudenbuhl-stadt-zurich-zurich"
+        ],
+        "en": [
+          "reinigungsmitarbeiter-in-schule-himmeri-staudenbuhl-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "reinigungsmitarbeiter-in-schule-himmeri-staudenbuhl-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "reinigungsmitarbeiter-in-schule-himmeri-staudenbuhl-stadt-zuerich-zurigo-51755"
+        "reinigungsmitarbeiter-in-schule-himmeri-staudenbuhl-stadt-zuerich-zurigo-51755",
+        "reinigungsmitarbeiter-in-schule-himmeri-staudenbuhl-stadt-zurich-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,

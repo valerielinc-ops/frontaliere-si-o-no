@@ -1638,12 +1638,12 @@
     },
     {
       "id": "yellowshark-f1198e7aef6b",
-      "slug": "sachbearbeiter-in-finanzbuchhaltung-100-emmen-lu-yellowshark-ch",
+      "slug": "impiegato-di-contabilita-finanziaria-al-100-yellowshark-ag-emmen-lu",
       "slugByLocale": {
         "de": "sachbearbeiter-in-finanzbuchhaltung-100-emmen-lu-yellowshark-ch",
-        "it": "sachbearbeiter-in-finanzbuchhaltung-100-emmen-lu-yellowshark-ch",
-        "en": "sachbearbeiter-in-finanzbuchhaltung-100-emmen-lu-yellowshark-ch",
-        "fr": "sachbearbeiter-in-finanzbuchhaltung-100-emmen-lu-yellowshark-ch"
+        "it": "impiegato-di-contabilita-finanziaria-al-100-yellowshark-ag-emmen-lu",
+        "en": "financial-accounting-clerk-100-yellowshark-ag-emmen-lu",
+        "fr": "commis-en-comptabilite-financiere-a-100-yellowshark-ag-emmen-lu"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -1701,7 +1701,21 @@
         }
       },
       "firstSeenAt": "2026-09-24T14:45:10.388Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-finanzbuchhaltung-100-emmen-lu-yellowshark-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-finanzbuchhaltung-100-emmen-lu-yellowshark-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-finanzbuchhaltung-100-emmen-lu-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-finanzbuchhaltung-100-emmen-lu-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-cae2e86154d8",
@@ -3432,7 +3446,7 @@
       "slugByLocale": {
         "de": "finance-specialist-m-w-100-winterthur-zh-yellowshark-ch",
         "it": "finanza-specialista-m-w-100-yellowshark-ag-winterthur",
-        "en": "finance-specialist-m-w-100-winterthur-zh-yellowshark-ch",
+        "en": "quality-assurance-specialist-m-f-100-yellowshark-ag-winterthur-zh",
         "fr": "finance-specialiste-m-w-100-yellowshark-ag-winterthur"
       },
       "company": "yellowshark AG",
@@ -3496,6 +3510,9 @@
           "finance-specialist-m-w-100-winterthur-zh-yellowshark-ch"
         ],
         "fr": [
+          "finance-specialist-m-w-100-winterthur-zh-yellowshark-ch"
+        ],
+        "en": [
           "finance-specialist-m-w-100-winterthur-zh-yellowshark-ch"
         ]
       },

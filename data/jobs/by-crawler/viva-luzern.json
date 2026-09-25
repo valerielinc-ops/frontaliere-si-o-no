@@ -1961,8 +1961,8 @@
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-viva-luzern-luzern",
         "it": "fachfrau-mann-gesundheit-cfc-viva-luzern",
-        "en": "fachfrau-mann-gesundheit-efz-viva-luzern-luzern",
-        "fr": "fachfrau-mann-gesundheit-efz-viva-luzern-luzern"
+        "en": "professional-health-efz-viva-luzern-luzern",
+        "fr": "sante-professionnelle-efz-viva-luzern-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
@@ -2008,6 +2008,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-efz-viva-luzern-luzern"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-viva-luzern-luzern"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-efz-viva-luzern-luzern"
         ]
       },

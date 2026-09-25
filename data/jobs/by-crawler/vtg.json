@@ -436,7 +436,7 @@
     },
     {
       "id": "company-7wwgwc",
-      "slug": "ict-system-spezialist-in-junior-swiss-armed-forces-vtg-bern-7wwgwc",
+      "slug": "specialista-del-sistema-ict-junior-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "ICT-System-Spezialist/-in Junior",
       "location": "Bern",
@@ -474,20 +474,25 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "ict-system-spezialist-in-junior-swiss-armed-forces-vtg-bern-7wwgwc",
+        "it": "specialista-del-sistema-ict-junior-swiss-armed-forces-vtg-bern",
         "en": "ict-system-spezialist-in-junior-swiss-armed-forces-vtg-bern-7wwgwc",
         "de": "ict-system-spezialist-in-junior-swiss-armed-forces-vtg-bern-7wwgwc",
-        "fr": "ict-system-spezialist-in-junior-swiss-armed-forces-vtg-bern-7wwgwc"
+        "fr": "specialiste-des-systemes-tic-junior-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "ict-system-spezialist-in-junior-swiss-armed-forces-vtg-bern"
+          "ict-system-spezialist-in-junior-swiss-armed-forces-vtg-bern",
+          "ict-system-spezialist-in-junior-swiss-armed-forces-vtg-bern-7wwgwc"
+        ],
+        "fr": [
+          "ict-system-spezialist-in-junior-swiss-armed-forces-vtg-bern-7wwgwc"
         ]
       },
       "previousSlugs": [
-        "ict-system-spezialist-in-junior-swiss-armed-forces-vtg-bern"
+        "ict-system-spezialist-in-junior-swiss-armed-forces-vtg-bern",
+        "ict-system-spezialist-in-junior-swiss-armed-forces-vtg-bern-7wwgwc"
       ],
       "salaryMin": 56500,
       "salaryMax": 96500,
@@ -508,7 +513,7 @@
     },
     {
       "id": "company-mq7fph",
-      "slug": "tankanlagenwart-in-swiss-armed-forces-vtg-bern-mq7fph",
+      "slug": "assistente-tanker-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Tankanlagenwart/-in",
       "location": "Bern",
@@ -546,20 +551,28 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "tankanlagenwart-in-swiss-armed-forces-vtg-bern-mq7fph",
-        "en": "tankanlagenwart-in-swiss-armed-forces-vtg-bern-mq7fph",
+        "it": "assistente-tanker-swiss-armed-forces-vtg-bern",
+        "en": "tank-system-manager-swiss-armed-forces-vtg-bern",
         "de": "tankanlagenwart-in-swiss-armed-forces-vtg-bern-mq7fph",
-        "fr": "tankanlagenwart-in-swiss-armed-forces-vtg-bern-mq7fph"
+        "fr": "gestionnaire-de-systeme-de-reservoir-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "tankanlagenwart-in-swiss-armed-forces-vtg-bern"
+          "tankanlagenwart-in-swiss-armed-forces-vtg-bern",
+          "tankanlagenwart-in-swiss-armed-forces-vtg-bern-mq7fph"
+        ],
+        "en": [
+          "tankanlagenwart-in-swiss-armed-forces-vtg-bern-mq7fph"
+        ],
+        "fr": [
+          "tankanlagenwart-in-swiss-armed-forces-vtg-bern-mq7fph"
         ]
       },
       "previousSlugs": [
-        "tankanlagenwart-in-swiss-armed-forces-vtg-bern"
+        "tankanlagenwart-in-swiss-armed-forces-vtg-bern",
+        "tankanlagenwart-in-swiss-armed-forces-vtg-bern-mq7fph"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -619,15 +632,21 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern",
-        "en": "logistiker-in-swiss-armed-forces-vtg-bern-wynwl7",
+        "en": "logistician-swiss-armed-forces-vtg-bern",
         "de": "logistiker-in-swiss-armed-forces-vtg-bern-wynwl7",
-        "fr": "logistiker-in-swiss-armed-forces-vtg-bern-wynwl7"
+        "fr": "logistique-swiss-armed-forces-vtg-bern-5b4b58"
       },
       "sourceLang": "de",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-swiss-armed-forces-vtg-bern",
+          "logistiker-in-swiss-armed-forces-vtg-bern-wynwl7"
+        ],
+        "en": [
+          "logistiker-in-swiss-armed-forces-vtg-bern-wynwl7"
+        ],
+        "fr": [
           "logistiker-in-swiss-armed-forces-vtg-bern-wynwl7"
         ]
       },
@@ -775,16 +794,20 @@
         "it": "ict-controller-e-finanza-business-partner-in-swiss-armed-forces-vtg-bern-qr1ksx",
         "en": "ict-controller-und-finance-business-partner-in-swiss-armed-forces-vtg-bern-qr1ksx",
         "de": "ict-controller-und-finanzen-business-partner-in-swiss-armed-forces-vtg-bern-qr1ksx",
-        "fr": "ict-controller-und-finance-business-partner-in-swiss-armed-forces-vtg-bern-qr1ksx"
+        "fr": "controleur-des-tic-et-partenaire-financier-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "ict-controller-und-finance-business-partner-in-swiss-armed-forces-vtg-bern"
+        ],
+        "fr": [
+          "ict-controller-und-finance-business-partner-in-swiss-armed-forces-vtg-bern-qr1ksx"
         ]
       },
       "previousSlugs": [
-        "ict-controller-und-finance-business-partner-in-swiss-armed-forces-vtg-bern"
+        "ict-controller-und-finance-business-partner-in-swiss-armed-forces-vtg-bern",
+        "ict-controller-und-finance-business-partner-in-swiss-armed-forces-vtg-bern-qr1ksx"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -2136,7 +2159,7 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "requisiti-specialistici-swiss-armed-forces-vtg-bern",
-        "en": "spezialist-in-requisition-swiss-armed-forces-vtg-bern-y1ttx1",
+        "en": "requisition-specialist-swiss-armed-forces-vtg-bern",
         "de": "spezialist-in-requisition-swiss-armed-forces-vtg-bern-y1ttx1",
         "fr": "demande-de-specialistes-swiss-armed-forces-vtg-bern-y1ttx1"
       },
@@ -2151,7 +2174,8 @@
         "en": [
           "spezialist-in-requisition-confederazione-bern",
           "spezialist-in-requisition-confederazione-svizzera-bern",
-          "specialist-requisition-confederazione-svizzera-bern"
+          "specialist-requisition-confederazione-svizzera-bern",
+          "spezialist-in-requisition-swiss-armed-forces-vtg-bern-y1ttx1"
         ],
         "de": [
           "spezialist-in-requisition-confederazione-bern"

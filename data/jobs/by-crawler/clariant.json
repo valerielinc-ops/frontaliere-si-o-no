@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "clariant-e621ca88dbc5",
-      "slug": "senior-manager-national-tax-tax-governance-clariant-pratteln",
+      "slug": "senior-responsabile-governance-nazionale-fiscale-e-fiscale-clariant-pratteln",
       "slugByLocale": {
-        "it": "senior-manager-national-tax-tax-governance-clariant-pratteln",
         "en": "senior-manager-national-tax-tax-governance-clariant-pratteln",
+        "it": "senior-responsabile-governance-nazionale-fiscale-e-fiscale-clariant-pratteln",
         "de": "senior-manager-nationale-steuer-und-steuer-governance-clariant-pratteln",
         "fr": "aine-gestionnaire-gouvernance-fiscale-et-fiscale-nationale-clariant-pratteln"
       },
@@ -64,7 +64,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-31T22:16:31.933Z"
+      "firstSeenAt": "2026-07-31T22:16:31.933Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-manager-national-tax-tax-governance-clariant-pratteln"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-national-tax-tax-governance-clariant-pratteln"
+      ]
     }
   ]
 }

@@ -26917,10 +26917,10 @@
     },
     {
       "id": "hirslanden-4ef58308bfdd",
-      "slug": "secretaire-medicale-a-80-flex-hirslanden-hirslanden-clinique-bois-cerf",
+      "slug": "segretariato-medico-con-80-flex-hirslanden-klinik-hirslanden-clinique-bois-cerf",
       "slugByLocale": {
         "de": "secretaire-medicale-a-80-flex-hirslanden-hirslanden-clinique-bois-cerf",
-        "it": "secretaire-medicale-a-80-flex-hirslanden-hirslanden-clinique-bois-cerf",
+        "it": "segretariato-medico-con-80-flex-hirslanden-klinik-hirslanden-clinique-bois-cerf",
         "en": "secretaire-medicale-a-80-flex-hirslanden-hirslanden-clinique-bois-cerf",
         "fr": "secretariat-medical-a-80-flex-hirslanden-klinik-hirslanden-clinique-bois-cerf"
       },
@@ -26977,7 +26977,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:42:53.757Z"
+      "firstSeenAt": "2026-09-23T23:42:53.757Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medicale-a-80-flex-hirslanden-hirslanden-clinique-bois-cerf"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medicale-a-80-flex-hirslanden-hirslanden-clinique-bois-cerf"
+      ]
     },
     {
       "id": "hirslanden-ea98d0ebf676",

@@ -1734,9 +1734,9 @@
     },
     {
       "id": "ubs-2c5f71b7e04e",
-      "slug": "2027-graduate-talent-program-global-markets-credit-solutions-zh-ubs-zurich",
+      "slug": "programma-talenti-laureati-2027-global-markets-credit-solutions-zh-ubs-zurich",
       "slugByLocale": {
-        "it": "2027-graduate-talent-program-global-markets-credit-solutions-zh-ubs-zurich",
+        "it": "programma-talenti-laureati-2027-global-markets-credit-solutions-zh-ubs-zurich",
         "en": "2027-graduate-talent-program-global-markets-credit-solutions-zh-ubs-zurich",
         "de": "2027-graduate-talent-program-global-markets-credit-solutions-zh-ubs-zurich",
         "fr": "2027-programme-de-talents-diplomes-solutions-de-credit-des-marches-mondiaux-zh-ubs-zurich"
@@ -1802,7 +1802,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-graduate-talent-program-global-markets-credit-solutions-zh-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-graduate-talent-program-global-markets-credit-solutions-zh-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-5df4f0e3710c",

@@ -15550,10 +15550,10 @@
     },
     {
       "id": "lonza-6b9a8109ace9",
-      "slug": "msat-expert-contamination-control-80-100-lonza-ch",
+      "slug": "msat-expert-controllo-della-contaminazione-80-100-lonza-stein",
       "slugByLocale": {
-        "it": "msat-expert-contamination-control-80-100-lonza-ch",
         "en": "msat-expert-contamination-control-80-100-lonza-ch",
+        "it": "msat-expert-controllo-della-contaminazione-80-100-lonza-stein",
         "de": "msat-expert-kontaminationskontrolle-80-100-lonza-stein",
         "fr": "expert-msat-controle-de-la-contamination-80-100-lonza-stein"
       },
@@ -15610,7 +15610,15 @@
         }
       },
       "addressRegion": "AG",
-      "firstSeenAt": "2026-09-23T23:39:28.699Z"
+      "firstSeenAt": "2026-09-23T23:39:28.699Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "msat-expert-contamination-control-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "msat-expert-contamination-control-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-32973ea73462",
@@ -16154,10 +16162,10 @@
     },
     {
       "id": "lonza-112e46a00f64",
-      "slug": "ei-c-mes-application-manager-80-100-m-f-d-lonza-ch",
+      "slug": "responsabile-applicazioni-mes-ei-c-80-100-m-f-d-lonza-visp",
       "slugByLocale": {
-        "it": "ei-c-mes-application-manager-80-100-m-f-d-lonza-ch",
         "en": "ei-c-mes-application-manager-80-100-m-f-d-lonza-ch",
+        "it": "responsabile-applicazioni-mes-ei-c-80-100-m-f-d-lonza-visp",
         "de": "ei-c-mes-application-manager-80-100-m-f-d-lonza-ch",
         "fr": "gestionnaire-d-applications-des-sem-de-l-ie-et-c-80-100-h-f-d-lonza-visp"
       },
@@ -16214,7 +16222,15 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-09-23T23:39:27.264Z"
+      "firstSeenAt": "2026-09-23T23:39:27.264Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ei-c-mes-application-manager-80-100-m-f-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ei-c-mes-application-manager-80-100-m-f-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-b3ec20de536c",

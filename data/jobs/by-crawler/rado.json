@@ -40,9 +40,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-apprendistato-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz-7uc0r2",
-        "en": "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz-7uc0r2",
+        "en": "logistician-apprenticeship-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz",
         "de": "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz-7uc0r2",
-        "fr": "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz-7uc0r2"
+        "fr": "apprentissage-de-logisticien-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz"
       },
       "requirementsByLocale": {
         "it": [],
@@ -56,10 +56,17 @@
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz"
+        ],
+        "en": [
+          "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz-7uc0r2"
+        ],
+        "fr": [
+          "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz-7uc0r2"
         ]
       },
       "previousSlugs": [
-        "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz"
+        "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz",
+        "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz-7uc0r2"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

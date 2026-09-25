@@ -2146,10 +2146,10 @@
     },
     {
       "id": "geberit-2235",
-      "slug": "hr-business-administrator-a-80-90-geberit-rapperswil-jona",
+      "slug": "amministratore-aziendale-hr-a-80-90-geberit-rapperswil-jona",
       "slugByLocale": {
         "de": "hr-business-administrator-a-80-90-geberit-ch",
-        "it": "hr-business-administrator-a-80-90-geberit-rapperswil-jona",
+        "it": "amministratore-aziendale-hr-a-80-90-geberit-rapperswil-jona",
         "en": "hr-business-administrator-a-80-90-geberit-ch",
         "fr": "hr-business-administrator-a-80-90-geberit-ch"
       },
@@ -2195,11 +2195,13 @@
         "de": []
       },
       "previousSlugs": [
-        "hr-business-administrator-a-80-90-geberit-ch"
+        "hr-business-administrator-a-80-90-geberit-ch",
+        "hr-business-administrator-a-80-90-geberit-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-business-administrator-a-80-90-geberit-ch"
+          "hr-business-administrator-a-80-90-geberit-ch",
+          "hr-business-administrator-a-80-90-geberit-rapperswil-jona"
         ]
       },
       "salaryMin": 51800,
