@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * Contratto provider-neutral per l'evidenza Claude/Codex.
  *
