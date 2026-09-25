@@ -35964,6 +35964,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'roberto-gatti-11-promozioni-podcast',
+ category: 'novita',
+ date: '2026-09-25T15:46:26.720Z',
+ image: '/images/blog/roberto-gatti-11-promozioni-podcast.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
