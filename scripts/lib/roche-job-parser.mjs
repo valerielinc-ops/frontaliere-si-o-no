@@ -22,6 +22,7 @@ import {
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
+import { fetchWorkdayPrimarySwissLocation } from './workday-swiss-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -101,16 +102,18 @@ export function isTrustedDomain(rawUrl = '') {
 
 /**
  * Canton of a Roche Workday location with positive Swiss evidence, or '' when
- * the location cannot be proven Swiss. An empty location keeps the historical
- * Basel HQ fallback.
+ * the location cannot be proven Swiss. An empty location, or a Swiss one that
+ * resolves to no canton, is '' too: the Basel HQ is never a substitute (issue
+ * 9842 — an `N Locations` roll-up has an empty listing location, and the old
+ * Basel default published reqs worked in Warsaw, Shanghai or Madrid as `BS`).
  */
 export function rocheSwissCanton(rawLocation = '') {
   const location = normalizeSpace(rawLocation);
-  if (!location) return 'BS';
+  if (!location) return '';
   const localityCanton = ROCHE_SWISS_LOCALITY_CANTONS.get(normalize(location));
   if (localityCanton) return localityCanton;
   if (isLocationExplicitlyForeign(location) || !isSwissLocationText(location)) return '';
-  return inferSwissTargetCanton(location) || 'BS';
+  return inferSwissTargetCanton(location) || '';
 }
 
 /* ── Category Detection ────────────────────────────────────── */
@@ -209,14 +212,17 @@ export async function fetchAllRocheJobs() {
     if (!title || title.length < 3) continue;
 
     const rawLocation = String(listing.location || '').trim();
-    const canton = rocheSwissCanton(rawLocation);
+    // An empty listing location is an `N Locations` roll-up (or a req with no
+    // location text): only the req's own primary workplace, read from the
+    // detail, may place it in Switzerland.
+    const location = rawLocation
+      || await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath);
+    const canton = rocheSwissCanton(location);
     if (!canton) {
-      console.log(`  ⏭️  Skipped non-Swiss location: ${rawLocation} — ${title}`);
+      console.log(`  ⏭️  Skipped non-Swiss location: ${rawLocation || '(roll-up without Swiss primary)'} — ${title}`);
       continue;
     }
 
-    // Roche HQ is Basel (BS); fall back there if Workday omits the location.
-    const location = rawLocation || 'Basel';
     const publicUrl = String(listing.url || '').trim();
     if (!publicUrl) {
       missingDetailUrlCount += 1;

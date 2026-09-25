@@ -10,7 +10,7 @@ import { applyResendWebhookEvent } from '../functions/src/newsletterResendWebhoo
  * seeded docs to come back so the sample count/hour computation runs.
  */
 function createFakeDb(
-  existingDocs: Record<string, Record<string, Record<string, unknown>>> = {},
+  existingDocs: Record<string, Record<string, Record<string, unknown> | null>> = {},
   existingEvents: Record<string, Array<Record<string, unknown>>> = {},
 ) {
   const sets: Array<{ collection: string; docId: string; data: Record<string, unknown> }> = [];
@@ -23,7 +23,15 @@ function createFakeDb(
           sets.push({ collection: name, docId, data });
         },
         get: async () => {
-          const docData = existingDocs[name]?.[docId];
+          // A recipient is a known subscriber unless the test says otherwise:
+          // a provider event never creates the subscriber record
+          // (mergeAccountDeletedSubscriberUpdate, lib/subscriberReactivation.js),
+          // so a test about what an event WRITES needs the document to exist.
+          // Seed `null` for a recipient with no document.
+          const seeded = existingDocs[name] || {};
+          const docData = docId in seeded
+            ? seeded[docId]
+            : (name === 'newsletter_subscribers' || name === 'job_alert_subscribers' ? {} : undefined);
           return {
             exists: !!docData,
             data: () => docData || {},
@@ -351,8 +359,8 @@ describe('newsletterResendWebhookCore', () => {
     expect(subscriberSet!.data.isActive).toBe(false);
   });
 
-  it('handles new subscriber (no existing doc) — does not promote to confirmed', async () => {
-    const db = createFakeDb(); // no existing docs
+  it('a document with no status is not promoted to confirmed', async () => {
+    const db = createFakeDb(); // the recipient's document exists, with no status
 
     await applyResendWebhookEvent({
       type: 'email.delivered',
@@ -365,6 +373,26 @@ describe('newsletterResendWebhookCore', () => {
     expect(subscriberSet).toBeTruthy();
     // null currentStatus is treated conservatively — no promotion
     expect(subscriberSet!.data.status).toBeUndefined();
+  });
+
+  it.each([
+    ['newsletter', undefined, 'newsletter_subscribers'],
+    ['job alert', [{ name: 'type', value: 'job-alert' }], 'job_alert_subscribers'],
+  ])('an event for a recipient with no %s document creates nothing', async (_label, tags, collection) => {
+    // A transactional email (a calculator PDF) goes to addresses that have no
+    // subscriber document on purpose. Its delivery events used to create one
+    // holding only counters — no consent basis — which then got a shadow Auth
+    // account from syncNewsletterSubscriberAuth.
+    const db = createFakeDb({ [collection]: { 'nobody@example.com': null } });
+    for (const type of ['email.delivered', 'email.opened', 'email.bounced', 'email.complained']) {
+      const result = await applyResendWebhookEvent({
+        type,
+        data: { email: 'nobody@example.com', email_id: 'msg_x', tags },
+      }, { db: db as any });
+      expect(result).toEqual({ handled: false, reason: 'unknown_recipient' });
+    }
+    expect(db.__sets).toEqual([]);
+    expect(db.__adds).toEqual([]);
   });
 
   // #3305 originally listed complained/suppressed/bounced together as "terminal".

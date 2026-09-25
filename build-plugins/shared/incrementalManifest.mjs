@@ -39,6 +39,18 @@ export const SOURCE_VERSION = 'input@1';
 export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@7';
 export const INCREMENTAL_MANIFEST_ENABLED = process.env.INCREMENTAL_MANIFEST === '1';
 
+// The full active-page input remains the publish key: every input field that
+// can change emitted HTML must reach `hash`, otherwise shard-manifest-delta
+// would keep stale bytes out of the deploy. Renderer code is not an input: the
+// delta re-evaluates a whole kind when its render fingerprint moves (#9788).
+// Jobs SEO HTML reuse has a second key for the fragments it can refresh
+// in-place on a cache hit.
+export const ACTIVE_PAGE_VOLATILE_INPUT_KEYS = Object.freeze([
+  'relatedArticlesDigest',
+  'renderDateBucket',
+]);
+const ACTIVE_PAGE_VOLATILE_INPUT_KEY_SET = new Set(ACTIVE_PAGE_VOLATILE_INPUT_KEYS);
+
 export const PAGE_KINDS = Object.freeze([
   'active-job',
   'expired-soft-landing',
@@ -538,6 +550,20 @@ export function buildActiveJobPageInput({
 }
 
 /**
+ * Return the stable portion of an active-page input used to address the HTML
+ * reuse cache. The omitted fields are deliberately still present in the full
+ * input returned by `buildActiveJobPageInput()`, which is the publish key.
+ * `jobsSeoPagesPlugin` refreshes their rendered fragments before writing a
+ * reused page, so omitting them here cannot publish stale feed/date bytes.
+ */
+export function buildActiveJobPageReuseInput(input) {
+  if (!input || typeof input !== 'object' || Array.isArray(input)) return input;
+  return Object.fromEntries(
+    Object.entries(input).filter(([key]) => !ACTIVE_PAGE_VOLATILE_INPUT_KEY_SET.has(key)),
+  );
+}
+
+/**
  * Digest of everything an expired soft-landing page renders from a source the
  * emitter fingerprint cannot see.
  *
@@ -750,7 +776,14 @@ export class IncrementalManifest {
     return this;
   }
 
-  register(pagePath, kind, input, templateVersion = templateVersionForKind(kind), sourceVersion = SOURCE_VERSION) {
+  register(
+    pagePath,
+    kind,
+    input,
+    templateVersion = templateVersionForKind(kind),
+    sourceVersion = SOURCE_VERSION,
+    reuseInput = input,
+  ) {
     if (!PAGE_KINDS.includes(kind)) throw new Error(`Unknown incremental manifest page kind: ${kind}`);
     const normalizedPath = normalizeManifestPath(pagePath);
     const previousMetadata = this.kindMetadata.get(kind);
@@ -766,10 +799,20 @@ export class IncrementalManifest {
     }
 
     const postWalk = compactPostWalkMetadata(input);
+    const hash = computeInputHash(input, kind, templateVersion);
+    const reuseHash = reuseInput === input
+      ? hash
+      : computeInputHash(reuseInput, kind, templateVersion);
     const entry = {
       kind,
-      hash: computeInputHash(input, kind, templateVersion),
+      // `hash` is the publish key. Consumers that decide which output bytes
+      // reach a shard must continue comparing this value.
+      hash,
       templateVersion,
+      // Most manifest entries have no separate cache key. Keep their JSONL
+      // byte shape unchanged; active job pages opt in when their volatile
+      // fragments can be refreshed on a reused HTML document.
+      ...(reuseHash !== hash ? { reuseHash } : {}),
       ...(postWalk ? { postWalk } : {}),
     };
     const previousEntry = this.entriesByPath.get(normalizedPath);
@@ -787,6 +830,13 @@ export class IncrementalManifest {
     const entry = this.entriesByPath.get(normalizeManifestPath(pagePath));
     if (!entry || (kind && entry.kind !== kind)) return null;
     return entry.hash;
+  }
+
+  getReuseHash(pagePath, kind = null) {
+    if (!pagePath) return null;
+    const entry = this.entriesByPath.get(normalizeManifestPath(pagePath));
+    if (!entry || (kind && entry.kind !== kind)) return null;
+    return entry.reuseHash ?? entry.hash;
   }
 
   counts() {
@@ -848,6 +898,7 @@ export class IncrementalManifest {
           writeLine({
             path: pagePath,
             hash: entry.hash,
+            ...(entry.reuseHash ? { reuseHash: entry.reuseHash } : {}),
             ...(entry.postWalk ? { postWalk: entry.postWalk } : {}),
           });
         }
@@ -1187,11 +1238,19 @@ export async function streamIncrementalManifest(file, onEntry, options = {}) {
     if (typeof record.path !== 'string' || record.path.length === 0 || typeof record.hash !== 'string') {
       throw new Error(`${file}:${lineNumber}: entry non valida`);
     }
+    if (record.reuseHash !== undefined && typeof record.reuseHash !== 'string') {
+      throw new Error(`${file}:${lineNumber}: reuseHash non valido`);
+    }
     if (seenPaths?.has(record.path)) throw new Error(`${file}:${lineNumber}: path duplicato ${record.path}`);
     seenPaths?.add(record.path);
     entryCount += 1;
     observedByKind[currentKind] += 1;
-    const entry = { path: record.path, inputHash: record.hash, kind: currentKind };
+    const entry = {
+      path: record.path,
+      inputHash: record.hash,
+      kind: currentKind,
+      ...(record.reuseHash !== undefined ? { reuseHash: record.reuseHash } : {}),
+    };
     // POST_WALK_INCREMENTAL (#8942) adds a compact identity/reference index
     // per entry; consumers decide which projection to retain.
     if (record.postWalk !== undefined) entry.postWalk = record.postWalk;
@@ -1232,6 +1291,9 @@ export async function streamIncrementalManifest(file, onEntry, options = {}) {
     data,
     entryCount,
     jobsSeoEmitterFingerprint,
+    // Raw footer record: shard snapshots add fields that only their writer,
+    // scripts/ci/shard-manifest-delta.mjs, interprets (`renderFingerprint`).
+    footer,
   };
 }
 
@@ -1252,6 +1314,7 @@ export async function loadIncrementalManifest(file) {
   return {
     file,
     data: streamed.data,
+    footer: streamed.footer,
     entries,
   };
 }

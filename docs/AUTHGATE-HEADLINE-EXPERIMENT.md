@@ -152,7 +152,7 @@ and the `value_first` branch from `JobBoard` (preview box reverts to the control
 
 ---
 
-## Round 3 — `jobgate-v3` — READY (not launched; Remote Config publish pending)
+## Round 3 — `jobgate-v3` — LIVE since 2026-09-25 (~04:55 UTC), 25/25/25/25
 
 First *randomised* multi-arm round. Rounds 1-2 and the model test set the arm
 globally (PostHog flag, later `AUTHGATE_HEADLINE_VARIANT`); v3 assigns each
@@ -232,3 +232,31 @@ Daily gate persons: 1,675 mean over 28 days, but ~1,000/day over 2026-09-13…23
 if traffic stays at ~1,000/day. No early stop on a peek: decide once, at the
 planned end. Round 1 moved auth_success by +50.8%, so +40% on structural
 levers is an ambitious but not unprecedented target.
+
+**Re-plan without robots (2026-09-25).** The table above used a baseline
+diluted by an automation fleet (Windows + Chrome, 1280x1200 screen, from
+Singapore: ~1,650 "persons"/day on the gate on 1-12/09, back in bursts from
+24/09). It now never enters the experiment (`matchesAutomationScreenSignature`
+in `services/botPatterns.ts`, part of `isLikelyBot()`) and the readout drops it
+from every GA4 count (`GA4_EXCLUDED_TRAFFIC` in `scripts/lib/experiment-stats.mjs`,
+printed per signature and arm). Without it, 16-24/09: 7,226 gate persons, 208
+new gate subscribers (after the 2026-09-25 `created_at` backfill), **baseline
+2.88%** (2.24% with the robots in the denominator); ~700 unique gate
+persons/day over 21-42-day windows. The plan in
+`scripts/experiments/jobgate-v3-plan.mjs`: +30% relative, 80% power, α 0.05/3
+→ **8,981 persons per arm**, **56 days** (analysis from 2026-09-26: the launch
+day had a CDN outage 04:55-06:30 UTC), decisions on whole weeks only, maximum
+70 days.
+
+**Monitor and automatic promotion.** `.github/workflows/jobgate-experiment-monitor.yml`
+runs `scripts/experiments/jobgate-v3-monitor.mjs` daily: it rewrites one status
+issue (`[jobgate-v3] Monitor esperimento: stato giornaliero`), opens/closes
+alarm issues (SRM p < 0.001, an arm significantly worse than control by ≥10%
+after Holm, gate subscribers missing the arm tag) and never changes anything
+for an alarm. It publishes `JOBGATE_EXPERIMENT_FORCE=<winner>` (etag, no
+`force`) only when the whole-week window has ≥ the planned days and persons per
+arm, no SRM, a challenger beating control on the primary metric with Holm
+p < 0.05, the winner not significantly worse on auth/gate or confirmation, and
+≥80% of gate subscribers carrying their arm. Past 70 days without that it asks
+the owner. Once FORCE is set the monitor pauses (idempotent). The decision
+rules are pinned in `tests/experiment-monitor.test.ts`.
