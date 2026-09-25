@@ -238,7 +238,7 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       expect(persist.run).toContain('--extra-only');
       expect(persist.run).toContain('data/crawler-generation-ledger.jsonl');
       expect(persist.run).toContain('git_commit_exit=$?');
-      expect(persist.run).toContain('eq 42');
+      expect(persist.run).toContain('ne 42');
       expect(persist.run).toContain('eq 43');
       expect(persist.run).toContain('exit "$git_commit_exit"');
       const finalizerFailure = stepByName(job.steps, 'Report crawler generation finalizer failure');

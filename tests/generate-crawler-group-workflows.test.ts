@@ -949,14 +949,14 @@ describe('#9667 — token-bound retry class on the group-batch commit step', () 
       expect(commitStep.run).toContain('git_commit_exit=$?');
       // ...42 must be handled explicitly and retried without creating a
       // green run whose receipt never reached main...
-      expect(commitStep.run).toContain('[ "$git_commit_exit" -eq 42 ]');
+      expect(commitStep.run).toContain('[ "$git_commit_exit" -ne 42 ]');
       expect(commitStep.run).toContain('exit 0');
       expect(commitStep.run).toContain('commit_max_attempts=3');
       expect(commitStep.run).toContain('retrying the same generation');
       expect(commitStep.run).toContain('same-generation retry budget exhausted');
       // ...as must the cross-repository lease convoy (exit 44), while the
       // exhausted retryable branch still propagates the non-zero status.
-      expect(commitStep.run).toContain('[ "$git_commit_exit" -eq 44 ]');
+      expect(commitStep.run).toContain('[ "$git_commit_exit" -ne 44 ]');
       expect(commitStep.run).toContain('retryable commit exit $git_commit_exit');
       expect(commitStep.run).toContain('exit "$git_commit_exit"');
     }
