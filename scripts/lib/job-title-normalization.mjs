@@ -25,6 +25,10 @@ const NARRATIVE_TITLE_INTRODUCERS = [
   /(?:^|[^\p{L}\p{N}_])(?:i need to|let me|looking at|reading (?:the )?job files?|if you(?:'d| would) like me)(?=$|[^\p{L}\p{N}_])[^.!?\n]*$/iu,
 ];
 
+function narrativeTitleRank(prefix) {
+  return NARRATIVE_TITLE_INTRODUCERS.findIndex((introducer) => introducer.test(prefix));
+}
+
 /**
  * Return a structurally introduced bold segment only when the surrounding
  * value is clearly an explanatory AI response rather than a job title.
@@ -37,17 +41,22 @@ export function extractNarrativeJobTitle(value) {
   const matches = [...source.matchAll(BOLD_SEGMENT_RE)];
   if (matches.length === 0) return '';
 
-  // The first introduced segment is the title. Later bold fragments belong to
-  // the explanation (for example, a note after the translated title).
+  // Prefer the strongest semantic introducer and keep the first segment when
+  // two introducers have the same strength. This skips a generic preamble
+  // such as "I need to" when a later `title:` introduces the real title.
+  let narrative = '';
+  let narrativeRank = Number.POSITIVE_INFINITY;
   for (let index = 0; index < matches.length; index += 1) {
     const match = matches[index];
     const candidate = String(match[1] || '').trim();
     const start = Number(match.index ?? -1);
     if (!candidate || start < 0) continue;
     const prefix = source.slice(0, start);
-    if (NARRATIVE_TITLE_INTRODUCERS.some((introducer) => introducer.test(prefix))) {
-      return candidate;
+    const rank = narrativeTitleRank(prefix);
+    if (rank >= 0 && rank < narrativeRank) {
+      narrative = candidate;
+      narrativeRank = rank;
     }
   }
-  return '';
+  return narrative;
 }

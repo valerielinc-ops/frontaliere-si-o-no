@@ -57,23 +57,29 @@ const NARRATIVE_TITLE_INTRODUCERS: readonly RegExp[] = [
   /(?:^|[^\p{L}\p{N}_])(?:i need to|let me|looking at|reading (?:the )?job files?|if you(?:'d| would) like me)(?=$|[^\p{L}\p{N}_])[^.!?\n]*$/iu,
 ];
 
+function narrativeTitleRank(prefix: string): number {
+  return NARRATIVE_TITLE_INTRODUCERS.findIndex((introducer) => introducer.test(prefix));
+}
+
 export function sanitizeBrowserJobTitle(value: string): string {
   if (!value) return value;
   const source = String(value).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
   const whole = stripWholeMarkdownBoldWrapper(source);
   const segments = [...source.matchAll(/(^|[^*])\*\*([^*\n]{1,240})\*\*(?!\*)/g)];
   let narrative = '';
-  // Keep the first introduced segment in lockstep with the build-time
-  // normalizer. Later bold fragments belong to the explanation, not the title.
+  let narrativeRank = Number.POSITIVE_INFINITY;
+  // Prefer the strongest semantic introducer and keep the first segment when
+  // two introducers have the same strength, in lockstep with build-time.
   for (let index = 0; index < segments.length; index += 1) {
     const match = segments[index];
     const candidate = String(match[2] || '').trim();
     const start = Number(match.index ?? -1) + String(match[1] || '').length;
     if (!candidate || start < 0) continue;
     const prefix = source.slice(0, start);
-    if (NARRATIVE_TITLE_INTRODUCERS.some((introducer) => introducer.test(prefix))) {
+    const rank = narrativeTitleRank(prefix);
+    if (rank >= 0 && rank < narrativeRank) {
       narrative = candidate;
-      break;
+      narrativeRank = rank;
     }
   }
   return stripJobTitleMarkdown(narrative || (whole !== source ? whole : source));
