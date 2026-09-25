@@ -81,10 +81,12 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import {
   isKnownSwissMunicipality,
+  isKnownSwissMunicipalityInCanton,
   inferAnyCanton,
   isCantonRelevant,
   swissCityFromLocationField,
 } from './lib/target-swiss-locations.mjs';
+import { inferCantonFromJobEvidence } from './lib/canton-evidence.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
 import { splitJobLocation } from './lib/job-location-display.mjs';
 import { descriptionRepeatsRegion, implausibilityReasons } from './lib/job-location-plausibility.mjs';
@@ -180,9 +182,10 @@ function loadCrawlerRecords() {
       if (!job || typeof job !== 'object') continue;
       const canton = norm(job.canton).toUpperCase();
       const city = norm(job.addressLocality || job.location);
+      const location = norm(job.location);
       if (!canton && !city) continue;
       const id = buildStableJobIdentity(job);
-      if (id) index.set(id, { canton, city });
+      if (id) index.set(id, { canton, city, location });
     }
   }
   return index;
@@ -200,6 +203,17 @@ function sameRecordedPlace(crawlerCity, publishedCity) {
   if (a === b) return true;
   const inner = swissCityFromLocationField(crawlerCity);
   return Boolean(inner) && inner.toLowerCase() === b;
+}
+
+function crawlerBacksStoredCanton(crawlerRecord, city, storedCanton) {
+  if (!crawlerRecord?.canton || !city || !storedCanton) return false;
+  if (crawlerRecord.canton !== storedCanton) return false;
+  if (!isKnownSwissMunicipalityInCanton(city, storedCanton)) return false;
+  return inferCantonFromJobEvidence({
+    cityText: city,
+    locationText: crawlerRecord.location || crawlerRecord.city,
+    crawlerCanton: crawlerRecord.canton,
+  }) === storedCanton;
 }
 
 /* ── Pass 0: per-company modal canton ─────────────────────────
@@ -348,7 +362,7 @@ for (const job of jobsToAudit) {
 
   if (isSwiss && inferredCanton) {
     // BFS knows this city
-    if (inferredCanton === cantonUpper) {
+    if (inferredCanton === cantonUpper || crawlerBacksStoredCanton(crawlerRecord, city, cantonUpper)) {
       results.correct.push({ id, company, city, storedCanton });
     } else if (!cantonUpper) {
       // No canton stored but we know it

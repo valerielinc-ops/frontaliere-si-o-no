@@ -22,6 +22,7 @@ import {
   isKnownSwissMunicipality,
   inferAnyCanton,
 } from './lib/target-swiss-locations.mjs';
+import { inferCantonFromJobEvidence } from './lib/canton-evidence.mjs';
 import { isLocationExplicitlyForeign } from './lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
@@ -113,7 +114,11 @@ for (const file of sliceFiles) {
     const cantonUpper = (job.canton || '').toUpperCase();
 
     // Check: is city a known Swiss municipality?
-    const inferredCanton = inferAnyCanton(city);
+    const inferredCanton = inferCantonFromJobEvidence({
+      cityText: city,
+      locationText: job.location,
+      crawlerCanton: job.canton,
+    });
 
     if (inferredCanton) {
       // BFS knows this city — verify canton matches

@@ -64,6 +64,7 @@ import {
 } from './lib/lidl-job-parser.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { inferCantonFromJobEvidence } from './lib/canton-evidence.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -826,7 +827,11 @@ function postProcessLidlJobs() {
     // location). Only overwrite when it resolves to a Swiss canton — never
     // blank an already-set canton, never default to TI.
     const cityForCanton = String(job?.addressLocality || job?.location || '').trim();
-    const inferred = inferAnyCanton(cityForCanton);
+    const inferred = inferCantonFromJobEvidence({
+      cityText: cityForCanton,
+      locationText: job?.location,
+      crawlerCanton: job?.canton,
+    });
     if (inferred && inferred !== job.canton) {
       job.canton = inferred;
       job.addressRegion = inferred;

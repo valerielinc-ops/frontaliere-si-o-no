@@ -55,6 +55,7 @@ import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator, isLikelyJobDetailUrl } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, isKnownSwissMunicipalityInCanton, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
+import { inferCantonFromJobEvidence } from './lib/canton-evidence.mjs';
 import { getCantonDisplayName, markLocationDerivedFromVacancyText } from './lib/crawler-location-config.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
@@ -73,6 +74,8 @@ import { decontaminateEntries } from './decontaminate-prev-slugs.mjs';
 import { extractNarrativeJobTitle } from './lib/job-title-normalization.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+export { inferCantonFromJobEvidence };
 
 function isHttpsJobUrl(value) {
   if (typeof value !== 'string' || !value.trim()) return false;
@@ -2841,7 +2844,13 @@ async function assembleJobs() {
     const crawlerCanton = job.canton || '';
     const city = String(job.addressLocality || job.location || '').trim();
     const hasCity = city.length >= 2 && city !== 'CH';
-    const rawInferred = hasCity ? inferAnyCanton(city) : null;
+    const rawInferred = hasCity
+      ? inferCantonFromJobEvidence({
+        cityText: city,
+        locationText: job.location,
+        crawlerCanton,
+      })
+      : null;
     // Guard: only accept the inference if it lands in a canton the funnel
     // actually serves (has a URL section). Otherwise leave the canton as-is
     // (empty stays empty — recognizable — rather than silently becoming an

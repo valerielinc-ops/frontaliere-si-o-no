@@ -21,7 +21,7 @@ import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { inferCantonFromJobEvidence } from './canton-evidence.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -287,11 +287,15 @@ export async function fetchAllBitfinexJobs() {
     // Extract location — remote company, default to Lugano HQ
     const firstLoc = offer.locations?.[0] || {};
     const city = normalizeSpace(firstLoc.city || HQ.city);
-    const state = normalizeSpace(firstLoc.state || 'Ticino');
+    const sourceState = normalizeSpace(firstLoc.state || '');
+    const state = sourceState || 'Ticino';
     const location = `${city}, ${state}`;
 
     // Infer actual canton from job city — don't hardcode HQ canton for foreign locations
-    const inferredCanton = inferAnyCanton(city) || inferAnyCanton(location);
+    const inferredCanton = inferCantonFromJobEvidence({
+      cityText: city,
+      locationText: sourceState ? location : city,
+    });
     const isForeignCity = isLocationExplicitlyForeign(city) || isLocationExplicitlyForeign(location);
     const jobCanton = inferredCanton || (isForeignCity ? '' : HQ.canton);
     const jobRegion = inferredCanton || (isForeignCity ? state : HQ.addressRegion);

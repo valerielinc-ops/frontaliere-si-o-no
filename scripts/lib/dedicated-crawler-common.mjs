@@ -60,6 +60,7 @@ import { isSystemicRejection } from './source-record-quarantine.mjs';
 import { sourceChangedSinceSuppression } from './source-changed-since-suppression.mjs';
 import { normalizeCompanyKey, normalizeKey } from './company-key.mjs';
 import { buildStableJobIdentity } from './job-identity.mjs';
+import { inferCantonFromJobEvidence } from './canton-evidence.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
@@ -3827,9 +3828,14 @@ export function healTruncatedStLocalities(jobs) {
   const isBare = (j) => TRUNCATED_ST_LOCALITY_RE.test(String(j.addressLocality || j.location || '').trim());
 
   const applyCity = (job, city) => {
+    const sourceLocation = String(job.location || '').trim();
     job.location = city;
     job.addressLocality = city;
-    const cant = inferAnyCanton(city);
+    const cant = inferCantonFromJobEvidence({
+      cityText: city,
+      locationText: sourceLocation || city,
+      crawlerCanton: job.canton,
+    });
     if (cant) { job.addressRegion = cant; job.canton = cant; }
     // Heal a postalCode that was stamped via the canton-capital fallback (the
     // recovered locality was absent from swiss-postal-codes.json) so it matches
@@ -3914,7 +3920,13 @@ export function applyCompanyDefaults(job, companySlug) {
     // the real per-job city; in that case derive the region from the city and
     // leave street/CAP empty for the PLZ/city fallback to resolve.
     const cityForCanton = String(job.addressLocality || job.location || '').trim();
-    const cityCanton = cityForCanton ? inferAnyCanton(cityForCanton) : '';
+    const cityCanton = cityForCanton
+      ? inferCantonFromJobEvidence({
+        cityText: cityForCanton,
+        locationText: job.location,
+        crawlerCanton: job.canton,
+      })
+      : '';
     const sameCanton = !cityCanton || cityCanton === defaults.addressRegion;
 
     // #3513: street+CAP are CITY-anchored — same canton is not enough. An
@@ -3994,7 +4006,11 @@ export function hardenJobsRichResultsData({ dataJobsPath }) {
     // If applyCompanyDefaults healed the locality away from the HQ default,
     // re-infer canton from the now-correct locality so it matches reality.
     if (aLBefore !== aLAfter && aLAfter) {
-      const inferred = inferAnyCanton(aLAfter);
+      const inferred = inferCantonFromJobEvidence({
+        cityText: aLAfter,
+        locationText: job.location,
+        crawlerCanton: job.canton,
+      });
       if (inferred && inferred !== job.canton) {
         job.canton = inferred;
         job.addressRegion = inferred;
