@@ -6686,6 +6686,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.made-in-europe-svizzera.title': 'Made in Europe: la Svizzera cerca posto negli appalti UE',
     'blog.article.made-in-europe-svizzera.excerpt': 'Il 24 settembre 2026 a Bruxelles si è discusso dell\'inclusione della Svizzera nella legge sull\'accelerazione industriale UE, con la Germania favorevole e la Francia contraria.',
     'blog.article.made-in-europe-svizzera.imageAlt': 'Impianto industriale svizzero con bandiera UE sullo sfondo, simbolo del dibattito \'Made in Europe\'',
+    'blog.article.urne-due-iniziative-2026.title': 'Voto Svizzera: neutralità e alimentazione',
+    'blog.article.urne-due-iniziative-2026.excerpt': 'Il 27 settembre 2026 la Svizzera vota su neutralità e alimentazione. La fonte invita a partecipare al sondaggio di 20 minuti e Tamedia.',
+    'blog.article.urne-due-iniziative-2026.imageAlt': 'Voto svizzero sulle iniziative per neutralità e alimentazione',
 };
 
 export default blogMetaChIt;

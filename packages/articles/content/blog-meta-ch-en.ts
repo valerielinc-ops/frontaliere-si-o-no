@@ -6686,6 +6686,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.made-in-europe-svizzera.title': 'Made in Europe: Switzerland seeks place in EU procurement',
     'blog.article.made-in-europe-svizzera.excerpt': 'On 24 September 2026 in Brussels, the inclusion of Switzerland in the EU industrial acceleration law was discussed, with Germany in favour and France against.',
     'blog.article.made-in-europe-svizzera.imageAlt': 'Swiss industrial plant with EU flag in background, symbol of the \'Made in Europe\' debate',
+    'blog.article.urne-due-iniziative-2026.title': 'Vote Switzerland: neutrality and nutrition',
+    'blog.article.urne-due-iniziative-2026.excerpt': 'On September 27, 2026, Switzerland votes on neutrality and nutrition. The source invites you to participate in the 20-minute survey and Tamedia.',
+    'blog.article.urne-due-iniziative-2026.imageAlt': 'Swiss vote on neutrality and food initiatives',
 };
 
 export default blogMetaChEn;

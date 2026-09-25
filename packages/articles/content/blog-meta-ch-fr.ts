@@ -6686,6 +6686,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.made-in-europe-svizzera.title': 'Fabriqué en Europe : la Suisse cherche une place dans les marchés publics de l\'UE',
     'blog.article.made-in-europe-svizzera.excerpt': 'Le 24 septembre 2026 à Bruxelles, on a discuté de l\'inclusion de la Suisse dans la loi sur l\'accélération industrielle de l\'UE, avec l\'Allemagne pour et la France contre.',
     'blog.article.made-in-europe-svizzera.imageAlt': 'Usine industrielle suisse avec drapeau de l\'UE en arrière-plan, symbole du débat \'Made in Europe\'',
+    'blog.article.urne-due-iniziative-2026.title': 'Note Suisse : neutralité et alimentation',
+    'blog.article.urne-due-iniziative-2026.excerpt': 'Le 27 septembre 2026, la Suisse vote sur la neutralité et l\'alimentation. La source vous invite à participer au sondage de 20 minutes et Tamedia.',
+    'blog.article.urne-due-iniziative-2026.imageAlt': 'Vote suisse sur neutralité et alimentation',
 };
 
 export default blogMetaChFr;
