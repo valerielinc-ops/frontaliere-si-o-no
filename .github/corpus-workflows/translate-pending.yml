@@ -41,6 +41,10 @@ on:
         description: Dry run (no commit)
         type: boolean
         default: false
+      collect_company_served:
+        description: Collect raw companyServed rows for the translation-thinking-ab measurement
+        type: boolean
+        default: false
 concurrency:
   group: jobs-data-pipeline
   cancel-in-progress: false
@@ -53,6 +57,7 @@ env:
   NODE_OPTIONS: --disable-warning=DEP0040 --disable-warning=DEP0169 --max-old-space-size=12288
   TRANSLATE_RUN_CLOCK_REQUIRED: "1"
   TRANSLATION_DETECTOR_MEMO: ${{ vars.TRANSLATION_DETECTOR_MEMO || '1' }}
+  TRANSLATION_THINKING_AB: ${{ inputs.collect_company_served == true && '1' || '' }}
 jobs:
   translate:
     runs-on: ubuntu-latest
@@ -538,6 +543,14 @@ jobs:
           path: ${{ runner.temp }}/translation-cascade-companies.json
           retention-days: 30
           if-no-files-found: warn
+      - name: Upload translation thinking A/B observations
+        if: always() && inputs.collect_company_served == true && inputs.skip_translate != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: translation-thinking-ab-${{ github.run_id }}-${{ github.run_attempt }}.json
+          path: ${{ runner.temp }}/translation-thinking-ab.json
+          retention-days: 30
+          if-no-files-found: error
       - name: Upload Argos semantic telemetry
         if: always() && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         continue-on-error: true

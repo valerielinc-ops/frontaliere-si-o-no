@@ -281,3 +281,32 @@ describe('la leva arriva davvero al processo figlio', () => {
     expect(aiModels).toContain('env: claudeCliChildEnv()');
   });
 });
+
+describe('raccolta operativa companyServed', () => {
+  const workflowPaths = [
+    '.github/workflows/translate-pending-logic.yml',
+    '.github/workflows/translate-pending.yml',
+    '.github/corpus-workflows/translate-pending.yml',
+  ];
+
+  it('mantiene la raccolta opt-in senza cambiare le run schedulate', () => {
+    for (const relativePath of workflowPaths) {
+      const workflow = fs.readFileSync(path.join(process.cwd(), relativePath), 'utf8');
+      expect(workflow).toContain('collect_company_served:');
+      expect(workflow).toContain('default: false');
+      expect(workflow).toContain("TRANSLATION_THINKING_AB: ${{ inputs.collect_company_served == true && '1' || '' }}");
+      expect(workflow).not.toContain("TRANSLATION_THINKING_AB: '1'");
+    }
+  });
+
+  it('pubblica il file raw solo quando la raccolta è richiesta', () => {
+    for (const relativePath of workflowPaths) {
+      const workflow = fs.readFileSync(path.join(process.cwd(), relativePath), 'utf8');
+      expect(workflow).toContain('name: Upload translation thinking A/B observations');
+      expect(workflow).toContain('name: translation-thinking-ab-${{ github.run_id }}-${{ github.run_attempt }}.json');
+      expect(workflow).toContain('path: ${{ runner.temp }}/translation-thinking-ab.json');
+      expect(workflow).toContain('if-no-files-found: error');
+      expect(workflow).toContain('inputs.collect_company_served == true && inputs.skip_translate != true');
+    }
+  });
+});

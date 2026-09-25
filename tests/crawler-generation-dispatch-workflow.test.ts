@@ -248,7 +248,10 @@ describe('crawler generation PR B workflow wiring', () => {
       const setupIndex = steps.findIndex((step: any) => step.id === 'setup_claude_haiku_fallback');
       expect(setupIndex).toBeGreaterThan(mopUp.index);
       expect(steps[cascade.index].env?.CODEX_AUTH_BROKER_SOCKET).toBeUndefined();
-      expect(JSON.stringify(document)).not.toContain('TRANSLATION_THINKING_AB');
+      // The experiment is intentionally declared as an opt-in input by the
+      // companyServed observation PR; only an unconditional enablement would
+      // reactivate it on scheduled translation runs.
+      expect(JSON.stringify(document)).not.toMatch(/TRANSLATION_THINKING_AB:\s*["']1["']/);
     }
   });
 

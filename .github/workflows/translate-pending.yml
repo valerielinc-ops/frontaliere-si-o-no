@@ -49,6 +49,10 @@ on:
         description: 'Dry run (no commit)'
         type: boolean
         default: false
+      collect_company_served:
+        description: 'Collect raw companyServed rows for the translation-thinking-ab measurement'
+        type: boolean
+        default: false
 
 concurrency:
   group: jobs-data-pipeline
@@ -69,6 +73,9 @@ env:
   # times per run, so give Node headroom above its ~4GB implicit default
   # while leaving ~4GB for the OS/git/npm subprocesses (issue #3767 OOM).
   NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169 --max-old-space-size=12288'
+  # The existing thinking A/B remains opt-in: data collection must not change
+  # the scheduled translation behavior unless a caller explicitly asks for it.
+  TRANSLATION_THINKING_AB: ${{ inputs.collect_company_served == true && '1' || '' }}
 
 jobs:
   translate:
@@ -376,6 +383,15 @@ jobs:
       - name: Log translation stats (after)
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
         run: node scripts/log-translation-stats.mjs after
+
+      - name: Upload translation thinking A/B observations
+        if: always() && inputs.collect_company_served == true && inputs.skip_translate != true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: translation-thinking-ab-${{ github.run_id }}-${{ github.run_attempt }}.json
+          path: ${{ runner.temp }}/translation-thinking-ab.json
+          retention-days: 30
+          if-no-files-found: error
 
       - name: Scatter changes back to per-crawler slices
         # always()-guarded so partial work is scattered to per-crawler slices for

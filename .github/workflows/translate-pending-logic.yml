@@ -99,6 +99,10 @@ on:
         description: 'Dry run (no commit)'
         type: boolean
         default: false
+      collect_company_served:
+        description: 'Collect raw companyServed rows for the translation-thinking-ab measurement'
+        type: boolean
+        default: false
     secrets:
       FIREBASE_SERVICE_ACCOUNT_JSON:
         required: false
@@ -115,6 +119,9 @@ env:
   TRANSLATE_RUN_CLOCK_REQUIRED: '1'
   # Bounded, opt-out memo for repeated stats/observability language detection.
   TRANSLATION_DETECTOR_MEMO: ${{ vars.TRANSLATION_DETECTOR_MEMO || '1' }}
+  # The existing thinking A/B remains opt-in: data collection must not change
+  # the scheduled translation behavior unless a caller explicitly asks for it.
+  TRANSLATION_THINKING_AB: ${{ inputs.collect_company_served == true && '1' || '' }}
 
 jobs:
   translate:
@@ -686,6 +693,14 @@ jobs:
           retention-days: 30
           if-no-files-found: warn
 
+      - name: Upload translation thinking A/B observations
+        if: always() && inputs.collect_company_served == true && inputs.skip_translate != true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: translation-thinking-ab-${{ github.run_id }}-${{ github.run_attempt }}.json
+          path: ${{ runner.temp }}/translation-thinking-ab.json
+          retention-days: 30
+          if-no-files-found: error
       # Argos semantic gate telemetry (#9677), one JSON per mop-up phase:
       # verdicts accepted/rejected/unclear/error, writes by kind, withheld by
       # reason (kill-switch/cap/rollback), cap and #9676 rollback-guard state.
