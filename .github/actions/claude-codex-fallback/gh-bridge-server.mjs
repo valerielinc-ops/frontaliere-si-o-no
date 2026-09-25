@@ -257,6 +257,18 @@ export function reviewRetryDetails(args, commandIndex, {
   return { pullNumber, body, headSha: normalizedHead };
 }
 
+/**
+ * Identity of a review already posted in this bridge session.  PR #9705 got
+ * the same body twice on one HEAD: a successful `gh pr review` prints nothing
+ * without a TTY, so Codex read only the bridge error of a sibling command in
+ * the same shell line and posted again.  Same PR, HEAD and body (compared like
+ * the idempotency probe, trailing whitespace ignored) is the same review.
+ */
+export function postedReviewKey(details) {
+  if (!details) return '';
+  return JSON.stringify([details.pullNumber, details.headSha.toLowerCase(), details.body.trimEnd()]);
+}
+
 function hasExplicitOption(args, name) {
   return args.some((arg) => arg === name || arg.startsWith(`${name}=`));
 }
@@ -905,6 +917,7 @@ function main() {
   let activeConnections = 0;
   const children = new Set();
   const clients = new Set();
+  const postedReviewKeys = new Set();
   let shuttingDown = false;
   let shutdownFinalized = false;
   let shutdownTimer = null;
@@ -1029,6 +1042,23 @@ function main() {
         scratchRoot,
         headSha: process.env.HEAD_SHA,
       });
+      const reviewKey = postedReviewKey(reviewDetails);
+      if (reviewKey && postedReviewKeys.has(reviewKey)) {
+        finish({
+          code: 0,
+          stdout: '',
+          stderr: `Codex GitHub bridge: this exact review is already posted on PR #${reviewDetails.pullNumber} for HEAD ${reviewDetails.headSha}; it was not posted again.\n`,
+        });
+        return;
+      }
+      const reviewPosted = (result) => {
+        if (reviewKey) postedReviewKeys.add(reviewKey);
+        const target = reviewDetails ? ` on PR #${reviewDetails.pullNumber}` : '';
+        return {
+          ...result,
+          stderr: `${result.stderr || ''}Codex GitHub bridge: review posted${target}. Do not post it again.\n`,
+        };
+      };
       let reviewAttempt = 0;
 
       const reviewWasPersisted = (details) => new Promise((resolve) => {
@@ -1165,11 +1195,11 @@ function main() {
             && !client.destroyed
             && !shuttingDown) {
             if (await reviewWasPersisted(reviewDetails)) {
-              finish({
+              finish(reviewPosted({
                 code: 0,
                 stdout,
                 stderr: `${detail}Codex GitHub bridge confirmed the review after a transient response.\n`,
-              });
+              }));
               return;
             }
             const delay = REVIEW_RETRY_DELAYS_MS[reviewAttempt - 1] || REVIEW_RETRY_DELAYS_MS.at(-1);
@@ -1179,7 +1209,7 @@ function main() {
             }, delay);
             return;
           }
-          finish(result);
+          finish(result.code === 0 && isPullRequestReviewArgs(args) ? reviewPosted(result) : result);
           if (shuttingDown && children.size === 0) finalizeShutdown();
         });
       };

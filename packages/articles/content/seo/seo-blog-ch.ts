@@ -86600,6 +86600,201 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salasso-alla-pompa-benzina': {
+    title: 'Salasso alla pompa: diesel caro, benzina in rialzo',
+    description: 'Il 24 settembre 2026 a Zurigo il diesel raggiunge 2,46 CHF/l, la benzina 95 2,14 CHF/l e il petrolio supera i 100 USD/barile. Scopri le prospettive di rialzo',
+    keywords: 'frontalieri, ticino, svizzera, italia, salasso, alla, pompa, diesel',
+    ogTitle: 'Salasso alla pompa: diesel caro, benzina in rialzo',
+    ogDescription: 'A Zurigo, il 24 settembre 2026, il diesel costa in media 2,46 franchi al litro con picchi oltre 2,50, mentre la benzina senza piombo 95 è a 2,14 franchi di mediana. Il petrolio supera i 100 dollari al barile e le prospettive di Goldman Sachs indicano',
+    canonicalPath: '/articoli-svizzera/salasso-alla-pompa-benzina/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salasso alla pompa: diesel caro, benzina in rialzo",
+      "description": "Il 24 settembre 2026 a Zurigo il diesel raggiunge 2,46 CHF/l, la benzina 95 2,14 CHF/l e il petrolio supera i 100 USD/barile. Scopri le prospettive di rialzo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salasso-alla-pompa-benzina.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di servizio a Zurigo con display prezzi diesel e benzina"
+      },
+      "datePublished": "2026-09-25T01:29:16+00:00",
+      "dateModified": "2026-09-25T01:29:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salasso-alla-pompa-benzina/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-made-in-europe-svizzera': {
+    title: 'Made in Europe: la Svizzera cerca posto negli appalti UE',
+    description: 'Il 24 settembre 2026 a Bruxelles si discute l\'inclusione della Svizzera nella legge sull\'accelerazione industriale UE: Germania favorevole, Francia contraria',
+    keywords: 'frontalieri, ticino, svizzera, italia, made, europe, cerca, posto',
+    ogTitle: 'Made in Europe: la Svizzera cerca posto negli appalti UE',
+    ogDescription: 'A Bruxelles il 24 settembre 2026 ministri di Germania, Francia, Polonia e Spagna hanno dibattuto se la Svizzera possa beneficiare della «preferenza europea» negli appalti pubblici prevista dalla legge sull\'accelerazione industriale. La Germania',
+    canonicalPath: '/articoli-svizzera/made-in-europe-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Made in Europe: la Svizzera cerca posto negli appalti UE",
+      "description": "Il 24 settembre 2026 a Bruxelles si discute l'inclusione della Svizzera nella legge sull'accelerazione industriale UE: Germania favorevole, Francia contraria",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/made-in-europe-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Impianto industriale svizzero con bandiera UE sullo sfondo, simbolo del dibattito 'Made in Europe'"
+      },
+      "datePublished": "2026-09-25T02:02:08+00:00",
+      "dateModified": "2026-09-25T02:02:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/made-in-europe-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-urne-due-iniziative-2026': {
+    title: 'Voto Svizzera: neutralità e alimentazione | Frontaliere Ticino',
+    description: 'Il 27 settembre 2026 la Svizzera vota su neutralità e alimentazione. La fonte invita a partecipare al sondaggio di 20 minuti e Tamedia. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, voto, neutralità, alimentazione, settembre',
+    ogTitle: 'Voto Svizzera: neutralità e alimentazione',
+    ogDescription: 'Domenica 27 settembre 2026 il popolo svizzero sarà chiamato alle urne su due iniziative popolari: la salvaguardia della neutralità svizzera e un\'alimentazione sicura. 20 minuti e Tamedia chiedono ai lettori come hanno votato.',
+    canonicalPath: '/articoli-svizzera/urne-due-iniziative-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Voto Svizzera: neutralità e alimentazione",
+      "description": "Il 27 settembre 2026 la Svizzera vota su neutralità e alimentazione. La fonte invita a partecipare al sondaggio di 20 minuti e Tamedia. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/urne-due-iniziative-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Voto svizzero sulle iniziative per neutralità e alimentazione"
+      },
+      "datePublished": "2026-09-25T03:15:17+00:00",
+      "dateModified": "2026-09-25T03:15:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/urne-due-iniziative-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-conferenza-protezione-popolazione-berna': {
+    title: 'Conferenza protezione popolazione: cell broadcast accelerato',
+    description: 'Berna, 23 settembre 2026: la Conferenza dei capi ufficio discute resilienza e conflitto armato. Il Consiglio federale accelera il cell broadcast.',
+    keywords: 'frontalieri, ticino, svizzera, italia, conferenza, protezione, popolazione, cell',
+    ogTitle: 'Conferenza protezione popolazione: cell broadcast accelerato',
+    ogDescription: 'Il 23 settembre 2026 a Berna si è riunita la Conferenza dei capi ufficio della protezione della popolazione. Al centro dei lavori: il rafforzamento delle capacità, il progetto sul conflitto armato e l\'accelerazione del cell broadcast decisa',
+    canonicalPath: '/articoli-svizzera/conferenza-protezione-popolazione-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Conferenza protezione popolazione: cell broadcast accelerato",
+      "description": "Berna, 23 settembre 2026: la Conferenza dei capi ufficio discute resilienza e conflitto armato. Il Consiglio federale accelera il cell broadcast.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/conferenza-protezione-popolazione-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Rappresentanti dei cantoni riuniti in conferenza a Berna per discutere la protezione della popolazione e il cell broadcast."
+      },
+      "datePublished": "2026-09-25T04:12:08+00:00",
+      "dateModified": "2026-09-25T04:12:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/conferenza-protezione-popolazione-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lumpy-skin-disease-fine-vaccinazione': {
+    title: 'LSD: fine vaccinazione bovini il 30 settembre 2026',
+    description: 'La campagna di vaccinazione contro la LSD termina il 30 settembre 2026. Dal 1° ottobre inizia un periodo di attesa di 8 mesi con sorveglianza rafforzata.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fine, vaccinazione, bovini, settembre',
+    ogTitle: 'LSD: fine vaccinazione bovini il 30 settembre 2026',
+    ogDescription: 'La Svizzera termina la vaccinazione obbligatoria contro la LSD il 30 settembre 2026. Dal 1° ottobre inizia un\'attesa di 8 mesi con sorveglianza mirata nei Cantoni di Ginevra, Vaud e Vallese. Status indenne non prima di giugno 2027.',
+    canonicalPath: '/articoli-svizzera/lumpy-skin-disease-fine-vaccinazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "LSD: fine vaccinazione bovini il 30 settembre 2026",
+      "description": "La campagna di vaccinazione contro la LSD termina il 30 settembre 2026. Dal 1° ottobre inizia un periodo di attesa di 8 mesi con sorveglianza rafforzata.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lumpy-skin-disease-fine-vaccinazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mucca in un pascolo svizzero con montagne sullo sfondo, contesto della campagna di sorveglianza LSD"
+      },
+      "datePublished": "2026-09-25T04:56:43+00:00",
+      "dateModified": "2026-09-25T04:56:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lumpy-skin-disease-fine-vaccinazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

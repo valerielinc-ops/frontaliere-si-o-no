@@ -413,6 +413,16 @@ describe('issue-fix F1/F7 policy gate', () => {
     expect(workflow).toContain("steps.diff_gate.outcome == 'success'");
   });
 
+  it('un albero pulito passa il diff gate: esiti senza codice non sono un run rosso', () => {
+    const gate = workflow.slice(
+      workflow.indexOf('- name: Enforce F1/F7 output diff gate'),
+      workflow.indexOf('- name: Salva il lavoro parziale'),
+    );
+    const empty = gate.slice(gate.indexOf('if [ ! -s "$paths_file" ]'), gate.indexOf('node --input-type=module'));
+    expect(empty).toContain('exit 0');
+    expect(empty).not.toContain('exit 1');
+  });
+
   it('tratta la rimozione VISION come transizione concorrente, ma resta fail-closed', () => {
     const risk = workflow.slice(
       workflow.indexOf('Preflight F1/F7 path-risk policy before capabilities'),

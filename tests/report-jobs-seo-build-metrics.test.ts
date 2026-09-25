@@ -1,9 +1,28 @@
+import { readdirSync, readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   parseJobsSeoBuildLog,
+  renderMarkerFile,
   renderSummary,
   validateFullCorpusMeasurement,
 } from '../scripts/ci/report-jobs-seo-build-metrics.mjs';
+
+// Verbatim `jobs-seo-full-corpus-markers-<run_id>` artifacts of real production
+// deploy runs (build-locale (it)). #9754 shipped `previousSlugEntries > 0`
+// tested only against a synthetic log; every healthy production build reports
+// 0 there by design, and the invariant failed every deploy until #9773. The
+// validator of #9754 exits 1 on each of these files. Any invariant added or
+// tightened in validateFullCorpusMeasurement must hold on ALL of them, so a
+// check that production does not satisfy fails on the PR instead of on the
+// deploy. To add one (retention 14 days):
+//   gh run download <run_id> --name jobs-seo-full-corpus-markers-<run_id>
+//   mv jobs-seo-markers.txt tests/fixtures/jobs-seo-full-corpus-markers/run-<run_id>.txt
+const PRODUCTION_MARKERS_DIR = resolve(import.meta.dirname, 'fixtures/jobs-seo-full-corpus-markers');
+const PRODUCTION_MARKERS = readdirSync(PRODUCTION_MARKERS_DIR)
+  .filter((file) => /^run-\d+\.txt$/u.test(file))
+  .sort()
+  .map((file) => ({ file, text: readFileSync(resolve(PRODUCTION_MARKERS_DIR, file), 'utf8') }));
 
 const FULL_CORPUS_LOG = [
   '\u001b[35m[mem]\u001b[0m jobsSeoPages: after-active-pages heapUsed=10602MB (gcFreed=10MB) external=10MB arrayBuffers=2MB rss=11805MB validJobs=22595 bridgeCount=0',
@@ -117,5 +136,45 @@ describe('report-jobs-seo-build-metrics', () => {
     expect(validateFullCorpusMeasurement(noField).errors).toEqual([
       'after-previous-slug-bridges has no previousSlugEntries field (expected a non-negative integer)',
     ]);
+  });
+});
+
+describe('replay on real production marker artifacts', () => {
+  it('finds the production artifacts (an empty glob would make the replay vacuous)', () => {
+    expect(PRODUCTION_MARKERS.map(({ file }) => file)).toEqual(expect.arrayContaining([
+      'run-36065965021.txt',
+      'run-36077807468.txt',
+      'run-36088944074.txt',
+    ]));
+  });
+
+  it.each(PRODUCTION_MARKERS)('$file satisfies every full-corpus invariant', ({ text }) => {
+    const report = parseJobsSeoBuildLog(text);
+
+    expect(validateFullCorpusMeasurement(report)).toEqual({ ok: true, errors: [] });
+    // The production fact #9754 got wrong: bridges are emitted by the tens of
+    // thousands while none is advertised in the sitemap.
+    expect(report.previousSlugBridges.bridgeCount).toBeGreaterThan(0);
+    expect(report.previousSlugBridges.previousSlugEntries).toBe(0);
+  });
+
+  it.each(PRODUCTION_MARKERS)('$file replays to the verdict the deploy computed on the full log', ({ text }) => {
+    // Interleave the non-marker noise a real build log carries, including
+    // marker-looking text that is not at the start of the line.
+    const noisyLog = text
+      .split('\n')
+      .flatMap((line, index) => [
+        `vite v6 transforming (${index}) src/pages/Page${index}.tsx`,
+        `  warn: see [jobs-seo-sample] docs, not a marker ${index}`,
+        line,
+      ])
+      .join('\n');
+
+    const fromLog = parseJobsSeoBuildLog(noisyLog);
+    const fromArtifact = parseJobsSeoBuildLog(renderMarkerFile(fromLog));
+
+    expect(fromArtifact.markerLines).toEqual(fromLog.markerLines);
+    expect(validateFullCorpusMeasurement(fromArtifact)).toEqual(validateFullCorpusMeasurement(fromLog));
+    expect(validateFullCorpusMeasurement(fromLog).ok).toBe(true);
   });
 });

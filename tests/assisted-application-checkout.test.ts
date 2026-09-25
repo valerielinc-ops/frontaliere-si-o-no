@@ -112,6 +112,27 @@ beforeEach(() => {
 });
 
 describe('handleCreateAssistedApplicationCheckout', () => {
+  it('rejects crawler and automation user-agents before authentication or Stripe', async () => {
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+    const userAgents = ['Googlebot/2.1', 'Mozilla/5.0 HeadlessChrome/140.0.0.0'];
+
+    for (const userAgent of userAgents) {
+      const result = await handleCreateAssistedApplicationCheckout(request({
+        get: (name: string) => {
+          if (name.toLowerCase() === 'user-agent') return userAgent;
+          return name.toLowerCase() === 'authorization' ? 'Bearer good-token' : '';
+        },
+      }));
+      expect(result).toEqual({
+        status: 403,
+        body: { ok: false, error: 'automation_not_allowed' },
+      });
+    }
+
+    expect(verifyIdToken).not.toHaveBeenCalled();
+    expect(stripeCheckoutSessionsCreate).not.toHaveBeenCalled();
+  });
+
   it('requires an authenticated POST', async () => {
     const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
 

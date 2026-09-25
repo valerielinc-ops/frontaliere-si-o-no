@@ -254,7 +254,7 @@ const blogMetaDe: Record<string, string> = {
  'blog.article.congedo-genitori-frontaliere-ticino.excerpt': 'Als Grenzgänger Eltern werden: Wie funktionieren Mutterschaft und Vaterschaft zwischen der Schweiz und Italien? Hier sind die Zahlen, Anforderungen und Verfahren für 2026.',
  'blog.article.congedo-genitori-frontaliere-ticino.imageAlt': 'Junge Grenzgänger-Eltern planen ihre Elternzeit auf einem Tablet, mit Blick auf den Luganersee im Tessin.',
  'blog.article.costo-pendolare-auto-ticino-2026.title': 'Autokosten für Grenzgänger: Wie sehr belastet es Ihr Gehalt?',
- 'blog.article.costo-pendolare-auto-ticino-2026.excerpt': 'Benzin, Verschleiss, Parken und Vignette: die komplette Kostenanalyse 2026. Ein Pendler gibt bis zu 7.500 CHF pro Jahr aus. Vergleich mit Zug und Bus.',
+ 'blog.article.costo-pendolare-auto-ticino-2026.excerpt': 'Benzin, Verschleiss, Parken und Vignette: die komplette Kostenanalyse 2026. Ein Pendler gibt rund 8.670 CHF pro Jahr aus. Vergleich mit Zug und Bus.',
  'blog.article.costo-pendolare-auto-ticino-2026.imageAlt': 'Autoschlange von Grenzgängern am Grenzübergang Chiasso-Brogeda im Tessin am frühen Morgen.',
  'blog.article.guida-dichiarazione-redditi-frontalieri.title': 'Steuererklärung für Grenzgänger: Leitfaden zum 730 für Tessin',
  'blog.article.guida-dichiarazione-redditi-frontalieri.excerpt': 'Formular 730/2026 und Redditi PF: Wo der Schweizer Lohn eingetragen wird, wie man die Steuergutschrift berechnet und welche Dokumente benötigt werden. Der komplette Leitfaden für Grenzgänger im Tessin.',
@@ -11949,6 +11949,15 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mobilizzazione-ferroviaria-luino-svizzera.title': 'Linie Luino-Schweiz: Aktion haftet an Lombardei bewegt sich',
     'blog.article.mobilizzazione-ferroviaria-luino-svizzera.excerpt': 'Samstag, 26. September Mobilisierung in den lombardischen Bahnhöfen für die Effizienz der Eisenbahn. Fokus auf Strecke Luino-Schweiz und Unterschriftensammlung für den Minister.',
     'blog.article.mobilizzazione-ferroviaria-luino-svizzera.imageAlt': 'Regionalzug kommt in einem Bahnhof im Tessin an',
+    'blog.article.bns-franco-euro-cambio.title': 'SNB: Schwacher Franken, Euro bei 0,9423 CHF',
+    'blog.article.bns-franco-euro-cambio.excerpt': 'Die SNB bestätigt den Zinssatz auf null. Der Euro steigt auf 0,9423 Franken, der Dollar auf 0,8268: Auswirkungen auf den Gegenwert für Grenzgänger.',
+    'blog.article.bns-franco-euro-cambio.imageAlt': 'Blick auf den Luganersee mit der Stadt im Hintergrund, Morgenlicht',
+    'blog.article.gornate-olona-regime-fiscale.title': 'Gornate Olona: Arbeiten im Tessin als Grenzgänger',
+    'blog.article.gornate-olona-regime-fiscale.excerpt': 'Von Gornate Olona bis Tessin: Grenzgängerabkommen in Kraft seit dem 1. Januar 2024, Quellensteuer, Befreiung € 7\'500 oder Selbstbehalt € 10\'000, AHV und KVG.',
+    'blog.article.gornate-olona-regime-fiscale.imageAlt': 'Grenzgänger zwischen Gornate Olona und dem Kanton Tessin',
+    'blog.article.bns-decisione-tasso-invariato-2026.title': 'SNB lässt Zinssatz bei 0% und steigert BIP 2026',
+    'blog.article.bns-decisione-tasso-invariato-2026.excerpt': 'Die SNB hält den Referenzzinssatz bei 0% (unverändert seit Juni 2025), prognostiziert eine Inflation von 0,7% im Jahr 2026 und 0,8% im Jahr 2027 und ein BIP 2026 zwischen 1,5% und 2,0%.',
+    'blog.article.bns-decisione-tasso-invariato-2026.imageAlt': 'Blick auf den Luganer See mit den Bergen im Hintergrund, Morgenlicht',
 };
 
 export default blogMetaDe;

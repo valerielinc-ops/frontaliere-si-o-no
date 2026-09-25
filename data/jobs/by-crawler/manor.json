@@ -170,7 +170,22 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-09-23T23:53:59.307Z"
+      "firstSeenAt": "2026-09-23T23:53:59.307Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-collaborateur-trice-vente-parfumerie-50-geneve-3h3d54",
+          "worker-eur-cart-parfumerie-50-manor-ag-geneve",
+          "manor-collaborateur-trice-vente-parfumerie-50-geneve-2"
+        ],
+        "en": [
+          "worker-eur-cart-parfumerie-50-manor-ag-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "manor-collaborateur-trice-vente-parfumerie-50-geneve-3h3d54",
+        "worker-eur-cart-parfumerie-50-manor-ag-geneve",
+        "manor-collaborateur-trice-vente-parfumerie-50-geneve-2"
+      ]
     },
     {
       "title": "Collaborateur/trice supermarché (Boulangerie) 50%",
@@ -10821,7 +10836,6 @@
       },
       "firstSeenAt": "2026-08-27T00:49:23.954Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 39300,
       "salaryMax": 49500,
       "currency": "CHF",

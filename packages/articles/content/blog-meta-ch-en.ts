@@ -6680,6 +6680,21 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.turismo-agosto-ospiti-estero.title': 'End of summer with fewer foreign tourists in Switzerland',
     'blog.article.turismo-agosto-ospiti-estero.excerpt': 'In August, overnight stays in Switzerland fell by 1.9% on an annual basis: foreign guests weigh on them, but domestic demand also lags behind.',
     'blog.article.turismo-agosto-ospiti-estero.imageAlt': 'Tourists on a Swiss lakeside promenade in a late-summer scene.',
+    'blog.article.salasso-alla-pompa-benzina.title': 'Salasso at the pump: expensive diesel, gasoline on the rise',
+    'blog.article.salasso-alla-pompa-benzina.excerpt': 'On 24 September 2026 in Zurich diesel costs on average 2.46 CHF/l (peaks >2.50), petrol 95 2.14 CHF/l, while oil exceeds 100 USD/barrel.',
+    'blog.article.salasso-alla-pompa-benzina.imageAlt': 'Fuel station in Zurich showing diesel and gasoline price signs',
+    'blog.article.made-in-europe-svizzera.title': 'Made in Europe: Switzerland seeks place in EU procurement',
+    'blog.article.made-in-europe-svizzera.excerpt': 'On 24 September 2026 in Brussels, the inclusion of Switzerland in the EU industrial acceleration law was discussed, with Germany in favour and France against.',
+    'blog.article.made-in-europe-svizzera.imageAlt': 'Swiss industrial plant with EU flag in background, symbol of the \'Made in Europe\' debate',
+    'blog.article.urne-due-iniziative-2026.title': 'Vote Switzerland: neutrality and nutrition',
+    'blog.article.urne-due-iniziative-2026.excerpt': 'On September 27, 2026, Switzerland votes on neutrality and nutrition. The source invites you to participate in the 20-minute survey and Tamedia.',
+    'blog.article.urne-due-iniziative-2026.imageAlt': 'Swiss vote on neutrality and food initiatives',
+    'blog.article.conferenza-protezione-popolazione-berna.title': 'Population protection conference: accelerated cell broadcast',
+    'blog.article.conferenza-protezione-popolazione-berna.excerpt': 'On 23 September 2026 in Bern, the Federal Council accelerates cell broadcasting and Marc Siegenthaler attends the conference.',
+    'blog.article.conferenza-protezione-popolazione-berna.imageAlt': 'Cantonal representatives meeting in Bern to discuss civil protection and the cell broadcast system.',
+    'blog.article.lumpy-skin-disease-fine-vaccinazione.title': 'LSD: end of bovine vaccination on September 30, 2026',
+    'blog.article.lumpy-skin-disease-fine-vaccinazione.excerpt': 'The campaign ends on 30/09/2026. An 8-month wait with targeted surveillance until June 2027 begins on October 1.',
+    'blog.article.lumpy-skin-disease-fine-vaccinazione.imageAlt': 'Cow in a Swiss pasture with mountains in the background, context of LSD surveillance campaign',
 };
 
 export default blogMetaChEn;

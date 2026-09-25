@@ -25,7 +25,7 @@ const TEST_STEP = 'vitest related (PR diff)';
 const TSC_STEP = 'Collect independent source gates';
 const SOURCE_GUARD_STEP = 'Run source guards in parallel';
 
-type Mode = 'body-contract' | 'body-contract-compat' | 'review-gate' | 'review-gate-compat' | 'review-cli' | 'review-bootstrap' | 'review-ledger' | 'test' | 'tsc' | 'source-guard' | 'check-api-unavailable' | 'jobs-api-unavailable';
+type Mode = 'body-contract' | 'body-contract-compat' | 'review-gate' | 'review-gate-compat' | 'review-cli' | 'review-bootstrap' | 'review-ledger' | 'test' | 'tsc' | 'source-guard' | 'check-api-unavailable' | 'jobs-api-unavailable' | 'pulls-api-unavailable' | 'failed-runs-unavailable';
 
 function failedStepForMode(mode: Mode) {
   switch (mode) {
@@ -52,7 +52,13 @@ function failedStepForMode(mode: Mode) {
   }
 }
 
-function runPreflight(mode: Mode) {
+const DISPATCH_HEAD = '0123456789abcdef0123456789abcdef01234567';
+
+function runPreflight(
+  mode: Mode,
+  { openPrs = '42', dispatch = false, failedRuns = '123' }: { openPrs?: string; dispatch?: boolean; failedRuns?: string } = {},
+) {
+  const prHead = dispatch ? DISPATCH_HEAD : 'headsha';
   const root = mkdtempSync(path.join(tmpdir(), 'redcheck-preflight-'));
   const bin = path.join(root, 'bin');
   const output = path.join(root, 'github-output');
@@ -66,20 +72,41 @@ function runPreflight(mode: Mode) {
     `#!/bin/sh
 set -eu
 printf '%s\\n' "$*" >> "${calls}"
+# Same flag validation as the real gh 2.x: \`--slurp\` cannot be combined with
+# \`--jq\`/\`--template\`. The previous double accepted any flag, which is how a
+# preflight that the real CLI rejects on every run stayed green here.
+case " $* " in
+  *" --slurp "*)
+    case " $* " in
+      *" --jq "*|*" --template "*|*" -q "*|*" -t "*)
+        echo 'the \`--slurp\` option is not supported with \`--jq\` or \`--template\`' >&2
+        exit 1
+        ;;
+    esac
+    ;;
+esac
 if [ "\${1:-}" = api ]; then
   endpoint="\${2:-}"
   case "$endpoint" in
     *"/pulls?state=open"*)
-      # The real gh invocation applies --jq to this response; emit its
-      # post-filtered scalar here because this is a CLI double, not the API.
-      printf '%s\\n' '42'
+      if [ "\${FAIL_MODE:-}" = pulls ]; then exit 1; fi
+      # The real gh invocation applies --jq page by page to this response;
+      # emit its post-filtered lines here because this is a CLI double.
+      if [ -n "\${OPEN_PRS}" ]; then printf '%s\\n' "\${OPEN_PRS}"; fi
       ;;
     *"/pulls/42")
-      printf '%s\\n' '{"state":"open","draft":false,"user":{"type":"Bot","login":"frontaliere-automation[bot]"},"head":{"ref":"fix/redcheck-test","sha":"headsha"},"body":"## Implementato\\n- preflight\\n\\n## Non implementato (ancora)\\n- Nessuno"}'
+      # Il dispatch legge solo \`--jq .head.sha\`: emetti il valore filtrato.
+      case " $* " in *" --jq "*) printf '%s\\n' "\${PR_HEAD_SHA}"; exit 0 ;; esac
+      printf '%s\\n' '{"state":"open","draft":false,"user":{"type":"Bot","login":"frontaliere-automation[bot]"},"head":{"ref":"fix/redcheck-test","sha":"'"\${PR_HEAD_SHA}"'"},"body":"## Implementato\\n- preflight\\n\\n## Non implementato (ancora)\\n- Nessuno"}'
       ;;
-    *"/commits/headsha/check-runs"*)
+    *"/commits/\${PR_HEAD_SHA}/check-runs"*)
       if [ "\${FAIL_MODE:-}" = check-runs ]; then exit 1; fi
       printf '%s\\n' '["vitest (unit + integration)"]'
+      ;;
+    *"/actions/workflows/tests.yml/runs?head_sha=\${PR_HEAD_SHA}&status=failure"*)
+      if [ "\${FAIL_MODE:-}" = failed-runs ]; then exit 1; fi
+      # Post-\`--jq '.workflow_runs[0].id // empty'\`: l'id o niente.
+      if [ -n "\${FAILED_RUNS}" ]; then printf '%s\\n' "\${FAILED_RUNS}"; fi
       ;;
     *"/actions/runs/123/jobs"*)
       if [ "\${FAIL_MODE:-}" = jobs ]; then exit 1; fi
@@ -119,12 +146,15 @@ exit 1
       PATH: `${bin}:${process.env.PATH ?? ''}`,
       GITHUB_OUTPUT: output,
       REPO: 'owner/repo',
-      EVENT_NAME: 'workflow_run',
-      DISPATCH_PR: '',
-      RUN_ID: '123',
-      RUN_SHA: 'headsha',
+      EVENT_NAME: dispatch ? 'workflow_dispatch' : 'workflow_run',
+      DISPATCH_PR: dispatch ? '42' : '',
+      RUN_ID: dispatch ? '' : '123',
+      RUN_SHA: dispatch ? '' : 'headsha',
+      PR_HEAD_SHA: prHead,
+      FAILED_RUNS: failedRuns,
       RUN_BRANCH: 'fix/redcheck-test',
-      FAIL_MODE: mode === 'check-api-unavailable' ? 'check-runs' : mode === 'jobs-api-unavailable' ? 'jobs' : '',
+      FAIL_MODE: mode === 'check-api-unavailable' ? 'check-runs' : mode === 'jobs-api-unavailable' ? 'jobs' : mode === 'pulls-api-unavailable' ? 'pulls' : mode === 'failed-runs-unavailable' ? 'failed-runs' : '',
+      OPEN_PRS: openPrs,
       JOBS_JSON: jobs,
     },
   });
@@ -184,6 +214,57 @@ describe('pr-redcheck-fixer preflight classifies the consolidated tests job', ()
 
   it('fails closed when the step-level jobs API is unavailable', () => {
     const { result, githubOutput, ghCalls } = runPreflight('jobs-api-unavailable');
+    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).not.toBe(0);
+    expect(githubOutput).not.toContain('actionable=true');
+  });
+  it('resolves the PR without combining --slurp and --jq (rejected by the real gh)', () => {
+    const { result, githubOutput, ghCalls } = runPreflight('test');
+    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).toBe(0);
+    const listCall = ghCalls.split('\n').find((line) => line.includes('pulls?state=open')) ?? '';
+    expect(listCall).toContain('--paginate');
+    expect(listCall).not.toContain('--slurp');
+    expect(githubOutput).toContain('actionable=true');
+  });
+
+  it('takes the first open PR when the paginated --jq emits several lines', () => {
+    const { result, githubOutput, ghCalls } = runPreflight('test', { openPrs: '42\n77' });
+    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).toBe(0);
+    expect(ghCalls).toMatch(/pulls\/42$/m);
+    expect(ghCalls).not.toMatch(/pulls\/77/);
+    expect(githubOutput).toContain('actionable=true');
+  });
+
+  it('skips as a no-op when no open PR has the run branch', () => {
+    const { result, githubOutput, ghCalls } = runPreflight('test', { openPrs: '' });
+    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).toBe(0);
+    expect(`${result.stdout}`).toContain('Nessuna PR aperta');
+    expect(githubOutput).not.toContain('actionable=true');
+  });
+
+  it('fails closed instead of reporting «no PR» when the open-PR list is unreadable', () => {
+    const { result, githubOutput, ghCalls } = runPreflight('pulls-api-unavailable');
+    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).not.toBe(0);
+    expect(`${result.stdout}${result.stderr}`).toContain('Lista PR aperte illeggibile');
+    expect(githubOutput).not.toContain('actionable=true');
+  });
+  it('dispatch: trova la run rossa per head_sha anche quando e\' fuori dalle ultime run del repo (#9695)', () => {
+    const { result, githubOutput, ghCalls } = runPreflight('test', { dispatch: true });
+    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).toBe(0);
+    expect(ghCalls).toContain(`actions/workflows/tests.yml/runs?head_sha=${DISPATCH_HEAD}&status=failure`);
+    expect(ghCalls).not.toMatch(/^run list --repo owner\/repo --workflow=tests\.yml/m);
+    expect(githubOutput).toContain('actionable=true');
+    expect(githubOutput).toContain('failed_run_id=123');
+  });
+
+  it('dispatch: nessuna run rossa sulla HEAD e\' un no-op', () => {
+    const { result, githubOutput, ghCalls } = runPreflight('test', { dispatch: true, failedRuns: '' });
+    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).toBe(0);
+    expect(result.stdout).toContain('Nessuna run tests fallita');
+    expect(githubOutput).not.toContain('actionable=true');
+  });
+
+  it('dispatch: run illeggibili falliscono il job invece di sembrare «nessuna run»', () => {
+    const { result, githubOutput, ghCalls } = runPreflight('failed-runs-unavailable', { dispatch: true });
     expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).not.toBe(0);
     expect(githubOutput).not.toContain('actionable=true');
   });

@@ -6680,6 +6680,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.turismo-agosto-ospiti-estero.title': 'Spätsommer mit weniger ausländischen Touristen in der Schweiz',
     'blog.article.turismo-agosto-ospiti-estero.excerpt': 'Im August gingen die Logiernächte in der Schweiz im Jahresvergleich um 1,9% zurück: Ausländische Gäste belasten, aber auch die Inlandsnachfrage geht zurück.',
     'blog.article.turismo-agosto-ospiti-estero.imageAlt': 'Touristen an einer Schweizer Seepromenade in einer Spätsommerszene.',
+    'blog.article.salasso-alla-pompa-benzina.title': 'Aderlass an der Pumpe: teurer Diesel, Benzin steigt',
+    'blog.article.salasso-alla-pompa-benzina.excerpt': 'Am 24. September 2026 kostet Diesel in Zürich durchschnittlich 2,46 CHF/l (Spitzenwerte >2,50), Benzin 95 2,14 CHF/l, während Öl über 100 USD/Barrel kostet.',
+    'blog.article.salasso-alla-pompa-benzina.imageAlt': 'Tankstelle in Zürich mit Anzeige für Diesel- und Benzinpreise',
+    'blog.article.made-in-europe-svizzera.title': 'Made in Europe: Die Schweiz sucht einen Platz in der EU-Beschaffung',
+    'blog.article.made-in-europe-svizzera.excerpt': 'Am 24. September 2026 wurde in Brüssel über die Aufnahme der Schweiz in das EU-Beschleunigungsgesetz diskutiert, wobei Deutschland dafür und Frankreich dagegen waren.',
+    'blog.article.made-in-europe-svizzera.imageAlt': 'Schweizer Industrieanlage mit EU-Flagge im Hintergrund, Symbol der Debatte \'Made in Europe\'',
+    'blog.article.urne-due-iniziative-2026.title': 'Note Schweiz: Neutralität und Ernährung',
+    'blog.article.urne-due-iniziative-2026.excerpt': 'Am 27. September 2026 stimmt die Schweiz über Neutralität und Ernährung ab. Die Quelle lädt zur Teilnahme an der 20-minütigen Umfrage und Tamedia ein.',
+    'blog.article.urne-due-iniziative-2026.imageAlt': 'Schweizer Abstimmung über Neutralität und Ernährung',
+    'blog.article.conferenza-protezione-popolazione-berna.title': 'Bevölkerungsschutzkonferenz: Cell Broadcast Accelerated',
+    'blog.article.conferenza-protezione-popolazione-berna.excerpt': 'Am 23. September 2026 beschleunigt der Bundesrat in Bern den Cell Broadcast und Marc Siegenthaler nimmt an der Konferenz teil.',
+    'blog.article.conferenza-protezione-popolazione-berna.imageAlt': 'Kantonale Vertreter im Gespräch in Bern über den Bevölkerungsschutz und das Cell Broadcast System.',
+    'blog.article.lumpy-skin-disease-fine-vaccinazione.title': 'LSD: Ende der Rinderimpfung am 30. September 2026',
+    'blog.article.lumpy-skin-disease-fine-vaccinazione.excerpt': 'Die Kampagne endet am 30.09.2026. Ab dem 1. Oktober beginnt eine 8-monatige Wartezeit mit gezielter Überwachung bis Juni 2027.',
+    'blog.article.lumpy-skin-disease-fine-vaccinazione.imageAlt': 'Kuh auf einer Schweizer Weide mit Bergen im Hintergrund, Kontext der LSD-Überwachung',
 };
 
 export default blogMetaChDe;
