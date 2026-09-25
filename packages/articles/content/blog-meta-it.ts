@@ -234,7 +234,7 @@ const blogMetaIt: Record<string, string> = {
  'blog.article.guida-contributi-sociali-svizzera.excerpt': 'AVS, LPP, LAINF: scopri le aliquote 2026 e quanto paghi tu e il datore. Esempio pratico su uno stipendio lordo di 5.500 CHF per un frontaliere.',
  'blog.article.guida-contributi-sociali-svizzera.imageAlt': 'Dettaglio di una busta paga svizzera su una scrivania con vista sul Lago di Lugano, simbolo del lavoro frontaliere',
  'blog.article.costo-vivere-lugano-trasferirsi.title': 'Quanto costa vivere a Lugano nel 2026: affitti, spesa e conti reali',
- 'blog.article.costo-vivere-lugano-trasferirsi.excerpt': 'Analisi dettagliata dei costi 2026 per un frontaliere che si trasferisce: affitti da 1.500 CHF, LAMal da 380 CHF, trasporti e spesa. Ecco i conti da fare.',
+ 'blog.article.costo-vivere-lugano-trasferirsi.excerpt': 'Analisi dettagliata dei costi 2026 per un frontaliere che si trasferisce: affitti da 1.500 CHF, LAMal da 450 CHF, trasporti e spesa. Ecco i conti da fare.',
  'blog.article.costo-vivere-lugano-trasferirsi.imageAlt': 'Balcone di un appartamento a Lugano con vista lago, simbolo del costo della vita per chi valuta il trasferimento in Ticino.', 'blog.article.calcolo-pensione-avs-inps.title': 'Pensione Frontaliere: Guida al Calcolo AVS + INPS 2026',
  'blog.article.calcolo-pensione-avs-inps.excerpt': 'Come funziona la totalizzazione dei contributi tra Svizzera e Italia? Esempi pratici, requisiti e le nuove soglie AVS stimate per il 2026 per i lavoratori in Ticino.',
  'blog.article.calcolo-pensione-avs-inps.imageAlt': 'Coppia di frontalieri maturi pianifica la pensione con un tablet sul lungolago di Lugano, vista su Monte San Salvatore.',
@@ -11960,6 +11960,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bns-decisione-tasso-invariato-2026.title': 'BNS lascia tasso allo 0% e alza PIL 2026',
     'blog.article.bns-decisione-tasso-invariato-2026.excerpt': 'La BNS mantiene il tasso di riferimento allo 0% (invariato da giugno 2025), prevede inflazione 0,7% nel 2026 e 0,8% nel 2027 e PIL 2026 tra l’1,5% e il 2,0%.',
     'blog.article.bns-decisione-tasso-invariato-2026.imageAlt': 'Vista del lago di Lugano con le montagne sullo sfondo, luce mattutina',
+    'blog.article.riassetto-ferroviario-lavoratori.title': 'Ffs Cargo, le prospettive occupazionali fanno discutere',
+    'blog.article.riassetto-ferroviario-lavoratori.excerpt': 'La riorganizzazione di Ffs Cargo coinvolge 80 dipendenti: tre collaboratori non hanno ancora ricevuto proposte lavorative.',
+    'blog.article.riassetto-ferroviario-lavoratori.imageAlt': 'Treno merci FFS Cargo in uno scalo ferroviario del Ticino',
 };
 
 export default blogMetaIt;

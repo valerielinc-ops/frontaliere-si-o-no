@@ -19,7 +19,7 @@ import { createHash } from 'node:crypto';
 import { execFile as execFileCallback } from 'node:child_process';
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 
 import { needsWork, missingSlots } from './local-mt-mopup.mjs';
@@ -37,6 +37,11 @@ import {
 } from './lib/translation-derived-patch-v2.mjs';
 import { executeTranslationCandidateV2 } from './lib/translation-candidate-executor-v2.mjs';
 import {
+  resolveTranslationRuntimeContractV2,
+  TRANSLATION_RUNTIME_PROVIDER_V2_ENGINE_VERSION,
+  TRANSLATION_RUNTIME_PROVIDER_V2_SCHEMA_VERSION,
+} from './lib/translation-runtime-contract-v2.mjs';
+import {
   MAX_TRANSLATION_STATE_BATCH_V2,
   TRANSLATION_STATE_REF_V2,
   TRANSLATION_STATE_REMOTE_V2,
@@ -50,9 +55,9 @@ const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const REPO_ROOT = path.resolve(path.dirname(SCRIPT_PATH), '..');
 
 export const TRANSLATION_SCHEDULER_V2_SCOPE = 'translation-shadow-v2';
-export const TRANSLATION_SCHEDULER_V2_ENGINE = 'shadow-engine-v2';
+export const TRANSLATION_SCHEDULER_V2_ENGINE = TRANSLATION_RUNTIME_PROVIDER_V2_ENGINE_VERSION;
 export const TRANSLATION_SCHEDULER_V2_GATE = 'translation-quality-v2';
-export const TRANSLATION_SCHEDULER_V2_PROVIDER_SCHEMA = 3;
+export const TRANSLATION_SCHEDULER_V2_PROVIDER_SCHEMA = TRANSLATION_RUNTIME_PROVIDER_V2_SCHEMA_VERSION;
 export const TRANSLATION_SCHEDULER_V2_DEFAULT_MAX_JOBS = 250;
 export const TRANSLATION_SCHEDULER_V2_DEFAULT_MAX_UNITS = 25;
 export const TRANSLATION_SCHEDULER_V2_DEFAULT_PROVIDER_TIMEOUT_MS = 15_000;
@@ -92,29 +97,6 @@ function normalizeCommit(value, label) {
     throw new TypeError(`${label} must be a 40-character commit sha`);
   }
   return value;
-}
-
-function normalizeProviderModule(repository, value) {
-  const raw = value || path.join(repository, 'scripts/lib/translation-shadow-provider-v2.mjs');
-  if (typeof raw !== 'string' || raw.length === 0) {
-    throw new TypeError('translation scheduler provider module is required');
-  }
-  if (/^(?:data|file):/u.test(raw)) return raw;
-  return pathToFileURL(path.resolve(repository, raw)).href;
-}
-
-function normalizeProvider({ repository, providerModule, providerExportName, engineVersion }) {
-  if (typeof providerExportName !== 'string' || providerExportName.length === 0) {
-    throw new TypeError('translation scheduler provider export is required');
-  }
-  return Object.freeze({
-    schemaVersion: TRANSLATION_SCHEDULER_V2_PROVIDER_SCHEMA,
-    costClass: 'zero',
-    engineVersion,
-    executionClass: 'isolated_callback',
-    exportName: providerExportName,
-    moduleUrl: normalizeProviderModule(repository, providerModule),
-  });
 }
 
 function parseQueuedAtMs(job) {
@@ -455,6 +437,18 @@ async function writeReport(report, reportPath) {
   await writeFile(absolute, `${JSON.stringify(report, null, 2)}\n`);
 }
 
+function runtimeContractReport(runtimeContract) {
+  const provider = Object.fromEntries(
+    Object.entries(runtimeContract.provider).filter(([key]) => key !== 'moduleUrl'),
+  );
+  return {
+    schemaVersion: runtimeContract.schemaVersion,
+    digest: runtimeContract.digest,
+    provider,
+    capabilities: runtimeContract.capabilities,
+  };
+}
+
 /**
  * Run one bounded shadow scheduling cycle.
  *
@@ -465,8 +459,12 @@ export async function runTranslationScheduleV2(options = {}) {
   const repository = normalizeRepository(options.repository || REPO_ROOT);
   const mode = options.mode || 'shadow';
   if (mode !== 'shadow') throw new TypeError('translation scheduler v2 only supports shadow mode');
+  for (const key of ['engineVersion', 'provider', 'providerModule', 'providerExportName']) {
+    if (Object.hasOwn(options, key)) {
+      throw new TypeError(`translation scheduler v2 ${key} is pinned by the runtime contract`);
+    }
+  }
   const scopeKey = options.scopeKey || process.env.TRANSLATION_SCHEDULER_SCOPE || TRANSLATION_SCHEDULER_V2_SCOPE;
-  const engineVersion = options.engineVersion || process.env.TRANSLATION_SCHEDULER_ENGINE || TRANSLATION_SCHEDULER_V2_ENGINE;
   const gateVersion = options.gateVersion || process.env.TRANSLATION_SCHEDULER_GATE || TRANSLATION_SCHEDULER_V2_GATE;
   const maxJobs = optionInteger(
     options.maxJobs ?? process.env.TRANSLATION_SHADOW_MAX_JOBS,
@@ -502,12 +500,27 @@ export async function runTranslationScheduleV2(options = {}) {
     remote: stateStore.remote,
     ref: stateStore.ref,
   });
-  const provider = options.provider || normalizeProvider({
+  const runtimeContract = await resolveTranslationRuntimeContractV2({
     repository,
-    providerModule: options.providerModule || process.env.TRANSLATION_SCHEDULER_PROVIDER_MODULE,
-    providerExportName: options.providerExportName || process.env.TRANSLATION_SCHEDULER_PROVIDER_EXPORT || 'translate',
-    engineVersion,
+    contract: options.runtimeContract,
   });
+  const engineVersion = runtimeContract.provider.engineVersion;
+  // The runtime contract carries source-path metadata for its report, while
+  // the isolated executor accepts its own exact V3 descriptor.
+  const provider = Object.freeze({
+    costClass: runtimeContract.provider.costClass,
+    engineVersion: runtimeContract.provider.engineVersion,
+    executionClass: runtimeContract.provider.executionClass,
+    exportName: runtimeContract.provider.exportName,
+    moduleUrl: runtimeContract.provider.moduleUrl,
+    schemaVersion: runtimeContract.provider.schemaVersion,
+  });
+  if (!runtimeContract.capabilities.generationEnabled) {
+    // The source contract is conservative by construction. Force the worker's
+    // existing provider seam to observe the same decision even when a local
+    // shell inherited an old opt-in environment variable.
+    process.env.TRANSLATION_SHADOW_ENABLE_GENERATION = '0';
+  }
   const logger = options.logger || console;
   const baselineMainSha = options.baselineMainSha || await readMainCommit(repository);
   const input = await collectTranslationSchedulerInput({
@@ -541,6 +554,7 @@ export async function runTranslationScheduleV2(options = {}) {
       stateRemote: stateStore.remote,
       status: 'empty',
       scopeKey,
+      runtimeContract: runtimeContractReport(runtimeContract),
       stateRef: stateStore.ref,
       sourceCommit: baselineMainSha,
       scanDigest: input.scanDigest,
@@ -586,6 +600,7 @@ export async function runTranslationScheduleV2(options = {}) {
     stateRemote: stateStore.remote,
     status: 'settled',
     scopeKey,
+    runtimeContract: runtimeContractReport(runtimeContract),
     stateRef: stateStore.ref,
     sourceCommit: baselineMainSha,
     scanDigest: input.scanDigest,
@@ -619,8 +634,6 @@ function parseCli(argv) {
     ['--max-jobs', 'maxJobs'],
     ['--max-units', 'maxUnits'],
     ['--provider-timeout-ms', 'providerTimeoutMs'],
-    ['--provider-module', 'providerModule'],
-    ['--provider-export', 'providerExportName'],
     ['--scope', 'scopeKey'],
     ['--state-remote', 'stateRemote'],
     ['--state-ref', 'stateRef'],
