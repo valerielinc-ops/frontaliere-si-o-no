@@ -1,0 +1,77 @@
+name: PageSpeed API key provision
+
+# Crea o riallinea la chiave API ristretta a PageSpeed Insights + Chrome UX
+# Report e la scrive in Remote Config come PAGESPEED_API_KEY, solo dopo averla
+# verificata con una chiamata vera a entrambe le API.
+#
+# Dal 2026-09-11 la chiave precedente risponde 403 «Requests to this API … are
+# blocked» (restrizioni della chiave) e PSI senza chiave ha quota 0: il gate CLS
+# post-deploy, cwv-field-criterion e analytics non misuravano più niente.
+#
+# Solo manuale. Il service account di FIREBASE_SERVICE_ACCOUNT_JSON deve avere
+# roles/serviceusage.apiKeysAdmin e roles/serviceusage.serviceUsageAdmin; se
+# mancano, la run fallisce dicendolo e Remote Config resta com'era.
+
+run-name: ${{ inputs.dry_run == true && 'PageSpeed API key provision (dry run)' || 'PageSpeed API key provision' }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Only read: list enabled APIs and existing keys, create nothing, write nothing'
+        type: boolean
+        default: false
+
+permissions: {}
+
+concurrency:
+  group: pagespeed-api-key-provision
+  cancel-in-progress: false
+
+jobs:
+  provision:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Create or realign the key, verify it, write Remote Config
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+          PAGESPEED_KEY_DRY_RUN: ${{ inputs.dry_run == true && 'true' || 'false' }}
+        run: node scripts/ci/provision-pagespeed-key.mjs
