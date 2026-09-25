@@ -35973,6 +35973,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'trenord-abbandono-passeggeri-gallarate',
+ category: 'novita',
+ date: '2026-09-25T17:01:16.762Z',
+ image: '/images/blog/trenord-abbandono-passeggeri-gallarate.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

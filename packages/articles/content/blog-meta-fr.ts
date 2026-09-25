@@ -11990,6 +11990,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.roberto-gatti-11-promozioni-podcast.title': 'Roberto Gatti à Figli di un gol minore : 11 promotions',
     'blog.article.roberto-gatti-11-promozioni-podcast.excerpt': 'L\'ancien footballeur et entraîneur de Varèse raconte les onze promotions obtenues avec Chiasso, Lugano et Solbiatese dans le podcast de VareseNews.',
     'blog.article.roberto-gatti-11-promozioni-podcast.imageAlt': 'Stade de football à Lugano avec arrière-plan montagneux',
+    'blog.article.trenord-abbandono-passeggeri-gallarate.title': 'Trenord laisse 30 passagers à Gallarate, que la Région intervienne',
+    'blog.article.trenord-abbandono-passeggeri-gallarate.excerpt': 'Dans la nuit du 22 au 23 septembre, une trentaine de passagers à destination de Malpensa s’est retrouvée à Gallarate après le départ du dernier convoi vide, sans assistance ni correspondances.',
+    'blog.article.trenord-abbandono-passeggeri-gallarate.imageAlt': 'Gare ticinoise vide la nuit, avec un voyageur seul devant le tableau d\'affichage',
 };
 
 export default blogMetaFr;
