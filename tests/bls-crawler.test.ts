@@ -93,6 +93,14 @@ describe('BLS AG crawler parser', () => {
       expect(parseJobsApiResponse(json)[0].pensum).toBe('100%');
     });
 
+    it('extracts the slug and UUID from case-variant detail routes', () => {
+      const entries = parseJobsApiResponse({
+        Jobs: [{ Title: 'X', Lead: 'Bern, 100%', URL: 'https://jobs.bls.ch/Offene-Stellen/x/uuid-case' }],
+      });
+      expect(entries).toHaveLength(1);
+      expect(entries[0]).toMatchObject({ slug: 'x', uuid: 'uuid-case' });
+    });
+
     it('accepts nested lower-case API records and root-relative detail URLs', () => {
       const json = {
         data: {

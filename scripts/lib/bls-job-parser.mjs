@@ -262,7 +262,9 @@ export function parseJobsApiResponse(json) {
 
   for (const j of rawJobs) {
     const url = normalizeApiJobUrl(firstApiString(j, ['URL', 'Url', 'url', 'JobUrl', 'jobUrl', 'Link', 'link']));
-    const match = url.match(/\/offene-stellen\/([^/]+)\/([^/?#]+)/);
+    // Keep extraction aligned with normalizeApiJobUrl(): the BLS route
+    // validator intentionally accepts case variants from the API.
+    const match = url.match(/\/offene-stellen\/([^/]+)\/([^/?#]+)/i);
     if (!match) continue;
 
     const slug = decodeURIComponent(match[1]);
