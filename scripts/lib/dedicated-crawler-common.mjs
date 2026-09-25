@@ -6344,6 +6344,31 @@ const FOREIGN_ONLY_COUNTRY_CODES = new Set(
   FOREIGN_COUNTRY_CODES.filter((code) => !SWISS_LOCATION_CODES.has(code)),
 );
 
+// Lever's TSMG feed has exposed US locations as `City, ST` while omitting the
+// structured country. These are state abbreviations, not ISO country codes;
+// keep only the abbreviations that cannot also be Swiss canton codes so a
+// genuine `Bern, BE` / `Appenzell, AR` location remains ambiguous and safe.
+const US_STATE_CODES = new Set(`
+  AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT
+  NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY
+`.trim().split(/\s+/));
+const US_STATE_SUFFIX_RE = /(?:^|[,;])\s*([a-z]{2})\s*$/iu;
+
+function hasExplicitUsStateSuffix(lower) {
+  const match = String(lower || '').match(US_STATE_SUFFIX_RE);
+  if (!match) return false;
+  const code = String(match[1] || '').toUpperCase();
+  if (!US_STATE_CODES.has(code) || SWISS_LOCATION_CODES.has(code)) return false;
+
+  const locality = String(lower).slice(0, match.index).replace(/[,;]\s*$/, '').trim();
+  if (!locality) return false;
+  // A Swiss locality elsewhere in the field wins over an ambiguous suffix.
+  // This mirrors the existing country-code guards and prevents a department
+  // or free-text label from becoming a foreign verdict.
+  if (isTargetSwissLocation(locality, { includeBorderProximity: false })) return false;
+  return true;
+}
+
 // Region-prefixed ATS location fields put the country code in the MIDDLE,
 // where an end-of-field anchor cannot see it. This is not hypothetical: the
 // three tenants that reached production with a wrong published city all
@@ -6378,6 +6403,7 @@ function segmentNamesForeignCountry(lower) {
 }
 
 function hasExplicitForeignCountryCode(lower) {
+  if (hasExplicitUsStateSuffix(lower)) return true;
   // A labelled field is authoritative even when its two-letter value also
   // names a Swiss canton (for example, country: FR).
   if (EXPLICIT_FOREIGN_COUNTRY_FIELD_CODE_RE.test(lower)) return true;
@@ -6466,6 +6492,7 @@ export function isLocationExplicitlyForeign(locationField) {
     'dallas', 'west hartford', 'durham', 'warren', 'miami',
     // Oceania & Africa
     'sydney', 'melbourne', 'cape town', 'johannesburg',
+    'windeck', // German municipality observed in TSMG rows with country=null
     // Liechtenstein & micro-states
     'ruggell', 'barberà del vallès', 'barbera del valles',
     'montecarlo', 'monte carlo', 'monte-carlo', 'monaco-ville',
