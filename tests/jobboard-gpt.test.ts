@@ -43,6 +43,8 @@ describe('job-board GPT bootstrap', () => {
     expect(isJobBoardPageUrl('/')).toBe(false);
     expect(isJobBoardPageUrl('/articoli-frontaliere/')).toBe(false);
     expect(isJobBoardPageUrl('/en/find-jobs/')).toBe(false);
+    expect(isJobBoardPageUrl('/jobs-lugano-infermiere/')).toBe(false);
+    expect(isJobBoardPageUrl('/blog/cerca-lavoro-ticino/')).toBe(false);
   });
 
   it('loads GPT only after the explicit advertising-consent event', () => {

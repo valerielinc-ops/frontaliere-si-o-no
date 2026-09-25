@@ -4,6 +4,7 @@ import {
   ADS_CONSENT_STORAGE_KEY,
 } from '../services/adsConsent';
 import { FC_JOBBOARD_OFFERWALL_GATE_JS } from './constants';
+import { isJobBoardSectionPathname } from '../scripts/lib/jobBoardSections.mjs';
 
 /** The GPT library required by Google Ad Manager Offerwall. */
 export const GPT_SCRIPT_SRC = 'https://securepubads.g.doubleclick.net/tag/js/gpt.js';
@@ -14,9 +15,12 @@ export const GPT_LOADER_FILENAME = 'gpt-loader.js';
 /** Synchronous bootstrap: it queues GPT before Funding Choices evaluates Offerwall. */
 export const GPT_BOOTSTRAP_TAG = `<script src="/assets/${GPT_LOADER_FILENAME}"></script>`;
 
-const JOB_BOARD_PATH_RX = /^(?:\/cerca-lavoro-[^/]+|\/(?:en\/find-jobs|de\/jobs-(?:im|in)|fr\/trouver-emploi)-[^/]+)(?:\/|$)/;
-
-/** Whether a URL belongs to one of the four localized job-board sections. */
+/**
+ * Whether a URL belongs to a job-board section (every canton, the Switzerland
+ * aggregator, every locale). Same shared matcher as the click-only Offerwall
+ * gate and JobBoard's rewarded surface, so GPT is bootstrapped on exactly the
+ * pages where "Candidati" runs the rewarded flow.
+ */
 export function isJobBoardPageUrl(value: string): boolean {
   let pathname = value;
   try {
@@ -24,7 +28,7 @@ export function isJobBoardPageUrl(value: string): boolean {
   } catch {
     pathname = value.split(/[?#]/, 1)[0] ?? value;
   }
-  return JOB_BOARD_PATH_RX.test(pathname);
+  return isJobBoardSectionPathname(pathname);
 }
 
 const scriptSrc = JSON.stringify(GPT_SCRIPT_SRC);
