@@ -1,18 +1,19 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-09-23T23:59:36.756Z",
+  "generatedAt": "2026-09-25T15:09:46.876Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 1,
-  "removedCount": 2,
+  "newCount": 0,
+  "updatedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 32697,
-  "avgDurationMs": 32697,
+  "durationMs": 33604,
+  "avgDurationMs": 33604,
   "durationHistory": [
-    32697
+    33604
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-time-fixed-Term-20-_R_786806",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-time-fixed-Term-20-_R_786806",
@@ -27,7 +28,7 @@
       "addressCountry": "CH",
       "postalCode": "7302",
       "streetAddress": "Bahnhofstrasse 2",
-      "slug": "sales-associate-part-time-fixed-term-20-capri-holdings",
+      "slug": "vendite-associate-part-time-fisso-termine-20-capri-holdings-michael-kors-versace-landquart",
       "category": "retail",
       "datePosted": "2026-09-23",
       "source": "capri-holdings-workday-crawler",
@@ -40,18 +41,18 @@
         "canton": "GR",
         "location": "Landquart"
       },
-      "crawledAt": "",
+      "id": "capri-holdings-bd3ec5feb3ab",
       "needsRetranslation": true,
-      "_qualityScore": 72,
+      "firstSeenAt": "2026-09-23T23:59:32.011Z",
+      "crawledAt": "",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 8,
+        "translation": 25,
         "completeness": 15
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Store-Manager--Landquart_R_786577",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Store-Manager--Landquart_R_786577",
@@ -92,94 +93,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Senior-General-Ledger-Accountant_R_785638",
-      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Senior-General-Ledger-Accountant_R_785638",
-      "title": "Senior General Ledger Accountant",
-      "company": "Capri Holdings (Michael Kors / Versace)",
-      "companyKey": "capri-holdings",
-      "location": "Manno",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Manno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate",
-      "slug": "senior-general-ledger-contabile-capri-holdings-michael-kors-versace-manno",
-      "category": "finance",
-      "datePosted": "2026-07-27",
-      "source": "capri-holdings-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
-      "sourceLang": "en",
-      "sector": "Fashion / Luxury Retail",
-      "_brand": "Michael Kors",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Manno"
-      },
-      "id": "capri-holdings-c2a82205abea",
-      "firstSeenAt": "2026-07-27T22:07:37.799Z",
-      "crawledAt": "",
-      "salaryMin": 142000,
-      "salaryMax": 249500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Coordinator--Store-Development-EMEA---FTC_R_785314",
-      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Coordinator--Store-Development-EMEA---FTC_R_785314",
-      "title": "Coordinator, Store Development EMEA - FTC",
-      "company": "Capri Holdings (Michael Kors / Versace)",
-      "companyKey": "capri-holdings",
-      "location": "Manno",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Manno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate",
-      "slug": "coordinatore-store-development-emea-ftc-capri-holdings-michael-kors-versace-manno",
-      "category": "retail",
-      "datePosted": "2026-07-13",
-      "source": "capri-holdings-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sourceLang": "en",
-      "sector": "Fashion / Luxury Retail",
-      "_brand": "Michael Kors",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Manno"
-      },
-      "id": "capri-holdings-80aee6d15b74",
-      "firstSeenAt": "2026-07-13T12:14:03.842Z",
-      "crawledAt": "",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Payroll---Time---Attendance-Integration-Manager--EMEA-_R_784558",
@@ -215,7 +129,8 @@
       "salaryMax": 103000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://capri.wd1.myworkdayjobs.com/en-us/michael_kors/job/manno/payroll---time---attendance-integration-manager--emea-_r_784558",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
