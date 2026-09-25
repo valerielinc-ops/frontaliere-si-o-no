@@ -650,6 +650,15 @@ describe('deploy.yml — closeBundle serializzati in produzione (OOM run 3510058
   });
 });
 
+describe('deploy.yml — canonical fallback stays inline on the 16 GiB runner', () => {
+  it('caps the jobs SEO fallback pre-pass at one worker', () => {
+    // `JOBS_SEO_FALLBACK_WORKERS=1` selects the plugin's inline path: it keeps
+    // the output unchanged while avoiding one structured clone per worker of
+    // the full canonical tuple set.
+    expect(BUILD_LOCALE_ENV.JOBS_SEO_FALLBACK_WORKERS).toBe('1');
+  });
+});
+
 describe('deploy-publish.yml — Pages poll usa il budget residuo del job', () => {
   const workflow = YAML.parse(DEPLOY_PUBLISH_YML) as any;
   const deployJob = workflow.jobs.deploy as { steps: Array<Record<string, any>>; 'timeout-minutes': number };
