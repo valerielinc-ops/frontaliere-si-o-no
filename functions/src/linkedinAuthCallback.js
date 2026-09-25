@@ -32,6 +32,24 @@ const CONSENT_LOCALES = new Set(['it', 'en', 'de', 'fr']);
 const SURFACE_RE = /^[a-z0-9_]{1,40}$/;
 // The register entry every sign-in surface renders (services/consentTexts.ts).
 const REGISTRATION_NOTICE_KEY = 'communicationsOptIn';
+// An experiment arm tag as the browser builds it (`jobgate-v3:<arm>`).
+const EXPERIMENT_VARIANT_RE = /^[a-z0-9][a-z0-9-]{0,39}:[a-z0-9_]{1,40}$/;
+
+/**
+ * The jobgate-v3 arm of a login started from the JobBoard gate of an enrolled
+ * visitor (`jobGateSubscriberVariantFor` in services/authService.ts), carried
+ * in `attribution.consent.variant`. Shape-checked only: it is a join key for
+ * the readout, not a claim about consent.
+ *
+ * @param {unknown} attribution
+ * @returns {string|null}
+ */
+export function resolveLinkedInExperimentVariant(attribution) {
+ const raw = attribution && typeof attribution === 'object' && !Array.isArray(attribution)
+  ? attribution.consent?.variant
+  : null;
+ return typeof raw === 'string' && EXPERIMENT_VARIANT_RE.test(raw) ? raw : null;
+}
 
 /**
  * The consent record the browser measured for this LinkedIn login, forwarded
@@ -131,6 +149,7 @@ export async function enrichSubscriberProfile(email, profileData, attribution = 
  const existingSubscriber = await subRef.get();
  const existing = existingSubscriber.exists ? existingSubscriber.data() || {} : null;
  const consent = resolveLinkedInConsentRecord(attribution);
+ const experimentVariant = resolveLinkedInExperimentVariant(attribution);
  const confirmationMethod = profileData?.emailVerified === true
   ? CONFIRMATION_METHODS.PROVIDER_VERIFIED_EMAIL
   : CONFIRMATION_METHODS.NONE;
@@ -184,6 +203,9 @@ export async function enrichSubscriberProfile(email, profileData, attribution = 
    confirmation_method: confirmationMethod,
    confirmed_via_surface: consent.surface,
    ...(hasSubscriberCreationStamp(existing) ? {} : { created_at: ts() }),
+   // The arm that produced this relationship, written with its creation and
+   // never over an earlier capture's (same rule as the browser writer).
+   ...(experimentVariant && !(existing && existing.variant) ? { variant: experimentVariant } : {}),
   });
  } else if (existing.registration_terms_accepted !== true && !isNewsletterOptOutBinding(existing)) {
   recordedAct = 'terms';
@@ -234,6 +256,7 @@ export async function enrichSubscriberProfile(email, profileData, attribution = 
     user_id: profileData?.auth_uid || null,
     event_type: recordedAct === 'terms' ? 'subscribe_completed' : 'confirm',
     source_channel: 'auth_linkedin',
+    variant: experimentVariant,
     source_page: attributionFields.source_page || sanitizeSignupPath(attribution?.page) || null,
     metadata: {
      status: updateData.status || existing?.status || null,

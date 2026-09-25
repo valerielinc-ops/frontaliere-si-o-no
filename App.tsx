@@ -246,6 +246,7 @@ import {
  consumeAuthAttributionContext,
  consumeConsentEvidence,
  resolveAuthConsentSurface,
+ jobGateSubscriberVariantFor,
  sanitizeAuthReturnPath,
 } from '@/services/authService';
 import { settleNewsletterAutologin, parseNewsletterAutologin } from '@/services/newsletterAutologinSignal';
@@ -766,6 +767,9 @@ const App: React.FC = () => {
  const customToken = await exchangeLinkedInCode(code, linkedInAttribution, {
   surface: linkedInConsentSurface,
   evidence: linkedInEvidence,
+  // jobgate-v3 arm of an enrolled gate login: the Cloud Function creates the
+  // subscriber, so the readout's join key has to reach it.
+  variant: jobGateSubscriberVariantFor(savedJobCtx, linkedInConsentSurface),
  });
 
  if (cancelled) return;

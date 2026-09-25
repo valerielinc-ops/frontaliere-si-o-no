@@ -379,6 +379,92 @@ describe('when firestore.rules refuse an undisplayed registration', { timeout: 3
   });
 });
 
+describe('jobgate-v3: a social login from the gate carries the arm, like the email unlock', { timeout: 30_000 }, () => {
+  const JOB_PAGE = '/cerca-lavoro-ticino/infermiere-eoc-lugano-abc123/';
+  const enrolledContext = { slug: 'infermiere-eoc', surface: 'inline' as const, variant: 'social_first', experimentId: 'jobgate-v3' };
+
+  beforeEach(() => {
+    window.history.replaceState(null, '', JOB_PAGE);
+  });
+
+  it('an enrolled visitor\'s Google login from the gate is written with jobgate-v3:<arm>, counted by the readout', async () => {
+    renderNotice(consentDisplayText('communicationsOptIn', 'it'));
+    auth.parkConsentEvidence(auth.captureConsentNoticeEvidence());
+    auth.saveAuthJobContext(enrolledContext);
+    await auth.saveUserProfileToFirestore(GOOGLE_USER, 'google');
+    const d = registration();
+    expect(d.variant).toBe('jobgate-v3:social_first');
+    expect(d.consent_origin).toBe('job_gate');
+
+    // The readout's two readers see it: the arm aggregate (created in the
+    // window, keyed by the tag) and the attribution coverage (tagged).
+    const { classifySubscriber, aggregateSubscribers, attributionCoverage, armFromVariantTag } = await import('../scripts/lib/experiment-stats.mjs');
+    const now = Date.now();
+    const classified = classifySubscriber({ ...d, created_at: new Date(now - 60_000) });
+    const agg = aggregateSubscribers([classified], {
+      keyOf: (x: { variant: string }) => armFromVariantTag(x.variant, 'jobgate-v3'),
+      startMs: now - 3_600_000,
+      endMs: now + 1,
+      nowMs: now,
+    });
+    expect(agg.byKey.social_first?.newSubscribers).toBe(1);
+    expect(attributionCoverage(
+      [{ variant: d.variant, sourcePage: d.source_page, sourceComponent: d.source_component }],
+      { experimentId: 'jobgate-v3' },
+    )).toMatchObject({ tagged: 1, untaggedFromGate: 0, coverage: 1 });
+  });
+
+  it('One Tap prompted by the gate carries the arm too', async () => {
+    auth.saveAuthJobContext(enrolledContext);
+    await auth.promptOneTap({ surface: 'job_gate_inline' });
+    await gisCallback!({ credential: 'jwt', select_by: 'user' });
+    await settleWrite();
+    expect(registration().variant).toBe('jobgate-v3:social_first');
+  });
+
+  it('not enrolled (kill switch, timeout, bot bypass): the context carries the headline id, no arm is written', async () => {
+    auth.saveAuthJobContext({ ...enrolledContext, variant: 'control', experimentId: 'authgate-headline-v3' });
+    await auth.saveUserProfileToFirestore(GOOGLE_USER, 'google');
+    expect(registration().variant).toBeNull();
+  });
+
+  it('a page-wide One Tap that only finds a stale gate context is not tagged', async () => {
+    auth.saveAuthJobContext(enrolledContext);
+    await auth.promptOneTap();
+    await gisCallback!({ credential: 'jwt', select_by: 'user' });
+    await settleWrite();
+    expect(registration().variant).toBeNull();
+  });
+
+  it('never replaces the arm of an earlier capture, nor tags an address that already had a relationship', async () => {
+    docs[SUB(GOOGLE_USER.email)] = {
+      status: 'confirmed', isActive: true, active: true, source_channel: 'job_gate',
+      registration_terms_accepted: true, created_at: 'then', variant: 'jobgate-v3:control',
+    };
+    auth.saveAuthJobContext(enrolledContext);
+    await auth.saveUserProfileToFirestore(GOOGLE_USER, 'google');
+    expect(registration().variant).toBe('jobgate-v3:control');
+
+    writes.length = 0;
+    docs = {
+      [SUB(GOOGLE_USER.email)]: {
+        status: 'confirmed', isActive: true, active: true, source_channel: 'auth_google',
+        registration_terms_accepted: true, created_at: 'then',
+      },
+    };
+    auth.saveAuthJobContext(enrolledContext);
+    await auth.saveUserProfileToFirestore(GOOGLE_USER, 'google');
+    expect(registration().variant).toBeNull();
+  });
+
+  it('the LinkedIn round trip gets the arm computed from the parked context', () => {
+    expect(auth.jobGateSubscriberVariantFor(enrolledContext, 'job_gate')).toBe('jobgate-v3:social_first');
+    expect(auth.jobGateSubscriberVariantFor(enrolledContext, 'newsletter_popup')).toBeNull();
+    expect(auth.jobGateSubscriberVariantFor({ ...enrolledContext, variant: 'bogus' }, 'job_gate')).toBeNull();
+    expect(auth.jobGateSubscriberVariantFor(null, 'job_gate')).toBeNull();
+  });
+});
+
 describe('notice evidence', () => {
   it('reads the visible notice, its key and its exact text', () => {
     const shown = consentDisplayText('communicationsOptIn', 'fr');

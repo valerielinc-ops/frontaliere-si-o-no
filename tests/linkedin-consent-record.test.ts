@@ -41,6 +41,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue
 import {
   enrichSubscriberProfile,
   resolveLinkedInConsentRecord,
+  resolveLinkedInExperimentVariant,
 } from '../functions/src/linkedinAuthCallback.js';
 import { REGISTRATION_TERMS_TEXT, REGISTRATION_TERMS_VERSION } from '../functions/src/lib/registrationTermsText.js';
 
@@ -194,6 +195,20 @@ describe('enrichSubscriberProfile — the consent record of a LinkedIn login', (
     expect(d).not.toHaveProperty('consent_text');
     expect(d).not.toHaveProperty('consent_text_displayed');
     expect(d).not.toHaveProperty('created_at');
+  });
+
+  it('a gate login of an enrolled visitor creates the subscriber with its jobgate-v3 arm', async () => {
+    await enrichSubscriberProfile(EMAIL, PROFILE, measured({ surface: 'job_gate', displayed: true, variant: 'jobgate-v3:social_first' }));
+    expect(state.sets[0].data.variant).toBe('jobgate-v3:social_first');
+    expect(state.adds[0].data.variant).toBe('jobgate-v3:social_first');
+  });
+
+  it('the arm never lands on a relationship that already existed, and a malformed tag is dropped', async () => {
+    state.docs[PATH] = { status: 'confirmed', registration_terms_accepted: true, consent_text: 'x', created_at: 'then' };
+    await enrichSubscriberProfile(EMAIL, PROFILE, measured({ variant: 'jobgate-v3:social_first' }));
+    expect(state.sets[0].data).not.toHaveProperty('variant');
+    expect(resolveLinkedInExperimentVariant({ consent: { variant: 'jobgate-v3:<script>' } })).toBeNull();
+    expect(resolveLinkedInExperimentVariant({ page: '/' })).toBeNull();
   });
 
   it('a registered row only gets its login fields', async () => {

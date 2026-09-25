@@ -178,6 +178,10 @@ export type NewsletterUpsertInput = {
  isActive?: boolean;
  status?: NewsletterSubscriberStatus;
  metadata?: Record<string, any> | null;
+ /**
+  * Experiment arm of the capture (`jobgate-v3:<arm>`). Stored only when this
+  * write creates the relationship; an existing value is never replaced.
+  */
  variant?: string | null;
  /** GDPR consent proof fields (Art. 7 + Mailjet policy 1d) */
  consentGiven?: boolean;
@@ -1670,7 +1674,13 @@ export async function captureNewsletterSubscriber(
  status: preserveExistingConfirmedConsent
  ? (existingData?.status ?? subscriptionState.status)
  : subscriptionState.status,
- variant: sanitizeString(input.variant) || sanitizeString(existingData?.variant),
+ // The experiment arm that PRODUCED the relationship (`jobgate-v3:<arm>`, the
+ // readout's join key for a new subscriber). Written with the creation stamp
+ // and never rewritten: a later capture from another arm, or a login from the
+ // gate on an address that already had a relationship, is not a conversion of
+ // that arm, and overwriting would steal the earlier capture's attribution.
+ variant: sanitizeString(existingData?.variant)
+  || ((!existing.exists() || isUncapturedSubscriberRow(existingData)) ? sanitizeString(input.variant) : null),
  metadata: input.metadata || existingData?.metadata || null,
  consent_given: preserveExistingConsent
   ? (existingData?.consent_given ?? false)

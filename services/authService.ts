@@ -25,6 +25,11 @@ import {
  consentDisplayText,
  resolveDisplayedNotice,
 } from '@/services/consentTexts';
+import {
+ JOBGATE_EXPERIMENT_ID,
+ jobGateSubscriberVariant,
+ normalizeJobGateArm,
+} from '@/services/jobGateExperimentCore.mjs';
 // ─── Lazy Firebase Auth Loading ────────────────────────────────
 
 let _auth: any = null;
@@ -328,6 +333,7 @@ async function writeUserProfileToFirestore(
   explicitSurface: options.consentSurface ?? null,
  });
  const notice = resolveDisplayedNotice(evidence, null);
+ const jobGateVariant = jobGateSubscriberVariantFor(context, consentSurface);
  await upsertNewsletterSubscriber(db, {
   email,
   userId: user.uid || null,
@@ -352,6 +358,7 @@ async function writeUserProfileToFirestore(
   registrationTermsAccepted: true,
   registrationMethod: provider === 'email' ? 'email' : 'authenticated',
   skipConfirmationEmail: provider !== 'email',
+  ...(jobGateVariant ? { variant: jobGateVariant } : {}),
   // The consent record of this login, as it happened.
   consentOrigin: consentSurface,
   consentTextDisplayed: notice.displayed,
@@ -1385,6 +1392,27 @@ export function consumeConsentEvidence(
  }
 }
 
+/**
+ * `newsletter_subscribers.variant` for a login that started from the JobBoard
+ * gate of a visitor enrolled in jobgate-v3 — the same `jobgate-v3:<arm>` the
+ * gate's email unlock writes (`upsertJobGateSubscriber`), which is the
+ * readout's join key. The arm travels in the job context JobBoard parks at the
+ * gate (`variant` + `experimentId`, re-parked when the assignment resolves)
+ * and, for LinkedIn, through the OAuth round trip. Null for any other login:
+ * not enrolled (kill switch, Remote Config timeout, bot bypass — the context
+ * then carries the headline experiment's id), a job view outside the
+ * experiment (no experiment id), or a One Tap prompt of another page that
+ * merely found a stale context.
+ */
+export function jobGateSubscriberVariantFor(
+ context: AuthJobContext | null | undefined,
+ consentSurface: string,
+): string | null {
+ if (consentSurface !== 'job_gate' || !context || context.experimentId !== JOBGATE_EXPERIMENT_ID) return null;
+ const arm = normalizeJobGateArm(context.variant);
+ return arm ? jobGateSubscriberVariant(arm) : null;
+}
+
 /** The surface a One Tap prompt was last shown for (`promptOneTap({ surface })`). */
 let lastOneTapPromptSurface: string | null = null;
 
@@ -1476,7 +1504,7 @@ export async function signInWithLinkedIn(
 export async function exchangeLinkedInCode(
  code: string,
  attribution?: AuthAttributionContext | null,
- consent?: { surface: string; evidence: ConsentNoticeEvidence | null } | null,
+ consent?: { surface: string; evidence: ConsentNoticeEvidence | null; variant?: string | null } | null,
 ): Promise<string | null> {
  try {
  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://frontaliereticino.ch';
@@ -1518,7 +1546,16 @@ export async function exchangeLinkedInCode(
 async function buildLinkedInConsentRecord(consent: {
  surface: string;
  evidence: ConsentNoticeEvidence | null;
-}): Promise<{ surface: string; displayed: boolean; key: string; locale: string; text: string; version: string }> {
+ variant?: string | null;
+}): Promise<{
+ surface: string;
+ displayed: boolean;
+ key: string;
+ locale: string;
+ text: string;
+ version: string;
+ variant?: string;
+}> {
  let siteLocale: string | null = null;
  try {
   siteLocale = (await import('@/services/i18n')).getLocale();
@@ -1531,6 +1568,7 @@ async function buildLinkedInConsentRecord(consent: {
   locale: notice.locale,
   text: consentDisplayText(notice.key, notice.locale),
   version: CONSENT_TEXTS[notice.key].version,
+  ...(consent.variant ? { variant: consent.variant } : {}),
  };
 }
 
