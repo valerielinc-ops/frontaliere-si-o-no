@@ -119,8 +119,9 @@ describe('email cascade provider ack contract', () => {
     // send and its open/click/bounce events join on `message_id`.
     const events: any[] = [];
     const eventsRef = { add: async (data: any) => { events.push(data); }, orderBy: () => ({ limit: () => ({ get: async () => ({ docs: [] }) }) }) };
+    // The recipient is a subscriber: a provider event never creates the record.
     const docRef: any = {
-      get: async () => ({ exists: false, data: () => ({}) }),
+      get: async () => ({ exists: true, data: () => ({ status: 'pending' }) }),
       set: async () => {},
       collection: (name: string) => (name === 'events' ? eventsRef : { doc: () => ({ set: async () => {} }) }),
     };
