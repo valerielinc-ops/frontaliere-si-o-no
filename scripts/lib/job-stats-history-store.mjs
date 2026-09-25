@@ -239,6 +239,13 @@ function hasSameHistoryCounters(previous = {}, next = {}) {
     );
 }
 
+function actionCount(item = {}, action) {
+  return Math.max(
+    sortedUniqueStrings(item[`${action}Keys`]).length,
+    numeric(item[`${action}Count`]),
+  );
+}
+
 function preservesCompactionPayload(previous = {}, next = {}) {
   if (!Array.isArray(previous.addedKeys) || !Array.isArray(next.addedKeys)) return false;
 
@@ -252,17 +259,33 @@ function preservesCompactionPayload(previous = {}, next = {}) {
     return previousItems.every((previousItem) => {
       const previousIdentity = String(previousItem?.key || previousItem?.name || '');
       const previousAddedKeys = sortedUniqueStrings(previousItem?.addedKeys);
+      const previousUpdatedCount = actionCount(previousItem || {}, 'updated');
+      const previousRemovedCount = actionCount(previousItem || {}, 'removed');
+
+      // Buckets with no action payload are only descriptive indexes. Locale
+      // migration is allowed to merge/drop those rows because no consumer
+      // reads their identity without an added/updated/removed value. Requiring
+      // an exact identity for every empty historical bucket made a legitimate
+      // 18k -> 1.5k title rewrite look like catastrophic truncation.
+      if (previousAddedKeys.length === 0
+        && previousUpdatedCount === 0
+        && previousRemovedCount === 0) {
+        return true;
+      }
 
       return nextItems.some((nextItem) => {
         const sameIdentity = previousIdentity !== ''
           && String(nextItem?.key || nextItem?.name || '') === previousIdentity;
         const nextItemAddedKeys = sortedUniqueStrings(nextItem?.addedKeys);
         const preservesAddedKeys = previousAddedKeys.every((key) => nextItemAddedKeys.includes(key));
+        const preservesCounts = actionCount(nextItem || {}, 'updated') >= previousUpdatedCount
+          && actionCount(nextItem || {}, 'removed') >= previousRemovedCount;
 
         // Locale migration can change a title key/name, so its stable added
         // job keys are also an acceptable identity. The payload itself must
         // still survive; matching an empty replacement is never enough.
         return preservesAddedKeys
+          && preservesCounts
           && (sameIdentity || previousAddedKeys.length > 0);
       });
     });

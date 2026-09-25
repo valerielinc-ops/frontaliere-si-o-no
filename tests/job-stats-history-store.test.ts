@@ -339,6 +339,47 @@ describe('job stats history store', () => {
     });
   });
 
+  it('allows locale migration to merge historical buckets with no action payload', () => {
+    withTempRoot((root) => {
+      const shardPath = path.join(root, SHARD_DIR, '2026-09-19.json');
+      fs.mkdirSync(path.dirname(shardPath), { recursive: true });
+      const emptyTitleBuckets = Array.from({ length: 30_000 }, (_, i) => ({
+        key: `raw-title-${i}`,
+        name: `Raw title ${i}`,
+        addedKeys: [],
+        updatedKeys: [],
+        removedKeys: [],
+      }));
+      const verbose = entry('2026-09-19', {
+        added: 1,
+        updated: 30_000,
+        removed: 2,
+        addedKeys: ['url:added'],
+        titleStats: [
+          ...emptyTitleBuckets,
+          { key: 'raw-active', name: 'Raw active', addedKeys: ['url:added'] },
+        ],
+      });
+      const before = JSON.stringify({ entries: [verbose] }, null, 2) + '\n';
+      expect(Buffer.byteLength(before)).toBeGreaterThan(1_000_000);
+      fs.writeFileSync(shardPath, before);
+
+      const migrated = entry('2026-09-19', {
+        added: 1,
+        updated: 30_000,
+        removed: 2,
+        addedKeys: ['url:added'],
+        titleStats: [{ key: 'titolo-locale', name: 'Titolo locale', addedKeys: ['url:added'] }],
+      });
+
+      writeJobsStatsHistory({ entries: [migrated, entry('2026-09-20')] }, root, {
+        currentDate: '2026-09-20',
+      });
+
+      expect(readShard(root, '2026-09-19.json').entries).toEqual([migrated]);
+    });
+  });
+
   it('refuses a controlled rewrite that drops existing added keys and bucket payload', () => {
     withTempRoot((root) => {
       const shardPath = path.join(root, SHARD_DIR, '2026-09-19.json');
