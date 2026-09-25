@@ -11996,6 +11996,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavori-verde-a8-d08.title': 'Fermetures nocturnes A8 et D08 : déviations dans le Varesotto à partir du 28 septembre',
     'blog.article.lavori-verde-a8-d08.excerpt': 'Trois nuits de fermetures entre A8 et D08 de 21:00 à 5:00, travaux d’entretien des espaces verts entre Busto Arsizio, Besnate et Cavaria, déviations sur les routes nationales, provinciales et communales.',
     'blog.article.lavori-verde-a8-d08.imageAlt': 'Travaux d\'entretien des espaces verts sur l\'autoroute A8 près de Busto Arsizio la nuit',
+    'blog.article.ticket-stipendio-acquisti-ticino.title': 'Ticket-salaire : la proposition d\'acheter au Tessin',
+    'blog.article.ticket-stipendio-acquisti-ticino.excerpt': 'Ticket-salaire au Tessin : les Giovani del Centro proposent de consacrer jusqu’à 5% du salaire aux achats locaux, avec un bon fiscal sur 25%.',
+    'blog.article.ticket-stipendio-acquisti-ticino.imageAlt': 'Bon salarial et achats dans un commerce du Tessin',
 };
 
 export default blogMetaFr;

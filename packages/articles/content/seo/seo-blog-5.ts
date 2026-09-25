@@ -93478,6 +93478,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ticket-stipendio-acquisti-ticino': {
+    title: 'Ticket-stipendio: la proposta per comprare in Ticino',
+    description: 'Ticket-stipendio in Ticino: i Giovani del Centro propongono di destinare fino al 5% dello stipendio agli acquisti locali, con un buono fiscale sul 25%.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ticket-stipendio, proposta, comprare, giovani',
+    ogTitle: 'Ticket-stipendio per il consumo locale',
+    ogDescription: 'Salari bassi, premi di cassa malati e affitti più cari spingono molti a fare acquisti in Italia o online. I Giovani del Centro propongono un ticket volontario fino al 5% dello stipendio e un buono fiscale sul 25% del ticket per sostenere le imprese',
+    canonicalPath: '/articoli-frontaliere/ticket-stipendio-acquisti-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticket-stipendio: la proposta per comprare in Ticino",
+      "description": "Ticket-stipendio in Ticino: i Giovani del Centro propongono di destinare fino al 5% dello stipendio agli acquisti locali, con un buono fiscale sul 25%.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ticket-stipendio-acquisti-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Voucher salariale e acquisti in un negozio del Ticino"
+      },
+      "datePublished": "2026-09-25T18:43:54+00:00",
+      "dateModified": "2026-09-25T18:43:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticket-stipendio-acquisti-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
