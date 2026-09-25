@@ -280,6 +280,43 @@ describe('iGroove crawler parser', () => {
       vi.resetModules();
     });
 
+    it('skips a position whose office is a work mode instead of a place (issue 9839 rule)', async () => {
+      vi.resetModules();
+      const position = (jobReqId: string, location: string) => ({
+        jobReqId,
+        title: `Data Engineer ${jobReqId}`,
+        location,
+        department: 'IT',
+        postedAt: '2026-03-31T07:10:55.000Z',
+        applyUrl: `https://igroove.jobs.personio.de/job/${jobReqId}`,
+        descriptionHtml: '<p>Build our data pipeline.</p>',
+        employmentType: 'permanent',
+        seniority: 'experienced',
+        schedule: 'full-time',
+        rawPosition: {},
+      });
+      vi.doMock('../scripts/lib/ats-clients/personio-client.mjs', () => ({
+        fetchPersonioJobs: vi.fn(async () => [
+          position('1', 'Remote'),
+          position('2', 'Hybrid'),
+          position('3', 'Zürich Hybrid'),
+        ]),
+      }));
+      vi.spyOn(console, 'log').mockImplementation(() => {});
+
+      const { fetchAllIgrooveJobs } = await import('../scripts/lib/igroove-job-parser.mjs');
+      const jobs = await fetchAllIgrooveJobs();
+
+      // A work-mode office used to go out as location `Remote` / `Hybrid` with
+      // the HQ canton; a place qualified by a work mode still names the place.
+      expect(jobs.map((job: { jobReqId: string; location: string; canton: string }) => [job.jobReqId, job.location, job.canton]))
+        .toEqual([['3', 'Zürich', 'ZH']]);
+
+      vi.doUnmock('../scripts/lib/ats-clients/personio-client.mjs');
+      vi.restoreAllMocks();
+      vi.resetModules();
+    });
+
     it('returns an empty array when the feed has no positions', async () => {
       vi.resetModules();
       vi.doMock('../scripts/lib/ats-clients/personio-client.mjs', () => ({
