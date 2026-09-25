@@ -2525,13 +2525,11 @@
       "pensum": "100%",
       "previousSlugs": [
         "praktikum-im-generalsekretariat-der-finanzdirektion-kanton-zuerich-zurich",
-        "internship-in-the-general-secretariat-of-the-financial-directorate-kantonale-verwaltung-zurich-zurich",
-        "stage-presso-il-segretariato-generale-della-direzione-finanziaria-kantonale-verwaltung-zurich-zurich"
+        "internship-in-the-general-secretariat-of-the-financial-directorate-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-im-generalsekretariat-der-finanzdirektion-kanton-zuerich-zurich",
-          "stage-presso-il-segretariato-generale-della-direzione-finanziaria-kantonale-verwaltung-zurich-zurich"
+          "praktikum-im-generalsekretariat-der-finanzdirektion-kanton-zuerich-zurich"
         ],
         "en": [
           "internship-in-the-general-secretariat-of-the-financial-directorate-kantonale-verwaltung-zurich-zurich"
@@ -6195,12 +6193,12 @@
     },
     {
       "id": "kanton-zuerich-12fb51e30972",
-      "slug": "fachexpert-in-organisation-kanton-zuerich-zurich",
+      "slug": "esperto-a-in-organizzazione-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "fachexpert-in-organisation-kanton-zuerich-zurich",
-        "it": "fachexpert-in-organisation-kanton-zuerich-zurich",
+        "it": "esperto-a-in-organizzazione-kantonale-verwaltung-zurich-zurich",
         "en": "fachexpert-in-organisation-kantonale-verwaltung-zurich-zurich",
-        "fr": "fachexpert-in-organisation-kanton-zuerich-zurich"
+        "fr": "expert-e-en-organisation-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -6262,7 +6260,18 @@
         }
       },
       "firstSeenAt": "2026-09-24T14:46:41.058Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "fachexpert-in-organisation-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "fachexpert-in-organisation-kanton-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "fachexpert-in-organisation-kanton-zuerich-zurich"
+      ]
     },
     {
       "id": "kanton-zuerich-1ecb5690ae5e",

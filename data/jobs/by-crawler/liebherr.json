@@ -3319,10 +3319,10 @@
     },
     {
       "id": "liebherr-379cb1d188a3",
-      "slug": "commodity-buyer-m-f-x-liebherr-bulle",
+      "slug": "commerciante-di-merci-m-f-d-liebherr-bulle",
       "slugByLocale": {
         "en": "commodity-buyer-m-f-x-liebherr-bulle",
-        "it": "commodity-buyer-m-f-x-liebherr-bulle",
+        "it": "commerciante-di-merci-m-f-d-liebherr-bulle",
         "de": "warenkaufer-m-w-x-liebherr-bulle",
         "fr": "acheteur-de-marchandises-h-f-x-liebherr-bulle"
       },
@@ -3382,7 +3382,15 @@
         }
       },
       "firstSeenAt": "2026-09-24T14:54:53.500Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "commodity-buyer-m-f-x-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "commodity-buyer-m-f-x-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-0376856ee6b1",

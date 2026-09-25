@@ -8832,9 +8832,9 @@
     },
     {
       "id": "eth-zurich-b76bd342f2a1",
-      "slug": "phd-positions-max-planck-eth-center-for-learning-systems-cls-eth-zurich-ch",
+      "slug": "posizioni-di-dottorato-centro-eth-max-planck-per-sistemi-di-apprendimento-cls-eth-zurich-zurich",
       "slugByLocale": {
-        "it": "phd-positions-max-planck-eth-center-for-learning-systems-cls-eth-zurich-ch",
+        "it": "posizioni-di-dottorato-centro-eth-max-planck-per-sistemi-di-apprendimento-cls-eth-zurich-zurich",
         "en": "phd-positions-max-planck-eth-center-for-learning-systems-cls-eth-zurich-ch",
         "de": "phd-stellen-max-planck-eth-center-for-learning-systems-cls-eth-zurich-zurich",
         "fr": "postes-de-doctorat-max-planck-eth-center-for-learning-systems-cls-eth-zurich-zurich"
@@ -8891,7 +8891,15 @@
         }
       },
       "addressRegion": "ZH",
-      "sourceIdentity": "url:https://jobs.ethz.ch/job/view/12140"
+      "sourceIdentity": "url:https://jobs.ethz.ch/job/view/12140",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-positions-max-planck-eth-center-for-learning-systems-cls-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "phd-positions-max-planck-eth-center-for-learning-systems-cls-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-40367692482f",
@@ -8970,7 +8978,7 @@
       "slugByLocale": {
         "it": "eth-ai-center-post-doc-fellowship-2027-eth-zurich-ch",
         "en": "eth-ai-center-post-doc-fellowship-2027-eth-zurich-ch",
-        "de": "eth-ai-center-post-doc-fellowship-2027-eth-zurich-ch",
+        "de": "eth-ai-center-postdoc-stipendium-2027-eth-zurich-zurich",
         "fr": "bourse-post-doc-2027-eth-zurich-zurich"
       },
       "company": "ETH Zürich",

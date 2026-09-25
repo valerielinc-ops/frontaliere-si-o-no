@@ -520,13 +520,11 @@
       "postalCode": "1196",
       "streetAddress": "Chemin de la Crétaux 33",
       "previousSlugs": [
-        "ufficiale-di-controllo-interno-swissquote-gland",
-        "internal-controlling-officer-swissquote-gland"
+        "ufficiale-di-controllo-interno-swissquote-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ufficiale-di-controllo-interno-swissquote-gland",
-          "internal-controlling-officer-swissquote-gland"
+          "ufficiale-di-controllo-interno-swissquote-gland"
         ]
       },
       "firstSeenAt": "2026-08-07T01:19:10.490Z",
@@ -2613,11 +2611,11 @@
     },
     {
       "id": "swissquote-0b9e5fa7cc7d",
-      "slug": "data-oversight-transformation-lead-swissquote-gland",
+      "slug": "capo-di-sorveglianza-e-trasformazione-dei-dati-swissquote-gland",
       "slugByLocale": {
-        "it": "data-oversight-transformation-lead-swissquote-gland",
+        "it": "capo-di-sorveglianza-e-trasformazione-dei-dati-swissquote-gland",
         "en": "data-oversight-transformation-lead-swissquote-gland",
-        "de": "data-oversight-transformation-lead-swissquote-gland",
+        "de": "daten-uberblick-transformations-leitung-swissquote-gland",
         "fr": "surveillance-des-donnees-et-transformation-responsable-swissquote-gland"
       },
       "company": "Swissquote",
@@ -2674,7 +2672,18 @@
           "maxValue": 165500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "data-oversight-transformation-lead-swissquote-gland"
+        ],
+        "de": [
+          "data-oversight-transformation-lead-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "data-oversight-transformation-lead-swissquote-gland"
+      ]
     },
     {
       "id": "swissquote-f1db703072d6",
