@@ -55,6 +55,10 @@ describe('jobs SEO full-corpus measurement wiring', () => {
     expect(steps.indexOf(resolve)).toBeGreaterThan(validatorIndex);
     expect(report.with['closed-by']).toBe('sibling-resolve-step');
     expect(resolve.with['closed-by']).toBe('sibling-resolve-step');
+    // The alarm itself must not be able to fail the job either: a red
+    // build-locale is an unpublished site.
+    expect(report['continue-on-error']).toBe(true);
+    expect(resolve['continue-on-error']).toBe(true);
     // Only a green build: a red one lacks the markers anyway and is already
     // reported as "CI Failure (build)".
     expect(report.if).toContain("steps.build_step.outcome == 'success'");

@@ -3013,8 +3013,14 @@ jobs:
       # CHI CHIUDE: lo step gemello qui sotto, col TITOLO IDENTICO, appena una
       # run IT ha la misura completa (`sibling-resolve-step`; il test
       # tests/failure-issue-closers.test.ts verifica l'accoppiamento).
+      #
+      # `continue-on-error` anche qui: l'action esce 0 per contratto, ma se il
+      # reporting stesso si rompesse (API, checkout parziale) il job diventerebbe
+      # rosso e `deploy-publish.yml` non pubblicherebbe, cioe' il blocco che lo
+      # step di misura ha appena smesso di causare.
       - name: Report jobs SEO full-corpus evidence gap to GitHub Issues
         if: always() && matrix.locale == 'it' && steps.build_step.outcome == 'success' && steps.jobs_seo_evidence.outcome == 'failure'
+        continue-on-error: true
         uses: ./.github/actions/report-failure
         with:
           title: 'la misura full-corpus del build jobs SEO non è verificabile'
