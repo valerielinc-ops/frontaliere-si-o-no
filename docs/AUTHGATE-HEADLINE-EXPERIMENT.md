@@ -239,12 +239,14 @@ Singapore: ~1,650 "persons"/day on the gate on 1-12/09, back in bursts from
 24/09). It now never enters the experiment (`matchesAutomationScreenSignature`
 in `services/botPatterns.ts`, part of `isLikelyBot()`) and the readout drops it
 from every GA4 count (`GA4_EXCLUDED_TRAFFIC` in `scripts/lib/experiment-stats.mjs`,
-printed per signature and arm). Without it, 16-24/09: 7,226 gate persons, 240
-new gate subscribers, **baseline 3.32%**; ~700 unique gate persons/day over
-21-42-day windows. The plan in `scripts/experiments/jobgate-v3-plan.mjs`:
-+30% relative, 80% power, α 0.05/3 → **7,750 persons per arm**, **49 days**
-(analysis from 2026-09-26: the launch day had a CDN outage 04:55-06:30 UTC),
-decisions on whole weeks only, maximum 70 days.
+printed per signature and arm). Without it, 16-24/09: 7,226 gate persons, 208
+new gate subscribers (after the 2026-09-25 `created_at` backfill), **baseline
+2.88%** (2.24% with the robots in the denominator); ~700 unique gate
+persons/day over 21-42-day windows. The plan in
+`scripts/experiments/jobgate-v3-plan.mjs`: +30% relative, 80% power, α 0.05/3
+→ **8,981 persons per arm**, **56 days** (analysis from 2026-09-26: the launch
+day had a CDN outage 04:55-06:30 UTC), decisions on whole weeks only, maximum
+70 days.
 
 **Monitor and automatic promotion.** `.github/workflows/jobgate-experiment-monitor.yml`
 runs `scripts/experiments/jobgate-v3-monitor.mjs` daily: it rewrites one status

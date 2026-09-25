@@ -73,19 +73,19 @@ function decide(p: ReturnType<typeof payload> | null, rc = RC_ON) {
 }
 
 describe('piano jobgate-v3', () => {
-  it('baseline reale 3,32%, +30%, 3 confronti Bonferroni, 700 persone/giorno → 7.750 per braccio e 49 giorni', () => {
+  it('baseline reale 2,88%, +30%, 3 confronti Bonferroni, 700 persone/giorno → 8.981 per braccio e 56 giorni', () => {
     expect(planned.challengers).toEqual(['similar_alerts', 'social_first', 'email_first']);
     expect(planned.alphaPerTest).toBeCloseTo(0.05 / 3, 12);
-    expect(planned.requiredPerArm).toBe(7750);
+    expect(planned.requiredPerArm).toBe(8981);
     expect(planned.perArmDaily).toBe(175);
-    expect(planned.daysForSample).toBe(45);
-    expect(planned.minDays).toBe(49);
-    expect(planned.minWindowEnd).toBe('2026-11-13');
+    expect(planned.daysForSample).toBe(52);
+    expect(planned.minDays).toBe(56);
+    expect(planned.minWindowEnd).toBe('2026-11-20');
     expect(planned.maxWindowEnd).toBe('2026-12-04');
   });
 
   it('la durata minima non scende sotto quattro settimane e segue il braccio più piccolo', () => {
-    expect(planExperiment({ ...PLAN, relativeMde: 0.5 }, WEIGHTS).minDays).toBe(28);
+    expect(planExperiment({ ...PLAN, relativeMde: 0.6 }, WEIGHTS).minDays).toBe(28);
     const uneven = planExperiment(PLAN, { control: 50, email_first: 50, social_first: 0 });
     expect(uneven.challengers).toEqual(['email_first']);
     expect(uneven.perArmDaily).toBe(350);
@@ -113,7 +113,7 @@ describe('piano jobgate-v3', () => {
 });
 
 describe('decisione di promozione (tabella di casi)', () => {
-  const N = 9000; // > 7.750 pianificate per braccio
+  const N = 10000; // > 8.981 pianificate per braccio
   const baseArms = { control: flat(N, 0.033), similar_alerts: flat(N, 0.034), social_first: flat(N, 0.032), email_first: flat(N, 0.033) };
 
   it('troppo presto: 21 giorni → raccolta dati, nessuna azione', () => {
@@ -122,7 +122,7 @@ describe('decisione di promozione (tabella di casi)', () => {
   });
 
   it('vincente chiaro: tutte le condizioni vere → promuove il vincente', () => {
-    const { decision, alarms } = decide(payload(49, { ...baseArms, email_first: flat(N, 0.045) }));
+    const { decision, alarms } = decide(payload(56, { ...baseArms, email_first: flat(N, 0.045) }));
     expect(decision.action).toBe('promote');
     expect(decision.winner).toBe('email_first');
     expect(decision.checks.every((c) => c.ok)).toBe(true);
@@ -130,18 +130,18 @@ describe('decisione di promozione (tabella di casi)', () => {
   });
 
   it('più vincenti significativi: promuove quello con la CR più alta', () => {
-    const { decision } = decide(payload(49, { ...baseArms, similar_alerts: flat(N, 0.044), email_first: flat(N, 0.048) }));
+    const { decision } = decide(payload(56, { ...baseArms, similar_alerts: flat(N, 0.044), email_first: flat(N, 0.048) }));
     expect(decision.winner).toBe('email_first');
   });
 
   it('nessun vincente: nessuna promozione', () => {
-    const { decision } = decide(payload(49, baseArms));
+    const { decision } = decide(payload(56, baseArms));
     expect(decision.action).toBe('none');
     expect(decision.checks.find((c) => c.id === 'winner')?.ok).toBe(false);
   });
 
   it('control migliore di tutti: nessuna promozione, allarme guardrail', () => {
-    const { decision, alarms } = decide(payload(49, {
+    const { decision, alarms } = decide(payload(56, {
       control: flat(N, 0.045), similar_alerts: flat(N, 0.03), social_first: flat(N, 0.03), email_first: flat(N, 0.03),
     }));
     expect(decision.action).toBe('none');
@@ -150,7 +150,7 @@ describe('decisione di promozione (tabella di casi)', () => {
 
   it('SRM: allocazione sbilanciata blocca la promozione e allarma', () => {
     const arms = { ...baseArms, email_first: { ...flat(N, 0.045), assigned: N }, control: { ...flat(N, 0.033), assigned: N * 1.2 } };
-    const { decision, alarms } = decide(payload(49, arms));
+    const { decision, alarms } = decide(payload(56, arms));
     expect(decision.action).toBe('none');
     expect(decision.checks.find((c) => c.id === 'srm')?.ok).toBe(false);
     expect(alarms.map((a) => a.id)).toContain('srm');
@@ -158,21 +158,21 @@ describe('decisione di promozione (tabella di casi)', () => {
 
   it('campione sotto il piano: nessuna promozione anche con p piccolo', () => {
     const n = 3000;
-    const { decision } = decide(payload(49, { control: flat(n, 0.03), similar_alerts: flat(n, 0.03), social_first: flat(n, 0.03), email_first: flat(n, 0.07) }));
+    const { decision } = decide(payload(56, { control: flat(n, 0.03), similar_alerts: flat(n, 0.03), social_first: flat(n, 0.03), email_first: flat(n, 0.07) }));
     expect(decision.action).toBe('none');
     expect(decision.checks.find((c) => c.id === 'sample')?.ok).toBe(false);
     expect(decision.checks.find((c) => c.id === 'winner')?.ok).toBe(true);
   });
 
   it('braccio peggiore del control: allarme, ma non blocca il vincente (la promozione lo spegne)', () => {
-    const { decision, alarms } = decide(payload(49, { ...baseArms, social_first: flat(N, 0.02), email_first: flat(N, 0.045) }));
+    const { decision, alarms } = decide(payload(56, { ...baseArms, social_first: flat(N, 0.02), email_first: flat(N, 0.045) }));
     expect(alarms.find((a) => a.id === 'guardrail')?.detail).toMatch(/social_first/);
     expect(decision.action).toBe('promote');
     expect(decision.winner).toBe('email_first');
   });
 
   it('vincente sulla CR primaria ma peggiore su auth/gate: guardrail del vincente, niente promozione', () => {
-    const { decision, alarms } = decide(payload(49, { ...baseArms, email_first: { ...flat(N, 0.045), auth: Math.round(N * 0.1) } }));
+    const { decision, alarms } = decide(payload(56, { ...baseArms, email_first: { ...flat(N, 0.045), auth: Math.round(N * 0.1) } }));
     expect(decision.checks.find((c) => c.id === 'winner')?.ok).toBe(true);
     expect(decision.checks.find((c) => c.id === 'guardrail')?.ok).toBe(false);
     expect(decision.action).toBe('none');
@@ -180,7 +180,7 @@ describe('decisione di promozione (tabella di casi)', () => {
   });
 
   it('attribuzione degli iscritti sotto soglia: niente promozione e allarme', () => {
-    const { decision, alarms } = decide(payload(49, { ...baseArms, email_first: flat(N, 0.045) }, { coverage: 0.4 }));
+    const { decision, alarms } = decide(payload(56, { ...baseArms, email_first: flat(N, 0.045) }, { coverage: 0.4 }));
     expect(decision.action).toBe('none');
     expect(decision.checks.find((c) => c.id === 'attribution')?.ok).toBe(false);
     expect(alarms.map((a) => a.id)).toContain('attribution');
@@ -198,13 +198,13 @@ describe('decisione di promozione (tabella di casi)', () => {
   });
 
   it('kill switch spento: nessuna azione', () => {
-    const { decision } = decide(payload(49, { ...baseArms, email_first: flat(N, 0.045) }), { enabled: false, force: '' });
+    const { decision } = decide(payload(56, { ...baseArms, email_first: flat(N, 0.045) }), { enabled: false, force: '' });
     expect(decision).toMatchObject({ phase: 'disabled', action: 'none' });
   });
 
   it('un braccio pianificato senza dati conta zero persone', () => {
     const { control, similar_alerts, social_first } = baseArms;
-    const e = evaluateWindow(payload(49, { control, similar_alerts, social_first }), PLAN, planned);
+    const e = evaluateWindow(payload(56, { control, similar_alerts, social_first }), PLAN, planned);
     expect(e.persons.email_first).toBe(0);
     expect(e.minPersons).toBe(0);
   });
@@ -228,31 +228,31 @@ describe('stato persistito e report', () => {
   });
 
   it('report con giorni, bracci, SRM, potenza, data prevista e marker', () => {
-    const p = payload(49, { control: flat(9000, 0.033), similar_alerts: flat(9000, 0.034), social_first: flat(9000, 0.02), email_first: flat(9000, 0.045) });
+    const p = payload(56, { control: flat(10000, 0.033), similar_alerts: flat(10000, 0.034), social_first: flat(10000, 0.02), email_first: flat(10000, 0.045) });
     const statusEval = evaluateWindow(p, PLAN, planned);
     const decision = decideAction({ rc: RC_ON, decisionEval: statusEval, plan: PLAN, planned });
     const alarms = collectAlarms(statusEval, PLAN);
     const estimate = estimateDecisionWindowEnd(statusEval, PLAN, planned);
     const state = { v: 1, phase: decision.phase, action: decision.action, winner: decision.winner, alarms: alarms.map((a) => a.id), applied: null };
     const md = renderMonitorReport({ plan: PLAN, planned, rc: { ...RC_ON, armsRaw: ARMS_JSON }, statusEval, decisionEval: statusEval, decision, alarms, estimate, statusPayload: p, state });
-    expect(md).toContain('**Giorni trascorsi:** 49');
+    expect(md).toContain('**Giorni trascorsi:** 56');
     // fmtInt usa it-CH: il separatore delle migliaia dipende dall'ICU del runtime.
-    expect(md).toMatch(/\*\*7\D?750 persone gate_view per braccio\*\*/);
-    expect(md).toMatch(/\| `email_first` \| 9\D?000 \|/);
+    expect(md).toMatch(/\*\*8\D?981 persone gate_view per braccio\*\*/);
+    expect(md).toMatch(/\| `email_first` \| 10\D?000 \|/);
     expect(md).toContain('Braccio peggiore del control');
     expect(md).toContain('✅ (d) vincente sulla CR primaria');
     expect(md).toContain('Promozione di `email_first` pronta');
     expect(md).toContain('**Robot esclusi:** 9 persone');
-    expect(md).toContain('**Data prevista della decisione:** finestra fino al **2026-11-13**');
+    expect(md).toContain('**Data prevista della decisione:** finestra fino al **2026-11-20**');
     expect(readMonitorState(md)).toEqual(state);
   });
 
   it('data prevista: dal piano nella prima settimana, poi dal ritmo osservato', () => {
     const firstDays = evaluateWindow(payload(3, { control: flat(30, 0.03), similar_alerts: flat(30, 0.03), social_first: flat(30, 0.03), email_first: flat(30, 0.03) }), PLAN, planned);
-    expect(estimateDecisionWindowEnd(firstDays, PLAN, planned)).toMatchObject({ days: 49, provisional: true, beyondMax: false });
+    expect(estimateDecisionWindowEnd(firstDays, PLAN, planned)).toMatchObject({ days: 56, provisional: true, beyondMax: false });
     const slow = evaluateWindow(payload(14, { control: flat(1400, 0.03), similar_alerts: flat(1400, 0.03), social_first: flat(1400, 0.03), email_first: flat(1400, 0.03) }), PLAN, planned);
-    // 100 persone/giorno per braccio → 78 giorni → 84 (settimane intere), oltre i 70.
-    expect(estimateDecisionWindowEnd(slow, PLAN, planned)).toMatchObject({ days: 84, provisional: false, beyondMax: true, windowEnd: '2026-12-18' });
+    // 100 persone/giorno per braccio → 90 giorni → 91 (settimane intere), oltre i 70.
+    expect(estimateDecisionWindowEnd(slow, PLAN, planned)).toMatchObject({ days: 91, provisional: false, beyondMax: true, windowEnd: '2026-12-25' });
   });
 
   it('titoli delle issue distinti nei primi 60 caratteri (chiave di dedup)', () => {
@@ -280,7 +280,7 @@ describe('CLI jobgate-v3-monitor (fixture, nessuna rete)', () => {
   }
 
   const rcOn = { JOBGATE_EXPERIMENT_ENABLED: 'true', JOBGATE_EXPERIMENT_ARMS: ARMS_JSON, JOBGATE_EXPERIMENT_FORCE: '' };
-  const winning = payload(49, { control: flat(9000, 0.033), similar_alerts: flat(9000, 0.034), social_first: flat(9000, 0.032), email_first: flat(9000, 0.045) });
+  const winning = payload(56, { control: flat(10000, 0.033), similar_alerts: flat(10000, 0.034), social_first: flat(10000, 0.032), email_first: flat(10000, 0.045) });
 
   it('dry-run di default: promozione pronta, comando stampato e non eseguito', () => {
     const { res, json } = run({ 'rc-json': rcOn, 'status-json': winning });

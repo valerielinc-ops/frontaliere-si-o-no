@@ -10,21 +10,25 @@
  * Misure (GA4 + Firestore in sola lettura, 2026-09-25, robot esclusi con
  * GA4_EXCLUDED_TRAFFIC di scripts/lib/experiment-stats.mjs):
  *  - baseline 16–24/09 (dopo la correzione delle iscrizioni del 16/09, prima
- *    del lancio): 7.226 persone gate_view, 240 nuovi iscritti job gate →
- *    CR primaria 3,32% [2,93% – 3,76%]. Il 1,78% della PR #9725 contava anche
- *    i robot al denominatore (1.989 persone gate_view solo in quei 9 giorni);
+ *    del lancio): 7.226 persone gate_view, 208 nuovi iscritti job gate →
+ *    CR primaria 2,88% [2,52% – 3,29%]. Misurata DOPO il backfill di
+ *    `created_at` del 25/09 (prima valeva 3,32%: 45 iscritti senza data di
+ *    creazione ripiegavano sul consenso, cioè iscritti vecchi ripassati dal
+ *    gate). Con i robot al denominatore sarebbe 2,24% (9.271 persone, di cui
+ *    1.989 robot in 9 giorni): il 1,78% della PR #9725 era diluito così;
  *  - persone gate_view DEDUPLICATE sulla finestra: ~700/giorno per finestre
  *    di 21–42 giorni (5.531 in 7 giorni, 19.330 in 28, 29.623 in 42), contro
  *    ~867/giorno sommando i singoli giorni. Il campione di un braccio cresce
  *    col numero di persone uniche, quindi il piano usa 700.
  *
  * Potenza (bilaterale, 80%, Bonferroni sui 3 confronti = limite di Holm,
- * baseline 3,32%): +20% → 16.709 per braccio (~95 giorni), +30% → 7.750
- * (~45), +40% → 4.541 (~26), +50% → 3.022 (~17). Il piano di lancio (#9725)
- * dichiarava +40% ma su una baseline diluita dai robot; qui si pianifica +30%:
- * sta dentro la durata massima con tre controlli settimanali di margine e
- * rileva un effetto più piccolo, coerente con la durata «oltre 42 giorni»
- * attesa dopo l'esclusione dei robot.
+ * baseline 2,88%, 175 persone uniche al giorno per braccio): +20% → 19.359
+ * per braccio (~111 giorni), +30% → 8.981 (~52), +40% → 5.263 (~31), +50% →
+ * 3.503 (~21). Il piano di lancio (#9725) dichiarava +40% su una baseline
+ * diluita dai robot; qui si pianifica +30%: 56 giorni (otto settimane
+ * intere), dentro la durata massima con due controlli settimanali di
+ * margine, e rileva un effetto più piccolo, coerente con la durata «oltre
+ * 42 giorni» attesa dopo l'esclusione dei robot.
  */
 
 export const JOBGATE_V3_PLAN = Object.freeze({
@@ -34,7 +38,7 @@ export const JOBGATE_V3_PLAN = Object.freeze({
   launchedAt: '2026-09-25T04:55:00Z',
   analysisStart: '2026-09-26',
   /** CR primaria del control attesa (iscritti job gate / persone gate_view, senza robot). */
-  baselineRate: 0.0332,
+  baselineRate: 0.0288,
   baselineWindow: '2026-09-16..2026-09-24',
   /** Persone gate_view uniche al giorno (senza robot), tutte le braccia insieme. */
   dailyGatePersons: 700,

@@ -523,9 +523,9 @@ const JOB_GATE_SUBSCRIBER_COMPONENTS = new Set(['JobBoard', 'authService']);
  * dal job gate portano il tag `<experimentId>:<braccio>`.
  *
  * Misurato con questo readout sul 2026-09-25, giorno del lancio di
- * `jobgate-v3`: 6 nuovi iscritti con il tag contro 15 senza, partiti da una
- * pagina annuncio (13 `authService`, cioè login Google/LinkedIn senza
- * `source_cta`, e 2 `JobBoard`): copertura 29%. Un login
+ * `jobgate-v3` (a metà giornata): 7 nuovi iscritti con il tag contro 16
+ * senza, partiti da una pagina annuncio (14 `authService`, cioè login
+ * Google/LinkedIn senza `source_cta`, e 2 `JobBoard`): copertura 30%. Un login
  * social dal gate che non porta il braccio sparisce dal numeratore della CR
  * primaria, e sparisce di più nel braccio che spinge il social: il confronto
  * è distorto, non solo rumoroso. Il monitor non promuove sotto soglia.
