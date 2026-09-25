@@ -99,9 +99,19 @@ jobs:
           if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
             PR="$DISPATCH_PR"
             HEAD_SHA=$(gh api "repos/$REPO/pulls/$PR" --jq ".head.sha" 2>/dev/null || echo "")
-            RUN_ID=$(gh run list --repo "$REPO" --workflow=tests.yml --limit 20 \
-              --json databaseId,headSha,conclusion \
-              --jq "[.[] | select(.headSha==\"$HEAD_SHA\" and .conclusion==\"failure\")][0].databaseId" 2>/dev/null || echo "")
+            if ! [[ "$HEAD_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+              echo "::error::HEAD di #$PR illeggibile: senza SHA la ricerca per head_sha restituirebbe le run di qualunque PR."
+              exit 1
+            fi
+            # La run rossa si cerca per SHA, non fra le ultime 20 run del repo:
+            # main pusha ogni pochi minuti e una run di ieri ne era gia' fuori,
+            # cosi' il dispatch su una PR ferma finiva sempre in no-op (#9695,
+            # run rossa 36061365735 del 2026-09-24T23:39Z).
+            if ! RUN_ID=$(gh api "repos/$REPO/actions/workflows/tests.yml/runs?head_sha=$HEAD_SHA&status=failure&per_page=1" \
+              --jq '.workflow_runs[0].id // empty'); then
+              echo "::error::Run di tests.yml sulla HEAD di #$PR illeggibili: non le tratto come «nessuna run fallita»."
+              exit 1
+            fi
             if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
               skip "Nessuna run tests fallita sulla HEAD di #$PR → niente da riparare (no-op)."
             fi
