@@ -11955,6 +11955,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gornate-olona-regime-fiscale.title': 'Gornate Olona: Arbeiten im Tessin als Grenzgänger',
     'blog.article.gornate-olona-regime-fiscale.excerpt': 'Von Gornate Olona bis Tessin: Grenzgängerabkommen in Kraft seit dem 1. Januar 2024, Quellensteuer, Befreiung € 7\'500 oder Selbstbehalt € 10\'000, AHV und KVG.',
     'blog.article.gornate-olona-regime-fiscale.imageAlt': 'Grenzgänger zwischen Gornate Olona und dem Kanton Tessin',
+    'blog.article.bns-decisione-tasso-invariato-2026.title': 'SNB lässt Zinssatz bei 0% und steigert BIP 2026',
+    'blog.article.bns-decisione-tasso-invariato-2026.excerpt': 'Die SNB hält den Referenzzinssatz bei 0% (unverändert seit Juni 2025), prognostiziert eine Inflation von 0,7% im Jahr 2026 und 0,8% im Jahr 2027 und ein BIP 2026 zwischen 1,5% und 2,0%.',
+    'blog.article.bns-decisione-tasso-invariato-2026.imageAlt': 'Blick auf den Luganer See mit den Bergen im Hintergrund, Morgenlicht',
 };
 
 export default blogMetaDe;

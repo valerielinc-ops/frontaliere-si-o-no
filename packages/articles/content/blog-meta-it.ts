@@ -11957,6 +11957,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gornate-olona-regime-fiscale.title': 'Gornate Olona: lavorare in Ticino da frontaliere',
     'blog.article.gornate-olona-regime-fiscale.excerpt': 'Da Gornate Olona al Ticino: accordo frontalieri in vigore dal 1° gennaio 2024, imposta alla fonte, esenzione €7\'500 o franchigia €10\'000, AVS e LAMal.',
     'blog.article.gornate-olona-regime-fiscale.imageAlt': 'Lavoratore frontaliere tra Gornate Olona e il Canton Ticino',
+    'blog.article.bns-decisione-tasso-invariato-2026.title': 'BNS lascia tasso allo 0% e alza PIL 2026',
+    'blog.article.bns-decisione-tasso-invariato-2026.excerpt': 'La BNS mantiene il tasso di riferimento allo 0% (invariato da giugno 2025), prevede inflazione 0,7% nel 2026 e 0,8% nel 2027 e PIL 2026 tra l’1,5% e il 2,0%.',
+    'blog.article.bns-decisione-tasso-invariato-2026.imageAlt': 'Vista del lago di Lugano con le montagne sullo sfondo, luce mattutina',
 };
 
 export default blogMetaIt;
