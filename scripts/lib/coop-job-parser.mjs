@@ -263,10 +263,13 @@ export function applyCoopJsonLdToJob(job, jsonLd) {
   const ldRegion = detailCandidate.addressRegion || '';
   const detailGeography = resolveCoopJsonLdGeography(detailCandidate);
   const seedEvidence = adapterSeedAddressEvidence(job);
+  const seedMatchesDetail = Boolean(seedEvidence && detailGeography)
+    && normalizeSwissTargetLocationText(seedEvidence.geography.location)
+      === normalizeSwissTargetLocationText(detailGeography.location)
+    && normalizeSwissTargetLocationText(seedEvidence.geography.canton)
+      === normalizeSwissTargetLocationText(detailGeography.canton);
   const seedOverridesDetail = Boolean(seedEvidence)
-    && (!detailGeography
-      || normalizeSwissTargetLocationText(seedEvidence.geography.location)
-        !== normalizeSwissTargetLocationText(detailGeography.location));
+    && !seedMatchesDetail;
   const selectedGeography = seedOverridesDetail
     ? seedEvidence.geography
     : detailGeography;

@@ -866,6 +866,38 @@ describe('applyCoopJsonLdToJob — location update from JSON-LD', () => {
     expect(updated.addressRegion).toBe('ZH');
   });
 
+  it('keeps the adapter canton when the same locality resolves differently in detail JSON-LD', () => {
+    const job = {
+      title: 'Verkaufsberater:in',
+      location: 'Muri',
+      addressLocality: 'Muri',
+      canton: 'BE',
+      addressRegion: 'BE',
+      company: 'Coop',
+      _targetScope: {
+        type: 'adapter_seed_meta',
+        location: 'Muri',
+        canton: 'BE',
+      },
+    };
+    const jsonLd = {
+      jobLocation: {
+        address: {
+          addressLocality: 'Muri',
+          addressRegion: 'AG',
+          addressCountry: 'CH',
+        },
+      },
+      hiringOrganization: { name: 'Coop' },
+    };
+
+    const { job: updated } = applyCoopJsonLdToJob(job, jsonLd);
+
+    expect(updated.location).toBe('Muri');
+    expect(updated.canton).toBe('BE');
+    expect(updated.addressRegion).toBe('BE');
+  });
+
   it('keeps a source-backed regional wrapper when the generic resolver cannot reduce it to one city', () => {
     const job = {
       title: 'Verkaufsberater:in',
