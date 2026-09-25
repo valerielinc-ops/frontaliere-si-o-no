@@ -22,6 +22,9 @@ export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-regis
 export const DEFAULT_MAX_AGE_HOURS = 168;
 export const MINIMUM_SAMPLE = 1000;
 export const MAX_CANDIDATES = 25;
+export const OUTCOME_JOIN_ISSUE_TITLE = 'L2 Demand to Utility: outcome join is not measurable';
+export const OUTCOME_SAMPLE_ISSUE_TITLE = 'L2 Demand to Utility: outcome sample is below minimum';
+export const STALE_SOURCE_ISSUE_TITLE = 'L2 Demand to Utility: GSC snapshot is stale';
 const LOCALES = new Set(['it', 'en', 'de', 'fr']);
 
 function finiteDate(value) {
@@ -205,6 +208,7 @@ export function validateDemandSnapshot(payload, {
         : outcomeShapeValid
           ? 'joined'
           : 'missing',
+    minimumSample,
     outcomes: declaredOutcomeCounts({
       eligibleLandingSessions,
       usefulActions,
@@ -230,6 +234,31 @@ export function validateDemandSnapshot(payload, {
     snapshot,
     candidates,
   });
+}
+
+function hasUnderMinimumSample(verdict) {
+  const eligibleLandingSessions = verdict?.snapshot?.outcomes?.eligibleLandingSessions;
+  const minimumSample = verdict?.snapshot?.minimumSample;
+  return verdict?.snapshot?.outcomeJoin === 'joined'
+    && integer(eligibleLandingSessions)
+    && integer(minimumSample)
+    && eligibleLandingSessions < minimumSample;
+}
+
+export function l2FindingKind(verdict) {
+  if (verdict?.snapshot?.outcomeJoin !== 'joined') return 'outcome-join';
+  if (verdict.quality === 'stale') return 'stale-source';
+  if (hasUnderMinimumSample(verdict)) return 'underpowered-sample';
+  return 'snapshot-validation';
+}
+
+export function issueTitleForVerdict(verdict) {
+  switch (l2FindingKind(verdict)) {
+    case 'underpowered-sample': return OUTCOME_SAMPLE_ISSUE_TITLE;
+    case 'stale-source': return STALE_SOURCE_ISSUE_TITLE;
+    case 'snapshot-validation': return 'L2 Demand to Utility: demand snapshot is not valid';
+    default: return OUTCOME_JOIN_ISSUE_TITLE;
+  }
 }
 
 function reportMarkdown(verdict, observation, decision) {
@@ -282,13 +311,27 @@ function writeResult(reportDir, { verdict, issued, candidatesWritten, outcomes, 
 }
 
 function issueBody(verdict, decision) {
+  const outcomeJoin = verdict.snapshot?.outcomeJoin || 'missing';
+  const outcomes = verdict.snapshot?.outcomes || {};
+  const finding = l2FindingKind(verdict);
+  const opening = finding === 'underpowered-sample'
+    ? 'L2 ha collegato la coorte GSC alle sessioni GA4, ma il campione è sotto la soglia necessaria per dichiarare un risultato utilizzabile.'
+    : finding === 'stale-source'
+      ? 'L2 ha un join di outcome strutturalmente valido, ma lo snapshot GSC è troppo vecchio per sostenere una decisione.'
+      : finding === 'snapshot-validation'
+        ? 'L2 ha trovato un difetto di validazione nello snapshot della domanda; il join non può sostenere una decisione.'
+        : 'L2 ha trovato domanda GSC utilizzabile per candidati, ma il risultato “next useful action” non è ancora un numero misurabile.';
   return [
-    'L2 ha trovato domanda GSC utilizzabile per candidati, ma il risultato “next useful action” non è ancora un numero misurabile.',
+    opening,
     '',
     `- Source: ${verdict.sourcePath}`,
     `- Quality: ${verdict.quality}`,
     `- Reason: ${verdict.reason}`,
     `- Candidate count: ${verdict.candidates.length}`,
+    `- Outcome join: ${outcomeJoin}`,
+    `- Eligible landing sessions: ${Number.isInteger(outcomes.eligibleLandingSessions) ? outcomes.eligibleLandingSessions : 'unavailable'}`,
+    `- Useful actions: ${Number.isInteger(outcomes.usefulActions) ? outcomes.usefulActions : 'unavailable'}`,
+    `- Minimum sample: ${Number.isInteger(verdict.snapshot?.minimumSample) ? verdict.snapshot.minimumSample : 'unavailable'}`,
     `- Decision: ${decision.decision} / ${decision.actionClass}`,
     '',
     'Azione sicura: conservare i candidati come artefatto e proporre soltanto una PR con fonte, internal link/FAQ/CTA e gate SEO. Collegare la coorte di sessioni e azioni prima di dichiarare un risultato; non creare pagine sottili e non convertire impression in utilità.',
@@ -477,7 +520,7 @@ export async function runL2({
   }
   if (issue && !verdict.ok) {
     await createIssueImpl({
-      title: 'L2 Demand to Utility: outcome join is not measurable',
+      title: issueTitleForVerdict(verdict),
       description: issueBody(verdict, decision),
       priority: 3,
       labels: ['monitoring', 'seo', 'loop-l2'],
