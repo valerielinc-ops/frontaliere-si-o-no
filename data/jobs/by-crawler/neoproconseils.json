@@ -81,11 +81,11 @@
     },
     {
       "id": "neoproconseils-3813e5ada334",
-      "slug": "installateur-electricien-h-f-neo-pro-conseils-sa-geneve",
+      "slug": "installatore-elettrico-m-f-neo-pro-conseils-sa-geneve-ge",
       "slugByLocale": {
-        "it": "installateur-electricien-h-f-neo-pro-conseils-sa-geneve",
-        "en": "installateur-electricien-h-f-geneve-ge-neoproconseils-ch",
-        "de": "installateur-electricien-h-f-geneve-ge-neoproconseils-ch",
+        "it": "installatore-elettrico-m-f-neo-pro-conseils-sa-geneve-ge",
+        "en": "electrical-installer-m-f-neo-pro-conseils-sa-geneve-ge",
+        "de": "elektroinstallateur-m-w-neo-pro-conseils-sa-geneve-ge",
         "fr": "installateur-electricien-h-f-geneve-ge-neoproconseils-ch"
       },
       "company": "NEO Pro conseils SA",
@@ -93,7 +93,7 @@
       "companyDomain": "neoproconseils.ch",
       "title": "Installateur électricien (H/F)",
       "titleByLocale": {
-        "it": "Installateur électricien (H/F)",
+        "it": "Installatore elettrico (M/F)",
         "en": "Electrical installer (M/F)",
         "de": "Elektroinstallateur (M/W)",
         "fr": "Installateur électricien (H/F)"
@@ -135,10 +135,15 @@
         "it": [
           "installateur-electricien-h-f-geneve-ge-neoproconseils-ch",
           "installateur-electricien-h-f-neo-pro-conseils-sa-geneve"
+        ],
+        "en": [
+          "installateur-electricien-h-f-geneve-ge-neoproconseils-ch"
+        ],
+        "de": [
+          "installateur-electricien-h-f-geneve-ge-neoproconseils-ch"
         ]
       },
       "firstSeenAt": "2026-09-23T23:35:57.252Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",

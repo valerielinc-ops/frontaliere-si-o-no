@@ -68,6 +68,12 @@ jobs:
           APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
           APPROVAL_CONSENT: ${{ inputs.human_approval }}
           APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          # Stesso buco di discover-404s.yml: non armato da #8895, ogni cron
+          # nega (`event-not-workflow-dispatch`) ed esce verde senza scrivere
+          # (run 35976994866): data/cf-hot-404s.json e' fermo al
+          # 2026-09-16T09:00Z. Scrittura interna: compat store, lista CF-hot,
+          # deploy.
+          APPROVAL_TRUSTED_SCHEDULE: 'true'
           APPROVAL_SCOPE: discover-404s-via-cloudflare
         run: node scripts/ci/human-side-effect-gate.mjs
 

@@ -9,8 +9,8 @@
  * 2. Groq llama-3.3-70b-versatile — first OpenAI-compatible fallback
  * 3. NVIDIA meta/llama-3.1-70b-instruct — second OpenAI-compatible fallback
  * 4. Groq llama-3.1-8b-instant — last-resort free fallback
- * 5. Claude Haiku via direct Anthropic API — paid, last-resort of last resort
- *    (see claudeHaikuFallback.js — scoped ANTHROPIC_API_KEY exception, #4495)
+ * 5. Codex Luna Max with the CI's Codex ChatGPT login — last-resort of last
+ *    resort (see codexFallback.js — scoped exception, #4495)
  *
  * Tools (searchJobs) are embedded as text in the system prompt; no native
  * function-calling API is used, so OpenAI-compatible providers work identically.
@@ -21,7 +21,7 @@
 
 import { createHash } from 'node:crypto';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
-import { tryClaudeHaikuFallback, CLAUDE_HAIKU_MODEL } from './claudeHaikuFallback.js';
+import { tryCodexFallback } from './codexFallback.js';
 
 // ── Model chain (free-first, non-deprecated) ────────────────────────────────
 
@@ -226,7 +226,7 @@ async function callOpenAiCompatibleMultiTurn({ base, apiKey, model, messages, sy
  * Tries Gemini first, then falls through to free OpenAI-compatible providers.
  *
  * @param {{ messages: Array<{role:string,content:string}>, systemPrompt: string }} params
- * @returns {{ text: string, model: string, source: 'cache'|'gemini'|'openai-compat'|'claude-haiku' }}
+ * @returns {{ text: string, model: string, source: 'cache'|'gemini'|'openai-compat'|'codex' }}
  */
 export async function handleChatbotInference({ messages, systemPrompt }) {
  if (!Array.isArray(messages) || messages.length === 0) {
@@ -283,21 +283,20 @@ export async function handleChatbotInference({ messages, systemPrompt }) {
  }
  }
 
- // 4. Last resort: Claude/Haiku via direct Anthropic API — scoped exception
- // to AGENTS.md's ANTHROPIC_API_KEY prohibition (owner-approved 2026-07-28,
- // issue #4495). Paid, only reached once every free provider above has failed.
- const claudeResult = await tryClaudeHaikuFallback({
+ // 4. Last resort: Codex Luna Max with the Codex ChatGPT login
+ // (CODEX_AUTH_JSON from Remote Config, never refreshed here) — scoped
+ // exception in AGENTS.md (issue #4495). Only reached once every free
+ // provider above has failed.
+ const codexResult = await tryCodexFallback({
  systemPrompt: augmentedPrompt,
  messages,
- maxTokens: 1024,
- temperature: 0.7,
  });
- if (claudeResult.ok) {
- console.log('[chatbot] served by fallback claude-haiku');
- if (key) cacheSet(key, claudeResult.text);
- return { text: claudeResult.text, model: CLAUDE_HAIKU_MODEL, source: 'claude-haiku' };
+ if (codexResult.ok) {
+ console.log('[chatbot] served by fallback codex');
+ if (key) cacheSet(key, codexResult.text);
+ return { text: codexResult.text, model: codexResult.model, source: 'codex' };
  }
- failures.push(claudeResult.notConfigured ? 'claude-haiku: not_configured' : `claude-haiku: ${claudeResult.error}`);
+ failures.push(codexResult.notConfigured ? 'codex: not_configured' : `codex: ${codexResult.error}`);
 
  // Every provider failed.
  console.error('[chatbot] all providers failed —', failures.join(' | '));
