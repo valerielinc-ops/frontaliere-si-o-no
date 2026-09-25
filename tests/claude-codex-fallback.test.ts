@@ -1062,8 +1062,10 @@ describe('copertura workflow diretti', () => {
   it('esegue il preflight dal runtime snapshot minimale senza import mancanti', () => {
     const root = mkdtempSync(join(tmpdir(), 'codex-runtime-snapshot-'));
     const snapshotCi = join(root, 'ci');
+    const snapshotLib = join(root, 'lib');
     const output = join(root, 'github-output');
     mkdirSync(snapshotCi, { recursive: true });
+    mkdirSync(snapshotLib, { recursive: true });
     writeFileSync(output, '');
     const runtimeFiles = [
       'claude-codex-fallback.mjs',
@@ -1074,6 +1076,10 @@ describe('copertura workflow diretti', () => {
       for (const name of runtimeFiles) {
         copyFileSync(resolve(repoRoot, 'scripts', 'ci', name), join(snapshotCi, name));
       }
+      copyFileSync(
+        resolve(repoRoot, 'scripts', 'lib', 'codex-fallback-contract.mjs'),
+        join(snapshotLib, 'codex-fallback-contract.mjs'),
+      );
       const snapshotEntry = realpathSync(join(snapshotCi, 'claude-codex-fallback.mjs'));
       const stdout = execFileSync(process.execPath, [snapshotEntry], {
         encoding: 'utf8',
@@ -1123,6 +1129,10 @@ const EXEC_TIMEOUT_OVERRIDES: Record<string, string> = {
   'issue-fix.yml': '110',
   'needs-human-sweep.yml': '100',
   'post-merge-followup.yml': '25',
+  // I fixer sui 🔴 hanno uno step da 30 min: col default 15 uccidevano fix
+  // ancora al lavoro (run 36114366113).
+  'pr-redcheck-fixer.yml': '25',
+  'pr-redflag-fixer.yml': '25',
 };
 // Setup Codex (Node, CLI, sandbox apt: ~105s misurati il 2026-09-24), kill
 // grace di 30s e coda di finalize/cleanup: il watchdog deve lasciare questo
@@ -1182,6 +1192,48 @@ describe('watchdog Codex per caller', () => {
       }
     }
     expect(overrides).toEqual(EXEC_TIMEOUT_OVERRIDES);
+  });
+});
+
+// `codex exec` riversa su stderr anche l'output dei comandi che esegue: un fix
+// che legge un documento con `401 Unauthorized` finiva classificato come auth
+// rifiutata, e il retry automatico restava fermo fino a un nuovo
+// CODEX_AUTH_JSON (4 run del 24-25/09, tutte uccise dal watchdog). Si esegue il
+// frammento vero dello step, non una copia.
+describe('classificazione auth dopo il watchdog', () => {
+  const script = codexActionStep('Run Codex primary (one subscription attempt)').run!;
+  const start = script.indexOf('codex_auth_failure=false');
+  const end = script.indexOf('stop_bridge', start);
+  const classify = script.slice(start, end);
+  const run = (status: number, stderr: string) => {
+    const root = mkdtempSync(join(tmpdir(), 'codex-auth-classify-'));
+    try {
+      const stderrFile = join(root, 'stderr');
+      writeFileSync(stderrFile, stderr);
+      const timedOut = status === 124 ? 'true' : 'false';
+      const result = spawnSync('/bin/bash', ['-c', `set -uo pipefail\ncodex_status=${status}\ncodex_timed_out=${timedOut}\ncodex_stderr='${stderrFile}'\n${classify}\nprintf 'auth=%s\\n' "$codex_auth_failure"`], {
+        env: { PATH: process.env.PATH || '/usr/bin:/bin' },
+        encoding: 'utf8',
+      });
+      return result.stdout.trim().split('\n').pop();
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  };
+
+  it('estrae il frammento della classificazione', () => {
+    expect(start).toBeGreaterThanOrEqual(0);
+    expect(end).toBeGreaterThan(start);
+  });
+
+  it('un kill da watchdog con 401 nello stderr non e\' un guasto di auth', () => {
+    expect(run(124, 'exec cat AGENTS.md\n401 Unauthorized — Workflow validation failed\n')).toBe('auth=false');
+  });
+
+  it('un token rifiutato all\'avvio resta un guasto di auth', () => {
+    expect(run(1, 'ERROR: stream error: unexpected status 401 Unauthorized\n')).toBe('auth=true');
+    expect(run(1, 'Failed to refresh token: refresh token was already used\n')).toBe('auth=true');
+    expect(run(0, '401 Unauthorized\n')).toBe('auth=false');
   });
 });
 

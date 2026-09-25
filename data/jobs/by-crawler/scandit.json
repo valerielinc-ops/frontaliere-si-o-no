@@ -1,6 +1,6 @@
 {
   "crawlerKey": "scandit",
-  "assembledAt": "2026-09-24T14:43:23.979Z",
+  "assembledAt": "2026-09-25T15:03:43.829Z",
   "jobs": [
     {
       "id": "scandit-067a4be54142",
@@ -33,7 +33,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=8143595",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:43:19.491Z",
+      "crawledAt": "2026-09-25T15:03:39.470Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -48,10 +48,14 @@
       "applyUrl": "https://www.scandit.com/careers/job-description/?gh_jid=8143595",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-24T00:08:02.243Z",
+      "previousSlugs": [
+        "working-student-use-case-validation-assistant-scandit-ch",
+        "studente-di-lavoro-assistente-di-convalida-del-caso-di-utilizzo-scandit-ag-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "working-student-use-case-validation-assistant-scandit-ch"
+          "working-student-use-case-validation-assistant-scandit-ch",
+          "studente-di-lavoro-assistente-di-convalida-del-caso-di-utilizzo-scandit-ag-zurich"
         ],
         "de": [
           "working-student-use-case-validation-assistant-scandit-ch"
@@ -60,9 +64,8 @@
           "working-student-use-case-validation-assistant-scandit-ch"
         ]
       },
-      "previousSlugs": [
-        "working-student-use-case-validation-assistant-scandit-ch"
-      ],
+      "firstSeenAt": "2026-09-24T00:08:02.243Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -157,7 +160,7 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-09-24T14:56:51.833Z",
+  "generatedAt": "2026-09-25T15:12:43.560Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 71755,
-  "avgDurationMs": 71755,
+  "durationMs": 102486,
+  "avgDurationMs": 102486,
   "durationHistory": [
-    71755
+    102486
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,8 +35,8 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-09-24T14:56:45.991Z",
-      "firstSeenAt": "2026-07-08T11:14:55.248Z",
+      "crawledAt": "2026-09-25T15:12:37.551Z",
+      "firstSeenAt": "2026-04-24T09:46:25.778Z",
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 51500,
@@ -47,6 +47,7 @@
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
       "applyUrl": "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-francese/",
+      "sourceIdentity": "url:https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-francese",
       "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -77,8 +78,8 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-09-24T14:56:45.991Z",
-      "firstSeenAt": "2026-07-08T11:14:55.248Z",
+      "crawledAt": "2026-09-25T15:12:37.551Z",
+      "firstSeenAt": "2026-04-24T09:46:25.778Z",
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 51500,
@@ -89,6 +90,7 @@
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
       "applyUrl": "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco/",
+      "sourceIdentity": "url:https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco",
       "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {

@@ -6710,6 +6710,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.fondi-integrazione-svizzera-2028.title': 'Più fondi federali per l\'integrazione 2028-2032',
     'blog.article.fondi-integrazione-svizzera-2028.excerpt': 'Il Consiglio federale stanzia 334,5 milioni per l\'integrazione in Svizzera nel periodo 2028-2032, con 66,9 milioni annui per programmi cantonali e nazionali.',
     'blog.article.fondi-integrazione-svizzera-2028.imageAlt': 'Sessione informativa svizzera sui programmi cantonali d\'integrazione',
+    'blog.article.incentivo-fiscale-acquisto-locale.title': 'Incentivo fiscale per acquisti locali in Ticino: proposta',
+    'blog.article.incentivo-fiscale-acquisto-locale.excerpt': 'Il Centro propone un credito d\'imposta fino al 25% per chi destina fino al 5% dello stipendio o reddito annuo a commercianti ticinesi aderenti.',
+    'blog.article.incentivo-fiscale-acquisto-locale.imageAlt': 'Smartphone con wallet digitale per acquisti locali in Ticino',
+    'blog.article.franco-svizzero-ribasso-settembre-novembre.title': 'Franco svizzero ribasso: segnali da seguire fino a novembre',
+    'blog.article.franco-svizzero-ribasso-settembre-novembre.excerpt': 'Il franco svizzero è sceso circa il 5% dai massimi di primavera 2026, pari al ribasso del 2023 e inferiore al >6% del 2024; la finestra stagionale va da fine settembre a inizio novembre.',
+    'blog.article.franco-svizzero-ribasso-settembre-novembre.imageAlt': 'Illustrazione del franco svizzero e dell\'euro con sfondo del lago di Lugano',
 };
 
 export default blogMetaChIt;
