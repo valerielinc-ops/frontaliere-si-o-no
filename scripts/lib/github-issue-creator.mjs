@@ -38,7 +38,10 @@
  * When there is no OPEN duplicate the dedup then looks among the RECENTLY
  * CLOSED issues (default DEFAULT_REOPEN_WITHIN_HOURS) and REOPENS the twin
  * instead of minting a new number. See the `reopenWithinHours` option for the
- * measurement that made this the default rather than an opt-in.
+ * measurement that made this the default rather than an opt-in. A caller that
+ * re-reads PAST failures (a scanner with a lookback window) passes `occurredAt`,
+ * and an occurrence that started before the twin was closed neither reopens
+ * nor comments (issue #9761, see occurrencePredatesClose).
  */
 
 import { realpathSync } from 'node:fs';
@@ -467,7 +470,10 @@ function issueLabelNames(issue) {
  *
  * Three filters stand between a prefix match and a reopen, all of which fail
  * CLOSED (skip the candidate → the caller opens a fresh issue, i.e. today's
- * behaviour) rather than resurrecting something:
+ * behaviour) rather than resurrecting something. With `occurredAt`, the NEWEST
+ * close of the condition is checked before them: an occurrence that started
+ * before it comes back marked `predatesClose` whatever the close reason, and
+ * the caller neither reopens nor creates (issue #9761):
  *
  *  1. same condition signature — see conditionSignature: the prefix alone is
  *     not a discriminator, it drops the token it split;
@@ -503,7 +509,7 @@ function issueLabelNames(issue) {
  */
 const NEVER_REOPEN_TITLES = new Set([TRANSIENT_LEDGER_TITLE]);
 
-function findRecentlyClosedIssueByTitlePrefix(fullTitle, withinHours, dedupKey = null) {
+function findRecentlyClosedIssueByTitlePrefix(fullTitle, withinHours, dedupKey = null, occurredAt = null) {
   if (!withinHours || withinHours <= 0) return null;
   const cutoff = Date.now() - withinHours * 3600 * 1000;
   const wantedSignature = conditionSignature(fullTitle);
@@ -518,6 +524,7 @@ function findRecentlyClosedIssueByTitlePrefix(fullTitle, withinHours, dedupKey =
     .sort((a, b) => Date.parse(b.closedAt) - Date.parse(a.closedAt));
 
   const eligible = [];
+  let newestSameCondition = true;
   for (const candidate of inWindow) {
     // A caller-supplied key explicitly declares every matching legacy title to
     // be the same condition. Without it, retain the stricter signature guard
@@ -529,6 +536,18 @@ function findRecentlyClosedIssueByTitlePrefix(fullTitle, withinHours, dedupKey =
         + `("${candidate.title}") — not reopening it.`,
       );
       continue;
+    }
+    // History guard (#9761), on the NEWEST close of this condition and BEFORE
+    // the eligibility filters below: an occurrence that started before it was
+    // closed is covered by that close however it was closed. Skipping a
+    // NOT_PLANNED or tracker close here instead would send the caller to
+    // `gh issue create`, i.e. a fresh issue for the very run a human had just
+    // decided about. Older closes need no check: they close earlier still.
+    if (newestSameCondition) {
+      newestSameCondition = false;
+      if (occurrencePredatesClose(occurredAt, candidate.closedAt)) {
+        return { ...candidate, predatesClose: true };
+      }
     }
     if (candidate.stateReason && candidate.stateReason !== 'COMPLETED') {
       console.log(
@@ -655,6 +674,35 @@ function buildPredatesClose(buildSha, closedAt) {
   const builtMs = Date.parse(date);
   if (!Number.isFinite(builtMs) || builtMs >= closedMs) return null;
   return date;
+}
+
+/**
+ * True when the observed failure STARTED strictly before the issue was closed:
+ * the close already covers it, so it is history, not a recurrence (issue #9761).
+ *
+ * Only callers that re-read PAST failures need it. `scan-unreported-failures`
+ * looks back 24 h on every pass, so a run that failed hours BEFORE the fix
+ * merged is still in its window after the close. Measured on #9654: run
+ * 35995267599 started 2026-09-24T11:49:18Z, the fix (PR #9699) closed the issue
+ * at 17:59:52Z, no run of the workflow followed, and the 20:48Z pass reopened
+ * the issue on that same 11:49 run. A reporter that fires from inside the
+ * failing run has no such window and needs no timestamp.
+ *
+ * `occurredAt` is when the failing run STARTED (`created_at`), not when it
+ * ended: a run that started before the fix merged cannot contain it, however
+ * late it failed. The bound, stated rather than hidden: when a human closes an
+ * issue AFTER a post-fix run already failed, that run predates the close and
+ * is skipped too; the next failing run starts after the close and reopens, so
+ * the cost is at most one cadence of the workflow.
+ *
+ * Fails CLOSED: an absent or unparseable timestamp on either side returns
+ * false, and the caller reopens exactly as before this guard existed.
+ */
+export function occurrencePredatesClose(occurredAt, closedAt) {
+  const occurredMs = Date.parse(String(occurredAt ?? ''));
+  const closedMs = Date.parse(String(closedAt ?? ''));
+  if (!Number.isFinite(occurredMs) || !Number.isFinite(closedMs)) return false;
+  return occurredMs < closedMs;
 }
 
 /**
@@ -994,6 +1042,9 @@ export function formatSignalsBlock(signals) {
  * Successful write paths return `persisted: true`; a known comment failure on
  * an existing/reopened issue returns `persisted: false`. Callers that cannot
  * tolerate best-effort loss can therefore fail their own workflow and retry.
+ * An occurrence older than the close of its twin (`occurredAt`) returns the
+ * closed issue with `predatesClose: true` and `persisted: true`: no write was
+ * needed, and a caller must not count it as a delivered report.
  *
  * @param {{
  *   title?: string,
@@ -1005,6 +1056,7 @@ export function formatSignalsBlock(signals) {
  *   dedupKey?: string|null,
  *   reopenWithinHours?: number|null,
  *   buildSha?: string|null,
+ *   occurredAt?: string|null,
  *   consecutiveGate?: number,
  *   gateWindowHours?: number,
  *   signals?: GithubIssueSignals|null,
@@ -1041,6 +1093,13 @@ export async function createGithubIssue({
   // window, before a build containing the fix could run" (issue #5539: NOT a
   // recurrence — the reopener was reporting deploy latency as regression).
   buildSha = null,
+  // ISO timestamp at which the observed failure STARTED (a run's `created_at`).
+  // Optional — only callers that re-read PAST failures (scanners with a
+  // lookback window) have a reason to pass it. When it predates the close of
+  // the recently-closed twin, the reopen path returns `predatesClose: true`
+  // without reopening or commenting (issue #9761, see occurrencePredatesClose).
+  // Absent or unparseable → the unconditional reopen, as before.
+  occurredAt = null,
   // Consecutive-failure gate. When > 0, the first (threshold-1) failures within
   // the rolling window land as a low-priority `crawler-transient` breadcrumb
   // instead of the caller's priority; only the Nth failure escalates. Auto-set
@@ -1100,7 +1159,9 @@ export async function createGithubIssue({
   // creation order; `closedAt` is not (an older tracker may be closed later).
   let newestClosed = null;
   if (normalizedDedupKey && Number.isFinite(reopenWindowHours) && reopenWindowHours > 0) {
-    newestClosed = findRecentlyClosedIssueByTitlePrefix(title, reopenWindowHours, normalizedDedupKey);
+    newestClosed = findRecentlyClosedIssueByTitlePrefix(
+      title, reopenWindowHours, normalizedDedupKey, occurredAt,
+    );
     if (newestClosed === undefined) return lookupFailedResult(title, 'closed-issue');
   }
   const preferredRecentlyClosed = newestClosed
@@ -1255,10 +1316,43 @@ export async function createGithubIssue({
     // repeat both GitHub calls on every cold start where newestClosed is null.
     let recentlyClosed = newestClosed;
     if (!normalizedDedupKey) {
-      recentlyClosed = findRecentlyClosedIssueByTitlePrefix(title, reopenWindowHours);
+      recentlyClosed = findRecentlyClosedIssueByTitlePrefix(title, reopenWindowHours, null, occurredAt);
       if (recentlyClosed === undefined) return lookupFailedResult(title, 'closed-issue');
     }
     if (recentlyClosed) {
+      // Historical-occurrence guard (#9761), checked FIRST: a failure that
+      // started before this issue was closed is what the close already covered,
+      // so it neither reopens nor comments. No comment on purpose, unlike the
+      // stale-build abstention below: a scanner re-reads the same run on every
+      // pass of its lookback window (hourly × 24 h for scan-unreported-failures),
+      // and one comment per pass on a closed issue is the noise the dedup exists
+      // to prevent. The trace stays in the log and in the job summary. The
+      // finder hands over the newest close of the condition even when it is
+      // NOT_PLANNED or a tracker, so this also stops the fresh-issue fallback.
+      if (occurrencePredatesClose(occurredAt, recentlyClosed.closedAt)) {
+        const closedAs = recentlyClosed.stateReason ? ` come ${recentlyClosed.stateReason}` : '';
+        appendStepSummary(
+          `⏮️ **Riapertura saltata** — il guasto osservato è iniziato il ${occurredAt}, prima `
+          + `della chiusura di #${recentlyClosed.number}${closedAs} (${recentlyClosed.closedAt}): è `
+          + 'storia già coperta dalla chiusura, non una ricorrenza. Nessuna issue nuova.',
+        );
+        console.log(
+          `[github-issue-creator] Occurrence ${occurredAt} predates the close of `
+          + `#${recentlyClosed.number} (${recentlyClosed.closedAt}) — not reopening, not commenting, `
+          + 'not creating.',
+        );
+        return {
+          number: recentlyClosed.number,
+          title: recentlyClosed.title,
+          url: recentlyClosed.url,
+          state: recentlyClosed.state || 'CLOSED',
+          predatesClose: true,
+          // Nothing had to be written: the closed issue is the durable record
+          // of this occurrence. `false` would make callers that retry on an
+          // unpersisted write (scan-job-timeouts throws) fail on a correct skip.
+          persisted: true,
+        };
+      }
       // Deploy-latency guard (#5539): a build started BEFORE the fix that closed
       // this issue merged cannot possibly contain it — a validation failing on
       // that stale build is the same pre-fix breakage observed again, not a

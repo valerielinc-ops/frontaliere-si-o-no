@@ -570,7 +570,7 @@ export async function main() {
   // host, so one run can produce several hits that all map to the same title.
   const emittedByTitle = new Map();
 
-  async function emit({ title, description, labels, workflow, runUrl, jobCount }) {
+  async function emit({ title, description, labels, workflow, runUrl, jobCount, occurredAt }) {
     if (isFailureReportingDisabled()) {
       console.log(`[scan-job-timeouts] ENABLE_FAILURE_REPORT=false; skipping issue persistence for ${runUrl}`);
       return;
@@ -624,9 +624,21 @@ export async function main() {
       return;
     }
 
-    const issue = await createGithubIssue({ title, description, priority: 2, labels, workflow });
+    // `occurredAt` (#9761): the lookback re-reads runs that may have STARTED
+    // before a fix closed the canonical issue. Such a run cannot contain the
+    // fix, so the creator leaves the closed issue alone instead of reopening it.
+    const issue = await createGithubIssue({
+      title, description, priority: 2, labels, workflow, occurredAt,
+    });
     if (!issue?.number || issue.persisted !== true) {
       throw new Error(`failed to persist ${runUrl}: issue create/reopen did not confirm the write`);
+    }
+    if (issue.predatesClose === true) {
+      reported -= jobCount;
+      console.log(
+        `[scan-job-timeouts] ${runUrl} started (${occurredAt}) before #${issue.number} was closed — `
+          + 'history, not a recurrence: not reopened.',
+      );
     }
     emittedByTitle.set(title, {
       ...issue,
@@ -676,6 +688,7 @@ export async function main() {
       workflow: run.name,
       runUrl: run.html_url,
       jobCount: hits.length,
+      occurredAt: run.created_at,
     });
   }
 
@@ -731,6 +744,7 @@ export async function main() {
       workflow: run.name,
       runUrl: run.html_url,
       jobCount: kills.length,
+      occurredAt: run.created_at,
     });
   }
 

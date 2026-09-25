@@ -91,6 +91,45 @@ describe('scan-job-timeouts — conserva lo stato restituito dal creator (#8032)
     expect(commentOnGithubIssueMock).not.toHaveBeenCalled();
   });
 
+  it('passa l\'inizio della run al creator e accetta il salto di una run anteriore alla chiusura (#9761)', async () => {
+    execFileSyncMock.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'api') {
+        const endpoint = String(args[1]);
+        if (endpoint.includes('actions/runs?status=cancelled')) {
+          return JSON.stringify({ total_count: 1, workflow_runs: [runs[0]] });
+        }
+        if (endpoint.includes('actions/runs?status=failure')) {
+          return JSON.stringify({ total_count: 0, workflow_runs: [] });
+        }
+        if (endpoint.includes('/actions/runs/1/jobs')) {
+          return JSON.stringify({ jobs: [{
+            name: 'lighthouse-1',
+            conclusion: 'cancelled',
+            check_run_url: 'https://api.github.com/repos/o/r/check-runs/1',
+          }] });
+        }
+        if (endpoint.endsWith('/annotations')) {
+          return JSON.stringify([[{
+            message: 'The job exceeded the maximum execution time of 45 minutes.',
+          }]]);
+        }
+        return '{}';
+      }
+      if (args[0] === 'issue' && args[1] === 'list') return '[]';
+      return '';
+    });
+    createGithubIssueMock.mockResolvedValue({
+      number: 42, title: 'CI Failure: Lighthouse CI', state: 'CLOSED', predatesClose: true, persisted: true,
+    });
+
+    const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
+    await expect(main()).resolves.toBeUndefined();
+
+    expect(createGithubIssueMock).toHaveBeenCalledTimes(1);
+    expect(createGithubIssueMock.mock.calls[0][0]).toMatchObject({ occurredAt: runs[0].created_at });
+    expect(commentOnGithubIssueMock).not.toHaveBeenCalled();
+  });
+
   it('treats the kill-switch as a clean no-op instead of a failed persistence', async () => {
     process.env.ENABLE_FAILURE_REPORT = 'false';
     execFileSyncMock.mockImplementation((_cmd: string, args: string[]) => {
