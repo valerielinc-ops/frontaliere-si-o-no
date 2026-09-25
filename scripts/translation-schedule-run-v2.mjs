@@ -505,7 +505,16 @@ export async function runTranslationScheduleV2(options = {}) {
     contract: options.runtimeContract,
   });
   const engineVersion = runtimeContract.provider.engineVersion;
-  const provider = runtimeContract.provider;
+  // The runtime contract carries source-path metadata for its report, while
+  // the isolated executor accepts its own exact V3 descriptor.
+  const provider = Object.freeze({
+    costClass: runtimeContract.provider.costClass,
+    engineVersion: runtimeContract.provider.engineVersion,
+    executionClass: runtimeContract.provider.executionClass,
+    exportName: runtimeContract.provider.exportName,
+    moduleUrl: runtimeContract.provider.moduleUrl,
+    schemaVersion: runtimeContract.provider.schemaVersion,
+  });
   if (!runtimeContract.capabilities.generationEnabled) {
     // The source contract is conservative by construction. Force the worker's
     // existing provider seam to observe the same decision even when a local
