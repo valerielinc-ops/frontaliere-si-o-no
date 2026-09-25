@@ -184,6 +184,21 @@ describe('client del broker Codex', () => {
       .toEqual({ transient: 4, persistent: 0 });
   });
 
+  // Un socket che esiste ma non si puo' aprire (permessi) e' un broker
+  // configurato male: non si ripara al run successivo, quindi vota persistente
+  // e non spegne la lane come un broker sparito.
+  it.skipIf(process.getuid?.() === 0)('un EACCES sul socket vota persistente, non transitorio', async () => {
+    fs.chmodSync(socketPath, 0o000);
+    let message = '';
+    await callCodex().catch((error: unknown) => { message = String((error as Error).message); });
+    expect(message).toMatch(/socket unusable \(EACCES\), non-retryable/);
+    const row = message.match(/Errors: (.*)$/s)?.[1] ?? message;
+    const tally = classifyExhaustionCause([row]);
+    expect({ transient: tally.transient, persistent: tally.persistent }, row).toEqual({ transient: 0, persistent: 1 });
+    expect(isModelAvailable(CODEX)).toBe(true);
+    expect(codexScore()).toBe(0);
+  });
+
   it('un broker che chiude senza risposta e\' un guasto di trasporto', async () => {
     const log = warnings();
     behavior = (client) => { client.end(); };
