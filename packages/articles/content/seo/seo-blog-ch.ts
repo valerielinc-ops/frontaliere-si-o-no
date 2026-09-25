@@ -86756,6 +86756,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lumpy-skin-disease-fine-vaccinazione': {
+    title: 'LSD: fine vaccinazione bovini il 30 settembre 2026',
+    description: 'La campagna di vaccinazione contro la LSD termina il 30 settembre 2026. Dal 1° ottobre inizia un periodo di attesa di 8 mesi con sorveglianza rafforzata.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fine, vaccinazione, bovini, settembre',
+    ogTitle: 'LSD: fine vaccinazione bovini il 30 settembre 2026',
+    ogDescription: 'La Svizzera termina la vaccinazione obbligatoria contro la LSD il 30 settembre 2026. Dal 1° ottobre inizia un\'attesa di 8 mesi con sorveglianza mirata nei Cantoni di Ginevra, Vaud e Vallese. Status indenne non prima di giugno 2027.',
+    canonicalPath: '/articoli-svizzera/lumpy-skin-disease-fine-vaccinazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "LSD: fine vaccinazione bovini il 30 settembre 2026",
+      "description": "La campagna di vaccinazione contro la LSD termina il 30 settembre 2026. Dal 1° ottobre inizia un periodo di attesa di 8 mesi con sorveglianza rafforzata.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lumpy-skin-disease-fine-vaccinazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mucca in un pascolo svizzero con montagne sullo sfondo, contesto della campagna di sorveglianza LSD"
+      },
+      "datePublished": "2026-09-25T04:56:43+00:00",
+      "dateModified": "2026-09-25T04:56:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lumpy-skin-disease-fine-vaccinazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
