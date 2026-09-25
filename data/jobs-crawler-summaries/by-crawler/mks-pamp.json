@@ -1,56 +1,19 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-09-24T14:42:58.846Z",
-  "total": 6,
+  "generatedAt": "2026-09-25T15:02:37.677Z",
+  "total": 5,
   "newCount": 0,
-  "updatedCount": 3,
-  "removedCount": 0,
+  "updatedCount": 2,
+  "removedCount": 1,
   "unchangedCount": 3,
-  "durationMs": 8917,
-  "avgDurationMs": 8917,
+  "durationMs": 8200,
+  "avgDurationMs": 8200,
   "durationHistory": [
-    8917
+    8200
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "title": "Director, PAMP.com",
-      "slug": "director-pamp-com-mks-pamp-geneve",
-      "url": "https://careers.mkspamp.com/jobs/8350987-director-pamp-com",
-      "applyUrl": "https://careers.mkspamp.com/jobs/8350987-director-pamp-com",
-      "company": "MKS PAMP",
-      "companyKey": "mks-pamp",
-      "companyDomain": "mkspamp.com",
-      "location": "Genève",
-      "addressLocality": "Genève",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "general",
-      "sector": "Metalli preziosi",
-      "source": "mkspamp-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-09-09",
-      "employmentType": "full-time",
-      "contractType": "permanent",
-      "validThrough": "",
-      "id": "mks-pamp-f63c02c2a0b0",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-09T23:25:00.057Z",
-      "needsRetranslation": true,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
     {
       "title": "Precious Metal Control Manager",
       "slug": "precious-metal-control-manager-mks-pamp-castel-san-pietro",
@@ -125,7 +88,45 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Director, PAMP.com",
+      "slug": "direttore-pamp-com-mks-pamp-geneve",
+      "url": "https://careers.mkspamp.com/jobs/8350987-director-pamp-com",
+      "applyUrl": "https://careers.mkspamp.com/jobs/8350987-director-pamp-com",
+      "company": "MKS PAMP",
+      "companyKey": "mks-pamp",
+      "companyDomain": "mkspamp.com",
+      "location": "Genève",
+      "addressLocality": "Genève",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "general",
+      "sector": "Metalli preziosi",
+      "source": "mkspamp-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-09-09",
+      "employmentType": "full-time",
+      "contractType": "permanent",
+      "validThrough": "",
+      "id": "mks-pamp-f63c02c2a0b0",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-09T23:25:00.057Z",
+      "needsRetranslation": true,
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Tecnico di laboratorio",

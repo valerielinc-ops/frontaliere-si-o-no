@@ -51,7 +51,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-07T15:17:39.748Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -65,8 +64,7 @@
           "unitText": "YEAR"
         }
       },
-      "sourceIdentity": "url:https://otb.apps.vs.ch/svc/api/joboffersdocument/20495?language=fr",
-      "retranslationAttempts": 1
+      "sourceIdentity": "url:https://otb.apps.vs.ch/svc/api/joboffersdocument/20495?language=fr"
     },
     {
       "id": "canton-valais-6cc4b6cb23ed",

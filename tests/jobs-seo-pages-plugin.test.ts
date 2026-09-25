@@ -8,6 +8,7 @@ import {
   capSearchStatsLandingTitle,
   deriveJobCanton,
   deriveJobAddressLocality,
+  deriveJobStreetAddress,
 } from '../build-plugins/jobsSeoPagesPlugin';
 import { TITLE_MAX_CHARS, MIN_PEELED_TITLE_CHARS } from '../build-plugins/shared/titleSuffix';
 
@@ -223,5 +224,44 @@ describe('deriveJobAddressLocality — visible-page locality sanitization (Hirsl
 
   it('falls through to job.location when addressLocality is empty/invalid but location is coherent', () => {
     expect(deriveJobAddressLocality({ location: 'Winterthur' }, 'ZH')).toBe('Winterthur');
+  });
+});
+
+describe('deriveJobStreetAddress — street of the emitted locality only (#9852)', () => {
+  it('returns no street for a locality without one, instead of a canton capital street', () => {
+    // TG had no capital-table entry, so this used to be the Ticino default.
+    expect(deriveJobStreetAddress({ addressLocality: 'Weinfelden', canton: 'TG' }, 'Weinfelden')).toBe('');
+    expect(deriveJobStreetAddress({ addressLocality: 'Pully', canton: 'VD' }, 'Pully')).toBe('');
+  });
+
+  it('never takes the street of another place named in the raw location', () => {
+    // The street follows the locality the page emits, not the raw parts: Bern's
+    // street is right only when the emitted locality is Bern.
+    expect(deriveJobStreetAddress({ location: 'Lyssach · Bern' }, 'Lyssach')).toBe('');
+    expect(deriveJobStreetAddress({ location: 'Lyssach · Bern' }, 'Bern')).toBe('Bundesplatz 1');
+  });
+
+  it('keeps the job\'s own street and the curated street of the emitted city', () => {
+    expect(deriveJobStreetAddress({ streetAddress: 'Via Nassa 5', addressLocality: 'Lugano' }, 'Lugano')).toBe('Via Nassa 5');
+    expect(deriveJobStreetAddress({ addressLocality: 'Lugano' }, 'Lugano')).toBe('Piazza Riforma 1');
+    expect(deriveJobStreetAddress({ addressLocality: 'Zurich' }, 'Zurich')).toBe('Bahnhofstrasse 1');
+  });
+});
+
+describe('JobPosting locality equals the page locality (review of #9870)', () => {
+  it('a known locality without any official CAP is not replaced by the canton capital', async () => {
+    const { resolveJobPostingAddress } = await import('../build-plugins/shared/jobPostingSchema');
+    const job = { addressLocality: 'Oerlikon', canton: 'ZH' };
+    const region = deriveJobCanton(job);
+    const pageLocality = deriveJobAddressLocality(job, region);
+    const address = resolveJobPostingAddress({
+      addressLocality: pageLocality,
+      addressRegion: region,
+      streetAddress: deriveJobStreetAddress(job, pageLocality),
+    }, 'de');
+    expect(pageLocality).toBe('Oerlikon');
+    expect(address.addressLocality).toBe(pageLocality);
+    expect(address.postalCode).toMatch(/^\d{4}$/);
+    expect(address.streetAddress).toBe('Oerlikon Stadtzentrum');
   });
 });

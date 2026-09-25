@@ -11979,6 +11979,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiusura-cantonale-neggia-fosano.title': 'Cantonal road closed between Neggia and Fosano on 28 settembre',
     'blog.article.chiusura-cantonale-neggia-fosano.excerpt': 'The cantonal road between Neggia and Fosano will be completely closed on Monday 28 September, from 8 to 16.30, due to paving work in the municipality of Gambarogno.',
     'blog.article.chiusura-cantonale-neggia-fosano.imageAlt': 'Cantonal road between Neggia and Fosano closed for paving works',
+    'blog.article.gehri-finanze-preventivo-27.title': 'Gehri sounds the alarm over Ticino\'s deficit',
+    'blog.article.gehri-finanze-preventivo-27.excerpt': 'Before the \'27 Budget, Chamber of Commerce President Gehri calls the cantonal deficit unsustainable and criticizes political inertia.',
+    'blog.article.gehri-finanze-preventivo-27.imageAlt': 'Bellinzona and Castelgrande on a bright day',
+    'blog.article.chiusura-gazzada-varese-ss707.title': 'Gazzada-Varese expressway closed on September 24',
+    'blog.article.chiusura-gazzada-varese-ss707.excerpt': 'The SS 707 Raccordo Gazzada-Varese will be closed toward Varese from 9 to 17 between km 3+100 and km 4+500 for Anas works.',
+    'blog.article.chiusura-gazzada-varese-ss707.imageAlt': 'Closure of the SS 707 Gazzada-Varese road toward Varese',
 };
 
 export default blogMetaEn;

@@ -5,6 +5,16 @@ on:
     - cron: '17 */6 * * *'
   workflow_dispatch:
     inputs:
+      canary_exposure_percent:
+        description: 'Stable canary exposure percentage (default 0)'
+        required: false
+        default: '0'
+        type: string
+      canary_max_units:
+        description: 'Maximum distinct canary identities for this run'
+        required: false
+        default: '25'
+        type: string
       max_units:
         description: 'Maximum translation units for this run'
         required: false
@@ -29,10 +39,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
-      # The source-controlled runtime contract keeps both generation and
-      # publish disabled. Do not let a repository variable or dispatch input
-      # turn this observation-only lane into a writer.
-      TRANSLATION_SHADOW_ENABLE_GENERATION: '0'
+      # Generation is opt-in through a bounded, deterministic cohort. The
+      # zero-default keeps scheduled runs observational until a reviewed repo
+      # variable or explicit dispatch selects a cohort.
+      TRANSLATION_SHADOW_CANARY_EXPOSURE_PERCENT: ${{ inputs.canary_exposure_percent || vars.TRANSLATION_SHADOW_CANARY_EXPOSURE_PERCENT || '0' }}
+      TRANSLATION_SHADOW_CANARY_MAX_UNITS: ${{ inputs.canary_max_units || vars.TRANSLATION_SHADOW_CANARY_MAX_UNITS || '25' }}
       # Publication is a separate boundary from provider generation. Keep it
       # fail-closed until an explicitly reviewed publisher is wired; an absent
       # repository variable must never promote a shadow candidate.
