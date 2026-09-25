@@ -959,8 +959,13 @@ runs:
           } > "$target"
         }
 
+        # HEAD_SHA completes the review idempotency key of gh-server.mjs
+        # (`reviewRetryDetails`: PR, exact body, full HEAD). Without it the key
+        # is always null under `env -i`: the transient-5xx retry never ran and
+        # an identical review could be posted twice on one HEAD (#9778).
         env -i \
           CODEX_BRIDGE_TRANSPORT=files \
+          HEAD_SHA="${HEAD_SHA:-}" \
           CODEX_GH_AUTH="$codex_github_auth" \
           CODEX_GH_CORPUS_AUTH="$codex_corpus_github_auth" \
           CODEX_GH_SOCKET="$gh_socket" \
