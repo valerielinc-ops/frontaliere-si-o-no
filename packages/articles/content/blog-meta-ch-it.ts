@@ -6710,6 +6710,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.fondi-integrazione-svizzera-2028.title': 'Più fondi federali per l\'integrazione 2028-2032',
     'blog.article.fondi-integrazione-svizzera-2028.excerpt': 'Il Consiglio federale stanzia 334,5 milioni per l\'integrazione in Svizzera nel periodo 2028-2032, con 66,9 milioni annui per programmi cantonali e nazionali.',
     'blog.article.fondi-integrazione-svizzera-2028.imageAlt': 'Sessione informativa svizzera sui programmi cantonali d\'integrazione',
+    'blog.article.incentivo-fiscale-acquisto-locale.title': 'Incentivo fiscale per acquisti locali in Ticino: proposta',
+    'blog.article.incentivo-fiscale-acquisto-locale.excerpt': 'Il Centro propone un credito d\'imposta fino al 25% per chi destina fino al 5% dello stipendio o reddito annuo a commercianti ticinesi aderenti.',
+    'blog.article.incentivo-fiscale-acquisto-locale.imageAlt': 'Smartphone con wallet digitale per acquisti locali in Ticino',
 };
 
 export default blogMetaChIt;

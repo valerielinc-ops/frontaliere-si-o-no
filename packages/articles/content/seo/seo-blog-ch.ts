@@ -86990,6 +86990,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incentivo-fiscale-acquisto-locale': {
+    title: 'Incentivo fiscale per acquisti locali in Ticino: proposta',
+    description: 'Il Centro propone un credito d\'imposta fino al 25% per chi acquista presso esercenti ticinesi tramite wallet digitale o carta elettronica. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, incentivo, fiscale, acquisti, locali',
+    ogTitle: 'Incentivo fiscale per acquisti locali in Ticino',
+    ogDescription: 'Il Centro propone di sostenere il commercio ticinese con un credito d\'imposta fino al 25% per chi destina quote di stipendio o reddito a un circuito locale. Massimale di 5.000 franchi annui.',
+    canonicalPath: '/articoli-svizzera/incentivo-fiscale-acquisto-locale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incentivo fiscale per acquisti locali in Ticino: proposta",
+      "description": "Il Centro propone un credito d'imposta fino al 25% per chi acquista presso esercenti ticinesi tramite wallet digitale o carta elettronica. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incentivo-fiscale-acquisto-locale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Smartphone con wallet digitale per acquisti locali in Ticino"
+      },
+      "datePublished": "2026-09-25T14:19:43+00:00",
+      "dateModified": "2026-09-25T14:19:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/incentivo-fiscale-acquisto-locale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
