@@ -259,6 +259,15 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       const direct = host ? matchKnownTemplate(links, templateRx, host) : [];
       if (direct.length) candidates = direct;
     }
+    if (!candidates.length) {
+      // Un seed che risponde 200 senza nessun annuncio è indistinguibile, a
+      // valle, da un datore di lavoro senza offerte: `vereinaklosters`
+      // (hotelcareer.ch) dà due annunci da un IP pulito e zero righe dal
+      // runner CI, senza altra traccia nel log. Il titolo e il numero di link
+      // della pagina ricevuta dicono se era la pagina attesa o un interstiziale.
+      const pageTitle = (/<title[^>]*>([\s\S]{0,200}?)<\/title>/i.exec(html)?.[1] || '').replace(/\s+/g, ' ').trim();
+      console.warn(`[prospector:${spec.companyKey}] nessun annuncio su ${effectiveSeedUrl}: title="${pageTitle}", ${links.length} link, ${html.length} byte`);
+    }
     for (const v of candidates) {
       if (!v.title || !v.url) continue;
       try { await validateUrl(v.url); } catch { continue; }
