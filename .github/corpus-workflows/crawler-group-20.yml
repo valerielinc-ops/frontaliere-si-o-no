@@ -7328,19 +7328,30 @@ jobs:
         if: always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'
         run: |-
           set +e
-          bash scripts/lib/git-commit-data.sh --group-batch "Auto-update crawler group 20 jobs"
-          git_commit_exit=$?
-          if [ "$git_commit_exit" -eq 42 ]; then
-            echo "::warning::group commit: push lost the ref race after all retries (contention) on the final aggregated commit. Cycle lost, self-heals next scheduled run — group not failed (systemic class)."
-            echo "⚠️ group commit: push contention loss (exit 42) — crawl data was fine, group not failed" >> "$GITHUB_STEP_SUMMARY"
-            exit 0
-          fi
-          if [ "$git_commit_exit" -eq 44 ]; then
-            echo "::warning::group commit: global data-pipeline lease is busy (exit 44); no group data was staged and the next scheduled cycle will retry — group not failed (systemic class)."
-            echo "⚠️ group commit: global data-pipeline lease busy (exit 44) — group data not staged, group not failed" >> "$GITHUB_STEP_SUMMARY"
-            exit 0
-          fi
-          exit "$git_commit_exit"
+          commit_attempt=1
+          commit_max_attempts=3
+          while true; do
+            bash scripts/lib/git-commit-data.sh --group-batch "Auto-update crawler group 20 jobs"
+            git_commit_exit=$?
+            if [ "$git_commit_exit" -eq 0 ]; then
+              exit 0
+            fi
+            if [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; then
+            echo "::error::group commit failed (exit $git_commit_exit); token-bound output was not published"
+            echo "❌ group commit failed (exit $git_commit_exit)" >> "$GITHUB_STEP_SUMMARY"
+              exit "$git_commit_exit"
+            fi
+            if [ "$commit_attempt" -ge "$commit_max_attempts" ]; then
+              echo "::error::group commit: same-generation retry budget exhausted after $commit_attempt/$commit_max_attempts attempts (exit $git_commit_exit)"
+              echo "❌ group commit: same-generation retry budget exhausted (exit $git_commit_exit); group remains failed" >> "$GITHUB_STEP_SUMMARY"
+              exit "$git_commit_exit"
+            fi
+            retry_delay=$((commit_attempt * 15))
+            echo "::warning::group commit: retryable commit exit $git_commit_exit; retrying the same generation in $retry_delay seconds (attempt $commit_attempt/$commit_max_attempts)"
+            echo "⚠️ group commit: retrying the same generation after exit $git_commit_exit in $retry_delay seconds" >> "$GITHUB_STEP_SUMMARY"
+            sleep "$retry_delay"
+            commit_attempt=$((commit_attempt + 1))
+          done
       - name: Save crawler AI cache
         if: always() && hashFiles('.cache/jobs-ai-cache.json') != ''
         continue-on-error: true
@@ -7386,34 +7397,40 @@ jobs:
           echo "❌ crawler generation finalizer failed; ledger persistence skipped (no false-success ledger entry)" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
       - name: Persist crawler generation ledger
         if: always() && steps.crawler-generation-finalizer.outcome == 'success'
-        continue-on-error: true
         env:
           CRAWLER_GENERATION_RECEIPT_DIR: ""
           SKIP_AI_TRANSLATION: "1"
         run: |-
           set +e
-          bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl
-          git_commit_exit=$?
-          if [ "$git_commit_exit" -eq 42 ]; then
-            echo "::warning::crawler generation ledger: push lost the ref race after all retries (contention); this cycle ledger entry was not committed and the next scheduled cycle records its own ledger state."
-            echo "⚠️ crawler generation ledger: push contention loss (exit 42) — this cycle ledger entry was not committed; next scheduled cycle records its own state" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
-            exit 0
-          fi
-          if [ "$git_commit_exit" -eq 44 ]; then
-            echo "::warning::crawler generation ledger: global data-pipeline lease is busy (exit 44); this cycle ledger entry was not committed and the next scheduled cycle records its own state."
-            echo "⚠️ crawler generation ledger: global data-pipeline lease busy (exit 44) — this cycle ledger entry was not committed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
-            exit 0
-          fi
-          if [ "$git_commit_exit" -ne 0 ]; then
-            if [ "$git_commit_exit" -eq 43 ]; then
-              echo "::error::crawler generation ledger: shared deferred-commit precondition failed (exit 43)"
-              echo "❌ crawler generation ledger: shared deferred-commit precondition failed (exit 43)" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
-            else
-              echo "::error::crawler generation ledger persistence failed (exit $git_commit_exit)"
-              echo "❌ crawler generation ledger persistence failed (exit $git_commit_exit)" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          commit_attempt=1
+          commit_max_attempts=3
+          while true; do
+            bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl
+            git_commit_exit=$?
+            if [ "$git_commit_exit" -eq 0 ]; then
+              exit 0
             fi
-          fi
-          exit "$git_commit_exit"
+            if [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ]; then
+              if [ "$git_commit_exit" -eq 43 ]; then
+                echo "::error::crawler generation ledger: shared deferred-commit precondition failed (exit 43)"
+                echo "❌ crawler generation ledger: shared deferred-commit precondition failed (exit 43)" >> "$GITHUB_STEP_SUMMARY"
+              else
+                echo "::error::crawler generation ledger persistence failed (exit $git_commit_exit)"
+                echo "❌ crawler generation ledger persistence failed (exit $git_commit_exit)" >> "$GITHUB_STEP_SUMMARY"
+              fi
+              exit "$git_commit_exit"
+            fi
+            if [ "$commit_attempt" -ge "$commit_max_attempts" ]; then
+              echo "::error::crawler generation ledger: same-generation retry budget exhausted after $commit_attempt/$commit_max_attempts attempts (exit $git_commit_exit)"
+              echo "❌ crawler generation ledger: same-generation retry budget exhausted (exit $git_commit_exit); group remains failed" >> "$GITHUB_STEP_SUMMARY"
+              exit "$git_commit_exit"
+            fi
+            retry_delay=$((commit_attempt * 15))
+            echo "::warning::crawler generation ledger: retryable commit exit $git_commit_exit; retrying the same generation in $retry_delay seconds (attempt $commit_attempt/$commit_max_attempts)"
+            echo "⚠️ crawler generation ledger: retrying the same generation after exit $git_commit_exit in $retry_delay seconds" >> "$GITHUB_STEP_SUMMARY"
+            sleep "$retry_delay"
+            commit_attempt=$((commit_attempt + 1))
+          done
       - name: Upload crawler generation manifest (shadow)
         if: always()
         continue-on-error: true
