@@ -2914,7 +2914,7 @@ jobs:
           # (#9147: quattro review identiche dopo «già risolto alla riga 282»).
           # Solo una risposta successiva all'ultima review bot: quelle vecchie
           # sono già state giudicate.
-          last_bot_review_at=$(jq -r '[.[][]? | select(.user.type == "Bot") | .submitted_at // empty] | max // ""' "$CTX_DIR/reviews.json" 2>/dev/null || echo "")
+          last_bot_review_at=$(jq -r '[.[][]? | select(.user.type == "Bot" and ((.user.login // "") | test("^(claude(\\[bot\\])?|frontaliere-automation\\[bot\\])$"; "i"))) | .submitted_at // empty] | max // ""' "$CTX_DIR/reviews.json" 2>/dev/null || echo "")
           "$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
             --jq '.[] | select(.user.type == "Bot" and ((.body // "") | startswith("<!-- REDFLAG_RESPONSE"))) | {created_at, body} | @json' \
             > "$CTX_DIR/fixer-responses.jsonl" 2>/dev/null || : > "$CTX_DIR/fixer-responses.jsonl"

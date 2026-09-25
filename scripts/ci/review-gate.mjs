@@ -2178,12 +2178,12 @@ const isDirectRun = (() => {
 // conferma `Fix di path:L<n>: ok` dell'anchor vero non basterebbe più a
 // chiuderlo: il gate pretenderebbe una conferma anche per il file di test
 // nominato nel controllo, e il ciclo non convergerebbe.
-const ACCEPTANCE_MARKER_RE = /\bAccettazione\s*:/u;
-const REPLICA_LINE_RE = /^\s*(?:[-*>]\s*)?Replica\s*:/u;
+const VERIFICATION_MARKER_RE = /\b(?:Accettazione|Replica)\s*:/u;
 
+// Il testo della riga da `Accettazione:` o `Replica:` in poi, anche inline sulla
+// stessa riga del finding, non produce ancore.
 function anchorText(line) {
-  if (REPLICA_LINE_RE.test(line)) return '';
-  const at = line.search(ACCEPTANCE_MARKER_RE);
+  const at = line.search(VERIFICATION_MARKER_RE);
   return at === -1 ? line : line.slice(0, at);
 }
 

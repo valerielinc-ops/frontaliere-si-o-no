@@ -442,10 +442,11 @@ jobs:
           fi
           printf '%s\n' "$text"
           delimiter="OPEN_FINDINGS_EOF_${GITHUB_RUN_ID:-0}"
+          # Nessun troncamento a byte: tagliare a metà un finding lo toglierebbe
+          # al fixer mentre il gate continua a bloccare su di lui.
           {
             echo "text<<$delimiter"
-            printf '%s\n' "$text" | head -c 12000
-            echo
+            printf '%s\n' "$text"
             echo "$delimiter"
           } >> "$GITHUB_OUTPUT"
 
@@ -1735,7 +1736,8 @@ jobs:
           {
             printf '<!-- REDFLAG_RESPONSE round=%s review=%s head=%s -->\n' "${FIX_ROUND:-?}" "${REVIEW_ID:-?}" "${head_now:0:12}"
             printf '## Risposta del 🔴-fixer (round %s)\n\n' "${FIX_ROUND:-?}"
-            head -c 12000 "$response"
+            # Sotto il limite di 65.536 caratteri di un commento GitHub.
+            head -c 60000 "$response"
             printf '\n'
           } > "$comment"
           if ! "$TRUSTED_GH_BIN" pr comment "$PR_NUMBER" --repo "$REPO" --body-file "$comment"; then

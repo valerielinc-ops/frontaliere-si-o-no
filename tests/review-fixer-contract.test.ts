@@ -73,6 +73,16 @@ describe('il gate: Accettazione e Replica non sono ancore da confermare', () => 
       .toEqual(['scripts/ci/export-l8-affiliate-outcomes.mjs:288']);
   });
 
+  it('una Replica inline sulla riga del finding non aggiunge un\'ancora (review 5314694290 su #9810)', () => {
+    const body = [
+      '## Findings (Important: 1, Nit: 0)',
+      'scripts/ci/original.mjs:L10: 🔴 Important: [correctness] Il guard salta il caso vuoto. Aggiungi il ramo. Replica: il fix in `scripts/ci/other/file.mjs:L20` non copre il caso vuoto. Accettazione: `node --test tests/original.test.mjs` passa con input vuoto.',
+    ].join('\n');
+    const [finding] = importantFindings(body);
+    expect(finding.citations.map((c: { path: string; line: number | null }) => `${c.path}:${c.line}`))
+      .toEqual(['scripts/ci/original.mjs:10']);
+  });
+
   it('una riga Replica che cita un path non aggiunge un\'ancora', () => {
     const body = `${FINDING_REVIEW.body}\nReplica: il try/catch in \`scripts/ci/lib/other.mjs:L12\` copre la lettura, non il parse.`;
     const [finding] = importantFindings(body);
@@ -148,6 +158,15 @@ jq -r "$filter" < "${path.join(dir, 'comments.json')}"`);
     const later = reviewWith(2, '2026-09-24T21:00:00Z', '## Findings (Important: 0, Nit: 0)\nNessuno.\n\n## LGTM');
     const { out } = runSnippet([response('2026-09-24T20:30:00Z', 'GIUDICATA')], [[FINDING_REVIEW, later]]);
     expect(out.trim()).toBe('');
+  });
+
+  it('la review di un bot che non è il reviewer non nasconde la risposta', () => {
+    const other = {
+      ...reviewWith(3, '2026-09-24T20:45:00Z', 'altro bot'),
+      user: { login: 'dependabot[bot]', type: 'Bot' },
+    };
+    const { out } = runSnippet([response('2026-09-24T20:30:00Z', 'ANCORA DA GIUDICARE')], [[FINDING_REVIEW, other]]);
+    expect(out).toContain('ANCORA DA GIUDICARE');
   });
 
   it('il bundle mostra la sezione solo quando c\'è una risposta', () => {
