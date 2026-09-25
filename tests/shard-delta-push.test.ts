@@ -62,6 +62,11 @@ function pagePath(page: string, prefix = 'en'): string {
   return page ? `${prefix}/${page}/` : `${prefix}/`;
 }
 
+// Production manifests carry the build-time jobs emitter fingerprint whenever
+// they exist (jobsSeoPagesPlugin sets it under INCREMENTAL_MANIFEST or
+// JOBS_SEO_REUSE). Without it the delta re-evaluates every page by design.
+const RENDER_V1 = { 'active-job': 'active-job-render-v1' };
+
 function writeManifest(
   scenario: Scenario,
   pages: string[],
@@ -69,6 +74,10 @@ function writeManifest(
   prefix = 'en',
   includeRoot = false,
   omitCountKinds: string[] = [],
+  { locale = 'en', emitterFingerprint = RENDER_V1 }: {
+    locale?: string;
+    emitterFingerprint?: Record<string, string> | null;
+  } = {},
 ): void {
   mkdirSync(scenario.manifestDir, { recursive: true });
   const manifestPages = includeRoot ? ['', ...pages] : pages;
@@ -76,7 +85,7 @@ function writeManifest(
   counts['active-job'] = manifestPages.length;
   for (const kind of omitCountKinds) delete counts[kind];
   const lines = [
-    JSON.stringify({ type: 'header', manifestVersion: MANIFEST_VERSION, format: 'jsonl', locale: 'en' }),
+    JSON.stringify({ type: 'header', manifestVersion: MANIFEST_VERSION, format: 'jsonl', locale }),
     JSON.stringify({
       type: 'kind',
       kind: 'active-job',
@@ -88,9 +97,13 @@ function writeManifest(
       path: pagePath(page, prefix),
       hash: hash(`${version}:${page}`),
     })),
-    JSON.stringify({ type: 'footer', counts: { total: manifestPages.length, byKind: counts } }),
+    JSON.stringify({
+      type: 'footer',
+      counts: { total: manifestPages.length, byKind: counts },
+      ...(emitterFingerprint ? { jobsSeoEmitterFingerprint: emitterFingerprint } : {}),
+    }),
   ];
-  writeFileSync(join(scenario.manifestDir, 'en.jsonl'), `${lines.join('\n')}\n`);
+  writeFileSync(join(scenario.manifestDir, `${locale}.jsonl`), `${lines.join('\n')}\n`);
 }
 
 function writePayload(scenario: Scenario, files: Record<string, string>): void {
@@ -127,6 +140,18 @@ function writeSectionPayload(scenario: Scenario, files: Record<string, string>):
   rmSync(scenario.dist, { recursive: true, force: true });
   mkdirSync(sectionRoot, { recursive: true });
   writeFileSync(join(sectionRoot, 'index.html'), '<html>section-root</html>');
+  for (const [page, content] of Object.entries(files)) {
+    const pageDir = join(sectionRoot, page);
+    mkdirSync(pageDir, { recursive: true });
+    writeFileSync(join(pageDir, 'index.html'), content);
+  }
+}
+
+function writeTicinoItPayload(scenario: Scenario, files: Record<string, string>): void {
+  const sectionRoot = join(scenario.dist, 'cerca-lavoro-ticino');
+  rmSync(scenario.dist, { recursive: true, force: true });
+  mkdirSync(sectionRoot, { recursive: true });
+  writeFileSync(join(sectionRoot, 'index.html'), '<html>ticino-root</html>');
   for (const [page, content] of Object.entries(files)) {
     const pageDir = join(sectionRoot, page);
     mkdirSync(pageDir, { recursive: true });
@@ -762,6 +787,95 @@ describe('delta push degli shard', () => {
       expect(result.output).toMatch(/changed=1, unmanifested-overlay=3001, reused=3001/);
       expect(result.elapsedMs).toBeLessThan(15000);
       assertContent(scenario.remote, 'en/assets/asset-1777.txt', 'asset-1777-v2\n');
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
+});
+
+describe('#9788: snippet OFFERWALL stale su ticino-it dopo un cambio del solo renderer', () => {
+  const ticinoIt = {
+    script: PUSH_SECTION,
+    args: (current: Scenario) => ['ticino', 'it', current.dist],
+    deployKey: 'SHARD_TICINO_IT_DEPLOY_KEY',
+    label: 'section-ticino-it',
+  };
+  const JOB = 'stagista-52-settimane-supsi-dti-manno';
+  const SAME = 'impiegato-contabile-lugano';
+  const OLD_JOB = '<html><script>offerwall-fc@before-9788</script>job</html>';
+  const NEW_JOB = '<html><script>offerwall-fc@9788</script>job</html>';
+  const SAME_BYTES = '<html>job without the offerwall entrypoint</html>';
+  const RENDER_9788 = { 'active-job': 'active-job-render-9788' };
+  const writeIt = (scenario: Scenario, fingerprint: Record<string, string>) => writeManifest(
+    scenario,
+    [JOB, SAME],
+    'v1',
+    'cerca-lavoro-ticino',
+    false,
+    [],
+    { locale: 'it', emitterFingerprint: fingerprint },
+  );
+
+  it('ripubblica le pagine con input invariato quando cambia il fingerprint del renderer', () => {
+    const scenario = createScenario('9788-render-change');
+    try {
+      writeTicinoItPayload(scenario, { [JOB]: OLD_JOB, [SAME]: SAME_BYTES });
+      writeIt(scenario, RENDER_V1);
+      expect(runPush(scenario, 'delta', {}, ticinoIt).status).toBe(0);
+      const sameBlob = blobSha(scenario.remote, `cerca-lavoro-ticino/${SAME}/index.html`);
+
+      // #9788: build-plugins/constants.ts changed, the page input did not.
+      writeTicinoItPayload(scenario, { [JOB]: NEW_JOB, [SAME]: SAME_BYTES });
+      writeIt(scenario, RENDER_9788);
+      const changed = runPush(scenario, 'delta', {}, ticinoIt);
+      expect(changed.status).toBe(0);
+      expect(changed.output).toContain('render-stale=active-job:2');
+      expect(changed.output).not.toContain('delta fallback:');
+      // Both pages are re-evaluated; only the one whose bytes moved is written
+      // (changed = that page + the sidecar; reused = the other page + root).
+      expect(changed.output).toMatch(/delta indexed tree.*changed=2, unmanifested-overlay=1, reused=2,/);
+      assertContent(scenario.remote, `cerca-lavoro-ticino/${JOB}/index.html`, NEW_JOB);
+      expect(blobSha(scenario.remote, `cerca-lavoro-ticino/${SAME}/index.html`)).toBe(sameBlob);
+
+      // A deploy without renderer changes goes back to the input-hash delta.
+      const steady = runPush(scenario, 'delta', {}, ticinoIt);
+      expect(steady.status).toBe(0);
+      expect(steady.output).toMatch(/mode=delta .* changed=0 unchanged=2 .* render-stale=none/);
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
+
+  it('ripara uno shard già stale: sidecar pre-fix col fingerprint nuovo e i byte vecchi', () => {
+    const scenario = createScenario('9788-stale-sidecar');
+    try {
+      writeTicinoItPayload(scenario, { [JOB]: OLD_JOB, [SAME]: SAME_BYTES });
+      writeIt(scenario, RENDER_V1);
+      expect(runPush(scenario, 'delta', {}, ticinoIt).status).toBe(0);
+
+      // The live state after deploy 36112880009: the pre-fix delta kept the
+      // old bytes but wrote a sidecar that already names the new renderer.
+      const live = join(scenario.root, 'live-shard');
+      git(['clone', '-q', scenario.remote, live]);
+      git(['config', 'user.email', 'test@example.com'], live);
+      git(['config', 'user.name', 'Test User'], live);
+      const sidecar = join(live, '.deploy-manifest/v1/it.jsonl');
+      const records = readFileSync(sidecar, 'utf8').trim().split('\n').map((line) => JSON.parse(line));
+      const footer = records[records.length - 1];
+      delete footer.renderFingerprint;
+      footer.jobsSeoEmitterFingerprint = RENDER_9788;
+      writeFileSync(sidecar, `${records.map((record) => JSON.stringify(record)).join('\n')}\n`);
+      git(['commit', '-qam', 'pre-fix delta: new renderer named, old bytes kept'], live);
+      git(['push', '-q', 'origin', 'main'], live);
+      assertContent(scenario.remote, `cerca-lavoro-ticino/${JOB}/index.html`, OLD_JOB);
+
+      writeTicinoItPayload(scenario, { [JOB]: NEW_JOB, [SAME]: SAME_BYTES });
+      writeIt(scenario, RENDER_9788);
+      const repaired = runPush(scenario, 'delta', {}, ticinoIt);
+      expect(repaired.status).toBe(0);
+      expect(repaired.output).toContain('render-stale=active-job:2');
+      assertContent(scenario.remote, `cerca-lavoro-ticino/${JOB}/index.html`, NEW_JOB);
+      assertContent(scenario.remote, `cerca-lavoro-ticino/${SAME}/index.html`, SAME_BYTES);
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
     }

@@ -39,10 +39,12 @@ export const SOURCE_VERSION = 'input@1';
 export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@7';
 export const INCREMENTAL_MANIFEST_ENABLED = process.env.INCREMENTAL_MANIFEST === '1';
 
-// The full active-page input remains the publish key: every field that can
-// change emitted HTML must reach `hash`, otherwise shard-manifest-delta would
-// keep stale bytes out of the deploy. Jobs SEO HTML reuse has a second key for
-// the fragments it can refresh in-place on a cache hit.
+// The full active-page input remains the publish key: every input field that
+// can change emitted HTML must reach `hash`, otherwise shard-manifest-delta
+// would keep stale bytes out of the deploy. Renderer code is not an input: the
+// delta re-evaluates a whole kind when its render fingerprint moves (#9788).
+// Jobs SEO HTML reuse has a second key for the fragments it can refresh
+// in-place on a cache hit.
 export const ACTIVE_PAGE_VOLATILE_INPUT_KEYS = Object.freeze([
   'relatedArticlesDigest',
   'renderDateBucket',
@@ -1289,6 +1291,9 @@ export async function streamIncrementalManifest(file, onEntry, options = {}) {
     data,
     entryCount,
     jobsSeoEmitterFingerprint,
+    // Raw footer record: shard snapshots add fields that only their writer,
+    // scripts/ci/shard-manifest-delta.mjs, interprets (`renderFingerprint`).
+    footer,
   };
 }
 
@@ -1309,6 +1314,7 @@ export async function loadIncrementalManifest(file) {
   return {
     file,
     data: streamed.data,
+    footer: streamed.footer,
     entries,
   };
 }

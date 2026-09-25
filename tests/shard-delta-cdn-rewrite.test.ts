@@ -163,7 +163,13 @@ function writeInputs(scenario: Scenario, pages: Record<string, string>, manifest
     JSON.stringify({ type: 'header', manifestVersion: MANIFEST_VERSION, format: 'jsonl', locale: 'en' }),
     JSON.stringify({ type: 'kind', kind: 'active-job', templateVersion: 'active-job@1', sourceVersion: 'input@1', state: 'live' }),
     ...manifestPages.map((name) => JSON.stringify({ path: `${SCOPE}/${name}/`, hash: hash(pages[name]) })),
-    JSON.stringify({ type: 'footer', counts: { total: manifestPages.length, byKind: counts } }),
+    // Production manifests carry the jobs emitter fingerprint; without it the
+    // delta re-evaluates every page (shard-manifest-delta.mjs, #9788).
+    JSON.stringify({
+      type: 'footer',
+      counts: { total: manifestPages.length, byKind: counts },
+      jobsSeoEmitterFingerprint: { 'active-job': 'active-job-render-v1' },
+    }),
   ];
   writeFileSync(join(scenario.manifestDir, 'en.jsonl'), `${lines.join('\n')}\n`);
 }
