@@ -11,16 +11,24 @@ import {
 } from 'firebase/firestore';
 import { deriveAnalyticsPageContext } from './analyticsPageContext';
 import { isNewsletterOptOutBinding } from './newsletterOptOut.mjs';
-import { hasConfirmationProof } from './subscriberConsent.mjs';
+import {
+ CONFIRMATION_METHODS,
+ hasConfirmationProof,
+ hasSubscriberCreationStamp,
+} from './subscriberConsent.mjs';
 import {
  GLOBAL_EMAIL_OPT_OUT_FIELDS,
  isAddressSuppressed,
  isGlobalEmailOptOut,
 } from './emailSuppression.mjs';
 import {
+ consentLocale as toConsentLocale,
+ consentSurfaceFor,
  registrationTermsProof,
  REGISTRATION_TERMS_CONSENT_BASIS,
  UNIFIED_EMAIL_CONSENT_PURPOSE,
+ type ConsentTextKey,
+ CONSENT_TEXTS,
 } from './consentTexts';
 import { reportCaughtError } from '@/services/errorReporter';
 import { NEWSLETTER_SUBSCRIBED_KEY as LOCAL_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
@@ -134,7 +142,15 @@ export type NewsletterEventType =
  | 'all_email_unsubscribe'
  | 'bounce'
  | 'complaint'
- | 'suppressed';
+ | 'suppressed'
+ /**
+  * A sign-in whose registration write firestore.rules refused, recorded with
+  * the same audit block as an accepted one: today a browser may create a
+  * terms-based relationship only when the notice was displayed, so a login
+  * from a surface that showed nothing is logged here instead of being
+  * written with a displayed flag it did not earn.
+  */
+ | 'registration_refused';
 
 export type NewsletterUpsertInput = {
  email: string;
@@ -162,6 +178,10 @@ export type NewsletterUpsertInput = {
  isActive?: boolean;
  status?: NewsletterSubscriberStatus;
  metadata?: Record<string, any> | null;
+ /**
+  * Experiment arm of the capture (`jobgate-v3:<arm>`). Stored only when this
+  * write creates the relationship; an existing value is never replaced.
+  */
  variant?: string | null;
  /** GDPR consent proof fields (Art. 7 + Mailjet policy 1d) */
  consentGiven?: boolean;
@@ -187,6 +207,39 @@ export type NewsletterUpsertInput = {
  consentPurpose?: string | null;
  /** The product basis recorded for the base relationship. */
  consentBasis?: string | null;
+ /**
+  * The surface the act happened on (`consent_origin`): `job_gate`,
+  * `newsletter_popup`, `auth_one_tap`, … — see `consentSurfaceFor` in
+  * services/consentTexts.ts. Omitted, it is derived from `sourceComponent`
+  * and then from the source channel, so every registration names one.
+  */
+ consentOrigin?: string | null;
+ /**
+  * Locale of the notice the person read. Omitted, the stored sentence follows
+  * the site locale — the one `<ConsentNotice>` renders in — and only then the
+  * `locale` field, which several gates fill from `navigator.language`.
+  */
+ consentLocale?: string | null;
+ /**
+  * Register key of the notice that was on screen, when the caller measured it
+  * (the sign-in path). The stored sentence and version are that entry's.
+  */
+ consentNoticeKey?: string | null;
+ /**
+  * How this write confirms the address, when it does (`confirmation_method`,
+  * see CONFIRMATION_METHODS in services/subscriberConsent.mjs), and where
+  * (`confirmed_via_surface`). Written only by the write that stamps
+  * `confirmed_at`, so a later login can never rewrite how an earlier
+  * relationship was confirmed; the same pair goes into the audit event.
+  * firestore.rules treat both as subscription state.
+  */
+ confirmationMethod?: string | null;
+ confirmedViaSurface?: string | null;
+ /**
+  * Extra facts for the audit event of this act (for example One Tap's
+  * `select_by`). Flat, primitive values only; never personal data.
+  */
+ consentAudit?: Record<string, string | number | boolean | null> | null;
  /** Whether this write is the automatic terms-based registration. */
  registrationTermsAccepted?: boolean;
  /** How the address was registered: typed email needs DOI; auth is verified. */
@@ -234,17 +287,24 @@ export type NewsletterUpsertInput = {
  attributionMode?: 'overwrite' | 'fill';
 };
 
-const CREATION_STAMP_FIELDS = ['created_at', 'createdAt', 'subscribed_at', 'subscribedAt'] as const;
-
 /**
  * True for a stored row that no subscription write has ever touched: no
- * creation stamp, no status and no source channel (e.g. only the auth
- * profile fields). The first capture on it is its real creation.
+ * creation stamp and no source channel (e.g. only the auth profile fields).
+ * The first capture on it is its real creation.
+ *
+ * `status` is NOT evidence of a capture, which is why it is not read here:
+ * the unsubscribe writers (SPA link and Cloud Function), the bounce/complaint
+ * webhooks and the account-deletion tombstone all write one on rows that were
+ * never captured. Measured 2026-09-25: a profile row from May, reached by the
+ * weekly of 17/09 and unsubscribed from it (`status: 'unsubscribed'`, no
+ * channel), was first captured from the job gate on 25/09 and got no
+ * `created_at`. Every capture writes `source_channel` (normalizeSourceChannel
+ * never returns an empty channel), so the channel is the marker.
  */
 export function isUncapturedSubscriberRow(existing: Record<string, any> | undefined): boolean {
  if (!existing) return false;
- if (CREATION_STAMP_FIELDS.some((field) => existing[field] != null)) return false;
- return !sanitizeString(existing.status) && !sanitizeString(existing.source_channel);
+ if (hasSubscriberCreationStamp(existing)) return false;
+ return !sanitizeString(existing.source_channel);
 }
 
 export type SourceAttributionFields = {
@@ -475,6 +535,42 @@ function sanitizeString(value: unknown): string | null {
  return normalized || null;
 }
 
+const AUDIT_KEY_RE = /^[a-z][a-z0-9_]{0,39}$/;
+
+/**
+ * Caller-supplied audit facts: flat primitives under token keys, strings
+ * capped. Anything else is dropped rather than stored, because this block is
+ * written into an append-only log that nobody can correct afterwards.
+ */
+function sanitizeConsentAudit(
+ raw: NewsletterUpsertInput['consentAudit'],
+): Record<string, string | number | boolean | null> {
+ const out: Record<string, string | number | boolean | null> = {};
+ if (!raw || typeof raw !== 'object') return out;
+ for (const [key, value] of Object.entries(raw)) {
+  if (!AUDIT_KEY_RE.test(key)) continue;
+  if (value === null || typeof value === 'boolean') out[key] = value;
+  else if (typeof value === 'number' && Number.isFinite(value)) out[key] = value;
+  else if (typeof value === 'string') out[key] = value.slice(0, 80);
+ }
+ return out;
+}
+
+/** Pathname only: a query string can carry an address or an autologin code. */
+function consentPagePath(value: unknown): string | null {
+ const raw = sanitizeString(value);
+ if (!raw) return null;
+ try {
+  return new URL(raw, 'https://frontaliereticino.ch').pathname || null;
+ } catch {
+  return null;
+ }
+}
+
+function isPermissionDenied(err: unknown): boolean {
+ return (err as { code?: unknown } | null)?.code === 'permission-denied';
+}
+
 function dedupeStrings(values: Array<string | null | undefined>): string[] {
  const seen = new Set<string>();
  const out: string[] = [];
@@ -660,15 +756,21 @@ async function getNewsletterGeoSnapshot(): Promise<NewsletterGeoContext | null> 
  return null;
 }
 
+/** The site's active locale (it/en/de/fr), or null when i18n is unavailable. */
+async function readSiteLocale(): Promise<string | null> {
+ try {
+ const { getLocale } = await import('@/services/i18n');
+ return getLocale(); // 'it' | 'en' | 'de' | 'fr'
+ } catch {
+ return null;
+ }
+}
+
 async function resolveCaptureDefaults(input: NewsletterUpsertInput) {
  const { page, routeFamily } = inferPageContext(input.sourcePage, input.sourceRouteFamily);
 
  // Use the site's active locale (it/en/de/fr) rather than navigator.language
- let siteLocale: string | null = null;
- try {
- const { getLocale } = await import('@/services/i18n');
- siteLocale = getLocale(); // 'it' | 'en' | 'de' | 'fr'
- } catch { /* fallback below */ }
+ const siteLocale = await readSiteLocale();
 
  const locale = sanitizeString(input.locale || input.signupLocale || input.preferredLocale)
  || siteLocale || 'it';
@@ -1309,12 +1411,36 @@ export async function captureNewsletterSubscriber(
   || normalizeSourceChannel(input) === 'resubscribe_link'
   || authenticatedExplicitAction;
  const isServerResubscribeLink = normalizeSourceChannel(input) === 'resubscribe_link';
+ // The locale of the stored sentence is the one the notice was rendered in:
+ // an explicit caller value, else the site locale `<ConsentNotice>` reads,
+ // and only then `locale`, which several gates fill from navigator.language —
+ // a German browser on the Italian site used to be recorded as having read
+ // the German sentence it was never shown.
+ const consentTextLocale = toConsentLocale(
+  sanitizeString(input.consentLocale) || (await readSiteLocale()) || sanitizeString(input.locale),
+ );
  if (!isServerResubscribeLink) {
   // Every registration is made under the versioned terms/communications
   // disclosure. The source channel changes the initial alert criteria, not the
-  // registration basis, so the same displayed terms record is written for
-  // newsletter, job-board, salary, article and authentication entry points.
-  const termsProof = registrationTermsProof(input.locale, true);
+  // registration basis, so the same terms record is written for newsletter,
+  // job-board, salary, article and authentication entry points.
+  //
+  // WHETHER IT WAS DISPLAYED is the caller's fact, not this writer's: the
+  // sign-in path measures it on the page (services/authService.ts) and says
+  // `false` for One Tap, the assistant or the profile page, where nothing is
+  // rendered. Until 2026-09-25 this line forced `true` for every write, so
+  // each of those logins stored a disclosure nobody saw. A caller that passes
+  // nothing is one of the form gates, which all render
+  // `<ConsentNotice consentKey="communicationsOptIn">` beside their button
+  // (tests/consent-shown-at-signup.test.tsx holds them to it).
+  const noticeKey = sanitizeString(input.consentNoticeKey);
+  const termsProof = registrationTermsProof(
+   consentTextLocale,
+   typeof input.consentTextDisplayed === 'boolean' ? input.consentTextDisplayed : true,
+   noticeKey && Object.prototype.hasOwnProperty.call(CONSENT_TEXTS, noticeKey)
+    ? noticeKey as ConsentTextKey
+    : 'communicationsOptIn',
+  );
   const requestedStatus = String(input.status || '').trim().toLowerCase();
   const existingSuppressionStatus = String(existingData?.status || '').trim().toLowerCase();
   const preservedSuppressionStatus = ['unsubscribed', 'bounced', 'complained', 'suppressed', 'expired']
@@ -1486,6 +1612,22 @@ export async function captureNewsletterSubscriber(
    ? 'companyFollow'
    : sanitizeString(existingData?.consent_purpose) || 'companyFollow')
  : sanitizeString(input.consentPurpose) || sanitizeString(existingData?.consent_purpose);
+ // The surface of THIS act. Written with the rest of the consent block and
+ // preserved with it, so a later login elsewhere cannot rename where an
+ // earlier consent was collected.
+ const consentOrigin = consentSurfaceFor({
+  surface: input.consentOrigin,
+  component: input.sourceComponent,
+  channel: sourceChannel,
+ });
+ // How this write confirms the address, only when it is the write that does.
+ const confirmationMethod = needsConfirmedStamp
+  ? (sanitizeString(input.confirmationMethod)
+   || (authenticatedRegistration ? CONFIRMATION_METHODS.PROVIDER_VERIFIED_EMAIL : null))
+  : null;
+ const confirmedViaSurface = confirmationMethod
+  ? (sanitizeString(input.confirmedViaSurface) || consentOrigin)
+  : null;
  const mergedData = {
  email: sanitizeString(existingData?.email) || email,
  user_id: sanitizeString(input.userId) || sanitizeString(existingData?.user_id),
@@ -1532,19 +1674,29 @@ export async function captureNewsletterSubscriber(
  status: preserveExistingConfirmedConsent
  ? (existingData?.status ?? subscriptionState.status)
  : subscriptionState.status,
- variant: sanitizeString(input.variant) || sanitizeString(existingData?.variant),
+ // The experiment arm that PRODUCED the relationship (`jobgate-v3:<arm>`, the
+ // readout's join key for a new subscriber). Written with the creation stamp
+ // and never rewritten: a later capture from another arm, or a login from the
+ // gate on an address that already had a relationship, is not a conversion of
+ // that arm, and overwriting would steal the earlier capture's attribution.
+ variant: sanitizeString(existingData?.variant)
+  || ((!existing.exists() || isUncapturedSubscriberRow(existingData)) ? sanitizeString(input.variant) : null),
  metadata: input.metadata || existingData?.metadata || null,
  consent_given: preserveExistingConsent
   ? (existingData?.consent_given ?? false)
   : input.registrationTermsAccepted === true
   ? true
   : (input.consentGiven ?? existingData?.consent_given ?? false),
+ // The server's clock, not the browser's, for a new act: the moment the
+ // record was accepted is what an art. 25 request asks for, and a client
+ // timestamp is whatever the device says. An existing value is the earlier
+ // act and is kept.
  consent_given_at: preserveExistingConsent
   ? (existingData?.consent_given_at ?? null)
   : input.registrationTermsAccepted === true
-  ? (existingData?.consent_given_at || now)
+  ? (existingData?.consent_given_at || serverTimestamp())
   : (input.consentGiven
-   ? (existingData?.consent_given_at || now)
+   ? (existingData?.consent_given_at || serverTimestamp())
    : (existingData?.consent_given_at || null)),
  ...(hasAdvertisingState ? {
   // Third-party advertising is part of the same base registration. The
@@ -1574,6 +1726,12 @@ export async function captureNewsletterSubscriber(
  consent_act: preserveExistingConsent
  ? (existingData?.consent_act ?? null)
  : sanitizeString(input.consentAct) || sanitizeString(existingData?.consent_act),
+ // Only when there is something to say: a preserved record without an origin
+ // stays without one instead of gaining a `null` key, which firestore.rules
+ // would count as a touched consent field on an anonymous write.
+ ...(!preserveExistingConsent && consentOrigin
+  ? { consent_origin: consentOrigin }
+  : {}),
  consent_purpose: preserveExistingConsent
  ? (existingData?.consent_purpose ?? null)
  : consentPurpose,
@@ -1663,19 +1821,29 @@ export async function captureNewsletterSubscriber(
   subscribed_at: serverTimestamp(),
   created_at: serverTimestamp(),
  }),
- // A row that exists but was never captured (profile/login fields only, no
- // status, no channel, no creation stamp) is created as a subscription by
- // THIS write. Between 2026-09-12 and 2026-09-16 the auth writer created such
- // rows, and every later capture treated them as existing, so they never got
- // a creation date and dropped out of every report by creation day.
- // `created_at` is not a state field in firestore.rules; the
- // `subscribed_at` pair stays creation-only (see the comment above).
+ // A row that exists but was never captured (profile/login fields, maybe an
+ // opt-out or bounce status, but no channel and no creation stamp) is created
+ // as a subscription by THIS write. Between 2026-09-12 and 2026-09-16 the auth
+ // writer created such rows, and every later capture treated them as
+ // existing, so they never got a creation date and dropped out of every
+ // report by creation day; an unsubscribe on such a row used to hide it from
+ // this check too (see isUncapturedSubscriberRow). `created_at` is not a
+ // state field in firestore.rules; the `subscribed_at` pair stays
+ // creation-only (see the comment above).
  ...(existing.exists() && isUncapturedSubscriberRow(existingData) ? {
   created_at: serverTimestamp(),
  } : {}),
  ...(needsConfirmedStamp ? {
   confirmed_at: serverTimestamp(),
   confirmedAt: serverTimestamp(),
+ } : {}),
+ // The origin of the confirmation, beside the stamp it explains (the DOI
+ // handler records its own through the Admin SDK). firestore.rules list both
+ // keys as subscription state, so only the terms-based / visibly-consented
+ // transitions that stamp `confirmed_at` can write them.
+ ...(confirmationMethod ? {
+  confirmation_method: confirmationMethod,
+  confirmed_via_surface: confirmedViaSurface,
  } : {}),
  updatedAt: serverTimestamp(),
  updated_at: serverTimestamp(),
@@ -1772,7 +1940,59 @@ export async function captureNewsletterSubscriber(
  mergedData.resubscribedAt = serverTimestamp();
  }
 
- await setDoc(ref, mergedData, { merge: true });
+ // The consent block of THIS act, for the audit event: what was done, on
+ // which surface, with which sentence and version, in which language, whether
+ // it was on screen, from which page and how the address got confirmed.
+ // Null when the write only carried an earlier record forward.
+ const recordsConsentAct = !preserveExistingConsent
+  && (input.registrationTermsAccepted === true
+   || input.consentGiven === true
+   || isServerResubscribeLink);
+ const consentAudit: Record<string, string | number | boolean | null> | null = recordsConsentAct
+  ? {
+   ...sanitizeConsentAudit(input.consentAudit),
+   act: mergedData.consent_act ?? null,
+   method: mergedData.consent_method ?? null,
+   basis: mergedData.consent_basis ?? null,
+   purpose: mergedData.consent_purpose ?? null,
+   origin: consentOrigin,
+   text_version: mergedData.consent_text_version ?? null,
+   text_displayed: typeof mergedData.consent_text_displayed === 'boolean'
+    ? mergedData.consent_text_displayed
+    : null,
+   text_locale: isServerResubscribeLink ? null : consentTextLocale,
+   page: consentPagePath(mergedData.consent_source_url),
+   registration_method: authenticatedRegistration ? 'authenticated' : 'email',
+   confirmation_method: confirmationMethod,
+   confirmed_via_surface: confirmedViaSurface,
+  }
+  : null;
+
+ try {
+  await setDoc(ref, mergedData, { merge: true });
+ } catch (err) {
+  // firestore.rules admit a browser-created terms registration only with a
+  // displayed notice. A login from a surface that rendered none is refused
+  // there; keep the truthful record of the attempt in the append-only log
+  // instead of retrying with a flag it did not earn.
+  if (consentAudit && consentAudit.text_displayed !== true && isPermissionDenied(err)) {
+   await recordNewsletterEvent(db, {
+    email,
+    userId: input.userId || null,
+    eventType: 'registration_refused',
+    sourceLocale: mergedData.preferred_locale,
+    sourcePage: mergedData.source_page,
+    sourceCta: mergedData.source_cta,
+    sourceChannel,
+    metadata: {
+     status: subscriptionState.status,
+     reason: 'firestore_rules_require_displayed_notice',
+     consent: consentAudit,
+    },
+   }).catch((eventErr) => reportCaughtError(eventErr, 'newsletter.registrationRefusedEvent'));
+  }
+  throw err;
+ }
 
  // GA4 user-scoped `is_newsletter_subscriber` custom dimension (analytics
  // Stage 1, revenue-per-user segmentation). Fired on every genuine
@@ -1815,6 +2035,10 @@ export async function captureNewsletterSubscriber(
  source: mergedData.source,
  created_at: now,
  already_active: alreadyActive,
+ // The audit copy of the consent block this write recorded. The event
+ // subcollection is append-only (firestore.rules), so this is the record
+ // of the act that a later write on the root document cannot rewrite.
+ ...(consentAudit ? { consent: consentAudit } : {}),
  },
  });
 
