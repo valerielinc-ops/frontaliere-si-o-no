@@ -1323,6 +1323,8 @@ describe('#6482 — committed crawler-group-*.yml are byte-identical to the gene
       'fachkraft',
       'postfinance',
       'tsmg',
+      'anicura',
+      'fisba',
       'tpl-lugano',
       'capri-holdings',
       'confederazione',
