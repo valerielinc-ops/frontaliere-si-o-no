@@ -6716,6 +6716,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.franco-svizzero-ribasso-settembre-novembre.title': 'Swiss franc decline: signals to watch through November',
     'blog.article.franco-svizzero-ribasso-settembre-novembre.excerpt': 'The Swiss franc has fallen about 5% from its spring 2026 highs, equal to the decline in 2023 and less than >6% in 2024; the seasonal window runs from late September to early November.',
     'blog.article.franco-svizzero-ribasso-settembre-novembre.imageAlt': 'Illustration of the Swiss franc and euro with Lake Lugano background',
+    'blog.article.sanzioni-onu-ordinanze-2026.title': 'Switzerland harmonizes the 2026 UN sanctions ordinances',
+    'blog.article.sanzioni-onu-ordinanze-2026.excerpt': 'On 25 September 2026, the Federal Council decided to harmonise four sanctions ordinances, extending the exemption from notification and authorisation for certain Iranian transactions to international organisations.',
+    'blog.article.sanzioni-onu-ordinanze-2026.imageAlt': 'SECO official documents on UN sanctions with the Federal Palace in Bern in the background',
 };
 
 export default blogMetaChEn;
