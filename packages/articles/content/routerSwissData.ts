@@ -2260,6 +2260,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'finanziamento-federale-universita-sup': { it: 'finanziamento-federale-universita-sup', en: 'federal-funding-cantonal-universities-sup', de: 'bundesfinanzierung-universitaet-sup', fr: 'financement-federal-universites-cantonales-hes' },
  'fondi-integrazione-svizzera-2028': { it: 'fondi-integrazione-svizzera-2028', en: 'swiss-integration-funds-2028', de: 'schweizer-integrationsgelder-2028', fr: 'fonds-integration-suisse-2028' },
  'incentivo-fiscale-acquisto-locale': { it: 'incentivo-fiscale-acquisto-locale', en: 'tax-incentive-local-shopping-ticino', de: 'steuerbonus-lokale-einkaeufe-tessin', fr: 'incentive-fiscal-achats-locaux-tessin' },
+ 'franco-svizzero-ribasso-settembre-novembre': { it: 'franco-svizzero-ribasso-settembre-novembre', en: 'swiss-franc-decline-signals-to-watch-through-november', de: 'schweizer-franken-im-abwartstrend-signale-die-bis-november-zu-beobachten-sind', fr: 'franc-suisse-en-baisse-les-signaux-a-suivre-jusqu-en-novembre' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
