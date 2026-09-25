@@ -328,6 +328,7 @@ export const COMPANY_HQ = {
   'gz-dielsdorf':                 { city: 'Dielsdorf',          canton: 'ZH', postalCode: '8157', addressRegion: 'ZH' },
   'pzm-muensingen':               { city: 'Münsingen',          canton: 'BE', postalCode: '3110', addressRegion: 'BE' },
   'prosenectute-ti':              { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'protectas':                    { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
   'spital-limmattal':             { city: 'Schlieren',          canton: 'ZH', postalCode: '8952', addressRegion: 'ZH' },
   'huntsman':                     { city: 'Monthey',            canton: 'VS', postalCode: '1870', addressRegion: 'VS' },
   'fielmann':                     { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },

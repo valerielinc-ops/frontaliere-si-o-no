@@ -4,20 +4,20 @@
   "generatorSha256": "ca6de7edbb725fa6cb7fdb508ee51888025c39696c01bdbde20b71dba06fe4c4",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "551b5f9554426d6bd8d391bdebca7e2f07b26121",
+  "sourceCommit": "6b4158803bec731ccb81f239e14a7f7cafd45d0b",
   "artifactObservation": {
     "generatorSha256": "ca6de7edbb725fa6cb7fdb508ee51888025c39696c01bdbde20b71dba06fe4c4",
     "sourceRef": "main",
-    "sourceCommit": "551b5f9554426d6bd8d391bdebca7e2f07b26121"
+    "sourceCommit": "6b4158803bec731ccb81f239e14a7f7cafd45d0b"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 623,
+  "crawlerCount": 624,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:ee9dabc0d66ccd6c60d65906937e0d28126cecfdf258dcffa723139329d12e4a",
+    "rosterDigest": "sha256:fafef249451f285254d1a3603cb5adcb48f1832e95cd412a3f3bbc8dba7b415e",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -408,6 +408,7 @@
     "scripts/update-privatklinik-obach-jobs.mjs",
     "scripts/update-privatklinik-wyss-jobs.mjs",
     "scripts/update-prosenectute-ti-jobs.mjs",
+    "scripts/update-protectas-jobs.mjs",
     "scripts/update-proton-jobs.mjs",
     "scripts/update-psgn-jobs.mjs",
     "scripts/update-puk-zuerich-jobs.mjs",
@@ -1454,8 +1455,8 @@
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "7763749e2d8213441548db69828fcab26163022aa5eb3ea543df727cbd2d8d51",
-      "artifactSha256": "4b2a5188308a432d604c53229dc7107df72c593b4a0c6dc9b9f3b066107e33eb",
+      "sourceSha256": "a1f10d20b2748b06ece69016129af02a41226cc9b2bc85b252fd2399331c8a47",
+      "artifactSha256": "bd3b04a2745f778b2e9af820d41db214b65119b4c9440b7edd92f0e1ebdf7739",
       "generatorSha256": "ca6de7edbb725fa6cb7fdb508ee51888025c39696c01bdbde20b71dba06fe4c4",
       "members": [
         "mcdonald-s-switzerland",
@@ -1469,7 +1470,8 @@
         "fisba",
         "tpl-lugano",
         "capri-holdings",
-        "confederazione"
+        "confederazione",
+        "protectas"
       ]
     },
     {
