@@ -11961,6 +11961,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.riassetto-ferroviario-lavoratori.title': 'Ffs Cargo, die Beschäftigungsperspektiven sorgen für Diskussionen',
     'blog.article.riassetto-ferroviario-lavoratori.excerpt': 'Die Umstrukturierung von Ffs Cargo betrifft 80 Mitarbeitende: Drei Mitarbeitende haben noch keine Stellenangebote erhalten.',
     'blog.article.riassetto-ferroviario-lavoratori.imageAlt': 'Güterzug von FFS Cargo auf einem Bahnareal im Tessin',
+    'blog.article.ridurre-tempi-ripristino-a2-mezzovico.title': 'Wiederherstellungszeiten nach Vorfall A2 Mezzovico verkürzen',
+    'blog.article.ridurre-tempi-ripristino-a2-mezzovico.excerpt': 'Lorenzo Quadri (Lega) reicht eine Motion zur Verkürzung der Wiederherstellungszeit nach dem Unfall auf der A2 bei Mezzovico ein: Sperrung über 5 Stunden, Staus bis zu 13 km.',
+    'blog.article.ridurre-tempi-ripristino-a2-mezzovico.imageAlt': 'Luftaufnahme der Autobahn A2 bei Mezzovico mit Stau und Rettungsfahrzeugen',
 };
 
 export default blogMetaDe;

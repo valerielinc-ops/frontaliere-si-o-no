@@ -11963,6 +11963,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.riassetto-ferroviario-lavoratori.title': 'Ffs Cargo, le prospettive occupazionali fanno discutere',
     'blog.article.riassetto-ferroviario-lavoratori.excerpt': 'La riorganizzazione di Ffs Cargo coinvolge 80 dipendenti: tre collaboratori non hanno ancora ricevuto proposte lavorative.',
     'blog.article.riassetto-ferroviario-lavoratori.imageAlt': 'Treno merci FFS Cargo in uno scalo ferroviario del Ticino',
+    'blog.article.ridurre-tempi-ripristino-a2-mezzovico.title': 'Ridurre i tempi di ripristino dopo incidente A2 Mezzovico',
+    'blog.article.ridurre-tempi-ripristino-a2-mezzovico.excerpt': 'Lorenzo Quadri (Lega) presenta mozione per ridurre i tempi di ripristino dopo l\'incidente sulla A2 a Mezzovico: chiusura oltre 5 ore, code fino a 13 km.',
+    'blog.article.ridurre-tempi-ripristino-a2-mezzovico.imageAlt': 'Vista aerea dell\'autostrada A2 vicino a Mezzovico con coda di veicoli e mezzi di soccorso',
 };
 
 export default blogMetaIt;
