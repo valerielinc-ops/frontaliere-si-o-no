@@ -4,9 +4,11 @@
   "jobs": [
     {
       "id": "alpiq-8ca59717291e",
-      "slug": "project-manager-hydropower-alpiq-switzerland",
+      "slug": "gestione-del-progetto-hydropower-alpiq-lausanne",
       "slugByLocale": {
-        "it": "project-manager-hydropower-alpiq-switzerland"
+        "it": "gestione-del-progetto-hydropower-alpiq-lausanne",
+        "de": "projektleiter-wasserkraft-alpiq-lausanne",
+        "fr": "gestionnaire-de-projet-hydropower-alpiq-lausanne"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -58,7 +60,15 @@
           "unitText": "YEAR"
         }
       },
-      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/141"
+      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/141",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-hydropower-alpiq-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-hydropower-alpiq-switzerland"
+      ]
     },
     {
       "id": "alpiq-150e7535e7a7",
@@ -121,14 +131,6 @@
         }
       },
       "crawlerMissStreak": 2,
-      "previousSlugsByLocale": {
-        "it": [
-          "project-manager-non-it-iii-alpiq-switzerland"
-        ]
-      },
-      "previousSlugs": [
-        "project-manager-non-it-iii-alpiq-switzerland"
-      ],
       "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/98"
     },
     {
@@ -253,16 +255,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "it-domain-architect-trading-alpiq-switzerland",
-          "it-domain-architetto-trading-alpiq-lausanne"
-        ]
-      },
-      "previousSlugs": [
-        "it-domain-architect-trading-alpiq-switzerland",
-        "it-domain-architetto-trading-alpiq-lausanne"
-      ],
       "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/33"
     },
     {
@@ -328,14 +320,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "head-of-algorithmic-trading-governance-alpiq-lausanne"
-        ]
-      },
-      "previousSlugs": [
-        "head-of-algorithmic-trading-governance-alpiq-lausanne"
-      ],
       "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/36"
     }
   ]

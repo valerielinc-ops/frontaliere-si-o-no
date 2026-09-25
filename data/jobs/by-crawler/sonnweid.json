@@ -55,15 +55,13 @@
         "soggetto-salute-o-cura-efz-pflegezentrum-sonnweid-wetzikon",
         "fachperson-gesundheit-o-betreuung-cfc-pflegezentrum-sonnweid-wetzikon",
         "subject-health-or-care-efz-pflegezentrum-sonnweid-wetzikon",
-        "sujet-sante-ou-soins-efz-pflegezentrum-sonnweid-wetzikon",
-        "operatore-sanitario-o-assistenziale-pflegezentrum-sonnweid-wetzikon"
+        "sujet-sante-ou-soins-efz-pflegezentrum-sonnweid-wetzikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-oder-betreuung-efz-sonnweid-wetzikon",
           "soggetto-salute-o-cura-efz-pflegezentrum-sonnweid-wetzikon",
-          "fachperson-gesundheit-o-betreuung-cfc-pflegezentrum-sonnweid-wetzikon",
-          "operatore-sanitario-o-assistenziale-pflegezentrum-sonnweid-wetzikon"
+          "fachperson-gesundheit-o-betreuung-cfc-pflegezentrum-sonnweid-wetzikon"
         ],
         "en": [
           "subject-health-or-care-efz-pflegezentrum-sonnweid-wetzikon"
@@ -138,14 +136,12 @@
       "previousSlugs": [
         "fachperson-gesundheit-fur-die-oase-sonnweid-wetzikon",
         "salute-specialistica-per-oasis-pflegezentrum-sonnweid-wetzikon",
-        "specialiste-de-la-sante-pour-oasis-pflegezentrum-sonnweid-wetzikon",
-        "fachperson-gesundheit-per-la-oase-pflegezentrum-sonnweid-wetzikon"
+        "specialiste-de-la-sante-pour-oasis-pflegezentrum-sonnweid-wetzikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-fur-die-oase-sonnweid-wetzikon",
-          "salute-specialistica-per-oasis-pflegezentrum-sonnweid-wetzikon",
-          "fachperson-gesundheit-per-la-oase-pflegezentrum-sonnweid-wetzikon"
+          "salute-specialistica-per-oasis-pflegezentrum-sonnweid-wetzikon"
         ],
         "en": [
           "fachperson-gesundheit-fur-die-oase-sonnweid-wetzikon"
@@ -222,14 +218,12 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-sonnweid-wetzikon",
         "dipl-specialista-di-cura-hf-pflegezentrum-sonnweid-wetzikon",
-        "dipl-specialiste-des-soins-hf-pflegezentrum-sonnweid-wetzikon",
-        "diplomato-a-della-cura-hf-pflegezentrum-sonnweid-wetzikon"
+        "dipl-specialiste-des-soins-hf-pflegezentrum-sonnweid-wetzikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-sonnweid-wetzikon",
-          "dipl-specialista-di-cura-hf-pflegezentrum-sonnweid-wetzikon",
-          "diplomato-a-della-cura-hf-pflegezentrum-sonnweid-wetzikon"
+          "dipl-specialista-di-cura-hf-pflegezentrum-sonnweid-wetzikon"
         ],
         "en": [
           "dipl-pflegefachperson-hf-sonnweid-wetzikon"
@@ -255,12 +249,12 @@
     },
     {
       "id": "sonnweid-5039a1976fac",
-      "slug": "diplomierte-pflegefachperson-hf-come-leitung-nachtwache-pflegezentrum-sonnweid-wetzikon",
+      "slug": "infermiere-laureata-hf-come-guida-notturna-pflegezentrum-sonnweid-wetzikon",
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-hf-als-leitung-nachtwache-sonnweid-wetzikon",
-        "it": "diplomierte-pflegefachperson-hf-come-leitung-nachtwache-pflegezentrum-sonnweid-wetzikon",
-        "en": "diplomierte-pflegefachperson-hf-als-leitung-nachtwache-sonnweid-wetzikon",
-        "fr": "diplomierte-pflegefachperson-hf-als-leitung-nachtwache-sonnweid-wetzikon"
+        "it": "infermiere-laureata-hf-come-guida-notturna-pflegezentrum-sonnweid-wetzikon",
+        "en": "graduated-nurse-hf-as-lead-night-watch-pflegezentrum-sonnweid-wetzikon",
+        "fr": "infirmiere-diplomee-hf-en-tant-que-veille-de-nuit-principale-pflegezentrum-sonnweid-wetzikon"
       },
       "company": "Pflegezentrum Sonnweid",
       "companyKey": "sonnweid",
@@ -305,11 +299,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "diplomierte-pflegefachperson-hf-als-leitung-nachtwache-sonnweid-wetzikon",
+          "diplomierte-pflegefachperson-hf-come-leitung-nachtwache-pflegezentrum-sonnweid-wetzikon"
+        ],
+        "en": [
+          "diplomierte-pflegefachperson-hf-als-leitung-nachtwache-sonnweid-wetzikon"
+        ],
+        "fr": [
           "diplomierte-pflegefachperson-hf-als-leitung-nachtwache-sonnweid-wetzikon"
         ]
       },
       "previousSlugs": [
-        "diplomierte-pflegefachperson-hf-als-leitung-nachtwache-sonnweid-wetzikon"
+        "diplomierte-pflegefachperson-hf-als-leitung-nachtwache-sonnweid-wetzikon",
+        "diplomierte-pflegefachperson-hf-come-leitung-nachtwache-pflegezentrum-sonnweid-wetzikon"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

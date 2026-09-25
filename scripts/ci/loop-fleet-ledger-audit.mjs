@@ -19,8 +19,8 @@ import {
   summarizeLifecycleEvents,
   validateActionClassAgainstPolicy,
   validateDecisionLifecycle,
-  validateLifecycleEvent,
-  validateOutcomeAgainstPolicy,
+  validateHistoricalLifecycleEvent,
+  validateHistoricalOutcomeAgainstPolicy,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
 
@@ -136,11 +136,11 @@ function validateRecord(registry, type, record, line) {
   try {
     if (type === 'lifecycle') {
       if (!record.recordedAt) errors.push(`${type} line ${line}: recordedAt is required`);
-      validateLifecycleEvent(registry, loopId, record);
+      validateHistoricalLifecycleEvent(registry, loopId, record);
     } else {
       validateActionClassAgainstPolicy(registry, loopId, record.actionClass);
       if (type === 'decision') validateDecisionLifecycle(registry, loopId, record);
-      validateOutcomeAgainstPolicy(registry, loopId, record.outcome, { allowHistoricalSourceRefs: true });
+      validateHistoricalOutcomeAgainstPolicy(registry, loopId, record.outcome);
     }
   } catch (error) {
     errors.push(`${type} line ${line}: registry validation failed (${error.message})`);
