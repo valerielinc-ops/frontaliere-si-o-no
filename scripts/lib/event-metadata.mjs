@@ -98,7 +98,13 @@ export function mergeEventOfferMetadata(primaryValue, candidateValue, primaryUrl
   const candidateMetadata = extractEventOfferMetadata(candidateValue, candidateUrl);
   if (!candidateMetadata) return primaryValue;
   const selected = selectedOffer(primaryValue);
-  if (!selected) return primaryValue;
+  const selectedCandidate = selectedOffer(candidateValue);
+  const primaryAmount = eventOfferPriceAmount(selected?.offer?.price);
+  const candidateAmount = eventOfferPriceAmount(selectedCandidate?.offer?.price);
+  if (!selected || !selectedCandidate || !Number.isFinite(primaryAmount)
+    || !Number.isFinite(candidateAmount) || primaryAmount !== candidateAmount) {
+    return primaryValue;
+  }
 
   const mergedOffer = { ...selected.offer };
   let changed = false;
@@ -208,6 +214,7 @@ const PERFORMER_PATTERNS = [
   /Mitwirkende(?:\s+und\s+Zusatzinformationen)?\s*:\s*([^.!?]+?)(?=$|[.!?](?:\s|$)|\b(?:Treffpunkt|Ort|Location|Lieu|Luogo)\s*:)/iu,
   /\bGestaltet\s+wird\s+(?:der|die|das)\s+.+?\s+von\s+([^.!?]+?)(?=[.!?](?:\s|$)|$)/iu,
   /\bvon\s+und\s+mit\s+([^.!?]+?)(?=[.!?](?:\s|$)|$)/iu,
+  /\b(?:di\s+e\s+con|de\s+et\s+avec)\s+([A-ZÀ-ÖØ-Þ][^.!?]{1,120}?)(?=[.!?](?:\s|$)|$)/iu,
   /\b(?:mit|con|avec|with|featuring|feat\.?)\s+([A-ZÀ-ÖØ-Þ][^.!?]{1,120}?)(?=[.!?](?:\s|$)|$)/iu,
 ];
 

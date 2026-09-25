@@ -305,6 +305,15 @@ describe('mergeDetailEventMetadata', () => {
       'https://source.example/de/event',
     )).toEqual({ price: '10', url: 'https://source.example/de/tickets' });
   });
+
+  it('does not merge optional metadata across different Offer price tiers', () => {
+    expect(mergeEventOfferMetadata(
+      [{ price: '10' }],
+      [{ price: '20', url: 'ticket-20' }],
+      'https://a.example/event',
+      'https://b.example/event',
+    )).toEqual([{ price: '10' }]);
+  });
 });
 
 describe('detailEnrichmentReady', () => {

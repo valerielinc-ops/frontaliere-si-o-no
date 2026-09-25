@@ -549,6 +549,11 @@ describe('extractTioPrice + enrichEventsWithPrice (offers/JSON-LD gap, tio.ch "P
     expect(extractTioDetailMetadata(html).performer).toBeUndefined();
   });
 
+  it('does not promote ordinary two-token detail prose to a Tio performer', () => {
+    const html = '<div class="col-12 col-xl-8"><h1>Test</h1><p>Un evento con Belle Giornate.</p></div>';
+    expect(extractTioDetailMetadata(html).performer).toBeUndefined();
+  });
+
   it('keeps an explicitly labelled Tio contributor', () => {
     const html = '<div class="col-12 col-xl-8"><h1>Test</h1><p>Mitwirkende: Freude.</p></div>';
     expect(extractTioDetailMetadata(html).performer).toEqual({ name: 'Freude' });
