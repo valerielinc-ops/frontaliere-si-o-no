@@ -1005,9 +1005,18 @@ const CODEX_ARTICLE_LANE_OFF_RE = /^(0|false|no|off)$/i;
 function isCodexArticleLaneSwitchOn() {
   return !CODEX_ARTICLE_LANE_OFF_RE.test((process.env.ENABLE_CODEX_ARTICLE_FALLBACK || '').trim());
 }
+// Socket del broker che ha risposto ENOENT/ECONNREFUSED: il broker non c'e'
+// piu' (cleanup, TTL, processo morto) e non torna in questo job. Senza questo
+// ogni chiamata successiva lo ritentava, falliva all'istante e costava -3 di
+// score: 40 righe `connect ENOENT` in 80 secondi in send-newsletter run
+// 36116142119. Legato al path, non booleano, cosi' un socket nuovo riapre la
+// lane.
+let _codexBrokerGoneSocket = '';
 function isCodexCliPrimaryEnabled() {
+  const socketPath = String(process.env.CODEX_AUTH_BROKER_SOCKET || '').trim();
   return isCodexArticleLaneSwitchOn()
-    && !!String(process.env.CODEX_AUTH_BROKER_SOCKET || '').trim();
+    && !!socketPath
+    && socketPath !== _codexBrokerGoneSocket;
 }
 function hasClaudeCodeOauthToken() {
   return !!(process.env.CLAUDE_CODE_OAUTH_TOKEN || '').trim();
@@ -1015,6 +1024,16 @@ function hasClaudeCodeOauthToken() {
 const CLAUDE_CLI_BIN = (process.env.CLAUDE_CLI_BIN || 'claude').trim();
 const CODEX_CLI_MAX_TIMEOUT_MS = 600_000;
 const CODEX_CLI_MIN_TIMEOUT_MS = 15_000;
+// Il broker esegue una richiesta Codex alla volta: le altre aspettano in coda.
+// Questo e' il tempo massimo di quell'attesa, separato dal timeout di
+// esecuzione, che parte solo quando il broker segnala l'avvio di Codex
+// (CODEX_BROKER_START_SIGNAL). 20 + 10 minuti restano sotto il cap duro di
+// _hardCallCapMs per codex-cli (~49 minuti), che altrimenti abbandonerebbe la
+// chiamata lasciando la richiesta viva in coda. Override: CODEX_BROKER_QUEUE_WAIT_MS.
+const CODEX_BROKER_QUEUE_WAIT_DEFAULT_MS = 20 * 60_000;
+const CODEX_BROKER_QUEUE_WAIT_MAX_MS = 30 * 60_000;
+const CODEX_BROKER_START_SIGNAL = '\x01';
+const CODEX_BROKER_GONE_CODES = new Set(['ENOENT', 'ECONNREFUSED', 'ENOTSOCK']);
 const CODEX_FALLBACK_MARKER_PREFIX = 'claude-haiku-codex-fallback';
 // The Haiku replacement uses the same Codex Luna Max model/effort as the
 // workflow-agent path. It remains one-shot and preserves the caller's
@@ -4344,6 +4363,7 @@ export function printRunSummary() {
 
 /** Reset exhausted models and scores (useful for long-running processes or tests) */
 export function resetState() {
+  _codexBrokerGoneSocket = '';
   _exhaustedModels.clear();
   _ghExhaustedPats.clear();
   _exhaustReason.clear();
@@ -5803,11 +5823,25 @@ export function __claimCodexFallbackForTests() {
 /**
  * Ask the action-owned host broker to execute one Codex request. The broker is
  * the only cross-step hand-off; it keeps the raw credential in memory and
- * destroys its private Unix socket after one successful request. There is
+ * runs one Codex request at a time for the whole job. There is
  * intentionally no CODEX_AUTH_JSON/CODEX_AUTH_FILE process-env fallback:
  * those would expose the credential to every background crawler. Raw auth
  * never crosses this socket; only Codex's result does.
+ *
+ * Failures of the broker channel (socket gone, connection dropped, queue wait
+ * or our own time budget exhausted) carry `transportFault`: they say nothing
+ * about the model, so callLLM leaves the Codex score untouched.
  */
+function _codexBrokerQueueWaitMs() {
+  const raw = Number.parseInt((process.env.CODEX_BROKER_QUEUE_WAIT_MS || '').trim(), 10);
+  if (!Number.isFinite(raw) || raw < 0) return CODEX_BROKER_QUEUE_WAIT_DEFAULT_MS;
+  return Math.min(raw, CODEX_BROKER_QUEUE_WAIT_MAX_MS);
+}
+
+function _codexTransportError(message) {
+  return Object.assign(new Error(message), { transportFault: true });
+}
+
 function _requestCodexExecution({ prompt, timeoutMs, schema, deadlineMs }) {
   const socketPath = String(process.env.CODEX_AUTH_BROKER_SOCKET || '').trim();
   if (!socketPath) return Promise.reject(new Error('CODEX_AUTH_BROKER_SOCKET is not configured'));
@@ -5836,22 +5870,58 @@ function _requestCodexExecution({ prompt, timeoutMs, schema, deadlineMs }) {
       else resolve(value);
     };
     client.setEncoding('utf8');
-    // A short caller deadline wins over the normal broker grace period. The
-    // fallback must not keep the process alive past opts.deadlineMs merely
-    // because the Unix socket is waiting for a timed-out Codex child.
-    const normalSocketTimeoutMs = Math.max(5000, requestTimeoutMs + 10_000);
-    const socketTimeoutMs = Number.isFinite(remaining)
-      ? Math.max(1, Math.min(normalSocketTimeoutMs, remaining))
-      : normalSocketTimeoutMs;
-    client.setTimeout(socketTimeoutMs, () => finish(new Error('Codex auth broker socket timed out')));
-    client.on('error', (error) => finish(error));
+    // Two budgets. Until the broker signals that Codex started, the request may
+    // be queued behind other Codex requests of this job: it may wait up to the
+    // queue budget plus the execution budget. From the start signal on, only
+    // the execution budget remains. Measuring the execution budget from
+    // connect() made every queued request expire while its Codex was running,
+    // and the broker then killed it half-way (send-newsletter run 36116142119:
+    // no Codex answer at all between 09:20 and 09:36). A broker without the
+    // start signal keeps the longer budget, which only waits more.
+    // A short caller deadline wins over both: the fallback must not keep the
+    // process alive past opts.deadlineMs.
+    const executionSocketTimeoutMs = Math.max(5000, requestTimeoutMs + 10_000);
+    const queueWaitMs = _codexBrokerQueueWaitMs();
+    const boundedByDeadline = (ms) => {
+      if (!Number.isFinite(remaining)) return ms;
+      const left = Number(deadlineMs) - Date.now();
+      return Math.max(1, Math.min(ms, left));
+    };
+    let started = false;
+    const initialTimeoutMs = boundedByDeadline(queueWaitMs + executionSocketTimeoutMs);
+    client.setTimeout(initialTimeoutMs, () => finish(started
+      ? _codexTransportError('Codex auth broker socket timed out')
+      : _codexTransportError(`Codex auth broker queue wait exceeded ${Math.round(initialTimeoutMs / 1000)}s before Codex started`)));
+    client.on('error', (error) => {
+      if (CODEX_BROKER_GONE_CODES.has(error?.code)) {
+        if (_codexBrokerGoneSocket !== socketPath) {
+          _codexBrokerGoneSocket = socketPath;
+          console.warn(`⏹️  [codex-cli] broker non raggiungibile (${error.code}) — lane Codex spenta per il resto del processo`);
+        }
+      }
+      error.transportFault = true;
+      finish(error);
+    });
     client.on('data', (chunk) => {
-      // The broker probes a normal request half-close with one NUL byte so it
-      // can distinguish it from a reset/disconnect while keeping the socket
-      // open for the eventual Codex response. Strip only that leading probe;
-      // a NUL anywhere in the JSON response remains invalid as intended.
+      // Before the JSON line the broker may write two control bytes, in either
+      // order: one NUL probing a normal request half-close (so it can tell it
+      // from a reset while keeping the socket open for the response), and
+      // CODEX_BROKER_START_SIGNAL when Codex starts. Strip only those leading
+      // bytes; a NUL anywhere in the JSON response remains invalid as intended.
       let data = String(chunk);
-      if (response.length === 0 && data.startsWith('\0')) data = data.slice(1);
+      while (response.length === 0 && data.length > 0) {
+        if (data[0] === '\0') {
+          data = data.slice(1);
+        } else if (data[0] === CODEX_BROKER_START_SIGNAL) {
+          data = data.slice(1);
+          if (!started) {
+            started = true;
+            client.setTimeout(boundedByDeadline(executionSocketTimeoutMs));
+          }
+        } else {
+          break;
+        }
+      }
       if (!data) return;
       response += data;
       if (Buffer.byteLength(response) > 256 * 1024) {
@@ -5866,7 +5936,15 @@ function _requestCodexExecution({ prompt, timeoutMs, schema, deadlineMs }) {
         return;
       }
       if (!parsed?.ok || typeof parsed.result !== 'string') {
-        finish(new Error(`Codex auth broker rejected the request: ${String(parsed?.error || 'unknown error')}`));
+        const brokerError = String(parsed?.error || 'unknown error');
+        const error = new Error(`Codex auth broker rejected the request: ${brokerError}`);
+        // Il SIGKILL a scadenza di budget e il tetto di richieste del job sono
+        // decisioni nostre, non giudizi sul modello: stessa regola del ramo
+        // claude-cli in callLLM (TRASPORTO ≠ CONTENUTO).
+        if (/^Codex CLI timed out after \d+ms|^request limit exhausted/.test(brokerError)) {
+          error.transportFault = true;
+        }
+        finish(error);
         return;
       }
       finish(null, parsed.result);
@@ -5878,15 +5956,15 @@ function _requestCodexExecution({ prompt, timeoutMs, schema, deadlineMs }) {
     // timeout. The close listener is the final backstop for an abrupt broker
     // disconnect (or a client-side reset).
     client.on('end', () => {
-      if (!settled) finish(new Error('Codex auth broker closed without a response'));
+      if (!settled) finish(_codexTransportError('Codex auth broker closed without a response'));
     });
     client.on('close', (hadError) => {
-      if (!settled) finish(new Error(`Codex auth broker connection closed before a response${hadError ? ' with an error' : ''}`));
+      if (!settled) finish(_codexTransportError(`Codex auth broker connection closed before a response${hadError ? ' with an error' : ''}`));
     });
     client.on('connect', () => {
       let request;
       try {
-        request = `${JSON.stringify({ op: 'exec', prompt, timeoutMs: requestTimeoutMs, schema: schema ?? null })}\n`;
+        request = `${JSON.stringify({ op: 'exec', prompt, timeoutMs: requestTimeoutMs, schema: schema ?? null, notifyStart: true })}\n`;
       } catch (error) {
         finish(error);
         return;
@@ -7466,7 +7544,9 @@ export async function callLLM(messages, opts = {}) {
       // punteggio. Il breaker di trasporto sopra (_claudeCliConsecutiveTimeouts)
       // NON e' toccato — quello conta i guasti del canale, ed e' il posto
       // giusto dove contarli.
-      const transportOnly = (provider === PROVIDER.CLAUDE_CLI && !!e.transportFault)
+      // Stessa regola per il canale del broker Codex: socket sparito, coda,
+      // connessione caduta o budget scaduto (vedi _requestCodexExecution).
+      const transportOnly = ((provider === PROVIDER.CLAUDE_CLI || provider === PROVIDER.CODEX_CLI) && !!e.transportFault)
         || !!e.githubModelsCatalogFault;
       // (skipped for diagnostic-only callers, see DEFAULT_OPTS.recordScore)
       if (o.recordScore !== false && !contentFailure) {

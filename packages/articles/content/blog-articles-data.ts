@@ -35687,6 +35687,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'pasture-cambio-operatore',
+ category: 'novita',
+ date: '2026-09-25T11:13:59.135Z',
+ image: '/images/blog/pasture-cambio-operatore.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

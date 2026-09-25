@@ -234,6 +234,51 @@ describe('firestore.rules — newsletter_subscribers consent field guard', () =>
     );
   });
 
+  // Every create carries a consent basis. A verified owner used to be able to
+  // create the record with auth-profile fields only (the authentication-only
+  // write of #8341); since #8754 the sign-in runs the terms-based upsert first
+  // and the profile merge is an update, so that branch only admitted records
+  // with no basis.
+  it('a verified owner cannot create a record holding profile fields only', async () => {
+    const owner = testEnv.authenticatedContext('profile-only-uid', {
+      email: 'profile-only@example.com',
+      email_verified: true,
+    });
+    await assertFails(setDoc(doc(owner.firestore(), 'newsletter_subscribers', 'profile-only@example.com'), {
+      auth_uid: 'profile-only-uid',
+      auth_provider: 'google',
+      name: 'Nome Cognome',
+      lastLoginAt: '2026-09-25T00:00:00.000Z',
+    }, { merge: true }));
+  });
+
+  it('the sign-in order still works: terms-based create, then the profile merge', async () => {
+    const owner = testEnv.authenticatedContext('sign-in-uid', {
+      email: 'sign-in@example.com',
+      email_verified: true,
+    });
+    const ref = doc(owner.firestore(), 'newsletter_subscribers', 'sign-in@example.com');
+    await assertSucceeds(setDoc(ref, {
+      email: 'sign-in@example.com',
+      status: 'confirmed',
+      isActive: true,
+      active: true,
+      confirmed_at: '2026-09-25T00:00:00.000Z',
+      registration_terms_accepted: true,
+      consent_basis: 'registration_terms',
+      consent_text: 'termini e condizioni',
+      consent_text_displayed: true,
+      consent_act: 'registration_terms_acceptance',
+      consent_method: 'terms_and_conditions',
+    }, { merge: true }));
+    await assertSucceeds(setDoc(ref, {
+      auth_uid: 'sign-in-uid',
+      auth_provider: 'google',
+      name: 'Nome Cognome',
+      lastLoginAt: '2026-09-25T00:00:01.000Z',
+    }, { merge: true }));
+  });
+
   it('a verified owner may reactivate an opted-out address after a visible terms action', async () => {
     await testEnv.withSecurityRulesDisabled(async (context) => {
       await setDoc(doc(context.firestore(), 'newsletter_subscribers', 'explicit-reactivation@example.com'), {

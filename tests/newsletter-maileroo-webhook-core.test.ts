@@ -15,7 +15,7 @@ import crypto from 'crypto';
  * Mirrors tests/newsletter-mailjet-webhook-core.test.ts.
  */
 function createFakeDb(
-  existingDocs: Record<string, Record<string, Record<string, unknown>>> = {},
+  existingDocs: Record<string, Record<string, Record<string, unknown> | null>> = {},
   existingEvents: Record<string, Array<Record<string, unknown>>> = {},
 ) {
   const sets: Array<{ collection: string; docId: string; data: Record<string, unknown> }> = [];
@@ -28,7 +28,15 @@ function createFakeDb(
           sets.push({ collection: name, docId, data });
         },
         get: async () => {
-          const docData = existingDocs[name]?.[docId];
+          // A recipient is a known subscriber unless the test says otherwise:
+          // a provider event never creates the subscriber record
+          // (mergeAccountDeletedSubscriberUpdate, lib/subscriberReactivation.js),
+          // so a test about what an event WRITES needs the document to exist.
+          // Seed `null` for a recipient with no document.
+          const seeded = existingDocs[name] || {};
+          const docData = docId in seeded
+            ? seeded[docId]
+            : (name === 'newsletter_subscribers' || name === 'job_alert_subscribers' ? {} : undefined);
           return {
             exists: !!docData,
             data: () => docData || {},
@@ -442,5 +450,23 @@ describe('newsletterMailerooWebhookCore — job-alert routing without a lookup r
       tags: [{ name: 'type', value: 'lifecycle' }],
     } as any);
     expect(routedCollections(db).join()).toContain('newsletter_subscribers');
+  });
+});
+
+describe('newsletterMailerooWebhookCore — a provider event never creates the subscriber record', () => {
+  it.each([
+    ['newsletter', { campaign_id: 'calculator_paywall' }, 'newsletter_subscribers'],
+    ['job alert', { type: 'job-alert', alert_id: 'alert_42' }, 'job_alert_subscribers'],
+  ])('writes nothing for a recipient with no %s document', async (_label, tags, collection) => {
+    const db = createFakeDb({ [collection]: { 'nobody@example.com': null } });
+    for (const eventType of ['accepted', 'delivered', 'opened', 'clicked', 'failed', 'complained']) {
+      const result = await persistMailerooEvent(db as any, {
+        event_type: eventType, message_id: 'm1', event_time: 1700000000, tags,
+        event_data: { to: 'nobody@example.com' },
+      });
+      expect(result, eventType).toEqual({ skipped: true, reason: 'unknown_recipient' });
+    }
+    expect(db.__sets).toEqual([]);
+    expect(db.__adds).toEqual([]);
   });
 });
