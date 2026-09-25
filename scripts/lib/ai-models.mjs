@@ -5849,9 +5849,10 @@ export function __claimCodexFallbackForTests() {
  * retried by the next run, it is not a persistent fault of the roster.
  */
 function _codexBrokerQueueWaitMs() {
-  const raw = Number.parseInt((process.env.CODEX_BROKER_QUEUE_WAIT_MS || '').trim(), 10);
-  if (!Number.isFinite(raw) || raw < 0) return CODEX_BROKER_QUEUE_WAIT_DEFAULT_MS;
-  return Math.min(raw, CODEX_BROKER_QUEUE_WAIT_MAX_MS);
+  // Solo cifre: `parseInt('20m')` darebbe 20 ms, cioe' nessuna attesa in coda.
+  const raw = String(process.env.CODEX_BROKER_QUEUE_WAIT_MS || '').trim();
+  if (!/^\d+$/.test(raw)) return CODEX_BROKER_QUEUE_WAIT_DEFAULT_MS;
+  return Math.min(Number(raw), CODEX_BROKER_QUEUE_WAIT_MAX_MS);
 }
 
 function _codexTransportError(message) {
