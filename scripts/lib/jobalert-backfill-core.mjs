@@ -13,6 +13,7 @@ export {
   shouldSkipSubscriber,
   consentNamesJobAlerts,
   hasAffirmativeJobAlertConsent,
+  evaluateJobAlertConsent,
   buildAlertPayload,
   getSignalTier,
   hasNewsletterSubscriberRecord,

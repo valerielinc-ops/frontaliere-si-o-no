@@ -108,7 +108,41 @@ describe('creation stamp on the first capture', () => {
     expect(isUncapturedSubscriberRow({ auth_uid: 'u', lastLoginAt: 'ts' })).toBe(true);
     expect(isUncapturedSubscriberRow({ auth_uid: 'u', createdAt: 'ts' })).toBe(false);
     expect(isUncapturedSubscriberRow({ auth_uid: 'u', subscribed_at: 'ts' })).toBe(false);
-    expect(isUncapturedSubscriberRow({ status: 'pending' })).toBe(false);
+    // A status is not a capture: the unsubscribe writers, the bounce webhooks
+    // and the account-deletion tombstone put one on never-captured rows.
+    expect(isUncapturedSubscriberRow({ status: 'unsubscribed', unsubscribed_at: 'ts' })).toBe(true);
     expect(isUncapturedSubscriberRow({ source_channel: 'auth_google' })).toBe(false);
+  });
+
+  it('an opt-out on a never-captured row does not hide its first capture from the creation stamp', async () => {
+    // Measured 2026-09-25: a profile row from May, unsubscribed from the weekly
+    // of 17/09 (status without a channel), first captured from the job gate.
+    const unsubscribedProfile = {
+      auth_uid: 'uid-1',
+      status: 'unsubscribed',
+      unsubscribed_at: 'ts-optout',
+      source: 'unsubscribe_link',
+    };
+
+    // An ordinary login is still a no-op on a recorded opt-out…
+    stored = { ...unsubscribedProfile };
+    await captureNewsletterSubscriber({} as any, JOB_GATE_SOCIAL);
+    expect(mocks.setDoc).not.toHaveBeenCalled();
+
+    // …and the verified owner's explicit gate action is the re-opt-in that
+    // registers the row, now with its creation date.
+    stored = { ...unsubscribedProfile };
+    await captureNewsletterSubscriber({} as any, { ...JOB_GATE_SOCIAL, explicitConsentAction: true });
+    const write = mocks.setDoc.mock.calls[0][1] as Row;
+    expect(write.created_at).toBe('__server_timestamp__');
+    expect(write.status).toBe('subscribed');
+    // The subscribed_at pair stays creation-only (a state field in the rules).
+    expect(write).not.toHaveProperty('subscribed_at');
+    expect(write).not.toHaveProperty('subscribedAt');
+    // Re-opt-in rules unchanged: the lift is a newer stamp written BESIDE the
+    // opt-out, whose evidence is neither deleted nor rewritten.
+    expect(write.resubscribed_at).toBe('__server_timestamp__');
+    expect(write).not.toHaveProperty('unsubscribed_at');
+    expect(stored?.unsubscribed_at).toBe('ts-optout');
   });
 });

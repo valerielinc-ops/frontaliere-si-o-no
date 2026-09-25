@@ -109,6 +109,11 @@ service cloud.firestore {
         'confirmation_expired_at', 'confirmationExpiredAt',
         'confirmation_job_context',
         'confirmed_via', 'confirmedVia',
+        // The authenticated registration writer records the exact consent
+        // route alongside the visible terms proof. Treat both as
+        // subscription state so the generic owner clause cannot silently
+        // admit or rewrite them outside the terms-based transition.
+        'confirmation_method', 'confirmed_via_surface',
         'resubscribe_pending',
         'bounce_severity', 'bounce_reason', 'complained_at', 'complaint_at',
         'last_complained_at', 'suppressed_at', 'drip_started_at',

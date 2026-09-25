@@ -85,6 +85,53 @@ describe('job-alert sender base-relationship and suppression boundary', () => {
     });
   });
 
+  it('refuses a backfilled alert whose newsletter document carries no relationship (profile-only)', () => {
+    // The shape of the 235 documents measured on 2026-09-25: login/profile
+    // fields only. 226 of them held an alert backfilled from
+    // `newsletter_subscribers:unknown`; 108 received job alerts after 17/09.
+    const profileOnly = { auth_uid: 'uid', name: 'Profile Only', lastLoginAt: 'ts', send_count: 2 };
+    expect(evaluateJobAlertConsent({
+      alert: { ...BACKFILLED_ALERT, backfilled_from: 'newsletter_subscribers:unknown' },
+      subscriber: profileOnly,
+    })).toEqual({ allowed: false, reason: 'no-subscription-basis' });
+  });
+
+  it('keeps an explicit company-follow alert on a profile-only document (the follow is its own basis)', () => {
+    expect(evaluateJobAlertConsent({
+      alert: {
+        id: 'follow',
+        active: true,
+        specificCompanyKey: 'migros',
+        consent_act: 'company_follow_activation',
+        consent_purpose: 'companyFollow',
+      },
+      subscriber: { auth_uid: 'uid', lastLoginAt: 'ts' },
+    })).toEqual({ allowed: true, reason: 'explicit-alert' });
+  });
+
+  it('keeps a backfilled alert that an explicit act upgraded, even on a profile-only document', () => {
+    expect(evaluateJobAlertConsent({
+      alert: {
+        ...BACKFILLED_ALERT,
+        consent_text: 'Iscrivo il mio indirizzo alle comunicazioni. Vai a frontaliereticino.ch/comunicazioni.',
+        consent_text_displayed: true,
+        consent_act: 'communications_banner_confirm_click',
+        consent_origin: 'communications_consent_banner',
+      },
+      subscriber: { auth_uid: 'uid', lastLoginAt: 'ts' },
+    }).allowed).toBe(true);
+  });
+
+  it('applies the same predicate in the sender and in its retry queue', () => {
+    const source = read('scripts/send-job-alerts.mjs');
+    expect(source).toMatch(/import \{ evaluateJobAlertConsent \} from '\.\/lib\/jobalert-backfill-core\.mjs'/);
+    const main = source.slice(source.indexOf('async function main('));
+    expect(main).toMatch(/evaluateJobAlertConsent\(\{\s*alert: a,\s*subscriber: subscriberProfiles\.get/);
+    const start = source.indexOf('async function processRetryQueue(');
+    const retryBody = source.slice(start, source.indexOf('\n// ── Main ─────────────────────────────────────────────────────', start));
+    expect(retryBody).toMatch(/evaluateJobAlertConsent\(\{ alert, subscriber: newsletter \}\)\.allowed/);
+  });
+
   it('still blocks an explicit cross-channel stop', () => {
     expect(evaluateJobAlertConsent({
       alert: BACKFILLED_ALERT,

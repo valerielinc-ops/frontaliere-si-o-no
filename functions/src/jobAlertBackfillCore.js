@@ -94,6 +94,7 @@
 
 import { isCrossChannelStop, isNewsletterExcluded } from './lib/emailSuppression.js';
 import { isNewsletterOptOutBinding } from './lib/newsletterOptOut.js';
+import { hasSubscriptionBasis } from './lib/subscriberConsent.js';
 import { derivePersonalizationPatch } from './lib/subscriberPersonalization.js';
 import { deriveCantonFromJobBoardUrl } from './lib/jobBoardUrlCanton.js';
 import { resolveSubscriberLocale } from './lib/subscriberLocale.js';
@@ -380,21 +381,36 @@ export function hasStoredJobAlertConsent(data) {
 /**
  * Sender-side authorization for one alert. Each sender still applies its
  * shared cross-channel and channel-local suppression predicates separately.
- * Registration terms establish the base relationship; this helper only
- * prevents delivery after an explicit global/address-level stop and labels
- * the alert's provenance for diagnostics.
+ * Registration terms establish the base relationship; this helper prevents
+ * delivery after an explicit global/address-level stop, refuses an alert
+ * manufactured from a relationship that does not exist, and labels the
+ * alert's provenance for diagnostics.
  */
 export function evaluateJobAlertConsent({ alert, subscriber }) {
   // The registration terms establish the base relationship. This function is
-  // no longer a consent gate: it only protects the sender from an explicit
+  // not a proof gate: it protects the sender from an explicit
   // global/address-level stop when the subscriber document is available.
   if (subscriber && isCrossChannelStop(subscriber)) {
     return { allowed: false, reason: 'cross-channel-stop' };
   }
-  return {
-    allowed: true,
-    reason: isBackfilledJobAlert(alert) ? 'backfill-newsletter-registration' : 'explicit-alert',
-  };
+  if (!isBackfilledJobAlert(alert)) {
+    // Created by an act on the alert itself (the alert form, "Segui questa
+    // azienda" — `company_follow_activation`): that act is its basis.
+    return { allowed: true, reason: 'explicit-alert' };
+  }
+  // A backfilled alert was MANUFACTURED from the newsletter document
+  // (`backfilled_from: newsletter_subscribers:*`), so it has exactly the
+  // relationship that document has — the floor #9734 put under the newsletter
+  // senders, applied to the channel it spawned. Measured 2026-09-25: 226 such
+  // alerts sat on the 235 profile-only documents, and 108 of those documents
+  // received job alerts after 17/09 while the newsletter already skipped them.
+  // An alert that an explicit act upgraded carries its own proof and keeps it.
+  // A MISSING document is not a profile-only one and is not read as one here:
+  // this function answers for the data the sender holds.
+  if (subscriber && !hasSubscriptionBasis(subscriber) && !hasStoredJobAlertConsent(alert)) {
+    return { allowed: false, reason: 'no-subscription-basis' };
+  }
+  return { allowed: true, reason: 'backfill-newsletter-registration' };
 }
 
 /**

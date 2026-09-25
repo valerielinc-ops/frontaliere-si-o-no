@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { verifyHmacToken, handleSubscriptionManagement, normalizeCompanyAlertKey } from '../functions/src/newsletterSubscriptionManagement.js';
 import { createHmac } from 'node:crypto';
+import { REGISTRATION_TERMS_TEXT, REGISTRATION_TERMS_VERSION } from '../functions/src/lib/registrationTermsText.js';
 
 const TEST_SECRET = 'test-newsletter-secret-key-2026';
 const TEST_EMAIL = 'user@example.com';
@@ -718,5 +719,145 @@ describe('handleSubscriptionManagement — advertising status follows sender sup
 
     expect(result.status).toBe(200);
     expect(result.json.newsletter.advertisingEnabled).toBe(false);
+  });
+});
+
+/**
+ * Admin-SDK activations of an existing row (2026-09-25, lanes C2/C3). A row
+ * that was never captured — an opt-out written on a profile-only document —
+ * becomes a relationship through these paths, and used to do so without a
+ * `created_at`, so it dropped out of every report by creation day. The terms
+ * record they write names its surface and carries the current sentence.
+ */
+describe('activation paths date the row they register and name their origin', () => {
+  const neverCaptured = () => ({
+    auth_uid: 'uid-1',
+    status: 'unsubscribed',
+    isActive: false,
+    unsubscribed_at: '2026-09-18T08:00:00.000Z',
+    source: 'unsubscribe_link',
+  });
+  const subscriberSet = (db: ReturnType<typeof createFakeDb>) => db.__sets.find(
+    (s) => s.collection === 'newsletter_subscribers' && s.docId === TEST_EMAIL,
+  );
+
+  it('the preference-centre newsletter toggle stamps created_at on a never-captured row, and the current terms', async () => {
+    const db = createFakeDb({ newsletter_subscribers: { [TEST_EMAIL]: neverCaptured() } });
+    const result = await handleSubscriptionManagement({
+      action: 'toggle_newsletter_subscription',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      method: 'POST',
+      subscribed: true,
+      db: db as any,
+    });
+    expect(result.status).toBe(200);
+    const data = subscriberSet(db)!.data;
+    expect(data.status).toBe('subscribed');
+    expect(data).toHaveProperty('created_at');
+    expect(data).toMatchObject({
+      consent_origin: 'preference_center',
+      consent_text: REGISTRATION_TERMS_TEXT.it,
+      consent_text_version: REGISTRATION_TERMS_VERSION,
+      registration_terms_version: REGISTRATION_TERMS_VERSION,
+    });
+  });
+
+  it('never moves an existing creation date', async () => {
+    const db = createFakeDb({
+      newsletter_subscribers: { [TEST_EMAIL]: { ...neverCaptured(), created_at: '2026-05-01T00:00:00.000Z' } },
+    });
+    await handleSubscriptionManagement({
+      action: 'toggle_newsletter_subscription',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      method: 'POST',
+      subscribed: true,
+      db: db as any,
+    });
+    expect(subscriberSet(db)!.data).not.toHaveProperty('created_at');
+  });
+
+  it('an alert activation that lifts a stop-all on a never-captured row stamps created_at', async () => {
+    // The fake store cannot resolve the server timestamp that supersedes an
+    // opt-out stamp, so this row carries the stop-all marker only.
+    const { unsubscribed_at: _stamp, ...withoutStamp } = neverCaptured();
+    const db = createFakeDb({
+      newsletter_subscribers: { [TEST_EMAIL]: { ...withoutStamp, all_email_opted_out: true } },
+    });
+    const result = await handleSubscriptionManagement({
+      action: 'create_alert',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      method: 'POST',
+      keywords: 'infermiere',
+      locations: 'Lugano',
+      sectors: '',
+      frequency: 'weekly',
+      emailConsentGiven: true,
+      db: db as any,
+    });
+    expect(result.status).toBe(200);
+    const data = subscriberSet(db)!.data;
+    expect(data.status).toBe('subscribed');
+    expect(data).toHaveProperty('created_at');
+    expect(data.consent_origin).toBe('preference_center');
+  });
+
+  it('a "riattiva" click on a never-captured row stamps created_at, and never on a dated one', async () => {
+    const fresh = createFakeDb({ newsletter_subscribers: { [TEST_EMAIL]: neverCaptured() } });
+    await handleSubscriptionManagement({
+      action: 'resubscribe',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      method: 'POST',
+      db: fresh as any,
+    });
+    expect(subscriberSet(fresh)!.data).toHaveProperty('created_at');
+
+    const dated = createFakeDb({
+      newsletter_subscribers: { [TEST_EMAIL]: { ...neverCaptured(), subscribed_at: '2026-05-01T00:00:00.000Z' } },
+    });
+    await handleSubscriptionManagement({
+      action: 'resubscribe',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      method: 'POST',
+      db: dated as any,
+    });
+    expect(subscriberSet(dated)!.data).not.toHaveProperty('created_at');
+  });
+
+  it('the double opt-in click records how and where the address was confirmed', async () => {
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        [TEST_EMAIL]: { status: 'pending', isActive: false, active: false, source_channel: 'popup', created_at: 'then' },
+      },
+    });
+    const result = await handleSubscriptionManagement({
+      action: 'confirm',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      db: db as any,
+    });
+    expect(result.status).toBe(200);
+    expect(subscriberSet(db)!.data).toMatchObject({
+      status: 'confirmed',
+      confirmed_via: 'confirmation_link',
+      confirmation_method: 'doi_click',
+      confirmed_via_surface: 'confirmation_email',
+    });
   });
 });

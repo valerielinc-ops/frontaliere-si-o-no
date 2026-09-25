@@ -52,8 +52,11 @@ import {
 } from './lib/emailSuppression.js';
 import {
  CONFIRMATION_LINK_PROOF,
+ CONFIRMATION_METHODS,
  hasConfirmationProof,
+ hasSubscriberCreationStamp,
 } from './lib/subscriberConsent.js';
+import { REGISTRATION_TERMS_TEXT, REGISTRATION_TERMS_VERSION } from './lib/registrationTermsText.js';
 import { isAccountDeletedTombstone } from './authAccountCleanup.js';
 import {
  verifyAutologinCode,
@@ -72,18 +75,25 @@ import {
 } from './lib/newsletterActionToken.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
-const REGISTRATION_TERMS_VERSION = '2026-09-16.1';
 const ADVERTISING_OPT_OUT_FIELD = 'advertising_opt_out';
 const ADVERTISING_REACTIVATED_AT_FIELD = 'advertising_reactivated_at';
-// Kept in this Functions bundle because it cannot import the TypeScript
-// register. Keep these strings byte-identical to consentDisplayText(
-// 'communicationsOptIn', locale) in services/consentTexts.ts.
-const REGISTRATION_TERMS_TEXT = Object.freeze({
- it: 'Registrandomi accetto le condizioni e mi iscrivo alle comunicazioni di Frontaliere Ticino. Condizioni (v. 2026-09-15.1).',
- en: 'By registering I accept the terms and subscribe to Frontaliere Ticino communications. Terms (v. 2026-09-15.1).',
- de: 'Mit der Registrierung akzeptiere ich die Bedingungen und abonniere die Mitteilungen von Frontaliere Ticino. Bedingungen (V. 2026-09-15.1).',
- fr: 'En m’inscrivant, j’accepte les conditions et m’inscris aux communications de Frontaliere Ticino. Conditions (v. 2026-09-15.1).',
-});
+// The registration sentence and its version live in ONE Functions module,
+// pinned to services/consentTexts.ts by a test (the copy that used to sit here
+// had stopped at 2026-09-15.1 while the site moved on).
+// Where the preference-centre activations below happen, as `consent_origin`.
+const PREFERENCE_CENTER_SURFACE = 'preference_center';
+
+/**
+ * `created_at` for a row that this activation turns into a relationship and
+ * that has none — the dashboard and the signup monitors count by it. Only
+ * when the row is KNOWN to lack every creation stamp: a merge write would
+ * otherwise overwrite the real creation date with today.
+ */
+function creationStampIfMissing(data) {
+ return data && !hasSubscriberCreationStamp(data)
+  ? { created_at: admin.firestore.FieldValue.serverTimestamp() }
+  : {};
+}
 // Proxied by the CF Worker straight to this function (see UNSUB_PROXIES in
 // infra/cloudflare-worker/locale-router.js) — bypasses the SPA/index.html
 // catch-all so the confirmation page's own resubscribe link doesn't loop
@@ -1026,6 +1036,9 @@ export async function handleSubscriptionManagement({ action, email, token, local
   status: 'subscribed',
   isActive: true,
   active: true,
+  // A row that was never captured (for example an opt-out written on a
+  // profile-only document) becomes a relationship here: date it.
+  ...creationStampIfMissing(existingSubscriber.data() || {}),
   // An explicit newsletter reactivation lifts the global stop for this
   // address. Other channels remain in their own off/paused state, so this
   // does not silently re-enable them.
@@ -1048,6 +1061,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
    consent_act: 'registration_terms_acceptance',
    consent_method: 'terms_and_conditions',
    consent_purpose: 'unified_email_channels',
+   consent_origin: PREFERENCE_CENTER_SURFACE,
   } : {}),
  // Both spellings, and NEITHER opt-out stamp is deleted (#5711). The
  // re-opt-in stamp is what lifts the opt-out for every sender now —
@@ -1414,6 +1428,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
     consent_act: 'registration_terms_acceptance',
     consent_method: 'terms_and_conditions',
     consent_purpose: 'unified_email_channels',
+    consent_origin: PREFERENCE_CENTER_SURFACE,
     confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
     confirmedAt: admin.firestore.FieldValue.serverTimestamp(),
     subscribed_at: admin.firestore.FieldValue.serverTimestamp(),
@@ -1435,6 +1450,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
     status: 'subscribed',
     isActive: true,
     active: true,
+    ...creationStampIfMissing(subscriberData),
     all_email_opted_out: false,
     all_emails_opted_out: false,
     global_email_opt_out: false,
@@ -1456,6 +1472,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
      consent_act: 'registration_terms_acceptance',
      consent_method: 'terms_and_conditions',
      consent_purpose: 'unified_email_channels',
+     consent_origin: PREFERENCE_CENTER_SURFACE,
     } : {}),
     updated_at: admin.firestore.FieldValue.serverTimestamp(),
     updatedAt: admin.firestore.FieldValue.serverTimestamp(),
@@ -1820,6 +1837,8 @@ export async function handleSubscriptionManagement({ action, email, token, local
     confirmedAt: admin.firestore.FieldValue.serverTimestamp(),
     confirmed_via: CONFIRMATION_LINK_PROOF,
     confirmedVia: CONFIRMATION_LINK_PROOF,
+    confirmation_method: CONFIRMATION_METHODS.DOI_CLICK,
+    confirmed_via_surface: 'confirmation_email',
     company_follow_followup_pending: true,
     account_deleted_at: admin.firestore.FieldValue.delete(),
     updated_at: admin.firestore.FieldValue.serverTimestamp(),
@@ -1836,6 +1855,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
     confirmedAt: admin.firestore.FieldValue.serverTimestamp(),
     confirmed_via: CONFIRMATION_LINK_PROOF,
     confirmedVia: CONFIRMATION_LINK_PROOF,
+    // The same fact in the vocabulary every confirming writer shares
+    // (CONFIRMATION_METHODS): how the address was confirmed, and where.
+    confirmation_method: CONFIRMATION_METHODS.DOI_CLICK,
+    confirmed_via_surface: 'confirmation_email',
     ...(alreadyConfirmed ? {} : {
      account_deleted_at: admin.firestore.FieldValue.delete(),
     }),
@@ -1978,11 +2001,15 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // ever SUPPRESS a redundant bump, never suppress a first write.
  let priorHasStamp = false;
  let priorAddressSuppressed = false;
+ // Known only after a successful read: a failed read never writes a
+ // creation date, which on a merge would overwrite the real one.
+ let priorCreationStamp = {};
  try {
  const priorSnap = await db.collection('newsletter_subscribers').doc(normalizedEmail).get();
  const prior = priorSnap.exists ? (priorSnap.data() || {}) : {};
  priorAddressSuppressed = isAddressSuppressed(prior.status);
  priorHasStamp = !!(prior.confirmed_at || prior.confirmedAt);
+ priorCreationStamp = creationStampIfMissing(prior);
  const optOutMs = toEpochMillis(prior.unsubscribed_at) ?? toEpochMillis(prior.unsubscribedAt);
  const priorAgent = typeof prior.unsubscribe_user_agent === 'string' ? prior.unsubscribe_user_agent : null;
  const currentAgent = typeof forensicFields.unsubscribe_user_agent === 'string'
@@ -2061,6 +2088,9 @@ export async function handleSubscriptionManagement({ action, email, token, local
  status: 'confirmed',
  isActive: true,
  active: true,
+ // A "riattiva" on a row that was never captured (an opt-out on a
+ // profile-only document) is its first relationship: date it.
+ ...priorCreationStamp,
  account_deleted_at: admin.firestore.FieldValue.delete(),
  resubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
  // The proof of consent, written HERE too and not only in the `confirm`
