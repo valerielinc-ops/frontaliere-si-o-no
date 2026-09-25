@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jysk",
-  "assembledAt": "2026-09-24T14:29:26.164Z",
+  "assembledAt": "2026-09-25T14:51:54.745Z",
   "jobs": [
     {
       "id": "company-w76zez",
@@ -721,7 +721,8 @@
       "addressRegion": "BE",
       "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/store-manager-trainee-80-100-fuer-die-region-bern-0",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-1pakce",
@@ -1113,7 +1114,7 @@
       "firstSeenAt": "2026-09-04T13:34:21.925Z",
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 80-100% per la Region Limmattal",
-        "en": "Store Manager Trainee (a) 80-100% for the Limmattal region",
+        "en": "Store Manager Trainee (a) 80-100% für die Region Limmattal",
         "de": "Store Manager Auszubildender (a) 80-100% für die Region Limmattal",
         "fr": "Stagiaire responsable des magasins (a) 80-100% pour la région de Limmattal"
       },
@@ -1159,7 +1160,8 @@
       "addressRegion": "JU",
       "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/store-manager-trainee-80-100-fuer-die-region-limmattal",
       "salaryMin": 50500,
-      "salaryMax": 77000
+      "salaryMax": 77000,
+      "needsRetranslation": true
     },
     {
       "id": "company-53m1kn",
@@ -2149,7 +2151,7 @@
       },
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 80-100% per la Region Baden",
-        "en": "Store Manager Trainee (a) 80-100% for the Baden region",
+        "en": "Store Manager Trainee (a) 80-100% für die Region Baden",
         "de": "Store Manager Auszubildender (a) 80-100% für die Region Baden",
         "fr": "Stagiaire de magasin (a) 80-100% pour la région de Baden"
       },
@@ -2177,7 +2179,8 @@
       "addressRegion": "AG",
       "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/store-manager-trainee-80-100-fuer-die-region-baden",
       "salaryMin": 52000,
-      "salaryMax": 78500
+      "salaryMax": 78500,
+      "needsRetranslation": true
     },
     {
       "id": "company-qxtrop",
@@ -2347,7 +2350,7 @@
       "firstSeenAt": "2026-08-31T17:13:00.454Z",
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 100% per la Region Aargau",
-        "en": "Store Manager Trainee (a) 100% for the Aargau region",
+        "en": "Store Manager Trainee (a) 100% für die Region Aargau",
         "de": "Store Manager Auszubildender (a) 100% für die Region Aargau",
         "fr": "Stagiaire responsable des magasins (a) 100% pour la région d'Argovie"
       },
@@ -2757,7 +2760,8 @@
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "salaryMin": 44100,
-      "salaryMax": 66900
+      "salaryMax": 66900,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-50-60-mit-entwicklungspotenzial-zur-stellvertretenden-filialleitung"
     },
     {
       "id": "company-w5jmuw",
@@ -2830,7 +2834,8 @@
       "addressRegion": "UR",
       "salarySource": "estimated",
       "salaryMin": 13900,
-      "salaryMax": 21200
+      "salaryMax": 21200,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-20-samstags-der-filiale-schattdorf"
     },
     {
       "id": "company-t5a1qa",
@@ -2902,7 +2907,8 @@
       "addressRegion": "ZH",
       "salarySource": "reported",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/filialleiterin-80-100-mit-potenzial-der-region-thalwil-linkes-seeufer"
     },
     {
       "id": "company-ps3wfj",
@@ -2975,7 +2981,8 @@
       "addressRegion": "UR",
       "salarySource": "estimated",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/stellvertretende-filialleitung-80-100-der-filiale-schattdorf"
     },
     {
       "id": "company-b5sjpz",
@@ -3050,7 +3057,8 @@
       "addressRegion": "UR",
       "salarySource": "estimated",
       "salaryMin": 41700,
-      "salaryMax": 63600
+      "salaryMax": 63600,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-40-60-der-filiale-schattdorf"
     },
     {
       "id": "company-lp3vb0",
@@ -3080,7 +3088,7 @@
       },
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 80-100% per la Region Netstal",
-        "en": "Store Manager Trainee (a) 80-100% for the Netstal region",
+        "en": "Store Manager Trainee (a) 80-100% für die Region Netstal",
         "de": "Store Manager Auszubildender (a) 80-100% für die Region Netstal",
         "fr": "Stagiaire responsable des magasins (a) 80-100 % pour la région de Netstal"
       },
@@ -3124,7 +3132,8 @@
       ],
       "salarySource": "estimated",
       "salaryMin": 55000,
-      "salaryMax": 83000
+      "salaryMax": 83000,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/store-manager-trainee-80-100-fuer-die-region-netstal"
     },
     {
       "id": "company-rnfd68",
@@ -3197,7 +3206,8 @@
       "addressRegion": "ZH",
       "salarySource": "estimated",
       "salaryMin": 14700,
-      "salaryMax": 22300
+      "salaryMax": 22300,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-20-samstag-der-filiale-dietlikon-jysk"
     },
     {
       "id": "company-uyx5hv",
@@ -3269,7 +3279,8 @@
       "addressRegion": "AG",
       "salarySource": "estimated",
       "salaryMin": 49600,
-      "salaryMax": 75200
+      "salaryMax": 75200,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-mit-lagerverantwortung-80-der-filiale-staufen-lenzburg"
     },
     {
       "id": "company-3abxpx",
@@ -3342,7 +3353,8 @@
       "addressRegion": "GR",
       "salarySource": "estimated",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/stellvertretende-filialleitung-80-100-der-filiale-chur"
     },
     {
       "id": "company-svx5io",
@@ -3366,7 +3378,7 @@
       "firstSeenAt": "2026-08-14T21:39:43.868Z",
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 80-100% per la Filiale St. Gallen",
-        "en": "Store Manager Trainee (a) 80-100% for the St. Gallen branch",
+        "en": "Store Manager Trainee (a) 80-100% für die Filiale St. Gallen",
         "de": "Store Manager Auszubildender (a) 80-100% für die Filiale St. Gallen",
         "fr": "Directeur de magasin Trainee (a) 80-100% pour la succursale St. Gallen"
       },
@@ -3407,7 +3419,8 @@
       "addressRegion": "SG",
       "salarySource": "estimated",
       "salaryMin": 48000,
-      "salaryMax": 73000
+      "salaryMax": 73000,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/store-manager-trainee-80-100-fuer-die-filiale-st-gallen"
     },
     {
       "id": "company-44r1dl",
@@ -3479,7 +3492,8 @@
       "addressRegion": "SG",
       "salarySource": "estimated",
       "salaryMin": 46000,
-      "salaryMax": 69600
+      "salaryMax": 69600,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-mit-schwerpunkt-lager-warenannahme-40-80-der-filiale-widnau"
     },
     {
       "id": "company-21et7w",
@@ -3503,7 +3517,7 @@
       "firstSeenAt": "2026-08-14T21:39:43.868Z",
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 80-100% per la Filiale Herisau",
-        "en": "Store Manager Trainee (a) 80-100% for the Herisau branch",
+        "en": "Store Manager Trainee (a) 80-100% für die Filiale Herisau",
         "de": "Store Manager Auszubildender (a) 80-100% für die Filiale Herisau",
         "fr": "Directeur de magasin Trainee (a) 80-100% pour la branche Herisau"
       },
@@ -3544,7 +3558,8 @@
       "addressRegion": "AR",
       "salarySource": "estimated",
       "salaryMin": 55000,
-      "salaryMax": 83000
+      "salaryMax": 83000,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/store-manager-trainee-80-100-fuer-die-filiale-herisau"
     },
     {
       "id": "company-9tate8",
@@ -3619,7 +3634,7 @@
       "salaryMin": 37200,
       "salaryMax": 56400,
       "retranslationAttempts": 0,
-      "needsRetranslation": true
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lagerverantwortung-40-60-der-filiale-baden-daettwil"
     },
     {
       "id": "company-3vx5m8",
@@ -3691,7 +3706,8 @@
       "addressRegion": "SG",
       "salarySource": "estimated",
       "salaryMin": 11500,
-      "salaryMax": 17400
+      "salaryMax": 17400,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-20-der-filiale-haag-fuer-samstage"
     },
     {
       "id": "company-ot63z2",
@@ -3763,7 +3779,8 @@
       "addressRegion": "GR",
       "salarySource": "estimated",
       "salaryMin": 11500,
-      "salaryMax": 17400
+      "salaryMax": 17400,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-20-der-filiale-fuer-samstage"
     },
     {
       "id": "company-7idbhu",
@@ -3838,7 +3855,8 @@
       ],
       "salarySource": "estimated",
       "salaryMin": 37200,
-      "salaryMax": 56400
+      "salaryMax": 56400,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-60-der-filiale-staufen-lenzburg"
     },
     {
       "id": "company-gk3zsr",
@@ -3905,7 +3923,8 @@
       "addressRegion": "ZH",
       "salarySource": "reported",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-winterthur-rosenberg"
     },
     {
       "id": "company-1m3ag6",
@@ -3972,7 +3991,8 @@
       "addressRegion": "SG",
       "salarySource": "reported",
       "salaryMin": 48000,
-      "salaryMax": 73000
+      "salaryMax": 73000,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-haag"
     },
     {
       "id": "company-yjcd42",
@@ -4039,7 +4059,8 @@
       "addressRegion": "AG",
       "salarySource": "reported",
       "salaryMin": 52000,
-      "salaryMax": 78500
+      "salaryMax": 78500,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-wettingen"
     },
     {
       "id": "company-hymfsw",
@@ -4106,7 +4127,8 @@
       "addressRegion": "ZH",
       "salarySource": "reported",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-thalwil"
     },
     {
       "id": "company-1myfng",
@@ -4179,7 +4201,8 @@
       "addressRegion": "ZH",
       "salarySource": "estimated",
       "salaryMin": 44100,
-      "salaryMax": 66900
+      "salaryMax": 66900,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-40-60-der-region-limmattal"
     },
     {
       "id": "company-c3abxk",
@@ -4246,7 +4269,8 @@
       "addressRegion": "ZH",
       "salarySource": "reported",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-hinwil"
     },
     {
       "id": "company-1m6bpf",
@@ -4313,7 +4337,8 @@
       "addressRegion": "GR",
       "salarySource": "reported",
       "salaryMin": 48000,
-      "salaryMax": 73000
+      "salaryMax": 73000,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-chur"
     },
     {
       "id": "company-nxmvx0",
@@ -4394,7 +4419,8 @@
       ],
       "salarySource": "reported",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-waedenswil"
     },
     {
       "id": "company-57jnh4",
@@ -4461,7 +4487,8 @@
       "addressRegion": "SG",
       "salarySource": "reported",
       "salaryMin": 48000,
-      "salaryMax": 73000
+      "salaryMax": 73000,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-widnau-heerbrugg-au"
     },
     {
       "id": "company-cfmcfk",
@@ -4528,7 +4555,8 @@
       "addressRegion": "ZH",
       "salarySource": "reported",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-schlieren"
     },
     {
       "id": "company-hhg69q",
@@ -4595,7 +4623,8 @@
       "addressRegion": "LU",
       "salarySource": "reported",
       "salaryMin": 58500,
-      "salaryMax": 89000
+      "salaryMax": 89000,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-sursee"
     },
     {
       "id": "company-hu3y8o",
@@ -4662,7 +4691,8 @@
       "addressRegion": "AR",
       "salarySource": "reported",
       "salaryMin": 55000,
-      "salaryMax": 83000
+      "salaryMax": 83000,
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-herisau"
     },
     {
       "id": "company-1m6c6s",
@@ -4729,7 +4759,8 @@
       "addressRegion": "ZG",
       "salaryMin": 58500,
       "salaryMax": 89000,
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-cham"
     },
     {
       "id": "company-smkhwb",
@@ -4796,7 +4827,8 @@
       "addressRegion": "TG",
       "salaryMin": 48000,
       "salaryMax": 73000,
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-amriswil"
     },
     {
       "id": "company-7yjlww",
@@ -4873,7 +4905,8 @@
       "addressRegion": "ZH",
       "salaryMin": 62000,
       "salaryMax": 94000,
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-wetzikon"
     },
     {
       "id": "company-1lvul5",
@@ -4940,7 +4973,8 @@
       "addressRegion": "AG",
       "salaryMin": 52000,
       "salaryMax": 78500,
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-suhr"
     },
     {
       "id": "company-hfbjsr",
@@ -5007,7 +5041,8 @@
       "addressRegion": "AG",
       "salaryMin": 52000,
       "salaryMax": 78500,
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-oftringen"
     },
     {
       "id": "company-o8o9yf",
@@ -5076,7 +5111,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "retranslationAttempts": 0,
-      "needsRetranslation": true
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-guemligenfeld-bei-muribern"
     },
     {
       "id": "company-50j6nj",
@@ -5143,7 +5178,8 @@
       "addressRegion": "ZH",
       "salaryMin": 62000,
       "salaryMax": 94000,
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-winterthur"
     },
     {
       "id": "company-li8sp1",
@@ -5210,7 +5246,8 @@
       "addressRegion": "SZ",
       "salaryMin": 58500,
       "salaryMax": 89000,
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-seewen-schwyz"
     },
     {
       "id": "company-bw4i0s",
@@ -5277,7 +5314,8 @@
       "addressRegion": "ZH",
       "salaryMin": 62000,
       "salaryMax": 94000,
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-bachenbuelach"
     },
     {
       "id": "company-kwqdp1",
@@ -5344,7 +5382,8 @@
       "addressRegion": "TG",
       "salaryMin": 48000,
       "salaryMax": 73000,
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-arbon"
     },
     {
       "id": "company-whx8p7",
@@ -5417,7 +5456,8 @@
       "employmentType": "FULL_TIME",
       "addressLocality": "Schattdorf",
       "addressRegion": "UR",
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/stellvertretende-filialleitung-80-der-filiale-schattdorf"
     },
     {
       "id": "company-wfz9gd",
@@ -5484,7 +5524,8 @@
       "addressRegion": "SO",
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-solothurn"
     },
     {
       "id": "company-17d7vd",
@@ -5558,7 +5599,7 @@
       "addressRegion": "AG",
       "salarySource": "estimated",
       "retranslationAttempts": 0,
-      "needsRetranslation": true
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-mit-lagerverantwortung-40-60-der-filiale-baden-daettwil"
     },
     {
       "id": "company-k6cen0",
@@ -5633,7 +5674,8 @@
       "addressRegion": "TG",
       "salaryMin": 23000,
       "salaryMax": 34800,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-40-der-filiale-sirnach"
     },
     {
       "id": "company-ia2oxt",
@@ -5700,7 +5742,8 @@
       "addressRegion": "BS",
       "salaryMin": 52000,
       "salaryMax": 78500,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/verkaufsleiterin-trainee-100-fuer-die-region-basel"
     },
     {
       "id": "company-mku4mw",
@@ -5785,7 +5828,8 @@
       ],
       "salaryMin": 36800,
       "salaryMax": 55800,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-50-der-filiale-dietlikon"
     },
     {
       "id": "company-9oukhk",
@@ -5860,7 +5904,8 @@
       "addressRegion": "TG",
       "salaryMin": 11500,
       "salaryMax": 17400,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-20-der-filiale-amriswil"
     },
     {
       "id": "company-y3zfx0",
@@ -5935,7 +5980,8 @@
       "addressRegion": "TG",
       "salaryMin": 11500,
       "salaryMax": 17400,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-20-der-filiale-kreuzlingen"
     },
     {
       "id": "company-z4x5zm",
@@ -6010,7 +6056,8 @@
       "addressRegion": "TG",
       "salaryMin": 23000,
       "salaryMax": 34800,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-40-der-filiale-kreuzlingen"
     },
     {
       "id": "company-yv95ww",
@@ -6085,7 +6132,8 @@
       "addressRegion": "TG",
       "salaryMin": 34500,
       "salaryMax": 52200,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-60-der-filiale-kreuzlingen"
     },
     {
       "id": "company-nd9wod",
@@ -6160,7 +6208,8 @@
       "addressRegion": "NW",
       "salaryMin": 41700,
       "salaryMax": 63600,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-60-der-filiale-stans"
     },
     {
       "id": "company-qrsmyr",
@@ -6241,7 +6290,8 @@
       ],
       "salaryMin": 58500,
       "salaryMax": 89000,
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-schattdorf"
     }
   ]
 }
