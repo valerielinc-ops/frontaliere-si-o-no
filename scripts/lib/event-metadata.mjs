@@ -72,7 +72,20 @@ export function extractEventOfferMetadata(value, baseUrl) {
 /** Fill missing source Offer fields from a later localized JSON-LD variant. */
 export function mergeEventOfferMetadata(primaryValue, candidateValue, primaryUrl, candidateUrl) {
   const primaryEntries = offerEntries(primaryValue);
-  if (!primaryEntries.length) return candidateValue || primaryValue;
+  if (!primaryEntries.length) {
+    const candidateEntries = offerEntries(candidateValue);
+    const selectedCandidate = selectedOffer(candidateValue);
+    if (!selectedCandidate) return candidateValue || primaryValue;
+    const normalizedCandidate = { ...selectedCandidate.offer };
+    for (const field of OFFER_METADATA_FIELDS) {
+      const normalized = normalizedOfferField(field, normalizedCandidate[field], candidateUrl);
+      if (normalized) normalizedCandidate[field] = normalized;
+    }
+    const normalizedEntries = candidateEntries.map((entry) => (
+      entry === selectedCandidate.offer ? normalizedCandidate : entry
+    ));
+    return Array.isArray(candidateValue) ? normalizedEntries : normalizedEntries[0];
+  }
   if (!candidateValue) return primaryValue;
   const candidateMetadata = extractEventOfferMetadata(candidateValue, candidateUrl);
   if (!candidateMetadata) return primaryValue;
@@ -192,7 +205,7 @@ const PERFORMER_PATTERNS = [
 
 const TITLE_PERFORMER_PATTERNS = [
   /\b(?:mit|con|avec|with|featuring|feat\.?)\s+[«“„"']([^.!?«„"']{1,120}?)(?:[»”"']|(?=[.!?](?:\s|$)|$))/iu,
-  new RegExp(String.raw`\b(?:[Mm]it|[Cc]on|[Aa]vec|[Ww]ith|[Ff]eaturing|[Ff]eat\.?)\s+(\p{Lu}[\p{L}\p{M}'’.-]*(?:\s+\p{Lu}[\p{L}\p{M}'’.-]*){1,4}(?:\s*(?:&|und|and|e|et)\s*\p{Lu}[\p{L}\p{M}'’.-]*(?:\s+\p{Lu}[\p{L}\p{M}'’.-]*){1,4})*)`, 'u'),
+  new RegExp(String.raw`\b(?:[Mm]it|[Cc]on|[Aa]vec|[Ww]ith|[Ff]eaturing|[Ff]eat\.?)\s+(\p{Lu}[\p{L}\p{M}'’\-]*(?:\s+\p{Lu}[\p{L}\p{M}'’\-]*){1,4}(?:\s*(?:&|und|and|e|et)\s*\p{Lu}[\p{L}\p{M}'’\-]*(?:\s+\p{Lu}[\p{L}\p{M}'’\-]*){1,4})*)`, 'u'),
 ];
 
 /**

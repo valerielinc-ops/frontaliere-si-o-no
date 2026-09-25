@@ -24,6 +24,7 @@ import {
   extractEventPeopleFromTitle,
   firstEventImageUrl,
   firstEventImageUrlFromHtml,
+  mergeEventOfferMetadata,
 } from '../scripts/lib/event-metadata.mjs';
 
 describe('parseCompactUtc', () => {
@@ -260,6 +261,15 @@ describe('mergeDetailEventMetadata', () => {
       validFrom: '2026-06-01T09:00:00+02:00',
       url: 'https://www.myswitzerland.com/tickets/kunst-zu-mittag',
     });
+  });
+
+  it('normalizes a candidate Offer against its own locale URL when primary offers are absent', () => {
+    expect(mergeEventOfferMetadata(
+      undefined,
+      { price: '10', url: 'tickets' },
+      'https://source.example/it/event',
+      'https://source.example/de/event',
+    )).toEqual({ price: '10', url: 'https://source.example/de/tickets' });
   });
 });
 

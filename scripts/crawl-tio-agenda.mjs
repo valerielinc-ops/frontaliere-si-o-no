@@ -290,6 +290,7 @@ export function extractTioDetailMetadata(html) {
     ? parsePriceText('entrata libera')
     : undefined);
   const sourcePeople = extractEventPeopleFromText(descriptionText);
+  const descriptionPeople = extractEventPeopleFromTitle(descriptionText);
   const titlePeople = extractEventPeopleFromTitle(titleText);
   return {
     ...(descriptionText.length >= 30 ? { description: descriptionText } : {}),
@@ -297,7 +298,7 @@ export function extractTioDetailMetadata(html) {
     ...(values[0] ? { venue: values[0] } : {}),
     ...(price ? { price } : {}),
     ...(sourcePeople.organizer ? { organizer: sourcePeople.organizer } : {}),
-    ...(sourcePeople.performer || titlePeople.performer ? { performer: sourcePeople.performer || titlePeople.performer } : {}),
+    ...(descriptionPeople.performer || titlePeople.performer ? { performer: descriptionPeople.performer || titlePeople.performer } : {}),
   };
 }
 
