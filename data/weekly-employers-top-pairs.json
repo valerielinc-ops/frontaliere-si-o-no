@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-25T08:34:44.398Z",
+  "generatedAt": "2026-09-25T21:30:04.400Z",
   "totalQualifyingPairs": 31,
   "topPairs": [
     {
       "company": "EOC – Ente Ospedaliero Cantonale",
       "companySlug": "eoc-ente-ospedaliero-cantonale",
       "city": "bellinzona",
-      "active": 85
+      "active": 88
     },
     {
       "company": "EOC – Ente Ospedaliero Cantonale",
@@ -18,12 +18,6 @@
       "company": "PEMSA",
       "companySlug": "pemsa",
       "city": "lugano",
-      "active": 22
-    },
-    {
-      "company": "VF International (The North Face, Timberland)",
-      "companySlug": "vf-international-the-north-face-timberland",
-      "city": "stabio",
       "active": 21
     },
     {
@@ -31,6 +25,12 @@
       "companySlug": "eoc-ente-ospedaliero-cantonale",
       "city": "mendrisio",
       "active": 19
+    },
+    {
+      "company": "VF International (The North Face, Timberland)",
+      "companySlug": "vf-international-the-north-face-timberland",
+      "city": "stabio",
+      "active": 18
     },
     {
       "company": "ReleWant",
@@ -47,7 +47,7 @@
     {
       "company": "PEMSA",
       "companySlug": "pemsa",
-      "city": "locarno",
+      "city": "mendrisio",
       "active": 11
     },
     {
@@ -59,7 +59,7 @@
     {
       "company": "PEMSA",
       "companySlug": "pemsa",
-      "city": "mendrisio",
+      "city": "locarno",
       "active": 10
     }
   ]
