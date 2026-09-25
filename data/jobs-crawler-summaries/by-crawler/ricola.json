@@ -1,21 +1,21 @@
 {
   "key": "ricola",
   "label": "Ricola",
-  "generatedAt": "2026-09-24T14:52:36.366Z",
-  "total": 3,
+  "generatedAt": "2026-09-25T15:13:31.635Z",
+  "total": 2,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
-  "written": 3,
+  "written": 2,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4751,
-  "avgDurationMs": 4751,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4665,
+  "avgDurationMs": 4665,
   "durationHistory": [
-    4751
+    4665
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://career.ricola.com/Vacancies/1064/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:52:29.571Z",
+      "crawledAt": "2026-09-25T15:13:24.901Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -70,7 +70,7 @@
       "url": "https://career.ricola.com/Vacancies/1062/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:52:29.816Z",
+      "crawledAt": "2026-09-25T15:13:25.090Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -96,8 +96,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "ricola-b854a7c402be",
       "slug": "global-consumer-service-coordinatore-50-ricola-laufen",
@@ -140,5 +139,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

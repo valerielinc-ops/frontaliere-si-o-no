@@ -6713,6 +6713,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.incentivo-fiscale-acquisto-locale.title': 'Tax incentive for local purchases in Ticino: proposal',
     'blog.article.incentivo-fiscale-acquisto-locale.excerpt': 'The Centre offers a tax credit of up to 25% for those who allocate up to 5% of their annual salary or income to participating Ticino merchants.',
     'blog.article.incentivo-fiscale-acquisto-locale.imageAlt': 'Smartphone with digital wallet for local shopping in Ticino',
+    'blog.article.franco-svizzero-ribasso-settembre-novembre.title': 'Swiss franc decline: signals to watch through November',
+    'blog.article.franco-svizzero-ribasso-settembre-novembre.excerpt': 'The Swiss franc has fallen about 5% from its spring 2026 highs, equal to the decline in 2023 and less than >6% in 2024; the seasonal window runs from late September to early November.',
+    'blog.article.franco-svizzero-ribasso-settembre-novembre.imageAlt': 'Illustration of the Swiss franc and euro with Lake Lugano background',
 };
 
 export default blogMetaChEn;
