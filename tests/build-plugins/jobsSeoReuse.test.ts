@@ -924,12 +924,15 @@ describe('jobs SEO disk HTML reuse', () => {
     // `buildActiveJobPageInput` assembles the active page INPUT (job digest,
     // related-job projections, related-articles feed digest); it renders
     // nothing and reads no render helper, so the module stays inert.
+    // `buildActiveJobPageReuseInput` only projects that input into the stable
+    // cache-key shape; it also renders nothing and stays in the same module.
     // `buildExpiredSoftLandingPageInput` is the same kind of assembler for the
     // expired soft-landing page: it digests the inline payload the template
     // already built and the JSON-LD postal code, and renders nothing either.
     expect(manifestImport?.[1].split(',').map((name) => name.trim()).filter(Boolean).sort()).toEqual([
       'INCREMENTAL_MANIFEST_ENABLED',
       'buildActiveJobPageInput',
+      'buildActiveJobPageReuseInput',
       'buildExpiredSoftLandingPageInput',
       'buildMinimalJobInput',
       'getIncrementalManifestInputCache',
