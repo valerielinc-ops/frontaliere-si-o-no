@@ -477,6 +477,15 @@ export function buildAlertPayload(email, data, existingBackfill, personalization
   const isJobBoardRegistration = String(channel).toLowerCase() === 'job_gate'
     || String(channel).toLowerCase().includes('job_board')
     || hasJobContext;
+  // `backfill-newsletter-job-context.mjs` recovers a missing job context by
+  // putting the source offer's title in `job_search_query`. That is source-job
+  // intent, not a query the subscriber typed. Keep it available to the soft
+  // profile below, but do not turn the expired offer's full title into a hard
+  // keyword for every future alert.
+  const recoveredSourceJobContext = Boolean(
+    String(data?.job_context_backfill_source || '').trim()
+      || String(data?.job_context_backfill_slug || '').trim(),
+  );
   const legacyContextKeywords = isJobBoardRegistration
     ? [...new Set([
       data?.job_search_query,
@@ -484,11 +493,10 @@ export function buildAlertPayload(email, data, existingBackfill, personalization
       data?.job_title,
     ].map((value) => String(value || '').trim()).filter(Boolean))]
     : [];
-  const contextKeywords = legacyContextKeywords.filter(
-    (value) => String(value).trim().toLowerCase() !== String(data?.job_category || '').trim().toLowerCase()
-      || String(value).trim().toLowerCase() === String(data?.job_search_query || '').trim().toLowerCase()
-      || String(value).trim().toLowerCase() === String(data?.job_title || '').trim().toLowerCase(),
-  );
+  const explicitSearchQuery = recoveredSourceJobContext ? null : data?.job_search_query;
+  const contextKeywords = isJobBoardRegistration
+    ? [...new Set([explicitSearchQuery].map((value) => String(value || '').trim()).filter(Boolean))]
+    : [];
   const contextLocations = isJobBoardRegistration && data?.job_location
     ? [String(data.job_location).trim()]
     : [];
@@ -502,12 +510,20 @@ export function buildAlertPayload(email, data, existingBackfill, personalization
   const existingLocations = Array.isArray(existingBackfill?.locations) ? existingBackfill.locations : [];
   const existingSectors = Array.isArray(existingBackfill?.sectors) ? existingBackfill.sectors : [];
   const normalizeCriteria = (values) => values.map((value) => String(value || '').trim().toLowerCase());
+  const legacyWriterKeywords = legacyContextKeywords.filter(
+    (value) => String(value).trim().toLowerCase() !== String(data?.job_category || '').trim().toLowerCase()
+      || String(value).trim().toLowerCase() === String(data?.job_search_query || '').trim().toLowerCase()
+      || String(value).trim().toLowerCase() === String(data?.job_title || '').trim().toLowerCase(),
+  );
+  const generatedKeywordForms = [legacyContextKeywords, legacyWriterKeywords, contextKeywords]
+    .filter((values) => values.length > 0)
+    .map(normalizeCriteria);
   // Only rewrite an untouched legacy payload whose full keyword array still
   // equals the exact values this writer used to generate. Any extra, removed or
   // reordered criterion proves user editing and is preserved byte-for-byte.
   const existingWasGenerated = existingKeywords.length > 0
-    && JSON.stringify(normalizeCriteria(existingKeywords))
-      === JSON.stringify(normalizeCriteria(legacyContextKeywords));
+    && generatedKeywordForms.some((generated) =>
+      JSON.stringify(normalizeCriteria(existingKeywords)) === JSON.stringify(generated));
   const preservedExistingKeywords = existingWasGenerated ? contextKeywords : existingKeywords;
   const tierSuffix =
     tier === 'location-fallback' || tier === 'personalization-fallback' || tier === 'url-fallback'
@@ -516,9 +532,9 @@ export function buildAlertPayload(email, data, existingBackfill, personalization
   return {
     email,
     userId: data?.user_id || null,
-    // A job-board registration starts from the exact job/search context that
-    // opened the gate. Newsletter registrations intentionally stay broad and
-    // use the evolving profile/personalization signals instead.
+    // A typed job-board search remains a hard criterion. The clicked/source
+    // offer title and recovered historical context stay in the soft profile so
+    // the alert can continue finding related roles after that offer expires.
     keywords: preservedExistingKeywords.length > 0 ? preservedExistingKeywords : contextKeywords,
     locations: existingLocations.length > 0 ? existingLocations : contextLocations,
     contractTypes: [],
@@ -530,7 +546,7 @@ export function buildAlertPayload(email, data, existingBackfill, personalization
     locale: resolveSubscriberLocale(data),
     sourceJobSlug: data?.job_slug || null,
     sourceJobUrl: null,
-    sourceJobTitle: data?.job_title || null,
+    sourceJobTitle: data?.job_title || (recoveredSourceJobContext ? data?.job_search_query : null),
     specificJobId: null,
     specificCompanyKey: null,
     active: existingBackfill ? existingBackfill.active !== false : true,
