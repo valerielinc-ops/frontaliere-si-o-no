@@ -9,8 +9,9 @@ import { buildLifecycleEvent } from '../scripts/lib/loop-fleet-contract.mjs';
 const mergeLedger = mergeLoopFleetLedger as any;
 const recordEvidence = recordLoopEvidence as any;
 
-const NOW = new Date('2026-09-12T12:00:00.000Z');
-const HISTORICAL_AT = new Date('2026-09-11T12:00:00.000Z');
+const L2_ORACLE_MIGRATION_AT = new Date('2026-09-24T20:22:12.000Z');
+const NOW = new Date(L2_ORACLE_MIGRATION_AT.getTime() + 24 * 3_600_000);
+const HISTORICAL_AT = new Date(L2_ORACLE_MIGRATION_AT.getTime() - 8 * 24 * 3_600_000);
 const SHA = 'a'.repeat(40);
 
 function writeJson(dir: string, name: string, value: unknown) {
