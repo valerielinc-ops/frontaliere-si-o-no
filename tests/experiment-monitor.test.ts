@@ -105,6 +105,10 @@ describe('piano jobgate-v3', () => {
     expect(resolvePlan({ mde: '0.4', 'max-days': '84' }).relativeMde).toBe(0.4);
     expect(() => resolvePlan({ mde: 'abc' })).toThrow(/--mde/);
     expect(() => resolvePlan({ 'max-days': '70.5' })).toThrow(/--max-days/);
+    // Review #9836: una soglia ≤ 0 farebbe passare anche una copertura nulla.
+    expect(() => resolvePlan({ 'min-attribution': '-0.1' })).toThrow(/--min-attribution non valido/);
+    expect(() => resolvePlan({ 'min-attribution': '0' })).toThrow(/--min-attribution non valido/);
+    expect(resolvePlan({ 'min-attribution': '0.9' }).minAttributionCoverage).toBe(0.9);
     expect(rcStateFromValues({ JOBGATE_EXPERIMENT_ENABLED: 'TRUE', JOBGATE_EXPERIMENT_ARMS: ARMS_JSON, JOBGATE_EXPERIMENT_FORCE: ' Email_First ' }))
       .toMatchObject({ enabled: true, force: 'email_first', armsValid: true, weights: WEIGHTS });
     expect(rcStateFromValues({ JOBGATE_EXPERIMENT_ENABLED: 'true', JOBGATE_EXPERIMENT_ARMS: '{bad', JOBGATE_EXPERIMENT_FORCE: 'nope' }))
@@ -307,6 +311,23 @@ describe('CLI jobgate-v3-monitor (fixture, nessuna rete)', () => {
     expect(res.stderr).not.toContain('DRY-RUN');
   });
 
+  it('--min-attribution negativo: errore, nessuna decisione né promozione', () => {
+    const { res, json } = run({ 'rc-json': rcOn, 'status-json': payload(56, { control: flat(10000, 0.033), similar_alerts: flat(10000, 0.034), social_first: flat(10000, 0.032), email_first: flat(10000, 0.045) }, { coverage: 0 }) }, ['--min-attribution=-0.1', '--apply']);
+    expect(res.status).toBe(1);
+    expect(res.stderr).toContain('--min-attribution non valido');
+    expect(json).toBeNull();
+  });
+
+  it('--apply con readout vero ma senza GA4_PROPERTY_ID: si ferma prima di leggere GA4', () => {
+    const env = { ...process.env, GA4_PROPERTY_ID: '' };
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'jobgate-monitor-test-'));
+    const rcFile = path.join(dir, 'rc.json');
+    fs.writeFileSync(rcFile, JSON.stringify(rcOn));
+    const res = spawnSync(process.execPath, [script, '--rc-json', rcFile, '--until', '2026-10-02', '--apply'], { encoding: 'utf8', env });
+    expect(res.status).toBe(1);
+    expect(res.stderr).toContain('GA4_PROPERTY_ID mancante');
+  });
+
   it('prima del primo giorno assestato: fase di attesa, nessun readout', () => {
     const { res, json } = run({ 'rc-json': rcOn }, ['--until', '2026-09-25']);
     expect(res.status).toBe(0);
@@ -334,10 +355,20 @@ describe('workflow jobgate-experiment-monitor', () => {
     expect(run.run).toContain('--issues');
   });
 
-  it('credenziali fail-closed prima del monitor', () => {
+  it('credenziali e property GA4 fail-closed prima del monitor', () => {
     const creds = steps.findIndex((s) => s.name === 'Prepare Firebase credentials');
     expect(creds).toBeGreaterThan(-1);
     expect(creds).toBeLessThan(steps.indexOf(run));
     expect(steps[creds].run).toContain('exit 1');
+    // Review #9836: il loader è fail-open, quindi niente continue-on-error e
+    // un controllo esplicito sulla variabile prima di `Run monitor`.
+    const load = steps.find((s) => s.name === 'Load Remote Config env')!;
+    expect(load['continue-on-error']).toBeUndefined();
+    const guard = steps.findIndex((s) => s.name === 'Require GA4 property');
+    expect(guard).toBeGreaterThan(steps.indexOf(load));
+    expect(guard).toBeLessThan(steps.indexOf(run));
+    expect(steps[guard].run).toContain('GA4_PROPERTY_ID');
+    expect(steps[guard].run).toContain('exit 1');
+    expect(steps[guard]['continue-on-error']).toBeUndefined();
   });
 });

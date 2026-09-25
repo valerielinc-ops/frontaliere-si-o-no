@@ -446,14 +446,15 @@ describe('traffico automatico escluso (GA4)', () => {
     }
   });
 
-  it('firma del robot 1280x1200: schermo e Windows, poi Singapore O lingua inglese', () => {
+  it('firma del robot 1280x1200: schermo, Windows, lingua inglese E Singapore', () => {
     const sig = GA4_EXCLUDED_TRAFFIC.find((s) => s.id === 'automation-1280x1200')!;
     expect(sig.filter).toEqual({
       andGroup: {
         expressions: [
           ga4Exact('screenResolution', '1280x1200'),
           ga4Exact('operatingSystem', 'Windows'),
-          { orGroup: { expressions: [ga4Exact('country', 'Singapore'), { filter: { fieldName: 'languageCode', stringFilter: { value: 'en', matchType: 'BEGINS_WITH' } } }] } },
+          { filter: { fieldName: 'languageCode', stringFilter: { value: 'en', matchType: 'BEGINS_WITH' } } },
+          ga4Exact('country', 'Singapore'),
         ],
       },
     });

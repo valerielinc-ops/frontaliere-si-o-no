@@ -353,8 +353,9 @@ export function ga4Not(expr) {
  *    al 09-24: 100.855 persone con schermo 1280x1200 da Singapore e 267 da
  *    altri paesi, TUTTE Windows + Chrome + lingua inglese, nessuna da Italia
  *    o Svizzera. È il gemello GA4 della regola client
- *    `matchesAutomationScreenSignature` (services/botPatterns.ts): paese
- *    Singapore al posto del fuso orario, che GA4 non espone.
+ *    `matchesAutomationScreenSignature` (services/botPatterns.ts): schermo,
+ *    Windows, lingua inglese E paese Singapore al posto del fuso orario, che
+ *    GA4 non espone. Come nel client, i due segnali locali sono in AND.
  *  - `meta-link-preview`: sessioni con sorgente Facebook da Stati Uniti,
  *    Svezia e Irlanda, cioè i paesi dei data center Meta (~100 persone/giorno
  *    sul gate fino al 10/09, 7 in tutto dal 14 al 24/09): l'aspetto dei robot
@@ -365,14 +366,15 @@ export function ga4Not(expr) {
 export const GA4_EXCLUDED_TRAFFIC = Object.freeze([
   Object.freeze({
     id: 'automation-1280x1200',
-    label: 'robot Windows con schermo 1280x1200 (Singapore o lingua inglese)',
+    label: 'robot Windows con schermo 1280x1200, lingua inglese, da Singapore',
     // Niente `browser`: GA4 limita a 9 le dimensioni fra query e filtri, e la
     // query per braccio × step ne usa già 4. Dal 2026-06-01 ogni schermo
     // 1280x1200 è comunque Chrome.
     filter: ga4And(
       ga4Exact('screenResolution', '1280x1200'),
       ga4Exact('operatingSystem', 'Windows'),
-      ga4Or(ga4Exact('country', 'Singapore'), ga4BeginsWith('languageCode', 'en')),
+      ga4BeginsWith('languageCode', 'en'),
+      ga4Exact('country', 'Singapore'),
     ),
   }),
   Object.freeze({

@@ -111,33 +111,41 @@ export const BOT_UA_PATTERNS: readonly string[] = [
  * present in the same data): it is a headless/VM window size. The Chrome
  * major version rotates across the fleet (106 → 133), so the UA string alone
  * cannot pin it — the screen can.
+ *
+ * Time zone: GA4 does not expose it, and the fleet never reached PostHog, so
+ * it is not measured. The rule accepts the zone of the fleet's city
+ * (`Asia/Singapore`) and the bare UTC zones a cloud VM reports by default —
+ * never a zone a visitor in Ticino/Lombardy (or anywhere a person sets a
+ * local clock) would have.
  */
 export const AUTOMATION_SCREEN_WIDTH = 1280;
 export const AUTOMATION_SCREEN_HEIGHT = 1200;
-export const AUTOMATION_TIME_ZONE = 'Asia/Singapore';
+export const AUTOMATION_TIME_ZONES: readonly string[] = ['Asia/Singapore', 'UTC', 'Etc/UTC', 'Etc/GMT', 'GMT'];
 
 /**
  * Conservative match for that fleet. ALL of these must hold:
  *  - screen exactly 1280x1200 CSS px;
  *  - a Windows desktop Chrome UA (`windows nt` + `chrome/`, no `mobile`);
- *  - English UI language OR the Asia/Singapore time zone.
+ *  - English UI language AND a data-center time zone (`AUTOMATION_TIME_ZONES`).
  * A real visitor would need a display size no hardware ships AND this exact
- * browser/locale combination, so the rule cannot reach the site's audience
- * (Italian/German/French speakers in Ticino and Lombardy). `ua` is the
- * lowercased user agent, as in `isLikelyBot()`.
+ * browser AND an English UI AND a Singapore/UTC clock, so the rule cannot
+ * reach the site's audience: an English-speaking reader in Zurich on a
+ * 1280x1200 virtual screen still passes. Unknown time zone (Intl missing) →
+ * no match. `ua` is the lowercased user agent, as in `isLikelyBot()`.
  */
 export function matchesAutomationScreenSignature(ua: string): boolean {
   if (typeof window === 'undefined' || typeof navigator === 'undefined') return false;
   const screen = window.screen;
   if (!screen || screen.width !== AUTOMATION_SCREEN_WIDTH || screen.height !== AUTOMATION_SCREEN_HEIGHT) return false;
   if (!ua.includes('windows nt') || !ua.includes('chrome/') || ua.includes('mobile')) return false;
+  if (!String(navigator.language || '').toLowerCase().startsWith('en')) return false;
   let timeZone = '';
   try {
     timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
   } catch {
-    // Intl unavailable: fall back to the language signal alone.
+    // Intl unavailable: time zone unknown, the rule does not fire.
   }
-  return timeZone === AUTOMATION_TIME_ZONE || String(navigator.language || '').toLowerCase().startsWith('en');
+  return AUTOMATION_TIME_ZONES.includes(timeZone);
 }
 
 /**

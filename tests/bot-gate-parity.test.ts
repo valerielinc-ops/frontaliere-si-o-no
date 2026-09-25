@@ -179,8 +179,7 @@ describe('automation screen signature (1280x1200 Windows/Chrome)', () => {
   const positives: ReadonlyArray<readonly [string, string, string, string]> = [
     ['Chrome 116, English, Singapore time zone', WIN_CHROME, 'en-US', 'Asia/Singapore'],
     ['Chrome 106, English, UTC (cloud VM default)', WIN_CHROME_OLD, 'en-US', 'UTC'],
-    ['Chrome 116, English, European time zone (proxy exit elsewhere)', WIN_CHROME, 'en-GB', 'Europe/Zurich'],
-    ['Chrome 116, non-English UI but Singapore time zone', WIN_CHROME, 'zh-CN', 'Asia/Singapore'],
+    ['Chrome 116, British English, Etc/UTC', WIN_CHROME, 'en-GB', 'Etc/UTC'],
   ];
   for (const [name, ua, language, timeZone] of positives) {
     it(`flags the fleet: ${name}`, () => {
@@ -198,6 +197,10 @@ describe('automation screen signature (1280x1200 Windows/Chrome)', () => {
     ['Italian visitor, real 1280x1024 monitor', WIN_CHROME, 1280, 1024, 'it-IT', 'Europe/Rome'],
     ['English visitor, 1280x720 laptop', WIN_CHROME, 1280, 720, 'en-US', 'Europe/Zurich'],
     ['English visitor, 1920x1200 monitor', WIN_CHROME, 1920, 1200, 'en-US', 'Asia/Singapore'],
+    // Review #9836: a real English-speaking reader in Zurich on a 1280x1200
+    // virtual screen must pass — both local signals are required.
+    ['1280x1200, English UI but a European time zone', WIN_CHROME, 1280, 1200, 'en-US', 'Europe/Zurich'],
+    ['1280x1200, Singapore time zone but non-English UI', WIN_CHROME, 1280, 1200, 'zh-CN', 'Asia/Singapore'],
     ['1280x1200 but Italian UI in a European time zone', WIN_CHROME, 1280, 1200, 'it-CH', 'Europe/Zurich'],
     ['1280x1200 but German UI in a European time zone', WIN_CHROME, 1280, 1200, 'de-CH', 'Europe/Zurich'],
     ['1280x1200 but macOS Chrome', MAC_CHROME, 1280, 1200, 'en-US', 'Asia/Singapore'],
@@ -217,16 +220,15 @@ describe('automation screen signature (1280x1200 Windows/Chrome)', () => {
     });
   }
 
-  it('Intl without a time zone falls back to the language signal', () => {
+  it('Intl without a time zone: signal unknown, the rule does not fire', () => {
     setUserAgent(WIN_CHROME);
     setScreen(1280, 1200);
+    setLanguage('en-US');
     vi.restoreAllMocks();
     vi.spyOn(Intl.DateTimeFormat.prototype, 'resolvedOptions').mockImplementation(() => {
       throw new Error('Intl unavailable');
     });
-    setLanguage('it-IT');
+    expect(matchesAutomationScreenSignature(WIN_CHROME.toLowerCase())).toBe(false);
     expect(verdict()).toBe(false);
-    setLanguage('en-US');
-    expect(verdict()).toBe(true);
   });
 });

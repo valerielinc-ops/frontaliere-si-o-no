@@ -103,11 +103,19 @@ jobs:
           chmod 600 "$RUNNER_TEMP/firebase-sa.json"
           echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
 
-      # Solo per GA4_PROPERTY_ID (RC SERVER_GA4_PROPERTY_ID); senza, il readout
-      # usa DEFAULT_GA4_PROPERTY_ID di scripts/lib/ga4-service-account.mjs.
+      # GA4_PROPERTY_ID (RC SERVER_GA4_PROPERTY_ID) è un prerequisito: una
+      # promozione non deve poggiare sulla property di ripiego del readout.
+      # Il loader è fail-open per costruzione (esce 0 anche se non carica
+      # nulla), quindi il controllo è sulla variabile, non sull'exit code.
       - name: Load Remote Config env
-        continue-on-error: true
         run: node scripts/load-rc-env.mjs
+
+      - name: Require GA4 property
+        run: |
+          if [ -z "${GA4_PROPERTY_ID:-}" ]; then
+            echo "::error::GA4_PROPERTY_ID non caricato da Remote Config (SERVER_GA4_PROPERTY_ID) — monitor non avviato."
+            exit 1
+          fi
 
       - name: Run monitor
         env:

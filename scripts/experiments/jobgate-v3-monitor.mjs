@@ -128,7 +128,9 @@ export function resolvePlan(args, base = JOBGATE_V3_PLAN) {
     minDaysFloor: num('min-days-floor', 'minDaysFloor', { integer: true }),
     maxDays: num('max-days', 'maxDays', { integer: true }),
     checkpointDays: num('checkpoint-days', 'checkpointDays', { integer: true }),
-    minAttributionCoverage: num('min-attribution', 'minAttributionCoverage', { min: -1, max: 1 }),
+    // (0, 1]: con 0 o un negativo anche una copertura nulla passerebbe il
+    // controllo (e) e un run con --apply promuoverebbe senza attribuzione.
+    minAttributionCoverage: num('min-attribution', 'minAttributionCoverage', { min: 0, max: 1 }),
   };
 }
 
@@ -288,6 +290,12 @@ async function monitorOnce({ args, plan, rc, planned, tmpDir, now }) {
 
   const settledEnd = args.until || settledWindow({ days: 1, now, lagDays: ANALYTICS_PROCESSING_LAG_DAYS }).end;
   const available = inclusiveDays(plan.analysisStart, settledEnd);
+  // Una promozione non può poggiare sulla property GA4 di ripiego: con
+  // --apply e un readout vero serve GA4_PROPERTY_ID esplicito (in CI lo
+  // esporta load-rc-env.mjs da SERVER_GA4_PROPERTY_ID).
+  if (args.apply && !args['status-json'] && available > 0 && !process.env.GA4_PROPERTY_ID) {
+    throw new Error('GA4_PROPERTY_ID mancante: con --apply il monitor non legge GA4 dalla property di ripiego (esegui load-rc-env.mjs o source bin/rc-env.sh)');
+  }
   let statusPayload = null;
   if (args['status-json']) statusPayload = JSON.parse(fs.readFileSync(args['status-json'], 'utf8'));
   else if (available > 0) statusPayload = runReadout({ plan, weights: rc.weights, until: settledEnd, tmpDir, name: 'status' });
