@@ -222,14 +222,12 @@ export type NewsletterUpsertInput = {
   */
  consentNoticeKey?: string | null;
  /**
-  * How this write confirms the address, when it does (CONFIRMATION_METHODS in
-  * services/subscriberConsent.mjs), and where. Recorded only for the write
-  * that stamps `confirmed_at`, so a later login can never rewrite how an
-  * earlier relationship was confirmed — and recorded in the append-only audit
-  * event, not on the root document: firestore.rules do not guard those root
-  * keys yet, so a browser-written copy there could be rewritten by anyone who
-  * knows the address. The Admin-SDK writers (LinkedIn callback, DOI click)
-  * put them on the root, where no browser writes them.
+  * How this write confirms the address, when it does (`confirmation_method`,
+  * see CONFIRMATION_METHODS in services/subscriberConsent.mjs), and where
+  * (`confirmed_via_surface`). Written only by the write that stamps
+  * `confirmed_at`, so a later login can never rewrite how an earlier
+  * relationship was confirmed; the same pair goes into the audit event.
+  * firestore.rules treat both as subscription state.
   */
  confirmationMethod?: string | null;
  confirmedViaSurface?: string | null;
@@ -1618,8 +1616,7 @@ export async function captureNewsletterSubscriber(
   component: input.sourceComponent,
   channel: sourceChannel,
  });
- // How this write confirms the address, only when it is the write that does
- // (audit event only, see the input docs).
+ // How this write confirms the address, only when it is the write that does.
  const confirmationMethod = needsConfirmedStamp
   ? (sanitizeString(input.confirmationMethod)
    || (authenticatedRegistration ? CONFIRMATION_METHODS.PROVIDER_VERIFIED_EMAIL : null))
@@ -1829,6 +1826,14 @@ export async function captureNewsletterSubscriber(
  ...(needsConfirmedStamp ? {
   confirmed_at: serverTimestamp(),
   confirmedAt: serverTimestamp(),
+ } : {}),
+ // The origin of the confirmation, beside the stamp it explains (the DOI
+ // handler records its own through the Admin SDK). firestore.rules list both
+ // keys as subscription state, so only the terms-based / visibly-consented
+ // transitions that stamp `confirmed_at` can write them.
+ ...(confirmationMethod ? {
+  confirmation_method: confirmationMethod,
+  confirmed_via_surface: confirmedViaSurface,
  } : {}),
  updatedAt: serverTimestamp(),
  updated_at: serverTimestamp(),
