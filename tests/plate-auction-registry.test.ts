@@ -68,7 +68,7 @@ describe('plate-auction sources registry schema', () => {
     expect(Object.entries(registry.sources)
       .filter(([, entry]) => entry.status === 'active')
       .map(([key]) => key)
-      .sort()).toEqual(['ag', 'ai', 'ar', 'be', 'bl', 'bs', 'gl', 'gr', 'lu', 'nw', 'ow', 'sg', 'sh', 'so', 'sz', 'tg', 'ur', 'vd', 'vs', 'zh']);
+      .sort()).toEqual(['ag', 'ai', 'ar', 'be', 'bl', 'bs', 'fr', 'gl', 'gr', 'lu', 'nw', 'ow', 'sg', 'sh', 'so', 'sz', 'tg', 'ti', 'ur', 'vd', 'vs', 'zh']);
   });
 
   it('never activates a source that has no fetcher, and never leaves a fetcher unbacked', async () => {
@@ -89,16 +89,20 @@ describe('plate-auction sources registry schema', () => {
     expect(registry.sources.vs.accessMethod).toBe('html-scrape');
     expect(registry.sources.gr.status).toBe('active');
     expect(registry.sources.zh.status).toBe('active');
-    // TI and FR are blocked, not retired: the cantons still advertise these exact
-    // URLs, but on 2026-09-18 carieauktion.ti.ch answered every path with the
-    // cantonal "Pagina non disponibile" page and appls.ocn.ch answered on neither
-    // 443 nor 80. Pinning the advertised URL keeps the re-activation check cheap.
-    expect(registry.sources.ti.status).toBe('blocked');
+    // TI e FR sono attivi: la «Pagina non disponibile» e il timeout su 443
+    // misurati dal 2026-09-18 erano il geo-fence su IP svizzeri (2026-09-25: da
+    // Zurigo e Ginevra entrambi servono il catalogo eCari). Li raccoglie la
+    // Cloud Function di Zurigo e il collector statico li legge dal relay. Gli
+    // URL restano quelli che i cantoni pubblicano.
+    expect(registry.sources.ti.status).toBe('active');
     expect(registry.sources.ti.officialUrl).toBe('https://www.carieauktion.ti.ch/ecari-auktion/');
-    expect(registry.sources.fr.status).toBe('blocked');
+    expect(registry.sources.fr.status).toBe('active');
     expect(registry.sources.fr.officialUrl).toBe('https://appls.ocn.ch/ecari-auction/ui/app/init?locale=fr_ch');
     expect(registry.sources.ne.status).toBe('blocked');
+    // GE: connettore pronto (lista PDF dell'OCV su ge.ch), attivato quando
+    // esce la lista d'autunno 2026; Ricardo resta solo un link.
     expect(registry.sources.ge.status).toBe('blocked');
+    expect(registry.sources.ge.officialUrl).toBe('https://www.ge.ch/plaques/vente-aux-encheres-plaques');
     expect(registry.sources.ju.status).toBe('blocked');
     expect(registry.sources.ai.status).toBe('active');
     expect(registry.sources.ai.accessMethod).toBe('pdf');

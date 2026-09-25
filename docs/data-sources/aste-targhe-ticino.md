@@ -1,5 +1,31 @@
 # Ticino — asta targhe (`www4.ti.ch/di/sc/veicoli/asta-targhe`)
 
+## Aggiornamento 2026-09-25: geo-fence su IP svizzeri, fonte attiva
+
+La «Pagina non disponibile» descritta sotto non è un sistema dismesso: è il
+geo-fence F5 del portale. Misurato il 2026-09-25 da più reti:
+
+- da IP svizzeri (check-host.net ch1/ch2, Globalping Zurigo AS31898 e Ginevra
+  AS29222) `https://www.carieauktion.ti.ch/ecari-auktion/ui/app/init` serve
+  l'app eCari vera (titolo «Asta targhe», eCari 432.10.83, cookie
+  `BIGipServerwww.carieauktion_prod00-pool`), con un'asta in corso fino al
+  2026-10-04 (Globalping 2FU18iKjyJUc4Urap00021CP9); `/ecari-auktion/`
+  redirige via `/bootstrap` e `props?locale=it_CH` a `ui/app/init` (Globalping
+  2PC0TDQSHF4T7OySI00021CPL, 2IcfQS3Fl9FHl7rNB00021CPM);
+- da ogni sonda non svizzera (AT, DE, FR, IT, NL, UK, US, GitHub Actions) ogni
+  path risponde 200 con la pagina F5 da 6'967 byte (Globalping
+  2XNZi25Xieb76VYWq00021CP9; check-host.net 4d59a178k728 e 4d59a485kf26
+  confrontano le due popolazioni).
+
+Il connettore è quindi **attivo**: lo raccoglie la Cloud Function
+`refreshPlateAuctions` in europe-west6 (Zurigo) e il collector statico legge
+le sue righe dal relay `getPlateAuctions` quando la fetch diretta dal runner
+riceve la pagina F5 (`scripts/plate-auctions/connectors/api-relay.mjs`). La
+pagina è in italiano: fra due aste la stessa build 432.10.83, misurata su NW
+con `locale=it_ch`, scrive «Nessuna targa disponibile» in ogni scheda, e
+`isEcariCatalogueExplicitlyEmpty()` la riconosce. Le sezioni sotto restano come
+storico della verifica del 2026-08-27, fatta da fuori Svizzera.
+
 Verifica di rete (issue #6356, follow-up di #4854 Fase 0), 2026-08-27.
 
 ## Metodo
