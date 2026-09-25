@@ -16,6 +16,7 @@ import {
   inferAnyCanton,
   isKnownSwissMunicipality,
   isKnownSwissMunicipalityInCanton,
+  isKnownSwissCity,
 } from './target-swiss-locations.mjs';
 import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
 let _aiModels = null;
@@ -3902,6 +3903,24 @@ export function sameLocalityAsHq(city, hqLocality) {
   return cityNorm === hqNorm
     || cityNorm.startsWith(`${hqNorm} `)
     || cityNorm.includes(` ${hqNorm}`);
+}
+
+/**
+ * Postal code a crawler may fall back to when the source exposes none for a
+ * vacancy: the company-HQ one (`hqPostalCode`), which describes the HQ, not
+ * the vacancy (#9841: Helsana's 8600 Dübendorf on every Chur or Lausanne
+ * job). Kept for a vacancy in the HQ locality or without a city of its own
+ * (`sameLocalityAsHq`); '' for a vacancy in another known Swiss city, whose
+ * CAP the assembler derives from the city itself. An ambiguous or unknown
+ * locality ("Biel", "Wil", a clinic name) keeps it: the assembler's
+ * Swiss-municipality whitelist accepts such a locality only with a Swiss CAP
+ * on record, and the job pages never print a CAP next to a locality it does
+ * not belong to (`postalCodeBelongsToLocality`).
+ */
+export function hqPostalCodeForLocality(city, hqLocality, hqPostalCode) {
+  if (!hqPostalCode) return hqPostalCode;
+  if (sameLocalityAsHq(city, hqLocality)) return hqPostalCode;
+  return isKnownSwissCity(city) ? '' : hqPostalCode;
 }
 
 export function applyCompanyDefaults(job, companySlug) {
