@@ -12002,6 +12002,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.barco-saronno-agitazione-sciopero-2026.title': 'Barco Saronno: Kürzungen, Streik und Arbeitskampf',
     'blog.article.barco-saronno-agitazione-sciopero-2026.excerpt': 'Fiom, Fim und Uilm rufen bei Barco in Saronno nach der Ankündigung einer Umstrukturierung den Arbeitskampf aus. Eine Stunde Streik pro Schicht, betroffen sind Leiharbeitskräfte und unbefristet Beschäftigte.',
     'blog.article.barco-saronno-agitazione-sciopero-2026.imageAlt': 'Industrieanlage in Mendrisio mit Bergkulisse',
+    'blog.article.kof-consensus-forecast-svizzera-2026.title': 'Schweizer BIP 2026 nach oben revidiert: +1,7% laut KOF',
+    'blog.article.kof-consensus-forecast-svizzera-2026.excerpt': 'KOF schätzt für 2026 ein BIP-Wachstum von 1,7% (gegenüber 0,9% im Juni) und eine Inflation von 0,6%; der Euro bei 0,93 Franken in drei Monaten und 0,92 in einem Jahr.',
+    'blog.article.kof-consensus-forecast-svizzera-2026.imageAlt': 'Panoramablick auf den Luganer See mit den Alpen im Hintergrund und Segelbooten auf dem Wasser',
 };
 
 export default blogMetaDe;
