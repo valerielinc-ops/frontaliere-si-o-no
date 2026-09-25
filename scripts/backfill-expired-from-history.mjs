@@ -39,6 +39,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import {
   collapseDuplicateRouteEntries,
   mergeSourceIdentityHistory,
+  normalizeExpiredEntryTitles,
   normalizeExpiredAtEntries,
 } from './lib/expired-jobs-archive.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
@@ -96,7 +97,7 @@ function buildExpiredEntry(job) {
   const entry = {
     slug: job.slug,
     title: job.title || '',
-    titleByLocale: job.titleByLocale || {},
+    titleByLocale: { ...(job.titleByLocale || {}) },
     company: job.company || '',
     companyKey: job.companyKey || '',
     location: job.location || '',
@@ -126,6 +127,7 @@ function buildExpiredEntry(job) {
         ? JSON.parse(JSON.stringify(job.sourceIdentityHistory))
         : undefined,
   };
+  normalizeExpiredEntryTitles(entry);
   if (!entry.postalCode) delete entry.postalCode;
   if (!entry.streetAddress) delete entry.streetAddress;
   if (!entry.salaryMin) delete entry.salaryMin;
