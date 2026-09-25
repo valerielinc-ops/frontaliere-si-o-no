@@ -761,7 +761,7 @@ function replaceActiveJobReuseFragment(
  return `${html.slice(0, contentStart)}${next}${html.slice(end)}`;
 }
 
-function replaceActiveJobPostingDates(
+export function replaceActiveJobPostingDates(
  fragment: string,
  datePosted: string,
  validThrough: string,
@@ -773,8 +773,8 @@ function replaceActiveJobPostingDates(
  let script = scriptMatch[0];
  for (const [field, value] of [['datePosted', datePosted], ['validThrough', validThrough]] as const) {
   const fieldPattern = new RegExp(`("${field}"\\s*:\\s*)"[^"]*"`);
+  if (!fieldPattern.test(script)) throw new Error(`missing JobPosting JSON-LD field: ${field}`);
   const next = script.replace(fieldPattern, `$1${JSON.stringify(value)}`);
-  if (next === script) throw new Error(`missing JobPosting JSON-LD field: ${field}`);
   script = next;
  }
  const scriptStart = scriptMatch.index ?? 0;

@@ -21,6 +21,7 @@ import {
   normalizeHtmlForReuse,
   refreshHtmlBuildId,
 } from '../../build-plugins/shared/incrementalHtmlReuse.mjs';
+import { replaceActiveJobPostingDates } from '../../build-plugins/jobsSeoPagesPlugin';
 
 const FINGERPRINT_ENV_KEYS = [
   'STRIP_ACTIVE_JOB_PROSE',
@@ -136,6 +137,28 @@ async function createReuse(
 }
 
 describe('jobs SEO disk HTML reuse', () => {
+  it('accepts a cached JobPosting whose dates are already current', () => {
+    const daysAgo = (days: number) => new Date(Date.now() - days * 86_400_000).toISOString();
+    const currentDatePosted = daysAgo(0);
+    const currentValidThrough = new Date(
+      Date.parse(currentDatePosted) + 30 * 86_400_000,
+    ).toISOString();
+    const fragment = '<script type="application/ld+json">'
+      + `{"@type":"JobPosting","datePosted":"${currentDatePosted}","validThrough":"${currentValidThrough}"}`
+      + '</script>';
+
+    expect(() => replaceActiveJobPostingDates(
+      fragment,
+      currentDatePosted,
+      currentValidThrough,
+    )).not.toThrow();
+    expect(replaceActiveJobPostingDates(
+      fragment,
+      currentDatePosted,
+      currentValidThrough,
+    )).toBe(fragment);
+  });
+
   it('is disabled unless JOBS_SEO_REUSE=1', async () => {
     const rootDir = fixtureRoot();
     try {
