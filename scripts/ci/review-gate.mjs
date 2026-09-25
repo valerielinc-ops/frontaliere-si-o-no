@@ -2172,10 +2172,26 @@ const isDirectRun = (() => {
  * finding. Those `Fix di ...: ok.` lines are resolution evidence, not new
  * anchors for the finding currently being classified.
  */
+// `Accettazione:` e `Replica:` (REVIEW.md «Re-review convergence» / «Output format») citano
+// i MEZZI della verifica — un test, un comando, la riga indicata dal fixer —
+// non ancore da correggere. Se diventassero citazioni del finding, la
+// conferma `Fix di path:L<n>: ok` dell'anchor vero non basterebbe più a
+// chiuderlo: il gate pretenderebbe una conferma anche per il file di test
+// nominato nel controllo, e il ciclo non convergerebbe.
+const ACCEPTANCE_MARKER_RE = /\bAccettazione\s*:/u;
+const REPLICA_LINE_RE = /^\s*(?:[-*>]\s*)?Replica\s*:/u;
+
+function anchorText(line) {
+  if (REPLICA_LINE_RE.test(line)) return '';
+  const at = line.search(ACCEPTANCE_MARKER_RE);
+  return at === -1 ? line : line.slice(0, at);
+}
+
 function extractFindingCitations(text, extractCitations) {
   const findingText = normalizeReviewBody(text)
     .split(/\r?\n/u)
     .filter((line) => !FIX_CONFIRMATION_RE.test(line))
+    .map(anchorText)
     .join('\n');
   const occurrences = extractCitations(findingText, {
     dedupe: false,
