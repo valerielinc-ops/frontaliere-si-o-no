@@ -234,7 +234,7 @@ const blogMetaDe: Record<string, string> = {
  'blog.article.guida-contributi-sociali-svizzera.excerpt': 'AHV, BVG, SUVA: Entdecken Sie die Sätze für 2026 und wie viel Sie und Ihr Arbeitgeber zahlen. Ein praktisches Beispiel mit einem Bruttogehalt von 5.500 CHF.',
  'blog.article.guida-contributi-sociali-svizzera.imageAlt': 'Detail einer Schweizer Lohnabrechnung auf einem Schreibtisch mit Blick auf den Luganersee, Symbol für Grenzgängerarbeit',
  'blog.article.costo-vivere-lugano-trasferirsi.title': 'Leben in Lugano: Was kostet es wirklich im Jahr 2026?',
- 'blog.article.costo-vivere-lugano-trasferirsi.excerpt': 'Detaillierte Kostenanalyse 2026 für umziehende Grenzgänger: Mieten ab 1.500 CHF, LAMal ab 380 CHF, Transport und Lebensmittel. Hier ist Ihr Budget.',
+ 'blog.article.costo-vivere-lugano-trasferirsi.excerpt': 'Detaillierte Kostenanalyse 2026 für umziehende Grenzgänger: Mieten ab 1.500 CHF, LAMal ab 450 CHF, Transport und Lebensmittel. Hier ist Ihr Budget.',
  'blog.article.costo-vivere-lugano-trasferirsi.imageAlt': 'Wohnungsbalkon in Lugano mit Seeblick, Symbol für die Lebenshaltungskosten für diejenigen, die einen Umzug ins Tessin erwägen.', 'blog.article.calcolo-pensione-avs-inps.title': 'Grenzgängerrente: AHV + INPS Berechnung Anleitung 2026',
  'blog.article.calcolo-pensione-avs-inps.excerpt': 'Wie funktioniert die Zusammenrechnung der Beiträge zwischen der Schweiz und Italien? Praktische Beispiele, Anforderungen und die neuen geschätzten AHV-Grenzwerte für 2026 für Arbeitnehmer im Tessin.',
  'blog.article.calcolo-pensione-avs-inps.imageAlt': 'Älteres Grenzgängerpaar plant seine Rente mit einem Tablet an der Seepromenade von Lugano, Blick auf den Monte San Salvatore.',
