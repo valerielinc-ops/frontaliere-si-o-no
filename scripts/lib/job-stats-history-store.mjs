@@ -279,6 +279,16 @@ function preservesCompactionPayload(previous = {}, next = {}) {
     // byte-floor guard.
     if (previousItems.length > 0 && nextItems.length === 0) return false;
 
+    // A single merged locale bucket may represent several source rows, but it
+    // must carry their aggregate action counts. This also prevents one result
+    // row from satisfying multiple source rows while silently dropping the
+    // remaining updated/removed history.
+    for (const action of ['updated', 'removed']) {
+      const previousCount = previousItems.reduce((total, item) => total + actionCount(item, action), 0);
+      const nextCount = nextItems.reduce((total, item) => total + actionCount(item, action), 0);
+      if (nextCount < previousCount) return false;
+    }
+
     return previousItems.every((previousItem) => {
       const previousIdentity = String(previousItem?.key || previousItem?.name || '');
       const previousAddedKeys = sortedUniqueStrings(previousItem?.addedKeys);
