@@ -165,3 +165,85 @@ describe('ogni step che decide la review usa il CLI trusted', () => {
     expect(trusted).toBeLessThan(checkout);
   });
 });
+
+/**
+ * Il guard runtime qui sopra cammina il grafo della copia scaricata DA MAIN:
+ * una PR che aggiunge un import a un modulo trusted resta verde, e il rosso
+ * compare solo dopo il merge, su ogni PR successiva. È successo con #9887:
+ * `scripts/ci/claude-codex-fallback.mjs` ha iniziato a importare
+ * `scripts/lib/codex-fallback-contract.mjs`, che nessun elenco di `tests.yml`
+ * scaricava (run 36152537527: «moduli mancanti nella copia trusted»). Questo
+ * test chiude il buco prima del merge: per ogni step che scarica file trusted,
+ * l'insieme scaricato deve essere chiuso rispetto agli import relativi reali
+ * del repo (stessa regex del guard runtime).
+ */
+const TRUSTED_SPEC_RE = /(?:\bfrom\s*|\bimport\s*\(\s*)(['"])(\.[^'"]+)\1/gu;
+
+export function downloadedTrustedPaths(run: string): Set<string> {
+  const paths = new Set<string>();
+  for (const match of run.matchAll(/\bdownload_(?:main|optional) ([\w.-]+\/[\w./-]+\.(?:m?js|cjs))\b/gu)) {
+    paths.add(match[1]);
+  }
+  const loops = run.matchAll(
+    /for (\w+) in \\\n((?:[ \t]*\S+[ \t]*\\\n)*[ \t]*\S+?);[ \t]*do\n[ \t]*download_(?:main|optional) "\$\1"/gu,
+  );
+  for (const loop of loops) {
+    for (const item of loop[2].split(/\\\n/u)) {
+      const path = item.trim();
+      if (/^[\w.-]+\/[\w./-]+\.(?:m?js|cjs)$/u.test(path)) paths.add(path);
+    }
+  }
+  return paths;
+}
+
+function unresolvedTrustedImports(downloaded: Set<string>): string[] {
+  const missing: string[] = [];
+  for (const file of downloaded) {
+    let source: string;
+    try {
+      source = readFileSync(file, 'utf8');
+    } catch {
+      continue; // opzionale e non ancora su main: il guard runtime lo tratta a parte
+    }
+    for (const match of source.matchAll(TRUSTED_SPEC_RE)) {
+      const target = join(dirname(file), match[2]).replace(/\\/gu, '/');
+      if (!downloaded.has(target)) missing.push(`${file} → ${target}`);
+    }
+  }
+  return [...new Set(missing)].sort();
+}
+
+describe('gli elenchi trusted di tests.yml sono chiusi rispetto agli import del repo', () => {
+  const steps = stepsOf().filter((step) => /\bdownload_main\b/u.test(String(step.run ?? '')));
+
+  it('trova gli step che scaricano la policy trusted (non vacuo)', () => {
+    expect(steps.length).toBeGreaterThanOrEqual(3);
+    for (const step of steps) {
+      expect(downloadedTrustedPaths(String(step.run)).size, `step ${step.id}`).toBeGreaterThan(0);
+    }
+  });
+
+  it.each(steps.map((step) => [step.id ?? '(senza id)', step] as const))(
+    '%s scarica ogni modulo importato dai file che scarica',
+    (_id, step) => {
+      const missing = unresolvedTrustedImports(downloadedTrustedPaths(String(step.run)));
+      expect(missing, 'moduli importati ma non scaricati nella copia trusted').toEqual([]);
+    },
+  );
+
+  it('legge sia le righe download_main sia i cicli `for … in … do download_main`', () => {
+    const run = [
+      'download_main scripts/ci/a.mjs "$policy_root/scripts/ci/a.mjs"',
+      'for trusted_path in \\',
+      '  scripts/ci/b.mjs \\',
+      '  scripts/lib/c.mjs; do',
+      '  download_main "$trusted_path"',
+      'done',
+    ].join('\n');
+    expect([...downloadedTrustedPaths(run)].sort()).toEqual([
+      'scripts/ci/a.mjs',
+      'scripts/ci/b.mjs',
+      'scripts/lib/c.mjs',
+    ]);
+  });
+});

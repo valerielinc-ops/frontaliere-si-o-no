@@ -862,6 +862,7 @@ jobs:
           download_main scripts/ci/claude-codex-fallback.mjs "$policy_root/scripts/ci/claude-codex-fallback.mjs"
           download_main scripts/ci/claude-rate-limit.mjs "$policy_root/scripts/ci/claude-rate-limit.mjs"
           download_main scripts/ci/claude-rate-limit-contract.mjs "$policy_root/scripts/ci/claude-rate-limit-contract.mjs"
+          download_main scripts/lib/codex-fallback-contract.mjs "$policy_root/scripts/lib/codex-fallback-contract.mjs"
           download_main scripts/ci/lib/constants.mjs "$policy_root/scripts/ci/lib/constants.mjs"
           download_main scripts/ci/lib/fetchPrFiles.mjs "$policy_root/scripts/ci/lib/fetchPrFiles.mjs"
           download_main scripts/ci/lib/vitestCheck.mjs "$policy_root/scripts/ci/lib/vitestCheck.mjs"
@@ -3030,7 +3031,8 @@ jobs:
             scripts/ci/lib/pr-review-admission.mjs \
             scripts/ci/lib/constants.mjs \
             scripts/lib/loop-fleet-contract.mjs \
-            scripts/lib/githubApiHeaders.mjs; do
+            scripts/lib/githubApiHeaders.mjs \
+            functions/src/githubApiHeaders.js; do
             download_main "$trusted_path"
           done
           for trusted_file in \
@@ -3191,7 +3193,8 @@ jobs:
           for trusted_path in \
             scripts/ci/claude-codex-fallback.mjs \
             scripts/ci/claude-rate-limit.mjs \
-            scripts/ci/claude-rate-limit-contract.mjs; do
+            scripts/ci/claude-rate-limit-contract.mjs \
+            scripts/lib/codex-fallback-contract.mjs; do
             download_main "$trusted_path"
           done
           node --check "$policy_root/scripts/ci/claude-codex-fallback.mjs"
@@ -3328,6 +3331,7 @@ jobs:
             scripts/ci/claude-codex-fallback.mjs \
             scripts/ci/claude-rate-limit.mjs \
             scripts/ci/claude-rate-limit-contract.mjs \
+            scripts/lib/codex-fallback-contract.mjs \
             scripts/ci/lib/constants.mjs \
             scripts/ci/lib/fetchPrFiles.mjs \
             scripts/ci/lib/vitestCheck.mjs \
