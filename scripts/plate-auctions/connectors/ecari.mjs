@@ -49,6 +49,20 @@ export function parseEcariCantonAuctions(
   return withEcariEmptyState(rows, html, tabs.map(([tabContentId]) => tabContentId));
 }
 
+/**
+ * Il geo-fence di TI non fallisce: risponde HTTP 200 con la pagina F5
+ * «Pagina non disponibile» (6'967 byte), che il parser legge come zero righe
+ * e quindi come `zero_rows`, senza mai arrivare al relay. Una risposta senza
+ * nemmeno la scheda d'asta non è un catalogo eCari: per le fonti servite dal
+ * relay diventa un errore della fetch diretta.
+ */
+export function requireEcariCataloguePage(html, { plateCode, officialAuctionUrl }) {
+  if (!extractEcariTabSection(html, "tabContent1")) {
+    throw new Error(`${plateCode}: ${officialAuctionUrl} did not serve an eCari catalogue (no tabContent1)`);
+  }
+  return html;
+}
+
 export async function fetchEcariCantonAuctions(config) {
   const html = await fetchHtml(config.officialAuctionUrl);
   return parseEcariCantonAuctions(html, {

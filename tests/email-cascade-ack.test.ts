@@ -1,6 +1,7 @@
 // @vitest-environment node
 // @ts-nocheck
 import { sendEmailCascade, PROVIDER_SENDERS } from '../functions/src/emailCascade.js';
+import { persistMailjetEvent } from '../functions/src/newsletterMailjetWebhookCore.js';
 
 const payload = {
   from: 'Sender <sender@example.com>',
@@ -13,7 +14,8 @@ const providers = [
   {
     id: 'mailjet',
     env: { MAILJET_API_KEY: 'key', MAILJET_SECRET_KEY: 'secret' },
-    identified: { Messages: [{ To: [{ MessageID: 'mailjet-provider-id' }] }] },
+    // The Send API v3.1 shape: a string UUID next to a numeric legacy id.
+    identified: { Messages: [{ Status: 'success', To: [{ Email: 'recipient@example.com', MessageUUID: 'mailjet-provider-id', MessageID: 456, MessageHref: 'https://api.mailjet.com/v3/message/456' }] }] },
     empty: { Messages: [{ Status: 'success', To: [{}] }] },
   },
   {
@@ -97,6 +99,37 @@ describe('email cascade provider ack contract', () => {
       provider: 'mailjet',
       ack: 'unidentifiable',
     });
+  });
+
+  it('identifies a Mailjet send by MessageUUID — the id its webhook events carry as Message_GUID', async () => {
+    // The response exactly as it crosses the wire: `MessageID` past 2^53 is
+    // rounded by JSON.parse (…431917 → …431872), the UUID is a string and
+    // survives. Before this fix the sender read `MessageID`, so it stored a
+    // fabricated id (until #8245) and then no id at all.
+    Object.assign(process.env, { MAILJET_API_KEY: 'key', MAILJET_SECRET_KEY: 'secret' });
+    const uuid = '2f6c1d0e-9a8b-4c7d-8e6f-5a4b3c2d1e0f';
+    const wire = `{"Messages":[{"Status":"success","CustomID":"confirmation","To":[{"Email":"recipient@example.com","MessageUUID":"${uuid}","MessageID":1152921544112431917,"MessageHref":"https://api.mailjet.com/v3/REST/message/1152921544112431917"}],"Cc":[],"Bcc":[]}]}`;
+    expect(String(JSON.parse(wire).Messages[0].To[0].MessageID)).not.toBe('1152921544112431917');
+    globalThis.fetch = async () => ({ ok: true, status: 200, json: async () => JSON.parse(wire), text: async () => wire });
+
+    const ack = await PROVIDER_SENDERS.mailjet(payload, null);
+    expect(ack).toEqual({ messageId: uuid, provider: 'mailjet', ack: 'identified' });
+
+    // …and it is the id the Mailjet webhook stores for the same message, so a
+    // send and its open/click/bounce events join on `message_id`.
+    const events: any[] = [];
+    const eventsRef = { add: async (data: any) => { events.push(data); }, orderBy: () => ({ limit: () => ({ get: async () => ({ docs: [] }) }) }) };
+    // The recipient is a subscriber: a provider event never creates the record.
+    const docRef: any = {
+      get: async () => ({ exists: true, data: () => ({ status: 'pending' }) }),
+      set: async () => {},
+      collection: (name: string) => (name === 'events' ? eventsRef : { doc: () => ({ set: async () => {} }) }),
+    };
+    docRef.firestore = { runTransaction: async (fn: any) => fn({ get: (r: any) => r.get(), set: () => {} }) };
+    const db: any = { collection: () => ({ doc: () => docRef }) };
+    const webhookBody = `[{"event":"open","time":1758800000,"email":"recipient@example.com","MessageID":1152921544112431917,"Message_GUID":"${uuid}","CustomID":"confirmation"}]`;
+    await persistMailjetEvent(db, JSON.parse(webhookBody)[0]);
+    expect(events.map((e) => e.message_id)).toEqual([ack.messageId]);
   });
 
   it.each([

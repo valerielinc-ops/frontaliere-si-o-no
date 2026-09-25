@@ -36,7 +36,7 @@ const blogMetaIt: Record<string, string> = {
  'blog.article.telelavoro-italia-svizzera-ratifica.excerpt': 'Via libera definitivo dal parlamento italiano all\'accordo sul telelavoro per i frontalieri. Cosa cambia per i lavoratori del Ticino.',
  'blog.article.telelavoro-italia-svizzera-ratifica.imageAlt': 'Laptop con vista sul Lago di Lugano, che mostra un grafico finanziario. Simboleggia il telelavoro transfrontaliero tra Italia e Svizzera.',
  'blog.article.telelavoro-accordo-definitivo-italia.title': 'Telelavoro Frontalieri: Via Libera da Roma, Cosa Cambia Ora',
- 'blog.article.telelavoro-accordo-definitivo-italia.excerpt': 'Il Parlamento italiano ha ratificato l\'accordo sul telelavoro fino al 40%. Vediamo le implicazioni fiscali e pratiche per i \'nuovi\' e \'vecchi\' frontalieri in Ticino.',
+ 'blog.article.telelavoro-accordo-definitivo-italia.excerpt': 'Il Parlamento italiano ha ratificato l\'accordo sul telelavoro fino al 25%. Vediamo le implicazioni fiscali e pratiche per i \'nuovi\' e \'vecchi\' frontalieri in Ticino.',
  'blog.article.telelavoro-accordo-definitivo-italia.imageAlt': 'Vista del Lago di Lugano da una postazione di telelavoro, simbolo del nuovo accordo per i frontalieri',
  'blog.article.stop-ristorni-tassa-salute.title': 'Tassa Salute: Mozione per bloccare i ristorni all\'Italia',
  'blog.article.stop-ristorni-tassa-salute.excerpt': 'PLR, Centro, UDC e Lega chiedono lo stop immediato dei ristorni a Roma, citando la violazione dell\'accordo fiscale e l\'Articolo 60 della Convenzione di Vienna.',
@@ -11963,6 +11963,17 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.riassetto-ferroviario-lavoratori.title': 'Ffs Cargo, le prospettive occupazionali fanno discutere',
     'blog.article.riassetto-ferroviario-lavoratori.excerpt': 'La riorganizzazione di Ffs Cargo coinvolge 80 dipendenti: tre collaboratori non hanno ancora ricevuto proposte lavorative.',
     'blog.article.riassetto-ferroviario-lavoratori.imageAlt': 'Treno merci FFS Cargo in uno scalo ferroviario del Ticino',
+    'blog.article.ridurre-tempi-ripristino-a2-mezzovico.title': 'Ridurre i tempi di ripristino dopo incidente A2 Mezzovico',
+    'blog.article.ridurre-tempi-ripristino-a2-mezzovico.excerpt': 'Lorenzo Quadri (Lega) presenta mozione per ridurre i tempi di ripristino dopo l\'incidente sulla A2 a Mezzovico: chiusura oltre 5 ore, code fino a 13 km.',
+    'blog.article.ridurre-tempi-ripristino-a2-mezzovico.imageAlt': 'Vista aerea dell\'autostrada A2 vicino a Mezzovico con coda di veicoli e mezzi di soccorso',
+    'blog.article.bollettino-frontaliere-2026-09-25.title': 'Bollettino del frontaliere – 25 settembre 2026: 1716 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-09-25.excerpt': 'I numeri di oggi, 25 settembre 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-09-25.imageAlt': 'I numeri del giorno per i frontalieri – 25 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-09-25.seoDescription': 'Bollettino frontalieri del 25 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-09-25.ogDescription': 'I numeri del 25 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.pasture-cambio-operatore.title': 'A Pasture cambia l\'operatore: posti di lavoro a rischio',
+    'blog.article.pasture-cambio-operatore.excerpt': 'Da gennaio il mandato federale del Centro d\'asilo passerà da AOZ a ORS: in Ticino sono 120 i dipendenti oggi in servizio, ma non tutti saranno riassunti.',
+    'blog.article.pasture-cambio-operatore.imageAlt': 'Pasture, cambio dell\'operatore per l\'assistenza nel Canton Ticino',
 };
 
 export default blogMetaIt;

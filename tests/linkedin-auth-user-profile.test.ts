@@ -175,9 +175,12 @@ describe('Firestore rules — newsletter_subscribers collection', () => {
   it('keeps anonymous subscribe working: get and non-consent writes stay public', () => {
     const own = directRules(subBlock);
     expect(own).toContain('allow get: if true');
-    expect(own).toContain('allow create: if isPendingNewsletterCreate()');
+    // Both clauses are prefixed by the server-owned snapshot guard
+    // (`confirmation_job_context`, see tests/newsletter-confirmation-job-snapshot.test.ts);
+    // what they admit after it is unchanged.
+    expect(own).toMatch(/allow create: if !request\.resource\.data\.keys\(\)\.hasAny\(\['confirmation_job_context'\]\)\s*&& \(isPendingNewsletterCreate\(\)/);
     expect(own).toContain('|| isVerifiedConfirmedCreate(email)');
-    expect(own).toContain('allow update: if (');
+    expect(own).toMatch(/allow update: if !confirmationJobSnapshotTouched\(request\.resource\.data, resource\.data\)\s*&& \(\(/);
     expect(own).toContain('!consentFieldsTouched(request.resource.data, resource.data)');
   });
 
