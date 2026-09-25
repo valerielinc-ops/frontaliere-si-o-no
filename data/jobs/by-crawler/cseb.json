@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cseb",
-  "assembledAt": "2026-09-24T14:51:23.217Z",
+  "assembledAt": "2026-09-25T14:58:21.348Z",
   "jobs": [
     {
       "id": "cseb-ae5115104b13",
@@ -17,7 +17,7 @@
       "title": "Physiotherapeut/-in FH/HF (80-100%)",
       "titleByLocale": {
         "it": "Fisioterapista FH/HF (80-100%)",
-        "en": "Physiotherapist FH/HF (80-100%)",
+        "en": "Physiotherapeut/-in FH/HF (80-100%)",
         "de": "Physiotherapeut/-in FH/HF (80-100%)",
         "fr": "Physiothérapeute FH/HF (80-100%)"
       },
@@ -33,7 +33,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/e1cca88f-6983-6558-1f9e-165da51616ad",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.444Z",
+      "crawledAt": "2026-09-25T14:58:16.945Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -56,12 +56,14 @@
       "contactPerson": "Corsina Feuerstein Betschart",
       "previousSlugs": [
         "physiotherapeut-in-fh-hf-80-100-cseb-ch",
-        "physiotherapeut-in-fh-hf-80-100-center-da-sanadad-engiadina-bassa-scuol"
+        "physiotherapeut-in-fh-hf-80-100-center-da-sanadad-engiadina-bassa-scuol",
+        "fisioterapista-fh-hf-80-100-center-da-sanadad-engiadina-bassa-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeut-in-fh-hf-80-100-cseb-ch",
-          "physiotherapeut-in-fh-hf-80-100-center-da-sanadad-engiadina-bassa-scuol"
+          "physiotherapeut-in-fh-hf-80-100-center-da-sanadad-engiadina-bassa-scuol",
+          "fisioterapista-fh-hf-80-100-center-da-sanadad-engiadina-bassa-scuol"
         ],
         "en": [
           "physiotherapeut-in-fh-hf-80-100-center-da-sanadad-engiadina-bassa-scuol"
@@ -71,6 +73,7 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:49:54.930Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -84,8 +87,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/e1cca88f-6983-6558-1f9e-165da51616ad"
+      "addressRegion": "GR"
     },
     {
       "id": "cseb-bae2d5a6498f",
@@ -118,7 +120,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/f910b490-39a2-ff4d-6a4e-cd4be69a89dc",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.440Z",
+      "crawledAt": "2026-09-25T14:58:16.943Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -141,11 +143,13 @@
       "contactPerson": "Corsina Feuerstein Betschart",
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-aktivierung-40-60-cseb-ch",
-        "mitarbeiterin-mitarbeiter-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol"
+        "mitarbeiterin-mitarbeiter-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol",
+        "mitarbeiterin-collaboratore-trice-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-aktivierung-40-60-cseb-ch"
+          "mitarbeiterin-mitarbeiter-aktivierung-40-60-cseb-ch",
+          "mitarbeiterin-collaboratore-trice-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol"
@@ -168,8 +172,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/f910b490-39a2-ff4d-6a4e-cd4be69a89dc"
+      "addressRegion": "GR"
     },
     {
       "id": "cseb-c00b8b59513c",
@@ -202,7 +205,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/4e778dc6-464f-c653-3085-bb6b8ee9fda3",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.437Z",
+      "crawledAt": "2026-09-25T14:58:16.940Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -226,13 +229,15 @@
       "previousSlugs": [
         "leitung-arztsekretariat-medizin-60-100-cseb-ch",
         "leitung-arztsekretariat-medizin-60-100-center-da-sanadad-engiadina-bassa-scuol",
-        "leitung-arztsekretariat-medizin-50-100-cseb-ch"
+        "leitung-arztsekretariat-medizin-50-100-cseb-ch",
+        "responsabile-medicina-della-segreteria-medica-60-100-center-da-sanadad-engiadina-bassa-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitung-arztsekretariat-medizin-60-100-cseb-ch",
           "leitung-arztsekretariat-medizin-60-100-center-da-sanadad-engiadina-bassa-scuol",
-          "leitung-arztsekretariat-medizin-50-100-cseb-ch"
+          "leitung-arztsekretariat-medizin-50-100-cseb-ch",
+          "responsabile-medicina-della-segreteria-medica-60-100-center-da-sanadad-engiadina-bassa-scuol"
         ],
         "en": [
           "leitung-arztsekretariat-medizin-60-100-center-da-sanadad-engiadina-bassa-scuol"
@@ -255,8 +260,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/4e778dc6-464f-c653-3085-bb6b8ee9fda3"
+      "addressRegion": "GR"
     },
     {
       "id": "cseb-61e2594cb790",
@@ -289,7 +293,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/503105ab-ee65-b500-19e8-988c5592f6c5",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.434Z",
+      "crawledAt": "2026-09-25T14:58:16.938Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -311,11 +315,13 @@
       "pensum": "30 - 50%",
       "contactPerson": "Corsina Feuerstein Betschart",
       "previousSlugs": [
-        "dipl-hebamme-hf-fh-30-50-cseb-ch"
+        "dipl-hebamme-hf-fh-30-50-cseb-ch",
+        "dipl-midwife-hf-fh-30-50-center-da-sanadad-engiadina-bassa-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-hebamme-hf-fh-30-50-cseb-ch"
+          "dipl-hebamme-hf-fh-30-50-cseb-ch",
+          "dipl-midwife-hf-fh-30-50-center-da-sanadad-engiadina-bassa-scuol"
         ],
         "en": [
           "dipl-hebamme-hf-fh-30-50-cseb-ch"
@@ -338,8 +344,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/503105ab-ee65-b500-19e8-988c5592f6c5"
+      "addressRegion": "GR"
     },
     {
       "id": "cseb-5a052203f68d",
@@ -372,7 +377,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/8547edd4-1bb9-2695-7194-8bf5fc43cd96",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.432Z",
+      "crawledAt": "2026-09-25T14:58:16.936Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -394,11 +399,13 @@
       "pensum": "70 - 80%",
       "contactPerson": "Corsina Feuerstein Betschart",
       "previousSlugs": [
-        "leitende-hebamme-hf-fh-70-80-cseb-ch"
+        "leitende-hebamme-hf-fh-70-80-cseb-ch",
+        "le-ostetriche-principali-hf-fh-70-80-center-da-sanadad-engiadina-bassa-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-hebamme-hf-fh-70-80-cseb-ch"
+          "leitende-hebamme-hf-fh-70-80-cseb-ch",
+          "le-ostetriche-principali-hf-fh-70-80-center-da-sanadad-engiadina-bassa-scuol"
         ],
         "en": [
           "leitende-hebamme-hf-fh-70-80-cseb-ch"
@@ -408,6 +415,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:44:06.185Z",
+      "needsRetranslation": true,
       "salaryMin": 65200,
       "salaryMax": 91200,
       "salarySource": "estimated",
@@ -421,8 +429,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/8547edd4-1bb9-2695-7194-8bf5fc43cd96"
+      "addressRegion": "GR"
     },
     {
       "id": "cseb-cd2dab6f01ac",
@@ -455,7 +462,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/439cb41c-0371-94c9-6c59-909203c12844",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.430Z",
+      "crawledAt": "2026-09-25T14:58:16.934Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -480,12 +487,14 @@
         "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-cseb-ch",
         "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-bassa-scuo",
         "assistent-in-gesundheit-e-soziales-pflegehelfer-in-srk-o-sozialbetreuer-in-50-90-center-da-sanadad-engiadina-bassa-scuol",
-        "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-bassa"
+        "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-bassa",
+        "assistent-in-gesundheit-e-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-bassa-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-cseb-ch",
-          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-bassa"
+          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-bassa",
+          "assistent-in-gesundheit-e-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-bassa-scuol"
         ],
         "en": [
           "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-cseb-ch"
@@ -498,6 +507,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -511,8 +521,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/439cb41c-0371-94c9-6c59-909203c12844"
+      "addressRegion": "GR"
     },
     {
       "id": "cseb-5fa447124a26",
@@ -545,7 +554,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/08090cea-a5af-e391-1b01-d1e40cf402a3",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.428Z",
+      "crawledAt": "2026-09-25T14:58:16.932Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -570,14 +579,16 @@
         "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol",
         "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-cseb-ch",
         "analyste-biomedical-in-hf-med-techn-assistant-de-laboratoire-en-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol",
-        "biomedizinische-r-analytiker-in-hf-80-100-cseb-ch"
+        "biomedizinische-r-analytiker-in-hf-80-100-cseb-ch",
+        "analista-biomedico-in-hf-med-techn-assistente-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
           "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol",
           "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-cseb-ch",
           "analyste-biomedical-in-hf-med-techn-assistant-de-laboratoire-en-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol",
-          "biomedizinische-r-analytiker-in-hf-80-100-cseb-ch"
+          "biomedizinische-r-analytiker-in-hf-80-100-cseb-ch",
+          "analista-biomedico-in-hf-med-techn-assistente-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol"
         ],
         "en": [
           "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol"
@@ -590,6 +601,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T11:55:25.784Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -603,8 +615,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/08090cea-a5af-e391-1b01-d1e40cf402a3"
+      "addressRegion": "GR"
     },
     {
       "id": "cseb-3e74b504b5fc",
@@ -622,7 +633,7 @@
       "titleByLocale": {
         "it": "Psicologo/a in tirocinio Clinica Curativa (60-100%)",
         "en": "Psychology Intern Clinica Curativa (60-100%)",
-        "de": "Psychologie Krak Akant/-in Clinica Curativa (60-100%)",
+        "de": "Psychologiepraktikant/-in Clinica Curativa (60-100%)",
         "fr": "Psychologiepraktikant/-in Clinica Curativa (60-100%)"
       },
       "description": "Wir suchen nach Vereinbarung\n\nAufgaben:\nHauptaufgaben\n\n• Mitarbeit und Durchführung von Gruppengesprächen, unter psychologischer und psychiatrischer Supervision bei psychosomatischen und psychoonkologischen Rehabilitationspatienten\n\n• Begleitete und supervidierte Durchführung von psychoedukativen Gruppen, psychotherapeutischen Gruppen sowie Gruppen-Settings, welche ressourcenorientiert die umgebende Natur mit einbeziehen\n\n• Supervidiertes Verfassen von Anamnesen, psychotherapeutischen Berichten und Psychostatus.\n\n• Mitarbeit bei der Erarbeitung von Strategien für den Übergang von der Rehabilitation in die ambulante Therapie\n\n• Integrative Zusammenarbeit mit anderen Fachbereichen im interdisziplinären Rehabilitationsteam wie &Auml;rzten, Pflege, komplementärmedizinischen Therapeuten, Physio- und Ergotherapeuten\n\nAnforderungen:\nAnforderungsprofil\n\n• Psychologiestudium im Masterstudium oder kurz vor Bachelorabschluss\n\n• Interesse am klinischen Tätigkeitsfeld mit dem Ziel, das Studium in Richtung klinische Psychologie und Psychotherapie zu vertiefen\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Selbständigkeit, Initiative, Belastbarkeit und Freude an der Zusammenarbeit in einem interdisziplinären Team\n\n• Interesse an Komplementärmedizin und an einem, den Körper, die Seele und den Geist umfassenden, interdisziplinären Behandlungsmodell sowie an naturbezogenen Therapieinhalten\n\n• Teamorientiertes und interdisziplinäres Handeln sowie gute Kommunikationsfähigkeit\n\nWir bieten:\nUnser Angebot\n\n• Sorgfältige Einführung in das Feld der Klinischen Psychologie\n\n• Einen vielfältigen und abwechslungsreichen Arbeitsalltag im Bereich der innovativen integrativen Medizin\n\n• Multiprofessionelle Zusammenarbeit und gute Arbeitsatmosphäre in einem kleinen Team\n\n• Begleitende Intervision und Supervision, innerbetriebliche Weiterbildung\n\n• Entlöhnung nach kantonalen Richtlinien\n\n• Arbeit und Leben in einer Gesundheitsregion, in der andere ihre Ferien verbringen\n\nUnter dem Dach «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg. In der Nationalparkregion erwartet Sie eine wunderbare Umgebung mit vielseitigen Erholungs- und Sportmöglichkeiten.\n\nDie Clinica Curativa bietet integrative onkologische, medizinische und psychosomatische Rehabilitationsprogramme an. Körper, Seele und Geist werden in die Diagnosestellung und die Behandlung mit einbezogen. Im integrativen Therapieansatz wird zeitgemässe Komplementär- mit Schulmedizin verbunden. Die integrative Medizin geht von einem ganzheitlichen Menschenbild aus.\n\nFür weitere Auskünfte stehen Ihnen Dr. med. Melitta Breznik oder Dr. med. Hannes Graf, Telefon +41 81 861 13 00, gerne zur Verfügung\n\nWir freuen uns auf Ihre Online-Bewerbung.",
@@ -637,7 +648,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/0aae7b8e-6401-ca9e-3f64-552a05cd547d",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.427Z",
+      "crawledAt": "2026-09-25T14:58:16.931Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -660,33 +671,35 @@
       "contactPerson": "Corsina Feuerstein Betschart",
       "previousSlugs": [
         "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-bassa",
-        "psychologiepraktikant-in-clinica-curativa-60-100-cseb-ch"
+        "psychologiepraktikant-in-clinica-curativa-60-100-cseb-ch",
+        "psychologiepraktikant-in-clinica-curativa-60-100-center-da-sanadad-engiadina-bassa-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
           "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-bassa",
-          "psychologiepraktikant-in-clinica-curativa-60-100-cseb-ch"
+          "psychologiepraktikant-in-clinica-curativa-60-100-cseb-ch",
+          "psychologiepraktikant-in-clinica-curativa-60-100-center-da-sanadad-engiadina-bassa-scuol"
         ]
       },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2837,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
+      "needsRetranslation": true,
+      "salaryMin": 73000,
+      "salaryMax": 102000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
+          "minValue": 73000,
+          "maxValue": 102000,
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "retranslationAttempts": 3,
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/0aae7b8e-6401-ca9e-3f64-552a05cd547d",
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2837
+      "addressRegion": "GR"
     },
     {
       "id": "cseb-6e595e5e5892",
@@ -719,7 +732,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/de22c979-5108-b752-c983-e0d5bc4bf2bf",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.425Z",
+      "crawledAt": "2026-09-25T14:58:16.929Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -744,11 +757,13 @@
         "leitende-arztin-leitender-arzt-gynakologie-und-geburtshilfe-25-50-cseb-ch",
         "senior-obstetrician-and-gynecologist-25-50-center-da-sanadad-engiadina-bassa-scuol",
         "leitende-arztin-leitender-arzt-gynakologie-und-geburtshilfe-25-50-center-da-sanadad-engiadina-bassa-scuol",
-        "medecin-gynecologue-et-obstetricien-senior-25-50-center-da-sanadad-engiadina-bassa-scuol"
+        "medecin-gynecologue-et-obstetricien-senior-25-50-center-da-sanadad-engiadina-bassa-scuol",
+        "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-arztin-leitender-arzt-gynakologie-und-geburtshilfe-25-50-cseb-ch"
+          "leitende-arztin-leitender-arzt-gynakologie-und-geburtshilfe-25-50-cseb-ch",
+          "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol"
         ],
         "en": [
           "senior-obstetrician-and-gynecologist-25-50-center-da-sanadad-engiadina-bassa-scuol"
@@ -774,8 +789,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/de22c979-5108-b752-c983-e0d5bc4bf2bf"
+      "addressRegion": "GR"
     },
     {
       "id": "cseb-2badd2d6bd27",
@@ -808,7 +822,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/18e63da7-2e49-eb9c-601d-b22238e3ef49",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.423Z",
+      "crawledAt": "2026-09-25T14:58:16.927Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -831,12 +845,14 @@
         "assistente-sanitario-pj-anno-center-da-sanadad-engiadina-bassa-scuol",
         "healthcare-assistant-pj-year-center-da-sanadad-engiadina-bassa-scuol",
         "unterassistenten-innen-pj-jahr-center-da-sanadad-engiadina-bassa-scuol",
-        "assistant-en-sante-pj-annee-center-da-sanadad-engiadina-bassa-scuol"
+        "assistant-en-sante-pj-annee-center-da-sanadad-engiadina-bassa-scuol",
+        "assistenti-anno-pj-center-da-sanadad-engiadina-bassa-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterassistenten-innen-pj-jahr-cseb-ch",
-          "assistente-sanitario-pj-anno-center-da-sanadad-engiadina-bassa-scuol"
+          "assistente-sanitario-pj-anno-center-da-sanadad-engiadina-bassa-scuol",
+          "assistenti-anno-pj-center-da-sanadad-engiadina-bassa-scuol"
         ],
         "en": [
           "healthcare-assistant-pj-year-center-da-sanadad-engiadina-bassa-scuol"
@@ -849,6 +865,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -862,8 +879,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/18e63da7-2e49-eb9c-601d-b22238e3ef49"
+      "addressRegion": "GR"
     },
     {
       "id": "cseb-af45cb1ba821",
@@ -896,7 +912,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/14b338b2-6622-bade-427a-7760f0bba7f7",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.420Z",
+      "crawledAt": "2026-09-25T14:58:16.924Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -920,11 +936,13 @@
       "previousSlugs": [
         "assistent-in-gesundheit-und-soziales-pflegehelfer-in-srk-oder-sozialbetreuer-in-50-90-cseb",
         "assistent-in-gesundheit-und-soziales-pflegehelfer-in-srk-oder-sozialbetreuer-in-50-90-center-da-sanadad-engiadina-bassa-",
-        "assistant-e-sante-et-social-e-aide-soignant-e-srk-ou-assistant-e-social-e-50-90-center-da-sanadad-engiadina-bassa-scuol"
+        "assistant-e-sante-et-social-e-aide-soignant-e-srk-ou-assistant-e-social-e-50-90-center-da-sanadad-engiadina-bassa-scuol",
+        "assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-engiadina-bas"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-srk-oder-sozialbetreuer-in-50-90-cseb"
+          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-srk-oder-sozialbetreuer-in-50-90-cseb",
+          "assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-engiadina-bas"
         ],
         "de": [
           "assistent-in-gesundheit-und-soziales-pflegehelfer-in-srk-oder-sozialbetreuer-in-50-90-center-da-sanadad-engiadina-bassa-"
@@ -934,6 +952,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
+      "needsRetranslation": true,
       "salaryMin": 73400,
       "salaryMax": 102600,
       "salarySource": "estimated",
@@ -947,8 +966,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/14b338b2-6622-bade-427a-7760f0bba7f7"
+      "addressRegion": "GR"
     },
     {
       "id": "cseb-85f3ce228e5b",
@@ -981,7 +999,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/a356d4be-f8e0-8a97-0c2c-121cd5f89c14",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.417Z",
+      "crawledAt": "2026-09-25T14:58:16.922Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1007,12 +1025,14 @@
         "dipl-soccorritore-sanitario-srk-hf-40-100-center-da-sanadad-engiadina-bassa-scuol",
         "dipl-emergency-medical-technician-srk-hf-40-100-center-da-sanadad-engiadina-bassa-scuol",
         "dipl-rettungssanitater-in-srk-hf-40-100-center-da-sanadad-engiadina-bassa-scuol",
-        "dipl-secouriste-srk-hf-40-100-center-da-sanadad-engiadina-bassa-scuol"
+        "dipl-secouriste-srk-hf-40-100-center-da-sanadad-engiadina-bassa-scuol",
+        "dipl-paramedici-rf-40-100-center-da-sanadad-engiadina-bassa-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-rettungssanitater-in-hf-40-100-cseb-ch",
-          "dipl-soccorritore-sanitario-srk-hf-40-100-center-da-sanadad-engiadina-bassa-scuol"
+          "dipl-soccorritore-sanitario-srk-hf-40-100-center-da-sanadad-engiadina-bassa-scuol",
+          "dipl-paramedici-rf-40-100-center-da-sanadad-engiadina-bassa-scuol"
         ],
         "en": [
           "dipl-emergency-medical-technician-srk-hf-40-100-center-da-sanadad-engiadina-bassa-scuol"
@@ -1025,6 +1045,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1038,8 +1059,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/a356d4be-f8e0-8a97-0c2c-121cd5f89c14"
+      "addressRegion": "GR"
     },
     {
       "id": "cseb-e8ed71fb8165",
@@ -1072,7 +1092,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9789088f-9f3e-b7a4-bf69-6d9c765dbea3",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.415Z",
+      "crawledAt": "2026-09-25T14:58:16.919Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1095,12 +1115,14 @@
         "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol",
         "apprenticeship-as-commercial-employee-efz-center-da-sanadad-engiadina-bassa-scuol",
         "lehrstelle-als-kauffrau-kaufmann-efz-center-da-sanadad-engiadina-bassa-scuol",
-        "apprentissage-en-commerce-cfc-center-da-sanadad-engiadina-bassa-scuol"
+        "apprentissage-en-commerce-cfc-center-da-sanadad-engiadina-bassa-scuol",
+        "apprendistato-come-kauffrau-kaufmann-cfc-center-da-sanadad-engiadina-bassa-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-kauffrau-kaufmann-efz-cseb-ch",
-          "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol"
+          "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol",
+          "apprendistato-come-kauffrau-kaufmann-cfc-center-da-sanadad-engiadina-bassa-scuol"
         ],
         "en": [
           "apprenticeship-as-commercial-employee-efz-center-da-sanadad-engiadina-bassa-scuol"
@@ -1113,6 +1135,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -1126,8 +1149,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9789088f-9f3e-b7a4-bf69-6d9c765dbea3"
+      "addressRegion": "GR"
     },
     {
       "id": "cseb-62814af0ac8f",
@@ -1160,7 +1182,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/4fd73428-f73e-6f49-2855-8204b00cbdc0",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.412Z",
+      "crawledAt": "2026-09-25T14:58:16.916Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1182,12 +1204,14 @@
         "lehrstelle-als-assistentin-assistent-gesundheit-und-soziales-eba-ags-cseb-ch",
         "apprendista-assistente-sanita-e-sociale-eba-ags-center-da-sanadad-engiadina-bassa-scuol",
         "lehrstelle-als-assistentin-assistent-gesundheit-und-soziales-eba-ags-center-da-sanadad-engiadina-bassa-scuol",
-        "apprenti-assistant-sante-et-social-eba-ags-center-da-sanadad-engiadina-bassa-scuol"
+        "apprenti-assistant-sante-et-social-eba-ags-center-da-sanadad-engiadina-bassa-scuol",
+        "apprendistato-come-assistentin-assistent-gesundheit-e-soziales-afp-ags-center-da-sanadad-engiadina-bassa-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-assistentin-assistent-gesundheit-und-soziales-eba-ags-cseb-ch",
-          "apprendista-assistente-sanita-e-sociale-eba-ags-center-da-sanadad-engiadina-bassa-scuol"
+          "apprendista-assistente-sanita-e-sociale-eba-ags-center-da-sanadad-engiadina-bassa-scuol",
+          "apprendistato-come-assistentin-assistent-gesundheit-e-soziales-afp-ags-center-da-sanadad-engiadina-bassa-scuol"
         ],
         "de": [
           "lehrstelle-als-assistentin-assistent-gesundheit-und-soziales-eba-ags-center-da-sanadad-engiadina-bassa-scuol"
@@ -1197,6 +1221,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -1210,8 +1235,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/4fd73428-f73e-6f49-2855-8204b00cbdc0"
+      "addressRegion": "GR"
     },
     {
       "id": "cseb-52167726eb87",
@@ -1244,7 +1268,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/1ef3689c-79c6-eae7-139e-1ad10eb84ac7",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.409Z",
+      "crawledAt": "2026-09-25T14:58:16.913Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1267,12 +1291,14 @@
         "apprendista-cucina-cuoco-efz-center-da-sanadad-engiadina-bassa-scuol",
         "apprentice-kitchen-cook-efz-center-da-sanadad-engiadina-bassa-scuol",
         "lehrstelle-als-kochin-koch-efz-center-da-sanadad-engiadina-bassa-scuol",
-        "apprentie-cuisine-cuisinier-efz-center-da-sanadad-engiadina-bassa-scuol"
+        "apprentie-cuisine-cuisinier-efz-center-da-sanadad-engiadina-bassa-scuol",
+        "apprendistato-come-kochin-koch-cfc-center-da-sanadad-engiadina-bassa-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-kochin-koch-efz-cseb-ch",
-          "apprendista-cucina-cuoco-efz-center-da-sanadad-engiadina-bassa-scuol"
+          "apprendista-cucina-cuoco-efz-center-da-sanadad-engiadina-bassa-scuol",
+          "apprendistato-come-kochin-koch-cfc-center-da-sanadad-engiadina-bassa-scuol"
         ],
         "en": [
           "apprentice-kitchen-cook-efz-center-da-sanadad-engiadina-bassa-scuol"
@@ -1285,6 +1311,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 62000,
       "salarySource": "estimated",
@@ -1298,8 +1325,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/1ef3689c-79c6-eae7-139e-1ad10eb84ac7"
+      "addressRegion": "GR"
     },
     {
       "id": "cseb-c39c5502febb",
@@ -1332,7 +1358,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/e9f51ab1-b60e-a609-9b43-ea1cde468af8",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.405Z",
+      "crawledAt": "2026-09-25T14:58:16.910Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1356,11 +1382,13 @@
       "previousSlugs": [
         "assistenzarztinnen-assistenzarzte-70-100-cseb-ch",
         "resident-physicians-70-100-center-da-sanadad-engiadina-bassa-scuol",
-        "assistenzarztinnen-assistenzarzte-70-100-center-da-sanadad-engiadina-bassa-scuol"
+        "assistenzarztinnen-assistenzarzte-70-100-center-da-sanadad-engiadina-bassa-scuol",
+        "assistenti-medici-70-100-center-da-sanadad-engiadina-bassa-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztinnen-assistenzarzte-70-100-cseb-ch"
+          "assistenzarztinnen-assistenzarzte-70-100-cseb-ch",
+          "assistenti-medici-70-100-center-da-sanadad-engiadina-bassa-scuol"
         ],
         "en": [
           "resident-physicians-70-100-center-da-sanadad-engiadina-bassa-scuol"
@@ -1370,6 +1398,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -1383,17 +1412,16 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/e9f51ab1-b60e-a609-9b43-ea1cde468af8"
+      "addressRegion": "GR"
     },
     {
       "id": "cseb-be71dc9f1257",
       "slug": "sito-di-simulazione-center-da-sanadad-engiadina-bassa-scuol",
       "slugByLocale": {
         "it": "sito-di-simulazione-center-da-sanadad-engiadina-bassa-scuol",
-        "en": "famulature-site-center-da-sanadad-engiadina-bassa-scuol",
+        "en": "clinical-traineeship-position-center-da-sanadad-engiadina-bassa-scuol",
         "de": "famulatur-stelle-cseb-ch",
-        "fr": "site-de-la-famille-center-da-sanadad-engiadina-bassa-scuol"
+        "fr": "poste-de-stage-clinique-center-da-sanadad-engiadina-bassa-scuol"
       },
       "company": "Center da Sanadad Engiadina Bassa",
       "companyKey": "cseb",
@@ -1417,7 +1445,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9b888521-c84d-59c9-4222-e9cc2d551af6",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.403Z",
+      "crawledAt": "2026-09-25T14:58:16.908Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1441,16 +1469,21 @@
         "famulature-position-center-da-sanadad-engiadina-bassa-scuol",
         "famulatur-stelle-center-da-sanadad-engiadina-bassa-scuol",
         "poste-de-famulature-center-da-sanadad-engiadina-bassa-scuol",
+        "famulature-site-center-da-sanadad-engiadina-bassa-scuol",
+        "site-de-la-famille-center-da-sanadad-engiadina-bassa-scuol",
+        "sito-di-simulazione-center-da-sanadad-engiadina-bassa-scuol",
         "clinical-traineeship-position-center-da-sanadad-engiadina-bassa-scuol",
         "poste-de-stage-clinique-center-da-sanadad-engiadina-bassa-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
           "famulatur-stelle-cseb-ch",
-          "famulatore-center-da-sanadad-engiadina-bassa-scuol"
+          "famulatore-center-da-sanadad-engiadina-bassa-scuol",
+          "sito-di-simulazione-center-da-sanadad-engiadina-bassa-scuol"
         ],
         "en": [
           "famulature-position-center-da-sanadad-engiadina-bassa-scuol",
+          "famulature-site-center-da-sanadad-engiadina-bassa-scuol",
           "clinical-traineeship-position-center-da-sanadad-engiadina-bassa-scuol"
         ],
         "de": [
@@ -1458,6 +1491,7 @@
         ],
         "fr": [
           "poste-de-famulature-center-da-sanadad-engiadina-bassa-scuol",
+          "site-de-la-famille-center-da-sanadad-engiadina-bassa-scuol",
           "poste-de-stage-clinique-center-da-sanadad-engiadina-bassa-scuol"
         ]
       },
@@ -1475,8 +1509,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9b888521-c84d-59c9-4222-e9cc2d551af6"
+      "addressRegion": "GR"
     },
     {
       "id": "cseb-781bb83526e4",
@@ -1509,7 +1542,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/b572e71d-482e-bc3a-6aef-b24595f38cb4",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.401Z",
+      "crawledAt": "2026-09-25T14:58:16.906Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1531,11 +1564,13 @@
         "lehrstellen-als-fachfrau-fachmann-gesundheit-efz-fage-cseb-ch",
         "healthcare-efz-fage-apprentice-center-da-sanadad-engiadina-bassa-scuol",
         "lehrstellen-als-fachfrau-fachmann-gesundheit-efz-fage-center-da-sanadad-engiadina-bassa-scuol",
-        "apprenti-en-sante-efz-fage-center-da-sanadad-engiadina-bassa-scuol"
+        "apprenti-en-sante-efz-fage-center-da-sanadad-engiadina-bassa-scuol",
+        "apprendista-in-salute-efz-fage-center-da-sanadad-engiadina-bassa-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstellen-als-fachfrau-fachmann-gesundheit-efz-fage-cseb-ch"
+          "lehrstellen-als-fachfrau-fachmann-gesundheit-efz-fage-cseb-ch",
+          "apprendista-in-salute-efz-fage-center-da-sanadad-engiadina-bassa-scuol"
         ],
         "en": [
           "healthcare-efz-fage-apprentice-center-da-sanadad-engiadina-bassa-scuol"
@@ -1548,6 +1583,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
+      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1561,8 +1597,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/b572e71d-482e-bc3a-6aef-b24595f38cb4"
+      "addressRegion": "GR"
     },
     {
       "id": "cseb-edfd069cce8c",
@@ -1595,7 +1630,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/d42b368b-500b-999e-0f77-ed4017b03b98",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:51:17.390Z",
+      "crawledAt": "2026-09-25T14:58:16.896Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1621,12 +1656,14 @@
         "mitarbeiterin-mitarbeiter-aktivierung-40-60-cseb-ch",
         "candidature-spontanee-pour-les-professions-infirmieres-soins-a-long-terme-center-da-sanadad-engiadina-bassa-scuol",
         "activation-des-employes-40-60-center-da-sanadad-engiadina-bassa-scuol",
-        "mitarbeiterin-mitarbeiter-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol"
+        "mitarbeiterin-mitarbeiter-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol",
+        "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-bassa-scuo"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spontanbewerbung-pflegeberufe-langzeitpflege-cseb-ch",
-          "mitarbeiterin-collaboratore-trice-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol"
+          "mitarbeiterin-collaboratore-trice-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol",
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-bassa-scuo"
         ],
         "en": [
           "employee-activation-40-60-center-da-sanadad-engiadina-bassa-scuol"
@@ -1654,86 +1691,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/d42b368b-500b-999e-0f77-ed4017b03b98"
-    },
-    {
-      "id": "cseb-e54bb7dc202c",
-      "slug": "responsabile-komplementarmedizinische-therapie-50-70-center-da-sanadad-engiadina-bassa-scuol",
-      "slugByLocale": {
-        "it": "responsabile-komplementarmedizinische-therapie-50-70-center-da-sanadad-engiadina-bassa-scuol",
-        "en": "leiter-in-komplementarmedizinische-therapie-50-70-center-da-sanadad-engiadina-bassa-scuol",
-        "de": "leiter-in-komplementarmedizinische-therapie-50-70-cseb-ch",
-        "fr": "leiter-in-komplementarmedizinische-therapie-50-70-center-da-sanadad-engiadina-bassa-scuol"
-      },
-      "company": "Center da Sanadad Engiadina Bassa",
-      "companyKey": "cseb",
-      "companyDomain": "cseb.ch",
-      "title": "Leiter/-in komplementärmedizinische Therapie (50-70%)",
-      "titleByLocale": {
-        "it": "Responsabile della terapia complementare (50-70%)",
-        "en": "Head of Complementary Medicine Therapy (50-70%)",
-        "de": "Leiter/-in komplementärmedizinische Therapie (50-70%)",
-        "fr": "Responsable de la thérapie en médecine complémentaire (50-70%)"
-      },
-      "description": "Im Rahmen der Nachfolgeregelung suchen wir infolge Pensionierung der bisherigen Stelleninhaberin per 1. Januar 2027 oder nach Vereinbarung eine engagierte Persönlichkeit für die Leitung des Bereichs Komplementärtherapie. Gemeinsam mit Ihnen möchten wir die Zukunft der komplementärmedizinischen und anthroposophischen Therapie weiterentwickeln und die stationäre Schmerztherapie aufbauen.\n\nAufgaben:\nHauptaufgaben\n\n• Sie übernehmen die fachliche und organisatorische Leitung des Bereichs Komplementärtherapie\n\n• Sie führen, begleiten und fördern Ihr Team und schaffen ein wertschätzendes Arbeitsumfeld, in dem sich Mitarbeitende entwickeln können\n\n• Sie unterstützen bei der Personaleinsatzplanung, der Rekrutierung neuer Mitarbeitender sowie deren Einführung und Einarbeitung\n\n• Sie sorgen für gut organisierte Abläufe und einen reibungslosen Betrieb im Alltag\n\n• Sie bringen sich aktiv in die Weiterentwicklung des Fachbereichs sowie in Qualitäts- und Organisationsprojekte ein\n\n• Sie arbeiten eng mit &Auml;rztinnen und &Auml;rzten, Pflegefachpersonen, Therapeutinnen und Therapeuten sowie weiteren Berufsgruppen zusammen\n\n• Sie vertreten die Komplementärtherapie in interdisziplinären Gremien und teilen Ihr Fachwissen mit Kolleginnen und Kollegen\n\n• Sie bleiben in Ihrem therapeutischen Spezialgebiet tätig und begleiten Patientinnen und Patienten auch weiterhin direkt in der Behandlung\n\n• Mitgestaltung innovativer Projekte\n\nAnforderungen:\nAnforderungsprofil\n\n• Sie verfügen über die Höhere Fachprüfung Komplementärtherapie (HFP) oder sind bereit, diese zu absolvieren\n\n• Sie besitzen idealerweise, eine Anerkennung bei EMR, ASCA und/oder EGK\n\n• Sie haben bereits Führungserfahrung oder möchten sich gezielt in diesem Bereich weiterentwickeln\n\n• Sie bringen ein eigenes anthroposophisch-komplementärtherapeutisches Spezialgebiet mit\n\n• Sie kommunizieren offen, wertschätzend und begegnen Menschen mit Empathie und Respekt\n\n• Die Zusammenarbeit in einem interprofessionellen Umfeld bereitet Ihnen Freude\n\n• Sie arbeiten strukturiert, verantwortungsbewusst und behalten auch in anspruchsvollen Situationen den Überblick\n\n• Sie bringen Organisationsgeschick, Eigeninitiative und die Fähigkeit mit, Entscheidungen klar und verbindlich umzusetzen\n\nWir bieten:\nUnser Angebot\n\n• Verantwortungsvolle Funktion (Kaderstelle) mit grossem Gestaltungsspielraum\n\n• Klar strukturierte Arbeitszeiten, hohe Lebensqualität in einer Ferienregion mit vielseitigen Erholungs- und Sportmöglichkeiten\n\n• Integration in ein engagiertes, multiprofessionelles Team in einem inspirierenden Umfeld im Engadin\n\n• Ausgezeichnete Zusammenarbeit mit dem Ospidal und den anderen Teilbetrieben des Gesundheitszentrums\n\n• Interdisziplinäres Arbeitsumfeld mit kurzen Entscheidungswegen\n\n• Attraktive Anstellungsbedingungen und Unterstützung bei Fort- und Weiterbildung\n\n• Möglichkeit zur Entwicklung integrativer Konzepte in der Schmerzmedizin\n\nUnter dem Dach «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg. In der Nationalparkregion erwartet Sie eine wunderbare Umgebung mit vielseitigen Erholungs- und Sportmöglichkeiten.\n\nDie Angebote des Regionalspitals, des Rettungsdienstes, der Rehabilitationsklinik, der Spitex, der Pflegegruppen, der Pflegeheime und des Mineralbads Bogn Engiadina werden optimal aufeinander abgestimmt. Mit diesem integrierten Versorgungsmodell hat das CSEB in der Region und über die Landesgrenzen hinaus Pionierarbeit geleistet.\n\nDie Clinica Curativa vereint schulmedizinische Exzellenz mit komplementärmedizinischen Kompetenzen. Unsere integrative Klinik steht für eine patientenzentrierte und ganzheitliche Behandlung in den Bereichen Komplementärmedizin, Psychosomatik und Onkologie. Sie befindet sich im Aufbau eines innovativen und integrativen Schmerzzentrums, das Patientinnen und Patienten mit akuten und chronischen Schmerzen in einem interdisziplinären und multimodalen Setting stationär betreut.\n\nFür weitere Auskünfte stehen Ihnen Rita Schönthaler, aktuelle Stelleninhaberin, Telefonnummer +41 81 861 13 42 und Aldo Sala, Leitung Medizinische Dienste, Telefon +41 81 861 10 41, gerne zur Verfügung.\n\nWir freuen uns auf Ihre Online-Bewerbung.",
-      "descriptionByLocale": {
-        "it": "Nell'ambito della pianificazione della successione, cerchiamo, a seguito del pensionamento dell'attuale titolare della posizione, una persona impegnata per la direzione dell'area di terapia complementare a partire dal 1° gennaio 2027 o secondo accordi. Insieme a voi, desideriamo sviluppare ulteriormente il futuro della terapia complementare e antroposofica e costruire la terapia del dolore stazionaria.\n\nCompiti:\nPrincipali compiti\n\n• Assumete la direzione tecnica e organizzativa dell'area di terapia complementare\n\n• Guidate, accompagnate e promuovete il vostro team, creando un ambiente di lavoro rispettoso in cui i collaboratori possano svilupparsi\n\n• Supportate la pianificazione dell'impiego del personale, il reclutamento di nuovi collaboratori, nonché la loro introduzione e formazione\n\n• Garantite processi ben organizzati e un funzionamento quotidiano senza intoppi\n\n• Partecipate attivamente allo sviluppo del settore, nonché a progetti di qualità e organizzazione\n\n• Collaborate strettamente con medici, infermieri, terapisti e altri gruppi professionali\n\n• Rappresentate la terapia complementare in comitati interdisciplinari e condividete le vostre conoscenze con colleghi e colleghe\n\n• Continuate a lavorare nel vostro campo terapeutico di specializzazione e accompagnate direttamente i pazienti nel trattamento\n\n• Contribuite alla realizzazione di progetti innovativi\n\nRequisiti:\nProfilo richiesto\n\n• Possedete l'esame professionale superiore di terapia complementare (HFP) o siete disposti a conseguirlo\n\n• Possedete idealmente un riconoscimento presso EMR, ASCA e/o EGK\n\n• Avete già esperienza di leadership o desiderate svilupparvi in questo ambito\n\n• Portate con voi un proprio campo di specializzazione antroposofico-complementare\n\n• Comunicate apertamente, con rispetto e incontrate le persone con empatia\n\n• Vi piace collaborare in un ambiente interprofessionale\n\n• Lavorate in modo strutturato, responsabile e mantenete la calma anche in situazioni impegnative\n\n• Possedete capacità organizzative, iniziativa personale e la capacità di prendere decisioni chiare e vincolanti\n\nOffriamo:\nLa nostra offerta\n\n• Funzione di responsabilità (posizione dirigenziale) con ampio margine di manovra\n\n• Orari di lavoro chiaramente strutturati, alta qualità della vita in una regione turistica con molteplici possibilità di svago e sport\n\n• Integrazione in un team impegnato e multiprofessionale in un ambiente stimolante nell'Engadina\n\n• Eccellente collaborazione con l'ospedale e le altre unità operative del centro sanitario\n\n• Ambiente di lavoro interdisciplinare con brevi tempi di decisione\n\n• Condizioni di impiego attraenti e supporto per la formazione e il perfezionamento\n\n• Possibilità di sviluppare concetti integrativi nella medicina del dolore\n\nSotto il tetto «Center da sandà Engiadina Bassa» (CSEB) / «Centro sanitario dell'Engadina Bassa», importanti fornitori regionali nei settori dell'assistenza sanitaria e del benessere seguono un percorso comune. Nella regione del Parco Nazionale vi aspetta un ambiente meraviglioso con molteplici possibilità di svago e sport.\n\nLe offerte dell'ospedale regionale, del servizio di emergenza, della clinica di riabilitazione, della Spitex, dei gruppi di assistenza, delle case di riposo e delle terme Bogn Engiadina sono ottimamente coordinate. Con questo modello di assistenza integrata, il CSEB ha svolto un lavoro pionieristico nella regione e oltre i confini nazionali.\n\nLa Clinica Curativa unisce l'eccellenza della medicina tradizionale con le competenze della medicina complementare. La nostra clinica integrativa si distingue per un trattamento centrato sul paziente e olistico nei settori della medicina complementare, psicosomatica e oncologia. È in fase di sviluppo un centro innovativo e integrativo per il trattamento del dolore, che si occupa di pazienti con dolori acuti e cronici in un contesto interdisciplinare e multimodale.\n\nPer ulteriori informazioni, Rita Schönthaler, attuale titolare della posizione, telefono +41 81 861 13 42, e Aldo Sala, Direttore dei Servizi Medici, telefono +41 81 861 10 41, sono a vostra disposizione.\n\nAttendiamo con piacere la vostra candidatura online.",
-        "en": "As part of succession planning, we are seeking a committed individual to lead the complementary therapy department starting January 1, 2027, or as agreed, following the retirement of the current position holder. Together, we aim to further develop the future of complementary and anthroposophical therapy and establish inpatient pain therapy.\n\nResponsibilities:\nMain tasks\n\n• You will take on the technical and organizational leadership of the complementary therapy department\n\n• You will lead, support, and promote your team, creating a respectful work environment where employees can thrive\n\n• You will assist with staff deployment planning, recruitment of new employees, and their onboarding and training\n\n• You will ensure well-organized processes and smooth daily operations\n\n• You will actively contribute to the development of the department as well as quality and organizational projects\n\n• You will collaborate closely with physicians, nursing staff, therapists, and other professional groups\n\n• You will represent complementary therapy in interdisciplinary committees and share your expertise with colleagues\n\n• You will continue to work in your therapeutic specialty and directly support patients in treatment\n\n• You will contribute to the development of innovative projects\n\nRequirements:\nProfile requirements\n\n• You hold the Advanced Federal Diploma of Higher Education in Complementary Therapy (HFP) or are willing to obtain it\n\n• Ideally, you have recognition from EMR, ASCA, and/or EGK\n\n• You have leadership experience or are keen to develop in this area\n\n• You bring your own anthroposophical-complementary therapeutic specialty\n\n• You communicate openly, respectfully, and approach people with empathy\n\n• You enjoy working in an interdisciplinary environment\n\n• You work in a structured and responsible manner, maintaining composure in challenging situations\n\n• You possess organizational skills, initiative, and the ability to make clear and decisive decisions\n\nWe offer:\nOur offer\n\n• A responsible position (management role) with significant creative freedom\n\n• Clearly structured working hours, high quality of life in a vacation region with diverse recreational and sports opportunities\n\n• Integration into a committed, multiprofessional team in an inspiring environment in the Engadine\n\n• Excellent collaboration with the hospital and other operational units of the health center\n\n• Interdisciplinary work environment with short decision-making paths\n\n• Attractive employment conditions and support for further education and training\n\n• Opportunity to develop integrative concepts in pain medicine\n\nUnder the umbrella of the \"Center da sandà Engiadina Bassa\" (CSEB) / \"Gesundheitszentrum Unterengadin,\" key regional providers in healthcare and wellness are working together. In the National Park region, you will find a wonderful environment with diverse recreational and sports opportunities.\n\nThe offerings of the regional hospital, emergency services, rehabilitation clinic, Spitex, care groups, nursing homes, and the Bogn Engiadina mineral baths are optimally coordinated. With this integrated care model, CSEB has been a pioneer in the region and beyond national borders.\n\nClinica Curativa combines excellence in conventional medicine with complementary medicine expertise. Our integrative clinic stands for patient-centered and holistic treatment in the fields of complementary medicine, psychosomatics, and oncology. It is currently developing an innovative and integrative pain center that provides inpatient care for patients with acute and chronic pain in an interdisciplinary and multimodal setting.\n\nFor further information, Rita Schönthaler, current position holder, phone +41 81 861 13 42, and Aldo Sala, Head of Medical Services, phone +41 81 861 10 41, are happy to assist you.\n\nWe look forward to receiving your online application.",
-        "de": "Im Rahmen der Nachfolgeregelung suchen wir infolge Pensionierung der bisherigen Stelleninhaberin per 1. Januar 2027 oder nach Vereinbarung eine engagierte Persönlichkeit für die Leitung des Bereichs Komplementärtherapie. Gemeinsam mit Ihnen möchten wir die Zukunft der komplementärmedizinischen und anthroposophischen Therapie weiterentwickeln und die stationäre Schmerztherapie aufbauen.\n\nAufgaben:\nHauptaufgaben\n\n• Sie übernehmen die fachliche und organisatorische Leitung des Bereichs Komplementärtherapie\n\n• Sie führen, begleiten und fördern Ihr Team und schaffen ein wertschätzendes Arbeitsumfeld, in dem sich Mitarbeitende entwickeln können\n\n• Sie unterstützen bei der Personaleinsatzplanung, der Rekrutierung neuer Mitarbeitender sowie deren Einführung und Einarbeitung\n\n• Sie sorgen für gut organisierte Abläufe und einen reibungslosen Betrieb im Alltag\n\n• Sie bringen sich aktiv in die Weiterentwicklung des Fachbereichs sowie in Qualitäts- und Organisationsprojekte ein\n\n• Sie arbeiten eng mit &Auml;rztinnen und &Auml;rzten, Pflegefachpersonen, Therapeutinnen und Therapeuten sowie weiteren Berufsgruppen zusammen\n\n• Sie vertreten die Komplementärtherapie in interdisziplinären Gremien und teilen Ihr Fachwissen mit Kolleginnen und Kollegen\n\n• Sie bleiben in Ihrem therapeutischen Spezialgebiet tätig und begleiten Patientinnen und Patienten auch weiterhin direkt in der Behandlung\n\n• Mitgestaltung innovativer Projekte\n\nAnforderungen:\nAnforderungsprofil\n\n• Sie verfügen über die Höhere Fachprüfung Komplementärtherapie (HFP) oder sind bereit, diese zu absolvieren\n\n• Sie besitzen idealerweise, eine Anerkennung bei EMR, ASCA und/oder EGK\n\n• Sie haben bereits Führungserfahrung oder möchten sich gezielt in diesem Bereich weiterentwickeln\n\n• Sie bringen ein eigenes anthroposophisch-komplementärtherapeutisches Spezialgebiet mit\n\n• Sie kommunizieren offen, wertschätzend und begegnen Menschen mit Empathie und Respekt\n\n• Die Zusammenarbeit in einem interprofessionellen Umfeld bereitet Ihnen Freude\n\n• Sie arbeiten strukturiert, verantwortungsbewusst und behalten auch in anspruchsvollen Situationen den Überblick\n\n• Sie bringen Organisationsgeschick, Eigeninitiative und die Fähigkeit mit, Entscheidungen klar und verbindlich umzusetzen\n\nWir bieten:\nUnser Angebot\n\n• Verantwortungsvolle Funktion (Kaderstelle) mit grossem Gestaltungsspielraum\n\n• Klar strukturierte Arbeitszeiten, hohe Lebensqualität in einer Ferienregion mit vielseitigen Erholungs- und Sportmöglichkeiten\n\n• Integration in ein engagiertes, multiprofessionelles Team in einem inspirierenden Umfeld im Engadin\n\n• Ausgezeichnete Zusammenarbeit mit dem Ospidal und den anderen Teilbetrieben des Gesundheitszentrums\n\n• Interdisziplinäres Arbeitsumfeld mit kurzen Entscheidungswegen\n\n• Attraktive Anstellungsbedingungen und Unterstützung bei Fort- und Weiterbildung\n\n• Möglichkeit zur Entwicklung integrativer Konzepte in der Schmerzmedizin\n\nUnter dem Dach «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg. In der Nationalparkregion erwartet Sie eine wunderbare Umgebung mit vielseitigen Erholungs- und Sportmöglichkeiten.\n\nDie Angebote des Regionalspitals, des Rettungsdienstes, der Rehabilitationsklinik, der Spitex, der Pflegegruppen, der Pflegeheime und des Mineralbads Bogn Engiadina werden optimal aufeinander abgestimmt. Mit diesem integrierten Versorgungsmodell hat das CSEB in der Region und über die Landesgrenzen hinaus Pionierarbeit geleistet.\n\nDie Clinica Curativa vereint schulmedizinische Exzellenz mit komplementärmedizinischen Kompetenzen. Unsere integrative Klinik steht für eine patientenzentrierte und ganzheitliche Behandlung in den Bereichen Komplementärmedizin, Psychosomatik und Onkologie. Sie befindet sich im Aufbau eines innovativen und integrativen Schmerzzentrums, das Patientinnen und Patienten mit akuten und chronischen Schmerzen in einem interdisziplinären und multimodalen Setting stationär betreut.\n\nFür weitere Auskünfte stehen Ihnen Rita Schönthaler, aktuelle Stelleninhaberin, Telefonnummer +41 81 861 13 42 und Aldo Sala, Leitung Medizinische Dienste, Telefon +41 81 861 10 41, gerne zur Verfügung.\n\nWir freuen uns auf Ihre Online-Bewerbung.",
-        "fr": "Dans le cadre de la planification de la succession, nous recherchons une personne engagée pour diriger le département de thérapie complémentaire à partir du 1er janvier 2027 ou selon accord, suite au départ à la retraite de l'actuelle titulaire du poste. Ensemble, nous souhaitons développer l'avenir de la thérapie complémentaire et anthroposophique et mettre en place une thérapie de la douleur en hospitalisation.\n\nResponsabilités :\nTâches principales\n\n• Vous assumez la direction technique et organisationnelle du département de thérapie complémentaire\n\n• Vous dirigez, accompagnez et encouragez votre équipe, en créant un environnement de travail respectueux où les collaborateurs peuvent s'épanouir\n\n• Vous participez à la planification des affectations du personnel, au recrutement de nouveaux collaborateurs ainsi qu'à leur intégration et formation\n\n• Vous assurez des processus bien organisés et un fonctionnement quotidien fluide\n\n• Vous contribuez activement au développement du département ainsi qu'à des projets de qualité et d'organisation\n\n• Vous collaborez étroitement avec les médecins, le personnel soignant, les thérapeutes et d'autres groupes professionnels\n\n• Vous représentez la thérapie complémentaire dans des comités interdisciplinaires et partagez votre expertise avec vos collègues\n\n• Vous continuez à travailler dans votre spécialité thérapeutique et accompagnez directement les patients dans leur traitement\n\n• Vous participez à la réalisation de projets innovants\n\nExigences :\nProfil requis\n\n• Vous possédez le Diplôme Fédéral Supérieur en Thérapie Complémentaire (HFP) ou êtes prêt(e) à l'obtenir\n\n• Vous disposez idéalement d'une reconnaissance auprès de EMR, ASCA et/ou EGK\n\n• Vous avez déjà une expérience en gestion ou souhaitez vous développer dans ce domaine\n\n• Vous apportez une spécialité thérapeutique anthroposophique et complémentaire\n\n• Vous communiquez de manière ouverte, respectueuse et faites preuve d'empathie\n\n• Vous appréciez travailler dans un environnement interprofessionnel\n\n• Vous travaillez de manière structurée, responsable et gardez votre calme même dans des situations exigeantes\n\n• Vous avez des compétences organisationnelles, de l'initiative personnelle et la capacité de prendre des décisions claires et engageantes\n\nNous offrons :\nNotre offre\n\n• Poste à responsabilité (fonction cadre) avec une grande liberté de création\n\n• Horaires de travail clairement structurés, qualité de vie élevée dans une région touristique offrant de nombreuses possibilités de loisirs et de sport\n\n• Intégration dans une équipe engagée et multiprofessionnelle dans un environnement inspirant en Engadine\n\n• Collaboration excellente avec l'hôpital et les autres unités opérationnelles du centre de santé\n\n• Environnement de travail interdisciplinaire avec des processus décisionnels rapides\n\n• Conditions d'emploi attractives et soutien pour la formation et le perfectionnement\n\n• Possibilité de développer des concepts intégratifs en médecine de la douleur\n\nSous l'égide du « Center da sandà Engiadina Bassa » (CSEB) / « Centre de santé de la Basse-Engadine », des prestataires régionaux clés dans les domaines des soins de santé et du bien-être travaillent ensemble. Dans la région du Parc National, vous trouverez un environnement merveilleux avec de nombreuses possibilités de loisirs et de sport.\n\nLes offres de l'hôpital régional, du service d'urgence, de la clinique de réhabilitation, de Spitex, des groupes de soins, des maisons de retraite et des bains minéraux Bogn Engiadina sont parfaitement coordonnées. Avec ce modèle de soins intégrés, le CSEB a été pionnier dans la région et au-delà des frontières nationales.\n\nLa Clinica Curativa combine l'excellence de la médecine conventionnelle avec les compétences de la médecine complémentaire. Notre clinique intégrative se distingue par un traitement centré sur le patient et holistique dans les domaines de la médecine complémentaire, de la psychosomatique et de l'oncologie. Elle est en train de développer un centre innovant et intégratif pour le traitement de la douleur, qui prend en charge les patients souffrant de douleurs aiguës et chroniques dans un cadre interdisciplinaire et multimodal.\n\nPour plus d'informations, Rita Schönthaler, actuelle titulaire du poste, téléphone +41 81 861 13 42, et Aldo Sala, Directeur des Services Médicaux, téléphone +41 81 861 10 41, se tiennent à votre disposition.\n\nNous nous réjouissons de recevoir votre candidature en ligne."
-      },
-      "location": "Scuol",
-      "canton": "GR",
-      "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/e85699a6-f2e8-24ee-fc5b-541e90c75e7d",
-      "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:16:35.782Z",
-      "addressLocality": "Scuol",
-      "postalCode": "7550",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Terapia",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-22",
-      "applyUrl": "https://jobs.cseb.ch/application-process/d9c5a048-f665-4e64-a2c7-cdd8231bac77/e85699a6-f2e8-24ee-fc5b-541e90c75e7d",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "streetAddress": "Via da l'Ospidal 280",
-      "pensumMin": 50,
-      "pensumMax": 70,
-      "pensum": "50 - 70%",
-      "contactPerson": "Corsina Feuerstein Betschart",
-      "previousSlugs": [
-        "leiter-in-komplementarmedizinische-therapie-50-70-cseb-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leiter-in-komplementarmedizinische-therapie-50-70-cseb-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-22T14:09:32.562Z",
-      "salaryMin": 77400,
-      "salaryMax": 107800,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77400,
-          "maxValue": 107800,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "crawlerMissStreak": 2,
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/e85699a6-f2e8-24ee-fc5b-541e90c75e7d"
+      "addressRegion": "GR"
     }
   ]
 }
