@@ -196,7 +196,16 @@ function readShardDocument(filePath) {
   if (!fs.existsSync(filePath)) return { exists: false, ok: true, entries: [] };
   const parsed = readJson(filePath);
   if (!parsed || !Array.isArray(parsed.entries)) return { exists: true, ok: false, entries: [] };
-  return { exists: true, ok: true, entries: historyEntries(parsed) };
+  const entries = historyEntries(parsed);
+  if (parsed.entries.length > 0 && entries.length === 0) {
+    return {
+      exists: true,
+      ok: false,
+      reason: 'no-valid-date-entries',
+      entries: [],
+    };
+  }
+  return { exists: true, ok: true, entries };
 }
 
 function isCompactedHistoryEntry(entry = {}) {
@@ -228,6 +237,36 @@ function hasSameHistoryCounters(previous = {}, next = {}) {
     && ['totalJobs', 'added', 'updated', 'removed'].every((field) =>
       numeric(previous[field]) === numeric(next[field])
     );
+}
+
+function preservesCompactionPayload(previous = {}, next = {}) {
+  if (!Array.isArray(previous.addedKeys) || !Array.isArray(next.addedKeys)) return false;
+
+  const nextAddedKeys = new Set(sortedUniqueStrings(next.addedKeys));
+  if (!sortedUniqueStrings(previous.addedKeys).every((key) => nextAddedKeys.has(key))) return false;
+
+  return ['companyStats', 'locationStats', 'titleStats'].every((bucket) => {
+    const previousItems = Array.isArray(previous[bucket]) ? previous[bucket] : [];
+    const nextItems = Array.isArray(next[bucket]) ? next[bucket] : [];
+
+    return previousItems.every((previousItem) => {
+      const previousIdentity = String(previousItem?.key || previousItem?.name || '');
+      const previousAddedKeys = sortedUniqueStrings(previousItem?.addedKeys);
+
+      return nextItems.some((nextItem) => {
+        const sameIdentity = previousIdentity !== ''
+          && String(nextItem?.key || nextItem?.name || '') === previousIdentity;
+        const nextItemAddedKeys = sortedUniqueStrings(nextItem?.addedKeys);
+        const preservesAddedKeys = previousAddedKeys.every((key) => nextItemAddedKeys.includes(key));
+
+        // Locale migration can change a title key/name, so its stable added
+        // job keys are also an acceptable identity. The payload itself must
+        // still survive; matching an empty replacement is never enough.
+        return preservesAddedKeys
+          && (sameIdentity || previousAddedKeys.length > 0);
+      });
+    });
+  });
 }
 
 function readShardedHistory(rootDir) {
@@ -302,6 +341,11 @@ export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), opt
   for (const shardFile of listJobStatsHistoryShardFiles(rootDir)) {
     const existing = readShardDocument(shardFile);
     if (!existing.ok) {
+      if (existing.reason === 'no-valid-date-entries') {
+        throw new Error(
+          `Cannot safely update job stats shard with non-empty entries but no valid dates: ${shardFile}`,
+        );
+      }
       if (shardFile === filePath) {
         throw new Error(`Cannot safely update corrupt job stats shard: ${shardFile}`);
       }
@@ -334,7 +378,8 @@ export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), opt
     const isControlledHistoricalRewrite = date < currentDate
       && existing.ok
       && hasSameHistoryCounters(existingEntry || {}, entry)
-      && isCompactedHistoryEntry(entry);
+      && isCompactedHistoryEntry(entry)
+      && preservesCompactionPayload(existingEntry || {}, entry);
     if (fs.existsSync(shardFile) && !isControlledHistoricalRewrite) {
       assertAccumulatorByteFloor(
         fs.statSync(shardFile).size,
