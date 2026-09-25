@@ -36,7 +36,11 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
-import { fetchHtmlViaJinaWithRetry, rescueHtmlIfChallenged } from './jina-proxy.mjs';
+import {
+  fetchHtmlViaJinaWithRetry,
+  looksLikeAntiBotChallenge,
+  rescueHtmlIfChallenged,
+} from './jina-proxy.mjs';
 
 export const CIC_KEY = 'clinique-cic';
 export const CIC_COMPANY_NAME = 'Clinique CIC (Saxon & Clarens)';
@@ -45,6 +49,13 @@ export const CIC_COMPANY_DOMAIN = 'cliniquecic-saxon.ch';
 const MASK_URL = 'https://www.jobup.ch/masks/clinique-cic/list_clinique-cic.asp';
 const PUBLIC_CAREER_URL = 'https://www.cliniquecic-saxon.ch/fr/emplois';
 const DETAIL_DELAY_MS = 250;
+
+function assertUsableMaskHtml(html, url) {
+  if (looksLikeAntiBotChallenge(html)) {
+    throw new Error(`Unrecovered anti-bot challenge from ${url}`);
+  }
+  return html;
+}
 
 export function isCicJob(job) {
   const url = String(job?.url || '').toLowerCase();
@@ -86,7 +97,8 @@ async function fetchMaskHtml(url) {
       // (è, é, à, …) render correctly downstream.
       const buf = await res.arrayBuffer();
       const html = new TextDecoder('iso-8859-1').decode(buf);
-      return await rescueHtmlIfChallenged(html, url, { timeoutMs });
+      const rescued = await rescueHtmlIfChallenged(html, url, { timeoutMs });
+      return assertUsableMaskHtml(rescued, url);
     }
     directErr = new Error(`HTTP ${res.status} from ${url}`);
   } catch (err) {
@@ -98,7 +110,7 @@ async function fetchMaskHtml(url) {
   // gets 200). Re-fetch through Jina's clean IP pool so the data IS collected.
   // The mask is iso-8859-1 on the wire; Jina normalises to a correct JS string.
   const viaJina = await fetchHtmlViaJinaWithRetry(url, { timeoutMs });
-  if (viaJina != null) return viaJina;
+  if (viaJina != null) return assertUsableMaskHtml(viaJina, url);
   throw directErr;
 }
 
