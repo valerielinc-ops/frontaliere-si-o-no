@@ -11987,6 +11987,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chiusura-gazzada-varese-ss707.title': 'Voie rapide Gazzada-Varese fermée le 24 septembre',
     'blog.article.chiusura-gazzada-varese-ss707.excerpt': 'Le SS 707 Raccord Gazzada-Varese sera fermé vers Varese de 9h à 17h entre le km 3+100 et le km 4+500 pour travaux Anas.',
     'blog.article.chiusura-gazzada-varese-ss707.imageAlt': 'Fermeture de la SS 707 Gazzada-Varese en direction de Varese',
+    'blog.article.roberto-gatti-11-promozioni-podcast.title': 'Roberto Gatti à Figli di un gol minore : 11 promotions',
+    'blog.article.roberto-gatti-11-promozioni-podcast.excerpt': 'L\'ancien footballeur et entraîneur de Varèse raconte les onze promotions obtenues avec Chiasso, Lugano et Solbiatese dans le podcast de VareseNews.',
+    'blog.article.roberto-gatti-11-promozioni-podcast.imageAlt': 'Stade de football à Lugano avec arrière-plan montagneux',
 };
 
 export default blogMetaFr;

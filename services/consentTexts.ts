@@ -626,18 +626,12 @@ export type ConsentProofInput = {
  * `displayed` is supplied by the caller because an inline signup notice and a
  * background authentication restore do not make the same UI claim. Both use
  * the same versioned wording; neither needs a separate checkbox.
- *
- * `key` names the notice that was actually on screen when the caller knows it
- * (the sign-in path reads it off the rendered `data-consent-key`), so the
- * stored sentence and version are the ones the person saw. Without it the
- * governing formula is `communicationsOptIn`, the one every gate renders.
  */
 export function registrationTermsProof(
   locale?: string,
   displayed = false,
-  key: ConsentTextKey = 'communicationsOptIn',
 ): ConsentProofInput {
-  const proof = consentProof(key, REGISTRATION_TERMS_CONSENT_METHOD, locale);
+  const proof = consentProof('communicationsOptIn', REGISTRATION_TERMS_CONSENT_METHOD, locale);
   return {
     ...proof,
     consentTextDisplayed: displayed,
@@ -656,11 +650,7 @@ export function registrationTermsProof(
  * account from the One Tap prompt of a plain page is `auth_one_tap`.
  *
  * `component` is the attribution a sign-in surface parks (`source_component`);
- * the entries are exactly the components that start a login today. Whether a
- * notice was displayed is NOT derived from this table: that is measured on the
- * page at the moment of the act (see `captureConsentNoticeEvidence` in
- * services/authService.ts), so a surface name can never manufacture a
- * displayed flag.
+ * the entries are exactly the components that start a login today.
  */
 export const CONSENT_SURFACE_BY_COMPONENT: Readonly<Record<string, string>> = Object.freeze({
   JobBoard: 'job_gate',
@@ -708,41 +698,6 @@ export function consentSurfaceFor(opts: {
   if (byComponent) return byComponent;
   const channel = String(opts.channel || '').trim().toLowerCase();
   return SURFACE_TOKEN_RE.test(channel) ? channel : null;
-}
-
-/** What a sign-in surface had on screen, read off `data-consent-key`. */
-export type DisplayedNoticeEvidence = {
-  readonly displayed: boolean;
-  readonly key?: string | null;
-  readonly text?: string | null;
-};
-
-/**
- * Turn on-screen evidence into the register entry that was shown.
- *
- * `displayed` survives only when the element named a register entry that is
- * itself rendered (`displayed: true`) — a `data-consent-key` pointing at a
- * historical formula cannot turn into a claim. The locale is the one whose
- * sentence equals the text that was on screen; when the text matches none of
- * them (a partially rendered node) the caller's locale is kept and the
- * displayed flag is dropped, because the bytes we would store are not
- * provably the bytes that were read.
- */
-export function resolveDisplayedNotice(
-  evidence: DisplayedNoticeEvidence | null | undefined,
-  fallbackLocale?: string | null,
-): { displayed: boolean; key: ConsentTextKey; locale: ConsentLocale } {
-  const locale = consentLocale(fallbackLocale);
-  const key = evidence?.key && Object.prototype.hasOwnProperty.call(CONSENT_TEXTS, evidence.key)
-    ? evidence.key as ConsentTextKey
-    : null;
-  if (!evidence?.displayed || !key || !CONSENT_TEXTS[key].displayed) {
-    return { displayed: false, key: 'communicationsOptIn', locale };
-  }
-  const shown = String(evidence.text || '').replace(/\s+/g, ' ').trim();
-  const match = CONSENT_LOCALES.find((l) => consentDisplayText(key, l) === shown);
-  if (!match) return { displayed: false, key: 'communicationsOptIn', locale };
-  return { displayed: true, key, locale: match };
 }
 
 /**

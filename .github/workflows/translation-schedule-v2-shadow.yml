@@ -23,6 +23,7 @@ on:
 
 permissions:
   contents: write
+  actions: read
   # The shadow lane had no failure reporting at all, which is why it ran red on
   # every single run from its first (2026-09-12) to 2026-09-18 without anyone
   # being told. `github-issue-creator.mjs` dedups on a stable title, so a
@@ -51,6 +52,7 @@ jobs:
       TRANSLATION_SHADOW_MAX_UNITS: ${{ inputs.max_units || '25' }}
       TRANSLATION_STATE_REMOTE_V2: origin
       TRANSLATION_STATE_REF_V2: refs/heads/translation-state-v2
+      TRANSLATION_SHADOW_WORKFLOW_FILE: .github/workflows/translation-schedule-v2-shadow.yml
     steps:
       - name: Check out source data and runtime
         uses: actions/checkout@v5
@@ -89,11 +91,35 @@ jobs:
           git diff --exit-code -- .
           git diff --cached --exit-code -- .
 
+      - name: Verify live translation generation series
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRANSLATION_GENERATION_TALLY_PATH: ${{ runner.temp }}/translation-generation-live-tally.json
+        run: |
+          echo "TRANSLATION_GENERATION_TALLY_PATH=$TRANSLATION_GENERATION_TALLY_PATH" >> "$GITHUB_ENV"
+          node scripts/audit-translation-generation-live-tally.mjs \
+            --workflow .github/workflows/translation-schedule-v2-shadow.yml \
+            --required 14 \
+            --repository "$GITHUB_REPOSITORY" \
+            --state-ref "$TRANSLATION_STATE_REF_V2" \
+            --current-report "$TRANSLATION_SHADOW_REPORT_PATH" \
+            --report "$TRANSLATION_GENERATION_TALLY_PATH" \
+            --runner-temp "$RUNNER_TEMP" \
+            --json
+
       - name: Upload scheduler metrics
         uses: actions/upload-artifact@v7
         with:
           name: translation-scheduler-v2-shadow
           path: ${{ env.TRANSLATION_SHADOW_REPORT_PATH }}
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload live generation tally
+        uses: actions/upload-artifact@v7
+        with:
+          name: translation-generation-live-tally
+          path: ${{ env.TRANSLATION_GENERATION_TALLY_PATH }}
           if-no-files-found: error
           retention-days: 14
 
