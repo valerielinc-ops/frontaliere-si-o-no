@@ -165,9 +165,11 @@ describe('salaryLandingShell · buildSalaryLandingBody', () => {
     });
     expect(html).toMatch(/80['. \s]?000/);
     // Net is now derived from calculateSimulation (single-A0 base variant,
-    // WITHIN_20KM): CHF 48'156 net / EUR 52'779, matching the over-20km hub.
-    expect(html).toMatch(/48['. \s]?156/);
-    expect(html).toMatch(/52['. \s]?779/);
+    // WITHIN_20KM): CHF 48'557 net / EUR 53'218, matching the over-20km hub.
+    // 2026 IRPEF second bracket at 33% (L. 199/2025): EUR 440 less IRPEF than
+    // with 35% (was CHF 48'156 / EUR 52'779).
+    expect(html).toMatch(/48['. \s]?557/);
+    expect(html).toMatch(/53['. \s]?218/);
   });
 
   it('shipsh bespoke data for the 4 new orphan hubs', () => {
@@ -260,7 +262,7 @@ describe('salaryLandingShell · salary-tier variants derive from calculateSimula
     expect(oldNet).toBeGreaterThan(newNet); // grandfathered keeps more
     // Spot-check the exact calculator-derived figures (guards against drift).
     expect(oldNet).toBe(61840);
-    expect(marriedNet).toBe(53888);
+    expect(marriedNet).toBe(54290); // 53888 with the pre-2026 35% bracket (+EUR 440 / 1.096)
   });
 
   it('table caption is variant-aware (no "single A0" on old/married pages)', () => {

@@ -15,6 +15,8 @@ import {
   appendJsonlSerialized,
   validateActionClassAgainstPolicy,
   validateDecisionLifecycle,
+  validateHistoricalLifecycleEvent,
+  validateHistoricalOutcomeAgainstPolicy,
   validateLifecycleEvent,
   validateOutcomeAgainstPolicy,
   validateLoopRegistry,
@@ -138,12 +140,12 @@ function validateHistoricalRecord(registry, type, record) {
   }
   try {
     if (type === 'lifecycle') {
-      validateLifecycleEvent(registry, historicalLoopId, record);
+      validateHistoricalLifecycleEvent(registry, historicalLoopId, record);
       return record;
     }
     validateActionClassAgainstPolicy(registry, historicalLoopId, record.actionClass);
     if (type === 'decision') validateDecisionLifecycle(registry, historicalLoopId, record);
-    validateOutcomeAgainstPolicy(registry, historicalLoopId, record.outcome);
+    validateHistoricalOutcomeAgainstPolicy(registry, historicalLoopId, record.outcome);
   } catch (error) {
     throw new Error(`historical ${type} ${record.recordId} violates the registry: ${error.message}`);
   }

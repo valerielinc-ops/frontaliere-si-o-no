@@ -28,6 +28,7 @@ import {
   findSwissCityInText,
   isCantonOnlyLabel,
   isKnownSwissMunicipality,
+  normalizeCantonCode,
   swissMunicipalityCantons,
 } from './lib/target-swiss-locations.mjs';
 import { isLocationDerivedFromVacancyText } from './lib/crawler-location-config.mjs';
@@ -309,6 +310,8 @@ const LOCATION_TOKEN_ALIASES = new Map([
   ['lucerne', 'luzern'], ['lucerna', 'luzern'],
   ['zurigo', 'zurich'],
   ['argovia', 'aargau'],
+  // Esonimo italiano: `San Gallo` (→ `st gallo` dopo `san`→`st`) è St. Gallen.
+  ['gallo', 'gallen'],
 ]);
 const LOCATION_NOISE_TOKENS = new Set([
   'ch', 'che', 'suisse', 'schweiz', 'svizzera', 'switzerland',
@@ -316,6 +319,9 @@ const LOCATION_NOISE_TOKENS = new Set([
   'ne', 'nw', 'ow', 'sg', 'sh', 'so', 'sz', 'tg', 'ti', 'ur', 'vd', 'vs',
   'zg', 'zh', 'gva', 'gt', 'country', 'region', 'canton', 'sede',
   'headquarter', 'headquarters', 'office', 'plant', 'site', 'standort',
+  // `Worblaufen & Homeoffice` (SuccessFactors helsana): il suffisso di lavoro
+  // ibrido non fa parte della località.
+  'homeoffice',
 ]);
 const SWISS_REGION_NAMES = new Set([
   'aargau', 'appenzell', 'basel', 'bern', 'fribourg', 'geneve', 'glarus',
@@ -330,6 +336,10 @@ const SOURCE_LOCATION_PLACEHOLDERS = new Set([
   'where', 'lieu de travail', 'arbeitsort', 'dein kontakt',
   'labellocation locale',
 ]);
+// `Switzerland, Remote` (Workday) dice COME si lavora, non DOVE: quando è
+// l'unico contenuto oltre al paese non smentisce nessuna località pubblicata.
+// Solo come valore intero: `Worblaufen, Remote` nomina ancora un luogo.
+const SOURCE_LOCATION_TYPE_ONLY_TOKENS = new Set(['remote']);
 const SOURCE_LOCATION_NON_TOPONYM_TOKENS = new Set([
   'any', 'available', 'eor', 'campus', 'location', 'locations', 'region',
   'regions', 'headquarter', 'headquarters', 'office', 'plant', 'site',
@@ -419,6 +429,7 @@ function isUsableSourceLocation(value, context = {}) {
   if (!normalized || SOURCE_LOCATION_PLACEHOLDERS.has(normalized)) return false;
   const tokens = canonicalLocationTokens(value);
   if (!tokens.some((token) => token.length >= 3)) return false;
+  if (tokens.every((token) => SOURCE_LOCATION_TYPE_ONLY_TOKENS.has(token))) return false;
   const swissPlace = Boolean(swissMunicipalityKey(value));
   const foreignPlace = hasExplicitForeignCountry(value, context.addressCountry);
   if (SOURCE_LOCATION_REGION_LABELS.has(normalized)) return false;
@@ -447,9 +458,22 @@ function isUsableSourceLocation(value, context = {}) {
  */
 function swissMunicipalityKey(value) {
   const text = plainText(value);
-  if (!text || isCantonOnlyLabel(text)) return '';
-  const found = findSwissCityInText(text);
-  return found ? normalizePlace(canonicalSwissCityName(found)) : '';
+  if (!text) return '';
+  if (!isCantonOnlyLabel(text)) {
+    const found = findSwissCityInText(text);
+    if (found) return normalizePlace(canonicalSwissCityName(found));
+  }
+  // Esonimi (`San Gallo`, `Zurigo`): il gazetteer BFS non li conosce, gli
+  // alias sì. `San Gallo` è anche il nome italiano del cantone, lo stesso
+  // omonimo città/cantone di `St. Gallen`: vale la città, come per la forma
+  // tedesca. Solo come corrispondenza ESATTA del valore intero: una scansione
+  // a finestre del testo aliasato rifarebbe `Freiburg im Breisgau` → Fribourg,
+  // il falso positivo per cui il contenimento fu revertito.
+  const aliased = aliasedPlaceTokens(text).join(' ');
+  return aliased && aliased !== normalizePlace(text)
+    && !isCantonOnlyLabel(aliased) && isKnownSwissMunicipality(aliased)
+    ? normalizePlace(canonicalSwissCityName(aliased))
+    : '';
 }
 
 /**
@@ -464,10 +488,10 @@ function municipalityKeyWithDescriptor(value) {
   // `isCantonOnlyLabel` deliberately treats bare ambiguous municipality names
   // such as Carouge as canton-like. An exact BFS municipality membership is
   // stronger evidence and is safe to use here.
-  const exactCantons = swissMunicipalityCantons(text);
-  if (isCantonOnlyLabel(text) && exactCantons.length === 0) return '';
   const exact = swissMunicipalityKey(text);
   if (exact) return exact;
+  const exactCantons = swissMunicipalityCantons(text);
+  if (isCantonOnlyLabel(text) && exactCantons.length === 0) return '';
   if (exactCantons.length > 0) return normalizePlace(canonicalSwissCityName(text));
   const words = text.split(/\s+/).filter(Boolean);
   for (let length = words.length - 1; length > 0; length -= 1) {
@@ -854,6 +878,80 @@ export function sourceCorroboratesPublishedLocation(detail, publishedLocation, {
   return ` ${haystack} `.includes(` ${publishedTokens.join(' ')} `);
 }
 
+/**
+ * Località primaria di una vacancy Workday letta dal suo URL pubblico.
+ *
+ * Il JSON-LD delle pagine Workday riporta `jobRequisitionLocation`, cioè
+ * l'unità organizzativa della richiesta (`CHE-BE Bern`, `GA Glarus-Rheintal`),
+ * non il luogo di lavoro: misurato il 2026-09-24 su medtronic (primaria
+ * `Luzern, Luzern, Switzerland`, JSON-LD `CHE-BE Bern`) e swiss-life (primaria
+ * `Buchs SG`, JSON-LD `GA Glarus-Rheintal`). Il luogo primario Workday è
+ * invece nel percorso stesso che Workday genera per la vacancy,
+ * `/job/{PrimaryLocation}/{slug}_{req}`: dato per-vacancy della fonte, non
+ * un'inferenza del crawler dalla prosa.
+ */
+export function workdayPrimaryLocationFromUrl(rawUrl = '') {
+  let url;
+  try { url = new URL(String(rawUrl || '')); } catch { return ''; }
+  if (!/(?:^|\.)myworkdayjobs\.com$/i.test(url.hostname)) return '';
+  const parts = url.pathname.split('/').filter(Boolean);
+  const jobIndex = parts.findIndex((part) => part.toLowerCase() === 'job');
+  // Serve anche il segmento dello slug dopo la località: `/job/{slug}` da solo
+  // non porta nessuna località.
+  if (jobIndex < 0 || parts.length < jobIndex + 3) return '';
+  let segment = parts[jobIndex + 1];
+  try { segment = decodeURIComponent(segment); } catch { /* segmento già in chiaro */ }
+  return segment.replace(/-+/g, ' ').trim();
+}
+
+/**
+ * Campi della riga subito sotto il titolo della vacancy (`Oensingen,
+ * 01.06.2027, 100%` su jobs.sbb.ch, `Gérance <br> Genève | Taux…` su
+ * jobs.livit.ch). Su questi template il JSON-LD dichiara la sede dell'azienda
+ * (Hilfikerstrasse 1, 3000 Bern; Altstetterstrasse 124, 8048 Zürich) per ogni
+ * vacancy, mentre la località della vacancy è un campo della riga di titolo.
+ * Solo se l'H1 è il titolo della vacancy e il campo è breve: una tagline del
+ * sito non è un campo della vacancy.
+ */
+export function vacancyHeadingSublineFields(html = '', vacancyTitle = '') {
+  const source = String(html || '');
+  const title = normalizePlace(vacancyTitle);
+  if (!title) return [];
+  const fields = [];
+  // Ogni H1 col titolo della vacancy: jobs.sbb.ch lo ripete nell'header
+  // sticky prima del blocco titolo che porta la riga della località.
+  const headingRx = /<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/gi;
+  let heading;
+  while ((heading = headingRx.exec(source))) {
+    const headingText = normalizePlace(heading[1]);
+    if (!headingText || !(headingText.includes(title) || title.includes(headingText))) continue;
+    const after = source.slice(headingRx.lastIndex, headingRx.lastIndex + 1500);
+    const next = /^\s*<(div|p|h2|h3|span)\b[^>]*>([\s\S]{0,600}?)<\/\1>/i.exec(after);
+    if (!next) continue;
+    fields.push(...plainText(next[2].replace(/<br\s*\/?>/gi, ' | '))
+      .split(/\s*[|,;·•]\s*/)
+      .map((field) => field.trim())
+      .filter((field) => field && field.length <= 60));
+  }
+  return fields;
+}
+
+/**
+ * Una fonte che dice solo il cantone (`Graubünden`, Workday capri-holdings)
+ * non può smentire un comune di quel cantone (`Landquart`, lo store «MK
+ * Landquart» della stessa vacancy): è meno precisa, non contraria. Resta
+ * un'osservazione inconcludente; un comune di un ALTRO cantone resta invece
+ * una contraddizione autorevole.
+ */
+function sourceIsCoarserCantonOfPublished(published, source) {
+  const sourceText = plainText(source);
+  if (!sourceText || !isCantonOnlyLabel(sourceText)) return false;
+  const canton = normalizeCantonCode(sourceText);
+  if (!canton) return false;
+  const locality = plainText(published).split(',')[0]?.trim() || '';
+  return swissMunicipalityCantons(locality).includes(canton);
+}
+
 export function compareSourceDetail(job, detail, {
   locationEvidence = 'jsonld',
   crawlerKey = job?.crawlerKey,
@@ -870,11 +968,27 @@ export function compareSourceDetail(job, detail, {
   const corroborationFields = locationFromVacancyText
     ? ['title']
     : ['title', 'description'];
+  // Campi per-vacancy della stessa fonte che il JSON-LD (sede dell'azienda o
+  // unità organizzativa) non riporta: il luogo primario nel percorso Workday e
+  // la riga sotto il titolo. Come la corroborazione da titolo/descrizione,
+  // valgono solo contro il JSON-LD; un markup job-scoped resta una
+  // dichiarazione del luogo di lavoro.
+  const workdayPrimaryLocation = locationEvidence === 'jsonld'
+    ? workdayPrimaryLocationFromUrl(job?.url)
+    : '';
+  const headingFields = locationEvidence === 'jsonld' && !locationFromVacancyText
+    && Array.isArray(detail?.headingSublineFields)
+    ? detail.headingSublineFields
+    : [];
   const publishedCorroboratedBySource = locationEvidence === 'jsonld'
-    && sourceCorroboratesPublishedLocation(detail, publishedLocation, {
+    && (sourceCorroboratesPublishedLocation(detail, publishedLocation, {
       fields: corroborationFields,
-    });
+    })
+      || Boolean(workdayPrimaryLocation && sourceLocationMatches(publishedLocation, workdayPrimaryLocation))
+      || headingFields.some((field) => sourceLocationMatches(publishedLocation, field)));
   const sourceFieldsAgree = sourceLocationMatches(publishedLocation, sourceLocation);
+  const sourceCoarserCanton = !sourceFieldsAgree && !publishedCorroboratedBySource
+    && sourceIsCoarserCantonOfPublished(publishedLocation, sourceLocation);
   const locationMatchesPublished = sourceFieldsAgree || publishedCorroboratedBySource;
   const circularCorroboration = !sourceFieldsAgree
     && !publishedCorroboratedBySource
@@ -884,7 +998,8 @@ export function compareSourceDetail(job, detail, {
   const locationChecked = Boolean(publishedLocation)
     && isUsableSourceLocation(sourceLocation)
     && locationEvidence !== 'generic'
-    && !circularCorroboration;
+    && !circularCorroboration
+    && !sourceCoarserCanton;
   const foreignMistralLocation = crawlerKey === 'mistral-ai'
     && locationChecked
     && hasExplicitForeignCountry(sourceLocation, detail?.addressCountry);
@@ -993,6 +1108,7 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
     }
     try {
       const detail = extractDetail(fetched.body, fetched.url || item.url);
+      detail.headingSublineFields = vacancyHeadingSublineFields(fetched.body, detail.title);
       const locationObservation = observeLocation(
         fetched.body,
         fetched.url || item.url,

@@ -19,6 +19,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { resolveFallbackAddress } from '../build-plugins/shared/companyHqAddresses.mjs';
+import { resolveLocalityAddress } from './lib/swiss-structured-address.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
@@ -238,13 +239,17 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
     // otherwise use the coherent canton fallback as the locality too.
     const sourceCity = isKnownSwissCity(raw.city, canton) ? raw.city : '';
     const fallbackAddress = resolveFallbackAddress(undefined, sourceCity, canton);
+    // Una città reale senza via/NPA resta la località della vacancy: il
+    // capoluogo di ripiego la sostituiva (issue 5253).
     const resolvedAddress = sourceCity && raw.address && raw.postalCode
       ? {
         addressLocality: sourceCity,
         streetAddress: raw.address,
         postalCode: raw.postalCode,
       }
-      : fallbackAddress;
+      : sourceCity
+        ? resolveLocalityAddress({ city: sourceCity, canton })
+        : fallbackAddress;
     const location = resolvedAddress.addressLocality;
     const detailUrl = buildDetailUrl(raw);
     const locationToken = location || canton;
@@ -354,7 +359,7 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceJobs = (readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS)).filter(isCompanyJob);
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
-  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], coverage: discovered.hugoBossSnapshot?.coverage || 'complete', terminationReason: discovered.hugoBossSnapshot?.terminationReason || null, sourceRecordsSeen: discovered.hugoBossSnapshot?.recordsSeen ?? null, sourceTotalHits: discovered.hugoBossSnapshot?.totalHits ?? null, authoritativeSnapshotVerified: discovered.hugoBossSnapshot?.complete === true, newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: _sliceJobs.slice(0, 30) });
+  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], coverage: discovered.hugoBossSnapshot?.coverage || 'complete', terminationReason: discovered.hugoBossSnapshot?.terminationReason || null, sourceRecordsSeen: discovered.hugoBossSnapshot?.recordsSeen ?? null, sourceTotalHits: discovered.hugoBossSnapshot?.totalHits ?? null, authoritativeSnapshotVerified: discovered.hugoBossSnapshot?.complete === true, newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30) });
   await assembleJobsDataset();
   console.log('\n✅ Hugo Boss crawler complete.');
 }

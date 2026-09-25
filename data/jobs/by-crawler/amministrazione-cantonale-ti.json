@@ -37,9 +37,9 @@
       },
       "slugByLocale": {
         "it": "tribunale-d-appello-amministrazione-cantonale-ticino-lugano",
-        "en": "tribunale-d-appello-amministrazione-cantonale-ticino-lugano",
-        "de": "cancelliere-a-i-oppure-cancelliere-a-ii-a-tempo-pieno-100-presso-il-tribunale-d-appello-secondo-camera-civile-lugano-amministrazione-cantona-213hk3",
-        "fr": "tribunale-d-appello-amministrazione-cantonale-ticino-lugano"
+        "en": "court-of-appeal-amministrazione-cantonale-ticino-lugano",
+        "de": "berufungsgericht-amministrazione-cantonale-ticino-lugano",
+        "fr": "cour-de-recours-amministrazione-cantonale-ticino-lugano"
       },
       "requirementsByLocale": {},
       "sourceLang": "it",
@@ -52,6 +52,9 @@
           "cancelliere-a-i-oppure-cancelliere-a-ii-a-tempo-pieno-100-presso-il-tribunale-d-appello-secondo-camera-civile-lugano-amministrazione-cantona-213hk3"
         ],
         "fr": [
+          "cancelliere-a-i-oppure-cancelliere-a-ii-a-tempo-pieno-100-presso-il-tribunale-d-appello-secondo-camera-civile-lugano-amministrazione-cantona-213hk3"
+        ],
+        "de": [
           "cancelliere-a-i-oppure-cancelliere-a-ii-a-tempo-pieno-100-presso-il-tribunale-d-appello-secondo-camera-civile-lugano-amministrazione-cantona-213hk3"
         ]
       },
@@ -74,7 +77,8 @@
       },
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4283"
     },
     {
       "id": "company-213hk2",
@@ -113,9 +117,9 @@
       },
       "slugByLocale": {
         "it": "tribunale-d-appello-amministrazione-cantonale-ticino-bellinzona",
-        "en": "tribunale-d-appello-amministrazione-cantonale-ticino-bellinzona",
-        "de": "cancelliere-a-i-oppure-cancelliere-a-ii-a-tempo-pieno-100-presso-il-tribunale-penale-cantonale-lugano-amministrazione-cantonale-ti-bellinzon-213hk2",
-        "fr": "tribunale-d-appello-amministrazione-cantonale-ticino-bellinzona"
+        "en": "court-of-appeal-amministrazione-cantonale-ticino-bellinzona",
+        "de": "berufungsgericht-amministrazione-cantonale-ticino-bellinzona",
+        "fr": "cour-de-recours-amministrazione-cantonale-ticino-bellinzona"
       },
       "requirementsByLocale": {},
       "sourceLang": "it",
@@ -128,6 +132,9 @@
           "cancelliere-a-i-oppure-cancelliere-a-ii-a-tempo-pieno-100-presso-il-tribunale-penale-cantonale-lugano-amministrazione-cantonale-ti-bellinzon-213hk2"
         ],
         "fr": [
+          "cancelliere-a-i-oppure-cancelliere-a-ii-a-tempo-pieno-100-presso-il-tribunale-penale-cantonale-lugano-amministrazione-cantonale-ti-bellinzon-213hk2"
+        ],
+        "de": [
           "cancelliere-a-i-oppure-cancelliere-a-ii-a-tempo-pieno-100-presso-il-tribunale-penale-cantonale-lugano-amministrazione-cantonale-ti-bellinzon-213hk2"
         ]
       },
@@ -150,7 +157,8 @@
       "postalCode": "6501",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4284"
     },
     {
       "id": "company-213hk0",
@@ -189,19 +197,31 @@
       },
       "slugByLocale": {
         "it": "medico-del-personale-responsabile-80-100-presso-l-ufficio-del-medico-del-personale-della-sezione-delle-risorse-umane-bellinzona-amministrazi-213hk0",
-        "en": "medico-del-personale-manager-80-100-presso-l-ufficio-del-medico-del-personale-della-sezione-delle-risorse-umane-bellinzona-amministrazione-c-213hk0",
-        "de": "medico-del-personale-verantwortlicher-80-100-presso-l-ufficio-del-medico-del-personale-della-sezione-delle-risorse-umane-bellinzona-amminist-213hk0",
-        "fr": "medico-del-personale-responsable-80-100-presso-l-ufficio-del-medico-del-personale-della-sezione-delle-risorse-umane-bellinzona-amministrazio-213hk0"
+        "en": "responsible-staff-doctor-80-100-at-the-human-resources-section-medical-office-bellinzona-amministrazione-cantonale",
+        "de": "verantwortlicher-personalarzt-80-100-bei-der-abteilung-human-resources-medical-office-bellinzona-amministrazione",
+        "fr": "medecin-responsable-80-100-au-bureau-medical-de-la-section-des-ressources-humaines-bellinzona-amministrazione-cantonale"
       },
       "requirementsByLocale": {},
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
           "medico-del-personale-responsabile-80-100-presso-l-ufficio-del-medico-del-personale-della-sezione-delle-risorse-umane-bellinzona-amministrazi"
+        ],
+        "en": [
+          "medico-del-personale-manager-80-100-presso-l-ufficio-del-medico-del-personale-della-sezione-delle-risorse-umane-bellinzona-amministrazione-c-213hk0"
+        ],
+        "de": [
+          "medico-del-personale-verantwortlicher-80-100-presso-l-ufficio-del-medico-del-personale-della-sezione-delle-risorse-umane-bellinzona-amminist-213hk0"
+        ],
+        "fr": [
+          "medico-del-personale-responsable-80-100-presso-l-ufficio-del-medico-del-personale-della-sezione-delle-risorse-umane-bellinzona-amministrazio-213hk0"
         ]
       },
       "previousSlugs": [
-        "medico-del-personale-responsabile-80-100-presso-l-ufficio-del-medico-del-personale-della-sezione-delle-risorse-umane-bellinzona-amministrazi"
+        "medico-del-personale-responsabile-80-100-presso-l-ufficio-del-medico-del-personale-della-sezione-delle-risorse-umane-bellinzona-amministrazi",
+        "medico-del-personale-manager-80-100-presso-l-ufficio-del-medico-del-personale-della-sezione-delle-risorse-umane-bellinzona-amministrazione-c-213hk0",
+        "medico-del-personale-verantwortlicher-80-100-presso-l-ufficio-del-medico-del-personale-della-sezione-delle-risorse-umane-bellinzona-amminist-213hk0",
+        "medico-del-personale-responsable-80-100-presso-l-ufficio-del-medico-del-personale-della-sezione-delle-risorse-umane-bellinzona-amministrazio-213hk0"
       ],
       "salarySource": "reported",
       "baseSalary": {
@@ -218,7 +238,8 @@
       "postalCode": "6501",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4286"
     },
     {
       "id": "company-213hk6",
@@ -286,7 +307,8 @@
       "postalCode": "6501",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4280"
     },
     {
       "id": "company-213hk4",
@@ -365,7 +387,8 @@
       "postalCode": "6501",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4282"
     },
     {
       "id": "company-213hku",
@@ -442,7 +465,8 @@
       "postalCode": "6501",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4277"
     },
     {
       "id": "company-213hkz",
@@ -521,7 +545,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4272"
+      "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4272",
+      "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4272"
     },
     {
       "id": "company-213hlr",
@@ -591,7 +616,8 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4265"
+      "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4265",
+      "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4265"
     },
     {
       "id": "company-213j37",
@@ -612,7 +638,7 @@
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
       "crawledAt": "2026-09-23T23:50:33.725Z",
-      "firstSeenAt": "2026-07-06T22:31:01.671Z",
+      "firstSeenAt": "2026-03-31T21:48:48.088Z",
       "slugByLocale": {
         "it": "candidature-spontanee-per-stage-durante-e-post-studi-universitari-presso-l-amministrazione-cantonale-amministrazione-cantonale-ti-2026-indie-213j37",
         "en": "candidature-spontanee-per-stage-durante-e-post-studi-universitari-presso-l-amministrazione-cantonale-amministrazione-cantonale-ticino-bellin-213j37",
@@ -719,7 +745,8 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4063"
+      "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4063",
+      "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4063"
     },
     {
       "id": "company-213j3w",
@@ -742,7 +769,7 @@
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
       "crawledAt": "2026-09-23T23:50:33.725Z",
-      "firstSeenAt": "2026-05-31T13:06:08.322Z",
+      "firstSeenAt": "2026-03-31T21:48:48.088Z",
       "slugByLocale": {
         "it": "concorso-generale-2026-aiuto-cucina-presso-l-ufficio-della-refezione-e-dei-trasporti-scolastici-bellinzona-presso-l-ufficio-della-refezione--213j3w",
         "en": "general-competition-2026-food-aid-to-the-office-for-refections-and-school-transport-bellinzona-at-the-office-for",
@@ -792,7 +819,8 @@
         "concours-general-2026-aide-cuisine-office-de-la-restauration-et-des-transports-scolaires-bellinzona-orario-di-lavoro-42-ore-settimanali-per-"
       ],
       "salarySource": "reported",
-      "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4059"
+      "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4059",
+      "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4059"
     },
     {
       "id": "company-213zbv",
@@ -815,7 +843,7 @@
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
       "crawledAt": "2026-09-23T23:50:33.725Z",
-      "firstSeenAt": "2026-05-31T13:06:08.322Z",
+      "firstSeenAt": "2026-03-31T21:48:48.088Z",
       "slugByLocale": {
         "it": "concorso-generale-2026-collaboratori-trici-amministrativi-e-addetti-e-al-servizio-accoglienza-addetti-e-agli-assicurati-iii-consulenti-telef-213zbv",
         "en": "general-competition-2026-employees-administrative-staff-reception-staff-insured-persons-iii-telephone-advisors-telephone",
@@ -868,7 +896,8 @@
         ]
       },
       "salarySource": "reported",
-      "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=3994"
+      "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=3994",
+      "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=3994"
     }
   ]
 }
