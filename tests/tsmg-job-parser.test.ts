@@ -1,6 +1,8 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   isTsmgTargetLocation,
+  isTsmgExplicitlyForeignLocation,
+  inferTsmgCanton,
   inferTsmgRegion,
   inferTsmgCategory,
   buildTsmgLocalizedContent,
@@ -22,12 +24,16 @@ describe('tsmg-job-parser', () => {
     // Cathedral 2026-05-10: Zurich (ZH) is now a target canton — assertion updated to true.
     expect(isTsmgTargetLocation('Zurich')).toBe(true);
     expect(isTsmgTargetLocation('Furttal')).toBe(true);
+    expect(isTsmgTargetLocation('Les Diabterets')).toBe(true);
+    expect(isTsmgTargetLocation('Mont Tendre')).toBe(true);
   });
 
   it('maps target locations to their cantons', () => {
     expect(inferTsmgRegion('Bellinzona').canton).toBe('TI');
     expect(inferTsmgRegion('Chur').canton).toBe('GR');
     expect(inferTsmgRegion('Furttal')).toEqual({ canton: 'ZH', country: 'CH' });
+    expect(inferTsmgCanton('Les Diabterets')).toBe('VD');
+    expect(inferTsmgRegion('Mont Tendre')).toEqual({ canton: 'VD', country: 'CH' });
     const furttalSnapshot = [{
       id: 'furttal-job',
       hostedUrl: 'https://jobs.lever.co/tsmg/furttal-job',
@@ -91,6 +97,12 @@ describe('tsmg-job-parser', () => {
     expect(isTsmgSwissPosting(mismatchedSnapshot[0])).toBe(false);
   });
 
+  it('recognises deterministic foreign evidence when Lever omits country', () => {
+    expect(isTsmgExplicitlyForeignLocation('Jefferson City, MO')).toBe(true);
+    expect(isTsmgExplicitlyForeignLocation('Windeck')).toBe(true);
+    expect(isTsmgExplicitlyForeignLocation('Unmapped City')).toBe(false);
+  });
+
   /**
    * Issue 9320: Lever serviva 3 posting su 4334 senza `country` («Jefferson
    * City, MO», «Windeck») e 2 posting CH con località non riconosciuta («Les
@@ -121,7 +133,7 @@ describe('tsmg-job-parser', () => {
       vi.restoreAllMocks();
     });
 
-    it('quarantines a posting without country whose location is not a target', () => {
+    it('quarantines a posting without country when its location proves foreign', () => {
       const missingCountry = posting('windeck-job', 'Windeck', null);
       const snapshot = [...clean, missingCountry, posting('jefferson-job', 'Jefferson City, MO', null)];
 
@@ -131,15 +143,20 @@ describe('tsmg-job-parser', () => {
       expect(accepted.filter(isTsmgSwissPosting).map((job) => job.id)).toEqual(['lugano-job', 'zurich-job']);
     });
 
-    it('quarantines a never-published CH posting whose location resolves to no canton', () => {
+    it('accepts the known Swiss source aliases instead of quarantining them', () => {
       const snapshot = [...clean, posting('diablerets-job', 'Les Diabterets'), posting('tendre-job', 'Mont Tendre')];
 
-      expect(assertCompleteTsmgSourceSnapshot(snapshot)).toEqual(clean);
+      expect(assertCompleteTsmgSourceSnapshot(snapshot)).toEqual(snapshot);
+    });
+
+    it('stays fail-closed when a missing-country location is not proven foreign', () => {
+      expect(() => assertCompleteTsmgSourceSnapshot([...clean, posting('unknown-job', 'Unmapped City', null)]))
+        .toThrow(/missing country on a posting that is not proven foreign/);
     });
 
     it('stays fail-closed when a posting without country could be a target vacancy', () => {
       expect(() => assertCompleteTsmgSourceSnapshot([...clean, posting('bellinzona-job', 'Bellinzona', null)]))
-        .toThrow(/posting 7 of 7: missing country on a posting that may be a published or target Swiss vacancy \(id=bellinzona-job/);
+        .toThrow(/posting 7 of 7: missing country on a posting that is not proven foreign or may be a published\/target Swiss vacancy \(id=bellinzona-job/);
     });
 
     it('stays fail-closed when an unclassifiable posting is already published', () => {
@@ -151,7 +168,7 @@ describe('tsmg-job-parser', () => {
       expect(() => assertCompleteTsmgSourceSnapshot([...clean, garbled], { publishedKeys }))
         .toThrow(/"Lugnao" is not a recognised Swiss location \(id=published-job\)/);
       expect(() => assertCompleteTsmgSourceSnapshot([...clean, { ...garbled, country: null }], { publishedKeys }))
-        .toThrow(/missing country on a posting that may be a published or target Swiss vacancy/);
+        .toThrow(/missing country on a posting that is not proven foreign or may be a published\/target Swiss vacancy/);
     });
 
     it('names the missing structural fields instead of quarantining them', () => {
@@ -164,9 +181,9 @@ describe('tsmg-job-parser', () => {
     it('rejects the whole snapshot when unclassifiable postings are systemic', () => {
       const snapshot = [
         posting('lugano-job', 'Lugano'),
-        posting('a-job', 'Windeck', null),
-        posting('b-job', 'Jefferson City, MO', null),
-        posting('c-job', 'Mont Tendre'),
+        posting('a-job', 'Unmapped One'),
+        posting('b-job', 'Unmapped Two'),
+        posting('c-job', 'Unmapped Three'),
       ];
 
       expect(() => assertCompleteTsmgSourceSnapshot(snapshot)).toThrow(/3\/4 postings could not be classified/);

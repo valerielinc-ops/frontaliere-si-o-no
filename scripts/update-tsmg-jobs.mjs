@@ -33,11 +33,12 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import {
   isTsmgTargetLocation,
+  isTsmgExplicitlyForeignLocation,
+  inferTsmgCanton,
   inferTsmgRegion,
   inferTsmgCategory,
   buildTsmgLocalizedContent,
 } from './lib/tsmg-job-parser.mjs';
-import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { classifyCountryValue } from './lib/prospector/country-inventory.mjs';
 import { isSystemicRejection, systemicRatio } from './lib/source-record-quarantine.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -129,15 +130,15 @@ function missingTsmgPostingFields(job) {
 }
 
 /**
- * A posting this run cannot classify may be quarantined ONLY when it cannot
- * touch the published slice: its location is not a target location (so it
- * would not be published even with `country: CH`) and its URL is not already
- * published. Otherwise it is a missed observation of a possibly live target
- * vacancy and the whole snapshot stays fail-closed.
+ * A posting this run cannot classify may be quarantined only when it cannot
+ * touch the published slice. Missing-country rows need deterministic foreign
+ * evidence; CH rows with an unresolved location only need to be outside the
+ * target scope. In both cases an already-published URL stays fail-closed.
  */
-function canQuarantineTsmgPosting(job, location, publishedKeys) {
+function canQuarantineTsmgPosting(job, location, publishedKeys, { requireExplicitForeign = false } = {}) {
   if (isTsmgTargetLocation(location)) return false;
-  return !publishedKeys.has(jobMatchKey({ url: String(job?.hostedUrl || '').trim() }));
+  if (publishedKeys.has(jobMatchKey({ url: String(job?.hostedUrl || '').trim() }))) return false;
+  return !requireExplicitForeign || isTsmgExplicitlyForeignLocation(location);
 }
 
 function assertCompleteTsmgSourceSnapshot(payload, { publishedKeys = new Set() } = {}) {
@@ -161,17 +162,19 @@ function assertCompleteTsmgSourceSnapshot(payload, { publishedKeys = new Set() }
     const normalizedLocation = job.categories.location.trim();
     // Lever sometimes serves a posting without `country` (2026-09-23/24: 3 of
     // 4334, «Jefferson City, MO» and «Windeck»). That is missing data on THAT
-    // record, not a degraded payload: quarantine it only when it cannot be a
-    // target or an already published vacancy (issue 9320).
+    // record, not a degraded payload: quarantine it only when the location is
+    // deterministically foreign and it cannot be an already published vacancy.
+    // An unknown location stays fail-closed because it may be a new Swiss
+    // target that the resolver has not learned yet (issue 9320).
     if (missing.includes('country')) {
-      if (!canQuarantineTsmgPosting(job, normalizedLocation, publishedKeys)) {
+      if (!canQuarantineTsmgPosting(job, normalizedLocation, publishedKeys, { requireExplicitForeign: true })) {
         throw new Error(
           `TSMG Lever returned a degraded snapshot at ${where}: missing country `
-          + `on a posting that may be a published or target Swiss vacancy `
+          + `on a posting that is not proven foreign or may be a published/target Swiss vacancy `
           + `(id=${id}, location "${normalizedLocation}")`,
         );
       }
-      quarantined.push({ job, reason: `missing country, location "${normalizedLocation}" is not a target Swiss location` });
+      quarantined.push({ job, reason: `missing country, location "${normalizedLocation}" is deterministically foreign` });
       continue;
     }
     const country = job.country.trim();
@@ -191,15 +194,16 @@ function assertCompleteTsmgSourceSnapshot(payload, { publishedKeys = new Set() }
     if (normalizedCountry === 'CH' && isLocationExplicitlyForeign(normalizedLocation)) {
       continue;
     }
-    if (normalizedCountry === 'CH' && !inferAnyCanton(normalizedLocation)) {
+    if (normalizedCountry === 'CH' && !inferTsmgCanton(normalizedLocation)) {
       if (!canQuarantineTsmgPosting(job, normalizedLocation, publishedKeys)) {
         throw new Error(
           `TSMG Lever returned a degraded snapshot at ${where}: `
           + `categories.location "${normalizedLocation}" is not a recognised Swiss location (id=${id})`,
         );
       }
-      // E.g. «Les Diabterets» (typo), «Mont Tendre»: never publishable without
-      // a canton and never published before, so they cannot retire a page.
+      // A genuinely unresolved CH location is safe to quarantine only when it
+      // cannot retire a previously published page; known TSMG aliases resolve
+      // above through inferTsmgCanton.
       quarantined.push({ job, reason: `CH posting with unrecognised Swiss location "${normalizedLocation}"` });
     }
   }
