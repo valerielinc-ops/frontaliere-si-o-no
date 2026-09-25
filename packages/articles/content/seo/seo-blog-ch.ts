@@ -86951,6 +86951,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fondi-integrazione-svizzera-2028': {
+    title: 'Più fondi federali per l\'integrazione 2028-2032',
+    description: 'Il Consiglio federale stanzia 334,5 milioni per l\'integrazione in Svizzera nel periodo 2028-2032, con 66,9 milioni annui per programmi cantonali e nazionali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fondi, federali, integrazione, 2028-2032',
+    ogTitle: 'Più fondi per l\'integrazione in Svizzera',
+    ogDescription: 'Nel periodo 2028-2032 la Confederazione investirà 334,5 milioni di franchi nella promozione dell\'integrazione. Ogni anno 66,9 milioni finanzieranno programmi cantonali e nazionali, con priorità a lingua, formazione, lavoro e integrazione delle donne.',
+    canonicalPath: '/articoli-svizzera/fondi-integrazione-svizzera-2028/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Più fondi federali per l'integrazione 2028-2032",
+      "description": "Il Consiglio federale stanzia 334,5 milioni per l'integrazione in Svizzera nel periodo 2028-2032, con 66,9 milioni annui per programmi cantonali e nazionali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fondi-integrazione-svizzera-2028.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sessione informativa svizzera sui programmi cantonali d'integrazione"
+      },
+      "datePublished": "2026-09-25T13:28:59+00:00",
+      "dateModified": "2026-09-25T13:28:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fondi-integrazione-svizzera-2028/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

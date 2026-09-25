@@ -6707,6 +6707,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.finanziamento-federale-universita-sup.title': 'Federal funding for cantonal universities and universities of applied sciences',
     'blog.article.finanziamento-federale-universita-sup.excerpt': 'The Federal Council approved on 25 September 2026 the report on fair funding: 20% maximum for cantonal universities, 30% maximum for sup from 1 January 2027.',
     'blog.article.finanziamento-federale-universita-sup.imageAlt': 'Modern university campus in Lugano with students and research labs under Alpine sky',
+    'blog.article.fondi-integrazione-svizzera-2028.title': 'More federal funds for integration 2028-2032',
+    'blog.article.fondi-integrazione-svizzera-2028.excerpt': 'The Federal Council allocates 334.5 million for integration in Switzerland for the period 2028-2032, with 66.9 million annually for cantonal and national programmes.',
+    'blog.article.fondi-integrazione-svizzera-2028.imageAlt': 'Swiss information session on cantonal integration programs',
 };
 
 export default blogMetaChEn;

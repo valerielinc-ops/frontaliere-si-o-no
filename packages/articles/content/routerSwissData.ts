@@ -2258,6 +2258,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'nuova-legge-cibersicurezza-lcib': { it: 'nuova-legge-cibersicurezza-lcib', en: 'new-cybersecurity-law-lcib', de: 'neues-cybersicherheitsgesetz-lcib', fr: 'nouvelle-loi-cybersecurite-lcib' },
  'omologazione-fitosanitari-arretrato-2032': { it: 'omologazione-fitosanitari-arretrato-2032', en: 'plant-protection-authorization-backlog-2032', de: 'pflanzenschutzmittel-zulassung-rueckstand-2032', fr: 'homologation-phytosanitaires-arriere-2032' },
  'finanziamento-federale-universita-sup': { it: 'finanziamento-federale-universita-sup', en: 'federal-funding-cantonal-universities-sup', de: 'bundesfinanzierung-universitaet-sup', fr: 'financement-federal-universites-cantonales-hes' },
+ 'fondi-integrazione-svizzera-2028': { it: 'fondi-integrazione-svizzera-2028', en: 'swiss-integration-funds-2028', de: 'schweizer-integrationsgelder-2028', fr: 'fonds-integration-suisse-2028' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
