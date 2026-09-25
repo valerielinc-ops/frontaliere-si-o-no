@@ -251,6 +251,32 @@ export function resolveLocalityPostalCode(
   return NORMALIZED_POSTAL_BY_CITY.get(key) || official;
 }
 
+/**
+ * Same contract as `isPostalCodeCoherentWithCity`, for a locality that may
+ * still carry a suffix ("Dübendorf-Stettbach", "Gossau SG",
+ * "Bedano, CH, 6930"): the postcode belongs to it when the locality is, or
+ * starts with, one of the localities the snapshot binds to that postcode.
+ * A place merely mentioning that locality later ("Muri bei Bern") does not
+ * inherit its postcode. Unknown postcodes and empty localities stay
+ * admissible. Used wherever a page prints a CAP next to a city (job sidebar,
+ * SPA location snapshot), so a company-HQ CAP stamped on every vacancy never
+ * reaches the reader next to another city (#9841).
+ */
+export function postalCodeBelongsToLocality(
+  locality: string | undefined | null,
+  postalCode: string | undefined | null,
+): boolean {
+  const postal = String(postalCode || '').trim();
+  const knownCities = KNOWN_CITY_KEYS_BY_POSTAL.get(postal);
+  if (!knownCities || knownCities.size === 0) return true;
+  const localityKey = normalizePostalCityKey(locality);
+  if (!localityKey) return true;
+  for (const cityKey of knownCities) {
+    if (localityKey === cityKey || localityKey.startsWith(`${cityKey} `)) return true;
+  }
+  return false;
+}
+
 /** Canton → capital postal code (last-resort fallback). */
 export const CANTON_CAPITAL_POSTAL: Record<string, string> = {
   TI: '6500',

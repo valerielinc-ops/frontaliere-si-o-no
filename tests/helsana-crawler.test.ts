@@ -206,6 +206,7 @@ describe('Helsana — hybrid-work location suffix (issue 5253)', () => {
       ${row('1429174233', 'Beratende Ärztin Krankentaggeld (a) 10-20%', 'Worblaufen &amp; Homeoffice')}
       ${row('1410914233', 'Versicherungsberater im Aussendienst (a) 80-100%', 'Chur &amp; Homeoffice')}
       ${row('1419913533', 'Junior IT Security Architect (a) 80-100%', 'Dübendorf-Stettbach &amp; Homeoff')}
+      ${row('1430015533', 'Kundenberater Privatkunden (a) 80-100%', 'Biel &amp; Homeoffice')}
     </tbody></table>`;
     vi.stubGlobal('fetch', vi.fn(async (url: string) => {
       const href = String(url);
@@ -219,6 +220,15 @@ describe('Helsana — hybrid-work location suffix (issue 5253)', () => {
 
     const jobs = await fetchAllHelsanaJobs();
     const byLocation = Object.fromEntries(jobs.map((job: any) => [job.location, job.canton]));
-    expect(byLocation).toEqual({ Worblaufen: 'BE', Chur: 'GR', 'Dübendorf-Stettbach': 'ZH' });
+    expect(byLocation).toEqual({ Worblaufen: 'BE', Chur: 'GR', 'Dübendorf-Stettbach': 'ZH', Biel: 'BE' });
+
+    // #9841: the HQ postal code (8600 Dübendorf) belongs to the HQ, not to a
+    // Chur or Worblaufen vacancy; the detail page exposes no CAP of its own,
+    // so those jobs carry none and the assembler derives it from the city.
+    // "Biel" is ambiguous for the assembler's municipality whitelist, which
+    // then needs a Swiss CAP on record: it keeps 8600, which the job page
+    // does not print next to Biel (tests/seo/job-detail-html-snapshot.test.ts).
+    const postalByLocation = Object.fromEntries(jobs.map((job: any) => [job.location, job.postalCode || '']));
+    expect(postalByLocation).toEqual({ Worblaufen: '', Chur: '', 'Dübendorf-Stettbach': '8600', Biel: '8600' });
   });
 });

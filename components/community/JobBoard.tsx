@@ -245,7 +245,7 @@ import {
 // (e.g. tests/jobboard-italian-lowercase-list-parsing.test.ts).
 export { buildFallbackCanonicalContent } from '@/services/jobs/canonicalFallback';
 import { handleCompanyLogoError, generateInitialsLogo } from '@/services/logoService';
-import { deriveJobPostalCode, getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
+import { resolveJobPostingPostalCode, getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
 import { getJobSalaryContext } from '@/data/salaryData';
 import {
  getEmailProviderInfo,
@@ -5782,18 +5782,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const rawLocality = String(job.addressLocality || '').trim();
  const addressLocality = isValidAddr(rawLocality) ? rawLocality : String(job.location || DEFAULT_CANTON_DISPLAY);
  const addressRegion = String(job.canton || DEFAULT_CANTON);
- const postalCode = deriveJobPostalCode(job);
+ // Same CAP/street pairing as the static JobPosting (#9108, #9841): this
+ // script replaces it after hydration, so it must not re-pair a Chur job with
+ // the HQ CAP 8600 the static builder already rejected.
+ const { postalCode, sourcePostalCoherent } = resolveJobPostingPostalCode(job, addressLocality, addressRegion);
  const rawStreet = String(job.streetAddress || '').trim();
- const streetAddress = isValidAddr(rawStreet) ? rawStreet : '';
+ const streetAddress = sourcePostalCoherent && isValidAddr(rawStreet) ? rawStreet : '';
  // One address for every posting, from the canonical resolver the static
  // page uses: same locality sanitizer, and never a CAP or street of another
- // place beside the locality (issue 9852: `deriveJobPostalCode` falls back to
- // Lugano's 6900, crawlers stamp capital CAPs). Remote and multi-location
- // postings get the same single-place tuple as their static page (a
- // multi-location label resolves to the canton's coherent fallback): a
- // country-level "Switzerland"/"CH" address cannot carry the postalCode and
- // streetAddress that Non-Negotiable #3 makes mandatory without borrowing a
- // concrete place's. Remoteness stays in jobLocationType and
+ // place beside the locality (issue 9852: no canton-capital CAP or street
+ // next to a different locality). Remote and multi-location postings get the
+ // same single-place tuple as their static page (a multi-location label
+ // resolves to the canton's coherent fallback): a country-level
+ // "Switzerland"/"CH" address cannot carry the postalCode and streetAddress
+ // that Non-Negotiable #3 makes mandatory without borrowing a concrete
+ // place's. Remoteness stays in jobLocationType and
  // applicantLocationRequirements.
  const jobAddress = resolveJobPostingAddress({
  companyKey: job.companyKey,

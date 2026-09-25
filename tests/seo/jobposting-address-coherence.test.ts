@@ -24,7 +24,7 @@ import {
 } from '../../build-plugins/shared/companyHqAddresses';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore — plain ESM helper without type declarations
-import { sameLocalityAsHq, applyCompanyDefaults } from '../../scripts/lib/dedicated-crawler-common.mjs';
+import { sameLocalityAsHq, applyCompanyDefaults, hqPostalCodeForLocality } from '../../scripts/lib/dedicated-crawler-common.mjs';
 
 const OPTS = { locale: 'it', url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/x/' };
 
@@ -504,6 +504,24 @@ describe('applyCompanyDefaults — crawler-side stamping (#3513)', () => {
     expect(sameLocalityAsHq('', 'Bellinzona')).toBe(true);
     expect(sameLocalityAsHq('Bellinzona, Ticino', 'Bellinzona')).toBe(true);
     expect(sameLocalityAsHq('Winterthur', 'Manno')).toBe(false);
+  });
+});
+
+describe('hqPostalCodeForLocality — HQ CAP fallback of a crawler (#9841)', () => {
+  it('keeps the HQ CAP only at the HQ or where the locality needs it as a Swiss anchor', () => {
+    // At the HQ, decorated, or without a city of its own.
+    expect(hqPostalCodeForLocality('Dübendorf', 'Dübendorf', '8600')).toBe('8600');
+    expect(hqPostalCodeForLocality('Dübendorf-Stettbach', 'Dübendorf', '8600')).toBe('8600');
+    expect(hqPostalCodeForLocality('', 'Dübendorf', '8600')).toBe('8600');
+    // Another known Swiss city: no HQ CAP, the assembler derives the city's own.
+    expect(hqPostalCodeForLocality('Chur', 'Dübendorf', '8600')).toBe('');
+    expect(hqPostalCodeForLocality('Uznach', 'St. Gallen', '9007')).toBe('');
+    expect(hqPostalCodeForLocality('Olten', 'Zürich', '8005')).toBe('');
+    // Ambiguous name: the assembler whitelist needs a Swiss CAP on record.
+    expect(hqPostalCodeForLocality('Biel', 'Dübendorf', '8600')).toBe('8600');
+    expect(hqPostalCodeForLocality('Wil', 'St. Gallen', '9007')).toBe('9007');
+    // No HQ CAP configured: unchanged.
+    expect(hqPostalCodeForLocality('Chur', 'Dübendorf', undefined)).toBeUndefined();
   });
 });
 
