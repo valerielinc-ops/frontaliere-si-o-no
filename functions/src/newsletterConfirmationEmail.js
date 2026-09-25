@@ -34,7 +34,7 @@ import {
   confirmationFrameForAttempt,
 } from './lib/confirmationEmailContent.js';
 import { makeMailerooRefOnSent } from './lib/mailerooRef.js';
-import { resolveConfirmationJobContext } from './lib/confirmationJobContext.js';
+import { confirmationJobContextForSend } from './lib/confirmationJobContext.js';
 import {
   confirmationSendRefusal,
   isConfirmationCycleSend,
@@ -231,18 +231,6 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
    tokenPolicy = resolveNewsletterTokenPolicy({});
  }
  const token = generateConfirmationToken(normalizedEmail, secret, { policy: tokenPolicy });
- // No auth token embedded in the URL — the confirm action's Cloud Function
- // response returns a fresh custom token for auto-login. This avoids the
- // Firebase custom token 1-hour expiry problem entirely.
- const finalUrl = confirmationConfirmUrl({
-   email: normalizedEmail,
-   token,
-   sourcePath,
-   // A passwordless login link must never be able to revive an opt-out when
-   // an old link is opened later. The management handler uses this explicit
-   // mode to mint a session without changing newsletter state.
-   mode: isLoginLink ? 'login' : undefined,
- });
 
  // Which of the three this is, decided from the SAME counter the cap reads and
  // the write below increments (#5692). This function normally sends request #1,
@@ -255,18 +243,39 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  const isCycleSend = isConfirmationCycleSend({ data, purpose });
  const attemptsBefore = confirmationAttemptsUsed(data);
  const frame = isCycleSend ? confirmationFrameForAttempt(attemptsBefore + 1) : CONFIRMATION_FRAMES.FIRST;
+
+ // A job-gate signup is asked about THE JOB it came from, not about a
+ // newsletter it never thought it was joining (measured 2026-09-24: 67% of
+ // job-gate recipients opened the generic request, 33% confirmed). Only for a
+ // real cycle send; a re-probe or a login link keeps the plain copy. Request #1
+ // resolves the offer and the ledger write below freezes it; a later request
+ // of the same cycle repeats that snapshot, return path included, so it cannot
+ // name a different offer from the one #1 named. See
+ // lib/confirmationJobContext.js → confirmationJobContextForSend.
+ const jobSend = isCycleSend
+   ? confirmationJobContextForSend(data, { attemptsBefore, returnPath: sourcePath })
+   : null;
+
+ // No auth token embedded in the URL — the confirm action's Cloud Function
+ // response returns a fresh custom token for auto-login. This avoids the
+ // Firebase custom token 1-hour expiry problem entirely.
+ const finalUrl = confirmationConfirmUrl({
+   email: normalizedEmail,
+   token,
+   sourcePath: jobSend ? jobSend.returnPath : sourcePath,
+   // A passwordless login link must never be able to revive an opt-out when
+   // an old link is opened later. The management handler uses this explicit
+   // mode to mint a session without changing newsletter state.
+   mode: isLoginLink ? 'login' : undefined,
+ });
+
  const { subject, html, tags } = buildConfirmationRequestEmail({
  locale: emailLocale,
  confirmUrl: finalUrl,
  frame,
  firstSentAt: confirmationFirstSentAt(data),
  login: isLoginLink,
- // A job-gate signup is asked about THE JOB it came from, not about a
- // newsletter it never thought it was joining (measured 2026-09-24: 67% of
- // job-gate recipients opened the generic request, 33% confirmed). Only for a
- // real cycle send; a re-probe or a login link keeps the plain copy. See
- // lib/confirmationJobContext.js.
- jobContext: isCycleSend ? resolveConfirmationJobContext(data) : null,
+ jobContext: jobSend ? jobSend.jobContext : null,
  });
 
  // Re-read the consent state after all token/template work and immediately
@@ -382,6 +391,8 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  messageId,
  locale: emailLocale,
  stamp: admin.firestore.FieldValue.serverTimestamp(),
+ // What THIS message named, in the same write as its counter.
+ jobSnapshot: jobSend ? jobSend.snapshot : undefined,
  }),
  );
 
