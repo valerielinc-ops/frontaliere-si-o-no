@@ -8,6 +8,7 @@ import {
   AI_MODELS,
   __installScoreStoreForTests,
   callLLM,
+  classifyExhaustionCause,
   getScoreBoard,
   isModelAvailable,
   resetState,
@@ -126,7 +127,7 @@ describe('client del broker Codex', () => {
     const log = warnings();
     // Il broker accetta e tiene la richiesta in coda: nessun \x01, nessuna risposta.
     behavior = (client) => { client.write('\0'); };
-    await expect(callCodex({ deadlineMs: Date.now() + 1500 })).rejects.toThrow(/queue wait exceeded \d+s before Codex started/);
+    await expect(callCodex({ deadlineMs: Date.now() + 1500 })).rejects.toThrow(/queue wait timed out after \d+s before Codex started/);
     expect(log()).toMatch(/guasto di trasporto, score invariato/);
     expect(codexScore()).toBe(0);
   });
@@ -150,12 +151,37 @@ describe('client del broker Codex', () => {
     expect(log()).toMatch(/broker non raggiungibile \(ENOENT\)/);
     expect(log()).toMatch(/guasto di trasporto, score invariato/);
     expect(isModelAvailable(CODEX)).toBe(false);
-    await expect(callCodex()).rejects.toThrow(/codex-cli\/gpt-5\.6-luna: skipped — no API key for provider codex_cli/);
+    await expect(callCodex()).rejects.toThrow(/codex-cli\/gpt-5\.6-luna: skipped — Codex auth broker temporarily unavailable \(socket gone for this job\)/);
     expect(codexScore()).toBe(0);
 
     // Un socket diverso (un altro broker) riapre la lane.
     process.env.CODEX_AUTH_BROKER_SOCKET = path.join(tempDir, 'other.sock');
     expect(isModelAvailable(CODEX)).toBe(true);
+  });
+
+  // Quando tutta la catena fallisce, il testo degli errori decide fra
+  // differimento (transitorio) e Workflow Failure (persistente). Una coda o un
+  // broker sparito si riparano al run successivo: devono votare transitorio,
+  // non restare ambigui ne' finire nel secchio di «no API key».
+  it('ogni guasto del canale broker vota transitorio nel tally di esaurimento', async () => {
+    const rows: string[] = [];
+    const collect = (error: unknown) => { rows.push(String((error as Error).message)); };
+    behavior = (client) => { client.write('\0'); };
+    await callCodex({ deadlineMs: Date.now() + 1200 }).catch(collect);
+    behavior = (client) => { client.end(); };
+    await callCodex().catch(collect);
+    for (const socket of sockets.splice(0)) socket.destroy();
+    await new Promise<void>((resolve) => server!.close(() => resolve()));
+    server = null;
+    fs.rmSync(socketPath, { force: true });
+    await callCodex().catch(collect);
+    await callCodex().catch(collect);
+
+    const codexRows = rows.map((message) => message.match(/Errors: (.*)$/s)?.[1] ?? message);
+    expect(codexRows).toHaveLength(4);
+    const tally = classifyExhaustionCause(codexRows);
+    expect({ transient: tally.transient, persistent: tally.persistent }, codexRows.join('\n'))
+      .toEqual({ transient: 4, persistent: 0 });
   });
 
   it('un broker che chiude senza risposta e\' un guasto di trasporto', async () => {
