@@ -6728,6 +6728,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.costi-sanita-incentivi.title': 'Ticino\'s healthcare system needs new incentives',
     'blog.article.costi-sanita-incentivi.excerpt': 'Covid has left extraordinary and lasting costs; health insurers retain at most 5% of expenditure; up to one fifth of healthcare spending is linked to unnecessary services.',
     'blog.article.costi-sanita-incentivi.imageAlt': 'Lake Lugano with mountains, representing healthcare cost challenges in Ticino.',
+    'blog.article.cembra-vontobel-sede-baden-baar.title': 'Cembra and Vontobel leave Zurich: taxes and space drive the move',
+    'blog.article.cembra-vontobel-sede-baden-baar.excerpt': 'Cembra moves 660 employees to Baden (15% taxes) in autumn 2027; Vontobel brings 1.500 jobs to Baar (12%) by 2030. Zurich at 20%.',
+    'blog.article.cembra-vontobel-sede-baden-baar.imageAlt': 'Lugano financial district view with modern offices and lake',
 };
 
 export default blogMetaChEn;

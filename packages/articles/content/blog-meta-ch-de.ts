@@ -6728,6 +6728,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.costi-sanita-incentivi.title': 'Das Tessiner Gesundheitswesen braucht neue Anreize.',
     'blog.article.costi-sanita-incentivi.excerpt': 'Covid hat außergewöhnliche und anhaltende Kosten hinterlassen; die Krankenkassen behalten höchstens 5% der Ausgaben ein; bis zu einem Fünftel der Gesundheitsausgaben ist mit unnötigen Leistungen verbunden.',
     'blog.article.costi-sanita-incentivi.imageAlt': 'Der Luganer See mit Bergen, Symbol für die Herausforderungen der Gesundheitskosten im Tessin.',
+    'blog.article.cembra-vontobel-sede-baden-baar.title': 'Cembra & Vontobel Zürich: Steuern & Räume treiben Umzug',
+    'blog.article.cembra-vontobel-sede-baden-baar.excerpt': 'Cembra verlegt im Herbst 2027 660 Mitarbeitende nach Baden (15% Steuern); Vontobel verlegt bis 2030 1.500 Arbeitsplätze nach Baar (12%). Zürich bei 20%.',
+    'blog.article.cembra-vontobel-sede-baden-baar.imageAlt': 'Lugano Finanzdistrikt mit modernen Büros und See',
 };
 
 export default blogMetaChDe;

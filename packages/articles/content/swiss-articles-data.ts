@@ -20210,6 +20210,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'cembra-vontobel-sede-baden-baar',
+    category: 'fiscale',
+    date: '2026-09-25T22:08:30.423Z',
+    image: '/images/blog/cembra-vontobel-sede-baden-baar.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
