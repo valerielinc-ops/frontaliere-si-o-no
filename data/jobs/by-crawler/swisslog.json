@@ -261,7 +261,7 @@
       "title": "Controls Software Service Engineer (Siemens) (m/w/d)",
       "titleByLocale": {
         "it": "Ingegnere del Servizio Software di Controllo (Siemens) (m/f/d)",
-        "en": "Controls Software Service Engineer (Siemens) (m/w/d)",
+        "en": "Software Service Engineer (Siemens) (m/f/d)",
         "de": "Controls Software Service Ingenieur (Siemens) (m/w/d)",
         "fr": "Ingénieur Service Logiciel de Contrôle (Siemens) (h/f/d)"
       },
@@ -320,7 +320,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:07:43.774Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -333,7 +332,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swisslog-0fdca037d51d",

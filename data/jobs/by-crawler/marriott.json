@@ -1899,7 +1899,7 @@
       "companyDomain": "marriott.com",
       "title": "Chef de rang Brasserie 1519 (Winter 26/27) - W VERBIER",
       "titleByLocale": {
-        "it": "Chef de rang Brasserie 1519 (Winter 26/27) - W VERBIER",
+        "it": "Chef de rang Brasserie 1519 (Inverno 26/27) - W VERBIER",
         "en": "Chef de rang Brasserie 1519 (Winter 26/27) - W VERBIER",
         "de": "Chef de Rang Brasseries 1519 (Winter 26/27) - W VERBIER",
         "fr": "Chef de rang Brasserie 1519 (Hiver 26/27) - W VERBIER"
@@ -1946,7 +1946,6 @@
       "localeMismatchSuppressedLen": 2881,
       "retranslationAttempts": 4,
       "firstSeenAt": "2026-09-19T23:20:39.353Z",
-      "needsRetranslation": true,
       "salaryMin": 53500,
       "salaryMax": 67000,
       "salarySource": "estimated",
@@ -1960,7 +1959,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "WALLI"
+      "addressRegion": "WALLI",
+      "needsRetranslation": true
     },
     {
       "id": "marriott-938d115338c0",

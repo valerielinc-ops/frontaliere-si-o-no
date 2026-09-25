@@ -400,10 +400,10 @@
       "companyDomain": "sika.com",
       "title": "Global Innovation Platform & Process Manager",
       "titleByLocale": {
-        "it": "Piattaforma di innovazione globale & Gestione dei processi",
         "en": "Global Innovation Platform & Process Manager",
+        "it": "Piattaforma di innovazione globale & Gestione dei processi",
         "de": "Globale Innovationsplattform und Prozessmanager",
-        "fr": "Global Innovation Platform & Process Manager"
+        "fr": "Plateforme mondiale d'innovation et gestionnaire de processus"
       },
       "description": "Shape the Future of Innovation at Sika! Innovation is a key driver of Sika's success. To strengthen our Global Innovation Management team, we are looking for a motivated and technically savvy professional who will help shape and continuously improve our global innovation ecosystem. In this role, you will combine innovation management, digital platform administration, process optimization, user enablement, and stakeholder engagement. You will act as the bridge between business users, innovation teams, IT, and software providers to ensure that our innovation platforms and processes create value for employees worldwide. Own and continuously enhance Sika’s global innovation platforms (HYPE), including configuration, administration, and implementation of new functionalities. Translate business requirements into scalable digital solutions, workflows, and user-friendly platform capabilities. Drive the optimization, digitalization, and standardization of global innovation processes and best practices. Partner with innovation teams, business stakeholders, IT, and external software providers to deliver effective platform and process solutions. Troubleshoot platform-related issues and drive continuous improvement initiatives. Develop and deliver training, user guidance, and enablement activities to support adoption and engagement across the organization. Foster collaboration, knowledge sharing, and a strong global innovation community. Monitor platform usage, process performance, and key metrics, providing data-driven insights and recommendations to support decision-making and continuous improvement.",
       "descriptionByLocale": {
@@ -435,21 +435,7 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-7a72a172-4966-459e-b87f-3c6d36cd60f3.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "global-innovation-platform-process-manager-sika-ch",
-        "piattaforma-di-innovazione-globale-amp-gestione-dei-processi-sika-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "global-innovation-platform-process-manager-sika-ch",
-          "piattaforma-di-innovazione-globale-amp-gestione-dei-processi-sika-zurich-zurich"
-        ],
-        "de": [
-          "global-innovation-platform-process-manager-sika-ch"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-23T23:43:30.361Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -462,7 +448,21 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-23T23:43:30.361Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-innovation-platform-process-manager-sika-ch",
+          "piattaforma-di-innovazione-globale-amp-gestione-dei-processi-sika-zurich-zurich"
+        ],
+        "de": [
+          "global-innovation-platform-process-manager-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-innovation-platform-process-manager-sika-ch",
+        "piattaforma-di-innovazione-globale-amp-gestione-dei-processi-sika-zurich-zurich"
+      ]
     },
     {
       "id": "sika-44d37d89fa1d",
@@ -2438,7 +2438,7 @@
       "companyDomain": "sika.com",
       "title": "Accountant Administrator 80-100% (m/w/d)",
       "titleByLocale": {
-        "it": "Accountant Administrator 80-100% (m/w/d)",
+        "it": "Amministratore Contabile 80-100% (m/f/d)",
         "en": "Accountant Administrator 80-100% (m/f/d)",
         "de": "Buchhalter Administrator 80-100% (m/w/d)",
         "fr": "Comptable Administrator 80-100% (m/w/d)"
@@ -2484,7 +2484,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:04:44.056Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -2497,7 +2496,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-d98934919978",

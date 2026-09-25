@@ -737,7 +737,7 @@
       "title": "Business Analyst Senior PLEXUS1",
       "titleByLocale": {
         "it": "Business Analista Senior PLEXUS1",
-        "en": "Business Analyst Senior PLEXUS1",
+        "en": "Senior Business Analyst PLEXUS1",
         "de": "Senior Business Analyst PLEXUS1",
         "fr": "Business Analyste Senior PLEXUS1"
       },
@@ -772,7 +772,6 @@
       "contractType": "Informatique",
       "externalId": "1165220455",
       "firstSeenAt": "2026-08-04T11:34:33.067Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -786,7 +785,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-48d3349f3c92",
@@ -1464,7 +1464,7 @@
       "title": "Postdoctoral Research Fellow in Adaptive optics for ultrafast laser-matter interaction",
       "titleByLocale": {
         "it": "Postdoctoral Ricerca Fellow in Adaptive optics for ultrafast laser-matter interaction",
-        "en": "Postdoctoral Research Fellow in Adaptive optics for ultrafast laser-matter interaction",
+        "en": "Postdoctoral Research Fello Fell",
         "de": "Postdoktorand in Adaptiver Optik für ultraschnelle Laser-Materie-Interaktion",
         "fr": "Bourse de recherche postdoctorale en optique adaptative pour l'interaction laser-matière ultrarapide"
       },
@@ -1547,8 +1547,8 @@
         "postdoctoral-research-fellow-in-adaptive-optics-for-ultrafast-laser-matter-interaction",
         "ricercatore-postdoc-in-ottica-adattiva-per-interazione-laser-materia-ultraveloci-epfl-neuchatel"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-08T22:21:59.430Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -3671,7 +3671,7 @@
       "title": "Postdoctoral researcher in building technology",
       "titleByLocale": {
         "it": "Postdoctoral researcher in building technology",
-        "en": "Postdoctoral researcher in building technology",
+        "en": "Postdoctoral researcher in building technolog technolog",
         "de": "Postdoktorand in Gebäudetechnik",
         "fr": "Chercheur postdoctoral en technologie du bâtiment"
       },
@@ -3735,8 +3735,8 @@
           "rechercheur-post-doctoral-en-technologie-de-construction-epfl-fribourg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T21:32:10.744Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -4214,10 +4214,10 @@
       "companyDomain": "epfl.ch",
       "title": "Postdoc: Networked Systems Abstractions Lab (LASeR)",
       "titleByLocale": {
-        "it": "Postdoc: Networked Systems Abstractions Lab (LASeR)",
+        "fr": "Postdoc: Networked Systems Abstractions Lab (LASeR)",
         "en": "Postdoc: Networked Systems Abstractions Lab (LASeR)",
-        "de": "Postdoc: Networked Systems Abstractions Lab (LASeR)",
-        "fr": "Postdoc: Networked Systems Abstractions Lab (LASeR)"
+        "it": "Postdoc: Laboratorio di Astrazioni dei Sistemi in Rete (LASeR)",
+        "de": "Postdoc: Networked Systems Abstractions Lab (LASeR)"
       },
       "description": "Mission\n\nThe EPFL Networked Systems Abstractions Lab (LASeR) develops programming languages and formal reasoning tools for networked systems. Networks are the invisible infrastructure that connects the modern world, yet programming and reasoning about them remains surprisingly difficult. Our research addresses this challenge in the following domains:\n\n• Designing expressive languages for specifying network behavior\n\n• Developing verification techniques for establishing correctness with respect to formal specifications\n\n• Engineering efficient implementations that make high-level abstractions practical\n\nWe seek outstanding candidates working in programming languages, formal methods, and/or networking, with interests in one or more of the following areas: NetKAT and its extensions, symbolic automata, routing algebras, packet scheduling, and AI-based cybersecurity.\n\nMain duties and responsibilities\n\n• Conducting research on network abstractions, spanning language design, implementation, and verification. The precise focus will be discussed with the successful candidate depending on their background, expertise and affinities. Possible directions include:\n\n• Design and semantics of network programming languages in the NetKAT family, including quantitative and probabilistic extensions, and scalable verification via symbolic automata and related decision procedures\n\n• Routing algebras: composable, algebraic representations of distributed routing protocols, as a principled basis for the compilation and verification of protocols such as BGP\n\n• Formal abstractions for packet scheduling: expressive specifications of scheduling policies, and compilation to programmable hardware with provable guarantees\n\n• AI-based cybersecurity: applying learning and AI-assisted techniques to network security, e.g., automata learning from security logs, validation of protocol models, and verified defensive controllers\n\n• Build a strong network in the programming languages, verification, and networking communities, including collaboration with the lab’s academic and industrial partners\n\n• Contribute to the design, implementation, and open-source release of the lab’s tools and artefacts\n\n• Participate in the supervision of PhD and master students\n\nProfile\n\n• PhD (or nearing completion of) in computer science or a closely related field\n\n• Background in programming languages, formal methods, or networking\n\n• Research experience in one or more of: language design and semantics, automata theory and decision procedures, interactive or automated theorem proving, network verification, routing protocols, packet scheduling, or applications of AI/ML to systems and security\n\n• Strong computational and analytical skills, including solid software engineering ability (e.g., OCaml, Rust, C/C++, Python, or other functional languages)\n\n• Strong publication record (relative to your career stage) in internationally leading venues (e.g., POPL, PLDI, ICFP, OOPSLA, CAV, SIGCOMM, NSDI)\n\n• Independent, creative, and solution-oriented\n\n• Excellent written and oral communication skills in English\n\n• Strong motivation to explore new research domains\n\n• Good team spirit and enthusiasm for working in a collaborative, international lab\n\nWe offer\n\n• A stimulating and international working environment\n\n• Excellent working conditions\n\n• Opportunity to perform state-of-the-art research in one of the most dynamic scientific institutions in Europe\n\n• Opportunity to interact with internationally renowned experts in programming languages, verification, and systems at EPFL, and with the lab’s academic and industrial collaborators\n\n• Funded travel for conferences and research collaborations\n\nInformations\n\nOnly applications submitted through the online platform are considered. You are asked to supply:\n\n• A brief cover letter (pdf, up to 2 pages).\n\nAnd in one PDF:\n\n• A CV with a publication list.\n\n• A research statement (pdf, up to 3 pages).\n\n• Contact details for 3 referees.\n\nFor any furth",
       "descriptionByLocale": {
@@ -4250,7 +4250,6 @@
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1165481555",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-23T23:45:29.800Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -4264,7 +4263,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-09-23T23:45:29.800Z"
     },
     {
       "id": "epfl-783c6c49e8d9",

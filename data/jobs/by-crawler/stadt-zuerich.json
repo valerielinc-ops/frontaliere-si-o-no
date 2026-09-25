@@ -3517,7 +3517,7 @@
       "title": "Betriebselektriker*in Heizkraftwerk Aubrugg",
       "titleByLocale": {
         "it": "Elettricista di affari* nell'impianto di riscaldamento di Aubrugg",
-        "en": "Betriebselektriker*in Heizkraftwerk Aubrugg",
+        "en": "Plant Electrician at the Aubrugg Combined Heat and Power Plant",
         "de": "Betriebselektriker*in Heizkraftwerk Aubrugg",
         "fr": "Electricien d'affaires* en Aubrugg chauffage centrale"
       },
@@ -3572,7 +3572,6 @@
           "betriebselektriker-in-heizkraftwerk-aubrugg-stadt-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T12:20:07.729Z",
       "salaryMin": 99000,
       "salaryMax": 151500,
@@ -3586,7 +3585,8 @@
           "maxValue": 151500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-0c837795d84d",
@@ -22713,7 +22713,7 @@
         "it": "Aspiratore di polizia*",
         "en": "Police aspirant*",
         "de": "Polizeiaspirant*in",
-        "fr": "Polizeiaspirant*in"
+        "fr": "Aspirant policier"
       },
       "description": "Polizeiaspirant*in bei der Stadtverwaltung Zürich, Sicherheitsdepartement – Stadtpolizei. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 27881. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -22767,7 +22767,6 @@
           "polizeiaspirant-in-stadt-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T16:12:36.165Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -22781,7 +22780,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-e501e68540c3",
@@ -27280,7 +27280,7 @@
         "it": "Aspiratore di polizia*",
         "en": "Police aspirant*",
         "de": "Polizeiaspirant*in",
-        "fr": "Polizeiaspirant*in"
+        "fr": "Aspirant policier"
       },
       "description": "Polizeiaspirant*in bei der Stadtverwaltung Zürich, Sicherheitsdepartement – Stadtpolizei. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50365. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -27346,8 +27346,8 @@
           "polizeiaspirant-in-stadt-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T16:12:36.160Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -27790,10 +27790,10 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Fachbearbeiter*in Inventarisation / Kindesvermögen 80-100%",
       "titleByLocale": {
-        "it": "Fachbearbeiter*in Inventarisation / Kindesvermögen 80-100%",
-        "en": "Fachbearbeiter*in Inventarisation / Kindesvermögen 80-100%",
         "de": "Fachbearbeiter*in Inventarisation / Kindesvermögen 80-100%",
-        "fr": "Fachbearbeiter*in Inventarisation / Kindesvermögen 80-100%"
+        "it": "Inventario Specialistico / Beni per figli 80-100%",
+        "en": "Specialist Inventory / Child Assets 80-100%",
+        "fr": "Inventaire spécialisé / Biens pour enfants 80-100 %"
       },
       "description": "Fachbearbeiter*in Inventarisation / Kindesvermögen 80-100% bei der Stadtverwaltung Zürich, Stiftungen und Anstalten – Kindes- und Erwachsenenschutzbehörde. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51706. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -27828,18 +27828,17 @@
       "department": "Stiftungen und Anstalten",
       "unit": "Kindes- und Erwachsenenschutzbehörde",
       "referenceNumber": "51706",
-      "previousSlugs": [
-        "fachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zuerich-zurigo-51706",
-        "fachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zuerich-zurigo-51706",
           "fachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-24T14:43:19.013Z",
+      "previousSlugs": [
+        "fachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zuerich-zurigo-51706",
+        "fachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -27852,7 +27851,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-24T14:43:19.013Z"
     },
     {
       "id": "stadt-zuerich-9114dd88ff55",
@@ -27868,10 +27868,10 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Sachbearbeiter*in Inventarisation / Kindesvermögen 80-100%",
       "titleByLocale": {
-        "it": "Sachbearbeiter*in Inventarisation / Kindesvermögen 80-100%",
-        "en": "Sachbearbeiter*in Inventarisation / Kindesvermögen 80-100%",
         "de": "Sachbearbeiter*in Inventarisation / Kindesvermögen 80-100%",
-        "fr": "Sachbearbeiter*in Inventarisation / Kindesvermögen 80-100%"
+        "it": "Inventario del cancelliere / Beni dei figli 80-100%",
+        "en": "Clerk Inventory / Child Assets 80-100%",
+        "fr": "Inventaire du commis / Biens des enfants 80-100 %"
       },
       "description": "Sachbearbeiter*in Inventarisation / Kindesvermögen 80-100% bei der Stadtverwaltung Zürich, Stiftungen und Anstalten – Kindes- und Erwachsenenschutzbehörde. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51705. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -27906,18 +27906,17 @@
       "department": "Stiftungen und Anstalten",
       "unit": "Kindes- und Erwachsenenschutzbehörde",
       "referenceNumber": "51705",
-      "previousSlugs": [
-        "sachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zuerich-zurigo-51705",
-        "sachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zuerich-zurigo-51705",
           "sachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-24T14:43:19.013Z",
+      "previousSlugs": [
+        "sachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zuerich-zurigo-51705",
+        "sachbearbeiter-in-inventarisation-kindesvermogen-80-100-stadt-zurich-zurich"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -27930,7 +27929,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-24T14:43:19.013Z"
     },
     {
       "id": "stadt-zuerich-c9a3a63c7192",
@@ -32285,7 +32285,7 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Profiinstruktor*in Korps",
       "titleByLocale": {
-        "it": "Profiinstruktor*in Korps",
+        "it": "Corpo Istruttori Professionali",
         "en": "Professional Instructor Corps",
         "de": "Profiinstruktor*in Korps",
         "fr": "Corps des instructeurs professionnels"
@@ -32333,8 +32333,8 @@
           "profiinstruktor-in-korps-stadt-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-24T00:09:01.726Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -32363,10 +32363,10 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Sozialpädagog*in Schule Riedhof-Pünten",
       "titleByLocale": {
-        "it": "Sozialpädagog*in Schule Riedhof-Pünten",
-        "en": "Sozialpädagog*in Schule Riedhof-Pünten",
+        "it": "Scuola di Pedagogia Sociale Riedhof-Pünten",
+        "en": "Social Pedagogue School Riedhof-Pünten",
         "de": "Sozialpädagog*in Schule Riedhof-Pünten",
-        "fr": "Sozialpädagog*in Schule Riedhof-Pünten"
+        "fr": "École de pédagogue sociale Riedhof-Pünten"
       },
       "description": "Sozialpädagog*in Schule Riedhof-Pünten bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Waidberg. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51729. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -32679,10 +32679,10 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Architekt*in ETH/FH als Projektleiter*in in der Projektentwicklung",
       "titleByLocale": {
-        "it": "Architekt*in ETH/FH come Projektleiter*in in der Projektentwicklung",
-        "en": "Architekt*in ETH/FH als Projektleiter*in in der Projektentwicklung",
         "de": "Architekt*in ETH/FH als Projektleiter*in in der Projektentwicklung",
-        "fr": "Architekt*in ETH/FH als Projektleiter*in in der Projektentwicklung"
+        "it": "Architekt*in ETH/FH come Projektleiter*in in der Projektentwicklung",
+        "en": "Architect ETH/FH as project manager in project development",
+        "fr": "Architecte ETH/FH en tant que chef de projet dans le développement de projet"
       },
       "description": "Architekt*in ETH/FH als Projektleiter*in in der Projektentwicklung bei der Stadtverwaltung Zürich, Hochbaudepartement – Amt für Hochbauten. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51748. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -32717,18 +32717,17 @@
       "department": "Hochbaudepartement",
       "unit": "Amt für Hochbauten",
       "referenceNumber": "51748",
-      "previousSlugs": [
-        "architekt-in-eth-fh-als-projektleiter-in-in-der-projektentwicklung-stadt-zuerich-zurigo",
-        "architekt-in-eth-fh-come-projektleiter-in-der-projektentwicklung-stadt-zurich"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "architekt-in-eth-fh-als-projektleiter-in-in-der-projektentwicklung-stadt-zuerich-zurigo",
           "architekt-in-eth-fh-come-projektleiter-in-der-projektentwicklung-stadt-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-24T14:43:19.010Z",
+      "previousSlugs": [
+        "architekt-in-eth-fh-als-projektleiter-in-in-der-projektentwicklung-stadt-zuerich-zurigo",
+        "architekt-in-eth-fh-come-projektleiter-in-der-projektentwicklung-stadt-zurich"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -32741,7 +32740,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-24T14:43:19.010Z"
     },
     {
       "id": "stadt-zuerich-f61e23ef6556",
@@ -33508,10 +33508,10 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Hortleiter*in / Sozialpädagog*in",
       "titleByLocale": {
-        "it": "Hortleiter*in / Sozialpädagog*in",
-        "en": "Hortleiter*in / Sozialpädagog*in",
         "de": "Hortleiter*in / Sozialpädagog*in",
-        "fr": "Hortleiter*in / Sozialpädagog*in"
+        "it": "Capo dell'assistenza extrascolastica / pedagogico sociale",
+        "en": "Head of after-school care / social pedagogue",
+        "fr": "Responsable de la garde après l'école / pédagogue social"
       },
       "description": "Hortleiter*in / Sozialpädagog*in bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Limmattal. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51751. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -33547,7 +33547,6 @@
       "unit": "Kreisschulbehörde Limmattal",
       "referenceNumber": "51751",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-24T14:43:19.009Z",
       "salaryMin": 63000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -33560,7 +33559,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-24T14:43:19.009Z"
     },
     {
       "id": "stadt-zuerich-ad9706a0fb49",
@@ -33576,10 +33576,10 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Projektleiter*in Baumanagement",
       "titleByLocale": {
-        "it": "Projektleiter*in Baumanagement",
-        "en": "Projektleiter*in Baumanagement",
         "de": "Projektleiter*in Baumanagement",
-        "fr": "Projektleiter*in Baumanagement"
+        "it": "Project Manager Gestione delle Costruzioni",
+        "en": "Project Manager Construction Management",
+        "fr": "Chef de projet : Gestion de la construction"
       },
       "description": "Projektleiter*in Baumanagement bei der Stadtverwaltung Zürich, Departement der Industriellen Betriebe – Verkehrsbetriebe. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51753. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -33614,18 +33614,17 @@
       "department": "Departement der Industriellen Betriebe",
       "unit": "Verkehrsbetriebe",
       "referenceNumber": "51753",
-      "previousSlugs": [
-        "projektleiter-in-baumanagement-stadt-zuerich-zurigo-51753",
-        "projektleiter-in-baumanagement-stadt-zurich"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-baumanagement-stadt-zuerich-zurigo-51753",
           "projektleiter-in-baumanagement-stadt-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-24T14:43:19.009Z",
+      "previousSlugs": [
+        "projektleiter-in-baumanagement-stadt-zuerich-zurigo-51753",
+        "projektleiter-in-baumanagement-stadt-zurich"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -33638,7 +33637,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-24T14:43:19.009Z"
     },
     {
       "id": "stadt-zuerich-d9d40522eb6d",
@@ -33654,10 +33654,10 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Fachbearbeiter*in Immobilienökonomie",
       "titleByLocale": {
-        "it": "Fachbearbeiter*in Immobilienökonomie",
-        "en": "Fachbearbeiter*in Immobilienökonomie",
         "de": "Fachbearbeiter*in Immobilienökonomie",
-        "fr": "Fachbearbeiter*in Immobilienökonomie"
+        "it": "Specialista in Economia Immobiliare",
+        "en": "Real Estate Economics Specialist",
+        "fr": "Spécialiste en économie immobilière"
       },
       "description": "Fachbearbeiter*in Immobilienökonomie bei der Stadtverwaltung Zürich, Hochbaudepartement – Amt für Städtebau. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51740. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -33692,18 +33692,17 @@
       "department": "Hochbaudepartement",
       "unit": "Amt für Städtebau",
       "referenceNumber": "51740",
-      "previousSlugs": [
-        "fachbearbeiter-in-immobilienokonomie-stadt-zuerich-zurigo-51740",
-        "fachbearbeiter-in-immobilienokonomie-stadt-zurich-zurich"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fachbearbeiter-in-immobilienokonomie-stadt-zuerich-zurigo-51740",
           "fachbearbeiter-in-immobilienokonomie-stadt-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-24T14:43:19.009Z",
+      "previousSlugs": [
+        "fachbearbeiter-in-immobilienokonomie-stadt-zuerich-zurigo-51740",
+        "fachbearbeiter-in-immobilienokonomie-stadt-zurich-zurich"
+      ],
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -33716,7 +33715,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-24T14:43:19.009Z"
     },
     {
       "id": "stadt-zuerich-43ca001eb247",
@@ -33985,10 +33985,10 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Leiter*in Support & Bildung",
       "titleByLocale": {
-        "it": "Leiter*in Support & Bildung",
-        "en": "Leiter*in Support & Bildung",
         "de": "Leiter*in Support & Bildung",
-        "fr": "Leiter*in Support & Bildung"
+        "it": "Responsabile del Supporto e dell'Istruzione",
+        "en": "Head of Support & Education",
+        "fr": "Responsable du Support et de l'Éducation"
       },
       "description": "Leiter*in Support & Bildung bei der Stadtverwaltung Zürich, Sozialdepartement – Soziale Einrichtungen und Betriebe. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51746. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -34023,16 +34023,15 @@
       "department": "Sozialdepartement",
       "unit": "Soziale Einrichtungen und Betriebe",
       "referenceNumber": "51746",
-      "previousSlugs": [
-        "leiter-in-support-bildung-stadt-zuerich-zurigo-51746"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-support-bildung-stadt-zuerich-zurigo-51746"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-24T14:43:19.009Z",
+      "previousSlugs": [
+        "leiter-in-support-bildung-stadt-zuerich-zurigo-51746"
+      ],
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -34045,7 +34044,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-24T14:43:19.009Z"
     },
     {
       "id": "stadt-zuerich-0a9db6a6e852",
@@ -37564,9 +37564,9 @@
       "title": "Reinigungsmitarbeiter*in Schule Himmeri-Staudenbühl",
       "titleByLocale": {
         "de": "Reinigungsmitarbeiter*in Schule Himmeri-Staudenbühl",
-        "it": "Reinigungsmitarbeiter*in Schule Himmeri-Staudenbühl",
-        "en": "Reinigungsmitarbeiter*in Schule Himmeri-Staudenbühl",
-        "fr": "Reinigungsmitarbeiter*in Schule Himmeri-Staudenbühl"
+        "it": "Scuola per le pulizie Himmeri-Staudenbühl",
+        "en": "Cleaning Employee School Himmeri-Staudenbühl",
+        "fr": "École des employés de nettoyage Himmeri-Staudenbühl"
       },
       "description": "Reinigungsmitarbeiter*in Schule Himmeri-Staudenbühl bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Glattal. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51755. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {

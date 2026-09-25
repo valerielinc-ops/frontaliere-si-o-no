@@ -667,7 +667,7 @@
       "title": "STORE MANAGER 100% ( m,w,d)",
       "titleByLocale": {
         "it": "Direttore 100% (m,w,d)",
-        "en": "STORE MANAGER 100% ( m,w,d)",
+        "en": "STORE MANAGER 100% (m,f,d)",
         "de": "STORE MANAGER 100% ( m,w,d)",
         "fr": "GESTIONNAIRE À 100 % (m,w,d)"
       },
@@ -708,8 +708,8 @@
           "direttore-100-m-w-d-tally-weijl-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T12:35:25.243Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",

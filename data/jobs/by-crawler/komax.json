@@ -381,7 +381,7 @@
       "title": "Development Engineer Electronics with EMV lead",
       "titleByLocale": {
         "de": "Development Ingenieur Electronics with EMV lead",
-        "en": "Development Engineer Electronics with EMV lead",
+        "en": "Electronics Development Engineer with EMV lead",
         "it": "Development Ingegnere Electronics with EMV lead",
         "fr": "Development Ingénieur Electronics with EMV lead"
       },
@@ -416,7 +416,6 @@
       "jobReqId": "1165135955",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "development-engineer-electronics-with-emv-lead-komax-ch",
         "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i0zqmm",
@@ -451,7 +450,8 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "komax-38b4439706fb",
