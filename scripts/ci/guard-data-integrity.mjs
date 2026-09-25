@@ -24,9 +24,12 @@
  * raramente l'80% di un accumulatore da centinaia di migliaia di righe.
  */
 import { execFileSync } from 'node:child_process';
-
-const MIN_BYTES = 1_000_000; // solo accumulatori grandi (>1MB)
-const SHRINK_PCT = 70; // crollo > 70% = sospetto troncamento
+import {
+  ACCUMULATOR_MAX_SHRINK_PCT,
+  ACCUMULATOR_SANITY_FLOOR_BYTES,
+  accumulatorShrinkPct,
+  isCatastrophicAccumulatorShrink,
+} from '../lib/accumulator-byte-floor-guard.mjs';
 
 // Path-glob dei file-dati protetti. I file che cambiano size legittimamente
 // (snapshot rigenerati, cache volatili) restano coperti: la soglia size+pct li
@@ -96,9 +99,11 @@ export function main() {
     const prevBytes = sizeAt(beforeSha, file);
     const newBytes = sizeAt(afterSha, file);
     if (prevBytes == null || newBytes == null) continue; // creato/cancellato: non è un troncamento
-    if (prevBytes < MIN_BYTES) continue; // non era un accumulatore grande
-    const shrinkPct = ((prevBytes - newBytes) / prevBytes) * 100;
-    if (shrinkPct > SHRINK_PCT) {
+    if (isCatastrophicAccumulatorShrink(prevBytes, newBytes, {
+      floorBytes: ACCUMULATOR_SANITY_FLOOR_BYTES,
+      maxShrinkPct: ACCUMULATOR_MAX_SHRINK_PCT,
+    })) {
+      const shrinkPct = accumulatorShrinkPct(prevBytes, newBytes);
       violations.push({
         file,
         prevBytes,
