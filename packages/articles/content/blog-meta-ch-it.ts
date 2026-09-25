@@ -6698,6 +6698,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.canicola-danni-economici-2026.title': 'Canicola in Svizzera: 400 milioni di danni nel 2026',
     'blog.article.canicola-danni-economici-2026.excerpt': 'L\'estate torrida 2026 ha causato 400 milioni di franchi di danni in Svizzera. Allianz Trade avverte sui rischi economici del 2027.',
     'blog.article.canicola-danni-economici-2026.imageAlt': 'Lavoratori in pausa durante la canicola in una città svizzera',
+    'blog.article.nuova-legge-cibersicurezza-lcib.title': 'Svizzera: nuova legge autonoma sulla cibersicurezza LCib',
+    'blog.article.nuova-legge-cibersicurezza-lcib.excerpt': 'Il Consiglio federale incarica il DDPS di elaborare entro giugno 2027 la LCib, basata sul Cyber Resilience Act europeo per prodotti e dati digitali.',
+    'blog.article.nuova-legge-cibersicurezza-lcib.imageAlt': 'Infrastruttura digitale e server per la sicurezza informatica in Svizzera',
 };
 
 export default blogMetaChIt;
