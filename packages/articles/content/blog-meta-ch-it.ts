@@ -6728,6 +6728,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.costi-sanita-incentivi.title': 'La sanità ticinese ha bisogno di nuovi incentivi',
     'blog.article.costi-sanita-incentivi.excerpt': 'Il Covid ha lasciato costi straordinari e duraturi; le casse malati trattengono al massimo il 5% della spesa; fino a un quinto della spesa sanitaria è legato a prestazioni inutili.',
     'blog.article.costi-sanita-incentivi.imageAlt': 'Lago Lugano con montagne, simbolo delle sfide dei costi sanitari in Ticino.',
+    'blog.article.cembra-vontobel-sede-baden-baar.title': 'Cembra e Vontobel lasciano Zurigo: fisco e spazi spingono il trasloco',
+    'blog.article.cembra-vontobel-sede-baden-baar.excerpt': 'Cembra sposta 660 dipendenti a Baden (15% imposte) in autunno 2027; Vontobel porta 1.500 posti a Baar (12%) entro il 2030. Zurigo al 20%.',
+    'blog.article.cembra-vontobel-sede-baden-baar.imageAlt': 'Veduta del distretto finanziario di Lugano con uffici moderni e lago',
 };
 
 export default blogMetaChIt;

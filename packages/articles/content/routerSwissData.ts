@@ -2265,6 +2265,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'francese-autonomia-cantoni': { it: 'francese-autonomia-cantoni', en: 'french-language-canton-autonomy', de: 'franzoesisch-kantone-autonomie', fr: 'francais-autonomie-cantons' },
  'svizzera-difesa-bilancio-iva': { it: 'svizzera-difesa-bilancio-iva', en: 'switzerland-defense-budget-vat', de: 'schweiz-verteidigungsbudget-mwst', fr: 'suisse-budget-defense-tva' },
  'costi-sanita-incentivi': { it: 'costi-sanita-incentivi', en: 'ticino-s-healthcare-system-needs-new-incentives', de: 'das-tessiner-gesundheitswesen-braucht-neue-anreize', fr: 'le-systeme-de-sante-tessinois-a-besoin-de-nouvelles-incitations' },
+ 'cembra-vontobel-sede-baden-baar': { it: 'cembra-vontobel-sede-baden-baar', en: 'cembra-vontobel-relocation-baden-baar', de: 'cembra-vontobel-sitz-baden-baar', fr: 'cembra-vontobel-siege-baden-baar' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

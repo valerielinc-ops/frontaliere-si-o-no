@@ -87224,6 +87224,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cembra-vontobel-sede-baden-baar': {
+    title: 'Cembra e Vontobel lasciano Zurigo: fisco e spazi spingono il trasloco',
+    description: 'Due banche lasciano Zurigo per Baden e Baar: tasse societarie dal 12% al 20%, 2.160 dipendenti coinvolti. Reazioni politiche e analisi fiscale. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, cembra, vontobel, lasciano, zurigo',
+    ogTitle: 'Banche in fuga da Zurigo: Cembra a Baden, Vontobel a Baar per tasse più basse',
+    ogDescription: 'Cembra sposta 660 dipendenti a Baden (15% imposte societarie) nell\'autunno 2027; Vontobel trasferisce sede e 1.500 impiegati a Baar (12%) entro il 2030. Zurigo resta al 20%. L\'associazione banchieri minimizza, UDC e PLR chiedono interventi',
+    canonicalPath: '/articoli-svizzera/cembra-vontobel-sede-baden-baar/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cembra e Vontobel lasciano Zurigo: fisco e spazi spingono il trasloco",
+      "description": "Due banche lasciano Zurigo per Baden e Baar: tasse societarie dal 12% al 20%, 2.160 dipendenti coinvolti. Reazioni politiche e analisi fiscale. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cembra-vontobel-sede-baden-baar.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del distretto finanziario di Lugano con uffici moderni e lago"
+      },
+      "datePublished": "2026-09-25T22:08:30+00:00",
+      "dateModified": "2026-09-25T22:08:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cembra-vontobel-sede-baden-baar/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
