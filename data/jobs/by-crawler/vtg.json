@@ -369,7 +369,8 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "salaryMin": 105500,
-      "salaryMax": 185000
+      "salaryMax": 185000,
+      "needsRetranslation": true
     },
     {
       "id": "company-nbcw41",
@@ -570,18 +571,32 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-gebaudebetrieb-dubendorf-swiss-armed-forces-vtg-bern"
+          "mitarbeiter-in-gebaudebetrieb-dubendorf-swiss-armed-forces-vtg-bern",
+          "collaboratore-trice-in-gebaudebetrieb-dubendorf-confederazione-svizzera-dubendorf",
+          "mitarbeiter-in-gebaudebetrieb-dubendorf-confederazione-dubendorf",
+          "employee-building-company-dubendorf-confederazione-svizzera-dubendorf"
         ],
         "en": [
-          "mitarbeiter-in-gebaudebetrieb-dubendorf-swiss-armed-forces-vtg-bern-s9c3d5"
+          "mitarbeiter-in-gebaudebetrieb-dubendorf-swiss-armed-forces-vtg-bern-s9c3d5",
+          "mitarbeiter-in-gebaudebetrieb-dubendorf-confederazione-dubendorf",
+          "employee-building-company-dubendorf-confederazione-svizzera-dubendorf"
         ],
         "fr": [
-          "mitarbeiter-in-gebaudebetrieb-dubendorf-swiss-armed-forces-vtg-bern-s9c3d5"
+          "mitarbeiter-in-gebaudebetrieb-dubendorf-swiss-armed-forces-vtg-bern-s9c3d5",
+          "mitarbeiter-in-gebaudebetrieb-dubendorf-confederazione-dubendorf",
+          "entreprise-de-batiment-des-employes-dubendorf-confederazione-svizzera-dubendorf"
+        ],
+        "de": [
+          "mitarbeiter-in-gebaudebetrieb-dubendorf-confederazione-dubendorf"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-gebaudebetrieb-dubendorf-swiss-armed-forces-vtg-bern",
-        "mitarbeiter-in-gebaudebetrieb-dubendorf-swiss-armed-forces-vtg-bern-s9c3d5"
+        "mitarbeiter-in-gebaudebetrieb-dubendorf-swiss-armed-forces-vtg-bern-s9c3d5",
+        "collaboratore-trice-in-gebaudebetrieb-dubendorf-confederazione-svizzera-dubendorf",
+        "mitarbeiter-in-gebaudebetrieb-dubendorf-confederazione-dubendorf",
+        "employee-building-company-dubendorf-confederazione-svizzera-dubendorf",
+        "entreprise-de-batiment-des-employes-dubendorf-confederazione-svizzera-dubendorf"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -729,16 +744,21 @@
           "automobil-mechatroniker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern-2p5bb2",
           "ingenieurs-mecatroniques-automobiles-dans-les-vehicules-utilitaires-swiss-armed-forces-vtg-bern",
           "automobil-mechatroniker-in-nutzfahrzeuge-confederazione-dubendorf-1lmbas",
-          "automobil-mechatroniker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern-0it7ev"
+          "automobil-mechatroniker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern-0it7ev",
+          "automeccanica-veicoli-commerciali-confederazione-svizzera-dubendorf"
         ],
         "en": [
-          "automotive-mechatronics-engineers-in-commercial-vehicles-confederazione-svizzera-dubendorf"
+          "automotive-mechatronics-engineers-in-commercial-vehicles-confederazione-svizzera-dubendorf",
+          "automobil-mechatroniker-in-nutzfahrzeuge-confederazione-dubendorf",
+          "automotive-mechatronics-commercial-vehicles-confederazione-svizzera-dubendorf"
         ],
         "de": [
           "automobil-mechatroniker-in-nutzfahrzeuge-confederazione-dubendorf"
         ],
         "fr": [
-          "ingenieurs-mecatroniques-automobiles-dans-les-vehicules-utilitaires-confederazione-svizzera-dubendorf"
+          "ingenieurs-mecatroniques-automobiles-dans-les-vehicules-utilitaires-confederazione-svizzera-dubendorf",
+          "automobil-mechatroniker-in-nutzfahrzeuge-confederazione-dubendorf",
+          "vehicules-utilitaires-mecatroniques-automobiles-confederazione-svizzera-dubendorf"
         ]
       },
       "previousSlugs": [
@@ -752,7 +772,10 @@
         "automobil-mechatroniker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern-2p5bb2",
         "ingenieurs-mecatroniques-automobiles-dans-les-vehicules-utilitaires-swiss-armed-forces-vtg-bern",
         "automobil-mechatroniker-in-nutzfahrzeuge-confederazione-dubendorf-1lmbas",
-        "automobil-mechatroniker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern-0it7ev"
+        "automobil-mechatroniker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern-0it7ev",
+        "automeccanica-veicoli-commerciali-confederazione-svizzera-dubendorf",
+        "automotive-mechatronics-commercial-vehicles-confederazione-svizzera-dubendorf",
+        "vehicules-utilitaires-mecatroniques-automobiles-confederazione-svizzera-dubendorf"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -899,18 +922,34 @@
       "previousSlugsByLocale": {
         "it": [
           "motorgeratemechaniker-in-hinwil-swiss-armed-forces-vtg-bern",
-          "motorgeratemechaniker-in-hinwil-swiss-armed-forces-vtg-bern-hz5dg7"
+          "motorgeratemechaniker-in-hinwil-swiss-armed-forces-vtg-bern-hz5dg7",
+          "motorgeratemechaniker-in-hinwil-confederazione-svizzera-hinwil",
+          "motorgeratemechaniker-in-hinwil-confederazione-hinwil",
+          "motore-meccanico-hinwil-confederazione-svizzera-hinwil"
         ],
         "en": [
-          "motorgeratemechaniker-in-hinwil-swiss-armed-forces-vtg-bern-hz5dg7"
+          "motorgeratemechaniker-in-hinwil-swiss-armed-forces-vtg-bern-hz5dg7",
+          "motorgeratemechaniker-in-hinwil-confederazione-svizzera-hinwil",
+          "engine-equipment-mechanic-hinwil-confederazione-svizzera-hinwil"
         ],
         "fr": [
-          "motorgeratemechaniker-in-hinwil-swiss-armed-forces-vtg-bern-hz5dg7"
+          "motorgeratemechaniker-in-hinwil-swiss-armed-forces-vtg-bern-hz5dg7",
+          "motorgeratemechaniker-in-hinwil-confederazione-svizzera-hinwil",
+          "mecanicien-de-l-equipement-moteur-hinwil-confederazione-svizzera-hinwil"
+        ],
+        "de": [
+          "motorgeratemechaniker-in-hinwil-confederazione-hinwil",
+          "motorgeratemechaniker-in-hinwil-confederazione-svizzera-hinwil"
         ]
       },
       "previousSlugs": [
         "motorgeratemechaniker-in-hinwil-swiss-armed-forces-vtg-bern",
-        "motorgeratemechaniker-in-hinwil-swiss-armed-forces-vtg-bern-hz5dg7"
+        "motorgeratemechaniker-in-hinwil-swiss-armed-forces-vtg-bern-hz5dg7",
+        "motorgeratemechaniker-in-hinwil-confederazione-svizzera-hinwil",
+        "motorgeratemechaniker-in-hinwil-confederazione-hinwil",
+        "motore-meccanico-hinwil-confederazione-svizzera-hinwil",
+        "engine-equipment-mechanic-hinwil-confederazione-svizzera-hinwil",
+        "mecanicien-de-l-equipement-moteur-hinwil-confederazione-svizzera-hinwil"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -978,20 +1017,33 @@
       "previousSlugsByLocale": {
         "it": [
           "lernende-r-mediamatiker-in-swiss-armed-forces-vtg-bern",
-          "apprendista-mediamatiker-in-swiss-armed-forces-vtg-bern-y2hto4"
+          "apprendista-mediamatiker-in-swiss-armed-forces-vtg-bern-y2hto4",
+          "lernende-r-mediamatiker-in-confederazione-bern",
+          "imparante-r-mediamatista-confederazione-svizzera-bern"
         ],
         "en": [
-          "apprentice-mediamatiker-in-swiss-armed-forces-vtg-bern-y2hto4"
+          "apprentice-mediamatiker-in-swiss-armed-forces-vtg-bern-y2hto4",
+          "lernende-r-mediamatiker-in-confederazione-bern",
+          "learner-r-mediamatist-confederazione-svizzera-bern"
         ],
         "fr": [
-          "apprenti-e-mediamatiker-in-swiss-armed-forces-vtg-bern-y2hto4"
+          "apprenti-e-mediamatiker-in-swiss-armed-forces-vtg-bern-y2hto4",
+          "lernende-r-mediamatiker-in-confederazione-bern",
+          "apprentis-r-mediamatiste-confederazione-svizzera-bern"
+        ],
+        "de": [
+          "lernende-r-mediamatiker-in-confederazione-bern"
         ]
       },
       "previousSlugs": [
         "lernende-r-mediamatiker-in-swiss-armed-forces-vtg-bern",
         "apprendista-mediamatiker-in-swiss-armed-forces-vtg-bern-y2hto4",
         "apprentice-mediamatiker-in-swiss-armed-forces-vtg-bern-y2hto4",
-        "apprenti-e-mediamatiker-in-swiss-armed-forces-vtg-bern-y2hto4"
+        "apprenti-e-mediamatiker-in-swiss-armed-forces-vtg-bern-y2hto4",
+        "lernende-r-mediamatiker-in-confederazione-bern",
+        "imparante-r-mediamatista-confederazione-svizzera-bern",
+        "learner-r-mediamatist-confederazione-svizzera-bern",
+        "apprentis-r-mediamatiste-confederazione-svizzera-bern"
       ],
       "salarySource": "reported",
       "baseSalary": {
@@ -1059,18 +1111,31 @@
       "previousSlugsByLocale": {
         "it": [
           "hochschulpraktikum-in-ki-unterstutzte-simulation-swiss-armed-forces-vtg-bern",
-          "hochschulpraktikum-in-ki-unterstutzte-simulation-swiss-armed-forces-vtg-bern-ndduup"
+          "hochschulpraktikum-in-ki-unterstutzte-simulation-swiss-armed-forces-vtg-bern-ndduup",
+          "hochschulpraktikum-in-ki-unterstutzte-simulation-confederazione-bern",
+          "stage-universitario-in-simulazione-assistita-da-ai-confederazione-svizzera-bern"
         ],
         "en": [
-          "hochschulpraktikum-in-ki-unterstutzte-simulation-swiss-armed-forces-vtg-bern-ndduup"
+          "hochschulpraktikum-in-ki-unterstutzte-simulation-swiss-armed-forces-vtg-bern-ndduup",
+          "hochschulpraktikum-in-ki-unterstutzte-simulation-confederazione-bern",
+          "university-internship-in-ai-assisted-simulation-confederazione-svizzera-bern"
         ],
         "fr": [
-          "hochschulpraktikum-in-ki-unterstutzte-simulation-swiss-armed-forces-vtg-bern-ndduup"
+          "hochschulpraktikum-in-ki-unterstutzte-simulation-swiss-armed-forces-vtg-bern-ndduup",
+          "hochschulpraktikum-in-ki-unterstutzte-simulation-confederazione-bern",
+          "stage-universitaire-en-simulation-assistee-par-l-ia-confederazione-svizzera-bern"
+        ],
+        "de": [
+          "hochschulpraktikum-in-ki-unterstutzte-simulation-confederazione-bern"
         ]
       },
       "previousSlugs": [
         "hochschulpraktikum-in-ki-unterstutzte-simulation-swiss-armed-forces-vtg-bern",
-        "hochschulpraktikum-in-ki-unterstutzte-simulation-swiss-armed-forces-vtg-bern-ndduup"
+        "hochschulpraktikum-in-ki-unterstutzte-simulation-swiss-armed-forces-vtg-bern-ndduup",
+        "hochschulpraktikum-in-ki-unterstutzte-simulation-confederazione-bern",
+        "stage-universitario-in-simulazione-assistita-da-ai-confederazione-svizzera-bern",
+        "university-internship-in-ai-assisted-simulation-confederazione-svizzera-bern",
+        "stage-universitaire-en-simulation-assistee-par-l-ia-confederazione-svizzera-bern"
       ],
       "salarySource": "reported",
       "baseSalary": {
@@ -1158,7 +1223,8 @@
       "addressLocality": "Bern",
       "addressRegion": "JU",
       "salaryMin": 63000,
-      "salaryMax": 107500
+      "salaryMax": 107500,
+      "needsRetranslation": true
     },
     {
       "id": "company-q2ve5o",
@@ -1209,12 +1275,29 @@
       "previousSlugsByLocale": {
         "it": [
           "kommissar-in-dpsa-auswertung-swiss-armed-forces-vtg-bern",
-          "kommissar-in-dpsa-auswertung-swiss-armed-forces-vtg-bern-q2ve5o"
+          "kommissar-in-dpsa-auswertung-swiss-armed-forces-vtg-bern-q2ve5o",
+          "kommissar-in-dpsa-auswertung-confederazione-bern",
+          "valutazione-del-commissario-dpsa-confederazione-svizzera-bern"
+        ],
+        "en": [
+          "kommissar-in-dpsa-auswertung-confederazione-bern",
+          "commissioner-dpsa-evaluation-confederazione-svizzera-bern"
+        ],
+        "de": [
+          "kommissar-in-dpsa-auswertung-confederazione-bern"
+        ],
+        "fr": [
+          "kommissar-in-dpsa-auswertung-confederazione-bern",
+          "evaluation-du-commissaire-dpsa-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
         "kommissar-in-dpsa-auswertung-swiss-armed-forces-vtg-bern",
-        "kommissar-in-dpsa-auswertung-swiss-armed-forces-vtg-bern-q2ve5o"
+        "kommissar-in-dpsa-auswertung-swiss-armed-forces-vtg-bern-q2ve5o",
+        "kommissar-in-dpsa-auswertung-confederazione-bern",
+        "valutazione-del-commissario-dpsa-confederazione-svizzera-bern",
+        "commissioner-dpsa-evaluation-confederazione-svizzera-bern",
+        "evaluation-du-commissaire-dpsa-confederazione-svizzera-bern"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -1282,12 +1365,29 @@
       "previousSlugsByLocale": {
         "it": [
           "spezialist-in-stabssteuerung-swiss-armed-forces-vtg-bern",
-          "spezialist-in-stabssteuerung-swiss-armed-forces-vtg-bern-vem28o"
+          "spezialist-in-stabssteuerung-swiss-armed-forces-vtg-bern-vem28o",
+          "spezialist-in-stabssteuerung-confederazione-bern",
+          "controllo-personale-specializzato-confederazione-svizzera-bern"
+        ],
+        "en": [
+          "spezialist-in-stabssteuerung-confederazione-bern",
+          "specialist-staff-control-confederazione-svizzera-bern"
+        ],
+        "de": [
+          "spezialist-in-stabssteuerung-confederazione-bern"
+        ],
+        "fr": [
+          "spezialist-in-stabssteuerung-confederazione-bern",
+          "controle-du-personnel-specialise-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
         "spezialist-in-stabssteuerung-swiss-armed-forces-vtg-bern",
-        "spezialist-in-stabssteuerung-swiss-armed-forces-vtg-bern-vem28o"
+        "spezialist-in-stabssteuerung-swiss-armed-forces-vtg-bern-vem28o",
+        "spezialist-in-stabssteuerung-confederazione-bern",
+        "controllo-personale-specializzato-confederazione-svizzera-bern",
+        "specialist-staff-control-confederazione-svizzera-bern",
+        "controle-du-personnel-specialise-confederazione-svizzera-bern"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -1428,18 +1528,34 @@
       "previousSlugsByLocale": {
         "it": [
           "automobilmechatroniker-in-swiss-armed-forces-vtg-bern",
-          "automobilmechatroniker-in-swiss-armed-forces-vtg-bern-ckovt3"
+          "automobilmechatroniker-in-swiss-armed-forces-vtg-bern-ckovt3",
+          "automobilmechatroniker-in-confederazione-svizzera-othmarsingen",
+          "automobilmechatroniker-in-confederazione-othmarsingen",
+          "meccatronica-automobilistica-confederazione-svizzera-othmarsingen"
         ],
         "en": [
-          "automobilmechatroniker-in-swiss-armed-forces-vtg-bern-ckovt3"
+          "automobilmechatroniker-in-swiss-armed-forces-vtg-bern-ckovt3",
+          "automobilmechatroniker-in-confederazione-svizzera-othmarsingen",
+          "automotive-mechatronics-confederazione-svizzera-othmarsingen"
         ],
         "fr": [
-          "automobilmechatroniker-in-swiss-armed-forces-vtg-bern-ckovt3"
+          "automobilmechatroniker-in-swiss-armed-forces-vtg-bern-ckovt3",
+          "automobilmechatroniker-in-confederazione-svizzera-othmarsingen",
+          "mecatronique-automobile-confederazione-svizzera-othmarsingen"
+        ],
+        "de": [
+          "automobilmechatroniker-in-confederazione-othmarsingen",
+          "automobilmechatroniker-in-confederazione-svizzera-othmarsingen"
         ]
       },
       "previousSlugs": [
         "automobilmechatroniker-in-swiss-armed-forces-vtg-bern",
-        "automobilmechatroniker-in-swiss-armed-forces-vtg-bern-ckovt3"
+        "automobilmechatroniker-in-swiss-armed-forces-vtg-bern-ckovt3",
+        "automobilmechatroniker-in-confederazione-svizzera-othmarsingen",
+        "automobilmechatroniker-in-confederazione-othmarsingen",
+        "meccatronica-automobilistica-confederazione-svizzera-othmarsingen",
+        "automotive-mechatronics-confederazione-svizzera-othmarsingen",
+        "mecatronique-automobile-confederazione-svizzera-othmarsingen"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -1506,18 +1622,31 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-risikomanagement-swiss-armed-forces-vtg-bern"
+          "leiter-in-risikomanagement-swiss-armed-forces-vtg-bern",
+          "leiter-in-risikomanagement-confederazione-bern",
+          "responsabile-risikomanagement-confederazione-svizzera-bern"
         ],
         "en": [
-          "leiter-in-risikomanagement-swiss-armed-forces-vtg-bern-5l7pv5"
+          "leiter-in-risikomanagement-swiss-armed-forces-vtg-bern-5l7pv5",
+          "leiter-in-risikomanagement-confederazione-bern",
+          "head-of-risk-management-confederazione-svizzera-bern"
         ],
         "fr": [
-          "leiter-in-risikomanagement-swiss-armed-forces-vtg-bern-5l7pv5"
+          "leiter-in-risikomanagement-swiss-armed-forces-vtg-bern-5l7pv5",
+          "leiter-in-risikomanagement-confederazione-bern",
+          "chef-de-la-gestion-des-risques-confederazione-svizzera-bern"
+        ],
+        "de": [
+          "leiter-in-risikomanagement-confederazione-bern"
         ]
       },
       "previousSlugs": [
         "leiter-in-risikomanagement-swiss-armed-forces-vtg-bern",
-        "leiter-in-risikomanagement-swiss-armed-forces-vtg-bern-5l7pv5"
+        "leiter-in-risikomanagement-swiss-armed-forces-vtg-bern-5l7pv5",
+        "leiter-in-risikomanagement-confederazione-bern",
+        "responsabile-risikomanagement-confederazione-svizzera-bern",
+        "head-of-risk-management-confederazione-svizzera-bern",
+        "chef-de-la-gestion-des-risques-confederazione-svizzera-bern"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -1585,12 +1714,31 @@
       "previousSlugsByLocale": {
         "it": [
           "spezialist-in-requisition-swiss-armed-forces-vtg-bern",
-          "spezialist-in-requisition-swiss-armed-forces-vtg-bern-y1ttx1"
+          "spezialist-in-requisition-swiss-armed-forces-vtg-bern-y1ttx1",
+          "spezialist-in-requisition-confederazione-bern",
+          "requisiti-specialistici-confederazione-svizzera-bern"
+        ],
+        "en": [
+          "spezialist-in-requisition-confederazione-bern",
+          "spezialist-in-requisition-confederazione-svizzera-bern",
+          "specialist-requisition-confederazione-svizzera-bern"
+        ],
+        "de": [
+          "spezialist-in-requisition-confederazione-bern"
+        ],
+        "fr": [
+          "spezialist-in-requisition-confederazione-bern",
+          "demande-de-specialistes-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
         "spezialist-in-requisition-swiss-armed-forces-vtg-bern",
-        "spezialist-in-requisition-swiss-armed-forces-vtg-bern-y1ttx1"
+        "spezialist-in-requisition-swiss-armed-forces-vtg-bern-y1ttx1",
+        "spezialist-in-requisition-confederazione-bern",
+        "requisiti-specialistici-confederazione-svizzera-bern",
+        "spezialist-in-requisition-confederazione-svizzera-bern",
+        "specialist-requisition-confederazione-svizzera-bern",
+        "demande-de-specialistes-confederazione-svizzera-bern"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -1679,7 +1827,8 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-73l2nk",
@@ -3691,7 +3840,8 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "salaryMin": 175000,
-      "salaryMax": 307500
+      "salaryMax": 307500,
+      "needsRetranslation": true
     },
     {
       "id": "company-qico1w",

@@ -1160,7 +1160,6 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "AG",
         "location": "Zofingen"
@@ -1168,12 +1167,14 @@
       "id": "postfinance-8ebbe8fb16f1",
       "previousSlugs": [
         "kundenbetreuer-in-customer-center-postfinance",
-        "assistenza-clienti-nel-centro-clienti-postfinance-zofingen"
+        "assistenza-clienti-nel-centro-clienti-postfinance-zofingen",
+        "kundenbetreuer-in-customer-center-postfinance-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenbetreuer-in-customer-center-postfinance",
-          "assistenza-clienti-nel-centro-clienti-postfinance-zofingen"
+          "assistenza-clienti-nel-centro-clienti-postfinance-zofingen",
+          "kundenbetreuer-in-customer-center-postfinance-zofingen"
         ],
         "fr": [
           "kundenbetreuer-in-customer-center-postfinance"
@@ -1181,7 +1182,7 @@
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2257,
-      "retranslationAttempts": 5,
+      "retranslationAttempts": 6,
       "firstSeenAt": "2026-08-24T10:13:19.972Z",
       "crawledAt": "",
       "salaryMin": 103500,

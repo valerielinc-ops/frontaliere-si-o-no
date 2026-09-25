@@ -224,7 +224,8 @@
       "previousSlugs": [
         "detailhandelsfachmann-frau-efz-wil-sg-sunrise-wil-sg",
         "twisthandelsfachmann-frau-efz-wil-sg-sunrise-communications-ag-wil-sg"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Detailhandelsfachmann/-frau EFZ - Zug Bundesplatz",
@@ -448,7 +449,8 @@
       "previousSlugs": [
         "detailhandelsfachmann-frau-efz-schaffhausen-fronwegplatz-sunrise-schaffhausen-fronwegplatz",
         "twistingsfachmann-frau-efz-schaffhausen-fronwegplatz-sunrise-communications-ag-schaffhausen-fronwegplatz"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Detailhandelsfachmann/-frau EFZ - Oerlikon Sternen",
@@ -1121,7 +1123,8 @@
       "previousSlugs": [
         "detailhandelsfachmann-frau-efz-dietikon-sunrise-dietikon",
         "twisthandelsfachmann-frau-efz-dietikon-sunrise-communications-ag-dietikon"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Apprenti/e Gestionnaire du commerce de détail CFC - Monthey",
@@ -1396,7 +1399,16 @@
       },
       "firstSeenAt": "2026-06-11T13:38:57.481Z",
       "salarySource": "reported",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "studio-tecnico-audio-e-mcr-mysports-40-sunrise-communications-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "studio-tecnico-audio-e-mcr-mysports-40-sunrise-communications-ag-zurich"
+      ]
     },
     {
       "title": "(Senior) Key Account Manager Region Central 80-100%",
