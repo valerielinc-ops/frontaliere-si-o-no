@@ -464,12 +464,7 @@ export async function runTranslationScheduleV2(options = {}) {
       throw new TypeError(`translation scheduler v2 ${key} is pinned by the runtime contract`);
     }
   }
-  const runtimeContract = await resolveTranslationRuntimeContractV2({
-    repository,
-    contract: options.runtimeContract,
-  });
   const scopeKey = options.scopeKey || process.env.TRANSLATION_SCHEDULER_SCOPE || TRANSLATION_SCHEDULER_V2_SCOPE;
-  const engineVersion = runtimeContract.provider.engineVersion;
   const gateVersion = options.gateVersion || process.env.TRANSLATION_SCHEDULER_GATE || TRANSLATION_SCHEDULER_V2_GATE;
   const maxJobs = optionInteger(
     options.maxJobs ?? process.env.TRANSLATION_SHADOW_MAX_JOBS,
@@ -505,6 +500,11 @@ export async function runTranslationScheduleV2(options = {}) {
     remote: stateStore.remote,
     ref: stateStore.ref,
   });
+  const runtimeContract = await resolveTranslationRuntimeContractV2({
+    repository,
+    contract: options.runtimeContract,
+  });
+  const engineVersion = runtimeContract.provider.engineVersion;
   const provider = runtimeContract.provider;
   if (!runtimeContract.capabilities.generationEnabled) {
     // The source contract is conservative by construction. Force the worker's
