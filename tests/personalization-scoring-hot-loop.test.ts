@@ -13,7 +13,10 @@
  *     timed — deterministic on any machine);
  *  2. the compiled scorer returns exactly what the old per-job semantics did;
  *  3. JobBoard scores the list once and keeps the sorted array identity when
- *     the order did not change (the search index is keyed on it).
+ *     the order did not change (the search index is keyed on it);
+ *  4. JobBoard computes the sort keys that do not depend on personalization
+ *     (foreign filter, canton rank, calendar day) once per list, not on every
+ *     personal-score change.
  */
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -252,6 +255,42 @@ describe('createPersonalScorer is equivalent to the per-job semantics', () => {
   });
 });
 
+describe('"similar" signal: one compiled alternation, a job is never similar to itself', () => {
+  const job = (slug: string, title: string) => ({
+    slug, title, category: 'other', company: '', location: '', postedDate: '2026-09-20',
+  });
+  const viewing = (...slugs: string[]): BehaviorData => ({
+    version: 1,
+    lastVisit: null,
+    viewedJobs: slugs.map((slug) => ({ slug, category: 'none', company: 'Viewed Co', location: '', ts: 0 })),
+    searches: [],
+    filterUsage: { category: {}, location: {}, contract: {} },
+    syncedAt: null,
+  });
+
+  it('matches another job that contains a viewed prefix, not the viewed job itself', () => {
+    const viewed = job('infermiere-cure-generali-eoc-1', 'Infermiere cure generali');
+    const sibling = job('infermiere-cure-generali-eoc-2', 'Infermiere cure generali');
+    const unrelated = job('contabile-senior-3', 'Contabile senior');
+    const scorer = createPersonalScorer(viewing(viewed.slug), null);
+    expect(scorer(viewed)).toEqual({ score: 0, topSignal: '' });
+    expect(scorer(sibling)).toEqual({ score: 2, topSignal: 'similar' });
+    expect(scorer(unrelated)).toEqual({ score: 0, topSignal: '' });
+  });
+
+  it('a viewed job still counts as similar through ANOTHER viewed job with the same prefix', () => {
+    const a = job('infermiere-cure-generali-eoc-1', 'Infermiere cure generali');
+    const b = job('infermiere-cure-generali-eoc-2', 'Infermiere cure generali');
+    const scorer = createPersonalScorer(viewing(a.slug, b.slug), null);
+    expect(scorer(a).topSignal).toBe('similar');
+    expect(scorer(b).topSignal).toBe('similar');
+  });
+
+  it('no viewed jobs: no similar signal and no regex to test', () => {
+    expect(createPersonalScorer(viewing(), null)(job('x-1', 'Infermiere'))).toEqual({ score: 0, topSignal: '' });
+  });
+});
+
 describe('reuseIfSameOrder', () => {
   const a = { id: 'a' };
   const b = { id: 'b' };
@@ -282,7 +321,7 @@ describe('JobBoard wiring (#9583)', () => {
 
   it('scores the list once and shares the scores between the pill count and the sort', () => {
     expect(SRC).toMatch(/personalScoreByJob = useMemo\([\s\S]{0,200}scorePersonalJobs\(jobs, createPersonalScorer\(/);
-    expect(SRC).toContain('personal: personalScoreByJob?.get(j) ?? NO_PERSONAL_SCORE');
+    expect(SRC).toContain('personal: personalScoreByJob?.get(keys.job) ?? NO_PERSONAL_SCORE');
     // No per-job computePersonalScore over a list: the only call left is the
     // single job opened by openDetail (one click, one job).
     expect(SRC.match(/computePersonalScore\(/g)?.length).toBe(1);
@@ -291,5 +330,20 @@ describe('JobBoard wiring (#9583)', () => {
 
   it('keeps the sorted array identity when the order did not change', () => {
     expect(SRC).toContain('reuseIfSameOrder(sortedJobsRef.current, withMeta.map(({ job }) => job))');
+  });
+
+  it('computes the personalization-independent sort keys once per list, not per score change', () => {
+    // The foreign filter + canton rank + calendar day are ~200 ms over the
+    // ~22k-job list at 1x CPU; they must live in a memo keyed on `jobs` only.
+    const keys = SRC.match(/const jobSortKeys = useMemo\(\(\) => \{([\s\S]*?)\n \}, \[([^\]]*)\]\);/);
+    expect(keys, 'jobSortKeys memo').not.toBeNull();
+    expect(keys![2]).toBe('jobs');
+    expect(keys![1]).toContain('isForeignLocation(');
+    expect(keys![1]).toContain('dayTs(');
+    const sorted = SRC.match(/const sortedJobs = useMemo\(\(\) => \{([\s\S]*?)\n \}, \[([^\]]*)\]\);/);
+    expect(sorted, 'sortedJobs memo').not.toBeNull();
+    expect(sorted![2]).toBe('jobSortKeys, personalScoreByJob');
+    expect(sorted![1]).not.toContain('isForeignLocation(');
+    expect(sorted![1]).not.toContain('dayTs(');
   });
 });

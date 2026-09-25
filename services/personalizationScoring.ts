@@ -137,29 +137,25 @@ export function createPersonalScorer(
  }
 
  // "Recently viewed similar": the first 10 chars of each viewed slug, as
- // normalized text, with the viewed slugs that produced it (a job never counts
- // as similar to itself). Indexed by prefix length so a job title is tested
- // with one lookup per title window instead of one substring scan per viewed
- // job (up to 100).
- const slugsByPrefix = new Map<string, Set<string | undefined>>();
- const prefixLengths = new Set<number>();
+ // normalized text. A job never counts as similar to itself, so the viewed
+ // slug stays attached to its prefix.
+ const viewedPrefixes: Array<{ slug: string | undefined; prefix: string }> = [];
  for (const v of viewedJobs) {
  const vTitle = normalizeSearchText(v.slug?.replace(/-/g, ' ') || '');
- if (!vTitle) continue;
- const prefix = vTitle.slice(0, 10);
- let slugs = slugsByPrefix.get(prefix);
- if (!slugs) slugsByPrefix.set(prefix, (slugs = new Set()));
- slugs.add(v.slug);
- prefixLengths.add(prefix.length);
+ if (vTitle) viewedPrefixes.push({ slug: v.slug, prefix: vTitle.slice(0, 10) });
  }
+ const viewedSlugs = new Set(viewedPrefixes.map((v) => v.slug));
+ // One alternation instead of one `includes` per viewed job (up to 100) per
+ // job: over the ~22k-job list the per-prefix scan was ~100 ms of the pass at
+ // 1x CPU, the compiled alternation ~14 ms (#9583). The self-exclusion only
+ // matters for a job that was itself viewed — at most 100 of them — and those
+ // keep the exact per-prefix scan.
+ const anyViewedPrefix = viewedPrefixes.length > 0
+ ? new RegExp([...new Set(viewedPrefixes.map((v) => v.prefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')))].join('|'))
+ : null;
  const titleContainsViewedPrefix = (jobTitleNorm: string, jobSlug: string | undefined): boolean => {
- for (const len of prefixLengths) {
- for (let i = 0; i + len <= jobTitleNorm.length; i++) {
- const slugs = slugsByPrefix.get(jobTitleNorm.slice(i, i + len));
- if (slugs && (slugs.size > 1 || !slugs.has(jobSlug))) return true;
- }
- }
- return false;
+ if (!viewedSlugs.has(jobSlug)) return !!anyViewedPrefix && anyViewedPrefix.test(jobTitleNorm);
+ return viewedPrefixes.some((v) => v.slug !== jobSlug && jobTitleNorm.includes(v.prefix));
  };
 
  const municipality = profile?.municipality ? normalizeSearchText(profile.municipality) : '';
@@ -251,7 +247,7 @@ export function createPersonalScorer(
  }
 
  // Recently viewed similar: +2 (viewed any job with same slug prefix / title similarity)
- if (slugsByPrefix.size > 0) {
+ if (anyViewedPrefix) {
  const jobTitleNorm = normalizeSearchText(job.title);
  if (jobTitleNorm && titleContainsViewedPrefix(jobTitleNorm, job.slug)) {
  addSignal(2, 'similar');

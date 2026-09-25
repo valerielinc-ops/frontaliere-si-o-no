@@ -4222,15 +4222,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // one already rendered, the previous array is returned: its identity keys the
  // search index below, and a new identity for the same order rebuilt that index
  // (and every memo downstream) after each deferred search keystroke (#9583).
- const sortedJobsRef = useRef<JobListing[] | null>(null);
- const sortedJobs = useMemo(() => {
- // Step 1: EXCLUDE foreign jobs entirely (London, Luxembourg, Singapore, etc.)
- const swissJobs = jobs.filter(j => {
- const loc = j.addressLocality || j.location || '';
- return !isForeignLocation(loc);
- });
-
- // Step 2: Canton priority + personalization scoring
+ //
+ // The sort keys that do not depend on personalization (the foreign-location
+ // filter, canton rank, calendar day) depend on `jobs` alone, so they are
+ // computed once per list here instead of on every personal-score change:
+ // over the ~22k-job live list they cost ~200 ms at 1x CPU, paid again by
+ // each tracked search keystroke before this split (#9583).
+ const jobSortKeys = useMemo(() => {
  const cantonRank = (job: JobListing) => {
  if (job.addressLocality && isNonTargetSwissCity(job.addressLocality)) {
  return TARGET_CANTONS_ORDERED.length;
@@ -4242,8 +4240,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const t = new Date(d || 0);
  return new Date(t.getFullYear(), t.getMonth(), t.getDate()).getTime();
  };
-
- const withMeta = swissJobs.map(j => ({
+ return jobs
+ // EXCLUDE foreign jobs entirely (London, Luxembourg, Singapore, etc.)
+ .filter(j => !isForeignLocation(j.addressLocality || j.location || ''))
+ .map(j => ({
  job: j,
  // Sponsored (featured) ads bought the top placement — they outrank every
  // other signal. Inventory is scarce by construction (FEATURED_SLOTS_PER_CANTON
@@ -4252,7 +4252,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  rank: cantonRank(j),
  day: dayTs(j.crawledAt || j.postedDate),
  qs: j.qualityScore ?? 0,
- personal: personalScoreByJob?.get(j) ?? NO_PERSONAL_SCORE,
+ }));
+ }, [jobs]);
+ const sortedJobsRef = useRef<JobListing[] | null>(null);
+ const sortedJobs = useMemo(() => {
+ const withMeta = jobSortKeys.map(keys => ({
+ ...keys,
+ personal: personalScoreByJob?.get(keys.job) ?? NO_PERSONAL_SCORE,
  }));
  withMeta.sort((a, b) =>
  (b.sp - a.sp)
@@ -4264,7 +4270,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const next = reuseIfSameOrder(sortedJobsRef.current, withMeta.map(({ job }) => job));
  sortedJobsRef.current = next;
  return next;
- }, [jobs, personalScoreByJob]);
+ }, [jobSortKeys, personalScoreByJob]);
 
  // Pre-built search index: caches normalised haystack per job so
  // queryMatchesJob doesn't recompute expensive string normalisation on every keystroke.
