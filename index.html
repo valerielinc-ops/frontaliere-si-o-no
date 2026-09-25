@@ -1211,9 +1211,9 @@
       // `/\bis not a function\b/`) — a lexical drift within the same pattern
       // class this comment already calls out (issue #3216 item 1; AGENTS.md
       // §Non-Negotiables #6). Aligned to `\b` on both sides for byte-parity.
-      // Two more patterns added for issue #4304 (undefined lazy-proxy import
-      // at call time, e.g. Analytics.trackCalculation) — see inline comment
-      // on `skewCall` below.
+      // The Analytics lazy-proxy and History-wrapper patterns cover call-time
+      // failures from stale chunks that loaded with HTTP 200 — see the inline
+      // comment on `skewCall` below.
       window.addEventListener('error', function(e) {
         // Resource (script/link) errors are handled by the capture-phase handler
         // above; this non-capture handler only inspects runtime errors.
@@ -1235,6 +1235,8 @@
                    /\bis not a function\b/.test(m) ||
                    /\bis not a constructor\b/.test(m) ||
                    /\bis not iterable\b/.test(m) ||
+                   /\bcannot read propert(?:y|ies) of undefined \(reading 'apply'\)/i.test(m) ||
+                   /\bundefined is not an object \(evaluating '[^']*\.apply'\)/i.test(m) ||
                    /\bcannot read propert(?:y|ies) of undefined \(reading '(?:track|init|set)[A-Za-z]*'\)/i.test(m) ||
                    /\bundefined is not an object \(evaluating '[^']*\.(?:track|init|set)[A-Za-z]*'\)/i.test(m));
         var skewLink = /does not provide an export named|import not found|indirect export|Importing binding name/.test(m);
