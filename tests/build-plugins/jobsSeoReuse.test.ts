@@ -21,6 +21,7 @@ import {
   normalizeHtmlForReuse,
   refreshHtmlBuildId,
 } from '../../build-plugins/shared/incrementalHtmlReuse.mjs';
+import { replaceActiveJobPostingDates } from '../../build-plugins/jobsSeoPagesPlugin';
 
 const FINGERPRINT_ENV_KEYS = [
   'STRIP_ACTIVE_JOB_PROSE',
@@ -102,15 +103,23 @@ function writePreviousManifest(
   kind: string,
   input: unknown,
   emitterFingerprints = TEST_EMITTER_FINGERPRINTS,
+  reuseInput: unknown = input,
 ) {
   const manifest = new IncrementalManifest('it');
-  manifest.register(pagePath, kind, input);
+  manifest.register(pagePath, kind, input, undefined, undefined, reuseInput);
   manifest.setJobsSeoEmitterFingerprint(emitterFingerprints);
   manifest.write(rootDir, path.join(rootDir, '.cache', 'incremental-manifest-prev'));
 }
 
-function writeCachedHtml(rootDir: string, pagePath: string, kind: string, input: unknown, html: string) {
-  const inputHash = computeInputHash(input, kind);
+function writeCachedHtml(
+  rootDir: string,
+  pagePath: string,
+  kind: string,
+  input: unknown,
+  html: string,
+  reuseInput: unknown = input,
+) {
+  const inputHash = computeInputHash(reuseInput, kind);
   const file = htmlReuseCachePath(rootDir, 'it', pagePath, null, kind, inputHash);
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, html, 'utf8');
@@ -128,6 +137,28 @@ async function createReuse(
 }
 
 describe('jobs SEO disk HTML reuse', () => {
+  it('accepts a cached JobPosting whose dates are already current', () => {
+    const daysAgo = (days: number) => new Date(Date.now() - days * 86_400_000).toISOString();
+    const currentDatePosted = daysAgo(0);
+    const currentValidThrough = new Date(
+      Date.parse(currentDatePosted) + 30 * 86_400_000,
+    ).toISOString();
+    const fragment = '<script type="application/ld+json">'
+      + `{"@type":"JobPosting","datePosted":"${currentDatePosted}","validThrough":"${currentValidThrough}"}`
+      + '</script>';
+
+    expect(() => replaceActiveJobPostingDates(
+      fragment,
+      currentDatePosted,
+      currentValidThrough,
+    )).not.toThrow();
+    expect(replaceActiveJobPostingDates(
+      fragment,
+      currentDatePosted,
+      currentValidThrough,
+    )).toBe(fragment);
+  });
+
   it('is disabled unless JOBS_SEO_REUSE=1', async () => {
     const rootDir = fixtureRoot();
     try {
@@ -157,6 +188,51 @@ describe('jobs SEO disk HTML reuse', () => {
         reused: 1,
         reusable: 1,
         verified: 0,
+        mismatches: 0,
+      });
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('reuses the stable key and rewrites volatile HTML before the caller saves it', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-ticino/volatile-fragments/';
+    const previousInput = { stable: 'job-v1', feedDigest: 'old-feed', renderDateBucket: '2026-09-19' };
+    const currentInput = { stable: 'job-v1', feedDigest: 'new-feed', renderDateBucket: '2026-09-20' };
+    const reuseInput = { stable: 'job-v1' };
+    try {
+      writePreviousManifest(rootDir, pagePath, 'active-job', previousInput, TEST_EMITTER_FINGERPRINTS, reuseInput);
+      writeCachedHtml(
+        rootDir,
+        pagePath,
+        'active-job',
+        previousInput,
+        '<html><body>old-feed old-date</body></html>',
+        reuseInput,
+      );
+      const reuse = await createReuse(rootDir);
+      const candidate = reuse.lookup(
+        'it',
+        pagePath,
+        'active-job',
+        currentInput,
+        'active',
+        null,
+        {
+          reuseInput,
+          rewriteHtml: (html: string) => html.replaceAll('old-', 'new-'),
+        },
+      );
+      expect(candidate).toMatchObject({
+        hit: true,
+        html: '<html><body>new-feed new-date</body></html>',
+      });
+      reuse.finish(candidate, candidate.html);
+      expect(reuse.summary().active).toMatchObject({
+        rendered: 0,
+        reused: 1,
+        reusable: 1,
         mismatches: 0,
       });
     } finally {
@@ -871,12 +947,15 @@ describe('jobs SEO disk HTML reuse', () => {
     // `buildActiveJobPageInput` assembles the active page INPUT (job digest,
     // related-job projections, related-articles feed digest); it renders
     // nothing and reads no render helper, so the module stays inert.
+    // `buildActiveJobPageReuseInput` only projects that input into the stable
+    // cache-key shape; it also renders nothing and stays in the same module.
     // `buildExpiredSoftLandingPageInput` is the same kind of assembler for the
     // expired soft-landing page: it digests the inline payload the template
     // already built and the JSON-LD postal code, and renders nothing either.
     expect(manifestImport?.[1].split(',').map((name) => name.trim()).filter(Boolean).sort()).toEqual([
       'INCREMENTAL_MANIFEST_ENABLED',
       'buildActiveJobPageInput',
+      'buildActiveJobPageReuseInput',
       'buildExpiredSoftLandingPageInput',
       'buildMinimalJobInput',
       'getIncrementalManifestInputCache',

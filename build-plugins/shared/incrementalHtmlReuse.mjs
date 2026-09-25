@@ -1291,6 +1291,10 @@ function manifestCacheEntries(manifest) {
   return entries;
 }
 
+function entryReuseHash(entry) {
+  return entry?.reuseHash ?? entry?.inputHash ?? entry?.hash ?? null;
+}
+
 export class JobsSeoHtmlReuse {
   constructor({
     cacheRoot,
@@ -1375,38 +1379,56 @@ export class JobsSeoHtmlReuse {
   }
 
   readCachedHtml(packStore, cacheKey, locale, normalizedPath, entry) {
-    const html = packStore.read(cacheKey);
-    if (html) return { html, storage: 'pack' };
-    try {
-      const previousCachePath = htmlReuseCachePath(
-        this.cacheRoot,
-        locale,
-        normalizedPath,
-        this.cacheRoot,
-        entry.kind,
-        entry.inputHash,
-      );
-      const legacy = fs.readFileSync(previousCachePath, 'utf8');
-      if (legacy) return { html: legacy, storage: 'legacy' };
-    } catch {
-      // The old one-file layout is a migration fallback only.
+    const cacheKeys = new Set([cacheKey]);
+    const reuseHash = entryReuseHash(entry);
+    if (reuseHash) cacheKeys.add(cacheFileName(normalizedPath, entry.kind, reuseHash));
+    if (entry?.inputHash) cacheKeys.add(cacheFileName(normalizedPath, entry.kind, entry.inputHash));
+    for (const key of cacheKeys) {
+      const html = packStore.read(key);
+      if (html) return { html, storage: 'pack' };
+    }
+    // The old one-file layout is a migration fallback only. Try both the new
+    // stable cache key and the old publish-key path so the first build after
+    // this schema change can promote an existing legacy file.
+    const legacyHashes = new Set([reuseHash, entry?.inputHash, entry?.hash].filter(Boolean));
+    for (const inputHash of legacyHashes) {
+      try {
+        const previousCachePath = htmlReuseCachePath(
+          this.cacheRoot,
+          locale,
+          normalizedPath,
+          this.cacheRoot,
+          entry.kind,
+          inputHash,
+        );
+        const legacy = fs.readFileSync(previousCachePath, 'utf8');
+        if (legacy) return { html: legacy, storage: 'legacy' };
+      } catch {
+        // Try the next legacy key, if any.
+      }
     }
     return { html: null, storage: null };
   }
 
-  lookup(locale, pagePath, kind, input, block, shapeHints = null) {
+  lookup(locale, pagePath, kind, input, block, shapeHints = null, options = null) {
     const stats = this.stats.get(block);
     if (!stats) throw new Error(`Unknown jobs SEO reuse block: ${block}`);
     const normalizedPath = normalizeManifestPath(pagePath);
     const previous = this.previousByLocale.get(String(locale));
+    const reuseInput = options && Object.prototype.hasOwnProperty.call(options, 'reuseInput')
+      ? options.reuseInput
+      : input;
+    const rewriteHtml = typeof options?.rewriteHtml === 'function' ? options.rewriteHtml : null;
     // A bridge depends on the current source page. If that source was not
     // registered in this shard, its `sourceInputHash`/`canonicalInputHash`
     // is null. Hashing that null would make every such bridge look stable
     // across builds and could reuse HTML from a different source revision.
     // Treat the missing dependency as an explicit render miss instead.
-    const inputUnavailable = hasUnavailableSourceInput(input);
+    const inputUnavailable = hasUnavailableSourceInput(input)
+      || hasUnavailableSourceInput(reuseInput);
     const inputHash = inputUnavailable ? null : computeInputHash(input, kind);
-    const cacheKey = cacheFileName(normalizedPath, kind, inputHash || 'input-unavailable');
+    const reuseHash = inputUnavailable ? null : computeInputHash(reuseInput, kind);
+    const cacheKey = cacheFileName(normalizedPath, kind, reuseHash || 'input-unavailable');
     const packStore = this.packStore(locale, block);
     const cachePath = packStore.packPath;
     let missReason = inputUnavailable ? 'input-unavailable' : null;
@@ -1427,7 +1449,7 @@ export class JobsSeoHtmlReuse {
       } else if (this.probeEligibleFingerprintChange(previous, entry, kind)) {
         // Output-validated fingerprint: same page, same input, only the
         // render source graph changed. Decide from the rendered bytes.
-        if (entry.inputHash !== inputHash) {
+        if (entryReuseHash(entry) !== reuseHash) {
           missReason = 'input-hash-changed';
         } else {
           const state = this.probeState(String(locale), block);
@@ -1461,11 +1483,27 @@ export class JobsSeoHtmlReuse {
         || previous.data.kinds[entry.kind]?.templateVersion !== templateVersionForKind(kind)
       ) {
         missReason = 'emitter-fingerprint-changed';
-      } else if (entry.inputHash !== inputHash) {
+      } else if (entryReuseHash(entry) !== reuseHash) {
         missReason = 'input-hash-changed';
       } else {
         ({ html, storage } = this.readCachedHtml(packStore, cacheKey, locale, normalizedPath, entry));
         if (!html) missReason = 'html-unavailable';
+      }
+    }
+
+    if (!missReason && html !== null && rewriteHtml) {
+      try {
+        const rewritten = rewriteHtml(html);
+        if (typeof rewritten !== 'string') throw new Error('HTML rewrite must return a string');
+        html = rewritten;
+      } catch (error) {
+        html = null;
+        storage = null;
+        missReason = 'html-rewrite-failed';
+        console.warn(
+          `[jobs-seo-reuse] block=${block} locale=${locale} fallback=render reason=${missReason}`
+          + ` detail=${error?.message || error}`,
+        );
       }
     }
 
@@ -1765,7 +1803,7 @@ export class JobsSeoHtmlReuse {
     );
     for (const [pagePath, entry] of manifestCacheEntries(manifest)) {
       const block = KIND_TO_REUSE_BLOCK[entry?.kind];
-      const inputHash = entry?.inputHash || entry?.hash;
+      const inputHash = entryReuseHash(entry);
       if (!block || !inputHash) continue;
       liveByBlock.get(block).add(cacheFileName(pagePath, entry.kind, inputHash));
     }

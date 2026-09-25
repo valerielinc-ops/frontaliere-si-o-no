@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
   buildActiveJobPageInput,
+  buildActiveJobPageReuseInput,
   canonicalizeInput,
   computeInputHash,
   relatedArticlesFeedDigest,
@@ -72,6 +73,26 @@ describe('active job page input carries the related-articles feed', () => {
     );
   });
 
+  it('keeps the reuse key stable across feed and build-day changes', () => {
+    const yesterday = activeInput(YESTERDAY_FEED);
+    const today = activeInput(TODAY_FEED);
+    const yesterdayReuse = buildActiveJobPageReuseInput(yesterday);
+    const todayReuse = buildActiveJobPageReuseInput({
+      ...today,
+      renderDateBucket: '2026-09-21',
+    });
+
+    expect(computeInputHash(yesterday, 'active-job')).not.toBe(
+      computeInputHash(today, 'active-job'),
+    );
+    expect(yesterdayReuse).not.toHaveProperty('relatedArticlesDigest');
+    expect(yesterdayReuse).not.toHaveProperty('renderDateBucket');
+    expect(yesterdayReuse).toEqual(todayReuse);
+    expect(computeInputHash(yesterdayReuse, 'active-job')).toBe(
+      computeInputHash(todayReuse, 'active-job'),
+    );
+  });
+
   it('stores a short digest, never the feed itself', () => {
     const canonical = canonicalizeInput(activeInput(YESTERDAY_FEED));
     expect(canonical).toContain('"relatedArticlesDigest"');
@@ -99,20 +120,22 @@ describe('jobsSeoPagesPlugin wires the feed the renderer actually emits', () => 
   const source = fs.readFileSync(JOBS_SEO_PLUGIN, 'utf8');
 
   it('feeds the active page input with the memoized rendered block', () => {
-    expect(source).toContain('relatedArticlesHtml: recentArticlesHtmlFor(locale),');
+    expect(source).toContain('const recentArticlesHtml = recentArticlesHtmlFor(locale);');
+    expect(source).toContain('relatedArticlesHtml: recentArticlesHtml,');
+    expect(source).toContain('buildActiveJobPageReuseInput(activeJobManifestInput)');
     expect(source).toContain('buildActiveJobPageInput({');
   });
 
   it('does not widen the other reuse blocks with a feed they never render', () => {
-    // `recentArticlesHtmlFor` has exactly two call sites: the active template
-    // and the active page input. The expired-soft-landing, previous-slug-legacy
+    // `recentArticlesHtmlFor` has exactly one call site: the active page loop.
+    // The expired-soft-landing, previous-slug-legacy
     // and cross-locale-reconciliation templates never render the block, so
     // adding the digest to their inputs would cost reuse for nothing.
     const callSites = source
       .split('\n')
       .filter((line) => !/^\s*(\/\/|\*)/.test(line))
       .filter((line) => line.includes('recentArticlesHtmlFor(locale)'));
-    expect(callSites).toHaveLength(2);
+    expect(callSites).toHaveLength(1);
     expect(source.match(/relatedArticlesHtml:/g) || []).toHaveLength(1);
   });
 });
