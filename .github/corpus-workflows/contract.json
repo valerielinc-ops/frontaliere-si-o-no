@@ -4,20 +4,20 @@
   "generatorSha256": "ca6de7edbb725fa6cb7fdb508ee51888025c39696c01bdbde20b71dba06fe4c4",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "6481e1113098493968bc77020535d077de119de6",
+  "sourceCommit": "551b5f9554426d6bd8d391bdebca7e2f07b26121",
   "artifactObservation": {
     "generatorSha256": "ca6de7edbb725fa6cb7fdb508ee51888025c39696c01bdbde20b71dba06fe4c4",
     "sourceRef": "main",
-    "sourceCommit": "6481e1113098493968bc77020535d077de119de6"
+    "sourceCommit": "551b5f9554426d6bd8d391bdebca7e2f07b26121"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 621,
+  "crawlerCount": 623,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:d2798cb270d0010b5f7dd0a4bbd78d0026a68f1145c57b61e41d157f8e9ca8dc",
+    "rosterDigest": "sha256:ee9dabc0d66ccd6c60d65906937e0d28126cecfdf258dcffa723139329d12e4a",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -79,6 +79,7 @@
     "scripts/update-ameos-ch-jobs.mjs",
     "scripts/update-amina-bank-jobs.mjs",
     "scripts/update-amstein-walthert-jobs.mjs",
+    "scripts/update-anicura-jobs.mjs",
     "scripts/update-anker-swiss-jobs.mjs",
     "scripts/update-answerconsulting-jobs.mjs",
     "scripts/update-anybotics-jobs.mjs",
@@ -211,6 +212,7 @@
     "scripts/update-ferring-jobs.mjs",
     "scripts/update-fhgr-jobs.mjs",
     "scripts/update-fielmann-jobs.mjs",
+    "scripts/update-fisba-jobs.mjs",
     "scripts/update-flury-stiftung-jobs.mjs",
     "scripts/update-fmi-jobs.mjs",
     "scripts/update-fondation-domus-jobs.mjs",
@@ -1452,8 +1454,8 @@
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "43b16edafa7007708819dd343798a0fe49340b5391480e086a61621b56042918",
-      "artifactSha256": "f28940ce29bf7a66751121096c0146f4e630dd9c49ebc4cb0ab6ffa6c05a1155",
+      "sourceSha256": "7763749e2d8213441548db69828fcab26163022aa5eb3ea543df727cbd2d8d51",
+      "artifactSha256": "4b2a5188308a432d604c53229dc7107df72c593b4a0c6dc9b9f3b066107e33eb",
       "generatorSha256": "ca6de7edbb725fa6cb7fdb508ee51888025c39696c01bdbde20b71dba06fe4c4",
       "members": [
         "mcdonald-s-switzerland",
@@ -1463,6 +1465,8 @@
         "fachkraft",
         "postfinance",
         "tsmg",
+        "anicura",
+        "fisba",
         "tpl-lugano",
         "capri-holdings",
         "confederazione"

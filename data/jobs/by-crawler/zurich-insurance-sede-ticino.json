@@ -167,12 +167,12 @@
     },
     {
       "id": "zurich-insurance-sede-ticino-1373080957",
-      "slug": "planning-performance-reporting-analyst-m-w-d-zurich-insurance-sede-ticino-zurich",
+      "slug": "analista-di-pianificazione-e-reportistica-delle-prestazioni-m-f-d-zurich-insurance-zurich-1373080957",
       "slugByLocale": {
         "de": "planning-performance-reporting-analyst-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "it": "planning-performance-reporting-analyst-m-w-d-zurich-insurance-sede-ticino-zurich",
+        "it": "analista-di-pianificazione-e-reportistica-delle-prestazioni-m-f-d-zurich-insurance-zurich-1373080957",
         "en": "planning-performance-reporting-analyst-m-w-d-zurich-insurance-zurich-1373080957",
-        "fr": "planning-performance-reporting-analyst-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "fr": "analyste-en-planification-et-reporting-de-la-performance-h-f-d-zurich-insurance-zurich-1373080957"
       },
       "slugDisambiguator": "1373080957",
       "company": "Zurich Insurance",
@@ -233,7 +233,18 @@
         }
       },
       "firstSeenAt": "2026-09-24T14:29:00.958Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "planning-performance-reporting-analyst-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ],
+        "fr": [
+          "planning-performance-reporting-analyst-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "planning-performance-reporting-analyst-m-w-d-zurich-insurance-sede-ticino-zurich"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1373062057",

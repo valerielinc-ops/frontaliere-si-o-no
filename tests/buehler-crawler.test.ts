@@ -1,11 +1,23 @@
-import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   BUEHLER_KEY,
   BUEHLER_COMPANY_NAME,
+  fetchAllBuehlerJobs,
   isBuehlerJob,
   isTrustedDomain,
 } from '../scripts/lib/buehler-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+// Captured Prospective feed of medium 1008005 (2026-09-25), trimmed to the
+// title/location fields: 154 listings, of which 22 are in Uzwil and 132 at the
+// group's foreign sites (Alzenau, Wuxi, Plymouth MN, Makati City, …).
+const FEED = JSON.parse(readFileSync(
+  path.resolve(process.cwd(), 'tests/fixtures/buehler-prospective-jobs.json'),
+  'utf8',
+));
 
 describe('Bühler Group crawler parser', () => {
   // ── Constants ──
@@ -77,6 +89,40 @@ describe('Bühler Group crawler parser', () => {
     it('respects max length', () => {
       const long = 'a'.repeat(200);
       expect(slugify(long).length).toBeLessThanOrEqual(90);
+    });
+  });
+
+  // ── Replay of the captured feed (issue 9844) ──
+  describe('fetchAllBuehlerJobs — replay of the captured Prospective feed', () => {
+    afterEach(() => {
+      vi.unstubAllGlobals();
+    });
+
+    it('keeps the Uzwil listings and drops every foreign site instead of publishing it as SG', async () => {
+      vi.stubGlobal('fetch', vi.fn(async (rawUrl: string) => {
+        const url = new URL(rawUrl);
+        const offset = Number(url.searchParams.get('offset'));
+        const limit = Number(url.searchParams.get('limit'));
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({ total: FEED.total, jobs: FEED.jobs.slice(offset, offset + limit) }),
+        };
+      }));
+
+      const jobs = await fetchAllBuehlerJobs();
+      const swiss = FEED.jobs.filter((listing: { szas: Record<string, string> }) => (
+        listing.szas['sza_workplace.city'] === 'Uzwil'
+      ));
+
+      expect(FEED.jobs).toHaveLength(154);
+      expect(swiss).toHaveLength(22);
+      expect(jobs).toHaveLength(swiss.length);
+      expect(new Set(jobs.map((job: { url: string }) => job.url)))
+        .toEqual(new Set(swiss.map((listing: { links: { directlink: string } }) => listing.links.directlink)));
+      for (const job of jobs) {
+        expect(job).toMatchObject({ location: 'Uzwil', canton: 'SG', addressCountry: 'CH', postalCode: '9240' });
+      }
     });
   });
 

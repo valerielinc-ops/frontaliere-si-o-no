@@ -21,7 +21,12 @@ import {
 import {
   extractDetailContactName,
   extractEventPeopleFromText,
+  extractEventPeopleFromTitle,
+  extractEventOfferMetadata,
+  eventOfferPriceAmount,
+  firstEventImageUrl,
   firstEventImageUrlFromHtml,
+  mergeEventOfferMetadata,
 } from '../scripts/lib/event-metadata.mjs';
 
 describe('parseCompactUtc', () => {
@@ -112,6 +117,57 @@ describe('extractPrice', () => {
       amount: 25,
       currency: 'CHF',
       isFree: false,
+    });
+  });
+
+  it('preserves source-published Offer metadata beside the parsed price', () => {
+    expect(extractPrice({
+      offers: {
+        price: '25',
+        priceCurrency: 'CHF',
+        availability: 'https://schema.org/InStock',
+        validFrom: '2026-06-01T09:00:00+02:00',
+        url: '/tickets/kunst-zu-mittag',
+      },
+    }, undefined, 'https://www.myswitzerland.com/it-ch/experiences/events/kunst-zu-mittag-2/')).toEqual({
+      amount: 25,
+      currency: 'CHF',
+      isFree: false,
+      availability: 'https://schema.org/InStock',
+      validFrom: '2026-06-01T09:00:00+02:00',
+      url: 'https://www.myswitzerland.com/tickets/kunst-zu-mittag',
+    });
+  });
+
+  it('normalizes bare schema.org availability tokens', () => {
+    expect(extractPrice({
+      offers: {
+        price: '20',
+        priceCurrency: 'CHF',
+        availability: 'InStock',
+      },
+    }, undefined, 'https://www.myswitzerland.com/it-ch/experiences/events/kunst-zu-mittag-2/')).toMatchObject({
+      availability: 'https://schema.org/InStock',
+    });
+  });
+
+  it('ignores blank Offer prices when selecting source metadata', () => {
+    expect(eventOfferPriceAmount('')).toBeNaN();
+    expect(extractEventOfferMetadata([
+      { price: '', url: 'empty' },
+      { price: '10', url: 'good' },
+    ], 'https://source.example/event')).toEqual({ url: 'https://source.example/good' });
+  });
+
+  it('ignores blank Offer prices when selecting the normalized event price', () => {
+    expect(extractPrice({
+      offers: [
+        { price: '', url: 'empty' },
+        { price: '10', url: 'good' },
+      ],
+    }, undefined, 'https://source.example/event')).toMatchObject({
+      amount: 10,
+      url: 'https://source.example/good',
     });
   });
 
@@ -214,6 +270,49 @@ describe('mergeDetailEventMetadata', () => {
       url: 'https://www.myswitzerland.com/artist',
     });
     expect(merged?.image).toBe('https://www.myswitzerland.com/-/media/events/alternate.jpg');
+  });
+
+  it('fills missing Offer fields from a later localized JSON-LD variant', () => {
+    const merged = mergeDetailEventMetadata(
+      { '@type': 'Event', offers: { price: '25', priceCurrency: 'CHF' } },
+      {
+        '@type': 'Event',
+        offers: {
+          price: '25',
+          priceCurrency: 'CHF',
+          availability: 'https://schema.org/InStock',
+          validFrom: '2026-06-01T09:00:00+02:00',
+          url: '/tickets/kunst-zu-mittag',
+        },
+      },
+      'https://www.myswitzerland.com/it-ch/experiences/events/kunst-zu-mittag-2/',
+      'https://www.myswitzerland.com/en-ch/experiences/events/kunst-zu-mittag-2/',
+    );
+    expect(merged?.offers).toEqual({
+      price: '25',
+      priceCurrency: 'CHF',
+      availability: 'https://schema.org/InStock',
+      validFrom: '2026-06-01T09:00:00+02:00',
+      url: 'https://www.myswitzerland.com/tickets/kunst-zu-mittag',
+    });
+  });
+
+  it('normalizes a candidate Offer against its own locale URL when primary offers are absent', () => {
+    expect(mergeEventOfferMetadata(
+      undefined,
+      { price: '10', url: 'tickets' },
+      'https://source.example/it/event',
+      'https://source.example/de/event',
+    )).toEqual({ price: '10', url: 'https://source.example/de/tickets' });
+  });
+
+  it('does not merge optional metadata across different Offer price tiers', () => {
+    expect(mergeEventOfferMetadata(
+      [{ price: '10' }],
+      [{ price: '20', url: 'ticket-20' }],
+      'https://a.example/event',
+      'https://b.example/event',
+    )).toEqual([{ price: '10' }]);
   });
 });
 
@@ -381,6 +480,15 @@ describe('mapEventRecord', () => {
     );
   });
 
+  it('uses explicit quoted performer cues in the indexed title', () => {
+    const mapped = mapEventRecord(
+      'title-performer123',
+      { it: { ...hitIt, title: 'Musik und Tanz mit „Ghörsch“', content: undefined, leadText: undefined } },
+    );
+    const event = mapped?.event as never as Record<string, unknown>;
+    expect(event.performer).toEqual({ name: 'Ghörsch' });
+  });
+
   it('fills people from explicit attribution in fetched detail HTML', () => {
     const mapped = mapEventRecord(
       'detail-html123',
@@ -453,6 +561,13 @@ describe('source optional metadata fallbacks', () => {
     expect(extractEventPeopleFromText('Auf den Spuren von Marc Chagall. Mit Kerstin Bitar. Treffpunkt ...')).toEqual({
       performer: { name: 'Kerstin Bitar' },
     });
+    expect(extractEventPeopleFromText('Musik und Tanz mit „Ghörsch“')).toEqual({
+      performer: { name: 'Ghörsch' },
+    });
+    expect(extractEventPeopleFromTitle('Gesprächsgruppe für Menschen mit Demenz')).toEqual({});
+    expect(extractEventPeopleFromTitle('Konzert mit Thorsten Ahlrichs')).toEqual({
+      performer: { name: 'Thorsten Ahlrichs' },
+    });
   });
 
   it('reads event-scoped OpenGraph/itemprop images and named contact blocks', () => {
@@ -464,5 +579,11 @@ describe('source optional metadata fallbacks', () => {
       'https://www.myswitzerland.com/-/media/events/autechre.jpg',
     );
     expect(extractDetailContactName(html)).toBe('Fabriktheater Rote Fabrik');
+  });
+
+  it('accepts event-scoped image object aliases emitted by source indexes', () => {
+    expect(firstEventImageUrl({ src: '/-/media/events/autechre.jpg' }, 'https://www.myswitzerland.com/en-ch/events/autechre')).toBe(
+      'https://www.myswitzerland.com/-/media/events/autechre.jpg',
+    );
   });
 });

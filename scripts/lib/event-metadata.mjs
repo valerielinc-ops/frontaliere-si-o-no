@@ -23,11 +23,109 @@ function sourceType(value) {
   return values.find((entry) => typeof entry === 'string' && entry.trim())?.trim();
 }
 
+const OFFER_METADATA_FIELDS = ['availability', 'validFrom', 'url'];
+const KNOWN_AVAILABILITY_VALUES = new Set(['InStock', 'SoldOut', 'PreOrder', 'Discontinued', 'OnlineOnly', 'LimitedAvailability']);
+
+function offerEntries(value) {
+  const entries = Array.isArray(value) ? value : [value];
+  return entries.filter((entry) => entry && typeof entry === 'object');
+}
+
+function selectedOffer(value) {
+  const entries = offerEntries(value);
+  if (!entries.length) return undefined;
+  const priced = entries
+    .map((offer) => ({ offer, amount: eventOfferPriceAmount(offer.price) }))
+    .filter(({ amount }) => Number.isFinite(amount));
+  if (!priced.length) return { offer: entries[0] };
+  return priced.reduce((best, candidate) => (candidate.amount < best.amount ? candidate : best));
+}
+
+/** Parse a source Offer price without treating blank/null values as zero. */
+export function eventOfferPriceAmount(value) {
+  if (typeof value === 'number') return Number.isFinite(value) ? value : NaN;
+  if (typeof value !== 'string' || !value.trim()) return NaN;
+  const amount = Number(value);
+  return Number.isFinite(amount) ? amount : NaN;
+}
+
+function normalizedOfferField(field, value, baseUrl) {
+  if (typeof value !== 'string' || !value.trim()) return undefined;
+  const raw = value.trim();
+  if (field === 'url') return absoluteHttpUrl(raw, baseUrl);
+  if (field === 'availability') {
+    if (KNOWN_AVAILABILITY_VALUES.has(raw)) return `https://schema.org/${raw}`;
+    const absolute = absoluteHttpUrl(raw, baseUrl);
+    return absolute;
+  }
+  return raw;
+}
+
+/**
+ * Preserve only source-published optional Offer fields. Ticket availability,
+ * sale start and purchase URLs are facts about the source ticketing flow; the
+ * event information page or the event date is not a safe substitute.
+ */
+export function extractEventOfferMetadata(value, baseUrl) {
+  const selected = selectedOffer(value);
+  if (!selected) return undefined;
+  const metadata = {};
+  for (const field of OFFER_METADATA_FIELDS) {
+    const normalized = normalizedOfferField(field, selected.offer[field], baseUrl);
+    if (normalized) metadata[field] = normalized;
+  }
+  return Object.keys(metadata).length ? metadata : undefined;
+}
+
+/** Fill missing source Offer fields from a later localized JSON-LD variant. */
+export function mergeEventOfferMetadata(primaryValue, candidateValue, primaryUrl, candidateUrl) {
+  const primaryEntries = offerEntries(primaryValue);
+  if (!primaryEntries.length) {
+    const candidateEntries = offerEntries(candidateValue);
+    const selectedCandidate = selectedOffer(candidateValue);
+    if (!selectedCandidate) return candidateValue || primaryValue;
+    const normalizedCandidate = { ...selectedCandidate.offer };
+    for (const field of OFFER_METADATA_FIELDS) {
+      const normalized = normalizedOfferField(field, normalizedCandidate[field], candidateUrl);
+      if (normalized) normalizedCandidate[field] = normalized;
+    }
+    const normalizedEntries = candidateEntries.map((entry) => (
+      entry === selectedCandidate.offer ? normalizedCandidate : entry
+    ));
+    return Array.isArray(candidateValue) ? normalizedEntries : normalizedEntries[0];
+  }
+  if (!candidateValue) return primaryValue;
+  const candidateMetadata = extractEventOfferMetadata(candidateValue, candidateUrl);
+  if (!candidateMetadata) return primaryValue;
+  const selected = selectedOffer(primaryValue);
+  const selectedCandidate = selectedOffer(candidateValue);
+  const primaryAmount = eventOfferPriceAmount(selected?.offer?.price);
+  const candidateAmount = eventOfferPriceAmount(selectedCandidate?.offer?.price);
+  if (!selected || !selectedCandidate || !Number.isFinite(primaryAmount)
+    || !Number.isFinite(candidateAmount) || primaryAmount !== candidateAmount) {
+    return primaryValue;
+  }
+
+  const mergedOffer = { ...selected.offer };
+  let changed = false;
+  for (const field of OFFER_METADATA_FIELDS) {
+    if (normalizedOfferField(field, mergedOffer[field], primaryUrl)) continue;
+    if (!candidateMetadata[field]) continue;
+    mergedOffer[field] = candidateMetadata[field];
+    changed = true;
+  }
+  if (!changed) return primaryValue;
+  const mergedEntries = primaryEntries.map((entry) => (entry === selected.offer ? mergedOffer : entry));
+  return Array.isArray(primaryValue) ? mergedEntries : mergedEntries[0];
+}
+
 /** Return the first usable image URL from schema.org Image/Object/array forms. */
 export function firstEventImageUrl(value, baseUrl) {
   const entries = Array.isArray(value) ? value : [value];
   for (const entry of entries) {
-    const raw = typeof entry === 'string' ? entry : entry?.url || entry?.contentUrl || entry?.thumbnailUrl;
+    const raw = typeof entry === 'string'
+      ? entry
+      : entry?.url || entry?.contentUrl || entry?.thumbnailUrl || entry?.src || entry?.imageUrl || entry?.href;
     const url = absoluteHttpUrl(raw, baseUrl);
     if (url) return url;
   }
@@ -72,7 +170,7 @@ function sourceText(value) {
 
 function sourceEntityName(value) {
   const name = sourceText(value)
-    .replace(/^[\s:;-]+|[\s,;:.-]+$/g, '')
+    .replace(/^[\s:;,.()\[\]{}"“”„«»'‘’-]+|[\s,;:.()\[\]{}"“”„«»'‘’-]+$/g, '')
     .trim();
   if (!name || name.length > 160) return undefined;
   // The broad "Mit/Con/With/Avec" patterns below are deliberately limited to
@@ -112,10 +210,17 @@ const ORGANIZER_PATTERNS = [
 ];
 
 const PERFORMER_PATTERNS = [
+  /\b(?:mit|con|avec|with|featuring|feat\.?)\s+[«“„"']([^.!?«„"']{1,120}?)(?:[»”"']|(?=[.!?](?:\s|$)|$))/iu,
   /Mitwirkende(?:\s+und\s+Zusatzinformationen)?\s*:\s*([^.!?]+?)(?=$|[.!?](?:\s|$)|\b(?:Treffpunkt|Ort|Location|Lieu|Luogo)\s*:)/iu,
   /\bGestaltet\s+wird\s+(?:der|die|das)\s+.+?\s+von\s+([^.!?]+?)(?=[.!?](?:\s|$)|$)/iu,
   /\bvon\s+und\s+mit\s+([^.!?]+?)(?=[.!?](?:\s|$)|$)/iu,
+  /\b(?:di\s+e\s+con|de\s+et\s+avec)\s+([A-ZÀ-ÖØ-Þ][^.!?]{1,120}?)(?=[.!?](?:\s|$)|$)/iu,
   /\b(?:mit|con|avec|with|featuring|feat\.?)\s+([A-ZÀ-ÖØ-Þ][^.!?]{1,120}?)(?=[.!?](?:\s|$)|$)/iu,
+];
+
+const TITLE_PERFORMER_PATTERNS = [
+  /\b(?:mit|con|avec|with|featuring|feat\.?)\s+[«“„"']([^.!?«„"']{1,120}?)(?:[»”"']|(?=[.!?](?:\s|$)|$))/iu,
+  new RegExp(String.raw`\b(?:[Mm]it|[Cc]on|[Aa]vec|[Ww]ith|[Ff]eaturing|[Ff]eat\.?)\s+(\p{Lu}[\p{L}\p{M}'’\-]*(?:\s+\p{Lu}[\p{L}\p{M}'’\-]*){1,4}(?:\s*(?:&|und|and|e|et)\s*\p{Lu}[\p{L}\p{M}'’\-]*(?:\s+\p{Lu}[\p{L}\p{M}'’\-]*){1,4})*)`, 'u'),
 ];
 
 /**
@@ -124,18 +229,38 @@ const PERFORMER_PATTERNS = [
  * venue, title and prose must never be promoted to organizer/performer just
  * because they contain a capitalized word.
  */
-export function extractEventPeopleFromText(value) {
+export function extractEventPeopleFromText(value, options = {}) {
   const text = sourceText(value);
   if (!text) return {};
 
   const organizerName = firstCaptured(text, ORGANIZER_PATTERNS);
-  const performerNames = splitPerformerNames(firstCaptured(text, PERFORMER_PATTERNS));
+  const performerPatterns = options.includePerformer === false
+    ? []
+    : options.includePerformer === 'explicit'
+      ? PERFORMER_PATTERNS.slice(0, -1)
+      : PERFORMER_PATTERNS;
+  const performerNames = splitPerformerNames(firstCaptured(text, performerPatterns));
   return {
     ...(organizerName ? { organizer: { '@type': 'Organization', name: organizerName } } : {}),
     ...(performerNames.length
       ? { performer: performerNames.length === 1 ? { name: performerNames[0] } : performerNames.map((name) => ({ name })) }
       : {}),
   };
+}
+
+/**
+ * Extract the deliberately stronger performer signal used by event titles.
+ * Unquoted titles require at least two capitalized name tokens, so phrases
+ * such as "Menschen mit Demenz" or "Klangmeditation mit Bergkristall" do
+ * not become false performers merely because they contain "mit".
+ */
+export function extractEventPeopleFromTitle(value) {
+  const text = sourceText(value);
+  if (!text) return {};
+  const performerNames = splitPerformerNames(firstCaptured(text, TITLE_PERFORMER_PATTERNS));
+  return performerNames.length
+    ? { performer: performerNames.length === 1 ? { name: performerNames[0] } : performerNames.map((name) => ({ name })) }
+    : {};
 }
 
 function htmlAttribute(tag, name) {
