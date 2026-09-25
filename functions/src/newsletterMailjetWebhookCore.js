@@ -6,6 +6,7 @@ import {
  positiveEventRecoveryFields,
  positiveEventStatusFields,
  mergeAccountDeletedSubscriberUpdate,
+ UNKNOWN_RECIPIENT,
 } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 import { uniqueUnknownFallback } from './lib/deliveryDocId.js';
@@ -161,8 +162,10 @@ export async function persistMailjetEvent(db, eventData) {
  // The doc read happens only on these three event types. ('delivered' is
  // unreachable for Mailjet — mapMailjetEvent has no such mapping — but the
  // guard is kept identical across the 5 providers so the class cannot drift.)
- if (Object.keys(subscriberUpdate).length > 1) {
- await mergeAccountDeletedSubscriberUpdate(
+ // Unconditional, like the other four cores: the merge is also where an
+ // unknown recipient is found, and every mapped event type adds a field
+ // (the old `Object.keys(subscriberUpdate).length > 1` guard was always true).
+ const merged = await mergeAccountDeletedSubscriberUpdate(
  subscriberRef,
  subscriberUpdate,
  type === 'delivered' || type === 'open' || type === 'click'
@@ -175,7 +178,7 @@ export async function persistMailjetEvent(db, eventData) {
  : null,
  db,
  );
- }
+ if (merged === null) return { skipped: true, reason: UNKNOWN_RECIPIENT };
 
  if (bounceSeverity === 'soft') {
  await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
@@ -275,7 +278,7 @@ async function persistJobAlertMailjetEvent(db, { email, type, mjEvent, messageId
  // promotion. This used to be an UNCONDITIONAL `topUpdate.status = 'active'`,
  // which would overwrite 'complained' — a human's spam complaint — with a
  // machine's inference, and equally resurrect a proven-permanent hard bounce.
- await mergeAccountDeletedSubscriberUpdate(
+ const merged = await mergeAccountDeletedSubscriberUpdate(
  subscriberRef,
  topUpdate,
  type === 'delivered' || type === 'open' || type === 'click'
@@ -288,6 +291,7 @@ async function persistJobAlertMailjetEvent(db, { email, type, mjEvent, messageId
  : null,
  db,
  );
+ if (merged === null) return { skipped: true, reason: UNKNOWN_RECIPIENT };
 
  if (bounceSeverity === 'soft') {
  await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);

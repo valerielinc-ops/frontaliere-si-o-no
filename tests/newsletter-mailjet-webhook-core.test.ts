@@ -12,7 +12,7 @@ import { persistMailjetEvent, handleMailjetWebhookRequest } from '../functions/s
  * seeded docs to come back so the sample count/hour computation runs.
  */
 function createFakeDb(
-  existingDocs: Record<string, Record<string, Record<string, unknown>>> = {},
+  existingDocs: Record<string, Record<string, Record<string, unknown> | null>> = {},
   existingEvents: Record<string, Array<Record<string, unknown>>> = {},
 ) {
   const sets: Array<{ collection: string; docId: string; data: Record<string, unknown> }> = [];
@@ -25,7 +25,15 @@ function createFakeDb(
           sets.push({ collection: name, docId, data });
         },
         get: async () => {
-          const docData = existingDocs[name]?.[docId];
+          // A recipient is a known subscriber unless the test says otherwise:
+          // a provider event never creates the subscriber record
+          // (mergeAccountDeletedSubscriberUpdate, lib/subscriberReactivation.js),
+          // so a test about what an event WRITES needs the document to exist.
+          // Seed `null` for a recipient with no document.
+          const seeded = existingDocs[name] || {};
+          const docData = docId in seeded
+            ? seeded[docId]
+            : (name === 'newsletter_subscribers' || name === 'job_alert_subscribers' ? {} : undefined);
           return {
             exists: !!docData,
             data: () => docData || {},
@@ -502,5 +510,22 @@ describe('newsletterMailjetWebhookCore — malformed "Name <email>" recipient (r
     );
     expect(subscriberSet).toBeTruthy();
     expect(db.__sets.some((s) => s.docId.includes('<'))).toBe(false);
+  });
+});
+
+describe('newsletterMailjetWebhookCore — a provider event never creates the subscriber record', () => {
+  it.each([
+    ['newsletter', 'calculator_paywall', 'newsletter_subscribers'],
+    ['job alert', 'job-alert', 'job_alert_subscribers'],
+  ])('writes nothing for a recipient with no %s document', async (_label, customId, collection) => {
+    const db = createFakeDb({ [collection]: { 'nobody@example.com': null } });
+    for (const event of ['sent', 'open', 'click', 'bounce', 'spam', 'unsub']) {
+      const result = await persistMailjetEvent(db as any, {
+        event, time: 1700000000, email: 'nobody@example.com', Message_GUID: 'g-1', CustomID: customId,
+      });
+      expect(result, event).toEqual({ skipped: true, reason: 'unknown_recipient' });
+    }
+    expect(db.__sets).toEqual([]);
+    expect(db.__adds).toEqual([]);
   });
 });
