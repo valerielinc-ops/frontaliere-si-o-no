@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clinique-de-montchoisi",
-  "assembledAt": "2026-09-24T14:29:20.158Z",
+  "assembledAt": "2026-09-25T14:54:43.510Z",
   "jobs": [
     {
       "id": "clinique-de-montchoisi-c9c29e33dfc8",
@@ -35,7 +35,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149376088-assc",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:29:13.021Z",
+      "crawledAt": "2026-09-25T14:54:33.069Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -81,8 +81,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000149376088-assc"
+      }
     },
     {
       "id": "clinique-de-montchoisi-433e3e343f9a",
@@ -163,8 +162,9 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000149582189-cm-responsable-secretariat-radiologie"
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000149582189-cm-responsable-secretariat-radiologie",
+      "needsRetranslation": true
     }
   ]
 }

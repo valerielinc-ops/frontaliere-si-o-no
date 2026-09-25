@@ -1,7 +1,7 @@
 {
   "key": "baronie",
   "label": "Baronie",
-  "generatedAt": "2026-09-24T14:30:09.779Z",
+  "generatedAt": "2026-09-25T14:56:00.462Z",
   "total": 2,
   "discovered": 5,
   "parsed": 2,
@@ -10,10 +10,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8730,
-  "avgDurationMs": 8730,
+  "durationMs": 8862,
+  "avgDurationMs": 8862,
   "durationHistory": [
-    8730
+    8862
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "sector": "Alimentare / Cioccolato",
       "source": "baronie-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-24",
+      "postedDate": "2026-09-25",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
@@ -45,6 +45,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-10T21:57:18.763Z",
+      "sourceIdentity": "url:https://www.baronie.com/en/jobs/quality-assurance-specialist-safety-coordiantor-caslano",
       "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -72,7 +73,7 @@
       "sector": "Alimentare / Cioccolato",
       "source": "baronie-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-09-24",
+      "postedDate": "2026-09-25",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
@@ -82,6 +83,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-10T21:57:18.763Z",
+      "sourceIdentity": "url:https://www.baronie.com/en/jobs/plant-manager-caslano",
       "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
