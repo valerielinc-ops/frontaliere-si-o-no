@@ -50,6 +50,17 @@ const factoryDetail = ({ city = '', region = '', postalCode = '', country = 'CH'
     </div>
   </body></html>`;
 
+const factoryCsbDetail = ({ city = '', country = 'CH' } = {}) => `
+  <html lang="en"><body>
+    <span data-careersite-propertyid="title">Source-backed vacancy</span>
+    <div data-careersite-propertyid="description">
+      Responsibilities include planning delivery, coordinating stakeholders, documenting decisions,
+      improving processes, supporting customers, and working with the team on reliable outcomes.
+    </div>
+    <span data-careersite-propertyid="city">${city}</span>
+    <span data-careersite-propertyid="country">${country}</span>
+  </body></html>`;
+
 const factoryListing = (id: string, title: string, location = '') => `
   <tr>
     <td class="jobTitle-column"><a href="/job/source-${id}/${id}/">${title}</a></td>
@@ -271,6 +282,13 @@ describe('SuccessFactors factory geography gate', () => {
     ]);
   });
 
+  it('reads city and country from CSB property blocks when microdata is absent', () => {
+    expect(parseCsbDetailPage(factoryCsbDetail({ city: 'Männedorf', country: 'CH' }))).toMatchObject({
+      city: 'Männedorf',
+      country: 'CH',
+    });
+  });
+
   it('keeps a Swiss locality outside the gazetteer when the source region is a canton', async () => {
     stubFactoryFetch(
       { 1006: factoryDetail({ city: 'Epagny', region: 'FR', country: 'CH' }) },
@@ -286,6 +304,15 @@ describe('SuccessFactors factory geography gate', () => {
     stubFactoryFetch(
       { 1005: factoryDetail({ region: 'ZH', country: 'CH' }) },
       factoryListing('1005', 'No locality vacancy'),
+    );
+
+    await expect(factoryParser.fetchAllJobs()).resolves.toEqual([]);
+  });
+
+  it('does not infer a Swiss canton from an ambiguous two-segment listing location', async () => {
+    stubFactoryFetch(
+      { 1007: factoryDetail({ country: '' }) },
+      factoryListing('1007', 'Foreign-looking vacancy', 'NotARealCity, FR'),
     );
 
     await expect(factoryParser.fetchAllJobs()).resolves.toEqual([]);

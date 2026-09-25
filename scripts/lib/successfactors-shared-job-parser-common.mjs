@@ -420,8 +420,10 @@ export function parseCsbDetailPage(html) {
       if (pm) { postalCode = pm[1]; break; }
     }
   }
+  const propertyCity = decodeEntities(normalizeSpace(stripHtml(readPropertyBlock(html, 'city'))));
+  const propertyCountry = decodeEntities(normalizeSpace(stripHtml(readPropertyBlock(html, 'country'))));
   const microdataLocation = parseSuccessFactorsMicrodataLocation(html);
-  if (!city) city = microdataLocation?.city || '';
+  if (!city) city = propertyCity || microdataLocation?.city || '';
   if (!region) region = microdataLocation?.region || '';
   if (!postalCode) postalCode = microdataLocation?.postalCode || '';
   const locationFirstLine = canonicalLoc
@@ -462,7 +464,7 @@ export function parseCsbDetailPage(html) {
     city,
     region,
     postalCode,
-    country: microdataLocation?.country || '',
+    country: propertyCountry || microdataLocation?.country || '',
     rateText,
     postedDate,
     applyUrl,
@@ -707,18 +709,19 @@ export function createSuccessFactorsParser(config) {
         const first = stripHybridSuffix(listing.location.split(',')[0]);
         return COUNTRY_TOKEN.test(first) ? '' : first;
       })();
-      const listingRegion = (() => {
-        const segments = String(listing.location || '')
+      const listingSegments = String(listing.location || '')
           .split(',')
           .slice(1)
           .map((segment) => segment.trim());
-        return segments.map((segment) => normalizeCantonCode(segment)).find(Boolean) || '';
-      })();
       const sourceCountry = String(detail?.country || '').trim();
       if (sourceCountry && !isChCountry(sourceCountry)) {
         console.warn(`  ⏭️ Skipping non-CH detail location (${sourceCountry}) for ${listing.title} (${listing.jobId})`);
         continue;
       }
+      const listingRegion = listingSegments.map((segment) => normalizeCantonCode(segment)).find(Boolean) || '';
+      const listingHasSwissCountry = listingSegments.some((segment) =>
+        /^(?:CH|switzerland|schweiz|suisse|svizzera)$/i.test(segment),
+      );
       const city = detailCity || listingCity;
       if (!city) {
         console.warn(`  ⏭️ Skipping location without a city: ${listing.title} (${listing.jobId})`);
@@ -732,7 +735,12 @@ export function createSuccessFactorsParser(config) {
       // gazetteer (e.g. Epagny and Zollikerberg): their explicit region is
       // valid evidence. A missing canton remains fail-closed.
       const region = detail?.region || listingRegion;
-      const canton = inferSwissTargetCanton(city) || normalizeCantonCode(region);
+      const inferredCanton = inferSwissTargetCanton(city);
+      const canton = inferredCanton || (
+        (sourceCountry && isChCountry(sourceCountry)) || listingHasSwissCountry
+          ? normalizeCantonCode(region)
+          : ''
+      );
       if (!canton) {
         console.warn(`  ⏭️ Skipping location without a Swiss canton: ${city} — ${listing.title} (${listing.jobId})`);
         continue;
