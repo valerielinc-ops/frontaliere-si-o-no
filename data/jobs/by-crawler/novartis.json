@@ -3173,12 +3173,12 @@
     },
     {
       "id": "novartis-f73f7acc0f23",
-      "slug": "research-scientist-ii-laboratory-automation-drug-discovery-support-novartis-ch",
+      "slug": "ricercatore-ii-supporto-per-l-automazione-dei-laboratori-e-scoperta-delle-droghe-novartis-basel-city",
       "slugByLocale": {
         "en": "research-scientist-ii-laboratory-automation-drug-discovery-support-novartis-ch",
-        "it": "research-scientist-ii-laboratory-automation-drug-discovery-support-novartis-ch",
-        "de": "research-scientist-ii-laboratory-automation-drug-discovery-support-novartis-ch",
-        "fr": "research-scientist-ii-laboratory-automation-drug-discovery-support-novartis-ch"
+        "it": "ricercatore-ii-supporto-per-l-automazione-dei-laboratori-e-scoperta-delle-droghe-novartis-basel-city",
+        "de": "forschungswissenschaftler-ii-laborautomation-drug-discovery-support-novartis-basel-city",
+        "fr": "chercheur-scientifique-ii-automatisation-de-laboratoire-et-soutien-a-la-decouverte-de-medicaments-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -3233,7 +3233,21 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-09-24T14:26:43.016Z"
+      "firstSeenAt": "2026-09-24T14:26:43.016Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "research-scientist-ii-laboratory-automation-drug-discovery-support-novartis-ch"
+        ],
+        "de": [
+          "research-scientist-ii-laboratory-automation-drug-discovery-support-novartis-ch"
+        ],
+        "fr": [
+          "research-scientist-ii-laboratory-automation-drug-discovery-support-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "research-scientist-ii-laboratory-automation-drug-discovery-support-novartis-ch"
+      ]
     },
     {
       "id": "novartis-452139e1b2ab",
