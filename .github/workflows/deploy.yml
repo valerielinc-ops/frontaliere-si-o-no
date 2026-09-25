@@ -160,6 +160,21 @@ jobs:
     permissions:
       contents: read
     steps:
+      - name: Restore runner CA trust before checkout (#9681)
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Rebuild the standard bundle only when it is missing, then make the
+          # trust paths explicit for actions/checkout. Never disable TLS checks.
+          ca_file=/etc/ssl/certs/ca-certificates.crt
+          if [[ ! -s "$ca_file" ]]; then
+            sudo update-ca-certificates --fresh
+          fi
+          test -s "$ca_file"
+          {
+            echo "GIT_SSL_CAINFO=$ca_file"
+            echo "GIT_SSL_CAPATH=/etc/ssl/certs"
+          } >> "$GITHUB_ENV"
       - name: Checkout promotion gate
         uses: actions/checkout@v5
         with:
@@ -219,6 +234,21 @@ jobs:
     needs: matrix-setup
     runs-on: ubuntu-latest
     steps:
+      - name: Restore runner CA trust before checkout (#9681)
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Rebuild the standard bundle only when it is missing, then make the
+          # trust paths explicit for actions/checkout. Never disable TLS checks.
+          ca_file=/etc/ssl/certs/ca-certificates.crt
+          if [[ ! -s "$ca_file" ]]; then
+            sudo update-ca-certificates --fresh
+          fi
+          test -s "$ca_file"
+          {
+            echo "GIT_SSL_CAINFO=$ca_file"
+            echo "GIT_SSL_CAPATH=/etc/ssl/certs"
+          } >> "$GITHUB_ENV"
       - name: Checkout
         uses: actions/checkout@v5
       - name: Setup Node.js
@@ -3341,6 +3371,21 @@ jobs:
       contents: read
       actions: write   # read this workflow's run list + POST /dispatches
     steps:
+      - name: Restore runner CA trust before checkout (#9681)
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Rebuild the standard bundle only when it is missing, then make the
+          # trust paths explicit for actions/checkout. Never disable TLS checks.
+          ca_file=/etc/ssl/certs/ca-certificates.crt
+          if [[ ! -s "$ca_file" ]]; then
+            sudo update-ca-certificates --fresh
+          fi
+          test -s "$ca_file"
+          {
+            echo "GIT_SSL_CAINFO=$ca_file"
+            echo "GIT_SSL_CAPATH=/etc/ssl/certs"
+          } >> "$GITHUB_ENV"
       - name: Checkout
         uses: actions/checkout@v5
         with:

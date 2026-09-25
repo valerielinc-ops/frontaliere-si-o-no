@@ -592,30 +592,37 @@ describe('deploy.yml — shard push mode and advisory delta verification', () =>
   });
 });
 
-describe('deploy.yml — build-locale checkout has an explicit CA bundle (#9681)', () => {
+describe('deploy.yml — every checkout has an explicit CA bundle (#9681)', () => {
   const workflow = YAML.parse(DEPLOY_YML) as any;
-  const steps: Array<Record<string, any>> = workflow.jobs['build-locale'].steps;
-  const caStepIndex = steps.findIndex(
-    (step) => step.name === 'Restore runner CA trust before checkout (#9681)',
-  );
-  const checkoutIndex = steps.findIndex(
-    (step) => step.name === 'Checkout' && step.uses === 'actions/checkout@v5',
-  );
+  const checkoutSteps = Object.entries(workflow.jobs).flatMap(([jobName, job]: [string, any]) => {
+    const steps: Array<Record<string, any>> = Array.isArray(job.steps) ? job.steps : [];
+    return steps.flatMap((step, index) =>
+      step.uses === 'actions/checkout@v5' ? [{ jobName, steps, index }] : [],
+    );
+  });
 
-  it('repairs a missing bundle and exports explicit trust paths before checkout', () => {
-    expect(caStepIndex).toBeGreaterThanOrEqual(0);
-    expect(checkoutIndex).toBeGreaterThan(caStepIndex);
+  it('repairs a missing bundle and exports explicit trust paths before every checkout', () => {
+    expect(checkoutSteps.length).toBeGreaterThan(0);
 
-    const caStep = steps[caStepIndex];
-    expect(caStep.run).toContain('sudo update-ca-certificates --fresh');
-    expect(caStep.run).toContain('test -s "$ca_file"');
-    expect(caStep.run).toContain('GIT_SSL_CAINFO=$ca_file');
-    expect(caStep.run).toContain('GIT_SSL_CAPATH=/etc/ssl/certs');
+    for (const { jobName, steps, index } of checkoutSteps) {
+      const caStep = steps[index - 1];
+      expect(caStep?.name, `${jobName}: checkout must follow the CA preflight`).toBe(
+        'Restore runner CA trust before checkout (#9681)',
+      );
+      expect(caStep.run).toContain('sudo update-ca-certificates --fresh');
+      expect(caStep.run).toContain('test -s "$ca_file"');
+      expect(caStep.run).toContain('GIT_SSL_CAINFO=$ca_file');
+      expect(caStep.run).toContain('GIT_SSL_CAPATH=/etc/ssl/certs');
+    }
   });
 
   it('does not weaken TLS verification while handling the runner defect', () => {
-    const caStep = steps[caStepIndex];
-    expect(caStep.run).not.toMatch(/GIT_SSL_NO_VERIFY|sslVerify\s+false/i);
+    for (const { jobName, steps, index } of checkoutSteps) {
+      const caStep = steps[index - 1];
+      expect(caStep.run, `${jobName}: CA preflight must keep TLS verification enabled`).not.toMatch(
+        /GIT_SSL_NO_VERIFY|sslVerify\s+false/i,
+      );
+    }
   });
 });
 
