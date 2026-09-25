@@ -10,6 +10,7 @@ import {
 } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 import { recordJobEmailRankingClick } from './lib/jobEmailRankingStore.js';
+import { isDeletedEmailAccount } from './authAccountCleanup.js';
 
 /**
  * Mailgun webhook handler — receives delivery events and stores them in Firestore.
@@ -92,6 +93,10 @@ export async function persistMailgunEvent(db, eventData) {
  const mgEvent = eventData.event;
  const type = mapMailgunEvent(mgEvent);
  if (!type) return { skipped: true, reason: `unknown_event: ${mgEvent}` };
+
+ if (await isDeletedEmailAccount(db, email)) {
+   return { skipped: true, reason: 'account_deleted' };
+ }
 
  const campaignId = extractCampaignId(eventData);
  const messageId = extractMessageId(eventData);
@@ -339,6 +344,6 @@ export async function handleMailgunWebhookRequest({ body, signingKey }) {
  const db = admin.firestore();
  const result = await persistMailgunEvent(db, eventData);
 
- console.log(`[mailgunWebhook] ${eventData.event} → ${result.type || 'skipped'} for ${eventData.recipient || '?'}`);
+ console.log(`[mailgunWebhook] ${result.reason || result.type || 'skipped'}`);
  return result;
 }

@@ -71,21 +71,10 @@ describe('site copy states the 2026 IRPEF second bracket as 33%', () => {
     /35\s?%\s?(?:\(|fino a|up to|bis|jusqu|tra|between)[^.]{0,20}50[.,' \u2019]?000/i,
     /(?:irpef|scaglion|bracket)[^.]{0,80}\b35\s?%/i,
   ];
-  // The "Marco" worked example in editorialContent.ts (it/en) is rewritten by
-  // PR #9736, which recomputes the whole example from the calculator. Until it
-  // lands, the old lines stay as on main so the two PRs do not conflict. The
-  // match is on the pre-#9736 opening, so the exemption lapses once #9736
-  // replaces those lines.
-  const pendingElsewhere = [
-    /^\s*'Un caso pratico: Marco, /,
-    /^\s*'A practical example: Marco, /,
-  ];
   it.each(files)('%s', (rel) => {
     const src = readFileSync(path.join(root, rel), 'utf8');
     const hits = src.split('\n').flatMap((line, i) =>
-      stale.some((re) => re.test(line))
-        && !(rel === 'build-plugins/editorialContent.ts' && pendingElsewhere.some((re) => re.test(line)))
-        ? [`${rel}:${i + 1}`] : []);
+      stale.some((re) => re.test(line)) ? [`${rel}:${i + 1}`] : []);
     expect(hits).toEqual([]);
   });
 });
