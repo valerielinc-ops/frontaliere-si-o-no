@@ -15,6 +15,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import {
   createGitHubActionsReadClient,
@@ -35,7 +36,7 @@ import {
   digestTranslationDocumentV2,
 } from './lib/translation-unit-identity-v2.mjs';
 
-const SCRIPT_PATH = path.resolve(process.argv[1] || '');
+const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const REPORT_MAX_BYTES = 512 * 1024;
 const ARTIFACT_MAX_BYTES = 1024 * 1024;
 const ARTIFACT_SET_MAX = 100;

@@ -99,10 +99,10 @@ function validProviderContract(value) {
   return value.schemaVersion === 3
     && value.costClass === 'zero'
     && value.executionClass === 'isolated_callback'
-    && nonEmptyText(value.engineVersion)
-    && nonEmptyText(value.gateVersion)
-    && nonEmptyText(value.exportName)
-    && nonEmptyText(value.module);
+    && nonEmptyText(value.engineVersion) && VERSION_PATTERN.test(value.engineVersion)
+    && nonEmptyText(value.gateVersion) && VERSION_PATTERN.test(value.gateVersion)
+    && nonEmptyText(value.exportName) && VERSION_PATTERN.test(value.exportName)
+    && nonEmptyText(value.module) && VERSION_PATTERN.test(value.module);
 }
 
 function validCanary(value) {
