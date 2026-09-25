@@ -156,8 +156,8 @@ export function createTranslationPromotionGuardV2(options = {}) {
   const decision = evaluateTranslationPromotionGuardV2(options);
   const maxRollbackAttempts = options.maxRollbackAttempts
     ?? MAX_TRANSLATION_PROMOTION_ROLLBACK_ATTEMPTS_V2;
-  if (!Number.isSafeInteger(maxRollbackAttempts) || maxRollbackAttempts < 1 || maxRollbackAttempts > 3) {
-    throw new TypeError('translation promotion rollback attempts must be between 1 and 3');
+  if (maxRollbackAttempts !== MAX_TRANSLATION_PROMOTION_ROLLBACK_ATTEMPTS_V2) {
+    throw new TypeError('translation promotion rollback attempts must equal the bounded contract value of 1');
   }
   const configuredRollback = options.rollback ?? options.onRollback ?? null;
   if (configuredRollback !== null && typeof configuredRollback !== 'function') {

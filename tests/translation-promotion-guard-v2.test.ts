@@ -65,6 +65,15 @@ describe('translation promotion guard v2', () => {
     });
   });
 
+  it('rejects every rollback budget other than the one-attempt contract', () => {
+    for (const maxRollbackAttempts of [0, 2, 3]) {
+      expect(() => createTranslationPromotionGuardV2({
+        env: { [TRANSLATION_SCHEDULER_PUBLISH_ENABLED_ENV]: '1' },
+        maxRollbackAttempts,
+      })).toThrow(/must equal the bounded contract value of 1/u);
+    }
+  });
+
   it('does not expose a rollback action while the kill-switch is off', async () => {
     const calls: any[] = [];
     const guard = createTranslationPromotionGuardV2({
