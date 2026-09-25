@@ -391,6 +391,7 @@ describe('in-run-alarm — l allarme parte anche se checkout o setup falliscono'
     // principale lo salta appena uno step precedente è rosso.
     expect(evalIf(opener.if, stepCtx({ __stepFailed: true }))).toBe(false);
     expect(evalIf(FALLBACK.if, stepCtx({ __stepFailed: true, steps: { open: { outcome: 'skipped' } } }))).toBe(true);
+    expect(String(FALLBACK.if)).toContain('always()');
   });
 
   it('se lo step principale ha scritto, il ripiego tace: niente secondo commento', () => {

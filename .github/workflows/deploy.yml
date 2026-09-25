@@ -3682,14 +3682,14 @@ jobs:
       - name: Open the deploy alarm without the checkout (fallback)
         # Lo step sopra ha il `success()` implicito: se il checkout o il setup di
         # Node falliscono, salta, e per una run del bot non c'è un osservatore
-        # esterno che rimedi. Questo parte comunque (`!cancelled()`, non
-        # `always()`: una run cancellata non allarma, come nel resto del job),
+        # esterno che rimedi. Questo parte comunque (`always()`), tranne su
+        # una run cancellata, che non allarma come nel resto del job,
         # solo quando lo step sopra non ha scritto. Il creator non ha dipendenze
         # oltre ai moduli di Node: se il checkout manca lo scarica con `gh`
         # allo SHA della run e lo esegue col Node di sistema del runner, quindi
         # dedup, riapertura e titolo restano quelli canonici.
         if: >-
-          !cancelled() && steps.open.outcome != 'success' &&
+          always() && !cancelled() && steps.open.outcome != 'success' &&
           (needs.validate-promotion-trigger.result == 'failure' ||
            needs.matrix-setup.result == 'failure' ||
            needs.prep.result == 'failure' ||
