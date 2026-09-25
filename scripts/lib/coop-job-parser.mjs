@@ -258,7 +258,7 @@ export function applyCoopJsonLdToJob(job, jsonLd) {
     : detailGeography;
   const selectedLocation = selectedGeography?.location || ldLocality;
   const selectedCanton = selectedGeography?.canton
-    || resolveCoopCantonCode(ldRegion, ldLocality, updated.canton);
+    || (ldRegion || ldLocality ? resolveCoopCantonCode(ldRegion, ldLocality, updated.canton) : '');
 
   if (selectedLocation && selectedLocation !== updated.addressLocality) {
     updated.location = selectedLocation;
