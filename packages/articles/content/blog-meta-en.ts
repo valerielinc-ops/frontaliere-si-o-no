@@ -228,7 +228,7 @@ const blogMetaEn: Record<string, string> = {
  'blog.article.mappa-fiscale-comuni-frontiera.excerpt': 'Where is it best to live? A comparison of 2026 rates in Como, Varese, and Verbano. The impact on a cross-border worker\'s net salary can exceed 400 CHF per year.',
  'blog.article.mappa-fiscale-comuni-frontiera.imageAlt': 'Panoramic view from the Mendrisiotto region towards the Italian border towns at sunset, symbolizing fiscal choices for cross-border workers.',
  'blog.article.maternita-paternita-frontaliere-guida.title': 'Maternity & Paternity: 2026 Guide for Frontalieri',
- 'blog.article.maternita-paternita-frontaliere-guida.excerpt': 'Working in Ticino and becoming a parent? Here\'s the complete 2026 guide: 14 weeks for the mother, 2 for the father, with an allowance up to CHF 230/day. AVS vs INPS rules.',
+ 'blog.article.maternita-paternita-frontaliere-guida.excerpt': 'Working in Ticino and becoming a parent? Here\'s the complete 2026 guide: 14 weeks for the mother, 2 for the father, with an allowance up to CHF 220/day. AVS vs INPS rules.',
  'blog.article.maternita-paternita-frontaliere-guida.imageAlt': 'A couple of new cross-border parents consult documents for parental leave in an apartment in Ticino.',
  'blog.article.guida-contributi-sociali-svizzera.title': 'Swiss Payslip: Guide to Social Contributions 2026',
  'blog.article.guida-contributi-sociali-svizzera.excerpt': 'OASI, LPP, SUVA: discover the 2026 rates and how much you and your employer pay. A practical example on a gross salary of CHF 5,500 for a cross-border worker.',

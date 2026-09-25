@@ -228,7 +228,7 @@ const blogMetaIt: Record<string, string> = {
  'blog.article.mappa-fiscale-comuni-frontiera.excerpt': 'Dove conviene vivere? Le aliquote 2026 a confronto tra Como, Varese e Verbano. L\'impatto sul netto di un frontaliere può superare i 400 CHF annui.',
  'blog.article.mappa-fiscale-comuni-frontiera.imageAlt': 'Vista panoramica dal Mendrisiotto verso i comuni italiani di confine al tramonto, simbolo delle scelte fiscali dei frontalieri.',
  'blog.article.maternita-paternita-frontaliere-guida.title': 'Maternità e Paternità: Guida Frontalieri 2026',
- 'blog.article.maternita-paternita-frontaliere-guida.excerpt': 'Lavori in Ticino e diventi genitore? Ecco la guida completa 2026: 14 settimane per la madre, 2 per il padre, con indennità fino a CHF 230/giorno. Le regole AVS vs INPS.',
+ 'blog.article.maternita-paternita-frontaliere-guida.excerpt': 'Lavori in Ticino e diventi genitore? Ecco la guida completa 2026: 14 settimane per la madre, 2 per il padre, con indennità fino a CHF 220/giorno. Le regole AVS vs INPS.',
  'blog.article.maternita-paternita-frontaliere-guida.imageAlt': 'Coppia di neogenitori frontalieri consulta i documenti per il congedo parentale in un appartamento in Ticino.',
  'blog.article.guida-contributi-sociali-svizzera.title': 'Contributi busta paga Svizzera 2026: AVS, LPP e trattenute spiegate',
  'blog.article.guida-contributi-sociali-svizzera.excerpt': 'AVS, LPP, LAINF: scopri le aliquote 2026 e quanto paghi tu e il datore. Esempio pratico su uno stipendio lordo di 5.500 CHF per un frontaliere.',
