@@ -860,6 +860,7 @@ jobs:
           download_main scripts/ci/review-marker-recovery.mjs "$policy_root/scripts/ci/review-marker-recovery.mjs"
           download_main scripts/ci/fetch-pr-files.mjs "$policy_root/scripts/ci/fetch-pr-files.mjs"
           download_main scripts/ci/claude-codex-fallback.mjs "$policy_root/scripts/ci/claude-codex-fallback.mjs"
+          download_main scripts/lib/codex-fallback-contract.mjs "$policy_root/scripts/lib/codex-fallback-contract.mjs"
           download_main scripts/ci/claude-rate-limit.mjs "$policy_root/scripts/ci/claude-rate-limit.mjs"
           download_main scripts/ci/claude-rate-limit-contract.mjs "$policy_root/scripts/ci/claude-rate-limit-contract.mjs"
           download_main scripts/ci/lib/constants.mjs "$policy_root/scripts/ci/lib/constants.mjs"
@@ -3190,6 +3191,7 @@ jobs:
           }
           for trusted_path in \
             scripts/ci/claude-codex-fallback.mjs \
+            scripts/lib/codex-fallback-contract.mjs \
             scripts/ci/claude-rate-limit.mjs \
             scripts/ci/claude-rate-limit-contract.mjs; do
             download_main "$trusted_path"
@@ -3326,6 +3328,7 @@ jobs:
             scripts/ci/review-marker-recovery.mjs \
             scripts/ci/fetch-pr-files.mjs \
             scripts/ci/claude-codex-fallback.mjs \
+            scripts/lib/codex-fallback-contract.mjs \
             scripts/ci/claude-rate-limit.mjs \
             scripts/ci/claude-rate-limit-contract.mjs \
             scripts/ci/lib/constants.mjs \
