@@ -168,6 +168,27 @@ describe('translation scheduler v2 runtime wiring', () => {
       .toContain('v2/scheduler/');
   });
 
+  it('does not treat a pull request event as live workflow evidence', async () => {
+    const { one } = createRepositories();
+    const previousEvent = process.env.GITHUB_EVENT_NAME;
+    process.env.GITHUB_EVENT_NAME = 'pull_request';
+    try {
+      const report = await runTranslationScheduleV2({
+        repository: one,
+        publishEnabled: true,
+        maxJobs: 10,
+        maxUnits: 1,
+        providerTimeoutMs: 10_000,
+        logger: { log() {} },
+      });
+
+      expect(report.closure.runBinding.event).toBeNull();
+    } finally {
+      if (previousEvent === undefined) delete process.env.GITHUB_EVENT_NAME;
+      else process.env.GITHUB_EVENT_NAME = previousEvent;
+    }
+  });
+
   it('returns an empty report when the live queue has no pending units', async () => {
     const { one } = createRepositories();
     const slicePath = join(one, 'data/jobs/by-crawler/example-crawler.json');

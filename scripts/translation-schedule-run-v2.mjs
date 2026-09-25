@@ -452,6 +452,11 @@ function nullableRunValue(value) {
   return String(value);
 }
 
+function nullableWorkflowEvent(value) {
+  const event = nullableRunValue(value);
+  return event === 'schedule' || event === 'workflow_dispatch' ? event : null;
+}
+
 function stableProviderModulePath(modulePath, repository, provider) {
   const raw = modulePath || provider?.moduleUrl || 'scripts/lib/translation-shadow-provider-v2.mjs';
   if (raw.startsWith('data:')) return 'data:';
@@ -476,7 +481,8 @@ function stableProviderModulePath(modulePath, repository, provider) {
 function createRunBinding(options) {
   const env = process.env;
   return {
-    event: options.eventName ?? nullableRunValue(env.GITHUB_EVENT_NAME),
+    event: options.eventName !== undefined
+      ? nullableWorkflowEvent(options.eventName) : nullableWorkflowEvent(env.GITHUB_EVENT_NAME),
     repository: options.runRepository ?? nullableRunValue(env.GITHUB_REPOSITORY),
     runAttempt: options.runAttempt !== undefined
       ? nullableRunValue(options.runAttempt) : nullableRunValue(env.GITHUB_RUN_ATTEMPT),
