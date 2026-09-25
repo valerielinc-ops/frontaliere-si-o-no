@@ -240,16 +240,19 @@ describe('buildJobPostingSchema — no canton-capital street/CAP beside another 
     expectNoCapitalTupleBesideAnotherLocality(addr);
   });
 
-  it('Villars-sur-Ollon VD: official CAP 1884, and never Lausanne\'s street/CAP beside it', () => {
-    // Villars-sur-Ollon is a locality of the municipality Ollon, not a BFS
-    // municipality: the official directory still lists its own CAP.
+  it('Villars-sur-Ollon VD (a locality of Ollon, curated alias) gets its official CAP 1884', () => {
+    // Not a BFS municipality: the CAP comes from the directory's locality rows.
     expect(resolveLocalityPostalCode('Villars-sur-Ollon', 'VD')).toBe('1884');
     const addr = buildJobPostingSchema(
       { ...baseJob, addressLocality: 'Villars-sur-Ollon', addressRegion: 'VD' },
       OPTS,
     ).jobLocation.address;
+    expect(addr).toMatchObject({
+      addressLocality: 'Villars-sur-Ollon',
+      postalCode: '1884',
+      streetAddress: 'Villars-sur-Ollon centro',
+    });
     expectNoCapitalTupleBesideAnotherLocality(addr);
-    if (addr.addressLocality === 'Villars-sur-Ollon') expect(addr.postalCode).toBe('1884');
   });
 
   it('rejects the capital CAP a crawler stamped on another locality, keeps it on the capital', () => {
