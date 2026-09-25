@@ -23,9 +23,9 @@
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { extractUmantisDetailContent } from './umantis-listing-common.mjs';
 
 const DETAIL_USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
@@ -128,6 +128,46 @@ export function isTrustedDomain(rawUrl = '') {
   } catch {
     return false;
   }
+}
+
+/* ── Location ──────────────────────────────────────────────── */
+
+const SWISS_COUNTRY_LABEL_RE = /^(?:switzerland|schweiz|suisse|svizzera|svizra)$/i;
+
+// Bobst Swiss sites whose locality name the federal register shares with
+// another canton: `Mex` is a municipality in Vaud AND in Valais, so the
+// gazetteer (correctly) refuses to pick one. The Umantis row names the site,
+// not the canton; the Bobst plant there is Bobst Mex SA, canton Vaud. This is
+// a lookup of the locality the SOURCE published, never a substitute for a
+// missing or foreign one.
+const BOBST_SWISS_SITE_CANTONS = new Map([['mex', 'VD']]);
+
+/**
+ * Swiss geography of a Umantis location cell, or `null`.
+ *
+ * The board is Bobst's global one: a cell reads `Country (City)` —
+ * `Switzerland (Mex)`, `Switzerland (Grenchen)`, but also
+ * `Italy (San Giorgio Monferrato)`, `USA (Parsippany)`, `India (Pune)`. The
+ * legacy scaffold stamped every cell it could not resolve with the HQ
+ * (`|| 'Mex'`, `|| 'VD'`), so 22 foreign vacancies went out as Vaud rows
+ * (issue 9842). A foreign country, an empty cell or a Swiss locality that does
+ * not resolve to one canton now returns `null` and the vacancy is dropped.
+ *
+ * @param {string} rawLocation
+ * @returns {{ location: string, canton: string } | null}
+ */
+export function resolveBobstSwissGeography(rawLocation = '') {
+  const location = normalizeSpace(rawLocation);
+  if (!location) return null;
+  const cell = location.match(/^([^()]+?)\s*\(([^()]+)\)$/);
+  const country = cell ? normalizeSpace(cell[1]) : '';
+  const city = cell ? normalizeSpace(cell[2]) : location;
+  if (country && !SWISS_COUNTRY_LABEL_RE.test(country)) return null;
+  if (!city || isLocationExplicitlyForeign(city)) return null;
+  const siteCanton = BOBST_SWISS_SITE_CANTONS.get(normalize(city));
+  if (siteCanton) return { location, canton: siteCanton };
+  const geography = resolveSourceBackedSwissGeography(city);
+  return geography ? { location, canton: geography.canton } : null;
 }
 
 /* ── Category Detection ────────────────────────────────────── */
@@ -448,6 +488,7 @@ export const __testables = {
   resolveApplyUrl,
   buildPageUrl,
   parseRowMetadata,
+  resolveBobstSwissGeography,
   UMANTIS_LISTING_URL,
   UMANTIS_BASE,
   ROW_SELECTOR,
@@ -482,8 +523,12 @@ export async function fetchAllBobstJobs(options = {}) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = listing.location || 'Mex'; // HQ: Mex (VD)
-    const canton = inferSwissTargetCanton(location) || 'VD';
+    const geography = resolveBobstSwissGeography(listing.location);
+    if (!geography) {
+      console.log(`  ⏭️  Skipped non-Swiss or unresolved location: ${listing.location || '(none)'} — ${title}`);
+      continue;
+    }
+    const { location, canton } = geography;
     const publicUrl = listing.url || UMANTIS_LISTING_URL;
 
     // Fetch detail page for prose — listing rows ship only metadata.

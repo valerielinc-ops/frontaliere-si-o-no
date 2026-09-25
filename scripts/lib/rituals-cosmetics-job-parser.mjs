@@ -45,6 +45,7 @@ import {
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
+import { fetchWorkdayPrimarySwissLocation } from './workday-swiss-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -59,8 +60,19 @@ const WORKDAY_PUBLIC_BASE = `https://${WORKDAY_TENANT_HOST}/en-US/${WORKDAY_SITE
 
 const CAREER_URL = 'https://www.rituals.com/en-ch/careers';
 
+// Swiss legal-entity seat, quoted in the fallback description only: it is
+// never a vacancy's location or canton (issue 9842).
 const DEFAULT_CITY = 'Landquart';
 const DEFAULT_CANTON = 'GR';
+
+// Store localities the federal register does not list as municipalities, so
+// the gazetteer cannot resolve them: Shoppyland Schönbühl lies in
+// Urtenen-Schönbühl (BE). The GR legal seat used to fill this gap and
+// published 30 Bernese store vacancies as Grisons ones.
+const RITUALS_STORE_LOCALITY_CANTONS = new Map([
+  ['schönbühl', 'BE'],
+  ['schoenbuehl', 'BE'],
+]);
 
 // Switzerland country UUID is consistent across most Workday tenants.
 const SWISS_LOCATION_IDS = ['187134fccb084a0ea9b4b95f23890dbe'];
@@ -211,14 +223,25 @@ export async function fetchAllRitualsCosmeticsJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const rawLocation = listing.locationRaw || DEFAULT_CITY;
+    const rawLocation = normalizeSpace(listing.locationRaw || '');
     if (isLocationExplicitlyForeign(rawLocation)) {
       console.log(`  ⏭️  Skipped foreign location: ${rawLocation} — ${title}`);
       continue;
     }
-    const cleaned = cleanRitualsLocation(rawLocation);
-    const location = cleaned || DEFAULT_CITY;
-    const canton = inferSwissTargetCanton(location) || inferSwissTargetCanton(rawLocation) || DEFAULT_CANTON;
+    // An "N Locations" roll-up (or an empty location) cleans to '': only the
+    // req's own primary workplace may place it in Switzerland, never the
+    // Landquart legal seat (issue 9842).
+    const location = cleanRitualsLocation(rawLocation)
+      || await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath);
+    const canton = location
+      ? (RITUALS_STORE_LOCALITY_CANTONS.get(normalize(location).normalize('NFC'))
+        || inferSwissTargetCanton(location)
+        || inferSwissTargetCanton(rawLocation))
+      : '';
+    if (!canton) {
+      console.log(`  ⏭️  Skipped location without a Swiss canton: ${rawLocation || '(none)'} — ${title}`);
+      continue;
+    }
     const publicUrl = listing.url || CAREER_URL;
     const employmentType = detectEmploymentType(listing.timeType || '', title);
 

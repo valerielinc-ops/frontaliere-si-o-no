@@ -182,6 +182,34 @@ export function resolveWorkdayPrimarySwissLocation(info = {}) {
   return cleaned && inferSwissTargetCanton(cleaned) ? cleaned : '';
 }
 
+/**
+ * Swiss city of a req whose LISTING row carries no single location — an
+ * `N Locations` roll-up or an empty `locationsText` — read from the req's own
+ * primary workplace in the detail, or `''`.
+ *
+ * For the dedicated Workday parsers that predate this factory. Their legacy
+ * scaffold filled that gap with the employer HQ (`|| 'Basel'`, `|| 'Selzach'`,
+ * ...), so a req worked in Warsaw, Pune or Neustadt and cross-posted to a
+ * Swiss site went out stamped with the HQ canton (issue 9842: roche, sulzer,
+ * abbott). `''` means "no Swiss primary": the caller drops the row.
+ *
+ * @param {string} apiBase CXS base, see `buildWorkdayApiBase`
+ * @param {string} externalPath the listing's `/job/...` path
+ * @param {{ fetchDetail?: typeof fetchWorkdayJobDetail }} [options]
+ * @returns {Promise<string>}
+ */
+export async function fetchWorkdayPrimarySwissLocation(apiBase, externalPath, options = {}) {
+  const { fetchDetail = fetchWorkdayJobDetail } = options;
+  if (!apiBase || !externalPath) return '';
+  let detail = null;
+  try {
+    detail = await fetchDetail(apiBase, externalPath);
+  } catch {
+    detail = null;
+  }
+  return resolveWorkdayPrimarySwissLocation(detail?.jobPostingInfo || {});
+}
+
 function detectCategory(title = '') {
   const t = normalize(title);
   if (/\b(regulatory|qualit|qa|qc|validation|compliance|gxp|gmp)/.test(t)) return 'Qualità / Compliance';

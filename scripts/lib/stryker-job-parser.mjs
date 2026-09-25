@@ -34,6 +34,7 @@ import {
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
+import { fetchWorkdayPrimarySwissLocation } from './workday-swiss-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -180,9 +181,8 @@ export async function fetchAllStrykerJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const rawLocation = listing.location || 'Selzach';
-    // Skip if Workday returned a clearly-foreign location despite the country filter
-    // (Workday sometimes returns "N Locations" rollups — handled by fallback to Selzach).
+    const rawLocation = normalizeSpace(listing.location || '');
+    // Skip if Workday returned a clearly-foreign location despite the country filter.
     if (isLocationExplicitlyForeign(rawLocation)) {
       console.log(`  ⏭️  Skipped foreign location: ${rawLocation} — ${title}`);
       continue;
@@ -192,8 +192,18 @@ export async function fetchAllStrykerJobs() {
     const cleanedLocation = String(rawLocation)
       .replace(/,?\s*(switzerland|schweiz|suisse|svizzera)\s*$/i, '')
       .trim();
-    const location = cleanedLocation && !/\d+\s+location/i.test(cleanedLocation) ? cleanedLocation : 'Selzach';
-    const canton = inferSwissTargetCanton(location) || 'SO';
+    // An "N Locations" roll-up (or an empty location) names no site: only the
+    // req's own primary workplace may place it in Switzerland. The Selzach HQ
+    // used to fill the gap, so a req worked abroad and cross-posted to a Swiss
+    // site went out as `Selzach/SO` (issue 9842).
+    const location = cleanedLocation && !/\d+\s+location/i.test(cleanedLocation)
+      ? cleanedLocation
+      : await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath);
+    const canton = location ? inferSwissTargetCanton(location) : '';
+    if (!canton) {
+      console.log(`  ⏭️  Skipped location without a Swiss canton: ${rawLocation || '(none)'} — ${title}`);
+      continue;
+    }
     const publicUrl = listing.url || CAREER_URL;
     const employmentType = detectEmploymentType(listing.timeType || '', title);
 
