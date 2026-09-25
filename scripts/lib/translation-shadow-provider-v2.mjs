@@ -9,7 +9,7 @@ import { freeTranslateWithRetryDetailed } from './free-translate.mjs';
  * return undefined after starting its asynchronous work.
  */
 export function translate(request, { signal, succeedText, fail }) {
-  if (signal.aborted) {
+  if (signal.aborted || process.env.TRANSLATION_SHADOW_ENABLE_GENERATION !== '1') {
     fail();
     return;
   }

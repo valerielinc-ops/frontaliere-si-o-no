@@ -190,6 +190,47 @@ describe('translation scheduler v2 runtime wiring', () => {
     expect(report.scheduler.outcomeCounts).not.toHaveProperty('generation_failed');
   });
 
+  it('does not invoke the provider when generation is disabled at full canary exposure', async () => {
+    const { one } = createRepositories();
+    const providerPath = join(one, 'scripts/lib/translation-shadow-provider-v2.mjs');
+    const freeTranslatePath = join(one, 'scripts/lib/free-translate.mjs');
+    const invocationPath = join(one, 'provider-invocations.log');
+    writeFileSync(providerPath, readFileSync(
+      new URL('../scripts/lib/translation-shadow-provider-v2.mjs', import.meta.url),
+      'utf8',
+    ));
+    writeFileSync(freeTranslatePath, `import { appendFileSync } from 'node:fs';
+export async function freeTranslateWithRetryDetailed() {
+  appendFileSync(process.env.TRANSLATION_TEST_PROVIDER_INVOCATIONS, 'called\\n');
+  return { text: 'Sviluppatore senior per progetti internazionali' };
+}
+`);
+    writeFileSync(invocationPath, '');
+    const previousInvocationPath = process.env.TRANSLATION_TEST_PROVIDER_INVOCATIONS;
+    const previousGenerationFlag = process.env.TRANSLATION_SHADOW_ENABLE_GENERATION;
+    process.env.TRANSLATION_TEST_PROVIDER_INVOCATIONS = invocationPath;
+    try {
+      const report = await runTranslationScheduleV2({
+        repository: one,
+        publishEnabled: true,
+        canaryExposurePercent: 100,
+        maxJobs: 10,
+        maxUnits: 1,
+        providerTimeoutMs: 10_000,
+        logger: { log() {} },
+      });
+
+      expect(report.canary).toMatchObject({ plannedUnits: 1, selected: 1, skipped: 0 });
+      expect(report.scheduler.outcomeCounts).toMatchObject({ generation_failed: 1 });
+      expect(readFileSync(invocationPath, 'utf8')).toBe('');
+    } finally {
+      if (previousInvocationPath === undefined) delete process.env.TRANSLATION_TEST_PROVIDER_INVOCATIONS;
+      else process.env.TRANSLATION_TEST_PROVIDER_INVOCATIONS = previousInvocationPath;
+      if (previousGenerationFlag === undefined) delete process.env.TRANSLATION_SHADOW_ENABLE_GENERATION;
+      else process.env.TRANSLATION_SHADOW_ENABLE_GENERATION = previousGenerationFlag;
+    }
+  });
+
   it('returns an empty report when the live queue has no pending units', async () => {
     const { one } = createRepositories();
     const slicePath = join(one, 'data/jobs/by-crawler/example-crawler.json');
