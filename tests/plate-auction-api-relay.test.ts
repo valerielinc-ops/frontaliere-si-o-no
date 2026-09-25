@@ -1,4 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { isExplicitlyEmptyCatalogue } from '../functions/src/plateAuctionsCore.js';
 import {
   fetchWithPublicApiRelay,
   PLATE_AUCTION_API_RELAY_MAX_AGE_MS,
@@ -87,7 +88,7 @@ describe('rowsFromPublicApiRelay', () => {
       .toThrow('FR API relay source is not healthy');
   });
 
-  it('refuses an empty relay: no rows for the source, or a zero rowCount', () => {
+  it('refuses an inconsistent relay: declared rows missing from the payload, or rows with a zero rowCount', () => {
     expect(() => rowsFromPublicApiRelay(relayPayload(
       { fr: { status: 'active', rowCount: 1, lastSuccessAt: FRESH } },
       [row('TI', 'ti-2')],
@@ -96,6 +97,34 @@ describe('rowsFromPublicApiRelay', () => {
       { fr: { status: 'active', rowCount: 0, lastSuccessAt: FRESH } },
       [row('FR', 'fr-1')],
     ), options)).toThrow('FR API relay returned no current rows');
+  });
+
+  it('returns the explicit empty catalogue for a source the function read and found empty', () => {
+    // Stato scritto solo dal percorso che ha letto il catalogo: active,
+    // lastSuccessAt fresco, rowCount 0, errorCode null (es. FR dopo l'asta
+    // che chiude il 2026-09-28).
+    const empty = rowsFromPublicApiRelay(relayPayload(
+      { fr: { status: 'active', rowCount: 0, lastSuccessAt: FRESH, errorCode: null } },
+      [row('TI', 'ti-2')],
+    ), options);
+    expect(isExplicitlyEmptyCatalogue(empty)).toBe(true);
+  });
+
+  it('never turns a broken or stale empty source into an empty catalogue', () => {
+    // Un fetch rotto e' degraded / zero_rows: resta un errore.
+    expect(() => rowsFromPublicApiRelay(relayPayload(
+      { fr: { status: 'degraded', rowCount: 0, lastSuccessAt: FRESH, errorCode: 'zero_rows' } },
+      [],
+    ), options)).toThrow('FR API relay source is not healthy');
+    expect(() => rowsFromPublicApiRelay(relayPayload(
+      { fr: { status: 'active', rowCount: 0, lastSuccessAt: FRESH, errorCode: 'zero_rows' } },
+      [],
+    ), options)).toThrow('FR API relay returned no current rows');
+    const stale = new Date(NOW.getTime() - 9 * 60 * 60 * 1000).toISOString();
+    expect(() => rowsFromPublicApiRelay(relayPayload(
+      { fr: { status: 'active', rowCount: 0, lastSuccessAt: stale, errorCode: null } },
+      [],
+    ), options)).toThrow('FR API relay source is too old');
   });
 });
 

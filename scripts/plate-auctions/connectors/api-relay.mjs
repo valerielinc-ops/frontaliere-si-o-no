@@ -6,9 +6,10 @@
  * `refreshPlateAuctions` gira in europe-west6 (Zurigo) ogni 6 ore e pubblica le
  * righe su `getPlateAuctions`. Il collector statico prova SEMPRE prima la fonte
  * ufficiale; solo se quella fallisce e `PLATE_AUCTION_ENABLE_API_RELAY=1` legge
- * le righe dal relay, e solo quando la fonte nel relay è `active`, ha un
- * `lastSuccessAt` entro la finestra e almeno una riga. Altrimenti l'errore
- * nomina entrambi i fallimenti.
+ * le righe dal relay, e solo quando la fonte nel relay è `active` e ha un
+ * `lastSuccessAt` entro la finestra. Altrimenti l'errore nomina entrambi i
+ * fallimenti. Una fonte `active`, fresca, con `rowCount` 0 e senza
+ * `errorCode` è il catalogo vuoto esplicito (vedi `rowsFromPublicApiRelay`).
  *
  * Nato per SZ (egress CI rifiutato a intermittenza) e generalizzato il
  * 2026-09-25 per FR e TI, che sono geo-fenced su IP svizzeri: da ogni sonda
@@ -17,7 +18,10 @@
  * eCari. Una sola implementazione, così una correzione alla finestra o ai
  * controlli di salute vale per tutte e tre le fonti.
  */
-import { fetchHtml } from "../../../functions/src/plateAuctionsCore.js";
+import {
+  explicitlyEmptyCatalogue,
+  fetchHtml,
+} from "../../../functions/src/plateAuctionsCore.js";
 
 export const PLATE_AUCTION_PUBLIC_API_RELAY_URL =
   "https://europe-west6-frontaliere-ticino.cloudfunctions.net/getPlateAuctions";
@@ -33,7 +37,9 @@ function errorMessage(error) {
 
 /**
  * Righe della fonte `sourceKey` nel payload del relay, oppure un errore se la
- * fonte non è sana, è più vecchia di `maxAgeMs` o non ha righe correnti.
+ * fonte non è sana, è più vecchia di `maxAgeMs` o dichiara righe che il
+ * payload non contiene. Una fonte che la function ha letto e trovato vuota
+ * torna come catalogo vuoto esplicito.
  */
 export function rowsFromPublicApiRelay(payload, {
   sourceKey,
@@ -54,6 +60,18 @@ export function rowsFromPublicApiRelay(payload, {
   const rows = Array.isArray(payload?.auctions)
     ? payload.auctions.filter((row) => String(row?.sourceKey || "").toUpperCase() === plateCode)
     : [];
+  // Catalogo vuoto esplicito (pagina eCari «nessuna asta in corso», sessione
+  // finita). `refreshPlateAuctions` scrive `active` con `lastSuccessAt` fresco,
+  // `rowCount` 0 ed `errorCode` null SOLO dal percorso che ha letto il
+  // catalogo. Un fetch rotto o vuoto senza quello stato diventa `degraded` /
+  // `zero_rows` e non aggiorna `lastSuccessAt`, quindi si ferma sopra. Senza
+  // questo ramo FR, TI e SZ andavano `fetch_failed` a ogni giro fra due aste,
+  // mentre una fonte raggiunta direttamente registra lo stesso stato come
+  // risposto. Il collector statico lo tratta come la fetch diretta: chiude le
+  // righe scadute e conserva le altre.
+  if (rows.length === 0 && Number(source.rowCount) === 0 && !source.errorCode) {
+    return explicitlyEmptyCatalogue();
+  }
   if (rows.length === 0 || Number(source.rowCount) < 1) {
     throw new Error(`${plateCode} API relay returned no current rows`);
   }
