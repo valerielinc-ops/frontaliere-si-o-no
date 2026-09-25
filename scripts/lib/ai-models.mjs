@@ -15,7 +15,7 @@ import { GH_MODELS_URL } from './gh-models-endpoint.mjs';
  * - Extended fallback chain with 115+ FREE models across 14 providers
  * - **Dynamic multi-provider discovery**: auto-detects new free models at
  *   runtime from every provider that exposes an OpenAI-compatible
- *   `GET /v1/models` listing (OpenRouter, Groq, Cerebras, Mistral)
+ *   `GET /v1/models` listing (OpenRouter, Groq, NVIDIA, Cohere)
  * - **Scored model selection**: models gain/lose score based on success/failure,
  *   so models that keep working float to the top and broken ones sink down,
  *   avoiding repeated failures that slow the crawl
@@ -29,7 +29,11 @@ import { GH_MODELS_URL } from './gh-models-endpoint.mjs';
  * - Global stats tracking for observability (includes live scoreboard)
  * - Smart 429 backoff: longer waits for rate-limit errors
  *
- * Providers (ALL FREE or free-tier):
+ * Providers (ALL FREE or free-tier). Spenti dal 2026-09-25, fuori da
+ * DEFAULT_CHAIN e dalla discovery (HTTP 402/401/412 permanenti, vedi
+ * RETIRED_FREE_PROVIDERS): Cerebras, Together, Fireworks, HuggingFace,
+ * SambaNova, Mistral — le voci qui sotto restano per il giorno in cui
+ * l'account torna utilizzabile.
  * - GitHub Models (GH_MODELS_PAT) — OpenAI-compatible endpoint hosting
  *   GPT-4o/4.1/5-nano/5, Llama, Phi, Cohere, DeepSeek, Codestral, o4-mini, etc.
  *   Each model has its own daily limit (UserByModelByDay), so using 20+
@@ -394,7 +398,9 @@ export const AI_MODELS = Object.freeze({
  * so using 24 GH Models gives us 24× the capacity with one API key.
  * Groq models add ultra-fast inference as fallback (9 models, 1000 req/day each).
  * OpenRouter adds 50 extra free requests per day (7 :free models).
- * Cerebras, Together, Fireworks, NVIDIA, HuggingFace provide additional fallback capacity.
+ * NVIDIA, Cohere, Cloudflare and Z.AI provide additional fallback capacity
+ * (Cerebras, Together, Fireworks, HuggingFace, SambaNova and Mistral are
+ * retired since 2026-09-25: see RETIRED_FREE_PROVIDERS).
  *
  * Total: 70 models across 9+ providers for maximum translation capacity.
  * Initial order: quality-based (best first), with provider diversity.
@@ -425,7 +431,7 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.PHI_4_REASON,       // 13c. Phi-4 reasoning       (GitHub Models)
   // AI_MODELS.GPT_5_NANO removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
   AI_MODELS.COHERE_CMD_A,       // 15. Cohere latest          (GitHub Models)
-  AI_MODELS.MISTRAL_SMALL,      // 16. Mistral Small latest   (Mistral AI direct)
+  // AI_MODELS.MISTRAL_SMALL removed — Mistral HTTP 402 "Check your subscription" (2026-09-25, smoke-test run 35995800618: 8/8); provider spento, vedi RETIRED_FREE_PROVIDERS
   AI_MODELS.GROQ_LLAMA_3_3,     // 17. Llama 3.3 70B          (Groq)
   // AI_MODELS.COHERE_CMD_R_PLUS removed chain — GitHub Models HTTP 400 "unknown_model: Cohere-command-r-plus-08-2024" (2026-07-05, confirmed retired live, 14x in 30-run sample)
   AI_MODELS.COH_CMD_A,          // 18b. Cohere Command A      (Cohere direct - 1000/month)
@@ -435,7 +441,7 @@ export const DEFAULT_CHAIN = [
   // AI_MODELS.LLAMA_3_1_405B removed chain — GitHub Models HTTP 400 "unknown_model: Meta-Llama-3.1-405B-Instruct" (2026-07-05, confirmed retired live, 20x in 30-run sample)
   // MISTRAL_MEDIUM_3 removed — GitHub Models HTTP 404 "unknown_model" (2026-04)
   AI_MODELS.GROQ_QWEN3_32B,      // 22. Qwen3 32B              (Groq - ultra fast)
-  AI_MODELS.CB_QWEN3_235B,       // 22a. Qwen3 235B frontier   (Cerebras preview — ultra fast)
+  // AI_MODELS.CB_QWEN3_235B removed — Cerebras HTTP 402 "payment_required" (2026-09-25, smoke-test run 35995800618: 2/2); provider spento, vedi RETIRED_FREE_PROVIDERS
   // CB_GLM_47 removed — Cerebras HTTP 404 "Model zai-glm-4.7 does not exist" (2026-04)
   // GEMMA_3_12B removed from chain — Gemini API dropped Gemma 3.x (2026-05-18); OR_GEMMA_3_12B / CF_GEMMA_3_12B mirrors still in chain
   // JAMBA_1_5_LARGE removed — GitHub Models HTTP 400 "unknown_model" (2026-04)
@@ -447,7 +453,7 @@ export const DEFAULT_CHAIN = [
   //                                 The deprecated preview kept winning the fallback selector because 404 didn't mark it exhausted, causing the
   //                                 entire blog-generator workflow to fail with 50+ retries against the dead endpoint. The GA non-preview model
   //                                 `gemini-3.1-flash-lite` (AI_MODELS.GEMINI_31_FLASH_LITE_GA) is already in the chain below at the "replacements" block.
-  AI_MODELS.MISTRAL_CODESTRAL,  // 26. Codestral latest       (Mistral AI direct)
+  // AI_MODELS.MISTRAL_CODESTRAL removed — Mistral HTTP 402 "Check your subscription" (2026-09-25, smoke-test run 35995800618: 8/8); provider spento, vedi RETIRED_FREE_PROVIDERS
   // AI_MODELS.GPT_5_MINI removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
   // CF_LLAMA_4_SCOUT removed — wrapper crash "text.replace is not a function" (runs 27951273347 / 27957791379)
   // CF_GEMMA_4_26B removed — returns empty responses (2026-04)
@@ -502,15 +508,16 @@ export const DEFAULT_CHAIN = [
   // CDSTRL_LATEST removed — codestral.mistral.ai endpoint returns HTTP 401
   // Unauthorized (stale Codestral key, distinct from MISTRAL_API_KEY). Tracked
   // in run 25874585556 (2026-05-14). MISTRAL_CODESTRAL on Mistral La Plateforme
-  // (same key, different endpoint) still works and remains in the chain.
-  AI_MODELS.MISTRAL_NEMO,       // 59d. Mistral Nemo          (Mistral AI direct)
+  // (same key, different endpoint) replaced it until 2026-09-25, when Mistral
+  // itself was retired (HTTP 402, see RETIRED_FREE_PROVIDERS).
+  // AI_MODELS.MISTRAL_NEMO removed — Mistral HTTP 402 "Check your subscription" (2026-09-25, smoke-test run 35995800618: 8/8); provider spento, vedi RETIRED_FREE_PROVIDERS
   AI_MODELS.PHI_4_MINI_REASON,  // 63. Phi-4 mini reasoning   (GitHub Models)
   AI_MODELS.OR_TRINITY,         // 64. Arcee Trinity Large    (OpenRouter free)
-  AI_MODELS.MISTRAL_8B,         // 65. Ministral 8B latest    (Mistral AI direct)
+  // AI_MODELS.MISTRAL_8B removed — Mistral HTTP 402 "Check your subscription" (2026-09-25, smoke-test run 35995800618: 8/8); provider spento, vedi RETIRED_FREE_PROVIDERS
   AI_MODELS.OR_DOLPHIN_24B,     // 66. Dolphin Mistral 24B     (OpenRouter free — replaces Mistral Nemo)
   // OR_MISTRAL_NEMO removed from OpenRouter free list (2026-04)
   // CF_GEMMA_3_12B removed — Cloudflare Workers AI HTTP 400 "Model has been deprecated: This model was deprecated on 2026-05-30." (2026-06-15, run 27544487773); OR_GEMMA_3_12B mirror still in chain
-  AI_MODELS.CB_LLAMA_3_1_8B,    // 68. Llama 3.1 8B           (Cerebras - ultra fast)
+  // AI_MODELS.CB_LLAMA_3_1_8B removed — Cerebras HTTP 402 "payment_required" (2026-09-25, smoke-test run 35995800618: 2/2); provider spento, vedi RETIRED_FREE_PROVIDERS
   // TGT_QWEN_2_5_7B removed — Together AI HTTP 401 (account unauthorized 2026-03)
   // TGT_MISTRAL_7B removed — Together AI HTTP 401 (account unauthorized 2026-03)
   // FW_LLAMA_3_1_8B removed — Fireworks AI HTTP 404 (model not found 2026-03)
@@ -551,9 +558,9 @@ export const DEFAULT_CHAIN = [
   // AI_MODELS.GROQ_LLAMA_4_MAV removed — Groq HTTP 404 "model `meta-llama/llama-4-maverick-17b-128e-instruct` does not exist" (2026-05-18)
   // AI_MODELS.GROQ_QWQ_32B removed — Groq HTTP 404 "model `qwen/qwq-32b` does not exist" (2026-05-18)
   AI_MODELS.GROQ_COMPOUND,       // 94. Compound Beta             (Groq)
-  AI_MODELS.HF_LLAMA_3_3_70B,    // 95. Llama 3.3 70B             (HuggingFace)
-  AI_MODELS.HF_QWEN_2_5_72B,     // 96. Qwen 2.5 72B              (HuggingFace)
-  AI_MODELS.HF_GEMMA_3_27B,      // 97. Gemma 3 27B               (HuggingFace)
+  // AI_MODELS.HF_LLAMA_3_3_70B removed — HuggingFace HTTP 402 "depleted your monthly included credits" (2026-09-25, smoke-test run 35995800618: 3/3); provider spento, vedi RETIRED_FREE_PROVIDERS
+  // AI_MODELS.HF_QWEN_2_5_72B removed — HuggingFace HTTP 402 "depleted your monthly included credits" (2026-09-25, smoke-test run 35995800618: 3/3); provider spento, vedi RETIRED_FREE_PROVIDERS
+  // AI_MODELS.HF_GEMMA_3_27B removed — HuggingFace HTTP 402 "depleted your monthly included credits" (2026-09-25, smoke-test run 35995800618: 3/3); provider spento, vedi RETIRED_FREE_PROVIDERS
   // HF_MISTRAL_SM removed — HuggingFace HTTP 400 "not a chat model" (2026-04)
 
   // ── Chutes.ai: SKIPPED — paid per-token; smoke test returned HTTP 402
@@ -591,11 +598,7 @@ export const DEFAULT_CHAIN = [
   // OpenRouter free additions
   AI_MODELS.OR_DEEPSEEK_V4_FLASH,       // DeepSeek V4 flash on OR :free
   AI_MODELS.OR_LLAMA_3_2_3B,            // Llama 3.2 3B small/fast on OR :free
-  // Mistral La Plateforme (shares 1B-token/month bucket — adds model variety)
-  AI_MODELS.MISTRAL_MEDIUM,             // mistral-medium-latest
-  AI_MODELS.MISTRAL_MAGISTRAL_SMALL,    // magistral-small (reasoning)
-  AI_MODELS.MISTRAL_DEVSTRAL_MEDIUM,    // devstral medium (code)
-  AI_MODELS.MISTRAL_3B,                 // ministral 3B (small/fast)
+  // AI_MODELS.MISTRAL_MEDIUM / MISTRAL_MAGISTRAL_SMALL / MISTRAL_DEVSTRAL_MEDIUM / MISTRAL_3B removed — Mistral HTTP 402 "Check your subscription" (2026-09-25, smoke-test run 35995800618: 8/8); provider spento, vedi RETIRED_FREE_PROVIDERS
 
   // ── Candidate additions (2026-05-27) — pending smoke-test validation ──
   // Added to widen provider coverage. The smoke-test-models workflow records
@@ -678,6 +681,36 @@ const PROVIDER = Object.freeze({
   // See AI_MODELS.OMNIROUTE_AUTO / _callOmniRoute.
   OMNIROUTE:   'omniroute',
 });
+
+// ── Provider free spenti (decisione del proprietario, 2026-09-25) ────────────
+// «Per le free ai provider, sostituiscile con codex luna Max». Questi account
+// non servono piu' una sola chiamata, e non per quota giornaliera: lo
+// smoke-test del sito (smoke-test-ai-models.yml, run 35602541133 del
+// 2026-09-21 e 35995800618 del 2026-09-24) e la discovery di ogni run li
+// trovano a terra in modo permanente:
+//   - Mistral      8/8 HTTP 402 «Check your subscription», listing 402
+//   - SambaNova    7/7 HTTP 402 PAYMENT_METHOD_REQUIRED (id reiniettati dalla discovery)
+//   - Cerebras     2/2 HTTP 402 payment_required (id reiniettati dalla discovery)
+//   - HuggingFace  3/3 HTTP 402 «depleted your monthly included credits»
+//   - Together     listing HTTP 401, Fireworks listing HTTP 412
+// Ogni tentativo costava un fallback sprecato davanti al modello che poi
+// rispondeva. I loro id escono da DEFAULT_CHAIN (restano in AI_MODELS, come
+// ogni modello ritirato) e `discoverFreeModels` non ne interroga piu' il
+// listing, cosi' non rientrano dalla porta dinamica. Le chiamate che cadevano
+// su di loro le serve Codex Luna Max dove il chiamante lo preferisce (`prefer`
+// o AI_MODELS_PREFER, es. PREFERRED_GENERATION_MODELS in create-article.mjs)
+// e, dietro, i provider free che rispondono ancora. Riattivarne uno quando
+// l'account torna utilizzabile: toglierlo da qui e rimettere i suoi id in
+// DEFAULT_CHAIN.
+export const RETIRED_FREE_PROVIDERS = Object.freeze([
+  PROVIDER.MISTRAL,
+  PROVIDER.SAMBANOVA,
+  PROVIDER.CEREBRAS,
+  PROVIDER.HUGGINGFACE,
+  PROVIDER.TOGETHER,
+  PROVIDER.FIREWORKS,
+]);
+const _RETIRED_FREE_PROVIDER_SET = new Set(RETIRED_FREE_PROVIDERS);
 
 // ── Endpoints ────────────────────────────────────────────────
 const GH_MODELS_BASE      = GH_MODELS_URL;
@@ -2650,6 +2683,9 @@ const NVIDIA_SPECIALISED_RE = /vision|\bcode\b|codegemma|codellama|starcoder/i;
 const NVIDIA_DEAD_RE = /nemotron-4-340b|nemotron-nano-3-30b|llama-3\.1-nemotron-(?:ultra-253b|70b|51b)/i;
 
 // Exported for unit testing provider `pick`/alias matching (issue #892).
+// Le voci di Cerebras, Mistral, SambaNova, Together e Fireworks restano (e
+// restano testate) per il giorno in cui l'account torna utilizzabile, ma
+// `discoverFreeModels` le salta: vedi RETIRED_FREE_PROVIDERS.
 export const DISCOVERY_PROVIDERS = Object.freeze([
   {
     name: 'OpenRouter',
@@ -2829,8 +2865,21 @@ export const DISCOVERY_PROVIDERS = Object.freeze([
   // HuggingFace deliberately NOT auto-discovered: router.huggingface.co/v1/models
   // is an unbounded multi-tenant catalog (thousands of models, most requiring
   // credits) with no free-tier flag — discovery would flood the chain with
-  // unusable ids. HF stays statically curated in AI_MODELS/DEFAULT_CHAIN.
+  // unusable ids. HF stayed statically curated in AI_MODELS/DEFAULT_CHAIN, and
+  // since 2026-09-25 it is retired from there too (RETIRED_FREE_PROVIDERS).
 ]);
+
+// I provider di RETIRED_FREE_PROVIDERS non si interrogano: SambaNova e Cerebras
+// rispondono ancora 200 al listing, e ogni id che ne uscirebbe tornerebbe in
+// catena solo per rispondere 402 alla prima chiamata. Una riga sola per
+// processo (la sweep gira una volta), su stderr come il resto della discovery.
+function _activeDiscoveryProviders() {
+  const skipped = DISCOVERY_PROVIDERS.filter((cfg) => _RETIRED_FREE_PROVIDER_SET.has(getProvider(cfg.prefix)));
+  if (skipped.length) {
+    console.error(`🔍 [Discovery] provider spenti non interrogati (RETIRED_FREE_PROVIDERS): ${skipped.map((cfg) => cfg.name).join(', ')}`);
+  }
+  return DISCOVERY_PROVIDERS.filter((cfg) => !skipped.includes(cfg));
+}
 
 let _discoveryDone = false;
 const _dynamicModels = [];
@@ -3020,7 +3069,7 @@ export async function discoverFreeModels() {
   if (_discoveryDone) return _dynamicModels;
   _discoveryDone = true;
 
-  await Promise.all(DISCOVERY_PROVIDERS.map(async (cfg) => {
+  await Promise.all(_activeDiscoveryProviders().map(async (cfg) => {
     try {
       await _discoverProvider(cfg);
     } catch (e) {
@@ -4124,9 +4173,9 @@ export function isModelAvailable(modelId) {
 /**
  * Check whether ANY model in the default chain is available.
  * Use this instead of directly checking GEMINI_API_KEY || GH_MODELS_PAT,
- * so that all 13 providers (GitHub Models, Gemini, Groq, OpenRouter, Cerebras,
- * Together AI, Fireworks AI, NVIDIA NIM, HuggingFace, SambaNova, Cohere,
- * Cloudflare Workers AI, Mistral AI) are considered.
+ * so that every provider in DEFAULT_CHAIN (GitHub Models, Gemini, Groq,
+ * OpenRouter, NVIDIA NIM, Cohere, Cloudflare Workers AI, Z.AI — the retired
+ * ones are in RETIRED_FREE_PROVIDERS) is considered.
  */
 export function isAnyModelAvailable() {
   return DEFAULT_CHAIN.some(m => isModelAvailable(m))
@@ -6992,8 +7041,8 @@ export async function callSingleModel(messages, opts = {}) {
  * 4. On success, record success score (+2) and return
  * 5. On failure, record failure score (-3/-10/-50) and move to next model
  *
- * Default chain: 55 models across 9 providers (GitHub Models, Gemini, Groq, OpenRouter,
- * Cerebras, Together AI, Fireworks AI, NVIDIA NIM, HuggingFace).
+ * Default chain: GitHub Models, Gemini, Groq, OpenRouter, NVIDIA NIM, Cohere,
+ * Cloudflare and Z.AI (the retired providers are listed in RETIRED_FREE_PROVIDERS).
  * Initial order is quality-based (best first), but dynamically adapts as the
  * run progresses based on actual success/failure patterns.
  *

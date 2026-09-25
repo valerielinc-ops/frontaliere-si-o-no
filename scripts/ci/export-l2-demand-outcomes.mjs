@@ -78,6 +78,10 @@ function normalizePathname(value) {
   } catch {
     pathname = pathname.split(/[?#]/u, 1)[0];
   }
+  // GA4 includes the site's root landing page in the report. It is a valid
+  // landing path, but it is outside the GSC orphan cohort and is ignored by
+  // buildL2OutcomeCounts after normalization.
+  if (pathname === '/') return '/';
   const slug = pathname.replace(/^\/+|\/+$/gu, '');
   return slug ? `/${slug}/` : null;
 }
