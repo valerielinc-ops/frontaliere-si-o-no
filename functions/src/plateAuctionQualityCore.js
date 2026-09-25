@@ -209,6 +209,35 @@ export const PLATE_AUCTION_SALE_RECOGNITION = Object.freeze({
 });
 
 /**
+ * Per-canton calibration of the same knob, measured on the 45 production runs
+ * of 2026-09-17 → 2026-09-25 (`[collectPlateAuctions:<key>] sale-recognition`
+ * lines). These cantons republish their list once a day and drop every plate
+ * sold since the previous one, so a healthy update loses more than the global
+ * 1% / 95% allow and was preserved-as-live and reported degraded every day:
+ *
+ *   LU  previous 141-146, one update loses 11-22 (≤ 15%), keeps ≥ 85%
+ *   UR  previous 460, one update loses 13 (2.8%), keeps 97%
+ *   GL  previous 26-28, one update loses 5-6 (≤ 21%), keeps ≥ 79%
+ *   AI  previous 30-38, one update loses 6 (≤ 20%), keeps ≥ 84%
+ *
+ * Each value leaves headroom over the largest measured update and stays far
+ * from a truncated file: a PDF cut in half (keeps 50%) still trips the band.
+ * Keys are the registry keys (`sources.<key>`), lower case.
+ */
+export const PLATE_AUCTION_SALE_RECOGNITION_BY_SOURCE = Object.freeze({
+  lu: Object.freeze({ maxVanishedRatio: 0.2, minFetchedRatio: 0.8 }),
+  ur: Object.freeze({ maxVanishedRatio: 0.05 }),
+  gl: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
+  ai: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.8 }),
+});
+
+/** The calibration for one source: its override on top of the global knob. */
+export function saleRecognitionPolicy(sourceKey) {
+  const key = typeof sourceKey === 'string' ? sourceKey.toLowerCase() : '';
+  return { ...PLATE_AUCTION_SALE_RECOGNITION, ...(PLATE_AUCTION_SALE_RECOGNITION_BY_SOURCE[key] || {}) };
+}
+
+/**
  * How long a row preserved by the band/cap guard may stay absent before its
  * disappearance is recorded. The guard protects the FIRST run of a sudden loss
  * (a truncated PDF must not become a batch of sales); it must not re-judge the
@@ -226,12 +255,13 @@ export const PLATE_AUCTION_MISSING_GRACE_MS = 72 * 60 * 60 * 1000;
  * which is the right direction, because a truncated PDF read as sales would
  * stamp hundreds of plates with a fabricated sale date and price.
  */
-export function recognizeCatalogueSales({ previousCount, fetchedCount, vanishedCount }) {
+export function recognizeCatalogueSales({ sourceKey, previousCount, fetchedCount, vanishedCount }) {
+  const policy = saleRecognitionPolicy(sourceKey);
   const cap = Math.max(
-    PLATE_AUCTION_SALE_RECOGNITION.minVanishedCap,
-    Math.ceil(PLATE_AUCTION_SALE_RECOGNITION.maxVanishedRatio * previousCount),
+    policy.minVanishedCap,
+    Math.ceil(policy.maxVanishedRatio * previousCount),
   );
-  const withinBand = fetchedCount >= PLATE_AUCTION_SALE_RECOGNITION.minFetchedRatio * previousCount;
+  const withinBand = fetchedCount >= policy.minFetchedRatio * previousCount;
   const withinCap = vanishedCount <= cap;
   const blockedBy = [
     ...(withinBand ? [] : ['band']),

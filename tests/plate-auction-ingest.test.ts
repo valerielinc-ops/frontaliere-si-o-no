@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import registry from '../data/plate-auction-sources-registry.json';
 import { parseExpandedEcari } from '../scripts/plate-auctions/connectors/expanded.mjs';
-import { collectPlateAuctions, PLATE_AUCTION_MISSING_GRACE_MS } from '../scripts/plate-auctions/ingest.mjs';
+import { collectPlateAuctions, PLATE_AUCTION_MISSING_GRACE_MS, recognizeCatalogueSales } from '../scripts/plate-auctions/ingest.mjs';
 
 const NOW = new Date('2026-09-13T12:00:00.000Z');
 const previousRow = {
@@ -458,18 +458,22 @@ describe('plate-auction ingest: a preserved loss converges instead of ratcheting
     now,
   })));
   const firstPrevious = () => ({ generatedAt: at(-6).toISOString(), auctions: catalogue(460, at(-6)) });
-  const vanishedIds = Array.from({ length: 13 }, (_unused, index) => `ur-${447 + index}`).sort();
+  // A loss beyond UR's calibrated cap (5% of 460 = 23): the daily 13-plate
+  // update is now read as sales directly (see the calibration tests below),
+  // so the preserve/stamp/expire path is exercised with 30 missing rows.
+  const vanishedIds = Array.from({ length: 30 }, (_unused, index) => `ur-${430 + index}`).sort();
 
-  it('stops re-judging the same 13 vanished rows once they were reported (UR 460 → 447 twice)', async () => {
+  it('stops re-judging the same vanished rows once they were reported (UR 460 → 430 twice)', async () => {
     // Production, runs 35490328535 and 35995052505: `previous=460 fetched=447
     // vanished=13 cap=5 decision=preserve-as-live` on both, because the rows
     // preserved by the first run came back as `previous` and vanished again.
-    const run1 = await run(firstPrevious(), at(0), 447);
+    // Replayed here with a loss the calibrated cap still blocks.
+    const run1 = await run(firstPrevious(), at(0), 430);
     expect(run1.sources.ur).toMatchObject({ status: 'degraded', errorCode: 'source_disappeared', rowCount: 460 });
 
     // Same upstream six hours later: the loss was already reported, the fetch
     // itself lost nothing, so the source must not stay degraded.
-    const run2 = await run(run1, at(6), 447);
+    const run2 = await run(run1, at(6), 430);
     expect(run2.sources.ur).toMatchObject({ status: 'active', rowCount: 460 });
 
     // The first run stamped the rows it preserved with its own time.
@@ -478,13 +482,13 @@ describe('plate-auction ingest: a preserved loss converges instead of ratcheting
     expect(new Set(preserved1.map((row: { missingSince: string }) => row.missingSince))).toEqual(new Set([at(0).toISOString()]));
     // Inside the grace window the rows stay visible and keep their first stamp.
     const preserved2 = run2.auctions.filter((row: { missingSince?: string }) => row.missingSince);
-    expect(preserved2.map((row: { missingSince: string }) => row.missingSince)).toEqual(Array(13).fill(at(0).toISOString()));
+    expect(preserved2.map((row: { missingSince: string }) => row.missingSince)).toEqual(Array(30).fill(at(0).toISOString()));
     expect(run2.history.filter((row: { disappearedFromCatalogue?: boolean }) => row.disappearedFromCatalogue)).toEqual([]);
 
     // Past the grace window a healthy fetch records the absence and the rows
     // leave the live catalogue — never with a final price.
-    const run3 = await run(run2, afterGrace, 447);
-    expect(run3.sources.ur).toMatchObject({ status: 'active', rowCount: 447 });
+    const run3 = await run(run2, afterGrace, 430);
+    expect(run3.sources.ur).toMatchObject({ status: 'active', rowCount: 430 });
     expect(run3.auctions.filter((row: { missingSince?: string }) => row.missingSince)).toEqual([]);
     const recorded = run3.history.filter((row: { disappearedFromCatalogue?: boolean }) => row.disappearedFromCatalogue);
     expect(recorded.map((row: { id: string }) => row.id).sort()).toEqual(vanishedIds);
@@ -499,16 +503,16 @@ describe('plate-auction ingest: a preserved loss converges instead of ratcheting
   it('judges a new sale on its own instead of adding it to the old ghosts', async () => {
     // Before, one more sale made it `vanished=14` against `previous=460` and
     // the guard blocked it too; LU's ghosts grew from 146 to 188 this way.
-    const run1 = await run(firstPrevious(), at(0), 447);
-    const run2 = await run(run1, at(6), 446);
+    const run1 = await run(firstPrevious(), at(0), 430);
+    const run2 = await run(run1, at(6), 429);
     expect(run2.sources.ur).toMatchObject({ status: 'active', rowCount: 459 });
     const sold = run2.history.filter((row: { disappearedFromCatalogue?: boolean }) => row.disappearedFromCatalogue);
-    expect(sold.map((row: { id: string }) => row.id)).toEqual(['ur-446']);
-    expect(run2.auctions.filter((row: { missingSince?: string }) => row.missingSince)).toHaveLength(13);
+    expect(sold.map((row: { id: string }) => row.id)).toEqual(['ur-429']);
+    expect(run2.auctions.filter((row: { missingSince?: string }) => row.missingSince)).toHaveLength(30);
   });
 
   it('never resolves an old absence on a run that may itself be truncated', async () => {
-    const run1 = await run(firstPrevious(), at(0), 447);
+    const run1 = await run(firstPrevious(), at(0), 430);
     // Past the grace window, but this PDF came back less than half as long:
     // the guard trips again, and nothing already missing is declared gone.
     const run2 = await run(run1, afterGrace, 200);
@@ -517,15 +521,85 @@ describe('plate-auction ingest: a preserved loss converges instead of ratcheting
     const stamps = run2.auctions
       .filter((row: { missingSince?: string }) => row.missingSince)
       .reduce((count: Record<string, number>, row: { missingSince: string }) => ({ ...count, [row.missingSince]: (count[row.missingSince] || 0) + 1 }), {});
-    expect(stamps).toEqual({ [at(0).toISOString()]: 13, [afterGrace.toISOString()]: 247 });
+    expect(stamps).toEqual({ [at(0).toISOString()]: 30, [afterGrace.toISOString()]: 230 });
   });
 
   it('clears the stamp when a preserved row is listed again', async () => {
-    const run1 = await run(firstPrevious(), at(0), 447);
+    const run1 = await run(firstPrevious(), at(0), 430);
     const run2 = await run(run1, at(6), 460);
     expect(run2.sources.ur).toMatchObject({ status: 'active', rowCount: 460 });
     expect(run2.auctions.filter((row: { missingSince?: string }) => row.missingSince)).toEqual([]);
     expect(run2.history).toEqual([]);
+  });
+});
+
+describe('plate-auction ingest: per-canton sale calibration', () => {
+  // `previous / fetched / vanished` as logged by the production runs of
+  // 2026-09-19 → 2026-09-25 (`[collectPlateAuctions:<key>] sale-recognition`).
+  // Each of these is one healthy daily update of the canton's list.
+  it.each([
+    ['lu', 141, 130, 11],
+    ['lu', 146, 124, 22],
+    ['lu', 125, 133, 13],
+    ['ur', 460, 447, 13],
+    ['gl', 28, 22, 6],
+    ['gl', 26, 21, 5],
+    ['ai', 38, 32, 6],
+    ['ai', 30, 32, 6],
+  ])('%s: previous=%i fetched=%i vanished=%i is a daily update, read as sales', (sourceKey, previousCount, fetchedCount, vanishedCount) => {
+    expect(recognizeCatalogueSales({ sourceKey, previousCount, fetchedCount, vanishedCount })).toMatchObject({ recognized: true, blockedBy: [] });
+  });
+
+  it.each([
+    // A file cut in half still trips the band for every calibrated canton.
+    ['lu', 141, 70, 71],
+    ['ur', 460, 230, 230],
+    ['gl', 28, 14, 14],
+    ['ai', 38, 19, 19],
+    // Without an override the global knob is unchanged (1% / 95%, floor 3).
+    ['sh', 36, 30, 6],
+    ['bs', 16339, 16000, 339],
+  ])('%s: previous=%i fetched=%i vanished=%i stays preserved', (sourceKey, previousCount, fetchedCount, vanishedCount) => {
+    expect(recognizeCatalogueSales({ sourceKey, previousCount, fetchedCount, vanishedCount }).recognized).toBe(false);
+  });
+
+  it('keeps LU active through its daily update instead of reporting it degraded', async () => {
+    const HOUR = 60 * 60 * 1000;
+    const now = new Date();
+    const seenAt = new Date(now.getTime() - 6 * HOUR);
+    const luPlate = (index: number, at: Date) => ({
+      id: `lu-${index}`,
+      sourceKey: 'LU',
+      canton: 'Lucerna',
+      platePrefix: 'LU',
+      plateNumber: String(index),
+      normalizedPlate: `LU${index}`,
+      listingType: 'fixed-price',
+      auctionStatus: 'active',
+      startingPriceChf: 300 + index,
+      officialAuctionUrl: 'https://strassenverkehrsamt.lu.ch/',
+      sourceFetchedAt: at.toISOString(),
+      lastVerifiedAt: at.toISOString(),
+      lastSeenAt: at.toISOString(),
+      dataConfidence: 'partial',
+      rawSnapshotHash: `lu-${index}`,
+    });
+    const catalogue = (listed: number, at: Date) => Array.from({ length: listed }, (_unused, index) => luPlate(index, at));
+    // Production 2026-09-25: previous=141 fetched=130 vanished=11.
+    const snapshot = JSON.parse(JSON.stringify(await collectPlateAuctions({
+      selectedCantons: ['lu'],
+      fetchers: { lu: async () => catalogue(130, now) },
+      previous: { generatedAt: seenAt.toISOString(), auctions: catalogue(141, seenAt) },
+      now,
+    })));
+    expect(snapshot.sources.lu).toMatchObject({ status: 'active', rowCount: 130 });
+    const sold = snapshot.history.filter((row: { disappearedFromCatalogue?: boolean }) => row.disappearedFromCatalogue);
+    expect(sold).toHaveLength(11);
+    for (const row of sold) {
+      expect(row).not.toHaveProperty('finalPriceChf');
+      expect(row).not.toHaveProperty('finalPriceVerifiedAt');
+    }
+    expect(snapshot.auctions.filter((row: { missingSince?: string }) => row.missingSince)).toEqual([]);
   });
 });
 

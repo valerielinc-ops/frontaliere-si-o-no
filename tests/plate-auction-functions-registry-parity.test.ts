@@ -21,6 +21,11 @@ describe('plate-auction deploy registry parity', () => {
         owner: expected.owner,
         status: expected.status,
       });
+      // Le note sono testo pubblico: l'API le serve per ogni fonte non attiva
+      // (`...registrySource` in plateAuctions.js), quindi una copia divergente
+      // mostrava «Live eCari catalogue revalidated» su TI bloccato. `toBe` e
+      // non `toMatchObject`, così anche una nota presente da un solo lato fallisce.
+      expect(actual.notes, `${key}.notes`).toBe(expected.notes);
     }
   });
 });

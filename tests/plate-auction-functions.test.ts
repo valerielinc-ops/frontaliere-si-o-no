@@ -5,7 +5,7 @@ import { FieldValue } from 'firebase-admin/firestore';
 import { describe, expect, it } from 'vitest';
 import { chunkPlateAuctionWrites, PLATE_AUCTION_BATCH_SIZE } from '../functions/src/plateAuctionBatch.js';
 import { PLATE_AUCTION_MISSING_GRACE_MS } from '../functions/src/plateAuctionQualityCore.js';
-import { PLATE_AUCTION_COLLECTION, PLATE_AUCTION_SOURCE_COLLECTION, refreshPlateAuctions } from '../functions/src/plateAuctions.js';
+import { PLATE_AUCTION_COLLECTION, PLATE_AUCTION_SOURCE_COLLECTION, plateAuctionRefreshOrder, refreshPlateAuctions } from '../functions/src/plateAuctions.js';
 
 const ECARI_NO_RUNNING_AUCTION = readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'fixtures/ecari-no-running-auction.html'), 'utf8');
 
@@ -58,6 +58,25 @@ function fakeFirestore(previousRows: Record<string, unknown>[]) {
     writes,
   };
 }
+
+describe('plate-auction Cloud Function schedule', () => {
+  // From 2026-09-15 every run was cut off at BS (60 s / 256 MiB defaults) and
+  // GR, SG, SH, SZ, TG, VS, ZH kept their 09-15 snapshot in the API relay.
+  it('declares a timeout and memory that fit the whole pass', () => {
+    const index = readFileSync(new URL('../functions/index.js', import.meta.url), 'utf8');
+    const start = index.indexOf('export const refreshPlateAuctions = onSchedule(');
+    expect(start).toBeGreaterThan(-1);
+    const options = index.slice(start, index.indexOf('\n', index.indexOf('{', start)));
+    expect(options).toMatch(/timeoutSeconds: 540/);
+    expect(options).toMatch(/memory: '1GiB'/);
+  });
+
+  it('refreshes the heavy BS catalogue last, after every small source', () => {
+    const keys = ['ag', 'bl', 'bs', 'gr', 'sz', 'zh'];
+    expect(plateAuctionRefreshOrder(keys)).toEqual(['ag', 'bl', 'gr', 'sz', 'zh', 'bs']);
+    expect(plateAuctionRefreshOrder(['ag', 'sz'])).toEqual(['ag', 'sz']);
+  });
+});
 
 describe('plate-auction Firestore batching', () => {
   it('keeps every commit below Firestore’s 500-write limit', () => {
