@@ -531,6 +531,40 @@ describe('human-side-effect-gate policy', () => {
     expect(decision.reasons).toContain(reason);
   });
 
+  it('allows only the bounded, explicitly approved history-backfill rerun', () => {
+    const resumable = evaluateHumanApproval({
+      ...APPROVED_INPUT,
+      workflow: 'Backfill Expired Jobs From History',
+      runAttempt: '2',
+      scope: 'backfill-expired-from-history',
+      approvalTrustedResumableRerun: 'true',
+    });
+    expect(resumable.allow).toBe(true);
+    expect(resumable.effectiveDryRun).toBe(false);
+    expect(resumable.nonce).toMatch(/^[a-f0-9]{64}$/);
+
+    for (const override of [
+      { runAttempt: '4' },
+      { approvalTrustedResumableRerun: 'false' },
+      { workflow: 'Send Newsletter' },
+      { scope: 'newsletter-send' },
+      { consent: 'false' },
+      { dryRun: 'true' },
+    ]) {
+      const decision = evaluateHumanApproval({
+        ...APPROVED_INPUT,
+        workflow: 'Backfill Expired Jobs From History',
+        runAttempt: '2',
+        scope: 'backfill-expired-from-history',
+        approvalTrustedResumableRerun: 'true',
+        ...override,
+      });
+      expect(decision.allow, JSON.stringify(override)).toBe(false);
+      expect(decision.effectiveDryRun, JSON.stringify(override)).toBe(true);
+      expect(decision.reasons, JSON.stringify(override)).toContain('run-is-a-rerun');
+    }
+  });
+
   it('consumes a trusted schedule nonce only once, including through main()', () => {
     const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'human-side-effect-gate-schedule-'));
     const firstOutput = path.join(tempRoot, 'github-output-first');
