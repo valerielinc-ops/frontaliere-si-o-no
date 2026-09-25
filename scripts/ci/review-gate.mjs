@@ -751,14 +751,14 @@ function confirmationHasUniqueTarget(
       .map((openFinding) => ({
         finding: openFinding,
         citations: openFinding.citations.filter((citation) =>
-          citation.line !== null && citation.path === candidate.path),
+          citation.line !== null && citationPathMatches(citation.path, candidate.path)),
       }))
       .filter((entry) => entry.citations.length === 1);
     const candidates = [...new Map(
       confirmations
         .flatMap((confirmation) => confirmation.citations)
         .filter((confirmation) => confirmation.line !== null
-          && confirmation.path === candidate.path)
+          && citationPathMatches(confirmation.path, candidate.path))
         .map((confirmation) => [`${confirmation.path}:${confirmation.line}`, confirmation]),
     ).values()];
     if (samePathFindings.length > 1
