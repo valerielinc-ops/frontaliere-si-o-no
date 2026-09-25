@@ -9,6 +9,7 @@ import {
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
+import { digestTranslationGenerationClosure } from '../scripts/lib/translation-generation-closure-v2.mjs';
 import {
   collectTranslationSchedulerInput,
   runTranslationScheduleV2,
@@ -147,6 +148,13 @@ describe('translation scheduler v2 runtime wiring', () => {
     });
     expect(report.scheduler.selectedJobs).toBe(1);
     expect(report.scheduler.selectedUnits).toBe(1);
+    expect(report.closure).toMatchObject({
+      generation: 1,
+      stateTip: report.state.after,
+      canary: { mode: 'shadow', mainPublish: false },
+      plan: { hash: report.planHash, scanDigest: report.scanDigest },
+    });
+    expect(report.closureDigest).toBe(digestTranslationGenerationClosure(report.closure));
     expect(report.canary).toMatchObject({
       plannedUnits: 1,
       eligibleUnits: 0,
@@ -167,6 +175,27 @@ describe('translation scheduler v2 runtime wiring', () => {
     expect(git(one, 'ls-remote', '--refs', remote, report.stateRef)).toContain(report.state.after);
     expect(git(one, 'ls-tree', '-r', '--name-only', report.state.after))
       .toContain('v2/scheduler/');
+  });
+
+  it('does not treat a pull request event as live workflow evidence', async () => {
+    const { one } = createRepositories();
+    const previousEvent = process.env.GITHUB_EVENT_NAME;
+    process.env.GITHUB_EVENT_NAME = 'pull_request';
+    try {
+      const report = await runTranslationScheduleV2({
+        repository: one,
+        publishEnabled: true,
+        maxJobs: 10,
+        maxUnits: 1,
+        providerTimeoutMs: 10_000,
+        logger: { log() {} },
+      });
+
+      expect(report.closure.runBinding.event).toBeNull();
+    } finally {
+      if (previousEvent === undefined) delete process.env.GITHUB_EVENT_NAME;
+      else process.env.GITHUB_EVENT_NAME = previousEvent;
+    }
   });
 
   it('does not call the provider at the zero-exposure default', async () => {
@@ -248,6 +277,8 @@ export async function freeTranslateWithRetryDetailed() {
       status: 'empty',
       scheduler: { selectedJobs: 0, selectedUnits: 0 },
       state: { reserved: false, settled: false },
+      closure: null,
+      closureDigest: null,
     });
   });
 
