@@ -2867,7 +2867,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  title: 'Costo Auto Frontaliere Ticino 2026 | Frontaliere Ticino',
  description: 'Quanto costa davvero l\'auto per un frontaliere in Ticino? Analisi 2026 di benzina, parcheggio, usura e vignette. Scopri se conviene rispetto al treno.',
  keywords: 'costo auto frontaliere, pendolare ticino, spese auto svizzera, vignetta autostradale 2026, parcheggio lugano, conviene treno o auto',
- ogTitle: 'L\'auto ti costa fino a 8.500 CHF l\'anno? La verità sui costi da frontaliere',
+ ogTitle: 'L\'auto ti costa quasi 8.700 CHF l\'anno? La verità sui costi da frontaliere',
  ogDescription: 'Abbiamo calcolato tutte le spese nascoste dell\'auto per chi lavora in Ticino. La cifra finale potrebbe sorprenderti. Leggi l\'analisi 2026.',
  canonicalPath: '/articoli-frontaliere/costo-auto-frontaliere-ticino-guida-completa-2026/',
  structuredData: {

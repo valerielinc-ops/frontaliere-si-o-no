@@ -254,7 +254,7 @@ const blogMetaFr: Record<string, string> = {
  'blog.article.congedo-genitori-frontaliere-ticino.excerpt': 'Devenir parents en tant que frontalier : comment fonctionnent la maternité et la paternité entre la Suisse et l\'Italie ? Voici les chiffres 2026, les conditions et les procédures.',
  'blog.article.congedo-genitori-frontaliere-ticino.imageAlt': 'Jeunes parents frontaliers planifiant leur congé parental sur une tablette, avec vue sur le lac de Lugano, Tessin.',
  'blog.article.costo-pendolare-auto-ticino-2026.title': 'Coût de la voiture pour frontalier : quel poids sur votre salaire ?',
- 'blog.article.costo-pendolare-auto-ticino-2026.excerpt': 'Essence, usure, parking et vignette : l\'analyse complète des coûts 2026. Un pendulaire dépense jusqu\'à 7 500 CHF par an. Comparaison avec le train et le bus.',
+ 'blog.article.costo-pendolare-auto-ticino-2026.excerpt': 'Essence, usure, parking et vignette : l\'analyse complète des coûts 2026. Un pendulaire dépense environ 8 670 CHF par an. Comparaison avec le train et le bus.',
  'blog.article.costo-pendolare-auto-ticino-2026.imageAlt': 'File de voitures de frontaliers au poste-frontière de Chiasso-Brogeda au Tessin tôt le matin.',
  'blog.article.guida-dichiarazione-redditi-frontalieri.title': 'Déclaration de revenus frontalier : Guide 730 pour le Tessin',
  'blog.article.guida-dichiarazione-redditi-frontalieri.excerpt': 'Modèle 730/2026 et Redditi PF : où déclarer le salaire suisse, comment calculer le crédit d\'impôt et quels documents sont nécessaires. Le guide complet pour les frontaliers du Tessin.',
