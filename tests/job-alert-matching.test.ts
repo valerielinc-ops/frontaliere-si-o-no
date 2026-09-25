@@ -51,6 +51,24 @@ describe('jobAlertMatching — explicit keyword contract (legacy preserved)', ()
     expect(score(italianNurse, { keywords: ['nurse'] }, null)).toBeGreaterThan(0);
   });
 
+  it('does not let a generic token from a multi-word alias satisfy the hard filter', () => {
+    const genericTokenOnly = job({
+      title: 'Office Assistant',
+      description: 'Administrative support role for the health team.',
+      sector: 'Administration',
+      category: 'Office',
+    });
+    const phraseMatch = job({
+      title: 'Health Care Assistant',
+      description: 'Patient support role in a care team.',
+      sector: 'Sanità',
+      category: 'Cura',
+    });
+
+    expect(score(genericTokenOnly, { keywords: ['oss'] }, null)).toBe(0);
+    expect(score(phraseMatch, { keywords: ['oss'] }, null)).toBeGreaterThan(0);
+  });
+
   it('ranks a job matching MORE keyword tokens higher (tokenized bonus)', () => {
     const j = job({ title: 'Senior Software Engineer', description: 'cloud platform role' });
     const one = score(j, { keywords: ['engineer'] });

@@ -11,6 +11,7 @@
  */
 import {
   expandKeywordsWithSynonyms as expandKeywordsWithSynonymsCore,
+  expandKeywordsWithSynonymPhrases as expandKeywordsWithSynonymPhrasesCore,
   professionSynonymText as professionSynonymTextCore,
 } from './professionSynonymsCore.mjs';
 
@@ -32,4 +33,12 @@ export function professionSynonymText(title: string | undefined | null): string 
  */
 export function expandKeywordsWithSynonyms(keywords: readonly string[]): string[] {
   return expandKeywordsWithSynonymsCore(keywords);
+}
+
+/**
+ * Expand hard-filter keywords with cross-locale aliases while preserving
+ * multi-word aliases as phrases (for example, `health care assistant`).
+ */
+export function expandKeywordsWithSynonymPhrases(keywords: readonly string[]): string[] {
+  return expandKeywordsWithSynonymPhrasesCore(keywords);
 }

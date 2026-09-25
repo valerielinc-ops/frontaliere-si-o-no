@@ -16,6 +16,9 @@ import {
 const ALIAS_TEXT_BY_PROFESSION_ID = new Map(
   PROFESSION_TAXONOMY.map((entry) => [entry.id, entry.aliases.join(' ')]),
 );
+const ALIAS_PHRASES_BY_PROFESSION_ID = new Map(
+  PROFESSION_TAXONOMY.map((entry) => [entry.id, entry.aliases]),
+);
 
 const PROFESSION_ID_CACHE = new Map();
 const PROFESSION_ID_CACHE_MAX = 2048;
@@ -70,6 +73,28 @@ export function expandKeywordsWithSynonyms(keywords = []) {
     for (const alias of aliasText.split(' ')) {
       if (alias) expanded.add(alias);
     }
+  }
+  return Array.from(expanded);
+}
+
+/**
+ * Expand hard-filter keywords with sibling-profession aliases while keeping
+ * every alias phrase intact. This is deliberately separate from the
+ * token-oriented search expansion above: a phrase such as "health care
+ * assistant" must not turn "health" or "assistant" into independent hard
+ * filters for an alert that asked for OSS.
+ * @param {readonly string[]} [keywords=[]] Query keywords.
+ * @returns {string[]}
+ */
+export function expandKeywordsWithSynonymPhrases(keywords = []) {
+  const source = Array.isArray(keywords) ? keywords : [];
+  const expanded = new Set(source);
+  for (const keyword of source) {
+    if (!isPlausibleProfessionToken(keyword)) continue;
+    const id = cachedMatchProfession(keyword);
+    const aliases = id ? ALIAS_PHRASES_BY_PROFESSION_ID.get(id) : undefined;
+    if (!aliases) continue;
+    for (const alias of aliases) expanded.add(alias);
   }
   return Array.from(expanded);
 }

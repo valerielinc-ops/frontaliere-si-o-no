@@ -34,7 +34,7 @@
 
 import { extractKeywords } from './newsletter-content.mjs';
 import {
-  expandKeywordsWithSynonyms,
+  expandKeywordsWithSynonymPhrases,
   professionSynonymText,
 } from './professionSynonymsCore.mjs';
 import {
@@ -255,7 +255,7 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
   // profession. Without this, an English "nurse" alert could never match an
   // Italian "infermiere" listing even though the shared job-search taxonomy
   // already knows both terms.
-  const hardKeywords = new Set(expandKeywordsWithSynonyms(hardKeywordInputs));
+  const hardKeywords = new Set(expandKeywordsWithSynonymPhrases(hardKeywordInputs));
 
   // 2. Soft intent tokens — boost relevance and, for keyword-less alerts, act as
   //    the matching filter. Sourced from the job the user engaged with plus the
