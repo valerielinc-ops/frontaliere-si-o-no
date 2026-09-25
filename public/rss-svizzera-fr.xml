@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne</description>
     <language>fr</language>
-    <lastBuildDate>Fri, 25 Sep 2026 06:41:56 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 25 Sep 2026 09:35:23 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Suisse</title>
@@ -17,6 +17,90 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Suisse : nouvelle loi autonome sur la cybersécurité LCib</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/nouvelle-loi-cybersecurite-lcib/</link>
+      <description><![CDATA[Le Conseil fédéral charge le DDPS d'élaborer d'ici juin 2027 la LCib, basée sur le Cyber Resilience Act européen pour les produits et données numériques.]]></description>
+      <content:encoded><![CDATA[## En bref
+- Le DDPS préparera une loi autonome sur la cybersécurité.
+- Le projet sera prêt pour consultation d'ici juin 2027.
+- La loi regroupera trois projets portant sur les produits, les données et l'infrastructure numérique.
+- L'obligation de signaler les cyberattaques passera de la LSI à la LCib.
+
+## Faits clés
+- Décision → Conseil fédéral, 25 septembre 2026
+- Mandat → DDPS
+- Échéance → juin 2027
+- Loi prévue → loi fédérale autonome sur la cybersécurité (LCib)
+- Base → Cyber Resilience Act (CRA) européen
+- Domaines → produits, données et infrastructure numérique
+- Obligation transférée → signalement des cyberattaques aux infrastructures critiques
+- LSI → sécurité de l'information des autorités fédérales
+
+Le 25 septembre 2026, lors de sa séance à Berne, le Conseil fédéral a chargé le Département fédéral de la défense, de la protection de la population et des sports (DDPS) d'élaborer, d'ici juin 2027, un projet à soumettre à consultation pour une nouvelle loi fédérale autonome sur la cybersécurité. L'objectif indiqué est de mettre en œuvre trois interventions parlementaires dans un acte normatif unique.
+
+L'Office fédéral de la cybersécurité (OFCS) travaille sur les projets sur mandat du Parlement. Le premier concerne la cyber-résilience des produits comportant des éléments numériques ; le second, la protection des données numériques les plus importantes ; le troisième, le rôle des prestataires de services d'hébergement et de cloud dans la cybersécurité. Les trois projets concernent des niveaux normatifs complémentaires : produits, données et infrastructure numérique. À l'origine, ils auraient dû être mis en œuvre par des modifications de la loi fédérale sur la sécurité de l'information (LSI).
+
+### Le choix d'une loi autonome
+
+Le Conseil fédéral change désormais d'approche. La loi prévue sur la cybersécurité, désignée sous le nom de LCib, devra regrouper les trois projets et garantir une réglementation cohérente de la cybersécurité chez des tiers. Le nouvel acte intégrera également l'obligation de signaler les cyberattaques aux infrastructures critiques, prévue par la LSI et en vigueur depuis avril 2025. La LSI continuera, quant à elle, de régir la sécurité de l'information des autorités fédérales.
+
+Le projet devra fixer des exigences contraignantes pour les fabricants, importateurs et distributeurs de produits logiciels et matériels. Il devra également créer les bases pour la surveillance du marché et pour une interdiction de distribution des produits non sécurisés. Des obligations particulières sont prévues pour les données numériques importantes et pour les prestataires d'hébergement et de cloud, y compris la collaboration et la défense en cas de cybermenaces.
+
+Les règles sectorielles déjà en vigueur, notamment la loi sur les télécommunications, l'ordonnance sur l'approvisionnement électrique et l'ordonnance sur les installations de télécommunication, resteront en vigueur. La LCib les complétera par des obligations de cybersécurité. Selon le Conseil fédéral, une loi unique permettra de mettre à jour un seul acte en fonction des évolutions technologiques ou européennes et de mieux traiter des thèmes spécifiques, tels que les logiciels open source.
+
+Le DDPS devra remettre le projet au Conseil fédéral d'ici juin 2027, pour consultation et décision ultérieure. La réglementation prévue s'appuiera sur le Cyber Resilience Act (CRA) européen et vise à minimiser les charges administratives pour les entreprises. Pour les entreprises actives au niveau international qui doivent déjà respecter le CRA de l'UE, l'objectif déclaré est d'éviter une charge supplémentaire en matière de conformité.
+## Ce qui change pour les organisations
+
+Le passage de trois modifications de la LSIn à une loi autonome introduit un critère de lecture plus simple pour les organisations concernées : distinguer le périmètre de l'activité et rattacher chaque obligation au cadre prévu. Le communiqué décrit un projet, et non une date d'entrée en vigueur : le DDPS devra l'élaborer d'ici juin 2027, le mettre en consultation et le soumettre au Conseil fédéral pour décision. La conséquence pratique est de séparer les obligations déjà en vigueur de celles que la LCib devra définir.
+
+| Périmètre | Mesure décrite | Cadre prévu |
+|---|---|---|
+| Produits comportant des éléments numériques | Exigences contraignantes, surveillance du marché et interdiction de distribution des produits non sûrs | LCib |
+| Données numériques importantes | Obligations particulières de protection | LCib |
+| Hébergement et cloud | Obligations de coopération et de défense contre les cybermenaces | LCib |
+| Infrastructures critiques | Signalement des cyberattaques en vigueur depuis avril 2025 | Transfert prévu de la LSIn à la LCib |
+| Règles sectorielles | Les lois et ordonnances restent en vigueur | Intégration des obligations de cybersécurité |
+
+### Une cartographie par acteur
+
+Pour un fabricant, un importateur ou un distributeur, le dossier couvre des exigences contraignantes, la surveillance du marché et l'éventuelle interdiction de distribuer des produits non sûrs. Pour un prestataire d'hébergement ou de cloud, le texte met en revanche l'accent sur la coopération et la défense en cas de cybermenaces. Les données numériques importantes constituent un périmètre supplémentaire, assorti d'obligations particulières de protection.
+
+Le bénéfice économique le plus explicite concerne les entreprises actives à l'international. Puisqu'elles doivent déjà respecter le CRA de l'UE, la loi suisse harmonisée est conçue pour ne pas créer de charge supplémentaire en matière de conformité. La proposition devrait en outre réduire au minimum les charges administratives des entreprises. La référence au CRA européen devient donc le principal point de comparaison pour ceux qui opèrent au-delà des frontières.
+
+Les règles sectorielles ne sont ni absorbées ni supprimées : la loi sur les télécommunications, l'ordonnance sur l'approvisionnement en électricité et l'ordonnance sur les installations de télécommunication restent en vigueur, tandis que la LCib ajoute les obligations de cybersécurité en tant que tâche conjointe. Pour les autorités fédérales, la LSIn continue de régir la sécurité de l'information.
+
+Pour explorer le volet des entreprises séparément du dossier réglementaire, on peut consulter les [aziende che assumono](nav:companies).
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
+## Comment suivre le dossier
+
+Le suivi du dossier exige avant tout de distinguer les rôles, car le projet ne concerne pas un seul type d’acteur. La séquence opérationnelle peut rester alignée sur les domaines énumérés dans le communiqué.
+
+### Cinq étapes opérationnelles
+
+1. **Cartographier le périmètre.** Vérifier si l’activité concerne la production, l’importation ou la distribution de logiciels et de matériel comportant des éléments numériques, la protection de données numériques importantes, les services d’hébergement ou de cloud, ou encore une infrastructure critique. Ce sont les quatre domaines pour lesquels le texte prévoit des mesures spécifiques.
+
+2. Distinguer les règles déjà applicables du projet. Pour les infrastructures critiques, garder à l’esprit l’obligation de signaler les cyberattaques en vigueur depuis avril 2025. Son intégration prévue se fera dans la LCib ; il ne faut pas la confondre avec la partie de la LSIn qui continuera de réglementer la sécurité des informations des autorités fédérales.
+
+3. Maintenir le cadre sectoriel. La loi sur les télécommunications, l’ordonnance sur l’approvisionnement en électricité et l’ordonnance sur les installations de télécommunication resteront en vigueur. La nouvelle loi les complétera en ajoutant les obligations découlant de la cybersécurité en tant que tâche conjointe.
+
+4. Distinguer les produits et les services. Pour les produits, suivre les exigences contraignantes, la surveillance du marché et l’éventuelle interdiction de distribution des produits non sûrs. Pour l’hébergement et le cloud, distinguer en revanche les obligations prévues en matière de collaboration et de défense en cas de cybermenaces.
+
+5. Marquer l’échéance législative. D’ici juin 2027, le DDPS devra préparer le projet, le soumettre à la consultation et le présenter au Conseil fédéral pour décision. Pour les entreprises actives au niveau international, le CRA européen constitue la référence indiquée pour la future réglementation suisse.
+
+Ce calendrier permet de ne pas anticiper une date d’application que le communiqué n’indique pas. L’étape certaine est la préparation du projet et sa consultation ultérieure ; le Conseil fédéral devra ensuite en être saisi pour décision. Pour les entreprises, la question pratique est donc de savoir lequel des périmètres concerne leur activité et comment il s’articule avec les règles sectorielles ou avec le CRA déjà appliqué par les entreprises actives au niveau international. La loi autonome est en outre conçue pour mettre à jour un acte unique en fonction des évolutions technologiques ou européennes et pour mieux traiter des thèmes spécifiques, comme les logiciels open source.
+
+Ceux qui suivent le sujet sur le plan professionnel peuvent également consulter les [annunci di lavoro](nav:jobs), en maintenant cet outil séparé de la procédure législative. Pour relier en revanche cette lecture à sa situation personnelle, utilise le [calcolatore stipendio](nav:calculator).
+
+*Source: [admin.ch](https://www.admin.ch/it/newnsb/zX9oNK8tuI-Z)*]]></content:encoded>
+      <pubDate>Fri, 25 Sep 2026 09:35:23 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/nuova-legge-cibersicurezza-lcib</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/nuova-legge-cibersicurezza-lcib.webp" medium="image"/>
+    </item>
     <item>
       <title>Canicule en Suisse : 400 millions de dégâts en 2026</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/suisse-canicule-dommages-economiques-2026/</link>
@@ -2675,57 +2759,6 @@ Pour évaluer concrètement l'impact de la conjoncture, des taux de change et de
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/pil-svizzero-crescita-2026</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/pil-svizzero-crescita-2026.webp" medium="image"/>
-    </item>
-    <item>
-      <title>SECO révise à la hausse : croissance du PIB à 1,7% pour 2026</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/seco-previsions-croissance-2026/</link>
-      <description><![CDATA[Le SECO a révisé ses estimations de croissance à 1,7 % pour 2026. PIB du deuxième trimestre en hausse de 1,5 %. Chômage attendu à 3,1 %.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Le SECO a révisé à la hausse ses estimations de croissance à 1,7 % pour 2026.
-- Le PIB a enregistré une croissance de 1,5 % au deuxième trimestre 2026.
-- Le taux de chômage attendu est de 3,1 % pour 2026 et de 3,0 % pour 2027.
-
-## Faits clés
-- Année de la révision : 2026
-- Croissance du PIB estimée pour 2026 : 1,7 %
-- Croissance du PIB estimée pour 2027 : 1,6 %
-- Croissance du PIB au deuxième trimestre 2026 : 1,5 %
-- Inflation moyenne annuelle prévue : 0,6 %
-- Taux de chômage moyen 2026 : 3,1 %
-- Taux de chômage attendu 2027 : 3,0 %
-- Date de la dernière prévision : 8 septembre 2026
-
-Berne, 17 septembre 2026 — Le groupe d'experts de la Confédération chargé des prévisions conjoncturelles a révisé à la hausse ses estimations de croissance économique pour la Suisse. Pour l'année en cours, on s'attend désormais à une croissance de 1,7 %, contre une prévision précédente en juin qui s'arrêtait à 0,9 %. En ce qui concerne 2027, l'estimation reste inchangée à 1,6 %. Le PIB suisse a récemment enregistré une forte hausse, bien que le conflit avec l'Iran, les coûts énergétiques élevés et les incertitudes persistantes en matière de politique commerciale comportent des risques conjoncturels considérables pour le cadre économique général.
-
-Au cours du deuxième trimestre 2026, le produit intérieur brut de la Suisse, corrigé des manifestations sportives, a affiché une impulsion haussière extraordinaire, progressant de 1,5 %. Cette progression a été largement soutenue tant au niveau sectoriel que du côté de la demande, ce qui se reflète dans l'amélioration des indicateurs de tendance. Toutefois, les experts de la Confédération signalent qu'il pourrait s'agir d'une surestimation de la dynamique économique sous-jacente. En effet, près de la moitié de cette croissance est imputable à la valeur ajoutée de l'industrie chimique et pharmaceutique, un secteur historiquement caractérisé par de fortes fluctuations, ainsi qu'à une augmentation marquée des exportations. Pour le second semestre, les analystes s'attendent par conséquent à un retournement de tendance dans les données trimestrielles.
-
-### Dynamiques du commerce extérieur et des secteurs
-
-Malgré le ralentissement attendu de la dynamique après le pic printanier, la conjoncture suisse demeure solidement sur la voie de la reprise. L'excellente performance enregistrée au cours du premier semestre justifie la révision significative à la hausse pour l'ensemble de l'année 2026. Corrigé des manifestations sportives, le groupe d'experts prévoit une croissance de 1,7 %. En particulier, le commerce extérieur devrait contribuer à la croissance dans une plus grande mesure que prévu en juin. Cette perspective est favorisée par l'évolution conjoncturelle positive jusqu'à présent, par un contexte économique mondial légèrement meilleur et par la récente dépréciation du franc suisse, qui offre un soutien concret aux secteurs exportateurs particulièrement exposés aux fluctuations des taux de change internationaux.
-En analysant la situation interne, une progression modérée de la demande intérieure est attendue pour les prochains trimestres. L'utilisation accrue des capacités de production a un impact positif sur les activités d'investissement, tandis que la consommation privée devrait continuer à augmenter modérément. En ce qui concerne l'inflation, bien qu'elle ait récemment augmenté, elle s'est maintenue jusqu'à récemment à des niveaux modérés. Les marchés à terme laissent également prévoir une baisse des prix du pétrole au cours des prochains mois. Sur la base de ces éléments, le groupe d'experts continue de s'attendre à une inflation annuelle moyenne de 0,6 % tant pour l'année en cours que pour l'année à venir.
-
-À l'horizon 2027, l'économie suisse devrait bénéficier d'une nouvelle reprise de la demande mondiale. Les pays européens, avec l'Allemagne en première ligne, devraient progressivement surmonter la phase de faiblesse qui a caractérisé ces dernières années, en apportant un soutien supplémentaire à l'économie suisse. Du point de vue du marché du travail, l'évolution favorable de l'économie se traduit par une baisse progressive du taux de chômage. Cet indicateur devrait s'établir à 3,1 % en moyenne annuelle en 2026 et baisser légèrement à 3,0 % au cours de 2027, confirmant les prévisions précédentes.
-
-### Facteurs de risque et scénarios géopolitiques
-
-Cependant, les éléments d'incertitude et les menaces potentielles pour la stabilité économique mondiale et nationale ne manquent pas.
-
-## Outils utiles pour protéger votre net
-Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
-La complexité du paysage économique esquissé par le SECO exige de surveiller attentivement l'évolution du coût de la vie, des salaires et des perspectives d'emploi en Suisse. Avec une prévision d'inflation moyenne annuelle fixée à 0,6 % et un taux de chômage estimé à 3,1 % pour 2026 et à 3,0 % pour 2027, les résidents et les travailleurs suisses doivent faire face à un marché du travail dynamique mais exposé aux dynamiques internationales, des taux de change du franc aux fluctuations des prix de l'énergie à l'échelle mondiale. Planifier sa situation financière, évaluer avec attention la gestion de son revenu et comprendre l'impact des variations macroéconomiques sur son pouvoir d'achat devient un exercice fondamental pour les familles et les professionnels.
-
-### Comment vérifier l'impact sur son propre revenu
-
-Pour comprendre de manière pratique comment les variations économiques, l'inflation et les dynamiques salariales se répercutent sur sa situation professionnelle et économique en Suisse, il convient d'analyser en détail les composantes de sa rémunération et les éléments qui constituent le budget familial mensuel. L'évolution de la conjoncture se reflète directement sur les opportunités professionnelles, sur les renouvellements de contrats et sur les perspectives d'investissement à l'échelle cantonale et fédérale. Suivre régulièrement les données officielles publiées par les organes fédéraux permet d'anticiper d'éventuelles corrections du coût de la vie et de planifier avec davantage de sécurité les dépenses liées au logement, à la consommation et à la prévoyance.
-
-Pour approfondir votre situation salariale à la lumière des dernières tendances économiques et calculer avec précision les rubriques de votre bulletin de paie et de vos impôts, vous pouvez utiliser notre outil dédié disponible en ligne. Vérifiez dès maintenant votre situation économique grâce au [calculateur de salaire et d'impôts](nav:calculator).
-
-*Source: [seco.admin.ch](https://www.seco.admin.ch/it/newnsb/JUhtHgdQzukb)*]]></content:encoded>
-      <pubDate>Fri, 18 Sep 2026 02:51:08 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/seco-previsioni-crescita-2026</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/seco-previsioni-crescita-2026.webp" medium="image"/>
     </item>
   </channel>
 </rss>

@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag</description>
     <language>de</language>
-    <lastBuildDate>Fri, 25 Sep 2026 06:41:56 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 25 Sep 2026 09:35:23 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Schweiz</title>
@@ -17,6 +17,92 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Schweiz: neues eigenständiges Cybersicherheitsgesetz LCib</title>
+      <link>https://frontaliereticino.ch/de/schweiz-artikel/neues-cybersicherheitsgesetz-lcib/</link>
+      <description><![CDATA[Der Bundesrat beauftragt das VBS, bis Juni 2027 das LCib auszuarbeiten, das auf dem europäischen Cyber Resilience Act für digitale Produkte und Daten basiert.]]></description>
+      <content:encoded><![CDATA[## In Kürze
+- Das VBS wird ein eigenständiges Cybersicherheitsgesetz ausarbeiten.
+- Der Entwurf wird bis Juni 2027 für die Vernehmlassung bereitstehen.
+- Das Gesetz wird drei Projekte zu Produkten, Daten und digitaler Infrastruktur bündeln.
+- Die Meldepflicht für Cyberangriffe wird vom ISG auf das CySichG übertragen.
+
+## Eckpunkte
+- Entscheidung → Bundesrat, 25. September 2026
+- Auftrag → VBS
+- Frist → Juni 2027
+- Geplantes Gesetz → eigenständiges Bundesgesetz über die Cybersicherheit (CySichG)
+- Basis → europäischer Cyber Resilience Act (CRA)
+- Bereiche → Produkte, Daten und digitale Infrastruktur
+- Übertragene Pflicht → Meldung von Cyberangriffen auf kritische Infrastrukturen
+- ISG → Informationssicherheit der Bundesbehörden
+
+Am 25. September 2026 hat der Bundesrat in seiner Sitzung in Bern das Eidgenössische Departement für Verteidigung, Bevölkerungsschutz und Sport (VBS) beauftragt, bis Juni 2027 einen Vernehmlassungsentwurf für ein neues, eigenständiges Bundesgesetz über die Cybersicherheit auszuarbeiten. Ziel ist es, drei parlamentarische Vorstösse in einem einzigen Rechtsakt umzusetzen.
+
+Das Bundesamt für Cybersicherheit (BACS) arbeitet im Auftrag des Parlaments an den Projekten. Das erste betrifft die Cyber-Resilienz von Produkten mit digitalen Elementen; das zweite den Schutz der wichtigsten digitalen Daten; das dritte die Rolle von Hosting- und Cloud-Dienstleistern bei der Cybersicherheit. Die drei Projekte betreffen komplementäre regulatorische Ebenen: Produkte, Daten und digitale Infrastruktur. Ursprünglich sollten diese durch Änderungen am Bundesgesetz über die Informationssicherheit (ISG) umgesetzt werden.
+
+### Die Wahl eines eigenständigen Gesetzes
+
+Der Bundesrat ändert nun den Ansatz. Das geplante Cybersicherheitsgesetz, bezeichnet als CySichG, soll die drei Projekte vereinen und eine kohärente Regulierung der Cybersicherheit bei Dritten gewährleisten. In den neuen Akt wird auch die Meldepflicht für Cyberangriffe auf kritische Infrastrukturen einfliessen, die im ISG vorgesehen ist und seit April 2025 gilt. Das ISG wird hingegen weiterhin die Informationssicherheit der Bundesbehörden regeln.
+
+Der Entwurf soll verbindliche Anforderungen für Hersteller, Importeure und Vertreiber von Software- und Hardwareprodukten festlegen. Zudem soll er die Grundlagen für die Marktüberwachung und ein Vertriebsverbot für unsichere Produkte schaffen. Für wichtige digitale Daten sowie für Hosting- und Cloud-Anbieter sind besondere Pflichten vorgesehen, einschliesslich der Zusammenarbeit und Abwehr bei Cyberbedrohungen.
+
+Bereits bestehende sektorale Regeln, darunter das Telekommunikationsgesetz, die Stromversorgungsverordnung und die Verordnung über Telekommunikationsanlagen, bleiben in Kraft. Das CySichG wird diese um Cybersicherheitspflichten ergänzen. Laut Bundesrat ermöglicht ein einziges Gesetz, nur einen Rechtsakt an technologische oder europäische Entwicklungen anzupassen und spezifische Themen, wie Open-Source-Software, besser zu behandeln.
+
+Das VBS muss den Entwurf bis Juni 2027 dem Bundesrat zur Vernehmlassung und anschliessenden Entscheidung vorlegen. Die geplante Norm wird auf dem europäischen Cyber Resilience Act (CRA) basieren und zielt darauf ab, den administrativen Aufwand für Unternehmen minimal zu halten. Für international tätige Unternehmen, die den EU-CRA bereits einhalten müssen, ist das erklärte Ziel, zusätzliche Compliance-Aufwände zu vermeiden.
+## Was sich für Organisationen ändert
+
+Der Übergang von drei Änderungen der LSIn zu einem eigenständigen Gesetz führt für die betroffenen Organisationen zu einem einfacheren Lesekriterium: den Tätigkeitsbereich abzugrenzen und jede Verpflichtung in der vorgesehenen Regelung einzuordnen. Die Mitteilung beschreibt ein Vorhaben, kein Datum des Inkrafttretens: Das DDPS muss es bis Juni 2027 ausarbeiten, in die Vernehmlassung geben und dem Bundesrat zur Beschlussfassung vorlegen. Die praktische Konsequenz besteht darin, die bereits geltenden Pflichten von jenen getrennt zu halten, die die LCib festlegen muss.
+
+| Geltungsbereich | Beschriebene Massnahme | Vorgesehene Einordnung |
+|---|---|---|
+| Produkte mit digitalen Elementen | Verbindliche Anforderungen, Marktüberwachung und Vertriebsverbot für unsichere Produkte | LCib |
+| Wichtige digitale Daten | Besondere Schutzpflichten | LCib |
+| Hosting und Cloud | Pflichten zur Zusammenarbeit und Abwehr von Cyberbedrohungen | LCib |
+| Kritische Infrastrukturen | Meldung von Cyberangriffen, in Kraft seit April 2025 | Vorgesehene Übertragung von der LSIn auf die LCib |
+| Sektorspezifische Regeln | Gesetze und Verordnungen bleiben in Kraft | Integration der Cybersicherheitspflichten |
+
+### Eine Übersicht nach Akteuren
+
+Für einen Hersteller, Importeur oder Händler umfasst das Dossier verbindliche Anforderungen, Marktüberwachung und ein mögliches Vertriebsverbot für unsichere Produkte. Für einen Hosting- oder Cloud-Anbieter stellt der Text hingegen die Zusammenarbeit und die Abwehr von Cyberbedrohungen in den Mittelpunkt. Wichtige digitale Daten bilden einen weiteren Bereich mit besonderen Schutzpflichten.
+
+Der am deutlichsten genannte wirtschaftliche Nutzen betrifft international tätige Unternehmen. Da sie den CRA der EU bereits einhalten müssen, ist das harmonisierte Schweizer Gesetz so konzipiert, dass es keinen zusätzlichen Compliance-Aufwand schafft. Der Vorschlag sollte zudem den Verwaltungsaufwand der Unternehmen auf ein Minimum beschränken. Der Verweis auf den europäischen CRA wird damit zum wichtigsten Vergleichspunkt für alle, die grenzüberschreitend tätig sind.
+
+Sektorspezifische Regeln werden weder übernommen noch aufgehoben: Fernmeldegesetz, Stromversorgungsverordnung und Verordnung über Fernmeldeanlagen bleiben in Kraft, während die LCib die Cybersicherheitspflichten als gemeinsame Aufgabe ergänzt. Für die Bundesbehörden regelt die LSIn weiterhin die Informationssicherheit.
+
+Um die Unternehmensseite getrennt vom Regulierungsdossier zu beleuchten, können die [aziende che assumono](nav:companies) konsultiert werden.
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).
+## Wie man dem Dossier folgt
+
+Das Dossier zu verfolgen erfordert zunächst, die Rollen zu trennen, weil das Projekt nicht nur eine Art von Akteur betrifft. Die operative Abfolge kann sich an den im Communiqué aufgeführten Bereichen orientieren.
+
+### Fünf operative Schritte
+
+1. **Den Geltungsbereich abbilden.** Prüfen, ob die Tätigkeit die Herstellung, Einfuhr oder den Vertrieb von Software und Hardware mit digitalen Elementen, den Schutz wichtiger digitaler Daten, Hosting- oder Cloud-Dienste oder eine kritische Infrastruktur betrifft. Dies sind die vier Bereiche, für die der Text spezifische Maßnahmen vorsieht.
+
+2. Die bereits anwendbaren Regeln vom Projekt trennen. Für kritische Infrastrukturen ist die seit April 2025 geltende Pflicht zur Meldung von Cyberangriffen zu beachten. Ihre vorgesehene Einordnung wird in die LCib erfolgen; sie darf nicht mit dem Teil der LSIn verwechselt werden, der weiterhin die Informationssicherheit der Bundesbehörden regeln wird.
+
+3. Den sektoralen Rahmen beibehalten. Das Fernmeldegesetz, die Stromversorgungsverordnung und die Verordnung über Fernmeldeanlagen bleiben in Kraft. Das neue Gesetz wird sie ergänzen, indem es die sich aus der Cybersicherheit ergebenden Pflichten als gemeinsame Aufgabe hinzufügt.
+
+4. Produkte und Dienstleistungen unterscheiden. Bei den Produkten sind die verbindlichen Anforderungen, die Marktüberwachung und das mögliche Vertriebsverbot für unsichere Produkte zu beachten. Bei Hosting und Cloud hingegen sind die vorgesehenen Pflichten zur Zusammenarbeit und zur Abwehr von Cyberbedrohungen gesondert zu betrachten.
+
+5. Den Gesetzgebungstermin markieren. Bis Juni 2027 muss das DDPS den Entwurf ausarbeiten, ihn in die Vernehmlassung geben und dem Bundesrat zur Beschlussfassung unterbreiten. Für international tätige Unternehmen stellt der europäische CRA den angegebenen Bezugspunkt für die künftige Schweizer Gesetzgebung dar.
+
+Dieser Zeitplan ermöglicht es, kein Anwendungsdatum vorwegzunehmen, das das Communiqué nicht nennt. Der sichere Schritt ist die Ausarbeitung des Entwurfs und seine anschließende Vernehmlassung; der Bundesrat muss ihn dann zur Beschlussfassung erhalten. Für die Unternehmen lautet die praktische Frage daher, welcher der Geltungsbereiche die eigene Tätigkeit betrifft und wie er sich mit den sektoralen Regeln oder mit dem CRA überschneidet, das von international tätigen Unternehmen bereits angewandt wird. Das eigenständige Gesetz ist zudem darauf ausgelegt, einen einzigen Erlass entsprechend den technologischen oder europäischen Entwicklungen zu aktualisieren und spezifische Themen wie Open-Source-Software besser zu behandeln.
+
+Wer das Thema beruflich verfolgt, kann auch die [annunci di lavoro](nav:jobs) konsultieren, wobei dieses Instrument vom Gesetzgebungsverfahren getrennt zu halten ist. Um die Lektüre hingegen mit der eigenen persönlichen Situation zu verknüpfen, verwende den [calcolatore stipendio](nav:calculator).
+
+Vergleichen Sie den [CHF/EUR-Wechselkurs](nav:exchange) in Echtzeit: sparen Sie bis zu 1,5% bei den monatlichen Überweisungsgebühren.
+
+*Quelle: [admin.ch](https://www.admin.ch/it/newnsb/zX9oNK8tuI-Z)*]]></content:encoded>
+      <pubDate>Fri, 25 Sep 2026 09:35:23 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/nuova-legge-cibersicurezza-lcib</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/nuova-legge-cibersicurezza-lcib.webp" medium="image"/>
+    </item>
     <item>
       <title>Hitzewelle in der Schweiz: 400 Millionen Schäden im Jahr 2026</title>
       <link>https://frontaliereticino.ch/de/schweiz-artikel/schweiz-hitzewelle-wirtschaftsschaeden-2026/</link>
@@ -2662,57 +2748,6 @@ Um die Auswirkungen der konjunkturellen Dynamik, der Wechselkurse und der Inflat
       <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/pil-svizzero-crescita-2026</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/pil-svizzero-crescita-2026.webp" medium="image"/>
-    </item>
-    <item>
-      <title>SECO revidiert nach oben: BIP-Wachstum von 1,7% für 2026</title>
-      <link>https://frontaliereticino.ch/de/schweiz-artikel/seco-wachstumsprognosen-2026/</link>
-      <description><![CDATA[Das SECO revidierte die Wachstumsprognose für 2026 auf 1,7%. BIP des zweiten Quartals um 1,5% gestiegen. Erwartete Arbeitslosenquote von 3,1%.]]></description>
-      <content:encoded><![CDATA[## Auf einen Blick
-- Das SECO hat die Wachstumsprognosen für 2026 nach oben auf 1,7% korrigiert.
-- Das BIP verzeichnete im zweiten Quartal 2026 ein Wachstum von 1,5%.
-- Die erwartete Arbeitslosenquote liegt bei 3,1% für das Jahr 2026 und bei 3,0% für 2027.
-
-## Eckdaten
-- Jahr der Revision: 2026
-- Geschätztes BIP-Wachstum für 2026: 1,7%
-- Geschätztes BIP-Wachstum für 2027: 1,6%
-- BIP-Wachstum im zweiten Quartal 2026: 1,5%
-- Erwartete durchschnittliche Jahresinflation: 0,6%
-- Durchschnittliche Arbeitslosenquote 2026: 3,1%
-- Erwartete Arbeitslosenquote 2027: 3,0%
-- Datum der letzten Prognose: 8. September 2026
-
-Bern, 17. September 2026 — Die Expertengruppe Konjunkturprognosen des Bundes hat ihre Schätzungen für das Wirtschaftswachstum der Schweiz nach oben revidiert. Für das laufende Jahr wird nun ein Wachstum von 1,7 % erwartet, verglichen mit der vorherigen Juni-Prognose, die bei 0,9 % lag. Für das Jahr 2027 bleibt die Schätzung unverändert bei 1,6 %. Das Schweizer BIP verzeichnete kürzlich einen kräftigen Anstieg, obwohl der Konflikt mit dem Iran, die hohen Energiekosten und die anhaltenden Unsicherheiten in der Handelspolitik erhebliche Konjunkturrisiken für den gesamtwirtschaftlichen Rahmen bedeuten.
-
-Im Verlauf des zweiten Quartals 2026 zeigte das Bruttoinlandsprodukt der Schweiz, bereinigt um Sportevents, einen ausserordentlichen Aufwärtsimpuls und wuchs um 1,5 %. Diese Entwicklung wurde sowohl auf Sektorebene als auch von der Nachfrageseite her breit abgestützt, was sich in der Verbesserung der Trendindikatoren widerspiegelte. Die Experten des Bundes weisen jedoch darauf hin, dass es sich hierbei um eine Übertreibung der zugrundeliegenden Wirtschaftsdynamik handeln könnte. Fast zur Hälfte ist dieses Wachstum nämlich auf die Wertschöpfung der chemisch-pharmazeutischen Industrie zurückzuführen, einem Sektor, der historisch durch starke Schwankungen gekennzeichnet ist, begleitet von einem deutlichen Exportwachstum. Für das zweite Semester erwarten die Analysten daher eine Trendwende in den Quartalszahlen.
-
-### Dynamik des Aussenhandels und der Sektoren
-
-Trotz der erwarteten Verlangsamung der Dynamik nach dem Frühlingshöchststand bleibt die Schweizer Konjunktur solide auf Erholungskurs. Die im ersten Halbjahr verzeichnete sehr gute Entwicklung rechtfertigt die deutliche Aufwärtsrevision für das gesamte Jahr 2026. Bereinigt um Sportevents rechnet die Expertengruppe mit einem Wachstum von 1,7 %. Insbesondere dürfte der Aussenhandel stärker zum Wachstum beitragen als im Juni angenommen. Dafür sprechen der bisher positive Konjunkturverlauf, das leicht bessere weltwirtschaftliche Umfeld und die jüngste Abwertung des Schweizer Frankens, die den besonders wechselkursintensiven Exportbranchen eine konkrete Unterstützung bietet.
-Betrachtet man die interne Situation, wird für die kommenden Quartale ein moderater Anstieg der Inlandsnachfrage erwartet. Die verstärkte Auslastung der Produktionskapazitäten wirkt sich positiv auf die Investitionstätigkeit aus, während der private Konsum weiterhin moderat steigen dürfte. Was die Inflation betrifft, so ist sie trotz eines jüngsten Anstiegs bis vor kurzem auf einem niedrigen Niveau geblieben. Die Terminmärkte deuten zudem auf einen Rückgang der Ölpreise in den kommenden Monaten hin. Auf Basis dieser Elemente erwartet die Expertengruppe weiterhin eine durchschnittliche jährliche Inflation von 0,6 % sowohl für das laufende als auch für das kommende Jahr.
-
-Mit Blick auf das Jahr 2027 dürfte die Schweizer Wirtschaft von einer weiteren Erholung der Weltnachfrage profitieren. Die europäischen Länder mit Deutschland an der Spitze sollten die Schwächephase der letzten Jahre schrittweise überwinden und der Schweizer Wirtschaft zusätzliche Unterstützung bieten. Aus arbeitsmarktpolitischer Sicht spiegelt sich die günstige Konjunkturentwicklung in einem allmählichen Rückgang der Arbeitslosenquote wider. Dieser Indikator dürfte im Jahresdurchschnitt 2026 bei 3,1 % liegen und im Laufe des Jahres 2027 leicht auf 3,0 % sinken, was die bisherigen Prognosen bestätigt.
-
-### Risikofaktoren und geopolitische Szenarien
-
-Es mangelt jedoch nicht an Unsicherheiten und potenziellen Bedrohungen für die globale und nationale wirtschaftliche Stabilität.
-
-## Nützliche Tools zum Schutz Ihres Nettolohns
-Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).
-Die Komplexität des vom SECO gezeichneten wirtschaftlichen Rahmens erfordert eine genaue Beobachtung der Entwicklung der Lebenshaltungskosten, der Löhne und der Beschäftigungsaussichten in der Schweiz. Mit einer durchschnittlichen jährlichen Teuerungsprognose von 0,6 % und einer geschätzten Arbeitslosenquote von 3,1 % für das Jahr 2026 sowie 3,0 % für 2027 sehen sich die Schweizer Einwohner und Arbeitnehmer mit einem dynamischen Arbeitsmarkt konfrontiert, der jedoch internationalen Einflüssen wie den Wechselkursen des Frankens und globalen Energiepreisschwankungen ausgesetzt ist. Die Planung der eigenen Finanzsituation, die sorgfältige Bewertung der Einkommensverwaltung und das Verständnis der Auswirkungen makroökonomischer Veränderungen auf die eigene Kaufkraft sind für Familien und Berufstätige zu einer grundlegenden Aufgabe geworden.
-
-### Wie sich die Auswirkungen auf das eigene Einkommen überprüfen lassen
-
-Um praktisch zu verstehen, wie sich wirtschaftliche Veränderungen, die Inflation und die Lohnentwicklung auf die eigene berufliche und wirtschaftliche Position in der Schweiz auswirken, empfiehlt es sich, die Bestandteile des eigenen Gehalts und die Elemente des monatlichen Familienbudgets im Detail zu analysieren. Die Konjunkturentwicklung spiegelt sich direkt in den beruflichen Möglichkeiten, den Vertragsverhandlungen und den Investitionsaussichten auf kantonaler und eidgenössischer Ebene wider. Die regelmässige Überwachung der von den Bundesbehörden veröffentlichten offiziellen Daten ermöglicht es, allfällige Korrekturen der Lebenshaltungskosten zu antizipieren und die Ausgaben für Wohnen, Konsum und Vorsorge mit höherer Sicherheit zu planen.
-
-Um Ihre Gehaltssituation im Licht der neuesten Wirtschaftstrends zu vertiefen und die Posten Ihrer Lohnabrechnung sowie Steuern präzise zu berechnen, können Sie unser entsprechendes Online-Tool nutzen. Überprüfen Sie Ihre wirtschaftliche Situation jetzt über den [Lohn- und Steuerrechner](nav:calculator).
-
-*Quelle: [seco.admin.ch](https://www.seco.admin.ch/it/newnsb/JUhtHgdQzukb)*]]></content:encoded>
-      <pubDate>Fri, 18 Sep 2026 02:51:08 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/seco-previsioni-crescita-2026</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/seco-previsioni-crescita-2026.webp" medium="image"/>
     </item>
   </channel>
 </rss>

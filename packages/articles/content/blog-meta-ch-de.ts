@@ -6698,6 +6698,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.canicola-danni-economici-2026.title': 'Hitzewelle in der Schweiz: 400 Millionen Schäden im Jahr 2026',
     'blog.article.canicola-danni-economici-2026.excerpt': 'Der heiße Sommer 2026 verursachte in der Schweiz 400 Millionen Franken Schaden. Allianz Trade warnt vor den wirtschaftlichen Risiken des Jahres 2027.',
     'blog.article.canicola-danni-economici-2026.imageAlt': 'Arbeitende machen während einer Hitzewelle in einer Schweizer Stadt Pause',
+    'blog.article.nuova-legge-cibersicurezza-lcib.title': 'Schweiz: neues eigenständiges Cybersicherheitsgesetz LCib',
+    'blog.article.nuova-legge-cibersicurezza-lcib.excerpt': 'Der Bundesrat beauftragt das VBS, bis Juni 2027 das LCib auszuarbeiten, das auf dem europäischen Cyber Resilience Act für digitale Produkte und Daten basiert.',
+    'blog.article.nuova-legge-cibersicurezza-lcib.imageAlt': 'Digitale Infrastruktur und Server für Cybersicherheit in der Schweiz',
 };
 
 export default blogMetaChDe;
