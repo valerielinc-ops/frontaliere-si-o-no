@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "zkb-401eed57d70a",
-      "slug": "sellside-execution-trader-in-w-m-d-zkb-zurich",
+      "slug": "trader-esecuzione-sellside-m-f-d-zurcher-kantonalbank-zurich",
       "slugByLocale": {
-        "it": "sellside-execution-trader-in-w-m-d-zkb-zurich",
-        "en": "sellside-execution-trader-in-w-m-d-zkb-zurich",
         "de": "sellside-execution-trader-in-w-m-d-zkb-zurich",
+        "it": "trader-esecuzione-sellside-m-f-d-zurcher-kantonalbank-zurich",
+        "en": "sellside-execution-trader-in-w-m-d-zkb-zurich",
         "fr": "sellside-execution-trader-h-f-d-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
@@ -68,7 +68,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:19:50.175Z"
+      "firstSeenAt": "2026-09-24T14:19:50.175Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sellside-execution-trader-in-w-m-d-zkb-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "sellside-execution-trader-in-w-m-d-zkb-zurich"
+      ]
     },
     {
       "id": "zkb-02c1a96b2210",

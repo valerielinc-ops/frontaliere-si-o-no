@@ -10875,12 +10875,12 @@
     },
     {
       "id": "richemont-07ccf3d90494",
-      "slug": "group-international-mobility-manager-richemont-bellevue",
+      "slug": "responsabile-della-mobilita-internazionale-del-gruppo-richemont-bellevue",
       "slugByLocale": {
-        "it": "group-international-mobility-manager-richemont-bellevue",
+        "it": "responsabile-della-mobilita-internazionale-del-gruppo-richemont-bellevue",
         "en": "group-international-mobility-manager-richemont-bellevue",
         "de": "group-international-mobility-manager-richemont-bellevue",
-        "fr": "group-international-mobility-manager-richemont-bellevue"
+        "fr": "responsable-de-la-mobilite-internationale-du-groupe-richemont-bellevue"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -10935,7 +10935,18 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "group-international-mobility-manager-richemont-bellevue"
+        ],
+        "fr": [
+          "group-international-mobility-manager-richemont-bellevue"
+        ]
+      },
+      "previousSlugs": [
+        "group-international-mobility-manager-richemont-bellevue"
+      ]
     },
     {
       "id": "richemont-272851f98f7e",
@@ -12775,10 +12786,10 @@
     },
     {
       "id": "richemont-bd6008271a9e",
-      "slug": "stage-ingenieur-achats-richemont-le-sentier",
+      "slug": "ingegnere-di-scena-achats-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
-        "it": "stage-ingenieur-achats-richemont-le-sentier",
-        "en": "stage-ingenieur-achats-richemont-le-sentier",
+        "it": "ingegnere-di-scena-achats-jaeger-lecoultre-le-sentier",
+        "en": "stage-engineer-achats-jaeger-lecoultre-le-sentier",
         "de": "stage-ingenieur-achats-richemont-le-sentier",
         "fr": "stage-ingenieur-achats-jaeger-lecoultre-le-sentier"
       },
@@ -12835,7 +12846,18 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-ingenieur-achats-richemont-le-sentier"
+        ],
+        "en": [
+          "stage-ingenieur-achats-richemont-le-sentier"
+        ]
+      },
+      "previousSlugs": [
+        "stage-ingenieur-achats-richemont-le-sentier"
+      ]
     },
     {
       "id": "richemont-0ced11b0c3ab",
@@ -13293,8 +13315,8 @@
       "slug": "stage-r-i-micro-usinage-laser-3d-de-precision-richemont-couvet",
       "slugByLocale": {
         "it": "stage-r-i-micro-usinage-laser-3d-de-precision-richemont-couvet",
-        "en": "stage-r-i-micro-usinage-laser-3d-de-precision-richemont-couvet",
-        "de": "stage-r-i-micro-usinage-laser-3d-de-precision-richemont-couvet",
+        "en": "r-i-internship-precision-3d-laser-micro-use-richemont-couvet",
+        "de": "f-i-praktikum-prazisions-3d-laser-mikronutzung-richemont-couvet",
         "fr": "laser-micro-map-3d-de-pre-richemont-couvet"
       },
       "company": "Richemont",

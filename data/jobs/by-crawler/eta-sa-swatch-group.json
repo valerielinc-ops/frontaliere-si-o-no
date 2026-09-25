@@ -609,7 +609,7 @@
     },
     {
       "id": "company-esze0",
-      "slug": "maschinenoperateur-in-tda-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-phone-0esze0",
+      "slug": "operatore-macchina-tda-in-cantiere-produzione-horlogere-suisse-eta-sa-eta-sa-swatch-group-2540-grenchen-phone",
       "company": "ETA SA (Swatch Group)",
       "title": "MASCHINENOPERATEUR/IN TDA - vor Ort | Manufacture Horlogère Suisse | ETA SA",
       "location": "2540 Grenchen Phone",
@@ -642,20 +642,28 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "maschinenoperateur-in-tda-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-phone-0esze0",
-        "en": "maschinenoperateur-in-tda-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-phone-0esze0",
+        "it": "operatore-macchina-tda-in-cantiere-produzione-horlogere-suisse-eta-sa-eta-sa-swatch-group-2540-grenchen-phone",
+        "en": "machine-operator-tda-on-site-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-2540-grenchen-phone",
         "de": "maschinenoperateur-in-tda-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-phone-0esze0",
-        "fr": "maschinenoperateur-in-tda-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-phone-0esze0"
+        "fr": "operateur-machine-tda-sur-site-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-2540-grenchen-phone"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "maschinenoperateur-in-tda-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-phone"
+          "maschinenoperateur-in-tda-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-phone",
+          "maschinenoperateur-in-tda-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-phone-0esze0"
+        ],
+        "en": [
+          "maschinenoperateur-in-tda-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-phone-0esze0"
+        ],
+        "fr": [
+          "maschinenoperateur-in-tda-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-phone-0esze0"
         ]
       },
       "previousSlugs": [
-        "maschinenoperateur-in-tda-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-phone"
+        "maschinenoperateur-in-tda-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-phone",
+        "maschinenoperateur-in-tda-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-phone-0esze0"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

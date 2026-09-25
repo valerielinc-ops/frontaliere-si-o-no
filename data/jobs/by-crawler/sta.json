@@ -728,10 +728,10 @@
       "id": "sta-c6a85b0ba4be",
       "slug": "anlagen-e-apparatebauer-in-per-moderne-laser-e-cnc-anlagen-sta-personal-ag-olten",
       "slugByLocale": {
-        "it": "anlagen-e-apparatebauer-in-per-moderne-laser-e-cnc-anlagen-sta-personal-ag-olten",
-        "en": "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch",
         "de": "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch",
-        "fr": "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch"
+        "it": "anlagen-e-apparatebauer-in-per-moderne-laser-e-cnc-anlagen-sta-personal-ag-olten",
+        "en": "plant-and-apparatus-engineer-for-modern-laser-and-cnc-systems-sta-personal-ag-olten-solothurn",
+        "fr": "ingenieur-d-usine-et-d-appareils-pour-les-systemes-laser-et-cnc-modernes-sta-personal-ag-olten-solothurn"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -776,6 +776,12 @@
         "it": [
           "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch",
           "anlagen-e-apparatebauer-in-per-moderne-laser-e-cnc-anlagen-sta-personal-ag-olten"
+        ],
+        "en": [
+          "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch"
+        ],
+        "fr": [
+          "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch"
         ]
       },
       "previousSlugs": [
@@ -874,10 +880,10 @@
       "id": "sta-7a835b7a3c13",
       "slug": "anlagen-e-apparatebauer-in-per-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans",
       "slugByLocale": {
-        "it": "anlagen-e-apparatebauer-in-per-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans",
-        "en": "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans",
         "de": "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-stans-nidwalden-sta-ch",
-        "fr": "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans"
+        "it": "anlagen-e-apparatebauer-in-per-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans",
+        "en": "plant-and-apparatus-engineer-for-cnc-controlled-bending-machines-sta-personal-ag-stans-nidwalden",
+        "fr": "ingenieur-d-installation-et-d-appareils-pour-machines-de-pliage-controlees-par-cnc-sta-personal-ag-stans-nidwalden"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -922,11 +928,18 @@
         "it": [
           "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-stans-nidwalden-sta-ch",
           "anlagen-e-apparatebauer-in-per-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans"
+        ],
+        "en": [
+          "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans"
+        ],
+        "fr": [
+          "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans"
         ]
       },
       "previousSlugs": [
         "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-stans-nidwalden-sta-ch",
-        "anlagen-e-apparatebauer-in-per-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans"
+        "anlagen-e-apparatebauer-in-per-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans",
+        "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

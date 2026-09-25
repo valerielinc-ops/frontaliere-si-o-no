@@ -1275,12 +1275,10 @@
         ],
         "fr": [
           "med-praxissing-in-notfall-kantonsspital-aarau-ksa-aarau",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1293,7 +1291,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-90f3d5c7ff5b",
@@ -2732,8 +2731,7 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9zu4ig",
-        "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2745,15 +2743,13 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
         ],
         "en": [
           "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-08-21T21:48:21.989Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2766,7 +2762,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-e64a36808add",
@@ -3515,12 +3512,12 @@
     },
     {
       "id": "ksa-13785d3ec1fe",
-      "slug": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
+      "slug": "assistente-alla-pratica-medica-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
-        "en": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
         "de": "med-praxisassistent-in-ksa-ch",
-        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        "it": "assistente-alla-pratica-medica-kantonsspital-aarau-ksa-aarau",
+        "en": "medical-practice-assistant-kantonsspital-aarau-ksa-aarau",
+        "fr": "assistant-en-pratique-medicale-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3567,6 +3564,12 @@
         "it": [
           "med-praxisassistent-in-ksa-ch",
           "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlsy",
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        ],
+        "en": [
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        ],
+        "fr": [
           "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
@@ -3917,9 +3920,9 @@
     },
     {
       "id": "ksa-40184956d47c",
-      "slug": "arztsekretar-in-angiologie-kantonsspital-aarau-ksa-aarau",
+      "slug": "segretario-medico-angiologia-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "arztsekretar-in-angiologie-kantonsspital-aarau-ksa-aarau",
+        "it": "segretario-medico-angiologia-kantonsspital-aarau-ksa-aarau",
         "en": "medical-secretary-angiology-kantonsspital-aarau-ksa-aarau",
         "de": "arztsekretar-in-angiologie-ksa-ch",
         "fr": "secretaire-medical-angiologie-kantonsspital-aarau-ksa-aarau"

@@ -9766,12 +9766,12 @@
     },
     {
       "id": "stadtspital-zuerich-fa1c193a702f",
-      "slug": "fachverantwortliche-r-projekte-prozesse-stadtspital-zurich-zurich",
+      "slug": "specialista-in-progetti-e-processi-stadtspital-zurich-zurich",
       "slugByLocale": {
-        "it": "fachverantwortliche-r-projekte-prozesse-stadtspital-zurich-zurich",
-        "en": "fachverantwortliche-r-projekte-prozesse-stadtspital-zurich-zurich",
         "de": "fachverantwortliche-r-projekte-prozesse-stadtspital-zuerich-51750",
-        "fr": "fachverantwortliche-r-projekte-prozesse-stadtspital-zurich-zurich"
+        "it": "specialista-in-progetti-e-processi-stadtspital-zurich-zurich",
+        "en": "specialist-in-projects-processes-stadtspital-zurich-zurich",
+        "fr": "specialiste-en-projets-et-processus-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -9819,11 +9819,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-projekte-prozesse-stadtspital-zuerich-51750"
+          "fachverantwortliche-r-projekte-prozesse-stadtspital-zuerich-51750",
+          "fachverantwortliche-r-projekte-prozesse-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "fachverantwortliche-r-projekte-prozesse-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "fachverantwortliche-r-projekte-prozesse-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachverantwortliche-r-projekte-prozesse-stadtspital-zuerich-51750"
+        "fachverantwortliche-r-projekte-prozesse-stadtspital-zuerich-51750",
+        "fachverantwortliche-r-projekte-prozesse-stadtspital-zurich-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

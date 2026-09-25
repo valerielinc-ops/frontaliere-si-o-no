@@ -2259,7 +2259,7 @@
       "slugByLocale": {
         "it": "ingegneria-underwriter-swiss-re-hong-kong-hk",
         "en": "engineering-underwriter-swiss-re-ch",
-        "de": "engineering-underwriter-swiss-re-hong-kong-hk",
+        "de": "technischer-underwriter-swiss-re-hong-kong-hk",
         "fr": "ingenieur-adjoint-swiss-re-hong-kong-hk"
       },
       "company": "Swiss Re",
@@ -2303,7 +2303,8 @@
         "engineering-underwriter-swiss-re-ch",
         "engineering-underwriter-swiss-re-ch-2",
         "engineering-underwriter-swiss-re-ch-3",
-        "ingenieurwesen-swiss-re-hong-kong-hk"
+        "ingenieurwesen-swiss-re-hong-kong-hk",
+        "engineering-underwriter-swiss-re-hong-kong-hk"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2312,7 +2313,8 @@
           "engineering-underwriter-swiss-re-ch-3"
         ],
         "de": [
-          "ingenieurwesen-swiss-re-hong-kong-hk"
+          "ingenieurwesen-swiss-re-hong-kong-hk",
+          "engineering-underwriter-swiss-re-hong-kong-hk"
         ],
         "fr": [
           "engineering-underwriter-swiss-re-ch"
@@ -3355,7 +3357,7 @@
       "slugByLocale": {
         "it": "contratto-surety-underwriter-corso-midlothian-va-wash-dc-swiss-re-washington-d-c-dc-us",
         "en": "contract-surety-underwriter-corso-midlothian-va-wash-dc-swiss-re-ch",
-        "de": "vertrag-sicherheit-underwriter-corso-midlothian-va-waschen-dc-swiss-re-washington-d",
+        "de": "vertragsburgschaftsprufer-corso-midlothian-va-washington-dc-swiss-re-washington-d",
         "fr": "sous-traitant-de-garantie-corso-midlothian-va-wash-dc-swiss-re-washington-d"
       },
       "company": "Swiss Re",
@@ -3397,7 +3399,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "contract-surety-underwriter-corso-midlothian-va-wash-dc-swiss-re-ch",
-        "contract-surety-underwriter-corso-midlothian-va-wash-dc-swiss-re-washington-d"
+        "contract-surety-underwriter-corso-midlothian-va-wash-dc-swiss-re-washington-d",
+        "vertrag-sicherheit-underwriter-corso-midlothian-va-waschen-dc-swiss-re-washington-d"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3405,7 +3408,8 @@
         ],
         "de": [
           "contract-surety-underwriter-corso-midlothian-va-wash-dc-swiss-re-ch",
-          "contract-surety-underwriter-corso-midlothian-va-wash-dc-swiss-re-washington-d"
+          "contract-surety-underwriter-corso-midlothian-va-wash-dc-swiss-re-washington-d",
+          "vertrag-sicherheit-underwriter-corso-midlothian-va-waschen-dc-swiss-re-washington-d"
         ],
         "fr": [
           "contract-surety-underwriter-corso-midlothian-va-wash-dc-swiss-re-ch"
@@ -6625,7 +6629,7 @@
       "slugByLocale": {
         "it": "ingegneria-underwriter-swiss-re-mumbai-in",
         "en": "engineering-underwriter-swiss-re-ch",
-        "de": "engineering-underwriter-swiss-re-mumbai-in",
+        "de": "technischer-underwriter-swiss-re-mumbai-in",
         "fr": "ingenieur-adjoint-swiss-re-mumbai-in"
       },
       "company": "Swiss Re",
@@ -6669,7 +6673,8 @@
         "engineering-underwriter-swiss-re-ch",
         "engineering-underwriter-swiss-re-ch-3",
         "engineering-underwriter-swiss-re-ch-2",
-        "ingenieurwesen-swiss-re-mumbai-in"
+        "ingenieurwesen-swiss-re-mumbai-in",
+        "engineering-underwriter-swiss-re-mumbai-in"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6678,7 +6683,8 @@
           "engineering-underwriter-swiss-re-ch-2"
         ],
         "de": [
-          "ingenieurwesen-swiss-re-mumbai-in"
+          "ingenieurwesen-swiss-re-mumbai-in",
+          "engineering-underwriter-swiss-re-mumbai-in"
         ],
         "fr": [
           "engineering-underwriter-swiss-re-ch-3"
@@ -16165,9 +16171,9 @@
     },
     {
       "id": "swiss-re-22cd01f1d266",
-      "slug": "enterprise-architect-swiss-re-bratislava-sk",
+      "slug": "architetto-d-impresa-swiss-re-bratislava-sk",
       "slugByLocale": {
-        "it": "enterprise-architect-swiss-re-bratislava-sk",
+        "it": "architetto-d-impresa-swiss-re-bratislava-sk",
         "en": "enterprise-architect-swiss-re-ch",
         "de": "enterprise-architekt-swiss-re-bratislava-sk",
         "fr": "enterprise-architecte-swiss-re-bratislava-sk"
@@ -16211,12 +16217,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "enterprise-architect-swiss-re-ch",
-        "architetto-d-impresa-swiss-re-bratislava-sk"
+        "enterprise-architect-swiss-re-bratislava-sk"
       ],
       "previousSlugsByLocale": {
         "it": [
           "enterprise-architect-swiss-re-ch",
-          "architetto-d-impresa-swiss-re-bratislava-sk"
+          "enterprise-architect-swiss-re-bratislava-sk"
         ],
         "de": [
           "enterprise-architect-swiss-re-ch"
@@ -17131,7 +17137,7 @@
       "slugByLocale": {
         "it": "dipartimento-operazioni-ufficiale-hybrid-swiss-re-bratislava-sk",
         "en": "department-operations-officer-hybrid-swiss-re-ch",
-        "de": "department-operations-officer-hybrid-swiss-re-ch",
+        "de": "abteilungsbetriebsleiter-hybrid-swiss-re-bratislava-sk",
         "fr": "specialiste-des-operations-du-departement-hybrid-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
@@ -17178,6 +17184,9 @@
           "department-operations-officer-hybrid-swiss-re-ch"
         ],
         "fr": [
+          "department-operations-officer-hybrid-swiss-re-ch"
+        ],
+        "de": [
           "department-operations-officer-hybrid-swiss-re-ch"
         ]
       },
@@ -19594,9 +19603,9 @@
     },
     {
       "id": "swiss-re-e001a2995713",
-      "slug": "l-h-solutions-content-engagement-manager-swiss-re-ch",
+      "slug": "responsabile-contenuti-e-coinvolgimento-di-l-h-solutions-swiss-re-bratislava-sk",
       "slugByLocale": {
-        "it": "l-h-solutions-content-engagement-manager-swiss-re-ch",
+        "it": "responsabile-contenuti-e-coinvolgimento-di-l-h-solutions-swiss-re-bratislava-sk",
         "en": "l-h-solutions-content-engagement-manager-swiss-re-ch",
         "de": "l-h-solutions-content-engagement-manager-swiss-re-ch",
         "fr": "gestionnaire-de-contenu-et-d-engagement-des-solutions-l-h-swiss-re-bratislava-sk"
@@ -19654,7 +19663,15 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "l-h-solutions-content-engagement-manager-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "l-h-solutions-content-engagement-manager-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-d9c74aaaf2fb",
@@ -20116,11 +20133,11 @@
     },
     {
       "id": "swiss-re-3bb7b681efa7",
-      "slug": "underwriter-engineering-construction-p-c-swiss-re-ch",
+      "slug": "sottoscrittore-ingegneria-e-costruzioni-p-c-swiss-re-kuala-lumpur-my",
       "slugByLocale": {
-        "it": "underwriter-engineering-construction-p-c-swiss-re-ch",
+        "it": "sottoscrittore-ingegneria-e-costruzioni-p-c-swiss-re-kuala-lumpur-my",
         "en": "underwriter-engineering-construction-p-c-swiss-re-ch",
-        "de": "underwriter-engineering-construction-p-c-swiss-re-ch",
+        "de": "versicherer-ingenieur-und-bauwesen-p-c-swiss-re-kuala-lumpur-my",
         "fr": "ingenierie-et-construction-swiss-re-kuala-lumpur-my"
       },
       "company": "Swiss Re",
@@ -20176,7 +20193,18 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "underwriter-engineering-construction-p-c-swiss-re-ch"
+        ],
+        "de": [
+          "underwriter-engineering-construction-p-c-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "underwriter-engineering-construction-p-c-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-ef0efb5e6ecf",
@@ -20265,7 +20293,7 @@
       "slugByLocale": {
         "it": "senior-sales-executive-uk-i-swiss-re-ch",
         "en": "senior-sales-executive-uk-i-swiss-re-ch",
-        "de": "senior-sales-executive-uk-i-swiss-re-ch",
+        "de": "senior-vertriebsleiter-gro-britannien-i-swiss-re-london-gb",
         "fr": "direction-generale-des-ventes-royaume-uni-et-i-swiss-re-london-gb"
       },
       "company": "Swiss Re",

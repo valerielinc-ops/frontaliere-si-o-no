@@ -1915,9 +1915,9 @@
     },
     {
       "id": "kanton-solothurn-eca5d6131213",
-      "slug": "jurist-in-digitalrecht-70-80-kanton-solothurn-solothurn",
+      "slug": "avvocato-in-diritto-digitale-70-80-kanton-solothurn-solothurn",
       "slugByLocale": {
-        "it": "jurist-in-digitalrecht-70-80-kanton-solothurn-solothurn",
+        "it": "avvocato-in-diritto-digitale-70-80-kanton-solothurn-solothurn",
         "en": "lawyer-digitalrecht-70-80-kanton-solothurn-solothurn",
         "de": "jurist-in-digitalrecht-70-80-kanton-solothurn-solothurn",
         "fr": "avocat-digitalrecht-70-80-kanton-solothurn-solothurn"
@@ -1976,7 +1976,15 @@
           "maxValue": 83200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "jurist-in-digitalrecht-70-80-kanton-solothurn-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "jurist-in-digitalrecht-70-80-kanton-solothurn-solothurn"
+      ]
     },
     {
       "id": "kanton-solothurn-a41bfe6f74ac",

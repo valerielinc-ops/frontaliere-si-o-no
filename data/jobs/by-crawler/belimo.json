@@ -55,14 +55,12 @@
       "previousSlugs": [
         "operator-manufacturing-production-processing-assembly-belimo-hinwil",
         "operateur-manufacturing-production-processing-assembly-belimo-hinwil",
-        "operatore-manufacturing-production-processing-assembly-belimo-hinwil",
-        "montagemitarbeiter-in-temporar-belimo-hinwil"
+        "operatore-manufacturing-production-processing-assembly-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "operator-manufacturing-production-processing-assembly-belimo-hinwil",
-          "operatore-manufacturing-production-processing-assembly-belimo-hinwil",
-          "montagemitarbeiter-in-temporar-belimo-hinwil"
+          "operatore-manufacturing-production-processing-assembly-belimo-hinwil"
         ],
         "fr": [
           "operateur-manufacturing-production-processing-assembly-belimo-hinwil"
@@ -307,9 +305,9 @@
       "id": "belimo-7adb3eaa7e80",
       "slug": "responsabile-del-programma-di-conformita-80-100-belimo-hinwil",
       "slugByLocale": {
-        "it": "responsabile-del-programma-di-conformita-80-100-belimo-hinwil",
         "en": "compliance-program-manager-80-100-belimo-hinwil",
-        "de": "compliance-program-manager-80-100-belimo-hinwil",
+        "it": "responsabile-del-programma-di-conformita-80-100-belimo-hinwil",
+        "de": "compliance-programmmanager-80-100-belimo-hinwil",
         "fr": "gestionnaire-de-programme-de-conformite-80-100-belimo-hinwil"
       },
       "company": "Belimo",
@@ -374,6 +372,9 @@
           "responsabile-del-programma-di-conformita-80-100-belimo-hinwil"
         ],
         "fr": [
+          "compliance-program-manager-80-100-belimo-hinwil"
+        ],
+        "de": [
           "compliance-program-manager-80-100-belimo-hinwil"
         ]
       },

@@ -1855,11 +1855,11 @@
     },
     {
       "id": "bachem-f7af798cb9df",
-      "slug": "chemist-a-100-bachem-bubendorf",
+      "slug": "chimico-a-100-bachem-ag-bubendorf-5275e5",
       "slugByLocale": {
-        "it": "chemist-a-100-bachem-bubendorf",
-        "en": "chemist-a-100-bachem-bubendorf",
         "de": "chemist-a-100-bachem-bubendorf",
+        "it": "chimico-a-100-bachem-ag-bubendorf-5275e5",
+        "en": "chemist-a-100-bachem-bubendorf",
         "fr": "chimiste-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
@@ -1915,7 +1915,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-09T13:55:39.157Z"
+      "firstSeenAt": "2026-09-09T13:55:39.157Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chemist-a-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "chemist-a-100-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-02a8f9a22fa0",

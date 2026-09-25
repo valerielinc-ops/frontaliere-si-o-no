@@ -7336,7 +7336,7 @@
       "slug": "tirocinante-roche-kaiseraugst",
       "slugByLocale": {
         "it": "tirocinante-roche-kaiseraugst",
-        "en": "intern-roche-kaiseraugst",
+        "en": "internal-roche-kaiseraugst",
         "de": "intern-roche-ch",
         "fr": "stagiaire-roche-kaiseraugst"
       },
@@ -7381,7 +7381,8 @@
         "intern-roche-ch",
         "praktikant-roche-kaiseraugst",
         "internal-roche-kaiseraugst",
-        "tirocinante-roche-kaiseraugst"
+        "tirocinante-roche-kaiseraugst",
+        "intern-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7389,7 +7390,7 @@
           "tirocinante-roche-kaiseraugst"
         ],
         "en": [
-          "internal-roche-kaiseraugst"
+          "intern-roche-kaiseraugst"
         ],
         "de": [
           "praktikant-roche-kaiseraugst"
@@ -8241,10 +8242,10 @@
       "id": "roche-352db5adf3ed",
       "slug": "msat-ds-processo-senior-steward-80-100-roche-basel",
       "slugByLocale": {
-        "it": "msat-ds-processo-senior-steward-80-100-roche-basel",
         "en": "global-msat-ds-senior-process-steward-80-100-roche-ch",
+        "it": "msat-ds-processo-senior-steward-80-100-roche-basel",
         "de": "global-msat-ds-senior-process-steward-80-100-roche-ch",
-        "fr": "global-msat-ds-senior-process-steward-80-100-roche-ch"
+        "fr": "delegue-senior-du-processus-msat-ds-mondial-80-100-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -12418,7 +12419,7 @@
         "it": "patient-journey-partner-ecosistema-immunitario-roche-taipei",
         "en": "patient-journey-partner-immune-ecosystem-roche-ch",
         "de": "patient-journey-partner-immunsystem-roche-taipei",
-        "fr": "partenaire-de-voyage-patient-ecosysteme-immunitaire-roche-taipei"
+        "fr": "patient-journey-partner-ecosysteme-immunitaire-roche-taipei"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -12459,7 +12460,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "patient-journey-partner-immune-ecosystem-roche-ch",
-        "patient-journey-partner-immune-ecosystem-roche-taipei"
+        "patient-journey-partner-immune-ecosystem-roche-taipei",
+        "partenaire-de-voyage-patient-ecosysteme-immunitaire-roche-taipei"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12470,7 +12472,8 @@
         ],
         "fr": [
           "patient-journey-partner-immune-ecosystem-roche-ch",
-          "patient-journey-partner-immune-ecosystem-roche-taipei"
+          "patient-journey-partner-immune-ecosystem-roche-taipei",
+          "partenaire-de-voyage-patient-ecosysteme-immunitaire-roche-taipei"
         ]
       },
       "firstSeenAt": "2026-05-22T12:51:54.939Z",
@@ -57270,7 +57273,7 @@
       "slugByLocale": {
         "en": "coordinating-international-product-manager-ipm-roche-ch",
         "it": "coordinamento-internazionale-product-manager-ipm-roche-basel",
-        "de": "coordinating-international-product-manager-ipm-roche-ch",
+        "de": "koordination-des-internationalen-produktmanagers-ipm-roche-basel",
         "fr": "coordonner-le-gestionnaire-international-des-produits-ipm-roche-basel"
       },
       "company": "Roche",
@@ -57333,6 +57336,9 @@
           "coordinating-international-product-manager-ipm-roche-ch"
         ],
         "fr": [
+          "coordinating-international-product-manager-ipm-roche-ch"
+        ],
+        "de": [
           "coordinating-international-product-manager-ipm-roche-ch"
         ]
       },
@@ -58048,7 +58054,7 @@
         "fr": "customer-lead-roche-ch",
         "it": "piombo-del-cliente-roche-lima",
         "en": "customer-lead-roche-lima",
-        "de": "customer-lead-roche-ch"
+        "de": "kundenlead-roche-lima"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -58107,6 +58113,9 @@
       "firstSeenAt": "2026-09-23T23:37:08.577Z",
       "previousSlugsByLocale": {
         "it": [
+          "customer-lead-roche-ch"
+        ],
+        "de": [
           "customer-lead-roche-ch"
         ]
       },
@@ -58401,10 +58410,10 @@
     },
     {
       "id": "roche-e0274602c273",
-      "slug": "scrum-master-m-f-d-roche-ch",
+      "slug": "maestro-della-mischia-m-f-d-roche-basel",
       "slugByLocale": {
         "en": "scrum-master-m-f-d-roche-ch",
-        "it": "scrum-master-m-f-d-roche-ch",
+        "it": "maestro-della-mischia-m-f-d-roche-basel",
         "de": "scrum-master-m-f-d-roche-basel",
         "fr": "maitre-de-balance-h-f-d-roche-basel"
       },
@@ -58463,7 +58472,15 @@
       },
       "addressRegion": "BS",
       "firstSeenAt": "2026-09-23T23:37:04.237Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "scrum-master-m-f-d-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "scrum-master-m-f-d-roche-ch"
+      ]
     },
     {
       "id": "roche-b80f30d12354",
@@ -58626,10 +58643,10 @@
     },
     {
       "id": "roche-88381454cc40",
-      "slug": "digital-marketing-operations-associate-roche-ch-3",
+      "slug": "associato-alle-operazioni-di-marketing-digitale-roche-san-jose-costa-rica",
       "slugByLocale": {
         "en": "digital-marketing-operations-associate-roche-ch",
-        "it": "digital-marketing-operations-associate-roche-ch-3",
+        "it": "associato-alle-operazioni-di-marketing-digitale-roche-san-jose-costa-rica",
         "de": "digital-marketing-operations-associate-roche-ch-3",
         "fr": "associe-aux-operations-de-marketing-numerique-roche-san-jose-costa-rica"
       },
@@ -58690,11 +58707,13 @@
       "firstSeenAt": "2026-09-23T23:37:01.651Z",
       "previousSlugsByLocale": {
         "it": [
-          "digital-marketing-operations-associate-roche-ch"
+          "digital-marketing-operations-associate-roche-ch",
+          "digital-marketing-operations-associate-roche-ch-3"
         ]
       },
       "previousSlugs": [
-        "digital-marketing-operations-associate-roche-ch"
+        "digital-marketing-operations-associate-roche-ch",
+        "digital-marketing-operations-associate-roche-ch-3"
       ],
       "crawlerMissStreak": 1
     },
@@ -58705,7 +58724,7 @@
         "fr": "patient-journey-partner-roche-ch",
         "it": "partner-del-viaggio-paziente-roche-cali",
         "en": "patient-journey-partner-roche-ch-5",
-        "de": "patient-journey-partner-roche-ch-5"
+        "de": "partner-der-patientenreise-roche-cali"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -58765,6 +58784,9 @@
       "previousSlugsByLocale": {
         "it": [
           "patient-journey-partner-roche-ch",
+          "patient-journey-partner-roche-ch-5"
+        ],
+        "de": [
           "patient-journey-partner-roche-ch-5"
         ]
       },
@@ -58859,7 +58881,7 @@
       "slugByLocale": {
         "en": "senior-data-scientist-roche-ch",
         "it": "ricerca-di-dati-senior-roche-basel",
-        "de": "senior-data-scientist-roche-ch",
+        "de": "leitender-datenwissenschaftler-roche-basel",
         "fr": "chercheur-principal-en-donnees-roche-basel"
       },
       "company": "Roche",
@@ -58923,6 +58945,9 @@
         ],
         "fr": [
           "senior-data-scientist-roche-ch"
+        ],
+        "de": [
+          "senior-data-scientist-roche-ch"
         ]
       },
       "previousSlugs": [
@@ -58932,10 +58957,10 @@
     },
     {
       "id": "roche-1eba3c5b9638",
-      "slug": "senior-data-scientist-generative-ai-agentic-systems-roche-ch",
+      "slug": "data-scientist-senior-ai-generativa-e-sistemi-agentici-roche-san-jose-costa-rica",
       "slugByLocale": {
         "en": "senior-data-scientist-generative-ai-agentic-systems-roche-ch",
-        "it": "senior-data-scientist-generative-ai-agentic-systems-roche-ch",
+        "it": "data-scientist-senior-ai-generativa-e-sistemi-agentici-roche-san-jose-costa-rica",
         "de": "senior-data-scientist-generative-ai-agentic-systems-roche-ch",
         "fr": "chercheur-principal-en-donnees-systemes-d-ia-et-d-agents-generiques-roche-san-jose-costa-rica"
       },
@@ -58994,7 +59019,15 @@
       },
       "addressRegion": "BS",
       "firstSeenAt": "2026-09-23T23:36:57.316Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-data-scientist-generative-ai-agentic-systems-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-data-scientist-generative-ai-agentic-systems-roche-ch"
+      ]
     },
     {
       "id": "roche-a96eba0ec6b4",
@@ -59310,7 +59343,7 @@
       "slugByLocale": {
         "en": "global-clinical-operations-excellence-leader-roche-ch",
         "it": "leader-mondiale-delle-operazioni-cliniche-roche-mississauga",
-        "de": "global-clinical-operations-excellence-leader-roche-ch",
+        "de": "globaler-fuhrer-fur-klinische-operations-exzellenz-roche-mississauga",
         "fr": "chef-d-excellence-des-operations-cliniques-mondiales-roche-mississauga"
       },
       "company": "Roche",
@@ -59373,6 +59406,9 @@
           "global-clinical-operations-excellence-leader-roche-ch"
         ],
         "fr": [
+          "global-clinical-operations-excellence-leader-roche-ch"
+        ],
+        "de": [
           "global-clinical-operations-excellence-leader-roche-ch"
         ]
       },
@@ -60642,10 +60678,10 @@
     },
     {
       "id": "roche-85de38537ba0",
-      "slug": "sw-product-manager-roche-ch",
+      "slug": "responsabile-di-prodotto-sw-roche-sant-cugat-del-valles",
       "slugByLocale": {
         "en": "sw-product-manager-roche-ch",
-        "it": "sw-product-manager-roche-ch",
+        "it": "responsabile-di-prodotto-sw-roche-sant-cugat-del-valles",
         "de": "sw-produktmanager-roche-sant-cugat-del-valles",
         "fr": "gestionnaire-de-produits-sw-roche-sant-cugat-del-valles"
       },
@@ -60704,7 +60740,15 @@
       },
       "addressRegion": "BS",
       "firstSeenAt": "2026-09-23T23:36:35.617Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "sw-product-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sw-product-manager-roche-ch"
+      ]
     },
     {
       "id": "roche-f815c30f92ab",
@@ -61072,11 +61116,11 @@
     },
     {
       "id": "roche-52c573688b4b",
-      "slug": "data-steward-roche-ch",
+      "slug": "amministratore-dei-dati-roche-basel",
       "slugByLocale": {
         "en": "data-steward-roche-ch",
-        "it": "data-steward-roche-ch",
-        "de": "data-steward-roche-basel",
+        "it": "amministratore-dei-dati-roche-basel",
+        "de": "datenverwalter-roche-basel",
         "fr": "detection-des-donnees-roche-basel"
       },
       "company": "Roche",
@@ -61134,7 +61178,19 @@
       },
       "addressRegion": "BS",
       "firstSeenAt": "2026-09-23T23:36:30.441Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "data-steward-roche-ch"
+        ],
+        "de": [
+          "data-steward-roche-basel"
+        ]
+      },
+      "previousSlugs": [
+        "data-steward-roche-ch",
+        "data-steward-roche-basel"
+      ]
     },
     {
       "id": "roche-27ac1332eaf1",
@@ -61452,11 +61508,11 @@
     },
     {
       "id": "roche-45a7274a9344",
-      "slug": "pt-learning-technology-adoption-lead-roche-ch",
+      "slug": "pt-responsabile-della-tecnologia-di-apprendimento-e-dell-adozione-roche-basel",
       "slugByLocale": {
         "en": "pt-learning-technology-adoption-lead-roche-ch",
-        "it": "pt-learning-technology-adoption-lead-roche-ch",
-        "de": "pt-learning-technology-adoption-lead-roche-ch",
+        "it": "pt-responsabile-della-tecnologia-di-apprendimento-e-dell-adozione-roche-basel",
+        "de": "pt-leiter-fur-lerntechnologie-und-einfuhrung-roche-basel",
         "fr": "pt-apprentissage-technologie-et-adoption-responsable-roche-basel"
       },
       "company": "Roche",
@@ -61514,7 +61570,18 @@
       },
       "addressRegion": "BS",
       "firstSeenAt": "2026-09-23T23:36:25.304Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "pt-learning-technology-adoption-lead-roche-ch"
+        ],
+        "de": [
+          "pt-learning-technology-adoption-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pt-learning-technology-adoption-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-2a9c82aac33d",
@@ -61598,10 +61665,10 @@
     },
     {
       "id": "roche-0a9147ccb189",
-      "slug": "estagiario-a-de-eficiencia-operacional-brasilia-roche-ch",
+      "slug": "stato-a-di-efficienza-operativa-brasilia-roche-brasilia",
       "slugByLocale": {
         "en": "estagiario-a-de-eficiencia-operacional-brasilia-roche-ch",
-        "it": "estagiario-a-de-eficiencia-operacional-brasilia-roche-ch",
+        "it": "stato-a-di-efficienza-operativa-brasilia-roche-brasilia",
         "de": "estagiario-a-de-eficiencia-operacional-brasilia-roche-ch",
         "fr": "estagiario-a-de-eficiencia-operacional-brasilia-roche-ch"
       },
@@ -61660,7 +61727,15 @@
       },
       "addressRegion": "BS",
       "firstSeenAt": "2026-09-23T23:36:23.627Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "estagiario-a-de-eficiencia-operacional-brasilia-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "estagiario-a-de-eficiencia-operacional-brasilia-roche-ch"
+      ]
     },
     {
       "id": "roche-541fe8ff415b",

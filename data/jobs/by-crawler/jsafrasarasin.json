@@ -800,11 +800,11 @@
     },
     {
       "id": "jsafrasarasin-1780e855e8cb",
-      "slug": "business-manager-front-jsafrasarasin-ch",
+      "slug": "fronte-del-direttore-aziendale-j-safra-sarasin-basel-ch",
       "slugByLocale": {
-        "it": "business-manager-front-jsafrasarasin-ch",
+        "it": "fronte-del-direttore-aziendale-j-safra-sarasin-basel-ch",
         "en": "business-manager-front-jsafrasarasin-ch",
-        "de": "business-manager-front-jsafrasarasin-ch",
+        "de": "geschaftsleiter-front-j-safra-sarasin-basel-ch",
         "fr": "directeur-d-entreprise-front-j-safra-sarasin-basel-ch-zurich"
       },
       "company": "J. Safra Sarasin",
@@ -859,7 +859,18 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "business-manager-front-jsafrasarasin-ch"
+        ],
+        "de": [
+          "business-manager-front-jsafrasarasin-ch"
+        ]
+      },
+      "previousSlugs": [
+        "business-manager-front-jsafrasarasin-ch"
+      ]
     },
     {
       "id": "jsafrasarasin-3fdccfbec1f9",

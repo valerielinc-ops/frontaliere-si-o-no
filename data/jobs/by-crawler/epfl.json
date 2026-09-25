@@ -4202,12 +4202,12 @@
     },
     {
       "id": "epfl-84910af98cd0",
-      "slug": "postdoc-networked-systems-abstractions-lab-laser-epfl-lausanne",
+      "slug": "postdoc-laboratorio-di-astrazioni-dei-sistemi-in-rete-laser-epfl-lausanne",
       "slugByLocale": {
-        "it": "postdoc-networked-systems-abstractions-lab-laser-epfl-lausanne",
+        "fr": "postdoc-networked-systems-abstractions-lab-laser-epfl-lausanne",
+        "it": "postdoc-laboratorio-di-astrazioni-dei-sistemi-in-rete-laser-epfl-lausanne",
         "en": "postdoc-networked-systems-abstractions-lab-laser-epfl-lausanne",
-        "de": "postdoc-networked-systems-abstractions-lab-laser-epfl-lausanne",
-        "fr": "postdoc-networked-systems-abstractions-lab-laser-epfl-lausanne"
+        "de": "postdoc-networked-systems-abstractions-lab-laser-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -4264,7 +4264,15 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-09-23T23:45:29.800Z"
+      "firstSeenAt": "2026-09-23T23:45:29.800Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoc-networked-systems-abstractions-lab-laser-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "postdoc-networked-systems-abstractions-lab-laser-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-783c6c49e8d9",
@@ -5310,8 +5318,7 @@
         ],
         "en": [
           "postdoc-in-experimental-biophysics-epfl-lausanne",
-          "postdoc-epfl-lausanne-9layc2",
-          "postdoc-epfl-lausanne"
+          "postdoc-epfl-lausanne-9layc2"
         ],
         "de": [
           "postdoc-in-experimenteller-biophysik-epfl-lausanne",
