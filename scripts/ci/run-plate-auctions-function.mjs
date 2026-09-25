@@ -31,6 +31,7 @@
  */
 import { appendFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
+import { googleApiJson } from '../lib/google-api-json.mjs';
 import { getServiceAccountAccessToken } from '../lib/google-service-account-token.mjs';
 import { PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY } from '../../functions/src/plateAuctionSourceRegistry.js';
 import { PLATE_AUCTION_PUBLIC_API_RELAY_URL } from '../plate-auctions/connectors/api-relay.mjs';
@@ -51,22 +52,14 @@ const defaultSleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 export class FunctionRunError extends Error {}
 
 async function googleJson(fetchImpl, url, { token, method = 'GET', body, permission }) {
-  const response = await fetchImpl(url, {
+  const { json, response } = await googleApiJson(fetchImpl, url, {
+    token,
     method,
-    headers: { Authorization: `Bearer ${token}`, ...(body ? { 'Content-Type': 'application/json' } : {}) },
-    ...(body ? { body: JSON.stringify(body) } : {}),
-    signal: AbortSignal.timeout(60_000),
+    body,
+    forbiddenHint: ROLE_HINT[permission] || ROLE_HINT.run,
+    ErrorClass: FunctionRunError,
   });
-  const text = await response.text();
-  let json = null;
-  try { json = text ? JSON.parse(text) : {}; } catch { json = null; }
-  if (!response.ok) {
-    const message = json?.error?.message || text.slice(0, 300);
-    const reason = json?.error?.details?.find?.((detail) => detail?.reason)?.reason;
-    const hint = response.status === 403 ? ` — ${ROLE_HINT[permission] || ROLE_HINT.run}` : '';
-    throw new FunctionRunError(`${method} ${url.replace(/\?.*$/u, '')} → HTTP ${response.status}${reason ? ` ${reason}` : ''}: ${message}${hint}`);
-  }
-  return { json: json ?? {}, date: response.headers?.get?.('date') || null };
+  return { json, date: response.headers?.get?.('date') || null };
 }
 
 /** Tutti i job della location, pagina per pagina. */
