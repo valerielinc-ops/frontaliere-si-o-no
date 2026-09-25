@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { isLocationExplicitlyForeign } from '../scripts/lib/dedicated-crawler-common.mjs';
 import {
   TEXT_RESCUE_AMBIGUOUS_TOKENS,
   findSwissCityInText,
@@ -82,6 +83,64 @@ describe('text-rescue ambiguous token guard (#5136)', () => {
     expect(swissCityFromLocationField('Jakarta')).toBe('');
     // Same input, opposite verdicts — that is the whole point of the split.
     expect(rescueSwissCityFromText('Rolle')).toBe('');
+  });
+
+  it('reads words with Unicode boundaries, so a non-ASCII letter does not split a word (#9846)', () => {
+    // ASCII folding turned "Großdietwil" (Grossdietwil, LU, in German-German
+    // spelling) into "gro dietwil", i.e. Dietwil in canton Aargau.
+    expect(rescueSwissCityFromText('Arbeitsort Großdietwil')).toBe('');
+    expect(rescueSwissCityFromText('Arbeitsort Grossdietwil')).toBe('Grossdietwil');
+  });
+
+  it('never reads the company name Hoffmann-La Roche as La Roche (FR) (#9846)', () => {
+    expect(rescueSwissCityFromText('an existing vacancy at Hoffmann-La Roche Ltd.')).toBe('');
+    expect(rescueSwissCityFromText('presso la Roche Boarding House')).toBe('');
+  });
+
+  describe('foreign context: the caller\'s locality names no Swiss place (#9846)', () => {
+    // The assembler passes isLocationExplicitlyForeign as the list guard's
+    // gazetteer.
+    const abroad = (text: string) => rescueSwissCityFromText(text, {
+      foreignContext: true,
+      isForeignPlace: isLocationExplicitlyForeign,
+    });
+
+    it('skips a municipality inside a foreign hyphenated compound', () => {
+      expect(abroad('Duale Hochschule Baden-Württemberg in Mannheim')).toBe('');
+      // A Swiss compound keeps its match.
+      expect(abroad('Kanton Basel-Stadt')).toBe('Basel');
+      expect(abroad('Standort Zürich-Oerlikon')).toBe('Zürich');
+      // Outside the foreign context a municipality-locality compound is Swiss.
+      expect(rescueSwissCityFromText('Standort Baden-Dättwil')).toBe('Baden');
+    });
+
+    it('skips articles and common words, i.e. a name not written as a proper noun', () => {
+      expect(abroad('i requisiti di reporting tenero')).toBe('');
+      expect(abroad('Vind je het leuk om te werken')).toBe('');
+      expect(abroad('Arbeitsort: Tenero')).toBe('Tenero');
+      expect(abroad('Arbeitsort: ZÜRICH')).toBe('Zürich');
+      // An e-mail address or URL is lower case whatever it names.
+      expect(abroad('CV a: fisiocare.lugano@gmail.com')).toBe('Lugano');
+    });
+
+    it('skips the employer\'s headquarters', () => {
+      expect(abroad('Sulzer, mit Hauptsitz in Winterthur, Schweiz')).toBe('');
+      expect(abroad('with headquarters in Winterthur, Switzerland')).toBe('');
+      expect(abroad('leader globale con sede a Winterthur, in Svizzera')).toBe('');
+      expect(abroad('avec son siège à Winterthur, en Suisse')).toBe('');
+      expect(abroad('Sede di lavoro: Winterthur')).toBe('Winterthur');
+      // Outside the foreign context the same sentence still rescues.
+      expect(rescueSwissCityFromText('con sede a Winterthur')).toBe('Winterthur');
+    });
+
+    it('skips one entry of a list of sites that names a place abroad', () => {
+      expect(abroad('With offices across Geneva, Zurich, Barcelona, London and more')).toBe('');
+      expect(abroad('Avec des bureaux à Genève, Zurich, Barcelone, Londres')).toBe('');
+      expect(abroad('(u. a. Penzberg, Basel, Oceanside, Vacaville und South San Francisco)')).toBe('');
+      // A list of Swiss sites only still places the job in Switzerland.
+      expect(abroad('mit den Standorten Luzern, Sursee und Wolhusen')).toBe('Luzern');
+      expect(abroad('the Diagnostics Partnering group in Basel / Rotkreuz has')).toBe('Basel');
+    });
   });
 
   it('blocks every token as a bare description word', () => {
