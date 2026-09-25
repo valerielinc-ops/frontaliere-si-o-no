@@ -11961,6 +11961,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bns-decisione-tasso-invariato-2026.title': 'BNS laisse le taux à 0% et augmente le PIB 2026',
     'blog.article.bns-decisione-tasso-invariato-2026.excerpt': 'La BNS maintient le taux de référence à 0% (inchangé depuis juin 2025), prévoit une inflation de 0,7% en 2026 et de 0,8% en 2027 et un PIB de 1,5% à 2,0% en 2026.',
     'blog.article.bns-decisione-tasso-invariato-2026.imageAlt': 'Vue sur le lac de Lugano avec les montagnes en arrière-plan, lumière du matin',
+    'blog.article.riassetto-ferroviario-lavoratori.title': 'Ffs Cargo, les perspectives d’emploi font débat',
+    'blog.article.riassetto-ferroviario-lavoratori.excerpt': 'La réorganisation de Ffs Cargo concerne 80 employés : trois collaborateurs n\'ont pas encore reçu de propositions d\'emploi.',
+    'blog.article.riassetto-ferroviario-lavoratori.imageAlt': 'Train de marchandises FFS Cargo dans une gare de triage au Tessin',
 };
 
 export default blogMetaFr;
