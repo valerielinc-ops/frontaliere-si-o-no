@@ -54,7 +54,7 @@ jobs:
     # `follow-up` quando il filtro scopo passa. Vedi FOLLOWUP.md.
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
-    # 30→40 (2026-07-17): headroom per il cap turni dinamico alzato (max 60→80).
+    # 30→40 (2026-07-17): headroom per il cap turni dinamico alzato (max 80→240).
     timeout-minutes: 40 # batch di N PR in una sessione (era 10 per una sola PR)
     steps:
       - name: Checkout
@@ -267,7 +267,7 @@ jobs:
           codex_corpus_github_token: ${{ env.GITHUB_PAT_NANAKO || env.GITHUB_PAT }}
           # Il merge che alimenta questo workflow può arrivare da automation interna:
           # i token host-side restano limitati ai permessi del job e ai bridge espliciti.
-          # max-turns DINAMICO = min(26 + 8*batch_count, 80), floor 26: il cap cresce
+          # max-turns DINAMICO = min(26 + 8*batch_count, 240), floor 26: il cap cresce
           # con il numero di PR, senza consentire sessioni illimitate.
           # Se il batch satura il cap, il residuo è dichiarato in `deferred_count`
           # e ricade nella finestra successiva; l'idempotenza salta le PR già
@@ -275,12 +275,11 @@ jobs:
           # Percorsi storici non presenti in questo repository: `auto-merge-on-lgtm.yml`
           # e `pr-review-loop.yml`. Il triage corrente vive in questo workflow e in
           # `tests.yml`; i nomi sopra sono solo riferimenti documentali di confine.
-          # Watchdog Codex 15→25 min: #1975 (35534254329) e #1979 (35619427693)
-          # sono morte sul cap fisso da 15 min con un batch di 4 PR, e #1993 ha
-          # misurato 780s. 25 min + setup Codex (~2-4 min) + kill grace + coda
-          # restano sotto lo step da 32 min: il watchdog scatta prima del kill
-          # del runner e la action pubblica `codex_timed_out`.
-          exec_timeout_minutes: "25"
+          # Watchdog Codex 25→31 min: il gemello corpus ha misurato ~7,35 s/turno
+          # su una finestra da 11 PR; il ceiling 240 richiede ~29 min. I 31 min
+          # lasciano margine misurato sotto lo step da 32 min e il job da 40 min,
+          # evitando che il watchdog diventi un cap più basso del collector.
+          exec_timeout_minutes: "31"
           prompt: |
             Triage automatico follow-up in BATCH (${{ github.event_name }}).
             PR da processare (CSV): ${{ steps.collect.outputs.batch_prs }}

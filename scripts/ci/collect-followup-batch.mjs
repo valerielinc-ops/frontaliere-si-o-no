@@ -148,11 +148,9 @@ export function manualDispatchPR(raw) {
  * model reads authors via `gh pr list --json author`, whose GraphQL form prefixes
  * apps with `app/` and drops `[bot]` (e.g. `app/frontaliere-automation`). We
  * canonicalise both forms to a bare login so the allowlist matches regardless of
- * source — same author SCOPE as the original trigger, no expansion.
- */
-/**
- * Keep the site accounts as the default, while allowing the adapted workflow
- * and isolated tests to provide the eligible accounts explicitly.
+ * source — same author SCOPE as the original trigger, no expansion. The adapted
+ * workflow and isolated tests may replace the site defaults through
+ * `FOLLOWUP_ELIGIBLE_AUTHORS` before module load.
  */
 const ELIGIBLE_AUTHORS = new Set(
   (process.env.FOLLOWUP_ELIGIBLE_AUTHORS || 'valerielinc-ops,frontaliere-automation')
@@ -424,12 +422,14 @@ export function verifyTriageMarkerPersistence(markerBody, prNumber, readIssue) {
 }
 
 /**
- * Turni Claude proporzionati al batch: min(26 + 8*n, 80), floor 26 (mai abbassare).
- * Era min(20+6n,60) — bump fleet-wide 2026-07-17 (owner) di tutti i cap max-turns
- * Claude dopo l'ennesimo error_max_turns (cap = anti-runaway, non budget di lavoro).
+ * Turni provider proporzionati al batch: min(26 + 8*n, 240), floor 26
+ * (mai abbassare). La misura del gemello corpus ha osservato 113 turni per una
+ * finestra da 11 PR: la formula richiede 114 e il ceiling 240 lascia headroom
+ * per i batch più larghi senza rendere illimitata la sessione. Il cap è un
+ * anti-runaway, non un budget per nascondere PR rinviate.
  */
 export function maxTurnsFor(batchCount) {
-  return Math.min(26 + 8 * Math.max(0, Number(batchCount) || 0), 80);
+  return Math.min(26 + 8 * Math.max(0, Number(batchCount) || 0), 240);
 }
 
 /**

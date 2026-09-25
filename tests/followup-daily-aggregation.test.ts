@@ -77,6 +77,14 @@ describe('daily writer concurrency contract', () => {
 });
 
 describe('post-merge triage marker contract', () => {
+  it('keeps the provider watchdog above the 240-turn collector ceiling', () => {
+    const workflow = readFileSync(fileURLToPath(new URL('../.github/workflows/post-merge-followup.yml', import.meta.url)), 'utf8');
+    expect(workflow).toContain('max-turns DINAMICO = min(26 + 8*batch_count, 240)');
+    expect(workflow).toContain('timeout-minutes: 40');
+    expect(workflow).toContain('timeout-minutes: 32');
+    expect(workflow).toContain('exec_timeout_minutes: "31"');
+  });
+
   it('treats an explicit zero-candidate marker naming an unchanged bucket as empty', () => {
     const workflow = readFileSync(fileURLToPath(new URL('../.github/workflows/post-merge-followup.yml', import.meta.url)), 'utf8');
     // L'invariante non cambia: quel marker va classificato come VUOTO e non deve
