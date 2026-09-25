@@ -6,6 +6,7 @@ import { describe, expect, it } from 'vitest';
 import { chunkPlateAuctionWrites, PLATE_AUCTION_BATCH_SIZE } from '../functions/src/plateAuctionBatch.js';
 import { PLATE_AUCTION_MISSING_GRACE_MS } from '../functions/src/plateAuctionQualityCore.js';
 import { PLATE_AUCTION_COLLECTION, PLATE_AUCTION_SOURCE_COLLECTION, plateAuctionRefreshOrder, refreshPlateAuctions } from '../functions/src/plateAuctions.js';
+import { PLATE_AUCTION_API_RELAY_MAX_AGE_MS } from '../scripts/plate-auctions/connectors/api-relay.mjs';
 
 const ECARI_NO_RUNNING_AUCTION = readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'fixtures/ecari-no-running-auction.html'), 'utf8');
 
@@ -69,6 +70,39 @@ describe('plate-auction Cloud Function schedule', () => {
     const options = index.slice(start, index.indexOf('\n', index.indexOf('{', start)));
     expect(options).toMatch(/timeoutSeconds: 540/);
     expect(options).toMatch(/memory: '1GiB'/);
+  });
+
+  // `every 6 hours` is App Engine interval syntax: the next attempt counts from
+  // the end of the previous one and moves when a deploy updates the job. On
+  // 2026-09-25 the job attempted at 03:28 UTC and then not again before a
+  // manual run at 10:24, past the 6 h the relay was built on. FR, TI and SZ
+  // reach the static collector only through that relay.
+  it('fires at fixed UTC times, often enough for the relay never to go stale', () => {
+    const index = readFileSync(new URL('../functions/index.js', import.meta.url), 'utf8');
+    const start = index.indexOf('export const refreshPlateAuctions = onSchedule(');
+    const options = index.slice(start, index.indexOf('\n', index.indexOf('{', start)));
+    expect(options).toMatch(/timeZone: 'UTC'/);
+    const schedule = options.match(/schedule: '([^']+)'/)?.[1] ?? '';
+    const [minute, hours, ...rest] = schedule.split(' ');
+    expect(rest).toEqual(['*', '*', '*']);
+    expect(minute).toMatch(/^\d{1,2}$/);
+    expect(hours).toMatch(/^\d{1,2}(,\d{1,2})*$/);
+    const runs = hours.split(',').map((hour) => Number(hour) * 60 + Number(minute));
+    // Four fetches a day is the cap every active source's registry entry declares.
+    expect(runs).toHaveLength(4);
+    const gaps = runs.map((run, i) => ((runs[(i + 1) % runs.length] - run + 1440) % 1440) * 60_000);
+    const timeoutMs = Number(options.match(/timeoutSeconds: (\d+)/)?.[1]) * 1000;
+    for (const gap of gaps) expect(gap + timeoutMs).toBeLessThan(PLATE_AUCTION_API_RELAY_MAX_AGE_MS);
+
+    // Each nominal slot of the static collector (cron `17 */6 * * *`) finds a
+    // run that started less than an hour earlier and has had time to finish.
+    const workflow = readFileSync(new URL('../.github/workflows/refresh-plate-auctions.yml', import.meta.url), 'utf8');
+    expect(workflow).toMatch(/- cron: "17 \*\/6 \* \* \*"/);
+    for (const slot of [17, 377, 737, 1097]) {
+      const lead = Math.min(...runs.map((run) => (slot - run + 1440) % 1440));
+      expect(lead * 60_000).toBeGreaterThanOrEqual(timeoutMs);
+      expect(lead).toBeLessThan(60);
+    }
   });
 
   it('refreshes the heavy BS catalogue last, after every small source', () => {
