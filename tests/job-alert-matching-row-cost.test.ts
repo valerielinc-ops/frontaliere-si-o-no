@@ -34,6 +34,7 @@ import {
   createAlertScorer,
   createJobFeatureCache,
   jobMatchFeatures,
+  partitionByGeoPreference,
   scoreJobForAlert,
 } from '../services/jobAlertMatching.mjs';
 import { locTokenHit } from '../services/locToken.mjs';
@@ -200,6 +201,26 @@ function oracleScore(job: any, profile: any, locale?: string) {
   return Math.max(score, 1);
 }
 
+// ── Oracle: partitionByGeoPreference as it was before #9314, verbatim ──────
+function oraclePartition(jobs: any[], profile: any, minLocal = 5) {
+  const list = Array.isArray(jobs) ? jobs : [];
+  if (!profile) return list;
+  if ((profile.alertLocations?.length || 0) > 0 || (profile.cantons?.length || 0) > 0) return list;
+  const prefLoc = profile.preferredLocations || [];
+  const prefCanton = profile.preferredCantons || [];
+  if (prefLoc.length === 0 && prefCanton.length === 0) return list;
+  const inArea: any[] = [];
+  const rest: any[] = [];
+  for (const job of list) {
+    const jobCanton = String(job?.canton || '').toLowerCase();
+    const jobLoc = `${job?.location || ''} ${job?.addressLocality || ''} ${job?.addressRegion || ''} ${job?.canton || ''}`.toLowerCase();
+    const hit = (prefCanton.length > 0 && jobCanton && prefCanton.includes(jobCanton))
+      || prefLoc.some((l: string) => locTokenHit(jobLoc, l));
+    (hit ? inArea : rest).push(job);
+  }
+  return inArea.length >= minLocal ? inArea : inArea.concat(rest);
+}
+
 function profileOf(alert: any) {
   return buildAlertProfile(alert, SUBSCRIBERS[alert.email] || null, {
     cityToCanton: new Map([['lugano', 'ti'], ['bellinzona', 'ti'], ['zürich', 'zh']]),
@@ -288,6 +309,32 @@ describe('scorer oracle (#9314): same score as the pre-#9314 scoreJobForAlert', 
     // Twice: the second answer comes from the memo.
     expect(scoreJobForAlert(job, profile, 'en', cache)).toBe(oracleScore(job, profile, 'en'));
     expect(scoreJobForAlert(job, profile, 'en', cache)).toBe(oracleScore(job, profile, 'en'));
+  });
+});
+
+describe('partitionByGeoPreference (#9314): needles normalized once, same split', () => {
+  it('matches the verbatim oracle for profile and hand-made preferences', () => {
+    const jobs = fixtureJobs();
+    const preferences = [
+      { preferredLocations: ['zurich'], preferredCantons: [] },
+      { preferredLocations: ['lugano-paradiso', '--'], preferredCantons: ['ge'] },
+      { preferredLocations: ['  '], preferredCantons: [] },
+      { preferredLocations: ['st gallen', 'genève'], preferredCantons: ['ti'] },
+    ];
+    let compared = 0;
+    for (const alert of ALERTS) {
+      const profile = profileOf(alert);
+      const variants = [profile, ...preferences.map((p) => ({ ...profile, alertLocations: [], cantons: [], ...p }))];
+      for (const variant of variants) {
+        for (const minLocal of [1, 5, 40]) {
+          const slice = jobs.slice(compared % 7);
+          expect(partitionByGeoPreference(slice, variant, { minLocal }).map((j: any) => j.id))
+            .toEqual(oraclePartition(slice, variant, minLocal).map((j: any) => j.id));
+          compared++;
+        }
+      }
+    }
+    expect(compared).toBe(ALERTS.length * 5 * 3);
   });
 });
 

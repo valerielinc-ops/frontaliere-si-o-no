@@ -41,7 +41,7 @@ import {
   canonicalCompanyProfileSlug,
   companyDisplayIdentityKeys,
 } from '../build-plugins/shared/companyProfileSlug.mjs';
-import { locTokenHit, normalizeLocToken } from './locToken.mjs';
+import { normalizeLocToken } from './locToken.mjs';
 import { municipalityToCantons } from './provinceCantonAffinity.ts';
 
 /** @typedef {Set<string>} TokenSet */
@@ -419,13 +419,18 @@ export function partitionByGeoPreference(jobs, profile, { minLocal = GEO_PREFERE
   const prefCanton = profile.preferredCantons || [];
   if (prefLoc.length === 0 && prefCanton.length === 0) return list;
 
+  // `locTokenHit(jobLoc, l)` for every preferred location, with the needles
+  // normalized once per call and the job side once per job (#9314).
+  const prefLocNeedles = paddedLocNeedles(prefLoc);
   const inArea = [];
   const rest = [];
   for (const job of list) {
     const jobCanton = String(job?.canton || '').toLowerCase();
-    const jobLoc = `${job?.location || ''} ${job?.addressLocality || ''} ${job?.addressRegion || ''} ${job?.canton || ''}`.toLowerCase();
     const hit = (prefCanton.length > 0 && jobCanton && prefCanton.includes(jobCanton))
-      || prefLoc.some((l) => locTokenHit(jobLoc, l));
+      || (prefLocNeedles.length > 0 && includesAny(
+        paddedLocHaystack(`${job?.location || ''} ${job?.addressLocality || ''} ${job?.addressRegion || ''} ${job?.canton || ''}`),
+        prefLocNeedles,
+      ));
     (hit ? inArea : rest).push(job);
   }
   return inArea.length >= minLocal ? inArea : inArea.concat(rest);
