@@ -976,10 +976,10 @@
       "crawledAt": "2026-09-25T15:10:02.746Z",
       "firstSeenAt": "2026-09-24T14:55:37.092Z",
       "titleByLocale": {
-        "it": "Sachbearbeiter:in Ersatzteilwesen",
-        "en": "Sachbearbeiter:in Ersatzteilwesen",
         "de": "Sachbearbeiter:in Ersatzteilwesen",
-        "fr": "Sachbearbeiter:in Ersatzteilwesen"
+        "it": "Addetto ai pezzi di ricambio",
+        "en": "Spare parts clerk",
+        "fr": "Employé de pièces détachées"
       },
       "descriptionByLocale": {
         "it": "## La Svizzera compra a Fust! Siamo orgogliosi di essere leader in elettrodomestici, elettronica multimediale/entertainment e rimodellamento cucina e bagno, e con la nostra gamma completa di servizi e servizi unici creiamo un valore aggiunto reale! Diventa parte del nostro team e aiutaci a continuare a creare esperienze dei clienti! Un lavoro a Fust, ed è in esecuzione!\n\n## Compiti\n- Elaborazione ordini di pezzi di ricambio da fornitori e produttori\n- Elaborazione degli ordini dei nostri clienti, tecnici e filiali via biglietto e-mail\n- Coordinamento della fornitura, compresa la chiarificazione delle scadenze di consegna e la comunicazione in caso di ritardi di consegna\n- Controllo ordini di conferme, prezzi e dati di consegna\n- Cooperazione con le merci in entrata per garantire consegne corrette\n\n## Requisiti\n- Formazione tecnica di base, idealmente con la conoscenza delle famiglie elettriche\n- La conoscenza di SAP è assolutamente necessaria e la buona conoscenza dell'utente di MS Office\n- Conoscenza della lingua tedesca, conoscenza della lingua francese vantaggiosa\n- Lavorare in modo indipendente, proattivo, pragmatico e orientato alla soluzione\n- Personalità socievole, impegnata, squadra capace e professionale in apparenza\n\n## Cosa offriamo\n- Condizioni di lavoro: Orari di lavoro estremamente flessibili, parcheggio gratuito, ristorante interno co-op con una gamma di prezzi premium, camere moderne e luminose\n- Sconti: Sconti in diversi formati Coop, 5 volte il numero di Coop Super Points, Fino a 20% di sconto su vari servizi assicurativi, Abbonamenti Mobile e Prepagati a Coop Mobile, Reka Card: Sconti su abbonamento, Sconto Personale anche per i partner:in (vivere nella stessa famiglia), sconto sull'offerta di viaggio ITS Coop Travel, CHF 650.- Buono per l'acquisto di un GA FFS\n- Formazione: formazione interna, sostegno alla formazione esterna, opportunità di sviluppo\n- Comunicazione e cultura: cultura DU in tutta l'azienda, orientamento verso valori comuni, applicazione interna per la comunicazione con i dipendenti\n- Assicurazione: Fondo pensione: 2/3 è pagato da Coop (base), vari piani di risparmio presso il fondo pensione, generose e superobbligatorie prestazioni di assicurazione in caso di incidente e malattia\n- Vacanze: Almeno 25 giorni di vacanza o secondo GAV valido, se possibile supporto per vacanze non pagate\n- Salute: Aggiornamento Fitness: CHF 200.- Sconto su abbonamento annuale, consulenza sociale aziendale gratuita e anonima 24/7\nI tuoi contatti a Fust\nTanja Voser\nCapo di Business Partnering\nSteven Living\nSpecialista di reclutamento",
@@ -1002,6 +1002,8 @@
       "addressCountry": "Schweiz",
       "_enrichedFromDetail": true,
       "sourceLang": "de",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -1012,9 +1014,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      }
     },
     {
       "id": "company-9duvq8",

@@ -3452,7 +3452,7 @@
       "title": "Senior Engineer Digital Workplace (w/m/d), 80–100 %",
       "titleByLocale": {
         "it": "Ingegnere senior Digital Workplace (m/f/d), 80.100%",
-        "en": "Senior Engineer Digital Workplace (w/m/d), 80–100 %",
+        "en": "Senior Engineer Digital Workplace (m/f/d), 80-100%",
         "de": "Senior Ingenieur Digital Workplace (w/m/d), 80–100 %",
         "fr": "Ingénieur principal en milieu de travail numérique (h/f/d), 80–100%"
       },
@@ -3463,7 +3463,6 @@
         "de": "Seniorität bedeutet für uns nicht eine bestimmte Anzahl Berufsjahre. Entscheidend ist vielmehr, dass du in deinem Fachgebiet bereits vielseitige Erfahrungen gesammelt hast, Zusammenhänge erkennst und dieses Wissen wirkungsvoll einsetzt.\nWir suchen eine Persönlichkeit, die sich mit Neugier und Eigeninitiative in neue und komplexe Themen einarbeitet, unterschiedliche Perspektiven in Entscheidungen einbezieht und daraus nachhaltige Lösungen mit Mehrwert für die CONCORDIA entwickelt.\nDas erwartet dich\n\n• Du bist mitverantwortlich für die Service-Entwicklung, das Engineering und den Betrieb des Digitalen Workplaces und schaffst mit deinem Engagement Mehrwert für unser Unternehmen.\n• Du identifizierst Automatisierungspotenzial und schlägst selbstständig optimale Lösungen für die Vereinfachung unserer Betriebsprozesse vor.\n• Mit dir werden die modernen Technologien und Ansätze bei uns zum echten Business-Enabler.\n• Du übernimmst Verantwortung, packst anspruchsvolle Themen an und bringst sie gemeinsam mit anderen vorwärts. Dabei gelingt es dir, Menschen für Ideen zu gewinnen, Wissen zu teilen und dein Umfeld auf dem Weg mitzunehmen.\nDas bringst du mit\n\n• Du besitzt einen Informatik-Fachhochschulabschluss oder gleichwertige Erfahrung.\n• Du verfügst über umfassende Erfahrung in der Konzeption und im Betrieb klassischer und moderner Workplace-Technologien (insbesondere M365 Services, Policy und Profilemanagement, Client und Applikation Management, Azure Virtual Desktop).\n• Du besitzt ausgeprägte Erfahrung in Powershell Scripting.\n• Idealerweise bringst du erste Erfahrung mit Git, CI/CD-Pipelines, dem Schreiben von Powershell Modulen mit oder hast grosses Interesse, dich in diesen Themen weiterzuentwickeln.\n• Du verfolgst die Entwicklung der Microsoft Services zeitnah und versuchst neue Features umgehend aus.\n• Du bist eine kommunikative, teamorientierte und umsetzungsorientierte Persönlichkeit.\n• Du beherrschst die deutsche Sprache sehr gut in Wort und Schrift und kannst problemlos englische Dokumentationen lesen.\nDein nächster Schritt\nChristoph von Moos\nHR-Berater\nDarum CONCORDIA\nAls Expertin für Gesundheit setzt sich die CONCORDIA für ein Arbeitsumfeld ein, in dem sich Mitarbeitende wohlfühlen und verwirklichen können. Es ist geprägt von abwechslungsreichen Aufgaben, vielseitigen Teams und einem familiären Umgang. Zudem motivieren wir unsere Mitarbeitenden, sich weiterzuentwickeln und voranzukommen. Menschen, die Spass an der Arbeit haben und beruflich vorwärtskommen wollen, finden bei uns, was sie suchen: Jobs, die zu 100 % gesund sind.",
         "fr": "Pour nous, l'ancienneté ne signifie pas un certain nombre d'années de travail. Ce qui est crucial, c'est que vous avez déjà acquis une vaste expérience dans votre domaine d'expertise, que vous reconnaissez les connexions et que vous utilisez efficacement ces connaissances. Nous recherchons une personnalité qui travaille avec curiosité et initiative sur des sujets nouveaux et complexes, intègre différentes perspectives dans les décisions et développe des solutions durables avec une valeur ajoutée pour la concORDIE.\n\n• Vous êtes responsable du développement, de l'ingénierie et de l'exploitation du poste de travail numérique et, avec votre engagement, vous créez une valeur ajoutée pour notre entreprise.\n• Vous identifiez le potentiel d'automatisation et proposez indépendamment des solutions optimales pour simplifier nos processus d'affaires.\n• Avec vous, les technologies et approches modernes deviennent un véritable moteur d'affaires.\n• Vous assumez la responsabilité, vous prenez un total de 1 8 sujets difficiles et vous les faites avancer ensemble avec d'autres.\n\nVous pouvez gagner des gens pour des idées, partager des connaissances et prendre votre environnement en chemin.\n\n• Vous avez une expérience en informatique ou équivalente.\n• Vous avez une expérience étendue dans la conception et l'exploitation de technologies de travail classiques et modernes (en particulier les services M65, la gestion de politiques et de profils, la gestion de clients et d'applications, Azure Virtual Desktop).\n• Vous avez une expérience solide dans le script de shell de puissance.\n• Idéalement, vous avez une première expérience avec Git, CI/CD-Pipelins, l'écriture de modules Powershell ou avez un grand intérêt à vous développer dans ces sujets.\n\n• Vous êtes une personnalité communicative, orientée par l'équipe et orientée vers la mise en œuvre.\n• Vous maîtrisez très bien la langue allemande en paroles et en écriture et pouvez facilement lire la documentation anglaise.Votre prochaine étape Christoph von Moos HR consultant Pourquoi la concORDIE En tant qu'expert en santé, la concORDIE s'engage dans un environnement de travail dans lequel les employés peuvent se sentir à l'aise et réaliser leur travail.\n\nElle se caractérise par des tâches variées, des équipes polyvalentes et une approche familiale. Nous encourageons également nos employés à se développer et à progresser. Les gens qui aiment travailler et qui veulent aller de l'avant trouvent professionnellement ce qu'ils recherchent : des emplois 100% sains."
       },
-      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.concordia.ch/offene-stellen/senior-engineer-digital-workplace-w-m-d-80/7fda128e-5b83-439f-a2fe-e6f8f06ee5e9",
@@ -3500,7 +3499,8 @@
           "maxValue": 195000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "concordia-b4fd9b67d990",
@@ -3852,9 +3852,9 @@
       "companyDomain": "concordia.ch",
       "title": "IT Application Manager:in CRM, 80–100 %",
       "titleByLocale": {
-        "it": "IT Application Manager:in CRM, 80–100 %",
-        "en": "IT Application Manager:in CRM, 80–100 %",
         "de": "IT Application Manager:in CRM, 80–100 %",
+        "en": "IT Application Manager CRM, 80-100%",
+        "it": "IT Application Manager CRM, 80-100%",
         "fr": "Gestionnaire d'applications informatiques CRM, 80-100%"
       },
       "description": "Die professionelle Betreuung der Kundenbeziehungen ist für die CONCORDIA von zentraler Bedeutung. Dafür haben wir ein topmodernes CRM von BSI im Einsatz. Für die kontinuierliche Weiterentwicklung und den Betrieb der CRM-Lösung suchen wir dich.\n Das erwartet dich\n\n• In der Rolle als IT Application Manager CRM arbeitest du in einem agilen Setup und trägst technische Verantwortung.\n• Du stellst mit deinen Teamkolleginnen und -kollegen den Betrieb, die Wartung und Weiterentwicklung der CRM-Lösung auf einer modernen OpenShift-Plattform sicher.\n• Betreuung der Anwendungslandschaft rund um die CRM-Lösung, inklusive der dazugehörigen Schnittstellen.\n• Du bist verantwortlich dafür, dass die bereitgestellten Funktionalitäten im Betrieb reibungslos und performant arbeiten und setzt bei Bedarf entsprechende Verbesserungen um. Dabei hast du eine aktive Rolle beim Deployment, dem Betrieb und in der Fehleranalyse.\n• Für die Weiterentwicklung der hochkonfigurierbaren BSI-CRM-Lösung analysierst du neue Anforderungen in Abstimmung mit der Business Analyse und erstellst die technische Spezifikation. Die konfigurierbaren Anforderungen setzt du anschliessend selbständig um, weitergehende Anpassungen beauftragst du beim Lieferanten.\n• In enger Zusammenarbeit mit dem Product Owner erstellst du die Anwendungs-Roadmap und lieferst in die CONCORDIA-Releases ein, unter Berücksichtigung aller erforderlichen Qualitätsmerkmale.\n• Du entwickelst ein Verständnis für End-2-End-Prozesse und kannst dadurch das Business bezüglich Optimierungen und Verbesserungen beraten.\n\nDas bringst du mit\n\n• Fundierte Ausbildung im Bereich der Informatik mit Tertiärabschluss (HF, FH oder Uni) oder vergleichbarer Berufserfahrung.\n• Schnelle Auffassungsgabe, strukturierte Arbeitsweise, hohes Qualitätsbewusstsein und kommunikativ.\n• Du bringst ein agiles Mindset mit. Lebenslanges Lernen, Offenheit gegenüber Neuem sowie ein positives und lösungsorientiertes Denken – das bist du.\n• Praktische Erfahrungen in agilen Arbeitsweisen runden dein Profil ab.\n• Programmierkenntnisse in Java oder .NET und Erfahrungen in Web- und Container-Technologien mit k8s oder OpenShift sind von Vorteil.\n• Du verfügst über sehr gute Deutschkenntnisse in Wort und Schrift (Konzernsprache). Sehr gute Englischkenntnisse sind ein Plus.\n Dein nächster Schritt\n Christoph von Moos\nHR-Berater\n Darum CONCORDIA\nAls Expertin für Gesundheit setzt sich die CONCORDIA für ein Arbeitsumfeld ein, in dem sich Mitarbeitende wohlfühlen und verwirklichen können. Es ist geprägt von abwechslungsreichen Aufgaben, vielseitigen Teams und einem familiären Umgang. Zudem motivieren wir unsere Mitarbeitenden, sich weiterzuentwickeln und voranzukommen. Menschen, die Spass an der Arbeit haben und beruflich vorwärtskommen wollen, finden bei uns, was sie suchen: Jobs, die zu 100 % gesund sind.",
@@ -3888,7 +3888,6 @@
       "applyUrl": "https://jobs.concordia.ch/offene-stellen/it-application-manager-in-crm-80/da467beb-60e3-4ce9-a9a6-abf646b96f2f",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-23T23:41:36.621Z",
       "salaryMin": 114500,
       "salaryMax": 195000,
       "salarySource": "estimated",
@@ -3901,7 +3900,8 @@
           "maxValue": 195000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-23T23:41:36.621Z"
     },
     {
       "id": "concordia-f9976073f4e5",

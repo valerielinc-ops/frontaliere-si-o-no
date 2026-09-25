@@ -577,7 +577,7 @@
       "title": "JAVA ARCHITEKT (all gender)",
       "titleByLocale": {
         "it": "JAVA ARCHITEKT (tutti i sessi)",
-        "en": "JAVA ARCHITEKT (all gender)",
+        "en": "JAVA ARCHITECT (all gender)",
         "de": "JAVA ARCHITEKT (all gender)",
         "fr": "JAVA ARCHITEKT (tous les sexes)"
       },
@@ -609,10 +609,8 @@
       "applyUrl": "https://parmag.ch/stellen/353?view=joblisting",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "java-architekt-all-gender-bern-ittigen-parmag-ch",
-        "java-architekt-tutti-i-sessi-parmag-ag-bern-ittigen"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-23T23:38:58.310Z",
       "previousSlugsByLocale": {
         "it": [
           "java-architekt-all-gender-bern-ittigen-parmag-ch",
@@ -622,8 +620,10 @@
           "java-architekt-all-gender-bern-ittigen-parmag-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-23T23:38:58.310Z",
+      "previousSlugs": [
+        "java-architekt-all-gender-bern-ittigen-parmag-ch",
+        "java-architekt-tutti-i-sessi-parmag-ag-bern-ittigen"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",

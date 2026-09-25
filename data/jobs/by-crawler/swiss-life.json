@@ -8078,7 +8078,7 @@
       "title": "AI Engineer (w/m/d) 80–100%",
       "titleByLocale": {
         "it": "AI System Ingegnere (w/m/d) 80–100%",
-        "en": "AI Engineer (w/m/d) 80–100%",
+        "en": "AI Engineer (m/f/d) 80-100%",
         "de": "AI Ingenieur (w/m/d) 80–100%",
         "fr": "AI System Ingénieur (w/m/d) 80–100%"
       },
@@ -8136,7 +8136,6 @@
         "ai-system-ingegnere-w-m-d-80-100-swiss-life-zurich"
       ],
       "firstSeenAt": "2026-09-19T23:00:19.595Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -8149,7 +8148,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-50fa7da4b093",

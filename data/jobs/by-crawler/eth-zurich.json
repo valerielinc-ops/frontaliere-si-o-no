@@ -9518,7 +9518,7 @@
       "title": "Brandschutzfachfrau/-mann (m/w/d)",
       "titleByLocale": {
         "de": "Brandschutzfachfrau/-mann (m/w/d)",
-        "en": "Brandschutzfachfrau/-mann (m/w/d)",
+        "en": "Fire protection specialist (m/f/d)",
         "it": "Brandschutzfachfrau/-mann (m/w/d)",
         "fr": "Brandschutzfachfrau/-mann (m/w/d)"
       },
@@ -9549,11 +9549,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_Nggz9A2uM2fKJhfbF6",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "previousSlugs": [
-        "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
-        "specialiste-de-la-protection-contre-l-incendie-h-f-d-eth-zurich-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
@@ -9563,10 +9558,10 @@
           "specialiste-de-la-protection-contre-l-incendie-h-f-d-eth-zurich-zurich"
         ]
       },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3730,
-      "retranslationAttempts": 3,
-      "firstSeenAt": "2026-09-24T14:43:35.518Z",
+      "previousSlugs": [
+        "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
+        "specialiste-de-la-protection-contre-l-incendie-h-f-d-eth-zurich-zurich"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -9580,7 +9575,12 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-09-24T14:43:35.518Z",
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3730,
+      "needsRetranslation": true
     },
     {
       "id": "eth-zurich-b914347974db",

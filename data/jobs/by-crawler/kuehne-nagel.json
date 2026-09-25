@@ -410,7 +410,7 @@
       "title": "Customer Care Specialist (m/w/d) - Seefracht",
       "titleByLocale": {
         "it": "Customer Care Specialista (m/w/d) - Seefracht",
-        "en": "Customer Care Specialist (m/w/d) - Seefracht",
+        "en": "Customer Care Specialist (m/f/d) - Ocean Freight",
         "de": "Customer Care Spezialist (m/w/d) - Seefracht",
         "fr": "Customer Care Spécialiste (m/w/d) - Seefracht"
       },
@@ -446,7 +446,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-19T22:56:59.385Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -459,7 +458,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kuehne-nagel-937b4aab0d8d",

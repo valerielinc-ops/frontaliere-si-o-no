@@ -3606,7 +3606,7 @@
       "title": "Automation Technician / Automatiker / Elektriker DPS Growth Project 80-100% (m/w/d)",
       "titleByLocale": {
         "it": "Progetto di crescita del DPS tecnico / automatico / elettrico 80-100% (m/f/d)",
-        "en": "Automation Technician / Automatiker / Elektriker DPS Growth Project 80-100% (m/w/d)",
+        "en": "Automation Technician / Automation Technician / Electrician DPS Growth Project 80-100% (m/f/d)",
         "de": "Automation Techniker / Automatiker / Elektriker DPS Growth Project 80-100% (m/w/d)",
         "fr": "Automation Technicien / Automatiker / Elektriker DPS Growth Project 80-100% (m/w/d)"
       },
@@ -3649,7 +3649,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T23:23:02.386Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -3663,7 +3662,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-e0860162e111",
@@ -4558,7 +4558,7 @@
       "title": "Bioprocess Engineer/Chemiker Bioconjugates IBEX/PCP 80-100% (w/m/d)",
       "titleByLocale": {
         "it": "BioCushion Engineer/Chemist Bioconjugates IBEX/PCP 80-100% (m/f/d)",
-        "en": "Bioprocess Engineer/Chemiker Bioconjugates IBEX/PCP 80-100% (w/m/d)",
+        "en": "Bioprocess Engineer/Chemist Bioconjugates IBEX/PCP 80-100% (m/f/d)",
         "de": "Bioprocess Ingenieur/Chemiker Bioconjugates IBEX/PCP 80-100% (w/m/d)",
         "fr": "Ingénieur BioCushion/Chéministe Bioconjugates IBEX/PCP 80-100% (h/f/d)"
       },
@@ -4604,7 +4604,6 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:15:42.835Z",
-      "needsRetranslation": true,
       "salaryMin": 81000,
       "salaryMax": 135000,
       "salarySource": "estimated",
@@ -4618,7 +4617,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-fb1ae5948f24",
@@ -4720,7 +4720,7 @@
       "title": "Manufacturing Specialist 4-Schicht 80-100% (m/w/d)",
       "titleByLocale": {
         "it": "Manufacturing Specialista 4-Schicht 80-100% (m/w/d)",
-        "en": "Manufacturing Specialist 4-Schicht 80-100% (m/w/d)",
+        "en": "Manufacturing Specialist 4-Layer 80-100% (m/f/d)",
         "de": "Manufacturing Spezialist 4-Schicht 80-100% (m/w/d)",
         "fr": "Manufacturing Spécialiste 4-Schicht 80-100% (m/w/d)"
       },
@@ -4766,7 +4766,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T21:57:20.901Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 92000,
       "salarySource": "estimated",
@@ -4780,7 +4779,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-46c312ef9d9b",
@@ -7460,7 +7460,7 @@
       "title": "Manufacturing Specialist (m/f/d)",
       "titleByLocale": {
         "it": "Manufacturing Specialista (m/f/d)",
-        "en": "Manufacturing Specialist (m/f/d)",
+        "en": "Quality Assurance Specialist (m/f/d)",
         "de": "Manufacturing Spezialist (m/f/d)",
         "fr": "Manufacturing Spécialiste (m/f/d)"
       },
@@ -7509,7 +7509,6 @@
         ]
       },
       "firstSeenAt": "2026-06-19T22:15:25.965Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 92000,
       "salarySource": "estimated",
@@ -7523,7 +7522,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-1ad9359f3c8c",
@@ -9850,7 +9850,7 @@
       "title": "Manufacturing Specialist (m/w/d)",
       "titleByLocale": {
         "it": "Specialista di Produzione (m/f/d)",
-        "en": "Manufacturing Specialist (m/w/d)",
+        "en": "Quality Assurance Specialist (m/f/d)",
         "de": "Manufacturing Spezialist (m/w/d)",
         "fr": "Spécialiste en Fabrication (h/f/d)"
       },
@@ -9956,7 +9956,6 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:01:47.640Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 92000,
       "salarySource": "estimated",
@@ -9970,7 +9969,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-31883b25f698",
@@ -15475,7 +15475,7 @@
       "title": "EMR Ingenieur / Automation Engineer 80–100 % (m/w/d)",
       "titleByLocale": {
         "it": "Ingegnere EMR / Ingegnere Automazione 80–100 % (m/f/d)",
-        "en": "EMR Ingenieur / Automation Engineer 80–100 % (m/w/d)",
+        "en": "EMR Engineer / Automation Engineer 80-100% (m/f/d)",
         "de": "EMR Ingenieur / Automation Ingenieur 80–100 % (m/w/d)",
         "fr": "Ingénieur EMR / Ingénieur Automatisation 80–100 % (h/f/d)"
       },
@@ -15532,7 +15532,6 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:47:52.181Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -15546,7 +15545,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-6b9a8109ace9",
@@ -15562,8 +15562,8 @@
       "companyDomain": "lonza.com",
       "title": "MSAT Expert- Contamination Control 80-100%",
       "titleByLocale": {
-        "it": "MSAT Expert- Contamination Control 80-100%",
         "en": "MSAT Expert- Contamination Control 80-100%",
+        "it": "MSAT Expert - Controllo della Contaminazione 80-100%",
         "de": "MSAT Expert - Kontaminationskontrolle 80-100%",
         "fr": "Expert MSAT - Contrôle de la contamination 80-100%"
       },
@@ -15596,7 +15596,6 @@
       "crawledAt": "2026-09-25T14:44:22.364Z",
       "jobReqId": "R79594",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-23T23:39:28.699Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -15610,7 +15609,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "firstSeenAt": "2026-09-23T23:39:28.699Z"
     },
     {
       "id": "lonza-32973ea73462",
@@ -16166,8 +16166,8 @@
       "companyDomain": "lonza.com",
       "title": "EI&C MES DeltaV Application Manager 80-100% (m/f/d)",
       "titleByLocale": {
-        "it": "EI&C MES Application Manager 80-100% (m/f/d)",
         "en": "EI&C MES DeltaV Application Manager 80-100% (m/f/d)",
+        "it": "Responsabile applicazioni MES EI&C 80-100% (m/f/d)",
         "de": "EI&C MES Application Manager 80-100% (m/w/d)",
         "fr": "Gestionnaire d'applications des SEM de l'IE et C 80-100 % (h/f/d)"
       },
@@ -16200,7 +16200,6 @@
       "crawledAt": "2026-09-25T14:44:16.304Z",
       "jobReqId": "R79582",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-23T23:39:27.264Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -16214,7 +16213,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "firstSeenAt": "2026-09-23T23:39:27.264Z"
     },
     {
       "id": "lonza-b3ec20de536c",
@@ -16984,7 +16984,7 @@
       "companyDomain": "lonza.com",
       "title": "Senior Strategic Buyer - 80-100%",
       "titleByLocale": {
-        "it": "Senior Strategic Buyer - 80-100%",
+        "it": "Acquirente Strategico Senior - 80-100%",
         "en": "Senior Strategic Buyer - 80-100%",
         "de": "Senior Strategischer Käufer - 80-100%",
         "fr": "Acheteur stratégique senior - 80-100%"

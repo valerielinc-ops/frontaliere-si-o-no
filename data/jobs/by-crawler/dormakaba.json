@@ -486,7 +486,7 @@
       "title": "Servicetechniker/-in (w/m/d)",
       "titleByLocale": {
         "de": "Servicetechniker/-in (w/m/d)",
-        "fr": "Servicetechniker/-in (w/m/d)",
+        "fr": "Technicien de service (h/f/d)",
         "it": "Servicetechniker/-in (w/m/d)",
         "en": "Servicetechniker/-in (w/m/d)"
       },
@@ -546,7 +546,6 @@
           "technicien-in-f-m-d-dormakaba-st-gallen"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -560,7 +559,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T10:35:54.067Z"
+      "firstSeenAt": "2026-07-04T10:35:54.067Z",
+      "needsRetranslation": true
     },
     {
       "id": "dormakaba-11716",
