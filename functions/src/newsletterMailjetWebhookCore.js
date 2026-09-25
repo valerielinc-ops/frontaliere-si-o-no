@@ -10,6 +10,7 @@ import {
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 import { uniqueUnknownFallback } from './lib/deliveryDocId.js';
 import { recordJobEmailRankingClick } from './lib/jobEmailRankingStore.js';
+import { isDeletedEmailAccount } from './authAccountCleanup.js';
 
 /**
  * Mailjet webhook handler — receives delivery events and stores them in Firestore.
@@ -79,6 +80,10 @@ export async function persistMailjetEvent(db, eventData) {
  const mjEvent = eventData.event;
  const type = mapMailjetEvent(mjEvent);
  if (!type) return { skipped: true, reason: `unknown_event: ${mjEvent}` };
+
+ if (await isDeletedEmailAccount(db, email)) {
+   return { skipped: true, reason: 'account_deleted' };
+ }
 
  const campaignId = extractCampaignId(eventData);
  const messageId = extractMessageId(eventData);
@@ -337,7 +342,7 @@ export async function handleMailjetWebhookRequest({ body, query, webhookSecret, 
  try {
  const result = await persistMailjetEvent(db, eventData);
  results.push(result);
- console.log(`[mailjetWebhook] ${eventData.event} → ${result.type || 'skipped'} for ${eventData.email || '?'}`);
+ console.log(`[mailjetWebhook] ${result.reason || result.type || 'skipped'}`);
  } catch (err) {
  console.error(`[mailjetWebhook] Error processing event: ${err.message}`);
  results.push({ skipped: true, reason: err.message });

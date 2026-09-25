@@ -11,6 +11,7 @@ import {
 } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 import { recordJobEmailRankingClick } from './lib/jobEmailRankingStore.js';
+import { isDeletedEmailAccount } from './authAccountCleanup.js';
 
 /**
  * Maileroo webhook handler — receives delivery events and stores them in Firestore.
@@ -155,6 +156,9 @@ export async function persistMailerooEvent(db, event) {
   const meta = (metaDoc && typeof metaDoc.email === 'string' && metaDoc.email.includes('@')) ? metaDoc : null;
   const email = meta ? meta.email : getRecipient(event);
   if (!email || !email.includes('@')) return { skipped: true, reason: 'invalid_email' };
+  if (await isDeletedEmailAccount(db, email)) {
+    return { skipped: true, reason: 'account_deleted' };
+  }
 
   const isJobAlert = meta ? !!meta.is_job_alert : isJobAlertEvent(event);
   const campaignId = (meta && meta.campaign_id) ? meta.campaign_id : extractCampaignId(event);
@@ -384,7 +388,7 @@ export async function handleMailerooWebhookRequest({ payload, headers, signingSe
     try {
       const result = await persistMailerooEvent(db, event);
       results.push(result);
-      console.log(`[mailerooWebhook] ${event.event_type} → ${result.type || 'skipped'} for ${getRecipient(event) || '?'}`);
+      console.log(`[mailerooWebhook] ${result.reason || result.type || 'skipped'}`);
     } catch (err) {
       console.error(`[mailerooWebhook] Error processing ${event.event_type}: ${err.message}`);
       results.push({ error: err.message, event: event.event_type });

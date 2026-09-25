@@ -55,6 +55,22 @@ export function isAccountDeletedTombstone(data) {
 }
 
 /**
+ * Late provider callbacks must not recreate tracking data after account erasure.
+ * Check both channel tombstones before ranking, subscriber or event writes.
+ * Read errors propagate instead of bypassing the erasure check.
+ */
+export async function isDeletedEmailAccount(db, rawEmail) {
+  const email = String(rawEmail || '').trim().toLowerCase();
+  const snapshots = await Promise.all([
+    db.collection('newsletter_subscribers').doc(email).get(),
+    db.collection('job_alert_subscribers').doc(email).get(),
+  ]);
+  return snapshots.some((snapshot) => (
+    snapshot.exists && isAccountDeletedTombstone(snapshot.data())
+  ));
+}
+
+/**
  * @param {string} uid
  * @param {import('firebase-admin/firestore').Firestore} [injectedDb]
  * @returns {Promise<{deletedSavedJobs: number}>}

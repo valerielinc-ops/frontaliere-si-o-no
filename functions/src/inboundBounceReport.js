@@ -44,6 +44,7 @@
  */
 
 import admin from 'firebase-admin';
+import { isDeletedEmailAccount } from './authAccountCleanup.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import {
   classifyBounceSeverity,
@@ -180,6 +181,9 @@ export async function handleInboundBounceReport({
   if (!email) return { status: 400, body: 'invalid recipient' };
 
   const db = injectedDb || getAdminDb();
+  if (await isDeletedEmailAccount(db, email)) {
+    return { status: 200, body: 'ignored: account_deleted', result: { applied: [], reason: 'account_deleted' } };
+  }
   const severity = classifyBounceSeverity({
     provider: 'dsn',
     rawEvent: action,
