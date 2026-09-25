@@ -507,9 +507,13 @@
     <!-- Google AdSense: deferred until after page is interactive to avoid
          blocking critical resources and deprecated-API warnings (Fledge) -->
 
-    <!-- The Italian job board uses direct GPT Rewarded Web so the employer
-         redirect can wait for the rewarded lifecycle. Native Offerwall is
-         page-level and is filtered to avoid racing that flow. -->
+    <!-- Click-only Offerwall on the Italian job board: the AdSense Offerwall
+         (the site's only rewarded demand) must appear only when the visitor
+         clicks "Candidati". Funding Choices calls this twice per page view;
+         the call that carries OFFERWALL is held and released by
+         services/offerwallClickGate.ts. Readable twin of
+         FC_JOBBOARD_OFFERWALL_GATE_JS (build-plugins/constants.ts);
+         tests/offerwall-click-gate-parity.test.ts executes both. -->
     <script>
       (function(){
         var g = window.googlefc = window.googlefc || {};
@@ -517,14 +521,46 @@
         g.controlledMessagingFunction = function(message){
           var E = g.MessageTypeEnum || {};
           var p = window.location && window.location.pathname || '';
-          var isItalianJobBoard = /^\/cerca-lavoro-ticino(?:\/|$)/.test(p);
-          // Fail open if the enum is unavailable: never block the consent CMP
-          // because an older Funding Choices runtime lacks Offerwall filtering.
-          if (!isItalianJobBoard || E.OFFERWALL === undefined) {
+          // The first call arrives with an empty enum and must proceed at
+          // once: holding it delays the CMP and the display ads. Other pages
+          // keep every message.
+          if (E.OFFERWALL === undefined || !/^\/cerca-lavoro-ticino(?:\/|$)/.test(p)) {
             message.proceed(true);
             return;
           }
-          message.proceed(false, [E.OFFERWALL]);
+          // This call also carries the GDPR consent message. Hold it only
+          // when a decision is stored on both sides: our bridge's key AND a
+          // TC string in Funding Choices' own FCCDCF cookie (a TCF v2 string
+          // starts with "C"). Otherwise the CMP must show now: suppress only
+          // the Offerwall for this page view instead of holding everything.
+          var d = false;
+          try { d = !!window.localStorage.getItem('frontaliere_ads_consent'); } catch (e) {}
+          if (d) {
+            var c = (window.document && window.document.cookie || '').match(/(?:^|;\s*)FCCDCF=([^;]*)/), v = '';
+            try { v = c ? decodeURIComponent(c[1]) : ''; } catch (e) {}
+            d = /"C[A-Za-z0-9_-]{20,}/.test(v);
+          }
+          if (!d) {
+            window.__ftOfferwallGate = window.__ftOfferwallGate || { state: 'suppressed', held: [] };
+            message.proceed(false, [E.OFFERWALL]);
+            return;
+          }
+          var w = window.__ftOfferwallGate = window.__ftOfferwallGate || { state: 'idle', held: [] };
+          if (w.state === 'released') {
+            message.proceed(true);
+            return;
+          }
+          w.held.push(message);
+          w.state = 'held';
+          w.release = function(){
+            if (w.state !== 'held') return false;
+            w.state = 'released';
+            var h = w.held.splice(0);
+            for (var i = 0; i < h.length; i++) {
+              try { h[i].proceed(true); } catch (e) {}
+            }
+            return true;
+          };
         };
       })();
     </script>
