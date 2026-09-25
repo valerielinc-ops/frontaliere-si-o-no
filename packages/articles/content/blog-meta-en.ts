@@ -12000,6 +12000,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.furti-auto-lusso-ticino.title': 'Luxury car thefts in Ticino: three arrested',
     'blog.article.furti-auto-lusso-ticino.excerpt': 'Four high-end vehicles stolen in Manno, Lamone and Camorino. Three young men arrested and a fourth suspect wanted after joint investigations.',
     'blog.article.furti-auto-lusso-ticino.imageAlt': 'Luxury car in a Ticino dealership',
+    'blog.article.barco-saronno-agitazione-sciopero-2026.title': 'Barco Saronno: cuts, strike and state of agitation',
+    'blog.article.barco-saronno-agitazione-sciopero-2026.excerpt': 'Fiom, Fim and Uilm declare industrial action at Barco in Saronno following the announcement of a reorganization. One hour of strike per shift, involving temporary agency workers and permanent employees.',
+    'blog.article.barco-saronno-agitazione-sciopero-2026.imageAlt': 'Industrial plant in Mendrisio with mountains background',
 };
 
 export default blogMetaEn;
