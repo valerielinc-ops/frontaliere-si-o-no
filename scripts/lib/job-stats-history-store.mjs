@@ -273,6 +273,12 @@ function preservesCompactionPayload(previous = {}, next = {}) {
       nextItemsByIdentity.set(identity, items);
     }
 
+    // Even a descriptor-only bucket carries a non-empty historical index. A
+    // controlled rewrite may prune individual empty descriptors during locale
+    // migration, but it must never erase the whole bucket array and bypass the
+    // byte-floor guard.
+    if (previousItems.length > 0 && nextItems.length === 0) return false;
+
     return previousItems.every((previousItem) => {
       const previousIdentity = String(previousItem?.key || previousItem?.name || '');
       const previousAddedKeys = sortedUniqueStrings(previousItem?.addedKeys);

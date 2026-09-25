@@ -415,6 +415,42 @@ describe('job stats history store', () => {
     });
   });
 
+  it('refuses to erase non-empty descriptor buckets during a controlled rewrite', () => {
+    withTempRoot((root) => {
+      const shardPath = path.join(root, SHARD_DIR, '2026-09-19.json');
+      fs.mkdirSync(path.dirname(shardPath), { recursive: true });
+      const descriptorBuckets = (prefix: string) => Array.from({ length: 12_000 }, (_, i) => ({
+        key: `${prefix}-${i}`,
+        name: `${prefix} bucket ${i}`,
+        addedKeys: [],
+        updatedKeys: [],
+        removedKeys: [],
+      }));
+      const existing = entry('2026-09-19', {
+        added: 1,
+        updated: 2,
+        removed: 3,
+        companyStats: descriptorBuckets('company'),
+        locationStats: descriptorBuckets('location'),
+        titleStats: descriptorBuckets('title'),
+      });
+      const before = JSON.stringify({ entries: [existing] }, null, 2) + '\n';
+      expect(Buffer.byteLength(before)).toBeGreaterThan(2 * 1024 * 1024);
+      fs.writeFileSync(shardPath, before);
+
+      const replacement = entry('2026-09-19', {
+        added: 1,
+        updated: 2,
+        removed: 3,
+      });
+      expect(() => writeJobsStatsHistory({ entries: [replacement, entry('2026-09-20')] }, root, {
+        currentDate: '2026-09-20',
+      })).toThrow(/ABORT write.*2026-09-19\.json/);
+      expect(fs.readFileSync(shardPath, 'utf8')).toBe(before);
+      expect(fs.existsSync(path.join(root, SHARD_DIR, '2026-09-20.json'))).toBe(false);
+    });
+  });
+
   it('refuses to delete a large shard whose date disappeared from canonical history', () => {
     withTempRoot((root) => {
       const shardPath = path.join(root, SHARD_DIR, '2026-09-19.json');
