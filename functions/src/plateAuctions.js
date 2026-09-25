@@ -688,6 +688,7 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
       const previousLiveCount = [...previousById.values()]
         .filter((row) => isLive(row) && missingSinceOf(row) === undefined).length;
       const saleDecision = recognizeCatalogueSales({
+        sourceKey: key,
         previousCount: previousLiveCount,
         fetchedCount: rows.length,
         vanishedCount: saleCandidates.length,
