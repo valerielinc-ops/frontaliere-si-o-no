@@ -15,6 +15,7 @@ import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-com
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { ISO_ALPHA2_COUNTRY_CODES } from './prospector/country-inventory.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import { isKnownSwissMunicipalityInCanton } from './target-swiss-locations.mjs';
 import {
   detectSuccessFactorsKind,
   fetchSuccessFactorsJobs,
@@ -138,12 +139,15 @@ function detectEmploymentType(text = '') {
  * Swiss Re writes every location as `City[, Region], CC`: the terminal
  * two-letter segment is the ISO 3166-1 country code (`Zurich, CH`,
  * `Paris, FR`, `Kansas City, MO, US`), and a multi-location posting lists
- * such entries separated by `|`. In that position FR, SG and LU are France,
- * Singapore and Luxembourg, not the cantons Fribourg, St. Gallen and Lucerne
- * that the generic trailing-suffix rule of inferSwissTargetCanton() reads
- * (issue 9843). The position in the source field decides, before any canton
- * inference; the canton itself comes from the fail-closed source-backed
- * resolver, never from the Zürich HQ.
+ * such entries separated by `|`. In that position `Paris, FR`,
+ * `Singapore, SG` and `Luxembourg, LU` are France, Singapore and Luxembourg,
+ * not the cantons Fribourg, St. Gallen and Lucerne that the generic
+ * trailing-suffix rule of inferSwissTargetCanton() reads (issue 9843). The
+ * position in the source field and the city decide, before any canton
+ * inference: a colliding code stays a canton only after a municipality of
+ * that canton (`Fribourg, FR`) or without a comma (`Brügg BE`). The canton
+ * itself comes from the fail-closed source-backed resolver, never from the
+ * Zürich HQ.
  */
 
 /**
@@ -161,8 +165,15 @@ export function splitSwissReLocations(text = '') {
 
 /**
  * ISO country code carried by the terminal segment of one Swiss Re entry, or
- * `''` when the entry has no such segment (`Zürich`, `Lugano, TI`: a canton
- * code that is not an assigned ISO country code stays canton evidence).
+ * `''` when that segment is not a country:
+ * - `City CC` without a comma (`Brügg BE`) has no country segment: the code
+ *   is a canton marker and stays canton evidence;
+ * - a code that is not an assigned ISO country (`Lugano, TI`, `Altdorf, UR`)
+ *   stays canton evidence;
+ * - an ISO code that is also a Swiss canton code (BE, FR, SG, LU, AG, AR, GL,
+ *   NE, SO, …) after a comma is a country only when the city is NOT a
+ *   municipality of the homonymous canton: `Bern, BE` and `Fribourg, FR` are
+ *   Swiss, `Brussels, BE` and `Paris, FR` are foreign.
  *
  * @param {string} entry
  * @returns {string}
@@ -173,7 +184,9 @@ export function swissReEntryCountryCode(entry = '') {
   const last = segments[segments.length - 1];
   if (!/^[A-Za-z]{2}$/.test(last)) return '';
   const code = last.toUpperCase();
-  return ISO_ALPHA2_COUNTRY_CODES.has(code) ? code : '';
+  if (!ISO_ALPHA2_COUNTRY_CODES.has(code)) return '';
+  if (isKnownSwissMunicipalityInCanton(segments[0], code)) return '';
+  return code;
 }
 
 /**
