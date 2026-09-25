@@ -11952,6 +11952,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bns-franco-euro-cambio.title': 'SNB: Schwacher Franken, Euro bei 0,9423 CHF',
     'blog.article.bns-franco-euro-cambio.excerpt': 'Die SNB bestätigt den Zinssatz auf null. Der Euro steigt auf 0,9423 Franken, der Dollar auf 0,8268: Auswirkungen auf den Gegenwert für Grenzgänger.',
     'blog.article.bns-franco-euro-cambio.imageAlt': 'Blick auf den Luganersee mit der Stadt im Hintergrund, Morgenlicht',
+    'blog.article.gornate-olona-regime-fiscale.title': 'Gornate Olona: Arbeiten im Tessin als Grenzgänger',
+    'blog.article.gornate-olona-regime-fiscale.excerpt': 'Von Gornate Olona bis Tessin: Grenzgängerabkommen in Kraft seit dem 1. Januar 2024, Quellensteuer, Befreiung € 7\'500 oder Selbstbehalt € 10\'000, AHV und KVG.',
+    'blog.article.gornate-olona-regime-fiscale.imageAlt': 'Grenzgänger zwischen Gornate Olona und dem Kanton Tessin',
 };
 
 export default blogMetaDe;

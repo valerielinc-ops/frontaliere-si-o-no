@@ -471,7 +471,19 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-21T16:02:04.071Z"
+      "firstSeenAt": "2026-09-21T16:02:04.071Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sap-mm-inhouse-consulente-staubli-allschwil"
+        ],
+        "fr": [
+          "sap-mm-conseiller-interne-staubli-allschwil-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "sap-mm-inhouse-consulente-staubli-allschwil",
+        "sap-mm-conseiller-interne-staubli-allschwil-switzerland"
+      ]
     },
     {
       "id": "staubli-e096b31b0712",
@@ -532,14 +544,17 @@
           "sap-mm-inhouse-consultant-staubli-allschwil-switzerland"
         ],
         "en": [
-          "sap-mm-inhouse-consultant-staubli-allschwil-switzerland"
+          "sap-mm-inhouse-consultant-staubli-allschwil-switzerland",
+          "sap-mm-inhouse-consultant-staubli-allschwil-switzerland-60rle9"
         ],
         "de": [
-          "sap-mm-inhouse-consultant-staubli-allschwil-switzerland"
+          "sap-mm-inhouse-consultant-staubli-allschwil-switzerland",
+          "sap-mm-inhouse-consultant-staubli-allschwil-switzerland-60rle9"
         ]
       },
       "previousSlugs": [
-        "sap-mm-inhouse-consultant-staubli-allschwil-switzerland"
+        "sap-mm-inhouse-consultant-staubli-allschwil-switzerland",
+        "sap-mm-inhouse-consultant-staubli-allschwil-switzerland-60rle9"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

@@ -6683,6 +6683,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salasso-alla-pompa-benzina.title': 'Aderlass an der Pumpe: teurer Diesel, Benzin steigt',
     'blog.article.salasso-alla-pompa-benzina.excerpt': 'Am 24. September 2026 kostet Diesel in Zürich durchschnittlich 2,46 CHF/l (Spitzenwerte >2,50), Benzin 95 2,14 CHF/l, während Öl über 100 USD/Barrel kostet.',
     'blog.article.salasso-alla-pompa-benzina.imageAlt': 'Tankstelle in Zürich mit Anzeige für Diesel- und Benzinpreise',
+    'blog.article.made-in-europe-svizzera.title': 'Made in Europe: Die Schweiz sucht einen Platz in der EU-Beschaffung',
+    'blog.article.made-in-europe-svizzera.excerpt': 'Am 24. September 2026 wurde in Brüssel über die Aufnahme der Schweiz in das EU-Beschleunigungsgesetz diskutiert, wobei Deutschland dafür und Frankreich dagegen waren.',
+    'blog.article.made-in-europe-svizzera.imageAlt': 'Schweizer Industrieanlage mit EU-Flagge im Hintergrund, Symbol der Debatte \'Made in Europe\'',
+    'blog.article.urne-due-iniziative-2026.title': 'Note Schweiz: Neutralität und Ernährung',
+    'blog.article.urne-due-iniziative-2026.excerpt': 'Am 27. September 2026 stimmt die Schweiz über Neutralität und Ernährung ab. Die Quelle lädt zur Teilnahme an der 20-minütigen Umfrage und Tamedia ein.',
+    'blog.article.urne-due-iniziative-2026.imageAlt': 'Schweizer Abstimmung über Neutralität und Ernährung',
 };
 
 export default blogMetaChDe;

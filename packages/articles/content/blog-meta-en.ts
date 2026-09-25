@@ -11953,6 +11953,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bns-franco-euro-cambio.title': 'SNB: weak franc, Euro at 0.9423 CHF',
     'blog.article.bns-franco-euro-cambio.excerpt': 'The SNB confirms the rate at zero. The euro rises to 0.9423 francs, the dollar to 0.8268: impact on the value for frontier workers.',
     'blog.article.bns-franco-euro-cambio.imageAlt': 'View of Lake Lugano with the city in the background, morning light',
+    'blog.article.gornate-olona-regime-fiscale.title': 'Gornate Olona: working in Ticino as a border worker',
+    'blog.article.gornate-olona-regime-fiscale.excerpt': 'From Gornate Olona to Ticino: border agreements in force from 1 January 2024, tax at source, exemption €7,500 or deductible €10,000, AVS and LAMal.',
+    'blog.article.gornate-olona-regime-fiscale.imageAlt': 'Cross-border worker between Gornate Olona and Canton Ticino',
 };
 
 export default blogMetaEn;

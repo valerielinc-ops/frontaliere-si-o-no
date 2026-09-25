@@ -605,7 +605,7 @@
       "slugByLocale": {
         "it": "gestione-della-funzionalita-m-f-d-komax-dierikon",
         "en": "facility-manager-w-m-d-komax-dierikon",
-        "de": "facility-manager-w-m-d-komax-ch-ji9uhd",
+        "de": "facility-manager-w-m-d-komax-ch",
         "fr": "gestionnaire-d-installations-h-f-d-komax-dierikon"
       },
       "company": "Komax",
@@ -651,7 +651,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "facility-manager-w-m-d-komax-ch"
+          "facility-manager-w-m-d-komax-ch",
+          "facility-manager-w-m-d-komax-ch-ji9uhd"
         ],
         "it": [
           "facility-manager-w-m-d-komax-ch"
@@ -661,7 +662,8 @@
         ]
       },
       "previousSlugs": [
-        "facility-manager-w-m-d-komax-ch"
+        "facility-manager-w-m-d-komax-ch",
+        "facility-manager-w-m-d-komax-ch-ji9uhd"
       ],
       "firstSeenAt": "2026-09-21T16:17:37.993Z",
       "salaryMin": 96000,
