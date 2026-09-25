@@ -96,4 +96,15 @@ describe('crawlerDirectFixBudget', () => {
       labels: [{ name: 'agent:triaged' }, { name: 'automation-deferred' }],
     })).toBe(false);
   });
+
+  it('non re-instrada una issue in verifica maybe-resolved (#9742)', () => {
+    // Forma di #9578 dopo l'instradamento già-risolto: `agent:fix` tolto,
+    // `maybe-resolved` aggiunto, nessun'altra label di routing.
+    const routed = { title: 'Deploy: validate-dist non trova l artifact github-pages', body: '' };
+    const labels = (...names: string[]) => names.map((name) => ({ name }));
+    const stringLabels = (...names: string[]) => names;
+    expect(isTriagedButNotRouted({ ...routed, labels: labels('bug', 'agent:triaged') })).toBe(true);
+    expect(isTriagedButNotRouted({ ...routed, labels: labels('bug', 'agent:triaged', 'maybe-resolved') })).toBe(false);
+    expect(isTriagedButNotRouted({ ...routed, labels: stringLabels('bug', 'agent:triaged', 'maybe-resolved') })).toBe(false);
+  });
 });
