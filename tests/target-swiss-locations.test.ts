@@ -21,8 +21,14 @@ describe('isWorkModeLocationLabel', () => {
     }
   });
 
-  it('does not flag a place, a decorated place or an empty label', () => {
-    for (const label of ['Basel (City)', 'Remote, Switzerland', 'Rotkreuz (Office-Based)', 'Zürich', '', undefined]) {
+  it('flags a work mode when it is one segment of a decorated label', () => {
+    for (const label of ['Remote, Switzerland', 'Switzerland - Remote', 'Home Office - Switzerland']) {
+      expect(isWorkModeLocationLabel(label), label).toBe(true);
+    }
+  });
+
+  it('does not flag a place, a city plus work-mode word or an empty label', () => {
+    for (const label of ['Basel (City)', 'Rotkreuz (Office-Based)', 'Zürich', 'Zürich Hybrid', '', undefined]) {
       expect(isWorkModeLocationLabel(label as string), String(label)).toBe(false);
     }
   });

@@ -845,7 +845,7 @@ export function swissCityFromLocationField(value = '') {
 // A location label that names a work mode instead of a place. Workday and
 // Greenhouse boards emit it where a city would go (`Switzerland - Remote`,
 // `Remote, Switzerland`, a bare `Remote`).
-const WORK_MODE_LOCATION_LABEL_RE = /^(?:remote|home\s*office|hybrid)$/i;
+const WORK_MODE_LOCATION_LABEL_RE = /^(?:remote|home[\s-]*office|hybrid)$/i;
 
 /**
  * True when a location label (or one segment of it) is a work mode —
@@ -854,7 +854,12 @@ const WORK_MODE_LOCATION_LABEL_RE = /^(?:remote|home\s*office|hybrid)$/i;
  * its HQ city or canton: unknown geography stays fail-closed (issue 9839).
  */
 export function isWorkModeLocationLabel(value = '') {
-  return WORK_MODE_LOCATION_LABEL_RE.test(String(value || '').trim());
+  return String(value || '')
+    // Workday sometimes decorates the mode with a country/region segment.
+    // Keep a city joined by whitespace ("Zürich Hybrid") as a real location.
+    .split(/[,|/]|\s+[-–—]\s+/)
+    .map((segment) => segment.trim())
+    .some((segment) => WORK_MODE_LOCATION_LABEL_RE.test(segment));
 }
 
 // ─── Liechtenstein postal-code helper ──────────────────────────────────────
