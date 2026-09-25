@@ -39,9 +39,9 @@ import { createHash } from 'node:crypto';
 import {
   detectLang,
   hqPostalCodeForLocality,
-  isChCountry,
   isLocationExplicitlyForeign,
 } from './dedicated-crawler-common.mjs';
+import { isChCountry } from './ch-country-guard.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
 import {
