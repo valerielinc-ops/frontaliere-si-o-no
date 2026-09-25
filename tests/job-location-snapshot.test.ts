@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { deriveJobPostalCode, getJobLocationSnapshot, resolveJobPostingPostalCode } from '@/services/jobLocationSnapshot';
+import { postalCodeBelongsToLocality } from '@/build-plugins/shared/postalCodes';
 
 describe('jobLocationSnapshot', () => {
   it('returns postal code and commuter-friendly nearest crossings for Riazzino', () => {
@@ -58,15 +59,22 @@ describe('jobLocationSnapshot', () => {
     // to drop the source street that travels with the HQ CAP.
     expect(resolveJobPostingPostalCode({ location: 'Chur', addressLocality: 'Chur', postalCode: '8600' }, 'Chur', 'GR'))
       .toEqual({ postalCode: '7000', sourcePostalCoherent: false });
-    // No source CAP and a locality the seeds do not know: never the Ticino
-    // default next to a Bernese locality, but the canton capital.
+    // No source CAP and a locality the seeds do not know: never publish the
+    // canton-capital CAP next to a different locality when the same guard can
+    // prove the pairing is false.
     expect(resolveJobPostingPostalCode({ location: 'Worblaufen', addressLocality: 'Worblaufen' }, 'Worblaufen', 'BE'))
-      .toEqual({ postalCode: '3001', sourcePostalCoherent: true });
+      .toEqual({ postalCode: '', sourcePostalCoherent: true });
     // A coherent source CAP, plain or decorated, stays with its street.
     expect(resolveJobPostingPostalCode({ addressLocality: 'Lugano', postalCode: '6900' }, 'Lugano', 'TI'))
       .toEqual({ postalCode: '6900', sourcePostalCoherent: true });
     expect(resolveJobPostingPostalCode({ addressLocality: 'Dübendorf-Stettbach', postalCode: '8600' }, 'Dübendorf-Stettbach', 'ZH'))
       .toEqual({ postalCode: '8600', sourcePostalCoherent: true });
+    const guardedFallback = resolveJobPostingPostalCode(
+      { addressLocality: 'Dübendorf-Stettbach', postalCode: '3001' },
+      'Dübendorf-Stettbach',
+      'ZH',
+    );
+    expect(postalCodeBelongsToLocality('Dübendorf-Stettbach', guardedFallback.postalCode)).toBe(true);
   });
 
   it('still trusts a postal code consistent with the locality', () => {

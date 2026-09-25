@@ -420,8 +420,11 @@ export function resolveJobPostingPostalCode(
 ): { postalCode: string; sourcePostalCoherent: boolean } {
  const sourcePostalCoherent = postalCodeBelongsToLocality(addressLocality, input.postalCode);
  const derivedPostalCode = deriveJobPostalCode(sourcePostalCoherent ? input : { ...input, postalCode: '' });
+ const fallbackPostalCode = resolvePostalCode(addressLocality, addressRegion);
  const postalCode = postalCodeBelongsToLocality(addressLocality, derivedPostalCode)
  ? derivedPostalCode
- : resolvePostalCode(addressLocality, addressRegion);
+ : postalCodeBelongsToLocality(addressLocality, fallbackPostalCode)
+ ? fallbackPostalCode
+ : '';
  return { postalCode, sourcePostalCoherent };
 }
