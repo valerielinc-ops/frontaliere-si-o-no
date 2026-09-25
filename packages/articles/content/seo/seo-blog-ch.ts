@@ -86600,6 +86600,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salasso-alla-pompa-benzina': {
+    title: 'Salasso alla pompa: diesel caro, benzina in rialzo',
+    description: 'Il 24 settembre 2026 a Zurigo il diesel raggiunge 2,46 CHF/l, la benzina 95 2,14 CHF/l e il petrolio supera i 100 USD/barile. Scopri le prospettive di rialzo',
+    keywords: 'frontalieri, ticino, svizzera, italia, salasso, alla, pompa, diesel',
+    ogTitle: 'Salasso alla pompa: diesel caro, benzina in rialzo',
+    ogDescription: 'A Zurigo, il 24 settembre 2026, il diesel costa in media 2,46 franchi al litro con picchi oltre 2,50, mentre la benzina senza piombo 95 è a 2,14 franchi di mediana. Il petrolio supera i 100 dollari al barile e le prospettive di Goldman Sachs indicano',
+    canonicalPath: '/articoli-svizzera/salasso-alla-pompa-benzina/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salasso alla pompa: diesel caro, benzina in rialzo",
+      "description": "Il 24 settembre 2026 a Zurigo il diesel raggiunge 2,46 CHF/l, la benzina 95 2,14 CHF/l e il petrolio supera i 100 USD/barile. Scopri le prospettive di rialzo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salasso-alla-pompa-benzina.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di servizio a Zurigo con display prezzi diesel e benzina"
+      },
+      "datePublished": "2026-09-25T01:29:16+00:00",
+      "dateModified": "2026-09-25T01:29:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salasso-alla-pompa-benzina/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

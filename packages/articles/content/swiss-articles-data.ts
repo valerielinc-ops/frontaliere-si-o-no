@@ -20012,6 +20012,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'salasso-alla-pompa-benzina',
+    category: 'pratico',
+    date: '2026-09-25T01:29:16.382Z',
+    image: '/images/blog/salasso-alla-pompa-benzina.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
