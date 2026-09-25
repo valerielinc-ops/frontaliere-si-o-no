@@ -160,12 +160,20 @@ jobs:
             echo "translation-cache: miss" >> "$GITHUB_STEP_SUMMARY"
           fi
 
-      - name: Cache Opus-MT models
+      # One .cache/transformers holds the Opus-MT weights AND the ~470MB e5
+      # model of the Argos semantic gate (#9675). actions/cache never re-saves an
+      # exact key hit, so under the old immutable `opus-mt-models-v1` key the e5
+      # files downloaded after the restore were thrown away and fetched again on
+      # every run (#9677). The v2 key misses once, restores the Opus-MT weights
+      # through the old prefix and saves the directory with e5 in it.
+      - name: Cache local MT models (Opus-MT + e5 semantic judge)
         uses: actions/cache@v5
         with:
           path: .cache/transformers
-          key: opus-mt-models-v1
-          restore-keys: opus-mt-models-
+          key: local-mt-models-v2-opus-e5
+          restore-keys: |
+            local-mt-models-
+            opus-mt-models-
 
       - name: Cache Argos Translate models
         uses: actions/cache@v5
@@ -246,10 +254,12 @@ jobs:
         env:
           ROLLOUT_REPOSITORY: ${{ github.repository }}
           ROLLOUT_SWITCH: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
           OPUSMT_RESCUE_SWITCH: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
         run: |
           echo "Translation rollout repository=$ROLLOUT_REPOSITORY"
           echo "LOCAL_MT_LANG_AWARE_OVERWRITE=$ROLLOUT_SWITCH"
+          echo "LOCAL_MT_SEMANTIC_MAX_OVERWRITES=$SEMANTIC_MAX_OVERWRITES"
           echo "LOCAL_MT_OPUSMT_RESCUE=$OPUSMT_RESCUE_SWITCH"
 
       - name: Log translation stats (before)
@@ -285,6 +295,15 @@ jobs:
           # Default '0' = the arm runs and COUNTS but withholds the write, so a run
           # can be read before it is allowed to act. Set the repo variable to '1'.
           LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          # Argos semantic gate rollout (#9677). LOCAL_MT_LANG_AWARE_OVERWRITE above
+          # is its kill-switch: '0' keeps every overwrite in shadow (a bounded
+          # sample is judged and counted, nothing written). The cap bounds the
+          # overwrites one phase may write (hard max 2000 in the script). The
+          # run rollback is the #9676 guard in local-mt-semantic-policy.mjs.
+          # Counts per verdict and per withheld reason land in the log line
+          # LOCAL_MT_SEMANTIC_TELEMETRY and in the file below (uploaded).
+          LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
+          LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2a.json
           # Default '0' = OpusMT rescue is not invoked. Set the repo variable to '1'
           # only after the rollout is approved.
           LOCAL_MT_OPUSMT_RESCUE: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
@@ -419,6 +438,15 @@ jobs:
           # Default '0' = the arm runs and COUNTS but withholds the write, so a run
           # can be read before it is allowed to act. Set the repo variable to '1'.
           LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          # Argos semantic gate rollout (#9677). LOCAL_MT_LANG_AWARE_OVERWRITE above
+          # is its kill-switch: '0' keeps every overwrite in shadow (a bounded
+          # sample is judged and counted, nothing written). The cap bounds the
+          # overwrites one phase may write (hard max 2000 in the script). The
+          # run rollback is the #9676 guard in local-mt-semantic-policy.mjs.
+          # Counts per verdict and per withheld reason land in the log line
+          # LOCAL_MT_SEMANTIC_TELEMETRY and in the file below (uploaded).
+          LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
+          LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2c.json
           # Default '0' = OpusMT rescue is not invoked. Set the repo variable to '1'
           # only after the rollout is approved.
           LOCAL_MT_OPUSMT_RESCUE: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
@@ -613,6 +641,19 @@ jobs:
         with:
           name: translation-cascade-companies-${{ github.run_id }}-${{ github.run_attempt }}.json
           path: ${{ runner.temp }}/translation-cascade-companies.json
+          retention-days: 30
+          if-no-files-found: warn
+
+      # Argos semantic gate telemetry (#9677), one JSON per mop-up phase:
+      # verdicts accepted/rejected/unclear/error, writes by kind, withheld by
+      # reason (kill-switch/cap/rollback), cap and #9676 rollback-guard state.
+      - name: Upload Argos semantic telemetry
+        if: always() && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
+        continue-on-error: true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: local-mt-semantic-telemetry-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/local-mt-semantic-telemetry-*.json
           retention-days: 30
           if-no-files-found: warn
 

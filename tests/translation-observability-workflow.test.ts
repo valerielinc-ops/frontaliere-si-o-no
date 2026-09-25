@@ -234,6 +234,54 @@ describe('translation observability workflow', () => {
     expect(runs).not.toContain('gh workflow run');
   });
 
+  it('bounds the Argos semantic rollout: kill-switch default off, finite cap, telemetry artifact (#9677)', () => {
+    const disabledWorkflow = fs.readFileSync(path.resolve('.github/workflows/translate-pending.yml'), 'utf8');
+    for (const [label, document] of [
+      ['source', workflow],
+      ['portable artifact', portableWorkflow],
+      ['disabled source', disabledWorkflow],
+    ]) {
+      const steps = parseTranslationSteps(document);
+      const phases = [
+        ['phase-2a', 'Phase 2a: Local MT bulk translate (Argos)'],
+        ['phase-2c', 'Phase 2c mop-up: local MT (Argos Translate, in-process)'],
+      ];
+      for (const [phase, name] of phases) {
+        const step = steps.find((candidate) => candidate.name === name);
+        const env = step?.env as Record<string, unknown> | undefined;
+        expect(env, `${label}: ${name} env missing`).toBeDefined();
+        // Kill-switch: the existing default-off language-arm variable.
+        expect(env?.LOCAL_MT_LANG_AWARE_OVERWRITE, `${label}: ${phase} kill-switch`)
+          .toBe("${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}");
+        // Cap: a finite default even when the repo variable is unset.
+        expect(env?.LOCAL_MT_SEMANTIC_MAX_OVERWRITES, `${label}: ${phase} semantic cap`)
+          .toBe("${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}");
+        // Rollback is the #9676 guard in the policy module: no second error stop.
+        expect(env, `${label}: ${phase} duplicate error stop`).not.toHaveProperty('LOCAL_MT_SEMANTIC_MAX_CONSECUTIVE_ERRORS');
+        expect(env?.LOCAL_MT_SEMANTIC_TELEMETRY_PATH, `${label}: ${phase} telemetry path`)
+          .toBe(`\${{ runner.temp }}/local-mt-semantic-telemetry-${phase}.json`);
+      }
+      const upload = steps.find((step) => step.name === 'Upload Argos semantic telemetry');
+      expect(upload, `${label}: semantic telemetry upload missing`).toMatchObject({
+        'continue-on-error': true,
+        uses: `actions/upload-artifact@${UPLOAD_ARTIFACT_V7_SHA}`,
+      });
+      expect(String(upload?.if)).toContain('always()');
+      expect(upload?.with).toMatchObject({
+        path: '${{ runner.temp }}/local-mt-semantic-telemetry-*.json',
+        'if-no-files-found': 'warn',
+      });
+      // The e5 model shares .cache/transformers with Opus-MT: an immutable key
+      // that already hits would never save it, so the key must be one the
+      // e5-bearing directory was saved under.
+      const modelCache = steps.find((step) => step.uses === 'actions/cache@v5'
+        && (step.with as Record<string, unknown> | undefined)?.path === '.cache/transformers');
+      expect(modelCache?.with, `${label}: model cache`).toMatchObject({ key: 'local-mt-models-v2-opus-e5' });
+      expect(String((modelCache?.with as Record<string, unknown>)['restore-keys'])).toContain('opus-mt-models-');
+      expect(document, `${label}: stale model cache key`).not.toContain('key: opus-mt-models-v1');
+    }
+  });
+
   it('wires only shadow preflight v2 through source, generated artifact, and hash contract', () => {
     for (const [label, document] of [['source', workflow], ['portable artifact', portableWorkflow]]) {
       const steps = parseTranslationSteps(document);

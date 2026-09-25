@@ -77,6 +77,12 @@ import {
   evaluateOverwritePolicy,
   POLICY_VERDICT,
 } from './lib/local-mt-semantic-policy.mjs';
+import {
+  createSemanticRolloutFromEnv,
+  formatSemanticTelemetry,
+  semanticBucketOf,
+  semanticWriteKind,
+} from './lib/local-mt-semantic-rollout.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -837,6 +843,14 @@ export async function judgeMopupWrite(structural, {
  * `write` candidate and assigns it to `job[titleByLocale|descriptionByLocale]`
  * only on an accepted verdict; any other outcome — mismatch, missing score,
  * judge error — leaves the job object exactly as it was.
+ *
+ * With a `rollout` (scripts/lib/local-mt-semantic-rollout.mjs, #9677) the
+ * boundary is also bounded: a language-driven overwrite needs the kill-switch
+ * on and room under the per-phase cap. A withheld candidate returns
+ * `withheld:<reason>` and the job is untouched. The run rollback stays the
+ * #9676 guard (`rollbackGuard`, defaulting to the rollout's): the rollout only
+ * counts its `skip:semantic-rollback` outcomes. Without a rollout the
+ * behaviour is the #9675 gate plus the #9676 policy.
  */
 export async function commitMopupCandidate({
   job,
@@ -844,8 +858,14 @@ export async function commitMopupCandidate({
   field,
   candidate,
   judge = judgeLocalMtMeaning,
-  rollbackGuard,
+  rollout = null,
+  rollbackGuard = rollout?.rollbackGuard,
 }) {
+  const kind = semanticWriteKind(candidate);
+  if (rollout && candidate?.decision === 'write') {
+    const reason = rollout.beforeJudge({ kind });
+    if (reason) return { written: false, decision: `withheld:${reason}`, judged: candidate };
+  }
   const judged = await judgeMopupWrite(candidate, {
     sourceLang: job?.sourceLang || 'it',
     locale,
@@ -853,13 +873,48 @@ export async function commitMopupCandidate({
     judge,
     rollbackGuard,
   });
+  if (rollout) rollout.recordJudged(judged);
   if (judged?.decision !== 'write') {
     return { written: false, decision: judged?.decision, judged };
+  }
+  if (rollout) {
+    const reason = rollout.admitWrite({ kind });
+    if (reason) return { written: false, decision: `withheld:${reason}`, judged };
   }
   const bag = field === 'title' ? 'titleByLocale' : 'descriptionByLocale';
   if (!job[bag] || typeof job[bag] !== 'object') job[bag] = {};
   job[bag][locale] = judged.incoming;
   return { written: true, decision: judged.decision, judged };
+}
+
+/**
+ * The kill-switch side of the write boundary (#9677). With
+ * LOCAL_MT_LANG_AWARE_OVERWRITE off, a language-driven overwrite never
+ * reaches commitMopupCandidate(): the mop-up loop drops it first. This counts
+ * it in the rollout as `withheld:kill-switch` (the same decision the boundary
+ * would take), so the telemetry says how many overwrites the switch held
+ * back, and judges a sample bounded by the overwrite cap. The shadow verdicts
+ * go through the #9675 gate and the #9676 policy but not through the run
+ * rollback guard, and are counted apart from the enforced verdicts. Takes no
+ * job: it cannot write. Returns null for anything that is not a withheld
+ * overwrite.
+ */
+export async function shadowWithheldOverwrite({
+  candidate,
+  rollout,
+  sourceLang,
+  locale,
+  field,
+  judge = judgeLocalMtMeaning,
+}) {
+  if (!rollout || rollout.overwritesEnabled) return null;
+  if (candidate?.decision !== 'write' || candidate.languageDriven !== true) return null;
+  const decision = `withheld:${rollout.beforeJudge({ kind: 'overwrite' })}`;
+  if (!rollout.shouldShadowJudge()) return { decision, shadowBucket: null };
+  const shadow = await judgeMopupWrite(candidate, { sourceLang, locale, field, judge });
+  const shadowBucket = semanticBucketOf(shadow);
+  rollout.recordShadowVerdict(shadowBucket);
+  return { decision, shadowBucket };
 }
 
 /**
@@ -980,6 +1035,43 @@ function normalizeCompanyKey(value = '') {
     .replace(/^-+|-+$/g, '');
 }
 
+/**
+ * Emit the semantic rollout telemetry (#9677): the console block and the
+ * greppable JSON line always, the JSON file when the workflow names one
+ * (uploaded as an artifact), a short job-summary block when running in
+ * Actions. Written on every exit path of the mop-up, early returns included,
+ * so a missing file means the step never ran, not that it ran clean.
+ */
+function reportSemanticTelemetry(snapshot, env = process.env) {
+  console.log('');
+  for (const line of formatSemanticTelemetry(snapshot)) console.log(line);
+  const target = String(env.LOCAL_MT_SEMANTIC_TELEMETRY_PATH || '').trim();
+  if (target) {
+    try {
+      fs.mkdirSync(path.dirname(target), { recursive: true });
+      fs.writeFileSync(target, `${JSON.stringify(snapshot, null, 2)}\n`, 'utf-8');
+    } catch (err) {
+      console.log(`::warning::[local-mt] could not write semantic telemetry to ${target}: ${err?.message || err}`);
+    }
+  }
+  const summary = String(env.GITHUB_STEP_SUMMARY || '').trim();
+  if (summary) {
+    const { verdicts, written, withheld, cap } = snapshot;
+    const lines = [
+      `### Argos semantic gate (${snapshot.status})`,
+      `- verdicts: accepted ${verdicts.accepted}, rejected ${verdicts.rejected}, unclear ${verdicts.unclear}, error ${verdicts.error}`,
+      `- written: fill ${written.fill}, repair ${written.repair}, overwrite ${written.overwrite}/${cap.maxOverwrites}`,
+      `- withheld: kill-switch ${withheld['kill-switch']}, cap ${withheld.cap}, rollback ${withheld.rollback}`,
+    ];
+    if (snapshot.rollbackRecommended) {
+      lines.push(`- rollback recommended: set ${snapshot.killSwitch.variable}=0`);
+    }
+    try {
+      fs.appendFileSync(summary, `${lines.join('\n')}\n\n`, 'utf-8');
+    } catch { /* the summary is a convenience; the log line is the record */ }
+  }
+}
+
 async function main() {
   // Parse CLI options only for direct execution. This module is imported by
   // mark-mistranslated-jobs.mjs; its flags must not configure an imported
@@ -987,6 +1079,20 @@ async function main() {
   const dryRun = parseFlag('--dry-run') || String(process.env.LOCAL_MT_DRY_RUN || '0') === '1';
   const maxJobs = Number(parseOpt('--max-jobs', process.env.LOCAL_MT_MAX_JOBS)) || 2000;
 
+  // One rollback guard per run for the overwrite arm (#9676), shared with the
+  // rollout so the telemetry reports the same guard the write boundary obeys.
+  const rollout = createSemanticRolloutFromEnv(process.env, {
+    overwritesEnabled: LANG_AWARE_OVERWRITE,
+    rollbackGuard: createSemanticRollbackGuard(),
+  });
+  try {
+    await runMopup({ dryRun, maxJobs, rollout });
+  } finally {
+    reportSemanticTelemetry(rollout.snapshot());
+  }
+}
+
+async function runMopup({ dryRun, maxJobs, rollout }) {
   // Publish the run start (WRITE-ONCE) so that under the Argos-first ordering this
   // BULK pass (Phase 2a) — which runs BEFORE the cascade — establishes the shared
   // run clock. The cascade (Phase 2b) and the leftover mop-up (Phase 2c) then bound
@@ -1233,8 +1339,8 @@ async function main() {
   let shadowWithheld = 0;
   let languageFieldsRewritten = 0;
   const semanticTally = {};
-  // One rollback guard per run for the overwrite arm (#9676).
-  const overwriteRollback = createSemanticRollbackGuard();
+  // One rollback guard per run for the overwrite arm (#9676), created in main().
+  const overwriteRollback = rollout.rollbackGuard;
 
   for (const [file, edits] of byFile) {
     if (!budgetOk()) {
@@ -1314,6 +1420,14 @@ async function main() {
         if (decision === 'write' && languageDriven) {
           shadowWithheld++;
         }
+        // Kill-switch telemetry and shadow sample (#9677). Never writes.
+        await shadowWithheldOverwrite({
+          candidate: finalCandidate,
+          rollout,
+          sourceLang: srcLang,
+          locale,
+          field,
+        });
         continue;
       }
 
@@ -1344,6 +1458,7 @@ async function main() {
         locale,
         field,
         candidate: finalCandidate,
+        rollout,
         rollbackGuard: overwriteRollback,
       });
       semanticTally[committed.decision] = (semanticTally[committed.decision] || 0) + 1;

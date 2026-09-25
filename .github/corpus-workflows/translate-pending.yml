@@ -166,12 +166,14 @@ jobs:
             echo "ℹ️ Per-company translation cache miss; translations will repopulate it."
             echo "translation-cache: miss" >> "$GITHUB_STEP_SUMMARY"
           fi
-      - name: Cache Opus-MT models
+      - name: Cache local MT models (Opus-MT + e5 semantic judge)
         uses: actions/cache@v5
         with:
           path: .cache/transformers
-          key: opus-mt-models-v1
-          restore-keys: opus-mt-models-
+          key: local-mt-models-v2-opus-e5
+          restore-keys: |
+            local-mt-models-
+            opus-mt-models-
       - name: Cache Argos Translate models
         uses: actions/cache@v5
         with:
@@ -230,10 +232,12 @@ jobs:
         env:
           ROLLOUT_REPOSITORY: ${{ github.repository }}
           ROLLOUT_SWITCH: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
           OPUSMT_RESCUE_SWITCH: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
         run: |
           echo "Translation rollout repository=$ROLLOUT_REPOSITORY"
           echo "LOCAL_MT_LANG_AWARE_OVERWRITE=$ROLLOUT_SWITCH"
+          echo "LOCAL_MT_SEMANTIC_MAX_OVERWRITES=$SEMANTIC_MAX_OVERWRITES"
           echo "LOCAL_MT_OPUSMT_RESCUE=$OPUSMT_RESCUE_SWITCH"
       - name: Log translation stats (before)
         if: inputs.skip_translate != true
@@ -245,6 +249,8 @@ jobs:
           LOCAL_MT_TIME_BUDGET_MS: "9000000"
           LOCAL_MT_MOPUP_DEADLINE_MS: "12600000"
           LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
+          LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2a.json
           LOCAL_MT_OPUSMT_RESCUE: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
           MT_LOCAL_OPUSMT: "1"
           TRANSFORMERS_CACHE: .cache/transformers
@@ -353,6 +359,8 @@ jobs:
           LOCAL_MT_TIME_BUDGET_MS: "9000000"
           LOCAL_MT_MOPUP_DEADLINE_MS: "12600000"
           LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
+          LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2c.json
           LOCAL_MT_OPUSMT_RESCUE: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
           MT_LOCAL_OPUSMT: "1"
           TRANSFORMERS_CACHE: .cache/transformers
@@ -506,6 +514,15 @@ jobs:
         with:
           name: translation-cascade-companies-${{ github.run_id }}-${{ github.run_attempt }}.json
           path: ${{ runner.temp }}/translation-cascade-companies.json
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Upload Argos semantic telemetry
+        if: always() && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        continue-on-error: true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: local-mt-semantic-telemetry-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/local-mt-semantic-telemetry-*.json
           retention-days: 30
           if-no-files-found: warn
       - name: Commit translation observability history
