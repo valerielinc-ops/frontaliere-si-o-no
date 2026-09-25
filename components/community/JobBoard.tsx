@@ -162,7 +162,7 @@ import { isKnownCityHub } from '@/build-plugins/cityJobsHub';
 import { normalizeCitySlug } from '@/build-plugins/shared/cantonCities';
 import { firstPageIndexFileName } from '@/build-plugins/shared/slimJobIndex';
 import { buildJobTitleWithLocation, buildTitleWithBrand } from '@/build-plugins/shared/titleSuffix';
-import { buildJobPostingSchema, isEmployerOwnedApplyUrl, type JobInput } from '@/build-plugins/shared/jobPostingSchema';
+import { buildJobPostingSchema, isEmployerOwnedApplyUrl, resolveJobPostingAddress, type JobInput } from '@/build-plugins/shared/jobPostingSchema';
 import { buildJobPostingFaqPairs, type JobFaqPair } from '@/build-plugins/shared/jobPostingFaq';
 import { getCantonDisplayName } from '@/build-plugins/shared/cantonDisplay';
 import { SALARY_ESTIMATE_SUFFIX } from '@/build-plugins/shared/salaryEstimateSuffix';
@@ -5798,6 +5798,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const postalCode = deriveJobPostalCode(job);
  const rawStreet = String(job.streetAddress || '').trim();
  const streetAddress = isValidAddr(rawStreet) ? rawStreet : '';
+ // On-site address from the canonical resolver the static page uses: same
+ // locality sanitizer, and never a CAP or street of another place beside the
+ // locality (issue 9852: `deriveJobPostalCode` falls back to Lugano's 6900,
+ // crawlers stamp capital CAPs). Remote and multi-location postings keep
+ // their country-level address below.
+ const onSiteAddress = isRemote || multiLoc
+ ? null
+ : resolveJobPostingAddress({
+ companyKey: job.companyKey,
+ addressLocality,
+ addressRegion,
+ postalCode,
+ streetAddress,
+ }, locale);
  const posting: Record<string, unknown> = {
  '@type': 'JobPosting',
  title: localizedTitle,
@@ -5828,7 +5842,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  jobLocationType: isRemote ? 'TELECOMMUTE' : undefined,
  jobLocation: {
  '@type': 'Place',
- address: {
+ address: onSiteAddress || {
  '@type': 'PostalAddress',
  addressLocality: isRemote ? 'Switzerland' : addressLocality,
  addressRegion: isRemote ? 'CH' : addressRegion,

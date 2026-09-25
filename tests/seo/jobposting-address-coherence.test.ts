@@ -13,7 +13,9 @@
  */
 import { describe, it, expect } from 'vitest';
 import MUNICIPALITY_DATA from '../../data/canton-municipalities.json' with { type: 'json' };
-import { buildJobPostingSchema } from '../../build-plugins/shared/jobPostingSchema';
+import { readFileSync } from 'node:fs';
+import { buildJobPostingSchema, resolveJobPostingAddress } from '../../build-plugins/shared/jobPostingSchema';
+import { resolveLocalityPostalCode } from '../../build-plugins/shared/postalCodes';
 import {
   CANTON_CAPITAL_ADDRESSES,
   localityMatchesHq,
@@ -206,6 +208,115 @@ describe('buildJobPostingSchema — address coherence (#3513)', () => {
     expect(addr.addressLocality).toBe('Bern'); // coherent with the authoritative BE region
     expect(addr.addressRegion).toBe('BE');
     expect(addr.postalCode).toBe('3001'); // resolvePostalCode('Bern', 'BE') — a real Bern CAP
+  });
+});
+
+/**
+ * Issue 9852: the canton capital's street/CAP never completes the address of a
+ * DIFFERENT locality. The capital tuple stays legal only as a whole (locality
+ * included), e.g. when the source locality is unknown.
+ */
+function expectNoCapitalTupleBesideAnotherLocality(address: {
+  addressLocality: string;
+  addressRegion: string;
+  postalCode: string;
+  streetAddress: string;
+}) {
+  const capital = CANTON_CAPITAL_ADDRESSES[address.addressRegion];
+  if (address.addressLocality === capital.addressLocality) return;
+  expect(address.streetAddress, `${address.addressLocality}: capital street`).not.toBe(capital.streetAddress);
+  expect(address.postalCode, `${address.addressLocality}: capital CAP`).not.toBe(capital.postalCode);
+}
+
+describe('buildJobPostingSchema — no canton-capital street/CAP beside another locality (#9852)', () => {
+  it.each([
+    ['Pully', 'VD', '1009', 'Pully centro'],
+    ['Aubonne', 'VD', '1170', 'Aubonne centro'],
+    ['Weinfelden', 'TG', '8570', 'Weinfelden centro'],
+  ])('%s %s keeps its locality with its own official CAP and a street of its own', (locality, region, postalCode, street) => {
+    const addr = buildJobPostingSchema({ ...baseJob, addressLocality: locality, addressRegion: region }, OPTS)
+      .jobLocation.address;
+    expect(addr).toMatchObject({ addressLocality: locality, addressRegion: region, postalCode, streetAddress: street });
+    expectNoCapitalTupleBesideAnotherLocality(addr);
+  });
+
+  it('Villars-sur-Ollon VD: official CAP 1884, and never Lausanne\'s street/CAP beside it', () => {
+    // Villars-sur-Ollon is a locality of the municipality Ollon, not a BFS
+    // municipality: the official directory still lists its own CAP.
+    expect(resolveLocalityPostalCode('Villars-sur-Ollon', 'VD')).toBe('1884');
+    const addr = buildJobPostingSchema(
+      { ...baseJob, addressLocality: 'Villars-sur-Ollon', addressRegion: 'VD' },
+      OPTS,
+    ).jobLocation.address;
+    expectNoCapitalTupleBesideAnotherLocality(addr);
+    if (addr.addressLocality === 'Villars-sur-Ollon') expect(addr.postalCode).toBe('1884');
+  });
+
+  it('rejects the capital CAP a crawler stamped on another locality, keeps it on the capital', () => {
+    const arisdorf = buildJobPostingSchema(
+      { ...baseJob, addressLocality: 'Arisdorf', addressRegion: 'BL', postalCode: '4410', streetAddress: 'Rathausstrasse 36' },
+      OPTS,
+    ).jobLocation.address;
+    expect(arisdorf).toMatchObject({ addressLocality: 'Arisdorf', postalCode: '4422', streetAddress: 'Arisdorf centro' });
+    expectNoCapitalTupleBesideAnotherLocality(arisdorf);
+
+    const liestal = buildJobPostingSchema(
+      { ...baseJob, addressLocality: 'Liestal', addressRegion: 'BL', postalCode: '4410', streetAddress: 'Rathausstrasse 36' },
+      OPTS,
+    ).jobLocation.address;
+    expect(liestal).toMatchObject({ addressLocality: 'Liestal', postalCode: '4410', streetAddress: 'Rathausstrasse 36' });
+
+    // canton-postal-fallback's representative ZH CAP (Zürich 8000) on Brütten.
+    const brutten = buildJobPostingSchema(
+      { ...baseJob, addressLocality: 'Brütten', addressRegion: 'ZH', postalCode: '8000' },
+      OPTS,
+    ).jobLocation.address;
+    expect(brutten).toMatchObject({ addressLocality: 'Brütten', postalCode: '8311' });
+    // A default CAP that IS the locality's own stays (Massagno shares 6900).
+    const massagno = buildJobPostingSchema(
+      { ...baseJob, addressLocality: 'Massagno', addressRegion: 'TI', postalCode: '6900' },
+      OPTS,
+    ).jobLocation.address;
+    expect(massagno.postalCode).toBe('6900');
+  });
+
+  it('a known alias without any CAP of its own gets the complete capital tuple, never a mix', () => {
+    const addr = buildJobPostingSchema({ ...baseJob, addressLocality: 'Oerlikon', addressRegion: 'ZH' }, OPTS)
+      .jobLocation.address;
+    expect(addr).toMatchObject({
+      addressLocality: CANTON_CAPITAL_ADDRESSES.ZH.addressLocality,
+      postalCode: CANTON_CAPITAL_ADDRESSES.ZH.postalCode,
+      streetAddress: CANTON_CAPITAL_ADDRESSES.ZH.streetAddress,
+    });
+  });
+
+  it('the SPA JobBoard JobPosting gets its on-site address from the same resolver', () => {
+    // JobBoard replaces the static JSON-LD at runtime; its own fallback CAP
+    // (deriveJobPostalCode → Lugano's 6900) must not survive beside Pully.
+    expect(resolveJobPostingAddress(
+      { addressLocality: 'Pully', addressRegion: 'VD', postalCode: '6900', streetAddress: '' },
+      'fr',
+    )).toMatchObject({ addressLocality: 'Pully', postalCode: '1009', streetAddress: 'Pully centre-ville' });
+    const jobBoard = readFileSync(new URL('../../components/community/JobBoard.tsx', import.meta.url), 'utf8');
+    expect(jobBoard).toMatch(/const onSiteAddress = isRemote \|\| multiLoc\s*\? null\s*: resolveJobPostingAddress\(/);
+    expect(jobBoard).toContain('address: onSiteAddress || {');
+  });
+
+  it('every BFS municipality resolves to a CAP of its own, canton-scoped', () => {
+    const missing: string[] = [];
+    for (const [canton, data] of Object.entries(MUNICIPALITY_DATA.cantons)) {
+      for (const municipality of data.municipalities) {
+        if (!/^\d{4}$/.test(resolveLocalityPostalCode(municipality, canton))) missing.push(`${canton}|${municipality}`);
+      }
+    }
+    expect(missing).toEqual([]);
+    // Disambiguated homonyms reach their own canton's CAP.
+    expect(resolveLocalityPostalCode('Küsnacht', 'ZH')).toBe('8700');
+    expect(resolveLocalityPostalCode('Wald', 'AR')).toBe('9044');
+    expect(resolveLocalityPostalCode('Gossau', 'ZH')).toBe('8625');
+    expect(resolveLocalityPostalCode('Gossau', 'SG')).toBe('9200');
+    // An unknown locality has no CAP, instead of borrowing the capital's.
+    expect(resolveLocalityPostalCode('Nowhere-sur-Rien', 'VD')).toBe('');
   });
 });
 
