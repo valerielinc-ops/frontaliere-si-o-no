@@ -6695,6 +6695,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lumpy-skin-disease-fine-vaccinazione.title': 'LSD: fine vaccinazione bovini il 30 settembre 2026',
     'blog.article.lumpy-skin-disease-fine-vaccinazione.excerpt': 'La campagna termina il 30/09/2026. Dal 1° ottobre inizia un\'attesa di 8 mesi con sorveglianza mirata fino a giugno 2027.',
     'blog.article.lumpy-skin-disease-fine-vaccinazione.imageAlt': 'Mucca in un pascolo svizzero con montagne sullo sfondo, contesto della campagna di sorveglianza LSD',
+    'blog.article.canicola-danni-economici-2026.title': 'Canicola in Svizzera: 400 milioni di danni nel 2026',
+    'blog.article.canicola-danni-economici-2026.excerpt': 'L\'estate torrida 2026 ha causato 400 milioni di franchi di danni in Svizzera. Allianz Trade avverte sui rischi economici del 2027.',
+    'blog.article.canicola-danni-economici-2026.imageAlt': 'Lavoratori in pausa durante la canicola in una città svizzera',
 };
 
 export default blogMetaChIt;

@@ -575,10 +575,26 @@ function sourceDocument(sourceKey, config, fetchedAt, patch = {}) {
 /**
  * @param {{db?: any, fetcher?: (url: string, options?: Record<string, unknown>) => Promise<any>, now?: Date}} options
  */
+/**
+ * Sources whose fetch and Firestore write dominate the run (BS: ~16'000 rows)
+ * go last, so a slow or failing heavy source can never leave the small
+ * catalogues after it — SZ among them, which the static collector reads
+ * through the API relay — on an old snapshot.
+ */
+const PLATE_AUCTION_HEAVY_SOURCES = new Set(['bs']);
+
+export function plateAuctionRefreshOrder(keys) {
+  return [
+    ...keys.filter((key) => !PLATE_AUCTION_HEAVY_SOURCES.has(key)),
+    ...keys.filter((key) => PLATE_AUCTION_HEAVY_SOURCES.has(key)),
+  ];
+}
+
 export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = new Date() } = {}) {
   const fetchedAt = now.toISOString();
   const summaries = {};
-  for (const [key, config] of Object.entries(CONNECTORS)) {
+  for (const key of plateAuctionRefreshOrder(Object.keys(CONNECTORS))) {
+    const config = CONNECTORS[key];
     if (PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY[key]?.status !== 'active') continue;
     try {
       const parsedRows = typeof config.fetchSource === 'function'
@@ -688,6 +704,7 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
       const previousLiveCount = [...previousById.values()]
         .filter((row) => isLive(row) && missingSinceOf(row) === undefined).length;
       const saleDecision = recognizeCatalogueSales({
+        sourceKey: key,
         previousCount: previousLiveCount,
         fetchedCount: rows.length,
         vanishedCount: saleCandidates.length,

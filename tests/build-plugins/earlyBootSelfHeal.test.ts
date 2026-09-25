@@ -76,6 +76,15 @@ describe('SELF_HEAL_SCRIPT_CONTENT', () => {
     await vi.waitFor(() => expect(reloadBudgetTotal()).toBe(1));
   });
 
+  it('reloads on the stale navigation-wrapper apply TypeError', async () => {
+    const err = Object.assign(new TypeError("Cannot read properties of undefined (reading 'apply')"), {});
+    window.dispatchEvent(Object.assign(new Event('error'), { error: err, message: err.message }));
+
+    await vi.waitFor(() => expect(reloadBudgetTotal()).toBe(1));
+    const info = JSON.parse(sessionStorage.getItem('_forceReloadInfo') || '{}');
+    expect(info.source).toBe('index_html_skew');
+  });
+
   it('ignores unrelated TypeErrors that are not version-skew signatures', async () => {
     const err = Object.assign(new TypeError('Cannot read properties of undefined'), {});
     window.dispatchEvent(Object.assign(new Event('error'), { error: err, message: err.message }));
