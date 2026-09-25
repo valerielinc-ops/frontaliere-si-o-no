@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "client-relationship-officer-pictet-singapore",
-        "responsabile-relazioni-cliente-pictet-group-singapore"
+        "client-relationship-officer-pictet-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "client-relationship-officer-pictet-singapore",
-          "responsabile-relazioni-cliente-pictet-group-singapore"
+          "client-relationship-officer-pictet-singapore"
         ],
         "de": [
           "client-relationship-officer-pictet-singapore"
@@ -130,13 +128,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "alternative-investment-specialist-pictet-singapore",
-        "alternative-investment-specialista-pictet-group-singapore"
+        "alternative-investment-specialist-pictet-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "alternative-investment-specialist-pictet-singapore",
-          "alternative-investment-specialista-pictet-group-singapore"
+          "alternative-investment-specialist-pictet-singapore"
         ],
         "de": [
           "alternative-investment-specialist-pictet-singapore"
@@ -209,7 +205,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-23T23:44:47.743Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "sustainability-impact-data-ai-solutions-analyst-fixed-term-contract-until-31-12-27-pictet"
@@ -287,7 +282,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-23T23:44:47.250Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "physical-security-coordinator-pictet-geneva"
@@ -434,7 +428,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-23T23:44:46.293Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "agentic-ai-business-analyst-9-months-pictet-london"
@@ -542,9 +535,9 @@
     },
     {
       "id": "pictet-8872eca504a7",
-      "slug": "junior-researcher-fixed-term-contract-2-years-programme-pictet-geneva",
+      "slug": "junior-researcher-contratto-a-tempo-determinato-programma-2-anni-pictet-group-geneva",
       "slugByLocale": {
-        "it": "junior-researcher-fixed-term-contract-2-years-programme-pictet-geneva",
+        "it": "junior-researcher-contratto-a-tempo-determinato-programma-2-anni-pictet-group-geneva",
         "en": "junior-researcher-fixed-term-contract-2-years-programme-pictet-geneva",
         "de": "junior-researcher-befristungsvertrag-2-jahre-programm-pictet-group-geneva",
         "fr": "chercheur-junior-contrat-a-duree-determinee-programme-de-2-ans-pictet-group-geneva"
@@ -554,7 +547,7 @@
       "companyDomain": "pictet.com",
       "title": "Junior Researcher (fixed-term contract - 2 years programme)",
       "titleByLocale": {
-        "it": "Junior Researcher (fixed-term contract - 2 years programme)",
+        "it": "Junior Researcher (contratto a tempo determinato - programma 2 anni)",
         "en": "Junior Researcher (fixed-term contract - 2 years programme)",
         "de": "Junior Researcher (Befristungsvertrag - 2 Jahre Programm)",
         "fr": "Chercheur junior (contrat à durée déterminée - programme de 2 ans)"
@@ -589,7 +582,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-23T23:44:45.090Z",
-      "needsRetranslation": true,
       "salaryMin": 57000,
       "salaryMax": 97000,
       "salarySource": "estimated",
@@ -602,7 +594,15 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-researcher-fixed-term-contract-2-years-programme-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "junior-researcher-fixed-term-contract-2-years-programme-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-a1326d6ca834",
@@ -683,9 +683,9 @@
     },
     {
       "id": "pictet-5cc31d91e95e",
-      "slug": "collaborateur-trice-production-support-pictet-geneva",
+      "slug": "supporto-per-la-produzione-pictet-group-geneva",
       "slugByLocale": {
-        "it": "collaborateur-trice-production-support-pictet-geneva",
+        "it": "supporto-per-la-produzione-pictet-group-geneva",
         "en": "collaborator-production-support-pictet-group-geneva",
         "de": "collaborator-produktionsunterstutzung-pictet-group-geneva",
         "fr": "collaborateur-trice-production-support-pictet-geneva"
@@ -695,7 +695,7 @@
       "companyDomain": "pictet.com",
       "title": "Collaborateur/trice Production Support",
       "titleByLocale": {
-        "it": "Collaborateur/trice Production Support",
+        "it": "Supporto per la produzione",
         "en": "Collaborator Production Support",
         "de": "Collaborator Produktionsunterstützung",
         "fr": "Collaborateur/trice Production Support"
@@ -730,7 +730,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-23T23:44:43.680Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -743,7 +742,15 @@
           "maxValue": 183500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-production-support-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-production-support-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-6535f5760df8",
@@ -897,8 +904,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "pictet-ff4541fd6d77",
@@ -915,7 +921,7 @@
       "title": "Senior Credit Structurer (m/f/d)",
       "titleByLocale": {
         "en": "Senior Credit Structurer (m/f/d)",
-        "it": "Senior Credit Structurer (m/f/d)",
+        "it": "Strutturatore di credito senior (m/f/d)",
         "de": "Senior Credit Structurer (m/w/d)",
         "fr": "Structurer de crédit senior (h/f/d)"
       },
@@ -972,8 +978,7 @@
       "previousSlugs": [
         "senior-credit-structurer-m-f-d-pictet-frankfurt"
       ],
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "pictet-e34d9caf905d",
@@ -1053,8 +1058,7 @@
       },
       "previousSlugs": [
         "head-of-people-analytics-geneva-based-pictet-geneva"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "pictet-b35df2cd2c79",
@@ -1134,8 +1138,7 @@
       },
       "previousSlugs": [
         "head-of-people-analytics-london-based-pictet-london"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "pictet-f9bf3c490841",
@@ -1209,8 +1212,7 @@
       },
       "previousSlugs": [
         "senior-business-manager-risk-and-compliance-12-months-contract-pictet-geneva"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "pictet-395a6b9e43bd",
@@ -1228,7 +1230,7 @@
       "titleByLocale": {
         "fr": "Marketing & Sales Support Assistant",
         "en": "Marketing & Sales Support Assistant",
-        "it": "Marketing & Sales Support Assistant",
+        "it": "Marketing &amp; Sales Support Assistant",
         "de": "Marketing & Sales Support Assistent"
       },
       "description": "Your team\n\nFondé à Genève, en 1805, le groupe Pictet compte aujourd'hui parmi les principaux acteurs indépendants de la gestion de fortune et de la gestion d'actifs en Europe, avec des fonds sous gestion et en dépôt supérieurs à EUR 878 milliards à fin juin 2026. Il est dirigé par sept associés, qui en sont à la fois les propriétaires et les gérants.\n\nPictet Asset Management (Pictet AM) se consacre à la gestion d'actifs pour compte de tiers à travers la gestion de mandats et de fonds de placements. Présente sur 18 places financières à travers le monde et employant plus de 1100 collaborateurs, Pictet AM s'emploie à délivrer un service d'excellente qualité à une clientèle professionnelle et institutionnelle de premier plan depuis plus 1980.\n\nCe stage vous permettra d’acquérir une vision d’ensemble de l’écosystème des fonds d’investissement, de connaître les différentes stratégies d’investissement de Pictet AM, d’avoir une bonne compréhension de l’actualité économique, de développer une méthodologie commerciale rigoureuse et de développer votre créativité marketing.\n\nYour role\n\nAu sein de l’équipe marketing et commerciale de Pictet AM, basée à Paris, vous assisterez l’équipe comme suit :\n\nMarketing et service client (40%) :\n\n• Rédaction de synthèses de point de gestion sur les fonds Pictet.\n\n• Diffusion et programmation de communications sur les fonds d’investissement et les vues macro-économiques de Pictet AM.\n\n• Création et mise à jour de documents marketing (présentation produit, bannière, brochure, documentation).\n\n• Création de campagnes d’emailing.\n\n• Organisation et logistique lors des événements clients.\n\n• Réalisation de contenus audios & vidéos (enregistrement, montage).\n\n• Maintenance et entretien de la base de données clients.\n\nSupport commercial (30%) :\n\n• Accompagnement de l’équipe commerciale dans l’entretien de la relation client (clients Wholesale, Institutionnel, Retail) dans le processus de vente des fonds Pictet (fonds émergents, thématiques, obligataires, alternatifs et ETF).\n\n• Préparation des supports de vente (PowerPoint, e-mails, newsletters).\n\n• Réponse aux questionnaires et aux demandes des clients.\n\n• Rédaction de synthèses en français de contenus techniques reçus des équipes de gestion.\n\n• Veille sur l’actualité de certaines expertises de gestion.\n\nAssistance au conseiller en investissement (30%) :\n\n• Contribution à l’analyse et à la rédaction de points macro-économiques.\n\n• Analyse de statistiques.\n\n• Appui au stratégiste sur diverses demandes d’analyse, incluant la production de graphiques, visuels et supports de présentation.\n\nYour profile\n\nNous recherchons une personne intéressée par les marchés financiers, dotée de très bonnes qualités relationnelles, qui soit bilingue anglais, qui sache s’adapter à son environnement, qui soit flexible, autonome et curieuse, qui ait l’esprit de synthèse et qui sache gérer différents dossiers simultanément tout en respectant les échéances. Une expérience avec un système CRM serait un plus.\n\nREF: MSSA/SGV/MH\n\nDate d'entrée: 1er janvier 2027\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
@@ -1294,7 +1296,7 @@
       "title": "Assistant Sales & Marketing",
       "titleByLocale": {
         "fr": "Assistant Sales & Marketing",
-        "en": "Assistant Sales & Marketing",
+        "en": "Sales & Marketing Assistant",
         "it": "Vendite e Marketing Assistant",
         "de": "Assistent Sales & Marketing"
       },
@@ -1344,7 +1346,6 @@
       },
       "firstSeenAt": "2026-09-19T22:55:33.444Z",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "assistant-sales-marketing-pictet-paris"

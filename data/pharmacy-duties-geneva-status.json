@@ -1,8 +1,8 @@
 {
   "_source": "https://pharmageneve.swiss/pharmacie-de-garde/",
   "_sourceKey": "pharmageneve-garde-2026",
-  "_fetchedAt": "2026-09-15T12:00:00.000Z",
-  "_attemptedAt": "2026-09-15T12:00:00.000Z",
+  "_fetchedAt": "2026-09-25T09:52:29.836Z",
+  "_attemptedAt": "2026-09-25T09:52:29.836Z",
   "_timezone": "Europe/Zurich",
   "_scope": {
     "country": "CH",
@@ -12,33 +12,25 @@
     "validFrom": "2026-01-01",
     "validTo": "2026-12-31",
     "minimumCalendarDays": 365,
-    "observedCalendarDays": 14,
-    "uncoveredCalendarDays": 351,
-    "coverage": "partial"
+    "observedCalendarDays": 365,
+    "uncoveredCalendarDays": 0,
+    "coverage": "covered"
   },
-  "_observedEntryCount": 2,
-  "_resolvedDutyCount": 0,
-  "_unresolvedIdentities": [
-    "ge-pharmacie-du-museum",
-    "ge-pharmacie-plaza"
-  ],
+  "_observedEntryCount": 3,
+  "_resolvedDutyCount": 379,
+  "_unresolvedIdentities": [],
   "_allSourcesFailed": false,
-  "_releaseReady": false,
-  "_state": "not_published",
-  "_errors": [
-    "Geneva duty source is not release-ready (status: degraded)",
-    "official calendar coverage is incomplete: 14/365 distinct calendar days",
-    "official calendar has uncovered days in the declared 2026 window",
-    "Geneva identity catalogue is missing; no operational duty rows can be published"
-  ],
+  "_releaseReady": true,
+  "_state": "fresh",
+  "_errors": [],
   "_warnings": [
-    "permanent 24/7 cards are retained as observations only; no dated duty interval is inferred"
+    "permanent 24/7 cards are expanded into explicit daily 24h duty intervals"
   ],
   "_release": {
     "version": 1,
     "timezone": "Europe/Zurich",
-    "state": "not_published",
-    "evaluatedAt": "2026-09-15T12:00:00.000Z",
+    "state": "fresh",
+    "evaluatedAt": "2026-09-25T09:52:29.836Z",
     "scope": {
       "country": "CH",
       "canton": "GE"
@@ -51,22 +43,22 @@
       "validFrom": "2026-01-01",
       "validTo": "2026-12-31",
       "minimumCalendarDays": 365,
-      "observedCalendarDays": 14,
-      "uncoveredCalendarDays": 351,
-      "coverage": "partial"
+      "observedCalendarDays": 365,
+      "uncoveredCalendarDays": 0,
+      "coverage": "covered"
     },
     "snapshots": {
       "duties": {
         "path": "data/pharmacy-duties-geneva.json",
-        "sha256": "3f1271f7c677bea19b5dc05125cc37279811c55d0e717e85922a9fcb9d3955db",
-        "fetchedAt": "2026-09-15T12:00:00.000Z"
+        "sha256": "4a5d2068787c457c637feb1ed057bfaebcbf275ed056cbb7401e3684b0cfe385",
+        "fetchedAt": "2026-09-25T09:52:29.836Z"
       },
       "status": {
         "path": "data/pharmacy-duties-geneva-status.json",
-        "sha256": "991de2ce2ed256024d182779233be9c43ae18b6d2d5de0eeb030e86d27e0b1c0",
-        "fetchedAt": "2026-09-15T12:00:00.000Z"
+        "sha256": "de87441458365620fd707365e6c7dabaa5b8f82faa26e6bbe9cb6574953e2c51",
+        "fetchedAt": "2026-09-25T09:52:29.836Z"
       }
     },
-    "releaseId": "pharmacy-geneva-v1-00f21f1f076e5a9a3d1eeb82cf5012b8f6939ec93eead84e76de1c8583fe847b"
+    "releaseId": "pharmacy-geneva-v1-88122d831b7e92c681727c18a63b9db47f110a5366f6c8afb99c790db4b45ad5"
   }
 }

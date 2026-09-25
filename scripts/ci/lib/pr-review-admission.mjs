@@ -45,6 +45,16 @@ export function isKnownReviewState(value) {
   return typeof value === 'string' && KNOWN_REVIEW_STATES.has(value.trim().toUpperCase());
 }
 
+/**
+ * Verdetto inviato e non ritirato: allowlist fail-closed (#9791). `PENDING`,
+ * `DISMISSED`, uno stato vuoto, non stringa o sconosciuto non sono mai
+ * terminali: un valore nuovo dell'API non vale come review solo perché
+ * nessuno lo ha escluso.
+ */
+export function isTerminalReviewState(value) {
+  return typeof value === 'string' && TERMINAL_STATES.has(value.trim().toUpperCase());
+}
+
 export function flattenReviewPages(value) {
   if (!Array.isArray(value)) return [];
   return value.flatMap((page) => (Array.isArray(page) ? page : [page]));
@@ -52,6 +62,64 @@ export function flattenReviewPages(value) {
 
 function reviewBody(review) {
   return normalizeReviewBody(review?.body);
+}
+
+// Un body che il review gate scarta come malformato non è un verdetto, quindi
+// non può essere il PRIMO verdetto di una HEAD. Sulla #9705 (HEAD 418eccc) la
+// prima review aveva i backtick mangiati dalla shell (`Fix di : ok.`) e un
+// `## LGTM`: diventava il verdetto della HEAD, il gate la scartava
+// (`empty-fix-anchor`), le due review corrette arrivate dopo venivano tolte
+// dalla compattazione anti-raffica e il re-review guard saltava ogni nuova
+// review sulla stessa HEAD.
+//
+// Stessa regola di `reviewBodyDefects()` in `review-findings.mjs`, che il gate
+// applica al body normalizzato. È copiata e non importata di proposito: questo
+// modulo viene scaricato da main in radici di policy che non contengono
+// `review-findings.mjs` né `followup-resolution-match.mjs`, e un import nuovo
+// romperebbe le PR in volo il cui `tests.yml` non li scarica.
+// `tests/pr-review-admission.test.ts` confronta le due copie.
+const LITERAL_NEWLINE_RE = /\\n/gu;
+const EMPTY_FIX_ANCHOR_RE = /^\s*(?:[-*]\s*)?Fix di\s+(?:``|`\s+`|)\s*:\s*ok\b/imu;
+
+function withoutFencedBlocks(text) {
+  const lines = String(text || '').split('\n');
+  const out = [];
+  let fence = null;
+  let fenceStart = -1;
+  for (let index = 0; index < lines.length; index += 1) {
+    const match = /^([ \t]*)(`{3,}|~{3,})/.exec(lines[index]);
+    if (fence) {
+      if (match
+        && match[2][0] === fence.char
+        && match[2].length >= fence.length
+        && match[1].length >= fence.indent) fence = null;
+      continue;
+    }
+    if (match) {
+      fence = { char: match[2][0], length: match[2].length, indent: match[1].length };
+      fenceStart = index;
+      continue;
+    }
+    out.push(lines[index]);
+  }
+  return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
+}
+
+/** Codici di difetto del body GIA' normalizzato; vuoto quando è un verdetto leggibile. */
+export function verdictBodyDefects(body) {
+  const outsideFences = withoutFencedBlocks(body);
+  const defects = [];
+  const literalNewlines = (outsideFences.match(LITERAL_NEWLINE_RE) || []).length;
+  const realLines = outsideFences.split(/\r?\n/u).filter((line) => line.trim()).length;
+  if (literalNewlines >= 3 && realLines <= Math.max(3, literalNewlines / 3)) {
+    defects.push('literal-newline');
+  }
+  if (EMPTY_FIX_ANCHOR_RE.test(outsideFences)) defects.push('empty-fix-anchor');
+  return defects;
+}
+
+function isReadableVerdict(review) {
+  return verdictBodyDefects(reviewBody(review)).length === 0;
 }
 
 export function isManagedReviewer(review) {
@@ -66,10 +134,7 @@ export function isManagedReviewer(review) {
 
 export function isTerminalManagedReview(review) {
   if (!isManagedReviewer(review)) return false;
-  if (typeof review?.state !== 'string' || !review.state.trim()) return false;
-  const state = review.state.trim().toUpperCase();
-  if (NON_TERMINAL_STATES.has(state)) return false;
-  return TERMINAL_STATES.has(state);
+  return isTerminalReviewState(review?.state);
 }
 
 function reviewSubmittedAt(review) {
@@ -91,7 +156,11 @@ function sameReview(left, right) {
     && (left.submitted_at || left.submittedAt) === (right.submitted_at || right.submittedAt);
 }
 
-/** Oldest terminal managed review anchored to `head`. Later same-SHA reviews are ignored. */
+/**
+ * Oldest terminal managed review anchored to `head` whose body is a readable
+ * verdict. Later same-SHA reviews are ignored; a malformed body is skipped, so
+ * the next readable review (or a new model run) decides the HEAD.
+ */
 export function firstTerminalBotReviewOnHead(reviews, head, { reviewRevision } = {}) {
   if (typeof head !== 'string' || !head) return null;
   // `normalizeReviewInputRevisionInput`, non `normalizeReviewInputRevision`:
@@ -107,7 +176,8 @@ export function firstTerminalBotReviewOnHead(reviews, head, { reviewRevision } =
     .map((review, index) => ({ review, index }))
     .filter(({ review }) => isTerminalManagedReview(review)
       && review?.commit_id === head
-      && (revision === undefined || reviewHasInputRevision(reviewBody(review), revision)))
+      && (revision === undefined || reviewHasInputRevision(reviewBody(review), revision))
+      && isReadableVerdict(review))
     .sort((left, right) => reviewSubmittedAt(left.review) - reviewSubmittedAt(right.review)
       || reviewIdValue(left.review, left.index) - reviewIdValue(right.review, right.index));
   return matches[0]?.review || null;

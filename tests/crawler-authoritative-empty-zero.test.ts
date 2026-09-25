@@ -178,6 +178,7 @@ describe('authoritative empty zero — jobs.ch family, umantis and fondation-dom
     ['scripts/update-jsafrasarasin-jobs.mjs'],
     ['scripts/update-apleona-schweiz-ag-jobs.mjs'],
     ['scripts/update-hofweissbad-jobs.mjs'],
+    ['scripts/update-giardino-jobs.mjs'],
   ])('%s asks the pipeline for a source-proven zero', (runner) => {
     const source = readRepoFile(runner);
     // recruitingapp-2677 proves a complete foreign snapshot before allowing
@@ -432,9 +433,13 @@ describe('authoritative empty zero — jobs.ch family, umantis and fondation-dom
   it('fondation-domus refuses the proof when the board rendered but the feed produced no card', async () => {
     // A dead XML-feed loader renders the container with nothing inside it —
     // indistinguishable from a real zero without the standing card, so it is
-    // deliberately not accepted as evidence.
-    const jobs = await fetchAllFondationDomusJobs({ fetchPage: async () => domusPage(domusBoard('')) });
-    expect(publishesProvenZero(jobs, FONDATION_DOMUS_COMPANY_NAME)).toBe(false);
+    // deliberately not accepted as evidence. It surfaces as the soft-exit
+    // feed-unavailable class (2026-09-23 wave: `rendered=true, cards=0`), so
+    // the slice is kept instead of reading as a crawler break every run.
+    const failure = await fetchAllFondationDomusJobs({ fetchPage: async () => domusPage(domusBoard('')) })
+      .then(() => null, (err) => err);
+    expect(failure).toMatchObject({ feedEndpointUnavailable: true });
+    expect(failure.message).toMatch(/XML feed loader is unavailable/);
   });
 
   /* ── 4. A bare [] is never authoritative, whoever produced it ───────── */

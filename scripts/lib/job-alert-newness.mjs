@@ -185,3 +185,71 @@ export function selectJobAlertCandidates(jobs, options = {}) {
     excluded,
   };
 }
+
+const ROW_MISSING_TIMESTAMP = 0;
+const ROW_FUTURE_TIMESTAMP = 1;
+const ROW_CLOSED = 2;
+const ROW_OPEN = 3;
+
+/**
+ * {@link selectJobAlertCandidates} for many recipients over ONE inventory and
+ * ONE clock (#9314). The daily sender selects a window per alert (5.160 alerts
+ * x ~20K rows in run 36097910375), and every call re-parsed each row's
+ * inventory timestamp and re-checked its expiry fields — facts that depend
+ * only on the row and on `nowMs`, never on the recipient. They are computed
+ * once here; each `select()` then only compares the precomputed timestamps
+ * with that recipient's cursor.
+ *
+ * `select(options)` returns exactly what
+ * `selectJobAlertCandidates(jobs, { ...options, nowMs })` returns — same rows
+ * in the same order, same cursor, reason and exclusion counts — for the
+ * `nowMs` fixed here. The inventory must not change between two calls.
+ *
+ * @param {Iterable<object>} jobs
+ * @param {{nowMs?: number}} [options]
+ * @returns {(options?: {recipientLastSentAt?: unknown, alertCreatedAt?: unknown, initialLookbackMs?: number}) => ReturnType<typeof selectJobAlertCandidates>}
+ */
+export function createJobAlertCandidateSelector(jobs, { nowMs } = {}) {
+  const now = Number.isFinite(nowMs) ? nowMs : Date.now();
+  const rows = [];
+  for (const job of jobs || []) rows.push(job);
+  const inventoryAt = new Float64Array(rows.length);
+  const state = new Uint8Array(rows.length);
+  let missingInventoryTimestamp = 0;
+  let futureInventoryTimestamp = 0;
+  for (let i = 0; i < rows.length; i++) {
+    const at = jobInventoryTimestampMs(rows[i]);
+    inventoryAt[i] = at;
+    if (!at) {
+      state[i] = ROW_MISSING_TIMESTAMP;
+      missingInventoryTimestamp++;
+    } else if (at > now) {
+      state[i] = ROW_FUTURE_TIMESTAMP;
+      futureInventoryTimestamp++;
+    } else {
+      state[i] = isOpenJobAlertJob(rows[i], now) ? ROW_OPEN : ROW_CLOSED;
+    }
+  }
+
+  return function select(options = {}) {
+    const cursor = resolveJobAlertCursor({ ...options, nowMs: now });
+    const selected = [];
+    let closed = 0;
+    for (let i = 0; i < rows.length; i++) {
+      const rowState = state[i];
+      if (rowState < ROW_CLOSED) continue; // counted once above, before any cursor
+      if (inventoryAt[i] <= cursor.cursorMs) continue;
+      if (rowState === ROW_CLOSED) {
+        closed++;
+        continue;
+      }
+      selected.push(rows[i]);
+    }
+    return {
+      jobs: selected,
+      cursorMs: cursor.cursorMs,
+      reason: cursor.reason,
+      excluded: { missingInventoryTimestamp, futureInventoryTimestamp, closed },
+    };
+  };
+}

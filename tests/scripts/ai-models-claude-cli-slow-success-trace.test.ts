@@ -7,7 +7,7 @@ import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vite
 const spawnMock = vi.fn();
 vi.mock('node:child_process', () => ({ spawn: (...args: unknown[]) => spawnMock(...args) }));
 
-import { AI_MODELS, callLLM, resetState } from '../../scripts/lib/ai-models.mjs';
+import { AI_MODELS, __enableClaudeCliLaneForTests, callLLM, resetState } from '../../scripts/lib/ai-models.mjs';
 
 const AI_MODELS_SRC = readFileSync(
   new URL('../../scripts/lib/ai-models.mjs', import.meta.url),
@@ -148,6 +148,9 @@ describe('claude CLI: una chiamata riuscita ma lenta dice quanto e\' costata', (
     process.env.ENABLE_HAIKU_ARTICLE_FALLBACK = '1';
     process.env.CLAUDE_CODE_OAUTH_TOKEN = 'test-oauth-token';
     spawnMock.mockImplementation(cliVeloce([INIT, RESULT]));
+    // La corsia Claude e' spenta in produzione (solo Codex): questo test ne
+    // esercita la telemetria, quindi la riaccende solo qui.
+    __enableClaudeCliLaneForTests();
     await callLLM(
       [{ role: 'user', content: 'riscaldamento' }],
       { model: AI_MODELS.CLAUDE_CLI_HAIKU, chain: [AI_MODELS.CLAUDE_CLI_HAIKU] },
@@ -157,6 +160,7 @@ describe('claude CLI: una chiamata riuscita ma lenta dice quanto e\' costata', (
 
   beforeEach(() => {
     resetState();
+    __enableClaudeCliLaneForTests();
     spawnMock.mockReset();
     for (const k of ENV_KEYS) saved[k] = process.env[k];
     process.env.ENABLE_HAIKU_ARTICLE_FALLBACK = '1';
