@@ -86,6 +86,7 @@ import {
   extractEventPeopleFromText,
   extractEventPeopleFromTitle,
   extractEventOfferMetadata,
+  eventOfferPriceAmount,
   firstEventImageUrl,
   firstEventImageUrlFromHtml,
   mergeEventOfferMetadata,
@@ -353,7 +354,7 @@ export function extractPrice(ld, detailHtml, detailUrl) {
   const offersRaw = ld?.offers;
   const offers = Array.isArray(offersRaw) ? offersRaw : offersRaw ? [offersRaw] : [];
   const priced = offers
-    .map((offer) => ({ offer, amount: offer && offer.price !== undefined && offer.price !== null ? Number(offer.price) : NaN }))
+    .map((offer) => ({ offer, amount: eventOfferPriceAmount(offer?.price) }))
     .filter(({ amount }) => Number.isFinite(amount));
   if (priced.length) {
     const cheapest = priced.reduce((best, candidate) => (candidate.amount < best.amount ? candidate : best));

@@ -22,6 +22,8 @@ import {
   extractDetailContactName,
   extractEventPeopleFromText,
   extractEventPeopleFromTitle,
+  extractEventOfferMetadata,
+  eventOfferPriceAmount,
   firstEventImageUrl,
   firstEventImageUrlFromHtml,
   mergeEventOfferMetadata,
@@ -134,6 +136,38 @@ describe('extractPrice', () => {
       availability: 'https://schema.org/InStock',
       validFrom: '2026-06-01T09:00:00+02:00',
       url: 'https://www.myswitzerland.com/tickets/kunst-zu-mittag',
+    });
+  });
+
+  it('normalizes bare schema.org availability tokens', () => {
+    expect(extractPrice({
+      offers: {
+        price: '20',
+        priceCurrency: 'CHF',
+        availability: 'InStock',
+      },
+    }, undefined, 'https://www.myswitzerland.com/it-ch/experiences/events/kunst-zu-mittag-2/')).toMatchObject({
+      availability: 'https://schema.org/InStock',
+    });
+  });
+
+  it('ignores blank Offer prices when selecting source metadata', () => {
+    expect(eventOfferPriceAmount('')).toBeNaN();
+    expect(extractEventOfferMetadata([
+      { price: '', url: 'empty' },
+      { price: '10', url: 'good' },
+    ], 'https://source.example/event')).toEqual({ url: 'https://source.example/good' });
+  });
+
+  it('ignores blank Offer prices when selecting the normalized event price', () => {
+    expect(extractPrice({
+      offers: [
+        { price: '', url: 'empty' },
+        { price: '10', url: 'good' },
+      ],
+    }, undefined, 'https://source.example/event')).toMatchObject({
+      amount: 10,
+      url: 'https://source.example/good',
     });
   });
 

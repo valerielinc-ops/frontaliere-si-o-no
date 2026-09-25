@@ -289,7 +289,7 @@ export function extractTioDetailMetadata(html) {
   const price = extractTioPrice(html) || (/(?:entrata libera|ingresso libero|gratuit[oa])/i.test(descriptionText)
     ? parsePriceText('entrata libera')
     : undefined);
-  const sourcePeople = extractEventPeopleFromText(descriptionText);
+  const sourcePeople = extractEventPeopleFromText(descriptionText, { includePerformer: 'explicit' });
   // The broad text extractor intentionally understands ordinary `mit/con`
   // prose for other sources. TIO detail copy also contains sentences such as
   // "Veranstaltung mit Freude.", which is not performer attribution. Only

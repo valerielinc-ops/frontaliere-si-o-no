@@ -35,10 +35,18 @@ function selectedOffer(value) {
   const entries = offerEntries(value);
   if (!entries.length) return undefined;
   const priced = entries
-    .map((offer) => ({ offer, amount: Number(offer.price) }))
+    .map((offer) => ({ offer, amount: eventOfferPriceAmount(offer.price) }))
     .filter(({ amount }) => Number.isFinite(amount));
   if (!priced.length) return { offer: entries[0] };
   return priced.reduce((best, candidate) => (candidate.amount < best.amount ? candidate : best));
+}
+
+/** Parse a source Offer price without treating blank/null values as zero. */
+export function eventOfferPriceAmount(value) {
+  if (typeof value === 'number') return Number.isFinite(value) ? value : NaN;
+  if (typeof value !== 'string' || !value.trim()) return NaN;
+  const amount = Number(value);
+  return Number.isFinite(amount) ? amount : NaN;
 }
 
 function normalizedOfferField(field, value, baseUrl) {
@@ -214,12 +222,17 @@ const TITLE_PERFORMER_PATTERNS = [
  * venue, title and prose must never be promoted to organizer/performer just
  * because they contain a capitalized word.
  */
-export function extractEventPeopleFromText(value) {
+export function extractEventPeopleFromText(value, options = {}) {
   const text = sourceText(value);
   if (!text) return {};
 
   const organizerName = firstCaptured(text, ORGANIZER_PATTERNS);
-  const performerNames = splitPerformerNames(firstCaptured(text, PERFORMER_PATTERNS));
+  const performerPatterns = options.includePerformer === false
+    ? []
+    : options.includePerformer === 'explicit'
+      ? PERFORMER_PATTERNS.slice(0, -1)
+      : PERFORMER_PATTERNS;
+  const performerNames = splitPerformerNames(firstCaptured(text, performerPatterns));
   return {
     ...(organizerName ? { organizer: { '@type': 'Organization', name: organizerName } } : {}),
     ...(performerNames.length
