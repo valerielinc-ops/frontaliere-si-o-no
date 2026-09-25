@@ -158,7 +158,7 @@
         "outcomeId": "useful-action",
         "sourceRefs": ["gsc", "ga4-landing-path"],
         "historicalSourceRefs": [["gsc", "posthog-landing-path"]],
-        "historicalSourceRefsBefore": "2026-09-12T00:00:00.000Z",
+        "historicalSourceRefsBefore": "2026-09-24T20:22:12.000Z",
         "requiredFields": ["generatedAt", "numerator", "denominator"]
       },
       "minimumSample": 1000,
