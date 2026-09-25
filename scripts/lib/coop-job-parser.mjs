@@ -204,31 +204,75 @@ export function resolveCoopCantonCode(raw = '', locality = '', fallback = '') {
   return inferAnyCanton(raw) || inferAnyCanton(locality) || fallback || '';
 }
 
+/**
+ * The adapter seed is the workplace evidence from the listing row. Some Coop
+ * detail pages publish the employer's registered address as JSON-LD instead;
+ * keep the seed as a location candidate so that detail enrichment cannot move
+ * a branch vacancy to the generic head office. Leave `addressLocality` empty:
+ * multi-site labels such as "Region Zürich (Sihlcity und Umgebung)" are valid
+ * source evidence but are not one municipality and must not be guessed into a
+ * different address.
+ */
+function adapterSeedAddressEvidence(job) {
+  const scope = job?._targetScope;
+  const location = normalizeSpace(scope?.location || '');
+  const canton = normalizeSpace(scope?.canton || '');
+  if (!location || !canton) return null;
+  const candidate = {
+    location,
+    addressLocality: '',
+    addressRegion: canton,
+    addressCountry: 'CH',
+    postalCode: '',
+    streetAddress: '',
+  };
+  const geography = resolveCoopJsonLdGeography(candidate);
+  return geography ? { candidate, geography } : null;
+}
+
 // ─────────────────────────────────────────────────────────────
 // Apply JSON-LD location/company data to a job object (pure fn)
 // ─────────────────────────────────────────────────────────────
 
 /**
- * Apply authoritative location and company data from JSON-LD to a job object.
+ * Apply detail-page company data and location evidence to a job object. An
+ * explicit adapter seed wins over a conflicting detail JSON-LD address because
+ * the latter is often the employer's registered address, not the workplace.
  * Returns { job, changed } where `job` is a shallow copy with updated fields.
  */
 export function applyCoopJsonLdToJob(job, jsonLd) {
   const updated = { ...job };
   let changed = false;
 
-  // Location update from JSON-LD (authoritative source for actual work location)
-  const ldLocality = (jsonLd?.jobLocation?.address?.addressLocality || '').trim();
-  const ldRegion = (jsonLd?.jobLocation?.address?.addressRegion || '').trim();
-  if (ldLocality && ldLocality !== updated.addressLocality) {
-    updated.location = ldLocality;
-    updated.addressLocality = ldLocality;
+  const detailCandidate = jsonLdAddressCandidates(jsonLd)[0] || {};
+  const ldLocality = detailCandidate.addressLocality || '';
+  const ldRegion = detailCandidate.addressRegion || '';
+  const detailGeography = resolveCoopJsonLdGeography(detailCandidate);
+  const seedEvidence = adapterSeedAddressEvidence(job);
+  const seedOverridesDetail = Boolean(seedEvidence)
+    && (!detailGeography
+      || normalizeSwissTargetLocationText(seedEvidence.geography.location)
+        !== normalizeSwissTargetLocationText(detailGeography.location));
+  const selectedGeography = seedOverridesDetail
+    ? seedEvidence.geography
+    : detailGeography;
+  const selectedLocation = selectedGeography?.location || ldLocality;
+  const selectedCanton = selectedGeography?.canton
+    || resolveCoopCantonCode(ldRegion, ldLocality, updated.canton);
+
+  if (selectedLocation && selectedLocation !== updated.addressLocality) {
+    updated.location = selectedLocation;
+    updated.addressLocality = selectedLocation;
     changed = true;
   }
-  if (ldRegion || ldLocality) {
-    const ldCanton = resolveCoopCantonCode(ldRegion, ldLocality, updated.canton);
-    if (ldCanton && ldCanton !== updated.canton) {
-      updated.canton = ldCanton;
-      updated.addressRegion = ldCanton;
+  if (selectedCanton) {
+    if (selectedCanton !== updated.canton) {
+      updated.canton = selectedCanton;
+      updated.addressRegion = selectedCanton;
+      changed = true;
+    }
+    if (selectedCanton !== updated.addressRegion) {
+      updated.addressRegion = selectedCanton;
       changed = true;
     }
   }

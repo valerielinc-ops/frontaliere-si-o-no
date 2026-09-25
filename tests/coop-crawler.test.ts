@@ -832,6 +832,40 @@ describe('applyCoopJsonLdToJob — location update from JSON-LD', () => {
     expect(updated.addressRegion).toBe('GR');
   });
 
+  it('keeps an explicit adapter workplace when detail JSON-LD carries the employer address', () => {
+    const job = {
+      title: 'Verkaufsberater:in',
+      location: 'Basel',
+      addressLocality: 'Basel',
+      canton: 'BS',
+      addressRegion: 'BS',
+      company: 'Coop',
+      _targetScope: {
+        type: 'adapter_seed_meta',
+        location: 'Region Zürich (Sihlcity und Umgebung)',
+        canton: 'ZH',
+      },
+    };
+    const jsonLd = {
+      jobLocation: {
+        address: {
+          addressLocality: 'Basel',
+          addressRegion: 'Basel-Stadt',
+          addressCountry: 'CH',
+        },
+      },
+      hiringOrganization: { name: 'Coop' },
+    };
+
+    const { job: updated, changed } = applyCoopJsonLdToJob(job, jsonLd);
+
+    expect(changed).toBe(true);
+    expect(updated.location).toBe('Region Zürich (Sihlcity und Umgebung)');
+    expect(updated.addressLocality).toBe('Region Zürich (Sihlcity und Umgebung)');
+    expect(updated.canton).toBe('ZH');
+    expect(updated.addressRegion).toBe('ZH');
+  });
+
   it('updates company when JSON-LD has a more specific store name', () => {
     const job = {
       title: 'Verkaufsberater:in Textil',
