@@ -36,7 +36,7 @@ const blogMetaFr: Record<string, string> = {
  'blog.article.telelavoro-italia-svizzera-ratifica.excerpt': 'Le Parlement italien approuve définitivement l\'accord sur le télétravail pour les travailleurs frontaliers. Ce qui change pour les travailleurs tessinois.',
  'blog.article.telelavoro-italia-svizzera-ratifica.imageAlt': 'Ordinateur portable surplombant le lac de Lugano, affichant un graphique financier. Symbolise le télétravail transfrontalier entre l\'Italie et la Suisse.',
  'blog.article.telelavoro-accordo-definitivo-italia.title': 'Télétravail des frontaliers: Feu vert de Rome, ce qui change',
- 'blog.article.telelavoro-accordo-definitivo-italia.excerpt': 'Le Parlement italien a ratifié l\'accord sur le télétravail jusqu\'à 40%. Analysons les implications fiscales et pratiques pour les \'nouveaux\' et \'anciens\' frontaliers au Tessin.',
+ 'blog.article.telelavoro-accordo-definitivo-italia.excerpt': 'Le Parlement italien a ratifié l\'accord sur le télétravail jusqu\'à 25%. Analysons les implications fiscales et pratiques pour les \'nouveaux\' et \'anciens\' frontaliers au Tessin.',
  'blog.article.telelavoro-accordo-definitivo-italia.imageAlt': 'Vue sur le lac de Lugano depuis un poste de télétravail, symbole du nouvel accord pour les frontaliers',
  'blog.article.stop-ristorni-tassa-salute.title': 'Taxe Santé : Motion pour bloquer les ristournes à l\'Italie',
  'blog.article.stop-ristorni-tassa-salute.excerpt': 'PLR, Le Centre, UDC et Lega demandent l\'arrêt immédiat des ristournes fiscales à Rome, invoquant une violation de l\'accord fiscal et l\'article 60 de la Convention de Vienne.',

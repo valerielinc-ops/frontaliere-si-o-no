@@ -36,7 +36,7 @@ const blogMetaEn: Record<string, string> = {
  'blog.article.telelavoro-italia-svizzera-ratifica.excerpt': 'The Italian Parliament definitively approves the agreement on teleworking for cross-border workers. What changes for Ticino workers.',
  'blog.article.telelavoro-italia-svizzera-ratifica.imageAlt': 'Laptop overlooking Lake Lugano, displaying a financial chart. Symbolizes cross-border teleworking between Italy and Switzerland.',
  'blog.article.telelavoro-accordo-definitivo-italia.title': 'Frontalieri Telework: Green Light from Rome, What Changes Now',
- 'blog.article.telelavoro-accordo-definitivo-italia.excerpt': 'The Italian Parliament has ratified the telework agreement up to 40%. Let\'s look at the tax and practical implications for \'new\' and \'old\' cross-border workers in Ticino.',
+ 'blog.article.telelavoro-accordo-definitivo-italia.excerpt': 'The Italian Parliament has ratified the telework agreement up to 25%. Let\'s look at the tax and practical implications for \'new\' and \'old\' cross-border workers in Ticino.',
  'blog.article.telelavoro-accordo-definitivo-italia.imageAlt': 'View of Lake Lugano from a remote work station, symbolizing the new agreement for cross-border workers',
  'blog.article.stop-ristorni-tassa-salute.title': 'Health Tax: Motion to Block Tax Returns to Italy',
  'blog.article.stop-ristorni-tassa-salute.excerpt': 'PLR, The Centre, UDC, and Lega are demanding an immediate halt to tax returns to Rome, citing a violation of the tax agreement and Article 60 of the Vienna Convention.',

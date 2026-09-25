@@ -36,7 +36,7 @@ const blogMetaDe: Record<string, string> = {
  'blog.article.telelavoro-italia-svizzera-ratifica.excerpt': 'Das italienische Parlament billigt endgültig das Abkommen über Telearbeit für Grenzgänger. Was sich für die Arbeitnehmer im Tessin ändert.',
  'blog.article.telelavoro-italia-svizzera-ratifica.imageAlt': 'Laptop mit Blick auf den Luganersee, der ein Finanzdiagramm anzeigt. Symbolisiert grenzüberschreitendes Telearbeiten zwischen Italien und der Schweiz.',
  'blog.article.telelavoro-accordo-definitivo-italia.title': 'Home-Office für Grenzgänger: Grünes Licht aus Rom, was sich nun ändert',
- 'blog.article.telelavoro-accordo-definitivo-italia.excerpt': 'Das italienische Parlament hat das Home-Office-Abkommen für bis zu 40% der Arbeitszeit ratifiziert. Wir betrachten die steuerlichen und praktischen Folgen für \'neue\' und \'alte\' Grenzgänger im Tessin.',
+ 'blog.article.telelavoro-accordo-definitivo-italia.excerpt': 'Das italienische Parlament hat das Home-Office-Abkommen für bis zu 25% der Arbeitszeit ratifiziert. Wir betrachten die steuerlichen und praktischen Folgen für \'neue\' und \'alte\' Grenzgänger im Tessin.',
  'blog.article.telelavoro-accordo-definitivo-italia.imageAlt': 'Blick auf den Luganersee von einem Home-Office-Arbeitsplatz, Symbol für das neue Abkommen für Grenzgänger',
  'blog.article.stop-ristorni-tassa-salute.title': 'Gesundheitssteuer: Motion zur Sperrung der Rückerstattungen',
  'blog.article.stop-ristorni-tassa-salute.excerpt': 'FDP, Die Mitte, SVP und Lega fordern einen sofortigen Stopp der Steuerrückerstattungen an Rom und berufen sich auf eine Verletzung des Steuerabkommens und Artikel 60 der Wiener Konvention.',
