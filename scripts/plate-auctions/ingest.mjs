@@ -259,6 +259,7 @@ export async function collectPlateAuctions({
       const previousLiveCount = previousForSource
         .filter((row) => ['active', 'upcoming'].includes(row?.auctionStatus) && !Number.isFinite(missingSinceMs(row))).length;
       const saleDecision = recognizeCatalogueSales({
+        sourceKey: key,
         previousCount: previousLiveCount,
         fetchedCount: rows.length,
         vanishedCount: saleCandidates.length,

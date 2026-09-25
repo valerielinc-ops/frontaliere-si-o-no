@@ -86,6 +86,7 @@ import {
   parseVitestFailureReport,
   relativeImportCandidates,
   inheritedRedRescueDecision,
+  testedMainSince,
   VITEST_RELATED_STEP_NAME,
   VITEST_FAILURE_REPORT_MARKER,
 } from './lib/vitestCheck.mjs';
@@ -986,6 +987,17 @@ function inheritedRedRelevantPaths(files) {
   return [...paths].sort();
 }
 
+/** Quando è nata la run che ha prodotto l'ultimo check vitest completato: il
+ * suo merge ref è di quel momento, anche dopo un rerun (`created_at` resta
+ * quello del primo tentativo). '' se il link o l'API non sono leggibili. */
+function testedRunCreatedAt(checks) {
+  const ref = jobRefFromCheckRun(latestCompletedVitestExecutionRun(checks));
+  if (!ref) return '';
+  const raw = gh(['api', `repos/${REPO}/actions/runs/${ref.runId}`, '--jq', '.created_at'],
+    { json: false, allowFail: true });
+  return String(raw || '').trim();
+}
+
 /** L'ultimo commit di main, dopo `sinceIso`, che tocca uno dei `paths` ('' se nessuno). */
 function latestMainCommitTouching(paths, sinceIso) {
   let best = { date: '', sha: '' };
@@ -1026,9 +1038,16 @@ function inheritedRedRescue(num, head) {
     .flatMap((c) => [...c.body.matchAll(INHERITED_RED_KEY_RE)].map((m) => m[1]));
   const prFiles = String(gh(['api', `repos/${REPO}/pulls/${num}/files?per_page=100`, '--paginate',
     '--jq', '.[].filename'], { json: false, allowFail: true }) || '').split('\n').filter(Boolean);
-  // Il merge ref è calcolato quando il run parte: un commit di main successivo
-  // all'inizio del run non è stato visto dalla PR.
-  const since = last.started_at || last.completed_at;
+  // Il merge ref è calcolato quando la run NASCE, e un rerun lo riusa: il
+  // `started_at` del check di un rerun è successivo e nascondeva la
+  // riparazione di main. #9753: run 36079087777 nata alle 00:46Z, rilanciata
+  // dallo stale-pr-rescuer alle 03:57Z; #9774 (02:03Z) risultava «prima» del
+  // rosso e la sweep delle 06:36Z rispondeva `main-unchanged`.
+  const since = testedMainSince({
+    runCreatedAt: testedRunCreatedAt(checks),
+    checkStartedAt: last.started_at,
+    checkCompletedAt: last.completed_at,
+  });
   const files = report && !report.truncated ? report.files : [];
   const relevantMainCommit = files.length > 0 && since
     ? latestMainCommitTouching(inheritedRedRelevantPaths(files), since)
