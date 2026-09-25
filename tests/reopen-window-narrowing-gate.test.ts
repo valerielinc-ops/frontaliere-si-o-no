@@ -103,7 +103,7 @@ const NARROWING_ALLOWLIST: Record<string, string> = {
     'stessa famiglia post-deploy del precedente: la ricaduta che conta è quella dentro il ciclo, non quella a giorni.',
   '.github/workflows/deploy-publish.yml:400:6':
     'riporta l esito della pubblicazione dello stesso deploy: oltre il ciclo corrente la condizione non è più la stessa.',
-  '.github/workflows/lighthouse-ci.yml:377:6':
+  '.github/workflows/lighthouse-ci.yml:365:6':
     'gira per PR: due run della stessa PR sono lo stesso incidente, due PR diverse no.',
   '.github/workflows/cwv-field-criterion.yml:175:24':
     'cadenza giornaliera del criterio di campo: la finestra segue il cron.',

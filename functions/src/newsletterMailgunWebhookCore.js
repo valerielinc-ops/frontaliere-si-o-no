@@ -7,6 +7,7 @@ import {
  positiveEventRecoveryFields,
  positiveEventStatusFields,
  mergeAccountDeletedSubscriberUpdate,
+ UNKNOWN_RECIPIENT,
 } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 import { recordJobEmailRankingClick } from './lib/jobEmailRankingStore.js';
@@ -171,7 +172,7 @@ export async function persistMailgunEvent(db, eventData) {
  // 'suppressed', or a 'bounced' that is NOT proven-permanent. It never
  // clears a human-declared 'complained'/'unsubscribed', nor a hard bounce.
  // The doc read happens only on these three event types.
- await mergeAccountDeletedSubscriberUpdate(
+ const merged = await mergeAccountDeletedSubscriberUpdate(
  subscriberRef,
  subscriberUpdate,
  type === 'delivered' || type === 'open' || type === 'click'
@@ -184,6 +185,7 @@ export async function persistMailgunEvent(db, eventData) {
  : null,
  db,
  );
+ if (merged === null) return { skipped: true, reason: UNKNOWN_RECIPIENT };
 
  if (bounceSeverity === 'soft') {
  await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
@@ -276,7 +278,7 @@ async function persistJobAlertMailgunEvent(db, { email, type, mgEvent, messageId
  // promotion. This used to be an UNCONDITIONAL `topUpdate.status = 'active'`,
  // which would overwrite 'complained' — a human's spam complaint — with a
  // machine's inference, and equally resurrect a proven-permanent hard bounce.
- await mergeAccountDeletedSubscriberUpdate(
+ const merged = await mergeAccountDeletedSubscriberUpdate(
  subscriberRef,
  topUpdate,
  type === 'delivered' || type === 'open' || type === 'click'
@@ -289,6 +291,7 @@ async function persistJobAlertMailgunEvent(db, { email, type, mgEvent, messageId
  : null,
  db,
  );
+ if (merged === null) return { skipped: true, reason: UNKNOWN_RECIPIENT };
 
  if (bounceSeverity === 'soft') {
  await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
