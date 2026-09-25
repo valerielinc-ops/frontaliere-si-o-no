@@ -780,13 +780,15 @@ export const FC_ADBLOCK_SIGNAL_EVENT = 'frontaliere:adblock-data';
  * 32.9 s — so the first call always proceeds. Cost: an ad-block recovery
  * message on job-board pages also waits for the click.
  *
- * Carried by index.html (inline copy), OFFERWALL_FC_SNIPPET and
- * ADSENSE_LOADER_CONTENT, so every page that loads Funding Choices installs
- * it first. The loader matters most: most job-board URLs (listing, company,
- * search, sector pages) and every static page without the snippet load
- * Funding Choices only through it. The first copy to run installs the gate
- * and the others step aside. tests/offerwall-click-gate-parity.test.ts
- * executes the copies and pins the path regex of the inline twin.
+ * Carried by index.html (inline copy), OFFERWALL_FC_SNIPPET,
+ * ADSENSE_LOADER_CONTENT and GPT_LOADER_CONTENT (build-plugins/jobBoardGpt.ts,
+ * synchronous, so it precedes a gpt.js injected during parsing), so every
+ * page that loads Funding Choices installs it first. The loader matters most:
+ * most job-board URLs (listing, company, search, sector pages) and every
+ * static page without the snippet load Funding Choices only through it. The
+ * first copy to run installs the gate and the others step aside.
+ * tests/offerwall-click-gate-parity.test.ts executes the copies and pins the
+ * path regex of the inline twin.
  */
 export const FC_JOBBOARD_OFFERWALL_GATE_JS = `(function(){var g=window.googlefc=window.googlefc||{};if(g.controlledMessagingFunction)return;g.controlledMessagingFunction=function(message){var E=g.MessageTypeEnum||{};if(E.OFFERWALL===undefined){message.proceed(true);return;}var p=window.location&&window.location.pathname||'';if(!/${JOB_BOARD_SECTION_PATHNAME_RX.source}/.test(p)){window.__ftOfferwallGate=window.__ftOfferwallGate||{state:'off_board',held:[]};message.proceed(false,[E.OFFERWALL]);return;}var d=false;try{d=!!window.localStorage.getItem('${ADS_CONSENT_STORAGE_KEY}');}catch(e){}if(d){var c=(window.document&&window.document.cookie||'').match(/(?:^|;\\s*)FCCDCF=([^;]*)/),v='';try{v=c?decodeURIComponent(c[1]):'';}catch(e){}d=/\\x22C[A-Za-z0-9_-]{20,}/.test(v);}if(!d){window.__ftOfferwallGate=window.__ftOfferwallGate||{state:'suppressed',held:[]};message.proceed(false,[E.OFFERWALL]);return;}var w=window.__ftOfferwallGate=window.__ftOfferwallGate||{state:'idle',held:[]};if(w.state==='released'){message.proceed(true);return;}w.held.push(message);w.state='held';w.release=function(){if(w.state!=='held')return false;w.state='released';var h=w.held.splice(0);for(var i=0;i<h.length;i++){try{h[i].proceed(true);}catch(e){}}return true;};};})();`;
 
