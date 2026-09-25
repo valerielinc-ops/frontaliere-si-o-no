@@ -92971,6 +92971,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gornate-olona-regime-fiscale': {
+    title: 'Gornate Olona: lavorare in Ticino da frontaliere',
+    description: 'Vivere a Gornate Olona e lavorare in Ticino: guida per il frontaliere su imposta alla fonte, franchigie 2024, AVS, LPP, LAMal e 730 prima del trasferimento.',
+    keywords: 'frontalieri, ticino, svizzera, italia, gornate, olona, lavorare, accordo',
+    ogTitle: 'Gornate Olona e lavoro in Ticino da frontaliere',
+    ogDescription: 'Dalla scelta della casa alla lettura della busta paga: cosa considerare per vivere a Gornate Olona e lavorare in Ticino, tra imposta alla fonte, credito d’imposta nel 730, franchigia e contributi svizzeri.',
+    canonicalPath: '/articoli-frontaliere/gornate-olona-regime-fiscale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gornate Olona: lavorare in Ticino da frontaliere",
+      "description": "Vivere a Gornate Olona e lavorare in Ticino: guida per il frontaliere su imposta alla fonte, franchigie 2024, AVS, LPP, LAMal e 730 prima del trasferimento.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/gornate-olona-regime-fiscale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratore frontaliere tra Gornate Olona e il Canton Ticino"
+      },
+      "datePublished": "2026-09-25T03:48:19+00:00",
+      "dateModified": "2026-09-25T03:48:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gornate-olona-regime-fiscale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

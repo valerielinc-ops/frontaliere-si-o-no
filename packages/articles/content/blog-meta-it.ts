@@ -11954,6 +11954,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bns-franco-euro-cambio.title': 'BNS: franco debole, euro a 0,9423 CHF',
     'blog.article.bns-franco-euro-cambio.excerpt': 'La BNS conferma il tasso allo zero. L\'euro sale a 0,9423 franchi, il dollaro a 0,8268: impatto sul controvalore per i frontalieri.',
     'blog.article.bns-franco-euro-cambio.imageAlt': 'Vista sul Lago di Lugano con la città sullo sfondo, luce mattutina',
+    'blog.article.gornate-olona-regime-fiscale.title': 'Gornate Olona: lavorare in Ticino da frontaliere',
+    'blog.article.gornate-olona-regime-fiscale.excerpt': 'Da Gornate Olona al Ticino: accordo frontalieri in vigore dal 1° gennaio 2024, imposta alla fonte, esenzione €7\'500 o franchigia €10\'000, AVS e LAMal.',
+    'blog.article.gornate-olona-regime-fiscale.imageAlt': 'Lavoratore frontaliere tra Gornate Olona e il Canton Ticino',
 };
 
 export default blogMetaIt;
