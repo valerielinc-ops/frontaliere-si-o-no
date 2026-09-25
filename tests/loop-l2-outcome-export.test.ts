@@ -10,6 +10,7 @@ import {
   exportL2,
   L2_USEFUL_ACTION_EVENT,
   landingPathsFromGsc,
+  normalizeLandingPath,
 } from '../scripts/ci/export-l2-demand-outcomes.mjs';
 
 const NOW = new Date('2026-09-12T12:00:00.000Z');
@@ -69,10 +70,13 @@ describe('L2 read-only demand outcome export', () => {
   });
 
   it('joins only GSC paths and rejects incomplete GA4 aggregation', () => {
+    expect(normalizeLandingPath('/')).toBe('/');
+    expect(normalizeLandingPath('https://frontaliereticino.ch/')).toBe('/');
     expect(buildL2OutcomeCounts({
       landingPaths: ['/ricerca/offerte-lavoro-ticino/', '/en/search/jobs-ticino/'],
       landingSessionReport: {
         rows: [
+          { dimensionValues: [{ value: '/' }], metricValues: [{ value: '5000' }] },
           { dimensionValues: [{ value: '/ricerca/offerte-lavoro-ticino/?utm_source=gsc' }], metricValues: [{ value: '1200' }] },
           { dimensionValues: [{ value: '/en/search/jobs-ticino/' }], metricValues: [{ value: '900' }] },
           { dimensionValues: [{ value: '/outside-gsc/' }], metricValues: [{ value: '9999' }] },
@@ -80,6 +84,7 @@ describe('L2 read-only demand outcome export', () => {
       },
       usefulActionReport: {
         rows: [
+          { dimensionValues: [{ value: '/' }], metricValues: [{ value: '5000' }] },
           { dimensionValues: [{ value: '/ricerca/offerte-lavoro-ticino/' }], metricValues: [{ value: '180' }] },
           { dimensionValues: [{ value: '/outside-gsc/' }], metricValues: [{ value: '9999' }] },
         ],
