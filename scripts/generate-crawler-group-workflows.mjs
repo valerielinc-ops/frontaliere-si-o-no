@@ -677,6 +677,13 @@ const CRAWLER_SHELL_PREAMBLE = Object.freeze(['set -uo pipefail', 'set +e', ''])
 // consolidates the signal, it does not silence it.
 const GROUP_SHARED_PRECONDITION_EXIT = 43;
 const GLOBAL_LEASE_BUSY_EXIT = GLOBAL_DATA_PIPELINE_LEASE_BUSY_EXIT;
+// A token-bound group must finish its commit in the same generation. The
+// helper already retries individual pushes, but a whole group can still lose
+// the final ref race after that budget. Retry the complete atomic operation a
+// few times so a transient convoy does not leave a green run with an orphaned
+// receipt; exhaustion remains a real workflow failure.
+export const TOKEN_BOUND_COMMIT_RETRY_ATTEMPTS = 3;
+export const TOKEN_BOUND_COMMIT_RETRY_DELAY_SECONDS = 15;
 // Runner shutdown (SIGTERM) is a fourth systemic class. A hosted runner can
 // terminate every detached worker in the same wave, so exit 143 is not a
 // per-crawler fault and must not create one issue per sibling.
@@ -686,6 +693,49 @@ const RUNNER_SHUTDOWN_EXIT = 143;
 const PER_CRAWLER_REPORT_CONDITION = 'if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ]'
   + ` && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne ${GROUP_SHARED_PRECONDITION_EXIT} ]`
   + ` && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ] && [ "$git_commit_exit" -ne ${RUNNER_SHUTDOWN_EXIT} ]; }; then`;
+
+function buildTokenBoundCommitRetryRun({ command, label, nonRetryableFailureLines } = {}) {
+  if (typeof command !== 'string' || command.length === 0) throw new TypeError('token-bound commit command is required');
+  if (typeof label !== 'string' || label.length === 0) throw new TypeError('token-bound commit label is required');
+  const failureLines = nonRetryableFailureLines ?? [
+    `  echo "::error::${label} failed (exit $git_commit_exit); token-bound output was not published"`,
+    `  echo "❌ ${label} failed (exit $git_commit_exit)" >> "$GITHUB_STEP_SUMMARY"`,
+  ];
+  return [
+    'set +e',
+    'commit_attempt=1',
+    `commit_max_attempts=${TOKEN_BOUND_COMMIT_RETRY_ATTEMPTS}`,
+    'while true; do',
+    `  ${command}`,
+    '  git_commit_exit=$?',
+    '  if [ "$git_commit_exit" -eq 0 ]; then',
+    '    exit 0',
+    '  fi',
+    `  if [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne ${GLOBAL_LEASE_BUSY_EXIT} ]; then`,
+    ...failureLines,
+    '    exit "$git_commit_exit"',
+    '  fi',
+    '  if [ "$commit_attempt" -ge "$commit_max_attempts" ]; then',
+    `    echo "::error::${label}: same-generation retry budget exhausted after $commit_attempt/$commit_max_attempts attempts (exit $git_commit_exit)"`,
+    `    echo "❌ ${label}: same-generation retry budget exhausted (exit $git_commit_exit); group remains failed" >> "$GITHUB_STEP_SUMMARY"`,
+    '    exit "$git_commit_exit"',
+    '  fi',
+    `  retry_delay=$((commit_attempt * ${TOKEN_BOUND_COMMIT_RETRY_DELAY_SECONDS}))`,
+    `  echo "::warning::${label}: retryable commit exit $git_commit_exit; retrying the same generation in $retry_delay seconds (attempt $commit_attempt/$commit_max_attempts)"`,
+    `  echo "⚠️ ${label}: retrying the same generation after exit $git_commit_exit in $retry_delay seconds" >> "$GITHUB_STEP_SUMMARY"`,
+    '  sleep "$retry_delay"',
+    '  commit_attempt=$((commit_attempt + 1))',
+    'done',
+  ].join('\n');
+}
+
+export function crawlerGroupBatchCommitRun(groupIndex) {
+  const group = String(groupIndex).padStart(2, '0');
+  return buildTokenBoundCommitRetryRun({
+    command: `bash scripts/lib/git-commit-data.sh --group-batch "Auto-update crawler group ${group} jobs"`,
+    label: 'group commit',
+  });
+}
 
 function globalLeaseBusyNotice(slug, { propagate = false } = {}) {
   return [
@@ -1420,31 +1470,19 @@ function crawlerGenerationRosterFromGroups(groups) {
 }
 
 export function crawlerGenerationLedgerPersistenceRun() {
-  return [
-    'set +e',
-    'bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl',
-    'git_commit_exit=$?',
-    'if [ "$git_commit_exit" -eq 42 ]; then',
-    '  echo "::warning::crawler generation ledger: push lost the ref race after all retries (contention); this cycle ledger entry was not committed and the next scheduled cycle records its own ledger state."',
-    '  echo "⚠️ crawler generation ledger: push contention loss (exit 42) — this cycle ledger entry was not committed; next scheduled cycle records its own state" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"',
-    '  exit 0',
-    'fi',
-    `if [ "$git_commit_exit" -eq ${GLOBAL_LEASE_BUSY_EXIT} ]; then`,
-    `  echo "::warning::crawler generation ledger: global data-pipeline lease is busy (exit ${GLOBAL_LEASE_BUSY_EXIT}); this cycle ledger entry was not committed and the next scheduled cycle records its own state."`,
-    `  echo "⚠️ crawler generation ledger: global data-pipeline lease busy (exit ${GLOBAL_LEASE_BUSY_EXIT}) — this cycle ledger entry was not committed" >> "\${GITHUB_STEP_SUMMARY:-/dev/null}"`,
-    '  exit 0',
-    'fi',
-    'if [ "$git_commit_exit" -ne 0 ]; then',
-    `  if [ "$git_commit_exit" -eq ${GROUP_SHARED_PRECONDITION_EXIT} ]; then`,
-    `    echo "::error::crawler generation ledger: shared deferred-commit precondition failed (exit ${GROUP_SHARED_PRECONDITION_EXIT})"`,
-    `    echo "❌ crawler generation ledger: shared deferred-commit precondition failed (exit ${GROUP_SHARED_PRECONDITION_EXIT})" >> "\${GITHUB_STEP_SUMMARY:-/dev/null}"`,
-    '  else',
-    '    echo "::error::crawler generation ledger persistence failed (exit $git_commit_exit)"',
-    '    echo "❌ crawler generation ledger persistence failed (exit $git_commit_exit)" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"',
-    '  fi',
-    'fi',
-    'exit "$git_commit_exit"',
-  ].join('\n');
+  return buildTokenBoundCommitRetryRun({
+    command: 'bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl',
+    label: 'crawler generation ledger',
+    nonRetryableFailureLines: [
+      `    if [ "$git_commit_exit" -eq ${GROUP_SHARED_PRECONDITION_EXIT} ]; then`,
+      `      echo "::error::crawler generation ledger: shared deferred-commit precondition failed (exit ${GROUP_SHARED_PRECONDITION_EXIT})"`,
+      `      echo "❌ crawler generation ledger: shared deferred-commit precondition failed (exit ${GROUP_SHARED_PRECONDITION_EXIT})" >> "$GITHUB_STEP_SUMMARY"`,
+      '    else',
+      '      echo "::error::crawler generation ledger persistence failed (exit $git_commit_exit)"',
+      '      echo "❌ crawler generation ledger persistence failed (exit $git_commit_exit)" >> "$GITHUB_STEP_SUMMARY"',
+      '    fi',
+    ],
+  });
 }
 
 function crawlerGenerationFinalizerFailureRun() {
@@ -1489,7 +1527,6 @@ function crawlerGenerationTerminalSteps(groupIndex, expectedCrawlers) {
     {
       name: 'Persist crawler generation ledger',
       if: "always() && steps.crawler-generation-finalizer.outcome == 'success'",
-      'continue-on-error': true,
       env: { CRAWLER_GENERATION_RECEIPT_DIR: '', SKIP_AI_TRANSLATION: '1' },
       run: crawlerGenerationLedgerPersistenceRun(),
     },
@@ -1709,37 +1746,11 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
     // member's terminal outcome, but a failed/missing member has no descriptor
     // to publish: `--group-batch` therefore publishes only data explicitly
     // produced by successful siblings. The finalizer below receives the
-    // aggregate `wait_outcome` and remains fail-closed for the group manifest;
-    // the gate after it keeps the workflow red until incomplete members recover.
+    // aggregate `wait_outcome` and remains fail-closed for the group manifest.
+    // A retryable ref/lease loss is retried in THIS token; exhausting that
+    // bounded retry is a real step failure, never a green "next cycle" result.
     if: "always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'",
-    // PUSH-CONTENTION CLASS (exit 42 from git-commit-data.sh, see
-    // commit_isolated_from_worktree): with `--group-batch`, GROUP_BATCH=true
-    // takes it out of the sequential soft-success path (JOBS_SLICE_FILE
-    // unset AND GROUP_BATCH != true), so the script's own exit 42 propagates
-    // raw. Left as a bare `run:` (GitHub Actions defaults to `bash -e {0}`),
-    // that failed the step and hard-failed the whole group job even though
-    // every member crawler had already produced valid data — only the final
-    // aggregated push lost the ref race. Mirror the per-crawler treatment of
-    // this same class (see buildCrawlerShellBody above): `set +e` so the
-    // non-zero exit doesn't abort the script before `$?` is captured, log a
-    // warning instead of filing/failing, and keep the step green. Any other
-    // non-zero exit still fails the step exactly as before.
-    run: [
-      'set +e',
-      `bash scripts/lib/git-commit-data.sh --group-batch "Auto-update crawler group ${String(groupIndex).padStart(2, '0')} jobs"`,
-      'git_commit_exit=$?',
-      'if [ "$git_commit_exit" -eq 42 ]; then',
-      '  echo "::warning::group commit: push lost the ref race after all retries (contention) on the final aggregated commit. Cycle lost, self-heals next scheduled run — group not failed (systemic class)."',
-      '  echo "⚠️ group commit: push contention loss (exit 42) — crawl data was fine, group not failed" >> "$GITHUB_STEP_SUMMARY"',
-      '  exit 0',
-      'fi',
-      `if [ "$git_commit_exit" -eq ${GLOBAL_LEASE_BUSY_EXIT} ]; then`,
-      `  echo "::warning::group commit: global data-pipeline lease is busy (exit ${GLOBAL_LEASE_BUSY_EXIT}); no group data was staged and the next scheduled cycle will retry — group not failed (systemic class)."`,
-      `  echo "⚠️ group commit: global data-pipeline lease busy (exit ${GLOBAL_LEASE_BUSY_EXIT}) — group data not staged, group not failed" >> "$GITHUB_STEP_SUMMARY"`,
-      '  exit 0',
-      'fi',
-      'exit "$git_commit_exit"',
-    ].join('\n'),
+    run: crawlerGroupBatchCommitRun(groupIndex),
   });
   steps.push(saveCrawlerAiCacheStep(groupName));
   steps.push(translationCacheSaveStep("always() && steps.crawler_group_setup.outcome == 'success'", groupName));

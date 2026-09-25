@@ -16,6 +16,7 @@ import {
   CRAWLER_GENERATION_PORTABLE_TOKEN_EXPR as PORTABLE_GENERATION_TOKEN_EXPR,
   CRAWLER_GENERATION_TOKEN_EXPR as GENERATION_TOKEN_EXPR,
   assertCrawlerLogicParity,
+  crawlerGroupBatchCommitRun,
   crawlerGenerationLedgerPersistenceRun,
   checkGeneratedArtifacts,
   generate,
@@ -214,22 +215,7 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       expect(stepByName(job.steps, 'Commit crawler group data atomically')).toEqual({
         name: 'Commit crawler group data atomically',
         if: "always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'",
-        run: [
-          'set +e',
-          `bash scripts/lib/git-commit-data.sh --group-batch "Auto-update crawler group ${group} jobs"`,
-          'git_commit_exit=$?',
-          'if [ "$git_commit_exit" -eq 42 ]; then',
-          '  echo "::warning::group commit: push lost the ref race after all retries (contention) on the final aggregated commit. Cycle lost, self-heals next scheduled run — group not failed (systemic class)."',
-          '  echo "⚠️ group commit: push contention loss (exit 42) — crawl data was fine, group not failed" >> "$GITHUB_STEP_SUMMARY"',
-          '  exit 0',
-          'fi',
-          'if [ "$git_commit_exit" -eq 44 ]; then',
-          '  echo "::warning::group commit: global data-pipeline lease is busy (exit 44); no group data was staged and the next scheduled cycle will retry — group not failed (systemic class)."',
-          '  echo "⚠️ group commit: global data-pipeline lease busy (exit 44) — group data not staged, group not failed" >> "$GITHUB_STEP_SUMMARY"',
-          '  exit 0',
-          'fi',
-          'exit "$git_commit_exit"',
-        ].join('\n'),
+        run: crawlerGroupBatchCommitRun(Number(group)),
       });
       const jobWithFutureTail = structuredClone(job);
       jobWithFutureTail.steps.push({ name: 'Future post-finalizer step', run: 'true' });
@@ -247,7 +233,7 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       );
       const persist = stepByName(job.steps, 'Persist crawler generation ledger');
       expect(persist.if).toBe("always() && steps.crawler-generation-finalizer.outcome == 'success'");
-      expect(persist['continue-on-error']).toBe(true);
+      expect(persist['continue-on-error']).toBeUndefined();
       expect(persist.run).toBe(crawlerGenerationLedgerPersistenceRun());
       expect(persist.run).toContain('--extra-only');
       expect(persist.run).toContain('data/crawler-generation-ledger.jsonl');
