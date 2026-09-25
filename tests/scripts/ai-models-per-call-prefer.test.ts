@@ -36,22 +36,27 @@ import {
  *     test e' la meta' che manca.
  */
 describe('opts.prefer — preferenza per-chiamata dopo il sort per punteggio', () => {
-  const HAIKU = AI_MODELS.CLAUDE_CLI_HAIKU;
+  // Era `claude-cli/haiku`, spento dal proprietario il 2026-09-24 («Disattiva
+  // haiku! Voglio solo codex»): non e' piu' disponibile nemmeno con flag e
+  // token, e ogni «vince RIVALE» diventerebbe vero per disponibilita'. Il
+  // meccanismo serve oggi Codex (AI_MODELS_PREFER: codex-cli/gpt-5.6-luna in
+  // otto workflow), quindi e' Codex il modello affondato e riportato in testa.
+  const PREFERITO = AI_MODELS.CODEX_CLI_PRIMARY;
   const RIVALE = AI_MODELS.MISTRAL_SMALL;
   const ENV_KEYS = [
     'AI_MODELS_PREFER',
     'AI_MODELS_FORCE_CHAIN',
     'MISTRAL_API_KEY',
-    'CLAUDE_CODE_OAUTH_TOKEN',
-    'ENABLE_HAIKU_ARTICLE_FALLBACK',
+    'ENABLE_CODEX_ARTICLE_FALLBACK',
+    'CODEX_AUTH_BROKER_SOCKET',
     'CLAUDE_CLI_MAX_CALLS_PER_RUN',
   ] as const;
   const saved: Record<string, string | undefined> = {};
-  const CHAIN = [RIVALE, HAIKU];
+  const CHAIN = [RIVALE, PREFERITO];
 
-  /** Riproduce il divario del ledger reale: haiku affondato, il rivale in cima. */
+  /** Riproduce il divario del ledger reale: il preferito affondato, il rivale in cima. */
   function seminaIlDivario() {
-    for (let i = 0; i < 40; i++) recordModelFailure(HAIKU, { nonRetryable: true });
+    for (let i = 0; i < 40; i++) recordModelFailure(PREFERITO, { nonRetryable: true });
     for (let i = 0; i < 200; i++) recordModelSuccess(RIVALE);
   }
 
@@ -63,8 +68,8 @@ describe('opts.prefer — preferenza per-chiamata dopo il sort per punteggio', (
     delete process.env.CLAUDE_CLI_MAX_CALLS_PER_RUN;
     // Entrambi disponibili, altrimenti si misura la disponibilita' e non l'ordine.
     process.env.MISTRAL_API_KEY = 'test-key';
-    process.env.CLAUDE_CODE_OAUTH_TOKEN = 'test-token';
-    process.env.ENABLE_HAIKU_ARTICLE_FALLBACK = 'true';
+    process.env.ENABLE_CODEX_ARTICLE_FALLBACK = '1';
+    process.env.CODEX_AUTH_BROKER_SOCKET = '/nonexistent/codex-broker-test.sock';
   });
 
   afterEach(() => {
@@ -85,13 +90,13 @@ describe('opts.prefer — preferenza per-chiamata dopo il sort per punteggio', (
 
   it('opts.prefer porta primo un modello affondato nel punteggio', () => {
     seminaIlDivario();
-    expect(getPreferredModel({ chain: CHAIN, prefer: [HAIKU] })).toBe(HAIKU);
+    expect(getPreferredModel({ chain: CHAIN, prefer: [PREFERITO] })).toBe(PREFERITO);
   });
 
   it('AI_MODELS_PREFER resta efficace dopo il sort (translate-pending.yml)', () => {
-    process.env.AI_MODELS_PREFER = HAIKU;
+    process.env.AI_MODELS_PREFER = PREFERITO;
     seminaIlDivario();
-    expect(getPreferredModel({ chain: CHAIN })).toBe(HAIKU);
+    expect(getPreferredModel({ chain: CHAIN })).toBe(PREFERITO);
   });
 
   it('AI_MODELS_PREFER="" resta la leva di rollback istantaneo', () => {
@@ -101,8 +106,8 @@ describe('opts.prefer — preferenza per-chiamata dopo il sort per punteggio', (
   });
 
   it('riordina e non tronca: il fallback resta intero dietro il preferito', () => {
-    expect(applyModelsPrefer(['a', 'b', 'c', HAIKU, 'd'], [HAIKU]))
-      .toEqual([HAIKU, 'a', 'b', 'c', 'd']);
+    expect(applyModelsPrefer(['a', 'b', 'c', PREFERITO, 'd'], [PREFERITO]))
+      .toEqual([PREFERITO, 'a', 'b', 'c', 'd']);
   });
 
   it('opts.prefer vince sulla variabile d ambiente', () => {
@@ -142,14 +147,14 @@ describe('opts.prefer — preferenza per-chiamata dopo il sort per punteggio', (
     process.env.AI_MODELS_PREFER = '';
     seminaIlDivario();
 
-    expect(applyModelsPrefer(['a', 'b'], [HAIKU])).toEqual(['a', 'b']);
+    expect(applyModelsPrefer(['a', 'b'], [PREFERITO])).toEqual(['a', 'b']);
 
     // E lo stesso attraverso la funzione che rispecchia l ordine reale di
     // callLLM (morbida -> sort -> dura), con il divario di punteggio vero.
-    expect(getPreferredModel({ chain: CHAIN, prefer: [HAIKU] })).toBe(RIVALE);
+    expect(getPreferredModel({ chain: CHAIN, prefer: [PREFERITO] })).toBe(RIVALE);
 
     // Anche in forma CSV, che e' l altra forma accettata da opts.prefer.
-    expect(getPreferredModel({ chain: CHAIN, prefer: HAIKU })).toBe(RIVALE);
+    expect(getPreferredModel({ chain: CHAIN, prefer: PREFERITO })).toBe(RIVALE);
   });
 
   it('la leva vuota non e «env batte per-call»: un valore NON vuoto perde ancora', () => {
@@ -161,7 +166,7 @@ describe('opts.prefer — preferenza per-chiamata dopo il sort per punteggio', (
     // stessa per cui opts.prefer esiste.
     process.env.AI_MODELS_PREFER = RIVALE;
     seminaIlDivario();
-    expect(getPreferredModel({ chain: CHAIN, prefer: [HAIKU] })).toBe(HAIKU);
+    expect(getPreferredModel({ chain: CHAIN, prefer: [PREFERITO] })).toBe(PREFERITO);
   });
 });
 

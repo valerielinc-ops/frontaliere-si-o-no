@@ -43,6 +43,41 @@ function writeL1Evidence(dir: string) {
   });
 }
 
+function writeHistoricalL2Observation(ledgerDir: string) {
+  fs.mkdirSync(ledgerDir, { recursive: true });
+  fs.writeFileSync(path.join(ledgerDir, 'loop-observations.jsonl'), `${JSON.stringify({
+    recordType: 'observation',
+    schemaVersion: 1,
+    recordId: 'lf-observation-historical-l2-posthog',
+    loopId: 'L2',
+    actionClass: 'candidate+issue',
+    quality: 'partial',
+    recordedAt: NOW.toISOString(),
+    execution: {
+      loopId: 'L2',
+      runId: '34802746070',
+      sha: 'b'.repeat(40),
+    },
+    outcome: {
+      recordType: 'outcome',
+      schemaVersion: 1,
+      outcomeId: 'useful-action',
+      status: 'partial',
+      independent: false,
+      sourceRefs: ['gsc', 'posthog-landing-path'],
+      primaryMetric: 'useful_action_per_1000_eligible_landing_sessions',
+      numerator: null,
+      denominator: null,
+      requiredFieldsPresent: ['generatedAt'],
+      missingFields: ['numerator', 'denominator'],
+      reason: 'historical outcome predates the L2 oracle migration',
+      observedAt: NOW.toISOString(),
+      allowNumeratorExceedDenominator: false,
+      recordedAt: NOW.toISOString(),
+    },
+  })}\n`);
+}
+
 describe('merge-loop-fleet-ledger', () => {
   it('appends a validated run once and skips an identical rerun', () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-ledger-'));
@@ -282,6 +317,52 @@ describe('merge-loop-fleet-ledger', () => {
       const result = mergeLedger({ loopId: 'L2', runId: '12346', sha: SHA, inputDir: currentDir, ledgerDir });
 
       expect(result.results.observation.appended).toBe(1);
+      expect(fs.readFileSync(path.join(ledgerDir, 'loop-observations.jsonl'), 'utf8').trim().split('\n')).toHaveLength(2);
+    } finally {
+      for (const [key, value] of Object.entries(previous)) {
+        if (value === undefined) delete process.env[key];
+        else process.env[key] = value;
+      }
+    }
+  });
+
+  it('replays historical L2 records after a declared oracle migration', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-ledger-historical-source-'));
+    const inputDir = path.join(root, 'input');
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(inputDir);
+    writeL1Evidence(inputDir);
+    writeHistoricalL2Observation(ledgerDir);
+
+    const previous = {
+      GITHUB_REPOSITORY: process.env.GITHUB_REPOSITORY,
+      GITHUB_WORKFLOW: process.env.GITHUB_WORKFLOW,
+      GITHUB_EVENT_NAME: process.env.GITHUB_EVENT_NAME,
+      GITHUB_REF: process.env.GITHUB_REF,
+      GITHUB_SHA: process.env.GITHUB_SHA,
+      GITHUB_RUN_ID: process.env.GITHUB_RUN_ID,
+      GITHUB_RUN_ATTEMPT: process.env.GITHUB_RUN_ATTEMPT,
+    };
+    Object.assign(process.env, {
+      GITHUB_REPOSITORY: 'example/frontaliere',
+      GITHUB_WORKFLOW: 'Loop L1 reliability',
+      GITHUB_EVENT_NAME: 'schedule',
+      GITHUB_REF: 'refs/heads/main',
+      GITHUB_SHA: SHA,
+      GITHUB_RUN_ID: '12345',
+      GITHUB_RUN_ATTEMPT: '1',
+    });
+    try {
+      recordEvidence({ loopId: 'L1', reportDir: inputDir, now: NOW });
+      const result = mergeLedger({
+        loopId: 'L1',
+        runId: '12345',
+        sha: SHA,
+        inputDir,
+        ledgerDir,
+      });
+
+      expect(result.results.observation).toMatchObject({ appended: 1, skipped: 0, existing: 1 });
       expect(fs.readFileSync(path.join(ledgerDir, 'loop-observations.jsonl'), 'utf8').trim().split('\n')).toHaveLength(2);
     } finally {
       for (const [key, value] of Object.entries(previous)) {

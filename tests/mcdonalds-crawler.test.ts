@@ -407,6 +407,22 @@ describe("McDonald's Switzerland crawler parser", () => {
       expect(job.streetAddress).not.toBe(job.location);
     });
 
+    it('never publishes the canton capital for a restaurant without a source address', () => {
+      // Gemello di nord-anglia/swiss-life (issue 5253): il ripiego pubblicava
+      // `Bern` per un ristorante di Heimberg. La località resta quella del
+      // ristorante; senza via coerente l'annuncio resta fuori.
+      const job = buildMcdoJob({
+        ...parsed,
+        city: 'Heimberg',
+        canton: 'BE',
+        sourceLocation: 'Heimberg, BE',
+        postalCode: '',
+        streetAddress: '',
+      });
+      expect(job?.location).not.toBe('Bern');
+      expect(job === null || job.location === 'Heimberg').toBe(true);
+    });
+
     it('returns null for empty parse results', () => {
       expect(buildMcdoJob(null)).toBeNull();
       expect(buildMcdoJob({ title: '' } as never)).toBeNull();

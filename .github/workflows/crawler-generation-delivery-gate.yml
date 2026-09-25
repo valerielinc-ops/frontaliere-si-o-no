@@ -1,0 +1,84 @@
+name: Crawler generation delivery gate
+
+# A green crawler-group run is not a published delivery (issue 9689, corpus
+# 1579/1566). The group commit path exits 0 on push contention (42) and on a
+# busy global lease (44), and the finalizer step is continue-on-error, so a
+# group whose data never reached `main` still concludes `success`. The
+# finalizer already records one token-bound verdict per group in
+# `data/crawler-generation-ledger.jsonl`; this gate reads the newest settled
+# generation and goes RED unless every group is `published`, naming the
+# groups that are `green_undelivered` separately from real crawler failures.
+# Being red is the signal: `unreported-failure-issues.yml` turns it into an
+# issue, which a green group run never did.
+#
+# Schedule: orchestrate-crawlers dispatches at 09:00 and 21:00 UTC and a wave
+# finalizes over ~2h after queueing. The script only judges a generation with
+# no ledger write in the last 2h, so each run below sees the previous wave.
+
+on:
+  schedule:
+    - cron: '35 7 * * *'
+    - cron: '35 19 * * *'
+  workflow_dispatch:
+    inputs:
+      token:
+        description: 'Generation token to judge (default: newest settled generation)'
+        required: false
+        default: ''
+
+concurrency:
+  group: crawler-generation-delivery-gate
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+        timeout-minutes: 7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      # Stdlib-only import closure: no `npm ci`.
+      - name: Check crawler generation delivery
+        env:
+          DELIVERY_TOKEN: ${{ inputs.token }}
+        run: |
+          set -euo pipefail
+          if [ -n "${DELIVERY_TOKEN:-}" ]; then
+            node scripts/check-crawler-generation-delivery.mjs --token "$DELIVERY_TOKEN"
+          else
+            node scripts/check-crawler-generation-delivery.mjs
+          fi

@@ -565,7 +565,10 @@ describe('job alert sorting — score tiebreak by recency', () => {
       'utf8',
     );
     // Confirms the tiebreak exists in the matching loop (regression guard).
-    expect(src).toMatch(/firstSeenAt[\s\S]{0,400}bTime\s*-\s*aTime/);
+    // Since #9314 the timestamp is parsed once per entry (`firstSeenMs`) and
+    // the comparator subtracts the pre-parsed values; the behavioural oracle
+    // for the order is tests/job-alert-plan-sort-cost.test.ts.
+    expect(src).toMatch(/firstSeenMs:\s*job\.firstSeenAt[\s\S]{0,800}b\.firstSeenMs\s*-\s*a\.firstSeenMs/);
   });
 });
 

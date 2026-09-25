@@ -1457,7 +1457,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.evoluzione-frontalieri-dati-ust.excerpt': 'Analyse des Bundesamtes für Statistik über das Phänomen des Grenzgängertums: Die Lombardei wächst, der Sprung der Provinz Monza und Brianza fällt auf.',
     'blog.article.evoluzione-frontalieri-dati-ust.imageAlt': 'Panoramablick auf Lugano und seinen See im schweizerischen städtischen Kontext',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.title': 'Dritte Säule 3a Schweiz: Vorteile 2026 im Kanton St. Gallen',
-    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.excerpt': 'Das Doppelbesteuerungsabkommen Italien-Schweiz wurde am 9. Dezember 1976 unterzeichnet. Die neuen Grenzgänger haben eine Selbstbeteiligung von 10.000 €.',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.excerpt': 'Das Doppelbesteuerungsabkommen Italien-Schweiz wurde am 9. März 1976 unterzeichnet. Die neuen Grenzgänger haben eine Selbstbeteiligung von 10.000 €.',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.imageAlt': 'Lugano und See Lugano',
     'blog.article.permesso-frontaliere-g-procedura-ticino.title': 'Grenzgängerbewilligung G: Verfahren und Pflichten im Tessin',
     'blog.article.permesso-frontaliere-g-procedura-ticino.excerpt': 'Praktischer Leitfaden zur Beantragung der neuen Bewilligung G für Grenzgänger im Tessin: Dokumente, Meldepflichten und Verfahrensgebühren aktualisiert.',
@@ -6671,6 +6671,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ubs-capitale-90-bns.title': 'UBS, SNB genehmigt Kapitalanforderungen zu 90 %',
     'blog.article.ubs-capitale-90-bns.excerpt': 'Die SNB stimmt dem Entscheid des Ständerates zu: Die Auslandsniederlassungen der UBS sollen zu 90% mit WAK1-Kapital abgesichert werden.',
     'blog.article.ubs-capitale-90-bns.imageAlt': 'Schweizer Bankgebäude mit Nationalflagge in einer Finanznachrichtenszene',
+    'blog.article.mozione-costi-manifestazioni-stati.title': 'Motion Staaten: Die Organisatoren zahlen die Sicherheitskosten',
+    'blog.article.mozione-costi-manifestazioni-stati.excerpt': 'Die Staaten stimmen der Motion 24-18 mit 3 Enthaltungen zu: Der Bundesrat muss eine gesetzliche Grundlage schaffen, damit die Organisatoren die Kosten für den Einsatz und die Sicherheit der Demonstrationen nach den Unruhen vom 11. Oktober in Bern bezahlen können.',
+    'blog.article.mozione-costi-manifestazioni-stati.imageAlt': 'Schweizer Demonstration mit Polizeikräften im Vordergrund',
+    'blog.article.bns-tasso-guida-zero-2026.title': 'SNB lässt Leitzins bei 0% und erhöht Schätzungen BIP 2026',
+    'blog.article.bns-tasso-guida-zero-2026.excerpt': 'Der SNB-Leitzins liegt seit Juni 2025 bei 0%; Inflation im August bei 0,8%; BIP 2026 zwischen 1,5% und 2%.',
+    'blog.article.bns-tasso-guida-zero-2026.imageAlt': 'Blick auf den Luganer See mit Bergen und Finanzgebäuden im Hintergrund',
+    'blog.article.turismo-agosto-ospiti-estero.title': 'Spätsommer mit weniger ausländischen Touristen in der Schweiz',
+    'blog.article.turismo-agosto-ospiti-estero.excerpt': 'Im August gingen die Logiernächte in der Schweiz im Jahresvergleich um 1,9% zurück: Ausländische Gäste belasten, aber auch die Inlandsnachfrage geht zurück.',
+    'blog.article.turismo-agosto-ospiti-estero.imageAlt': 'Touristen an einer Schweizer Seepromenade in einer Spätsommerszene.',
 };
 
 export default blogMetaChDe;

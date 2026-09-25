@@ -68,6 +68,13 @@ jobs:
           APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
           APPROVAL_CONSENT: ${{ inputs.human_approval }}
           APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          # Il cron ogni 30 min e' il percorso «disponibile tra 1–2 ore» degli
+          # annunci gia' pagati. Non armato da #8889, ogni run nega
+          # (`event-not-workflow-dispatch`) ed esce verde senza pubblicare
+          # (run 36007205289): l'ultimo commit «Publisher jobs sync» e' del
+          # 2026-09-16T14:08Z. Pubblica solo sul nostro sito cio' che Stripe
+          # ha gia' marcato `paid`: slice + deploy, nessun invio a terzi.
+          APPROVAL_TRUSTED_SCHEDULE: 'true'
           APPROVAL_SCOPE: publisher-jobs-publication
         run: node scripts/ci/human-side-effect-gate.mjs
 

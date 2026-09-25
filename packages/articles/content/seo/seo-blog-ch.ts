@@ -18817,16 +18817,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-terzo-pilastro-3a-vantaggi-2026-canton-san-gallo': {
     title: 'Terzo pilastro 3a svizzero: vantaggi 2026 nel Canton San Gallo',
-    description: 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 dicembre 1976. I nuovi frontalieri hanno una franchigia di €10.000. Dati aggiornati 2026',
+    description: 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 marzo 1976. I nuovi frontalieri hanno una franchigia di €10.000. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, terzo, pilastro, svizzero, vantaggi',
     ogTitle: 'Terzo pilastro 3a svizzero: vantaggi 2026 nel Canton San Gallo',
-    ogDescription: 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 dicembre 1976. I nuovi frontalieri hanno una franchigia di €10.000.',
+    ogDescription: 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 marzo 1976. I nuovi frontalieri hanno una franchigia di €10.000.',
     canonicalPath: '/articoli-svizzera/terzo-pilastro-3a-vantaggi-2026-canton-san-gallo/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Terzo pilastro 3a svizzero: vantaggi 2026 nel Canton San Gallo",
-      "description": "La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 dicembre 1976. I nuovi frontalieri hanno una franchigia di €10.000. Dati aggiornati 2026",
+      "description": "La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 marzo 1976. I nuovi frontalieri hanno una franchigia di €10.000. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -86479,6 +86479,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ubs-capitale-90-bns/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mozione-costi-manifestazioni-stati': {
+    title: 'Mozione Stati: gli organizzatori pagano i costi sicurezza',
+    description: 'Gli Stati approvano la mozione 24-18 con 3 astensioni: il Consiglio federale dovrà preparare una base legale per far pagare agli organizzatori i costi',
+    keywords: 'frontalieri, ticino, svizzera, italia, mozione, stati, organizzatori, pagano',
+    ogTitle: 'Mozione Stati: gli organizzatori pagano i costi sicurezza',
+    ogDescription: 'Il Consiglio degli Stati ha approvato con 24 voti a favore, 18 contrari e 3 astensioni una mozione che chiede al Consiglio federale di elaborare una base legale per far pagare agli organizzatori delle manifestazioni i costi di intervento e sicurezza',
+    canonicalPath: '/articoli-svizzera/mozione-costi-manifestazioni-stati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mozione Stati: gli organizzatori pagano i costi sicurezza",
+      "description": "Gli Stati approvano la mozione 24-18 con 3 astensioni: il Consiglio federale dovrà preparare una base legale per far pagare agli organizzatori i costi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mozione-costi-manifestazioni-stati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione svizzera con forze dell'ordine in primo piano"
+      },
+      "datePublished": "2026-09-24T21:22:12+00:00",
+      "dateModified": "2026-09-24T21:22:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mozione-costi-manifestazioni-stati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bns-tasso-guida-zero-2026': {
+    title: 'BNS lascia tasso guida allo 0% e rialza stime PIL 2026',
+    description: 'La Banca nazionale svizzera mantiene il tasso guida allo 0% da giugno 2025. Inflazione agosto allo 0,8%; PIL 2026 previsto tra 1,5% e 2%, PIL 2027 intorno',
+    keywords: 'frontalieri, ticino, svizzera, italia, lascia, tasso, allo, rialza',
+    ogTitle: 'BNS lascia tasso guida allo 0% e rialza stime PIL 2026',
+    ogDescription: 'La decisione della BNS di lasciare il tasso guida allo 0% influisce sull\'inflazione, prevista allo 0,8% ad agosto e con ulteriori variazioni nei prossimi anni, e sulle stime di crescita del PIL svizzero, ora riviste al rialzo per il 2026 tra l\'1,5%',
+    canonicalPath: '/articoli-svizzera/bns-tasso-guida-zero-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BNS lascia tasso guida allo 0% e rialza stime PIL 2026",
+      "description": "La Banca nazionale svizzera mantiene il tasso guida allo 0% da giugno 2025. Inflazione agosto allo 0,8%; PIL 2026 previsto tra 1,5% e 2%, PIL 2027 intorno",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bns-tasso-guida-zero-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con montagne e edifici finanziari sullo sfondo"
+      },
+      "datePublished": "2026-09-24T22:00:35+00:00",
+      "dateModified": "2026-09-24T22:00:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bns-tasso-guida-zero-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-turismo-agosto-ospiti-estero': {
+    title: 'Fine estate con meno turisti stranieri in Svizzera',
+    description: 'I pernottamenti turistici in Svizzera calano dell\'1,9% in agosto su base annua: -2,3% per gli ospiti stranieri, -1,4% per la domanda interna e -9,2% in Asia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fine, estate, meno, turisti',
+    ogTitle: 'Pernottamenti turistici in calo in agosto',
+    ogDescription: 'Il bilancio di agosto mostra una flessione dell\'1,9% dei pernottamenti su base annua. Il calo riguarda soprattutto gli ospiti dall\'estero; l\'Asia arretra del 9,2%, mentre l\'Europa resta quasi stabile. I dati regionali arriveranno il 5 ottobre.',
+    canonicalPath: '/articoli-svizzera/turismo-agosto-ospiti-estero/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fine estate con meno turisti stranieri in Svizzera",
+      "description": "I pernottamenti turistici in Svizzera calano dell'1,9% in agosto su base annua: -2,3% per gli ospiti stranieri, -1,4% per la domanda interna e -9,2% in Asia.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/turismo-agosto-ospiti-estero.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Turisti sul lungolago svizzero in una scena di fine estate."
+      },
+      "datePublished": "2026-09-24T22:53:54+00:00",
+      "dateModified": "2026-09-24T22:53:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/turismo-agosto-ospiti-estero/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

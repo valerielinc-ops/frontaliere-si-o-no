@@ -164,7 +164,7 @@ const translations: Record<string, string> = {
  'glossary.terms.impostaAllaFonte.example': 'Su uno stipendio lordo di CHF 5.000/mese, un celibe senza figli a Lugano paga circa il 12% di imposta alla fonte.',
  'glossary.terms.irpef.title': 'IRPEF',
  'glossary.terms.irpef.desc': 'Imposta sul Reddito delle Persone Fisiche. È la principale imposta italiana sul reddito, con aliquote progressive dal 23% al 43%.',
- 'glossary.terms.irpef.example': 'Reddito €30.000: primi €28.000 al 23%, rimanenti €2.000 al 35% → IRPEF lorda €7.140.',
+ 'glossary.terms.irpef.example': 'Reddito €30.000: primi €28.000 al 23%, rimanenti €2.000 al 33% → IRPEF lorda €7.100.',
  'glossary.terms.franchigia.title': 'Franchigia €10.000',
  'glossary.terms.franchigia.desc': 'Con il nuovo accordo 2026, i frontalieri di nuova assunzione beneficiano di una franchigia di €10.000 sul reddito ai fini IRPEF.',
  'glossary.terms.franchigia.example': 'Reddito lordo €40.000: con franchigia, solo €30.000 sono soggetti a IRPEF.',
