@@ -13,6 +13,7 @@
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import { countRedTestFiles } from './lib/vitest-json-report.mjs';
 
 const MAX_FAILURES = 20;
 const MAX_MESSAGE_LENGTH = 1800;
@@ -74,7 +75,9 @@ export function collectFailures(files = reportFilesFromEnv()) {
       groups.push({
         file,
         failedTests: Number(report.numFailedTests || failures.length),
-        failedSuites: Number(report.numFailedTestSuites || 0),
+        // File, da `testResults`: `numFailedTestSuites` conta anche ogni
+        // `describe` rosso e qui veniva stampato come «file suite falliti».
+        failedFiles: countRedTestFiles(report),
         failures,
       });
     }
@@ -99,7 +102,7 @@ export function buildComment(groups, {
   }
   for (const group of groups) {
     lines.push(`### ${group.file}`);
-    lines.push(`- Test falliti: **${group.failedTests}**${group.failedSuites ? ` — file suite falliti: **${group.failedSuites}**` : ''}`);
+    lines.push(`- Test falliti: **${group.failedTests}**${group.failedFiles ? ` — file falliti: **${group.failedFiles}**` : ''}`);
     for (const failure of group.failures.slice(0, MAX_FAILURES)) {
       lines.push('- **' + failure.file + '** — `' + failure.test + '`');
       lines.push('  ```text');

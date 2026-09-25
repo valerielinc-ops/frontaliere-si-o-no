@@ -146,6 +146,7 @@ describe('workflows key the assemble-jobs cache on the assembler fingerprint', (
     'deploy.yml',
     'tests.yml',
     'corpus-wide-gates.yml',
+    'full-suite-dispatch.yml',
     'deploy-matrix-experiment.yml',
     'send-job-alerts.yml',
     'send-company-alerts.yml',

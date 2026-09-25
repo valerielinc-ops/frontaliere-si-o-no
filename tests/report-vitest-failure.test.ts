@@ -37,7 +37,7 @@ describe('report-vitest-failure', () => {
     const body = buildComment([{
       file: 'shard-timing-related.json',
       failedTests: 1,
-      failedSuites: 1,
+      failedFiles: 1,
       failures: [{
         file: 'tests/example.test.ts',
         test: 'suite fails',
@@ -88,6 +88,36 @@ describe('report-vitest-failure', () => {
       test: 'suite fails',
     });
     expect(groups[0].failures[0].error).toContain('expected 1 to be 2');
+  });
+
+  it('conta i FILE falliti da testResults, non le suite di Vitest (file + describe)', () => {
+    // Forma reale: un test rosso dentro un `describe` fa due suite rosse
+    // (`getSuites` = file + describe annidati), ma il file rosso è uno solo.
+    const dir = mkdtempSync(join(tmpdir(), 'frontaliere-vitest-report-files-'));
+    const report = join(dir, 'shard-timing-related.json');
+    writeFileSync(report, JSON.stringify({
+      success: false,
+      numFailedTests: 2,
+      numFailedTestSuites: 3,
+      numTotalTestSuites: 6,
+      testResults: [
+        {
+          name: '/runner/tests/red.test.ts',
+          status: 'failed',
+          assertionResults: [
+            { status: 'failed', fullName: 'blocco a rosso', failureMessages: ['AssertionError: a'] },
+            { status: 'failed', fullName: 'blocco b rosso', failureMessages: ['AssertionError: b'] },
+          ],
+        },
+        { name: '/runner/tests/green.test.ts', status: 'passed', assertionResults: [{ status: 'passed' }] },
+      ],
+    }));
+
+    const groups = collectFailures([report]);
+    expect(groups[0].failedFiles).toBe(1);
+    const body = buildComment(groups);
+    expect(body).toContain('- Test falliti: **2** — file falliti: **1**');
+    expect(body).not.toMatch(/suite falliti|\*\*3\*\*/);
   });
 
   it('quando gh fallisce (403/fork), avvisa su stdout e scrive il summary, exit 0', () => {
