@@ -30,21 +30,25 @@ import {
 
 const CONSENT_LOCALES = new Set(['it', 'en', 'de', 'fr']);
 const SURFACE_RE = /^[a-z0-9_]{1,40}$/;
-const VERSION_RE = /^[0-9A-Za-z._-]{1,40}$/;
-const NOTICE_KEY_RE = /^[A-Za-z0-9_]{1,60}$/;
+// The register entry every sign-in surface renders (services/consentTexts.ts).
+const REGISTRATION_NOTICE_KEY = 'communicationsOptIn';
 
 /**
  * The consent record the browser measured for this LinkedIn login, forwarded
  * inside `attribution.consent` (services/authService.ts → exchangeLinkedInCode):
- * the surface, whether the notice was on screen at the click, and the exact
- * register sentence, version and locale. Untrusted input: only a well-formed
- * record passes, and the sentence is capped. It concerns only the account that
- * just completed LinkedIn OAuth, which could write the same fields on its own
- * document from the browser anyway.
+ * the surface, whether the notice was on screen at the click, and the register
+ * sentence, version and locale that were shown. Untrusted input, so only the
+ * surface, the locale and the displayed claim are taken from it, and the
+ * displayed claim only when the sentence and version it names are EXACTLY the
+ * registration notice this bundle stores for that locale
+ * (registrationTermsText.js, pinned to the register by a test). What is stored
+ * is always the canonical sentence and version; a text the register does not
+ * know — or a client on another version during a deploy — is recorded as not
+ * displayed. Never the other way round.
  *
  * Without a record (a tab still running an older bundle) the login is written
- * as what can be proven: the governing Italian sentence, `displayed: false`,
- * surface `auth_linkedin`. Never the other way round.
+ * as what can be proven: the Italian sentence, `displayed: false`, surface
+ * `auth_linkedin`.
  *
  * @param {unknown} attribution - `req.body.attribution`
  * @returns {{ surface: string, displayed: boolean, key: string|null, locale: string, text: string, version: string }}
@@ -53,24 +57,23 @@ export function resolveLinkedInConsentRecord(attribution) {
  const raw = attribution && typeof attribution === 'object' && !Array.isArray(attribution)
   ? attribution.consent
   : null;
- const fallback = {
-  surface: 'auth_linkedin',
-  displayed: false,
-  key: null,
-  locale: 'it',
-  text: registrationTermsTextFor('it'),
+ const record = (surface, locale, displayed) => ({
+  surface,
+  displayed,
+  key: displayed ? REGISTRATION_NOTICE_KEY : null,
+  locale,
+  text: registrationTermsTextFor(locale),
   version: REGISTRATION_TERMS_VERSION,
- };
- if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return fallback;
- const surface = typeof raw.surface === 'string' && SURFACE_RE.test(raw.surface) ? raw.surface : fallback.surface;
+ });
+ if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return record('auth_linkedin', 'it', false);
+ const surface = typeof raw.surface === 'string' && SURFACE_RE.test(raw.surface) ? raw.surface : 'auth_linkedin';
  const locale = typeof raw.locale === 'string' && CONSENT_LOCALES.has(raw.locale) ? raw.locale : 'it';
- const text = typeof raw.text === 'string' ? raw.text.replace(/\s+/g, ' ').trim().slice(0, 600) : '';
- const version = typeof raw.version === 'string' && VERSION_RE.test(raw.version) ? raw.version : '';
- const key = typeof raw.key === 'string' && NOTICE_KEY_RE.test(raw.key) ? raw.key : null;
- if (!text || !version) {
-  return { ...fallback, surface, locale, text: registrationTermsTextFor(locale) };
- }
- return { surface, displayed: raw.displayed === true, key, locale, text, version };
+ const text = typeof raw.text === 'string' ? raw.text.replace(/\s+/g, ' ').trim() : '';
+ const shownIsCanonical = raw.displayed === true
+  && raw.key === REGISTRATION_NOTICE_KEY
+  && raw.version === REGISTRATION_TERMS_VERSION
+  && text === registrationTermsTextFor(locale);
+ return record(surface, locale, shownIsCanonical);
 }
 
 /**

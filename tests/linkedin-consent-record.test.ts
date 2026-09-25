@@ -99,6 +99,32 @@ describe('resolveLinkedInConsentRecord', () => {
     expect(r.locale).toBe('it');
     expect(r.text).toBe(REGISTRATION_TERMS_TEXT.it);
   });
+
+  it('a displayed claim on a sentence the register does not know stores the canonical one, not displayed', () => {
+    expect(resolveLinkedInConsentRecord({
+      consent: {
+        surface: 'auth_linkedin',
+        displayed: true,
+        key: 'communicationsOptIn',
+        locale: 'it',
+        text: 'testo non canonico',
+        version: REGISTRATION_TERMS_VERSION,
+      },
+    })).toEqual({
+      surface: 'auth_linkedin',
+      displayed: false,
+      key: null,
+      locale: 'it',
+      text: REGISTRATION_TERMS_TEXT.it,
+      version: REGISTRATION_TERMS_VERSION,
+    });
+  });
+
+  it('a displayed claim from another version (deploy skew) or another register key is not trusted', () => {
+    expect(resolveLinkedInConsentRecord(measured({ displayed: true, version: '2026-09-16.1' })).displayed).toBe(false);
+    expect(resolveLinkedInConsentRecord(measured({ displayed: true, key: 'signInAutoSubscribe' })).displayed).toBe(false);
+    expect(resolveLinkedInConsentRecord(measured({ displayed: true, text: REGISTRATION_TERMS_TEXT.fr })).displayed).toBe(false);
+  });
 });
 
 describe('enrichSubscriberProfile — the consent record of a LinkedIn login', () => {
