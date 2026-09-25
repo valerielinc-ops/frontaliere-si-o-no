@@ -12176,6 +12176,7 @@
       "file": "update-jobs-fachkraft.yml",
       "jobKey": "update-fachkraft-jobs",
       "timeoutMinutes": 360,
+      "targetTimeoutMinutes": 150,
       "prepSteps": [
         {
           "name": "Install dependencies",

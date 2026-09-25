@@ -23,10 +23,16 @@ describe('assisted application JobBoard handoff', () => {
     );
     expect(rewardedArm).toContain("'rewarded_application_offer_requested'");
     expect(rewardedArm).toContain("provider: 'google_gpt_rewarded_web'");
+    // The click opens the offer; the offer owns the Google request for that
+    // click and opens the video on rewardedSlotReady, so the click handler
+    // never decides no-fill from a request that is still pending.
+    expect(rewardedArm).not.toContain('showRewardedWebAd(');
+    expect(rewardedArm).not.toContain("'not_ready_on_candidate_click'");
     expect(rewardedArm).toContain('setRewardedApplicationJob(job)');
     expect(rewardedArm).toContain('if (!isJobDetailView) openDetail(job)');
     expect(jobBoardSource).toContain('RewardedApplicationOffer');
     expect(jobBoardSource).toContain('preloadRewardedWebAd');
+    expect(jobBoardSource).toContain("import { preloadRewardedWebAd } from '@/services/rewardedWebAd';");
     expect(jobBoardSource).toContain('shouldPreloadRewardedApplicationAd');
     expect(jobBoardSource).not.toContain('rewarded_application_native_offerwall');
     expect(jobBoardSource).not.toContain('RewardedApplicationPage');
@@ -47,17 +53,60 @@ describe('assisted application JobBoard handoff', () => {
     expect(jobBoardSource).toContain('isCrawlerVisitorAgent');
   });
 
-  it('uses the original employer destination only after rewarded continue', () => {
-    // Direct no-fill handoff is covered by the source contract below.
+  it('preloads the rewarded request only where the Candidati CTA is reachable past the login gate', () => {
+    const start = jobBoardSource.indexOf('const shouldPreloadRewardedApplicationAd = Boolean(');
+    const end = jobBoardSource.indexOf(');', start);
+    const condition = jobBoardSource.slice(start, end);
+
+    expect(condition).toContain('isJobDetailView');
+    expect(condition).toContain('authResolved');
+    expect(condition).toContain('hasAccess');
+    expect(condition).toContain("assistedApplicationVariant === 'rewarded_ad'");
+    expect(condition).toContain('getRewardedApplicationAccessExpiresAt() === null');
+  });
+
+  it('discloses the rewarded video on the labelled Candidati CTAs that open it', () => {
+    const start = jobBoardSource.indexOf('const rewardedCtaDisclosure = selectedJob');
+    const end = jobBoardSource.indexOf(': null;', start);
+    const condition = jobBoardSource.slice(start, end);
+
+    expect(condition).toContain('isExternalApplicationJob(selectedJob)');
+    expect(condition).toContain("assistedApplicationVariant === 'rewarded_ad'");
+    expect(condition).toContain('!killSwitches.rewardedApplicationAd');
+    expect(condition).toContain('getRewardedApplicationAccessExpiresAt() === null');
+    expect(condition).toContain("t('jobBoard.assisted.rewardedTitle')");
+    expect(jobBoardSource.match(/data-testid="rewarded-cta-disclosure">\{rewardedCtaDisclosure\}/g)).toHaveLength(2);
+  });
+
+  it('treats a double click on Candidati as one application offer', () => {
+    const start = jobBoardSource.indexOf('const handleApply =');
+    const end = jobBoardSource.indexOf('const handleShare =', start);
+    const handleApply = jobBoardSource.slice(start, end);
+    const guard = 'if (applicationOfferOpenRef.current) return;';
+
+    expect(handleApply.indexOf(guard)).toBeGreaterThan(-1);
+    expect(handleApply.indexOf(guard)).toBeLessThan(handleApply.indexOf('trackPublisherApplySignals('));
+    expect(handleApply).toMatch(/applicationOfferOpenRef\.current = true;\s*setRewardedApplicationJob\(job\);/);
+    expect(handleApply).toMatch(/applicationOfferOpenRef\.current = true;\s*setAssistedApplicationJob\(job\);/);
     expect(jobBoardSource).toMatch(
-      /const handleRewardedApplicationUnavailable = \(reason: string\) => \{[\s\S]*?redirectExternalApplication\(job, 'rewarded_application_inline_unavailable', true, true\);/,
+      /useEffect\(\(\) => \{\s*if \(!rewardedApplicationJob && !assistedApplicationJob\) applicationOfferOpenRef\.current = false;\s*\}, \[assistedApplicationJob, rewardedApplicationJob\]\);/,
+    );
+  });
+
+  it('redirects straight to the employer on no-fill and only after the reward otherwise', () => {
+    expect(jobBoardSource).toMatch(
+      /const handleRewardedApplicationUnavailable = \(reason: string\) => \{[\s\S]*?redirectExternalApplication\(job, 'rewarded_application_inline_unavailable', true, true, \{\s*handoff: 'direct_external',\s*reason,\s*\}\);/,
     );
     expect(jobBoardSource).toMatch(
-      /const handleRewardedApplicationContinue = \(\) => \{[\s\S]*?redirectExternalApplication\(job, 'rewarded_application_inline_completed', true, true\);/,
+      /const handleRewardedApplicationContinue = \(\) => \{[\s\S]*?redirectExternalApplication\(job, 'rewarded_application_inline_completed', true, true, \{\s*handoff: 'rewarded_granted',\s*\}\);/,
+    );
+    expect(jobBoardSource).toMatch(
+      /'external_apply_redirected',\s*\{ \.\.\.assistedApplicationJobContext\(job, assistedApplicationVariant\), surface, \.\.\.extraParams \},/,
     );
     expect(jobBoardSource).toMatch(
       /if \(sameTab\) \{[\s\S]*?window\.location\.assign\(applyDestination\);/,
     );
+    expect(jobBoardSource).not.toMatch(/rewarded-frontaliere-house|\.mp4\b/i);
   });
 
   it('forces the rewarded treatment on the Italian Ticino job-board surface', () => {

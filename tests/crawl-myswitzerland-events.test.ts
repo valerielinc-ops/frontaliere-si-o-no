@@ -12,10 +12,17 @@ import {
   extractPrice,
   extractDetailTableValue,
   extractAddress,
+  extractDetailAddress,
   extractEventJsonLd,
   mergeDetailEventMetadata,
+  detailEnrichmentReady,
   mapEventRecord,
 } from '../scripts/crawl-myswitzerland-events.mjs';
+import {
+  extractDetailContactName,
+  extractEventPeopleFromText,
+  firstEventImageUrlFromHtml,
+} from '../scripts/lib/event-metadata.mjs';
 
 describe('parseCompactUtc', () => {
   it('parses Algolia compact UTC timestamps', () => {
@@ -128,6 +135,12 @@ describe('extractPrice', () => {
     expect(extractDetailTableValue(html, ['Prezzo', 'Preis'])).toBe('Gratuito');
     expect(extractPrice({}, html)).toEqual({ amount: 0, currency: 'CHF', isFree: true });
   });
+
+  it('reads definition-list metadata and a structured Località address', () => {
+    const html = '<dl><dt>Località</dt><dd>Hotel Pestalozzi; Via Indipendenza 9; 6900 Lugano; Switzerland</dd><dt>Prezzo</dt><dd>Gratuito</dd></dl>';
+    expect(extractDetailTableValue(html, ['Prezzo'])).toBe('Gratuito');
+    expect(extractDetailAddress(html)).toEqual({ street: 'Via Indipendenza 9', postalCode: '6900', locality: 'Lugano' });
+  });
 });
 
 describe('extractAddress', () => {
@@ -160,6 +173,19 @@ describe('extractEventJsonLd', () => {
     expect(extractEventJsonLd('<html></html>')).toBeNull();
     expect(extractEventJsonLd('<script type="application/ld+json">{not json</script>')).toBeNull();
   });
+
+  it('finds an Event node inside an @graph or array JSON-LD block', () => {
+    const html = `
+      <script type='application/ld+json'>${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [
+          { '@type': 'BreadcrumbList', itemListElement: [] },
+          { '@type': ['Thing', 'MusicEvent'], name: 'Test', startDate: '2026-07-04T19:00:00+02:00' },
+        ],
+      })}</script>
+    `;
+    expect(extractEventJsonLd(html)).toMatchObject({ '@type': ['Thing', 'MusicEvent'], name: 'Test' });
+  });
 });
 
 describe('mergeDetailEventMetadata', () => {
@@ -188,6 +214,37 @@ describe('mergeDetailEventMetadata', () => {
       url: 'https://www.myswitzerland.com/artist',
     });
     expect(merged?.image).toBe('https://www.myswitzerland.com/-/media/events/alternate.jpg');
+  });
+});
+
+describe('detailEnrichmentReady', () => {
+  const perLocaleHits = { it: { image: 'https://cdn.myswitzerland.com/images/event.jpg' } };
+  const sourcePeople = {
+    organizer: { '@type': 'Organization', name: 'Promotore' },
+    performer: { name: 'Artista' },
+  };
+  const complete = {
+    detailAddress: { postalCode: '6900', locality: 'Lugano' },
+    detailPrice: { amount: 25, currency: 'CHF', isFree: false },
+  };
+
+  it('keeps fetching when address or price is still missing', () => {
+    expect(detailEnrichmentReady({ ...complete, detailAddress: undefined }, perLocaleHits, sourcePeople)).toBe(false);
+    expect(detailEnrichmentReady({ ...complete, detailPrice: undefined }, perLocaleHits, sourcePeople)).toBe(false);
+  });
+
+  it('stops only when attribution, image, address, and price are resolved', () => {
+    expect(detailEnrichmentReady(complete, perLocaleHits, sourcePeople)).toBe(true);
+  });
+
+  it('accepts explicit people extracted from the detail HTML', () => {
+    expect(detailEnrichmentReady({
+      ...complete,
+      detailPeople: {
+        organizer: { '@type': 'Organization', name: 'Promotore dalla pagina' },
+        performer: { name: 'Artista dalla pagina' },
+      },
+    }, perLocaleHits)).toBe(true);
   });
 });
 
@@ -301,6 +358,43 @@ describe('mapEventRecord', () => {
     );
   });
 
+  it('fills optional metadata from indexed source copy and HTML fallbacks', () => {
+    const mapped = mapEventRecord(
+      'source-text123',
+      {
+        it: {
+          ...hitIt,
+          image: undefined,
+          content: 'Präsentiert von Noise Reduction & Musikbüro Rote FabrikMitwirkende und Zusatzinformationen:Autechre',
+        },
+      },
+      {
+        detailUrl: 'https://www.myswitzerland.com/it-ch/eventi/autechre',
+        detailHtml: '<meta property="og:image" content="/-/media/events/autechre.jpg">',
+      },
+    );
+    const event = mapped?.event as never as Record<string, unknown>;
+    expect(event.organizer).toEqual({ '@type': 'Organization', name: 'Noise Reduction & Musikbüro Rote Fabrik' });
+    expect(event.performer).toEqual({ name: 'Autechre' });
+    expect((mapped as never as { imageSourceUrl: string }).imageSourceUrl).toBe(
+      'https://www.myswitzerland.com/-/media/events/autechre.jpg',
+    );
+  });
+
+  it('fills people from explicit attribution in fetched detail HTML', () => {
+    const mapped = mapEventRecord(
+      'detail-html123',
+      { it: { ...hitIt, content: undefined, leadText: undefined } },
+      {
+        detailUrl: 'https://www.myswitzerland.com/it-ch/eventi/autechre',
+        detailHtml: '<div itemprop="description">Präsentiert von Noise Reduction &amp; Musikbüro Rote Fabrik<br>Mitwirkende und Zusatzinformationen:<br>Autechre</div>',
+      },
+    );
+    const event = mapped?.event as never as Record<string, unknown>;
+    expect(event.organizer).toEqual({ '@type': 'Organization', name: 'Noise Reduction & Musikbüro Rote Fabrik' });
+    expect(event.performer).toEqual({ name: 'Autechre' });
+  });
+
   it('rejects venue name that matches performer.name and falls back to addressLocality', () => {
     const detailLd = {
       '@type': 'MusicEvent',
@@ -340,5 +434,35 @@ describe('mapEventRecord', () => {
     const event = mapped?.event as never as Record<string, unknown>;
     // Substring match alone must NOT discard the venue — only exact match counts
     expect(event.venue).toBe('Kongresshaus Zürich');
+  });
+});
+
+describe('source optional metadata fallbacks', () => {
+  it('extracts explicit organizer and performer labels from MySwitzerland copy', () => {
+    expect(
+      extractEventPeopleFromText(
+        'Präsentiert von Noise Reduction & Musikbüro Rote FabrikMitwirkende und Zusatzinformationen:Autechre',
+      ),
+    ).toEqual({
+      organizer: { '@type': 'Organization', name: 'Noise Reduction & Musikbüro Rote Fabrik' },
+      performer: { name: 'Autechre' },
+    });
+    expect(extractEventPeopleFromText('Gestaltet wird der Abend von Zita Gander und Silvia Müller.')).toEqual({
+      performer: [{ name: 'Zita Gander' }, { name: 'Silvia Müller' }],
+    });
+    expect(extractEventPeopleFromText('Auf den Spuren von Marc Chagall. Mit Kerstin Bitar. Treffpunkt ...')).toEqual({
+      performer: { name: 'Kerstin Bitar' },
+    });
+  });
+
+  it('reads event-scoped OpenGraph/itemprop images and named contact blocks', () => {
+    const html = `
+      <meta property="og:image" content="/-/media/events/autechre.jpg">
+      <h2>Contatto</h2><div>Fabriktheater Rote Fabrik<br>Seestrasse 395<br>8038 Zürich</div>
+    `;
+    expect(firstEventImageUrlFromHtml(html, 'https://www.myswitzerland.com/en-ch/events/autechre')).toBe(
+      'https://www.myswitzerland.com/-/media/events/autechre.jpg',
+    );
+    expect(extractDetailContactName(html)).toBe('Fabriktheater Rote Fabrik');
   });
 });

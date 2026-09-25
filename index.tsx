@@ -4,6 +4,7 @@ import './index.css';
 import { installDomReconciliationGuard } from './services/domReconciliationGuard';
 import { maybeHandleCvDownload } from './services/cvDownloadIntercept';
 import { clearAssetCaches } from './services/resilientImport';
+import { adoptStaticFallbackIntoRoot } from './services/staticFallbackHandoff';
 
 // Harden the DOM against third-party mutation (Google Translate, extensions)
 // crashing React's reconciler with NotFoundError on insertBefore/removeChild.
@@ -165,7 +166,6 @@ const mountApp = async () => {
      && !hasPlateAuctionStaticFallback()) {
      const fallback = document.querySelector<HTMLElement>('main.seo-static-content, main.cluster-seo-prose');
      if (fallback && !rootElement.contains(fallback)) {
-       const railWrap = fallback.closest<HTMLElement>('.ft-rail-grid');
        fallback.style.removeProperty('display');
        // This move is what destroys — rather than merely hides — the article
        // page of anything published since the last deploy: the SPA cannot
@@ -180,8 +180,9 @@ const mountApp = async () => {
          // navigation has moved the visitor somewhere else.
          stashStaticArticleFallback(fallback, window.location.pathname);
        }
-       rootElement.appendChild(fallback);
-       if (railWrap) railWrap.style.display = 'none';
+       // Adopt the body-level static hub sub-nav together with the fallback,
+       // in painted order, so neither moves on screen (#8868).
+       adoptStaticFallbackIntoRoot(rootElement, fallback);
        staticPage = hasStaticContent();
      }
    }

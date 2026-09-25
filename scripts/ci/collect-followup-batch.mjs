@@ -313,6 +313,27 @@ export function latestTriageCommentBody(commentsJson, prefix = TRIAGE_COMMENT_PR
   return bodies.length ? bodies[bodies.length - 1] : null;
 }
 
+// Un conteggio e' il NUMERO davanti a `item`/`issue`/`element…`, ovunque stia
+// sulla riga di claim: il template canonico di FOLLOWUP.md lo mette DOPO il
+// bucket («Created/updated: daily bucket #<id> ... con N item»). `#N`, date e
+// decimali non sono conteggi a zero (`0.5 item` resta non-zero).
+const CLAIM_COUNT_RE = /(?<![0-9.,#])([0-9]+(?:[.,][0-9]+)?)\s+(?:item|issue|element)/gi;
+const CLAIM_LEADING_ZERO_RE = /^\s*(?:[-*]\s+)?Created(?:\/updated)?:\s*0(?![0-9.])/i;
+
+/**
+ * Una riga di claim dichiara ZERO item quando nessun conteggio e' diverso da
+ * zero E lo zero e' scritto in cifre: un conteggio `0` ovunque sulla riga,
+ * oppure `Created: 0` in testa. Gemello di `claim_line_is_zero` nello step
+ * «Verify complete follow-up triage» di post-merge-followup.yml; la parita'
+ * e' ESEGUITA da tests/followup-marker-zero-claim.test.ts.
+ */
+export function isZeroClaimLine(line) {
+  const text = String(line || '');
+  const counts = [...text.matchAll(CLAIM_COUNT_RE)].map((match) => match[1]);
+  if (counts.some((count) => count !== '0')) return false;
+  return counts.length > 0 || CLAIM_LEADING_ZERO_RE.test(text);
+}
+
 /**
  * Extract the persistence claim from a marker.  A zero-result/backfill marker
  * intentionally needs no bucket; every other successful marker must name one or
@@ -327,7 +348,9 @@ export function triageMarkerPersistenceExpectation(markerBody) {
   const claim = body.split(/\r?\n/)
     .filter((line) => /^\s*(?:[-*]\s+)?Created(?:\/updated)?:/i.test(line))
     .join('\n');
-  const buckets = [...claim.matchAll(/\bbucket\s+#([1-9]\d*)\b/gi)]
+  // `bucket: #N` vale quanto `bucket #N`, come nel gemello bash
+  // (`bucket[[:space:]]*:?[[:space:]]*#[0-9]+`).
+  const buckets = [...claim.matchAll(/\bbucket\s*:?\s*#([1-9]\d*)\b/gi)]
     .map((match) => Number(match[1]));
   const uniqueBuckets = [...new Set(buckets)];
   // Il discriminante e' STRUTTURALE: sulla riga di claim gia' isolata sopra
@@ -339,9 +362,12 @@ export function triageMarkerPersistenceExpectation(markerBody) {
   // aveva mai nominato: `persistence_ok=false` e run rossa su un marker giusto.
   // Un claim a zero non promette nulla da verificare, qualunque parola usi.
   const claimLines = claim.split(/\r?\n/).filter((line) => line.trim());
-  // `0(?![0-9.])`: un `Created: 0.5 item` non e' un claim a zero.
-  const zeroClaim = claimLines.length > 0
-    && claimLines.every((line) => /^\s*(?:[-*]\s+)?Created(?:\/updated)?:\s*0(?![0-9.])/i.test(line));
+  // Il NUMERO conta ovunque sulla riga, non solo in testa: dal 2026-09-19 lo
+  // zero scritto DOPO il bucket ha reso rosse run su marker giusti —
+  // «nessun bucket giornaliero; 0 item.» (PR #9039/#9045/#9053) e il template
+  // canonico con N=0, «daily bucket #9609 ... con 0 item da questa PR.»
+  // (run 35947247334, PR #9518). La prosa senza cifre resta fail-closed.
+  const zeroClaim = claimLines.length > 0 && claimLines.every((line) => isZeroClaimLine(line));
   // Le formule d'intestazione valgono SOLO in assenza di una riga di claim.
   // Cercarle nell'intero corpo anche quando un claim NON-zero esiste lasciava a
   // una prosa successiva la possibilita' di scavalcare la verifica del bucket
@@ -349,10 +375,23 @@ export function triageMarkerPersistenceExpectation(markerBody) {
   // item. E' il secondo finding 🔴 della review su questa PR.
   const legacyEmptyHeader = claimLines.length === 0
     && /zero outstanding items|backfill skipped/i.test(body);
-  const noBucketExpected = zeroClaim || legacyEmptyHeader;
+  // La variante osservata su #9286 usa prosa invece di `0`: dichiara nello
+  // stesso claim che non esiste alcun item per la PR e che il bucket numerato
+  // non è stato modificato. Il numero è contesto di audit, non una promessa
+  // di persistenza da verificare nel bucket.
+  // This legacy prose is an empty-result claim only when EVERY claim line is
+  // exactly the zero-item/unchanged-bucket form.  Requiring the whole line to
+  // match keeps a second claim, a positive count, or an "updated" bucket from
+  // being hidden behind one harmless-looking line.
+  const unchangedBucketZeroLine = /^\s*(?:[-*]\s+)?Created(?:\/updated)?:\s*nessun\s+item\s+per\s+questa\s+PR\s*;\s*bucket(?:\s+giornaliero)?\s+#[1-9]\d*\s+non\s+modificat[oa]\s+da\s+questa\s+PR\s*\.?\s*$/i;
+  const unchangedBucketZero = claimLines.length > 0
+    && claimLines.every((line) => unchangedBucketZeroLine.test(line));
+  const noBucketExpected = zeroClaim || unchangedBucketZero || legacyEmptyHeader;
   return {
-    buckets: uniqueBuckets,
-    requiresBucket: uniqueBuckets.length > 0 || !noBucketExpected,
+    // Un bucket citato da un esito zero è solo contesto: non deve riattivare
+    // la verifica di persistenza che ha causato la failure di #9286.
+    buckets: noBucketExpected ? [] : uniqueBuckets,
+    requiresBucket: !noBucketExpected,
   };
 }
 

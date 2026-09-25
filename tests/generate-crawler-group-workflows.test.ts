@@ -1058,6 +1058,7 @@ describe('#6882 — Apleona has one explicit full-target wall timeout', () => {
     const bounded = manifest.filter((crawler: any) => crawler.targetTimeoutMinutes != null);
     expect(bounded.map((crawler: any) => ({ slug: crawler.slug, minutes: crawler.targetTimeoutMinutes }))).toEqual([
       { slug: 'apleona-schweiz-ag', minutes: 60 },
+      { slug: 'fachkraft', minutes: 150 },
     ]);
 
     const artifacts = [
@@ -1074,9 +1075,31 @@ describe('#6882 — Apleona has one explicit full-target wall timeout', () => {
     }
 
     const otherGroups = fs.readdirSync(path.join(ROOT, '.github/workflows'))
-      .filter((file) => /^crawler-group-(?!18(?:-logic)?\.yml$)\d+(?:-logic)?\.yml$/.test(file));
+      .filter((file) => /^crawler-group-(?!(?:18|24)(?:-logic)?\.yml$)\d+(?:-logic)?\.yml$/.test(file));
     for (const file of otherGroups) {
       expect(fs.readFileSync(path.join(ROOT, '.github/workflows', file), 'utf8')).not.toContain('target wall timeout');
+    }
+  });
+
+  // fachkraft non ha una riga nel baseline delle durate (2026-07-06): il
+  // watchdog cadeva sulla mediana del corpus ×3 = 74 min, mentre il crawl di
+  // ~3000 annunci finisce dopo ~75 min e l'housekeeping lo seguiva. Il
+  // 2026-09-23 il worker è stato ucciso con exit 124 a crawl completato.
+  it('gives fachkraft an explicit 150 minute target and a 160 minute worker watchdog in group 24', () => {
+    const { manifest } = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-manifest.json'), 'utf8'));
+    const fachkraft = manifest.find((crawler: any) => crawler.slug === 'fachkraft');
+    expect(crawlerWorkerWatchdogMinutes(fachkraft)).toBe(160);
+
+    for (const relativePath of [
+      '.github/workflows/crawler-group-24.yml',
+      '.github/workflows/crawler-group-24-logic.yml',
+      '.github/corpus-workflows/crawler-group-24.yml',
+    ]) {
+      const text = fs.readFileSync(path.join(ROOT, relativePath), 'utf8');
+      expect(text.match(/timeout --signal=TERM --kill-after=30s 150m bash -c/g)).toHaveLength(1);
+      expect(text).toContain('# ---- fachkraft: 150 minute target wall timeout ----');
+      expect(text).toContain('**Causa:** timeout del target dopo 150 minuti (exit 124).');
+      expect(text).toContain('worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-160}"');
     }
   });
 });
@@ -1300,6 +1323,11 @@ describe('#6482 — committed crawler-group-*.yml are byte-identical to the gene
       'fachkraft',
       'postfinance',
       'tsmg',
+      'anicura',
+      'fisba',
+      'tpl-lugano',
+      'capri-holdings',
+      'confederazione',
     ]);
     expect(previousGroup).not.toContain('mcdonald-s-switzerland');
     expect(generated[GROUP_COUNT - 1].members).toEqual(newGroup);
@@ -1349,7 +1377,11 @@ describe('#6482 — committed crawler-group-*.yml are byte-identical to the gene
     expect(JSON.parse(fs.readFileSync(a.assignmentsPath, 'utf8')).groups).toEqual(
       JSON.parse(fs.readFileSync(b.assignmentsPath, 'utf8')).groups,
     );
-  });
+    // Two full regenerations, not one: each costs ~7.2s on the CI runner (run
+    // 36103442471: the single-regeneration siblings above took 7168/7184ms,
+    // this case 15667ms against the 15s default). Same budget as the
+    // byte-identical regeneration case above; the assertion is unchanged.
+  }, 30_000);
 
   it('refuses a pin file whose groupCount does not match GROUP_COUNT, instead of silently truncating/padding it', () => {
     // A foreign/stale pin file with a different groups.length would otherwise
@@ -2085,21 +2117,36 @@ describe('cross-repo crawler execution artifacts', () => {
     const generateArticle = fs.readFileSync(path.join(ROOT, '.github/workflows/generate-article.yml'), 'utf8');
     expect(generateArticle).not.toMatch(/AI_MODELS_PREFER:\s*codex-cli\/gpt-5\.6-luna/);
 
+    // translate-pending usa Codex solo come ultimo tier delle fasi 2d/2e, dopo
+    // Argos (decisione del proprietario del 2026-09-25): stesso confinamento
+    // del secret dei crawler, e la cascata 2b resta senza socket.
     const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
-    const translationSetupStep = Object.values(translation.jobs)[0].steps.find(
+    const translationSteps: any[] = Object.values(translation.jobs)[0].steps;
+    const translationSetupStep = translationSteps.find(
       (step: any) => step.uses === './.github/actions/setup-claude-haiku-fallback',
     );
-    expect(translationSetupStep).toBeUndefined();
-    const translationStep = Object.values(translation.jobs)[0].steps.find(
+    expect(translationSetupStep?.id).toBe('setup_claude_haiku_fallback');
+    expect(translationSetupStep?.with?.codex_auth_json).toBe('${{ secrets.CODEX_AUTH_JSON }}');
+    const translationStep = translationSteps.find(
       (step: any) => step.env?.JOBS_CRAWLER_USE_FIRESTORE_CONFIG === '1',
     );
     expect(translationStep.env.CODEX_AUTH_JSON).toBeUndefined();
     expect(translationStep.env.CODEX_AUTH_BROKER_SOCKET).toBeUndefined();
     expect(translationStep.env.CLAUDE_CODE_OAUTH_TOKEN).toBeUndefined();
-    const translationCleanupStep = Object.values(translation.jobs)[0].steps.find(
+    const translationConsumers = translationSteps.filter((step: any) => step.env?.CODEX_AUTH_BROKER_SOCKET
+      && step.name !== 'Cleanup Codex auth broker');
+    expect(translationConsumers.map((step: any) => step.name)).toEqual([
+      'Phase 2d: Fix untranslated titles (free cascade)',
+      'Phase 2e: Fix untranslated descriptions (free cascade)',
+    ]);
+    expect(translationSteps.every((step: any) => step.env?.CODEX_AUTH_JSON === undefined
+      && step.env?.AI_MODELS_PREFER === undefined
+      && step.env?.CLAUDE_CODE_OAUTH_TOKEN === undefined)).toBe(true);
+    const translationCleanupStep = translationSteps.find(
       (step: any) => step.name === 'Cleanup Codex auth broker',
     );
-    expect(translationCleanupStep).toBeUndefined();
+    expect(translationCleanupStep?.if).toBe('always()');
+    expect(translationCleanupStep?.run).toContain('--cleanup --socket "$CODEX_AUTH_BROKER_SOCKET"');
   });
 
   it('avvolge tutte le installazioni standalone nei retry site-owned', () => {
@@ -2148,7 +2195,7 @@ describe('cross-repo crawler execution artifacts', () => {
         });
       }
       const checkouts = job.steps.filter((step: any) => step.uses === 'actions/checkout@v5');
-      expect(checkouts).toHaveLength(2);
+      expect(checkouts).toHaveLength(contract.checkout.attempts);
       expect(checkouts[0]).toMatchObject({
         id: 'site_checkout_primary',
         'continue-on-error': true,
@@ -2266,9 +2313,11 @@ describe('cross-repo crawler execution artifacts', () => {
     const postGuardAlways = job.steps
       .slice(job.steps.indexOf(guard) + 1)
       .filter((step: any) => typeof step.if === 'string' && step.if.includes('always()'));
+    // Il cleanup del broker Codex (fasi 2d/2e) resta vivo anche su una
+    // riesecuzione respinta, come il reporter: toglie solo un socket, se c'e'.
     const cleanup = postGuardAlways.find((step: any) => step.name === 'Cleanup Codex auth broker');
-    expect(cleanup).toBeUndefined();
-    for (const step of postGuardAlways) {
+    expect(cleanup?.if).toBe('always()');
+    for (const step of postGuardAlways.filter((entry: any) => entry !== cleanup)) {
       expect(step.if, step.name).toContain(recoveryReady);
     }
     expect(postGuardAlways.some((step: any) => step.name === 'Install Argos Translate (local MT engine)')).toBe(true);

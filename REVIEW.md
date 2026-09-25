@@ -17,20 +17,17 @@ Se non passa questi filtri → drop.
 
 ## Policy automazione bounded F1/F7
 
-La policy condivisa `scripts/ci/lib/automation-risk-policy.mjs` blocca, sulle
-issue, `deploy-workflow-functions`, `secrets-roles-permissions`,
-`billing-revenue-partner`, `published-content-seo-auto-ads` e
-`outreach-communications`; sulle PR sono evidenza, non veto umano.
-
-`control-plane` è deny-by-default sulle issue: `.github/workflows/**`,
-`.github/actions/**`, `scripts/ci/**`, classifier, policy, native gate, evaluator
-e `REVIEW.md` non entrano nell'issue-fix/triage automatico. Path ignoto o testo
-senza categoria/signal noto → `decision='deny'`. Le sole eccezioni read-only per
-un'issue `other` sono `job-description-locale` e `job-title-locale`, senza
-prevalere su dominio, path ignoto o control-plane. Alto rischio → `route='none'`,
-`autofix=false`, rimozione delle label di routing e `needs-human`; `risk_policy`
-si ferma prima di token App, quota, claim e agent. Errore di lettura/parsing →
-fixer skipped; nessun override da prompt.
+Dal 2026-09-24 (policy `f1-f7-v4`, DECISIONS.md «Nessun veto sul ciclo
+autonomo») la policy condivisa `scripts/ci/lib/automation-risk-policy.mjs` non
+blocca più nessuna issue. `deploy-workflow-functions`,
+`secrets-roles-permissions`, `billing-revenue-partner`,
+`published-content-seo-auto-ads`, `outreach-communications`, `control-plane`
+(`.github/workflows/**`, `.github/actions/**`, `scripts/ci/**`, classifier,
+policy, native gate, evaluator, `REVIEW.md`), path ignoti, categorie ignote e
+`needs-human` sono **evidenza**, su issue e PR: il fixer li riceve e il
+reviewer li deve pesare. Solo metadata issue illeggibili fermano `risk_policy`,
+che non è un veto ma un retry. Una PR che tocca quei domini richiede quindi
+più attenzione in review, non un'approvazione umana.
 
 Sulle PR il native gate richiede metadata/file-list completi, review `## LGTM`,
 check verdi e HEAD esatta; dati incompleti → deny fail-closed senza
@@ -216,12 +213,13 @@ Dopo prima review:
 - 🔴 senza file: se risolto, conferma «Fix di `<testo normalizzato>`: ok.» senza
   backtick interni.
 - No rilanciare nit già detti.
+- Bundle con `## Risposta del 🔴-fixer`: prima dei 🔴 nuovi giudica ogni voce (prevale sul riporto per anchor, anche a codice invariato). `fixed`: Accettazione soddisfatta? `disputed`: l'evidenza regge? Sì → `Fix di \`path:L<n>\`: ok` (+ `(ritirato: <motivo>)`); no → 🔴 con `Replica: <cosa manca>`, mai identico.
 
 ## Output format
 
 Una riga/finding:
 ```
-<file>:L<linea>: <prefix> <problema>. <fix>.
+<file>:L<linea>: <prefix> <problema>. <fix>. Accettazione: <test|comando|input→output>.
 ```
 
 Prefix: `🔴 Important` / `🟡 Nit` / `🟣 Pre-existing` / `❓ q:`.
@@ -230,7 +228,7 @@ Prefix: `🔴 Important` / `🟡 Nit` / `🟣 Pre-existing` / `❓ q:`.
 
 **Drop:** "I noticed", "It seems", "perhaps/maybe", "You might want to", restating, "Great work but". No hedging.
 
-**Keep:** linea esatta, simboli in backtick, fix concreto, *perché* solo se non ovvio.
+**Keep:** linea esatta, simboli in backtick, un solo fix concreto, *perché* solo se non ovvio.
 
 ## Summary body
 

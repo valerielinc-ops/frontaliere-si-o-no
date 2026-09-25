@@ -255,27 +255,20 @@ export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets }) {
       .map((asset) => `${CDN_ORIGIN}${asset.path}`)
     : [];
   const unhealthyAssets = assetResults.filter((asset) => asset.state !== 'healthy');
-  // The failure mode this watchdog exists for is scoped, by its own contract,
-  // to the coherent state: a stable asset URL still serving the previous edge
-  // object *after the current build marker is live*. While the CDN marker is
-  // ahead the apex is still serving the previous generation's HTML, which wants
-  // the previous asset — so an edge/origin hash difference is the intended
-  // state there, and purging it would break the live page. Timeliness of the
-  // rollout is owned by pages-publish-lag-watchdog.yml, which files its own
-  // issue; post-deploy-validate-live.yml likewise records an apex that has not
-  // caught up as "an older VALID build (not broken)". Only the reverse skew is
-  // a coherence break: apex HTML referencing a generation the CDN never got.
-  // A rollout explains the MARKER skew and nothing else. It is tempting to also
-  // excuse a `stale` asset — the edge holding the object the live HTML still
-  // references — but `classifyAssetResponses` only proves that two 200s hash
-  // differently: it cannot show the cached body is the generation the apex HTML
-  // actually wants, so an even older generation or an incompatible 200 would
-  // pass as "explained". Every asset therefore has to be healthy in both marker
-  // states, and `assetResults.length` is required because observing nothing is
-  // not the same as observing health.
+  // A rollout explains the marker skew, not which generation a stable asset
+  // belongs to. Until the cached hash is associated with siteBuildId, every
+  // non-healthy asset remains blocking, including a pair of successful but
+  // divergent responses.
+  const blockingAssets = unhealthyAssets;
+  // A rollout marker is informational for marker coherence, but it cannot
+  // prove that the stable edge object is the generation referenced by the
+  // apex. Keep purge disabled until markers are coherent, while requiring every
+  // observed asset to be healthy before reporting the runtime as healthy.
+  // `assetResults.length` is required because observing nothing is not the same
+  // as observing health.
   const ok = (markerState === 'coherent' || markerState === 'rollout_in_progress')
     && assetResults.length > 0
-    && unhealthyAssets.length === 0;
+    && blockingAssets.length === 0;
 
   const result = {
     ok,
@@ -300,7 +293,7 @@ export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets }) {
       Number.isFinite(siteBehindMs) && siteBehindMs !== 0
         ? formatMarkerSkew(siteBehindMs)
         : null,
-      ...unhealthyAssets.map((asset) => `${asset.path}: ${asset.state}`),
+      ...blockingAssets.map((asset) => `${asset.path}: ${asset.state}`),
     ].filter(Boolean),
   };
   result.fingerprint = runtimeFailureFingerprint(result);

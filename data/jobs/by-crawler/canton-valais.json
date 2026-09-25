@@ -1,6 +1,6 @@
 {
   "crawlerKey": "canton-valais",
-  "assembledAt": "2026-09-23T23:54:25.938Z",
+  "assembledAt": "2026-09-24T14:44:24.806Z",
   "jobs": [
     {
       "id": "canton-valais-75827ba05c43",
@@ -33,7 +33,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20495?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:54:20.863Z",
+      "crawledAt": "2026-09-24T14:44:19.783Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -51,6 +51,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-07T15:17:39.748Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -63,7 +64,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://otb.apps.vs.ch/svc/api/joboffersdocument/20495?language=fr"
     },
     {
       "id": "canton-valais-6cc4b6cb23ed",
@@ -96,7 +98,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101498&publication=2637",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:54:19.959Z",
+      "crawledAt": "2026-09-24T14:44:19.022Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -142,7 +144,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=101498&publication=2637"
     },
     {
       "id": "canton-valais-c4954ae9663d",
@@ -175,7 +178,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113843&publication=2637",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:54:19.318Z",
+      "crawledAt": "2026-09-24T14:44:18.424Z",
       "addressLocality": "Monthey",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -221,7 +224,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=113843&publication=2637"
     },
     {
       "id": "canton-valais-dfa3f0179697",
@@ -254,7 +258,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112661&publication=2637",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:54:18.643Z",
+      "crawledAt": "2026-09-24T14:44:17.837Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -354,7 +358,8 @@
           "maxValue": 54900,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=112661&publication=2637"
     },
     {
       "id": "canton-valais-9ba17730dfdd",
@@ -387,7 +392,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=106436&publication=2637",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:54:17.989Z",
+      "crawledAt": "2026-09-24T14:44:17.243Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -433,7 +438,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=106436&publication=2637"
     },
     {
       "id": "canton-valais-8a2f8b1405e5",
@@ -466,7 +472,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20555?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:54:17.311Z",
+      "crawledAt": "2026-09-24T14:44:16.606Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -514,7 +520,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://otb.apps.vs.ch/svc/api/joboffersdocument/20555?language=fr"
     },
     {
       "id": "canton-valais-72bad1dbb9e5",
@@ -547,7 +554,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111534&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:54:16.402Z",
+      "crawledAt": "2026-09-24T14:44:15.824Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -593,7 +600,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=111534&publication=2638"
     },
     {
       "id": "canton-valais-763f239c9f38",
@@ -626,7 +634,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112987&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:54:15.762Z",
+      "crawledAt": "2026-09-24T14:44:15.258Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -672,7 +680,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=112987&publication=2638"
     },
     {
       "id": "canton-valais-2dcf17af5414",
@@ -705,7 +714,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101098&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:54:15.123Z",
+      "crawledAt": "2026-09-24T14:44:14.641Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -751,7 +760,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=101098&publication=2638"
     },
     {
       "id": "canton-valais-198a56ba1551",
@@ -784,7 +794,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108447&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:54:14.461Z",
+      "crawledAt": "2026-09-24T14:44:14.041Z",
       "addressLocality": "Monthey",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -830,7 +840,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=108447&publication=2638"
     },
     {
       "id": "canton-valais-ddf551a5b805",
@@ -863,7 +874,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113758&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:54:13.781Z",
+      "crawledAt": "2026-09-24T14:44:13.441Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -909,7 +920,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=113758&publication=2638"
     },
     {
       "id": "canton-valais-53c238081f7e",
@@ -942,7 +954,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114612&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:54:13.116Z",
+      "crawledAt": "2026-09-24T14:44:12.858Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -988,7 +1000,8 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=114612&publication=2638"
     },
     {
       "id": "canton-valais-f40ab46c2600",
@@ -1021,7 +1034,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114611&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:54:12.459Z",
+      "crawledAt": "2026-09-24T14:44:12.247Z",
       "addressLocality": "St-Gingolph",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1067,7 +1080,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=114611&publication=2638"
     },
     {
       "id": "canton-valais-3cfc027c3b81",
@@ -1100,7 +1114,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114614&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:54:11.744Z",
+      "crawledAt": "2026-09-24T14:44:11.624Z",
       "addressLocality": "St-Gingolph",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1146,7 +1160,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=114614&publication=2638"
     },
     {
       "id": "canton-valais-8685542ce079",
@@ -1179,7 +1194,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114613&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:54:11.024Z",
+      "crawledAt": "2026-09-24T14:44:11.003Z",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1225,7 +1240,8 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=114613&publication=2638"
     },
     {
       "id": "canton-valais-7b77080b6932",
@@ -1242,7 +1258,7 @@
       "title": "un apprenti informaticien ou une apprentie informaticienne CFC (option exploitation et infrastructure)",
       "titleByLocale": {
         "it": "un apprendista IT CFC (opzione tecnica dei sistemi)",
-        "en": "un apprenti informaticien ou une apprentie informaticienne CFC (option exploitation et infrastructure)",
+        "en": "an IT apprentice CFC (operation and infrastructure option)",
         "de": "ein IT-Lehrling CFC (systemtechnische Option)",
         "fr": "un apprenti informaticien ou une apprentie informaticienne CFC (option exploitation et infrastructure)"
       },
@@ -1258,7 +1274,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=109601&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:54:10.373Z",
+      "crawledAt": "2026-09-24T14:44:10.390Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1306,7 +1322,6 @@
         "un-apprendista-it-cfc-opzione-tecnica-dei-sistemi-canton-du-valais-sion"
       ],
       "firstSeenAt": "2026-09-19T23:06:24.690Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -1319,7 +1334,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=109601&publication=2638"
     },
     {
       "id": "canton-valais-44ed434c53cc",
@@ -1352,7 +1368,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108627&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:54:09.734Z",
+      "crawledAt": "2026-09-24T14:44:09.818Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1398,7 +1414,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=108627&publication=2638"
     },
     {
       "id": "canton-valais-f4229b7bd130",
@@ -1431,7 +1448,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=110102&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:54:09.091Z",
+      "crawledAt": "2026-09-24T14:44:09.232Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1477,7 +1494,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=110102&publication=2638"
     },
     {
       "id": "canton-valais-264004dde32a",
@@ -1510,7 +1528,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101386&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:54:08.474Z",
+      "crawledAt": "2026-09-24T14:44:08.672Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1556,7 +1574,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=101386&publication=2638"
     },
     {
       "id": "canton-valais-0ca42169f6d4",
@@ -1589,7 +1608,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108633&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:54:07.836Z",
+      "crawledAt": "2026-09-24T14:44:08.094Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1635,7 +1654,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=108633&publication=2638"
     },
     {
       "id": "canton-valais-dbafd98aaea7",
@@ -1668,7 +1688,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108924&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:54:02.087Z",
+      "crawledAt": "2026-09-24T14:44:03.336Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1714,7 +1734,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=108924&publication=2638"
     },
     {
       "id": "canton-valais-b4dd02a77575",
@@ -1747,7 +1768,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113332&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:54:01.434Z",
+      "crawledAt": "2026-09-24T14:44:02.740Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1793,7 +1814,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=113332&publication=2638"
     }
   ]
 }

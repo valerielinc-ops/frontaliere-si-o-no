@@ -1,6 +1,6 @@
 {
   "crawlerKey": "casale",
-  "assembledAt": "2026-09-23T23:38:11.864Z",
+  "assembledAt": "2026-09-24T14:18:09.227Z",
   "jobs": [
     {
       "url": "https://recruit.casale.ch/o/expediter-1",
@@ -96,7 +96,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://recruit.casale.ch/o/expediter-1"
     },
     {
       "url": "https://recruit.casale.ch/o/home-office-construction-engineer",
@@ -167,7 +168,8 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://recruit.casale.ch/o/home-office-construction-engineer"
     }
   ]
 }

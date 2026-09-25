@@ -85,6 +85,7 @@ describe('createAgendaCrawler — crawl()', () => {
     expect(existsSync(slicePath)).toBe(true);
     const written = JSON.parse(readFileSync(slicePath, 'utf-8'));
     expect(written).toMatchObject({ schemaVersion: 1, sourceKey: TEST_SOURCE_KEY, canton: 'ZZ' });
+    // cron-count-ok: la slice e' quella di fixture che il crawler sotto test ha appena scritto (sourceKey di test), non un file del cron.
     expect(written.events).toHaveLength(2);
   });
 

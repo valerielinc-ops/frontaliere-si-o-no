@@ -17,11 +17,11 @@
  *     enumeration therefore recursively bisects the numeric `updatedTimestamp`
  *     attribute into <=1000-hit buckets (see `enumerateEventsForLocale`).
  *   - the search index gives id/title/description/dates/geo/image/place per
- *     locale, but NOT price/structured address/category — those exist in the
- *     schema.org Event JSON-LD and, for price, the localized detail table on
- *     each event's own page, so we fetch the first usable detail page per
- *     unique event and continue across locale URLs only when optional
- *     metadata is still missing.
+ *     locale, plus source-language attribution copy in `content`; price,
+ *     structured address and category exist in the schema.org Event JSON-LD
+ *     and, for price, the localized detail table on each event's own page.
+ *     We fetch the first usable detail page per unique event and continue
+ *     across locale URLs only when optional metadata is still missing.
  *   - `objectID` is stable across all 4 locale indices for the same event, so
  *     the 4 locale searches are unioned by id to build titleByLocale /
  *     descriptionByLocale (real per-locale translations, not machine ones).
@@ -80,7 +80,18 @@ import {
   enrichEventsWithGeoComune,
 } from './lib/events-utils.mjs';
 import { loadCursor, saveCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
-import { firstEventImageUrl, normalizeEventPeople } from './lib/event-metadata.mjs';
+import {
+  extractDetailContactName,
+  extractDetailTableValue,
+  extractEventPeopleFromText,
+  firstEventImageUrl,
+  firstEventImageUrlFromHtml,
+  normalizeEventPeople,
+} from './lib/event-metadata.mjs';
+
+// Kept as a crawler export for existing callers/tests; the implementation is
+// shared with contact/image extraction in lib/event-metadata.mjs.
+export { extractDetailTableValue } from './lib/event-metadata.mjs';
 
 const SOURCE = EVENT_SOURCES.myswitzerland;
 
@@ -334,28 +345,6 @@ export function humanizeCategory(rawType) {
   return base.replace(/([a-z0-9])([A-Z])/g, '$1 $2').trim() || 'Event';
 }
 
-/**
- * Return the text/value of a MySwitzerland key/value table row by label.
- * The detail pages expose price there even when their JSON-LD omits `offers`.
- */
-export function extractDetailTableValue(html, labels) {
-  if (typeof html !== 'string' || !html || !Array.isArray(labels) || !labels.length) return undefined;
-  const normalizedLabels = new Set(labels.map((label) => cleanText(label).toLowerCase()).filter(Boolean));
-  if (!normalizedLabels.size) return undefined;
-  const rowRe = /<tr\b[\s\S]*?<\/tr>/gi;
-  let rowMatch;
-  while ((rowMatch = rowRe.exec(html))) {
-    const row = rowMatch[0];
-    const labelMatch = /<th\b[^>]*>([\s\S]*?)<\/th>/i.exec(row);
-    const valueMatch = /<td\b[^>]*>([\s\S]*?)<\/td>/i.exec(row);
-    if (!labelMatch || !valueMatch) continue;
-    const label = cleanText(labelMatch[1]).toLowerCase();
-    if (!normalizedLabels.has(label)) continue;
-    return cleanText(valueMatch[1]) || undefined;
-  }
-  return undefined;
-}
-
 /** Price from JSON-LD `offers`, `isAccessibleForFree`, or the detail table. */
 export function extractPrice(ld, detailHtml) {
   const offersRaw = ld?.offers;
@@ -392,6 +381,23 @@ export function extractAddress(ld) {
   return { street, postalCode, locality, region };
 }
 
+/** Address fallback for detail pages that publish "Località" outside JSON-LD. */
+export function extractDetailAddress(html) {
+  const raw = extractDetailTableValue(html, ['Località', 'Location', 'Ort', 'Lieu']);
+  if (!raw) return undefined;
+  const parts = cleanText(raw)
+    .split(/\s*[;|]\s*/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+  const postalIndex = parts.findIndex((part) => /^(?:CH[- ]?)?\d{4}\b/i.test(part));
+  if (postalIndex < 0) return undefined;
+  const postalMatch = /^(?:CH[- ]?)?(\d{4})\s*,?\s*(.+)$/i.exec(parts[postalIndex]);
+  if (!postalMatch) return undefined;
+  const address = { postalCode: postalMatch[1], locality: postalMatch[2].trim() };
+  if (postalIndex > 0) address.street = parts[postalIndex - 1];
+  return address;
+}
+
 /** Returns true if `name` matches any name in a schema.org performer/organizer value (string | object | array). */
 function matchesPersonField(name, field) {
   if (!field) return false;
@@ -419,17 +425,30 @@ function extractVenue(ld, fallbackPlace) {
   return fallbackPlace || undefined;
 }
 
-const LD_JSON_RE = /<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g;
+const LD_JSON_RE = /<script\b[^>]*\btype\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
 
-/** Pick the schema.org Event(-subtype) JSON-LD block off a detail page (skips BreadcrumbList etc). */
+function eventJsonLdCandidates(value) {
+  if (Array.isArray(value)) return value.flatMap(eventJsonLdCandidates);
+  if (!value || typeof value !== 'object') return [];
+  if (Array.isArray(value['@graph'])) return value['@graph'].flatMap(eventJsonLdCandidates);
+  return [value];
+}
+
+function isEventJsonLdType(value) {
+  const types = Array.isArray(value) ? value : [value];
+  return types.some((type) => typeof type === 'string' && (type === 'Event' || type.endsWith('Event')));
+}
+
+/** Pick the schema.org Event(-subtype) JSON-LD node off a detail page (skips BreadcrumbList etc). */
 export function extractEventJsonLd(html) {
   if (typeof html !== 'string' || !html) return null;
   LD_JSON_RE.lastIndex = 0;
   let match;
   while ((match = LD_JSON_RE.exec(html))) {
     try {
-      const obj = JSON.parse(match[1]);
-      if (obj && typeof obj === 'object' && obj['@type'] && obj.startDate) return obj;
+      const parsed = JSON.parse(match[1].trim().replace(/^<!--\s*|\s*-->$/g, ''));
+      const event = eventJsonLdCandidates(parsed).find((candidate) => isEventJsonLdType(candidate?.['@type']) && candidate.startDate);
+      if (event) return event;
     } catch {
       // malformed block — keep scanning the rest of the page
     }
@@ -472,7 +491,16 @@ export function mergeDetailEventMetadata(primaryLd, candidateLd, primaryUrl = SI
  * locale hit when the primary locale omits its image.
  */
 export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
-  const { detailLd, detailUrl, detailHtml } = enrichment;
+  const {
+    detailLd,
+    detailUrl,
+    detailHtml,
+    detailAddress,
+    detailContactName,
+    detailImageSourceUrl,
+    detailPrice,
+    detailPeople,
+  } = enrichment;
   const primaryLocale = LOCALES.find((l) => perLocaleHits[l]);
   const primary = primaryLocale ? perLocaleHits[primaryLocale] : undefined;
   if (!primary) return null;
@@ -495,11 +523,35 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
 
   const rawUrl = detailUrl
     || `${SITE_ORIGIN}/${LOCALE_URL_PREFIX[primaryLocale]}${String(primary.url || '').startsWith('/') ? primary.url : `/${primary.url || ''}`}`;
-  const organizer = normalizeEventPeople(detailLd?.organizer, detailUrl || SITE_ORIGIN);
-  const performer = normalizeEventPeople(detailLd?.performer, detailUrl || SITE_ORIGIN);
+  const indexedPeople = extractEventPeopleFromText(
+    LOCALES.flatMap((locale) => [perLocaleHits[locale]?.content, perLocaleHits[locale]?.leadText]).filter(Boolean).join('. '),
+  );
+  const detailPeopleFromHtml = extractEventPeopleFromText(detailHtml);
+  const sourcePeople = {
+    organizer: detailPeople?.organizer || detailPeopleFromHtml.organizer || indexedPeople.organizer,
+    performer: detailPeople?.performer || detailPeopleFromHtml.performer || indexedPeople.performer,
+  };
+  const organizer = normalizeEventPeople(detailLd?.organizer, detailUrl || SITE_ORIGIN)
+    || normalizeEventPeople(sourcePeople.organizer, SITE_ORIGIN)
+    || (detailContactName ? { '@type': 'Organization', name: detailContactName } : undefined);
+  const performer = normalizeEventPeople(detailLd?.performer, detailUrl || SITE_ORIGIN)
+    || normalizeEventPeople(sourcePeople.performer, SITE_ORIGIN);
+  const ldAddress = extractAddress(detailLd);
+  const htmlAddress = extractDetailAddress(detailHtml);
+  const addressSource = ldAddress || htmlAddress || detailAddress;
+  const address = addressSource
+    ? {
+        street: ldAddress?.street || htmlAddress?.street || detailAddress?.street,
+        postalCode: ldAddress?.postalCode || htmlAddress?.postalCode || detailAddress?.postalCode,
+        locality: ldAddress?.locality || htmlAddress?.locality || detailAddress?.locality,
+        region: ldAddress?.region || htmlAddress?.region || detailAddress?.region,
+      }
+    : undefined;
   const imageSourceUrl =
     LOCALES.map((locale) => firstEventImageUrl(perLocaleHits[locale]?.image, SITE_ORIGIN)).find(Boolean)
-    || firstEventImageUrl(detailLd?.image, detailUrl || SITE_ORIGIN);
+    || firstEventImageUrl(detailLd?.image, detailUrl || SITE_ORIGIN)
+    || detailImageSourceUrl
+    || firstEventImageUrlFromHtml(detailHtml, detailUrl || SITE_ORIGIN);
 
   return {
     event: {
@@ -518,8 +570,8 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
       url: rawUrl,
       sourceKey: SOURCE.key,
       sourceName: SOURCE.label,
-      price: extractPrice(detailLd, detailHtml),
-      address: extractAddress(detailLd),
+      price: extractPrice(detailLd, detailHtml) || detailPrice,
+      address,
       geo: extractGeo(primary),
       recurring: dateInfo.recurring,
       ...(organizer ? { organizer } : {}),
@@ -533,6 +585,9 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
 /** Fetch the first usable detail page and fill optional metadata from later locales when needed. */
 async function fetchDetailEnrichment(perLocaleHits) {
   let enrichment = null;
+  const sourcePeople = extractEventPeopleFromText(
+    LOCALES.flatMap((locale) => [perLocaleHits[locale]?.content, perLocaleHits[locale]?.leadText]).filter(Boolean).join('. '),
+  );
   for (const locale of LOCALES) {
     const hit = perLocaleHits[locale];
     if (!hit?.url) continue;
@@ -541,19 +596,80 @@ async function fetchDetailEnrichment(perLocaleHits) {
     const html = await fetchHtml(url);
     if (!html) continue;
     const ld = extractEventJsonLd(html);
-    if (!ld) continue;
+    const candidateAddress = extractAddress(ld) || extractDetailAddress(html);
+    const candidatePrice = extractPrice(ld, html);
+    const candidateContactName = extractDetailContactName(html);
+    const candidateImageSourceUrl = firstEventImageUrlFromHtml(html, url);
+    const candidatePeople = extractEventPeopleFromText(html);
+    const hasHtmlMetadata = Boolean(
+      candidateAddress
+      || candidatePrice
+      || candidateContactName
+      || candidateImageSourceUrl
+      || candidatePeople.organizer
+      || candidatePeople.performer
+    );
+    if (!ld && !hasHtmlMetadata) continue;
     if (!enrichment) {
-      enrichment = { detailLd: ld, detailUrl: url, detailHtml: html };
-    } else {
+      enrichment = {
+        detailLd: ld,
+        detailUrl: url,
+        detailHtml: html,
+        detailAddress: candidateAddress,
+        detailContactName: candidateContactName,
+        detailImageSourceUrl: candidateImageSourceUrl,
+        detailPrice: candidatePrice,
+        detailPeople: candidatePeople,
+      };
+    } else if (ld && enrichment.detailLd) {
       enrichment.detailLd = mergeDetailEventMetadata(enrichment.detailLd, ld, enrichment.detailUrl, url);
+    } else if (ld) {
+      enrichment.detailLd = ld;
     }
 
-    const imageReady = Boolean(firstEventImageUrl(enrichment.detailLd?.image, enrichment.detailUrl));
-    const organizerReady = Boolean(normalizeEventPeople(enrichment.detailLd?.organizer, enrichment.detailUrl));
-    const performerReady = Boolean(normalizeEventPeople(enrichment.detailLd?.performer, enrichment.detailUrl));
-    if (imageReady && organizerReady && performerReady) break;
+    if (!enrichment.detailAddress && candidateAddress) enrichment.detailAddress = candidateAddress;
+    if ((!enrichment.detailPrice || (enrichment.detailPrice.amount === null && candidatePrice?.amount !== null)) && candidatePrice) {
+      enrichment.detailPrice = candidatePrice;
+    }
+    if (!enrichment.detailContactName && candidateContactName) enrichment.detailContactName = candidateContactName;
+    if (!enrichment.detailImageSourceUrl && candidateImageSourceUrl) enrichment.detailImageSourceUrl = candidateImageSourceUrl;
+    if (!enrichment.detailPeople?.organizer && candidatePeople.organizer) {
+      enrichment.detailPeople = { ...enrichment.detailPeople, organizer: candidatePeople.organizer };
+    }
+    if (!enrichment.detailPeople?.performer && candidatePeople.performer) {
+      enrichment.detailPeople = { ...enrichment.detailPeople, performer: candidatePeople.performer };
+    }
+
+    if (detailEnrichmentReady(enrichment, perLocaleHits, sourcePeople)) break;
   }
   return enrichment;
+}
+
+/**
+ * Stop locale detail-page fetching only after every supported optional field
+ * is resolved. Source attribution and an Algolia image alone are not enough:
+ * address and price can live on a different localized detail page.
+ */
+export function detailEnrichmentReady(enrichment, perLocaleHits = {}, sourcePeople = {}) {
+  const imageReady = Boolean(
+    LOCALES.some((candidateLocale) => firstEventImageUrl(perLocaleHits[candidateLocale]?.image, SITE_ORIGIN))
+    || firstEventImageUrl(enrichment?.detailLd?.image, enrichment?.detailUrl || SITE_ORIGIN)
+    || enrichment?.detailImageSourceUrl,
+  );
+  const organizerReady = Boolean(
+    normalizeEventPeople(enrichment?.detailLd?.organizer, enrichment?.detailUrl || SITE_ORIGIN)
+    || sourcePeople.organizer
+    || normalizeEventPeople(enrichment?.detailPeople?.organizer, enrichment?.detailUrl || SITE_ORIGIN)
+    || enrichment?.detailContactName,
+  );
+  const performerReady = Boolean(
+    normalizeEventPeople(enrichment?.detailLd?.performer, enrichment?.detailUrl || SITE_ORIGIN)
+    || sourcePeople.performer
+    || normalizeEventPeople(enrichment?.detailPeople?.performer, enrichment?.detailUrl || SITE_ORIGIN),
+  );
+  const addressReady = Boolean(enrichment?.detailAddress);
+  const priceReady = Boolean(enrichment?.detailPrice);
+  return imageReady && organizerReady && performerReady && addressReady && priceReady;
 }
 
 function parseArgs(argv) {

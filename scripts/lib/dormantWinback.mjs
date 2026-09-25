@@ -50,6 +50,7 @@ import { SUNSET_MIN_SENDS, SUNSET_MIN_AGE_DAYS } from './subscriberSunset.mjs';
 import { toMillis } from './firestoreTimestamp.mjs';
 import { isNewsletterOptOutBinding } from '../../services/newsletterOptOut.mjs';
 import { isCrossChannelStop } from '../../services/emailSuppression.mjs';
+import { hasSubscriptionBasis } from '../../services/subscriberConsent.mjs';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -124,6 +125,13 @@ export function classifyDormantWinback(sub, nowMs) {
   // somebody who left and explicitly came back is not stranded (#5711).
   if (isNewsletterOptOutBinding(sub)) {
     return { action: 'none', reason: 'recorded opt-out — not a win-back candidate' };
+  }
+
+  // Same floor as every ordinary sender: a profile-only sign-in document (no
+  // status, terms, consent or confirmation) was never subscribed, so there is
+  // nothing to win back — its empty status is not the legacy mailable `''`.
+  if (!hasSubscriptionBasis(sub)) {
+    return { action: 'none', reason: 'no subscription basis — not a win-back candidate' };
   }
 
   const stage1At = toMillis(sub?.dormant_winback_stage1_sent_at);

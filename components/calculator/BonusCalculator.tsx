@@ -6,7 +6,7 @@ import { lazyRetry } from '@/services/lazyRetry';
 
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import type { UserProfileData } from '@/components/pages/UserProfile';
-import { calculateProgressiveWorkDeduction, calculateProportionalTaxCredit, calculateIrpefGross } from '@/services/calculationService';
+import { calculateProgressiveWorkDeduction, calculateProportionalTaxCredit, calculateIrpefGross, irpefMarginalRate } from '@/services/calculationService';
 import { FRANCHIGIA_NUOVI_FRONTALIERI } from '@/constants';
 
 // Swiss bonus types for frontalieri
@@ -27,28 +27,18 @@ const AANP_RATE = 0.007;
 const IJM_RATE = 0.008;
 const TOTAL_SOCIAL = AVS_RATE + AC_RATE + AANP_RATE + IJM_RATE;
 
-// Italian IRPEF brackets 2026
-const IRPEF_BRACKETS = [
- { upTo: 28000, rate: 0.23 },
- { upTo: 50000, rate: 0.35 },
- { upTo: Infinity, rate: 0.43 },
-];
-
 /** Calculate progressive IRPEF tax (not just marginal rate) */
 const calculateIrpefTax = (taxableIncome: number): number => calculateIrpefGross(taxableIncome);
 
-const calculateIrpefMarginalRate = (annualIncome: number): number => {
- for (const bracket of IRPEF_BRACKETS) {
- if (annualIncome <= bracket.upTo) return bracket.rate;
- }
- return 0.43;
-};
+// Italian IRPEF brackets 2026 come from calculationService (single source of truth).
+const calculateIrpefMarginalRate = (annualIncome: number): number => irpefMarginalRate(annualIncome);
 
-/** Get IRPEF bracket label for a given income */
+/** Get IRPEF bracket label for a given income, derived from the 2026 brackets */
 const getIrpefBracketLabel = (annualIncome: number): string => {
- if (annualIncome <= 28000) return '23% (≤€28k)';
- if (annualIncome <= 50000) return '35% (€28k-50k)';
- return '43% (>€50k)';
+ const pct = `${Math.round(irpefMarginalRate(annualIncome) * 100)}%`;
+ if (annualIncome <= 28000) return `${pct} (≤€28k)`;
+ if (annualIncome <= 50000) return `${pct} (€28k-50k)`;
+ return `${pct} (>€50k)`;
 };
 
 // Swiss withholding rate approximation based on annual gross

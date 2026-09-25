@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ehnv",
-  "assembledAt": "2026-09-23T23:41:20.465Z",
+  "assembledAt": "2026-09-24T14:26:09.198Z",
   "jobs": [
     {
       "id": "ehnv-0bb13e86b14a",
@@ -34,7 +34,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4094/une-medecin-agreee-ou-associe-interniste-bariatrique-a-100-min-60",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:41:15.932Z",
+      "crawledAt": "2026-09-24T14:26:04.830Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -94,7 +94,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.ehnv.ch/emplois#offer-4094"
     },
     {
       "id": "ehnv-f887eff56efd",
@@ -110,7 +111,7 @@
       "companyDomain": "ehnv.ch",
       "title": "Un.e médecin associé.e en rhumatologie entre 50 et 100 %",
       "titleByLocale": {
-        "it": "Un.e médecin associé.e en rhumatologie entre 50 et 100 %",
+        "it": "Un medico associato in reumatologia tra il 50 e il 100%",
         "en": "An associate doctor in rheumatology between 50 and 100%",
         "de": "Ein Associate Doctor in Rheumatologie zwischen 50 und 100%",
         "fr": "Un.e médecin associé.e en rhumatologie entre 50 et 100 %"
@@ -122,13 +123,12 @@
         "de": "DIE HOSPITALFORSCHUNG\n\nFÄHLE — ERFORDERLICHE ANFORDERUNGEN\n\n• Inhaber des Titels eines FMH-Spezialisten für Rheumatologie oder anerkannter ausländischer Titel in der Schweiz sein\n\n• Zulassung zur Ausübung im Kanton Waadt oder Bedingungen, die es ermöglichen,\n\n• Ausbildung und klinische Erfahrung in der stationären und/oder ambulanten Rheumatologie\n\n• Kenntnisse und Erfahrungen im Umgang mit komplexen rheumatischen Erkrankungen und chronischer ambulanter Nachsorge\n\n• Fähigkeit, als multidisziplinäres Team zu arbeiten\n\n• Innovation und Entwicklungskapazitäten\n\nEINFUHRDATUM: ZU VEREINBAREN\n\nWeitere Informationen erhalten Sie bei Dr. Julien Ombelli, Ärztlicher Direktor, T. +41 24 424 53 31\n\nSind Sie interessiert?\n\nAngebote mit üblichen Unterlagen (Motivbrief, Lebenslauf, Diplome und Arbeitsbescheinigungen) sind bis zum 30. September 2026 zu übermitteln.",
         "fr": "L’HÔPITAL D’YVERDON RECHERCHE\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Etre porteur du titre de spécialiste FMH en rhumatologie, ou titre étranger reconnu en Suisse\n\n• Autorisation de pratiquer dans le canton de Vaud, ou conditions permettant son obtention\n\n• Formation et expérience clinique en rhumatologie hospitalière et/ou ambulatoire\n\n• Connaissances et expérience dans la prise en charge des maladies rhumatismales complexes hospitalières et du suivi ambulatoire chronique\n\n• Aptitude à travailler en équipe multidisciplinaire\n\n• Capacité d’innovation et de développement\n\nDATE D’ENTRÉE : A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès du Dr Julien Ombelli, Directeur médical, T. +41 24 424 53 31\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser d’ici au 30 septembre 2026."
       },
-      "needsRetranslation": true,
       "location": "Yverdon-les-Bains",
       "canton": "VD",
       "url": "https://www.ehnv.ch/emplois#offer/4402/une-medecin-associee-en-rhumatologie-entre-50-et-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:41:15.317Z",
+      "crawledAt": "2026-09-24T14:26:04.251Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -177,7 +177,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.ehnv.ch/emplois#offer-4402"
     },
     {
       "id": "ehnv-de020b88660e",
@@ -211,7 +212,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4430/une-apprentie-logisticienne",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:41:14.730Z",
+      "crawledAt": "2026-09-24T14:26:03.678Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -258,7 +259,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.ehnv.ch/emplois#offer-4430"
     },
     {
       "id": "ehnv-db012dda340c",
@@ -292,7 +294,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4429/une-apprentie-agente-de-proprete",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:41:14.136Z",
+      "crawledAt": "2026-09-24T14:26:03.079Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -339,7 +341,8 @@
           "maxValue": 80000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.ehnv.ch/emplois#offer-4429"
     },
     {
       "id": "ehnv-e16c1bd618d1",
@@ -373,7 +376,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4428/une-apprentie-cuisinierere",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:41:13.502Z",
+      "crawledAt": "2026-09-24T14:26:02.313Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -420,7 +423,8 @@
           "maxValue": 80000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.ehnv.ch/emplois#offer-4428"
     },
     {
       "id": "ehnv-6ab4fc147468",
@@ -454,7 +458,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4427/des-apprenties-employees-de-commerce",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:41:12.882Z",
+      "crawledAt": "2026-09-24T14:26:01.695Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -501,7 +505,8 @@
           "maxValue": 80000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.ehnv.ch/emplois#offer-4427"
     },
     {
       "id": "ehnv-c63bbd3a50dd",
@@ -534,7 +539,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4426/une-apprentie-assistante-medicale",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:41:12.280Z",
+      "crawledAt": "2026-09-24T14:26:00.981Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -582,7 +587,8 @@
           "maxValue": 80000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.ehnv.ch/emplois#offer-4426"
     },
     {
       "id": "ehnv-9a8267ca1e39",
@@ -616,7 +622,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4425/des-apprenties-assistantes-en-soins-et-sante-communautaire",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:41:11.662Z",
+      "crawledAt": "2026-09-24T14:26:00.409Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -664,7 +670,8 @@
           "maxValue": 108000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.ehnv.ch/emplois#offer-4425"
     },
     {
       "id": "ehnv-e00ee969c4d6",
@@ -698,7 +705,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4442/une-technicienne-en-analyses-biomedicales-a-50-60-en-cdd-de-4-mois",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:41:11.042Z",
+      "crawledAt": "2026-09-24T14:25:59.846Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -745,7 +752,8 @@
           "maxValue": 72300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.ehnv.ch/emplois#offer-4442"
     },
     {
       "id": "ehnv-06f46908f429",
@@ -778,7 +786,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4458/une-cadre-de-proximite-a-80",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:41:10.403Z",
+      "crawledAt": "2026-09-24T14:25:59.271Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -838,7 +846,8 @@
           "maxValue": 86000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.ehnv.ch/emplois#offer-4458"
     },
     {
       "id": "ehnv-f73392f3e3d1",
@@ -871,7 +880,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/3380/une-infirmierere-clinicienne-specialisee-icls-entre-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:41:09.783Z",
+      "crawledAt": "2026-09-24T14:25:58.701Z",
       "addressLocality": "Yverdon et Pompaples",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -905,7 +914,7 @@
           "un-e-infirmier-ere-clinicien-ne-specialise-e-icls-entre-80-100-ehnv-yverdon-et-pompaples"
         ]
       },
-      "firstSeenAt": "2026-08-27T19:53:20.912Z",
+      "firstSeenAt": "2026-07-08T10:56:32.771Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -918,7 +927,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.ehnv.ch/emplois#offer-3380"
     },
     {
       "id": "ehnv-1fe8cf60f6be",
@@ -951,7 +961,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/2624/une-neuropsychologue-a-60",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:41:09.164Z",
+      "crawledAt": "2026-09-24T14:25:58.090Z",
       "addressLocality": "Chamblon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -981,7 +991,7 @@
           "un-neuropsicologo-60-etab-hospitaliers-du-nord-vaudois-ehnv-chamblon"
         ]
       },
-      "firstSeenAt": "2026-08-27T19:53:20.332Z",
+      "firstSeenAt": "2026-07-08T10:56:32.155Z",
       "salaryMin": 51900,
       "salaryMax": 72300,
       "salarySource": "estimated",
@@ -994,7 +1004,8 @@
           "maxValue": 72300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.ehnv.ch/emplois#offer-2624"
     },
     {
       "id": "ehnv-040737688336",
@@ -1028,7 +1039,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4477/une-infirmierere-a-80-100-poste-transverse-sur-2-sites",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:41:08.509Z",
+      "crawledAt": "2026-09-24T14:25:57.497Z",
       "addressLocality": "Yverdon-les-Bains et Pompaples",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1088,7 +1099,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.ehnv.ch/emplois#offer-4477"
     },
     {
       "id": "ehnv-059bc29eef60",
@@ -1122,7 +1134,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4476/une-assc-70-100-poste-transverse-sur-2-sites",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:41:07.909Z",
+      "crawledAt": "2026-09-24T14:25:56.933Z",
       "addressLocality": "Yverdon-les-Bains et Pompaples",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1166,7 +1178,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.ehnv.ch/emplois#offer-4476"
     },
     {
       "id": "ehnv-11eb6368b90d",
@@ -1200,7 +1213,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4473/une-experte-qualite-et-securite-responsable-de-la-materiovigilance-et-du-developpement-qualite-pour-les-plateaux-techniques-bloc-operatoire-a-60",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:41:07.302Z",
+      "crawledAt": "2026-09-24T14:25:56.365Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1247,7 +1260,8 @@
           "maxValue": 88800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.ehnv.ch/emplois#offer-4473"
     },
     {
       "id": "ehnv-bf8ca14c2316",
@@ -1281,7 +1295,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4538/une-infirmierere-specialisee-aux-soins-intensifs-a-80-100-dont-20-dedie-au-charge-de-formation-pratique",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:41:06.712Z",
+      "crawledAt": "2026-09-24T14:25:55.809Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1328,7 +1342,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.ehnv.ch/emplois#offer-4538"
     },
     {
       "id": "ehnv-c10338337b06",
@@ -1361,7 +1376,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4574/une-cuisinierere-en-dietetique-a-80",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:41:06.092Z",
+      "crawledAt": "2026-09-24T14:25:54.965Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1408,7 +1423,8 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.ehnv.ch/emplois#offer-4574"
     },
     {
       "id": "ehnv-8e31605d050b",
@@ -1441,7 +1457,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4604/une-infirmierere-clinicienne-specialisee-icls-a-80-100-40-de-clinique",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:41:05.475Z",
+      "crawledAt": "2026-09-24T14:25:54.393Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1488,40 +1504,42 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.ehnv.ch/emplois#offer-4604"
     },
     {
       "id": "ehnv-5cf74fe68f78",
-      "slug": "un-e-cadre-de-proximite-a-80-100-ehnv-pompaples",
+      "slug": "un-ambiente-di-prossimita-a-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
       "slugByLocale": {
-        "fr": "un-e-cadre-de-proximite-a-80-100-ehnv-pompaples",
-        "it": "un-e-cadre-de-proximite-a-80-100-ehnv-pompaples",
-        "en": "un-e-cadre-de-proximite-a-80-100-ehnv-pompaples",
-        "de": "un-e-cadre-de-proximite-a-80-100-ehnv-pompaples"
+        "it": "un-ambiente-di-prossimita-a-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
+        "en": "a-proximity-setting-at-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
+        "de": "naherung-bei-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples",
+        "fr": "un-e-cadre-de-proximite-a-80-100-ehnv-pompaples"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
       "companyKey": "ehnv",
       "companyDomain": "ehnv.ch",
       "title": "Un.e cadre de proximité à 80-100%",
       "titleByLocale": {
-        "fr": "Un.e cadre de proximité à 80-100%",
         "it": "Un ambiente di prossimità a 80-100%",
         "en": "A proximity setting at 80-100%",
-        "de": "Näherung bei 80-100%"
+        "de": "Näherung bei 80-100%",
+        "fr": "Un.e cadre de proximité à 80-100%"
       },
       "description": "LE BLOC OPÉRATOIRE DES EHNV DU SITE DE ST-LOUP RECHERCHE\n\nACTIVITÉS PRINCIPALES\n\n• Gestion managériale des équipes du bloc opératoire : instrumentistes et aides de salle d’opération\n\n• Gestion opérationnelle de l’activité opératoire et de l’externalisation du retraitement des dispositifs médicaux\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Diplôme d’infirmier.ère HES avec spécialisation du domaine opératoire ou diplôme de TSO reconnu par la Croix Rouge Suisse\n\n• Certificat de Management de proximité serait un atout\n\n• Niveau 1 et 2 de stérilisation un atout\n\n• Bénéficier d’une expérience professionnelle de 5 ans au minimum dans le domaine opératoire\n\n• Gestion opérationnelle de l’externalisation du retraitement des dispositifs médicaux\n\n• Excellentes connaissances en chirurgie orthopédique\n\n• Esprit d’innovation et bonne vision opérationnelle de l’activité quotidienne d’un programme opératoire\n\n• Capacité d’adaptation, d’autonomie\n\n• Compétences en Leadership et communication\n\n• Faire preuve d’esprit d’équipe et de disponibilité afin de favoriser notamment une collaboration interdisciplinaire\n\n• Activité du lundi au vendredi\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er FEVRIER 2027\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Laurence Martin, directrice adjointe des soins, tél +41 24 424 54 57.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 31 octobre 2026.",
       "descriptionByLocale": {
-        "fr": "LE BLOC OPÉRATOIRE DES EHNV DU SITE DE ST-LOUP RECHERCHE\n\nACTIVITÉS PRINCIPALES\n\n• Gestion managériale des équipes du bloc opératoire : instrumentistes et aides de salle d’opération\n\n• Gestion opérationnelle de l’activité opératoire et de l’externalisation du retraitement des dispositifs médicaux\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Diplôme d’infirmier.ère HES avec spécialisation du domaine opératoire ou diplôme de TSO reconnu par la Croix Rouge Suisse\n\n• Certificat de Management de proximité serait un atout\n\n• Niveau 1 et 2 de stérilisation un atout\n\n• Bénéficier d’une expérience professionnelle de 5 ans au minimum dans le domaine opératoire\n\n• Gestion opérationnelle de l’externalisation du retraitement des dispositifs médicaux\n\n• Excellentes connaissances en chirurgie orthopédique\n\n• Esprit d’innovation et bonne vision opérationnelle de l’activité quotidienne d’un programme opératoire\n\n• Capacité d’adaptation, d’autonomie\n\n• Compétences en Leadership et communication\n\n• Faire preuve d’esprit d’équipe et de disponibilité afin de favoriser notamment une collaboration interdisciplinaire\n\n• Activité du lundi au vendredi\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er FEVRIER 2027\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Laurence Martin, directrice adjointe des soins, tél +41 24 424 54 57.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 31 octobre 2026.",
         "it": "IL SITO DI RICERCA EHNV OPERATIONAL BLOCK\n\nATTIVITÀ PRINCIPALI\n\n• Gestione delle squadre della sala operatoria: strumentisti e assistenti della sala operatoria\n\n• Gestione operativa dell'attività operativa e outsourcing del ritrattamento dei dispositivi medici\n\nSKILLS – PRESCRIZIONI\n\n• Diploma di infermiera. ère HES con specializzazione nel campo della chirurgia o del diploma di TSO riconosciuto dalla Croce Rossa svizzera\n\n• Certificato di gestione della prossimità sarebbe un bene\n\n• Livello 1 e 2 sterilizzazione\n\n• Avere almeno 5 anni di esperienza professionale nel campo del funzionamento\n\n• Gestione operativa dell'outsourcing dei dispositivi medici\n\n• Ottima conoscenza in chirurgia ortopedica\n\n• Uno spirito di innovazione e una buona visione operativa dell'attività quotidiana di un programma operativo\n\n• Adattabilità, autonomia\n\n• Abilità di Leadership e Comunicazione\n\n• Dimostrare lavoro di squadra e disponibilità per favorire la collaborazione interdisciplinare\n\n• Attività lunedì a venerdì\n\nUFFICIO\n\n• Una variegata attività\n\n• Opportunità di formazione continua\n\n• Uno stipendio secondo la scala della Federazione Ospedaliera Vaudiana (FHV)\n\n• Vantaggi sociali eccellenti\n\nDATA DI ENTRY: 1 FEBBRAIO 2027\n\nUlteriori informazioni possono essere ottenute dalla signora Laurence Martin, vicedirettore della cura, Tel. +41 24 424 54 57.\n\nSei interessato?\n\nLe offerte con documenti abituali devono essere inviate entro il 31 ottobre 2026.",
         "en": "THE ST-LOUP RESEARCH SITE EHNV OPERATIONAL BLOCK\n\nMAIN ACTIVITIES\n\n• Management of the operating room teams: instrumentalists and operating room assistants\n\n• Operational management of operational activity and outsourcing of medical device reprocessing\n\nSKILLS – REQUIREMENTS REQUIRED\n\n• Diploma of nurse.ère HES with specialization in the field of surgery or diploma of TSO recognized by the Swiss Red Cross\n\n• Proximity Management Certificate would be an asset\n\n• Level 1 and 2 sterilization an asset\n\n• To have at least 5 years of professional experience in the field of operation\n\n• Operational management of outsourcing of medical devices reprocessing\n\n• Excellent knowledge in orthopaedic surgery\n\n• A spirit of innovation and a good operational vision of the daily activity of an operating programme\n\n• Adaptability, autonomy\n\n• Leadership and Communication Skills\n\n• Demonstrate teamwork and availability to foster inter-disciplinary collaboration\n\n• Activities Monday to Friday\n\nWE OFFER\n\n• A varied activity\n\n• Continuing training opportunities\n\n• A salary according to the scale of the Vaudian Hospital Federation (FHV)\n\n• Excellent social benefits\n\nDATE OF ENTRY: 1 FEBRUARY 2027\n\nAdditional information can be obtained from Ms. Laurence Martin, Assistant Director of Care, Tel. +41 24 424 54 57.\n\nAre you interested?\n\nOffers with usual documents should be sent by 31 October 2026.",
-        "de": "DAS ST-LOUP FORSCHUNGSGEBIET EHNV\n\nWICHTIGKEITEN\n\n• Management der Operationsteams: Instrumentalisten und Operationsassistenten\n\n• Betriebsmanagement der Betriebstätigkeit und Auslagerung der Wiederaufbereitung von Medizinprodukten\n\nFÄHIGKEITEN — ERFORDERLICHE ANFORDERUNGEN\n\n• Diplom einer Krankenschwester. ère HES mit Spezialisierung auf dem Gebiet der Chirurgie oder Diplom der TSO vom Schweizerischen Roten Kreuz anerkannt\n\n• Proximity Management Certificate wäre ein Asset\n\n• Stufe 1 und 2 Sterilisation ein Asset\n\n• Um mindestens 5 Jahre Berufserfahrung im Bereich der Operation haben\n\n• Betriebsmanagement der Auslagerung von Wiederaufbereitungsanlagen für Medizinprodukte\n\n• Ausgezeichnete Kenntnisse in der orthopädischen Chirurgie\n\n• Ein Geist der Innovation und eine gute operative Vision der täglichen Aktivität eines operationellen Programms\n\n• Anpassungsfähigkeit, Autonomie\n\n• Führungs- und Kommunikationsfähigkeiten\n\n• Demonstrieren Sie Teamwork und Verfügbarkeit, um die interdisziplinäre Zusammenarbeit zu fördern\n\n• Aktivitäten Montag bis Freitag\n\nWIR ANGEBOT\n\n• Eine abwechslungsreiche Aktivität\n\n• Weiterbildungsmöglichkeiten\n\n• Ein Gehalt nach der Skala des Vaudian Hospital Federation (FHV)\n\n• Hervorragende Sozialleistungen\n\nEINTRAGSTATUM: 1. FEBRUAR 2027\n\nWeitere Informationen erhalten Sie bei Frau Laurence Martin, Assistant Director of Care, Tel. +41 24 424 54 57.\n\nSind Sie interessiert?\n\nAngebote mit üblichen Unterlagen sollten bis zum 31. Oktober 2026 gesendet werden."
+        "de": "DAS ST-LOUP FORSCHUNGSGEBIET EHNV\n\nWICHTIGKEITEN\n\n• Management der Operationsteams: Instrumentalisten und Operationsassistenten\n\n• Betriebsmanagement der Betriebstätigkeit und Auslagerung der Wiederaufbereitung von Medizinprodukten\n\nFÄHIGKEITEN — ERFORDERLICHE ANFORDERUNGEN\n\n• Diplom einer Krankenschwester. ère HES mit Spezialisierung auf dem Gebiet der Chirurgie oder Diplom der TSO vom Schweizerischen Roten Kreuz anerkannt\n\n• Proximity Management Certificate wäre ein Asset\n\n• Stufe 1 und 2 Sterilisation ein Asset\n\n• Um mindestens 5 Jahre Berufserfahrung im Bereich der Operation haben\n\n• Betriebsmanagement der Auslagerung von Wiederaufbereitungsanlagen für Medizinprodukte\n\n• Ausgezeichnete Kenntnisse in der orthopädischen Chirurgie\n\n• Ein Geist der Innovation und eine gute operative Vision der täglichen Aktivität eines operationellen Programms\n\n• Anpassungsfähigkeit, Autonomie\n\n• Führungs- und Kommunikationsfähigkeiten\n\n• Demonstrieren Sie Teamwork und Verfügbarkeit, um die interdisziplinäre Zusammenarbeit zu fördern\n\n• Aktivitäten Montag bis Freitag\n\nWIR ANGEBOT\n\n• Eine abwechslungsreiche Aktivität\n\n• Weiterbildungsmöglichkeiten\n\n• Ein Gehalt nach der Skala des Vaudian Hospital Federation (FHV)\n\n• Hervorragende Sozialleistungen\n\nEINTRAGSTATUM: 1. FEBRUAR 2027\n\nWeitere Informationen erhalten Sie bei Frau Laurence Martin, Assistant Director of Care, Tel. +41 24 424 54 57.\n\nSind Sie interessiert?\n\nAngebote mit üblichen Unterlagen sollten bis zum 31. Oktober 2026 gesendet werden.",
+        "fr": "LE BLOC OPÉRATOIRE DES EHNV DU SITE DE ST-LOUP RECHERCHE\n\nACTIVITÉS PRINCIPALES\n\n• Gestion managériale des équipes du bloc opératoire : instrumentistes et aides de salle d’opération\n\n• Gestion opérationnelle de l’activité opératoire et de l’externalisation du retraitement des dispositifs médicaux\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Diplôme d’infirmier.ère HES avec spécialisation du domaine opératoire ou diplôme de TSO reconnu par la Croix Rouge Suisse\n\n• Certificat de Management de proximité serait un atout\n\n• Niveau 1 et 2 de stérilisation un atout\n\n• Bénéficier d’une expérience professionnelle de 5 ans au minimum dans le domaine opératoire\n\n• Gestion opérationnelle de l’externalisation du retraitement des dispositifs médicaux\n\n• Excellentes connaissances en chirurgie orthopédique\n\n• Esprit d’innovation et bonne vision opérationnelle de l’activité quotidienne d’un programme opératoire\n\n• Capacité d’adaptation, d’autonomie\n\n• Compétences en Leadership et communication\n\n• Faire preuve d’esprit d’équipe et de disponibilité afin de favoriser notamment une collaboration interdisciplinaire\n\n• Activité du lundi au vendredi\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er FEVRIER 2027\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Laurence Martin, directrice adjointe des soins, tél +41 24 424 54 57.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 31 octobre 2026."
       },
+      "needsRetranslation": false,
       "location": "Pompaples",
       "canton": "VD",
       "url": "https://www.ehnv.ch/emplois#offer/4621/une-cadre-de-proximite-a-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:41:04.860Z",
+      "crawledAt": "2026-09-24T14:25:53.817Z",
       "addressLocality": "Pompaples",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1537,10 +1555,23 @@
       "postedDate": "2026-09-23",
       "applyUrl": "https://www.ehnv.ch/emplois#offer/4621/une-cadre-de-proximite-a-80-100",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "externalId": "4621",
+      "firstSeenAt": "2026-09-23T23:41:04.860Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-cadre-de-proximite-a-80-100-ehnv-pompaples"
+        ],
+        "en": [
+          "un-e-cadre-de-proximite-a-80-100-ehnv-pompaples"
+        ],
+        "de": [
+          "un-e-cadre-de-proximite-a-80-100-ehnv-pompaples"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-cadre-de-proximite-a-80-100-ehnv-pompaples"
+      ],
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -1554,7 +1585,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:41:04.860Z"
+      "sourceIdentity": "url:https://www.ehnv.ch/emplois#offer-4621"
     }
   ]
 }

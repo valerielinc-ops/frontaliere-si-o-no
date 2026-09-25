@@ -12,6 +12,7 @@ import { ErrorBoundary, SilentErrorBoundary } from '@/components/shared/ErrorBou
 
 import { reportCaughtError } from '@/services/errorReporter';
 import { fetchCommitHash } from '@/services/buildInfo';
+import { getContextualConversionContext } from '@/services/conversionContext';
 const GamificationWidget = lazyRetry(() => import('@/components/community/GamificationWidget'));
 // Newsletter/community popups are NON-CRITICAL overlays. Use React.lazy (NOT
 // lazyRetry) + SilentErrorBoundary (see SafeLazy below) so a chunk-load failure
@@ -27,6 +28,7 @@ const PdfDownloadGate = React.lazy(() => import('@/components/shared/PdfDownload
 // AdBlock detection gate + A/B bucket (#3654). Client-only overlay, never SSR.
 const AdBlockGate = React.lazy(() => import('@/components/community/AdBlockGate'));
 const NewsletterInline = lazyRetry(() => import('@/components/community/Newsletter'));
+const ContextualConversionCard = React.lazy(() => import('@/components/shared/ContextualConversionCard'));
 const NewsletterMount = React.lazy(() => import('@/components/community/NewsletterMount'));
 // CompanyAlert island (#5012 phase 2): hydrates the "Segui questa azienda" CTA
 // into the [data-company-follow-mount] placeholder the SSG employer-profile
@@ -241,6 +243,8 @@ import {
  exchangeLinkedInCode,
  saveUserProfileToFirestore,
  consumeAuthJobContext,
+ consumeAuthAttributionContext,
+ sanitizeAuthReturnPath,
 } from '@/services/authService';
 import { settleNewsletterAutologin, parseNewsletterAutologin } from '@/services/newsletterAutologinSignal';
 import { claimOneTapPrompt, ONETAP_PENDING_KEY, ONETAP_PROMPTED_KEY } from '@/services/oneTapPromptGate';
@@ -374,6 +378,12 @@ const App: React.FC = () => {
  suppressNextRouteSyncForTabRef,
  handleTabChange: navHandleTabChange, handleSearchNavigate,
  } = useNavigationState();
+
+ const contextualPath = typeof window !== 'undefined' ? window.location.pathname : '/';
+ const contextualConversion = useMemo(
+  () => getContextualConversionContext(contextualPath, locale),
+  [contextualPath, locale],
+ );
 
  // UI state: dark mode, translations, deferred widgets, analytics init
  const { isDarkMode, isFocusMode, showDeferredHomeWidgets, translationsReady, toggleTheme, setIsFocusMode } = useUIState(activeTab);
@@ -703,11 +713,20 @@ const App: React.FC = () => {
  return;
  }
  if (!decodedState.startsWith('/')) return;
+ // Same-origin paths only: `//host` or `/\host` would make the final
+ // location.replace an open redirect.
+ if (!sanitizeAuthReturnPath(decodedState)) return;
 
  // Only handle on expected callback path OR on root (fallback when the
  // sessionStorage-based SPA restoration from /auth/linkedin/callback/ fails).
  const path = currentUrl.pathname.replace(/\/+$/, '') || '/';
  if (path !== '/auth/linkedin/callback' && path !== '/') return;
+
+ Analytics.trackUIInteraction('auth', 'linkedin', 'login', 'callback-return');
+
+ // The surface that started the login, parked by signInWithLinkedIn under
+ // this exact `state`; without it the origin page is the state path itself.
+ const linkedInAttribution = consumeAuthAttributionContext({ linkedinState: state }) || { page: decodedState };
 
  if (errorParam) {
  // User cancelled or LinkedIn returned an error
@@ -720,25 +739,28 @@ const App: React.FC = () => {
 
  setLinkedInCallbackProcessing(true);
 
- const customToken = await exchangeLinkedInCode(code);
+ const customToken = await exchangeLinkedInCode(code, linkedInAttribution);
 
  if (cancelled) return;
 
  if (!customToken) {
  setLinkedInCallbackError('Errore durante il login con LinkedIn. Riprova.');
+ Analytics.trackUIInteraction('auth', 'linkedin', 'login', 'exchange-error');
  Analytics.trackUIInteraction('auth', 'linkedin', 'login', 'error');
  return;
  }
 
+ Analytics.trackUIInteraction('auth', 'linkedin', 'login', 'exchange-success');
  const user = await signInWithCustomAuthToken(customToken);
  Analytics.trackUIInteraction('auth', 'linkedin', 'login', user ? 'success' : 'no-user');
 
  if (user) {
- // Best-effort: save/update user profile in Firestore for personalization
- saveUserProfileToFirestore(user, 'linkedin').catch(() => {});
+ const savedJobCtx = consumeAuthJobContext();
+ // Best-effort: save/update user profile in Firestore for personalization,
+ // with the job and surface contexts that started this LinkedIn login.
+ saveUserProfileToFirestore(user, 'linkedin', savedJobCtx, linkedInAttribution).catch(() => {});
 
  const email = getAuthEmail(user);
- const savedJobCtx = consumeAuthJobContext();
 
  // Google/Email emit job_auth_funnel:auth_success inline; LinkedIn lands here
  // after a full-page OAuth redirect so the success event must be emitted from
@@ -746,12 +768,25 @@ const App: React.FC = () => {
  // (newsletter, calculator) don't pollute the job_auth funnel.
  if (savedJobCtx) {
  const emailDomain = email && email.includes('@') ? email.split('@')[1] : undefined;
+ Analytics.trackJobAuthGate('success', {
+  surface: savedJobCtx.surface || 'unknown',
+  method: 'linkedin',
+  authState: 'registered',
+  variant: savedJobCtx.variant,
+  experimentId: savedJobCtx.experimentId,
+  jobSlug: savedJobCtx.slug,
+ });
  Analytics.trackJobAuthFunnel('auth_success', {
  method: 'linkedin',
  emailDomain,
  company: savedJobCtx.company || undefined,
  location: savedJobCtx.location || undefined,
  category: savedJobCtx.category || undefined,
+ surface: savedJobCtx.surface || 'unknown',
+ authState: 'registered',
+ variant: savedJobCtx.variant,
+ experimentId: savedJobCtx.experimentId,
+ jobSlug: savedJobCtx.slug,
  });
  }
 
@@ -952,6 +987,17 @@ const App: React.FC = () => {
  reportCaughtError(authErr, 'app.newsletterConfirmAutologin');
  Analytics.trackUIInteraction('newsletter', 'confirm_autologin', 'error');
  }
+ }
+
+ if (!result.loginOnly) {
+  // The confirmation endpoint is the authoritative double-opt-in boundary;
+  // the earlier `subscribe` event only means that the request was submitted.
+  Analytics.setUserSegmentFlags({ isNewsletterSubscriber: true });
+  Analytics.trackNewsletter('confirm', undefined, {
+   sourceChannel: 'confirmation',
+   sourceCta: loginMode ? 'email_login_link' : 'newsletter_confirmation',
+   registrationMethod: 'email',
+  });
  }
 
  // CompanyAlert double opt-in (#5012 phase 2). An anonymous visitor who
@@ -3161,6 +3207,16 @@ const App: React.FC = () => {
  </div>
  )}
 
+ {!staticOverlay && contextualConversion && (
+  <SafeLazy boundary="contextual-conversion">
+   <ContextualConversionCard
+    locale={locale}
+    path={typeof window !== 'undefined' ? window.location.pathname : '/'}
+    activeTab={activeTab}
+   />
+  </SafeLazy>
+ )}
+
  {ctaItems.length > 0 && (
  <div className="mt-8">
  <div className="bg-surface border border-edge rounded-2xl p-4 sm:p-6">
@@ -3274,8 +3330,15 @@ const App: React.FC = () => {
  <SafeLazy boundary="footer-weather" fallback={<SkeletonFooterSlot height="min-h-[36px]" />}><FooterWeather /></SafeLazy>
 
  {/* Newsletter signup — inline in footer for persistent visibility */}
- <div className="max-w-xl mx-auto">
- <SafeLazy boundary="footer-newsletter"><NewsletterInline compact /></SafeLazy>
+ <div id="footer-newsletter" className="max-w-xl mx-auto scroll-mt-24">
+ <SafeLazy boundary="footer-newsletter">
+  <NewsletterInline
+   compact
+   headingOverride={contextualConversion?.newsletterHeading}
+   subtitleOverride={contextualConversion?.newsletterSubtitle}
+   acquisitionSource={contextualConversion?.source}
+  />
+ </SafeLazy>
  </div>
 
  {/* Donation banner */}

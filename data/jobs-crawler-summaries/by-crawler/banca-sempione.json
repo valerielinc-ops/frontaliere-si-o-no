@@ -1,18 +1,42 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-09-22T00:07:09.633Z",
-  "total": 6,
-  "newCount": 0,
+  "generatedAt": "2026-09-24T14:25:14.833Z",
+  "total": 7,
+  "newCount": 1,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4419,
-  "avgDurationMs": 4419,
+  "durationMs": 4605,
+  "avgDurationMs": 4605,
   "durationHistory": [
-    4419
+    4605
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Stage Amministrazione Crediti – Banca del Sempione (Lugano)",
+      "company": "Banca del Sempione",
+      "companyKey": "banca-sempione",
+      "url": "https://www.bancasempione.ch/job/junior-amministrazione-crediti-banca-del-sempione-lugano/",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "category": "administration",
+      "descriptionIt": "Stage Amministrazione Crediti – Banca del Sempione (Lugano) presso Banca del Sempione, banca privata svizzera con sede a Lugano (Ticino). Il ruolo: Come stagista all’interno del nostro team Crediti, la persona inserita fornirà supporto alle attività amministrative e operative del Settore, contribuendo alla corretta gestione della documentazione e delle pratiche di credito. La figura scelta collaborerà quotidianamente con il team,…",
+      "postedDate": "2026-09-23",
+      "source": "company-website",
+      "slug": "banca-del-sempione-junior-amministrazione-crediti-banca-del-sempione-lugano",
+      "sourceLang": "it",
+      "crawledAt": "",
+      "_qualityScore": 52,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 2,
+        "completeness": 11
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Junior Legal – Banca del Sempione (Lugano)",
@@ -29,14 +53,13 @@
       "slug": "banca-del-sempione-junior-legal-banca-del-sempione-lugano",
       "sourceLang": "it",
       "id": "banca-sempione-00a6adcf50af",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-19T23:02:49.693Z",
       "crawledAt": "",
-      "_qualityScore": 70,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 20,
+        "translation": 25,
         "completeness": 11
       }
     },
@@ -55,7 +78,6 @@
       "slug": "banca-del-sempione-global-wealth-management-assistente-alla-consulenza-lugano",
       "sourceLang": "it",
       "id": "banca-sempione-f1f2cedfa71f",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-21T22:03:26.436Z",
       "crawledAt": "",
       "_qualityScore": 75,
@@ -81,7 +103,6 @@
       "slug": "banca-del-sempione-responsabile-compliance-e-am-banca-del-sempione-milano-branch",
       "sourceLang": "it",
       "id": "banca-sempione-f74739997e11",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
       "_qualityScore": 75,
@@ -107,14 +128,13 @@
       "slug": "banca-del-sempione-global-wealth-management-private-banker-zurich-2",
       "sourceLang": "it",
       "id": "banca-sempione-f9feccc2fb3b",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
-      "_qualityScore": 73,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 23,
+        "translation": 25,
         "completeness": 11
       }
     },
@@ -133,14 +153,13 @@
       "slug": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
       "sourceLang": "it",
       "id": "banca-sempione-a117dec221e9",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
-      "_qualityScore": 73,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 23,
+        "translation": 25,
         "completeness": 11
       }
     },
@@ -159,7 +178,6 @@
       "slug": "global-wealth-management-assistente-private-banking-zurigo-banca-del-sempione-zurich",
       "sourceLang": "en",
       "id": "banca-sempione-f45acac33926",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
       "_qualityScore": 75,

@@ -113,7 +113,7 @@ interface SiteEvent {
   price?: { amount: number | null; currency: string; isFree: boolean };
   organizer?: EventEntity | EventEntity[];
   performer?: EventEntity | EventEntity[];
-  address?: { street?: string; postalCode?: string };
+  address?: { street?: string; postalCode?: string; locality?: string; region?: string };
   geo?: { lat: number; lng: number };
   recurring?: boolean;
   // Nearby Italian border comuni (haversine geo-link, see
@@ -1195,7 +1195,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   // on those — addressLocality falls back to the crawled venue (a town
   // name for those sources) and addressRegion is omitted when unknown.
   const cantonName = event.canton ? getCantonLabel(event.canton, locale as CantonLocale) : '';
-  const locality = event.comune || (event.canton ? cantonName : event.venue || 'Svizzera');
+  const locality = event.address?.locality || event.comune || (event.canton ? cantonName : event.venue || 'Svizzera');
   const venueName = event.venue || locality;
   const offset = zurichOffset(event.startDate);
   const startIso = event.startTime ? `${event.startDate}T${event.startTime}:00${offset}` : event.startDate;
@@ -1232,7 +1232,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
         ...(event.address?.street ? { streetAddress: event.address.street } : {}),
         ...(event.address?.postalCode ? { postalCode: event.address.postalCode } : {}),
         addressLocality: locality,
-        ...(event.canton ? { addressRegion: event.canton } : {}),
+        ...(event.address?.region || event.canton ? { addressRegion: event.address?.region || event.canton } : {}),
         addressCountry: 'CH',
       },
       ...(event.geo

@@ -1,18 +1,50 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-09-23T23:48:26.987Z",
-  "total": 4,
+  "generatedAt": "2026-09-24T14:26:29.674Z",
+  "total": 5,
   "newCount": 1,
-  "updatedCount": 3,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 133232,
-  "avgDurationMs": 133232,
+  "durationMs": 135883,
+  "avgDurationMs": 135883,
   "durationHistory": [
-    133232
+    135883
   ],
   "newJobs": [
+    {
+      "title": "Apprendisti meccatronici d'automobili AFC (m/f) - AMAG Ticino - estate 2027",
+      "slug": "apprendisti-meccatronici-d-automobili-afc-m-f-amag-ticino-estate-2027",
+      "url": "https://jobs.amag-group.ch/Apprendisti-meccatronici-dautomobili-AFC-mf-AMAG-Ticino-es-it-j23683.html",
+      "applyUrl": "https://jobs.amag-group.ch/Apprendisti-meccatronici-dautomobili-AFC-mf-AMAG-Ticino-es-it-f23683.html",
+      "company": "AMAG Group",
+      "companyKey": "amag-group",
+      "companyDomain": "amag-group.ch",
+      "location": "Tutti",
+      "addressLocality": "Tutti",
+      "addressRegion": "JU",
+      "addressCountry": "CH",
+      "canton": "JU",
+      "country": "CH",
+      "category": "apprenticeship",
+      "sector": "Automotive & Mobilità",
+      "source": "amag-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-09-24",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2027-03-01",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Apprendista (magazzino) Impiegato/a del comm. al dettaglio AFC After-Sales Automobile 2027 (m/f) - AMAG Breganzona",
       "slug": "apprendista-magazzino-impiegato-a-del-comm-al-dettaglio-afc-after-sales-automobile-2027-m-f-amag-breganzona",
@@ -35,16 +67,20 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "2027-03-01",
-      "_qualityScore": 67,
+      "id": "amag-group-635c94e01215",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-23T23:48:22.457Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 10,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Apprendista carrozziere/a verniciatore/-trice AFC (m/f) estate 2027 - AMAG Lugano",
       "slug": "apprendista-carrozziere-a-verniciatore-trice-afc-m-f-estate-2027-amag-lugano",

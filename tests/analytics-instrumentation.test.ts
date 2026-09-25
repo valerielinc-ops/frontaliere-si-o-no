@@ -217,12 +217,47 @@ describe('analytics.ts — qualified application funnel', () => {
   });
 });
 
+describe('analytics.ts — L2 useful-action outcome', () => {
+  it('declares a Firebase-only, once-per-session useful-action event', () => {
+    expect(analyticsSrc).toContain("L2_USEFUL_ACTION_EVENT = 'l2_useful_action'");
+    expect(analyticsSrc).toContain('L2_USEFUL_ACTION_SESSION_KEY');
+    expect(analyticsSrc).toContain('sessionStorage.getItem(L2_USEFUL_ACTION_SESSION_KEY)');
+    expect(analyticsSrc).toMatch(/L2_USEFUL_ACTION_STEPS = new Set\(\['calculate', 'compare', 'cta_click'\]\)/);
+    expect(analyticsSrc).toMatch(/params\.funnel === 'main_conversion'/);
+    expect(analyticsSrc).toMatch(/logFirebaseOnly\(L2_USEFUL_ACTION_EVENT\)/);
+    const helper = analyticsSrc.match(/function maybeEmitL2UsefulAction[\s\S]*?\n\}/);
+    expect(helper?.[0]).not.toMatch(/posthogCapture/);
+  });
+});
+
 describe('analytics.ts — job_auth funnel aliasing', () => {
   it('trackJobAuthFunnel emits both `step` and `funnel: \'job_auth\'`', () => {
     const block = analyticsSrc.match(/trackJobAuthFunnel:[\s\S]*?\},\n/);
     expect(block).not.toBeNull();
     expect(block![0]).toMatch(/step:\s*action/);
     expect(block![0]).toMatch(/funnel:\s*'job_auth'/);
+  });
+});
+
+describe('analytics.ts — GA4 job gate contract', () => {
+  it('uses registered GA4 dimensions and keeps the historical PostHog payload separate', () => {
+    const block = analyticsSrc.match(/trackJobAuthGate:[\s\S]*?emitClarityEvent\('job_auth_gate'\);/);
+    expect(block).not.toBeNull();
+    for (const key of ['page:', 'section:', 'component:', 'action:', 'cta_id:', 'details:', 'job_slug:', 'experiment_id:', 'variant,']) {
+      expect(block![0]).toContain(key);
+    }
+    expect(analyticsSrc).toMatch(/logPostHogOnly\('job_auth_funnel'/);
+    expect(analyticsSrc).toMatch(/logFirebaseOnly\('job_auth_funnel'/);
+  });
+
+  it('routes newsletter source context through a queryable GA4 ui_interaction', () => {
+    const block = analyticsSrc.match(/trackNewsletter:[\s\S]*?\n \},\n\n trackNewsletterEvent:/);
+    expect(block).not.toBeNull();
+    expect(block![0]).toMatch(/page:\s*'newsletter'/);
+    expect(block![0]).toMatch(/section:\s*sourceChannel/);
+    expect(block![0]).toMatch(/component:\s*sourceCta/);
+    expect(block![0]).toMatch(/cta_id:/);
+    expect(block![0]).toMatch(/registration_method=/);
   });
 });
 

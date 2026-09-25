@@ -1,7 +1,64 @@
 {
   "crawlerKey": "banca-sempione",
-  "assembledAt": "2026-09-22T00:07:08.000Z",
+  "assembledAt": "2026-09-24T14:25:11.417Z",
   "jobs": [
+    {
+      "title": "Stage Amministrazione Crediti – Banca del Sempione (Lugano)",
+      "company": "Banca del Sempione",
+      "companyKey": "banca-sempione",
+      "url": "https://www.bancasempione.ch/job/junior-amministrazione-crediti-banca-del-sempione-lugano/",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "category": "administration",
+      "description": "Stage Amministrazione Crediti – Banca del Sempione (Lugano) at Banca del Sempione, a Swiss private bank headquartered in Lugano (Ticino). Il ruolo: Come stagista all’interno del nostro team Crediti, la persona inserita fornirà supporto alle attività amministrative e operative del Settore, contribuendo alla corretta gestione della documentazione e delle pratiche di credito. La figura scelta collaborerà quotidianamente con il team,…",
+      "descriptionIt": "Stage Amministrazione Crediti – Banca del Sempione (Lugano) presso Banca del Sempione, banca privata svizzera con sede a Lugano (Ticino). Il ruolo: Come stagista all’interno del nostro team Crediti, la persona inserita fornirà supporto alle attività amministrative e operative del Settore, contribuendo alla corretta gestione della documentazione e delle pratiche di credito. La figura scelta collaborerà quotidianamente con il team,…",
+      "postedDate": "2026-09-23",
+      "source": "company-website",
+      "slug": "banca-del-sempione-junior-amministrazione-crediti-banca-del-sempione-lugano",
+      "slugByLocale": {
+        "it": "banca-del-sempione-junior-amministrazione-crediti-banca-del-sempione-lugano",
+        "en": "stage-administration-credits-banca-del-sempione-lugano-banca-del-sempione-lugano",
+        "de": "phase-administration-credits-banca-del-sempione-lugano-banca-del-sempione-lugano",
+        "fr": "credits-administratifs-banca-del-sempione-lugano-banca-del-sempione-lugano"
+      },
+      "titleByLocale": {
+        "it": "Stage Amministrazione Crediti – Banca del Sempione (Lugano)",
+        "en": "Stage Administration Credits – Banca del Sempione (Lugano)",
+        "de": "Phase Administration Credits – Banca del Sempione (Lugano)",
+        "fr": "Crédits administratifs – Banca del Sempione (Lugano)"
+      },
+      "sourceLang": "it",
+      "crawledAt": "",
+      "id": "banca-sempione-4e013f27b2b5",
+      "descriptionByLocale": {
+        "it": "Stage Amministrazione Crediti – Banca del Sempione (Lugano) at Banca del Sempione, a Swiss private bank headquartered in Lugano (Ticino). Il ruolo: Come stagista all’interno del nostro team Crediti, la persona inserita fornirà supporto alle attività amministrative e operative del Settore, contribuendo alla corretta gestione della documentazione e delle pratiche di credito. La figura scelta collaborerà quotidianamente con il team,…",
+        "en": "Stage Administration Credits – Banca del Sempione (Lugano) at Banca del Sempione, a Swiss private bank headquartered in Lugano (Ticino). The role: As an intern within our Credits team, the person involved will support the sector’s administrative and operational activities, contributing to the proper management of documentation and credit practices. The chosen figure will work daily with the team,...",
+        "de": "Stage Administration Credits – Banca del Sempione (Lugano) bei der Banca del Sempione, einer Schweizer Privatbank mit Sitz in Lugano (Tessin). Die Rolle: Als Praktikant in unserem Credits-Team wird die betroffene Person die administrativen und operativen Aktivitäten des Sektors unterstützen und zur ordnungsgemäßen Verwaltung der Dokumentations- und Kreditpraktiken beitragen. Die gewählte Figur wird täglich mit dem Team arbeiten,...",
+        "fr": "Crédits d'administration – Banca del Sempione (Lugano) à Banca del Sempione, une banque privée suisse dont le siège est à Lugano (Ticino). Le rôle : En tant que stagiaire au sein de notre équipe Credits, la personne concernée soutiendra les activités administratives et opérationnelles du secteur, contribuant à la bonne gestion de la documentation et des pratiques de crédit. La figure choisie travaillera tous les jours avec l'équipe,..."
+      },
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via P. Peri 2",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-09-24T14:25:08.686Z",
+      "sourceIdentity": "url:https://www.bancasempione.ch/job/junior-amministrazione-crediti-banca-del-sempione-lugano"
+    },
     {
       "title": "Junior Legal – Banca del Sempione (Lugano)",
       "company": "Banca del Sempione",
@@ -18,9 +75,9 @@
       "slug": "banca-del-sempione-junior-legal-banca-del-sempione-lugano",
       "slugByLocale": {
         "it": "banca-del-sempione-junior-legal-banca-del-sempione-lugano",
-        "en": "banca-del-sempione-junior-legal-banca-del-sempione-lugano",
+        "en": "un-unior-legal-banca-del-sempione-lugano-banca-del-sempione-lugano",
         "de": "unior-legal-banca-del-simplon-lugano-banca-del-sempione-lugano",
-        "fr": "banca-del-sempione-junior-legal-banca-del-sempione-lugano"
+        "fr": "juridique-junior-banca-del-sempione-lugano-banca-del-sempione-lugano"
       },
       "titleByLocale": {
         "it": "Junior Legal – Banca del Sempione (Lugano)",
@@ -56,7 +113,8 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "sourceIdentity": "url:https://www.bancasempione.ch/job/junior-legal-banca-del-sempione-lugano"
     },
     {
       "title": "Global Wealth Management – Assistente alla Consulenza (Lugano)",
@@ -112,7 +170,8 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "sourceIdentity": "url:https://www.bancasempione.ch/job/global-wealth-management-assistente-alla-consulenza-lugano"
     },
     {
       "title": "Responsabile Compliance e AM – Banca del Sempione (Milano Branch)",
@@ -164,7 +223,7 @@
           "chef-de-la-banque-du-sempione-branche-milan-banca-del-sempione-lugano"
         ]
       },
-      "firstSeenAt": "2026-07-06T22:38:18.264Z",
+      "firstSeenAt": "2026-06-12T11:43:52.286Z",
       "crawledAt": "",
       "salaryMin": 87000,
       "salaryMax": 149500,
@@ -184,7 +243,8 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "sourceIdentity": "url:https://www.bancasempione.ch/job/responsabile-compliance-e-am-banca-del-sempione-milano-branch"
     },
     {
       "title": "Global Wealth Management – Private Banker (Zurigo)",
@@ -210,7 +270,7 @@
         "it": "Global Wealth Management – Private Banker (Zurigo)",
         "en": "Global Wealth Management.",
         "de": "Global Wealth Management.",
-        "fr": "Global Wealth Management – Private Banker (Zurich)"
+        "fr": "Global Wealth Management – Private Banker (Zurigo)"
       },
       "sourceLang": "it",
       "id": "banca-sempione-f9feccc2fb3b",
@@ -236,7 +296,7 @@
           "global-wealth-management-private-banker-zurigo-banca-del-sempione-zurich"
         ]
       },
-      "firstSeenAt": "2026-07-06T22:38:18.264Z",
+      "firstSeenAt": "2026-05-11T21:32:17.504Z",
       "crawledAt": "",
       "salaryMin": 113000,
       "salaryMax": 198500,
@@ -254,7 +314,9 @@
       },
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "sourceIdentity": "url:https://www.bancasempione.ch/job/global-wealth-management-private-banker-zurich-2"
     },
     {
       "title": "Global Wealth Management – Private Banker (Lugano)",
@@ -320,7 +382,7 @@
           "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano"
         ]
       },
-      "firstSeenAt": "2026-07-06T22:38:18.264Z",
+      "firstSeenAt": "2026-04-13T21:11:04.811Z",
       "crawledAt": "",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -340,7 +402,8 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "sourceIdentity": "url:https://www.bancasempione.ch/job/global-wealth-management-consulente-alla-clientela-private-banker"
     },
     {
       "title": "Global Wealth Management – Private Banking Assistant (Zurich)",
@@ -396,7 +459,7 @@
           "gestion-globale-de-patrimoine-assistant-banque-privee-zurich-banca-del-sempione-zurich"
         ]
       },
-      "firstSeenAt": "2026-07-06T22:38:18.264Z",
+      "firstSeenAt": "2026-05-11T21:32:17.504Z",
       "crawledAt": "",
       "salaryMin": 113000,
       "salaryMax": 198500,
@@ -414,7 +477,8 @@
       },
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "sourceIdentity": "url:https://www.bancasempione.ch/job/private-banking-assistant"
     }
   ]
 }

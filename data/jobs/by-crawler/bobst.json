@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bobst",
-  "assembledAt": "2026-09-23T23:52:31.629Z",
+  "assembledAt": "2026-09-24T14:45:59.330Z",
   "jobs": [
     {
       "id": "bobst-6b9490c1deb3",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bobst.com/Vacancies/4997/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:25.047Z",
+      "crawledAt": "2026-09-24T14:45:50.877Z",
       "addressLocality": "India (Pune)",
       "addressCountry": "CH",
       "country": "CH",
@@ -50,13 +50,11 @@
       "requirementsByLocale": {},
       "department": "Customer Service",
       "previousSlugs": [
-        "field-service-technician-wf-flexo-g-c-l-chennai-bobst-ch",
-        "tecnico-di-assistenza-sul-campo-wf-flexo-g-c-l-chennai-bobst-india-pune"
+        "field-service-technician-wf-flexo-g-c-l-chennai-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "field-service-technician-wf-flexo-g-c-l-chennai-bobst-ch",
-          "tecnico-di-assistenza-sul-campo-wf-flexo-g-c-l-chennai-bobst-india-pune"
+          "field-service-technician-wf-flexo-g-c-l-chennai-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-05-19T18:35:17.619Z",
@@ -73,7 +71,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/4997/description/2"
     },
     {
       "id": "bobst-602bfc3d2267",
@@ -106,7 +105,7 @@
       "url": "https://jobs.bobst.com/Vacancies/6868/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:24.254Z",
+      "crawledAt": "2026-09-24T14:45:50.301Z",
       "addressLocality": "Thailand (Bangkok)",
       "addressCountry": "CH",
       "country": "CH",
@@ -145,13 +144,11 @@
       "department": "Customer Service",
       "previousSlugs": [
         "customer-care-specialist-bobst-ch",
-        "kundenservice-spezialist-bobst-thailand-bangkok",
-        "customer-care-specialista-bobst-thailand-bangkok"
+        "kundenservice-spezialist-bobst-thailand-bangkok"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-care-specialist-bobst-ch",
-          "customer-care-specialista-bobst-thailand-bangkok"
+          "customer-care-specialist-bobst-ch"
         ],
         "de": [
           "kundenservice-spezialist-bobst-thailand-bangkok"
@@ -171,7 +168,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/6868/description/2"
     },
     {
       "id": "bobst-81f8bbcbde85",
@@ -188,7 +186,7 @@
       "title": "Field Service Technician (m/w/d)",
       "titleByLocale": {
         "it": "Servizio di campo tecnico (m/f/d)",
-        "en": "Field Service Technician (m/w/d)",
+        "en": "Field Service Technician (m/f/d)",
         "de": "Field Service Techniker (m/w/d)",
         "fr": "Field Service Technicien (m/w/d)"
       },
@@ -204,7 +202,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8700/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:52:23.492Z",
+      "crawledAt": "2026-09-24T14:45:49.770Z",
       "addressLocality": "Germany (Bielefeld)",
       "addressCountry": "CH",
       "country": "CH",
@@ -256,15 +254,13 @@
         "feldservicetechniker-m-w-d-bobst-germany-bielefeld",
         "tecnico-di-servizio-campo-m-f-d-bobst-germany-bielefeld",
         "technicien-de-service-sur-site-h-f-bobst-germany-bielefeld",
-        "field-service-technician-m-w-d-bobst-germany-bielefeld",
-        "servizio-di-campo-tecnico-m-f-d-bobst-germany-bielefeld"
+        "field-service-technician-m-w-d-bobst-germany-bielefeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "field-service-technician-m-w-d-bobst-ch",
           "tecnico-di-servizio-campo-m-f-d-bobst-germany-bielefeld",
-          "field-service-technician-m-w-d-bobst-germany-bielefeld",
-          "servizio-di-campo-tecnico-m-f-d-bobst-germany-bielefeld"
+          "field-service-technician-m-w-d-bobst-germany-bielefeld"
         ],
         "en": [
           "field-service-technician-m-w-d-bobst-ch",
@@ -291,7 +287,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/8700/description/2"
     },
     {
       "id": "bobst-349233cc077a",
@@ -308,7 +305,7 @@
       "title": "Field Service Technician (m/w/d)",
       "titleByLocale": {
         "it": "Servizio di campo tecnico (m/f/d)",
-        "en": "Field Service Technician (m/w/d)",
+        "en": "Field Service Technician (m/f/d)",
         "de": "Field Service Techniker (m/w/d)",
         "fr": "Field Service Technicien (m/w/d)"
       },
@@ -324,7 +321,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8701/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:52:22.699Z",
+      "crawledAt": "2026-09-24T14:45:48.979Z",
       "addressLocality": "Germany (Bielefeld)",
       "addressCountry": "CH",
       "country": "CH",
@@ -377,16 +374,14 @@
         "servizio-tecnico-m-f-d-bobst-germany-bielefeld",
         "field-service-technician-bobst-germany-bielefeld",
         "field-service-technician-m-w-d-bobst-germany-bielefeld-ca0680",
-        "automotive-technician-m-f-d-bobst-germany-bielefeld-ca0680",
-        "servizio-di-campo-tecnico-m-f-d-bobst-germany-bielefeld-ca0680"
+        "automotive-technician-m-f-d-bobst-germany-bielefeld-ca0680"
       ],
       "previousSlugsByLocale": {
         "it": [
           "field-service-technician-m-w-d-bobst-ch-2",
           "field-service-technician-m-w-d-bobst-ch",
           "servizio-tecnico-m-f-d-bobst-germany-bielefeld",
-          "field-service-technician-bobst-germany-bielefeld",
-          "servizio-di-campo-tecnico-m-f-d-bobst-germany-bielefeld-ca0680"
+          "field-service-technician-bobst-germany-bielefeld"
         ],
         "en": [
           "field-service-technician-m-w-d-bobst-ch-2",
@@ -408,7 +403,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/8701/description/2"
     },
     {
       "id": "bobst-cdbe6d66b7ea",
@@ -441,7 +437,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8661/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:52:21.964Z",
+      "crawledAt": "2026-09-24T14:45:48.139Z",
       "addressLocality": "Germany (Meerbusch)",
       "addressCountry": "CH",
       "country": "CH",
@@ -491,13 +487,11 @@
       "previousSlugs": [
         "elektriker-elektroniker-m-w-d-reisetatigkeit-deutschlandweit-bobst-ch",
         "electrician-electronics-technician-m-f-d-germany-wide-travel-activity-bobst-germany-meerbusch",
-        "electricien-technicien-en-electronique-h-f-d-activites-de-voyage-en-allemagne-bobst-germany-meerbusch",
-        "elettricista-elettromeccanico-m-f-d-attivita-di-viaggio-in-tutta-la-germania-bobst-germany-meerbusch"
+        "electricien-technicien-en-electronique-h-f-d-activites-de-voyage-en-allemagne-bobst-germany-meerbusch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektriker-elektroniker-m-w-d-reisetatigkeit-deutschlandweit-bobst-ch",
-          "elettricista-elettromeccanico-m-f-d-attivita-di-viaggio-in-tutta-la-germania-bobst-germany-meerbusch"
+          "elektriker-elektroniker-m-w-d-reisetatigkeit-deutschlandweit-bobst-ch"
         ],
         "en": [
           "electrician-electronics-technician-m-f-d-germany-wide-travel-activity-bobst-germany-meerbusch"
@@ -520,7 +514,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/8661/description/2"
     },
     {
       "id": "bobst-7a741f10e50b",
@@ -553,7 +548,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8519/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:21.202Z",
+      "crawledAt": "2026-09-24T14:45:47.335Z",
       "addressLocality": "Poland (Lodz)",
       "addressCountry": "CH",
       "country": "CH",
@@ -602,13 +597,11 @@
       "department": "Customer Service",
       "previousSlugs": [
         "field-service-technician-mechanic-bobst-ch",
-        "servicetechniker-mechaniker-bobst-poland-lodz",
-        "tecnico-di-assistenza-sul-campo-meccanico-bobst-poland-lodz"
+        "servicetechniker-mechaniker-bobst-poland-lodz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "field-service-technician-mechanic-bobst-ch",
-          "tecnico-di-assistenza-sul-campo-meccanico-bobst-poland-lodz"
+          "field-service-technician-mechanic-bobst-ch"
         ],
         "de": [
           "servicetechniker-mechaniker-bobst-poland-lodz"
@@ -628,7 +621,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/8519/description/2"
     },
     {
       "id": "bobst-17eb037c0ecb",
@@ -645,7 +639,7 @@
       "title": "Technical Support Specialist 100% - Maschinen- & Anlagenbau",
       "titleByLocale": {
         "it": "Specialista di Supporto Tecnico al 100% - Ingegneria Meccanica e Impianti",
-        "en": "Technical Support Specialist 100% - Maschinen- & Anlagenbau",
+        "en": "Technical Support Specialist 100% - Mechanical & Plant Engineering",
         "de": "Technical Support Spezialist 100% - Maschinen- & Anlagenbau",
         "fr": "Spécialiste Support Technique 100% - Machines et Installations"
       },
@@ -656,13 +650,12 @@
         "de": "Technical Support Specialist 100% - Maschinen- & Anlagenbau BSA - Bobst Mex SA Apply now Technische Probleme sehen Sie nicht als Hindernis, sondern als Herausforderung? ⚡ Mit Ihrem Know-how sorgen Sie dafür, dass unsere Maschinen weltweit zuverlässig laufen – und tragen direkt zum Erfolg unserer Kunden bei. 🚀 Verpackungen leisten einen wichtigen Beitrag für unsere Gesellschaft. Sie schützen Produkte beim Transport, ermöglichen deren Lagerung, verlängern die Haltbarkeit und liefern wertvolle Informationen über den Inhalt. Bobst ist einer der weltweit führenden Lieferanten von Qualitätsanlagen und Services für Verpackungs- und Etikettenhersteller. Wir unterstützen unsere Kunden in mehr als 50 Ländern, besitzen 14 Produktionsstätten und beschäftigen über 6’400 Mitarbeitende auf der ganzen Welt. Am Standort Grenchen (Schweiz) entwickeln und produzieren wir Anlagen zur Herstellung von kaschierter Wellpappe – und sorgen dafür, dass diese bei unseren Kunden weltweit zuverlässig laufen. IHRE MISSION Troubleshooting-Support im Bereich Elektrik & Prozesstechnik für Kunden und interne Mitarbeitende leisten\n\nServiceeinsätze von der Planung über Briefings bis zum Debriefing koordinieren\n\nWissenstransfer zwischen Servicetechnikern, Entwicklung und Produktion sicherstellen\n\nRückmeldungen aus dem Feld aufnehmen und aktiv zu Produkt- und Qualitätsverbesserungen beitragen\n\nKunden und Niederlassungen bei Bedarf auch direkt vor Ort unterstützen (Reisetätigkeit bis ca. 40 %)\n\nSie bringen eine abgeschlossene Ausbildung als Automatiker, Elektroniker, Mechatroniker, Industrieelektroniker oder ähnlich mit\n\nErfahrungen im Maschinen- oder Anlagenbau sowie Kenntnisse in Siemens SPS sind ein grosser Vorteil\n\nGute Kenntnisse in Regelungs- und Steuerungstechnik",
         "fr": "Spécialiste du support technique 100% - Ingénierie mécanique et industrielle BSA - Bobst Mex SA\n\nPostulez maintenant\n\nConsidérez-vous les problèmes techniques non pas comme un obstacle, mais comme un défi ? ⚡ Grâce à votre savoir-faire, vous veillez à ce que nos machines fonctionnent de manière fiable dans le monde entier - et contribuez directement au succès de nos clients. 🚀\n\nL'emballage apporte une contribution importante à notre société. Ils protègent les produits pendant le transport, permettent leur stockage, prolongent leur durée de conservation et fournissent des informations précieuses sur leur contenu. Bobst est l'un des principaux fournisseurs mondiaux d'équipements et de services de qualité destinés aux fabricants d'emballages et d'étiquettes. Nous accompagnons nos clients dans plus de 50 pays, disposons de 14 sites de production et employons plus de 6 400 personnes dans le monde. Sur notre site de Granges (Suisse), nous développons et produisons des installations pour la production de carton ondulé laminé - et veillons à ce qu'elles fonctionnent de manière fiable pour nos clients du monde entier.\n\nVOTRE MISSION\n\n- Fournir une assistance au dépannage dans le domaine de la technologie électrique et des processus pour les clients et les employés internes\n- Coordonner les opérations de service de la planification aux briefings en passant par le débriefing\n- Assurer le transfert de connaissances entre les techniciens de service, de développement et de production\n- Recevoir les retours du terrain et contribuer activement aux améliorations produits et qualité\n- Accompagner les clients et les agences directement sur place si nécessaire (activité de déplacement jusqu'à environ 40%)\n\nExigences\n\n- Vous avez suivi une formation d'ingénieur en automation, d'ingénieur en électronique, d'ingénieur en mécatronique, d'ingénieur en électronique industrielle ou assimilé\n- Une expérience en ingénierie mécanique ou d'installation ainsi qu'une connaissance de Siemens PLC sont un gros avantage\n- Bonne connaissance des technologies de régulation et de contrôle"
       },
-      "needsRetranslation": true,
       "location": "Switzerland (Grenchen)",
       "canton": "SO",
       "url": "https://jobs.bobst.com/Vacancies/7707/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:52:20.455Z",
+      "crawledAt": "2026-09-24T14:45:46.488Z",
       "addressLocality": "Switzerland (Grenchen)",
       "addressCountry": "CH",
       "country": "CH",
@@ -709,14 +702,12 @@
         "technical-support-specialist-100-maschinen-anlagenbau-bobst-ch",
         "technischer-support-spezialist-100-maschinen-anlagenbau-bobst-switzerland-grenchen",
         "technical-support-specialist-100-maschinen-anlagenbau-bobst-switzerland-grenchen",
-        "technical-support-specialist-100-maschinen-anlagenbau-bobst-grenchen",
-        "specialista-di-supporto-tecnico-100-macchinari-impianti-bobst-switzerland-grenchen"
+        "technical-support-specialist-100-maschinen-anlagenbau-bobst-grenchen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technical-support-specialist-100-maschinen-anlagenbau-bobst-ch",
-          "technical-support-specialist-100-maschinen-anlagenbau-bobst-grenchen",
-          "specialista-di-supporto-tecnico-100-macchinari-impianti-bobst-switzerland-grenchen"
+          "technical-support-specialist-100-maschinen-anlagenbau-bobst-grenchen"
         ],
         "en": [
           "technical-support-specialist-100-maschinen-anlagenbau-bobst-ch",
@@ -740,7 +731,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/7707/description/2"
     },
     {
       "id": "bobst-f254d67b8a12",
@@ -757,7 +749,7 @@
       "title": "Field Application Engineer 100% – Kaschierprozesse & -anlagen",
       "titleByLocale": {
         "it": "Field Application Engineer 100% – Processi e impianti di laminazione",
-        "en": "Field Application Engineer 100% – Kaschierprozesse & -anlagen",
+        "en": "Field Application Engineer 100% – Laminating Processes & Facilities",
         "de": "Field Application Ingenieur 100% – Kaschierprozesse & -anlagen",
         "fr": "Field Application Engineer 100% – Processus et installations de contrecollage"
       },
@@ -773,7 +765,7 @@
       "url": "https://jobs.bobst.com/Vacancies/7706/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:52:19.674Z",
+      "crawledAt": "2026-09-24T14:45:45.706Z",
       "addressLocality": "Switzerland (Grenchen)",
       "addressCountry": "CH",
       "country": "CH",
@@ -824,14 +816,12 @@
         "field-application-engineer-100-kaschierprozesse-anlagen-bobst-ch",
         "field-application-engineer-100-kaschierprozesse-anlagen-bobst-switzerland-grenchen",
         "ingegnere-di-applicazione-sul-campo-100-processi-e-impianti-di-incartamento-bobst-switzerland-grenchen",
-        "ingenieur-d-application-sur-le-terrain-100-processus-et-equipements-d-emballage-bobst-switzerland-grenchen",
-        "field-application-engineer-100-processi-e-impianti-di-laminazione-bobst-switzerland-grenchen"
+        "ingenieur-d-application-sur-le-terrain-100-processus-et-equipements-d-emballage-bobst-switzerland-grenchen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "field-application-engineer-100-kaschierprozesse-anlagen-bobst-ch",
-          "ingegnere-di-applicazione-sul-campo-100-processi-e-impianti-di-incartamento-bobst-switzerland-grenchen",
-          "field-application-engineer-100-processi-e-impianti-di-laminazione-bobst-switzerland-grenchen"
+          "ingegnere-di-applicazione-sul-campo-100-processi-e-impianti-di-incartamento-bobst-switzerland-grenchen"
         ],
         "en": [
           "field-application-engineer-100-kaschierprozesse-anlagen-bobst-ch",
@@ -855,7 +845,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/7706/description/2"
     },
     {
       "id": "bobst-a50d899700e3",
@@ -888,7 +879,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8743/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:18.925Z",
+      "crawledAt": "2026-09-24T14:45:44.930Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -936,13 +927,11 @@
       "department": "Research & Development (R&D)",
       "previousSlugs": [
         "senior-writing-systems-engineer-bobst-ch",
-        "senior-schreibsystem-ingenieur-bobst-switzerland-mex",
-        "ingegnere-senior-dei-sistemi-di-scrittura-bobst-switzerland-mex"
+        "senior-schreibsystem-ingenieur-bobst-switzerland-mex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-writing-systems-engineer-bobst-ch",
-          "ingegnere-senior-dei-sistemi-di-scrittura-bobst-switzerland-mex"
+          "senior-writing-systems-engineer-bobst-ch"
         ],
         "de": [
           "senior-schreibsystem-ingenieur-bobst-switzerland-mex"
@@ -962,7 +951,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/8743/description/2"
     },
     {
       "id": "bobst-fb32aad751a0",
@@ -996,7 +986,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8868/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:52:18.090Z",
+      "crawledAt": "2026-09-24T14:45:44.168Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1013,13 +1003,11 @@
       "requirementsByLocale": {},
       "department": "Health & Safety",
       "previousSlugs": [
-        "ingenieur-specialiste-ehs-bobst-ch",
-        "specialista-ingegnere-ehs-bobst-switzerland-mex"
+        "ingenieur-specialiste-ehs-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-specialiste-ehs-bobst-ch",
-          "specialista-ingegnere-ehs-bobst-switzerland-mex"
+          "ingenieur-specialiste-ehs-bobst-ch"
         ],
         "en": [
           "ingenieur-specialiste-ehs-bobst-ch"
@@ -1042,7 +1030,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/8868/description/3"
     },
     {
       "id": "bobst-cf5fa9ff1b3f",
@@ -1076,7 +1065,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9036/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:17.337Z",
+      "crawledAt": "2026-09-24T14:45:43.352Z",
       "addressLocality": "India (Pune)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1093,13 +1082,11 @@
       "requirementsByLocale": {},
       "department": "Information Technology (IT)",
       "previousSlugs": [
-        "it-ux-services-operations-continuous-improvement-manager-bobst-ch",
-        "responsabile-delle-operazioni-e-del-miglioramento-continuo-dei-servizi-it-ux-bobst-india-pune"
+        "it-ux-services-operations-continuous-improvement-manager-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-ux-services-operations-continuous-improvement-manager-bobst-ch",
-          "responsabile-delle-operazioni-e-del-miglioramento-continuo-dei-servizi-it-ux-bobst-india-pune"
+          "it-ux-services-operations-continuous-improvement-manager-bobst-ch"
         ],
         "de": [
           "it-ux-services-operations-continuous-improvement-manager-bobst-ch"
@@ -1122,7 +1109,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9036/description/2"
     },
     {
       "id": "bobst-d5cc3069bc1c",
@@ -1141,7 +1129,7 @@
         "it": "Direttore della tecnologia IoT",
         "en": "IoT Technology Director",
         "de": "IoT-Technologiedirektor",
-        "fr": "IoT Technology Director"
+        "fr": "Directeur de la technologie IoT"
       },
       "description": "IoT Technology Director BSA - Bobst Mex SA Apply now Shape the Future of Connected Packaging Industry At BOBST, we are transforming the packaging world through digitalization, connectivity and data-driven services. Our IoT ecosystem, BOBST Connect , enables customers worldwide to optimize performance, increase productivity and unlock the power of their data. To support our ambitious growth journey, we are looking for an IoT Technology Director to lead the development of our cloud platform, data capabilities and operations teams. This is a high-impact leadership role at the crossroads of technology, innovation and business transformation. You will lead a multidisciplinary organization of more than 40 engineers and specialists and play a key role in defining the future of BOBST's digital solutions. Your Mission As a member of the IoT Leadership Team, you will drive the technology strategy, architecture and delivery of the BOBST Connect platform while partnering closely with the Iot Product Director to bring innovative solutions to market. You will lead teams based in Switzerland and Morocco and report directly to the Chief Technology Officer (CTO). Key responsibilities Lead and inspire Lead, develop and grow multidisciplinary IoT, Data Science and Operations teams (+40 people).\n\nFoster a culture of agility, collaboration, innovation and continuous improvement.\n\nCoach leaders and technical experts, ensuring the organization is equipped to deliver on its ambitions.\n\nOwn the technology roadmap and execution of the BOBST Connect platform together with the Iot Product Director.\n\nDefine architecture, technology stack, cybersecurity and cloud strategies that ensure scalability, reliability and performance.\n\nPromote modern engineering practices including Agile, DevSecOps, CI/CD and AI-enabled development approaches.\n\nPartner with Product Lines, Business Units and commercial teams to maximize customer value.\n\nTranslate business needs into innovative digital solutions and services.",
       "descriptionByLocale": {
@@ -1150,13 +1138,12 @@
         "de": "IoT-Technologiedirektor BSA - Bobst Mex SA\n\nJetzt bewerben\n\nGestalten Sie die Zukunft der vernetzten Verpackungsindustrie\n\nBei BOBST transformieren wir die Verpackungswelt durch Digitalisierung, Konnektivität und datengetriebene Services. Unser IoT-Ökosystem BOBST Connect ermöglicht es Kunden weltweit, die Leistung zu optimieren, die Produktivität zu steigern und die Kraft ihrer Daten zu nutzen. Zur Unterstützung unseres ambitionierten Wachstumskurses suchen wir einen IoT-Technologiedirektor, der die Entwicklung unserer Cloud-Plattform, unserer Datenkapazitäten und unserer Operations-Teams leitet. Dies ist eine Führungsrolle mit hoher Wirkung am Schnittpunkt von Technologie, Innovation und Geschäftstransformation. Sie werden eine multidisziplinäre Organisation von mehr als 40 Ingenieuren und Spezialisten leiten und eine Schlüsselrolle bei der Gestaltung der Zukunft der digitalen Lösungen von BOBST spielen.\n\nIhre Mission\n\nAls Mitglied des IoT Leadership Teams treiben Sie die Technologiestrategie, die Architektur und die Bereitstellung der BOBST Connect-Plattform voran und arbeiten eng mit dem IoT Product Director zusammen, um innovative Lösungen auf den Markt zu bringen. Sie werden Teams in der Schweiz und in Marokko leiten und direkt an den Chief Technology Officer (CTO) berichten.\n\nHauptaufgaben\n\nFühren und inspirieren\n\n- Leitung, Entwicklung und Wachstum multidisziplinärer IoT-, Data Science- und Operations-Teams (+40 Personen).\n- Förderung einer Kultur der Agilität, Zusammenarbeit, Innovation und kontinuierlichen Verbesserung.\n- Coaching von Führungskräften und technischen Experten, um sicherzustellen, dass die Organisation ihre Ambitionen umsetzen kann.\n- Verantwortung für die Technologie-Roadmap und die Umsetzung der BOBST Connect-Plattform gemeinsam mit dem IoT Product Director.\n- Definition von Architektur, Technologie-Stack, Cybersecurity- und Cloud-Strategien, die Skalierbarkeit, Zuverlässigkeit und Performance gewährleisten.\n- Förderung moderner Engineering-Praktiken wie Agile, DevSecOps, CI/CD und KI-gestützter Entwicklungsansätze.\n- Partnerschaft mit Produktlinien, Geschäftseinheiten und kommerziellen Teams zur Maximierung des Kundenwerts.\n- Übersetzung von Geschäftsanforderungen in innovative digitale Lösungen und Services.",
         "fr": "Directeur Technologie IoT BSA - Bobst Mex SA\n\nPostuler maintenant\n\nFaçonnez l'avenir de l'industrie de l'emballage connecté\n\nChez BOBST, nous transformons le monde de l'emballage grâce à la digitalisation, la connectivité et les services data-driven. Notre écosystème IoT, BOBST Connect, permet aux clients du monde entier d'optimiser leurs performances, d'augmenter leur productivité et d'exploiter la puissance de leurs données. Pour accompagner notre ambitieuse trajectoire de croissance, nous recherchons un Directeur Technologie IoT pour diriger le développement de notre plateforme cloud, de nos capacités data et de nos équipes operations. Il s'agit d'un rôle de leadership à fort impact, à la croisée de la technologie, de l'innovation et de la transformation business. Vous dirigerez une organisation pluridisciplinaire de plus de 40 ingénieurs et spécialistes et jouerez un rôle clé dans la définition de l'avenir des solutions digitales de BOBST.\n\nVotre mission\n\nEn tant que membre de l'équipe de direction IoT, vous piloterez la stratégie technologique, l'architecture et la delivery de la plateforme BOBST Connect, tout en travaillant en étroite collaboration avec l'IoT Product Director pour mettre sur le marché des solutions innovantes. Vous dirigerez des équipes basées en Suisse et au Maroc et rapporterez directement au Chief Technology Officer (CTO).\n\nResponsabilités clés\n\nDiriger et inspirer\n\n- Diriger, développer et faire grandir des équipes pluridisciplinaires IoT, Data Science et Operations (+40 personnes).\n- Favoriser une culture d'agilité, de collaboration, d'innovation et d'amélioration continue.\n- Coacher les leaders et les experts techniques, en veillant à ce que l'organisation soit équipée pour réaliser ses ambitions.\n- Détenir la roadmap technologique et l'exécution de la plateforme BOBST Connect avec l'IoT Product Director.\n- Définir l'architecture, le stack technologique, la cybersécurité et les stratégies cloud garantissant scalabilité, fiabilité et performance.\n- Promouvoir les pratiques d'ingénierie modernes, notamment Agile, DevSecOps, CI/CD et les approches de développement augmentées par l'IA.\n- Collaborer avec les lignes de produits, les business units et les équipes commerciales pour maximiser la valeur client.\n- Traduire les besoins business en solutions et services digitaux innovants."
       },
-      "needsRetranslation": true,
       "location": "Switzerland (Mex)",
       "canton": "VD",
       "url": "https://jobs.bobst.com/Vacancies/9073/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:16.486Z",
+      "crawledAt": "2026-09-24T14:45:42.566Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1197,13 +1184,11 @@
         "iot-technology-director-bobst-ch",
         "iot-technology-direktor-bobst-switzerland-mex",
         "iot-technology-direttore-bobst-switzerland-mex",
-        "iot-technology-director-bobst-switzerland-mex",
-        "direttore-della-tecnologia-iot-bobst-switzerland-mex"
+        "iot-technology-director-bobst-switzerland-mex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "iot-technology-director-bobst-ch",
-          "direttore-della-tecnologia-iot-bobst-switzerland-mex"
+          "iot-technology-director-bobst-ch"
         ],
         "de": [
           "iot-technology-director-bobst-ch",
@@ -1227,7 +1212,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9073/description/2"
     },
     {
       "id": "bobst-aa776ad9783b",
@@ -1243,7 +1229,7 @@
       "companyDomain": "bobst.com",
       "title": "IT Test & Release Manager",
       "titleByLocale": {
-        "it": "IT Test & Release Manager",
+        "it": "IT Test &amp; Release Manager",
         "en": "IT Test & Release Manager",
         "de": "IT-Test- und Release-Manager",
         "fr": "Gestionnaire de test et de sortie IT"
@@ -1255,13 +1241,12 @@
         "de": "IT Test & Release Manager BIN - Bobst India Pvt Ltd.\n\nJetzt bewerben\n\nDer IT Test & Release Manager ist verantwortlich für die Sicherstellung der Qualität, Stabilität und kontrollierten Bereitstellung von IT-Lösungen in der gesamten Organisation. Die Rolle definiert und steuert die Praktiken im Test- und Release-Management, einschließlich Automatisierung, Governance und kontinuierlicher Verbesserung, um eine zuverlässige und effiziente Softwareauslieferung zu unterstützen. In enger Zusammenarbeit mit Product Ownern, Delivery-Teams und dem Betrieb spielt die Position eine Schlüsselrolle bei der Stärkung der End-to-End-Qualität auf geschäftskritischen Plattformen, einschließlich großer SAP-Transformationsinitiativen.\n\nHauptaufgaben\n\n- Definition und Implementierung der Teststrategie der Organisation, einschließlich Automatisierung, Qualitätsstandards und KPIs zur Verbesserung von Effektivität und Effizienz.\n- Leitung der Planung, Überwachung und Durchführung von Testaktivitäten, um sicherzustellen, dass die Lösungen die funktionalen, Integrations-, Performance- und Business-Qualitätsanforderungen erfüllen.\n- Aufbau, Pflege und kontinuierliche Weiterentwicklung der Testautomatisierungsfähigkeiten und Befähigung der Produktteams zur Einführung skalierbarer Automatisierungspraktiken.\n- Definition, Implementierung und Durchsetzung von Release-Management-Prozessen und Governance, um kontrollierte, konforme und zuverlässige Deployments in der gesamten IT-Landschaft sicherzustellen.\n- Koordination der End-to-End-Release-Aktivitäten mit Product Ownern, IT Product Managern und technischen Teams, einschließlich großer SAP-Upgrades, Support Packages und Data-Refresh-Zyklen.\n- Steuerung von risikobasiertem Testen, Release-Readiness-Bewertungen und Go/No-Go-Empfehlungen auf Basis von Qualitätsmetriken, Abhängigkeiten und Geschäftsauswirkungen.\n- Sicherstellung der Abstimmung von Test- und Release-Praktiken mit Change-, Configuration-, Deployment-, Agile-, DevOps- und IT-Service-Management-Standards.\n- Aufbau starker Beziehungen zu Business- und IT-Stakeholdern, fungieren als zentraler Ansprechpartner für Test- und Release-Themen und Förderung einer Kultur der Qualität, Verantwortlichkeit und kontinuierlichen Verbesserung.",
         "fr": "IT Test & Release Manager BIN - Bobst India Pvt Ltd.\n\nPostuler maintenant\n\nL'IT Test & Release Manager est responsable de garantir la qualité, la stabilité et la livraison contrôlée des solutions IT dans l'ensemble de l'organisation. Le rôle définit et pilote les pratiques de test et de release management, y compris l'automatisation, la gouvernance et l'amélioration continue, afin de soutenir une livraison de logiciels fiable et efficace. En étroite collaboration avec les Product Owners, les équipes de delivery et les opérations, le poste joue un rôle clé dans le renforcement de la qualité end-to-end sur les plateformes critiques pour le métier, y compris les principales initiatives de transformation SAP.\n\nPrincipales responsabilités\n\n- Définir et mettre en œuvre la stratégie de test de l'organisation, y compris l'automatisation, les standards de qualité et les KPI pour améliorer l'efficacité et l'efficience.\n- Piloter la planification, le suivi et l'exécution des activités de test pour s'assurer que les solutions répondent aux exigences fonctionnelles, d'intégration, de performance et de qualité métier.\n- Établir, maintenir et améliorer en continu les capacités d'automatisation des tests et permettre aux product teams d'adopter des pratiques d'automatisation évolutives.\n- Définir, mettre en œuvre et faire respecter les processus et la gouvernance du release management pour garantir des déploiements contrôlés, conformes et fiables dans l'ensemble du paysage IT.\n- Coordonner les activités de release end-to-end avec les Product Owners, les IT Product Managers et les équipes techniques, y compris les principales montées de version SAP, support packages et cycles de data refresh.\n- Piloter les tests basés sur les risques, les évaluations de release readiness et les recommandations go/no-go basées sur les métriques de qualité, les dépendances et l'impact métier.\n- Garantir l'alignement des pratiques de test et de release avec les standards de change, configuration, deployment, Agile, DevOps et IT service management.\n- Construire des relations solides avec les parties prenantes métier et IT, agir comme point de contact central pour les sujets de test et de release, et promouvoir une culture de la qualité, de la responsabilité et de l'amélioration continue."
       },
-      "needsRetranslation": true,
       "location": "India (Pune)",
       "canton": "VD",
       "url": "https://jobs.bobst.com/Vacancies/9034/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:15.646Z",
+      "crawledAt": "2026-09-24T14:45:42.008Z",
       "addressLocality": "India (Pune)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1278,13 +1263,11 @@
       "requirementsByLocale": {},
       "department": "Information Technology (IT)",
       "previousSlugs": [
-        "it-test-release-manager-bobst-ch",
-        "responsabile-test-e-rilascio-it-bobst-india-pune"
+        "it-test-release-manager-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-test-release-manager-bobst-ch",
-          "responsabile-test-e-rilascio-it-bobst-india-pune"
+          "it-test-release-manager-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T11:14:10.566Z",
@@ -1301,7 +1284,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9034/description/2"
     },
     {
       "id": "bobst-42d29368f8b4",
@@ -1334,7 +1318,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9070/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:14.850Z",
+      "crawledAt": "2026-09-24T14:45:41.176Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1356,16 +1340,14 @@
         "field-service-technician-ingegnere-di-montaggio-esterno-h-f-bobst-switzerland-mex",
         "field-service-technician-external-mount-engineer-h-f-bobst-switzerland-mex",
         "field-service-techniker-monteur-externe-ingenieur-h-f-bobst-switzerland-mex",
-        "field-service-commissioning-engineer-automation-motion-control-bobst-ch",
-        "field-service-commissioning-ingegnere-automation-motion-control-bobst-switzerland-mex"
+        "field-service-commissioning-engineer-automation-motion-control-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "field-service-technician-monteur-externe-ingenieur-h-f-bobst-ch",
           "field-service-engineer-monteur-externe-ingenieur-h-f-bobst-ch",
           "field-service-technician-ingegnere-di-montaggio-esterno-h-f-bobst-switzerland-mex",
-          "field-service-commissioning-engineer-automation-motion-control-bobst-ch",
-          "field-service-commissioning-ingegnere-automation-motion-control-bobst-switzerland-mex"
+          "field-service-commissioning-engineer-automation-motion-control-bobst-ch"
         ],
         "en": [
           "field-service-technician-monteur-externe-ingenieur-h-f-bobst-ch",
@@ -1396,7 +1378,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9070/description/2"
     },
     {
       "id": "bobst-50839470eb27",
@@ -1413,7 +1396,7 @@
       "title": "Account Manager (m/w/d) - Corrugated Board (w/m/d)",
       "titleByLocale": {
         "it": "Account Manager - Cartone Ondulato",
-        "en": "Account Manager (m/w/d) - Corrugated Board (w/m/d)",
+        "en": "Account Manager (m/f/d) - Corrugated Board (m/f/d)",
         "de": "Account Manager (m/w/d) - Corrugated Board (w/m/d)",
         "fr": "Account Manager - Carton Ondulé"
       },
@@ -1430,7 +1413,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9039/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:52:14.072Z",
+      "crawledAt": "2026-09-24T14:45:40.385Z",
       "addressLocality": "Germany (Meerbusch)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1477,14 +1460,12 @@
       "previousSlugs": [
         "account-manager-m-w-d-corrugated-board-w-m-d-bobst-ch",
         "gestionnaire-de-comptes-m-f-d-comite-mixte-f-m-d-bobst-germany-meerbusch",
-        "account-manager-m-f-d-scheda-ondulata-f-m-d-bobst-germany-meerbusch",
-        "account-manager-cartone-ondulato-bobst-germany-meerbusch"
+        "account-manager-m-f-d-scheda-ondulata-f-m-d-bobst-germany-meerbusch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "account-manager-m-w-d-corrugated-board-w-m-d-bobst-ch",
-          "account-manager-m-f-d-scheda-ondulata-f-m-d-bobst-germany-meerbusch",
-          "account-manager-cartone-ondulato-bobst-germany-meerbusch"
+          "account-manager-m-f-d-scheda-ondulata-f-m-d-bobst-germany-meerbusch"
         ],
         "fr": [
           "account-manager-m-w-d-corrugated-board-w-m-d-bobst-ch",
@@ -1505,7 +1486,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9039/description/2"
     },
     {
       "id": "bobst-2317c4fa7029",
@@ -1538,7 +1520,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8728/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:52:13.273Z",
+      "crawledAt": "2026-09-24T14:45:39.560Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1555,13 +1537,11 @@
       "requirementsByLocale": {},
       "department": "General Services",
       "previousSlugs": [
-        "dessinateur-batiment-et-technique-bobst-ch",
-        "edilizia-e-progettista-tecnico-bobst-switzerland-mex"
+        "dessinateur-batiment-et-technique-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dessinateur-batiment-et-technique-bobst-ch",
-          "edilizia-e-progettista-tecnico-bobst-switzerland-mex"
+          "dessinateur-batiment-et-technique-bobst-ch"
         ],
         "en": [
           "dessinateur-batiment-et-technique-bobst-ch"
@@ -1584,14 +1564,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/8728/description/3"
     },
     {
       "id": "bobst-596ff28a5bae",
       "slug": "customer-care-specialista-m-w-d-bobst-germany-meerbusch",
       "slugByLocale": {
         "it": "customer-care-specialista-m-w-d-bobst-germany-meerbusch",
-        "en": "quality-assurance-specialist-m-f-d-bobst-germany-meerbusch",
+        "en": "customer-care-specialist-m-f-d-bobst-germany-meerbusch",
         "de": "customer-care-specialist-m-w-d-bobst-ch",
         "fr": "customer-care-specialiste-m-w-d-bobst-germany-meerbusch"
       },
@@ -1601,7 +1582,7 @@
       "title": "Customer Care Specialist (m/w/d)",
       "titleByLocale": {
         "it": "Customer Care Specialista (m/w/d)",
-        "en": "Customer Care Specialist (m/w/d)",
+        "en": "Customer Care Specialist (m/f/d)",
         "de": "Customer Care Spezialist (m/w/d)",
         "fr": "Customer Care Spécialiste (m/w/d)"
       },
@@ -1617,7 +1598,7 @@
       "url": "https://jobs.bobst.com/Vacancies/6329/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:52:12.445Z",
+      "crawledAt": "2026-09-24T14:45:38.757Z",
       "addressLocality": "Germany (Meerbusch)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1655,18 +1636,16 @@
       "previousSlugs": [
         "customer-care-specialist-m-w-d-bobst-ch",
         "customer-care-specialist-m-w-d-bobst-germany-meerbusch",
-        "customer-care-specialist-m-f-d-bobst-germany-meerbusch",
-        "customer-care-specialista-m-w-d-bobst-germany-meerbusch"
+        "quality-assurance-specialist-m-f-d-bobst-germany-meerbusch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-care-specialist-m-w-d-bobst-ch",
-          "customer-care-specialista-m-w-d-bobst-germany-meerbusch"
+          "customer-care-specialist-m-w-d-bobst-ch"
         ],
         "en": [
           "customer-care-specialist-m-w-d-bobst-ch",
           "customer-care-specialist-m-w-d-bobst-germany-meerbusch",
-          "customer-care-specialist-m-f-d-bobst-germany-meerbusch"
+          "quality-assurance-specialist-m-f-d-bobst-germany-meerbusch"
         ],
         "fr": [
           "customer-care-specialist-m-w-d-bobst-ch"
@@ -1686,7 +1665,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/6329/description/2"
     },
     {
       "id": "bobst-bdedce751de6",
@@ -1719,7 +1699,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9221/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:52:11.615Z",
+      "crawledAt": "2026-09-24T14:45:37.924Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1768,13 +1748,11 @@
       "department": "Apprenticeship",
       "previousSlugs": [
         "apprenti-automaticien-ne-bobst-ch",
-        "apprenti-automaticien-ne-bobst-switzerland-mex",
-        "apprendista-automatista-bobst-switzerland-mex"
+        "apprenti-automaticien-ne-bobst-switzerland-mex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-automaticien-ne-bobst-ch",
-          "apprendista-automatista-bobst-switzerland-mex"
+          "apprenti-automaticien-ne-bobst-ch"
         ],
         "en": [
           "apprenti-automaticien-ne-bobst-ch"
@@ -1800,7 +1778,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9221/description/3"
     },
     {
       "id": "bobst-855585a4eeb5",
@@ -1834,7 +1813,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9220/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:52:10.832Z",
+      "crawledAt": "2026-09-24T14:45:37.140Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1851,13 +1830,11 @@
       "requirementsByLocale": {},
       "department": "Apprenticeship",
       "previousSlugs": [
-        "apprenti-employe-e-de-commerce-cfc-bobst-ch",
-        "apprendente-impiegato-a-di-commercio-afc-bobst-switzerland-mex"
+        "apprenti-employe-e-de-commerce-cfc-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-employe-e-de-commerce-cfc-bobst-ch",
-          "apprendente-impiegato-a-di-commercio-afc-bobst-switzerland-mex"
+          "apprenti-employe-e-de-commerce-cfc-bobst-ch"
         ],
         "en": [
           "apprenti-employe-e-de-commerce-cfc-bobst-ch"
@@ -1880,7 +1857,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9220/description/3"
     },
     {
       "id": "bobst-f8dd9f2738dd",
@@ -1914,7 +1892,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9222/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:52:10.049Z",
+      "crawledAt": "2026-09-24T14:45:36.327Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1932,13 +1910,11 @@
       "department": "Apprenticeship",
       "previousSlugs": [
         "apprenti-polymecanicien-ne-bobst-ch",
-        "apprenti-polymecanicien-ne-bobst-switzerland-mex",
-        "apprendista-polimeccanico-a-bobst-switzerland-mex"
+        "apprenti-polymecanicien-ne-bobst-switzerland-mex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-polymecanicien-ne-bobst-ch",
-          "apprendista-polimeccanico-a-bobst-switzerland-mex"
+          "apprenti-polymecanicien-ne-bobst-ch"
         ],
         "en": [
           "apprenti-polymecanicien-ne-bobst-ch"
@@ -1964,7 +1940,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9222/description/3"
     },
     {
       "id": "bobst-093858ad3e55",
@@ -1997,7 +1974,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9223/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:52:09.216Z",
+      "crawledAt": "2026-09-24T14:45:35.515Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2036,13 +2013,11 @@
       },
       "department": "Apprenticeship",
       "previousSlugs": [
-        "apprenti-dessinateur-trice-constructeur-trice-industriel-le-bobst-ch",
-        "apprendista-disegnatore-costruttore-industriale-bobst-switzerland-mex"
+        "apprenti-dessinateur-trice-constructeur-trice-industriel-le-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-dessinateur-trice-constructeur-trice-industriel-le-bobst-ch",
-          "apprendista-disegnatore-costruttore-industriale-bobst-switzerland-mex"
+          "apprenti-dessinateur-trice-constructeur-trice-industriel-le-bobst-ch"
         ],
         "en": [
           "apprenti-dessinateur-trice-constructeur-trice-industriel-le-bobst-ch"
@@ -2065,7 +2040,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9223/description/3"
     },
     {
       "id": "bobst-49bee4b2fcbf",
@@ -2098,7 +2074,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9225/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:52:08.438Z",
+      "crawledAt": "2026-09-24T14:45:34.653Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2131,13 +2107,11 @@
       },
       "department": "Apprenticeship",
       "previousSlugs": [
-        "apprenti-praticien-ne-en-mecanique-afp-bobst-ch",
-        "apprendista-praticante-meccanico-afc-bobst-switzerland-mex"
+        "apprenti-praticien-ne-en-mecanique-afp-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-praticien-ne-en-mecanique-afp-bobst-ch",
-          "apprendista-praticante-meccanico-afc-bobst-switzerland-mex"
+          "apprenti-praticien-ne-en-mecanique-afp-bobst-ch"
         ],
         "en": [
           "apprenti-praticien-ne-en-mecanique-afp-bobst-ch"
@@ -2160,7 +2134,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9225/description/3"
     },
     {
       "id": "bobst-ca582ec179f7",
@@ -2193,7 +2168,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9227/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:52:07.651Z",
+      "crawledAt": "2026-09-24T14:45:33.876Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2230,13 +2205,11 @@
       "department": "Apprenticeship",
       "previousSlugs": [
         "apprenti-mediamaticien-ne-bobst-ch",
-        "apprenti-mediamaticien-ne-bobst-switzerland-mex",
-        "apprendista-mediamatico-bobst-switzerland-mex"
+        "apprenti-mediamaticien-ne-bobst-switzerland-mex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-mediamaticien-ne-bobst-ch",
-          "apprendista-mediamatico-bobst-switzerland-mex"
+          "apprenti-mediamaticien-ne-bobst-ch"
         ],
         "en": [
           "apprenti-mediamaticien-ne-bobst-ch"
@@ -2262,7 +2235,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9227/description/3"
     },
     {
       "id": "bobst-10e0ab0d935a",
@@ -2295,7 +2269,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9228/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:52:06.910Z",
+      "crawledAt": "2026-09-24T14:45:33.020Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2343,13 +2317,11 @@
       },
       "department": "Apprenticeship",
       "previousSlugs": [
-        "apprenti-mecanicien-de-production-cfc-bobst-ch",
-        "apprendista-meccanico-di-produzione-afc-bobst-switzerland-mex"
+        "apprenti-mecanicien-de-production-cfc-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-mecanicien-de-production-cfc-bobst-ch",
-          "apprendista-meccanico-di-produzione-afc-bobst-switzerland-mex"
+          "apprenti-mecanicien-de-production-cfc-bobst-ch"
         ],
         "en": [
           "apprenti-mecanicien-de-production-cfc-bobst-ch"
@@ -2372,7 +2344,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9228/description/3"
     },
     {
       "id": "bobst-9b1013c9b68b",
@@ -2405,7 +2378,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9229/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:52:06.137Z",
+      "crawledAt": "2026-09-24T14:45:32.224Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2453,13 +2426,11 @@
       },
       "department": "Human Resources (HR)",
       "previousSlugs": [
-        "stagiaire-mpc-3-1-ressources-humaines-formation-developpement-bobst-ch",
-        "stagista-mpc-3-1-risorse-umane-formazione-e-sviluppo-bobst-switzerland-mex"
+        "stagiaire-mpc-3-1-ressources-humaines-formation-developpement-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-mpc-3-1-ressources-humaines-formation-developpement-bobst-ch",
-          "stagista-mpc-3-1-risorse-umane-formazione-e-sviluppo-bobst-switzerland-mex"
+          "stagiaire-mpc-3-1-ressources-humaines-formation-developpement-bobst-ch"
         ],
         "en": [
           "stagiaire-mpc-3-1-ressources-humaines-formation-developpement-bobst-ch"
@@ -2482,7 +2453,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9229/description/3"
     },
     {
       "id": "bobst-7953b2006541",
@@ -2515,7 +2487,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9230/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:52:05.314Z",
+      "crawledAt": "2026-09-24T14:45:31.412Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2564,13 +2536,11 @@
       "department": "Human Resources (HR)",
       "previousSlugs": [
         "stagiaire-mpc-3-1-rh-centre-de-formation-bobst-ch",
-        "mpc-intern-3-1-hr-training-center-bobst-switzerland-mex",
-        "stagista-mpc-3-1-hr-centro-di-formazione-bobst-switzerland-mex"
+        "mpc-intern-3-1-hr-training-center-bobst-switzerland-mex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-mpc-3-1-rh-centre-de-formation-bobst-ch",
-          "stagista-mpc-3-1-hr-centro-di-formazione-bobst-switzerland-mex"
+          "stagiaire-mpc-3-1-rh-centre-de-formation-bobst-ch"
         ],
         "en": [
           "mpc-intern-3-1-hr-training-center-bobst-switzerland-mex",
@@ -2594,7 +2564,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9230/description/3"
     },
     {
       "id": "bobst-3621de669a99",
@@ -2627,7 +2598,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9231/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:52:04.525Z",
+      "crawledAt": "2026-09-24T14:45:30.597Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2657,13 +2628,11 @@
       },
       "department": "Human Resources (HR)",
       "previousSlugs": [
-        "stagiaire-mpc-3-1-rh-environnement-sante-et-securite-bobst-ch",
-        "tirocinante-mpc-3-1-hr-ambiente-salute-e-sicurezza-bobst-switzerland-mex"
+        "stagiaire-mpc-3-1-rh-environnement-sante-et-securite-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-mpc-3-1-rh-environnement-sante-et-securite-bobst-ch",
-          "tirocinante-mpc-3-1-hr-ambiente-salute-e-sicurezza-bobst-switzerland-mex"
+          "stagiaire-mpc-3-1-rh-environnement-sante-et-securite-bobst-ch"
         ],
         "en": [
           "stagiaire-mpc-3-1-rh-environnement-sante-et-securite-bobst-ch"
@@ -2686,7 +2655,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9231/description/3"
     },
     {
       "id": "bobst-06d7cab87f11",
@@ -2720,7 +2690,7 @@
       "url": "https://jobs.bobst.com/Vacancies/6267/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:52:03.754Z",
+      "crawledAt": "2026-09-24T14:45:29.708Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2737,13 +2707,11 @@
       "requirementsByLocale": {},
       "department": "Human Resources (HR)",
       "previousSlugs": [
-        "2025-stagiaire-mpc-3-1-ressources-humaines-centre-de-formation-bobst-ch",
-        "2025-tpm-corso-3-1-risorse-umane-centro-di-formazione-bobst-switzerland-mex"
+        "2025-stagiaire-mpc-3-1-ressources-humaines-centre-de-formation-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "2025-stagiaire-mpc-3-1-ressources-humaines-centre-de-formation-bobst-ch",
-          "2025-tpm-corso-3-1-risorse-umane-centro-di-formazione-bobst-switzerland-mex"
+          "2025-stagiaire-mpc-3-1-ressources-humaines-centre-de-formation-bobst-ch"
         ],
         "en": [
           "2025-stagiaire-mpc-3-1-ressources-humaines-centre-de-formation-bobst-ch"
@@ -2766,7 +2734,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/6267/description/3"
     },
     {
       "id": "bobst-8f20598bb0d7",
@@ -2800,7 +2769,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8613/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-23T23:52:02.918Z",
+      "crawledAt": "2026-09-24T14:45:28.851Z",
       "addressLocality": "Italy (San Giorgio Monferrato)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2838,7 +2807,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/8613/description/2"
     },
     {
       "id": "bobst-587cfc23736f",
@@ -2871,7 +2841,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8748/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-23T23:52:02.143Z",
+      "crawledAt": "2026-09-24T14:45:28.036Z",
       "addressLocality": "Italy (San Giorgio Monferrato)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2889,16 +2859,14 @@
       "department": "Engineering",
       "previousSlugs": [
         "auxiliary-system-ingegnere-bobst-italy-san-giorgio-monferrato",
-        "auili-bobst-italy-san-giorgio-monferrato",
-        "auxiliary-system-engineer-bobst-italy-san-giorgio-monferrato"
+        "auili-bobst-italy-san-giorgio-monferrato"
       ],
       "previousSlugsByLocale": {
         "it": [
           "auxiliary-system-ingegnere-bobst-italy-san-giorgio-monferrato"
         ],
         "en": [
-          "auili-bobst-italy-san-giorgio-monferrato",
-          "auxiliary-system-engineer-bobst-italy-san-giorgio-monferrato"
+          "auili-bobst-italy-san-giorgio-monferrato"
         ]
       },
       "firstSeenAt": "2026-09-03T23:26:40.228Z",
@@ -2915,7 +2883,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/8748/description/2"
     },
     {
       "id": "bobst-acce54a576d2",
@@ -2949,7 +2918,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9240/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:01.343Z",
+      "crawledAt": "2026-09-24T14:45:27.251Z",
       "addressLocality": "Spain (Barcelona)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2966,13 +2935,11 @@
       "requirementsByLocale": {},
       "department": "Purchasing",
       "previousSlugs": [
-        "group-purchasing-analyst-bobst-ch",
-        "group-purchasing-analista-bobst-spain-barcelona"
+        "group-purchasing-analyst-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "group-purchasing-analyst-bobst-ch",
-          "group-purchasing-analista-bobst-spain-barcelona"
+          "group-purchasing-analyst-bobst-ch"
         ],
         "de": [
           "group-purchasing-analyst-bobst-ch"
@@ -2995,7 +2962,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9240/description/2"
     },
     {
       "id": "bobst-eda5701de556",
@@ -3028,7 +2996,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9247/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:00.561Z",
+      "crawledAt": "2026-09-24T14:45:26.457Z",
       "addressLocality": "USA (Parsippany)",
       "addressCountry": "CH",
       "country": "CH",
@@ -3045,13 +3013,11 @@
       "requirementsByLocale": {},
       "department": "Sales",
       "previousSlugs": [
-        "area-sales-manager-canada-bobst-ch",
-        "responsabile-vendite-regionale-canada-bobst-usa-parsippany"
+        "area-sales-manager-canada-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "area-sales-manager-canada-bobst-ch",
-          "responsabile-vendite-regionale-canada-bobst-usa-parsippany"
+          "area-sales-manager-canada-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-09-08T13:51:12.137Z",
@@ -3068,7 +3034,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9247/description/2"
     },
     {
       "id": "bobst-54b2a93e6104",
@@ -3102,7 +3069,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9224/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:51:59.752Z",
+      "crawledAt": "2026-09-24T14:45:25.658Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -3120,13 +3087,11 @@
       "department": "Apprenticeship",
       "previousSlugs": [
         "apprenti-logisitcien-ne-bobst-ch",
-        "apprenti-logisitcien-ne-bobst-switzerland-mex",
-        "apprendistato-bobst-switzerland-mex"
+        "apprenti-logisitcien-ne-bobst-switzerland-mex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-logisitcien-ne-bobst-ch",
-          "apprendistato-bobst-switzerland-mex"
+          "apprenti-logisitcien-ne-bobst-ch"
         ],
         "en": [
           "apprenti-logisitcien-ne-bobst-ch"
@@ -3152,7 +3117,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9224/description/3"
     },
     {
       "id": "bobst-e9c812ae01cf",
@@ -3169,7 +3135,7 @@
       "title": "Quality Assurance Engineer",
       "titleByLocale": {
         "it": "Quality Assurance Ingegnere",
-        "en": "Quality Assurance Engineer",
+        "en": "Quality Asoxo Engineer",
         "de": "Qualität Assurance Ingenieur",
         "fr": "Qualité Assurance Ingénieur"
       },
@@ -3185,7 +3151,7 @@
       "url": "https://jobs.bobst.com/Vacancies/7731/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-23T23:51:58.913Z",
+      "crawledAt": "2026-09-24T14:45:24.871Z",
       "addressLocality": "Italy (San Giorgio Monferrato)",
       "addressCountry": "CH",
       "country": "CH",
@@ -3223,7 +3189,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/7731/description/2"
     },
     {
       "id": "bobst-9635b9290290",
@@ -3256,7 +3223,7 @@
       "url": "https://jobs.bobst.com/Vacancies/6722/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-23T23:51:58.126Z",
+      "crawledAt": "2026-09-24T14:45:24.046Z",
       "addressLocality": "Italy (San Giorgio Monferrato)",
       "addressCountry": "CH",
       "country": "CH",
@@ -3328,7 +3295,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/6722/description/2"
     },
     {
       "id": "bobst-06929a5d0973",
@@ -3361,7 +3329,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9218/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:51:57.371Z",
+      "crawledAt": "2026-09-24T14:45:23.295Z",
       "addressLocality": "Mexico (Mexico city)",
       "addressCountry": "CH",
       "country": "CH",
@@ -3378,13 +3346,11 @@
       "requirementsByLocale": {},
       "department": "Sales",
       "previousSlugs": [
-        "area-sales-manager-flexible-packaging-bobst-ch",
-        "area-sales-manager-imballaggi-flessibili-bobst-mexico-mexico-city"
+        "area-sales-manager-flexible-packaging-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "area-sales-manager-flexible-packaging-bobst-ch",
-          "area-sales-manager-imballaggi-flessibili-bobst-mexico-mexico-city"
+          "area-sales-manager-flexible-packaging-bobst-ch"
         ],
         "de": [
           "area-sales-manager-flexible-packaging-bobst-ch"
@@ -3407,7 +3373,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9218/description/2"
     },
     {
       "id": "bobst-a969237c576e",
@@ -3424,7 +3391,7 @@
       "title": "Supplier Quality Engineer",
       "titleByLocale": {
         "it": "Supplier Quality Ingegnere",
-        "en": "Supplier Quality Engine",
+        "en": "1. Quality Engineer",
         "de": "Supplier Qualität Ingenieur",
         "fr": "Supplier Qualité Ingénieur"
       },
@@ -3440,7 +3407,7 @@
       "url": "https://jobs.bobst.com/Vacancies/7732/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-23T23:51:56.558Z",
+      "crawledAt": "2026-09-24T14:45:22.481Z",
       "addressLocality": "Italy (San Giorgio Monferrato)",
       "addressCountry": "CH",
       "country": "CH",
@@ -3478,7 +3445,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/7732/description/2"
     },
     {
       "id": "bobst-e0ff6a7f44e1",
@@ -3511,7 +3479,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9150/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:51:55.748Z",
+      "crawledAt": "2026-09-24T14:45:21.659Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -3528,13 +3496,11 @@
       "requirementsByLocale": {},
       "department": "Communication",
       "previousSlugs": [
-        "new-way-of-working-manager-special-project-bobst-ch",
-        "nuovo-modo-di-gestire-il-lavoro-e-progetto-speciale-bobst-switzerland-mex"
+        "new-way-of-working-manager-special-project-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "new-way-of-working-manager-special-project-bobst-ch",
-          "nuovo-modo-di-gestire-il-lavoro-e-progetto-speciale-bobst-switzerland-mex"
+          "new-way-of-working-manager-special-project-bobst-ch"
         ],
         "de": [
           "new-way-of-working-manager-special-project-bobst-ch"
@@ -3557,7 +3523,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9150/description/2"
     },
     {
       "id": "bobst-a19a24184b89",
@@ -3591,7 +3558,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9208/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:51:54.865Z",
+      "crawledAt": "2026-09-24T14:45:20.766Z",
       "addressLocality": "USA (Parsippany)",
       "addressCountry": "CH",
       "country": "CH",
@@ -3608,13 +3575,11 @@
       "requirementsByLocale": {},
       "department": "Customer Service",
       "previousSlugs": [
-        "field-service-technician-mechanical-sp-bobst-ch",
-        "servizio-di-campo-tecnico-meccanico-sp-bobst-usa-parsippany"
+        "field-service-technician-mechanical-sp-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "field-service-technician-mechanical-sp-bobst-ch",
-          "servizio-di-campo-tecnico-meccanico-sp-bobst-usa-parsippany"
+          "field-service-technician-mechanical-sp-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-09-19T23:08:15.884Z",
@@ -3631,7 +3596,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9208/description/2"
     },
     {
       "id": "bobst-1a149cb2f47a",
@@ -3665,7 +3631,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9212/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:51:54.044Z",
+      "crawledAt": "2026-09-24T14:45:19.959Z",
       "addressLocality": "USA (Parsippany)",
       "addressCountry": "CH",
       "country": "CH",
@@ -3682,13 +3648,11 @@
       "requirementsByLocale": {},
       "department": "Customer Service",
       "previousSlugs": [
-        "field-service-engineer-nmw-digital-bobst-ch",
-        "field-service-ingegnere-nmw-digital-bobst-usa-parsippany"
+        "field-service-engineer-nmw-digital-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "field-service-engineer-nmw-digital-bobst-ch",
-          "field-service-ingegnere-nmw-digital-bobst-usa-parsippany"
+          "field-service-engineer-nmw-digital-bobst-ch"
         ],
         "de": [
           "field-service-engineer-nmw-digital-bobst-ch"
@@ -3711,7 +3675,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9212/description/2"
     },
     {
       "id": "bobst-fedd51a0b72b",
@@ -3745,7 +3710,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9210/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:51:53.178Z",
+      "crawledAt": "2026-09-24T14:45:19.171Z",
       "addressLocality": "USA (Parsippany)",
       "addressCountry": "CH",
       "country": "CH",
@@ -3769,7 +3734,7 @@
           "field-service-engineer-nmw-digital-bobst-ch"
         ]
       },
-      "firstSeenAt": "2026-09-21T16:14:10.211Z",
+      "firstSeenAt": "2026-09-19T23:08:14.396Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -3783,7 +3748,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9210/description/2"
     },
     {
       "id": "bobst-4d339b477ea5",
@@ -3817,7 +3783,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9209/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:51:52.358Z",
+      "crawledAt": "2026-09-24T14:45:18.341Z",
       "addressLocality": "USA (Parsippany)",
       "addressCountry": "CH",
       "country": "CH",
@@ -3834,13 +3800,11 @@
       "requirementsByLocale": {},
       "department": "Customer Service",
       "previousSlugs": [
-        "field-service-technician-electrical-sp-bobst-ch",
-        "servizio-di-campo-tecnico-elettrico-sp-bobst-usa-parsippany"
+        "field-service-technician-electrical-sp-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "field-service-technician-electrical-sp-bobst-ch",
-          "servizio-di-campo-tecnico-elettrico-sp-bobst-usa-parsippany"
+          "field-service-technician-electrical-sp-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-09-19T23:08:13.635Z",
@@ -3857,7 +3821,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9209/description/2"
     }
   ]
 }

@@ -24,10 +24,12 @@ import {
   selectStaleClaims,
   referencedIssueNumbers,
   DEFAULT_STALE_CLAIM_HOURS,
+  DEFAULT_STALE_LOCAL_CLAIM_HOURS,
   claimOwner,
   hasClaimLabel,
   removeLabelArgs,
   releaseStaleClaim,
+  lastLocalClaimAt,
 } from '../scripts/ci/stale-claim-detector.mjs';
 
 const NOW = Date.parse('2026-08-08T12:00:00Z');
@@ -45,10 +47,44 @@ describe('selectStaleClaims', () => {
     expect(nums(selectStaleClaims(issues, new Set(), NOW))).toEqual([4248]);
   });
 
-  it('un claim locale vecchio NON viene rilasciato automaticamente', () => {
-    const issues = [{ number: 4248, labels: LOCAL_CLAIM, updatedAt: hoursAgo(30) }];
+  it('un claim locale sotto la soglia locale NON viene rilasciato', () => {
+    const issues = [{ number: 4248, labels: LOCAL_CLAIM, updatedAt: hoursAgo(20) }];
     expect(claimOwner(LOCAL_CLAIM)).toBe('local');
     expect(nums(selectStaleClaims(issues, new Set(), NOW))).toEqual([]);
+  });
+
+  it('un claim locale fermo oltre la soglia locale (24h) senza PR viene rilasciato', () => {
+    expect(DEFAULT_STALE_LOCAL_CLAIM_HOURS).toBe(24);
+    const issues = [{ number: 8334, labels: LOCAL_CLAIM, updatedAt: hoursAgo(DEFAULT_STALE_LOCAL_CLAIM_HOURS + 1) }];
+    expect(nums(selectStaleClaims(issues, new Set(), NOW))).toEqual([8334]);
+  });
+
+  it('un claim locale conta dal claim, non dall\'ultima attività dei bot', () => {
+    // #9285, 2026-09-25: reclamata il 22-09, ma ogni commento di recurrence
+    // spostava updatedAt e il claim non scadeva mai.
+    const issues = [{ number: 9285, labels: LOCAL_CLAIM, updatedAt: hoursAgo(1), claimedAt: hoursAgo(70) }];
+    expect(nums(selectStaleClaims(issues, new Set(), NOW))).toEqual([9285]);
+  });
+
+  it('senza claimedAt si ricade su updatedAt (lato sicuro)', () => {
+    const issues = [{ number: 9285, labels: LOCAL_CLAIM, updatedAt: hoursAgo(1), claimedAt: null }];
+    expect(nums(selectStaleClaims(issues, new Set(), NOW))).toEqual([]);
+  });
+
+  it('claimedAt non tocca i claim remoti', () => {
+    const issues = [{ number: 7, labels: REMOTE_CLAIM, updatedAt: hoursAgo(1), claimedAt: hoursAgo(70) }];
+    expect(nums(selectStaleClaims(issues, new Set(), NOW))).toEqual([]);
+  });
+
+  it('un claim locale vecchio con PR aperta resta protetto', () => {
+    const issues = [{ number: 8334, labels: LOCAL_CLAIM, updatedAt: hoursAgo(500) }];
+    expect(nums(selectStaleClaims(issues, new Set([8334]), NOW))).toEqual([]);
+  });
+
+  it('la soglia locale non è mai più corta di quella remota', () => {
+    const issues = [{ number: 8334, labels: LOCAL_CLAIM, updatedAt: hoursAgo(30) }];
+    expect(nums(selectStaleClaims(issues, new Set(), NOW, 48, 1))).toEqual([]);
+    expect(nums(selectStaleClaims(issues, new Set(), NOW, 12, 24))).toEqual([8334]);
   });
 
   it('un claim remoto vecchio resta liberabile dal detector', () => {
@@ -66,7 +102,7 @@ describe('selectStaleClaims', () => {
 
   it('un owner-only locale resta protetto anche senza il mutex base', () => {
     const ownerOnly = [{ name: 'agent:local' }];
-    const issues = [{ number: 4248, labels: ownerOnly, updatedAt: hoursAgo(30) }];
+    const issues = [{ number: 4248, labels: ownerOnly, updatedAt: hoursAgo(20) }];
     expect(claimOwner(ownerOnly)).toBe('local');
     expect(nums(selectStaleClaims(issues, new Set(), NOW))).toEqual([]);
   });
@@ -286,5 +322,24 @@ describe('releaseStaleClaim — marker-before-release', () => {
     expect(first).toEqual({ released: false, reason: 'claim-remove-failed' });
     expect(second).toEqual({ released: true, reason: 'marker-existing' });
     expect(calls).toEqual(['remove-fail', 'remove-retry']);
+  });
+});
+
+describe('lastLocalClaimAt', () => {
+  it('prende l\'ultimo labeled agent:local e ignora il resto', () => {
+    const events = [
+      { event: 'labeled', label: { name: 'agent:local' }, created_at: '2026-09-19T18:18:17Z' },
+      { event: 'unlabeled', label: { name: 'agent:local' }, created_at: '2026-09-20T00:00:00Z' },
+      { event: 'labeled', label: { name: 'agent:local' }, created_at: '2026-09-22T04:28:30Z' },
+      { event: 'labeled', label: { name: 'agent:fix-queued' }, created_at: '2026-09-25T03:32:00Z' },
+      { event: 'commented', created_at: '2026-09-25T04:00:00Z' },
+    ];
+    expect(lastLocalClaimAt(events)).toBe('2026-09-22T04:28:30.000Z');
+  });
+
+  it('nessun evento utile o input invalido → null', () => {
+    expect(lastLocalClaimAt([])).toBeNull();
+    expect(lastLocalClaimAt(undefined as unknown as [])).toBeNull();
+    expect(lastLocalClaimAt([{ event: 'labeled', label: { name: 'agent:local' }, created_at: 'x' }])).toBeNull();
   });
 });

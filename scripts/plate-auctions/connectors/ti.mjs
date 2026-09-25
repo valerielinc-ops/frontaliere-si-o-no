@@ -5,6 +5,7 @@ import {
   extractEcariTabSection,
   fetchHtml,
   parseEcariAuctionRows,
+  withEcariEmptyState,
 } from '../../../functions/src/plateAuctionsCore.js';
 
 export const TI_CANTON = 'Ticino';
@@ -23,7 +24,7 @@ export function extractTabSection(html, tabContentId) {
 }
 
 export function parseTiAuctionRows(html, { fetchedAt = new Date().toISOString() } = {}) {
-  return TI_TAB_SECTIONS.flatMap(({ tabContentId, auctionStatus, listingType, idPrefix }) =>
+  return withEcariEmptyState(TI_TAB_SECTIONS.flatMap(({ tabContentId, auctionStatus, listingType, idPrefix }) =>
     parseEcariAuctionRows(extractTabSection(html, tabContentId), {
       canton: TI_CANTON,
       plateCode: TI_PLATE_CODE,
@@ -34,7 +35,7 @@ export function parseTiAuctionRows(html, { fetchedAt = new Date().toISOString() 
       idPrefix,
       detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl(TI_AUCTION_URL, sourceRecordId),
     }),
-  );
+  ), html, TI_TAB_SECTIONS.map(({ tabContentId }) => tabContentId));
 }
 
 export async function fetchTiPlateAuctions() {

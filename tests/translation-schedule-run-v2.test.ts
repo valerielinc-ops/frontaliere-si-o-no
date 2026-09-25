@@ -67,7 +67,15 @@ function createRepositories() {
       },
     }],
   }, null, 2)}\n`);
-  git(seed, 'add', 'data/jobs/by-crawler/example-crawler.json');
+  const providerSource = `export function translate(request, { succeedText }) {
+  if (request.field !== 'title') throw new Error('unexpected field');
+  succeedText('Sviluppatore senior per progetti internazionali');
+}
+`;
+  const providerPath = join(seed, 'scripts/lib/translation-shadow-provider-v2.mjs');
+  mkdirSync(join(seed, 'scripts/lib'), { recursive: true });
+  writeFileSync(providerPath, providerSource);
+  git(seed, 'add', 'data/jobs/by-crawler/example-crawler.json', 'scripts/lib/translation-shadow-provider-v2.mjs');
   git(seed, 'commit', '-q', '-m', 'seed translation scheduler fixture');
   git(seed, 'remote', 'add', 'origin', remote);
   git(seed, 'push', '-q', 'origin', 'HEAD:main');
@@ -77,13 +85,7 @@ function createRepositories() {
   git(one, 'config', 'user.name', 'Translation Scheduler Test');
   git(one, 'config', 'user.email', 'translation-scheduler-test@example.test');
 
-  const providerModule = join(root, 'provider.mjs');
-  writeFileSync(providerModule, `export function translate(request, { succeedText }) {
-  if (request.field !== 'title') throw new Error('unexpected field');
-  succeedText('Sviluppatore senior per progetti internazionali');
-}
-`);
-  return { one, providerModule, remote };
+  return { one, remote };
 }
 
 afterEach(() => {
@@ -115,7 +117,7 @@ describe('translation scheduler v2 runtime wiring', () => {
   });
 
   it('plans, reserves, executes, and settles on the state ref without writing main', async () => {
-    const { one, providerModule, remote } = createRepositories();
+    const { one, remote } = createRepositories();
     const mainBefore = git(one, 'rev-parse', 'HEAD');
     const sourceBefore = readFileSync(
       join(one, 'data/jobs/by-crawler/example-crawler.json'),
@@ -124,7 +126,6 @@ describe('translation scheduler v2 runtime wiring', () => {
 
     const report = await runTranslationScheduleV2({
       repository: one,
-      providerModule,
       maxJobs: 10,
       maxUnits: 1,
       providerTimeoutMs: 10_000,
@@ -132,10 +133,22 @@ describe('translation scheduler v2 runtime wiring', () => {
     });
 
     expect(report.status).toBe('settled');
+    expect(report.runtimeContract).toMatchObject({
+      schemaVersion: 2,
+      provider: {
+        modulePath: 'scripts/lib/translation-shadow-provider-v2.mjs',
+        exportName: 'translate',
+        schemaVersion: 3,
+        engineVersion: 'shadow-engine-v2',
+      },
+      capabilities: { generationEnabled: false, publishEnabled: false },
+    });
     expect(report.scheduler.selectedJobs).toBe(1);
     expect(report.scheduler.selectedUnits).toBe(1);
     expect(report.state.reserved).toBe(true);
     expect(report.state.settled).toBe(true);
+    expect(report.stateRemote).toBe('origin');
+    expect(report.stateRef).toBe('refs/heads/translation-state-v2');
     expect(git(one, 'rev-parse', 'HEAD')).toBe(mainBefore);
     expect(git(one, 'ls-remote', '--refs', remote, 'refs/heads/main')).toContain(mainBefore);
     expect(readFileSync(join(one, 'data/jobs/by-crawler/example-crawler.json'), 'utf8'))
@@ -174,7 +187,7 @@ describe('translation scheduler v2 runtime wiring', () => {
   // points GIT_CONFIG_GLOBAL/SYSTEM at /dev/null so the developer's own
   // ~/.gitconfig cannot silently stand in for the runner's empty one.
   it('commits on the state ref without any ambient git identity', async () => {
-    const { one, providerModule, remote } = createRepositories();
+    const { one, remote } = createRepositories();
     git(one, 'config', '--unset', 'user.name');
     git(one, 'config', '--unset', 'user.email');
     const previous = {
@@ -186,7 +199,6 @@ describe('translation scheduler v2 runtime wiring', () => {
     try {
       const report = await runTranslationScheduleV2({
         repository: one,
-        providerModule,
         maxJobs: 10,
         maxUnits: 1,
         providerTimeoutMs: 10_000,
@@ -213,7 +225,7 @@ describe('translation scheduler v2 runtime wiring', () => {
   // died on `… must be an object` and never produced its report. The shared
   // `isSliceFile` predicate exists for exactly this; the scanner has to use it.
   it('skips crawler scratch companions instead of reading them as slices', async () => {
-    const { one, providerModule, remote } = createRepositories();
+    const { one, remote } = createRepositories();
     const dataDirectory = join(one, 'data/jobs/by-crawler');
     // Verbatim shape of the file that failed in production: a bare empty array.
     writeFileSync(join(dataDirectory, 'coop-ticino-locale-cache.json'), '[]\n');
@@ -221,7 +233,6 @@ describe('translation scheduler v2 runtime wiring', () => {
 
     const report = await runTranslationScheduleV2({
       repository: one,
-      providerModule,
       maxJobs: 10,
       maxUnits: 1,
       providerTimeoutMs: 10_000,
@@ -235,5 +246,45 @@ describe('translation scheduler v2 runtime wiring', () => {
     // The scratch files stay untouched on disk — skipped, not repaired or deleted.
     expect(readFileSync(join(dataDirectory, 'coop-ticino-locale-cache.json'), 'utf8')).toBe('[]\n');
     expect(git(one, 'ls-remote', '--refs', remote, report.stateRef)).toContain(report.state.after);
+  });
+
+  it.each([
+    ['main ref', { stateRef: 'refs/heads/main' }],
+    ['non-dedicated ref', { stateRef: 'refs/heads/translation-state-other-v2' }],
+    ['non-authorized remote', { stateRemote: 'backup' }],
+  ])('rejects an unauthorized state target before any scheduler work (%s)', async (_label, target) => {
+    const { one, remote } = createRepositories();
+
+    await expect(runTranslationScheduleV2({ repository: one, ...target, logger: { log() {} } }))
+      .rejects.toThrow(/translation state writes must target origin\/refs\/heads\/translation-state-v2/);
+    expect(git(one, 'rev-parse', 'HEAD')).toBe(git(one, 'rev-parse', 'origin/main'));
+    expect(git(one, 'ls-remote', '--refs', remote, 'refs/heads/main'))
+      .toContain(git(one, 'rev-parse', 'origin/main'));
+  });
+
+  it('rejects an injected state store without an explicit remote before initialization', async () => {
+    let initialized = false;
+    const stateStore = {
+      ref: 'refs/heads/translation-state-v2',
+      async initialize() {
+        initialized = true;
+      },
+    };
+
+    await expect(runTranslationScheduleV2({ repository: 'unused-repository', stateStore, logger: { log() {} } }))
+      .rejects.toThrow(/translation state writes must target origin\/refs\/heads\/translation-state-v2/);
+    expect(initialized).toBe(false);
+  });
+
+  it('binds the shadow workflow permission and state destination to the same contract', () => {
+    const workflow = readFileSync(
+      new URL('../.github/workflows/translation-schedule-v2-shadow.yml', import.meta.url),
+      'utf8',
+    );
+
+    expect(workflow).toMatch(/permissions:\n  contents: write/u);
+    expect(workflow).toMatch(/TRANSLATION_STATE_REMOTE_V2:\s*origin/u);
+    expect(workflow).toMatch(/TRANSLATION_STATE_REF_V2:\s*refs\/heads\/translation-state-v2/u);
+    expect(workflow).toContain('node scripts/translation-schedule-run-v2.mjs --shadow');
   });
 });

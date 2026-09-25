@@ -56,6 +56,53 @@ describe('needs-human — tracking, non veto della PR', () => {
     }).action).toBe('requeue');
   });
 
+  // DECISIONS 2026-09-24 «Nessun veto sul ciclo autonomo»: `needs-human` non è
+  // più un canale di attesa, e un defer `risk` rientra per qualunque famiglia
+  // perché la policy f1-f7-v4 non nega più il routing.
+  it('needs-human su una famiglia NON monitor rientra in coda', () => {
+    const d = prepassDecision({
+      title: 'L6 Content Factuality: independent source verdict is missing',
+      labels: ['needs-human'],
+    });
+    expect(d.action).toBe('requeue');
+    expect(d.reason).toMatch(/non è più un veto/);
+  });
+
+  it('needs-human con verdetto max-turns va allo scorporo se eleggibile, allo sweep se no', () => {
+    expect(prepassDecision({
+      title: 'L6 Content Factuality: independent source verdict is missing',
+      labels: ['needs-human'],
+      verdict: 'max-turns',
+    }).action).toBe('decompose');
+    expect(prepassDecision({
+      title: 'L6 Content Factuality: independent source verdict is missing',
+      labels: ['needs-human', 'from-decompose'],
+      verdict: 'max-turns',
+    }).action).toBe('keep');
+  });
+
+  it('un defer risk su una famiglia NON monitor rientra in coda', () => {
+    expect(prepassDecision({
+      title: 'tassazione-individuale-lavoro-ticino — refresh evergreen',
+      body: 'Riferimento: `scripts/audit-evergreen-articles.mjs` e `docs/`.',
+      labels: [AUTOMATION_DEFERRED_LABEL, 'from-decompose'],
+      automationDeferredReason: 'risk',
+    }).action).toBe('requeue');
+  });
+
+  it('una riga del registro negativa sulla issue citata la tiene ferma', () => {
+    const registry = [{
+      date: '2026-08-24', decision: 'leve 2 e 5 non autorizzate', source: '', refs: [5995],
+      scope: 'site', state: 'conditional', why: ['una parte NON è autorizzata'],
+    }];
+    expect(prepassDecision({
+      title: 'Repo weight: snapshot fuori git',
+      body: 'Vedi #5995.',
+      labels: ['needs-human'],
+      registry,
+    }).action).toBe('keep');
+  });
+
   it('legge il marker tecnico più recente senza inventare una ragione', () => {
     expect(latestAutomationDeferredReason([
       { body: '<!-- AUTOMATION_DEFERRED: risk -->', created_at: '2026-09-01T00:00:00Z' },

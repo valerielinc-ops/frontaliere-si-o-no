@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-15T00:00:00.000Z",
+  "generatedAt": "2026-09-24T00:00:00.000Z",
   "timezone": "Europe/Zurich",
   "scope": {
     "country": "CH",
@@ -21,7 +21,7 @@
       "officialSourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/",
       "fetchFrequency": "P1D",
       "owner": "platform",
-      "status": "degraded",
+      "status": "active",
       "identityMode": "catalogue-required",
       "identityAliases": [
         {
@@ -37,7 +37,7 @@
           "pharmacyId": "ge-pharmacie-plaza"
         }
       ],
-      "notes": "La fonte allowlisted espone finestre 2026 parziali e una carta 24/7 senza intervallo datato. Il parser conserva le osservazioni ma il contratto non pubblica righe operative finché il calendario annuale contiguo e il catalogo identità GE non sono verificati."
+      "notes": "La fonte allowlisted espone pharma24 come servizio esplicito 24h/24, 7j/7 e 365j/an, oltre a finestre datate aggiuntive. Il parser espande solo quella dichiarazione esplicita in intervalli giornalieri e risolve le identità nel catalogo verificato data/pharmacy-duties-geneva-catalogue.json."
     }
   ]
 }

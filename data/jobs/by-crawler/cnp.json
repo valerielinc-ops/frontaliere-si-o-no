@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cnp",
-  "assembledAt": "2026-09-19T22:54:14.721Z",
+  "assembledAt": "2026-09-24T14:50:17.922Z",
   "jobs": [
     {
       "id": "cnp-9eb815e758d3",
@@ -33,7 +33,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/1e590793-a3c6-47ba-8698-e8e49e92b47f",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:54:09.699Z",
+      "crawledAt": "2026-09-24T14:50:11.859Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -133,7 +133,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/1e590793-a3c6-47ba-8698-e8e49e92b47f"
     },
     {
       "id": "cnp-b56cd21978d4",
@@ -166,7 +167,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/18a3c8be-9f30-410c-9605-e85ace2d1a5d",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:54:08.741Z",
+      "crawledAt": "2026-09-24T14:50:10.706Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -235,7 +236,8 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/18a3c8be-9f30-410c-9605-e85ace2d1a5d"
     },
     {
       "id": "cnp-837ff7897282",
@@ -268,7 +270,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/8fcc75d9-563d-4a8c-9735-9b25ba5b6c47",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:54:08.028Z",
+      "crawledAt": "2026-09-24T14:50:09.846Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -293,7 +295,7 @@
           "medecin-chef-fe-de-clinique-adjoint-e-psychogeriatrie-s-ref-r2026011-cnp-neuchatel"
         ]
       },
-      "firstSeenAt": "2026-07-08T11:41:09.943Z",
+      "firstSeenAt": "2026-05-19T13:03:42.511Z",
       "salaryMin": 116000,
       "salaryMax": 162000,
       "salarySource": "estimated",
@@ -306,7 +308,8 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/8fcc75d9-563d-4a8c-9735-9b25ba5b6c47"
     },
     {
       "id": "cnp-793ce0c0ba24",
@@ -339,7 +342,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/92b0c580-9c7f-464d-b8ea-44daa4e14bc4",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:54:07.373Z",
+      "crawledAt": "2026-09-24T14:50:08.776Z",
       "addressLocality": "La Tène",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -455,7 +458,8 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/92b0c580-9c7f-464d-b8ea-44daa4e14bc4"
     },
     {
       "id": "cnp-fe8c28e61f67",
@@ -489,7 +493,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/169ef49e-3313-4826-9235-0bd4191de3a3",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:54:06.644Z",
+      "crawledAt": "2026-09-24T14:50:07.949Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -514,7 +518,7 @@
           "medecin-chef-urgence-et-liaison-80-100-cnp-neuchatel"
         ]
       },
-      "firstSeenAt": "2026-07-13T22:41:15.069Z",
+      "firstSeenAt": "2026-05-19T13:03:39.393Z",
       "salaryMin": 116000,
       "salaryMax": 162000,
       "salarySource": "estimated",
@@ -527,7 +531,8 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/169ef49e-3313-4826-9235-0bd4191de3a3"
     },
     {
       "id": "cnp-8eda2acc290a",
@@ -560,7 +565,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/9a95c92e-a6bf-4bf9-923e-14779738be50",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:54:05.790Z",
+      "crawledAt": "2026-09-24T14:50:06.766Z",
       "addressLocality": "La Tène",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -629,7 +634,8 @@
           "maxValue": 72000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/9a95c92e-a6bf-4bf9-923e-14779738be50"
     },
     {
       "id": "cnp-0eef0b4297fe",
@@ -663,7 +669,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/7fecbd7e-56c3-4e73-859b-c097ccc9ad19",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:54:04.864Z",
+      "crawledAt": "2026-09-24T14:50:05.873Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -696,7 +702,7 @@
           "medecin-chef-de-clinique-cnp-marin-epagnier"
         ]
       },
-      "firstSeenAt": "2026-07-08T11:41:07.819Z",
+      "firstSeenAt": "2026-05-19T13:03:35.553Z",
       "salaryMin": 116000,
       "salaryMax": 162000,
       "salarySource": "estimated",
@@ -709,7 +715,8 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/7fecbd7e-56c3-4e73-859b-c097ccc9ad19"
     },
     {
       "id": "cnp-fbfedcc76db8",
@@ -742,7 +749,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/ef0972ca-bb17-4df1-9d69-ce3ac128b71f",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:54:04.112Z",
+      "crawledAt": "2026-09-24T14:50:04.838Z",
       "addressLocality": "La Tène",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -773,7 +780,7 @@
           "medecin-chef-de-clinique-equipe-mobile-cnp-la-tene"
         ]
       },
-      "firstSeenAt": "2026-07-08T11:41:07.263Z",
+      "firstSeenAt": "2026-05-19T13:03:33.979Z",
       "salaryMin": 116000,
       "salaryMax": 162000,
       "salarySource": "estimated",
@@ -786,7 +793,8 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/ef0972ca-bb17-4df1-9d69-ce3ac128b71f"
     },
     {
       "id": "cnp-5ac1f21d1b62",
@@ -819,7 +827,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/f3458257-5bea-4cb1-a123-8e630f52e114",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:54:03.214Z",
+      "crawledAt": "2026-09-24T14:50:03.870Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -896,7 +904,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/f3458257-5bea-4cb1-a123-8e630f52e114"
     },
     {
       "id": "cnp-8f1dfedc34c3",
@@ -930,7 +939,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/cfc46d35-2079-4e75-bd88-86602f06d622",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:54:02.418Z",
+      "crawledAt": "2026-09-24T14:50:03.005Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -959,7 +968,7 @@
           "klinischer-leiter-arzt-oder-klinischer-leiter-arztassistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ]
       },
-      "firstSeenAt": "2026-07-08T11:41:06.381Z",
+      "firstSeenAt": "2026-05-19T13:03:28.696Z",
       "salaryMin": 116000,
       "salaryMax": 162000,
       "salarySource": "estimated",
@@ -972,7 +981,8 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/cfc46d35-2079-4e75-bd88-86602f06d622"
     },
     {
       "id": "cnp-c5c9cb7eb721",
@@ -1005,7 +1015,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/996c8f1f-6624-410a-9361-07fdfccd1aff",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:54:01.458Z",
+      "crawledAt": "2026-09-24T14:50:01.994Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1049,7 +1059,8 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/996c8f1f-6624-410a-9361-07fdfccd1aff"
     },
     {
       "id": "cnp-160bb3bc4e80",
@@ -1082,7 +1093,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/b7bcca27-9e8c-4905-bbb4-a98e7f67b955",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:54:00.825Z",
+      "crawledAt": "2026-09-24T14:50:00.837Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1126,7 +1137,8 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/b7bcca27-9e8c-4905-bbb4-a98e7f67b955"
     },
     {
       "id": "cnp-3dcbd437d33d",
@@ -1160,7 +1172,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/4c9d33da-6c7b-48d5-9856-586cfb12dec8",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:53:59.953Z",
+      "crawledAt": "2026-09-24T14:49:59.844Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1199,7 +1211,7 @@
           "medecin-chef-de-service-urgence-liaison-hopital-cnp-marin-epagnier"
         ]
       },
-      "firstSeenAt": "2026-07-21T12:01:36.294Z",
+      "firstSeenAt": "2026-06-11T12:29:22.521Z",
       "salaryMin": 116000,
       "salaryMax": 162000,
       "salarySource": "estimated",
@@ -1212,7 +1224,8 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/4c9d33da-6c7b-48d5-9856-586cfb12dec8"
     },
     {
       "id": "cnp-024ad378d4f9",
@@ -1245,7 +1258,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/e9598a12-17e9-46a9-815c-2daa636351e1",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:53:59.272Z",
+      "crawledAt": "2026-09-24T14:49:58.449Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1288,7 +1301,7 @@
           "psychologue-assistant-e-en-pedopsychiatrie-cnp-neuchatel"
         ]
       },
-      "firstSeenAt": "2026-07-08T11:41:02.811Z",
+      "firstSeenAt": "2026-06-12T22:10:05.902Z",
       "salaryMin": 86000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -1301,7 +1314,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/e9598a12-17e9-46a9-815c-2daa636351e1"
     },
     {
       "id": "cnp-7aa9f29e6e83",
@@ -1334,7 +1348,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/62abf0ca-ffe6-4fab-92a6-6fd127202969",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:53:58.525Z",
+      "crawledAt": "2026-09-24T14:49:57.453Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1365,7 +1379,7 @@
           "pedopsychiatre-ambulatoire-de-crise-cnp-marin-epagnier"
         ]
       },
-      "firstSeenAt": "2026-07-03T21:45:22.967Z",
+      "firstSeenAt": "2026-06-17T12:45:45.505Z",
       "salaryMin": 86000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -1378,7 +1392,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/62abf0ca-ffe6-4fab-92a6-6fd127202969"
     },
     {
       "id": "cnp-ba0c4bde0296",
@@ -1411,7 +1426,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/106403b3-c271-47fa-adbd-b44bff48f062",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:53:57.751Z",
+      "crawledAt": "2026-09-24T14:49:56.471Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1457,7 +1472,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/106403b3-c271-47fa-adbd-b44bff48f062"
     },
     {
       "id": "cnp-ca661e72ca20",
@@ -1490,7 +1506,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/91e830ee-eefc-434a-81d0-774c11c09834",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:53:57.118Z",
+      "crawledAt": "2026-09-24T14:49:55.571Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1536,7 +1552,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/91e830ee-eefc-434a-81d0-774c11c09834"
     },
     {
       "id": "cnp-05b4a85ce3da",
@@ -1569,7 +1586,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/436e360f-1b51-46f4-8dcd-0304e118669b",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:53:56.434Z",
+      "crawledAt": "2026-09-24T14:49:54.339Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1615,7 +1632,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/436e360f-1b51-46f4-8dcd-0304e118669b"
     },
     {
       "id": "cnp-6d27d590bf95",
@@ -1648,7 +1666,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/ea1b3520-3059-482b-937d-23286572b932",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:53:55.485Z",
+      "crawledAt": "2026-09-24T14:49:53.473Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1713,7 +1731,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/ea1b3520-3059-482b-937d-23286572b932"
     },
     {
       "id": "cnp-658494323919",
@@ -1747,7 +1766,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/015b7a52-619b-4a24-beee-3b04145daaae",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:53:54.832Z",
+      "crawledAt": "2026-09-24T14:49:52.398Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1793,7 +1812,8 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/015b7a52-619b-4a24-beee-3b04145daaae"
     },
     {
       "id": "cnp-b4ec5544d225",
@@ -1810,7 +1830,7 @@
       "title": "Infirmier·ère Case Manager (programme TIPP)",
       "titleByLocale": {
         "it": "Infermiera Case Manager (programma TPP)",
-        "en": "Nurse Case Manager (TIPP programme)",
+        "en": "Case Manager (TIPP programme)",
         "de": "Nurse Case Manager (TIPP-Programm)",
         "fr": "Infirmier·ère Case Manager (programme TIPP)"
       },
@@ -1821,12 +1841,13 @@
         "de": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\nLa Direction des Soins recherche pour le programme TIPP du département adulte, un·e :\n\nInfirmier·ère Case Manager\n80-100%\ns/réf : R2026186\n\nEn tant qu’infirmier·ère Case Manager au sein du programme de traitement et intervention précoce dans les troubles psychotiques (TIPP-Neuchâtel), vous accompagnez des patients jeunes adultes, et leurs proches, dans leurs soins et dans la préservation de leurs liens avec la communauté à l’aide d’interventions biopsychosociales variées.\nDans le cadre de votre fonction vous serez amené·e à :\n\n• Assurer le case-management infirmier de jeunes patient·e·s présentant un premier épisode psychotique ou un état à haut risque.\n\n• Réaliser des évaluations cliniques et psychosociales et participer à l’élaboration du plan de soins individualisé.\n\n• Coordonner la prise en charge avec l’équipe pluridisciplinaire et les partenaires du réseau.\n\n• Favoriser l’engagement du·de la patient·e dans les soins et développer une alliance thérapeutique durable.\n\n• Intervenir de manière flexible et proactive, y compris en milieu communautaire.\n\n• Participer au suivi des traitements et à la prévention des ruptures de soins.\n\n• Accompagner et soutenir les proches et l’entourage.\n\n• Soutenir la réinsertion sociale et professionnelle.\n\n• Contribuer aux actions de détection précoce et de déstigmatisation.\n\n• S’inscrire dans une approche orientée rétablissement et intervention précoce.\nLes compétences requises pour ce poste sont les suivantes :\n\n• Être titulaire d’un Bachelor en soins infirmiers ou titre jugé équivalent et reconnu par la Croix-Rouge Suisse.\n\n• Une formation ou expérience en case management est un atout pour la fonction.\n\n• Bénéficier de minimum 3 ans d’expérience en psychiatrie dont au moins une expérience en ambulatoire.\n\n• Être en possession du permis de conduire.\n\n• Maîtrise des bases cliniques en psychiatrie, en particulier dans les troubles psychotiques débutants.\n\n• Capacité à assurer un case-management infirmier et un suivi de proximité.\n\n• Aptitude à réaliser une évaluation globale intégrant les dimensions cliniques, psychosociales et fonctionnelles.\n\n• Aisance dans le travail en équipe pluridisciplinaire et en binôme avec le·la psychiatre.\n\n• Qualités relationnelles favorisant l’alliance thérapeutique et l’engagement du·de la patient·e.\n\n• Souplesse dans l’intervention, avec une approche communautaire et mobile.\n\n• Compétence dans la collaboration avec les proches et le réseau du·de la patient·e.\n\n• Orientation marquée vers le rétablissement et les projets de vie.\n\n• Savoir-faire en coordination des partenaires sociaux, scolaires et professionnels.\n\n• Sensibilité aux enjeux de prévention, de détection précoce et de déstigmatisation.\nEntrée en fonction : 1er octobre 2026 ou à convenir\nLieu de travail : Site de Préfargier, 2074 Marin-Epagnier\nType de contrat : Contrat de durée indéterminée (CDI)\nDélai de postulation : 10 septembre 2026\nPersonnes de contact : Nadia Maximo Ramos Cruz, Infirmière-cheffe d’unité de soins (ICUS)\nMaureen Magnan, Spécialiste sourcing et recrutement\nLes dossiers de candidature complets (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser par postulation direct en ligne .\n\nSite de Préfargier\n2074 Marin-Epagnier",
         "fr": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\nLa Direction des Soins recherche pour le programme TIPP du département adulte, un·e :\n\nInfirmier·ère Case Manager\n80-100%\ns/réf : R2026186\n\nEn tant qu’infirmier·ère Case Manager au sein du programme de traitement et intervention précoce dans les troubles psychotiques (TIPP-Neuchâtel), vous accompagnez des patients jeunes adultes, et leurs proches, dans leurs soins et dans la préservation de leurs liens avec la communauté à l’aide d’interventions biopsychosociales variées.\nDans le cadre de votre fonction vous serez amené·e à :\n\n• Assurer le case-management infirmier de jeunes patient·e·s présentant un premier épisode psychotique ou un état à haut risque.\n\n• Réaliser des évaluations cliniques et psychosociales et participer à l’élaboration du plan de soins individualisé.\n\n• Coordonner la prise en charge avec l’équipe pluridisciplinaire et les partenaires du réseau.\n\n• Favoriser l’engagement du·de la patient·e dans les soins et développer une alliance thérapeutique durable.\n\n• Intervenir de manière flexible et proactive, y compris en milieu communautaire.\n\n• Participer au suivi des traitements et à la prévention des ruptures de soins.\n\n• Accompagner et soutenir les proches et l’entourage.\n\n• Soutenir la réinsertion sociale et professionnelle.\n\n• Contribuer aux actions de détection précoce et de déstigmatisation.\n\n• S’inscrire dans une approche orientée rétablissement et intervention précoce.\nLes compétences requises pour ce poste sont les suivantes :\n\n• Être titulaire d’un Bachelor en soins infirmiers ou titre jugé équivalent et reconnu par la Croix-Rouge Suisse.\n\n• Une formation ou expérience en case management est un atout pour la fonction.\n\n• Bénéficier de minimum 3 ans d’expérience en psychiatrie dont au moins une expérience en ambulatoire.\n\n• Être en possession du permis de conduire.\n\n• Maîtrise des bases cliniques en psychiatrie, en particulier dans les troubles psychotiques débutants.\n\n• Capacité à assurer un case-management infirmier et un suivi de proximité.\n\n• Aptitude à réaliser une évaluation globale intégrant les dimensions cliniques, psychosociales et fonctionnelles.\n\n• Aisance dans le travail en équipe pluridisciplinaire et en binôme avec le·la psychiatre.\n\n• Qualités relationnelles favorisant l’alliance thérapeutique et l’engagement du·de la patient·e.\n\n• Souplesse dans l’intervention, avec une approche communautaire et mobile.\n\n• Compétence dans la collaboration avec les proches et le réseau du·de la patient·e.\n\n• Orientation marquée vers le rétablissement et les projets de vie.\n\n• Savoir-faire en coordination des partenaires sociaux, scolaires et professionnels.\n\n• Sensibilité aux enjeux de prévention, de détection précoce et de déstigmatisation.\nEntrée en fonction : 1er octobre 2026 ou à convenir\nLieu de travail : Site de Préfargier, 2074 Marin-Epagnier\nType de contrat : Contrat de durée indéterminée (CDI)\nDélai de postulation : 30 septembre 2026\nPersonnes de contact : Nadia Maximo Ramos Cruz, Infirmière-cheffe d’unité de soins (ICUS)\nMaureen Magnan, Spécialiste sourcing et recrutement\nLes dossiers de candidature complets (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser par postulation direct en ligne .\n\nSite de Préfargier\n2074 Marin-Epagnier"
       },
+      "needsRetranslation": true,
       "location": "Marin-Epagnier",
       "canton": "NE",
       "url": "https://www.jobup.ch/fr/emplois/detail/5c28368a-8a67-4e7e-9063-ec72cbbc0d9f",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:53:54.030Z",
+      "crawledAt": "2026-09-24T14:49:51.449Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1869,7 +1890,8 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/5c28368a-8a67-4e7e-9063-ec72cbbc0d9f"
     },
     {
       "id": "cnp-30d85fc7a9e7",
@@ -1903,7 +1925,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/3e7d5b50-75ae-407b-8168-f8a70c66edd1",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:53:53.394Z",
+      "crawledAt": "2026-09-24T14:49:50.099Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1947,7 +1969,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/3e7d5b50-75ae-407b-8168-f8a70c66edd1"
     },
     {
       "id": "cnp-a87bdfb80169",
@@ -1981,7 +2004,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/b8d31886-b49a-442e-a4bc-80d3b1eb9b8d",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:53:52.716Z",
+      "crawledAt": "2026-09-24T14:49:49.210Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2027,40 +2050,41 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/b8d31886-b49a-442e-a4bc-80d3b1eb9b8d"
     },
     {
       "id": "cnp-5fce9f45c9ab",
       "slug": "coordinatori-del-sito-di-segretariati-medici-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
       "slugByLocale": {
-        "fr": "coordinateurs-trices-de-site-des-secretariats-medicaux-cnp-neuchatel",
         "it": "coordinatori-del-sito-di-segretariati-medici-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "en": "site-coordinators-of-medical-secretariats-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "de": "standortkoordinatoren-von-medizinischen-sekretariaten-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
+        "de": "standortkoordinatoren-von-medizinischen-sekretariaten-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "fr": "coordinateurs-trices-de-site-des-secretariats-medicaux-cnp-neuchatel"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
       "companyKey": "cnp",
       "companyDomain": "cnp.ch",
       "title": "Coordinateurs.trices de site des secrétariats médicaux",
       "titleByLocale": {
-        "fr": "Coordinateurs.trices de site des secrétariats médicaux",
         "it": "Coordinatori del sito di segretariati medici",
         "en": "Site coordinators of medical secretariats",
-        "de": "Standortkoordinatoren von medizinischen Sekretariaten"
+        "de": "Standortkoordinatoren von medizinischen Sekretariaten",
+        "fr": "Coordinateurs.trices de site des secrétariats médicaux"
       },
       "description": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\n La direction des finances, pour son secteur des secrétariats médicaux, recherche à pourvoir 5 postes de :\n\nCoordinateurs.trices de site des secrétariats médicaux\n\nTitulaire d'une maturité commerciale, au minimum d'un CFC d'employé.e de commerce, vous avez idéalement suivi une formation en management et avez déjà géré une ou plusieurs équipes administratives. Vous désirez intégrer une institution reconnue, spécialisée en santé psychique.\n Dans le cadre de votre fonction vous serez amené·e à organiser l’activité du secrétariat médical en garantissant un fonctionnement fluide, anticipé et aligné avec les besoins des unités cliniques et des patient·e·s. Fonction clé assurant la coordination opérationnelle et humaine des secrétariats médicaux sur un site du CNP, véritable personne ressource pour toutes les questions médico-administratives, vous serez un.e interlocuteur.trice privilégié.e pour les équipes pluridisciplinaires et prendrez en charge les activités les plus complexes grâce à la maîtrise des tâches de vos équipes.\n Vos missions :\n o planifiez et coordonnez l’ensemble des activités du secrétariat médical\n o encadrez et fédérez les secrétaires médicales, en assurant un management de proximité structurant et mobilisateur\n o gérez les priorités et vous assurez de la continuité de l’activité\n o garantissez une organisation fluide, efficace et de qualité de l’accueil physique et téléphonique des patient·e·s, visiteur·euse·s et collaborateur·trice·s, contribuant à véhiculer une image positive du CNP\n o travaillez en étroite collaboration avec les médecins et cadres inter-départements pour soutenir l’organisation clinique\n o contribuez à la planification des médecins/thérapeutes et en assurez la mise à jour\n o organisez, participez et assurez le suivi des colloques de site ou de séances thématiques\n o assurez une gestion rigoureuse et conforme des dossiers médicaux, veillez au contrôle et à la finalisation de la documentation clinique ainsi qu’au respect des exigences et délais institutionnels\n o veillez au respect des processus garantissant la qualité des prestations, l’harmonisation des pratiques professionnelles et la cohérence administrative\n o participez aux projets institutionnels sur demande de la Responsable des secrétariats médicaux\n o planifiez et optimisez les ressources (secrétaires, stagiaires, apprenti·e·s), gérez les remplacements de manière proactive\n o conduisez les entretiens d’évaluation et accompagnez la montée en compétences de vos équipes\n o apportez une aide opérationnelle lorsque nécessaire.\n Vos compétences :\n o CFC d’employé·e de commerce ou titre jugé équivalent.\n o la maturité professionnelle et un diplôme de secrétaire médicale constituent un atout\n o une formation continue en management de type CAS est requise.\n o une expérience de 3 ans minimum dans la gestion d’équipes administratives\n o esprit fédérateur, force de proposition et aisance dans l’accompagnement du changement.\n o bonne capacité d'organisation et de gestion des priorités / du stress face aux situations d'urgence\n o capacité d'analyse et esprit de synthèse\n o excellentes compétences relationnelles et managériales vous permettant d’aborder les situations difficiles, de formuler des attentes claires et de contribuer à la résolution des conflits avec l’appui de la Responsable de secteur lorsque nécessaire.\n o rapidité d’exécution et adaptabilité\n o flexibilité et écoute\n o parfaite maitrise de la langue française à l’oral et à l’écrit\n o utilisation courante de la suite Office et idéalement, connaissance des logiciels en vigueur au CNP (Opale, Polypoint, Carefolio)\n Nous vous offrons\n o Un rôle clé et responsabilisant, au cœur du fonctionnement des activités cliniques.\n o Une fonction de management de proximité, avec une réelle autonomie dans l’organisation de votre site.\n o L’opportunité de contribuer activement à l’évolution et à l’harmonisation des secrétariats médicaux du CNP.\n o Un environnement de travail pluridisciplinaire, en collaboration étroite avec les équipes médicales, soignantes et administratives.\n o La possibilité de développer vos compétences managériales et professionnelles au sein d’une institution cantonale reconnue.\n o un environnement stimulant et collaboratif au service d’une mission de santé publique ;\n o Des conditions de travail régies par la CCT Santé 21 et des prestations sociales attractives ;\n Entrée en fonction : 1er mars 2027\n Lieux de travail :\n - CPCM et Etablissement de détention de la Promenade à la Chaux-de- Fonds\n - CPCL Vieux-Châtel à Neuchâtel\n - CUP site de Pourtalès/Gibraltar à Neuchâtel\n - Site de Préfargier, secteur hospitalier à Marin\n - Site de Préfargier, secteur ambulatoire à Marin\n & mobilités sur d’autres sites\n Type de contrat : Contrat de durée indéterminée\n Délai de postulation : 4 octobre 2026\n Les dossiers de candidature complets (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser par postulation directe en ligne. Merci de préciser le ou les site(s) pour le(s)quel(s) vous postulez et le taux d’activité souhaité.\n\nPourtales\n2000 Neuchâtel",
       "descriptionByLocale": {
-        "fr": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\n La direction des finances, pour son secteur des secrétariats médicaux, recherche à pourvoir 5 postes de :\n\nCoordinateurs.trices de site des secrétariats médicaux\n\nTitulaire d'une maturité commerciale, au minimum d'un CFC d'employé.e de commerce, vous avez idéalement suivi une formation en management et avez déjà géré une ou plusieurs équipes administratives. Vous désirez intégrer une institution reconnue, spécialisée en santé psychique.\n Dans le cadre de votre fonction vous serez amené·e à organiser l’activité du secrétariat médical en garantissant un fonctionnement fluide, anticipé et aligné avec les besoins des unités cliniques et des patient·e·s. Fonction clé assurant la coordination opérationnelle et humaine des secrétariats médicaux sur un site du CNP, véritable personne ressource pour toutes les questions médico-administratives, vous serez un.e interlocuteur.trice privilégié.e pour les équipes pluridisciplinaires et prendrez en charge les activités les plus complexes grâce à la maîtrise des tâches de vos équipes.\n Vos missions :\n o planifiez et coordonnez l’ensemble des activités du secrétariat médical\n o encadrez et fédérez les secrétaires médicales, en assurant un management de proximité structurant et mobilisateur\n o gérez les priorités et vous assurez de la continuité de l’activité\n o garantissez une organisation fluide, efficace et de qualité de l’accueil physique et téléphonique des patient·e·s, visiteur·euse·s et collaborateur·trice·s, contribuant à véhiculer une image positive du CNP\n o travaillez en étroite collaboration avec les médecins et cadres inter-départements pour soutenir l’organisation clinique\n o contribuez à la planification des médecins/thérapeutes et en assurez la mise à jour\n o organisez, participez et assurez le suivi des colloques de site ou de séances thématiques\n o assurez une gestion rigoureuse et conforme des dossiers médicaux, veillez au contrôle et à la finalisation de la documentation clinique ainsi qu’au respect des exigences et délais institutionnels\n o veillez au respect des processus garantissant la qualité des prestations, l’harmonisation des pratiques professionnelles et la cohérence administrative\n o participez aux projets institutionnels sur demande de la Responsable des secrétariats médicaux\n o planifiez et optimisez les ressources (secrétaires, stagiaires, apprenti·e·s), gérez les remplacements de manière proactive\n o conduisez les entretiens d’évaluation et accompagnez la montée en compétences de vos équipes\n o apportez une aide opérationnelle lorsque nécessaire.\n Vos compétences :\n o CFC d’employé·e de commerce ou titre jugé équivalent.\n o la maturité professionnelle et un diplôme de secrétaire médicale constituent un atout\n o une formation continue en management de type CAS est requise.\n o une expérience de 3 ans minimum dans la gestion d’équipes administratives\n o esprit fédérateur, force de proposition et aisance dans l’accompagnement du changement.\n o bonne capacité d'organisation et de gestion des priorités / du stress face aux situations d'urgence\n o capacité d'analyse et esprit de synthèse\n o excellentes compétences relationnelles et managériales vous permettant d’aborder les situations difficiles, de formuler des attentes claires et de contribuer à la résolution des conflits avec l’appui de la Responsable de secteur lorsque nécessaire.\n o rapidité d’exécution et adaptabilité\n o flexibilité et écoute\n o parfaite maitrise de la langue française à l’oral et à l’écrit\n o utilisation courante de la suite Office et idéalement, connaissance des logiciels en vigueur au CNP (Opale, Polypoint, Carefolio)\n Nous vous offrons\n o Un rôle clé et responsabilisant, au cœur du fonctionnement des activités cliniques.\n o Une fonction de management de proximité, avec une réelle autonomie dans l’organisation de votre site.\n o L’opportunité de contribuer activement à l’évolution et à l’harmonisation des secrétariats médicaux du CNP.\n o Un environnement de travail pluridisciplinaire, en collaboration étroite avec les équipes médicales, soignantes et administratives.\n o La possibilité de développer vos compétences managériales et professionnelles au sein d’une institution cantonale reconnue.\n o un environnement stimulant et collaboratif au service d’une mission de santé publique ;\n o Des conditions de travail régies par la CCT Santé 21 et des prestations sociales attractives ;\n Entrée en fonction : 1er mars 2027\n Lieux de travail :\n - CPCM et Etablissement de détention de la Promenade à la Chaux-de- Fonds\n - CPCL Vieux-Châtel à Neuchâtel\n - CUP site de Pourtalès/Gibraltar à Neuchâtel\n - Site de Préfargier, secteur hospitalier à Marin\n - Site de Préfargier, secteur ambulatoire à Marin\n & mobilités sur d’autres sites\n Type de contrat : Contrat de durée indéterminée\n Délai de postulation : 4 octobre 2026\n Les dossiers de candidature complets (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser par postulation directe en ligne. Merci de préciser le ou les site(s) pour le(s)quel(s) vous postulez et le taux d’activité souhaité.\n\nPourtales\n2000 Neuchâtel",
-        "it": "Costituzione del diritto pubblico cantonale, il CNP ha il compito di condurre la politica sanitaria del cantone di Neuchâtel nel campo della salute mentale, in collaborazione con le istituzioni partner. La NPC mira a riabilitare i pazienti con disturbi mentali adottando un modello di psichiatria integrato basato sulla comunità; implementare politiche pubbliche per promuovere e prevenire la salute mentale; funge da centro di riferimento nel campo della formazione professionale e della ricerca psichiatrica.\n La Direzione delle Finanze, per il settore della segreteria medica, cerca di riempire 5 posizioni di:\n\nCoordinatori del sito di segretariati medici\n\nCon una maturità commerciale, almeno una SWC di un dipendente, hai completato idealmente la formazione manageriale e hai già gestito una o più squadre amministrative. Si desidera unire un'istituzione riconosciuta specializzata in salute mentale.\n Nell'ambito della vostra funzione, dovrete organizzare l'attività del segretariato medico assicurando un funzionamento regolare, anticipato e allineato con le esigenze delle unità cliniche e dei pazienti. Funzione chiave che assicura il coordinamento operativo e umano dei segretariati medici su un sito CNP, una persona di risorse reale per tutte le questioni medico-amministrative, sarete un interlocutore privilegiato per i team multidisciplinari e prenderà il controllo delle attività più complesse attraverso la padronanza dei compiti dei vostri team.\n Le vostre missioni:\n o pianificare e coordinare tutte le attività del Segretariato Medico\n o mentore e federare segretarie mediche, fornendo una strutturazione e mobilitazione della gestione della comunità\n gestire le priorità e garantire la continuità aziendale\n o garantire un'organizzazione fluida, efficiente e di alta qualità per la ricezione fisica e telefonica di pazienti, visitatori e collaboratori, contribuendo a trasmettere un'immagine positiva del CNP\n o lavorare a stretto contatto con medici e dirigenti interdepartmentali per sostenere l'organizzazione clinica\n o contribuire e aggiornare la pianificazione medico/terapeuta\n o organizzare, partecipare e seguire in loco o seminari tematici\n o garantire una gestione rigorosa e coerente dei documenti medici, monitorare e finalizzare la documentazione clinica, e soddisfare requisiti istituzionali e tempistiche\n o garantire il rispetto della qualità dei processi di servizio, l'armonizzazione delle pratiche professionali e la coerenza amministrativa\n o partecipare a progetti istituzionali su richiesta del Responsabile della Segreteria Medica\n o pianificare e ottimizzare le risorse (segretari, tirocinanti, apprendisti), gestire le sostituzioni proattivamente\n o condurre le interviste di valutazione e accompagnare lo sviluppo delle competenze del vostro team\n o fornire assistenza operativa quando necessario.\n Le tue capacità:\n o dipendente commerciale SWC o equivalente.\n o maturità professionale e laurea in medicina sono un bene\n o formazione continua di gestione del tipo CAS è richiesto.\n o un minimo di 3 anni di esperienza nella gestione dei team amministrativi\n o unificare lo spirito, la forza della proposta e la facilità nel cambiamento di accompagnamento.\n o Buona capacità organizzativa e gestionale per priorità di emergenza/stress\n o capacità analitica e sintesi\n o eccellenti capacità relazionali e manageriali che consentono di affrontare situazioni difficili, formulare chiare aspettative e contribuire alla risoluzione dei conflitti con il supporto del responsabile del settore quando necessario.\n o velocità e adattabilità\n o flessibilità e ascolto\n o perfetta padronanza della lingua francese in lingua orale e scritta\n o uso corrente della suite Office e la conoscenza ideale del software in atto presso il NOC (Opale, Polypoint, Carefolio)\n Vi offriamo\n o Un ruolo chiave e potenziante, al centro del funzionamento delle attività cliniche.\n o Una funzione di gestione della prossimità, con reale autonomia nell'organizzazione del tuo sito.\n o L'opportunità di contribuire attivamente all'evoluzione e all'armonizzazione dei segretariati medici NOC.\n o Un ambiente di lavoro multidisciplinare, in stretta collaborazione con team medici, sanitari e amministrativi.\n o La possibilità di sviluppare le tue competenze manageriali e professionali all'interno di un'istituzione cantonale riconosciuta.\n o un ambiente stimolante e collaborativo per una missione sanitaria pubblica;\n o Condizioni di lavoro disciplinate dal CLC Health 21 e benefici sociali attraenti;\n Ingresso in ufficio: 1 marzo 2027\n Posti di lavoro:\n - CPCM e Prigione della Promenade à la Chaux-de-Fonds\n - CPCL Old Castle in Neuchâtel\n - Sito CUP da Pourtalès/Gibraltar a Neuchâtel\n - Sito Prefargier, settore ospedaliero a Marin\n - Prefargier sito, zona ambulatorio a Marin\n & mobilita su altri siti\n Tipo di contratto: Contratto indeterminato\n Termine ultimo per l'applicazione: 4 ottobre 2026\n Le domande complete (lettere di motivazione, CV, diplomi e certificati di lavoro) devono essere presentate direttamente online. Si prega di specificare il sito(i) per il quale si sta applicando e il tasso di attività desiderato.\n\nTotale\n2000 Neuchâtel",
-        "en": "Establishment of cantonal public law, the CNP has the task of conducting the health policy of the canton of Neuchâtel in the field of mental health, in collaboration with the partner institutions. The NPC aims to rehabilitate patients with mental disorders by adopting an integrated, community-based psychiatry model; implement public policies to promote and prevent mental health; it acts as a reference centre in the field of vocational training and psychiatry research.\n The Finance Directorate, for its medical secretariat sector, is seeking to fill 5 positions of:\n\nSite coordinators of medical secretariats\n\nWith a commercial maturity, at least one SWC of an employee, you have ideally completed management training and have already managed one or more administrative teams. You want to join a recognized institution specializing in mental health.\n As part of your function, you will have to organize the activity of the medical secretariat by ensuring smooth, anticipated and aligned functioning with the needs of clinical units and patients. Key function ensuring the operational and human coordination of medical secretariats on a CNP site, a real resource person for all medico-administrative issues, you will be a privileged interlocutor for multidisciplinary teams and will take over the most complex activities through the mastery of the tasks of your teams.\n Your missions:\n o plan and coordinate all activities of the Medical Secretariat\n o mentor and federate medical secretaries, providing a structuring and mobilizing community management\n o manage priorities and ensure business continuity\n o ensure a smooth, efficient and high-quality organisation for the physical and telephone reception of patients, visitors and collaborators, helping to convey a positive image of the CNP\n o work closely with physicians and interdepartmental executives to support the clinical organization\n o contribute to and update physician/therapist planning\n o organize, participate in and follow up on site or thematic seminars\n o ensure rigorous and consistent management of medical records, monitor and finalize clinical documentation, and meet institutional requirements and timelines\n o ensure compliance with quality of service processes, harmonization of professional practices and administrative consistency\n o participate in institutional projects at the request of the Medical Secretariat Manager\n o plan and optimize resources (secretaries, trainees, apprentices), manage replacements proactively\n o conduct the evaluation interviews and accompany your team's skill development\n o provide operational assistance when necessary.\n Your skills:\n o SWC trade employee or equivalent.\n o professional maturity and medical secretary degree are an asset\n o ongoing CAS-type management training is required.\n o a minimum of 3 years experience in managing administrative teams\n o unifying spirit, strength of proposal and ease in accompanying change.\n o Good organizational and management capacity for emergency priorities/stress\n o analytical capacity and synthesis\n o excellent relational and managerial skills that allow you to address difficult situations, formulate clear expectations and contribute to conflict resolution with the support of the Sector Manager when necessary.\n o speed and adaptability\n o flexibility and listening\n o perfect mastery of the French language in oral and written language\n o current use of the Office suite and ideally knowledge of software in place at the NOC (Opale, Polypoint, Carefolio)\n We offer you\n o A key and empowering role, at the heart of the functioning of clinical activities.\n o A proximity management function, with real autonomy in the organization of your site.\n o The opportunity to contribute actively to the evolution and harmonization of the NOC medical secretariats.\n o A multidisciplinary working environment, in close collaboration with medical, health and administrative teams.\n o The possibility of developing your managerial and professional skills within a recognised cantonal institution.\n o a stimulating and collaborative environment for a public health mission;\n o Working conditions governed by the CLC Health 21 and attractive social benefits;\n Entry into office: 1 March 2027\n Workplaces:\n - CPCM and Prison of the Promenade à la Chaux-de-Fonds\n - CPCL Old Castle in Neuchâtel\n - CUP site from Pourtalès/Gibraltar to Neuchâtel\n - Prefargier site, hospital sector in Marin\n - Prefargier site, outpatient area in Marin\n & mobilities on other sites\n Type of contract: Indeterminate contract\n Deadline for application: 4 October 2026\n Full applications (motivation letters, CVs, diplomas and work certificates) should be submitted by direct online application. Please specify the site(s) for which you are applying and the desired activity rate.\n\nTotal\n2000 Neuchâtel",
-        "de": "Die CNP hat die Aufgabe, die Gesundheitspolitik des Kantons Neuenburg im Bereich der psychischen Gesundheit in Zusammenarbeit mit den Partnerinstitutionen durchzuführen. Der NPC zielt darauf ab, Patienten mit psychischen Störungen zu rehabilitieren, indem er ein integriertes, gemeindebasiertes Psychiatriemodell anwendet, öffentliche Maßnahmen zur Förderung und Prävention psychischer Gesundheit umsetzt und als Referenzzentrum im Bereich der beruflichen Bildung und Psychiatrieforschung fungiert.\n Die Finanzdirektion für ihren medizinischen Sekretariatssektor möchte 5 Stellen besetzen:\n\nStandortkoordinatoren von medizinischen Sekretariaten\n\nMit einer kaufmännischen Reife, mindestens einem SWC eines Mitarbeiters, haben Sie idealerweise eine Managementschulung abgeschlossen und bereits ein oder mehrere Verwaltungsteams geleitet. Sie möchten einer anerkannten Institution beitreten, die sich auf psychische Gesundheit spezialisiert hat.\n Als Teil Ihrer Funktion müssen Sie die Tätigkeit des medizinischen Sekretariats organisieren, indem Sie ein reibungsloses, erwartetes und auf die Bedürfnisse der klinischen Einheiten und Patienten abgestimmtes Funktionieren sicherstellen. Schlüsselfunktion, die die operative und menschliche Koordination der medizinischen Sekretariate auf einer CNP-Website, eine echte Ressource Person für alle medizinisch-administrative Fragen, werden Sie ein privilegierter Gesprächspartner für multidisziplinäre Teams sein und übernehmen die komplexesten Aktivitäten durch die Beherrschung der Aufgaben Ihrer Teams.\n Ihre Missionen:\n Planen und koordinieren Sie alle Aktivitäten des Medizinischen Sekretariats\n o Mentor und föderierte medizinische Sekretärinnen, die eine Strukturierung und Mobilisierung des Community Managements bieten\n o Prioritäten verwalten und Business Continuity sicherstellen\n Gewährleistung einer reibungslosen, effizienten und qualitativ hochwertigen Organisation für den physischen und telefonischen Empfang von Patienten, Besuchern und Mitarbeitern, um ein positives Bild der CNP zu vermitteln\n Arbeiten Sie eng mit Ärzten und abteilungsübergreifenden Führungskräften zusammen, um die klinische Organisation zu unterstützen\n Beitrag zur und Aktualisierung der Arzt- / Therapeutenplanung\n o Organisation, Teilnahme an und Follow-up vor Ort oder thematische Seminare\n Gewährleistung einer strengen und konsistenten Verwaltung der Krankenakten, Überwachung und Abschluss der klinischen Dokumentation sowie Erfüllung der institutionellen Anforderungen und Zeitpläne\n o die Einhaltung der Qualität der Dienstleistungsprozesse, die Harmonisierung der Berufspraktiken und die administrative Konsistenz zu gewährleisten\n o an institutionellen Projekten auf Wunsch des Medical Secretariat Managers teilnehmen\n o Ressourcen planen und optimieren (Sekretariate, Auszubildende, Auszubildende), Ersatz proaktiv verwalten\n o Durchführung der Evaluationsinterviews und Begleitung der Kompetenzentwicklung Ihres Teams\n bei Bedarf operative Hilfe leisten.\n Ihre Fähigkeiten:\n SWC-Handelsmitarbeiter oder gleichwertig.\n o Berufsreife und medizinische Sekretär Grad sind ein Vermögenswert\n o laufendes CAS-Managementtraining erforderlich ist.\n mindestens 3 Jahre Erfahrung im Management von Verwaltungsteams\n o einigender Geist, Stärke des Vorschlags und Leichtigkeit bei der Begleitung von Veränderungen.\n Gute Organisations- und Managementkapazitäten für Notfallprioritäten / Stress\n Analysekapazität und Synthese\n hervorragende Beziehungs- und Managementfähigkeiten, die es Ihnen ermöglichen, schwierige Situationen anzugehen, klare Erwartungen zu formulieren und bei Bedarf mit Unterstützung des Sektormanagers zur Konfliktlösung beizutragen.\n Geschwindigkeit und Anpassungsfähigkeit\n Flexibilität und Zuhören\n o perfekte Beherrschung der französischen Sprache in mündlicher und schriftlicher Sprache\n o aktuelle Nutzung der Office-Suite und idealerweise Kenntnisse der Software im NOC (Opale, Polypoint, Carefolio)\n Wir bieten Ihnen\n Eine Schlüssel- und Ermächtigungsrolle, im Herzen der Funktionsweise der klinischen Aktivitäten.\n o Eine Proximity-Management-Funktion mit echter Autonomie in der Organisation Ihrer Website.\n o Die Möglichkeit, aktiv zur Entwicklung und Harmonisierung der NOC-medizinischen Sekretariate beizutragen.\n Ein multidisziplinäres Arbeitsumfeld in enger Zusammenarbeit mit medizinischen, Gesundheits- und Verwaltungsteams.\n o Die Möglichkeit, Ihre Management- und beruflichen Fähigkeiten innerhalb einer anerkannten kantonalen Institution zu entwickeln.\n o ein stimulierendes und kooperatives Umfeld für eine öffentliche Gesundheitsmission;\n Arbeitsbedingungen gemäß CLC Health 21 und attraktive Sozialleistungen;\n Amtsantritt: 1. März 2027\n Arbeitsplätze:\n - CPCM und Gefängnis der Promenade à la Chaux-de-Fonds\n - CPCL Altes Schloss in Neuenburg\n - CUP-Standort von Pourtalès/Gibraltar nach Neuenburg\n - Prefargier-Standort, Krankenhaussektor in Marin\n - Prefargier-Standort, ambulanter Bereich in Marin\n & Mobilitäten auf anderen Seiten\n Art des Vertrags: Unbestimmter Vertrag\n Bewerbungsfrist: 4. Oktober 2026\n Vollständige Bewerbungen (Motivationsschreiben, Lebensläufe, Diplome und Arbeitsbescheinigungen) sollten per Online-Direktbewerbung eingereicht werden. Bitte geben Sie die Website(s) an, für die Sie sich bewerben, und die gewünschte Aktivitätsrate.\n\nInsgesamt\n2000 Neuenburg"
+        "it": "Costituzione del diritto pubblico cantonale, il CNP ha il compito di condurre la politica sanitaria del cantone di Neuchâtel nel campo della salute mentale, in collaborazione con le istituzioni partner. La NPC mira a riabilitare i pazienti con disturbi mentali adottando un modello di psichiatria integrato basato sulla comunità; implementare politiche pubbliche per promuovere e prevenire la salute mentale; funge da centro di riferimento nel campo della formazione professionale e della ricerca psichiatrica.\nLa Direzione delle Finanze, per il settore della segreteria medica, cerca di riempire 5 posizioni di:\n\nCoordinatori del sito di segretariati medici\n\nCon una maturità commerciale, almeno una SWC di un dipendente, hai completato idealmente la formazione manageriale e hai già gestito una o più squadre amministrative. Si desidera unire un'istituzione riconosciuta specializzata in salute mentale.\nNell'ambito della vostra funzione, dovrete organizzare l'attività del segretariato medico assicurando un funzionamento regolare, anticipato e allineato con le esigenze delle unità cliniche e dei pazienti. Funzione chiave che assicura il coordinamento operativo e umano dei segretariati medici su un sito CNP, una persona di risorse reale per tutte le questioni medico-amministrative, sarete un interlocutore privilegiato per i team multidisciplinari e prenderà il controllo delle attività più complesse attraverso la padronanza dei compiti dei vostri team.\nLe vostre missioni:\no pianificare e coordinare tutte le attività del Segretariato Medico\no mentore e federare segretarie mediche, fornendo una strutturazione e mobilitazione della gestione della comunità\ngestire le priorità e garantire la continuità aziendale\no garantire un'organizzazione fluida, efficiente e di alta qualità per la ricezione fisica e telefonica di pazienti, visitatori e collaboratori, contribuendo a trasmettere un'immagine positiva del CNP\no lavorare a stretto contatto con medici e dirigenti interdepartmentali per sostenere l'organizzazione clinica\no contribuire e aggiornare la pianificazione medico/terapeuta\no organizzare, partecipare e seguire in loco o seminari tematici\no garantire una gestione rigorosa e coerente dei documenti medici, monitorare e finalizzare la documentazione clinica, e soddisfare requisiti istituzionali e tempistiche\no garantire il rispetto della qualità dei processi di servizio, l'armonizzazione delle pratiche professionali e la coerenza amministrativa\no partecipare a progetti istituzionali su richiesta del Responsabile della Segreteria Medica\no pianificare e ottimizzare le risorse (segretari, tirocinanti, apprendisti), gestire le sostituzioni proattivamente\no condurre le interviste di valutazione e accompagnare lo sviluppo delle competenze del vostro team\no fornire assistenza operativa quando necessario.\nLe tue capacità:\no dipendente commerciale SWC o equivalente.\no maturità professionale e laurea in medicina sono un bene\no formazione continua di gestione del tipo CAS è richiesto.\no un minimo di 3 anni di esperienza nella gestione dei team amministrativi\no unificare lo spirito, la forza della proposta e la facilità nel cambiamento di accompagnamento.\no Buona capacità organizzativa e gestionale per priorità di emergenza/stress\no capacità analitica e sintesi\no eccellenti capacità relazionali e manageriali che consentono di affrontare situazioni difficili, formulare chiare aspettative e contribuire alla risoluzione dei conflitti con il supporto del responsabile del settore quando necessario.\no velocità e adattabilità\no flessibilità e ascolto\no perfetta padronanza della lingua francese in lingua orale e scritta\no uso corrente della suite Office e la conoscenza ideale del software in atto presso il NOC (Opale, Polypoint, Carefolio)\nVi offriamo\no Un ruolo chiave e potenziante, al centro del funzionamento delle attività cliniche.\no Una funzione di gestione della prossimità, con reale autonomia nell'organizzazione del tuo sito.\no L'opportunità di contribuire attivamente all'evoluzione e all'armonizzazione dei segretariati medici NOC.\no Un ambiente di lavoro multidisciplinare, in stretta collaborazione con team medici, sanitari e amministrativi.\no La possibilità di sviluppare le tue competenze manageriali e professionali all'interno di un'istituzione cantonale riconosciuta.\no un ambiente stimolante e collaborativo per una missione sanitaria pubblica;\no Condizioni di lavoro disciplinate dal CLC Health 21 e benefici sociali attraenti;\nIngresso in ufficio: 1 marzo 2027\nPosti di lavoro:\n- CPCM e Prigione della Promenade à la Chaux-de-Fonds\n- CPCL Old Castle in Neuchâtel\n- Sito CUP da Pourtalès/Gibraltar a Neuchâtel\n- Sito Prefargier, settore ospedaliero a Marin\n- Prefargier sito, zona ambulatorio a Marin\n& mobilita su altri siti\nTipo di contratto: Contratto indeterminato\nTermine ultimo per l'applicazione: 4 ottobre 2026\nLe domande complete (lettere di motivazione, CV, diplomi e certificati di lavoro) devono essere presentate direttamente online. Si prega di specificare il sito(i) per il quale si sta applicando e il tasso di attività desiderato.\n\nTotale\n2000 Neuchâtel",
+        "en": "Establishment of cantonal public law, the CNP has the task of conducting the health policy of the canton of Neuchâtel in the field of mental health, in collaboration with the partner institutions. The NPC aims to rehabilitate patients with mental disorders by adopting an integrated, community-based psychiatry model; implement public policies to promote and prevent mental health; it acts as a reference centre in the field of vocational training and psychiatry research.\nThe Finance Directorate, for its medical secretariat sector, is seeking to fill 5 positions of:\n\nSite coordinators of medical secretariats\n\nWith a commercial maturity, at least one SWC of an employee, you have ideally completed management training and have already managed one or more administrative teams. You want to join a recognized institution specializing in mental health.\nAs part of your function, you will have to organize the activity of the medical secretariat by ensuring smooth, anticipated and aligned functioning with the needs of clinical units and patients. Key function ensuring the operational and human coordination of medical secretariats on a CNP site, a real resource person for all medico-administrative issues, you will be a privileged interlocutor for multidisciplinary teams and will take over the most complex activities through the mastery of the tasks of your teams.\nYour missions:\no plan and coordinate all activities of the Medical Secretariat\no mentor and federate medical secretaries, providing a structuring and mobilizing community management\no manage priorities and ensure business continuity\no ensure a smooth, efficient and high-quality organisation for the physical and telephone reception of patients, visitors and collaborators, helping to convey a positive image of the CNP\no work closely with physicians and interdepartmental executives to support the clinical organization\no contribute to and update physician/therapist planning\no organize, participate in and follow up on site or thematic seminars\no ensure rigorous and consistent management of medical records, monitor and finalize clinical documentation, and meet institutional requirements and timelines\no ensure compliance with quality of service processes, harmonization of professional practices and administrative consistency\no participate in institutional projects at the request of the Medical Secretariat Manager\no plan and optimize resources (secretaries, trainees, apprentices), manage replacements proactively\no conduct the evaluation interviews and accompany your team's skill development\no provide operational assistance when necessary.\nYour skills:\no SWC trade employee or equivalent.\no professional maturity and medical secretary degree are an asset\no ongoing CAS-type management training is required.\no a minimum of 3 years experience in managing administrative teams\no unifying spirit, strength of proposal and ease in accompanying change.\no Good organizational and management capacity for emergency priorities/stress\no analytical capacity and synthesis\no excellent relational and managerial skills that allow you to address difficult situations, formulate clear expectations and contribute to conflict resolution with the support of the Sector Manager when necessary.\no speed and adaptability\no flexibility and listening\no perfect mastery of the French language in oral and written language\no current use of the Office suite and ideally knowledge of software in place at the NOC (Opale, Polypoint, Carefolio)\nWe offer you\no A key and empowering role, at the heart of the functioning of clinical activities.\no A proximity management function, with real autonomy in the organization of your site.\no The opportunity to contribute actively to the evolution and harmonization of the NOC medical secretariats.\no A multidisciplinary working environment, in close collaboration with medical, health and administrative teams.\no The possibility of developing your managerial and professional skills within a recognised cantonal institution.\no a stimulating and collaborative environment for a public health mission;\no Working conditions governed by the CLC Health 21 and attractive social benefits;\nEntry into office: 1 March 2027\nWorkplaces:\n- CPCM and Prison of the Promenade à la Chaux-de-Fonds\n- CPCL Old Castle in Neuchâtel\n- CUP site from Pourtalès/Gibraltar to Neuchâtel\n- Prefargier site, hospital sector in Marin\n- Prefargier site, outpatient area in Marin\n& mobilities on other sites\nType of contract: Indeterminate contract\nDeadline for application: 4 October 2026\nFull applications (motivation letters, CVs, diplomas and work certificates) should be submitted by direct online application. Please specify the site(s) for which you are applying and the desired activity rate.\n\nTotal\n2000 Neuchâtel",
+        "de": "Die CNP hat die Aufgabe, die Gesundheitspolitik des Kantons Neuenburg im Bereich der psychischen Gesundheit in Zusammenarbeit mit den Partnerinstitutionen durchzuführen. Der NPC zielt darauf ab, Patienten mit psychischen Störungen zu rehabilitieren, indem er ein integriertes, gemeindebasiertes Psychiatriemodell anwendet, öffentliche Maßnahmen zur Förderung und Prävention psychischer Gesundheit umsetzt und als Referenzzentrum im Bereich der beruflichen Bildung und Psychiatrieforschung fungiert.\nDie Finanzdirektion für ihren medizinischen Sekretariatssektor möchte 5 Stellen besetzen:\n\nStandortkoordinatoren von medizinischen Sekretariaten\n\nMit einer kaufmännischen Reife, mindestens einem SWC eines Mitarbeiters, haben Sie idealerweise eine Managementschulung abgeschlossen und bereits ein oder mehrere Verwaltungsteams geleitet. Sie möchten einer anerkannten Institution beitreten, die sich auf psychische Gesundheit spezialisiert hat.\nAls Teil Ihrer Funktion müssen Sie die Tätigkeit des medizinischen Sekretariats organisieren, indem Sie ein reibungsloses, erwartetes und auf die Bedürfnisse der klinischen Einheiten und Patienten abgestimmtes Funktionieren sicherstellen. Schlüsselfunktion, die die operative und menschliche Koordination der medizinischen Sekretariate auf einer CNP-Website, eine echte Ressource Person für alle medizinisch-administrative Fragen, werden Sie ein privilegierter Gesprächspartner für multidisziplinäre Teams sein und übernehmen die komplexesten Aktivitäten durch die Beherrschung der Aufgaben Ihrer Teams.\nIhre Missionen:\nPlanen und koordinieren Sie alle Aktivitäten des Medizinischen Sekretariats\no Mentor und föderierte medizinische Sekretärinnen, die eine Strukturierung und Mobilisierung des Community Managements bieten\no Prioritäten verwalten und Business Continuity sicherstellen\nGewährleistung einer reibungslosen, effizienten und qualitativ hochwertigen Organisation für den physischen und telefonischen Empfang von Patienten, Besuchern und Mitarbeitern, um ein positives Bild der CNP zu vermitteln\nArbeiten Sie eng mit Ärzten und abteilungsübergreifenden Führungskräften zusammen, um die klinische Organisation zu unterstützen\nBeitrag zur und Aktualisierung der Arzt- / Therapeutenplanung\no Organisation, Teilnahme an und Follow-up vor Ort oder thematische Seminare\nGewährleistung einer strengen und konsistenten Verwaltung der Krankenakten, Überwachung und Abschluss der klinischen Dokumentation sowie Erfüllung der institutionellen Anforderungen und Zeitpläne\no die Einhaltung der Qualität der Dienstleistungsprozesse, die Harmonisierung der Berufspraktiken und die administrative Konsistenz zu gewährleisten\no an institutionellen Projekten auf Wunsch des Medical Secretariat Managers teilnehmen\no Ressourcen planen und optimieren (Sekretariate, Auszubildende, Auszubildende), Ersatz proaktiv verwalten\no Durchführung der Evaluationsinterviews und Begleitung der Kompetenzentwicklung Ihres Teams\nbei Bedarf operative Hilfe leisten.\nIhre Fähigkeiten:\nSWC-Handelsmitarbeiter oder gleichwertig.\no Berufsreife und medizinische Sekretär Grad sind ein Vermögenswert\no laufendes CAS-Managementtraining erforderlich ist.\nmindestens 3 Jahre Erfahrung im Management von Verwaltungsteams\no einigender Geist, Stärke des Vorschlags und Leichtigkeit bei der Begleitung von Veränderungen.\nGute Organisations- und Managementkapazitäten für Notfallprioritäten / Stress\nAnalysekapazität und Synthese\nhervorragende Beziehungs- und Managementfähigkeiten, die es Ihnen ermöglichen, schwierige Situationen anzugehen, klare Erwartungen zu formulieren und bei Bedarf mit Unterstützung des Sektormanagers zur Konfliktlösung beizutragen.\nGeschwindigkeit und Anpassungsfähigkeit\nFlexibilität und Zuhören\no perfekte Beherrschung der französischen Sprache in mündlicher und schriftlicher Sprache\no aktuelle Nutzung der Office-Suite und idealerweise Kenntnisse der Software im NOC (Opale, Polypoint, Carefolio)\nWir bieten Ihnen\nEine Schlüssel- und Ermächtigungsrolle, im Herzen der Funktionsweise der klinischen Aktivitäten.\no Eine Proximity-Management-Funktion mit echter Autonomie in der Organisation Ihrer Website.\no Die Möglichkeit, aktiv zur Entwicklung und Harmonisierung der NOC-medizinischen Sekretariate beizutragen.\nEin multidisziplinäres Arbeitsumfeld in enger Zusammenarbeit mit medizinischen, Gesundheits- und Verwaltungsteams.\no Die Möglichkeit, Ihre Management- und beruflichen Fähigkeiten innerhalb einer anerkannten kantonalen Institution zu entwickeln.\no ein stimulierendes und kooperatives Umfeld für eine öffentliche Gesundheitsmission;\nArbeitsbedingungen gemäß CLC Health 21 und attraktive Sozialleistungen;\nAmtsantritt: 1. März 2027\nArbeitsplätze:\n- CPCM und Gefängnis der Promenade à la Chaux-de-Fonds\n- CPCL Altes Schloss in Neuenburg\n- CUP-Standort von Pourtalès/Gibraltar nach Neuenburg\n- Prefargier-Standort, Krankenhaussektor in Marin\n- Prefargier-Standort, ambulanter Bereich in Marin\n& Mobilitäten auf anderen Seiten\nArt des Vertrags: Unbestimmter Vertrag\nBewerbungsfrist: 4. Oktober 2026\nVollständige Bewerbungen (Motivationsschreiben, Lebensläufe, Diplome und Arbeitsbescheinigungen) sollten per Online-Direktbewerbung eingereicht werden. Bitte geben Sie die Website(s) an, für die Sie sich bewerben, und die gewünschte Aktivitätsrate.\n\nInsgesamt\n2000 Neuenburg",
+        "fr": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\nLa direction des finances, pour son secteur des secrétariats médicaux, recherche à pourvoir 5 postes de :\n\nCoordinateurs.trices de site des secrétariats médicaux\n\nTitulaire d'une maturité commerciale, au minimum d'un CFC d'employé.e de commerce, vous avez idéalement suivi une formation en management et avez déjà géré une ou plusieurs équipes administratives. Vous désirez intégrer une institution reconnue, spécialisée en santé psychique.\nDans le cadre de votre fonction vous serez amené·e à organiser l’activité du secrétariat médical en garantissant un fonctionnement fluide, anticipé et aligné avec les besoins des unités cliniques et des patient·e·s. Fonction clé assurant la coordination opérationnelle et humaine des secrétariats médicaux sur un site du CNP, véritable personne ressource pour toutes les questions médico-administratives, vous serez un.e interlocuteur.trice privilégié.e pour les équipes pluridisciplinaires et prendrez en charge les activités les plus complexes grâce à la maîtrise des tâches de vos équipes.\nVos missions :\no planifiez et coordonnez l’ensemble des activités du secrétariat médical\no encadrez et fédérez les secrétaires médicales, en assurant un management de proximité structurant et mobilisateur\no gérez les priorités et vous assurez de la continuité de l’activité\no garantissez une organisation fluide, efficace et de qualité de l’accueil physique et téléphonique des patient·e·s, visiteur·euse·s et collaborateur·trice·s, contribuant à véhiculer une image positive du CNP\no travaillez en étroite collaboration avec les médecins et cadres inter-départements pour soutenir l’organisation clinique\no contribuez à la planification des médecins/thérapeutes et en assurez la mise à jour\no organisez, participez et assurez le suivi des colloques de site ou de séances thématiques\no assurez une gestion rigoureuse et conforme des dossiers médicaux, veillez au contrôle et à la finalisation de la documentation clinique ainsi qu’au respect des exigences et délais institutionnels\no veillez au respect des processus garantissant la qualité des prestations, l’harmonisation des pratiques professionnelles et la cohérence administrative\no participez aux projets institutionnels sur demande de la Responsable des secrétariats médicaux\no planifiez et optimisez les ressources (secrétaires, stagiaires, apprenti·e·s), gérez les remplacements de manière proactive\no conduisez les entretiens d’évaluation et accompagnez la montée en compétences de vos équipes\no apportez une aide opérationnelle lorsque nécessaire.\nVos compétences :\no CFC d’employé·e de commerce ou titre jugé équivalent.\no la maturité professionnelle et un diplôme de secrétaire médicale constituent un atout\no une formation continue en management de type CAS est requise.\no une expérience de 3 ans minimum dans la gestion d’équipes administratives\no esprit fédérateur, force de proposition et aisance dans l’accompagnement du changement.\no bonne capacité d'organisation et de gestion des priorités / du stress face aux situations d'urgence\no capacité d'analyse et esprit de synthèse\no excellentes compétences relationnelles et managériales vous permettant d’aborder les situations difficiles, de formuler des attentes claires et de contribuer à la résolution des conflits avec l’appui de la Responsable de secteur lorsque nécessaire.\no rapidité d’exécution et adaptabilité\no flexibilité et écoute\no parfaite maitrise de la langue française à l’oral et à l’écrit\no utilisation courante de la suite Office et idéalement, connaissance des logiciels en vigueur au CNP (Opale, Polypoint, Carefolio)\nNous vous offrons\no Un rôle clé et responsabilisant, au cœur du fonctionnement des activités cliniques.\no Une fonction de management de proximité, avec une réelle autonomie dans l’organisation de votre site.\no L’opportunité de contribuer activement à l’évolution et à l’harmonisation des secrétariats médicaux du CNP.\no Un environnement de travail pluridisciplinaire, en collaboration étroite avec les équipes médicales, soignantes et administratives.\no La possibilité de développer vos compétences managériales et professionnelles au sein d’une institution cantonale reconnue.\no un environnement stimulant et collaboratif au service d’une mission de santé publique ;\no Des conditions de travail régies par la CCT Santé 21 et des prestations sociales attractives ;\nEntrée en fonction : 1er mars 2027\nLieux de travail :\n- CPCM et Etablissement de détention de la Promenade à la Chaux-de- Fonds\n- CPCL Vieux-Châtel à Neuchâtel\n- CUP site de Pourtalès/Gibraltar à Neuchâtel\n- Site de Préfargier, secteur hospitalier à Marin\n- Site de Préfargier, secteur ambulatoire à Marin\n& mobilités sur d’autres sites\nType de contrat : Contrat de durée indéterminée\nDélai de postulation : 4 octobre 2026\nLes dossiers de candidature complets (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser par postulation directe en ligne. Merci de préciser le ou les site(s) pour le(s)quel(s) vous postulez et le taux d’activité souhaité.\n\nPourtales\n2000 Neuchâtel"
       },
       "location": "Neuchâtel",
       "canton": "NE",
       "url": "https://www.jobup.ch/fr/emplois/detail/ced2aea0-6ef9-4819-9e41-cc290a808ad5",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:53:51.938Z",
+      "crawledAt": "2026-09-24T14:49:48.306Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2076,9 +2100,22 @@
       "postedDate": "2028-09-16",
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/ced2aea0-6ef9-4819-9e41-cc290a808ad5",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "coordinateurs-trices-de-site-des-secretariats-medicaux-cnp-neuchatel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateurs-trices-de-site-des-secretariats-medicaux-cnp-neuchatel"
+        ],
+        "en": [
+          "coordinateurs-trices-de-site-des-secretariats-medicaux-cnp-neuchatel"
+        ],
+        "de": [
+          "coordinateurs-trices-de-site-des-secretariats-medicaux-cnp-neuchatel"
+        ]
       },
+      "firstSeenAt": "2026-09-19T22:53:51.938Z",
       "salaryMin": 86000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -2092,54 +2129,40 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:53:51.938Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "coordinateurs-trices-de-site-des-secretariats-medicaux-cnp-neuchatel"
-        ],
-        "en": [
-          "coordinateurs-trices-de-site-des-secretariats-medicaux-cnp-neuchatel"
-        ],
-        "de": [
-          "coordinateurs-trices-de-site-des-secretariats-medicaux-cnp-neuchatel"
-        ]
-      },
-      "previousSlugs": [
-        "coordinateurs-trices-de-site-des-secretariats-medicaux-cnp-neuchatel"
-      ]
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/ced2aea0-6ef9-4819-9e41-cc290a808ad5"
     },
     {
       "id": "cnp-0128e00e6e42",
       "slug": "90-medico-legale-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
       "slugByLocale": {
-        "fr": "secretaire-medical-e-a-90-cnp-la-chaux-de-fonds",
         "it": "90-medico-legale-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
         "en": "90-medical-secretary-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
-        "de": "90-medizinischer-sekretar-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds"
+        "de": "90-medizinischer-sekretar-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
+        "fr": "secretaire-medical-e-a-90-cnp-la-chaux-de-fonds"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
       "companyKey": "cnp",
       "companyDomain": "cnp.ch",
       "title": "Secrétaire médical.e à 90 %",
       "titleByLocale": {
-        "fr": "Secrétaire médical.e à 90 %",
         "it": "90% medico legale",
         "en": "90% medical secretary",
-        "de": "90 % medizinischer Sekretär"
+        "de": "90 % medizinischer Sekretär",
+        "fr": "Secrétaire médical.e à 90 %"
       },
       "description": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\n La direction des finances, pour son secteur des secrétariats médicaux, recherche à pourvoir, pour le département de l’enfance et de l’adolescence, le poste de :\n\nSecrétaire médical.e à 90 %\n\nTitulaire d’un CFC d’employé·e de commerce ou d’un titre jugé équivalent, vous disposez de 5 ans d’expérience minimum dans le domaine administratif. Le diplôme de secrétaire médicale est un atout. Vous désirez intégrer une institution reconnue, spécialisée en santé psychique.\n Dans le cadre de votre fonction vous serez amené·e à :\n o jouer un rôle d’interface avec les patients, familles et partenaires en garantissant un accueil\n physique et téléphonique professionnel et courtois\n o planifier les rendez-vous et participer à la gestion des agendas\n o veiller à la qualité, la fiabilité et la continuité des tâches administratives liées à la prise en charge des patients\n o gérer le flux documentaire (traitement du courrier, suivi et relecture de rapports, demandes de dossier…) et garantir la bonne tenue des dossiers médicaux\n o collaborer étroitement avec les équipes médicales et pluridisciplinaires et leur fournir un soutien administratif efficace et proactif\n \n• Vos compétences\n o CFC employé·e de commerce, assistant·e en pharmacie, ou titre jugé équivalent.\n o Diplôme de secrétaire médicale, un atout\n o 5 ans d’expérience sur un poste similaire\n o aisance relationnelle, diplomatie et capacité à faire face aux situations de stress\n o excellent sens de l’organisation et gestion efficace des priorités\n o dynamisme, ouverture d’esprit et rapidité d’exécution\n o autonomie, rigueur et précision\n o flexibilité et motivation à travailler en collaboration avec des équipes pluridisciplinaires\n o parfaite maitrise de la langue française à l’oral et à l’écrit\n o utilisation courante de la suite Office et idéalement, connaissance des logiciels en vigueur au CNP (Opale, Polypoint, Carefolio)\n Nous vous offrons\n o Des conditions de travail régies par la CCT Santé 21 et des prestations sociales attractives ;\n o Un rôle essentiel au cœur du parcours des patient·e·s et de leurs familles\n o Un environnement de travail humain et stimulant, au sein d’équipes médicales et pluridisciplinaires\n o Une activité variée et responsabilisante, alliant contact, organisation et gestion médico-administrative\n o Une collaboration de proximité avec les professionnel·le·s de la santé\n o Un cadre de travail stable, avec un contrat à durée indéterminée et des horaires du lundi au vendredi\n Entrée en fonction : 1er février 2027 ou à convenir\n Lieux de travail : Site du CPCM – Rue de la Jardinière 157 - 2300 La Chaux-de-Fonds\n Type de contrat : Contrat de durée indéterminée\n Jours de travail : Du lundi au vendredi, de 8 à 17h30\n Délai de postulation : 4 octobre 2026\n Les dossiers de candidature complets (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser par postulation directe en ligne.\n\nRue Jardinière 157a\n2300 La Chaux-de-Fonds",
       "descriptionByLocale": {
-        "fr": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\n La direction des finances, pour son secteur des secrétariats médicaux, recherche à pourvoir, pour le département de l’enfance et de l’adolescence, le poste de :\n\nSecrétaire médical.e à 90 %\n\nTitulaire d’un CFC d’employé·e de commerce ou d’un titre jugé équivalent, vous disposez de 5 ans d’expérience minimum dans le domaine administratif. Le diplôme de secrétaire médicale est un atout. Vous désirez intégrer une institution reconnue, spécialisée en santé psychique.\n Dans le cadre de votre fonction vous serez amené·e à :\n o jouer un rôle d’interface avec les patients, familles et partenaires en garantissant un accueil\n physique et téléphonique professionnel et courtois\n o planifier les rendez-vous et participer à la gestion des agendas\n o veiller à la qualité, la fiabilité et la continuité des tâches administratives liées à la prise en charge des patients\n o gérer le flux documentaire (traitement du courrier, suivi et relecture de rapports, demandes de dossier…) et garantir la bonne tenue des dossiers médicaux\n o collaborer étroitement avec les équipes médicales et pluridisciplinaires et leur fournir un soutien administratif efficace et proactif\n \n• Vos compétences\n o CFC employé·e de commerce, assistant·e en pharmacie, ou titre jugé équivalent.\n o Diplôme de secrétaire médicale, un atout\n o 5 ans d’expérience sur un poste similaire\n o aisance relationnelle, diplomatie et capacité à faire face aux situations de stress\n o excellent sens de l’organisation et gestion efficace des priorités\n o dynamisme, ouverture d’esprit et rapidité d’exécution\n o autonomie, rigueur et précision\n o flexibilité et motivation à travailler en collaboration avec des équipes pluridisciplinaires\n o parfaite maitrise de la langue française à l’oral et à l’écrit\n o utilisation courante de la suite Office et idéalement, connaissance des logiciels en vigueur au CNP (Opale, Polypoint, Carefolio)\n Nous vous offrons\n o Des conditions de travail régies par la CCT Santé 21 et des prestations sociales attractives ;\n o Un rôle essentiel au cœur du parcours des patient·e·s et de leurs familles\n o Un environnement de travail humain et stimulant, au sein d’équipes médicales et pluridisciplinaires\n o Une activité variée et responsabilisante, alliant contact, organisation et gestion médico-administrative\n o Une collaboration de proximité avec les professionnel·le·s de la santé\n o Un cadre de travail stable, avec un contrat à durée indéterminée et des horaires du lundi au vendredi\n Entrée en fonction : 1er février 2027 ou à convenir\n Lieux de travail : Site du CPCM – Rue de la Jardinière 157 - 2300 La Chaux-de-Fonds\n Type de contrat : Contrat de durée indéterminée\n Jours de travail : Du lundi au vendredi, de 8 à 17h30\n Délai de postulation : 4 octobre 2026\n Les dossiers de candidature complets (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser par postulation directe en ligne.\n\nRue Jardinière 157a\n2300 La Chaux-de-Fonds",
-        "it": "Costituzione del diritto pubblico cantonale, il CNP ha il compito di condurre la politica sanitaria del cantone di Neuchâtel nel campo della salute mentale, in collaborazione con le istituzioni partner. La NPC mira a riabilitare i pazienti con disturbi mentali adottando un modello di psichiatria integrato basato sulla comunità; implementare politiche pubbliche per promuovere e prevenire la salute mentale; funge da centro di riferimento nel campo della formazione professionale e della ricerca psichiatrica.\n La Direzione delle Finanze, per il suo settore di segreteria medica, cerca di riempire il posto di:\n\n90% medico legale\n\nTitolare di un SWC di un dipendente commerciale o di un titolo equivalente, hai 5 anni di esperienza amministrativa minima. La laurea in medicina e' una risorsa. Si desidera unire un'istituzione riconosciuta specializzata in salute mentale.\n Come parte della vostra funzione sarete tenuti a:\n o svolgere un ruolo di interfaccia con pazienti, famiglie e partner assicurando una ricezione\n professionale e cortese fisico e telefono\n o appuntamenti di pianificazione e partecipazione alla gestione dell'agenda\n o garantire la qualità, l'affidabilità e la continuità dei compiti amministrativi relativi alla gestione del paziente\n o gestire il flusso di documentazione (elaborazione di posta elettronica, follow-up e rilettura di rapporti, richieste di file, ecc.) e garantire una corretta manutenzione dei documenti medici\n o lavorare a stretto contatto con e fornire un supporto amministrativo efficace e proattivo ai team medici e multidisciplinari\n\n• Le tue competenze\n o CFC impiegati in commercio, assistente farmacia o equivalente.\n o Diploma di segretaria medica, un bene\n o 5 anni di esperienza in una posizione simile\n o facilità di relazione, diplomazia e capacità di affrontare situazioni di stress\n o eccellente senso organizzativo e gestione delle priorità efficace\n o dinamismo, apertura e velocità di esecuzione\n o autonomia, rigore e precisione\n o flessibilità e motivazione per lavorare con team multidisciplinari\n o perfetta padronanza della lingua francese in lingua orale e scritta\n o uso corrente della suite Office e la conoscenza ideale del software in atto presso il NOC (Opale, Polypoint, Carefolio)\n Vi offriamo\n o Condizioni di lavoro disciplinate dal CLC Health 21 e benefici sociali attraenti;\n o Un ruolo chiave nel cuore dei pazienti e del viaggio delle loro famiglie\n o Un ambiente di lavoro umano e stimolante all'interno di team medici e multidisciplinari\n o Un'attività varia e responsabile, combinando contatto, organizzazione e gestione medico-amministrativa\n o Chiudi collaborazione con professionisti della salute\n o Un ambiente di lavoro stabile, con un contratto a tempo indeterminato e ore di lavoro da lunedì a venerdì\n Entrata in carica: 1 febbraio 2027 o da concordare\n Posti di lavoro: CPCM site – Rue de la Jardinière 157 - 2300 La Chaux-de-Fonds\n Tipo di contratto: Contratto indeterminato\n Giorni lavorativi: dal lunedì al venerdì, dalle 8 alle 17.30\n Termine ultimo per l'applicazione: 4 ottobre 2026\n Le domande complete (lettere di motivazione, CV, diplomi e certificati di lavoro) devono essere presentate direttamente online.\n\nGarden Street 157a\n2300 La Chaux-de-Fonds",
-        "en": "Establishment of cantonal public law, the CNP has the task of conducting the health policy of the canton of Neuchâtel in the field of mental health, in collaboration with the partner institutions. The NPC aims to rehabilitate patients with mental disorders by adopting an integrated, community-based psychiatry model; implement public policies to promote and prevent mental health; it acts as a reference centre in the field of vocational training and psychiatry research.\n The Directorate of Finance, for its medical secretariat sector, is seeking to fill the post of:\n\n90% medical secretary\n\nHolder of an SWC of a trade employee or an equivalent title, you have 5 years of minimum administrative experience. The medical secretary degree is an asset. You want to join a recognized institution specializing in mental health.\n As part of your function you will be required to:\n o play an interface role with patients, families and partners by ensuring a reception\n professional and courteous physical and telephone\n o planning appointments and participating in agenda management\n o ensure the quality, reliability and continuity of administrative tasks related to patient management\n o manage the flow of documentation (mail processing, follow-up and rereading of reports, requests for files, etc.) and ensure proper maintenance of medical records\n o work closely with and provide effective and proactive administrative support to medical and multidisciplinary teams\n\n• Your skills\n o CFCs employed in commerce, pharmacy assistant or equivalent.\n o Diploma of medical secretary, an asset\n o 5 years of experience in a similar position\n o relationship ease, diplomacy and ability to cope with stress situations\n o excellent organizational sense and effective priority management\n o dynamism, openness and speed of execution\n o autonomy, rigour and accuracy\n o flexibility and motivation to work with multidisciplinary teams\n o perfect mastery of the French language in oral and written language\n o current use of the Office suite and ideally knowledge of software in place at the NOC (Opale, Polypoint, Carefolio)\n We offer you\n o Working conditions governed by the CLC Health 21 and attractive social benefits;\n o A key role at the heart of patients' and their families' journey\n o A human and stimulating working environment within medical and multidisciplinary teams\n o A varied and responsible activity, combining contact, organization and medico-administrative management\n o Close collaboration with health professionals\n o A stable working environment, with an indefinite contract and working hours Monday to Friday\n Entry into office: 1 February 2027 or to be agreed\n Workplaces : CPCM site – Rue de la Jardinière 157 - 2300 La Chaux-de-Fonds\n Type of contract: Indeterminate contract\n Working days : Monday to Friday, from 8 to 5.30 p.m.\n Deadline for application: 4 October 2026\n Full applications (motivation letters, CVs, diplomas and work certificates) should be submitted by direct online application.\n\nGarden Street 157a\n2300 La Chaux-de-Fonds",
-        "de": "Die CNP hat die Aufgabe, die Gesundheitspolitik des Kantons Neuenburg im Bereich der psychischen Gesundheit in Zusammenarbeit mit den Partnerinstitutionen durchzuführen. Der NPC zielt darauf ab, Patienten mit psychischen Störungen zu rehabilitieren, indem er ein integriertes, gemeindebasiertes Psychiatriemodell anwendet, öffentliche Maßnahmen zur Förderung und Prävention psychischer Gesundheit umsetzt und als Referenzzentrum im Bereich der beruflichen Bildung und Psychiatrieforschung fungiert.\n Die Direktion für Finanzen für ihren medizinischen Sekretariatssektor sucht die Stelle von:\n\n90 % medizinischer Sekretär\n\nInhaber eines SWC eines Handelsangestellten oder eines gleichwertigen Titels, haben Sie 5 Jahre Mindestverwaltungserfahrung. Der Medical Secretary Degree ist ein Asset. Sie möchten einer anerkannten Institution beitreten, die sich auf psychische Gesundheit spezialisiert hat.\n Als Teil Ihrer Funktion müssen Sie:\n Spielen Sie eine Schnittstellenrolle mit Patienten, Familien und Partnern, indem Sie einen Empfang sicherstellen\n professionelle und zuvorkommende physische und telefonische\n o Terminplanung und Teilnahme am Agendamanagement\n Gewährleistung der Qualität, Zuverlässigkeit und Kontinuität der Verwaltungsaufgaben im Zusammenhang mit dem Patientenmanagement\n o Verwaltung des Dokumentationsflusses (E-Mail-Verarbeitung, Nachverfolgung und erneutes Lesen von Berichten, Anfragen nach Dateien usw.) und Gewährleistung der ordnungsgemäßen Pflege der Krankenakten\n Arbeiten Sie eng mit medizinischen und multidisziplinären Teams zusammen und bieten Sie effektive und proaktive administrative Unterstützung\n\n• Ihre Fähigkeiten\n FCKW, die im Handel, Apothekenassistent oder gleichwertig eingesetzt werden.\n o Diploma of Medical Secretary, ein Asset\n 5 Jahre Erfahrung in einer ähnlichen Position\n Beziehung Leichtigkeit, Diplomatie und Fähigkeit, mit Stresssituationen umzugehen\n Ausgezeichneter organisatorischer Sinn und effektives Priority Management\n Dynamik, Offenheit und Ausführungsgeschwindigkeit\n Autonomie, Strenge und Genauigkeit\n Flexibilität und Motivation, mit multidisziplinären Teams zu arbeiten\n o perfekte Beherrschung der französischen Sprache in mündlicher und schriftlicher Sprache\n o aktuelle Nutzung der Office-Suite und idealerweise Kenntnisse der Software im NOC (Opale, Polypoint, Carefolio)\n Wir bieten Ihnen\n Arbeitsbedingungen gemäß CLC Health 21 und attraktive Sozialleistungen;\n Eine Schlüsselrolle im Herzen der Reise der Patienten und ihrer Familien\n Ein menschliches und anregendes Arbeitsumfeld in medizinischen und multidisziplinären Teams\n Eine abwechslungsreiche und verantwortungsvolle Tätigkeit, die Kontakt, Organisation und medizinisch-administratives Management verbindet\n Enge Zusammenarbeit mit Gesundheitsexperten\n Ein stabiles Arbeitsumfeld mit unbefristetem Vertrag und Arbeitszeiten von Montag bis Freitag\n Amtsantritt: 1. Februar 2027 oder noch zu vereinbaren\n Arbeitsplätze : CPCM-Standort – Rue de la Jardinière 157 - 2300 La Chaux-de-Fonds\n Art des Vertrags: Unbestimmter Vertrag\n Arbeitstage: Montag bis Freitag, von 20 bis 17.30 Uhr\n Bewerbungsfrist: 4. Oktober 2026\n Vollständige Bewerbungen (Motivationsschreiben, Lebensläufe, Diplome und Arbeitsbescheinigungen) sollten per Online-Direktbewerbung eingereicht werden.\n\nGarden Street 157a\n2300 La Chaux-de-Fonds"
+        "it": "Costituzione del diritto pubblico cantonale, il CNP ha il compito di condurre la politica sanitaria del cantone di Neuchâtel nel campo della salute mentale, in collaborazione con le istituzioni partner. La NPC mira a riabilitare i pazienti con disturbi mentali adottando un modello di psichiatria integrato basato sulla comunità; implementare politiche pubbliche per promuovere e prevenire la salute mentale; funge da centro di riferimento nel campo della formazione professionale e della ricerca psichiatrica.\nLa Direzione delle Finanze, per il suo settore di segreteria medica, cerca di riempire il posto di:\n\n90% medico legale\n\nTitolare di un SWC di un dipendente commerciale o di un titolo equivalente, hai 5 anni di esperienza amministrativa minima. La laurea in medicina e' una risorsa. Si desidera unire un'istituzione riconosciuta specializzata in salute mentale.\nCome parte della vostra funzione sarete tenuti a:\no svolgere un ruolo di interfaccia con pazienti, famiglie e partner assicurando una ricezione\nprofessionale e cortese fisico e telefono\no appuntamenti di pianificazione e partecipazione alla gestione dell'agenda\no garantire la qualità, l'affidabilità e la continuità dei compiti amministrativi relativi alla gestione del paziente\no gestire il flusso di documentazione (elaborazione di posta elettronica, follow-up e rilettura di rapporti, richieste di file, ecc.) e garantire una corretta manutenzione dei documenti medici\no lavorare a stretto contatto con e fornire un supporto amministrativo efficace e proattivo ai team medici e multidisciplinari\n\n• Le tue competenze\no CFC impiegati in commercio, assistente farmacia o equivalente.\no Diploma di segretaria medica, un bene\no 5 anni di esperienza in una posizione simile\no facilità di relazione, diplomazia e capacità di affrontare situazioni di stress\no eccellente senso organizzativo e gestione delle priorità efficace\no dinamismo, apertura e velocità di esecuzione\no autonomia, rigore e precisione\no flessibilità e motivazione per lavorare con team multidisciplinari\no perfetta padronanza della lingua francese in lingua orale e scritta\no uso corrente della suite Office e la conoscenza ideale del software in atto presso il NOC (Opale, Polypoint, Carefolio)\nVi offriamo\no Condizioni di lavoro disciplinate dal CLC Health 21 e benefici sociali attraenti;\no Un ruolo chiave nel cuore dei pazienti e del viaggio delle loro famiglie\no Un ambiente di lavoro umano e stimolante all'interno di team medici e multidisciplinari\no Un'attività varia e responsabile, combinando contatto, organizzazione e gestione medico-amministrativa\no Chiudi collaborazione con professionisti della salute\no Un ambiente di lavoro stabile, con un contratto a tempo indeterminato e ore di lavoro da lunedì a venerdì\nEntrata in carica: 1 febbraio 2027 o da concordare\nPosti di lavoro: CPCM site – Rue de la Jardinière 157 - 2300 La Chaux-de-Fonds\nTipo di contratto: Contratto indeterminato\nGiorni lavorativi: dal lunedì al venerdì, dalle 8 alle 17.30\nTermine ultimo per l'applicazione: 4 ottobre 2026\nLe domande complete (lettere di motivazione, CV, diplomi e certificati di lavoro) devono essere presentate direttamente online.\n\nGarden Street 157a\n2300 La Chaux-de-Fonds",
+        "en": "Establishment of cantonal public law, the CNP has the task of conducting the health policy of the canton of Neuchâtel in the field of mental health, in collaboration with the partner institutions. The NPC aims to rehabilitate patients with mental disorders by adopting an integrated, community-based psychiatry model; implement public policies to promote and prevent mental health; it acts as a reference centre in the field of vocational training and psychiatry research.\nThe Directorate of Finance, for its medical secretariat sector, is seeking to fill the post of:\n\n90% medical secretary\n\nHolder of an SWC of a trade employee or an equivalent title, you have 5 years of minimum administrative experience. The medical secretary degree is an asset. You want to join a recognized institution specializing in mental health.\nAs part of your function you will be required to:\no play an interface role with patients, families and partners by ensuring a reception\nprofessional and courteous physical and telephone\no planning appointments and participating in agenda management\no ensure the quality, reliability and continuity of administrative tasks related to patient management\no manage the flow of documentation (mail processing, follow-up and rereading of reports, requests for files, etc.) and ensure proper maintenance of medical records\no work closely with and provide effective and proactive administrative support to medical and multidisciplinary teams\n\n• Your skills\no CFCs employed in commerce, pharmacy assistant or equivalent.\no Diploma of medical secretary, an asset\no 5 years of experience in a similar position\no relationship ease, diplomacy and ability to cope with stress situations\no excellent organizational sense and effective priority management\no dynamism, openness and speed of execution\no autonomy, rigour and accuracy\no flexibility and motivation to work with multidisciplinary teams\no perfect mastery of the French language in oral and written language\no current use of the Office suite and ideally knowledge of software in place at the NOC (Opale, Polypoint, Carefolio)\nWe offer you\no Working conditions governed by the CLC Health 21 and attractive social benefits;\no A key role at the heart of patients' and their families' journey\no A human and stimulating working environment within medical and multidisciplinary teams\no A varied and responsible activity, combining contact, organization and medico-administrative management\no Close collaboration with health professionals\no A stable working environment, with an indefinite contract and working hours Monday to Friday\nEntry into office: 1 February 2027 or to be agreed\nWorkplaces : CPCM site – Rue de la Jardinière 157 - 2300 La Chaux-de-Fonds\nType of contract: Indeterminate contract\nWorking days : Monday to Friday, from 8 to 5.30 p.m.\nDeadline for application: 4 October 2026\nFull applications (motivation letters, CVs, diplomas and work certificates) should be submitted by direct online application.\n\nGarden Street 157a\n2300 La Chaux-de-Fonds",
+        "de": "Die CNP hat die Aufgabe, die Gesundheitspolitik des Kantons Neuenburg im Bereich der psychischen Gesundheit in Zusammenarbeit mit den Partnerinstitutionen durchzuführen. Der NPC zielt darauf ab, Patienten mit psychischen Störungen zu rehabilitieren, indem er ein integriertes, gemeindebasiertes Psychiatriemodell anwendet, öffentliche Maßnahmen zur Förderung und Prävention psychischer Gesundheit umsetzt und als Referenzzentrum im Bereich der beruflichen Bildung und Psychiatrieforschung fungiert.\nDie Direktion für Finanzen für ihren medizinischen Sekretariatssektor sucht die Stelle von:\n\n90 % medizinischer Sekretär\n\nInhaber eines SWC eines Handelsangestellten oder eines gleichwertigen Titels, haben Sie 5 Jahre Mindestverwaltungserfahrung. Der Medical Secretary Degree ist ein Asset. Sie möchten einer anerkannten Institution beitreten, die sich auf psychische Gesundheit spezialisiert hat.\nAls Teil Ihrer Funktion müssen Sie:\nSpielen Sie eine Schnittstellenrolle mit Patienten, Familien und Partnern, indem Sie einen Empfang sicherstellen\nprofessionelle und zuvorkommende physische und telefonische\no Terminplanung und Teilnahme am Agendamanagement\nGewährleistung der Qualität, Zuverlässigkeit und Kontinuität der Verwaltungsaufgaben im Zusammenhang mit dem Patientenmanagement\no Verwaltung des Dokumentationsflusses (E-Mail-Verarbeitung, Nachverfolgung und erneutes Lesen von Berichten, Anfragen nach Dateien usw.) und Gewährleistung der ordnungsgemäßen Pflege der Krankenakten\nArbeiten Sie eng mit medizinischen und multidisziplinären Teams zusammen und bieten Sie effektive und proaktive administrative Unterstützung\n\n• Ihre Fähigkeiten\nFCKW, die im Handel, Apothekenassistent oder gleichwertig eingesetzt werden.\no Diploma of Medical Secretary, ein Asset\n5 Jahre Erfahrung in einer ähnlichen Position\nBeziehung Leichtigkeit, Diplomatie und Fähigkeit, mit Stresssituationen umzugehen\nAusgezeichneter organisatorischer Sinn und effektives Priority Management\nDynamik, Offenheit und Ausführungsgeschwindigkeit\nAutonomie, Strenge und Genauigkeit\nFlexibilität und Motivation, mit multidisziplinären Teams zu arbeiten\no perfekte Beherrschung der französischen Sprache in mündlicher und schriftlicher Sprache\no aktuelle Nutzung der Office-Suite und idealerweise Kenntnisse der Software im NOC (Opale, Polypoint, Carefolio)\nWir bieten Ihnen\nArbeitsbedingungen gemäß CLC Health 21 und attraktive Sozialleistungen;\nEine Schlüsselrolle im Herzen der Reise der Patienten und ihrer Familien\nEin menschliches und anregendes Arbeitsumfeld in medizinischen und multidisziplinären Teams\nEine abwechslungsreiche und verantwortungsvolle Tätigkeit, die Kontakt, Organisation und medizinisch-administratives Management verbindet\nEnge Zusammenarbeit mit Gesundheitsexperten\nEin stabiles Arbeitsumfeld mit unbefristetem Vertrag und Arbeitszeiten von Montag bis Freitag\nAmtsantritt: 1. Februar 2027 oder noch zu vereinbaren\nArbeitsplätze : CPCM-Standort – Rue de la Jardinière 157 - 2300 La Chaux-de-Fonds\nArt des Vertrags: Unbestimmter Vertrag\nArbeitstage: Montag bis Freitag, von 20 bis 17.30 Uhr\nBewerbungsfrist: 4. Oktober 2026\nVollständige Bewerbungen (Motivationsschreiben, Lebensläufe, Diplome und Arbeitsbescheinigungen) sollten per Online-Direktbewerbung eingereicht werden.\n\nGarden Street 157a\n2300 La Chaux-de-Fonds",
+        "fr": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\nLa direction des finances, pour son secteur des secrétariats médicaux, recherche à pourvoir, pour le département de l’enfance et de l’adolescence, le poste de :\n\nSecrétaire médical.e à 90 %\n\nTitulaire d’un CFC d’employé·e de commerce ou d’un titre jugé équivalent, vous disposez de 5 ans d’expérience minimum dans le domaine administratif. Le diplôme de secrétaire médicale est un atout. Vous désirez intégrer une institution reconnue, spécialisée en santé psychique.\n• Dans le cadre de votre fonction vous serez amené·e à :\n• o jouer un rôle d’interface avec les patients, familles et partenaires en garantissant un accueil\n• physique et téléphonique professionnel et courtois\n• o planifier les rendez-vous et participer à la gestion des agendas\n• o veiller à la qualité, la fiabilité et la continuité des tâches administratives liées à la prise en charge des patients\n• o gérer le flux documentaire (traitement du courrier, suivi et relecture de rapports, demandes de dossier…) et garantir la bonne tenue des dossiers médicaux\n• o collaborer étroitement avec les équipes médicales et pluridisciplinaires et leur fournir un soutien administratif efficace et proactif\n• Vos compétences\n• o CFC employé·e de commerce, assistant·e en pharmacie, ou titre jugé équivalent.\n• o Diplôme de secrétaire médicale, un atout\n• o 5 ans d’expérience sur un poste similaire\n• o aisance relationnelle, diplomatie et capacité à faire face aux situations de stress\n• o excellent sens de l’organisation et gestion efficace des priorités\n• o dynamisme, ouverture d’esprit et rapidité d’exécution\n• o autonomie, rigueur et précision\n• o flexibilité et motivation à travailler en collaboration avec des équipes pluridisciplinaires\n• o parfaite maitrise de la langue française à l’oral et à l’écrit\n• o utilisation courante de la suite Office et idéalement, connaissance des logiciels en vigueur au CNP (Opale, Polypoint, Carefolio)\n• Nous vous offrons\n• o Des conditions de travail régies par la CCT Santé 21 et des prestations sociales attractives ;\n• o Un rôle essentiel au cœur du parcours des patient·e·s et de leurs familles\n• o Un environnement de travail humain et stimulant, au sein d’équipes médicales et pluridisciplinaires\n• o Une activité variée et responsabilisante, alliant contact, organisation et gestion médico-administrative\n• o Une collaboration de proximité avec les professionnel·le·s de la santé\n• o Un cadre de travail stable, avec un contrat à durée indéterminée et des horaires du lundi au vendredi\n• Entrée en fonction : 1er février 2027 ou à convenir\n• Lieux de travail : Site du CPCM – Rue de la Jardinière 157 - 2300 La Chaux-de-Fonds\n• Type de contrat : Contrat de durée indéterminée\n• Jours de travail : Du lundi au vendredi, de 8 à 17h30\n• Délai de postulation : 4 octobre 2026\n• Les dossiers de candidature complets (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser par postulation directe en ligne.\n\nRue Jardinière 157a\n2300 La Chaux-de-Fonds"
       },
       "location": "La Chaux-de-Fonds",
       "canton": "NE",
       "url": "https://www.jobup.ch/fr/emplois/detail/6d909d4a-e0d7-4497-8472-52520915014f",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:53:51.307Z",
+      "crawledAt": "2026-09-24T14:49:47.296Z",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2155,9 +2178,24 @@
       "postedDate": "2028-09-16",
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/6d909d4a-e0d7-4497-8472-52520915014f",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "secretaire-medical-e-a-90-cnp-la-chaux-de-fonds",
+        "medical-secretary-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-a-90-cnp-la-chaux-de-fonds",
+          "medical-secretary-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds"
+        ],
+        "en": [
+          "secretaire-medical-e-a-90-cnp-la-chaux-de-fonds"
+        ],
+        "de": [
+          "secretaire-medical-e-a-90-cnp-la-chaux-de-fonds"
+        ]
       },
+      "firstSeenAt": "2026-09-19T22:53:51.307Z",
       "salaryMin": 77400,
       "salaryMax": 108000,
       "salarySource": "estimated",
@@ -2171,56 +2209,40 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:53:51.307Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "secretaire-medical-e-a-90-cnp-la-chaux-de-fonds",
-          "medical-secretary-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds"
-        ],
-        "en": [
-          "secretaire-medical-e-a-90-cnp-la-chaux-de-fonds"
-        ],
-        "de": [
-          "secretaire-medical-e-a-90-cnp-la-chaux-de-fonds"
-        ]
-      },
-      "previousSlugs": [
-        "secretaire-medical-e-a-90-cnp-la-chaux-de-fonds",
-        "medical-secretary-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds"
-      ]
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/6d909d4a-e0d7-4497-8472-52520915014f"
     },
     {
       "id": "cnp-672b993cfc36",
       "slug": "90-medico-legale-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
       "slugByLocale": {
-        "fr": "secretaire-medical-e-a-90-cnp-neuchatel",
         "it": "90-medico-legale-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "en": "90-medical-secretary-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "de": "90-medizinischer-sekretar-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
+        "de": "90-medizinischer-sekretar-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "fr": "secretaire-medical-e-a-90-cnp-neuchatel"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
       "companyKey": "cnp",
       "companyDomain": "cnp.ch",
       "title": "Secrétaire médical.e à 90 %",
       "titleByLocale": {
-        "fr": "Secrétaire médical.e à 90 %",
         "it": "90% medico legale",
         "en": "90% medical secretary",
-        "de": "90 % medizinischer Sekretär"
+        "de": "90 % medizinischer Sekretär",
+        "fr": "Secrétaire médical.e à 90 %"
       },
       "description": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\n La direction des finances, pour son secteur des secrétariats médicaux, recherche à pourvoir, pour le département de l’enfance et de l’adolescence, le poste de :\n\nSecrétaire médical.e à 90 %\n\nTitulaire d’un CFC d’employé·e de commerce ou d’un titre jugé équivalent, vous disposez de 5 ans d’expérience minimum dans le domaine administratif. Le diplôme de secrétaire médicale est un atout. Vous désirez intégrer une institution reconnue, spécialisée en santé psychique.\n Dans le cadre de votre fonction vous serez amené·e à :\n o jouer un rôle d’interface avec les patients, familles et partenaires en garantissant un accueil\n physique et téléphonique professionnel et courtois\n o planifier les rendez-vous et participer à la gestion des agendas\n o veiller à la qualité, la fiabilité et la continuité des tâches administratives liées à la prise en charge des patients\n o gérer le flux documentaire (traitement du courrier, suivi et relecture de rapports, demandes de dossier…) et garantir la bonne tenue des dossiers médicaux\n o collaborer étroitement avec les équipes médicales et pluridisciplinaires et leur fournir un soutien administratif efficace et proactif\n \n• Vos compétences\n o CFC employé·e de commerce, assistant·e en pharmacie, ou titre jugé équivalent.\n o Diplôme de secrétaire médicale, un atout\n o 5 ans d’expérience sur un poste similaire\n o aisance relationnelle, diplomatie et capacité à faire face aux situations de stress\n o excellent sens de l’organisation et gestion efficace des priorités\n o dynamisme, ouverture d’esprit et rapidité d’exécution\n o autonomie, rigueur et précision\n o flexibilité et motivation à travailler en collaboration avec des équipes pluridisciplinaires\n o parfaite maitrise de la langue française à l’oral et à l’écrit\n o utilisation courante de la suite Office et idéalement, connaissance des logiciels en vigueur au CNP (Opale, Polypoint, Carefolio)\n Nous vous offrons\n o Des conditions de travail régies par la CCT Santé 21 et des prestations sociales attractives ;\n o Un rôle essentiel au cœur du parcours des patient·e·s et de leurs familles\n o Un environnement de travail humain et stimulant, au sein d’équipes médicales et pluridisciplinaires\n o Une activité variée et responsabilisante, alliant contact, organisation et gestion médico-administrative\n o Une collaboration de proximité avec les professionnel·le·s de la santé\n o Un cadre de travail stable, avec un contrat à durée indéterminée et des horaires du lundi au vendredi\n Entrée en fonction : 1er février 2027 ou à convenir\n Lieux de travail : Site de Vieux-Châtel - Rue de Vieux-Châtel 18, 2000 Neuchâtel\n Type de contrat : Contrat de durée indéterminée\n Jours de travail : Du lundi au vendredi, de 8 à 17h30\n Délai de postulation : 4 octobre 2026\n Les dossiers de candidature complets (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser par postulation directe en ligne.\n\nRue de Vieux-Châtel 18,20\n2000 Neuchâtel",
       "descriptionByLocale": {
-        "fr": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\n La direction des finances, pour son secteur des secrétariats médicaux, recherche à pourvoir, pour le département de l’enfance et de l’adolescence, le poste de :\n\nSecrétaire médical.e à 90 %\n\nTitulaire d’un CFC d’employé·e de commerce ou d’un titre jugé équivalent, vous disposez de 5 ans d’expérience minimum dans le domaine administratif. Le diplôme de secrétaire médicale est un atout. Vous désirez intégrer une institution reconnue, spécialisée en santé psychique.\n Dans le cadre de votre fonction vous serez amené·e à :\n o jouer un rôle d’interface avec les patients, familles et partenaires en garantissant un accueil\n physique et téléphonique professionnel et courtois\n o planifier les rendez-vous et participer à la gestion des agendas\n o veiller à la qualité, la fiabilité et la continuité des tâches administratives liées à la prise en charge des patients\n o gérer le flux documentaire (traitement du courrier, suivi et relecture de rapports, demandes de dossier…) et garantir la bonne tenue des dossiers médicaux\n o collaborer étroitement avec les équipes médicales et pluridisciplinaires et leur fournir un soutien administratif efficace et proactif\n \n• Vos compétences\n o CFC employé·e de commerce, assistant·e en pharmacie, ou titre jugé équivalent.\n o Diplôme de secrétaire médicale, un atout\n o 5 ans d’expérience sur un poste similaire\n o aisance relationnelle, diplomatie et capacité à faire face aux situations de stress\n o excellent sens de l’organisation et gestion efficace des priorités\n o dynamisme, ouverture d’esprit et rapidité d’exécution\n o autonomie, rigueur et précision\n o flexibilité et motivation à travailler en collaboration avec des équipes pluridisciplinaires\n o parfaite maitrise de la langue française à l’oral et à l’écrit\n o utilisation courante de la suite Office et idéalement, connaissance des logiciels en vigueur au CNP (Opale, Polypoint, Carefolio)\n Nous vous offrons\n o Des conditions de travail régies par la CCT Santé 21 et des prestations sociales attractives ;\n o Un rôle essentiel au cœur du parcours des patient·e·s et de leurs familles\n o Un environnement de travail humain et stimulant, au sein d’équipes médicales et pluridisciplinaires\n o Une activité variée et responsabilisante, alliant contact, organisation et gestion médico-administrative\n o Une collaboration de proximité avec les professionnel·le·s de la santé\n o Un cadre de travail stable, avec un contrat à durée indéterminée et des horaires du lundi au vendredi\n Entrée en fonction : 1er février 2027 ou à convenir\n Lieux de travail : Site de Vieux-Châtel - Rue de Vieux-Châtel 18, 2000 Neuchâtel\n Type de contrat : Contrat de durée indéterminée\n Jours de travail : Du lundi au vendredi, de 8 à 17h30\n Délai de postulation : 4 octobre 2026\n Les dossiers de candidature complets (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser par postulation directe en ligne.\n\nRue de Vieux-Châtel 18,20\n2000 Neuchâtel",
-        "it": "Costituzione del diritto pubblico cantonale, il CNP ha il compito di condurre la politica sanitaria del cantone di Neuchâtel nel campo della salute mentale, in collaborazione con le istituzioni partner. La NPC mira a riabilitare i pazienti con disturbi mentali adottando un modello di psichiatria integrato basato sulla comunità; implementare politiche pubbliche per promuovere e prevenire la salute mentale; funge da centro di riferimento nel campo della formazione professionale e della ricerca psichiatrica.\n La Direzione delle Finanze, per il suo settore di segreteria medica, cerca di riempire il posto di:\n\n90% medico legale\n\nTitolare di un SWC di un dipendente commerciale o di un titolo equivalente, hai 5 anni di esperienza amministrativa minima. La laurea in medicina e' una risorsa. Si desidera unire un'istituzione riconosciuta specializzata in salute mentale.\n Come parte della vostra funzione sarete tenuti a:\n o svolgere un ruolo di interfaccia con pazienti, famiglie e partner assicurando una ricezione\n professionale e cortese fisico e telefono\n o appuntamenti di pianificazione e partecipazione alla gestione dell'agenda\n o garantire la qualità, l'affidabilità e la continuità dei compiti amministrativi relativi alla gestione del paziente\n o gestire il flusso di documentazione (elaborazione di posta elettronica, follow-up e rilettura di rapporti, richieste di file, ecc.) e garantire una corretta manutenzione dei documenti medici\n o lavorare a stretto contatto con e fornire un supporto amministrativo efficace e proattivo ai team medici e multidisciplinari\n\n• Le tue competenze\n o CFC impiegati in commercio, assistente farmacia o equivalente.\n o Diploma di segretaria medica, un bene\n o 5 anni di esperienza in una posizione simile\n o facilità di relazione, diplomazia e capacità di affrontare situazioni di stress\n o eccellente senso organizzativo e gestione delle priorità efficace\n o dinamismo, apertura e velocità di esecuzione\n o autonomia, rigore e precisione\n o flessibilità e motivazione per lavorare con team multidisciplinari\n o perfetta padronanza della lingua francese in lingua orale e scritta\n o uso corrente della suite Office e la conoscenza ideale del software in atto presso il NOC (Opale, Polypoint, Carefolio)\n Vi offriamo\n o Condizioni di lavoro disciplinate dal CLC Health 21 e benefici sociali attraenti;\n o Un ruolo chiave nel cuore dei pazienti e del viaggio delle loro famiglie\n o Un ambiente di lavoro umano e stimolante all'interno di team medici e multidisciplinari\n o Un'attività varia e responsabile, combinando contatto, organizzazione e gestione medico-amministrativa\n o Chiudi collaborazione con professionisti della salute\n o Un ambiente di lavoro stabile, con un contratto a tempo indeterminato e ore di lavoro da lunedì a venerdì\n Entrata in carica: 1 febbraio 2027 o da concordare\n Posti di lavoro: Site de Vieux-Châtel - Rue de Vieux-Châtel 18, 2000 Neuchâtel\n Tipo di contratto: Contratto indeterminato\n Giorni lavorativi: dal lunedì al venerdì, dalle 8 alle 17.30\n Termine ultimo per l'applicazione: 4 ottobre 2026\n Le domande complete (lettere di motivazione, CV, diplomi e certificati di lavoro) devono essere presentate direttamente online.\n\nRue de Vieux-Châtel 18,20\n2000 Neuchâtel",
-        "en": "Establishment of cantonal public law, the CNP has the task of conducting the health policy of the canton of Neuchâtel in the field of mental health, in collaboration with the partner institutions. The NPC aims to rehabilitate patients with mental disorders by adopting an integrated, community-based psychiatry model; implement public policies to promote and prevent mental health; it acts as a reference centre in the field of vocational training and psychiatry research.\n The Directorate of Finance, for its medical secretariat sector, is seeking to fill the post of:\n\n90% medical secretary\n\nHolder of an SWC of a trade employee or an equivalent title, you have 5 years of minimum administrative experience. The medical secretary degree is an asset. You want to join a recognized institution specializing in mental health.\n As part of your function you will be required to:\n o play an interface role with patients, families and partners by ensuring a reception\n professional and courteous physical and telephone\n o planning appointments and participating in agenda management\n o ensure the quality, reliability and continuity of administrative tasks related to patient management\n o manage the flow of documentation (mail processing, follow-up and rereading of reports, requests for files, etc.) and ensure proper maintenance of medical records\n o work closely with and provide effective and proactive administrative support to medical and multidisciplinary teams\n\n• Your skills\n o CFCs employed in commerce, pharmacy assistant or equivalent.\n o Diploma of medical secretary, an asset\n o 5 years of experience in a similar position\n o relationship ease, diplomacy and ability to cope with stress situations\n o excellent organizational sense and effective priority management\n o dynamism, openness and speed of execution\n o autonomy, rigour and accuracy\n o flexibility and motivation to work with multidisciplinary teams\n o perfect mastery of the French language in oral and written language\n o current use of the Office suite and ideally knowledge of software in place at the NOC (Opale, Polypoint, Carefolio)\n We offer you\n o Working conditions governed by the CLC Health 21 and attractive social benefits;\n o A key role at the heart of patients' and their families' journey\n o A human and stimulating working environment within medical and multidisciplinary teams\n o A varied and responsible activity, combining contact, organization and medico-administrative management\n o Close collaboration with health professionals\n o A stable working environment, with an indefinite contract and working hours Monday to Friday\n Entry into office: 1 February 2027 or to be agreed\n Workplaces : Site de Vieux-Châtel - Rue de Vieux-Châtel 18, 2000 Neuchâtel\n Type of contract: Indeterminate contract\n Working days : Monday to Friday, from 8 to 5.30 p.m.\n Deadline for application: 4 October 2026\n Full applications (motivation letters, CVs, diplomas and work certificates) should be submitted by direct online application.\n\nRue de Vieux-Châtel 18,20\n2000 Neuchâtel",
-        "de": "Die CNP hat die Aufgabe, die Gesundheitspolitik des Kantons Neuenburg im Bereich der psychischen Gesundheit in Zusammenarbeit mit den Partnerinstitutionen durchzuführen. Der NPC zielt darauf ab, Patienten mit psychischen Störungen zu rehabilitieren, indem er ein integriertes, gemeindebasiertes Psychiatriemodell anwendet, öffentliche Maßnahmen zur Förderung und Prävention psychischer Gesundheit umsetzt und als Referenzzentrum im Bereich der beruflichen Bildung und Psychiatrieforschung fungiert.\n Die Direktion für Finanzen für ihren medizinischen Sekretariatssektor sucht die Stelle von:\n\n90 % medizinischer Sekretär\n\nInhaber eines SWC eines Handelsangestellten oder eines gleichwertigen Titels, haben Sie 5 Jahre Mindestverwaltungserfahrung. Der Medical Secretary Degree ist ein Asset. Sie möchten einer anerkannten Institution beitreten, die sich auf psychische Gesundheit spezialisiert hat.\n Als Teil Ihrer Funktion müssen Sie:\n Spielen Sie eine Schnittstellenrolle mit Patienten, Familien und Partnern, indem Sie einen Empfang sicherstellen\n professionelle und zuvorkommende physische und telefonische\n o Terminplanung und Teilnahme am Agendamanagement\n Gewährleistung der Qualität, Zuverlässigkeit und Kontinuität der Verwaltungsaufgaben im Zusammenhang mit dem Patientenmanagement\n o Verwaltung des Dokumentationsflusses (E-Mail-Verarbeitung, Nachverfolgung und erneutes Lesen von Berichten, Anfragen nach Dateien usw.) und Gewährleistung der ordnungsgemäßen Pflege der Krankenakten\n Arbeiten Sie eng mit medizinischen und multidisziplinären Teams zusammen und bieten Sie effektive und proaktive administrative Unterstützung\n\n• Ihre Fähigkeiten\n FCKW, die im Handel, Apothekenassistent oder gleichwertig eingesetzt werden.\n o Diploma of Medical Secretary, ein Asset\n 5 Jahre Erfahrung in einer ähnlichen Position\n Beziehung Leichtigkeit, Diplomatie und Fähigkeit, mit Stresssituationen umzugehen\n Ausgezeichneter organisatorischer Sinn und effektives Priority Management\n Dynamik, Offenheit und Ausführungsgeschwindigkeit\n Autonomie, Strenge und Genauigkeit\n Flexibilität und Motivation, mit multidisziplinären Teams zu arbeiten\n o perfekte Beherrschung der französischen Sprache in mündlicher und schriftlicher Sprache\n o aktuelle Nutzung der Office-Suite und idealerweise Kenntnisse der Software im NOC (Opale, Polypoint, Carefolio)\n Wir bieten Ihnen\n Arbeitsbedingungen gemäß CLC Health 21 und attraktive Sozialleistungen;\n Eine Schlüsselrolle im Herzen der Reise der Patienten und ihrer Familien\n Ein menschliches und anregendes Arbeitsumfeld in medizinischen und multidisziplinären Teams\n Eine abwechslungsreiche und verantwortungsvolle Tätigkeit, die Kontakt, Organisation und medizinisch-administratives Management verbindet\n Enge Zusammenarbeit mit Gesundheitsexperten\n Ein stabiles Arbeitsumfeld mit unbefristetem Vertrag und Arbeitszeiten von Montag bis Freitag\n Amtsantritt: 1. Februar 2027 oder noch zu vereinbaren\n Arbeitsplätze : Site de Vieux-Châtel - Rue de Vieux-Châtel 18, 2000 Neuchâtel\n Art des Vertrags: Unbestimmter Vertrag\n Arbeitstage: Montag bis Freitag, von 20 bis 17.30 Uhr\n Bewerbungsfrist: 4. Oktober 2026\n Vollständige Bewerbungen (Motivationsschreiben, Lebensläufe, Diplome und Arbeitsbescheinigungen) sollten per Online-Direktbewerbung eingereicht werden.\n\nRue de Vieux-Châtel 18,20\n2000 Neuenburg"
+        "it": "Costituzione del diritto pubblico cantonale, il CNP ha il compito di condurre la politica sanitaria del cantone di Neuchâtel nel campo della salute mentale, in collaborazione con le istituzioni partner. La NPC mira a riabilitare i pazienti con disturbi mentali adottando un modello di psichiatria integrato basato sulla comunità; implementare politiche pubbliche per promuovere e prevenire la salute mentale; funge da centro di riferimento nel campo della formazione professionale e della ricerca psichiatrica.\nLa Direzione delle Finanze, per il suo settore di segreteria medica, cerca di riempire il posto di:\n\n90% medico legale\n\nTitolare di un SWC di un dipendente commerciale o di un titolo equivalente, hai 5 anni di esperienza amministrativa minima. La laurea in medicina e' una risorsa. Si desidera unire un'istituzione riconosciuta specializzata in salute mentale.\nCome parte della vostra funzione sarete tenuti a:\no svolgere un ruolo di interfaccia con pazienti, famiglie e partner assicurando una ricezione\nprofessionale e cortese fisico e telefono\no appuntamenti di pianificazione e partecipazione alla gestione dell'agenda\no garantire la qualità, l'affidabilità e la continuità dei compiti amministrativi relativi alla gestione del paziente\no gestire il flusso di documentazione (elaborazione di posta elettronica, follow-up e rilettura di rapporti, richieste di file, ecc.) e garantire una corretta manutenzione dei documenti medici\no lavorare a stretto contatto con e fornire un supporto amministrativo efficace e proattivo ai team medici e multidisciplinari\n\n• Le tue competenze\no CFC impiegati in commercio, assistente farmacia o equivalente.\no Diploma di segretaria medica, un bene\no 5 anni di esperienza in una posizione simile\no facilità di relazione, diplomazia e capacità di affrontare situazioni di stress\no eccellente senso organizzativo e gestione delle priorità efficace\no dinamismo, apertura e velocità di esecuzione\no autonomia, rigore e precisione\no flessibilità e motivazione per lavorare con team multidisciplinari\no perfetta padronanza della lingua francese in lingua orale e scritta\no uso corrente della suite Office e la conoscenza ideale del software in atto presso il NOC (Opale, Polypoint, Carefolio)\nVi offriamo\no Condizioni di lavoro disciplinate dal CLC Health 21 e benefici sociali attraenti;\no Un ruolo chiave nel cuore dei pazienti e del viaggio delle loro famiglie\no Un ambiente di lavoro umano e stimolante all'interno di team medici e multidisciplinari\no Un'attività varia e responsabile, combinando contatto, organizzazione e gestione medico-amministrativa\no Chiudi collaborazione con professionisti della salute\no Un ambiente di lavoro stabile, con un contratto a tempo indeterminato e ore di lavoro da lunedì a venerdì\nEntrata in carica: 1 febbraio 2027 o da concordare\nPosti di lavoro: Site de Vieux-Châtel - Rue de Vieux-Châtel 18, 2000 Neuchâtel\nTipo di contratto: Contratto indeterminato\nGiorni lavorativi: dal lunedì al venerdì, dalle 8 alle 17.30\nTermine ultimo per l'applicazione: 4 ottobre 2026\nLe domande complete (lettere di motivazione, CV, diplomi e certificati di lavoro) devono essere presentate direttamente online.\n\nRue de Vieux-Châtel 18,20\n2000 Neuchâtel",
+        "en": "Establishment of cantonal public law, the CNP has the task of conducting the health policy of the canton of Neuchâtel in the field of mental health, in collaboration with the partner institutions. The NPC aims to rehabilitate patients with mental disorders by adopting an integrated, community-based psychiatry model; implement public policies to promote and prevent mental health; it acts as a reference centre in the field of vocational training and psychiatry research.\nThe Directorate of Finance, for its medical secretariat sector, is seeking to fill the post of:\n\n90% medical secretary\n\nHolder of an SWC of a trade employee or an equivalent title, you have 5 years of minimum administrative experience. The medical secretary degree is an asset. You want to join a recognized institution specializing in mental health.\nAs part of your function you will be required to:\no play an interface role with patients, families and partners by ensuring a reception\nprofessional and courteous physical and telephone\no planning appointments and participating in agenda management\no ensure the quality, reliability and continuity of administrative tasks related to patient management\no manage the flow of documentation (mail processing, follow-up and rereading of reports, requests for files, etc.) and ensure proper maintenance of medical records\no work closely with and provide effective and proactive administrative support to medical and multidisciplinary teams\n\n• Your skills\no CFCs employed in commerce, pharmacy assistant or equivalent.\no Diploma of medical secretary, an asset\no 5 years of experience in a similar position\no relationship ease, diplomacy and ability to cope with stress situations\no excellent organizational sense and effective priority management\no dynamism, openness and speed of execution\no autonomy, rigour and accuracy\no flexibility and motivation to work with multidisciplinary teams\no perfect mastery of the French language in oral and written language\no current use of the Office suite and ideally knowledge of software in place at the NOC (Opale, Polypoint, Carefolio)\nWe offer you\no Working conditions governed by the CLC Health 21 and attractive social benefits;\no A key role at the heart of patients' and their families' journey\no A human and stimulating working environment within medical and multidisciplinary teams\no A varied and responsible activity, combining contact, organization and medico-administrative management\no Close collaboration with health professionals\no A stable working environment, with an indefinite contract and working hours Monday to Friday\nEntry into office: 1 February 2027 or to be agreed\nWorkplaces : Site de Vieux-Châtel - Rue de Vieux-Châtel 18, 2000 Neuchâtel\nType of contract: Indeterminate contract\nWorking days : Monday to Friday, from 8 to 5.30 p.m.\nDeadline for application: 4 October 2026\nFull applications (motivation letters, CVs, diplomas and work certificates) should be submitted by direct online application.\n\nRue de Vieux-Châtel 18,20\n2000 Neuchâtel",
+        "de": "Die CNP hat die Aufgabe, die Gesundheitspolitik des Kantons Neuenburg im Bereich der psychischen Gesundheit in Zusammenarbeit mit den Partnerinstitutionen durchzuführen. Der NPC zielt darauf ab, Patienten mit psychischen Störungen zu rehabilitieren, indem er ein integriertes, gemeindebasiertes Psychiatriemodell anwendet, öffentliche Maßnahmen zur Förderung und Prävention psychischer Gesundheit umsetzt und als Referenzzentrum im Bereich der beruflichen Bildung und Psychiatrieforschung fungiert.\nDie Direktion für Finanzen für ihren medizinischen Sekretariatssektor sucht die Stelle von:\n\n90 % medizinischer Sekretär\n\nInhaber eines SWC eines Handelsangestellten oder eines gleichwertigen Titels, haben Sie 5 Jahre Mindestverwaltungserfahrung. Der Medical Secretary Degree ist ein Asset. Sie möchten einer anerkannten Institution beitreten, die sich auf psychische Gesundheit spezialisiert hat.\nAls Teil Ihrer Funktion müssen Sie:\nSpielen Sie eine Schnittstellenrolle mit Patienten, Familien und Partnern, indem Sie einen Empfang sicherstellen\nprofessionelle und zuvorkommende physische und telefonische\no Terminplanung und Teilnahme am Agendamanagement\nGewährleistung der Qualität, Zuverlässigkeit und Kontinuität der Verwaltungsaufgaben im Zusammenhang mit dem Patientenmanagement\no Verwaltung des Dokumentationsflusses (E-Mail-Verarbeitung, Nachverfolgung und erneutes Lesen von Berichten, Anfragen nach Dateien usw.) und Gewährleistung der ordnungsgemäßen Pflege der Krankenakten\nArbeiten Sie eng mit medizinischen und multidisziplinären Teams zusammen und bieten Sie effektive und proaktive administrative Unterstützung\n\n• Ihre Fähigkeiten\nFCKW, die im Handel, Apothekenassistent oder gleichwertig eingesetzt werden.\no Diploma of Medical Secretary, ein Asset\n5 Jahre Erfahrung in einer ähnlichen Position\nBeziehung Leichtigkeit, Diplomatie und Fähigkeit, mit Stresssituationen umzugehen\nAusgezeichneter organisatorischer Sinn und effektives Priority Management\nDynamik, Offenheit und Ausführungsgeschwindigkeit\nAutonomie, Strenge und Genauigkeit\nFlexibilität und Motivation, mit multidisziplinären Teams zu arbeiten\no perfekte Beherrschung der französischen Sprache in mündlicher und schriftlicher Sprache\no aktuelle Nutzung der Office-Suite und idealerweise Kenntnisse der Software im NOC (Opale, Polypoint, Carefolio)\nWir bieten Ihnen\nArbeitsbedingungen gemäß CLC Health 21 und attraktive Sozialleistungen;\nEine Schlüsselrolle im Herzen der Reise der Patienten und ihrer Familien\nEin menschliches und anregendes Arbeitsumfeld in medizinischen und multidisziplinären Teams\nEine abwechslungsreiche und verantwortungsvolle Tätigkeit, die Kontakt, Organisation und medizinisch-administratives Management verbindet\nEnge Zusammenarbeit mit Gesundheitsexperten\nEin stabiles Arbeitsumfeld mit unbefristetem Vertrag und Arbeitszeiten von Montag bis Freitag\nAmtsantritt: 1. Februar 2027 oder noch zu vereinbaren\nArbeitsplätze : Site de Vieux-Châtel - Rue de Vieux-Châtel 18, 2000 Neuchâtel\nArt des Vertrags: Unbestimmter Vertrag\nArbeitstage: Montag bis Freitag, von 20 bis 17.30 Uhr\nBewerbungsfrist: 4. Oktober 2026\nVollständige Bewerbungen (Motivationsschreiben, Lebensläufe, Diplome und Arbeitsbescheinigungen) sollten per Online-Direktbewerbung eingereicht werden.\n\nRue de Vieux-Châtel 18,20\n2000 Neuenburg",
+        "fr": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\nLa direction des finances, pour son secteur des secrétariats médicaux, recherche à pourvoir, pour le département de l’enfance et de l’adolescence, le poste de :\n\nSecrétaire médical.e à 90 %\n\nTitulaire d’un CFC d’employé·e de commerce ou d’un titre jugé équivalent, vous disposez de 5 ans d’expérience minimum dans le domaine administratif. Le diplôme de secrétaire médicale est un atout. Vous désirez intégrer une institution reconnue, spécialisée en santé psychique.\n• Dans le cadre de votre fonction vous serez amené·e à :\n• o jouer un rôle d’interface avec les patients, familles et partenaires en garantissant un accueil\n• physique et téléphonique professionnel et courtois\n• o planifier les rendez-vous et participer à la gestion des agendas\n• o veiller à la qualité, la fiabilité et la continuité des tâches administratives liées à la prise en charge des patients\n• o gérer le flux documentaire (traitement du courrier, suivi et relecture de rapports, demandes de dossier…) et garantir la bonne tenue des dossiers médicaux\n• o collaborer étroitement avec les équipes médicales et pluridisciplinaires et leur fournir un soutien administratif efficace et proactif\n• Vos compétences\n• o CFC employé·e de commerce, assistant·e en pharmacie, ou titre jugé équivalent.\n• o Diplôme de secrétaire médicale, un atout\n• o 5 ans d’expérience sur un poste similaire\n• o aisance relationnelle, diplomatie et capacité à faire face aux situations de stress\n• o excellent sens de l’organisation et gestion efficace des priorités\n• o dynamisme, ouverture d’esprit et rapidité d’exécution\n• o autonomie, rigueur et précision\n• o flexibilité et motivation à travailler en collaboration avec des équipes pluridisciplinaires\n• o parfaite maitrise de la langue française à l’oral et à l’écrit\n• o utilisation courante de la suite Office et idéalement, connaissance des logiciels en vigueur au CNP (Opale, Polypoint, Carefolio)\n• Nous vous offrons\n• o Des conditions de travail régies par la CCT Santé 21 et des prestations sociales attractives ;\n• o Un rôle essentiel au cœur du parcours des patient·e·s et de leurs familles\n• o Un environnement de travail humain et stimulant, au sein d’équipes médicales et pluridisciplinaires\n• o Une activité variée et responsabilisante, alliant contact, organisation et gestion médico-administrative\n• o Une collaboration de proximité avec les professionnel·le·s de la santé\n• o Un cadre de travail stable, avec un contrat à durée indéterminée et des horaires du lundi au vendredi\n• Entrée en fonction : 1er février 2027 ou à convenir\n• Lieux de travail : Site de Vieux-Châtel - Rue de Vieux-Châtel 18, 2000 Neuchâtel\n• Type de contrat : Contrat de durée indéterminée\n• Jours de travail : Du lundi au vendredi, de 8 à 17h30\n• Délai de postulation : 4 octobre 2026\n• Les dossiers de candidature complets (lettre de motivation, CV, diplômes et certificats de travail) sont à adresser par postulation directe en ligne.\n\nRue de Vieux-Châtel 18,20\n2000 Neuchâtel"
       },
       "location": "Neuchâtel",
       "canton": "NE",
       "url": "https://www.jobup.ch/fr/emplois/detail/9b11dac7-fe75-4c60-82f1-633e006d892c",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:53:50.652Z",
+      "crawledAt": "2026-09-24T14:49:46.026Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2236,9 +2258,22 @@
       "postedDate": "2028-09-16",
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/9b11dac7-fe75-4c60-82f1-633e006d892c",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "secretaire-medical-e-a-90-cnp-neuchatel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-a-90-cnp-neuchatel"
+        ],
+        "en": [
+          "secretaire-medical-e-a-90-cnp-neuchatel"
+        ],
+        "de": [
+          "secretaire-medical-e-a-90-cnp-neuchatel"
+        ]
       },
+      "firstSeenAt": "2026-09-19T22:53:50.652Z",
       "salaryMin": 77400,
       "salaryMax": 108000,
       "salarySource": "estimated",
@@ -2252,54 +2287,40 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:53:50.652Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "secretaire-medical-e-a-90-cnp-neuchatel"
-        ],
-        "en": [
-          "secretaire-medical-e-a-90-cnp-neuchatel"
-        ],
-        "de": [
-          "secretaire-medical-e-a-90-cnp-neuchatel"
-        ]
-      },
-      "previousSlugs": [
-        "secretaire-medical-e-a-90-cnp-neuchatel"
-      ]
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/9b11dac7-fe75-4c60-82f1-633e006d892c"
     },
     {
       "id": "cnp-ed6f1c8aa8fb",
       "slug": "psicologo-psicoterapeuta-o-psicologo-assistente-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
       "slugByLocale": {
-        "fr": "psychologue-psychotherapeute-ou-psychologue-assistant-e-cnp-marin-epagnier",
         "it": "psicologo-psicoterapeuta-o-psicologo-assistente-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
         "en": "psychologist-psychotherapist-or-assistant-psychologist-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
-        "de": "psychologue-psychotherapeute-ou-psychologue-assistant-e-cnp-marin-epagnier"
+        "de": "psychologue-psychotherapeute-ou-psychologue-assistent-e-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "fr": "psychologue-psychotherapeute-ou-psychologue-assistant-e-cnp-marin-epagnier"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
       "companyKey": "cnp",
       "companyDomain": "cnp.ch",
       "title": "Psychologue-psychothérapeute ou psychologue assistant·e",
       "titleByLocale": {
-        "fr": "Psychologue-psychothérapeute ou psychologue assistant·e",
         "it": "psicologo-psicoterapeuta o psicologo assistente",
         "en": "Psychologist-psychotherapist or assistant psychologist",
-        "de": "Psychologue-psychothérapeute ou psychologue Assistent·e"
+        "de": "Psychologue-psychothérapeute ou psychologue Assistent·e",
+        "fr": "Psychologue-psychothérapeute ou psychologue assistant·e"
       },
       "description": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\n Le département de l’enfance et adolescence recherche, pour la service ambulatoire intensif complexe (AIC), un·e\n\nPsychologue assistant·e\n 40%\n\nLe département de l’enfance et de l’adolescence a pour mission la prise en charge psychiatrique et psychothérapeutique des enfants et des adolescents âgés de 0-18 ans. Le poste est affilié au service ambulatoire intensif complexe (AIC) auprès de l’institution « La Fondation Carrefour » au sein de l’ASAEF (Accompagnement et Soutien Ambulatoire à l’Enfant et sa Famille).\n Vous êtes psychologue, titulaire d’un master en psychologie reconnu par la PsyCo et êtes en cours de formation postgrade en psychothérapie.\n Vos missions principales :\n\n• Evaluations cliniques et prises en charge pluridisciplinaires intensives en milieu familial, afin de renforcer l’accès aux ressources existantes dans la famille et favoriser une évolution du fonctionnement du système familial et social dans lequel l’enfant est inséré et se développe.\n\n• Collaboration régulière et active avec le réseau, l’Office de protection de l’enfant, notamment.\n\n• Travail en équipe pluridisciplinaire (psychologues, éducateurs·rices, assistant·e·s sociaux·sociales).\n\n• Participer au travail de réseau avec les familles, écoles, pédiatres et autres partenaires (retours, échanges, coordination).\n\n• Participer aux réunions d’équipe, supervisions et temps d’élaboration institutionnels.\n Compétences et profil recherchés\n Indispensables :\n\n• Être titulaire d’un master universitaire en psychologie ou équivalent reconnu par la PsyCo.\n\n• Être en cours de formation postgrade en psychothérapie, ou confirmation d’inscription obtenue.\n\n• Capacité à travailler en équipe pluridisciplinaire et à collaborer de manière constructive.\n\n• Être en possession du permis de conduire et d’un véhicule.\n Compétences transversales :\n\n• Autonomie.\n\n• Esprit d’analyse et de synthèse.\n\n• Qualités relationnelles : communication, écoute, discrétion professionnelle.\n\n• Curiosité clinique, rigueur et capacité à gérer l’urgence professionnelle lorsque nécessaire.\n\n• Maîtrise du français et des outils informatiques usuels.\n Entrée en fonction : 1er novembre 2026\n Lieu de travail : Site de Préfargier, 2074 Marin-Epagnier et mobilité dans tout le canton de Neuchâtel\n Taux d’activité : 40%\n Type de contrat : Contrat de durée indéterminée (CDI)\n Délai de postulation : 25 septembre 2026\n Personnes de contact : Annick Crausaz, Psychologue responsable\n Maureen Magnan, Spécialiste sourcing et recrutement\n Le dossier de candidature complet (lettre de motivation, CV à jour, diplômes, certificats de travail et autres attestations) doit être adresser directement en ligne.\n\nSite de Préfargier\n2074 Marin-Epagnier",
       "descriptionByLocale": {
-        "fr": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\n Le département de l’enfance et adolescence recherche, pour la service ambulatoire intensif complexe (AIC), un·e\n\nPsychologue assistant·e\n 40%\n\nLe département de l’enfance et de l’adolescence a pour mission la prise en charge psychiatrique et psychothérapeutique des enfants et des adolescents âgés de 0-18 ans. Le poste est affilié au service ambulatoire intensif complexe (AIC) auprès de l’institution « La Fondation Carrefour » au sein de l’ASAEF (Accompagnement et Soutien Ambulatoire à l’Enfant et sa Famille).\n Vous êtes psychologue, titulaire d’un master en psychologie reconnu par la PsyCo et êtes en cours de formation postgrade en psychothérapie.\n Vos missions principales :\n\n• Evaluations cliniques et prises en charge pluridisciplinaires intensives en milieu familial, afin de renforcer l’accès aux ressources existantes dans la famille et favoriser une évolution du fonctionnement du système familial et social dans lequel l’enfant est inséré et se développe.\n\n• Collaboration régulière et active avec le réseau, l’Office de protection de l’enfant, notamment.\n\n• Travail en équipe pluridisciplinaire (psychologues, éducateurs·rices, assistant·e·s sociaux·sociales).\n\n• Participer au travail de réseau avec les familles, écoles, pédiatres et autres partenaires (retours, échanges, coordination).\n\n• Participer aux réunions d’équipe, supervisions et temps d’élaboration institutionnels.\n Compétences et profil recherchés\n Indispensables :\n\n• Être titulaire d’un master universitaire en psychologie ou équivalent reconnu par la PsyCo.\n\n• Être en cours de formation postgrade en psychothérapie, ou confirmation d’inscription obtenue.\n\n• Capacité à travailler en équipe pluridisciplinaire et à collaborer de manière constructive.\n\n• Être en possession du permis de conduire et d’un véhicule.\n Compétences transversales :\n\n• Autonomie.\n\n• Esprit d’analyse et de synthèse.\n\n• Qualités relationnelles : communication, écoute, discrétion professionnelle.\n\n• Curiosité clinique, rigueur et capacité à gérer l’urgence professionnelle lorsque nécessaire.\n\n• Maîtrise du français et des outils informatiques usuels.\n Entrée en fonction : 1er novembre 2026\n Lieu de travail : Site de Préfargier, 2074 Marin-Epagnier et mobilité dans tout le canton de Neuchâtel\n Taux d’activité : 40%\n Type de contrat : Contrat de durée indéterminée (CDI)\n Délai de postulation : 25 septembre 2026\n Personnes de contact : Annick Crausaz, Psychologue responsable\n Maureen Magnan, Spécialiste sourcing et recrutement\n Le dossier de candidature complet (lettre de motivation, CV à jour, diplômes, certificats de travail et autres attestations) doit être adresser directement en ligne.\n\nSite de Préfargier\n2074 Marin-Epagnier",
-        "it": "Costituzione del diritto pubblico cantonale, il CNP ha il compito di condurre la politica sanitaria del cantone di Neuchâtel nel campo della salute mentale, in collaborazione con le istituzioni partner. La NPC mira a riabilitare i pazienti con disturbi mentali adottando un modello di psichiatria integrato basato sulla comunità; implementare politiche pubbliche per promuovere e prevenire la salute mentale; funge da centro di riferimento nel campo della formazione professionale e della ricerca psichiatrica.\n Il Dipartimento dell'Infanzia e dell'adolescenza sta cercando, per il complesso intensivo servizio ambulatoriale (AIC), un\n\nAssistente psicologo\n 40%\n\nIl Dipartimento dei bambini e degli adolescenti è responsabile della cura psichiatrica e psicoterapeutica dei bambini e degli adolescenti di età compresa tra 0 e 18 anni. La posizione è affiliata al complesso servizio ambulatoriale intensivo (AIC) presso l'istituzione \"The Carrefour Foundation\" all'interno dell'ASAEF (Accompaniment and Ambulatory Support to the Child and his Family).\n Sei uno psicologo con un master in psicologia riconosciuto da PsyCo e sono in formazione post-laurea in psicoterapia.\n Le vostre missioni principali:\n\n• Valutazioni cliniche e intensiva cura multidisciplinare nell'ambiente familiare, al fine di migliorare l'accesso alle risorse esistenti in famiglia e incoraggiare un cambiamento nel funzionamento del sistema familiare e sociale in cui il bambino è inserito e sviluppato.\n\n• Collaborazione regolare e attiva con la rete, incluso il Child Protection Office.\n\n• Lavorare in un team multidisciplinare (psicologi, educatori, lavoratori sociali).\n\n• Partecipano al networking con famiglie, scuole, pediatri e altri partner (ritorni, scambi, coordinamento).\n\n• Partecipa a riunioni di squadra, supervisione e tempo di sviluppo istituzionale.\n Competenze e profili ricercati\n Essenziale:\n\n• Per tenere un master universitario in psicologia o equivalente riconosciuto da PsyCo.\n\n• Essere in formazione post-laurea in psicoterapia, o la conferma di iscrizione ottenuta.\n\n• Capacità di lavorare come team multidisciplinare e di collaborare costruttivamente.\n\n• Sii in possesso di una patente di guida e di un veicolo.\n Competenze trasversali:\n\n• Autonomia.\n\n• Spirito di analisi e sintesi.\n\n• Qualità di relazione: comunicazione, ascolto, discrezione professionale.\n\n• Curiosità clinica, rigore e capacità di gestire l'emergenza professionale quando necessario.\n\n• Mastery di strumenti informatici francesi e comuni.\n Ingresso in ufficio: 1 novembre 2026\n Luogo di lavoro: Prefargier site, 2074 Marin-Epagnier e mobilità in tutto il cantone di Neuchâtel\n Tasso di attività: 40%\n Tipo di contratto: Contratto indeterminato (CDI)\n Termine ultimo per l'applicazione: 25 settembre 2026\n Personaggi di contatto: Annick Crausaz, psicologo responsabile\n Maureen Magnan, Sourcing specialistico e reclutamento\n Il pacchetto completo dell'applicazione (lettera example, CV corrente, diplomi, certificati di lavoro e altri certificati) deve essere inviato direttamente online.\n\nSito web Prefargier\n2074 Marin-Epagnier",
-        "en": "Establishment of cantonal public law, the CNP has the task of conducting the health policy of the canton of Neuchâtel in the field of mental health, in collaboration with the partner institutions. The NPC aims to rehabilitate patients with mental disorders by adopting an integrated, community-based psychiatry model; implement public policies to promote and prevent mental health; it acts as a reference centre in the field of vocational training and psychiatry research.\n The Department of Childhood and Adolescence is seeking, for the complex intensive outpatient service (AIC), a\n\nAssistant Psychologist\n 40%\n\nThe Department of Children and Adolescents is responsible for the psychiatric and psychotherapeutic care of children and adolescents aged 0-18. The position is affiliated with the complex intensive outpatient service (AIC) at the institution \"The Carrefour Foundation\" within the ASAEF (Accompaniment and Ambulatory Support to the Child and his Family).\n You are a psychologist with a master's degree in psychology recognized by PsyCo and are in post-graduate training in psychotherapy.\n Your main missions:\n\n• Clinical evaluations and intensive multidisciplinary care in the family environment, in order to enhance access to existing resources in the family and encourage a change in the functioning of the family and social system in which the child is inserted and developed.\n\n• Regular and active collaboration with the network, including the Child Protection Office.\n\n• Work in a multidisciplinary team (psychologists, educators, social workers).\n\n• Participate in networking with families, schools, paediatricians and other partners (returns, exchanges, coordination).\n\n• Participate in team meetings, supervision and institutional development time.\n Skills and profile sought\n Essential:\n\n• To hold a university master's degree in psychology or equivalent recognized by PsyCo.\n\n• Be in post-graduate training in psychotherapy, or confirmation of enrolment obtained.\n\n• Ability to work as a multidisciplinary team and to collaborate constructively.\n\n• Be in possession of a driver's licence and a vehicle.\n Cross-cutting competencies:\n\n• Autonomy.\n\n• Spirit of analysis and synthesis.\n\n• Relationship qualities: communication, listening, professional discretion.\n\n• Clinical curiosity, rigour and ability to manage professional emergency when necessary.\n\n• Mastery of French and common computer tools.\n Entry into office: 1 November 2026\n Place of work : Prefargier site, 2074 Marin-Epagnier and mobility throughout the canton of Neuchâtel\n Activity rate: 40%\n Type of Contract: Indeterminate Contract (CDI)\n Deadline for application: 25 September 2026\n Contact persons: Annick Crausaz, Psychologist in charge\n Maureen Magnan, Specialist sourcing and recruitment\n The complete application package (example letter, current CV, diplomas, work certificates and other certificates) should be sent directly online.\n\nPrefargier website\n2074 Marin-Epagnier",
-        "de": "Die CNP hat die Aufgabe, die Gesundheitspolitik des Kantons Neuenburg im Bereich der psychischen Gesundheit in Zusammenarbeit mit den Partnerinstitutionen durchzuführen. Der NPC zielt darauf ab, Patienten mit psychischen Störungen zu rehabilitieren, indem er ein integriertes, gemeindebasiertes Psychiatriemodell anwendet, öffentliche Maßnahmen zur Förderung und Prävention psychischer Gesundheit umsetzt und als Referenzzentrum im Bereich der beruflichen Bildung und Psychiatrieforschung fungiert.\n Die Abteilung für Kindheit und Jugend sucht für den komplexen intensiven ambulanten Dienst (AIC) eine\n\nAssistenzpsychologin\n 40%\n\nDie Abteilung für Kinder und Jugendliche ist für die psychiatrische und psychotherapeutische Versorgung von Kindern und Jugendlichen im Alter von 0-18 Jahren verantwortlich. Die Position ist mit dem komplexen intensiven ambulanten Service (AIC) an der Institution \"The Carrefour Foundation\" innerhalb der ASAEF (Begleitung und ambulante Unterstützung des Kindes und seiner Familie) verbunden.\n Sie sind ein Psychologe mit einem von PsyCo anerkannten Master-Abschluss in Psychologie und befinden sich in einer postgradualen Ausbildung in Psychotherapie.\n Ihre wichtigsten Missionen:\n\n• Klinische Auswertungen und intensive multidisziplinäre Betreuung im familiären Umfeld, um den Zugang zu vorhandenen Ressourcen in der Familie zu verbessern und eine Veränderung des Funktionierens des Familien- und Sozialsystems zu fördern, in das das Kind eingeführt und entwickelt wird.\n\n• Regelmäßige und aktive Zusammenarbeit mit dem Netzwerk, einschließlich des Kinderschutzamtes.\n\n• Arbeite in einem multidisziplinären Team (Psychologen, Pädagogen, Sozialarbeiter).\n\n• Teilnahme an der Vernetzung mit Familien, Schulen, Kinderärzten und anderen Partnern (Rückkehr, Austausch, Koordination).\n\n• Beteiligen Sie sich an Teamsitzungen, Supervision und institutioneller Entwicklungszeit.\n Gefragte Fähigkeiten und Profile\n Wesentlich:\n\n• Um eine Universität Master-Abschluss in Psychologie oder gleichwertig von PsyCo anerkannt zu halten.\n\n• Seien Sie in postgradualer Ausbildung in Psychotherapie oder Bestätigung der Einschreibung erhalten.\n\n• Fähigkeit, als multidisziplinäres Team zu arbeiten und konstruktiv zusammenzuarbeiten.\n\n• Besitzen Sie einen Führerschein und ein Fahrzeug.\n Querschnittskompetenzen:\n\n• Autonomie.\n\n• Geist der Analyse und Synthese.\n\n• Beziehungsqualitäten: Kommunikation, Zuhören, professionelle Diskretion.\n\n• Klinische Neugier, Strenge und Fähigkeit, professionelle Notfälle bei Bedarf zu bewältigen.\n\n• Beherrschung der Französisch und gemeinsame Computer-Tools.\n Amtsantritt: 1. November 2026\n Arbeitsort: Prefargier-Standort, 2074 Marin-Epagnier und Mobilität im gesamten Kanton Neuenburg\n Aktivitätsrate: 40%\n Art des Vertrags: Unbestimmter Vertrag (CDI)\n Bewerbungsfrist: 25. September 2026\n Ansprechpartner: Annick Crausaz, verantwortlicher Psychologe\n Maureen Magnan, Specialist Sourcing und Recruiting\n Das vollständige Bewerbungspaket (Beispielbrief, aktueller Lebenslauf, Diplome, Arbeitszeugnisse und sonstige Zertifikate) sollte direkt online verschickt werden.\n\nPrefargier Website\n2074 Marin-Epagnier"
+        "it": "Costituzione del diritto pubblico cantonale, il CNP ha il compito di condurre la politica sanitaria del cantone di Neuchâtel nel campo della salute mentale, in collaborazione con le istituzioni partner. La NPC mira a riabilitare i pazienti con disturbi mentali adottando un modello di psichiatria integrato basato sulla comunità; implementare politiche pubbliche per promuovere e prevenire la salute mentale; funge da centro di riferimento nel campo della formazione professionale e della ricerca psichiatrica.\nIl Dipartimento dell'Infanzia e dell'adolescenza sta cercando, per il complesso intensivo servizio ambulatoriale (AIC), un\n\nAssistente psicologo\n40%\n\nIl Dipartimento dei bambini e degli adolescenti è responsabile della cura psichiatrica e psicoterapeutica dei bambini e degli adolescenti di età compresa tra 0 e 18 anni. La posizione è affiliata al complesso servizio ambulatoriale intensivo (AIC) presso l'istituzione \"The Carrefour Foundation\" all'interno dell'ASAEF (Accompaniment and Ambulatory Support to the Child and his Family).\nSei uno psicologo con un master in psicologia riconosciuto da PsyCo e sono in formazione post-laurea in psicoterapia.\nLe vostre missioni principali:\n\n• Valutazioni cliniche e intensiva cura multidisciplinare nell'ambiente familiare, al fine di migliorare l'accesso alle risorse esistenti in famiglia e incoraggiare un cambiamento nel funzionamento del sistema familiare e sociale in cui il bambino è inserito e sviluppato.\n\n• Collaborazione regolare e attiva con la rete, incluso il Child Protection Office.\n\n• Lavorare in un team multidisciplinare (psicologi, educatori, lavoratori sociali).\n\n• Partecipano al networking con famiglie, scuole, pediatri e altri partner (ritorni, scambi, coordinamento).\n\n• Partecipa a riunioni di squadra, supervisione e tempo di sviluppo istituzionale.\nCompetenze e profili ricercati\nEssenziale:\n\n• Per tenere un master universitario in psicologia o equivalente riconosciuto da PsyCo.\n\n• Essere in formazione post-laurea in psicoterapia, o la conferma di iscrizione ottenuta.\n\n• Capacità di lavorare come team multidisciplinare e di collaborare costruttivamente.\n\n• Sii in possesso di una patente di guida e di un veicolo.\nCompetenze trasversali:\n\n• Autonomia.\n\n• Spirito di analisi e sintesi.\n\n• Qualità di relazione: comunicazione, ascolto, discrezione professionale.\n\n• Curiosità clinica, rigore e capacità di gestire l'emergenza professionale quando necessario.\n\n• Mastery di strumenti informatici francesi e comuni.\nIngresso in ufficio: 1 novembre 2026\nLuogo di lavoro: Prefargier site, 2074 Marin-Epagnier e mobilità in tutto il cantone di Neuchâtel\nTasso di attività: 40%\nTipo di contratto: Contratto indeterminato (CDI)\nTermine ultimo per l'applicazione: 25 settembre 2026\nPersonaggi di contatto: Annick Crausaz, psicologo responsabile\nMaureen Magnan, Sourcing specialistico e reclutamento\nIl pacchetto completo dell'applicazione (lettera example, CV corrente, diplomi, certificati di lavoro e altri certificati) deve essere inviato direttamente online.\n\nSito web Prefargier\n2074 Marin-Epagnier",
+        "en": "Establishment of cantonal public law, the CNP has the task of conducting the health policy of the canton of Neuchâtel in the field of mental health, in collaboration with the partner institutions. The NPC aims to rehabilitate patients with mental disorders by adopting an integrated, community-based psychiatry model; implement public policies to promote and prevent mental health; it acts as a reference centre in the field of vocational training and psychiatry research.\nThe Department of Childhood and Adolescence is seeking, for the complex intensive outpatient service (AIC), a\n\nAssistant Psychologist\n40%\n\nThe Department of Children and Adolescents is responsible for the psychiatric and psychotherapeutic care of children and adolescents aged 0-18. The position is affiliated with the complex intensive outpatient service (AIC) at the institution \"The Carrefour Foundation\" within the ASAEF (Accompaniment and Ambulatory Support to the Child and his Family).\nYou are a psychologist with a master's degree in psychology recognized by PsyCo and are in post-graduate training in psychotherapy.\nYour main missions:\n\n• Clinical evaluations and intensive multidisciplinary care in the family environment, in order to enhance access to existing resources in the family and encourage a change in the functioning of the family and social system in which the child is inserted and developed.\n\n• Regular and active collaboration with the network, including the Child Protection Office.\n\n• Work in a multidisciplinary team (psychologists, educators, social workers).\n\n• Participate in networking with families, schools, paediatricians and other partners (returns, exchanges, coordination).\n\n• Participate in team meetings, supervision and institutional development time.\nSkills and profile sought\nEssential:\n\n• To hold a university master's degree in psychology or equivalent recognized by PsyCo.\n\n• Be in post-graduate training in psychotherapy, or confirmation of enrolment obtained.\n\n• Ability to work as a multidisciplinary team and to collaborate constructively.\n\n• Be in possession of a driver's licence and a vehicle.\nCross-cutting competencies:\n\n• Autonomy.\n\n• Spirit of analysis and synthesis.\n\n• Relationship qualities: communication, listening, professional discretion.\n\n• Clinical curiosity, rigour and ability to manage professional emergency when necessary.\n\n• Mastery of French and common computer tools.\nEntry into office: 1 November 2026\nPlace of work : Prefargier site, 2074 Marin-Epagnier and mobility throughout the canton of Neuchâtel\nActivity rate: 40%\nType of Contract: Indeterminate Contract (CDI)\nDeadline for application: 25 September 2026\nContact persons: Annick Crausaz, Psychologist in charge\nMaureen Magnan, Specialist sourcing and recruitment\nThe complete application package (example letter, current CV, diplomas, work certificates and other certificates) should be sent directly online.\n\nPrefargier website\n2074 Marin-Epagnier",
+        "de": "Die CNP hat die Aufgabe, die Gesundheitspolitik des Kantons Neuenburg im Bereich der psychischen Gesundheit in Zusammenarbeit mit den Partnerinstitutionen durchzuführen. Der NPC zielt darauf ab, Patienten mit psychischen Störungen zu rehabilitieren, indem er ein integriertes, gemeindebasiertes Psychiatriemodell anwendet, öffentliche Maßnahmen zur Förderung und Prävention psychischer Gesundheit umsetzt und als Referenzzentrum im Bereich der beruflichen Bildung und Psychiatrieforschung fungiert.\nDie Abteilung für Kindheit und Jugend sucht für den komplexen intensiven ambulanten Dienst (AIC) eine\n\nAssistenzpsychologin\n40%\n\nDie Abteilung für Kinder und Jugendliche ist für die psychiatrische und psychotherapeutische Versorgung von Kindern und Jugendlichen im Alter von 0-18 Jahren verantwortlich. Die Position ist mit dem komplexen intensiven ambulanten Service (AIC) an der Institution \"The Carrefour Foundation\" innerhalb der ASAEF (Begleitung und ambulante Unterstützung des Kindes und seiner Familie) verbunden.\nSie sind ein Psychologe mit einem von PsyCo anerkannten Master-Abschluss in Psychologie und befinden sich in einer postgradualen Ausbildung in Psychotherapie.\nIhre wichtigsten Missionen:\n\n• Klinische Auswertungen und intensive multidisziplinäre Betreuung im familiären Umfeld, um den Zugang zu vorhandenen Ressourcen in der Familie zu verbessern und eine Veränderung des Funktionierens des Familien- und Sozialsystems zu fördern, in das das Kind eingeführt und entwickelt wird.\n\n• Regelmäßige und aktive Zusammenarbeit mit dem Netzwerk, einschließlich des Kinderschutzamtes.\n\n• Arbeite in einem multidisziplinären Team (Psychologen, Pädagogen, Sozialarbeiter).\n\n• Teilnahme an der Vernetzung mit Familien, Schulen, Kinderärzten und anderen Partnern (Rückkehr, Austausch, Koordination).\n\n• Beteiligen Sie sich an Teamsitzungen, Supervision und institutioneller Entwicklungszeit.\nGefragte Fähigkeiten und Profile\nWesentlich:\n\n• Um eine Universität Master-Abschluss in Psychologie oder gleichwertig von PsyCo anerkannt zu halten.\n\n• Seien Sie in postgradualer Ausbildung in Psychotherapie oder Bestätigung der Einschreibung erhalten.\n\n• Fähigkeit, als multidisziplinäres Team zu arbeiten und konstruktiv zusammenzuarbeiten.\n\n• Besitzen Sie einen Führerschein und ein Fahrzeug.\nQuerschnittskompetenzen:\n\n• Autonomie.\n\n• Geist der Analyse und Synthese.\n\n• Beziehungsqualitäten: Kommunikation, Zuhören, professionelle Diskretion.\n\n• Klinische Neugier, Strenge und Fähigkeit, professionelle Notfälle bei Bedarf zu bewältigen.\n\n• Beherrschung der Französisch und gemeinsame Computer-Tools.\nAmtsantritt: 1. November 2026\nArbeitsort: Prefargier-Standort, 2074 Marin-Epagnier und Mobilität im gesamten Kanton Neuenburg\nAktivitätsrate: 40%\nArt des Vertrags: Unbestimmter Vertrag (CDI)\nBewerbungsfrist: 25. September 2026\nAnsprechpartner: Annick Crausaz, verantwortlicher Psychologe\nMaureen Magnan, Specialist Sourcing und Recruiting\nDas vollständige Bewerbungspaket (Beispielbrief, aktueller Lebenslauf, Diplome, Arbeitszeugnisse und sonstige Zertifikate) sollte direkt online verschickt werden.\n\nPrefargier Website\n2074 Marin-Epagnier",
+        "fr": "Etablissement de droit public cantonal, le CNP a la mission de conduire la politique sanitaire du canton de Neuchâtel dans le domaine de la santé psychique, en collaboration avec les institutions partenaires. Le CNP vise la réhabilitation des patients souffrant de troubles psychiques par l’adoption d’un modèle de psychiatrie intégrée et communautaire; il met en œuvre les politiques publiques de promotion et prévention de la santé mentale; il agit comme centre de référence dans le domaine de la formation professionnelle et de la recherche en psychiatrie.\nLe département de l’enfance et adolescence recherche, pour la service ambulatoire intensif complexe (AIC), un·e\n\nPsychologue assistant·e\n40%\n\nLe département de l’enfance et de l’adolescence a pour mission la prise en charge psychiatrique et psychothérapeutique des enfants et des adolescents âgés de 0-18 ans. Le poste est affilié au service ambulatoire intensif complexe (AIC) auprès de l’institution « La Fondation Carrefour » au sein de l’ASAEF (Accompagnement et Soutien Ambulatoire à l’Enfant et sa Famille).\nVous êtes psychologue, titulaire d’un master en psychologie reconnu par la PsyCo et êtes en cours de formation postgrade en psychothérapie.\nVos missions principales :\n\n• Evaluations cliniques et prises en charge pluridisciplinaires intensives en milieu familial, afin de renforcer l’accès aux ressources existantes dans la famille et favoriser une évolution du fonctionnement du système familial et social dans lequel l’enfant est inséré et se développe.\n\n• Collaboration régulière et active avec le réseau, l’Office de protection de l’enfant, notamment.\n\n• Travail en équipe pluridisciplinaire (psychologues, éducateurs·rices, assistant·e·s sociaux·sociales).\n\n• Participer au travail de réseau avec les familles, écoles, pédiatres et autres partenaires (retours, échanges, coordination).\n\n• Participer aux réunions d’équipe, supervisions et temps d’élaboration institutionnels.\nCompétences et profil recherchés\nIndispensables :\n\n• Être titulaire d’un master universitaire en psychologie ou équivalent reconnu par la PsyCo.\n\n• Être en cours de formation postgrade en psychothérapie, ou confirmation d’inscription obtenue.\n\n• Capacité à travailler en équipe pluridisciplinaire et à collaborer de manière constructive.\n\n• Être en possession du permis de conduire et d’un véhicule.\nCompétences transversales :\n\n• Autonomie.\n\n• Esprit d’analyse et de synthèse.\n\n• Qualités relationnelles : communication, écoute, discrétion professionnelle.\n\n• Curiosité clinique, rigueur et capacité à gérer l’urgence professionnelle lorsque nécessaire.\n\n• Maîtrise du français et des outils informatiques usuels.\nEntrée en fonction : 1er novembre 2026\nLieu de travail : Site de Préfargier, 2074 Marin-Epagnier et mobilité dans tout le canton de Neuchâtel\nTaux d’activité : 40%\nType de contrat : Contrat de durée indéterminée (CDI)\nDélai de postulation : 25 septembre 2026\nPersonnes de contact : Annick Crausaz, Psychologue responsable\nMaureen Magnan, Spécialiste sourcing et recrutement\nLe dossier de candidature complet (lettre de motivation, CV à jour, diplômes, certificats de travail et autres attestations) doit être adresser directement en ligne.\n\nSite de Préfargier\n2074 Marin-Epagnier"
       },
       "location": "Marin-Epagnier",
       "canton": "NE",
       "url": "https://www.jobup.ch/fr/emplois/detail/c0efd69d-6a8c-4468-88fa-443682a1c441",
       "source": "Centre Neuchâtelois de Psychiatrie (CNP) Dedicated Parser (jobup.ch feed cnp)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:53:49.887Z",
+      "crawledAt": "2026-09-24T14:49:45.034Z",
       "addressLocality": "Marin-Epagnier",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2315,9 +2336,22 @@
       "postedDate": "2026-11-17",
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/c0efd69d-6a8c-4468-88fa-443682a1c441",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "psychologue-psychotherapeute-ou-psychologue-assistant-e-cnp-marin-epagnier"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-psychotherapeute-ou-psychologue-assistant-e-cnp-marin-epagnier"
+        ],
+        "en": [
+          "psychologue-psychotherapeute-ou-psychologue-assistant-e-cnp-marin-epagnier"
+        ],
+        "de": [
+          "psychologue-psychotherapeute-ou-psychologue-assistant-e-cnp-marin-epagnier"
+        ]
       },
+      "firstSeenAt": "2026-09-19T22:53:49.887Z",
       "salaryMin": 86000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -2331,18 +2365,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:53:49.887Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "psychologue-psychotherapeute-ou-psychologue-assistant-e-cnp-marin-epagnier"
-        ],
-        "en": [
-          "psychologue-psychotherapeute-ou-psychologue-assistant-e-cnp-marin-epagnier"
-        ]
-      },
-      "previousSlugs": [
-        "psychologue-psychotherapeute-ou-psychologue-assistant-e-cnp-marin-epagnier"
-      ]
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/c0efd69d-6a8c-4468-88fa-443682a1c441"
     }
   ]
 }

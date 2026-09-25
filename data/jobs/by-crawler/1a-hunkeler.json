@@ -1,6 +1,6 @@
 {
   "crawlerKey": "1a-hunkeler",
-  "assembledAt": "2026-09-22T00:07:16.429Z",
+  "assembledAt": "2026-09-24T14:25:54.632Z",
   "jobs": [
     {
       "id": "1a-hunkeler-7dfb52e69867",
@@ -33,7 +33,7 @@
       "url": "https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/fenster-monteur",
       "source": "1a-hunkeler Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:07:12.890Z",
+      "crawledAt": "2026-09-24T14:25:49.827Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -51,6 +51,22 @@
       "applyUrl": "https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/fenster-monteur",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "fenster-monteur-in-ebikon-1a-hunkeler-ch",
+        "assemblatori-per-finestre-1a-hunkeler-ebikon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fenster-monteur-in-ebikon-1a-hunkeler-ch",
+          "assemblatori-per-finestre-1a-hunkeler-ebikon"
+        ],
+        "en": [
+          "fenster-monteur-in-ebikon-1a-hunkeler-ch"
+        ],
+        "fr": [
+          "fenster-monteur-in-ebikon-1a-hunkeler-ch"
+        ]
+      },
       "firstSeenAt": "2026-09-21T16:03:10.340Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -65,20 +81,7 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "fenster-monteur-in-ebikon-1a-hunkeler-ch"
-        ],
-        "en": [
-          "fenster-monteur-in-ebikon-1a-hunkeler-ch"
-        ],
-        "fr": [
-          "fenster-monteur-in-ebikon-1a-hunkeler-ch"
-        ]
-      },
-      "previousSlugs": [
-        "fenster-monteur-in-ebikon-1a-hunkeler-ch"
-      ]
+      "sourceIdentity": "url:https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/fenster-monteur"
     }
   ]
 }

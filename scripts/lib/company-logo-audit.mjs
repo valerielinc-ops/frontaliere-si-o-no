@@ -9,6 +9,7 @@
 import { existsSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
+import { readBoundedResponseBytes } from './bounded-response-body.mjs';
 import { isGreyGlobe, LOGO_BOT_USER_AGENT } from './google-favicon.mjs';
 
 export const DEFAULT_ASSET_BASE_URL = 'https://cdn.frontaliereticino.ch';
@@ -140,9 +141,11 @@ async function fetchLogo(url, {
     });
     const contentType = String(response.headers?.get?.('content-type') || '').split(';')[0].trim();
     if (!response.ok) return { response, contentType, body: null };
-    const contentLength = Number(response.headers?.get?.('content-length') || 0);
-    if (contentLength > MAX_LOGO_BODY_BYTES) return { response, contentType, body: null };
-    const body = Buffer.from(await response.arrayBuffer());
+    // The cap is applied while the body streams: `arrayBuffer()` and a size
+    // check afterwards would download a chunked response in full first (#9729).
+    const bytes = await readBoundedResponseBytes(response, MAX_LOGO_BODY_BYTES);
+    if (bytes === null) return { response, contentType, body: null, tooLarge: true };
+    const body = Buffer.from(bytes.buffer, bytes.byteOffset, bytes.byteLength);
     return { response, contentType, body };
   } finally {
     clearTimeout(timer);
@@ -157,9 +160,12 @@ async function fetchLogo(url, {
  */
 export async function fetchVerifiedLogo(url, options = {}) {
   try {
-    const { response, contentType, body } = await fetchLogo(url, options);
+    const { response, contentType, body, tooLarge } = await fetchLogo(url, options);
     if (!response.ok) {
       return { status: 'broken', reason: `http-${response.status}`, statusCode: response.status, contentType };
+    }
+    if (tooLarge) {
+      return { status: 'broken', reason: 'body-too-large', statusCode: response.status, contentType };
     }
     if (!body || body.length === 0) {
       return { status: 'broken', reason: 'empty-body', statusCode: response.status, contentType };

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clienia-ag",
-  "assembledAt": "2026-09-24T09:42:43.179Z",
+  "assembledAt": "2026-09-24T14:27:29.208Z",
   "jobs": [
     {
       "id": "clienia-ag-30f2c2a857b3",
@@ -34,7 +34,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-als-dauernachtwache-30484893893651/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:54.595Z",
+      "crawledAt": "2026-09-24T14:27:23.172Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -54,8 +54,7 @@
       "previousSlugsByLocale": {
         "de": [
           "diplomierte-pflegefachperson-als-dauernachtwache-40-100-clienia-ag-zurich",
-          "diplomierte-pflegefachperson-als-dauernachtwache-50-clienia-ag-zurich",
-          "diplomierte-pflegefachperson-als-dauernachtwache-40-100-clienia-ag-pfaffikon"
+          "diplomierte-pflegefachperson-als-dauernachtwache-50-clienia-ag-zurich"
         ],
         "it": [
           "diplomierte-pflegefachperson-als-dauernachtwache-40-100-clienia-ag-zurich",
@@ -64,8 +63,7 @@
           "diplomierte-pflegefachperson-als-dauernachtwache-50-clienia-ag-zurich",
           "infirmiere-qualifiee-comme-veilleuse-permanente-50-clienia-ag-pfaffikon-zh",
           "diplomierte-pflegefachperson-als-dauernachtwache-50-clienia-ag-pfaffikon",
-          "infirmiere-qualifiee-en-veille-permanente-50-clienia-ag-pfaffikon-zh",
-          "diplomierte-pflegefachperson-come-dauernachtwache-40-100-clienia-ag-pfaffikon"
+          "infirmiere-qualifiee-en-veille-permanente-50-clienia-ag-pfaffikon-zh"
         ],
         "en": [
           "diplomierte-pflegefachperson-als-dauernachtwache-40-100-clienia-ag-pfaffikon",
@@ -84,8 +82,7 @@
         "diplomierte-pflegefachperson-als-dauernachtwache-50-clienia-ag-zurich",
         "infirmiere-qualifiee-comme-veilleuse-permanente-50-clienia-ag-pfaffikon-zh",
         "diplomierte-pflegefachperson-als-dauernachtwache-50-clienia-ag-pfaffikon",
-        "infirmiere-qualifiee-en-veille-permanente-50-clienia-ag-pfaffikon-zh",
-        "diplomierte-pflegefachperson-come-dauernachtwache-40-100-clienia-ag-pfaffikon"
+        "infirmiere-qualifiee-en-veille-permanente-50-clienia-ag-pfaffikon-zh"
       ],
       "firstSeenAt": "2026-05-28T12:05:19.130Z",
       "salaryMin": 91500,
@@ -100,7 +97,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-als-dauernachtwache-30484893893651"
     },
     {
       "id": "clienia-ag-abfd3e9cb6f2",
@@ -133,7 +131,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/springer-oberaerztin-oberarzt-30606893918133/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:53.844Z",
+      "crawledAt": "2026-09-24T14:27:22.337Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -152,12 +150,10 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "springer-oberarztin-oberarzt-40-60-clienia-ag-zurich",
-          "springer-oberarztin-oberarzt-40-60-clienia-ag-pfaffikon"
+          "springer-oberarztin-oberarzt-40-60-clienia-ag-zurich"
         ],
         "it": [
-          "springer-oberarztin-oberarzt-40-60-clienia-ag-zurich",
-          "capoclinica-capoclinica-40-60-clienia-ag-pfaffikon-zh"
+          "springer-oberarztin-oberarzt-40-60-clienia-ag-zurich"
         ],
         "en": [
           "springer-senior-physician-40-60-clienia-ag-pfaffikon-zh"
@@ -169,9 +165,7 @@
       "previousSlugs": [
         "springer-oberarztin-oberarzt-40-60-clienia-ag-zurich",
         "springer-senior-physician-40-60-clienia-ag-pfaffikon-zh",
-        "medecin-principal-springer-40-60-clienia-ag-pfaffikon-zh",
-        "springer-oberarztin-oberarzt-40-60-clienia-ag-pfaffikon",
-        "capoclinica-capoclinica-40-60-clienia-ag-pfaffikon-zh"
+        "medecin-principal-springer-40-60-clienia-ag-pfaffikon-zh"
       ],
       "firstSeenAt": "2026-05-28T12:05:17.303Z",
       "salaryMin": 74400,
@@ -186,7 +180,8 @@
           "maxValue": 103800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/springer-oberaerztin-oberarzt-30606893918133"
     },
     {
       "id": "clienia-ag-f0efd2e91cb0",
@@ -219,7 +214,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-oberarzt-30674413931181/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:53.011Z",
+      "crawledAt": "2026-09-24T14:27:21.602Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -238,13 +233,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "oberarztin-oberarzt-60-100-clienia-ag-zurich",
-          "oberarztin-oberarzt-60-100-clienia-ag-pfaffikon"
+          "oberarztin-oberarzt-60-100-clienia-ag-zurich"
         ],
         "it": [
           "medico-senior-60-100-clienia-ag-pfaffikon",
-          "oberarztin-oberarzt-60-100-clienia-ag-zurich",
-          "medico-senior-60-100-clienia-ag-pfaffikon-zh"
+          "oberarztin-oberarzt-60-100-clienia-ag-zurich"
         ],
         "en": [
           "senior-physician-60-100-clienia-ag-pfaffikon",
@@ -259,9 +252,7 @@
         "medico-senior-60-100-clienia-ag-pfaffikon",
         "senior-physician-60-100-clienia-ag-pfaffikon",
         "medecin-principal-60-100-clienia-ag-pfaffikon",
-        "oberarztin-oberarzt-60-100-clienia-ag-zurich",
-        "oberarztin-oberarzt-60-100-clienia-ag-pfaffikon",
-        "medico-senior-60-100-clienia-ag-pfaffikon-zh"
+        "oberarztin-oberarzt-60-100-clienia-ag-zurich"
       ],
       "firstSeenAt": "2026-05-22T21:47:14.006Z",
       "salaryMin": 124000,
@@ -276,14 +267,15 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-oberarzt-30674413931181"
     },
     {
       "id": "clienia-ag-57f4868acebf",
       "slug": "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "it": "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh",
-        "en": "qualified-nurse-50-80-clienia-ag-pfaffikon",
+        "en": "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-50-80-clienia-ag-zurich",
         "fr": "infirmier-diplome-50-80-clienia-ag-pfaffikon"
       },
@@ -309,7 +301,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-30692123934626/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:52.177Z",
+      "crawledAt": "2026-09-24T14:27:20.767Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -363,7 +355,6 @@
         "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon",
         "infirmier-diplome-60-100-clienia-ag-pfaffikon",
         "diplomata-infermiera-professionale-80-90-clienia-ag-pfaffikon-zh",
-        "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh",
         "qualified-nurse-50-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
@@ -371,11 +362,9 @@
           "diplomierte-pflegefachperson-50-80-clienia-ag-zurich",
           "infermiere-diplomato-50-80-clienia-ag-pfaffikon",
           "infirmier-diplome-60-100-clienia-ag-pfaffikon",
-          "diplomata-infermiera-professionale-80-90-clienia-ag-pfaffikon-zh",
-          "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh"
+          "diplomata-infermiera-professionale-80-90-clienia-ag-pfaffikon-zh"
         ],
         "en": [
-          "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon",
           "qualified-nurse-50-80-clienia-ag-pfaffikon"
         ],
         "de": [
@@ -395,7 +384,8 @@
           "maxValue": 102400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-30692123934626"
     },
     {
       "id": "clienia-ag-880b3e62ed9b",
@@ -428,7 +418,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/springer-oberaerztin-oberarzt-30693723934984/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:51.419Z",
+      "crawledAt": "2026-09-24T14:27:19.926Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -475,15 +465,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "springer-oberarztin-oberarzt-40-80-clienia-ag-zurich",
-          "springer-oberarztin-oberarzt-40-80-clienia-ag-pfaffikon"
+          "springer-oberarztin-oberarzt-40-80-clienia-ag-zurich"
         ],
         "it": [
           "springer-oberarztin-oberarzt-40-80-clienia-ag-zurich",
           "primario-a-di-psichiatria-40-80-clienia-ag-pfaffikon",
           "psichiatra-responsabile-80-100-clienia-ag-pfaffikon",
-          "senior-psychiatrist-40-60-clienia-ag-pfaffikon",
-          "psichiatra-responsabile-40-80-clienia-ag-pfaffikon-zh"
+          "senior-psychiatrist-40-60-clienia-ag-pfaffikon"
         ],
         "fr": [
           "medecin-chef-en-psychiatrie-40-80-clienia-ag-pfaffikon"
@@ -503,9 +491,7 @@
         "medecin-specialiste-principal-80-100-clienia-ag-pfaffikon",
         "medecin-psychiatre-senior-medecin-psychiatre-senior-40-60-clienia-ag-pfaffikon-zh",
         "psichiatra-responsabile-80-100-clienia-ag-pfaffikon",
-        "senior-psychiatrist-40-60-clienia-ag-pfaffikon",
-        "springer-oberarztin-oberarzt-40-80-clienia-ag-pfaffikon",
-        "psichiatra-responsabile-40-80-clienia-ag-pfaffikon-zh"
+        "senior-psychiatrist-40-60-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:53.530Z",
       "salaryMin": 99200,
@@ -520,7 +506,8 @@
           "maxValue": 138400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/springer-oberaerztin-oberarzt-30693723934984"
     },
     {
       "id": "clienia-ag-fc080aed364d",
@@ -553,7 +540,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/fachverantwortliche-r-pflege-30740013944188/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:50.682Z",
+      "crawledAt": "2026-09-24T14:27:18.981Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -602,13 +589,11 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "fachverantwortliche-r-pflege-80-90-clienia-ag-zurich",
-          "fachverantwortliche-r-pflege-80-90-clienia-ag-pfaffikon"
+          "fachverantwortliche-r-pflege-80-90-clienia-ag-zurich"
         ],
         "it": [
           "fachverantwortliche-r-pflege-80-90-clienia-ag-zurich",
-          "responsabile-di-reparto-infermieristico-80-90-clienia-ag-pfaffikon",
-          "responsabile-assistenza-infermieristica-80-90-clienia-ag-pfaffikon"
+          "responsabile-di-reparto-infermieristico-80-90-clienia-ag-pfaffikon"
         ],
         "en": [
           "head-nurse-80-90-clienia-ag-pfaffikon"
@@ -621,9 +606,7 @@
         "fachverantwortliche-r-pflege-80-90-clienia-ag-zurich",
         "responsabile-di-reparto-infermieristico-80-90-clienia-ag-pfaffikon",
         "head-nurse-80-90-clienia-ag-pfaffikon",
-        "responsable-d-equipe-infirmier-80-90-clienia-ag-pfaffikon",
-        "fachverantwortliche-r-pflege-80-90-clienia-ag-pfaffikon",
-        "responsabile-assistenza-infermieristica-80-90-clienia-ag-pfaffikon"
+        "responsable-d-equipe-infirmier-80-90-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:52.672Z",
       "salaryMin": 111600,
@@ -638,7 +621,8 @@
           "maxValue": 155700,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/fachverantwortliche-r-pflege-30740013944188"
     },
     {
       "id": "clienia-ag-a735ae1e7bfc",
@@ -671,7 +655,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-fuer-nachtdienste-im-aushilfepool-30813523958840/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:49.844Z",
+      "crawledAt": "2026-09-24T14:27:18.153Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -721,13 +705,11 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "diplomierte-pflegefachperson-fur-nachtdienste-im-aushilfepool-10-100-clienia-ag-zurich",
-          "diplomierte-pflegefachperson-fur-nachtdienste-im-aushilfepool-10-100-clienia-ag-pfaffikon"
+          "diplomierte-pflegefachperson-fur-nachtdienste-im-aushilfepool-10-100-clienia-ag-zurich"
         ],
         "it": [
           "diplomierte-pflegefachperson-fur-nachtdienste-im-aushilfepool-10-100-clienia-ag-zurich",
-          "diplomierte-pflegefachperson-per-nachtdienste-im-aushilfepool-10-100-clienia-ag-pfaffikon",
-          "operatore-socio-sanitario-per-turni-notturni-nel-pool-di-riserva-10-100-clienia-ag-pfaffikon"
+          "diplomierte-pflegefachperson-per-nachtdienste-im-aushilfepool-10-100-clienia-ag-pfaffikon"
         ],
         "fr": [
           "infirmier-diplome-pour-les-services-de-nuit-dans-le-pool-de-reserve-10-100-clienia-ag-pfaffikon"
@@ -736,9 +718,7 @@
       "previousSlugs": [
         "diplomierte-pflegefachperson-fur-nachtdienste-im-aushilfepool-10-100-clienia-ag-zurich",
         "diplomierte-pflegefachperson-per-nachtdienste-im-aushilfepool-10-100-clienia-ag-pfaffikon",
-        "infirmier-diplome-pour-les-services-de-nuit-dans-le-pool-de-reserve-10-100-clienia-ag-pfaffikon",
-        "diplomierte-pflegefachperson-fur-nachtdienste-im-aushilfepool-10-100-clienia-ag-pfaffikon",
-        "operatore-socio-sanitario-per-turni-notturni-nel-pool-di-riserva-10-100-clienia-ag-pfaffikon"
+        "infirmier-diplome-pour-les-services-de-nuit-dans-le-pool-de-reserve-10-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:50.960Z",
       "salaryMin": 91500,
@@ -753,14 +733,15 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-fuer-nachtdienste-im-aushilfepool-30813523958840"
     },
     {
       "id": "clienia-ag-cd995a4127d0",
       "slug": "infermiere-diplomata-in-servizio-diurno-70-80-clienia-ag-pfaffikon",
       "slugByLocale": {
         "it": "infermiere-diplomata-in-servizio-diurno-70-80-clienia-ag-pfaffikon",
-        "en": "graduated-day-care-professional-60-100-clienia-ag-pfaffikon",
+        "en": "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-zurich",
         "fr": "infirmiere-diplomee-en-service-de-jour-70-80-clienia-ag-pfaffikon-zh"
       },
@@ -786,7 +767,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-im-tagdienst-30821583960618/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:49.096Z",
+      "crawledAt": "2026-09-24T14:27:17.323Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -841,8 +822,6 @@
         "diplomierte-pflegefachperson-im-tagesdienst-70-80-clienia-ag-pfaffikon",
         "infirmier-diplome-en-service-diurne-70-80-clienia-ag-pfaffikon",
         "diplomata-infermiera-professionale-nel-servizio-diurno-psychiatriezentrum-munsingen-munsingen",
-        "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-pfaffikon",
-        "infermiere-diplomata-in-servizio-diurno-70-80-clienia-ag-pfaffikon",
         "graduated-day-care-professional-60-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
@@ -850,11 +829,9 @@
           "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-zurich",
           "diplomierte-pflegefachperson-im-tagdienst-60-100-clienia-ag-zurich",
           "diplomata-infermiera-professionale-in-servizio-diurno-70-80-clienia-ag-pfaffikon",
-          "diplomata-infermiera-professionale-nel-servizio-diurno-psychiatriezentrum-munsingen-munsingen",
-          "infermiere-diplomata-in-servizio-diurno-70-80-clienia-ag-pfaffikon"
+          "diplomata-infermiera-professionale-nel-servizio-diurno-psychiatriezentrum-munsingen-munsingen"
         ],
         "en": [
-          "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-pfaffikon",
           "graduated-day-care-professional-60-100-clienia-ag-pfaffikon"
         ],
         "de": [
@@ -877,7 +854,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-im-tagdienst-30821583960618"
     },
     {
       "id": "clienia-ag-4be7fb51b67c",
@@ -910,7 +888,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/berufsbildner-in-fage-hf-fh-pflege-30900693976009/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:48.353Z",
+      "crawledAt": "2026-09-24T14:27:16.489Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -960,20 +938,16 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "berufsbildner-in-fage-hf-fh-pflege-50-100-clienia-ag-zurich",
-          "berufsbildner-in-fage-hf-fh-pflege-50-100-clienia-ag-pfaffikon"
+          "berufsbildner-in-fage-hf-fh-pflege-50-100-clienia-ag-zurich"
         ],
         "it": [
           "berufsbildner-in-fage-hf-fh-pflege-50-100-clienia-ag-zurich",
-          "formatore-a-fage-hf-fh-cure-50-100-clienia-ag-pfaffikon",
-          "insegnante-fage-hf-fh-in-assistenza-sanitaria-50-100-clienia-ag-pfaffikon-zh"
+          "formatore-a-fage-hf-fh-cure-50-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
         "berufsbildner-in-fage-hf-fh-pflege-50-100-clienia-ag-zurich",
-        "formatore-a-fage-hf-fh-cure-50-100-clienia-ag-pfaffikon",
-        "berufsbildner-in-fage-hf-fh-pflege-50-100-clienia-ag-pfaffikon",
-        "insegnante-fage-hf-fh-in-assistenza-sanitaria-50-100-clienia-ag-pfaffikon-zh"
+        "formatore-a-fage-hf-fh-cure-50-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:36.382Z",
       "salaryMin": 91500,
@@ -988,7 +962,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/berufsbildner-in-fage-hf-fh-pflege-30900693976009"
     },
     {
       "id": "clienia-ag-14b2b8c66b59",
@@ -1021,7 +996,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-als-quer-oder-wiedereinsteiger-in-30922573980604/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:47.605Z",
+      "crawledAt": "2026-09-24T14:27:15.643Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1051,13 +1026,11 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "diplomierte-pflegefachperson-als-quer-oder-wiedereinsteiger-in-40-100-clienia-ag-zurich",
-          "diplomierte-pflegefachperson-als-quer-oder-wiedereinsteiger-in-40-100-clienia-ag-pfaffikon"
+          "diplomierte-pflegefachperson-als-quer-oder-wiedereinsteiger-in-40-100-clienia-ag-zurich"
         ],
         "it": [
           "diplomierte-pflegefachperson-als-quer-oder-wiedereinsteiger-in-40-100-clienia-ag-zurich",
-          "diplomierte-pflegefachperson-come-quer-o-wiedereinsteiger-in-40-100-clienia-ag-pfaffikon",
-          "infermiere-diplomata-come-neolaureato-o-ricollocato-40-100-clienia-ag-pfaffikon"
+          "diplomierte-pflegefachperson-come-quer-o-wiedereinsteiger-in-40-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "qualified-nursing-professional-as-new-or-returning-40-100-clienia-ag-pfaffikon"
@@ -1070,9 +1043,7 @@
         "diplomierte-pflegefachperson-als-quer-oder-wiedereinsteiger-in-40-100-clienia-ag-zurich",
         "diplomierte-pflegefachperson-come-quer-o-wiedereinsteiger-in-40-100-clienia-ag-pfaffikon",
         "qualified-nursing-professional-as-new-or-returning-40-100-clienia-ag-pfaffikon",
-        "infirmier-diplome-e-en-tant-que-debutant-ou-reconverti-e-40-100-clienia-ag-pfaffikon",
-        "diplomierte-pflegefachperson-als-quer-oder-wiedereinsteiger-in-40-100-clienia-ag-pfaffikon",
-        "infermiere-diplomata-come-neolaureato-o-ricollocato-40-100-clienia-ag-pfaffikon"
+        "infirmier-diplome-e-en-tant-que-debutant-ou-reconverti-e-40-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:32.954Z",
       "salaryMin": 91500,
@@ -1087,7 +1058,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-als-quer-oder-wiedereinsteiger-in-30922573980604"
     },
     {
       "id": "clienia-ag-0ed8e128b7ed",
@@ -1120,7 +1092,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/assistentin-assistent-gesundheit-und-soziales-ags-oder-pflegehelfer-pflegehelferin-srk-30933673982284/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:46.962Z",
+      "crawledAt": "2026-09-24T14:27:14.922Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1150,14 +1122,12 @@
       "previousSlugs": [
         "assistentin-assistent-gesundheit-und-soziales-ags-oder-pflegehelfer-pflegehelferin-srk-10",
         "assistente-a-in-salute-e-servizi-sociali-ags-o-aiuto-infermiere-a-srk-10-100-clienia-ag-pfaffikon",
-        "assistant-e-en-sante-et-services-sociaux-ags-ou-aide-soignant-e-srk-10-100-clienia-ag-pfaffikon",
-        "assistente-sanitaria-e-socio-sanitaria-ags-o-ausiliaria-di-assistenza-srk-10-100-clienia-ag-pfaffikon-zh"
+        "assistant-e-en-sante-et-services-sociaux-ags-ou-aide-soignant-e-srk-10-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistentin-assistent-gesundheit-und-soziales-ags-oder-pflegehelfer-pflegehelferin-srk-10",
-          "assistente-a-in-salute-e-servizi-sociali-ags-o-aiuto-infermiere-a-srk-10-100-clienia-ag-pfaffikon",
-          "assistente-sanitaria-e-socio-sanitaria-ags-o-ausiliaria-di-assistenza-srk-10-100-clienia-ag-pfaffikon-zh"
+          "assistente-a-in-salute-e-servizi-sociali-ags-o-aiuto-infermiere-a-srk-10-100-clienia-ag-pfaffikon"
         ],
         "fr": [
           "assistant-e-en-sante-et-services-sociaux-ags-ou-aide-soignant-e-srk-10-100-clienia-ag-pfaffikon"
@@ -1176,7 +1146,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/assistentin-assistent-gesundheit-und-soziales-ags-oder-pflegehelfer-pflegehelferin-srk-30933673982284"
     },
     {
       "id": "clienia-ag-a3e557c980c9",
@@ -1209,7 +1180,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-hf-30933303982328/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:46.221Z",
+      "crawledAt": "2026-09-24T14:27:14.075Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1258,8 +1229,7 @@
         "infirmiere-diplomee-hf-70-80-clienia-ag-pfaffikon-zh",
         "infermiere-diplomata-hf-70-80-clienia-ag-pfaffikon",
         "infirmier-diplome-hf-70-80-clienia-ag-pfaffikon",
-        "diplome-en-soins-infirmiers-60-70-clienia-ag-pfaffikon",
-        "diplomata-infermiera-professionale-con-perito-diploma-federale-10-100-clienia-ag-pfaffikon-zh"
+        "diplome-en-soins-infirmiers-60-70-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1271,8 +1241,7 @@
           "infirmiere-diplomee-hf-70-80-clienia-ag-pfaffikon-zh",
           "infermiere-diplomata-hf-70-80-clienia-ag-pfaffikon",
           "infirmier-diplome-hf-70-80-clienia-ag-pfaffikon",
-          "diplome-en-soins-infirmiers-60-70-clienia-ag-pfaffikon",
-          "diplomata-infermiera-professionale-con-perito-diploma-federale-10-100-clienia-ag-pfaffikon-zh"
+          "diplome-en-soins-infirmiers-60-70-clienia-ag-pfaffikon"
         ],
         "en": [
           "diplomierte-pflegefachperson-hf-70-80-clienia-ag-pfaffikon"
@@ -1299,7 +1268,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-hf-30933303982328"
     },
     {
       "id": "clienia-ag-a79b41bc32b1",
@@ -1332,7 +1302,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/sozialpaedagogin-sozialpaedagogen-30933313982330/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:45.479Z",
+      "crawledAt": "2026-09-24T14:27:13.127Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1369,14 +1339,12 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "sozialpadagogin-sozialpadagogen-10-100-clienia-ag-zurich",
-          "sozialpadagogin-sozialpadagogen-10-100-clienia-ag-pfaffikon"
+          "sozialpadagogin-sozialpadagogen-10-100-clienia-ag-zurich"
         ],
         "it": [
           "sozialpadagogin-sozialpadagogen-10-100-clienia-ag-zurich",
           "assistente-sociale-10-100-clienia-ag-pfaffikon",
-          "social-worker-social-worker-fh-60-80-clienia-ag-pfaffikon",
-          "educatore-sociale-10-100-clienia-ag-pfaffikon"
+          "social-worker-social-worker-fh-60-80-clienia-ag-pfaffikon"
         ],
         "fr": [
           "travailleur-social-10-100-clienia-ag-pfaffikon"
@@ -1386,9 +1354,7 @@
         "sozialpadagogin-sozialpadagogen-10-100-clienia-ag-zurich",
         "assistente-sociale-10-100-clienia-ag-pfaffikon",
         "travailleur-social-10-100-clienia-ag-pfaffikon",
-        "social-worker-social-worker-fh-60-80-clienia-ag-pfaffikon",
-        "sozialpadagogin-sozialpadagogen-10-100-clienia-ag-pfaffikon",
-        "educatore-sociale-10-100-clienia-ag-pfaffikon"
+        "social-worker-social-worker-fh-60-80-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:27.110Z",
       "salaryMin": 91500,
@@ -1403,7 +1369,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/sozialpaedagogin-sozialpaedagogen-30933313982330"
     },
     {
       "id": "clienia-ag-87d2a4960d67",
@@ -1436,7 +1403,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/fachfrau-fachmann-gesundheit-30933663982282/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:44.729Z",
+      "crawledAt": "2026-09-24T14:27:12.182Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1463,16 +1430,14 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-fachmann-gesundheit-10-100-clienia-ag-zurich",
-          "fachfrau-fachmann-gesundheit-10-100-clienia-ag-pfaffikon"
+          "fachfrau-fachmann-gesundheit-10-100-clienia-ag-zurich"
         ],
         "it": [
           "fachfrau-fachmann-gesundheit-10-100-clienia-ag-zurich",
           "specialista-della-salute-10-100-clienia-ag-pfaffikon",
           "healthcare-specialist-60-80-clienia-ag-pfaffikon",
           "specialiste-de-la-sante-m-f-d-80-clienia-ag-pfaffikon",
-          "specialiste-en-sante-60-80-clienia-ag-pfaffikon",
-          "assistente-professionale-sanitaria-10-100-clienia-ag-pfaffikon-zh"
+          "specialiste-en-sante-60-80-clienia-ag-pfaffikon"
         ],
         "fr": [
           "specialiste-de-la-sante-m-f-d-80-clienia-ag-pfaffikon",
@@ -1484,9 +1449,7 @@
         "specialista-della-salute-10-100-clienia-ag-pfaffikon",
         "healthcare-specialist-60-80-clienia-ag-pfaffikon",
         "specialiste-de-la-sante-m-f-d-80-clienia-ag-pfaffikon",
-        "specialiste-en-sante-60-80-clienia-ag-pfaffikon",
-        "fachfrau-fachmann-gesundheit-10-100-clienia-ag-pfaffikon",
-        "assistente-professionale-sanitaria-10-100-clienia-ag-pfaffikon-zh"
+        "specialiste-en-sante-60-80-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:26.261Z",
       "salaryMin": 79000,
@@ -1501,7 +1464,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/fachfrau-fachmann-gesundheit-30933663982282"
     },
     {
       "id": "clienia-ag-4f33d5f6ec23",
@@ -1534,7 +1498,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/assistenzaerztin-assistenzarzt-30981343991793/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:43.987Z",
+      "crawledAt": "2026-09-24T14:27:11.338Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1584,15 +1548,13 @@
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-100-clienia-ag-zurich",
-          "medico-specialista-100-clienia-ag-pfaffikon",
-          "assistente-psichiatra-psichiatra-100-clienia-ag-pfaffikon-zh"
+          "medico-specialista-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "resident-physician-100-clienia-ag-pfaffikon"
         ],
         "de": [
-          "assistenzarztin-assistenzarzt-100-clienia-ag-zurich",
-          "assistenzarztin-assistenzarzt-100-clienia-ag-pfaffikon"
+          "assistenzarztin-assistenzarzt-100-clienia-ag-zurich"
         ],
         "fr": [
           "medical-100-clienia-ag-pfaffikon"
@@ -1610,9 +1572,7 @@
         "assistenzarztin-assistenzarzt-60-100-clienia-ag-zurich",
         "medico-specializzando-60-100-clienia-ag-pfaffikon",
         "resident-physician-60-100-clienia-ag-pfaffikon",
-        "medical-interne-60-100-clienia-ag-pfaffikon",
-        "assistenzarztin-assistenzarzt-100-clienia-ag-pfaffikon",
-        "assistente-psichiatra-psichiatra-100-clienia-ag-pfaffikon-zh"
+        "medical-interne-60-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:08.339Z",
       "salaryMin": 91500,
@@ -1627,7 +1587,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/assistenzaerztin-assistenzarzt-30981343991793"
     },
     {
       "id": "clienia-ag-8158e1053e42",
@@ -1660,7 +1621,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/assistenzaerztin-assistenzarzt-30829123961802/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:42.496Z",
+      "crawledAt": "2026-09-24T14:27:09.550Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1679,14 +1640,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-80-100-clienia-ag-zurich",
-        "assistenzarztin-assistenzarzt-80-100-clienia-ag-pfaffikon",
-        "assistente-medico-80-100-clienia-ag-pfaffikon-zh"
+        "assistenzarztin-assistenzarzt-80-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-80-100-clienia-ag-zurich",
-          "assistenzarztin-assistenzarzt-80-100-clienia-ag-pfaffikon",
-          "assistente-medico-80-100-clienia-ag-pfaffikon-zh"
+          "assistenzarztin-assistenzarzt-80-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-80-100-clienia-ag-pfaffikon"
@@ -1708,7 +1667,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/assistenzaerztin-assistenzarzt-30829123961802"
     },
     {
       "id": "clienia-ag-6144b778bc17",
@@ -1741,7 +1701,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/pflegehelfer-pflegehelferin-srk-und-oder-assistentin-assistent-gesundheit-und-soziales-ags-30998273995034/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:41.755Z",
+      "crawledAt": "2026-09-24T14:27:08.607Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1774,8 +1734,7 @@
         "fachfrau-fachmann-gesundheit-im-tagdienst-80-100-clienia-ag-zurich",
         "specialista-della-salute-nel-servizio-diurno-80-100-clienia-ag-pfaffikon",
         "healthcare-specialist-in-day-service-80-100-clienia-ag-pfaffikon",
-        "specialiste-en-sante-en-service-diurne-80-100-clienia-ag-pfaffikon",
-        "assistente-di-cura-assistente-di-assistenza-sanitaria-e-sociale-40-100-clienia-ag-pfaffikon-zh"
+        "specialiste-en-sante-en-service-diurne-80-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1793,8 +1752,7 @@
           "fachfrau-fachmann-gesundheit-im-tagdienst-80-100-clienia-ag-zurich",
           "specialista-della-salute-nel-servizio-diurno-80-100-clienia-ag-pfaffikon",
           "healthcare-specialist-in-day-service-80-100-clienia-ag-pfaffikon",
-          "specialiste-en-sante-en-service-diurne-80-100-clienia-ag-pfaffikon",
-          "assistente-di-cura-assistente-di-assistenza-sanitaria-e-sociale-40-100-clienia-ag-pfaffikon-zh"
+          "specialiste-en-sante-en-service-diurne-80-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "healthcare-assistant-day-shift-m-f-d-50-80-clienia-ag-pfaffikon-zh"
@@ -1821,7 +1779,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/pflegehelfer-pflegehelferin-srk-und-oder-assistentin-assistent-gesundheit-und-soziales-ags-30998273995034"
     },
     {
       "id": "clienia-ag-e09f6d209a51",
@@ -1854,7 +1813,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/fachfrau-fachmann-gesundheit-30998863995101/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:41.005Z",
+      "crawledAt": "2026-09-24T14:27:07.659Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1904,13 +1863,11 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-fachmann-gesundheit-40-100-clienia-ag-zurich",
-          "fachfrau-fachmann-gesundheit-40-100-clienia-ag-pfaffikon"
+          "fachfrau-fachmann-gesundheit-40-100-clienia-ag-zurich"
         ],
         "it": [
           "fachfrau-fachmann-gesundheit-40-100-clienia-ag-zurich",
-          "specialista-della-salute-40-100-clienia-ag-pfaffikon",
-          "assistente-sanitaria-specializzata-in-assistenza-psichiatrica-40-100-clienia-ag-pfaffikon-zh"
+          "specialista-della-salute-40-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "healthcare-specialist-40-100-clienia-ag-pfaffikon"
@@ -1923,9 +1880,7 @@
         "fachfrau-fachmann-gesundheit-40-100-clienia-ag-zurich",
         "specialista-della-salute-40-100-clienia-ag-pfaffikon",
         "healthcare-specialist-40-100-clienia-ag-pfaffikon",
-        "specialiste-en-sante-40-100-clienia-ag-pfaffikon",
-        "fachfrau-fachmann-gesundheit-40-100-clienia-ag-pfaffikon",
-        "assistente-sanitaria-specializzata-in-assistenza-psichiatrica-40-100-clienia-ag-pfaffikon-zh"
+        "specialiste-en-sante-40-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:05:59.815Z",
       "salaryMin": 79000,
@@ -1940,7 +1895,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/fachfrau-fachmann-gesundheit-30998863995101"
     },
     {
       "id": "clienia-ag-2bc2a54ba194",
@@ -1973,7 +1929,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/assistenzaerztin-assistenzarzt-erwachsenenpsychiatrie-30212453838438/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:40.172Z",
+      "crawledAt": "2026-09-24T14:27:06.715Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2000,8 +1956,7 @@
         "psychiatres-et-psychotherapeutes-m-f-d-pour-la-psychiatrie-adulte-40-100-clienia-ag-pfaffikon-zh",
         "psichiatri-e-psicoterapeuti-m-f-d-per-la-psichiatria-dell-adulto-40-100-clienia-ag-pfaffikon",
         "specialists-in-adult-psychiatry-and-psychotherapy-m-f-d-40-100-clienia-ag-pfaffikon",
-        "specialistes-en-psychiatrie-et-psychotherapie-pour-adultes-h-f-40-100-clienia-ag-pfaffikon",
-        "assistente-medico-psichiatria-adulta-80-100-clienia-ag-pfaffikon-zh"
+        "specialistes-en-psychiatrie-et-psychotherapie-pour-adultes-h-f-40-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2014,8 +1969,7 @@
           "psychiatres-et-psychotherapeutes-m-f-d-pour-la-psychiatrie-adulte-40-100-clienia-ag-pfaffikon-zh",
           "psichiatri-e-psicoterapeuti-m-f-d-per-la-psichiatria-dell-adulto-40-100-clienia-ag-pfaffikon",
           "specialists-in-adult-psychiatry-and-psychotherapy-m-f-d-40-100-clienia-ag-pfaffikon",
-          "specialistes-en-psychiatrie-et-psychotherapie-pour-adultes-h-f-40-100-clienia-ag-pfaffikon",
-          "assistente-medico-psichiatria-adulta-80-100-clienia-ag-pfaffikon-zh"
+          "specialistes-en-psychiatrie-et-psychotherapie-pour-adultes-h-f-40-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-80-100-clienia-ag-pfaffikon",
@@ -2042,7 +1996,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/assistenzaerztin-assistenzarzt-erwachsenenpsychiatrie-30212453838438"
     },
     {
       "id": "clienia-ag-ee6151ce5c70",
@@ -2076,7 +2031,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-oberarzt-abhaengigkeitserkrankungen-31111604017087/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:39.336Z",
+      "crawledAt": "2026-09-24T14:27:05.774Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2096,15 +2051,13 @@
       "previousSlugs": [
         "oberarztin-oberarzt-abhangigkeitserkrankungen-60-100-clienia-ag-zurich",
         "oberarztin-oberarzt-abhangigkeitserkrankungen-60-100-clienia-ag-pfaffikon",
-        "malattie-di-dipendenza-da-medico-senior-60-100-clienia-ag-pfaffikon",
-        "malattie-di-dipendenza-da-medico-senior-60-100-clienia-ag-pfaffikon-zh"
+        "malattie-di-dipendenza-da-medico-senior-60-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-abhangigkeitserkrankungen-60-100-clienia-ag-zurich",
           "oberarztin-oberarzt-abhangigkeitserkrankungen-60-100-clienia-ag-pfaffikon",
-          "malattie-di-dipendenza-da-medico-senior-60-100-clienia-ag-pfaffikon",
-          "malattie-di-dipendenza-da-medico-senior-60-100-clienia-ag-pfaffikon-zh"
+          "malattie-di-dipendenza-da-medico-senior-60-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "oberarztin-oberarzt-abhangigkeitserkrankungen-60-100-clienia-ag-pfaffikon"
@@ -2126,7 +2079,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-oberarzt-abhaengigkeitserkrankungen-31111604017087"
     },
     {
       "id": "clienia-ag-666dd4ef72cf",
@@ -2159,7 +2113,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/assistenzaerztin-assistenzarzt-31130904020549/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:38.584Z",
+      "crawledAt": "2026-09-24T14:27:04.936Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2186,8 +2140,7 @@
         "medecin-assistante-en-psychiatrie-h-f-d-40-100-clienia-ag-pfaffikon-zh",
         "assistenzarztin-assistenzarzt-m-w-d-40-100-clienia-ag-zurich",
         "assistant-physician-40-100-clienia-ag-pfaffikon",
-        "medecin-assistant-40-100-clienia-ag-pfaffikon",
-        "assistente-medico-60-100-clienia-ag-pfaffikon-zh-393c66"
+        "medecin-assistant-40-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2200,8 +2153,7 @@
           "medecin-assistante-en-psychiatrie-h-f-d-40-100-clienia-ag-pfaffikon-zh",
           "assistenzarztin-assistenzarzt-m-w-d-40-100-clienia-ag-zurich",
           "assistant-physician-40-100-clienia-ag-pfaffikon",
-          "medecin-assistant-40-100-clienia-ag-pfaffikon",
-          "assistente-medico-60-100-clienia-ag-pfaffikon-zh-393c66"
+          "medecin-assistant-40-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-60-100-clienia-ag-pfaffikon",
@@ -2228,7 +2180,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/assistenzaerztin-assistenzarzt-31130904020549"
     },
     {
       "id": "clienia-ag-120f8659c8b3",
@@ -2262,7 +2215,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/studierende-pflege-hf-psychiatrie-mit-studienbeginn-jeweils-im-maerz-und-september-31163754026957/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:37.842Z",
+      "crawledAt": "2026-09-24T14:27:03.995Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2281,14 +2234,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "studierende-pflege-hf-psychiatrie-mit-studienbeginn-jeweils-im-marz-und-september-100",
-        "studierende-pflege-hf-psychiatrie-con-studienbeginn-jeweils-im-marz-e-september-100-clienia-ag-pfaffikon",
-        "studenti-infermieristica-hf-psichiatria-a-partire-da-marzo-e-settembre-100-clienia-ag-pfaffikon-zh"
+        "studierende-pflege-hf-psychiatrie-con-studienbeginn-jeweils-im-marz-e-september-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "studierende-pflege-hf-psychiatrie-mit-studienbeginn-jeweils-im-marz-und-september-100",
-          "studierende-pflege-hf-psychiatrie-con-studienbeginn-jeweils-im-marz-e-september-100-clienia-ag-pfaffikon",
-          "studenti-infermieristica-hf-psichiatria-a-partire-da-marzo-e-settembre-100-clienia-ag-pfaffikon-zh"
+          "studierende-pflege-hf-psychiatrie-con-studienbeginn-jeweils-im-marz-e-september-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "studierende-pflege-hf-psychiatrie-mit-studienbeginn-jeweils-im-marz-und-september-100"
@@ -2310,7 +2261,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/studierende-pflege-hf-psychiatrie-mit-studienbeginn-jeweils-im-maerz-und-september-31163754026957"
     },
     {
       "id": "clienia-ag-b3dd56efecde",
@@ -2344,7 +2296,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/fachfrau-fachmann-gesundheit-31167574027853/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:37.088Z",
+      "crawledAt": "2026-09-24T14:27:03.156Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2368,8 +2320,7 @@
         "health-professional-m-f-d-80-clienia-ag-pfaffikon-zh",
         "fachperson-gesundheit-m-w-d-80-clienia-ag-zurich",
         "professionnels-de-la-sante-m-f-j-80-clienia-ag-pfaffikon-zh",
-        "fachperson-gesundheit-80-100-clienia-ag-zurich",
-        "salute-professionale-80-90-clienia-ag-pfaffikon-zh"
+        "fachperson-gesundheit-80-100-clienia-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2379,8 +2330,7 @@
           "health-professional-m-f-d-80-clienia-ag-pfaffikon-zh",
           "fachperson-gesundheit-m-w-d-80-clienia-ag-zurich",
           "professionnels-de-la-sante-m-f-j-80-clienia-ag-pfaffikon-zh",
-          "fachperson-gesundheit-80-100-clienia-ag-zurich",
-          "salute-professionale-80-90-clienia-ag-pfaffikon-zh"
+          "fachperson-gesundheit-80-100-clienia-ag-zurich"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-80-90-clienia-ag-zurich",
@@ -2407,7 +2357,8 @@
           "maxValue": 121100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/fachfrau-fachmann-gesundheit-31167574027853"
     },
     {
       "id": "clienia-ag-75129abe6247",
@@ -2440,7 +2391,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-31176164029424/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:36.332Z",
+      "crawledAt": "2026-09-24T14:27:02.322Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2459,14 +2410,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "diplomierte-pflegefachperson-40-100-clienia-ag-zurich",
-        "diplomierte-pflegefachperson-40-100-clienia-ag-pfaffikon",
-        "infermiere-certificata-40-100-clienia-ag-pfaffikon-zh"
+        "diplomierte-pflegefachperson-40-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-40-100-clienia-ag-zurich",
-          "diplomierte-pflegefachperson-40-100-clienia-ag-pfaffikon",
-          "infermiere-certificata-40-100-clienia-ag-pfaffikon-zh"
+          "diplomierte-pflegefachperson-40-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "diplomierte-pflegefachperson-40-100-clienia-ag-pfaffikon"
@@ -2488,7 +2437,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-31176164029424"
     },
     {
       "id": "clienia-ag-8cd186900802",
@@ -2521,7 +2471,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-hf-fh-m-w-d-31178984029957/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:35.587Z",
+      "crawledAt": "2026-09-24T14:27:01.490Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2540,14 +2490,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "diplomierte-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich",
-        "diplomierte-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-pfaffikon",
-        "infermiera-laureata-hf-fh-m-f-d-80-100-clienia-ag-pfaffikon-zh"
+        "diplomierte-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich",
-          "diplomierte-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-pfaffikon",
-          "infermiera-laureata-hf-fh-m-f-d-80-100-clienia-ag-pfaffikon-zh"
+          "diplomierte-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "diplomierte-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-pfaffikon"
@@ -2569,7 +2517,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-hf-fh-m-w-d-31178984029957"
     },
     {
       "id": "clienia-ag-552e5e66f0df",
@@ -2603,7 +2552,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/fachverantwortliche-r-pflege-31179064030009/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:34.844Z",
+      "crawledAt": "2026-09-24T14:27:00.657Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2623,14 +2572,12 @@
       "previousSlugs": [
         "fachverantwortliche-r-pflege-80-100-clienia-ag-zurich",
         "fachverantwortliche-r-pflege-80-100-clienia-ag-pfaffikon",
-        "prise-en-charge-responsable-80-100-clienia-ag-pfaffikon-zh",
-        "cura-responsabile-80-100-clienia-ag-pfaffikon-zh"
+        "prise-en-charge-responsable-80-100-clienia-ag-pfaffikon-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachverantwortliche-r-pflege-80-100-clienia-ag-zurich",
-          "fachverantwortliche-r-pflege-80-100-clienia-ag-pfaffikon",
-          "cura-responsabile-80-100-clienia-ag-pfaffikon-zh"
+          "fachverantwortliche-r-pflege-80-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "fachverantwortliche-r-pflege-80-100-clienia-ag-pfaffikon"
@@ -2653,7 +2600,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/fachverantwortliche-r-pflege-31179064030009"
     },
     {
       "id": "clienia-ag-1347c548c035",
@@ -2686,7 +2634,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/lehrstelle-als-koechin-koch-efz-31179984030196/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:34.101Z",
+      "crawledAt": "2026-09-24T14:26:59.815Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2706,15 +2654,13 @@
       "previousSlugs": [
         "lehrstelle-als-kochin-koch-efz-100-clienia-ag-zurich",
         "lehrstelle-als-kochin-koch-efz-100-clienia-ag-pfaffikon",
-        "apprendistato-come-kochin-koch-cfc-100-clienia-ag-pfaffikon",
-        "apprendistato-come-cuoco-cuoco-efz-100-clienia-ag-pfaffikon-zh"
+        "apprendistato-come-kochin-koch-cfc-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-kochin-koch-efz-100-clienia-ag-zurich",
           "lehrstelle-als-kochin-koch-efz-100-clienia-ag-pfaffikon",
-          "apprendistato-come-kochin-koch-cfc-100-clienia-ag-pfaffikon",
-          "apprendistato-come-cuoco-cuoco-efz-100-clienia-ag-pfaffikon-zh"
+          "apprendistato-come-kochin-koch-cfc-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "lehrstelle-als-kochin-koch-efz-100-clienia-ag-zurich"
@@ -2736,7 +2682,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/lehrstelle-als-koechin-koch-efz-31179984030196"
     },
     {
       "id": "clienia-ag-1749df5cdd27",
@@ -2770,7 +2717,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/leitende-aerztin-leitenden-arzt-m-w-d-31188514031920/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:33.352Z",
+      "crawledAt": "2026-09-24T14:26:58.878Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2788,13 +2735,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitende-arztin-leitenden-arzt-m-w-d-60-100-clienia-ag-zurich",
-        "medico-senior-m-f-d-60-100-clienia-ag-pfaffikon-zh"
+        "leitende-arztin-leitenden-arzt-m-w-d-60-100-clienia-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-arztin-leitenden-arzt-m-w-d-60-100-clienia-ag-zurich",
-          "medico-senior-m-f-d-60-100-clienia-ag-pfaffikon-zh"
+          "leitende-arztin-leitenden-arzt-m-w-d-60-100-clienia-ag-zurich"
         ],
         "en": [
           "leitende-arztin-leitenden-arzt-m-w-d-60-100-clienia-ag-zurich"
@@ -2816,7 +2761,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/leitende-aerztin-leitenden-arzt-m-w-d-31188514031920"
     },
     {
       "id": "clienia-ag-7b933f82f9f9",
@@ -2833,7 +2779,7 @@
       "title": "Psychotherapeutin/Psychotherapeut oder Psychologin/Psychologe (m/w/d) (40% - 100%)",
       "titleByLocale": {
         "it": "Psicoterapeuta o psicologo (m/f/d) (40% - 100%)",
-        "en": "Psychotherapeutin/Psychotherapeut oder Psychologin/Psychologe (m/w/d) (40% - 100%)",
+        "en": "Psychotherapist or psychologist (m/f/d) (40% - 100%)",
         "de": "Psychotherapeutin/Psychotherapeut oder Psychologin/Psychologe (m/w/d) (40% - 100%)",
         "fr": "Psychothérapeute ou psychologue (m/f/j) (40% - 100%)"
       },
@@ -2844,13 +2790,12 @@
         "de": "Ihre Aufgaben\n• Eigenverantwortliche Abklärungen, Diagnostik und Behandlungen von erwachsenen Patientinnen und Patienten\n• Erstellen von Berichten und Abrechnung Ihr Profil\n• Vorkenntnisse in der psychotherapeutischen Behandlung\n• Abgeschlossene oder weit fortgeschrittene Psychotherapieausbildung (min. 150 Lektionen in Theorie und 70 Sitzungen Selbsterfahrung)\n• engagierte und einfühlsame Persönlichkeit, die sich flexibel auf unterschiedliche Behandlungssituationen einstellen kann\n• Freude am selbstständigen Arbeiten Unser Angebot\n• Modernes und ansprechendes Arbeitsumfeld und -klima in einem grossen Team an Ärzten sowie mit einem starken psychologisch-psychotherapeutischen Kernteam\n• Flexible und selbstbestimmte Ausgestaltung der Arbeitszeiten\n• Sorgfältige fachspezifische Einführung und Supervision\n• Vielfältige Fortbildungsmöglichkeiten mit Unterstützung der Clienia-Gruppe\n• Familienfreundliche und moderne Anstellungsbedingungen\n• gute Fortbildungsmöglichkeiten Wir freuen uns auf Ihre vollständige Bewerbung über unser Online-Tool. Bei inhaltlichen Fragen zur ausgeschriebenen Stelle stehen Ihnen die leitende Psychologin und Standortleiterin Lana Burghof unter +41 56 676 69 80 oder der Direktor Ambulante Dienste René Alpiger unter +41 52 234 14 77 gerne zur Verfügung.\n\nClienia AG — grösste Privatklinikgruppe für Psychiatrie und Psychotherapie der Deutschschweiz. Standorte: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
         "fr": "Leurs tâches\n• Évaluations auto-responsables, diagnostic et traitement des patients adultes\n• Création de rapports et facturation de votre profil\n• Connaissance préalable du traitement psychothérapeutique\n• Formation complète ou avancée en psychothérapie (min. 150 leçons de théorie et 70 séances de conscience de soi)\n• une personnalité engagée et sensible qui peut s'adapter avec souplesse aux différentes situations de traitement\n• Joy de travailler indépendamment Notre offre\n• Un environnement de travail et un climat modernes et attrayants dans une grande équipe de médecins ainsi qu'avec une forte équipe de base psychologique-psychothérapeute\n• Conception flexible et autonome des horaires de travail\n• Introduction et supervision techniques attentives\n• Diverses possibilités de formation avec le soutien du groupe Clienia\n• Conditions d'emploi modernes et favorables à la famille\n• de bonnes possibilités de formation Nous attendons avec impatience votre candidature complète via notre outil en ligne. Pour des questions de fond sur le poste annoncé, la psychologue senior et responsable du site Lana Burghof est à votre disposition au +41 56 676 69 80 ou le directeur des services ambulatoires René Alpiger au +41 52 234 14 77. Le Groupe Clienia est le plus grand groupe hospitalier privé en psychiatrie et en psychothérapie en Suisse germanophone. À divers endroits, Clienia offre une gamme variée de méthodes de traitement psychiatrique, psychothérapeutique et psychosomatique pour tous les groupes d'âge dans l'établissement ambulatoire, semi-stationnaire et hospitalier jusqu'aux soins psychiatriques de longue durée. Clienia AG – le plus grand groupe hospitalier privé de psychiatrie et de psychothérapie en Suisse germanophone. Lieux: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon."
       },
-      "needsRetranslation": true,
       "location": "Pfäffikon ZH",
       "canton": "ZH",
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/psychotherapeutin-psychotherapeut-oder-psychologin-psychologe-m-w-d-31188324031892/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:32.795Z",
+      "crawledAt": "2026-09-24T14:26:58.259Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2875,8 +2820,7 @@
         "psychologue-40-100-clienia-ag-pfaffikon",
         "psychologin-psychologe-40-100-clienia-ag-zurich",
         "psychotherapeutin-psychotherapeut-oder-psychologin-psychologe-m-w-d-40-100-clienia-ag-pfaffikon",
-        "psychotherapeutin-psychotherapeut-o-psychologin-psychologe-m-w-d-40-100-clienia-ag-pfaffikon",
-        "psicoterapeuta-o-psicologo-m-f-d-40-100-clienia-ag-pfaffikon-zh"
+        "psychotherapeutin-psychotherapeut-o-psychologin-psychologe-m-w-d-40-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2887,8 +2831,7 @@
           "psychologue-40-100-clienia-ag-pfaffikon",
           "psychologin-psychologe-40-100-clienia-ag-zurich",
           "psychotherapeutin-psychotherapeut-oder-psychologin-psychologe-m-w-d-40-100-clienia-ag-pfaffikon",
-          "psychotherapeutin-psychotherapeut-o-psychologin-psychologe-m-w-d-40-100-clienia-ag-pfaffikon",
-          "psicoterapeuta-o-psicologo-m-f-d-40-100-clienia-ag-pfaffikon-zh"
+          "psychotherapeutin-psychotherapeut-o-psychologin-psychologe-m-w-d-40-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "psychotherapeutin-psychotherapeut-oder-psychologin-psychologe-m-w-d-40-100-clienia-ag",
@@ -2915,7 +2858,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/psychotherapeutin-psychotherapeut-oder-psychologin-psychologe-m-w-d-31188324031892"
     },
     {
       "id": "clienia-ag-b621c4c1a603",
@@ -2949,7 +2893,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/stellvertretende-r-stationsleiter-in-31192184032494/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:31.961Z",
+      "crawledAt": "2026-09-24T14:26:57.425Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2968,14 +2912,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich",
-        "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-pfaffikon",
-        "vice-direttore-di-quartiere-80-100-clienia-ag-pfaffikon-zh"
+        "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich",
-          "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-pfaffikon",
-          "vice-direttore-di-quartiere-80-100-clienia-ag-pfaffikon-zh"
+          "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-pfaffikon"
@@ -2997,7 +2939,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/stellvertretende-r-stationsleiter-in-31192184032494"
     },
     {
       "id": "clienia-ag-4de836966f41",
@@ -3030,7 +2973,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/dip-pflegefachperson-hf-fh-sozialpaedagoge-in-hf-fh-m-w-d-31198754033742/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:31.216Z",
+      "crawledAt": "2026-09-24T14:26:56.483Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3050,15 +2993,13 @@
       "previousSlugs": [
         "dip-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-zurich",
         "dip-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon",
-        "dip-pflegefachperson-hf-fh-sozialpadagoge-in-hf-fh-m-w-d-70-90-clienia-ag-zurich",
-        "infermiera-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon-zh"
+        "dip-pflegefachperson-hf-fh-sozialpadagoge-in-hf-fh-m-w-d-70-90-clienia-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dip-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-zurich",
           "dip-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon",
-          "dip-pflegefachperson-hf-fh-sozialpadagoge-in-hf-fh-m-w-d-70-90-clienia-ag-zurich",
-          "infermiera-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon-zh"
+          "dip-pflegefachperson-hf-fh-sozialpadagoge-in-hf-fh-m-w-d-70-90-clienia-ag-zurich"
         ],
         "en": [
           "dip-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon"
@@ -3080,7 +3021,8 @@
           "maxValue": 115200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/dip-pflegefachperson-hf-fh-sozialpaedagoge-in-hf-fh-m-w-d-31198754033742"
     },
     {
       "id": "clienia-ag-dbe82790c3b7",
@@ -3114,7 +3056,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/dipl-pflegefachperson-hf-fh-im-nachtdienst-31198924033611/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:30.470Z",
+      "crawledAt": "2026-09-24T14:26:55.641Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3133,14 +3075,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-im-nachtdienst-40-50-clienia-ag-zurich",
-        "dipl-pflegefachperson-hf-fh-im-nachtdienst-40-50-clienia-ag-pfaffikon",
-        "dipl-professionista-hf-fh-in-servizio-notturno-40-50-clienia-ag-pfaffikon-zh"
+        "dipl-pflegefachperson-hf-fh-im-nachtdienst-40-50-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-im-nachtdienst-40-50-clienia-ag-zurich",
-          "dipl-pflegefachperson-hf-fh-im-nachtdienst-40-50-clienia-ag-pfaffikon",
-          "dipl-professionista-hf-fh-in-servizio-notturno-40-50-clienia-ag-pfaffikon-zh"
+          "dipl-pflegefachperson-hf-fh-im-nachtdienst-40-50-clienia-ag-pfaffikon"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-im-nachtdienst-40-50-clienia-ag-pfaffikon"
@@ -3162,7 +3102,8 @@
           "maxValue": 64000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/dipl-pflegefachperson-hf-fh-im-nachtdienst-31198924033611"
     },
     {
       "id": "clienia-ag-eac708e569d7",
@@ -3196,7 +3137,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-31198984033847/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:29.394Z",
+      "crawledAt": "2026-09-24T14:26:54.810Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3215,14 +3156,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-30-90-clienia-ag-zurich",
-        "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-30-90-clienia-ag-pfaffikon",
-        "dipl-cura-professionale-hf-fh-in-servizio-notturno-m-f-d-30-90-clienia-ag-pfaffikon-zh"
+        "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-30-90-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-30-90-clienia-ag-zurich",
-          "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-30-90-clienia-ag-pfaffikon",
-          "dipl-cura-professionale-hf-fh-in-servizio-notturno-m-f-d-30-90-clienia-ag-pfaffikon-zh"
+          "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-30-90-clienia-ag-pfaffikon"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-30-90-clienia-ag-pfaffikon"
@@ -3244,7 +3183,8 @@
           "maxValue": 115200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-31198984033847"
     },
     {
       "id": "clienia-ag-3746a57d7ecb",
@@ -3277,7 +3217,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-ergotherapeutin-diplomierten-ergotherapeuten-31213454036332/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:28.657Z",
+      "crawledAt": "2026-09-24T14:26:53.979Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3296,14 +3236,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "diplomierte-ergotherapeutin-diplomierten-ergotherapeuten-60-90-clienia-ag-zurich",
-        "diplomierte-ergotherapeutin-diplomierten-ergotherapeuten-60-90-clienia-ag-pfaffikon",
-        "terapista-professionale-diplomata-terapista-professionale-diplomata-60-90-clienia-ag-pfaffikon-zh"
+        "diplomierte-ergotherapeutin-diplomierten-ergotherapeuten-60-90-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-ergotherapeutin-diplomierten-ergotherapeuten-60-90-clienia-ag-zurich",
-          "diplomierte-ergotherapeutin-diplomierten-ergotherapeuten-60-90-clienia-ag-pfaffikon",
-          "terapista-professionale-diplomata-terapista-professionale-diplomata-60-90-clienia-ag-pfaffikon-zh"
+          "diplomierte-ergotherapeutin-diplomierten-ergotherapeuten-60-90-clienia-ag-pfaffikon"
         ],
         "en": [
           "diplomierte-ergotherapeutin-diplomierten-ergotherapeuten-60-90-clienia-ag-pfaffikon"
@@ -3325,7 +3263,8 @@
           "maxValue": 115200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-ergotherapeutin-diplomierten-ergotherapeuten-31213454036332"
     },
     {
       "id": "clienia-ag-96c9bc976611",
@@ -3358,7 +3297,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/leitende-aerztin-leitenden-arzt-m-w-d-31214354036608/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:27.915Z",
+      "crawledAt": "2026-09-24T14:26:53.139Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3378,15 +3317,13 @@
       "previousSlugs": [
         "leitende-arztin-leitenden-arzt-m-w-d-100-clienia-ag-zurich",
         "medecin-principal-80-100-clienia-ag-pfaffikon",
-        "medecin-principal-80-100-clienia-ag-pfaffikon-zh-58d907",
-        "medico-senior-m-f-d-100-clienia-ag-pfaffikon-zh"
+        "medecin-principal-80-100-clienia-ag-pfaffikon-zh-58d907"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitende-arztin-leitenden-arzt-m-w-d-100-clienia-ag-zurich",
           "medecin-principal-80-100-clienia-ag-pfaffikon",
-          "medecin-principal-80-100-clienia-ag-pfaffikon-zh-58d907",
-          "medico-senior-m-f-d-100-clienia-ag-pfaffikon-zh"
+          "medecin-principal-80-100-clienia-ag-pfaffikon-zh-58d907"
         ],
         "en": [
           "leitende-arztin-leitenden-arzt-m-w-d-100-clienia-ag-zurich"
@@ -3408,7 +3345,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/leitende-aerztin-leitenden-arzt-m-w-d-31214354036608"
     },
     {
       "id": "clienia-ag-50dd8fb02b3e",
@@ -3442,7 +3380,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/fachperson-gesundheit-im-nachtdienst-m-w-d-31220114037509/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:27.163Z",
+      "crawledAt": "2026-09-24T14:26:52.304Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3460,13 +3398,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-gesundheit-im-nachtdienst-m-w-d-60-80-clienia-ag-zurich",
-        "professionista-della-salute-di-notte-m-f-d-60-80-clienia-ag-pfaffikon-zh"
+        "fachperson-gesundheit-im-nachtdienst-m-w-d-60-80-clienia-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-im-nachtdienst-m-w-d-60-80-clienia-ag-zurich",
-          "professionista-della-salute-di-notte-m-f-d-60-80-clienia-ag-pfaffikon-zh"
+          "fachperson-gesundheit-im-nachtdienst-m-w-d-60-80-clienia-ag-zurich"
         ],
         "en": [
           "fachperson-gesundheit-im-nachtdienst-m-w-d-60-80-clienia-ag-zurich"
@@ -3488,7 +3424,8 @@
           "maxValue": 107600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/fachperson-gesundheit-im-nachtdienst-m-w-d-31220114037509"
     },
     {
       "id": "clienia-ag-8afb58095b03",
@@ -3522,7 +3459,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/leitende-n-psychologische-n-psychotherapeutin-therapeuten-m-w-d-31228894039256/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:26.421Z",
+      "crawledAt": "2026-09-24T14:26:51.361Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3541,14 +3478,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leitende-n-psychologische-n-psychotherapeutin-therapeuten-m-w-d-60-100-clienia-ag-zurich",
-        "leitende-n-psychologische-n-psychotherapeutin-therapeuten-m-w-d-60-100-clienia-ag-pfaffikon",
-        "psicoterapeuta-psicologica-principale-m-f-d-60-100-clienia-ag-pfaffikon-zh"
+        "leitende-n-psychologische-n-psychotherapeutin-therapeuten-m-w-d-60-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitende-n-psychologische-n-psychotherapeutin-therapeuten-m-w-d-60-100-clienia-ag-zurich",
-          "leitende-n-psychologische-n-psychotherapeutin-therapeuten-m-w-d-60-100-clienia-ag-pfaffikon",
-          "psicoterapeuta-psicologica-principale-m-f-d-60-100-clienia-ag-pfaffikon-zh"
+          "leitende-n-psychologische-n-psychotherapeutin-therapeuten-m-w-d-60-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "leitende-n-psychologische-n-psychotherapeutin-therapeuten-m-w-d-60-100-clienia-ag-pfaffikon"
@@ -3570,7 +3505,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/leitende-n-psychologische-n-psychotherapeutin-therapeuten-m-w-d-31228894039256"
     },
     {
       "id": "clienia-ag-a3e43bbde676",
@@ -3603,7 +3539,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-31244454042401/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:25.681Z",
+      "crawledAt": "2026-09-24T14:26:50.415Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3622,14 +3558,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-zurich",
-        "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-pfaffikon",
-        "infermiera-hf-nel-servizio-notturno-m-f-d-50-70-clienia-ag-pfaffikon-zh"
+        "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-zurich",
-          "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-pfaffikon",
-          "infermiera-hf-nel-servizio-notturno-m-f-d-50-70-clienia-ag-pfaffikon-zh"
+          "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-pfaffikon"
         ],
         "en": [
           "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-pfaffikon"
@@ -3651,7 +3585,8 @@
           "maxValue": 89600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-31244454042401"
     },
     {
       "id": "clienia-ag-b9a1c90b4d57",
@@ -3685,7 +3620,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-oberarzt-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-31244524042482/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:24.936Z",
+      "crawledAt": "2026-09-24T14:26:49.472Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3709,8 +3644,7 @@
         "medecin-specialiste-en-psychiatrie-et-psychotherapie-pour-adultes-h-f-40-100-clienia-ag-pfaffikon",
         "senior-psychiatrist-and-psychotherapist-m-f-d-40-100-clienia-ag-pfaffikon",
         "medecin-assistante-en-psychiatrie-adultes-80-100-clienia-ag-pfaffikon-zh",
-        "oberarztin-oberarzt-erwachsenenpsychiatrie-e-psychotherapie-m-w-d-40-100-clienia-ag-pfaffikon",
-        "psichiatria-senior-per-adulti-e-psicoterapia-m-f-d-40-100-clienia-ag-pfaffikon-zh"
+        "oberarztin-oberarzt-erwachsenenpsychiatrie-e-psychotherapie-m-w-d-40-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3720,8 +3654,7 @@
           "medecin-specialiste-en-psychiatrie-et-psychotherapie-pour-adultes-h-f-40-100-clienia-ag-pfaffikon",
           "senior-psychiatrist-and-psychotherapist-m-f-d-40-100-clienia-ag-pfaffikon",
           "medecin-assistante-en-psychiatrie-adultes-80-100-clienia-ag-pfaffikon-zh",
-          "oberarztin-oberarzt-erwachsenenpsychiatrie-e-psychotherapie-m-w-d-40-100-clienia-ag-pfaffikon",
-          "psichiatria-senior-per-adulti-e-psicoterapia-m-f-d-40-100-clienia-ag-pfaffikon-zh"
+          "oberarztin-oberarzt-erwachsenenpsychiatrie-e-psychotherapie-m-w-d-40-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "senior-psychiatrist-medical-doctor-psychiatry-and-psychotherapy-40-100-clienia-ag-pfaffikon",
@@ -3745,7 +3678,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-oberarzt-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-31244524042482"
     },
     {
       "id": "clienia-ag-985ead8ddd1e",
@@ -3779,7 +3713,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-arzt-m-w-d-31244344042498/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:24.195Z",
+      "crawledAt": "2026-09-24T14:26:48.520Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3817,8 +3751,7 @@
         "kaderarztin-kaderarzt-psychotherapie-m-w-d-40-80-clienia-ag-zurich",
         "consulente-senior-m-w-d-40-80-clienia-ag-pfaffikon-zh",
         "senior-consultant-m-w-d-40-80-clienia-ag-pfaffikon-zh",
-        "kaderarztin-kaderarzt-psychotherapie-m-w-d-40-80-clienia-ag-pfaffikon",
-        "medico-senior-m-f-d-80-100-clienia-ag-pfaffikon-zh"
+        "kaderarztin-kaderarzt-psychotherapie-m-w-d-40-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3840,8 +3773,7 @@
           "senior-psychotherapist-m-f-d-40-80-clienia-ag-pfaffikon",
           "medecin-specialiste-de-service-psychotherapeute-de-service-h-f-40-80-clienia-ag-pfaffikon",
           "kaderarztin-kaderarzt-psychotherapie-m-w-d-40-80-clienia-ag-zurich",
-          "consulente-senior-m-w-d-40-80-clienia-ag-pfaffikon-zh",
-          "medico-senior-m-f-d-80-100-clienia-ag-pfaffikon-zh"
+          "consulente-senior-m-w-d-40-80-clienia-ag-pfaffikon-zh"
         ],
         "en": [
           "oberarztin-arzt-m-w-d-80-100-clienia-ag-zurich",
@@ -3869,7 +3801,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-arzt-m-w-d-31244344042498"
     },
     {
       "id": "clienia-ag-8d9298fa0f17",
@@ -3903,7 +3836,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/fachaerztinnen-und-fachaerzte-fuer-die-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-31245724042718/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:23.453Z",
+      "crawledAt": "2026-09-24T14:26:47.565Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3937,8 +3870,7 @@
         "psychiatre-et-psychotherapeute-m-f-d-40-100-clienia-ag-pfaffikon-zh",
         "specialist-in-adult-psychiatry-and-psychotherapy-40-100-clienia-ag-pfaffikon",
         "specialiste-en-psychiatrie-et-psychotherapie-pour-adultes-40-100-clienia-ag-pfaffikon",
-        "facharztinnen-e-facharzte-per-la-erwachsenenpsychiatrie-e-psychotherapie-m-w-d-40-100-clienia-ag-pfaffikon",
-        "specialisti-per-la-psichiatria-adulta-e-la-psicoterapia-m-f-d-40-100-clienia-ag-pfaffikon-zh"
+        "facharztinnen-e-facharzte-per-la-erwachsenenpsychiatrie-e-psychotherapie-m-w-d-40-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3958,8 +3890,7 @@
           "psychiatre-et-psychotherapeute-m-f-d-40-100-clienia-ag-pfaffikon-zh",
           "specialist-in-adult-psychiatry-and-psychotherapy-40-100-clienia-ag-pfaffikon",
           "specialiste-en-psychiatrie-et-psychotherapie-pour-adultes-40-100-clienia-ag-pfaffikon",
-          "facharztinnen-e-facharzte-per-la-erwachsenenpsychiatrie-e-psychotherapie-m-w-d-40-100-clienia-ag-pfaffikon",
-          "specialisti-per-la-psichiatria-adulta-e-la-psicoterapia-m-f-d-40-100-clienia-ag-pfaffikon-zh"
+          "facharztinnen-e-facharzte-per-la-erwachsenenpsychiatrie-e-psychotherapie-m-w-d-40-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "psychiatrists-and-psychotherapists-m-f-d-for-adult-psychiatry-40-100-clienia-ag-pfaffikon-zh",
@@ -3989,7 +3920,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/fachaerztinnen-und-fachaerzte-fuer-die-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-31245724042718"
     },
     {
       "id": "clienia-ag-f0076b461297",
@@ -4023,7 +3955,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/leitende-aerztin-leitender-arzt-oder-oberaerztin-oberarzt-kaderaerztinnen-kaderaerzte-31244564042698/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:22.699Z",
+      "crawledAt": "2026-09-24T14:26:46.618Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4042,14 +3974,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leitende-arztin-leitender-arzt-oder-oberarztin-oberarzt-kaderarztinnen-kaderarzte-80-100",
-        "leitende-arztin-leitender-arzt-o-oberarztin-oberarzt-kaderarztinnen-kaderarzte-80-100-clienia-ag-pfaffikon",
-        "dottore-di-piombo-o-medico-senior-cadres-80-100-clienia-ag-pfaffikon-zh"
+        "leitende-arztin-leitender-arzt-o-oberarztin-oberarzt-kaderarztinnen-kaderarzte-80-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitende-arztin-leitender-arzt-oder-oberarztin-oberarzt-kaderarztinnen-kaderarzte-80-100",
-          "leitende-arztin-leitender-arzt-o-oberarztin-oberarzt-kaderarztinnen-kaderarzte-80-100-clienia-ag-pfaffikon",
-          "dottore-di-piombo-o-medico-senior-cadres-80-100-clienia-ag-pfaffikon-zh"
+          "leitende-arztin-leitender-arzt-o-oberarztin-oberarzt-kaderarztinnen-kaderarzte-80-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "leitende-arztin-leitender-arzt-oder-oberarztin-oberarzt-kaderarztinnen-kaderarzte-80-100"
@@ -4071,7 +4001,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/leitende-aerztin-leitender-arzt-oder-oberaerztin-oberarzt-kaderaerztinnen-kaderaerzte-31244564042698"
     },
     {
       "id": "clienia-ag-d7852e75fd57",
@@ -4104,7 +4035,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-oberarzt-31244574042700/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:21.959Z",
+      "crawledAt": "2026-09-24T14:26:45.781Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4122,13 +4053,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-80-100-clienia-ag-zurich",
-        "medico-senior-80-100-clienia-ag-pfaffikon-zh-d164f0"
+        "oberarztin-oberarzt-80-100-clienia-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-80-100-clienia-ag-zurich",
-          "medico-senior-80-100-clienia-ag-pfaffikon-zh-d164f0"
+          "oberarztin-oberarzt-80-100-clienia-ag-zurich"
         ],
         "en": [
           "oberarztin-oberarzt-80-100-clienia-ag-zurich"
@@ -4150,7 +4079,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-oberarzt-31244574042700"
     },
     {
       "id": "clienia-ag-aa6b9c9ef0a1",
@@ -4183,7 +4113,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/assistenzaerztin-assistenzarzt-kinder-und-jugendpsychiatrie-und-psychotherapie-31245314042613/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:20.464Z",
+      "crawledAt": "2026-09-24T14:26:44.001Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4206,8 +4136,7 @@
         "junior-physician-in-child-and-adolescent-psychiatry-and-psychotherapy-80-100-clienia-ag-pfaffikon",
         "medecin-assistant-en-psychiatrie-et-psychotherapie-de-l-enfance-et-de-l-adolescence-80-100-clienia-ag-pfaffikon",
         "medico-specialista-in-psichiatria-e-psichiatria-dell-adolescenza-80-100-clienia-ag-pfaffikon",
-        "assistenzarztin-assistenzarzt-kinder-e-jugendpsychiatrie-e-psychotherapie-80-100-clienia-ag-pfaffikon",
-        "assistente-medico-e-psichiatria-adolescente-e-psicoterapia-80-100-clienia-ag-pfaffikon-zh"
+        "assistenzarztin-assistenzarzt-kinder-e-jugendpsychiatrie-e-psychotherapie-80-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4216,8 +4145,7 @@
           "junior-physician-in-child-and-adolescent-psychiatry-and-psychotherapy-80-100-clienia-ag-pfaffikon",
           "medecin-assistant-en-psychiatrie-et-psychotherapie-de-l-enfance-et-de-l-adolescence-80-100-clienia-ag-pfaffikon",
           "medico-specialista-in-psichiatria-e-psichiatria-dell-adolescenza-80-100-clienia-ag-pfaffikon",
-          "assistenzarztin-assistenzarzt-kinder-e-jugendpsychiatrie-e-psychotherapie-80-100-clienia-ag-pfaffikon",
-          "assistente-medico-e-psichiatria-adolescente-e-psicoterapia-80-100-clienia-ag-pfaffikon-zh"
+          "assistenzarztin-assistenzarzt-kinder-e-jugendpsychiatrie-e-psychotherapie-80-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "junior-physician-in-child-and-adolescent-psychiatry-and-psychotherapy-80-100-clienia-ag-pfaffikon",
@@ -4241,7 +4169,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/assistenzaerztin-assistenzarzt-kinder-und-jugendpsychiatrie-und-psychotherapie-31245314042613"
     },
     {
       "id": "clienia-ag-06daf2d41c13",
@@ -4275,7 +4204,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-mit-schwerpunkt-altenpflege-31270484047430/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:18.791Z",
+      "crawledAt": "2026-09-24T14:26:43.174Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4294,14 +4223,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "diplomierte-pflegefachperson-mit-schwerpunkt-altenpflege-10-100-clienia-ag-zurich",
-        "diplomierte-pflegefachperson-mit-schwerpunkt-altenpflege-10-100-clienia-ag-pfaffikon",
-        "infermiere-qualificato-con-un-focus-sulla-cura-degli-anziani-10-100-clienia-ag-pfaffikon-zh"
+        "diplomierte-pflegefachperson-mit-schwerpunkt-altenpflege-10-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-mit-schwerpunkt-altenpflege-10-100-clienia-ag-zurich",
-          "diplomierte-pflegefachperson-mit-schwerpunkt-altenpflege-10-100-clienia-ag-pfaffikon",
-          "infermiere-qualificato-con-un-focus-sulla-cura-degli-anziani-10-100-clienia-ag-pfaffikon-zh"
+          "diplomierte-pflegefachperson-mit-schwerpunkt-altenpflege-10-100-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-07-31T22:27:28.783Z",
@@ -4317,7 +4244,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-mit-schwerpunkt-altenpflege-31270484047430"
     },
     {
       "id": "clienia-ag-9f602a1bd8fa",
@@ -4350,7 +4278,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-31271654047578/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:18.051Z",
+      "crawledAt": "2026-09-24T14:26:42.211Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4370,15 +4298,13 @@
       "previousSlugs": [
         "diplomierte-pflegefachperson-60-90-clienia-ag-zurich",
         "diplomierte-pflegefachperson-60-90-clienia-ag-pfaffikon",
-        "infermiere-qualificato-60-90-clienia-ag-pfaffikon-zh",
-        "infermiere-certificata-60-90-clienia-ag-pfaffikon-zh"
+        "infermiere-qualificato-60-90-clienia-ag-pfaffikon-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-60-90-clienia-ag-zurich",
           "diplomierte-pflegefachperson-60-90-clienia-ag-pfaffikon",
-          "infermiere-qualificato-60-90-clienia-ag-pfaffikon-zh",
-          "infermiere-certificata-60-90-clienia-ag-pfaffikon-zh"
+          "infermiere-qualificato-60-90-clienia-ag-pfaffikon-zh"
         ],
         "en": [
           "diplomierte-pflegefachperson-60-90-clienia-ag-pfaffikon"
@@ -4400,7 +4326,8 @@
           "maxValue": 115200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-31271654047578"
     },
     {
       "id": "clienia-ag-90240dfa1f64",
@@ -4434,7 +4361,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-31244884042527/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:17.221Z",
+      "crawledAt": "2026-09-24T14:26:41.371Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4462,8 +4389,7 @@
         "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-50-80-clienia-ag-zurich",
         "diplome-e-infirmier-ere-professionnel-le-hf-fh-en-service-de-soins-de-nuit-50-80-clienia-ag-pfaffikon-zh",
         "diplomato-a-della-cura-infermieristica-hf-fh-nel-turno-di-notte-m-f-d-50-80-clienia-ag-pfaffikon",
-        "diplome-e-en-soins-infirmiers-hf-hes-en-service-de-nuit-m-f-d-50-80-clienia-ag-pfaffikon",
-        "dipl-cura-professionale-hf-fh-in-servizio-notturno-m-f-d-45-clienia-ag-pfaffikon-zh"
+        "diplome-e-en-soins-infirmiers-hf-hes-en-service-de-nuit-m-f-d-50-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4477,8 +4403,7 @@
           "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-50-80-clienia-ag-zurich",
           "diplome-e-infirmier-ere-professionnel-le-hf-fh-en-service-de-soins-de-nuit-50-80-clienia-ag-pfaffikon-zh",
           "diplomato-a-della-cura-infermieristica-hf-fh-nel-turno-di-notte-m-f-d-50-80-clienia-ag-pfaffikon",
-          "diplome-e-en-soins-infirmiers-hf-hes-en-service-de-nuit-m-f-d-50-80-clienia-ag-pfaffikon",
-          "dipl-cura-professionale-hf-fh-in-servizio-notturno-m-f-d-45-clienia-ag-pfaffikon-zh"
+          "diplome-e-en-soins-infirmiers-hf-hes-en-service-de-nuit-m-f-d-50-80-clienia-ag-pfaffikon"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-45-clienia-ag-pfaffikon",
@@ -4506,7 +4431,8 @@
           "maxValue": 57600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-31244884042527"
     },
     {
       "id": "clienia-ag-13bbc6eff203",
@@ -4539,7 +4465,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/psychologische-psychotherapeutinnen-und-therapeuten-m-w-d-31244684042463/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:16.480Z",
+      "crawledAt": "2026-09-24T14:26:40.529Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4561,16 +4487,14 @@
         "psicoterapisti-psicologici-m-f-d-40-100-clienia-ag-pfaffikon",
         "psychological-psychotherapists-m-f-d-40-100-clienia-ag-pfaffikon",
         "psychotherapeutes-psychologues-m-f-d-40-100-clienia-ag-pfaffikon",
-        "psychologische-psychotherapeutinnen-und-therapeuten-m-w-d-40-100-clienia-ag-pfaffikon",
-        "psychologische-psychotherapeutinnen-e-therapeuten-m-w-d-40-100-clienia-ag-pfaffikon"
+        "psychologische-psychotherapeutinnen-und-therapeuten-m-w-d-40-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologische-psychotherapeutinnen-und-therapeuten-m-w-d-40-100-clienia-ag-zurich",
           "psicoterapisti-psicologici-m-f-d-40-100-clienia-ag-pfaffikon",
           "psychological-psychotherapists-m-f-d-40-100-clienia-ag-pfaffikon",
-          "psychotherapeutes-psychologues-m-f-d-40-100-clienia-ag-pfaffikon",
-          "psychologische-psychotherapeutinnen-e-therapeuten-m-w-d-40-100-clienia-ag-pfaffikon"
+          "psychotherapeutes-psychologues-m-f-d-40-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "psychological-psychotherapists-m-f-d-40-100-clienia-ag-pfaffikon",
@@ -4594,7 +4518,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/psychologische-psychotherapeutinnen-und-therapeuten-m-w-d-31244684042463"
     },
     {
       "id": "clienia-ag-c7f94c79b6ff",
@@ -4628,7 +4553,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-31305214054358/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:15.645Z",
+      "crawledAt": "2026-09-24T14:26:39.576Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4647,14 +4572,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-50-80-clienia-ag-zurich",
-        "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-50-80-clienia-ag-pfaffikon",
-        "dipl-specialista-hf-fh-in-servizio-notturno-m-f-d-50-80-clienia-ag-pfaffikon-zh"
+        "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-50-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-50-80-clienia-ag-zurich",
-          "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-50-80-clienia-ag-pfaffikon",
-          "dipl-specialista-hf-fh-in-servizio-notturno-m-f-d-50-80-clienia-ag-pfaffikon-zh"
+          "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-50-80-clienia-ag-pfaffikon"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-50-80-clienia-ag-pfaffikon"
@@ -4676,7 +4599,8 @@
           "maxValue": 102400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-31305214054358"
     },
     {
       "id": "clienia-ag-b3b26dcad6ce",
@@ -4710,7 +4634,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/leitende-aerztin-leitenden-arzt-kjpp-aerztliche-leitung-ambulatorium-pzz-clienia-young-31326434058396/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:14.895Z",
+      "crawledAt": "2026-09-24T14:26:38.744Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4728,13 +4652,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitende-arztin-leitenden-arzt-kjpp-arztliche-leitung-ambulatorium-pzz-clienia-young-100",
-        "medico-senior-kjpp-direttore-medico-pzz-clienia-young-100-clienia-ag-pfaffikon-zh"
+        "leitende-arztin-leitenden-arzt-kjpp-arztliche-leitung-ambulatorium-pzz-clienia-young-100"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-arztin-leitenden-arzt-kjpp-arztliche-leitung-ambulatorium-pzz-clienia-young-100",
-          "medico-senior-kjpp-direttore-medico-pzz-clienia-young-100-clienia-ag-pfaffikon-zh"
+          "leitende-arztin-leitenden-arzt-kjpp-arztliche-leitung-ambulatorium-pzz-clienia-young-100"
         ],
         "en": [
           "leitende-arztin-leitenden-arzt-kjpp-arztliche-leitung-ambulatorium-pzz-clienia-young-100"
@@ -4756,7 +4678,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/leitende-aerztin-leitenden-arzt-kjpp-aerztliche-leitung-ambulatorium-pzz-clienia-young-31326434058396"
     },
     {
       "id": "clienia-ag-65469bd8576b",
@@ -4789,7 +4712,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/assistenzarzt-aerztin-m-w-d-31326784058582/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:14.151Z",
+      "crawledAt": "2026-09-24T14:26:37.913Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4812,8 +4735,7 @@
         "medical-assistant-or-fage-m-f-d-80-100-clienia-ag-pfaffikon-zh",
         "medizinische-r-praxisassistent-in-oder-fage-m-w-d-80-100-clienia-ag-zurich",
         "assistant-medical-ou-fage-m-f-j-80-100-clienia-ag-pfaffikon-zh",
-        "medizinische-r-praxisassistent-in-oder-fage-m-w-d-80-100-clienia-ag-pfaffikon",
-        "assistente-medico-m-f-d-80-100-clienia-ag-pfaffikon-zh"
+        "medizinische-r-praxisassistent-in-oder-fage-m-w-d-80-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4822,8 +4744,7 @@
           "medical-assistant-or-fage-m-f-d-80-100-clienia-ag-pfaffikon-zh",
           "medizinische-r-praxisassistent-in-oder-fage-m-w-d-80-100-clienia-ag-zurich",
           "assistant-medical-ou-fage-m-f-j-80-100-clienia-ag-pfaffikon-zh",
-          "medizinische-r-praxisassistent-in-oder-fage-m-w-d-80-100-clienia-ag-pfaffikon",
-          "assistente-medico-m-f-d-80-100-clienia-ag-pfaffikon-zh"
+          "medizinische-r-praxisassistent-in-oder-fage-m-w-d-80-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "assistenzarzt-arztin-m-w-d-80-100-clienia-ag-zurich",
@@ -4850,7 +4771,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/assistenzarzt-aerztin-m-w-d-31326784058582"
     },
     {
       "id": "clienia-ag-45d9dcdb9172",
@@ -4884,7 +4806,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-31326804058588/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:13.407Z",
+      "crawledAt": "2026-09-24T14:26:37.077Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4905,15 +4827,13 @@
         "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-60-100-clienia-ag-zurich",
         "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-60-100-clienia-ag-pfaffikon",
         "senior-physician-in-child-and-adolescent-psychiatry-60-100-clienia-ag-pfaffikon",
-        "oberarztin-oberarzt-kinder-e-jugendpsychiatrie-m-w-d-60-100-clienia-ag-pfaffikon",
-        "psichiatria-infantile-e-adolescente-m-f-d-60-100-clienia-ag-pfaffikon-zh"
+        "oberarztin-oberarzt-kinder-e-jugendpsychiatrie-m-w-d-60-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-60-100-clienia-ag-zurich",
           "senior-physician-in-child-and-adolescent-psychiatry-60-100-clienia-ag-pfaffikon",
-          "oberarztin-oberarzt-kinder-e-jugendpsychiatrie-m-w-d-60-100-clienia-ag-pfaffikon",
-          "psichiatria-infantile-e-adolescente-m-f-d-60-100-clienia-ag-pfaffikon-zh"
+          "oberarztin-oberarzt-kinder-e-jugendpsychiatrie-m-w-d-60-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-60-100-clienia-ag-pfaffikon"
@@ -4935,7 +4855,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-31326804058588"
     },
     {
       "id": "clienia-ag-6fb3a2ba0ff1",
@@ -4969,7 +4890,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/fachaerztin-facharzt-fuer-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-31327664058642/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:12.663Z",
+      "crawledAt": "2026-09-24T14:26:36.245Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4988,14 +4909,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "facharztin-facharzt-fur-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-40-100-clienia-ag",
-        "facharztin-facharzt-per-erwachsenenpsychiatrie-e-psychotherapie-m-w-d-40-100-clienia-ag-pfaffikon",
-        "specialista-per-psichiatria-adulta-e-psicoterapia-m-f-d-40-100-clienia-ag-pfaffikon-zh"
+        "facharztin-facharzt-per-erwachsenenpsychiatrie-e-psychotherapie-m-w-d-40-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "facharztin-facharzt-fur-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-40-100-clienia-ag",
-          "facharztin-facharzt-per-erwachsenenpsychiatrie-e-psychotherapie-m-w-d-40-100-clienia-ag-pfaffikon",
-          "specialista-per-psichiatria-adulta-e-psicoterapia-m-f-d-40-100-clienia-ag-pfaffikon-zh"
+          "facharztin-facharzt-per-erwachsenenpsychiatrie-e-psychotherapie-m-w-d-40-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "facharztin-facharzt-fur-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-40-100-clienia-ag"
@@ -5017,7 +4936,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/fachaerztin-facharzt-fuer-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-31327664058642"
     },
     {
       "id": "clienia-ag-42d21b03db59",
@@ -5051,7 +4971,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/nachtaerztin-nachtarzt-31330064059226/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:11.911Z",
+      "crawledAt": "2026-09-24T14:26:35.296Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5069,13 +4989,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "nachtarztin-nachtarzt-50-100-clienia-ag-zurich",
-        "medico-notturno-50-100-clienia-ag-pfaffikon-zh"
+        "nachtarztin-nachtarzt-50-100-clienia-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nachtarztin-nachtarzt-50-100-clienia-ag-zurich",
-          "medico-notturno-50-100-clienia-ag-pfaffikon-zh"
+          "nachtarztin-nachtarzt-50-100-clienia-ag-zurich"
         ],
         "en": [
           "nachtarztin-nachtarzt-50-100-clienia-ag-zurich"
@@ -5097,7 +5015,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/nachtaerztin-nachtarzt-31330064059226"
     },
     {
       "id": "clienia-ag-26c95fd49bc3",
@@ -5130,7 +5049,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-oberarzt-m-w-d-31326834058595/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:11.078Z",
+      "crawledAt": "2026-09-24T14:26:34.468Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5149,14 +5068,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich",
-        "medecin-principal-80-100-clienia-ag-pfaffikon-zh",
-        "medico-senior-m-f-d-60-100-clienia-ag-pfaffikon-zh-762990"
+        "medecin-principal-80-100-clienia-ag-pfaffikon-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich",
-          "medecin-principal-80-100-clienia-ag-pfaffikon-zh",
-          "medico-senior-m-f-d-60-100-clienia-ag-pfaffikon-zh-762990"
+          "medecin-principal-80-100-clienia-ag-pfaffikon-zh"
         ],
         "en": [
           "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich"
@@ -5178,7 +5095,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-oberarzt-m-w-d-31326834058595"
     },
     {
       "id": "clienia-ag-b89c7cc223cf",
@@ -5211,7 +5129,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/assistenzaerztin-assistenzarzt-31330384059389/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:10.328Z",
+      "crawledAt": "2026-09-24T14:26:33.529Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5230,14 +5148,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-60-100-clienia-ag-zurich",
-        "assistenzarztin-assistenzarzt-60-100-clienia-ag-pfaffikon",
-        "assistente-medico-60-100-clienia-ag-pfaffikon-zh"
+        "assistenzarztin-assistenzarzt-60-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-60-100-clienia-ag-zurich",
-          "assistenzarztin-assistenzarzt-60-100-clienia-ag-pfaffikon",
-          "assistente-medico-60-100-clienia-ag-pfaffikon-zh"
+          "assistenzarztin-assistenzarzt-60-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-60-100-clienia-ag-pfaffikon"
@@ -5259,7 +5175,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/assistenzaerztin-assistenzarzt-31330384059389"
     },
     {
       "id": "clienia-ag-d253407bc48e",
@@ -5293,7 +5210,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/ernaehrungsberater-in-bsc-31330394059391/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:09.586Z",
+      "crawledAt": "2026-09-24T14:26:32.699Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5316,8 +5233,7 @@
         "nutritionniste-bsc-60-clienia-ag-pfaffikon-zh",
         "bsc-nutrizionale-60-clienia-ag-pfaffikon-zh",
         "nutritionist-bsc-60-clienia-ag-pfaffikon",
-        "ernahrungsberater-in-bsc-60-clienia-ag-pfaffikon",
-        "nutrizionista-bsc-60-clienia-ag-pfaffikon-zh"
+        "ernahrungsberater-in-bsc-60-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5326,8 +5242,7 @@
           "nutritionniste-bsc-60-clienia-ag-pfaffikon-zh",
           "bsc-nutrizionale-60-clienia-ag-pfaffikon-zh",
           "nutritionist-bsc-60-clienia-ag-pfaffikon",
-          "ernahrungsberater-in-bsc-60-clienia-ag-pfaffikon",
-          "nutrizionista-bsc-60-clienia-ag-pfaffikon-zh"
+          "ernahrungsberater-in-bsc-60-clienia-ag-pfaffikon"
         ],
         "en": [
           "ernahrungsberater-in-bsc-60-clienia-ag-pfaffikon"
@@ -5349,7 +5264,8 @@
           "maxValue": 66900,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/ernaehrungsberater-in-bsc-31330394059391"
     },
     {
       "id": "clienia-ag-c23d8e0c5a16",
@@ -5382,7 +5298,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-31334994060375/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:08.831Z",
+      "crawledAt": "2026-09-24T14:26:31.866Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5407,8 +5323,7 @@
         "diplomierte-pflegefachperson-oder-eine-n-sozialpadagogin-sozialpadagoge-im-tagdienst-80",
         "certified-nurse-or-a-daytime-social-teacher-80-clienia-ag-pfaffikon-zh",
         "infirmiere-agreee-ou-enseignante-sociale-de-jour-80-clienia-ag-pfaffikon-zh",
-        "diplomierte-pflegefachperson-o-eine-n-sozialpadagogin-sozialpadagoge-im-tagdienst-80-clienia-ag-pfaffikon",
-        "infermiera-certificata-80-100-clienia-ag-pfaffikon-zh"
+        "diplomierte-pflegefachperson-o-eine-n-sozialpadagogin-sozialpadagoge-im-tagdienst-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5419,8 +5334,7 @@
           "diplomierte-pflegefachperson-oder-eine-n-sozialpadagogin-sozialpadagoge-im-tagdienst-80",
           "certified-nurse-or-a-daytime-social-teacher-80-clienia-ag-pfaffikon-zh",
           "infirmiere-agreee-ou-enseignante-sociale-de-jour-80-clienia-ag-pfaffikon-zh",
-          "diplomierte-pflegefachperson-o-eine-n-sozialpadagogin-sozialpadagoge-im-tagdienst-80-clienia-ag-pfaffikon",
-          "infermiera-certificata-80-100-clienia-ag-pfaffikon-zh"
+          "diplomierte-pflegefachperson-o-eine-n-sozialpadagogin-sozialpadagoge-im-tagdienst-80-clienia-ag-pfaffikon"
         ],
         "en": [
           "diplomierte-pflegefachperson-80-100-clienia-ag-pfaffikon",
@@ -5447,7 +5361,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-31334994060375"
     },
     {
       "id": "clienia-ag-956f86dc1e74",
@@ -5480,7 +5395,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/sozialpaedagogin-sozialpaedagoge-31336554060602/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:07.427Z",
+      "crawledAt": "2026-09-24T14:26:30.079Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5504,8 +5419,7 @@
         "social-pedagogue-social-pedagogue-in-day-service-80-clienia-ag-pfaffikon-zh",
         "sozialpadagogin-sozialpadagoge-im-tagdienst-80-clienia-ag-zurich",
         "pedagogue-sociale-pedagogue-sociale-en-service-de-jour-80-clienia-ag-pfaffikon-zh",
-        "sozialpadagogin-sozialpadagoge-im-tagdienst-80-clienia-ag-pfaffikon",
-        "pedagoga-sociale-pedagoga-sociale-70-90-clienia-ag-pfaffikon-zh"
+        "sozialpadagogin-sozialpadagoge-im-tagdienst-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5515,8 +5429,7 @@
           "social-pedagogue-social-pedagogue-in-day-service-80-clienia-ag-pfaffikon-zh",
           "sozialpadagogin-sozialpadagoge-im-tagdienst-80-clienia-ag-zurich",
           "pedagogue-sociale-pedagogue-sociale-en-service-de-jour-80-clienia-ag-pfaffikon-zh",
-          "sozialpadagogin-sozialpadagoge-im-tagdienst-80-clienia-ag-pfaffikon",
-          "pedagoga-sociale-pedagoga-sociale-70-90-clienia-ag-pfaffikon-zh"
+          "sozialpadagogin-sozialpadagoge-im-tagdienst-80-clienia-ag-pfaffikon"
         ],
         "en": [
           "sozialpadagogin-sozialpadagoge-70-90-clienia-ag-pfaffikon",
@@ -5543,7 +5456,8 @@
           "maxValue": 115200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/sozialpaedagogin-sozialpaedagoge-31336554060602"
     },
     {
       "id": "clienia-ag-0f6063b27065",
@@ -5576,7 +5490,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/leitende-n-arzt-aerztin-m-w-d-80-100-31341634061843/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:06.668Z",
+      "crawledAt": "2026-09-24T14:26:29.250Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5597,16 +5511,14 @@
         "leitende-n-arzt-arztin-m-w-d-80-100-80-100-clienia-ag-zurich",
         "medico-senior-o-medico-senior-cather-doctor-80-100-clienia-ag-pfaffikon",
         "medico-senior-o-medico-senior-cather-doctor-80-100-clienia-ag-pfaffikon-zh",
-        "senior-doctor-or-senior-physician-cather-doctor-80-100-clienia-ag-pfaffikon-zh",
-        "senior-medico-doctor-m-f-d-80-100-80-100-clienia-ag-pfaffikon-zh"
+        "senior-doctor-or-senior-physician-cather-doctor-80-100-clienia-ag-pfaffikon-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitende-n-arzt-arztin-m-w-d-80-100-80-100-clienia-ag-zurich",
           "medico-senior-o-medico-senior-cather-doctor-80-100-clienia-ag-pfaffikon",
           "medico-senior-o-medico-senior-cather-doctor-80-100-clienia-ag-pfaffikon-zh",
-          "senior-doctor-or-senior-physician-cather-doctor-80-100-clienia-ag-pfaffikon-zh",
-          "senior-medico-doctor-m-f-d-80-100-80-100-clienia-ag-pfaffikon-zh"
+          "senior-doctor-or-senior-physician-cather-doctor-80-100-clienia-ag-pfaffikon-zh"
         ],
         "en": [
           "leitende-n-arzt-arztin-m-w-d-80-100-80-100-clienia-ag-zurich"
@@ -5628,7 +5540,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/leitende-n-arzt-aerztin-m-w-d-80-100-31341634061843"
     },
     {
       "id": "clienia-ag-d12c5510744a",
@@ -5662,7 +5575,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/fachaerztin-facharzt-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-31342094061809/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:05.828Z",
+      "crawledAt": "2026-09-24T14:26:28.420Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5681,14 +5594,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "facharztin-facharzt-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-40-100-clienia-ag",
-        "facharztin-facharzt-erwachsenenpsychiatrie-e-psychotherapie-m-w-d-40-100-clienia-ag-pfaffikon",
-        "psichiatria-specializzata-per-adulti-e-psicoterapia-m-f-d-40-100-clienia-ag-pfaffikon-zh"
+        "facharztin-facharzt-erwachsenenpsychiatrie-e-psychotherapie-m-w-d-40-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "facharztin-facharzt-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-40-100-clienia-ag",
-          "facharztin-facharzt-erwachsenenpsychiatrie-e-psychotherapie-m-w-d-40-100-clienia-ag-pfaffikon",
-          "psichiatria-specializzata-per-adulti-e-psicoterapia-m-f-d-40-100-clienia-ag-pfaffikon-zh"
+          "facharztin-facharzt-erwachsenenpsychiatrie-e-psychotherapie-m-w-d-40-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "facharztin-facharzt-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-40-100-clienia-ag"
@@ -5710,7 +5621,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/fachaerztin-facharzt-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-31342094061809"
     },
     {
       "id": "clienia-ag-6dc38fff2561",
@@ -5743,7 +5655,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/psychologische-psychotherapeutin-psychologischer-psychotherapeuten-31329904059175/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:05.080Z",
+      "crawledAt": "2026-09-24T14:26:27.468Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5762,14 +5674,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-50-clienia-ag-zurich",
-        "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-50-clienia-ag-pfaffikon",
-        "psicoterapeuta-psicologica-40-50-clienia-ag-pfaffikon-zh"
+        "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-50-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-50-clienia-ag-zurich",
-          "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-50-clienia-ag-pfaffikon",
-          "psicoterapeuta-psicologica-40-50-clienia-ag-pfaffikon-zh"
+          "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-50-clienia-ag-pfaffikon"
         ],
         "en": [
           "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-50-clienia-ag-pfaffikon"
@@ -5791,7 +5701,8 @@
           "maxValue": 64000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/psychologische-psychotherapeutin-psychologischer-psychotherapeuten-31329904059175"
     },
     {
       "id": "clienia-ag-b6273b90ca63",
@@ -5825,7 +5736,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/dipl-pflegefachperson-hf-fh-m-w-d-im-nachtdienst-31351624063805/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:04.330Z",
+      "crawledAt": "2026-09-24T14:26:26.529Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5856,8 +5767,7 @@
         "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-70-clienia-ag-zurich",
         "infirmier-diplome-hf-fh-en-service-de-nuit-h-f-70-clienia-ag-pfaffikon",
         "infermiere-diplomata-hf-fh-nel-turno-di-notte-m-f-d-70-clienia-ag-pfaffikon",
-        "dipl-pflegefachperson-hf-fh-m-w-d-im-nachtdienst-80-100-clienia-ag-pfaffikon",
-        "dipl-specialista-hf-fh-m-f-d-in-servizio-notturno-80-100-clienia-ag-pfaffikon-zh"
+        "dipl-pflegefachperson-hf-fh-m-w-d-im-nachtdienst-80-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5874,8 +5784,7 @@
           "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-70-clienia-ag-zurich",
           "infirmier-diplome-hf-fh-en-service-de-nuit-h-f-70-clienia-ag-pfaffikon",
           "infermiere-diplomata-hf-fh-nel-turno-di-notte-m-f-d-70-clienia-ag-pfaffikon",
-          "dipl-pflegefachperson-hf-fh-m-w-d-im-nachtdienst-80-100-clienia-ag-pfaffikon",
-          "dipl-specialista-hf-fh-m-f-d-in-servizio-notturno-80-100-clienia-ag-pfaffikon-zh"
+          "dipl-pflegefachperson-hf-fh-m-w-d-im-nachtdienst-80-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "dipl-care-professional-hf-fh-m-f-d-on-night-duty-80-100-clienia-ag-pfaffikon-zh",
@@ -5899,7 +5808,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/dipl-pflegefachperson-hf-fh-m-w-d-im-nachtdienst-31351624063805"
     },
     {
       "id": "clienia-ag-12633f7783f5",
@@ -5933,7 +5843,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/psychologische-psychotherapeutin-psychologischen-psychotherapeuten-m-w-d-31342444061997/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:03.494Z",
+      "crawledAt": "2026-09-24T14:26:25.698Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5954,16 +5864,14 @@
         "psicologia-psicoterapeuta-m-w-d-40-100-clienia-ag-pfaffikon-zh",
         "psychological-psychotherapist-m-w-d-40-100-clienia-ag-pfaffikon-zh",
         "psychotherapie-psychologique-m-m-j-40-100-clienia-ag-pfaffikon-zh",
-        "psychologische-psychotherapeutin-psychologischen-psychotherapeuten-m-w-d-40-100-clienia-ag",
-        "psicologia-psicoterapeuta-psicologia-psicoterapeuta-m-f-d-40-100-clienia-ag-pfaffikon-zh"
+        "psychologische-psychotherapeutin-psychologischen-psychotherapeuten-m-w-d-40-100-clienia-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psicologia-psicoterapeuta-m-w-d-40-100-clienia-ag-pfaffikon-zh",
           "psychological-psychotherapist-m-w-d-40-100-clienia-ag-pfaffikon-zh",
           "psychotherapie-psychologique-m-m-j-40-100-clienia-ag-pfaffikon-zh",
-          "psychologische-psychotherapeutin-psychologischen-psychotherapeuten-m-w-d-40-100-clienia-ag",
-          "psicologia-psicoterapeuta-psicologia-psicoterapeuta-m-f-d-40-100-clienia-ag-pfaffikon-zh"
+          "psychologische-psychotherapeutin-psychologischen-psychotherapeuten-m-w-d-40-100-clienia-ag"
         ],
         "en": [
           "psychological-psychotherapist-m-w-d-40-100-clienia-ag-pfaffikon-zh",
@@ -5987,7 +5895,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/psychologische-psychotherapeutin-psychologischen-psychotherapeuten-m-w-d-31342444061997"
     },
     {
       "id": "clienia-ag-d682e932ba7c",
@@ -6021,7 +5930,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/stv-stationsleitung-dipl-pflegefachperson-hf-fh-31261144045602/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:02.661Z",
+      "crawledAt": "2026-09-24T14:26:24.862Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6040,14 +5949,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-zurich",
-        "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-pfaffikon",
-        "stv-gestione-stazione-dipl-infermiera-hf-fh-60-clienia-ag-pfaffikon-zh"
+        "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-zurich",
-          "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-pfaffikon",
-          "stv-gestione-stazione-dipl-infermiera-hf-fh-60-clienia-ag-pfaffikon-zh"
+          "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-pfaffikon"
         ],
         "en": [
           "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-pfaffikon"
@@ -6069,7 +5976,8 @@
           "maxValue": 76800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/stv-stationsleitung-dipl-pflegefachperson-hf-fh-31261144045602"
     },
     {
       "id": "clienia-ag-1e24712d12b1",
@@ -6102,7 +6010,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/mitarbeiterin-mitarbeiter-kalte-kueche-31349894063165/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:01.914Z",
+      "crawledAt": "2026-09-24T14:26:24.020Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6122,14 +6030,12 @@
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-kalte-kuche-100-clienia-ag-zurich",
         "mitarbeiterin-collaboratore-trice-kalte-kuche-100-clienia-ag-pfaffikon",
-        "mitarbeiterin-mitarbeiter-kalte-kuche-100-clienia-ag-pfaffikon",
-        "dipendente-della-cucina-fredda-100-clienia-ag-pfaffikon-zh"
+        "mitarbeiterin-mitarbeiter-kalte-kuche-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-kalte-kuche-100-clienia-ag-zurich",
-          "mitarbeiterin-collaboratore-trice-kalte-kuche-100-clienia-ag-pfaffikon",
-          "dipendente-della-cucina-fredda-100-clienia-ag-pfaffikon-zh"
+          "mitarbeiterin-collaboratore-trice-kalte-kuche-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-kalte-kuche-100-clienia-ag-pfaffikon"
@@ -6151,7 +6057,90 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/mitarbeiterin-mitarbeiter-kalte-kueche-31349894063165"
+    },
+    {
+      "id": "clienia-ag-2737014be218",
+      "slug": "dipl-cura-professionale-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon-zh",
+      "slugByLocale": {
+        "de": "dipl-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-zurich",
+        "it": "dipl-cura-professionale-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon-zh",
+        "en": "dipl-care-professional-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon-zh",
+        "fr": "dipl-soins-professionnels-hf-fh-h-f-d-70-90-clienia-ag-pfaffikon-zh"
+      },
+      "company": "Clienia AG",
+      "companyKey": "clienia-ag",
+      "companyDomain": "clienia.ch",
+      "title": "Dipl. Pflegefachperson HF/FH (m/w/d) (70% - 90%)",
+      "titleByLocale": {
+        "de": "Dipl. Pflegefachperson HF/FH (m/w/d) (70% - 90%)",
+        "it": "Dipl. Cura professionale HF/FH (m/f/d) (70% - 90%)",
+        "en": "Dipl. Care professional HF/FH (m/f/d) (70% - 90%)",
+        "fr": "Dipl. Soins professionnels HF/FH (h/f/d) (70% - 90%)"
+      },
+      "description": "Ihre Aufgaben\n• Professionelle und individuelle Betreuung der Jugendlichen\n• Interdisziplinäre Bezugspersonenarbeit inklusive Aufenthalts- und Pflegeplanung\n• Systemische Arbeit mit Angehörigen und Zusammenarbeit mit Behörenden\n• Leiten von therapeutischen Gruppen, aktive Gestaltung des Alltags und der Freizeit\n• Mitarbeit an der Gestaltung des schematherapeutischen Konzepts auf der Station Ihr Profil\n• Abgeschlossene Ausbildung als dipl. Pflegefachperson HF/FH\n• Engagement\n• Freundlichkeit\n• Selbständigkeit\n• Geduld\n• Humor Unser Angebot\n• Angenehmes, kollegiales und interdisziplinäres Arbeitsklima\n• Möglichkeit zur Mitgestaltung auf diversen Ebenen des Bereiches\n• Interessanter und anspruchsvoller Arbeitsplatz mit vielseitigen Aufgaben\n• Förderung durch spezifische interne Fort- und Weiterbildungen Für weitere Auskünfte steht Ihnen Stefan Gothmann, Bereichsleiter Pflege und Pädagogik, gerne unter +41 (0)71 929 64 06 zur Verfügung. Wir freuen uns auf Ihre Bewerbung via Bewerbungstool.\n\nClienia AG — grösste Privatklinikgruppe für Psychiatrie und Psychotherapie der Deutschschweiz. Standorte: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
+      "descriptionByLocale": {
+        "de": "Ihre Aufgaben\n• Professionelle und individuelle Betreuung der Jugendlichen\n• Interdisziplinäre Bezugspersonenarbeit inklusive Aufenthalts- und Pflegeplanung\n• Systemische Arbeit mit Angehörigen und Zusammenarbeit mit Behörenden\n• Leiten von therapeutischen Gruppen, aktive Gestaltung des Alltags und der Freizeit\n• Mitarbeit an der Gestaltung des schematherapeutischen Konzepts auf der Station Ihr Profil\n• Abgeschlossene Ausbildung als dipl. Pflegefachperson HF/FH\n• Engagement\n• Freundlichkeit\n• Selbständigkeit\n• Geduld\n• Humor Unser Angebot\n• Angenehmes, kollegiales und interdisziplinäres Arbeitsklima\n• Möglichkeit zur Mitgestaltung auf diversen Ebenen des Bereiches\n• Interessanter und anspruchsvoller Arbeitsplatz mit vielseitigen Aufgaben\n• Förderung durch spezifische interne Fort- und Weiterbildungen Für weitere Auskünfte steht Ihnen Stefan Gothmann, Bereichsleiter Pflege und Pädagogik, gerne unter +41 (0)71 929 64 06 zur Verfügung. Wir freuen uns auf Ihre Bewerbung via Bewerbungstool.\n\nClienia AG — grösste Privatklinikgruppe für Psychiatrie und Psychotherapie der Deutschschweiz. Standorte: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
+        "it": "I loro compiti\n• Cura professionale e individuale dei giovani\n• Lavori di riferimento interdisciplinari, tra cui la pianificazione del soggiorno e della cura\n• Lavoro sistemico con parenti e collaborazione con le autorità\n• Gruppi terapeutici leader, progettazione attiva della vita quotidiana e del tempo libero\n• Collaborazione nella progettazione del concetto schematerapeutico sulla stazione Il tuo profilo\n• Allenamento completato come dipl. Professionista HF/FH\n• Impegno\n• Gentilezza\n• Lavoro autonomo\n• Pazienza\n• Humor La nostra offerta\n• Ambiente di lavoro piacevole, collegiale e interdisciplinare\n• Possibilità di co-creazione a vari livelli della zona\n• Posto di lavoro interessante ed esigente con compiti versatili\n• Per ulteriori informazioni, Stefan Gothmann, Head of Care and Pedagogy, è disponibile al numero +41 (0)71 929 64 06. Attendiamo con ansia la vostra applicazione tramite strumento di applicazione.\n\nClienia AG – il più grande gruppo ospedaliero privato per la psichiatria e la psicoterapia in Svizzera tedesca. Località: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
+        "en": "Their tasks\n• Professional and individual care of young people\n• Interdisciplinary reference work including residence and care planning\n• Systemic work with relatives and cooperation with authorities\n• Leading therapeutic groups, active design of everyday life and leisure\n• Collaboration in the design of the schematherapeutic concept on the station Your profile\n• Completed training as a dipl. Care professional HF/FH\n• Commitment\n• Kindness\n• Self-employment\n• Patience\n• Humor Our offer\n• Pleasant, collegial and interdisciplinary working atmosphere\n• Possibility for co-creation at various levels of the area\n• Interesting and demanding workplace with versatile tasks\n• Support through specific internal training For further information, Stefan Gothmann, Head of Care and Pedagogy, is available at +41 (0)71 929 64 06. We look forward to your application via application tool.\n\nClienia AG – the largest private hospital group for psychiatry and psychotherapy in German-speaking Switzerland. Locations: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
+        "fr": "Leurs tâches\n• Prise en charge professionnelle et individuelle des jeunes\n• Travail de référence interdisciplinaire incluant la planification de la résidence et des soins\n• Travail systématique avec les proches et coopération avec les autorités\n• Principaux groupes thérapeutiques, conception active de la vie quotidienne et des loisirs\n• Collaboration dans la conception du concept schémathérapeutique sur la station Votre profil\n• Compléter la formation comme dipl. Soins professionnels HF/FH\n• Engagement\n• Bienveillance\n• Travail indépendant\n• Patience\n• Humour Notre offre\n• Ambiance de travail agréable, collégiale et interdisciplinaire\n• Possibilité de co-création à différents niveaux de la zone\n• Travail intéressant et exigeant avec des tâches polyvalentes\n• Soutien par une formation interne spécifique Pour plus d'informations, Stefan Gothmann, Chef des soins et de la pédagogie, est disponible au +41 (0)71 929 64 06. Nous attendons avec impatience votre application via l'outil d'application.\n\nClienia AG – le plus grand groupe hospitalier privé de psychiatrie et de psychothérapie en Suisse germanophone. Lieux: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon."
+      },
+      "location": "Pfäffikon ZH",
+      "canton": "ZH",
+      "url": "https://www.clienia.ch/de/jobs-karriere/jobs/dipl-pflegefachperson-hf-fh-m-w-d-31355944064641/",
+      "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-24T14:26:23.076Z",
+      "addressLocality": "Pfäffikon",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8330",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-03",
+      "applyUrl": "https://www.clienia.ch/de/jobs-karriere/jobs/dipl-pflegefachperson-hf-fh-m-w-d-31355944064641/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-zurich",
+          "dipl-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-zurich",
+        "dipl-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon"
+      ],
+      "salaryMin": 82400,
+      "salaryMax": 115200,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 82400,
+          "maxValue": 115200,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-23T22:23:12.625Z",
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/dipl-pflegefachperson-hf-fh-m-w-d-31355944064641"
     },
     {
       "id": "clienia-ag-3689827b6422",
@@ -6184,7 +6173,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/dipl-pflegefachperson-sozialpaedagoge-in-hf-fh-31356434064695/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:00.424Z",
+      "crawledAt": "2026-09-24T14:26:22.244Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6205,16 +6194,14 @@
         "dipl-pflegefachperson-sozialpadagoge-in-hf-fh-70-100-clienia-ag-zurich",
         "dipl-pflegefachperson-oder-sozialpadagoge-in-hf-fh-m-w-d-60-90-clienia-ag-zurich",
         "dipl-pflegefachperson-sozialpadagoge-in-hf-fh-60-90-clienia-ag-zurich",
-        "dipl-pflegefachperson-sozialpadagoge-in-hf-fh-70-100-clienia-ag-pfaffikon",
-        "infermiera-insegnante-sociale-in-hf-fh-70-100-clienia-ag-pfaffikon-zh"
+        "dipl-pflegefachperson-sozialpadagoge-in-hf-fh-70-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-sozialpadagoge-in-hf-fh-70-100-clienia-ag-zurich",
           "dipl-pflegefachperson-oder-sozialpadagoge-in-hf-fh-m-w-d-60-90-clienia-ag-zurich",
           "dipl-pflegefachperson-sozialpadagoge-in-hf-fh-60-90-clienia-ag-zurich",
-          "dipl-pflegefachperson-sozialpadagoge-in-hf-fh-70-100-clienia-ag-pfaffikon",
-          "infermiera-insegnante-sociale-in-hf-fh-70-100-clienia-ag-pfaffikon-zh"
+          "dipl-pflegefachperson-sozialpadagoge-in-hf-fh-70-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "dipl-pflegefachperson-sozialpadagoge-in-hf-fh-70-100-clienia-ag-pfaffikon"
@@ -6236,7 +6223,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/dipl-pflegefachperson-sozialpaedagoge-in-hf-fh-31356434064695"
     },
     {
       "id": "clienia-ag-03d01474bd69",
@@ -6270,7 +6258,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/lehrperson-oberstufe-m-w-d-hauptsaechlich-fuer-den-schulsport-31357914065094/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:59.680Z",
+      "crawledAt": "2026-09-24T14:26:21.405Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6289,14 +6277,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrperson-oberstufe-m-w-d-hauptsachlich-fur-den-schulsport-80-clienia-ag-zurich",
-        "lehrperson-oberstufe-m-w-d-hauptsachlich-per-den-schulsport-80-clienia-ag-pfaffikon",
-        "insegnante-di-scuola-superiore-m-f-d-principalmente-per-lo-sport-scolastico-80-clienia-ag-pfaffikon-zh"
+        "lehrperson-oberstufe-m-w-d-hauptsachlich-per-den-schulsport-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-oberstufe-m-w-d-hauptsachlich-fur-den-schulsport-80-clienia-ag-zurich",
-          "lehrperson-oberstufe-m-w-d-hauptsachlich-per-den-schulsport-80-clienia-ag-pfaffikon",
-          "insegnante-di-scuola-superiore-m-f-d-principalmente-per-lo-sport-scolastico-80-clienia-ag-pfaffikon-zh"
+          "lehrperson-oberstufe-m-w-d-hauptsachlich-per-den-schulsport-80-clienia-ag-pfaffikon"
         ],
         "en": [
           "lehrperson-oberstufe-m-w-d-hauptsachlich-fur-den-schulsport-80-clienia-ag-zurich"
@@ -6318,7 +6304,8 @@
           "maxValue": 89200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/lehrperson-oberstufe-m-w-d-hauptsaechlich-fuer-den-schulsport-31357914065094"
     },
     {
       "id": "clienia-ag-b0a80423dc7d",
@@ -6352,7 +6339,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/fachperson-rechnungswesen-m-w-d-31362564066401/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:58.835Z",
+      "crawledAt": "2026-09-24T14:26:20.574Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6374,8 +6361,7 @@
         "fachperson-rechnungswesen-m-w-d-80-100-clienia-ag-zurich",
         "accounting-specialist-m-f-d-80-100-clienia-ag-pfaffikon-zh",
         "specialiste-en-comptabilite-h-f-d-80-100-clienia-ag-pfaffikon-zh",
-        "fachperson-rechnungswesen-m-w-d-50-100-clienia-ag-zurich",
-        "specialista-di-contabilita-m-f-d-50-100-clienia-ag-pfaffikon-zh"
+        "fachperson-rechnungswesen-m-w-d-50-100-clienia-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6383,8 +6369,7 @@
           "fachperson-rechnungswesen-m-w-d-80-100-clienia-ag-zurich",
           "accounting-specialist-m-f-d-80-100-clienia-ag-pfaffikon-zh",
           "specialiste-en-comptabilite-h-f-d-80-100-clienia-ag-pfaffikon-zh",
-          "fachperson-rechnungswesen-m-w-d-50-100-clienia-ag-zurich",
-          "specialista-di-contabilita-m-f-d-50-100-clienia-ag-pfaffikon-zh"
+          "fachperson-rechnungswesen-m-w-d-50-100-clienia-ag-zurich"
         ],
         "en": [
           "accounting-specialist-m-f-d-80-100-clienia-ag-pfaffikon-zh",
@@ -6411,7 +6396,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/fachperson-rechnungswesen-m-w-d-31362564066401"
     },
     {
       "id": "clienia-ag-8658431981e7",
@@ -6445,7 +6431,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/sachbearbeiter-in-rechnungswesen-m-w-d-31363764066383/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:58.092Z",
+      "crawledAt": "2026-09-24T14:26:19.733Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6464,14 +6450,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sachbearbeiter-in-rechnungswesen-m-w-d-50-100-clienia-ag-zurich",
-        "sachbearbeiter-in-rechnungswesen-m-w-d-50-100-clienia-ag-pfaffikon",
-        "personale-in-contabilita-m-f-d-50-100-clienia-ag-pfaffikon-zh"
+        "sachbearbeiter-in-rechnungswesen-m-w-d-50-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-rechnungswesen-m-w-d-50-100-clienia-ag-zurich",
-          "sachbearbeiter-in-rechnungswesen-m-w-d-50-100-clienia-ag-pfaffikon",
-          "personale-in-contabilita-m-f-d-50-100-clienia-ag-pfaffikon-zh"
+          "sachbearbeiter-in-rechnungswesen-m-w-d-50-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "sachbearbeiter-in-rechnungswesen-m-w-d-50-100-clienia-ag-pfaffikon"
@@ -6493,7 +6477,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/sachbearbeiter-in-rechnungswesen-m-w-d-31363764066383"
     },
     {
       "id": "clienia-ag-042c58878e5b",
@@ -6526,7 +6511,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-oberarzt-31366804067349/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:57.429Z",
+      "crawledAt": "2026-09-24T14:26:18.785Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6545,13 +6530,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberarztin-oberarzt-80-100-clienia-ag-zurich",
-        "oberarztin-oberarzt-80-100-clienia-ag-zurich-67q0wi",
-        "medico-senior-80-100-clienia-ag-pfaffikon-zh"
+        "oberarztin-oberarzt-80-100-clienia-ag-zurich-67q0wi"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-80-100-clienia-ag-zurich",
-          "medico-senior-80-100-clienia-ag-pfaffikon-zh"
+          "oberarztin-oberarzt-80-100-clienia-ag-zurich"
         ],
         "en": [
           "oberarztin-oberarzt-80-100-clienia-ag-zurich"
@@ -6576,7 +6559,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-oberarzt-31366804067349"
     },
     {
       "id": "clienia-ag-0f8155f4df27",
@@ -6610,7 +6594,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/fachpsychologin-fachpsychologen-m-w-d-31368074067286/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:56.678Z",
+      "crawledAt": "2026-09-24T14:26:17.951Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6629,14 +6613,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachpsychologin-fachpsychologen-m-w-d-60-clienia-ag-zurich",
-        "fachpsychologin-fachpsychologen-m-w-d-60-clienia-ag-pfaffikon",
-        "specialista-psicologo-specialista-psicologo-m-f-d-60-clienia-ag-pfaffikon-zh"
+        "fachpsychologin-fachpsychologen-m-w-d-60-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachpsychologin-fachpsychologen-m-w-d-60-clienia-ag-zurich",
-          "fachpsychologin-fachpsychologen-m-w-d-60-clienia-ag-pfaffikon",
-          "specialista-psicologo-specialista-psicologo-m-f-d-60-clienia-ag-pfaffikon-zh"
+          "fachpsychologin-fachpsychologen-m-w-d-60-clienia-ag-pfaffikon"
         ],
         "en": [
           "fachpsychologin-fachpsychologen-m-w-d-60-clienia-ag-pfaffikon"
@@ -6658,7 +6640,8 @@
           "maxValue": 76800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/fachpsychologin-fachpsychologen-m-w-d-31368074067286"
     },
     {
       "id": "clienia-ag-41bd7496fdf2",
@@ -6691,7 +6674,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-31373394068650/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:55.916Z",
+      "crawledAt": "2026-09-24T14:26:17.008Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6716,8 +6699,7 @@
         "infirmiere-diplomee-80-90-clienia-ag-pfaffikon",
         "infermiera-laureata-80-90-clienia-ag-pfaffikon-zh",
         "infirmiere-diplomee-80-90-clienia-ag-pfaffikon-zh",
-        "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon",
-        "infermiere-qualificato-50-90-clienia-ag-pfaffikon-zh"
+        "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6728,8 +6710,7 @@
           "infirmiere-diplomee-80-90-clienia-ag-pfaffikon",
           "infermiera-laureata-80-90-clienia-ag-pfaffikon-zh",
           "infirmiere-diplomee-80-90-clienia-ag-pfaffikon-zh",
-          "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon",
-          "infermiere-qualificato-50-90-clienia-ag-pfaffikon-zh"
+          "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon"
         ],
         "en": [
           "diplomierte-pflegefachperson-50-90-clienia-ag-pfaffikon"
@@ -6755,7 +6736,8 @@
           "maxValue": 115200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-31373394068650"
     },
     {
       "id": "clienia-ag-7a394d95a207",
@@ -6789,7 +6771,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/fachangestellte-n-gesundheit-im-tagdienst-m-w-d-31379724070020/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:55.160Z",
+      "crawledAt": "2026-09-24T14:26:16.177Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6808,14 +6790,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachangestellte-n-gesundheit-im-tagdienst-m-w-d-50-80-clienia-ag-zurich",
-        "fachangestellte-n-gesundheit-im-tagdienst-m-w-d-50-80-clienia-ag-pfaffikon",
-        "operatori-sanitari-specializzati-nel-servizio-giornaliero-m-f-d-50-80-clienia-ag-pfaffikon-zh"
+        "fachangestellte-n-gesundheit-im-tagdienst-m-w-d-50-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachangestellte-n-gesundheit-im-tagdienst-m-w-d-50-80-clienia-ag-zurich",
-          "fachangestellte-n-gesundheit-im-tagdienst-m-w-d-50-80-clienia-ag-pfaffikon",
-          "operatori-sanitari-specializzati-nel-servizio-giornaliero-m-f-d-50-80-clienia-ag-pfaffikon-zh"
+          "fachangestellte-n-gesundheit-im-tagdienst-m-w-d-50-80-clienia-ag-pfaffikon"
         ],
         "en": [
           "fachangestellte-n-gesundheit-im-tagdienst-m-w-d-50-80-clienia-ag-pfaffikon"
@@ -6837,7 +6817,8 @@
           "maxValue": 107600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/fachangestellte-n-gesundheit-im-tagdienst-m-w-d-31379724070020"
     },
     {
       "id": "clienia-ag-a15fd2ad0a00",
@@ -6871,7 +6852,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/stellvertretende-r-teamleiter-in-pflege-tagesklinik-31384514070910/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:54.384Z",
+      "crawledAt": "2026-09-24T14:26:15.232Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6890,14 +6871,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stellvertretende-r-teamleiter-in-pflege-tagesklinik-80-100-clienia-ag-zurich",
-        "stellvertretende-r-teamleiter-in-pflege-tagesklinik-80-100-clienia-ag-pfaffikon",
-        "vice-team-leader-care-day-clinic-80-100-clienia-ag-pfaffikon-zh"
+        "stellvertretende-r-teamleiter-in-pflege-tagesklinik-80-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stellvertretende-r-teamleiter-in-pflege-tagesklinik-80-100-clienia-ag-zurich",
-          "stellvertretende-r-teamleiter-in-pflege-tagesklinik-80-100-clienia-ag-pfaffikon",
-          "vice-team-leader-care-day-clinic-80-100-clienia-ag-pfaffikon-zh"
+          "stellvertretende-r-teamleiter-in-pflege-tagesklinik-80-100-clienia-ag-pfaffikon"
         ],
         "en": [
           "stellvertretende-r-teamleiter-in-pflege-tagesklinik-80-100-clienia-ag-pfaffikon"
@@ -6919,7 +6898,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/stellvertretende-r-teamleiter-in-pflege-tagesklinik-31384514070910"
     },
     {
       "id": "clienia-ag-b57270be52ed",
@@ -6952,7 +6932,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-oder-sozialpaedagogin-sozialpaedagoge-31384504070907/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:53.642Z",
+      "crawledAt": "2026-09-24T14:26:14.295Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6972,14 +6952,12 @@
       "previousSlugs": [
         "diplomierte-pflegefachperson-oder-sozialpadagogin-sozialpadagoge-80-clienia-ag-zurich",
         "diplomierte-pflegefachperson-o-sozialpadagogin-sozialpadagoge-80-clienia-ag-pfaffikon",
-        "diplomierte-pflegefachperson-oder-sozialpadagogin-sozialpadagoge-80-clienia-ag-pfaffikon",
-        "infermiere-o-educatore-sociale-80-clienia-ag-pfaffikon-zh"
+        "diplomierte-pflegefachperson-oder-sozialpadagogin-sozialpadagoge-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-oder-sozialpadagogin-sozialpadagoge-80-clienia-ag-zurich",
-          "diplomierte-pflegefachperson-o-sozialpadagogin-sozialpadagoge-80-clienia-ag-pfaffikon",
-          "infermiere-o-educatore-sociale-80-clienia-ag-pfaffikon-zh"
+          "diplomierte-pflegefachperson-o-sozialpadagogin-sozialpadagoge-80-clienia-ag-pfaffikon"
         ],
         "en": [
           "diplomierte-pflegefachperson-oder-sozialpadagogin-sozialpadagoge-80-clienia-ag-pfaffikon"
@@ -7001,7 +6979,8 @@
           "maxValue": 102400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-oder-sozialpaedagogin-sozialpaedagoge-31384504070907"
     },
     {
       "id": "clienia-ag-3b73b4cec3c5",
@@ -7035,7 +7014,7 @@
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/mitarbeiter-in-restauration-m-w-d-31383574070967/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:52.895Z",
+      "crawledAt": "2026-09-24T14:26:13.346Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7055,14 +7034,12 @@
       "previousSlugs": [
         "mitarbeiter-in-restauration-m-w-d-50-clienia-ag-zurich",
         "collaboratore-trice-in-restauration-m-w-d-50-clienia-ag-pfaffikon",
-        "mitarbeiter-in-restauration-m-w-d-50-clienia-ag-pfaffikon",
-        "restauro-dei-dipendenti-m-f-d-50-clienia-ag-pfaffikon-zh"
+        "mitarbeiter-in-restauration-m-w-d-50-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-restauration-m-w-d-50-clienia-ag-zurich",
-          "collaboratore-trice-in-restauration-m-w-d-50-clienia-ag-pfaffikon",
-          "restauro-dei-dipendenti-m-f-d-50-clienia-ag-pfaffikon-zh"
+          "collaboratore-trice-in-restauration-m-w-d-50-clienia-ag-pfaffikon"
         ],
         "en": [
           "mitarbeiter-in-restauration-m-w-d-50-clienia-ag-pfaffikon"
@@ -7084,40 +7061,42 @@
           "maxValue": 45800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/mitarbeiter-in-restauration-m-w-d-31383574070967"
     },
     {
       "id": "clienia-ag-2bbb6a16200d",
-      "slug": "peer-mitarbeiterin-peer-collaboratore-trice-ex-in-o-pms-20-clienia-ag-pfaffikon",
+      "slug": "dipendente-pari-ex-in-o-pms-20-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
+        "it": "dipendente-pari-ex-in-o-pms-20-clienia-ag-pfaffikon-zh",
+        "en": "peer-employee-ex-in-or-pms-20-clienia-ag-pfaffikon-zh",
         "de": "peer-mitarbeiterin-peer-mitarbeiter-ex-in-oder-pms-20-clienia-ag-zurich",
-        "it": "peer-mitarbeiterin-peer-collaboratore-trice-ex-in-o-pms-20-clienia-ag-pfaffikon",
-        "en": "peer-mitarbeiterin-peer-mitarbeiter-ex-in-oder-pms-20-clienia-ag-pfaffikon",
-        "fr": "peer-mitarbeiterin-peer-mitarbeiter-ex-in-oder-pms-20-clienia-ag-pfaffikon"
+        "fr": "employe-par-les-pairs-ex-in-ou-pms-20-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
       "companyDomain": "clienia.ch",
       "title": "Peer Mitarbeiterin / Peer Mitarbeiter (EX-IN oder PMS) (20%)",
       "titleByLocale": {
-        "de": "Peer Mitarbeiterin / Peer Mitarbeiter (EX-IN oder PMS) (20%)",
         "it": "Dipendente pari (EX-IN o PMS) (20%)",
         "en": "Peer employee (EX-IN or PMS) (20%)",
+        "de": "Peer Mitarbeiterin / Peer Mitarbeiter (EX-IN oder PMS) (20%)",
         "fr": "Employé par les pairs (EX-IN ou PMS) (20%)"
       },
       "description": "Ihre Aufgaben\n• Begleitung von Patienten auf ihrem Genesungsweg im Rahmen von Einzelgesprächen und im Stationsalltag\n• Einbringen der Perspektive von Erfahrung mit psychischer Erkrankung und Genesung in behandlungsrelevante Bereiche\n• Zusammenarbeit mit dem Kernteam\n• Durchführung eines peer-geleiteten Gruppenangebotes zur Unterstützung des persönlichen Recovery-Prozesses der Betroffenen\n• Unterstützung und Vernetzung zu Nachsorge\n• Angeboten, z.B. Selbsthilfegruppen-Teilnahme an Intervisionen sowie an der Fachgruppe Peer & Recovery Ihr Profil\n• Du bringst eine hohe fachliche und persönliche Kompetenz als Expertin oder Experte aus Erfahrung mit und warst idealerweise bereits als Peer im stationären Setting tätig\n• Du verfügst über eine abgeschlossene Peer-Weiterbildung (EX-IN oder PMS)\n• Du hast ein erweitertes Verständnis der eigenen Genesungsgeschichte und kannst differenziert darüber sprechen\n• Du kannst Übersetzer/-in und Vermittler/-in für die Patienten (z.B. Beantwortung von Fragen zu Krankheitsbildern) sein\n• Du kannst empathisch und unvoreingenommen auf andere Menschen zugehen\n• Du verfügst über eine hohe Teamfähigkeit\n• Du verfügst über Fähigkeit zu selbstorganisiertem, eigenständigem Arbeiten Unser Angebot Nebst einem spannenden Arbeitsbereich bieten wir dir eine gute Einführung auf der Station, ein vielseitiges Weiterbildungsangebot sowie attraktive Anstellungsbedingungen in einer modernen Klinik. Fühlst du dich angesprochen? Weitere Auskünfte erteilt dir gerne Lejla Martinovic, Stationsleiterin, Tel. +41 44 929 86 01. Wir freuen uns auf deine Bewerbung via Bewerbungstool.\n\nClienia AG — grösste Privatklinikgruppe für Psychiatrie und Psychotherapie der Deutschschweiz. Standorte: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
       "descriptionByLocale": {
-        "de": "Ihre Aufgaben\n• Begleitung von Patienten auf ihrem Genesungsweg im Rahmen von Einzelgesprächen und im Stationsalltag\n• Einbringen der Perspektive von Erfahrung mit psychischer Erkrankung und Genesung in behandlungsrelevante Bereiche\n• Zusammenarbeit mit dem Kernteam\n• Durchführung eines peer-geleiteten Gruppenangebotes zur Unterstützung des persönlichen Recovery-Prozesses der Betroffenen\n• Unterstützung und Vernetzung zu Nachsorge\n• Angeboten, z.B. Selbsthilfegruppen-Teilnahme an Intervisionen sowie an der Fachgruppe Peer & Recovery Ihr Profil\n• Du bringst eine hohe fachliche und persönliche Kompetenz als Expertin oder Experte aus Erfahrung mit und warst idealerweise bereits als Peer im stationären Setting tätig\n• Du verfügst über eine abgeschlossene Peer-Weiterbildung (EX-IN oder PMS)\n• Du hast ein erweitertes Verständnis der eigenen Genesungsgeschichte und kannst differenziert darüber sprechen\n• Du kannst Übersetzer/-in und Vermittler/-in für die Patienten (z.B. Beantwortung von Fragen zu Krankheitsbildern) sein\n• Du kannst empathisch und unvoreingenommen auf andere Menschen zugehen\n• Du verfügst über eine hohe Teamfähigkeit\n• Du verfügst über Fähigkeit zu selbstorganisiertem, eigenständigem Arbeiten Unser Angebot Nebst einem spannenden Arbeitsbereich bieten wir dir eine gute Einführung auf der Station, ein vielseitiges Weiterbildungsangebot sowie attraktive Anstellungsbedingungen in einer modernen Klinik. Fühlst du dich angesprochen? Weitere Auskünfte erteilt dir gerne Lejla Martinovic, Stationsleiterin, Tel. +41 44 929 86 01. Wir freuen uns auf deine Bewerbung via Bewerbungstool.\n\nClienia AG — grösste Privatklinikgruppe für Psychiatrie und Psychotherapie der Deutschschweiz. Standorte: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
         "it": "I loro compiti\n• Accompagnamento dei pazienti sul loro percorso di recupero nel contesto di singole interviste e nella stazione di vita quotidiana\n• Portare la prospettiva dell'esperienza di malattia mentale e del recupero in aree di trattamento-rilevante\n• Collaborazione con il core team\n• Condurre un'offerta di gruppo peer-led per supportare il processo di recupero personale di coloro che sono interessati\n• Supporto e networking per aftercare\n• Offerto, ad esempio la partecipazione del gruppo self-help a Intervisions e nella sezione Peer & Recovery\n• Portate un alto livello di competenza professionale e personale come esperto di esperienza e siete stati idealmente già lavorando come pari in ambiente stazionario\n• Hai completato la formazione peer (EX-IN o PMS)\n• Hai una comprensione estesa della tua storia di recupero e puoi parlarne in modo differenziato\n• Puoi essere traduttore e facilitatore per i pazienti (ad esempio rispondere a domande sulle immagini cliniche)\n• Si può avvicinare altre persone empaticamente e imparziale\n• Hai un alto livello di abilità di lavoro di squadra\n• Oltre ad un'emozionante area di lavoro, vi offriamo una buona introduzione sulla stazione, un'offerta di formazione versatile e condizioni di lavoro attraenti in una clinica moderna. Ti senti indirizzato? Per ulteriori informazioni rivolgersi a Lejla Martinovic, direttore della stazione, tel. +41 44 929 86 01. Attendiamo con ansia la vostra applicazione tramite strumento di applicazione.\n\nClienia AG – il più grande gruppo ospedaliero privato per la psichiatria e la psicoterapia in Svizzera tedesca. Località: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
         "en": "Their tasks\n• Accompaniment of patients on their recovery path in the context of individual interviews and in the station everyday life\n• Bringing the perspective of mental illness experience and recovery into treatment-relevant areas\n• Collaboration with the core team\n• Conducting a peer-led group offer to support the personal recovery process of those affected\n• Support and networking for aftercare\n• Offered, e.g. self-help group participation in Intervisions as well as in the Peer & Recovery section Your profile\n• You bring a high level of professional and personal competence as an expert from experience and were ideally already working as a peer in stationary setting\n• You have completed peer training (EX-IN or PMS)\n• You have an expanded understanding of your recovery history and can talk about it in a differentiated way\n• You can be a translator and facilitator for patients (e.g. answering questions about clinical pictures)\n• You can approach other people empathetically and unbiased\n• You have a high level of teamwork ability\n• In addition to an exciting work area, we offer you a good introduction on the station, a versatile training offer and attractive employment conditions in a modern clinic. Do you feel addressed? For further information please refer to Lejla Martinovic, station manager, tel. +41 44 929 86 01. We look forward to your application via application tool.\n\nClienia AG – the largest private hospital group for psychiatry and psychotherapy in German-speaking Switzerland. Locations: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
+        "de": "Ihre Aufgaben\n• Begleitung von Patienten auf ihrem Genesungsweg im Rahmen von Einzelgesprächen und im Stationsalltag\n• Einbringen der Perspektive von Erfahrung mit psychischer Erkrankung und Genesung in behandlungsrelevante Bereiche\n• Zusammenarbeit mit dem Kernteam\n• Durchführung eines peer-geleiteten Gruppenangebotes zur Unterstützung des persönlichen Recovery-Prozesses der Betroffenen\n• Unterstützung und Vernetzung zu Nachsorge\n• Angeboten, z.B. Selbsthilfegruppen-Teilnahme an Intervisionen sowie an der Fachgruppe Peer & Recovery Ihr Profil\n• Du bringst eine hohe fachliche und persönliche Kompetenz als Expertin oder Experte aus Erfahrung mit und warst idealerweise bereits als Peer im stationären Setting tätig\n• Du verfügst über eine abgeschlossene Peer-Weiterbildung (EX-IN oder PMS)\n• Du hast ein erweitertes Verständnis der eigenen Genesungsgeschichte und kannst differenziert darüber sprechen\n• Du kannst Übersetzer/-in und Vermittler/-in für die Patienten (z.B. Beantwortung von Fragen zu Krankheitsbildern) sein\n• Du kannst empathisch und unvoreingenommen auf andere Menschen zugehen\n• Du verfügst über eine hohe Teamfähigkeit\n• Du verfügst über Fähigkeit zu selbstorganisiertem, eigenständigem Arbeiten Unser Angebot Nebst einem spannenden Arbeitsbereich bieten wir dir eine gute Einführung auf der Station, ein vielseitiges Weiterbildungsangebot sowie attraktive Anstellungsbedingungen in einer modernen Klinik. Fühlst du dich angesprochen? Weitere Auskünfte erteilt dir gerne Lejla Martinovic, Stationsleiterin, Tel. +41 44 929 86 01. Wir freuen uns auf deine Bewerbung via Bewerbungstool.\n\nClienia AG — grösste Privatklinikgruppe für Psychiatrie und Psychotherapie der Deutschschweiz. Standorte: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
         "fr": "Leurs tâches\n• Accompagnement des patients sur leur chemin de récupération dans le cadre des entretiens individuels et dans la vie quotidienne de la station\n• Mettre en perspective l'expérience de la maladie mentale et le rétablissement dans les domaines pertinents pour le traitement\n• Collaboration avec l'équipe centrale\n• Conduire une offre de groupe dirigée par des pairs pour appuyer le processus de rétablissement personnel des personnes touchées\n• Soutien et mise en réseau pour le suivi\n• Proposé, p.ex. participation d'un groupe d'entraide à Intervisions ainsi qu'à la section Peer & Recovery Votre profil\n• Vous apportez un haut niveau de compétence professionnelle et personnelle comme un expert de l'expérience et étaient idéalement déjà travailler comme un pair dans un cadre stationnaire\n• Vous avez suivi une formation par les pairs (EX-IN ou PMS)\n• Vous avez une compréhension élargie de votre histoire de récupération et pouvez en parler de façon différenciée\n• Vous pouvez être traducteur et facilitateur pour les patients (p. ex. répondre aux questions sur les photos cliniques)\n• Vous pouvez approcher les autres avec empathie et impartialité\n• Vous avez un haut niveau de capacité de travail en équipe\n• En plus d'une zone de travail passionnante, nous vous proposons une bonne introduction sur la station, une offre de formation polyvalente et des conditions d'emploi attrayantes dans une clinique moderne. Vous sentez-vous adressé ? Pour de plus amples informations, voir Lejla Martinovic, gestionnaire de station, tél. +41 44 929 86 01. Nous attendons avec impatience votre application via l'outil d'application.\n\nClienia AG – le plus grand groupe hospitalier privé de psychiatrie et de psychothérapie en Suisse germanophone. Lieux: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon."
       },
+      "needsRetranslation": false,
       "location": "Pfäffikon ZH",
       "canton": "ZH",
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/peer-mitarbeiterin-peer-mitarbeiter-ex-in-oder-pms-31396864073549/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:52.140Z",
+      "crawledAt": "2026-09-24T14:26:12.507Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7133,29 +7112,29 @@
       "postedDate": "2026-09-23",
       "applyUrl": "https://www.clienia.ch/de/jobs-karriere/jobs/peer-mitarbeiterin-peer-mitarbeiter-ex-in-oder-pms-31396864073549/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "peer-mitarbeiterin-peer-mitarbeiter-ex-in-oder-pms-20-clienia-ag-zurich",
+        "peer-employee-ex-in-or-pms-20-clienia-ag-pfaffikon-zh",
+        "employe-par-les-pairs-ex-in-ou-pms-20-clienia-ag-pfaffikon-zh",
+        "peer-mitarbeiterin-peer-collaboratore-trice-ex-in-o-pms-20-clienia-ag-pfaffikon",
+        "peer-mitarbeiterin-peer-mitarbeiter-ex-in-oder-pms-20-clienia-ag-pfaffikon"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "peer-mitarbeiterin-peer-mitarbeiter-ex-in-oder-pms-20-clienia-ag-zurich",
-          "dipendente-pari-ex-in-o-pms-20-clienia-ag-pfaffikon-zh",
           "peer-employee-ex-in-or-pms-20-clienia-ag-pfaffikon-zh",
-          "employe-par-les-pairs-ex-in-ou-pms-20-clienia-ag-pfaffikon-zh"
+          "employe-par-les-pairs-ex-in-ou-pms-20-clienia-ag-pfaffikon-zh",
+          "peer-mitarbeiterin-peer-collaboratore-trice-ex-in-o-pms-20-clienia-ag-pfaffikon"
         ],
         "en": [
-          "peer-employee-ex-in-or-pms-20-clienia-ag-pfaffikon-zh"
+          "peer-mitarbeiterin-peer-mitarbeiter-ex-in-oder-pms-20-clienia-ag-pfaffikon"
         ],
         "fr": [
-          "employe-par-les-pairs-ex-in-ou-pms-20-clienia-ag-pfaffikon-zh"
+          "peer-mitarbeiterin-peer-mitarbeiter-ex-in-oder-pms-20-clienia-ag-pfaffikon"
         ]
       },
-      "previousSlugs": [
-        "peer-mitarbeiterin-peer-mitarbeiter-ex-in-oder-pms-20-clienia-ag-zurich",
-        "dipendente-pari-ex-in-o-pms-20-clienia-ag-pfaffikon-zh",
-        "peer-employee-ex-in-or-pms-20-clienia-ag-pfaffikon-zh",
-        "employe-par-les-pairs-ex-in-ou-pms-20-clienia-ag-pfaffikon-zh"
-      ],
+      "firstSeenAt": "2026-09-23T23:44:52.140Z",
       "salaryMin": 18300,
       "salaryMax": 25600,
       "salarySource": "estimated",
@@ -7169,40 +7148,41 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:44:52.140Z"
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/peer-mitarbeiterin-peer-mitarbeiter-ex-in-oder-pms-31396864073549"
     },
     {
       "id": "clienia-ag-9cc7eb76cd90",
-      "slug": "fachverantwortliche-r-pflege-80-clienia-ag-pfaffikon",
+      "slug": "cura-responsabile-80-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
+        "it": "cura-responsabile-80-clienia-ag-pfaffikon-zh",
+        "en": "responsible-care-80-clienia-ag-pfaffikon-zh",
         "de": "fachverantwortliche-r-pflege-80-clienia-ag-zurich",
-        "it": "fachverantwortliche-r-pflege-80-clienia-ag-pfaffikon",
-        "en": "fachverantwortliche-r-pflege-80-clienia-ag-pfaffikon",
-        "fr": "fachverantwortliche-r-pflege-80-clienia-ag-pfaffikon"
+        "fr": "prise-en-charge-responsable-80-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
       "companyDomain": "clienia.ch",
       "title": "Fachverantwortliche/r Pflege (80%)",
       "titleByLocale": {
-        "de": "Fachverantwortliche/r Pflege (80%)",
         "it": "Cura responsabile (80%)",
         "en": "Responsible care (80%)",
+        "de": "Fachverantwortliche/r Pflege (80%)",
         "fr": "Prise en charge responsable (80 %)"
       },
       "description": "Ihre Aufgaben - die Verantwortung für die Pflegeentwicklung und Überprüfung der Pflegequalität auf der Station - die individuelle Pflege und Betreuung der Patientinnen und Patienten und der Kontakt zu den Angehörigen im Rahmen der Bezugspersonenarbeit und in Absprache mit dem Kernteam - die Mitarbeit in fachspezifischen Arbeitsgruppen und Projekten - das Gewährleisten einer kooperativen interdisziplinären Zusammenarbeit - die Leitung und Co-Leitung von Psychotherapeutischen Gruppenangeboten und Rapporten - die Absprache sowie Planung der Behandlung im interprofessionellen Team - die Unterstützung der Patientinnen und Patienten in Krisensituationen Da wir mit Dauernachtwachen arbeiten, wirst Du primär im Zweischichtsystem (Früh- und Spätdienst) eingesetzt. Ihr Profil Für diese spannende Tätigkeit bringst Du einen Abschluss Pflege auf HF / FH Stufe und Berufserfahrung im Bereich psychiatrischer Pflege mit. Idealerweise bringst du eine CAS in Gerontologie mit, oder du hast die Bereitschaft, diese zu absolvieren. Du hast Lust, in einem besonderen Bereich zu arbeiten, wo Kundenorientierung gelebt wird. Abwechslung und sich verändernde Situationen sind für Dich eine Herausforderung und machen Dir Spass? Zudem bist du eine offene, ehrliche, kommunikative und präsente Persönlichkeit und hast die Bereitschaft, dich kontinuierlich weiterzubilden und dieses Wissen auch ans Pflegeteam weitezugeben? Dann bist du auf unserer Station D1 genau richtig. Wir freuen uns über Bewerberinnen und Bewerber mit Freude, Humor, eigenen Ideen, grossem Interesse an interprofessioneller Arbeit und gepflegten Umgangsformen. Fühlst du dich jetzt angesprochen? Dann bewirb Dich gerne bei uns. Wir freuen uns, Dich kennen zu lernen. Unser Angebot\n• Innovativer Arbeitgeber mit einer starken interprofessionellen Zusammenarbeit\n• spannende Stelle in einem jungen, innovativen und humorvollen Team\n• sehr gute Entwicklungsmöglichkeiten mit grosszügiger Unterstützung in Fort- und Weiterbildungen\n• diverse Vergünstigungen (z.B. mit Reka-Checks, Möglichkeit einen ZVV Bonus Pass zu erwerben, gesundheitsfördernde Angebote, ausgewählte Freizeitaktivitäten und Online-Shops)\n• 5 Wochen Ferien, ab dem 50. Lebensjahr 27 Tage und ab dem 60. Lebensjahr 32 Tage\n• hervorragende Verpflegungsmöglichkeiten zu sehr fairen Preisen und vieles mehr… Gerne stellen wir dir unsere Benefits für Mitarbeitende in einem Vorstellungsgespräch vor. Weitere Auskünfte erteilt Dir gerne der Stationsleiter, Precious Omoruyi, Tel.+41 44 929 86 04 oder unsere Bereichsleiterin Pflege, Gabriela Thiébaud, Tel. +41 44 929 82 50. Wir freuen uns auf Ihre Bewerbung via Bewerbungstool.\n\nClienia AG — grösste Privatklinikgruppe für Psychiatrie und Psychotherapie der Deutschschweiz. Standorte: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
       "descriptionByLocale": {
-        "de": "Ihre Aufgaben - die Verantwortung für die Pflegeentwicklung und Überprüfung der Pflegequalität auf der Station - die individuelle Pflege und Betreuung der Patientinnen und Patienten und der Kontakt zu den Angehörigen im Rahmen der Bezugspersonenarbeit und in Absprache mit dem Kernteam - die Mitarbeit in fachspezifischen Arbeitsgruppen und Projekten - das Gewährleisten einer kooperativen interdisziplinären Zusammenarbeit - die Leitung und Co-Leitung von Psychotherapeutischen Gruppenangeboten und Rapporten - die Absprache sowie Planung der Behandlung im interprofessionellen Team - die Unterstützung der Patientinnen und Patienten in Krisensituationen Da wir mit Dauernachtwachen arbeiten, wirst Du primär im Zweischichtsystem (Früh- und Spätdienst) eingesetzt. Ihr Profil Für diese spannende Tätigkeit bringst Du einen Abschluss Pflege auf HF / FH Stufe und Berufserfahrung im Bereich psychiatrischer Pflege mit. Idealerweise bringst du eine CAS in Gerontologie mit, oder du hast die Bereitschaft, diese zu absolvieren. Du hast Lust, in einem besonderen Bereich zu arbeiten, wo Kundenorientierung gelebt wird. Abwechslung und sich verändernde Situationen sind für Dich eine Herausforderung und machen Dir Spass? Zudem bist du eine offene, ehrliche, kommunikative und präsente Persönlichkeit und hast die Bereitschaft, dich kontinuierlich weiterzubilden und dieses Wissen auch ans Pflegeteam weitezugeben? Dann bist du auf unserer Station D1 genau richtig. Wir freuen uns über Bewerberinnen und Bewerber mit Freude, Humor, eigenen Ideen, grossem Interesse an interprofessioneller Arbeit und gepflegten Umgangsformen. Fühlst du dich jetzt angesprochen? Dann bewirb Dich gerne bei uns. Wir freuen uns, Dich kennen zu lernen. Unser Angebot\n• Innovativer Arbeitgeber mit einer starken interprofessionellen Zusammenarbeit\n• spannende Stelle in einem jungen, innovativen und humorvollen Team\n• sehr gute Entwicklungsmöglichkeiten mit grosszügiger Unterstützung in Fort- und Weiterbildungen\n• diverse Vergünstigungen (z.B. mit Reka-Checks, Möglichkeit einen ZVV Bonus Pass zu erwerben, gesundheitsfördernde Angebote, ausgewählte Freizeitaktivitäten und Online-Shops)\n• 5 Wochen Ferien, ab dem 50. Lebensjahr 27 Tage und ab dem 60. Lebensjahr 32 Tage\n• hervorragende Verpflegungsmöglichkeiten zu sehr fairen Preisen und vieles mehr… Gerne stellen wir dir unsere Benefits für Mitarbeitende in einem Vorstellungsgespräch vor. Weitere Auskünfte erteilt Dir gerne der Stationsleiter, Precious Omoruyi, Tel.+41 44 929 86 04 oder unsere Bereichsleiterin Pflege, Gabriela Thiébaud, Tel. +41 44 929 82 50. Wir freuen uns auf Ihre Bewerbung via Bewerbungstool.\n\nClienia AG — grösste Privatklinikgruppe für Psychiatrie und Psychotherapie der Deutschschweiz. Standorte: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
         "it": "I vostri compiti - la responsabilità per lo sviluppo della cura e la verifica della qualità della cura sul reparto - la cura individuale e la cura dei pazienti e il contatto con i parenti nell'ambito del lavoro di caregiver e in consultazione con il core team - la cooperazione in gruppi di lavoro specializzati e progetti - la garanzia di una cooperazione interdisciplinare cooperativa - la gestione e la co-direzione del gruppo psicoterapeutico offre e rapporti - l'accordo e la pianificazione permanente del trattamento in tarda notte Per questa attività emozionante, si porta una laurea in allattamento a livello HF / FH e esperienza professionale nel campo della cura psichiatrica. Idealmente, portare un CAS in gerontologia, o avete la volontà di completarlo. Si desidera lavorare in una zona speciale dove l'orientamento del cliente è vissuto. Cambiare e cambiare le situazioni sono una sfida per te e ti stai divertendo? Inoltre, sei una personalità aperta, onesta, comunicativa e presente e hai la volontà di formare continuamente te stesso e trasmettere questa conoscenza al team di cura? Allora siete esattamente sulla nostra stazione D1. Siamo felici di candidati con gioia, umorismo, idee proprie, grande interesse per il lavoro interprofessionale e buone maniere. Ti senti indirizzato? Allora applica con noi. Non vediamo l'ora di incontrarti. La nostra offerta\n• Datore di lavoro innovativo con una forte cooperazione interprofessionale\n• posizione emozionante in un team giovane, innovativo e divertente\n• ottime opportunità di sviluppo con generoso sostegno all'ulteriore istruzione e formazione\n• vari sconti (ad esempio con i controlli Reka, possibilità di acquistare un ZV Bonus Pass, offerte di promozione della salute, attività di svago selezionate e negozi online)\n• 5 settimane di vacanza, 27 giorni dall'età 50 e 32 giorni dall'età 60\n• ottime opzioni di cibo a prezzi molto equi e molto altro ancora... Siamo lieti di presentare i nostri vantaggi per i dipendenti in un colloquio di lavoro. Ulteriori informazioni possono essere fornite dal direttore della stazione, Precious Omoruyi, tel. +41 44 929 86 04 o il nostro responsabile del reparto, Gabriela Thiébaud, tel. +41 44 929 82 50. Attendiamo con ansia la vostra applicazione tramite strumento di applicazione.\n\nClienia AG – il più grande gruppo ospedaliero privato per la psichiatria e la psicoterapia in Svizzera tedesca. Località: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
         "en": "Your tasks - the responsibility for the development of care and verification of the quality of care on the ward - the individual care and care of patients and the contact with the relatives within the framework of the caregiver work and in consultation with the core team - the cooperation in specialist working groups and projects - the guarantee of a cooperative interdisciplinary cooperation - the management and co-direction of psychotherapeutic group offers and reports - the agreement and planning of treatment in the interprofessional team - the support of patients in crisis situations Since we work with permanent night watches, you are primarily used in the two-shift system (early and late service). For this exciting activity, you bring a degree in nursing at HF / FH level and professional experience in the field of psychiatric care. Ideally, bring a CAS in gerontology, or you have the willingness to complete it. You want to work in a special area where customer orientation is lived. Change and changing situations are a challenge for you and are you having fun? In addition, are you an open, honest, communicative and present personality and do you have the willingness to continuously train yourself and pass this knowledge on to the care team? Then you are exactly right on our station D1. We are happy about applicants with joy, humor, own ideas, great interest in interprofessional work and well-kept manners. Do you feel addressed now? Then apply with us. We look forward to meeting you. Our offer\n• Innovative employer with a strong interprofessional cooperation\n• exciting position in a young, innovative and humorous team\n• very good development opportunities with generous support in further education and training\n• various discounts (e.g. with Reka checks, possibility to purchase a ZVV Bonus Pass, health-promoting offers, selected leisure activities and online shops)\n• 5 weeks of holiday, 27 days from age 50 and 32 days from age 60\n• excellent food options at very fair prices and much more... We are happy to present our benefits for employees in a job interview. Further information can be provided by the station manager, Precious Omoruyi, tel. +41 44 929 86 04 or our department manager care, Gabriela Thiébaud, tel. +41 44 929 82 50. We look forward to your application via application tool.\n\nClienia AG – the largest private hospital group for psychiatry and psychotherapy in German-speaking Switzerland. Locations: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
+        "de": "Ihre Aufgaben - die Verantwortung für die Pflegeentwicklung und Überprüfung der Pflegequalität auf der Station - die individuelle Pflege und Betreuung der Patientinnen und Patienten und der Kontakt zu den Angehörigen im Rahmen der Bezugspersonenarbeit und in Absprache mit dem Kernteam - die Mitarbeit in fachspezifischen Arbeitsgruppen und Projekten - das Gewährleisten einer kooperativen interdisziplinären Zusammenarbeit - die Leitung und Co-Leitung von Psychotherapeutischen Gruppenangeboten und Rapporten - die Absprache sowie Planung der Behandlung im interprofessionellen Team - die Unterstützung der Patientinnen und Patienten in Krisensituationen Da wir mit Dauernachtwachen arbeiten, wirst Du primär im Zweischichtsystem (Früh- und Spätdienst) eingesetzt. Ihr Profil Für diese spannende Tätigkeit bringst Du einen Abschluss Pflege auf HF / FH Stufe und Berufserfahrung im Bereich psychiatrischer Pflege mit. Idealerweise bringst du eine CAS in Gerontologie mit, oder du hast die Bereitschaft, diese zu absolvieren. Du hast Lust, in einem besonderen Bereich zu arbeiten, wo Kundenorientierung gelebt wird. Abwechslung und sich verändernde Situationen sind für Dich eine Herausforderung und machen Dir Spass? Zudem bist du eine offene, ehrliche, kommunikative und präsente Persönlichkeit und hast die Bereitschaft, dich kontinuierlich weiterzubilden und dieses Wissen auch ans Pflegeteam weitezugeben? Dann bist du auf unserer Station D1 genau richtig. Wir freuen uns über Bewerberinnen und Bewerber mit Freude, Humor, eigenen Ideen, grossem Interesse an interprofessioneller Arbeit und gepflegten Umgangsformen. Fühlst du dich jetzt angesprochen? Dann bewirb Dich gerne bei uns. Wir freuen uns, Dich kennen zu lernen. Unser Angebot\n• Innovativer Arbeitgeber mit einer starken interprofessionellen Zusammenarbeit\n• spannende Stelle in einem jungen, innovativen und humorvollen Team\n• sehr gute Entwicklungsmöglichkeiten mit grosszügiger Unterstützung in Fort- und Weiterbildungen\n• diverse Vergünstigungen (z.B. mit Reka-Checks, Möglichkeit einen ZVV Bonus Pass zu erwerben, gesundheitsfördernde Angebote, ausgewählte Freizeitaktivitäten und Online-Shops)\n• 5 Wochen Ferien, ab dem 50. Lebensjahr 27 Tage und ab dem 60. Lebensjahr 32 Tage\n• hervorragende Verpflegungsmöglichkeiten zu sehr fairen Preisen und vieles mehr… Gerne stellen wir dir unsere Benefits für Mitarbeitende in einem Vorstellungsgespräch vor. Weitere Auskünfte erteilt Dir gerne der Stationsleiter, Precious Omoruyi, Tel.+41 44 929 86 04 oder unsere Bereichsleiterin Pflege, Gabriela Thiébaud, Tel. +41 44 929 82 50. Wir freuen uns auf Ihre Bewerbung via Bewerbungstool.\n\nClienia AG — grösste Privatklinikgruppe für Psychiatrie und Psychotherapie der Deutschschweiz. Standorte: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon.",
         "fr": "Vos tâches - la responsabilité du développement des soins et la vérification de la qualité des soins dans le service - les soins individuels et les soins aux patients et le contact avec les proches dans le cadre du travail de soignant et en consultation avec l'équipe centrale - la coopération dans les groupes de travail spécialisés et les projets - la garantie d'une coopération interdisciplinaire coopérative - la gestion et la co-direction du groupe psychothérapeutique offre et rapporte - l'accord et la planification du traitement dans l'équipe interprofessionnelle - le soutien des patients en situation de crise Depuis que nous travaillons avec des veilles de nuit permanentes, vous êtes principalement utilisé dans le système à deux postes (début et fin de service). Pour cette activité passionnante, vous apportez un diplôme en sciences infirmières au niveau HF / FH et une expérience professionnelle dans le domaine des soins psychiatriques. Idéalement, apportez un CAS en gérontologie, ou vous avez la volonté de le compléter. Vous voulez travailler dans une zone spéciale où l'orientation client est vécue. Changer et changer les situations sont un défi pour vous et vous amusez-vous? De plus, êtes-vous une personnalité ouverte, honnête, communicative et présente et avez-vous la volonté de vous former en permanence et de transmettre cette connaissance à l'équipe de soins? Alors vous êtes exactement sur notre station D1. Nous sommes heureux des candidats avec joie, humour, idées propres, grand intérêt pour le travail interprofessionnel et les bonnes manières. Vous sentez-vous adressé maintenant ? Alors appliquez avec nous. Nous avons hâte de vous rencontrer. Notre offre\n• Un employeur innovant avec une forte coopération interprofessionnelle\n• position passionnante dans une équipe jeune, innovante et humoristique\n• de très bonnes possibilités de développement avec un soutien généreux en matière d'éducation et de formation continue\n• diverses réductions (par exemple avec les contrôles Reka, possibilité d'acheter un ZVV Bonus Pass, offres de promotion de la santé, certaines activités de loisirs et boutiques en ligne)\n• 5 semaines de vacances, 27 jours à partir de 50 ans et 32 jours à partir de 60 ans\n• excellentes options alimentaires à des prix très justes et bien plus encore... Nous sommes heureux de présenter nos avantages pour les employés dans une entrevue d'emploi. Pour plus d'informations, veuillez contacter le responsable de la station Precious Omoruyi, tél. +41 44 929 86 04 ou notre responsable de service, Gabriela Thiébaud, tél. +41 44 929 82 50. Nous attendons avec impatience votre application via l'outil d'application.\n\nClienia AG – le plus grand groupe hospitalier privé de psychiatrie et de psychothérapie en Suisse germanophone. Lieux: Privatklinik Bellevue (Pfäffikon ZH), Klinik Schlössli (Oetwil am See ZH), Tagesklinik Zürich, Tagesklinik Wetzikon."
       },
+      "needsRetranslation": false,
       "location": "Pfäffikon ZH",
       "canton": "ZH",
       "url": "https://www.clienia.ch/de/jobs-karriere/jobs/fachverantwortliche-r-pflege-31395644073628/",
       "source": "Clienia AG Dedicated Parser (WP REST + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:51.386Z",
+      "crawledAt": "2026-09-24T14:26:11.673Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7218,31 +7198,38 @@
       "postedDate": "2026-09-23",
       "applyUrl": "https://www.clienia.ch/de/jobs-karriere/jobs/fachverantwortliche-r-pflege-31395644073628/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachverantwortliche-r-pflege-80-clienia-ag-zurich",
+        "fachverantwortliche-r-pflege-80-clienia-ag-pfaffikon"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-pflege-80-clienia-ag-zurich"
+          "fachverantwortliche-r-pflege-80-clienia-ag-zurich",
+          "fachverantwortliche-r-pflege-80-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "fachverantwortliche-r-pflege-80-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "fachverantwortliche-r-pflege-80-clienia-ag-pfaffikon"
         ]
       },
-      "previousSlugs": [
-        "fachverantwortliche-r-pflege-80-clienia-ag-zurich"
-      ],
-      "salaryMin": 73200,
-      "salaryMax": 102400,
+      "firstSeenAt": "2026-09-23T23:44:51.386Z",
+      "salaryMin": 99200,
+      "salaryMax": 138400,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73200,
-          "maxValue": 102400,
+          "minValue": 99200,
+          "maxValue": 138400,
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:44:51.386Z"
+      "sourceIdentity": "url:https://www.clienia.ch/de/jobs-karriere/jobs/fachverantwortliche-r-pflege-31395644073628"
     }
   ]
 }

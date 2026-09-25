@@ -1,6 +1,6 @@
 {
   "crawlerKey": "climeworks",
-  "assembledAt": "2026-09-23T23:39:12.377Z",
+  "assembledAt": "2026-09-24T14:18:18.893Z",
   "jobs": [
     {
       "id": "climeworks-bcdf637f980a",
@@ -33,7 +33,7 @@
       "url": "https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:39:09.097Z",
+      "crawledAt": "2026-09-24T14:18:14.025Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -111,7 +111,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "sourceIdentity": "url:https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100"
     },
     {
       "id": "climeworks-1c2b00477ffb",
@@ -144,7 +145,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-eic-engineer-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:39:09.095Z",
+      "crawledAt": "2026-09-24T14:18:14.022Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -226,7 +227,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "sourceIdentity": "url:https://climeworks.recruitee.com/o/lead-eic-engineer-100-101"
     },
     {
       "id": "climeworks-81a8f1260c6e",
@@ -259,7 +261,7 @@
       "url": "https://climeworks.recruitee.com/o/sorbent-module-product-owner-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:39:09.093Z",
+      "crawledAt": "2026-09-24T14:18:14.020Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -339,7 +341,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "sourceIdentity": "url:https://climeworks.recruitee.com/o/sorbent-module-product-owner-80-100"
     },
     {
       "id": "climeworks-ecfc8c7a030d",
@@ -372,7 +375,7 @@
       "url": "https://climeworks.recruitee.com/o/commercial-operations-manager-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:39:09.091Z",
+      "crawledAt": "2026-09-24T14:18:14.017Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -455,7 +458,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "sourceIdentity": "url:https://climeworks.recruitee.com/o/commercial-operations-manager-100"
     }
   ]
 }

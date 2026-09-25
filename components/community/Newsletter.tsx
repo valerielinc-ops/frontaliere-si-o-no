@@ -13,6 +13,7 @@ import {
 import { isNewsletterExcluded } from '@/services/emailSuppression.mjs';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import TelegramChannelCta from '@/components/shared/TelegramChannelCta';
+import { useCaptureImpression } from '@/hooks/useCaptureImpression';
 
 // Firebase Firestore will be lazily imported
 let firestoreInitialized = false;
@@ -50,6 +51,11 @@ interface NewsletterProps {
  subtitleOverride?: string;
  /** Acquisition source tag for downstream analytics; persisted into sourceCta. */
  acquisitionSource?: string;
+ /**
+  * GA4 `section` of the visibility event (`newsletter_box.<placement>.show.<source>`).
+  * Defaults to `compact` / `page`; NewsletterMount passes `island`.
+  */
+ impressionPlacement?: 'compact' | 'page' | 'island';
 }
 
 const SUBSCRIBED_KEY = 'newsletter_subscribed';
@@ -64,7 +70,7 @@ function isRejectedNewsletterCapture(result: { optedOut?: boolean; status?: stri
  return result.optedOut === true || isNewsletterExcluded(result.status);
 }
 
-const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverride, subtitleOverride, acquisitionSource }) => {
+const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverride, subtitleOverride, acquisitionSource, impressionPlacement }) => {
  const { t, locale } = useTranslation();
  const { user, signIn: googleSignIn } = useAuth();
  const [email, setEmail] = useState('');
@@ -92,6 +98,15 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  const [status, setStatus] = useState<'idle' | 'loading' | 'pending' | 'success' | 'error' | 'exists'>('idle');
  const [errorMessage, setErrorMessage] = useState('');
  const [pendingSocialMethod, setPendingSocialMethod] = useState<'google_oauth' | 'linkedin_oauth' | 'facebook_oauth' | null>(null);
+ const analyticsSourceCta = acquisitionSource || (compact ? 'newsletter_footer_compact' : 'newsletter_page_submit');
+ // Visibility denominator for the submit event `newsletter.newsletter.<source>.subscribe`:
+ // same source token, so show and submit pair on it.
+ const impressionRef = useCaptureImpression({
+  page: 'newsletter_box',
+  section: impressionPlacement || (compact ? 'compact' : 'page'),
+  variant: analyticsSourceCta,
+  enabled: !user && !alreadySubscribed,
+ });
 
  // A provider button authenticates and registers the visitor in one flow. The
  // terms-based relationship is written after Auth supplies the verified
@@ -132,7 +147,8 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
            setErrorMessage(t('newsletter.subscribeError'));
            return;
          }
-         markNewsletterSubscribedLocally();
+        markNewsletterSubscribedLocally();
+        Analytics.trackNewsletter('subscribe', socialEmail.split('@')[1], analyticsSourceCta);
          setPendingSocialMethod(null);
          setStatus('success');
        }
@@ -193,7 +209,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  }
 
  setStatus('loading');
- Analytics.trackNewsletter('subscribe', email.split('@')[1]);
+ Analytics.trackNewsletter('subscribe_attempt', email.split('@')[1], analyticsSourceCta);
  console.log('[Newsletter] Subscribe attempt:', { email: email.replace(/(.{2}).*(@.*)/, '$1***$2'), name: name || '(none)', preferences });
 
  // MX record check (async, fail-open)
@@ -202,7 +218,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  if (!hasMx) {
  setErrorMessage(t('newsletter.mxCheckFailed'));
  setStatus('error');
- Analytics.trackNewsletter('error', 'no_mx_record');
+ Analytics.trackNewsletter('error', 'no_mx_record', analyticsSourceCta);
  return;
  }
 
@@ -233,14 +249,14 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  if (isRejectedNewsletterCapture(upsert)) {
  setErrorMessage(t('newsletter.subscribeError'));
  setStatus('error');
- Analytics.trackNewsletter('error', 'suppressed');
+ Analytics.trackNewsletter('error', 'suppressed', analyticsSourceCta);
  return;
  }
  const needsConfirmation = upsert.status === 'pending' && !upsert.hadConfirmationProof;
  if (upsert.existed && !needsConfirmation) {
  console.log('[Newsletter] Email already subscribed');
  setStatus('exists');
- Analytics.trackNewsletter('error', email.split('@')[1]);
+ Analytics.trackNewsletter('error', email.split('@')[1], analyticsSourceCta);
  return;
  }
 
@@ -249,7 +265,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  setEmail('');
  setName('');
  console.log('[Newsletter] ⏳ Confirmation link sent; communications remain active under the registration terms');
- Analytics.trackNewsletter('subscribe', email.split('@')[1]);
+ Analytics.trackNewsletter('subscribe', email.split('@')[1], analyticsSourceCta);
  return;
  }
 
@@ -259,12 +275,12 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  setName('');
  unlockAchievement('newsletter_sub');
  console.log('[Newsletter] ✅ Subscription saved under the registration terms');
- Analytics.trackNewsletter('subscribe', email.split('@')[1]);
+ Analytics.trackNewsletter('subscribe', email.split('@')[1], analyticsSourceCta);
  } catch (error: any) {
  reportCaughtError(error, 'newsletter.subscribe');
  setErrorMessage(error.message || t('newsletter.subscribeError'));
  setStatus('error');
- Analytics.trackNewsletter('error', error.message);
+ Analytics.trackNewsletter('error', error.message, analyticsSourceCta);
  }
  };
 
@@ -274,7 +290,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
 
  if (compact) {
  return (
- <div className="bg-gradient-to-r from-info-strong to-success-strong rounded-2xl p-4 sm:p-6 text-on-accent">
+ <div ref={impressionRef} className="bg-gradient-to-r from-info-strong to-success-strong rounded-2xl p-4 sm:p-6 text-on-accent">
  <div className="flex items-center gap-3 mb-3">
  <Bell size={20} />
  <h3 className="font-bold font-display text-lg">{headingOverride || t('newsletter.title')}</h3>
@@ -336,7 +352,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  <button
  onClick={async () => {
  setPendingSocialMethod('google_oauth');
- Analytics.trackNewsletter('view_form', 'google');
+ Analytics.trackNewsletter('view_form', 'google', analyticsSourceCta);
  await googleSignIn();
  }}
  className="w-full min-h-[44px] grid grid-cols-[20px_1fr_20px] items-center px-4 py-2 bg-on-accent/10 border border-on-accent/20 rounded-xl text-on-accent/90 text-xs font-semibold hover:bg-on-accent/20 transition-colors disabled:opacity-50"
@@ -434,7 +450,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  </p>
  </div>
  ) : (
- <form onSubmit={handleSubscribe} className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm space-y-5">
+ <form ref={impressionRef} onSubmit={handleSubscribe} className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm space-y-5">
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
  <div>
  <label htmlFor="newsletter-email" className="text-xs font-bold text-muted uppercase mb-1 block">{t('newsletter.emailLabel')}</label>

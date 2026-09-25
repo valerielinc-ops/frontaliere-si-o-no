@@ -194,6 +194,19 @@ describe('isVersionSkewError', () => {
     expect(isVersionSkewError(new TypeError('e is not iterable'))).toBe(true);
   });
 
+  it('matches stale navigation-wrapper TypeErrors across browsers', () => {
+    // A stale pre-#5606 tracker chunk can invoke `.apply` on a missing
+    // History implementation. The fresh code guards this with
+    // callNativeHistory; the remaining live failure is therefore a mixed
+    // chunk set that must take the same cache-bust/reload recovery path.
+    expect(
+      isVersionSkewError(new TypeError("Cannot read properties of undefined (reading 'apply')")),
+    ).toBe(true);
+    expect(
+      isVersionSkewError(new TypeError("undefined is not an object (evaluating 'originalPushState.apply')")),
+    ).toBe(true);
+  });
+
   it('ignores non-TypeError errors with the same message', () => {
     // Only TypeError carries the skew signature; a hand-thrown Error does not.
     expect(isVersionSkewError(new Error('x is not a function'))).toBe(false);

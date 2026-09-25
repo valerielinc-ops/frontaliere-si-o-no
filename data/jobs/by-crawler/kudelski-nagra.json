@@ -1,13 +1,13 @@
 {
   "crawlerKey": "kudelski-nagra",
-  "assembledAt": "2026-09-24T00:08:41.585Z",
+  "assembledAt": "2026-09-24T14:44:19.241Z",
   "jobs": [
     {
       "id": "kudelski-nagra-362f31b80bbf",
       "slug": "security-operations-engineer-kudelski-nagra-ch",
       "slugByLocale": {
         "it": "security-operations-engineer-kudelski-nagra-ch",
-        "en": "securit-oper-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client",
+        "en": "security-5-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client",
         "de": "security-operations-ingenieur-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client",
         "fr": "security-operations-ingenieur-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client"
       },
@@ -17,7 +17,7 @@
       "title": "Security Operations Engineer",
       "titleByLocale": {
         "it": "Security Operations Ingegnere",
-        "en": "Securit Oper",
+        "en": "Security 5.",
         "de": "Security Operations Ingenieur",
         "fr": "Security Operations Ingénieur"
       },
@@ -33,7 +33,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15828",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-24T00:08:36.872Z",
+      "crawledAt": "2026-09-24T14:44:14.484Z",
       "addressLocality": "Zurich, Switzerland (Hybrid, onsite with client)",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -51,6 +51,16 @@
       "applyUrl": "https://careers.nagra.com/?page=advertisement_display&id=15828",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "securit-oper-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client",
+        "security-operations-engineer-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "securit-oper-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client",
+          "security-operations-engineer-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client"
+        ]
+      },
       "firstSeenAt": "2026-09-19T23:09:21.794Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -64,17 +74,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "en": [
-          "security-5-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client",
-          "security-operations-engineer-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client"
-        ]
-      },
-      "previousSlugs": [
-        "security-5-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client",
-        "security-operations-engineer-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client"
-      ]
+      }
     }
   ]
 }

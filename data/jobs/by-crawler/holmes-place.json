@@ -1,14 +1,14 @@
 {
   "crawlerKey": "holmes-place",
-  "assembledAt": "2026-09-23T23:52:19.980Z",
+  "assembledAt": "2026-09-24T14:29:42.050Z",
   "jobs": [
     {
       "id": "holmes-place-2c12260d3ad6",
       "slug": "sich-bewerben-holmes-place-oberrieden",
       "slugByLocale": {
         "de": "sich-bewerben-holmes-place-oberrieden",
-        "en": "sich-bewerben-holmes-place-oberrieden",
-        "fr": "sich-bewerben-holmes-place-oberrieden",
+        "en": "apply-now-holmes-place-oberrieden",
+        "fr": "postuler-holmes-place-oberrieden",
         "it": "sich-bewerben-holmes-place-oberrieden"
       },
       "company": "Holmes Place",
@@ -33,7 +33,7 @@
       "url": "https://www.holmesplace.ch/de/karriere",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:52:15.616Z",
+      "crawledAt": "2026-09-24T14:29:36.954Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",
@@ -46,7 +46,7 @@
       "sector": "Fitness / Wellness",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
+      "postedDate": "2026-09-24",
       "applyUrl": "https://www.holmesplace.ch/de/karriere",
       "requirements": [],
       "requirementsByLocale": {
@@ -58,18 +58,10 @@
         ],
         "de": [
           "mehr-erfahren-holmes-place-oberrieden"
-        ],
-        "en": [
-          "apply-now-holmes-place-oberrieden"
-        ],
-        "fr": [
-          "postuler-holmes-place-oberrieden"
         ]
       },
       "previousSlugs": [
-        "mehr-erfahren-holmes-place-oberrieden",
-        "apply-now-holmes-place-oberrieden",
-        "postuler-holmes-place-oberrieden"
+        "mehr-erfahren-holmes-place-oberrieden"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -84,7 +76,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:52:15.616Z"
+      "firstSeenAt": "2026-09-24T14:29:36.954Z"
     }
   ]
 }

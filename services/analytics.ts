@@ -42,6 +42,7 @@
  * │ decision_moment_next_action │ Explicit next useful action after completion │
  * │ job_qualified_session │ One qualified job-detail session │
  * │ job_apply_handoff │ External application destination hand-off │
+ * │ l2_useful_action │ One measurable main-conversion action per session │
  * ├──────────────────────┼──────────────────────────────────────┤
  * │ APP-SPECIFIC — Feature usage │
  * ├──────────────────────┼──────────────────────────────────────┤
@@ -107,10 +108,12 @@ import {
  isBenignErrorMessage,
  isIndexedDbError,
  isOriginRedactedThirdPartyStack,
+ isGoogleIosAppInjectedStackOverflow,
  BROWSER_EXTENSION_ORIGIN_PATTERN,
 } from './benignErrorPatterns';
 import { safeAffiliateToken } from '../functions/src/lib/affiliateLinks.js';
 import { readBuildIdForTelemetry } from './buildInfo';
+import { jobGateNewsletterTags } from './jobGateExperiment';
 
 export interface AnalyticsPageViewIdentity {
  jobSlug?: string;
@@ -133,6 +136,27 @@ export const JOB_QUALIFIED_SESSION_EVENT = 'job_qualified_session';
 export const JOB_APPLY_HANDOFF_EVENT = 'job_apply_handoff';
 export const DECISION_MOMENT_COMPLETED_EVENT = 'decision_moment_completed';
 export const DECISION_MOMENT_NEXT_ACTION_EVENT = 'decision_moment_next_action';
+export const L2_USEFUL_ACTION_EVENT = 'l2_useful_action';
+
+export type JobAuthGateSurface = 'inline' | 'modal' | 'expired' | 'orphan' | 'bridge' | 'unknown';
+export type JobAuthGateState = 'anonymous' | 'pending_email' | 'registered' | 'unknown';
+
+export interface JobAuthGateTelemetry {
+ surface?: JobAuthGateSurface;
+ method?: 'google' | 'linkedin' | 'email' | 'facebook' | 'unknown' | string;
+ authState?: JobAuthGateState;
+ variant?: string;
+ experimentId?: string;
+ jobSlug?: string | null;
+}
+
+export interface NewsletterTelemetryContext {
+ sourceChannel?: string;
+ sourceCta?: string;
+ sourcePage?: string;
+ jobSlug?: string | null;
+ registrationMethod?: 'email' | 'authenticated' | string;
+}
 
 /**
  * Resolve the identity carried by job analytics from the canonical job fields.
@@ -230,6 +254,13 @@ function tagClarity(key: string, value: string): void {
  if (typeof c === 'function') {
  c('set', key, value);
  }
+ } catch { /* Clarity not available — silent */ }
+}
+
+function emitClarityEvent(name: string): void {
+ try {
+  const c = (window as any).clarity;
+  if (typeof c === 'function') c('event', name);
  } catch { /* Clarity not available — silent */ }
 }
 
@@ -376,20 +407,66 @@ const logFirebaseOnly = (eventName: string, params?: Record<string, any>) => {
  }
 };
 
+// Keep the historical PostHog stream alive for existing dashboards while new
+// measurement contracts can be GA4-only. PostHog is deliberately not used as
+// the source of truth for the experiments or revenue analysis.
+const logPostHogOnly = (eventName: string, params?: Record<string, any>) => {
+ posthogCapture(eventName, params);
+};
+
+const L2_USEFUL_ACTION_SESSION_KEY = 'fr_l2_useful_action_v1';
+const L2_USEFUL_ACTION_STEPS = new Set(['calculate', 'compare', 'cta_click']);
+let l2UsefulActionEmitted = false;
+
+function claimL2UsefulAction(): boolean {
+ if (l2UsefulActionEmitted) return false;
+ try {
+  if (sessionStorage.getItem(L2_USEFUL_ACTION_SESSION_KEY) === '1') return false;
+  sessionStorage.setItem(L2_USEFUL_ACTION_SESSION_KEY, '1');
+ } catch {
+  // Private browsing or blocked storage: the module guard still deduplicates
+  // repeated events during the current page lifetime.
+ }
+ l2UsefulActionEmitted = true;
+ return true;
+}
+
+function isL2UsefulAction(eventName: string, params: Record<string, any>): boolean {
+ if (eventName === 'simulation_complete' || eventName === 'generate_lead') return true;
+ return eventName === 'funnel_step'
+  && params.funnel === 'main_conversion'
+  && typeof params.step === 'string'
+  && L2_USEFUL_ACTION_STEPS.has(params.step);
+}
+
+/**
+ * Emit one low-cardinality Firebase/GA4 event for the L2 useful-action
+ * denominator. It is deliberately Firebase-only: the PostHog quota policy
+ * samples ordinary page/funnel events and cannot be an L2 source of truth.
+ */
+function maybeEmitL2UsefulAction(eventName: string, params: Record<string, any>): void {
+ if (isL2UsefulAction(eventName, params) && claimL2UsefulAction()) {
+  logFirebaseOnly(L2_USEFUL_ACTION_EVENT);
+ }
+}
+
 const log = (eventName: string, params?: Record<string, any>) => {
+ const enrichedParams = enrichEventParams(params);
  // Mirror to PostHog (fire-and-forget, independent of Firebase)
  if (eventName === 'page_view') {
- const pagePath = params?.page_path || window.location.pathname;
+ const pagePath = enrichedParams.page_path || window.location.pathname;
  posthogCapture('$pageview', {
-  $current_url: params?.page_location || window.location.origin + pagePath,
-  title: params?.page_title || document.title,
-  emission_id: params?.emission_id ?? null,
+  ...enrichedParams,
+  $current_url: enrichedParams.page_location || window.location.origin + pagePath,
+  title: enrichedParams.page_title || document.title,
+  emission_id: enrichedParams.emission_id ?? null,
  });
  } else {
- posthogCapture(eventName, params);
+ posthogCapture(eventName, enrichedParams);
  }
 
- logFirebaseOnly(eventName, params);
+ logFirebaseOnly(eventName, enrichedParams);
+ maybeEmitL2UsefulAction(eventName, enrichedParams);
 };
 
 const setProps = (properties: Record<string, string>) => {
@@ -415,6 +492,7 @@ let currentScreen = '/';
 let previousScreen = '';
 let lastTrackedPageAt = 0;
 let _maxScrollDepth = 0;
+let sessionLandingPath = '';
 const ATTRIBUTION_KEY = 'ft_attribution_v1';
 const ATTRIBUTION_LOGGED_KEY = 'ft_attribution_logged_v1';
 const QUALIFIED_JOB_SESSION_KEY = 'ft_job_qualified_session_v1';
@@ -449,6 +527,59 @@ type AttributionContext = {
 };
 
 const truncate = (v: string, max = 120): string => v.slice(0, max);
+
+/** Keep session attribution useful for joins without retaining query strings. */
+function normalizeAnalyticsPath(input: string): string {
+ try {
+  const base = typeof window !== 'undefined' ? window.location.origin : 'https://frontaliereticino.ch';
+  return new URL(input || '/', base).pathname || '/';
+ } catch {
+  return String(input || '/').split(/[?#]/, 1)[0] || '/';
+ }
+}
+
+function readStoredAttribution(): AttributionContext | null {
+ try {
+  const raw = sessionStorage.getItem(ATTRIBUTION_KEY);
+  if (!raw) return null;
+  const parsed = JSON.parse(raw) as AttributionContext;
+  return {
+   ...parsed,
+   landing_path: normalizeAnalyticsPath(parsed.landing_path),
+  };
+ } catch {
+  return null;
+ }
+}
+
+/**
+ * Attach the stable page/landing context to every event. This makes weekly
+ * reports joinable even when the event itself is emitted by a nested widget.
+ * The explicit event fields still win, so existing callers keep their intent.
+ */
+function enrichEventParams(params?: Record<string, any>): Record<string, any> {
+ const eventPath = typeof params?.page_path === 'string' && params.page_path
+  ? params.page_path
+  : currentScreen !== '/' || typeof window === 'undefined' || window.location.pathname === '/'
+   ? currentScreen
+   : window.location.pathname;
+ const pageContext = deriveAnalyticsPageContext(eventPath);
+ const storedAttribution = readStoredAttribution();
+ const landingPath = sessionLandingPath
+  || storedAttribution?.landing_path
+  || normalizeAnalyticsPath(typeof window !== 'undefined' ? window.location.pathname : '/');
+
+ return {
+  page_path: eventPath,
+  page_template: pageContext.pageTemplate,
+  content_group: pageContext.contentGroup,
+  site_section: pageContext.siteSection,
+  content_locale: pageContext.contentLocale,
+  route_family: pageContext.routeFamily,
+  landing_path: landingPath,
+  ...(params || {}),
+ };
+}
 
 // ─── Error Tracking Helpers ────────────────────────────────────
 
@@ -700,7 +831,7 @@ function captureAttribution(): AttributionContext {
  term: truncate(params.get('utm_term') || '(none)', 80),
  content: truncate(params.get('utm_content') || '(none)', 80),
  referrer_host: truncate(refHost || 'direct', 80),
- landing_path: truncate(`${window.location.pathname}${window.location.search}`, 180),
+ landing_path: normalizeAnalyticsPath(window.location.pathname),
  click_id: truncate(clickId || '(none)', 120),
  };
 
@@ -920,6 +1051,7 @@ export const Analytics = {
  locale: navigator.language || 'it-IT',
  });
  const attribution = captureAttribution();
+ sessionLandingPath = normalizeAnalyticsPath(attribution.landing_path);
  setProps({
  traffic_source: attribution.source || 'direct',
  traffic_medium: attribution.medium || 'direct',
@@ -1364,6 +1496,10 @@ export const Analytics = {
  // but are third-party; no fix is possible on our end.
  if (event.filename && BROWSER_EXTENSION_ORIGIN_PATTERN.test(event.filename)) return;
  const errorStack = event.error?.stack || '';
+ // Same for the scripts Chrome for iOS / the Google app inject into the
+ // page: WebKit gives their frames the document URL, so they would read as
+ // a first-party crash (issue #8773 — see isGoogleIosAppInjectedStackOverflow).
+ if (isGoogleIosAppInjectedStackOverflow(msg, `${errorStack}\n${event.filename || ''}`, navigator.userAgent || '')) return;
  // Re-classify errors whose ENTIRE stack had its source URLs redacted by the
  // engine: a cross-origin script we do not control, never our own modules
  // (issue #4173 — see isOriginRedactedThirdPartyStack). Reported as
@@ -1405,6 +1541,8 @@ export const Analytics = {
  // Drop errors from browser extensions — they run in page context but are
  // third-party; no fix is possible on our end.
  if (stack && BROWSER_EXTENSION_ORIGIN_PATTERN.test(stack)) return;
+ // …and from the scripts Chrome for iOS / the Google app inject (#8773).
+ if (isGoogleIosAppInjectedStackOverflow(message, stack, navigator.userAgent || '')) return;
  // Same origin-redaction re-classification as the `error` handler above
  // (issue #4173): a stack with zero resolvable sources cannot come from our
  // own modules, so it is third-party rather than an app rejection.
@@ -2014,10 +2152,54 @@ export const Analytics = {
  },
 
  /**
- * Job auth gate funnel — full conversion tracking for the job detail login wall.
- * Tracks the job context (category, location, keywords, search query) so we
- * know exactly which listing triggered the sign-up.
- */
+  * Canonical GA4/Clarity signal for the job auth gate.
+  *
+  * The fields deliberately reuse custom dimensions already registered in GA4:
+  * page, section, component, action, cta_id, details and job_slug. This keeps
+  * the new measurement queryable without adding another permanent dimension.
+  * Details are categorical only; no email, title, company or search text is
+  * sent to this stream.
+  */
+ trackJobAuthGate: (action: 'view' | 'method_click' | 'success' | 'fail' | 'dismiss', details: JobAuthGateTelemetry = {}) => {
+  const surface = details.surface || 'unknown';
+  const method = details.method || 'unknown';
+  const state = details.authState || 'unknown';
+  const variant = truncate(details.variant || 'control', 40);
+  const experimentId = truncate(details.experimentId || '', 60);
+  const jobSlug = truncate(details.jobSlug || '', 180);
+  const ctaId = `job_auth_gate.${surface}.${method}.${action}`;
+  const detailValue = [
+   `state=${state}`,
+   `variant=${variant}`,
+   ...(experimentId ? [`experiment=${experimentId}`] : []),
+  ].join('|');
+
+  logFirebaseOnly('ui_interaction', {
+   page: 'job_auth_gate',
+   section: surface,
+   component: method,
+   action,
+   cta_id: ctaId,
+   details: detailValue,
+   ...(jobSlug ? { job_slug: jobSlug } : {}),
+   ...(experimentId ? { experiment_id: experimentId } : {}),
+   variant,
+  });
+
+  tagClarity('job_auth_surface', surface);
+  tagClarity('job_auth_method', method);
+  tagClarity('job_auth_action', action);
+  emitClarityEvent('job_auth_gate');
+ },
+
+ /**
+  * Backward-compatible job auth funnel event.
+  *
+  * The legacy PostHog payload keeps its historical context, but GA4 now
+  * receives only categorical fields. The previous implementation forwarded
+  * titles, search text and email domains to GA4, where they were both noisy
+  * and not queryable as registered dimensions.
+  */
  trackJobAuthFunnel: (
  action: 'gate_view' | 'auth_method_click' | 'auth_success' | 'auth_fail' | 'gate_dismiss',
  details?: {
@@ -2029,26 +2211,57 @@ export const Analytics = {
  location?: string;
  searchQuery?: string;
  keywords?: string;
+ surface?: JobAuthGateSurface;
+ authState?: JobAuthGateState;
+ variant?: string;
+ experimentId?: string;
+ jobSlug?: string | null;
  }
  ) => {
- // The action value IS the funnel step — also emit it as `step`/`funnel`
- // so the PostHog funnel_step + job_auth_funnel dashboards share keys.
- log('job_auth_funnel', {
- action,
- step: action,
- funnel: 'job_auth',
- ...details,
- });
- // Also emit a normalized funnel_step event so all funnels can be queried
- // via the same event shape in PostHog.
- log('funnel_step', {
- step: action,
- funnel: 'job_auth',
- funnel_name: 'job_auth',
- step_name: action,
- step_index: 0,
- ...(details || {}),
- });
+  const safeDetails = {
+   method: details?.method,
+   category: truncate(details?.category || '', 60) || undefined,
+   location: truncate(details?.location || '', 80) || undefined,
+   surface: details?.surface,
+   auth_state: details?.authState,
+   variant: truncate(details?.variant || '', 40) || undefined,
+   experiment_id: truncate(details?.experimentId || '', 60) || undefined,
+   job_slug: truncate(details?.jobSlug || '', 180) || undefined,
+  };
+  const legacyDetails = details || {};
+
+  // Preserve the historical PostHog stream without making it the GA4 source.
+  logPostHogOnly('job_auth_funnel', {
+   action,
+   step: action,
+   funnel: 'job_auth',
+   ...legacyDetails,
+  });
+  logPostHogOnly('funnel_step', {
+   step: action,
+   funnel: 'job_auth',
+   funnel_name: 'job_auth',
+   step_name: action,
+   step_index: 0,
+   ...legacyDetails,
+  });
+
+  // Keep the existing GA4 event names so historical reports remain useful,
+  // while excluding free-text/PII fields from new GA4 collection.
+  logFirebaseOnly('job_auth_funnel', {
+   action,
+   step: action,
+   funnel: 'job_auth',
+   ...safeDetails,
+  });
+  logFirebaseOnly('funnel_step', {
+   step: action,
+   funnel: 'job_auth',
+   funnel_name: 'job_auth',
+   step_name: action,
+   step_index: 0,
+   ...safeDetails,
+  });
  },
 
  /**
@@ -2082,8 +2295,43 @@ export const Analytics = {
  /**
  * Newsletter — subscribe is NOT a generate_lead (reserved for simulation_complete)
  */
- trackNewsletter: (action: 'view_form' | 'subscribe' | 'unsubscribe' | 'error', emailDomain?: string) => {
- log('newsletter', { action, email_domain: emailDomain });
+ trackNewsletter: (
+  action: 'view_form' | 'subscribe_attempt' | 'subscribe' | 'unsubscribe' | 'error' | 'confirm',
+  emailDomain?: string,
+  contextOrSourceCta: NewsletterTelemetryContext | string = {},
+ ) => {
+  const context: NewsletterTelemetryContext = typeof contextOrSourceCta === 'string'
+   ? { sourceCta: contextOrSourceCta }
+   : contextOrSourceCta;
+  log('newsletter', {
+   action,
+   email_domain: emailDomain,
+   source_cta: context.sourceCta,
+   // jobgate-v3: the JobBoard gate's subscribe carries the visitor's arm
+   // (empty object for every other CTA or when the experiment is off).
+   ...jobGateNewsletterTags(context.sourceCta),
+  });
+
+  // `source_channel`/`source_cta` were historically emitted as free-form
+  // params, but they are not registered GA4 dimensions. Mirror the source
+  // through the already-registered structural fields so a subscription can be
+  // joined to the gate without adding another permanent custom dimension.
+  if (context.sourceChannel || context.sourceCta || context.sourcePage || context.jobSlug) {
+   const sourceChannel = truncate(context.sourceChannel || 'newsletter', 60);
+   const sourceCta = truncate(context.sourceCta || 'newsletter', 80);
+   const registrationMethod = truncate(context.registrationMethod || 'unknown', 40);
+   const sourcePage = truncate(context.sourcePage || '', 180);
+   logFirebaseOnly('ui_interaction', {
+    page: 'newsletter',
+    section: sourceChannel,
+    component: sourceCta,
+    action,
+    cta_id: `newsletter.${sourceChannel}.${sourceCta}.${action}`,
+    details: `registration_method=${registrationMethod}`,
+    ...(sourcePage ? { page_path: sourcePage } : {}),
+    ...(context.jobSlug ? { job_slug: truncate(context.jobSlug, 180) } : {}),
+   });
+  }
  },
 
  trackNewsletterEvent: (
@@ -2341,7 +2589,18 @@ export const Analytics = {
  keywords?: string;
  location?: string;
  frequency?: string;
+ // 'post_auth_auto' survives only for a pending intent written before the
+ // replay carried its CTA origin (issue 9576): it is outside the
+ // alert_funnel_conversion allowlist on purpose, because nothing emits a
+ // `job_alert_cta_shown` for it.
  surface?: 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'sticky_banner' | 'end_card' | 'preferences' | 'post_auth_auto' | 'job_match_pill' | 'job_board_filters' | 'saved_jobs_nudge' | 'calculator_results' | 'company_follow_button';
+ /**
+  * HOW the alert was written, kept apart from the surface (issue 9576):
+  * `post_auth_replay` = a guest submit replayed after the sign-in round-trip,
+  * `direct` = an authenticated user created it on the spot. Diagnostic only —
+  * the funnel attributes on `cta_surface`, never on this field.
+  */
+ authPath?: 'direct' | 'post_auth_replay';
  } = {}) => {
  // Defensive: collapse undefined/empty to clear sentinels rather than null
  // so PostHog HogQL queries never see mixed null/empty values for the same
@@ -2366,6 +2625,7 @@ export const Analytics = {
  // could not be attributed to the surface that produced it. `cta_surface`
  // IS registered; `alert_surface` stays for the PostHog queries that read it.
  cta_surface: surface,
+ alert_auth_path: details.authPath || 'direct',
  });
  },
 
@@ -2407,7 +2667,7 @@ export const Analytics = {
  // services/employerSuggestions.ts, whose entire input is how many ads an
  // employer has open and whether you already follow it — folding it into
  // 'company_follow_button' would leave that criterion unmeasurable.
- surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'job_match_pill' | 'job_board_filters' | 'company_follow_button' | 'company_follow_gate' | 'company_follow_profile' | 'company_follow_below_floor' | 'company_follow_orphan' | 'company_follow_expired' | 'company_follow_city' | 'company_follow_hub' | 'company_follow_suggestion',
+ surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'job_detail_anonymous' | 'job_match_pill' | 'job_board_filters' | 'company_follow_button' | 'company_follow_gate' | 'company_follow_profile' | 'company_follow_below_floor' | 'company_follow_orphan' | 'company_follow_expired' | 'company_follow_city' | 'company_follow_hub' | 'company_follow_suggestion',
  action: 'open' | 'dismiss' | 'accept' | 'success' | 'error',
  keyword?: string,
  ) => {
@@ -2432,7 +2692,7 @@ export const Analytics = {
   * intent-only.
   */
  trackJobAlertCtaShown: (
- surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_match_pill' | 'job_board_filters' | 'job_detail_button' | 'company_follow_button',
+ surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_match_pill' | 'job_board_filters' | 'job_detail_button' | 'job_detail_anonymous' | 'company_follow_button',
  keyword?: string,
  ) => {
  log('job_alert_cta_shown', {

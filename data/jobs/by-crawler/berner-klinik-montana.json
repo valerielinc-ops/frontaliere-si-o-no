@@ -1,6 +1,6 @@
 {
   "crawlerKey": "berner-klinik-montana",
-  "assembledAt": "2026-09-23T23:36:16.538Z",
+  "assembledAt": "2026-09-24T14:19:18.496Z",
   "jobs": [
     {
       "id": "berner-klinik-montana-0b7746e0c5c2",
@@ -33,7 +33,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/collaborateur-trice-du-service-technique-a-100-2622/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:36:13.465Z",
+      "crawledAt": "2026-09-24T14:19:13.840Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -55,8 +55,7 @@
         "collaboratore-di-ristorazione-berner-klinik-montana-crans-montana",
         "restaurant-collaborator-berner-klinik-montana-crans-montana",
         "restaurantmitarbeiter-berner-klinik-montana-crans-montana",
-        "collaborateur-restauration-berner-klinik-montana-crans-montana",
-        "collaboratore-del-servizio-tecnico-al-100-berner-klinik-montana-crans-montana"
+        "collaborateur-restauration-berner-klinik-montana-crans-montana"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -64,8 +63,7 @@
           "collaboratore-di-ristorazione-berner-klinik-montana-crans-montana",
           "restaurant-collaborator-berner-klinik-montana-crans-montana",
           "restaurantmitarbeiter-berner-klinik-montana-crans-montana",
-          "collaborateur-restauration-berner-klinik-montana-crans-montana",
-          "collaboratore-del-servizio-tecnico-al-100-berner-klinik-montana-crans-montana"
+          "collaborateur-restauration-berner-klinik-montana-crans-montana"
         ],
         "en": [
           "collaborateur-trice-du-service-technique-a-100-berner-klinik-montana-crans-montana",
@@ -92,7 +90,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/collaborateur-trice-du-service-technique-a-100-2622"
     },
     {
       "id": "berner-klinik-montana-e9f22adf975c",
@@ -126,7 +125,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/un-e-medecin-chef-de-clinique-ou-chef-de-clinique-adjoint-e-2475/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:36:12.383Z",
+      "crawledAt": "2026-09-24T14:19:12.729Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -170,7 +169,8 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/un-e-medecin-chef-de-clinique-ou-chef-de-clinique-adjoint-e-2475"
     },
     {
       "id": "berner-klinik-montana-872f2d025151",
@@ -203,7 +203,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/assistant-e-en-soins-et-sante-communautaire-80-100-2095/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:36:11.209Z",
+      "crawledAt": "2026-09-24T14:19:11.477Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -252,13 +252,11 @@
         ]
       },
       "previousSlugs": [
-        "assistant-e-en-soins-et-sante-communautaire-80-100-berner-klinik-montana-crans-montana",
-        "assistente-i-cure-e-salute-comunitaria-80-100-berner-klinik-montana-crans-montana"
+        "assistant-e-en-soins-et-sante-communautaire-80-100-berner-klinik-montana-crans-montana"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-en-soins-et-sante-communautaire-80-100-berner-klinik-montana-crans-montana",
-          "assistente-i-cure-e-salute-comunitaria-80-100-berner-klinik-montana-crans-montana"
+          "assistant-e-en-soins-et-sante-communautaire-80-100-berner-klinik-montana-crans-montana"
         ]
       },
       "firstSeenAt": "2026-05-19T10:50:55.881Z",
@@ -274,7 +272,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/assistant-e-en-soins-et-sante-communautaire-80-100-2095"
     },
     {
       "id": "berner-klinik-montana-ee2da3d4a12f",
@@ -282,7 +281,7 @@
       "slugByLocale": {
         "it": "infermiere-a-a-tempo-pieno-berner-klinik-montana-crans-montana",
         "en": "full-time-nurse-berner-klinik-montana-crans-montana",
-        "de": "infirmier-ere-100-berner-klinik-montana-crans-montana",
+        "de": "vollzeit-pflegekraft-berner-klinik-montana-crans-montana",
         "fr": "infirmier-ere-100-berner-klinik-montana-crans-montana"
       },
       "company": "Berner Klinik Montana",
@@ -292,7 +291,7 @@
       "titleByLocale": {
         "it": "Infermiere/a a tempo pieno",
         "en": "Full-Time Nurse",
-        "de": "Infirmier/ère 100%",
+        "de": "Krankenschwester 100%",
         "fr": "Infirmier/ère 100%"
       },
       "description": "• Recherche pour : Recherche Merci de saisir un mot-clé pour valider votre recherche Vos activités Identifier, planifier, exécuter et évaluer les prestations de soins infirmiers dans les domaines préventifs, curatifs et éducationnels spécifiques à la réadaptation\n• Promouvoir l’implication des patients/tes dans leur projet de soins et dans le recouvrement de leur autonomie\n• Exécuter des actes médicaux délégués, déléguer des actes dépendants de votre rôle propre et en assurer la responsabilité\n• Contribuer à une collaboration axée sur la recherche de solutions au sein de l’équipe interdisciplinaire\n• Participer à l’encadrement et à l’évaluation des étudiants et des stagiaires, ainsi qu’à l’intégration des nouveaux collaborateurs\nVotre profil\n• Diplôme en soins infirmiers ES ou HES (avec reconnaissance Croix-Rouge Suisse si étranger)\n• Intérêt à travailler en équipe interdisciplinaire\n• Langue maternelle française ou allemande (niveau B2), avec de bonnes connaissances de l’autre langue\n• Très bonnes aptitudes de communication\n• Sens des responsabilités, autonomie, rigueur, vigilance et technicité\n• Maîtrise des outils informatiques usuels\n• Flexibilité, résistance au stress\n• Capacité d’adaptation au changement et implication dans les projets du service\n• Volonté de développement de compétences, de perfectionnement professionnel\nNous offrons\n• Une expérience unique de travail interdisciplinaire, au sein d’une équipe de réadaptation motivée, engagée et dynamique, alliant plusieurs disciplines (psychothérapie, physiothérapie, thérapies du sport, ergothérapie, logopédie, piscine et balnéothérapie, art-thérapie, musicothérapie, hippothérapie, etc.)\n• Un encadrement médical de proximité\n• Un lieu de travail paradisiaque, bénéficiant d’une infrastructure de réadaptation de premier plan\n• Des opportunités de formations internes et externes\n• Des possibilités de logement et de restauration sur place\nCe poste vous intéresse ?\nPour tout renseignement, appelez :\nMme Caroline Beeckmans Directrice des Soins Tél. : +41 (0)27 485 52 40\nLes dossiers de candidatures complets (lettre de motivation, CV, diplômes, certificats de travail et attestation de reconnaissance ou pré-check positif délivré par la Croix-Rouge pour toutes personnes ressortissantes UE et hors UE) sont à envoyer par courrier ou par e-mail à :\n\nNotre clinique réadaptation située à Crans-Montana, dans le cadre idyllique des Alpes Valaisannes, recherche un/une Infirmier/ère à 100%\n\nBerner Klinik Montana — Clinique bernoise spécialisée en réadaptation à Crans-Montana (VS).",
@@ -302,13 +301,12 @@
         "de": "Aufgaben - Identifizieren, planen, durchführen und auswerten der pflegerischen Leistungen in den präventiven, kurativen und erzieherischen Bereichen, die für die Rehabilitation spezifisch sind - Förderung des Engagements der Patienten in ihrem Behandlungsplan und der Wiederherstellung der Autonomie - Durchführung von delegierten medizinischen Aktionen, Delegation von Aktionen, die von der eigenen Rolle abhängen, und Übernahme der Verantwortung dafür - Beitragen zu einer lösungsorientierten Zusammenarbeit innerhalb des interdisziplinären Teams - Teilnahme an der Ausbildung und Bewertung von Schülern und Praktikanten sowie an der Integration neuer Mitarbeiter\n• Anforderungen - Diplom in Pflegewesen ES oder HES (mit Anerkennung durch das Schweizer Rote Kreuz, wenn ausländisch) - Interesse an der Arbeit in einem interdisziplinären Team - Muttersprache Französisch oder Deutsch (Niveau B2), mit guten Kenntnissen der anderen Sprache - Ausgezeichnete Kommunikationsfähigkeiten - Verantwortungsbewusstsein, Autonomie, Strenge, Wachsamkeit und Technik - Beherrschung der gängigen Computerwerkzeuge - Flexibilität, Belastbarkeit - Fähigkeit zur Anpassung an Veränderungen und Engagement in Dienstleistungsprojekten - Bereitschaft zur Entwicklung von Fähigkeiten und beruflicher Weiterbildung\n• Was wir bieten - Eine einzigartige interdisziplinäre Arbeitserfahrung innerhalb eines motivierten, engagierten und dynamischen Rehabilitationsteams, das verschiedene Disziplinen (Psychotherapie, Physiotherapie, Sporttherapie, Ergotherapie, Sprachtherapie, Pool- und Balneotherapie, Kunsttherapie, Musiktherapie, Hippotherapie usw.) vereint - Nahe medizinische Unterstützung - Ein paradiesischer Arbeitsplatz, der von einer erstklassigen Rehabilitation-Infrastruktur profitiert - Interne und externe Schulungsmöglichkeiten - Möglichkeiten zur Unterbringung und Verpflegung vor Ort Kontakt Für weitere Informationen wenden Sie sich bitte an: Frau Caroline Beeckmans Leiterin der Dienste Tel.: +41 (0)27 485 52 40 Complete application files (motivation letter, CV, diplomas, work certificates and positive recognition or pre-check certificate issued by the Red Cross for all persons from the EU and abroad) must be sent by mail or email to: Rehabilitation Clinic Berner Klinik Montana - Specialized rehabilitation clinic of the Canton of Bern in Crans-Montana (VS).",
         "fr": "• Recherche pour : Recherche Merci de saisir un mot-clé pour valider votre recherche Vos activités Identifier, planifier, exécuter et évaluer les prestations de soins infirmiers dans les domaines préventifs, curatifs et éducationnels spécifiques à la réadaptation\n• Promouvoir l’implication des patients/tes dans leur projet de soins et dans le recouvrement de leur autonomie\n• Exécuter des actes médicaux délégués, déléguer des actes dépendants de votre rôle propre et en assurer la responsabilité\n• Contribuer à une collaboration axée sur la recherche de solutions au sein de l’équipe interdisciplinaire\n• Participer à l’encadrement et à l’évaluation des étudiants et des stagiaires, ainsi qu’à l’intégration des nouveaux collaborateurs\nVotre profil\n• Diplôme en soins infirmiers ES ou HES (avec reconnaissance Croix-Rouge Suisse si étranger)\n• Intérêt à travailler en équipe interdisciplinaire\n• Langue maternelle française ou allemande (niveau B2), avec de bonnes connaissances de l’autre langue\n• Très bonnes aptitudes de communication\n• Sens des responsabilités, autonomie, rigueur, vigilance et technicité\n• Maîtrise des outils informatiques usuels\n• Flexibilité, résistance au stress\n• Capacité d’adaptation au changement et implication dans les projets du service\n• Volonté de développement de compétences, de perfectionnement professionnel\nNous offrons\n• Une expérience unique de travail interdisciplinaire, au sein d’une équipe de réadaptation motivée, engagée et dynamique, alliant plusieurs disciplines (psychothérapie, physiothérapie, thérapies du sport, ergothérapie, logopédie, piscine et balnéothérapie, art-thérapie, musicothérapie, hippothérapie, etc.)\n• Un encadrement médical de proximité\n• Un lieu de travail paradisiaque, bénéficiant d’une infrastructure de réadaptation de premier plan\n• Des opportunités de formations internes et externes\n• Des possibilités de logement et de restauration sur place\nCe poste vous intéresse ?\nPour tout renseignement, appelez :\nMme Caroline Beeckmans Directrice des Soins Tél. : +41 (0)27 485 52 40\nLes dossiers de candidatures complets (lettre de motivation, CV, diplômes, certificats de travail et attestation de reconnaissance ou pré-check positif délivré par la Croix-Rouge pour toutes personnes ressortissantes UE et hors UE) sont à envoyer par courrier ou par e-mail à :\n\nNotre clinique réadaptation située à Crans-Montana, dans le cadre idyllique des Alpes Valaisannes, recherche un/une Infirmier/ère à 100%\n\nBerner Klinik Montana — Clinique bernoise spécialisée en réadaptation à Crans-Montana (VS)."
       },
-      "needsRetranslation": true,
       "location": "Crans-Montana",
       "canton": "VS",
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/infirmier-ere-100-2074/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:36:10.061Z",
+      "crawledAt": "2026-09-24T14:19:10.333Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -357,17 +355,13 @@
         ]
       },
       "previousSlugs": [
-        "infirmier-ere-100-berner-klinik-montana-crans-montana",
-        "vollzeit-pflegekraft-berner-klinik-montana-crans-montana",
-        "infermiere-a-a-tempo-pieno-berner-klinik-montana-crans-montana"
+        "infirmier-ere-100-berner-klinik-montana-crans-montana"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-100-berner-klinik-montana-crans-montana",
-          "infermiere-a-a-tempo-pieno-berner-klinik-montana-crans-montana"
+          "infirmier-ere-100-berner-klinik-montana-crans-montana"
         ],
         "de": [
-          "vollzeit-pflegekraft-berner-klinik-montana-crans-montana",
           "infirmier-ere-100-berner-klinik-montana-crans-montana"
         ]
       },
@@ -384,7 +378,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/infirmier-ere-100-2074"
     }
   ]
 }

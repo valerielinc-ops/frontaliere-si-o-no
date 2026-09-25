@@ -157,9 +157,23 @@ export const ROUTING_LABELS = [
   'fu-attempt:3',
 ];
 
+// Stadio di verifica, non assenza di routing: `maybe-resolved` la applicano chi
+// ha già stabilito che il difetto risulta risolto — il pre-flight
+// `check-issue-already-resolved.mjs`, `reconcile-followups.mjs` e, da #9742,
+// `route-already-fixed.mjs` dopo un `already-fixed` con evidenza verificata —
+// togliendo `agent:fix`. Re-instradarla qui ridarebbe al fixer la stessa issue
+// al giro dopo, cioè la spesa che quei passi esistono per evitare. Il rientro
+// resta esplicito: chi toglie `maybe-resolved` la rimette nel ciclo.
+export const VERIFICATION_LABEL = 'maybe-resolved';
+
 /** Il secondo passaggio non deve riesaminare i pin già esclusi dal routing. */
 export function isTriagedButNotRouted(iss) {
-  const decision = classifyIssue(iss?.title, names(iss), iss?.body);
+  // Una riga senza titolo è un dato illeggibile, non una issue da instradare:
+  // dalla policy f1-f7-v4 la categoria sconosciuta non è più un deny, quindi
+  // l'integrità del record va verificata qui.
+  if (typeof iss?.title !== 'string' || !iss.title.trim()) return false;
+  if (has(iss, VERIFICATION_LABEL)) return false;
+  const decision = classifyIssue(iss.title, names(iss), iss?.body);
   return decision.autofix === true
     && decision.route !== 'none'
     && !isFixerExempt(names(iss))

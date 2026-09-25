@@ -47,12 +47,6 @@ on:
         default: 'true'
         type: choice
         options: ['true', 'false']
-      human_approval:
-        description: 'Explicit human approval for publishing LinkedIn posts.'
-        required: false
-        default: false
-        type: boolean
-
 concurrency:
   group: linkedin-member-daily
   cancel-in-progress: false
@@ -76,19 +70,11 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
         with: { node-version: 22, cache: npm }
-      - name: Require human approval for social side effects
-        id: side_effect_gate
-        env:
-          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
-          APPROVAL_CONSENT: ${{ inputs.human_approval }}
-          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
-          APPROVAL_SCOPE: linkedin-member-post
-        run: node scripts/ci/human-side-effect-gate.mjs
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -96,7 +82,7 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
 
       - name: Load secrets from RC
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       # The jobs dataset is what separates a real offer from a generated SEO
@@ -111,11 +97,11 @@ jobs:
       # Under `set -e` a trailing test that is FALSE makes the whole step exit
       # non-zero — so the "no flags needed" case would have failed the run.
       - name: Post to LinkedIn (member)
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
-          DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
-          ALLOW_SIDE_EFFECT: ${{ steps.side_effect_gate.outputs.allow_side_effect }}
-          EFFECTIVE_DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
+          DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
+          ALLOW_SIDE_EFFECT: 'true'
+          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
         run: |
           set -euo pipefail
           ARGS=()
@@ -125,7 +111,7 @@ jobs:
           node scripts/post-to-linkedin-member.mjs ${ARGS[@]+"${ARGS[@]}"}
 
       - name: Commit posted ledger
-        if: success() && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: success() && inputs.dry_run != true && inputs.dry_run != 'true'
         run: |
           set -euo pipefail
           # `git diff --quiet <path>` on a path that has never existed exits

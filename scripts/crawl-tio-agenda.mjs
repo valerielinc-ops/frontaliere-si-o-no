@@ -19,13 +19,14 @@
  * the same convention `crawl-guidle-events.mjs` / `crawl-myswitzerland-events.mjs`
  * already use.
  *
- * Price ("offers" JSON-LD gap): the day-page card never carries a price, only
- * the per-event detail page does (a "Prezzo:" label, empty/hidden when tio.ch
+ * Detail metadata (description/address/offers gap): the day-page card carries
+ * only the compact event summary; the per-event detail page exposes the
+ * source description, address and a "Prezzo:" label (empty/hidden when tio.ch
  * has no price on file). `enrichEventsWithPrice` below fetches each event's
- * own detail page once and parses it with the same `parsePriceText` guidle
- * uses, so `eventLd()` (build-plugins/eventsSeoPagesPlugin.ts) can emit a
- * real `offers` block instead of omitting it — never fabricated: an event
- * with no price signal at all still gets no `offers`, by design.
+ * detail page once and parses that source metadata with the shared helpers, so `eventLd()`
+ * (build-plugins/eventsSeoPagesPlugin.ts) can publish the fields Tio actually
+ * supplies — never fabricated: an event with no source signal still omits
+ * that field, by design.
  *
  * Usage:
  *   node scripts/crawl-tio-agenda.mjs                 # next 21 days
@@ -202,7 +203,7 @@ export function warnIfLowConfidenceComuneShare(byMethod, resolved) {
  * Mirrors the guidle/myswitzerland crawlers' convention (map → mirror →
  * store), just applied as a post-pass here since tio-agenda parses every
  * event straight off the already-fetched day pages — the card itself never
- * carries a price either, that's a separate per-event fetch, see
+ * carries the detail metadata either, that's a separate per-event fetch, see
  * `enrichEventsWithPrice` below.
  *
  * Returns a NEW array (does not mutate `events`). `mirrorFn` is injectable so
@@ -231,8 +232,67 @@ export async function mirrorEventImages(events, mirrorFn = mirrorEventImage) {
  */
 export function extractTioPrice(html) {
   const m = /<strong>\s*Prezzo:\s*<\/strong>\s*([^<]*)/i.exec(html || '');
-  if (!m) return undefined;
-  return parsePriceText(m[1]);
+  const inline = m ? parsePriceText(m[1]) : undefined;
+  if (inline) return inline;
+
+  // Some detail pages render the label as a plain paragraph, while the
+  // amount is text in the same element. Restrict this fallback to paragraphs
+  // whose complete text starts with the label so dates/amounts elsewhere on
+  // the page cannot be mistaken for a ticket price.
+  const doc = new JSDOM(html || '').window.document;
+  for (const paragraph of doc.querySelectorAll('p')) {
+    const value = text(paragraph);
+    const labelled = /^Prezzo:\s*(.+)$/i.exec(value);
+    if (!labelled) continue;
+    const parsed = parsePriceText(labelled[1]);
+    if (parsed) return parsed;
+  }
+  return undefined;
+}
+
+/**
+ * Extract optional metadata from a Tio detail page without guessing fields
+ * that are not published by the source. The event column contains the source
+ * description as direct paragraphs after the event title; the side column
+ * exposes the address as four labelled paragraphs.
+ */
+export function extractTioDetailMetadata(html) {
+  if (typeof html !== 'string' || !html) return {};
+  const doc = new JSDOM(html).window.document;
+  const eventTitle = [...doc.querySelectorAll('h1')].find((heading) => !heading.classList.contains('page-title'));
+  const eventColumn = eventTitle?.parentElement;
+  const titleIndex = eventColumn ? [...eventColumn.children].indexOf(eventTitle) : -1;
+  const paragraphs =
+    eventColumn && titleIndex >= 0
+      ? [...eventColumn.children]
+          .slice(titleIndex + 1)
+          .filter((element) => element.tagName === 'P')
+          .map(text)
+          .filter(Boolean)
+      : [];
+  const descriptionText = paragraphs.join(' ').trim();
+
+  const addressLines = [...doc.querySelectorAll('.address p')].map(text).filter(Boolean);
+  const values = addressLines.slice(1);
+  const postalIndex = values.findIndex((value) => /^(?:CH[- ]?)?\d{4}\b/i.test(value));
+  const postalLine = postalIndex >= 0 ? values[postalIndex] : '';
+  const postalMatch = /^(?:CH[- ]?)?(\d{4})\s*,?\s*(.+)$/i.exec(postalLine);
+  const address = {};
+  if (postalIndex > 0) address.street = values[postalIndex - 1];
+  if (postalMatch) {
+    address.postalCode = postalMatch[1];
+    address.locality = postalMatch[2].trim();
+  }
+
+  const price = extractTioPrice(html) || (/(?:entrata libera|ingresso libero|gratuit[oa])/i.test(descriptionText)
+    ? parsePriceText('entrata libera')
+    : undefined);
+  return {
+    ...(descriptionText.length >= 30 ? { description: descriptionText } : {}),
+    ...(Object.keys(address).length ? { address } : {}),
+    ...(values[0] ? { venue: values[0] } : {}),
+    ...(price ? { price } : {}),
+  };
 }
 
 /**
@@ -254,8 +314,19 @@ export async function enrichEventsWithPrice(events, fetchFn = fetchHtml) {
   const out = [];
   for (const ev of events) {
     const html = ev.url ? await fetchFn(ev.url) : null;
-    const price = html ? extractTioPrice(html) : undefined;
-    out.push(price ? { ...ev, price } : { ...ev });
+    const metadata = html ? extractTioDetailMetadata(html) : {};
+    const detailComune = metadata.address?.locality
+      ? resolveComune({ venue: metadata.address.locality, title: '', region: '' }).comune
+      : undefined;
+    const next = {
+      ...ev,
+      ...(metadata.description ? { description: metadata.description } : {}),
+      ...(metadata.address ? { address: metadata.address } : {}),
+      ...(metadata.venue ? { venue: metadata.venue } : {}),
+      ...(metadata.price ? { price: metadata.price } : {}),
+      ...(detailComune ? { comune: detailComune, comuneMatch: 'exact' } : {}),
+    };
+    out.push(next);
     if (fetchFn === fetchHtml) await sleep(PRICE_FETCH_DELAY_MS);
   }
   return out;
@@ -422,12 +493,17 @@ async function main() {
     return;
   }
 
-  // Per-event detail fetch (offers/JSON-LD gap): attach `price` where tio.ch
-  // has one on file, BEFORE mirroring images or writing the slice — see
+  // Per-event detail fetch: attach source description/address/price metadata
+  // BEFORE mirroring images or writing the slice — see
   // `enrichEventsWithPrice` above.
   const pricedEvents = await enrichEventsWithPrice(events);
   const withPrice = pricedEvents.filter((e) => e.price).length;
-  console.log(`[tio-agenda] price resolved ${withPrice}/${pricedEvents.length}`);
+  const withDescription = pricedEvents.filter((e) => e.description).length;
+  const withAddress = pricedEvents.filter((e) => e.address).length;
+  console.log(
+    `[tio-agenda] detail metadata resolved: description ${withDescription}/${pricedEvents.length}, ` +
+      `address ${withAddress}/${pricedEvents.length}, price ${withPrice}/${pricedEvents.length}`,
+  );
 
   // No-hotlink policy (events-utils.mjs mirrorEventImage): replace every raw
   // tio.ch/biglietteria.ch flyer URL with our own mirrored copy (or drop it)

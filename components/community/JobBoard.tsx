@@ -69,6 +69,7 @@ import {
   savePendingSaveJobIntent,
   consumePendingSaveJobIntent,
   peekPendingSaveJobIntent,
+  type PendingSaveJobIntent,
   type SaveJobSurface,
 } from '@/services/pendingSaveJob';
 import {
@@ -81,6 +82,10 @@ import {
 } from '@/services/behaviorTracker';
 import {
  computePersonalScore,
+ createPersonalScorer,
+ scorePersonalJobs,
+ reuseIfSameOrder,
+ NO_PERSONAL_SCORE,
  computeNewJobsCount,
  getTrendingByLocation,
  computeTrendingBoost,
@@ -186,6 +191,13 @@ import {
  type Inline as JobDescInline,
 } from '@/build-plugins/shared/jobDescription/parser';
 import { useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
+import { currentJobGateAssignment, recordJobGateExposure, useJobGateExperiment } from '@/hooks/useJobGateExperiment';
+import {
+ JOBGATE_EXPERIMENT_ID,
+ getJobGateSubscriberVariant,
+ jobGateEmailFirst,
+ jobGateEmailFormOpen,
+} from '@/services/jobGateExperiment';
 import {
  ASSISTED_APPLICATION_PRICE_EUR_CENTS,
  trackAssistedApplicationEvent,
@@ -196,6 +208,7 @@ import {
  getRewardedApplicationAccessExpiresAt,
 } from '@/services/rewardedApplicationAccess';
 import { isAdsConsentGranted, onAdsConsentChange } from '@/services/adsConsent';
+import { preloadRewardedWebAd } from '@/services/rewardedWebAd';
 import {
  createAssistedApplicationCheckout,
  ensureAssistedApplicationAuth,
@@ -235,6 +248,10 @@ import { handleCompanyLogoError, generateInitialsLogo } from '@/services/logoSer
 import { deriveJobPostalCode, getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
 import { getJobSalaryContext } from '@/data/salaryData';
 import {
+ getEmailProviderInfo,
+ openEmailProvider,
+ unifiedEmailConsentInput,
+ upsertNewsletterSubscriber,
  upsertUnifiedEmailSubscriber,
 } from '@/services/newsletterSubscribers';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
@@ -2257,6 +2274,24 @@ function isExternalApplicationJob(job: JobListing): boolean {
  return mode !== 'in_house' && mode !== 'forward_email';
 }
 
+const JOB_AUTH_GATE_EXPERIMENT_ID = 'authgate-headline-v3';
+
+/**
+ * The gate's unified subscriber write. An enrolled jobgate-v3 visitor also gets
+ * `variant: 'jobgate-v3:<arm>'` on the document (the readout's join key); the
+ * consent fields still come from `unifiedEmailConsentInput`, unchanged. Not
+ * enrolled (kill switch, timeout, bot bypass) → exactly `upsertUnifiedEmailSubscriber`.
+ */
+async function upsertJobGateSubscriber(
+ db: Parameters<typeof upsertUnifiedEmailSubscriber>[0],
+ input: Parameters<typeof upsertUnifiedEmailSubscriber>[1],
+) {
+ const variant = getJobGateSubscriberVariant(await currentJobGateAssignment());
+ return variant
+  ? upsertNewsletterSubscriber(db, { ...unifiedEmailConsentInput(input), variant })
+  : upsertUnifiedEmailSubscriber(db, input);
+}
+
 function assistedApplicationJobContext(job: JobListing, variant: AssistedApplicationVariant) {
  return {
   variant,
@@ -2283,7 +2318,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 }) => {
  const { t } = useTranslation();
  const [locale] = useLocale();
- const { headline: gateHeadline } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
+ const { headline: gateHeadline, variant: headlineVariant } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
  const killSwitches = useKillSwitches();
  // Keep crawlers and automated browsers on the canonical/original apply path:
  // do not fetch Remote Config, assign a paid/rewarded arm, or emit experiment
@@ -2293,6 +2328,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const isCrawlerVisitor = useMemo(() => isCrawlerVisitorAgent(navigator.userAgent || ''), []);
  const isLikelyBotVisitor = useMemo(() => isLikelyBot(), []);
  const shouldBypassAssistedApplicationExperiment = isCrawlerVisitor || isLikelyBotVisitor;
+ // jobgate-v3: while enrolled, every gate event carries the v3 id + arm;
+ // otherwise the tags stay exactly the headline experiment's.
+ const jobGate = useJobGateExperiment(shouldBypassAssistedApplicationExperiment);
+ const gateVariant: string = jobGate.enrolled ? jobGate.arm : headlineVariant;
+ const gateExperimentId = jobGate.enrolled ? JOBGATE_EXPERIMENT_ID : JOB_AUTH_GATE_EXPERIMENT_ID;
+ const jobGateFailTags = jobGate.enrolled ? { variant: gateVariant, experimentId: gateExperimentId } : {};
  const alwaysRewardedApplicationSurface = isAlwaysRewardedApplicationSurface();
  const {
   variant: configuredAssistedApplicationVariant,
@@ -2474,6 +2515,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [appliedJobId, setAppliedJobId] = useState<string | null>(null);
  const [assistedApplicationJob, setAssistedApplicationJob] = useState<JobListing | null>(null);
  const [rewardedApplicationJob, setRewardedApplicationJob] = useState<JobListing | null>(null);
+ // Synchronous twin of the two application offers' state: a double click on
+ // "Candidati" runs handleApply twice before React re-renders, and the second
+ // run must not emit a second apply/offer event pair (or a second rewarded
+ // request) for the same gesture.
+ const applicationOfferOpenRef = useRef(false);
+ useEffect(() => {
+  if (!rewardedApplicationJob && !assistedApplicationJob) applicationOfferOpenRef.current = false;
+ }, [assistedApplicationJob, rewardedApplicationJob]);
  const [assistedCheckoutBusy, setAssistedCheckoutBusy] = useState(false);
  const [assistedCheckoutError, setAssistedCheckoutError] = useState<string | null>(null);
  const [jobDetailPromptCategory, setJobDetailPromptCategory] = useState<string | null>(null);
@@ -2561,6 +2610,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const modalGoogleButtonRef = useRef<HTMLDivElement | null>(null);
  const inlineGoogleButtonRef = useRef<HTMLDivElement | null>(null);
  const authUnlockCandidateRef = useRef<string | null>(null);
+ const jobAuthExposureRef = useRef<string | null>(null);
  const wasLoggedInRef = useRef(isLoggedIn);
  // Job id whose detail was just unlocked by a fresh social (Google/FB) auth.
  // The job-detail alert prompt fires immediately (delay 0) for this job —
@@ -2678,6 +2728,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  });
  }, []);
 
+ // Issue 9575 (sibling of the job-alert form): when localStorage cannot hold
+ // the pending intent, keep it in memory. The sign-in modal opens in THIS tab,
+ // so an in-tab sign-in still replays the save; only a link opened in another
+ // tab has no channel to it. Every reader below falls back to this ref.
+ const pendingSaveFallbackRef = useRef<PendingSaveJobIntent | null>(null);
+ const stashPendingSave = useCallback((intent: PendingSaveJobIntent): boolean => {
+ const stored = savePendingSaveJobIntent(intent);
+ pendingSaveFallbackRef.current = stored ? null : intent;
+ return stored;
+ }, []);
+
  // Account-gating (#4466 follow-up): anonymous tap never writes — stash the
  // pending job in services/pendingSaveJob.ts (localStorage, survives a
  // magic-link email opened in a brand new tab) + open the sign-in modal.
@@ -2686,7 +2747,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const handleToggleSave = useCallback((job: JobListing, surface: SaveJobSurface = 'list') => {
  const uid = authUser?.uid ?? null;
  if (!uid) {
- savePendingSaveJobIntent({
+ const pendingStored = stashPendingSave({
  kind: 'save_job',
  entry: {
  id: job.id,
@@ -2704,11 +2765,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
       // full-screen overlay on top of this modal.
       requestSlot('save-auth-prompt', POPUP_PRIORITY.AUTH_GATE);
  setSaveAuthPromptOpen(true);
- Analytics.trackEvent('save_signin_prompt_shown', { job_id: job.id, surface });
+ Analytics.trackEvent('save_signin_prompt_shown', { job_id: job.id, surface, pending_stored: pendingStored });
  return;
  }
  performToggleSave(job, surface, uid);
- }, [authUser?.uid, performToggleSave]);
+ }, [authUser?.uid, performToggleSave, stashPendingSave]);
 
  const handleToggleSaveFromList = useCallback(
  (job: JobListing) => handleToggleSave(job, 'list'),
@@ -2728,7 +2789,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (!uid) return;
       releaseSlot('save-auth-prompt');
  setSaveAuthPromptOpen(false);
- const intent = consumePendingSaveJobIntent();
+ const intent = consumePendingSaveJobIntent() ?? pendingSaveFallbackRef.current;
+ pendingSaveFallbackRef.current = null;
  if (!intent) return;
  if (intent.kind === 'save_job') {
  Analytics.trackEvent('save_signin_prompt_completed', { job_id: intent.entry.id, surface: intent.surface });
@@ -2753,7 +2815,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // another tab); closing the "check your email" card isn't abandonment.
  // The 15-minute TTL in pendingSaveJob.ts handles true abandonment.
  const handleSaveAuthPromptDismiss = useCallback(() => {
- const intent = peekPendingSaveJobIntent();
+ const intent = peekPendingSaveJobIntent() ?? pendingSaveFallbackRef.current;
  Analytics.trackEvent(
  'save_signin_prompt_dismissed',
  intent?.kind === 'save_job' ? { job_id: intent.entry.id, surface: intent.surface } : { surface: 'saved_filter_pill' },
@@ -2803,10 +2865,22 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Count of jobs whose personal score is boosted by any signal (behavior,
  // tax/onboarding profile, or job-match survey profile). Feeds both the
  // "Personalizzato per te" pill and the job_match_impression analytics event.
- const matchedJobCount = useMemo(() => {
- if (!enablePersonalization || !deferredBehaviorData) return 0;
- return jobs.filter((j) => computePersonalScore(j, deferredBehaviorData, deferredUserProfile ?? null, deferredJobMatchProfile).score > 0).length;
+ //
+ // Scored ONCE per input change and shared with sortedJobs below (#9583):
+ // both used to score the full list separately, with the user-side inputs
+ // recompiled for every job — a returning user at the tracker caps froze the
+ // main thread for 14 s (1x CPU) right after mount and again on every
+ // deferred search keystroke (trackSearch refreshes behaviorData).
+ const personalScoreByJob = useMemo(() => {
+ if (!enablePersonalization || !deferredBehaviorData) return null;
+ return scorePersonalJobs(jobs, createPersonalScorer(deferredBehaviorData, deferredUserProfile ?? null, deferredJobMatchProfile));
  }, [enablePersonalization, deferredBehaviorData, jobs, deferredUserProfile, deferredJobMatchProfile]);
+ const matchedJobCount = useMemo(() => {
+ if (!personalScoreByJob) return 0;
+ let count = 0;
+ for (const personal of personalScoreByJob.values()) if (personal.score > 0) count++;
+ return count;
+ }, [personalScoreByJob]);
 
  // Whether personalization is actively changing sort order (any job scored > 0)
  const isPersonalizationActive = matchedJobCount > 0;
@@ -2940,7 +3014,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const gateSaveReaskedRef = useRef(false);
  useEffect(() => {
  if (!hasAccess || authUser?.uid || gateSaveReaskedRef.current) return;
- const intent = peekPendingSaveJobIntent();
+ const intent = peekPendingSaveJobIntent() ?? pendingSaveFallbackRef.current;
  if (intent?.kind !== 'save_job' || intent.surface !== 'detail_gate') return;
  gateSaveReaskedRef.current = true;
  requestSlot('save-auth-prompt', POPUP_PRIORITY.AUTH_GATE);
@@ -3526,49 +3600,45 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const userEmail = authUser?.email || null;
  const userId = authUser?.uid || null;
  const assistedApplicationOrderId = readAssistedApplicationOrderId();
+ // Preload only where "Candidati" is actually reachable: anonymous visitors
+ // see the login gate instead of the CTA, so a request for them could never
+ // be shown and would only inflate the unit's unfilled requests.
  const shouldPreloadRewardedApplicationAd = Boolean(
   isJobDetailView
   && authResolved
+  && hasAccess
   && assistedApplicationVariant === 'rewarded_ad'
   && !killSwitches.rewardedApplicationAd
   && selectedJob
   && isExternalApplicationJob(selectedJob)
   && getRewardedApplicationAccessExpiresAt() === null,
  );
+ // The Candidati click is the visitor's opt-in to the rewarded video, which
+ // then opens without a second click. Google's rewarded-web policy requires
+ // that choice to be informed, so every labelled Candidati CTA that will open
+ // the video says so.
+ const rewardedCtaDisclosure = selectedJob
+  && isExternalApplicationJob(selectedJob)
+  && assistedApplicationVariant === 'rewarded_ad'
+  && !killSwitches.rewardedApplicationAd
+  && getRewardedApplicationAccessExpiresAt() === null
+  ? t('jobBoard.assisted.rewardedTitle')
+  : null;
  useEffect(() => {
   if (!shouldPreloadRewardedApplicationAd) return;
- let cancelled = false;
- let idleId: number | null = null;
- let timeoutId: number | null = null;
- let preloadPromise: Promise<unknown> | null = null;
- const idleWindow = window as Window & {
-   requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
-   cancelIdleCallback?: (id: number) => void;
- };
- const start = () => {
-   if (cancelled || !isAdsConsentGranted() || preloadPromise) return;
-   // Keep the rewarded/GPT implementation out of the initial JobBoard chunk.
-   // The page only downloads it for an eligible, consented detail view.
-   preloadPromise = import('@/services/rewardedWebAd')
-    .then(({ preloadRewardedWebAd }) => {
-     if (!cancelled) preloadRewardedWebAd();
-    })
-    .catch(() => {});
- };
-  if (typeof idleWindow.requestIdleCallback === 'function') {
-   idleId = idleWindow.requestIdleCallback(start, { timeout: 1000 });
-  } else {
-   timeoutId = window.setTimeout(start, 250);
-  }
-  const unsubscribe = onAdsConsentChange((value) => {
-   if (value === 'granted') start();
-  });
-  return () => {
-   cancelled = true;
+ // Start the auction as soon as an eligible, consented detail renders: a
+ // creative that is already ready when "Candidati" is clicked opens with no
+ // wait. A click that finds the request still pending or already ended gets
+ // its own auction from the offer (requestRewardedWebAd), and the video opens
+ // on rewardedSlotReady: GPT does not require a live user activation for
+ // makeRewardedVisible(), measured on production with the activation expired.
+ if (isAdsConsentGranted()) preloadRewardedWebAd();
+ const unsubscribe = onAdsConsentChange((value) => {
+   if (value === 'granted') preloadRewardedWebAd();
+ });
+ return () => {
    unsubscribe();
-   if (idleId !== null) idleWindow.cancelIdleCallback?.(idleId);
-   if (timeoutId !== null) window.clearTimeout(timeoutId);
-  };
+ };
  }, [shouldPreloadRewardedApplicationAd]);
  const assistedExposureKeysRef = useRef(new Set<string>());
  useEffect(() => {
@@ -4158,18 +4228,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  document.getElementById('candidatura')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
  }, [selectedJob]);
 
- // sortedJobs re-scores + re-sorts every loaded job (up to ~12k on the
- // Switzerland-wide aggregator) as one synchronous block; it reads the
- // deferred* personalization inputs declared above so this resort yields to
- // a concurrent click instead of blocking it (see comment there, #4302).
- const sortedJobs = useMemo(() => {
- // Step 1: EXCLUDE foreign jobs entirely (London, Luxembourg, Singapore, etc.)
- const swissJobs = jobs.filter(j => {
- const loc = j.addressLocality || j.location || '';
- return !isForeignLocation(loc);
- });
-
- // Step 2: Canton priority + personalization scoring
+ // sortedJobs re-sorts every loaded job (up to ~12k on the Switzerland-wide
+ // aggregator) as one synchronous block; it reads the deferred* personalization
+ // scores declared above so this resort yields to a concurrent click instead
+ // of blocking it (see comment there, #4302). When the resulting order is the
+ // one already rendered, the previous array is returned: its identity keys the
+ // search index below, and a new identity for the same order rebuilt that index
+ // (and every memo downstream) after each deferred search keystroke (#9583).
+ //
+ // The sort keys that do not depend on personalization (the foreign-location
+ // filter, canton rank, calendar day) depend on `jobs` alone, so they are
+ // computed once per list here instead of on every personal-score change:
+ // over the ~22k-job live list they cost ~200 ms at 1x CPU, paid again by
+ // each tracked search keystroke before this split (#9583).
+ const jobSortKeys = useMemo(() => {
  const cantonRank = (job: JobListing) => {
  if (job.addressLocality && isNonTargetSwissCity(job.addressLocality)) {
  return TARGET_CANTONS_ORDERED.length;
@@ -4181,10 +4253,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const t = new Date(d || 0);
  return new Date(t.getFullYear(), t.getMonth(), t.getDate()).getTime();
  };
-
- const shouldPersonalize = enablePersonalization && deferredBehaviorData;
-
- const withMeta = swissJobs.map(j => ({
+ return jobs
+ // EXCLUDE foreign jobs entirely (London, Luxembourg, Singapore, etc.)
+ .filter(j => !isForeignLocation(j.addressLocality || j.location || ''))
+ .map(j => ({
  job: j,
  // Sponsored (featured) ads bought the top placement — they outrank every
  // other signal. Inventory is scarce by construction (FEATURED_SLOTS_PER_CANTON
@@ -4193,9 +4265,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  rank: cantonRank(j),
  day: dayTs(j.crawledAt || j.postedDate),
  qs: j.qualityScore ?? 0,
- personal: shouldPersonalize
- ? computePersonalScore(j, deferredBehaviorData, deferredUserProfile ?? null, deferredJobMatchProfile)
- : { score: 0, topSignal: '' },
+ }));
+ }, [jobs]);
+ const sortedJobsRef = useRef<JobListing[] | null>(null);
+ const sortedJobs = useMemo(() => {
+ const withMeta = jobSortKeys.map(keys => ({
+ ...keys,
+ personal: personalScoreByJob?.get(keys.job) ?? NO_PERSONAL_SCORE,
  }));
  withMeta.sort((a, b) =>
  (b.sp - a.sp)
@@ -4204,8 +4280,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  || (b.day - a.day)
  || (b.qs - a.qs)
  );
- return withMeta.map(({ job }) => job);
- }, [jobs, enablePersonalization, deferredBehaviorData, deferredUserProfile, deferredJobMatchProfile]);
+ const next = reuseIfSameOrder(sortedJobsRef.current, withMeta.map(({ job }) => job));
+ sortedJobsRef.current = next;
+ return next;
+ }, [jobSortKeys, personalScoreByJob]);
 
  // Pre-built search index: caches normalised haystack per job so
  // queryMatchesJob doesn't recompute expensive string normalisation on every keystroke.
@@ -6170,11 +6248,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  company: focusedJob.company || null,
  title: sanitizeJobTitle(focusedJob.titleByLocale?.[locale] ?? focusedJob.title),
  location: focusedJob.location || focusedJob.addressLocality || null,
- category: focusedJob.category || null,
- searchQuery: searchQuery.trim() || null,
+  category: focusedJob.category || null,
+  searchQuery: searchQuery.trim() || null,
+  surface: 'modal',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
  });
  }
- void promptOneTap();
+ void promptOneTap({ surface: 'job_gate_modal' });
  }, [authResolved, authGateOpen, hasAccess, pendingJob, selectedJob]);
 
  // Close auth gate modal on Escape key
@@ -6182,29 +6263,48 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (!authGateOpen) return;
  const handleKeyDown = (e: KeyboardEvent) => {
  if (e.key === 'Escape') {
- authUnlockCandidateRef.current = null;
- setAuthGateOpen(false);
- releaseSlot('job-auth-gate');
- setPendingJob(null);
- setAuthError(null);
+ dismissAuthGate('modal');
  }
  };
  window.addEventListener('keydown', handleKeyDown);
  return () => window.removeEventListener('keydown', handleKeyDown);
- }, [authGateOpen]);
+ }, [authGateOpen, gateVariant, pendingJob, selectedJob]);
 
  useEffect(() => {
  if (!authResolved || !selectedJob || hasAccess) return;
+ const exposureKey = `${selectedJob.id}:inline:${gateExperimentId}:${gateVariant}`;
+ if (jobAuthExposureRef.current === exposureKey) return;
+ jobAuthExposureRef.current = exposureKey;
+ recordJobGateExposure(jobGate);
  authUnlockCandidateRef.current = selectedJob.id;
  saveAuthJobContext({
  slug: selectedJob.slug || null,
  company: selectedJob.company || null,
  location: selectedJob.location || selectedJob.addressLocality || null,
  category: selectedJob.category || null,
+ surface: 'inline',
+ variant: gateVariant,
+ experimentId: gateExperimentId,
  });
- void promptOneTap();
- Analytics.trackJobAuthFunnel('gate_view', buildJobTrackingContext(selectedJob));
- }, [authResolved, selectedJob, hasAccess]);
+ void promptOneTap({ surface: 'job_gate_inline' });
+ const context = buildJobTrackingContext(selectedJob);
+ const telemetry = {
+  surface: 'inline' as const,
+  authState: 'anonymous' as const,
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: context.jobSlug,
+ };
+ Analytics.trackJobAuthGate('view', telemetry);
+ Analytics.trackJobAuthFunnel('gate_view', {
+  ...context,
+  surface: 'inline',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: context.jobSlug,
+ });
+ }, [authResolved, selectedJob?.id, hasAccess, gateVariant, gateExperimentId]);
 
  useEffect(() => {
  // Wait for auth to resolve before rendering GIS buttons.
@@ -6216,9 +6316,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  let cancelled = false;
 
  const mountGoogleButton = async (
- buttonContainer: HTMLDivElement | null,
- setReady: React.Dispatch<React.SetStateAction<boolean>>,
- active: boolean,
+  buttonContainer: HTMLDivElement | null,
+  setReady: React.Dispatch<React.SetStateAction<boolean>>,
+  active: boolean,
+  surface: 'inline' | 'modal',
  ) => {
  if (!active || !buttonContainer) {
  setReady(false);
@@ -6227,11 +6328,33 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  buttonContainer.innerHTML = '';
  try {
+ const job = surface === 'inline' ? selectedJob : pendingJob || selectedJob;
+ const context = job ? buildJobTrackingContext(job) : { jobSlug: null };
  // Use renderGoogleButton directly (same approach as profile page).
  await renderGoogleButton(buttonContainer, {
- theme: 'outline',
- size: 'large',
- text: 'signin_with',
+  theme: 'outline',
+  size: 'large',
+  text: 'signin_with',
+  click_listener: () => {
+   const telemetry = {
+    surface,
+    method: 'google' as const,
+    authState: 'anonymous' as const,
+    variant: gateVariant,
+    experimentId: gateExperimentId,
+    jobSlug: context.jobSlug,
+   };
+   Analytics.trackJobAuthGate('method_click', telemetry);
+   Analytics.trackJobAuthFunnel('auth_method_click', {
+    ...context,
+    method: 'google',
+    surface,
+    authState: 'anonymous',
+    variant: gateVariant,
+    experimentId: gateExperimentId,
+    jobSlug: context.jobSlug,
+   });
+  },
  });
  if (cancelled) return;
  // Check if GIS rendered children (same readiness check as profile page)
@@ -6250,13 +6373,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  };
 
- void mountGoogleButton(modalGoogleButtonRef.current, setModalGoogleButtonReady, authGateOpen && !hasAccess);
- void mountGoogleButton(inlineGoogleButtonRef.current, setInlineGoogleButtonReady, Boolean(selectedJob && !hasAccess));
+ void mountGoogleButton(modalGoogleButtonRef.current, setModalGoogleButtonReady, authGateOpen && !hasAccess, 'modal');
+ void mountGoogleButton(inlineGoogleButtonRef.current, setInlineGoogleButtonReady, Boolean(selectedJob && !hasAccess), 'inline');
 
  return () => {
  cancelled = true;
  };
- }, [authResolved, authGateOpen, hasAccess, locale, selectedJob]);
+ }, [authResolved, authGateOpen, hasAccess, locale, selectedJob, pendingJob, gateVariant, gateExperimentId]);
 
  useEffect(() => {
  const becameLoggedIn = !wasLoggedInRef.current && isLoggedIn;
@@ -6278,9 +6401,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const userEmail = getAuthEmail(authUser);
  const sourceSuffix = `:${unlockedJob.company}:${sanitizeJobTitle(unlockedJob.title).slice(0, 60)}`;
  const emailDomain = String(userEmail || '').split('@')[1] || 'unknown';
+ const jobContext = buildJobTrackingContext(unlockedJob);
 
  void autoNewsletterSubscribe(userEmail || undefined, `job_gate_google${sourceSuffix}`, 'authenticated').then((consented) => {
-  if (consented) Analytics.trackNewsletter('subscribe', emailDomain);
+  if (consented) Analytics.trackNewsletter('subscribe', emailDomain, {
+   sourceChannel: 'job_gate',
+   sourceCta: 'job_gate_google_unlock',
+   sourcePage: typeof window !== 'undefined' ? window.location.pathname : undefined,
+   jobSlug: jobContext.jobSlug,
+   registrationMethod: 'authenticated',
+  });
  });
  // Leva B: offer the one-tap job alert immediately on this just-unlocked job.
  justAuthedJobIdRef.current = unlockedJob.id;
@@ -6288,10 +6418,23 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setAuthError(null);
  setAuthGateOpen(false);
  releaseSlot('job-auth-gate');
+ Analytics.trackJobAuthGate('success', {
+  surface: 'inline',
+  method: 'google',
+  authState: 'registered',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: jobContext.jobSlug,
+ });
  Analytics.trackJobAuthFunnel('auth_success', {
- method: 'google',
- emailDomain,
- ...buildJobTrackingContext(unlockedJob),
+  method: 'google',
+  emailDomain,
+  ...jobContext,
+  surface: 'inline',
+  authState: 'registered',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: jobContext.jobSlug,
  });
  Analytics.trackSelectContent('job_board_open_detail', `${unlockedJob.company}_${unlockedJob.title}`);
 
@@ -6409,13 +6552,39 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return nodes;
  });
 
- const handleAuthAndOpen = async (provider: 'google' | 'facebook') => {
+ const dismissAuthGate = (surface: 'modal' | 'inline' = 'modal') => {
+  const jobToTrack = pendingJob || selectedJob;
+  const jobContext = jobToTrack ? buildJobTrackingContext(jobToTrack) : { jobSlug: null };
+  Analytics.trackJobAuthGate('dismiss', {
+   surface,
+   method: 'unknown',
+   authState: 'anonymous',
+   variant: gateVariant,
+   experimentId: gateExperimentId,
+   jobSlug: jobContext.jobSlug,
+  });
+  Analytics.trackJobAuthFunnel('gate_dismiss', {
+   ...jobContext,
+   surface,
+   authState: 'anonymous',
+   variant: gateVariant,
+   experimentId: gateExperimentId,
+   jobSlug: jobContext.jobSlug,
+  });
+  authUnlockCandidateRef.current = null;
+  setAuthGateOpen(false);
+  releaseSlot('job-auth-gate');
+  setPendingJob(null);
+  setAuthError(null);
+ };
+
+ const handleAuthAndOpen = async (provider: 'google' | 'facebook', surface: 'inline' | 'modal') => {
  const authFn = provider === 'google' ? onGoogleAuthRequired : onFacebookAuthRequired;
  if (!authFn) return;
  setAuthBusy(provider);
  setAuthError(null);
  const jobToTrack = pendingJob || selectedJob;
- const jobContext = jobToTrack ? buildJobTrackingContext(jobToTrack) : {};
+ const jobContext = jobToTrack ? buildJobTrackingContext(jobToTrack) : { jobSlug: null };
  const redirectSlug = jobToTrack ? deriveLocalizedJobSlug(jobToTrack, locale) : null;
  try {
  // Persist the intended detail target before auth starts. On mobile redirect
@@ -6437,18 +6606,49 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  clearJobAuthRedirectSlug();
  setAuthError(t('jobBoard.authCancelled'));
- Analytics.trackJobAuthFunnel('auth_fail', { method: provider, ...jobContext });
+ Analytics.trackJobAuthGate('fail', {
+  surface,
+  method: provider,
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: jobContext.jobSlug,
+ });
+ Analytics.trackJobAuthFunnel('auth_fail', { method: provider, ...jobContext, ...jobGateFailTags });
  return;
  }
  authUnlockCandidateRef.current = null;
  clearJobAuthRedirectSlug();
  const userEmail = result.email || result.user?.email;
  const sourceSuffix = jobToTrack ? `:${jobToTrack.company}:${sanitizeJobTitle(jobToTrack.title).slice(0, 60)}` : '';
- const consented = await autoNewsletterSubscribe(userEmail, `job_gate_google${sourceSuffix}`, 'authenticated');
+ const consented = await autoNewsletterSubscribe(userEmail, `job_gate_${provider}${sourceSuffix}`, 'authenticated');
  setAuthNotice(null);
  const emailDomain = String(userEmail || '').split('@')[1] || 'unknown';
- Analytics.trackJobAuthFunnel('auth_success', { method: provider, emailDomain, ...jobContext });
- if (consented) Analytics.trackNewsletter('subscribe', emailDomain);
+ Analytics.trackJobAuthGate('success', {
+  surface,
+  method: provider,
+  authState: 'registered',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: jobContext.jobSlug,
+ });
+ Analytics.trackJobAuthFunnel('auth_success', {
+  method: provider,
+  emailDomain,
+  ...jobContext,
+  surface,
+  authState: 'registered',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: jobContext.jobSlug,
+ });
+ if (consented) Analytics.trackNewsletter('subscribe', emailDomain, {
+  sourceChannel: 'job_gate',
+  sourceCta: `job_gate_${provider}_unlock`,
+  sourcePage: typeof window !== 'undefined' ? window.location.pathname : undefined,
+  jobSlug: jobContext.jobSlug,
+  registrationMethod: 'authenticated',
+ });
  setAuthGateOpen(false);
  releaseSlot('job-auth-gate');
  const jobToOpen = pendingJob || selectedJob;
@@ -6461,7 +6661,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  } catch {
  setAuthError(t('jobBoard.authFailed'));
- Analytics.trackJobAuthFunnel('auth_fail', { method: provider, ...jobContext });
+ Analytics.trackJobAuthGate('fail', {
+  surface,
+  method: provider,
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: jobContext.jobSlug,
+ });
+ Analytics.trackJobAuthFunnel('auth_fail', { method: provider, ...jobContext, ...jobGateFailTags });
  } finally {
  setAuthBusy(null);
  }
@@ -6472,7 +6680,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (!email || !validateEmailStrict(email).valid) { setAuthError(t('newsletter.invalidEmail')); return; }
  setAuthBusy('email');
  setAuthError(null);
- const jobContext = pendingJob ? buildJobTrackingContext(pendingJob) : {};
+ const jobContext = pendingJob ? buildJobTrackingContext(pendingJob) : { jobSlug: null };
  try {
  const sourceSuffix = pendingJob ? `:${pendingJob.company}:${sanitizeJobTitle(pendingJob.title).slice(0, 60)}` : '';
  const consented = await autoNewsletterSubscribe(email, `job_gate_email${sourceSuffix}`, 'email');
@@ -6480,8 +6688,31 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setEmailAccessGranted(true);
  setAuthNotice({ kind: 'pending', email });
  const emailDomain = email.split('@')[1] || 'unknown';
- Analytics.trackJobAuthFunnel('auth_success', { method: 'email', emailDomain, ...jobContext });
- if (consented) Analytics.trackNewsletter('subscribe', emailDomain);
+ Analytics.trackJobAuthGate('success', {
+  surface: 'modal',
+  method: 'email',
+  authState: 'pending_email',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: jobContext.jobSlug,
+ });
+ Analytics.trackJobAuthFunnel('auth_success', {
+  method: 'email',
+  emailDomain,
+  ...jobContext,
+  surface: 'modal',
+  authState: 'pending_email',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: jobContext.jobSlug,
+ });
+ if (consented) Analytics.trackNewsletter('subscribe', emailDomain, {
+  sourceChannel: 'job_gate',
+  sourceCta: 'job_board_email_unlock',
+  sourcePage: typeof window !== 'undefined' ? window.location.pathname : undefined,
+  jobSlug: jobContext.jobSlug,
+  registrationMethod: 'email',
+ });
  Analytics.trackSelectContent('job_board_email_access', emailDomain);
  authUnlockCandidateRef.current = null;
  setAuthGateOpen(false);
@@ -6495,7 +6726,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  } catch {
  setAuthError(t('jobBoard.authFailed'));
- Analytics.trackJobAuthFunnel('auth_fail', { method: 'email', ...jobContext });
+ Analytics.trackJobAuthGate('fail', {
+  surface: 'modal',
+  method: 'email',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: jobContext.jobSlug,
+ });
+ Analytics.trackJobAuthFunnel('auth_fail', { method: 'email', ...jobContext, ...jobGateFailTags });
  } finally {
  setAuthBusy(null);
  }
@@ -6509,20 +6748,51 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setAuthError(null);
  const jobContext = buildJobTrackingContext(job);
  try {
- const consented = await autoNewsletterSubscribe(email, `job_gate:${job.company}:${sanitizeJobTitle(job.title).slice(0, 60)}`, 'email');
+ const consented = await autoNewsletterSubscribe(email, `job_gate:${job.company}:${sanitizeJobTitle(job.title).slice(0, 60)}`, 'email', 'job_board_email_unlock');
  localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  setEmailAccessGranted(true);
  setAuthNotice({ kind: 'pending', email });
  const emailDomain = email.split('@')[1] || 'unknown';
- Analytics.trackJobAuthFunnel('auth_success', { method: 'email', emailDomain, ...jobContext });
- if (consented) Analytics.trackNewsletter('subscribe', emailDomain);
+ Analytics.trackJobAuthGate('success', {
+  surface: 'inline',
+  method: 'email',
+  authState: 'pending_email',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: jobContext.jobSlug,
+ });
+ Analytics.trackJobAuthFunnel('auth_success', {
+  method: 'email',
+  emailDomain,
+  ...jobContext,
+  surface: 'inline',
+  authState: 'pending_email',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: jobContext.jobSlug,
+ });
+ if (consented) Analytics.trackNewsletter('subscribe', emailDomain, {
+  sourceChannel: 'job_gate',
+  sourceCta: 'job_gate_email_unlock',
+  sourcePage: typeof window !== 'undefined' ? window.location.pathname : undefined,
+  jobSlug: jobContext.jobSlug,
+  registrationMethod: 'email',
+ });
  authUnlockCandidateRef.current = null;
  setEmailInput('');
  // No need to route — the component will re-render with hasAccess=true
  Analytics.trackSelectContent('job_board_open_detail', `${job.company}_${job.title}`);
  } catch {
  setAuthError(t('jobBoard.authFailed'));
- Analytics.trackJobAuthFunnel('auth_fail', { method: 'email', ...jobContext });
+ Analytics.trackJobAuthGate('fail', {
+  surface: 'inline',
+  method: 'email',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: jobContext.jobSlug,
+ });
+ Analytics.trackJobAuthFunnel('auth_fail', { method: 'email', ...jobContext, ...jobGateFailTags });
  } finally {
  setAuthBusy(null);
  }
@@ -6548,6 +6818,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  location,
  searchQuery: searchQuery.trim() || undefined,
  keywords,
+ jobSlug: job.slugByLocale?.it ?? job.slug ?? null,
  };
  };
 
@@ -6555,6 +6826,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  email?: string,
  source?: string,
  registrationMethod: 'email' | 'authenticated' = 'email',
+ // Explicit CTA id; the fallback reads the registration method, never the
+ // source name (`job_gate:<company>:<title>` holds no "email").
+ sourceCta?: 'job_board_email_unlock' | 'job_board_social_unlock',
  ): Promise<boolean> => {
  if (!email) return false;
  try {
@@ -6564,7 +6838,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ]);
  const firestore = getFirestore(await getApp());
  if (!firestore) return false;
- const normalizedSource = String(source || 'job_board_auth').toLowerCase();
  const sourceChannel = 'job_gate' as const;
  const focusedJob = selectedJob || sortedJobs[0] || null;
  const jobContext = focusedJob
@@ -6583,12 +6856,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  category: null,
  searchQuery: searchQuery.trim() || null,
  };
- await upsertUnifiedEmailSubscriber(firestore, {
+ await upsertJobGateSubscriber(firestore, {
  email,
  source: source || 'job_board_auth',
  sourceChannel,
  sourcePage: window.location.pathname,
- sourceCta: normalizedSource.includes('email') ? 'job_board_email_unlock' : 'job_board_social_unlock',
+ sourceCta: sourceCta || (registrationMethod === 'email' ? 'job_board_email_unlock' : 'job_board_social_unlock'),
  sourceComponent: 'JobBoard',
    sourceRouteFamily: 'job-board',
    locale: navigator.language || 'it-IT',
@@ -6733,7 +7006,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return eventId;
  };
 
- const redirectExternalApplication = (job: JobListing, surface: string, trackHandoff: boolean, sameTab = false) => {
+ const redirectExternalApplication = (
+  job: JobListing,
+  surface: string,
+  trackHandoff: boolean,
+  sameTab = false,
+  extraParams: Record<string, string> = {},
+ ) => {
   const applyDestination = buildReferralUrl(job);
   if (!applyDestination) return;
   if (trackHandoff) {
@@ -6744,7 +7023,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   }
   trackAssistedApplicationEvent(
    'external_apply_redirected',
-   { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface },
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, ...extraParams },
   );
   if (sameTab) {
    window.location.assign(applyDestination);
@@ -6779,17 +7058,22 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // This callback happens after the visitor has explicitly chosen to continue
   // from the rewarded modal, so use the current tab: a late window.open is
   // commonly blocked by the browser.
-  redirectExternalApplication(job, 'rewarded_application_inline_completed', true, true);
+  redirectExternalApplication(job, 'rewarded_application_inline_completed', true, true, {
+   handoff: 'rewarded_granted',
+  });
  };
 
  const handleRewardedApplicationUnavailable = (reason: string) => {
   const job = rewardedApplicationJob;
   if (!job) return;
-  // The offer already records the technical reason and direct handoff on the
-  // rewarded_ad_unavailable event. This callback only owns navigation.
-  void reason;
+  // No Google creative to show (no-fill, timeout, consent, eligibility): the
+  // offer has already tracked the technical detail, and the same click goes
+  // straight to the employer. No retry, no local video, no second click.
   setRewardedApplicationJob(null);
-  redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, true);
+  redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, true, {
+   handoff: 'direct_external',
+   reason,
+  });
  };
 
  const handleAssistedPaid = async () => {
@@ -6853,6 +7137,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [rewardedApplicationJob, authResolved, isJobDetailView]);
 
  const handleApply = (job: JobListing, surface = 'job_board_apply') => {
+  // An application offer for this click is already open (double click, or a
+  // click that reached the page behind the dialog): one gesture, one offer.
+  if (applicationOfferOpenRef.current) return;
   const isExternal = isExternalApplicationJob(job);
   if (isExternal && assistedApplicationVariant === 'rewarded_ad' && !authUser?.uid && !isJobDetailView) {
    // Keep anonymous job-board visitors on the sign-in/subscription funnel.
@@ -6914,6 +7201,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
    'rewarded_application_offer_requested',
    { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, provider: 'google_gpt_rewarded_web' },
   );
+  applicationOfferOpenRef.current = true;
   setRewardedApplicationJob(job);
   if (!isJobDetailView) openDetail(job);
   return;
@@ -6927,6 +7215,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // clicks through the detail render, where `assistedApplicationOfferJsx` is
   // mounted, so the treatment CTA never becomes an invisible state update.
   setAssistedCheckoutError(null);
+  applicationOfferOpenRef.current = true;
   setAssistedApplicationJob(job);
   if (!isJobDetailView) openDetail(job);
   return;
@@ -7196,6 +7485,31 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </Suspense>
  ) : null;
 
+ // Anonymous job-detail visitors have the strongest intent signal before the
+ // apply click, but the authenticated prompt above cannot serve them. Keep a
+ // visible, category-based alert CTA in the detail header and hand anonymous
+ // clicks back to the list, where JobAlertForm owns email capture and auth.
+ const detailAlertCategoryLabel = selectedJob
+  ? (t(categoryTranslationKey(selectedJob)) || '').trim()
+  : '';
+ const detailAlertCtaJsx = enableJobAlerts && isJobDetailView && selectedJob && detailAlertCategoryLabel && (!userId || !userEmail) ? (
+  <Suspense fallback={null}>
+   <JobBoardFilterAlertCta
+    userId={null}
+    email={null}
+    locale={locale}
+    context="category"
+    keywordLabel={detailAlertCategoryLabel}
+    cantonCode={selectedJob.canton ?? null}
+    onImpression={() => Analytics.trackJobAlertCtaShown('job_detail_anonymous', detailAlertCategoryLabel)}
+    onAnonymousOpen={() => {
+     Analytics.trackJobAlertCtaClick('job_detail_anonymous', 'open', detailAlertCategoryLabel);
+     backToList();
+    }}
+   />
+  </Suspense>
+ ) : null;
+
  // Saved-jobs alert nudge toast (#4467).
  //
  // The `&& !jobDetailPromptVisible` that used to be here was the ONLY overlap
@@ -7289,7 +7603,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ) : null;
 
  const authGateModalJsx = authGateOpen ? (
- <div className="fixed inset-0 z-[90] flex items-center justify-center p-4" onClick={(e) => { if (e.target === e.currentTarget) { authUnlockCandidateRef.current = null; setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); } }}>
+ <div className="fixed inset-0 z-[90] flex items-center justify-center p-4" onClick={(e) => { if (e.target === e.currentTarget) dismissAuthGate('modal'); }}>
  <div aria-hidden="true" className="absolute inset-0 bg-black/45 backdrop-blur-sm" />
  <div role="dialog" aria-modal="true" aria-label={t('jobBoard.gate.title') || 'Accedi per continuare'} className="relative w-full max-w-md rounded-stripe border border-edge bg-surface p-5 space-y-4">
  {/* Close X button */}
@@ -7302,7 +7616,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <p className="text-sm text-subtle">{t('jobBoard.gate.subtitle')}</p>
  </div>
  </div>
- <button type="button" onClick={() => { authUnlockCandidateRef.current = null; setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); }} className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-stripe text-muted hover:text-subtle" aria-label={t('common.close')}>
+ <button type="button" onClick={() => dismissAuthGate('modal')} className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-stripe text-muted hover:text-subtle" aria-label={t('common.close')}>
  <X size={18} />
  </button>
  </div>
@@ -7345,7 +7659,28 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {!modalGoogleButtonReady && (
  <button
  type="button"
- onClick={() => void handleAuthAndOpen('google')}
+ onClick={() => {
+  const job = pendingJob || selectedJob;
+  const ctx = job ? buildJobTrackingContext(job) : { jobSlug: null };
+  Analytics.trackJobAuthGate('method_click', {
+   surface: 'modal',
+   method: 'google',
+   authState: 'anonymous',
+   variant: gateVariant,
+   experimentId: gateExperimentId,
+   jobSlug: ctx.jobSlug,
+  });
+  Analytics.trackJobAuthFunnel('auth_method_click', {
+   method: 'google',
+   ...ctx,
+   surface: 'modal',
+   authState: 'anonymous',
+   variant: gateVariant,
+   experimentId: gateExperimentId,
+   jobSlug: ctx.jobSlug,
+  });
+  void handleAuthAndOpen('google', 'modal');
+ }}
  disabled={authBusy !== null}
  className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-surface border border-edge hover:bg-surface-raised disabled:opacity-60 text-strong text-sm font-semibold shadow-sm transition-colors"
  >
@@ -7371,7 +7706,23 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const job = pendingJob || selectedJob;
  if (job) {
  const ctx = buildJobTrackingContext(job);
- Analytics.trackJobAuthFunnel('auth_method_click', { method: 'linkedin', ...ctx });
+ Analytics.trackJobAuthGate('method_click', {
+  surface: 'modal',
+  method: 'linkedin',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: ctx.jobSlug,
+ });
+ Analytics.trackJobAuthFunnel('auth_method_click', {
+  method: 'linkedin',
+  ...ctx,
+  surface: 'modal',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: ctx.jobSlug,
+ });
  setAuthBusy('linkedin');
  saveAuthJobContext({
   slug: job.slug,
@@ -7380,6 +7731,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
   location: job.location,
   category: job.category,
   searchQuery: searchQuery.trim() || null,
+  surface: 'modal',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
  });
  const jobSlug = job.slugByLocale?.[locale] ?? job.slug;
  const section = getJobBoardSectionSlug(locale);
@@ -7541,6 +7895,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  }
 
+ // jobgate-v3 `similar_alerts`: the pending notice restates the promise
+ // (similar jobs need the confirmation click) and opens the known mailbox.
+ const jobGateSimilarAlerts = jobGate.arm === 'similar_alerts';
+ const jobGateMailbox = jobGateSimilarAlerts && authNotice?.kind === 'pending'
+  ? getEmailProviderInfo(authNotice.email)
+  : null;
+ const jobGatePendingJobTitle = jobGateSimilarAlerts && selectedJob
+  ? sanitizeJobTitle(selectedJob.titleByLocale?.[locale] ?? selectedJob.title)
+  : '';
  const authPendingNoticeJsx = authNotice?.kind === 'pending' ? (
  // Mobile-collapsed by design: the user is at the top of a job-detail page
  // and the auth-pending banner pushed the actual content below the fold on
@@ -7551,6 +7914,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // opens by default and stays open (open:hidden on the marker hides the
  // chevron once expanded). Native <details> needs no extra JS and remains
  // accessible to screen readers and keyboard users.
+ <>
  <details
  className="group rounded-2xl border border-warning-border bg-warning-subtle px-4 py-3 text-left shadow-sm [&[open]]:py-4"
  open={typeof window !== 'undefined' ? window.matchMedia('(min-width: 640px)').matches : false}
@@ -7560,7 +7924,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <Mail className="h-4 w-4" />
  </div>
  <div className="min-w-0 flex-1">
- <p className="text-sm font-bold text-warning">{t('newsletter.doubleOptIn.title')}</p>
+ <p className="text-sm font-bold text-warning">
+ {jobGatePendingJobTitle
+  ? t('jobBoard.gate.v3.similarAlerts.pendingTitle', { title: jobGatePendingJobTitle })
+  : t('newsletter.doubleOptIn.title')}
+ </p>
  <p className="mt-1 truncate text-xs font-medium text-warning">{authNotice.email}</p>
  </div>
  <ChevronDown
@@ -7573,6 +7941,24 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <p className="text-sm text-warning">{t('newsletter.doubleOptIn.spamHint')}</p>
  </div>
  </details>
+ {jobGateMailbox && (
+ <button
+  type="button"
+  onClick={() => {
+   Analytics.trackExperimentEvent('jobgate_open_mailbox', {
+    experiment_id: JOBGATE_EXPERIMENT_ID,
+    variant: jobGate.arm,
+    provider: jobGateMailbox.name,
+   });
+   openEmailProvider(authNotice.email);
+  }}
+  className="mt-2 w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-accent hover:bg-accent-hover text-on-accent text-sm font-semibold transition-colors"
+ >
+  <Mail className="w-4 h-4" aria-hidden="true" />
+  {t('jobBoard.gate.v3.similarAlerts.openMailbox', { provider: jobGateMailbox.name })}
+ </button>
+ )}
+ </>
  ) : null;
 
  if (editorialJobTodayLanding) {
@@ -8572,6 +8958,50 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // description (reverse ~80px collapse) can shift the auth gate.
  const teaserPending = !descriptionPreview
  && (enrichmentLoading || (!resolvedJobDetail.has(selectedJob.id) && !jobDetailCache.has(selectedJob.id)));
+ // The inline email form, rendered below the provider buttons (control) or
+ // above them for the jobgate-v3 `email_first` arm — one element, never both.
+ const inlineEmailForm = (
+ <form
+ onSubmit={(e) => {
+ e.preventDefault();
+ const ctx = buildJobTrackingContext(selectedJob);
+ Analytics.trackJobAuthGate('method_click', {
+  surface: 'inline',
+  method: 'email',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: ctx.jobSlug,
+ });
+ Analytics.trackJobAuthFunnel('auth_method_click', {
+  method: 'email',
+  ...ctx,
+  surface: 'inline',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: ctx.jobSlug,
+ });
+ void handleInlineEmailAccess(selectedJob);
+ }}
+ className={jobGateEmailFirst(jobGate.arm) ? 'space-y-2' : 'mt-3 space-y-2'}
+ >
+ <EmailInput
+ value={emailInput}
+ onChange={setEmailInput}
+ placeholder={t('jobBoard.authGateEmailPlaceholder')}
+ className="w-full px-3 py-2.5 rounded-stripe border border-edge bg-surface text-sm text-heading placeholder-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+ />
+ <button
+ type="submit"
+ disabled={authBusy !== null || !emailInput.trim()}
+ className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"
+ >
+ {authBusy === 'email' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
+ {t('jobBoard.gate.emailCta')}
+ </button>
+ </form>
+ );
  const gateCompanySlug = buildCompanySearchSlug(selectedJob.company, selectedJob.companyKey, locale);
  const gateJobCanton = resolveJobCanton(selectedJob);
  const gateCompanyHref = buildPath({ activeTab: 'job-board' as any, jobBoardCanton: gateJobCanton, jobSlug: gateCompanySlug }, locale);
@@ -8791,7 +9221,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-4 sm:p-6">
  <h2 className="flex items-start gap-2 text-lg sm:text-xl font-bold font-display text-heading leading-tight">
  <Eye className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" aria-hidden="true" />
- <span>{gateHeadline}</span>
+ <span>{jobGate.arm === 'similar_alerts' ? t('jobBoard.gate.v3.similarAlerts.title') : gateHeadline}</span>
  </h2>
 
  {/* Trust signals — 2 lines at text-sm. text-xs is reserved for metadata
@@ -8799,7 +9229,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <ul className="mt-3 space-y-1.5 text-sm text-subtle">
  <li className="flex items-center gap-2">
  <CheckCircle2 size={14} className="text-success flex-shrink-0" aria-hidden="true" />
- <span>{locale === 'it' ? 'Gratis · Per sempre' : locale === 'de' ? 'Kostenlos · Für immer' : locale === 'fr' ? 'Gratuit · Pour toujours' : 'Free · Forever'}</span>
+ <span>{jobGate.arm === 'similar_alerts' ? t('jobBoard.gate.v3.similarAlerts.benefit') : locale === 'it' ? 'Gratis · Per sempre' : locale === 'de' ? 'Kostenlos · Für immer' : locale === 'fr' ? 'Gratuit · Pour toujours' : 'Free · Forever'}</span>
  </li>
  <li className="flex items-center gap-2">
  <Shield size={14} className="text-success flex-shrink-0" aria-hidden="true" />
@@ -8821,6 +9251,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
 
  <div className="mt-4 space-y-3">
+ {jobGateEmailFirst(jobGate.arm) && (
+ <>
+ {inlineEmailForm}
+ <div className="flex items-center gap-3">
+ <div className="flex-1 h-px bg-surface-raised/50" />
+ <span className="text-sm text-muted">{t('jobBoard.gate.v3.emailFirst.orProvider')}</span>
+ <div className="flex-1 h-px bg-surface-raised/50" />
+ </div>
+ </>
+ )}
  <div className="space-y-2">
  <div ref={inlineGoogleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-stripe" />
  {!inlineGoogleButtonReady && (
@@ -8828,8 +9268,24 @@ const JobBoard: React.FC<JobBoardProps> = ({
  type="button"
  onClick={() => {
  const ctx = buildJobTrackingContext(selectedJob);
- Analytics.trackJobAuthFunnel('auth_method_click', { method: 'google', ...ctx });
- void handleAuthAndOpen('google');
+ Analytics.trackJobAuthGate('method_click', {
+  surface: 'inline',
+  method: 'google',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: ctx.jobSlug,
+ });
+ Analytics.trackJobAuthFunnel('auth_method_click', {
+  method: 'google',
+  ...ctx,
+  surface: 'inline',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: ctx.jobSlug,
+ });
+ void handleAuthAndOpen('google', 'inline');
  }}
  disabled={authBusy !== null}
  className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-surface border border-edge hover:bg-surface-raised disabled:opacity-60 text-strong text-sm font-semibold shadow-sm transition-colors"
@@ -8854,7 +9310,23 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const job = selectedJob;
  if (job) {
  const ctx = buildJobTrackingContext(job);
- Analytics.trackJobAuthFunnel('auth_method_click', { method: 'linkedin', ...ctx });
+ Analytics.trackJobAuthGate('method_click', {
+  surface: 'inline',
+  method: 'linkedin',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: ctx.jobSlug,
+ });
+ Analytics.trackJobAuthFunnel('auth_method_click', {
+  method: 'linkedin',
+  ...ctx,
+  surface: 'inline',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
+  jobSlug: ctx.jobSlug,
+ });
  setAuthBusy('linkedin');
  saveAuthJobContext({
   slug: job.slug,
@@ -8863,6 +9335,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
   location: job.location,
   category: job.category,
   searchQuery: searchQuery.trim() || null,
+  surface: 'inline',
+  variant: gateVariant,
+  experimentId: gateExperimentId,
  });
  const jobSlug = job.slugByLocale?.[locale] ?? job.slug;
  const section = getJobBoardSectionSlug(locale);
@@ -8884,8 +9359,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {/* Email — wrapped in <details open>: default expanded so we don't lose
  the email-preferring segment, but social-first users can collapse it
- to remove the form's vertical footprint from their decision flow. */}
- <details open className="group">
+ to remove the form's vertical footprint from their decision flow.
+ jobgate-v3: `social_first` starts it collapsed, `email_first` moves it up. */}
+ {!jobGateEmailFirst(jobGate.arm) && (
+ <details open={jobGateEmailFormOpen(jobGate.arm)} className="group">
  <summary className="flex items-center gap-3 cursor-pointer list-none py-1 -my-1 [&::-webkit-details-marker]:hidden">
  <div className="flex-1 h-px bg-surface-raised/50" />
  <span className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-subtle transition-colors">
@@ -8894,31 +9371,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </span>
  <div className="flex-1 h-px bg-surface-raised/50" />
  </summary>
- <form
- onSubmit={(e) => {
- e.preventDefault();
- const ctx = buildJobTrackingContext(selectedJob);
- Analytics.trackJobAuthFunnel('auth_method_click', { method: 'email', ...ctx });
- void handleInlineEmailAccess(selectedJob);
- }}
- className="mt-3 space-y-2"
- >
- <EmailInput
- value={emailInput}
- onChange={setEmailInput}
- placeholder={t('jobBoard.authGateEmailPlaceholder')}
- className="w-full px-3 py-2.5 rounded-stripe border border-edge bg-surface text-sm text-heading placeholder-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
- />
- <button
- type="submit"
- disabled={authBusy !== null || !emailInput.trim()}
- className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"
- >
- {authBusy === 'email' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
- {t('jobBoard.gate.emailCta')}
- </button>
- </form>
+ {inlineEmailForm}
  </details>
+ )}
  </div>
 
  {authError && <p className="text-sm text-danger mt-2">{authError}</p>}
@@ -9414,6 +9869,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
  </div>
  ) : (
+ <>
  <button
   type="button"
  className="hybrid-ab-cta"
@@ -9421,6 +9877,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  >
  {t('jobBoard.apply')}
  </button>
+ {rewardedCtaDisclosure && (
+  <p className="mt-1.5 text-xs text-muted" data-testid="rewarded-cta-disclosure">{rewardedCtaDisclosure}</p>
+ )}
+ </>
  )}
 
  {!(selectedJob as unknown as { publisherJobId?: string }).publisherJobId && (
@@ -9465,6 +9925,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="mt-3">{sectorContextWidget}</div>
  )}
  </article>
+ {detailAlertCtaJsx}
  {jobDetailPromptJsx}
  {savedJobsNudgeJsx}
  {saveAuthPromptJsx}
@@ -9848,7 +10309,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  width={28}
  height={28}
  loading="lazy"
- onError={handleCompanyLogoError} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold font-display text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-subtle mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> {appliedNoticeJsx}
+ onError={handleCompanyLogoError} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold font-display text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-subtle mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> {rewardedCtaDisclosure && ( <p className="mt-2 text-xs text-muted" data-testid="rewarded-cta-disclosure">{rewardedCtaDisclosure}</p> )} {appliedNoticeJsx}
+ {detailAlertCtaJsx}
  {isPublisherAd && userId && userEmail && (
  <Suspense fallback={null}>
  <JobDetailJobAlertButton
@@ -10319,10 +10781,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onClick={() => {
  const next = !showSavedOnly;
  if (next && !authUser?.uid) {
- savePendingSaveJobIntent({ kind: 'show_saved_only' });
+ const pendingStored = stashPendingSave({ kind: 'show_saved_only' });
       requestSlot('save-auth-prompt', POPUP_PRIORITY.AUTH_GATE);
  setSaveAuthPromptOpen(true);
- Analytics.trackEvent('save_signin_prompt_shown', { surface: 'saved_filter_pill' });
+ Analytics.trackEvent('save_signin_prompt_shown', { surface: 'saved_filter_pill', pending_stored: pendingStored });
  return;
  }
  setShowSavedOnly(next);

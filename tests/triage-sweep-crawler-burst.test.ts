@@ -74,17 +74,37 @@ describe('crawlerDirectFixBudget', () => {
     expect(isTriagedButNotRouted(issue(stringLabels('agent:triaged')))).toBe(true);
   });
 
-  it('testo non classificabile → il secondo passaggio resta deny-by-default', () => {
+  it('una riga senza titolo non viene instradata (dato illeggibile)', () => {
     expect(isTriagedButNotRouted(undefined)).toBe(false);
     expect(isTriagedButNotRouted(null)).toBe(false);
     expect(isTriagedButNotRouted({ labels: [{ name: 'agent:triaged' }] })).toBe(false);
+    expect(isTriagedButNotRouted({ title: '  ', labels: [{ name: 'agent:triaged' }] })).toBe(false);
   });
 
-  it('esclude dal secondo passaggio i domini F1/F7', () => {
+  it('instrada nel secondo passaggio anche i domini F1/F7 (f1-f7-v4, nessun veto)', () => {
     expect(isTriagedButNotRouted({
       title: 'Aggiornare il workflow di deploy',
       body: 'Il service account richiede permessi aggiuntivi.',
       labels: [{ name: 'agent:triaged' }],
+    })).toBe(true);
+  });
+
+  it('non re-instrada una issue ancora differita', () => {
+    expect(isTriagedButNotRouted({
+      title: 'Aggiornare il workflow di deploy',
+      body: '',
+      labels: [{ name: 'agent:triaged' }, { name: 'automation-deferred' }],
     })).toBe(false);
+  });
+
+  it('non re-instrada una issue in verifica maybe-resolved (#9742)', () => {
+    // Forma di #9578 dopo l'instradamento già-risolto: `agent:fix` tolto,
+    // `maybe-resolved` aggiunto, nessun'altra label di routing.
+    const routed = { title: 'Deploy: validate-dist non trova l artifact github-pages', body: '' };
+    const labels = (...names: string[]) => names.map((name) => ({ name }));
+    const stringLabels = (...names: string[]) => names;
+    expect(isTriagedButNotRouted({ ...routed, labels: labels('bug', 'agent:triaged') })).toBe(true);
+    expect(isTriagedButNotRouted({ ...routed, labels: labels('bug', 'agent:triaged', 'maybe-resolved') })).toBe(false);
+    expect(isTriagedButNotRouted({ ...routed, labels: stringLabels('bug', 'agent:triaged', 'maybe-resolved') })).toBe(false);
   });
 });

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "elettra-1938",
-  "assembledAt": "2026-09-23T23:51:30.522Z",
+  "assembledAt": "2026-09-24T14:29:30.613Z",
   "jobs": [
     {
       "id": "elettra-1938-ef6f82493666",
@@ -33,7 +33,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-728378/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-23T23:51:26.100Z",
+      "crawledAt": "2026-09-24T14:29:24.622Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -63,7 +63,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-728378/it"
     }
   ]
 }

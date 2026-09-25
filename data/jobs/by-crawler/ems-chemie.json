@@ -1,12 +1,12 @@
 {
   "crawlerKey": "ems-chemie",
-  "assembledAt": "2026-09-24T09:43:12.069Z",
+  "assembledAt": "2026-09-24T14:26:19.274Z",
   "jobs": [
     {
-      "title": "Assistenz Leiter Produktion (m/w/d) 50%",
+      "title": "Mitarbeiter Kommunikation & Events (m/w/d) 100%",
       "company": "EMS-Chemie AG",
       "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/assistenz-leiter-produktion-m-w-d/de42c6aa-3275-4050-9d57-083c98f378cf",
+      "url": "https://jobs.ems-group.com/offene-stellen/mitarbeiter-kommunikation-events-m-w-d/f0b60ff7-0e1d-4f1c-8770-5402e52eaac0",
       "location": "Domat/Ems",
       "canton": "GR",
       "country": "CH",
@@ -17,18 +17,141 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "category": "science",
-      "description": "Assistenz Leiter Produktion (m/w/d) 50% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
-      "postedDate": "2026-09-23",
+      "description": "Mitarbeiter Kommunikation & Events (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+      "postedDate": "2026-09-24",
+      "source": "company-website",
+      "slug": "collaboratore-trice-kommunikation-events-m-w-d-100-ems-chemie-ag-domat-ems",
+      "slugByLocale": {
+        "it": "collaboratore-trice-kommunikation-events-m-w-d-100-ems-chemie-ag-domat-ems",
+        "en": "mitarbeiter-kommunikation-events-m-w-d-100-ems-chemie-domat-ems",
+        "de": "mitarbeiter-kommunikation-events-m-w-d-100-ems-chemie-domat-ems",
+        "fr": "mitarbeiter-kommunikation-events-m-w-d-100-ems-chemie-domat-ems"
+      },
+      "titleByLocale": {
+        "it": "Collaboratore/trice Kommunikation & Events (m/w/d) 100%",
+        "en": "Mitarbeiter Kommunikation & Events (m/f/d) 100%",
+        "de": "Mitarbeiter Kommunikation &ars (m/w/d) 100%",
+        "fr": "Mitarbeiter Kommunikation & Events (h/f/d) 100%"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Mitarbeiter Kommunikation & Events (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "en": "Mitarbeiter Kommunikation & Events (m/f/d) 100% at EMS-Chemie AG, a leading company in the field of special polymers and fine chemistry based in Domat/Ems. EMS-Chemie is the world's largest producer of high-performance polyamides, with about 3000 employees worldwide. Workplace: Domat/Ems.",
+        "de": "Mitarbeiter Kommunikation & Events (m/w/d) 100% bei der EMS-Chemie AG, einem führenden Unternehmen im Bereich Spezialpolymere und Feinchemie mit Sitz in Domat/Ems. EMS-Chemie ist der weltweit größte Hersteller von Hochleistungspolyamiden mit rund 3000 Mitarbeitern weltweit. Arbeitsplatz: Domat/Ems.",
+        "fr": "Mitarbeiter Kommunikation & Events (h/f/d) 100% chez EMS-Chémie AG, une société leader dans le domaine des polymères spéciaux et de la chimie fine basée à Domat/Ems. EMS-Chemie est le plus grand producteur mondial de polyamides haute performance, avec environ 3000 employés dans le monde. Milieu de travail: Domat/Ems."
+      },
+      "needsRetranslation": true,
+      "id": "ems-chemie-d3df238308d9",
+      "sourceLang": "it",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-kommunikation-events-m-w-d-100-ems-chemie-domat-ems"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-kommunikation-events-m-w-d-100-ems-chemie-domat-ems"
+      ],
+      "salaryMin": 77000,
+      "salaryMax": 127500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77000,
+          "maxValue": 127500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-24T14:26:16.853Z",
+      "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/mitarbeiter-kommunikation-events-m-w-d/f0b60ff7-0e1d-4f1c-8770-5402e52eaac0"
+    },
+    {
+      "title": "Produktionscontroller (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/produktionscontroller-m-w-d/c60f90fb-8c20-45c9-b453-1949b0f58f3c",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "description": "Produktionscontroller (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+      "postedDate": "2026-09-24",
+      "source": "company-website",
+      "slug": "produktionscontroller-m-w-d-100-ems-chemie-domat-ems",
+      "slugByLocale": {
+        "it": "produktionscontroller-m-w-d-100-ems-chemie-domat-ems",
+        "en": "produktionscontroller-m-w-d-100-ems-chemie-domat-ems",
+        "de": "produktions139ler-m-w-d-100-ems-chemie-ag-domat-ems",
+        "fr": "produitscontroleur-h-f-d-100-ems-chemie-ag-domat-ems"
+      },
+      "titleByLocale": {
+        "it": "Produktionscontroller (m/w/d) 100%",
+        "en": "Produktionscontroller (m/f/d) 100%",
+        "de": "Produktions139ler (m/w/d) 100%",
+        "fr": "Produitscontrôleur (h/f/d) 100%"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Produktionscontroller (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "en": "Produktionscontroller (m/f/d) 100% at EMS-Chemie AG, a leading company in the field of special polymers and fine chemistry based in Domat/Ems. EMS-Chemie is the world's largest producer of high-performance polyamides, with about 3000 employees worldwide. Workplace: Domat/Ems.",
+        "de": "Produktionscontroller (m/w/d) 100% bei der EMS-Chemie AG, einem führenden Unternehmen im Bereich Spezialpolymere und Feinchemie mit Sitz in Domat/Ems. EMS-Chemie ist der weltweit größte Hersteller von Hochleistungspolyamiden mit rund 3000 Mitarbeitern weltweit. Arbeitsplatz: Domat/Ems.",
+        "fr": "Produktionscontroller (h/f/d) 100% chez EMS-Chémie AG, une société leader dans le domaine des polymères spéciaux et de la chimie fine basée à Domat/Ems. EMS-Chemie est le plus grand producteur mondial de polyamides haute performance, avec environ 3000 employés dans le monde. Milieu de travail: Domat/Ems."
+      },
+      "id": "ems-chemie-c6ae8f91fddc",
+      "sourceLang": "it",
+      "salaryMin": 77000,
+      "salaryMax": 127500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77000,
+          "maxValue": 127500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-24T14:26:16.853Z",
+      "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/produktionscontroller-m-w-d/c60f90fb-8c20-45c9-b453-1949b0f58f3c"
+    },
+    {
+      "title": "Assistenz Produktionsleitung (m/w/d) 50%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/assistenz-produktionsleitung-m-w-d/de42c6aa-3275-4050-9d57-083c98f378cf",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "description": "Assistenz Produktionsleitung (m/w/d) 50% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+      "postedDate": "2026-09-24",
       "source": "company-website",
       "slug": "assistenz-leiter-produktion-m-w-d-50-ems-chemie-ag-domat-ems",
       "slugByLocale": {
         "it": "assistenz-leiter-produktion-m-w-d-50-ems-chemie-ag-domat-ems",
         "en": "assistenz-leiter-produktion-m-w-d-50-ems-chemie-domat-ems",
-        "de": "assistenz-leiter-produktion-m-w-d-50-ems-chemie-domat-ems",
+        "de": "assistenzleiter-produktion-m-w-d-50-ems-chemie-ag-domat-ems",
         "fr": "assistenz-leiter-produktion-m-w-d-50-ems-chemie-domat-ems"
       },
       "titleByLocale": {
-        "it": "Assistenz Leiter Produktion (m/w/d) 50%",
+        "it": "Assistenz Produktionsleitung (m/w/d) 50%",
         "en": "Assistenz Leiter Produktion (m/f/d) 50%",
         "de": "Assistenzleiter Produktion (m/w/d) 50%",
         "fr": "Aidenz Leiter Produktion (h/f/d) 50%"
@@ -45,11 +168,16 @@
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
+          "assistenz-leiter-produktion-m-w-d-50-ems-chemie-domat-ems",
+          "assistenz-produktionsleitung-m-w-d-50-ems-chemie-domat-ems"
+        ],
+        "de": [
           "assistenz-leiter-produktion-m-w-d-50-ems-chemie-domat-ems"
         ]
       },
       "previousSlugs": [
-        "assistenz-leiter-produktion-m-w-d-50-ems-chemie-domat-ems"
+        "assistenz-leiter-produktion-m-w-d-50-ems-chemie-domat-ems",
+        "assistenz-produktionsleitung-m-w-d-50-ems-chemie-domat-ems"
       ],
       "salaryMin": 59000,
       "salaryMax": 98000,
@@ -65,7 +193,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:43:01.672Z"
+      "firstSeenAt": "2026-09-23T23:43:01.672Z",
+      "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/assistenz-produktionsleitung-m-w-d/de42c6aa-3275-4050-9d57-083c98f378cf"
     },
     {
       "title": "Verkaufscontroller (m/w/d) 100%",
@@ -83,7 +212,7 @@
       "employmentType": "FULL_TIME",
       "category": "science",
       "description": "Verkaufscontroller (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
-      "postedDate": "2026-09-23",
+      "postedDate": "2026-09-24",
       "source": "company-website",
       "slug": "verkaufscontroller-m-w-d-100-ems-chemie-domat-ems",
       "slugByLocale": {
@@ -140,7 +269,8 @@
         "sales-controller-m-w-d-100-ems-chemie-ag-domat-ems",
         "139ler-m-w-d-100-ems-chemie-ag-domat-ems",
         "controleur-de-ventes-h-f-d-100-ems-chemie-ag-domat-ems"
-      ]
+      ],
+      "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/verkaufscontroller-m-w-d/7b46733a-ad68-47a0-a6cd-0185720c86af"
     },
     {
       "title": "Assistenz Anwendungstechnik (m/w/d) 60%",
@@ -158,7 +288,7 @@
       "employmentType": "FULL_TIME",
       "category": "science",
       "description": "Assistenz Anwendungstechnik (m/w/d) 60% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
-      "postedDate": "2026-09-23",
+      "postedDate": "2026-09-24",
       "source": "company-website",
       "slug": "assistenz-anwendungstechnik-m-w-d-60-ems-chemie-domat-ems",
       "slugByLocale": {
@@ -170,7 +300,7 @@
       "titleByLocale": {
         "it": "Assistenza tecnica applicativa (m/f/d) 60%",
         "en": "Application Engineering Assistant (m/w/d) 60%",
-        "de": "Anwendungstechnik Assistenz (m/w/d) 60%",
+        "de": "Assistenz Anwendungstechnik (m/w/d) 60%",
         "fr": "Assistant Technologie d'Application (m/w/d) 60%"
       },
       "crawledAt": "",
@@ -196,89 +326,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-16T09:21:33.961Z"
-    },
-    {
-      "title": "Produktionscontroller (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/produktionscontroller-m-w-d/8dc3c64e-92f3-4c2c-b123-5d81b7db54ba",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "description": "Produktionscontroller (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
-      "postedDate": "2026-09-23",
-      "source": "company-website",
-      "slug": "produktionscontroller-100-ems-chemie-domat-ems",
-      "slugByLocale": {
-        "it": "produktionscontroller-100-ems-chemie-domat-ems",
-        "en": "produktionscontroller-100-ems-chemie-domat-ems",
-        "de": "produktscontroller-100-ems-chemie-ag-domat-ems",
-        "fr": "produktionscontroleur-100-ems-chemie-ag-domat-ems"
-      },
-      "titleByLocale": {
-        "it": "Produktionscontroller (m/w/d) 100%",
-        "en": "Produktionscontroller 100%",
-        "de": "Produktscontroller 100%",
-        "fr": "Produktionscontroller (m/w/d) 100%"
-      },
-      "crawledAt": "",
-      "descriptionByLocale": {
-        "it": "Descrizione\n- Produktionscontroller (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni).\n- EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo.\n- Sede di lavoro: Domat/Ems.",
-        "en": "Description - Produktions131ler (m/f/d) 100% from the EMS-Chemie AG, a leading company in the field of special polymers and fine chemistry based in Domat/Ems (Grisons). - The EMS-Chemie is the largest manufacturer of high performance polyamide worldwide, with about 3000 employees worldwide. - Workplace: Domat/Ems.",
-        "de": "Beschreibung - Produktions131ler (m/w/d) 100% von der EMS-Chemie AG, einem führenden Unternehmen im Bereich Spezialpolymere und Feinchemie mit Sitz in Domat/Ems (Grisons). - Die EMS-Chemie ist der größte Hersteller von Hochleistungs-Polyamid weltweit, mit rund 3000 Mitarbeitern weltweit. - Arbeitsplatz: Domat/Ems.",
-        "fr": "Description - Produits131ler (h/f/d) 100% de la société EMS-Chemie AG, une entreprise leader dans le domaine des polymères spéciaux et de la chimie fine basée à Domat/Ems (Grisons). - EMS-Chemie est le plus grand fabricant de polyamide haute performance dans le monde, avec environ 3000 employés dans le monde. - Milieu de travail: Domat/Ems."
-      },
-      "id": "ems-chemie-2fa86de245b7",
-      "sourceLang": "it",
-      "salaryMin": 77000,
-      "salaryMax": 127500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 127500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-10T23:08:00.550Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufscontroller-m-w-d-100-ems-chemie-domat-ems",
-          "sales-controller-m-w-d-100-ems-chemie-ag-domat-ems",
-          "139ler-m-w-d-100-ems-chemie-ag-domat-ems",
-          "controleur-de-ventes-h-f-d-100-ems-chemie-ag-domat-ems",
-          "produktionscontroller-m-w-d-100-ems-chemie-domat-ems"
-        ],
-        "en": [
-          "sales-controller-m-w-d-100-ems-chemie-ag-domat-ems"
-        ],
-        "de": [
-          "139ler-m-w-d-100-ems-chemie-ag-domat-ems"
-        ],
-        "fr": [
-          "controleur-de-ventes-h-f-d-100-ems-chemie-ag-domat-ems"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufscontroller-m-w-d-100-ems-chemie-domat-ems",
-        "sales-controller-m-w-d-100-ems-chemie-ag-domat-ems",
-        "139ler-m-w-d-100-ems-chemie-ag-domat-ems",
-        "controleur-de-ventes-h-f-d-100-ems-chemie-ag-domat-ems",
-        "produktionscontroller-m-w-d-100-ems-chemie-domat-ems"
-      ],
-      "needsRetranslation": true
+      "firstSeenAt": "2026-09-16T09:21:33.961Z",
+      "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/assistenz-anwendungstechnik-m-w-d/94594235-478c-4e44-add6-2cf33c2f14ae"
     },
     {
       "title": "Laborleiter Qualitätskontrolle Fasern und Garn (m/w/d) 100%",
@@ -296,19 +345,19 @@
       "employmentType": "FULL_TIME",
       "category": "science",
       "description": "Laborleiter Qualitätskontrolle Fasern und Garn (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
-      "postedDate": "2026-09-23",
+      "postedDate": "2026-09-24",
       "source": "company-website",
       "slug": "laborleiter-qualitatskontrolle-fasern-e-garn-m-w-d-100-ems-chemie-ag-domat-ems",
       "slugByLocale": {
         "it": "laborleiter-qualitatskontrolle-fasern-e-garn-m-w-d-100-ems-chemie-ag-domat-ems",
-        "en": "laboratory-manager-quality-control-phasers-and-yarn-m-f-d-100-ems-chemie-ag-domat-ems",
+        "en": "laborleiter-qualitatskontrolle-fasern-und-garn-m-w-d-100-ems-chemie-domat-ems",
         "de": "laborleiter-qualitatskontrolle-fasern-und-garn-m-w-d-100-ems-chemie-domat-ems",
-        "fr": "gestionnaire-de-laboratoire-phaseurs-de-controle-de-la-qualite-et-fil-h-f-d-100-ems-chemie-ag-domat-ems"
+        "fr": "laborleiter-qualitatskontrolle-fasern-und-garn-m-w-d-100-ems-chemie-domat-ems"
       },
       "titleByLocale": {
         "it": "Phaser di controllo qualità e filato (m/f/d) 100%",
         "en": "Laboratory Manager Quality Control Phasers and Yarn (m/f/d) 100%",
-        "de": "Laborleiter Qualitätskontrolle Phasern und Garn (m/w/d) 100%",
+        "de": "Laborleiter Qualitä Skliert und Garn (m/w/d) 100%",
         "fr": "Gestionnaire de laboratoire Phaseurs de contrôle de la qualité et fil (h/f/d) 100%"
       },
       "crawledAt": "",
@@ -336,23 +385,22 @@
       },
       "firstSeenAt": "2026-09-10T23:08:00.550Z",
       "previousSlugsByLocale": {
+        "it": [
+          "laborleiter-qualitatskontrolle-fasern-und-garn-m-w-d-100-ems-chemie-domat-ems"
+        ],
         "en": [
-          "laborleiter-qualitatskontrolle-fasern-und-garn-m-w-d-100-ems-chemie-domat-ems",
           "laboratory-manager-quality-control-phasers-and-yarn-m-f-d-100-ems-chemie-ag-domat-ems"
         ],
         "fr": [
-          "laborleiter-qualitatskontrolle-fasern-und-garn-m-w-d-100-ems-chemie-domat-ems",
           "gestionnaire-de-laboratoire-phaseurs-de-controle-de-la-qualite-et-fil-h-f-d-100-ems-chemie-ag-domat-ems"
-        ],
-        "it": [
-          "laborleiter-qualitatskontrolle-fasern-und-garn-m-w-d-100-ems-chemie-domat-ems"
         ]
       },
       "previousSlugs": [
         "laborleiter-qualitatskontrolle-fasern-und-garn-m-w-d-100-ems-chemie-domat-ems",
         "laboratory-manager-quality-control-phasers-and-yarn-m-f-d-100-ems-chemie-ag-domat-ems",
         "gestionnaire-de-laboratoire-phaseurs-de-controle-de-la-qualite-et-fil-h-f-d-100-ems-chemie-ag-domat-ems"
-      ]
+      ],
+      "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/laborleiter-qualitaetskontrolle-fasern-und-garn-m-w-d/666d01e2-4939-4073-a7c6-a2eebf5fd8ab"
     },
     {
       "title": "Elektroinstallateur/ Automatiker/in (m/w/d) 100%",
@@ -370,7 +418,7 @@
       "employmentType": "FULL_TIME",
       "category": "science",
       "description": "Elektroinstallateur/ Automatiker/in (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
-      "postedDate": "2026-09-23",
+      "postedDate": "2026-09-24",
       "source": "company-website",
       "slug": "elektroinstallateur-automatiker-in-m-w-d-100-ems-chemie-ag-domat-ems",
       "slugByLocale": {
@@ -416,7 +464,8 @@
       },
       "previousSlugs": [
         "elektroinstallateur-automatiker-in-m-w-d-100-ems-chemie-domat-ems"
-      ]
+      ],
+      "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/elektroinstallateur-automatiker-in-m-w-d/3a3724b6-107c-44ed-ae6a-2bafbed774ff"
     },
     {
       "title": "Key Account Manager Packaging (m/w/d) (100% Home-Office) 100%",
@@ -434,7 +483,7 @@
       "employmentType": "FULL_TIME",
       "category": "science",
       "description": "Key Account Manager Packaging (m/w/d) (100% Home-Office) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
-      "postedDate": "2026-09-23",
+      "postedDate": "2026-09-24",
       "source": "company-website",
       "slug": "key-account-manager-packaging-m-w-d-100-home-office-100-ems-chemie-domat-ems",
       "slugByLocale": {
@@ -445,7 +494,7 @@
       },
       "titleByLocale": {
         "it": "Packaging Key Account Manager (m/f/d) (100% Home Office) 100%",
-        "en": "Key Account Manager Packaging (m/w/d) (100% Home-Office) 100%",
+        "en": "Key Account Manager Packaging (m/f/d) (100% Home-Office) 100%",
         "de": "Key Account Manager Verpackung (m/w/d) (100 % Homeoffice) 100 %",
         "fr": "Gestionnaire de compte clé Emballage (h/f/d) (100% Home-Office) 100%"
       },
@@ -474,7 +523,8 @@
         }
       },
       "firstSeenAt": "2026-09-07T15:09:56.644Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/key-account-manager-packaging-m-w-d-home-office/0934fb73-93ac-499d-90ad-7da34c631459"
     },
     {
       "title": "Elektroniker für Betriebstechnik / Mechatroniker (m/w/d) 100%",
@@ -492,19 +542,19 @@
       "employmentType": "FULL_TIME",
       "category": "science",
       "description": "Elektroniker für Betriebstechnik / Mechatroniker (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
-      "postedDate": "2026-09-23",
+      "postedDate": "2026-09-24",
       "source": "company-website",
       "slug": "elektroniker-per-betriebstechnik-mechatroniker-m-w-d-100-ems-chemie-ag-domat-ems",
       "slugByLocale": {
         "it": "elektroniker-per-betriebstechnik-mechatroniker-m-w-d-100-ems-chemie-ag-domat-ems",
-        "en": "electronics-technician-for-industrial-technology-mechatronics-engineer-m-f-d-100-ems-chemie-ag-domat-ems",
+        "en": "elektroniker-fur-betriebstechnik-mechatroniker-m-w-d-100-ems-chemie-domat-ems",
         "de": "elektroniker-fur-betriebstechnik-mechatroniker-m-w-d-100-ems-chemie-domat-ems",
-        "fr": "technicien-en-electronique-pour-technologie-industrielle-ingenieur-mechatronics-h-f-d-100-ems-chemie-ag-domat-ems"
+        "fr": "elektroniker-fur-betriebstechnik-mechatroniker-m-w-d-100-ems-chemie-domat-ems"
       },
       "titleByLocale": {
         "it": "Tecnico elettronico per tecnologia industriale / ingegnere meccatronico (m/f/d) 100%",
         "en": "Electronics technician for industrial technology / mechatronics engineer (m/f/d) 100%",
-        "de": "Elektroniker f ①R Betriebstechnik / Mechatroniker (m/w/d)",
+        "de": "Elektroniker für Betriebstechnik / Mechatroniker (m/w/d) 100%",
         "fr": "Technicien en électronique pour technologie industrielle / ingénieur mechatronics (h/f/d) 100%"
       },
       "crawledAt": "",
@@ -536,23 +586,22 @@
       "localeMismatchSuppressedLen": 343,
       "needsRetranslation": true,
       "previousSlugsByLocale": {
+        "it": [
+          "elektroniker-fur-betriebstechnik-mechatroniker-m-w-d-100-ems-chemie-domat-ems"
+        ],
         "en": [
-          "elektroniker-fur-betriebstechnik-mechatroniker-m-w-d-100-ems-chemie-domat-ems",
           "electronics-technician-for-industrial-technology-mechatronics-engineer-m-f-d-100-ems-chemie-ag-domat-ems"
         ],
         "fr": [
-          "elektroniker-fur-betriebstechnik-mechatroniker-m-w-d-100-ems-chemie-domat-ems",
           "technicien-en-electronique-pour-technologie-industrielle-ingenieur-mechatronics-h-f-d-100-ems-chemie-ag-domat-ems"
-        ],
-        "it": [
-          "elektroniker-fur-betriebstechnik-mechatroniker-m-w-d-100-ems-chemie-domat-ems"
         ]
       },
       "previousSlugs": [
         "elektroniker-fur-betriebstechnik-mechatroniker-m-w-d-100-ems-chemie-domat-ems",
         "electronics-technician-for-industrial-technology-mechatronics-engineer-m-f-d-100-ems-chemie-ag-domat-ems",
         "technicien-en-electronique-pour-technologie-industrielle-ingenieur-mechatronics-h-f-d-100-ems-chemie-ag-domat-ems"
-      ]
+      ],
+      "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/elektroniker-fuer-betriebstechnik-mechatroniker-m-w-d/4a254f58-0893-432a-b451-eecd2ca50dba"
     },
     {
       "title": "Senior Financial Accountant / Fachspezialist Rechnungswesen (m/w/d) 100%",
@@ -570,7 +619,7 @@
       "employmentType": "FULL_TIME",
       "category": "science",
       "description": "Senior Financial Accountant / Fachspezialist Rechnungswesen (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
-      "postedDate": "2026-09-23",
+      "postedDate": "2026-09-24",
       "source": "company-website",
       "slug": "senior-financial-accountant-fachspezialist-rechnungswesen-m-w-d-100-ems-chemie-domat-ems",
       "slugByLocale": {
@@ -582,7 +631,7 @@
       "titleByLocale": {
         "it": "Senior Financial Accountant / Specialista Contabilità (m/f/d) 100%",
         "en": "Senior Financial Accountant / Specialist Accounting (m/f/d) 100%",
-        "de": "Senior Financial Accountant / Fachspezialist Rechnungswesen (m/w/d) 100%",
+        "de": "Senior Financial Accountant / Facharzt Rechnungswesen (m/w/d) 100%",
         "fr": "Comptable financier principal / Comptable spécialiste (h/f/d) 100%"
       },
       "crawledAt": "",
@@ -610,7 +659,8 @@
         }
       },
       "firstSeenAt": "2026-09-07T15:09:56.644Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/senior-financial-accountant-fachspezialist-rechnungswesen-m-w-d/5608412e-903b-48f7-bd6c-f5f87287a3f0"
     },
     {
       "title": "HR Business Partner/Personalreferent (m/w/d) 100%",
@@ -628,7 +678,7 @@
       "employmentType": "FULL_TIME",
       "category": "science",
       "description": "HR Business Partner/Personalreferent (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
-      "postedDate": "2026-09-23",
+      "postedDate": "2026-09-24",
       "source": "company-website",
       "slug": "hr-business-partner-personalreferent-m-w-d-100-ems-chemie-domat-ems",
       "slugByLocale": {
@@ -666,7 +716,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T13:33:04.317Z"
+      "firstSeenAt": "2026-09-04T13:33:04.317Z",
+      "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/hr-business-partner-personalreferent-m-w-d/e8adb7ff-a22a-450b-a858-9ee5c15acbfb"
     },
     {
       "title": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100%",
@@ -684,7 +735,7 @@
       "employmentType": "FULL_TIME",
       "category": "science",
       "description": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
-      "postedDate": "2026-09-23",
+      "postedDate": "2026-09-24",
       "source": "company-website",
       "slug": "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-ag-domat-ems",
       "slugByLocale": {
@@ -730,7 +781,8 @@
       },
       "previousSlugs": [
         "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems"
-      ]
+      ],
+      "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d/d2dfabd7-661b-4af5-8846-8fa82c9003e3"
     },
     {
       "title": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%",
@@ -748,19 +800,19 @@
       "employmentType": "FULL_TIME",
       "category": "science",
       "description": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
-      "postedDate": "2026-09-23",
+      "postedDate": "2026-09-24",
       "source": "company-website",
       "slug": "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems",
       "slugByLocale": {
         "it": "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems",
-        "en": "project-manager-artoff-applications-automotive-m-f-d-100-ems-chemie-ag-domat-ems",
+        "en": "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems",
         "de": "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems",
         "fr": "projektleiter-kunstoffanwendungen-automobile-h-f-d-100-ems-chemie-ag-domat-ems"
       },
       "titleByLocale": {
         "it": "Responsabile di progetto Applicazioni in plastica Automobile (m/f/d) 100%",
         "en": "Project Manager Artoff Applications Automotive (m/f/d) 100%",
-        "de": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%",
+        "de": "Projektleiter Kunstoffanwendungen Automobil (m/w/d) 100%",
         "fr": "Gestionnaire de projet Applications Artoff Automobile (h/f/d) 100%"
       },
       "crawledAt": "",
@@ -788,18 +840,18 @@
       },
       "firstSeenAt": "2026-09-03T13:34:33.172Z",
       "previousSlugsByLocale": {
-        "en": [
-          "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems",
-          "project-manager-artoff-applications-automotive-m-f-d-100-ems-chemie-ag-domat-ems"
-        ],
         "it": [
           "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems"
+        ],
+        "en": [
+          "project-manager-artoff-applications-automotive-m-f-d-100-ems-chemie-ag-domat-ems"
         ]
       },
       "previousSlugs": [
         "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems",
         "project-manager-artoff-applications-automotive-m-f-d-100-ems-chemie-ag-domat-ems"
-      ]
+      ],
+      "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-automobil-m-w-d/bba40aea-b4b7-4b31-95c2-4185094e19ae"
     },
     {
       "title": "IT Engineer 100%",
@@ -817,7 +869,7 @@
       "employmentType": "FULL_TIME",
       "category": "science",
       "description": "IT Engineer 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
-      "postedDate": "2026-09-23",
+      "postedDate": "2026-09-24",
       "source": "company-website",
       "slug": "it-supporter-100-ems-chemie-romanshorn",
       "slugByLocale": {
@@ -867,7 +919,8 @@
         "it-supporter-100-ems-chemie-domat-ems",
         "it-engineer-100-ems-chemie-romanshorn",
         "it-engineer-100-ems-chemie-domat-ems"
-      ]
+      ],
+      "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/it-engineer/8b0c7794-62f8-4757-90de-d5f5d4275dc8"
     },
     {
       "title": "Entwicklungschemiker / Entwicklungsingenieur m/w/d 100%",
@@ -885,7 +938,7 @@
       "employmentType": "FULL_TIME",
       "category": "science",
       "description": "Entwicklungschemiker / Entwicklungsingenieur m/w/d 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Romanshorn.",
-      "postedDate": "2026-09-23",
+      "postedDate": "2026-09-24",
       "source": "company-website",
       "slug": "entwicklungschemiker-entwicklungsingenieur-m-w-d-100-ems-chemie-romanshorn",
       "slugByLocale": {
@@ -927,7 +980,8 @@
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 338,
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/entwicklungschemiker-entwicklungsingenieur-m-w-d/c9b0ac93-f797-4150-8e84-5ef5f33f89de"
     },
     {
       "title": "Raumpfleger (m/w/d) 20%",
@@ -945,7 +999,7 @@
       "employmentType": "FULL_TIME",
       "category": "science",
       "description": "Raumpfleger (m/w/d) 20% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
-      "postedDate": "2026-09-23",
+      "postedDate": "2026-09-24",
       "source": "company-website",
       "slug": "raumpfleger-m-w-d-20-ems-chemie-domat-ems",
       "slugByLocale": {
@@ -991,7 +1045,8 @@
       },
       "previousSlugs": [
         "polymechaniker-w-m-d-100-ems-chemie-domat-ems"
-      ]
+      ],
+      "sourceIdentity": "url:https://jobs.ems-group.com/offene-stellen/raumpfleger-m-w-d/bfcd16eb-1a00-4444-9ddc-2f9be9347fa4"
     }
   ]
 }

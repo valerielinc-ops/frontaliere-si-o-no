@@ -148,21 +148,17 @@ describe('runtime reliability watchdog', () => {
     expect(result.reasons).toContain('apex behind CDN by 2.61h');
   });
 
-  it('stays degraded mid-rollout when an asset looks stale, without purging', () => {
+  it('keeps a stale 200 asset blocking while the CDN rollout is in progress', () => {
     const result = evaluateProbe({
-      siteCached: { body: '1789724819997', status: 200, ok: true },
-      siteFresh: { body: '1789724819997', status: 200, ok: true },
-      cdnMarker: { body: '1789734217605', status: 200, ok: true },
+      siteCached: { body: '1700000000000', status: 200, ok: true },
+      siteFresh: { body: '1700000000000', status: 200, ok: true },
+      cdnMarker: { body: '1700000000001', status: 200, ok: true },
       assets: [{
         path: '/assets/App.js',
         cached: { status: 200, ok: true, bytes: 3, hash: 'old' },
         fresh: { status: 200, ok: true, bytes: 3, hash: 'new' },
       }],
     });
-    // A differing hash does not prove the cached body is the generation the
-    // live HTML wants, so it stays degraded — but the repair is still blocked,
-    // because purging mid-rollout would refill from a generation the apex is
-    // not serving yet.
     expect(result.ok).toBe(false);
     expect(result.reasons).toContain('/assets/App.js: stale');
     expect(evaluateRepairPolicy({ probe: result }).action).toBe('blocked_marker');

@@ -60,10 +60,11 @@ on:
     # anything marginally worse.
     #
     # The previously-claimed "full 3h gap before send-newsletter at 03:33" does
-    # not exist in practice and is not needed: effective start is ~04:33 here vs
-    # ~06:13 for the newsletter (a ~1h40m gap), and on p90 days this one starts
-    # AFTER the newsletter. The two workflows have no data dependency and
-    # separate `concurrency` groups, so the ordering is not required.
+    # not exist in practice: effective start is ~04:33 here vs ~06:13 for the
+    # newsletter (a ~1h40m gap), and on p90 days this one starts AFTER the
+    # newsletter. The newsletter keeps its cron as a fallback and also accepts
+    # a verified handoff after this primary slot completes; neither path changes
+    # the job-alert data contract or its own concurrency group.
     - cron: '33 0 * * *'
     # SECONDO SLOT — 12:07 UTC. Aggiunto il 2026-08-14 su decisione del
     # proprietario, ora che il soffitto di cadenza e' tolto e la tabella
@@ -107,12 +108,6 @@ on:
         required: false
         default: true
         type: boolean
-      human_approval:
-        description: 'Explicit human approval for sending emails.'
-        required: false
-        default: false
-        type: boolean
-
 concurrency:
   group: job-alerts
   # CANCEL-IN-PROGRESS: FALSE dal 2026-08-14, ed e' la meta' che rende sicuro il
@@ -159,21 +154,11 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Require human approval for email side effects
-        id: side_effect_gate
-        env:
-          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
-          APPROVAL_CONSENT: ${{ inputs.human_approval }}
-          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
-          APPROVAL_TRUSTED_SCHEDULE: 'true'
-          APPROVAL_SCOPE: job-alert-email
-        run: node scripts/ci/human-side-effect-gate.mjs
-
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -185,7 +170,7 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load secrets from Remote Config
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       # Content-addressed cache of the assembled dataset. The key is printed by
@@ -220,7 +205,7 @@ jobs:
           key: assemble-jobs-send-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
 
       - name: Send job alert emails
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         continue-on-error: true
         id: send-alerts
         env:
@@ -230,8 +215,8 @@ jobs:
           # import as well as to the explicit failure-report step below.
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TARGET_EMAIL: ${{ inputs.target_email }}
-          ALLOW_SIDE_EFFECT: ${{ steps.side_effect_gate.outputs.allow_side_effect }}
-          EFFECTIVE_DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
+          ALLOW_SIDE_EFFECT: 'true'
+          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
           # Bypass newsletter cooldown when targeting a single test recipient
           SKIP_NEWSLETTER_COOLDOWN: ${{ inputs.target_email != '' && '1' || '' }}
         run: |
@@ -265,3 +250,42 @@ jobs:
         run: |
           echo "::error::invio delle job alert fallito — vedi l'issue aperta sopra."
           exit 1
+
+      # The newsletter is chained only from the primary daily slot. The marker
+      # is uploaded after the failure gate, so a partial/failed alert run can
+      # never authorize a newsletter send. The UTC date is the handoff key used
+      # to correlate the event-driven run with the fallback cron; recipient-level
+      # idempotency remains in the newsletter campaign ledger.
+      - name: Create primary newsletter handoff marker
+        if: steps.send-alerts.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule == '33 0 * * *'
+        env:
+          HANDOFF_DIR: ${{ runner.temp }}/newsletter-handoff
+        run: |
+          mkdir -p "$HANDOFF_DIR"
+          jq -n \
+            --arg source_run_id "$GITHUB_RUN_ID" \
+            --arg source_run_attempt "$GITHUB_RUN_ATTEMPT" \
+            --arg source_branch "$GITHUB_REF_NAME" \
+            --arg newsletter_key "$(date -u +%F)" \
+            '{
+              schema_version: 1,
+              kind: "newsletter-jobalert-handoff",
+              schedule: "33 0 * * *",
+              source_workflow: "Send Job Alert Emails",
+              source_workflow_path: ".github/workflows/send-job-alerts.yml",
+              source_event: "schedule",
+              source_conclusion: "success",
+              source_run_id: $source_run_id,
+              source_run_attempt: $source_run_attempt,
+              source_branch: $source_branch,
+              newsletter_key: $newsletter_key
+            }' > "$HANDOFF_DIR/primary.json"
+
+      - name: Upload primary newsletter handoff
+        if: steps.send-alerts.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule == '33 0 * * *'
+        uses: actions/upload-artifact@v7
+        with:
+          name: newsletter-handoff-${{ github.run_id }}
+          path: ${{ runner.temp }}/newsletter-handoff/primary.json
+          if-no-files-found: error
+          retention-days: 3

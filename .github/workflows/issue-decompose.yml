@@ -153,6 +153,8 @@ jobs:
           REPO: ${{ github.repository }}
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          # Sotto il `timeout-minutes: 80` dello step (default action: 15).
+          exec_timeout_minutes: "70"
           github_token: ${{ env.APP_TOKEN }}
           # Il bridge host-side può creare sub-issue e il loro evento deve
           # riaprire il triage: usa solo l'identità operativa App/PAT, mai
@@ -169,10 +171,10 @@ jobs:
             2. Se esiste `VISION.md` nella root del repo, leggilo: contiene i driver di decisione (cosa è decidibile in autonomia e cosa è SEMPRE del proprietario).
             3. Leggi `AGENTS.md` → Non-Negotiables (vincolante anche per come formuli le schede).
 
-            **Triage preliminare — tre uscite rapide (scegli la prima che si applica):**
+            **Triage preliminare — due uscite rapide (scegli la prima che si applica):**
             - **Già risolta**: se la claim della issue non è più vera (rimisurala se il body contiene un comando; altrimenti verifica sul codice), posta un commento con la misura osservata e il comando che la riproduce, poi: `gh issue edit $ISSUE_NUMBER --add-label maybe-resolved --remove-label agent:decompose` e ultimo commento con `<!-- DECOMPOSE_OUTCOME: already-resolved -->`. STOP.
             - **Atomica**: se la issue descrive in realtà UNA sola causa con UN target chiaro (il max-turns era dovuto ad altro: diagnosi lunga, contesto mancante), NON scomporla artificialmente. Arricchisci la issue con un commento `## Scheda` (formato sotto — la scheda è ciò che fa risparmiare turni al fixer), poi `gh issue edit $ISSUE_NUMBER --add-label from-decompose --add-label agent:fix-queued --remove-label agent:decompose` e ultimo commento con `<!-- DECOMPOSE_OUTCOME: atomic-requeue -->`. (`from-decompose` = giudicata atomica: il drainer non la ri-decompone mai.) STOP.
-            - **Decisione del proprietario**: usa questa uscita SOLO se, dopo aver letto VISION.md e DECISIONS.md, manca davvero una decisione necessaria per scegliere lo scope. Non inferire un bisogno umano da dati personali/LPD, spese, invii massivi, ritiro di contenuti o scelte editoriali se i documenti hanno già una regola applicabile. Formula la DOMANDA DECIDIBILE con opzioni, evidenza richiesta e criterio di accettazione; poi `gh issue edit $ISSUE_NUMBER --add-label needs-human --remove-label automation-deferred --remove-label agent:decompose` e ultimo commento con `<!-- DECOMPOSE_OUTCOME: needs-human-decision -->` e `<!-- OWNER_DECISION_REQUEST: ... -->`. STOP.
+            - **Nessuna domanda al proprietario** (DECISIONS.md 2026-09-24): se lo scope richiede una scelta che VISION.md e DECISIONS.md non coprono, la prendi tu con la direttiva «non perdere pagine SEO, revenue o utenti», scegliendo il default più conservativo rispetto a quella direttiva. Scrivi la scelta e il driver citato nel commento `## Scheda` o nel body delle sub-issue e prosegui con lo scorporo. Non usare `needs-human`.
 
             **Decomposizione (il caso normale):**
             1. Identifica da 2 a 6 unità di lavoro ATOMICHE: una root cause ciascuna, un insieme di file target ciascuna, indipendenti fra loro dove possibile. Se le unità naturali sono più di 6: crea le 5 di massimo valore (funnel: revenue > SEO > stabilità > resto) più UNA issue-contenitore con l'elenco del residuo — la issue-contenitore NON riceve `from-decompose`, così il ciclo la ri-decompone al giro successivo (convergenza: ogni giro chiude ≥5 unità).
