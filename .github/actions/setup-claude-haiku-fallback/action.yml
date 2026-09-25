@@ -27,6 +27,16 @@ inputs:
       Optional CODEX_AUTH_JSON secret. It is consumed only while bootstrapping
       the private broker; it is never exported to the job environment.
     required: false
+  broker_idle_ttl_ms:
+    description: >-
+      Idle TTL of the Codex auth broker, in milliseconds. The default (30
+      minutes) fits jobs that call Codex steadily. A job whose consumer can
+      stay idle longer, such as a last-resort translation tier reached only
+      after every other tier failed on a text, passes its own envelope here;
+      the explicit cleanup step still ends the broker. Values outside
+      60000..21600000 fall back to the default.
+    required: false
+    default: '1800000'
 outputs:
   codex_auth_broker_socket:
     description: >-
@@ -471,6 +481,7 @@ runs:
       shell: bash
       env:
         CODEX_AUTH_JSON: ${{ inputs.codex_auth_json }}
+        BROKER_IDLE_TTL_MS: ${{ inputs.broker_idle_ttl_ms }}
         CODEX_CLI_BIN: ${{ steps.install_codex_cli.outputs.codex_bin }}
         CODEX_CLI_REALPATH: ${{ steps.install_codex_cli.outputs.codex_realpath }}
         CODEX_CLI_SHA256: ${{ steps.install_codex_cli.outputs.codex_sha256 }}
@@ -560,11 +571,20 @@ runs:
           rm -rf -- "$auth_dir"
           exit 0
         fi
+        # Digits only, at most 8 of them, then bounded: anything else keeps
+        # the 30-minute default.
+        broker_ttl_ms="$BROKER_IDLE_TTL_MS"
+        case "$broker_ttl_ms" in
+          ''|*[!0-9]*) broker_ttl_ms=1800000 ;;
+        esac
+        if [ "${#broker_ttl_ms}" -gt 8 ] || [ "$broker_ttl_ms" -lt 60000 ] || [ "$broker_ttl_ms" -gt 21600000 ]; then
+          broker_ttl_ms=1800000
+        fi
         # The broker receives the credential only through the FIFO. Start it
         # with an empty environment so CODEX_AUTH_JSON from this step cannot
         # leak into the long-lived broker process or any diagnostics.
         nohup /usr/bin/env -i PATH="$PATH" "$node_bin" "$GITHUB_ACTION_PATH/codex-auth-broker.mjs" \
-          --socket "$broker_socket" --ttl-ms 1800000 --max-requests 512 \
+          --socket "$broker_socket" --ttl-ms "$broker_ttl_ms" --max-requests 512 \
           --codex-bin "$CODEX_CLI_BIN" --codex-realpath "$CODEX_CLI_REALPATH" \
           --codex-sha256 "$CODEX_CLI_SHA256" --codex-prefix "$CODEX_CLI_PREFIX" \
           < "$auth_fifo" > /dev/null 2>&1 &

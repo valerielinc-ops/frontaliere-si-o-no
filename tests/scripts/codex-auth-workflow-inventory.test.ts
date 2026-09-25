@@ -33,11 +33,14 @@ const setupActionPattern = /(?:^\.\/|[^/]+\/[^/]+\/)?\.github\/actions\/setup-cl
 const codexSecretExpression = '${{ secrets.CODEX_AUTH_JSON }}';
 const codexBrokerOutputExpression = '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}';
 const claudeOAuthExpression = '${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}';
-const noCodexWorkflowNames = new Set([
-  'translate-pending.yml',
-  'translate-pending-logic.yml',
-  'housekeeping-jobs-logic.yml',
-  'jobs-pipeline-queue-monitor.yml',
+// Chiave `<cartella>/<file>`: `translate-pending.yml` esiste sia come chiamante
+// locale del sito (disabilitato, senza Codex) sia come artifact del corpus, che
+// dal 2026-09-25 usa Codex come ultimo tier delle fasi 2d/2e, dopo Argos
+// (decisione del proprietario; vedi translate-pending-codex-last-tier.test.ts).
+const noCodexWorkflows = new Set([
+  'workflows/translate-pending.yml',
+  'workflows/housekeeping-jobs-logic.yml',
+  'workflows/jobs-pipeline-queue-monitor.yml',
 ]);
 
 describe('indirect Codex auth workflow inventory', () => {
@@ -62,7 +65,7 @@ describe('indirect Codex auth workflow inventory', () => {
 
       const setupSteps = jobs.flatMap((job) => job.steps ?? [])
         .filter((step) => typeof step.uses === 'string' && setupActionPattern.test(step.uses));
-      if (noCodexWorkflowNames.has(name)) {
+      if (noCodexWorkflows.has(`${path.basename(dir)}/${name}`)) {
         expect(setupSteps, name).toHaveLength(0);
         expect(workflow, name).not.toContain('CODEX_AUTH_BROKER_SOCKET');
         expect(workflow, name).not.toContain('setup-claude-haiku-fallback');

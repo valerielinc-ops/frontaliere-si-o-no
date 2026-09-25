@@ -2115,21 +2115,36 @@ describe('cross-repo crawler execution artifacts', () => {
     const generateArticle = fs.readFileSync(path.join(ROOT, '.github/workflows/generate-article.yml'), 'utf8');
     expect(generateArticle).not.toMatch(/AI_MODELS_PREFER:\s*codex-cli\/gpt-5\.6-luna/);
 
+    // translate-pending usa Codex solo come ultimo tier delle fasi 2d/2e, dopo
+    // Argos (decisione del proprietario del 2026-09-25): stesso confinamento
+    // del secret dei crawler, e la cascata 2b resta senza socket.
     const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
-    const translationSetupStep = Object.values(translation.jobs)[0].steps.find(
+    const translationSteps: any[] = Object.values(translation.jobs)[0].steps;
+    const translationSetupStep = translationSteps.find(
       (step: any) => step.uses === './.github/actions/setup-claude-haiku-fallback',
     );
-    expect(translationSetupStep).toBeUndefined();
-    const translationStep = Object.values(translation.jobs)[0].steps.find(
+    expect(translationSetupStep?.id).toBe('setup_claude_haiku_fallback');
+    expect(translationSetupStep?.with?.codex_auth_json).toBe('${{ secrets.CODEX_AUTH_JSON }}');
+    const translationStep = translationSteps.find(
       (step: any) => step.env?.JOBS_CRAWLER_USE_FIRESTORE_CONFIG === '1',
     );
     expect(translationStep.env.CODEX_AUTH_JSON).toBeUndefined();
     expect(translationStep.env.CODEX_AUTH_BROKER_SOCKET).toBeUndefined();
     expect(translationStep.env.CLAUDE_CODE_OAUTH_TOKEN).toBeUndefined();
-    const translationCleanupStep = Object.values(translation.jobs)[0].steps.find(
+    const translationConsumers = translationSteps.filter((step: any) => step.env?.CODEX_AUTH_BROKER_SOCKET
+      && step.name !== 'Cleanup Codex auth broker');
+    expect(translationConsumers.map((step: any) => step.name)).toEqual([
+      'Phase 2d: Fix untranslated titles (free cascade)',
+      'Phase 2e: Fix untranslated descriptions (free cascade)',
+    ]);
+    expect(translationSteps.every((step: any) => step.env?.CODEX_AUTH_JSON === undefined
+      && step.env?.AI_MODELS_PREFER === undefined
+      && step.env?.CLAUDE_CODE_OAUTH_TOKEN === undefined)).toBe(true);
+    const translationCleanupStep = translationSteps.find(
       (step: any) => step.name === 'Cleanup Codex auth broker',
     );
-    expect(translationCleanupStep).toBeUndefined();
+    expect(translationCleanupStep?.if).toBe('always()');
+    expect(translationCleanupStep?.run).toContain('--cleanup --socket "$CODEX_AUTH_BROKER_SOCKET"');
   });
 
   it('avvolge tutte le installazioni standalone nei retry site-owned', () => {
@@ -2296,9 +2311,11 @@ describe('cross-repo crawler execution artifacts', () => {
     const postGuardAlways = job.steps
       .slice(job.steps.indexOf(guard) + 1)
       .filter((step: any) => typeof step.if === 'string' && step.if.includes('always()'));
+    // Il cleanup del broker Codex (fasi 2d/2e) resta vivo anche su una
+    // riesecuzione respinta, come il reporter: toglie solo un socket, se c'e'.
     const cleanup = postGuardAlways.find((step: any) => step.name === 'Cleanup Codex auth broker');
-    expect(cleanup).toBeUndefined();
-    for (const step of postGuardAlways) {
+    expect(cleanup?.if).toBe('always()');
+    for (const step of postGuardAlways.filter((entry: any) => entry !== cleanup)) {
       expect(step.if, step.name).toContain(recoveryReady);
     }
     expect(postGuardAlways.some((step: any) => step.name === 'Install Argos Translate (local MT engine)')).toBe(true);

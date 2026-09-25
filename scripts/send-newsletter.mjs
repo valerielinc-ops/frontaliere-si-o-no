@@ -252,7 +252,8 @@ const NEWSLETTER_AI_CHAIN = [
   'gemini-2.5-flash-lite',      // Google — 3000 req/day free, lightweight
   'gemma-4-31b-it',             // Google — 14,400 req/day free
   'gemma-4-26b-a4b-it',         // Google — 14,400 req/day free (Gemma 4 MoE — exact API id)
-  'mistral/mistral-small-latest', // Mistral — 1B tokens/month free
+  // 'mistral/mistral-small-latest' tolto: Mistral e' in RETIRED_FREE_PROVIDERS
+  // (HTTP 402 permanente dal 2026-09, vedi scripts/lib/ai-models.mjs).
   'gemini-2.5-pro',             // Google — 500 req/day free, highest quality fallback
   // Self-hosted local AI gateway (OmniRoute), same AI_MODELS.OMNIROUTE_AUTO
   // used by create-article.mjs's DEFAULT_CHAIN. Since 2026-07-29
