@@ -1,0 +1,140 @@
+name: full-suite dispatch
+
+# Suite Vitest COMPLETA in un checkout PIENO, solo su richiesta (issue #9740,
+# FU-2026-09-18-013).
+#
+# ─── PERCHÉ ESISTE ─────────────────────────────────────────────────────────
+#
+# Nessun altro runner esegue la suite intera in un checkout pieno:
+#   - `tests.yml` esegue solo i test collegati al diff
+#     (`scripts/ci/run-related-tests.mjs`) in un checkout sparse, con
+#     `VITEST_SKIP_LIVE_DATA` e `VITEST_SKIP_CORPUS_WIDE`;
+#   - `corpus-wide-gates.yml` esegue solo il registro corpus-wide
+#     (`VITEST_CORPUS_GROUP=only`);
+#   - `live-data-gates.yml` copre solo i file su dati vivi.
+# L'unico numero disponibile prima di questo file (`192 failed` su 2.341 file,
+# PR #8883) veniva da un worktree sparse senza `data/` né `public/`, quindi
+# misurava l'assenza dei file e non una regressione. Questa run produce la
+# baseline vera: il numero di FILE rossi e il loro elenco. Non
+# `numFailedTestSuites` da solo: Vitest vi conta anche ogni `describe`, quindi
+# non è confrontabile con il `192` (file); lo script del riepilogo li tiene
+# separati.
+#
+# ─── PERCHÉ SOLO `workflow_dispatch` ────────────────────────────────────────
+#
+# Stessa scelta scritta in `corpus-wide-gates.yml`: niente costo CI permanente
+# su main. Il pool di job del piano Free è condiviso con auto-merge, review e
+# pr-body-contract; una suite intera a ogni push lo affamerebbe. Si lancia a
+# mano, dopo il merge:
+#
+#   gh workflow run full-suite-dispatch.yml --ref main --repo valerielinc-ops/frontaliere-si-o-no
+#
+# Nessuna issue automatica sul rosso: questa run è una MISURA, e il suo esito
+# atteso oggi è rosso (file rossi già noti). Le riparazioni si scorporano dal
+# report, un file o una causa per issue figlia.
+
+on:
+  workflow_dispatch:
+
+# Sola lettura: niente issue, niente commenti, niente scrittura sul repo. Il
+# report esce come artifact e come riepilogo della run.
+permissions:
+  contents: read
+
+# Una sola run per ref. `cancel-in-progress: false`: una misura cancellata a
+# metà non risponde alla domanda, la distrugge.
+concurrency:
+  group: full-suite-dispatch-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  full-suite:
+    name: vitest (suite completa, checkout pieno)
+    runs-on: ubuntu-latest
+    # Tetto del job: checkout + npm ci + assemble + suite. Lo step della suite
+    # ha un tetto proprio più basso, così gli step `if: always()` di riepilogo
+    # e upload girano anche quando la suite sfora.
+    timeout-minutes: 60
+    steps:
+      # Checkout PIENO: niente `sparse-checkout`. È il requisito di correttezza
+      # di questa misura — i test leggono `data/`, `public/`,
+      # `packages/articles/content/` e `services/locales/`, e in uno sparse
+      # diventano rossi (o verdi) per assenza dei file.
+      #
+      # `fetch-depth: 0` + `filter: blob:none`: diversi test interrogano la
+      # storia git (`git log`, `merge-base`, `origin/main`). Con la storia
+      # troncata a 1 sarebbero rossi per il checkout, non per il codice.
+      # `blob:none` tiene commit e tree (la storia per path funziona) senza
+      # scaricare i blob storici; `tree:0` di tests.yml qui non basta perché
+      # non regge `git log -- <path>`.
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          filter: blob:none
+
+      # `actions/checkout` non crea `refs/remotes/origin/main`: i test che la
+      # leggono per nome la trovano solo con il refspec esplicito (issue #6058).
+      - name: Fetch origin/main by name
+        run: git fetch --no-tags origin "+refs/heads/main:refs/remotes/origin/main"
+
+      # setup-node + restore cache npm + `npm ci`; il save della cache npm
+      # avviene solo su `refs/heads/main` (tests/npm-cache-save-main-only.test.ts).
+      - name: Setup Node.js + npm ci
+        uses: ./.github/actions/ci-npm-setup
+
+      - name: Compute assemble-jobs cache key
+        id: assemble_cache_key
+        # Stessa chiave di tests.yml e corpus-wide-gates.yml: la stampa
+        # l'assembler stesso, mai un hashFiles() su un sottoinsieme degli input.
+        uses: ./.github/actions/assemble-jobs-cache-key
+        with:
+          args: --stats
+      - name: Cache assemble-jobs output
+        if: steps.assemble_cache_key.outputs.key != ''
+        uses: actions/cache@v5
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+          restore-keys: |
+            assemble-jobs-${{ runner.os }}-
+
+      - name: Assemble data/jobs.json
+        # `data/jobs.json` è gitignored: senza questo step i test che lo leggono
+        # si auto-saltano o diventano rossi per un file mancante.
+        run: node scripts/assemble-jobs-dataset.mjs --stats
+
+      - name: Migrate canton-aware tracking
+        # Stesso ordine di tests.yml e corpus-wide-gates.yml: legge
+        # data/jobs.json e riscrive il registro degli slug. Idempotente.
+        run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+
+      - name: vitest run (suite completa)
+        id: suite
+        # Nessuna env di selezione o tolleranza (`VITEST_CORPUS_GROUP`,
+        # `VITEST_DATASET_GROUP`, `VITEST_SKIP_*`), nessun `--bail`, nessun
+        # `continue-on-error`: gira TUTTO, e se un file è rosso lo step è rosso.
+        # `pipefail` perché l'exit code da propagare è quello di `npm test`, non
+        # quello di `tee`. Il reporter `json` scrive il report che il
+        # riepilogo sotto trasforma nell'elenco dei file rossi.
+        timeout-minutes: 40
+        run: |
+          set -o pipefail
+          npm test -- --reporter=default --reporter=json --outputFile=full-suite-report.json 2>&1 | tee full-suite-vitest.log
+
+      - name: Summarize red files
+        # `always()`: il riepilogo serve proprio quando la suite è rossa. Se il
+        # report manca (timeout, crash) lo step lo dice ed esce 1.
+        if: always()
+        run: node scripts/ci/full-suite-red-files.mjs --report full-suite-report.json --out full-suite-red-files.txt
+
+      - name: Upload full-suite report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: full-suite-report-${{ github.run_id }}
+          path: |
+            full-suite-report.json
+            full-suite-red-files.txt
+            full-suite-vitest.log
+          if-no-files-found: warn
+          retention-days: 30

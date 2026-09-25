@@ -2,6 +2,8 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+// @ts-expect-error — the recorder is a dependency-free ESM CI script.
+import { recordLoopEvidence } from '../scripts/ci/record-loop-fleet-evidence.mjs';
 import {
   MAX_CANDIDATES,
   main,
@@ -44,8 +46,27 @@ describe('L2 Demand → Utility', () => {
   it('accepts explicit outcome data and keeps the landing path canonical', () => {
     const verdict = validateDemandSnapshot(snapshot(), { now: NOW });
     expect(verdict).toMatchObject({ ok: true, quality: 'observed' });
-    expect(verdict.candidates[0].landingPath).toBe('/offerte-lavoro-ticino/');
+    expect(verdict.candidates[0].landingPath).toBe('/ricerca/offerte-lavoro-ticino/');
     expect(verdict.snapshot.outcomes).toEqual({ eligibleLandingSessions: 1200, usefulActions: 180 });
+  });
+
+  it('links a measured GA4 outcome to a candidate decision for canonical recording', async () => {
+    const input = tempFile(snapshot());
+    const result = await runL2({ now: NOW, sourcePath: input.file, reportDir: input.dir, logger: { log() {} } });
+    expect(result.observation.outcome).toMatchObject({
+      status: 'observed',
+      independent: true,
+      numerator: 180,
+      denominator: 1200,
+      sourceRefs: ['gsc', 'ga4-landing-path'],
+    });
+    expect(result.decision.decision).toBe('candidate');
+    const recorded = recordLoopEvidence({ loopId: 'L2', reportDir: input.dir, now: NOW });
+    expect(recorded.health).toMatchObject({
+      ok: true,
+      outcome: { status: 'observed', independent: true, numerator: 180, denominator: 1200 },
+      outcomeErrors: [],
+    });
   });
 
   it('does not turn GSC clicks into useful actions when outcomes are absent', () => {
@@ -140,7 +161,7 @@ describe('L2 Demand → Utility', () => {
     expect(result.candidatesWritten).toBe(true);
     expect(result.issued).toBe(true);
     expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l2-candidates.json'), 'utf8')))
-      .toMatchObject({ reversible: true, candidates: [{ landingPath: '/offerte-lavoro-ticino/' }] });
+      .toMatchObject({ reversible: true, candidates: [{ landingPath: '/ricerca/offerte-lavoro-ticino/' }] });
     expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l2-result.json'), 'utf8'))).toMatchObject({
       ok: false,
       issued: true,

@@ -942,31 +942,56 @@ function hasNoTimeoutEvidence(databaseId, repo = REPO, token) {
     { allowFailure: true, token },
   );
   if (out === null) return false;
+  let data;
   try {
-    const data = JSON.parse(out);
-    const jobs = data?.jobs;
-    const totalCount = Number(data?.total_count);
-    if (!Array.isArray(jobs) || !Number.isInteger(totalCount) || totalCount !== jobs.length) return false;
-    for (const job of jobs) {
-      if (job?.conclusion !== 'cancelled') continue;
-      if (!job?.check_run_url) return false;
-      const annotations = gh(['api', `${job.check_run_url}/annotations`, '--paginate', '--slurp'], { allowFailure: true, token });
-      if (annotations === null) return false;
-      let parsed;
-      try {
-        parsed = JSON.parse(annotations);
-      } catch {
-        return false;
-      }
-      if (!hasReadableAnnotationPages(parsed)) return false;
-      if (hasTimeoutAnnotation(parsed)) {
-        return false;
-      }
-    }
-    return true;
+    data = JSON.parse(out);
   } catch {
     return false;
   }
+  return hasNoTimeoutEvidenceFromJobs(data, (checkRunUrl) => {
+    const annotations = gh(['api', `${checkRunUrl}/annotations`, '--paginate', '--slurp'], { allowFailure: true, token });
+    if (annotations === null) return null;
+    try {
+      return JSON.parse(annotations);
+    } catch {
+      return null;
+    }
+  });
+}
+
+/**
+ * La meta' PURA di `hasNoTimeoutEvidence`: dato il payload della Jobs API e un lettore di
+ * annotation iniettabile, la run `cancelled` e' priva di prove di timeout?
+ *
+ * Estratta per la stessa ragione di `dropPhantomCancellations`: e' il ramo che decide se
+ * una run sparisce dallo storico, e un ramo del genere va provato con un test, non a
+ * occhio. `hasNoTimeoutEvidence` non e' testabile perche' parla con `gh` a ogni riga;
+ * questa lo e'.
+ *
+ * `readAnnotations(checkRunUrl)` torna le pagine gia' parsate, o `null` se la lettura e'
+ * fallita — e `null` non e' `[]`, che qui e' la distinzione portante.
+ */
+export function hasNoTimeoutEvidenceFromJobs(data, readAnnotations) {
+  const jobs = data?.jobs;
+  const totalCount = Number(data?.total_count);
+  if (!Array.isArray(jobs) || !Number.isInteger(totalCount) || totalCount !== jobs.length) return false;
+  for (const job of jobs) {
+    // Un job CONCLUSO in rosso e' gia' la prova che la run e' un fallimento, comunque sia
+    // finita la run che lo contiene: `cancelled` a livello di run vuol dire solo che
+    // qualcuno ha fermato cio' che restava. Senza questa uscita il ramo si sbilanciava
+    // verso il CLOSE — l'unico del file a farlo — perche' il `continue` qui sotto salta
+    // ogni job non-`cancelled` e la funzione finisce comunque a `true`, togliendo la run
+    // da numeratore E denominatore. `timed_out` e' nello stesso insieme per la ragione
+    // opposta e piu' forte: e' un timeout gia' dichiarato dall'API, senza annotation da
+    // leggere.
+    if (job?.conclusion === 'failure' || job?.conclusion === 'timed_out') return false;
+    if (job?.conclusion !== 'cancelled') continue;
+    if (!job?.check_run_url) return false;
+    const pages = readAnnotations(job.check_run_url);
+    if (!hasReadableAnnotations(pages)) return false;
+    if (hasTimeoutAnnotation(pages)) return false;
+  }
+  return true;
 }
 
 /** True when any paginated check-run annotation proves a timeout. */
@@ -976,13 +1001,39 @@ export function hasTimeoutAnnotation(pages) {
   )));
 }
 
-/** True only for complete, readable pages returned by the annotations API. */
-export function hasReadableAnnotationPages(pages) {
-  return Array.isArray(pages) && pages.every((annotations) => (
-    Array.isArray(annotations) && annotations.every((annotation) => (
-      annotation && typeof annotation.message === 'string'
-    ))
-  ));
+/**
+ * Abbiamo letto ALMENO UNA annotation, e tutte quelle lette sono leggibili?
+ *
+ * Il `.every()` da solo e' VACUAMENTE VERO sull'insieme vuoto, ed e' esattamente cio' che
+ * `--paginate --slurp` restituisce quando l'endpoint annotations non ha (ancora) niente:
+ * `[]` (nessuna pagina) o `[[]]` (una pagina vuota). Con la sola leggibilita', quelle due
+ * forme rendevano `hasTimeoutAnnotation` falsa e la run finiva classificata phantom —
+ * cioe' un timeout SCOMPARIVA dallo storico, abbassando il tasso in `decideRecurrenceHold`
+ * e liberando la issue mentre il timeout ricorreva, in silenzio. E' precisamente la
+ * famiglia di guasto che il commento di `hasNoTimeoutEvidence` dichiara di voler
+ * preservare, e che la vecchia `hasNoJobs` non poteva perdere.
+ *
+ * "Non ho letto niente" non e' "non c'e' niente": una lettura vuota vale come una lettura
+ * fallita, quindi `false` → PROCEED-SAFE, nessuna run esclusa, stesso bias-verso-l'hold di
+ * ogni altro fallback di questo file. La stessa forma la usa gia' `isDeclaredSkipOnly` in
+ * `scan-failed-runs.mjs` («un elenco vuoto NON e' uno skip dichiarato»).
+ *
+ * Il caso #5333 non ne risente: uno scarto in coda non ha JOB, quindi il ciclo di
+ * `hasNoTimeoutEvidence` non entra mai qui. Il caso che ora tiene aperto e' un job che e'
+ * PARTITO ed e' stato cancellato senza annotation leggibili — dove "non e' un timeout" e'
+ * una deduzione dal silenzio, non una misura.
+ */
+export function hasReadableAnnotations(pages) {
+  if (!Array.isArray(pages)) return false;
+  let seen = 0;
+  for (const annotations of pages) {
+    if (!Array.isArray(annotations)) return false;
+    for (const annotation of annotations) {
+      if (!annotation || typeof annotation.message !== 'string') return false;
+      seen += 1;
+    }
+  }
+  return seen > 0;
 }
 
 /**
@@ -1000,11 +1051,16 @@ export function hasReadableAnnotationPages(pages) {
  * COSTO, misurato il 2026-08-18 su `main` (`gh run list -b main -L 100`, per workflow):
  * `Deploy to GitHub Pages` 91/100 righe `cancelled`, `Follow-up drainer` 24/75,
  * `tests` 15/100, mediana degli altri 0. Quindi NON è vero che sia "sempre una
- * minoranza": sul workflow più cancellato del repo è quasi l'intero listing, cioè ~91
- * chiamate `gh api` per singola issue e per passata oraria. Resta sostenibile solo
- * perché le issue di fallimento aperte sono poche (4 al momento della misura, con un
- * solo workflow ripetuto) e il rate limit è 5000/h; se quel numero cresce, la leva è
- * memoizzare per `workflowName` dentro la passata, non allargare il filtro.
+ * minoranza": sul workflow più cancellato del repo è quasi l'intero listing.
+ *
+ * Il tetto per workflow non è più quello di quella misura: da quando il filtro chiede
+ * anche le annotation, una run `cancelled` costa 1 chiamata `jobs?per_page=100` PIÙ una
+ * `annotations --paginate` per ogni job cancellato, contro l'unica `per_page=1` di prima.
+ * Su `Deploy to GitHub Pages` sono ~91 × (1 + jobs cancellati) chiamate per passata.
+ * La leva già dichiarata qui — memoizzare per `workflowName` — è ora applicata in
+ * `recentCompletedRuns`, quindi quel tetto si paga UNA volta per workflow e non più una
+ * volta per issue: è ciò che toglie il fattore N delle issue aperte sullo stesso
+ * workflow, che era il termine capace di far esplodere il conto (rate limit 5000/h).
  *
  * @param {Array<{conclusion?: string, databaseId?: number}>} runs
  * @param {(databaseId: number) => boolean} isPhantom
@@ -1018,7 +1074,56 @@ export function dropPhantomCancellations(runs, isPhantom) {
 // dalla più nuova alla più vecchia, o null se il workflow non ha run
 // (rinominato/cancellato) o il listing è fallito — nel qual caso lasciamo
 // conservativamente aperta la issue, come da sempre.
-function recentCompletedRuns(workflowName, repo = REPO, token, options = {}) {
+// Memo per passata del listing+filtro di UN workflow. Lo script è un processo
+// monouso per invocazione del cron, quindi la cache non attraversa mai due passate e non
+// può servire uno storico stantio.
+//
+// Perché serve: N issue aperte sullo stesso workflow moltiplicavano per N un fan-out che
+// per una sola run `cancelled` è già `jobs` + un'`annotations` per job cancellato (vedi
+// il blocco COSTO sopra). La chiave è `repo` + `workflowName` + popolazione e NON include
+// il token: è derivato dal repo per costruzione (`crawlerRunToken(repo)`), quindi due
+// chiamate con lo stesso repo hanno per forza la stessa identità e quindi la stessa
+// visibilità.
+//
+// La POPOLAZIONE (`includeCrawlerShadowBranches`) è nella chiave perché cambia il listing
+// stesso: `-b main` contro tutti i branch filtrati sulle ref `crawler-generation-shadow-*`
+// (vedi `buildRunListArgs`). Senza, la prima chiamata di una passata deciderebbe lo
+// storico anche per l'altra, e un gruppo crawler potrebbe essere giudicato sulle sole run
+// legacy di `main` — il cieco che #8557 ha tolto.
+//
+// `null` è un risultato memoizzabile quanto un array — significa "listing fallito o
+// workflow senza run", cioè "lascia la issue aperta" — quindi la cache si interroga con
+// `has()`, non con un falsy check: `??=` rifarebbe l'intero fan-out a ogni issue proprio
+// nel caso in cui l'API sta già dando problemi.
+//
+// Il memo è una factory con `compute` iniettabile per la stessa ragione di
+// `dropPhantomCancellations`: la chiave decide quale storico giudica una issue, e va
+// provata con un test, non a occhio.
+
+/** Chiave del memo per passata: repo, workflow e popolazione di branch interrogata. */
+export function runHistoryMemoKey(workflowName, repo = REPO, options = {}) {
+  const population = options?.includeCrawlerShadowBranches === true ? 'shadow' : 'main';
+  return `${repo || ''}\n${workflowName}\n${population}`;
+}
+
+/**
+ * Avvolge `compute(workflowName, repo, token, options)` in un memo per passata.
+ * @param {(workflowName: string, repo: string, token: string | undefined, options: object) => unknown} compute
+ */
+export function createRunHistoryMemo(compute) {
+  const memo = new Map();
+  return function memoizedRunHistory(workflowName, repo = REPO, token, options = {}) {
+    const memoKey = runHistoryMemoKey(workflowName, repo, options);
+    if (memo.has(memoKey)) return memo.get(memoKey);
+    const runs = compute(workflowName, repo, token, options);
+    memo.set(memoKey, runs);
+    return runs;
+  };
+}
+
+const recentCompletedRuns = createRunHistoryMemo(computeRecentCompletedRuns);
+
+function computeRecentCompletedRuns(workflowName, repo, token, options = {}) {
   const includeCrawlerShadowBranches = options.includeCrawlerShadowBranches === true;
   const out = gh([
     ...buildRunListArgs(workflowName, { includeCrawlerShadowBranches }),

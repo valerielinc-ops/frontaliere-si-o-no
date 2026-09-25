@@ -7,7 +7,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 const spawnMock = vi.fn();
 vi.mock('node:child_process', () => ({ spawn: (...args: unknown[]) => spawnMock(...args) }));
 
-import { AI_MODELS, callLLM, getRunOutcomes, getScoreBoard, resetState } from '../../scripts/lib/ai-models.mjs';
+import { AI_MODELS, __enableClaudeCliLaneForTests, callLLM, getRunOutcomes, getScoreBoard, resetState } from '../../scripts/lib/ai-models.mjs';
 
 /**
  * Il minimo per-chiamata del CLI, LETTO DAL SORGENTE e non ricopiato.
@@ -141,6 +141,9 @@ describe('claude CLI: il flusso stream-json rende diagnosticabile il timeout', (
 
   beforeEach(() => {
     resetState();
+    // Haiku e' spento nel codice (2026-09-24): questi test esercitano la
+    // macchina claude-cli rimasta, quindi la riaccendono col seam di test.
+    __enableClaudeCliLaneForTests();
     spawnMock.mockReset();
     for (const k of ENV_KEYS) saved[k] = process.env[k];
     process.env.ENABLE_HAIKU_ARTICLE_FALLBACK = '1';

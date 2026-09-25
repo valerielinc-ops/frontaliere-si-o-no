@@ -1058,6 +1058,7 @@ describe('#6882 — Apleona has one explicit full-target wall timeout', () => {
     const bounded = manifest.filter((crawler: any) => crawler.targetTimeoutMinutes != null);
     expect(bounded.map((crawler: any) => ({ slug: crawler.slug, minutes: crawler.targetTimeoutMinutes }))).toEqual([
       { slug: 'apleona-schweiz-ag', minutes: 60 },
+      { slug: 'fachkraft', minutes: 150 },
     ]);
 
     const artifacts = [
@@ -1074,9 +1075,31 @@ describe('#6882 — Apleona has one explicit full-target wall timeout', () => {
     }
 
     const otherGroups = fs.readdirSync(path.join(ROOT, '.github/workflows'))
-      .filter((file) => /^crawler-group-(?!18(?:-logic)?\.yml$)\d+(?:-logic)?\.yml$/.test(file));
+      .filter((file) => /^crawler-group-(?!(?:18|24)(?:-logic)?\.yml$)\d+(?:-logic)?\.yml$/.test(file));
     for (const file of otherGroups) {
       expect(fs.readFileSync(path.join(ROOT, '.github/workflows', file), 'utf8')).not.toContain('target wall timeout');
+    }
+  });
+
+  // fachkraft non ha una riga nel baseline delle durate (2026-07-06): il
+  // watchdog cadeva sulla mediana del corpus ×3 = 74 min, mentre il crawl di
+  // ~3000 annunci finisce dopo ~75 min e l'housekeeping lo seguiva. Il
+  // 2026-09-23 il worker è stato ucciso con exit 124 a crawl completato.
+  it('gives fachkraft an explicit 150 minute target and a 160 minute worker watchdog in group 24', () => {
+    const { manifest } = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-manifest.json'), 'utf8'));
+    const fachkraft = manifest.find((crawler: any) => crawler.slug === 'fachkraft');
+    expect(crawlerWorkerWatchdogMinutes(fachkraft)).toBe(160);
+
+    for (const relativePath of [
+      '.github/workflows/crawler-group-24.yml',
+      '.github/workflows/crawler-group-24-logic.yml',
+      '.github/corpus-workflows/crawler-group-24.yml',
+    ]) {
+      const text = fs.readFileSync(path.join(ROOT, relativePath), 'utf8');
+      expect(text.match(/timeout --signal=TERM --kill-after=30s 150m bash -c/g)).toHaveLength(1);
+      expect(text).toContain('# ---- fachkraft: 150 minute target wall timeout ----');
+      expect(text).toContain('**Causa:** timeout del target dopo 150 minuti (exit 124).');
+      expect(text).toContain('worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-160}"');
     }
   });
 });
@@ -1300,6 +1323,9 @@ describe('#6482 — committed crawler-group-*.yml are byte-identical to the gene
       'fachkraft',
       'postfinance',
       'tsmg',
+      'tpl-lugano',
+      'capri-holdings',
+      'confederazione',
     ]);
     expect(previousGroup).not.toContain('mcdonald-s-switzerland');
     expect(generated[GROUP_COUNT - 1].members).toEqual(newGroup);
@@ -1349,7 +1375,11 @@ describe('#6482 — committed crawler-group-*.yml are byte-identical to the gene
     expect(JSON.parse(fs.readFileSync(a.assignmentsPath, 'utf8')).groups).toEqual(
       JSON.parse(fs.readFileSync(b.assignmentsPath, 'utf8')).groups,
     );
-  });
+    // Two full regenerations, not one: each costs ~7.2s on the CI runner (run
+    // 36103442471: the single-regeneration siblings above took 7168/7184ms,
+    // this case 15667ms against the 15s default). Same budget as the
+    // byte-identical regeneration case above; the assertion is unchanged.
+  }, 30_000);
 
   it('refuses a pin file whose groupCount does not match GROUP_COUNT, instead of silently truncating/padding it', () => {
     // A foreign/stale pin file with a different groups.length would otherwise
@@ -2148,7 +2178,7 @@ describe('cross-repo crawler execution artifacts', () => {
         });
       }
       const checkouts = job.steps.filter((step: any) => step.uses === 'actions/checkout@v5');
-      expect(checkouts).toHaveLength(2);
+      expect(checkouts).toHaveLength(contract.checkout.attempts);
       expect(checkouts[0]).toMatchObject({
         id: 'site_checkout_primary',
         'continue-on-error': true,

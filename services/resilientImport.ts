@@ -198,6 +198,8 @@ export function isModuleParseError(err: unknown): boolean {
  *     attacks the cause; this is the runtime safety net.)
  *       - "ls(...).then is not a function" / "n is not a function"
  *       - "Ze is not a constructor" / "e is not iterable"
+ *       - "Cannot read properties of undefined (reading 'apply')" from a
+ *         stale navigation-tracking chunk that still wraps History methods
  *
  * (b) LINK-TIME (SyntaxError, issue #3097): the dependency chunk's EXPORT SET
  *     changes between deploys (e.g. lucide-react tree-shaking adds/removes icons
@@ -229,6 +231,13 @@ export const CALL_TIME_SKEW_PATTERNS: readonly RegExp[] = [
   /\bis not a function\b/,
   /\bis not a constructor\b/,
   /\bis not iterable\b/,
+  // A pre-#5606 navigation-tracking chunk can keep a stale History wrapper
+  // and call `.apply` on an unavailable implementation. Fresh chunks use
+  // callNativeHistory, so this exact runtime shape is a mixed chunk set, not
+  // a reason to leave the session on a broken deep link. Keep the Safari form
+  // beside the Chromium wording because this classifier feeds all browsers.
+  /\bcannot read propert(?:y|ies) of undefined \(reading 'apply'\)/i,
+  /\bundefined is not an object \(evaluating '[^']*\.apply'\)/i,
   // Cross-chunk skew can also leave a lazy-proxy singleton import (e.g. the
   // `Analytics` object from services/analyticsProxy.ts) bound to `undefined`
   // at the call site, so `Analytics.trackCalculation(...)` throws instead of

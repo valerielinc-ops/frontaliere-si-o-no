@@ -1,7 +1,8 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   HELSANA_KEY,
   HELSANA_COMPANY_NAME,
+  fetchAllHelsanaJobs,
   isHelsanaJob,
   isTrustedDomain,
 } from '../scripts/lib/helsana-job-parser.mjs';
@@ -182,5 +183,42 @@ describe('Helsana crawler parser', () => {
       const detail = parseCsbDetailPage(microdataOnlyHtml);
       expect(detail.postedDate).toBe('2026-07-03');
     });
+  });
+});
+
+describe('Helsana — hybrid-work location suffix (issue 5253)', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
+  });
+
+  const row = (id: string, title: string, location: string) => `
+    <tr class="data-row">
+      <td class="colTitle"><span class="jobTitle hidden-phone"><a href="/job/${encodeURIComponent(location)}-${id}/${id}/" class="jobTitle-link">${title}</a></span></td>
+      <td class="colLocation hidden-phone" headers="hdrLocation"><span class="jobLocation"> ${location} </span></td>
+      <td class="colDate hidden-phone"><span class="jobDate">24.09.2026</span></td>
+    </tr>`;
+
+  it('publishes the city before "& Homeoffice" with its own canton, not the HQ canton label', async () => {
+    // Forme reali di careers.helsana.ch (2026-09-24): prima uscivano `Zurigo`
+    // (Worblaufen, cantone di ripiego ZH) e `Grigioni` (Chur).
+    const search = `<table><tbody>
+      ${row('1429174233', 'Beratende Ärztin Krankentaggeld (a) 10-20%', 'Worblaufen &amp; Homeoffice')}
+      ${row('1410914233', 'Versicherungsberater im Aussendienst (a) 80-100%', 'Chur &amp; Homeoffice')}
+      ${row('1419913533', 'Junior IT Security Architect (a) 80-100%', 'Dübendorf-Stettbach &amp; Homeoff')}
+    </tbody></table>`;
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const href = String(url);
+      if (href.includes('/search/')) {
+        return new Response(href.includes('startrow=0') ? search : '<table></table>', { status: 200 });
+      }
+      return new Response('<html lang="de-DE"><body><h1>Stelle</h1></body></html>', { status: 200 });
+    }));
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    const jobs = await fetchAllHelsanaJobs();
+    const byLocation = Object.fromEntries(jobs.map((job: any) => [job.location, job.canton]));
+    expect(byLocation).toEqual({ Worblaufen: 'BE', Chur: 'GR', 'Dübendorf-Stettbach': 'ZH' });
   });
 });

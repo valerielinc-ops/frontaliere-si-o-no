@@ -34,6 +34,8 @@ permissions:
   contents: read
   actions: read
   issues: write
+  # Lo stale-claim detector legge le PR aperte per non liberare un claim vivo.
+  pull-requests: read
 
 jobs:
   drain:
@@ -194,6 +196,22 @@ jobs:
         env:
           PUSH_TOKEN: ${{ env.APP_TOKEN }}
         run: node scripts/ci/probe-workflow-scope.mjs
+
+      # Rilascia i claim morti PRIMA di promuovere. Il detector girava solo nello
+      # sweep di issue-triage (cron ogni 4h, in pratica 4-6h), e il rilascio è un
+      # `unlabeled` che non sveglia questo workflow: una issue liberata aspettava
+      # il cron successivo del drainer, anch'esso diradato da GitHub. Con tutta la
+      # coda reclamata nessun issue-fix finisce, quindi nessun `workflow_run`
+      # riaccende il drainer (misurato il 2026-09-25: zero fixer 01:00→04:47 con
+      # 32 issue in coda, 26 sotto `agent:local`). Qui ogni drain libera e
+      # promuove nello stesso run. Best-effort: il detector esce 0 anche su errori
+      # di lettura e non tocca i claim che non sa giudicare.
+      - name: Release stale claims (zero-Claude)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: node scripts/ci/stale-claim-detector.mjs
 
       - name: Drain follow-up queue (deterministic, no Claude)
         env:

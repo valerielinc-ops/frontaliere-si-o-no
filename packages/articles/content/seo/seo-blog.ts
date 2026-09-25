@@ -2588,7 +2588,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  description: 'Congedo maternità e paternità per frontalieri in Svizzera: indennità IPG, durata, come fare domanda AVS e differenze con INPS Italia. Guida aggiornata 2026.',
  keywords: 'frontaliere maternità, congedo paternità svizzera, indennità maternità ticino, assegni familiari frontalieri, avs maternità, inps frontalieri, congedo parentale italia svizzera',
  ogTitle: 'Genitore e Frontaliere? La Guida 2026 a Maternità e Paternità',
- ogDescription: 'Lavori in Ticino e stai per avere un figlio? Scopri come ottenere fino a CHF 230 al giorno di indennità. La guida completa.',
+ ogDescription: 'Lavori in Ticino e stai per avere un figlio? Scopri come ottenere fino a CHF 220 al giorno di indennità. La guida completa.',
  canonicalPath: '/articoli-frontaliere/maternita-paternita-frontaliere-svizzera-italia-guida-2026/',
  structuredData: {
  "@context": "https://schema.org",
@@ -2781,7 +2781,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
  'blog-credito-imposta-doppia-tassazione': {
  title: 'Doppia imposizione frontaliere: guida | Frontaliere Ticino',
- description: 'Nuovo frontaliere in Ticino? Scopri il credito d\'imposta per evitare la doppia tassazione sullo stipendio svizzero. Guida al Quadro CE del 730 con esempi 2026.',
+ description: 'Nuovo frontaliere in Ticino? Scopri il credito d\'imposta per evitare la doppia tassazione sullo stipendio svizzero. Guida ai quadri C e G del 730 con esempi 2026.',
  keywords: 'frontaliere doppia imposizione, credito imposta, come funziona, tasse frontalieri ticino, quadro ce 730, nuovo accordo fiscale, dichiarazione redditi frontalieri',
  ogTitle: 'Frontalieri, stop alla doppia tassa: la guida al credito d\'imposta',
  ogDescription: 'Lavori in Ticino e temi la doppia imposizione? Ecco come funziona il credito d\'imposta e come risparmiare migliaia di euro con il Modello 730.',
@@ -2867,7 +2867,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  title: 'Costo Auto Frontaliere Ticino 2026 | Frontaliere Ticino',
  description: 'Quanto costa davvero l\'auto per un frontaliere in Ticino? Analisi 2026 di benzina, parcheggio, usura e vignette. Scopri se conviene rispetto al treno.',
  keywords: 'costo auto frontaliere, pendolare ticino, spese auto svizzera, vignetta autostradale 2026, parcheggio lugano, conviene treno o auto',
- ogTitle: 'L\'auto ti costa fino a 8.500 CHF l\'anno? La verità sui costi da frontaliere',
+ ogTitle: 'L\'auto ti costa quasi 8.700 CHF l\'anno? La verità sui costi da frontaliere',
  ogDescription: 'Abbiamo calcolato tutte le spese nascoste dell\'auto per chi lavora in Ticino. La cifra finale potrebbe sorprenderti. Leggi l\'analisi 2026.',
  canonicalPath: '/articoli-frontaliere/costo-auto-frontaliere-ticino-guida-completa-2026/',
  structuredData: {
@@ -2893,7 +2893,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
  'blog-guida-dichiarazione-redditi-frontalieri': {
  title: 'Guida Dichiarazione Redditi Frontaliere | Frontaliere Ticino',
- description: 'La guida completa al Modello 730/2026 per frontalieri in Ticino: come compilare il Quadro CE, calcolare il credito d\'imposta e le scadenze da non perdere.',
+ description: 'La guida completa al Modello 730/2026 e al Redditi PF per frontalieri in Ticino: dove indicare lo stipendio svizzero, calcolare il credito d\'imposta e le scadenze da non perdere.',
  keywords: 'dichiarazione redditi frontaliere, modello 730 frontalieri, quadro ce, credito imposta svizzera, tasse frontalieri ticino, fiscalità frontalieri, guida fiscale',
  ogTitle: 'Frontaliere e 730: La Guida Definitiva per non Sbagliare',
  ogDescription: 'Evita errori e sanzioni. Ecco come compilare la dichiarazione dei redditi 2026 se lavori in Ticino e vivi in Italia. La guida passo passo.',
@@ -4657,7 +4657,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  description: 'Tutti i dettagli sui bonus famiglia 2026 per frontalieri: assegni familiari, bonus nido e detrazioni fiscali. Scopri come ottenerli.',
  keywords: 'frontalieri, ticino, bonus famiglia, assegni familiari, detrazioni fiscali, permesso G, bonus nido, economia svizzera',
  ogTitle: 'Bonus famiglia frontalieri 2026: tutte le novità',
- ogDescription: 'Assegni familiari fino a 4.200 CHF, bonus nido e detrazioni fiscali: scopri i vantaggi per frontalieri nel 2026.',
+ ogDescription: 'Assegni familiari fino a CHF 3.216 l\'anno, bonus nido INPS e detrazioni fiscali: scopri i vantaggi per frontalieri nel 2026.',
  canonicalPath: '/articoli-frontaliere/bonus-famiglia-frontalieri-2026/',
  structuredData: {
  "@context": "https://schema.org",

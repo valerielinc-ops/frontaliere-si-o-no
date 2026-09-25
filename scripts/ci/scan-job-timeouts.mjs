@@ -132,7 +132,13 @@ const LOOKBACK_MINUTES = intFromEnv('TIMEOUT_SCAN_LOOKBACK_MINUTES', 75);
 // GitHub documenta 35 giorni come limite dell'INTERA run, inclusi waiting e
 // approval; oltre questo orizzonte la run viene cancellata. E' il solo bound
 // lato server che non esclude una run ancora capace di aggiornarsi nel cutoff.
-const MAX_WORKFLOW_RUN_AGE_MIN = 35 * 24 * 60;
+// ...but walking 35 days of `cancelled`/`failure` runs costs hundreds of paginated
+// `gh api` calls in this repo (thousands of superseded runs per day) and, since
+// 2026-09-21, never finished inside the job's 23-minute budget: every hourly scan
+// was killed before printing a single line, so no timeout was reported at all.
+// Default to 3 days (still > the 6h hosted-runner job cap plus queueing), keep the
+// full 35-day horizon available via env for a one-off deep scan.
+const MAX_WORKFLOW_RUN_AGE_MIN = intFromEnv('TIMEOUT_SCAN_MAX_RUN_AGE_MINUTES', 3 * 24 * 60);
 
 // Con qualunque filtro (`status` e `created` qui) GitHub restituisce al massimo
 // 1.000 risultati PER SEARCH. Un cap locale piu' alto sarebbe irraggiungibile:
@@ -564,7 +570,7 @@ export async function main() {
   // host, so one run can produce several hits that all map to the same title.
   const emittedByTitle = new Map();
 
-  async function emit({ title, description, labels, workflow, runUrl, jobCount }) {
+  async function emit({ title, description, labels, workflow, runUrl, jobCount, occurredAt }) {
     if (isFailureReportingDisabled()) {
       console.log(`[scan-job-timeouts] ENABLE_FAILURE_REPORT=false; skipping issue persistence for ${runUrl}`);
       return;
@@ -618,9 +624,21 @@ export async function main() {
       return;
     }
 
-    const issue = await createGithubIssue({ title, description, priority: 2, labels, workflow });
+    // `occurredAt` (#9761): the lookback re-reads runs that may have STARTED
+    // before a fix closed the canonical issue. Such a run cannot contain the
+    // fix, so the creator leaves the closed issue alone instead of reopening it.
+    const issue = await createGithubIssue({
+      title, description, priority: 2, labels, workflow, occurredAt,
+    });
     if (!issue?.number || issue.persisted !== true) {
       throw new Error(`failed to persist ${runUrl}: issue create/reopen did not confirm the write`);
+    }
+    if (issue.predatesClose === true) {
+      reported -= jobCount;
+      console.log(
+        `[scan-job-timeouts] ${runUrl} started (${occurredAt}) before #${issue.number} was closed — `
+          + 'history, not a recurrence: not reopened.',
+      );
     }
     emittedByTitle.set(title, {
       ...issue,
@@ -670,6 +688,7 @@ export async function main() {
       workflow: run.name,
       runUrl: run.html_url,
       jobCount: hits.length,
+      occurredAt: run.created_at,
     });
   }
 
@@ -725,6 +744,7 @@ export async function main() {
       workflow: run.name,
       runUrl: run.html_url,
       jobCount: kills.length,
+      occurredAt: run.created_at,
     });
   }
 

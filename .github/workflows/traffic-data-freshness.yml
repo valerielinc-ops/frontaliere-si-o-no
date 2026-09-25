@@ -63,8 +63,8 @@ jobs:
             exit 0
           fi
 
-          # ISSUE-PAGEABLE window: only ≥08:00 UTC is a stale reading GUARANTEED to
-          # be a real freeze. Before 08:00 the scheduler's morning ramp (*/30 4-7)
+          # ISSUE-PAGEABLE window: only ≥11:00 UTC (08:00 before #4229) is a stale
+          # reading GUARANTEED to be a real freeze. Before that the morning ramp (*/30 4-7)
           # may not have LANDED yet (GitHub delivers crons 10-60+ min late), so a
           # stale snapshot is expected lag — NOT a bug. In that window we self-heal
           # silently and never open an issue (the cause of the #2617 false page:
@@ -77,10 +77,10 @@ jobs:
           # 6h border-watchdog backstop still catches a truly frozen pipeline.
           if node -e "import('./scripts/check-border-data-health.mjs').then(m => process.exit(m.isStalenessCheckActive(Date.now()) ? 0 : 1)).catch(() => process.exit(1))"; then
             echo "PAGEABLE=true" >> "$GITHUB_OUTPUT"
-            echo "In issue-pageable window (≥08:00 UTC) — a stale reading is a real freeze."
+            echo "In issue-pageable window (≥11:00 UTC) — a stale reading is a real freeze."
           else
             echo "PAGEABLE=false" >> "$GITHUB_OUTPUT"
-            echo "In commute self-heal window (05:00-08:00 UTC) — stale self-heals silently, no issue."
+            echo "In commute self-heal window (05:00-11:00 UTC) — stale self-heals silently, no issue."
           fi
 
           FILE="data/border-wait-current.json"
@@ -117,18 +117,23 @@ jobs:
           echo "Data age: ${AGE_MINUTES} minutes"
           echo "AGE_MINUTES=${AGE_MINUTES}" >> "$GITHUB_OUTPUT"
 
-          # Threshold is day-of-week aware: dispatchTrafficCollection only
-          # triggers traffic-scheduler.yml every 4h on weekends (vs every 30min
-          # at weekday peaks), so a flat 90-min threshold would page on every
-          # weekend slot. The calendar lives in
-          # functions/src/trafficSchedulerDispatch.js; the threshold policy is
-          # staleThresholdMinutesFor() in scripts/check-border-data-health.mjs.
+          # Threshold follows the collection calendar (issue #9658):
+          # dispatchTrafficCollection only triggers traffic-scheduler.yml on the
+          # slots of functions/src/lib/trafficCollectionCalendar.js (every 30min
+          # at weekday peaks, 11:00 midday, 4h on weekends), so a flat threshold
+          # paged on every weekday 07:30→11:00 / 11:00→14:00 / evening gap.
+          # staleThresholdMinutesFor() in scripts/check-border-data-health.mjs =
+          # minutes since the latest slot that must have landed + tolerance for
+          # one missed peak run.
           THRESHOLD_MIN=$(node -e "
             import('./scripts/check-border-data-health.mjs').then((m) => {
-              console.log(m.staleThresholdMinutesFor(Date.now()));
+              const now = Date.now();
+              console.error('Expected collection slot: ' + m.expectedCollectionSlotFor(now).toISOString());
+              console.log(m.staleThresholdMinutesFor(now));
             });
           ")
           echo "THRESHOLD_MINUTES=${THRESHOLD_MIN}" >> "$GITHUB_OUTPUT"
+          echo "Stale threshold: ${THRESHOLD_MIN} minutes"
 
           if [ "$AGE_MINUTES" -gt "$THRESHOLD_MIN" ]; then
             echo "STALE=true" >> "$GITHUB_OUTPUT"
@@ -240,7 +245,7 @@ jobs:
           done
 
       # Debounced opener: first stale reading → pending. Second consecutive → promote to confirmed.
-      # Gated on PAGEABLE so we only ever open/promote an issue ≥08:00 UTC, once the
+      # Gated on PAGEABLE so we only ever open/promote an issue ≥11:00 UTC, once the
       # morning collection ramp has certainly landed — staleness before then is
       # expected cron-lag, already self-healed above, and must NOT raise a page.
       - name: Open / debounce stale issue

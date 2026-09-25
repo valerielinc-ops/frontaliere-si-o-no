@@ -1686,23 +1686,12 @@ describe('the channel list the formula points at cannot under-report what we sen
   });
 
   /**
-   * The three categories that must have something LIVE behind them, enumerated
-   * and not computed — and `advertising` deliberately absent from the list.
-   *
-   * The rule is about over-promising: a heading a reader takes as "mail I will
-   * get" over a category that ships nothing is a request to agree to something
-   * that does not come. `advertising` is the one place that reasoning inverts.
-   * Its only channel is suspended, and it is named precisely so that the
-   * disclosure exists BEFORE the channel could run (#5759) — the reverse of
-   * over-promising, and the safe direction for a consent text.
-   *
-   * What keeps that from being a hole is the row itself: `renderChannel` prints
-   * `SUSPENDED_LABEL` from `status`, so the section a reader lands on says, in
-   * their language, that nothing is being sent. Asserted here, because without
-   * it "advertising is exempt" would just mean "advertising is unchecked".
+   * Every category named on `/comunicazioni/` currently has a live channel.
+   * The page may still support suspended channels in the future, but the
+   * current owner decision is that advertising and the daily brief are live.
    */
   it('keeps a live channel under every category that promises mail', () => {
-    for (const category of ['editorial', 'jobs', 'service'] as const) {
+    for (const category of CONSENT_CATEGORIES) {
       expect(
         hasLiveChannel(category),
         `no live channel remains under '${category}' — the page must stop offering it`,
@@ -1710,16 +1699,13 @@ describe('the channel list the formula points at cannot under-report what we sen
     }
   });
 
-  it('says on the page that the advertising category ships nothing today', () => {
+  it('keeps the advertising disclosure and live channel aligned', () => {
     const plugin = read('build-plugins/communicationsPagePlugin.ts');
-    expect(hasLiveChannel('advertising'), 'still suspended — turning it on is an Actions-API act').toBe(false);
+    expect(hasLiveChannel('advertising')).toBe(true);
     for (const c of COMMUNICATION_CHANNELS.filter((ch) => ch.consentCategory === 'advertising')) {
-      expect(c.status, `${c.id} would ship under a category with no live channel assertion`).toBe(
-        'suspended',
-      );
+      expect(c.status, `${c.id} must be live when advertising is enabled`).toBe('live');
     }
-    expect(plugin, 'the suspended badge is what makes the exemption above safe')
-      .toMatch(/SUSPENDED_LABEL\[locale\]/);
+    expect(plugin, 'the advertising category needs its own disclosure').toMatch(/CATEGORY_NOTE/);
   });
 
   it('stops the formula promising what only a suspended channel carried', () => {
@@ -1890,6 +1876,8 @@ describe('the page the formula points at cannot change without saying so (#5765)
     '2026-09-14.1': 'ad30d38fe4c8427a',
     '2026-09-14.2': '5e5f1488c979d73c',
     '2026-09-15.1': '3cf863fce20723b5',
+    '2026-09-25.1': '877a7a1ce4337832',
+    '2026-09-25.2': '473abb454e6e1791',
   };
 
   it('matches the current page against the fingerprint of the current version', () => {

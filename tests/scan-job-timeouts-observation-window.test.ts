@@ -110,7 +110,7 @@ describe('observation window — completion time, not start time', () => {
     });
     expect(createdRanges.every((range) => range.includes('..'))).toBe(true);
     const [oldest] = createdRanges[0].split('..');
-    expect(Date.now() - Date.parse(oldest)).toBeGreaterThanOrEqual(35 * 24 * 60 * MINUTE);
+    expect(Date.now() - Date.parse(oldest)).toBeGreaterThanOrEqual(3 * 24 * 60 * MINUTE);
   });
 
   it('bisects a created range above GitHub\'s 1,000-result search cap and reaches the later slice', async () => {
@@ -298,7 +298,9 @@ describe('persistent run dedup — occurrence key, not workflow title', () => {
       url: 'https://github.com/o/r/issues/12',
       state: 'CLOSED',
       stateReason: 'COMPLETED',
-      closedAt: iso(MINUTE),
+      // Closed BEFORE the run started (runs start 350 min ago): only such a run can
+      // be a recurrence. One that started before the close is history (#9761).
+      closedAt: iso(400 * MINUTE),
       labels: [],
     };
 
@@ -335,6 +337,50 @@ describe('persistent run dedup — occurrence key, not workflow title', () => {
     expect(callsFor('create')).toHaveLength(0);
     expect(callsFor('comment')).toHaveLength(1);
     expect(callsFor('comment')[0].join(' ')).toContain(second.html_url);
+  });
+
+  it('a run that started before the canonical was closed does not reopen it (#9761)', async () => {
+    // Started 350 min ago, timed out 1 min ago; the fix closed the issue 60 min
+    // ago, while this run was already executing the pre-fix code.
+    const run = runFixture(306);
+    const closedIssue = {
+      number: 13,
+      title: 'CI Failure: Crawler Group 01',
+      url: 'https://github.com/o/r/issues/13',
+      state: 'CLOSED',
+      stateReason: 'COMPLETED',
+      closedAt: iso(60 * MINUTE),
+      labels: [],
+    };
+
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'api') {
+        if (args[1].includes('status=cancelled')) return JSON.stringify({ workflow_runs: [run] });
+        if (args[1].includes('status=failure')) return JSON.stringify({ workflow_runs: [] });
+        if (args[1].includes('/jobs')) return JSON.stringify({ jobs: [timeoutJob] });
+        if (args[1].endsWith('/annotations')) return JSON.stringify([timeoutAnnotations]);
+        return '{}';
+      }
+      if (args[0] === 'issue' && args[1] === 'list') {
+        const state = args[args.indexOf('--state') + 1];
+        if (state === 'all' || state === 'closed') return JSON.stringify([closedIssue]);
+        return '[]';
+      }
+      if (args[0] === 'issue' && args[1] === 'view') {
+        return JSON.stringify({ body: 'an older occurrence', comments: [] });
+      }
+      if (args[0] === 'issue' && ['reopen', 'comment', 'create'].includes(args[1])) {
+        throw new Error(`a pre-close run must not write: issue ${args[1]}`);
+      }
+      return '';
+    });
+
+    const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
+    await expect(main()).resolves.toBeUndefined();
+
+    expect(callsFor('reopen')).toHaveLength(0);
+    expect(callsFor('comment')).toHaveLength(0);
+    expect(callsFor('create')).toHaveLength(0);
   });
 
   it('uses the shared search-safe prefix to find a closed long-title occurrence', async () => {
@@ -526,7 +572,9 @@ describe('write failures — loud, retryable, never memoized as persisted', () =
       url: 'https://github.com/o/r/issues/24',
       state: issueState,
       stateReason: 'COMPLETED',
-      closedAt: iso(MINUTE),
+      // Closed BEFORE the run started (runs start 350 min ago): only such a run can
+      // be a recurrence. One that started before the close is history (#9761).
+      closedAt: iso(400 * MINUTE),
       labels: [],
     });
 

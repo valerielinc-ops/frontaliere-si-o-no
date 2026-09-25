@@ -36,6 +36,9 @@ import {
 } from '@/services/newsletterSubscribers';
 import { NEWSLETTER_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
 
+/** Last-touch attribution for a login started from this box (see authService). */
+const PDF_DOWNLOAD_GATE_AUTH_ATTRIBUTION = { cta: 'pdf_download_gate_social', component: 'PdfDownloadGate' } as const;
+
 function hasGateAccess(): boolean {
   try {
     if (localStorage.getItem(NEWSLETTER_SUBSCRIBED_KEY) === 'true') return true;
@@ -207,6 +210,7 @@ const PdfDownloadGate: React.FC = () => {
               locale="it"
               errorContext="pdfDownloadGate"
               googleWidth={360}
+              attribution={PDF_DOWNLOAD_GATE_AUTH_ATTRIBUTION}
             />
 
             <div className="relative py-1">
