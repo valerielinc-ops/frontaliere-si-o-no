@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kudelski-nagra",
-  "assembledAt": "2026-09-24T14:44:19.241Z",
+  "assembledAt": "2026-09-25T15:03:31.164Z",
   "jobs": [
     {
       "id": "kudelski-nagra-362f31b80bbf",
@@ -17,7 +17,7 @@
       "title": "Security Operations Engineer",
       "titleByLocale": {
         "it": "Security Operations Ingegnere",
-        "en": "Security 5.",
+        "en": "Security Operations Engineer",
         "de": "Security Operations Ingenieur",
         "fr": "Security Operations Ingénieur"
       },
@@ -33,7 +33,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15828",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-24T14:44:14.484Z",
+      "crawledAt": "2026-09-25T15:03:24.932Z",
       "addressLocality": "Zurich, Switzerland (Hybrid, onsite with client)",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -62,6 +62,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:09:21.794Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
