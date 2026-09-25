@@ -383,6 +383,12 @@ const ANTI_BOT_CHALLENGE_MARKERS = [
   '_incapsula_resource',
   // BotGuard-style JS fingerprint checkpoint (ergolz.cardiance.com, #6693).
   'please wait while your request is being verified',
+  // Akamai crypto challenge (hotelcareer.ch / Vereinaklosters, #9653): the
+  // edge answers 200 with a "Challenge Validation" document instead of the
+  // requested vacancy page. The sec-cpt marker is the stable signal when the
+  // title is localized or omitted.
+  'challenge validation',
+  'sec-cpt',
 ];
 
 /**
