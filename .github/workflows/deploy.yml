@@ -3644,6 +3644,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/ci/report-deploy-run-failure.mjs --mode report
       - name: Open or update the deploy alarm issue
+        id: open
         # Ogni job di `needs:` è elencato per esteso: è la forma che
         # `isFailureGated` (scripts/ci/failure-issue-inventory.mjs) riconosce,
         # così il gate di accoppiamento verifica che qualcuno chiuda questo
@@ -3678,3 +3679,44 @@ jobs:
             --label Bug \
             --workflow "${{ github.workflow }}" \
             --run-url "${ALARM_RUN_URL}"
+      - name: Open the deploy alarm without the checkout (fallback)
+        # Lo step sopra ha il `success()` implicito: se il checkout o il setup di
+        # Node falliscono, salta, e per una run del bot non c'è un osservatore
+        # esterno che rimedi. Questo parte comunque (`!cancelled()`, non
+        # `always()`: una run cancellata non allarma, come nel resto del job),
+        # solo quando lo step sopra non ha scritto. Il creator non ha dipendenze
+        # oltre ai moduli di Node: se il checkout manca lo scarica con `gh`
+        # allo SHA della run e lo esegue col Node di sistema del runner, quindi
+        # dedup, riapertura e titolo restano quelli canonici.
+        if: >-
+          !cancelled() && steps.open.outcome != 'success' &&
+          (needs.validate-promotion-trigger.result == 'failure' ||
+           needs.matrix-setup.result == 'failure' ||
+           needs.prep.result == 'failure' ||
+           needs.build-locale.result == 'failure')
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Senza checkout la cwd non è un repo git: `gh` deve sapere dove scrivere.
+          GH_REPO: ${{ github.repository }}
+          ALARM_SHA: ${{ github.sha }}
+          ALARM_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          creator=scripts/lib/github-issue-creator.mjs
+          if [ ! -s "$creator" ]; then
+            creator="$RUNNER_TEMP/github-issue-creator.mjs"
+            gh api -H 'Accept: application/vnd.github.raw' \
+              "repos/${GH_REPO}/contents/scripts/lib/github-issue-creator.mjs?ref=${ALARM_SHA}" \
+              > "$creator" || true
+          fi
+          if [ ! -s "$creator" ]; then
+            echo "::error title=Deploy alarm not written::il creator delle issue non è leggibile né dal checkout né via API; apri a mano ${ALARM_RUN_URL}"
+            exit 0
+          fi
+          node "$creator" \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "Il deploy e' rosso su main in una run avviata dal token interno di GitHub Actions, che l'osservatore esterno non vede. Il job di allarme interno non ha potuto preparare il digest (checkout o setup falliti): apri la run e leggi il primo job rosso." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}" \
+            --run-url "${ALARM_RUN_URL}" \
+            || echo "::error title=Deploy alarm not written::il creator è uscito non-zero; apri a mano ${ALARM_RUN_URL}"

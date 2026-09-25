@@ -27,7 +27,9 @@
  */
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 import { parse } from 'yaml';
 import {
   consecutiveFailureStreak,
@@ -360,15 +362,102 @@ describe('in-run-alarm — lo STESSO titolo dell osservatore esterno', () => {
   it('apre esattamente il titolo che apre e chiude l osservatore esterno', () => {
     expect(external.openers.map((o: { title: string }) => o.title)).toContain(EXTERNAL_TITLE);
     expect(external.closers.map((c: { title: string }) => c.title)).toContain(EXTERNAL_TITLE);
+    // Due scrittori — lo step principale e il ripiego senza checkout — e un
+    // solo titolo: quello dell'osservatore esterno.
     const inRun = record.openers.filter((o: { title: string }) => o.title.startsWith('Workflow Failure:'));
-    expect(inRun.map((o: { title: string }) => o.title)).toEqual([EXTERNAL_TITLE]);
+    expect(inRun.map((o: { title: string }) => o.title)).toEqual([EXTERNAL_TITLE, EXTERNAL_TITLE]);
   });
 
-  it('l opener è failure-gated per l inventario e ha un chiuditore', () => {
-    const opener = record.openers.find((o: { title: string }) => o.title === EXTERNAL_TITLE);
-    expect(opener!.failureGated).toBe(true);
-    expect(coverageOf(opener!, record)).toEqual({ by: 'close-recovered-failure-issues' });
+  it('ogni opener è failure-gated per l inventario e ha un chiuditore', () => {
+    const openers = record.openers.filter((o: { title: string }) => o.title === EXTERNAL_TITLE);
+    expect(openers).toHaveLength(2);
+    for (const opener of openers) {
+      expect(opener.failureGated).toBe(true);
+      expect(coverageOf(opener, record)).toEqual({ by: 'close-recovered-failure-issues' });
+    }
   });
+});
+
+/* ── il ripiego che non dipende dal checkout ─────────────────────────────── */
+
+describe('in-run-alarm — l allarme parte anche se checkout o setup falliscono', () => {
+  const FALLBACK = IN_RUN.steps.find((s: any) => s.name === 'Open the deploy alarm without the checkout (fallback)');
+  const redBuild = () => ({ ...allGreen(), 'build-locale': { result: 'failure' } });
+  const stepCtx = (over: Partial<Ctx> = {}) => botCtx(redBuild(), { __level: 'step', ...over });
+
+  it('checkout fallito → lo step principale salta, il ripiego parte', () => {
+    const opener = IN_RUN.steps.find((s: any) => s.id === 'open');
+    // Il difetto che il ripiego chiude: il `success()` implicito dello step
+    // principale lo salta appena uno step precedente è rosso.
+    expect(evalIf(opener.if, stepCtx({ __stepFailed: true }))).toBe(false);
+    expect(evalIf(FALLBACK.if, stepCtx({ __stepFailed: true, steps: { open: { outcome: 'skipped' } } }))).toBe(true);
+  });
+
+  it('se lo step principale ha scritto, il ripiego tace: niente secondo commento', () => {
+    expect(evalIf(FALLBACK.if, stepCtx({ steps: { open: { outcome: 'success' } } }))).toBe(false);
+  });
+
+  it('tace su una run cancellata e su una run del bot senza job rossi', () => {
+    expect(evalIf(FALLBACK.if, stepCtx({ __cancelled: true, steps: { open: { outcome: 'skipped' } } }))).toBe(false);
+    expect(evalIf(FALLBACK.if, botCtx(allGreen(), { __level: 'step', steps: { open: { outcome: 'skipped' } } })))
+      .toBe(false);
+  });
+
+  it('senza checkout scarica il creator con `gh` allo SHA della run e apre il titolo canonico', () => {
+    // Replay dello step reale in una directory vuota (nessun checkout, nessun
+    // setup): `gh` è un finto che serve il creator vero e registra le chiamate.
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'in-run-alarm-fallback-'));
+    const bin = path.join(tmp, 'bin');
+    const cwd = path.join(tmp, 'workspace');
+    fs.mkdirSync(bin);
+    fs.mkdirSync(cwd);
+    const log = path.join(tmp, 'gh.log');
+    fs.writeFileSync(path.join(bin, 'gh'), [
+      '#!/bin/sh',
+      'printf "%s\\n" "$*" >> "$FAKE_GH_LOG"',
+      'case "$1 $2" in',
+      '  "api -H") [ -n "$FAKE_GH_API_FAIL" ] && exit 1; cat "$FAKE_CREATOR" ;;',
+      '  "issue create") echo "https://github.com/o/r/issues/4242" ;;',
+      '  "issue view") echo \'{"state":"OPEN"}\' ;;',
+      '  "issue list") echo "[]" ;;',
+      '  *) echo "[]" ;;',
+      'esac',
+    ].join('\n'), { mode: 0o755 });
+    const script = String(FALLBACK.run).replace(/\$\{\{\s*github\.workflow\s*\}\}/g, WORKFLOW_NAME);
+    const run = (extra: Record<string, string> = {}) => spawnSync('bash', ['-e', '-c', script], {
+      cwd,
+      encoding: 'utf8',
+      env: {
+        PATH: `${bin}:${process.env.PATH}`,
+        HOME: tmp,
+        GH_TOKEN: 'x',
+        GH_REPO: 'o/r',
+        ALARM_SHA: 'abc123',
+        ALARM_RUN_URL: 'https://github.com/o/r/actions/runs/36065965021',
+        RUNNER_TEMP: tmp,
+        FAKE_GH_LOG: log,
+        FAKE_CREATOR: path.join(ROOT, 'scripts/lib/github-issue-creator.mjs'),
+        ...extra,
+      },
+    });
+
+    const ok = run();
+    expect(ok.status).toBe(0);
+    const calls = fs.readFileSync(log, 'utf8');
+    expect(calls).toContain('api -H Accept: application/vnd.github.raw repos/o/r/contents/scripts/lib/github-issue-creator.mjs?ref=abc123');
+    // Il body è su più righe: la chiamata va letta da `issue create` in poi.
+    const create = calls.slice(calls.indexOf('issue create'));
+    expect(calls.indexOf('issue create')).toBeGreaterThan(-1);
+    expect(create).toContain(`--title Workflow Failure: ${WORKFLOW_NAME}`);
+    expect(create).toContain('--repo o/r');
+
+    // E se nemmeno l'API risponde: nessun rosso in più, un'annotation che lo dice.
+    fs.rmSync(path.join(tmp, 'github-issue-creator.mjs'), { force: true });
+    const noApi = run({ FAKE_GH_API_FAIL: '1' });
+    expect(noApi.status).toBe(0);
+    expect(noApi.stdout).toContain('::error title=Deploy alarm not written::');
+    fs.rmSync(tmp, { recursive: true, force: true });
+  }, 30_000);
 });
 
 /* ── resolve-build-alarm ────────────────────────────────────────────────── */
