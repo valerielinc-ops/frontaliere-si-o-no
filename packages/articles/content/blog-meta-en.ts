@@ -11988,6 +11988,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.roberto-gatti-11-promozioni-podcast.title': 'Roberto Gatti and Sons of a Minor Goal: 11 Promotions',
     'blog.article.roberto-gatti-11-promozioni-podcast.excerpt': 'The former footballer and coach from Varese recounts the eleven promotions between Chiasso, Lugano and Solbiatese in the VareseNews podcast.',
     'blog.article.roberto-gatti-11-promozioni-podcast.imageAlt': 'Football stadium in Lugano with mountains backdrop',
+    'blog.article.trenord-abbandono-passeggeri-gallarate.title': 'Trenord leaves 30 passengers stranded in Gallarate, Region must intervene',
+    'blog.article.trenord-abbandono-passeggeri-gallarate.excerpt': 'During the night between September 22 and 23, around thirty passengers bound for Malpensa were left stranded at Gallarate after the departure of the last empty train, without assistance or connections.',
+    'blog.article.trenord-abbandono-passeggeri-gallarate.imageAlt': 'Empty Ticino train station at night with a lone passenger facing the departure board',
 };
 
 export default blogMetaEn;

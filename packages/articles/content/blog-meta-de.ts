@@ -11987,6 +11987,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.roberto-gatti-11-promozioni-podcast.title': 'Roberto Gatti in Söhne eines kleineren Tores: 11 Aufstiege',
     'blog.article.roberto-gatti-11-promozioni-podcast.excerpt': 'Der ehemalige Fußballspieler und Trainer aus Varese erzählt im Podcast von VareseNews von den elf Aufstiegen bei Chiasso, Lugano und Solbiatese.',
     'blog.article.roberto-gatti-11-promozioni-podcast.imageAlt': 'Fussballstadion in Lugano mit Bergkulisse',
+    'blog.article.trenord-abbandono-passeggeri-gallarate.title': 'Trenord lässt 30 Passagiere in Gallarate, Region intervenieren',
+    'blog.article.trenord-abbandono-passeggeri-gallarate.excerpt': 'In der Nacht vom 22. auf den 23. September saßen etwa dreißig nach Malpensa reisende Passagiere nach der Abfahrt des letzten leeren Zuges bei Gallarate fest, ohne Unterstützung oder Anschlussverbindungen.',
+    'blog.article.trenord-abbandono-passeggeri-gallarate.imageAlt': 'Leerer Ticiner Bahnhof nachts mit einem alleinstehenden Reisenden vor der Anzeigetafel',
 };
 
 export default blogMetaDe;

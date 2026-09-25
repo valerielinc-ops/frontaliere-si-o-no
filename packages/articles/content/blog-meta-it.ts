@@ -11989,6 +11989,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.roberto-gatti-11-promozioni-podcast.title': 'Roberto Gatti a Figli di un gol minore: 11 promozioni',
     'blog.article.roberto-gatti-11-promozioni-podcast.excerpt': 'L\'ex calciatore e allenatore varesino racconta le undici promozioni tra Chiasso, Lugano e Solbiatese nel podcast di VareseNews.',
     'blog.article.roberto-gatti-11-promozioni-podcast.imageAlt': 'Stadio di calcio a Lugano con montagne sullo sfondo',
+    'blog.article.trenord-abbandono-passeggeri-gallarate.title': 'Trenord lascia 30 passeggeri a Gallarate, Regione intervenga',
+    'blog.article.trenord-abbandono-passeggeri-gallarate.excerpt': 'Nella notte tra il 22 e il 23 settembre, una trentina di passeggeri diretti a Malpensa è rimasta a Gallarate dopo la partenza del’ultimo convoglio vuoto, senza assistenza né collegamenti.',
+    'blog.article.trenord-abbandono-passeggeri-gallarate.imageAlt': 'Stazione ticinese di notte, banchine vuote e viaggiatore solo davanti al tabellone degli orari',
 };
 
 export default blogMetaIt;
