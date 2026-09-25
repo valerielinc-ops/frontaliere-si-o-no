@@ -6,6 +6,12 @@
  * Production uses this in full-corpus mode. The matrix experiment uses the
  * same parser in report-only mode because its sampled and stop-after runs are
  * useful measurements but are not production evidence.
+ *
+ * `--require-full-corpus` exits 1 on incomplete evidence, but deploy.yml runs
+ * it with `continue-on-error` and reports a failure through a dedicated issue:
+ * it certifies the measurement, not the site, so it must never block the
+ * publish. Every invariant must hold on the real production artifacts replayed
+ * by tests/report-jobs-seo-build-metrics.test.ts.
  */
 import { appendFileSync, existsSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
@@ -81,7 +87,13 @@ export function parseJobsSeoBuildLog(input) {
   let sampleMarkers = 0;
   let stopAfterMarkers = 0;
 
-  for (const line of lines) {
+  // Only marker lines feed the validation: they are exactly what
+  // renderMarkerFile() writes to the `jobs-seo-full-corpus-markers-<run_id>`
+  // artifact, so a verdict replayed on a downloaded artifact (the fixtures in
+  // tests/fixtures/jobs-seo-full-corpus-markers/) is the verdict the deploy
+  // saw. A new check on another prefix must extend MARKER_RE, and the
+  // artifact follows.
+  for (const line of markerLines) {
     if (SAMPLE_RE.test(line)) sampleMarkers += 1;
     if (STOP_AFTER_RE.test(line)) stopAfterMarkers += 1;
 

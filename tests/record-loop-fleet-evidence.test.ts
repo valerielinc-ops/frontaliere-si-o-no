@@ -8,8 +8,9 @@ import { recordLoopEvidence } from '../scripts/ci/record-loop-fleet-evidence.mjs
 import { actionAutonomy, actionClassForPolicy, buildLifecycleEvent, buildOutcome, validateActionClassAgainstPolicy, validateHistoricalLifecycleEvent, validateHistoricalOutcomeAgainstPolicy, validateLifecycleEvent, validateLoopRegistry, validateOutcomeAgainstPolicy } from '../scripts/lib/loop-fleet-contract.mjs';
 
 const registry = JSON.parse(fs.readFileSync(path.resolve('data/loop-fleet/loop-registry.json'), 'utf8'));
-const NOW = new Date('2026-09-12T12:00:00.000Z');
-const HISTORICAL_AT = new Date('2026-09-11T12:00:00.000Z');
+const L2_ORACLE_MIGRATION_AT = new Date('2026-09-24T20:22:12.000Z');
+const NOW = new Date(L2_ORACLE_MIGRATION_AT.getTime() + 24 * 3_600_000);
+const HISTORICAL_AT = new Date(L2_ORACLE_MIGRATION_AT.getTime() - 8 * 24 * 3_600_000);
 
 function writeJson(dir: string, name: string, value: unknown) {
   const file = path.join(dir, name);

@@ -6,6 +6,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { buildOrphanLandingPath } from '../lib/orphan-landing-path.mjs';
 import {
   actionClassForPolicy,
   buildOutcome,
@@ -143,7 +144,7 @@ export function validateDemandSnapshot(payload, {
       canonicalSlug: slug,
       totalImpressions: impressions,
       totalClicks: clicks,
-      landingPath: `/${slug}/`,
+      landingPath: buildOrphanLandingPath(cluster.locale, slug),
     });
   }
 

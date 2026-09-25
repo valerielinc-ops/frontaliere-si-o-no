@@ -736,11 +736,50 @@ export const FC_CONSENT_BRIDGE_JS = `(function(){if(window.__ftFcConsentBridge)r
 /** Event name the client listens on; shared contract with services/adBlockDetection.ts. */
 export const FC_ADBLOCK_SIGNAL_EVENT = 'frontaliere:adblock-data';
 
+/**
+ * Click-only Offerwall gate for the Italian job board (2026-09-24).
+ *
+ * The job-board Offerwall is the AdSense one, the only rewarded demand the
+ * site has, and it must appear only when the visitor clicks "Candidati",
+ * never on entry to a listing or job page. Funding Choices calls
+ * `controlledMessagingFunction` twice per page view: first with an empty
+ * MessageTypeEnum, then with OFFERWALL/AD_BLOCKING populated. The second
+ * call also carries the GDPR consent message: holding it for a visitor with
+ * no consent decision kept the CMP off screen until the release (live probe,
+ * 24-09). So on /cerca-lavoro-ticino pages the call is HELD only when a
+ * decision is stored on both sides: `frontaliere_ads_consent` (our bridge)
+ * AND a TC string in Funding Choices' own `FCCDCF` cookie (before consent its
+ * TC slot is null; a TCF v2 string always starts with "C"). Our key alone
+ * outlives the Funding Choices cookie, and a held re-prompt would hide the
+ * CMP for the whole SPA session. Otherwise it suppresses only the Offerwall
+ * (the CMP shows at once; no Offerwall on that page view) and marks the gate
+ * `suppressed` so the click can report why. `window.__ftOfferwallGate.release()`
+ * (services/offerwallClickGate.ts, from the rewarded application offer)
+ * proceeds a held call. Live probe on the job board
+ * with consent stored: holding only that call left the TCF signal and the
+ * first AdSense request on schedule (11.9 s vs 7.7-16.5 s in two controls),
+ * while holding the first call pushed the first ad request from 16.5 s to
+ * 32.9 s — so the first call always proceeds. Cost: an ad-block recovery
+ * message on these pages also waits for the click.
+ *
+ * Carried by index.html (inline copy), OFFERWALL_FC_SNIPPET and
+ * ADSENSE_LOADER_CONTENT. The loader matters most: 87% of the section's
+ * sitemap URLs (listing, company, search, sector pages) and the unlisted job
+ * pages load Funding Choices only through it. The first copy to run installs
+ * the gate and the others step aside. tests/offerwall-click-gate-parity.test.ts
+ * executes the copies.
+ */
+export const FC_JOBBOARD_OFFERWALL_GATE_JS = `(function(){var g=window.googlefc=window.googlefc||{};if(g.controlledMessagingFunction)return;g.controlledMessagingFunction=function(message){var E=g.MessageTypeEnum||{};var p=window.location&&window.location.pathname||'';if(E.OFFERWALL===undefined||!/^\\/cerca-lavoro-ticino(?:\\/|$)/.test(p)){message.proceed(true);return;}var d=false;try{d=!!window.localStorage.getItem('${ADS_CONSENT_STORAGE_KEY}');}catch(e){}if(d){var c=(window.document&&window.document.cookie||'').match(/(?:^|;\\s*)FCCDCF=([^;]*)/),v='';try{v=c?decodeURIComponent(c[1]):'';}catch(e){}d=/\\x22C[A-Za-z0-9_-]{20,}/.test(v);}if(!d){window.__ftOfferwallGate=window.__ftOfferwallGate||{state:'suppressed',held:[]};message.proceed(false,[E.OFFERWALL]);return;}var w=window.__ftOfferwallGate=window.__ftOfferwallGate||{state:'idle',held:[]};if(w.state==='released'){message.proceed(true);return;}w.held.push(message);w.state='held';w.release=function(){if(w.state!=='held')return false;w.state='released';var h=w.held.splice(0);for(var i=0;i<h.length;i++){try{h[i].proceed(true);}catch(e){}}return true;};};})();`;
+
 export const FC_ADBLOCK_BRIDGE_JS = `(function(){if(window.__ftFcAdBlockBridge)return;window.__ftFcAdBlockBridge=1;var g=window.googlefc=window.googlefc||{};g.callbackQueue=g.callbackQueue||[];g.callbackQueue.push({'AD_BLOCK_DATA_READY':function(){try{var E=g.AdBlockerStatusEnum||{},A=g.AllowAdsStatusEnum||{};var s=typeof g.getAdBlockerStatus==='function'?g.getAdBlockerStatus():null;var a=typeof g.getAllowAdsStatus==='function'?g.getAllowAdsStatus():null;function eq(v,e){return v!==undefined&&e!==undefined&&v===e;}window.__ftAdBlock={status:s,allowAds:a,blocked:eq(s,E.EXTENSION_LEVEL_AD_BLOCKER)||eq(s,E.NETWORK_LEVEL_AD_BLOCKER),adsAllowed:eq(a,A.ADS_ALLOWED)};try{window.dispatchEvent(new CustomEvent('${FC_ADBLOCK_SIGNAL_EVENT}'));}catch(e){}}catch(e){}}});})();`;
 
 /**
  * Inline lazy-loader injected at the bottom of every static page (and also
  * emitted from index.html). Runs once per page and:
+ *  -1. Installs FC_JOBBOARD_OFFERWALL_GATE_JS before anything can load
+ *     Funding Choices, so the job-board Offerwall waits for "Candidati" on
+ *     every static page of the section, not only where OFFERWALL_FC_SNIPPET
+ *     is injected.
  *  0. Bot gate: `BOT_GATE_FN` (shared with POSTHOG_INIT_CONTENT, the inline-JS
  *     twin of services/botPatterns.ts `isLikelyBot()`) returns true for bots —
  *     the loader then returns immediately. This is the static-HTML counterpart
@@ -797,16 +836,16 @@ export const FC_ADBLOCK_BRIDGE_JS = `(function(){if(window.__ftFcAdBlockBridge)r
  * ~2 KB minified × ~200k SEO pages = ~400 MB dist. Externalising drops per-page cost
  * from ~2200 B to ~90 B (the <script src=...> tag).
  */
-export const ADSENSE_LOADER_CONTENT = `(function(){if((${BOT_GATE_FN})())return;if((function(){try{return window.localStorage.getItem('reader_noads_active')==='true';}catch(e){return false;}})())return;${FC_CONSENT_BRIDGE_JS}${FC_ADBLOCK_BRIDGE_JS}function hasConsent(){try{return window.localStorage.getItem('${ADS_CONSENT_STORAGE_KEY}')==='${ADS_CONSENT_GRANTED}';}catch(e){return false;}}${FC_ENSURE_JS}var queue=null,cursor=0,slotIo=null;function pushUpTo(idx){for(;cursor<=idx;cursor++){var el=queue[cursor];if(!el||!el.parentNode||el.getAttribute('data-adsbygoogle-status'))continue;try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}}if(slotIo&&cursor>=queue.length){slotIo.disconnect();slotIo=null;}}function armSlots(){queue=[].slice.call(document.querySelectorAll('ins.adsbygoogle'));if(!queue.length)return;if(!('IntersectionObserver' in window)){pushUpTo(queue.length-1);return;}slotIo=new IntersectionObserver(function(entries){var max=-1;for(var i=0;i<entries.length;i++){if(!entries[i].isIntersecting)continue;var k=queue.indexOf(entries[i].target);if(k>max)max=k;}if(max>=cursor)pushUpTo(max);},{rootMargin:'${AD_SLOT_VIEWPORT_ROOT_MARGIN}'});for(var j=0;j<queue.length;j++)slotIo.observe(queue[j]);}var loaded=false;function loadScript(){if(loaded)return;loaded=true;if(document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]'))return;var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='${ADSENSE_SCRIPT_SRC}';s.setAttribute('data-overlays','bottom');s.setAttribute('data-ad-frequency-hint','60s');s.onload=armSlots;document.head.appendChild(s);}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function observe(){var EV=['scroll','touchstart','pointerdown','keydown','mousemove'];for(var e=0;e<EV.length;e++)document.addEventListener(EV[e],loadScript,{once:true,passive:true,capture:true});var slots=document.querySelectorAll('ins.adsbygoogle');if(!('IntersectionObserver' in window)||slots.length===0){(window.requestIdleCallback||ricFb)(loadScript,{timeout:1500});return;}var io=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){io.disconnect();loadScript();return;}}},{rootMargin:'${AD_SLOT_VIEWPORT_ROOT_MARGIN}'});for(var j=0;j<slots.length;j++)io.observe(slots[j]);(window.requestIdleCallback||ricFb)(loadScript,{timeout:2500});}function startAds(){if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',observe,{once:true});}else{observe();}}function scheduleFc(){(window.requestIdleCallback||ricFb)(ensureFc,{timeout:4000});}if(hasConsent()){ensureFc();startAds();return;}if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',scheduleFc,{once:true});}else{scheduleFc();}var armed=false;function onGate(){if(armed||!hasConsent())return;armed=true;startAds();}window.addEventListener('${ADS_CONSENT_CHANGE_EVENT}',onGate);window.addEventListener('storage',function(e){if(!e.key||e.key==='${ADS_CONSENT_STORAGE_KEY}')onGate();});})();`;
+export const ADSENSE_LOADER_CONTENT = `(function(){${FC_JOBBOARD_OFFERWALL_GATE_JS}if((${BOT_GATE_FN})())return;if((function(){try{return window.localStorage.getItem('reader_noads_active')==='true';}catch(e){return false;}})())return;${FC_CONSENT_BRIDGE_JS}${FC_ADBLOCK_BRIDGE_JS}function hasConsent(){try{return window.localStorage.getItem('${ADS_CONSENT_STORAGE_KEY}')==='${ADS_CONSENT_GRANTED}';}catch(e){return false;}}${FC_ENSURE_JS}var queue=null,cursor=0,slotIo=null;function pushUpTo(idx){for(;cursor<=idx;cursor++){var el=queue[cursor];if(!el||!el.parentNode||el.getAttribute('data-adsbygoogle-status'))continue;try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}}if(slotIo&&cursor>=queue.length){slotIo.disconnect();slotIo=null;}}function armSlots(){queue=[].slice.call(document.querySelectorAll('ins.adsbygoogle'));if(!queue.length)return;if(!('IntersectionObserver' in window)){pushUpTo(queue.length-1);return;}slotIo=new IntersectionObserver(function(entries){var max=-1;for(var i=0;i<entries.length;i++){if(!entries[i].isIntersecting)continue;var k=queue.indexOf(entries[i].target);if(k>max)max=k;}if(max>=cursor)pushUpTo(max);},{rootMargin:'${AD_SLOT_VIEWPORT_ROOT_MARGIN}'});for(var j=0;j<queue.length;j++)slotIo.observe(queue[j]);}var loaded=false;function loadScript(){if(loaded)return;loaded=true;if(document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]'))return;var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='${ADSENSE_SCRIPT_SRC}';s.setAttribute('data-overlays','bottom');s.setAttribute('data-ad-frequency-hint','60s');s.onload=armSlots;document.head.appendChild(s);}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function observe(){var EV=['scroll','touchstart','pointerdown','keydown','mousemove'];for(var e=0;e<EV.length;e++)document.addEventListener(EV[e],loadScript,{once:true,passive:true,capture:true});var slots=document.querySelectorAll('ins.adsbygoogle');if(!('IntersectionObserver' in window)||slots.length===0){(window.requestIdleCallback||ricFb)(loadScript,{timeout:1500});return;}var io=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){io.disconnect();loadScript();return;}}},{rootMargin:'${AD_SLOT_VIEWPORT_ROOT_MARGIN}'});for(var j=0;j<slots.length;j++)io.observe(slots[j]);(window.requestIdleCallback||ricFb)(loadScript,{timeout:2500});}function startAds(){if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',observe,{once:true});}else{observe();}}function scheduleFc(){(window.requestIdleCallback||ricFb)(ensureFc,{timeout:4000});}if(hasConsent()){ensureFc();startAds();return;}if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',scheduleFc,{once:true});}else{scheduleFc();}var armed=false;function onGate(){if(armed||!hasConsent())return;armed=true;startAds();}window.addEventListener('${ADS_CONSENT_CHANGE_EVENT}',onGate);window.addEventListener('storage',function(e){if(!e.key||e.key==='${ADS_CONSENT_STORAGE_KEY}')onGate();});})();`;
 export const ADSENSE_LOADER_FILENAME = 'adsense-loader.js';
 export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_FILENAME}"></script>`;
 
 /**
  * Funding Choices MESSAGING loader, injected PARSE-TIME into the <head> of
  * in-scope STATIC pages. The custom newsletter choice is disabled globally;
- * on the Italian Ticino job board the native Offerwall is filtered so the
- * direct GPT Rewarded Web flow owns the application handoff, while article
- * and other non-job-board pages keep their configured native Offerwall.
+ * on the Italian Ticino job board FC_JOBBOARD_OFFERWALL_GATE_JS holds the
+ * native Offerwall until the visitor clicks "Candidati", while article and
+ * other non-job-board pages keep their configured native Offerwall.
  *
  * WHY THIS EXISTS (2026-06-16): static SSG HTML (article pages and the Italian
  * job-board pages) does not carry index.html's inline Funding Choices block.
@@ -843,7 +882,7 @@ export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_
  * deliberately NOT included here — it is a separate feature, out of scope for
  * the Offerwall render fix.
  */
-export const OFFERWALL_FC_SNIPPET = `<script>(function(){var g=window.googlefc=window.googlefc||{};if(!g.controlledMessagingFunction){g.controlledMessagingFunction=function(message){var E=g.MessageTypeEnum||{};var p=window.location&&window.location.pathname||'';var isItalianJobBoard=/^\\/cerca-lavoro-ticino(?:\\/|$)/.test(p);if(!isItalianJobBoard||E.OFFERWALL===undefined){message.proceed(true);return;}message.proceed(false,[E.OFFERWALL]);};}function loadFc(){if(!document.querySelector('script[data-fc-loader]')){var s=document.createElement('script');s.async=true;s.src='https://fundingchoicesmessages.google.com/i/${FC_PUBLISHER_ID}?ers=1';s.setAttribute('data-fc-loader','1');document.head.appendChild(s);}(function sig(){if(!window.frames['googlefcPresent']){if(document.body){var f=document.createElement('iframe');f.style='width:0;height:0;border:none;z-index:-1000;left:-1000px;top:-1000px;';f.style.display='none';f.name='googlefcPresent';document.body.appendChild(f);}else{setTimeout(sig,0);}}})();}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function schedule(){(window.requestIdleCallback||ricFb)(loadFc,{timeout:4000});}if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',schedule,{once:true});}else{schedule();}})();</script>`;
+export const OFFERWALL_FC_SNIPPET = `<script>${FC_JOBBOARD_OFFERWALL_GATE_JS}(function(){function loadFc(){if(!document.querySelector('script[data-fc-loader]')){var s=document.createElement('script');s.async=true;s.src='https://fundingchoicesmessages.google.com/i/${FC_PUBLISHER_ID}?ers=1';s.setAttribute('data-fc-loader','1');document.head.appendChild(s);}(function sig(){if(!window.frames['googlefcPresent']){if(document.body){var f=document.createElement('iframe');f.style='width:0;height:0;border:none;z-index:-1000;left:-1000px;top:-1000px;';f.style.display='none';f.name='googlefcPresent';document.body.appendChild(f);}else{setTimeout(sig,0);}}})();}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function schedule(){(window.requestIdleCallback||ricFb)(loadFc,{timeout:4000});}if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',schedule,{once:true});}else{schedule();}})();</script>`;
 
 /**
  * Above-the-fold manual slot for drive-by SEO landings (health premiums,

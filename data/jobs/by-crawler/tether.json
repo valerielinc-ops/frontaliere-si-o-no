@@ -3964,10 +3964,10 @@
     },
     {
       "id": "tether-d46a390bc8c9",
-      "slug": "blockchain-investigator-and-law-enforcement-liaison-nz-tether-ch",
+      "slug": "blockchain-investigatore-e-collegamento-con-l-applicazione-della-legge-nz-tether-operations-auckland-auckland",
       "slugByLocale": {
         "en": "blockchain-investigator-and-law-enforcement-liaison-nz-tether-ch",
-        "it": "blockchain-investigator-and-law-enforcement-liaison-nz-tether-ch",
+        "it": "blockchain-investigatore-e-collegamento-con-l-applicazione-della-legge-nz-tether-operations-auckland-auckland",
         "de": "blockchain-investigator-and-law-enforcement-liaison-nz-tether-ch",
         "fr": "enqueteur-de-la-chaine-de-blocs-et-liaison-avec-la-police-nz-tether-operations-auckland-auckland"
       },
@@ -3977,7 +3977,7 @@
       "title": "Blockchain Investigator and Law Enforcement Liaison - NZ",
       "titleByLocale": {
         "en": "Blockchain Investigator and Law Enforcement Liaison - NZ",
-        "it": "Blockchain Investigator e Law Enforcement Liaison - NZ",
+        "it": "Blockchain Investigatore e collegamento con l'applicazione della legge - NZ",
         "de": "Blockchain Ermittler und Law Enforcement Liaison - NZ",
         "fr": "Enquêteur de la chaîne de blocs et liaison avec la police - NZ"
       },
@@ -4015,7 +4015,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -4029,7 +4028,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:16:55.704Z"
+      "firstSeenAt": "2026-09-24T14:16:55.704Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "blockchain-investigator-and-law-enforcement-liaison-nz-tether-ch"
+        ]
+      },
+      "previousSlugs": [
+        "blockchain-investigator-and-law-enforcement-liaison-nz-tether-ch"
+      ]
     },
     {
       "id": "tether-87748448ba31",

@@ -1323,6 +1323,9 @@ describe('#6482 — committed crawler-group-*.yml are byte-identical to the gene
       'fachkraft',
       'postfinance',
       'tsmg',
+      'tpl-lugano',
+      'capri-holdings',
+      'confederazione',
     ]);
     expect(previousGroup).not.toContain('mcdonald-s-switzerland');
     expect(generated[GROUP_COUNT - 1].members).toEqual(newGroup);
@@ -1372,7 +1375,11 @@ describe('#6482 — committed crawler-group-*.yml are byte-identical to the gene
     expect(JSON.parse(fs.readFileSync(a.assignmentsPath, 'utf8')).groups).toEqual(
       JSON.parse(fs.readFileSync(b.assignmentsPath, 'utf8')).groups,
     );
-  });
+    // Two full regenerations, not one: each costs ~7.2s on the CI runner (run
+    // 36103442471: the single-regeneration siblings above took 7168/7184ms,
+    // this case 15667ms against the 15s default). Same budget as the
+    // byte-identical regeneration case above; the assertion is unchanged.
+  }, 30_000);
 
   it('refuses a pin file whose groupCount does not match GROUP_COUNT, instead of silently truncating/padding it', () => {
     // A foreign/stale pin file with a different groups.length would otherwise
@@ -2171,7 +2178,7 @@ describe('cross-repo crawler execution artifacts', () => {
         });
       }
       const checkouts = job.steps.filter((step: any) => step.uses === 'actions/checkout@v5');
-      expect(checkouts).toHaveLength(2);
+      expect(checkouts).toHaveLength(contract.checkout.attempts);
       expect(checkouts[0]).toMatchObject({
         id: 'site_checkout_primary',
         'continue-on-error': true,

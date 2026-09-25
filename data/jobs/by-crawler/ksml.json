@@ -3497,7 +3497,6 @@
           "stellvertretung-psychomotorik-therapeut-in-15-lektionen-verhandelbar-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-40356"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:51:26.754Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -3511,8 +3510,7 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "ksml-d1d1a895df82",
@@ -7905,7 +7903,6 @@
           "psychomotorik-therapeut-in-fur-4-6-lektionen-pro-woche-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-zollbruck"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T16:10:29.264Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -7919,8 +7916,7 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "ksml-a6a0314ef09f",
@@ -8139,7 +8135,6 @@
           "psychomotherapeute-de-10-08-2026-a-au-moins-20-09-2026-14-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-36248"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T23:20:21.197Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -8153,8 +8148,7 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "ksml-216d2ec53199",
@@ -12655,7 +12649,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "lehrkraft-physik-an-den-sport-und-maturitatsschulen-6-wochenlektionen-montag-und-40378"
@@ -12683,8 +12676,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:45:49.774Z",
-      "retranslationAttempts": 1
+      "firstSeenAt": "2026-09-24T14:45:49.774Z"
     },
     {
       "id": "ksml-2757e10f6fae",
@@ -13239,10 +13231,10 @@
     },
     {
       "id": "ksml-43b18f999dd3",
-      "slug": "klassenlehrperson-besondere-volksschule-22-lektionen-pro-woche-arbeitstage-dienstag-bis-40379",
+      "slug": "scuola-elementare-speciale-per-insegnanti-di-classe-22-lezioni-a-settimana-giorni-lavorativi-dal-martedi-al-40379",
       "slugByLocale": {
         "de": "klassenlehrperson-besondere-volksschule-22-lektionen-pro-woche-arbeitstage-dienstag-bis-40379",
-        "it": "klassenlehrperson-besondere-volksschule-22-lektionen-pro-woche-arbeitstage-dienstag-bis-40379",
+        "it": "scuola-elementare-speciale-per-insegnanti-di-classe-22-lezioni-a-settimana-giorni-lavorativi-dal-martedi-al-40379",
         "en": "class-teacher-special-elementary-school-22-lessons-per-week-working-days-tuesday-to-friday-1-day-in-team-teaching-40379",
         "fr": "professeur-de-classe-ecole-primaire-speciale-22-lecons-par-semaine-jours-ouvrables-du-mardi-au-vendredi-1-journee-40379"
       },
@@ -13289,7 +13281,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -13304,7 +13295,14 @@
         }
       },
       "firstSeenAt": "2026-09-24T14:45:49.770Z",
-      "retranslationAttempts": 1
+      "previousSlugsByLocale": {
+        "it": [
+          "klassenlehrperson-besondere-volksschule-22-lektionen-pro-woche-arbeitstage-dienstag-bis-40379"
+        ]
+      },
+      "previousSlugs": [
+        "klassenlehrperson-besondere-volksschule-22-lektionen-pro-woche-arbeitstage-dienstag-bis-40379"
+      ]
     },
     {
       "id": "ksml-755896c4fbb7",
@@ -17174,7 +17172,6 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40368",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:51:26.724Z",
       "previousSlugsByLocale": {
         "it": [
@@ -17202,8 +17199,7 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "ksml-5774dac654a7",

@@ -81,6 +81,14 @@ import {
   pollUntil,
   vitestCheckNeedsPolling,
   vitestJobIsConcluded,
+  latestCompletedVitestRun,
+  vitestFailureIsTestsStep,
+  parseVitestFailureReport,
+  relativeImportCandidates,
+  inheritedRedRescueDecision,
+  testedMainSince,
+  VITEST_RELATED_STEP_NAME,
+  VITEST_FAILURE_REPORT_MARKER,
 } from './lib/vitestCheck.mjs';
 import { hasCommentMarker as hasCommentMarkerShared, upsertStickyComment,
   countPaginatedLines, lastPaginatedJsonLine } from './lib/prComments.mjs';
@@ -165,6 +173,15 @@ const REVIEW_VALIDATION_WORKFLOW_PATHS = [
 // la stessa classe di livelock di #2415). Da lì la prendono recycle-stale-prs /
 // un umano.
 const STUCK_RED_MARKER = '<!-- AUTOREBASE_STUCK_RED_RESCUE -->';
+// Rescue del rosso EREDITATO e poi riparato su main (2026-09-25): ripetibile
+// per chiave (test falliti, commit di main che li tocca), non one-shot. Vedi
+// `inheritedRedRescueDecision` in lib/vitestCheck.mjs.
+const INHERITED_RED_MARKER = '<!-- AUTOREBASE_INHERITED_RED_RESCUE';
+const INHERITED_RED_KEY_RE = /<!-- AUTOREBASE_INHERITED_RED_RESCUE key=([0-9a-f]{12}@[0-9a-f]{7,12}) -->/gu;
+const INHERITED_RED_MAX = intFromEnv('AUTOREBASE_INHERITED_RED_MAX', 3);
+// Escalation dei fixer al loro round cap: `needs-human` messo da loro non è
+// del reopen-breaker e non si toglie qui.
+const FIXER_ESCALATION_MARKERS = ['<!-- NEEDS_HUMAN_ESCALATION:', '<!-- REDFLAG_BODY_DEADLOCK -->'];
 // Backstop `stale` di vitestFailureIsNotAttributableToPr: un vitest rosso più
 // vecchio di N ore va ri-verificato una volta anche senza prova di main-rosso
 // (copre i fallimenti INFRA, es. #5019: `RPC failed; curl 56` + runner shutdown
@@ -940,6 +957,145 @@ function stuckRedRescueReason(head) {
   return rescue ? reason : '';
 }
 
+/** Commenti della PR che contengono uno dei `markers`, come `{ login, type, body }`.
+ * Element-wise + `@json` come `readReopenBudgetBody`: un aggregato girerebbe
+ * per pagina sotto `--paginate`. */
+function commentsWithMarkers(num, markers) {
+  const filter = markers.map((m) => `contains(${JSON.stringify(m)})`).join(' or ');
+  const raw = gh(['api', `repos/${REPO}/issues/${num}/comments?per_page=100`, '--paginate',
+    '--jq', `.[] | select((.body // "") | ${filter}) | {login: .user.login, type: .user.type, body: .body} | @json`],
+  { json: false, allowFail: true });
+  return String(raw || '').split('\n').filter(Boolean).flatMap((line) => {
+    try { return [JSON.parse(line)]; } catch { return []; }
+  });
+}
+
+/** Il file sorgente su `origin/main`, o '' se non leggibile. */
+function mainFileSource(file) {
+  return git(['show', `origin/main:${file}`], { allowFail: true }) || '';
+}
+
+/** I file di test falliti più i moduli che importano direttamente (su main). */
+function inheritedRedRelevantPaths(files) {
+  const paths = new Set(files);
+  for (const file of files) {
+    for (const group of relativeImportCandidates(mainFileSource(file), file)) {
+      const found = group.find((candidate) => gitTreeEntry('origin/main', candidate)?.exists);
+      if (found) paths.add(found);
+    }
+  }
+  return [...paths].sort();
+}
+
+/** Quando è nata la run che ha prodotto l'ultimo check vitest completato: il
+ * suo merge ref è di quel momento, anche dopo un rerun (`created_at` resta
+ * quello del primo tentativo). '' se il link o l'API non sono leggibili. */
+function testedRunCreatedAt(checks) {
+  const ref = jobRefFromCheckRun(latestCompletedVitestExecutionRun(checks));
+  if (!ref) return '';
+  const raw = gh(['api', `repos/${REPO}/actions/runs/${ref.runId}`, '--jq', '.created_at'],
+    { json: false, allowFail: true });
+  return String(raw || '').trim();
+}
+
+/** L'ultimo commit di main, dopo `sinceIso`, che tocca uno dei `paths` ('' se nessuno). */
+function latestMainCommitTouching(paths, sinceIso) {
+  let best = { date: '', sha: '' };
+  for (const p of paths) {
+    const raw = gh(['api',
+      `repos/${REPO}/commits?sha=main&path=${encodeURIComponent(p)}&since=${encodeURIComponent(sinceIso)}&per_page=1`,
+      '--jq', '.[0] | select(.) | "\\(.commit.committer.date) \\(.sha)"'],
+    { json: false, allowFail: true });
+    const [date = '', sha = ''] = String(raw || '').trim().split(/\s+/u);
+    if (/^[0-9a-f]{40}$/iu.test(sha) && date > best.date) best = { date, sha };
+  }
+  return best.sha;
+}
+
+/**
+ * Il rosso di `head` è ereditato da main e main lo ha poi riparato? Vedi
+ * `inheritedRedRescueDecision` in lib/vitestCheck.mjs. Ritorna
+ * `{ key, files, commit }` oppure null; il motivo del no viene loggato.
+ */
+function inheritedRedRescue(num, head) {
+  const checks = checkRunsOf(head);
+  if (vitestCheckNeedsPolling(checks)) return null;
+  const last = latestCompletedVitestRun(checks);
+  if (!last || last.conclusion !== 'failure') return null;
+  if (!vitestFailureIsTestsStep(vitestJobSteps(head))) {
+    console.log(`PR #${num}: rosso ereditato? no — non è fallito lo step \`${VITEST_RELATED_STEP_NAME}\` (review gate, body o gate sorgente: un merge di main non li ripara).`);
+    return null;
+  }
+  const comments = commentsWithMarkers(num, [VITEST_FAILURE_REPORT_MARKER, INHERITED_RED_MARKER]);
+  // Il report lo scrive `tests.yml` (github-actions): un commento di un utente
+  // con lo stesso marker non è una prova.
+  const reportBody = comments
+    .filter((c) => c.type === 'Bot' && c.body.includes(VITEST_FAILURE_REPORT_MARKER))
+    .map((c) => c.body)
+    .pop();
+  const report = parseVitestFailureReport(reportBody);
+  const usedKeys = comments
+    .flatMap((c) => [...c.body.matchAll(INHERITED_RED_KEY_RE)].map((m) => m[1]));
+  const prFiles = String(gh(['api', `repos/${REPO}/pulls/${num}/files?per_page=100`, '--paginate',
+    '--jq', '.[].filename'], { json: false, allowFail: true }) || '').split('\n').filter(Boolean);
+  // Il merge ref è calcolato quando la run NASCE, e un rerun lo riusa: il
+  // `started_at` del check di un rerun è successivo e nascondeva la
+  // riparazione di main. #9753: run 36079087777 nata alle 00:46Z, rilanciata
+  // dallo stale-pr-rescuer alle 03:57Z; #9774 (02:03Z) risultava «prima» del
+  // rosso e la sweep delle 06:36Z rispondeva `main-unchanged`.
+  const since = testedMainSince({
+    runCreatedAt: testedRunCreatedAt(checks),
+    checkStartedAt: last.started_at,
+    checkCompletedAt: last.completed_at,
+  });
+  const files = report && !report.truncated ? report.files : [];
+  const relevantMainCommit = files.length > 0 && since
+    ? latestMainCommitTouching(inheritedRedRelevantPaths(files), since)
+    : '';
+  const d = inheritedRedRescueDecision({
+    report, head, prFiles, relevantMainCommit, usedKeys, maxRescues: INHERITED_RED_MAX,
+  });
+  if (!d.rescue) {
+    console.log(`PR #${num}: rosso ereditato? no (${d.reason}${d.key ? `, chiave ${d.key}` : ''}).`);
+    return null;
+  }
+  return { key: d.key, files, commit: relevantMainCommit };
+}
+
+/** Commento del rescue, scritto DOPO il push: la chiave si consuma solo se il
+ * merge di main è davvero arrivato sul branch. */
+function commentInheritedRedRescue(num, rescue) {
+  const list = rescue.files.map((f) => `- \`${f}\``).join('\n');
+  const body = `${INHERITED_RED_MARKER} key=${rescue.key} -->\n` +
+    '♻️ **autorebase / rosso ereditato**: i test che fallivano su questa PR sono fuori dal suo diff, ' +
+    `e dopo il rosso \`main\` li ha toccati (commit \`${rescue.commit.slice(0, 12)}\`, sul test o su un modulo che importa direttamente):\n\n` +
+    `${list}\n\n` +
+    'Ho mergiato `origin/main` nel branch: il push rilancia test e review sulla HEAD nuova. ' +
+    `Un rescue per ogni coppia (test falliti, commit di main), al massimo ${INHERITED_RED_MAX} per PR. ` +
+    'Se gli stessi test falliscono ancora senza un nuovo commit di main su di loro, il rosso è della PR.\n\n' +
+    '_Segnale deterministico da pr-autorebase (zero-Claude)._';
+  if (DRY) { console.log(`[dry] commento rescue rosso ereditato #${num} key=${rescue.key}`); return; }
+  gh(['pr', 'comment', String(num), '--repo', REPO, '--body', body], { json: false, allowFail: true });
+}
+
+/**
+ * Dopo un push l'HEAD è nuova: il `needs-human` che il reopen-breaker aveva
+ * messo per il vitest rosso della HEAD vecchia non descrive più la PR (il
+ * breaker stesso azzera il contatore a ogni commit nuovo). Si toglie solo se
+ * l'ha messo il breaker — c'è il suo commento sticky — e nessun fixer ha
+ * escalato per il proprio round cap.
+ */
+function releaseBreakerLabelAfterPush(num) {
+  if (!labelsOf(num).includes(BREAKER_LABEL)) return;
+  const markers = commentsWithMarkers(num, [REOPEN_BUDGET_MARKER, ...FIXER_ESCALATION_MARKERS]);
+  if (!markers.some((c) => c.body.includes(REOPEN_BUDGET_MARKER))) return;
+  if (markers.some((c) => FIXER_ESCALATION_MARKERS.some((m) => c.body.includes(m)))) return;
+  if (DRY) { console.log(`[dry] -label ${BREAKER_LABEL} #${num}`); return; }
+  gh(['pr', 'edit', String(num), '--repo', REPO, '--remove-label', BREAKER_LABEL],
+    { json: false, allowFail: true });
+  console.log(`PR #${num}: -label ${BREAKER_LABEL} (messa dal reopen-breaker su una HEAD ormai superata).`);
+}
+
 /** Un commento della PR contiene già `marker`? Dedup condivisa fra il comment di
  * conflitto e il rescue one-shot dello stuck-red. */
 function hasCommentMarker(num, marker) {
@@ -1617,11 +1773,19 @@ async function processPR(pr) {
   // UNA vitest, non una per tick. Se dopo il rebase è ancora rossa, il rosso è
   // suo.
   let stuckRedReason = '';
+  let inheritedRescue = null;
   if (behindOf() > 0) {
     stuckRedReason = stuckRedRescueReason(head);
     if (stuckRedReason && hasCommentMarker(num, STUCK_RED_MARKER)) {
-      console.log(`PR #${num} stuck-red (${stuckRedReason}) ma GIÀ ri-testata una volta (marker) — skip: il rosso è suo.`);
+      console.log(`PR #${num} stuck-red (${stuckRedReason}) ma GIÀ ri-testata una volta (marker) — valuto il rosso ereditato.`);
       stuckRedReason = '';
+    }
+    // Il one-shot sopra può essersi speso mentre main era ancora rosso sullo
+    // stesso test: la prova che main lo ha poi riparato apre un rescue nuovo,
+    // uno per chiave (test falliti, commit di main).
+    if (!stuckRedReason) {
+      inheritedRescue = inheritedRedRescue(num, head);
+      if (inheritedRescue) stuckRedReason = 'inherited-fixed';
     }
   }
 
@@ -1679,7 +1843,9 @@ async function processPR(pr) {
 
   const behind = behindOf();
 
-  if (stuckRedReason) {
+  if (inheritedRescue) {
+    console.log(`PR #${num} ROSSO EREDITATO riparato su main (chiave ${inheritedRescue.key}, commit ${inheritedRescue.commit.slice(0, 12)}): ${behind} dietro main → rebase + re-test; il commento con la chiave segue il push.`);
+  } else if (stuckRedReason) {
     console.log(`PR #${num} STUCK-RED (${stuckRedReason}): vitest rosso non attribuibile alla PR, ${behind} dietro main → rescue one-shot (rebase + re-test).`);
     if (!DRY) {
       const why = stuckRedReason === 'red-main'
@@ -1943,6 +2109,8 @@ async function processPR(pr) {
     console.log(`PR #${num}: push fallito (probabile non-fast-forward / TOCTOU) — skip, riprova al prossimo tick.`);
     return;
   }
+  if (inheritedRescue) commentInheritedRedRescue(num, inheritedRescue);
+  releaseBreakerLabelAfterPush(num);
 
   // Riesegui test E review sull'head rebasato tramite il normale evento
   // `pull_request.synchronize` generato dal push. Non invocare workflow_dispatch
