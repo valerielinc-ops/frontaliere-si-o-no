@@ -20174,6 +20174,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'sanzioni-onu-ordinanze-2026',
+    category: 'pratico',
+    date: '2026-09-25T17:20:40.759Z',
+    image: '/images/blog/sanzioni-onu-ordinanze-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

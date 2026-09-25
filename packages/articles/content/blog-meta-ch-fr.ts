@@ -6716,6 +6716,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.franco-svizzero-ribasso-settembre-novembre.title': 'Franc suisse en baisse : les signaux à suivre jusqu’en novembre',
     'blog.article.franco-svizzero-ribasso-settembre-novembre.excerpt': 'Le franc suisse a reculé d’environ 5 % par rapport à ses sommets du printemps 2026, ce qui équivaut au recul de 2023 et est inférieur aux >6% de 2024 ; la fenêtre saisonnière va de fin septembre à début novembre.',
     'blog.article.franco-svizzero-ribasso-settembre-novembre.imageAlt': 'Illustration du franc suisse et de l\'euro avec arrière-plan du lac de Lugano',
+    'blog.article.sanzioni-onu-ordinanze-2026.title': 'La Suisse harmonise les ordonnances relatives aux sanctions de l\'ONU de 2026',
+    'blog.article.sanzioni-onu-ordinanze-2026.excerpt': 'Le 25 septembre 2026, le Conseil fédéral a décidé d\'harmoniser quatre ordonnances sur les sanctions, étendant aux organisations internationales l\'exemption de notification et d\'autorisation pour certaines transactions iraniennes.',
+    'blog.article.sanzioni-onu-ordinanze-2026.imageAlt': 'Documents officiels de la SECO sur les sanctions de l\'ONU avec le Palais fédéral de Berne en arrière-plan',
 };
 
 export default blogMetaChFr;
