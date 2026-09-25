@@ -48,6 +48,9 @@
       ],
       "cler.ch": [
         "https://www.cler.ch/it/banca-cler/jobs-und-karriere/cercare-candidatura/offene-stellen"
+      ],
+      "protectas.com": [
+        "https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/"
       ]
     },
     "byName": {}
@@ -61,6 +64,10 @@
     ],
     "swatch-group-assembly": [
       "generic_ats",
+      "html",
+      "jsonld"
+    ],
+    "protectas": [
       "html",
       "jsonld"
     ]
