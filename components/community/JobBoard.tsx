@@ -245,7 +245,7 @@ import {
 // (e.g. tests/jobboard-italian-lowercase-list-parsing.test.ts).
 export { buildFallbackCanonicalContent } from '@/services/jobs/canonicalFallback';
 import { handleCompanyLogoError, generateInitialsLogo } from '@/services/logoService';
-import { deriveJobPostalCode, getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
+import { resolveJobPostingPostalCode, getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
 import { getJobSalaryContext } from '@/data/salaryData';
 import {
  getEmailProviderInfo,
@@ -5795,9 +5795,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const addressLocality = multiLoc ? 'Switzerland' : (isValidAddr(rawLocality) ? rawLocality : String(job.location || DEFAULT_CANTON_DISPLAY));
  const addressRegion = multiLoc ? 'CH' : String(job.canton || DEFAULT_CANTON);
  const addressCountry = String(job.addressCountry || 'CH');
- const postalCode = deriveJobPostalCode(job);
+ // Same CAP/street pairing as the static JobPosting (#9108, #9841): this
+ // script replaces it after hydration, so it must not re-pair a Chur job with
+ // the HQ CAP 8600 the static builder already rejected.
+ const { postalCode, sourcePostalCoherent } = resolveJobPostingPostalCode(job, addressLocality, addressRegion);
  const rawStreet = String(job.streetAddress || '').trim();
- const streetAddress = isValidAddr(rawStreet) ? rawStreet : '';
+ const streetAddress = sourcePostalCoherent && isValidAddr(rawStreet) ? rawStreet : '';
  const posting: Record<string, unknown> = {
  '@type': 'JobPosting',
  title: localizedTitle,

@@ -314,6 +314,33 @@ dataset dà popolazione, distanza su strada e valico più vicino, e il blocco de
 confronto le espone già tutte e tre. Alzare quella coorte vuol dire trovare un
 fatto per-comune che oggi non abbiamo, non riscrivere quello che c'è.
 
+## #6444 — Francia: il confronto numerico diventa prosa nominata
+
+La ricorrenza di `it:/vivere-in-francia-lavorare-in-svizzera/` partiva da una
+mediana del **5,6 %**: la tabella mostrava dati utili, ma la maschera dell'audit
+trasforma le cifre in `#` e lascia soprattutto il guscio condiviso. Non era un
+errore di emissione. Il plugin `frenchBorderMunicipalityPagesPlugin.ts` ora
+mantiene la tabella geografica e aggiunge, usando
+`shared/peerCohortComparison.ts`, due frasi calcolate per comune: posizione tra
+i vicini sul canone indicativo e sulla popolazione, con i comuni nominati e la
+provenienza delle osservazioni DGALN/DHUP. Il dipartimento entra anche nel
+badge geografico, così la localizzazione resta leggibile oltre al solo valico.
+
+La misura pre-merge del 2026-09-25, su tutte le 20 pagine above-floor emesse dal
+plugin, porta la coorte italiana più grande al **22,1 %** (da 5,6 %) e lascia
+**0 pagine a gain zero**. Le quattro localizzazioni hanno coorti più grandi
+comprese tra **21,6 % e 22,1 %**. Il test osservatore è
+`tests/information-gain-families-floor.test.ts`; il comando live resta quello
+ufficiale `node scripts/ci/information-gain-live-scan.mjs --per-family=12` e va
+ricontrollato dopo il deploy.
+
+Il target del 40 % resta un obiettivo informativo, non una soglia da falsare:
+il dataset contiene già popolazione, distanza stradale, valico, dipartimento,
+regime indicativo e canone comunale, e questa fix espone le relazioni utili tra
+questi fatti. Per andare oltre senza ripetere il payload servirebbe un fatto
+autoritativo nuovo per comune — per esempio tempi/modalità di pendolarismo o
+offerta abitativa osservata — che il dataset attuale non contiene.
+
 ## I calcolatori di stipendio: le leve, non le cifre (#7385)
 
 La più grande delle cinque famiglie qui sopra — 22 coorti su 37 — è stata

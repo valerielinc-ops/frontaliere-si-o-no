@@ -50,6 +50,7 @@ import {
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
+import { fetchWorkdayPrimarySwissLocation } from './workday-swiss-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -172,10 +173,12 @@ function detectEmploymentType(timeType = '', title = '') {
  */
 function resolveAddress(rawCity = '') {
   const city = normalizeSpace(rawCity || '');
-  const isHqCity = !city || /\bzug\b/i.test(city);
+  // The caller passes a location it already resolved to a Swiss canton: an
+  // empty city is never read as "the HQ" (issue 9842).
+  const isHqCity = /\bzug\b/i.test(city);
 
   return {
-    city: city || HQ.city,
+    city,
     postalCode: isHqCity ? HQ.postalCode : '',
     streetAddress: isHqCity ? HQ.streetAddress : '',
   };
@@ -267,15 +270,24 @@ export async function fetchAllBossardJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const rawLocation = listing.location || '';
-    if (isLocationExplicitlyForeign(rawLocation)) {
-      console.log(`  ⏭️ Skipped foreign location: ${rawLocation} — ${title}`);
+    const listingLocation = normalizeSpace(listing.location || '');
+    if (isLocationExplicitlyForeign(listingLocation)) {
+      console.log(`  ⏭️ Skipped foreign location: ${listingLocation} — ${title}`);
       continue;
     }
 
-    const { city, postalCode, streetAddress } = resolveAddress(rawLocation);
-    const location = rawLocation || city || HQ.city;
-    const canton = inferSwissTargetCanton(location) || inferSwissTargetCanton(city) || HQ.canton;
+    // An "N Locations" roll-up (or an empty location) names no site: only the
+    // req's own primary workplace may place it, never the Zug HQ (issue 9842:
+    // no HQ fallback on unknown geography).
+    const location = listingLocation && !/\d+\s+location/i.test(listingLocation)
+      ? listingLocation
+      : await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath);
+    const canton = location ? inferSwissTargetCanton(location) : '';
+    if (!canton) {
+      console.log(`  ⏭️ Skipped location without a Swiss canton: ${listingLocation || '(none)'} — ${title}`);
+      continue;
+    }
+    const { city, postalCode, streetAddress } = resolveAddress(location);
 
     const publicUrl = listing.url || WORKDAY_PUBLIC_BASE;
     if (seen.has(publicUrl)) continue;

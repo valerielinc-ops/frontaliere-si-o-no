@@ -6704,6 +6704,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.omologazione-fitosanitari-arretrato-2032.title': 'Phytosanitary approval: backlog cleared by 2032',
     'blog.article.omologazione-fitosanitari-arretrato-2032.excerpt': 'Federal Council sets 2032 to process 525 pending applications; fees increasing from 2028 to cover 50% of costs.',
     'blog.article.omologazione-fitosanitari-arretrato-2032.imageAlt': 'Federal Palace in Bern with agricultural fields background',
+    'blog.article.finanziamento-federale-universita-sup.title': 'Federal funding for cantonal universities and universities of applied sciences',
+    'blog.article.finanziamento-federale-universita-sup.excerpt': 'The Federal Council approved on 25 September 2026 the report on fair funding: 20% maximum for cantonal universities, 30% maximum for sup from 1 January 2027.',
+    'blog.article.finanziamento-federale-universita-sup.imageAlt': 'Modern university campus in Lugano with students and research labs under Alpine sky',
 };
 
 export default blogMetaChEn;
