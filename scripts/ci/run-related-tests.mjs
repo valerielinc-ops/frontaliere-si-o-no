@@ -14,7 +14,9 @@
  * exception because it configures every test project, while CI and TypeScript
  * configuration stay outside this policy. `scripts/ci/run-related-tests.mjs`
  * has an explicit, bounded regression-test allow-list because its consumers
- * read it by path instead of importing it. `--select-only`
+ * read it by path instead of importing it. Test-tree lints (tests that scan
+ * every test file instead of importing one) join the selection whenever the
+ * diff touches a test file. `--select-only`
  * computes the same selection without invoking Vitest and emits the
  * pre-assembly dataset decision for tests.yml.
  */
@@ -45,6 +47,14 @@ const runnerRegressionTests = new Set([
   'tests/run-related-tests-sparse.test.ts',
   'tests/ci-vitest-check-name.test.ts',
   'tests/agents-related-tests-recipe.test.ts',
+]);
+// Lint dell'ALBERO dei test: scandiscono ogni file di test per directory e non
+// ne importano nessuno, quindi il grafo inverso non li sceglie mai proprio
+// quando servono, cioe' quando una PR aggiunge o modifica un test. Girano
+// ogni volta che il diff tocca un file di test (#9743: un test nuovo che
+// fissa un conteggio letterale su un file riscritto da un cron).
+const testTreeLintTests = new Set([
+  'tests/check-cron-count-literals.test.ts',
 ]);
 // Most workflow readers intentionally depend on every asset in the directory:
 // permissions, timeout and scope guards are repository-wide contracts. A few
@@ -462,6 +472,12 @@ if (runnerChanged && !fullSuiteRequired) {
     if (isRunnableTest(test)) related.add(test);
   }
   console.log('run-related-tests.mjs changed → running its explicit regression-test suite.');
+}
+if (!fullSuiteRequired && candidates.some((file) => isRunnableTest(file))) {
+  for (const test of testTreeLintTests) {
+    if (isRunnableTest(test)) related.add(test);
+  }
+  console.log('test file(s) changed → running the test-tree lints.');
 }
 let usedFullFallback = fullSuiteRequired;
 const assetCandidate = (file) => githubAssetRe.test(file) || testFixtureRe.test(file);
