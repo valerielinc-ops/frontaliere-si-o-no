@@ -20,9 +20,8 @@
  *     FR / AU / BR sites plus the Basel HQ).
  *   - Medartis detail pages expose only `description` / `adcode` /
  *     `customfield2` / `shifttype` propertyids — no `title` or
- *     `location` blocks. The factory falls back to:
- *       * `listing.title` (the `<a class="jobTitle-link">` text)
- *       * defaultCity / defaultCanton (the BS HQ) for missing location
+ *     `location` blocks. The factory falls back to `listing.title` for the
+ *     title, while missing or unresolvable location is rejected.
  */
 import { createSuccessFactorsParser } from './successfactors-shared-job-parser-common.mjs';
 
