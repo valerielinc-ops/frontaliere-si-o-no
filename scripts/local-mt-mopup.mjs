@@ -888,6 +888,36 @@ export async function commitMopupCandidate({
 }
 
 /**
+ * The kill-switch side of the write boundary (#9677). With
+ * LOCAL_MT_LANG_AWARE_OVERWRITE off, a language-driven overwrite never
+ * reaches commitMopupCandidate(): the mop-up loop drops it first. This counts
+ * it in the rollout as `withheld:kill-switch` (the same decision the boundary
+ * would take), so the telemetry says how many overwrites the switch held
+ * back, and judges a sample bounded by the overwrite cap. The shadow verdicts
+ * go through the #9675 gate and the #9676 policy but not through the run
+ * rollback guard, and are counted apart from the enforced verdicts. Takes no
+ * job: it cannot write. Returns null for anything that is not a withheld
+ * overwrite.
+ */
+export async function shadowWithheldOverwrite({
+  candidate,
+  rollout,
+  sourceLang,
+  locale,
+  field,
+  judge = judgeLocalMtMeaning,
+}) {
+  if (!rollout || rollout.overwritesEnabled) return null;
+  if (candidate?.decision !== 'write' || candidate.languageDriven !== true) return null;
+  const decision = `withheld:${rollout.beforeJudge({ kind: 'overwrite' })}`;
+  if (!rollout.shouldShadowJudge()) return { decision, shadowBucket: null };
+  const shadow = await judgeMopupWrite(candidate, { sourceLang, locale, field, judge });
+  const shadowBucket = semanticBucketOf(shadow);
+  rollout.recordShadowVerdict(shadowBucket);
+  return { decision, shadowBucket };
+}
+
+/**
  * Apply the rollout switch only to the language-aware repair arm. A normal
  * fill of a missing slot is always eligible; an existing non-empty title is
  * eligible only when classifyMopupStructure() has proved both that the stored
@@ -1043,6 +1073,12 @@ function reportSemanticTelemetry(snapshot, env = process.env) {
 }
 
 async function main() {
+  // Parse CLI options only for direct execution. This module is imported by
+  // mark-mistranslated-jobs.mjs; its flags must not configure an imported
+  // mop-up phase, even when both entry points receive --dry-run.
+  const dryRun = parseFlag('--dry-run') || String(process.env.LOCAL_MT_DRY_RUN || '0') === '1';
+  const maxJobs = Number(parseOpt('--max-jobs', process.env.LOCAL_MT_MAX_JOBS)) || 2000;
+
   // One rollback guard per run for the overwrite arm (#9676), shared with the
   // rollout so the telemetry reports the same guard the write boundary obeys.
   const rollout = createSemanticRolloutFromEnv(process.env, {
@@ -1050,19 +1086,13 @@ async function main() {
     rollbackGuard: createSemanticRollbackGuard(),
   });
   try {
-    await runMopup(rollout);
+    await runMopup({ dryRun, maxJobs, rollout });
   } finally {
     reportSemanticTelemetry(rollout.snapshot());
   }
 }
 
-async function runMopup(rollout) {
-  // Parse CLI options only for direct execution. This module is imported by
-  // mark-mistranslated-jobs.mjs; its flags must not configure an imported
-  // mop-up phase, even when both entry points receive --dry-run.
-  const dryRun = parseFlag('--dry-run') || String(process.env.LOCAL_MT_DRY_RUN || '0') === '1';
-  const maxJobs = Number(parseOpt('--max-jobs', process.env.LOCAL_MT_MAX_JOBS)) || 2000;
-
+async function runMopup({ dryRun, maxJobs, rollout }) {
   // Publish the run start (WRITE-ONCE) so that under the Argos-first ordering this
   // BULK pass (Phase 2a) — which runs BEFORE the cascade — establishes the shared
   // run clock. The cascade (Phase 2b) and the leftover mop-up (Phase 2c) then bound
@@ -1390,18 +1420,14 @@ async function runMopup(rollout) {
         if (decision === 'write' && languageDriven) {
           shadowWithheld++;
         }
-        // Shadow sample (#9677): with the kill-switch off, judge a bounded
-        // number of the overwrites the flip would make, so the first enforced
-        // run is predicted by a measured accept/reject rate. Never written.
-        if (finalCandidate.decision === 'write' && finalCandidate.languageDriven
-            && rollout.shouldShadowJudge()) {
-          const shadow = await judgeMopupWrite(finalCandidate, {
-            sourceLang: srcLang,
-            locale,
-            field,
-          });
-          rollout.recordShadowVerdict(semanticBucketOf(shadow));
-        }
+        // Kill-switch telemetry and shadow sample (#9677). Never writes.
+        await shadowWithheldOverwrite({
+          candidate: finalCandidate,
+          rollout,
+          sourceLang: srcLang,
+          locale,
+          field,
+        });
         continue;
       }
 

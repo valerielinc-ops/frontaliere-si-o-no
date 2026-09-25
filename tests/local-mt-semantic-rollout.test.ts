@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   classifyMopupStructure,
   commitMopupCandidate,
+  shadowWithheldOverwrite,
 } from '../scripts/local-mt-mopup.mjs';
 import {
   createSemanticRollout,
@@ -305,6 +306,56 @@ describe('semantic rollout: shadow sample and report', () => {
     expect(snapshot.verdicts.total).toBe(0);
     expect(snapshot.written.total).toBe(0);
     expect(createSemanticRollout({ overwritesEnabled: true }).shouldShadowJudge()).toBe(false);
+  });
+
+  it('counts every overwrite the switch holds back and judges only a capped shadow sample', async () => {
+    const guard = createSemanticRollbackGuard();
+    const rollout = createSemanticRollout({ maxOverwrites: 2, rollbackGuard: guard });
+    const judge = countingJudge(() => (judge.calls === 1 ? ACCEPT : REJECT));
+    const outcomes = [];
+    for (const id of [1, 2, 3]) {
+      const job = overwriteJob(id);
+      outcomes.push(await shadowWithheldOverwrite({
+        candidate: candidateFor(job), rollout, sourceLang: 'de', locale: 'it', field: 'title', judge,
+      }));
+    }
+
+    expect(outcomes.map((outcome) => outcome?.decision)).toEqual([
+      'withheld:kill-switch', 'withheld:kill-switch', 'withheld:kill-switch',
+    ]);
+    expect(outcomes.map((outcome) => outcome?.shadowBucket)).toEqual(['accepted', 'rejected', null]);
+    expect(judge.calls).toBe(2);
+    const snapshot = rollout.snapshot();
+    expect(snapshot.withheld).toMatchObject({ 'kill-switch': 3, cap: 0, rollback: 0, total: 3 });
+    expect(snapshot.shadowVerdicts).toMatchObject({ accepted: 1, rejected: 1, total: 2 });
+    expect(snapshot.verdicts.total).toBe(0);
+    expect(snapshot.written.total).toBe(0);
+    // The shadow never feeds the run rollback of the enforced arm.
+    expect(guard.status()).toMatchObject({ observed: 0, tripped: false });
+  });
+
+  it('a shadow judge error is counted as a shadow error and never throws', async () => {
+    const rollout = createSemanticRollout();
+    const outcome = await shadowWithheldOverwrite({
+      candidate: candidateFor(overwriteJob()), rollout, sourceLang: 'de', locale: 'it', field: 'title',
+      judge: countingJudge(() => { throw new Error('model download failed'); }),
+    });
+    expect(outcome).toEqual({ decision: 'withheld:kill-switch', shadowBucket: 'error' });
+    expect(rollout.snapshot().shadowVerdicts).toMatchObject({ error: 1, total: 1 });
+  });
+
+  it('leaves fills and an enforcing rollout alone', async () => {
+    const judge = countingJudge(ACCEPT);
+    const off = createSemanticRollout();
+    expect(await shadowWithheldOverwrite({
+      candidate: candidateFor(fillJob()), rollout: off, sourceLang: 'de', locale: 'it', field: 'title', judge,
+    })).toBeNull();
+    const on = createSemanticRollout({ overwritesEnabled: true });
+    expect(await shadowWithheldOverwrite({
+      candidate: candidateFor(overwriteJob()), rollout: on, sourceLang: 'de', locale: 'it', field: 'title', judge,
+    })).toBeNull();
+    expect(judge.calls).toBe(0);
+    expect(off.snapshot().withheld.total + on.snapshot().withheld.total).toBe(0);
   });
 
   it('emits one greppable JSON line and GitHub annotations for cap, rollback and judge errors', () => {
