@@ -270,6 +270,15 @@ describe('vite.config.ts import graph resolves without Vite aliases', () => {
         `${detail}\n`,
     ).toEqual([]);
   });
+
+  it('does not pull executable scripts/ci modules into the Vite config graph', () => {
+    const offenders = WALK.files.filter((file) => file.startsWith('scripts/ci/'));
+    expect(
+      offenders,
+      'Vite config code may use pure shared contracts, but executable CI scripts must stay out of the bundle.\n' +
+        'A shebang or CLI main guard is no longer valid after esbuild prepends config code.\n',
+    ).toEqual([]);
+  });
 });
 
 /**

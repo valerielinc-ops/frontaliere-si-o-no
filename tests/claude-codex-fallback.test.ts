@@ -1062,8 +1062,10 @@ describe('copertura workflow diretti', () => {
   it('esegue il preflight dal runtime snapshot minimale senza import mancanti', () => {
     const root = mkdtempSync(join(tmpdir(), 'codex-runtime-snapshot-'));
     const snapshotCi = join(root, 'ci');
+    const snapshotLib = join(root, 'lib');
     const output = join(root, 'github-output');
     mkdirSync(snapshotCi, { recursive: true });
+    mkdirSync(snapshotLib, { recursive: true });
     writeFileSync(output, '');
     const runtimeFiles = [
       'claude-codex-fallback.mjs',
@@ -1074,6 +1076,10 @@ describe('copertura workflow diretti', () => {
       for (const name of runtimeFiles) {
         copyFileSync(resolve(repoRoot, 'scripts', 'ci', name), join(snapshotCi, name));
       }
+      copyFileSync(
+        resolve(repoRoot, 'scripts', 'lib', 'codex-fallback-contract.mjs'),
+        join(snapshotLib, 'codex-fallback-contract.mjs'),
+      );
       const snapshotEntry = realpathSync(join(snapshotCi, 'claude-codex-fallback.mjs'));
       const stdout = execFileSync(process.execPath, [snapshotEntry], {
         encoding: 'utf8',

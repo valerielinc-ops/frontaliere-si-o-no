@@ -37,9 +37,13 @@ import net from 'node:net';
 import os from 'node:os';
 import path from 'node:path';
 import { spawn, spawnSync } from 'node:child_process';
+import {
+  CODEX_FALLBACK_EFFORT,
+  CODEX_FALLBACK_MODEL,
+} from '../../../scripts/lib/codex-fallback-contract.mjs';
 
-const CODEX_MODEL = 'gpt-5.6-luna';
-const CODEX_EFFORT = 'max';
+const CODEX_MODEL = CODEX_FALLBACK_MODEL;
+const CODEX_EFFORT = CODEX_FALLBACK_EFFORT;
 const CODEX_CLI_VERSION = '0.153.4';
 const CODEX_PROFILE = 'codex-luna-max';
 const MAX_REQUEST_BYTES = 1024 * 1024;

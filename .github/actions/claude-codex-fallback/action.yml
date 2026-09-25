@@ -299,8 +299,8 @@ runs:
         runner_temp="${RUNNER_TEMP:-/tmp}"
         snapshot_root="$(mktemp -d "$runner_temp/codex-primary-runtime.XXXXXX")"
         chmod 700 "$snapshot_root"
-        mkdir -p "$snapshot_root/action" "$snapshot_root/ci"
-        chmod 700 "$snapshot_root/action" "$snapshot_root/ci"
+        mkdir -p "$snapshot_root/action" "$snapshot_root/ci" "$snapshot_root/lib"
+        chmod 700 "$snapshot_root/action" "$snapshot_root/ci" "$snapshot_root/lib"
         snapshot_file() {
           local source="$1" target="$2"
           [ -f "$source" ] || { echo "::error::Missing Codex runtime asset: $source"; exit 1; }
@@ -316,6 +316,7 @@ runs:
         snapshot_file "$workspace_root/scripts/ci/claude-codex-fallback.mjs" "$snapshot_root/ci/claude-codex-fallback.mjs"
         snapshot_file "$workspace_root/scripts/ci/claude-rate-limit.mjs" "$snapshot_root/ci/claude-rate-limit.mjs"
         snapshot_file "$workspace_root/scripts/ci/claude-rate-limit-contract.mjs" "$snapshot_root/ci/claude-rate-limit-contract.mjs"
+        snapshot_file "$workspace_root/scripts/lib/codex-fallback-contract.mjs" "$snapshot_root/lib/codex-fallback-contract.mjs"
         printf 'runtime_root=%s\n' "$snapshot_root" >> "$GITHUB_OUTPUT"
 
     - name: Install pinned Codex CLI (primary, without credentials)
