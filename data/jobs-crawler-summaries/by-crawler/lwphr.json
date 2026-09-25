@@ -1,16 +1,16 @@
 {
   "key": "lwphr",
   "label": "LWP Ledermann Wieting & Partners",
-  "generatedAt": "2026-09-23T23:43:33.635Z",
+  "generatedAt": "2026-09-25T14:47:14.648Z",
   "total": 16,
   "newCount": 0,
   "updatedCount": 16,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5104,
-  "avgDurationMs": 5104,
+  "durationMs": 6734,
+  "avgDurationMs": 6734,
   "durationHistory": [
-    5104
+    6734
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,11 +37,11 @@
       "id": "lwphr-3322a7b85508",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-19T22:52:28.939Z",
-      "_qualityScore": 75,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 20,
+        "translation": 25,
         "completeness": 10
       }
     },
@@ -501,44 +501,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "EVENT COORDINATOR",
-      "slug": "event-coordinator-lwp-ledermann-wieting-partners-lugano",
-      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/event_coordinator.pdf",
-      "applyUrl": "https://www.lwphr.ch/opportunita-opportunities.html",
-      "company": "LWP Ledermann Wieting & Partners",
-      "companyKey": "lwphr",
-      "companyDomain": "lwphr.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Consulenza",
-      "source": "lwphr-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-07-03",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "lwphr-8a81d1b72888",
-      "firstSeenAt": "2026-07-03T22:32:50.784Z",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

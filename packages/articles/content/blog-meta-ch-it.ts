@@ -6713,6 +6713,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.incentivo-fiscale-acquisto-locale.title': 'Incentivo fiscale per acquisti locali in Ticino: proposta',
     'blog.article.incentivo-fiscale-acquisto-locale.excerpt': 'Il Centro propone un credito d\'imposta fino al 25% per chi destina fino al 5% dello stipendio o reddito annuo a commercianti ticinesi aderenti.',
     'blog.article.incentivo-fiscale-acquisto-locale.imageAlt': 'Smartphone con wallet digitale per acquisti locali in Ticino',
+    'blog.article.franco-svizzero-ribasso-settembre-novembre.title': 'Franco svizzero ribasso: segnali da seguire fino a novembre',
+    'blog.article.franco-svizzero-ribasso-settembre-novembre.excerpt': 'Il franco svizzero è sceso circa il 5% dai massimi di primavera 2026, pari al ribasso del 2023 e inferiore al >6% del 2024; la finestra stagionale va da fine settembre a inizio novembre.',
+    'blog.article.franco-svizzero-ribasso-settembre-novembre.imageAlt': 'Illustrazione del franco svizzero e dell\'euro con sfondo del lago di Lugano',
 };
 
 export default blogMetaChIt;

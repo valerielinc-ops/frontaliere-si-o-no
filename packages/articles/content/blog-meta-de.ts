@@ -11981,6 +11981,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gehri-finanze-preventivo-27.title': 'Gehri schlägt wegen des Defizits des Tessins Alarm',
     'blog.article.gehri-finanze-preventivo-27.excerpt': 'Vor dem Voranschlag \'27 bezeichnet Handelskammerpräsident Gehri das kantonale Defizit als untragbar und kritisiert die politische Untätigkeit.',
     'blog.article.gehri-finanze-preventivo-27.imageAlt': 'Bellinzona und Castelgrande an einem hellen Tag',
+    'blog.article.chiusura-gazzada-varese-ss707.title': 'Schnellstraße Gazzada-Varese am 24 settembre gesperrt',
+    'blog.article.chiusura-gazzada-varese-ss707.excerpt': 'Die SS 707 Raccordo Gazzada-Varese wird in Richtung Varese von 9 bis 17 Uhr zwischen km 3+100 und km 4+500 wegen Arbeiten von Anas gesperrt.',
+    'blog.article.chiusura-gazzada-varese-ss707.imageAlt': 'Sperrung der SS 707 Gazzada-Varese in Richtung Varese',
 };
 
 export default blogMetaDe;
