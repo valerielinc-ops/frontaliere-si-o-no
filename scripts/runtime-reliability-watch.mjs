@@ -255,31 +255,17 @@ export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets }) {
       .map((asset) => `${CDN_ORIGIN}${asset.path}`)
     : [];
   const unhealthyAssets = assetResults.filter((asset) => asset.state !== 'healthy');
-  // While the CDN marker is ahead, the apex is still serving the previous
-  // Pages generation. A stable CDN URL can therefore legitimately return the
-  // previous asset while its cache-busted request reaches the newly published
-  // CDN generation. Both responses are healthy HTTP responses; the stale hash
-  // is the expected rollout boundary, not evidence that the live HTML is
-  // paired with the wrong asset. Keep real response failures blocking in this
-  // state: a 404/5xx/timeout is broken for both the current and previous page.
-  const blockingAssets = unhealthyAssets.filter((asset) => !(
-    markerState === 'rollout_in_progress' && asset.state === 'stale'
-  ));
-  // The failure mode this watchdog exists for is scoped, by its own contract,
-  // to the coherent state: a stable asset URL still serving the previous edge
-  // object *after the current build marker is live*. While the CDN marker is
-  // ahead the apex is still serving the previous generation's HTML, which wants
-  // the previous asset — so an edge/origin hash difference is the intended
-  // state there, and purging it would break the live page. Timeliness of the
-  // rollout is owned by pages-publish-lag-watchdog.yml, which files its own
-  // issue; post-deploy-validate-live.yml likewise records an apex that has not
-  // caught up as "an older VALID build (not broken)". Only the reverse skew is
-  // a coherence break: apex HTML referencing a generation the CDN never got.
-  // A rollout explains the marker skew and a two-200 hash difference: the
-  // stable edge object is the generation still referenced by the live apex,
-  // while the cache-busted request observes the newer CDN generation. It does
-  // not explain a response failure, and `assetResults.length` is required
-  // because observing nothing is not the same as observing health.
+  // A rollout explains the marker skew, not which generation a stable asset
+  // belongs to. Until the cached hash is associated with siteBuildId, every
+  // non-healthy asset remains blocking, including a pair of successful but
+  // divergent responses.
+  const blockingAssets = unhealthyAssets;
+  // A rollout marker is informational for marker coherence, but it cannot
+  // prove that the stable edge object is the generation referenced by the
+  // apex. Keep purge disabled until markers are coherent, while requiring every
+  // observed asset to be healthy before reporting the runtime as healthy.
+  // `assetResults.length` is required because observing nothing is not the same
+  // as observing health.
   const ok = (markerState === 'coherent' || markerState === 'rollout_in_progress')
     && assetResults.length > 0
     && blockingAssets.length === 0;
