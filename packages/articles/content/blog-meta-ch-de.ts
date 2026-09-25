@@ -1190,7 +1190,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.traffico-da-record.excerpt': 'Der Verkehr in der Schweiz verursachte Kosten von rund 117 Milliarden Franken. Das Auto ist das dominierende Transportmittel.',
     'blog.article.traffico-da-record.imageAlt': 'Lugano, Panorama-Blick auf die Stadt.',
     'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.title': 'NASPI für ehemalige Grenzgänger: Anforderungen und Berechnung',
-    'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.excerpt': 'Das Neue Grenzgängerabkommen sieht die Einführung des NASPI für Grenzgänger in der Schweiz vor. Hier sind die Anforderungen, die Berechnung des Betrags, die Dauer und wie Sie sich bewerben können.',
+    'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.excerpt': 'Grenzgängern mit Wohnsitz in Italien zahlt das INPS die NASpI: Nötig sind 13 Beitragswochen in vier Jahren, Schweizer Zeiten inbegriffen. Voraussetzungen, Berechnung 2026, Dauer und Antrag.',
     'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.imageAlt': 'Bild eines Frontalierers in einer ähnlichen Situation',
     'blog.article.assicurazione-rc-auto-svizzera-differenze-italia-frontalieri.title': 'Autoversicherung: Unterschiede zwischen der Schweiz und Italien',
     'blog.article.assicurazione-rc-auto-svizzera-differenze-italia-frontalieri.excerpt': 'Die Kfz-Haftpflichtversicherung in der Schweiz für Grenzgänger: Was ändert sich im Vergleich zur italienischen Police, Bonus-Malus, Kfz-Zulassung',

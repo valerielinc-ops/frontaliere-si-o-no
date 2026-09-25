@@ -15346,16 +15346,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-naspi-frontendalieri-requisiti-calcolo-2024': {
     title: 'NASPI per ex-frontalieri: requisiti e calcolo | Frontaliere Ticino',
-    description: 'Il Nuovo Accordo Frontalieri prevede l\'introduzione del NASPI per i frontalieri in Svizzera. Ecco i requisiti, il calcolo dell\'importo, la durata e come fare',
+    description: 'La NASpI del frontaliere residente in Italia la paga l\'INPS: 13 settimane di contributi in quattro anni, periodi svizzeri compresi. Requisiti e calcolo 2026.',
     keywords: 'frontalieri, ticino, svizzera, italia, naspi, ex-frontalieri, requisiti, calcolo',
     ogTitle: 'NASPI per ex-frontalieri: requisiti, calcolo importo, durata, come fare domanda, differenze con la disoccupazione svizzera',
-    ogDescription: 'Il Nuovo Accordo Frontalieri prevede l\'introduzione del NASPI per i frontalieri in Svizzera. Ecco i requisiti, il calcolo dell\'importo, la durata e come fare',
+    ogDescription: 'Al frontaliere residente in Italia la NASpI la paga l\'INPS: servono 13 settimane di contributi in quattro anni, periodi svizzeri compresi. Requisiti, calcolo 2026, durata e domanda.',
     canonicalPath: '/articoli-svizzera/naspi-frontendalieri-requisiti-calcolo-2024/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "NASPI per ex-frontalieri: requisiti e calcolo",
-      "description": "Il Nuovo Accordo Frontalieri prevede l'introduzione del NASPI per i frontalieri in Svizzera. Ecco i requisiti, il calcolo dell'importo, la durata e come fare",
+      "description": "La NASpI del frontaliere residente in Italia la paga l'INPS: 13 settimane di contributi in quattro anni, periodi svizzeri compresi. Requisiti e calcolo 2026.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -15369,7 +15369,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "caption": "Immagine di un frontaliere che si trova in una situazione simile"
       },
       "datePublished": "2026-07-17T12:17:07+00:00",
-      "dateModified": "2026-07-17T12:17:07+00:00",
+      "dateModified": "2026-09-25T00:00:00+00:00",
       "inLanguage": "it",
       "author": {
         "@type": "Person",
