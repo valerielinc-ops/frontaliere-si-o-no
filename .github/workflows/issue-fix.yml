@@ -1401,7 +1401,7 @@ jobs:
             - Mai committare path home assoluti o email personali (Privacy).
             - Se la root cause non è determinabile con confidenza → NON forzare un fix; posta su issue "Root cause non determinata: <cosa hai trovato>." con `<!-- FIX_OUTCOME: no-root-cause -->` e `<!-- AUTOMATION_DEFERRED: technical -->`, applica `automation-deferred`, rimuovi il routing `agent:fix*` se ancora presente e TERMINA senza PR. Non chiedere una risposta al proprietario: lo sweep automatico deve prima cambiare input, scheda o osservabilità.
             - Se il fix richiede una credenziale, USALA: Remote Config è caricato in questo run (decisione del 2026-08-24). Termina con `blocked-secrets` solo se la variabile che ti serve è davvero vuota in `process.env`, e nominala.
-            - **Telemetria outcome (OBBLIGATORIO):** ogni volta che termini, l'ULTIMO commento che posti sulla issue DEVE iniziare con un marker HTML su riga propria: `<!-- FIX_OUTCOME: <code> -->`. `<code>` ∈ `pr-created` (PR aperta) · `blocked-workflows-scope` · `blocked-secrets` · `blocked-admin-settings` · `no-root-cause` · `overlap-skip` · `pr-already-open` · `already-fixed` · `revenue-tracker-manual`. Se apri una PR (passo 9) e non posti altri commenti, aggiungi comunque un commento col solo marker `<!-- FIX_OUTCOME: pr-created -->`. Il lessons-harvester aggrega questi marker per rilevare classi di blocco ricorrenti e proporre migliorie ai doc/prompt (vedi ISSUES.md → "Auto-improvement loop").
+            - **Telemetria outcome (OBBLIGATORIO):** ogni volta che termini, l'ULTIMO commento che posti sulla issue DEVE iniziare con un marker HTML su riga propria: `<!-- FIX_OUTCOME: <code> -->`. `<code>` ∈ `pr-created` (PR aperta) · `blocked-workflows-scope` · `blocked-secrets` · `blocked-admin-settings` · `no-root-cause` · `overlap-skip` · `pr-already-open` · `already-fixed` · `revenue-tracker-manual`. Con `already-fixed` e una prova, nello stesso commento aggiungi `<!-- FIX_EVIDENCE: pr=<N> commit=<sha> run=<id> -->` (PR mergiata e/o commit su main + run verde su main che lo contiene; almeno pr o commit): il post-step la verifica, toglie `agent:fix` e applica `maybe-resolved`. Se apri una PR (passo 9) e non posti altri commenti, aggiungi comunque un commento col solo marker `<!-- FIX_OUTCOME: pr-created -->`. Il lessons-harvester aggrega questi marker per rilevare classi di blocco ricorrenti e proporre migliorie ai doc/prompt (vedi ISSUES.md → "Auto-improvement loop").
 
       - name: Enforce F1/F7 output diff gate (before checkpoint/push)
         id: diff_gate
@@ -1708,6 +1708,21 @@ jobs:
           if ! gh issue comment "$ISSUE" --body "$(printf '<!-- FIX_OUTCOME: %s -->\n_Outcome rilevato dal post-step deterministico (telemetria lessons-harvester)._' "$OUT")"; then
             echo "::warning::marker FIX_OUTCOME non postato; nessuna garanzia di telemetria."
           fi
+
+      # #9742: un `already-fixed` emesso dall'agente lasciava `agent:fix` sulla
+      # issue e il ciclo la riprendeva. Con evidenza strutturata
+      # (`FIX_EVIDENCE: pr/commit + run`) verificata via API, lo script toglie
+      # il routing `agent:fix*` e applica `maybe-resolved` + marker; non chiude
+      # mai. Evidenza assente o non verificabile → nessuna mutazione.
+      - name: Route already-fixed to verification (zero-Claude)
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true' && steps.group.outputs.is_group != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE: ${{ github.event.issue.number }}
+          IS_GROUP: ${{ steps.group.outputs.is_group }}
+        run: node "$GITHUB_WORKSPACE/scripts/ci/route-already-fixed.mjs"
 
       # La classificazione distingue l'esito del workflow dall'evidenza di
       # delivery. La policy condivisa del modulo rifiuta PR storiche, lookup
