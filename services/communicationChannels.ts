@@ -535,7 +535,7 @@ export const COMMUNICATIONS_PAGE_PATH: Readonly<Record<ConsentLocale, string>> =
  * formula's own `version` is bumped too. One page edit, one consent version —
  * which is the property the whole arrangement exists to buy.
  */
-export const COMMUNICATIONS_PAGE_VERSION = '2026-09-25.1';
+export const COMMUNICATIONS_PAGE_VERSION = '2026-09-25.2';
 
 /**
  * Published version → fingerprint of the page content at that version.
@@ -573,6 +573,9 @@ export const COMMUNICATIONS_PAGE_REVISIONS: Readonly<Record<string, string>> = O
   // 2026-09-25 — the owner re-enabled the daily brief and the advertising
   // channel; both workflow state and live cadence are now reflected here.
   '2026-09-25.1': '877a7a1ce4337832',
+  // 2026-09-25 — the advertising disclosure was aligned with the channel's
+  // live state in all supported locales.
+  '2026-09-25.2': '473abb454e6e1791',
 });
 
 /** Channels grouped by the consent sentence that authorises them, page order preserved. */
