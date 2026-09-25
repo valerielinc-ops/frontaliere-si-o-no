@@ -12,11 +12,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-import { writeFileAtomic, writeShardFileIfChanged } from './atomic-shard-write.mjs';
+import { writeFileAtomic } from './atomic-shard-write.mjs';
+import { assertAccumulatorByteFloor } from './accumulator-byte-floor-guard.mjs';
 
 export const JOB_STATS_HISTORY_LEGACY_FILE = 'data/jobs-stats-history.json';
 export const JOB_STATS_HISTORY_SHARD_DIR = 'data/jobs-stats-history';
 export const JOB_STATS_HISTORY_MANIFEST_FILE = `${JOB_STATS_HISTORY_SHARD_DIR}/manifest.json`;
+export const JOB_STATS_HISTORY_RETENTION_LIMIT = 180;
+export const JOB_STATS_HISTORY_COMPACT_AFTER_DAYS = 30;
 
 const MONTH_RE = /^\d{4}-(?:0[1-9]|1[0-2])$/;
 const DATE_RE = /^\d{4}-(?:0[1-9]|1[0-2])-\d{2}$/;
@@ -191,9 +194,152 @@ export function assertJobStatsHistoryShardSize(filePath, serialized, maxBytes = 
 
 function readShardDocument(filePath) {
   if (!fs.existsSync(filePath)) return { exists: false, ok: true, entries: [] };
-  const parsed = readJson(filePath);
+  // Keep the raw content with the parsed document: the writer needs both for
+  // validation and for an exact no-op check without reparsing large shards.
+  let raw;
+  let parsed;
+  try {
+    raw = fs.readFileSync(filePath, 'utf8');
+    parsed = JSON.parse(raw);
+  } catch {
+    parsed = null;
+  }
   if (!parsed || !Array.isArray(parsed.entries)) return { exists: true, ok: false, entries: [] };
-  return { exists: true, ok: true, entries: historyEntries(parsed) };
+  const entries = historyEntries(parsed);
+  if (parsed.entries.length > 0 && entries.length === 0) {
+    return {
+      exists: true,
+      ok: false,
+      reason: 'no-valid-date-entries',
+      entries: [],
+      raw,
+    };
+  }
+  return { exists: true, ok: true, entries, raw };
+}
+
+function isCompactedHistoryEntry(entry = {}) {
+  // Compaction keeps addedKeys and the bucket identities for the 30-day
+  // leader views. It only removes the key arrays that consumers never read by
+  // value (entry/bucket updatedKeys and removedKeys). Treating non-empty
+  // titleStats as evidence of an un-compacted entry made the guard reject the
+  // legitimate locale-migration rewrite of 2026-09-24 (#9876).
+  if (!Array.isArray(entry.addedKeys)
+    || !Array.isArray(entry.updatedKeys)
+    || !Array.isArray(entry.removedKeys)
+    || entry.updatedKeys.length > 0
+    || entry.removedKeys.length > 0) {
+    return false;
+  }
+
+  return ['companyStats', 'locationStats', 'titleStats'].every((bucket) =>
+    Array.isArray(entry[bucket])
+    && entry[bucket].every((item) =>
+      item
+      && (!Array.isArray(item.updatedKeys) || item.updatedKeys.length === 0)
+      && (!Array.isArray(item.removedKeys) || item.removedKeys.length === 0)
+    )
+  );
+}
+
+function hasSameHistoryCounters(previous = {}, next = {}) {
+  return previous.date === next.date
+    && ['totalJobs', 'added', 'updated', 'removed'].every((field) =>
+      numeric(previous[field]) === numeric(next[field])
+    );
+}
+
+function actionCount(item = {}, action) {
+  return Math.max(
+    sortedUniqueStrings(item[`${action}Keys`]).length,
+    numeric(item[`${action}Count`]),
+  );
+}
+
+function preservesCompactionPayload(previous = {}, next = {}) {
+  if (!Array.isArray(previous.addedKeys) || !Array.isArray(next.addedKeys)) return false;
+
+  const nextAddedKeys = new Set(sortedUniqueStrings(next.addedKeys));
+  if (!sortedUniqueStrings(previous.addedKeys).every((key) => nextAddedKeys.has(key))) return false;
+
+  return ['companyStats', 'locationStats', 'titleStats'].every((bucket) => {
+    const previousItems = Array.isArray(previous[bucket]) ? previous[bucket] : [];
+    const nextItems = Array.isArray(next[bucket]) ? next[bucket] : [];
+    const nextItemsByIdentity = new Map();
+    for (const nextItem of nextItems) {
+      const identity = String(nextItem?.key || nextItem?.name || '');
+      const items = nextItemsByIdentity.get(identity) || [];
+      items.push(nextItem);
+      nextItemsByIdentity.set(identity, items);
+    }
+
+    // Even a descriptor-only bucket carries a non-empty historical index. A
+    // controlled rewrite may prune individual empty descriptors during locale
+    // migration, but it must never erase the whole bucket array and bypass the
+    // byte-floor guard.
+    if (previousItems.length > 0 && nextItems.length === 0) return false;
+
+    // A single merged locale bucket may represent several source rows, but it
+    // must carry their aggregate action counts. This also prevents one result
+    // row from satisfying multiple source rows while silently dropping the
+    // remaining updated/removed history.
+    for (const action of ['updated', 'removed']) {
+      const previousCount = previousItems.reduce((total, item) => total + actionCount(item, action), 0);
+      const nextCount = nextItems.reduce((total, item) => total + actionCount(item, action), 0);
+      if (nextCount < previousCount) return false;
+    }
+
+    return previousItems.every((previousItem) => {
+      const previousIdentity = String(previousItem?.key || previousItem?.name || '');
+      const previousAddedKeys = sortedUniqueStrings(previousItem?.addedKeys);
+      const previousUpdatedCount = actionCount(previousItem || {}, 'updated');
+      const previousRemovedCount = actionCount(previousItem || {}, 'removed');
+
+      // Buckets with no action payload are only descriptive indexes. Locale
+      // migration is allowed to merge/drop those rows because no consumer
+      // reads their identity without an added/updated/removed value. Requiring
+      // an exact identity for every empty historical bucket made a legitimate
+      // 18k -> 1.5k title rewrite look like catastrophic truncation.
+      if (previousAddedKeys.length === 0
+        && previousUpdatedCount === 0
+        && previousRemovedCount === 0) {
+        return true;
+      }
+
+      const sameIdentityItems = previousIdentity
+        ? nextItemsByIdentity.get(previousIdentity) || []
+        : [];
+      if (sameIdentityItems.some((sameIdentityItem) => {
+        const sameIdentityAddedKeys = sortedUniqueStrings(sameIdentityItem.addedKeys);
+        const sameIdentityPreservesAddedKeys = previousAddedKeys.every((key) =>
+          sameIdentityAddedKeys.includes(key));
+        const sameIdentityPreservesCounts = actionCount(sameIdentityItem, 'updated') >= previousUpdatedCount
+          && actionCount(sameIdentityItem, 'removed') >= previousRemovedCount;
+        return sameIdentityPreservesAddedKeys && sameIdentityPreservesCounts;
+      })) return true;
+
+      // A changed locale title has no stable identity. Keep the existing
+      // fallback for that intentional rewrite, but avoid scanning the whole
+      // bucket when the identity already proves the payload is preserved.
+      if (previousAddedKeys.length === 0) return false;
+
+      return nextItems.some((nextItem) => {
+        const sameIdentity = previousIdentity !== ''
+          && String(nextItem?.key || nextItem?.name || '') === previousIdentity;
+        const nextItemAddedKeys = sortedUniqueStrings(nextItem?.addedKeys);
+        const preservesAddedKeys = previousAddedKeys.every((key) => nextItemAddedKeys.includes(key));
+        const preservesCounts = actionCount(nextItem || {}, 'updated') >= previousUpdatedCount
+          && actionCount(nextItem || {}, 'removed') >= previousRemovedCount;
+
+        // Locale migration can change a title key/name, so its stable added
+        // job keys are also an acceptable identity. The payload itself must
+        // still survive; matching an empty replacement is never enough.
+        return preservesAddedKeys
+          && preservesCounts
+          && (sameIdentity || previousAddedKeys.length > 0);
+      });
+    });
+  });
 }
 
 function readShardedHistory(rootDir) {
@@ -253,6 +399,9 @@ export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), opt
   const maxShardBytes = Number(options.maxShardBytes) > 0
     ? Number(options.maxShardBytes)
     : JOB_STATS_HISTORY_SHARD_MAX_BYTES;
+  const retentionLimit = Number(options.historyLimit) > 0
+    ? Number(options.historyLimit)
+    : JOB_STATS_HISTORY_RETENTION_LIMIT;
 
   const filePath = jobStatsHistoryShardFile(currentDate, rootDir);
   const currentEntry = entries.find((entry) => entry.date === currentDate);
@@ -261,10 +410,17 @@ export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), opt
   const canonicalByDate = new Map(entries.map((entry) => [entry.date, entry]));
   const targetDates = new Set([currentDate]);
   const obsoleteFiles = [];
+  const existingByFile = new Map();
 
   for (const shardFile of listJobStatsHistoryShardFiles(rootDir)) {
     const existing = readShardDocument(shardFile);
+    existingByFile.set(shardFile, existing);
     if (!existing.ok) {
+      if (existing.reason === 'no-valid-date-entries') {
+        throw new Error(
+          `Cannot safely update job stats shard with non-empty entries but no valid dates: ${shardFile}`,
+        );
+      }
       if (shardFile === filePath) {
         throw new Error(`Cannot safely update corrupt job stats shard: ${shardFile}`);
       }
@@ -274,7 +430,10 @@ export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), opt
     for (const existingEntry of existing.entries) {
       if (canonicalByDate.has(existingEntry.date)) targetDates.add(existingEntry.date);
     }
-    obsoleteFiles.push(shardFile);
+    obsoleteFiles.push({
+      filePath: shardFile,
+      entries: existing.entries,
+    });
   }
 
   // Serialize and size-check every shard before touching the disk, so an
@@ -284,19 +443,56 @@ export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), opt
     const entry = date === currentDate ? currentEntry : canonicalByDate.get(date);
     const serialized = serializeJobStatsHistoryShard([clone(entry)]);
     assertJobStatsHistoryShardSize(shardFile, serialized, maxShardBytes);
-    return { shardFile, serialized };
+    // Older entries are intentionally compacted after the verbose window.
+    // Locale migration can also collapse equivalent historical title buckets.
+    // Exempt either rewrite only when the existing shard is valid and all
+    // logical counters are preserved; an empty/degraded fallback therefore
+    // remains fail-closed even if it happens to have the compacted shape.
+    const existing = existingByFile.get(shardFile) || { exists: false, ok: true, entries: [] };
+    const existingEntry = existing.entries.find((item) => item.date === date);
+    const isControlledHistoricalRewrite = date < currentDate
+      && existing.ok
+      && hasSameHistoryCounters(existingEntry || {}, entry)
+      && isCompactedHistoryEntry(entry)
+      && preservesCompactionPayload(existingEntry || {}, entry);
+    if (fs.existsSync(shardFile) && !isControlledHistoricalRewrite) {
+      assertAccumulatorByteFloor(
+        fs.statSync(shardFile).size,
+        Buffer.byteLength(serialized, 'utf8'),
+        { label: shardFile },
+      );
+    }
+    return { shardFile, serialized, existingRaw: existing.raw };
   });
 
   let shardChanged = false;
   const written = new Set();
   fs.mkdirSync(path.resolve(rootDir, JOB_STATS_HISTORY_SHARD_DIR), { recursive: true });
-  for (const { shardFile, serialized } of planned) {
-    shardChanged = writeShardFileIfChanged(shardFile, serialized) || shardChanged;
+  for (const { shardFile, serialized, existingRaw } of planned) {
+    // `existingRaw` was already read during planning; avoid a second full
+    // shard read while retaining the same atomic replacement primitive.
+    if (existingRaw !== serialized) {
+      writeFileAtomic(shardFile, serialized);
+      shardChanged = true;
+    }
     written.add(shardFile);
   }
-  for (const shardFile of obsoleteFiles) {
-    if (written.has(shardFile)) continue;
-    fs.unlinkSync(shardFile);
+  for (const { filePath, entries: obsoleteEntries } of obsoleteFiles) {
+    if (written.has(filePath)) continue;
+    // A valid old shard normally has a replacement daily shard in `planned`.
+    // If its date vanished from the canonical history, only permit deleting a
+    // small file; a large deletion is indistinguishable from a degraded read
+    // that fell back to an empty history and must fail closed.
+    const canonicalDates = [...canonicalByDate.keys()].sort();
+    const oldestCanonicalDate = canonicalDates[0] || '';
+    const retentionDrop = canonicalDates.length >= retentionLimit
+      && obsoleteEntries.every((entry) => entry.date < oldestCanonicalDate || canonicalByDate.has(entry.date));
+    const safeDeletion = obsoleteEntries.every((entry) =>
+      canonicalByDate.has(entry.date) || (retentionDrop && entry.date < oldestCanonicalDate));
+    if (!safeDeletion && fs.existsSync(filePath)) {
+      assertAccumulatorByteFloor(fs.statSync(filePath).size, 0, { label: filePath });
+    }
+    fs.unlinkSync(filePath);
     shardChanged = true;
   }
 

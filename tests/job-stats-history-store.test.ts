@@ -253,6 +253,270 @@ describe('job stats history store', () => {
     });
   });
 
+  it('refuses a catastrophic rewrite of an existing accumulator shard', () => {
+    withTempRoot((root) => {
+      const shardPath = path.join(root, SHARD_DIR, '2026-09-20.json');
+      fs.mkdirSync(path.dirname(shardPath), { recursive: true });
+      const existing = entry('2026-09-20', {
+        updated: 30_000,
+        updatedKeys: Array.from({ length: 30_000 }, (_, i) => `url:https://example.ch/job/${i}`),
+      });
+      const before = JSON.stringify({ entries: [existing] }, null, 2) + '\n';
+      fs.writeFileSync(shardPath, before);
+
+      expect(() => writeJobsStatsHistory({ entries: [entry('2026-09-20')] }, root, {
+        currentDate: '2026-09-20',
+      })).toThrow(/ABORT write.*2026-09-20\.json/);
+      expect(fs.readFileSync(shardPath, 'utf8')).toBe(before);
+    });
+  });
+
+  it('refuses to migrate a large shard whose raw entries have no valid dates', () => {
+    withTempRoot((root) => {
+      const shardPath = path.join(root, SHARD_DIR, '2026-09-19.json');
+      fs.mkdirSync(path.dirname(shardPath), { recursive: true });
+      const before = JSON.stringify({
+        entries: [{ date: 'invalid', payload: 'preserve'.repeat(180_000) }],
+      }, null, 2) + '\n';
+      fs.writeFileSync(shardPath, before);
+
+      expect(() => writeJobsStatsHistory({ entries: [entry('2026-09-20')] }, root, {
+        currentDate: '2026-09-20',
+      })).toThrow(/no valid dates.*2026-09-19\.json/);
+      expect(fs.readFileSync(shardPath, 'utf8')).toBe(before);
+      expect(fs.existsSync(path.join(root, SHARD_DIR, '2026-09-20.json'))).toBe(false);
+    });
+  });
+
+  it('allows the intentional compaction of a verbose past-day shard', () => {
+    withTempRoot((root) => {
+      const shardPath = path.join(root, SHARD_DIR, '2026-09-19.json');
+      fs.mkdirSync(path.dirname(shardPath), { recursive: true });
+      const verbose = entry('2026-09-19', {
+        updated: 30_000,
+        updatedKeys: Array.from({ length: 30_000 }, (_, i) => `url:https://example.ch/job/${i}`),
+      });
+      fs.writeFileSync(shardPath, JSON.stringify({ entries: [verbose] }, null, 2) + '\n');
+      const compacted = entry('2026-09-19', { updated: 30_000 });
+
+      writeJobsStatsHistory({ entries: [compacted, entry('2026-09-20')] }, root, {
+        currentDate: '2026-09-20',
+      });
+
+      expect(readShard(root, '2026-09-19.json').entries).toEqual([compacted]);
+    });
+  });
+
+  it('allows a historical title-locale rewrite when counters are preserved', () => {
+    withTempRoot((root) => {
+      const shardPath = path.join(root, SHARD_DIR, '2026-09-19.json');
+      fs.mkdirSync(path.dirname(shardPath), { recursive: true });
+      const verbose = entry('2026-09-19', {
+        added: 1,
+        updated: 30_000,
+        removed: 2,
+        addedKeys: ['url:added'],
+        titleStats: Array.from({ length: 30_000 }, (_, i) => ({
+          key: `raw-title-${i}`,
+          name: `Raw title ${i}`,
+          addedKeys: ['url:added'],
+        })),
+      });
+      fs.writeFileSync(shardPath, JSON.stringify({ entries: [verbose] }, null, 2) + '\n');
+      const migrated = entry('2026-09-19', {
+        added: 1,
+        updated: 30_000,
+        removed: 2,
+        addedKeys: ['url:added'],
+        titleStats: [{ key: 'titolo-locale', name: 'Titolo locale', addedKeys: ['url:added'] }],
+      });
+
+      writeJobsStatsHistory({ entries: [migrated, entry('2026-09-20')] }, root, {
+        currentDate: '2026-09-20',
+      });
+
+      expect(readShard(root, '2026-09-19.json').entries).toEqual([migrated]);
+    });
+  });
+
+  it('allows locale migration to merge historical buckets with no action payload', () => {
+    withTempRoot((root) => {
+      const shardPath = path.join(root, SHARD_DIR, '2026-09-19.json');
+      fs.mkdirSync(path.dirname(shardPath), { recursive: true });
+      const emptyTitleBuckets = Array.from({ length: 30_000 }, (_, i) => ({
+        key: `raw-title-${i}`,
+        name: `Raw title ${i}`,
+        addedKeys: [],
+        updatedKeys: [],
+        removedKeys: [],
+      }));
+      const verbose = entry('2026-09-19', {
+        added: 1,
+        updated: 30_000,
+        removed: 2,
+        addedKeys: ['url:added'],
+        titleStats: [
+          ...emptyTitleBuckets,
+          { key: 'raw-active', name: 'Raw active', addedKeys: ['url:added'] },
+        ],
+      });
+      const before = JSON.stringify({ entries: [verbose] }, null, 2) + '\n';
+      expect(Buffer.byteLength(before)).toBeGreaterThan(1_000_000);
+      fs.writeFileSync(shardPath, before);
+
+      const migrated = entry('2026-09-19', {
+        added: 1,
+        updated: 30_000,
+        removed: 2,
+        addedKeys: ['url:added'],
+        titleStats: [{ key: 'titolo-locale', name: 'Titolo locale', addedKeys: ['url:added'] }],
+      });
+
+      writeJobsStatsHistory({ entries: [migrated, entry('2026-09-20')] }, root, {
+        currentDate: '2026-09-20',
+      });
+
+      expect(readShard(root, '2026-09-19.json').entries).toEqual([migrated]);
+    });
+  });
+
+  it('refuses a controlled rewrite that drops existing added keys and bucket payload', () => {
+    withTempRoot((root) => {
+      const shardPath = path.join(root, SHARD_DIR, '2026-09-19.json');
+      fs.mkdirSync(path.dirname(shardPath), { recursive: true });
+      const bucketItems = (prefix: string) => Array.from({ length: 12_000 }, (_, i) => ({
+        key: `${prefix}-${i}`,
+        name: `${prefix} bucket ${i}`,
+        addedKeys: [`url:${prefix}-${i}`],
+      }));
+      const existing = entry('2026-09-19', {
+        added: 1,
+        updated: 2,
+        removed: 3,
+        addedKeys: ['url:preserve'],
+        companyStats: bucketItems('company'),
+        locationStats: bucketItems('location'),
+        titleStats: bucketItems('title'),
+      });
+      const before = JSON.stringify({ entries: [existing] }, null, 2) + '\n';
+      expect(Buffer.byteLength(before)).toBeGreaterThan(2 * 1024 * 1024);
+      fs.writeFileSync(shardPath, before);
+
+      const replacement = entry('2026-09-19', {
+        added: 1,
+        updated: 2,
+        removed: 3,
+      });
+      expect(() => writeJobsStatsHistory({ entries: [replacement, entry('2026-09-20')] }, root, {
+        currentDate: '2026-09-20',
+      })).toThrow(/ABORT write.*2026-09-19\.json/);
+      expect(fs.readFileSync(shardPath, 'utf8')).toBe(before);
+      expect(fs.existsSync(path.join(root, SHARD_DIR, '2026-09-20.json'))).toBe(false);
+    });
+  });
+
+  it('refuses to erase non-empty descriptor buckets during a controlled rewrite', () => {
+    withTempRoot((root) => {
+      const shardPath = path.join(root, SHARD_DIR, '2026-09-19.json');
+      fs.mkdirSync(path.dirname(shardPath), { recursive: true });
+      const descriptorBuckets = (prefix: string) => Array.from({ length: 12_000 }, (_, i) => ({
+        key: `${prefix}-${i}`,
+        name: `${prefix} bucket ${i}`,
+        addedKeys: [],
+        updatedKeys: [],
+        removedKeys: [],
+      }));
+      const existing = entry('2026-09-19', {
+        added: 1,
+        updated: 2,
+        removed: 3,
+        companyStats: descriptorBuckets('company'),
+        locationStats: descriptorBuckets('location'),
+        titleStats: descriptorBuckets('title'),
+      });
+      const before = JSON.stringify({ entries: [existing] }, null, 2) + '\n';
+      expect(Buffer.byteLength(before)).toBeGreaterThan(2 * 1024 * 1024);
+      fs.writeFileSync(shardPath, before);
+
+      const replacement = entry('2026-09-19', {
+        added: 1,
+        updated: 2,
+        removed: 3,
+      });
+      expect(() => writeJobsStatsHistory({ entries: [replacement, entry('2026-09-20')] }, root, {
+        currentDate: '2026-09-20',
+      })).toThrow(/ABORT write.*2026-09-19\.json/);
+      expect(fs.readFileSync(shardPath, 'utf8')).toBe(before);
+      expect(fs.existsSync(path.join(root, SHARD_DIR, '2026-09-20.json'))).toBe(false);
+    });
+  });
+
+  it('refuses a fused bucket that drops aggregate action counts', () => {
+    withTempRoot((root) => {
+      const shardPath = path.join(root, SHARD_DIR, '2026-09-19.json');
+      fs.mkdirSync(path.dirname(shardPath), { recursive: true });
+      const oversizedName = 'historical bucket '.repeat(60_000);
+      const existing = entry('2026-09-19', {
+        updated: 2,
+        removed: 2,
+        companyStats: [
+          {
+            key: 'company-a',
+            name: oversizedName,
+            addedKeys: ['url:shared'],
+            updatedCount: 1,
+            removedCount: 1,
+          },
+          {
+            key: 'company-b',
+            name: oversizedName,
+            addedKeys: ['url:shared'],
+            updatedCount: 1,
+            removedCount: 1,
+          },
+        ],
+      });
+      const before = JSON.stringify({ entries: [existing] }, null, 2) + '\n';
+      expect(Buffer.byteLength(before)).toBeGreaterThan(2 * 1024 * 1024);
+      fs.writeFileSync(shardPath, before);
+
+      const replacement = entry('2026-09-19', {
+        updated: 2,
+        removed: 2,
+        companyStats: [{
+          key: 'company-merged',
+          name: 'Merged company',
+          addedKeys: ['url:shared'],
+          updatedCount: 1,
+          removedCount: 1,
+        }],
+      });
+      expect(() => writeJobsStatsHistory({ entries: [replacement, entry('2026-09-20')] }, root, {
+        currentDate: '2026-09-20',
+      })).toThrow(/ABORT write.*2026-09-19\.json/);
+      expect(fs.readFileSync(shardPath, 'utf8')).toBe(before);
+      expect(fs.existsSync(path.join(root, SHARD_DIR, '2026-09-20.json'))).toBe(false);
+    });
+  });
+
+  it('refuses to delete a large shard whose date disappeared from canonical history', () => {
+    withTempRoot((root) => {
+      const shardPath = path.join(root, SHARD_DIR, '2026-09-19.json');
+      fs.mkdirSync(path.dirname(shardPath), { recursive: true });
+      const existing = entry('2026-09-19', {
+        updated: 30_000,
+        updatedKeys: Array.from({ length: 30_000 }, (_, i) => `url:https://example.ch/job/${i}`),
+      });
+      const before = JSON.stringify({ entries: [existing] }, null, 2) + '\n';
+      fs.writeFileSync(shardPath, before);
+
+      expect(() => writeJobsStatsHistory({ entries: [entry('2026-09-20')] }, root, {
+        currentDate: '2026-09-20',
+      })).toThrow(/ABORT write.*2026-09-19\.json/);
+      expect(fs.readFileSync(shardPath, 'utf8')).toBe(before);
+    });
+  });
+
   it('merges concurrent shard rewrites by date and action key', () => {
     withTempRoot((root) => {
       const basePath = path.join(root, 'base.json');
