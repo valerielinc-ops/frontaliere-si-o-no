@@ -5,10 +5,11 @@ import { describe, expect, it } from 'vitest';
 // @ts-expect-error — the recorder is a dependency-free ESM CI script.
 import { recordLoopEvidence } from '../scripts/ci/record-loop-fleet-evidence.mjs';
 // @ts-expect-error — the shared loop contract is a dependency-free ESM module.
-import { actionAutonomy, actionClassForPolicy, buildLifecycleEvent, buildOutcome, validateActionClassAgainstPolicy, validateLifecycleEvent, validateLoopRegistry, validateOutcomeAgainstPolicy } from '../scripts/lib/loop-fleet-contract.mjs';
+import { actionAutonomy, actionClassForPolicy, buildLifecycleEvent, buildOutcome, validateActionClassAgainstPolicy, validateHistoricalLifecycleEvent, validateHistoricalOutcomeAgainstPolicy, validateLifecycleEvent, validateLoopRegistry, validateOutcomeAgainstPolicy } from '../scripts/lib/loop-fleet-contract.mjs';
 
 const registry = JSON.parse(fs.readFileSync(path.resolve('data/loop-fleet/loop-registry.json'), 'utf8'));
 const NOW = new Date('2026-09-12T12:00:00.000Z');
+const HISTORICAL_AT = new Date('2026-09-11T12:00:00.000Z');
 
 function writeJson(dir: string, name: string, value: unknown) {
   const file = path.join(dir, name);
@@ -157,20 +158,25 @@ describe('record-loop-fleet-evidence', () => {
       requiredFieldsPresent: ['generatedAt'],
       missingFields: ['numerator', 'denominator'],
       reason: 'historical outcome predates the L2 oracle migration',
-      observedAt: NOW.toISOString(),
+      observedAt: HISTORICAL_AT.toISOString(),
       allowNumeratorExceedDenominator: false,
-      recordedAt: NOW.toISOString(),
+      recordedAt: HISTORICAL_AT.toISOString(),
     };
 
     expect(() => validateOutcomeAgainstPolicy(registry, 'L2', historicalOutcome))
       .toThrow(/sourceRefs must exactly match/);
-    expect(() => validateOutcomeAgainstPolicy(registry, 'L2', historicalOutcome, { allowHistoricalSourceRefs: true }))
+    expect(() => validateHistoricalOutcomeAgainstPolicy(registry, 'L2', historicalOutcome))
       .not.toThrow();
 
     expect(() => validateOutcomeAgainstPolicy(registry, 'L2', {
       ...historicalOutcome,
+      observedAt: NOW.toISOString(),
+      recordedAt: NOW.toISOString(),
+    })).toThrow(/sourceRefs must exactly match/);
+    expect(() => validateHistoricalOutcomeAgainstPolicy(registry, 'L2', {
+      ...historicalOutcome,
       sourceRefs: ['gsc', 'posthog'],
-    }, { allowHistoricalSourceRefs: true })).toThrow(/sourceRefs must exactly match/);
+    })).toThrow(/sourceRefs must exactly match/);
   });
 
   it('allows only declared historical lifecycle source refs during ledger replay', () => {
@@ -184,8 +190,8 @@ describe('record-loop-fleet-evidence', () => {
         sourceRecordId: 'lf-historical-l2-lifecycle',
         sourceRefs: ['gsc', 'posthog-landing-path'],
         lifecycle: policy.lifecycle,
-        occurredAt: NOW.toISOString(),
-        recordedAt: NOW.toISOString(),
+        occurredAt: HISTORICAL_AT.toISOString(),
+        recordedAt: HISTORICAL_AT.toISOString(),
       }),
       recordId: 'lf-lifecycle-historical-l2-source-refs',
       execution: { loopId: 'L2', runId: '34802746070', sha: 'b'.repeat(40) },
@@ -193,12 +199,17 @@ describe('record-loop-fleet-evidence', () => {
 
     expect(() => validateLifecycleEvent(registry, 'L2', historicalEvent))
       .toThrow(/sourceRefs must exactly match/);
-    expect(() => validateLifecycleEvent(registry, 'L2', historicalEvent, { allowHistoricalSourceRefs: true }))
+    expect(() => validateHistoricalLifecycleEvent(registry, 'L2', historicalEvent))
       .not.toThrow();
     expect(() => validateLifecycleEvent(registry, 'L2', {
       ...historicalEvent,
+      occurredAt: NOW.toISOString(),
+      recordedAt: NOW.toISOString(),
+    })).toThrow(/sourceRefs must exactly match/);
+    expect(() => validateHistoricalLifecycleEvent(registry, 'L2', {
+      ...historicalEvent,
       sourceRefs: ['gsc', 'posthog'],
-    }, { allowHistoricalSourceRefs: true })).toThrow(/sourceRefs must exactly match/);
+    })).toThrow(/sourceRefs must exactly match/);
   });
 
   it('fails closed when the registry action map is incomplete or has stale entries', () => {

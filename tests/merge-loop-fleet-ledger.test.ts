@@ -10,6 +10,7 @@ const mergeLedger = mergeLoopFleetLedger as any;
 const recordEvidence = recordLoopEvidence as any;
 
 const NOW = new Date('2026-09-12T12:00:00.000Z');
+const HISTORICAL_AT = new Date('2026-09-11T12:00:00.000Z');
 const SHA = 'a'.repeat(40);
 
 function writeJson(dir: string, name: string, value: unknown) {
@@ -53,7 +54,7 @@ function writeHistoricalL2Observation(ledgerDir: string) {
     loopId: 'L2',
     actionClass: 'candidate+issue',
     quality: 'partial',
-    recordedAt: NOW.toISOString(),
+    recordedAt: HISTORICAL_AT.toISOString(),
     execution: {
       loopId: 'L2',
       runId: '34802746070',
@@ -72,9 +73,9 @@ function writeHistoricalL2Observation(ledgerDir: string) {
       requiredFieldsPresent: ['generatedAt'],
       missingFields: ['numerator', 'denominator'],
       reason: 'historical outcome predates the L2 oracle migration',
-      observedAt: NOW.toISOString(),
+      observedAt: HISTORICAL_AT.toISOString(),
       allowNumeratorExceedDenominator: false,
-      recordedAt: NOW.toISOString(),
+      recordedAt: HISTORICAL_AT.toISOString(),
     },
   })}\n`);
 }
@@ -91,8 +92,8 @@ function writeHistoricalL2Lifecycle(ledgerDir: string) {
       sourceRecordId: 'lf-historical-l2-lifecycle',
       sourceRefs: ['gsc', 'posthog-landing-path'],
       lifecycle: policy.lifecycle,
-      occurredAt: NOW.toISOString(),
-      recordedAt: NOW.toISOString(),
+      occurredAt: HISTORICAL_AT.toISOString(),
+      recordedAt: HISTORICAL_AT.toISOString(),
     }),
     recordId: 'lf-lifecycle-historical-l2-source-refs',
     execution: {
