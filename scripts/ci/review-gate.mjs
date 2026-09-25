@@ -732,12 +732,45 @@ function confirmationHasUniqueTarget(
   candidate,
   finding,
   openFindings,
-  { ignoreLine = false, allowSharedBarePath = false } = {},
+  { ignoreLine = false, allowSharedBarePath = false, confirmations = [] } = {},
 ) {
   const matchesCitation = (citation) => citationPathMatches(candidate.path, citation.path)
     && (ignoreLine || candidate.line === null || candidate.line === citation.line);
   const findingMatches = finding.citations.filter(matchesCitation);
   if (findingMatches.length !== 1) return false;
+
+  // When a review carries two distinct Important findings on the same file
+  // across a line-moving fix, the new line numbers are individually
+  // unambiguous only as a set. A path-only uniqueness check sees both open
+  // findings and rejects both confirmations forever. Pair one precise
+  // confirmation per one-citation finding by stable line order, but require
+  // the complete cardinality and exact path so one confirmation can never
+  // close two findings.
+  if (ignoreLine && candidate.line !== null) {
+    const samePathFindings = openFindings
+      .map((openFinding) => ({
+        finding: openFinding,
+        citations: openFinding.citations.filter((citation) =>
+          citation.line !== null && citationPathMatches(citation.path, candidate.path)),
+      }))
+      .filter((entry) => entry.citations.length === 1);
+    const candidates = [...new Map(
+      confirmations
+        .flatMap((confirmation) => confirmation.citations)
+        .filter((confirmation) => confirmation.line !== null
+          && citationPathMatches(confirmation.path, candidate.path))
+        .map((confirmation) => [`${confirmation.path}:${confirmation.line}`, confirmation]),
+    ).values()];
+    if (samePathFindings.length > 1
+        && candidates.length === samePathFindings.length) {
+      const orderedFindings = [...samePathFindings]
+        .sort((left, right) => left.citations[0].line - right.citations[0].line);
+      const orderedCandidates = [...candidates]
+        .sort((left, right) => left.line - right.line);
+      const findingIndex = orderedFindings.findIndex((entry) => entry.finding === finding);
+      if (findingIndex >= 0) return orderedCandidates[findingIndex].line === candidate.line;
+    }
+  }
 
   // A fully qualified path plus an explicit line is already an unambiguous
   // anchor, even when two historical findings carry the same anchor while
@@ -891,6 +924,7 @@ export function citationConfirmed(
     return confirmationHasUniqueTarget(candidate, finding, openFindings, {
       ignoreLine: movedLine || barePathConfirmedAtLine,
       allowSharedBarePath: allowSharedBarePath && barePathConfirmedAtLine,
+      confirmations,
     });
   }));
 }

@@ -1522,6 +1522,21 @@ describe('review gate: citazioni e conferme', () => {
     expect(historicalImportantFindings([opened, moved], { includeLatest: true })).toHaveLength(0);
   });
 
+  it('abbina basename storico e path completo nelle conferme a righe spostate', () => {
+    const first = bot('## Findings (Important: 1, Nit: 0)\n\n`review-gate.mjs:L465`: 🔴 Important: primo difetto.\n');
+    const second = bot('## Findings (Important: 1, Nit: 0)\n\n`review-gate.mjs:L715`: 🔴 Important: secondo difetto.\n');
+    const confirmed = bot([
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `scripts/ci/review-gate.mjs:L472`: ok.',
+      'Fix di `scripts/ci/review-gate.mjs:L733`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n'));
+
+    expect(historicalImportantFindings([first, second, confirmed], { includeLatest: true })).toHaveLength(0);
+  });
+
   it('mantiene aperti finding distinti sullo stesso file quando la conferma cambia riga', () => {
     const first = bot('## Findings (Important: 1, Nit: 0)\n\n`scripts/lib/helper.mjs:L7`: 🔴 Important: primo difetto.\n');
     const second = bot('## Findings (Important: 1, Nit: 0)\n\n`scripts/lib/helper.mjs:L12`: 🔴 Important: secondo difetto.\n');
