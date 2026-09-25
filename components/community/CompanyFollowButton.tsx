@@ -190,15 +190,18 @@ export default function CompanyFollowButton({
       sourceJobTitle: sourceJobTitle ?? null,
       email: requestedEmail,
     });
-    onOptInRequested?.(requestedEmail);
     // Issue 9575: storage refused the follow, so the confirmation link will
-    // replay nothing. Surface it (accept→error, visible retry message) instead
-    // of letting "check your email" promise a follow that no longer exists.
+    // replay nothing. Stop the flow here: `onOptInRequested` is the parent's
+    // "accept" (email flow continues) and must not fire for a follow that was
+    // never parked. Throwing moves the shared prompt to its error state instead
+    // of the "open the link to follow {company}" success card, and its catch
+    // reports the error once through `onEmailError` (= `onErrored`).
     if (!parked) {
       setStatus('error');
-      onErrored?.(new Error('pending_follow_storage_unavailable'));
+      throw new Error('pending_follow_storage_unavailable');
     }
-  }, [company, companyKey, locale, onErrored, onOptInRequested, sourceJobSlug, sourceJobTitle, sourceJobUrl]);
+    onOptInRequested?.(requestedEmail);
+  }, [company, companyKey, locale, onOptInRequested, sourceJobSlug, sourceJobTitle, sourceJobUrl]);
 
   // Social sign-in completes in the shared prompt. Once the parent supplies
   // the authenticated identity, close the prompt and perform the same follow
