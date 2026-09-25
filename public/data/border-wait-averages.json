@@ -6,13 +6,16 @@
     "morning": "0-8 min",
     "evening": "1-7 min"
   },
+  "chiasso-centro": {
+    "evening": "0-2 min"
+  },
   "chiasso-strada": {
     "morning": "0-14 min",
     "evening": "1-3 min"
   },
   "gaggiolo": {
     "morning": "0-8 min",
-    "evening": "0-4 min"
+    "evening": "0-5 min"
   },
   "grenzach-wyhlen-riehen": {
     "evening": "0-2 min"
@@ -39,7 +42,8 @@
     "evening": "0-2 min"
   },
   "san-pietro": {
-    "morning": "0-8 min"
+    "morning": "0-8 min",
+    "evening": "0-4 min"
   },
   "st-margrethen-hochst": {
     "morning": "0-3 min",
