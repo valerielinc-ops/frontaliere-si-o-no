@@ -138,7 +138,7 @@ function validateHistoricalRecord(registry, type, record) {
   }
   try {
     if (type === 'lifecycle') {
-      validateLifecycleEvent(registry, historicalLoopId, record);
+      validateLifecycleEvent(registry, historicalLoopId, record, { allowHistoricalSourceRefs: true });
       return record;
     }
     validateActionClassAgainstPolicy(registry, historicalLoopId, record.actionClass);

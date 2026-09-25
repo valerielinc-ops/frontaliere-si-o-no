@@ -140,14 +140,14 @@ function readJsonl(file, label) {
     });
 }
 
-function validateDurableEvent(registry, event, label) {
+function validateDurableEvent(registry, event, label, { allowHistoricalSourceRefs = false } = {}) {
   if (!object(event)) throw new Error(`${label} is not an object`);
   if (!text(event.recordId)) throw new Error(`${label} has no recordId`);
   if (event.eventType && OBSERVED_EVENT_TYPES.has(event.eventType) === false
       && !['candidate', 'owner_assigned'].includes(event.eventType)) {
     throw new Error(`${label} has unsupported eventType ${event.eventType}`);
   }
-  validateLifecycleEvent(registry, event.loopId, event);
+  validateLifecycleEvent(registry, event.loopId, event, { allowHistoricalSourceRefs });
   if (!object(event.execution)
       || String(event.execution.loopId || '') !== String(event.loopId || '')
       || !text(event.execution.runId)
@@ -298,7 +298,7 @@ export function appendLoopFleetLifecycle({
   const byId = new Map();
   const existingByCandidate = new Map();
   for (const [index, event] of existing.entries()) {
-    validateDurableEvent(registry, event, `durable lifecycle event ${index + 1}`);
+    validateDurableEvent(registry, event, `durable lifecycle event ${index + 1}`, { allowHistoricalSourceRefs: true });
     const previous = byId.get(event.recordId);
     if (previous && !sameRecord(previous, event)) {
       throw new Error(`durable lifecycle ledger has conflicting duplicate ${event.recordId}`);

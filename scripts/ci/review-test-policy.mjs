@@ -100,7 +100,7 @@ function validateLedgerRecordAgainstRegistry(record, expectedType, registry) {
   if (!registry) return '';
   try {
     if (expectedType === 'lifecycle-event') {
-      validateLifecycleEvent(registry, record.loopId, record);
+      validateLifecycleEvent(registry, record.loopId, record, { allowHistoricalSourceRefs: true });
     } else {
       validateActionClassAgainstPolicy(registry, record.loopId, record.actionClass);
       if (expectedType === 'decision') validateDecisionLifecycle(registry, record.loopId, record);

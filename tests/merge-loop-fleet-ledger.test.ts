@@ -4,6 +4,7 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { mergeLoopFleetLedger } from '../scripts/ci/merge-loop-fleet-ledger.mjs';
 import { recordLoopEvidence } from '../scripts/ci/record-loop-fleet-evidence.mjs';
+import { buildLifecycleEvent } from '../scripts/lib/loop-fleet-contract.mjs';
 
 const mergeLedger = mergeLoopFleetLedger as any;
 const recordEvidence = recordLoopEvidence as any;
@@ -76,6 +77,31 @@ function writeHistoricalL2Observation(ledgerDir: string) {
       recordedAt: NOW.toISOString(),
     },
   })}\n`);
+}
+
+function writeHistoricalL2Lifecycle(ledgerDir: string) {
+  const registry = JSON.parse(fs.readFileSync(path.resolve('data/loop-fleet/loop-registry.json'), 'utf8'));
+  const policy = registry.loops.find((loop: { loopId: string }) => loop.loopId === 'L2');
+  const event = {
+    ...buildLifecycleEvent({
+      eventType: 'candidate',
+      loopId: 'L2',
+      candidateId: 'lf-historical-l2-lifecycle',
+      owner: policy.owner,
+      sourceRecordId: 'lf-historical-l2-lifecycle',
+      sourceRefs: ['gsc', 'posthog-landing-path'],
+      lifecycle: policy.lifecycle,
+      occurredAt: NOW.toISOString(),
+      recordedAt: NOW.toISOString(),
+    }),
+    recordId: 'lf-lifecycle-historical-l2-source-refs',
+    execution: {
+      loopId: 'L2',
+      runId: '34802746070',
+      sha: 'b'.repeat(40),
+    },
+  };
+  fs.writeFileSync(path.join(ledgerDir, 'lifecycle-events.jsonl'), `${JSON.stringify(event)}\n`);
 }
 
 describe('merge-loop-fleet-ledger', () => {
@@ -333,6 +359,7 @@ describe('merge-loop-fleet-ledger', () => {
     fs.mkdirSync(inputDir);
     writeL1Evidence(inputDir);
     writeHistoricalL2Observation(ledgerDir);
+    writeHistoricalL2Lifecycle(ledgerDir);
 
     const previous = {
       GITHUB_REPOSITORY: process.env.GITHUB_REPOSITORY,
@@ -363,6 +390,7 @@ describe('merge-loop-fleet-ledger', () => {
       });
 
       expect(result.results.observation).toMatchObject({ appended: 1, skipped: 0, existing: 1 });
+      expect(result.results.lifecycle).toMatchObject({ appended: 2, skipped: 0, existing: 1 });
       expect(fs.readFileSync(path.join(ledgerDir, 'loop-observations.jsonl'), 'utf8').trim().split('\n')).toHaveLength(2);
     } finally {
       for (const [key, value] of Object.entries(previous)) {

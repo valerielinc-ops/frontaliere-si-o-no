@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest';
 // @ts-expect-error — the recorder is a dependency-free ESM CI script.
 import { recordLoopEvidence } from '../scripts/ci/record-loop-fleet-evidence.mjs';
 // @ts-expect-error — the shared loop contract is a dependency-free ESM module.
-import { actionAutonomy, actionClassForPolicy, buildOutcome, validateActionClassAgainstPolicy, validateLifecycleEvent, validateLoopRegistry, validateOutcomeAgainstPolicy } from '../scripts/lib/loop-fleet-contract.mjs';
+import { actionAutonomy, actionClassForPolicy, buildLifecycleEvent, buildOutcome, validateActionClassAgainstPolicy, validateLifecycleEvent, validateLoopRegistry, validateOutcomeAgainstPolicy } from '../scripts/lib/loop-fleet-contract.mjs';
 
 const registry = JSON.parse(fs.readFileSync(path.resolve('data/loop-fleet/loop-registry.json'), 'utf8'));
 const NOW = new Date('2026-09-12T12:00:00.000Z');
@@ -169,6 +169,34 @@ describe('record-loop-fleet-evidence', () => {
 
     expect(() => validateOutcomeAgainstPolicy(registry, 'L2', {
       ...historicalOutcome,
+      sourceRefs: ['gsc', 'posthog'],
+    }, { allowHistoricalSourceRefs: true })).toThrow(/sourceRefs must exactly match/);
+  });
+
+  it('allows only declared historical lifecycle source refs during ledger replay', () => {
+    const policy = registry.loops.find((loop: any) => loop.loopId === 'L2');
+    const historicalEvent = {
+      ...buildLifecycleEvent({
+        eventType: 'candidate',
+        loopId: 'L2',
+        candidateId: 'lf-historical-l2-lifecycle',
+        owner: policy.owner,
+        sourceRecordId: 'lf-historical-l2-lifecycle',
+        sourceRefs: ['gsc', 'posthog-landing-path'],
+        lifecycle: policy.lifecycle,
+        occurredAt: NOW.toISOString(),
+        recordedAt: NOW.toISOString(),
+      }),
+      recordId: 'lf-lifecycle-historical-l2-source-refs',
+      execution: { loopId: 'L2', runId: '34802746070', sha: 'b'.repeat(40) },
+    };
+
+    expect(() => validateLifecycleEvent(registry, 'L2', historicalEvent))
+      .toThrow(/sourceRefs must exactly match/);
+    expect(() => validateLifecycleEvent(registry, 'L2', historicalEvent, { allowHistoricalSourceRefs: true }))
+      .not.toThrow();
+    expect(() => validateLifecycleEvent(registry, 'L2', {
+      ...historicalEvent,
       sourceRefs: ['gsc', 'posthog'],
     }, { allowHistoricalSourceRefs: true })).toThrow(/sourceRefs must exactly match/);
   });

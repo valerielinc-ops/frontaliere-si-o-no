@@ -653,7 +653,12 @@ export function buildLifecycleEvent({
   };
 }
 
-export function validateLifecycleEvent(registry, loopId, event) {
+export function validateLifecycleEvent(
+  registry,
+  loopId,
+  event,
+  { allowHistoricalSourceRefs = false } = {},
+) {
   const policy = findLoopPolicy(registry, loopId);
   if (!event || typeof event !== 'object' || Array.isArray(event)) {
     fail(`${loopId}.lifecycle event must be an object`);
@@ -668,9 +673,10 @@ export function validateLifecycleEvent(registry, loopId, event) {
     fail(`${loopId}.lifecycle event recordedAt is required`);
   }
   const normalized = buildLifecycleEvent(event);
-  const missingSourceRefs = policy.sourceRefs.filter((sourceRef) => !normalized.sourceRefs.includes(sourceRef));
-  const extraSourceRefs = normalized.sourceRefs.filter((sourceRef) => !policy.sourceRefs.includes(sourceRef));
-  if (missingSourceRefs.length || extraSourceRefs.length) {
+  const currentSourceRefsMatch = sourceRefsMatch(normalized.sourceRefs, policy.sourceRefs);
+  const historicalSourceRefsMatch = allowHistoricalSourceRefs
+    && policy.outcome.historicalSourceRefs.some((sourceRefs) => sourceRefsMatch(normalized.sourceRefs, sourceRefs));
+  if (!currentSourceRefsMatch && !historicalSourceRefsMatch) {
     fail(`${loopId}.lifecycle event sourceRefs must exactly match the registry declaration`);
   }
   if (JSON.stringify(normalized.lifecycle) !== JSON.stringify(policy.lifecycle)) {

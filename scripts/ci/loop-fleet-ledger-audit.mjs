@@ -136,7 +136,7 @@ function validateRecord(registry, type, record, line) {
   try {
     if (type === 'lifecycle') {
       if (!record.recordedAt) errors.push(`${type} line ${line}: recordedAt is required`);
-      validateLifecycleEvent(registry, loopId, record);
+      validateLifecycleEvent(registry, loopId, record, { allowHistoricalSourceRefs: true });
     } else {
       validateActionClassAgainstPolicy(registry, loopId, record.actionClass);
       if (type === 'decision') validateDecisionLifecycle(registry, loopId, record);

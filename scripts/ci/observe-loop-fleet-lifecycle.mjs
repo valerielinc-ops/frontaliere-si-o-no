@@ -299,7 +299,7 @@ function candidateRecords(registry, lifecycleEvents) {
       }
       continue;
     }
-    validateLifecycleEvent(registry, event.loopId, event);
+    validateLifecycleEvent(registry, event.loopId, event, { allowHistoricalSourceRefs: true });
     if (!object(event.execution)
         || !text(event.execution.runId)
         || !SHA_RE.test(String(event.execution.sha || ''))) {

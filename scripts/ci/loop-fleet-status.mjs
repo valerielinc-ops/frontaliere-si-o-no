@@ -304,7 +304,7 @@ function readDurableLifecycle(ledgerDir, registry, now = new Date()) {
       } catch (error) {
         throw new Error(`line ${index + 1} is invalid JSON: ${error.message}`);
       }
-      validateLifecycleEvent(registry, event.loopId, event);
+      validateLifecycleEvent(registry, event.loopId, event, { allowHistoricalSourceRefs: true });
       if (!object(event.execution) || !text(event.execution.runId) || !/^[0-9a-f]{40}$/iu.test(String(event.execution.sha || ''))) {
         throw new Error(`line ${index + 1} has no durable execution identity`);
       }
@@ -380,7 +380,7 @@ function downloadEvidence(loopId, run, tempRoot, registry, now = new Date()) {
         } catch (error) {
           throw new Error(`lifecycle event line ${index + 1} is invalid JSON: ${error.message}`);
         }
-        validateLifecycleEvent(registry, loopId, event);
+        validateLifecycleEvent(registry, loopId, event, { allowHistoricalSourceRefs: true });
         if (!object(event.execution)
           || String(event.execution.runId || '') !== String(runId)
           || (run?.headSha && String(event.execution.sha || '').toLowerCase() !== String(run.headSha).toLowerCase())) {
