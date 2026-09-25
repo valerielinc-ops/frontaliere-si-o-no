@@ -102,15 +102,23 @@ function writePreviousManifest(
   kind: string,
   input: unknown,
   emitterFingerprints = TEST_EMITTER_FINGERPRINTS,
+  reuseInput: unknown = input,
 ) {
   const manifest = new IncrementalManifest('it');
-  manifest.register(pagePath, kind, input);
+  manifest.register(pagePath, kind, input, undefined, undefined, reuseInput);
   manifest.setJobsSeoEmitterFingerprint(emitterFingerprints);
   manifest.write(rootDir, path.join(rootDir, '.cache', 'incremental-manifest-prev'));
 }
 
-function writeCachedHtml(rootDir: string, pagePath: string, kind: string, input: unknown, html: string) {
-  const inputHash = computeInputHash(input, kind);
+function writeCachedHtml(
+  rootDir: string,
+  pagePath: string,
+  kind: string,
+  input: unknown,
+  html: string,
+  reuseInput: unknown = input,
+) {
+  const inputHash = computeInputHash(reuseInput, kind);
   const file = htmlReuseCachePath(rootDir, 'it', pagePath, null, kind, inputHash);
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, html, 'utf8');
@@ -157,6 +165,51 @@ describe('jobs SEO disk HTML reuse', () => {
         reused: 1,
         reusable: 1,
         verified: 0,
+        mismatches: 0,
+      });
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('reuses the stable key and rewrites volatile HTML before the caller saves it', async () => {
+    const rootDir = fixtureRoot();
+    const pagePath = '/cerca-lavoro-ticino/volatile-fragments/';
+    const previousInput = { stable: 'job-v1', feedDigest: 'old-feed', renderDateBucket: '2026-09-19' };
+    const currentInput = { stable: 'job-v1', feedDigest: 'new-feed', renderDateBucket: '2026-09-20' };
+    const reuseInput = { stable: 'job-v1' };
+    try {
+      writePreviousManifest(rootDir, pagePath, 'active-job', previousInput, TEST_EMITTER_FINGERPRINTS, reuseInput);
+      writeCachedHtml(
+        rootDir,
+        pagePath,
+        'active-job',
+        previousInput,
+        '<html><body>old-feed old-date</body></html>',
+        reuseInput,
+      );
+      const reuse = await createReuse(rootDir);
+      const candidate = reuse.lookup(
+        'it',
+        pagePath,
+        'active-job',
+        currentInput,
+        'active',
+        null,
+        {
+          reuseInput,
+          rewriteHtml: (html: string) => html.replaceAll('old-', 'new-'),
+        },
+      );
+      expect(candidate).toMatchObject({
+        hit: true,
+        html: '<html><body>new-feed new-date</body></html>',
+      });
+      reuse.finish(candidate, candidate.html);
+      expect(reuse.summary().active).toMatchObject({
+        rendered: 0,
+        reused: 1,
+        reusable: 1,
         mismatches: 0,
       });
     } finally {

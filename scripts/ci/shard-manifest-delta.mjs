@@ -89,6 +89,9 @@ function validateManifest(manifest, label) {
     if (!/^[0-9a-f]{64}$/i.test(entry.inputHash)) {
       throw new Error(`${label}: hash non valido per ${entry.path}`);
     }
+    if (entry.reuseHash !== undefined && !/^[0-9a-f]{64}$/i.test(entry.reuseHash)) {
+      throw new Error(`${label}: reuseHash non valido per ${entry.path}`);
+    }
     const metadata = manifest.data.kinds[entry.kind];
     if (!metadata || metadata.state !== 'live') {
       throw new Error(`${label}: entry non-live ${entry.path}`);
@@ -182,7 +185,11 @@ function writeSnapshot(manifest, entries, outputFile) {
     const metadata = manifest.data.kinds[kind];
     lines.push(JSON.stringify({ type: 'kind', kind, ...metadata }));
     for (const entry of kindEntries) {
-      lines.push(JSON.stringify({ path: entry.path, hash: entry.inputHash }));
+      lines.push(JSON.stringify({
+        path: entry.path,
+        hash: entry.inputHash,
+        ...(entry.reuseHash !== undefined ? { reuseHash: entry.reuseHash } : {}),
+      }));
     }
   }
   const counts = {
