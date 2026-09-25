@@ -2175,8 +2175,13 @@ export const reapPublisherPendingPayments = onSchedule(
 // that returns zero rows or errors is marked degraded and never purges the
 // previous Firestore snapshot; this avoids publishing a false empty market
 // during an upstream outage while keeping the full 26-canton health matrix.
+// Timeout and memory are explicit: with the 2nd-gen defaults (60 s, 256 MiB)
+// every run was cut off at BS, the 16'000-row PDF, from 2026-09-15 on — the
+// sources after it (GR, SG, SH, SZ, TG, VS, ZH) kept their 09-15 snapshot and
+// the SZ relay that the static collector relies on went stale. The same pass
+// takes ~95 s on a GitHub runner.
 export const refreshPlateAuctions = onSchedule(
- { region: 'europe-west6', schedule: 'every 6 hours', timeZone: 'Europe/Zurich' },
+ { region: 'europe-west6', schedule: 'every 6 hours', timeZone: 'Europe/Zurich', timeoutSeconds: 540, memory: '1GiB' },
  async () => {
  try {
  const result = await runPlateAuctionRefresh();
