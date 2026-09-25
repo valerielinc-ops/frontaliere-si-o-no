@@ -284,8 +284,9 @@ export function mergeSourceIdentityHistory(survivor, removed) {
  *
  * Merges with any existing entries by `slug`, keeping the most-recently
  * expired entry per slug. Skips jobs without a slug (no static page to land
- * on). Returns the number of newly-added entries; zero means the on-disk
- * file is unchanged.
+ * on). An empty `removedJobs` list still reads the existing file so
+ * title/timestamp repairs are persisted during a clean housekeeping run.
+ * Returns the number of newly-added entries; zero means no new slug was added.
  *
  * @param {object[]} removedJobs - Full job objects (NOT `{ id }` refs)
  * @param {string} crawlerKey
@@ -295,7 +296,7 @@ export function mergeSourceIdentityHistory(survivor, removed) {
  */
 export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
   if (!crawlerKey) return 0;
-  if (!Array.isArray(removedJobs) || removedJobs.length === 0) return 0;
+  if (!Array.isArray(removedJobs)) return 0;
 
   const dir = opts.dir || DEFAULT_EXPIRED_SLICES_DIR;
   fs.mkdirSync(dir, { recursive: true });

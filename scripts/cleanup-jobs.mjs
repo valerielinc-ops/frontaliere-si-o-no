@@ -538,15 +538,15 @@ async function main() {
         archiveJobsById.set(loserKey, loser);
         archiveRefs.push({ id: loserKey });
       }
-      if (archiveRefs.length > 0) {
-        const crawlerKey = sliceData?.crawlerKey || path.basename(slicePath, '.json');
-        const sliceArchived = archiveExpiredJobsPerCrawler(
-          archiveRefs,
-          archiveJobsById,
-          crawlerKey,
-        );
-        if (sliceArchived > 0) console.log(`📦 Archived ${sliceArchived} expired jobs → data/jobs/expired/by-crawler/${crawlerKey}.json`);
-      }
+      // Run even with no removals: the archive helper also repairs legacy
+      // title/timestamp values already on disk during a clean crawler run.
+      const crawlerKey = sliceData?.crawlerKey || path.basename(slicePath, '.json');
+      const sliceArchived = archiveExpiredJobsPerCrawler(
+        archiveRefs,
+        archiveJobsById,
+        crawlerKey,
+      );
+      if (sliceArchived > 0) console.log(`📦 Archived ${sliceArchived} expired jobs → data/jobs/expired/by-crawler/${crawlerKey}.json`);
 
       // Write back to slice file (preserve envelope)
       const totalRemoved = hardenedJobs.length - kept.length;
@@ -819,6 +819,10 @@ async function main() {
   kept = afterSlugDedup;
 
   if (removed.length === 0) {
+    // A clean run must still persist repairs to the existing aggregate archive.
+    // Otherwise legacy malformed entries survive indefinitely until a removal
+    // happens to trigger the archival path again.
+    archiveExpiredJobs([], new Map());
     console.log('✅ Nessun job da rimuovere (nessun segnale forte rilevato)');
     return;
   }
