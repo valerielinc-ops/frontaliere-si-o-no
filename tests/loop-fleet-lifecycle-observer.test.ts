@@ -18,6 +18,7 @@ const SOURCE_SHA = 'a'.repeat(40);
 const OBSERVER_SHA = 'b'.repeat(40);
 const MERGE_SHA = 'c'.repeat(40);
 const NOW = new Date('2026-09-13T12:00:00.000Z');
+const HISTORICAL_L2_AT = '2026-09-16T12:00:00.000Z';
 
 function candidate() {
   const policy = registry.loops.find((loop: { loopId: string }) => loop.loopId === 'L0');
@@ -842,13 +843,13 @@ describe('loop-fleet independent lifecycle observer', () => {
     const candidateId = 'lf-historical-source-ref-migration';
     const historicalSourceRefs = ['gsc', 'posthog-landing-path'];
     seedLedger(ledgerDir, [
-      l2Event('candidate', candidateId, '2026-09-10T10:00:00.000Z', 22_400, historicalSourceRefs),
-      l2Event('owner_assigned', candidateId, '2026-09-10T10:00:00.000Z', 22_401, historicalSourceRefs),
+      l2Event('candidate', candidateId, HISTORICAL_L2_AT, 22_400, historicalSourceRefs),
+      l2Event('owner_assigned', candidateId, HISTORICAL_L2_AT, 22_401, historicalSourceRefs),
     ]);
     writeJsonl(eventsFile, [l2Event(
       'pr_opened',
       candidateId,
-      '2026-09-10T11:00:00.000Z',
+      '2026-09-16T13:00:00.000Z',
       22_402,
       registry.loops.find((loop: { loopId: string }) => loop.loopId === 'L2').sourceRefs,
     )]);
