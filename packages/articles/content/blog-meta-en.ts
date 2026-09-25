@@ -12006,6 +12006,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.kof-consensus-forecast-svizzera-2026.title': 'Swiss GDP 2026 revised upwards: +1.7% according to the KOF',
     'blog.article.kof-consensus-forecast-svizzera-2026.excerpt': 'KOF estimates GDP growth of 1.7% for 2026 (versus 0.9% in June) and inflation at 0.6%; euro at 0.93 francs in three months and 0.92 in one year.',
     'blog.article.kof-consensus-forecast-svizzera-2026.imageAlt': 'Panoramic view of Lake Lugano with the Alps in the background and sailboats on the water',
+    'blog.article.plr-bellinzona-investimento-fortezza.title': 'Bellinzona Fortress: the PLR\'s Yes to the investment',
+    'blog.article.plr-bellinzona-investimento-fortezza.excerpt': 'Bellinzona votes on 27 settembre on the Fortress: the PLR supports Message 1019, with over 14 million in economic impact and approximately 4,5 million borne by the City.',
+    'blog.article.plr-bellinzona-investimento-fortezza.imageAlt': 'Three Castles and Bellinzona city walls, UNESCO World Heritage site',
 };
 
 export default blogMetaEn;

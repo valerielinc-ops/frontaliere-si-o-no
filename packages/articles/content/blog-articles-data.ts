@@ -36027,6 +36027,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'plr-bellinzona-investimento-fortezza',
+ category: 'novita',
+ date: '2026-09-25T22:29:51.271Z',
+ image: '/images/blog/plr-bellinzona-investimento-fortezza.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
