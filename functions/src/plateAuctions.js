@@ -586,9 +586,6 @@ function sourceDocument(sourceKey, config, fetchedAt, patch = {}) {
 }
 
 /**
- * @param {{db?: any, fetcher?: (url: string, options?: Record<string, unknown>) => Promise<any>, now?: Date}} options
- */
-/**
  * Sources whose fetch and Firestore write dominate the run (BS: ~16'000 rows)
  * go last, so a slow or failing heavy source can never leave the small
  * catalogues after it — SZ, FR and TI among them, which the static collector
@@ -603,6 +600,9 @@ export function plateAuctionRefreshOrder(keys) {
   ];
 }
 
+/**
+ * @param {{db?: any, fetcher?: (url: string, options?: Record<string, unknown>) => Promise<any>, now?: Date}} options
+ */
 export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = new Date() } = {}) {
   const fetchedAt = now.toISOString();
   const summaries = {};

@@ -1048,6 +1048,9 @@ export function parseGeAuctionListEntries(value) {
  * Righe della lista GE per la sessione del PDF, oppure il catalogo
  * esplicitamente vuoto se la sessione è già finita. Un PDF senza finestra o
  * senza numeri è un errore: non si confonde con «nessuna asta».
+ *
+ * @param {unknown} value testo del PDF (stringa o `{ text, pages }` di fetchPdfText)
+ * @param {{ pdfUrl?: string, fetchedAt?: string, now?: Date }} [options]
  */
 export function parseGePlateAuctionListPdfText(value, {
   pdfUrl,
@@ -1097,6 +1100,8 @@ export function parseGePlateAuctionListPdfText(value, {
  * Pagina d'asta → liste candidate → la più recente → PDF → righe. Solo ge.ch:
  * `auctionUrl` (Ricardo) non viene mai richiesto. `injectedFetcher` segue la
  * firma dei connettori a prezzo fisso della Cloud Function.
+ *
+ * @param {{ fetchedAt?: string, now?: Date, injectedFetcher?: (url: string, options?: Record<string, unknown>) => Promise<any> }} [options]
  */
 export async function fetchGePlateAuctions({
   fetchedAt = new Date().toISOString(),

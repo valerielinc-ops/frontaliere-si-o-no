@@ -13,6 +13,9 @@ import {
 
 export { GE_PLATE_AUCTION_SOURCE, parseGePlateAuctionListPdfText };
 
+/**
+ * @param {{ now?: Date, injectedFetcher?: (url: string, options?: Record<string, unknown>) => Promise<any> }} [options]
+ */
 export async function fetchGePlateAuctions({ now = new Date(), injectedFetcher } = {}) {
   return fetchGeAuctionList({ fetchedAt: now.toISOString(), now, injectedFetcher });
 }

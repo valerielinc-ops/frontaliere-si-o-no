@@ -153,7 +153,7 @@ export async function runPlateAuctionsFunction({
   now = () => Date.now(),
   log = console.log,
   mask = (value) => console.log(`::add-mask::${value}`),
-  summary = () => {},
+  summary = (_markdown) => {},
   relayUrl = PLATE_AUCTION_PUBLIC_API_RELAY_URL,
   expectedKeys = expectedSourceKeys(),
   pollIntervalMs = POLL_INTERVAL_MS,
