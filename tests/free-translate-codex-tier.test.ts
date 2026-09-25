@@ -17,7 +17,9 @@ import path from 'node:path';
  * contato, token protetti rimessi nella lingua di arrivo); la cornice si toglie
  * solo con i marcatori della chiamata, quindi un testo che contiene davvero
  * `END_TEXT` resta intero; le chiamate del processo passano una alla volta e
- * non superano insieme il budget di tempo.
+ * non superano insieme il budget di tempo; con FREE_TRANSLATE_CODEX_TIER=last
+ * (translate-pending, dopo Argos) il tier non prende il testo prima dei tier
+ * senza quota e lo traduce in coda, solo quando ogni altro tier lo ha lasciato.
  *
  * Nessuna rete e nessun Codex vero: `fetch` e' uno stub (DeepL, Azure,
  * MyMemory) e la chiamata a Codex passa da `setCodexTranslateCallForTests`.
@@ -37,6 +39,8 @@ const SOCKET = path.join(tmp, 'broker.sock');
 fs.writeFileSync(SOCKET, '');
 
 const premium = { deepl: 200, azure: 200 };
+// MyMemory che rimanda la sorgente: eco rifiutato, la cascata prosegue fino in fondo.
+const free = { mymemoryEcho: false };
 const realFetch = globalThis.fetch;
 let ft: FreeTranslate;
 let codexModel: string;
@@ -62,7 +66,8 @@ beforeAll(async () => {
       return { ok: false, status: premium.azure, json: async () => ({}), text: async () => 'credenziali rifiutate' };
     }
     if (u.includes('api.mymemory.translated.net')) {
-      return { ok: true, json: async () => ({ responseData: { translatedText: `MYMEMORY ${EN}`, match: 1 } }) };
+      const translatedText = free.mymemoryEcho ? new URL(u).searchParams.get('q') : `MYMEMORY ${EN}`;
+      return { ok: true, json: async () => ({ responseData: { translatedText, match: 1 } }) };
     }
     throw new Error('offline nel test');
   }) as unknown as typeof globalThis.fetch;
@@ -297,5 +302,46 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     expect(lines.filter((l) => l.includes('3 fallimenti consecutivi'))).toHaveLength(1);
     // Il messaggio dell'errore non finisce nel log.
     expect(lines.every((l) => !l.includes('broker non raggiungibile'))).toBe(true);
+  });
+  it('FREE_TRANSLATE_CODEX_TIER=last: Codex non prende il testo prima dei tier senza quota', async () => {
+    // DeepL e Azure sono fuori gioco dai casi precedenti: nella posizione di
+    // default Codex risponderebbe qui, prima di MyMemory.
+    vi.stubEnv('FREE_TRANSLATE_CODEX_TIER', 'last');
+    try {
+      const calls = stubCodex(`CODEX ${EN}`);
+      expect(await tr()).toBe(`MYMEMORY ${EN}`);
+      expect(calls).toHaveLength(0);
+    } finally {
+      vi.stubEnv('FREE_TRANSLATE_CODEX_TIER', '');
+    }
+  });
+
+  it('FREE_TRANSLATE_CODEX_TIER=last: Codex traduce in coda il testo che ogni altro tier ha lasciato', async () => {
+    vi.stubEnv('FREE_TRANSLATE_CODEX_TIER', 'last');
+    free.mymemoryEcho = true;
+    try {
+      const calls = stubCodex(`CODEX ${EN}`);
+      const { value, lines } = await captureLog(() => tr());
+      expect(value).toBe(`CODEX ${EN}`);
+      expect(calls).toHaveLength(1);
+      expect(lines.filter((l) => l.includes('testi che nessun altro tier ha tradotto'))).toHaveLength(1);
+    } finally {
+      free.mymemoryEcho = false;
+      vi.stubEnv('FREE_TRANSLATE_CODEX_TIER', '');
+    }
+  });
+
+  it('senza FREE_TRANSLATE_CODEX_TIER la posizione resta quella di default, senza secondo tentativo in coda', async () => {
+    free.mymemoryEcho = true;
+    try {
+      const calls = stubCodex(`CODEX ${EN}`);
+      expect(await tr()).toBe(`CODEX ${EN}`);
+      expect(calls).toHaveLength(1);
+      const failing = stubCodex(() => { throw new Error('broker non raggiungibile'); });
+      expect(await tr()).toBe('');
+      expect(failing).toHaveLength(1);
+    } finally {
+      free.mymemoryEcho = false;
+    }
   });
 });

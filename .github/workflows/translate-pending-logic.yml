@@ -102,6 +102,8 @@ on:
     secrets:
       FIREBASE_SERVICE_ACCOUNT_JSON:
         required: false
+      CODEX_AUTH_JSON:
+        required: false
 # No concurrency: block here — see the header note (checklist point 3).
 permissions:
   contents: read
@@ -446,6 +448,24 @@ jobs:
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
 
+      # ── Codex Luna Max: last-resort tier of Phases 2d/2e only ────────────
+      # Owner decision (2026-09-25): in translate-pending Codex translates
+      # only AFTER Argos (Phases 2a and 2c above) and after every tier that
+      # spends no quota. So the broker starts here, after the Argos mop-up and
+      # its commit, and only Phases 2d/2e receive its socket, with
+      # FREE_TRANSLATE_CODEX_TIER=last: free-translate.mjs then tries Codex
+      # solely for a text that every other tier of the cascade left
+      # untranslated. The Phase 2b cascade never sees the socket. The idle TTL
+      # covers the 210-minute envelope of those phases, where Codex can stay
+      # unused for a long stretch. Without the secret or the lane the step
+      # does nothing and the phases keep the cascade they always had.
+      - id: setup_claude_haiku_fallback
+        if: github.event_name == 'schedule' && inputs.skip_translate != true && inputs.dry_run != true
+        uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/setup-claude-haiku-fallback@main
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          broker_idle_ttl_ms: '12600000'
+
       # ── Phase 2d: Fix source-copy titles (once-daily repair lane)
       - name: "Phase 2d: Fix untranslated titles (free cascade)"
         # The original cron expression survives the cross-repo workflow_call.
@@ -459,6 +479,13 @@ jobs:
           # slug commit after 109min of queue. Healthy runs currently close in
           # ~125-155min, so this lane gets ~55-85min before it stops.
           UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '12600000' # 210 * 60 * 1000; 140min remain.
+          # Codex last resort (see the broker step above): at most 30 calls
+          # and 15 minutes per run, because the subscription is shared with
+          # the owner's interactive use and this lane runs every day.
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          FREE_TRANSLATE_CODEX_TIER: last
+          FREE_TRANSLATE_CODEX_MAX_CALLS: '30'
+          FREE_TRANSLATE_CODEX_MAX_MS: '900000'
         run: node scripts/fix-untranslated-titles.mjs
 
       - name: Commit title fixes
@@ -482,6 +509,12 @@ jobs:
           # the 350min hard cap for commits, final assemble, and publication.
           UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: '12600000' # shared with title fixes; not additive.
           UNTRANSLATED_DESCRIPTION_FIX_MAX: ${{ vars.UNTRANSLATED_DESCRIPTION_FIX_MAX || '2000' }}
+          # Codex last resort, same per-run budget as Phase 2d (the two
+          # phases never run in the same run).
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          FREE_TRANSLATE_CODEX_TIER: last
+          FREE_TRANSLATE_CODEX_MAX_CALLS: '30'
+          FREE_TRANSLATE_CODEX_MAX_MS: '900000'
         run: node scripts/fix-untranslated-descriptions.mjs --max "$UNTRANSLATED_DESCRIPTION_FIX_MAX"
 
       - name: Commit description fixes
@@ -494,6 +527,15 @@ jobs:
           bash scripts/lib/git-commit-data.sh --slice-only "📝 Fix untranslated descriptions (free cascade)"
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Cleanup Codex auth broker
+        if: always()
+        continue-on-error: true
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+        run: |-
+          if [ -z "$CODEX_AUTH_BROKER_SOCKET" ] || [ ! -S "$CODEX_AUTH_BROKER_SOCKET" ]; then exit 0; fi
+          node .github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET" || echo "::warning::Codex auth broker cleanup did not complete"
 
       # Phases 2d/2e write slices. This is the final translation-bearing
       # persistence barrier; Phase 3 below changes only slugs.

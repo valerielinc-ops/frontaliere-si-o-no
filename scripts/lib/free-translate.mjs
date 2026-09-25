@@ -16,6 +16,10 @@
  *   9. Lingva, Mozhi+Google, unofficial Google Translate, Mozhi+DeepL,
  *      Mozhi+Yandex (local/dev tiers, often blocked from Actions IPs)
  *
+ * With FREE_TRANSLATE_CODEX_TIER=last, Codex moves from position 3 to the very
+ * end: it serves only a text that every tier above left untranslated, with no
+ * DeepL/Azure condition (translate-pending, Phases 2d/2e, after Argos).
+ *
  * Features:
  *   - Instance health tracking: remembers which instances are down to skip them
  *   - Parallel instance probing for proxy tiers: races multiple instances,
@@ -1022,7 +1026,17 @@ async function translateWithAzure(text, sourceLang, targetLang, outcome = null) 
 
 // ── Codex Luna Max (decisione del proprietario, 2026-09-25) ─────────────────
 //
-// «Quando deepl e azure translation sono fuori quota USA codex luna Max». Il
+// «Quando deepl e azure translation sono fuori quota USA codex luna Max».
+//
+// Due posizioni, scelte per processo con FREE_TRANSLATE_CODEX_TIER:
+//   - default: subito dopo DeepL e Azure, con le condizioni qui sotto;
+//   - `last`: in coda alla cascata, per il solo testo che OGNI altro tier ha
+//     lasciato non tradotto, senza condizioni su DeepL/Azure. La usa
+//     translate-pending nelle fasi 2d/2e, dopo Argos (decisione del
+//     proprietario del 2026-09-25: «Per il translate pending aggiungi codex ma
+//     dopo argos e i sistemi che non consumano quota»).
+//
+// Nella posizione di default il
 // tier entra SOLO quando DeepL e Azure non possono piu' servire la run: ogni
 // chiave DeepL esaurita (456) o il circuit-breaker 429 scattato, E ogni chiave
 // Azure esaurita (401/403/429) — oppure i due non sono configurati. Un errore
@@ -1077,6 +1091,13 @@ let _codexEngagedLogged = false;
 let _codexLane = null;
 /** @type {((messages: Array<{role: string, content: string}>, opts: object) => Promise<string>) | null} */
 let _codexCallForTests = null;
+
+/** Posizione del tier in questo processo: `last` o quella di default. */
+function _codexTierPosition() {
+  return String(process.env.FREE_TRANSLATE_CODEX_TIER ?? '').trim().toLowerCase() === 'last'
+    ? 'last'
+    : 'after-premium';
+}
 
 function _codexBudget(name, fallback) {
   const raw = String(process.env[name] ?? '').trim();
@@ -1166,12 +1187,16 @@ function _cleanCodexTranslation(raw, source, marker) {
   return normalizeBlock(out);
 }
 
-async function translateWithCodex(text, sourceLang, targetLang, outcome = null) {
+async function translateWithCodex(text, sourceLang, targetLang, outcome = null, position = 'after-premium') {
   const clean = normalizeBlock(text);
   if (!clean || sourceLang === targetLang) return '';
+  // La cascata chiama il tier in entrambe le posizioni: risponde solo quella
+  // scelta per il processo.
+  if (position !== _codexTierPosition()) return '';
   // Tier opzionale: saltato senza toccare `outcome`, come la cascata si
   // comportava prima che esistesse.
-  if (_codexStopReason || !_premiumTiersDownForRun() || !_codexSocketPresent()) return '';
+  if (_codexStopReason || !_codexSocketPresent()) return '';
+  if (position === 'after-premium' && !_premiumTiersDownForRun()) return '';
   // Una chiamata alla volta: ogni controllo di budget legge il tempo gia'
   // speso da TUTTE le chiamate precedenti, non un residuo condiviso con
   // chiamate ancora in volo.
@@ -1209,7 +1234,10 @@ async function _translateWithCodexNow(clean, sourceLang, targetLang, outcome) {
   }
   if (!_codexEngagedLogged) {
     _codexEngagedLogged = true;
-    console.log(`🤖 [codex] DeepL e Azure fuori gioco per questa run: traduzioni via Codex Luna Max (budget ${maxCalls} chiamate, ${Math.round(maxMs / 1000)}s)`);
+    const why = _codexTierPosition() === 'last'
+      ? 'testi che nessun altro tier ha tradotto'
+      : 'DeepL e Azure fuori gioco per questa run';
+    console.log(`🤖 [codex] ${why}: traduzioni via Codex Luna Max (budget ${maxCalls} chiamate, ${Math.round(maxMs / 1000)}s)`);
   }
   _codexCalls += 1;
   const marker = _codexMarker(clean);
@@ -1671,6 +1699,7 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
 
   // Tier 2b: Codex Luna Max — solo con DeepL e Azure fuori gioco per la run e la
   // lane Codex presente, entro il budget del processo (vedi `translateWithCodex`).
+  // Con FREE_TRANSLATE_CODEX_TIER=last qui non risponde: entra in coda alla cascata.
   // Passa da `tryTier` e da `finalize` come ogni altro tier: passthrough
   // rifiutato, glossario, marker Markdown e token protetti.
   const t1c = await tryTier('codex', () => translateWithCodex(clean, sourceLang, targetLang, _outcome));
@@ -1813,6 +1842,11 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
   // Tier 10: Mozhi+Yandex (slow last resort)
   const t10 = await tryTier('mozhiYandex', () => translateWithMozhiEngine(clean, sourceLang, targetLang, 'yandex', _outcome));
   if (t10) return finalize(t10);
+
+  // Tier finale: Codex Luna Max in coda alla cascata, solo con
+  // FREE_TRANSLATE_CODEX_TIER=last (translate-pending, fasi 2d/2e dopo Argos).
+  const tLast = await tryTier('codex', () => translateWithCodex(clean, sourceLang, targetLang, _outcome, 'last'));
+  if (tLast) return finalize(tLast);
 
   _cascadeStats.failures++;
   return '';
