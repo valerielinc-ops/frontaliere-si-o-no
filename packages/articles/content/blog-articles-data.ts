@@ -1407,6 +1407,7 @@ const RAW_ARTICLES = [
  id: 'smart-working-frontalieri-2026',
  category: 'pratico',
  date: '2026-02-26T06:33:25.219Z',
+ updatedAt: '2026-09-25',
  image: '/images/blog/smart-working-frontalieri-2026.webp',
  hasCalculator: true,
  authorSlug: 'redazione',
