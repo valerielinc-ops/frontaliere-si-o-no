@@ -764,6 +764,7 @@ const RAW_ARTICLES = [
  id: 'costo-vivere-lugano-trasferirsi',
  category: 'pratico',
  date: '2026-02-23T13:54:52.885Z',
+ updatedAt: '2026-09-25',
  image: '/images/blog/costo-vivere-lugano-trasferirsi.webp',
  hasCalculator: true,
  authorSlug: 'marco-ferrari',

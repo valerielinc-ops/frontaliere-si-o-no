@@ -3570,6 +3570,7 @@ const RAW_SWISS_ARTICLES: Article[] = [
     id: 'naspi-frontendalieri-requisiti-calcolo-2024',
     category: 'fiscale',
     date: '2026-07-17T12:17:07.145Z',
+    updatedAt: '2026-09-25',
     image: '/images/blog/naspi-frontendalieri-requisiti-calcolo-2024.webp',
     hasCalculator: true,
     authorSlug: 'marco-ferrari',
