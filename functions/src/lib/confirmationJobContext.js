@@ -30,6 +30,7 @@
  */
 
 import { sanitizeCompany, sanitizeLocation } from './welcomeSegment.js';
+import { toMillis } from './confirmationFollowup.js';
 
 /**
  * `source_cta` → which wording applies.
@@ -148,6 +149,49 @@ export function jobTitleFromSource(data) {
  * @typedef {{kind: 'unlocked'|'expired', title: string|null, company: string|null, location: string|null}} ConfirmationJobContext
  */
 
+/** Two server timestamps of the same write are equal; this absorbs a legacy client clock. */
+const SAME_WRITE_MS = 60 * 1000;
+
+/**
+ * Past this, a later signup on the same `pending` document may have rewritten
+ * the job fields before the request is composed. Request #1 leaves within a
+ * minute of the signup in 409 of 431 typed job-gate signups of the 30 days to
+ * 2026-09-25, and within a day in 430.
+ */
+const SIGNUP_FRESH_MS = 24 * 60 * 60 * 1000;
+
+/**
+ * Were the title in `source` and the job fields written by the SAME signup?
+ *
+ * `source` is stamped once, by the write that creates the document; the job
+ * fields (`job_company`, `job_location`, `source_cta`) by every signup. The
+ * signup that creates a document also starts its confirmation cycle, in the
+ * same write, so `created_at` and `confirmation_cycle_started_at` are the same
+ * server timestamp exactly when this cycle belongs to the signup that stamped
+ * the title (428 of the 431 typed job-gate documents created in the same 30
+ * days). A re-subscription starts a new cycle on an old document, whose title
+ * may be an earlier offer's. And the job fields are still that signup's only
+ * while no later signup can have landed: the request is composed within
+ * SIGNUP_FRESH_MS of it. Replayed on the 450 requests #1 of those 30 days,
+ * 19 lose title and location and keep the company: 18 re-subscriptions and 1
+ * request composed more than a day after its signup.
+ *
+ * `job_company` matching the company in `source` does not prove this on its
+ * own: two offers of the same company share it, and the title of offer A would
+ * then be printed next to the location of offer B.
+ *
+ * @param {Record<string, any>} data
+ * @param {number} now
+ * @returns {boolean}
+ */
+export function jobFieldsFromTitleSignup(data, now) {
+  const created = toMillis(data?.created_at ?? data?.createdAt);
+  const cycle = toMillis(data?.confirmation_cycle_started_at ?? data?.confirmationCycleStartedAt);
+  if (created == null || cycle == null) return false;
+  if (Math.abs(cycle - created) > SAME_WRITE_MS) return false;
+  return now - cycle >= -SAME_WRITE_MS && now - cycle <= SIGNUP_FRESH_MS;
+}
+
 /**
  * The job context of a subscriber document, or null for the generic email.
  *
@@ -156,9 +200,10 @@ export function jobTitleFromSource(data) {
  * l'offerta» with nothing after it would be the worst of both emails.
  *
  * @param {Record<string, any>|null|undefined} data a `newsletter_subscribers` doc
+ * @param {{now?: number}} [options]
  * @returns {ConfirmationJobContext|null}
  */
-export function resolveConfirmationJobContext(data) {
+export function resolveConfirmationJobContext(data, { now = Date.now() } = {}) {
   try {
     if (!data || typeof data !== 'object') return null;
     const kind = CONFIRMATION_JOB_CONTEXT_KINDS[String(data.source_cta || '').trim()];
@@ -173,16 +218,27 @@ export function resolveConfirmationJobContext(data) {
     const parsed = parseJobSource(data);
     if (parsed.mixed) return null;
 
-    const title = sanitizeConfirmationJobTitle(parsed.title, { truncated: true });
+    let title = sanitizeConfirmationJobTitle(parsed.title, { truncated: true });
     const company = sanitizeCompany(data.job_company);
-    if (!title && !company) return null;
 
     // "Zurich, Switzerland" → "Zurich": the country is noise in a sentence that
     // already says "in the area of".
     const rawLocation = [data.job_location, data.location_interest].find(
       (v) => typeof v === 'string' && v.trim(),
     );
-    const location = rawLocation ? sanitizeLocation(String(rawLocation).split(',')[0]) : null;
+    let location = rawLocation ? sanitizeLocation(String(rawLocation).split(',')[0]) : null;
+
+    // A title (first-touch) is printed with the location (last-touch) only
+    // when both come from the same signup. Otherwise neither is trusted: the
+    // title may be an earlier offer of the same company, the location a later
+    // one. What remains is the company, which `source` and `job_company` agree
+    // on. Surfaces that stamp no title (JobExpiredView) keep company and
+    // location, both written by the same signup.
+    if (title && !jobFieldsFromTitleSignup(data, now)) {
+      title = null;
+      location = null;
+    }
+    if (!title && !company) return null;
 
     return { kind, title, company, location };
   } catch {
@@ -297,23 +353,27 @@ export function readConfirmationJobSnapshot(data) {
  * freezes what it sent, so its next reminder repeats it.
  *
  * @param {Record<string, any>|null|undefined} data a `newsletter_subscribers` doc
- * @param {{attemptsBefore: number, returnPath?: string|null}} args `returnPath`
- *   is the path this sender would use without a snapshot
+ * @param {{attemptsBefore: number, returnPath?: string|null, now?: number}} args
+ *   `returnPath` is the path this sender would use without a snapshot
  * @returns {{jobContext: ConfirmationJobContext|null, returnPath: string|null, snapshot: ConfirmationJobSnapshot|null}}
  */
-export function confirmationJobContextForSend(data, { attemptsBefore, returnPath = null } = {}) {
+export function confirmationJobContextForSend(data, { attemptsBefore, returnPath = null, now = Date.now() } = {}) {
+  // The link and the snapshot use the SAME sanitized path: a query string or a
+  // fragment on the caller's path would otherwise make request #1 differ from
+  // its reminders (and doubles the `?` in confirmationConfirmUrl).
+  const path = sanitizeConfirmationReturnPath(returnPath);
   const stored = attemptsBefore > 0 ? readConfirmationJobSnapshot(data) : undefined;
   if (stored !== undefined) {
     // A generic request #1 stays generic, and keeps this sender's link: with
     // no offer named there is no return promise for the link to contradict.
-    if (stored === null) return { jobContext: null, returnPath: returnPath ?? null, snapshot: null };
+    if (stored === null) return { jobContext: null, returnPath: path, snapshot: null };
     const { return_path: frozenPath, ...jobContext } = stored;
     return { jobContext, returnPath: frozenPath, snapshot: stored };
   }
-  const jobContext = resolveConfirmationJobContext(data);
+  const jobContext = resolveConfirmationJobContext(data, { now });
   return {
     jobContext,
-    returnPath: returnPath ?? null,
-    snapshot: jobContext ? { ...jobContext, return_path: sanitizeConfirmationReturnPath(returnPath) } : null,
+    returnPath: path,
+    snapshot: jobContext ? { ...jobContext, return_path: path } : null,
   };
 }

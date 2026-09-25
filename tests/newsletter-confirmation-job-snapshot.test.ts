@@ -50,7 +50,9 @@ const offerA = () => ({
   email: EMAIL,
   status: 'pending',
   isActive: false,
+  // The signup created the document and started the cycle in one write.
   created_at: hoursAgo(1),
+  confirmation_cycle_started_at: hoursAgo(1),
   source: 'job_gate:Kulm Hotel St. Moritz:Driver (m/w/d)',
   source_cta: 'job_board_email_unlock',
   source_channel: 'job_gate',

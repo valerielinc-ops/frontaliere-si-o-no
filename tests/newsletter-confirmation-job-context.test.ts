@@ -15,6 +15,7 @@ import {
   resolveConfirmationJobContext,
   sanitizeConfirmationJobTitle,
   jobTitleFromSource,
+  jobFieldsFromTitleSignup,
   parseJobSource,
   readConfirmationJobSnapshot,
   confirmationJobContextForSend,
@@ -37,11 +38,15 @@ const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 const JOB_URL = 'https://frontaliereticino.ch/cerca-lavoro-ticino/driver-kulm-hotel/?action=confirm_newsletter&email=a%40b.ch&token=x';
 const ROOT_URL = 'https://frontaliereticino.ch?action=confirm_newsletter&email=a%40b.ch&token=x';
 
+// The signup that created the document also started its cycle, in the same
+// write: the two stamps are equal (see jobFieldsFromTitleSignup).
+const SIGNED_UP_AT = new Date(Date.now() - 3600e3).toISOString();
 const jobGateDoc = (overrides: Record<string, any> = {}) => ({
   email: 'j@example.com',
   status: 'pending',
   isActive: false,
-  created_at: new Date(Date.now() - 3600e3).toISOString(),
+  created_at: SIGNED_UP_AT,
+  confirmation_cycle_started_at: SIGNED_UP_AT,
   source: 'job_gate:Kulm Hotel St. Moritz:Driver (m/w/d)',
   source_cta: 'job_board_email_unlock',
   source_channel: 'job_gate',
@@ -323,6 +328,69 @@ describe('title and company always come from the same offer', () => {
     // slot, and nothing contradicts it.
     const ctx = resolveConfirmationJobContext(jobGateDoc({ source: 'job_expired', source_cta: 'job_expired_email_unlock' }));
     expect(ctx).toEqual({ kind: 'expired', title: null, company: 'Kulm Hotel St. Moritz', location: 'Pontresina' });
+  });
+});
+
+describe('a title is printed with a location only when one signup wrote both', () => {
+  const HOUR = 3600e3;
+  const at = (msAgo: number) => new Date(Date.now() - msAgo).toISOString();
+
+  it('two offers of the same company: title A never meets location B (review of #9832)', () => {
+    // The reviewer's acceptance case, verbatim: nothing on the document proves
+    // that the title and the location belong to one offer.
+    const doc = {
+      source_cta: 'job_board_email_unlock',
+      source: 'job_gate_email:Acme:Offerta A',
+      job_company: 'Acme',
+      job_location: 'Località B',
+    };
+    const ctx = resolveConfirmationJobContext(doc);
+    expect(ctx?.location ?? null).toBeNull();
+    expect(ctx).toEqual({ kind: 'unlocked', title: null, company: 'Acme', location: null });
+  });
+
+  it('the signup that created the document, composed within a day: title, company and location', () => {
+    const doc = jobGateDoc({ created_at: at(10 * 60e3), confirmation_cycle_started_at: at(10 * 60e3) });
+    expect(jobFieldsFromTitleSignup(doc, Date.now())).toBe(true);
+    expect(resolveConfirmationJobContext(doc)).toEqual({
+      kind: 'unlocked', title: 'Driver (m/w/d)', company: 'Kulm Hotel St. Moritz', location: 'Pontresina',
+    });
+  });
+
+  it('a re-subscription: the title is an older signup\'s, so only the company is named', () => {
+    // Cycle 1 on offer A expired; months later the same person signs up for
+    // offer B of the same company. `source` still carries A's title.
+    const doc = jobGateDoc({ created_at: at(90 * 24 * HOUR), confirmation_cycle_started_at: at(5 * 60e3) });
+    expect(jobFieldsFromTitleSignup(doc, Date.now())).toBe(false);
+    expect(resolveConfirmationJobContext(doc)).toEqual({
+      kind: 'unlocked', title: null, company: 'Kulm Hotel St. Moritz', location: null,
+    });
+  });
+
+  it('composed more than a day after the signup: a later signup may have rewritten the job fields', () => {
+    const doc = jobGateDoc({ created_at: at(30 * HOUR), confirmation_cycle_started_at: at(30 * HOUR) });
+    expect(resolveConfirmationJobContext(doc)?.title).toBeNull();
+    expect(resolveConfirmationJobContext(doc)?.location).toBeNull();
+  });
+
+  it('a surface that stamps no title keeps company and location, written by one signup', () => {
+    const doc = jobGateDoc({ source: 'job_expired', source_cta: 'job_expired_email_unlock', created_at: at(90 * 24 * HOUR) });
+    expect(resolveConfirmationJobContext(doc)).toEqual({
+      kind: 'expired', title: null, company: 'Kulm Hotel St. Moritz', location: 'Pontresina',
+    });
+  });
+
+  it('request #1 and its reminders use the same sanitized return path', () => {
+    const first = confirmationJobContextForSend(jobGateDoc(), { attemptsBefore: 0, returnPath: '/it/offerte/?utm_source=mail#x' });
+    expect(first.returnPath).toBe('/it/offerte/');
+    expect(first.snapshot?.return_path).toBe('/it/offerte/');
+    const reminder = confirmationJobContextForSend(
+      jobGateDoc({ confirmation_attempts: 1, [CONFIRMATION_JOB_CONTEXT_FIELD]: first.snapshot }),
+      { attemptsBefore: 1, returnPath: '/somewhere/else/' },
+    );
+    expect(reminder.returnPath).toBe('/it/offerte/');
+    // A generic request is sanitized the same way.
+    expect(confirmationJobContextForSend({ source_cta: 'newsletter_popup_submit' }, { attemptsBefore: 0, returnPath: '/a/?b=1' }).returnPath).toBe('/a/');
   });
 });
 
