@@ -41,10 +41,11 @@
  *     stampede causes are logged as `originResponseStatus: 0` (origin returned
  *     nothing at all) and surface to real users and to Googlebot as a synthetic
  *     502 — the literal signal the cf-5xx-monitor issues are reporting.
- *   - Only the objects rclone actually re-uploaded need invalidating. A deploy
- *     changes a handful of the 661 distinct `/assets/*` keys, so a targeted
- *     purge keeps ~all of the edge cache warm and touches origin for only the
- *     keys that genuinely changed.
+ *   - Only the objects rclone actually re-uploaded need invalidating, so a
+ *     targeted purge touches origin for only the keys that genuinely changed.
+ *     That is not "a handful": a code deploy re-uploads ~2000 `.js` chunks
+ *     (see MAX_KEYS_PER_RUN), and every one a page imports must be purged in
+ *     the same run or the edge serves chunks from two builds side by side.
  *
  * This reuses `scripts/cf-purge-cache.mjs --files=` (its documented TARGETED
  * mode, already used by scripts/publish-edge-files.mjs) rather than
@@ -82,13 +83,64 @@ import { MAX_TARGETED_FILES } from '../lib/cf-purge-limits.mjs';
 export const PURGE_BATCH_SIZE = MAX_TARGETED_FILES;
 
 /**
- * Defensive ceiling on how many keys one invocation will purge. The bucket only
- * holds ~661 distinct `/assets/*` keys, so a run asking for more than this means
- * the log parse went wrong (or a full re-upload happened, e.g. the first sync
- * after a Cache-Control change re-PUTs everything). Purging is still correct in
- * that case, but doing it in ~23+ API calls back-to-back is worth flagging.
+ * Defensive budget for one invocation. Code keys always go in full (see
+ * `selectPurgeKeys`): capping them is how this bug happened. Non-code keys
+ * fill whatever the code leaves, so the cap only ever drops keys whose
+ * staleness is harmless.
+ *
+ * It used to be 1000, sized for a bucket of "~661 distinct `/assets/*` keys".
+ * That stopped being true: deploy run 36088944074 (2026-09-25) re-uploaded
+ * 3945 keys — 1975 `.js`, 1969 `.map`, 1 `.css` — and the old cap purged the
+ * first 1000 in rclone's upload order, 498 of them source maps. The 9 chunks
+ * uploaded last (shared-services.js, newsletterSubscribers.js, it-core.js,
+ * router.js, …) stayed at the previous build's bytes at the edge while the new
+ * JobBoard.js was purged, so the job pages threw
+ * `SyntaxError: … './shared-services.js' does not provide an export named
+ * 'JOBGATE_RC_KEYS'` for every visitor until a manual purge. With maps out of
+ * the list a code deploy needs ~2000 keys; 3000 leaves headroom for the rest.
  */
-export const MAX_KEYS_PER_RUN = 1000;
+export const MAX_KEYS_PER_RUN = 3000;
+
+/** Keys a browser executes or applies: a stale copy of one of these breaks the page. */
+const CODE_KEY_RE = /\.(?:m?js|css)$/i;
+
+/**
+ * Source maps are fetched only by devtools and error symbolication, never by
+ * the page itself, so a stale `.map` at the edge cannot break a visitor. They
+ * are half of every code deploy's transfers, and purging them spent half the
+ * budget above on keys no user reads.
+ */
+const SOURCE_MAP_KEY_RE = /\.map$/i;
+
+/**
+ * Which transferred keys to purge: EVERY code key, then the other non-map keys
+ * up to what `cap` leaves. rclone logs in upload order, which has nothing to do
+ * with how much a stale copy hurts. One stale chunk among fresh ones is a
+ * module that fails to link, so no count of code keys is ever "too many to
+ * purge" — a code set above `cap` is reported (`codeOverCap`) and still
+ * purged in full; only the harmless keys are ever dropped.
+ *
+ * @param {string[]} keys R2 keys from parseTransferredKeys
+ * @param {number} [cap]
+ * @returns {{ selected: string[], skippedMaps: number, droppedOther: number, codeOverCap: boolean }}
+ */
+export function selectPurgeKeys(keys, cap = MAX_KEYS_PER_RUN) {
+  const code = [];
+  const other = [];
+  let skippedMaps = 0;
+  for (const key of keys) {
+    if (SOURCE_MAP_KEY_RE.test(key)) skippedMaps += 1;
+    else if (CODE_KEY_RE.test(key)) code.push(key);
+    else other.push(key);
+  }
+  const otherKept = other.slice(0, Math.max(0, cap - code.length));
+  return {
+    selected: [...code, ...otherKept],
+    skippedMaps,
+    droppedOther: other.length - otherKept.length,
+    codeOverCap: code.length > cap,
+  };
+}
 
 export const DEFAULT_CDN_BASE = 'https://cdn.frontaliereticino.ch';
 
@@ -166,17 +218,26 @@ function main(argv) {
     return;
   }
 
-  const keys = parseTransferredKeys(logText, keyPrefix);
-  if (keys.length === 0) {
+  const transferred = parseTransferredKeys(logText, keyPrefix);
+  if (transferred.length === 0) {
     console.log(`[purge-changed-cdn-assets] no ${keyPrefix}/ objects re-uploaded — edge stays warm, no purge needed`);
     return;
   }
-  if (keys.length > MAX_KEYS_PER_RUN) {
-    console.log(
-      `::warning::[purge-changed-cdn-assets] ${keys.length} changed ${keyPrefix}/ keys exceeds MAX_KEYS_PER_RUN=${MAX_KEYS_PER_RUN} — purging the first ${MAX_KEYS_PER_RUN} (rest fall back to their Cache-Control max-age)`,
-    );
-    keys.length = MAX_KEYS_PER_RUN;
+  const { selected: keys, skippedMaps, droppedOther, codeOverCap } = selectPurgeKeys(transferred);
+  if (skippedMaps > 0) {
+    console.log(`[purge-changed-cdn-assets] ${skippedMaps} source map(s) not purged — no page loads them`);
   }
+  if (codeOverCap) {
+    console.log(
+      `::warning::[purge-changed-cdn-assets] more changed code keys than MAX_KEYS_PER_RUN=${MAX_KEYS_PER_RUN} — purging all of them anyway (a stale chunk breaks module linking); check the rclone log parse if this is unexpected`,
+    );
+  }
+  if (droppedOther > 0) {
+    console.log(
+      `::warning::[purge-changed-cdn-assets] ${droppedOther} non-code ${keyPrefix}/ key(s) over MAX_KEYS_PER_RUN=${MAX_KEYS_PER_RUN} not purged (they fall back to their Cache-Control max-age)`,
+    );
+  }
+  if (keys.length === 0) return;
 
   const base = process.env.CDN_PURGE_BASE || DEFAULT_CDN_BASE;
   const batches = batch(keys.map((k) => keyToUrl(k, base)));

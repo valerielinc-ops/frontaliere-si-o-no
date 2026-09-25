@@ -3,10 +3,12 @@ import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 // @ts-expect-error — plain .mjs script, no type declarations
 import {
+  MAX_KEYS_PER_RUN,
   PURGE_BATCH_SIZE,
   batch,
   keyToUrl,
   parseTransferredKeys,
+  selectPurgeKeys,
 } from '@/scripts/ci/purge-changed-cdn-assets.mjs';
 
 /**
@@ -132,6 +134,60 @@ describe('purge-changed-cdn-assets — rclone json log parsing', () => {
     expect(PURGE_BATCH_SIZE).toBe(30);
     expect(batches.map((b: string[]) => b.length)).toEqual([30, 30, 5]);
     expect(batches.flat()).toEqual(items);
+  });
+
+  it('purges code before anything else and never spends the budget on source maps', () => {
+    const keys = ['assets/a.js.map', 'assets/logo.svg', 'assets/b.js', 'assets/c.css', 'assets/d.mjs'];
+    const { selected, skippedMaps, droppedOther, codeOverCap } = selectPurgeKeys(keys);
+    expect(selected).toEqual(['assets/b.js', 'assets/c.css', 'assets/d.mjs', 'assets/logo.svg']);
+    expect(skippedMaps).toBe(1);
+    expect(droppedOther).toBe(0);
+    expect(codeOverCap).toBe(false);
+  });
+
+  it('under the cap drops non-code keys only, and reports what it dropped', () => {
+    const keys = ['assets/x.woff2', 'assets/y.woff2', 'assets/a.js', 'assets/b.js'];
+    expect(selectPurgeKeys(keys, 3)).toEqual({
+      selected: ['assets/a.js', 'assets/b.js', 'assets/x.woff2'],
+      skippedMaps: 0,
+      droppedOther: 1,
+      codeOverCap: false,
+    });
+  });
+
+  it('never drops a code key, even when code alone is over the cap', () => {
+    // One stale chunk among fresh ones fails module linking for the whole
+    // page, so the cap is reported but never applied to code.
+    const keys = ['assets/x.woff2', 'assets/a.js', 'assets/b.js', 'assets/c.css'];
+    expect(selectPurgeKeys(keys, 1)).toEqual({
+      selected: ['assets/a.js', 'assets/b.js', 'assets/c.css'],
+      skippedMaps: 0,
+      droppedOther: 1,
+      codeOverCap: true,
+    });
+  });
+
+  it('replay of deploy 36088944074: the chunks rclone uploaded last are still purged', () => {
+    // 3945 transfers in rclone's upload order, maps interleaved with chunks and
+    // the shared chunks among the last to land. The old cap took the first 1000
+    // (498 of them maps) and left shared-services.js stale under a new
+    // JobBoard.js — the SyntaxError that took the job pages down.
+    const late = ['shared-services.js', 'newsletterSubscribers.js', 'it-core.js', 'router.js'];
+    const early = Array.from({ length: 1971 }, (_, i) => `c${i}.js`);
+    const log = [...early, ...late]
+      .flatMap((name) => [name, `${name}.map`])
+      .concat('index.css')
+      .map((object) => JSON.stringify({ level: 'info', msg: 'Copied (replaced existing)', object }))
+      .join('\n');
+    const transferred = parseTransferredKeys(log, 'assets');
+    expect(transferred).toHaveLength(3951);
+    const { selected, skippedMaps, codeOverCap } = selectPurgeKeys(transferred);
+    expect(skippedMaps).toBe(1975);
+    expect(codeOverCap).toBe(false);
+    expect(selected).toHaveLength(1976);
+    expect(selected.length).toBeLessThanOrEqual(MAX_KEYS_PER_RUN);
+    for (const name of late) expect(selected).toContain(`assets/${name}`);
+    expect(selected).toContain('assets/index.css');
   });
 
   it('builds absolute, encoded CDN URLs', () => {
