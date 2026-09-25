@@ -6683,6 +6683,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salasso-alla-pompa-benzina.title': 'Salasso à la pompe : diesel cher, essence en hausse',
     'blog.article.salasso-alla-pompa-benzina.excerpt': 'Le 24 septembre 2026 à Zurich, le diesel coûte en moyenne 2,46 CHF/l (pics >2,50), l\'essence 95 2,14 CHF/l, tandis que le pétrole dépasse 100 USD/baril.',
     'blog.article.salasso-alla-pompa-benzina.imageAlt': 'Station-service à Zurich affichant les prix du diesel et de l\'essence',
+    'blog.article.made-in-europe-svizzera.title': 'Fabriqué en Europe : la Suisse cherche une place dans les marchés publics de l\'UE',
+    'blog.article.made-in-europe-svizzera.excerpt': 'Le 24 septembre 2026 à Bruxelles, on a discuté de l\'inclusion de la Suisse dans la loi sur l\'accélération industrielle de l\'UE, avec l\'Allemagne pour et la France contre.',
+    'blog.article.made-in-europe-svizzera.imageAlt': 'Usine industrielle suisse avec drapeau de l\'UE en arrière-plan, symbole du débat \'Made in Europe\'',
 };
 
 export default blogMetaChFr;

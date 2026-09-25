@@ -6683,6 +6683,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salasso-alla-pompa-benzina.title': 'Salasso alla pompa: diesel caro, benzina in rialzo',
     'blog.article.salasso-alla-pompa-benzina.excerpt': 'Il 24 settembre 2026 a Zurigo il diesel costa in media 2,46 CHF/l (picchi >2,50), la benzina 95 2,14 CHF/l, mentre il petrolio supera i 100 USD/barile.',
     'blog.article.salasso-alla-pompa-benzina.imageAlt': 'Stazione di servizio a Zurigo con display prezzi diesel e benzina',
+    'blog.article.made-in-europe-svizzera.title': 'Made in Europe: la Svizzera cerca posto negli appalti UE',
+    'blog.article.made-in-europe-svizzera.excerpt': 'Il 24 settembre 2026 a Bruxelles si è discusso dell\'inclusione della Svizzera nella legge sull\'accelerazione industriale UE, con la Germania favorevole e la Francia contraria.',
+    'blog.article.made-in-europe-svizzera.imageAlt': 'Impianto industriale svizzero con bandiera UE sullo sfondo, simbolo del dibattito \'Made in Europe\'',
 };
 
 export default blogMetaChIt;

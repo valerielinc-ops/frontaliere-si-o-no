@@ -2250,6 +2250,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'bns-tasso-guida-zero-2026': { it: 'bns-tasso-guida-zero-2026', en: 'snb-leaves-guide-rate-at-0-and-raises-gdp-estimates-2026', de: 'snb-lasst-leitzins-bei-0-und-erhoht-schatzungen-bip-2026', fr: 'la-bns-laisse-un-taux-directeur-a-0-et-releve-ses-estimations-de-pib-2026' },
  'turismo-agosto-ospiti-estero': { it: 'turismo-agosto-ospiti-estero', en: 'swiss-tourism-august-foreign-guests', de: 'schweiz-tourismus-august-auslandgaeste', fr: 'tourisme-suisse-aout-visiteurs-etrangers' },
  'salasso-alla-pompa-benzina': { it: 'salasso-alla-pompa-benzina', en: 'fuel-price-surge-switzerland', de: 'kraftstoffpreis-anstieg-schweiz', fr: 'hausse-des-prix-du-carburant-suisse' },
+ 'made-in-europe-svizzera': { it: 'made-in-europe-svizzera', en: 'made-in-europe-switzerland', de: 'made-in-europe-schweiz', fr: 'made-in-europe-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
