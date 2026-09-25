@@ -12002,6 +12002,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.furti-auto-lusso-ticino.title': 'Vol de voitures de luxe au Tessin : trois personnes arrêtées',
     'blog.article.furti-auto-lusso-ticino.excerpt': 'Quatre voitures haut de gamme volées à Manno, Lamone et Camorino. Trois jeunes arrêtés et un quatrième suspect recherché à la suite d’enquêtes conjointes.',
     'blog.article.furti-auto-lusso-ticino.imageAlt': 'Voiture de luxe chez un concessionnaire au Tessin',
+    'blog.article.barco-saronno-agitazione-sciopero-2026.title': 'Bateau Saronno : coupures, grève et état d\'agitation',
+    'blog.article.barco-saronno-agitazione-sciopero-2026.excerpt': 'Fiom, Fim et Uilm ouvrent un état d\'agitation au Bateau de Saronno après l\'annonce de la réorganisation. Une heure de grève par tour, administrés et indéterminés.',
+    'blog.article.barco-saronno-agitazione-sciopero-2026.imageAlt': 'Usine industrielle à Mendrisio avec arrière-plan montagneux',
 };
 
 export default blogMetaFr;

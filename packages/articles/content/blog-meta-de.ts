@@ -11999,6 +11999,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.furti-auto-lusso-ticino.title': 'Luxusautodiebstähle im Tessin: drei Festgenommene',
     'blog.article.furti-auto-lusso-ticino.excerpt': 'Es wurden vier High-End-Autos aus Manno, Lamone und Camorino gestohlen. Drei Jugendliche wurden verhaftet und ein vierter Verdächtiger nach gemeinsamen Ermittlungen gesucht.',
     'blog.article.furti-auto-lusso-ticino.imageAlt': 'Luxusauto bei einem Händler im Tessin',
+    'blog.article.barco-saronno-agitazione-sciopero-2026.title': 'Barco Saronno: Kürzungen, Streik und Arbeitskampf',
+    'blog.article.barco-saronno-agitazione-sciopero-2026.excerpt': 'Fiom, Fim und Uilm rufen bei Barco in Saronno nach der Ankündigung einer Umstrukturierung den Arbeitskampf aus. Eine Stunde Streik pro Schicht, betroffen sind Leiharbeitskräfte und unbefristet Beschäftigte.',
+    'blog.article.barco-saronno-agitazione-sciopero-2026.imageAlt': 'Industrieanlage in Mendrisio mit Bergkulisse',
 };
 
 export default blogMetaDe;

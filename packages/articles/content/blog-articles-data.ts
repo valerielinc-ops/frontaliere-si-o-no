@@ -36009,6 +36009,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'barco-saronno-agitazione-sciopero-2026',
+ category: 'novita',
+ date: '2026-09-25T20:56:18.581Z',
+ image: '/images/blog/barco-saronno-agitazione-sciopero-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

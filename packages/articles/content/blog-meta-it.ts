@@ -12001,6 +12001,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.furti-auto-lusso-ticino.title': 'Furti auto di lusso in Ticino: tre arrestati',
     'blog.article.furti-auto-lusso-ticino.excerpt': 'Rubate quattro vetture di alta gamma a Manno, Lamone e Camorino. Tre giovani arrestati e un quarto sospettato ricercato dopo indagini congiunte.',
     'blog.article.furti-auto-lusso-ticino.imageAlt': 'Auto di lusso in un rivenditore in Ticino',
+    'blog.article.barco-saronno-agitazione-sciopero-2026.title': 'Barco Saronno: tagli, sciopero e stato di agitazione',
+    'blog.article.barco-saronno-agitazione-sciopero-2026.excerpt': 'Fiom, Fim e Uilm aprono stato di agitazione alla Barco di Saronno dopo annuncio riorganizzazione. Un\'ora di sciopero per turno, coinvolti somministrati e indeterminati.',
+    'blog.article.barco-saronno-agitazione-sciopero-2026.imageAlt': 'Stabilimento industriale a Mendrisio con montagne sullo sfondo',
 };
 
 export default blogMetaIt;
