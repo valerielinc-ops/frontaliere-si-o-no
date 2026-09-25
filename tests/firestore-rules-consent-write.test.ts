@@ -359,6 +359,63 @@ describe('firestore.rules — newsletter_subscribers consent field guard', () =>
     ));
   });
 
+  // The confirmation job-context snapshot (functions/src/lib/confirmationJobContext.js)
+  // is the job title a consent request prints; only the Admin-SDK senders
+  // write it. Refused on every browser write — including the pending-renewal
+  // clause, which otherwise lets state fields change.
+  describe('confirmation_job_context is server-owned', () => {
+    const SNAPSHOT = {
+      kind: 'unlocked', title: 'Titolo scelto da chi scrive', company: null, location: null, return_path: null,
+    };
+    const PENDING_PROOF = {
+      status: 'pending',
+      isActive: false,
+      active: false,
+      consent_text: 'comunicazioni newsletter',
+      consent_text_displayed: true,
+      consent_act: 'typed_email_submit',
+      consent_method: 'email_submit',
+    };
+
+    it('a browser cannot create a record that already carries a snapshot', async () => {
+      const unauthed = testEnv.unauthenticatedContext();
+      await assertFails(setDoc(doc(unauthed.firestore(), 'newsletter_subscribers', 'forged-create@example.com'), {
+        email: 'forged-create@example.com', ...PENDING_PROOF, confirmation_job_context: SNAPSHOT,
+      }));
+    });
+
+    it('a browser cannot add or rewrite it, not even through the pending renewal', async () => {
+      await testEnv.withSecurityRulesDisabled(async (context) => {
+        await setDoc(doc(context.firestore(), 'newsletter_subscribers', 'renewal@example.com'), {
+          email: 'renewal@example.com', ...PENDING_PROOF, status: 'expired',
+          confirmation_job_context: { ...SNAPSHOT, title: 'Autista' },
+        });
+      });
+      const unauthed = testEnv.unauthenticatedContext();
+      const ref = doc(unauthed.firestore(), 'newsletter_subscribers', 'renewal@example.com');
+      await assertFails(setDoc(ref, { ...PENDING_PROOF, confirmation_job_context: SNAPSHOT }, { merge: true }));
+      await assertFails(setDoc(ref, { name: 'x', confirmation_job_context: null }, { merge: true }));
+      // Control: the same renewal without the field is still allowed, and so is
+      // a profile write that leaves the stored snapshot alone.
+      await assertSucceeds(setDoc(ref, { ...PENDING_PROOF }, { merge: true }));
+      await assertSucceeds(setDoc(ref, { name: 'Nome' }, { merge: true }));
+    });
+
+    it('the verified owner cannot write it either', async () => {
+      await testEnv.withSecurityRulesDisabled(async (context) => {
+        await setDoc(doc(context.firestore(), 'newsletter_subscribers', 'owner-snap@example.com'), {
+          email: 'owner-snap@example.com', ...PENDING_PROOF,
+        });
+      });
+      const owner = testEnv.authenticatedContext('owner-snap-uid', { email: 'owner-snap@example.com', email_verified: true });
+      await assertFails(setDoc(
+        doc(owner.firestore(), 'newsletter_subscribers', 'owner-snap@example.com'),
+        { confirmation_job_context: SNAPSHOT },
+        { merge: true },
+      ));
+    });
+  });
+
   it('a verified owner may promote a pending record only with visible consent', async () => {
     await testEnv.withSecurityRulesDisabled(async (context) => {
       await setDoc(doc(context.firestore(), 'newsletter_subscribers', 'owner@example.com'), {
