@@ -62,7 +62,7 @@ const REGION_QUALIFIER_LABEL = '(?:Kanton|canton|Canton|Cantone|Kt\\.?)?';
 
 function locationRegionPattern(location, canton) {
   return new RegExp(
-    `${escapeRegExpLiteral(location)}\\s*[,(/-]\\s*(?:${REGION_QUALIFIER_COUNTRY})\\s*[,(/-]\\s*${REGION_QUALIFIER_LABEL}\\s*${escapeRegExpLiteral(canton)}\\b\\s*[)]?`,
+    `${escapeRegExpLiteral(location)}\\s*[,(/-]\\s*(?:${REGION_QUALIFIER_COUNTRY})\\s*[,(/-]\\s*${REGION_QUALIFIER_LABEL}\\s*${escapeRegExpLiteral(canton)}\\b(?:\\s*\\))?`,
     'gi',
   );
 }
@@ -115,7 +115,7 @@ export function descriptionRepeatsRegion(job, location, canton) {
   const re = locationRegionPattern(location, canton);
   for (const text of texts) {
     const match = re.exec(text);
-    if (match) return match[0].replace(/\s+/g, ' ');
+    if (match) return match[0].replace(/\s+/g, ' ').replace(/\s*\)$/, '');
   }
   return null;
 }
