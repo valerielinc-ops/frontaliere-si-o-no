@@ -35617,6 +35617,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'gornate-olona-regime-fiscale',
+ category: 'fiscale',
+ date: '2026-09-25T03:48:19.173Z',
+ image: '/images/blog/gornate-olona-regime-fiscale.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
