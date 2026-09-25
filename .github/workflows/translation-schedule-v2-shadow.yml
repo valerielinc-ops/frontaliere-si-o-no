@@ -43,6 +43,10 @@ jobs:
       # variable or explicit dispatch selects a cohort.
       TRANSLATION_SHADOW_CANARY_EXPOSURE_PERCENT: ${{ inputs.canary_exposure_percent || vars.TRANSLATION_SHADOW_CANARY_EXPOSURE_PERCENT || '0' }}
       TRANSLATION_SHADOW_CANARY_MAX_UNITS: ${{ inputs.canary_max_units || vars.TRANSLATION_SHADOW_CANARY_MAX_UNITS || '25' }}
+      # The source-controlled runtime contract keeps both generation and
+      # publish disabled. Do not let a repository variable or dispatch input
+      # turn this observation-only lane into a writer.
+      TRANSLATION_SHADOW_ENABLE_GENERATION: '0'
       TRANSLATION_SHADOW_MAX_JOBS: '250'
       TRANSLATION_SHADOW_MAX_UNITS: ${{ inputs.max_units || '25' }}
       TRANSLATION_STATE_REMOTE_V2: origin
