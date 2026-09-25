@@ -1258,6 +1258,14 @@ async function _translateWithCodexNow(clean, sourceLang, targetLang, outcome) {
       noteTranslationOutcome(outcome, 'incomplete');
       return '';
     }
+    // Un eco della sorgente non e' una traduzione: `tryTier` lo rifiuta e lo
+    // conta fra i passthrough, e qui conta come fallimento. Azzerare lo streak
+    // su un eco lasciava consumare tutto il budget a una lane che rimanda
+    // indietro il testo, senza mai far scattare lo stop.
+    if (isSourcePassthrough(clean, out)) {
+      _noteCodexFailure();
+      return out;
+    }
     _codexConsecutiveFailures = 0;
     return out;
   } catch (err) {

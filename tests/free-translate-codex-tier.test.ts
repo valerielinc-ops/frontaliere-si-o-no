@@ -303,6 +303,16 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     // Il messaggio dell'errore non finisce nel log.
     expect(lines.every((l) => !l.includes('broker non raggiungibile'))).toBe(true);
   });
+  it('tre echi di fila fermano il tier come tre fallimenti, e restano contati come passthrough', async () => {
+    const before = codexCounters();
+    const calls = stubCodex(IT);
+    const { value, lines } = await captureLog(async () => [await tr(), await tr(), await tr(), await tr()]);
+    expect(value).toEqual(Array(4).fill(`MYMEMORY ${EN}`));
+    expect(calls).toHaveLength(3);
+    expect(codexCounters().passthroughs - before.passthroughs).toBe(3);
+    expect(lines.filter((l) => l.includes('3 fallimenti consecutivi'))).toHaveLength(1);
+  });
+
   it('FREE_TRANSLATE_CODEX_TIER=last: Codex non prende il testo prima dei tier senza quota', async () => {
     // DeepL e Azure sono fuori gioco dai casi precedenti: nella posizione di
     // default Codex risponderebbe qui, prima di MyMemory.
