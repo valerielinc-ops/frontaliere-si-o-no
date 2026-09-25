@@ -119,23 +119,28 @@ describe('compactShiftItems — forma stabile e compatta', () => {
 });
 
 describe('PSI provider failures — gate inconclusive, not CLS regression', () => {
-  it('recognizes auth and quota responses without hiding malformed requests', () => {
+  it('recognizes auth, quota, and exhausted transient 5xx responses without hiding malformed requests', () => {
     expect(isInconclusivePsiError('PSI 401 for https://example.test')).toBe(true);
     expect(isInconclusivePsiError(new Error('PSI 403 for https://example.test'))).toBe(true);
     expect(isInconclusivePsiError({ error: 'PSI 429 for https://example.test' })).toBe(true);
+    expect(isInconclusivePsiError('PSI 500 for https://example.test')).toBe(true);
+    expect(isInconclusivePsiError('PSI 503 for https://example.test')).toBe(true);
+    expect(isInconclusivePsiError('PSI 599 for https://example.test')).toBe(true);
     expect(isInconclusivePsiError('PSI 400 for https://example.test')).toBe(false);
     expect(isInconclusivePsiError('PSI network error for https://example.test')).toBe(false);
     expect(isInconclusivePsiError('PSI 400 for target (keyed PSI request was rejected with PSI 403 for target)')).toBe(false);
   });
 
-  it('fails open only when every target is rejected by auth or quota', () => {
+  it('fails open only when every target is rejected by auth, quota, or transient provider failure', () => {
     expect(shouldFailOpenForPsiErrors([
       { error: 'PSI 403 for target A' },
       { error: 'PSI 429 for target B' },
+      { error: 'PSI 500 for target C' },
     ])).toBe(true);
     expect(shouldFailOpenForPsiErrors([
       { error: 'PSI 403 for target A' },
-      { error: 'PSI 400 for target B' },
+      { error: 'PSI 500 for target B' },
+      { error: 'PSI 400 for target C' },
     ])).toBe(false);
     expect(shouldFailOpenForPsiErrors([{ error: 'PSI network error for target A' }])).toBe(false);
     expect(shouldFailOpenForPsiErrors([])).toBe(false);

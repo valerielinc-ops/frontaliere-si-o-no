@@ -233,8 +233,13 @@ async function runPsiRequest(url, strategy, apiKey = '') {
 }
 
 /**
- * PSI auth/quota responses contain no live CLS measurement. They are
- * inconclusive provider failures, not evidence of a site regression.
+ * PSI auth/quota and exhausted transient 5xx responses contain no live CLS
+ * measurement. They are inconclusive provider failures, not evidence of a
+ * site regression. 5xx responses have already passed the bounded retry loop
+ * in `runPsiRequest`; classifying them here keeps a partial Lighthouse outage
+ * from turning the deploy gate into a false site regression while preserving
+ * failure-closed handling for malformed requests, network errors, and other
+ * unclassified failures.
  */
 export function isInconclusivePsiError(error) {
   const message = typeof error === 'string'
@@ -242,7 +247,8 @@ export function isInconclusivePsiError(error) {
     : error?.message || error?.error || '';
   const statuses = [...String(message).matchAll(/\bPSI\s+(\d{3})\b/g)]
     .map((match) => Number(match[1]));
-  return statuses.length > 0 && statuses.every((status) => [401, 403, 429].includes(status));
+  return statuses.length > 0 && statuses.every((status) =>
+    [401, 403, 429].includes(status) || (status >= 500 && status <= 599));
 }
 
 export function shouldFailOpenForPsiErrors(errors = []) {
