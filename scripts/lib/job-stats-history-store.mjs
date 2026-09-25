@@ -13,10 +13,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import { writeFileAtomic, writeShardFileIfChanged } from './atomic-shard-write.mjs';
+import { assertAccumulatorByteFloor } from './accumulator-byte-floor-guard.mjs';
 
 export const JOB_STATS_HISTORY_LEGACY_FILE = 'data/jobs-stats-history.json';
 export const JOB_STATS_HISTORY_SHARD_DIR = 'data/jobs-stats-history';
 export const JOB_STATS_HISTORY_MANIFEST_FILE = `${JOB_STATS_HISTORY_SHARD_DIR}/manifest.json`;
+export const JOB_STATS_HISTORY_RETENTION_LIMIT = 180;
+export const JOB_STATS_HISTORY_COMPACT_AFTER_DAYS = 30;
 
 const MONTH_RE = /^\d{4}-(?:0[1-9]|1[0-2])$/;
 const DATE_RE = /^\d{4}-(?:0[1-9]|1[0-2])-\d{2}$/;
@@ -196,6 +199,17 @@ function readShardDocument(filePath) {
   return { exists: true, ok: true, entries: historyEntries(parsed) };
 }
 
+function isCompactedHistoryEntry(entry = {}) {
+  return [
+    entry.addedKeys,
+    entry.updatedKeys,
+    entry.removedKeys,
+    entry.companyStats,
+    entry.locationStats,
+    entry.titleStats,
+  ].every((value) => Array.isArray(value) && value.length === 0);
+}
+
 function readShardedHistory(rootDir) {
   const entriesByDate = new Map();
   for (const filePath of listJobStatsHistoryShardFiles(rootDir)) {
@@ -253,6 +267,9 @@ export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), opt
   const maxShardBytes = Number(options.maxShardBytes) > 0
     ? Number(options.maxShardBytes)
     : JOB_STATS_HISTORY_SHARD_MAX_BYTES;
+  const retentionLimit = Number(options.historyLimit) > 0
+    ? Number(options.historyLimit)
+    : JOB_STATS_HISTORY_RETENTION_LIMIT;
 
   const filePath = jobStatsHistoryShardFile(currentDate, rootDir);
   const currentEntry = entries.find((entry) => entry.date === currentDate);
@@ -274,7 +291,10 @@ export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), opt
     for (const existingEntry of existing.entries) {
       if (canonicalByDate.has(existingEntry.date)) targetDates.add(existingEntry.date);
     }
-    obsoleteFiles.push(shardFile);
+    obsoleteFiles.push({
+      filePath: shardFile,
+      entries: existing.entries,
+    });
   }
 
   // Serialize and size-check every shard before touching the disk, so an
@@ -284,6 +304,18 @@ export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), opt
     const entry = date === currentDate ? currentEntry : canonicalByDate.get(date);
     const serialized = serializeJobStatsHistoryShard([clone(entry)]);
     assertJobStatsHistoryShardSize(shardFile, serialized, maxShardBytes);
+    // Older entries are intentionally compacted after the verbose window.
+    // That controlled rewrite is the only large shrink exempted from the
+    // accumulator guard; a current/recent entry must never shrink like a
+    // fallback-generated replacement.
+    const isControlledCompaction = date < currentDate && isCompactedHistoryEntry(entry);
+    if (fs.existsSync(shardFile) && !isControlledCompaction) {
+      assertAccumulatorByteFloor(
+        fs.statSync(shardFile).size,
+        Buffer.byteLength(serialized, 'utf8'),
+        { label: shardFile },
+      );
+    }
     return { shardFile, serialized };
   });
 
@@ -294,9 +326,22 @@ export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), opt
     shardChanged = writeShardFileIfChanged(shardFile, serialized) || shardChanged;
     written.add(shardFile);
   }
-  for (const shardFile of obsoleteFiles) {
-    if (written.has(shardFile)) continue;
-    fs.unlinkSync(shardFile);
+  for (const { filePath, entries: obsoleteEntries } of obsoleteFiles) {
+    if (written.has(filePath)) continue;
+    // A valid old shard normally has a replacement daily shard in `planned`.
+    // If its date vanished from the canonical history, only permit deleting a
+    // small file; a large deletion is indistinguishable from a degraded read
+    // that fell back to an empty history and must fail closed.
+    const canonicalDates = [...canonicalByDate.keys()].sort();
+    const oldestCanonicalDate = canonicalDates[0] || '';
+    const retentionDrop = canonicalDates.length >= retentionLimit
+      && obsoleteEntries.every((entry) => entry.date < oldestCanonicalDate || canonicalByDate.has(entry.date));
+    const safeDeletion = obsoleteEntries.every((entry) =>
+      canonicalByDate.has(entry.date) || (retentionDrop && entry.date < oldestCanonicalDate));
+    if (!safeDeletion && fs.existsSync(filePath)) {
+      assertAccumulatorByteFloor(fs.statSync(filePath).size, 0, { label: filePath });
+    }
+    fs.unlinkSync(filePath);
     shardChanged = true;
   }
 

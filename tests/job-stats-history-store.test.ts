@@ -253,6 +253,61 @@ describe('job stats history store', () => {
     });
   });
 
+  it('refuses a catastrophic rewrite of an existing accumulator shard', () => {
+    withTempRoot((root) => {
+      const shardPath = path.join(root, SHARD_DIR, '2026-09-20.json');
+      fs.mkdirSync(path.dirname(shardPath), { recursive: true });
+      const existing = entry('2026-09-20', {
+        updated: 30_000,
+        updatedKeys: Array.from({ length: 30_000 }, (_, i) => `url:https://example.ch/job/${i}`),
+      });
+      const before = JSON.stringify({ entries: [existing] }, null, 2) + '\n';
+      fs.writeFileSync(shardPath, before);
+
+      expect(() => writeJobsStatsHistory({ entries: [entry('2026-09-20')] }, root, {
+        currentDate: '2026-09-20',
+      })).toThrow(/ABORT write.*2026-09-20\.json/);
+      expect(fs.readFileSync(shardPath, 'utf8')).toBe(before);
+    });
+  });
+
+  it('allows the intentional compaction of a verbose past-day shard', () => {
+    withTempRoot((root) => {
+      const shardPath = path.join(root, SHARD_DIR, '2026-09-19.json');
+      fs.mkdirSync(path.dirname(shardPath), { recursive: true });
+      const verbose = entry('2026-09-19', {
+        updated: 30_000,
+        updatedKeys: Array.from({ length: 30_000 }, (_, i) => `url:https://example.ch/job/${i}`),
+      });
+      fs.writeFileSync(shardPath, JSON.stringify({ entries: [verbose] }, null, 2) + '\n');
+      const compacted = entry('2026-09-19', { updated: 30_000 });
+
+      writeJobsStatsHistory({ entries: [compacted, entry('2026-09-20')] }, root, {
+        currentDate: '2026-09-20',
+      });
+
+      expect(readShard(root, '2026-09-19.json').entries).toEqual([compacted]);
+    });
+  });
+
+  it('refuses to delete a large shard whose date disappeared from canonical history', () => {
+    withTempRoot((root) => {
+      const shardPath = path.join(root, SHARD_DIR, '2026-09-19.json');
+      fs.mkdirSync(path.dirname(shardPath), { recursive: true });
+      const existing = entry('2026-09-19', {
+        updated: 30_000,
+        updatedKeys: Array.from({ length: 30_000 }, (_, i) => `url:https://example.ch/job/${i}`),
+      });
+      const before = JSON.stringify({ entries: [existing] }, null, 2) + '\n';
+      fs.writeFileSync(shardPath, before);
+
+      expect(() => writeJobsStatsHistory({ entries: [entry('2026-09-20')] }, root, {
+        currentDate: '2026-09-20',
+      })).toThrow(/ABORT write.*2026-09-19\.json/);
+      expect(fs.readFileSync(shardPath, 'utf8')).toBe(before);
+    });
+  });
+
   it('merges concurrent shard rewrites by date and action key', () => {
     withTempRoot((root) => {
       const basePath = path.join(root, 'base.json');
