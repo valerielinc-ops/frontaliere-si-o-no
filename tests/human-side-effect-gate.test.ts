@@ -444,7 +444,7 @@ describe('workflow wiring without the human approval gate', () => {
     expect(residual).toEqual([])
 
     const coldMail = YAML.parse(workflow('cold-email-outreach.yml'))
-    expect(String(coldMail.jobs.outreach.if)).toContain('false')
+    expect(String(coldMail.jobs.outreach.if)).toContain('COLD_EMAIL_OUTREACH_ENABLED')
   })
 
   it('keeps cold mail as the explicit owner-disabled exception', () => {

@@ -25,8 +25,9 @@ name: Cold Email Outreach (employer acquisition)
 # re-send an already-delivered touch or exceed MAX_TOUCHES_PER_COMPANY.
 #
 # OWNER DECISION: this workflow is intentionally blocked. Keep the job-level
-# condition below as the single explicit switch; removing it requires a new
-# owner decision, independently of the shared side-effect policy.
+# condition below as the single explicit switch; the repository variable is
+# intentionally unset/false. Changing it requires a new owner decision,
+# independently of the shared side-effect policy.
 
 on:
   schedule:
@@ -75,7 +76,7 @@ permissions:
 
 jobs:
   outreach:
-    if: ${{ false }}
+    if: ${{ vars.COLD_EMAIL_OUTREACH_ENABLED == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
