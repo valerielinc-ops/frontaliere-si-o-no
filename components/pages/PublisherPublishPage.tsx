@@ -27,6 +27,7 @@ import {
 } from '@/services/newsletterSubscribers';
 import { recaptchaService } from '@/services/recaptchaService';
 import { Analytics } from '@/services/analytics';
+import { useCaptureImpression } from '@/hooks/useCaptureImpression';
 import { reportCaughtError } from '@/services/errorReporter';
 import {
  getFirestore,
@@ -335,6 +336,13 @@ const PublisherPublishPage: React.FC = () => {
  const [gateEmail, setGateEmail] = useState('');
  const [gateStatus, setGateStatus] = useState<'idle' | 'loading' | 'sent' | 'error'>('idle');
  const [gateError, setGateError] = useState('');
+ // Visibility denominator for `publisher.gate.email_login.sent`.
+ const gateImpressionRef = useCaptureImpression({
+  page: 'publisher',
+  section: 'gate',
+  variant: 'email_login',
+  enabled: !loading && !user && gateStatus !== 'sent',
+ });
 
 
  // ── Tier ────────────────────────────────────────────────────
@@ -1298,7 +1306,7 @@ const PublisherPublishPage: React.FC = () => {
  <p className="text-subtle max-w-sm mx-auto">{t('publisher.gate.subtitle')}</p>
  </div>
 
- <div className="mt-6 space-y-4">
+ <div ref={gateImpressionRef} className="mt-6 space-y-4">
  {/* Social sign-in — same row as the newsletter box (Google + LinkedIn) */}
  <EmailConsentCheckbox
  id="publisher-gate-email-consent"

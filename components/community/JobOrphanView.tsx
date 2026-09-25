@@ -26,6 +26,7 @@ import { handleCompanyLogoError } from '@/services/logoService';
 import { cdnImageUrl } from '@/services/cdnImageBase';
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { useCaptureImpression } from '@/hooks/useCaptureImpression';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import ArticleRailAdStack from '@/components/shared/ArticleRailAdStack';
@@ -167,7 +168,7 @@ function extractActiveJobLinks(html: string): Array<{ href: string; title: strin
 
 export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, totalActiveJobs, onNavigateToCompany, onNavigateToLocation, onNavigateToJob }: JobOrphanViewProps) {
  const [locale] = useLocale();
- const { headline: gateHeadline } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
+ const { headline: gateHeadline, variant: gateVariant } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
  const isDesktopXl = useMediaQuery('(min-width: 1280px)');
  const isDesktopLg = useMediaQuery('(min-width: 1024px)');
  const googleButtonRef = useRef<HTMLDivElement>(null);
@@ -247,8 +248,25 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  company: slugParts.company ?? undefined,
  jobTitle: slugParts.title,
  location: slugParts.location ?? undefined,
+ surface: 'orphan',
  });
  }, [alreadySignedIn, slug, slugParts.company, slugParts.title, slugParts.location]);
+
+ // Visible-gate impression, paired on cta_id with the email success below:
+ // `job_auth_gate.orphan.unknown.view` → `job_auth_gate.orphan.email.success`.
+ const gateImpressionRef = useCaptureImpression({
+  page: 'job_auth_gate',
+  section: 'orphan',
+  variant: 'view',
+  ctaId: 'job_auth_gate.orphan.unknown.view',
+  enabled: !alreadySignedIn,
+  emit: () => Analytics.trackJobAuthGate('view', {
+   surface: 'orphan',
+   authState: 'anonymous',
+   variant: gateVariant,
+   jobSlug: slug,
+  }),
+ });
 
  // ── Auth methods ──
 
@@ -346,6 +364,24 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  sourceComponent: 'JobOrphanView',
  sourceRouteFamily: 'job-board',
  jobContext: newsletterJobContext,
+ });
+ Analytics.trackJobAuthGate('success', {
+  surface: 'orphan',
+  method: 'email',
+  authState: 'pending_email',
+  variant: gateVariant,
+  jobSlug: slug,
+ });
+ Analytics.trackJobAuthFunnel('auth_success', {
+  method: 'email',
+  emailDomain: email.split('@')[1] || 'unknown',
+  company: slugParts.company ?? undefined,
+  jobTitle: slugParts.title,
+  location: slugParts.location ?? undefined,
+  surface: 'orphan',
+  authState: 'pending_email',
+  variant: gateVariant,
+  jobSlug: slug,
  });
  localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  window.location.href = listingPath;
@@ -643,7 +679,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  {activeJobsSection}
 
  {/* Sign-in / alert block */}
- <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-4 sm:p-6">
+ <div ref={gateImpressionRef} id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-4 sm:p-6">
  <h2 className="flex items-start gap-2 text-lg sm:text-xl font-bold font-display text-heading leading-tight">
  <Eye className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" aria-hidden="true" />
  <span>{gateHeadline}</span>

@@ -250,7 +250,6 @@ jobs:
           LOCAL_MT_MOPUP_DEADLINE_MS: "16800000"
           LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
           LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
-          LOCAL_MT_SEMANTIC_MAX_CONSECUTIVE_ERRORS: "10"
           LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2a.json
           LOCAL_MT_OPUSMT_RESCUE: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
           MT_LOCAL_OPUSMT: "1"
@@ -361,7 +360,6 @@ jobs:
           LOCAL_MT_MOPUP_DEADLINE_MS: "16800000"
           LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
           LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
-          LOCAL_MT_SEMANTIC_MAX_CONSECUTIVE_ERRORS: "10"
           LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2c.json
           LOCAL_MT_OPUSMT_RESCUE: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
           MT_LOCAL_OPUSMT: "1"

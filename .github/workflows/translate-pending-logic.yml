@@ -290,12 +290,11 @@ jobs:
           # Argos semantic gate rollout (#9677). LOCAL_MT_LANG_AWARE_OVERWRITE above
           # is its kill-switch: '0' keeps every overwrite in shadow (a bounded
           # sample is judged and counted, nothing written). The cap bounds the
-          # overwrites one phase may write (hard max 2000 in the script); the
-          # error stop withholds every write after N consecutive judge errors.
+          # overwrites one phase may write (hard max 2000 in the script). The
+          # run rollback is the #9676 guard in local-mt-semantic-policy.mjs.
           # Counts per verdict and per withheld reason land in the log line
           # LOCAL_MT_SEMANTIC_TELEMETRY and in the file below (uploaded).
           LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
-          LOCAL_MT_SEMANTIC_MAX_CONSECUTIVE_ERRORS: '10'
           LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2a.json
           # Default '0' = OpusMT rescue is not invoked. Set the repo variable to '1'
           # only after the rollout is approved.
@@ -434,12 +433,11 @@ jobs:
           # Argos semantic gate rollout (#9677). LOCAL_MT_LANG_AWARE_OVERWRITE above
           # is its kill-switch: '0' keeps every overwrite in shadow (a bounded
           # sample is judged and counted, nothing written). The cap bounds the
-          # overwrites one phase may write (hard max 2000 in the script); the
-          # error stop withholds every write after N consecutive judge errors.
+          # overwrites one phase may write (hard max 2000 in the script). The
+          # run rollback is the #9676 guard in local-mt-semantic-policy.mjs.
           # Counts per verdict and per withheld reason land in the log line
           # LOCAL_MT_SEMANTIC_TELEMETRY and in the file below (uploaded).
           LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
-          LOCAL_MT_SEMANTIC_MAX_CONSECUTIVE_ERRORS: '10'
           LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2c.json
           # Default '0' = OpusMT rescue is not invoked. Set the repo variable to '1'
           # only after the rollout is approved.
@@ -638,7 +636,7 @@ jobs:
 
       # Argos semantic gate telemetry (#9677), one JSON per mop-up phase:
       # verdicts accepted/rejected/unclear/error, writes by kind, withheld by
-      # reason (kill-switch/cap/error-stop), cap and error-stop state.
+      # reason (kill-switch/cap/rollback), cap and #9676 rollback-guard state.
       - name: Upload Argos semantic telemetry
         if: always() && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
         continue-on-error: true

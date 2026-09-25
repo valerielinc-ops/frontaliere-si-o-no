@@ -248,7 +248,8 @@ describe('translation observability workflow', () => {
         // Cap: a finite default even when the repo variable is unset.
         expect(env?.LOCAL_MT_SEMANTIC_MAX_OVERWRITES, `${label}: ${phase} semantic cap`)
           .toBe("${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}");
-        expect(String(env?.LOCAL_MT_SEMANTIC_MAX_CONSECUTIVE_ERRORS), `${label}: ${phase} error stop`).toBe('10');
+        // Rollback is the #9676 guard in the policy module: no second error stop.
+        expect(env, `${label}: ${phase} duplicate error stop`).not.toHaveProperty('LOCAL_MT_SEMANTIC_MAX_CONSECUTIVE_ERRORS');
         expect(env?.LOCAL_MT_SEMANTIC_TELEMETRY_PATH, `${label}: ${phase} telemetry path`)
           .toBe(`\${{ runner.temp }}/local-mt-semantic-telemetry-${phase}.json`);
       }

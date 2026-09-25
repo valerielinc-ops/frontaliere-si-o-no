@@ -11945,6 +11945,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cgil-regio-insubrica-incontro-novembre.title': 'Cgil chiede al Piemonte soluzione tassa salute',
     'blog.article.cgil-regio-insubrica-incontro-novembre.excerpt': 'La tassa sulla salute è in vigore da due anni e mezzo senza decreti attuativi; i ristorni 2026 sono saliti da 89 a 108 milioni di euro e la presidenza della Regio Insubrica è passata al Piemonte, con tavolo interministeriale previsto a inizio novembre.',
     'blog.article.cgil-regio-insubrica-incontro-novembre.imageAlt': 'Frontaliere che cammina vicino al lago di Lugano con le Alpi sullo sfondo',
+    'blog.article.pensione-pubblica-svizzera-non-tassata-italia.title': 'Pensione pubblica svizzera: nessuna tassazione in Italia',
+    'blog.article.pensione-pubblica-svizzera-non-tassata-italia.excerpt': 'Risposta a interpello n. 177/2026 dell’Agenzia delle Entrate: pensione pubblica DDPS erogata da Cassa PUBLICA non tassata in Italia per chi ha doppia cittadinanza italo-svizzera.',
+    'blog.article.pensione-pubblica-svizzera-non-tassata-italia.imageAlt': 'Vista sul lago di Lugano con montagne sullo sfondo, rappresentante la vita finanziaria transfrontaliera in Ticino',
 };
 
 export default blogMetaIt;

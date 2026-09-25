@@ -234,7 +234,6 @@ jobs:
           # telemetry file. See translate-pending-logic.yml.
           LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
           LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
-          LOCAL_MT_SEMANTIC_MAX_CONSECUTIVE_ERRORS: '10'
           LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2a.json
           # Dispatch inputs reach the shell as DATA, never as script text.
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
@@ -420,7 +419,6 @@ jobs:
           # telemetry file. See translate-pending-logic.yml.
           LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
           LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
-          LOCAL_MT_SEMANTIC_MAX_CONSECUTIVE_ERRORS: '10'
           LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2c.json
           # Dispatch inputs reach the shell as DATA, never as script text.
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}

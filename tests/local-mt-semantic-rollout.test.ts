@@ -6,7 +6,6 @@ import {
 import {
   createSemanticRollout,
   createSemanticRolloutFromEnv,
-  DEFAULT_LOCAL_MT_SEMANTIC_MAX_CONSECUTIVE_ERRORS,
   DEFAULT_LOCAL_MT_SEMANTIC_MAX_OVERWRITES,
   formatSemanticTelemetry,
   HARD_MAX_LOCAL_MT_SEMANTIC_OVERWRITES,
@@ -15,9 +14,11 @@ import {
   semanticBucketOfVerdict,
   semanticWriteKind,
 } from '../scripts/lib/local-mt-semantic-rollout.mjs';
+import { createSemanticRollbackGuard } from '../scripts/lib/local-mt-semantic-policy.mjs';
 
 // #9677: bounded rollout, telemetry and kill-switch around the #9675 semantic
-// gate. Every case goes through commitMopupCandidate(), the one place the
+// gate and the #9676 overwrite policy (whose run rollback guard is reused, not
+// duplicated). Every case goes through commitMopupCandidate(), the one place the
 // mop-up assigns a translated field, so "not written" means the job object is
 // byte-identical afterwards.
 
@@ -72,7 +73,9 @@ describe('semantic rollout: default-off kill-switch', () => {
     });
     expect(snapshot.cap.maxOverwrites).toBe(DEFAULT_LOCAL_MT_SEMANTIC_MAX_OVERWRITES);
     expect(Number.isFinite(snapshot.cap.maxOverwrites)).toBe(true);
-    expect(snapshot.errorStop.maxConsecutiveErrors).toBe(DEFAULT_LOCAL_MT_SEMANTIC_MAX_CONSECUTIVE_ERRORS);
+    expect(snapshot.schemaVersion).toBe(2);
+    expect(snapshot.rollback).toBeNull();
+    expect(snapshot).not.toHaveProperty('errorStop');
     expect(createSemanticRolloutFromEnv({ LOCAL_MT_LANG_AWARE_OVERWRITE: '1' }).overwritesEnabled).toBe(true);
     expect(createSemanticRolloutFromEnv({ LOCAL_MT_LANG_AWARE_OVERWRITE: 'true' }).overwritesEnabled).toBe(false);
   });
@@ -199,6 +202,9 @@ describe('semantic rollout: unambiguous verdict counts', () => {
   it('maps each judged decision to one bucket, and structural skips to none', () => {
     expect(semanticBucketOf({ decision: 'write' })).toBe('accepted');
     expect(semanticBucketOf({ decision: 'skip:semantic-mismatch' })).toBe('rejected');
+    expect(semanticBucketOf({ decision: 'skip:semantic-reject' })).toBe('rejected');
+    expect(semanticBucketOf({ decision: 'skip:semantic-unclear' })).toBe('unclear');
+    expect(semanticBucketOf({ decision: 'skip:semantic-rollback' })).toBeNull();
     expect(semanticBucketOf({ decision: 'skip:semantic-unavailable', semanticReason: 'embedding-error' })).toBe('error');
     expect(semanticBucketOf({ decision: 'skip:semantic-unavailable', semanticReason: 'judge-error' })).toBe('error');
     expect(semanticBucketOf({ decision: 'skip:semantic-unavailable', semanticReason: 'missing-text' })).toBe('unclear');
@@ -216,49 +222,71 @@ describe('semantic rollout: unambiguous verdict counts', () => {
   });
 });
 
-describe('semantic rollout: error stop', () => {
-  it('after N consecutive judge errors withholds every later write, fills included, without judging', async () => {
-    const rollout = createSemanticRollout({ maxConsecutiveErrors: 2 });
+describe('semantic rollout: the #9676 rollback guard is reused, not duplicated', () => {
+  const ECHO = { accepted: true, score: 0.99, threshold: 0.8, reason: 'semantic-match' };
+
+  it('counts the policy verdicts of an overwrite: accepted, rejected (echo)', async () => {
+    const rollout = createSemanticRollout({ overwritesEnabled: true, rollbackGuard: createSemanticRollbackGuard() });
+    const decisions: string[] = [];
+    for (const [index, verdict] of [ACCEPT, ECHO].entries()) {
+      const job = overwriteJob(index);
+      decisions.push((await commitMopupCandidate({
+        job, locale: 'it', field: 'title', candidate: candidateFor(job), judge: countingJudge(verdict), rollout,
+      })).decision);
+    }
+    expect(decisions).toEqual(['write', 'skip:semantic-reject']);
+    expect(rollout.snapshot().verdicts).toMatchObject({ accepted: 1, rejected: 1, total: 2 });
+    expect(rollout.snapshot().written).toMatchObject({ overwrite: 1, total: 1 });
+  });
+
+  it('after the guard trips on a judge error, later overwrites are withheld as rollback and reported', async () => {
+    const guard = createSemanticRollbackGuard();
+    const rollout = createSemanticRolloutFromEnv({ LOCAL_MT_LANG_AWARE_OVERWRITE: '1' }, { rollbackGuard: guard });
+    expect(rollout.rollbackGuard).toBe(guard);
     const failing = countingJudge(() => { throw new Error('model download failed'); });
     const healthy = countingJudge(ACCEPT);
 
-    const decisions: string[] = [];
-    for (const index of [1, 2]) {
-      const job = fillJob(index);
-      decisions.push((await commitMopupCandidate({
-        job, locale: 'it', field: 'title', candidate: candidateFor(job), judge: failing, rollout,
-      })).decision);
-    }
-    const late = fillJob(3);
+    const first = overwriteJob(1);
+    const late = overwriteJob(2);
     const before = structuredClone(late);
-    decisions.push((await commitMopupCandidate({
-      job: late, locale: 'it', field: 'title', candidate: candidateFor(late), judge: healthy, rollout,
-    })).decision);
+    // No explicit rollbackGuard: commitMopupCandidate must default to the rollout's.
+    const decisions = [
+      (await commitMopupCandidate({ job: first, locale: 'it', field: 'title', candidate: candidateFor(first), judge: failing, rollout })).decision,
+      (await commitMopupCandidate({ job: late, locale: 'it', field: 'title', candidate: candidateFor(late), judge: healthy, rollout })).decision,
+    ];
 
-    expect(decisions).toEqual(['skip:semantic-unavailable', 'skip:semantic-unavailable', 'withheld:error-stop']);
-    expect(healthy.calls).toBe(0);
+    expect(decisions).toEqual(['skip:semantic-unavailable', 'skip:semantic-rollback']);
     expect(late).toEqual(before);
+    expect(guard.status()).toMatchObject({ tripped: true, reason: 'semantic-unavailable', withheld: 1 });
     const snapshot = rollout.snapshot();
-    expect(snapshot).toMatchObject({ status: 'error-stop', rollbackRecommended: true });
-    expect(snapshot.verdicts).toMatchObject({ error: 2, total: 2 });
-    expect(snapshot.withheld).toMatchObject({ 'error-stop': 1, total: 1 });
+    expect(snapshot).toMatchObject({ status: 'rollback', rollbackRecommended: true });
+    expect(snapshot.rollback).toMatchObject({ tripped: true, reason: 'semantic-unavailable', unavailable: 1, withheld: 1 });
+    expect(snapshot.verdicts).toMatchObject({ error: 1, accepted: 0, total: 1 });
+    expect(snapshot.withheld).toMatchObject({ rollback: 1, total: 1 });
     expect(snapshot.written.total).toBe(0);
   });
 
-  it('a successful verdict resets the consecutive error count', async () => {
-    const rollout = createSemanticRollout({ maxConsecutiveErrors: 2 });
-    let call = 0;
-    const flaky = countingJudge(() => {
-      call += 1;
-      if (call % 2 === 1) throw new Error('transient');
-      return ACCEPT;
-    });
-    for (const index of [1, 2, 3, 4]) {
-      const job = fillJob(index);
-      await commitMopupCandidate({ job, locale: 'it', field: 'title', candidate: candidateFor(job), judge: flaky, rollout });
-    }
-    expect(rollout.errorStopped).toBe(false);
-    expect(rollout.snapshot().verdicts).toMatchObject({ accepted: 2, error: 2 });
+  it('a judge error on a fill fails closed for that slot only: no second stop over fills', async () => {
+    const guard = createSemanticRollbackGuard();
+    const rollout = createSemanticRollout({ rollbackGuard: guard });
+    const failed = fillJob(1);
+    const failedBefore = structuredClone(failed);
+    const decisions = [
+      (await commitMopupCandidate({
+        job: failed, locale: 'it', field: 'title', candidate: candidateFor(failed),
+        judge: countingJudge(() => { throw new Error('transient'); }), rollout,
+      })).decision,
+    ];
+    const next = fillJob(2);
+    decisions.push((await commitMopupCandidate({
+      job: next, locale: 'it', field: 'title', candidate: candidateFor(next), judge: countingJudge(ACCEPT), rollout,
+    })).decision);
+
+    expect(decisions).toEqual(['skip:semantic-unavailable', 'write']);
+    expect(failed).toEqual(failedBefore);
+    expect(guard.status().tripped).toBe(false);
+    expect(rollout.snapshot()).toMatchObject({ status: 'ok', rollbackRecommended: false });
+    expect(rollout.snapshot().verdicts).toMatchObject({ error: 1, accepted: 1 });
   });
 });
 
@@ -279,21 +307,24 @@ describe('semantic rollout: shadow sample and report', () => {
     expect(createSemanticRollout({ overwritesEnabled: true }).shouldShadowJudge()).toBe(false);
   });
 
-  it('emits one greppable JSON line and GitHub annotations for cap and error stop', () => {
-    const rollout = createSemanticRollout({ overwritesEnabled: true, maxOverwrites: 0, maxConsecutiveErrors: 1 });
+  it('emits one greppable JSON line and GitHub annotations for cap, rollback and judge errors', () => {
+    const guard = createSemanticRollbackGuard();
+    guard.observe({ verdict: 'unavailable', reason: 'judge-error' });
+    const rollout = createSemanticRollout({ overwritesEnabled: true, maxOverwrites: 0, rollbackGuard: guard });
     rollout.beforeJudge({ kind: 'overwrite' });
-    rollout.recordVerdict('error');
+    rollout.recordJudged({ decision: 'skip:semantic-unavailable', semanticReason: 'judge-error' });
     const lines = formatSemanticTelemetry(rollout.snapshot());
     const jsonLine = lines.find((line) => line.startsWith('LOCAL_MT_SEMANTIC_TELEMETRY '));
     expect(jsonLine).toBeDefined();
     const parsed = JSON.parse(String(jsonLine).slice('LOCAL_MT_SEMANTIC_TELEMETRY '.length));
-    expect(parsed).toMatchObject({ schemaVersion: 1, status: 'error-stop', rollbackRecommended: true });
+    expect(parsed).toMatchObject({ schemaVersion: 2, status: 'rollback', rollbackRecommended: true });
     expect(lines.some((line) => line.startsWith('::warning title=Argos semantic cap reached::'))).toBe(true);
-    expect(lines.some((line) => line.startsWith('::error title=Argos semantic gate stopped::')
+    expect(lines.some((line) => line.startsWith('::error title=Argos overwrite rollback tripped::')
       && line.includes('LOCAL_MT_LANG_AWARE_OVERWRITE=0'))).toBe(true);
+    expect(lines.some((line) => line.startsWith('::warning title=Argos semantic judge errors::'))).toBe(true);
   });
 
-  it('without a rollout the write boundary behaves exactly like the #9675 gate', async () => {
+  it('without a rollout the write boundary behaves exactly like the #9675 gate plus #9676 policy', async () => {
     const job = overwriteJob();
     const result = await commitMopupCandidate({
       job, locale: 'it', field: 'title', candidate: candidateFor(job), judge: countingJudge(ACCEPT),

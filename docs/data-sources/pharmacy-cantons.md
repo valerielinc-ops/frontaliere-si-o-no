@@ -28,7 +28,7 @@ di accesso da valutare; non è una prova di fetch riuscito.
 | BL | `basel-landschaft` | Basilea Campagna | official | manual | unverified | 2026-09-15 | [Basilea Campagna — domande mediche](https://www.baselland.ch/politik-und-behorden/direktionen/volkswirtschafts-und-gesundheitsdirektion/amt-fur-gesundheit/medizinische-dienste/kantonsaerztlicher-dienst/kontakte/medizinische-fragen) |
 | BS | `basel-stadt` | Basilea Città | official | manual | unverified | 2026-09-15 | [Basilea Città — elenco farmacie](https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt) |
 | FR | `fribourg` | Friburgo | association | html-scrape | unverified | 2026-09-15 | [Pharmacies Fribourg — pharmacie de garde](https://www.pharmaciesfribourg.ch/fr/prestations-et-conseils/pharmacie-de-garde) |
-| GE | `geneva` | Ginevra | association | html-scrape | degraded | 2026-09-15 | [Pharma Genève — pharmacie de garde](https://pharmageneve.swiss/pharmacie-de-garde/) |
+| GE | `geneva` | Ginevra | association | html-scrape | active | 2026-09-24 | [Pharma Genève — pharmacie de garde](https://pharmageneve.swiss/pharmacie-de-garde/) |
 | GL | `glarus` | Glarona | official | manual | unverified | 2026-09-15 | [Glarona — numeri di emergenza](https://www.gl.ch/verwaltung/finanzen-und-gesundheit/gesundheit/gesundheitsversorgung/notfallnummern.html/1691) |
 | GR | `graubunden` | Grigioni | association | html-scrape | unverified | 2026-09-15 | [Apotheke Chur — emergenza](https://notfall.apotheke-chur.ch/) |
 | JU | `jura` | Giura | association | html-scrape | unverified | 2026-09-15 | [Giura — numeri di emergenza](https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html) |
