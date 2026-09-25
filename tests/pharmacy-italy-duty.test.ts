@@ -11,6 +11,7 @@ import {
 } from '../services/pharmacies/italyRelease';
 import {
   buildItalyDutyWeekModel,
+  currentItalyDutyWeekStart,
   formatItalyDutyDateTime,
 } from '../services/pharmacies/italyDuty';
 import type { ItalyDutySnapshot } from '../services/pharmacies/italyRelease';
@@ -77,24 +78,47 @@ function freshSnapshots(fetchedAt = FETCHED_AT): { duties: ItalyDutySnapshot; st
 }
 
 describe('Italian duty week read model', () => {
-  // Dato vivo: conta le righe di turno dello snapshot reale data/pharmacy-duties-italy(.|-status.)json, riscritto dal cron farmacie.
+  // Dato vivo: legge lo snapshot reale data/pharmacy-duties-italy(.|-status.)json, riscritto dal cron farmacie.
+  // Quante righe ha ogni provincia, e se la best-effort VB e' disponibile,
+  // cambia a ogni refresh: il test verifica il CONTRATTO che lega classe di
+  // pubblicazione, pubblicabilita' e righe servite, non la fotografia di un
+  // giorno (#9743; prima fissava `[2, 3, 0]`, le righe della settimana
+  // 2026-09-14 nello snapshot di quel momento).
   it.skipIf(SKIP_LIVE_DATA)('serves verified required provinces while keeping an unavailable best-effort province source-only', () => {
-    const model = buildItalyDutyWeekModel({
-      now: new Date(Date.parse(dutiesJson._fetchedAt) + 60_000),
-      weekStart: WEEK,
+    const now = new Date(Date.parse(dutiesJson._fetchedAt) + 60_000);
+    const model = buildItalyDutyWeekModel({ now, weekStart: currentItalyDutyWeekStart(now) });
+    const evaluation = evaluateItalyDutyRelease({
+      duties: dutiesJson as unknown as ItalyDutySnapshot,
+      status: statusJson as unknown as ItalyDutySnapshot,
+      now,
+      maxAgeMs: ITALY_DUTY_RELEASE_MAX_AGE_MS,
     });
 
     expect(model.state).toBe('fresh');
     expect(model.publishable).toBe(true);
-    expect(model.indexable).toBe(false);
-    expect(model.provinces).toHaveLength(3);
-    expect(model.provinces.map((province) => province.publishable)).toEqual([true, true, false]);
-    expect(model.provinces.map((province) => province.duties.length)).toEqual([2, 3, 0]);
-    expect(model.provinces.find((province) => province.code === 'VB')?.fetchedAt).toBeTruthy();
+    expect(model.provinces.map((province) => province.code)).toEqual(PROVINCES.map((province) => province.code));
+    for (const province of model.provinces) {
+      // Una provincia `required` in una release pubblicabile e' servita. Le
+      // righe della settimana possono essere zero: i calendari ATS non hanno
+      // un turno di confine in ogni settimana.
+      if (evaluation.provinces[province.code].publication === 'required') {
+        expect(province.publishable, province.code).toBe(true);
+      }
+      for (const duty of province.duties) {
+        expect(duty.province, province.code).toBe(province.code);
+        expect(duty.status, province.code).toBe('verified');
+      }
+      // Una provincia non pubblicabile resta solo-fonte: nessuna riga, e il motivo e' dichiarato.
+      if (!province.publishable) {
+        expect(province.duties, province.code).toEqual([]);
+        expect(model.reason).toContain(`${province.code}: `);
+      }
+      expect(province.fetchedAt, province.code).toBeTruthy();
+    }
+    expect(model.indexable).toBe(model.provinces.every((province) => province.publishable && province.duties.length > 0));
     expect(model.provinces.map((province) => province.sourceUrl)).toEqual(PROVINCES.map((province) => province.sourceUrl));
     expect(model.sourceOnly.map((province) => province.sourceUrl)).toEqual(PROVINCES.map((province) => province.sourceUrl));
     expect(model.sourceOnly.every((province) => !('dutyCount' in province))).toBe(true);
-    expect(model.reason).toContain('VB: no operational duty rows are publishable');
   });
 
   it('publishes only a fresh complete release with one verified province row per province', () => {
@@ -111,8 +135,8 @@ describe('Italian duty week read model', () => {
     expect(model.publishable).toBe(true);
     expect(model.indexable).toBe(true);
     expect(model.provinces.map((province) => province.code)).toEqual(['CO', 'VA', 'VB']);
-    expect(model.provinces.filter((province) => province.duties.length > 0)).toHaveLength(3);
-    expect(model.provinces.flatMap((province) => province.duties)).toHaveLength(3);
+    expect(model.provinces.filter((province) => province.duties.length > 0)).toHaveLength(PROVINCES.length);
+    expect(model.provinces.flatMap((province) => province.duties)).toHaveLength(PROVINCES.length);
     expect(model.provinces.every((province) => province.sourceUrl?.startsWith('https://'))).toBe(true);
     expect(formatItalyDutyDateTime(model.provinces[0].duties[0].startsAt)).toBe('14.09.2026 08:00');
   });

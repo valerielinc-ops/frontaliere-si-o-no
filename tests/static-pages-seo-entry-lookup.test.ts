@@ -213,6 +213,7 @@ describe('seo source files parse contract (real files)', () => {
       const metadata = SEO_PAGES_METADATA[key] as { structuredData?: Record<string, any>[] };
       const itemList = metadata.structuredData?.find((schema) => schema['@type'] === 'ItemList');
       const events = itemList?.itemListElement?.map((entry) => entry.item) ?? [];
+      // cron-count-ok: le 15 festivita' ticinesi scritte a mano in services/seo/seo-pages.ts; il dato del cron (tasso di cambio) tocca altre voci dello stesso oggetto.
       expect(events, `missing holiday Event list for ${key}`).toHaveLength(15);
       for (const event of events) {
         expect(event.image).toBeUndefined();

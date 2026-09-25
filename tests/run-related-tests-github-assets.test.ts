@@ -373,6 +373,17 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selected.length).toBeLessThan(20);
   }, 120_000);
 
+  it('un test cambiato trascina i lint dell\'albero dei test, che nessuno importa', () => {
+    // #9743: il lint dei conteggi letterali sui file del cron scandisce tutti
+    // i test per directory. Senza questa regola il grafo inverso non lo
+    // sceglierebbe mai sulla PR che aggiunge il test da bocciare.
+    const changedTest = 'tests/pharmacy-italy-duty.test.ts';
+    expect(fs.existsSync(path.join(ROOT, changedTest))).toBe(true);
+    expect(selectionFor([changedTest])).toContain('tests/check-cron-count-literals.test.ts');
+    // Un diff senza test non paga la scansione dell'albero.
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain('tests/check-cron-count-literals.test.ts');
+  }, 120_000);
+
   it('una modifica a vitest.config.ts seleziona la suite globale senza le esclusioni deliberate', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'related-vitest-config-'));
     try {

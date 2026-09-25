@@ -46,9 +46,11 @@ describe('pharmacy country SPA route', () => {
 
     expect(matrix).toHaveAttribute('data-release-ready', 'false');
     expect(screen.getByText(/Turni non mostrati:/)).toBeInTheDocument();
+    // cron-count-ok: le cinque regioni ticinesi sono DUTY_WEEK_REGIONS, costante del codice.
     expect(matrix?.querySelectorAll('[data-coverage-kind="ticino-region"]')).toHaveLength(5);
     expect(matrix?.querySelectorAll('[data-coverage-kind="ticino-region"] [data-duty-id]')).toHaveLength(0);
     expect(matrix?.querySelectorAll('[data-coverage-kind="ticino-region"] time')).toHaveLength(0);
+    // cron-count-ok: i 26 cantoni meno il Ticino (SOURCE_ONLY_CANTONS), costante del codice.
     expect(matrix?.querySelectorAll('[data-coverage-kind="source-only-canton"]')).toHaveLength(25);
     expect(container.textContent).toContain('Verifica sempre telefonicamente con la farmacia prima di recarti sul posto: orari e turni possono cambiare.');
   });
@@ -81,18 +83,27 @@ describe('pharmacy country SPA route', () => {
     const italyModel = buildItalyDutyWeekModel({ now, weekStart });
     const expectedRows = italyModel.provinces.flatMap((province) => province.duties).length;
     const expectedWeekExternalLinks = italyModel.provinces.filter((province) => province.sourceUrl).length + expectedRows;
+    // Quali province escono pubblicate, e quindi se la settimana e'
+    // indicizzabile, lo decide lo snapshot che il cron farmacie riscrive (VB e'
+    // `best-effort`): l'attesa segue il modello, non il dato di oggi (#9743).
+    const publishedProvinces = italyModel.provinces.filter((province) => province.publishable);
+    const sourceOnlyProvinces = italyModel.provinces.filter((province) => !province.publishable);
+    expect(publishedProvinces.length).toBeGreaterThan(0);
     const hub = render(<PharmacyDirectory page={{ kind: 'italy-duty-hub', country: 'IT', locale }} />);
     const hubRoot = hub.container.querySelector('[data-italy-duty-coverage="true"]');
     expect(hubRoot).toHaveAttribute('data-italy-duty-coverage', 'true');
     expect(hubRoot).toHaveAttribute('data-italy-release-state', 'fresh');
     expect(hubRoot).toHaveAttribute('data-italy-publishable', 'true');
-    expect(hubRoot).toHaveAttribute('data-italy-indexable', 'false');
+    expect(hubRoot).toHaveAttribute('data-italy-indexable', String(italyModel.indexable));
+    // cron-count-ok: le tre province ITALY_DUTY_PROVINCES, costante del codice.
     expect(hubRoot?.querySelectorAll('[data-coverage-kind="italy-province"]')).toHaveLength(3);
     expect(hubRoot?.querySelectorAll('[data-duty-country="IT"]')).toHaveLength(expectedRows);
     expect(hubRoot?.querySelectorAll('time').length).toBeGreaterThan(0);
-    expect(hubRoot?.querySelectorAll('[data-coverage-kind="italy-province"][data-italy-duty-published]')).toHaveLength(2);
-    expect(hubRoot?.querySelector('[data-source-only-province="VB"]')).toBeInTheDocument();
-    expect(hubRoot?.querySelectorAll('[data-source-only-province="VB"] [data-duty-country="IT"]')).toHaveLength(0);
+    expect(hubRoot?.querySelectorAll('[data-coverage-kind="italy-province"][data-italy-duty-published]')).toHaveLength(publishedProvinces.length);
+    for (const province of sourceOnlyProvinces) {
+      expect(hubRoot?.querySelector(`[data-source-only-province="${province.code}"]`)).toBeInTheDocument();
+      expect(hubRoot?.querySelectorAll(`[data-source-only-province="${province.code}"] [data-duty-country="IT"]`)).toHaveLength(0);
+    }
     expect(hubRoot?.querySelectorAll('a[href^="https://"]')).toHaveLength(expectedRows + italyModel.provinces.filter((province) => !province.publishable && province.sourceUrl).length);
 
     cleanup();
@@ -100,12 +111,15 @@ describe('pharmacy country SPA route', () => {
     const weekRoot = week.container.querySelector('[data-italy-duty-week="true"]');
     expect(weekRoot).toHaveAttribute('data-italy-release-state', 'fresh');
     expect(weekRoot).toHaveAttribute('data-italy-publishable', 'true');
-    expect(weekRoot).toHaveAttribute('data-italy-indexable', 'false');
+    expect(weekRoot).toHaveAttribute('data-italy-indexable', String(italyModel.indexable));
+    // cron-count-ok: le tre province ITALY_DUTY_PROVINCES, costante del codice.
     expect(weekRoot?.querySelectorAll('[data-italy-duty-province]')).toHaveLength(3);
     expect(weekRoot?.querySelectorAll('[data-duty-country="IT"]')).toHaveLength(expectedRows);
     expect(weekRoot?.querySelectorAll('time').length).toBeGreaterThan(0);
-    expect(weekRoot?.querySelectorAll('[data-italy-duty-published]')).toHaveLength(2);
-    expect(weekRoot?.querySelector('[data-italy-duty-province="VB"][data-italy-duty-published]')).toBeNull();
+    expect(weekRoot?.querySelectorAll('[data-italy-duty-published]')).toHaveLength(publishedProvinces.length);
+    for (const province of sourceOnlyProvinces) {
+      expect(weekRoot?.querySelector(`[data-italy-duty-province="${province.code}"][data-italy-duty-published]`)).toBeNull();
+    }
     expect(weekRoot?.querySelectorAll('a[href^="https://"]')).toHaveLength(expectedWeekExternalLinks);
   });
 
@@ -118,11 +132,14 @@ describe('pharmacy country SPA route', () => {
     const matrix = container.querySelector('[data-italy-duty-coverage="true"]');
 
     expect(matrix).toHaveAttribute('data-release-ready', 'true');
-    expect(matrix).toHaveAttribute('data-week-ready', 'false');
+    expect(matrix).toHaveAttribute('data-week-ready', String(italyModel.indexable));
+    // cron-count-ok: le tre province ITALY_DUTY_PROVINCES, costante del codice.
     expect(matrix?.querySelectorAll('[data-coverage-kind="italy-province"]')).toHaveLength(3);
     expect(matrix?.querySelectorAll('[data-duty-country="IT"]')).toHaveLength(expectedRows);
-    expect(matrix?.querySelectorAll('[data-source-only-province="VB"]')).toHaveLength(1);
-    expect(matrix?.querySelectorAll('[data-source-only-province="VB"] [data-duty-id]')).toHaveLength(0);
+    for (const province of italyModel.provinces.filter((candidate) => !candidate.publishable)) {
+      expect(matrix?.querySelectorAll(`[data-source-only-province="${province.code}"]`)).toHaveLength(1);
+      expect(matrix?.querySelectorAll(`[data-source-only-province="${province.code}"] [data-duty-id]`)).toHaveLength(0);
+    }
     const weekSegment = locale === 'it' ? 'settimana' : locale === 'en' ? 'week' : locale === 'de' ? 'woche' : 'semaine';
     expect(matrix?.querySelector(`a[href*="/${weekSegment}/"]`)).toHaveAttribute('href', expect.stringContaining(currentItalyDutyWeekStart(now)));
   });

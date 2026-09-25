@@ -37,6 +37,7 @@ describe('pharmacy directory page matrix', () => {
     const descriptors = pharmacyPageDescriptors();
     expect(descriptors.filter((descriptor) => descriptor.kind === 'pharmacy')).toHaveLength(TOTAL_PHARMACIES);
     expect(descriptors.some((descriptor) => descriptor.kind === 'country' && descriptor.country === 'IT')).toBe(true);
+    // cron-count-ok: le tre province di confine sono la costante ITALY_BORDER_PROVINCES del codice, non una conta del dataset.
     expect(descriptors.filter((descriptor) => descriptor.kind === 'area')).toHaveLength(3);
     expect(descriptors.filter((descriptor) => descriptor.kind === 'city' && descriptor.country === 'IT').length).toBeGreaterThan(200);
   });
@@ -171,22 +172,36 @@ describe('pharmacy directory page matrix', () => {
       .map((fetchedAt) => Date.parse(String(fetchedAt))));
     const now = new Date(snapshotAt + 60_000);
     const page = buildPharmacyDirectoryPage(descriptor!, locale, '', dutiesJson as unknown as PharmacyDutiesDataset, now);
+    // Quali province italiane escono pubblicate lo decide lo snapshot che il
+    // cron farmacie riscrive (VB e' `best-effort` e puo' tornare disponibile,
+    // CO/VA possono perdere copertura): l'attesa si legge dallo stesso modello
+    // che il plugin rende, non da una fotografia del dato (#9743).
+    const italy = buildDutyCoverageMatrix({ locale, duties: dutiesJson as unknown as PharmacyDutiesDataset, now }).italy;
+    const publishedProvinces = italy.provinces.filter((province) => province.publishable);
 
     expect(page.indexable).toBe(true);
+    // cron-count-ok: le cinque regioni ticinesi sono DUTY_WEEK_REGIONS, costante del codice.
     expect(page.html.match(/data-coverage-kind=(?:"ticino-region"|ticino-region)/g) || []).toHaveLength(5);
+    // cron-count-ok: i 26 cantoni meno il Ticino (SOURCE_ONLY_CANTONS), costante del codice.
     expect(page.html.match(/data-coverage-kind=(?:"source-only-canton"|source-only-canton)/g) || []).toHaveLength(25);
     // Main may promote a source-only canton to a valid non-unverified state
     // (for example Geneva's fail-closed `degraded` source slice). The matrix
     // contract requires one status attribute per canton, not that every
     // source remains `unverified` forever.
+    // cron-count-ok: un attributo di stato per ciascuno dei 25 cantoni solo-fonte, costante del codice.
     expect(page.html.match(/data-source-status=(?:"(?:unverified|degraded|active|blocked|unavailable)"|(?:unverified|degraded|active|blocked|unavailable))/g) || []).toHaveLength(25);
     expect(page.html).toMatch(/data-release-ready=(?:"true"|true)/);
+    // cron-count-ok: le tre province ITALY_DUTY_PROVINCES, costante del codice.
     expect(page.html.match(/data-coverage-kind=(?:"italy-province"|italy-province)/g) || []).toHaveLength(3);
     expect(page.html).toMatch(/data-italy-release-ready=(?:"true"|true)/);
-    expect(page.html).toMatch(/data-italy-indexable=(?:"false"|false)/);
+    expect(page.html).toMatch(new RegExp(`data-italy-indexable=(?:"${italy.indexable}"|${italy.indexable})`));
     expect(page.html).toMatch(/data-italy-release-state=(?:"fresh"|fresh)/);
-    expect(page.html.match(/data-italy-duty-published/g) || []).toHaveLength(2);
-    expect(page.html).not.toMatch(/data-province-code=(?:"VB"|VB)[^>]*data-italy-duty-published/);
+    // Una release pronta pubblica almeno le province `required`.
+    expect(publishedProvinces.length).toBeGreaterThan(0);
+    expect(page.html.match(/data-italy-duty-published/g) || []).toHaveLength(publishedProvinces.length);
+    for (const province of italy.provinces.filter((candidate) => !candidate.publishable)) {
+      expect(page.html).not.toMatch(new RegExp(`data-province-code=(?:"${province.code}"|${province.code})[^>]*data-italy-duty-published`));
+    }
     expect(page.html).toContain('https://apotheken-aargau.ch/notfall/');
     expect(page.html).toContain('https://www.farmacielocarnese.ch/');
 
@@ -238,6 +253,7 @@ describe('pharmacy directory page matrix', () => {
     const schemas = [...page.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
     const collection = schemas.find((schema) => schema['@type'] === 'CollectionPage');
     expect(collection.mainEntity.numberOfItems).toBe(TOTAL_PHARMACIES);
+    // cron-count-ok: tetto MAX_COLLECTION_SCHEMA_ITEMS del plugin; il totale del dataset lo verifica numberOfItems qui sopra.
     expect(collection.mainEntity.itemListElement).toHaveLength(10);
   });
 
@@ -249,6 +265,7 @@ describe('pharmacy directory page matrix', () => {
 
     expect(page.indexable).toBe(true);
     expect(Buffer.byteLength(page.html, 'utf8')).toBeLessThan(260 * 1024);
+    // cron-count-ok: una voce per ciascuna delle tre province ITALY_BORDER_PROVINCES, costante del codice.
     expect(nav.match(/<li\b/g) || []).toHaveLength(3);
     for (const [areaSlug, count] of [['como', italyProvinceCount('CO')], ['varese', italyProvinceCount('VA')], ['verbano-cusio-ossola', italyProvinceCount('VB')]] as const) {
       const areaPath = buildPharmacyPath({ kind: 'area', country: 'IT', areaSlug, locale }, locale);
@@ -260,6 +277,7 @@ describe('pharmacy directory page matrix', () => {
     const schemas = [...page.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
     const collection = schemas.find((schema) => schema['@type'] === 'CollectionPage');
     expect(collection.mainEntity.numberOfItems).toBe(3);
+    // cron-count-ok: le tre province ITALY_BORDER_PROVINCES, costante del codice.
     expect(collection.mainEntity.itemListElement).toHaveLength(3);
     expect(collection.mainEntity.itemListElement.map((item: { url: string }) => item.url)).toEqual(expect.arrayContaining([
       `https://frontaliereticino.ch${buildPharmacyPath({ kind: 'area', country: 'IT', areaSlug: 'como', locale }, locale)}`,
@@ -331,21 +349,34 @@ describe('pharmacy directory page matrix', () => {
     const week = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'italy-duty-week');
     const now = new Date(Date.parse(String(italyDutiesJson._fetchedAt)) + 60_000);
     const weekDescriptor = { ...week!, weekStart: currentItalyDutyWeekStart(now) };
-    const expectedRows = buildItalyDutyWeekModel({ now, weekStart: weekDescriptor.weekStart }).provinces.flatMap((province) => province.duties).length;
+    // Il modello che le due pagine rendono. Quante e quali province sono
+    // pubblicate, e quindi se la settimana e' indicizzabile, lo decide lo
+    // snapshot del cron farmacie (VB e' `best-effort`): l'attesa segue il
+    // modello invece di fotografare il dato di oggi (#9743).
+    const italyModel = buildItalyDutyWeekModel({ now, weekStart: weekDescriptor.weekStart });
+    const expectedRows = italyModel.provinces.flatMap((province) => province.duties).length;
+    const publishedProvinces = italyModel.provinces.filter((province) => province.publishable);
+    const sourceOnlyProvinces = italyModel.provinces.filter((province) => !province.publishable);
+    expect(publishedProvinces.length).toBeGreaterThan(0);
 
     for (const descriptor of [hub!, weekDescriptor]) {
       const page = buildPharmacyDirectoryPage(descriptor, locale, '/tmp/pharmacy-dist', undefined, now);
-      expect(page.indexable).toBe(false);
-      expect(page.html).toContain('noindex,follow');
-      expect(page.html).not.toContain('application/ld+json');
+      // Fail-closed: una settimana non indicizzabile non diventa mai una pagina indicizzabile.
+      if (!italyModel.indexable) {
+        expect(page.indexable).toBe(false);
+        expect(page.html).toContain('noindex,follow');
+        expect(page.html).not.toContain('application/ld+json');
+      }
       expect(page.html).toContain(descriptor.kind === 'italy-duty-week' ? 'data-italy-duty-week=true' : 'data-italy-duty-coverage=true');
       expect(page.html).toContain('data-release-ready=true');
-      expect(page.html).toContain('data-week-ready=false');
-      expect(page.html.match(/data-italy-duty-published/g) || []).toHaveLength(2);
+      expect(page.html).toContain(`data-week-ready=${italyModel.indexable}`);
+      expect(page.html.match(/data-italy-duty-published/g) || []).toHaveLength(publishedProvinces.length);
       expect(page.html.match(/data-duty-country=IT/g) || []).toHaveLength(expectedRows);
       expect(page.html).toMatch(/<time\b/);
       expect(page.html).toContain('data-source-only-status=true');
-      expect(page.html).not.toMatch(/data-italy-duty-province=VB[^>]*data-italy-duty-published/);
+      for (const province of sourceOnlyProvinces) {
+        expect(page.html).not.toMatch(new RegExp(`data-italy-duty-province=${province.code}[^>]*data-italy-duty-published`));
+      }
       expect(page.html).toContain('novita_138.html');
       expect(page.html).toContain('Dettaglionews?IDNews=400586');
       expect(page.html).toContain('2968938.pdf');
@@ -356,6 +387,8 @@ describe('pharmacy directory page matrix', () => {
   it('renders generic Italian duty descriptors with the same canonical static contract', () => {
     const now = new Date(Date.parse(String(italyDutiesJson._fetchedAt)) + 60_000);
     const weekStart = currentItalyDutyWeekStart(now);
+    // Indicizzabilita' dal modello, non dallo snapshot di oggi (#9743).
+    const italyModel = buildItalyDutyWeekModel({ now, weekStart });
     const descriptors = [
       { kind: 'duty-hub' as const, country: 'IT' as const },
       { kind: 'duty-week' as const, country: 'IT' as const, weekStart },
@@ -364,10 +397,12 @@ describe('pharmacy directory page matrix', () => {
     for (const descriptor of descriptors) {
       const page = buildPharmacyDirectoryPage(descriptor, 'it', '/tmp/pharmacy-dist', undefined, now);
       expect(page.path).toContain('/farmacie/italia/di-turno/');
-      expect(page.indexable).toBe(false);
       expect(page.html).toContain(descriptor.kind === 'duty-week' ? 'data-italy-duty-week=true' : 'data-italy-duty-coverage=true');
-      expect(page.html).toContain('noindex,follow');
-      expect(page.html).not.toContain('application/ld+json');
+      if (!italyModel.indexable) {
+        expect(page.indexable).toBe(false);
+        expect(page.html).toContain('noindex,follow');
+        expect(page.html).not.toContain('application/ld+json');
+      }
     }
   });
 
@@ -390,6 +425,7 @@ describe('pharmacy directory page matrix', () => {
     const html = renderItalyDutyCoverageSection('it', matrix);
 
     expect(matrix.italy.state).toBe('partial');
+    // cron-count-ok: le tre province ITALY_DUTY_PROVINCES, costante del codice.
     expect(html.match(/data-coverage-kind="italy-province"/g) || []).toHaveLength(3);
     expect(html).not.toContain('data-italy-duty-published');
     expect(html).not.toMatch(/data-duty-id=/);

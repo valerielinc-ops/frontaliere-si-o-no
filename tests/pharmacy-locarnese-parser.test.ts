@@ -83,6 +83,7 @@ describe('Locarnese pharmacy duty parser', () => {
       LOCARNESE_CATALOGUE,
     );
     expect(result.unresolved).toEqual([]);
+    // cron-count-ok: righe della fixture LIVE_SHAPE_HTML dentro la finestra di pubblicazione; il catalogo vivo serve solo a risolvere le identita' (unresolved vuoto qui sopra).
     expect(result.duties).toHaveLength(2);
     expect(result.duties[0]).toMatchObject({
       pharmacyId: 'ti-ofct-6612-farmacia-amavita-centro-ascona-ascona',
