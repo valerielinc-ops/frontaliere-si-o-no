@@ -718,6 +718,20 @@ export function createSuccessFactorsParser(config) {
           .split(',')
           .slice(1)
           .map((segment) => segment.trim());
+      // A detail page may omit `addressCountry` while the search row still
+      // exposes an explicit foreign country (e.g. `Zürich, Germany`). Do not
+      // let the Swiss-looking city win that negative evidence and infer a
+      // target canton. Canton-shaped tokens stay ambiguous here: `Epagny, FR`
+      // is a valid Swiss locality when the detail supplies CH evidence.
+      const listingHasExplicitForeignCountry = listingSegments.some((segment) =>
+        !normalizeCantonCode(segment)
+        && !isChCountry(segment)
+        && isLocationExplicitlyForeign(segment),
+      );
+      if (listingHasExplicitForeignCountry) {
+        console.warn(`  ⏭️ Skipping explicitly foreign listing location "${listing.location}": ${listing.title} (${listing.jobId})`);
+        continue;
+      }
       const sourceCountry = String(detail?.country || '').trim();
       const detailHasSwissCountry = Boolean(sourceCountry && isChCountry(sourceCountry));
       if (sourceCountry && !detailHasSwissCountry) {

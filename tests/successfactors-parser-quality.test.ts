@@ -311,6 +311,15 @@ describe('SuccessFactors factory geography gate', () => {
     ]);
   });
 
+  it('rejects an explicitly foreign listing country before Swiss city inference', async () => {
+    stubFactoryFetch(
+      { 1009: factoryDetail({ city: 'Zürich', country: '' }) },
+      factoryListing('1009', 'Foreign-country vacancy', 'Zürich, Germany'),
+    );
+
+    await expect(factoryParser.fetchAllJobs()).resolves.toEqual([]);
+  });
+
   it('does not create a job when the detail has no city', async () => {
     stubFactoryFetch(
       { 1005: factoryDetail({ region: 'ZH', country: 'CH' }) },
