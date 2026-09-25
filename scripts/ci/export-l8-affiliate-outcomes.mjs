@@ -241,8 +241,14 @@ export function buildUnavailableL8AttributionExport({
 }
 
 function readOptionalCommercial(filePath) {
-  if (!text(filePath) || !fs.existsSync(path.resolve(filePath))) return null;
-  return JSON.parse(fs.readFileSync(path.resolve(filePath), 'utf8'));
+  if (!text(filePath)) return null;
+  try {
+    const absolute = path.resolve(filePath);
+    if (!fs.existsSync(absolute)) return null;
+    return JSON.parse(fs.readFileSync(absolute, 'utf8'));
+  } catch {
+    return null;
+  }
 }
 
 function writeJson(outputPath, value) {

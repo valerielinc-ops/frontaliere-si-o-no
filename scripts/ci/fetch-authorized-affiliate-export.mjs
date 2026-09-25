@@ -199,41 +199,43 @@ export async function fetchAuthorizedAffiliateExport({
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), timeoutMs);
-  let response;
   try {
-    response = await fetchImpl(endpoint.href, {
-      method: 'GET',
-      headers,
-      signal: controller.signal,
-    });
-  } catch (error) {
-    throw new Error(`authorised commercial export request failed (${safeSourceRef(endpoint.href)}): ${error.message}`);
+    let response;
+    try {
+      response = await fetchImpl(endpoint.href, {
+        method: 'GET',
+        headers,
+        signal: controller.signal,
+      });
+    } catch (error) {
+      throw new Error(`authorised commercial export request failed (${safeSourceRef(endpoint.href)}): ${error.message}`);
+    }
+
+    if (!response?.ok) {
+      throw new Error(`authorised commercial export returned HTTP ${response?.status ?? 'unknown'} (${safeSourceRef(endpoint.href)})`);
+    }
+    const contentLength = Number(response.headers?.get?.('content-length'));
+    if (Number.isFinite(contentLength) && contentLength > MAX_RESPONSE_BYTES) {
+      throw new Error(`authorised commercial export exceeds ${MAX_RESPONSE_BYTES} bytes`);
+    }
+    const body = await response.text();
+    if (Buffer.byteLength(body, 'utf8') > MAX_RESPONSE_BYTES) {
+      throw new Error(`authorised commercial export exceeds ${MAX_RESPONSE_BYTES} bytes`);
+    }
+    let raw;
+    try {
+      raw = JSON.parse(body);
+    } catch {
+      throw new Error('authorised commercial export response is not valid JSON');
+    }
+    return {
+      available: true,
+      reason: null,
+      export: normalizeAuthorizedAffiliateExport(raw, { sourceUrl: endpoint.href, sourceLabel, amountFormat }),
+    };
   } finally {
     clearTimeout(timeout);
   }
-
-  if (!response?.ok) {
-    throw new Error(`authorised commercial export returned HTTP ${response?.status ?? 'unknown'} (${safeSourceRef(endpoint.href)})`);
-  }
-  const contentLength = Number(response.headers?.get?.('content-length'));
-  if (Number.isFinite(contentLength) && contentLength > MAX_RESPONSE_BYTES) {
-    throw new Error(`authorised commercial export exceeds ${MAX_RESPONSE_BYTES} bytes`);
-  }
-  const body = await response.text();
-  if (Buffer.byteLength(body, 'utf8') > MAX_RESPONSE_BYTES) {
-    throw new Error(`authorised commercial export exceeds ${MAX_RESPONSE_BYTES} bytes`);
-  }
-  let raw;
-  try {
-    raw = JSON.parse(body);
-  } catch {
-    throw new Error('authorised commercial export response is not valid JSON');
-  }
-  return {
-    available: true,
-    reason: null,
-    export: normalizeAuthorizedAffiliateExport(raw, { sourceUrl: endpoint.href, sourceLabel, amountFormat }),
-  };
 }
 
 function writeJson(outputPath, value) {

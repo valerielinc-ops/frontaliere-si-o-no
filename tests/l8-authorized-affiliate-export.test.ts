@@ -99,6 +99,25 @@ describe('L8 authorised commercial export fetcher', () => {
     expect(payload.amountFormat).toBe('grouped');
   });
 
+  it('aborts a stalled response body within the request timeout', async () => {
+    await expect(fetchAuthorizedAffiliateExport({
+      url: 'https://reports.example.test/l8',
+      timeoutMs: 20,
+      fetchImpl: async (_url, init) => ({
+        ok: true,
+        status: 200,
+        headers: { get: () => null },
+        text: () => new Promise((_resolve, reject) => {
+          init.signal.addEventListener('abort', () => {
+            const error = new Error('The operation was aborted');
+            error.name = 'AbortError';
+            reject(error);
+          }, { once: true });
+        }),
+      }),
+    })).rejects.toMatchObject({ name: 'AbortError' });
+  });
+
   it('leaves the runner-local input explicitly unavailable when the URL is absent', async () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'l8-commercial-export-test-'));
     const outputPath = path.join(dir, 'commercial.json');

@@ -7,6 +7,7 @@ import {
   buildL8AttributionQuery,
   buildUnavailableL8AttributionExport,
   exportL8Attribution,
+  main as exportL8Main,
 } from '../scripts/ci/export-l8-affiliate-outcomes.mjs';
 
 const NOW = new Date('2026-09-15T12:00:00.000Z');
@@ -112,6 +113,33 @@ describe('L8 affiliate attribution exporter', () => {
       exposures: { web: null, email: null },
       transactions: null,
       evidence: { status: 'missing', commercialLedger: 'missing' },
+    });
+  });
+
+  it('treats malformed optional commercial input as unavailable in the fallback branch', async () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l8-malformed-commercial-test-'));
+    const commercialPath = path.join(dir, 'commercial.json');
+    const outputPath = path.join(dir, 'outcome.json');
+    fs.writeFileSync(commercialPath, '{ malformed commercial export');
+
+    const outcome = await exportL8Main({
+      argv: [
+        '--out', outputPath,
+        '--commercial', commercialPath,
+        '--unavailable',
+        '--reason', 'commercial fetch failed',
+      ],
+      logger: { log() {} },
+    });
+
+    expect(outcome).toMatchObject({
+      independent: false,
+      transactions: null,
+      evidence: { status: 'missing', commercialLedger: 'missing' },
+    });
+    expect(JSON.parse(fs.readFileSync(outputPath, 'utf8'))).toMatchObject({
+      independent: false,
+      transactions: null,
     });
   });
 
