@@ -1008,7 +1008,7 @@ function isCodexArticleLaneSwitchOn() {
 // Socket del broker che ha risposto ENOENT/ECONNREFUSED: il broker non c'e'
 // piu' (cleanup, TTL, processo morto) e non torna in questo job. Senza questo
 // ogni chiamata successiva lo ritentava, falliva all'istante e costava -3 di
-// score: 40 righe `connect ENOENT` in 80 secondi in send-newsletter run
+// score: 30 righe `connect ENOENT` in 80 secondi in send-newsletter run
 // 36116142119. Legato al path, non booleano, cosi' un socket nuovo riapre la
 // lane.
 let _codexBrokerGoneSocket = '';
@@ -1017,6 +1017,19 @@ function isCodexCliPrimaryEnabled() {
   return isCodexArticleLaneSwitchOn()
     && !!socketPath
     && socketPath !== _codexBrokerGoneSocket;
+}
+// Motivo dello skip quando la lane e' spenta perche' il broker e' sparito. Non
+// «no API key»: quella frase e' vocabolario PERSISTENTE per
+// classifyExhaustionCause, e un broker che manca a questo job torna al
+// prossimo run — contarlo persistente trasformerebbe un differimento in un
+// Workflow Failure (review della gemella del corpus,
+// nanakokyobashi-rgb/frontaliere-articles#1874).
+function _codexBrokerGoneReason(provider) {
+  if (provider !== PROVIDER.CODEX_CLI || !_codexBrokerGoneSocket) return '';
+  const socketPath = String(process.env.CODEX_AUTH_BROKER_SOCKET || '').trim();
+  return socketPath === _codexBrokerGoneSocket
+    ? 'Codex auth broker temporarily unavailable (socket gone for this job)'
+    : '';
 }
 function hasClaudeCodeOauthToken() {
   return !!(process.env.CLAUDE_CODE_OAUTH_TOKEN || '').trim();
@@ -1034,6 +1047,13 @@ const CODEX_BROKER_QUEUE_WAIT_DEFAULT_MS = 20 * 60_000;
 const CODEX_BROKER_QUEUE_WAIT_MAX_MS = 30 * 60_000;
 const CODEX_BROKER_START_SIGNAL = '\x01';
 const CODEX_BROKER_GONE_CODES = new Set(['ENOENT', 'ECONNREFUSED', 'ENOTSOCK']);
+// Errori del socket che si riparano da soli (broker finito in questo job,
+// connessione caduta): vocabolario transitorio. Tutti gli altri — EACCES,
+// EPERM, ENAMETOOLONG, EINVAL… — dicono che il broker e' configurato male e
+// non si riparano al run successivo: devono votare persistente.
+const CODEX_BROKER_TRANSIENT_SOCKET_CODES = new Set([
+  ...CODEX_BROKER_GONE_CODES, 'ECONNRESET', 'EPIPE', 'ETIMEDOUT', 'EAGAIN',
+]);
 const CODEX_FALLBACK_MARKER_PREFIX = 'claude-haiku-codex-fallback';
 // The Haiku replacement uses the same Codex Luna Max model/effort as the
 // workflow-agent path. It remains one-shot and preserves the caller's
@@ -5830,12 +5850,16 @@ export function __claimCodexFallbackForTests() {
  *
  * Failures of the broker channel (socket gone, connection dropped, queue wait
  * or our own time budget exhausted) carry `transportFault`: they say nothing
- * about the model, so callLLM leaves the Codex score untouched.
+ * about the model, so callLLM leaves the Codex score untouched. Their text
+ * uses the transient vocabulary of classifyExhaustionCause («timed out»,
+ * «temporarily»): a broker queue or a broker that is gone for this job is
+ * retried by the next run, it is not a persistent fault of the roster.
  */
 function _codexBrokerQueueWaitMs() {
-  const raw = Number.parseInt((process.env.CODEX_BROKER_QUEUE_WAIT_MS || '').trim(), 10);
-  if (!Number.isFinite(raw) || raw < 0) return CODEX_BROKER_QUEUE_WAIT_DEFAULT_MS;
-  return Math.min(raw, CODEX_BROKER_QUEUE_WAIT_MAX_MS);
+  // Solo cifre: `parseInt('20m')` darebbe 20 ms, cioe' nessuna attesa in coda.
+  const raw = String(process.env.CODEX_BROKER_QUEUE_WAIT_MS || '').trim();
+  if (!/^\d+$/.test(raw)) return CODEX_BROKER_QUEUE_WAIT_DEFAULT_MS;
+  return Math.min(Number(raw), CODEX_BROKER_QUEUE_WAIT_MAX_MS);
 }
 
 function _codexTransportError(message) {
@@ -5891,16 +5915,23 @@ function _requestCodexExecution({ prompt, timeoutMs, schema, deadlineMs }) {
     const initialTimeoutMs = boundedByDeadline(queueWaitMs + executionSocketTimeoutMs);
     client.setTimeout(initialTimeoutMs, () => finish(started
       ? _codexTransportError('Codex auth broker socket timed out')
-      : _codexTransportError(`Codex auth broker queue wait exceeded ${Math.round(initialTimeoutMs / 1000)}s before Codex started`)));
+      : _codexTransportError(`Codex auth broker queue wait timed out after ${Math.round(initialTimeoutMs / 1000)}s before Codex started`)));
     client.on('error', (error) => {
-      if (CODEX_BROKER_GONE_CODES.has(error?.code)) {
-        if (_codexBrokerGoneSocket !== socketPath) {
-          _codexBrokerGoneSocket = socketPath;
-          console.warn(`⏹️  [codex-cli] broker non raggiungibile (${error.code}) — lane Codex spenta per il resto del processo`);
-        }
+      if (settled) return;
+      const code = String(error?.code || 'socket error');
+      if (CODEX_BROKER_GONE_CODES.has(error?.code) && _codexBrokerGoneSocket !== socketPath) {
+        _codexBrokerGoneSocket = socketPath;
+        console.warn(`⏹️  [codex-cli] broker non raggiungibile (${code}) — lane Codex spenta per il resto del processo`);
       }
-      error.transportFault = true;
-      finish(error);
+      const detail = String(error?.message || error);
+      const wrapped = CODEX_BROKER_TRANSIENT_SOCKET_CODES.has(error?.code)
+        ? _codexTransportError(`Codex auth broker temporarily unavailable (${code}): ${detail}`)
+        : Object.assign(
+          _codexTransportError(`Codex auth broker socket unusable (${code}), non-retryable: ${detail}`),
+          { nonRetryable: true },
+        );
+      wrapped.code = error?.code;
+      finish(wrapped);
     });
     client.on('data', (chunk) => {
       // Before the JSON line the broker may write two control bytes, in either
@@ -5956,10 +5987,10 @@ function _requestCodexExecution({ prompt, timeoutMs, schema, deadlineMs }) {
     // timeout. The close listener is the final backstop for an abrupt broker
     // disconnect (or a client-side reset).
     client.on('end', () => {
-      if (!settled) finish(_codexTransportError('Codex auth broker closed without a response'));
+      if (!settled) finish(_codexTransportError('Codex auth broker temporarily unavailable: closed without a response'));
     });
     client.on('close', (hadError) => {
-      if (!settled) finish(_codexTransportError(`Codex auth broker connection closed before a response${hadError ? ' with an error' : ''}`));
+      if (!settled) finish(_codexTransportError(`Codex auth broker temporarily unavailable: connection closed before a response${hadError ? ' with an error' : ''}`));
     });
     client.on('connect', () => {
       let request;
@@ -7293,7 +7324,7 @@ export async function callLLM(messages, opts = {}) {
     if (!isModelAvailable(model)) {
       const reason = getApiKeyForProvider(provider)
         ? 'exhausted'
-        : `no API key for provider ${provider}`;
+        : _codexBrokerGoneReason(provider) || `no API key for provider ${provider}`;
       _logPreflightSkipOnce(model, 'availability', reason);
       errors.push(`${model}: skipped — ${reason}`);
       _recordLastResortSkip(model, reason);
