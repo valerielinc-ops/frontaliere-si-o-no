@@ -54,6 +54,10 @@ import {
   createTranslationGenerationClosure,
   digestTranslationGenerationClosure,
 } from './lib/translation-generation-closure-v2.mjs';
+import {
+  createTranslationPromotionGuardV2,
+  summarizeTranslationPromotionErrorV2,
+} from './lib/translation-promotion-guard-v2.mjs';
 import { digestTranslationDocumentV2 } from './lib/translation-unit-identity-v2.mjs';
 
 const execFile = promisify(execFileCallback);
@@ -557,6 +561,26 @@ function createGenerationClosure({
   return { closure, closureDigest: digestTranslationGenerationClosure(closure) };
 }
 
+function zeroSchedulerMetrics() {
+  return { selectedJobs: 0, selectedUnits: 0, outcomeCounts: {} };
+}
+
+function disabledTranslationScheduleReport({ mode, scopeKey, stateRef, promotionGuard }) {
+  return {
+    mode,
+    status: 'disabled',
+    scopeKey,
+    stateRef,
+    sourceCommit: null,
+    scanDigest: null,
+    planHash: null,
+    scan: null,
+    scheduler: zeroSchedulerMetrics(),
+    promotion: promotionGuard.snapshot(),
+    state: { before: null, after: null, reserved: false, settled: false },
+  };
+}
+
 function runtimeContractReport(runtimeContract) {
   const provider = Object.fromEntries(
     Object.entries(runtimeContract.provider).filter(([key]) => key !== 'moduleUrl'),
@@ -585,6 +609,32 @@ export async function runTranslationScheduleV2(options = {}) {
     }
   }
   const scopeKey = options.scopeKey || process.env.TRANSLATION_SCHEDULER_SCOPE || TRANSLATION_SCHEDULER_V2_SCOPE;
+  const configuredStateRef = options.stateRef
+    ?? process.env.TRANSLATION_STATE_REF_V2
+    ?? TRANSLATION_STATE_REF_V2;
+  const logger = options.logger || console;
+  const promotionGuard = createTranslationPromotionGuardV2({
+    env: options.promotionEnv ?? options.env ?? process.env,
+    publishEnabled: options.publishEnabled,
+    maxRollbackAttempts: options.maxRollbackAttempts,
+    rollback: options.rollback ?? options.onRollback,
+  });
+
+  // This is deliberately before input scanning, provider construction, state
+  // initialization, and every checkpoint/publish operation.  A missing or
+  // malformed flag therefore cannot create an apparently harmless state ref.
+  if (!promotionGuard.enabled) {
+    const report = disabledTranslationScheduleReport({
+      mode,
+      scopeKey,
+      stateRef: configuredStateRef,
+      promotionGuard,
+    });
+    await writeReport(report, options.reportPath || process.env.TRANSLATION_SHADOW_REPORT_PATH);
+    logger.log(`translation scheduler v2 shadow: publication disabled (${promotionGuard.decision.reason})`);
+    return report;
+  }
+
   const gateVersion = options.gateVersion || process.env.TRANSLATION_SCHEDULER_GATE || TRANSLATION_SCHEDULER_V2_GATE;
   const maxJobs = optionInteger(
     options.maxJobs ?? process.env.TRANSLATION_SHADOW_MAX_JOBS,
@@ -607,162 +657,238 @@ export async function runTranslationScheduleV2(options = {}) {
   const stateRemote = options.stateRemote
     ?? process.env.TRANSLATION_STATE_REMOTE_V2
     ?? TRANSLATION_STATE_REMOTE_V2;
-  const stateRef = options.stateRef
-    ?? process.env.TRANSLATION_STATE_REF_V2
-    ?? TRANSLATION_STATE_REF_V2;
-  assertTranslationStateTargetV2({ remote: stateRemote, ref: stateRef });
-  const stateStore = options.stateStore || createTranslationStateStoreV2({
-    repository,
-    remote: stateRemote,
-    ref: stateRef,
-  });
-  assertTranslationStateTargetV2({
-    remote: stateStore.remote,
-    ref: stateStore.ref,
-  });
-  const runtimeContract = await resolveTranslationRuntimeContractV2({
-    repository,
-    contract: options.runtimeContract,
-  });
-  const engineVersion = runtimeContract.provider.engineVersion;
-  // The runtime contract carries source-path metadata for its report, while
-  // the isolated executor accepts its own exact V3 descriptor.
-  const provider = Object.freeze({
-    costClass: runtimeContract.provider.costClass,
-    engineVersion: runtimeContract.provider.engineVersion,
-    executionClass: runtimeContract.provider.executionClass,
-    exportName: runtimeContract.provider.exportName,
-    moduleUrl: runtimeContract.provider.moduleUrl,
-    schemaVersion: runtimeContract.provider.schemaVersion,
-  });
-  const providerModule = runtimeContract.provider.moduleUrl;
-  if (!runtimeContract.capabilities.generationEnabled) {
-    // The source contract is conservative by construction. Force the worker's
-    // existing provider seam to observe the same decision even when a local
-    // shell inherited an old opt-in environment variable.
-    process.env.TRANSLATION_SHADOW_ENABLE_GENERATION = '0';
-  }
-  const logger = options.logger || console;
-  const baselineMainSha = options.baselineMainSha || await readMainCommit(repository);
-  const input = await collectTranslationSchedulerInput({
-    repository,
-    dataDirectory: options.dataDirectory || path.join(repository, 'data/jobs/by-crawler'),
-  });
+  assertTranslationStateTargetV2({ remote: stateRemote, ref: configuredStateRef });
 
-  await stateStore.initialize();
-  const before = await stateStore.readSchedulerScope({ scopeKey });
-  await attachTranslationMemories(stateStore, input);
-  const planned = planTranslationScheduleV2({
-    activePlan: before.activePlan,
-    baselineMainSha,
-    cursor: before.cursor,
-    engineVersion,
-    gateVersion,
-    jobs: input.jobs,
-    limits: {
-      fairnessDenominator: 5,
-      fairnessNumerator: 1,
-      maxJobs,
-      maxUnits,
-    },
-    scanDigest: input.scanDigest,
-    scopeKey,
-  });
+  let stateStore = null;
+  let runtimeContract = null;
+  let provider = null;
+  let engineVersion = null;
+  let baselineMainSha = null;
+  let input = null;
+  let before = null;
+  let planned = null;
+  let executed = null;
+  let persisted = null;
+  let settled = null;
+  let lastStateCommit = null;
+  let reserved = false;
+  let phase = 'initialization';
 
-  if (planned.plan.selectedJobs.length === 0) {
+  try {
+    phase = 'state_store';
+    stateStore = options.stateStore || createTranslationStateStoreV2({
+      repository,
+      remote: stateRemote,
+      ref: configuredStateRef,
+    });
+    assertTranslationStateTargetV2({
+      remote: stateStore.remote,
+      ref: stateStore.ref,
+    });
+    phase = 'runtime_contract';
+    runtimeContract = await resolveTranslationRuntimeContractV2({
+      repository,
+      contract: options.runtimeContract,
+    });
+    engineVersion = runtimeContract.provider.engineVersion;
+    // The runtime contract carries source-path metadata for its report, while
+    // the isolated executor accepts its own exact V3 descriptor.
+    provider = Object.freeze({
+      costClass: runtimeContract.provider.costClass,
+      engineVersion: runtimeContract.provider.engineVersion,
+      executionClass: runtimeContract.provider.executionClass,
+      exportName: runtimeContract.provider.exportName,
+      moduleUrl: runtimeContract.provider.moduleUrl,
+      schemaVersion: runtimeContract.provider.schemaVersion,
+    });
+    const providerModule = runtimeContract.provider.moduleUrl;
+    if (!runtimeContract.capabilities.generationEnabled) {
+      // The source contract is conservative by construction. Force the worker's
+      // existing provider seam to observe the same decision even when a local
+      // shell inherited an old opt-in environment variable.
+      process.env.TRANSLATION_SHADOW_ENABLE_GENERATION = '0';
+    }
+    baselineMainSha = options.baselineMainSha || await readMainCommit(repository);
+    phase = 'input_scan';
+    input = await collectTranslationSchedulerInput({
+      repository,
+      dataDirectory: options.dataDirectory || path.join(repository, 'data/jobs/by-crawler'),
+    });
+
+    phase = 'checkpoint_read';
+    before = await stateStore.readSchedulerScope({ scopeKey });
+    lastStateCommit = before.commit ?? lastStateCommit;
+    promotionGuard.captureCheckpoint({
+      mainCommit: baselineMainSha,
+      stateCommit: before.commit,
+      stateRef: stateStore.ref,
+      scopeKey,
+    });
+    phase = 'state_initialization';
+    const initialized = await stateStore.initialize();
+    lastStateCommit = initialized?.commit ?? lastStateCommit;
+
+    phase = 'memory_read';
+    await attachTranslationMemories(stateStore, input);
+    phase = 'planning';
+    planned = planTranslationScheduleV2({
+      activePlan: before.activePlan,
+      baselineMainSha,
+      cursor: before.cursor,
+      engineVersion,
+      gateVersion,
+      jobs: input.jobs,
+      limits: {
+        fairnessDenominator: 5,
+        fairnessNumerator: 1,
+        maxJobs,
+        maxUnits,
+      },
+      scanDigest: input.scanDigest,
+      scopeKey,
+    });
+
+    if (planned.plan.selectedJobs.length === 0) {
+      const report = {
+        mode,
+        stateRemote: stateStore.remote,
+        status: 'empty',
+        scopeKey,
+        runtimeContract: runtimeContractReport(runtimeContract),
+        stateRef: stateStore.ref,
+        sourceCommit: baselineMainSha,
+        scanDigest: input.scanDigest,
+        planHash: null,
+        scan: input.metrics,
+        scheduler: zeroSchedulerMetrics(),
+        closure: null,
+        closureDigest: null,
+        promotion: promotionGuard.snapshot(),
+        state: { before: before.commit, after: before.commit, reserved: false, settled: false },
+      };
+      await writeReport(report, options.reportPath || process.env.TRANSLATION_SHADOW_REPORT_PATH);
+      logger.log(`translation scheduler v2 shadow: empty queue (${input.metrics.pendingJobs} pending jobs scanned)`);
+      return report;
+    }
+
+    phase = 'state_reservation';
+    if (before.activePlan === null) {
+      promotionGuard.assertEnabled('translation scheduler state reservation');
+      const reservation = await stateStore.reserveSchedulerPlan({
+        cursor: planned.cursor,
+        expectedCursorHash: planned.plan.cursorBeforeHash,
+        plan: planned.plan,
+        scopeKey,
+      });
+      reserved = reservation.changed;
+      lastStateCommit = reservation.commit ?? lastStateCommit;
+    }
+
+    phase = 'provider_execution';
+    promotionGuard.assertEnabled('translation provider execution');
+    executed = await executePlan({
+      currentScanDigest: input.scanDigest,
+      engineVersion,
+      gateVersion,
+      plan: planned.plan,
+      provider,
+      providerTimeoutMs,
+      runtimeJobs: input.runtimeJobs,
+    });
+    phase = 'state_persistence';
+    promotionGuard.assertEnabled('translation candidate persistence');
+    persisted = await persistCandidateResults(stateStore, executed.executions);
+    phase = 'state_settlement';
+    promotionGuard.assertEnabled('translation scheduler settlement');
+    settled = await stateStore.settleSchedulerPlan({
+      outcomes: executed.outcomes,
+      planHash: planned.plan.planHash,
+      scopeKey,
+    });
+    lastStateCommit = settled.commit ?? lastStateCommit;
+    const selectedUnits = planned.plan.selectedJobs.reduce((sum, job) => sum + job.units.length, 0);
     const report = {
       mode,
       stateRemote: stateStore.remote,
-      status: 'empty',
+      status: 'settled',
       scopeKey,
       runtimeContract: runtimeContractReport(runtimeContract),
       stateRef: stateStore.ref,
       sourceCommit: baselineMainSha,
       scanDigest: input.scanDigest,
-      planHash: null,
+      planHash: planned.plan.planHash,
       scan: input.metrics,
-      scheduler: { selectedJobs: 0, selectedUnits: 0, outcomeCounts: {} },
-      state: { before: before.commit, after: before.commit, reserved: false, settled: false },
-      closure: null,
-      closureDigest: null,
+      scheduler: {
+        selectedJobs: planned.plan.selectedJobs.length,
+        selectedUnits,
+        outcomeCounts: countOutcomeStatuses(executed.outcomes),
+        settlement: settled.settlement.metrics,
+      },
+      candidates: persisted,
+      promotion: promotionGuard.snapshot(),
+      state: {
+        before: before.commit,
+        after: settled.commit,
+        reserved,
+        settled: settled.changed,
+      },
     };
-    await writeReport(report, options.reportPath || process.env.TRANSLATION_SHADOW_REPORT_PATH);
-    logger.log(`translation scheduler v2 shadow: empty queue (${input.metrics.pendingJobs} pending jobs scanned)`);
-    return report;
-  }
-
-  let reserved = false;
-  if (before.activePlan === null) {
-    const reservation = await stateStore.reserveSchedulerPlan({
-      cursor: planned.cursor,
-      expectedCursorHash: planned.plan.cursorBeforeHash,
+    const generationClosure = createGenerationClosure({
+      report,
       plan: planned.plan,
+      settlement: settled,
+      provider,
+      providerModule,
+      repository,
+      gateVersion,
       scopeKey,
+      sourceCommit: baselineMainSha,
+      stateRef: stateStore.ref,
+      generationEnabled: runtimeContract.capabilities.generationEnabled,
+      options,
     });
-    reserved = reservation.changed;
+    report.closure = generationClosure.closure;
+    report.closureDigest = generationClosure.closureDigest;
+    await writeReport(report, options.reportPath || process.env.TRANSLATION_SHADOW_REPORT_PATH);
+    logger.log(`translation scheduler v2 shadow: ${report.scheduler.selectedUnits} unit(s), ${JSON.stringify(report.scheduler.outcomeCounts)}`);
+    logger.log(`translation scheduler v2 state ref: ${stateStore.ref} @ ${settled.commit}`);
+    return report;
+  } catch (error) {
+    const rollback = await promotionGuard.rollbackToCheckpoint(undefined, { cause: error, phase });
+    const failureReport = {
+      mode,
+      status: 'failed',
+      scopeKey,
+      runtimeContract: runtimeContract ? runtimeContractReport(runtimeContract) : null,
+      stateRef: stateStore?.ref ?? configuredStateRef,
+      sourceCommit: baselineMainSha,
+      scanDigest: input?.scanDigest ?? null,
+      planHash: planned?.plan?.planHash ?? null,
+      scan: input?.metrics ?? null,
+      scheduler: planned?.plan
+        ? {
+          selectedJobs: planned.plan.selectedJobs.length,
+          selectedUnits: planned.plan.selectedJobs.reduce((sum, job) => sum + job.units.length, 0),
+          outcomeCounts: executed ? countOutcomeStatuses(executed.outcomes) : {},
+        }
+        : zeroSchedulerMetrics(),
+      promotion: { ...promotionGuard.snapshot(), rollback },
+      state: {
+        before: before?.commit ?? promotionGuard.checkpoint?.stateCommit ?? null,
+        after: lastStateCommit,
+        reserved,
+        settled: settled?.changed ?? false,
+      },
+      error: { phase, ...summarizeTranslationPromotionErrorV2(error) },
+    };
+    try {
+      await writeReport(failureReport, options.reportPath || process.env.TRANSLATION_SHADOW_REPORT_PATH);
+    } catch (reportError) {
+      logger.error?.(`translation scheduler v2 failure report could not be written: ${reportError?.message || reportError}`);
+    }
+    logger.error?.(`translation scheduler v2 shadow failed (${phase}): ${error?.message || error}`);
+    return Promise.reject(error);
   }
-
-  const executed = await executePlan({
-    currentScanDigest: input.scanDigest,
-    engineVersion,
-    gateVersion,
-    plan: planned.plan,
-    provider,
-    providerTimeoutMs,
-    runtimeJobs: input.runtimeJobs,
-  });
-  const persisted = await persistCandidateResults(stateStore, executed.executions);
-  const settled = await stateStore.settleSchedulerPlan({
-    outcomes: executed.outcomes,
-    planHash: planned.plan.planHash,
-    scopeKey,
-  });
-  const selectedUnits = planned.plan.selectedJobs.reduce((sum, job) => sum + job.units.length, 0);
-  const report = {
-    mode,
-    stateRemote: stateStore.remote,
-    status: 'settled',
-    scopeKey,
-    runtimeContract: runtimeContractReport(runtimeContract),
-    stateRef: stateStore.ref,
-    sourceCommit: baselineMainSha,
-    scanDigest: input.scanDigest,
-    planHash: planned.plan.planHash,
-    scan: input.metrics,
-    scheduler: {
-      selectedJobs: planned.plan.selectedJobs.length,
-      selectedUnits,
-      outcomeCounts: countOutcomeStatuses(executed.outcomes),
-      settlement: settled.settlement.metrics,
-    },
-    candidates: persisted,
-    state: {
-      before: before.commit,
-      after: settled.commit,
-      reserved,
-      settled: settled.changed,
-    },
-  };
-  const generationClosure = createGenerationClosure({
-    report,
-    plan: planned.plan,
-    settlement: settled,
-    provider,
-    providerModule,
-    repository,
-    gateVersion,
-    scopeKey,
-    sourceCommit: baselineMainSha,
-    stateRef: stateStore.ref,
-    generationEnabled: runtimeContract.capabilities.generationEnabled,
-    options,
-  });
-  report.closure = generationClosure.closure;
-  report.closureDigest = generationClosure.closureDigest;
-  await writeReport(report, options.reportPath || process.env.TRANSLATION_SHADOW_REPORT_PATH);
-  logger.log(`translation scheduler v2 shadow: ${report.scheduler.selectedUnits} unit(s), ${JSON.stringify(report.scheduler.outcomeCounts)}`);
-  logger.log(`translation scheduler v2 state ref: ${stateStore.ref} @ ${settled.commit}`);
-  return report;
 }
 
 function parseCli(argv) {

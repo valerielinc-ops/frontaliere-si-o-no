@@ -35,7 +35,12 @@
 import { execSync } from 'child_process';
 import fs from 'node:fs';
 import path from 'node:path';
-import { BOT_UA_PATTERNS } from '../services/botPatterns';
+import {
+  AUTOMATION_SCREEN_HEIGHT,
+  AUTOMATION_SCREEN_WIDTH,
+  AUTOMATION_TIME_ZONES,
+  BOT_UA_PATTERNS,
+} from '../services/botPatterns';
 // Single source of truth for the ads-consent storage contract (#5842). Imported
 // rather than re-typed so the inline static loader below and the SPA gate in
 // AdSenseBanner/GptAdSlot cannot drift apart: the emitted loader string is
@@ -572,10 +577,12 @@ export const POSTHOG_HOST = 'https://t.frontaliereticino.ch';
  * Why a string and not the TS function: these run inside externalised plain-JS
  * assets emitted at build time (no module graph), so the detection must be
  * embedded literally. botPatterns.ts stays the source of truth for the pattern
- * list; only the wrapper logic is necessarily re-expressed here.
+ * list and for the automation screen signature constants (interpolated below);
+ * only the wrapper logic is necessarily re-expressed here.
  */
 const BOT_PATTERNS_LITERAL = JSON.stringify(BOT_UA_PATTERNS);
-export const BOT_GATE_FN = `function(){var ua=(navigator.userAgent||'').toLowerCase();if(!ua||navigator.webdriver===true)return true;var P=${BOT_PATTERNS_LITERAL};for(var k=0;k<P.length;k++)if(ua.indexOf(P[k])>=0)return true;if(ua.indexOf('chrome')>=0&&!('chrome' in window))return true;if(ua.indexOf('chrome')>=0&&ua.indexOf('mobile')<0){var L=navigator.languages;if(L&&L.length===0)return true;if(navigator.plugins&&navigator.plugins.length===0)return true;if(typeof navigator.permissions==='undefined')return true;}return false;}`;
+const AUTOMATION_TIME_ZONES_LITERAL = JSON.stringify(AUTOMATION_TIME_ZONES);
+export const BOT_GATE_FN = `function(){var ua=(navigator.userAgent||'').toLowerCase();if(!ua||navigator.webdriver===true)return true;var P=${BOT_PATTERNS_LITERAL};for(var k=0;k<P.length;k++)if(ua.indexOf(P[k])>=0)return true;if(ua.indexOf('chrome')>=0&&!('chrome' in window))return true;if(ua.indexOf('chrome')>=0&&ua.indexOf('mobile')<0){var L=navigator.languages;if(L&&L.length===0)return true;if(navigator.plugins&&navigator.plugins.length===0)return true;if(typeof navigator.permissions==='undefined')return true;}var S=window.screen;if(S&&S.width===${AUTOMATION_SCREEN_WIDTH}&&S.height===${AUTOMATION_SCREEN_HEIGHT}&&ua.indexOf('windows nt')>=0&&ua.indexOf('chrome/')>=0&&ua.indexOf('mobile')<0&&String(navigator.language||'').toLowerCase().indexOf('en')===0){var tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';}catch(e){}if(${AUTOMATION_TIME_ZONES_LITERAL}.indexOf(tz)>=0)return true;}return false;}`;
 
 /**
  * Plain JS body for the PostHog snippet — written to dist/assets/posthog-init.js

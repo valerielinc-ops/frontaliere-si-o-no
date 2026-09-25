@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadManifest } from './incremental-manifest-report.mjs';
+import { collectSourceModuleFiles } from '../../build-plugins/shared/incrementalHtmlReuse.mjs';
 import {
   LEGACY_OPTIONAL_KINDS,
   MANIFEST_FORMAT,
@@ -17,6 +19,100 @@ const SECTION_SHARD_SLUGS = JSON.parse(
     'utf8',
   ),
 );
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+
+// An entry's `hash` covers the page INPUT, not the code that renders it. A
+// renderer change with unchanged input (#9788: the OFFERWALL snippet in
+// build-plugins/constants.ts) re-rendered every IT job page, but deploy run
+// 36112880009 kept the bytes already in the ticino-it shard for all 277'952
+// files whose input hash had not moved. So the snapshot also records, per
+// kind, the render identity under which EVERY entry of that kind in the
+// published tree was last evaluated (`renderFingerprint`). When it differs
+// from the current build's, is missing, or the kind metadata moved, every
+// entry of the kind is planned as changed; shard_delta_apply_source_tree still
+// compares blob ids, so only the files whose bytes really differ are written.
+//
+// The jobs SEO kinds carry the build-time emitter fingerprint (render source
+// graph, render flags, static-shell assets). The other kinds come from
+// renderers the build does not fingerprint: their identity is the source graph
+// of those renderers, hashed from this checkout (the build and the shard push
+// run in the same job), plus the jobs fingerprint, which carries the
+// build-time flags and assets shared by every SEO page. Full-content 404
+// bridges copy a job or cluster page byte for byte while keying their input on
+// that page's manifest hash, so they depend on both renderers. A kind with
+// neither source of identity has no fingerprint and is always re-evaluated.
+export const RENDERER_ENTRIES_BY_KIND = Object.freeze({
+  'related-search-cluster': Object.freeze(['build-plugins/relatedSearchClustersPlugin.ts']),
+  'related-search-sitemap': Object.freeze(['build-plugins/relatedSearchClustersPlugin.ts']),
+  'cf-hot-404-bridge': Object.freeze([
+    'build-plugins/cfHot404BridgePlugin.ts',
+    'build-plugins/relatedSearchClustersPlugin.ts',
+  ]),
+});
+
+function sha256(value) {
+  return createHash('sha256').update(value).digest('hex');
+}
+
+function sourceGraphHash(rootDir, entryFiles) {
+  if (!entryFiles.every((file) => fs.existsSync(path.join(rootDir, file)))) return null;
+  const records = collectSourceModuleFiles(rootDir, entryFiles).map((file) => ({
+    path: file,
+    hash: sha256(fs.readFileSync(path.join(rootDir, file))),
+  }));
+  return sha256(JSON.stringify(records));
+}
+
+/**
+ * Per-kind render identity of the current build. Missing build-time
+ * fingerprint or renderer source ⇒ no entry for the kind ⇒ always re-evaluated.
+ */
+export function renderFingerprints(manifest, rootDir = REPO_ROOT) {
+  const emitter = manifest.data.jobsSeoEmitterFingerprint;
+  const fingerprints = {};
+  if (!emitter) return fingerprints;
+  const graphHashes = new Map();
+  for (const kind of PAGE_KINDS) {
+    if (emitter[kind]) {
+      fingerprints[kind] = emitter[kind];
+      continue;
+    }
+    const entryFiles = RENDERER_ENTRIES_BY_KIND[kind];
+    if (!entryFiles) continue;
+    const key = entryFiles.join('\n');
+    if (!graphHashes.has(key)) graphHashes.set(key, sourceGraphHash(rootDir, entryFiles));
+    const sourceGraph = graphHashes.get(key);
+    if (!sourceGraph) continue;
+    fingerprints[kind] = sha256(JSON.stringify({ kind, sourceGraph, jobsSeoEmitterFingerprint: emitter }));
+  }
+  return fingerprints;
+}
+
+// Only the snapshot footer written by this tool vouches for the published
+// bytes. Its `jobsSeoEmitterFingerprint` does not: it is the fingerprint of the
+// build that wrote the snapshot, and before `renderFingerprint` existed that
+// build kept older bytes for every page whose input hash had not moved. A
+// malformed value vouches for nothing, as if absent.
+function publishedRenderFingerprint(manifest) {
+  const value = manifest.footer?.renderFingerprint;
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
+  return Object.fromEntries(Object.entries(value).filter(([kind, fingerprint]) => (
+    PAGE_KINDS.includes(kind) && typeof fingerprint === 'string' && fingerprint.length > 0
+  )));
+}
+
+/** Kinds whose published entries must all be re-evaluated against the payload. */
+export function staleRenderKinds(previous, current, currentFingerprints) {
+  const published = publishedRenderFingerprint(previous);
+  return new Set(PAGE_KINDS.filter((kind) => {
+    const before = previous.data.kinds[kind];
+    const after = current.data.kinds[kind];
+    return !currentFingerprints[kind]
+      || published[kind] !== currentFingerprints[kind]
+      || before?.templateVersion !== after?.templateVersion
+      || before?.sourceVersion !== after?.sourceVersion;
+  }));
+}
 
 function parseArgs(argv) {
   const args = {};
@@ -88,6 +184,9 @@ function validateManifest(manifest, label) {
     }
     if (!/^[0-9a-f]{64}$/i.test(entry.inputHash)) {
       throw new Error(`${label}: hash non valido per ${entry.path}`);
+    }
+    if (entry.reuseHash !== undefined && !/^[0-9a-f]{64}$/i.test(entry.reuseHash)) {
+      throw new Error(`${label}: reuseHash non valido per ${entry.path}`);
     }
     const metadata = manifest.data.kinds[entry.kind];
     if (!metadata || metadata.state !== 'live') {
@@ -167,7 +266,7 @@ function writePathList(outputFile, paths) {
   fs.writeFileSync(outputFile, paths.length ? `${paths.join('\0')}\0` : '');
 }
 
-function writeSnapshot(manifest, entries, outputFile) {
+function writeSnapshot(manifest, entries, outputFile, renderFingerprint) {
   const byKind = Object.fromEntries(PAGE_KINDS.map((kind) => [kind, []]));
   for (const entry of entries.values()) byKind[entry.kind].push(entry);
   const lines = [JSON.stringify({
@@ -182,7 +281,11 @@ function writeSnapshot(manifest, entries, outputFile) {
     const metadata = manifest.data.kinds[kind];
     lines.push(JSON.stringify({ type: 'kind', kind, ...metadata }));
     for (const entry of kindEntries) {
-      lines.push(JSON.stringify({ path: entry.path, hash: entry.inputHash }));
+      lines.push(JSON.stringify({
+        path: entry.path,
+        hash: entry.inputHash,
+        ...(entry.reuseHash !== undefined ? { reuseHash: entry.reuseHash } : {}),
+      }));
     }
   }
   const counts = {
@@ -193,6 +296,9 @@ function writeSnapshot(manifest, entries, outputFile) {
   if (manifest.data.jobsSeoEmitterFingerprint) {
     footer.jobsSeoEmitterFingerprint = manifest.data.jobsSeoEmitterFingerprint;
   }
+  // Written by both the full and the delta publication: after either, every
+  // entry of a fingerprinted kind holds bytes rendered under that fingerprint.
+  if (Object.keys(renderFingerprint).length > 0) footer.renderFingerprint = renderFingerprint;
   lines.push(JSON.stringify(footer));
   fs.writeFileSync(outputFile, `${lines.join('\n')}\n`);
 }
@@ -219,9 +325,11 @@ async function main() {
     throw new Error(`payload root mancante per ${scope || '/'}`);
   }
 
+  const currentRenderFingerprint = renderFingerprints(current);
   let previousEntries = new Map();
   let changed = [...currentEntries.keys()].sort();
   let removed = [];
+  const renderStale = {};
   if (!args.snapshotOnly) {
     const previous = await loadManifest(args.previous);
     validateManifest(previous, 'previous');
@@ -229,9 +337,14 @@ async function main() {
       throw new Error(`locale precedente ${previous.data.locale} diversa da corrente ${current.data.locale}`);
     }
     previousEntries = selectEntries(previous, scope);
+    const staleKinds = staleRenderKinds(previous, current, currentRenderFingerprint);
+    for (const entry of currentEntries.values()) {
+      if (staleKinds.has(entry.kind)) renderStale[entry.kind] = (renderStale[entry.kind] || 0) + 1;
+    }
     changed = [...currentEntries].filter(([pagePath, currentEntry]) => {
       const previousEntry = previousEntries.get(pagePath);
       return !previousEntry
+        || staleKinds.has(currentEntry.kind)
         || previousEntry.inputHash !== currentEntry.inputHash
         || previousEntry.kind !== currentEntry.kind;
     }).map(([pagePath]) => pagePath).sort();
@@ -248,7 +361,7 @@ async function main() {
   const unchangedFiles = manifestCoveredFiles.filter((relativePath) => (
     !isCoveredByManifest(relativePath, changedBases)
   ));
-  writeSnapshot(current, currentEntries, path.join(args.out, 'snapshot.jsonl'));
+  writeSnapshot(current, currentEntries, path.join(args.out, 'snapshot.jsonl'), currentRenderFingerprint);
   writePathList(path.join(args.out, 'changed.txt'), changed);
   writePathList(path.join(args.out, 'removed.txt'), removed);
   writePathList(path.join(args.out, 'payload-files.txt'), payloadFiles);
@@ -265,8 +378,12 @@ async function main() {
     removed: removed.length,
     unchanged: unchangedFiles.length,
     unmanifested: unmanifestedFiles.length,
+    renderStale,
   })}\n`);
-  console.log(`manifest delta: mode=${args.snapshotOnly ? 'snapshot' : 'delta'} scope=${scope || '/'} current=${currentEntries.size} previous=${previousEntries.size} changed=${changed.length} unchanged=${unchangedFiles.length} unmanifested=${unmanifestedFiles.length} removed=${removed.length}`);
+  const renderStaleLog = args.snapshotOnly
+    ? ''
+    : ` render-stale=${Object.entries(renderStale).map(([kind, count]) => `${kind}:${count}`).join(',') || 'none'}`;
+  console.log(`manifest delta: mode=${args.snapshotOnly ? 'snapshot' : 'delta'} scope=${scope || '/'} current=${currentEntries.size} previous=${previousEntries.size} changed=${changed.length} unchanged=${unchangedFiles.length} unmanifested=${unmanifestedFiles.length} removed=${removed.length}${renderStaleLog}`);
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {

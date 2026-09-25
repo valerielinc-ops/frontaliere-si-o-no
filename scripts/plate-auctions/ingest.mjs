@@ -15,6 +15,7 @@ import { fetchSgPlateAuctions } from './connectors/sg.mjs';
 import { fetchShPlateAuctions } from './connectors/sh.mjs';
 import { fetchSzPlateAuctions } from './connectors/sz.mjs';
 import { fetchTgPlateAuctions } from './connectors/tg.mjs';
+import { fetchTiPlateAuctions } from './connectors/ti.mjs';
 import { fetchVsPlateAuctions } from './connectors/vs.mjs';
 import { fetchZhPlateAuctions } from './connectors/zh.mjs';
 import { fetchExpandedCard, fetchExpandedEcari } from './connectors/expanded.mjs';
@@ -44,10 +45,16 @@ export const FETCHERS = {
   be: () => fetchExpandedCard('be'),
   bl: () => fetchExpandedEcari('bl'),
   bs: fetchBsFixedPrice,
-  // fr and ti have no fetcher on purpose: their registry status is `blocked`
-  // because the canton endpoints are unreachable, and check-health.mjs treats a
-  // fetcher without an active source as an error. The parser configs stay in
-  // connectors/ so re-activating them is a registry change plus one line here.
+  // FR e TI sono geo-fenced su IP svizzeri: dal runner la fetch diretta
+  // fallisce e le righe arrivano dal relay della Cloud Function di Zurigo
+  // (connectors/api-relay.mjs), come per SZ.
+  fr: () => fetchExpandedEcari('fr'),
+  // GE ha il connettore (connectors/ge.mjs) ma non ancora il fetcher: resta
+  // `blocked` finché ge.ch non pubblica la lista d'autunno 2026. Fra due
+  // sessioni la lista dà il catalogo esplicitamente vuoto, e una fonte attiva
+  // senza nessuna riga nello snapshot è fatale per check-health.mjs; con le
+  // righe della prima sessione (poi chiuse e conservate) non lo è più.
+  // Attivarla = registry `active` in entrambe le copie + una riga qui.
   gl: fetchGlFixedPrice,
   gr: fetchGrPlateAuctions,
   lu: fetchLuFixedPrice,
@@ -58,6 +65,7 @@ export const FETCHERS = {
   so: () => fetchExpandedEcari('so'),
   sz: fetchSzPlateAuctions,
   tg: fetchTgPlateAuctions,
+  ti: fetchTiPlateAuctions,
   ur: fetchUrFixedPrice,
   vd: () => fetchExpandedCard('vd'),
   vs: fetchVsPlateAuctions,

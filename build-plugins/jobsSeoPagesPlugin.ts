@@ -50,6 +50,7 @@ import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import {
  buildActiveJobPageInput,
+ buildActiveJobPageReuseInput,
  buildExpiredSoftLandingPageInput,
  buildMinimalJobInput,
  getIncrementalManifestInputCache,
@@ -729,6 +730,110 @@ export function deriveJobAddressLocality(job: Record<string, unknown>, region: s
  return CANTON_CAPITAL_ADDRESSES[region]?.addressLocality || DEFAULT_CANTON_DISPLAY;
 }
 
+const ACTIVE_JOB_REUSE_MARKERS = Object.freeze({
+ jobPosting: 'job-posting',
+ heroBadges: 'hero-badges',
+ mobileAction: 'mobile-action',
+ recentArticles: 'recent-articles',
+});
+
+type ActiveJobReuseFragments = {
+ jobPostingDatePosted: string;
+ jobPostingValidThrough: string;
+ heroBadges: string;
+ mobileAction: string;
+ recentArticles: string;
+};
+
+function replaceActiveJobReuseFragment(
+ html: string,
+ name: string,
+ replacement: string | ((current: string) => string),
+): string {
+ const startMarker = `<!-- jobs-seo-reuse:${name}:start -->`;
+ const endMarker = `<!-- jobs-seo-reuse:${name}:end -->`;
+ const start = html.indexOf(startMarker);
+ const contentStart = start < 0 ? -1 : start + startMarker.length;
+ const end = contentStart < 0 ? -1 : html.indexOf(endMarker, contentStart);
+ if (start < 0 || end < 0) throw new Error(`missing active-page reuse markers: ${name}`);
+ const current = html.slice(contentStart, end);
+ const next = typeof replacement === 'function' ? replacement(current) : replacement;
+ return `${html.slice(0, contentStart)}${next}${html.slice(end)}`;
+}
+
+export function replaceActiveJobPostingDates(
+ fragment: string,
+ datePosted: string,
+ validThrough: string,
+): string {
+ const scriptMatch = fragment.match(
+  /<script\b[^>]*type=(['"])application\/ld\+json\1[^>]*>[\s\S]*?<\/script>/i,
+ );
+ if (!scriptMatch) throw new Error('missing JobPosting JSON-LD fragment');
+ let script = scriptMatch[0];
+ for (const [field, value] of [['datePosted', datePosted], ['validThrough', validThrough]] as const) {
+  const fieldPattern = new RegExp(`("${field}"\\s*:\\s*)"[^"]*"`);
+  if (!fieldPattern.test(script)) throw new Error(`missing JobPosting JSON-LD field: ${field}`);
+  const next = script.replace(fieldPattern, `$1${JSON.stringify(value)}`);
+  script = next;
+ }
+ const scriptStart = scriptMatch.index ?? 0;
+ return `${fragment.slice(0, scriptStart)}${script}${fragment.slice(
+  scriptStart + scriptMatch[0].length,
+ )}`;
+}
+
+function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFragments): string {
+ let rewritten = replaceActiveJobReuseFragment(
+  html,
+  ACTIVE_JOB_REUSE_MARKERS.jobPosting,
+  (current) => replaceActiveJobPostingDates(
+   current,
+   fragments.jobPostingDatePosted,
+   fragments.jobPostingValidThrough,
+  ),
+ );
+ rewritten = replaceActiveJobReuseFragment(
+  rewritten,
+  ACTIVE_JOB_REUSE_MARKERS.heroBadges,
+  fragments.heroBadges,
+ );
+ rewritten = replaceActiveJobReuseFragment(
+  rewritten,
+  ACTIVE_JOB_REUSE_MARKERS.mobileAction,
+  fragments.mobileAction,
+ );
+ return replaceActiveJobReuseFragment(
+  rewritten,
+  ACTIVE_JOB_REUSE_MARKERS.recentArticles,
+  fragments.recentArticles,
+ );
+}
+
+function formatActiveJobSalaryText(
+ locale: 'it' | 'en' | 'de' | 'fr',
+ salaryMin: number,
+ salaryMax: number,
+ salaryCurrency: string,
+): string {
+ const salaryFormatter = new Intl.NumberFormat(
+  locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : locale === 'en' ? 'en-CH' : 'it-CH',
+  { maximumFractionDigits: 0 },
+ );
+ if (Number.isFinite(salaryMin)) {
+  return Number.isFinite(salaryMax) && salaryMax > salaryMin
+   ? `${salaryCurrency} ${salaryFormatter.format(salaryMin)} - ${salaryFormatter.format(salaryMax)}`
+   : `${salaryCurrency} ${salaryFormatter.format(salaryMin)}`;
+ }
+ return locale === 'de'
+  ? 'nicht angegeben'
+  : locale === 'fr'
+  ? 'non indiqué'
+  : locale === 'en'
+  ? 'not specified'
+  : 'non indicato';
+}
+
 // Local feature flag: strip generic SEO prose ("Informazioni per frontalieri",
 // "Domande frequenti", "Mercato del lavoro in Ticino") from expired-job
 // static pages. Default ON (set STRIP_EXPIRED_JOB_PROSE=0 to keep prose).
@@ -785,8 +890,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    manifest.setJobsSeoEmitterFingerprint(jobsSeoEmitterFingerprints);
   }
  }
- const registerIncrementalPage = (locale: (typeof JOB_SEO_LOCALES)[number], pagePath: string, kind: string, input: unknown) => {
-  incrementalManifests?.get(locale)?.register(pagePath, kind, input);
+ const registerIncrementalPage = (
+  locale: (typeof JOB_SEO_LOCALES)[number],
+  pagePath: string,
+  kind: string,
+  input: unknown,
+  reuseInput: unknown = input,
+ ) => {
+  incrementalManifests?.get(locale)?.register(pagePath, kind, input, undefined, undefined, reuseInput);
  };
 
  // BFS-depth closure (2026-06-11): the per-canton "Esplora" navigator only
@@ -3145,9 +3256,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // The page itself is still emitted with its own URL (breadcrumbs,
  // JobPosting, etc. describe THIS page) so existing backlinks resolve.
  const effectiveCanonicalUrl = resolveCanonicalUrl(perLocaleSlug[locale], canonicalUrl);
- // `relatedArticlesHtml` is the SAME string the template below interpolates
- // (`recentArticlesHtmlFor(locale)`, memoized per locale): the input digests
- // exactly the bytes the page emits, so the two cannot drift apart.
+ const recentArticlesHtml = recentArticlesHtmlFor(locale);
+ // `relatedArticlesHtml` is the SAME string the template below interpolates:
+ // the publish input digests exactly the bytes the page emits, so the two
+ // cannot drift apart. The separate reuse input intentionally omits this
+ // digest; the cached fragment is replaced before the page is reused.
  const activeJobManifestInput = incrementalManifests
   ? buildActiveJobPageInput({
    job,
@@ -3158,10 +3271,59 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    canonicalJob: job,
    canton: jobCanton,
    canonicalUrl: effectiveCanonicalUrl,
-   relatedArticlesHtml: recentArticlesHtmlFor(locale),
+   relatedArticlesHtml: recentArticlesHtml,
    renderDateBucket: jobsSeoReuseBuildDay,
   })
  : null;
+ const activeJobReuseInput = activeJobManifestInput
+  ? buildActiveJobPageReuseInput(activeJobManifestInput)
+  : null;
+ const buildActiveReuseFragments = activeJobManifestInput
+  ? (): ActiveJobReuseFragments => {
+   const salaryText = formatActiveJobSalaryText(
+    locale,
+    perJob_salaryMin,
+    perJob_salaryMax,
+    perJob_salaryCurrency,
+   );
+   return {
+   jobPostingDatePosted: safeIsoDate(job?.postedDate)
+    || safeIsoDate(job?.crawledAt)
+    || toIsoDateTime('', jobsSeoReuseBuildNow),
+   jobPostingValidThrough: toValidThrough(
+    String(job?.postedDate || ''),
+    job?.crawledAt,
+    jobsSeoReuseBuildNow,
+   ),
+   heroBadges: renderHeroBadges({
+    job,
+    locale,
+    salaryMin: perJob_salaryMin,
+    salaryText,
+    esc,
+    now: jobsSeoReuseBuildNow,
+   }),
+   mobileAction: renderMobileActionBlock({
+    job,
+    locale,
+    canonicalUrl,
+    addressLocality: perJob_addressLocality,
+    salaryMin: perJob_salaryMin,
+    salaryText,
+    localeLabels: {
+     applyNow: localeCopy[locale].applyNow,
+     quickDetails: localeCopy[locale].quickDetails,
+     location: localeCopy[locale].location,
+     contract: localeCopy[locale].contract,
+    },
+    referralUrl,
+    esc,
+    now: jobsSeoReuseBuildNow,
+   }),
+   recentArticles: recentArticlesHtml,
+   };
+  }
+  : null;
  const outDir = np.join(distDir, canonicalPath.slice(1));
  const activeReuse = jobsSeoReuse?.lookup(
   locale,
@@ -3170,6 +3332,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   activeJobManifestInput,
   'active',
   jobsSeoProbeShapeHints(job),
+  {
+   reuseInput: activeJobReuseInput,
+   rewriteHtml: buildActiveReuseFragments
+    ? (html: string) => rewriteActiveJobHtml(html, buildActiveReuseFragments())
+    : undefined,
+  },
  );
  let html: string;
  if (!activeReuse?.hit || jobsSeoReuse?.shouldRender(activeReuse)) {
@@ -3476,21 +3644,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const salaryMin = perJob_salaryMin;
  const salaryMax = perJob_salaryMax;
  const salaryCurrency = perJob_salaryCurrency;
- const salaryFormatter = new Intl.NumberFormat(
- locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : locale === 'en' ? 'en-CH' : 'it-CH',
- { maximumFractionDigits: 0 }
- );
- const salaryText = Number.isFinite(salaryMin)
- ? (Number.isFinite(salaryMax) && salaryMax > salaryMin
- ? `${salaryCurrency} ${salaryFormatter.format(salaryMin)} - ${salaryFormatter.format(salaryMax)}`
- : `${salaryCurrency} ${salaryFormatter.format(salaryMin)}`)
- : (locale === 'de'
- ? 'nicht angegeben'
- : locale === 'fr'
- ? 'non indiqué'
- : locale === 'en'
- ? 'not specified'
- : 'non indicato');
+ const salaryText = formatActiveJobSalaryText(locale, salaryMin, salaryMax, salaryCurrency);
  // Address fields hoisted to perJob block — all derived from job alone.
  const addressLocality = perJob_addressLocality;
  const addressRegion = perJob_addressRegion;
@@ -3697,7 +3851,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <meta property="og:image:alt" content="${esc(ogTitle)}">
  <link rel="canonical" href="${effectiveCanonicalUrl}">
 ${hreflangHtml}
- <script type="application/ld+json">${jobLd}</script>
+ <!-- jobs-seo-reuse:job-posting:start --><script type="application/ld+json">${jobLd}</script><!-- jobs-seo-reuse:job-posting:end -->
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${jobFaqLd}</script>
  <script type="application/ld+json">${inlineScriptJson({'@context':'https://schema.org','@type':'WebPage',url:canonicalUrl,inLanguage:locale,isPartOf:{'@type':'CollectionPage','@id':`${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g,'/'))}`,name:cantonSectionName(locale,dc)}})}</script>
@@ -3714,7 +3868,7 @@ ${jobBoardOfferwallTag}${staticAnalyticsHtml}
  <article class="proposal">
  <section class="hero">
  <h1 class="hero-title">${esc(composeJobPageH1(localizedTitle, String(job.company || '')))}</h1>
- ${renderHeroBadges({ job, locale, salaryMin, salaryText, esc, now: jobsSeoReuseBuildNow })}
+ <!-- jobs-seo-reuse:hero-badges:start -->${renderHeroBadges({ job, locale, salaryMin, salaryText, esc, now: jobsSeoReuseBuildNow })}<!-- jobs-seo-reuse:hero-badges:end -->
  <div class="hero-sub">${esc(job.company)} · ${esc(formatJobLocation(job.location, job.canton || DEFAULT_CANTON))}</div>
  <div class="hero-meta">
  <span>${esc(`Categoria: ${String(job.category || 'other')}`)}</span>
@@ -3722,7 +3876,7 @@ ${jobBoardOfferwallTag}${staticAnalyticsHtml}
  <span>${esc(`Salario: ${salaryText}`)}</span>
  </div>
  </section>
- ${renderMobileActionBlock({ job, locale, canonicalUrl, addressLocality, salaryMin, salaryText, localeLabels: { applyNow: localeCopy[locale].applyNow, quickDetails: localeCopy[locale].quickDetails, location: localeCopy[locale].location, contract: localeCopy[locale].contract }, referralUrl, esc, now: jobsSeoReuseBuildNow })}
+ <!-- jobs-seo-reuse:mobile-action:start -->${renderMobileActionBlock({ job, locale, canonicalUrl, addressLocality, salaryMin, salaryText, localeLabels: { applyNow: localeCopy[locale].applyNow, quickDetails: localeCopy[locale].quickDetails, location: localeCopy[locale].location, contract: localeCopy[locale].contract }, referralUrl, esc, now: jobsSeoReuseBuildNow })}<!-- jobs-seo-reuse:mobile-action:end -->
  <section class="section">
  <h4>${esc(localeCopy[locale].summaryLabel)}</h4>
  ${summaryHtml}
@@ -3788,7 +3942,7 @@ ${jobBoardOfferwallTag}${staticAnalyticsHtml}
  return card + ctaLink + hubLink;
  })()}
  ${related.length > 0 ? `<section class="related"><h2>${esc(localeCopy[locale].relatedJobs)}</h2><ul class="rul">${relatedHtml}</ul></section>` : ''}
- ${recentArticlesHtmlFor(locale)}
+ <!-- jobs-seo-reuse:recent-articles:start -->${recentArticlesHtml}<!-- jobs-seo-reuse:recent-articles:end -->
  ${(() => {
  const __tPh_prose = phaseTimer();
  // loc/co/cat/contractKey are job-invariant — sourced from the perJob
@@ -4060,7 +4214,7 @@ ${jobBoardOfferwallTag}${staticAnalyticsHtml}
  const __tPh_write = phaseTimer();
  _qw(np.join(outDir, 'index.html'), html);
  if (incrementalManifests) {
-  registerIncrementalPage(locale, canonicalPath, 'active-job', activeJobManifestInput);
+  registerIncrementalPage(locale, canonicalPath, 'active-job', activeJobManifestInput, activeJobReuseInput);
  }
  const activeJobInputHash = incrementalManifests?.get(locale)?.getHash(
   canonicalPath,

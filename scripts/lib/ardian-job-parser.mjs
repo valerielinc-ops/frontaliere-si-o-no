@@ -32,6 +32,7 @@ import {
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
+import { fetchWorkdayPrimarySwissLocation } from './workday-swiss-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -180,13 +181,22 @@ export async function fetchAllArdianJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const rawLocation = listing.locationRaw || 'Zurich';
+    const rawLocation = normalizeSpace(listing.locationRaw || '');
     if (isLocationExplicitlyForeign(rawLocation)) {
       console.log(`  ⏭️  Skipped foreign location: ${rawLocation} — ${title}`);
       continue;
     }
-    const location = normalizeSpace(rawLocation) || 'Zurich';
-    const canton = inferSwissTargetCanton(location) || 'ZH';
+    // An "N Locations" roll-up (or an empty location) names no site: only the
+    // req's own primary workplace may place it in Switzerland, never the
+    // Zurich office (issue 9842).
+    const location = rawLocation && !/\d+\s+location/i.test(rawLocation)
+      ? rawLocation
+      : await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath);
+    const canton = location ? inferSwissTargetCanton(location) : '';
+    if (!canton) {
+      console.log(`  ⏭️  Skipped location without a Swiss canton: ${rawLocation || '(none)'} — ${title}`);
+      continue;
+    }
     const publicUrl = listing.url || CAREER_URL;
     const employmentType = detectEmploymentType(listing.timeType || '', title);
 

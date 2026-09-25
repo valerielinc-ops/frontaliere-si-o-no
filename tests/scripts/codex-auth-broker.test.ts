@@ -932,3 +932,137 @@ describe('Codex auth broker runtime contract', () => {
     expect(fs.existsSync(home)).toBe(false);
   });
 });
+
+function writeSleepingCodex(root: string) {
+  const fake = path.join(root, 'sleeping-codex.mjs');
+  fs.writeFileSync(fake, `#!/usr/bin/env node
+    import fs from 'node:fs';
+    if (process.argv.includes('--version')) {
+      console.log('OpenAI Codex v0.153.4');
+      process.exit(0);
+    }
+    const output = process.argv[process.argv.indexOf('--output-last-message') + 1];
+    let prompt = '';
+    process.stdin.setEncoding('utf8');
+    process.stdin.on('data', (chunk) => { prompt += chunk; });
+    process.stdin.on('end', () => {
+      const delay = Number(prompt.match(/sleep:(\\d+)/)?.[1] || 0);
+      setTimeout(() => fs.writeFileSync(output, JSON.stringify({ prompt: prompt.trim() })), delay);
+    });
+  `);
+  fs.chmodSync(fake, 0o700);
+  return fake;
+}
+
+/** Raw exchange with timestamps, so tests can see the control bytes before the JSON line. */
+function rawRequest(socketPath: string, payload: unknown) {
+  return new Promise<{ raw: string; chunks: Array<{ at: number; data: string }> }>((resolve, reject) => {
+    const client = net.createConnection(socketPath);
+    const chunks: Array<{ at: number; data: string }> = [];
+    client.setEncoding('utf8');
+    client.setTimeout(10_000, () => reject(new Error('broker request timed out')));
+    client.on('error', reject);
+    client.on('data', (chunk) => chunks.push({ at: Date.now(), data: String(chunk) }));
+    client.on('end', () => resolve({ raw: chunks.map((c) => c.data).join(''), chunks }));
+    client.on('connect', () => client.end(`${JSON.stringify(payload)}\n`));
+  });
+}
+
+function jsonLine(raw: string) {
+  return JSON.parse(raw.replace(/^[\0\x01]+/, ''));
+}
+
+function firstAt(chunks: Array<{ at: number; data: string }>, predicate: (data: string) => boolean) {
+  return chunks.find((chunk) => predicate(chunk.data))?.at ?? Number.NaN;
+}
+
+describe('Codex auth broker queue and lifetime', () => {
+  const children: ReturnType<typeof spawn>[] = [];
+  const roots: string[] = [];
+
+  afterEach(async () => {
+    for (const child of children) {
+      if (child.exitCode === null) child.kill('SIGTERM');
+      if (child.exitCode === null) {
+        await Promise.race([
+          once(child, 'exit'),
+          new Promise((resolve) => setTimeout(resolve, 1000)),
+        ]);
+      }
+    }
+    children.splice(0);
+    for (const root of roots.splice(0)) fs.rmSync(root, { recursive: true, force: true });
+  });
+
+  async function startBroker(extraArgs: string[]) {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
+    fs.chmodSync(root, 0o700);
+    roots.push(root);
+    const socketPath = path.join(root, 'auth.sock');
+    const prefix = codexPrefix(root);
+    const fakeCodex = writeSleepingCodex(prefix);
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, ...extraArgs, ...codexAttestationArgs(fakeCodex, prefix)], {
+      stdio: ['pipe', 'ignore', 'pipe'],
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
+    });
+    children.push(child);
+    child.stdin.end('{"access_token":"queue-test"}');
+    await waitForSocket(socketPath, child);
+    return { child, socketPath };
+  }
+
+  // Il TTL partiva al listen() e non si rinnovava: a 30 minuti dall'avvio il
+  // broker chiudeva anche una richiesta in corso (send-newsletter run
+  // 36116142119). Qui una richiesta piu' lunga del TTL deve completare, e il
+  // broker deve chiudersi solo dopo un TTL intero senza lavoro.
+  it('treats the TTL as idle time and never expires while a request runs', async () => {
+    const { child, socketPath } = await startBroker(['--ttl-ms', '700']);
+    const long = await rawRequest(socketPath, { op: 'exec', prompt: 'sleep:1500', timeoutMs: 5000, schema: null });
+    expect(jsonLine(long.raw)).toMatchObject({ ok: true });
+    await new Promise((resolve) => setTimeout(resolve, 300));
+    const next = await rawRequest(socketPath, { op: 'exec', prompt: 'sleep:10', timeoutMs: 5000, schema: null });
+    expect(jsonLine(next.raw)).toMatchObject({ ok: true });
+    await Promise.race([
+      once(child, 'exit'),
+      new Promise((_, reject) => setTimeout(() => reject(new Error('broker did not expire after an idle TTL')), 3000)),
+    ]);
+    expect(fs.existsSync(socketPath)).toBe(false);
+  });
+
+  it('signals the start of Codex only when the request leaves the queue, and only on request', async () => {
+    const { socketPath } = await startBroker(['--ttl-ms', '10000']);
+    const first = rawRequest(socketPath, { op: 'exec', prompt: 'sleep:700', timeoutMs: 5000, schema: null, notifyStart: true });
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    const queued = rawRequest(socketPath, { op: 'exec', prompt: 'sleep:10', timeoutMs: 5000, schema: null, notifyStart: true });
+    const legacy = rawRequest(socketPath, { op: 'exec', prompt: 'sleep:10', timeoutMs: 5000, schema: null });
+    const [a, b, c] = await Promise.all([first, queued, legacy]);
+
+    expect(a.raw.startsWith('\x01') || a.raw.startsWith('\0\x01')).toBe(true);
+    expect(jsonLine(a.raw)).toMatchObject({ ok: true });
+    expect(jsonLine(b.raw)).toMatchObject({ ok: true });
+    expect(b.raw).toContain('\x01');
+    // Il secondo parte quando il primo ha risposto, non alla connect().
+    const firstAnswered = firstAt(a.chunks, (data) => data.includes('{'));
+    const queuedStarted = firstAt(b.chunks, (data) => data.includes('\x01'));
+    expect(queuedStarted).toBeGreaterThanOrEqual(firstAnswered);
+    // Un client che non lo chiede riceve lo stesso protocollo di prima.
+    expect(c.raw).not.toContain('\x01');
+    expect(jsonLine(c.raw)).toMatchObject({ ok: true });
+  });
+
+  it('returns the request slot of a queued request whose client left before it started', async () => {
+    const { socketPath } = await startBroker(['--ttl-ms', '10000', '--max-requests', '2']);
+    const running = rawRequest(socketPath, { op: 'exec', prompt: 'sleep:600', timeoutMs: 5000, schema: null });
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    const leaving = net.createConnection(socketPath);
+    leaving.on('error', () => {});
+    await once(leaving, 'connect');
+    leaving.write(`${JSON.stringify({ op: 'exec', prompt: 'sleep:10', timeoutMs: 5000, schema: null })}\n`);
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    leaving.destroy();
+    expect(jsonLine((await running).raw)).toMatchObject({ ok: true });
+
+    const after = await rawRequest(socketPath, { op: 'exec', prompt: 'sleep:10', timeoutMs: 5000, schema: null });
+    expect(jsonLine(after.raw)).toMatchObject({ ok: true });
+  });
+});
