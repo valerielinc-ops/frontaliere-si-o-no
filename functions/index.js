@@ -2180,8 +2180,15 @@ export const reapPublisherPendingPayments = onSchedule(
 // sources after it (GR, SG, SH, SZ, TG, VS, ZH) kept their 09-15 snapshot and
 // the SZ relay that the static collector relies on went stale. The same pass
 // takes ~95 s on a GitHub runner.
+// The schedule is fixed-time cron, not `every 6 hours`: that App Engine
+// interval counts from the end of the previous attempt and moves when a deploy
+// updates the job. On 2026-09-25 it attempted at 03:28 UTC and then not again
+// before a manual run at 10:24, while FR, TI and SZ reach the static collector
+// only through this relay (PLATE_AUCTION_API_RELAY_MAX_AGE_MS, 8 h). Four runs
+// a day, the cap the registry declares, 30 min before each nominal slot of
+// refresh-plate-auctions.yml (`17 */6 * * *`).
 export const refreshPlateAuctions = onSchedule(
- { region: 'europe-west6', schedule: 'every 6 hours', timeZone: 'Europe/Zurich', timeoutSeconds: 540, memory: '1GiB' },
+ { region: 'europe-west6', schedule: '47 5,11,17,23 * * *', timeZone: 'UTC', timeoutSeconds: 540, memory: '1GiB' },
  async () => {
  try {
  const result = await runPlateAuctionRefresh();
