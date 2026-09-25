@@ -12,7 +12,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-import { writeFileAtomic, writeShardFileIfChanged } from './atomic-shard-write.mjs';
+import { writeFileAtomic } from './atomic-shard-write.mjs';
 import { assertAccumulatorByteFloor } from './accumulator-byte-floor-guard.mjs';
 
 export const JOB_STATS_HISTORY_LEGACY_FILE = 'data/jobs-stats-history.json';
@@ -194,7 +194,16 @@ export function assertJobStatsHistoryShardSize(filePath, serialized, maxBytes = 
 
 function readShardDocument(filePath) {
   if (!fs.existsSync(filePath)) return { exists: false, ok: true, entries: [] };
-  const parsed = readJson(filePath);
+  // Keep the raw content with the parsed document: the writer needs both for
+  // validation and for an exact no-op check without reparsing large shards.
+  let raw;
+  let parsed;
+  try {
+    raw = fs.readFileSync(filePath, 'utf8');
+    parsed = JSON.parse(raw);
+  } catch {
+    parsed = null;
+  }
   if (!parsed || !Array.isArray(parsed.entries)) return { exists: true, ok: false, entries: [] };
   const entries = historyEntries(parsed);
   if (parsed.entries.length > 0 && entries.length === 0) {
@@ -203,9 +212,10 @@ function readShardDocument(filePath) {
       ok: false,
       reason: 'no-valid-date-entries',
       entries: [],
+      raw,
     };
   }
-  return { exists: true, ok: true, entries };
+  return { exists: true, ok: true, entries, raw };
 }
 
 function isCompactedHistoryEntry(entry = {}) {
@@ -255,6 +265,13 @@ function preservesCompactionPayload(previous = {}, next = {}) {
   return ['companyStats', 'locationStats', 'titleStats'].every((bucket) => {
     const previousItems = Array.isArray(previous[bucket]) ? previous[bucket] : [];
     const nextItems = Array.isArray(next[bucket]) ? next[bucket] : [];
+    const nextItemsByIdentity = new Map();
+    for (const nextItem of nextItems) {
+      const identity = String(nextItem?.key || nextItem?.name || '');
+      const items = nextItemsByIdentity.get(identity) || [];
+      items.push(nextItem);
+      nextItemsByIdentity.set(identity, items);
+    }
 
     return previousItems.every((previousItem) => {
       const previousIdentity = String(previousItem?.key || previousItem?.name || '');
@@ -272,6 +289,23 @@ function preservesCompactionPayload(previous = {}, next = {}) {
         && previousRemovedCount === 0) {
         return true;
       }
+
+      const sameIdentityItems = previousIdentity
+        ? nextItemsByIdentity.get(previousIdentity) || []
+        : [];
+      if (sameIdentityItems.some((sameIdentityItem) => {
+        const sameIdentityAddedKeys = sortedUniqueStrings(sameIdentityItem.addedKeys);
+        const sameIdentityPreservesAddedKeys = previousAddedKeys.every((key) =>
+          sameIdentityAddedKeys.includes(key));
+        const sameIdentityPreservesCounts = actionCount(sameIdentityItem, 'updated') >= previousUpdatedCount
+          && actionCount(sameIdentityItem, 'removed') >= previousRemovedCount;
+        return sameIdentityPreservesAddedKeys && sameIdentityPreservesCounts;
+      })) return true;
+
+      // A changed locale title has no stable identity. Keep the existing
+      // fallback for that intentional rewrite, but avoid scanning the whole
+      // bucket when the identity already proves the payload is preserved.
+      if (previousAddedKeys.length === 0) return false;
 
       return nextItems.some((nextItem) => {
         const sameIdentity = previousIdentity !== ''
@@ -360,9 +394,11 @@ export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), opt
   const canonicalByDate = new Map(entries.map((entry) => [entry.date, entry]));
   const targetDates = new Set([currentDate]);
   const obsoleteFiles = [];
+  const existingByFile = new Map();
 
   for (const shardFile of listJobStatsHistoryShardFiles(rootDir)) {
     const existing = readShardDocument(shardFile);
+    existingByFile.set(shardFile, existing);
     if (!existing.ok) {
       if (existing.reason === 'no-valid-date-entries') {
         throw new Error(
@@ -396,7 +432,7 @@ export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), opt
     // Exempt either rewrite only when the existing shard is valid and all
     // logical counters are preserved; an empty/degraded fallback therefore
     // remains fail-closed even if it happens to have the compacted shape.
-    const existing = readShardDocument(shardFile);
+    const existing = existingByFile.get(shardFile) || { exists: false, ok: true, entries: [] };
     const existingEntry = existing.entries.find((item) => item.date === date);
     const isControlledHistoricalRewrite = date < currentDate
       && existing.ok
@@ -410,14 +446,19 @@ export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), opt
         { label: shardFile },
       );
     }
-    return { shardFile, serialized };
+    return { shardFile, serialized, existingRaw: existing.raw };
   });
 
   let shardChanged = false;
   const written = new Set();
   fs.mkdirSync(path.resolve(rootDir, JOB_STATS_HISTORY_SHARD_DIR), { recursive: true });
-  for (const { shardFile, serialized } of planned) {
-    shardChanged = writeShardFileIfChanged(shardFile, serialized) || shardChanged;
+  for (const { shardFile, serialized, existingRaw } of planned) {
+    // `existingRaw` was already read during planning; avoid a second full
+    // shard read while retaining the same atomic replacement primitive.
+    if (existingRaw !== serialized) {
+      writeFileAtomic(shardFile, serialized);
+      shardChanged = true;
+    }
     written.add(shardFile);
   }
   for (const { filePath, entries: obsoleteEntries } of obsoleteFiles) {
