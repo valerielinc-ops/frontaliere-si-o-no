@@ -27,18 +27,48 @@
     "sector": "Impiantistica elettrica / Automazione",
     "expiredAt": "2026-09-21T16:09:09.385Z",
     "previousSlugs": [
-      "customer-quality-ingegnere-elettra-1938-stabio"
+      "customer-quality-ingegnere-elettra-1938-stabio",
+      "customer-quality-engineer-elettra-1938-ch-dczxcg",
+      "customer-quality-engineer-elettra-1938-ch-2",
+      "customer-qualitat-ingenieur-elettra-1938-stabio-svizzera",
+      "customer-qualite-ingenieur-elettra-1938-stabio-svizzera",
+      "customer-quality-engineer-elettra-1938-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "customer-quality-ingegnere-elettra-1938-stabio"
+        "customer-quality-ingegnere-elettra-1938-stabio",
+        "customer-quality-engineer-elettra-1938-ch-dczxcg",
+        "customer-quality-engineer-elettra-1938-ch-2"
+      ],
+      "en": [
+        "customer-quality-engineer-elettra-1938-ch-dczxcg"
+      ],
+      "de": [
+        "customer-qualitat-ingenieur-elettra-1938-stabio-svizzera"
+      ],
+      "fr": [
+        "customer-qualite-ingenieur-elettra-1938-stabio-svizzera"
       ]
     },
     "postalCode": "6855",
     "salaryMin": 58000,
     "salaryMax": 88000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://inrecruiting.intervieweb.it/fiammcomponents/jobs/customer-quality-engineer-717575/it",
+    "firstSeenAt": "2026-07-14T11:22:37.214Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://inrecruiting.intervieweb.it/fiammcomponents/jobs/customer-quality-engineer-717575/it",
+        "firstSeenAt": "2026-07-14T11:22:37.214Z",
+        "title": "CUSTOMER QUALITY ENGINEER"
+      },
+      {
+        "sourceIdentity": "url:https://inrecruiting.intervieweb.it/fiammcomponents/jobs/customer-quality-engineer-724414/it",
+        "firstSeenAt": "2026-08-27T00:49:57.238Z",
+        "title": "CUSTOMER QUALITY ENGINEER"
+      }
+    ]
   },
   {
     "slug": "manutentore-elettromeccanico-elettra-1938-ch",
@@ -71,7 +101,9 @@
     "salaryMin": 49500,
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://inrecruiting.intervieweb.it/fiammcomponents/jobs/manutentore-elettromeccanico-715887/it",
+    "firstSeenAt": "2026-07-08T22:06:24.656Z"
   },
   {
     "slug": "operaio-d-esercizio-elettra-1938-ch",
@@ -104,6 +136,20 @@
     "salaryMin": 49500,
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-716611/it",
+    "firstSeenAt": "2026-07-08T22:06:24.959Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-716611/it",
+        "firstSeenAt": "2026-07-08T22:06:24.959Z",
+        "title": "Operaio d'esercizio"
+      },
+      {
+        "sourceIdentity": "url:https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-728378/it",
+        "firstSeenAt": "2026-09-18T23:20:34.167Z",
+        "title": "Operaio d'esercizio"
+      }
+    ]
   }
 ]
