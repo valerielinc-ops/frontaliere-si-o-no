@@ -504,8 +504,27 @@ describe('Nord Anglia Education Switzerland crawler parser', () => {
     const [job] = await fetchAllNordAngliaJobs();
     expect(job.location).toBe('St Moritz');
     expect(job.canton).toBe('GR');
-    expect(job.streetAddress).toBeTruthy();
-    expect(job.postalCode).toMatch(/^\d{4}$/);
+    // La località pubblicata è quella della vacancy, con il suo NPA BFS: prima
+    // usciva la tupla del capoluogo (`Chur`, Poststrasse 33, 7000), cioè un
+    // JobPosting a Chur per una scuola di St. Moritz (issue 5253). La via, che
+    // la fonte non dà, la completa l'emitter JobPosting sulla località vera.
+    expect(job.addressLocality).toBe('St Moritz');
+    expect(job.postalCode).toBe('7500');
+    expect(job.streetAddress).not.toBe('Poststrasse 33');
+  });
+
+  it('publishes the vacancy locality instead of the canton capital (Pully, not Lausanne)', async () => {
+    const pullyFeed = validRssItem({
+      title: '<title><![CDATA[Teachers Primary (Pully, CH)]]></title>',
+      link: '<link>https://careers.nordanglia.com/job/Pully-Teachers-Primary/1145234101/</link>',
+    });
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(pullyFeed, { status: 200 })));
+
+    const [job] = await fetchAllNordAngliaJobs();
+    expect(job.location).toBe('Pully');
+    expect(job.canton).toBe('VD');
+    expect(job.addressLocality).toBe('Pully');
+    expect(job.streetAddress).not.toBe('Place de la Palud 2');
   });
 
   it('keeps Swiss locations returned by the national full-text search', async () => {

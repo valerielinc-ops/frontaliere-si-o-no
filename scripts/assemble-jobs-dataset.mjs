@@ -53,7 +53,7 @@ import { carryForwardMarks, dedupeByIdentityPreservingMarks } from './lib/job-ma
 import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
-import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator } from './lib/dedicated-crawler-common.mjs';
+import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator, isLikelyJobDetailUrl } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, isKnownSwissMunicipalityInCanton, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
 import { getCantonDisplayName, markLocationDerivedFromVacancyText } from './lib/crawler-location-config.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
@@ -73,6 +73,50 @@ import { decontaminateEntries } from './decontaminate-prev-slugs.mjs';
 import { extractNarrativeJobTitle } from './lib/job-title-normalization.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+function isHttpsJobUrl(value) {
+  if (typeof value !== 'string' || !value.trim()) return false;
+  try {
+    const parsed = new URL(value);
+    return parsed.protocol === 'https:' && Boolean(parsed.hostname);
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Restore the minimum trusted handoff when a crawler omitted applyUrl.
+ *
+ * The canonical job URL is allowed as a handoff only when the URL classifier
+ * proves that it is a job-detail page. Listing/search pages are deliberately
+ * excluded: a syntactically valid HTTPS URL is not evidence of an individual
+ * vacancy or an application destination. If a source supplied a mailto CTA,
+ * keep its address as provenance while publishing the HTTPS detail page so
+ * the L3 validator can distinguish a navigable handoff from a broken href.
+ *
+ * @param {object} job job being normalized in place
+ * @returns {boolean} whether applyUrl was repaired
+ */
+function backfillApplyUrlFromDetail(job) {
+  if (!job || typeof job !== 'object') return false;
+
+  const absoluteUrl = absoluteJobUrl(job.url);
+  if (absoluteUrl && absoluteUrl !== job.url && isHttpsJobUrl(absoluteUrl)) {
+    job.url = absoluteUrl;
+  }
+  if (isHttpsJobUrl(job.applyUrl)) return false;
+  if (!isHttpsJobUrl(job.url) || !isLikelyJobDetailUrl(job.url)) return false;
+
+  const rawApplyUrl = String(job.applyUrl || '').trim();
+  if (/^mailto:/i.test(rawApplyUrl)) {
+    const email = rawApplyUrl.slice('mailto:'.length).split('?')[0].trim();
+    if (email && !job.applicationEmail && !job.contactEmail) {
+      job.applicationEmail = email;
+    }
+  }
+  job.applyUrl = job.url;
+  return true;
+}
 
 /* ── Summary guard — ensures every crawler writes a summary on exit ──── */
 
@@ -215,6 +259,10 @@ function sanitizeJobLocationField(rawValue, fallbackLocality = 'Ticino') {
     // Shared with alten-job-parser.mjs — see swiss-locality-sentence-split.mjs.
     .split(SWISS_LOCALITY_SENTENCE_SPLIT_RX)[0]
     .replace(/^[\s:]+/, '')
+    // `Worblaufen & Homeoffice`: un suffisso di lavoro ibrido dopo la città non
+    // è prosa. Senza toglierlo, la regola «home office» qui sotto buttava la
+    // città vera e pubblicava il nome del cantone (issue 5253).
+    .replace(/\s*[&+\/,]\s*home[\s-]?off(?:ice)?\.?\s*$/i, '')
     .trim();
   if (s.length > 60 || /\b(availability|offer you|requirements|inspektionen|home ?office|company address|posizione esclusivamente|ottima conoscenza|befristet)\b/i.test(s)) {
     return fallback;
@@ -435,7 +483,7 @@ function humanizeCompanyKey(key) {
  * authority is exactly the one the source wrote, only spelled absolutely.
  *
  * @param {object[]} jobs jobs about to be persisted in a slice (mutated in place)
- * @returns {{ locationFixed: number, localityBackfilled: number, regionDefaulted: number, urlNormalized: number }}
+ * @returns {{ locationFixed: number, localityBackfilled: number, regionDefaulted: number, urlNormalized: number, applyUrlBackfilled: number }}
  */
 export function normalizeParsedJobsForSlice(jobs) {
   let locationFixed = 0;
@@ -443,6 +491,7 @@ export function normalizeParsedJobsForSlice(jobs) {
   let localityBackfilled = 0;
   let regionDefaulted = 0;
   let urlNormalized = 0;
+  let applyUrlBackfilled = 0;
   for (const job of jobs) {
     if (!job || typeof job !== 'object') continue;
 
@@ -453,6 +502,8 @@ export function normalizeParsedJobsForSlice(jobs) {
         urlNormalized++;
       }
     }
+
+    if (backfillApplyUrlFromDetail(job)) applyUrlBackfilled++;
 
     const localityFallback = cantonFallbackLocality(job);
 
@@ -496,7 +547,7 @@ export function normalizeParsedJobsForSlice(jobs) {
       regionDefaulted++;
     }
   }
-  return { locationFixed, localityBackfilled, regionDefaulted, urlNormalized };
+  return { locationFixed, localityBackfilled, regionDefaulted, urlNormalized, applyUrlBackfilled };
 }
 
 function assemblerIdentity(job = {}) {
@@ -1969,8 +2020,8 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // gate so corrupted location strings never reach the assemble-time Swiss
   // whitelist (the biggest dropper). Idempotent with the assemble-time net.
   const norm = normalizeParsedJobsForSlice(jobs);
-  if (norm.locationFixed > 0 || norm.localityBackfilled > 0 || norm.regionDefaulted > 0 || norm.urlNormalized > 0) {
-    console.log(`  🧭 Upstream normalize: location cleaned ${norm.locationFixed}, addressLocality backfilled ${norm.localityBackfilled}, addressRegion defaulted ${norm.regionDefaulted}, url absolutized ${norm.urlNormalized}`);
+  if (norm.locationFixed > 0 || norm.localityBackfilled > 0 || norm.regionDefaulted > 0 || norm.urlNormalized > 0 || norm.applyUrlBackfilled > 0) {
+    console.log(`  🧭 Upstream normalize: location cleaned ${norm.locationFixed}, addressLocality backfilled ${norm.localityBackfilled}, addressRegion defaulted ${norm.regionDefaulted}, url absolutized ${norm.urlNormalized}, applyUrl backfilled ${norm.applyUrlBackfilled}`);
   }
 
   // Quality gate: flag jobs where any locale has content in the wrong language.
@@ -2342,6 +2393,7 @@ export function writeSummaryCrawlerSlice(summaryEntry) {
   const HEAVY_FIELDS = ['descriptionByLocale', 'titleByLocale', 'slugByLocale', 'description', 'baseSalary', 'previousSlugs', 'previousSlugsByLocale', 'requirementsByLocale', 'requirements'];
   const stripJob = (job) => {
     if (!job || typeof job !== 'object') return job;
+    backfillApplyUrlFromDetail(job);
     // Compute quality score while full data is still available
     if (computeJobQualityScore) {
       try {
@@ -2425,6 +2477,20 @@ async function assembleJobs() {
   }
 
   if (slices.length === 0) return null;
+
+  // Existing slices may have been written by a producer before the shared
+  // handoff contract was hardened. Repair only source-backed detail URLs at
+  // assembly too, so a deploy does not keep publishing a broken apply CTA
+  // until that crawler happens to run again.
+  let assembledApplyUrlBackfilled = 0;
+  for (const slice of slices) {
+    for (const job of slice.jobs) {
+      if (backfillApplyUrlFromDetail(job)) assembledApplyUrlBackfilled++;
+    }
+  }
+  if (assembledApplyUrlBackfilled > 0) {
+    console.log(`  🔗 Assembly handoff normalize: applyUrl backfilled ${assembledApplyUrlBackfilled}`);
+  }
 
   // Collect the set of crawlerKeys that have been migrated
   const migratedKeys = new Set(slices.map((s) => s.crawlerKey).filter(Boolean));
@@ -2934,6 +3000,19 @@ function assembleSummaries() {
       malformedSummary.map((m) => `  - ${m}`).join('\n') +
       `\nResolve before re-running.`,
     );
+  }
+
+  let assembledSummaryApplyUrlBackfilled = 0;
+  for (const entry of sliceEntries) {
+    for (const listKey of ['newJobs', 'updatedJobs', 'removedJobs', 'unchangedJobs']) {
+      if (!Array.isArray(entry[listKey])) continue;
+      for (const job of entry[listKey]) {
+        if (backfillApplyUrlFromDetail(job)) assembledSummaryApplyUrlBackfilled++;
+      }
+    }
+  }
+  if (assembledSummaryApplyUrlBackfilled > 0) {
+    console.log(`  🔗 Summary handoff normalize: applyUrl backfilled ${assembledSummaryApplyUrlBackfilled}`);
   }
 
   // Merge with existing global summaries: slice entries take precedence over

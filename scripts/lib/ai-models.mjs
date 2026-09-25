@@ -123,13 +123,11 @@ export const AI_MODELS = Object.freeze({
   // Gemma models use the same Gemini API endpoint — 14,400 req/day each!
   GEMINI_FLASH:     'gemini-2.5-flash',
   GEMINI_PRO:       'gemini-2.5-pro',
-  // gemini-2.0-flash e' RITIRATO: l'API risponde HTTP 404 "This model models/gemini-2.0-flash is
-  //                       no longer available" (2026-08-14, run 31823202761, 8 hit). Resta in
-  //                       roster di proposito: dal fix al matcher del 404 qui sotto viene marcato
-  //                       esaurito al PRIMO 404 e non piu' richiamato per il resto della run.
-  //                       Curare il roster a mano e' cio' che ha gia' fallito una volta (vedi
-  //                       GEMINI_31_FLASH_LITE piu' sotto): la lista rimarcisce, il matcher no.
-  GEMINI_2_FLASH:   'gemini-2.0-flash',
+  // GEMINI_2_FLASH removed — Gemini API HTTP 404 "This model models/gemini-2.0-flash is no longer
+  //                       available" (2026-08-14, run 31823202761; ancora 404 il 2026-09-24, run
+  //                       35995800618). Il matcher del 404 (classifyNonRetryableError) resta la rete di sicurezza per il prossimo
+  //                       ritiro; tenerlo in roster serviva solo a tenere verde un test non
+  //                       ermetico (tests/local-llm-fallback.test.ts, ora isolato dallo ScoreStore).
   GEMINI_FLASH_LITE:'gemini-2.5-flash-lite',
   // Gemma models via Gemini API — 14,400 req/day each!
   GEMMA_4_31B:      'gemma-4-31b-it',
@@ -142,9 +140,8 @@ export const AI_MODELS = Object.freeze({
   //                       OR_GEMMA_3_12B / CF_GEMMA_3_12B remain available.
   // New Gemini 3.x models (preview)
   GEMINI_3_FLASH:   'gemini-3-flash-preview',
-  // gemini-3-pro-preview e' RITIRATO (HTTP 404 "no longer available", 2026-08-14, 4 hit). Stessa
-  //                       nota di GEMINI_2_FLASH sopra: se ne occupa il matcher, non la lista.
-  GEMINI_3_PRO:     'gemini-3-pro-preview',
+  // GEMINI_3_PRO removed — Gemini API HTTP 404 "models/gemini-3-pro-preview is no longer available"
+  //                       (2026-08-14; ancora 404 il 2026-09-24, run 35995800618). Stessa nota di GEMINI_2_FLASH sopra.
   // GEMINI_31_FLASH_LITE removed — Gemini API HTTP 404 "models/gemini-3.1-flash-lite-preview is no longer available" (2026-05-27, run 26534353239).
   //                       The GA replacement `gemini-3.1-flash-lite` is exposed below as GEMINI_31_FLASH_LITE_GA and stays in the chain.
   GEMINI_31_PRO:    'gemini-3.1-pro-preview',
@@ -153,9 +150,8 @@ export const AI_MODELS = Object.freeze({
   GEMINI_FLASH_LATEST:        'gemini-flash-latest',
   GEMINI_FLASH_LITE_LATEST:   'gemini-flash-lite-latest',
   GEMINI_PRO_LATEST:          'gemini-pro-latest',
-  // gemini-2.0-flash-lite e' RITIRATO (HTTP 404 "no longer available", 2026-08-14, 10 hit — il
-  //                       fallimento piu' frequente di quella run). Stessa nota.
-  GEMINI_2_FLASH_LITE:        'gemini-2.0-flash-lite',
+  // GEMINI_2_FLASH_LITE removed — Gemini API HTTP 404 "no longer available" (2026-08-14; ancora
+  //                       404 il 2026-09-24, run 35995800618). Stessa nota di GEMINI_2_FLASH sopra.
   GEMINI_31_FLASH_LITE_GA:    'gemini-3.1-flash-lite',
 
   // ── Groq (OpenAI-compatible, ultra-fast inference) ──
@@ -244,15 +240,14 @@ export const AI_MODELS = Object.freeze({
   // ── NVIDIA NIM (OpenAI-compatible, free tier inference) ──
   // NV_NEMOTRON_70B removed — NVIDIA NIM HTTP 404 "Not Found for account" (2026-06-15, run 27544487773). No longer served on this NVIDIA account; was already out of DEFAULT_CHAIN (see "NV_NEMOTRON_70B removed" comment in the chain). The bare-"nemotron" token in NVIDIA_ALLOW_FAMILY_RE was re-injecting it via discovery, so a dead static id here is moot, but removing it keeps the catalog honest.
   // NV_NEMOTRON_49B removed — NVIDIA NIM HTTP 404 "Not Found for account" (2026-06-15, run 27544487773). No longer served on this NVIDIA account. Dropped from DEFAULT_CHAIN in the same change.
-  NV_LLAMA_3_1_8B:   'nvidia/meta/llama-3.1-8b-instruct',
+  // NV_LLAMA_3_1_8B removed — NVIDIA NIM HTTP 410 "The model 'meta/llama-3.1-8b-instruct' has reached its end of life on 2026-08-26" (2026-09-24, run 35995800618). NVIDIA ha markStale OFF, quindi l'id statico restava in catena.
   // NV_PHI_3_MINI removed — NVIDIA NIM HTTP 404 "404 page not found" (2026-05-18)
   // NV_MISTRAL_SM_4 / NV_NEMOTRON_NANO_9B added — verified translating de↔it 2026-06-15 via
   // live integrate.api.nvidia.com calls (replacements for the NV_NEMOTRON_70B/49B that 404'd
   // on this account in #2196). Neither matches NVIDIA_ALLOW_FAMILY_RE (no nemotron-at-slash /
   // llama-3.x token), so dynamic discovery does NOT auto-inject them — the static pin is
   // genuinely additive and survives a discovery timeout/outage. NVIDIA NIM = free tier.
-  NV_MISTRAL_SM_4:      'nvidia/mistralai/mistral-small-4-119b-2603',     // API: mistralai/mistral-small-4-119b-2603 — fast (<1s), clean it/de
-  NV_NEMOTRON_NANO_9B:  'nvidia/nvidia/nvidia-nemotron-nano-9b-v2',       // API: nvidia/nvidia-nemotron-nano-9b-v2 — correct it/de, slower (~29s)
+  // NV_MISTRAL_SM_4 / NV_NEMOTRON_NANO_9B removed — NVIDIA NIM HTTP 410 "has reached its end of life" (2026-09-24, run 35995800618).
   HF_MISTRAL_7B:   'hf/mistralai/Mistral-7B-Instruct-v0.3',
   HF_ZEPHYR_7B:    'hf/HuggingFaceH4/zephyr-7b-beta',
   HF_LLAMA_3_3_70B:'hf/meta-llama/Llama-3.3-70B-Instruct',
@@ -413,7 +408,7 @@ export const DEFAULT_CHAIN = [
   // AI_MODELS.GPT_5 removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
   AI_MODELS.LLAMA_4_MAVERICK,   // 4.  Meta Llama 4 flagship  (GitHub Models)
   AI_MODELS.GEMINI_FLASH,       // 5.  Google fast            (Gemini API free)
-  AI_MODELS.GEMINI_3_PRO,       // 5b. Gemini 3 Pro preview   (ritirato — vedi nota su AI_MODELS)
+  // AI_MODELS.GEMINI_3_PRO removed — Gemini API HTTP 404 "no longer available" (2026-09-24, run 35995800618)
   AI_MODELS.GEMINI_3_FLASH,     // 5c. Gemini 3 Flash preview (Gemini API free)
   // AI_MODELS.O3 removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
   // AI_MODELS.GROK_3 removed — GitHub Models HTTP 400 "unknown_model: grok-3" (2026-05-18)
@@ -447,7 +442,7 @@ export const DEFAULT_CHAIN = [
   // SN_LLAMA_3_3_70B removed — SambaNova HTTP 402 PAYMENT_METHOD_REQUIRED (2026-04)
   // AI_MODELS.O1 removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
   // AI_MODELS.LLAMA_3_2_90B removed chain — GitHub Models HTTP 400 "unknown_model: Llama-3.2-90B-Vision-Instruct" (2026-07-05, confirmed retired live, 12x in 30-run sample)
-  AI_MODELS.GEMINI_2_FLASH,     // 25. Google 2.0 flash       (ritirato — vedi nota su AI_MODELS)
+  // AI_MODELS.GEMINI_2_FLASH removed — Gemini API HTTP 404 "no longer available" (2026-09-24, run 35995800618)
   // AI_MODELS.GEMINI_31_FLASH_LITE removed — Gemini API HTTP 404 "models/gemini-3.1-flash-lite-preview is no longer available" (2026-05-27, run 26534353239).
   //                                 The deprecated preview kept winning the fallback selector because 404 didn't mark it exhausted, causing the
   //                                 entire blog-generator workflow to fail with 50+ retries against the dead endpoint. The GA non-preview model
@@ -523,9 +518,7 @@ export const DEFAULT_CHAIN = [
   // NV_NEMOTRON_70B removed — NVIDIA NIM HTTP 404 (model not found 2026-03)
   AI_MODELS.CF_GLM_47_FLASH,    // 69. GLM 4.7 Flash           (Cloudflare Workers AI)
   // NV_NEMOTRON_49B removed — NVIDIA NIM HTTP 404 "Not Found for account" (2026-06-15, run 27544487773); no longer served on this NVIDIA account
-  AI_MODELS.NV_LLAMA_3_1_8B,    // 71. Llama 3.1 8B           (NVIDIA NIM)
-  AI_MODELS.NV_MISTRAL_SM_4,     // 71b. Mistral Small 4 119B  (NVIDIA NIM — added, verified translating it↔de 2026-06-15; fast <1s)
-  AI_MODELS.NV_NEMOTRON_NANO_9B, // 71c. Nemotron Nano 9B v2   (NVIDIA NIM — added, verified translating it↔de 2026-06-15; slower ~29s)
+  // AI_MODELS.NV_LLAMA_3_1_8B / NV_MISTRAL_SM_4 / NV_NEMOTRON_NANO_9B removed — NVIDIA NIM HTTP 410 "has reached its end of life on 2026-08-26" (2026-09-24, run 35995800618)
   // AI_MODELS.NV_PHI_3_MINI removed — NVIDIA NIM HTTP 404 "404 page not found" (2026-05-18)
   // AI_MODELS.CF_DEEPSEEK_R1_32B removed — Cloudflare HTTP 400 "No such model @cf/deepseek/deepseek-r1-distill-qwen-32b" (2026-05-18)
   // CF_GRANITE_4_MICRO removed — "No such model @cf/ibm/granite-4.0-h-micro" (2026-04)
@@ -591,7 +584,7 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.GEMINI_FLASH_LATEST,        // alias → today's stable flash
   AI_MODELS.GEMINI_FLASH_LITE_LATEST,   // alias → today's stable flash-lite
   AI_MODELS.GEMINI_PRO_LATEST,          // alias → today's stable pro
-  AI_MODELS.GEMINI_2_FLASH_LITE,        // Gemini 2.0 flash lite (ritirato — vedi nota su AI_MODELS)
+  // AI_MODELS.GEMINI_2_FLASH_LITE removed — Gemini API HTTP 404 "no longer available" (2026-09-24, run 35995800618)
   AI_MODELS.GEMINI_31_FLASH_LITE_GA,    // Gemini 3.1 flash lite GA (non-preview)
   // Groq compound full (not just mini)
   AI_MODELS.GROQ_COMPOUND_FULL,
@@ -845,7 +838,15 @@ async function _getGitHubModelsCatalog(apiKey, timeout) {
     try {
       parsed = JSON.parse(raw);
     } catch {
-      throw _githubModelsCatalogTransportError('JSON non valido');
+      // Tipo e inizio del corpo nel messaggio: dal 2026-09 il catalogo risponde
+      // 200 `text/plain` "OK" a ogni PAT (e l'host fa lo stesso su qualunque
+      // path), e "JSON non valido" da solo non lo lasciava vedere nei log.
+      const contentType = res.headers?.get?.('content-type') || 'n/d';
+      // `|` separa le cause nel riepilogo `Errors:` di callLLM: non va nel corpo.
+      const preview = raw.replace(/\s+/g, ' ').replace(/\|/g, '/').trim().slice(0, 40);
+      throw _githubModelsCatalogTransportError(
+        `JSON non valido (HTTP ${res.status}, content-type ${contentType}, corpo "${preview}")`,
+      );
     }
     const hasCatalogArray = Array.isArray(parsed)
       || ['models', 'data', 'items'].some((key) => Array.isArray(parsed?.[key]));
@@ -934,16 +935,45 @@ function getOmniRouteUrl() { return (process.env.OMNIROUTE_URL || OMNIROUTE_DEFA
 // key, so keep a sentinel, same pattern as Local/getLocalLlmApiKey.
 function getOmniRouteApiKey() { return (process.env.OMNIROUTE_API_KEY || 'omniroute-no-key').trim(); }
 
-// ── Claude CLI Haiku fallback (opt-in via RC, absolute last resort) ──
-// ENABLE_HAIKU_ARTICLE_FALLBACK is loaded from Firebase Remote Config by
-// load-rc-env.mjs (default unset → OFF). Gated on BOTH the flag and the OAuth
-// token so a flag flipped on without the workflow secret wired doesn't attempt
-// (and fail) every run.
+// ── Claude CLI Haiku fallback: SPENTO nel codice ──
+// Decisione del proprietario (2026-09-24, «Disattiva haiku! Voglio solo
+// codex»): la lane Claude Haiku e' spenta qui, non solo dal kill-switch di
+// Remote Config. ENABLE_HAIKU_ARTICLE_FALLBACK non ha piu' alcun effetto in
+// produzione: non rende disponibile `claude-cli/haiku` e non apre ne' chiude
+// Codex, che ha il suo interruttore (isCodexArticleLaneSwitchOn qui sotto).
+// Con questa funzione a false getApiKeyForProvider(CLAUDE_CLI)
+// e' vuota, quindi isModelAvailable e la cascata di callLLM lo saltano anche se
+// arriva da `prefer`, `AI_MODELS_PREFER`, `model` o `chain`. Stessa regola del
+// gemello in frontaliere-articles (generator/scripts/lib/ai-models.mjs), cosi'
+// un trasporto sito→corpus non puo' riaccenderla.
+//
+// L'unica eccezione e' il seam di test qui sotto: i test della macchina
+// claude-cli (stream-json, timeout, cap di chiamate, fallback indiretto a
+// Codex) la esercitano attraverso callLLM, che passa da questa funzione. Il
+// seam non legge env ne' Remote Config, resetState() lo rispegne, e
+// tests/scripts/ai-models-haiku-lane-disabled.test.ts verifica che nessun file
+// fuori da tests/ lo chiami.
+let _claudeCliLaneEnabledForTests = false;
+export function __enableClaudeCliLaneForTests(enabled = true) {
+  _claudeCliLaneEnabledForTests = enabled === true;
+}
 function isClaudeCliFallbackEnabled() {
-  return /^(1|true|yes|on)$/i.test((process.env.ENABLE_HAIKU_ARTICLE_FALLBACK || '').trim());
+  return _claudeCliLaneEnabledForTests
+    && /^(1|true|yes|on)$/i.test((process.env.ENABLE_HAIKU_ARTICLE_FALLBACK || '').trim());
+}
+// L'interruttore della lane Codex Luna Max e' SOLO ENABLE_CODEX_ARTICLE_FALLBACK
+// (mappato in load-rc-env.mjs, acceso quando non e' impostato: lo spegne solo
+// un valore esplicito 0/false/no/off), piu' il socket del broker che la setup
+// action pubblica quando CODEX_AUTH_JSON c'e' e il broker e' pronto. Fino al
+// 2026-09-24 il gate dell'action ricadeva su ENABLE_HAIKU_ARTICLE_FALLBACK:
+// spegnere Haiku da Remote Config avrebbe spento anche Codex. Stessa regola del
+// bash del gate in setup-claude-haiku-fallback/action.yml e del gemello corpus.
+const CODEX_ARTICLE_LANE_OFF_RE = /^(0|false|no|off)$/i;
+function isCodexArticleLaneSwitchOn() {
+  return !CODEX_ARTICLE_LANE_OFF_RE.test((process.env.ENABLE_CODEX_ARTICLE_FALLBACK || '').trim());
 }
 function isCodexCliPrimaryEnabled() {
-  return /^(1|true|yes|on)$/i.test((process.env.ENABLE_CODEX_ARTICLE_FALLBACK || '').trim())
+  return isCodexArticleLaneSwitchOn()
     && !!String(process.env.CODEX_AUTH_BROKER_SOCKET || '').trim();
 }
 function hasClaudeCodeOauthToken() {
@@ -1545,7 +1575,7 @@ function getZaiApiKey()      { return (process.env.ZAI_API_KEY || process.env.ZH
  * - `codestral/*` → Mistral Codestral (separate endpoint, 2000 req/day)
  * - Everything else → GitHub Models (GPT, Llama, Mistral, Cohere, Phi — all free)
  */
-function getProvider(model) {
+export function getProvider(model) {
   if (model.startsWith('groq/'))        return PROVIDER.GROQ;
   if (model.startsWith('openrouter/'))  return PROVIDER.OPENROUTER;
   if (model.startsWith('gemini-') || model.startsWith('gemma-')) return PROVIDER.GEMINI;
@@ -1637,8 +1667,9 @@ function getApiKeyForProvider(provider) {
     // for each request in the current job.
     case PROVIDER.CODEX_CLI:   return isCodexCliPrimaryEnabled() ? 'codex-cli-no-key' : '';
     // No real key — auth is the CLAUDE_CODE_OAUTH_TOKEN env var, read directly
-    // by the `claude` CLI subprocess. Gate on RC flag + token presence so the
-    // chain only offers this model when both are actually usable. Mirrors Local.
+    // by the `claude` CLI subprocess. Spenta dal proprietario il 2026-09-24:
+    // isClaudeCliFallbackEnabled() e' false, quindi questa voce e' sempre ''
+    // e ogni claude-cli/* viene saltato con «no API key», flag e token o no.
     case PROVIDER.CLAUDE_CLI:  return (!_claudeCliBinaryMissing && !_claudeCliTimeoutStormDetected && isClaudeCliFallbackEnabled() && hasClaudeCodeOauthToken()) ? 'claude-cli-no-key' : '';
     // OmniRoute needs no real key from us either; gate purely on the opt-in
     // flag, same sentinel pattern as Local. '' when disabled → every
@@ -4304,6 +4335,7 @@ export function resetState() {
   _claudeCliMaxCallsWarned = false;
   _responseCache.clear();
   _claudeCliBinaryMissing = false;
+  _claudeCliLaneEnabledForTests = false;
   _claudeCliConsecutiveTimeouts = 0;
   _claudeCliTimeoutStormDetected = false;
   _omniRouteConsecutiveFailures = 0;
@@ -4484,9 +4516,11 @@ export function classifyNonRetryableError(status, bodyText = '', providerName = 
   // is 'quota'. An endpoint that comes back to life is therefore picked up again
   // on the next run (~17 minutes at the measured cadence); this particular one
   // will not come back, but that is the property that keeps the rule cheap.
-  // Silencing is NOT removal: no model leaves the roster, the score ledger or
-  // the tally (constraint from nanako#380 — removing them turns
-  // tests/local-llm-fallback.test.ts deterministically red, nanako#362). One
+  // Silencing is NOT removal: the matcher never takes a model out of the roster,
+  // the score ledger or the tally (nanako#380). Removal is a separate, manual
+  // step once the smoke-test confirms the retirement (see GEMINI_2_FLASH); the
+  // nanako#362 blocker — tests/local-llm-fallback.test.ts reading the production
+  // ScoreStore — is gone since that suite installs an in-memory store. One
   // side effect worth knowing: recordModelFailure applies SCORE_NON_RETRYABLE
   // once per failed CALL, so a dead endpoint now sinks in the ledger 16x slower
   // than it did while it was being re-called 32 times a run.
@@ -6967,6 +7001,10 @@ export async function callSingleModel(messages, opts = {}) {
  * @param {object} opts — Options (same as callSingleModel, plus `chain`)
  * @param {string} [opts.model] — Starting model (overrides chain start)
  * @param {string[]} [opts.chain] — Custom fallback chain
+ * @param {string[]} [opts.excludeModels] — Models to leave out of THIS call's
+ *   chain (after sort and preference), e.g. the model whose HTTP-200 answer the
+ *   caller just rejected. Ignored under AI_MODELS_FORCE_CHAIN and when it would
+ *   leave the chain empty; disables the response cache for the call.
  * @returns {Promise<string>} — Text content from whichever model succeeded
  */
 export async function callLLM(messages, opts = {}) {
@@ -6981,7 +7019,12 @@ export async function callLLM(messages, opts = {}) {
   // (e.g. fact-check re-checking an unchanged article body across regeneration
   // attempts). A hit avoids the entire fallback cascade — the dominant intra-run
   // burn — at zero risk, since the key includes the full prompt + model + params.
-  const _cacheOn = o.cache === true;
+  // Una chiamata che esclude dei modelli sta ritentando DOPO aver rigettato una
+  // risposta: rispondere dalla cache potrebbe restituire proprio quella.
+  const _excludedModels = Array.isArray(o.excludeModels)
+    ? [...new Set(o.excludeModels.filter((m) => typeof m === 'string' && m))]
+    : [];
+  const _cacheOn = o.cache === true && _excludedModels.length === 0;
   let _cacheKey = null;
   if (_cacheOn) {
     _cacheKey = _responseCacheKey(messages, o);
@@ -7039,6 +7082,15 @@ export async function callLLM(messages, opts = {}) {
     // `opts.prefer` o sull'opt-in esplicito `AI_MODELS_PREFER` — mai da un
     // default, che e' vuoto. Vedi il blocco di commento su applyModelsPrefer.
     chain = applyModelsPrefer(chain, o.prefer);
+    // Esclusione per-chiamata, DOPO sort e preferenza: un chiamante che ha
+    // appena rigettato la risposta HTTP 200 di un modello (selezione headline:
+    // prosa di ragionamento invece del JSON) ritenta sugli altri, invece di
+    // tornare sullo stesso che il tasso di successo storico rimette primo.
+    // Non tronca a vuoto: se toglierebbe tutto, la catena resta com'era.
+    if (_excludedModels.length) {
+      const remaining = chain.filter((m) => !_excludedModels.includes(m));
+      if (remaining.length) chain = remaining;
+    }
   }
 
   const errors = [];

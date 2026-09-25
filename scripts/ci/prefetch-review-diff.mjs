@@ -40,6 +40,42 @@ export function changedNames({ base, head, exclusions, cwd = process.cwd() }) {
 }
 
 /**
+ * Files whose PR contribution may have changed since `reviewedFrom`.
+ *
+ * A contribution is the pair (base content, head content). `reviewedFrom..head`
+ * sees only the head side; after a rebase or a `merge origin/main` the base side
+ * moves too, and a file kept byte-identical to the reviewed copy then changes
+ * meaning: the PR silently reverts what `main` did to it (issue #9321,
+ * FU-2026-09-20-030). The reviewed base is the merge-base of `reviewedFrom` with
+ * the current PR base; the files `main` moved between the two are added. `main()`
+ * asks GitHub for it (a force-pushed `reviewedFrom` is fetched shallow, so a
+ * local `git merge-base` cannot see its parents); otherwise it is computed here.
+ * When that base cannot be located (unrelated or missing history) convergence is
+ * unprovable, so the caller gets `null` and reviews the whole contribution
+ * instead of a possibly partial delta.
+ */
+export function movedSinceReview({
+  base, head, reviewedFrom, exclusions, reviewedBase = null, cwd = process.cwd(),
+}) {
+  sha(base); sha(head); sha(reviewedFrom);
+  // `sha()` returns the value it validated, so both branches bind a checked SHA.
+  if (reviewedBase) {
+    reviewedBase = sha(reviewedBase);
+  } else {
+    try {
+      reviewedBase = sha(run(gitCommand(), ['merge-base', reviewedFrom, base], { cwd, stdio: ['ignore', 'pipe', 'pipe'] }).trim());
+    } catch {
+      return null;
+    }
+  }
+  const moved = new Set(changedNames({ base: reviewedFrom, head, exclusions, cwd }));
+  if (reviewedBase !== base) {
+    for (const name of changedNames({ base: reviewedBase, head: base, exclusions, cwd })) moved.add(name);
+  }
+  return moved;
+}
+
+/**
  * `base` MUST be the PR's own merge-base, never a previous head. An incremental
  * review then narrows that same patch to the files whose contribution moved
  * since `reviewedFrom`, so the delta can only ever contain PR-owned content.
@@ -53,12 +89,13 @@ export function changedNames({ base, head, exclusions, cwd = process.cwd() }) {
  * flagged as a finding against it (issue #9189).
  */
 export function writeReviewDiff({
-  base, head, directory, exclusions, incremental = false, reviewedFrom = null, cwd = process.cwd(),
+  base, head, directory, exclusions, incremental = false, reviewedFrom = null, reviewedBase = null,
+  cwd = process.cwd(),
 }) {
   sha(base); sha(head);
   const owned = changedNames({ base, head, exclusions, cwd });
   const moved = reviewedFrom
-    ? new Set(changedNames({ base: sha(reviewedFrom), head, exclusions, cwd }))
+    ? movedSinceReview({ base, head, reviewedFrom, exclusions, reviewedBase, cwd }) ?? new Set(owned)
     : null;
   const names = moved ? owned.filter(name => moved.has(name)) : owned;
   // A restricted patch is addressed by explicit pathspecs. An EMPTY restriction
@@ -100,7 +137,16 @@ export function main(env = process.env, { api: injectedApi, cwd = process.cwd() 
   // touched. Used only to NARROW the PR-anchored patch above, never to anchor
   // it, so the foreign files it also names are filtered out by the intersection.
   const reviewedFrom = incremental ? sha(env.INCREMENTAL_BASE) : null;
-  for (const commit of new Set([mergeBase, ...(reviewedFrom ? [reviewedFrom] : []), head])) {
+  // Where the reviewed contribution was anchored. Best effort: without it the
+  // local merge-base is tried, and failing that the whole contribution is
+  // reviewed — never a narrower delta.
+  let reviewedBase = null;
+  if (reviewedFrom) {
+    try {
+      reviewedBase = sha(JSON.parse(api(`repos/${repo}/compare/${mergeBase}...${reviewedFrom}`)).merge_base_commit.sha);
+    } catch { reviewedBase = null; }
+  }
+  for (const commit of new Set([mergeBase, ...(reviewedFrom ? [reviewedFrom] : []), ...(reviewedBase ? [reviewedBase] : []), head])) {
     try { run(gitCommand(), ['cat-file', '-e', `${commit}^{commit}`], { stdio: 'pipe', cwd }); }
     catch {
       run(gitCommand(), ['fetch', '--no-tags', '--filter=blob:none', '--depth=1', 'origin', commit], { stdio: 'inherit', cwd });
@@ -109,7 +155,7 @@ export function main(env = process.env, { api: injectedApi, cwd = process.cwd() 
   const exclusions = (env.REVIEW_DIFF_EXCLUSIONS ?? '').split(',').filter(Boolean);
   if (!exclusions.length || exclusions.some(path => !/^[\w-]+$/.test(path))) throw new Error('Invalid diff exclusions');
   const names = writeReviewDiff({
-    base: mergeBase, head, directory: env.CTX_DIR, exclusions, incremental, reviewedFrom, cwd,
+    base: mergeBase, head, directory: env.CTX_DIR, exclusions, incremental, reviewedFrom, reviewedBase, cwd,
   });
   console.log(`Complete review diff prepared before sandbox: ${names.length} files (${mergeBase}..${head}`
     + `${reviewedFrom ? `, narrowed to what moved since ${reviewedFrom}` : ''}).`);
