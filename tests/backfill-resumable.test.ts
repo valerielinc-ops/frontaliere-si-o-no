@@ -23,6 +23,7 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(block).toContain(`if: ${gate}`);
     expect(block).toContain('BACKFILL_CHECKPOINT_BATCH_SIZE');
     expect(block).toContain("BACKFILL_CHECKPOINT_BATCH_SIZE: '16'");
+    expect(workflow).toContain("APPROVAL_TRUSTED_RESUMABLE_RERUN: 'true'");
     expect(block).toContain('CRAWLER_KEYS="$key" node scripts/backfill-expired-from-history.mjs');
     expect(block).toContain('trap on_exit EXIT');
     expect(block).toContain("trap 'on_signal 143' TERM");

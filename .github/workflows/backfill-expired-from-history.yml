@@ -131,9 +131,15 @@ jobs:
           # Questa riga ABILITA SCRITTURE SU `main` DA CRON: il percorso di
           # questo workflow fa `git-commit-data.sh --slice-only` con push
           # diretto su main e poi `trigger-deploy.sh`. Il gate resta comunque
-          # l'unico cancello (run_attempt == 1, nonce monouso, e `dry_run`
-          # continua a valere sul dispatch manuale).
+          # l'unico cancello: primo tentativo con nonce monouso, oppure il
+          # rerun bounded esplicitamente autorizzato qui sotto; `dry_run`
+          # continua a valere sul dispatch manuale.
           APPROVAL_TRUSTED_SCHEDULE: 'true'
+          # Recovery uses GitHub's rerun API so the original dispatch inputs and
+          # ref are preserved. The shared gate normally rejects every rerun;
+          # this workflow is the sole bounded exception, still requiring the
+          # original human_approval=true and dry_run=false inputs.
+          APPROVAL_TRUSTED_RESUMABLE_RERUN: 'true'
           APPROVAL_SCOPE: backfill-expired-from-history
         run: node scripts/ci/human-side-effect-gate.mjs
 
