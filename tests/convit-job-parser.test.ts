@@ -19,6 +19,7 @@ import {
 function careersPageDetailHtml({
   title = 'Consulente previdenziale',
   location = 'Biasca',
+  jsonLdLocation = location,
   descriptionHtml = '',
   jsonLdDescription = '',
   datePosted = '2026-01-15',
@@ -27,6 +28,7 @@ function careersPageDetailHtml({
   location?: string;
   descriptionHtml?: string;
   jsonLdDescription?: string;
+  jsonLdLocation?: string;
   datePosted?: string;
 } = {}) {
   const jsonLd = jsonLdDescription
@@ -37,7 +39,7 @@ function careersPageDetailHtml({
   "title": "${title}",
   "description": ${JSON.stringify(jsonLdDescription)},
   "datePosted": "${datePosted}",
-  "jobLocation": { "address": { "addressLocality": "${location}", "addressCountry": "CH" } }
+  "jobLocation": { "address": { "addressLocality": "${jsonLdLocation}", "addressCountry": "CH" } }
 }
 </script>`
     : '';
@@ -114,6 +116,17 @@ const CONVIT_JSONLD_HTML = careersPageDetailHtml({
 // ─── Tests ────────────────────────────────────────────────────────────────────
 
 describe('convit-job-parser / parseConvitDetailPage', () => {
+  it('normalizes a street-address location to its source-backed municipality', () => {
+    const html = careersPageDetailHtml({
+      location: 'Via al Mulino 22a, 6814 Cadempino',
+      jsonLdLocation: 'Via al Mulino 22a, 6814 Cadempino',
+      descriptionHtml: CONVIT_VECCHIAIA_DESC_HTML,
+    });
+    const result = parseConvitDetailPage(html, '');
+
+    expect(result.location).toBe('Cadempino');
+  });
+
   describe('regression: no JSON-LD, description only in DOM (7X4V6XR5 style)', () => {
     const result = parseConvitDetailPage(CONVIT_VECCHIAIA_HTML, 'fallback title');
 
@@ -250,6 +263,18 @@ describe('convit-job-parser / buildConvitLocalizedContent', () => {
       description: 'Analisi di portafogli previdenziali e consulenza 3a/3b.',
     });
     expect(result.descriptionByLocale.it).toContain('Analisi di portafogli');
+  });
+
+  it('removes the duplicated country/canton marker from the source description', () => {
+    const result = buildConvitLocalizedContent({
+      title: 'Consulente finanziario',
+      location: 'Agno',
+      canton: 'TI',
+      description: 'Profilo del ruolo. Sede: Agno, Svizzera (TI) · Homeoffice possibile.',
+    });
+
+    expect(result.descriptionByLocale.it).toContain('Sede: Agno ·');
+    expect(result.descriptionByLocale.it).not.toContain('Agno, Svizzera (TI)');
   });
 
   it('falls back to generated description when job description is empty', () => {

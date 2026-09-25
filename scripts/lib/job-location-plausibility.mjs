@@ -60,6 +60,24 @@ export function implausibilityReasons(city) {
 const REGION_QUALIFIER_COUNTRY = 'CH|CHE|Switzerland|Schweiz|Suisse|Svizzera';
 const REGION_QUALIFIER_LABEL = '(?:Kanton|canton|Canton|Cantone|Kt\\.?)?';
 
+function locationRegionPattern(location, canton) {
+  return new RegExp(
+    `${escapeRegExpLiteral(location)}\\s*[,(/-]\\s*(?:${REGION_QUALIFIER_COUNTRY})\\s*[,(/-]\\s*${REGION_QUALIFIER_LABEL}\\s*${escapeRegExpLiteral(canton)}\\b(?:\\s*\\))?`,
+    'gi',
+  );
+}
+
+/**
+ * Remove the exact country/canton marker that the location audit detects in a
+ * description, while preserving the source municipality. This is deliberately
+ * the same pattern used by `descriptionRepeatsRegion`: a crawler can clean a
+ * marker only when the audit would have identified that marker as a duplicate.
+ */
+export function stripLocationRegionMarkers(description = '', location = '', canton = '') {
+  if (!description || !location || !canton) return String(description || '');
+  return String(description).replace(locationRegionPattern(location, canton), location);
+}
+
 
 /**
  * The evidence string when a job's DESCRIPTION names the place, then the
@@ -94,13 +112,10 @@ export function descriptionRepeatsRegion(job, location, canton) {
     .filter(Boolean)
     .map(String);
   if (!texts.length) return null;
-  const re = new RegExp(
-    `${escapeRegExpLiteral(location)}\\s*[,(/-]\\s*(?:${REGION_QUALIFIER_COUNTRY})\\s*[,(/-]\\s*${REGION_QUALIFIER_LABEL}\\s*${escapeRegExpLiteral(canton)}\\b`,
-    'i',
-  );
+  const re = locationRegionPattern(location, canton);
   for (const text of texts) {
     const match = re.exec(text);
-    if (match) return match[0].replace(/\s+/g, ' ');
+    if (match) return match[0].replace(/\s+/g, ' ').replace(/\s*\)$/, '');
   }
   return null;
 }

@@ -13,8 +13,13 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  */
 
 import { JSDOM } from 'jsdom';
-import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
+import {
+  isTargetSwissLocation,
+  inferAnyCanton,
+  swissCityFromLocationField,
+} from './target-swiss-locations.mjs';
 import { getCompanyDefaults, getCantonDisplayName } from './crawler-location-config.mjs';
+import { stripLocationRegionMarkers } from './job-location-plausibility.mjs';
 
 const HQ = getCompanyDefaults('convit');
 
@@ -155,9 +160,15 @@ export function parseConvitDetailPage(html = '', fallbackTitle = '') {
     location = normalizeSpace(
       [addr.addressLocality, addr.addressRegion, addr.addressCountry]
         .filter(Boolean)
-        .join(', '),
+      .join(', '),
     );
   }
+  // Careers-page occasionally exposes the registered street address in both
+  // HTML and JSON-LD (for example "Via al Mulino 22a, 6814 Cadempino"). The
+  // location field must remain a municipality for structured data and SEO;
+  // use the shared field resolver so decorated city values stay source-backed.
+  const cityLocation = swissCityFromLocationField(location);
+  if (cityLocation) location = cityLocation;
 
   // Description: prefer JSON-LD when full-length; fall back to DOM extraction
   const jsonLdDesc = stripHtml(jsonLd?.description || '');
@@ -184,7 +195,11 @@ export function buildConvitLocalizedContent(job = {}) {
   const regionLabelFr = getCantonDisplayName(canton, 'fr') || canton || 'Suisse';
   const defaultCity = regionLabel;
   const location = String(job.location || '').trim() || defaultCity;
-  const description = String(job.description || '').trim();
+  const description = stripLocationRegionMarkers(
+    String(job.description || '').trim(),
+    location,
+    canton,
+  );
 
   const itDesc = description
     || `Convit Holding GmbH ha aperto una selezione per il ruolo ${title} con sede a ${location}. Consulenza finanziaria e previdenziale in ${regionLabel}. Per candidarti utilizza il modulo ufficiale nella pagina Convit.`;

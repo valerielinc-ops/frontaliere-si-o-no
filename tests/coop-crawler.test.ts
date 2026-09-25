@@ -832,6 +832,105 @@ describe('applyCoopJsonLdToJob — location update from JSON-LD', () => {
     expect(updated.addressRegion).toBe('GR');
   });
 
+  it('keeps an explicit adapter workplace when detail JSON-LD carries the employer address', () => {
+    const job = {
+      title: 'Verkaufsberater:in',
+      location: 'Basel',
+      addressLocality: 'Basel',
+      canton: 'BS',
+      addressRegion: 'BS',
+      company: 'Coop',
+      _targetScope: {
+        type: 'adapter_seed_meta',
+        location: 'Region Zürich (Sihlcity und Umgebung)',
+        canton: 'ZH',
+      },
+    };
+    const jsonLd = {
+      jobLocation: {
+        address: {
+          addressLocality: 'Basel',
+          addressRegion: 'Basel-Stadt',
+          addressCountry: 'CH',
+        },
+      },
+      hiringOrganization: { name: 'Coop' },
+    };
+
+    const { job: updated, changed } = applyCoopJsonLdToJob(job, jsonLd);
+
+    expect(changed).toBe(true);
+    expect(updated.location).toBe('Region Zürich (Sihlcity und Umgebung)');
+    expect(updated.addressLocality).toBe('Region Zürich (Sihlcity und Umgebung)');
+    expect(updated.canton).toBe('ZH');
+    expect(updated.addressRegion).toBe('ZH');
+  });
+
+  it('keeps the adapter canton when the same locality resolves differently in detail JSON-LD', () => {
+    const job = {
+      title: 'Verkaufsberater:in',
+      location: 'Muri',
+      addressLocality: 'Muri',
+      canton: 'BE',
+      addressRegion: 'BE',
+      company: 'Coop',
+      _targetScope: {
+        type: 'adapter_seed_meta',
+        location: 'Muri',
+        canton: 'BE',
+      },
+    };
+    const jsonLd = {
+      jobLocation: {
+        address: {
+          addressLocality: 'Muri',
+          addressRegion: 'AG',
+          addressCountry: 'CH',
+        },
+      },
+      hiringOrganization: { name: 'Coop' },
+    };
+
+    const { job: updated } = applyCoopJsonLdToJob(job, jsonLd);
+
+    expect(updated.location).toBe('Muri');
+    expect(updated.canton).toBe('BE');
+    expect(updated.addressRegion).toBe('BE');
+  });
+
+  it('keeps a source-backed regional wrapper when the generic resolver cannot reduce it to one city', () => {
+    const job = {
+      title: 'Verkaufsberater:in',
+      location: 'Basel',
+      addressLocality: 'Basel',
+      canton: 'BS',
+      addressRegion: 'BS',
+      company: 'Coop',
+      _targetScope: {
+        type: 'adapter_seed_meta',
+        location: 'Region Muri AG',
+        canton: 'AG',
+      },
+    };
+    const jsonLd = {
+      jobLocation: {
+        address: {
+          addressLocality: 'Basel',
+          addressRegion: 'Basel-Stadt',
+          addressCountry: 'CH',
+        },
+      },
+      hiringOrganization: { name: 'Coop' },
+    };
+
+    const { job: updated } = applyCoopJsonLdToJob(job, jsonLd);
+
+    expect(updated.location).toBe('Region Muri AG');
+    expect(updated.addressLocality).toBe('Region Muri AG');
+    expect(updated.canton).toBe('AG');
+    expect(updated.addressRegion).toBe('AG');
+  });
+
   it('updates company when JSON-LD has a more specific store name', () => {
     const job = {
       title: 'Verkaufsberater:in Textil',
