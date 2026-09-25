@@ -6683,6 +6683,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salasso-alla-pompa-benzina.title': 'Aderlass an der Pumpe: teurer Diesel, Benzin steigt',
     'blog.article.salasso-alla-pompa-benzina.excerpt': 'Am 24. September 2026 kostet Diesel in Zürich durchschnittlich 2,46 CHF/l (Spitzenwerte >2,50), Benzin 95 2,14 CHF/l, während Öl über 100 USD/Barrel kostet.',
     'blog.article.salasso-alla-pompa-benzina.imageAlt': 'Tankstelle in Zürich mit Anzeige für Diesel- und Benzinpreise',
+    'blog.article.made-in-europe-svizzera.title': 'Made in Europe: Die Schweiz sucht einen Platz in der EU-Beschaffung',
+    'blog.article.made-in-europe-svizzera.excerpt': 'Am 24. September 2026 wurde in Brüssel über die Aufnahme der Schweiz in das EU-Beschleunigungsgesetz diskutiert, wobei Deutschland dafür und Frankreich dagegen waren.',
+    'blog.article.made-in-europe-svizzera.imageAlt': 'Schweizer Industrieanlage mit EU-Flagge im Hintergrund, Symbol der Debatte \'Made in Europe\'',
 };
 
 export default blogMetaChDe;

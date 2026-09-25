@@ -86639,6 +86639,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-made-in-europe-svizzera': {
+    title: 'Made in Europe: la Svizzera cerca posto negli appalti UE',
+    description: 'Il 24 settembre 2026 a Bruxelles si discute l\'inclusione della Svizzera nella legge sull\'accelerazione industriale UE: Germania favorevole, Francia contraria',
+    keywords: 'frontalieri, ticino, svizzera, italia, made, europe, cerca, posto',
+    ogTitle: 'Made in Europe: la Svizzera cerca posto negli appalti UE',
+    ogDescription: 'A Bruxelles il 24 settembre 2026 ministri di Germania, Francia, Polonia e Spagna hanno dibattuto se la Svizzera possa beneficiare della «preferenza europea» negli appalti pubblici prevista dalla legge sull\'accelerazione industriale. La Germania',
+    canonicalPath: '/articoli-svizzera/made-in-europe-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Made in Europe: la Svizzera cerca posto negli appalti UE",
+      "description": "Il 24 settembre 2026 a Bruxelles si discute l'inclusione della Svizzera nella legge sull'accelerazione industriale UE: Germania favorevole, Francia contraria",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/made-in-europe-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Impianto industriale svizzero con bandiera UE sullo sfondo, simbolo del dibattito 'Made in Europe'"
+      },
+      "datePublished": "2026-09-25T02:02:08+00:00",
+      "dateModified": "2026-09-25T02:02:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/made-in-europe-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

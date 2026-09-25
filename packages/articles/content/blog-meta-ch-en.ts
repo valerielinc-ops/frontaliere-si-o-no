@@ -6683,6 +6683,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salasso-alla-pompa-benzina.title': 'Salasso at the pump: expensive diesel, gasoline on the rise',
     'blog.article.salasso-alla-pompa-benzina.excerpt': 'On 24 September 2026 in Zurich diesel costs on average 2.46 CHF/l (peaks >2.50), petrol 95 2.14 CHF/l, while oil exceeds 100 USD/barrel.',
     'blog.article.salasso-alla-pompa-benzina.imageAlt': 'Fuel station in Zurich showing diesel and gasoline price signs',
+    'blog.article.made-in-europe-svizzera.title': 'Made in Europe: Switzerland seeks place in EU procurement',
+    'blog.article.made-in-europe-svizzera.excerpt': 'On 24 September 2026 in Brussels, the inclusion of Switzerland in the EU industrial acceleration law was discussed, with Germany in favour and France against.',
+    'blog.article.made-in-europe-svizzera.imageAlt': 'Swiss industrial plant with EU flag in background, symbol of the \'Made in Europe\' debate',
 };
 
 export default blogMetaChEn;
