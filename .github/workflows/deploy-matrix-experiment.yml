@@ -315,6 +315,9 @@ jobs:
       BUILD_PROFILE: '1'
       POST_WALK_WORKERS: '2'
       JOBS_SEO_PROFILE_PHASES: '1'
+      # Keep the no-deploy memory canary on the same canonical-fallback path
+      # as production while validating the mitigation on every locale.
+      JOBS_SEO_FALLBACK_WORKERS: '1'
       RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
       RELATED_SEARCH_PREPASS_CONCURRENCY: '1'
       JOBS_SEO_RETENTION_PROBE: ${{ github.event.inputs.retention_probe }}

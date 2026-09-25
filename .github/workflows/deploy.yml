@@ -417,6 +417,13 @@ jobs:
       POST_WALK_WORKERS: '2'
       SEQUENTIAL_PROFILE: ${{ fromJSON('["1",""]')[github.event_name == 'workflow_dispatch' && github.event.inputs.parallel_plugins == 'true' && 1 || 0] }}
       JOBS_SEO_PROFILE_PHASES: '1'
+      # The canonical-fallback pre-pass is the peak RSS hotspot on the 16 GiB
+      # runner: run 36148322951 reached ~12.9 GiB with the detected 4-worker
+      # pool and then stopped emitting logs while the host was swapping. The
+      # inline path has the same deterministic output and avoids cloning the
+      # ~20k tuple corpus into worker threads. Raise this only after an Actions
+      # run demonstrates a safe RSS margin.
+      JOBS_SEO_FALLBACK_WORKERS: '1'
       WEEKLY_EMPLOYERS_PROFILE: ''
       RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
       RELATED_SEARCH_PREPASS_CONCURRENCY: '1'
