@@ -11,9 +11,11 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { ISO_ALPHA2_COUNTRY_CODES } from './prospector/country-inventory.mjs';
+import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import { isKnownSwissMunicipalityInCanton } from './target-swiss-locations.mjs';
 import {
   detectSuccessFactorsKind,
   fetchSuccessFactorsJobs,
@@ -36,9 +38,10 @@ const CAREER_URL = 'https://www.swissre.com/careers/jobSearch.html';
 // The JobTeaserList listing cards carry NO description — the real, structured
 // job body (About the Role / Key Responsibilities bullets) only exists on the
 // detail pages at /careers/job/{slug}/{id}. We therefore fetch one detail page
-// per listing. Live count is ~320 listings, so a full run costs
-// ~320 × (fetch + DETAIL_FETCH_DELAY_MS) ≈ 6-9 min — acceptable for a
-// scheduled crawler. The cap below is a safety valve against a listing-count
+// per listing whose card is not already explicitly foreign (issue 9843: the
+// listing is global, ~270 cards of which ~16 are Swiss on 2026-09-25). A run
+// that fetched every card cost ~320 × (fetch + DETAIL_FETCH_DELAY_MS) ≈ 6-9
+// min. The cap below is a safety valve against a listing-count
 // explosion, NOT a routine limiter: when it trips, every skipped job is
 // counted and reported loudly in the run log (no silent thinning).
 export const DETAIL_FETCH_DELAY_MS = 500;
@@ -132,17 +135,112 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
+/* ── Source geography ─────────────────────────────────────────
+ * Swiss Re writes every location as `City[, Region], CC`: the terminal
+ * two-letter segment is the ISO 3166-1 country code (`Zurich, CH`,
+ * `Paris, FR`, `Kansas City, MO, US`), and a multi-location posting lists
+ * such entries separated by `|`. In that position `Paris, FR`,
+ * `Singapore, SG` and `Luxembourg, LU` are France, Singapore and Luxembourg,
+ * not the cantons Fribourg, St. Gallen and Lucerne that the generic
+ * trailing-suffix rule of inferSwissTargetCanton() reads (issue 9843). The
+ * position in the source field and the city decide, before any canton
+ * inference: a colliding code stays a canton only after a municipality of
+ * that canton (`Fribourg, FR`) or without a comma (`Brügg BE`). The canton
+ * itself comes from the fail-closed source-backed resolver, never from the
+ * Zürich HQ.
+ */
+
+/**
+ * Split a Swiss Re location field into its entries.
+ *
+ * @param {string} text `City, CC` or `City, CC | City, Region, CC`.
+ * @returns {string[]}
+ */
+export function splitSwissReLocations(text = '') {
+  return String(text || '')
+    .split('|')
+    .map((entry) => normalizeSpace(entry))
+    .filter(Boolean);
+}
+
+/**
+ * ISO country code carried by the terminal segment of one Swiss Re entry, or
+ * `''` when that segment is not a country:
+ * - `City CC` without a comma (`Brügg BE`) has no country segment: the code
+ *   is a canton marker and stays canton evidence;
+ * - a code that is not an assigned ISO country (`Lugano, TI`, `Altdorf, UR`)
+ *   stays canton evidence;
+ * - an ISO code that is also a Swiss canton code (BE, FR, SG, LU, AG, AR, GL,
+ *   NE, SO, …) after a comma is a country only when the city is NOT a
+ *   municipality of the homonymous canton: `Bern, BE` and `Fribourg, FR` are
+ *   Swiss, `Brussels, BE` and `Paris, FR` are foreign.
+ *
+ * @param {string} entry
+ * @returns {string}
+ */
+export function swissReEntryCountryCode(entry = '') {
+  const segments = String(entry || '').split(',').map((s) => s.trim()).filter(Boolean);
+  if (segments.length < 2) return '';
+  const last = segments[segments.length - 1];
+  if (!/^[A-Za-z]{2}$/.test(last)) return '';
+  const code = last.toUpperCase();
+  if (!ISO_ALPHA2_COUNTRY_CODES.has(code)) return '';
+  if (isKnownSwissMunicipalityInCanton(segments[0], code)) return '';
+  return code;
+}
+
+/**
+ * True when every entry of the field is explicitly outside Switzerland:
+ * a terminal country code other than CH, or an explicit foreign country in
+ * an entry without that segment.
+ *
+ * @param {string} text
+ * @returns {boolean}
+ */
+export function isSwissReLocationForeign(text = '') {
+  const entries = splitSwissReLocations(text);
+  if (entries.length === 0) return false;
+  return entries.every((entry) => {
+    const country = swissReEntryCountryCode(entry);
+    return country ? country !== 'CH' : isLocationExplicitlyForeign(entry);
+  });
+}
+
+/**
+ * Resolve the Swiss geography of a Swiss Re location field: the first entry
+ * that is not explicitly foreign and that the source-backed resolver maps to
+ * a canton. `null` means the row has no Swiss location and must be dropped.
+ *
+ * @param {string} text
+ * @returns {{ location: string, canton: string } | null}
+ */
+export function resolveSwissReGeography(text = '') {
+  for (const entry of splitSwissReLocations(text)) {
+    const country = swissReEntryCountryCode(entry);
+    if (country && country !== 'CH') continue;
+    const geography = resolveSourceBackedSwissGeography({ location: entry, addressCountry: country });
+    if (geography) return { location: entry, canton: geography.canton };
+  }
+  return null;
+}
+
 /* ── Detail-page parser ───────────────────────────────────────
  * www.swissre.com/careers/job/{slug}/{id} is a Magnolia CMS page (SSR):
  *   <div class="PageHeaderCareer"> … <div class="SectionTitle--content">
  *     Regular Employment</div> …
  *   <section class="ArticleSection"><div class="richtext">
  *     <p><strong>Location:</strong> Hyderabad, TG, IN</p></div></section>
+ *   (multi-location postings: <strong>Locations:</strong> Schaumburg, IL, US |
+ *    Armonk, NY, US — their listing card carries no plain location span)
  *   <section class="ArticleSection"><div class="richtext">
  *     …full job body with <ul type="disc"><li> bullets…</div></section>
  * There is NO JobPosting JSON-LD on these pages (only WebSite +
  * BreadcrumbList), so the richtext sections are the description source.
  */
+
+// Longest single entry accepted as location metadata. A body paragraph that
+// merely opens with "Location:" runs longer and stays in the description.
+const MAX_LOCATION_ENTRY_CHARS = 80;
 
 /**
  * Parse a Swiss Re careers detail page.
@@ -150,7 +248,8 @@ function detectEmploymentType(text = '') {
  * @param {string} html Raw detail-page HTML.
  * @returns {{descriptionHtml: string, location: string, employmentText: string} | null}
  *   `null` when the page has no ArticleSection content (challenge page,
- *   redirect stub, expired posting).
+ *   redirect stub, expired posting). `location` keeps the source entries,
+ *   joined with ` | ` for a multi-location posting.
  */
 export function parseSwissReDetailPage(html = '') {
   if (!html) return null;
@@ -165,13 +264,21 @@ export function parseSwissReDetailPage(html = '') {
   for (const section of sections) {
     const plain = stripHtml(section);
     if (!plain) continue;
-    // The first richtext section is a short "Location: City, Region, CC" line;
-    // require it to be short so a real body mentioning "Location:" never gets
-    // swallowed as metadata.
-    const locMatch = section.match(/<strong>\s*Location\s*:?\s*<\/strong>\s*([^<]+)/i);
-    if (locMatch && plain.length < 120) {
-      location = normalizeSpace(locMatch[1]);
-      continue;
+    // The first richtext section is a short "Location: City, Region, CC" (or
+    // "Locations: A, CC | B, CC") paragraph and nothing else. Every entry must
+    // be short so a real body mentioning "Location:" never gets swallowed as
+    // metadata.
+    const locMatch = location
+      ? null
+      : section.match(/<strong>\s*Locations?\s*:?\s*<\/strong>([\s\S]*?)(?:<\/p>|$)/i);
+    if (locMatch) {
+      const entries = splitSwissReLocations(stripHtml(locMatch[1]));
+      const rest = normalizeSpace(stripHtml(section.replace(locMatch[0], '')));
+      if (!rest && entries.length > 0
+        && entries.every((entry) => entry.length <= MAX_LOCATION_ENTRY_CHARS)) {
+        location = entries.join(' | ');
+        continue;
+      }
     }
     bodyParts.push(section);
   }
@@ -210,7 +317,11 @@ export async function fetchSwissReJobDetail(url) {
  * For 'html-career' listing index you typically need Playwright
  * (re-scaffold with --playwright if so).
  */
-// No canton facet: Swiss Re's SuccessFactors listing is national.
+// No substring facet: Swiss Re's listing is GLOBAL (issue 9843: 272 cards,
+// 16 Swiss, on 2026-09-25), but a multi-location card has no plain location
+// span, so a client-side substring filter would drop it before its detail page
+// can name a Swiss office. fetchAllSwissReJobs() filters on the source
+// geography instead.
 const SF_LOCATION_FILTERS = [];
 
 async function fetchJobListings() {
@@ -266,11 +377,21 @@ export async function fetchAllSwissReJobs() {
   let detailOk = 0;
   let detailFailed = 0;
   let detailSkipped = 0;
+  const skippedForeign = new Map();
+  let skippedNoGeography = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
     const publicUrl = listing.url || CAREER_URL;
+
+    // The card's location is the source's own field: an explicitly foreign
+    // card is dropped here, before paying for its detail page (issue 9843).
+    const listingLocation = normalizeSpace(listing.location || '');
+    if (listingLocation && isSwissReLocationForeign(listingLocation)) {
+      skippedForeign.set(listingLocation, (skippedForeign.get(listingLocation) || 0) + 1);
+      continue;
+    }
 
     // Listing cards carry no description — fetch the detail page (#3836).
     let detail = null;
@@ -292,8 +413,23 @@ export async function fetchAllSwissReJobs() {
       detailSkipped += 1;
     }
 
-    const location = listing.location || detail?.location || 'Zürich'; // HQ: Mythenquai, Zürich
-    const canton = inferSwissTargetCanton(location) || 'ZH';
+    // Source-backed geography only: listing card first, then the detail
+    // page's Location(s) line. No Zürich-HQ fallback — a row without a
+    // resolvable Swiss location is dropped (fail-closed, owner rule).
+    const detailLocation = normalizeSpace(detail?.location || '');
+    const geography = resolveSwissReGeography(listingLocation)
+      || resolveSwissReGeography(detailLocation);
+    if (!geography) {
+      const evidence = listingLocation || detailLocation;
+      if (evidence && isSwissReLocationForeign(evidence)) {
+        skippedForeign.set(evidence, (skippedForeign.get(evidence) || 0) + 1);
+      } else {
+        skippedNoGeography += 1;
+        console.warn(`  ⏭️  No Swiss location in listing or detail (${evidence || 'none'}): ${publicUrl}`);
+      }
+      continue;
+    }
+    const { location, canton } = geography;
     const descriptionHtml = detail?.descriptionHtml || '';
     const descriptionText = stripHtml(descriptionHtml);
 
@@ -342,6 +478,18 @@ export async function fetchAllSwissReJobs() {
     jobs.push(job);
   }
 
+  const foreignTotal = [...skippedForeign.values()].reduce((sum, n) => sum + n, 0);
+  if (foreignTotal > 0) {
+    const sample = [...skippedForeign.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 8)
+      .map(([loc, n]) => `${loc} ×${n}`)
+      .join('; ');
+    console.log(`\n  ⏭️  Skipped ${foreignTotal} non-Swiss listings (${sample})`);
+  }
+  if (skippedNoGeography > 0) {
+    console.warn(`  ⏭️  Skipped ${skippedNoGeography} listings without a resolvable Swiss location`);
+  }
   console.log(
     `\n  📄 Detail pages: ${detailOk} with description, ${detailFailed} failed/empty, ${detailSkipped} skipped`
   );
