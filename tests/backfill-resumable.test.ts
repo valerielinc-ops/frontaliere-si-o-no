@@ -30,6 +30,8 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(block).toContain('backfill-expired-from-history-progress.tsv');
     expect(block).toContain('last_completed_key');
     expect(block).toContain('workset_hash');
+    expect(block).toContain('checkpoint_cursor="${last_completed_key:--}"');
+    expect(block).toContain('"$saved_last" != \'-\'');
     expect(block).toContain('checkpoint 1');
     expect(block).toContain('has_dirty_slices');
     expect(block).toContain('has_dirty_checkpoint');

@@ -221,7 +221,10 @@ jobs:
           # A completed workset starts a new monthly/manual pass. An active
           # workset is the durable cursor left by a failed or cancelled run;
           # skip only the keys confirmed by a pushed checkpoint.
-          if [ "$saved_status" = 'active' ] && [ "$saved_workset" = "$workset_hash" ] && [ -n "$saved_last" ]; then
+          # Bash treats tab as IFS whitespace and collapses an empty middle
+          # field. Persist '-' for an empty cursor so a progress line always
+          # round-trips as exactly three fields.
+          if [ "$saved_status" = 'active' ] && [ "$saved_workset" = "$workset_hash" ] && [ "$saved_last" != '-' ]; then
             if ! printf '%s\n' "$keys" | grep -Fx "$saved_last" >/dev/null; then
               echo "::error::Backfill progress cursor '$saved_last' is not in the current crawler workset."
               exit 2
@@ -259,7 +262,8 @@ jobs:
               checkpoint_status='complete'
             fi
             mkdir -p "$(dirname "$progress_path")"
-            printf '%s\t%s\t%s\n' "$workset_hash" "$last_completed_key" "$checkpoint_status" > "$progress_path"
+            checkpoint_cursor="${last_completed_key:--}"
+            printf '%s\t%s\t%s\n' "$workset_hash" "$checkpoint_cursor" "$checkpoint_status" > "$progress_path"
             # A durable checkpoint is also a complete data gate. This keeps a
             # bad assembled artifact or invariant failure off main even when a
             # later batch would otherwise make the overall run red.
