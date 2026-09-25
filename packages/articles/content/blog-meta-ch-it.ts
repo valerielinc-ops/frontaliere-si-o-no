@@ -6701,6 +6701,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.nuova-legge-cibersicurezza-lcib.title': 'Svizzera: nuova legge autonoma sulla cibersicurezza LCib',
     'blog.article.nuova-legge-cibersicurezza-lcib.excerpt': 'Il Consiglio federale incarica il DDPS di elaborare entro giugno 2027 la LCib, basata sul Cyber Resilience Act europeo per prodotti e dati digitali.',
     'blog.article.nuova-legge-cibersicurezza-lcib.imageAlt': 'Infrastruttura digitale e server per la sicurezza informatica in Svizzera',
+    'blog.article.omologazione-fitosanitari-arretrato-2032.title': 'Omologazione fitosanitari: arretrato azzerato entro il 2032',
+    'blog.article.omologazione-fitosanitari-arretrato-2032.excerpt': 'Consiglio federale fissa 2032 per evadere 525 domande pendenti; tasse in aumento dal 2028 per coprire costi al 50%.',
+    'blog.article.omologazione-fitosanitari-arretrato-2032.imageAlt': 'Palazzo federale a Berna con campi agricoli sullo sfondo',
+    'blog.article.finanziamento-federale-universita-sup.title': 'Finanziamento federale università cantonali e SUP',
+    'blog.article.finanziamento-federale-universita-sup.excerpt': 'Il Consiglio federale ha approvato il 25 settembre 2026 il rapporto sul finanziamento equo: 20% massimo per università cantonali, 30% massimo per SUP dal 1° gennaio 2027.',
+    'blog.article.finanziamento-federale-universita-sup.imageAlt': 'Campus universitario moderno a Lugano con studenti e laboratori di ricerca sotto il cielo alpino',
 };
 
 export default blogMetaChIt;

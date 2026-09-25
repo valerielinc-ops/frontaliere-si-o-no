@@ -2256,6 +2256,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lumpy-skin-disease-fine-vaccinazione': { it: 'lumpy-skin-disease-fine-vaccinazione', en: 'lumpy-skin-disease-vaccination-end', de: 'lumpy-skin-disease-impfende', fr: 'fin-vaccination-lumpy-skin-disease' },
  'canicola-danni-economici-2026': { it: 'canicola-danni-economici-2026', en: 'switzerland-heatwave-economic-damage-2026', de: 'schweiz-hitzewelle-wirtschaftsschaeden-2026', fr: 'suisse-canicule-dommages-economiques-2026' },
  'nuova-legge-cibersicurezza-lcib': { it: 'nuova-legge-cibersicurezza-lcib', en: 'new-cybersecurity-law-lcib', de: 'neues-cybersicherheitsgesetz-lcib', fr: 'nouvelle-loi-cybersecurite-lcib' },
+ 'omologazione-fitosanitari-arretrato-2032': { it: 'omologazione-fitosanitari-arretrato-2032', en: 'plant-protection-authorization-backlog-2032', de: 'pflanzenschutzmittel-zulassung-rueckstand-2032', fr: 'homologation-phytosanitaires-arriere-2032' },
+ 'finanziamento-federale-universita-sup': { it: 'finanziamento-federale-universita-sup', en: 'federal-funding-cantonal-universities-sup', de: 'bundesfinanzierung-universitaet-sup', fr: 'financement-federal-universites-cantonales-hes' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

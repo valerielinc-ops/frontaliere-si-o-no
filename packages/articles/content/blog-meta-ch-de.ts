@@ -6701,6 +6701,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.nuova-legge-cibersicurezza-lcib.title': 'Schweiz: neues eigenständiges Cybersicherheitsgesetz LCib',
     'blog.article.nuova-legge-cibersicurezza-lcib.excerpt': 'Der Bundesrat beauftragt das VBS, bis Juni 2027 das LCib auszuarbeiten, das auf dem europäischen Cyber Resilience Act für digitale Produkte und Daten basiert.',
     'blog.article.nuova-legge-cibersicurezza-lcib.imageAlt': 'Digitale Infrastruktur und Server für Cybersicherheit in der Schweiz',
+    'blog.article.omologazione-fitosanitari-arretrato-2032.title': 'Zulassung von Pflanzenschutzmitteln: Rückstand bis 2032 beseitigt',
+    'blog.article.omologazione-fitosanitari-arretrato-2032.excerpt': 'Bundesrat setzt 2032 fest, um 525 anhängige Gesuche zu bearbeiten; Gebühren steigen ab 2028, um Kosten zu 50% zu decken.',
+    'blog.article.omologazione-fitosanitari-arretrato-2032.imageAlt': 'Bundeshaus in Bern mit Ackerland im Hintergrund',
+    'blog.article.finanziamento-federale-universita-sup.title': 'Eidgenössische Finanzierung Kantonaler Hochschulen und Fachhochschulen',
+    'blog.article.finanziamento-federale-universita-sup.excerpt': 'Der Bundesrat hat am 25. September 2026 den Bericht über die faire Finanzierung genehmigt: maximal 20% für kantonale Hochschulen, maximal 30% für FH ab 1. Januar 2027.',
+    'blog.article.finanziamento-federale-universita-sup.imageAlt': 'Moderner Universitätscampus in Lugano mit Studierenden und Forschungslaboren unter alpiner Himmel',
 };
 
 export default blogMetaChDe;

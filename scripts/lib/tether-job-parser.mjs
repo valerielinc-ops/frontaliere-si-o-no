@@ -20,7 +20,8 @@ import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign, geocodeCountry } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import { inferAnyCanton, isKnownSwissMunicipality } from './target-swiss-locations.mjs';
+import { isKnownSwissMunicipality } from './target-swiss-locations.mjs';
+import { inferCantonFromJobEvidence } from './canton-evidence.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -235,11 +236,15 @@ export async function fetchAllTetherJobs() {
     const firstLoc = offer.locations?.[0] || {};
     const rawCity = normalizeSpace(firstLoc.city || '');
     const city = rawCity || HQ.city;
-    const state = normalizeSpace(firstLoc.state || 'Ticino');
+    const sourceState = normalizeSpace(firstLoc.state || '');
+    const state = sourceState || 'Ticino';
     const location = `${city}, ${state}`;
 
     // Location classification: BFS Swiss municipalities → foreign keyword check → Nominatim
-    const inferredCanton = inferAnyCanton(city) || inferAnyCanton(location);
+    const inferredCanton = inferCantonFromJobEvidence({
+      cityText: city,
+      locationText: sourceState ? location : city,
+    });
     let isForeignCity = false;
     if (!inferredCanton && rawCity) {
       // City provided but not in any Swiss canton — check if it's foreign

@@ -22,10 +22,15 @@
  * factory.
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
+import {
+  inferSwissTargetCanton,
+  isKnownSwissMunicipality,
+  isKnownSwissMunicipalityInCanton,
+} from './target-swiss-locations.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
@@ -80,45 +85,103 @@ async function fetchPage(apiUrl) {
   }, { label: `prospective-ch ${apiUrl}` });
 }
 
-function pickLocation(job, defaultCity) {
+const SWISS_COUNTRY_LABEL_RE = /^(?:ch|che|schweiz|suisse|svizzera|svizra|switzerland)$/i;
+// Some Prospective tenants put a street address in `sza_location.city`
+// (UZH: "Kurvenstrasse 31"). An address is not a place: it is skipped before
+// the foreign-country heuristics run, because a Swiss street can carry a
+// country name ("Rue de France 12", "Via Italia", "Frankreichstrasse 5").
+// Shape = a word followed by a house number, or a street word/suffix. A BFS
+// municipality or alias is never an address ("Davos Platz", "Weggis").
+const HOUSE_NUMBER_RE = /\p{L}[\p{L}.'’-]*\s+\d{1,4}[a-z]?(?:[/-]\d+[a-z]?)?(?=$|[\s,])/iu;
+const STREET_WORD_RE = new RegExp(
+  '(?:^|[\\s,])(?:rue|route|chemin|avenue|boulevard|place|quai|via|viale|piazza|strada|corso|'
+  + 'strasse|straße|gasse|weg|platz|allee)(?=$|[\\s,.])'
+  + '|\\p{L}(?:strasse|straße|str\\.|gasse|weg|platz|allee)(?=$|[\\s,.\\d])',
+  'iu',
+);
+
+function isAddressShaped(candidate = '') {
+  if (isKnownSwissMunicipality(candidate)) return false;
+  return HOUSE_NUMBER_RE.test(candidate) || STREET_WORD_RE.test(candidate);
+}
+
+// An address candidate may still name its place in another comma segment
+// ("Lengghalde 2, Zürich", Schulthess Klinik): keep those segments, drop the
+// street ones and bare country/canton labels.
+function placeSegments(candidate = '') {
+  if (!isAddressShaped(candidate)) return [candidate];
+  return candidate.split(',').map((part) => normalizeSpace(part)).filter((part) => (
+    part
+    && !SWISS_COUNTRY_LABEL_RE.test(part)
+    && !ALL_CANTON_CODES.includes(part)
+    && !isAddressShaped(part)
+  ));
+}
+
+/**
+ * Source-backed location candidates, in the historical priority order. There
+ * is deliberately no `defaultCity` entry: a listing that names no place has no
+ * geography, and the caller drops it instead of stamping the HQ city on it
+ * (issue 9844 — Bühler's foreign sites were published as Uzwil/SG).
+ */
+function pickLocationCandidates(job) {
   const szas = job?.szas || {};
+  const candidates = [];
   const cityRaw = String(szas['sza_location.city'] || '').trim();
   if (cityRaw) {
     const m = cityRaw.match(/\b(\d{4})(?:\s+|-(?=\p{L}))(\p{L}[^\n,]*)/u);
-    if (m) return normalizeSpace(m[2]);
-    return normalizeSpace(cityRaw);
+    candidates.push(normalizeSpace(m ? m[2] : cityRaw));
   }
   // Some Prospective tenants store the city under `sza_workplace.city` (a
   // plain city name without postal prefix) — newer schema, e.g. asana Spital AG.
+  // UZH fills `sza_location.city` with the street ("Kurvenstrasse 31") and
+  // keeps the city here, so it is also the next candidate when the first one
+  // does not resolve to a canton.
   const workplaceCity = String(szas['sza_workplace.city'] || '').trim();
-  if (workplaceCity) return normalizeSpace(workplaceCity);
+  if (workplaceCity) candidates.push(normalizeSpace(workplaceCity));
   // Some tenants (e.g. Stadt Bern, medium 1840) expose a flat `sza_location`
   // string "Street Number, ZIP City" instead of the dotted `sza_location.city`
-  // key above — parse the trailing "ZIP City" segment when present.
+  // key above — parse the trailing "ZIP City" segment when present, otherwise
+  // the last comma segment that is neither a bare Swiss country label nor a
+  // bare canton code ("Bern", "Murtenstrasse 98, Bern", "St. Niklaus, VS,
+  // Schweiz").
   const flatLocation = String(szas['sza_location'] || '').trim();
   if (flatLocation) {
     const flatMatch = flatLocation.match(/\b\d{4}(?:\s+|-(?=\p{L}))(\p{L}[^\n,]*)$/u);
-    if (flatMatch) return normalizeSpace(flatMatch[1]);
+    if (flatMatch) {
+      candidates.push(normalizeSpace(flatMatch[1]));
+    } else {
+      const segments = flatLocation.split(',').map((part) => normalizeSpace(part)).filter(Boolean);
+      while (segments.length && (
+        SWISS_COUNTRY_LABEL_RE.test(segments[segments.length - 1])
+        || ALL_CANTON_CODES.includes(segments[segments.length - 1])
+      )) segments.pop();
+      if (segments.length) candidates.push(segments[segments.length - 1]);
+    }
   }
-  // Sometimes the site label is in attributes[10] (legacy fallback). Skip it
-  // when it's clearly a department code (4-letter all-caps) rather than a city,
-  // so callers fall through to defaultCity.
+  if (candidates.length) return [...new Set(candidates.filter(Boolean))];
+  // Sometimes the site label is in attributes[10] (legacy fallback), consulted
+  // only when the listing has no location field at all. Skip it when it's
+  // clearly a department code (2-5 letter all-caps) rather than a city.
   const attr10 = Array.isArray(job?.attributes?.['10']) ? job.attributes['10'][0] : '';
   if (attr10) {
     const trimmed = normalizeSpace(attr10);
-    if (!/^[A-Z]{2,5}$/.test(trimmed)) return trimmed;
+    if (trimmed && !/^[A-Z]{2,5}$/.test(trimmed)) return [trimmed];
   }
-  return defaultCity;
+  return [];
+}
+
+function normalizeSiteKey(value = '') {
+  return normalizeSpace(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 }
 
 // City-gated HQ fallback: only borrow the configured default ZIP/street when
 // the resolved location TEXT actually matches the HQ city — canton-level
 // matching is wrong, since it would re-stamp HQ street/ZIP onto any other
-// city in the same canton. `pickLocation` already falls back to `defaultCity`
-// itself when there's no real signal, so this also covers the legitimate
-// zero-signal case (location === defaultCity).
+// city in the same canton. A listing without a source location never reaches
+// this point (it is dropped), so an empty location is never the HQ.
 function isHqCity(location, defaultCity) {
-  if (!location || !defaultCity) return !location;
+  if (!location || !defaultCity) return false;
   const escaped = String(defaultCity).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   return new RegExp(`\\b${escaped}\\b`, 'i').test(location);
 }
@@ -239,9 +302,34 @@ function detectExperienceLevel(title = '') {
  * @param {string} config.companyName
  * @param {string} config.companyDomain
  * @param {string|number} config.mediumId    Prospective tenant ID
- * @param {string} config.defaultCanton
- * @param {string} config.defaultCity
+ * @param {string} config.defaultCanton  HQ canton. It is NOT a fallback for a
+ *   listing whose location is absent, foreign or unresolved — those listings
+ *   are dropped (counted in `locationSkipped`, issue 9844). It is read only
+ *   by `allSitesInDefaultCanton` below.
+ * @param {string} config.defaultCity  HQ city. Used only to gate the HQ
+ *   postal/street fallback when the listing's own city IS the HQ city; never
+ *   substituted for a missing source location.
  * @param {string} config.defaultPostalCode
+ * @param {boolean} [config.allSitesInDefaultCanton=false]  Declares that every
+ *   workplace of this employer lies in `defaultCanton` by construction (a
+ *   cantonal or municipal administration, never a multi-site group). It only
+ *   disambiguates a source locality that is a BFS municipality of
+ *   `defaultCanton` but that canton inference leaves unresolved because the
+ *   name also exists elsewhere (`Oberwil`, BL/ZG). It never assigns a canton to
+ *   an absent, explicitly foreign or non-municipality location.
+ * @param {boolean} [config.singleLocality=false]  Declares that every
+ *   workplace of this employer is in `defaultCity`/`defaultCanton` by
+ *   construction (e.g. SPITEX BASEL, a home-care service for the city of
+ *   Basel only). A listing whose source location is absent or does not
+ *   resolve is then placed there instead of being dropped; an explicitly
+ *   foreign location is still dropped. Never set it on a multi-site employer:
+ *   that is exactly the HQ fallback this factory refuses by default.
+ * @param {Record<string, string>} [config.siteCantons]  Verified sites of this
+ *   employer that the BFS municipality registry cannot resolve on its own:
+ *   sub-municipal localities (`Valens`, part of Pfäfers SG) or cross-canton
+ *   homonyms whose canton the source proves (`Wald`, ZIP 8636 → ZH). Keys are
+ *   matched against the whole source locality (case/diacritics-insensitive);
+ *   values are canton codes. Never consulted for a location the source omits.
  * @param {string} [config.defaultStreetAddress] HQ street, used ONLY as a
  *   city-gated fallback (resolved location matches defaultCity) when a
  *   listing's own `sza_workplace` has no parseable street segment.
@@ -287,6 +375,9 @@ export function createProspectiveChParser(config) {
     defaultCanton,
     defaultCity,
     defaultPostalCode,
+    allSitesInDefaultCanton = false,
+    singleLocality = false,
+    siteCantons = {},
     defaultStreetAddress = '',
     publicCareerUrl,
     defaultSourceLang = 'de',
@@ -307,6 +398,51 @@ export function createProspectiveChParser(config) {
 
   if (!companyKey || !companyName || !mediumId || (!defaultCanton && typeof locationResolver !== 'function')) {
     throw new Error('createProspectiveChParser: missing required config');
+  }
+  if ((allSitesInDefaultCanton || singleLocality) && !ALL_CANTON_CODES.includes(String(defaultCanton || '').toUpperCase())) {
+    throw new Error(`createProspectiveChParser: allSitesInDefaultCanton/singleLocality need a Swiss canton code, got ${defaultCanton}`);
+  }
+  if (singleLocality && !normalizeSpace(defaultCity)) {
+    throw new Error('createProspectiveChParser: singleLocality needs defaultCity');
+  }
+  const siteCantonByKey = new Map();
+  for (const [site, code] of Object.entries(siteCantons || {})) {
+    const canton = String(code || '').trim().toUpperCase();
+    if (!normalizeSiteKey(site) || !ALL_CANTON_CODES.includes(canton)) {
+      throw new Error(`createProspectiveChParser: invalid siteCantons entry ${site} → ${code}`);
+    }
+    siteCantonByKey.set(normalizeSiteKey(site), canton);
+  }
+
+  // Default branch (no `locationResolver`): the first source candidate that
+  // resolves to a Swiss canton wins. Address-shaped candidates are never
+  // classified; only their non-street comma segments are tried. An explicitly
+  // foreign candidate does not decide on its
+  // own: it drops the listing only when no later candidate proves a Swiss
+  // place. When nothing resolves — absent location, or a place no rule can
+  // prove Swiss — the listing is dropped: unknown geography stays fail-closed
+  // and never inherits the HQ canton (owner rule, issue 9844). The only
+  // exception is a tenant that declares `singleLocality`, and never for a
+  // listing that named a foreign place.
+  function resolveSourceLocation(listing) {
+    let foreignSeen = false;
+    for (const candidate of pickLocationCandidates(listing).flatMap(placeSegments)) {
+      if (isLocationExplicitlyForeign(candidate)) {
+        foreignSeen = true;
+        continue;
+      }
+      const canton = siteCantonByKey.get(normalizeSiteKey(candidate))
+        || inferSwissTargetCanton(candidate)
+        || (allSitesInDefaultCanton && isKnownSwissMunicipalityInCanton(candidate, defaultCanton)
+          ? String(defaultCanton).toUpperCase()
+          : '');
+      if (canton) return { location: candidate, canton };
+    }
+    if (foreignSeen) return null;
+    if (singleLocality) {
+      return { location: normalizeSpace(defaultCity), canton: String(defaultCanton).toUpperCase() };
+    }
+    return null;
   }
 
   const API_BASE = `https://ohws.prospective.ch/public/v1/medium/${mediumId}/jobs`;
@@ -501,8 +637,12 @@ export function createProspectiveChParser(config) {
         location = normalizeSpace(resolution.location);
         canton = String(resolution.canton || '').trim().toUpperCase();
       } else {
-        location = pickLocation(listing, defaultCity);
-        canton = inferSwissTargetCanton(location) || defaultCanton;
+        const resolved = resolveSourceLocation(listing);
+        if (!resolved) {
+          locationSkipped += 1;
+          continue;
+        }
+        ({ location, canton } = resolved);
       }
       const descriptionText = buildDescription(listing);
       const sourceLang = detectLang(descriptionText || title, defaultSourceLang);
