@@ -52,6 +52,22 @@ describe('expiredAt parsability — normalization at ingress', () => {
     expect(entries[1].expiredAt).toBe(now);
   });
 
+  it('repairs literal unicode escapes in archived titles without touching descriptions', () => {
+    const entries = [{
+      slug: 'legacy',
+      expiredAt: '2026-09-01T00:00:00.000Z',
+      title: String.raw`Interpr\u00e8te communautaire`,
+      titleByLocale: { de: String.raw`Praktikum f\u00fcr 6 Monate` },
+      descriptionByLocale: { de: String.raw`The code \\u00e8 is documented here.` },
+    }];
+
+    expect(normalizeExpiredAtEntries(entries, { source: 'test' })).toBe(1);
+    expect(entries[0].title).toBe('Interprète communautaire');
+    expect(entries[0].titleByLocale.de).toBe('Praktikum für 6 Monate');
+    expect(entries[0].descriptionByLocale.de).toBe(String.raw`The code \\u00e8 is documented here.`);
+    expect(normalizeExpiredAtEntries(entries, { source: 'test' })).toBe(0);
+  });
+
   it('is idempotent — a second pass repairs nothing and moves nothing', () => {
     const entries = [{ slug: 'a', expiredAt: undefined }, { slug: 'b', expiredAt: 'nope' }];
     normalizeExpiredAtEntries(entries, { now: '2026-09-06T12:00:00.000Z', source: 'test' });
