@@ -41,6 +41,7 @@ import {
   workdayPrimaryLocationState,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
+import { resolveWorkdayPrimarySwissLocation } from './workday-swiss-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -216,7 +217,7 @@ export async function fetchAllAbbottJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const rawLocation = listing.locationRaw || 'Basel';
+    const rawLocation = normalizeSpace(listing.locationRaw || '');
     if (isLocationExplicitlyForeign(rawLocation)) {
       console.log(`  ⏭️  Skipped foreign location: ${rawLocation} — ${title}`);
       continue;
@@ -231,8 +232,16 @@ export async function fetchAllAbbottJobs() {
       console.log(`  ⏭️  Skipped unresolved requisition location: ${requisitionState.text || '(unreadable)'} — ${title}`);
       continue;
     }
-    const location = cleaned || 'Basel';
-    const canton = inferSwissTargetCanton(location) || 'BS';
+    // An `N Locations` roll-up or an empty listing location carries no site:
+    // only the req's own primary workplace may place it in Switzerland. The
+    // Basel HQ used to fill the gap and published a req worked in Neustadt am
+    // Rübenberge (Germany) as `Basel/BS` (issue 9842).
+    const location = cleaned || resolveWorkdayPrimarySwissLocation(detailInfo);
+    const canton = location ? inferSwissTargetCanton(location) : '';
+    if (!canton) {
+      console.log(`  ⏭️  Skipped location without a Swiss canton: ${rawLocation || '(none)'} — ${title}`);
+      continue;
+    }
     const publicUrl = listing.url || CAREER_URL;
     const employmentType = detectEmploymentType(listing.timeType || '', title);
 
