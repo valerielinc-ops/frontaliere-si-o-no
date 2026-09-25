@@ -14,6 +14,7 @@ import {
 } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 import { recordJobEmailRankingClick } from './lib/jobEmailRankingStore.js';
+import { isDeletedEmailAccount } from './authAccountCleanup.js';
 
 function sanitizeString(value) {
  const normalized = String(value || '').trim();
@@ -222,6 +223,10 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  );
  if (!email || !email.includes('@')) {
  return { handled: false, reason: 'missing_recipient' };
+ }
+
+ if (await isDeletedEmailAccount(db, email)) {
+ return { handled: false, reason: 'account_deleted' };
  }
 
  const emailType = sanitizeString(tags.type) || 'newsletter';

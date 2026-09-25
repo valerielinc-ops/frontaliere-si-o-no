@@ -62,10 +62,10 @@ jobs:
     # (data/events-geocode-cache.json, data/events-translation-cache.json —
     # see the "Persist geo/translation caches" step below) are populated,
     # only that day's genuinely new events need enrichment and tio-agenda
-    # should return close to its 12min baseline. 60 min gives headroom for
-    # today's one-time backlog plus nationwide guidle/myswitzerland, whose
-    # real full-catalog duration is still not independently measured.
-    timeout-minutes: 60
+    # should return close to its 12min baseline. Run 36029589003 consumed
+    # ~56min before the GE pilot started, so 60min cancelled before
+    # assemble/commit; leave headroom for GE plus the publication gate.
+    timeout-minutes: 90
 
     steps:
       - name: Checkout

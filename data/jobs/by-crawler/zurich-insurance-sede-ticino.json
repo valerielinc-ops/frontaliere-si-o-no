@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "zurich-insurance-sede-ticino-1373035757",
-      "slug": "leitung-fachstelle-leistungen-leben-m-w-d-zurich-insurance-sede-ticino-zurich",
+      "slug": "capo-dipartimento-servizi-vita-m-f-d-zurich-insurance-zurich-1373035757",
       "slugByLocale": {
         "de": "leitung-fachstelle-leistungen-leben-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "it": "leitung-fachstelle-leistungen-leben-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "en": "leitung-fachstelle-leistungen-leben-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "fr": "leitung-fachstelle-leistungen-leben-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "it": "capo-dipartimento-servizi-vita-m-f-d-zurich-insurance-zurich-1373035757",
+        "en": "head-of-department-services-life-m-f-d-zurich-insurance-zurich-1373035757",
+        "fr": "chef-du-departement-services-vie-h-f-d-zurich-insurance-zurich-1373035757"
       },
       "slugDisambiguator": "1373035757",
       "company": "Zurich Insurance",
@@ -68,16 +68,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:29:00.958Z"
+      "firstSeenAt": "2026-09-24T14:29:00.958Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-fachstelle-leistungen-leben-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ],
+        "en": [
+          "leitung-fachstelle-leistungen-leben-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ],
+        "fr": [
+          "leitung-fachstelle-leistungen-leben-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-fachstelle-leistungen-leben-m-w-d-zurich-insurance-sede-ticino-zurich"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1373036757",
-      "slug": "kundenberater-direct-sales-de-fr-m-w-d-zurich-insurance-zurich-1373036757",
+      "slug": "vendita-diretta-de-fr-m-f-d-zurich-insurance-zurich-1373036757",
       "slugByLocale": {
         "de": "kundenberater-direct-sales-de-fr-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "it": "kundenberater-direct-sales-de-fr-m-w-d-zurich-insurance-zurich-1373036757",
+        "it": "vendita-diretta-de-fr-m-f-d-zurich-insurance-zurich-1373036757",
         "en": "kundenberater-direct-sales-de-fr-m-w-d-zurich-insurance-zurich-1373036757",
-        "fr": "kundenberater-direct-sales-de-fr-m-w-d-zurich-insurance-zurich-1373036757"
+        "fr": "ventes-directes-de-fr-h-f-d-zurich-insurance-zurich-1373036757"
       },
       "slugDisambiguator": "1373036757",
       "company": "Zurich Insurance",
@@ -125,11 +139,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-direct-sales-de-fr-m-w-d-zurich-insurance-sede-ticino-zurich"
+          "kundenberater-direct-sales-de-fr-m-w-d-zurich-insurance-sede-ticino-zurich",
+          "kundenberater-direct-sales-de-fr-m-w-d-zurich-insurance-zurich-1373036757"
+        ],
+        "fr": [
+          "kundenberater-direct-sales-de-fr-m-w-d-zurich-insurance-zurich-1373036757"
         ]
       },
       "previousSlugs": [
-        "kundenberater-direct-sales-de-fr-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "kundenberater-direct-sales-de-fr-m-w-d-zurich-insurance-sede-ticino-zurich",
+        "kundenberater-direct-sales-de-fr-m-w-d-zurich-insurance-zurich-1373036757"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -217,12 +236,12 @@
     },
     {
       "id": "zurich-insurance-sede-ticino-1373062057",
-      "slug": "leitung-leistungen-ruckdeckungen-m-w-d-zurich-insurance-sede-ticino-zurich",
+      "slug": "line-services-coperture-m-f-d-zurich-insurance-zurich-1373062057",
       "slugByLocale": {
         "de": "leitung-leistungen-ruckdeckungen-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "it": "leitung-leistungen-ruckdeckungen-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "en": "leitung-leistungen-ruckdeckungen-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "fr": "leitung-leistungen-ruckdeckungen-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "it": "line-services-coperture-m-f-d-zurich-insurance-zurich-1373062057",
+        "en": "line-services-coverages-m-f-d-zurich-insurance-zurich-1373062057",
+        "fr": "couverture-des-services-en-ligne-h-f-d-zurich-insurance-zurich-1373062057"
       },
       "slugDisambiguator": "1373062057",
       "company": "Zurich Insurance",
@@ -281,7 +300,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:29:00.958Z"
+      "firstSeenAt": "2026-09-24T14:29:00.958Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-leistungen-ruckdeckungen-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ],
+        "en": [
+          "leitung-leistungen-ruckdeckungen-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ],
+        "fr": [
+          "leitung-leistungen-ruckdeckungen-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-leistungen-ruckdeckungen-m-w-d-zurich-insurance-sede-ticino-zurich"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1366805957",
@@ -363,11 +396,11 @@
     },
     {
       "id": "zurich-insurance-sede-ticino-1372924257",
-      "slug": "gestionnaire-de-sinistres-accidents-m-w-d-zurich-insurance-crissier",
+      "slug": "accident-disaster-manager-m-f-d-zurich-insurance-crissier-1372924257",
       "slugByLocale": {
-        "it": "gestionnaire-de-sinistres-accidents-m-w-d-zurich-insurance-crissier",
+        "it": "accident-disaster-manager-m-f-d-zurich-insurance-crissier-1372924257",
         "en": "gestionnaire-de-sinistres-accidents-h-f-d-zurich-insurance-sede-ticino-crissier",
-        "de": "gestionnaire-de-sinistres-accidents-h-f-d-zurich-insurance-sede-ticino-crissier",
+        "de": "unfallkatastrophenmanager-m-w-d-zurich-insurance-crissier-1372924257",
         "fr": "gestionnaire-de-sinistres-accidents-h-f-d-zurich-insurance-sede-ticino-crissier"
       },
       "company": "Zurich Insurance",
@@ -412,10 +445,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gestionnaire-de-sinistres-accidents-h-f-d-zurich-insurance-sede-ticino-crissier"
+        "gestionnaire-de-sinistres-accidents-h-f-d-zurich-insurance-sede-ticino-crissier",
+        "gestionnaire-de-sinistres-accidents-m-w-d-zurich-insurance-crissier"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-de-sinistres-accidents-h-f-d-zurich-insurance-sede-ticino-crissier",
+          "gestionnaire-de-sinistres-accidents-m-w-d-zurich-insurance-crissier"
+        ],
+        "de": [
           "gestionnaire-de-sinistres-accidents-h-f-d-zurich-insurance-sede-ticino-crissier"
         ]
       },
@@ -437,12 +475,12 @@
     },
     {
       "id": "zurich-insurance-sede-ticino-1372808257",
-      "slug": "schadenspezialist-sach-haft-m-w-d-zurich-insurance-zurich-1372808257",
+      "slug": "specialista-di-danni-sach-haft-m-f-d-zurich-insurance-zurich-1372808257",
       "slugByLocale": {
-        "it": "schadenspezialist-sach-haft-m-w-d-zurich-insurance-zurich-1372808257",
-        "en": "schadenspezialist-sach-haft-m-w-d-zurich-insurance-zurich-1372808257",
+        "it": "specialista-di-danni-sach-haft-m-f-d-zurich-insurance-zurich-1372808257",
+        "en": "damage-specialist-sach-haft-m-f-d-zurich-insurance-zurich-1372808257",
         "de": "schadenspezialist-sach-haft-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "fr": "schadenspezialist-sach-haft-m-w-d-zurich-insurance-zurich-1372808257"
+        "fr": "specialiste-des-dommages-sach-haft-h-f-d-zurich-insurance-zurich-1372808257"
       },
       "company": "Zurich Insurance",
       "companyKey": "zurich-insurance-sede-ticino",
@@ -487,11 +525,19 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "previousSlugs": [
-        "schadenspezialist-sach-haft-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "schadenspezialist-sach-haft-m-w-d-zurich-insurance-sede-ticino-zurich",
+        "schadenspezialist-sach-haft-m-w-d-zurich-insurance-zurich-1372808257"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schadenspezialist-sach-haft-m-w-d-zurich-insurance-sede-ticino-zurich"
+          "schadenspezialist-sach-haft-m-w-d-zurich-insurance-sede-ticino-zurich",
+          "schadenspezialist-sach-haft-m-w-d-zurich-insurance-zurich-1372808257"
+        ],
+        "en": [
+          "schadenspezialist-sach-haft-m-w-d-zurich-insurance-zurich-1372808257"
+        ],
+        "fr": [
+          "schadenspezialist-sach-haft-m-w-d-zurich-insurance-zurich-1372808257"
         ]
       },
       "slugDisambiguator": "1372808257",

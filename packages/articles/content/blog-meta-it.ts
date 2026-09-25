@@ -254,7 +254,7 @@ const blogMetaIt: Record<string, string> = {
  'blog.article.congedo-genitori-frontaliere-ticino.excerpt': 'Diventare genitori da frontaliere: come funzionano maternità e paternità tra Svizzera e Italia? Ecco le cifre 2026, i requisiti e le procedure.',
  'blog.article.congedo-genitori-frontaliere-ticino.imageAlt': 'Coppia di neogenitori frontalieri pianifica il congedo parentale su un tablet, con vista sul Lago di Lugano, Ticino.',
  'blog.article.costo-pendolare-auto-ticino-2026.title': 'Costo auto frontaliere: quanto pesa sul tuo stipendio?',
- 'blog.article.costo-pendolare-auto-ticino-2026.excerpt': 'Benzina, usura, parcheggio e vignette: l\'analisi completa dei costi 2026. Un pendolare spende fino a 7.500 CHF all\'anno. Confronto con treno e bus.',
+ 'blog.article.costo-pendolare-auto-ticino-2026.excerpt': 'Benzina, usura, parcheggio e vignette: l\'analisi completa dei costi 2026. Un pendolare spende circa 8.670 CHF all\'anno. Confronto con treno e bus.',
  'blog.article.costo-pendolare-auto-ticino-2026.imageAlt': 'Coda di auto di frontalieri al valico di Chiasso-Brogeda in Ticino al mattino presto.',
  'blog.article.guida-dichiarazione-redditi-frontalieri.title': 'Dichiarazione Redditi Frontaliere: Guida 730 per il Ticino',
  'blog.article.guida-dichiarazione-redditi-frontalieri.excerpt': 'Modello 730/2026 e Redditi PF: dove indicare lo stipendio svizzero, come calcolare il credito d\'imposta e quali documenti servono. La guida completa per i frontalieri del Ticino.',
@@ -11948,6 +11948,18 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pensione-pubblica-svizzera-non-tassata-italia.title': 'Pensione pubblica svizzera: nessuna tassazione in Italia',
     'blog.article.pensione-pubblica-svizzera-non-tassata-italia.excerpt': 'Risposta a interpello n. 177/2026 dell’Agenzia delle Entrate: pensione pubblica DDPS erogata da Cassa PUBLICA non tassata in Italia per chi ha doppia cittadinanza italo-svizzera.',
     'blog.article.pensione-pubblica-svizzera-non-tassata-italia.imageAlt': 'Vista sul lago di Lugano con montagne sullo sfondo, rappresentante la vita finanziaria transfrontaliera in Ticino',
+    'blog.article.mobilizzazione-ferroviaria-luino-svizzera.title': 'Linea Luino-Svizzera: Azione aderisce a Lombardia si muove',
+    'blog.article.mobilizzazione-ferroviaria-luino-svizzera.excerpt': 'Sabato 26 settembre mobilitazione nelle stazioni lombarde per l\'efficienza ferroviaria. Focus sulla tratta Luino-Svizzera e raccolta firme per il Ministro.',
+    'blog.article.mobilizzazione-ferroviaria-luino-svizzera.imageAlt': 'Treno regionale in arrivo in una stazione del Ticino',
+    'blog.article.bns-franco-euro-cambio.title': 'BNS: franco debole, euro a 0,9423 CHF',
+    'blog.article.bns-franco-euro-cambio.excerpt': 'La BNS conferma il tasso allo zero. L\'euro sale a 0,9423 franchi, il dollaro a 0,8268: impatto sul controvalore per i frontalieri.',
+    'blog.article.bns-franco-euro-cambio.imageAlt': 'Vista sul Lago di Lugano con la città sullo sfondo, luce mattutina',
+    'blog.article.gornate-olona-regime-fiscale.title': 'Gornate Olona: lavorare in Ticino da frontaliere',
+    'blog.article.gornate-olona-regime-fiscale.excerpt': 'Da Gornate Olona al Ticino: accordo frontalieri in vigore dal 1° gennaio 2024, imposta alla fonte, esenzione €7\'500 o franchigia €10\'000, AVS e LAMal.',
+    'blog.article.gornate-olona-regime-fiscale.imageAlt': 'Lavoratore frontaliere tra Gornate Olona e il Canton Ticino',
+    'blog.article.bns-decisione-tasso-invariato-2026.title': 'BNS lascia tasso allo 0% e alza PIL 2026',
+    'blog.article.bns-decisione-tasso-invariato-2026.excerpt': 'La BNS mantiene il tasso di riferimento allo 0% (invariato da giugno 2025), prevede inflazione 0,7% nel 2026 e 0,8% nel 2027 e PIL 2026 tra l’1,5% e il 2,0%.',
+    'blog.article.bns-decisione-tasso-invariato-2026.imageAlt': 'Vista del lago di Lugano con le montagne sullo sfondo, luce mattutina',
 };
 
 export default blogMetaIt;

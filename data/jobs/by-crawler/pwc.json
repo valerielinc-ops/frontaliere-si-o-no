@@ -43,7 +43,7 @@
         "it": "manager-senior-manager-u-s-tax-pwc-zurich",
         "en": "manager-senior-manager-u-s-tax-pwc-zurich",
         "de": "manager-senior-manager-u-s-tax-pwc-zurich",
-        "fr": "manager-senior-manager-u-s-tax-pwc-zurich"
+        "fr": "gestionnaire-senior-manager-taxe-americaine-pwc-switzerland-zurich"
       },
       "id": "pwc-5d3113ca60c2",
       "needsRetranslation": true,
@@ -104,7 +104,7 @@
         "it": "manager-payroll-consulting-mandatsverantwortung-pwc-zurich",
         "en": "manager-payroll-consulting-mandatsverantwortung-pwc-zurich",
         "de": "manager-payroll-consulting-mandatsverantwortung-pwc-zurich",
-        "fr": "manager-payroll-consulting-mandatsverantwortung-pwc-zurich"
+        "fr": "gestionnaire-conseils-sur-la-paie-et-le-mandat-responsabilite-pwc-switzerland-zurich"
       },
       "id": "pwc-49b233f7c38b",
       "salaryMin": 189000,
@@ -370,7 +370,7 @@
       },
       "slugByLocale": {
         "it": "manager-senior-manager-consigli-audit-in-cyber-risk-management-e-conformita-normativa-pwc-switzerland-geneve",
-        "en": "manager-senior-manager-conseil-audit-en-gestion-des-cyber-risques-conformite-reglementaire-pwc-switzerland-geneve",
+        "en": "manager-senior-manager-advice-audit-in-cyber-risk-management-regulatory-compliance-pwc-switzerland-geneve",
         "de": "manager-senior-manager-beratung-audit-in-cyber-risk-management-regulatory-compliance-pwc-switzerland-geneve",
         "fr": "manager-senior-manager-conseil-audit-en-gestion-des-cyber-risques-conformite-reglementaire-pwc-geneve"
       },
@@ -395,8 +395,8 @@
           "manager-senior-manager-conseil-audit-en-gestion-des-cyber-risques-conformite-reglementaire-pwc-geneve"
         ],
         "en": [
-          "manager-senior-manager-advice-audit-in-cyber-risk-management-regulatory-compliance-pwc-switzerland-geneve",
-          "manager-senior-manager-conseil-audit-en-gestion-des-cyber-risques-conformite-reglementaire-pwc-geneve"
+          "manager-senior-manager-conseil-audit-en-gestion-des-cyber-risques-conformite-reglementaire-pwc-geneve",
+          "manager-senior-manager-conseil-audit-en-gestion-des-cyber-risques-conformite-reglementaire-pwc-switzerland-geneve"
         ],
         "de": [
           "manager-senior-manager-conseil-audit-en-gestion-des-cyber-risques-conformite-reglementaire-pwc-geneve"
@@ -404,7 +404,7 @@
       },
       "previousSlugs": [
         "manager-senior-manager-conseil-audit-en-gestion-des-cyber-risques-conformite-reglementaire-pwc-geneve",
-        "manager-senior-manager-advice-audit-in-cyber-risk-management-regulatory-compliance-pwc-switzerland-geneve"
+        "manager-senior-manager-conseil-audit-en-gestion-des-cyber-risques-conformite-reglementaire-pwc-switzerland-geneve"
       ]
     },
     {
@@ -1196,7 +1196,8 @@
       },
       "previousSlugs": [
         "digital-audit-senior-manager-sox-risk-assurance-pwc-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Senior Manager – Wealth Management / Asset Management Consulting",
@@ -1324,7 +1325,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:57:51.229Z"
+      "firstSeenAt": "2026-09-19T22:57:51.229Z",
+      "needsRetranslation": true
     },
     {
       "title": "Manager Financial Services Consulting",
@@ -2003,7 +2005,7 @@
         "it": "direttore-cio-advisory-middle-markets-pwc-switzerland-zurich",
         "en": "director-cio-advisory-middle-markets-pwc-zurich",
         "de": "direktor-cio-advisory-middle-markets-pwc-switzerland-zurich",
-        "fr": "director-cio-advisory-middle-markets-pwc-switzerland-zurich"
+        "fr": "directeur-dpi-conseil-marches-moyens-pwc-switzerland-zurich"
       },
       "id": "pwc-474940c64b92",
       "salaryMin": 113000,
@@ -2023,7 +2025,6 @@
       "firstSeenAt": "2026-09-09T13:51:57.507Z",
       "previousSlugsByLocale": {
         "fr": [
-          "directeur-dpi-conseil-marches-moyens-pwc-switzerland-zurich",
           "director-cio-advisory-middle-markets-pwc-switzerland-zurich"
         ],
         "it": [
@@ -2035,7 +2036,6 @@
       },
       "previousSlugs": [
         "director-cio-advisory-middle-markets-pwc-zurich",
-        "directeur-dpi-conseil-marches-moyens-pwc-switzerland-zurich",
         "director-cio-advisory-middle-markets-pwc-switzerland-zurich"
       ],
       "postalCode": "8050",
@@ -3664,7 +3664,8 @@
       },
       "previousSlugs": [
         "manager-senior-manager-sap-s-4hana-technical-transformation-integration-and-clean-core-pwc-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Senior Associate / Manager - Cybersecurity Berater und Prüfer",
@@ -5797,7 +5798,8 @@
         "senior-associate-corporate-real-estate-project-management-70-100-pwc-genf"
       ],
       "postalCode": "1202",
-      "streetAddress": "Avenue Giuseppe-Motta 50"
+      "streetAddress": "Avenue Giuseppe-Motta 50",
+      "needsRetranslation": true
     },
     {
       "title": "Senior Associate – Junior Mandatsleiter:in Treuhand",
@@ -6371,7 +6373,8 @@
         "senior-associate-compliance-center-spezialist-in-steuerdeklarationen-pwc-basel"
       ],
       "salarySource": "reported",
-      "streetAddress": "St. Jakobs-Strasse 25"
+      "streetAddress": "St. Jakobs-Strasse 25",
+      "needsRetranslation": true
     },
     {
       "title": "Senior Associate - Strategy Consulting",
@@ -6543,7 +6546,8 @@
         ]
       },
       "salarySource": "reported",
-      "streetAddress": "St. Jakobs-Strasse 25"
+      "streetAddress": "St. Jakobs-Strasse 25",
+      "needsRetranslation": true
     },
     {
       "title": "Associate - Corporate Tax (Steuerberatung & Dissertation im Steuerrecht) 60%",

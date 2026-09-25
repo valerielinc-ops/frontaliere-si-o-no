@@ -19,7 +19,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
   buildLifecycleEvent,
-  validateLifecycleEvent,
+  validateHistoricalLifecycleEvent,
   validateLoopRegistry,
 } from '../lib/loop-fleet-contract.mjs';
 
@@ -299,7 +299,7 @@ function candidateRecords(registry, lifecycleEvents) {
       }
       continue;
     }
-    validateLifecycleEvent(registry, event.loopId, event);
+    validateHistoricalLifecycleEvent(registry, event.loopId, event);
     if (!object(event.execution)
         || !text(event.execution.runId)
         || !SHA_RE.test(String(event.execution.sha || ''))) {
@@ -364,18 +364,20 @@ function observedRecordId(eventType, candidateId, pr, evidence) {
   return `lf-lifecycle-${crypto.createHash('sha256').update(basis).digest('hex').slice(0, 24)}`;
 }
 
-function buildObservedEvent({ candidate, eventType, pr, evidence, execution, now }) {
+function buildObservedEvent({ candidate, eventType, pr, evidence, execution, now, registry }) {
   if (!OBSERVED_EVENT_TYPES.includes(eventType) && !EXPLICIT_TERMINAL_EVENT_TYPES.includes(eventType)) {
     throw new Error(`unsupported observed event ${eventType}`);
   }
   if (!text(evidence?.artifactOrPr) || !validPastTimestamp(evidence.occurredAt, now)) return null;
+  const policy = registry.loops.find((loop) => loop.loopId === candidate.loopId);
+  if (!policy) throw new Error(`candidate ${candidate.candidateId} belongs to an unknown loop ${candidate.loopId}`);
   const event = buildLifecycleEvent({
     eventType,
     loopId: candidate.loopId,
     candidateId: candidate.candidateId,
     owner: candidate.owner,
     sourceRecordId: candidate.sourceRecordId,
-    sourceRefs: candidate.sourceRefs,
+    sourceRefs: policy.sourceRefs,
     lifecycle: candidate.lifecycle,
     occurredAt: new Date(evidence.occurredAt).toISOString(),
     artifactOrPr: evidence.artifactOrPr,
@@ -486,6 +488,7 @@ export function observeLifecycle({
         evidence,
         execution,
         now,
+        registry: validatedRegistry,
       });
       if (!event) continue;
       events.push(event);
@@ -506,6 +509,7 @@ export function observeLifecycle({
           evidence: automaticInconclusive,
           execution,
           now,
+          registry: validatedRegistry,
         });
         if (event) {
           events.push(event);
