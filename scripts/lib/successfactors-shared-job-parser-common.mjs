@@ -244,7 +244,8 @@ export function extractCsbTotal(html) {
  * propertyid block, the apply button widget, or a layout closer.
  */
 function readPropertyBlock(html, propId) {
-  const re = new RegExp(`data-careersite-propertyid="${propId}"[^>]*>`, 'i');
+  const escapedPropId = String(propId).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp(`data-careersite-propertyid\\s*=\\s*["']${escapedPropId}["'][^>]*>`, 'i');
   const m = re.exec(html);
   if (!m) return '';
   const start = m.index + m[0].length;
@@ -423,7 +424,11 @@ export function parseCsbDetailPage(html) {
   const propertyCity = decodeEntities(normalizeSpace(stripHtml(readPropertyBlock(html, 'city'))));
   const propertyCountry = decodeEntities(normalizeSpace(stripHtml(readPropertyBlock(html, 'country'))));
   const microdataLocation = parseSuccessFactorsMicrodataLocation(html);
-  if (!city) city = propertyCity || microdataLocation?.city || '';
+  // Tecan and other CSB tenants expose the authoritative locality in these
+  // property blocks while omitting the generic `location` block. Prefer that
+  // source whenever present, then fall back to microdata/legacy location text.
+  if (propertyCity) city = propertyCity;
+  else if (!city) city = microdataLocation?.city || '';
   if (!region) region = microdataLocation?.region || '';
   if (!postalCode) postalCode = microdataLocation?.postalCode || '';
   const locationFirstLine = canonicalLoc
@@ -714,14 +719,21 @@ export function createSuccessFactorsParser(config) {
           .slice(1)
           .map((segment) => segment.trim());
       const sourceCountry = String(detail?.country || '').trim();
-      if (sourceCountry && !isChCountry(sourceCountry)) {
+      const detailHasSwissCountry = Boolean(sourceCountry && isChCountry(sourceCountry));
+      if (sourceCountry && !detailHasSwissCountry) {
         console.warn(`  ⏭️ Skipping non-CH detail location (${sourceCountry}) for ${listing.title} (${listing.jobId})`);
         continue;
       }
-      const listingRegion = listingSegments.map((segment) => normalizeCantonCode(segment)).find(Boolean) || '';
       const listingHasSwissCountry = listingSegments.some((segment) =>
-        /^(?:CH|switzerland|schweiz|suisse|svizzera)$/i.test(segment),
+        isChCountry(segment),
       );
+      // A two-segment listing such as "NotARealCity, FR" is not evidence that
+      // FR is a Swiss canton. Normalize listing regions only after a detail or
+      // listing country field explicitly establishes Switzerland.
+      const hasSwissCountryEvidence = detailHasSwissCountry || listingHasSwissCountry;
+      const listingRegion = hasSwissCountryEvidence
+        ? listingSegments.map((segment) => normalizeCantonCode(segment)).find(Boolean) || ''
+        : '';
       const city = detailCity || listingCity;
       if (!city) {
         console.warn(`  ⏭️ Skipping location without a city: ${listing.title} (${listing.jobId})`);
@@ -737,7 +749,7 @@ export function createSuccessFactorsParser(config) {
       const region = detail?.region || listingRegion;
       const inferredCanton = inferSwissTargetCanton(city);
       const canton = inferredCanton || (
-        (sourceCountry && isChCountry(sourceCountry)) || listingHasSwissCountry
+        hasSwissCountryEvidence
           ? normalizeCantonCode(region)
           : ''
       );

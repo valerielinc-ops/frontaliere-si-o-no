@@ -289,6 +289,17 @@ describe('SuccessFactors factory geography gate', () => {
     });
   });
 
+  it('preserves a Swiss factory offer sourced only from CSB city/country blocks', async () => {
+    stubFactoryFetch(
+      { 1008: factoryCsbDetail({ city: 'Männedorf', country: 'CH' }) },
+      factoryListing('1008', 'Männedorf vacancy'),
+    );
+
+    await expect(factoryParser.fetchAllJobs()).resolves.toMatchObject([
+      expect.objectContaining({ location: 'Männedorf', canton: 'ZH', addressCountry: 'CH' }),
+    ]);
+  });
+
   it('keeps a Swiss locality outside the gazetteer when the source region is a canton', async () => {
     stubFactoryFetch(
       { 1006: factoryDetail({ city: 'Epagny', region: 'FR', country: 'CH' }) },
