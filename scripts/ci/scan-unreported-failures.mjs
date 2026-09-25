@@ -42,8 +42,11 @@
  *     prefisso di 60 char, commento di ricorrenza, reopen guardato.
  *   - `TITLE_RE` (scripts/ci/close-recovered-failure-issues.mjs) — la famiglia
  *     di titoli che il chiuditore centrale sa richiudere.
- * Nessuno dei due file viene modificato: sono `mode: identical` nel manifest, e
- * toccarli qui creerebbe `site-ahead` per un vantaggio nullo.
+ * Entrambi sono `mode: identical` nel manifest: si modificano solo quando il
+ * vantaggio vale il `site-ahead` che creano. Per il creator è successo una
+ * volta, con l'opzione `occurredAt` (#9761): il guard che separa una run
+ * anteriore alla chiusura da una ricorrenza serve a ogni scanner con una
+ * finestra all'indietro, quindi sta nel ramo di riapertura e non qui.
  *
  * ─── `cancelled` NON suona l'allarme ─────────────────────────────────────
  *
@@ -95,7 +98,8 @@
  *   - modalità failure (oraria): ~3 chiamate per l'elenco workflow + ~5 per le
  *     run rosse della finestra di 24 h (~465 `failure`, 100 per pagina) +
  *     1 `gh issue list` + per ogni workflow candidato 1 lettura dell'ultima run
- *     (il guard sul rientro) e 1 lettura dei job, entrambe ≤ MAX_ISSUES.
+ *     (il guard sul rientro; 2 solo se la prima non prova niente) e 1 lettura
+ *     dei job, entrambe ≤ MAX_ISSUES.
  *   - modalità `--dormant` (GIORNALIERA, non oraria, proprio per questo): 1
  *     chiamata per workflow schedulato, oggi 180. Una al giorno è il prezzo che
  *     rende il controllo possibile; orario costerebbe 4.320 chiamate/giorno sul
@@ -511,6 +515,96 @@ export function isReportableScope(run, { ignore = IGNORE } = {}) {
   return true;
 }
 
+/* ── rientro dopo il rosso ───────────────────────────────────────────── */
+
+/** Quante run recenti del workflow legge il guard sul rientro (una pagina). */
+export const RECOVERY_LISTING_SIZE = 20;
+
+/**
+ * Esiti che non sono un verdetto sul workflow: una run `cancelled` (concorrenza,
+ * supersessione), `skipped` o `neutral` non dice ne' che il guasto e' rientrato
+ * ne' che e' ancora li'. Senza questo filtro un `cancelled` arrivato DOPO il
+ * verde nascondeva il rientro e il rosso gia' guarito veniva segnalato.
+ */
+const NON_VERDICT_CONCLUSIONS = new Set(['cancelled', 'skipped', 'neutral']);
+
+/**
+ * Il rosso `redRun` e' rientrato? Decide la run PIU' RECENTE nel perimetro,
+ * completata e con un verdetto, creata dopo il rosso: rientrato solo se e'
+ * `success`.
+ *
+ * `inconclusive` separa «la lettura non prova niente» da «il guasto c'e'
+ * ancora». La run rossa e' completata e nel perimetro, quindi un listing
+ * coerente la contiene — a meno che dopo di lei ne siano arrivate piu' di una
+ * pagina. Un listing assente, vuoto, o che la salta senza essere pieno di run
+ * piu' recenti e' una lettura rotta: il 2026-09-24 (run 35997761435) il guard
+ * ha riaperto #9478 su `Sync crawler workflows to the corpus repo` con sette
+ * run verdi nel perimetro dopo il rosso 35909380587, e la passata delle 06:45
+ * con lo stesso codice le aveva viste.
+ *
+ * @param {Array<Record<string,string|null>>|null} rows run recenti, newest-first o no
+ * @param {{id?: string|number, created_at: string}} redRun
+ * @returns {{recovered: boolean, inconclusive: boolean, green: Record<string,string|null>|null, reason: string}}
+ */
+export function recoveryVerdict(rows, redRun, { workflowName = null, ignore = IGNORE, pageSize = RECOVERY_LISTING_SIZE } = {}) {
+  if (rows === null) return { recovered: false, inconclusive: true, green: null, reason: 'listing illeggibile' };
+  if (rows.length === 0) return { recovered: false, inconclusive: true, green: null, reason: 'listing vuoto' };
+  const redAt = Date.parse(redRun.created_at);
+  const redId = redRun.id == null ? null : String(redRun.id);
+  const after = rows
+    .filter((r) => r.status == null || r.status === 'completed')
+    .filter((r) => isReportableScope({ ...r, workflow_name: workflowName }, { ignore }))
+    .filter((r) => Date.parse(r.created_at) > redAt && String(r.id) !== redId)
+    .sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at));
+  const verdict = after.find((r) => r.conclusion && !NON_VERDICT_CONCLUSIONS.has(r.conclusion));
+  if (verdict?.conclusion === 'success') {
+    return { recovered: true, inconclusive: false, green: verdict, reason: 'verde dopo il rosso' };
+  }
+  const redListed = redId !== null && rows.some((r) => String(r.id) === redId);
+  const pageFullOfNewer = rows.length >= pageSize && rows.every((r) => Date.parse(r.created_at) > redAt);
+  if (redId !== null && !redListed && !pageFullOfNewer) {
+    return { recovered: false, inconclusive: true, green: null, reason: `listing incoerente: manca la run rossa ${redId}` };
+  }
+  return {
+    recovered: false,
+    inconclusive: false,
+    green: null,
+    reason: verdict ? `ultima run con verdetto: ${verdict.conclusion}` : 'nessuna run con verdetto dopo il rosso',
+  };
+}
+
+/* ── storia vs ricorrenza ────────────────────────────────────────────── */
+
+/**
+ * L'inizio (`created_at`) della run rossa iniziata PER ULTIMA fra quelle di un
+ * workflow nella finestra: è il valore che il creator confronta con la chiusura
+ * della gemella chiusa (#9761, `occurrencePredatesClose`).
+ *
+ * Non basta l'inizio della run scelta per il corpo della issue, che è quella
+ * AGGIORNATA per ultima. Una run lunga iniziata prima della chiusura può finire
+ * dopo una run breve iniziata dopo: scegliendo la prima, la ricorrenza vera
+ * della seconda verrebbe letta come storia e taciuta per tutta la finestra.
+ *
+ * Fail-closed: un solo `created_at` illeggibile rende `null`, e con `null` il
+ * creator riapre come prima del guard.
+ *
+ * @param {Array<{created_at?: string|null}>|null|undefined} runs
+ * @returns {string|null}
+ */
+export function newestRunStart(runs) {
+  let newest = null;
+  let newestMs = -Infinity;
+  for (const r of runs || []) {
+    const ms = Date.parse(String(r?.created_at ?? ''));
+    if (!Number.isFinite(ms)) return null;
+    if (ms > newestMs) {
+      newestMs = ms;
+      newest = r.created_at;
+    }
+  }
+  return newest;
+}
+
 /* ── cadenza dichiarata da un cron ───────────────────────────────────── */
 
 const DOW_NAMES = { sun: 0, mon: 1, tue: 2, wed: 3, thu: 4, fri: 5, sat: 6 };
@@ -880,7 +974,7 @@ export function runBody({ run, workflowName, jobs, jobsReadable = true }) {
   return lines.join('\n');
 }
 
-async function scanFailures() {
+export async function scanFailures() {
   const since = new Date(Date.now() - LOOKBACK_MINUTES * 60_000).toISOString();
   const horizon = new Date(Date.now() - RUN_QUERY_HORIZON_MINUTES * 60_000).toISOString();
 
@@ -926,11 +1020,13 @@ async function scanFailures() {
   // Un solo thread per workflow: si tiene la run più recente, le altre sono la
   // stessa condizione che ricorre.
   const byWorkflow = new Map();
+  const runsByWorkflow = new Map();
   for (const run of reportable) {
     const prev = byWorkflow.get(run.workflowName);
     if (!prev || Date.parse(run.updated_at) > Date.parse(prev.updated_at)) {
       byWorkflow.set(run.workflowName, run);
     }
+    runsByWorkflow.set(run.workflowName, [...(runsByWorkflow.get(run.workflowName) || []), run]);
   }
 
   console.log(
@@ -947,7 +1043,7 @@ async function scanFailures() {
   // conterebbe come consegnato anche cio' che non e' mai atterrato. Ogni esito
   // confluisce qui e la funzione esce in UN punto, cosi' il verdetto non puo'
   // divergere dai conteggi che stampa.
-  const tally = { delivered: 0, active: 0, recovered: 0, deferred: [], undelivered: [] };
+  const tally = { delivered: 0, active: 0, recovered: 0, historical: 0, deferred: [], undelivered: [] };
   const pending = [...byWorkflow.entries()];
 
   for (let i = 0; i < pending.length; i += 1) {
@@ -1039,28 +1135,44 @@ async function scanFailures() {
     // di feature o su una PR — che su questo repo sono la maggioranza, 610 su
     // 930 in 48 h — veniva letta come guarigione e sopprimeva il rosso di
     // `main`: un rosso reale reso invisibile dal guard che doveva solo evitare
-    // rumore. Si chiede quindi una pagina di run completate e si guarda la piu'
-    // recente CHE RICADE NEL PERIMETRO, con lo stesso `isReportableScope` che
-    // ha selezionato il rosso.
-    const recent = ghApiRows(
+    // rumore. Si chiede quindi una pagina di run e decide la piu' recente con un
+    // verdetto CHE RICADE NEL PERIMETRO, con lo stesso `isReportableScope` che
+    // ha selezionato il rosso (vedi `recoveryVerdict`).
+    //
+    // Niente `status=completed` lato server: GitHub documenta quel parametro fra
+    // i filtri di ricerca (tetto di 1.000 risultati), e il rientro si legge dal
+    // listing semplice, come fa il chiuditore (`gh run list` senza stato in
+    // close-recovered). Completate ed esiti si filtrano in `recoveryVerdict`.
+    const readRecent = () => ghApiRows(
       `repos/${REPO || '{owner}/{repo}'}/actions/workflows/${run.workflow_id}/runs`
-        + '?per_page=20&status=completed',
-      '.workflow_runs[] | [.conclusion, .created_at, .event, .head_branch] | @tsv',
-      ['conclusion', 'created_at', 'event', 'head_branch'],
+        + `?per_page=${RECOVERY_LISTING_SIZE}`,
+      '.workflow_runs[] | [.id, .status, .conclusion, .created_at, .event, .head_branch] | @tsv',
+      ['id', 'status', 'conclusion', 'created_at', 'event', 'head_branch'],
       { paginate: false },
     );
-    const inScope = (recent || [])
-      .filter((r) => isReportableScope({ ...r, workflow_name: workflowName }))
-      .sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at));
-    const newest = inScope[0];
-    if (newest && newest.conclusion === 'success'
-      && Date.parse(newest.created_at) > Date.parse(run.created_at)) {
+    let recovery = recoveryVerdict(readRecent(), run, { workflowName });
+    if (recovery.inconclusive) {
+      // Una sola rilettura: costa una chiamata solo quando la prima non prova
+      // niente, e distingue un listing momentaneamente rotto da uno vero.
+      console.warn(`[scan-unreported-failures] ${workflowName}: rientro non verificabile (${recovery.reason}) — rilettura.`);
+      recovery = recoveryVerdict(readRecent(), run, { workflowName });
+    }
+    if (recovery.recovered) {
+      const newest = recovery.green;
       tally.recovered += 1;
       console.log(
         `[scan-unreported-failures] ${workflowName}: rientrato (run verde ${newest.created_at} `
           + `su \`${newest.head_branch}\`/\`${newest.event}\` dopo il rosso ${run.created_at}) → nessuna issue.`,
       );
       continue;
+    }
+    if (recovery.inconclusive) {
+      // In dubbio si segnala (il costo e' un commento, quello di un rosso perso
+      // sono giorni), ma il motivo si DICE: prima questo ramo era muto.
+      console.warn(
+        `::warning::[scan-unreported-failures] ${workflowName}: rientro non verificabile dopo la rilettura `
+          + `(${recovery.reason}) — segnalo il rosso ${run.html_url} per prudenza.`,
+      );
     }
 
     const title = `CI Failure: ${workflowName}`;
@@ -1074,6 +1186,16 @@ async function scanFailures() {
     // Il marker entra nel body fin dall'apertura: senza, la passata successiva
     // non troverebbe la firma nel thread e leggerebbe come «guasto cambiato»
     // lo stesso identico guasto, a ogni ora.
+    //
+    // `occurredAt` è il guard sulla STORIA (#9761). La finestra di 24 h rilegge
+    // a ogni passata anche le run rosse di stamattina, e se nel frattempo la
+    // fix ha chiuso la issue, il creator riapriva la gemella chiusa su una run
+    // che precede la chiusura: #9654, chiusa alle 17:59:52Z dalla PR #9699 e
+    // riaperta alle 20:48Z sulla run 35995267599 delle 11:49Z, senza nessuna run
+    // dopo il merge. Con l'inizio della run il creator distingue la storia già
+    // coperta dalla chiusura da una ricorrenza vera, che comincia DOPO.
+    // Vale l'inizio più recente fra le run rosse del workflow, non quello della
+    // run scelta per il corpo (vedi `newestRunStart`).
     const issue = await createGithubIssue({
       title,
       description: runBody({ run, workflowName, jobs, jobsReadable })
@@ -1081,7 +1203,16 @@ async function scanFailures() {
       priority: 2,
       labels: ['automation', 'ci-failure'],
       workflow: workflowName,
+      occurredAt: newestRunStart(runsByWorkflow.get(workflowName)),
     });
+    if (issue?.predatesClose === true) {
+      tally.historical += 1;
+      console.log(
+        `[scan-unreported-failures] ${workflowName}: nessuna run rossa della finestra è iniziata dopo `
+          + `la chiusura di #${issue.number} (ultima: ${run.html_url}) → storia, non ricorrenza: nessuna riapertura.`,
+      );
+      continue;
+    }
     if (!issue?.number || issue.persisted !== true) {
       tally.undelivered.push(workflowName);
       continue;
@@ -1092,7 +1223,8 @@ async function scanFailures() {
 
   console.log(
     `[scan-unreported-failures] fatto — ${tally.delivered} consegnate, ${tally.active} già coperte da `
-      + `una issue viva, ${tally.recovered} rientrate, ${tally.deferred.length} rinviate, `
+      + `una issue viva, ${tally.recovered} rientrate, ${tally.historical} anteriori alla chiusura, `
+      + `${tally.deferred.length} rinviate, `
       + `${tally.undelivered.length} NON consegnate (dry-run=${DRY_RUN}).`,
   );
   if (tally.undelivered.length) {

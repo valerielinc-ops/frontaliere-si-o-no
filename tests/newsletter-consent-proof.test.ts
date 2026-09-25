@@ -487,20 +487,20 @@ describe('the register is versioned, and editing a formula cannot be silent', ()
    */
   const PINNED: Record<string, { version: string; text: string }> = {
     communicationsOptIn: {
-      version: '2026-09-16.1',
-      text: 'Registrandomi accetto le condizioni e mi iscrivo alle comunicazioni di Frontaliere Ticino. Condizioni (v. 2026-09-15.1).',
+      version: '2026-09-25.2',
+      text: 'Registrandomi accetto le condizioni e mi iscrivo alle comunicazioni di Frontaliere Ticino. Condizioni (v. 2026-09-25.2).',
     },
     communicationsSignIn: {
-      version: '2026-09-16.1',
-      text: 'Registrandomi o accedendo accetto le condizioni e mi iscrivo alle comunicazioni di Frontaliere Ticino. Condizioni (v. 2026-09-15.1).',
+      version: '2026-09-25.2',
+      text: 'Registrandomi o accedendo accetto le condizioni e mi iscrivo alle comunicazioni di Frontaliere Ticino. Condizioni (v. 2026-09-25.2).',
     },
     // Same sentence as `communicationsSignIn`, different act — the email branch
     // of an access gate, which since #5765 shows ONE notice for both branches.
     // The duplication in this table is the point: a divergence between the two
     // would mean one branch stores something the screen never said.
     communicationsSignInEmail: {
-      version: '2026-09-16.1',
-      text: 'Registrandomi o accedendo accetto le condizioni e mi iscrivo alle comunicazioni di Frontaliere Ticino. Condizioni (v. 2026-09-15.1).',
+      version: '2026-09-25.2',
+      text: 'Registrandomi o accedendo accetto le condizioni e mi iscrivo alle comunicazioni di Frontaliere Ticino. Condizioni (v. 2026-09-25.2).',
     },
     signInAutoSubscribe: {
       version: '2026-08-12.2',
@@ -577,16 +577,16 @@ describe('the register is versioned, and editing a formula cannot be silent', ()
    * editing one without bumping `version` has to fail here.
    */
   const SIGN_IN_LOCALES = {
-    en: 'By registering or signing in I accept the terms and subscribe to Frontaliere Ticino communications. Terms (v. 2026-09-15.1).',
-    de: 'Mit der Registrierung oder Anmeldung akzeptiere ich die Bedingungen und abonniere die Mitteilungen von Frontaliere Ticino. Bedingungen (V. 2026-09-15.1).',
-    fr: 'En m’inscrivant ou en me connectant, j’accepte les conditions et m’inscris aux communications de Frontaliere Ticino. Conditions (v. 2026-09-15.1).',
+    en: 'By registering or signing in I accept the terms and subscribe to Frontaliere Ticino communications. Terms (v. 2026-09-25.2).',
+    de: 'Mit der Registrierung oder Anmeldung akzeptiere ich die Bedingungen und abonniere die Mitteilungen von Frontaliere Ticino. Bedingungen (V. 2026-09-25.2).',
+    fr: 'En m’inscrivant ou en me connectant, j’accepte les conditions et m’inscris aux communications de Frontaliere Ticino. Conditions (v. 2026-09-25.2).',
   } as const;
 
   const PINNED_LOCALES: Record<string, Record<'en' | 'de' | 'fr', string>> = {
     communicationsOptIn: {
-      en: 'By registering I accept the terms and subscribe to Frontaliere Ticino communications. Terms (v. 2026-09-15.1).',
-      de: 'Mit der Registrierung akzeptiere ich die Bedingungen und abonniere die Mitteilungen von Frontaliere Ticino. Bedingungen (V. 2026-09-15.1).',
-      fr: 'En m’inscrivant, j’accepte les conditions et m’inscris aux communications de Frontaliere Ticino. Conditions (v. 2026-09-15.1).',
+    en: 'By registering I accept the terms and subscribe to Frontaliere Ticino communications. Terms (v. 2026-09-25.2).',
+    de: 'Mit der Registrierung akzeptiere ich die Bedingungen und abonniere die Mitteilungen von Frontaliere Ticino. Bedingungen (V. 2026-09-25.2).',
+    fr: 'En m’inscrivant, j’accepte les conditions et m’inscris aux communications de Frontaliere Ticino. Conditions (v. 2026-09-25.2).',
     },
     communicationsSignIn: { ...SIGN_IN_LOCALES },
     communicationsSignInEmail: { ...SIGN_IN_LOCALES },

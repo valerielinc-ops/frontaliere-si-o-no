@@ -31,6 +31,8 @@ import { buildIssueBody as buildTelegramBody } from '../scripts/monitor-telegram
 import { buildIssueBody as buildCampaignGoalBody } from '../scripts/campaign-goal-check.mjs';
 import { buildIndexationIssueBody, buildStructuredDataIssueBody } from '../scripts/monitor-gsc-job-indexation.mjs';
 import { buildIssueBody as buildSourceLivenessBody } from '../scripts/check-source-liveness.mjs';
+import { buildIssueBody as buildAuthSignupBody } from '../scripts/check-auth-signup-subscribers.mjs';
+import { aggregate as authSignupAggregate, evaluate as authSignupEvaluate } from '../scripts/lib/authSignupSubscriberMetrics.mjs';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
@@ -95,6 +97,13 @@ const OPENERS: Array<[string, () => string]> = [
     alive: false, reason: '3 giorni sotto la soglia', floor: 200, windowDays: 7,
     deadDays: [{ date: '2026-09-05', count: 3 }],
   })],
+  ['auth-signup', () => {
+    const agg = authSignupAggregate({
+      subscriberRows: [{ source_channel: 'job_gate' }],
+      accounts: Array.from({ length: 20 }, (_, i) => ({ provider: 'google', docClass: i < 12 ? 'stub' : 'subscribed', hasCreatedAt: false })),
+    });
+    return buildAuthSignupBody(agg, authSignupEvaluate(agg), { hours: 24, since: '2026-09-12T07:25:00Z', until: '2026-09-13T07:25:00Z' });
+  }],
   ['email-quota-pacing', () => buildPacingIssueBody({
     count: 2700, monthlyLimit: 3000, actualRatio: 0.9, expectedRatio: 0.5,
     daysRemaining: 15, cycleStart: new Date(),

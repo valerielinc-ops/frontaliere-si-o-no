@@ -9,9 +9,10 @@
  *
  * Requires the same env that ai-models.mjs needs (load-rc-env.mjs first).
  */
-import { callLLM, DEFAULT_CHAIN, AI_MODELS, discoverFreeModels, setScoreStoreReadOnly } from './lib/ai-models.mjs';
+import { callLLM, DEFAULT_CHAIN, AI_MODELS, discoverFreeModels, getProvider, setScoreStoreReadOnly } from './lib/ai-models.mjs';
 import {
   classifyAiModelSmokeFailure,
+  summarizeAiFleetHealth,
   summarizeGitHubModelsVerification,
 } from './lib/ai-model-smoke-status.mjs';
 
@@ -38,7 +39,7 @@ console.log = (...args) => console.error(...args);
 setScoreStoreReadOnly();
 
 // Run multi-provider discovery FIRST so dynamically-added models (OpenRouter,
-// Groq, Cerebras, Mistral) are included in the smoke test — otherwise we'd only
+// Groq, NVIDIA, Cohere) are included in the smoke test — otherwise we'd only
 // validate the static chain and never catch a bad auto-discovered id.
 await discoverFreeModels();
 
@@ -86,10 +87,20 @@ const githubBareRoster = Object.values(AI_MODELS).filter(
   (model) => typeof model === 'string' && !model.includes('/') && !/^(gemini|gemma)-/u.test(model),
 );
 const githubModelsVerification = summarizeGitHubModelsVerification(results, githubBareRoster);
+// Il workflow legge `fleetHealth.collapsed` e fallisce la run quando restano
+// meno di MIN_HEALTHY_PROVIDER_LANES provider con almeno un pass.
+const fleetHealth = {
+  ...summarizeAiFleetHealth(results, getProvider),
+  // Senza socket il broker Codex non e' partito e la corsia primaria
+  // (AI_MODELS_PREFER) non e' nemmeno nella lista pingata.
+  codexBrokerWired: Boolean(String(process.env.CODEX_AUTH_BROKER_SOCKET || '').trim()),
+};
 console.error('\n--- SUMMARY ---');
 console.error(JSON.stringify(summary, null, 2));
 console.error('\n--- GITHUB MODELS PUBLISHER VERIFICATION ---');
 console.error(JSON.stringify(githubModelsVerification, null, 2));
+console.error('\n--- FLEET HEALTH ---');
+console.error(JSON.stringify(fleetHealth, null, 2));
 
 const dead = results.filter(r => /^http_404$/.test(r.status));
 if (dead.length) {
@@ -109,6 +120,9 @@ if (dead.length) {
 // chain. No-op without the key (nothing attempted) and emits nothing to stdout
 // (still the JSON-only contract). Bare `MISTRAL_API_KEY` check mirrors
 // getMistralApiKey() in lib/ai-models.mjs.
+// Dal 2026-09-25 Mistral e' in RETIRED_FREE_PROVIDERS (HTTP 402 permanente):
+// fuori da DEFAULT_CHAIN e dalla discovery, `mistralLatest` resta vuoto e il
+// gate non scatta finche' il provider non torna in catena.
 const hasMistralKey = Boolean((process.env.MISTRAL_API_KEY || '').trim());
 const mistralLatest = results.filter(
   r => r.model.startsWith('mistral/') && /-latest$/.test(r.model),
@@ -204,4 +218,4 @@ if (hasMistralKey && mistralLatest.length > 0 && mistralLatestAttempted.length =
 // Emit the JSON payload straight to the real stdout (console.log is patched to
 // stderr above, so this is the ONLY thing the workflow's `> .tmp/smoke.json`
 // redirect captures).
-process.stdout.write(JSON.stringify({ summary, githubModelsVerification, results }, null, 2) + '\n');
+process.stdout.write(JSON.stringify({ summary, githubModelsVerification, fleetHealth, results }, null, 2) + '\n');

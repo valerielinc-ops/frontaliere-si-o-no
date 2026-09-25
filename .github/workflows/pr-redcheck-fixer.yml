@@ -99,18 +99,39 @@ jobs:
           if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
             PR="$DISPATCH_PR"
             HEAD_SHA=$(gh api "repos/$REPO/pulls/$PR" --jq ".head.sha" 2>/dev/null || echo "")
-            RUN_ID=$(gh run list --repo "$REPO" --workflow=tests.yml --limit 20 \
-              --json databaseId,headSha,conclusion \
-              --jq "[.[] | select(.headSha==\"$HEAD_SHA\" and .conclusion==\"failure\")][0].databaseId" 2>/dev/null || echo "")
+            if ! [[ "$HEAD_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+              echo "::error::HEAD di #$PR illeggibile: senza SHA la ricerca per head_sha restituirebbe le run di qualunque PR."
+              exit 1
+            fi
+            # La run rossa si cerca per SHA, non fra le ultime 20 run del repo:
+            # main pusha ogni pochi minuti e una run di ieri ne era gia' fuori,
+            # cosi' il dispatch su una PR ferma finiva sempre in no-op (#9695,
+            # run rossa 36061365735 del 2026-09-24T23:39Z).
+            if ! RUN_ID=$(gh api "repos/$REPO/actions/workflows/tests.yml/runs?head_sha=$HEAD_SHA&status=failure&per_page=1" \
+              --jq '.workflow_runs[0].id // empty'); then
+              echo "::error::Run di tests.yml sulla HEAD di #$PR illeggibili: non le tratto come «nessuna run fallita»."
+              exit 1
+            fi
             if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
               skip "Nessuna run tests fallita sulla HEAD di #$PR → niente da riparare (no-op)."
             fi
           else
             # `pull_requests` del workflow_run e' spesso vuoto: la via robusta e'
             # cercare la PR aperta con questo head branch.
-            PR=$(gh api "repos/$REPO/pulls?state=open&per_page=100" \
-              --paginate --slurp \
-              --jq "[.[].[] | select(.head.ref==\"$RUN_BRANCH\")][0].number // empty" 2>/dev/null || echo "")
+            # Niente `--slurp`: il gh reale rifiuta `--slurp` insieme a `--jq`
+            # («the `--slurp` option is not supported with `--jq`»). Con
+            # `2>/dev/null || echo ""` quel rifiuto diventava «nessuna PR» e il
+            # fixer saltava OGNI PR (zero round dal 2026-09-20 al 2026-09-25).
+            # `--jq` gira pagina per pagina e stampa un numero per riga; la
+            # prima riga si prende in bash, non con `| head`, che sotto
+            # `pipefail` farebbe fallire gh per SIGPIPE.
+            if ! PR_MATCHES=$(gh api "repos/$REPO/pulls?state=open&per_page=100" \
+              --paginate \
+              --jq ".[] | select(.head.ref==\"$RUN_BRANCH\") | .number"); then
+              echo "::error::Lista PR aperte illeggibile per il branch '$RUN_BRANCH': non la tratto come «nessuna PR»."
+              exit 1
+            fi
+            PR="${PR_MATCHES%%$'\n'*}"
             if [ -z "$PR" ] || [ "$PR" = "null" ]; then
               skip "Nessuna PR aperta per il branch '$RUN_BRANCH' → skip (no-op)."
             fi
@@ -127,7 +148,7 @@ jobs:
           author=$(printf '%s' "$pr" | jq -r '.user.login')
           head_ref=$(printf '%s' "$pr" | jq -r '.head.ref')
           head_sha=$(printf '%s' "$pr" | jq -r '.head.sha')
-          review_revision=$(printf '%s' "$pr" | node -e 'const crypto=require("node:crypto");let s="";process.stdin.on("data",c=>s+=c).on("end",()=>{const body=JSON.parse(s).body ?? "";process.stdout.write("body:"+crypto.createHash("sha256").update(body,"utf8").digest("hex"));});')
+          review_revision=$(printf '%s' "$pr" | node -e 'const crypto=require("node:crypto");let s="";process.stdin.on("data",c=>s+=c).on("end",()=>{const body=JSON.parse(s).body ?? "";process.stdout.write("body:"+crypto.createHash("sha256").update(body+"\n","utf8").digest("hex"));});')
           has_autofix=$(printf '%s' "$pr" | jq -r 'any(.labels[]?.name; . == "agent:autofix")')
 
           if [ "$state" != "open" ]; then
@@ -948,6 +969,20 @@ jobs:
               grep -n -m1 -E '(^|[[:space:]])FAIL ' "$OUT/clean.log" | cut -d: -f1 | while read -r n; do
                 sed -n "$((n)),$((n+120))p" "$OUT/clean.log"
               done
+              # Il preflight dichiara azionabili anche i rossi di tsc, lint e
+              # source guard, che nello stesso job non producono righe `FAIL `:
+              # senza questa sezione il fixer riceveva «64 passed» e nessun
+              # errore (#9695: TS2345 in services/professionSynonyms.ts).
+              # «Collect independent source gates» stampa `[gate] exit=N` e
+              # subito dopo il log di quel gate.
+              echo
+              echo "### Gate sorgente falliti (\`[gate] exit=N\` con N≠0: tsc, lint, source guard)"
+              grep -E '\[[A-Za-z0-9_.:-]+\] exit=[1-9][0-9]*' "$OUT/clean.log" | sed 's/^[^\t]*\t[^\t]*\t[0-9T:.Z-]*//' | sort -u | head -20
+              echo
+              echo "### Estratto attorno al primo gate sorgente fallito"
+              grep -n -m1 -E '\[[A-Za-z0-9_.:-]+\] exit=[1-9][0-9]*' "$OUT/clean.log" | cut -d: -f1 | while read -r n; do
+                sed -n "$((n)),$((n+60))p" "$OUT/clean.log"
+              done
             } > "$OUT/failing.txt" 2>/dev/null || true
           fi
 
@@ -955,7 +990,7 @@ jobs:
           # di turni che questo step esiste per evitare.
           head -c 24000 "$OUT/failing.txt" > "$OUT/failing.trim" 2>/dev/null || : > "$OUT/failing.trim"
           mv "$OUT/failing.trim" "$OUT/failing.txt"
-          echo "contesto raccolto: $(wc -c < "$OUT/failing.txt") byte, $(grep -c 'FAIL ' "$OUT/failing.txt" 2>/dev/null || echo 0) righe FAIL."
+          echo "contesto raccolto: $(wc -c < "$OUT/failing.txt") byte, $(grep -c 'FAIL ' "$OUT/failing.txt" 2>/dev/null || echo 0) righe FAIL, $(grep -cE '\] exit=[1-9]' "$OUT/failing.txt" 2>/dev/null || true) righe di gate sorgente falliti."
           sed -n '1,25p' "$OUT/failing.txt"
 
       - name: Install deterministic PR body gate
@@ -1002,7 +1037,10 @@ jobs:
               # Hasha il body in streaming: jq -r + command substitution
               # eliminerebbero i newline finali e farebbero divergere la
               # revisione dalla preflight per un body valido.
-              snapshot_revision=$(printf '%s' "$snapshot" | jq -j '.body // ""' | shasum -a 256 | awk '{print "body:" $1}')
+              # Stessa serializzazione `jq-newline` di review-input-revision.mjs
+              # (sha256(body + "\n")), che gh-pr-body-check usa per il CAS del
+              # body: la preflight sopra la emette allo stesso modo.
+              snapshot_revision=$({ printf '%s' "$snapshot" | jq -j '.body // ""'; printf '\n'; } | shasum -a 256 | awk '{print "body:" $1}')
               if [ "$snapshot_state" != 'open' ] || [ "$snapshot_draft" != 'false' ] \
                 || [ "$snapshot_head" != "$EXPECTED_HEAD_SHA" ] \
                 || [ "$snapshot_revision" != "$EXPECTED_REVIEW_REVISION" ]; then
@@ -1131,6 +1169,10 @@ jobs:
         run: rm -f /tmp/firebase-sa.json
 
       # Colore del job = LAVORO reale del round, non l'exit della CLI Claude.
+      #  • head remota non verificabile (fetch fallito o head cambiata fra le
+      #    due letture, dopo i retry) → RED esplicito PRIMA di ogni verdetto:
+      #    niente SUCCESS/SUPERSEDED su una fotografia stantia o intermedia;
+      #    claim failed-transient (retryable), marker di round conservato.
       #  • commit pushato sul branch della PR  → round SUCCESS (la re-review girerà;
       #    se 🔴 di nuovo, il round successivo o il round-cap → needs-human). Vale
       #    anche se Claude è morto error_max_turns DOPO il push (false-failure).
@@ -1166,8 +1208,56 @@ jobs:
         run: |
           set -uo pipefail
           HEAD_NOW=$(git rev-parse HEAD 2>/dev/null || echo "")
-          git fetch origin "$HEAD_REF" -q 2>/dev/null || true
-          REMOTE_SHA=$(git rev-parse "origin/$HEAD_REF" 2>/dev/null || echo "")
+          # Head remota verificata prima di classificare (#9730, come corpus
+          # #1771). Un fetch fallito lascerebbe origin/$HEAD_REF alla
+          # fotografia dello step align; una head che avanza fra fetch e
+          # lettura darebbe una fotografia intermedia. In entrambi i casi
+          # SUCCESS e SUPERSEDED (claim released) sarebbero decisi su una head
+          # non verificata. Si classifica solo su uno SHA confermato da due
+          # letture concordi (fetch con refspec esplicito + ls-remote), con
+          # retry bounded e backoff; altrimenti errore esplicito PRIMA di ogni
+          # ramo che scrive stato: niente SUPERSEDED, niente released, marker
+          # di round conservato. Ogni comando di rete ha un timeout proprio (il
+          # timeout del job non deve decidere l'esito) e l'esito transitorio
+          # viene esportato come CLAIM_STATUS=failed-transient: il finalize
+          # (`pr-fixer-claim.mjs --claim`, CLAIM_ACTION=finalize) lo eredita
+          # invece di ricostruire uno stato terminale dall'outcome dell'azione,
+          # quindi il claim resta retryable.
+          REMOTE_SHA=""
+          remote_head_attempts=3
+          remote_head_attempt=1
+          while [ "$remote_head_attempt" -le "$remote_head_attempts" ]; do
+            fetched_sha=""
+            reread_sha=""
+            if timeout 60 git fetch --no-tags -q origin "+refs/heads/$HEAD_REF:refs/remotes/origin/$HEAD_REF"; then
+              fetched_sha=$(git rev-parse --verify --quiet "refs/remotes/origin/$HEAD_REF^{commit}" 2>/dev/null) || fetched_sha=""
+              # Una rilettura che esce non-zero conta come fallita anche se ha
+              # stampato una riga: si usa l'output solo con exit 0.
+              if ls_remote_out=$(timeout 30 git ls-remote --exit-code origin "refs/heads/$HEAD_REF" 2>/dev/null); then
+                reread_sha=$(printf '%s\n' "$ls_remote_out" | awk 'NR == 1 { print $1 }')
+              fi
+              if [ -n "$fetched_sha" ] && [ "$fetched_sha" = "$reread_sha" ]; then
+                REMOTE_SHA="$fetched_sha"
+                break
+              fi
+              echo "::warning::head remota di $HEAD_REF non stabile (tentativo $remote_head_attempt/$remote_head_attempts): fetch=${fetched_sha:-<vuoto>} rilettura=${reread_sha:-<vuoto>}"
+            else
+              echo "::warning::git fetch di $HEAD_REF fallito (tentativo $remote_head_attempt/$remote_head_attempts)"
+            fi
+            if [ "$remote_head_attempt" -lt "$remote_head_attempts" ]; then
+              sleep $((remote_head_attempt * 5))
+            fi
+            remote_head_attempt=$((remote_head_attempt + 1))
+          done
+          if [ -z "$REMOTE_SHA" ]; then
+            CLAIM_STATUS=failed-transient
+            export CLAIM_STATUS
+            if [ -n "${GITHUB_ENV:-}" ]; then
+              echo 'CLAIM_STATUS=failed-transient' >> "$GITHUB_ENV"
+            fi
+            echo "::error::REMOTE_HEAD_UNVERIFIED: head remota di $HEAD_REF non determinabile dopo $remote_head_attempts tentativi (fetch fallito o head cambiata fra le letture) → classificazione BLOCCANTE, job ROSSO. Nessun SUCCESS, nessun SUPERSEDED: il marker di round resta contato; claim failed-transient (retryable)."
+            exit 1
+          fi
           echo "start=$START_SHA base=$BASE_SHA local=$HEAD_NOW remote=$REMOTE_SHA action=$ACTION_OUTCOME"
           if [ -n "$HEAD_NOW" ] && [ -n "$BASE_SHA" ] && [ "$HEAD_NOW" != "$BASE_SHA" ] && [ "$REMOTE_SHA" = "$HEAD_NOW" ]; then
             # Osservatore del trailer: gli hook sono disattivati per costruzione

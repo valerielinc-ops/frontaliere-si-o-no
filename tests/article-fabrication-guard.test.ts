@@ -5,7 +5,7 @@
  * known hallucination patterns:
  * - Fabricated Swiss/Italian laws and legal references
  * - Fabricated institutions and acronyms
- * - Known incorrect facts (wrong convention dates, fake tax rates)
+ * - Known incorrect facts (fake tax rates, the wrong Convention date)
  * - Fabricated statistics (unsourced precise percentages)
  *
  * This test acts as a permanent safety net: any article containing
@@ -30,6 +30,7 @@ import {
   INCORRECT_FACTS,
   VAGUE_SOURCING,
   FABRICATED_LABOR_OFFICE,
+  WRONG_CONVENTION_DATE,
   extractTextContentFromSource,
 } from '../scripts/lib/article-fabrication-patterns.mjs';
 
@@ -127,6 +128,16 @@ describe('article fabrication guard', () => {
       if (!pattern) return;
       const text = extractTextContent(filePath as string);
       expect(pattern.test(text), `Fabricated "federal labour office" (real: SECO) found in ${_id}`).toBe(false);
+    }
+  );
+
+  it.each(files.map(f => [f.id, f.path, f.locale]))(
+    '%s — dates the Italy-Switzerland Convention 9 March 1976, not 9 December',
+    (_id, filePath, locale) => {
+      const pattern = WRONG_CONVENTION_DATE[locale as string];
+      if (!pattern) return;
+      const text = extractTextContent(filePath as string);
+      expect(pattern.test(text), `Convention dated 9 December 1976 (it is 9 March 1976) in ${_id}`).toBe(false);
     }
   );
 

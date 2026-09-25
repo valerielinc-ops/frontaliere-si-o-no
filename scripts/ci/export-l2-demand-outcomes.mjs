@@ -3,39 +3,37 @@
 /**
  * Read-only L2 demand-to-utility outcome export.
  *
- * GSC supplies the landing-path cohort. PostHog supplies the independent
- * session/action join. The exporter never writes GSC data, landing pages,
- * SEO metadata or any published surface; it only writes a runner-local JSON
- * file consumed by the L2 validator.
+ * GSC supplies the landing-path cohort. GA4 supplies two independent,
+ * session-scoped reports: landing-page sessions and the once-per-session
+ * useful-action event. The exporter never writes GSC data, landing pages, SEO
+ * metadata or any published surface; it only writes a runner-local JSON file
+ * consumed by the L2 validator.
  */
 import fs from 'node:fs';
-import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { GoogleDataClient } from './export-loop-outcomes.mjs';
 import {
-  GoogleDataClient,
-  completeUtcWindow,
-  nonNegativeInteger,
-  postHogRow,
-  resolvePostHogConfig,
-} from './export-loop-outcomes.mjs';
-import { runHogQL } from '../lib/posthog-client.mjs';
+  GA4_READONLY_SCOPE,
+  ga4DateRange,
+  runGa4Report,
+} from '../lib/ga4-service-account.mjs';
+import { buildOrphanLandingPath } from '../lib/orphan-landing-path.mjs';
 
 export const LOOP_ID = 'L2';
 export const DEFAULT_SOURCE_PATH = path.join('data', 'gsc-orphan-queries-clusters.json');
 export const DEFAULT_OUTCOME_PATH = path.join('data', 'l2-demand-outcomes.json');
 export const DEFAULT_WINDOW_DAYS = 8;
+export const L2_USEFUL_ACTION_EVENT = 'l2_useful_action';
 export const L2_USEFUL_ACTION_EVENT_CONTRACT = Object.freeze({
-  landingEvents: Object.freeze(['$pageview', 'page_view', 'pageview']),
-  usefulEvent: 'funnel_step',
-  usefulFunnel: 'main_conversion',
-  usefulSteps: Object.freeze(['calculate', 'compare', 'cta_click']),
-  additionalUsefulEvents: Object.freeze(['simulation_complete', 'generate_lead']),
-  sessionJoin: '$session_id',
-  landingPathProperty: 'properties.$pathname',
+  usefulActionEvent: L2_USEFUL_ACTION_EVENT,
+  landingDimension: 'landingPagePlusQueryString',
+  sessionMetric: 'sessions',
+  sessionJoin: 'GA4 session-scoped landing page',
 });
 
 const MAX_LANDING_PATHS = 5_000;
+const MAX_GA4_ROWS = 100_000;
 
 function object(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -66,25 +64,50 @@ function writeJson(filePath, value) {
   return absolute;
 }
 
-function hogqlString(value) {
-  return `'${String(value).replaceAll('\\', '\\\\').replaceAll("'", "\\'")}'`;
+function parseCount(value, label) {
+  const parsed = typeof value === 'number' ? value : Number(value);
+  if (!Number.isInteger(parsed) || parsed < 0) throw new Error(`GA4 returned invalid ${label}`);
+  return parsed;
 }
 
-function normalizeLandingPath(value) {
+function normalizePathname(value) {
   if (!text(value)) return null;
-  const slug = value.trim().replace(/^\/+|\/+$/gu, '');
+  let pathname = value.trim();
+  try {
+    pathname = new URL(pathname, 'https://frontaliereticino.ch').pathname;
+  } catch {
+    pathname = pathname.split(/[?#]/u, 1)[0];
+  }
+  // GA4 includes the site's root landing page in the report. It is a valid
+  // landing path, but it is outside the GSC orphan cohort and is ignored by
+  // buildL2OutcomeCounts after normalization.
+  if (pathname === '/') return '/';
+  const slug = pathname.replace(/^\/+|\/+$/gu, '');
   return slug ? `/${slug}/` : null;
 }
 
-/** Return every GSC landing path, without silently dropping a malformed row. */
+/** Normalize a GSC canonical slug into the site's trailing-slash path. */
+export function normalizeLandingPath(value) {
+  return normalizePathname(value);
+}
+
+/**
+ * Return every emitted orphan landing path, without silently dropping a
+ * malformed row. `canonicalSlug` is a leaf slug, not a root URL: the build
+ * plugin emits it below the locale-specific orphan section.
+ */
 export function landingPathsFromGsc(source) {
   if (!object(source) || !Array.isArray(source.clusters)) {
     throw new Error('GSC snapshot must contain a clusters array');
   }
   const paths = new Set();
   for (const [index, cluster] of source.clusters.entries()) {
-    const landingPath = normalizeLandingPath(cluster?.canonicalSlug);
-    if (!landingPath) throw new Error(`GSC cluster ${index} has no canonicalSlug`);
+    let landingPath;
+    try {
+      landingPath = buildOrphanLandingPath(cluster?.locale, cluster?.canonicalSlug);
+    } catch (error) {
+      throw new Error(`GSC cluster ${index} has no valid emitted landing path: ${error.message}`);
+    }
     paths.add(landingPath);
   }
   if (paths.size === 0) throw new Error('GSC snapshot has no landing paths');
@@ -94,35 +117,87 @@ export function landingPathsFromGsc(source) {
   return [...paths].sort();
 }
 
-/** Build the bounded session-level join; no user identity or URL is exported. */
-export function buildL2OutcomeQuery({ paths, window, eventContract = L2_USEFUL_ACTION_EVENT_CONTRACT } = {}) {
-  if (!Array.isArray(paths) || paths.length === 0) throw new Error('at least one landing path is required');
-  if (!object(window) || !text(window.start) || !text(window.end)) throw new Error('a complete telemetry window is required');
-  const landingEvents = eventContract.landingEvents.map(hogqlString).join(', ');
-  const usefulSteps = eventContract.usefulSteps.map(hogqlString).join(', ');
-  const additionalEvents = eventContract.additionalUsefulEvents.map(hogqlString).join(', ');
-  const pathList = paths.map(hogqlString).join(', ');
-  return `
-SELECT count() AS eligibleLandingSessions,
-       countIf(lastUsefulActionAt IS NOT NULL AND lastUsefulActionAt >= firstLandingAt) AS usefulActions
-FROM (
-  SELECT $session_id,
-         minIf(timestamp, event IN (${landingEvents})
-           AND properties.$pathname IN (${pathList})) AS firstLandingAt,
-         maxIf(timestamp, (
-           (event = ${hogqlString(eventContract.usefulEvent)}
-             AND properties.funnel = ${hogqlString(eventContract.usefulFunnel)}
-             AND properties.step IN (${usefulSteps}))
-           OR event IN (${additionalEvents})
-         )) AS lastUsefulActionAt
-  FROM events
-  WHERE timestamp >= ${hogqlString(window.start)}
-    AND timestamp < ${hogqlString(window.end)}
-    AND $session_id IS NOT NULL
-    AND (event IN (${landingEvents}) OR event IN (${additionalEvents}) OR event = ${hogqlString(eventContract.usefulEvent)})
-  GROUP BY $session_id
-  HAVING firstLandingAt IS NOT NULL
-)`.trim();
+/**
+ * Build one bounded GA4 session report. The landing dimension is session
+ * scoped, so each session contributes to exactly one landing-path row.
+ */
+export function buildL2LandingSessionReportBody({
+  startDate,
+  endDate,
+  eventName = null,
+  limit = MAX_GA4_ROWS,
+} = {}) {
+  if (!text(startDate) || !text(endDate)) throw new Error('a complete telemetry window is required');
+  if (!Number.isInteger(limit) || limit < 1 || limit > MAX_GA4_ROWS) {
+    throw new Error(`GA4 report limit must be between 1 and ${MAX_GA4_ROWS}`);
+  }
+  const body = {
+    dateRanges: [{ startDate, endDate }],
+    dimensions: [{ name: L2_USEFUL_ACTION_EVENT_CONTRACT.landingDimension }],
+    metrics: [{ name: L2_USEFUL_ACTION_EVENT_CONTRACT.sessionMetric }],
+    limit,
+  };
+  if (eventName !== null) {
+    if (!text(eventName)) throw new Error('eventName must be a non-empty string');
+    body.dimensionFilter = {
+      filter: {
+        fieldName: 'eventName',
+        stringFilter: { value: eventName, matchType: 'EXACT' },
+      },
+    };
+  }
+  return body;
+}
+
+function reportRows(report, label) {
+  if (!object(report)) throw new Error(`GA4 ${label} report is missing rows`);
+  const rows = report.rows === undefined ? [] : report.rows;
+  if (!Array.isArray(rows)) throw new Error(`GA4 ${label} report has invalid rows`);
+  const rowCount = report.rowCount === undefined ? rows.length : Number(report.rowCount);
+  if (!Number.isInteger(rowCount) || rowCount < 0) throw new Error(`GA4 ${label} report has invalid rowCount`);
+  if (rowCount > rows.length) {
+    throw new Error(`GA4 ${label} report is truncated (${rows.length} of ${rowCount} rows)`);
+  }
+  if (rows.some((row) => row?.dimensionValues?.some((dimension) => dimension?.value === '(other)'))) {
+    throw new Error(`GA4 ${label} report contains an (other) bucket`);
+  }
+  return rows;
+}
+
+function sessionCountsByLandingPath(report, label) {
+  const counts = new Map();
+  for (const row of reportRows(report, label)) {
+    const rawPath = row?.dimensionValues?.[0]?.value;
+    if (rawPath === '(not set)' || rawPath === '(data not available)') continue;
+    const landingPath = normalizeLandingPath(rawPath);
+    if (!landingPath) throw new Error(`GA4 ${label} report contains an invalid landing path`);
+    const sessions = parseCount(row?.metricValues?.[0]?.value, `${label} sessions`);
+    counts.set(landingPath, (counts.get(landingPath) || 0) + sessions);
+  }
+  return counts;
+}
+
+/** Join only the GSC cohort; GA4 rows outside that cohort are ignored. */
+export function buildL2OutcomeCounts({
+  landingPaths,
+  landingSessionReport,
+  usefulActionReport,
+} = {}) {
+  if (!Array.isArray(landingPaths) || landingPaths.length === 0) {
+    throw new Error('at least one landing path is required');
+  }
+  const cohort = new Set(landingPaths.map(normalizeLandingPath));
+  if (cohort.has(null) || cohort.size !== landingPaths.length) throw new Error('landing paths are invalid');
+  const eligibleByPath = sessionCountsByLandingPath(landingSessionReport, 'eligible landing session');
+  const usefulByPath = sessionCountsByLandingPath(usefulActionReport, 'useful action');
+  const eligibleLandingSessions = [...cohort]
+    .reduce((sum, landingPath) => sum + (eligibleByPath.get(landingPath) || 0), 0);
+  const usefulActions = [...cohort]
+    .reduce((sum, landingPath) => sum + (usefulByPath.get(landingPath) || 0), 0);
+  if (usefulActions > eligibleLandingSessions) {
+    throw new Error('usefulActions exceeds eligibleLandingSessions');
+  }
+  return { eligibleLandingSessions, usefulActions };
 }
 
 export function buildL2DemandExport(source, {
@@ -146,14 +221,11 @@ export function buildL2DemandExport(source, {
     _meta: {
       ...previousMeta,
       generatedAt,
-      source: 'PostHog HogQL joined to GSC landing paths, read-only live export',
+      source: 'GA4 Data API landing-page sessions plus l2_useful_action sessions, read-only live export',
       purpose: 'Fresh eligible landing session and useful action evidence for Loop L2',
       telemetryWindow,
       eventContract: {
         ...eventContract,
-        landingEvents: [...eventContract.landingEvents],
-        usefulSteps: [...eventContract.usefulSteps],
-        additionalUsefulEvents: [...eventContract.additionalUsefulEvents],
       },
       independent: true,
       piiExcluded: true,
@@ -176,7 +248,7 @@ export function buildUnavailableL2DemandExport(source, { now = new Date(), reaso
     _meta: {
       ...previousMeta,
       generatedAt: now.toISOString(),
-      source: 'PostHog HogQL live export unavailable',
+      source: 'GA4 Data API landing-page session and useful-action export unavailable',
       purpose: 'Fail-closed L2 outcome placeholder; no metric is inferred',
       unavailableReason: reason,
       independent: false,
@@ -191,20 +263,29 @@ export async function exportL2({
   outputPath = DEFAULT_OUTCOME_PATH,
   now = new Date(),
   days = DEFAULT_WINDOW_DAYS,
+  propertyId = null,
   client = null,
-  posthogRunner = runHogQL,
+  ga4Runner = runGa4Report,
 } = {}) {
   const source = readJson(inputPath, 'GSC snapshot');
   const paths = landingPathsFromGsc(source);
-  const window = completeUtcWindow(now, days);
-  const firestore = client || new GoogleDataClient();
-  const config = await resolvePostHogConfig(firestore);
-  const response = await posthogRunner(buildL2OutcomeQuery({ paths, window }), config);
+  const range = ga4DateRange(days, 2, now);
+  const analytics = client || new GoogleDataClient({ oauthScope: GA4_READONLY_SCOPE });
+  const token = await analytics.accessToken();
+  const runReport = (body) => ga4Runner({ token, body, propertyId });
+  const [landingSessionReport, usefulActionReport] = await Promise.all([
+    runReport(buildL2LandingSessionReportBody(range)),
+    runReport(buildL2LandingSessionReportBody({ ...range, eventName: L2_USEFUL_ACTION_EVENT })),
+  ]);
+  const outcomes = buildL2OutcomeCounts({
+    landingPaths: paths,
+    landingSessionReport,
+    usefulActionReport,
+  });
   const exported = buildL2DemandExport(source, {
-    eligibleLandingSessions: nonNegativeInteger(postHogRow(response, 'eligibleLandingSessions'), 'eligibleLandingSessions'),
-    usefulActions: nonNegativeInteger(postHogRow(response, 'usefulActions'), 'usefulActions'),
+    ...outcomes,
     generatedAt: now.toISOString(),
-    telemetryWindow: window,
+    telemetryWindow: { ...range, lagDays: 2, source: 'GA4 settled calendar dates' },
   });
   writeJson(outputPath, exported);
   return exported;

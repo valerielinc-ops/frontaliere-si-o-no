@@ -68,7 +68,15 @@ function createRepositories() {
       },
     }],
   }, null, 2)}\n`);
-  git(seed, 'add', 'data/jobs/by-crawler/example-crawler.json');
+  const providerSource = `export function translate(request, { succeedText }) {
+  if (request.field !== 'title') throw new Error('unexpected field');
+  succeedText('Sviluppatore senior per progetti internazionali');
+}
+`;
+  const providerPath = join(seed, 'scripts/lib/translation-shadow-provider-v2.mjs');
+  mkdirSync(join(seed, 'scripts/lib'), { recursive: true });
+  writeFileSync(providerPath, providerSource);
+  git(seed, 'add', 'data/jobs/by-crawler/example-crawler.json', 'scripts/lib/translation-shadow-provider-v2.mjs');
   git(seed, 'commit', '-q', '-m', 'seed translation scheduler fixture');
   git(seed, 'remote', 'add', 'origin', remote);
   git(seed, 'push', '-q', 'origin', 'HEAD:main');
@@ -78,13 +86,7 @@ function createRepositories() {
   git(one, 'config', 'user.name', 'Translation Scheduler Test');
   git(one, 'config', 'user.email', 'translation-scheduler-test@example.test');
 
-  const providerModule = join(root, 'provider.mjs');
-  writeFileSync(providerModule, `export function translate(request, { succeedText }) {
-  if (request.field !== 'title') throw new Error('unexpected field');
-  succeedText('Sviluppatore senior per progetti internazionali');
-}
-`);
-  return { one, providerModule, remote };
+  return { one, remote };
 }
 
 afterEach(() => {
@@ -116,7 +118,7 @@ describe('translation scheduler v2 runtime wiring', () => {
   });
 
   it('plans, reserves, executes, and settles on the state ref without writing main', async () => {
-    const { one, providerModule, remote } = createRepositories();
+    const { one, remote } = createRepositories();
     const mainBefore = git(one, 'rev-parse', 'HEAD');
     const sourceBefore = readFileSync(
       join(one, 'data/jobs/by-crawler/example-crawler.json'),
@@ -125,7 +127,6 @@ describe('translation scheduler v2 runtime wiring', () => {
 
     const report = await runTranslationScheduleV2({
       repository: one,
-      providerModule,
       publishEnabled: true,
       maxJobs: 10,
       maxUnits: 1,
@@ -134,6 +135,16 @@ describe('translation scheduler v2 runtime wiring', () => {
     });
 
     expect(report.status).toBe('settled');
+    expect(report.runtimeContract).toMatchObject({
+      schemaVersion: 2,
+      provider: {
+        modulePath: 'scripts/lib/translation-shadow-provider-v2.mjs',
+        exportName: 'translate',
+        schemaVersion: 3,
+        engineVersion: 'shadow-engine-v2',
+      },
+      capabilities: { generationEnabled: false, publishEnabled: false },
+    });
     expect(report.scheduler.selectedJobs).toBe(1);
     expect(report.scheduler.selectedUnits).toBe(1);
     expect(report.state.reserved).toBe(true);
@@ -179,7 +190,7 @@ describe('translation scheduler v2 runtime wiring', () => {
   // points GIT_CONFIG_GLOBAL/SYSTEM at /dev/null so the developer's own
   // ~/.gitconfig cannot silently stand in for the runner's empty one.
   it('commits on the state ref without any ambient git identity', async () => {
-    const { one, providerModule, remote } = createRepositories();
+    const { one, remote } = createRepositories();
     git(one, 'config', '--unset', 'user.name');
     git(one, 'config', '--unset', 'user.email');
     const previous = {
@@ -191,7 +202,6 @@ describe('translation scheduler v2 runtime wiring', () => {
     try {
       const report = await runTranslationScheduleV2({
         repository: one,
-        providerModule,
         publishEnabled: true,
         maxJobs: 10,
         maxUnits: 1,
@@ -219,7 +229,7 @@ describe('translation scheduler v2 runtime wiring', () => {
   // died on `… must be an object` and never produced its report. The shared
   // `isSliceFile` predicate exists for exactly this; the scanner has to use it.
   it('skips crawler scratch companions instead of reading them as slices', async () => {
-    const { one, providerModule, remote } = createRepositories();
+    const { one, remote } = createRepositories();
     const dataDirectory = join(one, 'data/jobs/by-crawler');
     // Verbatim shape of the file that failed in production: a bare empty array.
     writeFileSync(join(dataDirectory, 'coop-ticino-locale-cache.json'), '[]\n');
@@ -227,7 +237,6 @@ describe('translation scheduler v2 runtime wiring', () => {
 
     const report = await runTranslationScheduleV2({
       repository: one,
-      providerModule,
       publishEnabled: true,
       maxJobs: 10,
       maxUnits: 1,
@@ -296,13 +305,12 @@ describe('translation scheduler v2 runtime wiring', () => {
   });
 
   it('keeps main and the state ref unchanged when publication is not explicitly enabled', async () => {
-    const { one, providerModule, remote } = createRepositories();
+    const { one, remote } = createRepositories();
     const mainBefore = git(one, 'rev-parse', 'HEAD');
     const reportPath = join(one, 'translation-scheduler-report.json');
 
     const report = await runTranslationScheduleV2({
       repository: one,
-      providerModule,
       promotionEnv: {},
       reportPath,
       logger: { log() {} },
@@ -325,7 +333,7 @@ describe('translation scheduler v2 runtime wiring', () => {
   });
 
   it('reports a bounded explicit rollback when promotion persistence fails', async () => {
-    const { one, providerModule } = createRepositories();
+    const { one } = createRepositories();
     const realStore = createTranslationStateStoreV2({ repository: one });
     const stateStore = {
       ...realStore,
@@ -339,7 +347,6 @@ describe('translation scheduler v2 runtime wiring', () => {
     await expect(runTranslationScheduleV2({
       repository: one,
       stateStore,
-      providerModule,
       publishEnabled: true,
       rollback: async (checkpoint: any, context: any) => {
         rollbackCheckpoints.push({ checkpoint, context });

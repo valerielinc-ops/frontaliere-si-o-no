@@ -45,6 +45,12 @@ const parser = createWorkdaySwissParser({
   defaultCity: 'Zurich',
   sector: 'Sanità / Medicale',
   defaultSourceLang: 'en',
+  // Issue #9651: the Swiss facet returns only reqs cross-posted to a Swiss site
+  // whose PRIMARY workplace is abroad (measured 2026-09-24: 3 listings, primary
+  // country GB / DE / FR). The primary-only gate drops all of them by design, so
+  // the honest result is a zero the source itself proves — not an aborted run
+  // that keeps the 3 HQ-stamped records live.
+  proveForeignOnlyBoardEmpty: true,
 });
 
 export const fetchAllSiemensHealthineersJobs = parser.fetchAllJobs;

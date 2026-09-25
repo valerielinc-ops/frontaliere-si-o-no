@@ -5,13 +5,6 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 
-// @ts-expect-error — the policy helper is a dependency-free ESM CI script.
-import {
-  consumeApprovalNonce,
-  deriveApprovalNonce,
-  evaluateHumanApproval,
-  main,
-} from '../scripts/ci/human-side-effect-gate.mjs';
 // @ts-expect-error — the provenance verifier is a dependency-free ESM CI script.
 import {
   evaluatePublisherDispatchAttestation,
@@ -20,38 +13,6 @@ import {
   PUBLISHER_SOURCE_WORKFLOW_PATH,
   main as verifyPublisherMain,
 } from '../scripts/ci/verify-publisher-dispatch.mjs';
-
-const APPROVED_INPUT = {
-  event: 'workflow_dispatch',
-  actor: 'owner',
-  triggeringActor: 'owner',
-  actorType: 'User',
-  repository: 'valerielinc-ops/frontaliere-si-o-no',
-  workflow: 'Send Newsletter',
-  runId: '123456789',
-  runAttempt: '1',
-  consent: 'true',
-  dryRun: 'false',
-  scope: 'newsletter-send',
-};
-
-const APPROVED_SCHEDULE_INPUT = {
-  ...APPROVED_INPUT,
-  event: 'schedule',
-  actor: 'github-actions[bot]',
-  triggeringActor: 'github-actions[bot]',
-  actorType: 'Bot',
-  consent: '',
-  dryRun: '',
-  approvalTrustedSchedule: 'true',
-};
-
-const APPROVED_WORKFLOW_RUN_INPUT = {
-  ...APPROVED_SCHEDULE_INPUT,
-  event: 'workflow_run',
-  approvalTrustedSchedule: 'false',
-  approvalTrustedWorkflowRun: 'true',
-};
 
 const SOURCE_SHA = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
 
@@ -117,53 +78,6 @@ function verifyPublisher({ clientPayload, runMetadata, workflowMetadata, now = N
   });
 }
 
-const TRUSTED_PUBLISHER_DISPATCH = {
-  event: 'repository_dispatch',
-  actor: 'valerielinc-ops',
-  triggeringActor: 'valerielinc-ops',
-  dispatchActor: 'valerielinc-ops',
-  dispatchAction: 'articles-published',
-  dispatchPayloadPresent: 'true',
-  publisherSourceVerified: 'true',
-  dispatchSourceSchemaVersion: '1',
-  dispatchSourceRepository: PUBLISHER_SOURCE_REPOSITORY,
-  dispatchSourceWorkflow: PUBLISHER_SOURCE_WORKFLOW,
-  dispatchSourceWorkflowPath: PUBLISHER_SOURCE_WORKFLOW_PATH,
-  dispatchSourceRunId: '123456789',
-  dispatchSourceRunAttempt: '1',
-  dispatchSourceSha: SOURCE_SHA,
-  dispatchSourceBranch: 'main',
-  dispatchSourceEvent: 'push',
-  actorType: 'User',
-  repository: 'valerielinc-ops/frontaliere-si-o-no',
-  workflow: 'Sync article sitemaps, feeds and ticker from the articles API',
-  runId: '987654321',
-  runAttempt: '1',
-  consent: '',
-  dryRun: '',
-  scope: 'article-sitemap-publication',
-  expectedDispatchActor: 'valerielinc-ops',
-  expectedDispatchRepository: 'valerielinc-ops/frontaliere-si-o-no',
-  expectedDispatchScope: 'article-sitemap-publication',
-  expectedDispatchWorkflow: 'Sync article sitemaps, feeds and ticker from the articles API',
-};
-
-const TRUSTED_LEGACY_PUBLISHER_DISPATCH = {
-  ...TRUSTED_PUBLISHER_DISPATCH,
-  dispatchPayloadPresent: 'false',
-  publisherSourceVerified: 'false',
-  dispatchSourceSchemaVersion: '',
-  dispatchSourceRepository: '',
-  dispatchSourceWorkflow: '',
-  dispatchSourceWorkflowPath: '',
-  dispatchSourceRunId: '',
-  dispatchSourceRunAttempt: '',
-  dispatchSourceSha: '',
-  dispatchSourceBranch: '',
-  dispatchSourceEvent: '',
-  allowLegacyPublisherDispatch: 'true',
-};
-
 /** Workflows whose scheduled/manual paths can send, post, publish, or alter recipient state. */
 const SIDE_EFFECT_WORKFLOWS = [
   // Writer/publication/content scope from the audit.
@@ -216,98 +130,8 @@ const SIDE_EFFECT_WORKFLOWS = [
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
+const workflowDir = path.join(ROOT, '.github', 'workflows');
 const workflow = (name: string) => fs.readFileSync(path.join(ROOT, '.github', 'workflows', name), 'utf8');
-const APPROVED_GATE_IF = "steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'";
-
-const SCHEDULE_ARMED_WORKFLOWS = [
-  'send-job-alerts.yml',
-  'send-company-alerts.yml',
-  'send-newsletter.yml',
-  'send-saved-jobs-digest.yml',
-  'send-onboarding-drip.yml',
-  'send-daily-brief.yml',
-  'newsletter-confirmation-followups.yml',
-  'newsletter-dormant-winback.yml',
-  'newsletter-sunset.yml',
-  'job-alert-sunset.yml',
-  'instagram-daily-broadcast.yml',
-  'suppression-hygiene.yml',
-  'telegram-channel-broadcast.yml',
-  'tiktok-daily-broadcast.yml',
-  // Both crons are producing principals, not merely preview paths: the cold
-  // email schedule refreshes the GA4 target report before printing the batch
-  // it would send, and the SEO health cron is the only writer of
-  // data/seo-health/latest.json and of the protected 404 repair.  Unarmed they
-  // do not stand down quietly — they fail on the first step that needs the
-  // credentials the gate refused to hydrate.
-  'cold-email-outreach.yml',
-  'seo-health-loop.yml',
-  // The 6-hourly refresh is the only writer of public/data/plate-auctions.json.
-  // Unarmed, the gate denied every scheduled run: the producer was skipped, the
-  // drift check still passed because it re-validates the committed file, and
-  // the job reported success while the snapshot sat frozen at
-  // 2026-09-15T06:58:44.350Z. Arming it makes the underlying failure visible
-  // again — it does not repair it.
-  'refresh-plate-auctions.yml',
-  // Armed 2026-09-18, and the FOURTH workflow #8889's fail-closed switch
-  // caught that no rearm pass inventoried: #9004 took 14, #9135 took two more,
-  // #9164 took refresh-plate-auctions, and this one was in none of them. Its
-  // 5:23/17:23 cron is the article chain's only backstop, and
-  // verify-publisher-dispatch.mjs's header names the schedule "the safe
-  // recovery path" for a lost dispatch race — so here the omission cost more
-  // than elsewhere: #8918 closed the DISPATCH path the same day
-  // (2026-09-16T19:25Z), leaving the chain no path at all, and
-  // packages/articles/content stopped being written at 2026-09-16T12:00:46Z.
-  //
-  // Four instances of one omission is the argument for the closure assertion
-  // this list still lacks: nothing asserts that every workflow with a
-  // `side_effect_gate` and a `schedule:` appears in exactly one of the two
-  // inventories. Enumerated 2026-09-18: 12 were in neither.
-  'sync-articles-sitemaps.yml',
-  // The weekly expired-archive sweep is an autonomous, non-destructive
-  // repair: it preserves cap-refused route components and only persists
-  // route-collapsed slices after the workflow's own test and audit gates.
-  'reconcile-expired-route-duplicates.yml',
-  // Recovery is an approved scheduled write: it remains non-destructive and
-  // its backfill/commit steps keep their own dry-run guards in depth.
-  'recover-prev-slugs.yml',
-  // Aggiunto il 2026-09-19, ed era uno dei 12 che il commento sopra dichiara
-  // «in neither» inventory al 2026-09-18: il buco noto di questa lista lo aveva
-  // gia' contato senza nominarlo.
-  // Senza l'armamento il cron MENSILE di questo workflow risultava `success`
-  // avendo backfillato ZERO expired job: il gate negava ogni `schedule`
-  // (`event-not-workflow-dispatch`, human-side-effect-gate.mjs:214), un diniego
-  // esce 0 «so the workflow can finish quietly» (riga 34), e tutti e 7 i suoi
-  // step di scrittura sono condizionati a `allow_side_effect`. Verde e inerte —
-  // la stessa classe del verde fabbricato che #9205 chiude sull'audit del
-  // corpus, e su un cron mensile nessuno se ne sarebbe accorto prima del
-  // 2026-11-01.
-  // La scrittura e' non distruttiva: ricostruisce
-  // `data/jobs/expired/by-crawler/*` camminando la history con `git show`,
-  // checkpointa i slice prima del reassemble/test tail, passa
-  // `npm run test:backfill` prima del deploy, e i suoi step usano tutti
-  // l'APPROVED_GATE_IF esatto, quindi `dry_run` continua a valere sul dispatch
-  // manuale.
-  'backfill-expired-from-history.yml',
-];
-
-const SCHEDULE_UNARMED_WORKFLOWS = [
-  'cleanup-mailjet-contacts.yml',
-  'fb-articles-daily-schedule.yml',
-  'fb-events-daily-schedule.yml',
-  'fb-jobs-daily-schedule.yml',
-  'linkedin-member-daily.yml',
-  'mailtrap-suppression-retry.yml',
-  'probe-mailgun-scheduled.yml',
-  'publisher-blast.yml',
-  'reddit-jobs-daily-schedule.yml',
-];
-
-const SCHEDULE_SIDE_EFFECT_WORKFLOWS = [
-  ...SCHEDULE_ARMED_WORKFLOWS,
-  ...SCHEDULE_UNARMED_WORKFLOWS,
-];
-
 const DEFENSE_IN_DEPTH_GUARDS = [
   ['instagram-daily-broadcast.yml', 'Post to Instagram', 'ARGS+=(--dry-run);'],
   ['job-alert-sunset.yml', 'Run sunset', 'MODE=dry-run'],
@@ -323,11 +147,6 @@ const DEFENSE_IN_DEPTH_GUARDS = [
 ] as const;
 
 const DEFENSE_IN_DEPTH_GUARD_CONDITION = 'if [ "$ALLOW_SIDE_EFFECT" != "true" ] || [ "$EFFECTIVE_DRY_RUN" = "true" ]; then';
-
-const RECOVER_PREV_SLUG_GUARDS = [
-  ['Reconcile duplicate stable-id job records', 'if [ "$DRY_RUN" = "true" ]; then APPLY_FLAG=""; fi'],
-  ['Backfill recoverable slugs', 'if [ "$DRY_RUN" = "true" ]; then DRY_RUN_FLAG="--dry-run"; fi'],
-] as const;
 
 /** Named writer/provider paths added by the Pasteur F5/F6/F9 inventory. */
 const GATED_SIDE_EFFECT_STEPS: Record<string, RegExp[]> = {
@@ -439,273 +258,6 @@ function step(source: string, name: string) {
   const end = source.indexOf('\n      - name:', start + 1);
   return source.slice(start, end < 0 ? undefined : end);
 }
-
-function credentialHydrationSteps(source: string) {
-  const document = YAML.parse(source) as { jobs?: Record<string, { steps?: Array<Record<string, unknown>> }> };
-  return Object.entries(document.jobs ?? {}).flatMap(([jobName, job]) => (job.steps ?? []).flatMap((step, index) => {
-    const name = String(step.name ?? '');
-    const uses = String(step.uses ?? '');
-    const env = Object.entries((step.env ?? {}) as Record<string, unknown>)
-      .map(([key, value]) => `${key}=${String(value)}`).join('\n');
-    const run = String(step.run ?? '');
-    const credentialText = `${name}\n${uses}\n${env}\n${run}`;
-    const namedHydration = /(?:^|[\s-])(prepare|load|install|mint|setup)(?:[\s-]|$)/iu.test(name)
-      && /secrets\.|FIREBASE_SERVICE_ACCOUNT_JSON|load-rc-env\.mjs|credential|token|api.?key|private.?key/iu.test(credentialText);
-    const providerAction = /\.github\/actions\/setup-(?:omniroute|claude-haiku-fallback)/u.test(uses);
-    return namedHydration || providerAction
-      ? [{ jobName, index, name, if: String(step.if ?? '') }]
-      : [];
-  }));
-}
-
-describe('human-side-effect-gate policy', () => {
-  it('denies an unarmed schedule, push, and untrusted repository_dispatch and forces dry-run', () => {
-    for (const event of ['schedule', 'push', 'repository_dispatch']) {
-      const decision = evaluateHumanApproval({
-        ...APPROVED_INPUT,
-        event,
-        ...(event === 'schedule' ? { approvalTrustedSchedule: 'false' } : {}),
-      });
-      expect(decision.allow, event).toBe(false);
-      expect(decision.effectiveDryRun, event).toBe(true);
-    }
-  });
-
-  it('allows an explicitly trusted first-attempt schedule without human actor or input proofs', () => {
-    const decision = evaluateHumanApproval(APPROVED_SCHEDULE_INPUT);
-    expect(decision.allow).toBe(true);
-    expect(decision.effectiveDryRun).toBe(false);
-    expect(decision.reason).toBe('trusted-schedule-approved');
-    expect(decision.nonce).toMatch(/^[a-f0-9]{64}$/);
-    expect(decision.nonce).toBe(deriveApprovalNonce(APPROVED_SCHEDULE_INPUT));
-  });
-
-  it('allows only a caller-verified first-attempt workflow_run handoff', () => {
-    const decision = evaluateHumanApproval(APPROVED_WORKFLOW_RUN_INPUT);
-    expect(decision.allow).toBe(true);
-    expect(decision.effectiveDryRun).toBe(false);
-    expect(decision.reason).toBe('trusted-workflow-run-approved');
-    expect(decision.nonce).toMatch(/^[a-f0-9]{64}$/);
-
-    const untrusted = evaluateHumanApproval({
-      ...APPROVED_WORKFLOW_RUN_INPUT,
-      approvalTrustedWorkflowRun: 'false',
-    });
-    expect(untrusted.allow).toBe(false);
-    expect(untrusted.effectiveDryRun).toBe(true);
-    expect(untrusted.reasons).toContain('event-not-workflow-dispatch');
-  });
-
-  it.each([
-    ['missing opt-in', { approvalTrustedSchedule: '' }, 'event-not-workflow-dispatch'],
-    ['rerun', { runAttempt: '2' }, 'run-is-a-rerun'],
-  ])('denies a trusted schedule with %s', (_name, override, reason) => {
-    const decision = evaluateHumanApproval({ ...APPROVED_SCHEDULE_INPUT, ...override });
-    expect(decision.allow).toBe(false);
-    expect(decision.effectiveDryRun).toBe(true);
-    expect(decision.reasons).toContain(reason);
-  });
-
-  it('consumes a trusted schedule nonce only once, including through main()', () => {
-    const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'human-side-effect-gate-schedule-'));
-    const firstOutput = path.join(tempRoot, 'github-output-first');
-    const secondOutput = path.join(tempRoot, 'github-output-second');
-    const env = {
-      GITHUB_EVENT_NAME: 'schedule',
-      GITHUB_ACTOR: 'github-actions[bot]',
-      GITHUB_TRIGGERING_ACTOR: 'github-actions[bot]',
-      GITHUB_REPOSITORY: APPROVED_SCHEDULE_INPUT.repository,
-      GITHUB_WORKFLOW: APPROVED_SCHEDULE_INPUT.workflow,
-      GITHUB_RUN_ID: APPROVED_SCHEDULE_INPUT.runId,
-      GITHUB_RUN_ATTEMPT: APPROVED_SCHEDULE_INPUT.runAttempt,
-      APPROVAL_ACTOR_TYPE: 'Bot',
-      APPROVAL_CONSENT: '',
-      APPROVAL_DRY_RUN: '',
-      APPROVAL_TRUSTED_SCHEDULE: 'true',
-      APPROVAL_SCOPE: APPROVED_SCHEDULE_INPUT.scope,
-      RUNNER_TEMP: tempRoot,
-    };
-
-    const firstCode = main({
-      env: { ...env, GITHUB_OUTPUT: firstOutput },
-      logger: { log() {}, error() {} },
-    });
-    const secondCode = main({
-      env: { ...env, GITHUB_OUTPUT: secondOutput },
-      logger: { log() {}, error() {} },
-    });
-
-    expect(firstCode).toBe(0);
-    expect(fs.readFileSync(firstOutput, 'utf8')).toContain('allow_side_effect=true');
-    expect(fs.readFileSync(firstOutput, 'utf8')).toContain('effective_dry_run=false');
-    expect(secondCode).toBe(0);
-    expect(fs.readFileSync(secondOutput, 'utf8')).toContain('allow_side_effect=false');
-    expect(fs.readFileSync(secondOutput, 'utf8')).toContain('effective_dry_run=true');
-    expect(fs.readFileSync(secondOutput, 'utf8')).toContain('approval_reason=nonce-already-consumed');
-  });
-
-  it('requires an explicit human dispatch proof, not a text confirmation alone', () => {
-    const decision = evaluateHumanApproval({
-      ...APPROVED_INPUT,
-      actorType: 'Bot',
-      consent: 'true',
-      dryRun: 'false',
-    });
-    expect(decision.allow).toBe(false);
-    expect(decision.reasons).toEqual(expect.arrayContaining(['actor-is-not-a-github-user']));
-  });
-
-  it('allows exactly one first-attempt user dispatch with explicit consent and dry_run=false', () => {
-    const decision = evaluateHumanApproval(APPROVED_INPUT);
-    expect(decision.allow).toBe(true);
-    expect(decision.effectiveDryRun).toBe(false);
-    expect(decision.nonce).toMatch(/^[a-f0-9]{64}$/);
-    expect(decision.nonce).toBe(deriveApprovalNonce(APPROVED_INPUT));
-  });
-
-  it('allows the current publisher repository_dispatch only with its pinned PAT principal and action', () => {
-    const decision = evaluateHumanApproval(TRUSTED_PUBLISHER_DISPATCH);
-    expect(decision.allow).toBe(true);
-    expect(decision.effectiveDryRun).toBe(false);
-    expect(decision.reason).toBe('trusted-publisher-dispatch-approved');
-    expect(decision.nonce).toMatch(/^[a-f0-9]{64}$/);
-  });
-
-  it('allows the legacy event-only publisher contract only with its explicit compatibility flag', () => {
-    const legacy = evaluateHumanApproval(TRUSTED_LEGACY_PUBLISHER_DISPATCH);
-    expect(legacy.allow).toBe(true);
-    expect(legacy.effectiveDryRun).toBe(false);
-    expect(legacy.reason).toBe('trusted-legacy-publisher-dispatch-approved');
-
-    const disabled = evaluateHumanApproval({
-      ...TRUSTED_LEGACY_PUBLISHER_DISPATCH,
-      allowLegacyPublisherDispatch: 'false',
-    });
-    expect(disabled.allow).toBe(false);
-    expect(disabled.effectiveDryRun).toBe(true);
-    expect(disabled.reasons).toContain('publisher-dispatch-payload-missing-or-unknown');
-
-    const unverifiedPayload = evaluateHumanApproval({
-      ...TRUSTED_PUBLISHER_DISPATCH,
-      publisherSourceVerified: 'false',
-    });
-    expect(unverifiedPayload.allow).toBe(false);
-    expect(unverifiedPayload.reasons).toContain('publisher-source-run-unverified');
-  });
-
-  it('denies an allowlisted sender when the source run was not verified', () => {
-    const decision = evaluateHumanApproval({
-      ...TRUSTED_PUBLISHER_DISPATCH,
-      publisherSourceVerified: 'false',
-    });
-    expect(decision.allow).toBe(false);
-    expect(decision.effectiveDryRun).toBe(true);
-    expect(decision.reasons).toContain('publisher-source-run-unverified');
-  });
-
-  it('rejects spoofed or ambiguous publisher dispatches', () => {
-    const cases = [
-      {
-        name: 'spoofed sender',
-        override: { actor: 'attacker', triggeringActor: 'attacker', dispatchActor: 'attacker' },
-        reason: 'publisher-dispatch-actor-mismatch',
-      },
-      {
-        name: 'wrong action',
-        override: { dispatchAction: 'articles-published-copy' },
-        reason: 'publisher-dispatch-action-mismatch',
-      },
-      {
-        name: 'payload missing',
-        override: { dispatchPayloadPresent: 'false' },
-        reason: 'publisher-dispatch-payload-missing-or-unknown',
-      },
-      {
-        name: 'payload status unknown',
-        override: { dispatchPayloadPresent: '' },
-        reason: 'publisher-dispatch-payload-missing-or-unknown',
-      },
-    ];
-
-    for (const testCase of cases) {
-      const decision = evaluateHumanApproval({ ...TRUSTED_PUBLISHER_DISPATCH, ...testCase.override });
-      expect(decision.allow, testCase.name).toBe(false);
-      expect(decision.effectiveDryRun, testCase.name).toBe(true);
-      expect(decision.reasons, testCase.name).toContain(testCase.reason);
-    }
-  });
-
-  it('rejects bot and rerun publisher dispatches', () => {
-    const bot = evaluateHumanApproval({
-      ...TRUSTED_PUBLISHER_DISPATCH,
-      actor: 'github-actions[bot]',
-      triggeringActor: 'github-actions[bot]',
-      dispatchActor: 'github-actions[bot]',
-      actorType: 'Bot',
-    });
-    const rerun = evaluateHumanApproval({ ...TRUSTED_PUBLISHER_DISPATCH, runAttempt: '2' });
-    const sourceRerun = evaluateHumanApproval({ ...TRUSTED_PUBLISHER_DISPATCH, dispatchSourceRunAttempt: '2' });
-
-    expect(bot.allow).toBe(false);
-    expect(bot.effectiveDryRun).toBe(true);
-    expect(bot.reasons).toEqual(expect.arrayContaining(['actor-is-not-a-github-user', 'actor-invalid-or-bot']));
-    expect(rerun.allow).toBe(false);
-    expect(rerun.effectiveDryRun).toBe(true);
-    expect(rerun.reasons).toContain('run-is-a-rerun');
-    expect(sourceRerun.allow).toBe(false);
-    expect(sourceRerun.effectiveDryRun).toBe(true);
-    expect(sourceRerun.reasons).toContain('publisher-source-run-is-rerun');
-  });
-
-  it('rejects actor mismatch, bots, reruns, and implicit non-dry-run values', () => {
-    for (const override of [
-      { actor: 'other' },
-      { actor: 'github-actions[bot]', triggeringActor: 'github-actions[bot]', actorType: 'Bot' },
-      { runAttempt: '2' },
-      { dryRun: '' },
-      { consent: 'yes' },
-    ]) {
-      const decision = evaluateHumanApproval({ ...APPROVED_INPUT, ...override });
-      expect(decision.allow, JSON.stringify(override)).toBe(false);
-      expect(decision.effectiveDryRun, JSON.stringify(override)).toBe(true);
-    }
-  });
-
-  it('consumes the run-bound nonce once and fails closed on a second use', () => {
-    const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'human-side-effect-gate-'));
-    const { nonce } = evaluateHumanApproval(APPROVED_INPUT);
-    const first = consumeApprovalNonce({ nonce, runnerTemp: tempRoot });
-    const second = consumeApprovalNonce({ nonce, runnerTemp: tempRoot });
-    expect(first).toEqual({ consumed: true, reason: 'nonce-consumed-once' });
-    expect(second).toEqual({ consumed: false, reason: 'nonce-already-consumed' });
-  });
-
-  it('writes deny outputs for an unarmed scheduled run without contacting any external system', () => {
-    const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'human-side-effect-gate-cli-'));
-    const outputPath = path.join(tempRoot, 'github-output');
-    const code = main({
-      env: {
-        GITHUB_EVENT_NAME: 'schedule',
-        GITHUB_ACTOR: 'github-actions[bot]',
-        GITHUB_TRIGGERING_ACTOR: 'github-actions[bot]',
-        GITHUB_REPOSITORY: APPROVED_INPUT.repository,
-        GITHUB_WORKFLOW: APPROVED_INPUT.workflow,
-        GITHUB_RUN_ID: APPROVED_INPUT.runId,
-        GITHUB_RUN_ATTEMPT: APPROVED_INPUT.runAttempt,
-        APPROVAL_ACTOR_TYPE: 'Bot',
-        APPROVAL_CONSENT: 'false',
-        APPROVAL_DRY_RUN: '',
-        APPROVAL_SCOPE: APPROVED_INPUT.scope,
-        RUNNER_TEMP: tempRoot,
-        GITHUB_OUTPUT: outputPath,
-      },
-      logger: { log() {}, error() {} },
-    });
-    expect(code).toBe(0);
-    expect(fs.readFileSync(outputPath, 'utf8')).toContain('allow_side_effect=false');
-    expect(fs.readFileSync(outputPath, 'utf8')).toContain('effective_dry_run=true');
-  });
-});
 
 describe('publisher dispatch provenance verifier', () => {
   it('accepts a realistic in-progress run response without a run-level workflow path', () => {
@@ -865,246 +417,118 @@ describe('publisher dispatch provenance verifier', () => {
   });
 });
 
-describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
-  it('verifies the publisher contract before the gate and pins every binding', () => {
-    const source = workflow('sync-articles-sitemaps.yml');
-    expect(source).toContain('Verify publisher provenance via read-only metadata API');
-    expect(source).toContain('node scripts/ci/verify-publisher-dispatch.mjs');
-    expect(source).toContain('gh api --method GET');
-    expect(source).toContain('actions/runs/$PUBLISHER_SOURCE_RUN_ID');
-    expect(source).toContain("actions/workflows/publish-api.yml");
-    expect(source).toContain("if: github.event_name == 'repository_dispatch' && github.event.client_payload != null");
-    expect(source).toContain("PUBLISHER_SOURCE_RUN_ID: ${{ github.event.client_payload.source_run_id || '' }}");
-    expect(source).toContain('APPROVAL_EVENT: ${{ github.event_name }}');
-    expect(source).toContain('APPROVAL_ACTOR: ${{ github.actor }}');
-    expect(source).toContain('APPROVAL_TRIGGERING_ACTOR: ${{ github.triggering_actor }}');
-    expect(source).toContain("APPROVAL_DISPATCH_ACTOR: ${{ github.event.sender.login || '' }}");
-    expect(source).toContain("APPROVAL_DISPATCH_ACTION: ${{ github.event.action || '' }}");
-    expect(source).toContain('APPROVAL_DISPATCH_PAYLOAD_PRESENT: ${{ github.event.client_payload != null }}');
-    expect(source).toContain("APPROVAL_ALLOW_LEGACY_PUBLISHER_DISPATCH: 'true'");
-    expect(source).toContain("APPROVAL_PUBLISHER_SOURCE_VERIFIED: ${{ steps.publisher_provenance.outputs.verified || 'false' }}");
-    expect(source).toContain("APPROVAL_DISPATCH_SOURCE_SCHEMA_VERSION: ${{ github.event.client_payload.schema_version || '' }}");
-    expect(source).toContain("APPROVAL_DISPATCH_SOURCE_REPOSITORY: ${{ github.event.client_payload.source_repository || '' }}");
-    expect(source).toContain("APPROVAL_DISPATCH_SOURCE_WORKFLOW: ${{ github.event.client_payload.source_workflow || '' }}");
-    expect(source).toContain("APPROVAL_DISPATCH_SOURCE_WORKFLOW_PATH: ${{ github.event.client_payload.source_workflow_path || '' }}");
-    expect(source).toContain("APPROVAL_DISPATCH_SOURCE_RUN_ID: ${{ github.event.client_payload.source_run_id || '' }}");
-    expect(source).toContain("APPROVAL_DISPATCH_SOURCE_RUN_ATTEMPT: ${{ github.event.client_payload.source_run_attempt || '' }}");
-    expect(source).toContain("APPROVAL_DISPATCH_SOURCE_SHA: ${{ github.event.client_payload.source_sha || '' }}");
-    expect(source).toContain("APPROVAL_DISPATCH_SOURCE_BRANCH: ${{ github.event.client_payload.source_branch || '' }}");
-    expect(source).toContain("APPROVAL_DISPATCH_SOURCE_EVENT: ${{ github.event.client_payload.source_event || '' }}");
-    expect(source).toContain('APPROVAL_EXPECTED_DISPATCH_ACTOR: valerielinc-ops');
-    expect(source).toContain('APPROVAL_EXPECTED_DISPATCH_REPOSITORY: valerielinc-ops/frontaliere-si-o-no');
-    expect(source).toContain('APPROVAL_EXPECTED_DISPATCH_SCOPE: article-sitemap-publication');
-    expect(source).toContain('APPROVAL_EXPECTED_DISPATCH_WORKFLOW: Sync article sitemaps, feeds and ticker from the articles API');
-  });
+describe('workflow wiring without the human approval gate', () => {
+  it('removes the shared gate and approval input from every inventoried workflow', () => {
+    for (const name of SIDE_EFFECT_WORKFLOWS) {
+      const source = workflow(name)
+      expect(source).not.toContain('scripts/ci/human-side-effect-gate.mjs')
+      expect(source).not.toContain('human_approval:')
+      expect(source).not.toContain('id: side_effect_gate')
+      expect(source).not.toContain('steps.side_effect_gate')
+      expect(source).toContain("inputs.dry_run != true && inputs.dry_run != 'true'")
+    }
 
-  it('asks "may this run write?" in exactly one place', () => {
-    // The `gate` step always claimed to be that one place, but it read only
-    // the two pull outputs. `Commit if changed` carried a second, independent
-    // copy of the side-effect condition, so a withheld write permission left
-    // `skipped` false: the escalation never fired and `Clear the skip
-    // escalation` CLOSED the standing issue on every denied run. That is the
-    // mechanism that turned a dead pipeline into a wall of green.
-    const source = workflow('sync-articles-sitemaps.yml');
-    const gate = step(source, 'Decide whether this run may commit');
-    expect(gate).toContain('ALLOW_SIDE_EFFECT: ${{ steps.side_effect_gate.outputs.allow_side_effect }}');
-    expect(gate).toContain('EFFECTIVE_DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}');
+    const residual = fs
+      .readdirSync(workflowDir)
+      .filter((name) => name.endsWith('.yml'))
+      .filter((name) => {
+        const source = fs.readFileSync(path.join(workflowDir, name), 'utf8')
+        return (
+          source.includes('scripts/ci/human-side-effect-gate.mjs') ||
+          source.includes('human_approval:') ||
+          source.includes('id: side_effect_gate') ||
+          source.includes('steps.side_effect_gate')
+        )
+      })
 
-    // The commit keeps stating the side-effect condition verbatim — the
-    // inventory test above requires that of every writer step, so permission
-    // cannot be laundered through an intermediate output. What the fold buys
-    // is that `skipped` is now true whenever nothing will be committed, for
-    // ANY reason, which is what the escalation and the resolve hang off.
-    const commit = step(source, 'Commit if changed');
-    expect(commit).toContain("steps.gate.outputs.skipped != 'true'");
-    expect(commit).toContain("steps.side_effect_gate.outputs.allow_side_effect == 'true'");
+    expect(residual).toEqual([])
 
-    const escalate = step(source, 'Escalate a sync that keeps being skipped');
-    expect(escalate).toContain("steps.gate.outputs.skipped == 'true'");
-    const resolve = step(source, 'Clear the skip escalation');
-    expect(resolve).toContain("steps.gate.outputs.skipped != 'true'");
-  });
+    const coldMail = YAML.parse(workflow('cold-email-outreach.yml'))
+    expect(String(coldMail.jobs.outreach.if)).toContain('COLD_EMAIL_OUTREACH_ENABLED')
+  })
 
-  it('ritenta solo lookup transitori e run queued, mantenendo il deny sui terminali', () => {
-    const source = workflow('sync-articles-sitemaps.yml');
-    const start = source.indexOf('- name: Verify publisher provenance via read-only metadata API');
-    const end = source.indexOf('\n      - name:', start + 1);
-    const verifier = source.slice(start, end);
+  it('keeps cold mail as the explicit owner-disabled exception', () => {
+    const source = workflow('cold-email-outreach.yml')
+    expect(source).toContain('OWNER DECISION: this workflow is intentionally blocked')
+    expect(source).not.toContain('human_approval:')
+    expect(source).not.toContain('scripts/ci/human-side-effect-gate.mjs')
+  })
 
-    expect(verifier).toContain('max_lookup_attempts=3');
-    expect(verifier).toContain('while [ "$lookup_attempt" -le "$max_lookup_attempts" ]');
-    expect(verifier).toContain("[ \"$run_status\" = 'queued' ]");
-    expect(verifier).toContain("[ \"$run_status\" = 'in_progress' ]");
-    expect(verifier).toContain('lookup_delay=$((lookup_attempt * 15))');
-    expect(verifier).toContain('sleep "$lookup_delay"');
-    expect(verifier).toContain('verifier remains fail-closed');
-    expect(verifier).toContain("if [ \"$workflow_lookup_ok\" != 'true' ] || [ \"$workflow_shape_ok\" != 'true' ]; then");
-    expect(verifier.indexOf("if [ \"$workflow_lookup_ok\" != 'true' ] || [ \"$workflow_shape_ok\" != 'true' ]; then")).toBeLessThan(
-      verifier.indexOf('else\n                break'),
-    );
-    expect(verifier.indexOf('node scripts/ci/verify-publisher-dispatch.mjs')).toBeGreaterThan(
-      verifier.indexOf('while [ "$lookup_attempt" -le "$max_lookup_attempts" ]'),
-    );
-  });
+  it('preserves publisher provenance validation without human approval', () => {
+    const source = workflow('sync-articles-sitemaps.yml')
+    expect(source).toContain('Verify publisher provenance via read-only metadata API')
+    expect(source).toContain('node scripts/ci/verify-publisher-dispatch.mjs')
+    expect(source).toContain('gh api --method GET')
+    expect(source).toContain('Reject publisher dispatch without attestation')
+    expect(source).not.toContain('APPROVAL_')
+    expect(source).not.toContain('human-side-effect-gate.mjs')
 
-  for (const name of SIDE_EFFECT_WORKFLOWS) {
-    it(`${name} puts every live side-effect path behind the shared gate`, () => {
-      const source = workflow(name);
-      expect(source).toContain('scripts/ci/human-side-effect-gate.mjs');
-      const approvalBlock = source.match(/human_approval:[\s\S]{0,240}/u)?.[0] ?? '';
-      expect(approvalBlock).toMatch(/type:\s*boolean/u);
-      expect(approvalBlock).toMatch(/default:\s*false/u);
-      const dryRunBlock = source.match(/dry_run:[\s\S]{0,240}/u)?.[0] ?? '';
-      expect(dryRunBlock).toMatch(/default:\s*['"]?true/u);
-      expect(source).toContain('APPROVAL_ACTOR_TYPE');
-      expect(source).toContain('steps.side_effect_gate.outputs.allow_side_effect');
-      expect(source).toContain('steps.side_effect_gate.outputs.effective_dry_run');
-    });
+    const gate = step(source, 'Decide whether this run may commit')
+    expect(gate).toContain("ALLOW_SIDE_EFFECT: 'true'")
+    expect(gate).toContain(
+      'EFFECTIVE_DRY_RUN: ' + '$' + "{{ inputs.dry_run == true || inputs.dry_run == 'true' }}",
+    )
+    expect(gate).toContain("reason='dry-run requested'")
 
-    it(`${name} gates credential/provider hydration before any secret-bearing step`, () => {
-      const source = workflow(name);
-      const document = YAML.parse(source) as { jobs?: Record<string, { steps?: Array<Record<string, unknown>> }> };
-      for (const [jobName, job] of Object.entries(document.jobs ?? {})) {
-        const steps = job.steps ?? [];
-        const gateIndex = steps.findIndex((step) => step.id === 'side_effect_gate');
-        expect(gateIndex, `${name}:${jobName} missing side_effect_gate`).toBeGreaterThanOrEqual(0);
-        for (const step of credentialHydrationSteps(source).filter((candidate) => candidate.jobName === jobName)) {
-          expect(step.index, `${name}:${jobName}:${step.name} must follow the gate`).toBeGreaterThan(gateIndex);
-          expect(step.if, `${name}:${jobName}:${step.name} must deny by default`).toContain(APPROVED_GATE_IF);
+    const commit = step(source, 'Commit if changed')
+    expect(commit).toContain("steps.gate.outputs.skipped != 'true'")
+    expect(commit).toContain("inputs.dry_run != true && inputs.dry_run != 'true'")
+  })
+
+  it('preserves the newsletter workflow_run handoff check', () => {
+    const source = workflow('send-newsletter.yml')
+    expect(source).toContain('allow_workflow_run')
+    expect(source).toContain("github.event_name != 'workflow_run'")
+    expect(source).not.toContain('APPROVAL_TRUSTED_WORKFLOW_RUN')
+    expect(source).not.toContain('human-side-effect-gate.mjs')
+  })
+
+  it('allows only successful upstream workflow_run events for GSC orphan sync', () => {
+    const source = workflow('sync-gsc-orphans.yml')
+    expect(source).toContain("github.event.workflow_run.conclusion == 'success'")
+    expect(source).not.toContain('human-side-effect-gate.mjs')
+  })
+
+  it('retains defense-in-depth guards in the side-effect scripts', () => {
+    for (const [name, script, guard] of DEFENSE_IN_DEPTH_GUARDS) {
+      const source = workflow(name)
+      const guardedStep = step(source, script)
+      expect(guardedStep, name + ' / ' + script).toContain(guard)
+    }
+
+    const recover = workflow('recover-prev-slugs.yml')
+    expect(recover).toContain(
+      "DRY_RUN: " + '$' + "{{ inputs.dry_run == true || inputs.dry_run == 'true' }}",
+    )
+  })
+
+  it('keeps dry-run guards on the former gated side-effect steps', () => {
+    for (const [name, patterns] of Object.entries(GATED_SIDE_EFFECT_STEPS)) {
+      const source = workflow(name)
+      const document = YAML.parse(source) as {
+        jobs?: Record<string, { steps?: Array<Record<string, unknown>> }>
+      }
+      const steps = Object.values(document.jobs ?? {}).flatMap((job) => job.steps ?? [])
+      for (const pattern of patterns) {
+        const matches = steps.filter((candidate) => pattern.test(String(candidate.name ?? '')))
+        expect(matches, name + ': missing inventoried side-effect step ' + pattern).not.toHaveLength(0)
+        for (const candidate of matches) {
+          expect(String(candidate.if ?? ''), name + ' / ' + String(candidate.name)).toContain(
+            "inputs.dry_run != true && inputs.dry_run != 'true'",
+          )
         }
       }
-    });
-  }
-
-  for (const [name, stepPatterns] of Object.entries(GATED_SIDE_EFFECT_STEPS)) {
-    it(`${name} gates every inventoried writer/provider path`, () => {
-      const document = YAML.parse(workflow(name)) as { jobs?: Record<string, { steps?: Array<Record<string, unknown>> }> };
-      const steps = Object.values(document.jobs ?? {}).flatMap((job) => job.steps ?? []);
-      for (const pattern of stepPatterns) {
-        const matches = steps.filter((step) => pattern.test(String(step.name ?? '')));
-        expect(matches, `${name}: missing inventoried side-effect step ${pattern}`).not.toHaveLength(0);
-        for (const step of matches) {
-          const condition = String(step.if ?? '');
-          const gateCondition = condition.match(
-            /steps\.side_effect_gate\.outputs\.allow_side_effect == 'true'\s+(?:&&|\|\|)\s+steps\.side_effect_gate\.outputs\.effective_dry_run\s+(?:!=|==)\s+'true'/u,
-          )?.[0] ?? '';
-          expect(gateCondition, `${name}:${String(step.name)} must use the exact approved gate`).toBe(APPROVED_GATE_IF);
-        }
-      }
-    });
-  }
-
-  it('uses the exact approved gate expression on every scheduled side-effect path', () => {
-    for (const name of SCHEDULE_SIDE_EFFECT_WORKFLOWS) {
-      const document = YAML.parse(workflow(name)) as { jobs?: Record<string, { steps?: Array<Record<string, unknown>> }> };
-      const steps = Object.values(document.jobs ?? {}).flatMap((job) => job.steps ?? []);
-      const gatedSteps = steps.filter((step) => String(step.if ?? '').includes('steps.side_effect_gate.outputs.allow_side_effect'));
-      expect(gatedSteps, `${name}: no side-effect gate consumers found`).not.toHaveLength(0);
-      for (const step of gatedSteps) {
-        const condition = String(step.if ?? '');
-        const gateCondition = condition.match(
-          /steps\.side_effect_gate\.outputs\.allow_side_effect == 'true'\s+(?:&&|\|\|)\s+steps\.side_effect_gate\.outputs\.effective_dry_run\s+(?:!=|==)\s+'true'/u,
-        )?.[0] ?? '';
-        expect(gateCondition, `${name}:${String(step.name)} must use the exact approved gate`).toBe(APPROVED_GATE_IF);
-      }
     }
-  });
+  })
 
-  it('retains the defense-in-depth dry-run downgrade in every guarded run step', () => {
-    for (const [name, stepName, downgrade] of DEFENSE_IN_DEPTH_GUARDS) {
-      const document = YAML.parse(workflow(name)) as { jobs?: Record<string, { steps?: Array<Record<string, unknown>> }> };
-      const matches = Object.values(document.jobs ?? {}).flatMap((job) => job.steps ?? [])
-        .filter((step) => String(step.name ?? '') === stepName);
-      expect(matches, `${name}: missing guarded step ${stepName}`).toHaveLength(1);
-      const run = String(matches[0].run ?? '');
-      expect(run, `${name}:${stepName} missing side-effect downgrade`).toContain(DEFENSE_IN_DEPTH_GUARD_CONDITION);
-      expect(run, `${name}:${stepName} missing ${downgrade}`).toContain(downgrade);
-    }
+  it('still fails a scheduled plate-auction refresh when its producer did not run', () => {
+    const source = workflow('refresh-plate-auctions.yml')
+    const producer = step(source, 'Refresh every active public catalogue')
+    const liveness = step(source, 'Fail a scheduled run whose refresh never executed')
 
-    const recover = YAML.parse(workflow('recover-prev-slugs.yml')) as {
-      jobs?: Record<string, { steps?: Array<Record<string, unknown>> }>;
-    };
-    const recoverSteps = Object.values(recover.jobs ?? {}).flatMap((job) => job.steps ?? []);
-    for (const [stepName, downgrade] of RECOVER_PREV_SLUG_GUARDS) {
-      const step = recoverSteps.find((candidate) => String(candidate.name ?? '') === stepName);
-      expect(step, `recover-prev-slugs.yml: missing guarded step ${stepName}`).toBeDefined();
-      expect(step?.env, `recover-prev-slugs.yml:${stepName} missing DRY_RUN env`).toMatchObject({
-        DRY_RUN: '${{ steps.side_effect_gate.outputs.effective_dry_run }}',
-      });
-      expect(String(step?.run ?? ''), `recover-prev-slugs.yml:${stepName} missing ${downgrade}`).toContain(downgrade);
-    }
-  });
-
-  it('fails a scheduled plate-auction refresh whose producer was skipped', () => {
-    // Measured on run 35368321723 (2026-09-18 16:24Z), reported SUCCESS:
-    // `Refresh every active public catalogue` skipped, yet `Fail closed on
-    // source health or snapshot drift` passed because it re-validates the
-    // COMMITTED snapshot instead of a fresh fetch. Run conclusions cannot
-    // distinguish that from a real refresh; only a step-level assertion can.
-    const document = YAML.parse(workflow('refresh-plate-auctions.yml')) as {
-      jobs?: Record<string, { steps?: Array<Record<string, unknown>> }>;
-    };
-    const steps = Object.values(document.jobs ?? {}).flatMap((job) => job.steps ?? []);
-
-    const producer = steps.find((step) => String(step.name ?? '') === 'Refresh every active public catalogue');
-    expect(producer, 'producer step missing').toBeDefined();
-    expect(producer?.id, 'producer needs an id so its outcome is addressable').toBe('refresh');
-
-    const guard = steps.find((step) => String(step.name ?? '').startsWith('Fail a scheduled run whose refresh'));
-    expect(guard, 'missing step-level liveness check').toBeDefined();
-    const condition = String(guard?.if ?? '');
-    expect(condition).toContain("steps.refresh.outcome == 'skipped'");
-    expect(condition).toContain("github.event_name == 'schedule'");
-    expect(condition).toContain('always()');
-
-    // Documents WHY the liveness check has to exist: the drift check is
-    // unconditional, so it cannot be the thing that catches a dead refresh.
-    const drift = steps.find((step) => String(step.name ?? '') === 'Fail closed on source health or snapshot drift');
-    expect(drift, 'drift check missing').toBeDefined();
-    expect(drift?.if, 'drift check runs unconditionally; it validates the committed file').toBeUndefined();
-  });
-
-  it('arms trusted schedules only on workflows whose schedules apply side effects', () => {
-    expect(SCHEDULE_ARMED_WORKFLOWS).toHaveLength(21);
-    expect(SCHEDULE_UNARMED_WORKFLOWS).toHaveLength(9);
-    expect(SCHEDULE_SIDE_EFFECT_WORKFLOWS).toHaveLength(30);
-
-    for (const name of SCHEDULE_SIDE_EFFECT_WORKFLOWS) {
-      const document = YAML.parse(workflow(name)) as { jobs?: Record<string, { steps?: Array<Record<string, unknown>> }> };
-      const gateSteps = Object.values(document.jobs ?? {}).flatMap((job) => job.steps ?? [])
-        .filter((step) => step.id === 'side_effect_gate');
-      expect(gateSteps, `${name}: missing side_effect_gate`).toHaveLength(1);
-      const trustedSchedule = (gateSteps[0].env as Record<string, unknown> | undefined)?.APPROVAL_TRUSTED_SCHEDULE;
-      if (SCHEDULE_ARMED_WORKFLOWS.includes(name)) {
-        expect(trustedSchedule, `${name}: schedule opt-in missing`).toBe('true');
-      } else {
-        expect(trustedSchedule, `${name}: schedule opt-in must stay absent`).toBeUndefined();
-      }
-    }
-
-    const workflowDir = path.join(ROOT, '.github', 'workflows');
-    const armedElsewhere = fs.readdirSync(workflowDir)
-      .filter((name) => /\.ya?ml$/u.test(name) && !SCHEDULE_SIDE_EFFECT_WORKFLOWS.includes(name))
-      .filter((name) => workflow(name).includes('APPROVAL_TRUSTED_SCHEDULE'));
-    expect(armedElsewhere).toEqual([]);
-  });
-
-  it('chains newsletter only from the primary job-alert slot and keeps the cron fallback', () => {
-    const alerts = workflow('send-job-alerts.yml');
-    expect(alerts).toContain('Create primary newsletter handoff marker');
-    expect(alerts).toContain("steps.send-alerts.outcome == 'success' && github.event_name == 'schedule'");
-    expect(alerts).toContain("github.event.schedule == '33 0 * * *'");
-    expect(alerts).toContain('newsletter-handoff-${{ github.run_id }}');
-    expect(alerts).toContain('source_workflow_path: ".github/workflows/send-job-alerts.yml"');
-
-    const newsletter = workflow('send-newsletter.yml');
-    expect(newsletter).toContain('workflow_run:');
-    expect(newsletter).toContain('- Send Job Alert Emails');
-    expect(newsletter).toContain('actions/download-artifact@v7');
-    expect(newsletter).toContain('APPROVAL_TRUSTED_WORKFLOW_RUN');
-    expect(newsletter).toContain('group: newsletter');
-    expect(newsletter).toContain('cancel-in-progress: false');
-    expect(newsletter).toContain('NEWSLETTER_TRIGGER_KEY');
-    expect(newsletter).toContain('campaign_sends ledger');
-  });
-});
+    expect(producer).toContain("inputs.dry_run != true && inputs.dry_run != 'true'")
+    expect(liveness).toContain("github.event_name == 'schedule'")
+    expect(liveness).toContain("steps.refresh.outcome == 'skipped'")
+    expect(liveness).toContain('exit 1')
+  })
+})

@@ -323,7 +323,13 @@ jobs:
             TESTS_PENDING=$(printf '%s' "$TESTS_STATE" | jq -r '.pending // 1' 2>/dev/null || echo 1)
 
             # Ultima review del bot reviewer (claude) + commit a cui si riferisce.
-            reviews=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$N/reviews" 2>/dev/null || echo '[]')
+            # Paginata: senza, oltre 30 review l'«ultima» era quella in fondo
+            # alla PRIMA pagina (#9033 ne ha 46, #9066 29).
+            # `|| reviews=''`: lo step gira con il `bash -e` di default e senza
+            # fallback un errore dell'API lo interromperebbe qui.
+            reviews=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$N/reviews?per_page=100" --paginate --slurp 2>/dev/null \
+              | jq -c 'add // []' 2>/dev/null) || reviews=''
+            [ -n "$reviews" ] || reviews='[]'
 
             # Fencing sulla REVISIONE del body, non solo su `commit_id`. Una
             # modifica del body non cambia la HEAD: senza questo confronto un

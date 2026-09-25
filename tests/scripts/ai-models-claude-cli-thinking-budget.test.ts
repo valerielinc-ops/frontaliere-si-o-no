@@ -4,7 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 const spawnMock = vi.fn();
 vi.mock('node:child_process', () => ({ spawn: (...args: unknown[]) => spawnMock(...args) }));
 
-import { AI_MODELS, callLLM, claudeCliChildEnv, resetState } from '../../scripts/lib/ai-models.mjs';
+import { AI_MODELS, __enableClaudeCliLaneForTests, callLLM, claudeCliChildEnv, resetState } from '../../scripts/lib/ai-models.mjs';
 
 const AI_MODELS_SRC = readFileSync(
   new URL('../../scripts/lib/ai-models.mjs', import.meta.url),
@@ -59,6 +59,9 @@ describe('claude CLI: il tetto al thinking arriva al processo', () => {
 
   beforeEach(() => {
     resetState();
+    // Haiku e' spento nel codice (2026-09-24): questi test esercitano la
+    // macchina claude-cli rimasta, quindi la riaccendono col seam di test.
+    __enableClaudeCliLaneForTests();
     spawnMock.mockReset();
     for (const k of ENV_KEYS) saved[k] = process.env[k];
     process.env.ENABLE_HAIKU_ARTICLE_FALLBACK = '1';

@@ -148,6 +148,197 @@ else if (args[0] === 'issue' && args[1] === 'edit' && args.includes('--body-file
     expect(calls).toContain('"--add-label","agent:fix-queued"');
   });
 
+  it('recupera un daily con Sources cross-repository risolvendole nel repository gemello', () => {
+    // Forma reale del daily del sito #9443: accanto alle PR del sito, item
+    // instradati dal corpus con `Source: PR #1590` SENZA repository. Nel sito
+    // #1590 e' una issue: `gh pr view` risponde «Could not resolve to a
+    // PullRequest» e il recovery restava negato (`historical-triage-scan-unavailable`).
+    const item = (id: string, pr: number, token: string) => [
+      `### ${id} — proteggi il comportamento`,
+      '- State: open',
+      '- Target repository: site/r',
+      `- Sources: PR #${pr}`,
+      '- Target file: `scripts/example.mjs`',
+      '- Original text:',
+      '  > controllo non sempre applicato',
+      `- Suggested action: aggiungi \`${token}\``,
+      `- Acceptance token: \`${token}\``,
+      '',
+    ].join('\n');
+    const issue = {
+      number: 9443,
+      title: 'follow-up(daily:2026-09-09): 2 item — site/r',
+      body: [
+        '## Batch',
+        '- Daily key: 2026-09-09 (Europe/Zurich)',
+        '- State: collecting',
+        '- Target repository: site/r',
+        '',
+        '## Item',
+        '',
+        item('FU-2026-09-09-001', 8101, 'firstGuard()'),
+        item('FU-2026-09-09-002', 1590, 'secondGuard()'),
+      ].join('\n'),
+      labels: [],
+      createdAt: new Date().toISOString(),
+    };
+    const log = join(binDir, 'cross-repo-calls.log');
+    const state = join(binDir, 'cross-repo-state.json');
+    writeFileSync(log, '');
+    writeFileSync(state, JSON.stringify(issue));
+    const fake = `#!/usr/bin/env node
+const fs = require('node:fs');
+const args = process.argv.slice(2);
+const repo = args.includes('--repo') ? args[args.indexOf('--repo') + 1] : '';
+fs.appendFileSync(process.env.CALL_LOG, JSON.stringify({ args, token: process.env.GH_TOKEN }) + '\\n');
+const issue = JSON.parse(fs.readFileSync(process.env.STATE, 'utf8'));
+const marker = JSON.stringify({ comments: [{ body: '## Post-merge follow-up triage\\n\\nCreated/updated: 0 item.' }] });
+if (args[0] === 'api') process.stdout.write(JSON.stringify([[{ number: issue.number, title: issue.title, created_at: issue.createdAt }]]));
+else if (args[0] === 'issue' && args[1] === 'view') process.stdout.write(JSON.stringify(issue));
+else if (args[0] === 'pr' && args[1] === 'view') {
+  const n = args[2];
+  if (repo === 'site/r' && n === '8101') process.stdout.write(marker);
+  else if (repo === 'corpus/r' && n === '1590' && process.env.GH_TOKEN === 'corpus-token') process.stdout.write(marker);
+  else { process.stderr.write('GraphQL: Could not resolve to a PullRequest with the number of ' + n + '. (repository.pullRequest)\\n'); process.exit(1); }
+}
+else if (args[0] === 'issue' && args[1] === 'edit' && args.includes('--body-file')) {
+  const updated = JSON.parse(fs.readFileSync(process.env.STATE, 'utf8'));
+  updated.body = fs.readFileSync(args[args.indexOf('--body-file') + 1], 'utf8');
+  const titleIndex = args.indexOf('--title');
+  if (titleIndex >= 0) updated.title = args[titleIndex + 1];
+  fs.writeFileSync(process.env.STATE, JSON.stringify(updated));
+}
+`;
+    writeFileSync(join(binDir, 'gh'), fake);
+    chmodSync(join(binDir, 'gh'), 0o755);
+    const run = (extra: Record<string, string>) => execFileSync('node', [GATE], {
+      encoding: 'utf-8',
+      env: {
+        ...process.env,
+        PATH: `${binDir}:${process.env.PATH}`,
+        BATCH_PRS: '',
+        TRIAGE_COMPLETE: 'false',
+        DRY_RUN: '1',
+        GH_REPO: 'site/r',
+        GH_TOKEN: 'site-token',
+        CALL_LOG: log,
+        STATE: state,
+        COLLECTION_OK: 'true',
+        GITHUB_STEP_SUMMARY: join(binDir, 'cross-repo-summary.md'),
+        ...extra,
+      },
+    });
+    // Senza repository gemello: comportamento di prima, recovery negato.
+    const before = run({});
+    expect(before).toContain('PR #1590 non è una PR in site/r → Source non verificabile');
+    expect(before).toContain('recovery per bucket negato (historical-triage-scan-unavailable)');
+    // Con il gemello dichiarato (lo step del sito in post-merge-followup.yml).
+    writeFileSync(log, '');
+    const after = run({ GATE_ALT_PR_REPO: 'corpus/r', GATE_ALT_PR_TOKEN: 'corpus-token' });
+    expect(after).toContain('PR #1590 non è una PR in site/r → Source risolta in corpus/r');
+    expect(after).toContain('marker storici verificati (PR #8101, PR #1590)');
+    expect(after).not.toContain('gh pr view 1590 → fallito');
+    const calls = readFileSync(log, 'utf-8').trim().split('\n').map((line) => JSON.parse(line));
+    const corpusCall = calls.find((call) => call.args.includes('corpus/r'));
+    expect(corpusCall?.token).toBe('corpus-token');
+    // La PR del sito non viene mai cercata nel corpus.
+    expect(calls.some((call) => call.args[2] === '8101' && call.args.includes('corpus/r'))).toBe(false);
+  });
+
+  it('demota un daily con Source cross-repository commentando la PR nel suo repository', () => {
+    // Stessa classe, lato scrittura: gli item demoti si conservano sulle PR
+    // sorgente. `gh pr comment 1590 --repo site/r` fallisce («non e' una PR»),
+    // e con un solo commento mancato la demozione era rinviata per sempre.
+    const tick = String.fromCharCode(96);
+    const issue = {
+      number: 9443,
+      title: 'follow-up(daily:2026-09-09): 2 items — site/r',
+      body: [
+        '## Batch',
+        '- Daily key: 2026-09-09 (Europe/Zurich)',
+        '- State: collecting',
+        '- Target repository: site/r',
+        '',
+        '## Item',
+        '',
+        '### FU-2026-09-09-001 — queue candidate',
+        '- State: open',
+        '- Sources: PR #8101',
+        `- Target file: ${tick}scripts/example.mjs${tick}`,
+        '- Original text:',
+        '  > il controllo non è sempre applicato',
+        `- Suggested action: aggiungi ${tick}firstGuard()${tick}`,
+        `- Acceptance token: ${tick}firstGuard()${tick}`,
+        '',
+        '### FU-2026-09-09-002 — missing acceptance',
+        '- State: open',
+        '- Sources: PR #1590',
+        `- Target file: ${tick}scripts/example.mjs${tick}`,
+        '- Suggested action: controllare il file',
+        '',
+      ].join('\n'),
+      labels: [{ name: 'follow-up' }],
+      createdAt: new Date().toISOString(),
+    };
+    const log = join(binDir, 'cross-repo-demote-calls.log');
+    const state = join(binDir, 'cross-repo-demote-state.json');
+    writeFileSync(log, '');
+    writeFileSync(state, JSON.stringify(issue));
+    const fake = `#!/usr/bin/env node
+const fs = require('node:fs');
+const args = process.argv.slice(2);
+const repo = args.includes('--repo') ? args[args.indexOf('--repo') + 1] : '';
+fs.appendFileSync(process.env.CALL_LOG, JSON.stringify({ args, token: process.env.GH_TOKEN }) + '\\n');
+const readState = () => JSON.parse(fs.readFileSync(process.env.STATE, 'utf8'));
+const notPr = (n) => { process.stderr.write('GraphQL: Could not resolve to a PullRequest with the number of ' + n + '. (repository.pullRequest)\\n'); process.exit(1); };
+const isPr = (n) => (repo === 'site/r' && n === '8101') || (repo === 'corpus/r' && n === '1590' && process.env.GH_TOKEN === 'corpus-token');
+if (args[0] === 'api') {
+  const current = readState();
+  process.stdout.write(JSON.stringify([[{ number: current.number, title: current.title, state: 'open', labels: current.labels, created_at: current.createdAt }]]));
+} else if (args[0] === 'issue' && args[1] === 'view') process.stdout.write(JSON.stringify(readState()));
+else if (args[0] === 'pr' && (args[1] === 'view' || args[1] === 'comment')) {
+  if (!isPr(args[2])) notPr(args[2]);
+  if (args[1] === 'view') process.stdout.write(JSON.stringify({ comments: [{ body: '## Post-merge follow-up triage\\n\\nCreated/updated: 0 item.' }] }));
+} else if (args[0] === 'issue' && args[1] === 'edit' && args.includes('--body-file')) {
+  const updated = readState();
+  updated.body = fs.readFileSync(args[args.indexOf('--body-file') + 1], 'utf8');
+  const titleIndex = args.indexOf('--title');
+  if (titleIndex >= 0) updated.title = args[titleIndex + 1];
+  fs.writeFileSync(process.env.STATE, JSON.stringify(updated));
+}
+`;
+    writeFileSync(join(binDir, 'gh'), fake);
+    chmodSync(join(binDir, 'gh'), 0o755);
+    const out = execFileSync('node', [GATE], {
+      encoding: 'utf-8',
+      env: {
+        ...process.env,
+        PATH: `${binDir}:${process.env.PATH}`,
+        BATCH_PRS: '',
+        TRIAGE_COMPLETE: 'true',
+        DRY_RUN: '0',
+        GH_REPO: 'site/r',
+        GH_TOKEN: 'site-token',
+        GATE_ALT_PR_REPO: 'corpus/r',
+        GATE_ALT_PR_TOKEN: 'corpus-token',
+        CALL_LOG: log,
+        STATE: state,
+        COLLECTION_OK: 'true',
+        GITHUB_STEP_SUMMARY: '',
+      },
+    });
+    const calls = readFileSync(log, 'utf-8').trim().split('\n').map((line) => JSON.parse(line));
+    const comments = calls.filter((call) => call.args[0] === 'pr' && call.args[1] === 'comment');
+    const posted = (n: string, repo: string) => comments.some((call) => call.args[2] === n && call.args.includes(repo));
+    expect(out).not.toContain('commento sulla PR');
+    expect(posted('8101', 'site/r')).toBe(true);
+    expect(posted('1590', 'corpus/r')).toBe(true);
+    expect(comments.find((call) => call.args.includes('corpus/r'))?.token).toBe('corpus-token');
+    // La demozione e' avvenuta: il corpo e' stato riscritto senza l'item invalido.
+    expect(calls.some((call) => call.args[0] === 'issue' && call.args.includes('--body-file'))).toBe(true);
+    expect(JSON.parse(readFileSync(state, 'utf-8')).body).not.toContain('missing acceptance');
+  });
+
   it('consolida un gruppo sealed+collecting senza lasciare il duplicate in starvation', () => {
     const makeBody = (id: string, state: string, pr: number, token: string) => [
       '## Batch',

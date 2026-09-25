@@ -242,7 +242,12 @@ describe('crawler generation PR B workflow wiring', () => {
       const mopUp = findUniqueStep(steps, 'Phase 2c mop-up: local MT (Argos Translate, in-process)');
       expect(steps.some((step: any) => step.name === 'Upload thinking A/B rows')).toBe(false);
       expect(mopUp.index).toBeGreaterThan(cascade.index);
-      expect(JSON.stringify(document)).not.toContain('setup-claude-haiku-fallback');
+      // Il broker Codex rientra solo come ultimo tier delle fasi 2d/2e, dopo
+      // Argos (decisione del proprietario del 2026-09-25): mai nella cascata
+      // 2b, dove viveva l'A/B invalidato.
+      const setupIndex = steps.findIndex((step: any) => step.id === 'setup_claude_haiku_fallback');
+      expect(setupIndex).toBeGreaterThan(mopUp.index);
+      expect(steps[cascade.index].env?.CODEX_AUTH_BROKER_SOCKET).toBeUndefined();
       expect(JSON.stringify(document)).not.toContain('TRANSLATION_THINKING_AB');
     }
   });

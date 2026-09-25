@@ -36,6 +36,8 @@ import {
   latestIssuePerWorkflow,
   runBody,
   dormantBody,
+  recoveryVerdict,
+  RECOVERY_LISTING_SIZE,
 } from '../scripts/ci/scan-unreported-failures.mjs';
 import { TITLE_RE } from '../scripts/ci/close-recovered-failure-issues.mjs';
 
@@ -640,5 +642,72 @@ describe('la firma resta iniettiva anche quando è troppo lunga per essere leggi
       total_count: 1,
       jobs: [{ name: 'a', conclusion: 'failure', steps: [{ name: 'b', conclusion: 'failure' }] }],
     })).toBe('a — step: b');
+  });
+});
+
+describe('rientro dopo il rosso (#9478 riaperta con sette verdi nel perimetro)', () => {
+  const ago = (min: number) => new Date(NOW - min * 60_000).toISOString();
+  // Forma reale del 2026-09-24: rosso push su main, poi sette verdi push/schedule.
+  const red = { id: '903', created_at: ago(17 * 60), html_url: 'https://example.invalid/r/903' };
+  const listing = [
+    { id: '910', status: 'completed', conclusion: 'success', created_at: ago(7), event: 'schedule', head_branch: 'main' },
+    { id: '909', status: 'completed', conclusion: 'success', created_at: ago(5 * 60), event: 'push', head_branch: 'main' },
+    { id: '908', status: 'completed', conclusion: 'success', created_at: ago(6 * 60), event: 'push', head_branch: 'main' },
+    { id: '907', status: 'completed', conclusion: 'success', created_at: ago(7 * 60), event: 'schedule', head_branch: 'main' },
+    { id: '906', status: 'completed', conclusion: 'success', created_at: ago(14 * 60), event: 'schedule', head_branch: 'main' },
+    { id: '905', status: 'completed', conclusion: 'success', created_at: ago(15 * 60), event: 'push', head_branch: 'main' },
+    { id: '904', status: 'completed', conclusion: 'success', created_at: ago(16 * 60), event: 'push', head_branch: 'main' },
+    { id: '903', status: 'completed', conclusion: 'failure', created_at: red.created_at, event: 'push', head_branch: 'main' },
+  ];
+  const opts = { workflowName: 'Sync crawler workflows to the corpus repo', ignore: new Set<string>() };
+
+  it('sette verdi nel perimetro dopo il rosso: rientrato, decide il piu recente', () => {
+    const v = recoveryVerdict(listing, red, opts);
+    expect(v.recovered).toBe(true);
+    expect(v.green?.id).toBe('910');
+  });
+
+  it('un listing vuoto o illeggibile non prova niente: inconcludente, non «ancora rosso»', () => {
+    expect(recoveryVerdict([], red, opts)).toMatchObject({ recovered: false, inconclusive: true });
+    expect(recoveryVerdict(null, red, opts)).toMatchObject({ recovered: false, inconclusive: true });
+  });
+
+  it('un listing corto che salta la run rossa e incoerente', () => {
+    const v = recoveryVerdict(listing.slice(0, 1).map((r) => ({ ...r, conclusion: 'cancelled' })), red, opts);
+    expect(v).toMatchObject({ recovered: false, inconclusive: true });
+    expect(v.reason).toContain('903');
+  });
+
+  it('una pagina piena di run piu recenti puo non contenere il rosso: non e incoerente', () => {
+    const full = Array.from({ length: RECOVERY_LISTING_SIZE }, (_, i) => ({
+      id: String(1000 + i), status: 'completed', conclusion: 'failure', created_at: ago(10 + i), event: 'push', head_branch: 'main',
+    }));
+    expect(recoveryVerdict(full, red, opts)).toMatchObject({ recovered: false, inconclusive: false });
+  });
+
+  it('un cancelled o una run in corso DOPO il verde non nasconde il rientro', () => {
+    const v = recoveryVerdict([
+      { id: '912', status: 'in_progress', conclusion: null, created_at: ago(1), event: 'schedule', head_branch: 'main' },
+      { id: '911', status: 'completed', conclusion: 'cancelled', created_at: ago(3), event: 'push', head_branch: 'main' },
+      ...listing,
+    ], red, opts);
+    expect(v.recovered).toBe(true);
+    expect(v.green?.id).toBe('910');
+  });
+
+  it('un nuovo rosso dopo il verde resta rosso', () => {
+    const v = recoveryVerdict([
+      { id: '911', status: 'completed', conclusion: 'failure', created_at: ago(3), event: 'schedule', head_branch: 'main' },
+      ...listing,
+    ], red, opts);
+    expect(v).toMatchObject({ recovered: false, inconclusive: false });
+  });
+
+  it('un verde fuori perimetro (branch di feature) non guarisce main', () => {
+    const v = recoveryVerdict([
+      { id: '904', status: 'completed', conclusion: 'success', created_at: ago(60), event: 'push', head_branch: 'fix/issue-1' },
+      { id: '903', status: 'completed', conclusion: 'failure', created_at: red.created_at, event: 'push', head_branch: 'main' },
+    ], red, opts);
+    expect(v).toMatchObject({ recovered: false, inconclusive: false });
   });
 });

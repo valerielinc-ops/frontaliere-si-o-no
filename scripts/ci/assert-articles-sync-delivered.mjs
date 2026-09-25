@@ -12,7 +12,7 @@
 //   [pull-articles-corpus] svizzera: 2157 → 2194 articles (+37 new)
 //   [pull-articles-corpus] frontaliere: 3903 → 3921 articles (+18 new)
 //
-// and then `human-side-effect-gate` answered
+// and then the previous side-effect policy answered
 // `DENY (publisher-source-run-unverified)`, so `Commit if changed` — which
 // states the side-effect condition verbatim, as every writer step in this repo
 // must — never ran. 55 articles were fetched into the runner's working tree and

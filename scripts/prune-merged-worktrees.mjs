@@ -287,14 +287,17 @@ const branchPrResolution = new Map(); // branch → { state, source, pr, sha }
 function associatedPrForCommit(sha) {
   if (!ghOk || !repoSlug || !sha) return undefined;
   if (associatedPrCache.has(sha)) return associatedPrCache.get(sha) || undefined;
+  // `--slurp` senza `--jq`: il gh reale rifiuta la combinazione, e con
+  // `allowFail` il rifiuto sembrava «nessuna PR associata». L'array di pagine
+  // si appiattisce qui.
   const raw = sh(
-    `gh api --paginate --slurp "repos/${repoSlug}/commits/${sha}/pulls" --jq '[.[][]]'`,
+    `gh api --paginate --slurp "repos/${repoSlug}/commits/${sha}/pulls"`,
     { allowFail: true },
   );
   let best;
   if (raw) {
     try {
-      best = pickBestAssociatedPr(JSON.parse(raw), { baseBranch: mainBranch });
+      best = pickBestAssociatedPr(JSON.parse(raw).flat(), { baseBranch: mainBranch });
     } catch {
       best = undefined;
     }
