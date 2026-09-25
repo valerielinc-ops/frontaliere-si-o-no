@@ -86990,6 +86990,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incentivo-fiscale-acquisto-locale': {
+    title: 'Incentivo fiscale per acquisti locali in Ticino: proposta',
+    description: 'Il Centro propone un credito d\'imposta fino al 25% per chi acquista presso esercenti ticinesi tramite wallet digitale o carta elettronica. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, incentivo, fiscale, acquisti, locali',
+    ogTitle: 'Incentivo fiscale per acquisti locali in Ticino',
+    ogDescription: 'Il Centro propone di sostenere il commercio ticinese con un credito d\'imposta fino al 25% per chi destina quote di stipendio o reddito a un circuito locale. Massimale di 5.000 franchi annui.',
+    canonicalPath: '/articoli-svizzera/incentivo-fiscale-acquisto-locale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incentivo fiscale per acquisti locali in Ticino: proposta",
+      "description": "Il Centro propone un credito d'imposta fino al 25% per chi acquista presso esercenti ticinesi tramite wallet digitale o carta elettronica. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incentivo-fiscale-acquisto-locale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Smartphone con wallet digitale per acquisti locali in Ticino"
+      },
+      "datePublished": "2026-09-25T14:19:43+00:00",
+      "dateModified": "2026-09-25T14:19:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/incentivo-fiscale-acquisto-locale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-franco-svizzero-ribasso-settembre-novembre': {
+    title: 'Franco svizzero ribasso: segnali da seguire fino a novembre',
+    description: 'Il franco svizzero è sceso circa il 5% dai massimi di primavera 2026, simile al 2023 e inferiore al >6% del 2024. La finestra stagionale da fine settembre',
+    keywords: 'frontalieri, ticino, svizzera, italia, franco, svizzero, ribasso, segnali',
+    ogTitle: 'Franco svizzero ribasso: segnali da seguire fino a novembre',
+    ogDescription: 'Analisi del movimento del franco svizzero rispetto all\'euro: perdita di circa il 5% dai massimi di primavera 2026, confronto con il 2023 e il 2024, e indicazioni sulla finestra stagionale fine settembre‑inizio novembre utile per frontalieri',
+    canonicalPath: '/articoli-svizzera/franco-svizzero-ribasso-settembre-novembre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Franco svizzero ribasso: segnali da seguire fino a novembre",
+      "description": "Il franco svizzero è sceso circa il 5% dai massimi di primavera 2026, simile al 2023 e inferiore al >6% del 2024. La finestra stagionale da fine settembre",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/franco-svizzero-ribasso-settembre-novembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione del franco svizzero e dell'euro con sfondo del lago di Lugano"
+      },
+      "datePublished": "2026-09-25T15:24:07+00:00",
+      "dateModified": "2026-09-25T15:24:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/franco-svizzero-ribasso-settembre-novembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

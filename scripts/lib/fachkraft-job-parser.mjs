@@ -26,6 +26,7 @@ import {
   loadSpec,
 } from './prospector/spec-crawler.mjs';
 import { DATA_ROOT } from './prospector/config.mjs';
+import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from './jina-proxy.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -359,7 +360,25 @@ async function fetchFachkraftPage(url, transport, urlPolicy, signal, label) {
     retryBaseMs: transport.retryBaseMs,
     timeoutMs: transport.requestTimeoutMs,
   });
-  if (result.ok) return result;
+  const directChallenge = result.ok && looksLikeAntiBotChallenge(result.body);
+  if (result.ok && !directChallenge) return result;
+  if (directChallenge) {
+    const rescued = await fetchHtmlViaJinaWithRetry(url, {
+      timeoutMs: transport.requestTimeoutMs,
+      retries: transport.retries,
+      retryBaseMs: transport.retryBaseMs,
+      fetchImpl: transport.fetchImpl,
+      sleepImpl: transport.sleepImpl,
+    });
+    if (rescued != null && !looksLikeAntiBotChallenge(rescued)) {
+      return { ...result, body: rescued, status: 200, proxiedBy: 'jina' };
+    }
+    const error = new Error(`fachkraft ${label} returned an exhausted anti-bot challenge`);
+    error.status = result.status;
+    error.retryable = false;
+    error.antiBotExhausted = true;
+    throw error;
+  }
   const reason = result.policyBlocked
     ? result.error || 'public URL policy rejected the request'
     : result.blockedByRobots ? 'robots.txt denied the request'

@@ -12,7 +12,7 @@ const BOLD_SEGMENT_RE = /(?<!\*)\*\*([^*\n]{1,240})\*\*(?!\*)/g;
 
 // A title is recoverable when a narrative sentence structurally introduces
 // the following bold segment. This avoids length/suffix heuristics: the
-// explanation may be short, and the actual title may be the final value.
+// explanation may be short, and later bold fragments belong to the explanation.
 // `\b` is deliberately avoided at the start of these expressions because
 // JavaScript word boundaries are ASCII-only (`Übersetzung` would not match).
 const NARRATIVE_TITLE_INTRODUCERS = [
@@ -24,6 +24,10 @@ const NARRATIVE_TITLE_INTRODUCERS = [
   /(?:^|[^\p{L}\p{N}_])based on(?=$|[^\p{L}\p{N}_])[^.!?\n]*(?:^|[^\p{L}\p{N}_])context(?=$|[^\p{L}\p{N}_])[^.!?\n]*$/iu,
   /(?:^|[^\p{L}\p{N}_])(?:i need to|let me|looking at|reading (?:the )?job files?|if you(?:'d| would) like me)(?=$|[^\p{L}\p{N}_])[^.!?\n]*$/iu,
 ];
+
+function narrativeTitleRank(prefix) {
+  return NARRATIVE_TITLE_INTRODUCERS.findIndex((introducer) => introducer.test(prefix));
+}
 
 /**
  * Return a structurally introduced bold segment only when the surrounding
@@ -37,17 +41,22 @@ export function extractNarrativeJobTitle(value) {
   const matches = [...source.matchAll(BOLD_SEGMENT_RE)];
   if (matches.length === 0) return '';
 
-  // Prefer the last introduced segment, but keep looking if the explanation
-  // contains another bold fragment after the actual title.
-  for (let index = matches.length - 1; index >= 0; index -= 1) {
+  // Prefer the strongest semantic introducer and keep the first segment when
+  // two introducers have the same strength. This skips a generic preamble
+  // such as "I need to" when a later `title:` introduces the real title.
+  let narrative = '';
+  let narrativeRank = Number.POSITIVE_INFINITY;
+  for (let index = 0; index < matches.length; index += 1) {
     const match = matches[index];
     const candidate = String(match[1] || '').trim();
     const start = Number(match.index ?? -1);
     if (!candidate || start < 0) continue;
     const prefix = source.slice(0, start);
-    if (NARRATIVE_TITLE_INTRODUCERS.some((introducer) => introducer.test(prefix))) {
-      return candidate;
+    const rank = narrativeTitleRank(prefix);
+    if (rank >= 0 && rank < narrativeRank) {
+      narrative = candidate;
+      narrativeRank = rank;
     }
   }
-  return '';
+  return narrative;
 }
