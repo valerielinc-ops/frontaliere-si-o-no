@@ -526,14 +526,57 @@ const SWISS_REGION_COMPOUND_RE = /schweiz\b/i;
  * border town (Como, Evian), which is foreign. False means the field names no
  * Swiss place at all, i.e. unknown geography for callers that keep it
  * fail-closed (#9846).
+ *
+ * A municipality glued by a hyphen to a non-Swiss word is no signal either,
+ * unless it lies in `cantonHint`, the canton the record itself carries:
+ * "Rheinfelden-Karsau" on a Basel record is the German Rheinfelden, while
+ * "Baden-Dättwil" on an Aargau record is the Aargau Baden and its quarter.
+ *
+ * @param {string} text
+ * @param {string} [cantonHint]
+ * @returns {boolean}
  */
-export function locationFieldHasSwissSignal(text = '') {
-  const s = String(text || '');
+export function locationFieldHasSwissSignal(text = '', cantonHint = '') {
+  const s = maskForeignCompounds(String(text || ''), normalizeCantonCode(cantonHint));
   if (!s.trim()) return false;
   return SWISS_COUNTRY_RE.test(s)
     || SWISS_REGION_COMPOUND_RE.test(s)
     || swissMunicipalityCantons(s).length > 0
     || isTargetSwissLocation(s, { includeBorderProximity: false, includeAllCantons: true });
+}
+
+const SWISS_COUNTRY_WORD_RE = /^(?:switzerland|schweiz|suisse|svizzera|swiss)$/;
+
+/**
+ * Blank out every hyphenated compound in which a Swiss name is glued to a word
+ * that is not Swiss ("Baden-Württemberg", "Rheinfelden-Karsau"), unless one of
+ * its Swiss parts lies in `canton`. A compound that is itself a Swiss name
+ * ("Basel-Stadt"), made of Swiss parts only ("Biel-Bienne") or headed by the
+ * country word ("Nordwest-Schweiz") stays.
+ */
+function maskForeignCompounds(text, canton) {
+  const words = tokenizeFreeText(text);
+  let masked = text;
+  for (let first = 0; first < words.length; first++) {
+    if (!words[first].joinsNext || (first > 0 && words[first - 1].joinsNext)) continue;
+    let last = first;
+    while (last < words.length - 1 && words[last].joinsNext) last++;
+    const chain = words.slice(first, last + 1);
+    const swissParts = chain.filter((word) => _allSwissCityTokens.has(word.folded));
+    const foreignCompound = !_allSwissCityTokens.has(chain.map((word) => word.folded).join(' '))
+      && !chain.some((word) => SWISS_COUNTRY_WORD_RE.test(word.folded))
+      && swissParts.length > 0
+      && swissParts.length < chain.length;
+    const inRecordCanton = Boolean(canton) && swissParts.some((word) => (
+      isKnownSwissMunicipalityInCanton(word.folded, canton) || normalizeCantonCode(word.folded) === canton
+    ));
+    if (foreignCompound && !inRecordCanton) {
+      const { start } = chain[0];
+      const { end } = chain[chain.length - 1];
+      masked = masked.slice(0, start) + ' '.repeat(end - start) + masked.slice(end);
+    }
+  }
+  return masked;
 }
 
 // Authoritative "is this free-text location in Switzerland?" check, used by the
@@ -854,6 +897,10 @@ function foldFreeTextWord(word) {
   return word.toLowerCase().normalize('NFD').replace(/\p{M}/gu, '');
 }
 
+// An elided article or preposition: the "L" of "L'Abbaye", the "d" of
+// "Val-d'Illiez".
+const ELISION_AFTER_RE = /^['’ʼ]/u;
+
 function tokenizeFreeText(text) {
   const words = [];
   for (const match of text.matchAll(FREE_TEXT_WORD_RE)) {
@@ -863,9 +910,10 @@ function tokenizeFreeText(text) {
     const next = words[i + 1];
     words[i].joinsNext = Boolean(next) && COMPOUND_JOIN_RE.test(text.slice(words[i].end, next.start));
   }
-  // Same length floor as findSwissCityInText(): one-letter words ("l'", "d'")
-  // never take part in a candidate.
-  return words.filter((word) => word.folded.length >= 2);
+  // Same length floor as findSwissCityInText() — a stray letter never takes
+  // part in a candidate — except an elided "l'"/"d'", which is part of
+  // official names such as L'Abbaye (VD) and Val-d'Illiez (VS).
+  return words.filter((word) => word.folded.length >= 2 || ELISION_AFTER_RE.test(text.slice(word.end)));
 }
 
 /**
@@ -899,7 +947,7 @@ function isWrittenAsProperNoun(text, words, i, j, canonicalName) {
   let to = words[j].end;
   while (to < text.length && !/\s/u.test(text[to])) to++;
   if (IDENTIFIER_RE.test(text.slice(from, to))) return true;
-  const canonicalWords = canonicalName.split(/[^\p{L}\p{N}]+/u).filter((word) => word.length >= 2);
+  const canonicalWords = canonicalName.split(/[^\p{L}\p{N}]+/u).filter(Boolean);
   const aligned = canonicalWords.length === j - i + 1;
   for (let k = i; k <= j; k++) {
     const mustBeCapital = aligned ? /^\p{Lu}/u.test(canonicalWords[k - i]) : k === i;

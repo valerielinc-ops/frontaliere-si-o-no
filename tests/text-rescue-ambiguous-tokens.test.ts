@@ -92,6 +92,12 @@ describe('text-rescue ambiguous token guard (#5136)', () => {
     expect(rescueSwissCityFromText('Arbeitsort Grossdietwil')).toBe('Grossdietwil');
   });
 
+  it('keeps the elided article of official names such as L\'Abbaye (#9846 review)', () => {
+    expect(rescueSwissCityFromText("L'Abbaye")).toBe("L'Abbaye");
+    expect(rescueSwissCityFromText('Travail à L’Abbaye')).toBe("L'Abbaye");
+    expect(rescueSwissCityFromText("Val-d'Illiez")).toBe("Val-d'Illiez");
+  });
+
   it('never reads the company name Hoffmann-La Roche as La Roche (FR) (#9846)', () => {
     expect(rescueSwissCityFromText('an existing vacancy at Hoffmann-La Roche Ltd.')).toBe('');
     expect(rescueSwissCityFromText('presso la Roche Boarding House')).toBe('');
@@ -119,6 +125,7 @@ describe('text-rescue ambiguous token guard (#5136)', () => {
       expect(abroad('Vind je het leuk om te werken')).toBe('');
       expect(abroad('Arbeitsort: Tenero')).toBe('Tenero');
       expect(abroad('Arbeitsort: ZÜRICH')).toBe('Zürich');
+      expect(abroad("Arbeitsort: L'Abbaye")).toBe("L'Abbaye");
       // An e-mail address or URL is lower case whatever it names.
       expect(abroad('CV a: fisiocare.lugano@gmail.com')).toBe('Lugano');
     });

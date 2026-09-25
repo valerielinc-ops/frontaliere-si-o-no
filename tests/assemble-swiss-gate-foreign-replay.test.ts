@@ -3,7 +3,7 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { applySwissLocationGate } from '../scripts/assemble-jobs-dataset.mjs';
 import { isExplicitlyOutsideTarget, isLocationExplicitlyForeign } from '../scripts/lib/dedicated-crawler-common.mjs';
-import { isCantonRelevant } from '../scripts/lib/target-swiss-locations.mjs';
+import { isCantonRelevant, locationFieldHasSwissSignal } from '../scripts/lib/target-swiss-locations.mjs';
 
 /**
  * Replay of #9846 on real rows.
@@ -79,6 +79,33 @@ describe('#9846 Swiss gate replay on real rows', () => {
     for (const row of controls) {
       expect(publishedLocality(row), label(row)).toBe(row.expect.slice('keep:'.length));
     }
+  });
+});
+
+describe('#9846 a Swiss name glued to a foreign word is not Swiss geography', () => {
+  const gate = (locality: string, canton: string, description: string) => {
+    const job = { addressLocality: locality, location: locality, canton, postalCode: '', description };
+    const { jobs } = applySwissLocationGate([job]);
+    return jobs.length ? job.addressLocality : null;
+  };
+
+  it('drops Baden-Württemberg whatever canton the record carries', () => {
+    expect(gate('Baden-Württemberg', 'TI', 'Baden-Württemberg')).toBeNull();
+    expect(gate('Baden-Württemberg', 'AG', 'Baden-Württemberg')).toBeNull();
+  });
+
+  it('keeps a foreign compound in the foreign context unless the record\'s canton owns the Swiss part', () => {
+    // Karsau is a quarter of the German Rheinfelden; the Swiss one is in Aargau.
+    expect(locationFieldHasSwissSignal('Rheinfelden-Karsau', 'BS')).toBe(false);
+    expect(gate('Rheinfelden-Karsau', 'BS', 'Werk Rheinfelden-Karsau')).toBeNull();
+  });
+
+  it('keeps municipality-quarter compounds of the record\'s own canton', () => {
+    expect(gate('Baden-Dättwil', 'AG', 'Standort Baden-Dättwil')).toBe('Baden');
+    expect(gate('Risch-Rotkreuz', 'ZG', 'Standort Risch-Rotkreuz')).toBe('Risch');
+    expect(gate('Estavayer-le-Lac', 'FR', 'Site Estavayer-le-Lac')).toBe('Estavayer');
+    expect(locationFieldHasSwissSignal('Basel-Stadt', 'TI')).toBe(true);
+    expect(locationFieldHasSwissSignal('Nordwest-Schweiz', '')).toBe(true);
   });
 });
 

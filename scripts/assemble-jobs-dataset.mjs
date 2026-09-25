@@ -1586,17 +1586,19 @@ export function acceptBadLocalityViaCanton(canton, postalCode, haystack, rescueO
  * locality carries no Swiss signal at all — no country word, no canton name or
  * code, no municipality — and the record has no Swiss postal code either, the
  * job is unknown geography, which the owner's rule keeps fail-closed (#9846):
- * "Mississauga", "Penzberg", "Venlo". The description may then rescue it only
- * with a city that is not inside a foreign compound, is written as a proper
- * noun, is not the employer's headquarters and is not one entry of a list of
- * sites.
+ * "Mississauga", "Penzberg", "Venlo", and also "Baden-Württemberg" on a Ticino
+ * record, where the Aargau Baden is only glued to a foreign word. The
+ * description may then rescue it only with a city that is not inside a foreign
+ * compound, is written as a proper noun, is not the employer's headquarters and
+ * is not one entry of a list of sites.
  *
  * @param {string} primaryLoc
  * @param {string|number|null|undefined} postalCode
+ * @param {string} [canton] - the record's own canton, see locationFieldHasSwissSignal()
  * @returns {{ foreignContext: boolean, isForeignPlace: (item: string) => boolean }}
  */
-export function textRescueOptionsForLocality(primaryLoc, postalCode) {
-  const knownGeography = locationFieldHasSwissSignal(primaryLoc) || isSwissPostalCode(postalCode);
+export function textRescueOptionsForLocality(primaryLoc, postalCode, canton) {
+  const knownGeography = locationFieldHasSwissSignal(primaryLoc, canton) || isSwissPostalCode(postalCode);
   return { foreignContext: !knownGeography, isForeignPlace: isLocationExplicitlyForeign };
 }
 
@@ -1677,7 +1679,7 @@ export function applySwissLocationGate(jobs) {
     // `canton` field the same second chance as a canton-only label. When
     // primaryLoc carries no Swiss signal it is unknown geography, and the
     // description rescue runs with the foreign-context guards (#9846).
-    const rescueOptions = textRescueOptionsForLocality(primaryLoc, job.postalCode);
+    const rescueOptions = textRescueOptionsForLocality(primaryLoc, job.postalCode, job.canton);
     if (acceptBadLocalityViaCanton(job.canton, job.postalCode, haystack, rescueOptions)) {
       // Sanitize: never ship the garbage primaryLoc verbatim — it would
       // leak into the JobPosting schema, sitemap slug, and search/filter

@@ -6338,6 +6338,9 @@ const EXPLICIT_FOREIGN_COUNTRY_MARKERS = [
   'puerto rico', 'dominican republic', 'israel', 'egypt', 'morocco', 'tunisia',
   'nigeria', 'kenya', 'pakistan', 'new zealand', 'bulgaria', 'croatia',
   'serbia', 'slovakia', 'slovenia', 'estonia', 'latvia', 'lithuania',
+  // The German state whose name starts with the Aargau town Baden: explicit
+  // foreign geography whatever canton the record carries (#9846 review).
+  'württemberg', 'wuerttemberg', 'wurttemberg', 'wurtemberg',
 ];
 const EXPLICIT_FOREIGN_COUNTRY_RE = new RegExp(
   `(?:^|[^\\p{L}])(?:${EXPLICIT_FOREIGN_COUNTRY_MARKERS
