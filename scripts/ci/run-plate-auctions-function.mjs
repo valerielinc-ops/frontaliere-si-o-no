@@ -101,7 +101,13 @@ function isFreshSince(value, sinceMs) {
   return Number.isFinite(parsed) && parsed >= sinceMs;
 }
 
-/** Una riga per fonte attesa; `refreshed` solo se il suo lastFetchedAt è del giro nuovo. */
+/**
+ * Una riga per fonte attesa. `refreshed`: il giro nuovo ha raggiunto la fonte
+ * (lastFetchedAt del giro), anche solo per registrarla `degraded`. Ferma il
+ * polling. `succeeded`: la fonte è `active` con un lastSuccessAt del giro. È
+ * l'esito: `refreshPlateAuctions` scrive lastFetchedAt anche sul percorso
+ * `degraded`/`zero_rows`, quindi da solo non prova uno snapshot riuscito.
+ */
 export function sourceRows(payload, keys, sinceMs) {
   return keys.map((key) => {
     const source = payload?.sources?.[key] || {};
@@ -113,6 +119,9 @@ export function sourceRows(payload, keys, sinceMs) {
       rowCount: typeof source.rowCount === 'number' ? source.rowCount : '-',
       lastError: source.errorCode || '-',
       refreshed: sinceMs === undefined ? undefined : isFreshSince(source.lastFetchedAt, sinceMs),
+      succeeded: sinceMs === undefined
+        ? undefined
+        : source.status === 'active' && isFreshSince(source.lastSuccessAt, sinceMs),
     };
   });
 }
@@ -207,14 +216,16 @@ export async function runPlateAuctionsFunction({
   if (rows) {
     log(renderTable(rows));
     summary(`### refreshPlateAuctions run\n\nJob \`${job.name}\` triggered at ${new Date(triggeredAt).toISOString()}.\n\n${renderMarkdownTable(rows)}\n`);
-    for (const row of rows) {
-      if (row.refreshed && row.status !== 'active') {
-        log(`::warning::${row.key}: refreshed but ${row.status}${row.lastError !== '-' ? ` (${row.lastError})` : ''}`);
-      }
-    }
   }
   if (stale.length > 0) {
     throw new FunctionRunError(`after ${pollTimeoutMs / 60_000} min these active sources still have no lastFetchedAt from this run: ${stale.join(', ')}`);
+  }
+  // Raggiunte ma non riuscite: il giro le ha registrate senza un successo
+  // (degraded, zero_rows, source_disappeared, ...). Il run non è verde.
+  const failed = rows.filter((row) => !row.succeeded);
+  if (failed.length > 0) {
+    const detail = failed.map((row) => `${row.key} ${row.status}${row.lastError !== '-' ? ` (${row.lastError})` : ''}`).join(', ');
+    throw new FunctionRunError(`these active sources were reached by this run but have no successful snapshot from it: ${detail}`);
   }
   return { dryRun: false, job: job.name, triggeredAt: new Date(triggeredAt).toISOString(), rows };
 }

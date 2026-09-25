@@ -110,7 +110,7 @@ describe('run-plate-auctions-function', () => {
     const world = fakeWorld({
       relayResponses: [
         { fr: source(fresh), sz: source(OLD), ti: source(OLD) },
-        { fr: source(fresh), sz: source(fresh), ti: source(fresh, { status: 'degraded', errorCode: 'zero_rows', lastSuccessAt: OLD }) },
+        { fr: source(fresh), sz: source(fresh), ti: source(fresh) },
       ],
     });
     const result = await world.run({ dryRun: false });
@@ -119,9 +119,34 @@ describe('run-plate-auctions-function', () => {
     expect(world.relayReads()).toBe(2);
     const output = world.logs.join('\n');
     expect(output).toMatch(new RegExp(`fr\\s+active\\s+${fresh}\\s+${fresh}\\s+3\\s+-`));
-    expect(output).toContain('::warning::ti: refreshed but degraded (zero_rows)');
     expect(output).not.toContain(TOKEN);
+    expect(world.summaries.join('\n')).toContain('| ti | active |');
+  });
+
+  it('fails when a source was reached by the run but has no successful snapshot from it', async () => {
+    // Criterio della review (5315920943): lastFetchedAt del giro, status
+    // degraded e lastSuccessAt vecchio → il comando esce con errore.
+    const fresh = at(START + 5_000);
+    const world = fakeWorld({
+      relayResponses: [
+        { fr: source(fresh), sz: source(fresh), ti: source(fresh, { status: 'degraded', errorCode: 'zero_rows', lastSuccessAt: OLD }) },
+      ],
+    });
+    await expect(world.run({ dryRun: false }))
+      .rejects.toThrow('these active sources were reached by this run but have no successful snapshot from it: ti degraded (zero_rows)');
+    expect(world.relayReads()).toBe(1);
+    // La tabella resta stampata anche sul fallimento.
     expect(world.summaries.join('\n')).toContain('| ti | degraded |');
+  });
+
+  it('an active source with a fresh lastFetchedAt but an old lastSuccessAt is not a success', async () => {
+    const fresh = at(START + 5_000);
+    const world = fakeWorld({
+      relayResponses: [
+        { fr: source(fresh), sz: source(fresh), ti: source(fresh, { lastSuccessAt: OLD }) },
+      ],
+    });
+    await expect(world.run({ dryRun: false })).rejects.toThrow('ti active');
   });
 
   it('uses the earlier of the local clock and Google Date header as the trigger time', async () => {
