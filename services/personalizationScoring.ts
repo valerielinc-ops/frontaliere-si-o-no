@@ -23,7 +23,7 @@ import {
  keywordOverlap,
  isCategoryMatch,
  isLocationMatch,
- isCompanyMatch,
+ isNormalizedLocationMatch,
 } from '@/services/textUtils';
 
 // ─── Types ──────────────────────────────────────────────────────
@@ -81,14 +81,14 @@ const SENIOR_EXPERIENCE_KEYWORDS = new Set([
  'senior', 'esperto', 'expert', 'lead', 'responsabile', 'direttore', 'director', 'chief', 'capo',
 ]);
 
-function jobTitleMatchesExperience(title: string, experienceLevel: string): boolean {
+function titleMatchesExperience(titleKeywords: ReadonlySet<string>, experienceLevel: string): boolean {
  const targetSet = experienceLevel === 'junior_0_2'
  ? JUNIOR_EXPERIENCE_KEYWORDS
  : experienceLevel === 'senior_6_10' || experienceLevel === 'expert_10_plus'
  ? SENIOR_EXPERIENCE_KEYWORDS
  : null;
  if (!targetSet) return false;
- for (const kw of extractKeywords(title)) {
+ for (const kw of titleKeywords) {
  if (targetSet.has(kw)) return true;
  }
  return false;
@@ -96,9 +96,214 @@ function jobTitleMatchesExperience(title: string, experienceLevel: string): bool
 
 // ─── Scoring ────────────────────────────────────────────────────
 
+/** Scores one job against inputs that {@link createPersonalScorer} compiled once. */
+export type PersonalScorer = (job: ScoredJob) => PersonalScore;
+
+/**
+ * Compile the behavior/profile side of the scoring once and return a per-job
+ * scorer.
+ *
+ * Why (#9583, INP on /cerca-lavoro-svizzera/): JobBoard scores the whole loaded
+ * list (~12k jobs on the Switzerland-wide aggregator) whenever behaviorData
+ * changes — on mount and after every deferred search keystroke, because
+ * `trackSearch` refreshes it. The old per-job function rebuilt everything that
+ * depends only on the user (viewed companies/locations/slugs, search keywords)
+ * for EVERY job: with a returning user at the tracker caps (100 viewed jobs, 50
+ * searches) that is ~400 `normalizeSearchText` calls per job, measured as a
+ * single 14 s frame at 1x CPU (65 s at 4x) on the live page. React cannot yield
+ * inside one component's useMemo, so `useDeferredValue` did not help: a tap
+ * landing in that frame waits for all of it.
+ *
+ * The score is identical to the previous per-job computation, signal by signal
+ * and in the same order (so `topSignal` ties resolve the same way); only the
+ * user-side work moved out of the per-job loop.
+ */
+export function createPersonalScorer(
+ behavior: BehaviorData,
+ profile: UserProfileData | null,
+ jobMatchProfile: JobMatchProfileData | null = null,
+): PersonalScorer {
+ const viewedJobs = behavior.viewedJobs;
+ const viewedCompanies = new Set(viewedJobs.map((v) => normalizeSearchText(v.company)));
+ const viewedCategories = new Set(viewedJobs.map((v) => v.category));
+ // isLocationMatch is false for an empty side, so empty entries never match.
+ const viewedLocations = [...new Set(
+ viewedJobs.map((v) => (v.location ? normalizeSearchText(v.location) : '')).filter(Boolean),
+ )];
+
+ const searchKeywords = new Set<string>();
+ for (const s of behavior.searches) {
+ for (const kw of extractKeywords(s.query)) searchKeywords.add(kw);
+ }
+
+ // "Recently viewed similar": the first 10 chars of each viewed slug, as
+ // normalized text. A job never counts as similar to itself, so the viewed
+ // slug stays attached to its prefix.
+ const viewedPrefixes: Array<{ slug: string | undefined; prefix: string }> = [];
+ for (const v of viewedJobs) {
+ const vTitle = normalizeSearchText(v.slug?.replace(/-/g, ' ') || '');
+ if (vTitle) viewedPrefixes.push({ slug: v.slug, prefix: vTitle.slice(0, 10) });
+ }
+ const viewedSlugs = new Set(viewedPrefixes.map((v) => v.slug));
+ // One alternation instead of one `includes` per viewed job (up to 100) per
+ // job: over the ~22k-job list the per-prefix scan was ~100 ms of the pass at
+ // 1x CPU, the compiled alternation ~14 ms (#9583). The self-exclusion only
+ // matters for a job that was itself viewed — at most 100 of them — and those
+ // keep the exact per-prefix scan.
+ const anyViewedPrefix = viewedPrefixes.length > 0
+ ? new RegExp([...new Set(viewedPrefixes.map((v) => v.prefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')))].join('|'))
+ : null;
+ const titleContainsViewedPrefix = (jobTitleNorm: string, jobSlug: string | undefined): boolean => {
+ if (!viewedSlugs.has(jobSlug)) return !!anyViewedPrefix && anyViewedPrefix.test(jobTitleNorm);
+ return viewedPrefixes.some((v) => v.slug !== jobSlug && jobTitleNorm.includes(v.prefix));
+ };
+
+ const municipality = profile?.municipality ? normalizeSearchText(profile.municipality) : '';
+ const profileKeywords = profile?.workPosition ? extractKeywords(profile.workPosition) : null;
+
+ const matchCategory = jobMatchProfile?.sector
+ ? (SURVEY_SECTOR_TO_CATEGORY[jobMatchProfile.sector] ?? jobMatchProfile.sector)
+ : '';
+ const matchCanton = jobMatchProfile?.canton || '';
+ const matchCantonNorm = matchCanton ? normalizeSearchText(matchCanton) : '';
+ const experienceLevel = jobMatchProfile?.experienceLevel || '';
+
+ // The list repeats a few hundred localities and a couple of thousand
+ // companies across ~12k rows: normalize each distinct raw value once per
+ // scorer, and resolve the viewed-locations scan (up to 100 whole-token
+ // comparisons) once per distinct job locality instead of once per job.
+ const normalized = new Map<string, string>();
+ const normalizeOnce = (raw: string): string => {
+ let value = normalized.get(raw);
+ if (value === undefined) {
+ value = normalizeSearchText(raw);
+ normalized.set(raw, value);
+ }
+ return value;
+ };
+ const companyKeywords = new Map<string, Set<string>>();
+ const viewedLocationHit = new Map<string, boolean>();
+ const matchesViewedLocation = (jobLocNorm: string): boolean => {
+ let hit = viewedLocationHit.get(jobLocNorm);
+ if (hit === undefined) {
+ hit = viewedLocations.some((viewed) => isNormalizedLocationMatch(viewed, jobLocNorm));
+ viewedLocationHit.set(jobLocNorm, hit);
+ }
+ return hit;
+ };
+
+ return (job) => {
+ let score = 0;
+ let topSignal = '';
+ let topScore = 0;
+ const addSignal = (pts: number, signal: string): void => {
+ score += pts;
+ if (pts > topScore) {
+ topScore = pts;
+ topSignal = signal;
+ }
+ };
+
+ const jobLoc = job.addressLocality || job.location;
+ const jobLocNorm = jobLoc ? normalizeOnce(jobLoc) : '';
+ const jobLocationMatches = (normalizedOther: string): boolean =>
+ !!jobLoc && isNormalizedLocationMatch(normalizedOther, jobLocNorm);
+ let titleKeywords: Set<string> | undefined;
+ const jobTitleKeywords = (): Set<string> => (titleKeywords ??= extractKeywords(job.title));
+
+ // ── Behavior boost (0-15) ──
+
+ // Viewed same company: +4
+ if (viewedCompanies.size > 0 && viewedCompanies.has(normalizeOnce(job.company))) {
+ addSignal(4, 'company');
+ }
+
+ // Viewed same category: +3
+ if (viewedCategories.has(job.category)) {
+ addSignal(3, 'category');
+ }
+
+ // Viewed same location: +3
+ if (jobLoc && viewedLocations.length > 0 && matchesViewedLocation(jobLocNorm)) {
+ addSignal(3, 'location');
+ }
+
+ // Search keyword match: +3 per keyword (max 6)
+ if (searchKeywords.size > 0) {
+ // Same count as keywordOverlap(searchKeywords, extractKeywords(`${title} ${company}`)):
+ // extractKeywords splits on whitespace, so the keywords of the joined
+ // string are the union of the two sides. The title side is shared with
+ // the profile signals below and the company side repeats across the list.
+ const titleSide = jobTitleKeywords();
+ let companySide = companyKeywords.get(job.company);
+ if (!companySide) companyKeywords.set(job.company, (companySide = extractKeywords(job.company)));
+ let overlap = keywordOverlap(titleSide, searchKeywords);
+ for (const kw of companySide) {
+ if (!titleSide.has(kw) && searchKeywords.has(kw)) overlap++;
+ }
+ if (overlap > 0) {
+ addSignal(Math.min(overlap * 3, 6), 'search');
+ }
+ }
+
+ // Recently viewed similar: +2 (viewed any job with same slug prefix / title similarity)
+ if (anyViewedPrefix) {
+ const jobTitleNorm = normalizeSearchText(job.title);
+ if (jobTitleNorm && titleContainsViewedPrefix(jobTitleNorm, job.slug)) {
+ addSignal(2, 'similar');
+ }
+ }
+
+ // ── Profile boost (0-10) ──
+
+ // Municipality → location match: +3
+ if (municipality && jobLocationMatches(municipality)) {
+ addSignal(3, 'profile_location');
+ }
+
+ // workPosition → title keyword match: +3
+ if (profileKeywords && keywordOverlap(profileKeywords, jobTitleKeywords()) > 0) {
+ addSignal(3, 'profile_position');
+ }
+
+ // ── Job-match profile boost (0-7): sector/canton/experience from
+ // SalarySurvey, or sector_interest/location_interest merged in from the
+ // newsletter_subscribers profile (mergeNewsletterSignals) — see #3648 ──
+
+ // Sector → category match: +3. jobMatchProfile.sector is either a
+ // SalarySurvey key (mapped via SURVEY_SECTOR_TO_CATEGORY) or an
+ // already-category-shaped string from the newsletter profile.
+ if (matchCategory && isCategoryMatch(job.category, matchCategory)) {
+ addSignal(3, 'profile_sector');
+ }
+
+ // Canton match: +2. jobMatchProfile.canton is either a 2-letter canton
+ // code (SalarySurvey, compared exactly against job.canton) or a city
+ // name from the newsletter profile (location_interest/geo_city — no
+ // canton code, so fall back to a location-text match).
+ if (matchCanton) {
+ if (job.canton && matchCanton === job.canton) {
+ addSignal(2, 'profile_canton');
+ } else if (jobLocationMatches(matchCantonNorm)) {
+ addSignal(2, 'profile_canton');
+ }
+ }
+
+ // Experience level → title keyword match: +2
+ if (experienceLevel && titleMatchesExperience(jobTitleKeywords(), experienceLevel)) {
+ addSignal(2, 'profile_experience');
+ }
+
+ return { score, topSignal };
+ };
+}
+
 /**
  * Compute personal relevance score for a single job.
  * Binary matching: any view of category X = +3 for ALL X-category jobs (TEST-1 decision).
+ *
+ * For a list, build the scorer once with {@link createPersonalScorer} instead:
+ * this wrapper recompiles the user-side inputs on every call.
  */
 export function computePersonalScore(
  job: ScoredJob,
@@ -106,121 +311,34 @@ export function computePersonalScore(
  profile: UserProfileData | null,
  jobMatchProfile: JobMatchProfileData | null = null,
 ): PersonalScore {
- let score = 0;
- let topSignal = '';
- let topScore = 0;
+ return createPersonalScorer(behavior, profile, jobMatchProfile)(job);
+}
 
- function addSignal(pts: number, signal: string): void {
- score += pts;
- if (pts > topScore) {
- topScore = pts;
- topSignal = signal;
- }
- }
+/** Score of a job when personalization is off or has no signal for it. */
+export const NO_PERSONAL_SCORE: PersonalScore = Object.freeze({ score: 0, topSignal: '' });
 
- // ── Behavior boost (0-15) ──
+/** Score every job once with a compiled scorer, keyed by job object identity. */
+export function scorePersonalJobs<J extends ScoredJob>(
+ jobs: readonly J[],
+ scorer: PersonalScorer,
+): Map<J, PersonalScore> {
+ const scores = new Map<J, PersonalScore>();
+ for (const job of jobs) scores.set(job, scorer(job));
+ return scores;
+}
 
- // Viewed same company: +4
- const viewedCompanies = new Set(behavior.viewedJobs.map((v) => normalizeSearchText(v.company)));
- if (isCompanyMatch(job.company, '') === false) {
- const jobCompanyNorm = normalizeSearchText(job.company);
- if (viewedCompanies.has(jobCompanyNorm)) {
- addSignal(4, 'company');
+/**
+ * Return `previous` when `next` holds the same items in the same order, else
+ * `next`. A re-sort whose inputs changed but whose order did not (the common
+ * case while a search keyword is being typed) then keeps the array identity
+ * that identity-keyed consumers — JobBoard's search index — depend on.
+ */
+export function reuseIfSameOrder<T>(previous: readonly T[] | null, next: T[]): T[] {
+ if (!previous || previous.length !== next.length) return next;
+ for (let i = 0; i < next.length; i++) {
+ if (previous[i] !== next[i]) return next;
  }
- }
-
- // Viewed same category: +3
- const viewedCategories = new Set(behavior.viewedJobs.map((v) => v.category));
- if (viewedCategories.has(job.category)) {
- addSignal(3, 'category');
- }
-
- // Viewed same location: +3
- const viewedLocations = behavior.viewedJobs.map((v) => v.location);
- const jobLoc = job.addressLocality || job.location;
- if (jobLoc && viewedLocations.some((loc) => isLocationMatch(loc, jobLoc))) {
- addSignal(3, 'location');
- }
-
- // Search keyword match: +3 per keyword (max 6)
- if (behavior.searches.length > 0) {
- const searchKeywords = new Set<string>();
- for (const s of behavior.searches) {
- for (const kw of extractKeywords(s.query)) {
- searchKeywords.add(kw);
- }
- }
- const jobKeywords = extractKeywords(`${job.title} ${job.company}`);
- const overlap = keywordOverlap(searchKeywords, jobKeywords);
- if (overlap > 0) {
- addSignal(Math.min(overlap * 3, 6), 'search');
- }
- }
-
- // Recently viewed similar: +2 (viewed any job with same slug prefix / title similarity)
- const jobTitleNorm = normalizeSearchText(job.title);
- if (jobTitleNorm && behavior.viewedJobs.some((v) => {
- if (v.slug === job.slug) return false; // same job doesn't count
- const vTitle = normalizeSearchText(v.slug?.replace(/-/g, ' ') || '');
- return vTitle && jobTitleNorm.includes(vTitle.slice(0, 10));
- })) {
- addSignal(2, 'similar');
- }
-
- // ── Profile boost (0-10) ──
-
- if (profile) {
- // Municipality → location match: +3
- if (profile.municipality && jobLoc && isLocationMatch(profile.municipality, jobLoc)) {
- addSignal(3, 'profile_location');
- }
-
- // workPosition → title keyword match: +3
- if (profile.workPosition) {
- const profileKeywords = extractKeywords(profile.workPosition);
- const titleKeywords = extractKeywords(job.title);
- if (keywordOverlap(profileKeywords, titleKeywords) > 0) {
- addSignal(3, 'profile_position');
- }
- }
-
- // Salary overlap: Phase 2
- }
-
- // ── Job-match profile boost (0-7): sector/canton/experience from
- // SalarySurvey, or sector_interest/location_interest merged in from the
- // newsletter_subscribers profile (mergeNewsletterSignals) — see #3648 ──
- if (jobMatchProfile) {
- // Sector → category match: +3. jobMatchProfile.sector is either a
- // SalarySurvey key (mapped via SURVEY_SECTOR_TO_CATEGORY) or an
- // already-category-shaped string from the newsletter profile — fall
- // back to the raw value when it isn't a known SalarySurvey key.
- if (jobMatchProfile.sector) {
- const mappedCategory = SURVEY_SECTOR_TO_CATEGORY[jobMatchProfile.sector] ?? jobMatchProfile.sector;
- if (isCategoryMatch(job.category, mappedCategory)) {
- addSignal(3, 'profile_sector');
- }
- }
-
- // Canton match: +2. jobMatchProfile.canton is either a 2-letter canton
- // code (SalarySurvey, compared exactly against job.canton) or a city
- // name from the newsletter profile (location_interest/geo_city — no
- // canton code, so fall back to a location-text match).
- if (jobMatchProfile.canton) {
- if (job.canton && jobMatchProfile.canton === job.canton) {
- addSignal(2, 'profile_canton');
- } else if (jobLoc && isLocationMatch(jobMatchProfile.canton, jobLoc)) {
- addSignal(2, 'profile_canton');
- }
- }
-
- // Experience level → title keyword match: +2
- if (jobMatchProfile.experienceLevel && jobTitleMatchesExperience(job.title, jobMatchProfile.experienceLevel)) {
- addSignal(2, 'profile_experience');
- }
- }
-
- return { score, topSignal };
+ return previous as T[];
 }
 
 // ─── New jobs counter ───────────────────────────────────────────
@@ -242,10 +360,8 @@ export function computeNewJobsCount(
  return ts > lastVisit;
  });
 
- const matching = newJobs.filter((j) => {
- const { score } = computePersonalScore(j, behavior, profile, jobMatchProfile);
- return score > 0;
- }).length;
+ const scorePersonal = createPersonalScorer(behavior, profile, jobMatchProfile);
+ const matching = newJobs.filter((j) => scorePersonal(j).score > 0).length;
 
  return { total: newJobs.length, matching };
 }

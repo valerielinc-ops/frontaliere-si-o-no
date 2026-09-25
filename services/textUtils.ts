@@ -102,8 +102,16 @@ export function isCategoryMatch(a: string, b: string): boolean {
 /** Check if two location values match (normalized, whole-token). */
 export function isLocationMatch(a: string, b: string): boolean {
  if (!a || !b) return false;
- const na = normalizeSearchText(a);
- const nb = normalizeSearchText(b);
+ return isNormalizedLocationMatch(normalizeSearchText(a), normalizeSearchText(b));
+}
+
+/**
+ * `isLocationMatch` for values ALREADY passed through `normalizeSearchText`.
+ * Hot loops (personalization scoring over the whole job list, #9583) normalize
+ * each side once and compare many times; `isLocationMatch` delegates here so
+ * the two cannot drift.
+ */
+export function isNormalizedLocationMatch(na: string, nb: string): boolean {
  if (!na || !nb) return false;
  if (na === nb) return true;
  // Whole-token containment, NOT bare substring: "bern" must not match a job in

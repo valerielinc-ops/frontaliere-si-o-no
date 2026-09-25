@@ -81,6 +81,10 @@ import {
 } from '@/services/behaviorTracker';
 import {
  computePersonalScore,
+ createPersonalScorer,
+ scorePersonalJobs,
+ reuseIfSameOrder,
+ NO_PERSONAL_SCORE,
  computeNewJobsCount,
  getTrendingByLocation,
  computeTrendingBoost,
@@ -2848,10 +2852,22 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Count of jobs whose personal score is boosted by any signal (behavior,
  // tax/onboarding profile, or job-match survey profile). Feeds both the
  // "Personalizzato per te" pill and the job_match_impression analytics event.
- const matchedJobCount = useMemo(() => {
- if (!enablePersonalization || !deferredBehaviorData) return 0;
- return jobs.filter((j) => computePersonalScore(j, deferredBehaviorData, deferredUserProfile ?? null, deferredJobMatchProfile).score > 0).length;
+ //
+ // Scored ONCE per input change and shared with sortedJobs below (#9583):
+ // both used to score the full list separately, with the user-side inputs
+ // recompiled for every job — a returning user at the tracker caps froze the
+ // main thread for 14 s (1x CPU) right after mount and again on every
+ // deferred search keystroke (trackSearch refreshes behaviorData).
+ const personalScoreByJob = useMemo(() => {
+ if (!enablePersonalization || !deferredBehaviorData) return null;
+ return scorePersonalJobs(jobs, createPersonalScorer(deferredBehaviorData, deferredUserProfile ?? null, deferredJobMatchProfile));
  }, [enablePersonalization, deferredBehaviorData, jobs, deferredUserProfile, deferredJobMatchProfile]);
+ const matchedJobCount = useMemo(() => {
+ if (!personalScoreByJob) return 0;
+ let count = 0;
+ for (const personal of personalScoreByJob.values()) if (personal.score > 0) count++;
+ return count;
+ }, [personalScoreByJob]);
 
  // Whether personalization is actively changing sort order (any job scored > 0)
  const isPersonalizationActive = matchedJobCount > 0;
@@ -4199,18 +4215,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  document.getElementById('candidatura')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
  }, [selectedJob]);
 
- // sortedJobs re-scores + re-sorts every loaded job (up to ~12k on the
- // Switzerland-wide aggregator) as one synchronous block; it reads the
- // deferred* personalization inputs declared above so this resort yields to
- // a concurrent click instead of blocking it (see comment there, #4302).
- const sortedJobs = useMemo(() => {
- // Step 1: EXCLUDE foreign jobs entirely (London, Luxembourg, Singapore, etc.)
- const swissJobs = jobs.filter(j => {
- const loc = j.addressLocality || j.location || '';
- return !isForeignLocation(loc);
- });
-
- // Step 2: Canton priority + personalization scoring
+ // sortedJobs re-sorts every loaded job (up to ~12k on the Switzerland-wide
+ // aggregator) as one synchronous block; it reads the deferred* personalization
+ // scores declared above so this resort yields to a concurrent click instead
+ // of blocking it (see comment there, #4302). When the resulting order is the
+ // one already rendered, the previous array is returned: its identity keys the
+ // search index below, and a new identity for the same order rebuilt that index
+ // (and every memo downstream) after each deferred search keystroke (#9583).
+ //
+ // The sort keys that do not depend on personalization (the foreign-location
+ // filter, canton rank, calendar day) depend on `jobs` alone, so they are
+ // computed once per list here instead of on every personal-score change:
+ // over the ~22k-job live list they cost ~200 ms at 1x CPU, paid again by
+ // each tracked search keystroke before this split (#9583).
+ const jobSortKeys = useMemo(() => {
  const cantonRank = (job: JobListing) => {
  if (job.addressLocality && isNonTargetSwissCity(job.addressLocality)) {
  return TARGET_CANTONS_ORDERED.length;
@@ -4222,10 +4240,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const t = new Date(d || 0);
  return new Date(t.getFullYear(), t.getMonth(), t.getDate()).getTime();
  };
-
- const shouldPersonalize = enablePersonalization && deferredBehaviorData;
-
- const withMeta = swissJobs.map(j => ({
+ return jobs
+ // EXCLUDE foreign jobs entirely (London, Luxembourg, Singapore, etc.)
+ .filter(j => !isForeignLocation(j.addressLocality || j.location || ''))
+ .map(j => ({
  job: j,
  // Sponsored (featured) ads bought the top placement — they outrank every
  // other signal. Inventory is scarce by construction (FEATURED_SLOTS_PER_CANTON
@@ -4234,9 +4252,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  rank: cantonRank(j),
  day: dayTs(j.crawledAt || j.postedDate),
  qs: j.qualityScore ?? 0,
- personal: shouldPersonalize
- ? computePersonalScore(j, deferredBehaviorData, deferredUserProfile ?? null, deferredJobMatchProfile)
- : { score: 0, topSignal: '' },
+ }));
+ }, [jobs]);
+ const sortedJobsRef = useRef<JobListing[] | null>(null);
+ const sortedJobs = useMemo(() => {
+ const withMeta = jobSortKeys.map(keys => ({
+ ...keys,
+ personal: personalScoreByJob?.get(keys.job) ?? NO_PERSONAL_SCORE,
  }));
  withMeta.sort((a, b) =>
  (b.sp - a.sp)
@@ -4245,8 +4267,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  || (b.day - a.day)
  || (b.qs - a.qs)
  );
- return withMeta.map(({ job }) => job);
- }, [jobs, enablePersonalization, deferredBehaviorData, deferredUserProfile, deferredJobMatchProfile]);
+ const next = reuseIfSameOrder(sortedJobsRef.current, withMeta.map(({ job }) => job));
+ sortedJobsRef.current = next;
+ return next;
+ }, [jobSortKeys, personalScoreByJob]);
 
  // Pre-built search index: caches normalised haystack per job so
  // queryMatchesJob doesn't recompute expensive string normalisation on every keystroke.
