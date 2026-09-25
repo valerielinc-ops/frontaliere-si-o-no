@@ -2588,7 +2588,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  description: 'Congedo maternità e paternità per frontalieri in Svizzera: indennità IPG, durata, come fare domanda AVS e differenze con INPS Italia. Guida aggiornata 2026.',
  keywords: 'frontaliere maternità, congedo paternità svizzera, indennità maternità ticino, assegni familiari frontalieri, avs maternità, inps frontalieri, congedo parentale italia svizzera',
  ogTitle: 'Genitore e Frontaliere? La Guida 2026 a Maternità e Paternità',
- ogDescription: 'Lavori in Ticino e stai per avere un figlio? Scopri come ottenere fino a CHF 230 al giorno di indennità. La guida completa.',
+ ogDescription: 'Lavori in Ticino e stai per avere un figlio? Scopri come ottenere fino a CHF 220 al giorno di indennità. La guida completa.',
  canonicalPath: '/articoli-frontaliere/maternita-paternita-frontaliere-svizzera-italia-guida-2026/',
  structuredData: {
  "@context": "https://schema.org",
@@ -4657,7 +4657,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  description: 'Tutti i dettagli sui bonus famiglia 2026 per frontalieri: assegni familiari, bonus nido e detrazioni fiscali. Scopri come ottenerli.',
  keywords: 'frontalieri, ticino, bonus famiglia, assegni familiari, detrazioni fiscali, permesso G, bonus nido, economia svizzera',
  ogTitle: 'Bonus famiglia frontalieri 2026: tutte le novità',
- ogDescription: 'Assegni familiari fino a 4.200 CHF, bonus nido e detrazioni fiscali: scopri i vantaggi per frontalieri nel 2026.',
+ ogDescription: 'Assegni familiari fino a CHF 3.216 l\'anno, bonus nido INPS e detrazioni fiscali: scopri i vantaggi per frontalieri nel 2026.',
  canonicalPath: '/articoli-frontaliere/bonus-famiglia-frontalieri-2026/',
  structuredData: {
  "@context": "https://schema.org",

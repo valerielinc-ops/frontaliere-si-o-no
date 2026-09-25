@@ -228,7 +228,7 @@ const blogMetaFr: Record<string, string> = {
  'blog.article.mappa-fiscale-comuni-frontiera.excerpt': 'Où est-il préférable de vivre ? Comparaison des taux 2026 à Côme, Varèse et Verbano. L\'impact sur le salaire net d\'un frontalier peut dépasser 400 CHF par an.',
  'blog.article.mappa-fiscale-comuni-frontiera.imageAlt': 'Vue panoramique depuis le Mendrisiotto sur les communes frontalières italiennes au coucher du soleil, symbole des choix fiscaux des frontaliers.',
  'blog.article.maternita-paternita-frontaliere-guida.title': 'Maternité & Paternité: Guide Frontaliers 2026',
- 'blog.article.maternita-paternita-frontaliere-guida.excerpt': 'Vous travaillez au Tessin et devenez parent? Voici le guide complet 2026: 14 semaines pour la mère, 2 pour le père, avec une allocation jusqu\'à 230 CHF/jour. Règles AVS vs INPS.',
+ 'blog.article.maternita-paternita-frontaliere-guida.excerpt': 'Vous travaillez au Tessin et devenez parent? Voici le guide complet 2026: 14 semaines pour la mère, 2 pour le père, avec une allocation jusqu\'à 220 CHF/jour. Règles AVS vs INPS.',
  'blog.article.maternita-paternita-frontaliere-guida.imageAlt': 'Un couple de nouveaux parents frontaliers consulte des documents pour le congé parental dans un appartement au Tessin.',
  'blog.article.guida-contributi-sociali-svizzera.title': 'Fiche de Paie Suisse: Guide des Cotisations Sociales 2026',
  'blog.article.guida-contributi-sociali-svizzera.excerpt': 'AVS, LPP, LAA : découvrez les taux 2026 et combien vous et votre employeur payez. Exemple pratique sur un salaire brut de 5 500 CHF pour un frontalier.',
