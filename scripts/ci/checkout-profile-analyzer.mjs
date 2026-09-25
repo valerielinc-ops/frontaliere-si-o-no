@@ -181,6 +181,25 @@ const isFile = (abs) => {
   STAT_CACHE.set(abs, v);
   return v;
 };
+/**
+ * A resolvable module path: a file, or a symlink — even a DANGLING one, whose
+ * target this checkout did not materialize. `statSync` follows the link and
+ * fails on it, which used to drop the link from the closure exactly in the
+ * sparse checkouts where it breaks.
+ */
+const LINK_CACHE = new Map();
+const isFileOrLink = (abs) => {
+  if (isFile(abs)) return true;
+  if (LINK_CACHE.has(abs)) return LINK_CACHE.get(abs);
+  let v = false;
+  try { v = fs.lstatSync(abs).isSymbolicLink(); } catch { v = false; }
+  // A link to a materialized DIRECTORY is not a module file (`./dir` must
+  // still resolve to `./dir/index.mjs`); a dangling link cannot be told apart
+  // and is kept, which is the case this helper exists for.
+  if (v) { try { v = !fs.statSync(abs).isDirectory(); } catch { /* dangling */ } }
+  LINK_CACHE.set(abs, v);
+  return v;
+};
 const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const parentOf = (id) => { const s = id.replace(/\/$/, '').split('/'); return s.length > 1 ? s.slice(0, -1).join('/') : null; };
 
@@ -230,6 +249,26 @@ export function checkoutEntryPoints(text, npmScripts, depth = 0) {
 }
 
 /**
+ * Repo modules an INLINE module statically imports: a `node --input-type=module
+ * <<'NODE'` heredoc or a `node -e "…"` body naming `./scripts/x.mjs` in an
+ * `import … from` declaration. The step runs from the repo root, so the
+ * `./`-relative specifier is a repo path. Dynamic `import('./…')` is left out
+ * on purpose, like in the static closure below.
+ *
+ * Kept OUT of checkoutEntryPoints (and so out of the bucket analysis): there a
+ * wider closure changes which buckets a job "needs", and a heredoc that only
+ * calls a pure helper of a module whose other code paths name `public/data/`
+ * would start demanding a bucket it never reads (measured on
+ * traffic-data-freshness.yml). The allow-list check wants exactly the modules
+ * that load, nothing more.
+ */
+export function inlineModuleEntryPoints(text) {
+  const out = new Set();
+  for (const m of String(text).matchAll(/\bfrom\s*['"`]\.\/([\w./@-]+\.(?:mjs|cjs|js|ts|mts))['"`]/g)) out.add(m[1]);
+  return [...out];
+}
+
+/**
  * Testo di tutti gli script npm raggiunti da `npm run <nome>` dentro `text`,
  * seguendo la catena (stessa profondita' di `checkoutEntryPoints`).
  *
@@ -255,30 +294,75 @@ function resolveNpmRunBodies(text, npmScripts, depth = 0, seen = new Set()) {
   return out;
 }
 
-export function transitiveClosure(entries) {
+/**
+ * Transitive closure of the code a job loads, by relative specifier.
+ *
+ * SYMLINKED MODULES (#9835). A tracked symlink is part of the closure TWICE:
+ * as the link the importer names, and as its target — a checkout that
+ * materializes the link but not the target ships a dangling link, which Node
+ * reports as `ERR_MODULE_NOT_FOUND` on a path that exists in git
+ * (`build-plugins/shared/articleSectionCore.mjs` →
+ * `packages/articles/engine/shared/articleSectionCore.mjs`). Both are listed
+ * whether or not the target is materialized HERE (the target is read off the
+ * link, see symlinkTargetAbs), and the target's own imports are resolved from
+ * the TARGET's directory, as Node's ESM loader does (it resolves the realpath).
+ */
+export function transitiveClosure(entries, { staticOnly = false } = {}) {
   const seen = new Set(); const queue = [...entries]; const resolved = [];
+  const required = new Set(); // symlink targets: listed even when not materialized here
   const cands = (b) => [b, b + '.mjs', b + '.js', b + '.ts', b + '.mts', b + '.cjs',
                         path.join(b, 'index.mjs'), path.join(b, 'index.ts'), path.join(b, 'index.js')];
   while (queue.length) {
     const rel = queue.shift();
     if (!rel || seen.has(rel) || rel.startsWith('..')) continue;
     seen.add(rel);
-    const src = readSafe(path.join(ROOT, rel));
-    if (src === null) continue;
+    const abs = path.join(ROOT, rel);
+    const linkTarget = repoSymlinkTarget(abs);
+    const src = readSafe(abs);
+    if (linkTarget !== null) {
+      resolved.push({ rel, src: src ?? '' });
+      required.add(linkTarget);
+      queue.push(linkTarget);
+      continue;
+    }
+    if (src === null) {
+      if (required.has(rel)) resolved.push({ rel, src: '' });
+      continue;
+    }
     resolved.push({ rel, src });
     const dir = path.dirname(rel);
     const specs = new Set();
-    for (const re of [/\bfrom\s+['"](\.[^'"]+)['"]/g, /\bimport\s*\(\s*['"](\.[^'"]+)['"]/g, /\brequire\s*\(\s*['"](\.[^'"]+)['"]/g]) {
+    // staticOnly: only declarations Node links BEFORE running a line of the
+    // module (`import … from`, `export … from`, bare `import '…'`). A lazy
+    // `import()`/`require()` on a code path the job never takes (e.g.
+    // export-loop-outcomes.mjs loading functions/src/ only for L4) cannot
+    // break it at load time, and an allow-list check that demanded it would
+    // be noise.
+    const specRes = staticOnly
+      ? [/\bfrom\s*['"](\.[^'"]+)['"]/g, /\bimport\s*['"](\.[^'"]+)['"]/g]
+      : [/\bfrom\s+['"](\.[^'"]+)['"]/g, /\bimport\s*\(\s*['"](\.[^'"]+)['"]/g, /\brequire\s*\(\s*['"](\.[^'"]+)['"]/g];
+    for (const re of specRes) {
       for (const m of src.matchAll(re)) specs.add(m[1]);
     }
     for (const s of specs) {
       const base = path.normalize(path.join(dir, s));
       for (const t of cands(base)) {
-        if (isFile(path.join(ROOT, t))) { queue.push(t); break; }
+        if (isFileOrLink(path.join(ROOT, t))) { queue.push(t); break; }
       }
     }
   }
   return resolved;
+}
+
+/**
+ * Repo-relative target of a symlink inside the repo, or null (not a link,
+ * unreadable, or pointing outside the repo). Reads the link, never follows it.
+ */
+function repoSymlinkTarget(abs) {
+  const target = symlinkTargetAbs(abs);
+  if (target === null) return null;
+  const rel = path.relative(ROOT, target);
+  return rel && !rel.startsWith('..') && !path.isAbsolute(rel) ? rel.split(path.sep).join('/') : null;
 }
 
 /**
@@ -408,6 +492,7 @@ function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts) {
   const opaqueText = exec + resolveNpmRunBodies(exec, npmScripts);
   const opaqueBy = [...new Set(OPAQUE_RULES.filter(([, r]) => r.test(opaqueText)).map(([k]) => k))];
   const entries = checkoutEntryPoints(exec, npmScripts);
+  const inlineEntries = inlineModuleEntryPoints(exec);
   const resolved = transitiveClosure(entries);
   const corpus = exec + '\n' + resolved.map((r) => r.src).join('\n');
   const needs = opaqueBy.length ? new Set(BUCKETS.map((b) => b.id)) : bucketsReferencedBy(corpus);
@@ -419,14 +504,14 @@ function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts) {
   if (residual > CROSSOVER_MB) {
     return {
       jobId, hasCheckout: (job?.steps ?? []).some((st) => typeof st?.uses === 'string' && st.uses.startsWith('actions/checkout@')),
-      opaqueBy, entries, filesFollowed: resolved.length, closure: resolved.map((r) => r.rel),
+      opaqueBy, entries, inlineEntries, filesFollowed: resolved.length, closure: resolved.map((r) => r.rel),
       needs: [...needs].sort(), exclude: [], aboveCrossover: true,
       savedMb: 0, savedFiles: 0, checkoutMb: TREE_MB,
     };
   }
   const hasCheckout = (job?.steps ?? []).some((s) => typeof s?.uses === 'string' && s.uses.startsWith('actions/checkout@'));
   return {
-    jobId, hasCheckout, opaqueBy, entries, filesFollowed: resolved.length,
+    jobId, hasCheckout, opaqueBy, entries, inlineEntries, filesFollowed: resolved.length,
     closure: resolved.map((r) => r.rel),
     needs: [...needs].sort(),
     exclude: exclude.map((b) => b.id),

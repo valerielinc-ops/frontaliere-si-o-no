@@ -19,8 +19,23 @@ import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import YAML from 'yaml';
-import { verifyCheckoutProfiles, literalPathsIn, isExcludedBy, importedDataOrPublicPathsIn } from '../scripts/ci/verify-checkout-profiles.mjs';
-import { BUCKETS, BASELINE_MB, TREE_MB, CROSSOVER_MB, analyzeAll } from '../scripts/ci/checkout-profile-analyzer.mjs';
+import {
+  verifyCheckoutProfiles,
+  literalPathsIn,
+  isExcludedBy,
+  importedDataOrPublicPathsIn,
+  pathsOutsideSparseRules,
+  uncoveredAllowListCode,
+} from '../scripts/ci/verify-checkout-profiles.mjs';
+import {
+  BUCKETS,
+  BASELINE_MB,
+  TREE_MB,
+  CROSSOVER_MB,
+  analyzeAll,
+  inlineModuleEntryPoints,
+  transitiveClosure,
+} from '../scripts/ci/checkout-profile-analyzer.mjs';
 import {
   computeProfiledText,
   missingTypecheckSparsePaths,
@@ -204,4 +219,72 @@ describe('profili di sparse-checkout', () => {
       'profili sparse in ritardo — rigenerali con `node scripts/ci/apply-checkout-profiles.mjs` e rileggi il diff',
     ).toEqual([]);
   }, TIMEOUT);
+});
+
+/**
+ * Allow-list sparse (issue di #9835). Fino al 2026-09-25 `verifyCheckoutProfiles`
+ * saltava ogni sparse che non comincia con `/*` («non li si giudica qui»), e
+ * l'analizzatore seguiva i symlink solo se il bersaglio era materializzato,
+ * risolvendone gli import dalla cartella del LINK. #9835 e' cosi' arrivata su
+ * main con un watchdog che importava `build-plugins/shared/articleSectionCore.mjs`
+ * — symlink verso `packages/articles/engine/shared/` — senza il bersaglio nella
+ * sua allow-list: ERR_MODULE_NOT_FOUND alla prima run (36128534394) con la CI
+ * verde. Questi casi falliscono senza il fix.
+ */
+describe('allow-list sparse: il codice caricato deve essere materializzato', () => {
+  const OLD_WATCHDOG_LIST = [
+    'scripts/runtime-reliability-watch.mjs',
+    'scripts/',
+    'scripts/load-rc-env.mjs',
+    'scripts/lib/**',
+    'infra/cloudflare-worker/**',
+    'build-plugins/shared/cantonResolvers.mjs',
+    'build-plugins/shared/articleSectionCore.mjs',
+  ];
+  const WATCHDOG_ENTRIES = ['scripts/runtime-reliability-watch.mjs', 'scripts/load-rc-env.mjs', 'scripts/lib/github-issue-creator.mjs'];
+
+  it('la chiusura contiene il symlink E il suo bersaglio', () => {
+    // La verita' del link e' git, non il filesystem: il caso vale anche dove il
+    // bersaglio non e' materializzato.
+    const closure = transitiveClosure(['scripts/ci/cdn-chunk-graph.mjs'], { staticOnly: true }).map((r) => r.rel);
+    expect(closure).toContain('build-plugins/shared/articleSectionCore.mjs');
+    expect(closure).toContain('packages/articles/engine/shared/articleSectionCore.mjs');
+  });
+
+  it('boccia la allow-list del watchdog arrivata su main con #9835, e accetta quella corretta', () => {
+    expect(uncoveredAllowListCode(OLD_WATCHDOG_LIST, WATCHDOG_ENTRIES, { cone: false }))
+      .toEqual(['packages/articles/engine/shared/articleSectionCore.mjs']);
+    const doc = YAML.parse(fs.readFileSync(path.join(WF_DIR, 'runtime-reliability-watch.yml'), 'utf8'));
+    const checkout = doc.jobs.watch.steps.find((st: any) => String(st?.uses).startsWith('actions/checkout@'));
+    const lines = String(checkout.with['sparse-checkout']).split('\n').map((l: string) => l.trim()).filter(Boolean);
+    expect(uncoveredAllowListCode(lines, WATCHDOG_ENTRIES, { cone: false })).toEqual([]);
+  }, TIMEOUT);
+
+  it('verifica davvero le allow-list, non le salta', () => {
+    // Pavimento sul numero, non uguaglianza: se lo scanner smette di
+    // riconoscerle, l'insieme dei problemi resta vuoto e il guard sopra passa
+    // VERDE su un repo rotto — il modo in cui questo controllo era gia' morto.
+    const { allowListsVerified } = verifyCheckoutProfiles();
+    expect(allowListsVerified).toBeGreaterThanOrEqual(30);
+  }, TIMEOUT);
+
+  it('decide la corrispondenza con git, sintassi non-cone e cone', () => {
+    const paths = ['scripts/x.mjs', 'scripts/ci/y.mjs', 'nested/scripts/z.mjs', 'build-plugins/a.mjs', 'root.json'];
+    // non-cone: `scripts/` vale a ogni profondita', una negazione ancorata toglie.
+    expect(pathsOutsideSparseRules(['scripts/', '!/scripts/ci/'], paths, { cone: false }))
+      .toEqual(['scripts/ci/y.mjs', 'build-plugins/a.mjs', 'root.json']);
+    // cone: directory intere, i file della radice sempre inclusi.
+    expect(pathsOutsideSparseRules(['scripts'], paths, { cone: true }))
+      .toEqual(['nested/scripts/z.mjs', 'build-plugins/a.mjs']);
+  });
+
+  it('segue gli import statici di heredoc e `node -e`, non quelli dinamici', () => {
+    const text = [
+      "node --input-type=module <<'NODE'",
+      "import { probeRuntime } from './scripts/runtime-reliability-watch.mjs';",
+      'NODE',
+      'node -e "import(\'./scripts/lazy-only.mjs\')"',
+    ].join('\n');
+    expect(inlineModuleEntryPoints(text)).toEqual(['scripts/runtime-reliability-watch.mjs']);
+  });
 });

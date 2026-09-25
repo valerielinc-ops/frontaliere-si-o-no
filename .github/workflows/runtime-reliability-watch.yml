@@ -78,6 +78,11 @@ jobs:
     # DEFAULT_BUDGET_MS (5 min) in cdn-chunk-graph.mjs; ~40-60 s each measured.
     timeout-minutes: 20
     steps:
+      # Allow-list: every module the job loads must be listed, symlink TARGETS
+      # included — build-plugins/shared/articleSectionCore.mjs is a link into
+      # packages/articles/engine/, and the link alone is a dangling file
+      # (ERR_MODULE_NOT_FOUND, run 36128534394). Checked by
+      # scripts/ci/verify-checkout-profiles.mjs (tests/checkout-sparse-profiles.test.ts).
       - name: Checkout
         uses: actions/checkout@v5
         with:
@@ -90,6 +95,7 @@ jobs:
             infra/cloudflare-worker/**
             build-plugins/shared/cantonResolvers.mjs
             build-plugins/shared/articleSectionCore.mjs
+            packages/articles/engine/shared/articleSectionCore.mjs
           sparse-checkout-cone-mode: false
 
       # The ~24.7k article-body chunks behind blogBodyLoader.js are walked in
