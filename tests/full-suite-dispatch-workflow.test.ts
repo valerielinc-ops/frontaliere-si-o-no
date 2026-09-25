@@ -168,9 +168,13 @@ describe('full-suite-dispatch.yml: la suite è intera e il rosso resta rosso', (
 
 describe('scripts/ci/full-suite-red-files.mjs', () => {
   const root = '/home/runner/work/repo/repo';
+  // Forma reale del reporter JSON di Vitest: `numTotalTestSuites` e
+  // `numFailedTestSuites` contano i FILE più ogni `describe` (`getSuites`).
+  // Quattro file, tre `describe`: 7 suite; i test rossi di zeta stanno in un
+  // `describe`, quindi zeta pesa due suite rosse e alpha una → 3.
   const report = {
-    numTotalTestSuites: 4,
-    numFailedTestSuites: 2,
+    numTotalTestSuites: 7,
+    numFailedTestSuites: 3,
     numFailedTests: 3,
     testResults: [
       { name: `${root}/tests/ok.test.ts`, status: 'passed', assertionResults: [{ status: 'passed' }] },
@@ -196,7 +200,9 @@ describe('scripts/ci/full-suite-red-files.mjs', () => {
 
   it('elenca i file rossi (anche quelli caduti in collection), ordinati e relativi alla root', () => {
     const summary = summarizeVitestReport(report, root);
-    expect(summary.numFailedTestSuites).toBe(2);
+    expect(summary.numFailedTestSuites).toBe(3);
+    expect(summary.numTotalTestSuites).toBe(7);
+    // I file vengono da `testResults`, non da `numTotalTestSuites`.
     expect(summary.totalFiles).toBe(4);
     expect(summary.redFiles).toEqual([
       { file: 'tests/scripts/alpha.test.ts', failedTests: 0, message: 'Error: Cannot find module data/jobs.json' },
@@ -207,9 +213,25 @@ describe('scripts/ci/full-suite-red-files.mjs', () => {
 
   it('il riepilogo porta il conteggio e una riga per file, con le pipe escapate', () => {
     const text = renderStepSummary(summarizeVitestReport(report, root), { sha: 'abc123', ref: 'main' });
-    expect(text).toContain('`numFailedTestSuites`): **2**');
+    expect(text).toContain('- file di test: 4\n');
+    expect(text).toContain('- file rossi: **2** (elencati qui sotto)');
+    // Le suite di Vitest restano visibili, ma con la loro etichetta: mai come «file».
+    expect(text).toContain('(`numFailedTestSuites`, file + blocchi `describe`): 3 su 7');
+    expect(text).not.toMatch(/file[^\n]*\*\*3\*\*/);
     expect(text).toContain('| `tests/zeta.test.ts` | 2 | AssertionError: expected 1 to be 2 \\| pipe |');
     expect(text).toContain('| `tests/scripts/alpha.test.ts` | 0 |');
+  });
+
+  it('senza i contatori di Vitest i file restano misurati e le suite non vengono inventate', () => {
+    const bare = { testResults: report.testResults };
+    const summary = summarizeVitestReport(bare, root);
+    expect(summary.totalFiles).toBe(4);
+    expect(summary.redFiles).toHaveLength(2);
+    expect(summary.numFailedTestSuites).toBeNull();
+    expect(summary.numFailedTests).toBeNull();
+    const text = renderStepSummary(summary);
+    expect(text).toContain('- file rossi: **2**');
+    expect(text).not.toContain('numFailedTestSuites');
   });
 
   it('un report senza testResults è un errore, non uno zero', () => {
@@ -239,7 +261,7 @@ describe('scripts/ci/full-suite-red-files.mjs', () => {
       const out = execFileSync(process.execPath, [script, '--report', reportFile, '--out', join(dir, 'red.txt')], {
         cwd: dir, env, encoding: 'utf8',
       });
-      expect(out).toContain('numFailedTestSuites=2 redFiles=2 totalFiles=4');
+      expect(out).toContain('redFiles=2 totalFiles=4 numFailedTestSuites=3');
       expect(readFileSync(join(dir, 'red.txt'), 'utf8')).toBe('tests/scripts/alpha.test.ts\ntests/zeta.test.ts\n');
     } finally {
       rmSync(dir, { recursive: true, force: true });

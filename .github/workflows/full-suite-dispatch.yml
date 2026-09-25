@@ -15,7 +15,10 @@ name: full-suite dispatch
 # L'unico numero disponibile prima di questo file (`192 failed` su 2.341 file,
 # PR #8883) veniva da un worktree sparse senza `data/` né `public/`, quindi
 # misurava l'assenza dei file e non una regressione. Questa run produce la
-# baseline vera: `numFailedTestSuites` e l'elenco dei file rossi.
+# baseline vera: il numero di FILE rossi e il loro elenco. Non
+# `numFailedTestSuites` da solo: Vitest vi conta anche ogni `describe`, quindi
+# non è confrontabile con il `192` (file); lo script del riepilogo li tiene
+# separati.
 #
 # ─── PERCHÉ SOLO `workflow_dispatch` ────────────────────────────────────────
 #

@@ -6,11 +6,21 @@
  *
  * Perché esiste: la CI bloccante (`tests.yml`) esegue solo i test collegati al
  * diff in un checkout sparse, quindi nessuno ha mai misurato quanti file della
- * suite sono rossi su `main` in un checkout pieno. Il numero che mancava è
- * `numFailedTestSuites` più l'elenco dei file: questo script lo estrae dal
+ * suite sono rossi su `main` in un checkout pieno. Il numero che mancava è il
+ * conteggio dei FILE rossi più il loro elenco: questo script lo estrae dal
  * report e lo scrive in due posti, il riepilogo della run
  * (`$GITHUB_STEP_SUMMARY`) e un file di testo che il workflow carica come
  * artifact insieme al report.
+ *
+ * File, non `numFailedTestSuites`. Il reporter JSON di Vitest calcola
+ * `numTotalTestSuites`/`numFailedTestSuites` con `getSuites(files)`, cioè il
+ * file PIÙ ogni blocco `describe` annidato: un solo test rosso dentro un
+ * `describe` conta due suite rosse. Misurato su un report reale di tre file
+ * (uno verde con quattro `describe`, due rossi senza): `numTotalTestSuites` = 7,
+ * file = 3. Il `192 failed` che questa misura sostituisce è la riga
+ * `Test Files N failed` della console, cioè file. Il conteggio dei file si
+ * ricava quindi da `testResults` (una voce per file); `numFailedTestSuites`
+ * resta nel riepilogo con la sua etichetta vera, mai come «file».
  *
  * Uso:
  *   node scripts/ci/full-suite-red-files.mjs --report full-suite-report.json \
@@ -70,15 +80,14 @@ export function summarizeVitestReport(report, rootDir = process.cwd()) {
     });
   }
   redFiles.sort((a, b) => a.file.localeCompare(b.file));
-  const totalFiles = Number.isFinite(report.numTotalTestSuites)
-    ? report.numTotalTestSuites
-    : report.testResults.length;
+  const finiteOrNull = (value) => (Number.isFinite(value) ? value : null);
   return {
-    totalFiles,
-    numFailedTestSuites: Number.isFinite(report.numFailedTestSuites)
-      ? report.numFailedTestSuites
-      : redFiles.length,
-    numFailedTests: Number.isFinite(report.numFailedTests) ? report.numFailedTests : null,
+    // Una voce di `testResults` per file: è il denominatore dei file, non
+    // `numTotalTestSuites`, che conta anche i `describe`.
+    totalFiles: report.testResults.length,
+    numFailedTestSuites: finiteOrNull(report.numFailedTestSuites),
+    numTotalTestSuites: finiteOrNull(report.numTotalTestSuites),
+    numFailedTests: finiteOrNull(report.numFailedTests),
     redFiles,
   };
 }
@@ -93,10 +102,13 @@ export function renderStepSummary(summary, { sha = '', ref = '' } = {}) {
     '',
     `- commit: \`${sha || 'n/d'}\`${ref ? ` (${ref})` : ''}`,
     `- file di test: ${summary.totalFiles}`,
-    `- file rossi (\`numFailedTestSuites\`): **${summary.numFailedTestSuites}**`,
-    `- file rossi elencati qui sotto: ${summary.redFiles.length}`,
+    `- file rossi: **${summary.redFiles.length}** (elencati qui sotto)`,
   ];
   if (summary.numFailedTests !== null) lines.push(`- test rossi: ${summary.numFailedTests}`);
+  if (summary.numFailedTestSuites !== null) {
+    const total = summary.numTotalTestSuites !== null ? ` su ${summary.numTotalTestSuites}` : '';
+    lines.push(`- suite rosse secondo Vitest (\`numFailedTestSuites\`, file + blocchi \`describe\`): ${summary.numFailedTestSuites}${total}`);
+  }
   lines.push('');
   if (summary.redFiles.length === 0) {
     lines.push('Nessun file rosso.');
@@ -146,7 +158,7 @@ export function main(argv = process.argv.slice(2)) {
     ref: process.env.GITHUB_REF_NAME,
   }));
   process.stdout.write(
-    `numFailedTestSuites=${summary.numFailedTestSuites} redFiles=${summary.redFiles.length} totalFiles=${summary.totalFiles}\n`,
+    `redFiles=${summary.redFiles.length} totalFiles=${summary.totalFiles} numFailedTestSuites=${summary.numFailedTestSuites ?? 'n/d'}\n`,
   );
   return 0;
 }
