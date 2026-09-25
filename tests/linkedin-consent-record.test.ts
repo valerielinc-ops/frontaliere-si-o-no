@@ -1,10 +1,9 @@
 /**
  * The LinkedIn registration is written by the Cloud Function (Admin SDK), so
  * it is the one place where the consent record of a LinkedIn login is formed.
- * Until 2026-09-25 it stamped `consent_text_displayed: true` and a sentence at
- * version 2026-09-15.1 on every login, whatever the person had on screen.
- * Now it stores the record the browser measured at the click, validated, and
- * falls back to what can be proven (`displayed: false`) when there is none.
+ * Owner decision of 2026-09-25: like every sign-in, it is recorded with the
+ * current registration formula (in the visitor's locale) as displayed; the
+ * surface the login came from goes to `consent_origin`.
  */
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
@@ -71,8 +70,8 @@ beforeEach(() => {
 });
 
 describe('resolveLinkedInConsentRecord', () => {
-  it('keeps a well-formed measured record', () => {
-    expect(resolveLinkedInConsentRecord(measured({ displayed: true }))).toEqual({
+  it('current formula in the visitor\'s locale, displayed, surface from the client', () => {
+    expect(resolveLinkedInConsentRecord(measured())).toEqual({
       surface: 'ai_chatbot',
       displayed: true,
       key: 'communicationsOptIn',
@@ -82,54 +81,34 @@ describe('resolveLinkedInConsentRecord', () => {
     });
   });
 
-  it('without a record (an older tab): not displayed, surface auth_linkedin, the current sentence', () => {
+  it('without a record (an older tab): surface auth_linkedin, Italian', () => {
     expect(resolveLinkedInConsentRecord({ page: '/' })).toEqual({
       surface: 'auth_linkedin',
-      displayed: false,
-      key: null,
+      displayed: true,
+      key: 'communicationsOptIn',
       locale: 'it',
       text: REGISTRATION_TERMS_TEXT.it,
       version: REGISTRATION_TERMS_VERSION,
     });
   });
 
-  it('refuses malformed fields instead of storing them', () => {
-    const r = resolveLinkedInConsentRecord(measured({ surface: 'DROP TABLE', locale: 'xx', displayed: 'yes', version: '' }));
-    expect(r.surface).toBe('auth_linkedin');
-    expect(r.displayed).toBe(false);
-    expect(r.locale).toBe('it');
-    expect(r.text).toBe(REGISTRATION_TERMS_TEXT.it);
-  });
-
-  it('a displayed claim on a sentence the register does not know stores the canonical one, not displayed', () => {
-    expect(resolveLinkedInConsentRecord({
-      consent: {
-        surface: 'auth_linkedin',
-        displayed: true,
-        key: 'communicationsOptIn',
-        locale: 'it',
-        text: 'testo non canonico',
-        version: REGISTRATION_TERMS_VERSION,
-      },
-    })).toEqual({
+  it('takes only the surface token and the locale from the client, never its text or version', () => {
+    const r = resolveLinkedInConsentRecord(measured({
+      surface: 'DROP TABLE', locale: 'xx', displayed: false, text: 'testo non canonico', version: '2026-09-16.1',
+    }));
+    expect(r).toEqual({
       surface: 'auth_linkedin',
-      displayed: false,
-      key: null,
+      displayed: true,
+      key: 'communicationsOptIn',
       locale: 'it',
       text: REGISTRATION_TERMS_TEXT.it,
       version: REGISTRATION_TERMS_VERSION,
     });
-  });
-
-  it('a displayed claim from another version (deploy skew) or another register key is not trusted', () => {
-    expect(resolveLinkedInConsentRecord(measured({ displayed: true, version: '2026-09-16.1' })).displayed).toBe(false);
-    expect(resolveLinkedInConsentRecord(measured({ displayed: true, key: 'signInAutoSubscribe' })).displayed).toBe(false);
-    expect(resolveLinkedInConsentRecord(measured({ displayed: true, text: REGISTRATION_TERMS_TEXT.fr })).displayed).toBe(false);
   });
 });
 
 describe('enrichSubscriberProfile — the consent record of a LinkedIn login', () => {
-  it('a new account from a surface that showed nothing: registered, displayed false, surface and confirmation origin recorded', async () => {
+  it('a new account: registered with the current formula as displayed, surface and confirmation origin recorded', async () => {
     await enrichSubscriberProfile(EMAIL, PROFILE, measured());
     const d = state.sets[0].data;
     expect(d).toMatchObject({
@@ -137,7 +116,7 @@ describe('enrichSubscriberProfile — the consent record of a LinkedIn login', (
       registration_terms_accepted: true,
       consent_text: REGISTRATION_TERMS_TEXT.de,
       consent_text_version: REGISTRATION_TERMS_VERSION,
-      consent_text_displayed: false,
+      consent_text_displayed: true,
       consent_origin: 'ai_chatbot',
       consent_given_at: '__ts__',
       confirmation_method: 'provider_verified_email',
@@ -148,15 +127,15 @@ describe('enrichSubscriberProfile — the consent record of a LinkedIn login', (
     expect(state.adds[0].path).toBe(`${PATH}/events`);
     expect(state.adds[0].data.metadata.consent).toMatchObject({
       origin: 'ai_chatbot',
-      text_displayed: false,
+      text_displayed: true,
       text_locale: 'de',
       page: '/cerca-lavoro-ticino/',
       confirmation_method: 'provider_verified_email',
     });
   });
 
-  it('a notice on screen at the click is recorded as displayed', async () => {
-    await enrichSubscriberProfile(EMAIL, PROFILE, measured({ surface: 'job_gate', displayed: true }));
+  it('a job-gate LinkedIn login names its surface', async () => {
+    await enrichSubscriberProfile(EMAIL, PROFILE, measured({ surface: 'job_gate' }));
     expect(state.sets[0].data).toMatchObject({ consent_text_displayed: true, consent_origin: 'job_gate' });
   });
 
@@ -170,7 +149,7 @@ describe('enrichSubscriberProfile — the consent record of a LinkedIn login', (
     await enrichSubscriberProfile(EMAIL, PROFILE, measured());
     expect(state.sets[0].data).toMatchObject({
       status: 'confirmed',
-      consent_text_displayed: false,
+      consent_text_displayed: true,
       created_at: '__ts__',
     });
   });

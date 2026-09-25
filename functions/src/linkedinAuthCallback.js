@@ -52,46 +52,36 @@ export function resolveLinkedInExperimentVariant(attribution) {
 }
 
 /**
- * The consent record the browser measured for this LinkedIn login, forwarded
- * inside `attribution.consent` (services/authService.ts → exchangeLinkedInCode):
- * the surface, whether the notice was on screen at the click, and the register
- * sentence, version and locale that were shown. Untrusted input, so only the
- * surface, the locale and the displayed claim are taken from it, and the
- * displayed claim only when the sentence and version it names are EXACTLY the
- * registration notice this bundle stores for that locale
- * (registrationTermsText.js, pinned to the register by a test). What is stored
- * is always the canonical sentence and version; a text the register does not
- * know — or a client on another version during a deploy — is recorded as not
- * displayed. Never the other way round.
+ * The consent record of this LinkedIn login. The browser forwards the surface
+ * and the visitor's locale inside `attribution.consent`
+ * (services/authService.ts → exchangeLinkedInCode); everything else is fixed
+ * here: the current registration sentence for that locale and its version
+ * (registrationTermsText.js, pinned to the register by a test), recorded as
+ * displayed — owner decision of 2026-09-25: a sign-in is the registration act
+ * under the terms, on every surface. Untrusted input, so only the surface
+ * token and the locale are read from it.
  *
- * Without a record (a tab still running an older bundle) the login is written
- * as what can be proven: the Italian sentence, `displayed: false`, surface
- * `auth_linkedin`.
+ * Without a record (a tab still running an older bundle): surface
+ * `auth_linkedin`, Italian.
  *
  * @param {unknown} attribution - `req.body.attribution`
- * @returns {{ surface: string, displayed: boolean, key: string|null, locale: string, text: string, version: string }}
+ * @returns {{ surface: string, displayed: boolean, key: string, locale: string, text: string, version: string }}
  */
 export function resolveLinkedInConsentRecord(attribution) {
  const raw = attribution && typeof attribution === 'object' && !Array.isArray(attribution)
   ? attribution.consent
   : null;
- const record = (surface, locale, displayed) => ({
+ const valid = raw && typeof raw === 'object' && !Array.isArray(raw);
+ const surface = valid && typeof raw.surface === 'string' && SURFACE_RE.test(raw.surface) ? raw.surface : 'auth_linkedin';
+ const locale = valid && typeof raw.locale === 'string' && CONSENT_LOCALES.has(raw.locale) ? raw.locale : 'it';
+ return {
   surface,
-  displayed,
-  key: displayed ? REGISTRATION_NOTICE_KEY : null,
+  displayed: true,
+  key: REGISTRATION_NOTICE_KEY,
   locale,
   text: registrationTermsTextFor(locale),
   version: REGISTRATION_TERMS_VERSION,
- });
- if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return record('auth_linkedin', 'it', false);
- const surface = typeof raw.surface === 'string' && SURFACE_RE.test(raw.surface) ? raw.surface : 'auth_linkedin';
- const locale = typeof raw.locale === 'string' && CONSENT_LOCALES.has(raw.locale) ? raw.locale : 'it';
- const text = typeof raw.text === 'string' ? raw.text.replace(/\s+/g, ' ').trim() : '';
- const shownIsCanonical = raw.displayed === true
-  && raw.key === REGISTRATION_NOTICE_KEY
-  && raw.version === REGISTRATION_TERMS_VERSION
-  && text === registrationTermsTextFor(locale);
- return record(surface, locale, shownIsCanonical);
+ };
 }
 
 /**
@@ -129,11 +119,11 @@ async function fetchLinkedInBasicProfile(accessToken) {
  * membership. Existing suppression/opt-out state is preserved and never
  * resurrected by login.
  *
- * The consent record says what happened at the click (see
- * resolveLinkedInConsentRecord): the surface, the sentence and version, and
- * `consent_text_displayed` only when the notice was really on screen. Until
- * 2026-09-25 this writer stamped `true` on every LinkedIn login. The same
- * block goes, append-only, into the `events` subcollection.
+ * The consent record (see resolveLinkedInConsentRecord) carries the surface
+ * the login came from, the current registration sentence and version in the
+ * visitor's locale, and — by the owner decision of 2026-09-25 — the notice as
+ * displayed. The same block goes, append-only, into the `events`
+ * subcollection.
  *
  * @param {string} email - User email (document key)
  * @param {object} profileData - LinkedIn profile fields
@@ -272,7 +262,6 @@ export async function enrichSubscriberProfile(email, profileData, attribution = 
       text_version: consent.version,
       text_displayed: updateData.consent_text_displayed ?? existing?.consent_text_displayed ?? null,
       text_locale: consent.locale,
-      notice_key: consent.displayed ? consent.key : null,
       page: attributionFields.source_page || sanitizeSignupPath(attribution?.page) || null,
       registration_method: 'authenticated',
       confirmation_method: recordedAct === 'terms' ? null : confirmationMethod,

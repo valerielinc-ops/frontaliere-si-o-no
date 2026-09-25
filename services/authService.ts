@@ -23,7 +23,7 @@ import {
  CONSENT_SURFACE_BY_COMPONENT,
  CONSENT_TEXTS,
  consentDisplayText,
- resolveDisplayedNotice,
+ consentLocale,
 } from '@/services/consentTexts';
 import {
  JOBGATE_EXPERIMENT_ID,
@@ -218,12 +218,6 @@ export type AuthProfileTrigger = 'sign_in' | 'session_restore' | 'custom_token';
 
 export interface SaveUserProfileOptions {
  trigger?: AuthProfileTrigger;
- /**
-  * The notice evidence of this login when the caller holds it (One Tap
-  * callback, LinkedIn callback). Left undefined, a foreground sign-in
-  * consumes the evidence parked at its click.
-  */
- consentEvidence?: ConsentNoticeEvidence | null;
  /** A surface the caller knows better than the attribution (email link). */
  consentSurface?: string | null;
  /** GIS `select_by` of a One Tap credential, kept in the audit event. */
@@ -261,15 +255,12 @@ export async function saveUserProfileToFirestore(
  const attributionContext = attribution !== undefined
   ? attribution
   : (foreground && jobContext === undefined ? consumeAuthAttributionContext() : null);
- const evidence = options.consentEvidence !== undefined
-  ? options.consentEvidence
-  : (foreground && jobContext === undefined ? consumeConsentEvidence() : null);
  const run = authProfileWriteQueue.then(() => writeUserProfileToFirestore(
   user,
   provider,
   context,
   attributionContext,
-  { ...options, trigger, consentEvidence: evidence },
+  { ...options, trigger },
  ));
  authProfileWriteQueue = run.catch(() => {});
  return run;
@@ -324,7 +315,6 @@ async function writeUserProfileToFirestore(
 
  const { upsertNewsletterSubscriber } = await import('./newsletterSubscribers');
  const sourceChannel = authProviderSourceChannel(provider);
- const evidence = options.consentEvidence ?? null;
  const consentSurface = resolveAuthConsentSurface({
   provider,
   attribution,
@@ -332,7 +322,6 @@ async function writeUserProfileToFirestore(
   oneTapPromptSurface: lastOneTapPromptSurface,
   explicitSurface: options.consentSurface ?? null,
  });
- const notice = resolveDisplayedNotice(evidence, null);
  const jobGateVariant = jobGateSubscriberVariantFor(context, consentSurface);
  await upsertNewsletterSubscriber(db, {
   email,
@@ -359,16 +348,17 @@ async function writeUserProfileToFirestore(
   registrationMethod: provider === 'email' ? 'email' : 'authenticated',
   skipConfirmationEmail: provider !== 'email',
   ...(jobGateVariant ? { variant: jobGateVariant } : {}),
-  // The consent record of this login, as it happened.
+  // The consent record of this login. Owner decision of 2026-09-25: a sign-in
+  // is the registration act under the terms, so it is recorded with the
+  // current registration formula as displayed, on every surface; the surface
+  // the login came from is kept as `consentOrigin`.
   consentOrigin: consentSurface,
-  consentTextDisplayed: notice.displayed,
-  ...(notice.displayed ? { consentNoticeKey: notice.key, consentLocale: notice.locale } : {}),
+  consentTextDisplayed: true,
   confirmationMethod: user?.emailVerified === false ? 'none' : 'provider_verified_email',
   confirmedViaSurface: consentSurface,
   consentAudit: {
    trigger: options.trigger,
    provider,
-   notice_key: notice.displayed ? notice.key : null,
    ...(options.oneTapSelectBy ? { one_tap_select_by: options.oneTapSelectBy } : {}),
   },
  }, {
@@ -411,11 +401,9 @@ function setAuthRedirectState(provider: 'google' | 'facebook'): void {
 export async function signInWithGoogle(attribution?: AuthAttributionContext | null): Promise<any | null> {
  try {
  // Saved before any await: the redirect branch leaves the page, and the
- // popup branch consumes it in saveUserProfileToFirestore on success. The
- // notice evidence is read now, on the screen the click happened on.
+ // popup branch consumes it in saveUserProfileToFirestore on success.
  const surface = explicitAuthAttribution(attribution);
  if (surface) setAuthAttributionContext(surface);
- parkConsentEvidence(captureConsentNoticeEvidence());
  await ensureFirebaseAuth();
  const authInstance = getAuthInstance();
  if (!authInstance || !_authModule) return null;
@@ -511,7 +499,6 @@ export async function signOut(): Promise<void> {
 
 export async function signInWithEmailPassword(email: string, password: string): Promise<any | null> {
  try {
- parkConsentEvidence(captureConsentNoticeEvidence());
  await ensureFirebaseAuth();
  const authInstance = getAuthInstance();
  if (!authInstance || !_authModule) return null;
@@ -573,11 +560,9 @@ export async function signInWithNewsletterEmailLink(email: string, href?: string
 
  const result = await _authModule.signInWithEmailLink(authInstance, normalizedEmail, link);
  mirrorAuthSessionMarker(result?.user);
- // Landing from an emailed sign-in link: nothing of ours was on screen when
- // the link was opened, and the surface is the link itself.
+ // Landing from an emailed sign-in link: the surface is the link itself.
  if (result?.user) {
   saveUserProfileToFirestore(result.user, 'email', null, null, {
-   consentEvidence: null,
    consentSurface: 'auth_email_link',
   }).catch(() => {});
  }
@@ -966,7 +951,6 @@ export async function signInWithFacebook(attribution?: AuthAttributionContext | 
  try {
  const surface = explicitAuthAttribution(attribution);
  if (surface) setAuthAttributionContext(surface);
- parkConsentEvidence(captureConsentNoticeEvidence());
  await ensureFirebaseAuth();
  const authInstance = getAuthInstance();
  if (!authInstance || !_authModule) return null;
@@ -1246,8 +1230,6 @@ export function clearAuthAttributionContext(): void {
  try {
   if (typeof window !== 'undefined') window.sessionStorage.removeItem(AUTH_ATTRIBUTION_CONTEXT_KEY);
  } catch { /* ignore */ }
- // The evidence belongs to the same abandoned click.
- clearConsentEvidence();
 }
 
 /**
@@ -1279,119 +1261,6 @@ export const ONE_TAP_ATTRIBUTION: Readonly<AuthAttributionContext> = Object.free
  component: 'auth_one_tap',
 });
 
-// ─── Consent notice evidence (was the notice on screen at the act?) ──────
-
-/**
- * What the page showed at the moment a login was started: whether a consent
- * notice rendered by `<ConsentNotice>` (it carries `data-consent-key`) was on
- * screen, and which one, with the exact text it displayed.
- *
- * This is the only source of a displayed notice (`consentTextDisplayed`) for
- * a sign-in. It used to be asserted for every authentication, including One
- * Tap, the assistant and the profile page, which render nothing; now it is
- * measured.
- * Read before any await, on the click or on the credential callback, because
- * that is the screen the person acted on — after an OAuth redirect the gate
- * is gone.
- */
-export interface ConsentNoticeEvidence {
- displayed: boolean;
- key: string | null;
- text: string | null;
-}
-
-const NO_NOTICE: ConsentNoticeEvidence = Object.freeze({ displayed: false, key: null, text: null }) as ConsentNoticeEvidence;
-
-/**
- * Laid out and inside the viewport: a notice in a closed modal (`display:
- * none`), a hidden one or one scrolled far off screen was not shown.
- */
-function isNoticeOnScreen(el: Element, win: Window): boolean {
- const rects = typeof el.getClientRects === 'function' ? el.getClientRects() : null;
- if (!rects || rects.length === 0) return false;
- const box = el.getBoundingClientRect();
- if (box.width <= 0 || box.height <= 0) return false;
- const viewportHeight = win.innerHeight || win.document?.documentElement?.clientHeight || 0;
- const viewportWidth = win.innerWidth || win.document?.documentElement?.clientWidth || 0;
- if (box.bottom <= 0 || box.right <= 0 || box.top >= viewportHeight || box.left >= viewportWidth) return false;
- const style = win.getComputedStyle?.(el);
- return !style || (style.visibility !== 'hidden' && style.opacity !== '0');
-}
-
-export function captureConsentNoticeEvidence(
- win: Window | undefined = typeof window !== 'undefined' ? window : undefined,
-): ConsentNoticeEvidence {
- try {
-  const nodes = win?.document?.querySelectorAll?.('[data-consent-key]');
-  if (!win || !nodes) return { ...NO_NOTICE };
-  for (const el of Array.from(nodes)) {
-   if (!isNoticeOnScreen(el, win)) continue;
-   const key = el.getAttribute('data-consent-key');
-   const text = (el.textContent || '').replace(/\s+/g, ' ').trim();
-   if (key && text) return { displayed: true, key: key.slice(0, 60), text: text.slice(0, 600) };
-  }
- } catch { /* evidence is best-effort: absent means "not shown" */ }
- return { ...NO_NOTICE };
-}
-
-const AUTH_CONSENT_EVIDENCE_KEY = 'auth_consent_evidence';
-
-interface StoredConsentEvidence extends ConsentNoticeEvidence {
- savedAt: number;
- linkedinState?: string;
-}
-
-/** Park the evidence of a login that leaves the page or completes in a callback. */
-export function parkConsentEvidence(
- evidence: ConsentNoticeEvidence,
- options: { linkedinState?: string } = {},
-): void {
- if (typeof window === 'undefined') return;
- try {
-  const stored: StoredConsentEvidence = {
-   displayed: evidence.displayed === true,
-   key: evidence.key ?? null,
-   text: evidence.text ?? null,
-   savedAt: Date.now(),
-   ...(options.linkedinState ? { linkedinState: options.linkedinState } : {}),
-  };
-  window.sessionStorage.setItem(AUTH_CONSENT_EVIDENCE_KEY, JSON.stringify(stored));
- } catch { /* quota or private browsing */ }
-}
-
-export function clearConsentEvidence(): void {
- try {
-  if (typeof window !== 'undefined') window.sessionStorage.removeItem(AUTH_CONSENT_EVIDENCE_KEY);
- } catch { /* ignore */ }
-}
-
-/**
- * Read and clear the parked evidence (one-shot, same TTL and LinkedIn `state`
- * binding as the attribution context it travels with). Null when nothing
- * valid was parked — which the writer records as "not displayed".
- */
-export function consumeConsentEvidence(
- options: { linkedinState?: string; now?: number } = {},
-): ConsentNoticeEvidence | null {
- if (typeof window === 'undefined') return null;
- try {
-  const raw = window.sessionStorage.getItem(AUTH_CONSENT_EVIDENCE_KEY);
-  window.sessionStorage.removeItem(AUTH_CONSENT_EVIDENCE_KEY);
-  if (!raw) return null;
-  const stored = JSON.parse(raw) as StoredConsentEvidence;
-  const now = options.now ?? Date.now();
-  if (!stored || typeof stored.savedAt !== 'number' || now - stored.savedAt > AUTH_ATTRIBUTION_TTL_MS) return null;
-  if ((stored.linkedinState || options.linkedinState) && stored.linkedinState !== options.linkedinState) return null;
-  return {
-   displayed: stored.displayed === true,
-   key: typeof stored.key === 'string' ? stored.key : null,
-   text: typeof stored.text === 'string' ? stored.text : null,
-  };
- } catch {
-  return null;
- }
-}
-
 /**
  * `newsletter_subscribers.variant` for a login that started from the JobBoard
  * gate of a visitor enrolled in jobgate-v3 — the same `jobgate-v3:<arm>` the
@@ -1419,8 +1288,7 @@ let lastOneTapPromptSurface: string | null = null;
 /**
  * The consent surface (`consentOrigin`) of a sign-in: the box that started
  * it, the job gate whose context was parked, the job gate that prompted One
- * Tap, or — when nothing named a surface — the provider itself. Naming only: whether a
- * notice was displayed comes from the evidence, never from this name.
+ * Tap, or — when nothing named a surface — the provider itself.
  */
 export function resolveAuthConsentSurface(opts: {
  provider: 'google' | 'facebook' | 'linkedin' | 'email';
@@ -1478,7 +1346,6 @@ export async function signInWithLinkedIn(
  // Always parked (page-only for a generic button): the callback runs on
  // /auth/linkedin/callback or `/`, so the origin page exists only here.
  setAuthAttributionContext(explicitAuthAttribution(attribution) || {}, { linkedinState: state });
- parkConsentEvidence(captureConsentNoticeEvidence(), { linkedinState: state });
 
  Analytics.trackUIInteraction('auth', 'linkedin', 'login', 'button');
 
@@ -1504,15 +1371,15 @@ export async function signInWithLinkedIn(
 export async function exchangeLinkedInCode(
  code: string,
  attribution?: AuthAttributionContext | null,
- consent?: { surface: string; evidence: ConsentNoticeEvidence | null; variant?: string | null } | null,
+ consent?: { surface: string; variant?: string | null } | null,
 ): Promise<string | null> {
  try {
  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://frontaliereticino.ch';
  const redirectUri = `${origin}/auth/linkedin/callback`;
  const normalizedAttribution = normalizeAuthAttribution(attribution);
  // The Cloud Function writes the LinkedIn registration with the Admin SDK,
- // so it needs the consent record the browser measured: the surface, whether
- // the notice was on screen at the click, and the exact sentence/version.
+ // so it needs the consent record: the surface the login came from and the
+ // current registration sentence/version in the visitor's locale.
  const consentRecord = consent ? await buildLinkedInConsentRecord(consent) : null;
  const attributionPayload = normalizedAttribution || consentRecord
   ? { ...(normalizedAttribution || {}), ...(consentRecord ? { consent: consentRecord } : {}) }
@@ -1539,13 +1406,12 @@ export async function exchangeLinkedInCode(
 }
 
 /**
- * The consent block the LinkedIn Cloud Function stores: the register sentence
- * that was on screen (or, when nothing was, the governing one in the site
- * locale with `displayed: false`), its version and locale, and the surface.
+ * The consent block the LinkedIn Cloud Function stores: the current
+ * registration sentence in the site locale, its version, the surface, and —
+ * by the owner decision of 2026-09-25, as for every sign-in — displayed.
  */
 async function buildLinkedInConsentRecord(consent: {
  surface: string;
- evidence: ConsentNoticeEvidence | null;
  variant?: string | null;
 }): Promise<{
  surface: string;
@@ -1560,14 +1426,14 @@ async function buildLinkedInConsentRecord(consent: {
  try {
   siteLocale = (await import('@/services/i18n')).getLocale();
  } catch { /* the register falls back to Italian */ }
- const notice = resolveDisplayedNotice(consent.evidence, siteLocale);
+ const locale = consentLocale(siteLocale);
  return {
   surface: consent.surface,
-  displayed: notice.displayed,
-  key: notice.key,
-  locale: notice.locale,
-  text: consentDisplayText(notice.key, notice.locale),
-  version: CONSENT_TEXTS[notice.key].version,
+  displayed: true,
+  key: 'communicationsOptIn',
+  locale,
+  text: consentDisplayText('communicationsOptIn', locale),
+  version: CONSENT_TEXTS.communicationsOptIn.version,
   ...(consent.variant ? { variant: consent.variant } : {}),
  };
 }
@@ -1986,10 +1852,6 @@ export async function initOneTap(): Promise<boolean> {
 
 /** Handle One Tap credential response and register the base terms relationship. */
 async function handleOneTapResponse(response: OneTapResponse): Promise<void> {
- // What was on screen when the prompt was accepted, read before any await.
- // A prompt over a plain page shows nothing of ours: Google draws it in its
- // own iframe. Over the job gate the gate's notice is on screen beside it.
- const promptEvidence = captureConsentNoticeEvidence();
  try {
  await ensureFirebaseAuth();
  const authInstance = getAuthInstance();
@@ -2020,11 +1882,9 @@ async function handleOneTapResponse(response: OneTapResponse): Promise<void> {
    ...ONE_TAP_ATTRIBUTION,
    page: typeof window !== 'undefined' ? window.location.pathname : null,
   };
-  // A parked box context belongs to a click that did not complete; drop it
-  // (its parked notice evidence with it).
+  // A parked box context belongs to a click that did not complete; drop it.
   clearAuthAttributionContext();
   saveUserProfileToFirestore(result.user, 'google', undefined, oneTapContext, {
-   consentEvidence: promptEvidence,
    oneTapSelectBy: String(response.select_by || 'unknown').slice(0, 40),
   }).catch(() => { /* best-effort */ });
  }
@@ -2130,13 +1990,14 @@ export async function renderGoogleButton(
  shape: 'rectangular',
  logo_alignment: 'left',
  ...gisOptions,
- // Every rendered button records what was on screen at its click; the
- // credential callback (`select_by=btn*`) consumes it with the attribution.
- click_listener: () => {
-  if (attribution) setAuthAttributionContext(attribution);
-  parkConsentEvidence(captureConsentNoticeEvidence());
-  clickListener?.();
- },
+ ...(attribution || clickListener
+  ? {
+   click_listener: () => {
+    if (attribution) setAuthAttributionContext(attribution);
+    clickListener?.();
+   },
+  }
+  : {}),
  });
 }
 

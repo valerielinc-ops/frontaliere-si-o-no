@@ -27,8 +27,6 @@ import {
  registrationTermsProof,
  REGISTRATION_TERMS_CONSENT_BASIS,
  UNIFIED_EMAIL_CONSENT_PURPOSE,
- type ConsentTextKey,
- CONSENT_TEXTS,
 } from './consentTexts';
 import { reportCaughtError } from '@/services/errorReporter';
 import { NEWSLETTER_SUBSCRIBED_KEY as LOCAL_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
@@ -223,11 +221,6 @@ export type NewsletterUpsertInput = {
   * `locale` field, which several gates fill from `navigator.language`.
   */
  consentLocale?: string | null;
- /**
-  * Register key of the notice that was on screen, when the caller measured it
-  * (the sign-in path). The stored sentence and version are that entry's.
-  */
- consentNoticeKey?: string | null;
  /**
   * How this write confirms the address, when it does (`confirmation_method`,
   * see CONFIRMATION_METHODS in services/subscriberConsent.mjs), and where
@@ -1428,21 +1421,16 @@ export async function captureNewsletterSubscriber(
   // registration basis, so the same terms record is written for newsletter,
   // job-board, salary, article and authentication entry points.
   //
-  // WHETHER IT WAS DISPLAYED is the caller's fact, not this writer's: the
-  // sign-in path measures it on the page (services/authService.ts) and says
-  // `false` for One Tap, the assistant or the profile page, where nothing is
-  // rendered. Until 2026-09-25 this line forced `true` for every write, so
-  // each of those logins stored a disclosure nobody saw. A caller that passes
-  // nothing is one of the form gates, which all render
-  // `<ConsentNotice consentKey="communicationsOptIn">` beside their button
-  // (tests/consent-shown-at-signup.test.tsx holds them to it).
-  const noticeKey = sanitizeString(input.consentNoticeKey);
+  // The displayed flag comes from the caller when it states one. The
+  // sign-in path (services/authService.ts) records the current registration
+  // formula as displayed on every surface — owner decision of 2026-09-25: a
+  // sign-in is the registration act under the terms — with the surface in
+  // `consent_origin`. A caller that passes nothing is one of the form gates,
+  // which all render `<ConsentNotice consentKey="communicationsOptIn">`
+  // beside their button (tests/consent-shown-at-signup.test.tsx).
   const termsProof = registrationTermsProof(
    consentTextLocale,
    typeof input.consentTextDisplayed === 'boolean' ? input.consentTextDisplayed : true,
-   noticeKey && Object.prototype.hasOwnProperty.call(CONSENT_TEXTS, noticeKey)
-    ? noticeKey as ConsentTextKey
-    : 'communicationsOptIn',
   );
   const requestedStatus = String(input.status || '').trim().toLowerCase();
   const existingSuppressionStatus = String(existingData?.status || '').trim().toLowerCase();

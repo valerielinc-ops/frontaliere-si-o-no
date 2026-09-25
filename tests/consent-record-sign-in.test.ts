@@ -1,17 +1,15 @@
 // @vitest-environment jsdom
 
 /**
- * The consent record written by a sign-in says what really happened
- * (owner decision of 2026-09-25: registration stays silent — no checkbox — but
- * the consent data and the origin of the confirmation must be stored and true).
+ * The consent record written by a sign-in.
  *
- * Measured on production the same day: every authentication stamped
- * `consent_act: registration_terms_acceptance` + `consent_text_displayed: true`
- * — One Tap, the assistant, the profile page, the `ac` autologin of a
- * newsletter link and even a restored session, none of which renders a notice.
- * 41 former profile-only documents gained a relationship that way, 16 of them
- * mailable, 7 right after an email click. `captureNewsletterSubscriber` forced
- * the flag for every write.
+ * Owner decisions of 2026-09-25: registration stays silent (no checkbox), a
+ * provider login always registers, and the consent record of a sign-in carries
+ * the current registration formula as displayed, whatever the surface; the
+ * surface the login came from is stored in `consent_origin`, the confirmation
+ * origin beside `confirmed_at`, and the same block in the append-only event.
+ * A restored session or a link autologin is not a sign-in act and never creates
+ * a relationship on a document that has none (the banner asks instead).
  *
  * These tests run the real authService → newsletterSubscribers path with
  * Firestore faked at the SDK boundary and read the documents and audit events
@@ -130,22 +128,6 @@ beforeEach(() => {
   vi.spyOn(console, 'warn').mockImplementation(() => {});
 });
 
-/** A `<ConsentNotice>` as it renders: `data-consent-key` + the sentence. */
-function renderNotice(text: string, key = 'communicationsOptIn', opts: { onScreen?: boolean } = {}): HTMLElement {
-  const el = document.createElement('span');
-  el.setAttribute('data-consent-key', key);
-  el.textContent = text;
-  document.body.appendChild(el);
-  if (opts.onScreen !== false) {
-    // jsdom has no layout: give the node the box a rendered notice has.
-    el.getClientRects = () => [{}] as unknown as DOMRectList;
-    el.getBoundingClientRect = () => ({
-      top: 400, left: 16, bottom: 432, right: 360, width: 344, height: 32, x: 16, y: 400, toJSON: () => ({}),
-    }) as DOMRect;
-  }
-  return el;
-}
-
 async function settle(): Promise<void> {
   // The sign-in handlers fire the profile write without awaiting it, and the
   // first write pays the dynamic imports of the writer modules.
@@ -178,28 +160,32 @@ function consentEvent(email = GOOGLE_USER.email): Record<string, any> {
   return e!.data;
 }
 
-describe('One Tap', { timeout: 30_000 }, () => {
-  it('on a plain page: registered with the truth — nothing displayed, surface auth_one_tap', async () => {
+const CURRENT_FORMULA = () => ({
+  consent_text: consentDisplayText('communicationsOptIn', 'it'),
+  consent_text_version: CONSENT_TEXTS.communicationsOptIn.version,
+  consent_text_displayed: true,
+  consent_act: 'registration_terms_acceptance',
+  consent_method: 'terms_and_conditions',
+  consent_basis: 'registration_terms',
+  registration_terms_accepted: true,
+});
+
+describe('every sign-in surface: current formula, displayed, and the real surface', { timeout: 30_000 }, () => {
+  it('One Tap on a plain page: registered, surface auth_one_tap, confirmation origin and audit event', async () => {
     await auth.promptOneTap(); // App.tsx's page-wide prompt
     await gisCallback!({ credential: 'jwt', select_by: 'user' });
     await settleWrite();
 
     const d = registration();
-    expect(d.consent_text_displayed).toBe(false);
-    expect(d.consent_origin).toBe('auth_one_tap');
-    expect(d.consent_act).toBe('registration_terms_acceptance');
-    expect(d.consent_text).toBe(consentDisplayText('communicationsOptIn', 'it'));
-    expect(d.consent_text_version).toBe(CONSENT_TEXTS.communicationsOptIn.version);
+    expect(d).toMatchObject({ ...CURRENT_FORMULA(), status: 'confirmed', consent_origin: 'auth_one_tap' });
     expect(d.consent_given_at).toBe('__server_timestamp__');
-    // How the address got confirmed, and where: Google vouched for it.
     expect(d.confirmation_method).toBe('provider_verified_email');
     expect(d.confirmed_via_surface).toBe('auth_one_tap');
 
-    const e = consentEvent();
-    expect(e.metadata.consent).toMatchObject({
+    expect(consentEvent().metadata.consent).toMatchObject({
       act: 'registration_terms_acceptance',
       origin: 'auth_one_tap',
-      text_displayed: false,
+      text_displayed: true,
       text_version: CONSENT_TEXTS.communicationsOptIn.version,
       text_locale: 'it',
       page: '/calcolatore/',
@@ -209,99 +195,68 @@ describe('One Tap', { timeout: 30_000 }, () => {
       confirmation_method: 'provider_verified_email',
       confirmed_via_surface: 'auth_one_tap',
     });
+    expect(events.some((e) => e.data.event_type === 'registration_refused')).toBe(false);
   });
 
-  it('prompted by the job gate with its notice on screen: displayed, surface job_gate, the sentence that was shown', async () => {
+  it('One Tap prompted by the job gate: surface job_gate', async () => {
     auth.saveAuthJobContext({ slug: 'infermiere-eoc', company: 'EOC', surface: 'modal' });
-    const shown = consentDisplayText('communicationsOptIn', 'de');
-    renderNotice(shown);
     await auth.promptOneTap({ surface: 'job_gate_modal' });
     await gisCallback!({ credential: 'jwt', select_by: 'user_1tap' });
     await settleWrite();
-
-    const d = registration();
-    expect(d.consent_text_displayed).toBe(true);
-    expect(d.consent_origin).toBe('job_gate');
-    // The German sentence the page showed, not the governing Italian one.
-    expect(d.consent_text).toBe(shown);
-    expect(consentEvent().metadata.consent).toMatchObject({ text_displayed: true, text_locale: 'de', notice_key: 'communicationsOptIn' });
+    expect(registration()).toMatchObject({ ...CURRENT_FORMULA(), consent_origin: 'job_gate', job_slug: 'infermiere-eoc' });
   });
 
-  it('a notice that is in the DOM but not on screen is not "displayed"', async () => {
-    renderNotice(consentDisplayText('communicationsOptIn', 'it'), 'communicationsOptIn', { onScreen: false });
-    await auth.promptOneTap();
-    await gisCallback!({ credential: 'jwt', select_by: 'auto' });
-    await settleWrite();
-    expect(registration().consent_text_displayed).toBe(false);
-  });
-});
-
-describe('rendered Google buttons and generic sign-ins', { timeout: 30_000 }, () => {
-  it('the newsletter popup button, notice on screen at the click: displayed, surface newsletter_popup', async () => {
-    renderNotice(consentDisplayText('communicationsOptIn', 'it'));
+  it('the newsletter popup button: surface newsletter_popup', async () => {
     await auth.renderGoogleButton(document.createElement('div'), {
       attribution: { cta: 'newsletter_popup_social', component: 'NewsletterPopup' },
     });
     const renderButton = (window as any).google.accounts.id.renderButton as ReturnType<typeof vi.fn>;
     renderButton.mock.calls[renderButton.mock.calls.length - 1][1].click_listener();
-    document.body.innerHTML = ''; // the popup closes behind the Google chooser
     await gisCallback!({ credential: 'jwt', select_by: 'btn' });
     await settleWrite();
-
-    const d = registration();
-    expect(d.consent_text_displayed).toBe(true);
-    expect(d.consent_origin).toBe('newsletter_popup');
-    expect(d.confirmed_via_surface).toBe('newsletter_popup');
-    expect(consentEvent().metadata.consent.confirmed_via_surface).toBe('newsletter_popup');
-  });
-
-  it('the assistant sign-in: nothing displayed, surface ai_chatbot', async () => {
-    await auth.saveUserProfileToFirestore(GOOGLE_USER, 'google', null, { cta: 'ai_chatbot_social', component: 'AiChatbot' }, {
-      consentEvidence: auth.captureConsentNoticeEvidence(),
+    expect(registration()).toMatchObject({
+      ...CURRENT_FORMULA(),
+      consent_origin: 'newsletter_popup',
+      confirmed_via_surface: 'newsletter_popup',
     });
-    const d = registration();
-    expect(d.consent_text_displayed).toBe(false);
-    expect(d.consent_origin).toBe('ai_chatbot');
   });
 
-  it('the profile page (a Google button nobody attributed): nothing displayed, surface auth_google_button', async () => {
+  it('the assistant: surface ai_chatbot', async () => {
+    await auth.saveUserProfileToFirestore(GOOGLE_USER, 'google', null, { cta: 'ai_chatbot_social', component: 'AiChatbot' });
+    expect(registration()).toMatchObject({ ...CURRENT_FORMULA(), consent_origin: 'ai_chatbot' });
+  });
+
+  it('the profile page (a Google button nobody attributed): surface auth_google_button', async () => {
     window.history.replaceState(null, '', '/profilo/');
-    auth.parkConsentEvidence(auth.captureConsentNoticeEvidence());
     await auth.saveUserProfileToFirestore(GOOGLE_USER, 'google');
-    const d = registration();
-    expect(d.consent_text_displayed).toBe(false);
-    expect(d.consent_origin).toBe('auth_google_button');
+    expect(registration()).toMatchObject({ ...CURRENT_FORMULA(), consent_origin: 'auth_google_button' });
     expect(consentEvent().metadata.consent.page).toBe('/profilo/');
   });
 
-  it('a job-gate login (job context parked) with the gate notice on screen: displayed, surface job_gate', async () => {
-    renderNotice(consentDisplayText('communicationsOptIn', 'it'));
-    auth.parkConsentEvidence(auth.captureConsentNoticeEvidence());
+  it('a job-gate login (job context parked): surface job_gate', async () => {
     auth.saveAuthJobContext({ slug: 'infermiere-eoc', company: 'EOC', surface: 'inline' });
     await auth.saveUserProfileToFirestore(GOOGLE_USER, 'google');
-    const d = registration();
-    expect(d.consent_text_displayed).toBe(true);
-    expect(d.consent_origin).toBe('job_gate');
-    expect(d.job_slug).toBe('infermiere-eoc');
+    expect(registration()).toMatchObject({ ...CURRENT_FORMULA(), consent_origin: 'job_gate', job_slug: 'infermiere-eoc' });
   });
 
-  it('email + password: pending, nothing displayed, no confirmation recorded yet', async () => {
-    await auth.saveUserProfileToFirestore({ ...GOOGLE_USER, emailVerified: false, providerData: [] }, 'email', null, null, {
-      consentEvidence: null,
-    });
+  it('the formula follows the language the site is read in', async () => {
+    const i18n = await import('@/services/i18n');
+    const spy = vi.spyOn(i18n, 'getLocale').mockReturnValue('de' as any);
+    try {
+      await auth.saveUserProfileToFirestore(GOOGLE_USER, 'google');
+      expect(registration().consent_text).toBe(consentDisplayText('communicationsOptIn', 'de'));
+      expect(consentEvent().metadata.consent.text_locale).toBe('de');
+    } finally {
+      spy.mockRestore();
+    }
+  });
+
+  it('email + password: pending with the same formula, no confirmation recorded yet', async () => {
+    await auth.saveUserProfileToFirestore({ ...GOOGLE_USER, emailVerified: false, providerData: [] }, 'email', null, null);
     const d = registration();
-    expect(d.status).toBe('pending');
-    expect(d.consent_text_displayed).toBe(false);
-    expect(d.consent_origin).toBe('auth_email_password');
+    expect(d).toMatchObject({ ...CURRENT_FORMULA(), status: 'pending', consent_origin: 'auth_email_password' });
     expect(d).not.toHaveProperty('confirmation_method');
     expect(consentEvent().metadata.consent.confirmation_method).toBeNull();
-  });
-
-  it('a historical register key on screen cannot turn into a displayed claim', async () => {
-    renderNotice(CONSENT_TEXTS.signInAutoSubscribe.text, 'signInAutoSubscribe');
-    auth.parkConsentEvidence(auth.captureConsentNoticeEvidence());
-    await auth.saveUserProfileToFirestore(GOOGLE_USER, 'google');
-    expect(registration().consent_text_displayed).toBe(false);
   });
 });
 
@@ -351,21 +306,8 @@ describe('reconciliation never creates a relationship', { timeout: 30_000 }, () 
   });
 });
 
-describe('firestore.rules and the undisplayed registration (owner decision of 2026-09-25)', { timeout: 30_000 }, () => {
-  it('a login with nothing on screen is registered, with the record saying so, and no refusal is logged', async () => {
-    await auth.promptOneTap();
-    await gisCallback!({ credential: 'jwt', select_by: 'user' });
-    await settleWrite();
-    const d = registration();
-    expect(d.status).toBe('confirmed');
-    expect(d.consent_text_displayed).toBe(false);
-    expect(d.consent_origin).toBe('auth_one_tap');
-    expect(d.confirmation_method).toBe('provider_verified_email');
-    expect(consentEvent().metadata.consent).toMatchObject({ text_displayed: false, origin: 'auth_one_tap' });
-    expect(events.some((e) => e.data.event_type === 'registration_refused')).toBe(false);
-  });
-
-  it('a refusal (no verified owner) is still recorded truthfully, with no profile-only row', async () => {
+describe('a sign-in the rules refuse', { timeout: 30_000 }, () => {
+  it('is recorded in the append-only log with its consent block, and writes no profile-only row', async () => {
     rulesMode = 'unverified-owner';
     await auth.promptOneTap();
     await gisCallback!({ credential: 'jwt', select_by: 'user' });
@@ -376,7 +318,7 @@ describe('firestore.rules and the undisplayed registration (owner decision of 20
     expect(refused?.path).toBe(`${SUB(GOOGLE_USER.email)}/events`);
     expect(refused?.data.metadata).toMatchObject({
       reason: 'firestore_rules_refused',
-      consent: { origin: 'auth_one_tap', text_displayed: false, act: 'registration_terms_acceptance' },
+      consent: { origin: 'auth_one_tap', text_displayed: true, act: 'registration_terms_acceptance' },
     });
   });
 });
@@ -390,8 +332,6 @@ describe('jobgate-v3: a social login from the gate carries the arm, like the ema
   });
 
   it('an enrolled visitor\'s Google login from the gate is written with jobgate-v3:<arm>, counted by the readout', async () => {
-    renderNotice(consentDisplayText('communicationsOptIn', 'it'));
-    auth.parkConsentEvidence(auth.captureConsentNoticeEvidence());
     auth.saveAuthJobContext(enrolledContext);
     await auth.saveUserProfileToFirestore(GOOGLE_USER, 'google');
     const d = registration();
@@ -464,35 +404,5 @@ describe('jobgate-v3: a social login from the gate carries the arm, like the ema
     expect(auth.jobGateSubscriberVariantFor(enrolledContext, 'newsletter_popup')).toBeNull();
     expect(auth.jobGateSubscriberVariantFor({ ...enrolledContext, variant: 'bogus' }, 'job_gate')).toBeNull();
     expect(auth.jobGateSubscriberVariantFor(null, 'job_gate')).toBeNull();
-  });
-});
-
-describe('notice evidence', () => {
-  it('reads the visible notice, its key and its exact text', () => {
-    const shown = consentDisplayText('communicationsOptIn', 'fr');
-    renderNotice(shown);
-    expect(auth.captureConsentNoticeEvidence()).toEqual({ displayed: true, key: 'communicationsOptIn', text: shown });
-  });
-
-  it('ignores a notice scrolled off screen', () => {
-    const el = renderNotice(consentDisplayText('communicationsOptIn', 'it'));
-    el.getBoundingClientRect = () => ({
-      top: 5000, left: 16, bottom: 5032, right: 360, width: 344, height: 32, x: 16, y: 5000, toJSON: () => ({}),
-    }) as DOMRect;
-    expect(auth.captureConsentNoticeEvidence().displayed).toBe(false);
-  });
-
-  it('parked evidence is one-shot and bound to the LinkedIn state it was parked with', () => {
-    auth.parkConsentEvidence({ displayed: true, key: 'communicationsOptIn', text: 't' }, { linkedinState: 'a' });
-    expect(auth.consumeConsentEvidence({ linkedinState: 'b' })).toBeNull();
-    auth.parkConsentEvidence({ displayed: true, key: 'communicationsOptIn', text: 't' }, { linkedinState: 'a' });
-    expect(auth.consumeConsentEvidence({ linkedinState: 'a' })).toMatchObject({ displayed: true });
-    expect(auth.consumeConsentEvidence({ linkedinState: 'a' })).toBeNull();
-  });
-
-  it('an abandoned provider click leaves no evidence for a later login', () => {
-    auth.parkConsentEvidence({ displayed: true, key: 'communicationsOptIn', text: 't' });
-    auth.clearAuthAttributionContext();
-    expect(auth.consumeConsentEvidence()).toBeNull();
   });
 });
