@@ -99,7 +99,10 @@ describe('plate-auction sources registry schema', () => {
     expect(registry.sources.fr.status).toBe('active');
     expect(registry.sources.fr.officialUrl).toBe('https://appls.ocn.ch/ecari-auction/ui/app/init?locale=fr_ch');
     expect(registry.sources.ne.status).toBe('blocked');
+    // GE: connettore pronto (lista PDF dell'OCV su ge.ch), attivato quando
+    // esce la lista d'autunno 2026; Ricardo resta solo un link.
     expect(registry.sources.ge.status).toBe('blocked');
+    expect(registry.sources.ge.officialUrl).toBe('https://www.ge.ch/plaques/vente-aux-encheres-plaques');
     expect(registry.sources.ju.status).toBe('blocked');
     expect(registry.sources.ai.status).toBe('active');
     expect(registry.sources.ai.accessMethod).toBe('pdf');

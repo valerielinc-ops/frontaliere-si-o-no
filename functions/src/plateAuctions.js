@@ -5,6 +5,8 @@ import {
   fetchHtml,
   fetchPdfText,
   FIXED_PRICE_SOURCE_CONFIGS,
+  fetchGePlateAuctions,
+  GE_PLATE_AUCTION_SOURCE,
   resolveVariantPdfUrl,
   parseAiFixedPricePdfText,
   parseBsFixedPricePdfText,
@@ -145,6 +147,17 @@ const CONNECTORS = {
   bl: makeEcariConnector({ canton: 'Basilea Campagna', plateCode: 'BL', url: 'https://eauktion.bl.ch/ecari-auction/ui/app/init' }),
   bs: makeFixedPriceConnector({ sourceKey: 'bs', parse: parseBsFixedPricePdfText }),
   fr: makeEcariConnector({ canton: 'Friburgo', plateCode: 'FR', url: 'https://appls.ocn.ch/ecari-auction/ui/app/init?locale=fr_ch' }),
+  // Ginevra: lista PDF dell'OCV su ge.ch (numeri e date, nessun prezzo);
+  // Ricardo è solo un link. Gira solo quando il registry la segna `active`.
+  ge: {
+    canton: GE_PLATE_AUCTION_SOURCE.canton,
+    plateCode: GE_PLATE_AUCTION_SOURCE.plateCode,
+    url: GE_PLATE_AUCTION_SOURCE.pageUrl,
+    parserVersion: GE_PLATE_AUCTION_SOURCE.parserVersion,
+    fetchSource({ fetchedAt, injectedFetcher } = {}) {
+      return fetchGePlateAuctions({ fetchedAt, now: new Date(fetchedAt), injectedFetcher });
+    },
+  },
   gl: makeFixedPriceConnector({ sourceKey: 'gl', parse: parseGlFixedPriceJson }),
   gr: {
     canton: 'Grigioni',

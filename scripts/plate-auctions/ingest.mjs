@@ -49,6 +49,12 @@ export const FETCHERS = {
   // fallisce e le righe arrivano dal relay della Cloud Function di Zurigo
   // (connectors/api-relay.mjs), come per SZ.
   fr: () => fetchExpandedEcari('fr'),
+  // GE ha il connettore (connectors/ge.mjs) ma non ancora il fetcher: resta
+  // `blocked` finché ge.ch non pubblica la lista d'autunno 2026. Fra due
+  // sessioni la lista dà il catalogo esplicitamente vuoto, e una fonte attiva
+  // senza nessuna riga nello snapshot è fatale per check-health.mjs; con le
+  // righe della prima sessione (poi chiuse e conservate) non lo è più.
+  // Attivarla = registry `active` in entrambe le copie + una riga qui.
   gl: fetchGlFixedPrice,
   gr: fetchGrPlateAuctions,
   lu: fetchLuFixedPrice,
