@@ -108,15 +108,19 @@ export function pruneExpired(
   );
 }
 
-/** Park a follow until the visitor confirms their address. */
-export function savePendingCompanyFollow(intent: Omit<PendingCompanyFollow, 'savedAt'>): void {
+/**
+ * Park a follow until the visitor confirms their address. Returns whether it is
+ * actually parked (issue 9575, same class as pendingJobAlert.ts): `false` means
+ * nothing will replay after the confirmation link, so the caller must say so.
+ */
+export function savePendingCompanyFollow(intent: Omit<PendingCompanyFollow, 'savedAt'>): boolean {
   const now = Date.now();
   const email = String(intent.email || '').trim().toLowerCase();
-  if (!email || !intent.company) return;
+  if (!email || !intent.company) return false;
   const existing = pruneExpired(readRaw(), now)
     // De-dup on (email, company): tapping twice must not create two alerts.
     .filter((e) => !(e.email === email && e.company === intent.company));
-  writeRaw([...existing, { ...intent, email, savedAt: now }].slice(-MAX_PENDING));
+  return writeRaw([...existing, { ...intent, email, savedAt: now }].slice(-MAX_PENDING));
 }
 
 /** Non-expired parked follows. */

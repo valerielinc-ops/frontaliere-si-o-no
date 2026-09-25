@@ -2582,7 +2582,18 @@ export const Analytics = {
  keywords?: string;
  location?: string;
  frequency?: string;
+ // 'post_auth_auto' survives only for a pending intent written before the
+ // replay carried its CTA origin (issue 9576): it is outside the
+ // alert_funnel_conversion allowlist on purpose, because nothing emits a
+ // `job_alert_cta_shown` for it.
  surface?: 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'sticky_banner' | 'end_card' | 'preferences' | 'post_auth_auto' | 'job_match_pill' | 'job_board_filters' | 'saved_jobs_nudge' | 'calculator_results' | 'company_follow_button';
+ /**
+  * HOW the alert was written, kept apart from the surface (issue 9576):
+  * `post_auth_replay` = a guest submit replayed after the sign-in round-trip,
+  * `direct` = an authenticated user created it on the spot. Diagnostic only —
+  * the funnel attributes on `cta_surface`, never on this field.
+  */
+ authPath?: 'direct' | 'post_auth_replay';
  } = {}) => {
  // Defensive: collapse undefined/empty to clear sentinels rather than null
  // so PostHog HogQL queries never see mixed null/empty values for the same
@@ -2607,6 +2618,7 @@ export const Analytics = {
  // could not be attributed to the surface that produced it. `cta_surface`
  // IS registered; `alert_surface` stays for the PostHog queries that read it.
  cta_surface: surface,
+ alert_auth_path: details.authPath || 'direct',
  });
  },
 

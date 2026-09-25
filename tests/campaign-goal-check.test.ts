@@ -1,4 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
+import { PENDING_JOB_ALERT_ORIGINS } from '@/services/pendingJobAlert';
 import {
   CAMPAIGN_START,
   computeMatureAt,
@@ -419,6 +420,28 @@ describe('alert funnel surface attribution (#7763/#7764)', () => {
     expect(filter.andGroup.expressions).toContainEqual({
       filter: { fieldName: ALERT_CTA_SURFACE_DIMENSION, inListFilter: { values: ALERT_CTA_SURFACES } },
     });
+  });
+
+  it('a post-auth replay keeps a qualifying origin without widening the allowlist (issue 9576)', () => {
+    // Every origin the guest submit can carry through sign-in is a surface
+    // that emits job_alert_cta_shown, so the replayed job_alert_created lands
+    // on the numerator of the same population as its impression.
+    expect(PENDING_JOB_ALERT_ORIGINS.length).toBeGreaterThan(0);
+    for (const origin of PENDING_JOB_ALERT_ORIGINS) {
+      expect(ALERT_CTA_SURFACES).toContain(origin);
+    }
+    // The diagnostic auth-path value stays OUT: no impression is ever
+    // emitted under it, and admitting it would inflate only the numerator.
+    expect(ALERT_CTA_SURFACES).not.toContain('post_auth_auto');
+    expect(ALERT_CTA_SURFACES).not.toContain('post_auth_replay');
+
+    // One filter, both sides: the created and the shown counts are read
+    // through the very same surface predicate in HogQL and in GA4.
+    const hogql = buildAlertFunnelHogqlQuery();
+    expect(hogql.match(/properties\.cta_surface IN/g)).toHaveLength(1);
+    expect(hogql.indexOf('WHERE')).toBeLessThan(hogql.indexOf('properties.cta_surface IN'));
+    const filter = buildAlertFunnelGa4Filter();
+    expect(filter.andGroup.expressions).toHaveLength(2);
   });
 
   it('fails closed when GA4 rejects the unregistered custom dimension with 400', async () => {
