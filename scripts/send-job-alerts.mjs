@@ -28,7 +28,7 @@ import { nlNormLocale } from '../services/newsletter-template.mjs';
 import { renderRecommendedBlock } from '../services/newsletter/recommendedBlock.mjs';
 import {
   buildAlertProfile,
-  scoreJobForAlert,
+  createAlertScorer,
   createJobFeatureCache,
   partitionByGeoPreference,
   freshnessBoost,
@@ -83,8 +83,8 @@ import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl } from './lib/job-
 import { isImmediateCompanyAlert } from './lib/company-alert-routing.mjs';
 import {
   DEFAULT_JOB_ALERT_LOOKBACK_MS,
+  createJobAlertCandidateSelector,
   jobInventoryTimestampMs,
-  selectJobAlertCandidates,
 } from './lib/job-alert-newness.mjs';
 // localePathPrefix aliased to the local name this script has always used for
 // its locale-aware URL construction — the implementation is the canonical
@@ -318,6 +318,10 @@ function createJobLivenessPrefetcher(cache, { concurrency = JOB_LIVE_CHECK_CONCU
         idleWaiters.push(resolve);
         settleIfIdle();
       });
+    },
+    /** URLs ever queued, and those not yet answered (waiting or in flight). */
+    stats() {
+      return { queued: queue.length, pending: queue.length - head + active };
     },
   };
 }
@@ -1826,14 +1830,11 @@ function planAlertMatch(alert, {
   );
   // Canary gate: broadcast-restricted ads only ever match the OWNER's alerts,
   // so a test listing can't reach real alert subscribers.
-  const canaryEligible = isOwnerEmail(alert.email) ? recentJobs : recentJobs.filter((j) => !isCanaryJob(j));
+  const ownerAlert = isOwnerEmail(alert.email);
   // needsRetranslation only means translations FROM the job's source locale
   // are stale — exclude a job from THIS alert only when its own source
   // locale differs from the recipient's locale (#4715).
   const alertLocale = nlNormLocale(alert.locale);
-  const eligibleJobs = canaryEligible.filter(
-    (j) => !(j.needsRetranslation === true && alertLocale !== (j.sourceLang || 'it')),
-  );
   // Relevance score + graduated freshness boost: a job first seen within
   // 24h/48h gets +2/+1 on top of its relevance so GENUINELY new listings win
   // near-ties against the re-crawled backlog (the pool re-admits the whole
@@ -1841,23 +1842,35 @@ function planAlertMatch(alert, {
   // 0-score job: relevance still decides IF a job surfaces, freshness only
   // decides how high.
   //
+  // One pass over the candidate window, with the alert's scorer compiled once
+  // (#9314): since #9471 the window is the recipient's whole catch-up
+  // inventory (~19K rows per alert in production, 96M rows in run
+  // 36097910375), so the two eligibility filters, the per-row entry objects of
+  // the zero-score rows and the per-row profile work were paid ~19K times per
+  // alert. The eligibility rules, the scorer's answer and the row order are
+  // unchanged; `candidateCount` still counts every eligible row.
+  //
   // The tiebreak timestamp is parsed ONCE per surviving entry, not twice per
-  // comparison (#9314): since #9471 the pool is the recipient's whole catch-up
-  // window (~20K rows per alert in production), and the comparator's two
-  // `new Date()` calls per compare were ~40% of the matching CPU. The value is
-  // the exact expression the comparator used (NaN included), so every
-  // pairwise result — and therefore the order — is unchanged.
-  const sorted = eligibleJobs
-    .map((job) => {
-      const relevance = scoreJobForAlert(job, profile, alertLocale, featureCache);
-      if (relevance <= 0) return { job, score: 0, firstSeenMs: 0 };
-      return {
-        job: { ...job, relevanceScore: relevance },
-        score: relevance + freshnessBoost(job, now),
-        firstSeenMs: job.firstSeenAt ? new Date(job.firstSeenAt).getTime() : 0,
-      };
-    })
-    .filter((m) => m.score > 0)
+  // comparison (#9314): the comparator's two `new Date()` calls per compare
+  // were ~40% of the matching CPU. The value is the exact expression the
+  // comparator used (NaN included), so every pairwise result — and therefore
+  // the order — is unchanged.
+  const scoreJob = createAlertScorer(profile, alertLocale, featureCache);
+  const scored = [];
+  let candidateCount = 0;
+  for (const job of recentJobs) {
+    if (!ownerAlert && isCanaryJob(job)) continue;
+    if (job.needsRetranslation === true && alertLocale !== (job.sourceLang || 'it')) continue;
+    candidateCount++;
+    const relevance = scoreJob(job);
+    if (relevance <= 0) continue;
+    scored.push({
+      job: { ...job, relevanceScore: relevance },
+      score: relevance + freshnessBoost(job, now),
+      firstSeenMs: job.firstSeenAt ? new Date(job.firstSeenAt).getTime() : 0,
+    });
+  }
+  const sorted = scored
     .sort((a, b) => {
       // Primary: higher score first.
       const scoreDiff = b.score - a.score;
@@ -1896,7 +1909,6 @@ function planAlertMatch(alert, {
   // to out-of-area matches when too few local ones exist (never starves a
   // sparse alert). No-op when the alert already scopes geography itself.
   const ranked = partitionByGeoPreference(rankedAll, profile);
-  const candidateCount = eligibleJobs.length;
 
   if (ranked.length === 0) {
     return {
@@ -2338,16 +2350,19 @@ async function main() {
   // alert is what lets the pool's I/O callbacks run between two plans. Job-side
   // scoring features are memoised across alerts (the pool is not mutated here).
   const featureCache = createJobFeatureCache();
+  // Row timestamps and expiry are recipient-independent: parsed once for the
+  // run, not once per alert (#9314). Same windows as selectJobAlertCandidates.
+  const selectCandidateWindow = createJobAlertCandidateSelector(inventoryJobs, { nowMs: now });
   const livenessPrefetcher = createJobLivenessPrefetcher(jobLiveCheckCache);
   const plans = [];
   const cursorReasons = {};
   let cursorCandidateCount = 0;
+  const planningStartedAt = Date.now();
   for (const alert of alerts) {
     const recipientProfile = jobAlertProfiles.get(alert.email.toLowerCase()) || {};
-    const candidateWindow = selectJobAlertCandidates(inventoryJobs, {
+    const candidateWindow = selectCandidateWindow({
       recipientLastSentAt: recipientProfile.last_sent_at,
       alertCreatedAt: alert.createdAt,
-      nowMs: now,
       initialLookbackMs: MATCH_WINDOW_MS,
     });
     cursorReasons[candidateWindow.reason] = (cursorReasons[candidateWindow.reason] || 0) + 1;
@@ -2368,7 +2383,14 @@ async function main() {
     if (plan.matched.length > 0) livenessPrefetcher.enqueue(plan.matched, nlNormLocale(alert.locale));
     await new Promise((resolve) => setImmediate(resolve));
   }
+  // #9314: `Capacity check` → `Total` mixes CPU (planning) and network (the
+  // live-link prefetch the drain waits for). Log the split so a run shows
+  // which one bounds the matching step.
+  const planningMs = Date.now() - planningStartedAt;
+  const prefetchAfterPlanning = livenessPrefetcher.stats();
   await livenessPrefetcher.drain();
+  const drainMs = Date.now() - planningStartedAt - planningMs;
+  console.log(`   ⏱️ Matching split: planning ${(planningMs / 1000).toFixed(1)} s for ${alerts.length} alerts; live-link prefetch ${prefetchAfterPlanning.queued} URL(s), ${prefetchAfterPlanning.pending} still pending after planning, drained in ${(drainMs / 1000).toFixed(1)} s`);
   console.log(`   🧭 Recipient-aware candidate windows: ${JSON.stringify(cursorReasons)} (${cursorCandidateCount} candidate rows before matching)`);
   const zeroMatchSummary = summarizeZeroMatchPlans(plans);
 

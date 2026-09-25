@@ -22,9 +22,9 @@
 
 import { readNewsletterDataset } from './newsletter-datasets.mjs';
 import { getVariantStyleDirective } from './newsletter-subject-variants.mjs';
-import { locTokenHit, normalizeLocToken } from './locToken.mjs';
+import { normalizeLocToken } from './locToken.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
-import { sameCompanyDisplayIdentity } from '../build-plugins/shared/companyProfileSlug.mjs';
+import { companyDisplayIdentityKeys } from '../build-plugins/shared/companyProfileSlug.mjs';
 import { JOB_BOARD_SECTION_RX } from '../scripts/lib/jobBoardSections.mjs';
 import { nlNormLocale } from './newsletter-template.mjs';
 import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
@@ -443,23 +443,45 @@ function parseSourceField(source) {
 /**
  * Score a job against a set of subscriber interest keywords.
  * Returns 0–10 relevance score.
+ *
+ * Takes a prepared-context entry, not a bare job (#9314): the job-side
+ * answers — title/category tokens, normalized location (`entry.locationSearch`),
+ * display-identity keys — are computed once per entry for the whole run
+ * instead of once per subscriber, and the subscriber side once per subscriber
+ * (`subscriberCompanyKeys`, `subscriberLocationToken`). The score is the one
+ * the previous per-call `extractKeywords` / `locTokenHit` /
+ * `sameCompanyDisplayIdentity` produced.
+ *
+ * @param {object} entry Entry of {@link prepareNewsletterJobContext}.
+ * @param {Set<string>} subscriberKeywords
+ * @param {string[]} subscriberCompanyKeys `companyDisplayIdentityKeys(subscriberCompany)`.
+ * @param {string} subscriberLocationToken `normalizeLocToken(subscriberLocation)`.
+ * @returns {number}
  */
-function keywordRelevanceScore(job, subscriberKeywords, subscriberCompany, subscriberLocation = '') {
-  if (subscriberKeywords.size === 0 && !subscriberCompany && !subscriberLocation) return 0;
+function keywordRelevanceScore(entry, subscriberKeywords, subscriberCompanyKeys, subscriberLocationToken) {
+  if (subscriberKeywords.size === 0 && subscriberCompanyKeys === null && !subscriberLocationToken) return 0;
   let score = 0;
-  const jobTitle = String(job.titleByLocale?.it || job.title || '').toLowerCase();
-  const jobCategory = String(job.category || job.sector || '').toLowerCase();
 
   // Company match: strong signal. Compare canonical display identities only:
   // one crawler key can cover unrelated employer labels (e.g. Migros/Galaxus).
-  if (subscriberCompany && sameCompanyDisplayIdentity(subscriberCompany, job.company)) score += 4;
+  if (subscriberCompanyKeys !== null) {
+    if (entry.companyIdentityKeys === undefined) {
+      entry.companyIdentityKeys = new Set(companyDisplayIdentityKeys(entry.job.company));
+    }
+    if (subscriberCompanyKeys.some((key) => entry.companyIdentityKeys.has(key))) score += 4;
+  }
 
   // Keyword overlap with job title
   if (subscriberKeywords.size > 0) {
-    const jobTokens = extractKeywords(`${jobTitle} ${jobCategory}`);
+    if (entry.relevanceTokens === undefined) {
+      const job = entry.job;
+      const jobTitle = String(job.titleByLocale?.it || job.title || '').toLowerCase();
+      const jobCategory = String(job.category || job.sector || '').toLowerCase();
+      entry.relevanceTokens = extractKeywords(`${jobTitle} ${jobCategory}`);
+    }
     let overlap = 0;
     for (const kw of subscriberKeywords) {
-      if (jobTokens.has(kw)) overlap++;
+      if (entry.relevanceTokens.has(kw)) overlap++;
     }
     // Normalize: up to 6 points based on overlap ratio
     if (subscriberKeywords.size > 0 && overlap > 0) {
@@ -470,11 +492,11 @@ function keywordRelevanceScore(job, subscriberKeywords, subscriberCompany, subsc
   // Location match: the job's town/canton matches the subscriber's saved job
   // location/interest. Location is also used as a pre-filter, but ranking it
   // here lets same-town jobs win over far ones when the pre-filter is skipped
-  // (too few in-location results to fill the limit).
-  if (subscriberLocation) {
-    const subLoc = subscriberLocation.toLowerCase();
-    const jobLoc = `${String(job.location || '')} ${String(job.addressLocality || '')} ${String(job.addressRegion || '')} ${String(job.canton || '')}`.toLowerCase();
-    if (locTokenHit(jobLoc, subLoc)) score += 2;
+  // (too few in-location results to fill the limit). Same test as
+  // `locTokenHit(jobLoc, subscriberLocation)`, with both sides pre-normalized.
+  if (subscriberLocationToken && entry.locationSearch
+    && ` ${entry.locationSearch} `.includes(` ${subscriberLocationToken} `)) {
+    score += 2;
   }
 
   return score;
@@ -781,10 +803,13 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
   }
 
   // Score: subscriber relevance, age-decayed popularity, then recency.
+  // Subscriber-side answers once per subscriber (#9314), see keywordRelevanceScore.
+  const subscriberCompanyKeys = subscriberCompany ? companyDisplayIdentityKeys(subscriberCompany) : null;
+  const subscriberLocationToken = location ? normalizeLocToken(location) : '';
   const scored = candidateEntries.map((entry) => ({
     job: entry.job,
     relevance: hasInterestProfile
-      ? keywordRelevanceScore(entry.job, subscriberKeywords, subscriberCompany, location)
+      ? keywordRelevanceScore(entry, subscriberKeywords, subscriberCompanyKeys, subscriberLocationToken)
       : 0,
     decayedViews: entry.decayedViews,
     date: entry.date,
