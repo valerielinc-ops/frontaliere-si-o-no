@@ -139,7 +139,7 @@ describe('JobBoard inline email unlock CTA', () => {
 
   it('passes job_board_email_unlock explicitly for the inline email gate', () => {
     expect(source).toMatch(
-      /autoNewsletterSubscribe\(email, `job_gate:\$\{job\.company\}:[^`]*`, 'email', 'job_board_email_unlock'\)/,
+      /autoNewsletterSubscribe\(email, `job_gate:\$\{job\.company\}:[^`]*`, 'email', 'job_board_email_unlock', job\)/,
     );
   });
 
@@ -150,5 +150,29 @@ describe('JobBoard inline email unlock CTA', () => {
     );
     expect(fn).not.toMatch(/normalizedSource\.includes\('email'\)/);
     expect(fn).toContain("sourceCta || (registrationMethod === 'email' ? 'job_board_email_unlock' : 'job_board_social_unlock')");
+  });
+
+  it('writes the job fields of the offer whose title it stamps into `source`', () => {
+    // The confirmation email prints the title from `source` next to the
+    // company from `job_company`. They used to come from two different jobs in
+    // the list modal (`pendingJob` vs `selectedJob || sortedJobs[0]`): 5
+    // single-signup documents of March–April 2026 carry both offers
+    // (measured 2026-09-25).
+    const fn = source.slice(
+      source.indexOf('const autoNewsletterSubscribe = async ('),
+      source.indexOf('} catch { /* non-critical */ return false; }', source.indexOf('const autoNewsletterSubscribe = async (')),
+    );
+    expect(fn).toContain('const focusedJob = job;');
+    expect(fn.replace(/\/\/.*$/gm, '')).not.toMatch(/sortedJobs|selectedJob/);
+
+    // Every caller passes, as the job, the same variable its `source` suffix
+    // reads the company and title from.
+    const calls = [...source.matchAll(/autoNewsletterSubscribe\(([^;]*?), (\w+)\)(?:\.then|;)/g)];
+    expect(calls.length).toBe(4);
+    for (const [call, , jobVar] of calls) {
+      const at = source.indexOf(call);
+      const window = source.slice(Math.max(0, at - 600), at + call.length);
+      expect(window, call).toContain(`\${${jobVar}.company}:\${sanitizeJobTitle(${jobVar}.title)`);
+    }
   });
 });
