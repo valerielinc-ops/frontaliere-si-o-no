@@ -11970,6 +11970,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-25.imageAlt': 'The day\'s numbers for cross-border commuters – September 25, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-09-25.seoDescription': 'Cross-border brief, September 25, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-09-25.ogDescription': 'The numbers for September 25, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.pasture-cambio-operatore.title': 'At Pasture, the operator changes: jobs at risk',
+    'blog.article.pasture-cambio-operatore.excerpt': 'Starting in January, the federal mandate for the asylum center will pass from AOZ to ORS: in Ticino, 120 employees are currently working, but not all of them will be rehired.',
+    'blog.article.pasture-cambio-operatore.imageAlt': 'Pasture asylum centre faces an operator change in Ticino',
 };
 
 export default blogMetaEn;
