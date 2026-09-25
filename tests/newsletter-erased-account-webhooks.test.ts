@@ -6,6 +6,8 @@ import { persistMailjetEvent } from '../functions/src/newsletterMailjetWebhookCo
 import { persistMailtrapEvent } from '../functions/src/newsletterMailtrapWebhookCore.js';
 import { persistMailerooEvent } from '../functions/src/newsletterMailerooWebhookCore.js';
 
+import { handleInboundBounceReport } from '../functions/src/inboundBounceReport.js';
+
 const email = 'erased@example.com';
 const clickUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/?je=1&surface=newsletter&surface_id=newsletter_weekly&job_id=old-job&delivery_id=old-delivery';
 
@@ -28,6 +30,10 @@ function readOnlyDb(seed: Record<string, object>, failRead = false) {
 }
 
 const providers = [
+  ['inbound DSN', async (db: any, _job: boolean) => (await handleInboundBounceReport({
+    recipient: email, status: '5.1.1', action: 'failed', campaignId: 'old-campaign',
+    secret: 'test-secret', providedSecret: 'test-secret', db,
+  })).result],
   ['resend', (db: any, job: boolean) => applyResendWebhookEvent({
     type: 'email.clicked', data: { email, click: { link: clickUrl }, tags: { type: job ? 'job-alert' : 'newsletter' } },
   }, { db })],
@@ -48,7 +54,7 @@ const providers = [
 describe.each(providers)('%s callbacks after account erasure', (_provider, handle) => {
   for (const channel of ['newsletter_subscribers', 'job_alert_subscribers']) {
     for (const marker of [{ account_deleted_at: new Date().toISOString() }, { status: 'account_deleted' }]) {
-      it.each([false, true])(`ignores a late click with ${Object.keys(marker)[0]} in ${channel} (job alert: %s)`, async (job) => {
+      it.each([false, true])(`ignores a late callback with ${Object.keys(marker)[0]} in ${channel} (job alert: %s)`, async (job) => {
         const db = readOnlyDb({ [`${channel}/${email}`]: marker });
         expect(await handle(db, job)).toMatchObject({ reason: 'account_deleted' });
         expect(db.write).not.toHaveBeenCalled();
