@@ -55,6 +55,7 @@ import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator, isLikelyJobDetailUrl } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, isKnownSwissMunicipalityInCanton, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
+import { cantonNamedByLocation } from './lib/job-location-display.mjs';
 import { getCantonDisplayName, markLocationDerivedFromVacancyText } from './lib/crawler-location-config.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
@@ -1320,6 +1321,50 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
 export function acceptInferredCantonForFill(rawInferred) {
   if (!rawInferred) return null;
   return TARGET_CANTONS.includes(rawInferred) ? rawInferred : null;
+}
+
+/**
+ * Infer a job canton without throwing away source-backed ambiguity evidence.
+ *
+ * `addressLocality` is intentionally normalized to a bare municipality for
+ * structured data, but several Swiss municipalities are homonyms across
+ * cantons (`Buchs`, `Reinach`, `Gossau`, ...). Inferring from that field alone
+ * lets the first canton in the lookup table overwrite a crawler's valid
+ * per-job canton. The original source `location` and the crawler canton are
+ * stronger evidence when they agree; a location marker that conflicts with
+ * the crawler is deliberately ignored here so the audit still exposes the
+ * producer defect instead of hiding it at assembly time.
+ *
+ * @param {{cityText?: string, locationText?: string, crawlerCanton?: string}} input
+ * @returns {string}
+ */
+export function inferCantonFromJobEvidence({ cityText = '', locationText = '', crawlerCanton = '' } = {}) {
+  const city = String(cityText || '').trim();
+  const location = String(locationText || '').trim();
+  const crawler = String(crawlerCanton || '').trim().toUpperCase();
+  const encoded = cantonNamedByLocation(location);
+
+  // An explicit source marker is safe only when it agrees with the crawler's
+  // own canton. A disagreement is a real data-quality conflict, not a reason
+  // for the assembly step to choose a winner silently.
+  if (encoded && (!crawler || encoded === crawler)) return encoded;
+
+  const locality = city || swissCityFromLocationField(location) || location;
+  const inferred = inferAnyCanton(city || location);
+
+  // A bare homonym is not enough to overrule per-job source evidence. Require
+  // the crawler canton to be a real canton in which that municipality exists;
+  // clear mismatches such as Moutier/BE still flow to the generic inference.
+  if (
+    crawler
+    && inferred
+    && inferred !== crawler
+    && isKnownSwissMunicipalityInCanton(locality, crawler)
+  ) {
+    return crawler;
+  }
+
+  return inferred;
 }
 
 /**
@@ -2841,7 +2886,13 @@ async function assembleJobs() {
     const crawlerCanton = job.canton || '';
     const city = String(job.addressLocality || job.location || '').trim();
     const hasCity = city.length >= 2 && city !== 'CH';
-    const rawInferred = hasCity ? inferAnyCanton(city) : null;
+    const rawInferred = hasCity
+      ? inferCantonFromJobEvidence({
+        cityText: city,
+        locationText: job.location,
+        crawlerCanton,
+      })
+      : null;
     // Guard: only accept the inference if it lands in a canton the funnel
     // actually serves (has a URL section). Otherwise leave the canton as-is
     // (empty stays empty — recognizable — rather than silently becoming an
