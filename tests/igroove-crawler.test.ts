@@ -317,6 +317,52 @@ describe('iGroove crawler parser', () => {
       vi.resetModules();
     });
 
+    // Personio offices written as a work mode decorated with a country, region
+    // or canton (EN/DE/FR/IT): none names a place.
+    async function replayOffice(location: string) {
+      vi.resetModules();
+      vi.doMock('../scripts/lib/ats-clients/personio-client.mjs', () => ({
+        fetchPersonioJobs: vi.fn(async () => [{
+          jobReqId: '9',
+          title: 'Data Engineer',
+          location,
+          department: 'IT',
+          postedAt: '2026-03-31T07:10:55.000Z',
+          applyUrl: 'https://igroove.jobs.personio.de/job/9',
+          descriptionHtml: '<p>Build our data pipeline.</p>',
+          employmentType: 'permanent',
+          seniority: 'experienced',
+          schedule: 'full-time',
+          rawPosition: {},
+        }]),
+      }));
+      vi.spyOn(console, 'log').mockImplementation(() => {});
+      const { fetchAllIgrooveJobs } = await import('../scripts/lib/igroove-job-parser.mjs');
+      const jobs = await fetchAllIgrooveJobs();
+      vi.doUnmock('../scripts/lib/ats-clients/personio-client.mjs');
+      vi.restoreAllMocks();
+      vi.resetModules();
+      return jobs;
+    }
+
+    it.each([
+  'Remote, Switzerland',
+  'Home Office - Switzerland',
+  'Switzerland - Remote',
+  'Hybrid (CH)',
+  'Hybrid (ZH)',
+  'Homeoffice',
+  'Télétravail, Suisse',
+  'Telelavoro - Ticino',
+])('skips the work-mode office %s', async (label) => {
+      expect(await replayOffice(label)).toEqual([]);
+    });
+
+    it('keeps a work-mode office that names Zurich as Zürich / ZH', async () => {
+      const jobs = await replayOffice('Remote - Zurich');
+      expect(jobs.map((job: { location: string; canton: string }) => [job.location, job.canton])).toEqual([['Zürich', 'ZH']]);
+    });
+
     it('returns an empty array when the feed has no positions', async () => {
       vi.resetModules();
       vi.doMock('../scripts/lib/ats-clients/personio-client.mjs', () => ({

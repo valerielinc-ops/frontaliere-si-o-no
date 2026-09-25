@@ -111,6 +111,53 @@ describe('Abbott crawler location resolution', () => {
     });
   });
 
+  // Work-mode labels decorated with a country, region or canton (EN/DE/FR/IT),
+  // with no requisition site: no segment may become the locality.
+  describe('work-mode listing labels (issue 9839 rule)', () => {
+    afterEach(() => {
+      workdayReplay.listings = [];
+      workdayReplay.details.clear();
+      vi.restoreAllMocks();
+    });
+
+    async function replayLabel(label: string) {
+      const path = '/job/Switzerland/Specialist_R9';
+      workdayReplay.listings.push({
+        title: 'Specialist', externalPath: path, locationsText: label, postedOn: 'Posted 3 Days Ago', bulletFields: ['R9'],
+      });
+      workdayReplay.details.set(path, {
+        jobPostingInfo: { title: 'Specialist', timeType: 'Full time', jobDescription: `<p>${'Abbott Swiss role. '.repeat(8)}</p>` },
+      });
+      vi.spyOn(globalThis, 'setTimeout').mockImplementation(((fn: () => void) => {
+        fn();
+        return 0;
+      }) as unknown as typeof setTimeout);
+      vi.spyOn(console, 'log').mockImplementation(() => {});
+      return fetchAllAbbottJobs();
+    }
+
+    it.each([
+  'Remote, Switzerland',
+  'Home Office - Switzerland',
+  'Switzerland - Remote',
+  'Hybrid (CH)',
+  'Hybrid (ZH)',
+  'Homeoffice',
+  'Télétravail, Suisse',
+  'Telelavoro - Ticino',
+])('reads no locality from %s and publishes no job', async (label) => {
+      expect(resolveAbbottLocation(label)).toBe('');
+      expect(await replayLabel(label)).toEqual([]);
+    });
+
+    it('keeps the named place when a work mode sits beside it', async () => {
+      expect(resolveAbbottLocation('Switzerland - Zurich - Remote')).toBe('Zurich');
+      expect(resolveAbbottLocation('Remote - Zurich')).toBe('Zurich');
+      const jobs = await replayLabel('Remote - Zurich');
+      expect(jobs.map((job: { location: string; canton: string }) => [job.location, job.canton])).toEqual([['Zurich', 'ZH']]);
+    });
+  });
+
   it('keeps the parser identity stable', () => {
     expect(ABBOTT_KEY).toBe('abbott');
     expect(ABBOTT_COMPANY_NAME).toBe('Abbott');

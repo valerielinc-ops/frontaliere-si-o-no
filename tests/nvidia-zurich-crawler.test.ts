@@ -6,6 +6,7 @@ import {
   isTrustedDomain,
   hasNvidiaSwissLocation,
   hasNvidiaSwissPrimaryLocation,
+  resolveNvidiaPrimarySwissLocation,
   fetchAllNvidiaZurichJobs,
 } from '../scripts/lib/nvidia-zurich-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
@@ -174,6 +175,29 @@ describe('NVIDIA (ufficio Zurich) crawler parser', () => {
       })).toBe(false);
       expect(hasNvidiaSwissPrimaryLocation({ location: 'Switzerland' })).toBe(false);
       expect(hasNvidiaSwissPrimaryLocation({ location: 'CH-ZH' })).toBe(false);
+    });
+
+    // Work-mode primaries decorated with a country, region or canton, in
+    // EN/DE/FR/IT: none names a municipality, so none may become Zürich.
+    it.each([
+  'Remote, Switzerland',
+  'Home Office - Switzerland',
+  'Switzerland - Remote',
+  'Hybrid (CH)',
+  'Hybrid (ZH)',
+  'Homeoffice',
+  'Télétravail, Suisse',
+  'Telelavoro - Ticino',
+])('refuses the work-mode primary %s', (label) => {
+      expect(resolveNvidiaPrimarySwissLocation({ location: label })).toBeNull();
+      expect(hasNvidiaSwissPrimaryLocation({ location: label })).toBe(false);
+    });
+
+    it('keeps a work-mode primary that names Zurich as Zürich / ZH', () => {
+      expect(resolveNvidiaPrimarySwissLocation({ location: 'Switzerland, Remote - Zurich' }))
+        .toEqual({ city: 'Zürich', canton: 'ZH' });
+      expect(resolveNvidiaPrimarySwissLocation({ location: 'Remote - Zurich' }))
+        .toEqual({ city: 'Zürich', canton: 'ZH' });
     });
 
     it('fails closed when the primary location is unreadable', () => {

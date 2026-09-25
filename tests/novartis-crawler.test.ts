@@ -75,6 +75,48 @@ describe('Novartis crawler parser', () => {
     });
   });
 
+  // Work-mode listing labels decorated with a country, region or canton
+  // (EN/DE/FR/IT): none names a place, so none may reach the canton fallback.
+  describe('work-mode listing labels (issue 9839 rule)', () => {
+    afterEach(() => {
+      workdayReplay.listings = [];
+      workdayReplay.details.clear();
+      vi.restoreAllMocks();
+    });
+
+    async function replayLabel(label: string) {
+      const path = '/job/Remote/Engineer_REQ-10000009';
+      workdayReplay.listings.push({
+        title: 'Engineer', externalPath: path, locationsText: label, postedOn: 'Posted 3 Days Ago', bulletFields: ['REQ-10000009'],
+      });
+      workdayReplay.details.set(path, { jobPostingInfo: { title: 'Engineer', location: label } });
+      vi.spyOn(globalThis, 'setTimeout').mockImplementation(((fn: () => void) => {
+        fn();
+        return 0;
+      }) as unknown as typeof setTimeout);
+      vi.spyOn(console, 'log').mockImplementation(() => {});
+      return fetchAllNovartisJobs();
+    }
+
+    it.each([
+  'Remote, Switzerland',
+  'Home Office - Switzerland',
+  'Switzerland - Remote',
+  'Hybrid (CH)',
+  'Hybrid (ZH)',
+  'Homeoffice',
+  'Télétravail, Suisse',
+  'Telelavoro - Ticino',
+])('publishes no job for %s', async (label) => {
+      expect(await replayLabel(label)).toEqual([]);
+    });
+
+    it('keeps a work-mode label that names Zurich as Zürich / ZH', async () => {
+      const jobs = await replayLabel('Remote - Zurich');
+      expect(jobs.map((job: { location: string; canton: string }) => [job.location, job.canton])).toEqual([['Zürich', 'ZH']]);
+    });
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(NOVARTIS_KEY).toBe('novartis');

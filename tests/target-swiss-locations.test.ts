@@ -21,16 +21,45 @@ describe('isWorkModeLocationLabel', () => {
     }
   });
 
-  it('flags a work mode when it is one segment of a decorated label', () => {
-    for (const label of ['Remote, Switzerland', 'Switzerland - Remote', 'Home Office - Switzerland']) {
-      expect(isWorkModeLocationLabel(label), label).toBe(true);
-    }
+  // A work mode decorated with a country, a region or a canton, in EN/DE/FR/IT,
+  // still names no municipality.
+  it.each([
+    'Remote, Switzerland',
+    'Switzerland - Remote',
+    'Home Office - Switzerland',
+    'Home-Office, Schweiz',
+    'Homeoffice',
+    'Hybrid (CH)',
+    'Hybrid (ZH)',
+    'Télétravail',
+    'Télétravail, Suisse',
+    'Teletravail (VD)',
+    'Telelavoro',
+    'Telelavoro - Ticino',
+    'Switzerland - Télétravail - Vaud',
+    'Remote Position (USA)',
+  ])('flags %s, a work mode without a municipality', (label) => {
+    expect(isWorkModeLocationLabel(label)).toBe(true);
   });
 
-  it('does not flag a place, a city plus work-mode word or an empty label', () => {
-    for (const label of ['Basel (City)', 'Rotkreuz (Office-Based)', 'Zürich', 'Zürich Hybrid', '', undefined]) {
-      expect(isWorkModeLocationLabel(label as string), String(label)).toBe(false);
-    }
+  // A work mode next to a municipality is a place: `Remote - Zurich` names Zürich.
+  it.each([
+    'Remote - Zurich',
+    'Remote - Zurich, Switzerland',
+    'Switzerland - Zurich - Remote',
+    'Zürich Hybrid',
+    'Zürich-Hybrid',
+    'Basel (City)',
+    'Rotkreuz (Office-Based)',
+    'Zürich',
+    'Hybridge',
+    '',
+  ])('does not flag %s', (label) => {
+    expect(isWorkModeLocationLabel(label)).toBe(false);
+  });
+
+  it('does not flag a missing label', () => {
+    expect(isWorkModeLocationLabel(undefined as unknown as string)).toBe(false);
   });
 });
 

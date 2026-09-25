@@ -13,7 +13,11 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton, isWorkModeLocationLabel } from './target-swiss-locations.mjs';
+import {
+  inferSwissTargetCanton,
+  isWorkModeLocationLabel,
+  swissCityFromLocationField,
+} from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
@@ -143,6 +147,7 @@ async function fetchJobListings() {
       out.push({
         title: id.title,
         location: id.location,
+        locationRaw: posting.locationsText || '',
         url: id.applyUrl,
         postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
         externalPath: id.externalPath,
@@ -188,8 +193,15 @@ export async function fetchAllNovartisJobs() {
     // `listing.location` is '' for an "N Locations" roll-up: only the req's own
     // primary workplace may place it in Switzerland, never the Basel HQ
     // (issue 9842).
-    const location = normalizeSpace(listing.location || '')
-      || await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath);
+    // Workday's first segment of `Remote - Zurich` is the work mode: the place
+    // is read from the whole label, and a work mode with no municipality
+    // (`Remote`, `Hybrid (ZH)`, `Telelavoro - Ticino`) leaves no location.
+    const listingLocation = isWorkModeLocationLabel(listing.location)
+      ? swissCityFromLocationField(listing.locationRaw)
+      : normalizeSpace(listing.location || '');
+    const location = listing.location
+      ? listingLocation
+      : await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath);
     const canton = location && !isWorkModeLocationLabel(location)
       ? inferSwissTargetCanton(location)
       : '';

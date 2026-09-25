@@ -87,14 +87,20 @@ function cleanAbbottLocation(raw = '') {
   const trimmed = String(raw || '').trim();
   if (!trimmed) return '';
   if (/\d+\s+location/i.test(trimmed)) return '';
+  // A work mode with no municipality (`Switzerland - Remote`,
+  // `Home Office - Switzerland`, `Switzerland - Télétravail - Vaud`) names no
+  // place: no segment of it may become the locality.
+  if (isWorkModeLocationLabel(trimmed)) return '';
   // Strip leading "Switzerland - " (and language variants)
   const stripped = trimmed.replace(/^\s*(switzerland|schweiz|suisse|svizzera)\s*-\s*/i, '').trim();
   if (!stripped) return '';
-  const parts = stripped.split(/\s*-\s*/).map((p) => p.trim()).filter(Boolean);
+  // A work-mode segment beside a named place (`Switzerland - Zurich - Remote`)
+  // is dropped so the place stays the locality.
+  const parts = stripped.split(/\s*-\s*/)
+    .map((p) => p.trim())
+    .filter((p) => p && !isWorkModeLocationLabel(p));
   // Last segment is usually the city (when present), else the canton/region.
-  const last = parts[parts.length - 1] || '';
-  // A work mode (`Switzerland - Remote`) names no place.
-  return isWorkModeLocationLabel(last) ? '' : last;
+  return parts[parts.length - 1] || '';
 }
 
 export function resolveAbbottLocation(listingLocation = '', requisitionLocation = '') {

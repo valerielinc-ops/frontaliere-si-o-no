@@ -842,24 +842,31 @@ export function swissCityFromLocationField(value = '') {
   return canonicalSwissCityName(findSwissCityInText(value));
 }
 
-// A location label that names a work mode instead of a place. Workday and
-// Greenhouse boards emit it where a city would go (`Switzerland - Remote`,
-// `Remote, Switzerland`, a bare `Remote`).
-const WORK_MODE_LOCATION_LABEL_RE = /^(?:remote|home[\s-]*office|hybrid)$/i;
+// A work mode written where a city would go: EN/DE/FR/IT forms seen on
+// Workday, Greenhouse and Personio boards (`Remote`, `Homeoffice`,
+// `Télétravail`, `Telelavoro`, `Hybrid`), alone or decorated with a country or
+// region (`Remote, Switzerland`, `Switzerland - Remote`, `Hybrid (CH)`).
+// Letter-bounded, so it never matches inside a longer word.
+const WORK_MODE_TOKEN_RE = /(?<![\p{L}\p{N}])(?:remote|remoto|home[\s-]*office|work[\s-]+from[\s-]+home|hybrid|hybride|ibrido|t[eé]l[eé]travail|telelavoro|telearbeit|smart[\s-]*working)(?![\p{L}\p{N}])/giu;
 
 /**
- * True when a location label (or one segment of it) is a work mode —
- * "Remote", "Home Office", "Hybrid" — rather than a place. Such a label names
- * no municipality, so a crawler must skip the job instead of stamping it with
- * its HQ city or canton: unknown geography stays fail-closed (issue 9839).
+ * True when a location label names a work mode — "Remote", "Home Office",
+ * "Homeoffice", "Hybrid", "Télétravail", "Telelavoro", alone or with a
+ * country or region ("Remote, Switzerland", "Home Office - Switzerland",
+ * "Hybrid (CH)", "Telelavoro - Ticino") — and NO Swiss municipality. Such a
+ * label names no place, so a crawler must skip the job instead of stamping it
+ * with its HQ city or canton: unknown geography stays fail-closed (issue 9839).
+ *
+ * A label that also names a municipality is a place qualified by a work mode
+ * and returns false: "Remote - Zurich" and "Zürich Hybrid" name Zürich. A
+ * canton is not a municipality: "Hybrid (ZH)" names no place.
  */
 export function isWorkModeLocationLabel(value = '') {
-  return String(value || '')
-    // Workday sometimes decorates the mode with a country/region segment.
-    // Keep a city joined by whitespace ("Zürich Hybrid") as a real location.
-    .split(/[,|/]|\s+[-–—]\s+/)
-    .map((segment) => segment.trim())
-    .some((segment) => WORK_MODE_LOCATION_LABEL_RE.test(segment));
+  const text = String(value || '').trim();
+  if (!text) return false;
+  const withoutWorkMode = text.replace(WORK_MODE_TOKEN_RE, ' ');
+  if (withoutWorkMode === text) return false;
+  return !swissCityFromLocationField(withoutWorkMode);
 }
 
 // ─── Liechtenstein postal-code helper ──────────────────────────────────────
