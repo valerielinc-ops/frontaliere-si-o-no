@@ -489,6 +489,128 @@ describe('firestore.rules — newsletter_subscribers consent field guard', () =>
       { merge: true },
     ));
   });
+
+  // The sign-in writer (services/newsletterSubscribers.ts, PR #9837) records
+  // the surface (`consent_origin`, a guarded consent key) and the origin of
+  // the confirmation (`confirmation_method`, `confirmed_via_surface`, guarded
+  // as subscription state) beside the terms record; a displayed registration
+  // by the verified owner is accepted with them.
+  const termsRegistration = (displayed: boolean) => ({
+    email: 'owner@example.com',
+    status: 'confirmed',
+    isActive: true,
+    active: true,
+    confirmed_at: '2026-09-25T10:00:00.000Z',
+    registration_terms_accepted: true,
+    consent_basis: 'registration_terms',
+    consent_text: 'Registrandomi accetto le condizioni e mi iscrivo alle comunicazioni di Frontaliere Ticino. Condizioni (v. 2026-09-25.2).',
+    consent_text_version: '2026-09-25.2',
+    consent_text_displayed: displayed,
+    consent_act: 'registration_terms_acceptance',
+    consent_method: 'terms_and_conditions',
+    consent_origin: displayed ? 'job_gate' : 'auth_one_tap',
+    confirmation_method: 'provider_verified_email',
+    confirmed_via_surface: displayed ? 'job_gate' : 'auth_one_tap',
+  });
+
+  it('a verified owner registers under the terms with the surface and the confirmation origin', async () => {
+    const owner = testEnv.authenticatedContext('owner-uid', {
+      email: 'owner@example.com',
+      email_verified: true,
+    });
+    await assertSucceeds(setDoc(
+      doc(owner.firestore(), 'newsletter_subscribers', 'owner@example.com'),
+      termsRegistration(true),
+    ));
+  });
+
+  it('an anonymous client cannot rewrite the confirmation origin of an existing record', async () => {
+    await testEnv.withSecurityRulesDisabled(async (context) => {
+      await setDoc(doc(context.firestore(), 'newsletter_subscribers', 'owner@example.com'), termsRegistration(true));
+    });
+    const unauthed = testEnv.unauthenticatedContext();
+    await assertFails(setDoc(
+      doc(unauthed.firestore(), 'newsletter_subscribers', 'owner@example.com'),
+      { confirmation_method: 'doi_click', confirmed_via_surface: 'confirmation_email' },
+      { merge: true },
+    ));
+  });
+
+  // Owner decision of 2026-09-25: the login keeps registering in silence, and
+  // the record says truthfully that no notice was on screen (One Tap over a
+  // plain page, the assistant, the profile page). The displayed flag is a
+  // recorded fact, not a condition; the verified owner is.
+  it('a verified owner registers under the terms with the notice NOT displayed, recorded as such', async () => {
+    const owner = testEnv.authenticatedContext('owner-uid', {
+      email: 'owner@example.com',
+      email_verified: true,
+    });
+    await assertSucceeds(setDoc(
+      doc(owner.firestore(), 'newsletter_subscribers', 'owner@example.com'),
+      termsRegistration(false),
+    ));
+  });
+
+  it('a verified owner\'s login confirms an existing pending record with the notice not displayed', async () => {
+    await testEnv.withSecurityRulesDisabled(async (context) => {
+      await setDoc(doc(context.firestore(), 'newsletter_subscribers', 'owner@example.com'), {
+        email: 'owner@example.com',
+        status: 'pending',
+        isActive: false,
+        active: false,
+        source_channel: 'job_gate',
+      });
+    });
+    const owner = testEnv.authenticatedContext('owner-uid', {
+      email: 'owner@example.com',
+      email_verified: true,
+    });
+    await assertSucceeds(setDoc(
+      doc(owner.firestore(), 'newsletter_subscribers', 'owner@example.com'),
+      termsRegistration(false),
+      { merge: true },
+    ));
+  });
+
+  it('the same undisplayed registration stays refused without a verified owner', async () => {
+    const unauthed = testEnv.unauthenticatedContext();
+    await assertFails(setDoc(
+      doc(unauthed.firestore(), 'newsletter_subscribers', 'owner@example.com'),
+      termsRegistration(false),
+    ));
+    const unverified = testEnv.authenticatedContext('shell-uid', {
+      email: 'owner@example.com',
+      email_verified: false,
+    });
+    await assertFails(setDoc(
+      doc(unverified.firestore(), 'newsletter_subscribers', 'owner@example.com'),
+      termsRegistration(false),
+    ));
+    const otherOwner = testEnv.authenticatedContext('other-uid', {
+      email: 'someone-else@example.com',
+      email_verified: true,
+    });
+    await assertFails(setDoc(
+      doc(otherOwner.firestore(), 'newsletter_subscribers', 'owner@example.com'),
+      termsRegistration(false),
+    ));
+  });
+
+  it('the displayed flag must still be a boolean, and the terms record complete', async () => {
+    const owner = testEnv.authenticatedContext('owner-uid', {
+      email: 'owner@example.com',
+      email_verified: true,
+    });
+    await assertFails(setDoc(
+      doc(owner.firestore(), 'newsletter_subscribers', 'owner@example.com'),
+      { ...termsRegistration(false), consent_text_displayed: 'no' },
+    ));
+    const { consent_text: _text, ...withoutText } = termsRegistration(false);
+    await assertFails(setDoc(
+      doc(owner.firestore(), 'newsletter_subscribers', 'owner@example.com'),
+      withoutText,
+    ));
+  });
 });
 
 // Sanity check kept alongside the RED cases so this file self-documents that

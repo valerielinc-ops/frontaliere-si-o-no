@@ -34,9 +34,9 @@ export function truncateCodeUnits(input: string, max: number): string {
 /**
  * Remove any unpaired surrogate code unit (high without low, or low without high).
  *
- * Copies clean runs with `slice` instead of appending one code unit at a time:
- * the per-unit `output +=` loop built one rope node per character (~7 s and
- * ~250 MB of heap on a 10M-unit input, follow-up FU-2026-09-24-034 of #9609).
+ * Copies clean runs with `slice` instead of appending one code unit at a time,
+ * avoiding avoidable allocation pressure on large inputs. The large-input
+ * regression test covers this linear path.
  * A well-formed input is returned as is, without any copy.
  */
 export function stripLoneSurrogates(input: string): string {

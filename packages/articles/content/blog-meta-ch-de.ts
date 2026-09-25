@@ -6704,6 +6704,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.omologazione-fitosanitari-arretrato-2032.title': 'Zulassung von Pflanzenschutzmitteln: Rückstand bis 2032 beseitigt',
     'blog.article.omologazione-fitosanitari-arretrato-2032.excerpt': 'Bundesrat setzt 2032 fest, um 525 anhängige Gesuche zu bearbeiten; Gebühren steigen ab 2028, um Kosten zu 50% zu decken.',
     'blog.article.omologazione-fitosanitari-arretrato-2032.imageAlt': 'Bundeshaus in Bern mit Ackerland im Hintergrund',
+    'blog.article.finanziamento-federale-universita-sup.title': 'Eidgenössische Finanzierung Kantonaler Hochschulen und Fachhochschulen',
+    'blog.article.finanziamento-federale-universita-sup.excerpt': 'Der Bundesrat hat am 25. September 2026 den Bericht über die faire Finanzierung genehmigt: maximal 20% für kantonale Hochschulen, maximal 30% für FH ab 1. Januar 2027.',
+    'blog.article.finanziamento-federale-universita-sup.imageAlt': 'Moderner Universitätscampus in Lugano mit Studierenden und Forschungslaboren unter alpiner Himmel',
+    'blog.article.fondi-integrazione-svizzera-2028.title': 'Mehr Integrationsfonds des Bundes 2028-2032',
+    'blog.article.fondi-integrazione-svizzera-2028.excerpt': 'Der Bundesrat stellt im Zeitraum 2028-2032 334,5 Millionen für die Integration in der Schweiz bereit, mit 66,9 Millionen jährlich für kantonale und nationale Programme.',
+    'blog.article.fondi-integrazione-svizzera-2028.imageAlt': 'Schweizer Informationsveranstaltung zu kantonalen Integrationsprogrammen',
+    'blog.article.incentivo-fiscale-acquisto-locale.title': 'Steuerlicher Anreiz für lokale Einkäufe im Tessin: Vorschlag',
+    'blog.article.incentivo-fiscale-acquisto-locale.excerpt': 'Das Zentrum bietet eine Steuergutschrift von bis zu 25% für Personen an, die bis zu 5% ihres Gehalts oder Jahreseinkommens teilnehmenden Tessiner Händlern zukommen lassen.',
+    'blog.article.incentivo-fiscale-acquisto-locale.imageAlt': 'Smartphone mit digitalem Wallet für lokale Einkäufe in Ticino',
+    'blog.article.franco-svizzero-ribasso-settembre-novembre.title': 'Schweizer Franken im Abwärtstrend: Signale, die bis November zu beobachten sind',
+    'blog.article.franco-svizzero-ribasso-settembre-novembre.excerpt': 'Der Schweizer Franken ist seit den Höchstständen im Frühjahr 2026 um etwa 5% gefallen, was dem Rückgang von 2023 entspricht und weniger als den >6% von 2024; das saisonale Zeitfenster reicht von Ende September bis Anfang November.',
+    'blog.article.franco-svizzero-ribasso-settembre-novembre.imageAlt': 'Illustration des Schweizer Frankens und des Euro mit Hintergrund des Luganer Sees',
 };
 
 export default blogMetaChDe;

@@ -11975,6 +11975,18 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pasture-cambio-operatore.title': 'À Pasture, l’opérateur change : des emplois menacés',
     'blog.article.pasture-cambio-operatore.excerpt': 'À partir de janvier, le mandat fédéral du Centre d\'asile passera d\'AOZ à ORS : au Tessin, 120 employés sont aujourd\'hui en service, mais tous ne seront pas résumés.',
     'blog.article.pasture-cambio-operatore.imageAlt': 'Pasture : changement d\'opérateur pour l\'assistance au Tessin',
+    'blog.article.eta-pensione-2030-ragioneria.title': 'Âge de départ à la retraite : 67 ans et 6 mois en 2030',
+    'blog.article.eta-pensione-2030-ragioneria.excerpt': 'La Comptabilité Générale de l\'État prévoit 67 ans et 6 mois en 2030 et une dépense de retraite à 17,1% du PIB en 2041.',
+    'blog.article.eta-pensione-2030-ragioneria.imageAlt': 'Un travailleur mûr consulte des documents de retraite face au paysage tessinois',
+    'blog.article.chiusura-cantonale-neggia-fosano.title': 'Fermeture cantonale entre Neggia et Fosano le 28 septembre',
+    'blog.article.chiusura-cantonale-neggia-fosano.excerpt': 'La cantonale entre Neggia et Fosano sera totalement bloquée le lundi 28 septembre, de 8 h à 16 h 30, pour des travaux de pavage dans la commune de Gambarogno.',
+    'blog.article.chiusura-cantonale-neggia-fosano.imageAlt': 'Route cantonale entre Neggia et Fosano fermée pour travaux de revêtement',
+    'blog.article.gehri-finanze-preventivo-27.title': 'Gehri tire la sonnette d\'alarme sur le déficit du Tessin',
+    'blog.article.gehri-finanze-preventivo-27.excerpt': 'Avant le budget \'27, le président de la Chambre de commerce Gehri qualifie le déficit cantonal d’insoutenable et critique l’inaction politique.',
+    'blog.article.gehri-finanze-preventivo-27.imageAlt': 'Bellinzone et Castelgrande par une journée lumineuse',
+    'blog.article.chiusura-gazzada-varese-ss707.title': 'Voie rapide Gazzada-Varese fermée le 24 septembre',
+    'blog.article.chiusura-gazzada-varese-ss707.excerpt': 'Le SS 707 Raccord Gazzada-Varese sera fermé vers Varese de 9h à 17h entre le km 3+100 et le km 4+500 pour travaux Anas.',
+    'blog.article.chiusura-gazzada-varese-ss707.imageAlt': 'Fermeture de la SS 707 Gazzada-Varese en direction de Varese',
 };
 
 export default blogMetaFr;

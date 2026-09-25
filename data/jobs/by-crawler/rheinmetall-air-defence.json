@@ -121,7 +121,6 @@
         "departmentName": "Unternehmensbereich Defence",
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "test-engineer-c2-and-training-system-m-w-d-rheinmetall-air-defence-ag-zurich"
       ],
@@ -143,8 +142,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "rheinmetall-air-defence-e771c6f8c5d4",
@@ -2837,7 +2835,6 @@
         "departmentName": "Unternehmensbereich Defence",
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "teamlead-professional-onsite-support-m-w-d-rheinmetall-air-defence-ag-zurich"
       ],
@@ -2862,8 +2859,7 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "rheinmetall-air-defence-a0a71c7c1a78",
@@ -3393,7 +3389,6 @@
           "sales-manager-naval-systems-m-w-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-05T22:29:15.326Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
@@ -3407,8 +3402,7 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "rheinmetall-air-defence-e4d20e4681a9",
@@ -3945,7 +3939,6 @@
           "senior-systems-engineer-missile-systems-m-w-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-22T11:54:38.092Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
@@ -3960,7 +3953,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1389
     },
     {
       "id": "rheinmetall-air-defence-77078b0dcb51",

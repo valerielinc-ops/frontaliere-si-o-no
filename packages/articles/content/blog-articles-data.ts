@@ -35928,6 +35928,42 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'eta-pensione-2030-ragioneria',
+ category: 'pensione',
+ date: '2026-09-25T12:01:41.050Z',
+ image: '/images/blog/eta-pensione-2030-ragioneria.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+ {
+ id: 'chiusura-cantonale-neggia-fosano',
+ category: 'pratico',
+ date: '2026-09-25T12:46:46.495Z',
+ image: '/images/blog/chiusura-cantonale-neggia-fosano.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'gehri-finanze-preventivo-27',
+ category: 'novita',
+ date: '2026-09-25T13:54:56.329Z',
+ image: '/images/blog/gehri-finanze-preventivo-27.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'chiusura-gazzada-varese-ss707',
+ category: 'pratico',
+ date: '2026-09-25T14:53:02.490Z',
+ image: '/images/blog/chiusura-gazzada-varese-ss707.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

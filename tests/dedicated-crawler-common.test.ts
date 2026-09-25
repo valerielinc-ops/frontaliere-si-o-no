@@ -1145,6 +1145,11 @@ describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)'
     expect(isLocationExplicitlyForeign('IT, Support in Lugano')).toBe(false);
     expect(isLocationExplicitlyForeign('Brussels, BE')).toBe(true);
     expect(isLocationExplicitlyForeign('Athens, GR')).toBe(true);
+    expect(isLocationExplicitlyForeign('Jefferson City, MO')).toBe(true);
+    expect(isLocationExplicitlyForeign('Windeck')).toBe(true);
+    // AR is both a US state and a Swiss canton; the location resolver must
+    // keep the ambiguous suffix conservative when the locality is Swiss.
+    expect(isLocationExplicitlyForeign('Appenzell, AR')).toBe(false);
 
     // Mid-field country code. An end-of-field anchor could not see it, and the
     // three tenants below each reached production with a wrong published city

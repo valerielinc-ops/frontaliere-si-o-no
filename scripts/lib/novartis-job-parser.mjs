@@ -13,7 +13,11 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {
+  inferSwissTargetCanton,
+  isWorkModeLocationLabel,
+  swissCityFromLocationField,
+} from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
@@ -22,6 +26,7 @@ import {
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
+import { fetchWorkdayPrimarySwissLocation } from './workday-swiss-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -142,6 +147,7 @@ async function fetchJobListings() {
       out.push({
         title: id.title,
         location: id.location,
+        locationRaw: posting.locationsText || '',
         url: id.applyUrl,
         postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
         externalPath: id.externalPath,
@@ -184,8 +190,25 @@ export async function fetchAllNovartisJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = listing.location || 'Basel';
-    const canton = inferSwissTargetCanton(location) || 'BS';
+    // `listing.location` is '' for an "N Locations" roll-up: only the req's own
+    // primary workplace may place it in Switzerland, never the Basel HQ
+    // (issue 9842).
+    // Workday's first segment of `Remote - Zurich` is the work mode: the place
+    // is read from the whole label, and a work mode with no municipality
+    // (`Remote`, `Hybrid (ZH)`, `Telelavoro - Ticino`) leaves no location.
+    const listingLocation = isWorkModeLocationLabel(listing.location)
+      ? swissCityFromLocationField(listing.locationRaw)
+      : normalizeSpace(listing.location || '');
+    const location = listing.location
+      ? listingLocation
+      : await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath);
+    const canton = location && !isWorkModeLocationLabel(location)
+      ? inferSwissTargetCanton(location)
+      : '';
+    if (!location || !canton) {
+      console.log(`  ⏭️  Skipped location without a Swiss canton: ${listing.location || '(roll-up without Swiss primary)'} — ${title}`);
+      continue;
+    }
     const publicUrl = listing.url || CAREER_URL;
 
     // Workday listing endpoint NEVER returns the job body — see workday-client.mjs.

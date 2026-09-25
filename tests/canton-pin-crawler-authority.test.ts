@@ -28,6 +28,7 @@ import { describe, expect, it } from 'vitest';
 import {
   resolveCantonAgainstPin,
   cantonFallbackLocality,
+  inferCantonFromJobEvidence,
   realignCantonOnlyLocality,
   normalizeParsedJobsForSlice,
 } from '../scripts/assemble-jobs-dataset.mjs';
@@ -116,6 +117,45 @@ describe('resolveCantonAgainstPin — the job outranks the ledger', () => {
     // Blanking it here would hide a crawler bug the location audit should see.
     expect(resolveCantonAgainstPin({ jobCanton: 'CH', inferredCanton: null, pinnedCanton: undefined }))
       .toEqual({ canton: 'CH', pin: '', outcome: 'unpinned' });
+  });
+});
+
+describe('inferCantonFromJobEvidence — preserve source-backed homonyms', () => {
+  it('uses an explicit location marker when it agrees with the crawler canton', () => {
+    expect(inferCantonFromJobEvidence({
+      cityText: 'Pfäffikon',
+      locationText: 'Pfäffikon, Schwyz',
+      crawlerCanton: 'SZ',
+    })).toBe('SZ');
+  });
+
+  it('keeps an ambiguous municipality in the crawler canton when BFS has a homonym', () => {
+    expect(inferCantonFromJobEvidence({
+      cityText: 'Buchs',
+      locationText: 'Buchs, Switzerland',
+      crawlerCanton: 'AG',
+    })).toBe('AG');
+    expect(inferCantonFromJobEvidence({
+      cityText: 'Reinach',
+      locationText: 'Reinach',
+      crawlerCanton: 'AG',
+    })).toBe('AG');
+  });
+
+  it('does not hide a location/crawler conflict by choosing the marker', () => {
+    expect(inferCantonFromJobEvidence({
+      cityText: 'Basel',
+      locationText: 'Region Muri AG',
+      crawlerCanton: 'BS',
+    })).toBe('BS');
+  });
+
+  it('still corrects a clear source mismatch', () => {
+    expect(inferCantonFromJobEvidence({
+      cityText: 'Moutier',
+      locationText: 'Moutier',
+      crawlerCanton: 'BE',
+    })).toBe('JU');
   });
 });
 

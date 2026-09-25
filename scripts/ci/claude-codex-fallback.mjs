@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * Contratto provider-neutral per l'evidenza Claude/Codex.
  *
@@ -19,21 +18,19 @@
 import fs from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { detectClaudeRateLimit } from './claude-rate-limit.mjs';
+import {
+  CODEX_ALLOWED_EFFORTS,
+  CODEX_FALLBACK_EFFORT,
+  CODEX_FALLBACK_MODEL,
+  isAllowedCodexEffort,
+} from '../lib/codex-fallback-contract.mjs';
 
-/** Modello e reasoning effort vincolanti per l'esecuzione di fallback. */
-export const CODEX_FALLBACK_MODEL = 'gpt-5.6-luna';
-export const CODEX_FALLBACK_EFFORT = 'max';
-/**
- * Effort ammessi per tier. Il default resta `max` per ogni chiamante che non
- * lo sceglie; la review in `tests.yml` passa `high` ai tier minimal,
- * incremental e normal e tiene `max` per high/high-mega. Il contratto resta
- * chiuso: un valore fuori da questo insieme invalida l'evidenza.
- */
-export const CODEX_ALLOWED_EFFORTS = Object.freeze(['high', 'max']);
-
-export function isAllowedCodexEffort(value) {
-  return CODEX_ALLOWED_EFFORTS.includes(value);
-}
+export {
+  CODEX_ALLOWED_EFFORTS,
+  CODEX_FALLBACK_EFFORT,
+  CODEX_FALLBACK_MODEL,
+  isAllowedCodexEffort,
+};
 // Passato a `codex exec` come argomento esplicito: impedisce al modello di
 // inoltrare le variabili di ambiente escluse per default (in particolare
 // *TOKEN/*SECRET) ai comandi shell generati.

@@ -93205,6 +93205,162 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-eta-pensione-2030-ragioneria': {
+    title: 'Età pensione: 67 anni e 6 mesi nel 2030 | Frontaliere Ticino',
+    description: 'Il Rapporto n. 27 della Ragioneria prevede 67 anni e 6 mesi nel 2030 e analizza la spesa per pensioni, sanità e assistenza agli anziani nei prossimi anni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensione, anni, mesi, ragioneria',
+    ogTitle: 'Età pensione: 67 anni e 6 mesi nel 2030',
+    ogDescription: 'Il Rapporto n. 27 del 22 settembre 2026 non cambia le regole, ma proietta l\'età pensionabile a 67 anni e 6 mesi nel 2030, a 68 anni e 2 mesi nel 2040 e a 70 anni nel 2050. Il tema resta distinto da permesso G, AVS e LPP, che la fonte non esamina.',
+    canonicalPath: '/articoli-frontaliere/eta-pensione-2030-ragioneria',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Età pensione: 67 anni e 6 mesi nel 2030",
+      "description": "Il Rapporto n. 27 della Ragioneria prevede 67 anni e 6 mesi nel 2030 e analizza la spesa per pensioni, sanità e assistenza agli anziani nei prossimi anni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/eta-pensione-2030-ragioneria.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratore maturo consulta documenti sulla pensione con il paesaggio ticinese sullo sfondo"
+      },
+      "datePublished": "2026-09-25T12:01:41+00:00",
+      "dateModified": "2026-09-25T12:01:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/eta-pensione-2030-ragioneria/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-chiusura-cantonale-neggia-fosano': {
+    title: 'Cantonale chiusa tra Neggia e Fosano il 28 settembre',
+    description: 'La Cantonale tra Neggia e Fosano, nel comune di Gambarogno, sarà chiusa lunedì 28 settembre dalle 8 alle 16.30 per lavori di pavimentazione in giornata.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cantonale, chiusa, neggia, fosano',
+    ogTitle: 'Cantonale chiusa tra Neggia e Fosano il 28 settembre',
+    ogDescription: 'La Cantonale tra Neggia e Fosano sarà totalmente sbarrata al traffico lunedì 28 settembre, dalle 8 alle 16.30. Il blocco, disposto per lavori di pavimentazione, riguarda La Stràda d\'lndéman 88 nel comune di Gambarogno.',
+    canonicalPath: '/articoli-frontaliere/chiusura-cantonale-neggia-fosano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cantonale chiusa tra Neggia e Fosano il 28 settembre",
+      "description": "La Cantonale tra Neggia e Fosano, nel comune di Gambarogno, sarà chiusa lunedì 28 settembre dalle 8 alle 16.30 per lavori di pavimentazione in giornata.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/chiusura-cantonale-neggia-fosano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada Cantonale tra Neggia e Fosano chiusa per lavori di pavimentazione"
+      },
+      "datePublished": "2026-09-25T12:46:46+00:00",
+      "dateModified": "2026-09-25T12:46:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusura-cantonale-neggia-fosano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-gehri-finanze-preventivo-27': {
+    title: 'Gehri lancia l\'allarme sul deficit del Ticino | Frontaliere Ticino',
+    description: 'Prima del Preventivo \'27, il presidente della Camera di commercio Gehri definisce insostenibile il deficit cantonale e critica l\'inerzia politica del Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, gehri, lancia, allarme, deficit',
+    ogTitle: 'Gehri: deficit insostenibile per il Ticino',
+    ogDescription: 'Prima del Preventivo \'27, Gehri, presidente della Camera di commercio, lancia un appello alla politica sulle finanze cantonali: il deficit è definito insostenibile e l\'inerzia difficile da giustificare.',
+    canonicalPath: '/articoli-frontaliere/gehri-finanze-preventivo-27',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gehri lancia l'allarme sul deficit del Ticino",
+      "description": "Prima del Preventivo '27, il presidente della Camera di commercio Gehri definisce insostenibile il deficit cantonale e critica l'inerzia politica del Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/gehri-finanze-preventivo-27.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona e il Castelgrande in una giornata luminosa"
+      },
+      "datePublished": "2026-09-25T13:54:56+00:00",
+      "dateModified": "2026-09-25T13:54:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gehri-finanze-preventivo-27/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-chiusura-gazzada-varese-ss707': {
+    title: 'Superstrada Gazzada-Varese chiusa il 24 settembre',
+    description: 'La SS 707 Raccordo Gazzada-Varese sarà chiusa verso Varese il 24 settembre, dalle 9 alle 17: lavori Anas tra km 3+100 e km 4+500, limite a 50 km/h nell\'area.',
+    keywords: 'frontalieri, ticino, svizzera, italia, superstrada, gazzada-varese, chiusa, settembre',
+    ogTitle: 'SS 707 Gazzada-Varese: chiusura verso Varese',
+    ogDescription: 'L\'ordinanza Anas prevede lo stop alla circolazione sulla SS 707 Raccordo Gazzada-Varese, in direzione Varese, dalle 9 alle 17 di giovedì 24 settembre. Coinvolti i chilometri dal 3+100 al 4+500 e limite di 50 km/h nell\'area dei lavori.',
+    canonicalPath: '/articoli-frontaliere/chiusura-gazzada-varese-ss707',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Superstrada Gazzada-Varese chiusa il 24 settembre",
+      "description": "La SS 707 Raccordo Gazzada-Varese sarà chiusa verso Varese il 24 settembre, dalle 9 alle 17: lavori Anas tra km 3+100 e km 4+500, limite a 50 km/h nell'area.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/chiusura-gazzada-varese-ss707.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Chiusura della SS 707 Gazzada-Varese in direzione del capoluogo"
+      },
+      "datePublished": "2026-09-25T14:53:02+00:00",
+      "dateModified": "2026-09-25T14:53:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusura-gazzada-varese-ss707/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

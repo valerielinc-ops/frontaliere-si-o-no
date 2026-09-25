@@ -1,7 +1,98 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-09-24T14:43:14.388Z",
+  "assembledAt": "2026-09-25T15:04:19.063Z",
   "jobs": [
+    {
+      "id": "corner-banca-f803e5cc9fe2",
+      "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
+      "slugByLocale": {
+        "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
+        "en": "unsolicited-application-apprenticeship-corner-banca-switzerland",
+        "de": "spontaner-ausbildungseinsatz-corner-banca-switzerland",
+        "fr": "apprentissage-spontane-corner-banca-switzerland"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Candidatura spontanea apprendistato",
+      "titleByLocale": {
+        "it": "Candidatura spontanea apprendistato",
+        "en": "Spontaneous apprenticeship application",
+        "de": "Spontaner Ausbildungseinsatz",
+        "fr": "Apprentissage spontané"
+      },
+      "description": "Apprendistato:\n\nDestinatari\n\nStudenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore.\n\nDurata\n\n4 anni (informatica)\n\nProgramma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale\n\nFormazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno.\n\nCorsi interaziendali: Ameti Bodio.\n\nRequisiti\n\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
+      "descriptionByLocale": {
+        "it": "Apprendistato:\n\nDestinatari\n\nStudenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore.\n\nDurata\n\n4 anni (informatica)\n\nProgramma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale\n\nFormazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno.\n\nCorsi interaziendali: Ameti Bodio.\n\nRequisiti\n\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
+        "en": "Apprendistate\n\nAddressees\n\n- Brilliant students who have completed middle school and are preparing to enter the world of work - They obtain a diploma at the end of a dual training which includes a rotation between the offices oriented to provide them with the necessary knowledge of the sector\n\nDuration\n\n- 4 years (computer)\n\nSchool programme\n\n- Computerized training development applications / infrastructure management / digital business development - School training: extended profile with integrated maturity, at the Professional Technical Centre in Locarno - Intercompany courses: Ameti Bodio\n\nRequirements\n\n- Graduated middle school with all levels of aptitude and above 4.7 - Slight motivation, passion for contact with people, desire to study and familiarize with figures and computer programs",
+        "de": "RECHTSSACHE\n\nAnschriften\n\n- Brillante Schüler, die die Mittelschule abgeschlossen haben und sich auf den Eintritt in die Arbeitswelt vorbereiten - Sie erhalten am Ende einer dualen Ausbildung ein Diplom, das eine Rotation zwischen den Büros beinhaltet, die darauf ausgerichtet sind, ihnen die notwendigen Kenntnisse des Sektors zu vermitteln\n\nDauer\n\n- 4 Jahre (Computer)\n\nSchulprogramm\n\n- Computergestützte Ausbildung, Entwicklung von Anwendungen / Infrastrukturmanagement / digitale Unternehmensentwicklung - Schulausbildung: erweitertes Profil mit integrierter Reife, am Technischen Zentrum in Locarno - Betriebsinterne Kurse: Ameti Bodio\n\nAnforderungen\n\n- Abschluss Mittelschule mit allen Niveaus der Eignung und ab 4.7 - Leichte Motivation, Leidenschaft für den Kontakt mit Menschen, Wunsch zu studieren und vertraut mit Zahlen und Computer-Programme",
+        "fr": "Appréciation\n\nAdresses\n\n- Les étudiants brillants qui ont terminé leurs études secondaires et se préparent à entrer dans le monde du travail - Ils obtiennent un diplôme à la fin d'une formation double qui comprend une rotation entre les bureaux orientés pour leur fournir les connaissances nécessaires du secteur\n\nDurée\n\n- 4 ans (ordinateur)\n\nProgramme scolaire\n\n- Applications de développement de formation informatisée / gestion d'infrastructure / développement d'entreprise numérique - Formation scolaire : profil élargi à maturité intégrée, au Centre technique professionnel de Locarno - Cours interentreprises : Ameti Bodio\n\nBesoins\n\n- Collège diplômé avec tous les niveaux d'aptitude et plus 4.7 - Légère motivation, passion pour le contact avec les gens, désir d'étudier et de se familiariser avec les chiffres et les programmes informatiques"
+      },
+      "requirements": [
+        "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.",
+        "Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici."
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
+        ],
+        "en": [
+          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
+        ],
+        "de": [
+          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
+        ]
+      },
+      "location": "Switzerland",
+      "canton": "TI",
+      "addressLocality": "Switzerland",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-10-02",
+      "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "it",
+      "crawledAt": "2026-09-25T15:04:13.150Z",
+      "previousSlugs": [
+        "initiativbewerbung-lehre-corner-banca-switzerland",
+        "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
+        "unsolicited-application-apprenticeship-corner-banca-switzerland",
+        "spontaner-ausbildungseinsatz-corner-banca-switzerland",
+        "apprentissage-spontane-corner-banca-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "de": [
+          "initiativbewerbung-lehre-corner-banca-switzerland",
+          "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
+          "spontaner-ausbildungseinsatz-corner-banca-switzerland"
+        ],
+        "fr": [
+          "unsolicited-application-apprenticeship-corner-banca-switzerland",
+          "apprentissage-spontane-corner-banca-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-05-17T10:02:58.679Z",
+      "needsRetranslation": true,
+      "salaryMin": 59500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "applyUrl": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship"
+    },
     {
       "id": "corner-banca-62309aa78f00",
       "slug": "team-raccolta-dipendenti-zurigo-ref-1068-corner-banca-wallisellen",
@@ -74,12 +165,13 @@
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich-ref-1068",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-24T14:43:09.361Z",
+      "crawledAt": "2026-09-25T15:04:13.147Z",
       "previousSlugsByLocale": {
         "it": [
           "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen",
           "team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen",
-          "employee-collection-team-zurigo-ref-1068-corner-banca-wallisellen"
+          "employee-collection-team-zurigo-ref-1068-corner-banca-wallisellen",
+          "team-raccolta-dipendenti-zurigo-ref-1068-corner-banca-wallisellen"
         ],
         "de": [
           "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen"
@@ -91,9 +183,11 @@
       "previousSlugs": [
         "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen",
         "team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen",
-        "employee-collection-team-zurigo-ref-1068-corner-banca-wallisellen"
+        "employee-collection-team-zurigo-ref-1068-corner-banca-wallisellen",
+        "team-raccolta-dipendenti-zurigo-ref-1068-corner-banca-wallisellen"
       ],
       "firstSeenAt": "2026-08-14T10:12:28.238Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -109,100 +203,14 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "sourceIdentity": "url:https://jobs.corner.ch/o/employee-collection-team-zurich-ref-1068"
-    },
-    {
-      "id": "corner-banca-f803e5cc9fe2",
-      "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
-      "slugByLocale": {
-        "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
-        "en": "unsolicited-application-apprenticeship-corner-banca-switzerland",
-        "de": "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
-        "fr": "unsolicited-application-apprenticeship-corner-banca-switzerland"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Candidatura spontanea apprendistato",
-      "titleByLocale": {
-        "it": "Candidatura spontanea apprendistato",
-        "en": "Spontaneous apprenticeship application",
-        "de": "Spontaner Ausbildungseinsatz",
-        "fr": "Apprentissage spontané"
-      },
-      "description": "Apprendistato:\n\nDestinatari\n\nStudenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore.\n\nDurata\n\n4 anni (informatica)\n\nProgramma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale\n\nFormazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno.\n\nCorsi interaziendali: Ameti Bodio.\n\nRequisiti\n\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
-      "descriptionByLocale": {
-        "it": "Apprendistato:\n\nDestinatari\n\nStudenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore.\n\nDurata\n\n4 anni (informatica)\n\nProgramma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale\n\nFormazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno.\n\nCorsi interaziendali: Ameti Bodio.\n\nRequisiti\n\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
-        "en": "Apprendistate\n\nAddressees\n\n- Brilliant students who have completed middle school and are preparing to enter the world of work - They obtain a diploma at the end of a dual training which includes a rotation between the offices oriented to provide them with the necessary knowledge of the sector\n\nDuration\n\n- 4 years (computer)\n\nSchool programme\n\n- Computerized training development applications / infrastructure management / digital business development - School training: extended profile with integrated maturity, at the Professional Technical Centre in Locarno - Intercompany courses: Ameti Bodio\n\nRequirements\n\n- Graduated middle school with all levels of aptitude and above 4.7 - Slight motivation, passion for contact with people, desire to study and familiarize with figures and computer programs",
-        "de": "RECHTSSACHE\n\nAnschriften\n\n- Brillante Schüler, die die Mittelschule abgeschlossen haben und sich auf den Eintritt in die Arbeitswelt vorbereiten - Sie erhalten am Ende einer dualen Ausbildung ein Diplom, das eine Rotation zwischen den Büros beinhaltet, die darauf ausgerichtet sind, ihnen die notwendigen Kenntnisse des Sektors zu vermitteln\n\nDauer\n\n- 4 Jahre (Computer)\n\nSchulprogramm\n\n- Computergestützte Ausbildung, Entwicklung von Anwendungen / Infrastrukturmanagement / digitale Unternehmensentwicklung - Schulausbildung: erweitertes Profil mit integrierter Reife, am Technischen Zentrum in Locarno - Betriebsinterne Kurse: Ameti Bodio\n\nAnforderungen\n\n- Abschluss Mittelschule mit allen Niveaus der Eignung und ab 4.7 - Leichte Motivation, Leidenschaft für den Kontakt mit Menschen, Wunsch zu studieren und vertraut mit Zahlen und Computer-Programme",
-        "fr": "Appréciation\n\nAdresses\n\n- Les étudiants brillants qui ont terminé leurs études secondaires et se préparent à entrer dans le monde du travail - Ils obtiennent un diplôme à la fin d'une formation double qui comprend une rotation entre les bureaux orientés pour leur fournir les connaissances nécessaires du secteur\n\nDurée\n\n- 4 ans (ordinateur)\n\nProgramme scolaire\n\n- Applications de développement de formation informatisée / gestion d'infrastructure / développement d'entreprise numérique - Formation scolaire : profil élargi à maturité intégrée, au Centre technique professionnel de Locarno - Cours interentreprises : Ameti Bodio\n\nBesoins\n\n- Collège diplômé avec tous les niveaux d'aptitude et plus 4.7 - Légère motivation, passion pour le contact avec les gens, désir d'étudier et de se familiariser avec les chiffres et les programmes informatiques"
-      },
-      "requirements": [
-        "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.",
-        "Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici."
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
-        ],
-        "en": [
-          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
-        ],
-        "de": [
-          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
-        ]
-      },
-      "location": "Switzerland",
-      "canton": "TI",
-      "addressLocality": "Switzerland",
-      "addressCountry": "CH",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-10-02",
-      "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "it",
-      "crawledAt": "2026-09-24T14:43:09.361Z",
-      "previousSlugs": [
-        "initiativbewerbung-lehre-corner-banca-switzerland",
-        "spontaner-ausbildungseinsatz-corner-banca-switzerland",
-        "apprentissage-spontane-corner-banca-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "initiativbewerbung-lehre-corner-banca-switzerland",
-          "spontaner-ausbildungseinsatz-corner-banca-switzerland"
-        ],
-        "fr": [
-          "apprentissage-spontane-corner-banca-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-05-17T10:02:58.679Z",
-      "salaryMin": 59500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "sourceIdentity": "url:https://jobs.corner.ch/o/unsolicited-application-apprenticeship"
+      "applyUrl": "https://jobs.corner.ch/o/employee-collection-team-zurich-ref-1068"
     },
     {
       "id": "corner-banca-414e92898c99",
       "slug": "legal-collection-case-manager-ref-1095-corner-banca-wallisellen",
       "slugByLocale": {
         "it": "legal-collection-case-manager-ref-1095-corner-banca-wallisellen",
-        "en": "total-corner-banca-wallisellen",
+        "en": "legal-collection-case-manager-ref-1095-corner-banca-wallisellen",
         "de": "fallmanager-fur-rechtssammlung-ref-1095-corner-banca-wallisellen",
         "fr": "responsable-affaire-recouvrement-juridique-ref-1095-corner-banca-wallisellen"
       },
@@ -211,8 +219,8 @@
       "companyDomain": "corner.ch",
       "title": "Legal Collection case Manager  - ref. 1095",
       "titleByLocale": {
-        "it": "Case Collection Manager - ref. 1095",
-        "en": "Total",
+        "it": "Legal Collection case Manager - ref. 1095",
+        "en": "Legal Collection case Manager  - ref. 1095",
         "de": "Insgesamt",
         "fr": "Total général"
       },
@@ -263,14 +271,15 @@
       "url": "https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-24T14:43:09.360Z",
+      "crawledAt": "2026-09-25T15:04:13.145Z",
       "previousSlugs": [
         "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen",
         "fallmanager-fur-rechtssammlung-corner-banca-wallisellen",
         "legal-collection-case-manager-corner-banca-wallisellen",
         "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen",
         "responsabile-del-caso-di-raccolta-legale-rif-1095-corner-banca-wallisellen",
-        "spezialist-in-fur-rechtliche-kreditbeschaffung-ref-1095-corner-banca-wallisellen"
+        "spezialist-in-fur-rechtliche-kreditbeschaffung-ref-1095-corner-banca-wallisellen",
+        "total-corner-banca-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -281,7 +290,8 @@
           "responsabile-del-caso-di-raccolta-legale-rif-1095-corner-banca-wallisellen"
         ],
         "en": [
-          "legal-collection-case-manager-corner-banca-wallisellen"
+          "legal-collection-case-manager-corner-banca-wallisellen",
+          "total-corner-banca-wallisellen"
         ],
         "de": [
           "fallmanager-fur-rechtssammlung-corner-banca-wallisellen",
@@ -292,6 +302,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:12:28.233Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -307,7 +318,7 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "sourceIdentity": "url:https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095"
+      "applyUrl": "https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095"
     },
     {
       "id": "corner-banca-0b72c7144b4f",
@@ -376,18 +387,21 @@
       "url": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking-ref-1109",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:43:09.359Z",
+      "crawledAt": "2026-09-25T15:04:13.144Z",
       "previousSlugs": [
         "grc-gouvernance-risque-et-conformite-services-bancaires-corner-banca-lugano",
-        "senior-security-grc-governance-risk-e-compliance-banking-ref-1109-corner-banca-lugano"
+        "senior-security-grc-governance-risk-e-compliance-banking-ref-1109-corner-banca-lugano",
+        "bancario-di-sicurezza-senior-grc-governance-risk-compliance-rif-1109-corner-banca-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "grc-gouvernance-risque-et-conformite-services-bancaires-corner-banca-lugano",
-          "senior-security-grc-governance-risk-e-compliance-banking-ref-1109-corner-banca-lugano"
+          "senior-security-grc-governance-risk-e-compliance-banking-ref-1109-corner-banca-lugano",
+          "bancario-di-sicurezza-senior-grc-governance-risk-compliance-rif-1109-corner-banca-lugano"
         ]
       },
       "firstSeenAt": "2026-08-14T10:12:28.229Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "salarySource": "estimated",
@@ -405,7 +419,7 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "sourceIdentity": "url:https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking-ref-1109"
+      "applyUrl": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking-ref-1109"
     },
     {
       "id": "corner-banca-5c5ec31e11d9",
@@ -421,17 +435,17 @@
       "companyDomain": "corner.ch",
       "title": "FI Administration & Business Support  - ref. 1116",
       "titleByLocale": {
-        "it": "Amministrazione FI e supporto alle imprese - rif. 1116",
-        "en": "FI Administration & Business Support - ref. 1116",
-        "de": "FI-Verwaltung & Geschäftsunterstützung – Ref. 1116",
-        "fr": "FI Administration & Soutien aux Affaires - réf. 1116"
+        "it": "FI Administration & Business Support - ref. 1116",
+        "en": "FI Administration & Business Support  - ref. 1116",
+        "de": "FI Administration & Business Support - ref. 1116",
+        "fr": "FI Administration & Business Support - ref. 1116"
       },
       "description": "Siamo alla ricerca di una persona altamente motivata e qualificata da inserire nel nostro team FI Administration & Business Support. La persona selezionata sarà responsabile di garantire il supporto operativo e amministrativo alle attività a sostegno della rete di intermediari finanziari, gestendo tempestivamente le richieste, fornendo assistenza amministrativa e assicurando una gestione accurata delle pratiche, nel rispetto delle procedure definite e delle tempistiche di servizio.\n\nPrincipali responsabilità\n• Fornire supporto amministrativo alle attività della funzione.\n\n• Gestire e monitorare i casi particolari, assicurandone la corretta presa in carico e risoluzione in linea con le priorità concordate.\n\n• Elaborare i nuovi casi (Svizzera/Europa) entro 24 ore, garantendo accuratezza, completezza e conformità agli standard di servizio.\n\n• Gestire la casella di posta condivisa e le richieste quotidiane, assicurando risposte tempestive e una gestione efficiente delle attività operative giornaliere.\n\n• Gestire le richieste relative alle carte di credito, in collaborazione con i team interni competenti.\n\n• Preparare report periodici e ad hoc, inclusa l'estrazione e l'analisi di dati/statistiche per il monitoraggio operativo.\n\nCosa offriamo?\n• Flessibilità nel lavoro da casa e nella gestione dell'orario di lavoro, con l'obiettivo di garantire un sano equilibrio tra vita professionale e privata.\n\n• Numerosi benefit e incentivi.\n\n• Attività dedicate al benessere, alla motivazione e al team building.\n\n• Ottima conoscenza di Microsoft Office, in particolare Excel e Word.\n\n• Capacità di redigere documentazione amministrativa in almeno due lingue nazionali.\n\n• Ottime capacità comunicative e relazionali con interlocutori interni ed esterni, sia telefonicamente sia via e-mail.\n\n• Rapidità nell'apprendimento, flessibilità operativa e orientamento alla ricerca di soluzioni.\n\n• Predisposizione al lavoro di squadra e capacità di collaborare con diverse funzioni aziendali.\n\n• Ottima conoscenza delle lingue nazionali e dell'inglese, sia scritto sia parlato.\n\n• Precedente esperienza in ruoli analoghi nel settore bancario/finanziario o in funzioni di supporto amministrativo (preferibile).\n\n• Residenza in Ticino oppure disponibilità a trasferirsi.",
       "descriptionByLocale": {
         "it": "Siamo alla ricerca di una persona altamente motivata e qualificata da inserire nel nostro team FI Administration & Business Support. La persona selezionata sarà responsabile di garantire il supporto operativo e amministrativo alle attività a sostegno della rete di intermediari finanziari, gestendo tempestivamente le richieste, fornendo assistenza amministrativa e assicurando una gestione accurata delle pratiche, nel rispetto delle procedure definite e delle tempistiche di servizio.\n\nPrincipali responsabilità\n• Fornire supporto amministrativo alle attività della funzione.\n\n• Gestire e monitorare i casi particolari, assicurandone la corretta presa in carico e risoluzione in linea con le priorità concordate.\n\n• Elaborare i nuovi casi (Svizzera/Europa) entro 24 ore, garantendo accuratezza, completezza e conformità agli standard di servizio.\n\n• Gestire la casella di posta condivisa e le richieste quotidiane, assicurando risposte tempestive e una gestione efficiente delle attività operative giornaliere.\n\n• Gestire le richieste relative alle carte di credito, in collaborazione con i team interni competenti.\n\n• Preparare report periodici e ad hoc, inclusa l'estrazione e l'analisi di dati/statistiche per il monitoraggio operativo.\n\nCosa offriamo?\n• Flessibilità nel lavoro da casa e nella gestione dell'orario di lavoro, con l'obiettivo di garantire un sano equilibrio tra vita professionale e privata.\n\n• Numerosi benefit e incentivi.\n\n• Attività dedicate al benessere, alla motivazione e al team building.\n\n• Ottima conoscenza di Microsoft Office, in particolare Excel e Word.\n\n• Capacità di redigere documentazione amministrativa in almeno due lingue nazionali.\n\n• Ottime capacità comunicative e relazionali con interlocutori interni ed esterni, sia telefonicamente sia via e-mail.\n\n• Rapidità nell'apprendimento, flessibilità operativa e orientamento alla ricerca di soluzioni.\n\n• Predisposizione al lavoro di squadra e capacità di collaborare con diverse funzioni aziendali.\n\n• Ottima conoscenza delle lingue nazionali e dell'inglese, sia scritto sia parlato.\n\n• Precedente esperienza in ruoli analoghi nel settore bancario/finanziario o in funzioni di supporto amministrativo (preferibile).\n\n• Residenza in Ticino oppure disponibilità a trasferirsi.",
-        "en": "We are looking for a highly motivated and qualified person to be included in our FI Administration & Business Support team. The selected person will be responsible for ensuring operational and administrative support to activities supporting the network of financial intermediaries, managing requests in a timely manner, providing administrative assistance and ensuring accurate management of practices, in compliance with defined procedures and service times.\n\nMain responsibilities • Provide administrative support to the activities of the function.\n\n• Manage and monitor special cases, ensuring that they are properly taken over and resolved in line with agreed priorities.\n\n• And to process new cases (Switzerland/Europe) within 24 hours, ensuring accuracy, completeness and compliance with service standards.\n\n• Manage the shared mailbox and daily requests, ensuring timely responses and efficient management of daily operations.\n\n• Manage credit card requests, in collaboration with the competent internal teams.\n\n• Prepare periodic and ad hoc reports, including extraction and analysis of data/statistics for operational monitoring.\n\nWhat do we offer? • Flexibility in work at home and in the management of working hours, with the aim of ensuring a healthy balance between work and private life.\n\n• Numerous social benefits and incentives.\n\n• Activities dedicated to well-being, motivation and the team building.\n\n• Microsoft Office, in particular Excel and Word.\n\n• Ability to draw up administrative documents in at least two national languages.\n\n• Excellent communication and relational skills with internal and external interlocutors, both by telephone and by e-mail.\n\n• Rapid learning, operational flexibility and solutions-oriented.\n\n• Provision for teamwork and ability to collaborate with different corporate functions.\n\n• The language of the language is spoken and written.\n\n• Previous experience in similar roles in banking/financial sector or administrative support (preferable).\n\n• Residence in Ticino or availability to move.",
-        "de": "Wir suchen eine hoch motivierte und qualifizierte Person, die in unser FI Administration & Business Support Team aufgenommen wird. Die ausgewählte Person ist für die operative und administrative Unterstützung von Aktivitäten, die das Netzwerk von Finanzintermediären unterstützen, die Verwaltung von Anfragen rechtzeitig, die administrative Unterstützung und die genaue Verwaltung von Praktiken, in Übereinstimmung mit festgelegten Verfahren und Servicezeiten, verantwortlich.\n\nHauptverantwortungen • Bereitstellung administrativer Unterstützung für die Tätigkeiten der Funktion.\n\n• Verwaltung und Überwachung von Sonderfällen, um sicherzustellen, dass sie entsprechend den vereinbarten Prioritäten ordnungsgemäß übernommen und gelöst werden.\n\n• und die Bearbeitung neuer Fälle (Schweiz/Europa) innerhalb von 24 Stunden, um die Genauigkeit, Vollständigkeit und Einhaltung der Servicestandards zu gewährleisten.\n\n• Verwalten Sie die geteilten Mailbox und tägliche Anfragen, die rechtzeitige Antworten und effiziente Verwaltung des täglichen Betriebs zu gewährleisten.\n\n• Verwalten Sie Kreditkartenanfragen in Zusammenarbeit mit den kompetenten internen Teams.\n\n• Erstellung periodischer und Ad-hoc-Berichte, einschließlich der Extraktion und Analyse von Daten/Statistiken für die operative Überwachung.\n\nWas bieten wir? • Flexibilität in der Arbeit zu Hause und in der Arbeitszeitgestaltung mit dem Ziel, ein gesundes Gleichgewicht zwischen Arbeit und Privatleben zu gewährleisten.\n\n• Zahlreiche Sozialleistungen und Anreize.\n\n• Aktivitäten, die sich dem Wohlbefinden, der Motivation und dem Teamaufbau widmen.\n\n• Microsoft Office, insbesondere Excel und Word.\n\n• Möglichkeit, Verwaltungsdokumente in mindestens zwei Landessprachen zu erstellen.\n\n• Ausgezeichnete Kommunikation und relationale Fähigkeiten mit internen und externen Gesprächspartnern, sowohl per Telefon als auch per E-Mail.\n\n• Schnelles Lernen, betriebliche Flexibilität und Lösungsorientierung.\n\n• Bereitstellung von Teamarbeit und Zusammenarbeit mit verschiedenen Unternehmensfunktionen.\n\n• Die Sprache der Sprache wird gesprochen und geschrieben.\n\n• Vorhergehende Erfahrungen in ähnlichen Rollen im Banken-/Finanzsektor oder in der administrativen Unterstützung (vorzugsweise).\n\n• Residenz im Tessin oder die Verfügbarkeit zum Umziehen.",
-        "fr": "Nous cherchons une personne hautement motivée et qualifiée pour être incluse dans notre équipe d'administration et de soutien aux entreprises de l'IF. La personne sélectionnée sera chargée d'assurer le soutien opérationnel et administratif aux activités appuyant le réseau d'intermédiaires financiers, de gérer les demandes en temps opportun, de fournir une assistance administrative et d'assurer une gestion précise des pratiques, conformément aux procédures et aux délais de service définis.\n\nPrincipales responsabilités • Fournir un soutien administratif aux activités de la fonction.\n\n• Gérer et contrôler les cas particuliers, en veillant à ce qu'ils soient pris en charge et résolus conformément aux priorités convenues.\n\n• Et traiter les nouveaux cas (Suisse/Europe) dans les 24 heures, en garantissant l'exactitude, l'exhaustivité et la conformité aux normes de service.\n\n• Gérer la boîte aux lettres et les demandes quotidiennes, en veillant à ce que les réponses soient fournies en temps voulu et à ce que les opérations quotidiennes soient gérées de manière efficace.\n\n• Gérer les demandes de carte de crédit, en collaboration avec les équipes internes compétentes.\n\n• Établir des rapports périodiques et spéciaux, y compris l'extraction et l'analyse des données/statistiques pour le suivi opérationnel.\n\n• Flexibilité dans le travail à domicile et dans la gestion des heures de travail, dans le but d'assurer un équilibre sain entre le travail et la vie privée.\n\n• De nombreux avantages sociaux et incitations.\n\n• Activités dédiées au bien-être, à la motivation et au renforcement de l'équipe.\n\n• Microsoft Office, en particulier Excel et Word.\n\n• Capacité d'établir des documents administratifs dans au moins deux langues nationales.\n\n• Excellente communication et relations avec les interlocuteurs internes et externes, par téléphone et par courrier électronique.\n\n• Apprentissage rapide, flexibilité opérationnelle et solutions orientées vers l'avenir.\n\n• Mise en place d'un travail d'équipe et d'une capacité de collaboration avec différentes fonctions de l'organisation.\n\n• La langue de la langue est parlée et écrite.\n\n• Expérience antérieure dans des rôles similaires dans le secteur bancaire/financier ou dans le soutien administratif (de préférence).\n\n• Résidence à Ticino ou disponibilité pour déménager."
+        "en": "We are looking for a highly motivated and qualified person to be included in our FI Administration & Business Support team. The selected person will be responsible for ensuring operational and administrative support to activities supporting the network of financial intermediaries, managing requests in a timely manner, providing administrative assistance and ensuring accurate management of practices, in compliance with defined procedures and service times.\n\nMain responsibilities\n• Provide administrative support to the activities of the function.\n\n• Manage and monitor special cases, ensuring that they are properly taken over and resolved in line with agreed priorities.\n\n• And to process new cases (Switzerland/Europe) within 24 hours, ensuring accuracy, completeness and compliance with service standards.\n\n• Manage the shared mailbox and daily requests, ensuring timely responses and efficient management of daily operations.\n\n• Manage credit card requests, in collaboration with the competent internal teams.\n\n• Prepare periodic and ad hoc reports, including extraction and analysis of data/statistics for operational monitoring.\n\nWhat do we offer?\n• Flexibility in work at home and in the management of working hours, with the aim of ensuring a healthy balance between work and private life.\n\n• Numerous social benefits and incentives.\n\n• Activities dedicated to well-being, motivation and the team building.\n\n• Microsoft Office, in particular Excel and Word.\n\n• Ability to draw up administrative documents in at least two national languages.\n\n• Excellent communication and relational skills with internal and external interlocutors, both by telephone and by e-mail.\n\n• Rapid learning, operational flexibility and solutions-oriented.\n\n• Provision for teamwork and ability to collaborate with different corporate functions.\n\n• The language of the language is spoken and written.\n\n• Previous experience in similar roles in banking/financial sector or administrative support (preferable).\n\n• Residence in Ticino or availability to move.",
+        "de": "Wir suchen eine hoch motivierte und qualifizierte Person, die in unser FI Administration & Business Support Team aufgenommen wird. Die ausgewählte Person ist für die operative und administrative Unterstützung von Aktivitäten, die das Netzwerk von Finanzintermediären unterstützen, die Verwaltung von Anfragen rechtzeitig, die administrative Unterstützung und die genaue Verwaltung von Praktiken, in Übereinstimmung mit festgelegten Verfahren und Servicezeiten, verantwortlich.\n\nHauptverantwortungen\n• Bereitstellung administrativer Unterstützung für die Tätigkeiten der Funktion.\n\n• Verwaltung und Überwachung von Sonderfällen, um sicherzustellen, dass sie entsprechend den vereinbarten Prioritäten ordnungsgemäß übernommen und gelöst werden.\n\n• und die Bearbeitung neuer Fälle (Schweiz/Europa) innerhalb von 24 Stunden, um die Genauigkeit, Vollständigkeit und Einhaltung der Servicestandards zu gewährleisten.\n\n• Verwalten Sie die geteilten Mailbox und tägliche Anfragen, die rechtzeitige Antworten und effiziente Verwaltung des täglichen Betriebs zu gewährleisten.\n\n• Verwalten Sie Kreditkartenanfragen in Zusammenarbeit mit den kompetenten internen Teams.\n\n• Erstellung periodischer und Ad-hoc-Berichte, einschließlich der Extraktion und Analyse von Daten/Statistiken für die operative Überwachung.\n\nWas bieten wir?\n• Flexibilität in der Arbeit zu Hause und in der Arbeitszeitgestaltung mit dem Ziel, ein gesundes Gleichgewicht zwischen Arbeit und Privatleben zu gewährleisten.\n\n• Zahlreiche Sozialleistungen und Anreize.\n\n• Aktivitäten, die sich dem Wohlbefinden, der Motivation und dem Teamaufbau widmen.\n\n• Microsoft Office, insbesondere Excel und Word.\n\n• Möglichkeit, Verwaltungsdokumente in mindestens zwei Landessprachen zu erstellen.\n\n• Ausgezeichnete Kommunikation und relationale Fähigkeiten mit internen und externen Gesprächspartnern, sowohl per Telefon als auch per E-Mail.\n\n• Schnelles Lernen, betriebliche Flexibilität und Lösungsorientierung.\n\n• Bereitstellung von Teamarbeit und Zusammenarbeit mit verschiedenen Unternehmensfunktionen.\n\n• Die Sprache der Sprache wird gesprochen und geschrieben.\n\n• Vorhergehende Erfahrungen in ähnlichen Rollen im Banken-/Finanzsektor oder in der administrativen Unterstützung (vorzugsweise).\n\n• Residenz im Tessin oder die Verfügbarkeit zum Umziehen.",
+        "fr": "Nous cherchons une personne hautement motivée et qualifiée pour être incluse dans notre équipe d'administration et de soutien aux entreprises de l'IF. La personne sélectionnée sera chargée d'assurer le soutien opérationnel et administratif aux activités appuyant le réseau d'intermédiaires financiers, de gérer les demandes en temps opportun, de fournir une assistance administrative et d'assurer une gestion précise des pratiques, conformément aux procédures et aux délais de service définis.\n\nPrincipales responsabilités\n• Fournir un soutien administratif aux activités de la fonction.\n\n• Gérer et contrôler les cas particuliers, en veillant à ce qu'ils soient pris en charge et résolus conformément aux priorités convenues.\n\n• Et traiter les nouveaux cas (Suisse/Europe) dans les 24 heures, en garantissant l'exactitude, l'exhaustivité et la conformité aux normes de service.\n\n• Gérer la boîte aux lettres et les demandes quotidiennes, en veillant à ce que les réponses soient fournies en temps voulu et à ce que les opérations quotidiennes soient gérées de manière efficace.\n\n• Gérer les demandes de carte de crédit, en collaboration avec les équipes internes compétentes.\n\n• Établir des rapports périodiques et spéciaux, y compris l'extraction et l'analyse des données/statistiques pour le suivi opérationnel.\n\n• Flexibilité dans le travail à domicile et dans la gestion des heures de travail, dans le but d'assurer un équilibre sain entre le travail et la vie privée.\n\n• De nombreux avantages sociaux et incitations.\n\n• Activités dédiées au bien-être, à la motivation et au renforcement de l'équipe.\n\n• Microsoft Office, en particulier Excel et Word.\n\n• Capacité d'établir des documents administratifs dans au moins deux langues nationales.\n\n• Excellente communication et relations avec les interlocuteurs internes et externes, par téléphone et par courrier électronique.\n\n• Apprentissage rapide, flexibilité opérationnelle et solutions orientées vers l'avenir.\n\n• Mise en place d'un travail d'équipe et d'une capacité de collaboration avec différentes fonctions de l'organisation.\n\n• La langue de la langue est parlée et écrite.\n\n• Expérience antérieure dans des rôles similaires dans le secteur bancaire/financier ou dans le soutien administratif (de préférence).\n\n• Résidence à Ticino ou disponibilité pour déménager."
       },
       "requirements": [
         "Ottima conoscenza di Microsoft Office, in particolare Excel e Word.",
@@ -476,7 +490,8 @@
       "url": "https://jobs.corner.ch/o/fi-administration-business-support-ref-1116",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-24T14:43:09.358Z",
+      "crawledAt": "2026-09-25T15:04:13.143Z",
+      "needsRetranslation": true,
       "previousSlugs": [
         "fi-administration-e-business-support-2-corner-banca-lugano",
         "fi-administration-et-soutien-aux-entreprises-2-corner-banca-lugano"
@@ -487,7 +502,6 @@
           "fi-administration-et-soutien-aux-entreprises-2-corner-banca-lugano"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T21:34:20.594Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -506,8 +520,99 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "sourceIdentity": "url:https://jobs.corner.ch/o/fi-administration-business-support-ref-1116",
-      "retranslationAttempts": 1
+      "applyUrl": "https://jobs.corner.ch/o/fi-administration-business-support-ref-1116"
+    },
+    {
+      "id": "corner-banca-c2be30cf246d",
+      "slug": "collaboratore-trice-consumer-dispute-management-rif-1103-corner-banca-wallisellen",
+      "slugByLocale": {
+        "it": "collaboratore-trice-consumer-dispute-management-rif-1103-corner-banca-wallisellen",
+        "en": "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen",
+        "de": "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen",
+        "fr": "gestion-des-litiges-avec-les-consommateurs-ref-1103-corner-banca-wallisellen"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Collaboratore/trice Consumer Dispute Management - rif. 1103",
+      "titleByLocale": {
+        "it": "Collaboratore/trice Consumer Dispute Management - rif. 1103",
+        "en": "Employee Consumer Dispute Management - ref. 1103",
+        "de": "Employee Consumer Dispute Management - ref. 1103",
+        "fr": "Gestion des litiges avec les consommateurs - réf. 1103"
+      },
+      "description": "Stiamo cercando uno specialista dei reclami e frodi clienti orientato al cliente e attento ai dettagli per unirsi al nostro team. In questo ruolo, giocherai un ruolo chiave nella protezione dei nostri clienti e nell'assicurare il trattamento efficiente delle controversie sulle carte di credito e dei casi di frode in un ambiente dinamico dei servizi finanziari.\n\n• Ricezione e gestione dei reclami dei clienti e dei casi di frode con carte di credito, inclusa valutazione iniziale e prioritizzazione.\n\n• Elaborazione di reclami e casi correlati alla frode.\n\n• Esecuzione di chargeback in conformità con i regolamenti dei circuiti delle carte (VISA, Mastercard, Diners Club) e le politiche interne dell'azienda.\n\n• Consigliare ai titolari delle carte sulle controversie, abusi delle carte e misure di sicurezza preventive.\n\n• Fornire supporto ai clienti telefonicamente e per iscritto in tedesco, francese, inglese e italiano.\n\n• Svolgimento di varie attività amministrative.\n\n• Esperienza con carte di credito, chargeback, gestione delle frodi o servizio clienti è un vantaggio.\n\n• Eccellenti competenze linguistiche in tedesco, francese, inglese e italiano (sia parlate che scritte).\n\n• Stile di lavoro analitico, strutturato, accurato e affidabile.\n\n• Forte orientamento al cliente e ottime capacità di comunicazione.\n\n• Capacità di lavorare sotto pressione e piacere nel lavorare in un ambiente dinamico.\n\nCosa offriamo?\n\nFlessibilità nel lavoro da casa e nella gestione dell'orario lavorativo per garantire un sano equilibrio tra lavoro e vita privata\n\nNumerosi benefici e incentivi\n\nAttività di benessere, motivazionali e di team building",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando uno specialista dei reclami e frodi clienti orientato al cliente e attento ai dettagli per unirsi al nostro team. In questo ruolo, giocherai un ruolo chiave nella protezione dei nostri clienti e nell'assicurare il trattamento efficiente delle controversie sulle carte di credito e dei casi di frode in un ambiente dinamico dei servizi finanziari.\n\n• Ricezione e gestione dei reclami dei clienti e dei casi di frode con carte di credito, inclusa valutazione iniziale e prioritizzazione.\n\n• Elaborazione di reclami e casi correlati alla frode.\n\n• Esecuzione di chargeback in conformità con i regolamenti dei circuiti delle carte (VISA, Mastercard, Diners Club) e le politiche interne dell'azienda.\n\n• Consigliare ai titolari delle carte sulle controversie, abusi delle carte e misure di sicurezza preventive.\n\n• Fornire supporto ai clienti telefonicamente e per iscritto in tedesco, francese, inglese e italiano.\n\n• Svolgimento di varie attività amministrative.\n\n• Esperienza con carte di credito, chargeback, gestione delle frodi o servizio clienti è un vantaggio.\n\n• Eccellenti competenze linguistiche in tedesco, francese, inglese e italiano (sia parlate che scritte).\n\n• Stile di lavoro analitico, strutturato, accurato e affidabile.\n\n• Forte orientamento al cliente e ottime capacità di comunicazione.\n\n• Capacità di lavorare sotto pressione e piacere nel lavorare in un ambiente dinamico.\n\nCosa offriamo?\n\nFlessibilità nel lavoro da casa e nella gestione dell'orario lavorativo per garantire un sano equilibrio tra lavoro e vita privata\n\nNumerosi benefici e incentivi\n\nAttività di benessere, motivazionali e di team building",
+        "en": "We are looking for a customer-focused and detail-oriented Customer Disputes & Fraud Specialist to join our team. In this role, you will play a key part in protecting our customers and ensuring the efficient handling of credit card disputes and fraud cases in a dynamic financial services environment.\n\n• Receiving and handling customer complaints and credit card fraud cases, including initial assessment and prioritization.\n\n• Processing dispute claims and fraud-related cases.\n\n• Performing chargebacks in accordance with the regulations of the card schemes (VISA, Mastercard, Diners Club) and internal company policies.\n\n• Advising cardholders on disputes, card misuse, and preventive security measures.\n\n• Providing customer support by phone and in writing in German, French, English, and Italian.\n\n• Carrying out various administrative tasks.\n\n• Experience in credit cards, chargebacks, fraud management, or customer service is an advantage.\n\n• Excellent language skills in German, French, English, and Italian (both spoken and written).\n\n• Analytical, structured, accurate, and reliable working style.\n\n• Strong customer orientation and excellent communication skills.\n\n• Ability to work under pressure and enjoy working in a dynamic environment.\n\nWhat do we offer?\n\nFlexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\nNumerous benefits and incentives\n\nWell-being, motivational and team-building activities",
+        "de": "Wir suchen einen kundenorientierten und detailorientierten Customer Disputes & Fraud Specialist, der sich unserem Team anschließt. In dieser Rolle spielen Sie eine wichtige Rolle beim Schutz unserer Kunden und bei der Gewährleistung einer effizienten Abwicklung von Kreditkartenstreitigkeiten und Betrugsfällen in einem dynamischen Finanzdienstleistungsumfeld.\n\n• Empfang und Bearbeitung von Kundenbeschwerden und Kreditkartenbetrugsfällen, einschließlich Erstbewertung und Priorisierung.\n\n• Bearbeitung von Streitfällen und betrugsbezogenen Fällen.\n\n• Durchführung von Rückbuchungen gemäß den Vorschriften der Kartensysteme (VISA, Mastercard, Diners Club) und internen Firmenrichtlinien.\n\n• Beratung von Karteninhabern bei Streitigkeiten, Kartenmissbrauch und vorbeugenden Sicherheitsmaßnahmen.\n\n• Kundenbetreuung per Telefon und schriftlich in Deutsch, Französisch, Englisch und Italienisch.\n\n• Durchführung verschiedener administrativer Aufgaben.\n\n• Erfahrung in Kreditkarten, Rückbuchungen, Betrugsmanagement oder Kundenservice ist ein Vorteil.\n\n• Hervorragende Sprachkenntnisse in Deutsch, Französisch, Englisch und Italienisch (sowohl gesprochen als auch geschrieben).\n\n• Analytischer, strukturierter, genauer und zuverlässiger Arbeitsstil.\n\n• Starke Kundenorientierung und ausgezeichnete Kommunikationsfähigkeiten.\n\n• Fähigkeit, unter Druck zu arbeiten und in einem dynamischen Umfeld zu arbeiten.\n\nWas bieten wir an?\n\nFlexibilität bei der Arbeit von zu Hause aus und die Verwaltung der Arbeitszeit, um eine gesunde Work-Life-Balance zu gewährleisten\n\nZahlreiche Vorteile und Anreize\n\nWohlbefinden, Motivation und Teambuilding",
+        "fr": "Nous recherchons un spécialiste des litiges et de la fraude axé sur le client et axé sur les détails pour rejoindre notre équipe. Dans ce rôle, vous jouerez un rôle clé dans la protection de nos clients et dans le traitement efficace des litiges de carte de crédit et des cas de fraude dans un environnement de services financiers dynamique.\n\n• Réception et traitement des plaintes des clients et des cas de fraude par carte de crédit, y compris évaluation initiale et hiérarchisation.\n\n• Traitement des litiges et des cas de fraude.\n\n• Effectuer des recharges conformément aux règlements des systèmes de cartes (VISA, Mastercard, Diners Club) et aux politiques internes de l'entreprise.\n\n• Conseiller les détenteurs de cartes sur les litiges, l'utilisation abusive des cartes et les mesures de sécurité préventive.\n\n• Fournir un soutien à la clientèle par téléphone et par écrit en allemand, français, anglais et italien.\n\n• Exécuter diverses tâches administratives.\n\n• L'expérience dans les cartes de crédit, les remises, la gestion de la fraude ou le service à la clientèle est un avantage.\n\n• Excellentes compétences linguistiques en allemand, français, anglais et italien (à la fois parlé et écrit).\n\n• Style de travail analytique, structuré, précis et fiable.\n\n• Une forte orientation client et d'excellentes compétences en communication.\n\n• Aptitude à travailler sous pression et à travailler dans un environnement dynamique.\n\nQu'est-ce qu'on offre ?\n\nFlexibilité dans le travail à domicile et la gestion des heures de travail afin de garantir un équilibre sain entre le travail et la vie personnelle\n\nDe nombreux avantages et incitations\n\nActivités de bien-être, de motivation et de renforcement des équipes"
+      },
+      "requirements": [
+        "Esperienza con carte di credito, chargeback, gestione delle frodi o servizio clienti è un vantaggio.",
+        "Eccellenti competenze linguistiche in tedesco, francese, inglese e italiano (sia parlate che scritte).",
+        "Stile di lavoro analitico, strutturato, accurato e affidabile.",
+        "Forte orientamento al cliente e ottime capacità di comunicazione.",
+        "Capacità di lavorare sotto pressione e piacere nel lavorare in un ambiente dinamico."
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Experience in credit cards, chargebacks, fraud management, or customer service is an advantage.",
+          "Excellent language skills in German, French, English, and Italian (both spoken and written).",
+          "Analytical, structured, accurate, and reliable working style.",
+          "Strong customer orientation and excellent communication skills.",
+          "Ability to work under pressure and enjoy working in a dynamic environment.",
+          "Esperienza con carte di credito, chargeback, gestione delle frodi o servizio clienti è un vantaggio.",
+          "Eccellenti competenze linguistiche in tedesco, francese, inglese e italiano (sia parlate che scritte).",
+          "Stile di lavoro analitico, strutturato, accurato e affidabile."
+        ],
+        "en": [
+          "Experience in credit cards, chargebacks, fraud management, or customer service is an advantage.",
+          "Excellent language skills in German, French, English, and Italian (both spoken and written).",
+          "Analytical, structured, accurate, and reliable working style.",
+          "Strong customer orientation and excellent communication skills.",
+          "Ability to work under pressure and enjoy working in a dynamic environment."
+        ]
+      },
+      "location": "Wallisellen",
+      "canton": "ZH",
+      "addressLocality": "Wallisellen",
+      "addressCountry": "CH",
+      "category": "sales",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-08",
+      "url": "https://jobs.corner.ch/o/employee-consumer-dispute-management-ref-1103",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "it",
+      "crawledAt": "2026-09-25T15:04:13.142Z",
+      "previousSlugs": [
+        "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen"
+        ]
+      },
+      "firstSeenAt": "2026-08-14T10:12:28.211Z",
+      "needsRetranslation": true,
+      "salaryMin": 83000,
+      "salaryMax": 127500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 127500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "employmentType": "FULL_TIME",
+      "applyUrl": "https://jobs.corner.ch/o/employee-consumer-dispute-management-ref-1103"
     },
     {
       "id": "corner-banca-72b82d085ee9",
@@ -587,8 +692,9 @@
       "url": "https://jobs.corner.ch/o/senior-devops-engineer-ref-1114",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:43:09.357Z",
+      "crawledAt": "2026-09-25T15:04:13.141Z",
       "firstSeenAt": "2026-08-19T21:44:21.463Z",
+      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "salarySource": "estimated",
@@ -606,98 +712,7 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "sourceIdentity": "url:https://jobs.corner.ch/o/senior-devops-engineer-ref-1114"
-    },
-    {
-      "id": "corner-banca-c2be30cf246d",
-      "slug": "collaboratore-trice-consumer-dispute-management-rif-1103-corner-banca-wallisellen",
-      "slugByLocale": {
-        "it": "collaboratore-trice-consumer-dispute-management-rif-1103-corner-banca-wallisellen",
-        "en": "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen",
-        "de": "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen",
-        "fr": "gestion-des-litiges-avec-les-consommateurs-ref-1103-corner-banca-wallisellen"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Collaboratore/trice Consumer Dispute Management - rif. 1103",
-      "titleByLocale": {
-        "it": "Collaboratore/trice Consumer Dispute Management - rif. 1103",
-        "en": "Employee Consumer Dispute Management - ref. 1103",
-        "de": "Employee Consumer Dispute Management - ref. 1103",
-        "fr": "Gestion des litiges avec les consommateurs - réf. 1103"
-      },
-      "description": "Stiamo cercando uno specialista dei reclami e frodi clienti orientato al cliente e attento ai dettagli per unirsi al nostro team. In questo ruolo, giocherai un ruolo chiave nella protezione dei nostri clienti e nell'assicurare il trattamento efficiente delle controversie sulle carte di credito e dei casi di frode in un ambiente dinamico dei servizi finanziari.\n\n• Ricezione e gestione dei reclami dei clienti e dei casi di frode con carte di credito, inclusa valutazione iniziale e prioritizzazione.\n\n• Elaborazione di reclami e casi correlati alla frode.\n\n• Esecuzione di chargeback in conformità con i regolamenti dei circuiti delle carte (VISA, Mastercard, Diners Club) e le politiche interne dell'azienda.\n\n• Consigliare ai titolari delle carte sulle controversie, abusi delle carte e misure di sicurezza preventive.\n\n• Fornire supporto ai clienti telefonicamente e per iscritto in tedesco, francese, inglese e italiano.\n\n• Svolgimento di varie attività amministrative.\n\n• Esperienza con carte di credito, chargeback, gestione delle frodi o servizio clienti è un vantaggio.\n\n• Eccellenti competenze linguistiche in tedesco, francese, inglese e italiano (sia parlate che scritte).\n\n• Stile di lavoro analitico, strutturato, accurato e affidabile.\n\n• Forte orientamento al cliente e ottime capacità di comunicazione.\n\n• Capacità di lavorare sotto pressione e piacere nel lavorare in un ambiente dinamico.\n\nCosa offriamo?\n\nFlessibilità nel lavoro da casa e nella gestione dell'orario lavorativo per garantire un sano equilibrio tra lavoro e vita privata\n\nNumerosi benefici e incentivi\n\nAttività di benessere, motivazionali e di team building",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando uno specialista dei reclami e frodi clienti orientato al cliente e attento ai dettagli per unirsi al nostro team. In questo ruolo, giocherai un ruolo chiave nella protezione dei nostri clienti e nell'assicurare il trattamento efficiente delle controversie sulle carte di credito e dei casi di frode in un ambiente dinamico dei servizi finanziari.\n\n• Ricezione e gestione dei reclami dei clienti e dei casi di frode con carte di credito, inclusa valutazione iniziale e prioritizzazione.\n\n• Elaborazione di reclami e casi correlati alla frode.\n\n• Esecuzione di chargeback in conformità con i regolamenti dei circuiti delle carte (VISA, Mastercard, Diners Club) e le politiche interne dell'azienda.\n\n• Consigliare ai titolari delle carte sulle controversie, abusi delle carte e misure di sicurezza preventive.\n\n• Fornire supporto ai clienti telefonicamente e per iscritto in tedesco, francese, inglese e italiano.\n\n• Svolgimento di varie attività amministrative.\n\n• Esperienza con carte di credito, chargeback, gestione delle frodi o servizio clienti è un vantaggio.\n\n• Eccellenti competenze linguistiche in tedesco, francese, inglese e italiano (sia parlate che scritte).\n\n• Stile di lavoro analitico, strutturato, accurato e affidabile.\n\n• Forte orientamento al cliente e ottime capacità di comunicazione.\n\n• Capacità di lavorare sotto pressione e piacere nel lavorare in un ambiente dinamico.\n\nCosa offriamo?\n\nFlessibilità nel lavoro da casa e nella gestione dell'orario lavorativo per garantire un sano equilibrio tra lavoro e vita privata\n\nNumerosi benefici e incentivi\n\nAttività di benessere, motivazionali e di team building",
-        "en": "We are looking for a customer-focused and detail-oriented Customer Disputes & Fraud Specialist to join our team. In this role, you will play a key part in protecting our customers and ensuring the efficient handling of credit card disputes and fraud cases in a dynamic financial services environment.\n\n• Receiving and handling customer complaints and credit card fraud cases, including initial assessment and prioritization.\n\n• Processing dispute claims and fraud-related cases.\n\n• Performing chargebacks in accordance with the regulations of the card schemes (VISA, Mastercard, Diners Club) and internal company policies.\n\n• Advising cardholders on disputes, card misuse, and preventive security measures.\n\n• Providing customer support by phone and in writing in German, French, English, and Italian.\n\n• Carrying out various administrative tasks.\n\n• Experience in credit cards, chargebacks, fraud management, or customer service is an advantage.\n\n• Excellent language skills in German, French, English, and Italian (both spoken and written).\n\n• Analytical, structured, accurate, and reliable working style.\n\n• Strong customer orientation and excellent communication skills.\n\n• Ability to work under pressure and enjoy working in a dynamic environment.\n\nWhat do we offer?\n\nFlexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\nNumerous benefits and incentives\n\nWell-being, motivational and team-building activities",
-        "de": "Wir suchen einen kundenorientierten und detailorientierten Customer Disputes & Fraud Specialist, der sich unserem Team anschließt. In dieser Rolle spielen Sie eine wichtige Rolle beim Schutz unserer Kunden und bei der Gewährleistung einer effizienten Abwicklung von Kreditkartenstreitigkeiten und Betrugsfällen in einem dynamischen Finanzdienstleistungsumfeld.\n\n• Empfang und Bearbeitung von Kundenbeschwerden und Kreditkartenbetrugsfällen, einschließlich Erstbewertung und Priorisierung.\n\n• Bearbeitung von Streitfällen und betrugsbezogenen Fällen.\n\n• Durchführung von Rückbuchungen gemäß den Vorschriften der Kartensysteme (VISA, Mastercard, Diners Club) und internen Firmenrichtlinien.\n\n• Beratung von Karteninhabern bei Streitigkeiten, Kartenmissbrauch und vorbeugenden Sicherheitsmaßnahmen.\n\n• Kundenbetreuung per Telefon und schriftlich in Deutsch, Französisch, Englisch und Italienisch.\n\n• Durchführung verschiedener administrativer Aufgaben.\n\n• Erfahrung in Kreditkarten, Rückbuchungen, Betrugsmanagement oder Kundenservice ist ein Vorteil.\n\n• Hervorragende Sprachkenntnisse in Deutsch, Französisch, Englisch und Italienisch (sowohl gesprochen als auch geschrieben).\n\n• Analytischer, strukturierter, genauer und zuverlässiger Arbeitsstil.\n\n• Starke Kundenorientierung und ausgezeichnete Kommunikationsfähigkeiten.\n\n• Fähigkeit, unter Druck zu arbeiten und in einem dynamischen Umfeld zu arbeiten.\n\nWas bieten wir an?\n\nFlexibilität bei der Arbeit von zu Hause aus und die Verwaltung der Arbeitszeit, um eine gesunde Work-Life-Balance zu gewährleisten\n\nZahlreiche Vorteile und Anreize\n\nWohlbefinden, Motivation und Teambuilding",
-        "fr": "Nous recherchons un spécialiste des litiges et de la fraude axé sur le client et axé sur les détails pour rejoindre notre équipe. Dans ce rôle, vous jouerez un rôle clé dans la protection de nos clients et dans le traitement efficace des litiges de carte de crédit et des cas de fraude dans un environnement de services financiers dynamique.\n\n• Réception et traitement des plaintes des clients et des cas de fraude par carte de crédit, y compris évaluation initiale et hiérarchisation.\n\n• Traitement des litiges et des cas de fraude.\n\n• Effectuer des recharges conformément aux règlements des systèmes de cartes (VISA, Mastercard, Diners Club) et aux politiques internes de l'entreprise.\n\n• Conseiller les détenteurs de cartes sur les litiges, l'utilisation abusive des cartes et les mesures de sécurité préventive.\n\n• Fournir un soutien à la clientèle par téléphone et par écrit en allemand, français, anglais et italien.\n\n• Exécuter diverses tâches administratives.\n\n• L'expérience dans les cartes de crédit, les remises, la gestion de la fraude ou le service à la clientèle est un avantage.\n\n• Excellentes compétences linguistiques en allemand, français, anglais et italien (à la fois parlé et écrit).\n\n• Style de travail analytique, structuré, précis et fiable.\n\n• Une forte orientation client et d'excellentes compétences en communication.\n\n• Aptitude à travailler sous pression et à travailler dans un environnement dynamique.\n\nQu'est-ce qu'on offre ?\n\nFlexibilité dans le travail à domicile et la gestion des heures de travail afin de garantir un équilibre sain entre le travail et la vie personnelle\n\nDe nombreux avantages et incitations\n\nActivités de bien-être, de motivation et de renforcement des équipes"
-      },
-      "requirements": [
-        "Esperienza con carte di credito, chargeback, gestione delle frodi o servizio clienti è un vantaggio.",
-        "Eccellenti competenze linguistiche in tedesco, francese, inglese e italiano (sia parlate che scritte).",
-        "Stile di lavoro analitico, strutturato, accurato e affidabile.",
-        "Forte orientamento al cliente e ottime capacità di comunicazione.",
-        "Capacità di lavorare sotto pressione e piacere nel lavorare in un ambiente dinamico."
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Experience in credit cards, chargebacks, fraud management, or customer service is an advantage.",
-          "Excellent language skills in German, French, English, and Italian (both spoken and written).",
-          "Analytical, structured, accurate, and reliable working style.",
-          "Strong customer orientation and excellent communication skills.",
-          "Ability to work under pressure and enjoy working in a dynamic environment.",
-          "Esperienza con carte di credito, chargeback, gestione delle frodi o servizio clienti è un vantaggio.",
-          "Eccellenti competenze linguistiche in tedesco, francese, inglese e italiano (sia parlate che scritte).",
-          "Stile di lavoro analitico, strutturato, accurato e affidabile."
-        ],
-        "en": [
-          "Experience in credit cards, chargebacks, fraud management, or customer service is an advantage.",
-          "Excellent language skills in German, French, English, and Italian (both spoken and written).",
-          "Analytical, structured, accurate, and reliable working style.",
-          "Strong customer orientation and excellent communication skills.",
-          "Ability to work under pressure and enjoy working in a dynamic environment."
-        ]
-      },
-      "location": "Wallisellen",
-      "canton": "ZH",
-      "addressLocality": "Wallisellen",
-      "addressCountry": "CH",
-      "category": "sales",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "url": "https://jobs.corner.ch/o/employee-consumer-dispute-management-ref-1103",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "it",
-      "crawledAt": "2026-09-24T14:43:09.357Z",
-      "previousSlugs": [
-        "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen"
-        ]
-      },
-      "firstSeenAt": "2026-08-14T10:12:28.211Z",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "sourceIdentity": "url:https://jobs.corner.ch/o/employee-consumer-dispute-management-ref-1103"
+      "applyUrl": "https://jobs.corner.ch/o/senior-devops-engineer-ref-1114"
     },
     {
       "id": "corner-banca-9edf9a711b5c",
@@ -716,7 +731,7 @@
         "it": "Senior Compliance Officer - ref. 1111",
         "en": "The Commission has also examined the compatibility of the measures with the common market.",
         "de": "Leitender Compliance-Beauftragter – ref. 1111",
-        "fr": "Agent principal de conformité - réf. 1111"
+        "fr": "Senior Compliance Officer  - ref. 1111"
       },
       "description": "Stiamo cercando un esperto Senior Compliance Officer per unirsi al nostro team di Compliance. Il candidato ideale ha un'ampia esperienza nel settore bancario e una comprensione completa dei processi di conformità oltre all'Anticorruzione (AML), inclusi i processi transfrontalieri, le sanzioni, la segnalazione regolamentare, la valutazione del rischio di conformità e la supervisione dei progetti correlati alla conformità.\n\nResponsabilità Chiave\n\n• Collaborare efficacemente con colleghi di diversi dipartimenti, inclusa l'IT;\n\n• Adottare un approccio proattivo e critico nell'identificare e implementare nuove soluzioni;\n\n• Lavorare in modo indipendente e gestire autonomamente le priorità;\n\n• Gestire in modo efficiente e accurato un elevato volume di casi complessi.\n\n• Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.\n\n• Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.\n\n• Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.\n\n• CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.\n\n• Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.\n\n• Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.\n\n• Residente in Ticino o disponibile a trasferirsi",
       "descriptionByLocale": {
@@ -766,11 +781,12 @@
       "url": "https://jobs.corner.ch/o/senior-compliance-officer-ref-1111",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-24T14:43:09.356Z",
+      "crawledAt": "2026-09-25T15:04:13.140Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-compliance-officer-ref-1111-corner-banca-lugano",
-          "leitender-compliance-beauftragter-corner-banca-lugano"
+          "leitender-compliance-beauftragter-corner-banca-lugano",
+          "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano"
         ],
         "de": [
           "leitender-compliance-beauftragter-corner-banca-lugano"
@@ -778,9 +794,11 @@
       },
       "previousSlugs": [
         "senior-compliance-officer-ref-1111-corner-banca-lugano",
-        "leitender-compliance-beauftragter-corner-banca-lugano"
+        "leitender-compliance-beauftragter-corner-banca-lugano",
+        "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano"
       ],
       "firstSeenAt": "2026-08-10T21:46:42.895Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "salarySource": "estimated",
@@ -798,7 +816,7 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "sourceIdentity": "url:https://jobs.corner.ch/o/senior-compliance-officer-ref-1111"
+      "applyUrl": "https://jobs.corner.ch/o/senior-compliance-officer-ref-1111"
     },
     {
       "id": "corner-banca-b9c65289862a",
@@ -815,7 +833,7 @@
       "title": "Consulente Fiscale (Private Banking)  - ref. 1117",
       "titleByLocale": {
         "it": "Consulente Fiscale (Private Banking) - ref. 1117",
-        "en": "Fiscale Consultant (Private Banking) - ref. 11",
+        "en": "Consulente Fiscale (Private Banking)  - ref. 1117",
         "de": "Steuerberater (Private Banking) – Ref. 1117",
         "fr": "Conseiller fiscal (Banque privée) - réf. 1117"
       },
@@ -867,7 +885,7 @@
       "url": "https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-24T14:43:09.355Z",
+      "crawledAt": "2026-09-25T15:04:13.139Z",
       "previousSlugs": [
         "tax-consultant-private-banking-ref-1117-corner-banca-lugano"
       ],
@@ -877,6 +895,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:44:57.049Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -894,7 +913,82 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "sourceIdentity": "url:https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117"
+      "applyUrl": "https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117"
+    },
+    {
+      "id": "corner-banca-333d7573e186",
+      "slug": "customer-retention-e-growth-ref-1118-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "customer-retention-e-growth-ref-1118-corner-banca-lugano",
+        "en": "customer-retention-e-growth-ref-1118-corner-banca-lugano",
+        "de": "kundenbindung-wachstum-ref-1118-corner-banca-lugano",
+        "fr": "conservation-et-croissance-du-client-ref-1118-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Customer Retention & Growth - ref. 1118",
+      "titleByLocale": {
+        "it": "Customer Retention & Growth - ref. 1118",
+        "en": "Customer Retention & Growth - ref. 1118",
+        "de": "C. Zurückhaltung und Wachstum - Ref. 1118",
+        "fr": "C. Maintien et croissance - Réf. 1118"
+      },
+      "description": "Stiamo cercando un/una Outbound Customer Consultant motivato/a e orientato/a al cliente da inserire nel nostro team. Il ruolo si concentra principalmente sulla consulenza telefonica outbound rivolta alla nostra clientela esistente e ai potenziali clienti, offrendo un supporto professionale e personalizzato in italiano, tedesco/svizzero tedesco, francese e inglese (livello minimo C1 in tutte e quattro le lingue). I candidati senza i prerequisiti linguistici richiesti non verranno presi in considerazione.\n\n• Riattivazione e recupero di clienti esistenti\n\n• Attività di fidelizzazione e customer retention\n\n• Promozione dell’utilizzo dei nostri prodotti e servizi\n\n• Gestione di chiamate di benvenuto sia inbound che outbound\n\n• Attività di cross-selling e upselling\n\n• Supporto ai progetti di campagne di marketing finalizzati a:\n\n• definire comunicazioni mirate e personalizzate per specifici segmenti di clientela;\n\n• valutare l’interesse dei clienti verso nuovi prodotti o servizi;\n\n• pianificare strategie e individuare le modalità di approccio più appropriate nei confronti dei diversi clienti.\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione dell'orario lavorativo per garantire un sano equilibrio tra lavoro e vita privata\n\n• Numerosi benefici e incentivi\n\n• Attività di benessere, motivazionali e di team building\n\n• Esperienza in ruoli simili\n\n• Esperienza nella consulenza telefonica, principalmente outbound, rivolta alla clientela esistente e ai potenziali clienti, in quattro lingue italiano, tedesco/svizzero tedesco, francese e inglese (livello minimo C1 in tutte e quattro le lingue)\n\n• Residenza in Ticino o disponibilità a trasferirsi",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un/una Outbound Customer Consultant motivato/a e orientato/a al cliente da inserire nel nostro team. Il ruolo si concentra principalmente sulla consulenza telefonica outbound rivolta alla nostra clientela esistente e ai potenziali clienti, offrendo un supporto professionale e personalizzato in italiano, tedesco/svizzero tedesco, francese e inglese (livello minimo C1 in tutte e quattro le lingue). I candidati senza i prerequisiti linguistici richiesti non verranno presi in considerazione.\n\n• Riattivazione e recupero di clienti esistenti\n\n• Attività di fidelizzazione e customer retention\n\n• Promozione dell’utilizzo dei nostri prodotti e servizi\n\n• Gestione di chiamate di benvenuto sia inbound che outbound\n\n• Attività di cross-selling e upselling\n\n• Supporto ai progetti di campagne di marketing finalizzati a:\n\n• definire comunicazioni mirate e personalizzate per specifici segmenti di clientela;\n\n• valutare l’interesse dei clienti verso nuovi prodotti o servizi;\n\n• pianificare strategie e individuare le modalità di approccio più appropriate nei confronti dei diversi clienti.\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione dell'orario lavorativo per garantire un sano equilibrio tra lavoro e vita privata\n\n• Numerosi benefici e incentivi\n\n• Attività di benessere, motivazionali e di team building\n\n• Esperienza in ruoli simili\n\n• Esperienza nella consulenza telefonica, principalmente outbound, rivolta alla clientela esistente e ai potenziali clienti, in quattro lingue italiano, tedesco/svizzero tedesco, francese e inglese (livello minimo C1 in tutte e quattro le lingue)\n\n• Residenza in Ticino o disponibilità a trasferirsi",
+        "en": "We are looking for a motivated and customer-oriented consultant to be included in our team. The role focuses mainly on the on-line telephone advice aimed at our existing customers and potential customers, offering professional and personalized support in Italian, German/Swiss German, French and English (minimum level C1 in all four languages). Candidates without the required prerequisites will not be taken into account.\n\n• Reactivation and recovery of existing customers\n\n• Loyalty and customer activities - 300%\n\n• Promotion of the use of our products and services\n\n• Managing both inbound and offbound welcome calls\n\n• Cross-selling and upselling activities\n\n• Support for marketing campaigns aimed at:\n\n• define targeted and customized communications for specific customer segments;\n\n• assess the interest of customers in new products or services;\n\n• plan strategies and identify the most appropriate ways of approach to different customers.\n\nWhat are we offering?\n\n• Flexibility in homework and working time management to ensure a healthy balance between work and private life\n\n• Numerous benefits and incentives\n\n• Wellness, motivational and team building activities\n\n• Experience in similar roles\n\n• Experience in telephone consulting, mainly off-bound, aimed at existing customers and potential customers, in four Italian, German/Swiss German, French and English languages (minimum level C1 in all four languages)\n\n• Residence in Ticino or availability to move",
+        "de": "Wir suchen einen motivierten und kundenorientierten Berater, der in unser Team aufgenommen wird. Im Mittelpunkt steht dabei die Online-Telefonberatung, die sich an unsere bestehenden Kunden und potenziellen Kunden richtet und professionelle und personalisierte Betreuung in Italienisch, Deutsch/Schweiz, Französisch und Englisch (mindestens in allen vier Sprachen C1) bietet. Bewerber ohne die erforderlichen Voraussetzungen werden nicht berücksichtigt.\n\n• Reaktivierung und Wiederherstellung bestehender Kunden\n\n• Treue und Kundenaktivitäten - 300%\n\n• Förderung der Nutzung unserer Produkte und Dienstleistungen\n\n• Verwaltung sowohl inbound als auch inbound Begrüßungsgespräche\n\n• Cross-Selling- und Up-Selling-Aktivitäten\n\n• Unterstützung von Marketingkampagnen, die auf folgende Ziele abzielen:\n\n• gezielte und maßgeschneiderte Kommunikation für spezifische Kundensegmente zu definieren;\n\n• die Interessen der Kunden an neuen Produkten oder Dienstleistungen zu bewerten;\n\n• Strategien planen und die geeignetsten Wege für den Zugang zu verschiedenen Kunden ermitteln.\n\nWas bieten wir an?\n\n• Flexibilität in der Hausaufgaben- und Arbeitszeitverwaltung, um ein gesundes Gleichgewicht zwischen Arbeit und Privatleben zu gewährleisten\n\n• Zahlreiche Vorteile und Anreize\n\n• Wellness, Motivation und Teambuilding\n\n• Erfahrung in ähnlichen Rollen\n\n• Erfahrung in der Telefonberatung, hauptsächlich im Ausland, für bestehende Kunden und potenzielle Kunden, in vier italienischen, deutschen/schweizerischen, französischen und englischen Sprachen (mindestens C1 in allen vier Sprachen)\n\n• Wohnanlage im Tessin oder Verfügbarkeit zum Umziehen",
+        "fr": "Nous recherchons un consultant motivé et orienté client pour être inclus dans notre équipe. Le rôle se concentre principalement sur les conseils téléphoniques en ligne destinés à nos clients existants et potentiels, offrant un support professionnel et personnalisé en italien, allemand/suisse allemand, français et anglais (niveau minimum C1 dans les quatre langues).\n\n• Réactivation et récupération des clients existants\n\n• Loyalty et activités client - 300%\n\n• Promotion de l'utilisation de nos produits et services\n\n• Gestion des appels de bienvenue entrants et sortants\n\n• Activités de vente croisée et de vente à la hausse\n\n• Soutien aux campagnes de marketing visant à:\n\n• définir des communications ciblées et personnalisées pour des segments spécifiques de clients;\n\n• évaluer l'intérêt des clients pour les nouveaux produits ou services;\n\n• planifier des stratégies et identifier les moyens d'approche les plus appropriés pour les différents clients.\n\nQu'est-ce qu'on offre?\n\n• Flexibilité dans la gestion des devoirs et du temps de travail pour assurer un équilibre sain entre le travail et la vie privée\n\n• De nombreux avantages et incitations\n\n• Activités de bien-être, de motivation et de renforcement d'équipe\n\n• Expérience dans des rôles similaires\n\n• Expérience de la consultation téléphonique, principalement hors ligne, destinée aux clients existants et potentiels, en quatre langues italiennes, allemandes/suisse, allemandes, françaises et anglaises (niveau minimum C1 dans les quatre langues)\n\n• Résidence à Ticino ou disponibilité pour déménager"
+      },
+      "requirements": [
+        "Esperienza in ruoli simili",
+        "Esperienza nella consulenza telefonica, principalmente outbound, rivolta alla clientela esistente e ai potenziali clienti, in quattro lingue italiano, tedesco/svizzero tedesco, francese e inglese (livello minimo C1 in tutte e quattro le lingue)",
+        "Residenza in Ticino o disponibilità a trasferirsi"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Esperienza in ruoli simili",
+          "Residenza in Ticino o disponibilità a trasferirsi"
+        ],
+        "en": [
+          "Experience in similar positions",
+          "Resident in Ticino or willing to relocate"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "sales",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-17",
+      "url": "https://jobs.corner.ch/o/customer-retention-growth-ref-1118",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "it",
+      "crawledAt": "2026-09-25T15:04:13.137Z",
+      "firstSeenAt": "2026-08-27T20:12:11.446Z",
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "applyUrl": "https://jobs.corner.ch/o/customer-retention-growth-ref-1118"
     },
     {
       "id": "corner-banca-e13869b20e59",
@@ -968,83 +1062,9 @@
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-ref-1128",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-24T14:43:09.354Z",
+      "crawledAt": "2026-09-25T15:04:13.136Z",
       "firstSeenAt": "2026-09-03T13:49:26.507Z",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 90500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "sourceIdentity": "url:https://jobs.corner.ch/o/credit-client-advisor-mf-ref-1128"
-    },
-    {
-      "id": "corner-banca-333d7573e186",
-      "slug": "customer-retention-e-growth-ref-1118-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "customer-retention-e-growth-ref-1118-corner-banca-lugano",
-        "en": "customer-retention-e-growth-ref-1118-corner-banca-lugano",
-        "de": "kundenbindung-wachstum-ref-1118-corner-banca-lugano",
-        "fr": "conservation-et-croissance-du-client-ref-1118-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Customer Retention & Growth - ref. 1118",
-      "titleByLocale": {
-        "it": "Conservazione e crescita dei clienti - ref. 1118",
-        "en": "Customer Retention & Growth - ref. 1118",
-        "de": "C. Zurückhaltung und Wachstum - Ref. 1118",
-        "fr": "C. Maintien et croissance - Réf. 1118"
-      },
-      "description": "Stiamo cercando un/una Outbound Customer Consultant motivato/a e orientato/a al cliente da inserire nel nostro team. Il ruolo si concentra principalmente sulla consulenza telefonica outbound rivolta alla nostra clientela esistente e ai potenziali clienti, offrendo un supporto professionale e personalizzato in italiano, tedesco/svizzero tedesco, francese e inglese (livello minimo C1 in tutte e quattro le lingue). I candidati senza i prerequisiti linguistici richiesti non verranno presi in considerazione.\n\n• Riattivazione e recupero di clienti esistenti\n\n• Attività di fidelizzazione e customer retention\n\n• Promozione dell’utilizzo dei nostri prodotti e servizi\n\n• Gestione di chiamate di benvenuto sia inbound che outbound\n\n• Attività di cross-selling e upselling\n\n• Supporto ai progetti di campagne di marketing finalizzati a:\n\n• definire comunicazioni mirate e personalizzate per specifici segmenti di clientela;\n\n• valutare l’interesse dei clienti verso nuovi prodotti o servizi;\n\n• pianificare strategie e individuare le modalità di approccio più appropriate nei confronti dei diversi clienti.\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione dell'orario lavorativo per garantire un sano equilibrio tra lavoro e vita privata\n\n• Numerosi benefici e incentivi\n\n• Attività di benessere, motivazionali e di team building\n\n• Esperienza in ruoli simili\n\n• Esperienza nella consulenza telefonica, principalmente outbound, rivolta alla clientela esistente e ai potenziali clienti, in quattro lingue italiano, tedesco/svizzero tedesco, francese e inglese (livello minimo C1 in tutte e quattro le lingue)\n\n• Residenza in Ticino o disponibilità a trasferirsi",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un/una Outbound Customer Consultant motivato/a e orientato/a al cliente da inserire nel nostro team. Il ruolo si concentra principalmente sulla consulenza telefonica outbound rivolta alla nostra clientela esistente e ai potenziali clienti, offrendo un supporto professionale e personalizzato in italiano, tedesco/svizzero tedesco, francese e inglese (livello minimo C1 in tutte e quattro le lingue). I candidati senza i prerequisiti linguistici richiesti non verranno presi in considerazione.\n\n• Riattivazione e recupero di clienti esistenti\n\n• Attività di fidelizzazione e customer retention\n\n• Promozione dell’utilizzo dei nostri prodotti e servizi\n\n• Gestione di chiamate di benvenuto sia inbound che outbound\n\n• Attività di cross-selling e upselling\n\n• Supporto ai progetti di campagne di marketing finalizzati a:\n\n• definire comunicazioni mirate e personalizzate per specifici segmenti di clientela;\n\n• valutare l’interesse dei clienti verso nuovi prodotti o servizi;\n\n• pianificare strategie e individuare le modalità di approccio più appropriate nei confronti dei diversi clienti.\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione dell'orario lavorativo per garantire un sano equilibrio tra lavoro e vita privata\n\n• Numerosi benefici e incentivi\n\n• Attività di benessere, motivazionali e di team building\n\n• Esperienza in ruoli simili\n\n• Esperienza nella consulenza telefonica, principalmente outbound, rivolta alla clientela esistente e ai potenziali clienti, in quattro lingue italiano, tedesco/svizzero tedesco, francese e inglese (livello minimo C1 in tutte e quattro le lingue)\n\n• Residenza in Ticino o disponibilità a trasferirsi",
-        "en": "We are looking for a motivated and customer-oriented consultant to be included in our team. The role focuses mainly on the on-line telephone advice aimed at our existing customers and potential customers, offering professional and personalized support in Italian, German/Swiss German, French and English (minimum level C1 in all four languages). Candidates without the required prerequisites will not be taken into account.\n\n• Reactivation and recovery of existing customers\n\n• Loyalty and customer activities - 300%\n\n• Promotion of the use of our products and services\n\n• Managing both inbound and offbound welcome calls\n\n• Cross-selling and upselling activities\n\n• Support for marketing campaigns aimed at:\n\n• define targeted and customized communications for specific customer segments;\n\n• assess the interest of customers in new products or services;\n\n• plan strategies and identify the most appropriate ways of approach to different customers.\n\nWhat are we offering?\n\n• Flexibility in homework and working time management to ensure a healthy balance between work and private life\n\n• Numerous benefits and incentives\n\n• Wellness, motivational and team building activities\n\n• Experience in similar roles\n\n• Experience in telephone consulting, mainly off-bound, aimed at existing customers and potential customers, in four Italian, German/Swiss German, French and English languages (minimum level C1 in all four languages)\n\n• Residence in Ticino or availability to move",
-        "de": "Wir suchen einen motivierten und kundenorientierten Berater, der in unser Team aufgenommen wird. Im Mittelpunkt steht dabei die Online-Telefonberatung, die sich an unsere bestehenden Kunden und potenziellen Kunden richtet und professionelle und personalisierte Betreuung in Italienisch, Deutsch/Schweiz, Französisch und Englisch (mindestens in allen vier Sprachen C1) bietet. Bewerber ohne die erforderlichen Voraussetzungen werden nicht berücksichtigt.\n\n• Reaktivierung und Wiederherstellung bestehender Kunden\n\n• Treue und Kundenaktivitäten - 300%\n\n• Förderung der Nutzung unserer Produkte und Dienstleistungen\n\n• Verwaltung sowohl inbound als auch inbound Begrüßungsgespräche\n\n• Cross-Selling- und Up-Selling-Aktivitäten\n\n• Unterstützung von Marketingkampagnen, die auf folgende Ziele abzielen:\n\n• gezielte und maßgeschneiderte Kommunikation für spezifische Kundensegmente zu definieren;\n\n• die Interessen der Kunden an neuen Produkten oder Dienstleistungen zu bewerten;\n\n• Strategien planen und die geeignetsten Wege für den Zugang zu verschiedenen Kunden ermitteln.\n\nWas bieten wir an?\n\n• Flexibilität in der Hausaufgaben- und Arbeitszeitverwaltung, um ein gesundes Gleichgewicht zwischen Arbeit und Privatleben zu gewährleisten\n\n• Zahlreiche Vorteile und Anreize\n\n• Wellness, Motivation und Teambuilding\n\n• Erfahrung in ähnlichen Rollen\n\n• Erfahrung in der Telefonberatung, hauptsächlich im Ausland, für bestehende Kunden und potenzielle Kunden, in vier italienischen, deutschen/schweizerischen, französischen und englischen Sprachen (mindestens C1 in allen vier Sprachen)\n\n• Wohnanlage im Tessin oder Verfügbarkeit zum Umziehen",
-        "fr": "Nous recherchons un consultant motivé et orienté client pour être inclus dans notre équipe. Le rôle se concentre principalement sur les conseils téléphoniques en ligne destinés à nos clients existants et potentiels, offrant un support professionnel et personnalisé en italien, allemand/suisse allemand, français et anglais (niveau minimum C1 dans les quatre langues).\n\n• Réactivation et récupération des clients existants\n\n• Loyalty et activités client - 300%\n\n• Promotion de l'utilisation de nos produits et services\n\n• Gestion des appels de bienvenue entrants et sortants\n\n• Activités de vente croisée et de vente à la hausse\n\n• Soutien aux campagnes de marketing visant à:\n\n• définir des communications ciblées et personnalisées pour des segments spécifiques de clients;\n\n• évaluer l'intérêt des clients pour les nouveaux produits ou services;\n\n• planifier des stratégies et identifier les moyens d'approche les plus appropriés pour les différents clients.\n\nQu'est-ce qu'on offre?\n\n• Flexibilité dans la gestion des devoirs et du temps de travail pour assurer un équilibre sain entre le travail et la vie privée\n\n• De nombreux avantages et incitations\n\n• Activités de bien-être, de motivation et de renforcement d'équipe\n\n• Expérience dans des rôles similaires\n\n• Expérience de la consultation téléphonique, principalement hors ligne, destinée aux clients existants et potentiels, en quatre langues italiennes, allemandes/suisse, allemandes, françaises et anglaises (niveau minimum C1 dans les quatre langues)\n\n• Résidence à Ticino ou disponibilité pour déménager"
-      },
-      "requirements": [
-        "Esperienza in ruoli simili",
-        "Esperienza nella consulenza telefonica, principalmente outbound, rivolta alla clientela esistente e ai potenziali clienti, in quattro lingue italiano, tedesco/svizzero tedesco, francese e inglese (livello minimo C1 in tutte e quattro le lingue)",
-        "Residenza in Ticino o disponibilità a trasferirsi"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Esperienza in ruoli simili",
-          "Residenza in Ticino o disponibilità a trasferirsi"
-        ],
-        "en": [
-          "Experience in similar positions",
-          "Resident in Ticino or willing to relocate"
-        ]
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "sales",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-17",
-      "url": "https://jobs.corner.ch/o/customer-retention-growth-ref-1118",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "it",
-      "crawledAt": "2026-09-24T14:43:09.354Z",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-27T20:12:11.446Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -1062,89 +1082,7 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "sourceIdentity": "url:https://jobs.corner.ch/o/customer-retention-growth-ref-1118",
-      "retranslationAttempts": 1
-    },
-    {
-      "id": "corner-banca-244c8850180c",
-      "slug": "customer-advisor-evening-and-weekend-40-ref-1014-corner-banca-wallisellen",
-      "slugByLocale": {
-        "it": "customer-advisor-evening-and-weekend-40-ref-1014-corner-banca-wallisellen",
-        "en": "c-e-l-advisor-advisory-advisory-advisory-advisory-advisory-advisory-advisory-advisory-and-college-corner-banca",
-        "de": "customer-advisor-evening-and-weekend-40-ref-1014-corner-banca-wallisellen",
-        "fr": "customer-advisor-evening-and-weekend-40-ref-1014-corner-banca-wallisellen"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Customer Advisor Evening and Weekend 40% - ref. 1014",
-      "titleByLocale": {
-        "it": "Customer Consulente Evening and Weekend 40% - ref. 1014",
-        "en": "C.E.L., Advisor, Advisory, Advisory, Advisory, Advisory, Advisory, Advisory, Advisory, Advisory, and College,",
-        "de": "Customer Berater Evening and Weekend 40% - ref. 1014",
-        "fr": "Customer Conseiller Evening and Weekend 40% - ref. 1014"
-      },
-      "description": "Stiamo cercando una persona altamente qualificata per gestire, elaborare e/o inoltrare in modo competente le chiamate dei clienti e le richieste dei partner, in tedesco, francese, italiano e inglese, su vari argomenti legati ai pagamenti con carte, in conformità con le nostre istruzioni di lavoro.\nQuesta posizione fa parte del nostro team serale e del fine settimana, con orari di lavoro principalmente al di fuori degli orari d'ufficio standard.\n\nResponsabilità Chiave:\n\n• Rispondere alle chiamate in arrivo e gestire le richieste dei clienti e dei partner commerciali in tedesco, francese, italiano o inglese\n\n• Ricevere ed elaborare i reclami dei clienti e le problematiche relative a carte di credito, prepagate e di debito\n\n• Garantire una risoluzione tempestiva e soddisfacente delle richieste dei clienti, al fine di migliorarne la soddisfazione e la fedeltà\n\n• Assicurare che tutte le interazioni con i clienti e i relativi processi rispettino gli standard di qualità interni e le normative legali\n\n• Individuare proattivamente soluzioni ai reclami dei clienti e inoltrare i casi complessi al reparto competente\n\n• Identificare opportunità di vendita (vendita e upselling) durante le interazioni con i clienti\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione degli orari lavorativi, per garantire un sano equilibrio tra vita professionale e privata\n\n• Numerosi benefit e incentivi\n\n• Attività di benessere, motivazionali e di team-building\n\nPer la posizione aperta, siamo alla ricerca di candidati in possesso dei seguenti requisiti:\n\n• Formazione in ambito commerciale o turistico\n\n• Esperienza nel servizio clienti\n\n• Buona conoscenza del pacchetto Office / uso del PC\n\n• Buone capacità comunicative\n\n• Lingue: italiano, tedesco/svizzero tedesco, francese e inglese\n\n• In qualità di primo punto di contatto con i clienti, sono richieste le seguenti soft skill: cortesia, empatia, orientamento al cliente e capacità di lavorare in team",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando una persona altamente qualificata per gestire, elaborare e/o inoltrare in modo competente le chiamate dei clienti e le richieste dei partner, in tedesco, francese, italiano e inglese, su vari argomenti legati ai pagamenti con carte, in conformità con le nostre istruzioni di lavoro.\nQuesta posizione fa parte del nostro team serale e del fine settimana, con orari di lavoro principalmente al di fuori degli orari d'ufficio standard.\n\nResponsabilità Chiave:\n\n• Rispondere alle chiamate in arrivo e gestire le richieste dei clienti e dei partner commerciali in tedesco, francese, italiano o inglese\n\n• Ricevere ed elaborare i reclami dei clienti e le problematiche relative a carte di credito, prepagate e di debito\n\n• Garantire una risoluzione tempestiva e soddisfacente delle richieste dei clienti, al fine di migliorarne la soddisfazione e la fedeltà\n\n• Assicurare che tutte le interazioni con i clienti e i relativi processi rispettino gli standard di qualità interni e le normative legali\n\n• Individuare proattivamente soluzioni ai reclami dei clienti e inoltrare i casi complessi al reparto competente\n\n• Identificare opportunità di vendita (vendita e upselling) durante le interazioni con i clienti\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione degli orari lavorativi, per garantire un sano equilibrio tra vita professionale e privata\n\n• Numerosi benefit e incentivi\n\n• Attività di benessere, motivazionali e di team-building\n\nPer la posizione aperta, siamo alla ricerca di candidati in possesso dei seguenti requisiti:\n\n• Formazione in ambito commerciale o turistico\n\n• Esperienza nel servizio clienti\n\n• Buona conoscenza del pacchetto Office / uso del PC\n\n• Buone capacità comunicative\n\n• Lingue: italiano, tedesco/svizzero tedesco, francese e inglese\n\n• In qualità di primo punto di contatto con i clienti, sono richieste le seguenti soft skill: cortesia, empatia, orientamento al cliente e capacità di lavorare in team",
-        "en": "We are seeking a highly skilled individual to expertly handle, process and/or forward client calls and partner enquiries, in German, French, Italian and English, on various topics related to cards payment, in accordance with our work instructions.\n\nThis position is part of our evening and weekend team, with working hours primarily outside standard office times.\n\nKey responsibilities:\n\n• Answer incoming calls and handling inquiries from customers and business partners in German, French, Italian or English\n\n• Receive and process client complaints and issues related to credit, prepaid and debit cards\n\n• Ensure timely and satisfactory resolution of client concerns to enhance client satisfaction and loyalty\n\n• Ensure all customer interactions and processes comply with internal quality standards and legal regulations\n\n• Proactively find solutions for client complaints and escalating complex cases to the appropriate department\n\n• Identify sales opportunities (selling and upselling) during interactions with the customers\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\n• Commercial or tourism background\n\n• Experience in customer service\n\n• Good knowledge of Office package/ PC use\n\n• Good communication skills\n\n• Languages: Italian, German/Swiss German, French and English\n\n• As the first point of contact with customers, the following soft skills are needed: courtesy, empathy, customer orientation and ability to work in team",
-        "de": "We are seeking a highly skilled individual to expertly handle, process and/or forward client calls and partner enquiries, in German, French, Italian and English, on various topics related to cards payment, in accordance with our work instructions.\n\nThis position is part of our evening and weekend team, with working hours primarily outside standard office times.\n\nKey responsibilities:\n\n• Answer incoming calls and handling inquiries from customers and business partners in German, French, Italian or English\n\n• Receive and process client complaints and issues related to credit, prepaid and debit cards\n\n• Ensure timely and satisfactory resolution of client concerns to enhance client satisfaction and loyalty\n\n• Ensure all customer interactions and processes comply with internal quality standards and legal regulations\n\n• Proactively find solutions for client complaints and escalating complex cases to the appropriate department\n\n• Identify sales opportunities (selling and upselling) during interactions with the customers\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\n• Commercial or tourism background\n\n• Experience in customer service\n\n• Good knowledge of Office package/ PC use\n\n• Good communication skills\n\n• Languages: Italian, German/Swiss German, French and English\n\n• As the first point of contact with customers, the following soft skills are needed: courtesy, empathy, customer orientation and ability to work in team",
-        "fr": "We are seeking a highly skilled individual to expertly handle, process and/or forward client calls and partner enquiries, in German, French, Italian and English, on various topics related to cards payment, in accordance with our work instructions.\n\nThis position is part of our evening and weekend team, with working hours primarily outside standard office times.\n\nKey responsibilities:\n\n• Answer incoming calls and handling inquiries from customers and business partners in German, French, Italian or English\n\n• Receive and process client complaints and issues related to credit, prepaid and debit cards\n\n• Ensure timely and satisfactory resolution of client concerns to enhance client satisfaction and loyalty\n\n• Ensure all customer interactions and processes comply with internal quality standards and legal regulations\n\n• Proactively find solutions for client complaints and escalating complex cases to the appropriate department\n\n• Identify sales opportunities (selling and upselling) during interactions with the customers\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\n• Commercial or tourism background\n\n• Experience in customer service\n\n• Good knowledge of Office package/ PC use\n\n• Good communication skills\n\n• Languages: Italian, German/Swiss German, French and English\n\n• As the first point of contact with customers, the following soft skills are needed: courtesy, empathy, customer orientation and ability to work in team"
-      },
-      "requirements": [
-        "Formazione in ambito commerciale o turistico",
-        "Esperienza nel servizio clienti",
-        "Buona conoscenza del pacchetto Office / uso del PC",
-        "Buone capacità comunicative",
-        "Lingue: italiano, tedesco/svizzero tedesco, francese e inglese",
-        "In qualità di primo punto di contatto con i clienti, sono richieste le seguenti soft skill: cortesia, empatia, orientamento al cliente e capacità di lavorare in team"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Formazione in ambito commerciale o turistico",
-          "Esperienza nel servizio clienti",
-          "Buona conoscenza del pacchetto Office / uso del PC",
-          "Buone capacità comunicative",
-          "Lingue: italiano, tedesco/svizzero tedesco, francese e inglese"
-        ],
-        "en": [
-          "Commercial or tourism background",
-          "Experience in customer service",
-          "Good knowledge of Office package/ PC use",
-          "Good communication skills",
-          "Languages: Italian, German/Swiss German, French and English"
-        ]
-      },
-      "location": "Wallisellen",
-      "canton": "ZH",
-      "addressLocality": "Wallisellen",
-      "addressCountry": "CH",
-      "category": "sales",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-18",
-      "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40-ref-1014",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "it",
-      "crawledAt": "2026-09-24T14:43:09.353Z",
-      "firstSeenAt": "2026-09-19T23:09:44.967Z",
-      "salaryMin": 33200,
-      "salaryMax": 51000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 33200,
-          "maxValue": 51000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "sourceIdentity": "url:https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40-ref-1014"
+      "applyUrl": "https://jobs.corner.ch/o/credit-client-advisor-mf-ref-1128"
     },
     {
       "id": "corner-banca-e77e18a8741a",
@@ -1199,8 +1137,9 @@
       "url": "https://jobs.corner.ch/o/consumer-loan-advisor-ref-1129",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-24T14:43:09.353Z",
+      "crawledAt": "2026-09-25T15:04:13.134Z",
       "firstSeenAt": "2026-09-03T13:49:26.508Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -1218,7 +1157,89 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "sourceIdentity": "url:https://jobs.corner.ch/o/consumer-loan-advisor-ref-1129"
+      "applyUrl": "https://jobs.corner.ch/o/consumer-loan-advisor-ref-1129"
+    },
+    {
+      "id": "corner-banca-244c8850180c",
+      "slug": "customer-advisor-evening-and-weekend-40-ref-1014-corner-banca-wallisellen",
+      "slugByLocale": {
+        "it": "customer-advisor-evening-and-weekend-40-ref-1014-corner-banca-wallisellen",
+        "en": "c-e-l-advisor-advisory-advisory-advisory-advisory-advisory-advisory-advisory-advisory-and-college-corner-banca",
+        "de": "customer-advisor-evening-and-weekend-40-ref-1014-corner-banca-wallisellen",
+        "fr": "customer-advisor-evening-and-weekend-40-ref-1014-corner-banca-wallisellen"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Customer Advisor Evening and Weekend 40% - ref. 1014",
+      "titleByLocale": {
+        "it": "Customer Consulente Evening and Weekend 40% - ref. 1014",
+        "en": "Customer Advisor Evening and Weekend 40% - ref. 1014",
+        "de": "Customer Berater Evening and Weekend 40% - ref. 1014",
+        "fr": "Customer Conseiller Evening and Weekend 40% - ref. 1014"
+      },
+      "description": "Stiamo cercando una persona altamente qualificata per gestire, elaborare e/o inoltrare in modo competente le chiamate dei clienti e le richieste dei partner, in tedesco, francese, italiano e inglese, su vari argomenti legati ai pagamenti con carte, in conformità con le nostre istruzioni di lavoro.\nQuesta posizione fa parte del nostro team serale e del fine settimana, con orari di lavoro principalmente al di fuori degli orari d'ufficio standard.\n\nResponsabilità Chiave:\n\n• Rispondere alle chiamate in arrivo e gestire le richieste dei clienti e dei partner commerciali in tedesco, francese, italiano o inglese\n\n• Ricevere ed elaborare i reclami dei clienti e le problematiche relative a carte di credito, prepagate e di debito\n\n• Garantire una risoluzione tempestiva e soddisfacente delle richieste dei clienti, al fine di migliorarne la soddisfazione e la fedeltà\n\n• Assicurare che tutte le interazioni con i clienti e i relativi processi rispettino gli standard di qualità interni e le normative legali\n\n• Individuare proattivamente soluzioni ai reclami dei clienti e inoltrare i casi complessi al reparto competente\n\n• Identificare opportunità di vendita (vendita e upselling) durante le interazioni con i clienti\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione degli orari lavorativi, per garantire un sano equilibrio tra vita professionale e privata\n\n• Numerosi benefit e incentivi\n\n• Attività di benessere, motivazionali e di team-building\n\nPer la posizione aperta, siamo alla ricerca di candidati in possesso dei seguenti requisiti:\n\n• Formazione in ambito commerciale o turistico\n\n• Esperienza nel servizio clienti\n\n• Buona conoscenza del pacchetto Office / uso del PC\n\n• Buone capacità comunicative\n\n• Lingue: italiano, tedesco/svizzero tedesco, francese e inglese\n\n• In qualità di primo punto di contatto con i clienti, sono richieste le seguenti soft skill: cortesia, empatia, orientamento al cliente e capacità di lavorare in team",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando una persona altamente qualificata per gestire, elaborare e/o inoltrare in modo competente le chiamate dei clienti e le richieste dei partner, in tedesco, francese, italiano e inglese, su vari argomenti legati ai pagamenti con carte, in conformità con le nostre istruzioni di lavoro.\nQuesta posizione fa parte del nostro team serale e del fine settimana, con orari di lavoro principalmente al di fuori degli orari d'ufficio standard.\n\nResponsabilità Chiave:\n\n• Rispondere alle chiamate in arrivo e gestire le richieste dei clienti e dei partner commerciali in tedesco, francese, italiano o inglese\n\n• Ricevere ed elaborare i reclami dei clienti e le problematiche relative a carte di credito, prepagate e di debito\n\n• Garantire una risoluzione tempestiva e soddisfacente delle richieste dei clienti, al fine di migliorarne la soddisfazione e la fedeltà\n\n• Assicurare che tutte le interazioni con i clienti e i relativi processi rispettino gli standard di qualità interni e le normative legali\n\n• Individuare proattivamente soluzioni ai reclami dei clienti e inoltrare i casi complessi al reparto competente\n\n• Identificare opportunità di vendita (vendita e upselling) durante le interazioni con i clienti\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione degli orari lavorativi, per garantire un sano equilibrio tra vita professionale e privata\n\n• Numerosi benefit e incentivi\n\n• Attività di benessere, motivazionali e di team-building\n\nPer la posizione aperta, siamo alla ricerca di candidati in possesso dei seguenti requisiti:\n\n• Formazione in ambito commerciale o turistico\n\n• Esperienza nel servizio clienti\n\n• Buona conoscenza del pacchetto Office / uso del PC\n\n• Buone capacità comunicative\n\n• Lingue: italiano, tedesco/svizzero tedesco, francese e inglese\n\n• In qualità di primo punto di contatto con i clienti, sono richieste le seguenti soft skill: cortesia, empatia, orientamento al cliente e capacità di lavorare in team",
+        "en": "We are seeking a highly skilled individual to expertly handle, process and/or forward client calls and partner enquiries, in German, French, Italian and English, on various topics related to cards payment, in accordance with our work instructions.\n\nThis position is part of our evening and weekend team, with working hours primarily outside standard office times.\n\nKey responsibilities:\n\n• Answer incoming calls and handling inquiries from customers and business partners in German, French, Italian or English\n\n• Receive and process client complaints and issues related to credit, prepaid and debit cards\n\n• Ensure timely and satisfactory resolution of client concerns to enhance client satisfaction and loyalty\n\n• Ensure all customer interactions and processes comply with internal quality standards and legal regulations\n\n• Proactively find solutions for client complaints and escalating complex cases to the appropriate department\n\n• Identify sales opportunities (selling and upselling) during interactions with the customers\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\n• Commercial or tourism background\n\n• Experience in customer service\n\n• Good knowledge of Office package/ PC use\n\n• Good communication skills\n\n• Languages: Italian, German/Swiss German, French and English\n\n• As the first point of contact with customers, the following soft skills are needed: courtesy, empathy, customer orientation and ability to work in team",
+        "de": "We are seeking a highly skilled individual to expertly handle, process and/or forward client calls and partner enquiries, in German, French, Italian and English, on various topics related to cards payment, in accordance with our work instructions.\n\nThis position is part of our evening and weekend team, with working hours primarily outside standard office times.\n\nKey responsibilities:\n\n• Answer incoming calls and handling inquiries from customers and business partners in German, French, Italian or English\n\n• Receive and process client complaints and issues related to credit, prepaid and debit cards\n\n• Ensure timely and satisfactory resolution of client concerns to enhance client satisfaction and loyalty\n\n• Ensure all customer interactions and processes comply with internal quality standards and legal regulations\n\n• Proactively find solutions for client complaints and escalating complex cases to the appropriate department\n\n• Identify sales opportunities (selling and upselling) during interactions with the customers\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\n• Commercial or tourism background\n\n• Experience in customer service\n\n• Good knowledge of Office package/ PC use\n\n• Good communication skills\n\n• Languages: Italian, German/Swiss German, French and English\n\n• As the first point of contact with customers, the following soft skills are needed: courtesy, empathy, customer orientation and ability to work in team",
+        "fr": "We are seeking a highly skilled individual to expertly handle, process and/or forward client calls and partner enquiries, in German, French, Italian and English, on various topics related to cards payment, in accordance with our work instructions.\n\nThis position is part of our evening and weekend team, with working hours primarily outside standard office times.\n\nKey responsibilities:\n\n• Answer incoming calls and handling inquiries from customers and business partners in German, French, Italian or English\n\n• Receive and process client complaints and issues related to credit, prepaid and debit cards\n\n• Ensure timely and satisfactory resolution of client concerns to enhance client satisfaction and loyalty\n\n• Ensure all customer interactions and processes comply with internal quality standards and legal regulations\n\n• Proactively find solutions for client complaints and escalating complex cases to the appropriate department\n\n• Identify sales opportunities (selling and upselling) during interactions with the customers\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\n• Commercial or tourism background\n\n• Experience in customer service\n\n• Good knowledge of Office package/ PC use\n\n• Good communication skills\n\n• Languages: Italian, German/Swiss German, French and English\n\n• As the first point of contact with customers, the following soft skills are needed: courtesy, empathy, customer orientation and ability to work in team"
+      },
+      "requirements": [
+        "Formazione in ambito commerciale o turistico",
+        "Esperienza nel servizio clienti",
+        "Buona conoscenza del pacchetto Office / uso del PC",
+        "Buone capacità comunicative",
+        "Lingue: italiano, tedesco/svizzero tedesco, francese e inglese",
+        "In qualità di primo punto di contatto con i clienti, sono richieste le seguenti soft skill: cortesia, empatia, orientamento al cliente e capacità di lavorare in team"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Formazione in ambito commerciale o turistico",
+          "Esperienza nel servizio clienti",
+          "Buona conoscenza del pacchetto Office / uso del PC",
+          "Buone capacità comunicative",
+          "Lingue: italiano, tedesco/svizzero tedesco, francese e inglese"
+        ],
+        "en": [
+          "Commercial or tourism background",
+          "Experience in customer service",
+          "Good knowledge of Office package/ PC use",
+          "Good communication skills",
+          "Languages: Italian, German/Swiss German, French and English"
+        ]
+      },
+      "location": "Wallisellen",
+      "canton": "ZH",
+      "addressLocality": "Wallisellen",
+      "addressCountry": "CH",
+      "category": "sales",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-18",
+      "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40-ref-1014",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "it",
+      "crawledAt": "2026-09-25T15:04:13.133Z",
+      "firstSeenAt": "2026-09-19T23:09:44.967Z",
+      "needsRetranslation": true,
+      "salaryMin": 33200,
+      "salaryMax": 51000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 33200,
+          "maxValue": 51000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "employmentType": "FULL_TIME",
+      "applyUrl": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40-ref-1014"
     }
   ]
 }

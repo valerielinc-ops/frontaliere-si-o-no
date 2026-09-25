@@ -84,8 +84,12 @@ import {
   extractDetailContactName,
   extractDetailTableValue,
   extractEventPeopleFromText,
+  extractEventPeopleFromTitle,
+  extractEventOfferMetadata,
+  eventOfferPriceAmount,
   firstEventImageUrl,
   firstEventImageUrlFromHtml,
+  mergeEventOfferMetadata,
   normalizeEventPeople,
 } from './lib/event-metadata.mjs';
 
@@ -346,16 +350,23 @@ export function humanizeCategory(rawType) {
 }
 
 /** Price from JSON-LD `offers`, `isAccessibleForFree`, or the detail table. */
-export function extractPrice(ld, detailHtml) {
+export function extractPrice(ld, detailHtml, detailUrl) {
   const offersRaw = ld?.offers;
   const offers = Array.isArray(offersRaw) ? offersRaw : offersRaw ? [offersRaw] : [];
   const priced = offers
-    .map((o) => (o && o.price !== undefined && o.price !== null ? Number(o.price) : NaN))
-    .filter((n) => Number.isFinite(n));
+    .map((offer) => ({ offer, amount: eventOfferPriceAmount(offer?.price) }))
+    .filter(({ amount }) => Number.isFinite(amount));
   if (priced.length) {
-    const amount = Math.min(...priced);
-    const currency = offers.find((o) => typeof o?.priceCurrency === 'string')?.priceCurrency || 'CHF';
-    return { amount, currency, isFree: amount === 0 };
+    const cheapest = priced.reduce((best, candidate) => (candidate.amount < best.amount ? candidate : best));
+    const currency = typeof cheapest.offer?.priceCurrency === 'string'
+      ? cheapest.offer.priceCurrency
+      : offers.find((o) => typeof o?.priceCurrency === 'string')?.priceCurrency || 'CHF';
+    return {
+      amount: cheapest.amount,
+      currency,
+      isFree: cheapest.amount === 0,
+      ...(extractEventOfferMetadata(cheapest.offer, detailUrl || SITE_ORIGIN) || {}),
+    };
   }
   if (ld?.isAccessibleForFree === true) return { amount: 0, currency: 'CHF', isFree: true };
   const tablePrice = extractDetailTableValue(detailHtml, ['Prezzo', 'Preis', 'Price', 'Prix']);
@@ -476,6 +487,8 @@ export function mergeDetailEventMetadata(primaryLd, candidateLd, primaryUrl = SI
     const people = normalizeEventPeople(candidateLd[field], candidateUrl);
     if (people) merged[field] = people;
   }
+  const mergedOffers = mergeEventOfferMetadata(merged.offers, candidateLd.offers, primaryUrl, candidateUrl);
+  if (mergedOffers !== undefined) merged.offers = mergedOffers;
   return merged;
 }
 
@@ -526,10 +539,13 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
   const indexedPeople = extractEventPeopleFromText(
     LOCALES.flatMap((locale) => [perLocaleHits[locale]?.content, perLocaleHits[locale]?.leadText]).filter(Boolean).join('. '),
   );
+  const indexedTitlePeople = LOCALES
+    .map((locale) => extractEventPeopleFromTitle(perLocaleHits[locale]?.title).performer)
+    .find(Boolean);
   const detailPeopleFromHtml = extractEventPeopleFromText(detailHtml);
   const sourcePeople = {
     organizer: detailPeople?.organizer || detailPeopleFromHtml.organizer || indexedPeople.organizer,
-    performer: detailPeople?.performer || detailPeopleFromHtml.performer || indexedPeople.performer,
+    performer: detailPeople?.performer || detailPeopleFromHtml.performer || indexedPeople.performer || indexedTitlePeople,
   };
   const organizer = normalizeEventPeople(detailLd?.organizer, detailUrl || SITE_ORIGIN)
     || normalizeEventPeople(sourcePeople.organizer, SITE_ORIGIN)
@@ -570,7 +586,7 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
       url: rawUrl,
       sourceKey: SOURCE.key,
       sourceName: SOURCE.label,
-      price: extractPrice(detailLd, detailHtml) || detailPrice,
+      price: extractPrice(detailLd, detailHtml, detailUrl) || detailPrice,
       address,
       geo: extractGeo(primary),
       recurring: dateInfo.recurring,
@@ -588,6 +604,10 @@ async function fetchDetailEnrichment(perLocaleHits) {
   const sourcePeople = extractEventPeopleFromText(
     LOCALES.flatMap((locale) => [perLocaleHits[locale]?.content, perLocaleHits[locale]?.leadText]).filter(Boolean).join('. '),
   );
+  const sourceTitlePeople = LOCALES
+    .map((locale) => extractEventPeopleFromTitle(perLocaleHits[locale]?.title).performer)
+    .find(Boolean);
+  if (!sourcePeople.performer && sourceTitlePeople) sourcePeople.performer = sourceTitlePeople;
   for (const locale of LOCALES) {
     const hit = perLocaleHits[locale];
     if (!hit?.url) continue;
@@ -597,7 +617,7 @@ async function fetchDetailEnrichment(perLocaleHits) {
     if (!html) continue;
     const ld = extractEventJsonLd(html);
     const candidateAddress = extractAddress(ld) || extractDetailAddress(html);
-    const candidatePrice = extractPrice(ld, html);
+    const candidatePrice = extractPrice(ld, html, url);
     const candidateContactName = extractDetailContactName(html);
     const candidateImageSourceUrl = firstEventImageUrlFromHtml(html, url);
     const candidatePeople = extractEventPeopleFromText(html);

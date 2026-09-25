@@ -6704,6 +6704,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.omologazione-fitosanitari-arretrato-2032.title': 'Homologation des produits phytosanitaires : arriéré résorbé d’ici 2032',
     'blog.article.omologazione-fitosanitari-arretrato-2032.excerpt': 'Le Conseil fédéral fixe à 2032 le délai pour traiter 525 demandes en suspens ; les taxes augmenteront à partir de 2028 pour couvrir 50% des coûts.',
     'blog.article.omologazione-fitosanitari-arretrato-2032.imageAlt': 'Palais fédéral à Berne avec champs agricoles en arrière-plan',
+    'blog.article.finanziamento-federale-universita-sup.title': 'Financement fédéral des universités cantonales et des HES',
+    'blog.article.finanziamento-federale-universita-sup.excerpt': 'Le Conseil fédéral a approuvé le 25 septembre 2026 le rapport sur le financement équitable : 20% maximum pour les universités cantonales, 30% maximum pour les HES à partir du 1° janvier 2027.',
+    'blog.article.finanziamento-federale-universita-sup.imageAlt': 'Campus universitaire moderne à Lugano avec étudiants et laboratoires de recherche sous le ciel alpin',
+    'blog.article.fondi-integrazione-svizzera-2028.title': 'Plus de fonds fédéraux pour l\'intégration 2028-2032',
+    'blog.article.fondi-integrazione-svizzera-2028.excerpt': 'Le Conseil fédéral alloue 334,5 millions à l’intégration en Suisse pour la période 2028-2032, dont 66,9 millions par an pour des programmes cantonaux et nationaux.',
+    'blog.article.fondi-integrazione-svizzera-2028.imageAlt': 'Séance d\'information suisse sur les programmes cantonaux d\'intégration',
+    'blog.article.incentivo-fiscale-acquisto-locale.title': 'Incitation fiscale pour les achats locaux au Tessin : proposition',
+    'blog.article.incentivo-fiscale-acquisto-locale.excerpt': 'Le Centre propose un crédit d\'impôt jusqu\'à 25 % pour ceux qui destinent jusqu\'à 5 % du salaire ou du revenu annuel aux commerçants tessinois adhérents.',
+    'blog.article.incentivo-fiscale-acquisto-locale.imageAlt': 'Smartphone avec portefeuille numérique pour achats locaux au Tessin',
+    'blog.article.franco-svizzero-ribasso-settembre-novembre.title': 'Franc suisse en baisse : les signaux à suivre jusqu’en novembre',
+    'blog.article.franco-svizzero-ribasso-settembre-novembre.excerpt': 'Le franc suisse a reculé d’environ 5 % par rapport à ses sommets du printemps 2026, ce qui équivaut au recul de 2023 et est inférieur aux >6% de 2024 ; la fenêtre saisonnière va de fin septembre à début novembre.',
+    'blog.article.franco-svizzero-ribasso-settembre-novembre.imageAlt': 'Illustration du franc suisse et de l\'euro avec arrière-plan du lac de Lugano',
 };
 
 export default blogMetaChFr;
