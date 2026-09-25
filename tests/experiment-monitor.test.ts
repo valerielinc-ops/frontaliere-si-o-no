@@ -191,6 +191,14 @@ describe('decisione di promozione (tabella di casi)', () => {
     expect(decision).toMatchObject({ phase: 'max-duration', action: 'ask-owner', winner: null });
   });
 
+  it('dopo la durata massima un vincente tardivo non promuove: decide il proprietario', () => {
+    const atMax = decide(payload(70, { ...baseArms, email_first: flat(N, 0.045) })).decision;
+    expect(atMax).toMatchObject({ action: 'promote', winner: 'email_first' });
+    const late = decide(payload(77, { ...baseArms, email_first: flat(N, 0.045) })).decision;
+    expect(late).toMatchObject({ phase: 'max-duration', action: 'ask-owner', winner: null });
+    expect(late.checks.every((c) => c.ok)).toBe(true);
+  });
+
   it('FORCE già impostato: nessuna azione e nessun allarme (idempotente dopo la promozione)', () => {
     const { decision, alarms } = decide(payload(56, { ...baseArms, email_first: flat(N, 0.045) }), { enabled: true, force: 'email_first' });
     expect(decision).toMatchObject({ phase: 'forced', action: 'none', winner: 'email_first' });

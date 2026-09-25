@@ -193,8 +193,7 @@ function findStatusIssue() {
 }
 
 async function syncIssues({ report, state, prevIssue, alarms, decision, applied, runUrl, workflow }) {
-  const { commentOnGithubIssue, createGithubIssue, ensureLabelsExist, resolveGithubIssue } = await import('../lib/github-issue-creator.mjs');
-  ensureLabelsExist([...new Set([...STATUS_LABELS, ...OWNER_LABELS])]);
+  const { commentOnGithubIssue, createGithubIssue, resolveGithubIssue } = await import('../lib/github-issue-creator.mjs');
   const bodyFile = path.join(os.tmpdir(), `jobgate-monitor-status-${process.pid}.md`);
   fs.writeFileSync(bodyFile, report);
   let statusNumber;
@@ -353,6 +352,8 @@ async function monitorOnce({ args, plan, rc, planned, tmpDir, now }) {
   }
 
   if (args.issues) {
+    const { ensureLabelsExist } = await import('../lib/github-issue-creator.mjs');
+    ensureLabelsExist([...new Set([...STATUS_LABELS, ...OWNER_LABELS])]);
     const prevIssue = findStatusIssue();
     await syncIssues({ report, state, prevIssue, alarms, decision, applied, runUrl, workflow: 'jobgate-experiment-monitor' });
   }

@@ -19,8 +19,8 @@
  *  (e) guardrail ok per il vincente (non significativamente peggiore del
  *      control su nessuna metrica di guardrail) e attribuzione degli iscritti
  *      sopra la copertura minima.
- * Oltre la durata massima senza promozione: nessun cambio, si chiede al
- * proprietario. Control «vincente» o nessun challenger migliore: nessuna
+ * Alla durata massima senza promozione (e da lì in poi, anche se un vincente
+ * arriva dopo): nessun cambio, si chiede al proprietario. Control «vincente» o nessun challenger migliore: nessuna
  * promozione. FORCE già impostato o kill switch spento: nessuna azione.
  */
 
@@ -271,7 +271,9 @@ export function decideAction({ rc, decisionEval, plan, planned }) {
         : `copertura ${fmtPct(e.attribution.coverage, 0)} (minimo ${fmtPct(plan.minAttributionCoverage, 0)})`,
     },
   ];
-  if (checks.every((c) => c.ok)) return { phase: 'decision', action: 'promote', winner: best.arm, checks };
+  // Oltre la durata massima nessun cambio automatico, nemmeno con un vincente
+  // arrivato tardi: la lettura a `maxDays` è l'ultima che può promuovere.
+  if (checks.every((c) => c.ok) && e.days <= plan.maxDays) return { phase: 'decision', action: 'promote', winner: best.arm, checks };
   if (e.days >= plan.maxDays) return { phase: 'max-duration', action: 'ask-owner', winner: null, checks };
   return { phase: 'decision', action: 'none', winner: null, checks };
 }
