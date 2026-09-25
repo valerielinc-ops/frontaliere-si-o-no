@@ -5,10 +5,15 @@
  * Firestore e Remote Config: nessuna scrittura, nessun publish.
  *
  * Uso:
- *   node scripts/analytics/job-gate-experiment-readout.mjs --since 2026-09-25 \
+ *   node scripts/analytics/job-gate-experiment-readout.mjs [--since 2026-09-26] \
  *     [--until 2026-10-09] [--experiment jobgate-v3] [--control control] \
  *     [--weights '{"control":50,"challenger":50}'] [--json out.json] [--md out.md]
  *   node scripts/analytics/job-gate-experiment-readout.mjs --baseline --days 14 [--json out.json]
+ *   [--include-bots]  disattiva l'esclusione del traffico automatico (confronto)
+ *
+ * Per `jobgate-v3` `--since` vale di default 2026-09-26 (analysisStart in
+ * scripts/experiments/jobgate-v3-plan.mjs): il 25/09 04:55–06:30 UTC un guasto
+ * CDN ha servito il sito a metà proprio nel giorno del lancio.
  *
  * Fonti:
  *  - GA4: `experiment_assigned` (persone per braccio → SRM), `job_auth_funnel`
@@ -19,6 +24,10 @@
  *    job gate (baseline). Si leggono solo i campi di stato/tempo (`select`),
  *    mai l'email.
  *  - Pesi: `--weights`, altrimenti env/RC `JOBGATE_EXPERIMENT_ARMS`.
+ *  - Traffico automatico (GA4_EXCLUDED_TRAFFIC in experiment-stats.mjs):
+ *    escluso da ogni query GA4 e contato a parte per firma e braccio, così il
+ *    report dice quante persone ha tolto. Non entra nel numeratore Firestore:
+ *    quei robot non si iscrivono.
  *
  * I bracci NON sono hard-coded: si scoprono dai dati (GA4 + Firestore + pesi).
  * Tutta la statistica è in scripts/lib/experiment-stats.mjs (pura, testata).
@@ -35,18 +44,25 @@ import {
 import { ANALYTICS_PROCESSING_LAG_DAYS, settledWindow } from '../lib/analytics-settled-window.mjs';
 import { GA4_REPORT_TIMEZONE } from '../lib/ga4-report-timezone.mjs';
 import {
+  GA4_EXCLUDED_TRAFFIC,
   aggregateSubscribers,
+  attributionCoverage,
   armFromVariantTag,
   buildBaseline,
   buildExperimentReadout,
   classifySubscriber,
   funnelUsersByArm,
+  ga4And,
+  ga4ExcludeTraffic,
+  ga4Exact,
+  ga4OnlyTraffic,
   parseArmWeights,
   parseGa4Rows,
   renderBaselineMarkdown,
   renderExperimentMarkdown,
   sumGa4Metric,
 } from '../lib/experiment-stats.mjs';
+import { JOBGATE_V3_PLAN } from '../experiments/jobgate-v3-plan.mjs';
 
 const JOB_GATE_CTAS = ['job_board_email_unlock', 'job_board_social_unlock', 'job_expired_email_unlock'];
 const SUBSCRIBER_FIELDS = [
@@ -57,6 +73,9 @@ const SUBSCRIBER_FIELDS = [
   'source_cta', 'source_channel',
 ];
 const DAY_MS = 24 * 60 * 60 * 1000;
+
+/** Primo giorno analizzabile per esperimento, quando `--since` manca. */
+const DEFAULT_SINCE = { [JOBGATE_V3_PLAN.experimentId]: JOBGATE_V3_PLAN.analysisStart };
 
 // ── Argomenti ────────────────────────────────────────────────
 
@@ -71,6 +90,7 @@ const { values: args } = parseArgs({
     json: { type: 'string' },
     md: { type: 'string' },
     baseline: { type: 'boolean', default: false },
+    'include-bots': { type: 'boolean', default: false },
     mde: { type: 'string', default: '0.2' },
     help: { type: 'boolean', short: 'h', default: false },
   },
@@ -78,7 +98,7 @@ const { values: args } = parseArgs({
 });
 
 if (args.help) {
-  console.log(fs.readFileSync(new URL(import.meta.url), 'utf8').split('\n').slice(2, 14).join('\n'));
+  console.log(fs.readFileSync(new URL(import.meta.url), 'utf8').split('\n').slice(2, 20).join('\n'));
   process.exit(0);
 }
 
@@ -95,11 +115,12 @@ function resolveWindow() {
     const { start, end } = settledWindow({ days, lagDays: ANALYTICS_PROCESSING_LAG_DAYS });
     return { since: start, until: end };
   }
-  if (!args.since || !DATE_RE.test(args.since)) fail('serve --since YYYY-MM-DD (oppure --days N)');
+  const since = args.since || (args.baseline ? null : DEFAULT_SINCE[args.experiment]);
+  if (!since || !DATE_RE.test(since)) fail('serve --since YYYY-MM-DD (oppure --days N)');
   const until = args.until || settledWindow({ days: 1, lagDays: ANALYTICS_PROCESSING_LAG_DAYS }).end;
   if (!DATE_RE.test(until)) fail('--until deve essere YYYY-MM-DD');
-  if (until < args.since) fail(`--until ${until} precede --since ${args.since}`);
-  return { since: args.since, until };
+  if (until < since) fail(`--until ${until} precede --since ${since} (nessun giorno assestato nella finestra)`);
+  return { since, until };
 }
 
 /** Mezzanotte Europe/Zurich del giorno `YYYY-MM-DD` in epoch ms. */
@@ -146,16 +167,26 @@ async function loadWeights(notes) {
 
 // ── GA4 ──────────────────────────────────────────────────────
 
-function exact(fieldName, value) {
-  return { filter: { fieldName, stringFilter: { value, matchType: 'EXACT' } } };
-}
-
-function andFilter(...exprs) {
-  return exprs.length === 1 ? exprs[0] : { andGroup: { expressions: exprs } };
-}
+const exact = ga4Exact;
+const andFilter = ga4And;
+const excludedSignatures = () => (args['include-bots'] ? [] : GA4_EXCLUDED_TRAFFIC);
 
 async function ga4(token, body) {
   return runGa4Report({ token, body: { limit: 10000, ...body } });
+}
+
+/**
+ * Esegue la stessa query GA4 una volta al netto del traffico automatico e una
+ * volta per ciascuna firma esclusa (per dichiarare quanto è stato tolto).
+ * Con `--include-bots` la query è una sola e senza filtro.
+ */
+async function ga4WithExclusions(token, body) {
+  const signatures = excludedSignatures();
+  const [main, ...perSignature] = await Promise.all([
+    ga4(token, { ...body, dimensionFilter: ga4ExcludeTraffic(body.dimensionFilter, signatures) }),
+    ...signatures.map((sig) => ga4(token, { ...body, dimensionFilter: ga4OnlyTraffic(body.dimensionFilter, sig) })),
+  ]);
+  return { main, excluded: signatures.map((sig, i) => ({ id: sig.id, label: sig.label, response: perSignature[i] })) };
 }
 
 // ── Firestore ────────────────────────────────────────────────
@@ -190,13 +221,21 @@ async function main() {
   const dateRanges = [{ startDate: since, endDate: until }];
 
   if (args.baseline) {
-    const funnel = await ga4(token, {
+    const funnelRes = await ga4WithExclusions(token, {
       dateRanges,
       dimensions: [{ name: 'customEvent:step' }],
       metrics: [{ name: 'totalUsers' }, { name: 'eventCount' }],
       dimensionFilter: exact('eventName', 'job_auth_funnel'),
     });
-    const { byKey } = sumGa4Metric(parseGa4Rows(funnel), { keyDims: ['customEvent:step'] });
+    const { byKey } = sumGa4Metric(parseGa4Rows(funnelRes.main), { keyDims: ['customEvent:step'] });
+    const excluded = {
+      applied: !args['include-bots'],
+      signatures: funnelRes.excluded.map(({ id, label, response }) => ({
+        id,
+        label,
+        gateView: sumGa4Metric(parseGa4Rows(response), { keyDims: ['customEvent:step'] }).byKey.gate_view || 0,
+      })),
+    };
     const docs = await loadSubscriberDocs(
       db.collection('newsletter_subscribers').where('source_cta', 'in', JOB_GATE_CTAS),
     );
@@ -213,21 +252,21 @@ async function main() {
       ctaSubs: agg.byKey,
       ctas: JOB_GATE_CTAS,
     });
-    const md = renderBaselineMarkdown(baseline, { since, until, notes });
-    emit(md, { mode: 'baseline', since, until, windowDays, baseline, notes });
+    const md = renderBaselineMarkdown(baseline, { since, until, notes, excluded });
+    emit(md, { mode: 'baseline', since, until, windowDays, baseline, excluded, notes });
     return;
   }
 
   // ── Esperimento ──
   const expFilter = exact('customEvent:experiment_id', experimentId);
   const [assignedRes, funnelRes] = await Promise.all([
-    ga4(token, {
+    ga4WithExclusions(token, {
       dateRanges,
       dimensions: [{ name: 'customEvent:variant' }],
       metrics: [{ name: 'totalUsers' }],
       dimensionFilter: andFilter(exact('eventName', 'experiment_assigned'), expFilter),
     }),
-    ga4(token, {
+    ga4WithExclusions(token, {
       dateRanges,
       dimensions: [{ name: 'customEvent:variant' }, { name: 'customEvent:step' }],
       metrics: [{ name: 'totalUsers' }],
@@ -240,15 +279,29 @@ async function main() {
       dateRanges,
       dimensions: [{ name: 'customEvent:variant' }],
       metrics: [{ name: 'totalUsers' }],
-      dimensionFilter: andFilter(exact('eventName', 'newsletter'), exact('customEvent:action', 'subscribe'), expFilter),
+      dimensionFilter: ga4ExcludeTraffic(
+        andFilter(exact('eventName', 'newsletter'), exact('customEvent:action', 'subscribe'), expFilter),
+        excludedSignatures(),
+      ),
     });
     gaSubscribe = sumGa4Metric(parseGa4Rows(subRes), { keyDims: ['customEvent:variant'] }).byKey;
   } catch (e) {
     notes.push(`Evento GA4 \`newsletter\` subscribe per braccio non leggibile (${String(e?.message || e).slice(0, 100)}).`);
   }
 
-  const assigned = sumGa4Metric(parseGa4Rows(assignedRes), { keyDims: ['customEvent:variant'] });
-  const funnel = funnelUsersByArm(funnelRes);
+  const assigned = sumGa4Metric(parseGa4Rows(assignedRes.main), { keyDims: ['customEvent:variant'] });
+  const funnel = funnelUsersByArm(funnelRes.main);
+  const excluded = {
+    applied: !args['include-bots'],
+    signatures: assignedRes.excluded.map(({ id, label, response }, i) => ({
+      id,
+      label,
+      assigned: sumGa4Metric(parseGa4Rows(response), { keyDims: ['customEvent:variant'] }).byKey,
+      gateView: Object.fromEntries(
+        Object.entries(funnelUsersByArm(funnelRes.excluded[i].response).byArm).map(([arm, steps]) => [arm, steps.gate_view || 0]),
+      ),
+    })),
+  };
   if (assigned.unattributed) notes.push(`${assigned.unattributed} persone con \`experiment_assigned\` senza \`variant\` escluse.`);
   if (funnel.unattributed) notes.push(`${funnel.unattributed} persone-step \`job_auth_funnel\` senza \`variant\`/\`step\` escluse.`);
 
@@ -265,6 +318,24 @@ async function main() {
   if (subsAgg.outsideWindow) notes.push(`${subsAgg.outsideWindow} iscritti \`${prefix}*\` creati fuori finestra esclusi.`);
   if (subsAgg.missingCreated) notes.push(`${subsAgg.missingCreated} iscritti \`${prefix}*\` senza data di creazione né di consenso esclusi.`);
   if (subsAgg.createdFromConsent) notes.push(`${subsAgg.createdFromConsent} iscritti \`${prefix}*\` senza \`created_at\`/\`subscribed_at\`: data presa dal timestamp del consenso.`);
+
+  // Copertura dell'attribuzione: iscritti CREATI nella finestra (per
+  // `created_at`) partiti dal job gate, con e senza il tag del braccio.
+  const windowSnap = await db.collection('newsletter_subscribers')
+    .where('created_at', '>=', new Date(startMs))
+    .where('created_at', '<', new Date(endExclusiveMs))
+    .select('variant', 'source_page', 'source_component')
+    .get();
+  const attribution = attributionCoverage(
+    windowSnap.docs.map((d) => {
+      const x = d.data();
+      return { variant: x.variant, sourcePage: x.source_page, sourceComponent: x.source_component };
+    }),
+    { experimentId },
+  );
+  if (attribution.untaggedFromGate) {
+    notes.push(`Attribuzione: ${attribution.untaggedFromGate} nuovi iscritti partiti da una pagina annuncio (JobBoard o login social) SENZA tag \`${prefix}*\` contro ${attribution.tagged} con tag (copertura ${attribution.coverage == null ? '—' : `${Math.round(attribution.coverage * 100)}%`}; per componente: ${Object.entries(attribution.untaggedByComponent).map(([k, v]) => `${k} ${v}`).join(', ')}). Il numeratore della CR primaria è parziale.`);
+  }
 
   const { weights, source: weightsSource } = await loadWeights(notes);
   const arms = [...new Set([
@@ -300,8 +371,8 @@ async function main() {
     relativeMde: Number(args.mde),
     windowDays,
   });
-  const md = renderExperimentMarkdown(readout, { experimentId, since, until, notes });
-  emit(md, { mode: 'experiment', experimentId, since, until, windowDays, weights, weightsSource, readout, notes });
+  const md = renderExperimentMarkdown(readout, { experimentId, since, until, notes, excluded });
+  emit(md, { mode: 'experiment', experimentId, since, until, windowDays, weights, weightsSource, readout, excluded, attribution, notes });
 }
 
 function emit(markdown, payload) {

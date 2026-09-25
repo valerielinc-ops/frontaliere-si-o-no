@@ -2,8 +2,9 @@
  * experiment-stats.mjs — statistica PURA per il readout degli esperimenti A/B
  * (primo consumer: scripts/analytics/job-gate-experiment-readout.mjs).
  *
- * Niente I/O, niente rete, niente Firestore (l'unico import è la coercizione
- * pura dei timestamp): ogni funzione prende numeri o
+ * Niente I/O, niente rete, niente Firestore (gli unici import sono puri: la
+ * coercizione dei timestamp e il predicato delle pagine annuncio): ogni
+ * funzione prende numeri o
  * risposte GA4 già scaricate e restituisce numeri. Così i valori di
  * riferimento (Wilson, test z, Holm, chi-quadro, potenza) sono pinnati da
  * test deterministici e lo script di readout resta un sottile strato di
@@ -17,6 +18,7 @@
  */
 
 import { toMillis } from './firestoreTimestamp.mjs';
+import { isJobDetailPath } from './seo-health-contract.mjs';
 
 // ── Normale standard ─────────────────────────────────────────
 
@@ -303,6 +305,99 @@ export function parseGa4Rows(response) {
   });
 }
 
+// ── Filtri GA4 e traffico automatico escluso ─────────────────
+
+/** `fieldName` = `value` (match esatto). */
+export function ga4Exact(fieldName, value) {
+  return { filter: { fieldName, stringFilter: { value, matchType: 'EXACT' } } };
+}
+
+/** `fieldName` inizia con `value`. */
+export function ga4BeginsWith(fieldName, value) {
+  return { filter: { fieldName, stringFilter: { value, matchType: 'BEGINS_WITH' } } };
+}
+
+/** `fieldName` combacia per intero con la regex RE2 `value`. */
+export function ga4FullRegexp(fieldName, value) {
+  return { filter: { fieldName, stringFilter: { value, matchType: 'FULL_REGEXP' } } };
+}
+
+/** `fieldName` è uno dei `values`. */
+export function ga4InList(fieldName, values) {
+  return { filter: { fieldName, inListFilter: { values: [...values] } } };
+}
+
+/** AND di espressioni; una sola resta com'è (GA4 accetta anche il gruppo, ma è rumore). */
+export function ga4And(...exprs) {
+  const list = exprs.filter(Boolean);
+  return list.length === 1 ? list[0] : { andGroup: { expressions: list } };
+}
+
+export function ga4Or(...exprs) {
+  const list = exprs.filter(Boolean);
+  return list.length === 1 ? list[0] : { orGroup: { expressions: list } };
+}
+
+export function ga4Not(expr) {
+  return { notExpression: expr };
+}
+
+/**
+ * Traffico automatico escluso dal readout (e dalla baseline), con la firma
+ * misurata su GA4. Ogni voce ha un `id` stabile (finisce nel JSON del
+ * readout e nel monitor) e un'etichetta italiana per il report.
+ *
+ *  - `automation-1280x1200`: la flotta Windows/Chrome da Singapore che dal
+ *    2026-09-01 al 09-12 (e di nuovo dal 09-24) portava ~1.650 «persone» al
+ *    giorno sul gate, arrivo diretto, ~1 s, zero conversioni. Dal 2026-06-01
+ *    al 09-24: 100.855 persone con schermo 1280x1200 da Singapore e 267 da
+ *    altri paesi, TUTTE Windows + Chrome + lingua inglese, nessuna da Italia
+ *    o Svizzera. È il gemello GA4 della regola client
+ *    `matchesAutomationScreenSignature` (services/botPatterns.ts): schermo,
+ *    Windows, lingua inglese E paese Singapore al posto del fuso orario, che
+ *    GA4 non espone. Come nel client, i due segnali locali sono in AND.
+ *  - `meta-link-preview`: sessioni con sorgente Facebook da Stati Uniti,
+ *    Svezia e Irlanda, cioè i paesi dei data center Meta (~100 persone/giorno
+ *    sul gate fino al 10/09, 7 in tutto dal 14 al 24/09): l'aspetto dei robot
+ *    Meta che aprono le anteprime dei link. Un vero lettore del gate di un
+ *    sito per frontalieri del Ticino da quei tre paesi via Facebook è raro, e
+ *    l'esclusione non tocca un braccio più di un altro (assegnazione casuale).
+ */
+export const GA4_EXCLUDED_TRAFFIC = Object.freeze([
+  Object.freeze({
+    id: 'automation-1280x1200',
+    label: 'robot Windows con schermo 1280x1200, lingua inglese, da Singapore',
+    // Niente `browser`: GA4 limita a 9 le dimensioni fra query e filtri, e la
+    // query per braccio × step ne usa già 4. Dal 2026-06-01 ogni schermo
+    // 1280x1200 è comunque Chrome.
+    filter: ga4And(
+      ga4Exact('screenResolution', '1280x1200'),
+      ga4Exact('operatingSystem', 'Windows'),
+      ga4BeginsWith('languageCode', 'en'),
+      ga4Exact('country', 'Singapore'),
+    ),
+  }),
+  Object.freeze({
+    id: 'meta-link-preview',
+    label: 'probabili robot anteprime Meta (sorgente Facebook da Stati Uniti, Svezia, Irlanda)',
+    filter: ga4And(
+      ga4FullRegexp('sessionSource', '((m|l|lm|www)\\.)?facebook(\\.com)?'),
+      ga4InList('country', ['United States', 'Sweden', 'Ireland']),
+    ),
+  }),
+]);
+
+/** `filter` senza il traffico di `signatures` (nessuna firma → `filter` invariato). */
+export function ga4ExcludeTraffic(filter, signatures = GA4_EXCLUDED_TRAFFIC) {
+  if (!signatures.length) return filter;
+  return ga4And(filter, ga4Not(ga4Or(...signatures.map((s) => s.filter))));
+}
+
+/** `filter` ristretto al traffico di UNA firma (per contare gli esclusi). */
+export function ga4OnlyTraffic(filter, signature) {
+  return ga4And(filter, signature.filter);
+}
+
 /** Valori GA4 che non identificano un braccio. */
 const GA4_EMPTY_VALUES = new Set(['', '(not set)', '(other)']);
 
@@ -416,6 +511,55 @@ export function aggregateSubscribers(classified, { keyOf, startMs, endMs, nowMs 
     }
   }
   return { byKey: out, outsideWindow, missingCreated, createdFromConsent };
+}
+
+/**
+ * Componenti che creano l'iscritto quando si passa dal job gate inline
+ * (sblocco email o login social). NON JobExpiredView/JobOrphanView: sono
+ * altre superfici, fuori dall'esperimento per contratto (#9725).
+ */
+const JOB_GATE_SUBSCRIBER_COMPONENTS = new Set(['JobBoard', 'authService']);
+
+/**
+ * Copertura dell'attribuzione dell'esperimento: quanti nuovi iscritti partiti
+ * dal job gate portano il tag `<experimentId>:<braccio>`.
+ *
+ * Misurato con questo readout sul 2026-09-25, giorno del lancio di
+ * `jobgate-v3` (a metà giornata): 7 nuovi iscritti con il tag contro 16
+ * senza, partiti da una pagina annuncio (14 `authService`, cioè login
+ * Google/LinkedIn senza `source_cta`, e 2 `JobBoard`): copertura 30%. Un login
+ * social dal gate che non porta il braccio sparisce dal numeratore della CR
+ * primaria, e sparisce di più nel braccio che spinge il social: il confronto
+ * è distorto, non solo rumoroso. Il monitor non promuove sotto soglia.
+ *
+ * «Partito dal gate» è un'approssimazione per eccesso (un login dall'header
+ * su una pagina annuncio, o un visitatore non arruolato per timeout di Remote
+ * Config, conta anche lui), quindi la copertura è una stima prudente: in
+ * dubbio blocca, non promuove.
+ *
+ * @param {{variant?:string, sourcePage?:string, sourceComponent?:string}[]} docs
+ *   iscritti CREATI nella finestra (campi già normalizzati, nessuna email)
+ * @param {{experimentId:string}} opts
+ * @returns {{tagged:number, untaggedFromGate:number, coverage:number|null, untaggedByComponent:Record<string,number>}}
+ */
+export function attributionCoverage(docs, { experimentId }) {
+  const prefix = `${experimentId}:`;
+  let tagged = 0;
+  let untaggedFromGate = 0;
+  const untaggedByComponent = {};
+  for (const d of docs) {
+    if (typeof d.variant === 'string' && d.variant.startsWith(prefix)) {
+      tagged += 1;
+      continue;
+    }
+    // Pagina di dettaglio di un annuncio, dove vive il job gate (predicato canonico).
+    const onJobPage = typeof d.sourcePage === 'string' && isJobDetailPath(d.sourcePage);
+    if (!onJobPage || !JOB_GATE_SUBSCRIBER_COMPONENTS.has(d.sourceComponent)) continue;
+    untaggedFromGate += 1;
+    untaggedByComponent[d.sourceComponent] = (untaggedByComponent[d.sourceComponent] || 0) + 1;
+  }
+  const total = tagged + untaggedFromGate;
+  return { tagged, untaggedFromGate, coverage: total > 0 ? tagged / total : null, untaggedByComponent };
 }
 
 /** `jobgate-v3:<braccio>` → `<braccio>`; null se il prefisso non combacia. */
@@ -669,8 +813,38 @@ function fmtUplift(u) {
   return `${u > 0 ? '+' : ''}${s}%`;
 }
 
+/**
+ * Sezione «Traffico automatico escluso» (readout e baseline). `excluded` =
+ * `{ applied, signatures: [{ id, label, assigned?, gateView }] }`, dove
+ * `assigned`/`gateView` sono numeri (baseline) o mappe per braccio.
+ */
+export function renderExcludedTraffic(excluded, { arms = null } = {}) {
+  if (!excluded) return [];
+  const L = ['## Traffico automatico escluso', ''];
+  if (!excluded.applied) {
+    L.push('> Filtro robot **disattivato** (`--include-bots`): i numeri sopra includono anche il traffico automatico.');
+    L.push('');
+    return L;
+  }
+  const total = (v) => (v && typeof v === 'object' ? Object.values(v).reduce((a, b) => a + (Number(b) || 0), 0) : Number(v) || 0);
+  const perArm = (v) => (arms && v && typeof v === 'object'
+    ? arms.map((a) => `\`${a}\` ${fmtInt(v[a] || 0)}`).join(', ')
+    : '');
+  L.push('Escluso da ogni conteggio GA4 (assegnati, gate view, iscrizioni GA4); le persone si contano per firma.');
+  L.push('');
+  L.push(arms ? '| Firma | Assegnati esclusi | Gate view esclusi | Gate view esclusi per braccio |' : '| Firma | Gate view esclusi |');
+  L.push(arms ? '|---|---:|---:|---|' : '|---|---:|');
+  for (const sig of excluded.signatures || []) {
+    L.push(arms
+      ? `| ${sig.label} (\`${sig.id}\`) | ${fmtInt(total(sig.assigned))} | ${fmtInt(total(sig.gateView))} | ${perArm(sig.gateView) || '—'} |`
+      : `| ${sig.label} (\`${sig.id}\`) | ${fmtInt(total(sig.gateView))} |`);
+  }
+  L.push('');
+  return L;
+}
+
 /** Markdown in italiano del readout di un esperimento. */
-export function renderExperimentMarkdown(readout, { experimentId, since, until, notes = [] }) {
+export function renderExperimentMarkdown(readout, { experimentId, since, until, notes = [], excluded = null }) {
   const L = [];
   L.push(`# Readout esperimento \`${experimentId}\``);
   L.push('');
@@ -750,6 +924,11 @@ export function renderExperimentMarkdown(readout, { experimentId, since, until, 
       ? '> **Campione insufficiente**: non leggere come "nessun effetto" un risultato non significativo.'
       : '> Campione sufficiente per l\'effetto minimo dichiarato.');
   }
+  const excludedLines = renderExcludedTraffic(excluded, { arms: readout.arms });
+  if (excludedLines.length) {
+    L.push('');
+    L.push(...excludedLines.slice(0, -1));
+  }
   if (notes.length) {
     L.push('');
     L.push('## Note');
@@ -761,7 +940,7 @@ export function renderExperimentMarkdown(readout, { experimentId, since, until, 
 }
 
 /** Markdown in italiano della baseline pre-test. */
-export function renderBaselineMarkdown(baseline, { since, until, notes = [] }) {
+export function renderBaselineMarkdown(baseline, { since, until, notes = [], excluded = null }) {
   const b = baseline;
   const L = [];
   L.push(`# Baseline job gate (pre-test) ${since} → ${until}`);
@@ -783,6 +962,11 @@ export function renderBaselineMarkdown(baseline, { since, until, notes = [] }) {
   L.push('|---|---:|---:|---:|---:|');
   for (const [cta, s] of Object.entries(b.perCta)) {
     L.push(`| \`${cta}\` | ${fmtInt(s.newSubscribers)} | ${fmtInt(s.confirmed)} | ${fmtPct(s.confirmRate.rate, 1)} | ${fmtInt(s.active)} |`);
+  }
+  const excludedLines = renderExcludedTraffic(excluded);
+  if (excludedLines.length) {
+    L.push('');
+    L.push(...excludedLines.slice(0, -1));
   }
   if (notes.length) {
     L.push('');

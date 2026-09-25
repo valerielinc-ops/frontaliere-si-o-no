@@ -1,14 +1,23 @@
+import { spawnSync } from 'node:child_process';
+import path from 'node:path';
+
 import { describe, expect, it } from 'vitest';
 
 import {
+  GA4_EXCLUDED_TRAFFIC,
   achievedPower,
   aggregateSubscribers,
+  attributionCoverage,
   armFromVariantTag,
   buildBaseline,
   buildExperimentReadout,
   chiSquareSf,
   classifySubscriber,
   funnelUsersByArm,
+  ga4And,
+  ga4ExcludeTraffic,
+  ga4Exact,
+  ga4OnlyTraffic,
   holmAdjust,
   logGamma,
   metricBlock,
@@ -18,6 +27,7 @@ import {
   parseGa4Rows,
   relativeUplift,
   renderBaselineMarkdown,
+  renderExcludedTraffic,
   renderExperimentMarkdown,
   sampleSizePerArm,
   srmCheck,
@@ -397,5 +407,124 @@ describe('parseArmWeights', () => {
     expect(() => parseArmWeights('not json')).toThrow(/pesi non JSON/);
     expect(() => parseArmWeights('42')).toThrow(/atteso un oggetto/);
     expect(() => parseArmWeights('[{"weight":1}]')).toThrow(/senza nome di braccio/);
+  });
+});
+
+/** Nomi di campo usati da un'espressione di filtro GA4 (ricorsivo). */
+function filterFields(expr: unknown, out = new Set<string>()): Set<string> {
+  if (!expr || typeof expr !== 'object') return out;
+  const e = expr as Record<string, unknown>;
+  if (e.filter && typeof e.filter === 'object') out.add((e.filter as { fieldName: string }).fieldName);
+  for (const key of ['andGroup', 'orGroup']) {
+    const group = e[key] as { expressions?: unknown[] } | undefined;
+    for (const child of group?.expressions || []) filterFields(child, out);
+  }
+  if (e.notExpression) filterFields(e.notExpression, out);
+  return out;
+}
+
+describe('traffico automatico escluso (GA4)', () => {
+  const funnelFilter = ga4And(ga4Exact('eventName', 'job_auth_funnel'), ga4Exact('customEvent:experiment_id', 'jobgate-v3'));
+
+  it('esclusione = filtro AND NOT(OR delle firme); nessuna firma = filtro invariato', () => {
+    const f = ga4ExcludeTraffic(funnelFilter) as { andGroup: { expressions: unknown[] } };
+    expect(f.andGroup.expressions[0]).toEqual(funnelFilter);
+    expect(f.andGroup.expressions[1]).toEqual({ notExpression: { orGroup: { expressions: GA4_EXCLUDED_TRAFFIC.map((s) => s.filter) } } });
+    expect(ga4ExcludeTraffic(funnelFilter, [])).toBe(funnelFilter);
+    expect(ga4OnlyTraffic(funnelFilter, GA4_EXCLUDED_TRAFFIC[0])).toEqual({ andGroup: { expressions: [funnelFilter, GA4_EXCLUDED_TRAFFIC[0].filter] } });
+  });
+
+  it('la query per braccio × step resta entro il limite GA4 di 9 dimensioni', () => {
+    // Misurato il 2026-09-25: con anche `browser` nella firma la Data API
+    // rispondeva 400 «limited to 9 dimensions in a nested request».
+    const fields = filterFields(ga4ExcludeTraffic(funnelFilter));
+    for (const dim of ['customEvent:variant', 'customEvent:step']) fields.add(dim);
+    expect(fields.size).toBeLessThanOrEqual(9);
+    for (const sig of GA4_EXCLUDED_TRAFFIC) {
+      const one = filterFields(ga4OnlyTraffic(funnelFilter, sig));
+      expect(one.size + 2).toBeLessThanOrEqual(9);
+    }
+  });
+
+  it('firma del robot 1280x1200: schermo, Windows, lingua inglese E Singapore', () => {
+    const sig = GA4_EXCLUDED_TRAFFIC.find((s) => s.id === 'automation-1280x1200')!;
+    expect(sig.filter).toEqual({
+      andGroup: {
+        expressions: [
+          ga4Exact('screenResolution', '1280x1200'),
+          ga4Exact('operatingSystem', 'Windows'),
+          { filter: { fieldName: 'languageCode', stringFilter: { value: 'en', matchType: 'BEGINS_WITH' } } },
+          ga4Exact('country', 'Singapore'),
+        ],
+      },
+    });
+  });
+
+  it('firma Meta: la regex (match intero, come FULL_REGEXP) prende solo le sorgenti Facebook', () => {
+    const sig = GA4_EXCLUDED_TRAFFIC.find((s) => s.id === 'meta-link-preview')!;
+    const [sourceFilter, countryFilter] = (sig.filter as { andGroup: { expressions: Array<{ filter: Record<string, any> }> } }).andGroup.expressions;
+    expect(sourceFilter.filter.stringFilter.matchType).toBe('FULL_REGEXP');
+    const re = new RegExp(`^(?:${sourceFilter.filter.stringFilter.value})$`);
+    for (const ok of ['facebook', 'facebook.com', 'm.facebook.com', 'l.facebook.com', 'lm.facebook.com', 'www.facebook.com']) expect(re.test(ok)).toBe(true);
+    for (const no of ['google', 'notfacebook.com', 'facebook.com.evil.test', 'instagram.com', '(direct)']) expect(re.test(no)).toBe(false);
+    expect(countryFilter.filter.inListFilter.values).toEqual(['United States', 'Sweden', 'Ireland']);
+  });
+
+  it('sezione del report: conteggi per firma e per braccio, o filtro disattivato', () => {
+    const excluded = {
+      applied: true,
+      signatures: [{ id: 'automation-1280x1200', label: 'robot', assigned: { control: 3, a: 2 }, gateView: { control: 5, a: 4 } }],
+    };
+    const lines = renderExcludedTraffic(excluded, { arms: ['control', 'a'] }).join('\n');
+    expect(lines).toContain('## Traffico automatico escluso');
+    expect(lines).toContain('| robot (`automation-1280x1200`) | 5 | 9 | `control` 5, `a` 4 |');
+    expect(renderExcludedTraffic({ applied: false, signatures: [] }).join('\n')).toContain('--include-bots');
+    expect(renderExcludedTraffic(null)).toEqual([]);
+    const baseline = renderExcludedTraffic({ applied: true, signatures: [{ id: 'x', label: 'robot', gateView: 1989 }] }).join('\n');
+    expect(baseline).toMatch(/\| robot \(`x`\) \| 1\D?989 \|/);
+    const r = buildExperimentReadout({ arms: ['control', 'a'], ga: { control: { gateView: 100, authSuccess: 10 }, a: { gateView: 100, authSuccess: 10 } }, subs: {} });
+    const md = renderExperimentMarkdown(r, { experimentId: 'jobgate-v3', since: '2026-09-26', until: '2026-10-02', excluded });
+    expect(md.indexOf('## Traffico automatico escluso')).toBeGreaterThan(md.indexOf('## Potenza'));
+  });
+});
+
+describe('attributionCoverage', () => {
+  it('conta gli iscritti dal gate con e senza braccio; esclude altre superfici e altre pagine', () => {
+    const job = '/cerca-lavoro-ticino/impiegato-lugano-abc123/';
+    const res = attributionCoverage([
+      { variant: 'jobgate-v3:email_first', sourcePage: job, sourceComponent: 'JobBoard' },
+      { variant: 'jobgate-v3:control', sourcePage: '/', sourceComponent: 'NewsletterPopup' },
+      { variant: '', sourcePage: job, sourceComponent: 'authService' },
+      { variant: '', sourcePage: `/en${job.replace('cerca-lavoro-ticino', 'find-jobs-ticino')}`, sourceComponent: 'authService' },
+      { variant: '', sourcePage: job, sourceComponent: 'JobBoard' },
+      { variant: '', sourcePage: job, sourceComponent: 'JobExpiredView' },
+      { variant: '', sourcePage: '/calcolatore/', sourceComponent: 'authService' },
+      { variant: 'authgate-model-v1:value_first', sourcePage: job, sourceComponent: 'CompanyFollowButton' },
+    ], { experimentId: 'jobgate-v3' });
+    expect(res).toEqual({ tagged: 2, untaggedFromGate: 3, coverage: 0.4, untaggedByComponent: { authService: 2, JobBoard: 1 } });
+    expect(attributionCoverage([], { experimentId: 'jobgate-v3' }).coverage).toBeNull();
+  });
+});
+
+describe('readout CLI: finestra di default per jobgate-v3', () => {
+  const script = path.resolve(__dirname, '../scripts/analytics/job-gate-experiment-readout.mjs');
+  const env = { ...process.env, GOOGLE_APPLICATION_CREDENTIALS: '', FIREBASE_SERVICE_ACCOUNT_JSON: '' };
+
+  it('--since vale 2026-09-26 (giorno dopo il guasto CDN del lancio)', () => {
+    const res = spawnSync(process.execPath, [script, '--until', '2026-09-25'], { encoding: 'utf8', env });
+    expect(res.status).toBe(2);
+    expect(res.stderr).toContain('--until 2026-09-25 precede --since 2026-09-26');
+  });
+
+  it('con una finestra valida arriva al controllo delle credenziali (nessuna rete)', () => {
+    const res = spawnSync(process.execPath, [script, '--until', '2026-10-02', '--include-bots'], { encoding: 'utf8', env });
+    expect(res.status).toBe(2);
+    expect(res.stderr).toContain('credenziali mancanti');
+  });
+
+  it('un esperimento diverso senza --since resta un errore esplicito', () => {
+    const res = spawnSync(process.execPath, [script, '--experiment', 'altro-test', '--until', '2026-10-02'], { encoding: 'utf8', env });
+    expect(res.status).toBe(2);
+    expect(res.stderr).toContain('serve --since');
   });
 });
