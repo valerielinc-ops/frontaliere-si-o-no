@@ -1,10 +1,45 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
-import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { isTargetCanton } from './crawler-location-config.mjs';
 import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
+}
+
+function normalizeLocationKey(value = '') {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+// Lever has emitted these two Swiss locations with source typos / a named
+// geographic area instead of a municipality. Keep the aliases local to TSMG:
+// they are source evidence for canton VD, not a global municipality rule.
+const TSMG_SWISS_LOCATION_ALIASES = new Map([
+  ['les diabterets', 'VD'],
+  ['mont tendre', 'VD'],
+]);
+
+function tsmgAliasCanton(rawLocation = '') {
+  return TSMG_SWISS_LOCATION_ALIASES.get(normalizeLocationKey(rawLocation)) || '';
+}
+
+export function inferTsmgCanton(rawLocation = '') {
+  return inferAnyCanton(rawLocation) || tsmgAliasCanton(rawLocation);
+}
+
+export function isTsmgExplicitlyForeignLocation(rawLocation = '') {
+  // The shared resolver owns the foreign-location evidence, including the
+  // verified Windeck locality and US state suffixes. Keeping one source avoids
+  // divergent verdicts between TSMG and sibling crawlers.
+  return isLocationExplicitlyForeign(rawLocation);
 }
 
 function normalizeSpace(value = '') {
@@ -57,11 +92,14 @@ function sectionToMarkdown(section = {}) {
 }
 
 export function isTsmgTargetLocation(rawLocation = '') {
-  return !isLocationExplicitlyForeign(rawLocation) && isTargetSwissLocation(rawLocation);
+  if (isTsmgExplicitlyForeignLocation(rawLocation)) return false;
+  if (isTargetSwissLocation(rawLocation)) return true;
+  const aliasCanton = tsmgAliasCanton(rawLocation);
+  return Boolean(aliasCanton && isTargetCanton(aliasCanton));
 }
 
 export function inferTsmgRegion(rawLocation = '') {
-  const canton = inferAnyCanton(rawLocation);
+  const canton = inferTsmgCanton(rawLocation);
   if (canton) return { canton, country: 'CH' };
   return { canton: 'CH', country: 'CH' };
 }
