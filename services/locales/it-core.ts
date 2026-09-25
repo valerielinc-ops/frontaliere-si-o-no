@@ -1743,7 +1743,7 @@ const translations: Record<string, string> = {
  'faq.questions.taxes.q7': 'Cos\'è il Quadro RW e quando va compilato?',
  'faq.questions.taxes.a7': 'Il Quadro RW del Modello Redditi serve per il monitoraggio fiscale di attività estere. I frontalieri lo compilano per dichiarare: conto corrente svizzero, 2° pilastro (LPP), 3° pilastro, titoli in depositi svizzeri. Non genera tasse aggiuntive sui conti correnti (esenzione IVAFE).',
  'faq.questions.taxes.q8': 'Quanto paga di IRPEF un frontaliere nel 2026?',
- 'faq.questions.taxes.a8': 'Dipende dal reddito e dallo status (vecchio/nuovo accordo). Nuovi frontalieri (dal 2024): IRPEF su reddito eccedente €10.000, con credito per imposte svizzere. Vecchi frontalieri: esenzione IRPEF fino a €10.000, poi scaglioni ordinari (23% fino a €28.000, 35% fino a €50.000, 43% oltre).',
+ 'faq.questions.taxes.a8': 'Dipende dal reddito e dallo status (vecchio/nuovo accordo). Nuovi frontalieri (dal 2024): IRPEF su reddito eccedente €10.000, con credito per imposte svizzere. Vecchi frontalieri: esenzione IRPEF fino a €10.000, poi scaglioni ordinari (23% fino a €28.000, 33% fino a €50.000, 43% oltre).',
  'faq.questions.permits.q1': 'Qual è la differenza tra Permesso G e Permesso B?',
  'faq.questions.permits.a1': 'Il Permesso G è per frontalieri (residenza in Italia, lavoro in CH, rientro settimanale). Il Permesso B è per residenti in Svizzera.',
  'faq.questions.permits.q2': 'Devo rientrare in Italia ogni giorno con il Permesso G?',

@@ -139,7 +139,10 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: bing-seo-live-report
-          path: $RUNNER_TEMP/bing-seo-live-report.json
+          # `with:` inputs are not shell-expanded: the literal `$RUNNER_TEMP`
+          # matched nothing and every run warned "No files were found" (run
+          # 35981220234), so the live report was never uploaded.
+          path: ${{ runner.temp }}/bing-seo-live-report.json
           if-no-files-found: warn
 
       - name: Open PR for deterministic H1 source repair

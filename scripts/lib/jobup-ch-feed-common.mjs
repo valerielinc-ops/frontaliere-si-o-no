@@ -70,12 +70,12 @@ function isAntiBotStatus(status) {
 }
 
 /**
- * Whether a Playwright-fetched body looks like the jobup feed payload, i.e. raw
- * JSON (`[`/`{`) or a JSONP `xCallback({...})` wrapper (the two shapes
- * `parseFeedBody` accepts). Used to reject a WAF 200-with-JS/CAPTCHA challenge
- * page, which would pass `resp.ok()` but is not the feed — returning it would
- * throw in `parseFeedBody` and re-surface a confusing parse error instead of the
- * original anti-bot failure (#1323 item 7).
+ * Whether a fetched body (direct fetch or Playwright) looks like the jobup feed
+ * payload, i.e. raw JSON (`[`/`{`) or a JSONP `xCallback({...})` wrapper (the
+ * two shapes `parseFeedBody` accepts). Used to reject a WAF 200-with-JS/CAPTCHA
+ * challenge page, which would pass `res.ok`/`resp.ok()` but is not the feed —
+ * returning it would throw in `parseFeedBody` and surface a confusing parse
+ * error instead of the anti-bot failure (#1323 item 7).
  */
 export function looksLikeJsonFeedBody(text) {
   const trimmed = String(text || '').trim();
@@ -226,21 +226,36 @@ async function fetchFeed(url) {
           err.retryable = res.status === 408 || res.status === 429 || res.status >= 500;
           throw err;
         }
-        return await res.text();
+        const body = await res.text();
+        // jobup's WAF can also answer 200 with an HTML challenge/interstitial
+        // page instead of the feed (observed 2026-09-23 from GitHub runners:
+        // `Unexpected token '<', "<!doctype "... is not valid JSON` killed the
+        // pole-sante-pays-enhaut and cnp crawlers in the same wave while the
+        // feed served JSON from a clean IP). Route it through the same anti-bot
+        // fallback as a 403 instead of surfacing a JSON parse error.
+        if (!looksLikeJsonFeedBody(body)) {
+          const err = new Error(`HTTP 200 non-JSON (anti-bot challenge?) body from ${url}`);
+          err.status = res.status;
+          err.challengeBody = true;
+          err.retryable = false;
+          throw err;
+        }
+        return body;
       } finally {
         clearTimeout(timer);
       }
     }, { label: `jobup ${url}` });
     return parseFeedBody(text);
   } catch (err) {
-    // Persistent anti-bot fence (403/406): the feed is a plain GET so we can
-    // route it through the Jina Reader proxy (clean egress IP, real browser
+    // Persistent anti-bot fence (403/406, or a 200 non-JSON challenge body):
+    // the feed is a plain GET so we can route it through the Jina Reader proxy
+    // (clean egress IP, real browser
     // fetch) as a cheaper intermediate step before spinning up a full headless
     // Chromium. Jina succeeds in the common case (IP-reputation block only);
     // Playwright is the final resort when jobup's WAF demands a full JS session
     // (#1745). Fallback order: Jina → Playwright → re-throw original error.
-    if (isAntiBotStatus(err?.status)) {
-      console.warn(`[jobup] HTTP ${err.status} from ${url} — trying Jina proxy fallback`);
+    if (isAntiBotStatus(err?.status) || err?.challengeBody === true) {
+      console.warn(`[jobup] HTTP ${err.status}${err?.challengeBody ? ' (non-JSON challenge body)' : ''} from ${url} — trying Jina proxy fallback`);
       const jinaRaw = await fetchHtmlViaJinaWithRetry(url, { timeoutMs: 30000 });
       // Jina renders JSON endpoints through Chromium's JSON viewer → the JSON
       // is wrapped in an HTML page; extract it before parsing.

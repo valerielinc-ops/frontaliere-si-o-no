@@ -1666,7 +1666,7 @@ const deCore: Record<string, string> = {
  'faq.questions.taxes.q7': 'Was ist der Quadro RW und wann muss er ausgefüllt werden?',
  'faq.questions.taxes.a7': 'Der Quadro RW im Modello Redditi dient der steuerlichen Überwachung ausländischer Vermögenswerte. Grenzgänger deklarieren damit: Schweizer Bankkonten, 2. Säule (BVG), 3. Säule, Wertpapiere in Schweizer Depots. Er generiert keine zusätzlichen Steuern auf Kontokorrent (IVAFE-Befreiung).',
  'faq.questions.taxes.q8': 'Wie viel IRPEF zahlt ein Grenzgänger 2026?',
- 'faq.questions.taxes.a8': 'Es hängt vom Einkommen und Status ab (altes/neues Abkommen). Neue Grenzgänger (ab 2024): IRPEF auf Einkommen über €10.000, mit Gutschrift für Schweizer Steuern. Alte Grenzgänger: IRPEF-Befreiung bis €10.000, dann Standardsätze (23% bis €28.000, 35% bis €50.000, 43% darüber).',
+ 'faq.questions.taxes.a8': 'Es hängt vom Einkommen und Status ab (altes/neues Abkommen). Neue Grenzgänger (ab 2024): IRPEF auf Einkommen über €10.000, mit Gutschrift für Schweizer Steuern. Alte Grenzgänger: IRPEF-Befreiung bis €10.000, dann Standardsätze (23% bis €28.000, 33% bis €50.000, 43% darüber).',
  'faq.questions.permits.q1': 'Was ist der Unterschied zwischen Ausweis G und Ausweis B?',
  'faq.questions.permits.a1': 'Ausweis G ist für Grenzgänger (Wohnsitz in Italien, Arbeit in CH, wöchentliche Rückkehr). Ausweis B ist für Schweizer Einwohner.',
  'faq.questions.permits.q2': 'Muss ich mit Ausweis G jeden Tag nach Italien zurückkehren?',

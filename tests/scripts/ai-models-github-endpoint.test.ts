@@ -23,11 +23,11 @@ afterEach(() => {
   resetState();
 });
 
-function response(body: unknown, status = 200): Response {
+function response(body: unknown, status = 200, contentType: string | null = null): Response {
   return {
     ok: status >= 200 && status < 300,
     status,
-    headers: { get: () => null },
+    headers: { get: (name: string) => (name.toLowerCase() === 'content-type' ? contentType : null) },
     text: async () => typeof body === 'string' ? body : JSON.stringify(body),
   } as unknown as Response;
 }
@@ -72,6 +72,23 @@ describe('GitHub Models successor endpoint', () => {
       'https://models.github.ai/catalog/models',
       'https://models.github.ai/inference/chat/completions',
     ]);
+  });
+
+  it('nomina tipo e corpo quando il catalogo risponde 200 non JSON (smoke 35995800618)', async () => {
+    globalThis.fetch = (async (url: string) => {
+      if (url.endsWith('/catalog/models')) return response('OK\n', 200, 'text/plain');
+      throw new Error('la completion non deve partire');
+    }) as typeof globalThis.fetch;
+
+    await expect(callSingleModel([{ role: 'user', content: 'x' }], {
+      model: AI_MODELS.GPT4O,
+      maxRetriesPerModel: 1,
+      recordScore: false,
+    })).rejects.toMatchObject({
+      message: expect.stringContaining('JSON non valido (HTTP 200, content-type text/plain, corpo "OK")'),
+      githubModelsCatalogFault: true,
+      transportFault: true,
+    });
   });
 
   it('tratta due liste catalogo popolate come fault del provider', async () => {

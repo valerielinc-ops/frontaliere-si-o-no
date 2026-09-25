@@ -78,7 +78,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:17:45.224Z",
-      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
@@ -151,7 +150,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:17:44.922Z",
-      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
@@ -663,8 +661,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE",
-      "needsRetranslation": true
+      "addressRegion": "GE"
     },
     {
       "id": "sonarsource-d76dc6fd6c34",
@@ -977,7 +974,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:12:24.473Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1147,7 +1143,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:17:42.206Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1243,7 +1238,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:43:27.325Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -1319,7 +1313,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:55:56.975Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1552,7 +1545,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:27:03.393Z",
-      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
@@ -1631,7 +1623,6 @@
         ]
       },
       "firstSeenAt": "2026-09-07T23:46:01.360Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1712,7 +1703,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:17:39.488Z",
-      "needsRetranslation": true,
       "salaryMin": 61500,
       "salaryMax": 109000,
       "salarySource": "estimated",
@@ -2120,7 +2110,7 @@
       "companyDomain": "sonarsource.com",
       "title": "NetSuite & Payroll Systems Administrator",
       "titleByLocale": {
-        "it": "NetSuite & Payroll Systems Administrator",
+        "it": "Amministratore NetSuite & Payroll Systems",
         "en": "NetSuite & Payroll Systems Administrator",
         "de": "Administrator für NetSuite- und Gehaltsabrechnungssysteme",
         "fr": "Administrateur des systèmes NetSuite & Payroll"
@@ -2167,8 +2157,7 @@
         }
       },
       "addressRegion": "GE",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }
