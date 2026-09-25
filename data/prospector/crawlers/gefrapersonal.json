@@ -1,0 +1,24 @@
+{
+  "companyKey": "gefrapersonal",
+  "companyName": "GEFRA Personal AG",
+  "companyHost": "gefrapersonal.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://gefrapersonal.ch/jobs/"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 39,
+  "sampleTitles": [
+    "Meisterschwanden ab September 2026 Gipser (m/w)",
+    "Aarburg ab September 2026 Schaler (m/w)",
+    "Schöftland ab September 2026 Maler (m/w)",
+    "Muri ab September 2026 Bauarbeiter C (m/w)",
+    "Bremgarten AG ab September 2026 Kranführer mit Suva Ausweis (m/w)"
+  ],
+  "canton": "TG",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-25T10:27:22.291Z"
+}
