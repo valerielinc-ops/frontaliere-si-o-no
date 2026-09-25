@@ -197,9 +197,6 @@ describe('automation screen signature (1280x1200 Windows/Chrome)', () => {
     ['Italian visitor, real 1280x1024 monitor', WIN_CHROME, 1280, 1024, 'it-IT', 'Europe/Rome'],
     ['English visitor, 1280x720 laptop', WIN_CHROME, 1280, 720, 'en-US', 'Europe/Zurich'],
     ['English visitor, 1920x1200 monitor', WIN_CHROME, 1920, 1200, 'en-US', 'Asia/Singapore'],
-    // Review #9836: a real English-speaking reader in Zurich on a 1280x1200
-    // virtual screen must pass — both local signals are required.
-    ['1280x1200, English UI but a European time zone', WIN_CHROME, 1280, 1200, 'en-US', 'Europe/Zurich'],
     ['1280x1200, Singapore time zone but non-English UI', WIN_CHROME, 1280, 1200, 'zh-CN', 'Asia/Singapore'],
     ['1280x1200 but Italian UI in a European time zone', WIN_CHROME, 1280, 1200, 'it-CH', 'Europe/Zurich'],
     ['1280x1200 but German UI in a European time zone', WIN_CHROME, 1280, 1200, 'de-CH', 'Europe/Zurich'],
@@ -219,6 +216,24 @@ describe('automation screen signature (1280x1200 Windows/Chrome)', () => {
       expect(verdict()).toBe(false);
     });
   }
+
+  it('review #9836 acceptance: real Windows Chrome, 1280x1200, en-US, Europe/Zurich → not a bot on both gates', () => {
+    // Both local signals (English UI AND a data-center time zone) are
+    // required: an English-speaking reader in Zurich on a resized or virtual
+    // 1280x1200 screen keeps ads and the job-gate CTA.
+    setUserAgent(WIN_CHROME);
+    setScreen(1280, 1200);
+    setLanguage('en-US');
+    vi.restoreAllMocks();
+    setTimeZone('Europe/Zurich');
+    expect((navigator as Navigator & { webdriver?: boolean }).webdriver).toBe(false);
+    expect(navigator.languages.length).toBeGreaterThan(0);
+    expect(navigator.plugins.length).toBeGreaterThan(0);
+    expect(navigator.permissions).toBeDefined();
+    expect(matchesAutomationScreenSignature(WIN_CHROME.toLowerCase())).toBe(false);
+    expect(isLikelyBot()).toBe(false);
+    expect(inlineGate()).toBe(false);
+  });
 
   it('Intl without a time zone: signal unknown, the rule does not fire', () => {
     setUserAgent(WIN_CHROME);
