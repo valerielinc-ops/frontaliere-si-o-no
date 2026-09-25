@@ -88,6 +88,14 @@ import { differentiateH1FromTitle, osmEmbedSrc, CTA_PRIMARY_CLASS } from './shar
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 type EventEntity = { '@type'?: string; name: string; url?: string };
+type EventPrice = {
+  amount: number | null;
+  currency: string;
+  isFree: boolean;
+  availability?: string;
+  validFrom?: string;
+  url?: string;
+};
 
 interface SiteEvent {
   id: string;
@@ -110,7 +118,7 @@ interface SiteEvent {
   // slices (and any future thin source) simply omit them and every render
   // path below degrades to the pre-existing MVP behavior.
   description?: string;
-  price?: { amount: number | null; currency: string; isFree: boolean };
+  price?: EventPrice;
   organizer?: EventEntity | EventEntity[];
   performer?: EventEntity | EventEntity[];
   address?: { street?: string; postalCode?: string; locality?: string; region?: string };
@@ -1184,8 +1192,9 @@ export function zurichOffset(isoDate: string): string {
  * validate-structured-data-completeness.mjs validates it only when present.
  * Organizer and performer are copied only when the source detail page supplies
  * a named entity; the source catalog/venue is never promoted as a fallback.
- * Ticket-sale date and ticket-buy URL are omitted when the source does not
- * provide them, rather than being inferred from the event date or page URL.
+ * Source-published ticket-sale date, availability and ticket-buy URL are
+ * copied when present; they are omitted when the source does not provide them,
+ * rather than being inferred from the event date or information page URL.
  * A category illustration is likewise kept out of Event.image: only a
  * mirrored event-specific image describes the marked-up event.
  */
@@ -1252,16 +1261,19 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
     // source organized this particular event; the venue is a Place, not a
     // performer. Neither is asserted as a different Event relationship.
     // offers is optional per validate-structured-data-completeness.mjs (many
-    // sources never expose price). Ticket-sale date, ticket-buy URL and
-    // availability are also not present in the normalized event contract, so
-    // they stay omitted rather than being inferred from the event date, source
-    // page or the existence of a price.
+    // sources never expose price). When a source Offer carries ticket-sale
+    // metadata, the crawler preserves it in event.price; absent source facts
+    // stay omitted rather than being inferred from the event date, source page
+    // or the existence of a price.
     ...(hasConfidentPrice(event.price)
       ? {
           offers: {
             '@type': 'Offer',
             price: event.price!.isFree ? '0' : String(event.price!.amount),
             priceCurrency: event.price!.currency || 'CHF',
+            ...(event.price!.availability ? { availability: event.price!.availability } : {}),
+            ...(event.price!.validFrom ? { validFrom: event.price!.validFrom } : {}),
+            ...(event.price!.url ? { url: event.price!.url } : {}),
           },
         }
       : {}),

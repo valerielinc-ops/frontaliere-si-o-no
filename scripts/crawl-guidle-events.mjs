@@ -114,7 +114,13 @@ import {
   enrichEventsWithGeoComune,
 } from './lib/events-utils.mjs';
 import { loadCursor, saveCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
-import { extractEventPeopleFromText, firstEventImageUrl, normalizeEventPeople } from './lib/event-metadata.mjs';
+import {
+  extractEventOfferMetadata,
+  extractEventPeopleFromText,
+  extractEventPeopleFromTitle,
+  firstEventImageUrl,
+  normalizeEventPeople,
+} from './lib/event-metadata.mjs';
 
 // Re-exported so existing importers (tests/crawl-guidle-events.test.ts) keep
 // working — the parser itself now lives in events-utils.mjs, shared with
@@ -345,7 +351,7 @@ export function extractGeoAndCanton(doc) {
  * event) → a flat data record. Never touches the network. Returns `null`
  * when the page has no usable Event JSON-LD (missing/expired/wrong page).
  */
-export function mapDetailPageToLocaleData(html, locale) {
+export function mapDetailPageToLocaleData(html, locale, baseUrl) {
   const occurrences = extractEventJsonLdOccurrences(html);
   const summary = summarizeOccurrences(occurrences);
   if (!summary) return null;
@@ -356,6 +362,7 @@ export function mapDetailPageToLocaleData(html, locale) {
   const doc = new JSDOM(html).window.document;
   const sourceDescription = cleanText(doc.querySelector('[itemprop="description"]')?.textContent) || undefined;
   const textPeople = extractEventPeopleFromText([sourceDescription, description].filter(Boolean).join('. '));
+  const titlePeople = extractEventPeopleFromTitle(title);
   const venue = cleanText(first.location?.name) || undefined;
   const address = extractAddress(first.location?.address);
   const addressLocality = cleanText(first.location?.address?.addressLocality) || undefined;
@@ -363,10 +370,15 @@ export function mapDetailPageToLocaleData(html, locale) {
   const organizer = occurrences.map((occurrence) => normalizeEventPeople(occurrence.organizer, SITE_ORIGIN)).find(Boolean)
     || normalizeEventPeople(textPeople.organizer, SITE_ORIGIN);
   const performer = occurrences.map((occurrence) => normalizeEventPeople(occurrence.performer, SITE_ORIGIN)).find(Boolean)
-    || normalizeEventPeople(textPeople.performer, SITE_ORIGIN);
+    || normalizeEventPeople(textPeople.performer, SITE_ORIGIN)
+    || normalizeEventPeople(titlePeople.performer, SITE_ORIGIN);
 
   const category = extractCategory(doc, locale);
   const price = extractPrice(doc, locale);
+  const offerMetadata = occurrences
+    .map((occurrence) => extractEventOfferMetadata(occurrence.offers, baseUrl || occurrence.url))
+    .find(Boolean);
+  const enrichedPrice = price && offerMetadata ? { ...price, ...offerMetadata } : price;
   const { geo, canton } = extractGeoAndCanton(doc);
 
   return {
@@ -378,7 +390,7 @@ export function mapDetailPageToLocaleData(html, locale) {
     addressLocality,
     imageSourceUrl,
     category,
-    price,
+    price: enrichedPrice,
     geo,
     canton,
     ...(organizer ? { organizer } : {}),
@@ -494,7 +506,7 @@ async function fetchLocaleData(pathSuffix, locale) {
   await sleep(DETAIL_DELAY_MS);
   if (!html) return { htmlOk: false, data: null };
   detailFetchesOk += 1; // positive success signal — HTML came back, independent of parse outcome
-  const mapped = mapDetailPageToLocaleData(html, locale);
+  const mapped = mapDetailPageToLocaleData(html, locale, url);
   return { htmlOk: true, data: mapped ? { ...mapped, url } : null };
 }
 

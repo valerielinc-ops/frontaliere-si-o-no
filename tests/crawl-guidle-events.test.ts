@@ -250,6 +250,39 @@ describe('mapDetailPageToLocaleData', () => {
     expect(mapped?.performer).toEqual([{ '@type': 'Person', name: 'Artista Guidle' }]);
   });
 
+  it('fills title performers and preserves source Offer metadata', () => {
+    const mapped = mapDetailPageToLocaleData(
+      buildDetailHtml({
+        priceValue: 'CHF 15.00',
+        jsonLd: JSON.stringify({
+          '@type': 'Event',
+          name: 'Musik und Tanz mit „Ghörsch“',
+          description: 'Ein Konzertabend mit einem benannten Act.',
+          startDate: '2026-07-04T19:00',
+          location: { name: 'Zytturm', address: { addressLocality: 'Zug' } },
+          offers: {
+            price: '15',
+            priceCurrency: 'CHF',
+            availability: 'https://schema.org/InStock',
+            validFrom: '2026-06-01T09:00:00+02:00',
+            url: '/tickets/ghoersch',
+          },
+        }),
+      }),
+      'de',
+      'https://www.guidle.com/de/veranstaltungen/zug/musik-und-tanz_GHOERSCH',
+    );
+    expect(mapped?.performer).toEqual({ name: 'Ghörsch' });
+    expect(mapped?.price).toEqual({
+      amount: 15,
+      currency: 'CHF',
+      isFree: false,
+      availability: 'https://schema.org/InStock',
+      validFrom: '2026-06-01T09:00:00+02:00',
+      url: 'https://www.guidle.com/tickets/ghoersch',
+    });
+  });
+
   it('fills source people from the full itemprop description when JSON-LD is abbreviated', () => {
     const html = buildDetailHtml({
       jsonLd: JSON.stringify({
