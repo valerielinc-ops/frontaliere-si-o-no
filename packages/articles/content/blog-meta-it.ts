@@ -254,7 +254,7 @@ const blogMetaIt: Record<string, string> = {
  'blog.article.congedo-genitori-frontaliere-ticino.excerpt': 'Diventare genitori da frontaliere: come funzionano maternità e paternità tra Svizzera e Italia? Ecco le cifre 2026, i requisiti e le procedure.',
  'blog.article.congedo-genitori-frontaliere-ticino.imageAlt': 'Coppia di neogenitori frontalieri pianifica il congedo parentale su un tablet, con vista sul Lago di Lugano, Ticino.',
  'blog.article.costo-pendolare-auto-ticino-2026.title': 'Costo auto frontaliere: quanto pesa sul tuo stipendio?',
- 'blog.article.costo-pendolare-auto-ticino-2026.excerpt': 'Benzina, usura, parcheggio e vignette: l\'analisi completa dei costi 2026. Un pendolare spende fino a 7.500 CHF all\'anno. Confronto con treno e bus.',
+ 'blog.article.costo-pendolare-auto-ticino-2026.excerpt': 'Benzina, usura, parcheggio e vignette: l\'analisi completa dei costi 2026. Un pendolare spende circa 8.670 CHF all\'anno. Confronto con treno e bus.',
  'blog.article.costo-pendolare-auto-ticino-2026.imageAlt': 'Coda di auto di frontalieri al valico di Chiasso-Brogeda in Ticino al mattino presto.',
  'blog.article.guida-dichiarazione-redditi-frontalieri.title': 'Dichiarazione Redditi Frontaliere: Guida 730 per il Ticino',
  'blog.article.guida-dichiarazione-redditi-frontalieri.excerpt': 'Modello 730/2026 e Redditi PF: dove indicare lo stipendio svizzero, come calcolare il credito d\'imposta e quali documenti servono. La guida completa per i frontalieri del Ticino.',
