@@ -76,7 +76,7 @@ describe('runtime reliability watchdog', () => {
     expect(runtimeFailureFingerprint(probe)).toBe(probe.fingerprint);
   });
 
-  it('riapre il purge dopo il cooldown, anche con i marker non coerenti', () => {
+  it('riapre il purge dopo il cooldown e blocca un marker che regredisce', () => {
     const stale = evaluateProbe({
       siteCached: { body: '1789306155656', status: 200, ok: true },
       siteFresh: { body: '1789306155656', status: 200, ok: true },
@@ -103,10 +103,11 @@ describe('runtime reliability watchdog', () => {
         fresh: { status: 200, ok: true, bytes: 3, hash: 'new' },
       }],
     });
-    // The edge can only refill from R2: purging converges on it whatever the
-    // markers say.
-    expect(evaluateRepairPolicy({ probe: mismatch }).action).toBe('purge');
-    // Without a purge candidate a marker mismatch is still reported as such.
+    // Apex ahead of the CDN: R2 may hold an older generation than the live
+    // HTML wants, so refilling the edge from it is not a repair.
+    expect(mismatch.markerState).toBe('marker_regression');
+    expect(evaluateRepairPolicy({ probe: mismatch }).action).toBe('blocked_marker');
+    // Same verdict without any purge candidate.
     const mismatchHealthy = evaluateProbe({
       siteCached: { body: '1789306155656', status: 200, ok: true },
       siteFresh: { body: '1789306155657', status: 200, ok: true },
@@ -120,7 +121,7 @@ describe('runtime reliability watchdog', () => {
     expect(evaluateRepairPolicy({ probe: mismatchHealthy }).action).toBe('blocked_marker');
   });
 
-  it('fails when the apex is ahead of the CDN, and still repairs the stale asset', () => {
+  it('fails closed without purging when the apex is ahead of the CDN', () => {
     const result = evaluateProbe({
       siteCached: { body: '1789306155656', status: 200, ok: true },
       siteFresh: { body: '1789306155657', status: 200, ok: true },
@@ -135,9 +136,10 @@ describe('runtime reliability watchdog', () => {
     // direction of skew that no rollout can explain.
     expect(result.markerState).toBe('marker_regression');
     expect(result.ok).toBe(false);
-    // A purge cannot fix the marker, but it cannot make it worse either: R2 is
-    // what any edge miss reads anyway.
-    expect(result.purgeUrls).toEqual([`${CDN_ORIGIN}/assets/App.js`]);
+    // R2 may be older than what the apex references (e.g. after a rollback):
+    // no purge against a generation the markers do not vouch for.
+    expect(result.purgeUrls).toEqual([]);
+    expect(evaluateRepairPolicy({ probe: result }).action).toBe('blocked_marker');
   });
 
   // Production only ever shows the opposite direction: the deploy mints the CDN
@@ -304,9 +306,12 @@ describe('runtime reliability watchdog', () => {
       expect(on).toContain('schedule:');
       expect(on).toContain('workflow_dispatch:');
       // Cancelled builds skip the job and must not evict a real pending check.
-      expect(workflow).toContain("group: ${{ (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' || github.event.workflow_run.conclusion == 'failure') && 'runtime-reliability-watch' || format('runtime-reliability-watch-noop-{0}', github.run_id) }}");
+      expect(workflow).toContain("group: ${{ (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success') && 'runtime-reliability-watch' || format('runtime-reliability-watch-noop-{0}', github.run_id) }}");
       expect(workflow).toMatch(/cancel-in-progress: false/);
-      expect(workflow).toMatch(/github\.event\.workflow_run\.conclusion == 'failure' \}\}/);
+      // A failed build may have left R2 half-uploaded: never compare or purge
+      // against it on the deploy trigger (schedule/manual still run).
+      expect(workflow).not.toContain("conclusion == 'failure'");
+      expect(workflow).toMatch(/if: >-\s*\n\s*\$\{\{ github\.event_name != 'workflow_run' \|\|\s*\n\s*github\.event\.workflow_run\.conclusion == 'success' \}\}/);
     });
 
     it('purges from the report file in batches, never via one --files list or purge_everything', () => {

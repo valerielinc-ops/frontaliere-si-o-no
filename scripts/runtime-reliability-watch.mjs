@@ -94,10 +94,10 @@ export function runtimeFailureFingerprint(result) {
 /**
  * Decide whether an exact-URL purge is useful.  The state is stored by the
  * workflow in an Actions cache, so repeated schedule/deploy triggers do not
- * spend Cloudflare quota on the same unchanged divergence.  Purge candidates
- * exist in any marker state (see evaluateProbe); without candidates a marker
- * mismatch is reported as `blocked_marker` — there is nothing a purge could
- * repair there.
+ * spend Cloudflare quota on the same unchanged divergence.  evaluateProbe
+ * emits purge candidates only while the markers are coherent or a rollout is
+ * in progress; a marker regression or an unreadable marker yields none and is
+ * reported as `blocked_marker`.
  */
 export function evaluateRepairPolicy({
   probe,
@@ -213,7 +213,7 @@ export function classifyAssetResponses(cached, fresh) {
 /**
  * Pure verdict used by the CLI and unit tests.
  *
- * WHICH URLS MAY BE PURGED — in every marker state.
+ * WHICH URLS MAY BE PURGED — coherent AND rollout in progress.
  *
  * A targeted purge can only make the edge refill from R2, the single origin of
  * cdn.frontaliereticino.ch. The deploy itself uploads the new generation to R2
@@ -229,17 +229,21 @@ export function classifyAssetResponses(cached, fresh) {
  * saw `/assets/index.css: stale`, blocked the repair, and at 11:55Z the edge
  * still served the 24-09 21:21 object while R2 held the 25-09 04:55 one. The
  * coherent window is the exception (the rollout lasts about as long as the
- * deploy period), so the gate meant "never".
+ * deploy period), so that gate meant "never".
  *
- * A marker mismatch is still REPORTED: the marker pair has three meanings, not
- * two. The deploy uploads CDN assets and mints `cdn-build-id.txt` in the build
- * leg, while the apex `build-id.txt` only goes live once deploy-publish.yml has
- * pushed the ~13 GB Pages artifact — hours later. `cdnBuildId > siteBuildId` is
- * therefore the *normal* state of a healthy rollout (measured 2.61h–7.03h on
- * 2026-09-18). `siteBuildId > cdnBuildId` is the break worth failing on: the
- * apex is serving HTML for a generation whose assets the CDN never received —
- * a purge cannot fix that, but it cannot make it worse either, since R2 is
- * what any edge miss would read anyway.
+ * The purge stays withheld when the markers carry no authority: with the apex
+ * AHEAD of the CDN (`marker_regression`, e.g. after an R2 rollback) or a marker
+ * that cannot be read, R2 may hold an older or unknown generation than the one
+ * the live HTML wants, and refilling the edge from it could replace the right
+ * object with the wrong one. Those states are reported, never "repaired".
+ *
+ * The marker pair has three meanings, not two. The deploy uploads CDN assets
+ * and mints `cdn-build-id.txt` in the build leg, while the apex `build-id.txt`
+ * only goes live once deploy-publish.yml has pushed the ~13 GB Pages artifact —
+ * hours later. `cdnBuildId > siteBuildId` is therefore the *normal* state of a
+ * healthy rollout (measured 2.61h–7.03h on 2026-09-18). `siteBuildId >
+ * cdnBuildId` is the break worth failing on: the apex is serving HTML for a
+ * generation whose assets the CDN never received.
  */
 export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets, chunkGraph = null }) {
   // The cache-busted site marker is the authoritative current origin value.
@@ -284,9 +288,11 @@ export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets, chunkG
 
   const graph = chunkGraph ? evaluateChunkGraph(chunkGraph) : null;
   // Critical assets first (they boot every page), then the graph's own order
-  // (chunks on a broken link first). Only states a purge can repair: the edge
-  // disagrees with an R2 copy that exists.
-  const purgeUrls = [...new Set([
+  // (chunks on a broken link first). Only states a purge can repair — the edge
+  // disagrees with an R2 copy that exists — and only while the markers say R2
+  // holds the generation the site is moving to (see the docblock).
+  const purgeAllowed = markerState === 'coherent' || markerState === 'rollout_in_progress';
+  const purgeUrls = !purgeAllowed ? [] : [...new Set([
     ...assetResults
       .filter((asset) => asset.state === 'stale' || asset.state === 'cached_failure')
       .map((asset) => `${CDN_ORIGIN}${asset.path}`),

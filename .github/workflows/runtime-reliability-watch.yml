@@ -51,14 +51,14 @@ on:
   workflow_dispatch: {}
 
 # `workflow_run` fires on every completion of the build, including the ones
-# deploy.yml's newest-wins lock cancels (121 of 141 in 48 h, #5251). Those
-# runs skip the job, but a run joins its concurrency group before any `if:` is
+# deploy.yml's newest-wins lock cancels (121 of 141 in 48 h, #5251) and the
+# failed ones. Those runs skip the job, but a run joins its concurrency group before any `if:` is
 # evaluated, so they are routed to a per-run group and cannot evict a real
 # pending check (the same trap deploy-publish.yml documents).
 # cancel-in-progress: false — never interrupt a run between its purge and its
 # verification; the newest pending run still replaces an older pending one.
 concurrency:
-  group: ${{ (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' || github.event.workflow_run.conclusion == 'failure') && 'runtime-reliability-watch' || format('runtime-reliability-watch-noop-{0}', github.run_id) }}
+  group: ${{ (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success') && 'runtime-reliability-watch' || format('runtime-reliability-watch-noop-{0}', github.run_id) }}
   cancel-in-progress: false
 
 permissions:
@@ -67,12 +67,12 @@ permissions:
 
 jobs:
   watch:
-    # A failed build still ran the R2 sync if its IT shard got that far, so it
-    # is checked too; a cancelled one never started a job.
+    # Successful builds only: a failed one may have left R2 with a partial
+    # generation, and comparing (and purging) against it could spread that
+    # half-upload to the edge. The schedule and manual runs still cover it.
     if: >-
       ${{ github.event_name != 'workflow_run' ||
-          github.event.workflow_run.conclusion == 'success' ||
-          github.event.workflow_run.conclusion == 'failure' }}
+          github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     # Two graph walks (probe + post-purge verification), each bounded by
     # DEFAULT_BUDGET_MS (5 min) in cdn-chunk-graph.mjs; ~40-60 s each measured.

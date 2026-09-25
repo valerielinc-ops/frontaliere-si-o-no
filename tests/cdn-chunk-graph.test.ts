@@ -348,6 +348,27 @@ describe('evaluateChunkGraph — verdict details', () => {
     expect(verdict.warnings).toEqual(['chunk graph entry /en/: HTTP 429']);
   });
 
+  it('fails an entry the CDN offload missed: no CDN asset, or same-origin /assets/ references', () => {
+    const chunk = rec('/assets/main.js', { browser: 'healthy', plain: 'healthy' });
+    const bare = evaluateChunkGraph({ entries: [{ path: '/it/', status: 200, inconclusive: false, assets: 0 }], chunks: [chunk], broken: [] });
+    expect(bare.ok).toBe(false);
+    expect(bare.reasons).toEqual(['chunk graph entry /it/: 200 without any CDN asset reference (CDN offload missing)']);
+    const halfway = evaluateChunkGraph({
+      entries: [{ ...entry, assets: 3, derived: { kind: 'article', path: '/articoli-frontaliere/a-b-c/', status: 200, assets: 1, sameOriginAssets: 2 } }],
+      chunks: [chunk],
+      broken: [],
+    });
+    expect(halfway.reasons).toEqual(['chunk graph entry /articoli-frontaliere/a-b-c/: 2 same-origin /assets/ reference(s) (CDN offload missing)']);
+  });
+
+  it('counts same-origin /assets/ references while crawling an entry page', async () => {
+    const html = '<script type="module" src="/assets/index-entry.js"></script><link rel="stylesheet" href="/assets/index.css">';
+    const { impl } = fakeFetch((url) => (url === 'https://frontaliereticino.ch/' ? { body: html } : undefined));
+    const crawl = await crawlChunkGraph({ fetchImpl: impl as any, entryPages: ENTRY, sleep: async () => {} });
+    expect(crawl.entries[0]).toMatchObject({ assets: 0, sameOriginAssets: 2 });
+    expect(evaluateChunkGraph(crawl).ok).toBe(false);
+  });
+
   it('keeps a missing derived page to a coverage warning', () => {
     const verdict = evaluateChunkGraph({
       entries: [{ ...entry, derived: { kind: 'job-ad', path: null, status: 0, error: 'no matching link on the page' } }],

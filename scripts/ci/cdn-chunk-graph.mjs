@@ -61,8 +61,9 @@ import { SECTION_LEGACY_TI } from '../../build-plugins/shared/cantonResolvers.mj
 import { ARTICLE_SECTION_CORE } from '../../build-plugins/shared/articleSectionCore.mjs';
 // The job board's "all offers" listing uses the same localized slug as the
 // article archives (services/router.ts CANTON_HUB_EXACT_SLUGS lists
-// tutti/all/alle/tous for the job sections).
-import { ARCHIVE_ALL_SLUG } from '../lib/article-archive-assets.mjs';
+// tutti/all/alle/tous for the job sections). The same module owns the
+// same-origin `/assets/…` pattern: a page the CDN offload missed (#5270).
+import { ARCHIVE_ALL_SLUG, countSameOriginAssetRefs } from '../lib/article-archive-assets.mjs';
 // Cloudflare's `files` purge cap, shared with cf-purge-cache.mjs (which
 // rejects longer lists) — batches must never exceed it.
 import { MAX_TARGETED_FILES } from '../lib/cf-purge-limits.mjs';
@@ -623,6 +624,7 @@ export async function crawlChunkGraph({
       error: obs.error,
       inconclusive: isInconclusive(obs),
       assets: obs.ok ? addSeeds(page.path, obs.body) : 0,
+      sameOriginAssets: obs.ok ? countSameOriginAssetRefs(obs.body) : 0,
       derived: null,
     };
     entries.push(entry);
@@ -638,6 +640,7 @@ export async function crawlChunkGraph({
           status: sub.status,
           error: sub.error,
           assets: sub.ok ? addSeeds(target, sub.body) : 0,
+          sameOriginAssets: sub.ok ? countSameOriginAssetRefs(sub.body) : 0,
         };
       }
     }
@@ -798,6 +801,22 @@ export function evaluateChunkGraph(crawl) {
     // coverage; one that answered 404/5xx is a finding.
     if (entry.inconclusive) warnings.push(line);
     else reasons.push(line);
+  }
+  // A page that answered 200 but references no CDN asset, or still carries a
+  // same-origin `/assets/…` reference, missed the CDN-offload pass: it ships
+  // without CSS, SPA bundle and AdSense loader while every other locale keeps
+  // the graph green (#5270). That is a finding, not a coverage gap.
+  const served = [
+    ...entries,
+    ...entries.map((entry) => entry.derived).filter(Boolean),
+  ].filter((page) => page.path && page.status >= 200 && page.status < 300);
+  for (const page of served) {
+    if (page.assets === 0) {
+      reasons.push(`chunk graph entry ${page.path}: 200 without any CDN asset reference (CDN offload missing)`);
+    }
+    if (page.sameOriginAssets > 0) {
+      reasons.push(`chunk graph entry ${page.path}: ${page.sameOriginAssets} same-origin /assets/ reference(s) (CDN offload missing)`);
+    }
   }
   // A derived page that cannot be found only narrows coverage; it is reported
   // as a warning, not as a site failure.
