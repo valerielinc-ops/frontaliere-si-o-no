@@ -9,6 +9,7 @@ on:
       - 'data/gsc-orphan-queries-clusters.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/export-l2-demand-outcomes.mjs'
+      - 'scripts/lib/orphan-landing-path.mjs'
       - 'scripts/ci/export-loop-outcomes.mjs'
       - 'scripts/lib/ga4-service-account.mjs'
       - 'scripts/lib/analytics-settled-window.mjs'
@@ -25,6 +26,7 @@ on:
       - 'data/gsc-orphan-queries-clusters.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/export-l2-demand-outcomes.mjs'
+      - 'scripts/lib/orphan-landing-path.mjs'
       - 'scripts/ci/export-loop-outcomes.mjs'
       - 'scripts/lib/ga4-service-account.mjs'
       - 'scripts/lib/analytics-settled-window.mjs'
@@ -65,6 +67,7 @@ jobs:
             /data/gsc-orphan-queries-clusters.json
             /data/loop-fleet/loop-registry.json
             /scripts/ci/export-l2-demand-outcomes.mjs
+            /scripts/lib/orphan-landing-path.mjs
             /scripts/ci/export-loop-outcomes.mjs
             /scripts/lib/ga4-service-account.mjs
             /scripts/lib/analytics-settled-window.mjs
