@@ -31,6 +31,14 @@ const SUCCESSFACTORS_HOST = 'jobdetails.nestle.com';
 const SUCCESSFACTORS_SEARCH_URL = `https://${SUCCESSFACTORS_HOST}/search/?createNewAlert=false&q=&locationsearch=Switzerland&optionsFacetsDD_country=CH&locale=en_US`;
 const CAREER_URL = SUCCESSFACTORS_SEARCH_URL;
 
+// Nestlé Swiss sites whose locality name the federal register shares with
+// another canton: Romont is a municipality in Fribourg AND in Bern, so the
+// gazetteer (correctly) refuses to pick one. The Nestlé site there is the
+// Nespresso production centre in Romont FR; the Vevey HQ used to fill the gap
+// and published those vacancies as Vaud ones. A lookup of the locality the
+// SOURCE published, never a substitute for a missing one (issue 9842).
+const NESTLE_SWISS_SITE_CANTONS = new Map([['romont', 'FR']]);
+
 /* ── Helpers ───────────────────────────────────────────────── */
 
 function normalize(value = '') {
@@ -215,8 +223,18 @@ export async function fetchAllNestleJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const rawLocation = listing.location || 'Vevey';
-    const canton = inferSwissTargetCanton(rawLocation) || 'VD';
+    // The listing is filtered to `…, CH` rows above; a location that still
+    // resolves to no canton is dropped rather than filed under the Vevey HQ
+    // (issue 9842: no HQ fallback on unknown geography).
+    const rawLocation = normalizeSpace(listing.location || '');
+    const canton = rawLocation
+      ? (NESTLE_SWISS_SITE_CANTONS.get(normalize(rawLocation.split(',')[0]))
+        || inferSwissTargetCanton(rawLocation))
+      : '';
+    if (!canton) {
+      console.log(`  ⏭️  Skipped location without a Swiss canton: ${rawLocation || '(none)'} — ${title}`);
+      continue;
+    }
     // Nestlé's feed appends the country to every city ("Konolfingen, CH"), and
     // that string was stored verbatim as `location`/`addressLocality`. Every
     // consumer then added the canton on top of it: the `• Location:` line below

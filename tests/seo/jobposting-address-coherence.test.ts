@@ -454,6 +454,16 @@ describe('applyCompanyDefaults — crawler-side stamping (#3513)', () => {
     expect(job.addressRegion).toBe('TI'); // region default still applied
   });
 
+  it('keeps the crawler canton for a homonymous city during HQ hardening', () => {
+    const job = applyCompanyDefaults(
+      { addressLocality: 'Buchs', location: 'Buchs', canton: 'AG' },
+      'eoc-ente-ospedaliero-cantonale',
+    );
+    expect(job.addressRegion).toBe('AG');
+    expect(job.streetAddress).toBeUndefined();
+    expect(job.postalCode).toBeUndefined();
+  });
+
   it('still stamps HQ street/CAP when the job is in the HQ city or has no city', () => {
     const inHqCity = applyCompanyDefaults({ addressLocality: 'Bellinzona' }, 'eoc-ente-ospedaliero-cantonale');
     expect(inHqCity.streetAddress).toBe('Viale Officina 3');
