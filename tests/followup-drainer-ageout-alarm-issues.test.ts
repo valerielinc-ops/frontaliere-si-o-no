@@ -117,6 +117,17 @@ describe('quali allarmi hanno un chiuditore, e quali no', () => {
     expect(candidate('Campaign goal FAILED: alert_funnel_conversion')).toBe(true);
   });
 
+  it('il verdetto è stabile su valutazioni ripetute (nessuna regex con stato)', () => {
+    // Una regex con flag `g` o `y` porta `lastIndex` da una `.test()` all'altra
+    // e alterna vero/falso sullo stesso titolo: il drainer valuta centinaia di
+    // issue per tick.
+    expect(TITLE_RE.global || TITLE_RE.sticky).toBe(false);
+    for (const title of ['Workflow Failure: X', 'CI Failure (build): X', 'Validation Failure (live): X']) {
+      const verdicts = Array.from({ length: 5 }, () => isOwnerClosedFailureAlarm({ title }));
+      expect(verdicts).toEqual([true, true, true, true, true]);
+    }
+  });
+
   it('un follow-up normale non è toccato dalla fix', () => {
     expect(isOwnerClosedFailureAlarm({ title: 'follow-up(#1): qualcosa' })).toBe(false);
     expect(candidate('follow-up(#1): qualcosa')).toBe(true);

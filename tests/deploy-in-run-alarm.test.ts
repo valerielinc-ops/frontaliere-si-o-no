@@ -477,6 +477,15 @@ describe('resolve-build-alarm — «CI Failure (build)» si chiude solo a run tu
     expect(evalIf(RESOLVE.if, botCtx(allGreen()))).toBe(true);
   });
 
+  it('nessuna gamba può essere «tollerata»: una gamba rossa rende rosso l aggregato', () => {
+    // Con `continue-on-error` sulla matrice una gamba rossa conterebbe come
+    // verde e `needs.build-locale.result` direbbe `success`: la chiusura
+    // prematura tornerebbe per un'altra strada.
+    const legs = DEPLOY.jobs['build-locale'];
+    expect(legs['continue-on-error']).toBeUndefined();
+    expect(legs.strategy['fail-fast']).toBe(false);
+  });
+
   it('una gamba cancellata non basta a chiudere', () => {
     expect(evalIf(RESOLVE.if, botCtx({ ...allGreen(), 'build-locale': { result: 'cancelled' } }))).toBe(false);
   });
