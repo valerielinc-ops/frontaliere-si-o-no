@@ -30,9 +30,43 @@ export const PLATE_AUCTION_PUBLIC_API_RELAY_URL =
 // freschezza (lo timbra il server a ogni richiesta), conta solo `lastSuccessAt`
 // della singola fonte.
 export const PLATE_AUCTION_API_RELAY_MAX_AGE_MS = 8 * 60 * 60 * 1000;
+// Letture del relay quando la risposta è 2xx ma il corpo non è JSON completo.
+// `fetchHtml` ripete già gli errori HTTP e di rete; un corpo vuoto o troncato
+// arriva invece a JSON.parse. Il payload pesa ~16 MB (Basel-Stadt pubblica
+// ~16'000 righe) e ogni connettore lo legge per conto suo: nella run
+// 36165624557 (2026-09-25 17:16Z) SZ è finito `fetch_failed` con «Unexpected
+// end of JSON input», mentre FR e TI un minuto prima e dopo avevano letto lo
+// stesso relay senza errori.
+export const PLATE_AUCTION_API_RELAY_READ_ATTEMPTS = 3;
+const PLATE_AUCTION_API_RELAY_RETRY_DELAY_MS = 2000;
 
 function errorMessage(error) {
   return error instanceof Error ? error.message : String(error);
+}
+
+/**
+ * Payload del relay già parsato. Un corpo che non è JSON completo viene riletto
+ * fino a `attempts` volte; l'errore finale riporta la lunghezza del corpo, così
+ * il log distingue una risposta vuota da una troncata.
+ */
+export async function readPublicApiRelayPayload(relayUrl, {
+  attempts = PLATE_AUCTION_API_RELAY_READ_ATTEMPTS,
+  retryDelayMs = PLATE_AUCTION_API_RELAY_RETRY_DELAY_MS,
+} = {}) {
+  let lastError;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    const body = await fetchHtml(relayUrl);
+    try {
+      return JSON.parse(body);
+    } catch (parseError) {
+      lastError = new Error(
+        `relay body is not complete JSON after ${attempt}/${attempts} reads (${body.length} chars: ${errorMessage(parseError)})`,
+        { cause: parseError },
+      );
+    }
+    if (attempt < attempts) await new Promise((resolve) => setTimeout(resolve, retryDelayMs));
+  }
+  throw lastError;
 }
 
 /**
@@ -94,6 +128,7 @@ export async function fetchWithPublicApiRelay({
   now = new Date(),
   maxAgeMs = PLATE_AUCTION_API_RELAY_MAX_AGE_MS,
   relayUrl = PLATE_AUCTION_PUBLIC_API_RELAY_URL,
+  relayRetryDelayMs = PLATE_AUCTION_API_RELAY_RETRY_DELAY_MS,
   logLabel = `fetch${plateCode}PlateAuctions`,
 }) {
   try {
@@ -102,8 +137,7 @@ export async function fetchWithPublicApiRelay({
     if (process.env.PLATE_AUCTION_ENABLE_API_RELAY !== "1") throw directError;
 
     try {
-      const response = await fetchHtml(relayUrl);
-      const payload = JSON.parse(response);
+      const payload = await readPublicApiRelayPayload(relayUrl, { retryDelayMs: relayRetryDelayMs });
       const rows = rowsFromPublicApiRelay(payload, {
         sourceKey,
         plateCode,
