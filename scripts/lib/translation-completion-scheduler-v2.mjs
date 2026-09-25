@@ -141,6 +141,7 @@ const OUTCOME_STATUSES = Object.freeze([
   'already_valid',
   'ambiguous_target',
   'applied',
+  'canary_skipped',
   'conflict',
   'duplicate_attempt',
   'generation_failed',
@@ -159,7 +160,7 @@ const OUTCOME_STATUSES = Object.freeze([
 // v2 settlements created before the additive executor outcomes must retain
 // their exact count object and therefore their content-addressed hash.
 const LEGACY_OUTCOME_STATUSES = Object.freeze(OUTCOME_STATUSES.filter((status) => (
-  status !== 'duplicate_attempt' && status !== 'retryable_reject'
+  status !== 'canary_skipped' && status !== 'duplicate_attempt' && status !== 'retryable_reject'
 )));
 const OUTCOME_STATUS_SET = new Set(OUTCOME_STATUSES);
 

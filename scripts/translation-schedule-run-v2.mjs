@@ -52,6 +52,10 @@ import {
   createTranslationPromotionGuardV2,
   summarizeTranslationPromotionErrorV2,
 } from './lib/translation-promotion-guard-v2.mjs';
+import {
+  normalizeTranslationCanaryConfigV2,
+  selectTranslationCanaryUnitsV2,
+} from './lib/translation-canary-v2.mjs';
 import { digestTranslationDocumentV2 } from './lib/translation-unit-identity-v2.mjs';
 
 const execFile = promisify(execFileCallback);
@@ -380,10 +384,27 @@ async function executePlan({
   engineVersion,
   gateVersion,
   providerTimeoutMs,
+  canaryConfig,
 }) {
   const byOccurrence = contextIndex(runtimeJobs);
   const executions = [];
   const outcomes = [];
+  const generationUnits = plan.selectedJobs.flatMap((selectedJob) => selectedJob.units)
+    .filter((unit) => unit.disposition === 'generate');
+  const canarySelection = selectTranslationCanaryUnitsV2({
+    ...canaryConfig,
+    identityKeys: generationUnits.map((unit) => unit.identityKey),
+  });
+  const selectedCanaryIdentityKeys = new Set(canarySelection.selectedIdentityKeys);
+  const canary = {
+    scopeKey: canaryConfig.scopeKey,
+    exposurePercent: canaryConfig.exposurePercent,
+    maxUnits: canaryConfig.maxUnits,
+    plannedUnits: generationUnits.length,
+    eligibleUnits: canarySelection.eligibleUnits,
+    selected: canarySelection.selectedUnits,
+    skipped: generationUnits.length - canarySelection.selectedUnits,
+  };
   for (const selectedJob of plan.selectedJobs) {
     const runtimeJob = byOccurrence.get(selectedJob.targetOccurrenceKey);
     const units = [];
@@ -399,6 +420,10 @@ async function executePlan({
       }
       if (selectedUnit.disposition === 'reuse') {
         units.push({ attemptKey: selectedUnit.attemptKey, status: 'reused' });
+        continue;
+      }
+      if (!selectedCanaryIdentityKeys.has(selectedUnit.identityKey)) {
+        units.push({ attemptKey: selectedUnit.attemptKey, status: 'canary_skipped' });
         continue;
       }
       const result = await executeTranslationCandidateV2({
@@ -423,7 +448,7 @@ async function executePlan({
     }
     outcomes.push({ schedulingKey: selectedJob.schedulingKey, units });
   }
-  return { executions, outcomes };
+  return { canary, executions, outcomes };
 }
 
 function countOutcomeStatuses(outcomes) {
@@ -443,6 +468,18 @@ async function writeReport(report, reportPath) {
 
 function zeroSchedulerMetrics() {
   return { selectedJobs: 0, selectedUnits: 0, outcomeCounts: {} };
+}
+
+function emptyCanaryReport(canaryConfig) {
+  return {
+    scopeKey: canaryConfig.scopeKey,
+    exposurePercent: canaryConfig.exposurePercent,
+    maxUnits: canaryConfig.maxUnits,
+    plannedUnits: 0,
+    eligibleUnits: 0,
+    selected: 0,
+    skipped: 0,
+  };
 }
 
 function disabledTranslationScheduleReport({ mode, scopeKey, stateRef, promotionGuard }) {
@@ -489,6 +526,15 @@ export async function runTranslationScheduleV2(options = {}) {
     }
   }
   const scopeKey = options.scopeKey || process.env.TRANSLATION_SCHEDULER_SCOPE || TRANSLATION_SCHEDULER_V2_SCOPE;
+  const canaryConfig = normalizeTranslationCanaryConfigV2({
+    scopeKey: options.canaryScopeKey
+      ?? process.env.TRANSLATION_SHADOW_CANARY_SCOPE
+      ?? scopeKey,
+    exposurePercent: options.canaryExposurePercent
+      ?? process.env.TRANSLATION_SHADOW_CANARY_EXPOSURE_PERCENT,
+    maxUnits: options.canaryMaxUnits
+      ?? process.env.TRANSLATION_SHADOW_CANARY_MAX_UNITS,
+  });
   const configuredStateRef = options.stateRef
     ?? process.env.TRANSLATION_STATE_REF_V2
     ?? TRANSLATION_STATE_REF_V2;
@@ -640,6 +686,7 @@ export async function runTranslationScheduleV2(options = {}) {
         planHash: null,
         scan: input.metrics,
         scheduler: zeroSchedulerMetrics(),
+        canary: emptyCanaryReport(canaryConfig),
         promotion: promotionGuard.snapshot(),
         state: { before: before.commit, after: before.commit, reserved: false, settled: false },
       };
@@ -671,6 +718,7 @@ export async function runTranslationScheduleV2(options = {}) {
       provider,
       providerTimeoutMs,
       runtimeJobs: input.runtimeJobs,
+      canaryConfig,
     });
     phase = 'state_persistence';
     promotionGuard.assertEnabled('translation candidate persistence');
@@ -701,6 +749,7 @@ export async function runTranslationScheduleV2(options = {}) {
         outcomeCounts: countOutcomeStatuses(executed.outcomes),
         settlement: settled.settlement.metrics,
       },
+      canary: executed.canary,
       candidates: persisted,
       promotion: promotionGuard.snapshot(),
       state: {
