@@ -18,7 +18,8 @@
  *     App/bot);
  *   - a manual dispatch explicitly supplied human_approval=true and
  *     dry_run=false, or the publisher dispatch has no input override;
- *   - this is the first attempt of a fresh run.
+ *   - this is the first attempt of a fresh run, or a bounded, explicitly
+ *     opted-in resumable rerun for the history backfill workflow.
  *
  * The nonce is derived from the repository, workflow, actor, run id and run
  * attempt. It is consumed with an O_EXCL marker under RUNNER_TEMP, so a rerun
@@ -33,7 +34,10 @@
  * forks, so there is no separate repository claim to bind here. The
  * schedule's three protections are the explicit per-workflow opt-in
  * (APPROVAL_TRUSTED_SCHEDULE=true), run_attempt == 1, and a one-use nonce; it
- * deliberately has no human actor or input proof to check.
+ * deliberately has no human actor or input proof to check. The only rerun
+ * exception is the separately opted-in, manual, bounded history backfill
+ * recovery path; it still requires the original human approval and a fresh
+ * run/attempt-bound nonce.
  *
  * A denied decision exits successfully so the workflow can finish quietly;
  * credential hydration and mutating steps are skipped. The gate does not
@@ -173,6 +177,7 @@ export function evaluateHumanApproval({
   dispatchSourceEvent,
   approvalTrustedSchedule,
   approvalTrustedWorkflowRun,
+  approvalTrustedResumableRerun,
   trustedSchedule,
   allowLegacyPublisherDispatch,
   expectedDispatchActor,
@@ -223,6 +228,14 @@ export function evaluateHumanApproval({
   const configuredRepository = stringValue(expectedDispatchRepository);
   const configuredScope = stringValue(expectedDispatchScope);
   const configuredWorkflow = stringValue(expectedDispatchWorkflow);
+  const isTrustedResumableRerun = normalizeBooleanInput(approvalTrustedResumableRerun) === 'true'
+    && isManualApprovalEvent
+    && approval === 'true'
+    && requestedDryRun === 'false'
+    && repo === 'valerielinc-ops/frontaliere-si-o-no'
+    && workflowName === 'Backfill Expired Jobs From History'
+    && approvalScope === 'backfill-expired-from-history'
+    && (attempt === '2' || attempt === '3');
   const reasons = [];
 
   if (!isDispatchEvent && !isTrustedScheduleEvent && !isTrustedWorkflowRunEvent) {
@@ -241,7 +254,7 @@ export function evaluateHumanApproval({
   if (!isSafeRepository(repo)) reasons.push('repository-invalid');
   if (!isSafeWorkflow(workflowName)) reasons.push('workflow-invalid');
   if (!isPositiveIntegerString(id)) reasons.push('run-id-invalid');
-  if (attempt !== '1') reasons.push('run-is-a-rerun');
+  if (attempt !== '1' && !isTrustedResumableRerun) reasons.push('run-is-a-rerun');
   if (!isSafeScope(approvalScope)) reasons.push('scope-invalid');
 
   if (isPublisherDispatchEvent) {
@@ -380,6 +393,7 @@ function githubEnvironment(env = process.env) {
     dispatchSourceEvent: env.APPROVAL_DISPATCH_SOURCE_EVENT,
     approvalTrustedSchedule: env.APPROVAL_TRUSTED_SCHEDULE,
     approvalTrustedWorkflowRun: env.APPROVAL_TRUSTED_WORKFLOW_RUN,
+    approvalTrustedResumableRerun: env.APPROVAL_TRUSTED_RESUMABLE_RERUN,
     allowLegacyPublisherDispatch: env.APPROVAL_ALLOW_LEGACY_PUBLISHER_DISPATCH,
     expectedDispatchActor: env.APPROVAL_EXPECTED_DISPATCH_ACTOR,
     expectedDispatchRepository: env.APPROVAL_EXPECTED_DISPATCH_REPOSITORY,

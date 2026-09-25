@@ -9,6 +9,7 @@ import {
 } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 import { recordJobEmailRankingClick } from './lib/jobEmailRankingStore.js';
+import { isDeletedEmailAccount } from './authAccountCleanup.js';
 
 /**
  * Mailtrap webhook handler — receives delivery events and stores them in Firestore.
@@ -80,6 +81,10 @@ export async function persistMailtrapEvent(db, eventData) {
 
  const type = mapMailtrapEvent(eventData.event);
  if (!type) return { skipped: true, reason: `unknown_event: ${eventData.event}` };
+
+ if (await isDeletedEmailAccount(db, email)) {
+   return { skipped: true, reason: 'account_deleted' };
+ }
 
  const campaignId = extractCampaignId(eventData);
  const messageId = eventData.message_id || '';
@@ -324,7 +329,6 @@ export async function handleMailtrapWebhookRequest({ body, query, webhookSecret 
  }
  }
 
- console.log(`[mailtrapWebhook] Body preview: ${JSON.stringify(body).slice(0, 300)}`);
 
  const events = body?.events;
  if (!Array.isArray(events) || events.length === 0) {
@@ -339,9 +343,9 @@ export async function handleMailtrapWebhookRequest({ body, query, webhookSecret 
  try {
  const result = await persistMailtrapEvent(db, event);
  results.push(result);
- console.log(`[mailtrapWebhook] ${event.event} → ${result.type || 'skipped'} for ${event.email || '?'}`);
+ console.log(`[mailtrapWebhook] ${result.reason || result.type || 'skipped'}`);
  } catch (err) {
- console.error(`[mailtrapWebhook] Error processing ${event.event} for ${event.email}: ${err.message}`);
+ console.error(`[mailtrapWebhook] Error processing ${event.event}: ${err.message}`);
  results.push({ error: err.message, event: event.event, email: event.email });
  }
  }

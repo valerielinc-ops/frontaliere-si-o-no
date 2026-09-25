@@ -6692,6 +6692,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.conferenza-protezione-popolazione-berna.title': 'Bevölkerungsschutzkonferenz: Cell Broadcast Accelerated',
     'blog.article.conferenza-protezione-popolazione-berna.excerpt': 'Am 23. September 2026 beschleunigt der Bundesrat in Bern den Cell Broadcast und Marc Siegenthaler nimmt an der Konferenz teil.',
     'blog.article.conferenza-protezione-popolazione-berna.imageAlt': 'Kantonale Vertreter im Gespräch in Bern über den Bevölkerungsschutz und das Cell Broadcast System.',
+    'blog.article.lumpy-skin-disease-fine-vaccinazione.title': 'LSD: Ende der Rinderimpfung am 30. September 2026',
+    'blog.article.lumpy-skin-disease-fine-vaccinazione.excerpt': 'Die Kampagne endet am 30.09.2026. Ab dem 1. Oktober beginnt eine 8-monatige Wartezeit mit gezielter Überwachung bis Juni 2027.',
+    'blog.article.lumpy-skin-disease-fine-vaccinazione.imageAlt': 'Kuh auf einer Schweizer Weide mit Bergen im Hintergrund, Kontext der LSD-Überwachung',
 };
 
 export default blogMetaChDe;
