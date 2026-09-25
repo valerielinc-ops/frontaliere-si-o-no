@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { Analytics } from './analytics';
 import { getConfigValue } from './firebase';
 import { ASSISTED_APPLICATION_PRICE_EUR_CENTS as SHARED_ASSISTED_APPLICATION_PRICE_EUR_CENTS } from '@/functions/src/assistedApplicationConstants.js';
+import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
+import { isLikelyBot } from './botPatterns';
 
 export const ASSISTED_APPLICATION_PRICE_EUR_CENTS = SHARED_ASSISTED_APPLICATION_PRICE_EUR_CENTS;
 
@@ -25,6 +27,12 @@ export const ASSISTED_APPLICATION_EVENT_NAMES = [
   'rewarded_ad_unavailable',
   'rewarded_application_access_granted',
   'rewarded_application_access_used',
+  'rewarded_offerwall_released',
+  'rewarded_offerwall_shown',
+  'rewarded_offerwall_completed',
+  'rewarded_offerwall_closed_without_reward',
+  'rewarded_offerwall_not_shown',
+  'rewarded_offerwall_timed_out',
   'external_apply_redirected',
   'checkout_started',
   'checkout_completed',
@@ -173,11 +181,24 @@ export interface AssistedApplicationEventContext {
   [key: string]: unknown;
 }
 
+/**
+ * Keep automated traffic out of the assisted-application funnel even if a
+ * caller reaches an event path without going through JobBoard's UI gate.
+ * Server-side rendering has no visitor identity, so it must not suppress
+ * events from non-browser callers used by the admin/test surfaces.
+ */
+export function shouldSuppressAssistedApplicationEvent(): boolean {
+  if (typeof window === 'undefined' || typeof navigator === 'undefined') return false;
+  const userAgent = navigator.userAgent || '';
+  return isCrawlerVisitorAgent(userAgent) || isLikelyBot();
+}
+
 /** Emit the shared funnel shape without sending PII or free-form job text. */
 export function trackAssistedApplicationEvent(
   eventName: (typeof ASSISTED_APPLICATION_EVENT_NAMES)[number],
   context: AssistedApplicationEventContext,
 ): void {
+  if (shouldSuppressAssistedApplicationEvent()) return;
   Analytics.trackExperimentEvent(eventName, {
     ...context,
     experiment_id: ASSISTED_APPLICATION_EXPERIMENT_ID,

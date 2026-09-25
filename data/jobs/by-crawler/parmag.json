@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "parmag-da6a774782e1",
-      "slug": "parmag-ag-bern-parmag-ch",
+      "slug": "database-sviluppatore-tutti-i-generi-parmag-ag-bern",
       "slugByLocale": {
-        "it": "parmag-ag-bern-parmag-ch",
-        "en": "parmag-ag-bern-parmag-ch",
+        "it": "database-sviluppatore-tutti-i-generi-parmag-ag-bern",
+        "en": "database-developer-all-genders-parmag-ag-bern",
         "de": "datenbank-entwickler-all-genders-bern-parmag-ch",
-        "fr": "parmag-ag-bern-parmag-ch"
+        "fr": "developpeur-de-bases-de-donnees-tous-genres-parmag-ag-bern"
       },
       "company": "ParMag AG",
       "companyKey": "parmag",
@@ -57,6 +57,12 @@
         ],
         "de": [
           "parmag-ag-bern-parmag-ch"
+        ],
+        "en": [
+          "parmag-ag-bern-parmag-ch"
+        ],
+        "fr": [
+          "parmag-ag-bern-parmag-ch"
         ]
       },
       "previousSlugs": [
@@ -85,7 +91,7 @@
         "it": "parmag-ag-region-bern-parmag-ch",
         "en": "parmag-ag-region-bern-parmag-ch",
         "de": "ict-systemengineer-linux-m-w-d-ref-1236-region-bern-parmag-ch",
-        "fr": "parmag-ag-region-bern-parmag-ch"
+        "fr": "ingenieur-de-systemes-tic-linux-h-f-d-ref-1236-parmag-ag-region-bern"
       },
       "company": "ParMag AG",
       "companyKey": "parmag",
@@ -128,16 +134,11 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "ict-systemengineer-linux-m-w-d-ref-1236-region-bern-parmag-ch",
-          "parmag-ag-region-bern-parmag-ch"
-        ],
-        "de": [
-          "parmag-ag-region-bern-parmag-ch"
+          "ict-systemengineer-linux-m-w-d-ref-1236-region-bern-parmag-ch"
         ]
       },
       "previousSlugs": [
-        "ict-systemengineer-linux-m-w-d-ref-1236-region-bern-parmag-ch",
-        "parmag-ag-region-bern-parmag-ch"
+        "ict-systemengineer-linux-m-w-d-ref-1236-region-bern-parmag-ch"
       ],
       "firstSeenAt": "2026-09-21T15:58:24.812Z",
       "salaryMin": 68500,
@@ -161,7 +162,7 @@
         "it": "parmag-ag-bern-oder-zurich",
         "en": "parmag-ag-bern-oder-zurich-parmag-ch",
         "de": "senior-consultant-sap-fi-co-m-w-d-ref-1242-bern-oder-zurich-parmag-ch",
-        "fr": "parmag-ag-bern-oder-zurich-parmag-ch"
+        "fr": "consultant-principal-sap-fi-co-h-f-d-ref-1242-parmag-ag-bern-oder-zurich"
       },
       "company": "ParMag AG",
       "companyKey": "parmag",
@@ -205,17 +206,18 @@
       "previousSlugsByLocale": {
         "it": [
           "parmag-ag-bern-oder-zurich-parmag-ch",
-          "senior-consultant-sap-fi-co-m-w-d-ref-1242-bern-oder-zurich-parmag-ch",
-          "parmag-ag-bern-oder-zurich"
+          "senior-consultant-sap-fi-co-m-w-d-ref-1242-bern-oder-zurich-parmag-ch"
         ],
         "de": [
+          "parmag-ag-bern-oder-zurich-parmag-ch"
+        ],
+        "fr": [
           "parmag-ag-bern-oder-zurich-parmag-ch"
         ]
       },
       "previousSlugs": [
         "parmag-ag-bern-oder-zurich-parmag-ch",
-        "senior-consultant-sap-fi-co-m-w-d-ref-1242-bern-oder-zurich-parmag-ch",
-        "parmag-ag-bern-oder-zurich"
+        "senior-consultant-sap-fi-co-m-w-d-ref-1242-bern-oder-zurich-parmag-ch"
       ],
       "firstSeenAt": "2026-09-21T15:58:24.811Z",
       "salaryMin": 101500,
@@ -405,7 +407,7 @@
       "title": "Test Engineer (m/w/d), Ref. 1266",
       "titleByLocale": {
         "it": "Test Ingegnere (m/w/d), Ref. 1266",
-        "en": "Test Engineer (m/w/d), Ref. 1266",
+        "en": "Test Engineer (m/f/d), Ref. 1266",
         "de": "Test Ingenieur (m/w/d), Ref. 1266",
         "fr": "Test Ingénieur (m/w/d), Ref. 1266"
       },
@@ -438,7 +440,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-23T23:38:58.312Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "test-engineer-m-w-d-ref-1266-region-bern-parmag-ch"
@@ -540,12 +541,12 @@
     },
     {
       "id": "parmag-daeef31b303b",
-      "slug": "parmag-ag-bern-ittigen-parmag-ch",
+      "slug": "java-sviluppatore-con-potenziale-per-l-architettura-tutti-i-generi-parmag-ag-bern-ittigen",
       "slugByLocale": {
-        "it": "parmag-ag-bern-ittigen-parmag-ch",
-        "en": "parmag-ag-bern-ittigen-parmag-ch",
+        "it": "java-sviluppatore-con-potenziale-per-l-architettura-tutti-i-generi-parmag-ag-bern-ittigen",
+        "en": "java-developer-with-potential-for-architecture-all-gender-parmag-ag-bern-ittigen",
         "de": "java-entwickler-mit-potential-auf-architektur-all-gender-bern-ittigen-parmag-ch",
-        "fr": "parmag-ag-bern-ittigen-parmag-ch"
+        "fr": "java-developpeur-avec-potentiel-d-architecture-tous-genres-parmag-ag-bern-ittigen"
       },
       "company": "ParMag AG",
       "companyKey": "parmag",
@@ -593,6 +594,12 @@
         ],
         "de": [
           "parmag-ag-bern-ittigen-parmag-ch"
+        ],
+        "en": [
+          "parmag-ag-bern-ittigen-parmag-ch"
+        ],
+        "fr": [
+          "parmag-ag-bern-ittigen-parmag-ch"
         ]
       },
       "previousSlugs": [
@@ -629,7 +636,7 @@
       "title": "Technical Consultant ECM (m/w/d), Ref. 1274",
       "titleByLocale": {
         "it": "Technical Consulente ECM (m/w/d), Ref. 1274",
-        "en": "Technical Consultant ECM (m/w/d), Ref. 1274",
+        "en": "Technical Consultant ECM (m/f/d), Ref. 1274",
         "de": "Technical Berater ECM (m/w/d), Ref. 1274",
         "fr": "Consultant technique ECM (h/f/d), Réf. 1274"
       },
@@ -662,7 +669,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-23T23:38:58.308Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "technical-consultant-ecm-m-w-d-ref-1274-zurich-parmag-ch"
@@ -703,7 +709,7 @@
       "title": "(Senior) Consultant ECM (m/w/d), Ref. 1273",
       "titleByLocale": {
         "it": "(Senior) Consulente ECM (m/w/d), Ref. 1273",
-        "en": "(Senior) Consultant ECM (m/w/d), Ref. 1273",
+        "en": "(Senior) Consultant ECM (m/f/d), Ref. 1273",
         "de": "(Senior) Berater ECM (m/w/d), Ref. 1273",
         "fr": "(Aîné) Consultant ECM (h/f/d), Réf. 1273"
       },
@@ -736,7 +742,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-23T23:38:58.309Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "senior-consultant-ecm-m-w-d-ref-1273-zurich-parmag-ch"
@@ -777,7 +782,7 @@
       "title": "Application Engineer (m/w/d), Ref. 1278",
       "titleByLocale": {
         "it": "Application Ingegnere (m/w/d), Ref. 1278",
-        "en": "Application Engineer (m/w/d), Ref. 1278",
+        "en": "Application Engineer (m/f/d), Ref. 1278",
         "de": "Application Ingenieur (m/w/d), Ref. 1278",
         "fr": "Application Ingénieur (m/w/d), Ref. 1278"
       },
@@ -810,17 +815,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "application-engineer-m-w-d-ref-1278-bern-oder-zurich-parmag-ch",
-        "application-ingegnere-m-w-d-ref-1278-parmag-ag-bern-oder-zurich"
+        "application-engineer-m-w-d-ref-1278-bern-oder-zurich-parmag-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "application-engineer-m-w-d-ref-1278-bern-oder-zurich-parmag-ch",
-          "application-ingegnere-m-w-d-ref-1278-parmag-ag-bern-oder-zurich"
+          "application-engineer-m-w-d-ref-1278-bern-oder-zurich-parmag-ch"
         ]
       },
       "firstSeenAt": "2026-09-23T23:38:58.308Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -850,7 +852,7 @@
       "title": "ICT System Specialist (m/w/d), Ref. 1288",
       "titleByLocale": {
         "it": "ICT System Specialista (m/w/d), Ref. 1288",
-        "en": "ICT System Specialist (m/w/d), Ref. 1288",
+        "en": "ICT System Specialist (m/f/d), Ref. 1288",
         "de": "ICT System Spezialist (m/w/d), Ref. 1288",
         "fr": "ICT System Spécialiste (m/w/d), Ref. 1288"
       },
@@ -883,7 +885,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-23T23:38:58.306Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "ict-system-specialist-m-w-d-ref-1288-region-bern-parmag-ch"
@@ -959,16 +960,11 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "solution-architect-m-w-d-ref-1283-region-zurich-parmag-ch",
-          "parmag-ag-region-zurich-parmag-ch"
-        ],
-        "de": [
-          "parmag-ag-region-zurich-parmag-ch"
+          "solution-architect-m-w-d-ref-1283-region-zurich-parmag-ch"
         ]
       },
       "previousSlugs": [
-        "solution-architect-m-w-d-ref-1283-region-zurich-parmag-ch",
-        "parmag-ag-region-zurich-parmag-ch"
+        "solution-architect-m-w-d-ref-1283-region-zurich-parmag-ch"
       ],
       "firstSeenAt": "2026-09-21T15:58:24.806Z",
       "salaryMin": 73500,
@@ -1036,8 +1032,7 @@
       "previousSlugsByLocale": {
         "it": [
           "parmag-ag-zurich-oder-bern-parmag-ch",
-          "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch",
-          "parmag-ag-zurich-oder-bern"
+          "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch"
         ],
         "de": [
           "parmag-ag-zurich-oder-bern-parmag-ch"
@@ -1045,8 +1040,7 @@
       },
       "previousSlugs": [
         "parmag-ag-zurich-oder-bern-parmag-ch",
-        "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch",
-        "parmag-ag-zurich-oder-bern"
+        "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch"
       ],
       "firstSeenAt": "2026-09-21T15:58:24.804Z",
       "salaryMin": 83000,
@@ -1078,7 +1072,7 @@
       "title": "Data Engineer (m/w/d), Ref. 1291",
       "titleByLocale": {
         "it": "Data Ingegnere (m/w/d), Ref. 1291",
-        "en": "Data Engineer (m/w/d), Ref. 1291",
+        "en": "Data Engineer (m/f/d), Ref. 1291",
         "de": "Data Ingenieur (m/w/d), Ref. 1291",
         "fr": "Data Ingénieur (m/w/d), Ref. 1291"
       },
@@ -1111,17 +1105,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "data-engineer-m-w-d-ref-1291-zurich-oder-bern-parmag-ch",
-        "data-ingegnere-m-w-d-ref-1291-parmag-ag-zurich-oder-bern"
+        "data-engineer-m-w-d-ref-1291-zurich-oder-bern-parmag-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "data-engineer-m-w-d-ref-1291-zurich-oder-bern-parmag-ch",
-          "data-ingegnere-m-w-d-ref-1291-parmag-ag-zurich-oder-bern"
+          "data-engineer-m-w-d-ref-1291-zurich-oder-bern-parmag-ch"
         ]
       },
       "firstSeenAt": "2026-09-23T23:38:58.304Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -1210,8 +1201,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "parmag-4d45c49d418c",
@@ -1370,12 +1360,12 @@
     },
     {
       "id": "parmag-9281ee594f8e",
-      "slug": "parmag-ag-biel-neuenburg-freiburg-parmag-ch",
+      "slug": "diversi-consulenti-clienti-m-f-d-regione-biel-neuchatel-freiburg-parmag-ag-biel-neuenburg-freiburg",
       "slugByLocale": {
-        "it": "parmag-ag-biel-neuenburg-freiburg-parmag-ch",
-        "en": "parmag-ag-biel-neuenburg-freiburg-parmag-ch",
+        "it": "diversi-consulenti-clienti-m-f-d-regione-biel-neuchatel-freiburg-parmag-ag-biel-neuenburg-freiburg",
+        "en": "several-customer-consultants-m-f-d-region-biel-neuchatel-freiburg-parmag-ag-biel-neuenburg-freiburg",
         "de": "mehrere-kundenberater-innen-m-w-d-region-biel-neuenburg-freiburg-biel-neuenburg-freiburg",
-        "fr": "parmag-ag-biel-neuenburg-freiburg-parmag-ch"
+        "fr": "plusieurs-conseillers-clients-h-f-d-region-biel-neuchatel-freiburg-parmag-ag-biel-neuenburg-freiburg"
       },
       "company": "ParMag AG",
       "companyKey": "parmag",
@@ -1423,6 +1413,12 @@
         ],
         "de": [
           "parmag-ag-biel-neuenburg-freiburg-parmag-ch"
+        ],
+        "en": [
+          "parmag-ag-biel-neuenburg-freiburg-parmag-ch"
+        ],
+        "fr": [
+          "parmag-ag-biel-neuenburg-freiburg-parmag-ch"
         ]
       },
       "previousSlugs": [
@@ -1446,12 +1442,12 @@
     },
     {
       "id": "parmag-0d3fad45061e",
-      "slug": "parmag-ag-basel-stadt-basellandschaft-parmag-ch",
+      "slug": "consigliere-clienti-m-f-d-regione-basilea-80-100-parmag-ag-basel-stadt-basellandschaft",
       "slugByLocale": {
-        "it": "parmag-ag-basel-stadt-basellandschaft-parmag-ch",
-        "en": "parmag-ag-basel-stadt-basellandschaft-parmag-ch",
+        "it": "consigliere-clienti-m-f-d-regione-basilea-80-100-parmag-ag-basel-stadt-basellandschaft",
+        "en": "customer-advisor-m-f-d-region-basel-80-100-parmag-ag-basel-stadt-basellandschaft",
         "de": "parmag-ag-basel-stadt-basellandschaft-parmag-ch",
-        "fr": "parmag-ag-basel-stadt-basellandschaft-parmag-ch"
+        "fr": "conseiller-client-region-h-f-d-bale-80-100-parmag-ag-basel-stadt-basellandschaft"
       },
       "company": "ParMag AG",
       "companyKey": "parmag",
@@ -1505,7 +1501,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "parmag-ag-basel-stadt-basellandschaft-parmag-ch"
+        ],
+        "en": [
+          "parmag-ag-basel-stadt-basellandschaft-parmag-ch"
+        ],
+        "fr": [
+          "parmag-ag-basel-stadt-basellandschaft-parmag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "parmag-ag-basel-stadt-basellandschaft-parmag-ch"
+      ]
     }
   ]
 }

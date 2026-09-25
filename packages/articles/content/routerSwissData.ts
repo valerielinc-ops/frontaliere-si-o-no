@@ -2246,6 +2246,14 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'tubercolosi-svizzera-aumento-2025': { it: 'tubercolosi-svizzera-aumento-2025', en: 'tuberculosis-switzerland-increase-2025', de: 'tuberkulose-schweiz-zunahme-2025', fr: 'tuberculose-suisse-hausse-2025' },
  'indennita-maltempo-sei-mesi': { it: 'indennita-maltempo-sei-mesi', en: 'temporary-workers-weather-allowance', de: 'temporaerarbeiter-wetterentschaedigung', fr: 'travailleurs-temporaires-intemperies' },
  'ubs-capitale-90-bns': { it: 'ubs-capitale-90-bns', en: 'ubs-capital-90-snb', de: 'ubs-kapital-90-snb', fr: 'ubs-capital-90-bns' },
+ 'mozione-costi-manifestazioni-stati': { it: 'mozione-costi-manifestazioni-stati', en: 'motion-states-organizers-pay-safety-costs', de: 'motion-staaten-die-organisatoren-zahlen-die-sicherheitskosten', fr: 'motion-etats-les-organisateurs-paient-les-frais-de-securite' },
+ 'bns-tasso-guida-zero-2026': { it: 'bns-tasso-guida-zero-2026', en: 'snb-leaves-guide-rate-at-0-and-raises-gdp-estimates-2026', de: 'snb-lasst-leitzins-bei-0-und-erhoht-schatzungen-bip-2026', fr: 'la-bns-laisse-un-taux-directeur-a-0-et-releve-ses-estimations-de-pib-2026' },
+ 'turismo-agosto-ospiti-estero': { it: 'turismo-agosto-ospiti-estero', en: 'swiss-tourism-august-foreign-guests', de: 'schweiz-tourismus-august-auslandgaeste', fr: 'tourisme-suisse-aout-visiteurs-etrangers' },
+ 'salasso-alla-pompa-benzina': { it: 'salasso-alla-pompa-benzina', en: 'fuel-price-surge-switzerland', de: 'kraftstoffpreis-anstieg-schweiz', fr: 'hausse-des-prix-du-carburant-suisse' },
+ 'made-in-europe-svizzera': { it: 'made-in-europe-svizzera', en: 'made-in-europe-switzerland', de: 'made-in-europe-schweiz', fr: 'made-in-europe-suisse' },
+ 'urne-due-iniziative-2026': { it: 'urne-due-iniziative-2026', en: 'swiss-vote-two-initiatives-2026', de: 'schweiz-zwei-initiativen-2026', fr: 'suisse-deux-initiatives-2026' },
+ 'conferenza-protezione-popolazione-berna': { it: 'conferenza-protezione-popolazione-berna', en: 'civil-protection-conference-bern', de: 'volksschutz-konferenz-bern', fr: 'conference-protection-population-berne' },
+ 'lumpy-skin-disease-fine-vaccinazione': { it: 'lumpy-skin-disease-fine-vaccinazione', en: 'lumpy-skin-disease-vaccination-end', de: 'lumpy-skin-disease-impfende', fr: 'fin-vaccination-lumpy-skin-disease' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

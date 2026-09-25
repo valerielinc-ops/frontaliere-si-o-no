@@ -71,6 +71,7 @@ import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { isReviewerBot, REDFLAG_IMPORTANT_RE, VITEST_CHECK_NAME } from './lib/constants.mjs';
 import {
+  isTerminalReviewState,
   normalizeReviewBody,
   reviewBodyIsApproving,
 } from './lib/pr-review-admission.mjs';
@@ -151,8 +152,10 @@ export function isAutonomousPr(pr) {
 
 function isManagedReview(review) {
   if (!review || typeof review !== 'object') return false;
-  const state = String(review.state || '').toUpperCase();
-  if (state === 'PENDING' || state === 'DISMISSED') return false;
+  // Allowlist fail-closed (#9791): solo APPROVED/CHANGES_REQUESTED/COMMENTED.
+  // Escludere PENDING e DISMISSED lasciava passare come gestita una review
+  // con stato vuoto o sconosciuto.
+  if (!isTerminalReviewState(review.state)) return false;
   // Stessa allowlist dei gate (constants.mjs di ciascun repo); il marker Codex
   // resta locale perche' solo il corpus lo esporta.
   if (isReviewerBot(review.user)) return true;

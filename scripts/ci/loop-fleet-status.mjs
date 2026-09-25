@@ -16,9 +16,10 @@ import {
   LIFECYCLE_EVENT_TYPES,
   summarizeLifecycleEvents as summarizeLifecycleEventsContract,
   validateActionClassAgainstPolicy,
+  validateHistoricalLifecycleEvent,
+  validateHistoricalOutcomeAgainstPolicy,
   validateLifecycleEvent,
   validateLoopRegistry,
-  validateOutcomeAgainstPolicy,
 } from '../lib/loop-fleet-contract.mjs';
 
 const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
@@ -270,7 +271,7 @@ function readDurableHealth(ledgerDir, registry) {
         throw new Error(`line ${index + 1} is not a health record`);
       }
       validateActionClassAgainstPolicy(registry, health.loopId, health.actionClass);
-      validateOutcomeAgainstPolicy(registry, health.loopId, health.outcome);
+      validateHistoricalOutcomeAgainstPolicy(registry, health.loopId, health.outcome);
       if (!health.execution?.runId || !/^[0-9a-f]{40}$/iu.test(String(health.execution.sha))) {
         throw new Error(`line ${index + 1} has no durable execution identity`);
       }
@@ -304,7 +305,7 @@ function readDurableLifecycle(ledgerDir, registry, now = new Date()) {
       } catch (error) {
         throw new Error(`line ${index + 1} is invalid JSON: ${error.message}`);
       }
-      validateLifecycleEvent(registry, event.loopId, event);
+      validateHistoricalLifecycleEvent(registry, event.loopId, event);
       if (!object(event.execution) || !text(event.execution.runId) || !/^[0-9a-f]{40}$/iu.test(String(event.execution.sha || ''))) {
         throw new Error(`line ${index + 1} has no durable execution identity`);
       }

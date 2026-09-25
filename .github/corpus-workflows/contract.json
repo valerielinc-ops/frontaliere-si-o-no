@@ -4,11 +4,11 @@
   "generatorSha256": "ca6de7edbb725fa6cb7fdb508ee51888025c39696c01bdbde20b71dba06fe4c4",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "48207b409aef44cded1e4b04510aaadad0549df0",
+  "sourceCommit": "6481e1113098493968bc77020535d077de119de6",
   "artifactObservation": {
     "generatorSha256": "ca6de7edbb725fa6cb7fdb508ee51888025c39696c01bdbde20b71dba06fe4c4",
     "sourceRef": "main",
-    "sourceCommit": "48207b409aef44cded1e4b04510aaadad0549df0"
+    "sourceCommit": "6481e1113098493968bc77020535d077de119de6"
   },
   "groupCount": 24,
   "artifactCount": 25,
@@ -17,7 +17,7 @@
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:6e4506a55989a1ebf277b2ddb528dcd4a963102a265b99b64422305eae23d2b2",
+    "rosterDigest": "sha256:d2798cb270d0010b5f7dd0a4bbd78d0026a68f1145c57b61e41d157f8e9ca8dc",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -606,7 +606,7 @@
     {
       "source": "observers/scripts/lib/github-actions-read-client.mjs",
       "target": "scripts/ci/lib/github-actions-read-client.mjs",
-      "sha256": "a3c0b3742061e9e1a378865b0891c8c1bd401cb4ce631abb0866d1e7741f0b16"
+      "sha256": "90d86156213f814f44d02455237fdb92761eb9130503ab888332d2b84660c570"
     }
   ],
   "checkout": {
@@ -984,8 +984,8 @@
     {
       "file": "crawler-group-11.yml",
       "sourceLogic": "crawler-group-11-logic.yml",
-      "sourceSha256": "fccac03fa23ddd81459638d20203eb834ccf25891b3d086e82762c91a81f364b",
-      "artifactSha256": "ee44a4b8b0f3281413756702f6b08b535f1c13da7374c89596cef1b7fcb7d48f",
+      "sourceSha256": "891b2644731d3513736f6c61daf056df518c21ae780594ce571e47a292f0f5d7",
+      "artifactSha256": "275f9a023b3bbd5e596688ea9f258cbc5bb3b0dbccb91f5c2ccd8fff652c6c31",
       "generatorSha256": "ca6de7edbb725fa6cb7fdb508ee51888025c39696c01bdbde20b71dba06fe4c4",
       "members": [
         "rehab-basel",
@@ -1000,7 +1000,6 @@
         "novelis",
         "hornbach",
         "michel-gruppe",
-        "tpl-lugano",
         "jysk",
         "hess-carrosserie",
         "hilcona",
@@ -1432,14 +1431,12 @@
     {
       "file": "crawler-group-23.yml",
       "sourceLogic": "crawler-group-23-logic.yml",
-      "sourceSha256": "4337df2d8e69ae7501ec342b48cf457998585dda3c601893514cbcd4d2616df1",
-      "artifactSha256": "f22218b336b49e903c119b48abb31c5782f2158fffd2b379c1c0230e9ae74de1",
+      "sourceSha256": "c9c908a455488187079778b4eabf29b1e6b9d54e8b1b662e74219de7fc68998c",
+      "artifactSha256": "d729ee4cc0192f6304d56d164a3ed4be38a7617a64e207b5122917ee305744c0",
       "generatorSha256": "ca6de7edbb725fa6cb7fdb508ee51888025c39696c01bdbde20b71dba06fe4c4",
       "members": [
         "albergo-gardenia",
         "artificialy",
-        "capri-holdings",
-        "confederazione",
         "csd-engineers",
         "fust",
         "hugo-boss",
@@ -1455,8 +1452,8 @@
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "c36eb6762394094ba4fd9540c69963f4a61caf304fee1e196f9e7e0eaedd5a00",
-      "artifactSha256": "1c07e8838ef0d3157b13aa7dea656ff605970684c96579a0512b37a003bf5b5c",
+      "sourceSha256": "43b16edafa7007708819dd343798a0fe49340b5391480e086a61621b56042918",
+      "artifactSha256": "f28940ce29bf7a66751121096c0146f4e630dd9c49ebc4cb0ab6ffa6c05a1155",
       "generatorSha256": "ca6de7edbb725fa6cb7fdb508ee51888025c39696c01bdbde20b71dba06fe4c4",
       "members": [
         "mcdonald-s-switzerland",
@@ -1465,7 +1462,10 @@
         "cnp",
         "fachkraft",
         "postfinance",
-        "tsmg"
+        "tsmg",
+        "tpl-lugano",
+        "capri-holdings",
+        "confederazione"
       ]
     },
     {

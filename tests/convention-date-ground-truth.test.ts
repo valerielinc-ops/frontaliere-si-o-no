@@ -10,7 +10,7 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 import { mentionsWrongConventionDate, CONVENTION_DATE_IT } from '../scripts/lib/article-factuality-gates.mjs';
-import { INCORRECT_FACTS } from '../scripts/lib/article-fabrication-patterns.mjs';
+import { INCORRECT_FACTS, scanWrongConventionDate } from '../scripts/lib/article-fabrication-patterns.mjs';
 
 const ROOT = path.resolve(__dirname, '..');
 
@@ -41,6 +41,23 @@ describe('data della Convenzione italo-svizzera', () => {
   it('la denylist del corpus non rifiuta il 9 marzo 1976', () => {
     const correct = 'La Convenzione italo-svizzera del 9 marzo 1976 regola il credito d\'imposta.';
     expect(INCORRECT_FACTS.filter(({ pattern }) => pattern.test(correct))).toEqual([]);
+  });
+
+  it('la denylist del corpus rifiuta il 9 dicembre 1976', () => {
+    const wrong = 'La Convenzione italo-svizzera del 9 dicembre 1976 regola il credito d\'imposta.';
+    expect(INCORRECT_FACTS.filter(({ pattern }) => pattern.test(wrong)).length).toBeGreaterThan(0);
+  });
+
+  it.each([
+    ['it', 'firmata il 9 dicembre 1976', 'firmata il 9 marzo 1976'],
+    ['it', 'Convenzione del 09/12/1976', 'Convenzione del 09/03/1976'],
+    ['en', 'signed on 9 December 1976', 'signed on 9 March 1976'],
+    ['en', 'signed on December 9, 1976', 'signed on March 9, 1976'],
+    ['de', 'unterzeichnet am 9. Dezember 1976', 'unterzeichnet am 9. März 1976'],
+    ['fr', 'signée le 9 décembre 1976', 'signée le 9 mars 1976'],
+  ])('il controllo cross-locale (%s) rifiuta «%s» e accetta «%s»', (locale, wrong, correct) => {
+    expect(scanWrongConventionDate(wrong, locale)).toHaveLength(1);
+    expect(scanWrongConventionDate(correct, locale)).toEqual([]);
   });
 
   it('create-article.mjs non detta piu\' la data sbagliata e il gate usa il predicato', () => {

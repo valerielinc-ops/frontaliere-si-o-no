@@ -272,9 +272,10 @@ describe('Italian duty calendar coverage is measured on the calendar', () => {
     return lines.join('\n');
   }
 
-  // `aliasDays.size === 2` e `duties.length > 0` reggono solo se Merone e Albese restano nel catalogo vivo `data/pharmacies-italy-border.json`.
+  // Un giorno per ciascun alias della fixture e `duties.length > 0` reggono solo se Merone e Albese restano nel catalogo vivo `data/pharmacies-italy-border.json`.
   it.skipIf(SKIP_LIVE_DATA)('counts calendar days, not alias matches, so a real rotation clears the minimum', () => {
-    const raw = syntheticComoCalendar(310, { 5: 'Merone', 200: 'Albese' });
+    const aliasByDay = { 5: 'Merone', 200: 'Albese' };
+    const raw = syntheticComoCalendar(310, aliasByDay);
     const parsed = parseItalyDutySource(raw, CO_SOURCE, {
       fetchedAt: FETCHED_AT,
       asOf: FETCHED_AT,
@@ -290,7 +291,7 @@ describe('Italian duty calendar coverage is measured on the calendar', () => {
     // ...mentre le farmacie del catalogo compaiono in due soli giorni. E' questa
     // differenza che il conteggio vecchio confondeva col minimo del calendario.
     const aliasDays = new Set(parsed.observedDuties.map((duty: { startsAt: string }) => duty.startsAt.slice(0, 10)));
-    expect(aliasDays.size).toBe(2);
+    expect(aliasDays.size).toBe(Object.keys(aliasByDay).length);
     expect(parsed.observedCalendarDays).toBeGreaterThan(aliasDays.size);
     expect(parsed.duties.length).toBeGreaterThan(0);
   });

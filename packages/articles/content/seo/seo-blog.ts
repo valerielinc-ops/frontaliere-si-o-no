@@ -2867,7 +2867,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  title: 'Costo Auto Frontaliere Ticino 2026 | Frontaliere Ticino',
  description: 'Quanto costa davvero l\'auto per un frontaliere in Ticino? Analisi 2026 di benzina, parcheggio, usura e vignette. Scopri se conviene rispetto al treno.',
  keywords: 'costo auto frontaliere, pendolare ticino, spese auto svizzera, vignetta autostradale 2026, parcheggio lugano, conviene treno o auto',
- ogTitle: 'L\'auto ti costa fino a 8.500 CHF l\'anno? La verità sui costi da frontaliere',
+ ogTitle: 'L\'auto ti costa quasi 8.700 CHF l\'anno? La verità sui costi da frontaliere',
  ogDescription: 'Abbiamo calcolato tutte le spese nascoste dell\'auto per chi lavora in Ticino. La cifra finale potrebbe sorprenderti. Leggi l\'analisi 2026.',
  canonicalPath: '/articoli-frontaliere/costo-auto-frontaliere-ticino-guida-completa-2026/',
  structuredData: {
@@ -2893,7 +2893,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
  'blog-guida-dichiarazione-redditi-frontalieri': {
  title: 'Guida Dichiarazione Redditi Frontaliere | Frontaliere Ticino',
- description: 'La guida completa al Modello 730/2026 per frontalieri in Ticino: come compilare il Quadro CE, calcolare il credito d\'imposta e le scadenze da non perdere.',
+ description: 'La guida completa al Modello 730/2026 e al Redditi PF per frontalieri in Ticino: dove indicare lo stipendio svizzero, calcolare il credito d\'imposta e le scadenze da non perdere.',
  keywords: 'dichiarazione redditi frontaliere, modello 730 frontalieri, quadro ce, credito imposta svizzera, tasse frontalieri ticino, fiscalità frontalieri, guida fiscale',
  ogTitle: 'Frontaliere e 730: La Guida Definitiva per non Sbagliare',
  ogDescription: 'Evita errori e sanzioni. Ecco come compilare la dichiarazione dei redditi 2026 se lavori in Ticino e vivi in Italia. La guida passo passo.',

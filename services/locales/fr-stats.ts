@@ -155,7 +155,7 @@ const frStats: Record<string, string> = {
  'glossary.terms.impostaAllaFonte.example': 'Sur un salaire brut de CHF 5 000/mois, un célibataire sans enfants à Lugano paie environ 12% d\'impôt à la source.',
  'glossary.terms.irpef.title': 'IRPEF',
  'glossary.terms.irpef.desc': 'Impôt sur le Revenu des Personnes Physiques italien. Principal impôt sur le revenu avec des taux progressifs de 23% à 43%.',
- 'glossary.terms.irpef.example': 'Revenu €30 000 : premiers €28 000 à 23%, €2 000 restants à 35% → IRPEF brut €7 140.',
+ 'glossary.terms.irpef.example': 'Revenu €30 000 : premiers €28 000 à 23%, €2 000 restants à 33% → IRPEF brut €7 100.',
  'glossary.terms.franchigia.title': 'Franchise €10 000',
  'glossary.terms.franchigia.desc': 'Avec l\'accord 2026, les nouveaux frontaliers bénéficient d\'une franchise de €10 000 sur le revenu aux fins de l\'IRPEF.',
  'glossary.terms.franchigia.example': 'Revenu brut €40 000 : avec franchise, seuls €30 000 sont soumis à l\'IRPEF.',

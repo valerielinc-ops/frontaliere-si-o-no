@@ -99,18 +99,39 @@ jobs:
           if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
             PR="$DISPATCH_PR"
             HEAD_SHA=$(gh api "repos/$REPO/pulls/$PR" --jq ".head.sha" 2>/dev/null || echo "")
-            RUN_ID=$(gh run list --repo "$REPO" --workflow=tests.yml --limit 20 \
-              --json databaseId,headSha,conclusion \
-              --jq "[.[] | select(.headSha==\"$HEAD_SHA\" and .conclusion==\"failure\")][0].databaseId" 2>/dev/null || echo "")
+            if ! [[ "$HEAD_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+              echo "::error::HEAD di #$PR illeggibile: senza SHA la ricerca per head_sha restituirebbe le run di qualunque PR."
+              exit 1
+            fi
+            # La run rossa si cerca per SHA, non fra le ultime 20 run del repo:
+            # main pusha ogni pochi minuti e una run di ieri ne era gia' fuori,
+            # cosi' il dispatch su una PR ferma finiva sempre in no-op (#9695,
+            # run rossa 36061365735 del 2026-09-24T23:39Z).
+            if ! RUN_ID=$(gh api "repos/$REPO/actions/workflows/tests.yml/runs?head_sha=$HEAD_SHA&status=failure&per_page=1" \
+              --jq '.workflow_runs[0].id // empty'); then
+              echo "::error::Run di tests.yml sulla HEAD di #$PR illeggibili: non le tratto come «nessuna run fallita»."
+              exit 1
+            fi
             if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
               skip "Nessuna run tests fallita sulla HEAD di #$PR → niente da riparare (no-op)."
             fi
           else
             # `pull_requests` del workflow_run e' spesso vuoto: la via robusta e'
             # cercare la PR aperta con questo head branch.
-            PR=$(gh api "repos/$REPO/pulls?state=open&per_page=100" \
-              --paginate --slurp \
-              --jq "[.[].[] | select(.head.ref==\"$RUN_BRANCH\")][0].number // empty" 2>/dev/null || echo "")
+            # Niente `--slurp`: il gh reale rifiuta `--slurp` insieme a `--jq`
+            # («the `--slurp` option is not supported with `--jq`»). Con
+            # `2>/dev/null || echo ""` quel rifiuto diventava «nessuna PR» e il
+            # fixer saltava OGNI PR (zero round dal 2026-09-20 al 2026-09-25).
+            # `--jq` gira pagina per pagina e stampa un numero per riga; la
+            # prima riga si prende in bash, non con `| head`, che sotto
+            # `pipefail` farebbe fallire gh per SIGPIPE.
+            if ! PR_MATCHES=$(gh api "repos/$REPO/pulls?state=open&per_page=100" \
+              --paginate \
+              --jq ".[] | select(.head.ref==\"$RUN_BRANCH\") | .number"); then
+              echo "::error::Lista PR aperte illeggibile per il branch '$RUN_BRANCH': non la tratto come «nessuna PR»."
+              exit 1
+            fi
+            PR="${PR_MATCHES%%$'\n'*}"
             if [ -z "$PR" ] || [ "$PR" = "null" ]; then
               skip "Nessuna PR aperta per il branch '$RUN_BRANCH' → skip (no-op)."
             fi
@@ -948,6 +969,20 @@ jobs:
               grep -n -m1 -E '(^|[[:space:]])FAIL ' "$OUT/clean.log" | cut -d: -f1 | while read -r n; do
                 sed -n "$((n)),$((n+120))p" "$OUT/clean.log"
               done
+              # Il preflight dichiara azionabili anche i rossi di tsc, lint e
+              # source guard, che nello stesso job non producono righe `FAIL `:
+              # senza questa sezione il fixer riceveva «64 passed» e nessun
+              # errore (#9695: TS2345 in services/professionSynonyms.ts).
+              # «Collect independent source gates» stampa `[gate] exit=N` e
+              # subito dopo il log di quel gate.
+              echo
+              echo "### Gate sorgente falliti (\`[gate] exit=N\` con N≠0: tsc, lint, source guard)"
+              grep -E '\[[A-Za-z0-9_.:-]+\] exit=[1-9][0-9]*' "$OUT/clean.log" | sed 's/^[^\t]*\t[^\t]*\t[0-9T:.Z-]*//' | sort -u | head -20
+              echo
+              echo "### Estratto attorno al primo gate sorgente fallito"
+              grep -n -m1 -E '\[[A-Za-z0-9_.:-]+\] exit=[1-9][0-9]*' "$OUT/clean.log" | cut -d: -f1 | while read -r n; do
+                sed -n "$((n)),$((n+60))p" "$OUT/clean.log"
+              done
             } > "$OUT/failing.txt" 2>/dev/null || true
           fi
 
@@ -955,7 +990,7 @@ jobs:
           # di turni che questo step esiste per evitare.
           head -c 24000 "$OUT/failing.txt" > "$OUT/failing.trim" 2>/dev/null || : > "$OUT/failing.trim"
           mv "$OUT/failing.trim" "$OUT/failing.txt"
-          echo "contesto raccolto: $(wc -c < "$OUT/failing.txt") byte, $(grep -c 'FAIL ' "$OUT/failing.txt" 2>/dev/null || echo 0) righe FAIL."
+          echo "contesto raccolto: $(wc -c < "$OUT/failing.txt") byte, $(grep -c 'FAIL ' "$OUT/failing.txt" 2>/dev/null || echo 0) righe FAIL, $(grep -cE '\] exit=[1-9]' "$OUT/failing.txt" 2>/dev/null || true) righe di gate sorgente falliti."
           sed -n '1,25p' "$OUT/failing.txt"
 
       - name: Install deterministic PR body gate

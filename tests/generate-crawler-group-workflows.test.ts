@@ -1323,6 +1323,9 @@ describe('#6482 — committed crawler-group-*.yml are byte-identical to the gene
       'fachkraft',
       'postfinance',
       'tsmg',
+      'tpl-lugano',
+      'capri-holdings',
+      'confederazione',
     ]);
     expect(previousGroup).not.toContain('mcdonald-s-switzerland');
     expect(generated[GROUP_COUNT - 1].members).toEqual(newGroup);
@@ -2171,7 +2174,7 @@ describe('cross-repo crawler execution artifacts', () => {
         });
       }
       const checkouts = job.steps.filter((step: any) => step.uses === 'actions/checkout@v5');
-      expect(checkouts).toHaveLength(2);
+      expect(checkouts).toHaveLength(contract.checkout.attempts);
       expect(checkouts[0]).toMatchObject({
         id: 'site_checkout_primary',
         'continue-on-error': true,

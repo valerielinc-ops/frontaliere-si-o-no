@@ -959,8 +959,13 @@ runs:
           } > "$target"
         }
 
+        # HEAD_SHA completes the review idempotency key of gh-server.mjs
+        # (`reviewRetryDetails`: PR, exact body, full HEAD). Without it the key
+        # is always null under `env -i`: the transient-5xx retry never ran and
+        # an identical review could be posted twice on one HEAD (#9778).
         env -i \
           CODEX_BRIDGE_TRANSPORT=files \
+          HEAD_SHA="${HEAD_SHA:-}" \
           CODEX_GH_AUTH="$codex_github_auth" \
           CODEX_GH_CORPUS_AUTH="$codex_corpus_github_auth" \
           CODEX_GH_SOCKET="$gh_socket" \
@@ -1176,6 +1181,13 @@ runs:
         : > "$codex_stderr"
         chmod 600 "$codex_stderr"
         set +e
+        # The stderr tee is a process substitution, which the shell never
+        # waits for; its stdout is the pipe into the `tee "$codex_log"` stage,
+        # which the shell does wait for and which only reaches EOF once the
+        # stderr tee has exited. So `$codex_stderr` and `$codex_log` are both
+        # complete before the auth grep below. With both tees as unwaited
+        # process substitutions, a fast refresh-token rejection could be
+        # grepped before it was flushed and skip the "Codex auth down" alert.
         printf '%s' "$prompt" | env -i "${codex_env[@]}" "$codex_timeout_bin" \
           --signal=TERM \
           --kill-after="${codex_exec_kill_grace_seconds}s" \
@@ -1192,8 +1204,7 @@ runs:
           -c shell_environment_policy.ignore_default_excludes=false \
           -c "shell_environment_policy.include_only=$codex_env_patterns" \
           --output-last-message "$CODEX_OUTPUT" \
-          - > >(/usr/bin/tee "$codex_log") \
-          2> >(/usr/bin/tee "$codex_stderr" | /usr/bin/tee -a "$codex_log" >&2)
+          - 2> >(/usr/bin/tee "$codex_stderr") | /usr/bin/tee "$codex_log"
         codex_status=${PIPESTATUS[1]}
         codex_timed_out=false
         if [ "$codex_status" -eq 124 ]; then

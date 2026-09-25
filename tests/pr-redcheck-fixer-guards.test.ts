@@ -50,9 +50,13 @@ describe('trigger — parte solo su un rosso vero, di una PR vera', () => {
   });
 
   it('pagine tutte le PR aperte prima di cercare la head del workflow run', () => {
-    const discovery = src.slice(src.indexOf('PR=$(gh api'));
+    const start = src.indexOf('PR_MATCHES=$(gh api');
+    expect(start).toBeGreaterThan(-1);
+    const discovery = src.slice(start, src.indexOf('\n            fi', start));
     expect(discovery).toContain('--paginate');
-    expect(discovery).toContain('--slurp');
+    // Il gh reale rifiuta `--slurp` insieme a `--jq`: questo test lo esigeva,
+    // e il preflight ha saltato ogni PR dal 2026-09-20 al 2026-09-25.
+    expect(discovery).not.toContain('--slurp');
   });
 
   it('NON si restringe a `pull_request`: le head rebasate arrivano da dispatch', () => {
