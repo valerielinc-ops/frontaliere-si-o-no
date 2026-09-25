@@ -11958,6 +11958,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bns-decisione-tasso-invariato-2026.title': 'SNB lässt Zinssatz bei 0% und steigert BIP 2026',
     'blog.article.bns-decisione-tasso-invariato-2026.excerpt': 'Die SNB hält den Referenzzinssatz bei 0% (unverändert seit Juni 2025), prognostiziert eine Inflation von 0,7% im Jahr 2026 und 0,8% im Jahr 2027 und ein BIP 2026 zwischen 1,5% und 2,0%.',
     'blog.article.bns-decisione-tasso-invariato-2026.imageAlt': 'Blick auf den Luganer See mit den Bergen im Hintergrund, Morgenlicht',
+    'blog.article.riassetto-ferroviario-lavoratori.title': 'Ffs Cargo, die Beschäftigungsperspektiven sorgen für Diskussionen',
+    'blog.article.riassetto-ferroviario-lavoratori.excerpt': 'Die Umstrukturierung von Ffs Cargo betrifft 80 Mitarbeitende: Drei Mitarbeitende haben noch keine Stellenangebote erhalten.',
+    'blog.article.riassetto-ferroviario-lavoratori.imageAlt': 'Güterzug von FFS Cargo auf einem Bahnareal im Tessin',
 };
 
 export default blogMetaDe;

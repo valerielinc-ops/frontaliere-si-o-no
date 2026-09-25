@@ -11960,6 +11960,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bns-decisione-tasso-invariato-2026.title': 'BNS lascia tasso allo 0% e alza PIL 2026',
     'blog.article.bns-decisione-tasso-invariato-2026.excerpt': 'La BNS mantiene il tasso di riferimento allo 0% (invariato da giugno 2025), prevede inflazione 0,7% nel 2026 e 0,8% nel 2027 e PIL 2026 tra l’1,5% e il 2,0%.',
     'blog.article.bns-decisione-tasso-invariato-2026.imageAlt': 'Vista del lago di Lugano con le montagne sullo sfondo, luce mattutina',
+    'blog.article.riassetto-ferroviario-lavoratori.title': 'Ffs Cargo, le prospettive occupazionali fanno discutere',
+    'blog.article.riassetto-ferroviario-lavoratori.excerpt': 'La riorganizzazione di Ffs Cargo coinvolge 80 dipendenti: tre collaboratori non hanno ancora ricevuto proposte lavorative.',
+    'blog.article.riassetto-ferroviario-lavoratori.imageAlt': 'Treno merci FFS Cargo in uno scalo ferroviario del Ticino',
 };
 
 export default blogMetaIt;

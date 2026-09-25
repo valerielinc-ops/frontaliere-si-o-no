@@ -11959,6 +11959,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bns-decisione-tasso-invariato-2026.title': 'SNB leaves rate at 0% and raises GDP 2026',
     'blog.article.bns-decisione-tasso-invariato-2026.excerpt': 'The SNB maintains the benchmark rate at 0% (unchanged from June 2025), forecasts inflation 0.7% in 2026 and 0.8% in 2027, and GDP 2026 between 1.5% and 2.0%.',
     'blog.article.bns-decisione-tasso-invariato-2026.imageAlt': 'View of Lake Lugano with mountains in the background, morning light',
+    'blog.article.riassetto-ferroviario-lavoratori.title': 'Ffs Cargo, employment prospects spark debate',
+    'blog.article.riassetto-ferroviario-lavoratori.excerpt': 'The reorganization of Ffs Cargo involves 80 employees: three employees have not yet received job offers.',
+    'blog.article.riassetto-ferroviario-lavoratori.imageAlt': 'FFS Cargo freight train at a railway yard in Ticino',
 };
 
 export default blogMetaEn;
