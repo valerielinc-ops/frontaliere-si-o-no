@@ -271,6 +271,17 @@ describe('SuccessFactors factory geography gate', () => {
     ]);
   });
 
+  it('keeps a Swiss locality outside the gazetteer when the source region is a canton', async () => {
+    stubFactoryFetch(
+      { 1006: factoryDetail({ city: 'Epagny', region: 'FR', country: 'CH' }) },
+      factoryListing('1006', 'Epagny vacancy', 'Epagny, FR'),
+    );
+
+    await expect(factoryParser.fetchAllJobs()).resolves.toMatchObject([
+      expect.objectContaining({ location: 'Epagny', canton: 'FR', addressCountry: 'CH' }),
+    ]);
+  });
+
   it('does not create a job when the detail has no city', async () => {
     stubFactoryFetch(
       { 1005: factoryDetail({ region: 'ZH', country: 'CH' }) },
