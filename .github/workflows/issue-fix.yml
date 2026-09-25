@@ -1326,11 +1326,13 @@ jobs:
         # 2026-07-02: --dangerously-skip-permissions sostituisce --allowedTools scoped
         # (rationale completo: post-merge-followup.yml action-input comment, stesso
         # fix, evita drift tra copie duplicate).
+        # `exec_timeout_minutes` = watchdog interno di Codex: il default 15min
+        # dell'action è tarato sulle review e uccideva i fix reali (run
+        # 36021092053). Sta sotto il `timeout-minutes: 120` dello step per
+        # lasciare WIP e telemetria. Commento fuori da `with:`: il validatore
+        # conta l'intero mapping contro PROMPT_SCALAR_LIMIT (#9742).
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
-          # Watchdog interno di Codex: il default 15min dell'action è tarato
-          # sulle review e uccideva i fix reali (run 36021092053). Sta sotto
-          # il `timeout-minutes: 120` dello step per lasciare WIP e telemetria.
           exec_timeout_minutes: "110"
           github_token: ${{ env.APP_TOKEN }}
           codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
@@ -1401,7 +1403,7 @@ jobs:
             - Mai committare path home assoluti o email personali (Privacy).
             - Se la root cause non è determinabile con confidenza → NON forzare un fix; posta su issue "Root cause non determinata: <cosa hai trovato>." con `<!-- FIX_OUTCOME: no-root-cause -->` e `<!-- AUTOMATION_DEFERRED: technical -->`, applica `automation-deferred`, rimuovi il routing `agent:fix*` se ancora presente e TERMINA senza PR. Non chiedere una risposta al proprietario: lo sweep automatico deve prima cambiare input, scheda o osservabilità.
             - Se il fix richiede una credenziale, USALA: Remote Config è caricato in questo run (decisione del 2026-08-24). Termina con `blocked-secrets` solo se la variabile che ti serve è davvero vuota in `process.env`, e nominala.
-            - **Telemetria outcome (OBBLIGATORIO):** ogni volta che termini, l'ULTIMO commento che posti sulla issue DEVE iniziare con un marker HTML su riga propria: `<!-- FIX_OUTCOME: <code> -->`. `<code>` ∈ `pr-created` (PR aperta) · `blocked-workflows-scope` · `blocked-secrets` · `blocked-admin-settings` · `no-root-cause` · `overlap-skip` · `pr-already-open` · `already-fixed` · `revenue-tracker-manual`. Se apri una PR (passo 9) e non posti altri commenti, aggiungi comunque un commento col solo marker `<!-- FIX_OUTCOME: pr-created -->`. Il lessons-harvester aggrega questi marker per rilevare classi di blocco ricorrenti e proporre migliorie ai doc/prompt (vedi ISSUES.md → "Auto-improvement loop").
+            - **Telemetria outcome (OBBLIGATORIO):** ogni volta che termini, l'ULTIMO commento che posti sulla issue DEVE iniziare con un marker HTML su riga propria: `<!-- FIX_OUTCOME: <code> -->`. `<code>` ∈ `pr-created` (PR aperta) · `blocked-workflows-scope` · `blocked-secrets` · `blocked-admin-settings` · `no-root-cause` · `overlap-skip` · `pr-already-open` · `already-fixed` · `revenue-tracker-manual`. Con `already-fixed` provato, nello stesso commento aggiungi `<!-- FIX_EVIDENCE: pr=<N> commit=<sha> run=<id> -->` (pr mergiata e/o commit su main; run verde su main che li contiene). Se apri una PR (passo 9) e non posti altri commenti, aggiungi comunque un commento col solo marker `<!-- FIX_OUTCOME: pr-created -->`. Il lessons-harvester aggrega questi marker per rilevare classi di blocco ricorrenti e proporre migliorie ai doc/prompt (vedi ISSUES.md → "Auto-improvement loop").
 
       - name: Enforce F1/F7 output diff gate (before checkpoint/push)
         id: diff_gate
@@ -1417,9 +1419,13 @@ jobs:
             git diff --name-only origin/main
             git ls-files --others --exclude-standard
           } | sort -u > "$paths_file"
+          # Albero pulito = niente da pushare, quindi niente da classificare.
+          # Succede negli esiti legittimi senza codice (`already-fixed`,
+          # `no-root-cause`, …): fallire qui colorava di rosso un run corretto
+          # (36079446155, #8789) e saltava la valutazione della delivery.
           if [ ! -s "$paths_file" ]; then
-            echo "::error::F1/F7 diff gate: nessun diff verificabile da consegnare; deny-by-default."
-            exit 1
+            echo "::notice::F1/F7 diff gate: nessun diff da consegnare; niente da classificare."
+            exit 0
           fi
           node --input-type=module - "$paths_file" <<'NODE'
           import fs from 'node:fs';
@@ -1708,6 +1714,21 @@ jobs:
           if ! gh issue comment "$ISSUE" --body "$(printf '<!-- FIX_OUTCOME: %s -->\n_Outcome rilevato dal post-step deterministico (telemetria lessons-harvester)._' "$OUT")"; then
             echo "::warning::marker FIX_OUTCOME non postato; nessuna garanzia di telemetria."
           fi
+
+      # #9742: un `already-fixed` emesso dall'agente lasciava `agent:fix` sulla
+      # issue e il ciclo la riprendeva. Con evidenza strutturata
+      # (`FIX_EVIDENCE: pr/commit + run`) verificata via API, lo script toglie
+      # il routing `agent:fix*` e applica `maybe-resolved` + marker; non chiude
+      # mai. Evidenza assente o non verificabile → nessuna mutazione.
+      - name: Route already-fixed to verification (zero-Claude)
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true' && steps.group.outputs.is_group != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE: ${{ github.event.issue.number }}
+          IS_GROUP: ${{ steps.group.outputs.is_group }}
+        run: node "$GITHUB_WORKSPACE/scripts/ci/route-already-fixed.mjs"
 
       # La classificazione distingue l'esito del workflow dall'evidenza di
       # delivery. La policy condivisa del modulo rifiuta PR storiche, lookup

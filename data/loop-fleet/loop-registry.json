@@ -51,6 +51,7 @@
     "manifest-api-corpus": "Published corpus/API manifest",
     "posthog-error-telemetry": "PostHog error and useful-session telemetry",
     "gsc": "Google Search Console snapshot",
+    "posthog-landing-path": "Retired historical L2 PostHog landing-path and useful-action telemetry",
     "ga4-landing-path": "GA4 landing-path and useful-action session telemetry",
     "job-crawler-summaries": "Job crawler summary snapshots",
     "application-handoff": "Application handoff reachability evidence",
@@ -156,6 +157,8 @@
       "outcome": {
         "outcomeId": "useful-action",
         "sourceRefs": ["gsc", "ga4-landing-path"],
+        "historicalSourceRefs": [["gsc", "posthog-landing-path"]],
+        "historicalSourceRefsBefore": "2026-09-24T20:22:12.000Z",
         "requiredFields": ["generatedAt", "numerator", "denominator"]
       },
       "minimumSample": 1000,

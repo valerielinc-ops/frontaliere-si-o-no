@@ -582,6 +582,9 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
     // `createFreshCoverageMeter` (issue #7362) e' una factory di contatori: la
     // misura della copertura della coorte <24h vive fuori da main() per essere
     // osservabile, e all'import non legge nulla.
+    // `shadowWithheldOverwrite` (issue #9677) conta gli overwrite trattenuti
+    // dal kill-switch e giudica il campione shadow: riceve rollout e giudice
+    // come argomenti, non tocca il filesystem e non scrive un job.
     expect(Object.keys(mopup).sort()).toEqual([
       'MOPUP_TRAFFIC_LANE',
       'buildMopupRequest',
@@ -599,6 +602,7 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
       'opusMtRescueEnabled',
       'orderMopupJobsByTraffic',
       'rescueMopupRejects',
+      'shadowWithheldOverwrite',
       'shouldApplyMopupWrite',
     ]);
   });

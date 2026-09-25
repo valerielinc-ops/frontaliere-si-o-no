@@ -6,7 +6,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 const spawnMock = vi.fn();
 vi.mock('node:child_process', () => ({ spawn: (...args: unknown[]) => spawnMock(...args) }));
 
-import { AI_MODELS, callLLM, resetState } from '../../scripts/lib/ai-models.mjs';
+import { AI_MODELS, __enableClaudeCliLaneForTests, callLLM, resetState } from '../../scripts/lib/ai-models.mjs';
 
 /**
  * CLAUDE_CLI_MAX_CALLS_PER_RUN — per-run call cap on claude-cli/*, distinct
@@ -45,6 +45,9 @@ describe('ai-models CLAUDE_CLI_MAX_CALLS_PER_RUN cap', () => {
 
   beforeEach(() => {
     resetState();
+    // Haiku e' spento nel codice (2026-09-24): questi test esercitano la
+    // macchina claude-cli rimasta, quindi la riaccendono col seam di test.
+    __enableClaudeCliLaneForTests();
     spawnMock.mockReset();
     for (const k of ENV_KEYS) saved[k] = process.env[k];
     process.env.ENABLE_HAIKU_ARTICLE_FALLBACK = '1';
@@ -135,6 +138,8 @@ describe('ai-models CLAUDE_CLI_MAX_CALLS_PER_RUN cap', () => {
     await expect(callLLM(msgs, { model: AI_MODELS.CLAUDE_CLI_HAIKU, chain })).rejects.toThrow(/claude-cli call cap reached/);
 
     resetState();
+    // resetState() rispegne anche il seam di test della lane Haiku.
+    __enableClaudeCliLaneForTests();
     await expect(callLLM(msgs, { model: AI_MODELS.CLAUDE_CLI_HAIKU, chain })).resolves.toBe('OK');
   });
 

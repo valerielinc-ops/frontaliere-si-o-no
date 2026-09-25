@@ -6,6 +6,12 @@
  * Production uses this in full-corpus mode. The matrix experiment uses the
  * same parser in report-only mode because its sampled and stop-after runs are
  * useful measurements but are not production evidence.
+ *
+ * `--require-full-corpus` exits 1 on incomplete evidence, but deploy.yml runs
+ * it with `continue-on-error` and reports a failure through a dedicated issue:
+ * it certifies the measurement, not the site, so it must never block the
+ * publish. Every invariant must hold on the real production artifacts replayed
+ * by tests/report-jobs-seo-build-metrics.test.ts.
  */
 import { appendFileSync, existsSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
@@ -81,7 +87,13 @@ export function parseJobsSeoBuildLog(input) {
   let sampleMarkers = 0;
   let stopAfterMarkers = 0;
 
-  for (const line of lines) {
+  // Only marker lines feed the validation: they are exactly what
+  // renderMarkerFile() writes to the `jobs-seo-full-corpus-markers-<run_id>`
+  // artifact, so a verdict replayed on a downloaded artifact (the fixtures in
+  // tests/fixtures/jobs-seo-full-corpus-markers/) is the verdict the deploy
+  // saw. A new check on another prefix must extend MARKER_RE, and the
+  // artifact follows.
+  for (const line of markerLines) {
     if (SAMPLE_RE.test(line)) sampleMarkers += 1;
     if (STOP_AFTER_RE.test(line)) stopAfterMarkers += 1;
 
@@ -160,8 +172,14 @@ export function validateFullCorpusMeasurement(report) {
     if (!Number.isInteger(bridges.bridgeCount) || bridges.bridgeCount <= 0) {
       errors.push('after-previous-slug-bridges has no positive bridgeCount');
     }
-    if (!Number.isInteger(bridges.previousSlugEntries) || bridges.previousSlugEntries <= 0) {
-      errors.push('after-previous-slug-bridges has no positive previousSlugEntries');
+    // previousSlugEntries counts previous-slug URLs advertised in
+    // sitemap-jobs.xml, not emitted bridges. The plugin renders every bridge
+    // but keeps INCLUDE_PREV_SLUG_SITEMAP_ENTRIES = false (since #645), so a
+    // healthy production build reports 0 here. Bridge coverage is proven by
+    // bridgeCount above; this field only has to be observable. Requiring it
+    // to be positive failed every production deploy (run 36065965021).
+    if (!Number.isInteger(bridges.previousSlugEntries) || bridges.previousSlugEntries < 0) {
+      errors.push('after-previous-slug-bridges has no previousSlugEntries field (expected a non-negative integer)');
     }
   }
 
@@ -243,7 +261,7 @@ export function renderSummary(report, {
     ['wall-time build', `${wallSeconds || '?'}s${stopAfter ? ` (stopped after ${stopAfter})` : ''}`],
     ['full-corpus population', fullCorpus ? `${population} validJobs (no sample/stop marker)` : `not proven (${population ?? '?'})`],
     ['after-active-pages heapUsed/rss', active ? `${active.heapUsedMb}MB / ${active.rssMb}MB` : '?'],
-    ['previous-slug checkpoint', bridges ? `${bridges.bridgeCount ?? '?'} bridges / ${bridges.previousSlugEntries ?? '?'} entries` : '?'],
+    ['previous-slug checkpoint', bridges ? `${bridges.bridgeCount ?? '?'} bridges / ${bridges.previousSlugEntries ?? '?'} sitemap entries` : '?'],
     ['previous-slug-bridge count / total', `${profileMetric(report, 'previous-slug-bridge', 'count')} / ${profileMetric(report, 'previous-slug-bridge', 'totalMs', 'ms')}`],
     ['previous-slug-bridge-legacy-ti count / total', `${profileMetric(report, 'previous-slug-bridge-legacy-ti', 'count')} / ${profileMetric(report, 'previous-slug-bridge-legacy-ti', 'totalMs', 'ms')}`],
     ['after corpus-release heapUsed/rss', release ? `${release.heapUsedMb}MB / ${release.rssMb}MB` : '?'],

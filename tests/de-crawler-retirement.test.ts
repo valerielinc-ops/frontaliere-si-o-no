@@ -82,6 +82,7 @@ describe('retired foreign MPI AGE source (#6822)', () => {
 
   it('keeps both former jobs as expired soft landings with every published route', () => {
     const archived = readJson<ArchivedJob[]>('data/jobs/expired/by-crawler/de.json');
+    // cron-count-ok: archivio congelato del crawler ritirato, nessun cron vi aggiunge job; i due annunci sono l'identita' del ritiro (#6822).
     expect(archived).toHaveLength(2);
 
     const preservedRoutes = new Set(archived.flatMap((job) => [...archivedRoutes(job)]));

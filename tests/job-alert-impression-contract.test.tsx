@@ -148,6 +148,23 @@ describe('#5039 — no alert-CTA impression is emitted from a bare mount', () =>
   });
 });
 
+describe('issue 9577 — the inline_card CTA owns one visibility-based impression', () => {
+  const src = () => fs.readFileSync(path.join(ROOT, 'components/community/JobAlertForm.tsx'), 'utf-8');
+
+  it('JobAlertForm tracks inline_card through the shared observer on the trigger card', () => {
+    expect(src()).toContain('useImpressionTracker');
+    expect(src()).toMatch(/ref=\{inlineImpressionRef\}/);
+  });
+
+  it('the auto-expand effect no longer emits the impression', () => {
+    const full = src();
+    const start = full.indexOf('const autoExpandedRef');
+    expect(start).toBeGreaterThan(-1);
+    const effect = full.slice(start, full.indexOf('}, [initialKeyword, expanded]);', start));
+    expect(effect).not.toContain('trackJobAlertCtaShown');
+  });
+});
+
 describe('#7311 — the created event carries the funnel surface dimension', () => {
   it('job_alert_created reports cta_surface, the dimension the other funnel events use', () => {
     const src = fs.readFileSync(path.join(ROOT, 'services/analytics.ts'), 'utf-8');
@@ -155,6 +172,8 @@ describe('#7311 — the created event carries the funnel surface dimension', () 
     expect(payload).toContain('cta_surface: surface');
     // Kept alongside, not replaced: the PostHog queries read `alert_surface`.
     expect(payload).toContain('alert_surface: surface');
+    // Issue 9576: the auth hop is a separate diagnostic field, never the surface.
+    expect(payload).toContain("alert_auth_path: details.authPath || 'direct'");
   });
 });
 

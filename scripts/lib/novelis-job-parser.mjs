@@ -166,9 +166,18 @@ function parseListingPage(html = '') {
  * Parse a "CC-RR-City" or "CC-City" location code into { city, canton }.
  * Only Swiss ("CH-...") codes are expected here since the listing page is
  * already filtered to the Switzerland facet, but we stay defensive.
+ *
+ * Una vacancy multi-sede elenca i codici separati da `|`
+ * (`DE-Göttingen | DE-RP-Koblenz | CH-ZH-Küsnacht | …`): si legge la voce
+ * svizzera, quella per cui il facet l'ha restituita. Spezzare l'intera stringa
+ * sui `-` pubblicava `Küsnacht | DE-Göttingen | …` come città, che l'assembler
+ * riduceva poi all'etichetta del cantone `Zurigo` (audit-parser-quality,
+ * issue 5253).
  */
-function parseLocationCode(rawLocation = '') {
-  const parts = String(rawLocation).split('-').map((p) => p.trim()).filter(Boolean);
+export function parseLocationCode(rawLocation = '') {
+  const entries = String(rawLocation).split('|').map((entry) => entry.trim()).filter(Boolean);
+  const entry = entries.find((value) => /^CH-/i.test(value)) || entries[0] || '';
+  const parts = entry.split('-').map((p) => p.trim()).filter(Boolean);
   if (parts.length === 0) return { city: '', canton: '' };
   if (parts.length >= 3 && /^[a-z]{2}$/i.test(parts[1])) {
     // "CH-VS-Sierre" (region code present) — validate against the real

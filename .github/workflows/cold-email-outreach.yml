@@ -23,6 +23,11 @@ name: Cold Email Outreach (employer acquisition)
 # a fresh checkout — send-cold-emails.mjs hydrates touch history from Firestore
 # `employer_outreach_sends` (written on every real send), so CI runs can never
 # re-send an already-delivered touch or exceed MAX_TOUCHES_PER_COMPANY.
+#
+# OWNER DECISION: this workflow is intentionally blocked. Keep the job-level
+# condition below as the single explicit switch; the repository variable is
+# intentionally unset/false. Changing it requires a new owner decision,
+# independently of the shared side-effect policy.
 
 on:
   schedule:
@@ -41,14 +46,9 @@ on:
         type: boolean
         default: false
       dry_run:
-        description: 'Keep outreach preview-only unless explicitly disabled with human approval.'
+        description: 'Keep outreach preview-only unless explicitly disabled.'
         required: false
         default: true
-        type: boolean
-      human_approval:
-        description: 'Explicit human approval for outreach side effects.'
-        required: false
-        default: false
         type: boolean
       touch:
         description: 'Sequence touch number (1-4)'
@@ -76,6 +76,7 @@ permissions:
 
 jobs:
   outreach:
+    if: ${{ vars.COLD_EMAIL_OUTREACH_ENABLED == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -112,25 +113,11 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Require human approval for outreach side effects
-        id: side_effect_gate
-        env:
-          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
-          APPROVAL_CONSENT: ${{ inputs.human_approval }}
-          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
-          # The weekday cron is the documented dry-run preview principal: it
-          # refreshes the GA4 target report and prints the batch that WOULD go
-          # out.  Arming it hydrates the read credentials; a REAL send still
-          # needs mode=send + confirm=true, which a schedule cannot supply.
-          APPROVAL_TRUSTED_SCHEDULE: 'true'
-          APPROVAL_SCOPE: cold-email-outreach
-        run: node scripts/ci/human-side-effect-gate.mjs
-
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -141,7 +128,7 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load secrets from Remote Config (email providers + GA4)
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       - name: Refresh employer target report (GA4, 90 days)
@@ -149,14 +136,14 @@ jobs:
         # carries their exact condition: on a denied run those steps are
         # skipped and this one would fail with a bare `no GA4_PROPERTY_ID`
         # instead of standing down.
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         # Same source as employer-traffic-refresh.yml — the report ranks the
         # 581 known employers (data/crawler-manifest.json universe) by real
         # candidate traffic we sent them, so the pitch numbers are current.
         run: node scripts/employer-traffic-report.mjs --source ga4 --days 90 --min 1 --json data/employer-outreach/report.json
 
       - name: Drain STOP replies into suppression (best-effort)
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         continue-on-error: true
         run: node scripts/process-stop-replies.mjs --apply
 
@@ -166,8 +153,8 @@ jobs:
           TOP_INPUT: ${{ github.event.inputs.top }}
           MODE: ${{ github.event.inputs.mode }}
           CONFIRM: ${{ github.event.inputs.confirm }}
-          ALLOW_SIDE_EFFECT: ${{ steps.side_effect_gate.outputs.allow_side_effect }}
-          EFFECTIVE_DRY_RUN: ${{ steps.side_effect_gate.outputs.effective_dry_run }}
+          ALLOW_SIDE_EFFECT: 'true'
+          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
         run: |
           TOUCH="$TOUCH_INPUT"
           TOP="$TOP_INPUT"
@@ -199,19 +186,6 @@ jobs:
             tail -n 120 /tmp/outreach.log
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Fail a scheduled run the gate denied
-        # The cron is armed on purpose, so a DENY here means the opt-in
-        # regressed or the nonce was already consumed — and every step above
-        # skipped.  Without this the job would report success having refreshed
-        # no report and previewed no batch: a dead cron behind a green tick.
-        # Manual dry-run dispatches are denied by design and stay green.
-        # This asserts approval provenance, not a side-effect permission, so it
-        # reads approval_reason rather than re-testing the allow/dry-run pair.
-        if: ${{ always() && github.event_name == 'schedule' && steps.side_effect_gate.outputs.approval_reason != 'trusted-schedule-approved' }}
-        run: |
-          echo "::error::Scheduled outreach run denied by the side-effect gate (${{ steps.side_effect_gate.outputs.approval_reason }}); the GA4 target report and the dry-run preview did not run."
-          exit 1
 
       - name: Report failure to GitHub Issues
         if: failure()

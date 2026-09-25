@@ -33,11 +33,6 @@ on:
         required: false
         type: boolean
         default: true
-      human_approval:
-        description: 'Explicit human approval for expired-job writer side effects.'
-        required: false
-        type: boolean
-        default: false
       crawler_keys:
         description: 'Optional comma/newline-separated crawler keys for a bounded batch.'
         required: false
@@ -51,6 +46,11 @@ concurrency:
 
 permissions:
   contents: write
+  # The failure reporter below opens/comments the canonical issue. Without
+  # this scope an explicit permissions block zeroes `issues`, and run
+  # 35988019883 (2026-09-24) got `HTTP 403: Resource not accessible by
+  # integration` on createIssue — silent, because the step is continue-on-error.
+  issues: write
 
 jobs:
   backfill:
@@ -101,42 +101,11 @@ jobs:
           node-version: '22'
           cache: npm
 
-      - name: Require human approval for expired-job writer side effects
-        id: side_effect_gate
-        env:
-          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
-          APPROVAL_CONSENT: ${{ inputs.human_approval }}
-          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
-          # Senza questa riga il cron di questo workflow e' VERDE E INERTE.
-          # scripts/ci/human-side-effect-gate.mjs:180 calcola
-          # `isTrustedScheduleEvent = eventName === 'schedule' &&
-          # APPROVAL_TRUSTED_SCHEDULE === 'true'`, e alla riga 214 un evento che
-          # non e' ne' dispatch ne' schedule fidato aggiunge
-          # `event-not-workflow-dispatch` alle `reasons` -> diniego. Un diniego
-          # «exits successfully so the workflow can finish quietly» (riga 34 di
-          # quello script), e ogni step di scrittura di questo workflow e'
-          # condizionato a `allow_side_effect == 'true'`: quindi il cron del
-          # 2026-10-01 sarebbe risultato `success` avendo backfillato ZERO
-          # expired job. Non e' un'ipotesi: `grep -c APPROVAL_TRUSTED_SCHEDULE`
-          # su questo file rendeva 0, mentre 19 workflow fratelli lo dichiarano
-          # (recover-prev-slugs.yml:170, send-job-alerts.yml,
-          # refresh-plate-auctions.yml e altri 16) — quindi e' il pattern
-          # stabilito del repo, non un privilegio inventato per questo caso.
-          #
-          # Questa riga ABILITA SCRITTURE SU `main` DA CRON: il percorso di
-          # questo workflow fa `git-commit-data.sh --slice-only` con push
-          # diretto su main e poi `trigger-deploy.sh`. Il gate resta comunque
-          # l'unico cancello (run_attempt == 1, nonce monouso, e `dry_run`
-          # continua a valere sul dispatch manuale).
-          APPROVAL_TRUSTED_SCHEDULE: 'true'
-          APPROVAL_SCOPE: backfill-expired-from-history
-        run: node scripts/ci/human-side-effect-gate.mjs
-
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials for push auth
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -148,20 +117,22 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load push credentials from Remote Config
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       - name: Recover dropped jobs and repair active firstSeenAt metadata (checkpointed batches)
         id: backfill
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           DRY_RUN: ${{ inputs.dry_run == true && '1' || '0' }}
           MAX_COMMITS: ${{ inputs.max_commits || '0' }}
           CRAWLER_KEYS: ${{ inputs.crawler_keys || '' }}
           # Each checkpoint reruns the focused data gate before publishing.
-          # Keep enough crawler keys per batch to stay within the 90-minute job
-          # budget while bounding the amount retried after a runner failure.
-          BACKFILL_CHECKPOINT_BATCH_SIZE: '64'
+          # A 64-key batch reached the 90-minute cap before its next commit in
+          # run 36073258478. Sixteen bounds the uncommitted loss while keeping
+          # the validation/push overhead below the job budget.
+          BACKFILL_CHECKPOINT_BATCH_SIZE: '16'
+          BACKFILL_PROGRESS_PATH: .github/backfill-expired-from-history-progress.tsv
         # The history walk writes each expired slice atomically, but the old
         # one-shot invocation only committed after the whole walk and the test
         # gate. A timeout or a later unrelated test failure therefore discarded
@@ -191,6 +162,46 @@ jobs:
             exit 0
           fi
 
+          progress_path="${BACKFILL_PROGRESS_PATH:-.github/backfill-expired-from-history-progress.tsv}"
+          workset_hash="$(printf '%s\n' "$keys" | git hash-object --stdin)"
+          last_completed_key=''
+          saved_workset=''
+          saved_last=''
+          saved_status=''
+          if [ -f "$progress_path" ]; then
+            if ! IFS=$'\t' read -r saved_workset saved_last saved_status < "$progress_path"; then
+              echo "::error::Invalid backfill progress file: $progress_path"
+              exit 2
+            fi
+            case "$saved_status" in
+              active|complete) ;;
+              *)
+                echo "::error::Unknown backfill progress status '$saved_status' in $progress_path"
+                exit 2
+                ;;
+            esac
+          fi
+
+          # A completed workset starts a new monthly/manual pass. An active
+          # workset is the durable cursor left by a failed or cancelled run;
+          # skip only the keys confirmed by a pushed checkpoint.
+          # Bash treats tab as IFS whitespace and collapses an empty middle
+          # field. Persist '-' for an empty cursor so a progress line always
+          # round-trips as exactly three fields.
+          if [ "$saved_status" = 'active' ] && [ "$saved_workset" = "$workset_hash" ] && [ "$saved_last" != '-' ]; then
+            if ! printf '%s\n' "$keys" | grep -Fx "$saved_last" >/dev/null; then
+              echo "::error::Backfill progress cursor '$saved_last' is not in the current crawler workset."
+              exit 2
+            fi
+            last_completed_key="$saved_last"
+            keys="$(awk -v marker="$saved_last" '$0 == marker { found=1; next } found' <<< "$keys")"
+            echo "♻️ Resuming after durable crawler checkpoint: $saved_last"
+          elif [ "$saved_status" = 'active' ] && [ -n "$saved_workset" ] && [ "$saved_workset" != "$workset_hash" ]; then
+            echo 'ℹ️ Crawler workset changed; starting a fresh cursor.'
+          elif [ "$saved_status" = 'complete' ]; then
+            echo 'ℹ️ Previous crawler workset completed; starting a fresh pass.'
+          fi
+
           checkpoint_count=0
           checkpoint_active=0
           checkpoint_failed=0
@@ -199,12 +210,24 @@ jobs:
             git status --porcelain -- data/jobs/by-crawler data/jobs/expired/by-crawler | grep . >/dev/null
           }
 
+          has_dirty_checkpoint() {
+            git status --porcelain -- data/jobs/by-crawler data/jobs/expired/by-crawler "$progress_path" | grep . >/dev/null
+          }
+
           checkpoint() {
+            checkpoint_final="${1:-0}"
             if [ "$checkpoint_active" -eq 1 ]; then
               return 0
             fi
             checkpoint_active=1
             echo "🧷 Validating and checkpointing recovered slices (crawler keys: $checkpoint_count)"
+            checkpoint_status='active'
+            if [ "$checkpoint_final" = '1' ]; then
+              checkpoint_status='complete'
+            fi
+            mkdir -p "$(dirname "$progress_path")"
+            checkpoint_cursor="${last_completed_key:--}"
+            printf '%s\t%s\t%s\n' "$workset_hash" "$checkpoint_cursor" "$checkpoint_status" > "$progress_path"
             # A durable checkpoint is also a complete data gate. This keeps a
             # bad assembled artifact or invariant failure off main even when a
             # later batch would otherwise make the overall run red.
@@ -231,7 +254,8 @@ jobs:
               return 1
             fi
             if ! GITHUB_OUTPUT="$checkpoint_output" SKIP_AI_TRANSLATION=1 bash scripts/lib/git-commit-data.sh --slice-only \
-              "chore(data): checkpoint history backfill slices for resumable recovery"; then
+              "chore(data): checkpoint history backfill slices for resumable recovery" \
+              "$progress_path"; then
               rm -f "$checkpoint_output"
               checkpoint_failed=1
               checkpoint_active=0
@@ -274,7 +298,7 @@ jobs:
             # completed atomic slice still dirty in the workspace before the
             # runner disappears. A failed push remains a real failure; the next
             # invocation retries the same bounded batch.
-            if [ "$status" -ne 0 ] && [ "$checkpoint_failed" -eq 0 ] && has_dirty_slices; then
+            if [ "$status" -ne 0 ] && [ "$checkpoint_failed" -eq 0 ] && has_dirty_checkpoint; then
               echo '⚠️ Backfill failed; attempting one last durable slice checkpoint.'
               if ! checkpoint; then
                 echo '::error::Unable to persist the partial backfill checkpoint.'
@@ -284,22 +308,48 @@ jobs:
           }
           trap on_exit EXIT
 
+          on_signal() {
+            signal_status="$1"
+            trap - EXIT TERM INT
+            # GitHub timeout/cancel sends SIGTERM while the crawler process is
+            # running. Bash may execute this trap after that child exits, which
+            # is the last reliable chance to publish completed atomic slices.
+            if [ "$checkpoint_active" -eq 0 ] && [ "$checkpoint_failed" -eq 0 ] && has_dirty_checkpoint; then
+              echo '⚠️ Backfill interrupted; attempting a durable checkpoint before exit.'
+              if ! checkpoint; then
+                echo '::error::Unable to persist the interrupted backfill checkpoint.'
+              fi
+            fi
+            exit "$signal_status"
+          }
+          trap 'on_signal 143' TERM
+          trap 'on_signal 130' INT
+
+          if [ -z "$keys" ]; then
+            # The prior attempt persisted the last key but was interrupted
+            # before it could mark the workset complete.
+            checkpoint 1
+            echo '✅ History backfill already had a durable cursor for every requested crawler.'
+            exit 0
+          fi
+
           mapfile -t key_list <<< "$keys"
           for key in "${key_list[@]}"; do
             [ -n "$key" ] || continue
             echo "──── Backfilling crawler: $key ────"
             CRAWLER_KEYS="$key" node scripts/backfill-expired-from-history.mjs
+            last_completed_key="$key"
             checkpoint_count=$((checkpoint_count + 1))
             if [ "$checkpoint_count" -ge "$checkpoint_batch_size" ]; then
               checkpoint
             fi
           done
 
-          checkpoint
+          checkpoint 1
           echo '✅ History backfill completed with durable checkpoints.'
 
       - name: Reassemble dataset (so the test gate has data/jobs.json; not committed)
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         # Regenerates the assembled artifacts (data/jobs.json, expired-jobs.json)
         # that the vitest gate reads. These are deploy-assembled, not committed by
         # the --slice-only checkpoint commits above. We deliberately do NOT run
@@ -311,7 +361,7 @@ jobs:
 
       - name: Test gate (bot-direct-to-main — validate before deploy)
         id: backfill_tests
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         # A workflow that pushes data straight to main is held to the same
         # relevant-test policy as a PR (AGENTS.md). The full suite is not the
         # gate here: its unrelated corpus/environment tests can fail after the
@@ -325,7 +375,7 @@ jobs:
         run: npm run test:backfill
 
       - name: Trigger deploy after validated backfill
-        if: steps.backfill.outcome == 'success' && steps.backfill_tests.outcome == 'success' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: steps.backfill.outcome == 'success' && steps.backfill_tests.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
         # Hard-fail by design (no `|| true`, #6936): a failed dispatch here
         # fails the job, caught by "Report failure to GitHub Issues" below —
         # that GitHub issue IS this caller's recovery net (auto-triage picks

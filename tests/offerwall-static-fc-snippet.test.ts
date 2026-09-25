@@ -24,7 +24,7 @@ import { resolve } from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 
-import { OFFERWALL_FC_SNIPPET, FC_PUBLISHER_ID } from '../build-plugins/constants';
+import { OFFERWALL_FC_SNIPPET, FC_PUBLISHER_ID, FC_JOBBOARD_OFFERWALL_GATE_JS } from '../build-plugins/constants';
 import { readBuildPluginSource } from './helpers/buildPluginSource';
 
 const indexHtml = readFileSync(resolve(__dirname, '..', 'index.html'), 'utf8');
@@ -38,10 +38,9 @@ describe('OFFERWALL_FC_SNIPPET — custom choice', () => {
 });
 
 describe('OFFERWALL_FC_SNIPPET — Funding Choices messaging loader', () => {
-  it('filters the native Offerwall only on the Italian job board', () => {
-    expect(OFFERWALL_FC_SNIPPET).toContain('message.proceed(false,[E.OFFERWALL])');
-    expect(OFFERWALL_FC_SNIPPET).toContain('isItalianJobBoard');
-    expect(OFFERWALL_FC_SNIPPET).toContain('message.proceed(true)');
+  it('holds the native Offerwall on the Italian job board until "Candidati"', () => {
+    // Behaviour is executed in tests/offerwall-click-gate-parity.test.ts.
+    expect(OFFERWALL_FC_SNIPPET).toContain(FC_JOBBOARD_OFFERWALL_GATE_JS);
   });
 
   it('injects the publisher-id messaging loader (not the network-code one)', () => {

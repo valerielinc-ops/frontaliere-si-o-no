@@ -6,13 +6,16 @@ import {
   admissionCli,
   boundReviewsToFirstHeadVerdict,
   firstTerminalBotReviewOnHead,
+  normalizeReviewBody,
   parseReviewPages,
   reviewBodyIsApproving,
   reviewHasLgtm,
   reviewHasZeroFindings,
   shouldRunRedflagFixer,
   shouldSkipModelReview,
+  verdictBodyDefects,
 } from '../scripts/ci/lib/pr-review-admission.mjs';
+import { reviewBodyDefects } from '../scripts/ci/lib/review-findings.mjs';
 import {
   evaluateNativeAutoMerge,
   revalidateNativeAutoMerge,
@@ -73,6 +76,12 @@ function botReview(body: string, commit_id = HEAD, submitted_at = '2026-09-18T01
     ...overrides,
   };
 }
+
+// Forma della review 5308507769 sulla PR #9705 (HEAD 418eccc): body passato
+// inline con `--body "..."`, backtick eseguiti dalla shell (`Fix di : ok.`) e
+// `\n` rimasti letterali. Normalizzato contiene `## LGTM`, ma il gate lo scarta
+// come `empty-fix-anchor`.
+const MALFORMED_LGTM = `<!-- CODEX_FALLBACK_REVIEW -->\\n${REVIEW_MARKER}\\n\\n## Scope\\nIncremental review of the delta (tier: incremental-high)\\n\\nFix di : ok.\\nFix di : ok.\\n\\n## Findings (Important: 0, Nit: 0)\\nNessun finding aperto.\\n\\n## LGTM`;
 
 function vitest(overrides: Record<string, unknown> = {}) {
   return {
@@ -448,6 +457,66 @@ describe('review gate uses the first HEAD verdict', () => {
   });
 });
 
+describe('a malformed review body is not the HEAD verdict (#9705)', () => {
+  const sequence9705 = () => [
+    botReview(MALFORMED_LGTM, HEAD, '2026-09-24T18:27:06Z', { id: 5308507769 }),
+    botReview(CLEAN, HEAD, '2026-09-24T18:28:35Z', { id: 5308522421 }),
+    botReview(CLEAN, HEAD, '2026-09-24T18:28:48Z', { id: 5308524540 }),
+  ];
+
+  it('takes the first readable review as the verdict and drops the rest', () => {
+    const reviews = sequence9705();
+    expect(firstTerminalBotReviewOnHead(reviews, HEAD, { reviewRevision: REVIEW_REVISION })?.id).toBe(5308522421);
+    expect(boundReviewsToFirstHeadVerdict(reviews, HEAD, { reviewRevision: REVIEW_REVISION })
+      .map((review) => review.id)).toEqual([5308522421]);
+    expect(shouldSkipModelReview({ headSha: HEAD, reviews, reviewRevision: REVIEW_REVISION })).toBe(true);
+  });
+
+  it('lets the review gate approve the corrected review instead of discarding the malformed one', async () => {
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 9705,
+      headSha: HEAD,
+      reviews: [sequence9705()],
+      mutate: false,
+    });
+    expect(String(result.reason ?? '')).not.toMatch(/malformato/);
+    expect(result.approved).toBe(true);
+  });
+
+  it('does not skip the model reviewer when the HEAD has only malformed reviews', () => {
+    const reviews = [botReview(MALFORMED_LGTM, HEAD, '2026-09-24T18:27:06Z', { id: 5308507769 })];
+    expect(firstTerminalBotReviewOnHead(reviews, HEAD)).toBeNull();
+    expect(shouldSkipModelReview({ headSha: HEAD, reviews, reviewRevision: REVIEW_REVISION })).toBe(false);
+    const cli = runCli('skip', ['--head', HEAD, '--revision', REVIEW_REVISION], reviews);
+    expect(cli.status).toBe(0);
+    expect(cli.stdout.trim()).toBe('skip=false');
+  });
+
+  it('keeps the admission copy of the malformed-body rule equal to review-findings', () => {
+    const bodies = [
+      MALFORMED_LGTM,
+      CLEAN,
+      IMPORTANT,
+      CLEAN_COUNT_IN_SECTION,
+      '## Findings\n\n- Fix di ``: ok.\n',
+      '## Findings (Important: 0, Nit: 0)\n\n- Fix di `a.mjs:L3`: ok.\n\n## LGTM',
+      '## Findings (Important: 0, Nit: 0)\n\n```text\nFix di : ok\n```\n\n## LGTM',
+      '## Findings (Important: 0, Nit: 0)\n\n~~~\nFix di ` `: ok\n~~~\n\nFix di : ok\n',
+      '## Findings (Important: 0, Nit: 0)\n\n```\nnever closed\nFix di : ok\n',
+      'prosa che cita la regex `\\n` una volta sola\n\n## LGTM',
+      'a\\nb\\nc\\nd',
+      '```\na\\nb\\nc\\nd\n```\n## LGTM',
+      '',
+    ];
+    for (const body of bodies) {
+      const normalized = normalizeReviewBody(body);
+      expect(verdictBodyDefects(normalized), JSON.stringify(body)).toEqual(reviewBodyDefects(normalized));
+    }
+    expect(verdictBodyDefects(normalizeReviewBody(MALFORMED_LGTM))).toEqual(['empty-fix-anchor']);
+  });
+});
+
 describe('workflow wiring for one review per HEAD', () => {
   const testsYml = readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8');
   const fixerYml = readFileSync(new URL('../.github/workflows/pr-redflag-fixer.yml', import.meta.url), 'utf8');
@@ -507,14 +576,27 @@ describe('workflow wiring for one review per HEAD', () => {
     // `edited` e il re-review guard salta su una review terminale già presente
     // — senza una HEAD nuova nessuna review può giudicare il body corretto e
     // la PR resta ferma in silenzio.
+    //
+    // Il secondo (2026-09-25) è lo stesso caso per una CONTESTAZIONE: il fixer
+    // ha risposto `disputed` con un'evidenza e non ha pushato codice. Senza una
+    // HEAD nuova il reviewer non la giudica mai (#9147: quattro review
+    // identiche dopo «già risolto alla riga 282»). Anche questo è
+    // deterministico, uno per round, e parte solo se la HEAD è ferma.
     const emptyCommits = fixerYml.match(/git commit --allow-empty/gu) ?? [];
-    expect(emptyCommits).toHaveLength(1);
-    const advanceStart = fixerYml.indexOf('- name: Advance HEAD after a PR-body fix');
-    expect(advanceStart).toBeGreaterThan(0);
-    const advanceEnd = fixerYml.indexOf('\n      - name:', advanceStart + 1);
-    const advance = fixerYml.slice(advanceStart, advanceEnd);
+    expect(emptyCommits).toHaveLength(2);
+    const stepBody = (name: string) => {
+      const start = fixerYml.indexOf(`- name: ${name}`);
+      expect(start, name).toBeGreaterThan(0);
+      const end = fixerYml.indexOf('\n      - name:', start + 1);
+      return fixerYml.slice(start, end);
+    };
+    const advance = stepBody('Advance HEAD after a PR-body fix');
     expect(advance).toContain('git commit --allow-empty');
     expect(advance).toContain('BASE_BODY_DIGEST');
+    const dispute = stepBody('Publish the per-finding response (zero-Claude)');
+    expect(dispute).toContain('git commit --allow-empty');
+    expect(dispute).toContain('disputed');
+    expect(dispute).toMatch(/"\$head_now" != "\$\{BASE_SHA:-\}"/);
   });
 
   it('attesta il CLI anche prima del preflight e nel watcher di superseded HEAD', () => {

@@ -108,6 +108,7 @@ import {
  isBenignErrorMessage,
  isIndexedDbError,
  isOriginRedactedThirdPartyStack,
+ isGoogleIosAppInjectedStackOverflow,
  BROWSER_EXTENSION_ORIGIN_PATTERN,
 } from './benignErrorPatterns';
 import { safeAffiliateToken } from '../functions/src/lib/affiliateLinks.js';
@@ -1495,6 +1496,10 @@ export const Analytics = {
  // but are third-party; no fix is possible on our end.
  if (event.filename && BROWSER_EXTENSION_ORIGIN_PATTERN.test(event.filename)) return;
  const errorStack = event.error?.stack || '';
+ // Same for the scripts Chrome for iOS / the Google app inject into the
+ // page: WebKit gives their frames the document URL, so they would read as
+ // a first-party crash (issue #8773 — see isGoogleIosAppInjectedStackOverflow).
+ if (isGoogleIosAppInjectedStackOverflow(msg, `${errorStack}\n${event.filename || ''}`, navigator.userAgent || '')) return;
  // Re-classify errors whose ENTIRE stack had its source URLs redacted by the
  // engine: a cross-origin script we do not control, never our own modules
  // (issue #4173 — see isOriginRedactedThirdPartyStack). Reported as
@@ -1536,6 +1541,8 @@ export const Analytics = {
  // Drop errors from browser extensions — they run in page context but are
  // third-party; no fix is possible on our end.
  if (stack && BROWSER_EXTENSION_ORIGIN_PATTERN.test(stack)) return;
+ // …and from the scripts Chrome for iOS / the Google app inject (#8773).
+ if (isGoogleIosAppInjectedStackOverflow(message, stack, navigator.userAgent || '')) return;
  // Same origin-redaction re-classification as the `error` handler above
  // (issue #4173): a stack with zero resolvable sources cannot come from our
  // own modules, so it is third-party rather than an app rejection.
@@ -2582,7 +2589,18 @@ export const Analytics = {
  keywords?: string;
  location?: string;
  frequency?: string;
+ // 'post_auth_auto' survives only for a pending intent written before the
+ // replay carried its CTA origin (issue 9576): it is outside the
+ // alert_funnel_conversion allowlist on purpose, because nothing emits a
+ // `job_alert_cta_shown` for it.
  surface?: 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'sticky_banner' | 'end_card' | 'preferences' | 'post_auth_auto' | 'job_match_pill' | 'job_board_filters' | 'saved_jobs_nudge' | 'calculator_results' | 'company_follow_button';
+ /**
+  * HOW the alert was written, kept apart from the surface (issue 9576):
+  * `post_auth_replay` = a guest submit replayed after the sign-in round-trip,
+  * `direct` = an authenticated user created it on the spot. Diagnostic only —
+  * the funnel attributes on `cta_surface`, never on this field.
+  */
+ authPath?: 'direct' | 'post_auth_replay';
  } = {}) => {
  // Defensive: collapse undefined/empty to clear sentinels rather than null
  // so PostHog HogQL queries never see mixed null/empty values for the same
@@ -2607,6 +2625,7 @@ export const Analytics = {
  // could not be attributed to the surface that produced it. `cta_surface`
  // IS registered; `alert_surface` stays for the PostHog queries that read it.
  cta_surface: surface,
+ alert_auth_path: details.authPath || 'direct',
  });
  },
 

@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne</description>
     <language>fr</language>
-    <lastBuildDate>Thu, 24 Sep 2026 20:09:09 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 25 Sep 2026 09:35:23 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Suisse</title>
@@ -17,6 +17,708 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Suisse : nouvelle loi autonome sur la cybersécurité LCib</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/nouvelle-loi-cybersecurite-lcib/</link>
+      <description><![CDATA[Le Conseil fédéral charge le DDPS d'élaborer d'ici juin 2027 la LCib, basée sur le Cyber Resilience Act européen pour les produits et données numériques.]]></description>
+      <content:encoded><![CDATA[## En bref
+- Le DDPS préparera une loi autonome sur la cybersécurité.
+- Le projet sera prêt pour consultation d'ici juin 2027.
+- La loi regroupera trois projets portant sur les produits, les données et l'infrastructure numérique.
+- L'obligation de signaler les cyberattaques passera de la LSI à la LCib.
+
+## Faits clés
+- Décision → Conseil fédéral, 25 septembre 2026
+- Mandat → DDPS
+- Échéance → juin 2027
+- Loi prévue → loi fédérale autonome sur la cybersécurité (LCib)
+- Base → Cyber Resilience Act (CRA) européen
+- Domaines → produits, données et infrastructure numérique
+- Obligation transférée → signalement des cyberattaques aux infrastructures critiques
+- LSI → sécurité de l'information des autorités fédérales
+
+Le 25 septembre 2026, lors de sa séance à Berne, le Conseil fédéral a chargé le Département fédéral de la défense, de la protection de la population et des sports (DDPS) d'élaborer, d'ici juin 2027, un projet à soumettre à consultation pour une nouvelle loi fédérale autonome sur la cybersécurité. L'objectif indiqué est de mettre en œuvre trois interventions parlementaires dans un acte normatif unique.
+
+L'Office fédéral de la cybersécurité (OFCS) travaille sur les projets sur mandat du Parlement. Le premier concerne la cyber-résilience des produits comportant des éléments numériques ; le second, la protection des données numériques les plus importantes ; le troisième, le rôle des prestataires de services d'hébergement et de cloud dans la cybersécurité. Les trois projets concernent des niveaux normatifs complémentaires : produits, données et infrastructure numérique. À l'origine, ils auraient dû être mis en œuvre par des modifications de la loi fédérale sur la sécurité de l'information (LSI).
+
+### Le choix d'une loi autonome
+
+Le Conseil fédéral change désormais d'approche. La loi prévue sur la cybersécurité, désignée sous le nom de LCib, devra regrouper les trois projets et garantir une réglementation cohérente de la cybersécurité chez des tiers. Le nouvel acte intégrera également l'obligation de signaler les cyberattaques aux infrastructures critiques, prévue par la LSI et en vigueur depuis avril 2025. La LSI continuera, quant à elle, de régir la sécurité de l'information des autorités fédérales.
+
+Le projet devra fixer des exigences contraignantes pour les fabricants, importateurs et distributeurs de produits logiciels et matériels. Il devra également créer les bases pour la surveillance du marché et pour une interdiction de distribution des produits non sécurisés. Des obligations particulières sont prévues pour les données numériques importantes et pour les prestataires d'hébergement et de cloud, y compris la collaboration et la défense en cas de cybermenaces.
+
+Les règles sectorielles déjà en vigueur, notamment la loi sur les télécommunications, l'ordonnance sur l'approvisionnement électrique et l'ordonnance sur les installations de télécommunication, resteront en vigueur. La LCib les complétera par des obligations de cybersécurité. Selon le Conseil fédéral, une loi unique permettra de mettre à jour un seul acte en fonction des évolutions technologiques ou européennes et de mieux traiter des thèmes spécifiques, tels que les logiciels open source.
+
+Le DDPS devra remettre le projet au Conseil fédéral d'ici juin 2027, pour consultation et décision ultérieure. La réglementation prévue s'appuiera sur le Cyber Resilience Act (CRA) européen et vise à minimiser les charges administratives pour les entreprises. Pour les entreprises actives au niveau international qui doivent déjà respecter le CRA de l'UE, l'objectif déclaré est d'éviter une charge supplémentaire en matière de conformité.
+## Ce qui change pour les organisations
+
+Le passage de trois modifications de la LSIn à une loi autonome introduit un critère de lecture plus simple pour les organisations concernées : distinguer le périmètre de l'activité et rattacher chaque obligation au cadre prévu. Le communiqué décrit un projet, et non une date d'entrée en vigueur : le DDPS devra l'élaborer d'ici juin 2027, le mettre en consultation et le soumettre au Conseil fédéral pour décision. La conséquence pratique est de séparer les obligations déjà en vigueur de celles que la LCib devra définir.
+
+| Périmètre | Mesure décrite | Cadre prévu |
+|---|---|---|
+| Produits comportant des éléments numériques | Exigences contraignantes, surveillance du marché et interdiction de distribution des produits non sûrs | LCib |
+| Données numériques importantes | Obligations particulières de protection | LCib |
+| Hébergement et cloud | Obligations de coopération et de défense contre les cybermenaces | LCib |
+| Infrastructures critiques | Signalement des cyberattaques en vigueur depuis avril 2025 | Transfert prévu de la LSIn à la LCib |
+| Règles sectorielles | Les lois et ordonnances restent en vigueur | Intégration des obligations de cybersécurité |
+
+### Une cartographie par acteur
+
+Pour un fabricant, un importateur ou un distributeur, le dossier couvre des exigences contraignantes, la surveillance du marché et l'éventuelle interdiction de distribuer des produits non sûrs. Pour un prestataire d'hébergement ou de cloud, le texte met en revanche l'accent sur la coopération et la défense en cas de cybermenaces. Les données numériques importantes constituent un périmètre supplémentaire, assorti d'obligations particulières de protection.
+
+Le bénéfice économique le plus explicite concerne les entreprises actives à l'international. Puisqu'elles doivent déjà respecter le CRA de l'UE, la loi suisse harmonisée est conçue pour ne pas créer de charge supplémentaire en matière de conformité. La proposition devrait en outre réduire au minimum les charges administratives des entreprises. La référence au CRA européen devient donc le principal point de comparaison pour ceux qui opèrent au-delà des frontières.
+
+Les règles sectorielles ne sont ni absorbées ni supprimées : la loi sur les télécommunications, l'ordonnance sur l'approvisionnement en électricité et l'ordonnance sur les installations de télécommunication restent en vigueur, tandis que la LCib ajoute les obligations de cybersécurité en tant que tâche conjointe. Pour les autorités fédérales, la LSIn continue de régir la sécurité de l'information.
+
+Pour explorer le volet des entreprises séparément du dossier réglementaire, on peut consulter les [aziende che assumono](nav:companies).
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
+## Comment suivre le dossier
+
+Le suivi du dossier exige avant tout de distinguer les rôles, car le projet ne concerne pas un seul type d’acteur. La séquence opérationnelle peut rester alignée sur les domaines énumérés dans le communiqué.
+
+### Cinq étapes opérationnelles
+
+1. **Cartographier le périmètre.** Vérifier si l’activité concerne la production, l’importation ou la distribution de logiciels et de matériel comportant des éléments numériques, la protection de données numériques importantes, les services d’hébergement ou de cloud, ou encore une infrastructure critique. Ce sont les quatre domaines pour lesquels le texte prévoit des mesures spécifiques.
+
+2. Distinguer les règles déjà applicables du projet. Pour les infrastructures critiques, garder à l’esprit l’obligation de signaler les cyberattaques en vigueur depuis avril 2025. Son intégration prévue se fera dans la LCib ; il ne faut pas la confondre avec la partie de la LSIn qui continuera de réglementer la sécurité des informations des autorités fédérales.
+
+3. Maintenir le cadre sectoriel. La loi sur les télécommunications, l’ordonnance sur l’approvisionnement en électricité et l’ordonnance sur les installations de télécommunication resteront en vigueur. La nouvelle loi les complétera en ajoutant les obligations découlant de la cybersécurité en tant que tâche conjointe.
+
+4. Distinguer les produits et les services. Pour les produits, suivre les exigences contraignantes, la surveillance du marché et l’éventuelle interdiction de distribution des produits non sûrs. Pour l’hébergement et le cloud, distinguer en revanche les obligations prévues en matière de collaboration et de défense en cas de cybermenaces.
+
+5. Marquer l’échéance législative. D’ici juin 2027, le DDPS devra préparer le projet, le soumettre à la consultation et le présenter au Conseil fédéral pour décision. Pour les entreprises actives au niveau international, le CRA européen constitue la référence indiquée pour la future réglementation suisse.
+
+Ce calendrier permet de ne pas anticiper une date d’application que le communiqué n’indique pas. L’étape certaine est la préparation du projet et sa consultation ultérieure ; le Conseil fédéral devra ensuite en être saisi pour décision. Pour les entreprises, la question pratique est donc de savoir lequel des périmètres concerne leur activité et comment il s’articule avec les règles sectorielles ou avec le CRA déjà appliqué par les entreprises actives au niveau international. La loi autonome est en outre conçue pour mettre à jour un acte unique en fonction des évolutions technologiques ou européennes et pour mieux traiter des thèmes spécifiques, comme les logiciels open source.
+
+Ceux qui suivent le sujet sur le plan professionnel peuvent également consulter les [annunci di lavoro](nav:jobs), en maintenant cet outil séparé de la procédure législative. Pour relier en revanche cette lecture à sa situation personnelle, utilise le [calcolatore stipendio](nav:calculator).
+
+*Source: [admin.ch](https://www.admin.ch/it/newnsb/zX9oNK8tuI-Z)*]]></content:encoded>
+      <pubDate>Fri, 25 Sep 2026 09:35:23 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/nuova-legge-cibersicurezza-lcib</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/nuova-legge-cibersicurezza-lcib.webp" medium="image"/>
+    </item>
+    <item>
+      <title>Canicule en Suisse : 400 millions de dégâts en 2026</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/suisse-canicule-dommages-economiques-2026/</link>
+      <description><![CDATA[L'été torride 2026 a causé 400 millions de francs de dégâts en Suisse. Allianz Trade met en garde contre les risques économiques de 2027.]]></description>
+      <content:encoded><![CDATA[## En bref
+- 400 millions de francs de dommages en Suisse en 2026
+- La chaleur a réduit la productivité du travail
+- El Niño 2027 pourrait coûter 451 milliards de dollars
+- Une perte nette de 21 milliards d'euros prévue pour l'Europe
+
+## Faits clés
+- Dommage en Suisse → 400 millions de francs
+- Incidence sur le PIB → environ 0,05 pour cent
+- Étude → Allianz Climate Risk Tracker
+- Phénomène 2027 → El Niño très fort
+- Coût global 2027 → environ 451 milliards de dollars américains
+- Perte européenne → environ 21 milliards d'euros
+
+### La facture de l'été 2026
+
+BERNE - L'été caniculaire de 2026 a causé 400 millions de francs de dommages économiques en Suisse. C'est la donnée centrale de l'étude d'Allianz Trade, qui chiffre la perte à environ 0,05 pour cent du produit intérieur brut.
+
+La forte chaleur a également pesé sur la productivité du travail. Durant l'été, des pauses plus longues ont été nécessaires et des absences pour maladie ont été enregistrées. Selon l'étude, l'effet économique de la canicule concerne donc tant la perte globale estimée que le fonctionnement quotidien du travail.
+
+Allianz Trade analyse, aux côtés d'Allianz, les effets des événements météorologiques extrêmes sur l'économie. Les résultats seront désormais publiés chaque année dans l'étude Allianz Climate Risk Tracker. La nouvelle série aura donc une fréquence annuelle.
+
+Jan Möllmann, CEO d'Allianz Trade en Suisse, a déclaré que le changement climatique devient un facteur économique.
+
+Après l'été caniculaire, selon l'étude, le prochain phénomène climatique est déjà aux portes, avec un El Niño très fort. En 2027, ce phénomène pourrait coûter à l'économie mondiale environ 451 milliards de dollars américains.
+
+L'estimation concerne en particulier la Chine, les États-Unis et l'Inde, qui supporteraient ensemble près de 60 pour cent des pertes. Pour l'Europe, y compris la Suisse, l'étude prévoit une perte nette d'environ 21 milliards d'euros.
+
+La comparaison définit le périmètre de l'actualité : un dommage déjà chiffré pour l'été 2026 en Suisse et une prévision pour 2027 liée à El Niño à l'échelle mondiale et européenne. Pour le lecteur, cette donnée peut être mise en perspective avec le [coût de la vie en Suisse](nav:cost-of-living), tout en maintenant les deux plans distincts.
+## Du compte suisse à la prévention
+
+Les données de 2026 doivent être lues sur deux étages. D'une part, il y a un coût déjà quantifié pour l'économie suisse ; d'autre part, il y a une prévision liée à un phénomène climatique qui, en 2027, est mesurée à l'échelle internationale. La différence évite de mettre sur le même plan une perte nationale et une estimation mondiale.
+
+Pour ceux qui vivent ou travaillent en Suisse, le canal le plus proche est le travail. La source ne décrit pas seulement un préjudice économique final : elle cite des pauses plus longues et des absences pour maladie comme effets de la chaleur sur la productivité. La journée de travail devient ainsi le point où le phénomène météorologique entre dans la lecture économique.
+
+La référence au produit intérieur brut, soit environ 0,05%, offre une deuxième clé de lecture à côté du montant absolu. Les deux mesures permettent de distinguer la somme des dommages de son poids relatif sur l'économie. Pour cette raison également, la productivité mentionnée doit être distinguée des lectures individuelles de la [busta paga svizzera](nav:payslip) : le rapport parle de pauses et d'absences comme signes de l'impact de la chaleur.
+
+### Le passage à 2027
+
+Avec El Niño très fort, l'échelle de l'analyse change. Allianz Trade estime pour 2027 un coût d'environ 451 milliards de dollars pour l'économie mondiale. La Chine, les États-Unis et l'Inde supporteraient ensemble près de 60 % des pertes, tandis que pour l'Europe, y compris la Suisse, la perte nette prévue est d'environ 21 milliards d'euros.
+
+Cette distribution montre
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
+## De la lecture à l'action
+
+L'étude d'Allianz propose un point de départ précis : l'adaptation et la prévention doivent renforcer la résilience économique. Pour transformer cette conclusion en une vérification concrète, il convient de séparer les données déjà observées en Suisse des estimations pour 2027 et de suivre les éléments indiqués dans le rapport.
+
+### Une séquence concrète
+
+1. Séparer les données certaines des prévisions. Le bilan de l'été 2026 concerne la Suisse et chiffre les dommages économiques à 400 millions de francs. La référence à 2027 concerne en revanche un coût mondial possible lié à El Niño. Distinguer l'année, la région et le phénomène évite les comparaisons inappropriées.
+
+2. Observer le canal du travail. La source indique des pauses plus longues et des absences pour maladie comme des effets de la chaleur sur la productivité. Ce sont donc les deux signaux à garder à l'esprit lors de l'évaluation de la manière dont les conditions météorologiques extrêmes s'immiscent dans la journée de travail.
+
+3. Vérifier la structure de la prévention. Le rapport indique trois conditions associées à une meilleure préparation : des systèmes d'alerte précoce consolidés, des cartes des risques et des compétences clairement définies. La vérification doit rester ancrée dans ces éléments, sans ajouter de mesures non mentionnées par l'étude.
+
+4. Mettre à jour le cadre chaque année. Allianz Trade publiera désormais les résultats dans l'étude Allianz Climate Risk Tracker. La périodicité annuelle permet de suivre les nouvelles données tout en maintenant comme référence le bilan de 2026 et la prévision pour 2027.
+
+Cette séquence aide également à communiquer correctement le risque. Les 400 millions de francs concernent les dommages en Suisse ; les 451 milliards de dollars concernent l'économie mondiale ; les quelque 21 milliards d'euros concernent l'Europe, y compris la Suisse. La région, l'année et la monnaie font partie de la donnée et ne doivent pas être séparées.
+
+Pour lier le thème de l'impact économique du travail à votre propre revenu, utilisez le [calculateur de salaire](nav:calculator).
+
+*Source: [tio.ch](https://www.tio.ch/svizzera/economia/1952448/allianz-svizzera-studio-rischi-prevenzione)*]]></content:encoded>
+      <pubDate>Fri, 25 Sep 2026 06:41:56 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/canicola-danni-economici-2026</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/canicola-danni-economici-2026.webp" medium="image"/>
+    </item>
+    <item>
+      <title>LSD : fin de la vaccination bovine le 30 septembre 2026</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/fin-vaccination-lumpy-skin-disease/</link>
+      <description><![CDATA[La campagne se termine le 30/09/2026. À partir du 1er octobre, une attente de 8 mois avec surveillance ciblée commence jusqu'en juin 2027.]]></description>
+      <content:encoded><![CDATA[## En bref
+- Vaccination obligatoire jusqu'au 30 septembre 2026
+- Période d'attente de huit mois à partir du 1er octobre 2026
+- Surveillance ciblée à partir de janvier 2027
+- Statut indemne pas avant le 1er juin 2027
+
+## Faits clés
+- Publication → 24 septembre 2026
+- Fin de la vaccination → 30 septembre 2026
+- Début de la période d'attente → 1er octobre 2026
+- Surveillance ciblée → janvier 2027
+- Statut de pays indemne → pas avant le 1er juin 2027
+
+### La décision et le calendrier
+
+Le communiqué publié le 24 septembre 2026 annonce que la campagne de vaccination obligatoire contre la dermatite nodulaire contagieuse, ou Lumpy skin disease, chez les bovins prendra fin le 30 septembre 2026 dans le canton de Genève et dans les zones de vaccination des cantons de Vaud et du Valais. À partir du 1er octobre 2026, une période d'attente de huit mois débutera.
+
+Pendant la période d'attente, les services vétérinaires cantonaux maintiendront, sous la coordination de l'Office fédéral de la sécurité alimentaire et des affaires vétérinaires (OSAV), une vigilance renforcée sur tout signe lié à la LSD. Les règles particulières relatives aux mouvements d'animaux continueront de s'appliquer. Si les résultats de la surveillance et l'évolution de la situation épizootique en Europe restent favorables, la Suisse pourra retrouver son statut de pays indemne de LSD pas avant le 1er juin 2027.
+
+Cette mesure répond à une situation observée au-delà des frontières. Depuis juin 2025, des foyers ont été signalés en Italie et en France ; plusieurs foyers français ont été identifiés à moins de 50 kilomètres de la frontière suisse. Pour protéger les cheptels bovins suisses et prévenir l'introduction du virus, la Suisse a mis en place des zones de vaccination dans le canton de Genève et dans certaines zones des cantons de Vaud et du Valais. Plusieurs milliers d'animaux ont déjà été vaccinés dans ces zones, alors qu'à ce jour, aucun cas confirmé de LSD n'a été enregistré en Suisse.
+
+Pour la saison 2026, l'OSAV a également interdit l'estivage des bovins en France. La vaccination obligatoire se poursuit jusqu'au 30 septembre dans les zones concernées afin de protéger les animaux nés dans ces zones ou introduits pendant la période d'activité des insectes piqueurs. L'évolution favorable permet que l'obligation vaccinale prenne fin à cette date, mais l'interruption ne met pas fin au dispositif de contrôle : à partir du 1er octobre, les territoires conserveront le statut de zones de vaccination et les modifications de l'ordonnance de l'OSAV entreront en vigueur.
+
+À partir de janvier 2027, une surveillance ciblée débutera dans les zones de vaccination des trois cantons, dans le but de confirmer l'absence de circulation du virus en Suisse. Les modalités seront communiquées en temps utile aux détenteurs et détentrices d'animaux et la surveillance sera adaptée à l'évolution de la situation épizootique.
+## Movements des animaux : le passage à partir du 1er octobre
+
+### Accès plus simple, sorties encore conditionnées
+
+Le changement opérationnel le plus visible concerne le trafic d'animaux. À partir du 1er octobre 2026, les animaux provenant de territoires extérieurs aux zones de vaccination des cantons de Genève, Vaud et Valais pourront accéder à ces zones sans devoir être vaccinés après leur arrivée. L'accès est donc facilité, tandis que le maintien du statut de zone de vaccination montre que la fin de l'obligation ne coïncide pas avec l'annulation immédiate des précautions.
+
+Pour les sorties, la condition dépend de la protection de l'animal. La source distingue entre veaux non vaccinés mais protégés par les anticorps transmis par la mère vaccinée, animaux non vaccinés ou veaux non immunisés et animaux vaccinés.
+
+| Situation | Condition à partir du 1er octobre 2026 |
+|---|---|
+| Entrée depuis des territoires extérieurs à la zone | Pas de vaccination après l'arrivée |
+| Veau non vacciné, protégé par les anticorps maternels | Examen clinique |
+| Animal non vacciné ou veau non immunisé | Test négatif pour virus ou anticorps et examen clinique dans l'entreprise d'origine |
+| Animal vacciné | Transfert vers l'intérieur ou l'extérieur des zones si tous les animaux de l'entreprise d'origine ont subi un examen clinique |
+
+Cette distinction fait de l'examen clinique le point commun de plusieurs parcours. Pour un veau protégé par les anticorps maternels, l'examen clinique permet la sortie. Pour un animal non vacciné ou un veau non immunisé, il faut également un test de dépistage négatif pour le virus ou la recherche d'anticorps, en plus de l'examen clinique dans l'entreprise d'origine. Pour les animaux vaccinés transférés vers l'intérieur ou l'extérieur des zones, la condition indiquée est que tous les animaux de l'entreprise d'origine aient été soumis à un examen clinique.
+
+La comparaison entre l'entrée et la sortie est donc nette. L'animal extérieur peut entrer sans vaccination après son arrivée, mais les catégories de sortie doivent respecter des conditions différentes. Les zones et les restrictions pourront être révoquées avant le 1er juin 2027 si la surveillance et la situation épizootique en Europe restent favorables. Jusque-là, les mouvements exigent une attention à la condition applicable à chaque catégorie.
+
+Le cadre sanitaire explique la prudence. La LSD touche les bovins, les buffles et les bisons ; elle se transmet principalement par les piqûres de mouches hématophages et de moustiques et présente comme symptômes caractéristiques fièvre, faiblesse et nodules cutanés. Elle n'est pas transmissible à l'être humain. Pour ceux qui consultent également les outils économiques du portail, il est disponible le [coût de la vie en Suisse](nav:cost-of-living) et le [calculateur salaire/impôts](nav:calculator), séparés des conditions vétérinaires décrites ici.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
+## Cosa devono fare i detentori
+
+### Una sequenza operativa fino a giugno 2027
+
+Per i detentori di animali, il periodo di attesa richiede una routine precisa. La fonte indica una sequenza pratica: sorvegliare, segnalare i sospetti e applicare la condizione corretta prima di ogni movimento.
+
+1. Dal 1 ottobre 2026, osservare attentamente i propri animali. Febbre, spossatezza e noduli sulla pelle sono i segni caratteristici da riconoscere.
+
+2. Se compare un sospetto, notificare immediatamente il veterinario. I campioni saranno prelevati e inviati in laboratorio per l'analisi.
+
+3. Per l'accesso alle zone, identificare la provenienza: gli animali da territori esterni possono entrare senza dover essere vaccinati dopo l'arrivo.
+
+4. Per l'uscita, controllare la categoria. Un vitello non vaccinato ma protetto dagli anticorpi della madre vaccinata può uscire dopo un esame clinico. Per un animale non vaccinato o un vitello non immunizzato servono un test di screening negativo per il virus o per gli anticorpi e un esame clinico nell'azienda di provenienza. Gli animali vaccinati possono essere trasferiti dentro o fuori dalle zone se tutti gli animali dell'azienda da cui provengono hanno sostenuto un esame clinico.
+
+5. Da gennaio 2027, seguire le indicazioni sulla sorveglianza mirata nelle zone di Ginevra, Vaud e Vallese. Le modalità saranno comunicate a tempo debito e potranno adattarsi alla situazione epizootica.
+
+Restano valide le raccomandazioni di biosicurezza e protezione dagli insetti. L'USAV continuerà a seguire la situazione in Svizzera e all'estero e adeguerà le misure se necessario. La fine dell'obbligo vaccinale non coincide con la revoca immediata delle zone: in caso di risultati favorevoli, zone e restrizioni potranno essere revocate non prima del 1 giugno 2027 e la Svizzera potrà riottenere lo status di Paese indenne da LSD.
+
+Nel frattempo, ogni decisione di spostamento va collegata alla posizione dell'azienda, allo stato vaccinale o immunitario dell'animale e all'esito degli esami richiesti. Il comunicato mantiene questa distinzione fino alla nuova valutazione della situazione.
+
+Per affiancare questa verifica a uno strumento nazionale sulle altre esigenze economiche, usa il [calcolatore stipendio/imposte](nav:calculator).
+
+Découvrez les [offres d'emploi au Tessin](nav:jobs) mises à jour quotidiennement : plus de 4.000 postes.
+
+*Source: [admin.ch](https://www.admin.ch/it/newnsb/ohTzZau7iFt5)*]]></content:encoded>
+      <pubDate>Fri, 25 Sep 2026 04:56:43 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/lumpy-skin-disease-fine-vaccinazione</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/lumpy-skin-disease-fine-vaccinazione.webp" medium="image"/>
+    </item>
+    <item>
+      <title>Conférence sur la protection de la population : diffusion cellulaire accélérée</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/conference-protection-population-berne/</link>
+      <description><![CDATA[Le 23 septembre 2026 à Berne, le Conseil fédéral accélère le cell broadcast et Marc Siegenthaler participe à la conférence.]]></description>
+      <content:encoded><![CDATA[## En bref
+- Conférence à Berne le 23 septembre 2026
+- Capacités et résilience au cœur des travaux
+- Le Conseil fédéral accélère le cell broadcast
+- Première participation de Marc Siegenthaler
+
+## Faits clés
+- Publication → 24 septembre 2026
+- Lieu → Berne
+- Organisme → Conférence des chefs de bureau de la protection de la population
+- Participant → Marc Siegenthaler
+- Projet → protection de la population en cas de conflit armé
+- Stratégie → multicanale
+- Décision → accélérer le cell broadcast
+- Niveaux → Confédération, cantons et communes
+
+Berne, 24 septembre 2026. Le 23 septembre, la Conférence des chefs de bureau de la protection de la population s'est réunie à Berne. Au centre des échanges figuraient le renforcement des capacités dans le contexte géopolitique actuel et la diffusion de l'alerte à la population. La réunion a offert un espace de concertation entre les partenaires et une plateforme pour discuter des mesures à adopter aux niveaux cantonal et fédéral.
+
+La conférence constitue une plateforme pour discuter des mesures à prendre aux niveaux cantonal et fédéral. Parmi les principaux thèmes figuraient les directives relatives à la protection de la population et leur bilan intermédiaire. Ces directives ont constitué l'un des principaux sujets de discussion entre les partenaires. Les travaux restent orientés vers le développement des capacités et le renforcement de la résilience dans la Confédération, les cantons et les communes.
+
+### Le projet sur le conflit armé
+
+Un atelier a approfondi le projet clé « protection de la population en cas de conflit armé ». La discussion a porté sur la conduite à tenir en cas de conflit armé et sur les mesures concrètes que la Confédération et les cantons doivent mettre en œuvre. Le projet nécessite une étroite collaboration entre les deux niveaux et progresse selon les délais prévus. L'analyse a donc porté à la fois sur la conduite à tenir et sur les mesures nécessaires pour renforcer la protection de la population.
+
+La conférence a également examiné la stratégie multicanale, qui vise à moderniser la transmission de l'information, de l'alerte et de l'alarme en cas d'incidents ou de dangers imminents. Le compte rendu sur les dossiers politiques et les travaux de mise en œuvre a mis en évidence la décision du Conseil fédéral d'accélérer l'introduction du cell broadcast, c'est-à-dire l'alarme par cellule radio aux téléphones portables de la zone concernée.
+
+### La première participation de Marc Siegenthaler
+
+En poste depuis août, le nouveau directeur de l'Office fédéral de la protection de la population, Marc Siegenthaler, a participé pour la première fois à la conférence. Sur le thème des directives, il a présenté ses objectifs, l'orientation générale, les tâches et les attentes. Sa participation a offert l'occasion de détailler l'orientation qu'il entend suivre. Les échanges ont enfin souligné l'importance des avis et des attentes des cantons, considérés comme fondamentaux pour une bonne collaboration dans la protection de la population.
+...
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
+Per seguire il dossier in modo operativo, il lettore può usare una sequenza costruita soltanto sugli elementi indicati nel comunicato.
+
+1. Fissare il riferimento temporale. L'evento da prendere come base è la conferenza del 23 settembre a Berna, resa pubblica con il comunicato del 24 settembre. Questo evita di confondere la riunione con una decisione separata o con l'avvio di una procedura individuale.
+
+2. Separare gli indirizzi dai progetti. Le linee direttive sulla protezione della popolazione hanno avuto un bilancio intermedio. Il progetto sulla protezione della popolazione in caso di conflitto armato, invece, è stato esaminato in un workshop e riguarda condotta e misure concrete. La distinzione consente di leggere correttamente gli obiettivi generali e il lavoro specifico.
+
+3. Individuare il livello competente. La conferenza discute misure cantonali e federali; il rafforzamento della resilienza comprende Confederazione, cantoni e comuni. Quando il tema è il progetto sul conflitto armato, la fonte richiama in modo esplicito la collaborazione tra Confederazione e cantoni. Le opinioni e le aspettative dei cantoni fanno parte del coordinamento.
+
+4. Isolare il capitolo dell'allerta. La strategia multicanale riguarda informazione, allerta e allarme per incidenti o pericoli imminenti. Il cell broadcast è l'introduzione accelerata dal Consiglio federale e consiste nella trasmissione dell'allarme tramite cellula radio ai telefoni cellulari dell'area interessata.
+
+### Cosa verificare nei prossimi aggiornamenti
+
+Il comunicato offre un criterio per leggere gli sviluppi successivi: distinguere l'avanzamento delle linee direttive, l'attuazione del progetto sul conflitto armato e il percorso della strategia multicanale. Per il primo dossier, il riferimento è il bilancio intermedio; per il secondo, sono centrali condotta, misure concrete e collaborazione; per il terzo, contano modernizzazione dei canali e cell broadcast. Il progetto sul conflitto armato procede secondo i tempi previsti, mentre l'introduzione del cell broadcast è stata accelerata. Non serve aggiungere scadenze diverse da quelle indicate nella fonte.
+
+La partecipazione di Marc Siegenthaler offre inoltre un punto di riferimento per l'orientamento dell'UFPP: il neo-direttore ha illustrato obiettivi, orientamento generale, compiti e aspettative. Le opinioni dei cantoni restano parte del quadro di collaborazione. Chi vuole affiancare questa lettura a uno strumento dedicato al [costo della vita in Svizzera](nav:cost-of-living) può farlo separatamente, senza sovrapporre i due temi. Per completare la consultazione con uno strumento nazionale del sito, usa il [calcolatore stipendio/imposte](nav:calculator).
+
+Comparez le [taux CHF/EUR](nav:exchange) en temps réel : économisez jusqu'à 1,5% sur les frais de virement mensuel.
+
+*Source: [admin.ch](https://www.admin.ch/it/newnsb/Gk9oEVj1Cu2z)*]]></content:encoded>
+      <pubDate>Fri, 25 Sep 2026 04:12:08 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/conferenza-protezione-popolazione-berna</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/conferenza-protezione-popolazione-berna.webp" medium="image"/>
+    </item>
+    <item>
+      <title>Note Suisse : neutralité et alimentation</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/suisse-deux-initiatives-2026/</link>
+      <description><![CDATA[Le 27 septembre 2026, la Suisse vote sur la neutralité et l'alimentation. La source vous invite à participer au sondage de 20 minutes et Tamedia.]]></description>
+      <content:encoded><![CDATA[## En bref
+- 27 septembre 2026 : le peuple suisse est appelé aux urnes
+- Deux initiatives : neutralité suisse et alimentation sûre
+- Sondage de 20 minutes et Tamedia sur les préférences
+
+## Faits clés
+- Date → dimanche 27 septembre 2026
+- Consultation → deux initiatives populaires
+- Premier objet → Sauvegarde de la neutralité suisse
+- Second objet → Pour une alimentation sûre
+- Sondage → 20 minutes et Tamedia
+
+Le dimanche 27 septembre 2026, le peuple suisse sera appelé aux urnes pour se prononcer sur deux initiatives populaires. C'est la donnée avec laquelle s'ouvre la nouvelle et qui définit le périmètre de la consultation : non pas une seule question, mais deux titres distincts présentés lors du même rendez-vous.
+
+Le premier objet est indiqué comme « Sauvegarde de la neutralité suisse », avec la précision entre parenthèses « Initiative sur la neutralité ». Le second est intitulé « Pour une alimentation sûre – par le renforcement d’une production nationale durable, plus de denrées alimentaires, plus de légumes et une eau potable propre », et est identifié comme « Initiative sur l’alimentation ».
+
+La formulation complète du second titre rassemble déjà les termes choisis pour présenter l’initiative : production nationale durable, plus grande disponibilité de denrées alimentaires, plus de légumes et eau potable propre. La source les rapporte comme partie du nom de l’objet, sans ajouter une explication supplémentaire dans le texte.
+
+### La question posée aux lecteurs
+
+À côté de la date et des deux titres, la nouvelle contient une invitation directe. Les lecteurs sont invités à faire connaître leurs préférences en participant au sondage de 20 minutes et Tamedia. L’invitation est répétée et accompagnée de la question : « Avez-vous déjà voté ? Si oui, comment ? ».
+
+La publication met donc au centre la préférence exprimée par les participants. L’étape opérationnelle indiquée par la source est le clic sur le lien menant au sondage. La nouvelle ne présente pas un classement des préférences et ne communique pas un résultat : elle propose aux lecteurs de participer et d’indiquer comment ils ont voté.
+
+Pour ceux qui suivent le thème en Suisse, le point commun est la date nationale et la présence des deux objets dans la même consultation. Le texte ne déplace pas l’attention sur un seul territoire : il parle du peuple suisse et d’un rendez-vous national. La nouvelle se termine en laissant le choix aux participants.
+La source offre une information précise sur le calendrier et les objets, mais construit l'article comme une invitation à exprimer une préférence. C'est pourquoi son utilité pratique réside dans la séparation de trois étapes : reconnaître les deux titres, lire la formulation complète de l'initiative sur l'alimentation et décider si l'on répond à l'enquête.
+
+### Deux formulations, deux préférences
+
+Le premier titre concentre l'attention sur la sauvegarde de la neutralité suisse. Le second décrit une alimentation sûre à travers une série d'éléments : le renforcement d'une production nationale durable, plus de denrées alimentaires, plus de végétaux et une eau potable propre. La source les présente côte à côte, sans indiquer d'ordre de priorité.
+
+Lus ensemble, les deux textes montrent que la consultation présente deux thèmes différents. La source, cependant, n'ajoute pas de recommandation sur la préférence à choisir. Un lecteur peut donc utiliser la publication pour identifier les objets et, séparément, décider s'il participe au sondage de 20 minutes et Tamedia.
+
+C'est le point à retenir lors du partage de l'information. Le sondage est l'espace indiqué pour communiquer ses préférences ; le corps de l'article ne contient pas de résultat. La question posée au public concerne la manière dont il a voté, et non un classement déjà défini.
+
+L'angle alimentaire peut également être lu en conjonction avec les préoccupations quotidiennes, mais la source ne fournit pas de prix, de quantités ou d'estimations économiques. Le texte ne permet donc pas de déduire les effets sur les dépenses, les revenus ou le coût des produits. Ceux qui souhaitent organiser leur budget peuvent consulter le [coût de la vie en Suisse](nav:cost-of-living), en distinguant cet outil du vote sur les initiatives.
+
+### Le périmètre de l'information
+
+Le périmètre éditorial reste celui de la date, des deux objets et de l'invitation à participer. Pour une lecture ordonnée, il convient de noter les deux noms séparément et de ne pas fusionner les mots de l'initiative sur l'alimentation avec ceux sur la neutralité. Le [calculateur de salaire](nav:calculator) peut aider à lire ses priorités économiques, mais n'ajoute pas de données à la consultation.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
+La source propose au lecteur un parcours court, construit autour de la date et du sondage. La première étape consiste à fixer le dimanche 27 septembre 2026 comme date du scrutin. La deuxième est de bien distinguer les deux objets ; la troisième est de décider s'il convient de communiquer sa préférence via le sondage indiqué par 20 minutes et Tamedia. La procédure décrite par l'information s'arrête là, et c'est précisément là qu'une réécriture fidèle doit également s'arrêter.
+
+### Trois étapes opérationnelles
+
+1. Enregistrez la date indiquée par la source : dimanche 27 septembre 2026.
+2. Séparez bien les deux objets : celui sur la sauvegarde de la neutralité suisse et celui sur la sécurité alimentaire.
+3. Si vous avez déjà voté, répondez à la question « Avez-vous déjà voté ? Si oui, comment ? » en participant au sondage de 20 minutes et Tamedia via le lien mentionné dans l'article.
+
+Les première et deuxième étapes servent à ne pas confondre les deux titres. Dans le second objet, la formulation complète comprend le renforcement d'une production nationale durable, davantage de denrées alimentaires, plus de végétaux et de l'eau potable propre. Ces éléments doivent être lus comme faisant partie du nom de l'initiative, tels que présentés par la source.
+
+### Comment partager correctement l'information
+
+Si vous devez partager l'article, mentionnez ensemble la date et la présence des deux initiatives. Indiquez ensuite que 20 minutes et Tamedia invitent les lecteurs à communiquer leurs préférences à travers un sondage. Ne présentez pas cette invitation comme un résultat de la consultation : la source demande comment le vote a été effectué et laisse le choix aux participants.
+
+Ceux qui souhaitent accompagner leur lecture d'une donnée personnelle sur le revenu peuvent consulter la [fiche de paie suisse](nav:payslip). Pour compléter l'examen de vos priorités économiques, utilisez le [calculateur de salaire](nav:calculator).
+
+*Source: [tio.ch](https://www.tio.ch/svizzera/politica/1952348/iniziativa-sulla-neutralita-iniziativa-sull-alimentazione-come-avete-votato)*]]></content:encoded>
+      <pubDate>Fri, 25 Sep 2026 03:15:17 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/urne-due-iniziative-2026</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/urne-due-iniziative-2026.webp" medium="image"/>
+    </item>
+    <item>
+      <title>Fabriqué en Europe : la Suisse cherche une place dans les marchés publics de l&apos;UE</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/made-in-europe-suisse/</link>
+      <description><![CDATA[Le 24 septembre 2026 à Bruxelles, on a discuté de l'inclusion de la Suisse dans la loi sur l'accélération industrielle de l'UE, avec l'Allemagne pour et la France contre.]]></description>
+      <content:encoded><![CDATA[## En bref
+- L'Allemagne ouvre à la Suisse dans le « Made in Europe »
+- La France veut des fonds publics uniquement pour l'industrie de l'UE
+- La Pologne considère encore ouverte l'inclusion suisse
+- La question est discutée à Bruxelles le 24 septembre 2026
+
+## Faits clés
+- Quoi : loi sur l'accélération industrielle
+- Objectif : « préférence européenne » dans les marchés publics
+- Allemagne : approche « Made with Europe »
+- France : fonds publics destinés aux industries des 27 États de l'UE
+- Pologne : possible critère différent selon le secteur
+- Espagne : groupe initial des 27 États de l'UE
+
+Le 24 septembre 2026, à Bruxelles, la possibilité d'inclure la Suisse a été débattue dans le cadre du débat européen sur la future initiative « Made in Europe ». La ministre allemande de l'économie Katherina Reiche a demandé d'inclure des partenaires commerciaux tels que la Suisse ; le ministre français de l'industrie Sébastien Martin soutient au contraire que les fonds publics doivent aller uniquement aux industries des États membres de l'Union européenne.
+
+La discussion s'est déroulée à l'arrivée des deux ministres au Conseil compétitivité, réunion à laquelle participent les ministres compétents des 27 États membres de l'UE. À l'ordre du jour figure le renforcement de l'industrie européenne. Le concept de « Made in Europe » s'inscrit dans la loi sur l'accélération industrielle proposée par la Commission européenne au printemps.
+
+### La préférence européenne dans les marchés publics
+
+La proposition vise à introduire une « préférence européenne » dans les marchés publics de certains secteurs industriels. Le point encore controversé est la définition de « européens » : il reste à déterminer si et dans quelle mesure des pays tiers comme la Suisse peuvent être intégrés à cette approche.
+
+Reiche a parlé de « Made with Europe » et a indiqué la production en Europe accompagnée de partenaires commerciaux, citant la Norvège, la Suisse et le Canada. Martin a répliqué que dans « Made in Europe » il y a « Europe », faisant référence aux 27 États de l'UE. Il a précisé que la proposition ne prévoit pas de droits de douane et que la priorité est un accord entre les 27 ; la Suisse, a-t-il ajouté, ne siège pas au Conseil.
+
+La Pologne et l'Espagne ont également laissé ouverte diverses possibilités. Le secrétaire d'État polonais à l'économie Michal Baranowski a déclaré qu'il était trop tôt pour déterminer si la Suisse serait incluse, en évoquant l'implication de partenaires clés et des règles différentes selon les catégories de produits, à condition qu'elles restent simples. Le ministre espagnol de l'industrie Jordi Hereu a d'abord mentionné le groupe des 27, puis un éventuel groupe élargi incluant les États de l'EEE et des partenaires consolidés, parmi lesquels la Suisse pourrait figurer. Un troisième groupe engloberait des pays ayant des accords de libre-échange ou d'autres accords spécifiques.
+
+Les associations économiques suisses et la Confédération suivent de près les négociations. Début septembre, une délégation économique de haut niveau s'est rendue à Bruxelles.
+Il punto pratico, per la Svizzera, non è ancora una nuova regola applicabile, ma il criterio con cui l'UE potrebbe riconoscere un partner esterno nell'accesso ai benefici industriali comunitari. La fonte descrive una trattativa aperta e non indica una decisione conclusiva. Per le associazioni economiche svizzere e per la Confederazione, il punto da seguire è quindi quale posizione finirà nella legge sull'accelerazione industriale.
+
+### Quattro scenari sul tavolo
+
+Il primo scenario è quello tedesco: la produzione europea potrebbe includere quella realizzata con partner commerciali, con un riferimento esplicito alla Svizzera. In questa impostazione, il fatto di essere un Paese terzo non chiuderebbe automaticamente la porta alla preferenza negli appalti pubblici dei settori interessati.
+
+Il secondo è quello francese. Martin collega la parola «Europa» ai 27 Stati dell'UE e vuole indirizzare i fondi pubblici alle industrie degli Stati membri. Per una realtà svizzera, questa linea lascerebbe aperta la discussione politica, ma non offre l'inclusione sostenuta dalla Germania. La fonte precisa però che la proposta non prevede dazi: il confronto riguarda la destinazione dei fondi pubblici.
+
+Il terzo scenario è più flessibile. La Polonia vuole coinvolgere partner chiave e valuta regole diverse in base alle categorie di prodotti. Il vincolo indicato da Baranowski è operativo: le regole dovrebbero restare semplici e non aggiungere burocrazia alle imprese. È un criterio che, per chi osserva la posizione svizzera, conta quanto la scelta del gruppo di appartenenza.
+
+La Spagna propone una struttura a gruppi: prima i 27, poi gli Stati SEE e i partner consolidati, con la Svizzera tra i possibili nomi, infine i Paesi legati all'UE da accordi di libero scambio o altri accordi specifici. Anche qui l'inclusione svizzera non è definita.
+
+Il dato nazionale già disponibile è il livello di attenzione istituzionale: Confederazione e associazioni economiche svizzere stanno seguendo da vicino le discussioni, mentre una delegazione economica di alto livello è andata a Bruxelles all'inizio di settembre. Per le [aziende che assumono](nav:companies), il tema può essere seguito come dossier industriale: la fonte parla di benefici industriali e appalti pubblici, non di occupazione. La distinzione evita di trasformare una trattativa europea in una conseguenza già decisa per il mercato svizzero.
+
+Il lettore può quindi usare tre indicatori: chi viene incluso, se le regole cambiano per settore e se resta l'impegno a non aumentare gli oneri burocratici. Sono gli elementi concreti messi in evidenza dalle posizioni di Germania, Francia, Polonia e Spagna.
+
+## Outils utiles pour votre cas
+Pour vérifier votre scénario fiscal dans/hors des 20 km, utilisez le [calculateur de salaire net](nav:calculator) et le [guide déclaration fiscale](nav:tax-return).
+Per seguire il dossier senza anticipare l'esito, un lettore o un'impresa svizzera può applicare una griglia semplice, costruita sui punti già emersi a Bruxelles.
+
+### Una procedura in cinque passaggi
+
+1. Partire dal perimetro della proposta. Annotare che la legge sull'accelerazione industriale è stata proposta dalla Commissione europea in primavera e che l'obiettivo riguarda una «preferenza europea» negli appalti pubblici di determinati settori industriali. Questo evita di confondere il dossier con una misura sui dazi: secondo Martin, la proposta non prevede dazi.
+
+2. Separare i gruppi. Verificare se il modello discusso distingue i 27 Stati UE, gli Stati SEE — Norvegia, Islanda e Liechtenstein —, i partner consolidati e i Paesi con accordi di libero scambio o altri accordi specifici. La Svizzera compare in più passaggi, ma con un ruolo ancora da definire.
+
+3. Cercare la regola per settore. La proposta polacca prevede che le categorie di prodotti possano avere regole diverse. Quando si legge un aggiornamento, la domanda concreta è se il trattamento della Svizzera valga per tutto il perimetro o solo per alcuni prodotti.
+
+4. Controllare la semplicità. Un criterio annunciato dalla Polonia è che le regole non comportino ulteriori oneri burocratici per le imprese. È quindi utile verificare, nel testo che emergerà, se questo obiettivo resta presente insieme all'eventuale apertura ai partner.
+
+5. Distinguere posizione e decisione. Le parole dei ministri sono posizioni espresse al Consiglio Competitività; la fonte riferisce che l'inclusione della Svizzera è ancora controversa. La Confederazione e le associazioni economiche svizzere seguono la discussione, e una delegazione economica di alto livello si è recata a Bruxelles all'inizio di settembre. Questi sono i riferimenti indicati dalla fonte per capire perché il dossier è osservato in Svizzera.
+
+La griglia è utile anche per chi lavora in un'impresa che guarda agli appalti pubblici europei: consente di registrare il cambiamento effettivo senza attribuire alla Svizzera un accesso già acquisito. Per un percorso distinto sul lavoro, sono disponibili gli [annunci di lavoro](nav:jobs); quei dati vanno però tenuti separati dalla trattativa sul «Made in Europe».
+
+Tra i punti da mettere a confronto restano l'appartenenza ai gruppi, la differenziazione per categorie di prodotti e il requisito di non aggiungere oneri burocratici. Per tradurre eventuali novità economiche nella propria situazione personale, usa il [calcolatore stipendio](nav:calculator).
+
+Pour un calcul précis du salaire net, utilisez notre [comparateur fiscal](nav:calculator) : comparez permis G et permis B avec toutes les déductions 2026.
+
+*Source: [tio.ch](https://www.tio.ch/svizzera/economia/1952394/made-europe-switzerld-ministri-industria)*]]></content:encoded>
+      <pubDate>Fri, 25 Sep 2026 02:02:08 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/made-in-europe-svizzera</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/made-in-europe-svizzera.webp" medium="image"/>
+    </item>
+    <item>
+      <title>Salasso à la pompe : diesel cher, essence en hausse</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/hausse-des-prix-du-carburant-suisse/</link>
+      <description><![CDATA[Le 24 septembre 2026 à Zurich, le diesel coûte en moyenne 2,46 CHF/l (pics >2,50), l'essence 95 2,14 CHF/l, tandis que le pétrole dépasse 100 USD/baril.]]></description>
+      <content:encoded><![CDATA[## In breve
+- Il diesel arriva a 2,46 franchi al litro in media
+- La senza piombo 95 è a 2,14 franchi di mediana
+- Le raffinerie spostano la produzione verso il gasolio
+- Goldman Sachs vede rialzi per la benzina a metà 2027
+
+## Fatti chiave
+- Data → 24 settembre 2026
+- Luogo → Zurigo
+- Diesel → media di 2,46 franchi al litro
+- Picchi → oltre 2,50 franchi al litro
+- Benzina → senza piombo 95 a 2,14 franchi di mediana
+- Petrolio → oltre 100 dollari al barile
+- Prospettiva → rialzo della benzina europea per metà 2027
+
+### Il divario alla pompa
+Il 24 settembre 2026, a Zurigo, il quadro dei carburanti svizzeri mostra un divario già pesante. Chi possiede un'auto a benzina ha finora avuto un sollievo soltanto relativo: il rincaro c'è stato, ma il prezzo della senza piombo 95 resta più basso del diesel.
+
+Secondo il radar carburante del TCS, il diesel in Svizzera ha raggiunto una media di 2,46 franchi al litro, con punte oltre 2,50. La senza piombo 95 viaggia invece sulla mediana, comunque elevata, di 2,14 franchi. Per chi usa un'auto, il confronto mostra quanto il vantaggio della benzina sia oggi ancora visibile, ma già dentro un mercato rincarato.
+
+Quel vantaggio potrebbe però sparire presto. È la prospettiva riportata dal Blick in un recente reportage sul caro carburante in Svizzera, dopo l'allarme contenuto in un rapporto di Goldman Sachs ripreso da Bloomberg. La tesi riguarda la produzione: oggi il diesel rende di più e le raffinerie spostano la produzione dalla benzina al gasolio. Se la quantità di benzina in circolazione diminuisce, il suo prezzo può salire.
+
+La logica indicata dagli analisti è quella dell'offerta: meno prodotto disponibile significa maggiore pressione sui prezzi. Il diesel potrebbe continuare a crescere, ma la benzina presenta ora più spazio per un rialzo. Per questo la banca d'affari consiglia agli investitori di puntare su un aumento della benzina europea per metà 2027. La previsione riguarda la benzina europea e colloca la possibilità di rialzo a metà del prossimo anno.
+
+In Svizzera il rischio viene riconosciuto dagli addetti ai lavori. Olivier Fantino, direttore di Avenergy Suisse, l'associazione dei distributori che comprende, tra gli altri, Agrola, Migrol, Socar e Tamoil, collega la mancanza di capacità di raffinazione a un ulteriore aumento dei costi. Il problema è strutturale: in Europa sono state chiuse numerose raffinerie negli ultimi anni; in Russia e in Medio Oriente diversi impianti sono stati danneggiati o distrutti da azioni belliche.
+
+Finora la carenza ha colpito soprattutto il diesel, cresciuto più della benzina. Per chi vive in Svizzera, il passaggio da una differenza di prezzo a un possibile rincaro della senza piombo 95 si traduce in una voce da seguire nel bilancio personale. Il [costo della vita in Svizzera](nav:cost-of-living) offre uno strumento per inquadrare questa spesa insieme alle altre uscite.
+### Quattro pressioni da leggere insieme
+Il rischio non nasce soltanto dal numero esposto sulla colonnina. Le informazioni raccolte nella fonte compongono una catena: il petrolio determina la materia prima, la capacità di raffinazione decide quanta benzina arriva sul mercato, la logistica incide sul carburante importato e le scelte commerciali possono complicare il quadro.
+
+| Fattore | Indicazione dalla fonte | Perché conta |
+|---|---|---|
+| Petrolio | Un barile oltre 100 dollari, contro 60 a inizio anno | È il motore dei rincari |
+| Raffinerie | Chiusure in Europa e impianti danneggiati in Russia e Medio Oriente | La capacità disponibile è sotto pressione |
+| Reno | Il livello è basso | Il trasporto del carburante importato costa di più |
+| Stati Uniti | Donald Trump ipotizza lo stop all'export di diesel | Si aggiunge un elemento di incertezza |
+
+Il greggio rappresenta il primo passaggio da osservare. La fonte attribuisce il suo aumento soprattutto alla guerra in Iran e, in misura minore, a quella in Ucraina. Avenergy Suisse non formula però una previsione autonoma, perché l'evoluzione dipende dagli sviluppi sui due teatri di guerra.
+
+> L'andamento del greggio dipende fortemente dagli sviluppi su questi teatri di guerra.
+
+Per chi sostiene costi di trasporto in Svizzera, il basso livello del Reno aggiunge una pressione distinta da quella petrolifera. Non modifica la produzione nelle raffinerie, ma rende più caro il trasporto del carburante importato. La spesa finale può quindi essere esposta a più passaggi della stessa catena, anche quando il dato osservato alla pompa riguarda soltanto il prezzo al litro.
+
+La proposta di Donald Trump sul diesel introduce inoltre un possibile cambiamento nelle esportazioni statunitensi. La fonte la presenta come un ulteriore elemento che complica il quadro, non come una decisione già adottata. Questa distinzione è utile per leggere il mercato senza trasformare un'ipotesi in un fatto compiuto.
+
+Il punto pratico per il bilancio personale è separare il prezzo rilevato oggi dalle indicazioni degli analisti. Il primo misura la spesa corrente; le seconde segnalano una possibile direzione. Per collegare la variazione dei carburanti al reddito disponibile, si può consultare la [busta paga svizzera](nav:payslip) e verificare il margine lasciato alle altre uscite.
+
+## Outils utiles pour votre cas
+Pour vérifier votre scénario fiscal dans/hors des 20 km, utilisez le [calculateur de salaire net](nav:calculator) et le [guide déclaration fiscale](nav:tax-return).
+### Una routine di controllo in quattro passaggi
+Per affrontare un possibile rincaro senza affidarsi a una cifra futura non ancora disponibile, conviene impostare una piccola routine di controllo. Non richiede una previsione personale: serve a distinguere i dati osservati dalle ipotesi degli analisti e a riportare nel bilancio solo ciò che si è effettivamente pagato.
+
+1. Parti dal radar carburante del TCS. Annota il valore di riferimento per il carburante utilizzato, mantenendo separati diesel e senza piombo 95. In questo modo il confronto resta ancorato ai dati indicati per la Svizzera.
+
+2. Registra la spesa reale. Conserva per ogni rifornimento la data, il tipo di carburante, il prezzo in franchi al litro e l'importo complessivo. La tabella personale consente di distinguere il prezzo effettivamente sostenuto dalla mediana nazionale.
+
+3. Separa il dato dalla previsione. Tieni su una riga distinta i segnali provenienti dal rapporto di Goldman Sachs ripreso da Bloomberg e le valutazioni degli esperti. Un possibile aumento della benzina europea non va trattato come una quotazione già applicata a ogni distributore svizzero.
+
+4. Controlla i fattori esterni indicati nella fonte. Gli sviluppi della guerra in Iran e di quella in Ucraina incidono sul petrolio; il livello del Reno riguarda il trasporto del carburante importato; l'ipotesi di Donald Trump riguarda l'export statunitense di diesel. Sono elementi diversi e vanno annotati separatamente.
+
+Il passaggio successivo è aggiornare il bilancio con la spesa osservata, senza sostituirla con un aumento ipotetico. Se il costo del rifornimento cambia, la registrazione mostra subito quale voce si è modificata. Se resta stabile, la previsione degli analisti rimane un segnale da seguire, non un esborso già sostenuto.
+
+Poiché la fonte segnala poche speranze di schiarite in tempi brevi, una verifica periodica è più utile di una decisione basata su un solo giorno. Il confronto tra radar TCS, spesa personale e aggiornamenti sul petrolio permette di mantenere distinta la situazione corrente dagli scenari futuri.
+
+Per trasformare questo monitoraggio in una verifica del budget mensile, usa il [calcolatore stipendio](nav:calculator).
+
+Offre d'emploi au Tessin? Simulez votre [fiche de paie nette](nav:payslip) : salaire brut, état civil et commune de résidence.
+
+*Source: [tio.ch](https://www.tio.ch/svizzera/economia/1952370/salasso-alla-pompa-dopo-il-diesel-ora-tocchera-alla-benzina)*]]></content:encoded>
+      <pubDate>Fri, 25 Sep 2026 01:29:16 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/salasso-alla-pompa-benzina</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/salasso-alla-pompa-benzina.webp" medium="image"/>
+    </item>
+    <item>
+      <title>Fin d&apos;été avec moins de touristes étrangers en Suisse</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/tourisme-suisse-aout-visiteurs-etrangers/</link>
+      <description><![CDATA[En août, les nuitées en Suisse ont chuté de 1,9% sur une base annuelle : les hôtes étrangers pèsent, mais la demande intérieure recule également.]]></description>
+      <content:encoded><![CDATA[## In breve
+- In agosto i pernottamenti sono scesi dell'1,9% su base annua.
+- Gli ospiti stranieri hanno segnato -2,3%.
+- L'Asia è calata del 9,2%; l'Europa dello 0,2%.
+- I dati regionali arriveranno il 5 ottobre.
+
+## Fatti chiave
+- Periodo → agosto
+- Pernottamenti → -1,9% su base annua
+- Ospiti stranieri → -2,3%
+- Domanda interna → -1,4%
+- Asia → -9,2%
+- Europa → -0,2%
+- Record 2025 → 43,7 milioni di notti
+- Aggiornamento → 5 ottobre
+
+## Il dato nazionale
+
+In agosto i pernottamenti turistici in Svizzera sono diminuiti dell'1,9% su base annua. È il dato comunicato dall'Ufficio federale di statistica, indicato nel testo anche con la sigla UST, in una forma più attenuata rispetto al -2,1% indicato una settimana fa. A incidere sul risultato complessivo sono soprattutto gli ospiti provenienti dall'estero. La domanda interna, però, arretra anch'essa, con -1,4%. La variazione riguarda dunque sia la componente estera sia quella interna, ma con un peso maggiore degli ospiti dall'estero sul risultato complessivo. Il confronto utilizzato è annuale: agosto viene confrontato con agosto dell'anno precedente.
+
+### I mercati esteri
+
+La componente estera registra -2,3%. Tra i mercati internazionali spicca l'Asia, a -9,2%. All'interno di questo gruppo, gli Stati del Golfo segnano -15,6%, la Cina -10,7% e l'India -7,6%. Anche l'America è in flessione, con -2,5%. L'Europa, invece, è quasi stabile a -0,2%. Il dettaglio europeo resta articolato: Olanda -6,8%, Germania -0,8%, Francia +0,4%, Regno Unito +1,1% e Italia +2%. Il risultato europeo, quindi, non cancella le differenze tra i singoli mercati. La fonte riporta insieme Paesi in calo e Paesi in crescita, mantenendo separati il dato continentale e quello dei singoli Stati.
+
+### Il calendario dei dati
+
+Se confermato, il dato di agosto si aggiungerebbe ai risultati negativi registrati da marzo a giugno. Gennaio, febbraio e luglio erano invece cresciuti. La sequenza restituisce quindi un andamento mensile non uniforme, con tre mesi in aumento e una fase negativa compresa tra marzo e giugno, alla quale si sommerebbe agosto se la rilevazione sarà confermata.
+
+Per avere i numeri assoluti, i dati disaggregati regionali e tutte le altre informazioni a cui ha abituato l'UST bisognerà attendere il 5 ottobre. Il 2025, con 43,7 milioni di notti, aveva segnato un nuovo primato. Il nuovo aggiornamento dovrà quindi essere letto insieme sia alla serie dei mesi sia al riferimento annuale indicato dalla fonte.
+....
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
+## Cosa fare fino al 5 ottobre
+
+L'aggiornamento richiede una procedura semplice: fissare il dato nazionale, separare le sue componenti e rinviare le conclusioni territoriali al momento in cui arriveranno i dati disaggregati. La fonte non offre numeri assoluti né una ripartizione regionale, quindi questi due elementi non vanno sostituiti con stime.
+
+### La procedura in tre passaggi
+
+1. Registrare la base. Annota agosto, il calo dei pernottamenti dell'1,9% su base annua e il confronto con il -2,1% indicato una settimana prima. Segna anche che il dato viene presentato come da confermare: la formulazione conta quando si confrontano aggiornamenti successivi.
+
+2. Separare la domanda. Tieni su righe diverse gli ospiti stranieri e la domanda interna. Nella prima riga rientrano anche le variazioni dei mercati esteri: Asia, Stati del Golfo, Cina, India, America ed Europa. Non sommare o rielaborare le percentuali senza il quadro completo dei numeri assoluti, che la fonte rinvia al 5 ottobre.
+
+3. Preparare il controllo. Alla data indicata, cerca i numeri assoluti, i dati disaggregati regionali e le altre informazioni dell'UST. Solo allora sarà possibile passare dal dato nazionale alla lettura territoriale prevista dalla fonte.
+
+### Il controllo dei confronti
+
+Nel frattempo, il confronto corretto è quello offerto dal testo: agosto contro lo stesso mese dell'anno precedente, poi agosto dentro la sequenza dei mesi già indicati. Per la sequenza, considera negativi da marzo a giugno, crescite in gennaio, febbraio e luglio, e agosto solo se confermato. Per i mercati, conserva la distinzione tra Asia, America ed Europa e, all'interno dell'Europa, tra Olanda, Germania, Francia, Regno Unito e Italia.
+
+Un secondo controllo serve a non confondere il totale europeo con i singoli risultati nazionali. L'Europa quasi stabile non significa che ogni mercato europeo abbia seguito la stessa direzione: il testo riporta arretramenti e aumenti distinti. Lo stesso metodo vale per il dato complessivo: il calo degli ospiti stranieri pesa soprattutto, ma la domanda interna arretra anch'essa.
+
+Per un confronto separato del cambio puoi usare il [comparatore CHF/EUR](nav:exchange); resta però distinto dalla statistica sui pernottamenti. Per collegare l'analisi nazionale al tuo bilancio personale, chiudi la verifica con il [calcolatore stipendio](nav:calculator).
+
+Pour un calcul précis du salaire net, utilisez notre [comparateur fiscal](nav:calculator) : comparez permis G et permis B avec toutes les déductions 2026.
+
+*Source: [rsi.ch](https://www.rsi.ch/s/4102957)*]]></content:encoded>
+      <pubDate>Thu, 24 Sep 2026 22:53:54 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/turismo-agosto-ospiti-estero</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/turismo-agosto-ospiti-estero.webp" medium="image"/>
+    </item>
+    <item>
+      <title>La BNS laisse un taux directeur à 0% et relève ses estimations de PIB 2026</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/la-bns-laisse-un-taux-directeur-a-0-et-releve-ses-estimations-de-pib-2026/</link>
+      <description><![CDATA[Le taux directeur BNS reste à 0% à partir de juin 2025 ; inflation août à 0,8% ; PIB 2026 attendu entre 1,5% et 2%.]]></description>
+      <content:encoded><![CDATA[...
+FRENCH TEXT
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
+## Come trasformare il comunicato in una verifica pratica
+
+Il comunicato della BNS può essere usato come una scheda di controllo per aggiornare le proprie valutazioni economiche in Svizzera. La procedura richiede di mantenere distinti il tasso deciso, i dati già osservati e le ipotesi sul futuro.
+
+### Quattro passaggi operativi
+
+1. Fissa il punto di partenza. Annotare che il tasso guida è allo 0% e che questo è il livello mantenuto dal giugno 2025 consente di confrontare le prossime informazioni con una base stabile.
+
+2. Separa il dato corrente dalla previsione. L'inflazione di agosto è allo 0,8%; la previsione condizionata indica invece un aumento nel quarto trimestre e una flessione nel corso del 2027. I due elementi non vanno trattati come se fossero la stessa misura.
+
+3. Prepara due letture per l'energia. Nello scenario di base, il rincaro energetico molto elevato rallenta nei prossimi trimestri. Nello scenario più sfavorevole indicato dalla BNS, i prezzi dell'energia si collocano su livelli nettamente superiori alle attese, con ulteriore inflazione e crescita sensibilmente più lenta.
+
+4. Aggiorna separatamente l'orizzonte economico. Per il 2026 la stima di crescita è fra l'1,5% e il 2%, mentre per il 2027 è di circa l'1,5%. Accanto ai numeri va registrato anche il motivo della revisione: tre mesi fa la BNS indicava un 1% circa per il 2026.
+
+La previsione resta condizionata all'ipotesi che il tasso guida BNS rimanga allo 0% lungo tutto l'orizzonte previsivo. Perciò, quando si aggiorna una pianificazione, conviene indicare sempre l'anno di riferimento, distinguere il dato osservato dallo scenario e annotare l'eventuale dipendenza dai prezzi dell'energia, dal Medio Oriente o dalla politica commerciale internazionale.
+
+Per collegare questi scenari alla propria situazione mensile, usa il [calcolatore stipendio](nav:calculator).
+
+Découvrez les [offres d'emploi au Tessin](nav:jobs) mises à jour quotidiennement : plus de 4.000 postes.
+
+*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/bns-lascia-tasso-guida-allo-0%2c0%25/92111318)*]]></content:encoded>
+      <pubDate>Thu, 24 Sep 2026 22:00:35 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/bns-tasso-guida-zero-2026</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/bns-tasso-guida-zero-2026.webp" medium="image"/>
+    </item>
+    <item>
+      <title>Motion États : les organisateurs paient les frais de sécurité</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/motion-etats-les-organisateurs-paient-les-frais-de-securite/</link>
+      <description><![CDATA[Les Etats approuvent la motion 24-18 avec 3 abstentions : le Conseil fédéral devra préparer une base légale pour faire payer aux organisateurs les frais d'intervention et de sécurité des manifestations, après les émeutes du 11 octobre à Berne.]]></description>
+      <content:encoded><![CDATA[## En bref
+- Les États approuvent la motion avec 24 voix contre 18
+- Trois abstentions accompagnent le vote
+- Le Conseil fédéral devra préparer une base légale
+- La proposition concerne les coûts d'intervention et de sécurité
+
+## Faits clés
+- Lieu → Berne
+- Vote → 24 voix contre 18, avec 3 abstentions
+- Mandat → Le Conseil fédéral doit élaborer une base légale
+- Coûts → Intégralité ou partie des coûts d'intervention et de sécurité
+- Proposant → Sidney Kamerzin (Centre/VS)
+- Manifestation citée → 11 octobre dernier à Berne
+
+## Le vote à Berne
+
+À Berne, le Conseil des États a adopté avec 24 voix contre 18 et 3 abstentions une motion qui ouvre la possibilité de faire payer aux organisateurs les coûts provoqués par de graves troubles et des actes violents lors des manifestations. Le Conseil national s'était déjà prononcé favorablement ; le passage aux États complète ainsi le soutien parlementaire à la demande, qui revient maintenant au Conseil fédéral pour le travail législatif indiqué dans le texte.
+
+La motion charge le Conseil fédéral d'élaborer une base légale. L'objectif est permettre aux collectivités publiques de recouvrer auprès des organisateurs de protestes et de manifestations l'intégralité ou une partie des coûts de l'intervention et des mesures nécessaires à garantir leur sécurité. La source ne décrit pas encore une procédure de recouvrement, ni n'indique des montants ou une date d'application : l'étape annoncée est la préparation de la base légale.
+
+### Pourquoi la proposition est arrivée au Parlement
+
+Le texte a été déposé par le conseiller national Sidney Kamerzin (Centre/VS). La motivation évoque diverses manifestations récentes, en particulier celle du 11 octobre dernier à Berne, qui ont dégénéré en violences contre la population par des extrémistes violents. Selon la motion, la prévention et la protection ont nécessité d'importantes mesures des forces de l'ordre.
+
+Daniel Jositsch (Indépendant/ZH) a soutenu la demande en affirmant : «Ce n'est pas à la collectivité de supporter les coûts liés à ces mesures de sécurité». Dans son intervention, il a également mentionné une situation d'impunité qu'il avait personnellement constatée dans les rues de Zurich.
+
+Le vote n'a pas clos le débat institutionnel. Carlo Sommaruga (PS/GE) a contesté la motion pour son possible conflit avec le principe de subsidiarité et pour les limites qu'elle pourrait imposer à l'autonomie des cantons. Mathias Zopfi (Verts/GL) a ajouté que le texte est formulé en termes trop larges et pourrait s'appliquer à toutes les manifestations, y compris celles du 1er mai. Beat Jans, ministre de la justice, a répété la même objection. Le vote des États concerne donc le mandat au Conseil fédéral, pas un chiffre déjà fixé pour des événements individuels.
+## Ce qui peut changer
+
+Le point concret de la motion est le déplacement du coût potentiel : en présence de graves troubles et d'actes violents, une collectivité publique pourrait demander aux organisateurs l'intégralité ou une partie des dépenses engagées pour l'intervention et la sécurité. Dans le texte, ces dépenses sont décrites comme des mesures ayant nécessité l'intervention des forces de l'ordre ; la proposition vise à créer la possibilité de les récupérer auprès de celui qui organise la protestation ou la manifestation. Aucun montant, seuil, critère d'imputation ou formule de calcul n'est indiqué. Ces éléments devront donc être clarifiés par la base légale que le Conseil fédéral est chargé d'élaborer.
+
+### Une règle nationale, des compétences cantonales
+
+Pour les cantons, la question se joue sur deux plans distincts. La réglementation du droit de manifester reste de compétence cantonale, et certains cantons ont déjà promulgué des normes en la matière. Les sénateurs favorables soutiennent toutefois qu'une règle nationale sur les coûts réduirait les disparités actuelles et harmoniserait les réglementations en vigueur. Le changement, s'il est traduit en base légale, n'effacerait donc pas le rôle des cantons décrit dans la source ; il ajouterait un cadre national sur le recouvrement des coûts.
+
+La position contraire met en garde contre l'effet inverse. Carlo Sommaruga et Mathias Zopfi ont rappelé le principe de subsidiarité et l'autonomie cantonale. Zopfi a observé que la formulation large de la motion pourrait inclure également des manifestations comme celles du 1er mai. Beat Jans a soutenu que l'ordre public lors des manifestations relève de la souveraineté cantonale en matière de police et que la Confédération ne devrait pas établir quels coûts des autorités peuvent être facturés aux organisateurs.
+
+Pour ceux qui vivent en Suisse, l'impact concret n'est donc pas un montant déjà fixé, mais le changement possible de règle entre l'organisation d'une manifestation et les coûts publics. Si la base légale est élaborée, il faudra examiner au moins trois éléments : quels événements entrent dans la catégorie des graves troubles, quels coûts peuvent être demandés et comment la règle nationale se coordonne avec les normes cantonales déjà existantes. La source n'indique pas encore les réponses. Un approfondissement distinct sur le [coût de la vie en Suisse](nav:cost-of-living) ne remplace pas cette vérification, mais aide à séparer le thème des dépenses publiques de celui du budget personnel.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
+## Come seguire il dossier
+
+Per seguire gli sviluppi senza confondere il voto con una regola già applicabile, il percorso operativo è in quattro passaggi:
+
+1. Verificare il testo e il mandato ricevuto dal Consiglio federale: la fonte dice che deve elaborare una base legale, ma non indica una scadenza.
+2. Attendere che siano definiti i costi recuperabili, perché la mozione parla di integralità o parte dei costi d'intervento e di sicurezza senza fissare importi o criteri.
+3. Controllare il rapporto con i Cantoni, ai quali resta affidata la regolamentazione del diritto di manifestare e il mantenimento dell'ordine pubblico.
+4. Verificare come saranno trattate le manifestazioni rientranti nella formulazione ampia richiamata nel dibattito, comprese quelle del Primo maggio.
+
+### Cosa annotare quando arriverà la base legale
+
+Chi organizza una protesta o una dimostrazione dovrebbe cercare nel testo futuro quattro risposte: quale autorità può chiedere il pagamento; a quali condizioni si parla di gravi disordini o atti violenti; quali voci comprendono i costi dell'intervento e della sicurezza; se la richiesta può riguardare l'intero importo o solo una parte. Sono domande ricavate direttamente dal mandato descritto nella fonte. Fino a quando non saranno chiarite, la mozione non permette di calcolare un addebito concreto.
+
+Anche le collettività dovranno leggere la futura disciplina insieme alle norme cantonali già esistenti. La fonte riferisce infatti che alcuni Cantoni hanno già emanato regole in materia, mentre il ministro della giustizia Beat Jans ha difeso la sovranità cantonale in materia di polizia. Il confronto tra i due livelli servirà a capire se la nuova base legale uniformerà i costi o lascerà spazio a differenze nell'applicazione.
+
+La fonte non specifica una scadenza per il lavoro del Consiglio federale e non indica moduli, documenti o autorità incaricate della riscossione. Per questo, il controllo utile consiste nel confrontare il testo futuro con tre dati già fissati: la natura dei costi, la gravità dei disordini e il ruolo dei Cantoni. Se uno di questi elementi resterà assente, non sarà possibile ricostruire dal solo voto quale conto possa essere richiesto.
+
+Per una verifica personale su un ambito diverso, si può consultare la [dichiarazione delle imposte](nav:tax-return). Per una lettura separata del bilancio personale, usa il [calcolatore stipendio](nav:calculator).
+
+Comparez le [taux CHF/EUR](nav:exchange) en temps réel : économisez jusqu'à 1,5% sur les frais de virement mensuel.
+
+*Source: [tio.ch](https://www.tio.ch/svizzera/politica/1952411/mozione-manifestazioni-nazionale-organizzatori-disordini-stati)*]]></content:encoded>
+      <pubDate>Thu, 24 Sep 2026 21:22:12 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/mozione-costi-manifestazioni-stati</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/mozione-costi-manifestazioni-stati.webp" medium="image"/>
+    </item>
     <item>
       <title>UBS, la BNS approuve les exigences de fonds propres à 90 %</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/ubs-capital-90-bns/</link>
@@ -2057,485 +2759,6 @@ Pour évaluer concrètement l'impact de la conjoncture, des taux de change et de
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/pil-svizzero-crescita-2026</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/pil-svizzero-crescita-2026.webp" medium="image"/>
-    </item>
-    <item>
-      <title>SECO révise à la hausse : croissance du PIB à 1,7% pour 2026</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/seco-previsions-croissance-2026/</link>
-      <description><![CDATA[Le SECO a révisé ses estimations de croissance à 1,7 % pour 2026. PIB du deuxième trimestre en hausse de 1,5 %. Chômage attendu à 3,1 %.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Le SECO a révisé à la hausse ses estimations de croissance à 1,7 % pour 2026.
-- Le PIB a enregistré une croissance de 1,5 % au deuxième trimestre 2026.
-- Le taux de chômage attendu est de 3,1 % pour 2026 et de 3,0 % pour 2027.
-
-## Faits clés
-- Année de la révision : 2026
-- Croissance du PIB estimée pour 2026 : 1,7 %
-- Croissance du PIB estimée pour 2027 : 1,6 %
-- Croissance du PIB au deuxième trimestre 2026 : 1,5 %
-- Inflation moyenne annuelle prévue : 0,6 %
-- Taux de chômage moyen 2026 : 3,1 %
-- Taux de chômage attendu 2027 : 3,0 %
-- Date de la dernière prévision : 8 septembre 2026
-
-Berne, 17 septembre 2026 — Le groupe d'experts de la Confédération chargé des prévisions conjoncturelles a révisé à la hausse ses estimations de croissance économique pour la Suisse. Pour l'année en cours, on s'attend désormais à une croissance de 1,7 %, contre une prévision précédente en juin qui s'arrêtait à 0,9 %. En ce qui concerne 2027, l'estimation reste inchangée à 1,6 %. Le PIB suisse a récemment enregistré une forte hausse, bien que le conflit avec l'Iran, les coûts énergétiques élevés et les incertitudes persistantes en matière de politique commerciale comportent des risques conjoncturels considérables pour le cadre économique général.
-
-Au cours du deuxième trimestre 2026, le produit intérieur brut de la Suisse, corrigé des manifestations sportives, a affiché une impulsion haussière extraordinaire, progressant de 1,5 %. Cette progression a été largement soutenue tant au niveau sectoriel que du côté de la demande, ce qui se reflète dans l'amélioration des indicateurs de tendance. Toutefois, les experts de la Confédération signalent qu'il pourrait s'agir d'une surestimation de la dynamique économique sous-jacente. En effet, près de la moitié de cette croissance est imputable à la valeur ajoutée de l'industrie chimique et pharmaceutique, un secteur historiquement caractérisé par de fortes fluctuations, ainsi qu'à une augmentation marquée des exportations. Pour le second semestre, les analystes s'attendent par conséquent à un retournement de tendance dans les données trimestrielles.
-
-### Dynamiques du commerce extérieur et des secteurs
-
-Malgré le ralentissement attendu de la dynamique après le pic printanier, la conjoncture suisse demeure solidement sur la voie de la reprise. L'excellente performance enregistrée au cours du premier semestre justifie la révision significative à la hausse pour l'ensemble de l'année 2026. Corrigé des manifestations sportives, le groupe d'experts prévoit une croissance de 1,7 %. En particulier, le commerce extérieur devrait contribuer à la croissance dans une plus grande mesure que prévu en juin. Cette perspective est favorisée par l'évolution conjoncturelle positive jusqu'à présent, par un contexte économique mondial légèrement meilleur et par la récente dépréciation du franc suisse, qui offre un soutien concret aux secteurs exportateurs particulièrement exposés aux fluctuations des taux de change internationaux.
-En analysant la situation interne, une progression modérée de la demande intérieure est attendue pour les prochains trimestres. L'utilisation accrue des capacités de production a un impact positif sur les activités d'investissement, tandis que la consommation privée devrait continuer à augmenter modérément. En ce qui concerne l'inflation, bien qu'elle ait récemment augmenté, elle s'est maintenue jusqu'à récemment à des niveaux modérés. Les marchés à terme laissent également prévoir une baisse des prix du pétrole au cours des prochains mois. Sur la base de ces éléments, le groupe d'experts continue de s'attendre à une inflation annuelle moyenne de 0,6 % tant pour l'année en cours que pour l'année à venir.
-
-À l'horizon 2027, l'économie suisse devrait bénéficier d'une nouvelle reprise de la demande mondiale. Les pays européens, avec l'Allemagne en première ligne, devraient progressivement surmonter la phase de faiblesse qui a caractérisé ces dernières années, en apportant un soutien supplémentaire à l'économie suisse. Du point de vue du marché du travail, l'évolution favorable de l'économie se traduit par une baisse progressive du taux de chômage. Cet indicateur devrait s'établir à 3,1 % en moyenne annuelle en 2026 et baisser légèrement à 3,0 % au cours de 2027, confirmant les prévisions précédentes.
-
-### Facteurs de risque et scénarios géopolitiques
-
-Cependant, les éléments d'incertitude et les menaces potentielles pour la stabilité économique mondiale et nationale ne manquent pas.
-
-## Outils utiles pour protéger votre net
-Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
-La complexité du paysage économique esquissé par le SECO exige de surveiller attentivement l'évolution du coût de la vie, des salaires et des perspectives d'emploi en Suisse. Avec une prévision d'inflation moyenne annuelle fixée à 0,6 % et un taux de chômage estimé à 3,1 % pour 2026 et à 3,0 % pour 2027, les résidents et les travailleurs suisses doivent faire face à un marché du travail dynamique mais exposé aux dynamiques internationales, des taux de change du franc aux fluctuations des prix de l'énergie à l'échelle mondiale. Planifier sa situation financière, évaluer avec attention la gestion de son revenu et comprendre l'impact des variations macroéconomiques sur son pouvoir d'achat devient un exercice fondamental pour les familles et les professionnels.
-
-### Comment vérifier l'impact sur son propre revenu
-
-Pour comprendre de manière pratique comment les variations économiques, l'inflation et les dynamiques salariales se répercutent sur sa situation professionnelle et économique en Suisse, il convient d'analyser en détail les composantes de sa rémunération et les éléments qui constituent le budget familial mensuel. L'évolution de la conjoncture se reflète directement sur les opportunités professionnelles, sur les renouvellements de contrats et sur les perspectives d'investissement à l'échelle cantonale et fédérale. Suivre régulièrement les données officielles publiées par les organes fédéraux permet d'anticiper d'éventuelles corrections du coût de la vie et de planifier avec davantage de sécurité les dépenses liées au logement, à la consommation et à la prévoyance.
-
-Pour approfondir votre situation salariale à la lumière des dernières tendances économiques et calculer avec précision les rubriques de votre bulletin de paie et de vos impôts, vous pouvez utiliser notre outil dédié disponible en ligne. Vérifiez dès maintenant votre situation économique grâce au [calculateur de salaire et d'impôts](nav:calculator).
-
-*Source: [seco.admin.ch](https://www.seco.admin.ch/it/newnsb/JUhtHgdQzukb)*]]></content:encoded>
-      <pubDate>Fri, 18 Sep 2026 02:51:08 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/seco-previsioni-crescita-2026</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/seco-previsioni-crescita-2026.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Croissance du PIB suisse à 1,7 % : estimations SECO et impacts</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/croissance-pib-seco-exportations/</link>
-      <description><![CDATA[Le SECO revoit à la hausse la croissance du PIB suisse à 1,7% pour l'année en cours grâce aux exportations. Chômage estimé à 3,1% en 2026.]]></description>
-      <content:encoded><![CDATA[## In breve
-- PIL svizzero rivisto al rialzo all'1,7%
-- Esportazioni in crescita dell'1,5%
-- Disoccupazione stimata al 3,1% nel 2026
-- Inflazione prevista stabile allo 0,6%
-
-## Fatti chiave
-Crescita PIL 2026 -> 1,7%
-Crescita PIL 2027 -> 1,6%
-Previsione esportazioni -> +1,5%
-Tasso disoccupazione 2026 -> 3,1%
-Tasso disoccupazione 2027 -> 3,0%
-Inflazione stimata -> 0,6%
-
-Le previsioni sulla crescita economica svizzera per l'anno in corso registrano una correzione al rialzo eccezionalmente forte, alimentata dall'andamento congiunturale favorevole registrato nel corso del secondo trimestre. A comunicarlo è la Segreteria di Stato dell'economia (SECO), i cui vertici sottolineano come l'economia nazionale si appresti a cogliere un nuovo slancio. Nello specifico, il capo della Direzione politica economica della SECO, Roland Indergand, ha evidenziato l'entità della revisione rispetto alle stime precedenti. Secondo i dati aggiornati diffusi dall'ente federale, il prodotto interno lordo (PIL) della Svizzera dovrebbe segnare un incremento pari all'1,7% per l'anno in corso. Tale valore segna un deciso miglioramento rispetto allo 0,9% che era stato ipotizzato nel mese di giugno. Per quanto riguarda il medio termine, viene invece confermato integralmente il pronostico del +1,6% già formulato per il 2027. L'andamento positivo della congiuntiva elvetica trova riscontro nelle dinamiche dei settori produttivi e negli scambi con i mercati esteri, offrendo un quadro macroeconomico complessivamente più solido per residenti, imprese e operatori economici attivi sul territorio nazionale. Questa revisione al rialzo si inserisce in un contesto globale in evoluzione, dove la capacità di reazione del tessuto industriale svizzero continua a rappresentare il principale motore dello sviluppo economico nazionale e cantonale. ### Il motore del commercio estero
-Alla base di questa accelerazione economica vi è soprattutto il contributo del commercio estero, la cui performance supera le stime formulate in giugno. Questo risultato positivo è sostenuto da un contesto economico mondiale giudicato leggermente migliore e dai riflessi legati all'indebolimento del franco sui mercati valutari internazionali. Se nei mesi scorsi le previsioni indicavano addirittura una contrazione delle esportazioni pari allo 0,7%, lo scenario attuale delineato dalla SECO capovolge le attese parlando di una crescita effettiva dell'1,5% per le merci svizzere esportate. Parallelamente, le autorità federali registrano una moderata progressione della domanda interna all'interno del paese. Il progressivo e maggiore sfruttamento delle capacità produttive da parte delle aziende si tradurrà in un impulso positivo per le attività d'investimento privato e aziendale. Contestualmente, i consumi privati in Svizzera dovrebbero proseguire lungo una traiettoria di aumento moderato, garantendo stabilità alla spesa interna e sostenendo il commercio al dettaglio e i servizi nei diversi cantoni svizzeri.
-L'evoluzione positiva della congiuntura economica nazionale si ripercuote in modo diretto anche sulle dinamiche del mercato del lavoro svizzero. Secondo le analisi e le proiezioni elaborate dalla SECO, il consolidamento della crescita economica determinerà una graduale ma costante diminuzione del tasso di disoccupazione su scala nazionale. In base alle stime ufficiali pubblicate, la disoccupazione dovrebbe attestarsi su una media annua del 3,1% per quanto riguarda il 2026. Per l'anno successivo, ovvero il 2027, le previsioni indicano un ulteriore calo, con il tasso destinato a scendere leggermente fino a raggiungere la soglia del 3,0%. Questa prospettiva di stabilizzazione e rafforzamento dell'occupazione offre un quadro rassicurante per la forza lavoro residente e per quanti operano nel mercato del lavoro elvetico, riducendo le tensioni occupazionali registrate in precedenti fasi di incertezza macroeconomica globale. Sul versante dell'andamento dei prezzi e del potere d'acquisto, i mercati a termine lasciano intravedere segnali favorevoli nei prossimi mesi, guidati in particolare da un atteso calo del corso del petrolio. Sulla base di questi elementi e dei dati attuali, la SECO conferma le proprie aspettative per quanto riguarda il carovita, stimando un tasso di inflazione fermo allo 0,6% sia per il 2026 sia per l'anno venturo. Tale livello di inflazione contenuto contribuisce a preservare il potere d'acquisto delle famiglie e dei consumatori in Svizzera, limitando l'impatto del rincaro sui beni di prima necessità e sui costi energetici generali. ### Fattori di rischio internazionali e geopolitica
-Nonostante il quadro macroeconomico delineato dalla SECO risulti complessivamente favorevole e in netta ripresa, permangono tuttavia alcuni rilevanti fattori di rischio esogeni che potrebbero influenzare gli scenari futuri. Tra questi, il conflitto in Medio Oriente rappresenta una variabile critica di notevole portata per la stabilità economica globale e nazionale. Se il prezzo del greggio dovesse mantenersi su livelli elevati a causa delle tensioni geopolitiche internazionali, ciò potrebbe gravare pesantemente sull'economia globale, generando pressioni al rialzo e facendo inevitabilmente salire l'inflazione anche all'interno dei confini della Svizzera. A ciò si aggiungono le persistenti incertezze legate alla politica economica e commerciale internazionale, inclusi i dazi doganali e le misure protezionistiche. L'ipotesi tecnica adottata in via prudenziale dalla SECO prevede che i dazi americani sulle importazioni rimangano sostanzialmente fermi ai livelli attuali, ma qualsiasi scostamento da questo scenario potrebbe modificare le prospettive per le aziende elvetiche vocate all'esportazione.
-
-## Outils utiles pour protéger votre net
-Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
-La lecture des données macroéconomiques diffusées par le SECO offre aux entreprises et aux travailleurs en Suisse des indications utiles pour planifier leurs stratégies financières et professionnelles dans un contexte de reprise. Pour suivre avec précision l'évolution de votre situation économique, évaluer l'impact de l'inflation estimée à 0,6 % sur votre budget familial ou comprendre les variations salariales et fiscales liées à l'évolution du PIB et de l'emploi, il est essentiel d'utiliser des outils de calcul fiables. Ceux qui souhaitent vérifier ponctuellement leurs revenus nets, estimer l'impact des cotisations sociales et analyser leur paie à la lumière des nouvelles dynamiques du marché du travail peuvent s'appuyer sur les outils officiels disponibles. Pour approfondir la planification de vos finances personnelles, calculer vos impôts ou évaluer votre revenu net en fonction des spécificités cantonales et fédérales, il convient de consulter le [calcolatore stipendio e imposte](nav:calculator) mis à la disposition des résidents en Suisse. L'utilisation de ces outils numériques permet d'avoir une image claire et à jour, utile pour faire face avec conscience aux échéances fiscales et aux décisions économiques personnelles au sein du système suisse.
-
-*Source: [rsi.ch](https://www.rsi.ch/s/4090330)*]]></content:encoded>
-      <pubDate>Fri, 18 Sep 2026 02:42:09 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/crescita-pil-seco-esportazioni</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/crescita-pil-seco-esportazioni.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Vote 27 septembre : lourde défaite pour la neutralité</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/votations-federales-neutralite-sondage/</link>
-      <description><![CDATA[Selon le sondage gfs.bern pour la SSR, 63% de l'électorat envisage de rejeter l'initiative sur la neutralité aux urnes du 27 septembre 2026.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Lourde défaite pour l'initiative sur la neutralité
-- Deuxième sondage SSR publié en septembre
-- 63% de l'électorat prévoit de voter non
-- Baisse de soutien également pour le texte sur l'alimentation
-
-## Faits clés
-- Date des votations : 27 septembre 2026
-- Période du sondage gfs.bern : 2-9 septembre 2026
-- Échantillon interrogé : 12'916 électrices et électeurs
-- Marge d'erreur : +/-2,8 points de pourcentage
-- Soutien à l'initiative sur la neutralité : 34%
-- Opposants à l'initiative sur la neutralité : 63%
-- Indécis sur l'initiative sur la neutralité : 3%
-- Soutien à l'initiative sur l'alimentation : 33%
-- Opposants à l'initiative sur l'alimentation : 64%
-- Indécis sur l'initiative sur l'alimentation : 3%
-
-À une dizaine de jours des votations fédérales du 27 septembre 2026, l'initiative sur la neutralité se trouve dans une position délicate et se dirige vers un échec dans les urnes. Selon le deuxième sondage de la Société suisse de radiodiffusion et télévision (SSR), réalisé par l'institut d'études d'opinion gfs.bern entre le 2 et le 9 septembre auprès d'un échantillon de 12'916 électrices et électeurs avec une marge d'erreur comprise entre +/-2,8 points de pourcentage, 63% de l'électorat prévoit de rejeter le texte lancé par Pro Suisse. Seuls 34% soutiennent la proposition et 3% restent indécis, tandis que le camp du non a perdu neuf points de pourcentage en un mois.
-
-### Dynamiques des soutiens et orientation politique
-La progression du non s'observe de manière homogène sur tout le territoire fédéral. Même au sein de l'Union démocratique du centre (UDC), qui représente le seul parti à soutenir l'initiative, l'approbation du texte a chuté de neuf points de pourcentage en un mois, pour s'établir à 77%. Le politologue de gfs.bern Lukas Golder observe que la question est plus ouverte que prévu au sein de l'électorat démocrate du centre, ne s'agissant pas de l'un des thèmes préférés du parti, contrairement à la migration ou aux relations avec l'Union européenne où la base se range de manière plus compacte. Les électrices et les électeurs de tous les autres partis prévoient de rejeter le texte de manière de plus en plus nette, tandis que les personnes sans affiliation partisane ont basculé dans le camp du non, ne laissant de soutien qu'à ceux qui nourrissent de la défiance envers le gouvernement, bien qu'avec un faible appui.
-
-### Évolution géographique et territoriale
-Le fossé entre ville et campagne, qui était apparu clairement lors du premier sondage, s'est progressivement atténué au fil des semaines précédant la consultation populaire du 27 septembre 2026. Désormais, l'initiative qui demande l'inscription dans la Constitution d'une conception restrictive de la neutralité est largement rejetée également dans les zones rurales de la Suisse. Sur le plan de l'argumentation, ceux qui s'opposent à une neutralité perpétuelle ancrée dans la Constitution disposent d'un net avantage, car plus de deux tiers des personnes interrogées craignent que le texte ne nuise à la sécurité du pays, en limitant la capacité de la Suisse à coopérer avec d'autres États dans ce domaine spécifique. La projection définitive des politologues de gfs.bern indique clairement qu'un rejet de l'initiative représente le scénario le plus probable pour ce scrutin.
-## Analyse des dynamiques de vote et comparaison avec l'alimentation
-
-Les votations fédérales du 27 septembre 2026 présentent un cadre complexe impliquant de multiples objets en votation populaire. À côté du débat sur la neutralité suisse, qui vise à inscrire dans la Constitution une conception plus rigide et restrictive, l'attention de l'électorat est également polarisée sur l'initiative demandant à la Confédération de promouvoir la production et la consommation d'aliments d'origine végétale. Ce deuxième texte a également vu son soutien diminuer considérablement par rapport à la précédente enquête menée par l'institut gfs.bern pour le compte de la SSR.
-
-### Le texte sur l'alimentation végétale
-Si, à la mi-août, les fronts favorable et opposé étaient encore tête-à-tête dans le débat public, près des deux tiers des personnes interrogées, soit 64 %, entendent désormais voter non en vue de l'échéance du 27 septembre 2026. Seulement 33% soutiennent l'initiative sur l'alimentation végétale, tandis que la part des indécis s'élève à 3%. Ce changement radical de tendance met en évidence comment la campagne d'information et la confrontation politique ont érodé le consensus initial, déplaçant la majorité absolue des votants vers le rejet de la proposition législative fédérale.
-
-### Comportement de la diaspora et des partis
-Un élément particulièrement intéressant de la deuxième enquête concerne la Cinquième Suisse, à savoir les Suisses et les Suissesses résidant en Suisse.
-
-## Outils utiles pour protéger votre net
-Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
-## Participation et rendez-vous avec les urnes fédérales
-
-La phase finale de la campagne en vue des votations fédérales du 27 septembre 2026 impose aux citoyens ayant le droit de vote d'exercer leurs droits politiques dans le respect des délais fixés par les autorités cantonales et fédérales. La participation aux votes représente le pilier fondamental de la démocratie directe suisse. Les électeurs reçoivent à domicile le matériel de vote officiel comprenant les bulletins de vote, les brochures explicatives préparées par le Conseil fédéral ainsi que les recommandations de vote des partis et des comités référendaires. Il est essentiel de vérifier l'exactitude des documents et d'envoyer rapidement son vote par correspondance ou de se rendre aux urnes conformément aux dispositions établies par sa commune de domicile.
-
-### Aspects procéduraux du vote par correspondance
-Pour ceux qui choisissent la voie postale, qui représente le mode largement privilégié par la population résidant en Suisse, il convient de signer la carte de légitimation et d'insérer les bulletins remplis dans l'enveloppe de transmission officielle, en respectant rigoureusement les délais de livraison indiqués sur l'enveloppe elle-même afin d'éviter que le vote ne soit déclaré nul pour cause de tardiveté. Les administrations communales coordonnent le dépouillement au niveau local, garantissant la transparence et le secret du vote exprimé sur tous les thèmes fédéraux à l'ordre du jour, y compris les débats constitutionnels sur la neutralité et les propositions de promotion alimentaire.
-
-### Planification financière et de prévoyance connexe
-Pendant que les citoyens se préparent à se prononcer sur les grandes réformes institutionnelles du pays, il est fondamental de garder le contrôle sur sa situation économique et patrimoniale grâce à une planification attentive des dépenses quotidiennes, de la charge fiscale et de la couverture de prévoyance. Pour évaluer avec précision l'impact des décisions économiques et des déductions sur votre budget familial, il est conseillé d'utiliser des outils de calcul dédiés. Vous pouvez vérifier votre situation globale en matière de revenus et de cotisations en accédant au [calculateur de salaire](nav:calculator) pour une analyse approfondie des déductions salariales et fiscales en Suisse.
-
-*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/votazioni/votazioni-del-27-settembre-liniziativa-sulla-neutralit%c3%a0-potrebbe-subire-una-sconfitta-pesante/92062979)*]]></content:encoded>
-      <pubDate>Fri, 18 Sep 2026 02:22:09 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/votazioni-federali-neutralita-sondaggio</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/votazioni-federali-neutralita-sondaggio.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Les cyberassurances en hausse en 2025 en Suisse</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/croissance-assurance-cyber-2025/</link>
-      <description><![CDATA[En 2025, les cyberassurances en Suisse connaissent une forte croissance : 72'000 entreprises assurées et 480'000 particuliers, selon les données de l'ASA.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Croissance des cyberassurances en Suisse en 2025
-- Augmentation du nombre d'entreprises assurées à 72'000, +7% par rapport au précédent
-- Progression forte chez les particuliers : +18% à 480'000 assurés
-
-## Faits clés
-- Association : Association Suisse d'Assurances (ASA)
-- Année de référence : 2025
-- Entreprises assurées : 72'000
-- Croissance des entreprises : 7 %
-- Privés assurés : 480'000
-- Croissance privée : 18 %
-- Primes privées : 29 millions de francs
-- Primes d'entreprise : 153 millions de francs
-- Sociétés suisses assurées : environ 11 %
-- Événement futur : Cyber Insurance Summit 2026 à Berne le 5 novembre
-
-Les assurances cyber, c'est-à-dire les produits d'assurance qui protègent les particuliers et les entreprises contre les dommages causés par des cyberattaques ou des problèmes de systèmes numériques, connaissent une phase de croissance marquée dans le paysage économique suisse. Selon les données diffusées par l'Association Suisse d'Assurances (ASA) dans le cadre de son enquête annuelle sur le secteur, en 2025, le nombre d'entreprises assurées est passé à 72'000, soit une augmentation de 7% par rapport à l'année précédente. Encore plus soutenue apparaît la progression enregistrée chez les clients privés, où la croissance en pourcentage atteint 18 %, portant le total à 480'000 polices actives. Du point de vue des volumes financiers, l'enquête de l'ASA montre que les primes collectées ont atteint 29 millions de francs pour la clientèle privée, tandis que le secteur des entreprises a généré un volume de 153 millions de francs.
-L'analyse approfondie menée par l'Association Suisse d'Assurances met en évidence que le secteur de la couverture contre les risques numériques joue un rôle stratégique non seulement pour la sauvegarde du bilan d'entreprise à la suite d'une attaque, mais aussi pour l'amélioration globale de la sécurité opérationnelle. Les PME suisses, tout en représentant le segment présentant les plus grandes lacunes de couverture, sont paradoxalement celles qui pourraient tirer les plus grands bénéfices des services d'assistance associés à ces polices. Outre l'indemnisation financière directe pour les dommages subis à la suite d'un incident informatique, les contrats d'assurance comprennent régulièrement des services préventifs ciblés et la possibilité d'activer rapidement le soutien d'experts spécialisés dans la gestion des urgences numériques. Heidi Fröhlich, responsable de la branche non-vie et réassurance auprès de l'ASA, souligne que les assurances cyber contribuent de manière significative à renforcer la résilience informatique des entreprises, s'inscrivant comme un pilier fondamental dans la gestion du risque d'entreprise.
-
-### L'impact des risques cybernétiques et les prochains rendez-vous institutionnels
-
-Les attaques cybernétiques constituent aujourd'hui l'un des périls les plus importants pour la continuité opérationnelle des entreprises suisses, surpassant par leur complexité et leur fréquence de nombreuses menaces traditionnelles. Pour faire face à cette évolution du risque et favoriser le dialogue entre les acteurs du secteur, les institutions et les entreprises, l'agenda du secteur prévoit des moments d'approfondissement ciblés. Parmi ceux-ci se distingue le Cyber Insurance Summit 2026, un important symposium entièrement dédié au thème de la protection numérique et des couvertures d'assurance, dont l'organisation est fixée au 5 novembre prochain dans la ville de Berne. L'événement réunira des experts et des représentants du marché pour analyser les tendances évolutives, les nouveaux types de menaces informatiques et les solutions les plus efficaces pour combler les lacunes persistantes de protection qui continuent d'affecter le tissu économique national, avec une attention particulière accordée aux besoins spécifiques des structures entrepreneuriales de plus petite taille qui opèrent sur le territoire helvétique.
-
-## Outils utiles pour protéger votre net
-Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
-La gestion des risques informatiques et l'évaluation de l'opportunité de souscrire une couverture adéquate nécessitent une analyse attentive des spécificités de son activité économique et des systèmes numériques utilisés au quotidien. Pour les entreprises suisses, en particulier pour les PME qui enregistrent les plus grandes ouvertures, la première étape opérationnelle consiste à effectuer une cartographie approfondie des vulnérabilités internes, en vérifiant quels services de prévention et quel soutien spécialisé sont inclus dans les différentes offres disponibles sur le marché suisse de l'assurance. Contrairement à la simple couverture des dommages patrimoniaux résultant d'un blocage des systèmes ou d'une violation de données, les polices modernes offrent un ensemble intégré d'assistance technique qui peut s'avérer déterminant dans la gestion de la phase de crise suivant une cyberattaque. Pour approfondir le cadre économique général, l'évolution des coûts et les variables financières qui influent sur la gestion de l'entreprise et la planification des ressources en Suisse, il est possible de consulter les outils d'analyse et de calcul des coûts disponibles pour s'orienter entre les différents facteurs qui composent le cadre économique et structurel du pays.
-
-*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/assicurazioni-cyber-in-crescita%2c-ma-molte-ditte-non-ancora-coperte/92078127)*]]></content:encoded>
-      <pubDate>Fri, 18 Sep 2026 02:12:56 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/crescita-assicurazioni-cyber-2025</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/crescita-assicurazioni-cyber-2025.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Places d&apos;apprentissage 2026 : marché stable et varié</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/places-apprentissage-2026-marche-suisse/</link>
-      <description><![CDATA[Le marché des places d'apprentissage en Suisse est stable en 2026 avec environ 76 000 contrats signés fin août. Place également aux WorldSkills à Shanghai.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Marché des places d'apprentissage stable en 2026
-- Environ 76 000 contrats d'apprentissage signés fin août
-- Championnats du monde WorldSkills à Shanghai du 22 au 27 septembre
-- 42 jeunes professionnels dans l'équipe nationale SwissSkills
-
-## Faits clés
-- Date du communiqué : 17 septembre 2026
-- Contrats d'apprentissage : environ 76 000
-- Enquête : Baromètre de la transition
-- Institut de sondage : gfs.bern pour le compte du SEFRI
-- Publication du sondage : fin octobre 2026
-- Événement international : WorldSkills Shanghai 2026
-- Édition WorldSkills : 48e
-- Dates WorldSkills : du 22 au 27 septembre 2026
-- Talents mondiaux : environ 1 400
-- Délégation suisse : 42 jeunes professionnels et 38 experts
-
-Le marché des places d'apprentissage en Suisse se présente de manière stable au cours de l'année 2026, avec environ 76 000 contrats signés enregistrés à la fin du mois d'août. Cette donnée confirme la solidité de la formation professionnelle helvétique et témoigne de la manière dont les entreprises continuent d'investir de façon concrète dans la relève, en offrant aux jeunes d'importantes opportunités d'entrée dans le monde du travail et des perspectives de carrière significatives. La stabilité observée s'inscrit dans la continuité des volumes des années précédentes, mettant en évidence une structure de formation solide et ancrée dans le tissu économique du pays.
-
-### Le Baromètre de la transition et les enquêtes annuelles
-Pour obtenir un aperçu approfondi et détaillé de la situation au cours de l'année 2026, les observateurs et les professionnels se réfèrent au Baromètre de la transition. Cette enquête spécifique est menée chaque année à deux moments distincts, précisément aux mois d'avril et d'août. À travers des sondages ciblés adressés directement aux jeunes et aux entreprises, l'instrument relève les derniers développements qui caractérisent la phase délicate du passage de la scolarité obligatoire au degré secondaire II. Les résultats de l'enquête menée en août, réalisée par l'institut gfs.bern pour le compte du SEFRI, seront rendus publics à la fin du mois d'octobre 2026, fournissant des mesures supplémentaires sur l'évolution des inscriptions et sur les tendances de l'emploi des jeunes à l'échelle nationale.
-La pertinence de la formation professionnelle suisse ne se limite pas au marché intérieur, mais trouve également un écho et une reconnaissance sur la scène internationale grâce à des compétitions de très haut niveau. Du 22 au 27 septembre 2026, la ville de Shanghai accueille la 48e édition des championnats du monde des métiers, appelés WorldSkills. Dans cette vitrine mondiale importante, environ 1400 talents venus du monde entier s'affrontent dans un large éventail de disciplines professionnelles, offrant une démonstration concrète de leurs compétences techniques et opérationnelles sur une scène internationale de premier plan.
-
-### La délégation suisse et la confrontation mondiale
-La Suisse participe à cet événement international avec l'équipe nationale SwissSkills 2026, composée de 42 jeunes professionnels hautement qualifiés. Pour accompagner et soutenir la délégation suisse dans cette aventure à Shanghai, 38 experts du secteur sont présents. Des manifestations d'une telle envergure internationale permettent de mettre en lumière les forces structurelles du modèle de formation suisse, caractérisé par le lien étroit entre la théorie apprise en classe et la pratique quotidienne sur le lieu de travail, par la haute qualité de l'enseignement dispensé et par la coopération constante entre la Confédération, les cantons et les organisations du monde du travail. Pour les jeunes professionnels en lice, la confrontation directe avec des pairs d'autres nations représente non seulement un test rigoureux de leurs capacités techniques, mais aussi une expérience de croissance personnelle et professionnelle d'une valeur inestimable.
-
-## Outils utiles pour protéger votre net
-Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
-### Perspectives et outils pour s'orienter sur le marché du travail
-Analyser l'évolution du marché des stages et suivre les compétitions internationales comme les WorldSkills offre une perspective claire sur l'efficacité du système de formation suisse et sur les opportunités d'insertion professionnelle. Ceux qui souhaitent approfondir la situation économique et évaluer l'impact des salaires, des rémunérations initiales et des perspectives de gain pour ceux qui entrent sur le marché du travail après une formation ou une spécialisation peuvent consulter les outils mis à disposition au niveau national. La planification financière et la compréhension de la structure salariale en Suisse sont des étapes fondamentales pour les jeunes qui arrivent pour la première fois dans le monde du travail ou pour les familles qui planifient le parcours scolaire et professionnel de leurs enfants.
-
-Pour une analyse détaillée des salaires, des tranches de revenus et des différences liées aux différents secteurs économiques et professionnels au sein du marché suisse, vous pouvez utiliser le calculateur officiel disponible sur le portail. Vérifiez dès maintenant les estimations actualisées des salaires et planifiez votre carrière professionnelle en utilisant le [calcolatore stipendio](nav:calculator).
-
-*Source: [admin.ch](https://www.admin.ch/it/newnsb/1D3zVMAzyOVo)*]]></content:encoded>
-      <pubDate>Fri, 18 Sep 2026 02:02:40 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/tirocini-2026-mercato-svizzera</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/tirocini-2026-mercato-svizzera.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Pénurie de logements en Suisse : tournant entre 2026 et 2027</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/penurie-logement-suisse-2026/</link>
-      <description><![CDATA[Les prévisions de Wüest Partner indiquent une reprise des constructions résidentielles avec 45'000 unités en 2026 et 50'000 en 2027.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Augmentation des constructions résidentielles au cours des deux années 2026-2027
-- Prévues 45'000 unités en 2026 et 50'000 en 2027
-- En 2025, augmentation estimée à seulement 39'000 logements
-
-## Faits clés
-Quoi : Croissance des constructions résidentielles
-Quand : Biennale 2026-2027
-Prévision 2026 : Environ 45'000 logements
-Prévision 2027 : Environ 50'000 logements
-Niveau minimum : 39'000 logements estimés en 2025
-Source des données : Wüest Partner
-
-Dans un contexte caractérisé par une forte augmentation de la population en Suisse, on assiste actuellement à une pénurie marquée de logements qui pourrait toutefois bientôt s'atténuer dans certaines régions du pays. C'est ce qui ressort d'une étude publiée par la société de conseil immobilier Wüest Partner, selon laquelle le point le plus bas dans la construction de logements devrait être dépassé dans les années à venir. La recherche offre un aperçu détaillé des perspectives futures du marché immobilier suisse, décrivant une reprise de la production de logements résidentiels après des années de contraction.
-
-### Les estimations et la comparaison avec les années précédentes
-En analysant les données fournies par l'Office fédéral de la statistique (OFS), en 2024, l'augmentation nette du nombre de logements en Suisse n'a été que de 40'000 unités. La situation a connu un nouveau ralentissement pour l'année en cours, avec une estimation formulée par Wüest Partner qui indique une augmentation de seulement 39'000 unités d'habitation pour 2025, marquant le niveau le plus bas enregistré depuis 2009 à ce jour.
-Les bases qui ont rendu possible cette future reprise du secteur de la construction et de l'immobilier suisse ont été jetées il y a déjà plusieurs années. Selon l'analyse publiée par Wüest Partner, le processus de développement a débuté en 2020, année où le nombre de logements vacants, après avoir longtemps augmenté, a commencé à baisser rapidement. Parallèlement, on a assisté à une croissance nette de la valeur marchande des biens immobiliers résidentiels. Ces conditions de marché spécifiques ont généré de fortes incitations économiques pour la réalisation de nouveaux projets de logements, stimulant par la même occasion de nouvelles initiatives de développement sur le territoire national.
-
-### Les facteurs de ralentissement et le calendrier des projets
-Malgré l'impulsion initiale générée en 2020, il s'écoule généralement plusieurs années entre la conception d'un projet de construction et la livraison effective de la maison terminée. Parmi les principales raisons de ce calendrier figurent la complexité accrue de la planification et de la réalisation de nouveaux logements, causée par l'introduction de prescriptions de construction supplémentaires, ainsi que la hausse des coûts de construction et l'évolution des taux d'intérêt. Ces facteurs ont temporairement agi comme un frein pour le secteur. Entre-temps, cependant, nombre de projets lancés et développés depuis 2020 ont franchi les phases préliminaires complexes et sont désormais proches de leur achèvement, ouvrant la voie à l'augmentation des livraisons prévue pour la période 2026-2027 et contribuant à donner un nouveau souffle au marché.
-
-## Outils utiles pour protéger votre net
-Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
-La reprise de la construction de logements ne touchera pas toutes les régions de la Suisse avec la même intensité et le même calendrier. Au cours de l'année 2026, la hausse restera plutôt ponctuelle au niveau régional. La production de nouveaux logements devrait en effet dépasser la moyenne à long terme surtout dans certains cantons de la Suisse romande et dans les régions alpines. Il faudra en revanche attendre 2027 pour que la reprise prenne une plus grande ampleur géographique. En particulier, dans des cantons comme Thurgovie, Genève, Valais et Neuchâtel, une forte augmentation du nombre de logements disponibles est attendue, et de vastes parties du Plateau devraient également bénéficier positivement de cette évolution du marché immobilier.
-
-### Les problèmes critiques dans les grands centres et la situation future
-Malgré les signaux positifs pour la période 2026-2027, d'importantes différences territoriales subsistent. Dans environ la moitié des cantons suisses, la production de logements continuera de rester inférieure à la moyenne à long terme. Les experts immobiliers soulignent en outre qu'une détente généralisée des tensions n'est pas encore à l'ordre du jour et que la situation sur le marché du logement devrait rester particulièrement difficile, surtout au sein des grands centres urbains. À cela s'ajoute un élément de prudence supplémentaire : les demandes de construction actuellement enregistrées ne laissent pas présager pour le moment une nouvelle accélération de la production de logements pour l'année 2028. Pour approfondir l'évolution du marché immobilier et évaluer les coûts liés au logement, vous pouvez consulter les détails sur le [coût de la vie](nav:cost-of-living) en Suisse.
-
-Découvrez les [offres d'emploi au Tessin](nav:jobs) mises à jour quotidiennement : plus de 4.000 postes.
-
-*Source: [tio.ch](https://www.tio.ch/svizzera/economia/1950870/svizzera-abitazioni-penuria-potrebbe-dovrebbe)*]]></content:encoded>
-      <pubDate>Fri, 18 Sep 2026 01:54:51 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/penuria-alloggi-svizzera-2026</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/penuria-alloggi-svizzera-2026.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Lex UBS : Conseil des Etats renvoie la décision</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/conseil-etats-lex-ubs-at1/</link>
-      <description><![CDATA[Débat au Conseil des Etats sur le projet de banques systémiques. Intervention de Karin Keller-Sutter prévue mercredi et coût estimé à 20 milliards.]]></description>
-      <content:encoded><![CDATA[## In breve
-- Consiglio degli Stati: dibattito sul progetto banche sistemiche
-- Intervento di Karin Keller-Sutter previsto mercoledì
-- Obiettivo: coprire filiali estere con capitale proprio
-- Costo stimato per UBS pari a 20 miliardi di franchi
-
-## Fatti chiave
-- Istituzione: Consiglio degli Stati
-- Ministro: Karin Keller-Sutter
-- Costo governo: 20 miliardi di franchi
-- Copertura proposta commissione: 50% CET1 e 50% AT1
-- Regola attuale: 45% capitale di base e 17% obbligazioni AT1
-- Contributo PIL ticinese: 7%
-- Contributo imposte ticinesi: 10%
-- Capitale AT1 aggiuntivo UBS: 13 miliardi di franchi
-
-Non sono bastate oltre tre ore di dibattito stamane al Consiglio degli Stati per terminare l'esame del progetto governativo volto a rafforzare le banche sistemiche, in particolare UBS, in caso di difficoltà. Il dibattito proseguirà mercoledì prossimo con la presa di posizione della ministra delle finanze, Karin Keller-Sutter. Il Consiglio federale auspica che le banche sistemiche coprano interamente con capitale proprio le filiali estere, al fine di evitare il ripetersi di una crisi simile a quella del Credit Suisse risalente al 2023. Questa misura dovrebbe comportare un esborso stimato a 20 miliardi di franchi per UBS.
-
-### La posizione della commissione preparatoria
-
-La commissione preparatoria ha giudicato la soluzione del Governo troppo onerosa per UBS, ritenendo che possa pregiudicare la concorrenzialità dell'istituto a livello internazionale. Per questo motivo è stata presentata una soluzione di compromesso che prevede una copertura delle filiali estere per il 50% con capitale di base di prima classe CET1 e per il 50% con obbligazioni AT1 Additional Tier 1. Attualmente la normativa prevede una regola del 45% di capitale di base unito al 17% in obbligazioni AT1. Le obbligazioni AT1 sono titoli ad alto rendimento convertibili in capitale proprio o azzerati in caso di gravi difficoltà finanziarie, come accaduto nel caso del Credit Suisse, situazione che ha generato una vertenza giuridica ancora pendente davanti al Tribunale federale. Secondo la proposta della commissione, tali obbligazioni dovrebbero contribuire in modo significativo alla stabilizzazione finanziaria già in una fase precoce della crisi.
-
-Nel corso del dibattito d'entrata, la proposta di compromesso è stata fortemente contestata da diverse parti politiche, in particolare dalla sinistra e dal Centro. Il timore principale è che la misura sia insufficiente ad affrontare una crisi finanziaria di grandi proporzioni, lasciando aperto il rischio che i contribuenti e lo Stato debbano intervenire in soccorso degli istituti bancari, come già avvenuto in passato sia per UBS che per Credit Suisse. Tra i sostenitori del compromesso figurano vari parlamentari che evidenziano la necessità di bilanciare la stabilità della piazza finanziaria con la competitività globale della banca, evitando ripercussioni negative sull'economia reale e sull'accesso al credito per imprese e famiglie svizzere.
-## Un bilanciamento tra stabilità e competitività
-
-Nel corso della seduta odierna in aula, diversi oratori si sono battuti a favore della soluzione avanzata dalla commissione parlamentare. Tiana Moser del Partito Socialista di Zurigo ha definito la misura un inasprimento equilibrato e un tipico compromesso elvetico, sottolineando che la piazza finanziaria deve certamente aumentare la propria resistenza alle crisi, ma che al contempo una grande banca deve poter mantenere la propria competitività sui mercati internazionali. Analoghe considerazioni sono state espresse dal senatore del Centro ticinese Fabio Regazzi, che ha agito sia in veste di rappresentante del Ticino sia come presidente dell'Unione svizzera delle arti e mestieri USAM. Per l'imprenditore locarnese, un inasprimento normativo eccessivo come quello auspicato dal Consiglio federale rischia di gravare eccessivamente sulla piazza finanziaria, con il pericolo concreto che UBS trasferisca questi costi sulle aziende locali che necessitano di finanziamenti e crediti a condizioni sostenibili, nonché sulle famiglie.
-
-### L'impatto economico sul Cantone Ticino e sul settore
-
-Fabio Regazzi ha evidenziato come il settore assicurativo e bancario contribuisca per il 7% del PIL ticinese e generi oltre il 10% delle imposte versate al canton Ticino. Per tale ragione, secondo il senatore, risulta indispensabile adottare un quadro normativo equilibrato che favorisca la resilienza della banca senza penalizzarne la competitività commerciale. Sulla stessa linea, il consigliere Thierry Burkart del PLR argomenta che, applicando la soluzione della commissione, UBS dovrebbe costituire 13 miliardi di franchi di capitale AT1 aggiuntivo. La proposta della maggioranza parlamentare si inserisce in linea con le realtà internazionali, e l'utilizzo dei titoli AT1 rappresenta uno strumento ampiamente collaudato e noto agli operatori del settore. Inoltre, molti esponenti hanno rimarcato come la proposta del Governo risulti punitiva nei confronti di UBS, poiché non riconosce adeguatamente il ruolo svolto dall'istituto nel 2023 quando, acquisendo il Credit Suisse, evitò una crisi di portata sistemica sui mercati finanziari globali.
-
-### La posizione della minoranza parlamentare
-
-Di avviso opposto è la forte minoranza guidata da Peter Hegglin, la quale sostiene che le partecipazioni estere debbano essere coperte al 90% da capitale di base di prima classe. Questa richiesta si fonda direttamente sulle criticità e sulle lezioni apprese durante la crisi del Credit Suisse. Secondo i fautori di questa linea più rigorosa, una quota elevata di capitale primario trasmetterebbe un segnale inequivocabile di stabilità, sicurezza e affidabilità dell'intera piazza finanziaria svizzera, riducendo drasticamente la probabilità di futuri interventi pubblici di salvataggio a carico della collettività nazionale.
-
-## Outils utiles pour protéger votre net
-Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
-FRENCH TEXT
-
-Pour un calcul précis du salaire net, utilisez notre [comparateur fiscal](nav:calculator) : comparez permis G et permis B avec toutes les déductions 2026.
-
-*Source: [tio.ch](https://www.tio.ch/svizzera/politica/1950922/crisi-ubs-at1-caso-soluzione-banca-capitale-cs-obbligazioni-commissione)*]]></content:encoded>
-      <pubDate>Fri, 18 Sep 2026 01:45:48 GMT</pubDate>
-      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/consiglio-stati-lex-ubs-at1</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/consiglio-stati-lex-ubs-at1.webp" medium="image"/>
-    </item>
-    <item>
-      <title>SMI : Galderma et Sandoz entrent, Kühne+Nagel et Swisscom sortent</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/smi-galderma-et-sandoz-entrent-kuhne-nagel-et-swisscom-sortent/</link>
-      <description><![CDATA[Grande nouveauté pour l'indice boursier suisse SMI établi par SIX : Galderma et Sandoz entrent, tandis que Kühne+Nagel et Swisscom sortent. Le secteur de la santé grimpe à 40 %.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Galderma et Sandoz entrent dans le SMI
-- Kühne+Nagel et Swisscom en sortent
-- Mise à jour établie par SIX
-- Le secteur de la santé monte à 40%
-
-## Faits clés
-- Date d'entrée : Dès lundi
-- Indice boursier : Swiss Market Index (SMI)
-- Entreprises entrantes : Galderma et Sandoz
-- Entreprises sortantes : Kühne+Nagel et Swisscom
-- Gestionnaire de la bourse : SIX
-- Critères principaux : Volume moyen et capitalisation du flottant
-- Nouveau poids du secteur de la santé : 40%
-- Précédent poids de la santé : 36%
-
-### La révision de l'indice boursier suisse
-À partir de lundi, le Swiss Market Index (SMI), l'indice boursier suisse le plus important, change de visage avec l'entrée du fabricant de produits de soins de la peau Galderma et du fabricant de génériques Sandoz. Pour faire de la place aux deux nouvelles entreprises, la société de logistique Kühne+Nagel et le géant des télécommunications Swisscom quittent la composition principale. Ce mouvement représente une petite révolution et est décrit comme le plus grand changement enregistré ces dernières années sur le marché boursier helvétique. SIX, l'entreprise qui gère la bourse helvétique, avait annoncé ce changement au début du mois de juillet. Le classement qui détermine les promotions et les relégations au sein de l'Olympe des 20 principales valeurs du marché repose sur deux facteurs spécifiques relatifs aux douze derniers mois : le volume moyen des transactions et la capitalisation du flottant, c'est-à-dire la part du capital d'une société qui est librement négociable sur le marché. Pour les places 19 à 22, identifiées comme la zone tampon, des règles supplémentaires s'appliquent afin d'éviter des changements constants causés par de petits déplacements, offrant ainsi aux membres déjà présents dans le SMI un avantage par rapport aux potentiels challengers.
-
-### L'impact sur le secteur pharmaceutique et de la santé
-La conséquence la plus évidente de cette récente révision boursière est que le secteur pharmaceutique et de la santé acquiert un poids encore plus important au sein du principal indice helvétique. Outre les nouvelles arrivées représentées par Galderma et Sandoz, Novartis, Roche, Lonza et Alcon font également partie du SMI. Le nombre total de représentants de cette branche passe donc de quatre à six unités. En analysant les données en termes de capitalisation, le déplacement s'avère toutefois moins marqué qu'en nombre d'entreprises : la part globale des entreprises de santé dans le total de l'indice SMI monte en effet à environ 40%, enregistrant une augmentation par rapport aux 36% précédents. Comme l'a expliqué au moment de l'annonce Remo Rosenau, expert de la Helvetische Bank, l'indice ne représente pas l'ensemble de l'économie helvétique mais montre l'évolution des sociétés et des secteurs cotés les plus grands et les plus liquides. Bien que l'indice perde légèrement en termes de capacité explicative en tant que mesure de l'ensemble de l'économie nationale, cette caractéristique était déjà présente auparavant, confirmant que le SMI reste néanmoins un excellent indice de référence pour le marché boursier suisse, où certaines branches conservent naturellement un poids global important.
-### La comparaison avec les autres marchés et la visibilité des titres
-La présence marquée de branches individuelles au sein de l'indicateur boursier de référence ne représente pas une spécificité exclusivement suisse. D'autres indices internationaux bien connus reflètent également seulement en partie leur économie nationale respective. À titre d'exemple, le Dow Jones Industrial Average illustre l'économie américaine de manière encore moins représentative que ne le fait l'indice SMI pour celle de la Suisse. L'entrée d'une société déterminée dans un indice réputé et suivi tel que le SMI ne constitue pas seulement une question de prestige d'entreprise, mais augmente concrètement la visibilité et l'attention accordée à ce titre par les investisseurs institutionnels et internationaux. Étant donné que de très nombreux fonds de placement et ETF, à savoir les fonds cotés, répliquent fidèlement l'évolution de l'indice, cette inclusion peut générer une demande supplémentaire pour l'action concernée, dans la mesure où ces produits financiers sont tenus d'ajuster leurs portefeuilles d'investissement. En règle générale, ce processus entraîne également une augmentation de la liquidité et de l'activité de négociation sur le marché, rendant le titre potentiellement plus attrayant pour d'autres catégories d'investisseurs. Toutefois, cet effet ne s'avère pas automatiquement durable dans le temps, dans la mesure où une part importante du mouvement des cours est souvent anticipée par les opérateurs avant même l'entrée effective de la société au sein de l'indice de référence officiel.
-
-### La composition actuelle et l'histoire de l'indice
-Actuellement, en excluant les changements qui viennent d'être opérés, le SMI se compose, par ordre alphabétique, d'ABB pour l'électrotechnique, Alcon pour l'ophtalmologie, Amrize pour l'industrie, Geberit pour les articles sanitaires, Givaudan pour les arômes et parfums, Holcim pour les matériaux de construction, Kühne+Nagel pour la logistique, Logitech pour l'électronique, Lonza pour la pharmacie, Nestlé pour l'agroalimentaire, Novartis pour la pharmacie, Partners Group pour la finance, Richemont pour les biens de luxe, Roche pour la pharmacie, Sika pour la chimie de la construction, Swiss Life pour les assurances, Swiss Re pour la réassurance, Swisscom pour les télécommunications, UBS pour les services bancaires et Zurich Insurance pour les assurances. Si le classement est en revanche établi sur la base de la capitalisation boursière, ce sont les géants Roche, Novartis et Nestlé qui se distinguent. Le Swiss Market Index a vu le jour il y a près de quatre décennies, exactement le 30 juin 1988, en partant d'un niveau initial de 1500 points. Le point le plus bas de son histoire a été touché le 14 janvier 1991 à 1287,60 points, tandis qu'au fil des ans, la valeur a été multipliée par plus de 9. Parmi les étapes historiques, on retiendra les 5000 points atteints en 1997, les 10'000 en 2019, les 12'000 en 2021, les 13'000 en février 2025 et les 14'000 points en février 2026, pour arriver à enregistrer un record historique de 14'669,51 points le 8 août dernier. Aujourd'hui, l'indice évolue autour des 13'900 points. La meilleure performance annuelle a été celle de 1993 avec un plus 40%, tandis que la pire s'est enregistrée en 2008 avec un moins 35%. L'année dernière, l'indice a progressé de 14,4%, tandis qu'au cours de l'année 2026, le SMI a gagné jusqu'à présent 4,9%. Pour les passionnés d'histoire économique, en 1988, le premier SMI comprenait 22 entreprises, parmi lesquelles Brown, Boveri & Cie, la Banque Populaire Suisse, le Crédit Suisse, la Société de Banque Suisse, l'Union de Banques Suisses, Swissair et Winterthur.
-
-## Outils utiles pour protéger votre net
-Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
-### Analyse opérationnelle pour les investisseurs sur le marché suisse
-La révision des listes boursières gérées par SIX entraîne des évaluations stratégiques importantes pour ceux qui opèrent directement sur les marchés financiers ou détiennent des instruments d'épargne liés aux indices boursiers suisses. Quiconque gère des portefeuilles personnels par le biais de fonds indiciels ou d'ETF doit tenir compte du fait que la nouvelle pondération sectorielle déplace encore davantage le centre de gravité du SMI vers le secteur pharmaceutique et de la santé, qui représente désormais environ quarante pour cent de la capitalisation totale. Cela signifie que l'exposition au risque et la diversification de son propre portefeuille d'actions changent de manière structurelle, réduisant marginalement le poids des secteurs traditionnels tels que la logistique et les télécommunications, précédemment représentés par Kühne+Nagel et Swisscom. Les investisseurs institutionnels et privés qui surveillent les titres inclus ou exclus de l'indice doivent vérifier attentivement la liquidité et les volumes de transactions des différents titres concernés, en tenant compte du fait que les mouvements de prix liés à l'entrée ou à la sortie effective des principaux paniers ont souvent tendance à être anticipés par le marché dans les semaines précédant l'application officielle de la décision de SIX.
-
-### Stratégies de gestion de portefeuille et instruments de contrôle
-Pour optimiser ses choix financiers et suivre l'évolution de son patrimoine mobilier en Suisse, il est essentiel de planifier avec soin la composition des investissements et l'allocation des ressources entre les différentes classes d'actifs disponibles sur le marché national. Quiconque souhaite approfondir sa planification financière personnelle, évaluer l'impact fiscal des plus-values ou analyser sa situation de revenu globale peut utiliser les outils de simulation et de calcul mis à disposition en ligne. Pour un aperçu complet de la gestion de l'argent, du choix des institutions de crédit et des opportunités d'investissement dans les principales valeurs suisses, il est conseillé de consulter les services dédiés disponibles sur le portail. Vous pouvez vérifier les options disponibles pour vos investissements et la gestion du capital en utilisant le calculateur dédié aux [banques](nav:banks).
-
-*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/smi-riceve-un%27iniezione-farmaceutica%2c-entrano-galderma-e-sandoz/92077634)*]]></content:encoded>
-      <pubDate>Fri, 18 Sep 2026 01:31:17 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/smi-galderma-sandoz-2026</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/smi-galderma-sandoz-2026.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Les failles de sécurité dans les systèmes solaires menacent le réseau</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/securite-installations-solaires-reseau/</link>
-      <description><![CDATA[L'Institut national de tests de cybersécurité a détecté plus de cinquante vulnérabilités dans onze produits photovoltaïques largement répandus.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Plus de 50 vulnérabilités détectées dans les systèmes photovoltaïques
-- Sept produits sur onze présentent de graves failles
-- Risque de cyberattaques et de manipulation à distance
-- Des exigences minimales de sécurité sont demandées par la politique
-
-## Faits clés
-- Organisme examinateur : Institut national de test pour la cybersécurité
-- Produits testés : 11 appareils de 8 entreprises
-- Onduleurs analysés : 7
-- Systèmes de gestion de l'énergie : 4
-- Vulnérabilités critiques : 7
-- Vulnérabilités graves : 6
-
-De graves failles dans les systèmes photovoltaïques suisses risquent de compromettre leur stabilité. L'Institut national de test pour la cybersécurité a examiné onze produits largement diffusés appartenant à huit entreprises, identifiant au total plus de cinquante vulnérabilités. Parmi les appareils examinés figurent sept onduleurs, c'est-à-dire les appareils électroniques qui transforment le courant continu en courant alternatif, et quatre systèmes de gestion de l'énergie. L'enquête a révélé que sept de ces problèmes ont été classés comme critiques et six comme graves, tandis que cinq des onze produits présentaient au moins une faille de sécurité grave.
-
-### Les problèmes techniques rencontrés
-
-L'analyse technique menée par les experts a mis en lumière des problèmes alarmants. Presque dans tous les onduleurs testés, les techniciens ont réussi à réduire à zéro la puissance injectée dans le réseau sans aucune authentification. D'autres vulnérabilités identifiées concernaient des mots de passe prédéfinis, des accès de maintenance non protégés et un chiffrement insuffisant qui expose les composants à des intrusions non autorisées. Malgré cela, les experts n'ont trouvé aucune indication relative à des portes dérobées insérées intentionnellement, entendues comme des méthodes cachées pour contourner les systèmes normaux d'authentification et de sécurité.
-
-La principale menace découle du niveau élevé d'interconnexion des installations sur le territoire suisse. De nombreux appareils sont connectés aux services cloud des fabricants pour recevoir des mises à jour et gérer la télémétrie. Six des vulnérabilités identifiées permettraient à des pirates potentiels de manipuler simultanément des milliers d'appareils depuis une position centralisée, amplifiant considérablement la portée du risque énergétique.
-
-Comme l'explique Tobias Castagna, expert en tests de l'institut, ce n'est pas seulement la gravité d'une vulnérabilité qui la rend dangereuse, mais sa portée, car une seule faille dans un composant central peut affecter des milliers d'installations photovoltaïques de manière simultanée. Les jours très ensoleillés, le secteur photovoltaïque couvre temporairement plus de la moitié de la consommation actuelle d'électricité en Suisse, rendant le réseau particulièrement exposé à des fluctuations soudaines ou à des pannes induites.
-Le niveau général de sécurité des produits analysés n'est pas fondamentalement pire que celui d'autres appareils connectés à Internet présents sur le marché grand public ou industriel. Ce qui différencie ces appareils est cependant leur importance systémique pour le réseau électrique national et cantonal. Une cyberattaque à grande échelle pourrait théoriquement compromettre la stabilité de l'approvisionnement en courant, en créant des déséquilibres immédiats entre la production distribuée et les besoins énergétiques globaux du pays.
-
-### Scénario de risque et réaction du marché
-
-La concentration de milliers d'installations connectées aux mêmes plateformes cloud des fabricants représente un point de vulnérabilité systémique. Si une mise à jour logicielle ou une connexion à distance est compromise, l'effet domino peut se propager à grande échelle sur le plan national. Heureusement, dans la plupart des cas examinés, les fabricants ont réagi rapidement après le signalement des vulnérabilités par les techniciens, en publiant des correctifs ou en modifiant les protocoles d'accès.
-
-Du point de vue de la protection des infrastructures critiques, la situation met en évidence la nécessité de repenser le périmètre de cybersécurité non plus uniquement autour des grandes centrales hydroélectriques ou nucléaires, mais aussi en direction de la myriade de petits systèmes photovoltaïques domestiques et d'entreprise répartis sur le territoire. Aujourd'hui, l'exploitant d'une installation photovoltaïque dépend de composants globaux dont la sécurité informatique n'était pas traditionnellement considérée comme un paramètre de stabilité du réseau électrique suisse. La digitalisation croissante de la transition énergétique impose donc un changement radical d'approche dans la gestion des risques technologiques de la part des installateurs, des fabricants et des opérateurs de réseau.
-
-## Outils utiles pour protéger votre net
-Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
-Face aux points critiques révélés par les tests de cybersécurité, l'institut recommande l'adoption immédiate de mesures préventives concrètes pour tous les propriétaires d'installations photovoltaïques et pour les opérateurs du secteur. Parmi les indications pratiques figurent l'utilisation rigoureuse d'identifiants d'accès individuels, le renforcement des accès à distance et la séparation physique ou logique des installations photovoltaïques du reste du réseau d'entreprise ou domestique. Les fabricants sont également invités à intégrer des normes de sécurité avancées déjà en cours de développement et à mettre en œuvre l'authentification numérique pour toute mise à jour logicielle.
-
-### Demandes réglementaires et perspectives d'avenir
-
-Sur le plan institutionnel, l'institut demande à la politique et aux autorités fédérales d'introduire des exigences minimales obligatoires pour tous les dispositifs mis sur le marché suisse. La sécurité informatique devrait devenir une exigence formelle et incontournable pour le raccordement de toute installation photovoltaïque au réseau électrique national. Pour approfondir les aspects liés à la gestion de la maison, à la protection des bâtiments et aux implications économiques et structurelles liées au secteur immobilier et résidentiel, vous pouvez consulter les ressources dédiées sur le portail, telles que la rénovation et la sécurité de la maison.
-
-Pour un calcul précis du salaire net, utilisez notre [comparateur fiscal](nav:calculator) : comparez permis G et permis B avec toutes les déductions 2026.
-
-*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/falle-sicurezza-impianti-solari-minacciano-rete-elettrica-elvetica/92076053)*]]></content:encoded>
-      <pubDate>Fri, 18 Sep 2026 00:24:00 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/sicurezza-impianti-solari-rete</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/sicurezza-impianti-solari-rete.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Prévoyance suisse : record d&apos;économies et craintes pour l&apos;AVS</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/barometre-prevoyance-raiffeisen-zhaw/</link>
-      <description><![CDATA[Le Baromètre Raiffeisen et ZHAW relève des conditions de prévoyance à des sommets historiques avec 725 points, mais 39 % des personnes interrogées craignent pour l'avenir de l'AVS.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Baromètre Raiffeisen : les conditions prévoyantes atteignent des sommets historiques
-- Valeur actuelle : 725 points sur 1000, en hausse par rapport à 2018
-- 79 % des personnes interrogées possèdent un pilier 3a
-- Craintes pour l'avenir de l'AVS : 39 % des sondés sont préoccupés
-
-## Faits clés
-Institut : Baromètre Raiffeisen et ZHAW
-Valeur actuelle : 725 points
-Valeur 2018 : 587 points
-Part du pilier 3a : 79 %
-Préoccupation AVS : 39 %
-Échantillon du sondage : plus de 1000 personnes (18-65 ans)
-
-Le baromètre Raiffeisen, réalisé en collaboration avec l'école universitaire professionnelle des sciences appliquées de Zurich (ZHAW), indique que le système prévoyance suisse a enregistré une nouvelle amélioration. Les données montrent que les conditions économiques des systèmes de prévoyance ont atteint des sommets historiques, avec une valeur de 725 points sur un maximum de 1000. Ce chiffre représente une augmentation de 28 points par rapport à l'année précédente et un bond significatif comparé aux 587 points relevés lors de la première édition en 2018.
-
-### Les moteurs de la croissance prévoyante
-Selon Jürg Portmann, co-responsable de l'institut Risk & Insurance de la ZHAW, ce résultat est le fruit de deux facteurs principaux : l'excellente santé financière des caisses de pension et une plus grande propension à l'épargne de la part de la population. L'amélioration concerne globalement les trois piliers de la prévoyance suisse. Tashi Gumbatshang, dirigeant de Raiffeisen, a confirmé que le niveau actuel est le plus élevé jamais enregistré depuis le début des recherches.
-
-Malgré l'évolution positive des chiffres, l'analyse basée sur un sondage mené auprès de plus de 1000 personnes âgées de 18 à 65 ans révèle certains points critiques. La préoccupation principale concerne le premier pilier : 39 % des personnes interrogées craignent que l'AVS ne soit pas en mesure de couvrir ses dépenses sur le long terme. Cette donnée met en évidence un contraste entre la solidité actuelle du système et la perception d'une instabilité future concernant la prévoyance sociale de base.
-## Analyse de la prévoyance complémentaire
-L'analyse du baromètre met en évidence un changement net dans les habitudes d'épargne personnelle. La proportion de personnes utilisant un pilier 3a pour compléter leur vieillesse a atteint 79%, marquant un nouveau record. Cette tendance indique une prise de conscience accrue de la nécessité de compléter les rentes des deux premiers piliers pour maintenir le niveau de vie après la retraite.
-
-### L'impact des nouvelles règles de versement
-Un élément d'un grand intérêt pour les résidents en Suisse est l'introduction, prévue pour le début de 2026, de la possibilité de combler a posteriori les lacunes en matière de cotisations dans le segment 3a. Jürg Portmann suggère que cette nouveauté puisse donner un nouvel élan à l'épargne privée. Cependant, les données actuelles montrent un écart entre la connaissance de la norme et son application pratique : alors que 63 % de l'échantillon connaît la nouvelle règle, seuls 5 % ont effectivement effectué un versement complémentaire.
-
-Ce scénario suggère que de nombreux contribuables n'ont peut-être pas encore planifié l'opération ou ne comprennent pas pleinement son avantage fiscal et de prévoyance. Le potentiel de rattrapage reste donc très large pour la population active. Ceux qui n'ont pas versé régulièrement dans le troisième pilier au cours des dernières années pourraient trouver dans cette mesure une opportunité d'augmenter leur capital de retraite.
-
-## Le défi de la retraite anticipée
-Le désir de quitter
-
-## Outils utiles pour la planification
-Pour estimer votre stratégie retraite, utilisez le [planificateur retraite](nav:pension) et le [simulateur 3e pilier](nav:pillar3).
-## Stratégies pour l'intégration prévoyance
-Pour ceux qui vivent et travaillent en Suisse, le scénario actuel décrit par le baromètre Raiffeisen suggère l'importance d'une planification active. Étant donné que 39% de la population s'inquiète de la durabilité de l'AVS, l'utilisation d'instruments complémentaires devient essentielle pour atténuer les risques futurs et garantir une rente adéquate.
-
-### Étapes pour optimiser l'épargne
-Pour gérer correctement sa prévoyance, il est possible de suivre ces étapes opérationnelles :
-
-- Analyse des lacunes : vérifier les cotisations versées dans le premier et le deuxième pilier pour identifier d'éventuelles années manquantes.
-- Planification du troisième pilier : puisque 79% des personnes interrogées utilisent déjà le pilier 3a, il est conseillé de comparer les différentes solutions d'épargne pour maximiser les rendements.
-- Évaluation du rachat de cotisations : en vue du début de l'année 2026, préparer la liquidité nécessaire pour combler les lacunes dans le segment 3a, sachant que seulement 5% l'ont fait jusqu'à présent.
-- Étude de la flexibilité professionnelle : évaluer l'hypothèse d'un travail à temps partiel dans les phases finales de la carrière, une option jugée envisageable par deux tiers de l'échantillon pour compenser la difficulté d'une retraite anticipée.
-
-### Outils de support
-La gestion de la prévoyance nécessite des calculs précis, particulièrement lors de l'évaluation de l'impact des taux de conversion ou de la nécessité de versements complémentaires. Pour ceux qui souhaitent avoir une idée plus claire de leur situation financière et de la manière dont les cotisations influencent le salaire net et la future rente, il est utile d'utiliser des outils de simulation.
-
-Pour approfondir la gestion de son épargne prévoyance et comprendre comment optimiser les versements dans le [troisième pilier](nav:pillar3), il est fondamental de surveiller constamment l'évolution des réglementations fédérales et cantonales. Ceux qui souhaitent invece analyser l'impact des cotisations de prévoyance sur leur fiche de paie actuelle peuvent utiliser le [calculateur de salaire](nav:calculator) pour obtenir une projection précise des coûts et des économies.
-
-*Source: [tio.ch](https://www.tio.ch/svizzera/economia/1950840/barometro-previsione-risparmiano-vecchiaia-condizioni)*]]></content:encoded>
-      <pubDate>Thu, 17 Sep 2026 10:27:05 GMT</pubDate>
-      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/barometro-previdenza-raiffeisen-zhaw</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/barometro-previdenza-raiffeisen-zhaw.webp" medium="image"/>
     </item>
   </channel>
 </rss>

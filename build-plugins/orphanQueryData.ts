@@ -9,25 +9,26 @@
  */
 
 import { firstParsableMs } from './shared/firstParsableDate';
+import {
+  ORPHAN_LANDING_LOCALES as SHARED_ORPHAN_LANDING_LOCALES,
+  ORPHAN_LANDING_SECTION as SHARED_ORPHAN_LANDING_SECTION,
+  ORPHAN_LANDING_LOCALE_PREFIX as SHARED_ORPHAN_LANDING_LOCALE_PREFIX,
+  buildOrphanLandingPath as buildSharedOrphanLandingPath,
+} from '../scripts/lib/orphan-landing-path.mjs';
 
 export type OrphanLandingLocale = 'it' | 'en' | 'de' | 'fr';
 
-export const ORPHAN_LANDING_LOCALES: ReadonlyArray<OrphanLandingLocale> = ['it', 'en', 'de', 'fr'] as const;
+export const ORPHAN_LANDING_LOCALES: ReadonlyArray<OrphanLandingLocale> =
+  SHARED_ORPHAN_LANDING_LOCALES as ReadonlyArray<OrphanLandingLocale>;
 
 /** Section slug per locale for orphan-query landings. */
 export const ORPHAN_LANDING_SECTION: Record<OrphanLandingLocale, string> = {
-  it: 'ricerca',
-  en: 'search',
-  de: 'suche',
-  fr: 'recherche',
+  ...SHARED_ORPHAN_LANDING_SECTION,
 };
 
 /** Locale path prefix (Italian has no prefix, others get /xx). */
 export const ORPHAN_LANDING_LOCALE_PREFIX: Record<OrphanLandingLocale, string> = {
-  it: '',
-  en: '/en',
-  de: '/de',
-  fr: '/fr',
+  ...SHARED_ORPHAN_LANDING_LOCALE_PREFIX,
 };
 
 export const ORPHAN_LANDING_OG_LOCALE: Record<OrphanLandingLocale, string> = {
@@ -83,9 +84,7 @@ export interface OrphanCountableJob {
 
 /** Build the canonical URL path (always trailing slash) for a cluster. */
 export function buildOrphanLandingPath(locale: OrphanLandingLocale, slug: string): string {
-  const prefix = ORPHAN_LANDING_LOCALE_PREFIX[locale];
-  const section = ORPHAN_LANDING_SECTION[locale];
-  return `${prefix}/${section}/${slug}/`.replace(/\/+/g, '/');
+  return buildSharedOrphanLandingPath(locale, slug);
 }
 
 /** Parse a URL path and return (locale, slug) if it matches an orphan landing, else null. */

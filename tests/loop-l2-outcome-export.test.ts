@@ -10,6 +10,7 @@ import {
   exportL2,
   L2_USEFUL_ACTION_EVENT,
   landingPathsFromGsc,
+  normalizeLandingPath,
 } from '../scripts/ci/export-l2-demand-outcomes.mjs';
 
 const NOW = new Date('2026-09-12T12:00:00.000Z');
@@ -19,16 +20,32 @@ function source(overrides: Record<string, unknown> = {}) {
     generatedAt: '2026-09-12T11:00:00.000Z',
     clusters: [
       { canonicalSlug: 'offerte-lavoro-ticino', canonicalQuery: 'offerte lavoro ticino', locale: 'it', totalImpressions: 1200, totalClicks: 80 },
-      { canonicalSlug: '/en/jobs-ticino/', canonicalQuery: 'jobs ticino', locale: 'en', totalImpressions: 900, totalClicks: 60 },
+      { canonicalSlug: 'jobs-ticino', canonicalQuery: 'jobs ticino', locale: 'en', totalImpressions: 900, totalClicks: 60 },
     ],
     ...overrides,
   };
 }
 
 describe('L2 read-only demand outcome export', () => {
-  it('normalizes every GSC landing path and rejects an empty cohort', () => {
-    expect(landingPathsFromGsc(source())).toEqual(['/en/jobs-ticino/', '/offerte-lavoro-ticino/']);
+  it('builds every emitted GSC landing path and rejects an empty cohort', () => {
+    expect(landingPathsFromGsc(source())).toEqual(['/en/search/jobs-ticino/', '/ricerca/offerte-lavoro-ticino/']);
     expect(() => landingPathsFromGsc(source({ clusters: [] }))).toThrow('no landing paths');
+  });
+
+  it('uses the emitted locale section for every orphan landing locale', () => {
+    expect(landingPathsFromGsc({ clusters: [
+      { canonicalSlug: 'it-query', locale: 'it' },
+      { canonicalSlug: 'en-query', locale: 'en' },
+      { canonicalSlug: 'de-query', locale: 'de' },
+      { canonicalSlug: 'fr-query', locale: 'fr' },
+    ] })).toEqual([
+      '/de/suche/de-query/',
+      '/en/search/en-query/',
+      '/fr/recherche/fr-query/',
+      '/ricerca/it-query/',
+    ]);
+    expect(landingPathsFromGsc({ clusters: [{ canonicalSlug: 'it-query', locale: 'it' }] }))
+      .not.toContain('/it-query/');
   });
 
   it('builds bounded GA4 session reports and keeps useful actions once per session', () => {
@@ -53,30 +70,34 @@ describe('L2 read-only demand outcome export', () => {
   });
 
   it('joins only GSC paths and rejects incomplete GA4 aggregation', () => {
+    expect(normalizeLandingPath('/')).toBe('/');
+    expect(normalizeLandingPath('https://frontaliereticino.ch/')).toBe('/');
     expect(buildL2OutcomeCounts({
-      landingPaths: ['/offerte-lavoro-ticino/', '/en/jobs-ticino/'],
+      landingPaths: ['/ricerca/offerte-lavoro-ticino/', '/en/search/jobs-ticino/'],
       landingSessionReport: {
         rows: [
-          { dimensionValues: [{ value: '/offerte-lavoro-ticino/?utm_source=gsc' }], metricValues: [{ value: '1200' }] },
-          { dimensionValues: [{ value: '/en/jobs-ticino/' }], metricValues: [{ value: '900' }] },
+          { dimensionValues: [{ value: '/' }], metricValues: [{ value: '5000' }] },
+          { dimensionValues: [{ value: '/ricerca/offerte-lavoro-ticino/?utm_source=gsc' }], metricValues: [{ value: '1200' }] },
+          { dimensionValues: [{ value: '/en/search/jobs-ticino/' }], metricValues: [{ value: '900' }] },
           { dimensionValues: [{ value: '/outside-gsc/' }], metricValues: [{ value: '9999' }] },
         ],
       },
       usefulActionReport: {
         rows: [
-          { dimensionValues: [{ value: '/offerte-lavoro-ticino/' }], metricValues: [{ value: '180' }] },
+          { dimensionValues: [{ value: '/' }], metricValues: [{ value: '5000' }] },
+          { dimensionValues: [{ value: '/ricerca/offerte-lavoro-ticino/' }], metricValues: [{ value: '180' }] },
           { dimensionValues: [{ value: '/outside-gsc/' }], metricValues: [{ value: '9999' }] },
         ],
       },
     })).toEqual({ eligibleLandingSessions: 2100, usefulActions: 180 });
     expect(buildL2OutcomeCounts({
-      landingPaths: ['/offerte-lavoro-ticino/'],
-      landingSessionReport: { rows: [{ dimensionValues: [{ value: '/offerte-lavoro-ticino/' }], metricValues: [{ value: '1000' }] }] },
+      landingPaths: ['/ricerca/offerte-lavoro-ticino/'],
+      landingSessionReport: { rows: [{ dimensionValues: [{ value: '/ricerca/offerte-lavoro-ticino/' }], metricValues: [{ value: '1000' }] }] },
       usefulActionReport: { rowCount: 0 },
     })).toEqual({ eligibleLandingSessions: 1000, usefulActions: 0 });
     expect(() => buildL2OutcomeCounts({
-      landingPaths: ['/offerte-lavoro-ticino/'],
-      landingSessionReport: { rowCount: 2, rows: [{ dimensionValues: [{ value: '/offerte-lavoro-ticino/' }], metricValues: [{ value: '1' }] }] },
+      landingPaths: ['/ricerca/offerte-lavoro-ticino/'],
+      landingSessionReport: { rowCount: 2, rows: [{ dimensionValues: [{ value: '/ricerca/offerte-lavoro-ticino/' }], metricValues: [{ value: '1' }] }] },
       usefulActionReport: { rows: [] },
     })).toThrow('truncated');
   });
@@ -127,10 +148,10 @@ describe('L2 read-only demand outcome export', () => {
       ga4Runner: async ({ body }) => {
         queries.push(body);
         return body.dimensionFilter
-          ? { rows: [{ dimensionValues: [{ value: '/offerte-lavoro-ticino/' }], metricValues: [{ value: '210' }] }] }
+          ? { rows: [{ dimensionValues: [{ value: '/ricerca/offerte-lavoro-ticino/' }], metricValues: [{ value: '210' }] }] }
           : { rows: [
-            { dimensionValues: [{ value: '/offerte-lavoro-ticino/' }], metricValues: [{ value: '1200' }] },
-            { dimensionValues: [{ value: '/en/jobs-ticino/' }], metricValues: [{ value: '900' }] },
+            { dimensionValues: [{ value: '/ricerca/offerte-lavoro-ticino/' }], metricValues: [{ value: '1200' }] },
+            { dimensionValues: [{ value: '/en/search/jobs-ticino/' }], metricValues: [{ value: '900' }] },
           ] };
       },
     });

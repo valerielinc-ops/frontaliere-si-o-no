@@ -236,6 +236,16 @@ describe('detailEnrichmentReady', () => {
   it('stops only when attribution, image, address, and price are resolved', () => {
     expect(detailEnrichmentReady(complete, perLocaleHits, sourcePeople)).toBe(true);
   });
+
+  it('accepts explicit people extracted from the detail HTML', () => {
+    expect(detailEnrichmentReady({
+      ...complete,
+      detailPeople: {
+        organizer: { '@type': 'Organization', name: 'Promotore dalla pagina' },
+        performer: { name: 'Artista dalla pagina' },
+      },
+    }, perLocaleHits)).toBe(true);
+  });
 });
 
 describe('mapEventRecord', () => {
@@ -369,6 +379,20 @@ describe('mapEventRecord', () => {
     expect((mapped as never as { imageSourceUrl: string }).imageSourceUrl).toBe(
       'https://www.myswitzerland.com/-/media/events/autechre.jpg',
     );
+  });
+
+  it('fills people from explicit attribution in fetched detail HTML', () => {
+    const mapped = mapEventRecord(
+      'detail-html123',
+      { it: { ...hitIt, content: undefined, leadText: undefined } },
+      {
+        detailUrl: 'https://www.myswitzerland.com/it-ch/eventi/autechre',
+        detailHtml: '<div itemprop="description">Präsentiert von Noise Reduction &amp; Musikbüro Rote Fabrik<br>Mitwirkende und Zusatzinformationen:<br>Autechre</div>',
+      },
+    );
+    const event = mapped?.event as never as Record<string, unknown>;
+    expect(event.organizer).toEqual({ '@type': 'Organization', name: 'Noise Reduction & Musikbüro Rote Fabrik' });
+    expect(event.performer).toEqual({ name: 'Autechre' });
   });
 
   it('rejects venue name that matches performer.name and falls back to addressLocality', () => {

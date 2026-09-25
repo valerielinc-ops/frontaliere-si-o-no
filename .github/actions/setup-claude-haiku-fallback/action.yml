@@ -1,19 +1,23 @@
 name: "Setup Codex Luna Max article lane"
 description: >-
   Installs the pinned Codex CLI and exposes a private broker for the
-  gpt-5.6-luna subscription lane. The historical Remote Config flag remains
-  the kill-switch for this optional article lane, while the provider itself is
-  enabled only after the broker is ready. CODEX_AUTH_JSON is consumed only by
-  the bootstrap step, kept in broker memory, and never exported to the job.
+  gpt-5.6-luna subscription lane. The lane's only switch is
+  ENABLE_CODEX_ARTICLE_FALLBACK (Remote Config via load-rc-env.mjs): unset
+  means ON, only an explicit 0/false/no/off turns it off, and the provider is
+  usable only after the broker is ready. ENABLE_HAIKU_ARTICLE_FALLBACK has no
+  effect any more (Haiku is disabled in code since 2026-09-24): it used to be
+  the fallback of this gate, so turning Haiku off would have turned Codex off.
+  CODEX_AUTH_JSON is consumed only by the bootstrap step, kept in broker
+  memory, and never exported to the job.
   CORRECTED CLAIM (was wrong in this file since generate-article.yml run
   29676088799, propagated into setup-omniroute/action.yml via PR #4816):
   env.* is NOT immune to the null/unset->0 coercion previously blamed only
   on vars.* — `if: env.X != '0'` also evaluates FALSE when env.X was never
-  set anywhere (confirmed live: this repo's RC value for
-  ENABLE_HAIKU_ARTICLE_FALLBACK happens to be the explicit string 'true',
-  so this action's gate has never actually exercised the true-unset path in
-  production). Fixed below by resolving the default in bash — where
-  `${ENABLE_HAIKU_ARTICLE_FALLBACK:-1}` unambiguously treats unset as
+  set anywhere (confirmed live: this repo's RC value for the historical
+  ENABLE_HAIKU_ARTICLE_FALLBACK gate happened to be the explicit string
+  'true', so the gate never exercised the true-unset path in production).
+  Fixed below by resolving the default in bash — where
+  `${ENABLE_CODEX_ARTICLE_FALLBACK:-1}` unambiguously treats unset as
   `1` — before the `if:` expression ever sees it, same pattern as
   setup-omniroute/action.yml and translate-pending.yml's
   TRANSLATE_ARGOS_FIRST_DISABLE (`!= '1'`) gate.
@@ -23,6 +27,16 @@ inputs:
       Optional CODEX_AUTH_JSON secret. It is consumed only while bootstrapping
       the private broker; it is never exported to the job environment.
     required: false
+  broker_idle_ttl_ms:
+    description: >-
+      Idle TTL of the Codex auth broker, in milliseconds. The default (30
+      minutes) fits jobs that call Codex steadily. A job whose consumer can
+      stay idle longer, such as a last-resort translation tier reached only
+      after every other tier failed on a text, passes its own envelope here;
+      the explicit cleanup step still ends the broker. Values outside
+      60000..21600000 fall back to the default.
+    required: false
+    default: '1800000'
 outputs:
   codex_auth_broker_socket:
     description: >-
@@ -37,10 +51,16 @@ runs:
     # bash instead of GitHub Actions' `if:` expression language, which
     # evaluates a true-unset env.X as equal to '0' rather than as ''. See
     # the CORRECTED CLAIM note above.
+    # Only the Codex switch counts; ENABLE_HAIKU_ARTICLE_FALLBACK is ignored.
+    # Same normalization as isCodexArticleLaneSwitchOn() in ai-models.mjs.
     - name: Resolve Codex Luna Max article gate
       shell: bash
       run: |
-        resolved_gate="${ENABLE_CODEX_ARTICLE_FALLBACK:-${ENABLE_HAIKU_ARTICLE_FALLBACK:-1}}"
+        codex_switch="${ENABLE_CODEX_ARTICLE_FALLBACK:-1}"
+        case "${codex_switch,,}" in
+          0|false|no|off) resolved_gate=0 ;;
+          *) resolved_gate=1 ;;
+        esac
         echo "CODEX_ARTICLE_LANE_GATE=$resolved_gate" >> "$GITHUB_ENV"
         echo "ENABLE_CODEX_ARTICLE_FALLBACK=$resolved_gate" >> "$GITHUB_ENV"
 
@@ -242,7 +262,11 @@ runs:
           node_runtime_root="$(/usr/bin/mktemp -d "$runner_temp/codex-luna-max-node.XXXXXX")"
           /usr/bin/chmod 700 "$node_runtime_root"
           archive_path="$node_runtime_root/$node_archive"
+          # Stesso tetto del gemello in claude-codex-fallback/action.yml: un
+          # download appeso a nodejs.org ha bloccato quello step 32 minuti
+          # (post-merge-followup run 35735836333).
           /usr/bin/curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 \
+            --connect-timeout 20 --max-time 120 --retry 2 --retry-delay 5 \
             --output "$archive_path" "$node_url"
           archive_sha256="$(/usr/bin/sha256sum -- "$archive_path" | "$cut_cmd" -d ' ' -f 1)"
           if [ "$archive_sha256" != "$node_archive_sha256" ]; then
@@ -457,6 +481,7 @@ runs:
       shell: bash
       env:
         CODEX_AUTH_JSON: ${{ inputs.codex_auth_json }}
+        BROKER_IDLE_TTL_MS: ${{ inputs.broker_idle_ttl_ms }}
         CODEX_CLI_BIN: ${{ steps.install_codex_cli.outputs.codex_bin }}
         CODEX_CLI_REALPATH: ${{ steps.install_codex_cli.outputs.codex_realpath }}
         CODEX_CLI_SHA256: ${{ steps.install_codex_cli.outputs.codex_sha256 }}
@@ -467,12 +492,46 @@ runs:
         set +e
         node_bin="${TRUSTED_NODE:-}"
         node_sha256_expected="${TRUSTED_NODE_SHA256:-}"
+        # Sui runner GitHub-hosted `trusted_toolchain` rifiuta SEMPRE il Node
+        # del toolcache (mode 777) e usa il Node pinnato per checksum che
+        # estrae in `$RUNNER_TEMP/codex-luna-max-node.XXXXXX` (0700). Questa
+        # allowlist non lo elencava, quindi il broker si rifiutava a ogni run
+        # ("could not use its attested Node runtime", smoke-test-ai-models run
+        # 35995800618) e la lane Codex saltava in silenzio in tutti i
+        # chiamanti. Si accetta SOLO quel percorso esatto, nella sua directory
+        # privata 0700; lo sha256 sotto continua a legare il binario a quello
+        # attestato da `trusted_toolchain`.
+        pinned_runtime_ok=0
+        runner_temp_real=''
+        if [ -n "${RUNNER_TEMP:-}" ]; then
+          for candidate_realpath in /usr/bin/realpath /bin/realpath; do
+            if [ -x "$candidate_realpath" ]; then
+              runner_temp_real="$("$candidate_realpath" -- "$RUNNER_TEMP" 2>/dev/null || true)"
+              break
+            fi
+          done
+        fi
+        case "$runner_temp_real" in
+          /?*)
+            pinned_suffix="${node_bin#"$runner_temp_real"/}"
+            if [ "$pinned_suffix" != "$node_bin" ] && \
+              [[ "$pinned_suffix" =~ ^codex-luna-max-node\.[A-Za-z0-9]{6}/node/bin/node$ ]]; then
+              pinned_runtime_root="$runner_temp_real/${pinned_suffix%%/*}"
+              pinned_runtime_mode="$(/usr/bin/stat -c '%a' -- "$pinned_runtime_root" 2>/dev/null || true)"
+              if [ -d "$pinned_runtime_root" ] && [ ! -L "$pinned_runtime_root" ] && [ "$pinned_runtime_mode" = '700' ]; then
+                pinned_runtime_ok=1
+              fi
+            fi
+            ;;
+        esac
         case "$node_bin" in
           /usr|/usr/*|/usr/local|/usr/local/*|/bin|/bin/*|/opt/hostedtoolcache|/opt/hostedtoolcache/*|/opt/runner|/opt/runner/*|/opt/homebrew|/opt/homebrew/*)
             ;;
           *)
-            echo "::warning::Codex auth broker could not use its attested Node runtime; the normal fallback cascade remain available"
-            exit 0
+            if [ "$pinned_runtime_ok" -ne 1 ]; then
+              echo "::warning::Codex auth broker could not use its attested Node runtime; the normal fallback cascade remain available"
+              exit 0
+            fi
             ;;
         esac
         if [ ! -f "$node_bin" ] || [ ! -x "$node_bin" ] || [ -L "$node_bin" ]; then
@@ -512,11 +571,20 @@ runs:
           rm -rf -- "$auth_dir"
           exit 0
         fi
+        # Digits only, at most 8 of them, then bounded: anything else keeps
+        # the 30-minute default.
+        broker_ttl_ms="$BROKER_IDLE_TTL_MS"
+        case "$broker_ttl_ms" in
+          ''|*[!0-9]*) broker_ttl_ms=1800000 ;;
+        esac
+        if [ "${#broker_ttl_ms}" -gt 8 ] || [ "$broker_ttl_ms" -lt 60000 ] || [ "$broker_ttl_ms" -gt 21600000 ]; then
+          broker_ttl_ms=1800000
+        fi
         # The broker receives the credential only through the FIFO. Start it
         # with an empty environment so CODEX_AUTH_JSON from this step cannot
         # leak into the long-lived broker process or any diagnostics.
         nohup /usr/bin/env -i PATH="$PATH" "$node_bin" "$GITHUB_ACTION_PATH/codex-auth-broker.mjs" \
-          --socket "$broker_socket" --ttl-ms 1800000 --max-requests 512 \
+          --socket "$broker_socket" --ttl-ms "$broker_ttl_ms" --max-requests 512 \
           --codex-bin "$CODEX_CLI_BIN" --codex-realpath "$CODEX_CLI_REALPATH" \
           --codex-sha256 "$CODEX_CLI_SHA256" --codex-prefix "$CODEX_CLI_PREFIX" \
           < "$auth_fifo" > /dev/null 2>&1 &
@@ -557,7 +625,7 @@ runs:
         CODEX_CLI_BIN: ${{ steps.install_codex_cli.outputs.codex_bin }}
       run: |
         echo "ENABLE_CODEX_ARTICLE_FALLBACK=${ENABLE_CODEX_ARTICLE_FALLBACK:-<unset>} (resolved provider flag)"
-        echo "ENABLE_HAIKU_ARTICLE_FALLBACK=${ENABLE_HAIKU_ARTICLE_FALLBACK:-<unset>} (legacy RC value)"
+        echo "ENABLE_HAIKU_ARTICLE_FALLBACK=${ENABLE_HAIKU_ARTICLE_FALLBACK:-<unset>} (ignored: Haiku is disabled and no longer gates Codex)"
         echo "CODEX_ARTICLE_LANE_GATE=${CODEX_ARTICLE_LANE_GATE:-<unset>} (resolved gate)"
         if [ -n "$CODEX_CLI_BIN" ]; then
           echo "codex CLI: attested at $CODEX_CLI_BIN (version 0.153.4)"

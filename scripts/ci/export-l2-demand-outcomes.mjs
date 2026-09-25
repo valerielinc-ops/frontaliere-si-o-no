@@ -18,6 +18,7 @@ import {
   ga4DateRange,
   runGa4Report,
 } from '../lib/ga4-service-account.mjs';
+import { buildOrphanLandingPath } from '../lib/orphan-landing-path.mjs';
 
 export const LOOP_ID = 'L2';
 export const DEFAULT_SOURCE_PATH = path.join('data', 'gsc-orphan-queries-clusters.json');
@@ -77,6 +78,10 @@ function normalizePathname(value) {
   } catch {
     pathname = pathname.split(/[?#]/u, 1)[0];
   }
+  // GA4 includes the site's root landing page in the report. It is a valid
+  // landing path, but it is outside the GSC orphan cohort and is ignored by
+  // buildL2OutcomeCounts after normalization.
+  if (pathname === '/') return '/';
   const slug = pathname.replace(/^\/+|\/+$/gu, '');
   return slug ? `/${slug}/` : null;
 }
@@ -86,15 +91,23 @@ export function normalizeLandingPath(value) {
   return normalizePathname(value);
 }
 
-/** Return every GSC landing path, without silently dropping a malformed row. */
+/**
+ * Return every emitted orphan landing path, without silently dropping a
+ * malformed row. `canonicalSlug` is a leaf slug, not a root URL: the build
+ * plugin emits it below the locale-specific orphan section.
+ */
 export function landingPathsFromGsc(source) {
   if (!object(source) || !Array.isArray(source.clusters)) {
     throw new Error('GSC snapshot must contain a clusters array');
   }
   const paths = new Set();
   for (const [index, cluster] of source.clusters.entries()) {
-    const landingPath = normalizeLandingPath(cluster?.canonicalSlug);
-    if (!landingPath) throw new Error(`GSC cluster ${index} has no canonicalSlug`);
+    let landingPath;
+    try {
+      landingPath = buildOrphanLandingPath(cluster?.locale, cluster?.canonicalSlug);
+    } catch (error) {
+      throw new Error(`GSC cluster ${index} has no valid emitted landing path: ${error.message}`);
+    }
     paths.add(landingPath);
   }
   if (paths.size === 0) throw new Error('GSC snapshot has no landing paths');
