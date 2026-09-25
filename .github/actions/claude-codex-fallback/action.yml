@@ -1219,7 +1219,15 @@ runs:
         # legitimately discuss `401`/`token_expired` as text, so never classify
         # arbitrary model output as an auth failure. Only a non-zero provider
         # process with an auth-specific stderr line is eligible here.
+        # A watchdog kill (exit 124) is not eligible either: `codex exec`
+        # echoes the output of the commands it runs on stderr, so a fixer
+        # that read a document mentioning `401 Unauthorized` for 15 minutes
+        # was reported as an auth failure and its automatic retry was held
+        # until CODEX_AUTH_JSON changed (4 runs on 2026-09-24/25, all paired
+        # with the watchdog). A rejected token fails at startup, long before
+        # any watchdog.
         if [ "$codex_status" -ne 0 ] \
+          && [ "$codex_timed_out" != true ] \
           && grep -qiE '401[[:space:]]+Unauthorized|auth error code:[[:space:]]*token_expired|Failed to refresh token|refresh token was already used' "$codex_stderr"; then
           codex_auth_failure=true
           echo '::error::Codex primary authentication is invalid or its refresh token was consumed; automatic retry is held until CODEX_AUTH_JSON changes.'
