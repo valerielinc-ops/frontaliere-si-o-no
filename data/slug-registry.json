@@ -702869,7 +702869,8 @@
     "slugByLocale": {
       "de": "early-postdoc-unibe-bern",
       "it": "postdoc-universitat-bern-bern",
-      "fr": "premier-postdoc-universitat-bern-bern"
+      "fr": "premier-postdoc-universitat-bern-bern",
+      "en": "old-postdoc-universitat-bern-bern"
     },
     "createdAt": "2026-09-11",
     "canton": "BE"
@@ -795142,7 +795143,8 @@
     "slugByLocale": {
       "en": "eth-ai-center-doctoral-fellowship-2027-eth-zurich-ch",
       "de": "eth-ai-center-doktorandenstipendium-2027-eth-zurich-zurich",
-      "fr": "bourse-de-doctorat-du-centre-ai-de-l-eth-2027-eth-zurich-zurich"
+      "fr": "bourse-de-doctorat-du-centre-ai-de-l-eth-2027-eth-zurich-zurich",
+      "it": "eth-ai-centro-fleoship-dottorale-2027-eth-zurich-zurich"
     },
     "createdAt": "2026-09-25",
     "canton": "ZH"
@@ -795213,7 +795215,8 @@
     "canonicalSlug": "brandschutzfachfrau-mann-m-w-d-eth-zurich",
     "slugByLocale": {
       "de": "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
-      "it": "brandschutzfachfrau-mann-m-w-d-eth-zurich"
+      "it": "brandschutzfachfrau-mann-m-w-d-eth-zurich",
+      "fr": "specialiste-de-la-protection-contre-l-incendie-h-f-d-eth-zurich-zurich"
     },
     "createdAt": "2026-09-25",
     "canton": "ZH"
@@ -795499,7 +795502,8 @@
     "canonicalSlug": "sviluppo-commerciale-e-responsabile-vendite-m-f-d-sulzer-winterthur",
     "slugByLocale": {
       "de": "rental-business-development-sales-manager-m-w-d-sulzer-ch",
-      "it": "sviluppo-commerciale-e-responsabile-vendite-m-f-d-sulzer-winterthur"
+      "it": "sviluppo-commerciale-e-responsabile-vendite-m-f-d-sulzer-winterthur",
+      "fr": "responsable-du-developpement-commercial-et-des-ventes-en-location-h-f-d-sulzer-winterthur"
     },
     "createdAt": "2026-09-25",
     "canton": "ZH"
@@ -795702,7 +795706,8 @@
     "slugByLocale": {
       "it": "responsabile-della-scienza-dei-dati-universitat-bern-bern",
       "en": "data-science-officer-unibe-bern",
-      "fr": "specialiste-des-sciences-des-donnees-universitat-bern-bern"
+      "fr": "specialiste-des-sciences-des-donnees-universitat-bern-bern",
+      "de": "data-science-beauftragter-universitat-bern-bern"
     },
     "createdAt": "2026-09-25",
     "canton": "BE"
@@ -799667,5 +799672,37 @@
     },
     "createdAt": "2026-09-25",
     "canton": "SG"
+  },
+  "id|oerlikon.com|104960-en_us": {
+    "canonicalSlug": "team-leader-electric-manufacturing-gn-oerlikon-wohlen",
+    "slugByLocale": {
+      "de": "teamleiter-elektrofertigung-gn-oerlikon-ch",
+      "it": "team-leader-electric-manufacturing-gn-oerlikon-wohlen",
+      "en": "team-leader-electrical-manufacturing-gn-oerlikon-wohlen",
+      "fr": "chef-d-equipe-fabrication-electrique-gn-oerlikon-wohlen"
+    },
+    "createdAt": "2026-09-25",
+    "canton": "AG"
+  },
+  "id|oerlikon.com|104951-en_us": {
+    "canonicalSlug": "quality-ingegnere-equipment-gn-oerlikon-wohlen",
+    "slugByLocale": {
+      "it": "quality-ingegnere-equipment-gn-oerlikon-wohlen",
+      "de": "quality-engineer-equipment-gn-oerlikon-ch",
+      "fr": "qualite-ingenieur-equipment-gn-oerlikon-wohlen"
+    },
+    "createdAt": "2026-09-25",
+    "canton": "AG"
+  },
+  "id|oerlikon.com|104517-en_us": {
+    "canonicalSlug": "campo-di-prova-tecnico-gn-oerlikon-wohlen",
+    "slugByLocale": {
+      "it": "campo-di-prova-tecnico-gn-oerlikon-wohlen",
+      "en": "technician-gn-test-field-oerlikon-wohlen",
+      "de": "techniker-gn-pruffeld-oerlikon-ch",
+      "fr": "champ-d-essai-du-technicien-gn-oerlikon-wohlen"
+    },
+    "createdAt": "2026-09-25",
+    "canton": "AG"
   }
 }
