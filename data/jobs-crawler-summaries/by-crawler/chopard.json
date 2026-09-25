@@ -1,21 +1,21 @@
 {
   "key": "chopard",
   "label": "Chopard",
-  "generatedAt": "2026-09-24T14:23:16.210Z",
-  "total": 7,
+  "generatedAt": "2026-09-25T14:42:45.497Z",
+  "total": 6,
   "discovered": null,
   "parsed": 6,
   "lastFetchOutcome": null,
-  "written": 7,
+  "written": 6,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4300,
-  "avgDurationMs": 4300,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3156,
+  "avgDurationMs": 3156,
   "durationHistory": [
-    4300
+    3156
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2233?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:23:05.797Z",
+      "crawledAt": "2026-09-25T14:42:38.621Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -69,7 +69,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2608?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:23:05.852Z",
+      "crawledAt": "2026-09-25T14:42:38.660Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -107,7 +107,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2604?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:23:05.899Z",
+      "crawledAt": "2026-09-25T14:42:38.684Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -146,7 +146,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2570?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:23:05.904Z",
+      "crawledAt": "2026-09-25T14:42:38.687Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -184,7 +184,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2572?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:23:05.910Z",
+      "crawledAt": "2026-09-25T14:42:38.691Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -222,7 +222,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2555?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:23:05.917Z",
+      "crawledAt": "2026-09-25T14:42:38.695Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -249,8 +249,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "chopard-51dd98312b73",
       "slug": "financial-controlling-tirocinante-chopard-meyrin",
@@ -285,6 +284,7 @@
       "salaryMax": 77500,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2351?c=chopard&lang=en-us",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -293,5 +293,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

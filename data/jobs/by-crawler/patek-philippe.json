@@ -1,6 +1,6 @@
 {
   "crawlerKey": "patek-philippe",
-  "assembledAt": "2026-09-24T14:24:36.267Z",
+  "assembledAt": "2026-09-25T14:41:15.248Z",
   "jobs": [
     {
       "id": "patek-philippe-15f6ed9a1583",
@@ -33,7 +33,7 @@
       "url": "https://careers.patek.com/job/La-Chaux-de-Fonds-Sertisseur-baguette-%28HF%29/1359382355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:24:31.294Z",
+      "crawledAt": "2026-09-25T14:41:08.168Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
@@ -51,14 +51,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds"
+        "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds",
+        "wand-h-f-patek-philippe-la-chaux-de-fonds"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds"
+          "sertisseur-baguette-h-f-patek-philippe-la-chaux-de-fonds",
+          "wand-h-f-patek-philippe-la-chaux-de-fonds"
         ]
       },
       "firstSeenAt": "2026-07-04T12:12:08.354Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -104,7 +107,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Technicien-Contr%C3%B4le-3D-%28HF%29/1367011355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:24:30.853Z",
+      "crawledAt": "2026-09-25T14:41:07.721Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -122,11 +125,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technicien-controle-3d-h-f-patek-philippe-saint-imier"
+        "technicien-controle-3d-h-f-patek-philippe-saint-imier",
+        "tecnologia-di-controllo-3d-m-f-patek-philippe-saint-imier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-controle-3d-h-f-patek-philippe-saint-imier"
+          "technicien-controle-3d-h-f-patek-philippe-saint-imier",
+          "tecnologia-di-controllo-3d-m-f-patek-philippe-saint-imier"
         ],
         "en": [
           "technicien-controle-3d-h-f-patek-philippe-saint-imier"
@@ -136,6 +141,7 @@
         ]
       },
       "firstSeenAt": "2026-09-02T23:11:25.604Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -155,8 +161,8 @@
       "slug": "abbozzo-h-f-patek-philippe-plan-les-ouates",
       "slugByLocale": {
         "it": "abbozzo-h-f-patek-philippe-plan-les-ouates",
-        "en": "drafter-h-f-patek-philippe-plan-les-ouates",
-        "de": "zeichner-h-f-patek-philippe-plan-les-ouates",
+        "en": "drawer-m-w-d-patek-philippe-plan-les-ouates",
+        "de": "schublade-m-w-d-patek-philippe-plan-les-ouates",
         "fr": "dessinateur-h-f-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
@@ -181,7 +187,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Dessinateur-%28HF%29/1351586455/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:24:30.408Z",
+      "crawledAt": "2026-09-25T14:41:07.263Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -203,19 +209,25 @@
       "previousSlugs": [
         "dessinateur-h-f-patek-philippe-plan-les-ouates",
         "dessinateur-m-w-d-patek-philippe-plan-les-ouates",
+        "drafter-h-f-patek-philippe-plan-les-ouates",
+        "zeichner-h-f-patek-philippe-plan-les-ouates",
+        "abbozzo-h-f-patek-philippe-plan-les-ouates",
         "drawer-m-w-d-patek-philippe-plan-les-ouates",
         "schublade-m-w-d-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dessinateur-h-f-patek-philippe-plan-les-ouates"
+          "dessinateur-h-f-patek-philippe-plan-les-ouates",
+          "abbozzo-h-f-patek-philippe-plan-les-ouates"
         ],
         "en": [
           "dessinateur-m-w-d-patek-philippe-plan-les-ouates",
+          "drafter-h-f-patek-philippe-plan-les-ouates",
           "drawer-m-w-d-patek-philippe-plan-les-ouates"
         ],
         "de": [
           "dessinateur-m-w-d-patek-philippe-plan-les-ouates",
+          "zeichner-h-f-patek-philippe-plan-les-ouates",
           "schublade-m-w-d-patek-philippe-plan-les-ouates"
         ]
       },
@@ -265,7 +277,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Contr%C3%B4le-Qualit%C3%A9-%28HF%29/1367187155/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:24:29.966Z",
+      "crawledAt": "2026-09-25T14:41:06.790Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -285,6 +297,93 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-03T13:35:00.365Z",
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "patek-philippe-fca151180e18",
+      "slug": "gestione-ruote-speciali-h-f-patek-philippe-plan-les-ouates",
+      "slugByLocale": {
+        "it": "gestione-ruote-speciali-h-f-patek-philippe-plan-les-ouates",
+        "en": "special-wheels-manager-h-f-patek-philippe-plan-les-ouates",
+        "de": "verantwortliche-spezialrader-m-w-d-patek-philippe-plan-les-ouates",
+        "fr": "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates"
+      },
+      "company": "Patek Philippe",
+      "companyKey": "patek-philippe",
+      "companyDomain": "patek.com",
+      "title": "Responsable Rouages Spéciaux (H/F)",
+      "titleByLocale": {
+        "it": "Ruote speciali responsabili (M/F)",
+        "en": "Responsible Special Wheels (M/F)",
+        "de": "Verantwortliche Spezialräder (M/W)",
+        "fr": "Responsable Rouages Spéciaux (H/F)"
+      },
+      "description": "Mission\n\nDans le cadre de cette fonction, rattachée à notre Division Composants Mouvements, vous assurerez la gestion d'un atelier composé de Mécaniciens-Régleurs et d'Opérateurs dans leurs activités de production en décolletage et terminaison. En étroite collaboration avec les autres ateliers du service Roues à bras et les services supports afin d’assurer le plan de production dans les critères qualité et les standards Patek Philippe, vous serez responsable de l’atteinte des résultats et de la facilitation de l’Expérience Collaborateur.\n\nResponsabilités\n\n• Guider, accompagner, encourager, motiver et développer vos équipes tout en maximisant la productivité et les délais pour atteindre les objectifs.\n\n• Assurer l’accompagnement de la formation et le développement de la polyvalence au sein de l’atelier.\n\n• Analyser les procédés opérationnels, prendre des mesures de correction afin d’améliorer la qualité, diminuer les taux de déchets et les temps d’opération.\n\n• Assurer le respect du plan de production et garantir l’application des standards Patek Philippe.\n\n• Faire progresser l’activité et les procédés opérationnels de l’atelier en étroite coordination avec les autres ateliers, ainsi qu’en collaboration avec les services supports, les clients internes et les autres services et divisions.\n\nProfil recherché\n\n• Bachelor ou Master en microtechnique ou génie mécanique ou toute formation jugée équivalente.\n\n• 5 ans d'expérience au minimum dans une fonction managériale.\n\n• Maîtrise des techniques d’usinage, notamment du décolletage.\n\n• Connaissance en gestion de production\n\n• Connaissances des outils d’amélioration continue et de gestion de production.\n\n• Maîtrise des outils bureautiques (MS Office), connaissances SAP un atout.\n\n• Aisance en communication écrite et orale et sens de l’écoute.\n\n• Capacité à fédérer une équipe autour d'un objectif commun.\n\n• Force de propositions, capacités décisionnelles et organisationnelles.\n\n• Rigueur, esprit d’analyse et de synthèse.\n\n• Esprit d’équipe et capacités d’adaptation.\n\nRéférence du poste\n\n3694",
+      "descriptionByLocale": {
+        "it": "Missione\n\nNell'ambito di questa funzione, allegata alla nostra Divisione Componenti del Movimento, gestirai un workshop composto da Mechanic-Regolatori e Operatori nelle loro attività di produzione in décolletage e terminazione. In stretta collaborazione con gli altri workshop del servizio e dei servizi di supporto Wheels per garantire il piano di produzione nei criteri e negli standard di qualità Patek Philippe, sarete responsabili del raggiungimento dei risultati e della facilitazione del Collaboratore Experience.\n\nresponsabilità\n\n• Guida, supporto, incoraggiare, motivare e sviluppare i vostri team, massimizzando la produttività e il tempo per raggiungere gli obiettivi.\n\n• Fornire supporto per la formazione e lo sviluppo della versatilità nel workshop.\n\n• Analizzare i processi operativi, adottare misure correttive per migliorare la qualità, ridurre i tassi di scarico e i tempi di funzionamento.\n\n• Assicurare il rispetto del piano di produzione e garantire il rispetto degli standard Patek Philippe.\n\n• Avanzare l'attività del workshop e i processi operativi in stretto coordinamento con altri workshop, nonché in collaborazione con servizi di supporto, clienti interni e altri servizi e divisioni.\n\nProfilo ricercato\n\n• Corso di laurea o Master in Microtecnica o Ingegneria Meccanica o qualsiasi formazione equivalente.\n\n• Almeno 5 anni di esperienza in una funzione manageriale.\n\n• Mastery di tecniche di lavorazione, tra cui decolleting.\n\n• Conoscenza della gestione della produzione\n\n• Conoscenza di strumenti di miglioramento continuo e di gestione della produzione.\n\n• Mastery of office tools (MS Office), SAP conosce un asset.\n\n• Capacità nella comunicazione scritta e orale e nell'ascolto.\n\n• Capacità di unire una squadra intorno a un obiettivo comune.\n\n• Rafforzamento delle proposte, delle capacità decisionali e organizzative.\n\n• Rigor, spirito di analisi e sintesi.\n\n• Spirito di squadra e adattabilità.\n\nRiferimenti\n\n3694",
+        "en": "Mission\n\nAs part of this function, attached to our Movement Components Division, you will manage a workshop made up of Mechanic-Regulators and Operators in their production activities in décolletage and termination. In close collaboration with the other workshops of the Wheels service and support services to ensure the production plan in the quality criteria and standards Patek Philippe, you will be responsible for achieving the results and facilitating the Experience Collaborator.\n\nResponsibilities\n\n• Guide, support, encourage, motivate and develop your teams while maximizing productivity and time to achieve the goals.\n\n• Provide support for training and the development of versatility in the workshop.\n\n• Analyze operational processes, take corrective measures to improve quality, reduce waste rates and operating times.\n\n• Ensure compliance with the production plan and ensure compliance with the Patek Philippe standards.\n\n• Advance the workshop activity and operational processes in close coordination with other workshops, as well as in collaboration with support services, internal clients and other services and divisions.\n\nProfile sought\n\n• Bachelor or Master in Microtechnics or Mechanical Engineering or any equivalent training.\n\n• At least 5 years of experience in a managerial function.\n\n• Mastery of machining techniques, including decolleting.\n\n• Knowledge of production management\n\n• Knowledge of continuous improvement and production management tools.\n\n• Mastery of office tools (MS Office), SAP knowledge an asset.\n\n• Ability in written and oral communication and listening.\n\n• Ability to unite a team around a common goal.\n\n• Strength of proposals, decision-making and organizational capacities.\n\n• Rigor, spirit of analysis and synthesis.\n\n• Team spirit and adaptability.\n\nPost reference\n\n3694",
+        "de": "Mission\n\nIm Rahmen dieser Funktion, die unserer Division für Bewegungskomponenten angegliedert ist, leiten Sie eine Werkstatt, die sich aus Mechanikern und Bedienern in ihren Produktionsaktivitäten in der Dekolletage und Beendigung zusammensetzt. In enger Zusammenarbeit mit den anderen Werkstätten des Wheels Service und Support Services, um den Produktionsplan in den Qualitätskriterien und Standards von Patek Philippe sicherzustellen, sind Sie dafür verantwortlich, die Ergebnisse zu erzielen und den Experience Collaborator zu unterstützen.\n\nZuständigkeiten\n\n• Führen, unterstützen, ermutigen, motivieren und entwickeln Sie Ihre Teams, während Sie Produktivität und Zeit maximieren, um die Ziele zu erreichen.\n\n• Unterstützung für die Ausbildung und die Entwicklung der Vielseitigkeit im Workshop.\n\n• Analysieren Sie Betriebsprozesse, ergreifen Sie Korrekturmaßnahmen zur Verbesserung der Qualität, reduzieren Sie Abfallraten und Betriebszeiten.\n\n• Gewährleistung der Einhaltung des Produktionsplans und der Einhaltung der Standards von Patek Philippe.\n\n• Förderung der Werkstatttätigkeit und der operativen Prozesse in enger Abstimmung mit anderen Workshops sowie in Zusammenarbeit mit Support-Services, internen Kunden und anderen Dienstleistungen und Abteilungen.\n\nProfil gesucht\n\n• Bachelor oder Master in Mikrotechnik oder Maschinenbau oder eine gleichwertige Ausbildung.\n\n• Mindestens 5 Jahre Erfahrung in einer Führungsfunktion.\n\n• Beherrschung von Bearbeitungstechniken, einschließlich Decolleting.\n\n• Kenntnisse des Produktionsmanagements\n\n• Wissen über kontinuierliche Verbesserung und Produktionsmanagement-Tools.\n\n• Mastery of Office Tools (MS Office), SAP Wissen ein Asset.\n\n• Fähigkeit zur schriftlichen und mündlichen Kommunikation und zum Zuhören.\n\n• Fähigkeit, ein Team um ein gemeinsames Ziel zu vereinen.\n\n• Stärke der Vorschläge, Entscheidungsfindung und organisatorische Kapazitäten.\n\n• Strenge, Geist der Analyse und Synthese.\n\n• Teamgeist und Anpassungsfähigkeit.\n\nPostleitzahl\n\n3694",
+        "fr": "Mission\n\nDans le cadre de cette fonction, rattachée à notre Division Composants Mouvements, vous assurerez la gestion d'un atelier composé de Mécaniciens-Régleurs et d'Opérateurs dans leurs activités de production en décolletage et terminaison. En étroite collaboration avec les autres ateliers du service Roues à bras et les services supports afin d’assurer le plan de production dans les critères qualité et les standards Patek Philippe, vous serez responsable de l’atteinte des résultats et de la facilitation de l’Expérience Collaborateur.\n\nResponsabilités\n\n• Guider, accompagner, encourager, motiver et développer vos équipes tout en maximisant la productivité et les délais pour atteindre les objectifs.\n\n• Assurer l’accompagnement de la formation et le développement de la polyvalence au sein de l’atelier.\n\n• Analyser les procédés opérationnels, prendre des mesures de correction afin d’améliorer la qualité, diminuer les taux de déchets et les temps d’opération.\n\n• Assurer le respect du plan de production et garantir l’application des standards Patek Philippe.\n\n• Faire progresser l’activité et les procédés opérationnels de l’atelier en étroite coordination avec les autres ateliers, ainsi qu’en collaboration avec les services supports, les clients internes et les autres services et divisions.\n\nProfil recherché\n\n• Bachelor ou Master en microtechnique ou génie mécanique ou toute formation jugée équivalente.\n\n• 5 ans d'expérience au minimum dans une fonction managériale.\n\n• Maîtrise des techniques d’usinage, notamment du décolletage.\n\n• Connaissance en gestion de production\n\n• Connaissances des outils d’amélioration continue et de gestion de production.\n\n• Maîtrise des outils bureautiques (MS Office), connaissances SAP un atout.\n\n• Aisance en communication écrite et orale et sens de l’écoute.\n\n• Capacité à fédérer une équipe autour d'un objectif commun.\n\n• Force de propositions, capacités décisionnelles et organisationnelles.\n\n• Rigueur, esprit d’analyse et de synthèse.\n\n• Esprit d’équipe et capacités d’adaptation.\n\nRéférence du poste\n\n3694"
+      },
+      "location": "Plan-Les-Ouates",
+      "canton": "GE",
+      "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Rouages-Sp%C3%A9ciaux-%28HF%29/1359898855/",
+      "source": "Patek Philippe Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-25T14:41:06.338Z",
+      "hiringOrganization": "Patek Philippe SA",
+      "addressLocality": "Plan-Les-Ouates",
+      "postalCode": "1228",
+      "streetAddress": "Chemin du Pont-du-Centenaire 141",
+      "addressRegion": "Genève",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Luxury / Watchmaking (Manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-05",
+      "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Rouages-Sp%C3%A9ciaux-%28HF%29/1359898855/",
+      "jobReqId": "1359898855",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates",
+        "responsable-rouages-speciaux-m-w-d-patek-philippe-plan-les-ouates",
+        "spezialradmanager-h-f-patek-philippe-plan-les-ouates",
+        "gestione-ruote-speciali-h-f-patek-philippe-plan-les-ouates",
+        "verantwortliche-spezialrader-m-w-d-patek-philippe-plan-les-ouates"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates",
+          "gestione-ruote-speciali-h-f-patek-philippe-plan-les-ouates"
+        ],
+        "en": [
+          "responsable-rouages-speciaux-m-w-d-patek-philippe-plan-les-ouates"
+        ],
+        "de": [
+          "responsable-rouages-speciaux-m-w-d-patek-philippe-plan-les-ouates",
+          "spezialradmanager-h-f-patek-philippe-plan-les-ouates",
+          "verantwortliche-spezialrader-m-w-d-patek-philippe-plan-les-ouates"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:51:23.152Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -330,7 +429,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Horloger-de-Sp%C3%A9cialit%C3%A9-Organe-R%C3%A9glant-%28HF%29/1363272155/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:24:29.515Z",
+      "crawledAt": "2026-09-25T14:41:05.879Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -351,12 +450,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "horloger-de-specialite-organe-reglant-patek-philippe-plan-les-ouates",
-        "horloger-de-specialite-organe-reglant-h-f-patek-philippe-plan-les-ouates"
+        "horloger-de-specialite-organe-reglant-h-f-patek-philippe-plan-les-ouates",
+        "specialita-orologiera-corpo-di-governo-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "horloger-de-specialite-organe-reglant-patek-philippe-plan-les-ouates",
-          "horloger-de-specialite-organe-reglant-h-f-patek-philippe-plan-les-ouates"
+          "horloger-de-specialite-organe-reglant-h-f-patek-philippe-plan-les-ouates",
+          "specialita-orologiera-corpo-di-governo-patek-philippe-plan-les-ouates"
         ],
         "en": [
           "horloger-de-specialite-organe-reglant-patek-philippe-plan-les-ouates"
@@ -376,88 +477,6 @@
           "@type": "QuantitativeValue",
           "minValue": 71000,
           "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "patek-philippe-fca151180e18",
-      "slug": "gestione-ruote-speciali-h-f-patek-philippe-plan-les-ouates",
-      "slugByLocale": {
-        "it": "gestione-ruote-speciali-h-f-patek-philippe-plan-les-ouates",
-        "en": "special-wheels-manager-h-f-patek-philippe-plan-les-ouates",
-        "de": "spezialradmanager-h-f-patek-philippe-plan-les-ouates",
-        "fr": "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates"
-      },
-      "company": "Patek Philippe",
-      "companyKey": "patek-philippe",
-      "companyDomain": "patek.com",
-      "title": "Responsable Rouages Spéciaux (H/F)",
-      "titleByLocale": {
-        "it": "Ruote speciali responsabili (M/F)",
-        "en": "Responsible Special Wheels (M/F)",
-        "de": "Verantwortliche Spezialräder (M/W)",
-        "fr": "Responsable Rouages Spéciaux (H/F)"
-      },
-      "description": "Mission\n\nDans le cadre de cette fonction, rattachée à notre Division Composants Mouvements, vous assurerez la gestion d'un atelier composé de Mécaniciens-Régleurs et d'Opérateurs dans leurs activités de production en décolletage et terminaison. En étroite collaboration avec les autres ateliers du service Roues à bras et les services supports afin d’assurer le plan de production dans les critères qualité et les standards Patek Philippe, vous serez responsable de l’atteinte des résultats et de la facilitation de l’Expérience Collaborateur.\n\nResponsabilités\n\n• Guider, accompagner, encourager, motiver et développer vos équipes tout en maximisant la productivité et les délais pour atteindre les objectifs.\n\n• Assurer l’accompagnement de la formation et le développement de la polyvalence au sein de l’atelier.\n\n• Analyser les procédés opérationnels, prendre des mesures de correction afin d’améliorer la qualité, diminuer les taux de déchets et les temps d’opération.\n\n• Assurer le respect du plan de production et garantir l’application des standards Patek Philippe.\n\n• Faire progresser l’activité et les procédés opérationnels de l’atelier en étroite coordination avec les autres ateliers, ainsi qu’en collaboration avec les services supports, les clients internes et les autres services et divisions.\n\nProfil recherché\n\n• Bachelor ou Master en microtechnique ou génie mécanique ou toute formation jugée équivalente.\n\n• 5 ans d'expérience au minimum dans une fonction managériale.\n\n• Maîtrise des techniques d’usinage, notamment du décolletage.\n\n• Connaissance en gestion de production\n\n• Connaissances des outils d’amélioration continue et de gestion de production.\n\n• Maîtrise des outils bureautiques (MS Office), connaissances SAP un atout.\n\n• Aisance en communication écrite et orale et sens de l’écoute.\n\n• Capacité à fédérer une équipe autour d'un objectif commun.\n\n• Force de propositions, capacités décisionnelles et organisationnelles.\n\n• Rigueur, esprit d’analyse et de synthèse.\n\n• Esprit d’équipe et capacités d’adaptation.\n\nRéférence du poste\n\n3694",
-      "descriptionByLocale": {
-        "it": "Missione\n\nNell'ambito di questa funzione, allegata alla nostra Divisione Componenti del Movimento, gestirai un workshop composto da Mechanic-Regolatori e Operatori nelle loro attività di produzione in décolletage e terminazione. In stretta collaborazione con gli altri workshop del servizio e dei servizi di supporto Wheels per garantire il piano di produzione nei criteri e negli standard di qualità Patek Philippe, sarete responsabili del raggiungimento dei risultati e della facilitazione del Collaboratore Experience.\n\nresponsabilità\n\n• Guida, supporto, incoraggiare, motivare e sviluppare i vostri team, massimizzando la produttività e il tempo per raggiungere gli obiettivi.\n\n• Fornire supporto per la formazione e lo sviluppo della versatilità nel workshop.\n\n• Analizzare i processi operativi, adottare misure correttive per migliorare la qualità, ridurre i tassi di scarico e i tempi di funzionamento.\n\n• Assicurare il rispetto del piano di produzione e garantire il rispetto degli standard Patek Philippe.\n\n• Avanzare l'attività del workshop e i processi operativi in stretto coordinamento con altri workshop, nonché in collaborazione con servizi di supporto, clienti interni e altri servizi e divisioni.\n\nProfilo ricercato\n\n• Corso di laurea o Master in Microtecnica o Ingegneria Meccanica o qualsiasi formazione equivalente.\n\n• Almeno 5 anni di esperienza in una funzione manageriale.\n\n• Mastery di tecniche di lavorazione, tra cui decolleting.\n\n• Conoscenza della gestione della produzione\n\n• Conoscenza di strumenti di miglioramento continuo e di gestione della produzione.\n\n• Mastery of office tools (MS Office), SAP conosce un asset.\n\n• Capacità nella comunicazione scritta e orale e nell'ascolto.\n\n• Capacità di unire una squadra intorno a un obiettivo comune.\n\n• Rafforzamento delle proposte, delle capacità decisionali e organizzative.\n\n• Rigor, spirito di analisi e sintesi.\n\n• Spirito di squadra e adattabilità.\n\nRiferimenti\n\n3694",
-        "en": "Mission\n\nAs part of this function, attached to our Movement Components Division, you will manage a workshop made up of Mechanic-Regulators and Operators in their production activities in décolletage and termination. In close collaboration with the other workshops of the Wheels service and support services to ensure the production plan in the quality criteria and standards Patek Philippe, you will be responsible for achieving the results and facilitating the Experience Collaborator.\n\nResponsibilities\n\n• Guide, support, encourage, motivate and develop your teams while maximizing productivity and time to achieve the goals.\n\n• Provide support for training and the development of versatility in the workshop.\n\n• Analyze operational processes, take corrective measures to improve quality, reduce waste rates and operating times.\n\n• Ensure compliance with the production plan and ensure compliance with the Patek Philippe standards.\n\n• Advance the workshop activity and operational processes in close coordination with other workshops, as well as in collaboration with support services, internal clients and other services and divisions.\n\nProfile sought\n\n• Bachelor or Master in Microtechnics or Mechanical Engineering or any equivalent training.\n\n• At least 5 years of experience in a managerial function.\n\n• Mastery of machining techniques, including decolleting.\n\n• Knowledge of production management\n\n• Knowledge of continuous improvement and production management tools.\n\n• Mastery of office tools (MS Office), SAP knowledge an asset.\n\n• Ability in written and oral communication and listening.\n\n• Ability to unite a team around a common goal.\n\n• Strength of proposals, decision-making and organizational capacities.\n\n• Rigor, spirit of analysis and synthesis.\n\n• Team spirit and adaptability.\n\nPost reference\n\n3694",
-        "de": "Mission\n\nIm Rahmen dieser Funktion, die unserer Division für Bewegungskomponenten angegliedert ist, leiten Sie eine Werkstatt, die sich aus Mechanikern und Bedienern in ihren Produktionsaktivitäten in der Dekolletage und Beendigung zusammensetzt. In enger Zusammenarbeit mit den anderen Werkstätten des Wheels Service und Support Services, um den Produktionsplan in den Qualitätskriterien und Standards von Patek Philippe sicherzustellen, sind Sie dafür verantwortlich, die Ergebnisse zu erzielen und den Experience Collaborator zu unterstützen.\n\nZuständigkeiten\n\n• Führen, unterstützen, ermutigen, motivieren und entwickeln Sie Ihre Teams, während Sie Produktivität und Zeit maximieren, um die Ziele zu erreichen.\n\n• Unterstützung für die Ausbildung und die Entwicklung der Vielseitigkeit im Workshop.\n\n• Analysieren Sie Betriebsprozesse, ergreifen Sie Korrekturmaßnahmen zur Verbesserung der Qualität, reduzieren Sie Abfallraten und Betriebszeiten.\n\n• Gewährleistung der Einhaltung des Produktionsplans und der Einhaltung der Standards von Patek Philippe.\n\n• Förderung der Werkstatttätigkeit und der operativen Prozesse in enger Abstimmung mit anderen Workshops sowie in Zusammenarbeit mit Support-Services, internen Kunden und anderen Dienstleistungen und Abteilungen.\n\nProfil gesucht\n\n• Bachelor oder Master in Mikrotechnik oder Maschinenbau oder eine gleichwertige Ausbildung.\n\n• Mindestens 5 Jahre Erfahrung in einer Führungsfunktion.\n\n• Beherrschung von Bearbeitungstechniken, einschließlich Decolleting.\n\n• Kenntnisse des Produktionsmanagements\n\n• Wissen über kontinuierliche Verbesserung und Produktionsmanagement-Tools.\n\n• Mastery of Office Tools (MS Office), SAP Wissen ein Asset.\n\n• Fähigkeit zur schriftlichen und mündlichen Kommunikation und zum Zuhören.\n\n• Fähigkeit, ein Team um ein gemeinsames Ziel zu vereinen.\n\n• Stärke der Vorschläge, Entscheidungsfindung und organisatorische Kapazitäten.\n\n• Strenge, Geist der Analyse und Synthese.\n\n• Teamgeist und Anpassungsfähigkeit.\n\nPostleitzahl\n\n3694",
-        "fr": "Mission\n\nDans le cadre de cette fonction, rattachée à notre Division Composants Mouvements, vous assurerez la gestion d'un atelier composé de Mécaniciens-Régleurs et d'Opérateurs dans leurs activités de production en décolletage et terminaison. En étroite collaboration avec les autres ateliers du service Roues à bras et les services supports afin d’assurer le plan de production dans les critères qualité et les standards Patek Philippe, vous serez responsable de l’atteinte des résultats et de la facilitation de l’Expérience Collaborateur.\n\nResponsabilités\n\n• Guider, accompagner, encourager, motiver et développer vos équipes tout en maximisant la productivité et les délais pour atteindre les objectifs.\n\n• Assurer l’accompagnement de la formation et le développement de la polyvalence au sein de l’atelier.\n\n• Analyser les procédés opérationnels, prendre des mesures de correction afin d’améliorer la qualité, diminuer les taux de déchets et les temps d’opération.\n\n• Assurer le respect du plan de production et garantir l’application des standards Patek Philippe.\n\n• Faire progresser l’activité et les procédés opérationnels de l’atelier en étroite coordination avec les autres ateliers, ainsi qu’en collaboration avec les services supports, les clients internes et les autres services et divisions.\n\nProfil recherché\n\n• Bachelor ou Master en microtechnique ou génie mécanique ou toute formation jugée équivalente.\n\n• 5 ans d'expérience au minimum dans une fonction managériale.\n\n• Maîtrise des techniques d’usinage, notamment du décolletage.\n\n• Connaissance en gestion de production\n\n• Connaissances des outils d’amélioration continue et de gestion de production.\n\n• Maîtrise des outils bureautiques (MS Office), connaissances SAP un atout.\n\n• Aisance en communication écrite et orale et sens de l’écoute.\n\n• Capacité à fédérer une équipe autour d'un objectif commun.\n\n• Force de propositions, capacités décisionnelles et organisationnelles.\n\n• Rigueur, esprit d’analyse et de synthèse.\n\n• Esprit d’équipe et capacités d’adaptation.\n\nRéférence du poste\n\n3694"
-      },
-      "location": "Plan-Les-Ouates",
-      "canton": "GE",
-      "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Rouages-Sp%C3%A9ciaux-%28HF%29/1359898855/",
-      "source": "Patek Philippe Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:24:29.064Z",
-      "hiringOrganization": "Patek Philippe SA",
-      "addressLocality": "Plan-Les-Ouates",
-      "postalCode": "1228",
-      "streetAddress": "Chemin du Pont-du-Centenaire 141",
-      "addressRegion": "Genève",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Luxury / Watchmaking (Manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-05",
-      "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Rouages-Sp%C3%A9ciaux-%28HF%29/1359898855/",
-      "jobReqId": "1359898855",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates",
-        "responsable-rouages-speciaux-m-w-d-patek-philippe-plan-les-ouates",
-        "verantwortliche-spezialrader-m-w-d-patek-philippe-plan-les-ouates"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates"
-        ],
-        "en": [
-          "responsable-rouages-speciaux-m-w-d-patek-philippe-plan-les-ouates"
-        ],
-        "de": [
-          "responsable-rouages-speciaux-m-w-d-patek-philippe-plan-les-ouates",
-          "verantwortliche-spezialrader-m-w-d-patek-philippe-plan-les-ouates"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T22:51:23.152Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
           "unitText": "YEAR"
         }
       }
@@ -493,7 +512,7 @@
       "url": "https://careers.patek.com/job/Alle-Horloger-Rhabilleur-%28HF%29/1367491655/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:24:28.598Z",
+      "crawledAt": "2026-09-25T14:41:05.421Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Alle",
       "addressRegion": "JU",
@@ -511,11 +530,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "horloger-rhabilleur-h-f-patek-philippe-alle"
+        "horloger-rhabilleur-h-f-patek-philippe-alle",
+        "abbigliamento-dresser-m-f-patek-philippe-alle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "horloger-rhabilleur-h-f-patek-philippe-alle"
+          "horloger-rhabilleur-h-f-patek-philippe-alle",
+          "abbigliamento-dresser-m-f-patek-philippe-alle"
         ],
         "en": [
           "horloger-rhabilleur-h-f-patek-philippe-alle"
@@ -570,7 +591,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Atelier-Bracelet-%28HF%29/1367485555/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:24:28.143Z",
+      "crawledAt": "2026-09-25T14:41:04.965Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -590,11 +611,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates"
+        "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates",
+        "bracciale-da-laboratorio-responsabile-m-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates"
+          "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates",
+          "bracciale-da-laboratorio-responsabile-m-f-patek-philippe-plan-les-ouates"
         ],
         "en": [
           "responsable-atelier-bracelet-h-f-patek-philippe-plan-les-ouates"
@@ -649,7 +672,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-d'Am%C3%A9lioration-Qualit%C3%A9-Produit-%28HF%29/1367761655/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:24:27.708Z",
+      "crawledAt": "2026-09-25T14:41:04.511Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -671,13 +694,15 @@
       "previousSlugs": [
         "charge-d-amelioration-qualite-produit-h-f-patek-philippe-plan-les-ouates",
         "hr-operations-manager-h-f-patek-philippe-plan-les-ouates",
-        "responsable-operations-rh-h-f-patek-philippe-plan-les-ouates"
+        "responsable-operations-rh-h-f-patek-philippe-plan-les-ouates",
+        "product-quality-improvement-manager-m-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "charge-d-amelioration-qualite-produit-h-f-patek-philippe-plan-les-ouates",
           "hr-operations-manager-h-f-patek-philippe-plan-les-ouates",
-          "responsable-operations-rh-h-f-patek-philippe-plan-les-ouates"
+          "responsable-operations-rh-h-f-patek-philippe-plan-les-ouates",
+          "product-quality-improvement-manager-m-f-patek-philippe-plan-les-ouates"
         ],
         "en": [
           "charge-d-amelioration-qualite-produit-h-f-patek-philippe-plan-les-ouates"
@@ -690,6 +715,7 @@
         ]
       },
       "firstSeenAt": "2026-09-09T23:06:51.259Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -735,7 +761,7 @@
       "url": "https://careers.patek.com/job/La-Chaux-de-Fonds-Apprenti-Termineur-en-Habillage-Horloger-%28HF%29/1368154355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:24:27.246Z",
+      "crawledAt": "2026-09-25T14:41:04.055Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
@@ -753,11 +779,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprenti-termineur-en-habillage-horloger-h-f-patek-philippe-la-chaux-de-fonds"
+        "apprenti-termineur-en-habillage-horloger-h-f-patek-philippe-la-chaux-de-fonds",
+        "apprentice-dressing-terminator-watchmaker-m-f-patek-philippe-la-chaux-de-fonds"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-termineur-en-habillage-horloger-h-f-patek-philippe-la-chaux-de-fonds"
+          "apprenti-termineur-en-habillage-horloger-h-f-patek-philippe-la-chaux-de-fonds",
+          "apprentice-dressing-terminator-watchmaker-m-f-patek-philippe-la-chaux-de-fonds"
         ],
         "en": [
           "apprenti-termineur-en-habillage-horloger-h-f-patek-philippe-la-chaux-de-fonds"
@@ -796,7 +824,7 @@
       "title": "Chargé de Process Performance Industrielle (H/F)",
       "titleByLocale": {
         "it": "Gestione delle prestazioni di processo industriale (M/F)",
-        "en": "Industrial Process Performance Manager (M/F)",
+        "en": "Chargé de Process Performance Industrielle (H/F)",
         "de": "Industrial Process Performance Manager (M/W)",
         "fr": "Chargé de Process Performance Industrielle (H/F)"
       },
@@ -812,7 +840,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-Process-Performance-Industrielle-%28HF%29/1368593655/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:24:26.793Z",
+      "crawledAt": "2026-09-25T14:41:03.599Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -832,11 +860,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "charge-de-process-performance-industrielle-h-f-patek-philippe-plan-les-ouates"
+        "charge-de-process-performance-industrielle-h-f-patek-philippe-plan-les-ouates",
+        "gestione-delle-prestazioni-di-processo-industriale-m-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-de-process-performance-industrielle-h-f-patek-philippe-plan-les-ouates"
+          "charge-de-process-performance-industrielle-h-f-patek-philippe-plan-les-ouates",
+          "gestione-delle-prestazioni-di-processo-industriale-m-f-patek-philippe-plan-les-ouates"
         ],
         "en": [
           "charge-de-process-performance-industrielle-h-f-patek-philippe-plan-les-ouates"
@@ -846,6 +876,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:51:20.874Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 92000,
       "salarySource": "estimated",
@@ -891,7 +922,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-d'Atelier-UAP-%28Unit%C3%A9-Autonome-de-Production%29-en-Haute-Horlogerie-%28HF%29/1368823355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:24:26.359Z",
+      "crawledAt": "2026-09-25T14:41:03.157Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -911,11 +942,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-d-atelier-uap-unite-autonome-de-production-en-haute-horlogerie-h-f-patek"
+        "responsable-d-atelier-uap-unite-autonome-de-production-en-haute-horlogerie-h-f-patek",
+        "capo-di-uap-unit-autonome-de-production-in-alta-orologeria-m-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-d-atelier-uap-unite-autonome-de-production-en-haute-horlogerie-h-f-patek"
+          "responsable-d-atelier-uap-unite-autonome-de-production-en-haute-horlogerie-h-f-patek",
+          "capo-di-uap-unit-autonome-de-production-in-alta-orologeria-m-f-patek-philippe-plan-les-ouates"
         ],
         "en": [
           "responsable-d-atelier-uap-unite-autonome-de-production-en-haute-horlogerie-h-f-patek"
@@ -951,12 +984,12 @@
       "company": "Patek Philippe",
       "companyKey": "patek-philippe",
       "companyDomain": "patek.com",
-      "title": "Assistant en Traitement de Surface",
+      "title": "Assistant en Traitement de Surface (H/F)",
       "titleByLocale": {
         "it": "Assistente per la lavorazione delle superfici",
         "en": "Surface Processing Assistant",
         "de": "Assistent en Traitement de Surface",
-        "fr": "Assistant en Traitement de Surface"
+        "fr": "Assistant en Traitement de Surface (H/F)"
       },
       "description": "Mission\n\nDans le cadre de cette fonction, rattachée à notre entité Production, situé au sein de notre site de Saint-Imier, vous serez en charge d’assurer en toute autonomie l’ensemble des opérations de préparation et de passage aux bains galvaniques des pièces tels que cadrans, appliques.\n\nResponsabilités\n\n• Réaliser les opérations de préparation et de passage aux bains.\n• Assurer l’entretien et le traitement des bains et des équipements de production.\n• Réaliser des essais sur la couleur finale.\n• Vérifier la conformité des pièces et contrôler son travail en autonomie\n\nProfil recherché\n\n• Formation AFP Assistant en Traitement de Surface ou CFC Electroplaste (indispensable si profil junior)\n• Expérience minimum de 3 ans (avec diplôme) à 5 ans (sans diplôme), idéalement dans le secteur de l’horlogerie.\n\nRéférence du poste\n\n3779",
       "descriptionByLocale": {
@@ -967,10 +1000,10 @@
       },
       "location": "Saint-Imier",
       "canton": "BE",
-      "url": "https://careers.patek.com/job/Saint-Imier-Assistant-en-Traitement-de-Surface/1368883255/",
+      "url": "https://careers.patek.com/job/Saint-Imier-Assistant-en-Traitement-de-Surface-%28HF%29/1368883255/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:24:25.778Z",
+      "crawledAt": "2026-09-25T14:41:02.706Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -983,19 +1016,24 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-09-18",
-      "applyUrl": "https://careers.patek.com/job/Saint-Imier-Assistant-en-Traitement-de-Surface/1368883255/",
+      "applyUrl": "https://careers.patek.com/job/Saint-Imier-Assistant-en-Traitement-de-Surface-%28HF%29/1368883255/",
       "jobReqId": "1368883255",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-en-traitement-de-surface-patek-philippe-saint-imier"
+        "assistant-en-traitement-de-surface-patek-philippe-saint-imier",
+        "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier",
+        "assistente-per-la-lavorazione-delle-superfici-patek-philippe-saint-imier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-en-traitement-de-surface-patek-philippe-saint-imier"
+          "assistant-en-traitement-de-surface-patek-philippe-saint-imier",
+          "assistant-en-traitement-de-surface-h-f-patek-philippe-saint-imier",
+          "assistente-per-la-lavorazione-delle-superfici-patek-philippe-saint-imier"
         ]
       },
       "firstSeenAt": "2026-09-19T22:51:19.860Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1041,7 +1079,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Ligne-Nautilus-%28HF%29/1358759455/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-24T14:24:25.212Z",
+      "crawledAt": "2026-09-25T14:41:02.170Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -1061,11 +1099,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-ligne-nautilus-h-f-patek-philippe-plan-les-ouates"
+        "responsable-ligne-nautilus-h-f-patek-philippe-plan-les-ouates",
+        "nautilus-line-manager-h-f-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-ligne-nautilus-h-f-patek-philippe-plan-les-ouates"
+          "responsable-ligne-nautilus-h-f-patek-philippe-plan-les-ouates",
+          "nautilus-line-manager-h-f-patek-philippe-plan-les-ouates"
         ]
       },
       "firstSeenAt": "2026-07-04T12:12:10.436Z",
@@ -1084,86 +1124,70 @@
       }
     },
     {
-      "id": "patek-philippe-b6d49ef205ca",
-      "slug": "specialista-delle-relazioni-pubbliche-m-f-patek-philippe-plan-les-ouates",
+      "id": "patek-philippe-dc428e3f2275",
+      "slug": "operateur-pose-appliques-h-f-patek-philippe-saint-imier",
       "slugByLocale": {
-        "it": "specialista-delle-relazioni-pubbliche-m-f-patek-philippe-plan-les-ouates",
-        "en": "public-relations-specialist-m-f-patek-philippe-plan-les-ouates",
-        "de": "pr-spezialist-m-w-patek-philippe-plan-les-ouates",
-        "fr": "specialiste-relations-publiques-h-f-patek-philippe-plan-les-ouates"
+        "fr": "operateur-pose-appliques-h-f-patek-philippe-saint-imier",
+        "it": "operateur-pose-appliques-h-f-patek-philippe-saint-imier",
+        "en": "operateur-pose-appliques-h-f-patek-philippe-saint-imier",
+        "de": "operateur-pose-appliques-h-f-patek-philippe-saint-imier"
       },
       "company": "Patek Philippe",
       "companyKey": "patek-philippe",
       "companyDomain": "patek.com",
-      "title": "Spécialiste Relations Publiques (H/F)",
+      "title": "Opérateur Pose Appliques (H/F)",
       "titleByLocale": {
-        "it": "Specialista delle relazioni pubbliche (M/F)",
-        "en": "Public Relations Specialist (M/F)",
-        "de": "PR-Spezialist (M/W)",
-        "fr": "Spécialiste Relations Publiques (H/F)"
+        "fr": "Opérateur Pose Appliques (H/F)",
+        "it": "Opérateur Pose Appliques (H/F)",
+        "en": "Opérateur Pose Appliques (H/F)",
+        "de": "Opérateur Pose Appliques (H/F)"
       },
-      "description": "Mission\n\nDans le cadre de cette fonction, rattachée à notre Division Commercial et Marketing, vous participerez activement à la promotion externe de la marque et de ses produits. Vous assurerez le suivi des demandes presse et contribuerez à la conception et à la mise en œuvre des plans de communication, ainsi qu’à l'organisation de divers lancements de produits et d'événements.\n\nResponsabilités\n\n• Être l’interlocuteur privilégié de la presse spécialisée et généraliste, en lien direct avec les journalistes ainsi qu'avec notre réseau international de responsables presse et de distributeurs.\n\n• Développer, entretenir et enrichir un réseau de contacts presse de haut niveau (journalistes, rédacteurs et créateurs de contenu), en assurant une veille attentive des évolutions du paysage médiatique.\n\n• Contribuer à l’élaboration et au déploiement des plans d’action et des stratégies de communication presse, en apportant votre connaissance des médias et de leurs attentes.\n\n• Participer à l’organisation d’événements — inaugurations, lancements de produits, salons horlogers, expositions, interviews — et en assurer le suivi qualitatif et budgétaire.\n\n• Concevoir et diffuser des contenus destinés à la presse adaptés aux différentes plateformes et canaux digitaux, en cohérence avec l’univers et les codes de la marque.\n\n• Organiser et coordonner des visites de presse au sein de la Manufacture et assurer le suivi post visites (demandes presse, retombées, etc.).\n\n• Suivre, analyser et valoriser les retombées presse afin de mesurer leur impact et de recommander des actions d’optimisation.\n\nProfil recherché\n\n• 5 à 7 ans d'expérience dans une fonction similaire, au sein d’une maison horlogère un atout.\n\n• Diplôme en communication, relations publiques ou titre jugé équivalent.\n\n• Excellente culture générale et intérêt marqué pour l’univers de l’horlogerie.\n\n• Aisance relationnelle reconnue et excellente capacité à interagir avec des interlocuteurs variés, notamment journalistes, médias et partenaires externes.\n\n• Parfaite maîtrise du français et de l’anglais, autres langues un atout.\n\n• Compétences confirmées en gestion de projet.\n\n• Maîtrise avancée de la suite Microsoft Office, ainsi que des outils et plateformes de communication digitale (réseaux sociaux, médias en ligne, gestion et diffusion de contenus).\n\n• Esprit d'analyse et de synthèse, associé à une grande rigueur dans l'exécution des missions.\n\n• Discrétion et respect de la confidentialité.\n\n• Force de proposition, esprit d'initiative et ouverture d'esprit, associés à une forte capacité d'adaptation.\n\nRéférence du poste\n\n3700",
+      "description": "Mission\n\nDans le cadre de cette fonction, rattachée à l’atelier Finition Cadrans de Cadrans Flückiger à Saint Imier, vous garantirez en toute autonomie la réalisation d’un ensemble d’opérations complexes se rapportant à la pose d’appliques, d’index, de sertissures, etc. sur des cadrans terminés dans le respect nos standards de production et de qualité.\n\nResponsabilités\n\n• Réaliser la pose d’appliques, d’index, de sertissures, etc. sur des cadrans terminés.\n\n• Assurer le rhabillage des cadrans terminés.\n\n• Réaliser les opérations finales telles que le pointage, le collage, le coupage et le rivetage des pieds.\n\n• Contrôler ses travaux selon les standards définis.\n\n• Détecter les dérives esthétiques pouvant intervenir en cours de production, les corriger, et en cas de problème, alerter son responsable.\n\nProfil recherché\n\n• 1 à 3 ans d’expérience dans un poste similaire.\n\n• Expérience préalable en horlogerie haut de gamme souhaitée.\n\n• Très bonne acuité visuelle (travail avec le micros).\n\n• Très bonne habileté manuelle dont travail à la brucelle.\n\n• Rigueur et précision.\n\n• Capacité de concentration.\n\n• Capacité d’adaptation.\n\n• Esprit d'équipe\n\nRéférence du poste\n\n3778",
       "descriptionByLocale": {
-        "it": "Missione\n\nNell'ambito di questa funzione, collegata alla nostra Divisione Vendite e Marketing, parteciperai attivamente alla promozione esterna del marchio e dei suoi prodotti. Seguirai le richieste di stampa e contribuirai alla progettazione e realizzazione di piani di comunicazione, nonché all'organizzazione di vari lancio di prodotti e eventi.\n\nresponsabilità\n\n• Siate il punto di contatto preferito per la stampa specializzata e generalista, a diretto contatto con i giornalisti e con la nostra rete internazionale di responsabili e distributori.\n\n• Sviluppare, mantenere e arricchire una rete di contatti stampa di alto livello (giornalisti, editori e creatori di contenuti), garantendo un attento monitoraggio degli sviluppi nel panorama dei media.\n\n• Contribuisci allo sviluppo e alla distribuzione dei piani d'azione e alle strategie di comunicazione della stampa, portando la tua conoscenza dei media e delle loro aspettative.\n\n• Partecipa all'organizzazione di eventi — inaugurazioni, lancio di prodotti, fiere di orologi, mostre, interviste — e garantire il follow-up qualitativo e di bilancio.\n\n• Progettare e diffondere contenuti stampa adattati a diverse piattaforme e canali digitali, coerente con l'universo e i codici di marca.\n\n• Organizzare e coordinare le visite di stampa all'interno della Manifattura e seguire dopo le visite (premere richieste, rovesciamenti, ecc.).\n\n• Monitoraggio, analisi e valutazione della stampa torna al fine di misurare il loro impatto e raccomandare azioni di ottimizzazione.\n\nProfilo ricercato\n\n• 5-7 anni di esperienza in una funzione simile, all'interno di una casa orologiera un bene.\n\n• Diploma in comunicazione, relazioni pubbliche o equivalente.\n\n• Ottima cultura generale e forte interesse nel mondo dell'orologeria.\n\n• Riconosciuta forza relazionale e ottima capacità di interagire con vari interlocutori, tra cui giornalisti, media e partner esterni.\n\n• Perfetta padronanza di francese e inglese, altre lingue un bene.\n\n• Competenze di gestione dei progetti confermate.\n\n• Masterizzazione avanzata della suite Microsoft Office, nonché strumenti di comunicazione digitale e piattaforme (reti sociali, media online, gestione dei contenuti e diffusione).\n\n• Uno spirito di analisi e sintesi, combinato con grande rigore nell'esecuzione delle missioni.\n\n• Discrezione e riservatezza.\n\n• Forza, iniziativa e apertura della proposta, combinata con una forte adattabilità.\n\nRiferimenti\n\n3700",
-        "en": "Mission\n\nAs part of this function, attached to our Sales and Marketing Division, you will actively participate in the external promotion of the brand and its products. You will follow up on press requests and contribute to the design and implementation of communications plans, as well as to the organization of various product and event launches.\n\nResponsibilities\n\n• Be the preferred contact point for the specialist and generalist press, in direct contact with journalists as well as with our international network of press managers and distributors.\n\n• Develop, maintain and enrich a network of high-level press contacts (journalists, editors and content creators), ensuring careful monitoring of developments in the media landscape.\n\n• Contribute to the development and deployment of action plans and press communication strategies, bringing your knowledge of the media and their expectations.\n\n• Take part in the organisation of events — inaugurations, product launches, watch fairs, exhibitions, interviews — and ensure the qualitative and budgetary follow-up.\n\n• Design and disseminate press content adapted to different digital platforms and channels, consistent with the universe and brand codes.\n\n• Organize and coordinate press visits within the Manufacture and follow up after visits (press requests, spillovers, etc.).\n\n• Monitoring, analysing and valuing press returns in order to measure their impact and recommend optimisation actions.\n\nProfile sought\n\n• 5-7 years of experience in a similar function, within a home watchmaking an asset.\n\n• Diploma in communication, public relations or equivalent.\n\n• Excellent general culture and strong interest in the world of watchmaking.\n\n• Recognized relational strength and excellent ability to interact with various interlocutors, including journalists, media and external partners.\n\n• Perfect mastery of French and English, other languages an asset.\n\n• Confirmed project management skills.\n\n• Advanced mastery of the Microsoft Office suite, as well as digital communication tools and platforms (social networks, online media, content management and dissemination).\n\n• A spirit of analysis and synthesis, combined with great rigour in the execution of missions.\n\n• Discretion and confidentiality.\n\n• Proposal strength, initiative and openness, combined with a strong adaptability.\n\nPost reference\n\n3700",
-        "de": "Mission\n\nIm Rahmen dieser Funktion, die unserer Vertriebs- und Marketingabteilung zugeordnet ist, beteiligen Sie sich aktiv an der externen Förderung der Marke und ihrer Produkte. Sie verfolgen Presseanfragen und tragen zur Gestaltung und Umsetzung von Kommunikationsplänen sowie zur Organisation verschiedener Produkt- und Event-Launches bei.\n\nZuständigkeiten\n\n• Seien Sie der bevorzugte Anlaufpunkt für die Fach- und Generalpresse, im direkten Kontakt mit Journalisten sowie mit unserem internationalen Netzwerk von Presseverantwortlichen und Distributoren.\n\n• Entwickeln, pflegen und bereichern Sie ein Netzwerk von hochrangigen Pressekontakten (Journalisten, Redakteure und Content-Ersteller), um die Entwicklungen in der Medienlandschaft sorgfältig zu überwachen.\n\n• Tragen Sie zur Entwicklung und Umsetzung von Aktionsplänen und Pressekommunikationsstrategien bei und bringen Sie Ihr Wissen über die Medien und ihre Erwartungen ein.\n\n• Beteiligen Sie sich an der Organisation von Veranstaltungen – Einweihungen, Produkteinführungen, Messen, Ausstellungen, Interviews – und sorgen Sie für die qualitative und budgetäre Begleitung.\n\n• Design und Verbreitung von Presseinhalten, die an verschiedene digitale Plattformen und Kanäle angepasst sind und mit dem Universum und den Markencodes übereinstimmen.\n\n• Organisieren und koordinieren Sie Pressebesuche innerhalb der Manufaktur und verfolgen Sie diese nach Besuchen (Presseanfragen, Spillovers usw.).\n\n• Überwachung, Analyse und Bewertung von Pressemeldungen, um ihre Auswirkungen zu messen und Optimierungsmaßnahmen zu empfehlen.\n\nProfil gesucht\n\n• 5-7 Jahre Erfahrung in einer ähnlichen Funktion, innerhalb eines Hauses Uhrmacherei ein Asset.\n\n• Diplom in Kommunikation, Public Relations oder gleichwertig.\n\n• Ausgezeichnete allgemeine Kultur und starkes Interesse an der Welt der Uhrmacherei.\n\n• Anerkannte Beziehungsstärke und ausgezeichnete Fähigkeit, mit verschiedenen Gesprächspartnern, einschließlich Journalisten, Medien und externen Partnern, zu interagieren.\n\n• Perfekte Beherrschung von Französisch und Englisch, andere Sprachen ein Gewinn.\n\n• Bestätigte Projektmanagementfähigkeiten.\n\n• Erweiterte Beherrschung der Microsoft Office-Suite sowie digitaler Kommunikationstools und -plattformen (soziale Netzwerke, Online-Medien, Content Management und Verbreitung).\n\n• Ein Geist der Analyse und Synthese, kombiniert mit großer Strenge bei der Durchführung von Missionen.\n\n• Diskretion und Vertraulichkeit.\n\n• Vorschlagsstärke, Initiative und Offenheit, kombiniert mit einer starken Anpassungsfähigkeit.\n\nPostleitzahl\n\n3700",
-        "fr": "Mission\n\nDans le cadre de cette fonction, rattachée à notre Division Commercial et Marketing, vous participerez activement à la promotion externe de la marque et de ses produits. Vous assurerez le suivi des demandes presse et contribuerez à la conception et à la mise en œuvre des plans de communication, ainsi qu’à l'organisation de divers lancements de produits et d'événements.\n\nResponsabilités\n\n• Être l’interlocuteur privilégié de la presse spécialisée et généraliste, en lien direct avec les journalistes ainsi qu'avec notre réseau international de responsables presse et de distributeurs.\n\n• Développer, entretenir et enrichir un réseau de contacts presse de haut niveau (journalistes, rédacteurs et créateurs de contenu), en assurant une veille attentive des évolutions du paysage médiatique.\n\n• Contribuer à l’élaboration et au déploiement des plans d’action et des stratégies de communication presse, en apportant votre connaissance des médias et de leurs attentes.\n\n• Participer à l’organisation d’événements — inaugurations, lancements de produits, salons horlogers, expositions, interviews — et en assurer le suivi qualitatif et budgétaire.\n\n• Concevoir et diffuser des contenus destinés à la presse adaptés aux différentes plateformes et canaux digitaux, en cohérence avec l’univers et les codes de la marque.\n\n• Organiser et coordonner des visites de presse au sein de la Manufacture et assurer le suivi post visites (demandes presse, retombées, etc.).\n\n• Suivre, analyser et valoriser les retombées presse afin de mesurer leur impact et de recommander des actions d’optimisation.\n\nProfil recherché\n\n• 5 à 7 ans d'expérience dans une fonction similaire, au sein d’une maison horlogère un atout.\n\n• Diplôme en communication, relations publiques ou titre jugé équivalent.\n\n• Excellente culture générale et intérêt marqué pour l’univers de l’horlogerie.\n\n• Aisance relationnelle reconnue et excellente capacité à interagir avec des interlocuteurs variés, notamment journalistes, médias et partenaires externes.\n\n• Parfaite maîtrise du français et de l’anglais, autres langues un atout.\n\n• Compétences confirmées en gestion de projet.\n\n• Maîtrise avancée de la suite Microsoft Office, ainsi que des outils et plateformes de communication digitale (réseaux sociaux, médias en ligne, gestion et diffusion de contenus).\n\n• Esprit d'analyse et de synthèse, associé à une grande rigueur dans l'exécution des missions.\n\n• Discrétion et respect de la confidentialité.\n\n• Force de proposition, esprit d'initiative et ouverture d'esprit, associés à une forte capacité d'adaptation.\n\nRéférence du poste\n\n3700"
+        "fr": "Mission\n\nDans le cadre de cette fonction, rattachée à l’atelier Finition Cadrans de Cadrans Flückiger à Saint Imier, vous garantirez en toute autonomie la réalisation d’un ensemble d’opérations complexes se rapportant à la pose d’appliques, d’index, de sertissures, etc. sur des cadrans terminés dans le respect nos standards de production et de qualité.\n\nResponsabilités\n\n• Réaliser la pose d’appliques, d’index, de sertissures, etc. sur des cadrans terminés.\n\n• Assurer le rhabillage des cadrans terminés.\n\n• Réaliser les opérations finales telles que le pointage, le collage, le coupage et le rivetage des pieds.\n\n• Contrôler ses travaux selon les standards définis.\n\n• Détecter les dérives esthétiques pouvant intervenir en cours de production, les corriger, et en cas de problème, alerter son responsable.\n\nProfil recherché\n\n• 1 à 3 ans d’expérience dans un poste similaire.\n\n• Expérience préalable en horlogerie haut de gamme souhaitée.\n\n• Très bonne acuité visuelle (travail avec le micros).\n\n• Très bonne habileté manuelle dont travail à la brucelle.\n\n• Rigueur et précision.\n\n• Capacité de concentration.\n\n• Capacité d’adaptation.\n\n• Esprit d'équipe\n\nRéférence du poste\n\n3778",
+        "it": "Mission\n\nDans le cadre de cette fonction, rattachée à l’atelier Finition Cadrans de Cadrans Flückiger à Saint Imier, vous garantirez en toute autonomie la réalisation d’un ensemble d’opérations complexes se rapportant à la pose d’appliques, d’index, de sertissures, etc. sur des cadrans terminés dans le respect nos standards de production et de qualité.\n\nResponsabilités\n\n• Réaliser la pose d’appliques, d’index, de sertissures, etc. sur des cadrans terminés.\n\n• Assurer le rhabillage des cadrans terminés.\n\n• Réaliser les opérations finales telles que le pointage, le collage, le coupage et le rivetage des pieds.\n\n• Contrôler ses travaux selon les standards définis.\n\n• Détecter les dérives esthétiques pouvant intervenir en cours de production, les corriger, et en cas de problème, alerter son responsable.\n\nProfil recherché\n\n• 1 à 3 ans d’expérience dans un poste similaire.\n\n• Expérience préalable en horlogerie haut de gamme souhaitée.\n\n• Très bonne acuité visuelle (travail avec le micros).\n\n• Très bonne habileté manuelle dont travail à la brucelle.\n\n• Rigueur et précision.\n\n• Capacité de concentration.\n\n• Capacité d’adaptation.\n\n• Esprit d'équipe\n\nRéférence du poste\n\n3778",
+        "en": "Mission\n\nDans le cadre de cette fonction, rattachée à l’atelier Finition Cadrans de Cadrans Flückiger à Saint Imier, vous garantirez en toute autonomie la réalisation d’un ensemble d’opérations complexes se rapportant à la pose d’appliques, d’index, de sertissures, etc. sur des cadrans terminés dans le respect nos standards de production et de qualité.\n\nResponsabilités\n\n• Réaliser la pose d’appliques, d’index, de sertissures, etc. sur des cadrans terminés.\n\n• Assurer le rhabillage des cadrans terminés.\n\n• Réaliser les opérations finales telles que le pointage, le collage, le coupage et le rivetage des pieds.\n\n• Contrôler ses travaux selon les standards définis.\n\n• Détecter les dérives esthétiques pouvant intervenir en cours de production, les corriger, et en cas de problème, alerter son responsable.\n\nProfil recherché\n\n• 1 à 3 ans d’expérience dans un poste similaire.\n\n• Expérience préalable en horlogerie haut de gamme souhaitée.\n\n• Très bonne acuité visuelle (travail avec le micros).\n\n• Très bonne habileté manuelle dont travail à la brucelle.\n\n• Rigueur et précision.\n\n• Capacité de concentration.\n\n• Capacité d’adaptation.\n\n• Esprit d'équipe\n\nRéférence du poste\n\n3778",
+        "de": "Mission\n\nDans le cadre de cette fonction, rattachée à l’atelier Finition Cadrans de Cadrans Flückiger à Saint Imier, vous garantirez en toute autonomie la réalisation d’un ensemble d’opérations complexes se rapportant à la pose d’appliques, d’index, de sertissures, etc. sur des cadrans terminés dans le respect nos standards de production et de qualité.\n\nResponsabilités\n\n• Réaliser la pose d’appliques, d’index, de sertissures, etc. sur des cadrans terminés.\n\n• Assurer le rhabillage des cadrans terminés.\n\n• Réaliser les opérations finales telles que le pointage, le collage, le coupage et le rivetage des pieds.\n\n• Contrôler ses travaux selon les standards définis.\n\n• Détecter les dérives esthétiques pouvant intervenir en cours de production, les corriger, et en cas de problème, alerter son responsable.\n\nProfil recherché\n\n• 1 à 3 ans d’expérience dans un poste similaire.\n\n• Expérience préalable en horlogerie haut de gamme souhaitée.\n\n• Très bonne acuité visuelle (travail avec le micros).\n\n• Très bonne habileté manuelle dont travail à la brucelle.\n\n• Rigueur et précision.\n\n• Capacité de concentration.\n\n• Capacité d’adaptation.\n\n• Esprit d'équipe\n\nRéférence du poste\n\n3778"
       },
-      "location": "Plan-Les-Ouates",
-      "canton": "GE",
-      "url": "https://careers.patek.com/job/Plan-Les-Ouates-Sp%C3%A9cialiste-Relations-Publiques-%28HF%29/1365244755/",
+      "location": "Saint-Imier",
+      "canton": "BE",
+      "url": "https://careers.patek.com/job/Saint-Imier-Op%C3%A9rateur-Pose-Appliques-%28HF%29/1369580655/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:51:19.301Z",
+      "crawledAt": "2026-09-25T14:41:01.587Z",
       "hiringOrganization": "Patek Philippe SA",
-      "addressLocality": "Plan-Les-Ouates",
-      "postalCode": "1228",
-      "streetAddress": "Chemin du Pont-du-Centenaire 141",
-      "addressRegion": "Genève",
+      "addressLocality": "Saint-Imier",
+      "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Marketing",
+      "category": "Altro",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Luxury / Watchmaking (Manufacturing)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-21",
-      "applyUrl": "https://careers.patek.com/job/Plan-Les-Ouates-Sp%C3%A9cialiste-Relations-Publiques-%28HF%29/1365244755/",
-      "jobReqId": "1365244755",
+      "postedDate": "2026-09-25",
+      "applyUrl": "https://careers.patek.com/job/Saint-Imier-Op%C3%A9rateur-Pose-Appliques-%28HF%29/1369580655/",
+      "jobReqId": "1369580655",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "specialiste-relations-publiques-h-f-patek-philippe-plan-les-ouates",
-        "specialiste-relations-publiques-patek-philippe-plan-les-ouates"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "specialiste-relations-publiques-h-f-patek-philippe-plan-les-ouates",
-          "specialiste-relations-publiques-patek-philippe-plan-les-ouates"
-        ],
-        "en": [
-          "specialiste-relations-publiques-h-f-patek-philippe-plan-les-ouates"
-        ],
-        "de": [
-          "specialiste-relations-publiques-h-f-patek-philippe-plan-les-ouates"
-        ]
+      "requirementsByLocale": {
+        "fr": []
       },
-      "firstSeenAt": "2026-08-21T21:28:47.549Z",
-      "salaryMin": 61500,
-      "salaryMax": 109000,
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 61500,
-          "maxValue": 109000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-09-25T14:41:01.587Z"
     }
   ]
 }
