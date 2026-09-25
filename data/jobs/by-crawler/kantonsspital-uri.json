@@ -306,7 +306,7 @@
       "previousSlugs": [
         "physiotherapeut-in-mit-zusatzfunktion-als-berufsbildner-in-w-m-d-80-100-kantonsspital-uri"
       ],
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "kantonsspital-uri-f16a011f5e45",
@@ -596,7 +596,15 @@
           "maxValue": 84400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-zentralsterilisation-aemp-w-m-d-70-kantonsspital-uri-altdorf"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-zentralsterilisation-aemp-w-m-d-70-kantonsspital-uri-altdorf"
+      ]
     },
     {
       "id": "kantonsspital-uri-4e686551b44b",
