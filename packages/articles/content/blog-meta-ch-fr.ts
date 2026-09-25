@@ -6707,6 +6707,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.finanziamento-federale-universita-sup.title': 'Financement fédéral des universités cantonales et des HES',
     'blog.article.finanziamento-federale-universita-sup.excerpt': 'Le Conseil fédéral a approuvé le 25 septembre 2026 le rapport sur le financement équitable : 20% maximum pour les universités cantonales, 30% maximum pour les HES à partir du 1° janvier 2027.',
     'blog.article.finanziamento-federale-universita-sup.imageAlt': 'Campus universitaire moderne à Lugano avec étudiants et laboratoires de recherche sous le ciel alpin',
+    'blog.article.fondi-integrazione-svizzera-2028.title': 'Plus de fonds fédéraux pour l\'intégration 2028-2032',
+    'blog.article.fondi-integrazione-svizzera-2028.excerpt': 'Le Conseil fédéral alloue 334,5 millions à l’intégration en Suisse pour la période 2028-2032, dont 66,9 millions par an pour des programmes cantonaux et nationaux.',
+    'blog.article.fondi-integrazione-svizzera-2028.imageAlt': 'Séance d\'information suisse sur les programmes cantonaux d\'intégration',
 };
 
 export default blogMetaChFr;

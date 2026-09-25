@@ -6707,6 +6707,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.finanziamento-federale-universita-sup.title': 'Eidgenössische Finanzierung Kantonaler Hochschulen und Fachhochschulen',
     'blog.article.finanziamento-federale-universita-sup.excerpt': 'Der Bundesrat hat am 25. September 2026 den Bericht über die faire Finanzierung genehmigt: maximal 20% für kantonale Hochschulen, maximal 30% für FH ab 1. Januar 2027.',
     'blog.article.finanziamento-federale-universita-sup.imageAlt': 'Moderner Universitätscampus in Lugano mit Studierenden und Forschungslaboren unter alpiner Himmel',
+    'blog.article.fondi-integrazione-svizzera-2028.title': 'Mehr Integrationsfonds des Bundes 2028-2032',
+    'blog.article.fondi-integrazione-svizzera-2028.excerpt': 'Der Bundesrat stellt im Zeitraum 2028-2032 334,5 Millionen für die Integration in der Schweiz bereit, mit 66,9 Millionen jährlich für kantonale und nationale Programme.',
+    'blog.article.fondi-integrazione-svizzera-2028.imageAlt': 'Schweizer Informationsveranstaltung zu kantonalen Integrationsprogrammen',
 };
 
 export default blogMetaChDe;
