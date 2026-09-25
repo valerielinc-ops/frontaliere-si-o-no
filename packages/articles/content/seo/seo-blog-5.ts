@@ -93088,6 +93088,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ridurre-tempi-ripristino-a2-mezzovico': {
+    title: 'Ridurre i tempi di ripristino dopo incidente A2 Mezzovico',
+    description: 'Lorenzo Quadri presenta una mozione al Consiglio federale per ridurre i tempi di ripristino dopo incidenti sulla A2 a Mezzovico, dove la chiusura è durata oltre',
+    keywords: 'frontalieri, ticino, svizzera, italia, ridurre, tempi, ripristino, dopo',
+    ogTitle: 'Ridurre i tempi di ripristino dopo incidente A2 Mezzovico',
+    ogDescription: 'La mozione di Lorenzo Quadri sollecita il Consiglio federale a esaminare e accorciare i tempi di ripristino della viabilità dopo incidenti autostradali, citando il caso della A2 a Mezzovico con chiusura oltre cinque ore e colonne fino a 13',
+    canonicalPath: '/articoli-frontaliere/ridurre-tempi-ripristino-a2-mezzovico',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ridurre i tempi di ripristino dopo incidente A2 Mezzovico",
+      "description": "Lorenzo Quadri presenta una mozione al Consiglio federale per ridurre i tempi di ripristino dopo incidenti sulla A2 a Mezzovico, dove la chiusura è durata oltre",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ridurre-tempi-ripristino-a2-mezzovico.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea dell'autostrada A2 vicino a Mezzovico con coda di veicoli e mezzi di soccorso"
+      },
+      "datePublished": "2026-09-25T10:00:16+00:00",
+      "dateModified": "2026-09-25T10:00:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ridurre-tempi-ripristino-a2-mezzovico/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

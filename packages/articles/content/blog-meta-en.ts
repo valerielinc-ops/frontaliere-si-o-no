@@ -11962,6 +11962,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.riassetto-ferroviario-lavoratori.title': 'Ffs Cargo, employment prospects spark debate',
     'blog.article.riassetto-ferroviario-lavoratori.excerpt': 'The reorganization of Ffs Cargo involves 80 employees: three employees have not yet received job offers.',
     'blog.article.riassetto-ferroviario-lavoratori.imageAlt': 'FFS Cargo freight train at a railway yard in Ticino',
+    'blog.article.ridurre-tempi-ripristino-a2-mezzovico.title': 'Reduce recovery times after the A2 Mezzovico incident',
+    'blog.article.ridurre-tempi-ripristino-a2-mezzovico.excerpt': 'Lorenzo Quadri (Lega) presents a motion to reduce restoration times after the accident on the A2 in Mezzovico: closure lasting over 5 hours, queues up to 13 km.',
+    'blog.article.ridurre-tempi-ripristino-a2-mezzovico.imageAlt': 'Aerial view of the A2 highway near Mezzovico with traffic jam and emergency vehicles',
 };
 
 export default blogMetaEn;
