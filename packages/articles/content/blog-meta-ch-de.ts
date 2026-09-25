@@ -6719,6 +6719,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sanzioni-onu-ordinanze-2026.title': 'Die Schweiz harmonisiert die Verordnungen zu den UNO-Sanktionen von 2026',
     'blog.article.sanzioni-onu-ordinanze-2026.excerpt': 'Am 25 settembre 2026 hat der Bundesrat beschlossen, vier Sanktionsverordnungen zu harmonisieren und die Befreiung von der Melde- und Bewilligungspflicht für bestimmte iranische Transaktionen auf internationale Organisationen auszuweiten.',
     'blog.article.sanzioni-onu-ordinanze-2026.imageAlt': 'SECO-Offizielle Dokumente zu UN-Sanktionen mit dem Bundeshaus Bern im Hintergrund',
+    'blog.article.francese-autonomia-cantoni.title': 'Französisch in der Schule: Die Kantone verteidigen die Autonomie',
+    'blog.article.francese-autonomia-cantoni.excerpt': 'Die CDPE verteidigt die kantonalen Zuständigkeiten in Sprachfragen und entscheidet sich nicht zwischen den beiden eidgenössischen Varianten: Konsultation bis zum 5. Oktober.',
+    'blog.article.francese-autonomia-cantoni.imageAlt': 'Schweizer Schule mit französischen und deutschen Sprachbüchern',
 };
 
 export default blogMetaChDe;

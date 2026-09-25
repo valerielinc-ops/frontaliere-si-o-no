@@ -6719,6 +6719,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sanzioni-onu-ordinanze-2026.title': 'Svizzera armonizza le ordinanze sulle sanzioni ONU del 2026',
     'blog.article.sanzioni-onu-ordinanze-2026.excerpt': 'Il 25 settembre 2026 il Consiglio federale ha deciso di armonizzare quattro ordinanze sulle sanzioni, estendendo alle organizzazioni internazionali l\'esenzione da notifica e autorizzazione per determinate transazioni iraniane.',
     'blog.article.sanzioni-onu-ordinanze-2026.imageAlt': 'Documenti ufficiali SECO sulle sanzioni ONU con sfondo del Palazzo federale a Berna',
+    'blog.article.francese-autonomia-cantoni.title': 'Francese a scuola: i Cantoni difendono l\'autonomia',
+    'blog.article.francese-autonomia-cantoni.excerpt': 'La CDPE difende le prerogative cantonali sulle lingue e non sceglie tra le due varianti federali: consultazione fino al 5 ottobre.',
+    'blog.article.francese-autonomia-cantoni.imageAlt': 'Scuola svizzera con libri di francese e tedesco',
 };
 
 export default blogMetaChIt;

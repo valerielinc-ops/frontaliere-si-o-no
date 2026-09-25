@@ -87107,6 +87107,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-francese-autonomia-cantoni': {
+    title: 'Francese a scuola: i Cantoni difendono l\'autonomia',
+    description: 'La CDPE difende l\'autonomia dei Cantoni sulle lingue: il Governo consulta due varianti sul francese alle elementari, con scadenza il 5 ottobre. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, francese, scuola, cantoni, difendono',
+    ogTitle: 'Francese alle elementari: autonomia ai Cantoni',
+    ogDescription: 'Il confronto sul francese alle scuole elementari coinvolge alcuni Cantoni germanofoni. La CDPE non sceglie tra le varianti del Consiglio federale, difende la cooperazione intercantonale e indica il 5 ottobre come termine della consultazione.',
+    canonicalPath: '/articoli-svizzera/francese-autonomia-cantoni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Francese a scuola: i Cantoni difendono l'autonomia",
+      "description": "La CDPE difende l'autonomia dei Cantoni sulle lingue: il Governo consulta due varianti sul francese alle elementari, con scadenza il 5 ottobre. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/francese-autonomia-cantoni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scuola svizzera con libri di francese e tedesco"
+      },
+      "datePublished": "2026-09-25T18:17:09+00:00",
+      "dateModified": "2026-09-25T18:17:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/francese-autonomia-cantoni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
