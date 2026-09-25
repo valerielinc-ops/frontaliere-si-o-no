@@ -6722,6 +6722,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.francese-autonomia-cantoni.title': 'Französisch in der Schule: Die Kantone verteidigen die Autonomie',
     'blog.article.francese-autonomia-cantoni.excerpt': 'Die CDPE verteidigt die kantonalen Zuständigkeiten in Sprachfragen und entscheidet sich nicht zwischen den beiden eidgenössischen Varianten: Konsultation bis zum 5. Oktober.',
     'blog.article.francese-autonomia-cantoni.imageAlt': 'Schweizer Schule mit französischen und deutschen Sprachbüchern',
+    'blog.article.svizzera-difesa-bilancio-iva.title': 'MwSt 0,2% & Verteidigungsfonds 24 Mrd.: Kompromiss',
+    'blog.article.svizzera-difesa-bilancio-iva.excerpt': 'Mit 25 zu 17 Stimmen bewilligt der Ständerat +0,2 Mehrwertsteuerpunkte für 18 Jahre, einen Verteidigungsfonds von bis zu 24 Milliarden und eine Verschuldung von bis zu 12 Milliarden. Reduzierung der F-35 auf ~30 und zusätzliches Guthaben von 394 Millionen.',
+    'blog.article.svizzera-difesa-bilancio-iva.imageAlt': 'Luftaufnahme der Schweizer Alpen mit Silhouette eines Kampfjets, Symbol für die Verteidigungsausgaben-Debatte',
 };
 
 export default blogMetaChDe;

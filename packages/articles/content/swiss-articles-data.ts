@@ -20192,6 +20192,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'svizzera-difesa-bilancio-iva',
+    category: 'fiscale',
+    date: '2026-09-25T20:31:43.667Z',
+    image: '/images/blog/svizzera-difesa-bilancio-iva.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

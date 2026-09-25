@@ -2263,6 +2263,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'franco-svizzero-ribasso-settembre-novembre': { it: 'franco-svizzero-ribasso-settembre-novembre', en: 'swiss-franc-decline-signals-to-watch-through-november', de: 'schweizer-franken-im-abwartstrend-signale-die-bis-november-zu-beobachten-sind', fr: 'franc-suisse-en-baisse-les-signaux-a-suivre-jusqu-en-novembre' },
  'sanzioni-onu-ordinanze-2026': { it: 'sanzioni-onu-ordinanze-2026', en: 'sanctions-un-ordinances-2026', de: 'sanktionen-un-verordnungen-2026', fr: 'sanctions-onu-ordonnances-2026' },
  'francese-autonomia-cantoni': { it: 'francese-autonomia-cantoni', en: 'french-language-canton-autonomy', de: 'franzoesisch-kantone-autonomie', fr: 'francais-autonomie-cantons' },
+ 'svizzera-difesa-bilancio-iva': { it: 'svizzera-difesa-bilancio-iva', en: 'switzerland-defense-budget-vat', de: 'schweiz-verteidigungsbudget-mwst', fr: 'suisse-budget-defense-tva' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
