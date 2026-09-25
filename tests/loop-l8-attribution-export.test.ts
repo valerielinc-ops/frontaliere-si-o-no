@@ -7,6 +7,7 @@ import {
   buildL8AttributionQuery,
   buildUnavailableL8AttributionExport,
   exportL8Attribution,
+  main as exportL8Main,
 } from '../scripts/ci/export-l8-affiliate-outcomes.mjs';
 
 const NOW = new Date('2026-09-15T12:00:00.000Z');
@@ -115,6 +116,33 @@ describe('L8 affiliate attribution exporter', () => {
     });
   });
 
+  it('treats malformed optional commercial input as unavailable in the fallback branch', async () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l8-malformed-commercial-test-'));
+    const commercialPath = path.join(dir, 'commercial.json');
+    const outputPath = path.join(dir, 'outcome.json');
+    fs.writeFileSync(commercialPath, '{ malformed commercial export');
+
+    const outcome = await exportL8Main({
+      argv: [
+        '--out', outputPath,
+        '--commercial', commercialPath,
+        '--unavailable',
+        '--reason', 'commercial fetch failed',
+      ],
+      logger: { log() {} },
+    });
+
+    expect(outcome).toMatchObject({
+      independent: false,
+      transactions: null,
+      evidence: { status: 'missing', commercialLedger: 'missing' },
+    });
+    expect(JSON.parse(fs.readFileSync(outputPath, 'utf8'))).toMatchObject({
+      independent: false,
+      transactions: null,
+    });
+  });
+
   it('writes a runner-local live export through an injectable PostHog response', async () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l8-attribution-test-'));
     const outputPath = path.join(dir, 'outcome.json');
@@ -136,5 +164,28 @@ describe('L8 affiliate attribution exporter', () => {
       independent: false,
     });
     expect(outcome.attribution.sourceEvents).toBe(141);
+  });
+
+  it('keeps an authorised commercial ledger when PostHog telemetry is unavailable', () => {
+    const outcome = buildUnavailableL8AttributionExport({
+      generatedAt: NOW,
+      telemetryWindow: WINDOW,
+      reason: 'PostHog credentials unavailable',
+      commercial: {
+        generatedAt: '2026-09-14T11:00:00.000Z',
+        independent: true,
+        evidence: { source: 'network-export', sourceRefs: ['authorised-network'] },
+        exposures: { web: 120, email: null },
+        transactions: [{ transactionId: 'approved-1', status: 'approved' }],
+      },
+    });
+    expect(outcome).toMatchObject({
+      independent: true,
+      generatedAt: '2026-09-14T11:00:00.000Z',
+      exposures: { web: 120, email: null },
+      transactions: [{ transactionId: 'approved-1' }],
+      clicks: { web: null, email: null, relevant: null, total: null },
+      evidence: { source: 'network-export', commercialLedger: 'supplied-by-authorised-export' },
+    });
   });
 });

@@ -11,6 +11,7 @@ on:
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l8-revenue-attribution.mjs'
       - 'scripts/ci/export-l8-affiliate-outcomes.mjs'
+      - 'scripts/ci/fetch-authorized-affiliate-export.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/affiliateRevenue.mjs'
       - 'scripts/lib/google-service-account-token.mjs'
@@ -27,6 +28,7 @@ on:
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l8-revenue-attribution.mjs'
       - 'scripts/ci/export-l8-affiliate-outcomes.mjs'
+      - 'scripts/ci/fetch-authorized-affiliate-export.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/affiliateRevenue.mjs'
       - 'scripts/lib/google-service-account-token.mjs'
@@ -67,6 +69,7 @@ jobs:
             /data/loop-fleet/loop-registry.json
             /scripts/ci/loop-l8-revenue-attribution.mjs
             /scripts/ci/export-l8-affiliate-outcomes.mjs
+            /scripts/ci/fetch-authorized-affiliate-export.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/affiliateRevenue.mjs
             /scripts/lib/google-service-account-token.mjs
@@ -119,11 +122,24 @@ jobs:
         if: github.event_name != 'pull_request'
         run: |
           set +e
-          node scripts/ci/export-l8-affiliate-outcomes.mjs --days 8 --commercial data/revenue-authorized-export.json --out "$RUNNER_TEMP/l8-affiliate-outcomes.json"
+          node scripts/ci/fetch-authorized-affiliate-export.mjs --out "$RUNNER_TEMP/l8-commercial-export.json"
+          fetch_code=$?
+          set -e
+          if [ "$fetch_code" -ne 0 ]; then
+            echo 'L8 authorised commercial export fetch failed; continuing fail-closed without commercial amounts.' | tee -a "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ -n "${AFFILIATE_REVENUE_EXPORT_URL:-}" ]; then
+            commercial_path="$RUNNER_TEMP/l8-commercial-export.json"
+          else
+            commercial_path='data/revenue-authorized-export.json'
+          fi
+          echo "L8_COMMERCIAL_EXPORT_PATH=$commercial_path" >> "$GITHUB_ENV"
+          set +e
+          node scripts/ci/export-l8-affiliate-outcomes.mjs --days 8 --commercial "$commercial_path" --out "$RUNNER_TEMP/l8-affiliate-outcomes.json"
           export_code=$?
           set -e
           if [ "$export_code" -ne 0 ]; then
-            node scripts/ci/export-l8-affiliate-outcomes.mjs --unavailable --days 8 --reason 'live PostHog or authorised commercial export unavailable' --out "$RUNNER_TEMP/l8-affiliate-outcomes.json"
+            node scripts/ci/export-l8-affiliate-outcomes.mjs --unavailable --days 8 --commercial "$commercial_path" --reason 'live PostHog or authorised commercial export unavailable' --out "$RUNNER_TEMP/l8-affiliate-outcomes.json"
             echo 'L8 live attribution export failed; continuing with an explicitly unavailable outcome.' | tee -a "$GITHUB_STEP_SUMMARY"
           fi
       - name: Build unavailable L8 attribution input for pull requests
