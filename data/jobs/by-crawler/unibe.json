@@ -1874,8 +1874,7 @@
       "previousSlugs": [
         "post-doc-universitat-bern-bern",
         "postdoc-universitat-bern-bern-a5xwgv",
-        "post-doc-unibe-bern",
-        "postdoc-universitat-bern-bern"
+        "post-doc-unibe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1885,8 +1884,7 @@
           "post-doc-universitat-bern-bern"
         ],
         "de": [
-          "postdoc-universitat-bern-bern-a5xwgv",
-          "postdoc-universitat-bern-bern"
+          "postdoc-universitat-bern-bern-a5xwgv"
         ],
         "fr": [
           "post-doc-unibe-bern"
@@ -3528,7 +3526,7 @@
       "slug": "postdoc-universitat-bern-bern",
       "slugByLocale": {
         "it": "postdoc-universitat-bern-bern",
-        "en": "early-postdoc-unibe-bern",
+        "en": "old-postdoc-universitat-bern-bern",
         "de": "early-postdoc-unibe-bern",
         "fr": "premier-postdoc-universitat-bern-bern"
       },
@@ -3591,7 +3589,8 @@
           "postdoc-en-atmospheres-exoplanetes-a-l-universite-de-berne-universitat-bern-bern"
         ],
         "en": [
-          "postdoc-in-exoplanet-atmospheres-at-the-university-of-bern-unibe-bern"
+          "postdoc-in-exoplanet-atmospheres-at-the-university-of-bern-unibe-bern",
+          "early-postdoc-unibe-bern"
         ],
         "de": [
           "postdoc-in-exoplanetenatmospharen-an-der-universitat-bern-universitat-bern-bern"
@@ -4541,13 +4540,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "spezialhandwerker-in-ii-unibe-bern",
-        "ouvriers-specialises-ii-universitat-bern-bern",
-        "artigiani-specializzati-ii-universitat-bern-bern"
+        "ouvriers-specialises-ii-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialhandwerker-in-ii-unibe-bern",
-          "artigiani-specializzati-ii-universitat-bern-bern"
+          "spezialhandwerker-in-ii-unibe-bern"
         ],
         "fr": [
           "ouvriers-specialises-ii-universitat-bern-bern"
@@ -5364,7 +5361,7 @@
       "slugByLocale": {
         "it": "responsabile-della-scienza-dei-dati-universitat-bern-bern",
         "en": "data-science-officer-unibe-bern",
-        "de": "data-science-officer-unibe-bern",
+        "de": "data-science-beauftragter-universitat-bern-bern",
         "fr": "specialiste-des-sciences-des-donnees-universitat-bern-bern"
       },
       "company": "Universität Bern",
@@ -5414,6 +5411,9 @@
         ],
         "fr": [
           "data-science-officer-universitat-bern-bern"
+        ],
+        "de": [
+          "data-science-officer-unibe-bern"
         ]
       },
       "previousSlugs": [
