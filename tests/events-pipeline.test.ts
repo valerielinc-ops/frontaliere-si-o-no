@@ -477,6 +477,28 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     });
   });
 
+  it('emits source-published optional Offer metadata when the crawler captured it', () => {
+    const ld = eventLd({
+      ...baseEvent,
+      price: {
+        amount: 19,
+        currency: 'CHF',
+        isFree: false,
+        availability: 'https://schema.org/InStock',
+        validFrom: '2026-06-01T09:00:00+02:00',
+        url: 'https://tickets.example.test/event/19',
+      },
+    }, 'it') as Record<string, any>;
+    expect(ld.offers).toEqual({
+      '@type': 'Offer',
+      price: '19',
+      priceCurrency: 'CHF',
+      availability: 'https://schema.org/InStock',
+      validFrom: '2026-06-01T09:00:00+02:00',
+      url: 'https://tickets.example.test/event/19',
+    });
+  });
+
   it('emits offers with price "0" when event.price is confidently free', () => {
     const ld = eventLd({ ...baseEvent, price: { amount: 0, currency: 'CHF', isFree: true } }, 'it') as Record<string, any>;
     expect(ld.offers?.price).toBe('0');
@@ -513,7 +535,28 @@ describe('extractTioPrice + enrichEventsWithPrice (offers/JSON-LD gap, tio.ch "P
       address: { street: 'Via Chiosso 9', postalCode: '6948', locality: 'Porza' },
       venue: 'Tertianum Cornaredo',
       price: { amount: 0, currency: 'CHF', isFree: true },
+      performer: { name: 'Isabella Giampaolo' },
     });
+  });
+
+  it('extracts a named performer from the Tio detail title/description', () => {
+    const html = '<div class="col-12 col-xl-8"><h1>Serata con Maxi B</h1><p>Musica dal vivo con Maxi B.</p></div>';
+    expect(extractTioDetailMetadata(html).performer).toEqual({ name: 'Maxi B' });
+  });
+
+  it('does not promote generic detail prose to a Tio performer', () => {
+    const html = '<div class="col-12 col-xl-8"><h1>Test</h1><p>Veranstaltung mit Freude.</p></div>';
+    expect(extractTioDetailMetadata(html).performer).toBeUndefined();
+  });
+
+  it('does not promote ordinary two-token detail prose to a Tio performer', () => {
+    const html = '<div class="col-12 col-xl-8"><h1>Test</h1><p>Un evento con Belle Giornate.</p></div>';
+    expect(extractTioDetailMetadata(html).performer).toBeUndefined();
+  });
+
+  it('keeps an explicitly labelled Tio contributor', () => {
+    const html = '<div class="col-12 col-xl-8"><h1>Test</h1><p>Mitwirkende: Freude.</p></div>';
+    expect(extractTioDetailMetadata(html).performer).toEqual({ name: 'Freude' });
   });
 
   it('enrichEventsWithPrice attaches price from the injected fetch, never mutates the source array', async () => {

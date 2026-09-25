@@ -109,6 +109,11 @@ service cloud.firestore {
         'confirmation_expired_at', 'confirmationExpiredAt',
         'confirmation_job_context',
         'confirmed_via', 'confirmedVia',
+        // The authenticated registration writer records the exact consent
+        // route alongside the visible terms proof. Treat both as
+        // subscription state so the generic owner clause cannot silently
+        // admit or rewrite them outside the terms-based transition.
+        'confirmation_method', 'confirmed_via_surface',
         'resubscribe_pending',
         'bounce_severity', 'bounce_reason', 'complained_at', 'complaint_at',
         'last_complained_at', 'suppressed_at', 'drip_started_at',
@@ -208,6 +213,16 @@ service cloud.firestore {
     // conditions: it creates the base newsletter + job-alert relationship
     // without a second checkbox or DOI. Typed-email registrations use the
     // pending branch above; only the server DOI handler may promote them.
+    //
+    // `consent_text_displayed` is a FACT the writer records, not a condition
+    // of the registration (owner decision of 2026-09-25: registration stays
+    // silent, the consent record must be true). The sign-in writer measures it
+    // on the page at the act (services/authService.ts): `true` when the
+    // notice was on screen, `false` for One Tap over a plain page, the
+    // assistant or the profile page. Requiring `true` here made the browser
+    // either lie or drop those logins (#9837 logged them as
+    // `registration_refused`). What stays required is the verified owner —
+    // the provider vouched for the address — and the complete terms record.
     function isTermsBasedConfirmedCreate(email) {
       return isVerifiedSubscriberOwner(email)
         && request.resource.data.keys().hasAll([
@@ -222,7 +237,7 @@ service cloud.firestore {
         && request.resource.data.consent_basis == 'registration_terms'
         && request.resource.data.consent_text is string
         && request.resource.data.consent_text != ''
-        && request.resource.data.consent_text_displayed == true
+        && request.resource.data.consent_text_displayed is bool
         && request.resource.data.consent_act == 'registration_terms_acceptance'
         && request.resource.data.consent_method == 'terms_and_conditions'
         && request.resource.data.keys().hasAny(['confirmed_at', 'confirmedAt'])
@@ -243,7 +258,7 @@ service cloud.firestore {
         && request.resource.data.consent_basis == 'registration_terms'
         && request.resource.data.consent_text is string
         && request.resource.data.consent_text != ''
-        && request.resource.data.consent_text_displayed == true
+        && request.resource.data.consent_text_displayed is bool
         && request.resource.data.consent_act == 'registration_terms_acceptance'
         && request.resource.data.consent_method == 'terms_and_conditions'
         && request.resource.data.keys().hasAny(['confirmed_at', 'confirmedAt'])

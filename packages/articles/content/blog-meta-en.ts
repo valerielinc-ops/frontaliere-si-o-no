@@ -11973,6 +11973,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pasture-cambio-operatore.title': 'At Pasture, the operator changes: jobs at risk',
     'blog.article.pasture-cambio-operatore.excerpt': 'Starting in January, the federal mandate for the asylum center will pass from AOZ to ORS: in Ticino, 120 employees are currently working, but not all of them will be rehired.',
     'blog.article.pasture-cambio-operatore.imageAlt': 'Pasture asylum centre faces an operator change in Ticino',
+    'blog.article.eta-pensione-2030-ragioneria.title': 'Retirement age: 67 years and 6 months in 2030',
+    'blog.article.eta-pensione-2030-ragioneria.excerpt': 'The General State Accounting Office forecasts 67 years and 6 months in 2030 and pension expenditure at 17,1% of GDP in 2041.',
+    'blog.article.eta-pensione-2030-ragioneria.imageAlt': 'Mature worker reviews pension papers with the Ticino landscape in the background',
+    'blog.article.chiusura-cantonale-neggia-fosano.title': 'Cantonal road closed between Neggia and Fosano on 28 settembre',
+    'blog.article.chiusura-cantonale-neggia-fosano.excerpt': 'The cantonal road between Neggia and Fosano will be completely closed on Monday 28 September, from 8 to 16.30, due to paving work in the municipality of Gambarogno.',
+    'blog.article.chiusura-cantonale-neggia-fosano.imageAlt': 'Cantonal road between Neggia and Fosano closed for paving works',
 };
 
 export default blogMetaEn;

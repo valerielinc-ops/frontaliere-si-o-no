@@ -59,6 +59,7 @@ import {
   saveEventTitleTranslationCache,
 } from './lib/events-utils.mjs';
 import { freeTranslateWithRetryDetailed, asTranslationResult } from './lib/free-translate.mjs';
+import { extractEventPeopleFromText, extractEventPeopleFromTitle } from './lib/event-metadata.mjs';
 
 const SOURCE = EVENT_SOURCES['tio-agenda'];
 const DAY_URL = (compact) => `https://www.tio.ch/agenda/day/${compact}`;
@@ -260,6 +261,7 @@ export function extractTioDetailMetadata(html) {
   if (typeof html !== 'string' || !html) return {};
   const doc = new JSDOM(html).window.document;
   const eventTitle = [...doc.querySelectorAll('h1')].find((heading) => !heading.classList.contains('page-title'));
+  const titleText = text(eventTitle);
   const eventColumn = eventTitle?.parentElement;
   const titleIndex = eventColumn ? [...eventColumn.children].indexOf(eventTitle) : -1;
   const paragraphs =
@@ -287,11 +289,17 @@ export function extractTioDetailMetadata(html) {
   const price = extractTioPrice(html) || (/(?:entrata libera|ingresso libero|gratuit[oa])/i.test(descriptionText)
     ? parsePriceText('entrata libera')
     : undefined);
+  const sourcePeople = extractEventPeopleFromText(descriptionText, { includePerformer: 'explicit' });
+  const titlePeople = extractEventPeopleFromTitle(titleText);
   return {
     ...(descriptionText.length >= 30 ? { description: descriptionText } : {}),
     ...(Object.keys(address).length ? { address } : {}),
     ...(values[0] ? { venue: values[0] } : {}),
     ...(price ? { price } : {}),
+    ...(sourcePeople.organizer ? { organizer: sourcePeople.organizer } : {}),
+    ...(sourcePeople.performer || titlePeople.performer
+      ? { performer: sourcePeople.performer || titlePeople.performer }
+      : {}),
   };
 }
 
@@ -324,6 +332,8 @@ export async function enrichEventsWithPrice(events, fetchFn = fetchHtml) {
       ...(metadata.address ? { address: metadata.address } : {}),
       ...(metadata.venue ? { venue: metadata.venue } : {}),
       ...(metadata.price ? { price: metadata.price } : {}),
+      ...(metadata.organizer ? { organizer: metadata.organizer } : {}),
+      ...(metadata.performer ? { performer: metadata.performer } : {}),
       ...(detailComune ? { comune: detailComune, comuneMatch: 'exact' } : {}),
     };
     out.push(next);

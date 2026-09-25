@@ -86912,6 +86912,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-finanziamento-federale-universita-sup': {
+    title: 'Finanziamento federale università cantonali e SUP',
+    description: 'Il 25 settembre 2026 il Consiglio federale ha approvato il rapporto sul finanziamento equo delle scuole universitarie, fissando al 20% e 30% i massimi',
+    keywords: 'frontalieri, ticino, svizzera, italia, finanziamento, federale, università, cantonali',
+    ogTitle: 'Finanziamento federale università cantonali e SUP',
+    ogDescription: 'Il Consiglio federale ha confermato il 25 settembre 2026 le quote massime di finanziamento diretto: 20% per le università cantonali e 30% per le SUP, valori in vigore dal 1° gennaio 2027. Il rapporto, basato sulla valutazione BSS Volkswirtschaftliche',
+    canonicalPath: '/articoli-svizzera/finanziamento-federale-universita-sup/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Finanziamento federale università cantonali e SUP",
+      "description": "Il 25 settembre 2026 il Consiglio federale ha approvato il rapporto sul finanziamento equo delle scuole universitarie, fissando al 20% e 30% i massimi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/finanziamento-federale-universita-sup.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campus universitario moderno a Lugano con studenti e laboratori di ricerca sotto il cielo alpino"
+      },
+      "datePublished": "2026-09-25T12:24:28+00:00",
+      "dateModified": "2026-09-25T12:24:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/finanziamento-federale-universita-sup/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
