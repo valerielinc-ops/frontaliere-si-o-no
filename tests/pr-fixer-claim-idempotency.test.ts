@@ -362,7 +362,8 @@ describe('workflow wiring for the two site PR fixer consumers', () => {
       'TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_post_model.outputs.root }}\n          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}',
     );
     expect(redflag).toContain('claim_error');
-    expect(redflag).toContain('MAX_ROUNDS=2');
+    // Cap del 🔴-fixer: 3 round per PR dal 2026-09-25 (il ❌-check fixer resta a 2).
+    expect(redflag).toContain('MAX_ROUNDS=3');
     expect(redflag).toContain('CLAIM_ACTION: finalize');
   });
 
@@ -395,7 +396,9 @@ describe('workflow wiring for the two site PR fixer consumers', () => {
       ['redflag', redflag, 'REDFLAG_FIX_ROUND'],
       ['redcheck', redcheck, 'REDCHECK_FIX_ROUND'],
     ] as const) {
-      const guard = source.slice(source.indexOf('MAX_ROUNDS=2'), source.indexOf('Configure git identity'));
+      // Il cap differisce fra i due fixer (redflag 3, redcheck 2): il blocco
+      // parte dalla sua definizione, qualunque sia il valore.
+      const guard = source.slice(source.search(/MAX_ROUNDS=\d/), source.indexOf('Configure git identity'));
       expect(guard, `${name}: marker must carry HEAD and body revision`).toContain(`${marker}: %s HEAD: %s BODY: %s`);
       expect(guard, `${name}: marker read-back must paginate`).toContain('--paginate --slurp');
       expect(guard, `${name}: marker read-back must compare the complete body`).toContain('.body == $expected');

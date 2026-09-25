@@ -9034,9 +9034,9 @@
     },
     {
       "id": "eth-zurich-38e8ca056e8d",
-      "slug": "eth-ai-center-doctoral-fellowship-2027-eth-zurich-ch",
+      "slug": "eth-ai-centro-fleoship-dottorale-2027-eth-zurich-zurich",
       "slugByLocale": {
-        "it": "eth-ai-center-doctoral-fellowship-2027-eth-zurich-ch",
+        "it": "eth-ai-centro-fleoship-dottorale-2027-eth-zurich-zurich",
         "en": "eth-ai-center-doctoral-fellowship-2027-eth-zurich-ch",
         "de": "eth-ai-center-doktorandenstipendium-2027-eth-zurich-zurich",
         "fr": "bourse-de-doctorat-du-centre-ai-de-l-eth-2027-eth-zurich-zurich"
@@ -9093,7 +9093,15 @@
         }
       },
       "addressRegion": "ZH",
-      "sourceIdentity": "url:https://jobs.ethz.ch/job/view/12136"
+      "sourceIdentity": "url:https://jobs.ethz.ch/job/view/12136",
+      "previousSlugsByLocale": {
+        "it": [
+          "eth-ai-center-doctoral-fellowship-2027-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "eth-ai-center-doctoral-fellowship-2027-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-80612ec41df5",
@@ -9485,7 +9493,7 @@
         "de": "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
         "it": "brandschutzfachfrau-mann-m-w-d-eth-zurich",
         "en": "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
-        "fr": "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
+        "fr": "specialiste-de-la-protection-contre-l-incendie-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9529,6 +9537,9 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
           "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
         ]
       },

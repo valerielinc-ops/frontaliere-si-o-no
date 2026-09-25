@@ -957,7 +957,22 @@ async function sendViaMailjet(email, _scheduledAt, signal) {
   if (msg?.Status === 'error') {
     throw new Error(`Mailjet error: ${JSON.stringify(msg.Errors).slice(0, 200)}`);
   }
-  return providerAck('mailjet', msg?.To?.[0]?.MessageID);
+  // `MessageUUID`, never `MessageID`. The Send API v3.1 acknowledges each
+  // recipient with both: `MessageID` is an integer around 1.15e18, past 2^53,
+  // so `res.json()` has already rounded it before any code of ours runs (until
+  // #8245, 2026-09-10, it was stored rounded — 214 confirmation records; since
+  // then it is refused and the send is labelled ambiguous — 144 in 30 days).
+  // And even exact it would join nothing: the Mailjet webhook stamps its events
+  // with `Message_GUID` (all 53,406 stored events carry it, see
+  // newsletterMailjetWebhookCore.js), which is the message's UUID: on
+  // 2026-09-25 the `UUID` that Mailjet's read-only /v3/REST/message listing
+  // gives for 120 of 120 recent messages equalled the `Message_GUID` stored
+  // for the same recipient. `MessageUUID` is that id as the Send API v3.1
+  // returns it («the internal Mailjet ID of your message»). Measured the same
+  // day: 0 of 358 Mailjet confirmation sends joined their provider events by
+  // id, against 595/595 on Mailgun. The UUID is a string, so it survives
+  // JSON.parse intact.
+  return providerAck('mailjet', msg?.To?.[0]?.MessageUUID);
 }
 
 // ── Mailgun API (v3) ─────────────────────────────────────────
