@@ -244,6 +244,8 @@ import {
  saveUserProfileToFirestore,
  consumeAuthJobContext,
  consumeAuthAttributionContext,
+ consumeConsentEvidence,
+ resolveAuthConsentSurface,
  sanitizeAuthReturnPath,
 } from '@/services/authService';
 import { settleNewsletterAutologin, parseNewsletterAutologin } from '@/services/newsletterAutologinSignal';
@@ -346,6 +348,17 @@ function safeCompanyFollowPath(value: unknown): string | null {
   return null;
  }
 }
+
+/**
+ * The assistant's fallback Google button (the one App.tsx hands to the chat as
+ * `onSignIn` when the GIS button is not ready). Its own cta keeps it apart from
+ * the rendered button's `ai_chatbot_social`; the component names the surface,
+ * so the registration records `ai_chatbot` rather than an anonymous login.
+ */
+const AI_CHATBOT_FALLBACK_AUTH_ATTRIBUTION = Object.freeze({
+ cta: 'ai_chatbot_fallback_google',
+ component: 'AiChatbot',
+});
 
 const App: React.FC = () => {
  const { t, locale } = useTranslation();
@@ -727,6 +740,9 @@ const App: React.FC = () => {
  // The surface that started the login, parked by signInWithLinkedIn under
  // this exact `state`; without it the origin page is the state path itself.
  const linkedInAttribution = consumeAuthAttributionContext({ linkedinState: state }) || { page: decodedState };
+ // What was on screen at that click, parked under the same `state`: the
+ // registration record says whether the notice was really displayed.
+ const linkedInEvidence = consumeConsentEvidence({ linkedinState: state });
 
  if (errorParam) {
  // User cancelled or LinkedIn returned an error
@@ -739,7 +755,18 @@ const App: React.FC = () => {
 
  setLinkedInCallbackProcessing(true);
 
- const customToken = await exchangeLinkedInCode(code, linkedInAttribution);
+ // Read before the exchange: the job context also names the consent
+ // surface (the job gate) of the registration the Cloud Function writes.
+ const savedJobCtx = consumeAuthJobContext();
+ const linkedInConsentSurface = resolveAuthConsentSurface({
+  provider: 'linkedin',
+  attribution: linkedInAttribution,
+  jobContext: savedJobCtx,
+ });
+ const customToken = await exchangeLinkedInCode(code, linkedInAttribution, {
+  surface: linkedInConsentSurface,
+  evidence: linkedInEvidence,
+ });
 
  if (cancelled) return;
 
@@ -755,10 +782,12 @@ const App: React.FC = () => {
  Analytics.trackUIInteraction('auth', 'linkedin', 'login', user ? 'success' : 'no-user');
 
  if (user) {
- const savedJobCtx = consumeAuthJobContext();
  // Best-effort: save/update user profile in Firestore for personalization,
- // with the job and surface contexts that started this LinkedIn login.
- saveUserProfileToFirestore(user, 'linkedin', savedJobCtx, linkedInAttribution).catch(() => {});
+ // with the job and surface contexts and the notice evidence that started
+ // this LinkedIn login.
+ saveUserProfileToFirestore(user, 'linkedin', savedJobCtx, linkedInAttribution, {
+  consentEvidence: linkedInEvidence,
+ }).catch(() => {});
 
  const email = getAuthEmail(user);
 
@@ -1416,7 +1445,9 @@ const App: React.FC = () => {
  }, [activeTab, authLoading, authUser, isPrivilegedAdmin, locale]);
 
  const chatbotGoogleSignIn = async (): Promise<any | null> => {
- return googleSignIn();
+ // The assistant's fallback button: attributed to the assistant, so its
+ // registration names the surface it came from.
+ return googleSignIn(AI_CHATBOT_FALLBACK_AUTH_ATTRIBUTION);
  };
 
  const chatbotFacebookSignIn = async (): Promise<any | null> => {

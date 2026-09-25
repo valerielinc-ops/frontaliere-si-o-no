@@ -561,8 +561,11 @@ describe('Frontend App.tsx — LinkedIn profile saving', () => {
       source.indexOf("'auth', 'linkedin', 'login', user ? 'success' : 'no-user'"),
       source.indexOf("if (cancelled) return;", source.indexOf("'auth', 'linkedin', 'login', user ? 'success' : 'no-user'"))
     );
-    // The job and surface contexts that started the login travel with it.
-    expect(linkedinSection).toContain("saveUserProfileToFirestore(user, 'linkedin', savedJobCtx, linkedInAttribution)");
+    // The job and surface contexts that started the login travel with it,
+    // and so does what was on screen at the LinkedIn click.
+    expect(linkedinSection).toMatch(
+      /saveUserProfileToFirestore\(user, 'linkedin', savedJobCtx, linkedInAttribution, \{\s*consentEvidence: linkedInEvidence,\s*\}\)/,
+    );
   });
 });
 

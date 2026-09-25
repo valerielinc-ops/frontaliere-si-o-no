@@ -16,10 +16,62 @@
 import admin from 'firebase-admin';
 import { ensureAdminApp } from './newsletterResendWebhookCore.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
-import { buildSignupAttributionFields } from './lib/signupAttribution.js';
+import { buildSignupAttributionFields, sanitizeSignupPath } from './lib/signupAttribution.js';
+import { isNewsletterOptOutBinding } from './lib/newsletterOptOut.js';
+import { isAddressSuppressed } from './lib/emailSuppression.js';
+import {
+ CONFIRMATION_METHODS,
+ hasSubscriberCreationStamp,
+} from './lib/subscriberConsent.js';
+import {
+ REGISTRATION_TERMS_VERSION,
+ registrationTermsTextFor,
+} from './lib/registrationTermsText.js';
 
-const REGISTRATION_TERMS_VERSION = '2026-09-16.1';
-const REGISTRATION_TERMS_TEXT = 'Registrandomi accetto le condizioni e mi iscrivo alle comunicazioni di Frontaliere Ticino. Condizioni (v. 2026-09-15.1).';
+const CONSENT_LOCALES = new Set(['it', 'en', 'de', 'fr']);
+const SURFACE_RE = /^[a-z0-9_]{1,40}$/;
+const VERSION_RE = /^[0-9A-Za-z._-]{1,40}$/;
+const NOTICE_KEY_RE = /^[A-Za-z0-9_]{1,60}$/;
+
+/**
+ * The consent record the browser measured for this LinkedIn login, forwarded
+ * inside `attribution.consent` (services/authService.ts → exchangeLinkedInCode):
+ * the surface, whether the notice was on screen at the click, and the exact
+ * register sentence, version and locale. Untrusted input: only a well-formed
+ * record passes, and the sentence is capped. It concerns only the account that
+ * just completed LinkedIn OAuth, which could write the same fields on its own
+ * document from the browser anyway.
+ *
+ * Without a record (a tab still running an older bundle) the login is written
+ * as what can be proven: the governing Italian sentence, `displayed: false`,
+ * surface `auth_linkedin`. Never the other way round.
+ *
+ * @param {unknown} attribution - `req.body.attribution`
+ * @returns {{ surface: string, displayed: boolean, key: string|null, locale: string, text: string, version: string }}
+ */
+export function resolveLinkedInConsentRecord(attribution) {
+ const raw = attribution && typeof attribution === 'object' && !Array.isArray(attribution)
+  ? attribution.consent
+  : null;
+ const fallback = {
+  surface: 'auth_linkedin',
+  displayed: false,
+  key: null,
+  locale: 'it',
+  text: registrationTermsTextFor('it'),
+  version: REGISTRATION_TERMS_VERSION,
+ };
+ if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return fallback;
+ const surface = typeof raw.surface === 'string' && SURFACE_RE.test(raw.surface) ? raw.surface : fallback.surface;
+ const locale = typeof raw.locale === 'string' && CONSENT_LOCALES.has(raw.locale) ? raw.locale : 'it';
+ const text = typeof raw.text === 'string' ? raw.text.replace(/\s+/g, ' ').trim().slice(0, 600) : '';
+ const version = typeof raw.version === 'string' && VERSION_RE.test(raw.version) ? raw.version : '';
+ const key = typeof raw.key === 'string' && NOTICE_KEY_RE.test(raw.key) ? raw.key : null;
+ if (!text || !version) {
+  return { ...fallback, surface, locale, text: registrationTermsTextFor(locale) };
+ }
+ return { surface, displayed: raw.displayed === true, key, locale, text, version };
+}
 
 /**
  * Fetch basic profile data from LinkedIn /v2/me endpoint.
@@ -51,81 +103,113 @@ async function fetchLinkedInBasicProfile(accessToken) {
  * Best-effort — login succeeds even if Firestore write fails.
  * Merges into the central subscriber doc; only writes non-null fields. A
  * LinkedIn registration is covered by the same terms-based base relationship
- * as every other authentication provider, so a missing row is created with
- * newsletter + job-alert membership. Existing suppression/opt-out state is
- * preserved and never resurrected by login.
+ * as every other authentication provider, so a missing row — or a row that
+ * holds only profile fields — is registered with newsletter + job-alert
+ * membership. Existing suppression/opt-out state is preserved and never
+ * resurrected by login.
+ *
+ * The consent record says what happened at the click (see
+ * resolveLinkedInConsentRecord): the surface, the sentence and version, and
+ * `consent_text_displayed` only when the notice was really on screen. Until
+ * 2026-09-25 this writer stamped `true` on every LinkedIn login. The same
+ * block goes, append-only, into the `events` subcollection.
  *
  * @param {string} email - User email (document key)
  * @param {object} profileData - LinkedIn profile fields
  * @param {unknown} [attribution] - surface that started the login (untrusted,
  *   sanitized by buildSignupAttributionFields; never touches source/source_channel)
  */
-async function enrichSubscriberProfile(email, profileData, attribution = null) {
+export async function enrichSubscriberProfile(email, profileData, attribution = null) {
  try {
  const db = admin.firestore();
+ const ts = () => admin.firestore.FieldValue.serverTimestamp();
  const normalizedEmail = email.trim().toLowerCase();
  const subRef = db.collection('newsletter_subscribers').doc(normalizedEmail);
  const existingSubscriber = await subRef.get();
  const existing = existingSubscriber.exists ? existingSubscriber.data() || {} : null;
+ const consent = resolveLinkedInConsentRecord(attribution);
+ const confirmationMethod = profileData?.emailVerified === true
+  ? CONFIRMATION_METHODS.PROVIDER_VERIFIED_EMAIL
+  : CONFIRMATION_METHODS.NONE;
 
  const updateData = {
  email: normalizedEmail,
  updatedAt: admin.firestore.FieldValue.serverTimestamp(),
  lastLoginAt: admin.firestore.FieldValue.serverTimestamp(),
  };
- if (!existing) {
+ const consentBlock = {
+  consent_given: true,
+  consent_given_at: ts(),
+  consent_basis: 'registration_terms',
+  registration_terms_accepted: true,
+  registration_terms_version: consent.version,
+  registration_terms_text: consent.text,
+  registration_terms_accepted_at: ts(),
+  consent_text: consent.text,
+  consent_text_version: consent.version,
+  consent_text_displayed: consent.displayed,
+  consent_act: 'registration_terms_acceptance',
+  consent_method: 'terms_and_conditions',
+  consent_purpose: 'unified_email_channels',
+  consent_origin: consent.surface,
+ };
+ // A row that only carries profile/login fields (no subscription status, no
+ // opt-out, no address suppression) is registered by this login exactly like
+ // a missing one — otherwise it would keep the profile-only shape the senders
+ // exclude, now with a terms record on it and no status.
+ const unregistered = Boolean(existing)
+  && !String(existing.status || '').trim()
+  && !isNewsletterOptOutBinding(existing)
+  && !isAddressSuppressed(existing.status);
+ let recordedAct = null;
+ if (!existing || unregistered) {
+  recordedAct = existing ? 'promoted' : 'created';
   Object.assign(updateData, {
    status: 'confirmed',
    isActive: true,
    active: true,
    preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false, jobs: true },
    interests: ['jobs'],
-   source: 'auth_linkedin',
-   source_channel: 'auth_linkedin',
-   consent_given: true,
-   consent_given_at: admin.firestore.FieldValue.serverTimestamp(),
-   consent_advertising: true,
-   consent_advertising_at: admin.firestore.FieldValue.serverTimestamp(),
-   consent_advertising_updated_at: admin.firestore.FieldValue.serverTimestamp(),
-   consent_basis: 'registration_terms',
-   registration_terms_accepted: true,
-   registration_terms_version: REGISTRATION_TERMS_VERSION,
-   registration_terms_text: REGISTRATION_TERMS_TEXT,
-   registration_terms_accepted_at: admin.firestore.FieldValue.serverTimestamp(),
-   consent_text: REGISTRATION_TERMS_TEXT,
-   consent_text_version: REGISTRATION_TERMS_VERSION,
-   consent_text_displayed: true,
-   consent_act: 'registration_terms_acceptance',
-   consent_method: 'terms_and_conditions',
-   consent_purpose: 'unified_email_channels',
-   confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
-   confirmedAt: admin.firestore.FieldValue.serverTimestamp(),
-   created_at: admin.firestore.FieldValue.serverTimestamp(),
+   source: (existing && existing.source) || 'auth_linkedin',
+   source_channel: (existing && existing.source_channel) || 'auth_linkedin',
+   ...consentBlock,
+   consent_advertising: existing?.advertising_opt_out !== true,
+   consent_advertising_at: ts(),
+   consent_advertising_updated_at: ts(),
+   confirmed_at: ts(),
+   confirmedAt: ts(),
+   confirmation_method: confirmationMethod,
+   confirmed_via_surface: consent.surface,
+   ...(hasSubscriberCreationStamp(existing) ? {} : { created_at: ts() }),
   });
- } else if (existing.registration_terms_accepted !== true) {
-  // Preserve the existing status and opt-out stamps; this only records the
-  // current terms basis that applies to the authenticated account.
-  Object.assign(updateData, {
-   consent_given: true,
-   consent_given_at: existing.consent_given_at || admin.firestore.FieldValue.serverTimestamp(),
-   consent_basis: 'registration_terms',
-   registration_terms_accepted: true,
-   registration_terms_version: REGISTRATION_TERMS_VERSION,
-   registration_terms_text: REGISTRATION_TERMS_TEXT,
-   registration_terms_accepted_at: existing.registration_terms_accepted_at || admin.firestore.FieldValue.serverTimestamp(),
-   consent_text: existing.consent_text || REGISTRATION_TERMS_TEXT,
-   consent_text_version: existing.consent_text_version || REGISTRATION_TERMS_VERSION,
-   consent_text_displayed: true,
-   consent_act: existing.consent_act || 'registration_terms_acceptance',
-   consent_method: existing.consent_method || 'terms_and_conditions',
-   consent_purpose: existing.consent_purpose || 'unified_email_channels',
-  });
+ } else if (existing.registration_terms_accepted !== true && !isNewsletterOptOutBinding(existing)) {
+  recordedAct = 'terms';
+  // Preserve the existing status; this only records the current terms basis
+  // that applies to the authenticated account. A binding opt-out is left
+  // alone, as the browser writer does: a login is not a re-opt-in. An
+  // earlier consent text is the record of an earlier act and stays as it
+  // is, displayed flag included: it is not this login's to rewrite.
+  Object.assign(updateData, existing.consent_text
+   ? {
+    consent_given: true,
+    consent_given_at: existing.consent_given_at || ts(),
+    consent_basis: 'registration_terms',
+    registration_terms_accepted: true,
+    registration_terms_version: consent.version,
+    registration_terms_text: consent.text,
+    registration_terms_accepted_at: existing.registration_terms_accepted_at || ts(),
+   }
+   : {
+    ...consentBlock,
+    consent_given_at: existing.consent_given_at || ts(),
+    registration_terms_accepted_at: existing.registration_terms_accepted_at || ts(),
+   });
  }
- if (existing && existing.advertising_opt_out !== true && existing.consent_advertising !== true) {
+ if (existing && !unregistered && existing.advertising_opt_out !== true && existing.consent_advertising !== true) {
   Object.assign(updateData, {
    consent_advertising: true,
-   consent_advertising_at: existing.consent_advertising_at || admin.firestore.FieldValue.serverTimestamp(),
-   consent_advertising_updated_at: admin.firestore.FieldValue.serverTimestamp(),
+   consent_advertising_at: existing.consent_advertising_at || ts(),
+   consent_advertising_updated_at: ts(),
   });
  }
  for (const [key, value] of Object.entries(profileData)) {
@@ -135,9 +219,47 @@ async function enrichSubscriberProfile(email, profileData, attribution = null) {
  }
  // Origin page / CTA / component of the login. The callback page is
  // /auth/linkedin/callback or `/`, so this is the only place they survive.
- Object.assign(updateData, buildSignupAttributionFields(attribution, existing));
+ const attributionFields = buildSignupAttributionFields(attribution, existing);
+ Object.assign(updateData, attributionFields);
 
  await subRef.set(updateData, { merge: true });
+
+ if (recordedAct) {
+  try {
+   await subRef.collection('events').add({
+    email: normalizedEmail,
+    user_id: profileData?.auth_uid || null,
+    event_type: recordedAct === 'terms' ? 'subscribe_completed' : 'confirm',
+    source_channel: 'auth_linkedin',
+    source_page: attributionFields.source_page || sanitizeSignupPath(attribution?.page) || null,
+    metadata: {
+     status: updateData.status || existing?.status || null,
+     source: updateData.source || existing?.source || 'auth_linkedin',
+     consent: {
+      trigger: 'sign_in',
+      provider: 'linkedin',
+      act: 'registration_terms_acceptance',
+      method: 'terms_and_conditions',
+      basis: 'registration_terms',
+      purpose: 'unified_email_channels',
+      origin: consent.surface,
+      text_version: consent.version,
+      text_displayed: updateData.consent_text_displayed ?? existing?.consent_text_displayed ?? null,
+      text_locale: consent.locale,
+      notice_key: consent.displayed ? consent.key : null,
+      page: attributionFields.source_page || sanitizeSignupPath(attribution?.page) || null,
+      registration_method: 'authenticated',
+      confirmation_method: recordedAct === 'terms' ? null : confirmationMethod,
+      confirmed_via_surface: recordedAct === 'terms' ? null : consent.surface,
+     },
+    },
+    timestamp: ts(),
+    occurred_at: new Date().toISOString(),
+   });
+  } catch (eventErr) {
+   console.error('[linkedinAuthCallback] Failed to record the consent event:', eventErr.message);
+  }
+ }
  } catch (err) {
  // Best-effort: don't break login if Firestore write fails
  console.error('[linkedinAuthCallback] Failed to enrich subscriber profile:', err.message);

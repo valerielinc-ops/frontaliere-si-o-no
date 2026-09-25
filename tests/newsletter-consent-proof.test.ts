@@ -340,6 +340,136 @@ describe('the consent block written alongside the text', () => {
   });
 });
 
+describe('the record of the act: displayed only when shown, surface, language, confirmation (2026-09-25)', () => {
+  beforeEach(() => {
+    setDocMock.mockClear();
+    addDocMock.mockClear();
+    getDocMock.mockReset();
+    getDocMock.mockResolvedValue(NOT_EXISTS);
+  });
+
+  it('keeps a caller\'s "not displayed" instead of forcing it to true', async () => {
+    await captureNewsletterSubscriber({} as any, {
+      email: 'onetap@example.com',
+      source: 'auth_google',
+      sourceChannel: 'auth_google',
+      registrationTermsAccepted: true,
+      registrationMethod: 'authenticated',
+      consentTextDisplayed: false,
+      consentOrigin: 'auth_one_tap',
+    });
+    const payload = payloadOf();
+    expect(payload.consent_text_displayed).toBe(false);
+    expect(payload.consent_origin).toBe('auth_one_tap');
+    // The governing formula is still what the relationship is under.
+    expect(payload.consent_text).toBe(CONSENT_TEXTS.communicationsOptIn.text);
+    expect(payload.consent_given_at).toBe('__server_timestamp__');
+    expect(payload.confirmation_method).toBe('provider_verified_email');
+    expect(payload.confirmed_via_surface).toBe('auth_one_tap');
+  });
+
+  it('a form gate that passes nothing is the rendered notice, and is named by its component', async () => {
+    await captureNewsletterSubscriber({} as any, {
+      email: 'popup@example.com',
+      source: 'popup',
+      sourceChannel: 'popup',
+      sourceComponent: 'NewsletterPopup',
+      registrationMethod: 'email',
+    });
+    const payload = payloadOf();
+    expect(payload.consent_text_displayed).toBe(true);
+    expect(payload.consent_origin).toBe('newsletter_popup');
+    // Typed address: nothing confirmed it yet, so no confirmation origin.
+    expect(payload).not.toHaveProperty('confirmation_method');
+  });
+
+  it('stores the sentence in the site locale the notice rendered in, not the browser language', async () => {
+    await captureNewsletterSubscriber({} as any, {
+      email: 'browser-de@example.com',
+      source: 'job_gate',
+      locale: 'de-DE',
+      registrationMethod: 'email',
+    });
+    expect(payloadOf().consent_text).toBe(CONSENT_TEXTS.communicationsOptIn.texts!.it);
+  });
+
+  it('an explicit notice key and locale are stored as shown', async () => {
+    await captureNewsletterSubscriber({} as any, {
+      email: 'fr@example.com',
+      source: 'auth_google',
+      registrationTermsAccepted: true,
+      registrationMethod: 'authenticated',
+      consentTextDisplayed: true,
+      consentNoticeKey: 'communicationsOptIn',
+      consentLocale: 'fr',
+    });
+    expect(payloadOf().consent_text).toBe(CONSENT_TEXTS.communicationsOptIn.texts!.fr);
+  });
+
+  it('writes the same block, append-only, into the event of the act', async () => {
+    await captureNewsletterSubscriber({} as any, {
+      email: 'audit@example.com',
+      source: 'auth_google',
+      sourceChannel: 'auth_google',
+      sourcePage: '/cerca-lavoro-ticino/?ne=audit%40example.com&ac=secret',
+      registrationTermsAccepted: true,
+      registrationMethod: 'authenticated',
+      consentTextDisplayed: false,
+      consentOrigin: 'auth_one_tap',
+      consentAudit: { trigger: 'sign_in', one_tap_select_by: 'auto', 'bad key': 'dropped' },
+    });
+    const event = (addDocMock.mock.calls[0] as unknown[])[1] as Record<string, any>;
+    expect(event.metadata.consent).toEqual({
+      trigger: 'sign_in',
+      one_tap_select_by: 'auto',
+      act: 'registration_terms_acceptance',
+      method: 'terms_and_conditions',
+      basis: 'registration_terms',
+      purpose: UNIFIED_EMAIL_CONSENT_PURPOSE,
+      origin: 'auth_one_tap',
+      text_version: CONSENT_TEXTS.communicationsOptIn.version,
+      text_displayed: false,
+      text_locale: 'it',
+      // Pathname only: the query of a newsletter link carries the address.
+      page: '/cerca-lavoro-ticino/',
+      registration_method: 'authenticated',
+      confirmation_method: 'provider_verified_email',
+      confirmed_via_surface: 'auth_one_tap',
+    });
+  });
+
+  it('a login on a registered row carries the earlier record forward and records no new act', async () => {
+    getDocMock.mockResolvedValue({
+      exists: () => true,
+      data: () => ({
+        email: 'known@example.com',
+        status: 'confirmed',
+        isActive: true,
+        active: true,
+        confirmed_at: 'then',
+        registration_terms_accepted: true,
+        consent_text: 'formula precedente',
+        consent_text_displayed: true,
+        consent_origin: 'job_gate',
+      }),
+    });
+    await captureNewsletterSubscriber({} as any, {
+      email: 'known@example.com',
+      source: 'auth_google',
+      registrationTermsAccepted: true,
+      registrationMethod: 'authenticated',
+      consentTextDisplayed: false,
+      consentOrigin: 'auth_one_tap',
+    });
+    const payload = payloadOf();
+    expect(payload.consent_text_displayed).toBe(true);
+    expect(payload).not.toHaveProperty('consent_origin');
+    expect(payload).not.toHaveProperty('confirmation_method');
+    const event = (addDocMock.mock.calls[0] as unknown[])[1] as Record<string, any>;
+    expect(event.metadata).not.toHaveProperty('consent');
+  });
+});
+
 describe('consent_ip — the network the consent came from (#5676)', () => {
   beforeEach(() => {
     setDocMock.mockClear();

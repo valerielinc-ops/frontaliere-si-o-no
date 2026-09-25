@@ -43,6 +43,7 @@ import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/ca
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import { isCrossChannelStop, isJobAlertExcluded } from '../services/emailSuppression.mjs';
+import { evaluateJobAlertConsent } from './lib/jobalert-backfill-core.mjs';
 import { detectJobTitleLocaleDetails } from './lib/job-locale-utils.mjs';
 import {
   normalizeSentMap,
@@ -1608,6 +1609,9 @@ async function processRetryQueue(db) {
         } else if (isCrossChannelStop(newsletter) || isJobAlertExcluded(jobAlertRoot?.status)) {
           discardReason = 'suppressed';
           retrySuppressed += 1;
+        } else if (!evaluateJobAlertConsent({ alert, subscriber: newsletter }).allowed) {
+          discardReason = 'no-subscription-basis';
+          retrySuppressed += 1;
         }
 
         if (discardReason) {
@@ -2170,6 +2174,21 @@ async function main() {
     const before = alerts.length;
     alerts = alerts.filter((a) => !suppressedEmails.has(a.email.toLowerCase()));
     console.log(`   🚫 Suppressed (global stop / bounced / complained / provider list): ${before - alerts.length} alert(s) skipped`);
+  }
+  // An alert backfilled from a newsletter document that carries no
+  // relationship (profile-only: login fields, no status, no terms, no
+  // consent) has no basis either — the same `hasSubscriptionBasis` floor the
+  // newsletter senders apply since #9734, via the shared per-alert predicate.
+  // Explicit alerts (alert form, company follow) keep their own basis.
+  {
+    const before = alerts.length;
+    alerts = alerts.filter((a) => evaluateJobAlertConsent({
+      alert: a,
+      subscriber: subscriberProfiles.get(a.email.toLowerCase()) ?? null,
+    }).allowed);
+    if (before !== alerts.length) {
+      console.log(`   🚫 Backfilled alerts without a subscription basis: ${before - alerts.length} alert(s) skipped`);
+    }
   }
   if (autologinDisabledSet.size > 0) {
     console.log(`   🔒 Autologin opt-out: ${autologinDisabledSet.size} subscriber(s) will receive email without autologin token`);
