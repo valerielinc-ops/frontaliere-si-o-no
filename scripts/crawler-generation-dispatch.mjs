@@ -792,6 +792,22 @@ function crawlerGenerationContractReasons(contract, observerBytes, remoteArtifac
   return reasons;
 }
 
+function crawlerArtifactLineageMatches(localContract, remoteArtifacts, groupIds) {
+  const localArtifacts = new Map(
+    Array.isArray(localContract?.artifacts)
+      ? localContract.artifacts.map((entry) => [entry?.file, entry])
+      : [],
+  );
+  return Array.isArray(groupIds) && groupIds.every((group) => {
+    const file = `crawler-group-${group}.yml`;
+    const bytes = remoteArtifacts?.[file];
+    const artifact = localArtifacts.get(file);
+    return Buffer.isBuffer(bytes)
+      && SHA256_RE.test(artifact?.artifactSha256 ?? '')
+      && sha256(bytes) === artifact.artifactSha256;
+  });
+}
+
 // Il mirror di `.github/corpus-workflows/**` e il tree del repo corpus sono
 // allineati da un lockstep ASINCRONO (site → corpus, ~6 min: il merge site
 // 4b614a72 delle 12:41:01 è arrivato sul corpus alle 12:46:45). Una wave che
@@ -854,7 +870,17 @@ export function evaluateCrawlerGenerationPreflight({
       && remoteContract?.sourceRepository === SITE_REPOSITORY
       && SHA256_RE.test(remoteContract?.generatorSha256 ?? '')
       && remoteContract.generatorSha256 === localContract?.generatorSha256;
-    if (!sameLineage) reasons.push('contract_mismatch');
+    if (!sameLineage) {
+      reasons.push('contract_mismatch');
+      const sameGroupSet = localGroupIds !== null && remoteGroupIds !== null
+        && canonicalJson(localGroupIds) === canonicalJson(remoteGroupIds);
+      if (sameGroupSet && !crawlerArtifactLineageMatches(localContract, remoteArtifacts, remoteGroupIds)) {
+        // A different generator plus different pinned workflow bytes is a real
+        // lineage change, not a mirror read that can converge on the next
+        // attempt. Keep the gate closed and avoid spending the retry window.
+        reasons.push('crawler_artifact_lineage_mismatch');
+      }
+    }
   }
   const ready = reasons.length === 0;
   return {
