@@ -935,8 +935,8 @@ describe('push-contention class (exit 42) in generated steps', () => {
   });
 });
 
-describe('#7116 — push-contention class (exit 42) on the group-batch commit step', () => {
-  it('captures the exit code and keeps "Commit crawler group data atomically" green on contention, without swallowing real failures', () => {
+describe('#9667 — token-bound retry class on the group-batch commit step', () => {
+  it('retries exit 42/44 in the same generation and fails closed after the bounded budget', () => {
     const WORKFLOWS_DIR = path.resolve(import.meta.dirname, '../.github/workflows');
     const files = fs.readdirSync(WORKFLOWS_DIR).filter((f) => /^crawler-group-\d+\.yml$/.test(f));
     expect(files.length).toBeGreaterThan(0);
@@ -947,13 +947,17 @@ describe('#7116 — push-contention class (exit 42) on the group-batch commit st
       expect(commitStep).toBeDefined();
       // the exit code must be captured (not left to the bare `bash -e {0}` default)...
       expect(commitStep.run).toContain('git_commit_exit=$?');
-      // ...42 must be handled explicitly and keep the step green...
-      expect(commitStep.run).toContain('[ "$git_commit_exit" -eq 42 ]');
+      // ...42 must be handled explicitly and retried without creating a
+      // green run whose receipt never reached main...
+      expect(commitStep.run).toContain('[ "$git_commit_exit" -ne 42 ]');
       expect(commitStep.run).toContain('exit 0');
-      // ...as must the cross-repository lease convoy (exit 44).
-      expect(commitStep.run).toContain('[ "$git_commit_exit" -eq 44 ]');
-      expect(commitStep.run).toContain('global data-pipeline lease busy (exit 44)');
-      // ...while any other non-zero exit still propagates and fails the step.
+      expect(commitStep.run).toContain('commit_max_attempts=3');
+      expect(commitStep.run).toContain('retrying the same generation');
+      expect(commitStep.run).toContain('same-generation retry budget exhausted');
+      // ...as must the cross-repository lease convoy (exit 44), while the
+      // exhausted retryable branch still propagates the non-zero status.
+      expect(commitStep.run).toContain('[ "$git_commit_exit" -ne 44 ]');
+      expect(commitStep.run).toContain('retryable commit exit $git_commit_exit');
       expect(commitStep.run).toContain('exit "$git_commit_exit"');
     }
   });

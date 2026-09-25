@@ -11996,6 +11996,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ticket-stipendio-acquisti-ticino.title': 'Lohn-Ticket: der Vorschlag zum Einkaufen im Tessin',
     'blog.article.ticket-stipendio-acquisti-ticino.excerpt': 'Ticket-Gehalt im Tessin: Die Jugend des Zentrums schlägt vor, bis zu 5% des Gehalts für lokale Einkäufe zu verwenden, mit einem Steuergutschein von 25%.',
     'blog.article.ticket-stipendio-acquisti-ticino.imageAlt': 'Lohn-Gutschein und Einkäufe in einem Geschäft im Tessin',
+    'blog.article.furti-auto-lusso-ticino.title': 'Luxusautodiebstähle im Tessin: drei Festgenommene',
+    'blog.article.furti-auto-lusso-ticino.excerpt': 'Es wurden vier High-End-Autos aus Manno, Lamone und Camorino gestohlen. Drei Jugendliche wurden verhaftet und ein vierter Verdächtiger nach gemeinsamen Ermittlungen gesucht.',
+    'blog.article.furti-auto-lusso-ticino.imageAlt': 'Luxusauto bei einem Händler im Tessin',
 };
 
 export default blogMetaDe;
