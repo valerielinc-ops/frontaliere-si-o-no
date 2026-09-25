@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { deriveJobPostalCode, getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
+import { deriveJobPostalCode, getJobLocationSnapshot, resolveJobPostingPostalCode } from '@/services/jobLocationSnapshot';
 
 describe('jobLocationSnapshot', () => {
   it('returns postal code and commuter-friendly nearest crossings for Riazzino', () => {
@@ -51,6 +51,22 @@ describe('jobLocationSnapshot', () => {
     expect(getJobLocationSnapshot({ addressLocality: 'Gossau SG', postalCode: '9200' })?.postalCode).toBe('9200');
     // 8005 is not in the postal snapshot: no contradiction can be proven.
     expect(getJobLocationSnapshot({ addressLocality: 'Zürich', postalCode: '8005' })?.postalCode).toBe('8005');
+  });
+
+  it('pairs the client-side JobPosting CAP with its own locality, like the static builder (#9841)', () => {
+    // HQ CAP on a Chur vacancy: replaced by Chur's own, and the caller is told
+    // to drop the source street that travels with the HQ CAP.
+    expect(resolveJobPostingPostalCode({ location: 'Chur', addressLocality: 'Chur', postalCode: '8600' }, 'Chur', 'GR'))
+      .toEqual({ postalCode: '7000', sourcePostalCoherent: false });
+    // No source CAP and a locality the seeds do not know: never the Ticino
+    // default next to a Bernese locality, but the canton capital.
+    expect(resolveJobPostingPostalCode({ location: 'Worblaufen', addressLocality: 'Worblaufen' }, 'Worblaufen', 'BE'))
+      .toEqual({ postalCode: '3001', sourcePostalCoherent: true });
+    // A coherent source CAP, plain or decorated, stays with its street.
+    expect(resolveJobPostingPostalCode({ addressLocality: 'Lugano', postalCode: '6900' }, 'Lugano', 'TI'))
+      .toEqual({ postalCode: '6900', sourcePostalCoherent: true });
+    expect(resolveJobPostingPostalCode({ addressLocality: 'Dübendorf-Stettbach', postalCode: '8600' }, 'Dübendorf-Stettbach', 'ZH'))
+      .toEqual({ postalCode: '8600', sourcePostalCoherent: true });
   });
 
   it('still trusts a postal code consistent with the locality', () => {
