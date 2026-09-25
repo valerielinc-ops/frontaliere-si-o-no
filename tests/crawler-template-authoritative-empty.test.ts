@@ -685,7 +685,7 @@ describe('standard crawler authoritative-empty policy', () => {
       {},
     );
     expect(validator).not.toHaveBeenCalled();
-    expect(mocks.archiveRemovedJobsToSlice).not.toHaveBeenCalled();
+    expect(mocks.archiveRemovedJobsToSlice).toHaveBeenCalledWith([], COMPANY_KEY);
     expect(mocks.writeJobsCrawlerSliceVerified).toHaveBeenCalledWith(
       COMPANY_KEY,
       expect.arrayContaining([
