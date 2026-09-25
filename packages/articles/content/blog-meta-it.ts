@@ -11951,6 +11951,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mobilizzazione-ferroviaria-luino-svizzera.title': 'Linea Luino-Svizzera: Azione aderisce a Lombardia si muove',
     'blog.article.mobilizzazione-ferroviaria-luino-svizzera.excerpt': 'Sabato 26 settembre mobilitazione nelle stazioni lombarde per l\'efficienza ferroviaria. Focus sulla tratta Luino-Svizzera e raccolta firme per il Ministro.',
     'blog.article.mobilizzazione-ferroviaria-luino-svizzera.imageAlt': 'Treno regionale in arrivo in una stazione del Ticino',
+    'blog.article.bns-franco-euro-cambio.title': 'BNS: franco debole, euro a 0,9423 CHF',
+    'blog.article.bns-franco-euro-cambio.excerpt': 'La BNS conferma il tasso allo zero. L\'euro sale a 0,9423 franchi, il dollaro a 0,8268: impatto sul controvalore per i frontalieri.',
+    'blog.article.bns-franco-euro-cambio.imageAlt': 'Vista sul Lago di Lugano con la città sullo sfondo, luce mattutina',
 };
 
 export default blogMetaIt;

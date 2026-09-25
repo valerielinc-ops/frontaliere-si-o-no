@@ -11949,6 +11949,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mobilizzazione-ferroviaria-luino-svizzera.title': 'Linie Luino-Schweiz: Aktion haftet an Lombardei bewegt sich',
     'blog.article.mobilizzazione-ferroviaria-luino-svizzera.excerpt': 'Samstag, 26. September Mobilisierung in den lombardischen Bahnhöfen für die Effizienz der Eisenbahn. Fokus auf Strecke Luino-Schweiz und Unterschriftensammlung für den Minister.',
     'blog.article.mobilizzazione-ferroviaria-luino-svizzera.imageAlt': 'Regionalzug kommt in einem Bahnhof im Tessin an',
+    'blog.article.bns-franco-euro-cambio.title': 'SNB: Schwacher Franken, Euro bei 0,9423 CHF',
+    'blog.article.bns-franco-euro-cambio.excerpt': 'Die SNB bestätigt den Zinssatz auf null. Der Euro steigt auf 0,9423 Franken, der Dollar auf 0,8268: Auswirkungen auf den Gegenwert für Grenzgänger.',
+    'blog.article.bns-franco-euro-cambio.imageAlt': 'Blick auf den Luganersee mit der Stadt im Hintergrund, Morgenlicht',
 };
 
 export default blogMetaDe;

@@ -35608,6 +35608,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bns-franco-euro-cambio',
+ category: 'novita',
+ date: '2026-09-25T01:44:38.427Z',
+ image: '/images/blog/bns-franco-euro-cambio.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

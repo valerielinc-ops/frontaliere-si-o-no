@@ -92932,6 +92932,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bns-franco-euro-cambio': {
+    title: 'BNS: franco debole, euro a 0,9423 CHF | Frontaliere Ticino',
+    description: 'La BNS conferma il tasso allo zero percento. L\'euro sale a 0,9423 franchi e il dollaro a 0,8268. Analisi dell\'impatto sul controvalore per i frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, franco, debole, euro, 9423',
+    ogTitle: 'BNS: franco debole, euro a 0,9423 CHF',
+    ogDescription: 'Dopo la decisione della BNS di mantenere il tasso allo zero, il franco perde terreno: l\'euro sale a 0,9423 CHF e il dollaro a 0,8268 CHF. Cosa significa per il controvalore del reddito dei frontalieri? Analisi basata sui dati di mercato.',
+    canonicalPath: '/articoli-frontaliere/bns-franco-euro-cambio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BNS: franco debole, euro a 0,9423 CHF",
+      "description": "La BNS conferma il tasso allo zero percento. L'euro sale a 0,9423 franchi e il dollaro a 0,8268. Analisi dell'impatto sul controvalore per i frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bns-franco-euro-cambio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista sul Lago di Lugano con la città sullo sfondo, luce mattutina"
+      },
+      "datePublished": "2026-09-25T01:44:38+00:00",
+      "dateModified": "2026-09-25T01:44:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bns-franco-euro-cambio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
