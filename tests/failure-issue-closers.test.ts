@@ -357,6 +357,16 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
       ...Array.from({ length: 5 }, () => 'deploy-publish.yml\tclose-recovered-failure-issues'),
       'issue-fix.yml\tclose-recovered-failure-issues',
       'issue-fix.yml\tclose-recovered-failure-issues',
+      // settima adozione: la misura full-corpus del build jobs SEO (#9618),
+      // uscita dal cammino bloccante del deploy dopo che un'invariante
+      // sbagliata (#9754 → #9773) aveva fermato la pubblicazione. Come per i
+      // gate corpus-wide, l'adozione E' la condizione che rende il
+      // `continue-on-error` un trasloco e non un silenziatore. Lo step sta in
+      // un job che resta verde, quindi la jobs API non nomina lo step: qui NON
+      // e' la regressione descritta sopra per gli opener degli shard, perche'
+      // non c'e' un body scritto a mano da sostituire, e l'estratto arriva dal
+      // `diag-file` (lo stderr del validatore, solo righe `FAIL:`).
+      'deploy.yml\tsibling-resolve-step',
     );
     expect(adopted.map((r) => `${r.file}\t${r.closedBy}`).sort()).toEqual(expectedRows.sort());
   });
