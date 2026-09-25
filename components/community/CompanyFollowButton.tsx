@@ -181,7 +181,7 @@ export default function CompanyFollowButton({
    * company-specific replay intent.
    */
   const handleEmailRequested = useCallback((requestedEmail: string) => {
-    savePendingCompanyFollow({
+    const parked = savePendingCompanyFollow({
       company,
       companyKey: companyKey ?? null,
       locale: locale as 'it' | 'en' | 'de' | 'fr',
@@ -190,6 +190,16 @@ export default function CompanyFollowButton({
       sourceJobTitle: sourceJobTitle ?? null,
       email: requestedEmail,
     });
+    // Issue 9575: storage refused the follow, so the confirmation link will
+    // replay nothing. Stop the flow here: `onOptInRequested` is the parent's
+    // "accept" (email flow continues) and must not fire for a follow that was
+    // never parked. Throwing moves the shared prompt to its error state instead
+    // of the "open the link to follow {company}" success card, and its catch
+    // reports the error once through `onEmailError` (= `onErrored`).
+    if (!parked) {
+      setStatus('error');
+      throw new Error('pending_follow_storage_unavailable');
+    }
     onOptInRequested?.(requestedEmail);
   }, [company, companyKey, locale, onOptInRequested, sourceJobSlug, sourceJobTitle, sourceJobUrl]);
 

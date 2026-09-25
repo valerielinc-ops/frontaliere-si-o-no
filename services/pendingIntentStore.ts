@@ -14,12 +14,21 @@ interface StoredIntent<T> {
 
 export const DEFAULT_INTENT_TTL_MS = 15 * 60 * 1000;
 
+/**
+ * Persist `value` under `key`. Returns `true` only when the intent is actually
+ * readable back from localStorage — a `false` means the auth round-trip would
+ * come back to nothing, and the caller must not promise a replay (issue 9575).
+ */
 export function saveIntent<T>(key: string, value: T): boolean {
   if (typeof window === 'undefined') return false;
   try {
     const payload: StoredIntent<T> = { value, savedAt: Date.now() };
-    window.localStorage.setItem(key, JSON.stringify(payload));
-    return true;
+    const serialized = JSON.stringify(payload);
+    window.localStorage.setItem(key, serialized);
+    // Read back: a storage shim that swallows writes (some embedded webviews,
+    // a full quota handled without throwing) would otherwise report success
+    // for an intent that the replay can never find.
+    return window.localStorage.getItem(key) === serialized;
   } catch {
     /* localStorage unavailable (private mode / quota) — caller shows recovery */
     return false;
