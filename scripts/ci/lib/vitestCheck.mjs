@@ -673,6 +673,23 @@ export function relativeImportCandidates(source, fromFile) {
   return groups;
 }
 
+const ISO_INSTANT_RE = /^\d{4}-\d{2}-\d{2}T[\d:.]+Z$/u;
+
+/**
+ * Da quando cercare i commit di main che la PR non ha visto. Il merge ref si
+ * calcola quando la run nasce e un rerun lo riusa, quindi vince `created_at`
+ * della run; i tempi del check restano il fallback quando la run non è
+ * leggibile.
+ *
+ * @param {{runCreatedAt?: string, checkStartedAt?: string, checkCompletedAt?: string}} times
+ * @returns {string} istante ISO, '' se nessuno è valido
+ */
+export function testedMainSince({ runCreatedAt = '', checkStartedAt = '', checkCompletedAt = '' } = {}) {
+  return [runCreatedAt, checkStartedAt, checkCompletedAt]
+    .map((value) => String(value || '').trim())
+    .find((value) => ISO_INSTANT_RE.test(value)) || '';
+}
+
 /** Chiave stabile di un insieme di file falliti (ordine e duplicati irrilevanti). */
 export function failingSetKey(files) {
   const sorted = [...new Set((files || []).map(String))].sort();

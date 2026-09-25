@@ -9,6 +9,7 @@ import {
   inheritedRedRescueDecision,
   parseVitestFailureReport,
   relativeImportCandidates,
+  testedMainSince,
   vitestFailureIsTestsStep,
 } from '../scripts/ci/lib/vitestCheck.mjs';
 
@@ -161,5 +162,35 @@ describe('pr-autorebase: la chiave si consuma solo dopo il push', () => {
     const inherited = processPr.indexOf('inheritedRescue = inheritedRedRescue(num, head)');
     expect(oneShot).toBeGreaterThan(-1);
     expect(inherited).toBeGreaterThan(oneShot);
+  });
+});
+
+describe('testedMainSince: il main visto dalla PR è quello della nascita della run', () => {
+  // Run 36079087777 di #9753: nata alle 00:46Z, rilanciata dallo
+  // stale-pr-rescuer alle 03:57Z sullo STESSO merge ref. #9774 ha riparato
+  // main alle 02:03Z: con `started_at` del rerun risultava già visto, e la
+  // sweep delle 06:36Z rispondeva `main-unchanged`.
+  const times = {
+    runCreatedAt: '2026-09-25T00:46:34Z',
+    checkStartedAt: '2026-09-25T03:57:05Z',
+    checkCompletedAt: '2026-09-25T04:05:10Z',
+  };
+
+  it('usa created_at della run anche per un rerun', () => {
+    const since = testedMainSince(times);
+    expect(since).toBe('2026-09-25T00:46:34Z');
+    expect('2026-09-25T02:03:26Z' > since).toBe(true);
+  });
+
+  it('senza la run leggibile ricade sui tempi del check', () => {
+    expect(testedMainSince({ ...times, runCreatedAt: '' })).toBe('2026-09-25T03:57:05Z');
+    expect(testedMainSince({ checkCompletedAt: '2026-09-25T04:05:10Z' })).toBe('2026-09-25T04:05:10Z');
+    expect(testedMainSince({ runCreatedAt: 'null' })).toBe('');
+  });
+
+  it('pr-autorebase ricava l\'istante dalla run, non dal check', () => {
+    const src = readFileSync(path.resolve(__dirname, '..', 'scripts', 'ci', 'pr-autorebase.mjs'), 'utf8');
+    const rescue = src.slice(src.indexOf('function inheritedRedRescue('));
+    expect(rescue).toMatch(/testedMainSince\(\{\s*runCreatedAt: testedRunCreatedAt\(checks\)/);
   });
 });
