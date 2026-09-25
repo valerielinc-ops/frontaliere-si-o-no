@@ -6366,7 +6366,6 @@ function hasExplicitUsStateSuffix(lower) {
   // This mirrors the existing country-code guards and prevents a department
   // or free-text label from becoming a foreign verdict.
   if (isTargetSwissLocation(locality, { includeBorderProximity: false })) return false;
-  if (isKnownSwissMunicipality(locality)) return false;
   return true;
 }
 
