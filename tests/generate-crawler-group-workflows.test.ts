@@ -2174,7 +2174,7 @@ describe('cross-repo crawler execution artifacts', () => {
         });
       }
       const checkouts = job.steps.filter((step: any) => step.uses === 'actions/checkout@v5');
-      expect(checkouts).toHaveLength(2);
+      expect(checkouts).toHaveLength(contract.checkout.attempts);
       expect(checkouts[0]).toMatchObject({
         id: 'site_checkout_primary',
         'continue-on-error': true,

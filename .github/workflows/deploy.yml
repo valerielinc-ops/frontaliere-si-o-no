@@ -865,23 +865,61 @@ jobs:
         if: matrix.locale == 'it'
         run: node scripts/validate-build-profile-markers.mjs /tmp/build.log
 
-      # A production IT build is the full-corpus measurement. Keep this
-      # fail-closed on marker/bridge evidence, while leaving the historical
-      # 2 GB improvement target as a measured root-cause/revert signal rather
-      # than turning an observed performance miss into a blind deploy gate.
+      # Il build IT di produzione E' la misura full-corpus (#9618): questo step
+      # certifica che la MISURA sia completa (marker, bridge, righe di profilo,
+      # rilascio del corpus). Non certifica il sito, e per questo NON e' un
+      # gate del deploy: `continue-on-error` lascia proseguire la pubblicazione
+      # e un FAIL apre la issue dedicata "la misura full-corpus del build jobs
+      # SEO non e' verificabile" (coppia report/resolve in fondo al job).
+      #
+      # Perche'. Da #9754 lo step era fail-closed, e un'invariante sbagliata
+      # (`previousSlugEntries > 0`, mentre il plugin tiene i previous-slug
+      # fuori dalla sitemap di proposito: in produzione vale sempre 0) ha
+      # fatto fallire ogni deploy che ha completato la build: run 36065965021
+      # (24-09 22:11Z) e 36077807468 (25-09 00:29Z), con build sane, finche'
+      # #9773 non ha corretto l'invariante. `deploy-publish.yml` pubblica solo
+      # se QUESTA run e' `success`, quindi qualunque rosso di questo job, anche
+      # a valle della build, spegne la produzione: una misura non puo' avere
+      # quel potere. #9618 chiedeva di impedire una chiusura verde della issue
+      # di misura, non il deploy.
+      #
+      # Cosa resta bloccante, e dove. Una build campionata o troncata non puo'
+      # arrivare qui PER COSTRUZIONE: il campionamento jobs SEO lancia su
+      # refs/heads/main (build-plugins/shared/jobsSeoSample.ts) e le variabili
+      # di campionamento e di arresto anticipato non compaiono in questo file
+      # (lo pinna tests/jobs-seo-build-metrics-workflow.test.ts). Le invarianti del
+      # validatore passano sui marker REALI di produzione in
+      # tests/fixtures/jobs-seo-full-corpus-markers/ (replay in
+      # tests/report-jobs-seo-build-metrics.test.ts): un'invariante nuova che
+      # la produzione non soddisfa diventa rossa sulla PR, non sul deploy.
+      #
+      # Lo stderr del validatore contiene SOLO le righe `FAIL:` (validazione o
+      # crash dello script): finisce nel diag-file, che e' l'unico estratto che
+      # il reporter puo' allegare da dentro un job ancora in corso.
       - name: Validate full-corpus jobs SEO evidence
+        id: jobs_seo_evidence
         if: always() && matrix.locale == 'it'
+        continue-on-error: true
         shell: bash
         env:
           JOBS_SEO_BUILD_LOG: /tmp/build.log
           JOBS_SEO_MARKERS_OUT: ${{ runner.temp }}/jobs-seo-markers.txt
+          JOBS_SEO_EVIDENCE_DIAG: ${{ runner.temp }}/jobs-seo-evidence-diag.txt
           JOBS_SEO_WALL_SECONDS: ${{ steps.build_step.outputs.wall_seconds }}
         run: |
+          set +e
           node scripts/ci/report-jobs-seo-build-metrics.mjs "$JOBS_SEO_BUILD_LOG" \
             --require-full-corpus \
             --markers-out="$JOBS_SEO_MARKERS_OUT" \
             --summary-label="production/${{ matrix.locale }}" \
-            --wall-seconds="${JOBS_SEO_WALL_SECONDS:-?}"
+            --wall-seconds="${JOBS_SEO_WALL_SECONDS:-?}" \
+            2> "$JOBS_SEO_EVIDENCE_DIAG"
+          status=$?
+          cat "$JOBS_SEO_EVIDENCE_DIAG" >&2
+          if [ "$status" -ne 0 ]; then
+            echo "::warning title=jobs SEO full-corpus evidence::misura incompleta, il deploy prosegue; vedi la issue dedicata e il summary"
+          fi
+          exit "$status"
 
       - name: Upload full-corpus jobs SEO markers
         if: always() && matrix.locale == 'it'
@@ -2975,6 +3013,67 @@ jobs:
         with:
           mode: resolve
           title: 'il picco di memoria della build risale sopra la soglia'
+          closed-by: sibling-resolve-step
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      # ── La misura full-corpus del build jobs SEO (#9618) ─────────────────
+      #
+      # L'allarme dello step "Validate full-corpus jobs SEO evidence", che NON
+      # blocca il deploy (il perche' e' nel commento di quello step). Senza
+      # questa coppia il `continue-on-error` renderebbe muto un FAIL: il run
+      # resterebbe verde e la misura incompleta non la vedrebbe nessuno.
+      #
+      # `steps.build_step.outcome == 'success'` tiene il titolo onesto: su una
+      # build rossa i marker mancano per forza, e quel guasto lo apre gia'
+      # "CI Failure (build)". Qui arriva solo il caso "sito pubblicato, misura
+      # non verificabile".
+      #
+      # CHI CHIUDE: lo step gemello qui sotto, col TITOLO IDENTICO, appena una
+      # run IT ha la misura completa (`sibling-resolve-step`; il test
+      # tests/failure-issue-closers.test.ts verifica l'accoppiamento).
+      #
+      # `continue-on-error` anche qui: l'action esce 0 per contratto, ma se il
+      # reporting stesso si rompesse (API, checkout parziale) il job diventerebbe
+      # rosso e `deploy-publish.yml` non pubblicherebbe, cioe' il blocco che lo
+      # step di misura ha appena smesso di causare.
+      - name: Report jobs SEO full-corpus evidence gap to GitHub Issues
+        if: always() && matrix.locale == 'it' && steps.build_step.outcome == 'success' && steps.jobs_seo_evidence.outcome == 'failure'
+        continue-on-error: true
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'la misura full-corpus del build jobs SEO non è verificabile'
+          closed-by: sibling-resolve-step
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          priority: '3'
+          labels: Bug
+          entity: ${{ matrix.locale }}
+          diag-file: ${{ runner.temp }}/jobs-seo-evidence-diag.txt
+          context: |
+            - **Il deploy NON è stato bloccato**: la build è verde e il sito è
+              proseguito verso la pubblicazione. A fallire è la verifica della
+              MISURA (`scripts/ci/report-jobs-seo-build-metrics.mjs
+              --require-full-corpus`), cioè i marker `[mem] jobsSeoPages` e
+              `[jobs-seo-profile]` che #9618 usa come prova.
+            - L'estratto qui sotto elenca le invarianti fallite. Il summary del
+              job e l'artifact `jobs-seo-full-corpus-markers-<run_id>` hanno i
+              marker completi.
+            - **Prima di correggere il produttore**, chiediti se è l'invariante
+              a essere sbagliata: #9754 pretendeva `previousSlugEntries > 0`,
+              che in produzione vale 0 per scelta (#9773). Riproduci in locale
+              con `node scripts/ci/report-jobs-seo-build-metrics.mjs
+              <jobs-seo-markers.txt> --require-full-corpus`.
+            - Se la produzione ha ragione, aggiungi l'artifact di questa run a
+              `tests/fixtures/jobs-seo-full-corpus-markers/` insieme alla
+              correzione del validatore: è il replay che impedisce all'errore
+              di tornare.
+
+      - name: Resolve jobs SEO full-corpus evidence issue on pass
+        if: always() && matrix.locale == 'it' && steps.jobs_seo_evidence.outcome == 'success'
+        continue-on-error: true
+        uses: ./.github/actions/report-failure
+        with:
+          mode: resolve
+          title: 'la misura full-corpus del build jobs SEO non è verificabile'
           closed-by: sibling-resolve-step
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
