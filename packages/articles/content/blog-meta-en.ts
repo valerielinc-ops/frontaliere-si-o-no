@@ -254,7 +254,7 @@ const blogMetaEn: Record<string, string> = {
  'blog.article.congedo-genitori-frontaliere-ticino.excerpt': 'Becoming parents as a cross-border worker: how do maternity and paternity work between Switzerland and Italy? Here are the 2026 figures, requirements, and procedures.',
  'blog.article.congedo-genitori-frontaliere-ticino.imageAlt': 'New cross-border parents planning their parental leave on a tablet, with a view of Lake Lugano, Ticino.',
  'blog.article.costo-pendolare-auto-ticino-2026.title': 'Commuter car costs: how much does it weigh on your salary?',
- 'blog.article.costo-pendolare-auto-ticino-2026.excerpt': 'Fuel, wear and tear, parking, and vignette: the complete 2026 cost analysis. A commuter spends up to CHF 7,500 per year. Comparison with train and bus.',
+ 'blog.article.costo-pendolare-auto-ticino-2026.excerpt': 'Fuel, wear and tear, parking, and vignette: the complete 2026 cost analysis. A commuter spends about CHF 8,670 per year. Comparison with train and bus.',
  'blog.article.costo-pendolare-auto-ticino-2026.imageAlt': 'Queue of cross-border commuter cars at the Chiasso-Brogeda border crossing in Ticino in the early morning.',
  'blog.article.guida-dichiarazione-redditi-frontalieri.title': 'Cross-Border Worker Tax Return: 730 Guide for Ticino',
  'blog.article.guida-dichiarazione-redditi-frontalieri.excerpt': 'Form 730/2026 and Redditi PF: where to report your Swiss salary, how to calculate the tax credit, and what documents are needed. The complete guide for cross-border workers in Ticino.',

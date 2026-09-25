@@ -836,6 +836,7 @@ const RAW_ARTICLES = [
  id: 'costo-pendolare-auto-ticino-2026',
  category: 'pratico',
  date: '2026-02-23T17:24:52.754Z',
+ updatedAt: '2026-09-24',
  image: '/images/blog/costo-pendolare-auto-ticino-2026.webp',
  hasCalculator: true,
  authorSlug: 'redazione',
