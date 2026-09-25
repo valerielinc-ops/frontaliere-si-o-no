@@ -6256,6 +6256,24 @@ export function isJobPortalRelevant(job = {}) {
   return hasSeedMetaTargetScope(job);
 }
 
+// Toponym lists are matched as WHOLE WORDS with Unicode boundaries, never as
+// substrings: "berlin" sits inside Oberlindach (BE), where a Tertianum home
+// was dropped as a Berlin posting (#9846), and "roma" inside Romanshorn. A
+// hyphen or a space is a boundary, so "Berlin-Mitte" and "Wien 1010" still
+// match. Compiled once per list, on first use.
+const wholeWordMarkerReCache = new Map();
+function hasWholeWordMarker(lower, cacheKey, markers) {
+  let re = wholeWordMarkerReCache.get(cacheKey);
+  if (!re) {
+    const alternation = markers
+      .map((marker) => marker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+'))
+      .join('|');
+    re = new RegExp(`(?<![\\p{L}\\p{N}])(?:${alternation})(?![\\p{L}\\p{N}])`, 'iu');
+    wholeWordMarkerReCache.set(cacheKey, re);
+  }
+  return re.test(lower);
+}
+
 export function isExplicitlyOutsideTarget(text) {
   const lower = String(text || '').toLowerCase();
   const outsideMarkers = [
@@ -6304,7 +6322,7 @@ export function isExplicitlyOutsideTarget(text) {
     'australia', 'sydney', 'melbourne',
     'south africa', 'johannesburg', 'cape town',
   ];
-  const hitOutside = outsideMarkers.some((k) => lower.includes(k));
+  const hitOutside = hasWholeWordMarker(lower, 'outside-target', outsideMarkers);
   if (!hitOutside) return false;
   // Safeguard: if text also mentions any target Swiss location, it's not outside.
   // Word-boundary aware (via isTargetSwissLocation) — NOT a substring scan, which
@@ -6331,6 +6349,17 @@ const EXPLICIT_FOREIGN_COUNTRY_MARKERS = [
   'netherlands', 'belgium', 'sweden', 'norway', 'denmark', 'finland',
   'poland', 'czech republic', 'hungary', 'romania', 'greece',
   'russia', 'ukraine', 'turkey', 'bermuda',
+  // #9846: named in location fields of the 2026-09-25 slices and not
+  // recognised, so "Santiago de Chile, Chile" reached the Swiss whitelist and
+  // was kept on the strength of its Chilean postcode 2206.
+  'chile', 'costa rica', 'kazakhstan', 'ireland',
+  'argentina', 'colombia', 'peru', 'ecuador', 'uruguay', 'panama', 'guatemala',
+  'puerto rico', 'dominican republic', 'israel', 'egypt', 'morocco', 'tunisia',
+  'nigeria', 'kenya', 'pakistan', 'new zealand', 'bulgaria', 'croatia',
+  'serbia', 'slovakia', 'slovenia', 'estonia', 'latvia', 'lithuania',
+  // The German state whose name starts with the Aargau town Baden: explicit
+  // foreign geography whatever canton the record carries (#9846 review).
+  'württemberg', 'wuerttemberg', 'wurttemberg', 'wurtemberg',
 ];
 const EXPLICIT_FOREIGN_COUNTRY_RE = new RegExp(
   `(?:^|[^\\p{L}])(?:${EXPLICIT_FOREIGN_COUNTRY_MARKERS
@@ -6507,6 +6536,10 @@ export function isLocationExplicitlyForeign(locationField) {
     'venezia', 'venice', 'forte dei marmi', 'toscana', 'lombardia',
     // Western Europe
     'paris', 'lyon', 'marseille', 'london', 'birmingham', 'sutton coldfield',
+    // French/Italian forms of cities in this list, as translated descriptions
+    // write them (#9846: "bureaux à Genève, Zurich, Barcelone, Londres").
+    'londres', 'londra', 'parigi', 'barcelone', 'barcellona', 'lisbonne', 'lisbona',
+    'varsovie', 'varsavia', 'francoforte', 'monaco di baviera', 'amburgo',
     'berlin', 'munich', 'münchen',
     'frankfurt', 'hamburg', 'köln', 'koeln', 'cologne', 'vienna', 'wien', 'madrid', 'barcelona',
     'amsterdam', 'brussels', 'bruxelles', 'stockholm', 'oslo', 'copenhagen',
@@ -6532,7 +6565,7 @@ export function isLocationExplicitlyForeign(locationField) {
     'ruggell', 'barberà del vallès', 'barbera del valles',
     'montecarlo', 'monte carlo', 'monte-carlo', 'monaco-ville',
   ];
-  return foreignCities.some((k) => lower.includes(k));
+  return hasWholeWordMarker(lower, 'foreign-cities', foreignCities);
 }
 
 // A SuccessFactors / SAP "career site" job page (used by Swatch Group, Omega,
