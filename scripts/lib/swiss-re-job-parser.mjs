@@ -189,6 +189,20 @@ export function swissReEntryCountryCode(entry = '') {
   return code;
 }
 
+// Swiss Re also emits a canton marker without a comma (`Brügg BE`). The
+// shared foreign-location classifier quite correctly treats a terminal ISO
+// token as suspicious in generic text, but here the municipality/canton pair
+// is source-backed Swiss evidence and must win before that classification.
+function swissReEntryCantonMarker(entry = '') {
+  const value = normalizeSpace(entry);
+  if (value.includes(',')) return '';
+  const match = /\s([A-Za-z]{2})$/u.exec(value);
+  if (!match) return '';
+  const canton = match[1].toUpperCase();
+  const municipality = value.slice(0, match.index).trim();
+  return isKnownSwissMunicipalityInCanton(municipality, canton) ? canton : '';
+}
+
 /**
  * True when every entry of the field is explicitly outside Switzerland:
  * a terminal country code other than CH, or an explicit foreign country in
@@ -201,6 +215,7 @@ export function isSwissReLocationForeign(text = '') {
   const entries = splitSwissReLocations(text);
   if (entries.length === 0) return false;
   return entries.every((entry) => {
+    if (swissReEntryCantonMarker(entry)) return false;
     const country = swissReEntryCountryCode(entry);
     return country ? country !== 'CH' : isLocationExplicitlyForeign(entry);
   });
@@ -216,9 +231,14 @@ export function isSwissReLocationForeign(text = '') {
  */
 export function resolveSwissReGeography(text = '') {
   for (const entry of splitSwissReLocations(text)) {
+    const cantonMarker = swissReEntryCantonMarker(entry);
     const country = swissReEntryCountryCode(entry);
     if (country && country !== 'CH') continue;
-    const geography = resolveSourceBackedSwissGeography({ location: entry, addressCountry: country });
+    const geography = resolveSourceBackedSwissGeography({
+      location: entry,
+      addressRegion: cantonMarker,
+      addressCountry: cantonMarker ? 'CH' : country,
+    });
     if (geography) return { location: entry, canton: geography.canton };
   }
   return null;
