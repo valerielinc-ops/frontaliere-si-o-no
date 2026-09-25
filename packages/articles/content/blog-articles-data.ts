@@ -164,6 +164,7 @@ const RAW_ARTICLES = [
  id: 'telelavoro-accordo-definitivo-italia',
  category: 'novita',
  date: '2026-02-18T11:17:51.792Z',
+ updatedAt: '2026-09-25',
  image: '/images/blog/telelavoro-accordo-definitivo-italia.webp',
  hasCalculator: true,
  authorSlug: 'marco-ferrari',

@@ -321,16 +321,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
  'blog-telelavoro-accordo-definitivo-italia': {
  title: 'Accordo Telelavoro Frontalieri | Frontaliere Ticino',
- description: 'Approvazione finale dall\'Italia per l\'accordo sul telelavoro per frontalieri in Ticino. Scopri le regole sul 40%, le implicazioni fiscali e cosa cambia dal 2026.',
+ description: 'Approvazione finale dall\'Italia per l\'accordo sul telelavoro per frontalieri in Ticino. Scopri le regole sul 25%, le implicazioni fiscali e cosa cambia dal 2026.',
  keywords: 'telelavoro frontalieri, accordo italia svizzera, ratifica telelavoro, frontalieri ticino, smart working, fiscalità frontalieri, lavoro da casa',
  ogTitle: 'Telelavoro Frontalieri: L\'Italia dice SÌ. Ecco le nuove regole',
- ogDescription: 'È ufficiale: l\'accordo sul telelavoro fino al 40% è legge. Scopri subito cosa significa per il tuo stipendio e le tue tasse come frontaliere in Ticino.',
+ ogDescription: 'È ufficiale: l\'accordo sul telelavoro fino al 25% è legge. Scopri subito cosa significa per il tuo stipendio e le tue tasse come frontaliere in Ticino.',
  canonicalPath: '/articoli-frontaliere/telelavoro-frontalieri-accordo-italia-svizzera-ratifica-definitiva/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
  "headline": "Telelavoro Frontalieri: L'Italia dice SÌ. Ecco le nuove regole",
- "description": "Approvazione finale dall'Italia per l'accordo sul telelavoro per frontalieri in Ticino. Scopri le regole sul 40%, le implicazioni fiscali e cosa cambia dal 2026.",
+ "description": "Approvazione finale dall'Italia per l'accordo sul telelavoro per frontalieri in Ticino. Scopri le regole sul 25%, le implicazioni fiscali e cosa cambia dal 2026.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/telelavoro-accordo-definitivo-italia.webp`,
  "width": 1344,

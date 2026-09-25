@@ -36,7 +36,7 @@ const blogMetaIt: Record<string, string> = {
  'blog.article.telelavoro-italia-svizzera-ratifica.excerpt': 'Via libera definitivo dal parlamento italiano all\'accordo sul telelavoro per i frontalieri. Cosa cambia per i lavoratori del Ticino.',
  'blog.article.telelavoro-italia-svizzera-ratifica.imageAlt': 'Laptop con vista sul Lago di Lugano, che mostra un grafico finanziario. Simboleggia il telelavoro transfrontaliero tra Italia e Svizzera.',
  'blog.article.telelavoro-accordo-definitivo-italia.title': 'Telelavoro Frontalieri: Via Libera da Roma, Cosa Cambia Ora',
- 'blog.article.telelavoro-accordo-definitivo-italia.excerpt': 'Il Parlamento italiano ha ratificato l\'accordo sul telelavoro fino al 40%. Vediamo le implicazioni fiscali e pratiche per i \'nuovi\' e \'vecchi\' frontalieri in Ticino.',
+ 'blog.article.telelavoro-accordo-definitivo-italia.excerpt': 'Il Parlamento italiano ha ratificato l\'accordo sul telelavoro fino al 25%. Vediamo le implicazioni fiscali e pratiche per i \'nuovi\' e \'vecchi\' frontalieri in Ticino.',
  'blog.article.telelavoro-accordo-definitivo-italia.imageAlt': 'Vista del Lago di Lugano da una postazione di telelavoro, simbolo del nuovo accordo per i frontalieri',
  'blog.article.stop-ristorni-tassa-salute.title': 'Tassa Salute: Mozione per bloccare i ristorni all\'Italia',
  'blog.article.stop-ristorni-tassa-salute.excerpt': 'PLR, Centro, UDC e Lega chiedono lo stop immediato dei ristorni a Roma, citando la violazione dell\'accordo fiscale e l\'Articolo 60 della Convenzione di Vienna.',
