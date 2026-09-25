@@ -119,16 +119,40 @@ function apiBaseUrl(value) {
   return parsed.toString().replace(/\/$/, '');
 }
 
+/**
+ * The cap is applied while the body streams (#9729): `response.text()` and a
+ * size check afterwards would download a chunked response in full first.
+ * Kept inline, not imported from `scripts/lib/bounded-response-body.mjs`,
+ * because this file is a standalone runtime the corpus checks out on its own.
+ */
 async function readJson(response) {
+  const tooLarge = () => new Error('successor_guard_response_too_large');
   const declared = Number(response?.headers?.get?.('content-length'));
   if (Number.isFinite(declared) && declared > MAX_RESPONSE_BYTES) {
-    throw new Error('successor_guard_response_too_large');
+    try { await response.body?.cancel?.(); } catch { /* the size verdict stays authoritative */ }
+    throw tooLarge();
   }
-  const text = await response.text();
-  if (Buffer.byteLength(text, 'utf8') > MAX_RESPONSE_BYTES) {
-    throw new Error('successor_guard_response_too_large');
+  const reader = response?.body?.getReader?.();
+  if (!reader) throw new Error('successor_guard_invalid_json');
+  const chunks = [];
+  let size = 0;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      if (!ArrayBuffer.isView(value)) throw new Error('successor_guard_invalid_json');
+      if (value.byteLength > MAX_RESPONSE_BYTES - size) {
+        try { await reader.cancel(); } catch { /* the size verdict stays authoritative */ }
+        throw tooLarge();
+      }
+      chunks.push(Buffer.from(value.buffer, value.byteOffset, value.byteLength));
+      size += value.byteLength;
+    }
+  } finally {
+    // Cleanup must never replace the verdict: older WHATWG streams throw here.
+    try { reader.releaseLock(); } catch { /* the read verdict stays authoritative */ }
   }
-  try { return JSON.parse(text); } catch { throw new Error('successor_guard_invalid_json'); }
+  try { return JSON.parse(new TextDecoder().decode(Buffer.concat(chunks, size))); } catch { throw new Error('successor_guard_invalid_json'); }
 }
 
 async function getJson({ apiUrl, token, apiPath, fetchImpl }) {

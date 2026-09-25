@@ -77,7 +77,10 @@ export async function readBoundedJsonResponse(
       chunks.push(value);
     }
   } finally {
-    reader.releaseLock();
+    // Releasing the lock is cleanup and must never replace the verdict: older
+    // WHATWG streams and polyfilled bodies throw from releaseLock(), which
+    // would turn a completed read or `github_response_too_large` into that error (#9729).
+    try { reader.releaseLock(); } catch { /* the read verdict stays authoritative */ }
   }
 
   if (size === 0) return null;

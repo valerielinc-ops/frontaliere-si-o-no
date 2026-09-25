@@ -416,11 +416,9 @@ describe('mirrorEventImage', () => {
   // are stored under the content-type extension rather than the image being lost.
   it('downloads and writes the image once, returning the site-relative path', async () => {
     const bytes = new Uint8Array([1, 2, 3, 4]);
-    const fetchMock = vi.fn().mockResolvedValue({
-      ok: true,
-      headers: { get: () => 'image/jpeg' },
-      arrayBuffer: async () => bytes.buffer,
-    });
+    const fetchMock = vi.fn().mockResolvedValue(new Response(bytes.buffer, {
+      headers: { 'content-type': 'image/jpeg' },
+    }));
     vi.stubGlobal('fetch', fetchMock);
 
     const result = await mirrorEventImage('https://example.com/photo.jpg', 'test:mirror-fixture');
@@ -453,11 +451,9 @@ describe('mirrorEventImage', () => {
 
     vi.stubGlobal(
       'fetch',
-      vi.fn().mockResolvedValue({
-        ok: true,
-        headers: { get: () => 'image/jpeg' },
-        arrayBuffer: async () => source.buffer.slice(source.byteOffset, source.byteOffset + source.byteLength),
-      }),
+      vi.fn().mockResolvedValue(new Response(source.buffer.slice(source.byteOffset, source.byteOffset + source.byteLength), {
+        headers: { 'content-type': 'image/jpeg' },
+      })),
     );
 
     const result = await mirrorEventImage('https://example.com/big.jpg', 'test:mirror-fixture');
@@ -483,11 +479,9 @@ describe('mirrorEventImage', () => {
 
     vi.stubGlobal(
       'fetch',
-      vi.fn().mockResolvedValue({
-        ok: true,
-        headers: { get: () => 'image/jpeg' },
-        arrayBuffer: async () => source.buffer.slice(source.byteOffset, source.byteOffset + source.byteLength),
-      }),
+      vi.fn().mockResolvedValue(new Response(source.buffer.slice(source.byteOffset, source.byteOffset + source.byteLength), {
+        headers: { 'content-type': 'image/jpeg' },
+      })),
     );
 
     const result = await mirrorEventImage('https://example.com/tall.jpg', 'test:mirror-fixture');
@@ -549,11 +543,9 @@ describe('mirrorEventImage', () => {
     resetEventImageManifestCache();
     vi.stubGlobal(
       'fetch',
-      vi.fn().mockResolvedValue({
-        ok: true,
-        headers: { get: () => 'image/jpeg' },
-        arrayBuffer: async () => new Uint8Array([1, 2, 3, 4]).buffer,
-      }),
+      vi.fn().mockResolvedValue(new Response(new Uint8Array([1, 2, 3, 4]).buffer, {
+        headers: { 'content-type': 'image/jpeg' },
+      })),
     );
 
     expect(await mirrorEventImage('https://example.com/photo.jpg', 'test:mirror-fixture')).toBe(
@@ -576,11 +568,9 @@ describe('mirrorEventImage', () => {
     resetEventImageManifestCache();
     vi.stubGlobal(
       'fetch',
-      vi.fn().mockResolvedValue({
-        ok: true,
-        headers: { get: () => 'image/jpeg' },
-        arrayBuffer: async () => new Uint8Array([1, 2, 3, 4]).buffer,
-      }),
+      vi.fn().mockResolvedValue(new Response(new Uint8Array([1, 2, 3, 4]).buffer, {
+        headers: { 'content-type': 'image/jpeg' },
+      })),
     );
 
     // The download still happens — the run must not stop because an index is

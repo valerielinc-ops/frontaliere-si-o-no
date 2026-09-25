@@ -112,7 +112,10 @@ async function boundedResponseBody(response) {
       chunks.push(Buffer.from(value));
     }
   } finally {
-    reader.releaseLock();
+    // Releasing the lock is cleanup and must never replace the verdict: older
+    // WHATWG streams and polyfilled bodies throw from releaseLock(), which
+    // would turn a completed read or `response_too_large` into that error (#9729).
+    try { reader.releaseLock(); } catch { /* the read verdict stays authoritative */ }
   }
   const bytes = Buffer.concat(chunks, size);
   if (bytes.length === 0) return null;

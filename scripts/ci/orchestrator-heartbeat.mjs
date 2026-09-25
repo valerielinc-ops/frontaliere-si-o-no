@@ -24,6 +24,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createGithubIssue, resolveGithubIssue } from '../lib/github-issue-creator.mjs';
+import { readBoundedResponseBytes } from '../lib/bounded-response-body.mjs';
 
 export const ORCHESTRATOR_WORKFLOW_FILE = 'orchestrate-crawlers.yml';
 export const ORCHESTRATOR_WORKFLOW_PATH = `.github/workflows/${ORCHESTRATOR_WORKFLOW_FILE}`;
@@ -191,11 +192,11 @@ function repositoryPath(repository) {
 }
 
 async function readJsonBounded(response) {
-  const declared = Number(response.headers.get('content-length'));
-  if (Number.isFinite(declared) && declared > MAX_RESPONSE_BYTES) throw new Error('actions_response_too_large');
-  const body = await response.text();
-  if (Buffer.byteLength(body, 'utf8') > MAX_RESPONSE_BYTES) throw new Error('actions_response_too_large');
-  try { return JSON.parse(body); } catch { throw new Error('actions_response_invalid_json'); }
+  // The cap is applied while the body streams: `response.text()` followed by a
+  // size check would download a chunked response in full first (#9729).
+  const bytes = await readBoundedResponseBytes(response, MAX_RESPONSE_BYTES);
+  if (bytes === null) throw new Error('actions_response_too_large');
+  try { return JSON.parse(new TextDecoder().decode(bytes)); } catch { throw new Error('actions_response_invalid_json'); }
 }
 
 export async function fetchScheduledRuns({

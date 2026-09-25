@@ -29,6 +29,7 @@ jobs:
           fetch-depth: 1
           sparse-checkout: |
             scripts/ci/orchestrator-heartbeat.mjs
+            scripts/lib/bounded-response-body.mjs
             scripts/lib/github-issue-creator.mjs
           sparse-checkout-cone-mode: false
 

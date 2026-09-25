@@ -15,7 +15,7 @@ function response(status: number, body: unknown) {
     status,
     ok: status >= 200 && status < 300,
     headers: { get: () => null },
-    async text() { return JSON.stringify(body); },
+    body: new Response(JSON.stringify(body)).body,
   };
 }
 

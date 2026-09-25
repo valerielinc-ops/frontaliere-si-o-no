@@ -75,7 +75,11 @@ async function readBoundedResponse(response, maxBytes) {
       chunks.push(value);
     }
   } finally {
-    reader.releaseLock();
+    // Releasing the lock is cleanup and must never replace the verdict: older
+    // WHATWG streams and polyfilled bodies throw from releaseLock() (pending
+    // read, stream left mid-cancel), which would turn a completed read or a
+    // `github_response_too_large` into a retried transport failure (#9729).
+    try { reader.releaseLock(); } catch { /* the read verdict stays authoritative */ }
   }
   const bytes = new Uint8Array(size);
   let offset = 0;

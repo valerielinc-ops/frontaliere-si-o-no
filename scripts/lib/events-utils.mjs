@@ -803,6 +803,88 @@ const EVENT_IMAGE_MAX_WIDTH = 1600;
 const EVENT_IMAGE_MAX_HEIGHT = 1600;
 const EVENT_IMAGE_WEBP_QUALITY = 82;
 const EVENT_IMAGE_WEBP_EFFORT = 6;
+// Body cancellation is cleanup, not part of the response verdict. Keep a
+// source that stops acknowledging a broken upstream instead of letting one
+// stalled cancel hold the serial crawler forever.
+const EVENT_IMAGE_CANCEL_TIMEOUT_MS = 1_000;
+
+/**
+ * Read a response body without ever accumulating more than maxBytes.
+ * Content-Length is an early rejection; chunked responses and lying lengths
+ * are still bounded while the stream is consumed. The body is cancelled on
+ * every oversize path so a rejected image cannot strand a crawler connection.
+ *
+ * Allocation follows what the upstream declared or actually sent, never the
+ * cap: a declared length (already <= maxBytes) is preallocated exactly; a
+ * chunked response keeps its chunks and concatenates them once, so an image
+ * served without Content-Length no longer reserves the full 20 MiB cap. The
+ * per-response cap is unchanged. This bounds the reserved ArrayBuffer memory,
+ * not RSS: the old uninitialised cap buffer was mostly never paged in (before
+ * and after measurements are in corpus PR
+ * nanakokyobashi-rgb/frontaliere-articles#1770; ported to the site in #9729).
+ */
+async function readEventImageBody(response, maxBytes) {
+  const rawContentLength = response.headers.get('content-length');
+  const parsedContentLength = rawContentLength === null ? NaN : Number(rawContentLength);
+  const declaredLength = Number.isSafeInteger(parsedContentLength) && parsedContentLength >= 0
+    ? parsedContentLength
+    : null;
+  if (declaredLength !== null && declaredLength > maxBytes) {
+    await cancelEventImageResponse(response);
+    return null;
+  }
+
+  const reader = response.body?.getReader?.();
+  if (!reader) {
+    await cancelEventImageResponse(response);
+    return null;
+  }
+
+  const capacity = declaredLength ?? maxBytes;
+  const buffer = declaredLength === null ? null : Buffer.allocUnsafe(capacity);
+  const chunks = [];
+  let totalBytes = 0;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+
+      const chunkBytes = value?.byteLength;
+      if (!Number.isSafeInteger(chunkBytes) || chunkBytes < 0
+        || totalBytes > maxBytes - chunkBytes || totalBytes > capacity - chunkBytes) {
+        await awaitEventImageCleanup(() => reader.cancel('event image exceeds byte limit'));
+        return null;
+      }
+      if (chunkBytes === 0) continue;
+
+      if (buffer) buffer.set(value, totalBytes);
+      else chunks.push(value);
+      totalBytes += chunkBytes;
+    }
+    return buffer ? buffer.subarray(0, totalBytes) : Buffer.concat(chunks, totalBytes);
+  } catch (error) {
+    await awaitEventImageCleanup(() => reader.cancel());
+    throw error;
+  } finally {
+    releaseEventImageReader(reader);
+  }
+}
+
+/**
+ * Releasing the reader lock is cleanup, like the cancel above: it must never
+ * replace the verdict already reached. Current Node/undici streams reject any
+ * pending read instead of throwing, but older WHATWG implementations and
+ * polyfilled bodies throw a TypeError from `releaseLock()` (pending read, or
+ * a stream left mid-cancel by the bounded cleanup timeout). Thrown from the
+ * `finally`, that error would turn a fully read image into `null`.
+ */
+function releaseEventImageReader(reader) {
+  try {
+    reader.releaseLock?.();
+  } catch {
+    // The byte/size verdict stays authoritative.
+  }
+}
 
 function extFromContentType(contentType) {
   const ct = String(contentType || '').toLowerCase();
@@ -846,6 +928,26 @@ async function encodeEventImage(buf, contentType) {
   }
 }
 
+async function awaitEventImageCleanup(cleanup) {
+  let timer;
+  try {
+    await Promise.race([
+      Promise.resolve().then(cleanup),
+      new Promise((resolve) => {
+        timer = setTimeout(resolve, EVENT_IMAGE_CANCEL_TIMEOUT_MS);
+      }),
+    ]);
+  } catch {
+    // The size/type verdict remains authoritative even if cleanup rejects.
+  } finally {
+    if (timer !== undefined) clearTimeout(timer);
+  }
+}
+
+async function cancelEventImageResponse(response) {
+  await awaitEventImageCleanup(() => response?.body?.cancel?.());
+}
+
 /**
  * Download an event's source image once and store it locally under
  * `public/images/events/<sourceKey>-<rawId>.<ext>`. Returns the site-relative
@@ -881,11 +983,17 @@ export async function mirrorEventImage(sourceUrl, stableId) {
 
   try {
     const res = await fetch(sourceUrl, { headers: { 'User-Agent': EVENT_IMAGE_USER_AGENT } });
-    if (!res.ok) return null;
+    if (!res.ok) {
+      await cancelEventImageResponse(res);
+      return null;
+    }
     const contentType = res.headers.get('content-type') || '';
-    if (!contentType.startsWith('image/')) return null;
-    const raw = Buffer.from(await res.arrayBuffer());
-    if (raw.byteLength === 0 || raw.byteLength > EVENT_IMAGE_MAX_BYTES) return null;
+    if (!contentType.startsWith('image/')) {
+      await cancelEventImageResponse(res);
+      return null;
+    }
+    const raw = await readEventImageBody(res, EVENT_IMAGE_MAX_BYTES);
+    if (!raw || raw.byteLength === 0) return null;
     const { buf, ext } = await encodeEventImage(raw, contentType);
     const fileName = `${safeId}.${ext}`;
     writeFileSync(path.join(EVENT_IMAGE_DIR, fileName), buf);

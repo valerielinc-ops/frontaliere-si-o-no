@@ -23,6 +23,7 @@ import {
   fetchVerifiedLogo,
   MAX_LOGO_BODY_BYTES,
 } from './lib/company-logo-audit.mjs';
+import { readBoundedResponseBytes } from './lib/bounded-response-body.mjs';
 
 const ROOT = path.resolve(process.cwd());
 const MANIFEST_PATH = path.join(ROOT, 'data', 'company-logos-manifest.json');
@@ -371,10 +372,11 @@ async function tryHtmlIcon(domain) {
       signal: controller.signal,
     });
     if (!response.ok) return null;
-    const length = Number(response.headers.get('content-length') || 0);
-    if (length > MAX_LOGO_BODY_BYTES) return null;
-    const html = await response.text();
-    if (html.length > MAX_LOGO_BODY_BYTES) return null;
+    // The cap is applied while the page streams: `response.text()` and a
+    // length check afterwards would download a chunked page in full (#9729).
+    const bytes = await readBoundedResponseBytes(response, MAX_LOGO_BODY_BYTES);
+    if (bytes === null) return null;
+    const html = new TextDecoder().decode(bytes);
     for (const url of extractIconLinks(html, response.url || pageUrl)) {
       try {
         const result = await readImageUrl(url, 'official-html-icon', domain);
