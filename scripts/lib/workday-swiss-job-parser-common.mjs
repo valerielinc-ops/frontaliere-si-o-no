@@ -23,7 +23,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, isCantonOnlyLabel } from './target-swiss-locations.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import {
   buildWorkdayApiBase,
@@ -114,8 +114,15 @@ function cleanWorkdayLocation(raw = '') {
   const noSuffix = trimmed.replace(/,?\s*(switzerland|schweiz|suisse|svizzera)\s*$/i, '').trim();
   const parts = noSuffix.split(/\s*[-,]\s*/).map((p) => p.trim()).filter(Boolean);
   if (parts.length === 0) return '';
-  for (const p of parts) {
-    if (inferSwissTargetCanton(p)) return p;
+  for (let index = 0; index < parts.length; index += 1) {
+    const p = parts[index];
+    if (!inferSwissTargetCanton(p)) continue;
+    // Un cantone non sostituisce la località che lo precede: `Seewis,
+    // Graubunden` (il BFS scrive «Seewis im Prättigau») usciva `Graubunden`,
+    // cioè un cantone pubblicato come località (georg-fischer, issue 5253).
+    // La località resta, qualificata dal cantone che la rende riconoscibile.
+    if (index > 0 && isCantonOnlyLabel(p)) return parts.slice(0, index + 1).join(', ');
+    return p;
   }
   return parts[0];
 }

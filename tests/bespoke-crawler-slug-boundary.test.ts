@@ -281,7 +281,10 @@ describe('bespoke crawler slug boundary fan-out (#6786)', () => {
 });
 
 describe('Workday shared client compatibility', () => {
-  it('keeps all 17 direct parser consumers on the shared 19-call identity boundary', () => {
+  // 16 consumatori diretti / 18 chiamate: medtronic è passato alla factory
+  // `createWorkdaySwissParser`, che chiama già `extractWorkdayJobIdentity` e
+  // non è un `*-job-parser.mjs` (audit-parser-quality, issue 5253).
+  it('keeps all 16 direct parser consumers on the shared 18-call identity boundary', () => {
     const consumers = fs.readdirSync(PARSER_DIR)
       .filter((file) => file.endsWith('-job-parser.mjs'))
       .map((file) => ({ file, source: fs.readFileSync(path.join(PARSER_DIR, file), 'utf8') }))
@@ -293,8 +296,8 @@ describe('Workday shared client compatibility', () => {
       total + (source.match(/extractWorkdayJobIdentity\s*\(/g)?.length || 0)
     ), 0);
 
-    expect(consumers).toHaveLength(17);
-    expect(callCount).toBe(19);
+    expect(consumers).toHaveLength(16);
+    expect(callCount).toBe(18);
     for (const { file, source } of consumers) {
       expect(source, file).toMatch(/import\s*\{[\s\S]*extractWorkdayJobIdentity[\s\S]*\}\s*from '\.\/ats-clients\/workday-client\.mjs'/);
     }
