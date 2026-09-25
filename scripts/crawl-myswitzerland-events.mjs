@@ -491,7 +491,16 @@ export function mergeDetailEventMetadata(primaryLd, candidateLd, primaryUrl = SI
  * locale hit when the primary locale omits its image.
  */
 export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
-  const { detailLd, detailUrl, detailHtml, detailAddress, detailContactName, detailImageSourceUrl, detailPrice } = enrichment;
+  const {
+    detailLd,
+    detailUrl,
+    detailHtml,
+    detailAddress,
+    detailContactName,
+    detailImageSourceUrl,
+    detailPrice,
+    detailPeople,
+  } = enrichment;
   const primaryLocale = LOCALES.find((l) => perLocaleHits[l]);
   const primary = primaryLocale ? perLocaleHits[primaryLocale] : undefined;
   if (!primary) return null;
@@ -514,9 +523,14 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
 
   const rawUrl = detailUrl
     || `${SITE_ORIGIN}/${LOCALE_URL_PREFIX[primaryLocale]}${String(primary.url || '').startsWith('/') ? primary.url : `/${primary.url || ''}`}`;
-  const sourcePeople = extractEventPeopleFromText(
+  const indexedPeople = extractEventPeopleFromText(
     LOCALES.flatMap((locale) => [perLocaleHits[locale]?.content, perLocaleHits[locale]?.leadText]).filter(Boolean).join('. '),
   );
+  const detailPeopleFromHtml = extractEventPeopleFromText(detailHtml);
+  const sourcePeople = {
+    organizer: detailPeople?.organizer || detailPeopleFromHtml.organizer || indexedPeople.organizer,
+    performer: detailPeople?.performer || detailPeopleFromHtml.performer || indexedPeople.performer,
+  };
   const organizer = normalizeEventPeople(detailLd?.organizer, detailUrl || SITE_ORIGIN)
     || normalizeEventPeople(sourcePeople.organizer, SITE_ORIGIN)
     || (detailContactName ? { '@type': 'Organization', name: detailContactName } : undefined);
@@ -586,7 +600,15 @@ async function fetchDetailEnrichment(perLocaleHits) {
     const candidatePrice = extractPrice(ld, html);
     const candidateContactName = extractDetailContactName(html);
     const candidateImageSourceUrl = firstEventImageUrlFromHtml(html, url);
-    const hasHtmlMetadata = Boolean(candidateAddress || candidatePrice || candidateContactName || candidateImageSourceUrl);
+    const candidatePeople = extractEventPeopleFromText(html);
+    const hasHtmlMetadata = Boolean(
+      candidateAddress
+      || candidatePrice
+      || candidateContactName
+      || candidateImageSourceUrl
+      || candidatePeople.organizer
+      || candidatePeople.performer
+    );
     if (!ld && !hasHtmlMetadata) continue;
     if (!enrichment) {
       enrichment = {
@@ -597,6 +619,7 @@ async function fetchDetailEnrichment(perLocaleHits) {
         detailContactName: candidateContactName,
         detailImageSourceUrl: candidateImageSourceUrl,
         detailPrice: candidatePrice,
+        detailPeople: candidatePeople,
       };
     } else if (ld && enrichment.detailLd) {
       enrichment.detailLd = mergeDetailEventMetadata(enrichment.detailLd, ld, enrichment.detailUrl, url);
@@ -610,6 +633,12 @@ async function fetchDetailEnrichment(perLocaleHits) {
     }
     if (!enrichment.detailContactName && candidateContactName) enrichment.detailContactName = candidateContactName;
     if (!enrichment.detailImageSourceUrl && candidateImageSourceUrl) enrichment.detailImageSourceUrl = candidateImageSourceUrl;
+    if (!enrichment.detailPeople?.organizer && candidatePeople.organizer) {
+      enrichment.detailPeople = { ...enrichment.detailPeople, organizer: candidatePeople.organizer };
+    }
+    if (!enrichment.detailPeople?.performer && candidatePeople.performer) {
+      enrichment.detailPeople = { ...enrichment.detailPeople, performer: candidatePeople.performer };
+    }
 
     if (detailEnrichmentReady(enrichment, perLocaleHits, sourcePeople)) break;
   }
@@ -630,11 +659,13 @@ export function detailEnrichmentReady(enrichment, perLocaleHits = {}, sourcePeop
   const organizerReady = Boolean(
     normalizeEventPeople(enrichment?.detailLd?.organizer, enrichment?.detailUrl || SITE_ORIGIN)
     || sourcePeople.organizer
+    || normalizeEventPeople(enrichment?.detailPeople?.organizer, enrichment?.detailUrl || SITE_ORIGIN)
     || enrichment?.detailContactName,
   );
   const performerReady = Boolean(
     normalizeEventPeople(enrichment?.detailLd?.performer, enrichment?.detailUrl || SITE_ORIGIN)
-    || sourcePeople.performer,
+    || sourcePeople.performer
+    || normalizeEventPeople(enrichment?.detailPeople?.performer, enrichment?.detailUrl || SITE_ORIGIN),
   );
   const addressReady = Boolean(enrichment?.detailAddress);
   const priceReady = Boolean(enrichment?.detailPrice);
