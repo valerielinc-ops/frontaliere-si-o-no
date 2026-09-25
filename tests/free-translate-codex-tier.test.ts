@@ -14,7 +14,10 @@ import path from 'node:path';
  * (socket del broker assente) si salta in silenzio; il budget per processo e i
  * fallimenti consecutivi lo fermano con UNA riga di log; la risposta passa da
  * `tryTier`/`finalize` come ogni altro tier (eco della sorgente rifiutato e
- * contato, token protetti rimessi nella lingua di arrivo).
+ * contato, token protetti rimessi nella lingua di arrivo); la cornice si toglie
+ * solo con i marcatori della chiamata, quindi un testo che contiene davvero
+ * `END_TEXT` resta intero; le chiamate del processo passano una alla volta e
+ * non superano insieme il budget di tempo.
  *
  * Nessuna rete e nessun Codex vero: `fetch` e' uno stub (DeepL, Azure,
  * MyMemory) e la chiamata a Codex passa da `setCodexTranslateCallForTests`.
@@ -77,6 +80,11 @@ afterAll(() => {
 });
 
 /** Contatori del tier Codex: `getCascadeStats` copia solo il primo livello. */
+/** Suffisso dei marcatori della chiamata, letto dal messaggio utente. */
+function markerOf(messages: Array<{ role: string; content: string }>) {
+  return /^BEGIN_TEXT_([A-Z0-9]{8})\n/.exec(messages.find((m) => m.role === 'user')!.content)?.[1];
+}
+
 function codexCounters() {
   const s = ft.getCascadeStats();
   return {
@@ -142,7 +150,11 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     expect(system).toMatch(/URLs/);
     expect(system).toMatch(/ZQX0XQZ/);
     expect(system).toMatch(/translated text only/);
-    expect(messages.find((m) => m.role === 'user')!.content).toBe(`BEGIN_TEXT\n${IT}\nEND_TEXT`);
+    const user = messages.find((m) => m.role === 'user')!.content;
+    const framed = /^BEGIN_TEXT_([A-Z0-9]{8})\n([\s\S]*)\nEND_TEXT_\1$/.exec(user);
+    expect(framed, 'testo incorniciato dai marcatori della chiamata').toBeTruthy();
+    expect(framed![2]).toBe(IT);
+    expect(system).toContain(`between BEGIN_TEXT_${framed![1]} and END_TEXT_${framed![1]}`);
     expect(opts.chain).toEqual([codexModel]);
     expect(opts.prefer).toEqual([codexModel]);
     expect(opts.bypassForceChain).toBe(true);
@@ -155,12 +167,26 @@ describe('freeTranslate — tier Codex Luna Max', () => {
       const user = messages.find((m) => m.role === 'user')!.content;
       const token = /ZQX\d+XQZ/.exec(user)?.[0];
       expect(token, 'il trigramma di genere deve arrivare mascherato').toBeTruthy();
-      return `\`\`\`\nBEGIN_TEXT\nInfermiere diplomato ${token}\nEND_TEXT\n\`\`\``;
+      const marker = markerOf(messages);
+      return `\`\`\`\nBEGIN_TEXT_${marker}\nInfermiere diplomato ${token}\nEND_TEXT_${marker}\n\`\`\``;
     });
     const out = await ft.freeTranslate({ text: 'Pflegefachperson HF (m/w/d)', sourceLang: 'de', targetLang: 'it' });
     expect(calls).toHaveLength(1);
     expect(out).toMatch(/^Infermiere diplomato/);
     expect(out).not.toMatch(/ZQX|BEGIN_TEXT|END_TEXT|```/);
+  });
+
+  it('un testo che contiene davvero BEGIN_TEXT o END_TEXT resta intero', async () => {
+    const source = 'BEGIN_TEXT apre il blocco e il modulo si chiude con END_TEXT';
+    const translated = 'BEGIN_TEXT opens the block and the form closes with END_TEXT';
+    const calls = stubCodex((messages) => {
+      const marker = markerOf(messages);
+      expect(marker, 'marcatori della chiamata presenti').toBeTruthy();
+      expect(source.includes(marker!)).toBe(false);
+      return translated;
+    });
+    expect(await tr(source)).toBe(translated);
+    expect(calls).toHaveLength(1);
   });
 
   it('un eco della sorgente e\' rifiutato e contato, la cascata prosegue', async () => {
@@ -212,6 +238,53 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     expect(calls).toHaveLength(3);
     expect(value.filter((v) => v === `CODEX ${EN}`)).toHaveLength(3);
     vi.stubEnv('FREE_TRANSLATE_CODEX_MAX_CALLS', '');
+  });
+
+  it('le chiamate concorrenti passano una alla volta e non superano insieme il budget di tempo', async () => {
+    // Orologio finto: ogni chiamata "dura" 10 s. Con 20 s di budget la prima
+    // chiamata lascia 10 s, sotto il minimo di 15 s per chiamata: le altre non
+    // partono. Lette in parallelo prima dell'await, tutte e tre avrebbero visto
+    // 20 s di residuo e sarebbero partite.
+    vi.stubEnv('FREE_TRANSLATE_CODEX_MAX_MS', '20000');
+    const realNow = Date.now.bind(Date);
+    let offset = 0;
+    const clock = vi.spyOn(Date, 'now').mockImplementation(() => realNow() + offset);
+    try {
+      let inFlight = 0;
+      let maxInFlight = 0;
+      const calls = stubCodex(async () => {
+        inFlight += 1;
+        maxInFlight = Math.max(maxInFlight, inFlight);
+        await new Promise((resolve) => setTimeout(resolve, 5));
+        offset += 10_000;
+        inFlight -= 1;
+        return `CODEX ${EN}`;
+      });
+      const { value, lines } = await captureLog(() => Promise.all([tr(), tr(), tr()]));
+      expect(calls).toHaveLength(1);
+      expect(maxInFlight).toBe(1);
+      expect(value).toEqual([`CODEX ${EN}`, `MYMEMORY ${EN}`, `MYMEMORY ${EN}`]);
+      expect(lines.filter((l) => l.includes('budget di 20s esaurito'))).toHaveLength(1);
+    } finally {
+      clock.mockRestore();
+      vi.stubEnv('FREE_TRANSLATE_CODEX_MAX_MS', '');
+    }
+  });
+
+  it('in coda le chiamate non si sovrappongono mai', async () => {
+    let inFlight = 0;
+    let maxInFlight = 0;
+    const calls = stubCodex(async () => {
+      inFlight += 1;
+      maxInFlight = Math.max(maxInFlight, inFlight);
+      await new Promise((resolve) => setTimeout(resolve, 5));
+      inFlight -= 1;
+      return `CODEX ${EN}`;
+    });
+    const { value } = await captureLog(() => Promise.all(Array.from({ length: 4 }, () => tr())));
+    expect(value).toEqual(Array(4).fill(`CODEX ${EN}`));
+    expect(calls).toHaveLength(4);
+    expect(maxInFlight).toBe(1);
   });
 
   it('tre fallimenti consecutivi fermano il tier, contati come errori del tier', async () => {
