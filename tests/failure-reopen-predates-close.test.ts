@@ -173,6 +173,59 @@ describe('createGithubIssue — ramo di riapertura con occurredAt', () => {
     expect((res as any)?.reopened).toBe(true);
   });
 
+  it('chiusa come NOT_PLANNED dopo l\'occorrenza: nessuna issue nuova per la stessa run', async () => {
+    // Il ramo che non riapre una decisione umana ricadeva su `gh issue create`:
+    // la run storica avrebbe aperto un duplicato della issue appena chiusa.
+    mockGithub({ runs: [HISTORICAL_RUN], closedTwins: [{ ...CLOSED_TWIN, stateReason: 'NOT_PLANNED' }] });
+
+    const res = await createGithubIssue({
+      title: TITLE,
+      description: 'misura',
+      priority: 2,
+      occurredAt: HISTORICAL_RUN.created_at,
+    } as any);
+
+    expect(callsTo('create')).toHaveLength(0);
+    expect(callsTo('reopen')).toHaveLength(0);
+    expect(callsTo('comment')).toHaveLength(0);
+    expect(res).toMatchObject({ number: 9654, predatesClose: true, persisted: true });
+  });
+
+  it('NOT_PLANNED e occorrenza successiva: issue nuova, come prima', async () => {
+    mockGithub({ runs: [HISTORICAL_RUN], closedTwins: [{ ...CLOSED_TWIN, stateReason: 'NOT_PLANNED' }] });
+
+    await createGithubIssue({
+      title: TITLE,
+      description: 'misura',
+      priority: 2,
+      occurredAt: '2026-09-24T19:10:00Z',
+    } as any);
+
+    expect(callsTo('reopen')).toHaveLength(0);
+    expect(callsTo('create')).toHaveLength(1);
+  });
+
+  it('decide la chiusura PIÙ RECENTE della condizione, non una più vecchia', async () => {
+    // Occorrenza fra due chiusure: dopo la vecchia (#9500), prima della nuova.
+    mockGithub({
+      runs: [HISTORICAL_RUN],
+      closedTwins: [
+        { ...CLOSED_TWIN, number: 9500, closedAt: '2026-09-20T08:00:00Z' },
+        CLOSED_TWIN,
+      ],
+    });
+
+    const res = await createGithubIssue({
+      title: TITLE,
+      description: 'misura',
+      priority: 2,
+      occurredAt: HISTORICAL_RUN.created_at,
+    } as any);
+
+    expect(callsTo('reopen')).toHaveLength(0);
+    expect(res).toMatchObject({ number: 9654, predatesClose: true });
+  });
+
   it('senza occurredAt, o con uno illeggibile, il comportamento resta quello di prima', async () => {
     for (const occurredAt of [undefined, 'not-a-date']) {
       execFileSync.mockReset();

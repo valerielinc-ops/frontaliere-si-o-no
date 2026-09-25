@@ -470,7 +470,10 @@ function issueLabelNames(issue) {
  *
  * Three filters stand between a prefix match and a reopen, all of which fail
  * CLOSED (skip the candidate → the caller opens a fresh issue, i.e. today's
- * behaviour) rather than resurrecting something:
+ * behaviour) rather than resurrecting something. With `occurredAt`, the NEWEST
+ * close of the condition is checked before them: an occurrence that started
+ * before it comes back marked `predatesClose` whatever the close reason, and
+ * the caller neither reopens nor creates (issue #9761):
  *
  *  1. same condition signature — see conditionSignature: the prefix alone is
  *     not a discriminator, it drops the token it split;
@@ -506,7 +509,7 @@ function issueLabelNames(issue) {
  */
 const NEVER_REOPEN_TITLES = new Set([TRANSIENT_LEDGER_TITLE]);
 
-function findRecentlyClosedIssueByTitlePrefix(fullTitle, withinHours, dedupKey = null) {
+function findRecentlyClosedIssueByTitlePrefix(fullTitle, withinHours, dedupKey = null, occurredAt = null) {
   if (!withinHours || withinHours <= 0) return null;
   const cutoff = Date.now() - withinHours * 3600 * 1000;
   const wantedSignature = conditionSignature(fullTitle);
@@ -521,6 +524,7 @@ function findRecentlyClosedIssueByTitlePrefix(fullTitle, withinHours, dedupKey =
     .sort((a, b) => Date.parse(b.closedAt) - Date.parse(a.closedAt));
 
   const eligible = [];
+  let newestSameCondition = true;
   for (const candidate of inWindow) {
     // A caller-supplied key explicitly declares every matching legacy title to
     // be the same condition. Without it, retain the stricter signature guard
@@ -532,6 +536,18 @@ function findRecentlyClosedIssueByTitlePrefix(fullTitle, withinHours, dedupKey =
         + `("${candidate.title}") — not reopening it.`,
       );
       continue;
+    }
+    // History guard (#9761), on the NEWEST close of this condition and BEFORE
+    // the eligibility filters below: an occurrence that started before it was
+    // closed is covered by that close however it was closed. Skipping a
+    // NOT_PLANNED or tracker close here instead would send the caller to
+    // `gh issue create`, i.e. a fresh issue for the very run a human had just
+    // decided about. Older closes need no check: they close earlier still.
+    if (newestSameCondition) {
+      newestSameCondition = false;
+      if (occurrencePredatesClose(occurredAt, candidate.closedAt)) {
+        return { ...candidate, predatesClose: true };
+      }
     }
     if (candidate.stateReason && candidate.stateReason !== 'COMPLETED') {
       console.log(
@@ -1143,7 +1159,9 @@ export async function createGithubIssue({
   // creation order; `closedAt` is not (an older tracker may be closed later).
   let newestClosed = null;
   if (normalizedDedupKey && Number.isFinite(reopenWindowHours) && reopenWindowHours > 0) {
-    newestClosed = findRecentlyClosedIssueByTitlePrefix(title, reopenWindowHours, normalizedDedupKey);
+    newestClosed = findRecentlyClosedIssueByTitlePrefix(
+      title, reopenWindowHours, normalizedDedupKey, occurredAt,
+    );
     if (newestClosed === undefined) return lookupFailedResult(title, 'closed-issue');
   }
   const preferredRecentlyClosed = newestClosed
@@ -1298,7 +1316,7 @@ export async function createGithubIssue({
     // repeat both GitHub calls on every cold start where newestClosed is null.
     let recentlyClosed = newestClosed;
     if (!normalizedDedupKey) {
-      recentlyClosed = findRecentlyClosedIssueByTitlePrefix(title, reopenWindowHours);
+      recentlyClosed = findRecentlyClosedIssueByTitlePrefix(title, reopenWindowHours, null, occurredAt);
       if (recentlyClosed === undefined) return lookupFailedResult(title, 'closed-issue');
     }
     if (recentlyClosed) {
@@ -1308,16 +1326,20 @@ export async function createGithubIssue({
       // stale-build abstention below: a scanner re-reads the same run on every
       // pass of its lookback window (hourly × 24 h for scan-unreported-failures),
       // and one comment per pass on a closed issue is the noise the dedup exists
-      // to prevent. The trace stays in the log and in the job summary.
+      // to prevent. The trace stays in the log and in the job summary. The
+      // finder hands over the newest close of the condition even when it is
+      // NOT_PLANNED or a tracker, so this also stops the fresh-issue fallback.
       if (occurrencePredatesClose(occurredAt, recentlyClosed.closedAt)) {
+        const closedAs = recentlyClosed.stateReason ? ` come ${recentlyClosed.stateReason}` : '';
         appendStepSummary(
           `⏮️ **Riapertura saltata** — il guasto osservato è iniziato il ${occurredAt}, prima `
-          + `della chiusura di #${recentlyClosed.number} (${recentlyClosed.closedAt}): è storia già `
-          + 'coperta dalla chiusura, non una ricorrenza.',
+          + `della chiusura di #${recentlyClosed.number}${closedAs} (${recentlyClosed.closedAt}): è `
+          + 'storia già coperta dalla chiusura, non una ricorrenza. Nessuna issue nuova.',
         );
         console.log(
           `[github-issue-creator] Occurrence ${occurredAt} predates the close of `
-          + `#${recentlyClosed.number} (${recentlyClosed.closedAt}) — not reopening, not commenting.`,
+          + `#${recentlyClosed.number} (${recentlyClosed.closedAt}) — not reopening, not commenting, `
+          + 'not creating.',
         );
         return {
           number: recentlyClosed.number,
