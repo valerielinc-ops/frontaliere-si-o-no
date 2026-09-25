@@ -82,6 +82,10 @@ async function fetchPage(apiUrl) {
 }
 
 const SWISS_COUNTRY_LABEL_RE = /^(?:ch|che|schweiz|suisse|svizzera|svizra|switzerland)$/i;
+// Some Prospective tenants put a street address in `sza_location.city`.
+// Treat it as an unresolved candidate before foreign-country heuristics run:
+// "Rue de France 12" contains a country name but is not a French location.
+const STREET_ADDRESS_LOCATION_RE = /^\s*(?:ch[-\s]?\d{4}\s+)?[^,;]+\s+\d+[a-z]?\s*$/iu;
 
 /**
  * Source-backed location candidates, in the historical priority order. There
@@ -388,6 +392,7 @@ export function createProspectiveChParser(config) {
   // tenant that declares `singleLocality`.
   function resolveSourceLocation(listing) {
     for (const candidate of pickLocationCandidates(listing)) {
+      if (STREET_ADDRESS_LOCATION_RE.test(candidate)) continue;
       if (isLocationExplicitlyForeign(candidate)) return null;
       const canton = siteCantonByKey.get(normalizeSiteKey(candidate))
         || inferSwissTargetCanton(candidate)

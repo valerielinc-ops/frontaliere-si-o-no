@@ -169,6 +169,14 @@ describe('Prospective.ch shared parser contract', () => {
         .toEqual(['Zürich/ZH', 'Bern/BE', 'St. Niklaus/VS']);
     });
 
+    it('treats a street containing a country name as an address, not as a foreign location', async () => {
+      feed([
+        { szas: { 'sza_location.city': 'Rue de France 12', 'sza_workplace.city': 'Lausanne' } },
+      ]);
+      const jobs = await createProspectiveChParser(hq).fetchAllJobs();
+      expect(where(jobs).map(({ location, canton }) => `${location}/${canton}`)).toEqual(['Lausanne/VD']);
+    });
+
     it('allSitesInDefaultCanton only disambiguates a BFS municipality of that canton', async () => {
       const listings = [
         { szas: { 'sza_location.city': 'Oberwil', 'sza_location.zip': '4104' } },
