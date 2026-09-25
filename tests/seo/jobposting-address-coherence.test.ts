@@ -16,6 +16,8 @@ import MUNICIPALITY_DATA from '../../data/canton-municipalities.json' with { typ
 import { readFileSync } from 'node:fs';
 import { buildJobPostingSchema, resolveJobPostingAddress } from '../../build-plugins/shared/jobPostingSchema';
 import { resolveLocalityPostalCode } from '../../build-plugins/shared/postalCodes';
+import { resolveJobPostingPostalCode } from '../../services/jobLocationSnapshot';
+import { transformSync } from 'esbuild';
 import {
   CANTON_CAPITAL_ADDRESSES,
   localityMatchesHq,
@@ -547,5 +549,99 @@ describe('FNZ country-only national fallback', () => {
       streetAddress: 'Bundesplatz 3',
     });
     expect(Object.values(s.jobLocation.address).every(Boolean)).toBe(true);
+  });
+});
+
+/**
+ * Review finding bace4dae1710 (JobBoard.tsx, remote and multi-location
+ * postings). JobBoard cannot be mounted in a unit test, so this runs the real
+ * source lines of its JSON-LD effect: the address block (from `isValidAddr`
+ * to `resolveJobPostingAddress(...)`), the `jobLocationType`/`jobLocation`
+ * members of the posting and the remote-only `applicantLocationRequirements`
+ * block, cut out of components/community/JobBoard.tsx and transpiled.
+ */
+function runJobBoardJobLocation(job: Record<string, unknown>, isRemote: boolean, locale = 'fr') {
+  const source = readFileSync(new URL('../../components/community/JobBoard.tsx', import.meta.url), 'utf8');
+  const addressStart = source.indexOf(' const isValidAddr = (s: string) =>');
+  const resolverCall = source.indexOf(' const jobAddress = resolveJobPostingAddress(', addressStart);
+  const addressEnd = source.indexOf(' }, locale);\n', resolverCall) + ' }, locale);\n'.length;
+  const locationStart = source.indexOf(" jobLocationType: isRemote ? 'TELECOMMUTE' : undefined,", addressEnd);
+  const locationEnd = source.indexOf(' directApply:', locationStart);
+  const remoteStart = source.indexOf(' if (isRemote) {', locationEnd);
+  const remoteEnd = source.indexOf('\n }\n', source.indexOf('posting.applicantLocationRequirements', remoteStart)) + '\n }\n'.length;
+  const cuts = [addressStart, resolverCall, addressEnd, locationStart, locationEnd, remoteStart, remoteEnd];
+  expect(cuts.every((cut, index) => cut > 0 && (index === 0 || cut > cuts[index - 1])), 'JobBoard JSON-LD address block moved').toBe(true);
+  const snippet = [
+    source.slice(addressStart, addressEnd),
+    'const posting: Record<string, unknown> = {',
+    source.slice(locationStart, locationEnd),
+    '};',
+    source.slice(remoteStart, remoteEnd),
+    'return posting;',
+  ].join('\n');
+  const run = new Function(
+    'job', 'isRemote', 'locale', 'DEFAULT_CANTON_DISPLAY', 'DEFAULT_CANTON',
+    'resolveJobPostingPostalCode', 'resolveJobPostingAddress',
+    transformSync(snippet, { loader: 'ts' }).code,
+  );
+  return run(job, isRemote, locale, 'Ticino', 'TI', resolveJobPostingPostalCode, resolveJobPostingAddress) as {
+    jobLocationType?: string;
+    jobLocation: { '@type': string; address: Record<string, string> };
+    applicantLocationRequirements?: { '@type': string; name: string };
+  };
+}
+
+const COUNTRY_LEVEL = /^(?:switzerland|schweiz|suisse|svizzera|ch)$/i;
+
+describe('JobBoard runtime JobPosting — remote and multi-location address (review finding bace4dae1710)', () => {
+  it('remote Pully posting: jobLocation.address is never a Switzerland/CH address holding a concrete CAP or street', () => {
+    const posting = runJobBoardJobLocation({
+      addressLocality: 'Pully',
+      location: 'Pully',
+      canton: 'VD',
+      postalCode: '1009',
+      streetAddress: 'Avenue de Lavaux 1',
+    }, true);
+    const address = posting.jobLocation.address;
+    // The acceptance criterion, literally: no Switzerland/CH locality or region.
+    expect(COUNTRY_LEVEL.test(address.addressLocality)).toBe(false);
+    expect(address.addressRegion).not.toBe('CH');
+    expect(JSON.stringify(address)).not.toMatch(/Switzerland/);
+    // …so 1009 and the street can only appear inside their own place's tuple.
+    expect(address).toEqual({
+      '@type': 'PostalAddress',
+      addressLocality: 'Pully',
+      addressRegion: 'VD',
+      addressCountry: 'CH',
+      postalCode: '1009',
+      streetAddress: 'Avenue de Lavaux 1',
+    });
+    // Remoteness is carried by the remote-only members, not by the address.
+    expect(posting.jobLocationType).toBe('TELECOMMUTE');
+    expect(posting.applicantLocationRequirements).toEqual({ '@type': 'Country', name: 'CH' });
+  });
+
+  it('multi-location posting: the canton\'s full coherent tuple, locality + CAP + street of the same place', () => {
+    const posting = runJobBoardJobLocation({
+      addressLocality: 'Lugano · Bellinzona · Mendrisio',
+      location: 'Lugano · Bellinzona · Mendrisio',
+      canton: 'TI',
+    }, false);
+    const address = posting.jobLocation.address;
+    expect(COUNTRY_LEVEL.test(address.addressLocality)).toBe(false);
+    expect(address.addressRegion).not.toBe('CH');
+    expect(address).toMatchObject({ ...CANTON_CAPITAL_ADDRESSES.TI, addressCountry: 'CH' });
+    expect(posting.jobLocationType).toBeUndefined();
+    expect(posting.applicantLocationRequirements).toBeUndefined();
+  });
+
+  it('on-site posting keeps the same single-place address (no country-level branch left)', () => {
+    const posting = runJobBoardJobLocation({
+      addressLocality: 'Pully',
+      location: 'Pully',
+      canton: 'VD',
+    }, false);
+    expect(posting.jobLocation.address).toMatchObject({ addressLocality: 'Pully', postalCode: '1009', addressRegion: 'VD' });
+    expect(COUNTRY_LEVEL.test(posting.jobLocation.address.addressLocality)).toBe(false);
   });
 });
