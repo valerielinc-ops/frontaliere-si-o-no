@@ -26,6 +26,9 @@
  *      `agent:fix-queued` se presenti, posta il marker
  *      `<!-- ALREADY_FIXED_ROUTED: ... -->` con l'evidenza verificata.
  *      MAI chiude la issue: la chiusura resta a chi verifica.
+ *   5. `maybe-resolved` e' anche cio' che tiene la issue fuori dal ciclo dopo:
+ *      il secondo passaggio di `triage-sweep.mjs` (triaged ma senza routing)
+ *      la salta, altrimenti la ri-accoderebbe al giro successivo.
  *
  * Evidenza assente, malformata o non verificabile → nessuna mutazione, log del
  * motivo, exit 0.
@@ -34,6 +37,11 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+// Contratto del marker e allowlist dei bot che possono emetterlo: una sola
+// copia, condivisa con drainer/backoff (AGENTS.md #6), niente regex duplicate.
+import { FIX_OUTCOME_RE } from './claude-rate-limit-contract.mjs';
+import { AUTHORIZED_QUOTA_BEACON_BOTS } from './claude-rate-limit.mjs';
+import { DELIVERY_STATUS, normalizeDeliveryEvidence } from './lib/pr-delivery-evidence.mjs';
 
 export const VERIFY_LABEL = 'maybe-resolved';
 export const ROUTING_LABELS = Object.freeze(['agent:fix', 'agent:fix-queued']);
@@ -41,26 +49,27 @@ export const ROUTED_MARKER = 'ALREADY_FIXED_ROUTED';
 const FIXER_WORKFLOW_PATH = '.github/workflows/issue-fix.yml';
 
 const TRUSTED_ASSOCIATIONS = new Set(['OWNER', 'MEMBER', 'COLLABORATOR']);
-const TRUSTED_LOGINS = new Set([
-  'frontaliere-automation',
-  'frontaliere-automation[bot]',
-  'github-actions',
-  'github-actions[bot]',
-  'claude',
-  'claude[bot]',
-]);
+// Gli stessi bot autorizzati a emettere un `FIX_OUTCOME` in claude-rate-limit.mjs.
+// GraphQL (`gh issue view --json comments`) espone il login senza `[bot]`,
+// REST con il suffisso: si confronta la forma canonica.
+const TRUSTED_BOTS = new Set(AUTHORIZED_QUOTA_BEACON_BOTS);
 
-const OUTCOME_RE = /<!--\s*FIX_OUTCOME:\s*([a-z0-9-]+)\s*-->/giu;
 const EVIDENCE_RE = /<!--\s*FIX_EVIDENCE:([^>]*?)-->/gu;
 
 /**
- * Ultimo codice `FIX_OUTCOME` presente nel body, o null.
+ * Codice `FIX_OUTCOME` del body, o null. Stessa semantica di tutti gli altri
+ * consumer del marker (`FIX_OUTCOME_RE`, primo marker del commento).
  * @param {string} body
  */
 export function outcomeOf(body) {
-  let last = null;
-  for (const m of String(body ?? '').matchAll(OUTCOME_RE)) last = m[1].toLowerCase();
-  return last;
+  const m = FIX_OUTCOME_RE.exec(String(body ?? ''));
+  return m ? m[1].toLowerCase() : null;
+}
+
+function timestampMs(value) {
+  if (typeof value !== 'string' || !value.trim()) return null;
+  const ms = Date.parse(value);
+  return Number.isFinite(ms) ? ms : null;
 }
 
 /**
@@ -106,8 +115,8 @@ export function parseFixEvidence(body) {
 }
 
 function isTrustedAuthor(comment) {
-  const login = comment?.author?.login;
-  if (typeof login === 'string' && TRUSTED_LOGINS.has(login)) return true;
+  const login = String(comment?.author?.login ?? '').trim().toLowerCase().replace(/\[bot\]$/u, '');
+  if (login && TRUSTED_BOTS.has(login)) return true;
   return TRUSTED_ASSOCIATIONS.has(String(comment?.authorAssociation ?? ''));
 }
 
@@ -120,14 +129,19 @@ function isTrustedAuthor(comment) {
  */
 export function decideAlreadyFixedRouting({ comments, runStartedAt, deliveryStatus, isGroup = false }) {
   if (isGroup) return { action: 'none', reason: 'gruppo-B19: instradamento solo per issue singole' };
-  if (deliveryStatus !== 'verified-none') {
-    return { action: 'none', reason: `delivery=${deliveryStatus ?? 'unavailable'}: serve verified-none` };
+  if (deliveryStatus !== DELIVERY_STATUS.NONE) {
+    return { action: 'none', reason: `delivery=${deliveryStatus ?? 'unavailable'}: serve ${DELIVERY_STATUS.NONE}` };
   }
-  if (typeof runStartedAt !== 'string' || !runStartedAt) return { action: 'none', reason: 'runStartedAt-non-verificabile' };
+  const startedMs = timestampMs(runStartedAt);
+  if (startedMs === null) return { action: 'none', reason: 'runStartedAt-non-verificabile' };
   if (!Array.isArray(comments)) return { action: 'none', reason: 'commenti-non-leggibili' };
+  // Confronto numerico, non lessicografico: il baseline e' canonicalizzato con
+  // i millisecondi (`.000Z`), i `createdAt` di GitHub no.
   const current = comments
-    .filter((c) => typeof c?.createdAt === 'string' && c.createdAt >= runStartedAt && outcomeOf(c.body) !== null)
-    .sort((a, b) => (a.createdAt < b.createdAt ? -1 : a.createdAt > b.createdAt ? 1 : 0));
+    .map((c) => ({ c, at: timestampMs(c?.createdAt) }))
+    .filter(({ c, at }) => at !== null && at >= startedMs && outcomeOf(c?.body) !== null)
+    .sort((a, b) => a.at - b.at)
+    .map(({ c }) => c);
   const last = current.at(-1);
   if (!last) return { action: 'none', reason: 'nessun-FIX_OUTCOME-in-questa-run' };
   const outcome = outcomeOf(last.body);
@@ -245,7 +259,9 @@ function main() {
     return;
   }
   const baseline = readJson(process.env.PR_DELIVERY_BASELINE_FILE);
-  const delivery = readJson(process.env.PR_DELIVERY_EVIDENCE_FILE);
+  // Stesso confine del classificatore: un sidecar illeggibile o con uno stato
+  // ignoto e' `unavailable`, mai un `verified-none` implicito.
+  const delivery = normalizeDeliveryEvidence(readJson(process.env.PR_DELIVERY_EVIDENCE_FILE));
   let view;
   try {
     view = JSON.parse(gh(['issue', 'view', String(issue), '--repo', repo, '--json', 'comments,labels,state']));
@@ -257,7 +273,7 @@ function main() {
   const decision = decideAlreadyFixedRouting({
     comments: view?.comments,
     runStartedAt: typeof baseline?.runStartedAt === 'string' ? baseline.runStartedAt : null,
-    deliveryStatus: typeof delivery?.status === 'string' ? delivery.status : null,
+    deliveryStatus: delivery.status,
     isGroup: process.env.IS_GROUP === 'true',
   });
   if (decision.action !== 'verify') {
@@ -275,7 +291,8 @@ function main() {
     currentRunId: process.env.GITHUB_RUN_ID ? Number(process.env.GITHUB_RUN_ID) : null,
     pr: (n) => JSON.parse(gh(['pr', 'view', String(n), '--repo', repo, '--json', 'state,baseRefName,mergeCommit'])),
     run: (id) => JSON.parse(gh(['api', `repos/${repo}/actions/runs/${id}`, '--jq', '{status,conclusion,head_branch,head_sha,path}'])),
-    compare: (base, head) => gh(['api', `repos/${repo}/compare/${base}...${head}`, '--jq', '.status']).trim(),
+    // `per_page=1`: serve solo `.status`, non la lista dei commit fra i due ref.
+    compare: (base, head) => gh(['api', `repos/${repo}/compare/${base}...${head}?per_page=1`, '--jq', '.status']).trim(),
   });
   if (!verified.ok) {
     setOutput('routed', 'false');

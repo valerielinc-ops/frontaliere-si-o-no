@@ -1,4 +1,8 @@
-import { readFileSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
+import { chmodSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
   decideAlreadyFixedRouting,
@@ -7,6 +11,7 @@ import {
   routingEditArgs,
   verifyEvidence,
 } from '../scripts/ci/route-already-fixed.mjs';
+import { validateWorkflowText } from '../scripts/ci/validate-modified-workflows.mjs';
 
 const workflow = readFileSync(new URL('../.github/workflows/issue-fix.yml', import.meta.url), 'utf8');
 
@@ -94,8 +99,25 @@ describe('decideAlreadyFixedRouting (classificazione dell esito)', () => {
     expect(decideAlreadyFixedRouting({ ...base(c), deliveryStatus: null }).action).toBe('none');
     expect(decideAlreadyFixedRouting({ ...base(c), isGroup: true }).action).toBe('none');
     expect(decideAlreadyFixedRouting({ ...base(c), runStartedAt: null }).action).toBe('none');
+    expect(decideAlreadyFixedRouting({ ...base(c), runStartedAt: 'non-una-data' }).action).toBe('none');
     expect(decideAlreadyFixedRouting(base([comment(alreadyFixedBody(), undefined, 'drive-by', 'NONE')])).action).toBe('none');
     expect(decideAlreadyFixedRouting(base([comment(alreadyFixedBody(), undefined, 'valerielinc-ops', 'OWNER')])).action).toBe('verify');
+  });
+
+  it('riconosce il bot anche nella forma REST con suffisso [bot]', () => {
+    const c = [comment(alreadyFixedBody(), undefined, 'frontaliere-automation[bot]', 'NONE')];
+    expect(decideAlreadyFixedRouting(base(c)).action).toBe('verify');
+  });
+
+  it('confronta i tempi come istanti: baseline canonico `.000Z` e createdAt al secondo', () => {
+    // `pr-delivery-evidence.mjs` canonicalizza runStartedAt con toISOString().
+    const started = '2026-09-24T16:55:31.000Z';
+    const sameSecond = [comment(alreadyFixedBody(), '2026-09-24T16:55:31Z')];
+    expect(decideAlreadyFixedRouting({ ...base(sameSecond), runStartedAt: started }).action).toBe('verify');
+    const before = [comment(alreadyFixedBody(), '2026-09-24T16:55:30Z')];
+    expect(decideAlreadyFixedRouting({ ...base(before), runStartedAt: started })).toEqual({
+      action: 'none', reason: 'nessun-FIX_OUTCOME-in-questa-run',
+    });
   });
 });
 
@@ -146,6 +168,93 @@ describe('mutazione', () => {
   });
 });
 
+// Replay end-to-end della CLI con un `gh` finto in PATH: la METRICA della
+// scheda #9742 («una run `already-fixed` con evidenza non lascia `agent:fix` e
+// produce un marker verificabile») misurata sulle chiamate reali dello script.
+describe('CLI end-to-end (gh finto)', () => {
+  const SCRIPT = fileURLToPath(new URL('../scripts/ci/route-already-fixed.mjs', import.meta.url));
+  const FAKE_GH = [
+    '#!/usr/bin/env node',
+    "const fs = require('node:fs');",
+    'const args = process.argv.slice(2);',
+    "fs.appendFileSync(process.env.FAKE_GH_LOG, JSON.stringify(args) + '\\n');",
+    "const fx = JSON.parse(fs.readFileSync(process.env.FAKE_GH_FIXTURE, 'utf8'));",
+    "if (args[0] === 'issue' && args[1] === 'view') process.stdout.write(JSON.stringify(fx.issue));",
+    "else if (args[0] === 'pr' && args[1] === 'view') process.stdout.write(JSON.stringify(fx.pr));",
+    "else if (args[0] === 'api' && args[1].includes('/actions/runs/')) process.stdout.write(JSON.stringify(fx.run));",
+    "else if (args[0] === 'api' && args[1].includes('/compare/')) process.stdout.write(fx.compare + '\\n');",
+    '',
+  ].join('\n');
+
+  function runCli(issueComments: unknown[], delivery: unknown = { status: 'verified-none', reason: null, prNumber: null }) {
+    const dir = mkdtempSync(path.join(os.tmpdir(), 'route-already-fixed-'));
+    try {
+      const gh = path.join(dir, 'gh');
+      writeFileSync(gh, FAKE_GH);
+      chmodSync(gh, 0o755);
+      const log = path.join(dir, 'gh.log');
+      writeFileSync(log, '');
+      const fixture = path.join(dir, 'fixture.json');
+      writeFileSync(fixture, JSON.stringify({
+        issue: { state: 'OPEN', labels: [{ name: 'follow-up' }, { name: 'agent:fix' }, { name: 'agent:triaged' }], comments: issueComments },
+        pr: { state: 'MERGED', baseRefName: 'main', mergeCommit: { oid: FIX_SHA } },
+        run: { status: 'completed', conclusion: 'success', head_branch: 'main', head_sha: RUN_HEAD, path: '.github/workflows/tests.yml' },
+        compare: 'ahead',
+      }));
+      const baselineFile = path.join(dir, 'baseline.json');
+      writeFileSync(baselineFile, JSON.stringify({ runStartedAt: '2026-09-24T16:55:31.000Z' }));
+      const evidenceFile = path.join(dir, 'evidence.json');
+      writeFileSync(evidenceFile, JSON.stringify(delivery));
+      const res = spawnSync(process.execPath, [SCRIPT], {
+        encoding: 'utf8',
+        env: {
+          ...process.env,
+          PATH: `${dir}${path.delimiter}${process.env.PATH ?? ''}`,
+          FAKE_GH_LOG: log,
+          FAKE_GH_FIXTURE: fixture,
+          REPO: 'valerielinc-ops/frontaliere-si-o-no',
+          ISSUE: '8061',
+          GITHUB_RUN_ID: '36030725501',
+          GITHUB_OUTPUT: '',
+          IS_GROUP: 'false',
+          PR_DELIVERY_BASELINE_FILE: baselineFile,
+          PR_DELIVERY_EVIDENCE_FILE: evidenceFile,
+        },
+      });
+      const calls = readFileSync(log, 'utf8').split('\n').filter(Boolean).map((l) => JSON.parse(l) as string[]);
+      return { status: res.status, stdout: res.stdout, calls };
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  }
+
+  it('already-fixed con evidenza verificata → toglie agent:fix, aggiunge maybe-resolved, posta il marker', () => {
+    const { status, stdout, calls } = runCli([comment(alreadyFixedBody())]);
+    expect(status).toBe(0);
+    expect(stdout).toContain('routed=true');
+    const edit = calls.find((a) => a[0] === 'issue' && a[1] === 'edit');
+    expect(edit).toEqual([
+      'issue', 'edit', '8061', '--repo', 'valerielinc-ops/frontaliere-si-o-no',
+      '--add-label', 'maybe-resolved', '--remove-label', 'agent:fix',
+    ]);
+    const posted = calls.find((a) => a[0] === 'issue' && a[1] === 'comment');
+    expect(posted?.[posted.indexOf('--body') + 1].split('\n')[0])
+      .toBe(`<!-- ALREADY_FIXED_ROUTED: pr=9215 commit=${FIX_SHA} run=35435111061 -->`);
+    expect(calls.some((a) => a[0] === 'issue' && a[1] === 'close')).toBe(false);
+  });
+
+  it.each([
+    ['evidenza assente', [comment('<!-- FIX_OUTCOME: already-fixed -->\nprosa con PR #9215')], undefined],
+    ['delivery illeggibile', [comment(alreadyFixedBody())], { status: 'boh' }],
+    ['PR consegnata in questa run', [comment(alreadyFixedBody())], { status: 'verified-delivery', reason: null, prNumber: 9999 }],
+  ])('fail-closed senza mutazioni: %s', (_name, comments, delivery) => {
+    const { status, stdout, calls } = runCli(comments, delivery);
+    expect(status).toBe(0);
+    expect(stdout).toContain('routed=false');
+    expect(calls.filter((a) => a[0] === 'issue' && (a[1] === 'edit' || a[1] === 'comment'))).toEqual([]);
+  });
+});
+
 describe('cablaggio in issue-fix.yml', () => {
   const stepStart = workflow.indexOf('- name: Route already-fixed to verification (zero-Claude)');
   const classify = workflow.indexOf('- name: Classify outcome (work-done, not CLI exit)');
@@ -163,5 +272,10 @@ describe('cablaggio in issue-fix.yml', () => {
 
   it('il prompt chiede il marker FIX_EVIDENCE con già-risolto', () => {
     expect(workflow).toContain('<!-- FIX_EVIDENCE: pr=<N> commit=<sha> run=<id> -->');
+  });
+
+  it('il prompt resta entro il limite del validatore dei workflow', () => {
+    // Senza margine GitHub rifiuta il workflow intero: zero job, nessun fixer.
+    expect(validateWorkflowText('.github/workflows/issue-fix.yml', workflow)).toEqual([]);
   });
 });
