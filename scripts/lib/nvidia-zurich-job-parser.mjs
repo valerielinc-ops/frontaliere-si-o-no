@@ -21,10 +21,10 @@
  * `.additionalLocations`), which we already fetch for the description body.
  * The primary detail location is authoritative for publication; an additional
  * location cannot turn a foreign-primary requisition into a Zurich job.
- * Live verification (2026-07-03) confirmed every one of the 36
- * Switzerland-tagged postings resolves to either "Switzerland, Zurich" or
- * "Switzerland, Remote" — never another Swiss city — consistent with the
- * single-office-hub brief, so all matches are mapped to Zürich / ZH.
+ * The published municipality is the one the primary names ("Switzerland,
+ * Zurich" → Zürich / ZH). A primary that names no municipality — "Switzerland,
+ * Remote", a country plus a work mode — is skipped: it used to be stamped
+ * Zürich / ZH too, a place the source does not name (issue 9839).
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllNvidiaZurichJobs() — Fetch and parse all Swiss jobs
@@ -45,7 +45,11 @@ import {
   WorkdayAuthError,
   getWorkdayLocationCandidates,
 } from './ats-clients/workday-client.mjs';
-import { isSwissLocationText } from './target-swiss-locations.mjs';
+import {
+  isSwissLocationText,
+  swissCityFromLocationField,
+  swissMunicipalityCantons,
+} from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -65,9 +69,6 @@ const CAREER_URL = `https://${WORKDAY_TENANT_HOST}/${WORKDAY_SITE_PATH}`;
 // the returned `facets[].values` (this tenant has no `locationCountry`
 // facet, unlike most Workday tenants).
 const SWITZERLAND_FACET_ID = '2fcb99c455831013ea52e9ef1a0032ba';
-
-const ZURICH_CITY = 'Zürich';
-const ZURICH_CANTON = 'ZH';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -132,8 +133,31 @@ export function hasNvidiaSwissLocation(info = {}, listingLocation = '') {
  * raw empty so the guard drops it», `workday-swiss-job-parser-common.mjs`).
  */
 export function hasNvidiaSwissPrimaryLocation(info = {}) {
+  return resolveNvidiaPrimarySwissLocation(info) !== null;
+}
+
+/**
+ * The municipality and canton a req may be PUBLISHED under, or `null`.
+ *
+ * A Swiss primary is necessary but not sufficient: the record needs a
+ * municipality the primary itself names. `Switzerland, Remote` is Swiss and
+ * names none, and it used to go out as `Zürich / ZH` because every accepted
+ * req got the hub city (issue 9839; on 2026-09-25 the published slice carried
+ * 8 such records and the live board 7 such reqs, 3 of them with `Switzerland,
+ * Zurich` as an ADDITIONAL location — which, as for a foreign primary, does
+ * not license the stamp). Unknown geography stays fail-closed: no hub-city
+ * default. A remote record without a municipality is not an option either,
+ * because every JobPosting the site emits carries an `addressLocality`
+ * (`build-plugins/shared/jobPostingSchema.ts`, `resolveAddress`), which would
+ * be filled from a fallback address. A municipality shared by several cantons
+ * is ambiguous without a canton in the source, and is skipped too.
+ */
+export function resolveNvidiaPrimarySwissLocation(info = {}) {
   const primary = getWorkdayLocationCandidates({ location: info?.location }, '')[0] || '';
-  return Boolean(primary && !isLocationExplicitlyForeign(primary) && isSwissLocationCandidate(primary));
+  if (!primary || isLocationExplicitlyForeign(primary) || !isSwissLocationCandidate(primary)) return null;
+  const city = swissCityFromLocationField(primary);
+  const cantons = city ? swissMunicipalityCantons(city) : [];
+  return cantons.length === 1 ? { city, canton: cantons[0] } : null;
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -268,17 +292,19 @@ export async function fetchAllNvidiaZurichJobs() {
     // The description rescue that used to sit here was removed with it: NVIDIA
     // names Zurich in the boilerplate of reqs worked anywhere, so «a Swiss city
     // appears in the description» corroborated nothing about the workplace.
-    const isSwissRole = hasNvidiaSwissPrimaryLocation(info);
-    if (!isSwissRole) {
-      // Facet match without a Swiss PRIMARY location on detail —
-      // skip rather than mislabel a foreign role as Zurich.
-      console.log(`  ⏭️  Skipped (primary location not in Switzerland): ${title}`);
+    const primaryLocation = resolveNvidiaPrimarySwissLocation(info);
+    if (!primaryLocation) {
+      // Facet match without a Swiss municipality in the PRIMARY location on
+      // detail (foreign primary, or `Switzerland, Remote`) — skip rather than
+      // publish a place the source does not name.
+      const primaryText = getWorkdayLocationCandidates({ location: info?.location }, '')[0] || 'none';
+      console.log(`  ⏭️  Skipped (primary location names no Swiss municipality: ${primaryText}): ${title}`);
       await new Promise((r) => setTimeout(r, 300));
       continue;
     }
 
-    const location = ZURICH_CITY;
-    const canton = ZURICH_CANTON;
+    const location = primaryLocation.city;
+    const canton = primaryLocation.canton;
     const publicUrl = listing.url || CAREER_URL;
 
     const html = String(info.jobDescription || '').trim();

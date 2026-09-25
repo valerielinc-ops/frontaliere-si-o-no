@@ -145,10 +145,13 @@ export type NewsletterEventType =
  | 'suppressed'
  /**
   * A sign-in whose registration write firestore.rules refused, recorded with
-  * the same audit block as an accepted one: today a browser may create a
-  * terms-based relationship only when the notice was displayed, so a login
-  * from a surface that showed nothing is logged here instead of being
-  * written with a displayed flag it did not earn.
+  * the same audit block as an accepted one instead of being retried with
+  * other facts. Since the rules accept a verified owner's terms registration
+  * whether or not the notice was on screen (owner decision of 2026-09-25),
+  * what remains here is a login the rules cannot attribute to a verified
+  * owner (a shell account, an unverified address). Between the deploys of
+  * #9837 and of that rule it also recorded every login without a displayed
+  * notice, with reason `firestore_rules_require_displayed_notice`.
   */
  | 'registration_refused';
 
@@ -1971,11 +1974,11 @@ export async function captureNewsletterSubscriber(
  try {
   await setDoc(ref, mergedData, { merge: true });
  } catch (err) {
-  // firestore.rules admit a browser-created terms registration only with a
-  // displayed notice. A login from a surface that rendered none is refused
-  // there; keep the truthful record of the attempt in the append-only log
-  // instead of retrying with a flag it did not earn.
-  if (consentAudit && consentAudit.text_displayed !== true && isPermissionDenied(err)) {
+  // A sign-in the rules refused (see `registration_refused`): keep the
+  // truthful record of the attempt in the append-only log instead of
+  // retrying with facts it does not have. Form gates are not logged here:
+  // their refusals are the anonymous-forgery guard doing its job.
+  if (consentAudit && consentAudit.trigger === 'sign_in' && isPermissionDenied(err)) {
    await recordNewsletterEvent(db, {
     email,
     userId: input.userId || null,
@@ -1986,7 +1989,7 @@ export async function captureNewsletterSubscriber(
     sourceChannel,
     metadata: {
      status: subscriptionState.status,
-     reason: 'firestore_rules_require_displayed_notice',
+     reason: 'firestore_rules_refused',
      consent: consentAudit,
     },
    }).catch((eventErr) => reportCaughtError(eventErr, 'newsletter.registrationRefusedEvent'));

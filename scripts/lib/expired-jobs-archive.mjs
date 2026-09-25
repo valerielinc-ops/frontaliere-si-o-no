@@ -25,6 +25,7 @@ import { compareExpiredAt } from './compare-expired-at.mjs';
 import {
   addPreviousSlugForLocale,
   DEFAULT_PREV_SLUG_CAP,
+  decodeUnicodeEscapeLeaks,
   getPreviousSlugsForLocale,
   isLegacyRouteCapRefusal,
   LOCALES,
@@ -41,7 +42,7 @@ const DEFAULT_EXPIRED_SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'expired', 'b
  * Build an expired-job archive entry from a job object. Preserves the fields
  * the build plugin needs to render an enriched JobExpiredView under any
  * locale prefix (slugByLocale, descriptionByLocale, previousSlugs, salary +
- * address). Mirrors `scripts/cleanup-jobs.mjs:buildExpiredEntry` byte for byte.
+ * address). Keeps its shape aligned with `scripts/cleanup-jobs.mjs:buildExpiredEntry`.
  *
  * @param {object} job
  * @returns {object} expired entry
@@ -51,7 +52,7 @@ export function buildExpiredEntry(job) {
   const entry = {
     slug: job.slug,
     title: job.title || '',
-    titleByLocale: job.titleByLocale || {},
+    titleByLocale: { ...(job.titleByLocale || {}) },
     company: job.company || '',
     companyKey: job.companyKey || '',
     location: job.location || '',
@@ -84,6 +85,7 @@ export function buildExpiredEntry(job) {
         ? JSON.parse(JSON.stringify(job.sourceIdentityHistory))
         : undefined,
   };
+  normalizeExpiredEntryTitles(entry);
   if (!entry.postalCode) delete entry.postalCode;
   if (!entry.streetAddress) delete entry.streetAddress;
   if (!entry.salaryMin) delete entry.salaryMin;
@@ -98,6 +100,38 @@ export function buildExpiredEntry(job) {
 /** An `expiredAt` that `Date.parse` can actually order. */
 export function isParsableExpiredAt(value) {
   return typeof value === 'string' && value !== '' && Number.isFinite(Date.parse(value));
+}
+
+/**
+ * Repair title fields that were persisted with a literal JSON unicode escape.
+ *
+ * Refline's old title extractor could read an escaped `<h1>` from JSON-LD and
+ * write values such as `Interpr\\u00e8te` into a job. Active crawler hardening
+ * already repairs this class, but expired entries do not get crawled again, so
+ * the archive writers need the same last-resort boundary. Descriptions are
+ * deliberately excluded: unlike titles, they may legitimately quote escape
+ * syntax in developer-facing job text.
+ *
+ * @param {object} entry
+ * @returns {boolean} whether a title field changed
+ */
+export function normalizeExpiredEntryTitles(entry) {
+  if (!entry || typeof entry !== 'object') return false;
+  let changed = false;
+  const decode = (value) => {
+    if (typeof value !== 'string') return value;
+    const decoded = decodeUnicodeEscapeLeaks(value);
+    if (decoded !== value) changed = true;
+    return decoded;
+  };
+
+  if (typeof entry.title === 'string') entry.title = decode(entry.title);
+  if (entry.titleByLocale && typeof entry.titleByLocale === 'object' && !Array.isArray(entry.titleByLocale)) {
+    for (const [locale, value] of Object.entries(entry.titleByLocale)) {
+      entry.titleByLocale[locale] = decode(value);
+    }
+  }
+  return changed;
 }
 
 const DETERMINISTIC_EXPIRED_AT_EPOCH = Date.parse('2025-01-01T00:00:00.000Z');
@@ -125,8 +159,9 @@ export function deterministicExpiredAt(entry = {}) {
 
 /**
  * Give every entry read back from disk an `expiredAt` the downstream sort can
- * order, BEFORE it reaches one of the two `slice(0, EXPIRED_JOBS_CAP)` cuts
- * (`assemble-jobs-dataset.mjs`, `cleanup-jobs.mjs`).
+ * order and clean title fields before it reaches one of the two
+ * `slice(0, EXPIRED_JOBS_CAP)` cuts (`assemble-jobs-dataset.mjs`,
+ * `cleanup-jobs.mjs`).
  *
  * `buildExpiredEntry` always stamps a fresh ISO timestamp, so an unparseable
  * value can only arrive from an archive already on disk (hand-edit, legacy
@@ -157,15 +192,26 @@ export function normalizeExpiredAtEntries(entries, opts = {}) {
   const source = opts.source || 'expired-archive-normalize';
   let repaired = 0;
   const stamped = new Set();
+  let timestampRepairs = 0;
+  let titleRepairs = 0;
   for (const entry of entries) {
     if (!entry || typeof entry !== 'object') continue;
-    if (isParsableExpiredAt(entry.expiredAt)) continue;
-    entry.expiredAt = explicitNow || deterministicExpiredAt(entry);
-    stamped.add(entry.expiredAt);
-    repaired += 1;
+    const titlesChanged = normalizeExpiredEntryTitles(entry);
+    if (titlesChanged) titleRepairs += 1;
+    let changed = titlesChanged;
+    if (!isParsableExpiredAt(entry.expiredAt)) {
+      entry.expiredAt = explicitNow || deterministicExpiredAt(entry);
+      stamped.add(entry.expiredAt);
+      timestampRepairs += 1;
+      changed = true;
+    }
+    if (changed) repaired += 1;
   }
-  if (repaired > 0) {
-    console.log(`  🩹 ${source}: ${repaired} expired entries had no parsable expiredAt → stamped ${[...stamped].join(', ')}`);
+  if (timestampRepairs > 0) {
+    console.log(`  🩹 ${source}: ${timestampRepairs} expired entries had no parsable expiredAt → stamped ${[...stamped].join(', ')}`);
+  }
+  if (titleRepairs > 0) {
+    console.log(`  🩹 ${source}: ${titleRepairs} expired entries had literal unicode escapes in title fields → decoded`);
   }
   return repaired;
 }
