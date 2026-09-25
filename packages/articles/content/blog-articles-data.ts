@@ -35982,6 +35982,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lavori-verde-a8-d08',
+ category: 'pratico',
+ date: '2026-09-25T17:54:10.380Z',
+ image: '/images/blog/lavori-verde-a8-d08.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

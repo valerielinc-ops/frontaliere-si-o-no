@@ -93439,6 +93439,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavori-verde-a8-d08': {
+    title: 'Chiusure notturne A8 e D08: deviazioni nel Varesotto dal 28 settembre',
+    description: 'Tre notti di lavori di manutenzione del verde sulla A8 e D08 tra Busto Arsizio, Besnate e Cavaria, con chiusure dalle 21:00 alle 5:00 e deviazioni indicate',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiusure, notturne, deviazioni, varesotto',
+    ogTitle: 'Chiusure notturne A8 e D08: deviazioni nel Varesotto dal 28 settembre',
+    ogDescription: 'Durante le notti del 28-29, 29-30 settembre e 30 settembre-1 ottobre, Autostrade per l’Italia effettua lavori di manutenzione del verde lungo la A8 Milano-Varese e la Diramazione Gallarate-Gattico (D08). Le chiusure, attive dalle 21:00 alle 5:00',
+    canonicalPath: '/articoli-frontaliere/lavori-verde-a8-d08',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiusure notturne A8 e D08: deviazioni nel Varesotto dal 28 settembre",
+      "description": "Tre notti di lavori di manutenzione del verde sulla A8 e D08 tra Busto Arsizio, Besnate e Cavaria, con chiusure dalle 21:00 alle 5:00 e deviazioni indicate",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavori-verde-a8-d08.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavori di manutenzione del verde sull'autostrada A8 vicino a Busto Arsizio di notte"
+      },
+      "datePublished": "2026-09-25T17:54:10+00:00",
+      "dateModified": "2026-09-25T17:54:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-verde-a8-d08/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

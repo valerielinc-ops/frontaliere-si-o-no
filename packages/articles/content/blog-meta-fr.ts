@@ -11993,6 +11993,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trenord-abbandono-passeggeri-gallarate.title': 'Trenord laisse 30 passagers à Gallarate, que la Région intervienne',
     'blog.article.trenord-abbandono-passeggeri-gallarate.excerpt': 'Dans la nuit du 22 au 23 septembre, une trentaine de passagers à destination de Malpensa s’est retrouvée à Gallarate après le départ du dernier convoi vide, sans assistance ni correspondances.',
     'blog.article.trenord-abbandono-passeggeri-gallarate.imageAlt': 'Gare ticinoise vide la nuit, avec un voyageur seul devant le tableau d\'affichage',
+    'blog.article.lavori-verde-a8-d08.title': 'Fermetures nocturnes A8 et D08 : déviations dans le Varesotto à partir du 28 septembre',
+    'blog.article.lavori-verde-a8-d08.excerpt': 'Trois nuits de fermetures entre A8 et D08 de 21:00 à 5:00, travaux d’entretien des espaces verts entre Busto Arsizio, Besnate et Cavaria, déviations sur les routes nationales, provinciales et communales.',
+    'blog.article.lavori-verde-a8-d08.imageAlt': 'Travaux d\'entretien des espaces verts sur l\'autoroute A8 près de Busto Arsizio la nuit',
 };
 
 export default blogMetaFr;
