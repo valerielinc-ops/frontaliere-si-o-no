@@ -11971,6 +11971,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-25.imageAlt': 'I numeri del giorno per i frontalieri – 25 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-09-25.seoDescription': 'Bollettino frontalieri del 25 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-09-25.ogDescription': 'I numeri del 25 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.pasture-cambio-operatore.title': 'A Pasture cambia l\'operatore: posti di lavoro a rischio',
+    'blog.article.pasture-cambio-operatore.excerpt': 'Da gennaio il mandato federale del Centro d\'asilo passerà da AOZ a ORS: in Ticino sono 120 i dipendenti oggi in servizio, ma non tutti saranno riassunti.',
+    'blog.article.pasture-cambio-operatore.imageAlt': 'Pasture, cambio dell\'operatore per l\'assistenza nel Canton Ticino',
+    'blog.article.eta-pensione-2030-ragioneria.title': 'Età pensione: 67 anni e 6 mesi nel 2030',
+    'blog.article.eta-pensione-2030-ragioneria.excerpt': 'La Ragioneria Generale dello Stato prevede 67 anni e 6 mesi nel 2030 e una spesa pensionistica al 17,1% del PIL nel 2041.',
+    'blog.article.eta-pensione-2030-ragioneria.imageAlt': 'Lavoratore maturo consulta documenti sulla pensione con il paesaggio ticinese sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -11972,6 +11972,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-25.imageAlt': 'Les chiffres du jour pour les frontaliers – 25 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-09-25.seoDescription': 'Bulletin du frontalier du 25 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-09-25.ogDescription': 'Les chiffres du 25 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.pasture-cambio-operatore.title': 'À Pasture, l’opérateur change : des emplois menacés',
+    'blog.article.pasture-cambio-operatore.excerpt': 'À partir de janvier, le mandat fédéral du Centre d\'asile passera d\'AOZ à ORS : au Tessin, 120 employés sont aujourd\'hui en service, mais tous ne seront pas résumés.',
+    'blog.article.pasture-cambio-operatore.imageAlt': 'Pasture : changement d\'opérateur pour l\'assistance au Tessin',
+    'blog.article.eta-pensione-2030-ragioneria.title': 'Âge de départ à la retraite : 67 ans et 6 mois en 2030',
+    'blog.article.eta-pensione-2030-ragioneria.excerpt': 'La Comptabilité Générale de l\'État prévoit 67 ans et 6 mois en 2030 et une dépense de retraite à 17,1% du PIB en 2041.',
+    'blog.article.eta-pensione-2030-ragioneria.imageAlt': 'Un travailleur mûr consulte des documents de retraite face au paysage tessinois',
 };
 
 export default blogMetaFr;

@@ -93166,6 +93166,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pasture-cambio-operatore': {
+    title: 'A Pasture cambia l\'operatore: posti di lavoro a rischio',
+    description: 'A Pasture il mandato federale del Centro d\'asilo passerà da AOZ a ORS a gennaio. In Ticino sono 120 i dipendenti oggi in servizio: non tutti saranno riassunti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pasture, cambia, operatore, posti',
+    ogTitle: 'Pasture, da AOZ a ORS: posti di lavoro a rischio',
+    ogDescription: 'A Pasture cambia l\'operatore per l\'assistenza: a gennaio il mandato federale del Centro d\'asilo passa da AOZ a ORS. In Ticino i dipendenti oggi in servizio sono 120, ma ORS non li riassumerà tutti. La fonte non indica quanti posti siano a rischio.',
+    canonicalPath: '/articoli-frontaliere/pasture-cambio-operatore',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A Pasture cambia l'operatore: posti di lavoro a rischio",
+      "description": "A Pasture il mandato federale del Centro d'asilo passerà da AOZ a ORS a gennaio. In Ticino sono 120 i dipendenti oggi in servizio: non tutti saranno riassunti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pasture-cambio-operatore.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pasture, cambio dell'operatore per l'assistenza nel Canton Ticino"
+      },
+      "datePublished": "2026-09-25T11:13:59+00:00",
+      "dateModified": "2026-09-25T11:13:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pasture-cambio-operatore/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-eta-pensione-2030-ragioneria': {
+    title: 'Età pensione: 67 anni e 6 mesi nel 2030 | Frontaliere Ticino',
+    description: 'Il Rapporto n. 27 della Ragioneria prevede 67 anni e 6 mesi nel 2030 e analizza la spesa per pensioni, sanità e assistenza agli anziani nei prossimi anni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensione, anni, mesi, ragioneria',
+    ogTitle: 'Età pensione: 67 anni e 6 mesi nel 2030',
+    ogDescription: 'Il Rapporto n. 27 del 22 settembre 2026 non cambia le regole, ma proietta l\'età pensionabile a 67 anni e 6 mesi nel 2030, a 68 anni e 2 mesi nel 2040 e a 70 anni nel 2050. Il tema resta distinto da permesso G, AVS e LPP, che la fonte non esamina.',
+    canonicalPath: '/articoli-frontaliere/eta-pensione-2030-ragioneria',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Età pensione: 67 anni e 6 mesi nel 2030",
+      "description": "Il Rapporto n. 27 della Ragioneria prevede 67 anni e 6 mesi nel 2030 e analizza la spesa per pensioni, sanità e assistenza agli anziani nei prossimi anni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/eta-pensione-2030-ragioneria.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratore maturo consulta documenti sulla pensione con il paesaggio ticinese sullo sfondo"
+      },
+      "datePublished": "2026-09-25T12:01:41+00:00",
+      "dateModified": "2026-09-25T12:01:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/eta-pensione-2030-ragioneria/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

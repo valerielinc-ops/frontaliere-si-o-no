@@ -11969,6 +11969,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-25.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 25. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-09-25.seoDescription': 'Grenzgänger-Bulletin vom 25. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-09-25.ogDescription': 'Die Zahlen vom 25. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.pasture-cambio-operatore.title': 'Bei Pasture wechselt der Betreiber: Arbeitsplätze in Gefahr',
+    'blog.article.pasture-cambio-operatore.excerpt': 'Ab Januar wechselt das Bundesmandat des Asylzentrums von AOZ zu ORS: Im Tessin sind heute 120 Mitarbeitende im Einsatz, aber nicht alle werden wieder eingestellt.',
+    'blog.article.pasture-cambio-operatore.imageAlt': 'Pasture: Betreiberwechsel bei der Betreuung im Tessin',
+    'blog.article.eta-pensione-2030-ragioneria.title': 'Rentenalter: 67 Jahre und 6 Monate im Jahr 2030',
+    'blog.article.eta-pensione-2030-ragioneria.excerpt': 'Die Staatliche Generalbuchhaltung sieht 2030 67 Jahre und 6 Monate sowie 2041 Rentenausgaben in Höhe von 17,1% des BIP vor.',
+    'blog.article.eta-pensione-2030-ragioneria.imageAlt': 'Älterer Arbeitnehmer prüft Rentenunterlagen vor der Landschaft des Tessins',
 };
 
 export default blogMetaDe;
