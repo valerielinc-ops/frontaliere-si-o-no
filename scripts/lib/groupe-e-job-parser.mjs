@@ -20,17 +20,17 @@
  * production and distribution, district heating, gas, e-mobility,
  * engineering) headquartered in Granges-Paccot (FR). Postings span multiple
  * cantons in Suisse romande (FR/VD/NE/GE/VS/BE observed live), so the
- * shared factory's per-job location parsing (falling back to the FR HQ only
- * when a listing has no usable city) is relied upon, same as ZURZACH Care's
- * multi-canton pattern.
+ * shared factory's per-job location parsing is relied upon, same as ZURZACH
+ * Care's multi-canton pattern; missing or unresolvable geography is rejected
+ * instead of inheriting the FR HQ.
  *
  * CSB detail pages here render location as "City, <full canton name>, CH"
  * (e.g. "Fribourg, Fribourg, CH") rather than the 2-letter-region format
  * (`City, XX, CH`) the shared `parseCsbDetailPage` regex expects — so
  * `region`/`postalCode` from the detail page are empty for every job here,
  * and resolution falls through to `inferSwissTargetCanton(city)` (real
- * per-job canton, from the city name) and `defaultPostalCode` (HQ fallback)
- * respectively — same fallback chain ZURZACH Care already relies on.
+ * per-job canton, from the city name or source region); the factory only uses
+ * the HQ postal fallback for the HQ locality itself.
  *
  * Uses the shared SuccessFactors factory — see
  * scripts/lib/successfactors-shared-job-parser-common.mjs.

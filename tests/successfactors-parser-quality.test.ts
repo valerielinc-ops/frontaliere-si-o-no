@@ -1,8 +1,9 @@
 import os from 'node:os';
 import fs from 'node:fs';
 import path from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
+  createSuccessFactorsParser,
   parseCsbDetailPage,
   parseCsbSearchResults,
   parseSuccessFactorsMicrodataLocation,
@@ -29,6 +30,54 @@ const fixture = (name: string) => fs.readFileSync(
   path.resolve(process.cwd(), 'tests', 'fixtures', 'successfactors-parser-quality', `${name}.html`),
   'utf8',
 );
+
+const factoryDetail = ({ city = '', region = '', postalCode = '', country = 'CH' } = {}) => `
+  <html lang="en"><body>
+    <span data-careersite-propertyid="title">Source-backed vacancy</span>
+    <div data-careersite-propertyid="description">
+      Responsibilities include planning delivery, coordinating stakeholders, documenting decisions,
+      improving processes, supporting customers, and working with the team on reliable outcomes.
+    </div>
+    <div itemscope itemtype="http://schema.org/JobPosting">
+      <span itemprop="jobLocation" itemscope itemtype="http://schema.org/Place">
+        <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+          <meta itemprop="addressLocality" content="${city}">
+          <meta itemprop="addressRegion" content="${region}">
+          <meta itemprop="postalCode" content="${postalCode}">
+          <meta itemprop="addressCountry" content="${country}">
+        </span>
+      </span>
+    </div>
+  </body></html>`;
+
+const factoryListing = (id: string, title: string, location = '') => `
+  <tr>
+    <td class="jobTitle-column"><a href="/job/source-${id}/${id}/">${title}</a></td>
+    <td class="colLocation hidden-phone" headers="hdrLocation">${location}</td>
+  </tr>`;
+
+const factoryParser = createSuccessFactorsParser({
+  companyKey: 'successfactors-test',
+  companyName: 'SuccessFactors Test',
+  companyDomain: 'successfactors-test.example',
+  sfCompanyId: 'successfactors-test',
+  publicCareerUrl: 'https://successfactors-test.example',
+  defaultCanton: 'ZH',
+  defaultCity: 'Zürich',
+  defaultPostalCode: '8000',
+  defaultSourceLang: 'en',
+});
+
+function stubFactoryFetch(details: Record<string, string>, listingHtml: string) {
+  vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+    const href = String(url);
+    if (href.includes('/search/')) return new Response(`<table>${listingHtml}</table>`, { status: 200 });
+    const id = href.match(/\/(\d+)\/?$/)?.[1] || '';
+    return new Response(details[id] || '', { status: details[id] ? 200 : 404 });
+  }));
+  vi.spyOn(console, 'log').mockImplementation(() => {});
+  vi.spyOn(console, 'warn').mockImplementation(() => {});
+}
 
 describe('SuccessFactors parser-quality boundary', () => {
   it('keeps the balanced Groupe E body, list structure and microdata location', () => {
@@ -185,6 +234,50 @@ describe('SuccessFactors parser-quality boundary', () => {
     );
 
     expect(parsed).toEqual({ job: null, reason: 'html_location_explicitly_foreign' });
+  });
+});
+
+describe('SuccessFactors factory geography gate', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
+  });
+
+  it('drops non-CH, explicitly foreign, and unresolved locations instead of using HQ defaults', async () => {
+    const listingHtml = [
+      factoryListing('1001', 'Madrid vacancy', 'Madrid, ES'),
+      factoryListing('1002', 'Wien vacancy', 'Wien, AT'),
+      factoryListing('1003', 'Unknown vacancy', 'Atlantis, ZZ'),
+    ].join('');
+    stubFactoryFetch({
+      1001: factoryDetail({ city: 'Madrid', country: 'ES' }),
+      1002: factoryDetail({ city: 'Wien', country: 'CH' }),
+      1003: factoryDetail({ city: 'Atlantis', country: 'CH' }),
+    }, listingHtml);
+
+    const parsedForeignDetail = parseCsbDetailPage(factoryDetail({ city: 'Madrid', country: 'ES' }));
+    expect(parsedForeignDetail).toMatchObject({ city: 'Madrid', country: 'ES' });
+    await expect(factoryParser.fetchAllJobs()).resolves.toEqual([]);
+  });
+
+  it('publishes Zürich from CH microdata with its source canton and postal code', async () => {
+    stubFactoryFetch(
+      { 1004: factoryDetail({ city: 'Zürich', region: 'ZH', postalCode: '8001', country: 'CH' }) },
+      factoryListing('1004', 'Zürich vacancy', 'Zürich, ZH'),
+    );
+
+    await expect(factoryParser.fetchAllJobs()).resolves.toMatchObject([
+      expect.objectContaining({ location: 'Zürich', canton: 'ZH', postalCode: '8001' }),
+    ]);
+  });
+
+  it('does not create a job when the detail has no city', async () => {
+    stubFactoryFetch(
+      { 1005: factoryDetail({ region: 'ZH', country: 'CH' }) },
+      factoryListing('1005', 'No locality vacancy'),
+    );
+
+    await expect(factoryParser.fetchAllJobs()).resolves.toEqual([]);
   });
 });
 
