@@ -55,6 +55,9 @@ function isPlausibleProfessionToken(keyword) {
 /**
  * Expand query keywords with sibling-profession aliases from the shared
  * taxonomy. Non-profession keywords are returned unchanged.
+ * @param {readonly string[]} [keywords=[]] Query keywords; the input is only
+ *   iterated and copied into the returned expansion set.
+ * @returns {string[]}
  */
 export function expandKeywordsWithSynonyms(keywords = []) {
   const source = Array.isArray(keywords) ? keywords : [];
