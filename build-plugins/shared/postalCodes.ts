@@ -10,6 +10,7 @@
  */
 
 import SWISS_POSTAL_CODES from '../../data/swiss-postal-codes.json';
+import SWISS_LOCALITY_POSTAL_CODES from '../../data/swiss-locality-postal-codes.json';
 
 /** Ticino primary cities → postal codes. */
 export const TICINO_POSTAL_BY_CITY: Record<string, string> = {
@@ -125,7 +126,7 @@ export const POSTAL_BY_CITY: Record<string, string> = {
  * not. This catches the recurring "valid CAP, wrong city" class without
  * rejecting legitimate secondary CAPs that are absent from the snapshot.
  */
-function normalizePostalCityKey(value: string | undefined | null): string {
+export function normalizePostalCityKey(value: string | undefined | null): string {
   return String(value || '')
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
@@ -176,6 +177,78 @@ export function isPostalCodeCoherentWithCity(
   const knownCities = KNOWN_CITY_KEYS_BY_POSTAL.get(postal);
   if (!knownCities || knownCities.size === 0) return true;
   return knownCities.has(normalizePostalCityKey(city));
+}
+
+/**
+ * Canton-scoped CAP of every BFS municipality and official locality, from the
+ * swisstopo/Swiss Post directory of localities with postcodes (see
+ * `scripts/generate-swiss-locality-postal-codes.mjs` for the source and the
+ * principal-CAP rule). Keys drop the lookup canton's code as a trailing token
+ * (BFS "Küsnacht (ZH)", Swiss Post "Küsnacht ZH", crawler "Kirchberg BE -"),
+ * so the three spellings reach 8700 in ZH and never Küssnacht SZ, and fold
+ * "Sankt"/"Saint" to "St" and "bei" to "b" (Swiss Post abbreviations).
+ */
+function officialLocalityKey(name: string | undefined | null, canton: string): string {
+  const key = normalizePostalCityKey(name)
+    .replace(/\b(?:sankt|saint)\b/g, 'st')
+    .replace(/\bbei\b/g, 'b');
+  const suffix = ` ${canton.toLowerCase()}`;
+  return key.endsWith(suffix) ? key.slice(0, -suffix.length).trim() : key;
+}
+
+const OFFICIAL_POSTAL_BY_CANTON_LOCALITY = new Map<string, string>();
+const OFFICIAL_CANTONS_BY_LOCALITY = new Map<string, Set<string>>();
+{
+  const cantonEntries = Object.entries(
+    (SWISS_LOCALITY_POSTAL_CODES as { cantons: Record<string, Record<string, string>> }).cantons,
+  );
+  const add = (canton: string, key: string, postalCode: string) => {
+    if (!key || !/^\d{4}$/.test(postalCode)) return;
+    if (!OFFICIAL_POSTAL_BY_CANTON_LOCALITY.has(`${canton}|${key}`)) {
+      OFFICIAL_POSTAL_BY_CANTON_LOCALITY.set(`${canton}|${key}`, postalCode);
+    }
+    const cantons = OFFICIAL_CANTONS_BY_LOCALITY.get(key) || new Set<string>();
+    cantons.add(canton);
+    OFFICIAL_CANTONS_BY_LOCALITY.set(key, cantons);
+  };
+  for (const [canton, entries] of cantonEntries) {
+    for (const [name, postalCode] of Object.entries(entries)) add(canton, officialLocalityKey(name, canton), postalCode);
+  }
+  // Bilingual names ("Biel/Bienne", "Lenzerheide/Lai", "Vaz/Obervaz") are also
+  // reachable by each half, unless that half is already a name of its own.
+  for (const [canton, entries] of cantonEntries) {
+    for (const [name, postalCode] of Object.entries(entries)) {
+      if (!name.includes('/')) continue;
+      for (const part of name.split('/')) {
+        const key = officialLocalityKey(part, canton);
+        if (key && !OFFICIAL_POSTAL_BY_CANTON_LOCALITY.has(`${canton}|${key}`)) add(canton, key, postalCode);
+      }
+    }
+  }
+}
+
+/**
+ * The CAP of the locality itself, or '' when no table knows it. Never falls
+ * back to another locality: an unknown locality must not borrow the canton
+ * capital's CAP (issue 9852, `Pully` next to Lausanne's 1003).
+ *
+ * The curated aliases and the snapshot keep precedence, as before. They are
+ * keyed by name only, so for a name that exists in several cantons (Gossau SG
+ * and ZH, Buchs AG/LU/SG/ZH) the canton-scoped official entry wins: the
+ * name-only value is right for one canton at most.
+ */
+export function resolveLocalityPostalCode(
+  city: string | undefined | null,
+  canton: string | undefined | null,
+): string {
+  const cantonCode = String(canton || '').toUpperCase().trim();
+  const key = normalizePostalCityKey(city);
+  if (!key) return '';
+  const officialKey = cantonCode ? officialLocalityKey(city, cantonCode) : '';
+  const official = officialKey ? OFFICIAL_POSTAL_BY_CANTON_LOCALITY.get(`${cantonCode}|${officialKey}`) || '' : '';
+  const isCrossCantonHomonym = (OFFICIAL_CANTONS_BY_LOCALITY.get(officialKey)?.size || 0) > 1;
+  if (official && isCrossCantonHomonym) return official;
+  return NORMALIZED_POSTAL_BY_CITY.get(key) || official;
 }
 
 /**
@@ -240,17 +313,16 @@ export const DEFAULT_POSTAL_CODE = '6500';
 /**
  * Resolve a postal code for a given city string, falling back to the
  * canton capital and finally to the Ticino default. Never returns an
- * empty string.
+ * empty string. The capital fallback is a CAP of ANOTHER locality: a
+ * JobPosting address must use `resolveLocalityPostalCode` instead and never
+ * pair it with a different `addressLocality`.
  */
 export function resolvePostalCode(
   city: string | undefined | null,
   canton: string | undefined | null,
 ): string {
-  if (city) {
-    const key = normalizePostalCityKey(city);
-    const snapshotPostalCode = NORMALIZED_POSTAL_BY_CITY.get(key);
-    if (snapshotPostalCode) return snapshotPostalCode;
-  }
+  const localityPostalCode = resolveLocalityPostalCode(city, canton);
+  if (localityPostalCode) return localityPostalCode;
   if (canton) {
     const cap = CANTON_CAPITAL_POSTAL[String(canton).toUpperCase().trim()];
     if (cap) return cap;

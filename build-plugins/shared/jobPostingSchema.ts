@@ -47,6 +47,8 @@
  */
 
 import {
+  CANTON_CAPITAL_ADDRESSES,
+  CITY_FALLBACK_ADDRESSES,
   COMPANY_HQ_ADDRESSES,
   deriveCantonFromCity,
   localityMatchesHq,
@@ -59,12 +61,14 @@ import {
   normalizeCantonCode,
 } from '../../scripts/lib/target-swiss-locations.mjs';
 import {
-  DEFAULT_POSTAL_CODE,
+  CANTON_CAPITAL_POSTAL,
   isPostalCodeCoherentWithCity,
   isValidPostalCode,
-  resolvePostalCode,
+  normalizePostalCityKey,
+  resolveLocalityPostalCode,
 } from './postalCodes';
 import { sameOrg } from '../../scripts/lib/prospector/registrable.mjs';
+import { CANTON_LOCATION_FALLBACK } from '../../scripts/lib/canton-postal-fallback.mjs';
 import {
   resolveSalaryBand,
   TICINO_MIN_ANNUAL_CHF,
@@ -584,29 +588,60 @@ function resolveAddress(
     String(hqEntry.addressRegion || '').toUpperCase() === String(region || '').toUpperCase() &&
     localityMatchesHq(cityRaw, hqEntry);
 
+  // The fallback tuple is the complete address of ONE locality: the curated HQ
+  // (same city only), the city table, or, as a last resort, the canton
+  // capital. Its street and CAP may complete this address only when they
+  // describe the same locality. The capital's street/CAP next to another real
+  // locality is the incoherent tuple of issue 9852 (Pully + Place de la
+  // Palud 2 + 1003, which are Lausanne's).
+  const fallbackDescribesLocality = cityRaw.length === 0
+    || fallback === hqEntry
+    || fallback === CITY_FALLBACK_ADDRESSES[cityRaw.toLowerCase()]
+    || normalizePostalCityKey(fallback.addressLocality) === normalizePostalCityKey(cityRaw);
+
   // Precedence: coherent explicit source value → company HQ (only when same
-  // city, or no city signal) → city lookup → canton-capital fallback. A source
-  // CAP can be formally valid and still belong to another known locality (for
-  // example 6500 on a Lugano posting). Treat that pair as unusable by
-  // construction so every JobPosting consumer shares the same guard.
+  // city, or no city signal) → the locality's own CAP (curated tables, then
+  // the official directory) → the fallback tuple when it is this locality. A
+  // source CAP can be formally valid and still belong to another known
+  // locality (for example 6500 on a Lugano posting). Treat that pair as
+  // unusable by construction so every JobPosting consumer shares the same guard.
   const sourcePostalCode = isValidPostalCode(job.postalCode)
     ? String(job.postalCode).trim()
     : '';
+  const localityPostalCode = resolveLocalityPostalCode(addressLocality, region);
+  // Crawler fallbacks stamp a canton-level default CAP on jobs of other
+  // localities: the capital's (Arisdorf BL with Liestal's 4410, Grand-Lancy
+  // with Genève's 1204) or the representative one of canton-postal-fallback
+  // (Brütten ZH with Zürich's 8000). isPostalCodeCoherentWithCity() does not
+  // know those CAPs, so the pair would pass as coherent: reject it unless the
+  // locality is the place that default stands for, or the CAP is its own.
+  const sourcePostalIsCantonFallback = sourcePostalCode.length > 0
+    && sourcePostalCode !== localityPostalCode
+    && cantonFallbackPostalTuples(region).some(({ postalCode, locality }) => (
+      postalCode === sourcePostalCode
+      && normalizePostalCityKey(locality) !== normalizePostalCityKey(addressLocality)
+    ));
   const sourcePostalIsCoherent = sourcePostalCode.length === 0
-    || isPostalCodeCoherentWithCity(addressLocality, sourcePostalCode);
+    || (isPostalCodeCoherentWithCity(addressLocality, sourcePostalCode) && !sourcePostalIsCantonFallback);
   const postalCode = sourcePostalIsCoherent && sourcePostalCode.length > 0
     ? sourcePostalCode
     : (hqUsable && hqEntry.postalCode && isValidPostalCode(hqEntry.postalCode) ? hqEntry.postalCode : '') ||
-      resolvePostalCode(addressLocality, region) ||
-      fallback.postalCode ||
-      DEFAULT_POSTAL_CODE;
+      localityPostalCode ||
+      // Non-Negotiable #3 safe default. When the fallback tuple is this
+      // locality, that is its own CAP. Otherwise the locality is known but no
+      // postal table lists it (a city quarter such as "Oerlikon", a region
+      // alias): no official CAP exists, postalCode is mandatory, and the
+      // locality must stay the one the page shows. Only this canton-level CAP
+      // is borrowed; the street below stays the locality's own "<city> centro",
+      // never the capital's.
+      fallback.postalCode;
 
   const streetAddressRaw = String(job.streetAddress || job.address || '').trim();
   const streetAddress =
     sourcePostalIsCoherent && streetAddressRaw.length > 0
       ? streetAddressRaw
       : (hqUsable && hqEntry.streetAddress && hqEntry.streetAddress.length > 0 ? hqEntry.streetAddress : '') ||
-        fallback.streetAddress ||
+        (fallbackDescribesLocality ? fallback.streetAddress : '') ||
         localisedCentro(addressLocality, locale);
 
   // Final guard — if anything is still empty, throw. Should never happen:
@@ -626,6 +661,24 @@ function resolveAddress(
     addressRegion: region,
     addressCountry: 'CH',
   };
+}
+
+/**
+ * Canton-level default CAPs with the locality each one belongs to: the
+ * capital tuple, the capital CAP table and the crawler-side representative
+ * location. A job carrying one of them next to another locality carries a
+ * stamped default, not its own CAP.
+ */
+function cantonFallbackPostalTuples(region: string): Array<{ postalCode: string; locality: string }> {
+  const capital = CANTON_CAPITAL_ADDRESSES[region];
+  const crawlerFallback = (CANTON_LOCATION_FALLBACK as Record<string, { city: string; postalCode: string }>)[region];
+  return [
+    ...(capital ? [
+      { postalCode: capital.postalCode, locality: capital.addressLocality },
+      { postalCode: CANTON_CAPITAL_POSTAL[region] || '', locality: capital.addressLocality },
+    ] : []),
+    ...(crawlerFallback ? [{ postalCode: crawlerFallback.postalCode, locality: crawlerFallback.city }] : []),
+  ].filter(({ postalCode }) => postalCode.length > 0);
 }
 
 /** Localised "<city> centro" fallback for streetAddress. */
@@ -697,6 +750,16 @@ function resolveDatePosted(job: JobInput, now?: Date): string {
 }
 
 // ── Public API ──────────────────────────────────────────────────────────────
+
+/**
+ * The JobPosting `PostalAddress` alone, with the same locality sanitizer and
+ * coherence rules as `buildJobPostingSchema`. For emitters that assemble their
+ * own JobPosting (the SPA JobBoard) and must not pair a locality with another
+ * place's street or CAP (issue 9852).
+ */
+export function resolveJobPostingAddress(job: JobInput, locale: string): PostalAddressSchema {
+  return resolveAddress(job, resolveCompanyName(job, locale), locale);
+}
 
 /**
  * Build a fully populated `JobPosting` schema with every mandatory field

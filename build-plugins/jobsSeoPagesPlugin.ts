@@ -240,6 +240,7 @@ import {
  buildRoleHubMeta,
 } from '../services/seo/meta-descriptions';
 import { COMPANY_HQ_ADDRESSES, CANTON_CAPITAL_ADDRESSES, localityMatchesHq } from './shared/companyHqAddresses';
+import { normalizePostalCityKey } from './shared/postalCodes';
 import { buildJobPostingSchema, sanitizeLocalityForRegion, type JobInput } from './shared/jobPostingSchema';
 import { normalizeCantonCode, inferAnyCanton } from '../scripts/lib/target-swiss-locations.mjs';
 import { formatJobLocation, splitJobLocation } from '../scripts/lib/job-location-display.mjs';
@@ -728,6 +729,127 @@ export function deriveJobAddressLocality(job: Record<string, unknown>, region: s
  const fromLocation = sanitizeLocalityForRegion(String(job.location || ''), region);
  if (fromLocation) return fromLocation;
  return CANTON_CAPITAL_ADDRESSES[region]?.addressLocality || DEFAULT_CANTON_DISPLAY;
+}
+
+ /** Sanitize address fields — reject crawler artifacts */
+ const isValidAddress = (s: string): boolean => {
+ if (!s || s.length > 100) return false;
+ // Reject strings with too many spaces (likely scraped garbage)
+ if ((s.match(/\s/g) || []).length > 8) return false;
+ // Reject strings with navigation/UI artifacts
+ if (/stampa|segnalazione|descrizione|annuncio|verifica|attività|dillo/i.test(s)) return false;
+ return true;
+ };
+ // COMPANY_HQ_ADDRESSES is imported at module scope from
+ // ./shared/companyHqAddresses — shared with weeklyEmployersPlugin.
+
+ /** Does the value look like an actual street address (not just a city/region name)? */
+ const isStreetLikeAddress = (s: string): boolean => {
+ if (!s || s.length < 3) return false;
+ // Must contain a known street keyword
+ if (/\b(via|piazza|piazzale|piazzetta|viale|strada|corso|vicolo|salita|sentiero|contrada|largo|riva|lungolago|rampa|passaggio)\b/i.test(s)) return true;
+ // Accept strings with both letters AND digits (e.g. "Rue de Lausanne 42") —
+ // but reject pure-digit strings like "2026" that are years, not addresses
+ if (/[a-zA-Z]/.test(s) && /\d/.test(s)) return true;
+ return false;
+ };
+
+ /** City → generic central street address for last-resort fallback */
+ const CITY_GENERIC_ADDRESS: Record<string, string> = {
+ // Luganese
+ 'lugano': 'Piazza Riforma 1', 'paradiso': 'Riva Albertolli 1', 'massagno': 'Via S. Gottardo 52',
+ 'viganello': 'Via San Gottardo 87', 'pregassona': 'Via Pregassona 29', 'breganzona': 'Via Breganzona 16',
+ 'montagnola': 'Via Cantonale 24', 'grancia': 'Via Cantonale 18', 'muzzano': 'Via Municipio 8',
+ 'cadempino': 'Via Cantonale 31', 'lamone': 'Via Cantonale 31', 'comano': 'Via Cantonale 4',
+ 'canobbio': 'Via Cantone 1', 'tesserete': 'Via Stazione 2', 'capriasca': 'Via Stazione 2',
+ 'agno': 'Piazza Luini 2', 'bioggio': 'Via Cantonale 19', 'manno': 'Via Cantonale 2c', 'caslano': 'Piazza Lago 2',
+ 'novaggio': 'Via Cantonale 5', 'noranco': 'Via Noranco 10', 'neggio': 'Via Cantonale 12',
+ 'luganese': 'Piazza Riforma 1', 'malcantone': 'Piazza Lago 2',
+ // Bellinzonese
+ 'bellinzona': 'Piazza Governo', 'giubiasco': 'Piazza Grande 1', 'sementina': 'Via Cantonale 35',
+ 'camorino': 'Via Cantonale 20', 'arbedo': 'Via Cantonale 1', 'castione': 'Via Cantonale 8',
+ 'cadenazzo': 'Via Stazione 10', 's. antonino': 'Via Serrai 1', 's.antonino': 'Via Serrai 1',
+ 'castione-arbedo': 'Via Cantonale 1', 'belinzona': 'Piazza Governo',
+ // Sopraceneri
+ 'lodrino': 'Via Cantonale 1', 'sopraceneri': 'Piazza Governo',
+ // Locarnese
+ 'locarno': 'Piazza Grande 18', 'muralto': 'Via Stazione 1', 'minusio': 'Via San Gottardo 73',
+ 'gordola': 'Via Cantonale 40', 'tenero': 'Via Brere 7', 'ascona': 'Via Borgo 34',
+ 'losone': 'Via Municipio 9', 'magadino': 'Via Cantonale 32', 'quartino': 'Via Cantonale 32',
+ // Mendrisiotto
+ 'mendrisio': 'Via Luigi Benteler 1', 'chiasso': 'Corso San Gottardo 84', 'stabio': 'Via Industria 1',
+ 'balerna': 'Via Municipio 13', 'coldrerio': 'Via Municipio 12', 'novazzano': 'Via Cantonale 5',
+ 'castel san pietro': 'Via Municipio 1', 'morbio inferiore': 'Via Cantonale 46', 'vacallo': 'Via Municipio 8',
+ // Leventina / Blenio
+ 'airolo': 'Piazza Stazione 1', 'faido': 'Piazza Municipio 1', 'bodio': 'Via Cantonale 3',
+ 'biasca': 'Via Giuseppe Lepori 1', 'mezzovico': 'Via Vedeggio 4', 'rivera': 'Via Cantonale 1',
+ 'taverne': 'Via Cantonale 20', 'pazzallo': 'Via Pazzallo 10', 'cadro': 'Via Cadro 5',
+ 'riazzino': 'Via Cantonale 12', 'castelrotto': 'Via Pratocarasso 1',
+ 'bedano': 'Via Cantonale 31', 'pollegio': 'Via Cantonale 1',
+ // Graubünden / Grigioni
+ 'chur': 'Bahnhofstrasse 1', 'coira': 'Bahnhofstrasse 1',
+ 'landquart': 'Bahnhofstrasse 1', 'davos': 'Promenade 68',
+ 'st. moritz': 'Via Maistra 12', 'samedan': 'Plazzet 4', 'pontresina': 'Via Maistra 133',
+ 'walenstadt': 'Bahnhofstrasse 19', 'obervaz': 'Voa Principala 22',
+ 'ilanz': 'Via Centrala 2', 'thusis': 'Neudorfstrasse 60', 'poschiavo': 'Via da la Stazione 1',
+ // Ginevra
+ 'plan-les-ouates': 'Route de Saint-Julien 7',
+ 'genève': 'Rue du Rhône 1', 'ginevra': 'Rue du Rhône 1', 'genf': 'Rue du Rhône 1', 'geneva': 'Rue du Rhône 1',
+ // Major Swiss cities outside Ticino/GR
+ 'zürich': 'Bahnhofstrasse 1', 'zurich': 'Bahnhofstrasse 1', 'zurigo': 'Bahnhofstrasse 1',
+ 'bern': 'Bundesplatz 1', 'berna': 'Bundesplatz 1',
+ 'basel': 'Marktplatz 1', 'basilea': 'Marktplatz 1',
+ 'lausanne': 'Place de la Palud 2', 'losanna': 'Place de la Palud 2',
+ 'luzern': 'Bahnhofstrasse 1', 'lucerna': 'Bahnhofstrasse 1', 'lucerne': 'Bahnhofstrasse 1',
+ 'st. gallen': 'Bahnhofplatz 1', 'san gallo': 'Bahnhofplatz 1',
+ 'winterthur': 'Bahnhofplatz 1',
+ 'zug': 'Bahnhofstrasse 1',
+ 'aarau': 'Bahnhofstrasse 1',
+ 'fribourg': 'Rue de Romont 1', 'friburgo': 'Rue de Romont 1',
+ 'neuchâtel': 'Place du Port 1',
+ 'schaffhausen': 'Bahnhofstrasse 1',
+ 'solothurn': 'Hauptgasse 1',
+ 'thun': 'Bahnhofstrasse 1',
+ 'baden': 'Bahnhofstrasse 1',
+ 'olten': 'Bahnhofstrasse 1',
+ };
+
+ // Accent/punctuation-folded view of the table above, so the lookup accepts the
+ // emitted locality in any spelling the sanitizer lets through ("Zurich").
+ const CITY_GENERIC_ADDRESS_BY_KEY = new Map<string, string>();
+ for (const [city, street] of Object.entries(CITY_GENERIC_ADDRESS)) {
+ const key = normalizePostalCityKey(city);
+ if (key && !CITY_GENERIC_ADDRESS_BY_KEY.has(key)) CITY_GENERIC_ADDRESS_BY_KEY.set(key, street);
+ }
+
+/**
+ * Derive the job page's streetAddress: the job's own street, else a street of
+ * the locality the page emits (`locality`, already sanitized by
+ * deriveJobAddressLocality): the company HQ when it sits in that city, or the
+ * curated central street of that city. Returns '' when none applies: the
+ * canonical builder (`resolveAddress` in ./shared/jobPostingSchema) then uses
+ * "<city> centro".
+ *
+ * Every lookup is anchored on the EMITTED locality (issue 9852). The previous
+ * chain also searched the raw location parts ("Lyssach · Bern"), the raw street
+ * and fuzzy variants, and ended on the canton capital's street: the street of
+ * another place (Bern's "Bundesplatz 1", Lausanne's "Place de la Palud 2",
+ * the Ticino default "Piazza Governo" on a TG job) next to the emitted
+ * locality.
+ */
+export function deriveJobStreetAddress(job: any, locality: string): string {
+ // 1. The job's own streetAddress — only if it looks like a real street.
+ const raw = String(job.streetAddress || '').trim();
+ if (isValidAddress(raw) && isStreetLikeAddress(raw)) return raw;
+ // 2. Company HQ — ONLY in the emitted city (#3513). Same-canton is not
+ // enough: pairing the HQ street with a different posting locality (e.g. HQ
+ // Manno street on a Winterthur job) emits a contradictory PostalAddress.
+ const companyKey = String(job.companyKey || '').toLowerCase().trim();
+ const hq = companyKey ? COMPANY_HQ_ADDRESSES[companyKey] : undefined;
+ if (hq && locality && localityMatchesHq(locality, hq)) return hq.streetAddress;
+ // 3. Curated central street of the emitted city.
+ const key = normalizePostalCityKey(locality);
+ return (key && CITY_GENERIC_ADDRESS_BY_KEY.get(key)) || '';
 }
 
 const ACTIVE_JOB_REUSE_MARKERS = Object.freeze({
@@ -2271,15 +2393,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const domain = job?.companyDomain || hostFromUrl(job?.url);
  return domain ? `https://www.${domain}` : BASE_URL;
  };
- /** Sanitize address fields — reject crawler artifacts */
- const isValidAddress = (s: string): boolean => {
- if (!s || s.length > 100) return false;
- // Reject strings with too many spaces (likely scraped garbage)
- if ((s.match(/\s/g) || []).length > 8) return false;
- // Reject strings with navigation/UI artifacts
- if (/stampa|segnalazione|descrizione|annuncio|verifica|attività|dillo/i.test(s)) return false;
- return true;
- };
  const isValidPostalCode = (s: string): boolean => {
  if (!s) return false;
  // Swiss postal codes: 4 digits starting with 1-9
@@ -2290,162 +2403,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return true;
  };
 
- // COMPANY_HQ_ADDRESSES is imported at module scope from
- // ./shared/companyHqAddresses — shared with weeklyEmployersPlugin.
-
- /** Does the value look like an actual street address (not just a city/region name)? */
- const isStreetLikeAddress = (s: string): boolean => {
- if (!s || s.length < 3) return false;
- // Must contain a known street keyword
- if (/\b(via|piazza|piazzale|piazzetta|viale|strada|corso|vicolo|salita|sentiero|contrada|largo|riva|lungolago|rampa|passaggio)\b/i.test(s)) return true;
- // Accept strings with both letters AND digits (e.g. "Rue de Lausanne 42") —
- // but reject pure-digit strings like "2026" that are years, not addresses
- if (/[a-zA-Z]/.test(s) && /\d/.test(s)) return true;
- return false;
- };
-
- /** City → generic central street address for last-resort fallback */
- const CITY_GENERIC_ADDRESS: Record<string, string> = {
- // Luganese
- 'lugano': 'Piazza Riforma 1', 'paradiso': 'Riva Albertolli 1', 'massagno': 'Via S. Gottardo 52',
- 'viganello': 'Via San Gottardo 87', 'pregassona': 'Via Pregassona 29', 'breganzona': 'Via Breganzona 16',
- 'montagnola': 'Via Cantonale 24', 'grancia': 'Via Cantonale 18', 'muzzano': 'Via Municipio 8',
- 'cadempino': 'Via Cantonale 31', 'lamone': 'Via Cantonale 31', 'comano': 'Via Cantonale 4',
- 'canobbio': 'Via Cantone 1', 'tesserete': 'Via Stazione 2', 'capriasca': 'Via Stazione 2',
- 'agno': 'Piazza Luini 2', 'bioggio': 'Via Cantonale 19', 'manno': 'Via Cantonale 2c', 'caslano': 'Piazza Lago 2',
- 'novaggio': 'Via Cantonale 5', 'noranco': 'Via Noranco 10', 'neggio': 'Via Cantonale 12',
- 'luganese': 'Piazza Riforma 1', 'malcantone': 'Piazza Lago 2',
- // Bellinzonese
- 'bellinzona': 'Piazza Governo', 'giubiasco': 'Piazza Grande 1', 'sementina': 'Via Cantonale 35',
- 'camorino': 'Via Cantonale 20', 'arbedo': 'Via Cantonale 1', 'castione': 'Via Cantonale 8',
- 'cadenazzo': 'Via Stazione 10', 's. antonino': 'Via Serrai 1', 's.antonino': 'Via Serrai 1',
- 'castione-arbedo': 'Via Cantonale 1', 'belinzona': 'Piazza Governo',
- // Sopraceneri
- 'lodrino': 'Via Cantonale 1', 'sopraceneri': 'Piazza Governo',
- // Locarnese
- 'locarno': 'Piazza Grande 18', 'muralto': 'Via Stazione 1', 'minusio': 'Via San Gottardo 73',
- 'gordola': 'Via Cantonale 40', 'tenero': 'Via Brere 7', 'ascona': 'Via Borgo 34',
- 'losone': 'Via Municipio 9', 'magadino': 'Via Cantonale 32', 'quartino': 'Via Cantonale 32',
- // Mendrisiotto
- 'mendrisio': 'Via Luigi Benteler 1', 'chiasso': 'Corso San Gottardo 84', 'stabio': 'Via Industria 1',
- 'balerna': 'Via Municipio 13', 'coldrerio': 'Via Municipio 12', 'novazzano': 'Via Cantonale 5',
- 'castel san pietro': 'Via Municipio 1', 'morbio inferiore': 'Via Cantonale 46', 'vacallo': 'Via Municipio 8',
- // Leventina / Blenio
- 'airolo': 'Piazza Stazione 1', 'faido': 'Piazza Municipio 1', 'bodio': 'Via Cantonale 3',
- 'biasca': 'Via Giuseppe Lepori 1', 'mezzovico': 'Via Vedeggio 4', 'rivera': 'Via Cantonale 1',
- 'taverne': 'Via Cantonale 20', 'pazzallo': 'Via Pazzallo 10', 'cadro': 'Via Cadro 5',
- 'riazzino': 'Via Cantonale 12', 'castelrotto': 'Via Pratocarasso 1',
- 'bedano': 'Via Cantonale 31', 'pollegio': 'Via Cantonale 1',
- // Graubünden / Grigioni
- 'chur': 'Bahnhofstrasse 1', 'coira': 'Bahnhofstrasse 1',
- 'landquart': 'Bahnhofstrasse 1', 'davos': 'Promenade 68',
- 'st. moritz': 'Via Maistra 12', 'samedan': 'Plazzet 4', 'pontresina': 'Via Maistra 133',
- 'walenstadt': 'Bahnhofstrasse 19', 'obervaz': 'Voa Principala 22',
- 'ilanz': 'Via Centrala 2', 'thusis': 'Neudorfstrasse 60', 'poschiavo': 'Via da la Stazione 1',
- // Ginevra
- 'plan-les-ouates': 'Route de Saint-Julien 7',
- 'genève': 'Rue du Rhône 1', 'ginevra': 'Rue du Rhône 1', 'genf': 'Rue du Rhône 1', 'geneva': 'Rue du Rhône 1',
- // Major Swiss cities outside Ticino/GR
- 'zürich': 'Bahnhofstrasse 1', 'zurich': 'Bahnhofstrasse 1', 'zurigo': 'Bahnhofstrasse 1',
- 'bern': 'Bundesplatz 1', 'berna': 'Bundesplatz 1',
- 'basel': 'Marktplatz 1', 'basilea': 'Marktplatz 1',
- 'lausanne': 'Place de la Palud 2', 'losanna': 'Place de la Palud 2',
- 'luzern': 'Bahnhofstrasse 1', 'lucerna': 'Bahnhofstrasse 1', 'lucerne': 'Bahnhofstrasse 1',
- 'st. gallen': 'Bahnhofplatz 1', 'san gallo': 'Bahnhofplatz 1',
- 'winterthur': 'Bahnhofplatz 1',
- 'zug': 'Bahnhofstrasse 1',
- 'aarau': 'Bahnhofstrasse 1',
- 'fribourg': 'Rue de Romont 1', 'friburgo': 'Rue de Romont 1',
- 'neuchâtel': 'Place du Port 1',
- 'schaffhausen': 'Bahnhofstrasse 1',
- 'solothurn': 'Hauptgasse 1',
- 'thun': 'Bahnhofstrasse 1',
- 'baden': 'Bahnhofstrasse 1',
- 'olten': 'Bahnhofstrasse 1',
- };
-
- /** Normalise a locality string to extract the core city name for lookup.
- * Strips suffixes like ", Switzerland", ", Ticino", "TI + smart working", postal codes, etc. */
- const normaliseCityName = (raw: string): string[] => {
- const candidates: string[] = [];
- const s = raw.replace(/[_]/g, ' ').trim();
- // Split on comma, dot-separator, or dash-separated compound
- const parts = s.split(/[,·]/).map(p => p.trim()).filter(Boolean);
- for (const part of parts) {
- // Strip known suffixes
- const cleaned = part
- .replace(/\b(switzerland|svizzera|suisse|schweiz|ticino|ti|gr|ge|ch)\b/gi, '')
- .replace(/\+\s*smart\s*working/gi, '')
- .replace(/\b\d{4}\b/g, '') // postal codes
- .replace(/\s+/g, ' ')
- .trim();
- if (cleaned.length >= 2) candidates.push(cleaned.toLowerCase());
- }
- // Also try the raw first part before any comma
- if (parts[0]) candidates.unshift(parts[0].trim().toLowerCase());
- return [...new Set(candidates)];
- };
-
- /** Canton capital fallback — used as ultimate last resort */
- const CANTON_CAPITAL_ADDRESS: Record<string, string> = {
- 'TI': 'Piazza Governo', 'GR': 'Bahnhofstrasse 1', 'GE': 'Rue du Rhône 1',
- 'ZH': 'Bahnhofstrasse 1', 'BE': 'Bundesplatz 1', 'LU': 'Bahnhofstrasse 1',
- 'VS': 'Place de la Planta 1', 'VD': 'Place de la Palud 2',
- 'BS': 'Marktplatz 1', 'SG': 'Bahnhofplatz 1', 'AG': 'Bahnhofstrasse 1',
- 'FR': 'Rue de Romont 1', 'NE': 'Place du Port 1', 'ZG': 'Bahnhofstrasse 1',
- 'SH': 'Bahnhofstrasse 1', 'SO': 'Hauptgasse 1', 'BL': 'Marktplatz 1',
- };
-
  // City→canton dict + regex-only explicit-canton acceptance replaced by the
  // module-level deriveJobCanton (validated against the real 26-canton
  // registry + BFS city inference — see above; eliminates this hand-rolled
  // ~50-city duplicate, AGENTS.md #6).
  const deriveCanton = deriveJobCanton;
 
- /** Derive streetAddress from job data, company HQ, or city generic.
- * Always returns a street address (canton capital as last resort). */
- const deriveStreetAddress = (job: any): string => {
- // 1. Try job's own streetAddress — only if it looks like a real street
- const raw = String(job.streetAddress || '').trim();
- if (isValidAddress(raw) && isStreetLikeAddress(raw)) return raw;
- // 2. Try company HQ address — ONLY when the job has no own locality or is
- // in the HQ's own city (#3513). Same-canton is not enough: pairing the
- // HQ street with a different posting locality (e.g. HQ Manno street on a
- // Winterthur job) emits a contradictory JSON-LD PostalAddress.
- const companyKey = String(job.companyKey || '').toLowerCase().trim();
- if (companyKey && COMPANY_HQ_ADDRESSES[companyKey]
- && localityMatchesHq(String(job.addressLocality || job.location || ''), COMPANY_HQ_ADDRESSES[companyKey])) {
- return COMPANY_HQ_ADDRESSES[companyKey].streetAddress;
- }
- // 3. Try city-based generic address (exact match)
- const locality = String(job.addressLocality || '').toLowerCase().trim();
- if (locality && CITY_GENERIC_ADDRESS[locality]) return CITY_GENERIC_ADDRESS[locality];
- // 4. Try location field parts (split on ·)
- const loc = String(job.location || '');
- const locParts = loc.split('·').map((s: string) => s.trim()).filter(Boolean);
- for (const part of locParts) {
- const key = part.toLowerCase().trim();
- if (key && CITY_GENERIC_ADDRESS[key]) return CITY_GENERIC_ADDRESS[key];
- }
- // 5. If job.streetAddress is non-empty but not street-like, try as city lookup
- const rawLower = raw.toLowerCase();
- if (rawLower && CITY_GENERIC_ADDRESS[rawLower]) return CITY_GENERIC_ADDRESS[rawLower];
- // 6. Fuzzy: normalise locality/location by stripping suffixes and try again
- const candidates = [
- ...normaliseCityName(String(job.addressLocality || '')),
- ...normaliseCityName(loc),
- ...normaliseCityName(raw),
- ];
- for (const c of candidates) {
- if (CITY_GENERIC_ADDRESS[c]) return CITY_GENERIC_ADDRESS[c];
- }
- // 7. Canton capital fallback — always produces a result. Uses the
- // validated deriveCanton (not a raw job.canton||job.addressRegion
- // regex-only read) so an untrusted well-formed-but-wrong canton code
- // never picks the wrong capital street (same bug class as #6 above).
- const canton = deriveCanton(job);
- return CANTON_CAPITAL_ADDRESS[canton] || CANTON_CAPITAL_ADDRESS[DEFAULT_CANTON] || 'Piazza Governo';
- };
  // job.category → O*NET-SOC major group code + `industry`/
  // `applicantLocationRequirements` (remote-only) are now resolved inside
  // the canonical `buildJobPostingSchema` builder (build-plugins/shared/
@@ -3214,7 +3177,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const perJob_addressLocality = deriveJobAddressLocality(job, perJob_addressRegion);
  const perJob_addressCountry = String(job.addressCountry || 'CH');
  const perJob_postalCode = deriveJobPostalCode(job);
- const perJob_streetAddress = deriveStreetAddress(job);
+ const perJob_streetAddress = deriveJobStreetAddress(job, perJob_addressLocality);
  // NOTE: `isRemote` is intentionally NOT hoisted here. The original test
  // ran against the LOCALE-specific normalized description (which can
  // differ across translations — "remote" may appear in the EN copy and

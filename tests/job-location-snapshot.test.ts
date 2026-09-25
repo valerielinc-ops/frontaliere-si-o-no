@@ -60,10 +60,11 @@ describe('jobLocationSnapshot', () => {
     expect(resolveJobPostingPostalCode({ location: 'Chur', addressLocality: 'Chur', postalCode: '8600' }, 'Chur', 'GR'))
       .toEqual({ postalCode: '7000', sourcePostalCoherent: false });
     // No source CAP and a locality the seeds do not know: never publish the
-    // canton-capital CAP next to a different locality when the same guard can
-    // prove the pairing is false.
+    // canton-capital CAP next to a different locality. Since #9852 the
+    // locality's own official CAP is known (Worblaufen 3048, swisstopo/Swiss
+    // Post directory), so it takes that instead of Bern's.
     expect(resolveJobPostingPostalCode({ location: 'Worblaufen', addressLocality: 'Worblaufen' }, 'Worblaufen', 'BE'))
-      .toEqual({ postalCode: '', sourcePostalCoherent: true });
+      .toEqual({ postalCode: '3048', sourcePostalCoherent: true });
     // A coherent source CAP, plain or decorated, stays with its street.
     expect(resolveJobPostingPostalCode({ addressLocality: 'Lugano', postalCode: '6900' }, 'Lugano', 'TI'))
       .toEqual({ postalCode: '6900', sourcePostalCoherent: true });
