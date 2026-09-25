@@ -66,6 +66,9 @@ import { ARCHIVE_ALL_SLUG } from '../lib/article-archive-assets.mjs';
 // Cloudflare's `files` purge cap, shared with cf-purge-cache.mjs (which
 // rejects longer lists) — batches must never exceed it.
 import { MAX_TARGETED_FILES } from '../lib/cf-purge-limits.mjs';
+// Which HTTP statuses are worth retrying, and how to read Retry-After: one
+// definition for every fetch path in the repo (stdlib-only module).
+import { RETRYABLE_STATUS, parseRetryAfterMs } from '../lib/transient-fetch.mjs';
 // NOT imported from ./purge-changed-cdn-assets.mjs (its `batch` helper): that
 // script's entry guard calls pathToFileURL(process.argv[1]) at module scope,
 // which throws when the importer runs as `node --input-type=module` from a
@@ -477,8 +480,9 @@ export function isInconclusive(obs) {
 }
 
 /**
- * One HTTP observation with bounded retries on transient failures
- * (network error, timeout, 429, 5xx). Other 4xx answers are final.
+ * One HTTP observation with bounded retries on transient failures (network
+ * error, timeout, and RETRYABLE_STATUS: 408/425/429/5xx). Other answers are
+ * final.
  */
 export async function observe(url, {
   fetchImpl = fetch,
@@ -521,13 +525,11 @@ export async function observe(url, {
         hash: response.ok && body !== null ? sha256(body) : null,
         error: null,
       };
-      const final = response.ok
-        || (response.status >= 400 && response.status < 500 && response.status !== 429);
-      if (final) return result;
+      if (response.ok || !RETRYABLE_STATUS.has(response.status)) return result;
       last = { ...result, error: `HTTP ${response.status}` };
       if (response.status === 429) {
-        const seconds = Number(headers?.get?.('retry-after'));
-        retryAfterMs = Number.isFinite(seconds) ? Math.min(5_000, Math.max(0, seconds * 1000)) : 2_000;
+        // Short cap: the whole walk has a 5-minute budget.
+        retryAfterMs = parseRetryAfterMs(headers?.get?.('retry-after'), { capMs: 5_000 }) ?? 2_000;
       }
     } catch (error) {
       last = {
