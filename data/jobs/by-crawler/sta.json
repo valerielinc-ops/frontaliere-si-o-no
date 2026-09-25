@@ -514,12 +514,12 @@
     },
     {
       "id": "sta-b29971b96a1a",
-      "slug": "produktionsmitarbeiter-in-per-prazise-armaturenteile-sta-personal-ag-lenzburg",
+      "slug": "staff-di-produzione-per-parti-di-valvole-precise-sta-personal-ag-lenzburg-aargau",
       "slugByLocale": {
-        "it": "produktionsmitarbeiter-in-per-prazise-armaturenteile-sta-personal-ag-lenzburg",
-        "en": "produktionsmitarbeiter-in-fur-prazise-armaturenteile-sta-personal-ag-lenzburg",
+        "it": "staff-di-produzione-per-parti-di-valvole-precise-sta-personal-ag-lenzburg-aargau",
+        "en": "production-staff-for-precise-valve-parts-sta-personal-ag-lenzburg-aargau",
         "de": "produktionsmitarbeiter-in-fur-prazise-armaturenteile-lenzburg-aargau-sta-ch",
-        "fr": "produktionsmitarbeiter-in-fur-prazise-armaturenteile-sta-personal-ag-lenzburg"
+        "fr": "personnel-de-production-pour-des-pieces-de-vanne-precises-sta-personal-ag-lenzburg-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -561,12 +561,19 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "produktionsmitarbeiter-in-fur-prazise-armaturenteile-lenzburg-aargau-sta-ch",
-        "produktionsmitarbeiter-in-per-prazise-armaturenteile-sta-personal-ag-lenzburg"
+        "produktionsmitarbeiter-in-per-prazise-armaturenteile-sta-personal-ag-lenzburg",
+        "produktionsmitarbeiter-in-fur-prazise-armaturenteile-sta-personal-ag-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "produktionsmitarbeiter-in-fur-prazise-armaturenteile-lenzburg-aargau-sta-ch",
           "produktionsmitarbeiter-in-per-prazise-armaturenteile-sta-personal-ag-lenzburg"
+        ],
+        "en": [
+          "produktionsmitarbeiter-in-fur-prazise-armaturenteile-sta-personal-ag-lenzburg"
+        ],
+        "fr": [
+          "produktionsmitarbeiter-in-fur-prazise-armaturenteile-sta-personal-ag-lenzburg"
         ]
       },
       "firstSeenAt": "2026-09-23T23:45:21.056Z",
@@ -586,9 +593,9 @@
     },
     {
       "id": "sta-5954f4a8d6b9",
-      "slug": "schreiner-in-hilfsarbeiter-in-per-montage-e-verglasung-sta-personal-ag-entlebuch",
+      "slug": "carpentieri-lavoratori-ausiliari-per-assemblaggio-e-vetrate-sta-personal-ag-entlebuch-luzern",
       "slugByLocale": {
-        "it": "schreiner-in-hilfsarbeiter-in-per-montage-e-verglasung-sta-personal-ag-entlebuch",
+        "it": "carpentieri-lavoratori-ausiliari-per-assemblaggio-e-vetrate-sta-personal-ag-entlebuch-luzern",
         "en": "carpenters-auxiliary-workers-for-assembly-and-glazing-sta-personal-ag-entlebuch",
         "de": "schreiner-in-hilfsarbeiter-in-fur-montage-und-verglasung-entlebuch-luzern-sta-ch",
         "fr": "charpentiers-ouvriers-auxiliaires-pour-le-montage-et-le-vitrage-sta-personal-ag-entlebuch"
@@ -664,9 +671,9 @@
     },
     {
       "id": "sta-96bbc9e24c1f",
-      "slug": "produktionsmitarbeiter-in-per-fensterproduktion-sta-personal-ag-zug",
+      "slug": "personale-di-produzione-per-la-produzione-di-finestre-sta-personal-ag-zug-zug",
       "slugByLocale": {
-        "it": "produktionsmitarbeiter-in-per-fensterproduktion-sta-personal-ag-zug",
+        "it": "personale-di-produzione-per-la-produzione-di-finestre-sta-personal-ag-zug-zug",
         "en": "production-staff-for-window-production-sta-personal-ag-zug",
         "de": "produktionsmitarbeiter-in-fur-fensterproduktion-zug-zug-sta-ch",
         "fr": "personnel-de-production-pour-la-production-de-fenetres-sta-personal-ag-zug"
@@ -710,11 +717,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "produktionsmitarbeiter-in-fur-fensterproduktion-zug-zug-sta-ch"
+        "produktionsmitarbeiter-in-fur-fensterproduktion-zug-zug-sta-ch",
+        "produktionsmitarbeiter-in-per-fensterproduktion-sta-personal-ag-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "produktionsmitarbeiter-in-fur-fensterproduktion-zug-zug-sta-ch"
+          "produktionsmitarbeiter-in-fur-fensterproduktion-zug-zug-sta-ch",
+          "produktionsmitarbeiter-in-per-fensterproduktion-sta-personal-ag-zug"
         ],
         "en": [
           "produktionsmitarbeiter-in-fur-fensterproduktion-zug-zug-sta-ch"
@@ -788,14 +797,12 @@
       "previousSlugs": [
         "maler-in-mit-lackierwerkstatt-und-sanierungsprojekten-kussnacht-am-rigi-schwyz-sta-ch",
         "maler-in-con-lackierwerkstatt-e-sanierungsprojekten-sta-personal-ag-kussnacht-am-rigi",
-        "maler-in-mit-lackierwerkstatt-und-sanierungsprojekten-sta-personal-ag-kussnacht-am-rigi",
-        "pittore-con-negozio-di-vernici-e-progetti-di-ristrutturazione-sta-personal-ag-kussnacht-am-rigi-schwyz"
+        "maler-in-mit-lackierwerkstatt-und-sanierungsprojekten-sta-personal-ag-kussnacht-am-rigi"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-mit-lackierwerkstatt-und-sanierungsprojekten-kussnacht-am-rigi-schwyz-sta-ch",
-          "maler-in-con-lackierwerkstatt-e-sanierungsprojekten-sta-personal-ag-kussnacht-am-rigi",
-          "pittore-con-negozio-di-vernici-e-progetti-di-ristrutturazione-sta-personal-ag-kussnacht-am-rigi-schwyz"
+          "maler-in-con-lackierwerkstatt-e-sanierungsprojekten-sta-personal-ag-kussnacht-am-rigi"
         ],
         "en": [
           "maler-in-mit-lackierwerkstatt-und-sanierungsprojekten-sta-personal-ag-kussnacht-am-rigi"
@@ -868,14 +875,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-mit-hoher-eigenverantwortung-willisau-luzern-sta-ch",
-        "maler-in-mit-hoher-eigenverantwortung-sta-personal-ag-willisau",
-        "pittore-con-alta-responsabilita-personale-sta-personal-ag-willisau-luzern"
+        "maler-in-mit-hoher-eigenverantwortung-sta-personal-ag-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-mit-hoher-eigenverantwortung-willisau-luzern-sta-ch",
-          "maler-in-mit-hoher-eigenverantwortung-sta-personal-ag-willisau",
-          "pittore-con-alta-responsabilita-personale-sta-personal-ag-willisau-luzern"
+          "maler-in-mit-hoher-eigenverantwortung-sta-personal-ag-willisau"
         ],
         "en": [
           "maler-in-mit-hoher-eigenverantwortung-sta-personal-ag-willisau"
@@ -948,14 +953,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-fur-renovations-und-neubauprojekte-langenthal-bern-sta-ch",
-        "maler-in-per-renovations-e-neubauprojekte-sta-personal-ag-langenthal",
-        "pittore-per-la-ristrutturazione-e-nuovi-progetti-di-costruzione-sta-personal-ag-langenthal-bern"
+        "maler-in-per-renovations-e-neubauprojekte-sta-personal-ag-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-renovations-und-neubauprojekte-langenthal-bern-sta-ch",
-          "maler-in-per-renovations-e-neubauprojekte-sta-personal-ag-langenthal",
-          "pittore-per-la-ristrutturazione-e-nuovi-progetti-di-costruzione-sta-personal-ag-langenthal-bern"
+          "maler-in-per-renovations-e-neubauprojekte-sta-personal-ag-langenthal"
         ],
         "en": [
           "maler-in-fur-renovations-und-neubauprojekte-langenthal-bern-sta-ch"
@@ -1029,14 +1032,12 @@
       "previousSlugs": [
         "maler-in-fur-vielseitige-applikationsmethoden-olten-solothurn-sta-ch",
         "maler-in-per-vielseitige-applikationsmethoden-sta-personal-ag-olten",
-        "maler-in-fur-vielseitige-applikationsmethoden-sta-personal-ag-olten",
-        "pittore-per-metodi-applicativi-versatili-sta-personal-ag-olten-solothurn"
+        "maler-in-fur-vielseitige-applikationsmethoden-sta-personal-ag-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-vielseitige-applikationsmethoden-olten-solothurn-sta-ch",
-          "maler-in-per-vielseitige-applikationsmethoden-sta-personal-ag-olten",
-          "pittore-per-metodi-applicativi-versatili-sta-personal-ag-olten-solothurn"
+          "maler-in-per-vielseitige-applikationsmethoden-sta-personal-ag-olten"
         ],
         "en": [
           "maler-in-fur-vielseitige-applikationsmethoden-sta-personal-ag-olten"
@@ -1110,14 +1111,12 @@
       "previousSlugs": [
         "maler-in-fur-neubau-und-renovationsprojekte-aarau-aargau-sta-ch",
         "maler-in-per-neubau-e-renovationsprojekte-sta-personal-ag-aarau",
-        "maler-in-fur-neubau-und-renovationsprojekte-sta-personal-ag-aarau",
-        "pittore-per-nuovi-progetti-di-costruzione-e-ristrutturazione-sta-personal-ag-aarau-aargau"
+        "maler-in-fur-neubau-und-renovationsprojekte-sta-personal-ag-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-neubau-und-renovationsprojekte-aarau-aargau-sta-ch",
-          "maler-in-per-neubau-e-renovationsprojekte-sta-personal-ag-aarau",
-          "pittore-per-nuovi-progetti-di-costruzione-e-ristrutturazione-sta-personal-ag-aarau-aargau"
+          "maler-in-per-neubau-e-renovationsprojekte-sta-personal-ag-aarau"
         ],
         "en": [
           "maler-in-fur-neubau-und-renovationsprojekte-sta-personal-ag-aarau"
@@ -1191,14 +1190,12 @@
       "previousSlugs": [
         "maler-in-fur-neubauten-und-renovationsprojekte-olten-solothurn-sta-ch",
         "maler-in-per-neubauten-e-renovationsprojekte-sta-personal-ag-olten",
-        "maler-in-fur-neubauten-und-renovationsprojekte-sta-personal-ag-olten",
-        "pittore-per-nuovi-edifici-e-progetti-di-ristrutturazione-sta-personal-ag-olten-solothurn"
+        "maler-in-fur-neubauten-und-renovationsprojekte-sta-personal-ag-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-neubauten-und-renovationsprojekte-olten-solothurn-sta-ch",
-          "maler-in-per-neubauten-e-renovationsprojekte-sta-personal-ag-olten",
-          "pittore-per-nuovi-edifici-e-progetti-di-ristrutturazione-sta-personal-ag-olten-solothurn"
+          "maler-in-per-neubauten-e-renovationsprojekte-sta-personal-ag-olten"
         ],
         "en": [
           "maler-in-fur-neubauten-und-renovationsprojekte-sta-personal-ag-olten"
@@ -1271,14 +1268,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-fur-langfristigen-temporaren-einsatz-olten-solothurn-sta-ch",
-        "maler-in-per-langfristigen-temporaren-einsatz-sta-personal-ag-olten",
-        "pittore-per-uso-temporaneo-a-lungo-termine-sta-personal-ag-olten-solothurn"
+        "maler-in-per-langfristigen-temporaren-einsatz-sta-personal-ag-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-langfristigen-temporaren-einsatz-olten-solothurn-sta-ch",
-          "maler-in-per-langfristigen-temporaren-einsatz-sta-personal-ag-olten",
-          "pittore-per-uso-temporaneo-a-lungo-termine-sta-personal-ag-olten-solothurn"
+          "maler-in-per-langfristigen-temporaren-einsatz-sta-personal-ag-olten"
         ],
         "en": [
           "maler-in-fur-langfristigen-temporaren-einsatz-olten-solothurn-sta-ch"
@@ -1351,14 +1346,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-fur-neubau-und-renovationen-muri-ag-aargau-sta-ch",
-        "maler-in-per-neubau-e-renovationen-sta-personal-ag-muri-ag",
-        "pittore-per-nuove-costruzioni-e-ristrutturazioni-sta-personal-ag-muri-ag-aargau"
+        "maler-in-per-neubau-e-renovationen-sta-personal-ag-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-neubau-und-renovationen-muri-ag-aargau-sta-ch",
-          "maler-in-per-neubau-e-renovationen-sta-personal-ag-muri-ag",
-          "pittore-per-nuove-costruzioni-e-ristrutturazioni-sta-personal-ag-muri-ag-aargau"
+          "maler-in-per-neubau-e-renovationen-sta-personal-ag-muri-ag"
         ],
         "en": [
           "maler-in-fur-neubau-und-renovationen-muri-ag-aargau-sta-ch"
@@ -1431,14 +1424,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-aarau-aargau-sta-ch",
-        "gartner-in-hilfsarbeiter-in-per-garten-e-landschaftsbau-sta-personal-ag-aarau",
-        "giardino-e-giardinieri-paesaggistici-sta-personal-ag-aarau-aargau"
+        "gartner-in-hilfsarbeiter-in-per-garten-e-landschaftsbau-sta-personal-ag-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-aarau-aargau-sta-ch",
-          "gartner-in-hilfsarbeiter-in-per-garten-e-landschaftsbau-sta-personal-ag-aarau",
-          "giardino-e-giardinieri-paesaggistici-sta-personal-ag-aarau-aargau"
+          "gartner-in-hilfsarbeiter-in-per-garten-e-landschaftsbau-sta-personal-ag-aarau"
         ],
         "en": [
           "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-aarau-aargau-sta-ch"
@@ -1511,14 +1502,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-fur-aussenfassaden-und-kantenschutz-affoltern-am-albis-zurich-sta-ch",
-        "maler-in-per-aussenfassaden-e-kantenschutz-sta-personal-ag-affoltern-am-albis",
-        "pittore-per-facciate-esterne-e-protezione-dei-bordi-sta-personal-ag-affoltern-am-albis-zurich"
+        "maler-in-per-aussenfassaden-e-kantenschutz-sta-personal-ag-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-aussenfassaden-und-kantenschutz-affoltern-am-albis-zurich-sta-ch",
-          "maler-in-per-aussenfassaden-e-kantenschutz-sta-personal-ag-affoltern-am-albis",
-          "pittore-per-facciate-esterne-e-protezione-dei-bordi-sta-personal-ag-affoltern-am-albis-zurich"
+          "maler-in-per-aussenfassaden-e-kantenschutz-sta-personal-ag-affoltern-am-albis"
         ],
         "en": [
           "maler-in-fur-aussenfassaden-und-kantenschutz-affoltern-am-albis-zurich-sta-ch"
@@ -1591,14 +1580,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "malerpraktiker-in-fur-neu-und-umbauten-sursee-luzern-sta-ch",
-        "malerpraktiker-in-per-neu-e-umbauten-sta-personal-ag-sursee",
-        "i-professionisti-della-pittura-per-nuove-e-ristrutturazioni-sta-personal-ag-sursee-luzern"
+        "malerpraktiker-in-per-neu-e-umbauten-sta-personal-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "malerpraktiker-in-fur-neu-und-umbauten-sursee-luzern-sta-ch",
-          "malerpraktiker-in-per-neu-e-umbauten-sta-personal-ag-sursee",
-          "i-professionisti-della-pittura-per-nuove-e-ristrutturazioni-sta-personal-ag-sursee-luzern"
+          "malerpraktiker-in-per-neu-e-umbauten-sta-personal-ag-sursee"
         ],
         "en": [
           "malerpraktiker-in-fur-neu-und-umbauten-sursee-luzern-sta-ch"
@@ -1673,14 +1660,12 @@
       "previousSlugs": [
         "malerpraktiker-in-fur-fassadenarbeiten-kulm-aargau-sta-ch",
         "malerpraktiker-in-per-fassadenarbeiten-sta-personal-ag-kulm",
-        "malerpraktiker-in-fur-fassadenarbeiten-sta-personal-ag-kulm",
-        "professionisti-di-pittura-per-lavori-di-facciata-sta-personal-ag-kulm-aargau"
+        "malerpraktiker-in-fur-fassadenarbeiten-sta-personal-ag-kulm"
       ],
       "previousSlugsByLocale": {
         "it": [
           "malerpraktiker-in-fur-fassadenarbeiten-kulm-aargau-sta-ch",
-          "malerpraktiker-in-per-fassadenarbeiten-sta-personal-ag-kulm",
-          "professionisti-di-pittura-per-lavori-di-facciata-sta-personal-ag-kulm-aargau"
+          "malerpraktiker-in-per-fassadenarbeiten-sta-personal-ag-kulm"
         ],
         "en": [
           "malerpraktiker-in-fur-fassadenarbeiten-sta-personal-ag-kulm"
@@ -1754,14 +1739,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-fur-neu-und-umbauten-sursee-luzern-sta-ch",
-        "maler-in-per-neu-e-umbauten-sta-personal-ag-sursee",
-        "pittori-per-nuove-e-ristrutturazioni-sta-personal-ag-sursee-luzern"
+        "maler-in-per-neu-e-umbauten-sta-personal-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-neu-und-umbauten-sursee-luzern-sta-ch",
-          "maler-in-per-neu-e-umbauten-sta-personal-ag-sursee",
-          "pittori-per-nuove-e-ristrutturazioni-sta-personal-ag-sursee-luzern"
+          "maler-in-per-neu-e-umbauten-sta-personal-ag-sursee"
         ],
         "en": [
           "maler-in-fur-neu-und-umbauten-sursee-luzern-sta-ch"
@@ -1836,14 +1819,12 @@
       "previousSlugs": [
         "maler-in-fur-fassadenarbeiten-kulm-aargau-sta-ch",
         "maler-in-per-fassadenarbeiten-sta-personal-ag-kulm",
-        "maler-in-fur-fassadenarbeiten-sta-personal-ag-kulm",
-        "pittori-facade-sta-personal-ag-kulm-aargau"
+        "maler-in-fur-fassadenarbeiten-sta-personal-ag-kulm"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-fassadenarbeiten-kulm-aargau-sta-ch",
-          "maler-in-per-fassadenarbeiten-sta-personal-ag-kulm",
-          "pittori-facade-sta-personal-ag-kulm-aargau"
+          "maler-in-per-fassadenarbeiten-sta-personal-ag-kulm"
         ],
         "en": [
           "maler-in-fur-fassadenarbeiten-sta-personal-ag-kulm"
@@ -1918,14 +1899,12 @@
       "previousSlugs": [
         "maler-in-fur-fassadenanstriche-aarau-aargau-sta-ch",
         "maler-in-per-fassadenanstriche-sta-personal-ag-aarau",
-        "maler-in-fur-fassadenanstriche-sta-personal-ag-aarau",
-        "pittori-pittorici-sta-personal-ag-aarau-aargau"
+        "maler-in-fur-fassadenanstriche-sta-personal-ag-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-fassadenanstriche-aarau-aargau-sta-ch",
-          "maler-in-per-fassadenanstriche-sta-personal-ag-aarau",
-          "pittori-pittorici-sta-personal-ag-aarau-aargau"
+          "maler-in-per-fassadenanstriche-sta-personal-ag-aarau"
         ],
         "en": [
           "maler-in-fur-fassadenanstriche-sta-personal-ag-aarau"
@@ -1999,14 +1978,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "allrounder-in-ausbaugewerbe-fur-werbetechnik-zofingen-aargau-sta-ch",
-        "allrounder-in-ausbaugewerbe-per-werbetechnik-sta-personal-ag-zofingen",
-        "sviluppo-globale-per-la-tecnologia-pubblicitaria-sta-personal-ag-zofingen-aargau"
+        "allrounder-in-ausbaugewerbe-per-werbetechnik-sta-personal-ag-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "allrounder-in-ausbaugewerbe-fur-werbetechnik-zofingen-aargau-sta-ch",
-          "allrounder-in-ausbaugewerbe-per-werbetechnik-sta-personal-ag-zofingen",
-          "sviluppo-globale-per-la-tecnologia-pubblicitaria-sta-personal-ag-zofingen-aargau"
+          "allrounder-in-ausbaugewerbe-per-werbetechnik-sta-personal-ag-zofingen"
         ],
         "en": [
           "allrounder-in-ausbaugewerbe-fur-werbetechnik-zofingen-aargau-sta-ch"

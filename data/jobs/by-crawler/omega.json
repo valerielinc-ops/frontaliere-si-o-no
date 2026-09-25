@@ -66,14 +66,12 @@
       },
       "previousSlugs": [
         "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne",
-        "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne",
-        "avviso-occupato-del-trade-swc-omega-sa-biel-bienne"
+        "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne",
-          "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne",
-          "avviso-occupato-del-trade-swc-omega-sa-biel-bienne"
+          "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne"
         ],
         "en": [
           "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne"
@@ -162,14 +160,12 @@
       },
       "previousSlugs": [
         "apprentissage-de-cuisinier-ere-cfc-omega-biel-bienne",
-        "apprentissage-de-cuisinier-ere-cfc-omega-sa-biel-bienne",
-        "attenzione-del-cucato-omega-sa-biel-bienne"
+        "apprentissage-de-cuisinier-ere-cfc-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-de-cuisinier-ere-cfc-omega-biel-bienne",
-          "apprentissage-de-cuisinier-ere-cfc-omega-sa-biel-bienne",
-          "attenzione-del-cucato-omega-sa-biel-bienne"
+          "apprentissage-de-cuisinier-ere-cfc-omega-sa-biel-bienne"
         ],
         "en": [
           "apprentissage-de-cuisinier-ere-cfc-omega-biel-bienne"
@@ -260,13 +256,11 @@
         ]
       },
       "previousSlugs": [
-        "collaborateur-transport-services-h-f-cdd-1-an-omega-biel-bienne",
-        "servizi-di-trasporto-di-collaboratori-m-f-csd-1-anno-omega-sa-biel-bienne"
+        "collaborateur-transport-services-h-f-cdd-1-an-omega-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-transport-services-h-f-cdd-1-an-omega-biel-bienne",
-          "servizi-di-trasporto-di-collaboratori-m-f-csd-1-anno-omega-sa-biel-bienne"
+          "collaborateur-transport-services-h-f-cdd-1-an-omega-biel-bienne"
         ],
         "en": [
           "collaborateur-transport-services-h-f-cdd-1-an-omega-biel-bienne"
@@ -453,13 +447,11 @@
         ]
       },
       "previousSlugs": [
-        "creative-marketing-project-manager-omega-biel-bienne",
-        "progetto-di-mercato-creative-omega-sa-biel-bienne"
+        "creative-marketing-project-manager-omega-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "creative-marketing-project-manager-omega-biel-bienne",
-          "progetto-di-mercato-creative-omega-sa-biel-bienne"
+          "creative-marketing-project-manager-omega-biel-bienne"
         ],
         "en": [
           "creative-marketing-project-manager-omega-biel-bienne"
@@ -562,7 +554,7 @@
       "slug": "sales-representative-m-w-80-omega-boutique-bern-omega-berne",
       "slugByLocale": {
         "it": "sales-representative-m-w-80-omega-boutique-bern-omega-berne",
-        "en": "sales-representative-m-w-d-80-omega-boutique-bern-omega-sa-berne",
+        "en": "supporting-representatives-m-f-omega-sa-berne",
         "de": "sales-representative-m-w-80-omega-boutique-bern-omega-berne",
         "fr": "ventes-representant-h-f-80-omega-boutique-bern-omega-sa-berne"
       },
@@ -624,7 +616,8 @@
       },
       "previousSlugs": [
         "supporting-representatives-m-f-omega-sa-berne",
-        "ventes-representant-h-f-80-omega-boutique-bern-omega-sa-berne"
+        "ventes-representant-h-f-80-omega-boutique-bern-omega-sa-berne",
+        "sales-representative-m-w-d-80-omega-boutique-bern-omega-sa-berne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -632,7 +625,7 @@
           "ventes-representant-h-f-80-omega-boutique-bern-omega-sa-berne"
         ],
         "en": [
-          "supporting-representatives-m-f-omega-sa-berne"
+          "sales-representative-m-w-d-80-omega-boutique-bern-omega-sa-berne"
         ]
       },
       "firstSeenAt": "2026-09-19T23:17:22.823Z",
@@ -748,12 +741,12 @@
     },
     {
       "id": "omega-33234",
-      "slug": "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne",
+      "slug": "attenzione-della-produzione-di-cfc-omega-sa-biel-bienne",
       "slugByLocale": {
         "fr": "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne",
-        "it": "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne",
-        "en": "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne",
-        "de": "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne"
+        "it": "attenzione-della-produzione-di-cfc-omega-sa-biel-bienne",
+        "en": "learning-of-cfc-production-omega-sa-biel-bienne",
+        "de": "lernen-der-fckw-produktion-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -821,11 +814,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne",
+          "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne"
+        ],
+        "en": [
+          "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne"
+        ],
+        "de": [
           "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne"
+        "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne",
+        "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,

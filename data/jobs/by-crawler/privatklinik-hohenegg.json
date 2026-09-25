@@ -81,12 +81,12 @@
     },
     {
       "id": "privatklinik-hohenegg-ba4ab54312fb",
-      "slug": "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch",
+      "slug": "personale-dell-hotel-su-richiesta-privatklinik-hohenegg-meilen",
       "slugByLocale": {
         "de": "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch",
-        "it": "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch",
-        "en": "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch",
-        "fr": "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
+        "it": "personale-dell-hotel-su-richiesta-privatklinik-hohenegg-meilen",
+        "en": "hotel-staff-on-demand-privatklinik-hohenegg-meilen",
+        "fr": "personnel-de-l-hotel-sur-demande-privatklinik-hohenegg-meilen"
       },
       "company": "Privatklinik Hohenegg",
       "companyKey": "privatklinik-hohenegg",
@@ -144,7 +144,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
+        ],
+        "en": [
+          "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
+        ],
+        "fr": [
+          "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
+      ]
     },
     {
       "id": "privatklinik-hohenegg-2c9323d6be7b",
@@ -200,14 +214,12 @@
       "previousSlugs": [
         "fachperson-gesundheit-efz-lehrstelle-privatklinik-hohenegg-ch",
         "professionnels-de-la-sante-efz-apprentissage-privatklinik-hohenegg-meilen",
-        "fachperson-gesundheit-cfc-apprendistato-privatklinik-hohenegg-meilen",
-        "professionista-della-salute-efz-apprendistato-privatklinik-hohenegg-meilen"
+        "fachperson-gesundheit-cfc-apprendistato-privatklinik-hohenegg-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-efz-lehrstelle-privatklinik-hohenegg-ch",
-          "fachperson-gesundheit-cfc-apprendistato-privatklinik-hohenegg-meilen",
-          "professionista-della-salute-efz-apprendistato-privatklinik-hohenegg-meilen"
+          "fachperson-gesundheit-cfc-apprendistato-privatklinik-hohenegg-meilen"
         ],
         "en": [
           "fachperson-gesundheit-efz-lehrstelle-privatklinik-hohenegg-ch"
@@ -287,14 +299,12 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch",
         "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-meilen",
-        "dipl-soins-infirmiers-professionnels-en-formation-privatklinik-hohenegg-meilen",
-        "dipl-infermieristica-professionale-hf-in-formazione-privatklinik-hohenegg-meilen"
+        "dipl-soins-infirmiers-professionnels-en-formation-privatklinik-hohenegg-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch",
-          "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-meilen",
-          "dipl-infermieristica-professionale-hf-in-formazione-privatklinik-hohenegg-meilen"
+          "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-meilen"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch"

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "med-ipersonal-780cb9af5313",
-      "slug": "schreiner-bankschreiner-region-trimbach-ipersonal-ag-trimbach-solothurn",
+      "slug": "schreiner-bank-schreiner-regione-di-trimbach-ipersonal-ag-trimbach-solothurn",
       "slugByLocale": {
         "de": "schreiner-bankschreiner-region-trimbach-ipersonal-ag-trimbach-solothurn",
-        "it": "schreiner-bankschreiner-region-trimbach-ipersonal-ag-trimbach-solothurn",
-        "en": "schreiner-bankschreiner-region-trimbach-ipersonal-ag-trimbach-solothurn",
-        "fr": "schreiner-bankschreiner-region-trimbach-ipersonal-ag-trimbach-solothurn"
+        "it": "schreiner-bank-schreiner-regione-di-trimbach-ipersonal-ag-trimbach-solothurn",
+        "en": "schreiner-bank-schreiner-trimbach-region-ipersonal-ag-trimbach-solothurn",
+        "fr": "schreiner-bank-schreiner-region-de-trimbach-ipersonal-ag-trimbach-solothurn"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -62,16 +62,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:44:26.965Z"
+      "firstSeenAt": "2026-09-24T14:44:26.965Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-bankschreiner-region-trimbach-ipersonal-ag-trimbach-solothurn"
+        ],
+        "en": [
+          "schreiner-bankschreiner-region-trimbach-ipersonal-ag-trimbach-solothurn"
+        ],
+        "fr": [
+          "schreiner-bankschreiner-region-trimbach-ipersonal-ag-trimbach-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-bankschreiner-region-trimbach-ipersonal-ag-trimbach-solothurn"
+      ]
     },
     {
       "id": "med-ipersonal-519b98f2c0ba",
-      "slug": "schreiner-bankschreiner-region-gipf-oberfrick-ipersonal-ag-gipf-oberfrick-aargau",
+      "slug": "schreiner-bank-schreiner-regione-di-gipf-oberfrick-ipersonal-ag-gipf-oberfrick-aargau",
       "slugByLocale": {
         "de": "schreiner-bankschreiner-region-gipf-oberfrick-ipersonal-ag-gipf-oberfrick-aargau",
-        "it": "schreiner-bankschreiner-region-gipf-oberfrick-ipersonal-ag-gipf-oberfrick-aargau",
-        "en": "schreiner-bankschreiner-region-gipf-oberfrick-ipersonal-ag-gipf-oberfrick-aargau",
-        "fr": "schreiner-bankschreiner-region-gipf-oberfrick-ipersonal-ag-gipf-oberfrick-aargau"
+        "it": "schreiner-bank-schreiner-regione-di-gipf-oberfrick-ipersonal-ag-gipf-oberfrick-aargau",
+        "en": "schreiner-bank-schreiner-gipf-oberfrick-region-ipersonal-ag-gipf-oberfrick-aargau",
+        "fr": "schreiner-bank-schreiner-region-de-gipf-oberfrick-ipersonal-ag-gipf-oberfrick-aargau"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -124,16 +138,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:44:26.665Z"
+      "firstSeenAt": "2026-09-24T14:44:26.665Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-bankschreiner-region-gipf-oberfrick-ipersonal-ag-gipf-oberfrick-aargau"
+        ],
+        "en": [
+          "schreiner-bankschreiner-region-gipf-oberfrick-ipersonal-ag-gipf-oberfrick-aargau"
+        ],
+        "fr": [
+          "schreiner-bankschreiner-region-gipf-oberfrick-ipersonal-ag-gipf-oberfrick-aargau"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-bankschreiner-region-gipf-oberfrick-ipersonal-ag-gipf-oberfrick-aargau"
+      ]
     },
     {
       "id": "med-ipersonal-2bfa53c95ca4",
-      "slug": "schreiner-bankschreiner-region-fullinsdorf-ipersonal-ag-fullinsdorf-basel-landschaft",
+      "slug": "schreiner-bank-schreiner-regione-fullinsdorf-ipersonal-ag-fullinsdorf-basel-landschaft",
       "slugByLocale": {
         "de": "schreiner-bankschreiner-region-fullinsdorf-ipersonal-ag-fullinsdorf-basel-landschaft",
-        "it": "schreiner-bankschreiner-region-fullinsdorf-ipersonal-ag-fullinsdorf-basel-landschaft",
-        "en": "schreiner-bankschreiner-region-fullinsdorf-ipersonal-ag-fullinsdorf-basel-landschaft",
-        "fr": "schreiner-bankschreiner-region-fullinsdorf-ipersonal-ag-fullinsdorf-basel-landschaft"
+        "it": "schreiner-bank-schreiner-regione-fullinsdorf-ipersonal-ag-fullinsdorf-basel-landschaft",
+        "en": "schreiner-bank-schreiner-region-fullinsdorf-ipersonal-ag-fullinsdorf-basel-landschaft",
+        "fr": "schreiner-bank-schreiner-region-fullinsdorf-ipersonal-ag-fullinsdorf-basel-landschaft"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -186,16 +214,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:44:26.364Z"
+      "firstSeenAt": "2026-09-24T14:44:26.364Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-bankschreiner-region-fullinsdorf-ipersonal-ag-fullinsdorf-basel-landschaft"
+        ],
+        "en": [
+          "schreiner-bankschreiner-region-fullinsdorf-ipersonal-ag-fullinsdorf-basel-landschaft"
+        ],
+        "fr": [
+          "schreiner-bankschreiner-region-fullinsdorf-ipersonal-ag-fullinsdorf-basel-landschaft"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-bankschreiner-region-fullinsdorf-ipersonal-ag-fullinsdorf-basel-landschaft"
+      ]
     },
     {
       "id": "med-ipersonal-c0adefe72613",
-      "slug": "schreiner-bankschreiner-region-zuchwil-ipersonal-ag-zuchwil-solothurn",
+      "slug": "schreiner-bank-schreiner-regione-di-zuchwil-ipersonal-ag-zuchwil-solothurn",
       "slugByLocale": {
         "de": "schreiner-bankschreiner-region-zuchwil-ipersonal-ag-zuchwil-solothurn",
-        "it": "schreiner-bankschreiner-region-zuchwil-ipersonal-ag-zuchwil-solothurn",
-        "en": "schreiner-bankschreiner-region-zuchwil-ipersonal-ag-zuchwil-solothurn",
-        "fr": "schreiner-bankschreiner-region-zuchwil-ipersonal-ag-zuchwil-solothurn"
+        "it": "schreiner-bank-schreiner-regione-di-zuchwil-ipersonal-ag-zuchwil-solothurn",
+        "en": "schreiner-bank-schreiner-zuchwil-region-ipersonal-ag-zuchwil-solothurn",
+        "fr": "schreiner-bank-schreiner-region-de-zuchwil-ipersonal-ag-zuchwil-solothurn"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -248,16 +290,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:44:26.063Z"
+      "firstSeenAt": "2026-09-24T14:44:26.063Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-bankschreiner-region-zuchwil-ipersonal-ag-zuchwil-solothurn"
+        ],
+        "en": [
+          "schreiner-bankschreiner-region-zuchwil-ipersonal-ag-zuchwil-solothurn"
+        ],
+        "fr": [
+          "schreiner-bankschreiner-region-zuchwil-ipersonal-ag-zuchwil-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-bankschreiner-region-zuchwil-ipersonal-ag-zuchwil-solothurn"
+      ]
     },
     {
       "id": "med-ipersonal-36d243290c3a",
-      "slug": "schreiner-bankschreiner-region-bubendorf-ipersonal-ag-bubendorf-basel-landschaft",
+      "slug": "schreiner-bank-schreiner-regione-bubendorf-ipersonal-ag-bubendorf-basel-landschaft",
       "slugByLocale": {
         "de": "schreiner-bankschreiner-region-bubendorf-ipersonal-ag-bubendorf-basel-landschaft",
-        "it": "schreiner-bankschreiner-region-bubendorf-ipersonal-ag-bubendorf-basel-landschaft",
-        "en": "schreiner-bankschreiner-region-bubendorf-ipersonal-ag-bubendorf-basel-landschaft",
-        "fr": "schreiner-bankschreiner-region-bubendorf-ipersonal-ag-bubendorf-basel-landschaft"
+        "it": "schreiner-bank-schreiner-regione-bubendorf-ipersonal-ag-bubendorf-basel-landschaft",
+        "en": "schreiner-bank-schreiner-region-bubendorf-ipersonal-ag-bubendorf-basel-landschaft",
+        "fr": "schreiner-bank-schreiner-region-bubendorf-ipersonal-ag-bubendorf-basel-landschaft"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -310,16 +366,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:44:25.762Z"
+      "firstSeenAt": "2026-09-24T14:44:25.762Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-bankschreiner-region-bubendorf-ipersonal-ag-bubendorf-basel-landschaft"
+        ],
+        "en": [
+          "schreiner-bankschreiner-region-bubendorf-ipersonal-ag-bubendorf-basel-landschaft"
+        ],
+        "fr": [
+          "schreiner-bankschreiner-region-bubendorf-ipersonal-ag-bubendorf-basel-landschaft"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-bankschreiner-region-bubendorf-ipersonal-ag-bubendorf-basel-landschaft"
+      ]
     },
     {
       "id": "med-ipersonal-71f690a4686a",
-      "slug": "schreiner-bankschreiner-region-oensingen-ipersonal-ag-oensingen-solothurn",
+      "slug": "schreiner-bank-schreiner-regione-oensingen-ipersonal-ag-oensingen-solothurn",
       "slugByLocale": {
         "de": "schreiner-bankschreiner-region-oensingen-ipersonal-ag-oensingen-solothurn",
-        "it": "schreiner-bankschreiner-region-oensingen-ipersonal-ag-oensingen-solothurn",
-        "en": "schreiner-bankschreiner-region-oensingen-ipersonal-ag-oensingen-solothurn",
-        "fr": "schreiner-bankschreiner-region-oensingen-ipersonal-ag-oensingen-solothurn"
+        "it": "schreiner-bank-schreiner-regione-oensingen-ipersonal-ag-oensingen-solothurn",
+        "en": "schreiner-bank-schreiner-region-oensingen-ipersonal-ag-oensingen-solothurn",
+        "fr": "schreiner-bank-schreiner-region-oensingen-ipersonal-ag-oensingen-solothurn"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -372,16 +442,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:44:25.461Z"
+      "firstSeenAt": "2026-09-24T14:44:25.461Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-bankschreiner-region-oensingen-ipersonal-ag-oensingen-solothurn"
+        ],
+        "en": [
+          "schreiner-bankschreiner-region-oensingen-ipersonal-ag-oensingen-solothurn"
+        ],
+        "fr": [
+          "schreiner-bankschreiner-region-oensingen-ipersonal-ag-oensingen-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-bankschreiner-region-oensingen-ipersonal-ag-oensingen-solothurn"
+      ]
     },
     {
       "id": "med-ipersonal-1af63737f3b4",
-      "slug": "montageleiter-kuchenbau-region-dagmersellen-ipersonal-ag-dagmersellen-luzern",
+      "slug": "installation-manager-edilizia-della-cucina-regione-di-dagmersellen-ipersonal-ag-dagmersellen-luzern",
       "slugByLocale": {
         "de": "montageleiter-kuchenbau-region-dagmersellen-ipersonal-ag-dagmersellen-luzern",
-        "it": "montageleiter-kuchenbau-region-dagmersellen-ipersonal-ag-dagmersellen-luzern",
-        "en": "montageleiter-kuchenbau-region-dagmersellen-ipersonal-ag-dagmersellen-luzern",
-        "fr": "montageleiter-kuchenbau-region-dagmersellen-ipersonal-ag-dagmersellen-luzern"
+        "it": "installation-manager-edilizia-della-cucina-regione-di-dagmersellen-ipersonal-ag-dagmersellen-luzern",
+        "en": "installation-manager-kitchen-construction-dagmersellen-region-ipersonal-ag-dagmersellen-luzern",
+        "fr": "gestionnaire-d-installation-construction-de-cuisine-region-de-dagmersellen-ipersonal-ag-dagmersellen-luzern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -433,16 +517,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:44:25.160Z"
+      "firstSeenAt": "2026-09-24T14:44:25.160Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "montageleiter-kuchenbau-region-dagmersellen-ipersonal-ag-dagmersellen-luzern"
+        ],
+        "en": [
+          "montageleiter-kuchenbau-region-dagmersellen-ipersonal-ag-dagmersellen-luzern"
+        ],
+        "fr": [
+          "montageleiter-kuchenbau-region-dagmersellen-ipersonal-ag-dagmersellen-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "montageleiter-kuchenbau-region-dagmersellen-ipersonal-ag-dagmersellen-luzern"
+      ]
     },
     {
       "id": "med-ipersonal-27b67f2e6c5a",
-      "slug": "schreiner-bankschreiner-region-killwangen-ipersonal-ag-killwangen-aargau",
+      "slug": "schreiner-bank-schreiner-regione-di-killwangen-ipersonal-ag-killwangen-aargau",
       "slugByLocale": {
         "de": "schreiner-bankschreiner-region-killwangen-ipersonal-ag-killwangen-aargau",
-        "it": "schreiner-bankschreiner-region-killwangen-ipersonal-ag-killwangen-aargau",
-        "en": "schreiner-bankschreiner-region-killwangen-ipersonal-ag-killwangen-aargau",
-        "fr": "schreiner-bankschreiner-region-killwangen-ipersonal-ag-killwangen-aargau"
+        "it": "schreiner-bank-schreiner-regione-di-killwangen-ipersonal-ag-killwangen-aargau",
+        "en": "schreiner-bank-schreiner-killwangen-region-ipersonal-ag-killwangen-aargau",
+        "fr": "schreiner-bank-schreiner-region-de-killwangen-ipersonal-ag-killwangen-aargau"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -495,16 +593,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:44:24.859Z"
+      "firstSeenAt": "2026-09-24T14:44:24.859Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-bankschreiner-region-killwangen-ipersonal-ag-killwangen-aargau"
+        ],
+        "en": [
+          "schreiner-bankschreiner-region-killwangen-ipersonal-ag-killwangen-aargau"
+        ],
+        "fr": [
+          "schreiner-bankschreiner-region-killwangen-ipersonal-ag-killwangen-aargau"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-bankschreiner-region-killwangen-ipersonal-ag-killwangen-aargau"
+      ]
     },
     {
       "id": "med-ipersonal-38223d122981",
-      "slug": "montageleiter-kuchenbau-region-hitzkirch-ipersonal-ag-hitzkirch-luzern",
+      "slug": "installation-manager-edilizia-della-cucina-regione-di-hitzkirch-ipersonal-ag-hitzkirch-luzern",
       "slugByLocale": {
         "de": "montageleiter-kuchenbau-region-hitzkirch-ipersonal-ag-hitzkirch-luzern",
-        "it": "montageleiter-kuchenbau-region-hitzkirch-ipersonal-ag-hitzkirch-luzern",
-        "en": "montageleiter-kuchenbau-region-hitzkirch-ipersonal-ag-hitzkirch-luzern",
-        "fr": "montageleiter-kuchenbau-region-hitzkirch-ipersonal-ag-hitzkirch-luzern"
+        "it": "installation-manager-edilizia-della-cucina-regione-di-hitzkirch-ipersonal-ag-hitzkirch-luzern",
+        "en": "installation-manager-kitchen-construction-hitzkirch-region-ipersonal-ag-hitzkirch-luzern",
+        "fr": "gestionnaire-d-installation-construction-de-cuisine-region-de-hitzkirch-ipersonal-ag-hitzkirch-luzern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -556,16 +668,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:44:24.558Z"
+      "firstSeenAt": "2026-09-24T14:44:24.558Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "montageleiter-kuchenbau-region-hitzkirch-ipersonal-ag-hitzkirch-luzern"
+        ],
+        "en": [
+          "montageleiter-kuchenbau-region-hitzkirch-ipersonal-ag-hitzkirch-luzern"
+        ],
+        "fr": [
+          "montageleiter-kuchenbau-region-hitzkirch-ipersonal-ag-hitzkirch-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "montageleiter-kuchenbau-region-hitzkirch-ipersonal-ag-hitzkirch-luzern"
+      ]
     },
     {
       "id": "med-ipersonal-86b81794be2a",
-      "slug": "schreiner-bankschreiner-region-dornach-ipersonal-ag-dornach-solothurn",
+      "slug": "schreiner-bank-schreiner-regione-di-dornach-ipersonal-ag-dornach-solothurn",
       "slugByLocale": {
         "de": "schreiner-bankschreiner-region-dornach-ipersonal-ag-dornach-solothurn",
-        "it": "schreiner-bankschreiner-region-dornach-ipersonal-ag-dornach-solothurn",
-        "en": "schreiner-bankschreiner-region-dornach-ipersonal-ag-dornach-solothurn",
-        "fr": "schreiner-bankschreiner-region-dornach-ipersonal-ag-dornach-solothurn"
+        "it": "schreiner-bank-schreiner-regione-di-dornach-ipersonal-ag-dornach-solothurn",
+        "en": "schreiner-bank-schreiner-dornach-region-ipersonal-ag-dornach-solothurn",
+        "fr": "schreiner-bank-schreiner-region-de-dornach-ipersonal-ag-dornach-solothurn"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -618,16 +744,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:44:24.257Z"
+      "firstSeenAt": "2026-09-24T14:44:24.257Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-bankschreiner-region-dornach-ipersonal-ag-dornach-solothurn"
+        ],
+        "en": [
+          "schreiner-bankschreiner-region-dornach-ipersonal-ag-dornach-solothurn"
+        ],
+        "fr": [
+          "schreiner-bankschreiner-region-dornach-ipersonal-ag-dornach-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-bankschreiner-region-dornach-ipersonal-ag-dornach-solothurn"
+      ]
     },
     {
       "id": "med-ipersonal-c11b94c7e044",
-      "slug": "schreiner-bankschreiner-region-zunzgen-ipersonal-ag-zunzgen-basel-landschaft",
+      "slug": "schreiner-bank-schreiner-regione-di-zunzgen-ipersonal-ag-zunzgen-basel-landschaft",
       "slugByLocale": {
         "de": "schreiner-bankschreiner-region-zunzgen-ipersonal-ag-zunzgen-basel-landschaft",
-        "it": "schreiner-bankschreiner-region-zunzgen-ipersonal-ag-zunzgen-basel-landschaft",
-        "en": "schreiner-bankschreiner-region-zunzgen-ipersonal-ag-zunzgen-basel-landschaft",
-        "fr": "schreiner-bankschreiner-region-zunzgen-ipersonal-ag-zunzgen-basel-landschaft"
+        "it": "schreiner-bank-schreiner-regione-di-zunzgen-ipersonal-ag-zunzgen-basel-landschaft",
+        "en": "schreiner-bank-schreiner-zunzgen-region-ipersonal-ag-zunzgen-basel-landschaft",
+        "fr": "schreiner-bank-schreiner-region-de-zunzgen-ipersonal-ag-zunzgen-basel-landschaft"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -680,16 +820,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:44:23.955Z"
+      "firstSeenAt": "2026-09-24T14:44:23.955Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-bankschreiner-region-zunzgen-ipersonal-ag-zunzgen-basel-landschaft"
+        ],
+        "en": [
+          "schreiner-bankschreiner-region-zunzgen-ipersonal-ag-zunzgen-basel-landschaft"
+        ],
+        "fr": [
+          "schreiner-bankschreiner-region-zunzgen-ipersonal-ag-zunzgen-basel-landschaft"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-bankschreiner-region-zunzgen-ipersonal-ag-zunzgen-basel-landschaft"
+      ]
     },
     {
       "id": "med-ipersonal-7fe78238c586",
-      "slug": "schreiner-bankschreiner-region-therwil-ipersonal-ag-therwil-basel-landschaft",
+      "slug": "schreiner-bank-schreiner-regione-di-therwil-ipersonal-ag-therwil-basel-landschaft",
       "slugByLocale": {
         "de": "schreiner-bankschreiner-region-therwil-ipersonal-ag-therwil-basel-landschaft",
-        "it": "schreiner-bankschreiner-region-therwil-ipersonal-ag-therwil-basel-landschaft",
-        "en": "schreiner-bankschreiner-region-therwil-ipersonal-ag-therwil-basel-landschaft",
-        "fr": "schreiner-bankschreiner-region-therwil-ipersonal-ag-therwil-basel-landschaft"
+        "it": "schreiner-bank-schreiner-regione-di-therwil-ipersonal-ag-therwil-basel-landschaft",
+        "en": "schreiner-bank-schreiner-therwil-region-ipersonal-ag-therwil-basel-landschaft",
+        "fr": "schreiner-bank-schreiner-region-de-therwil-ipersonal-ag-therwil-basel-landschaft"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -742,7 +896,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:44:23.654Z"
+      "firstSeenAt": "2026-09-24T14:44:23.654Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-bankschreiner-region-therwil-ipersonal-ag-therwil-basel-landschaft"
+        ],
+        "en": [
+          "schreiner-bankschreiner-region-therwil-ipersonal-ag-therwil-basel-landschaft"
+        ],
+        "fr": [
+          "schreiner-bankschreiner-region-therwil-ipersonal-ag-therwil-basel-landschaft"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-bankschreiner-region-therwil-ipersonal-ag-therwil-basel-landschaft"
+      ]
     }
   ]
 }

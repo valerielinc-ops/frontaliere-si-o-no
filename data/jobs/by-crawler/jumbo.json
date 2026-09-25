@@ -17069,12 +17069,12 @@
     },
     {
       "id": "jumbo-406fc7ce-c35",
-      "slug": "verkaufsberater-in-garden-jumbo-schanis",
+      "slug": "vendite-advisor-garden-jumbo-schanis",
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-jumbo-schanis",
-        "it": "verkaufsberater-in-garden-jumbo-schanis",
-        "en": "verkaufsberater-in-garden-jumbo-schanis",
-        "fr": "verkaufsberater-in-garden-jumbo-schanis"
+        "it": "vendite-advisor-garden-jumbo-schanis",
+        "en": "sales-advisor-garden-jumbo-schanis",
+        "fr": "conseiller-en-ventes-jardin-jumbo-schanis"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17144,16 +17144,30 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garden-jumbo-schanis"
+        ],
+        "en": [
+          "verkaufsberater-in-garden-jumbo-schanis"
+        ],
+        "fr": [
+          "verkaufsberater-in-garden-jumbo-schanis"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-schanis"
+      ]
     },
     {
       "id": "jumbo-2db5b33d-6af",
-      "slug": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-bern",
+      "slug": "vendite-amministrazione-e-servizio-clienti-jumbo-bern",
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-bern",
-        "it": "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-bern",
-        "en": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-bern",
-        "fr": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-bern"
+        "it": "vendite-amministrazione-e-servizio-clienti-jumbo-bern",
+        "en": "employee-sales-administration-and-customer-service-jumbo-bern",
+        "fr": "ventes-administration-et-service-a-la-clientele-des-employes-jumbo-bern"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17226,7 +17240,23 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-bern",
+          "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-bern"
+        ],
+        "en": [
+          "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-bern"
+        ],
+        "fr": [
+          "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-bern"
+        ]
+      },
+      "previousSlugs": [
+        "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-bern",
+        "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-bern"
+      ]
     },
     {
       "id": "jumbo-3094b9a5-b67",
@@ -17234,8 +17264,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-logistik-jumbo-hinwil",
         "it": "addetto-a-alla-logistica-jumbo-hinwil",
-        "en": "mitarbeiter-in-logistik-jumbo-hinwil",
-        "fr": "mitarbeiter-in-logistik-jumbo-hinwil"
+        "en": "associate-logistik-jumbo-hinwil",
+        "fr": "collaborateur-trice-logistik-jumbo-hinwil"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17308,12 +17338,12 @@
     },
     {
       "id": "jumbo-a5e778c0-1dc",
-      "slug": "verkaufsberater-in-garden-jumbo-lyssach",
+      "slug": "vendite-advisor-garden-jumbo-lyssach",
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-jumbo-lyssach",
-        "it": "verkaufsberater-in-garden-jumbo-lyssach",
-        "en": "verkaufsberater-in-garden-jumbo-lyssach",
-        "fr": "verkaufsberater-in-garden-jumbo-lyssach"
+        "it": "vendite-advisor-garden-jumbo-lyssach",
+        "en": "sales-advisor-garden-jumbo-lyssach",
+        "fr": "conseiller-en-ventes-jardin-jumbo-lyssach"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17383,16 +17413,30 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garden-jumbo-lyssach"
+        ],
+        "en": [
+          "verkaufsberater-in-garden-jumbo-lyssach"
+        ],
+        "fr": [
+          "verkaufsberater-in-garden-jumbo-lyssach"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-lyssach"
+      ]
     },
     {
       "id": "jumbo-e733e773-dd6",
-      "slug": "verkaufer-in-kassen-services-jumbo-ilanz-glion",
+      "slug": "vendita-cassa-servizi-jumbo-ilanz-glion",
       "slugByLocale": {
         "de": "verkaufer-in-kassen-services-jumbo-ilanz-glion",
-        "it": "verkaufer-in-kassen-services-jumbo-ilanz-glion",
-        "en": "verkaufer-in-kassen-services-jumbo-ilanz-glion",
-        "fr": "verkaufer-in-kassen-services-jumbo-ilanz-glion"
+        "it": "vendita-cassa-servizi-jumbo-ilanz-glion",
+        "en": "seller-cash-register-services-jumbo-ilanz-glion",
+        "fr": "caisse-enregistreuse-services-du-vendeur-jumbo-ilanz-glion"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17462,16 +17506,30 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-kassen-services-jumbo-ilanz-glion"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-jumbo-ilanz-glion"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-jumbo-ilanz-glion"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-kassen-services-jumbo-ilanz-glion"
+      ]
     },
     {
       "id": "jumbo-57a8f826-f23",
-      "slug": "rayonleiter-in-garden-jumbo-chur",
+      "slug": "giardino-conduttore-rayon-jumbo-chur",
       "slugByLocale": {
         "de": "rayonleiter-in-garden-jumbo-chur",
-        "it": "rayonleiter-in-garden-jumbo-chur",
-        "en": "rayonleiter-in-garden-jumbo-chur",
-        "fr": "rayonleiter-in-garden-jumbo-chur"
+        "it": "giardino-conduttore-rayon-jumbo-chur",
+        "en": "rayon-conductor-garden-jumbo-chur",
+        "fr": "jardin-conducteur-de-rayon-jumbo-chur"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17542,16 +17600,30 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-garden-jumbo-chur"
+        ],
+        "en": [
+          "rayonleiter-in-garden-jumbo-chur"
+        ],
+        "fr": [
+          "rayonleiter-in-garden-jumbo-chur"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-garden-jumbo-chur"
+      ]
     },
     {
       "id": "jumbo-6fe1db2f-63b",
-      "slug": "verkaufberater-in-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-kreuzlingen",
+      "slug": "consulenti-di-vendita-incl-gestione-aggiunto-jumbo-kreuzlingen",
       "slugByLocale": {
         "de": "verkaufberater-in-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-kreuzlingen",
-        "it": "verkaufberater-in-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-kreuzlingen",
-        "en": "verkaufberater-in-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-kreuzlingen",
-        "fr": "verkaufberater-in-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-kreuzlingen"
+        "it": "consulenti-di-vendita-incl-gestione-aggiunto-jumbo-kreuzlingen",
+        "en": "sales-consultants-incl-deputy-management-jumbo-kreuzlingen",
+        "fr": "consultants-en-vente-y-compris-gestion-adjointe-jumbo-kreuzlingen"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17621,16 +17693,30 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufberater-in-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-kreuzlingen"
+        ],
+        "en": [
+          "verkaufberater-in-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-kreuzlingen"
+        ],
+        "fr": [
+          "verkaufberater-in-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-kreuzlingen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufberater-in-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-kreuzlingen"
+      ]
     },
     {
       "id": "jumbo-a9220f7e-318",
-      "slug": "rayonleiter-in-deco-jumbo-glarus",
+      "slug": "rayon-conduttore-deco-jumbo-glarus",
       "slugByLocale": {
         "de": "rayonleiter-in-deco-jumbo-glarus",
-        "it": "rayonleiter-in-deco-jumbo-glarus",
-        "en": "rayonleiter-in-deco-jumbo-glarus",
-        "fr": "rayonleiter-in-deco-jumbo-glarus"
+        "it": "rayon-conduttore-deco-jumbo-glarus",
+        "en": "rayon-conductor-deco-jumbo-glarus",
+        "fr": "rayon-conducteur-deco-jumbo-glarus"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17699,16 +17785,30 @@
           "maxValue": 113000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-deco-jumbo-glarus"
+        ],
+        "en": [
+          "rayonleiter-in-deco-jumbo-glarus"
+        ],
+        "fr": [
+          "rayonleiter-in-deco-jumbo-glarus"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-deco-jumbo-glarus"
+      ]
     },
     {
       "id": "jumbo-cd641635-95c",
-      "slug": "verkaufer-in-kassen-services-jumbo-emmen",
+      "slug": "vendita-cassa-servizi-jumbo-emmen",
       "slugByLocale": {
         "de": "verkaufer-in-kassen-services-jumbo-emmen",
-        "it": "verkaufer-in-kassen-services-jumbo-emmen",
-        "en": "verkaufer-in-kassen-services-jumbo-emmen",
-        "fr": "verkaufer-in-kassen-services-jumbo-emmen"
+        "it": "vendita-cassa-servizi-jumbo-emmen",
+        "en": "seller-cash-register-services-jumbo-emmen",
+        "fr": "caisse-enregistreuse-services-du-vendeur-jumbo-emmen"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17779,16 +17879,30 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-kassen-services-jumbo-emmen"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-jumbo-emmen"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-jumbo-emmen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-kassen-services-jumbo-emmen"
+      ]
     },
     {
       "id": "jumbo-aaa3cbab-844",
-      "slug": "verkaufsberater-in-do-it-jumbo-hochdorf",
+      "slug": "consulente-commerciale-do-it-jumbo-hochdorf",
       "slugByLocale": {
         "de": "verkaufsberater-in-do-it-jumbo-hochdorf",
-        "it": "verkaufsberater-in-do-it-jumbo-hochdorf",
-        "en": "verkaufsberater-in-do-it-jumbo-hochdorf",
-        "fr": "verkaufsberater-in-do-it-jumbo-hochdorf"
+        "it": "consulente-commerciale-do-it-jumbo-hochdorf",
+        "en": "sales-consultant-do-it-jumbo-hochdorf",
+        "fr": "consultant-en-ventes-do-it-jumbo-hochdorf"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17858,7 +17972,21 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-do-it-jumbo-hochdorf"
+        ],
+        "en": [
+          "verkaufsberater-in-do-it-jumbo-hochdorf"
+        ],
+        "fr": [
+          "verkaufsberater-in-do-it-jumbo-hochdorf"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-do-it-jumbo-hochdorf"
+      ]
     },
     {
       "id": "jumbo-601dea64-2fb",
@@ -17866,8 +17994,8 @@
       "slugByLocale": {
         "de": "verkaufsberater-in-jumbo-jumbo-laupen",
         "it": "verkaufsberater-in-jumbo-jumbo-laupen",
-        "en": "verkaufsberater-in-jumbo-jumbo-laupen",
-        "fr": "verkaufsberater-in-jumbo-jumbo-laupen"
+        "en": "sales-consultant-jumbo-jumbo-laupen",
+        "fr": "consultant-en-ventes-jumbo-jumbo-laupen"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17947,8 +18075,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-logistik-jumbo-schwyz",
         "it": "addetto-a-alla-logistica-jumbo-schwyz",
-        "en": "mitarbeiter-in-logistik-jumbo-schwyz",
-        "fr": "mitarbeiter-in-logistik-jumbo-schwyz"
+        "en": "associate-logistik-jumbo-schwyz",
+        "fr": "collaborateur-trice-logistik-jumbo-schwyz"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18025,8 +18153,8 @@
       "slugByLocale": {
         "de": "verkaufsberater-in-deco-jumbo-chur",
         "it": "verkaufsberater-in-deco-jumbo-chur",
-        "en": "verkaufsberater-in-deco-jumbo-chur",
-        "fr": "verkaufsberater-in-deco-jumbo-chur"
+        "en": "sales-consultant-deco-jumbo-chur",
+        "fr": "consultant-commercial-deco-jumbo-chur"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18102,12 +18230,12 @@
     },
     {
       "id": "jumbo-79f94e63-f84",
-      "slug": "kauffrau-mann-efz-jumbo-dietlikon",
+      "slug": "commercialista-efz-jumbo-dietlikon",
       "slugByLocale": {
         "de": "kauffrau-mann-efz-jumbo-dietlikon",
-        "it": "kauffrau-mann-cfc-jumbo-dietlikon",
-        "en": "kauffrau-mann-efz-jumbo-dietlikon",
-        "fr": "kauffrau-mann-efz-jumbo-dietlikon"
+        "it": "commercialista-efz-jumbo-dietlikon",
+        "en": "commercialist-efz-jumbo-dietlikon",
+        "fr": "commercialisation-efz-jumbo-dietlikon"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18180,16 +18308,32 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:25:46.013Z"
+      "firstSeenAt": "2026-09-24T14:25:46.013Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kauffrau-mann-cfc-jumbo-dietlikon",
+          "kauffrau-mann-efz-jumbo-dietlikon"
+        ],
+        "en": [
+          "kauffrau-mann-efz-jumbo-dietlikon"
+        ],
+        "fr": [
+          "kauffrau-mann-efz-jumbo-dietlikon"
+        ]
+      },
+      "previousSlugs": [
+        "kauffrau-mann-cfc-jumbo-dietlikon",
+        "kauffrau-mann-efz-jumbo-dietlikon"
+      ]
     },
     {
       "id": "jumbo-d53eaf83-428",
-      "slug": "verkaufsberater-in-garden-jumbo-regensdorf",
+      "slug": "vendite-advisor-garden-jumbo-regensdorf",
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-jumbo-regensdorf",
-        "it": "verkaufsberater-in-garden-jumbo-regensdorf",
-        "en": "verkaufsberater-in-garden-jumbo-regensdorf",
-        "fr": "verkaufsberater-in-garden-jumbo-regensdorf"
+        "it": "vendite-advisor-garden-jumbo-regensdorf",
+        "en": "sales-advisor-garden-jumbo-regensdorf",
+        "fr": "conseiller-en-ventes-jardin-jumbo-regensdorf"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18260,7 +18404,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:25:46.002Z"
+      "firstSeenAt": "2026-09-24T14:25:46.002Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garden-jumbo-regensdorf"
+        ],
+        "en": [
+          "verkaufsberater-in-garden-jumbo-regensdorf"
+        ],
+        "fr": [
+          "verkaufsberater-in-garden-jumbo-regensdorf"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-regensdorf"
+      ]
     }
   ]
 }
