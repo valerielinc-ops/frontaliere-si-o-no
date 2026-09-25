@@ -325,8 +325,16 @@ export function parseWorkdayLocation(locText = '') {
  * Multi-location postings ("N Locations") only reveal their real sites here, so
  * we confirm Swiss membership from the detail page (primary location,
  * additionalLocations — string or `{descriptor}` — and the requisition
- * descriptor). Returns the matching Swiss location text, or '' if the job is
- * not Swiss or no canton can be inferred (caller skips it without a fallback).
+ * descriptor). Returns the first candidate whose city is a known Swiss
+ * municipality, or '' when none is (caller skips it without a fallback).
+ *
+ * A candidate that only yields a canton is not a locality: the agency labels
+ * `GA Wil`, `GA Graubünden` or `GS Yverdon-les-Bains` name a general agency
+ * or its branch office, and `Rapperswil Rathausstrasse` names a homonym
+ * (Rapperswil BE / the former SG commune) with a street. Accepting them let
+ * `resolveLocalityAddress` publish the canton capital's full tuple
+ * (`St. Gallen`, `Gallusstrasse 14`, `9000`) as the workplace (issue 9838).
+ * The workplace is never deduced from the agency region.
  */
 export function resolveSwissLifeLocation(info = {}, listingLocText = '') {
   const additionalLocations = Array.isArray(info.additionalLocations)
@@ -339,27 +347,14 @@ export function resolveSwissLifeLocation(info = {}, listingLocText = '') {
     listingLocText || '',
   ];
 
-  const rankedCandidates = candidates
-    .map((value, index) => {
-      const text = normalizeSpace(value);
-      if (!isSwissLifeLocationText(text)) return null;
-      const parsedCity = parseWorkdayLocation(text);
-      const specificity = isKnownSwissCity(parsedCity)
-        ? 3
-        : inferAnyCanton(text)
-          ? 2
-          : 1;
-      return { text, specificity, index };
-    })
-    .filter(Boolean)
-    .sort((a, b) => b.specificity - a.specificity || a.index - b.index);
-  const swissLoc = rankedCandidates[0]?.text || '';
-  if (!swissLoc) return '';
-
-  const city = parseWorkdayLocation(swissLoc);
-  // No fabricated city or canton: an empty/ambiguous location is skipped.
-  if (!city) return '';
-  return inferAnyCanton(city) ? city : '';
+  for (const value of candidates) {
+    const text = normalizeSpace(value);
+    if (!isSwissLifeLocationText(text)) continue;
+    const city = parseWorkdayLocation(text);
+    // No fabricated city or canton: only a known municipality is a locality.
+    if (city && isKnownSwissCity(city) && inferAnyCanton(city)) return city;
+  }
+  return '';
 }
 
 /* ── Main fetch function ──────────────────────────────────── */
@@ -414,8 +409,8 @@ export async function fetchAllSwissLifeJobs() {
     }
     // La località della vacancy, non il capoluogo di ripiego: `Buchs SG`
     // usciva come `addressLocality: St. Gallen` (audit-parser-quality, issue
-    // 5253). Un'etichetta d'agenzia (`GA Wil`) non è un comune e mantiene la
-    // tupla coerente del ripiego.
+    // 5253). Un'etichetta d'agenzia (`GA Wil`) non arriva fin qui: non è un
+    // comune e `resolveSwissLifeLocation` la scarta (issue 9838).
     const fallbackAddress = resolveLocalityAddress({ city, canton });
     const sourceAddress = typeof info.streetAddress === 'string'
       ? info.streetAddress

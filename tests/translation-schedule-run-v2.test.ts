@@ -13,6 +13,7 @@ import {
   collectTranslationSchedulerInput,
   runTranslationScheduleV2,
 } from '../scripts/translation-schedule-run-v2.mjs';
+import { createTranslationStateStoreV2 } from '../scripts/lib/translation-state-store-v2.mjs';
 
 const roots: string[] = [];
 
@@ -126,6 +127,7 @@ describe('translation scheduler v2 runtime wiring', () => {
 
     const report = await runTranslationScheduleV2({
       repository: one,
+      publishEnabled: true,
       maxJobs: 10,
       maxUnits: 1,
       providerTimeoutMs: 10_000,
@@ -167,6 +169,7 @@ describe('translation scheduler v2 runtime wiring', () => {
 
     const report = await runTranslationScheduleV2({
       repository: one,
+      publishEnabled: true,
       logger: { log() {} },
     });
 
@@ -199,6 +202,7 @@ describe('translation scheduler v2 runtime wiring', () => {
     try {
       const report = await runTranslationScheduleV2({
         repository: one,
+        publishEnabled: true,
         maxJobs: 10,
         maxUnits: 1,
         providerTimeoutMs: 10_000,
@@ -233,6 +237,7 @@ describe('translation scheduler v2 runtime wiring', () => {
 
     const report = await runTranslationScheduleV2({
       repository: one,
+      publishEnabled: true,
       maxJobs: 10,
       maxUnits: 1,
       providerTimeoutMs: 10_000,
@@ -255,7 +260,12 @@ describe('translation scheduler v2 runtime wiring', () => {
   ])('rejects an unauthorized state target before any scheduler work (%s)', async (_label, target) => {
     const { one, remote } = createRepositories();
 
-    await expect(runTranslationScheduleV2({ repository: one, ...target, logger: { log() {} } }))
+    await expect(runTranslationScheduleV2({
+      repository: one,
+      ...target,
+      publishEnabled: true,
+      logger: { log() {} },
+    }))
       .rejects.toThrow(/translation state writes must target origin\/refs\/heads\/translation-state-v2/);
     expect(git(one, 'rev-parse', 'HEAD')).toBe(git(one, 'rev-parse', 'origin/main'));
     expect(git(one, 'ls-remote', '--refs', remote, 'refs/heads/main'))
@@ -271,7 +281,12 @@ describe('translation scheduler v2 runtime wiring', () => {
       },
     };
 
-    await expect(runTranslationScheduleV2({ repository: 'unused-repository', stateStore, logger: { log() {} } }))
+    await expect(runTranslationScheduleV2({
+      repository: 'unused-repository',
+      stateStore,
+      publishEnabled: true,
+      logger: { log() {} },
+    }))
       .rejects.toThrow(/translation state writes must target origin\/refs\/heads\/translation-state-v2/);
     expect(initialized).toBe(false);
   });
@@ -285,6 +300,81 @@ describe('translation scheduler v2 runtime wiring', () => {
     expect(workflow).toMatch(/permissions:\n  contents: write/u);
     expect(workflow).toMatch(/TRANSLATION_STATE_REMOTE_V2:\s*origin/u);
     expect(workflow).toMatch(/TRANSLATION_STATE_REF_V2:\s*refs\/heads\/translation-state-v2/u);
+    expect(workflow).toMatch(/TRANSLATION_SCHEDULER_PUBLISH_ENABLED:\s*\$\{\{ vars\.TRANSLATION_SCHEDULER_PUBLISH_ENABLED \|\| '0' \}\}/u);
     expect(workflow).toContain('node scripts/translation-schedule-run-v2.mjs --shadow');
+  });
+
+  it('keeps main and the state ref unchanged when publication is not explicitly enabled', async () => {
+    const { one, remote } = createRepositories();
+    const mainBefore = git(one, 'rev-parse', 'HEAD');
+    const reportPath = join(one, 'translation-scheduler-report.json');
+
+    const report = await runTranslationScheduleV2({
+      repository: one,
+      promotionEnv: {},
+      reportPath,
+      logger: { log() {} },
+    });
+
+    expect(report).toMatchObject({
+      status: 'disabled',
+      promotion: {
+        decision: {
+          enabled: false,
+          reason: 'default_off',
+          source: 'default',
+        },
+      },
+      state: { before: null, after: null, reserved: false, settled: false },
+    });
+    expect(git(one, 'rev-parse', 'HEAD')).toBe(mainBefore);
+    expect(git(one, 'ls-remote', '--refs', remote, 'refs/heads/translation-state-v2')).toBe('');
+    expect(JSON.parse(readFileSync(reportPath, 'utf8')).status).toBe('disabled');
+  });
+
+  it('reports a bounded explicit rollback when promotion persistence fails', async () => {
+    const { one } = createRepositories();
+    const realStore = createTranslationStateStoreV2({ repository: one });
+    const stateStore = {
+      ...realStore,
+      checkpointBatch: async () => {
+        throw new Error('promotion persistence failed');
+      },
+    };
+    const rollbackCheckpoints: any[] = [];
+    const reportPath = join(one, 'translation-scheduler-failure-report.json');
+
+    await expect(runTranslationScheduleV2({
+      repository: one,
+      stateStore,
+      publishEnabled: true,
+      rollback: async (checkpoint: any, context: any) => {
+        rollbackCheckpoints.push({ checkpoint, context });
+        return true;
+      },
+      reportPath,
+      maxJobs: 10,
+      maxUnits: 1,
+      providerTimeoutMs: 10_000,
+      logger: { log() {}, error() {} },
+    })).rejects.toThrow('promotion persistence failed');
+
+    const report = JSON.parse(readFileSync(reportPath, 'utf8'));
+    expect(report).toMatchObject({
+      status: 'failed',
+      error: { phase: 'state_persistence', message: 'promotion persistence failed' },
+      promotion: { rollback: { status: 'rolled_back', attempts: 1, maxAttempts: 1 } },
+    });
+    expect(rollbackCheckpoints).toHaveLength(1);
+    expect(rollbackCheckpoints[0].checkpoint).toMatchObject({
+      stateRef: 'refs/heads/translation-state-v2',
+      scopeKey: 'translation-shadow-v2',
+    });
+    expect(rollbackCheckpoints[0].context).toMatchObject({
+      attempt: 1,
+      maxAttempts: 1,
+      phase: 'state_persistence',
+      cause: { message: 'promotion persistence failed' },
+    });
   });
 });

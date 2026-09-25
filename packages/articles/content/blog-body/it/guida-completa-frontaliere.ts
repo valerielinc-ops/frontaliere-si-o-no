@@ -193,7 +193,7 @@ Per i nuovi frontalieri, la dichiarazione dei redditi diventa obbligatoria:
 
 1. **Convertire il reddito** da CHF a EUR al cambio medio annuale (pubblicato dall'Agenzia delle Entrate)
 2. **Applicare la franchigia** di €10.000 (deduzione dal reddito imponibile)
-3. **Calcolare l'IRPEF** sugli scaglioni italiani 2026 (23% fino a €28.000, 35% fino a €50.000, 43% oltre)
+3. **Calcolare l'IRPEF** sugli scaglioni italiani 2026 (23% fino a €28.000, 33% fino a €50.000, 43% oltre)
 4. **Detrarre il credito d'imposta** per le imposte pagate in Svizzera
 5. **Aggiungere l'addizionale regionale** e comunale
 
