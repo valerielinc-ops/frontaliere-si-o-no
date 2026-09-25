@@ -6722,6 +6722,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.francese-autonomia-cantoni.title': 'Le français à l\'école : les cantons défendent l\'autonomie',
     'blog.article.francese-autonomia-cantoni.excerpt': 'La CDPE défend les prérogatives cantonales en matière de langues et ne choisit pas entre les deux variantes fédérales : consultation jusqu’au 5 octobre.',
     'blog.article.francese-autonomia-cantoni.imageAlt': 'École suisse avec des livres de français et d’allemand',
+    'blog.article.svizzera-difesa-bilancio-iva.title': 'TVA à 0,2 % et fonds de défense de 24 milliards : le compromis aux États',
+    'blog.article.svizzera-difesa-bilancio-iva.excerpt': 'Par 25 voix contre 17, le Conseil des États approuve +0,2 point de TVA pendant 18 ans, un fonds de défense allant jusqu’à 24 milliards et un endettement allant jusqu’à 12 milliards. Réduction des F-35 à ~30 et crédit supplémentaire de 394 millions.',
+    'blog.article.svizzera-difesa-bilancio-iva.imageAlt': 'Vue aérienne des Alpes suisses avec silhouette d\'un avion de chasse, symbole du débat sur les dépenses de défense',
 };
 
 export default blogMetaChFr;
