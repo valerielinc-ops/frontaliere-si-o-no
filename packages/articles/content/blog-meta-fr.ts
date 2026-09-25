@@ -11999,6 +11999,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ticket-stipendio-acquisti-ticino.title': 'Ticket-salaire : la proposition d\'acheter au Tessin',
     'blog.article.ticket-stipendio-acquisti-ticino.excerpt': 'Ticket-salaire au Tessin : les Giovani del Centro proposent de consacrer jusqu’à 5% du salaire aux achats locaux, avec un bon fiscal sur 25%.',
     'blog.article.ticket-stipendio-acquisti-ticino.imageAlt': 'Bon salarial et achats dans un commerce du Tessin',
+    'blog.article.furti-auto-lusso-ticino.title': 'Vol de voitures de luxe au Tessin : trois personnes arrêtées',
+    'blog.article.furti-auto-lusso-ticino.excerpt': 'Quatre voitures haut de gamme volées à Manno, Lamone et Camorino. Trois jeunes arrêtés et un quatrième suspect recherché à la suite d’enquêtes conjointes.',
+    'blog.article.furti-auto-lusso-ticino.imageAlt': 'Voiture de luxe chez un concessionnaire au Tessin',
 };
 
 export default blogMetaFr;
