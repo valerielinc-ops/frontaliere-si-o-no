@@ -185,10 +185,21 @@ function requireOutcomeContract(value, name) {
       && typeof value.allowNumeratorExceedDenominator !== 'boolean') {
     fail(`${name}.allowNumeratorExceedDenominator must be boolean`);
   }
+  const historicalSourceRefs = requireSourceRefSets(value.historicalSourceRefs, `${name}.historicalSourceRefs`);
+  const historicalSourceRefsBefore = value.historicalSourceRefsBefore === undefined || value.historicalSourceRefsBefore === null
+    ? null
+    : requireIso(value.historicalSourceRefsBefore, `${name}.historicalSourceRefsBefore`);
+  if (historicalSourceRefs.length > 0 && !historicalSourceRefsBefore) {
+    fail(`${name}.historicalSourceRefsBefore is required when historicalSourceRefs are declared`);
+  }
+  if (historicalSourceRefs.length === 0 && historicalSourceRefsBefore) {
+    fail(`${name}.historicalSourceRefsBefore requires historicalSourceRefs`);
+  }
   return {
     outcomeId: requireText(value.outcomeId, `${name}.outcomeId`),
     sourceRefs: [...requireTextArray(value.sourceRefs, `${name}.sourceRefs`)],
-    historicalSourceRefs: requireSourceRefSets(value.historicalSourceRefs, `${name}.historicalSourceRefs`),
+    historicalSourceRefs,
+    historicalSourceRefsBefore,
     requiredFields: [...requireTextArray(value.requiredFields, `${name}.requiredFields`)],
     allowNumeratorExceedDenominator: value.allowNumeratorExceedDenominator === true,
   };
@@ -547,12 +558,7 @@ function sourceRefsMatch(actual, expected) {
     && expected.every((sourceRef) => actual.includes(sourceRef));
 }
 
-export function validateOutcomeAgainstPolicy(
-  registry,
-  loopId,
-  outcome,
-  { allowHistoricalSourceRefs = false } = {},
-) {
+function validateOutcomeAgainstPolicyInternal(registry, loopId, outcome, allowHistorical) {
   const policy = findLoopPolicy(registry, loopId);
   if (!outcome || typeof outcome !== 'object' || Array.isArray(outcome)) {
     fail(`${loopId}.outcome must be an object`);
@@ -568,7 +574,9 @@ export function validateOutcomeAgainstPolicy(
     fail(`${loopId}.outcome denominator policy does not match the registry`);
   }
   const currentSourceRefsMatch = sourceRefsMatch(normalized.sourceRefs, policy.outcome.sourceRefs);
-  const historicalSourceRefsMatch = allowHistoricalSourceRefs
+  const historicalSourceRefsMatch = allowHistorical
+    && policy.outcome.historicalSourceRefsBefore
+    && Date.parse(normalized.recordedAt) < Date.parse(policy.outcome.historicalSourceRefsBefore)
     && policy.outcome.historicalSourceRefs.some((sourceRefs) => sourceRefsMatch(normalized.sourceRefs, sourceRefs));
   if (!currentSourceRefsMatch && !historicalSourceRefsMatch) {
     fail(`${loopId}.outcome.sourceRefs must exactly match the registry declaration`);
@@ -588,6 +596,20 @@ export function validateOutcomeAgainstPolicy(
     fail(`${loopId}.measured outcome must be independent`);
   }
   return { loopId, policy, outcome: normalized, missingRequiredFields };
+}
+
+export function validateOutcomeAgainstPolicy(registry, loopId, outcome) {
+  return validateOutcomeAgainstPolicyInternal(registry, loopId, outcome, false);
+}
+
+/** Validate a record already persisted in the durable ledger.
+ *
+ * Historical source refs are accepted only when the registry supplies a
+ * migration cutoff and the record proves that it predates that cutoff. New
+ * artifact/current-run validation must use validateOutcomeAgainstPolicy().
+ */
+export function validateHistoricalOutcomeAgainstPolicy(registry, loopId, outcome) {
+  return validateOutcomeAgainstPolicyInternal(registry, loopId, outcome, true);
 }
 
 export function validateDecisionLifecycle(registry, loopId, decision) {
@@ -653,7 +675,7 @@ export function buildLifecycleEvent({
   };
 }
 
-export function validateLifecycleEvent(registry, loopId, event) {
+function validateLifecycleEventInternal(registry, loopId, event, allowHistorical) {
   const policy = findLoopPolicy(registry, loopId);
   if (!event || typeof event !== 'object' || Array.isArray(event)) {
     fail(`${loopId}.lifecycle event must be an object`);
@@ -668,15 +690,27 @@ export function validateLifecycleEvent(registry, loopId, event) {
     fail(`${loopId}.lifecycle event recordedAt is required`);
   }
   const normalized = buildLifecycleEvent(event);
-  const missingSourceRefs = policy.sourceRefs.filter((sourceRef) => !normalized.sourceRefs.includes(sourceRef));
-  const extraSourceRefs = normalized.sourceRefs.filter((sourceRef) => !policy.sourceRefs.includes(sourceRef));
-  if (missingSourceRefs.length || extraSourceRefs.length) {
+  const currentSourceRefsMatch = sourceRefsMatch(normalized.sourceRefs, policy.sourceRefs);
+  const historicalSourceRefsMatch = allowHistorical
+    && policy.outcome.historicalSourceRefsBefore
+    && Date.parse(normalized.recordedAt) < Date.parse(policy.outcome.historicalSourceRefsBefore)
+    && policy.outcome.historicalSourceRefs.some((sourceRefs) => sourceRefsMatch(normalized.sourceRefs, sourceRefs));
+  if (!currentSourceRefsMatch && !historicalSourceRefsMatch) {
     fail(`${loopId}.lifecycle event sourceRefs must exactly match the registry declaration`);
   }
   if (JSON.stringify(normalized.lifecycle) !== JSON.stringify(policy.lifecycle)) {
     fail(`${loopId}.lifecycle event lifecycle metadata does not match the registry`);
   }
   return { loopId, policy, event: normalized };
+}
+
+export function validateLifecycleEvent(registry, loopId, event) {
+  return validateLifecycleEventInternal(registry, loopId, event, false);
+}
+
+/** Validate a lifecycle event already persisted in the durable ledger. */
+export function validateHistoricalLifecycleEvent(registry, loopId, event) {
+  return validateLifecycleEventInternal(registry, loopId, event, true);
 }
 
 const ORDERED_LIFECYCLE_EVENTS = new Map(REQUIRED_LIFECYCLE_EVENT_TYPES.map((eventType, index) => [eventType, index]));

@@ -75,6 +75,38 @@ function recorderEvent(
   };
 }
 
+function l2Event(
+  eventType: string,
+  candidateId: string,
+  occurredAt: string,
+  runId: number,
+  sourceRefs: string[],
+) {
+  const policy = registry.loops.find((loop: { loopId: string }) => loop.loopId === 'L2');
+  return {
+    ...buildLifecycleEvent({
+      eventType,
+      loopId: 'L2',
+      candidateId,
+      owner: policy.owner,
+      sourceRecordId: candidateId,
+      sourceRefs,
+      lifecycle: policy.lifecycle,
+      occurredAt,
+      artifactOrPr: eventType === 'pr_opened' ? 'https://example.test/pull/123' : null,
+      recordedAt: occurredAt,
+    }),
+    recordId: `lf-lifecycle-${candidateId}-${eventType}-${runId}`,
+    execution: {
+      loopId: 'L2',
+      repository: 'example/frontaliere',
+      workflow: 'Loop L2 demand to utility',
+      runId: String(runId),
+      sha: SOURCE_SHA,
+    },
+  };
+}
+
 function recorderChain(candidateId: string) {
   const occurredAt = '2026-09-10T10:00:00.000Z';
   return [
@@ -800,6 +832,32 @@ describe('loop-fleet independent lifecycle observer', () => {
       registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
     })).toMatchObject({ inputRecords: 1, appended: 0, skipped: 1 });
     expect(fs.readFileSync(path.join(ledgerDir, 'lifecycle-events.jsonl'), 'utf8')).toBe(before);
+  });
+
+  it('keeps declared historical source refs readable while requiring current refs for new events', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-lifecycle-historical-source-'));
+    const eventsFile = path.join(root, 'events.jsonl');
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(ledgerDir);
+    const candidateId = 'lf-historical-source-ref-migration';
+    const historicalSourceRefs = ['gsc', 'posthog-landing-path'];
+    seedLedger(ledgerDir, [
+      l2Event('candidate', candidateId, '2026-09-10T10:00:00.000Z', 22_400, historicalSourceRefs),
+      l2Event('owner_assigned', candidateId, '2026-09-10T10:00:00.000Z', 22_401, historicalSourceRefs),
+    ]);
+    writeJsonl(eventsFile, [l2Event(
+      'pr_opened',
+      candidateId,
+      '2026-09-10T11:00:00.000Z',
+      22_402,
+      registry.loops.find((loop: { loopId: string }) => loop.loopId === 'L2').sourceRefs,
+    )]);
+
+    expect(appendLoopFleetLifecycle({
+      eventsFile,
+      ledgerDir,
+      registryPath: path.resolve('data/loop-fleet/loop-registry.json'),
+    })).toMatchObject({ inputRecords: 1, appended: 1, skipped: 0 });
   });
 
   it('rejects an isolated rolled_back event before writing the ledger', () => {
