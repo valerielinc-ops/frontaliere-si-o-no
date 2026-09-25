@@ -1,6 +1,6 @@
 {
   "crawlerKey": "somedia",
-  "assembledAt": "2026-09-24T14:28:41.300Z",
+  "assembledAt": "2026-09-25T14:47:53.446Z",
   "jobs": [
     {
       "id": "somedia-ab12f68befed",
@@ -17,7 +17,7 @@
       "title": "Redaktor/in Video (40%)",
       "titleByLocale": {
         "it": "Video editoriale (40%)",
-        "en": "Editorial Video (40%)",
+        "en": "Redaktor/in Video (40%)",
         "de": "Redaktor/in Video (40%)",
         "fr": "Rédacteur/en vidéo (40)"
       },
@@ -33,7 +33,7 @@
       "url": "https://jobs.somedia.ch/Redaktorin-Video-40-de-j415.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:28:31.571Z",
+      "crawledAt": "2026-09-25T14:47:47.243Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -95,6 +95,7 @@
         ]
       },
       "firstSeenAt": "2026-09-01T14:17:28.751Z",
+      "needsRetranslation": true,
       "salaryMin": 26000,
       "salaryMax": 39400,
       "salarySource": "estimated",
@@ -125,7 +126,7 @@
       "title": "Sales Manager/in Aussendienst (80-100%)",
       "titleByLocale": {
         "it": "Sales Manager Field Service (80-100%)",
-        "en": "Sales Manager Field Service (80-100%)",
+        "en": "Sales Manager/in Aussendienst (80-100%)",
         "de": "Sales Manager/in Aussendienst (80-100%)",
         "fr": "Directeur des ventes Service mobile (80-100 %)"
       },
@@ -141,7 +142,7 @@
       "url": "https://jobs.somedia.ch/Sales-Managerin-Aussendienst-80-100-de-j416.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:28:30.558Z",
+      "crawledAt": "2026-09-25T14:47:46.246Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -188,6 +189,7 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:15:11.091Z",
+      "needsRetranslation": true,
       "salaryMin": 100000,
       "salaryMax": 152000,
       "salarySource": "estimated",

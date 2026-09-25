@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tschuggen",
-  "assembledAt": "2026-09-24T14:28:24.228Z",
+  "assembledAt": "2026-09-25T14:47:08.366Z",
   "jobs": [
     {
       "id": "bewerbermanagement-stellen-f444ba36dc64",
@@ -9,7 +9,7 @@
         "it": "food-and-beverage-manager-m-f-d-in-occupazione-permanente-tschuggen-collection-st-moritz",
         "en": "food-and-beverage-manager-m-f-d-in-permanent-employment-tschuggen-collection-st-moritz",
         "de": "food-and-beverage-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
-        "fr": "gestionnaire-des-aliments-et-boissons-m-f-j-en-emploi-permanent-tschuggen-collection-st-moritz"
+        "fr": "food-and-beverage-manager-m-w-d-poste-a-duree-indeterminee-tschuggen-collection-st-moritz"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -17,7 +17,7 @@
       "title": "F&B Manager (m/w/d), in unbefristeter Anstellung",
       "titleByLocale": {
         "it": "Food and Beverage Manager (m/f/d), posizione a tempo indeterminato",
-        "en": "F&B Manager (m/f/d), in permanent employment",
+        "en": "F&B Manager (m/w/d), in unbefristeter Anstellung",
         "de": "F&B Manager (m/w/d), in unbefristeter Anstellung",
         "fr": "Food and Beverage Manager (h/f/d), poste à durée indéterminée"
       },
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1331/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:28:18.645Z",
+      "crawledAt": "2026-09-25T14:47:01.773Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -55,22 +55,27 @@
         "food-and-beverage-manager-m-w-d-in-unbefristeter-anstellung-bewerbermanagement-stellen-ch",
         "food-and-beverage-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
         "f-b-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
+        "gestionnaire-des-aliments-et-boissons-m-f-j-en-emploi-permanent-tschuggen-collection-st-moritz",
+        "food-and-beverage-manager-m-f-d-in-occupazione-permanente-tschuggen-collection-st-moritz",
         "food-and-beverage-manager-m-w-d-poste-a-duree-indeterminee-tschuggen-collection-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "food-and-beverage-manager-m-w-d-in-unbefristeter-anstellung-bewerbermanagement-stellen-ch",
           "food-and-beverage-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
-          "f-b-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch"
+          "f-b-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
+          "food-and-beverage-manager-m-f-d-in-occupazione-permanente-tschuggen-collection-st-moritz"
         ],
         "de": [
           "food-and-beverage-manager-m-w-d-in-unbefristeter-anstellung-bewerbermanagement-stellen-ch"
         ],
         "fr": [
+          "gestionnaire-des-aliments-et-boissons-m-f-j-en-emploi-permanent-tschuggen-collection-st-moritz",
           "food-and-beverage-manager-m-w-d-poste-a-duree-indeterminee-tschuggen-collection-st-moritz"
         ]
       },
       "firstSeenAt": "2026-08-23T21:46:41.897Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -117,7 +122,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1069/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:28:17.792Z",
+      "crawledAt": "2026-09-25T14:47:00.880Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -142,7 +147,8 @@
         "service-employees-m-f-d-winter-season-2026-2027-tschuggen-collection-arosa",
         "servicemitarbeiter-m-w-d-wintersaison-2026-2027-tschuggen-ch",
         "employes-des-services-m-f-d-saison-hivernale-2026-2027-tschuggen-collection-arosa",
-        "servicemitarbeiter-m-w-d-wintersaison-2026-2027-bewerbermanagement-stellen-ch"
+        "servicemitarbeiter-m-w-d-wintersaison-2026-2027-bewerbermanagement-stellen-ch",
+        "professionista-del-servizio-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-arosa"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -152,7 +158,8 @@
           "service-employees-m-f-d-winter-season-2026-2027-tschuggen-collection-arosa",
           "servicemitarbeiter-m-w-d-wintersaison-2026-2027-tschuggen-ch",
           "employes-des-services-m-f-d-saison-hivernale-2026-2027-tschuggen-collection-arosa",
-          "servicemitarbeiter-m-w-d-wintersaison-2026-2027-bewerbermanagement-stellen-ch"
+          "servicemitarbeiter-m-w-d-wintersaison-2026-2027-bewerbermanagement-stellen-ch",
+          "professionista-del-servizio-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-arosa"
         ],
         "en": [
           "servicepraktikant-m-w-d-wintersaison-2026-2027-tschuggen-ch",
@@ -168,6 +175,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:15:33.506Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -197,7 +205,7 @@
       "companyDomain": "tschuggencollection.ch",
       "title": "Chef de Rang (m/w/d) Wintersaison 2026/2027",
       "titleByLocale": {
-        "it": "Chef de Rang (m/f/d) Stagione invernale 2026/2027",
+        "it": "Chef de Rang (m/w/d) Wintersaison 2026/2027",
         "en": "Chef de Rang (m/f/d) Winter Season 2026/2027",
         "de": "Chef de Rang (m/w/d) Wintersaison 2026/2027",
         "fr": "Chef de Rang (h/f/d) Saison d'hiver 2026/2027"
@@ -214,7 +222,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1390/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:28:16.926Z",
+      "crawledAt": "2026-09-25T14:47:00.007Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -234,7 +242,8 @@
       "hotelName": "Carlton Hotel St. Moritz",
       "previousSlugsByLocale": {
         "de": [
-          "sous-chef-m-w-d-wintersaison-2026-27-tschuggen-ch"
+          "sous-chef-m-w-d-wintersaison-2026-27-tschuggen-ch",
+          "chef-de-rang-m-w-d-wintersaison-2026-2027-bewerbermanagement-stellen-ch"
         ],
         "it": [
           "chef-de-rang-m-w-d-wintersaison-2026-2027-bewerbermanagement-stellen-ch",
@@ -262,6 +271,7 @@
         "sous-chef-h-f-d-saison-d-hiver-2026-27-tschuggen-collection-arosa"
       ],
       "firstSeenAt": "2026-08-24T21:43:13.922Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -291,7 +301,7 @@
       "companyDomain": "tschuggencollection.ch",
       "title": "Masseur/Kosmetiker (m/w/d) Wintersaison 26/27",
       "titleByLocale": {
-        "it": "Masseur/cosmeticista (m/f/d) stagione invernale 26/27",
+        "it": "Masseur/Kosmetiker (m/w/d) Wintersaison 26/27",
         "en": "Masseur/cosmetician (m/f/d) winter season 26/27",
         "de": "Masseur/Kosmetiker (m/w/d) Wintersaison 26/27",
         "fr": "Masseur/cosméticien (h/f/d) hiver saison 26/27"
@@ -308,7 +318,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1059/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:28:16.270Z",
+      "crawledAt": "2026-09-25T14:46:59.108Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -328,12 +338,14 @@
       "hotelName": "Valsana Hotel Arosa",
       "previousSlugs": [
         "masseur-kosmetiker-m-w-d-wintersaison-26-27-tschuggen-ch",
-        "masseur-kosmetiker-m-w-d-wintersaison-26-27-tschuggen-collection-arosa"
+        "masseur-kosmetiker-m-w-d-wintersaison-26-27-tschuggen-collection-arosa",
+        "masseur-cosmeticista-m-f-d-stagione-invernale-26-27-tschuggen-collection-arosa"
       ],
       "previousSlugsByLocale": {
         "it": [
           "masseur-kosmetiker-m-w-d-wintersaison-26-27-tschuggen-ch",
-          "masseur-kosmetiker-m-w-d-wintersaison-26-27-tschuggen-collection-arosa"
+          "masseur-kosmetiker-m-w-d-wintersaison-26-27-tschuggen-collection-arosa",
+          "masseur-cosmeticista-m-f-d-stagione-invernale-26-27-tschuggen-collection-arosa"
         ],
         "en": [
           "masseur-kosmetiker-m-w-d-wintersaison-26-27-tschuggen-ch"
@@ -343,6 +355,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:43:40.622Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -389,7 +402,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1394/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:28:14.955Z",
+      "crawledAt": "2026-09-25T14:46:57.820Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -408,11 +421,13 @@
       "department": "Küche",
       "hotelName": "Carlton Hotel St. Moritz",
       "previousSlugs": [
-        "officemitarbeiter-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        "officemitarbeiter-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+        "dipendente-ufficio-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "officemitarbeiter-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+          "officemitarbeiter-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+          "dipendente-ufficio-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz"
         ],
         "en": [
           "officemitarbeiter-m-w-d-wintersaison-2026-2027-tschuggen-ch"
@@ -436,238 +451,6 @@
         }
       },
       "addressRegion": "GR"
-    },
-    {
-      "id": "bewerbermanagement-stellen-fe67268ed884",
-      "slug": "food-and-beverage-assistant-m-w-d-shopping-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
-      "slugByLocale": {
-        "it": "food-and-beverage-assistant-m-w-d-shopping-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
-        "en": "food-and-beverage-assistant-m-f-d-purchasing-winter-season-2026-2027-bewerbermanagement-stellen-lugano",
-        "de": "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch",
-        "fr": "assistant-pour-les-aliments-et-boissons-m-f-j-achats-saison-hivernale-2026-2027-tschuggen-collection-st-moritz"
-      },
-      "company": "Tschuggen Collection",
-      "companyKey": "tschuggen",
-      "companyDomain": "tschuggencollection.ch",
-      "title": "F&B Assistant (m/w/d) / Einkauf, Wintersaison 2026/2027",
-      "titleByLocale": {
-        "it": "Assistente alimentare e bevande (m/f/d) / Acquisti, Stagione invernale 2026/2027",
-        "en": "Food and Beverage Assistant (m/f/d) / Purchasing, Winter Season 2026/2027",
-        "de": "F&B Assistent (m/w/d) / Einkauf, Wintersaison 2026/2027",
-        "fr": "Assistant F&B (h/f/d) / Achats, saison hivernale 2026/2027"
-      },
-      "description": "Das Carlton Hotel in St. Moritz ist ein auf 1'856m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen, designed by Carlo Rampazzi. Als eines der 4 Häuser der \"The Tschuggen Collection AG\", bietet unser Haus 60 individuell gestaltete Suiten und Zimmer, dazu stilvolle Restaurants – darunter das Gourmet‑Highlight Da Vittorio mit 18 Punkten Gault Millau & 2 Michelin‑Sternen und das Grand Restaurant, eine Hommage an die Natur und die kulinarischen Köstlichkeiten des Engadins – sowie ein beeindruckender 1 200 m² grosser Spa. Wir legen grossen Wert auf Nachhaltigkeit, sind Green Globe zertifiziert und Mitglied von Leading Hotels of the World, der Swiss Deluxe Hotels, des Forbes Travel Guides und der American Express Fine Hotels & Resorts. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Eintritt per ca. Mitte November 2026 Arbeitsverhältnis befristet bis ca. Ende März 2027 | - Abgeschlossene Berufsausbildung mit Weiterbildung im Bereich Food and Beverage - Mindestens 2-jährige Berufserfahrung in der selben oder vergleichbaren Position in der 4* oder 5* Hotellerie - Fliessende Deutsch- und Englischkenntnisse sind Voraussetzung, jede weitere Sprache, wie Italienisch sind von Vorteil - Ausgeprägtes Servicedenken, hohes Qualitätsbewusstsein sowie Liebe zum Detail - Gepflegtes Erscheinungsbild, professionelle Umgangsformen und freundliches Auftreten - Empathische und diskrete Persönlichkeit, sowie Bereitschaft, die Extrameile zu gehen | - Selbstständiges Führen der Einkauf-Abteilung inkl. interne Zustellung von Paketen - Kontrolle der Lieferungen - bei Abwesenheit des F&B Managers und des Asst. F&B Managers volle Verantwortung der F&B Bereiche (Grand Restaurant, Da Vittorio - St. Moritz, Fondue Gondeln, Carlton Bar / Bel Etage und Terrasse, Room Service, sowie Einkauf und Events) - Mithilfe und Unterstützung bei der Planung und Umsetzung exklusiver Veranstaltungen, Banketten und Events | Ausgewogenes Menü-Angebot in unserem Mitarbeiterrestaurant \"Le Bistro\" während der Wintersaison Yoga für Mitarbeitende, sowie monatliche Poolabende & Nutzung unseres Fitnesscenters während der Wintersaison Bevorzugte Konditionen und Rabatte bei unseren Partnern (z.B.: Update Fitness, hauseigenes Sportgeschäft) Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels sowie attraktive externe Weiterbildungsmöglichkeiten | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Arbeitszeugnisse & Diplome",
-      "descriptionByLocale": {
-        "it": "Il Carlton Hotel di St. Moritz è un hotel di lusso a 5 stelle superior nel Bündner Bergen, progettato da Carlo Rampazzi. Come una delle 4 case di \"The Tschuggen Collection AG\", la nostra casa offre 60 suite e camere disegnate individualmente, oltre a ristoranti eleganti - tra cui il clou gourmet Da Vittorio con 18 punti Gault Millau & 2 stelle Michelin e il Grand Restaurant, un omaggio alla natura e alle delizie culinarie dell'Engadine - così come un impressionante centro benessere di 1 200 m2. Apprezziamo la sostenibilità, siamo certificati Green Globe e siamo membri dei Leading Hotels of the World, Swiss Deluxe Hotels, Forbes Travel Guide e American Express Fine Hotels & Resorts. VISIONE - Ritorniamo il vostro valore in tempo. Entrata per ca. Mezzo novembre 2026 lavoro temporaneo fino a ca. Fine marzo 2027 | - Completata la formazione professionale con ulteriore formazione nel settore Food and Beverage - Almeno 2 anni di esperienza professionale nella stessa o comparabile posizione nel settore alberghiero 4* o 5* - La conoscenza fluida del tedesco e dell'inglese è un prerequisito, ogni altra lingua, come l'italiano, è vantaggiosa - Pronunciato pensiero di servizio, alta consapevolezza di qualità così come l'attenzione ai dettagli - F&B Managers pieno di responsabilità delle aree F&B (Grand Restaurant, Da Vittorio - St. Moritz, Fondue Gondola, Carlton Bar / Bel piano e terrazza, Room Service, così come shopping ed eventi) - Assistenza e supporto nella pianificazione e realizzazione di eventi esclusivi, banchetti e eventi | Menu bilanciato offrono nel nostro ristorante dipendente \"Le Bistro\" durante la stagione invernale Yoga per i dipendenti, così come le serate mensili di piscina e uso Attendiamo con ansia il vostro dossier di applicazione - felicemente digitale: Lettera di applicazione Full CV incl. Certificati di lavoro e diplomi fotografici",
-        "en": "The Carlton Hotel in St. Moritz is a 5-star superior luxury hotel in the Bündner Bergen, designed by Carlo Rampazzi. As one of the 4 houses of \"The Tschuggen Collection AG\", our house offers 60 individually designed suites and rooms, plus stylish restaurants - including the gourmet highlight Da Vittorio with 18 points Gault Millau & 2 Michelin stars and the Grand Restaurant, a tribute to nature and the culinary delights of the Engadine - as well as an impressive 1 200 m2 spa. We value sustainability, are Green Globe certified and are members of Leading Hotels of the World, Swiss Deluxe Hotels, Forbes Travel Guide and American Express Fine Hotels & Resorts. OUR VISION - We return your value to time. Entrance per ca. Mid-November 2026 employment temporary until approx. End of March 2027 | - Completed vocational training with further training in the field of Food and Beverage - At least 2 years of professional experience in the same or comparable position in the 4* or 5* hotel industry - Flowing knowledge of German and English is a prerequisite, every other language, such as Italian, is advantageous - Pronounced service thinking, high quality awareness as well as attention to detail - Careful appearance, professional manners and friendly behavior - Empathic and discreet personality, as well as willingness to go the extra mile | - Independent management of the purchasing department, including internal delivery of packages - Control of deliveries - in the absence of the F&B manager and the branch. F&B Managers full responsibility of the F&B areas (Grand Restaurant, Da Vittorio - St. Moritz, Fondue Gondola, Carlton Bar / Bel floor and terrace, Room Service, as well as shopping and events) - Assistance and support in the planning and implementation of exclusive events, banquets and events | Balanced menu offer in our employee restaurant \"Le Bistro\" during the winter season Yoga for employees, as well as monthly pool evenings & use of our fitness center during the winter season Preferred conditions and discounts with our partners (e.g.: Update Fitness, in-house sports shop) Special prices for overnight stays in our hotels of \"The Tschuggen Collection\" as well as the Swiss Deluxe Hotels as well as attractive external training opportunities | Feel addressed - Apply now! We look forward to your application dossier - gladly digital: Application letter Full CV incl. Photo Employment certificates & diplomas",
-        "de": "Das Carlton Hotel in St. Moritz ist ein auf 1'856m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen, designed by Carlo Rampazzi. Als eines der 4 Häuser der \"The Tschuggen Collection AG\", bietet unser Haus 60 individuell gestaltete Suiten und Zimmer, dazu stilvolle Restaurants – darunter das Gourmet‑Highlight Da Vittorio mit 18 Punkten Gault Millau & 2 Michelin‑Sternen und das Grand Restaurant, eine Hommage an die Natur und die kulinarischen Köstlichkeiten des Engadins – sowie ein beeindruckender 1 200 m² grosser Spa. Wir legen grossen Wert auf Nachhaltigkeit, sind Green Globe zertifiziert und Mitglied von Leading Hotels of the World, der Swiss Deluxe Hotels, des Forbes Travel Guides und der American Express Fine Hotels & Resorts. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Eintritt per ca. Mitte November 2026 Arbeitsverhältnis befristet bis ca. Ende März 2027 | - Abgeschlossene Berufsausbildung mit Weiterbildung im Bereich Food and Beverage - Mindestens 2-jährige Berufserfahrung in der selben oder vergleichbaren Position in der 4* oder 5* Hotellerie - Fliessende Deutsch- und Englischkenntnisse sind Voraussetzung, jede weitere Sprache, wie Italienisch sind von Vorteil - Ausgeprägtes Servicedenken, hohes Qualitätsbewusstsein sowie Liebe zum Detail - Gepflegtes Erscheinungsbild, professionelle Umgangsformen und freundliches Auftreten - Empathische und diskrete Persönlichkeit, sowie Bereitschaft, die Extrameile zu gehen | - Selbstständiges Führen der Einkauf-Abteilung inkl. interne Zustellung von Paketen - Kontrolle der Lieferungen - bei Abwesenheit des F&B Managers und des Asst. F&B Managers volle Verantwortung der F&B Bereiche (Grand Restaurant, Da Vittorio - St. Moritz, Fondue Gondeln, Carlton Bar / Bel Etage und Terrasse, Room Service, sowie Einkauf und Events) - Mithilfe und Unterstützung bei der Planung und Umsetzung exklusiver Veranstaltungen, Banketten und Events | Ausgewogenes Menü-Angebot in unserem Mitarbeiterrestaurant \"Le Bistro\" während der Wintersaison Yoga für Mitarbeitende, sowie monatliche Poolabende & Nutzung unseres Fitnesscenters während der Wintersaison Bevorzugte Konditionen und Rabatte bei unseren Partnern (z.B.: Update Fitness, hauseigenes Sportgeschäft) Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels sowie attraktive externe Weiterbildungsmöglichkeiten | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Arbeitszeugnisse & Diplome",
-        "fr": "L'hôtel Carlton à St. Moritz est un hôtel de luxe 5 étoiles situé dans le Bündner Bergen, conçu par Carlo Rampazzi. Notre maison, l'une des 4 maisons du Tschuggen Collection AG, propose 60 suites et chambres conçues individuellement, ainsi que des restaurants élégants - dont le point culminant gastronomique Da Vittorio avec 18 points Gault Millau & 2 étoiles Michelin et le Grand Restaurant, un hommage à la nature et les délices culinaires de l'Engadine - ainsi qu'un impressionnant spa de 1 200 m2. Nous apprécions la durabilité, sommes certifiés Green Globe et sont membres de Leading Hotels of the World, Swiss Deluxe Hotels, Forbes Travel Guide et American Express Fine Hotels & Resorts. NOTRE VISION - Nous retournons votre valeur au temps. Entrée par ca. mi-novembre 2026 emploi temporaire jusqu'à environ. Fin mars 2027 - Formation professionnelle complétée avec une formation continue dans le domaine de l'alimentation et des boissons - Au moins 2 ans d'expérience professionnelle dans la même position ou comparable dans l'industrie hôtelière 4* ou 5* - Une connaissance fluide de l'allemand et de l'anglais est une condition préalable, toute autre langue, comme l'italien, est avantageuse - Pensée de service prononcée, sensibilisation de haute qualité ainsi que l'attention aux détails - Aspect attentif, manières professionnelles et comportement amical - Personnalité empathique et discrète, ainsi que la volonté d'aller au mille supplémentaire - Gestion indépendante du département d'achat, y compris la livraison interne des colis - Contrôle des livraisons - en l'absence du directeur F&B et de la succursale. F&B Managers (Grand Restaurant, Da Vittorio - St. Moritz, Fondue Gondola, Carlton Bar / Bel étage et terrasse, Room Service, ainsi que des achats et des événements) - Assistance et soutien dans la planification et la mise en œuvre d'événements exclusifs, de banquets et d'événements. Nous attendons avec impatience votre dossier de candidature - volontiers numérique: Lettre de candidature CV complet incl. Photo Certificats et diplômes d'emploi"
-      },
-      "location": "St. Moritz",
-      "canton": "GR",
-      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1346/Description/1",
-      "source": "Tschuggen Collection Dedicated Parser (Umantis)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:08:32.845Z",
-      "addressLocality": "St. Moritz",
-      "postalCode": "7500",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Gastronomia",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1346/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Food and Beverage",
-      "hotelName": "Carlton Hotel St. Moritz",
-      "previousSlugs": [
-        "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-bewerbermanagement",
-        "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch",
-        "f-b-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-bewerbermanagement",
-          "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch",
-          "f-b-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch"
-        ],
-        "en": [
-          "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch"
-        ],
-        "de": [
-          "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-bewerbermanagement"
-        ]
-      },
-      "firstSeenAt": "2026-08-23T21:46:41.594Z",
-      "salaryMin": 62000,
-      "salaryMax": 78000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "tschuggen-191b2bb2d743",
-      "slug": "dipendenti-di-servizio-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-arosa",
-      "slugByLocale": {
-        "it": "dipendenti-di-servizio-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-arosa",
-        "en": "service-employees-m-f-d-winter-season-2026-2027-tschuggen-collection-arosa",
-        "de": "servicemitarbeiter-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "fr": "employes-des-services-m-f-d-saison-hivernale-2026-2027-tschuggen-collection-arosa"
-      },
-      "company": "Tschuggen Collection",
-      "companyKey": "tschuggen",
-      "companyDomain": "tschuggencollection.ch",
-      "title": "Servicemitarbeiter (m/w/d) Wintersaison 2026/2027",
-      "titleByLocale": {
-        "it": "Dipendenti di servizio (m/f/d) stagione invernale 2026/2027",
-        "en": "Service employees (m/f/d) winter season 2026/2027",
-        "de": "Servicemitarbeiter (m/w/d) Wintersaison 2026/2027",
-        "fr": "Employés de service (h/f/d) hiver saison 2026/2027"
-      },
-      "description": "Eintritt per 30. November 2026 Arbeitsverhältnis befristet bis 6. April 2027 | Betreuung der Gäste vom Empfang bis zur Verabschiedung inkl. Bestellungsaufnahme Leiten einer eigenen Station mit bis zu 12 Tischen Sicherstellen eines fachgerechten Speise- und Getränkeservices unter Berücksichtigung der vorgegeben Standards sowie aktiver Weinverkauf Sicherstellung der optimalen Gästezufriedenheit Erstellung der Gästeabrechnung | As 85% of our clients are German speaking, a fluent knowledge of the German language is essential for our staff. Voraussetzung für diese Position sind fliessende Deutsch- und Englischkenntnisse. Bitte bewerben Sie sich nur, wenn Sie beide Sprachen sicher beherrschen. Bewerbungen ohne fliessende Deutschkenntnisse können leider nicht berücksichtigt werden. Weitere Sprachkenntnisse sind von Vorteil Abgeschlossenene Ausbildung zum Restaurantfachmann/frau oder mehrjährige Berufserfahrung Teamfähig , verantwortungsbewusst und flexibel Gepflegtes Erscheinungsbild und professionelle Umgangsformen Empathische Persönlichkeit sowie serviceorientiertes Auftreten | Ihr Grundstein für eine Karriere in einer führenden Schweizer Luxus Hotelgruppe Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeiterkantine 24/7 Nutzung unseres Fitnesscenters Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" | FÜHLEN SIE SICH ANGESPROCHEN? BEWERBEN SIE SICH JETZT! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Zeugnisse & Diplome",
-      "descriptionByLocale": {
-        "it": "Entrata a 30. Novembre 2026 Occupazione limitata a 6. Aprile 2027 | Cura degli ospiti dalla reception all'addio incl. Ricevere un ordine Gestire la propria stazione con fino a 12 tavoli Garantire un servizio professionale di cibo e bevande tenendo conto degli standard e delle vendite di vino attivo Garantire una soddisfazione ottimale degli ospiti Creazione della contabilità ospite | Prerequisito per questa posizione è conoscenza fluente del tedesco e inglese. Si prega di applicare solo se si è sicuri di parlare entrambe le lingue. Le applicazioni senza conoscenza fluente del tedesco non possono purtroppo essere considerate. Ulteriori competenze linguistiche sono vantaggiose Formazione completa come specialista di ristoranti o diversi anni di esperienza professionale Team capace, responsabile e flessibile Aspetto e modalità professionali Personalità empatetica così come l'aspetto orientato al servizio | La vostra fondazione per una carriera in un gruppo di hotel di lusso svizzero leader Alloggi del personale Attraente vicino all'hotel L'offerta di menu bilanciato nel nostro staff mensa 24/7 Utilizzo del nostro centro fitness Vantaggi locali come i prezzi speciali a negozi sportivi, skipass e prezzi molto più speciali per la notte Attendiamo con ansia il vostro dossier di applicazione - felicemente digitale: Lettera di applicazione Full CV incl. Certificati fotografici e diplomi",
-        "en": "Entrance at 30. November 2026 Employment limited to 6. April 2027 | Care of guests from reception to farewell incl. Receiving an order Managing your own station with up to 12 tables Ensuring a professional food and drink service taking into account the given standards as well as active wine sales Ensuring optimal guest satisfaction Creation of the guest accounting | Prerequisite for this position is fluent knowledge of German and English. Please only apply if you are sure to speak both languages. Applications without fluent knowledge of German can unfortunately not be considered. Further language skills are beneficial Completed training as a restaurant specialist or several years of professional experience Team capable, responsible and flexible Appearance and professional manners Empathetic personality as well as service-oriented appearance | Your foundation for a career in a leading Swiss luxury hotel group Attractive staff accommodation near the hotel Balanced menu offer in our staff canteen 24/7 Use of our fitness center Local advantages such as special prices at sports shops, ski passes and much more special prices for overnight stays in our hotels of the \"The Tschuggen Collection\" | FEEL IT? We look forward to your application dossier - gladly digital: Application letter Full CV incl. Photo Certificates & Diplomas",
-        "de": "Eintritt per 30. November 2026 Arbeitsverhältnis befristet bis 6. April 2027 | Betreuung der Gäste vom Empfang bis zur Verabschiedung inkl. Bestellungsaufnahme Leiten einer eigenen Station mit bis zu 12 Tischen Sicherstellen eines fachgerechten Speise- und Getränkeservices unter Berücksichtigung der vorgegeben Standards sowie aktiver Weinverkauf Sicherstellung der optimalen Gästezufriedenheit Erstellung der Gästeabrechnung | As 85% of our clients are German speaking, a fluent knowledge of the German language is essential for our staff. Voraussetzung für diese Position sind fliessende Deutsch- und Englischkenntnisse. Bitte bewerben Sie sich nur, wenn Sie beide Sprachen sicher beherrschen. Bewerbungen ohne fliessende Deutschkenntnisse können leider nicht berücksichtigt werden. Weitere Sprachkenntnisse sind von Vorteil Abgeschlossenene Ausbildung zum Restaurantfachmann/frau oder mehrjährige Berufserfahrung Teamfähig , verantwortungsbewusst und flexibel Gepflegtes Erscheinungsbild und professionelle Umgangsformen Empathische Persönlichkeit sowie serviceorientiertes Auftreten | Ihr Grundstein für eine Karriere in einer führenden Schweizer Luxus Hotelgruppe Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeiterkantine 24/7 Nutzung unseres Fitnesscenters Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" | FÜHLEN SIE SICH ANGESPROCHEN? BEWERBEN SIE SICH JETZT! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Zeugnisse & Diplome",
-        "fr": "Entrée à 30. Novembre 2026 Emploi limité à 6. Avril 2027: prise en charge des invités de la réception aux adieux incl. Réception d'une commande Gérer votre propre station avec jusqu'à 12 tables Assurer un service professionnel d'alimentation et de boissons en tenant compte des normes données ainsi que des ventes actives de vin Assurer une satisfaction optimale des clients Création de la comptabilité des clients . Veuillez n'appliquer que si vous êtes sûr de parler les deux langues. Les applications sans connaissance de l'allemand ne peuvent malheureusement pas être envisagées. D'autres compétences linguistiques sont bénéfiques Formation complète en tant que spécialiste des restaurants ou plusieurs années d'expérience professionnelle Équipe capable, responsable et flexible Apparence et manières professionnelles Personnalité empathique ainsi que l'apparence orientée vers le service. Nous attendons avec impatience votre dossier de candidature - volontiers numérique: Lettre de candidature CV complet incl. Certificats et diplômes photographiques"
-      },
-      "location": "Arosa",
-      "canton": "GR",
-      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1068/Description/1",
-      "source": "Tschuggen Collection Dedicated Parser (Umantis)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:08:29.329Z",
-      "addressLocality": "Arosa",
-      "postalCode": "7050",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Gastronomia",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-07",
-      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1068/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Service",
-      "hotelName": "Valsana Hotel Arosa",
-      "previousSlugs": [
-        "servicemitarbeiter-m-w-d-wintersaison-2026-2027-tschuggen-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "servicemitarbeiter-m-w-d-wintersaison-2026-2027-tschuggen-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-07T15:13:23.134Z",
-      "salaryMin": 62000,
-      "salaryMax": 78000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "tschuggen-c57926897ed4",
-      "slug": "agente-dell-ufficio-anteriore-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-arosa",
-      "slugByLocale": {
-        "it": "agente-dell-ufficio-anteriore-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-arosa",
-        "en": "agente-dell-ufficio-anteriore-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-arosa",
-        "de": "front-office-agent-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "fr": "agent-de-reception-m-f-j-saison-hivernale-2026-2027-tschuggen-collection-arosa"
-      },
-      "company": "Tschuggen Collection",
-      "companyKey": "tschuggen",
-      "companyDomain": "tschuggencollection.ch",
-      "title": "Front Office Agent (m/w/d) Wintersaison 2026/2027",
-      "titleByLocale": {
-        "it": "Agente di ufficio anteriore (m/f/d) Stagione invernale 2026/2027",
-        "en": "Front Office Agent (m/f/d) Winter Season 2026/2027",
-        "de": "Front Office Agent (m/w/d) Wintersaison 2026/2027",
-        "fr": "Agent du bureau principal (h/f/d) Saison d'hiver 2026/2027"
-      },
-      "description": "Eintritt per 30. November 2026 Arbeitsverhältnis befristet bis 5. April 2027 | Check-in und Check-out der Hotelgäste Anlegen und Bearbeiten der Gästekartei im \"Protel\" Erledigung aller anfallenden administrativen\n• Aufgaben am Front Office Gewährleistung eines reibungslosen Ablaufs der Früh- und Spätschicht im Team Verkauf und Annahme von Zimmerreservationen | Front Office Profi mit abgeschlossener Berufslehre Fliessende Deutsch- und Englischkenntnisse sind Voraussetzung, jede weitere Sprache von Vorteil Erfahrung mit Hotelsoftware PROTEL von Vorteil Teamfähig , verantwortungsbewusst und flexibel Gepflegtes Erscheinungsbild und professionelle Umgangsformen | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeiterkantine mit vegetarischen & veganen Optionen 24/7 Nutzung unseres Fitnesscenters Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" | FÜHLEN SIE SICH ANGESPROCHEN? BEWERBEN SIE SICH JETZT! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständige Lebenslauf inkl. Foto Zeugnisse & Diplome",
-      "descriptionByLocale": {
-        "it": "Entrata a 30. Novembre 2026 Occupazione limitata a 5. Aprile 2027 | Check-in e check-out degli ospiti dell'hotel Creazione e elaborazione del file guest nel \"Protel\" Completamento di tutti i sorti amministrativi\n• Compiti presso la reception Assicurare un processo regolare del primo e del tardo turno nel team Vendita e accettazione delle prenotazioni in camera | Professionista dell'ufficio anteriore con apprendistato professionale completato La conoscenza del tedesco e dell'inglese è un prerequisito, ogni altra lingua di vantaggio Esperienza con il software dell'hotel PROTEL di vantaggio Team capace, responsabile e flessibile Aspetto principale e modo professionale | Alloggi dei dipendenti attraenti vicino ai vantaggi dell'hotel vegano offerta di menu nella nostra offerta di idoneità con i negozi di idoneità vegetariani Attendiamo con ansia il vostro dossier di applicazione - volentieri digitale: Lettera di applicazione CV completo incl. Certificati fotografici e diplomi",
-        "en": "Entry at 30. November 2026 Employment limited to 5. April 2027 | Check-in and check-out of hotel guests Creation and processing of the guest file in the \"Protel\" Completion of all arising administrative\n• Tasks at the front office Ensuring a smooth process of the early and late shift in the team Sale and acceptance of room reservations | Front office professional with completed vocational apprenticeship Flowing knowledge of German and English is a prerequisite, every other language of advantage Experience with hotel software PROTEL of advantage Team capable, responsible and flexible Maintained appearance and professional manners | Attractive employee accommodation near the hotel Balanced menu offer in our employee canteen with vegetarian & vegan options 24/7 Use of our fitness center Local advantages such as special prices at sports shops, ski passes and much more special prices for overnight stays in our hotels of the \"The Tschuggen Collection\" | FEEL IT NOW! We look forward to your application dossier - gladly digital: Application letter Complete CV incl. Photo Certificates & Diplomas",
-        "de": "Eintritt per 30. November 2026 Arbeitsverhältnis befristet bis 5. April 2027 | Check-in und Check-out der Hotelgäste Anlegen und Bearbeiten der Gästekartei im \"Protel\" Erledigung aller anfallenden administrativen\n• Aufgaben am Front Office Gewährleistung eines reibungslosen Ablaufs der Früh- und Spätschicht im Team Verkauf und Annahme von Zimmerreservationen | Front Office Profi mit abgeschlossener Berufslehre Fliessende Deutsch- und Englischkenntnisse sind Voraussetzung, jede weitere Sprache von Vorteil Erfahrung mit Hotelsoftware PROTEL von Vorteil Teamfähig , verantwortungsbewusst und flexibel Gepflegtes Erscheinungsbild und professionelle Umgangsformen | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeiterkantine mit vegetarischen & veganen Optionen 24/7 Nutzung unseres Fitnesscenters Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" | FÜHLEN SIE SICH ANGESPROCHEN? BEWERBEN SIE SICH JETZT! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständige Lebenslauf inkl. Foto Zeugnisse & Diplome",
-        "fr": "Entrée à 30. Novembre 2026 Emploi limité à 5. Avril 2027: Enregistrement et départ des clients de l'hôtel Création et traitement du dossier des clients dans le \"Protel\" Achèvement de tous les événements administratifs\n• Tâches à la réception Assurer un processus en douceur du changement précoce et tardif dans l'équipe Vente et acceptation des réservations de chambres . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Nous attendons avec impatience votre dossier de candidature - volontiers numérique: Lettre de candidature CV complet incl. Certificats et diplômes photographiques"
-      },
-      "location": "Arosa",
-      "canton": "GR",
-      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1051/Description/1",
-      "source": "Tschuggen Collection Dedicated Parser (Umantis)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:08:27.975Z",
-      "addressLocality": "Arosa",
-      "postalCode": "7050",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-11",
-      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1051/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Front Office",
-      "hotelName": "Valsana Hotel Arosa",
-      "previousSlugs": [
-        "front-office-agent-m-w-d-wintersaison-2026-2027-tschuggen-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "front-office-agent-m-w-d-wintersaison-2026-2027-tschuggen-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-11T13:44:13.194Z",
-      "salaryMin": 62000,
-      "salaryMax": 78000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "crawlerMissStreak": 2
     }
   ]
 }

@@ -1,21 +1,21 @@
 {
   "key": "wuerth-international",
   "label": "Würth International",
-  "generatedAt": "2026-09-24T14:30:17.237Z",
-  "total": 2,
+  "generatedAt": "2026-09-25T14:49:17.329Z",
+  "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
-  "written": 2,
+  "written": 1,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3805,
-  "avgDurationMs": 3805,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3115,
+  "avgDurationMs": 3115,
   "durationHistory": [
-    3805
+    3115
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -45,7 +45,7 @@
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular_PraktikumCorp.Houskeeping.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:30:09.092Z",
+      "crawledAt": "2026-09-25T14:49:08.792Z",
       "firstSeenAt": "2026-09-07T15:13:21.865Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -56,8 +56,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "wuerth-international-564a325b6fbb",
       "slug": "housekeeper-a-wurth-international-chur",
@@ -99,5 +98,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
