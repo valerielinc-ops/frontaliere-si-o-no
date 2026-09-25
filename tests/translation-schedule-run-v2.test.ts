@@ -378,6 +378,7 @@ describe('translation scheduler v2 runtime wiring', () => {
       repository: one,
       stateStore,
       publishEnabled: true,
+      canaryExposurePercent: 100,
       rollback: async (checkpoint: any, context: any) => {
         rollbackCheckpoints.push({ checkpoint, context });
         return true;
