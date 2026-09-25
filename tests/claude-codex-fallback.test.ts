@@ -1111,6 +1111,64 @@ describe('copertura workflow diretti', () => {
     };
     expect(runAuthClassifier(0, '', 'review text mentions token_expired')).toBe('auth_failure=false');
     expect(runAuthClassifier(1, 'Failed to refresh token: refresh token was already used', '')).toBe('auth_failure=true');
+    // The real run segment with a fake Codex. In `auth-late` Codex exits at
+    // once while a child that keeps stderr open writes the auth line a second
+    // later: the classifier only sees it because the stderr tee feeds the
+    // awaited `tee "$codex_log"` pipeline stage. With both tees as unwaited
+    // process substitutions the grep ran before the flush.
+    const pipelineStart = codexBlock.indexOf('        codex_log="$scratch_dir/codex-run.log"\n');
+    expect(pipelineStart).toBeGreaterThanOrEqual(0);
+    const codexPipeline = codexBlock.slice(pipelineStart, classifierEnd)
+      .split('\n')
+      .map((line) => line.startsWith('        ') ? line.slice(8) : line)
+      .join('\n');
+    const runCodexPipeline = (mode: string) => {
+      const root = mkdtempSync(join(tmpdir(), 'codex-pipeline-'));
+      const fakeCodex = join(root, 'codex');
+      writeFileSync(fakeCodex, [
+        '#!/bin/bash',
+        'cat >/dev/null',
+        'case "$FAKE_MODE" in',
+        "  ok) echo 'review done'; exit 0 ;;",
+        "  auth-late) ( sleep 1; echo 'ERROR codex_login: Failed to refresh token: refresh token was already used' >&2 ) >/dev/null & exit 1 ;;",
+        'esac',
+        '',
+      ].join('\n'));
+      chmodSync(fakeCodex, 0o755);
+      const script = [
+        "prompt='review please'",
+        'codex_env=("PATH=/usr/bin:/bin" "FAKE_MODE=$FAKE_MODE")',
+        'codex_timeout_bin=/usr/bin/timeout',
+        'codex_exec_kill_grace_seconds=1',
+        'codex_exec_timeout_minutes=1',
+        'codex_exec_timeout_seconds=60',
+        'codex_bin="$FAKE_CODEX"',
+        "codex_filesystem='{}'",
+        'codex_reasoning_effort=high',
+        "codex_env_patterns='[]'",
+        'CODEX_OUTPUT="$TEST_ROOT/last.txt"',
+        'codex_output_destination="$CODEX_OUTPUT"',
+        'scratch_dir="$TEST_ROOT"',
+        codexPipeline,
+        'printf "RESULT status=%s auth=%s\\n" "$codex_status" "$codex_auth_failure"',
+      ].join('\n');
+      try {
+        const result = spawnSync('/bin/bash', ['-c', script], {
+          encoding: 'utf8',
+          timeout: 20_000,
+          env: { PATH: '/usr/bin:/bin', FAKE_MODE: mode, FAKE_CODEX: fakeCodex, TEST_ROOT: root },
+        });
+        return { stdout: result.stdout, log: readFileSync(join(root, 'codex-run.log'), 'utf8') };
+      } finally {
+        rmSync(root, { recursive: true, force: true });
+      }
+    };
+    const late = runCodexPipeline('auth-late');
+    expect(late.stdout).toContain('RESULT status=1 auth=true');
+    expect(late.log).toContain('refresh token was already used');
+    const ok = runCodexPipeline('ok');
+    expect(ok.stdout).toContain('RESULT status=0 auth=false');
+    expect(ok.log).toContain('review done');
     expect(action).toContain('CODEX_TIMED_OUT: ${{ steps.codex.outputs.codex_timed_out }}');
     expect(codexBlock).toContain('"$CODEX_NODE_REAL" "$CODEX_REALPATH" --version');
     expect(action).toContain('CODEX_SANITIZER_GIT="$git_host_realpath"');
