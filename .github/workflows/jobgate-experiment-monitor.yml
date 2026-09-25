@@ -1,0 +1,144 @@
+name: jobgate-experiment-monitor
+
+# Monitor giornaliero del test A/B `jobgate-v3` sul job gate (#9725), con
+# promozione automatica del braccio vincente.
+#
+# Ogni giro (scripts/experiments/jobgate-v3-monitor.mjs):
+#   - readout in sola lettura (GA4 + Firestore, robot esclusi) sull'ultima
+#     finestra assestata e, dalla durata minima, sull'ultima finestra di
+#     settimane intere;
+#   - aggiorna UNA issue di stato «[jobgate-v3] Monitor esperimento: stato
+#     giornaliero» (giorni, persone e iscritti per braccio, CR con IC, SRM,
+#     potenza, data prevista della decisione);
+#   - apre (dedup) o chiude le issue di allarme: SRM, braccio significativamente
+#     peggiore del control, attribuzione incompleta degli iscritti. Un allarme
+#     non cambia mai Remote Config;
+#   - promuove SOLO se tutte le condizioni del piano sono vere
+#     (scripts/experiments/jobgate-v3-plan.mjs, pinnate da
+#     tests/experiment-monitor.test.ts): pubblica JOBGATE_EXPERIMENT_FORCE
+#     con scripts/experiments/jobgate-v3-rc.mjs (etag, niente force). Il giro
+#     dopo FORCE è impostato e il monitor non ripubblica.
+#
+# Il run schedulato passa --apply; quello manuale lo fa solo con apply=true.
+
+on:
+  schedule:
+    # 11:23 UTC: fascia quasi vuota del calendario cron del repo (1-3 job
+    # all'ora dalle 10 alle 23 UTC contro 20-28 fra le 4 e le 7), e in orario
+    # d'ufficio se la promozione cambia il gate per tutti.
+    - cron: '23 11 * * *'
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: 'Pubblica la promozione su Remote Config se TUTTE le condizioni sono vere'
+        required: false
+        default: 'false'
+        type: choice
+        options: ['false', 'true']
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: jobgate-experiment-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 1
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      # firebase-admin (Firestore + Remote Config) è una devDependency: niente
+      # --omit=dev, come negli altri monitor che leggono Firestore.
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -z "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            # Fail-closed: senza credenziali il monitor è cieco, e un monitor
+            # cieco che esce verde è il guasto che deve prevenire.
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON mancante — impossibile leggere GA4/Firestore/Remote Config."
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          chmod 600 "$RUNNER_TEMP/firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+
+      # Solo per GA4_PROPERTY_ID (RC SERVER_GA4_PROPERTY_ID); senza, il readout
+      # usa DEFAULT_GA4_PROPERTY_ID di scripts/lib/ga4-service-account.mjs.
+      - name: Load Remote Config env
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      - name: Run monitor
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          APPLY: ${{ github.event_name == 'schedule' && 'true' || inputs.apply }}
+        run: |
+          set -euo pipefail
+          flags=(--issues --out "$RUNNER_TEMP/jobgate-monitor")
+          if [ "${APPLY}" = "true" ]; then flags+=(--apply); fi
+          node scripts/experiments/jobgate-v3-monitor.mjs "${flags[@]}"
+
+      - name: Job summary
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/jobgate-monitor/monitor.md" ]; then
+            cat "$RUNNER_TEMP/jobgate-monitor/monitor.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Report unexpected failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Monitor dell'esperimento jobgate-v3 fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          Oggi il test A/B non è stato letto: nessun allarme valutato e nessuna promozione. Se il log mostra \`Pubblicazione Remote Config FALLITA\`, la promozione era pronta ma non è stata pubblicata: il giro successivo riprova." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
