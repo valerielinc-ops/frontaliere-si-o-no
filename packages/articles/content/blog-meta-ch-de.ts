@@ -6710,6 +6710,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.fondi-integrazione-svizzera-2028.title': 'Mehr Integrationsfonds des Bundes 2028-2032',
     'blog.article.fondi-integrazione-svizzera-2028.excerpt': 'Der Bundesrat stellt im Zeitraum 2028-2032 334,5 Millionen für die Integration in der Schweiz bereit, mit 66,9 Millionen jährlich für kantonale und nationale Programme.',
     'blog.article.fondi-integrazione-svizzera-2028.imageAlt': 'Schweizer Informationsveranstaltung zu kantonalen Integrationsprogrammen',
+    'blog.article.incentivo-fiscale-acquisto-locale.title': 'Steuerlicher Anreiz für lokale Einkäufe im Tessin: Vorschlag',
+    'blog.article.incentivo-fiscale-acquisto-locale.excerpt': 'Das Zentrum bietet eine Steuergutschrift von bis zu 25% für Personen an, die bis zu 5% ihres Gehalts oder Jahreseinkommens teilnehmenden Tessiner Händlern zukommen lassen.',
+    'blog.article.incentivo-fiscale-acquisto-locale.imageAlt': 'Smartphone mit digitalem Wallet für lokale Einkäufe in Ticino',
+    'blog.article.franco-svizzero-ribasso-settembre-novembre.title': 'Schweizer Franken im Abwärtstrend: Signale, die bis November zu beobachten sind',
+    'blog.article.franco-svizzero-ribasso-settembre-novembre.excerpt': 'Der Schweizer Franken ist seit den Höchstständen im Frühjahr 2026 um etwa 5% gefallen, was dem Rückgang von 2023 entspricht und weniger als den >6% von 2024; das saisonale Zeitfenster reicht von Ende September bis Anfang November.',
+    'blog.article.franco-svizzero-ribasso-settembre-novembre.imageAlt': 'Illustration des Schweizer Frankens und des Euro mit Hintergrund des Luganer Sees',
 };
 
 export default blogMetaChDe;

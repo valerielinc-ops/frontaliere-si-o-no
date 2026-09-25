@@ -1104,8 +1104,13 @@ jobs:
           PR_BODY_EXPECTED_REVISION: ${{ needs.preflight.outputs.review_revision }}
           FIX_TIER: ${{ steps.guard.outputs.tier }}
           FIX_ROUND: ${{ steps.guard.outputs.round }}
+        # `exec_timeout_minutes` = watchdog interno di Codex: stesso step da
+        # 30min e stessa ragione di pr-redflag-fixer.yml — il default 15min
+        # dell'action e' tarato sulle review e taglia un fix ancora al lavoro.
+        # Commento fuori da `with:`: il validatore conta l'intero mapping (#9742).
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          exec_timeout_minutes: "25"
           # Auth via subscription Max (zero API cost). MAI ANTHROPIC_API_KEY.
           # `github_token` alimenta gli helper provider-neutral di quota/delivery;
           # resta allineato alla catena App/PAT del push, ma non è il bridge Codex.

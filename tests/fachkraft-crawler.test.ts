@@ -482,6 +482,40 @@ describe('fachkraft.ch GmbH crawler parser', () => {
       expect(validateFachkraftAuthoritativeSnapshot(snapshot)).toBe(true);
     });
 
+    it('rescues an Akamai challenge served as HTTP 200 through the shared Jina retry path', async () => {
+      const title = 'Polymechaniker/in';
+      const url = 'https://www.fachkraft.ch/stellen/polymechaniker-in-luzern-123/';
+      const challenge = '<html><head><title>Challenge Validation</title></head>'
+        + '<body><meta name="sec-cpt-if" content="provider=crypto">'
+        + `${' blocked'.repeat(30)}</body></html>`;
+      const sourceListing = listingHtml(listingCard({ title, path: 'polymechaniker-in-luzern-123' }));
+      let jinaAttempts = 0;
+      const fetchImpl = vi.fn(async (target: string) => {
+        if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (target === 'https://www.fachkraft.ch/stellen/') return new Response(challenge, { status: 200 });
+        if (target.startsWith('https://r.jina.ai/')) {
+          jinaAttempts++;
+          return new Response(jinaAttempts === 1 ? challenge : sourceListing, { status: 200 });
+        }
+        return new Response(detailHtml({ title, description: words(55) }), { status: 200 });
+      });
+
+      const snapshot = await fetchFachkraftSnapshot({
+        ...runtimeOptions,
+        fetchImpl,
+        existingJobs: [],
+        detailWorkers: 1,
+      });
+
+      expect(snapshot).toHaveLength(1);
+      expect(jinaAttempts).toBe(2);
+      expect(snapshot.fachkraftSnapshot).toMatchObject({
+        discovered: 1,
+        detailCompleted: 1,
+        fetchFailures: 0,
+      });
+    });
+
     it('recovers a rate-limited detail without losing the authoritative snapshot', async () => {
       const limitedTitle = 'Polymechaniker/in';
       const siblingTitle = 'Montage-Elektriker/in';

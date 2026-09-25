@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import net from 'node:net';
 import os from 'node:os';
 import path from 'node:path';
-import { CODEX_FALLBACK_MODEL } from '../ci/claude-codex-fallback.mjs';
+import { CODEX_FALLBACK_MODEL } from './codex-fallback-contract.mjs';
 import { GH_MODELS_URL } from './gh-models-endpoint.mjs';
 
 /**
