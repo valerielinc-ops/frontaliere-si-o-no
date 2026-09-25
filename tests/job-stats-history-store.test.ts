@@ -290,6 +290,38 @@ describe('job stats history store', () => {
     });
   });
 
+  it('allows a historical title-locale rewrite when counters are preserved', () => {
+    withTempRoot((root) => {
+      const shardPath = path.join(root, SHARD_DIR, '2026-09-19.json');
+      fs.mkdirSync(path.dirname(shardPath), { recursive: true });
+      const verbose = entry('2026-09-19', {
+        added: 1,
+        updated: 30_000,
+        removed: 2,
+        addedKeys: ['url:added'],
+        titleStats: Array.from({ length: 30_000 }, (_, i) => ({
+          key: `raw-title-${i}`,
+          name: `Raw title ${i}`,
+          addedKeys: ['url:added'],
+        })),
+      });
+      fs.writeFileSync(shardPath, JSON.stringify({ entries: [verbose] }, null, 2) + '\n');
+      const migrated = entry('2026-09-19', {
+        added: 1,
+        updated: 30_000,
+        removed: 2,
+        addedKeys: ['url:added'],
+        titleStats: [{ key: 'titolo-locale', name: 'Titolo locale', addedKeys: ['url:added'] }],
+      });
+
+      writeJobsStatsHistory({ entries: [migrated, entry('2026-09-20')] }, root, {
+        currentDate: '2026-09-20',
+      });
+
+      expect(readShard(root, '2026-09-19.json').entries).toEqual([migrated]);
+    });
+  });
+
   it('refuses to delete a large shard whose date disappeared from canonical history', () => {
     withTempRoot((root) => {
       const shardPath = path.join(root, SHARD_DIR, '2026-09-19.json');

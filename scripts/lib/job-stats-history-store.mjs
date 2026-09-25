@@ -200,14 +200,34 @@ function readShardDocument(filePath) {
 }
 
 function isCompactedHistoryEntry(entry = {}) {
-  return [
-    entry.addedKeys,
-    entry.updatedKeys,
-    entry.removedKeys,
-    entry.companyStats,
-    entry.locationStats,
-    entry.titleStats,
-  ].every((value) => Array.isArray(value) && value.length === 0);
+  // Compaction keeps addedKeys and the bucket identities for the 30-day
+  // leader views. It only removes the key arrays that consumers never read by
+  // value (entry/bucket updatedKeys and removedKeys). Treating non-empty
+  // titleStats as evidence of an un-compacted entry made the guard reject the
+  // legitimate locale-migration rewrite of 2026-09-24 (#9876).
+  if (!Array.isArray(entry.addedKeys)
+    || !Array.isArray(entry.updatedKeys)
+    || !Array.isArray(entry.removedKeys)
+    || entry.updatedKeys.length > 0
+    || entry.removedKeys.length > 0) {
+    return false;
+  }
+
+  return ['companyStats', 'locationStats', 'titleStats'].every((bucket) =>
+    Array.isArray(entry[bucket])
+    && entry[bucket].every((item) =>
+      item
+      && (!Array.isArray(item.updatedKeys) || item.updatedKeys.length === 0)
+      && (!Array.isArray(item.removedKeys) || item.removedKeys.length === 0)
+    )
+  );
+}
+
+function hasSameHistoryCounters(previous = {}, next = {}) {
+  return previous.date === next.date
+    && ['totalJobs', 'added', 'updated', 'removed'].every((field) =>
+      numeric(previous[field]) === numeric(next[field])
+    );
 }
 
 function readShardedHistory(rootDir) {
@@ -305,11 +325,17 @@ export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), opt
     const serialized = serializeJobStatsHistoryShard([clone(entry)]);
     assertJobStatsHistoryShardSize(shardFile, serialized, maxShardBytes);
     // Older entries are intentionally compacted after the verbose window.
-    // That controlled rewrite is the only large shrink exempted from the
-    // accumulator guard; a current/recent entry must never shrink like a
-    // fallback-generated replacement.
-    const isControlledCompaction = date < currentDate && isCompactedHistoryEntry(entry);
-    if (fs.existsSync(shardFile) && !isControlledCompaction) {
+    // Locale migration can also collapse equivalent historical title buckets.
+    // Exempt either rewrite only when the existing shard is valid and all
+    // logical counters are preserved; an empty/degraded fallback therefore
+    // remains fail-closed even if it happens to have the compacted shape.
+    const existing = readShardDocument(shardFile);
+    const existingEntry = existing.entries.find((item) => item.date === date);
+    const isControlledHistoricalRewrite = date < currentDate
+      && existing.ok
+      && hasSameHistoryCounters(existingEntry || {}, entry)
+      && isCompactedHistoryEntry(entry);
+    if (fs.existsSync(shardFile) && !isControlledHistoricalRewrite) {
       assertAccumulatorByteFloor(
         fs.statSync(shardFile).size,
         Buffer.byteLength(serialized, 'utf8'),
