@@ -47536,16 +47536,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-insegnanti-frontalieri-stipendio-requisiti-ticino': {
     title: 'Frontaliere insegnante scuola Ticino stipendio requisiti',
-    description: 'La nuova convenzione italo-svizzera del 9 dicembre 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730). Dati aggiornati 2026 per',
+    description: 'La nuova convenzione italo-svizzera del 9 marzo 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730). Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, insegnante, scuola, stipendio, requisiti',
     ogTitle: 'Frontaliere insegnante scuola Ticino stipendio requisiti',
-    ogDescription: 'La nuova convenzione italo-svizzera del 9 dicembre 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730).',
+    ogDescription: 'La nuova convenzione italo-svizzera del 9 marzo 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730).',
     canonicalPath: '/articoli-frontaliere/insegnanti-frontalieri-stipendio-requisiti-ticino',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Frontaliere insegnante scuola Ticino stipendio requisiti",
-      "description": "La nuova convenzione italo-svizzera del 9 dicembre 1976 evita la doppia imposizione con il credito d'imposta (quadro CE del 730). Dati aggiornati 2026 per",
+      "description": "La nuova convenzione italo-svizzera del 9 marzo 1976 evita la doppia imposizione con il credito d'imposta (quadro CE del 730). Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -73122,16 +73122,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-vivere-fagnano-olona-lavorare-ticino': {
     title: 'Vivere a Fagnano Olona e lavorare in Ticino da frontaliere',
-    description: 'Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 dicembre 1976. Dati aggiornati 2026 per frontalieri in Ticino.',
+    description: 'Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 marzo 1976. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, vivere, fagnano, olona, lavorare',
     ogTitle: 'Vivere a Fagnano Olona e lavorare in Ticino da frontaliere',
-    ogDescription: 'Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 dicembre 1976',
+    ogDescription: 'Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 marzo 1976',
     canonicalPath: '/articoli-frontaliere/vivere-fagnano-olona-lavorare-ticino',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Vivere a Fagnano Olona e lavorare in Ticino da frontaliere",
-      "description": "Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 dicembre 1976. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "description": "Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 marzo 1976. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -92889,6 +92889,162 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pensione-pubblica-svizzera-non-tassata-italia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mobilizzazione-ferroviaria-luino-svizzera': {
+    title: 'Linea Luino-Svizzera: Azione aderisce a Lombardia si muove',
+    description: 'Sabato 26 settembre mobilitazione ferroviaria in Lombardia. Focus sulla tratta Luino-Svizzera: frequenze S30 ridotte e raccolta firme per il Ministro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, linea, luino-svizzera, azione, aderisce',
+    ogTitle: 'Linea Luino-Svizzera: mobilitazione il 26 settembre',
+    ogDescription: 'Azione aderisce al presidio di \'Lombardia si muove\' per denunciare il calo delle corse S30 (da 2/h a 4 al giorno) e lo stato delle stazioni di Luino e Maccagno.',
+    canonicalPath: '/articoli-frontaliere/mobilizzazione-ferroviaria-luino-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Linea Luino-Svizzera: Azione aderisce a Lombardia si muove",
+      "description": "Sabato 26 settembre mobilitazione ferroviaria in Lombardia. Focus sulla tratta Luino-Svizzera: frequenze S30 ridotte e raccolta firme per il Ministro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mobilizzazione-ferroviaria-luino-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno regionale in arrivo in una stazione del Ticino"
+      },
+      "datePublished": "2026-09-24T23:41:49+00:00",
+      "dateModified": "2026-09-24T23:41:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mobilizzazione-ferroviaria-luino-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bns-franco-euro-cambio': {
+    title: 'BNS: franco debole, euro a 0,9423 CHF | Frontaliere Ticino',
+    description: 'La BNS conferma il tasso allo zero percento. L\'euro sale a 0,9423 franchi e il dollaro a 0,8268. Analisi dell\'impatto sul controvalore per i frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, franco, debole, euro, 9423',
+    ogTitle: 'BNS: franco debole, euro a 0,9423 CHF',
+    ogDescription: 'Dopo la decisione della BNS di mantenere il tasso allo zero, il franco perde terreno: l\'euro sale a 0,9423 CHF e il dollaro a 0,8268 CHF. Cosa significa per il controvalore del reddito dei frontalieri? Analisi basata sui dati di mercato.',
+    canonicalPath: '/articoli-frontaliere/bns-franco-euro-cambio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BNS: franco debole, euro a 0,9423 CHF",
+      "description": "La BNS conferma il tasso allo zero percento. L'euro sale a 0,9423 franchi e il dollaro a 0,8268. Analisi dell'impatto sul controvalore per i frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bns-franco-euro-cambio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista sul Lago di Lugano con la città sullo sfondo, luce mattutina"
+      },
+      "datePublished": "2026-09-25T01:44:38+00:00",
+      "dateModified": "2026-09-25T01:44:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bns-franco-euro-cambio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-gornate-olona-regime-fiscale': {
+    title: 'Gornate Olona: lavorare in Ticino da frontaliere',
+    description: 'Vivere a Gornate Olona e lavorare in Ticino: guida per il frontaliere su imposta alla fonte, franchigie 2024, AVS, LPP, LAMal e 730 prima del trasferimento.',
+    keywords: 'frontalieri, ticino, svizzera, italia, gornate, olona, lavorare, accordo',
+    ogTitle: 'Gornate Olona e lavoro in Ticino da frontaliere',
+    ogDescription: 'Dalla scelta della casa alla lettura della busta paga: cosa considerare per vivere a Gornate Olona e lavorare in Ticino, tra imposta alla fonte, credito d’imposta nel 730, franchigia e contributi svizzeri.',
+    canonicalPath: '/articoli-frontaliere/gornate-olona-regime-fiscale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gornate Olona: lavorare in Ticino da frontaliere",
+      "description": "Vivere a Gornate Olona e lavorare in Ticino: guida per il frontaliere su imposta alla fonte, franchigie 2024, AVS, LPP, LAMal e 730 prima del trasferimento.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/gornate-olona-regime-fiscale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratore frontaliere tra Gornate Olona e il Canton Ticino"
+      },
+      "datePublished": "2026-09-25T03:48:19+00:00",
+      "dateModified": "2026-09-25T03:48:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gornate-olona-regime-fiscale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bns-decisione-tasso-invariato-2026': {
+    title: 'BNS lascia tasso allo 0% e alza PIL 2026 | Frontaliere Ticino',
+    description: 'La BNS mantiene il tasso di riferimento allo 0% (invariato da giugno 2025), prevede inflazione 0,7% nel 2026 e 0,8% nel 2027 e PIL 2026 tra l’1,5% e il 2,0%',
+    keywords: 'frontalieri, ticino, svizzera, italia, lascia, tasso, allo, alza',
+    ogTitle: 'BNS lascia tasso allo 0% e alza PIL 2026',
+    ogDescription: 'Il 24 settembre 2026 la Banca nazionale svizzera ha confermato il tasso di riferimento allo 0%, livello invariato da giugno 2025. Ha rivisto al rialzo le stime di inflazione (0,7% 2026, 0,8% 2027) e del PIL 2026 tra l’1,5% e il 2,0%. Un articolo',
+    canonicalPath: '/articoli-frontaliere/bns-decisione-tasso-invariato-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BNS lascia tasso allo 0% e alza PIL 2026",
+      "description": "La BNS mantiene il tasso di riferimento allo 0% (invariato da giugno 2025), prevede inflazione 0,7% nel 2026 e 0,8% nel 2027 e PIL 2026 tra l’1,5% e il 2,0%",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bns-decisione-tasso-invariato-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con le montagne sullo sfondo, luce mattutina"
+      },
+      "datePublished": "2026-09-25T04:30:31+00:00",
+      "dateModified": "2026-09-25T04:30:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bns-decisione-tasso-invariato-2026/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
