@@ -55,13 +55,11 @@
       "pensum": "50%",
       "previousSlugs": [
         "mitarbeiter-in-facility-management-suedhang-ch",
-        "mitarbeiter-in-facility-management-klinik-sudhang-kirchlindach",
-        "collaboratore-trice-in-facility-management-klinik-sudhang-kirchlindach"
+        "mitarbeiter-in-facility-management-klinik-sudhang-kirchlindach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-facility-management-suedhang-ch",
-          "collaboratore-trice-in-facility-management-klinik-sudhang-kirchlindach"
+          "mitarbeiter-in-facility-management-suedhang-ch"
         ],
         "fr": [
           "mitarbeiter-in-facility-management-klinik-sudhang-kirchlindach"
@@ -136,14 +134,12 @@
       "pensum": "50%",
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-im-nachtdienst-suedhang-ch",
-        "dipl-pflegefachfrau-mann-hf-im-nachtdienst-klinik-sudhang-kirchlindach",
-        "dipl-infermieristica-professionale-hf-in-servizio-notturno-klinik-sudhang-kirchlindach"
+        "dipl-pflegefachfrau-mann-hf-im-nachtdienst-klinik-sudhang-kirchlindach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-im-nachtdienst-suedhang-ch",
-          "dipl-pflegefachfrau-mann-hf-im-nachtdienst-klinik-sudhang-kirchlindach",
-          "dipl-infermieristica-professionale-hf-in-servizio-notturno-klinik-sudhang-kirchlindach"
+          "dipl-pflegefachfrau-mann-hf-im-nachtdienst-klinik-sudhang-kirchlindach"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-im-nachtdienst-suedhang-ch"
@@ -220,12 +216,10 @@
       "pensum": "40 - 50%",
       "previousSlugsByLocale": {
         "de": [
-          "fachfrau-fachmann-gesundheit-efz-suedhang-ch",
-          "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-klinik-sudhang-kirchlindach"
+          "fachfrau-fachmann-gesundheit-efz-suedhang-ch"
         ],
         "it": [
-          "fachfrau-fachmann-gesundheit-efz-suedhang-ch",
-          "salute-specialistica-efz-klinik-sudhang-kirchlindach"
+          "fachfrau-fachmann-gesundheit-efz-suedhang-ch"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-efz-suedhang-ch"
@@ -235,9 +229,7 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-suedhang-ch",
-        "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-klinik-sudhang-kirchlindach",
-        "salute-specialistica-efz-klinik-sudhang-kirchlindach"
+        "fachfrau-fachmann-gesundheit-efz-suedhang-ch"
       ],
       "firstSeenAt": "2026-08-31T17:02:35.263Z",
       "salaryMin": 73000,
@@ -257,12 +249,12 @@
     },
     {
       "id": "suedhang-5ae1cb26a133",
-      "slug": "dipl-pflegefachperson-hf-fh-klinik-sudhang-kirchlindach",
+      "slug": "dipl-professionista-hf-fh-klinik-sudhang-kirchlindach",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-suedhang-ch",
-        "it": "dipl-pflegefachperson-hf-fh-klinik-sudhang-kirchlindach",
-        "en": "dipl-pflegefachperson-hf-fh-klinik-sudhang-kirchlindach",
-        "fr": "dipl-pflegefachperson-hf-fh-klinik-sudhang-kirchlindach"
+        "it": "dipl-professionista-hf-fh-klinik-sudhang-kirchlindach",
+        "en": "dipl-care-professional-hf-fh-klinik-sudhang-kirchlindach",
+        "fr": "dipl-soins-professionnels-hf-fh-klinik-sudhang-kirchlindach"
       },
       "company": "Klinik Südhang",
       "companyKey": "suedhang",
@@ -309,11 +301,19 @@
       "pensum": "60 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-suedhang-ch"
+          "dipl-pflegefachperson-hf-fh-suedhang-ch",
+          "dipl-pflegefachperson-hf-fh-klinik-sudhang-kirchlindach"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-klinik-sudhang-kirchlindach"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-klinik-sudhang-kirchlindach"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-suedhang-ch"
+        "dipl-pflegefachperson-hf-fh-suedhang-ch",
+        "dipl-pflegefachperson-hf-fh-klinik-sudhang-kirchlindach"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -412,14 +412,12 @@
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-suedhang-ch",
         "assistenzarztin-assistenzarzt-suedhang-ch-2",
-        "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne",
-        "assistente-medico-klinik-sudhang-ambulatorium-biel-bienne"
+        "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-suedhang-ch",
-          "assistenzarztin-assistenzarzt-suedhang-ch-2",
-          "assistente-medico-klinik-sudhang-ambulatorium-biel-bienne"
+          "assistenzarztin-assistenzarzt-suedhang-ch-2"
         ],
         "de": [
           "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne"
@@ -494,14 +492,12 @@
       "previousSlugs": [
         "klinische-n-psycholog-in-suedhang-ch-2",
         "klinische-n-psycholog-in-suedhang-ch",
-        "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-biel-bienne",
-        "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-biel-bienne"
+        "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "klinische-n-psycholog-in-suedhang-ch-2",
-          "klinische-n-psycholog-in-suedhang-ch",
-          "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-biel-bienne"
+          "klinische-n-psycholog-in-suedhang-ch"
         ],
         "en": [
           "klinische-n-psycholog-in-suedhang-ch-2"
@@ -580,13 +576,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "leitende-arztin-leitenden-arzt-suedhang-ch",
-        "principale-medico-principal-medico-klinik-sudhang-kirchlindach"
+        "leitende-arztin-leitenden-arzt-suedhang-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-arztin-leitenden-arzt-suedhang-ch",
-          "principale-medico-principal-medico-klinik-sudhang-kirchlindach"
+          "leitende-arztin-leitenden-arzt-suedhang-ch"
         ],
         "en": [
           "leitende-arztin-leitenden-arzt-suedhang-ch"

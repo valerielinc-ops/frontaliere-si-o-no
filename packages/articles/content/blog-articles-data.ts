@@ -35599,6 +35599,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'mobilizzazione-ferroviaria-luino-svizzera',
+ category: 'pratico',
+ date: '2026-09-24T23:41:49.102Z',
+ image: '/images/blog/mobilizzazione-ferroviaria-luino-svizzera.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

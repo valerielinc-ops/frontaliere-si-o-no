@@ -11949,6 +11949,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pensione-pubblica-svizzera-non-tassata-italia.title': 'Pension publique suisse : pas d\'imposition en Italie',
     'blog.article.pensione-pubblica-svizzera-non-tassata-italia.excerpt': 'Réponse à l\'interpellation n ° 177/2026 de l\'Agence du revenu : pension publique DDPS versée par Cassa PUBLICA non imposée en Italie pour les personnes ayant la double nationalité italo-suisse.',
     'blog.article.pensione-pubblica-svizzera-non-tassata-italia.imageAlt': 'Vue sur le lac de Lugano avec montagnes en arrière-plan, représentant la vie financière transfrontalière au Tessin',
+    'blog.article.mobilizzazione-ferroviaria-luino-svizzera.title': 'Ligne Luino-Suisse : Action adhère à Lombardie se déplace',
+    'blog.article.mobilizzazione-ferroviaria-luino-svizzera.excerpt': 'Samedi 26 septembre mobilisation dans les gares lombardes pour l\'efficacité ferroviaire. Focus sur le tronçon Luino-Suisse et collecte des signatures pour le Ministre.',
+    'blog.article.mobilizzazione-ferroviaria-luino-svizzera.imageAlt': 'Train régional arrivant dans une gare du Tessin',
 };
 
 export default blogMetaFr;

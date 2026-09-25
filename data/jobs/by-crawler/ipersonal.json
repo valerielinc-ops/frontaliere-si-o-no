@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "ipersonal-f6106b3133b3",
-      "slug": "oberarzt-arztin-per-allgemeine-innere-medizin-medipersonal-huttwil",
+      "slug": "oberarzt-arztin-per-allgemeine-innere-medizin-medipersonal-huttwil-bern",
       "slugByLocale": {
         "de": "oberarzt-arztin-fur-allgemeine-innere-medizin-medipersonal-huttwil-bern",
-        "it": "oberarzt-arztin-per-allgemeine-innere-medizin-medipersonal-huttwil",
-        "en": "oberarzt-arztin-fur-allgemeine-innere-medizin-medipersonal-huttwil-bern",
-        "fr": "oberarzt-arztin-fur-allgemeine-innere-medizin-medipersonal-huttwil-bern"
+        "it": "oberarzt-arztin-per-allgemeine-innere-medizin-medipersonal-huttwil-bern",
+        "en": "senior-physician-for-general-internal-medicine-medipersonal-huttwil-bern",
+        "fr": "medecin-principal-en-medecine-interne-generale-medipersonal-huttwil-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -51,11 +51,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "oberarzt-arztin-fur-allgemeine-innere-medizin-medipersonal-huttwil-bern",
+          "oberarzt-arztin-per-allgemeine-innere-medizin-medipersonal-huttwil"
+        ],
+        "en": [
+          "oberarzt-arztin-fur-allgemeine-innere-medizin-medipersonal-huttwil-bern"
+        ],
+        "fr": [
           "oberarzt-arztin-fur-allgemeine-innere-medizin-medipersonal-huttwil-bern"
         ]
       },
       "previousSlugs": [
-        "oberarzt-arztin-fur-allgemeine-innere-medizin-medipersonal-huttwil-bern"
+        "oberarzt-arztin-fur-allgemeine-innere-medizin-medipersonal-huttwil-bern",
+        "oberarzt-arztin-per-allgemeine-innere-medizin-medipersonal-huttwil"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -74,12 +82,12 @@
     },
     {
       "id": "ipersonal-00342417fb9a",
-      "slug": "advance-practice-nurse-master-of-science-in-pflege-medipersonal-dietlikon-zurich",
+      "slug": "infermiera-di-pratica-avanzata-master-of-science-in-infermieristica-medipersonal-dietlikon-zurich",
       "slugByLocale": {
         "de": "advance-practice-nurse-master-of-science-in-pflege-medipersonal-dietlikon-zurich",
-        "it": "advance-practice-nurse-master-of-science-in-pflege-medipersonal-dietlikon-zurich",
-        "en": "advance-practice-nurse-master-of-science-in-pflege-medipersonal-dietlikon-zurich",
-        "fr": "advance-practice-nurse-master-of-science-in-pflege-medipersonal-dietlikon-zurich"
+        "it": "infermiera-di-pratica-avanzata-master-of-science-in-infermieristica-medipersonal-dietlikon-zurich",
+        "en": "advance-practice-nurse-master-of-science-in-nursing-medipersonal-dietlikon-zurich",
+        "fr": "infirmiere-en-pratique-avancee-maitrise-en-sciences-infirmieres-medipersonal-dietlikon-zurich"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -131,16 +139,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:21:12.644Z"
+      "firstSeenAt": "2026-09-24T14:21:12.644Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "advance-practice-nurse-master-of-science-in-pflege-medipersonal-dietlikon-zurich"
+        ],
+        "en": [
+          "advance-practice-nurse-master-of-science-in-pflege-medipersonal-dietlikon-zurich"
+        ],
+        "fr": [
+          "advance-practice-nurse-master-of-science-in-pflege-medipersonal-dietlikon-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "advance-practice-nurse-master-of-science-in-pflege-medipersonal-dietlikon-zurich"
+      ]
     },
     {
       "id": "ipersonal-05dba8ae4d20",
-      "slug": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-greifensee-zurich",
+      "slug": "dipl-responsabile-specialistico-ndk-medipersonal-greifensee-zurich",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-greifensee-zurich",
-        "it": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-greifensee-zurich",
-        "en": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-greifensee-zurich",
-        "fr": "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-greifensee-zurich"
+        "it": "dipl-responsabile-specialistico-ndk-medipersonal-greifensee-zurich",
+        "en": "dipl-specialist-supervisor-ndk-medipersonal-greifensee-zurich",
+        "fr": "dipl-superviseur-specialise-ndk-medipersonal-greifensee-zurich"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -192,14 +214,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:21:12.341Z"
+      "firstSeenAt": "2026-09-24T14:21:12.341Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-greifensee-zurich"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-greifensee-zurich"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-greifensee-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-uberwachungspflege-ndk-medipersonal-greifensee-zurich"
+      ]
     },
     {
       "id": "ipersonal-a68375a89e75",
-      "slug": "ags-assistent-in-gesundheit-e-soziales-afp-medipersonal-mellingen",
+      "slug": "ags-assistent-in-gesundheit-e-soziales-afp-medipersonal-mellingen-aargau",
       "slugByLocale": {
         "de": "ags-assistent-in-gesundheit-und-soziales-eba-medipersonal-mellingen-aargau",
-        "it": "ags-assistent-in-gesundheit-e-soziales-afp-medipersonal-mellingen",
+        "it": "ags-assistent-in-gesundheit-e-soziales-afp-medipersonal-mellingen-aargau",
         "en": "ags-assistent-in-gesundheit-und-soziales-eba-medipersonal-mellingen-aargau",
         "fr": "ags-assistent-in-gesundheit-und-soziales-eba-medipersonal-mellingen-aargau"
       },
@@ -243,11 +279,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "ags-assistent-in-gesundheit-und-soziales-eba-medipersonal-mellingen-aargau"
+          "ags-assistent-in-gesundheit-und-soziales-eba-medipersonal-mellingen-aargau",
+          "ags-assistent-in-gesundheit-e-soziales-afp-medipersonal-mellingen"
         ]
       },
       "previousSlugs": [
-        "ags-assistent-in-gesundheit-und-soziales-eba-medipersonal-mellingen-aargau"
+        "ags-assistent-in-gesundheit-und-soziales-eba-medipersonal-mellingen-aargau",
+        "ags-assistent-in-gesundheit-e-soziales-afp-medipersonal-mellingen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -266,10 +304,10 @@
     },
     {
       "id": "ipersonal-03fc2286c78f",
-      "slug": "dipl-pflegefachfrau-mann-hf-medipersonal-urtenen-schonbuhl",
+      "slug": "dipl-pflegefachfrau-mann-hf-medipersonal-urtenen-schonbuhl-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-medipersonal-urtenen-schonbuhl-bern",
-        "it": "dipl-pflegefachfrau-mann-hf-medipersonal-urtenen-schonbuhl",
+        "it": "dipl-pflegefachfrau-mann-hf-medipersonal-urtenen-schonbuhl-bern",
         "en": "dipl-pflegefachfrau-mann-hf-medipersonal-urtenen-schonbuhl-bern",
         "fr": "dipl-pflegefachfrau-mann-hf-medipersonal-urtenen-schonbuhl-bern"
       },
@@ -313,11 +351,11 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-medipersonal-urtenen-schonbuhl-bern"
+          "dipl-pflegefachfrau-mann-hf-medipersonal-urtenen-schonbuhl"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-medipersonal-urtenen-schonbuhl-bern"
+        "dipl-pflegefachfrau-mann-hf-medipersonal-urtenen-schonbuhl"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -336,12 +374,12 @@
     },
     {
       "id": "ipersonal-02ab3f1ebe91",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-medipersonal-schiers-graubunden",
+      "slug": "dipl-infermiera-infermiera-specialista-hf-medipersonal-schiers-graubunden",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-medipersonal-schiers-graubunden",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-medipersonal-schiers-graubunden",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-medipersonal-schiers-graubunden",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-medipersonal-schiers-graubunden"
+        "it": "dipl-infermiera-infermiera-specialista-hf-medipersonal-schiers-graubunden",
+        "en": "dipl-nurse-nurse-specialist-hf-medipersonal-schiers-graubunden",
+        "fr": "dipl-infirmiere-infirmiere-specialiste-hf-medipersonal-schiers-graubunden"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -393,14 +431,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:21:11.437Z"
+      "firstSeenAt": "2026-09-24T14:21:11.437Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-medipersonal-schiers-graubunden"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-medipersonal-schiers-graubunden"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-medipersonal-schiers-graubunden"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-medipersonal-schiers-graubunden"
+      ]
     },
     {
       "id": "ipersonal-ca64e40fa4ee",
-      "slug": "assistent-in-gesundheit-e-soziales-afp-medipersonal-giswil",
+      "slug": "assistent-in-gesundheit-e-soziales-afp-medipersonal-giswil-obwalden",
       "slugByLocale": {
         "de": "assistent-in-gesundheit-und-soziales-eba-medipersonal-giswil-obwalden",
-        "it": "assistent-in-gesundheit-e-soziales-afp-medipersonal-giswil",
+        "it": "assistent-in-gesundheit-e-soziales-afp-medipersonal-giswil-obwalden",
         "en": "assistent-in-gesundheit-und-soziales-eba-medipersonal-giswil-obwalden",
         "fr": "assistent-in-gesundheit-und-soziales-eba-medipersonal-giswil-obwalden"
       },
@@ -444,11 +496,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-gesundheit-und-soziales-eba-medipersonal-giswil-obwalden"
+          "assistent-in-gesundheit-und-soziales-eba-medipersonal-giswil-obwalden",
+          "assistent-in-gesundheit-e-soziales-afp-medipersonal-giswil"
         ]
       },
       "previousSlugs": [
-        "assistent-in-gesundheit-und-soziales-eba-medipersonal-giswil-obwalden"
+        "assistent-in-gesundheit-und-soziales-eba-medipersonal-giswil-obwalden",
+        "assistent-in-gesundheit-e-soziales-afp-medipersonal-giswil"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -467,10 +521,10 @@
     },
     {
       "id": "ipersonal-c3e665baf1c1",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-bezugspflege-medipersonal-bassersdorf",
+      "slug": "dipl-pflegefachfrau-mann-hf-fh-bezugspflege-medipersonal-bassersdorf-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-fh-bezugspflege-medipersonal-bassersdorf-zurich",
-        "it": "dipl-pflegefachfrau-mann-hf-fh-bezugspflege-medipersonal-bassersdorf",
+        "it": "dipl-pflegefachfrau-mann-hf-fh-bezugspflege-medipersonal-bassersdorf-zurich",
         "en": "dipl-pflegefachfrau-mann-hf-fh-bezugspflege-medipersonal-bassersdorf-zurich",
         "fr": "dipl-pflegefachfrau-mann-hf-fh-bezugspflege-medipersonal-bassersdorf-zurich"
       },
@@ -514,11 +568,11 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-fh-bezugspflege-medipersonal-bassersdorf-zurich"
+          "dipl-pflegefachfrau-mann-hf-fh-bezugspflege-medipersonal-bassersdorf"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-bezugspflege-medipersonal-bassersdorf-zurich"
+        "dipl-pflegefachfrau-mann-hf-fh-bezugspflege-medipersonal-bassersdorf"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -537,12 +591,12 @@
     },
     {
       "id": "ipersonal-37147a057321",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-liestal-basel-land",
+      "slug": "dipl-specialista-infermieristica-fh-bachelor-of-science-in-nursing-medipersonal-liestal-basel-land",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-liestal-basel-land",
-        "it": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-liestal-basel-land",
-        "en": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-liestal-basel-land",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-liestal-basel-land"
+        "it": "dipl-specialista-infermieristica-fh-bachelor-of-science-in-nursing-medipersonal-liestal-basel-land",
+        "en": "dipl-nursing-specialist-fh-bachelor-of-science-in-nursing-medipersonal-liestal-basel-land",
+        "fr": "dipl-specialiste-des-soins-infirmiers-fh-bachelor-of-science-in-nursing-medipersonal-liestal-basel-land"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -593,16 +647,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:21:10.533Z"
+      "firstSeenAt": "2026-09-24T14:21:10.533Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-liestal-basel-land"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-liestal-basel-land"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-liestal-basel-land"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-liestal-basel-land"
+      ]
     },
     {
       "id": "ipersonal-aad39147d2aa",
-      "slug": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-binningen-basel-land",
+      "slug": "dipl-expert-expert-anesthesia-care-nds-medipersonal-binningen-basel-land",
       "slugByLocale": {
         "de": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-binningen-basel-land",
-        "it": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-binningen-basel-land",
-        "en": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-binningen-basel-land",
-        "fr": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-binningen-basel-land"
+        "it": "dipl-expert-expert-anesthesia-care-nds-medipersonal-binningen-basel-land",
+        "en": "dipl-expert-expert-anesthesia-care-nds-medipersonal-binningen-basel-land",
+        "fr": "dipl-expert-expert-anesthesie-soins-nds-medipersonal-binningen-basel-land"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -653,16 +721,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:21:10.232Z"
+      "firstSeenAt": "2026-09-24T14:21:10.232Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-binningen-basel-land"
+        ],
+        "en": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-binningen-basel-land"
+        ],
+        "fr": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-binningen-basel-land"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-binningen-basel-land"
+      ]
     },
     {
       "id": "ipersonal-b1c7e0bd4921",
-      "slug": "fachfrau-fachmann-langzeitpflege-betreuung-efz-medipersonal-pfaffikon-schwyz",
+      "slug": "fachfrau-fachmann-langzeitpflege-betreuung-cfc-medipersonal-pfaffikon-schwyz",
       "slugByLocale": {
         "de": "fachfrau-fachmann-langzeitpflege-betreuung-efz-medipersonal-pfaffikon-schwyz",
-        "it": "fachfrau-fachmann-langzeitpflege-betreuung-efz-medipersonal-pfaffikon-schwyz",
-        "en": "fachfrau-fachmann-langzeitpflege-betreuung-efz-medipersonal-pfaffikon-schwyz",
-        "fr": "fachfrau-fachmann-langzeitpflege-betreuung-efz-medipersonal-pfaffikon-schwyz"
+        "it": "fachfrau-fachmann-langzeitpflege-betreuung-cfc-medipersonal-pfaffikon-schwyz",
+        "en": "professional-professional-long-term-care-care-efz-medipersonal-pfaffikon-schwyz",
+        "fr": "soins-de-longue-duree-et-soins-professionnels-medipersonal-pfaffikon-schwyz"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -714,16 +796,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:21:09.930Z"
+      "firstSeenAt": "2026-09-24T14:21:09.930Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-langzeitpflege-betreuung-efz-medipersonal-pfaffikon-schwyz"
+        ],
+        "en": [
+          "fachfrau-fachmann-langzeitpflege-betreuung-efz-medipersonal-pfaffikon-schwyz"
+        ],
+        "fr": [
+          "fachfrau-fachmann-langzeitpflege-betreuung-efz-medipersonal-pfaffikon-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-langzeitpflege-betreuung-efz-medipersonal-pfaffikon-schwyz"
+      ]
     },
     {
       "id": "ipersonal-ee3b47b05638",
-      "slug": "pflegedienstleiter-medipersonal-ettiswil",
+      "slug": "servizi-di-assistenza-medipersonal-ettiswil-luzern",
       "slugByLocale": {
         "de": "pflegedienstleiter-medipersonal-ettiswil-luzern",
-        "it": "pflegedienstleiter-medipersonal-ettiswil",
-        "en": "pflegedienstleiter-medipersonal-ettiswil",
-        "fr": "pflegedienstleiter-medipersonal-ettiswil"
+        "it": "servizi-di-assistenza-medipersonal-ettiswil-luzern",
+        "en": "care-services-manager-medipersonal-ettiswil-luzern",
+        "fr": "gestionnaire-des-services-de-soins-medipersonal-ettiswil-luzern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -764,11 +860,19 @@
       "applyUrl": "https://med-ipersonal.ch/jobs/pflegedienstleiter-100-fuer-die-region-ettiswil-gesucht/",
       "previousSlugsByLocale": {
         "it": [
-          "pflegedienstleiter-medipersonal-ettiswil-luzern"
+          "pflegedienstleiter-medipersonal-ettiswil-luzern",
+          "pflegedienstleiter-medipersonal-ettiswil"
+        ],
+        "en": [
+          "pflegedienstleiter-medipersonal-ettiswil"
+        ],
+        "fr": [
+          "pflegedienstleiter-medipersonal-ettiswil"
         ]
       },
       "previousSlugs": [
-        "pflegedienstleiter-medipersonal-ettiswil-luzern"
+        "pflegedienstleiter-medipersonal-ettiswil-luzern",
+        "pflegedienstleiter-medipersonal-ettiswil"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -787,12 +891,12 @@
     },
     {
       "id": "ipersonal-75f8c114c362",
-      "slug": "jobs-fachpersonen-langzeitpflege-betreuung-in-zizers-jetzt-durchstarten-medipersonal-deutschschweiz-graubunden",
+      "slug": "jobs-professionisti-a-lungo-termine-care-care-in-zizers-inizia-subito-medipersonal-deutschschweiz-graubunden",
       "slugByLocale": {
         "de": "jobs-fachpersonen-langzeitpflege-betreuung-in-zizers-jetzt-durchstarten-medipersonal-deutschschweiz-graubunden",
-        "it": "jobs-fachpersonen-langzeitpflege-betreuung-in-zizers-jetzt-durchstarten-medipersonal-deutschschweiz-graubunden",
-        "en": "jobs-fachpersonen-langzeitpflege-betreuung-in-zizers-jetzt-durchstarten-medipersonal-deutschschweiz-graubunden",
-        "fr": "jobs-fachpersonen-langzeitpflege-betreuung-in-zizers-jetzt-durchstarten-medipersonal-deutschschweiz-graubunden"
+        "it": "jobs-professionisti-a-lungo-termine-care-care-in-zizers-inizia-subito-medipersonal-deutschschweiz-graubunden",
+        "en": "jobs-professionals-long-term-care-care-in-zizers-start-now-medipersonal-deutschschweiz-graubunden",
+        "fr": "emplois-soins-de-longue-duree-et-soins-professionnels-en-zizers-commencez-maintenant-medipersonal-deutschschweiz"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -843,14 +947,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T14:21:09.325Z"
+      "firstSeenAt": "2026-09-24T14:21:09.325Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "jobs-fachpersonen-langzeitpflege-betreuung-in-zizers-jetzt-durchstarten-medipersonal-deutschschweiz-graubunden"
+        ],
+        "en": [
+          "jobs-fachpersonen-langzeitpflege-betreuung-in-zizers-jetzt-durchstarten-medipersonal-deutschschweiz-graubunden"
+        ],
+        "fr": [
+          "jobs-fachpersonen-langzeitpflege-betreuung-in-zizers-jetzt-durchstarten-medipersonal-deutschschweiz-graubunden"
+        ]
+      },
+      "previousSlugs": [
+        "jobs-fachpersonen-langzeitpflege-betreuung-in-zizers-jetzt-durchstarten-medipersonal-deutschschweiz-graubunden"
+      ]
     },
     {
       "id": "ipersonal-99bbfca3d8da",
-      "slug": "dipl-pflegefachfrau-mann-fh-medipersonal-kuttigen",
+      "slug": "dipl-pflegefachfrau-mann-fh-medipersonal-kuttigen-aargau",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-fh-medipersonal-kuttigen-aargau",
-        "it": "dipl-pflegefachfrau-mann-fh-medipersonal-kuttigen",
+        "it": "dipl-pflegefachfrau-mann-fh-medipersonal-kuttigen-aargau",
         "en": "dipl-pflegefachfrau-mann-fh-medipersonal-kuttigen-aargau",
         "fr": "dipl-pflegefachfrau-mann-fh-medipersonal-kuttigen-aargau"
       },
@@ -894,11 +1012,11 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-fh-medipersonal-kuttigen-aargau"
+          "dipl-pflegefachfrau-mann-fh-medipersonal-kuttigen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-fh-medipersonal-kuttigen-aargau"
+        "dipl-pflegefachfrau-mann-fh-medipersonal-kuttigen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
