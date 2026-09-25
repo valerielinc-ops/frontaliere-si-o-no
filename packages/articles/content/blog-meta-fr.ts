@@ -12008,6 +12008,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.kof-consensus-forecast-svizzera-2026.title': 'PIB suisse 2026 revu à la hausse : +1,7% selon le KOF',
     'blog.article.kof-consensus-forecast-svizzera-2026.excerpt': 'Le KOF estime pour 2026 une croissance du PIB de 1,7 % (contre 0,9 % en juin) et une inflation à 0,6 % ; l’euro à 0,93 franc dans trois mois et à 0,92 dans un an.',
     'blog.article.kof-consensus-forecast-svizzera-2026.imageAlt': 'Vue panoramique du lac de Lugano avec les Alpes en arrière-plan et des voiliers sur l\'eau',
+    'blog.article.plr-bellinzona-investimento-fortezza.title': 'Forteresse de Bellinzone : le Oui du PLR à l’investissement',
+    'blog.article.plr-bellinzona-investimento-fortezza.excerpt': 'Bellinzona vote le 27 septembre sur la Forteresse : le PLR soutient le Message 1019, avec plus de 14 millions de retombées économiques et environ 4,5 millions à la charge de la Ville.',
+    'blog.article.plr-bellinzona-investimento-fortezza.imageAlt': 'Trois châteaux et remparts de Bellinzona, patrimoine mondial UNESCO',
 };
 
 export default blogMetaFr;

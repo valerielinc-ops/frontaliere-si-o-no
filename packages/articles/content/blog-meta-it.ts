@@ -12007,6 +12007,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.kof-consensus-forecast-svizzera-2026.title': 'PIL svizzera 2026 rivisto al rialzo: +1,7% secondo il KOF',
     'blog.article.kof-consensus-forecast-svizzera-2026.excerpt': 'Il KOF stima per il 2026 una crescita del PIL dell\'1,7% (contro lo 0,9% di giugno) e inflazione allo 0,6%; euro a 0,93 franchi tra tre mesi e 0,92 fra un anno.',
     'blog.article.kof-consensus-forecast-svizzera-2026.imageAlt': 'Vista panoramica del lago di Lugano con le Alpi sullo sfondo e barche a vela sull\'acqua',
+    'blog.article.plr-bellinzona-investimento-fortezza.title': 'Fortezza Bellinzona: il Sì del PLR all\'investimento',
+    'blog.article.plr-bellinzona-investimento-fortezza.excerpt': 'Bellinzona vota il 27 settembre sulla Fortezza: il PLR sostiene il Messaggio 1019, con oltre 14 milioni di indotto e circa 4,5 milioni a carico della Città.',
+    'blog.article.plr-bellinzona-investimento-fortezza.imageAlt': 'Tre Castelli e cinta muraria di Bellinzona, patrimonio mondiale UNESCO',
 };
 
 export default blogMetaIt;

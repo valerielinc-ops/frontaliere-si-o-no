@@ -93634,6 +93634,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-plr-bellinzona-investimento-fortezza': {
+    title: 'Fortezza Bellinzona: il Sì del PLR all\'investimento',
+    description: 'Bellinzona vota il 27 settembre sulla Fortezza: il PLR sostiene il Messaggio 1019, con oltre 14 milioni di indotto e circa 4,5 milioni a carico della Città.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fortezza, bellinzona, investimento, vota',
+    ogTitle: 'Fortezza Bellinzona: il Sì del PLR al voto',
+    ogDescription: 'Il PLR Bellinzona sostiene il voto del 27 settembre sul Messaggio 1019: la Fortezza riunisce Tre Castelli, Murata e cinta muraria, con spazi museali rinnovati, nuove aree per eventi e un indotto stimato oltre 14 milioni di franchi.',
+    canonicalPath: '/articoli-frontaliere/plr-bellinzona-investimento-fortezza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fortezza Bellinzona: il Sì del PLR all'investimento",
+      "description": "Bellinzona vota il 27 settembre sulla Fortezza: il PLR sostiene il Messaggio 1019, con oltre 14 milioni di indotto e circa 4,5 milioni a carico della Città.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/plr-bellinzona-investimento-fortezza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tre Castelli e cinta muraria di Bellinzona, patrimonio mondiale UNESCO"
+      },
+      "datePublished": "2026-09-25T22:29:51+00:00",
+      "dateModified": "2026-09-25T22:29:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/plr-bellinzona-investimento-fortezza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
