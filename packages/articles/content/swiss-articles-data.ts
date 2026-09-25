@@ -1778,6 +1778,7 @@ const RAW_SWISS_ARTICLES: Article[] = [
     id: 'naspi-ex-frontalieri-guida',
     category: 'pratico',
     date: '2026-06-27T16:00:45.740Z',
+    updatedAt: '2026-09-25',
     image: '/images/blog/naspi-ex-frontalieri-guida.webp',
     hasCalculator: true,
     authorSlug: 'redazione',

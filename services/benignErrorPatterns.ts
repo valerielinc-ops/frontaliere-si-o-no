@@ -257,3 +257,48 @@ export function isOriginRedactedThirdPartyStack(stack: string): boolean {
   // cross-origin script, so the inference above does not hold.
   return frames.every((frame) => WEBKIT_ORIGIN_REDACTED_FRAME.test(frame));
 }
+
+/**
+ * Google's own iOS apps: Chrome for iOS (`CriOS/`, iOS-only token) and the
+ * Google app (`GSA/`, which Android ships too — hence the iOS device check).
+ */
+export const GOOGLE_IOS_APP_UA_PATTERN = /\bCriOS\/\d|\b(?:iPhone|iPad|iPod)\b.*\bGSA\/\d/;
+
+/**
+ * A frame (or `ErrorEvent.filename`) inside one of our own script assets:
+ * the ES-module chunks and the externalised boot scripts all live under
+ * `/assets/*.js`, on the CDN or on the origin.
+ */
+export const FIRST_PARTY_ASSET_FRAME_PATTERN = /\/assets\/[^\s?#:@]+\.js\b/;
+
+const STACK_OVERFLOW_MESSAGE_PATTERN = /Maximum call stack size exceeded/i;
+
+/**
+ * True for the stack overflow that Chrome for iOS and the Google app raise
+ * inside the scripts THEY inject into every page they render (issue #8773).
+ *
+ * It is the #4173 recursion (`Qk`⇄`Ok`, `Nk`⇄`Pk`, `Fk`⇄`Hk`, … — Closure
+ * names that rotate with each app release, several on the same day because
+ * users run different versions) in the variant `isOriginRedactedThirdPartyStack`
+ * cannot see: WebKit attributes the injected code to the DOCUMENT URL instead
+ * of redacting it, so the frames look like our own inline scripts. They are
+ * not: the same `:190:41` / `:197:363` positions recur on the SPA shell,
+ * where those lines are `<meta>` tags, and on static pages that are shorter
+ * than that — the 2026-09-24 sample points at line 226 of a 125-line job page.
+ *
+ * Evidence (PostHog `$exception`, 90 d to 2026-09-25): 250/250 occurrences
+ * from `CriOS/` (153) and `GSA/` (97); zero from plain iOS Safari — same
+ * engine, same pages, same first-party and ad code — nor from any other
+ * browser; zero frames in one of our `/assets/*.js` chunks. It is the WebKit
+ * counterpart of `BROWSER_EXTENSION_ORIGIN_PATTERN`: third-party code running
+ * in page context, which no change on our side can fix.
+ *
+ * Deliberately narrow: only this message, only these two apps, and never when
+ * a frame runs through one of our own chunks — a first-party recursion there
+ * still reports, and in any other browser the signature is still reported.
+ */
+export function isGoogleIosAppInjectedStackOverflow(message: string, stack: string, userAgent: string): boolean {
+  if (!GOOGLE_IOS_APP_UA_PATTERN.test(userAgent || '')) return false;
+  if (!STACK_OVERFLOW_MESSAGE_PATTERN.test(message || '')) return false;
+  return !FIRST_PARTY_ASSET_FRAME_PATTERN.test(stack || '');
+}

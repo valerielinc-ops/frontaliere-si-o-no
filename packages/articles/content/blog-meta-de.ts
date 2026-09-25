@@ -228,7 +228,7 @@ const blogMetaDe: Record<string, string> = {
  'blog.article.mappa-fiscale-comuni-frontiera.excerpt': 'Wo lebt es sich am besten? Ein Vergleich der Sätze 2026 in Como, Varese und Verbano. Die Auswirkung auf das Nettogehalt eines Grenzgängers kann 400 CHF pro Jahr übersteigen.',
  'blog.article.mappa-fiscale-comuni-frontiera.imageAlt': 'Panoramablick aus dem Mendrisiotto auf die italienischen Grenzgemeinden bei Sonnenuntergang, ein Symbol für die steuerlichen Entscheidungen der Grenzgänger.',
  'blog.article.maternita-paternita-frontaliere-guida.title': 'Mutterschaft & Vaterschaft: Grenzgänger-Guide 2026',
- 'blog.article.maternita-paternita-frontaliere-guida.excerpt': 'Arbeiten Sie im Tessin und werden Eltern? Hier ist der komplette Leitfaden 2026: 14 Wochen für die Mutter, 2 für den Vater, mit einer Entschädigung von bis zu 230 CHF/Tag. AHV vs. INPS-Regeln.',
+ 'blog.article.maternita-paternita-frontaliere-guida.excerpt': 'Arbeiten Sie im Tessin und werden Eltern? Hier ist der komplette Leitfaden 2026: 14 Wochen für die Mutter, 2 für den Vater, mit einer Entschädigung von bis zu 220 CHF/Tag. AHV vs. INPS-Regeln.',
  'blog.article.maternita-paternita-frontaliere-guida.imageAlt': 'Ein Paar neuer Grenzgänger-Eltern konsultiert Dokumente für den Elternurlaub in einer Wohnung im Tessin.',
  'blog.article.guida-contributi-sociali-svizzera.title': 'Schweizer Lohnabrechnung: Leitfaden Sozialabgaben 2026',
  'blog.article.guida-contributi-sociali-svizzera.excerpt': 'AHV, BVG, SUVA: Entdecken Sie die Sätze für 2026 und wie viel Sie und Ihr Arbeitgeber zahlen. Ein praktisches Beispiel mit einem Bruttogehalt von 5.500 CHF.',
