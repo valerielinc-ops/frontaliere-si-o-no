@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ete",
-  "assembledAt": "2026-09-23T23:44:18.599Z",
+  "assembledAt": "2026-09-25T14:46:57.391Z",
   "jobs": [
     {
       "id": "ete-8e1b044575dd",
@@ -34,7 +34,7 @@
       "url": "https://www.ete.ch/jobs/operateur-logistique-maintenance-magasin-automatise/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:44:14.652Z",
+      "crawledAt": "2026-09-25T14:46:53.933Z",
       "addressLocality": "Avenches",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -70,6 +70,7 @@
         "operateur-logistique-038-maintenance-magasin-automatise-emil-egger-ag-avenches-8e1b0445"
       ],
       "firstSeenAt": "2026-08-23T21:34:46.434Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -82,8 +83,91 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "ete-6517d9344dcf",
+      "slug": "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-6517d934",
+      "slugByLocale": {
+        "it": "lehre-zum-kaufmann-kauffrau-cfc-start-ab-sommer-2027-emil-egger-ag-lugano",
+        "en": "apprenticeship-to-the-merchant-merchant-efz-start-from-summer-2027-emil-egger-ag-lugano",
+        "de": "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano",
+        "fr": "apprentissage-au-marchand-marchand-efz-a-partir-de-l-ete-2027-emil-egger-ag-lugano"
       },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/operateur-logistique-maintenance-magasin-automatise"
+      "slugDisambiguator": "6517d934",
+      "company": "Emil Egger AG",
+      "companyKey": "ete",
+      "companyDomain": "ete.ch",
+      "title": "Lehre zum Kaufmann / Kauffrau EFZ (Start ab Sommer 2027)",
+      "titleByLocale": {
+        "it": "Apprendistato al commerciante / commerciante EFZ (a partire dall'estate 2027)",
+        "en": "Apprenticeship to the merchant / merchant EFZ (start from summer 2027)",
+        "de": "Lehre zum Kaufmann / Kauffrau EFZ (Start ab Sommer 2027)",
+        "fr": "Apprentissage au marchand / marchand EFZ (à partir de l'été 2027)"
+      },
+      "description": "Jobbeschreibung Die Lehre als Kaufmann/Kauffrau EFZ (Branche Transport) dauert drei Jahre. In unserer Administration und Verwaltung lernst du in verschiedenen Abteilungen die Arbeitsabläufe und Tätigkeiten von Kaufleuten kennen, bis du schliesslich im operativen Bereich mitwirken kannst. Wichtig für diesen Beruf ist, dass du gerne am Computer arbeitest, eine gute Auffassungsgabe hast und dich in einer Büroumgebung wohlfühlst. Ideale Voraussetzungen sind zudem ansprechende Noten aus der Sekundarschule und Freude an Mathematik und Sprachen. Zu Beginn lernst du vor allem \n• Aufgaben im Back-Office kennen, wie z.B. die Bearbeitung von Spesenabrechnungen, den Postversand oder Zusatzarbeiten in Form von Rechnungskontrollen etc. Im nächsten Schritt geht es darum, die Grundlagen für Abrechnung von Transportleistungen zu erarbeiten und nach Einführung selbstständige Tätigkeiten dieses Arbeitsbereiches zu übernehmen Später bieten wir dir die Möglichkeit, im operativen Tagesgeschäft tätig zu sein, Aufträge entgegen zu nehmen und zu bearbeiten, Abklärungen zu treffen und bei damit verbundenen \n• Aufgaben mitzuhelfen Dazwischen bieten wir dir zudem Gelegenheit, die Praxis mitzuerleben, indem du mit einem LKW unterwegs bist und einen genaueren Einblick in die \n• Aufgaben der Chauffeure sowie die Abwicklung der Dienstleistung vor Ort erhältst Auch eine Erfahrungswoche in einer Filiale gehört zu unserer Standardausbildung Wir erwarten Ansprechende Sekundar- / Realschulnoten Interesse an der Transportbranche Begeisterung für PC-Arbeiten Motivierte und selbstständige Arbeitsweise Schnelle Auffassungsgabe Offenes und ehrliches Auftreten Zuverlässigkeit und Eigeninitiative \n• Wir bieten Abwechslungsreiche und spannende Ausbildung Interessante Tätigkeiten in verschiedenen Abteilungen Lebhaftes Arbeitsumfeld Flexible Ferienregelung Lernunterstützung --> -->",
+      "descriptionByLocale": {
+        "it": "Descrizione del lavoro L'apprendistato come imprenditore della ZEF (settore dei trasporti) dura tre anni. Nella nostra amministrazione e amministrazione conoscerai i processi lavorativi e le attività dei commercianti nei vari dipartimenti fino a quando potrai finalmente essere coinvolto nell'area operativa. Per questo lavoro è importante che ti piaccia lavorare al computer, avere buone capacità di comprensione e sentirti a tuo agio in un ambiente d'ufficio. Requisiti ideali sono anche buoni voti alle scuole medie e la passione per la matematica e le lingue. All'inizio impari soprattutto\n• Conoscere i compiti del back office, come l'elaborazione delle note spese, l'invio di posta o lavoro aggiuntivo sotto forma di controllo delle fatture, ecc. Il passo successivo è sviluppare le basi per la fatturazione dei servizi di trasporto e, dopo l'introduzione, intraprendere attività indipendenti in quest'area di lavoro. Successivamente vi offriamo l'opportunità di essere attivi nelle attività operative quotidiane, di ricevere ed elaborare ordini, di fornire chiarimenti e questioni correlate\n• Aiuto con i compiti Nel frattempo ti offriamo anche l'opportunità di vivere l'esperienza pratica viaggiando su un camion e dando un'occhiata più da vicino\n• Compiti degli autisti nonché gestione del servizio in loco. Anche una settimana di esperienza in filiale fa parte della nostra formazione standard. Ci aspettiamo voti interessanti della scuola secondaria/secondaria. Interesse per il settore dei trasporti. Entusiasmo per il lavoro al PC. Modo di lavorare motivato e indipendente. Comprensione rapida. Comportamento aperto e onesto. Affidabilità e iniziativa\n• Offriamo una formazione varia ed entusiasmante. Attività interessanti in diversi dipartimenti. Ambiente lavorativo vivace. Regolamento ferie flessibile. Supporto all'apprendimento --> -->",
+        "en": "Job description The apprenticeship as an EFZ businessman (transport sector) lasts three years. In our administration and administration, you will get to know the work processes and activities of merchants in various departments until you can finally get involved in the operational area. It is important for this job that you enjoy working on the computer, have good comprehension skills and feel comfortable in an office environment. Ideal requirements are also good grades from secondary school and a passion for mathematics and languages. At the beginning you learn most of all\n• Know tasks in the back office, such as processing expense reports, sending mail or additional work in the form of invoice controls, etc. The next step is to develop the basics for billing transport services and, after introduction, to take on independent activities in this area of work. Later, we offer you the opportunity to be active in day-to-day operational business, to receive and process orders, to make clarifications and in related matters\n• Help with tasks In between, we also offer you the opportunity to experience the practical experience by traveling in a truck and getting a closer look at it\n• Tasks of the chauffeurs as well as the handling of the service on site. A week of experience in a branch is also part of our standard training. We expect attractive secondary / secondary school grades. Interest in the transport industry. Enthusiasm for PC work. Motivated and independent way of working. Quick comprehension. Open and honest demeanor. Reliability and initiative\n• We offer varied and exciting training. Interesting activities in different departments. Lively working environment. Flexible holiday regulations. Learning support --> -->",
+        "de": "Jobbeschreibung Die Lehre als Kaufmann/Kauffrau EFZ (Branche Transport) dauert drei Jahre. In unserer Administration und Verwaltung lernst du in verschiedenen Abteilungen die Arbeitsabläufe und Tätigkeiten von Kaufleuten kennen, bis du schliesslich im operativen Bereich mitwirken kannst. Wichtig für diesen Beruf ist, dass du gerne am Computer arbeitest, eine gute Auffassungsgabe hast und dich in einer Büroumgebung wohlfühlst. Ideale Voraussetzungen sind zudem ansprechende Noten aus der Sekundarschule und Freude an Mathematik und Sprachen. Zu Beginn lernst du vor allem \n• Aufgaben im Back-Office kennen, wie z.B. die Bearbeitung von Spesenabrechnungen, den Postversand oder Zusatzarbeiten in Form von Rechnungskontrollen etc. Im nächsten Schritt geht es darum, die Grundlagen für Abrechnung von Transportleistungen zu erarbeiten und nach Einführung selbstständige Tätigkeiten dieses Arbeitsbereiches zu übernehmen Später bieten wir dir die Möglichkeit, im operativen Tagesgeschäft tätig zu sein, Aufträge entgegen zu nehmen und zu bearbeiten, Abklärungen zu treffen und bei damit verbundenen \n• Aufgaben mitzuhelfen Dazwischen bieten wir dir zudem Gelegenheit, die Praxis mitzuerleben, indem du mit einem LKW unterwegs bist und einen genaueren Einblick in die \n• Aufgaben der Chauffeure sowie die Abwicklung der Dienstleistung vor Ort erhältst Auch eine Erfahrungswoche in einer Filiale gehört zu unserer Standardausbildung Wir erwarten Ansprechende Sekundar- / Realschulnoten Interesse an der Transportbranche Begeisterung für PC-Arbeiten Motivierte und selbstständige Arbeitsweise Schnelle Auffassungsgabe Offenes und ehrliches Auftreten Zuverlässigkeit und Eigeninitiative \n• Wir bieten Abwechslungsreiche und spannende Ausbildung Interessante Tätigkeiten in verschiedenen Abteilungen Lebhaftes Arbeitsumfeld Flexible Ferienregelung Lernunterstützung --> -->",
+        "fr": "Description du poste L'apprentissage d'homme d'affaires de la ZFE (secteur des transports) dure trois ans. Dans notre administration et administration, vous apprendrez à connaître les processus de travail et les activités des commerçants dans différents départements jusqu'à ce que vous puissiez enfin vous impliquer dans le domaine opérationnel. Il est important pour ce poste que vous aimiez travailler sur ordinateur, que vous ayez de bonnes capacités de compréhension et que vous vous sentiez à l'aise dans un environnement de bureau. Les exigences idéales sont également de bonnes notes au secondaire et une passion pour les mathématiques et les langues. Au début on apprend surtout\n• Connaître les tâches du back-office, telles que le traitement des notes de frais, l'envoi de courrier ou des travaux supplémentaires sous forme de contrôles de factures, etc. L'étape suivante consiste à développer les bases de la facturation des prestations de transport et, après initiation, à exercer des activités indépendantes dans ce domaine de travail. Plus tard, nous vous offrons la possibilité d'être actif dans les affaires opérationnelles quotidiennes, de recevoir et de traiter des commandes, d'apporter des clarifications et dans des questions connexes.\n• Aide aux tâches Entre les deux, nous vous offrons également la possibilité de vivre l'expérience pratique en voyageant dans un camion et en le regardant de plus près.\n• Tâches des chauffeurs ainsi que la prise en charge du service sur place. Une semaine d'expérience en agence fait également partie de notre formation standard. Nous nous attendons à des niveaux d’études secondaires/secondaires attractifs. Intérêt pour le secteur des transports. Enthousiasme pour le travail sur PC. Mode de travail motivé et indépendant. Compréhension rapide. Attitude ouverte et honnête. Fiabilité et initiative\n• Nous proposons des formations variées et passionnantes. Activités intéressantes dans différents départements. Environnement de travail animé. Règlements de vacances flexibles. Aide à l'apprentissage --> -->"
+      },
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://www.ete.ch/jobs/lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027/",
+      "source": "Emil Egger AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-25T14:46:53.932Z",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-23",
+      "applyUrl": "https://www.ete.ch/jobs/lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-ete-ch"
+        ],
+        "it": [
+          "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-ete-ch",
+          "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-6517d934"
+        ],
+        "en": [
+          "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
+        ],
+        "fr": [
+          "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-ete-ch",
+        "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano",
+        "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-6517d934"
+      ],
+      "firstSeenAt": "2026-08-23T21:34:46.129Z",
+      "needsRetranslation": true,
+      "salaryMin": 48000,
+      "salaryMax": 73000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48000,
+          "maxValue": 73000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "ete-dad26f9be703",
@@ -117,7 +201,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-chauffeuse-fuer-kat-c-e-fuer-hebebuehnen-und-baumaschinen-sattelschlepper-100-2/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.650Z",
+      "crawledAt": "2026-09-25T14:46:53.931Z",
       "addressLocality": "Bassersdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -166,92 +250,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/chauffeur-chauffeuse-fuer-kat-c-e-fuer-hebebuehnen-und-baumaschinen-sattelschlepper-100-2"
-    },
-    {
-      "id": "ete-6517d9344dcf",
-      "slug": "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-6517d934",
-      "slugByLocale": {
-        "it": "lehre-zum-kaufmann-kauffrau-cfc-start-ab-sommer-2027-emil-egger-ag-lugano",
-        "en": "apprenticeship-to-the-merchant-merchant-efz-start-from-summer-2027-emil-egger-ag-lugano",
-        "de": "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano",
-        "fr": "apprentissage-au-marchand-marchand-efz-a-partir-de-l-ete-2027-emil-egger-ag-lugano"
-      },
-      "slugDisambiguator": "6517d934",
-      "company": "Emil Egger AG",
-      "companyKey": "ete",
-      "companyDomain": "ete.ch",
-      "title": "Lehre zum Kaufmann / Kauffrau EFZ (Start ab Sommer 2027)",
-      "titleByLocale": {
-        "it": "Apprendistato al commerciante / commerciante EFZ (a partire dall'estate 2027)",
-        "en": "Apprenticeship to the merchant / merchant EFZ (start from summer 2027)",
-        "de": "Lehre zum Kaufmann / Kauffrau EFZ (Start ab Sommer 2027)",
-        "fr": "Apprentissage au marchand / marchand EFZ (à partir de l'été 2027)"
-      },
-      "description": "Jobbeschreibung Die Lehre als Kaufmann/Kauffrau EFZ (Branche Transport) dauert drei Jahre. In unserer Administration und Verwaltung lernst du in verschiedenen Abteilungen die Arbeitsabläufe und Tätigkeiten von Kaufleuten kennen, bis du schliesslich im operativen Bereich mitwirken kannst. Wichtig für diesen Beruf ist, dass du gerne am Computer arbeitest, eine gute Auffassungsgabe hast und dich in einer Büroumgebung wohlfühlst. Ideale Voraussetzungen sind zudem ansprechende Noten aus der Sekundarschule und Freude an Mathematik und Sprachen. Zu Beginn lernst du vor allem \n• Aufgaben im Back-Office kennen, wie z.B. die Bearbeitung von Spesenabrechnungen, den Postversand oder Zusatzarbeiten in Form von Rechnungskontrollen etc. Im nächsten Schritt geht es darum, die Grundlagen für Abrechnung von Transportleistungen zu erarbeiten und nach Einführung selbstständige Tätigkeiten dieses Arbeitsbereiches zu übernehmen Später bieten wir dir die Möglichkeit, im operativen Tagesgeschäft tätig zu sein, Aufträge entgegen zu nehmen und zu bearbeiten, Abklärungen zu treffen und bei damit verbundenen \n• Aufgaben mitzuhelfen Dazwischen bieten wir dir zudem Gelegenheit, die Praxis mitzuerleben, indem du mit einem LKW unterwegs bist und einen genaueren Einblick in die \n• Aufgaben der Chauffeure sowie die Abwicklung der Dienstleistung vor Ort erhältst Auch eine Erfahrungswoche in einer Filiale gehört zu unserer Standardausbildung Wir erwarten Ansprechende Sekundar- / Realschulnoten Interesse an der Transportbranche Begeisterung für PC-Arbeiten Motivierte und selbstständige Arbeitsweise Schnelle Auffassungsgabe Offenes und ehrliches Auftreten Zuverlässigkeit und Eigeninitiative \n• Wir bieten Abwechslungsreiche und spannende Ausbildung Interessante Tätigkeiten in verschiedenen Abteilungen Lebhaftes Arbeitsumfeld Flexible Ferienregelung Lernunterstützung --> -->",
-      "descriptionByLocale": {
-        "it": "Descrizione del lavoro L'apprendistato come imprenditore della ZEF (settore dei trasporti) dura tre anni. Nella nostra amministrazione e amministrazione conoscerai i processi lavorativi e le attività dei commercianti nei vari dipartimenti fino a quando potrai finalmente essere coinvolto nell'area operativa. Per questo lavoro è importante che ti piaccia lavorare al computer, avere buone capacità di comprensione e sentirti a tuo agio in un ambiente d'ufficio. Requisiti ideali sono anche buoni voti alle scuole medie e la passione per la matematica e le lingue. All'inizio impari soprattutto\n• Conoscere i compiti del back office, come l'elaborazione delle note spese, l'invio di posta o lavoro aggiuntivo sotto forma di controllo delle fatture, ecc. Il passo successivo è sviluppare le basi per la fatturazione dei servizi di trasporto e, dopo l'introduzione, intraprendere attività indipendenti in quest'area di lavoro. Successivamente vi offriamo l'opportunità di essere attivi nelle attività operative quotidiane, di ricevere ed elaborare ordini, di fornire chiarimenti e questioni correlate\n• Aiuto con i compiti Nel frattempo ti offriamo anche l'opportunità di vivere l'esperienza pratica viaggiando su un camion e dando un'occhiata più da vicino\n• Compiti degli autisti nonché gestione del servizio in loco. Anche una settimana di esperienza in filiale fa parte della nostra formazione standard. Ci aspettiamo voti interessanti della scuola secondaria/secondaria. Interesse per il settore dei trasporti. Entusiasmo per il lavoro al PC. Modo di lavorare motivato e indipendente. Comprensione rapida. Comportamento aperto e onesto. Affidabilità e iniziativa\n• Offriamo una formazione varia ed entusiasmante. Attività interessanti in diversi dipartimenti. Ambiente lavorativo vivace. Regolamento ferie flessibile. Supporto all'apprendimento --> -->",
-        "en": "Job description The apprenticeship as an EFZ businessman (transport sector) lasts three years. In our administration and administration, you will get to know the work processes and activities of merchants in various departments until you can finally get involved in the operational area. It is important for this job that you enjoy working on the computer, have good comprehension skills and feel comfortable in an office environment. Ideal requirements are also good grades from secondary school and a passion for mathematics and languages. At the beginning you learn most of all\n• Know tasks in the back office, such as processing expense reports, sending mail or additional work in the form of invoice controls, etc. The next step is to develop the basics for billing transport services and, after introduction, to take on independent activities in this area of work. Later, we offer you the opportunity to be active in day-to-day operational business, to receive and process orders, to make clarifications and in related matters\n• Help with tasks In between, we also offer you the opportunity to experience the practical experience by traveling in a truck and getting a closer look at it\n• Tasks of the chauffeurs as well as the handling of the service on site. A week of experience in a branch is also part of our standard training. We expect attractive secondary / secondary school grades. Interest in the transport industry. Enthusiasm for PC work. Motivated and independent way of working. Quick comprehension. Open and honest demeanor. Reliability and initiative\n• We offer varied and exciting training. Interesting activities in different departments. Lively working environment. Flexible holiday regulations. Learning support --> -->",
-        "de": "Jobbeschreibung Die Lehre als Kaufmann/Kauffrau EFZ (Branche Transport) dauert drei Jahre. In unserer Administration und Verwaltung lernst du in verschiedenen Abteilungen die Arbeitsabläufe und Tätigkeiten von Kaufleuten kennen, bis du schliesslich im operativen Bereich mitwirken kannst. Wichtig für diesen Beruf ist, dass du gerne am Computer arbeitest, eine gute Auffassungsgabe hast und dich in einer Büroumgebung wohlfühlst. Ideale Voraussetzungen sind zudem ansprechende Noten aus der Sekundarschule und Freude an Mathematik und Sprachen. Zu Beginn lernst du vor allem \n• Aufgaben im Back-Office kennen, wie z.B. die Bearbeitung von Spesenabrechnungen, den Postversand oder Zusatzarbeiten in Form von Rechnungskontrollen etc. Im nächsten Schritt geht es darum, die Grundlagen für Abrechnung von Transportleistungen zu erarbeiten und nach Einführung selbstständige Tätigkeiten dieses Arbeitsbereiches zu übernehmen Später bieten wir dir die Möglichkeit, im operativen Tagesgeschäft tätig zu sein, Aufträge entgegen zu nehmen und zu bearbeiten, Abklärungen zu treffen und bei damit verbundenen \n• Aufgaben mitzuhelfen Dazwischen bieten wir dir zudem Gelegenheit, die Praxis mitzuerleben, indem du mit einem LKW unterwegs bist und einen genaueren Einblick in die \n• Aufgaben der Chauffeure sowie die Abwicklung der Dienstleistung vor Ort erhältst Auch eine Erfahrungswoche in einer Filiale gehört zu unserer Standardausbildung Wir erwarten Ansprechende Sekundar- / Realschulnoten Interesse an der Transportbranche Begeisterung für PC-Arbeiten Motivierte und selbstständige Arbeitsweise Schnelle Auffassungsgabe Offenes und ehrliches Auftreten Zuverlässigkeit und Eigeninitiative \n• Wir bieten Abwechslungsreiche und spannende Ausbildung Interessante Tätigkeiten in verschiedenen Abteilungen Lebhaftes Arbeitsumfeld Flexible Ferienregelung Lernunterstützung --> -->",
-        "fr": "Description du poste L'apprentissage d'homme d'affaires de la ZFE (secteur des transports) dure trois ans. Dans notre administration et administration, vous apprendrez à connaître les processus de travail et les activités des commerçants dans différents départements jusqu'à ce que vous puissiez enfin vous impliquer dans le domaine opérationnel. Il est important pour ce poste que vous aimiez travailler sur ordinateur, que vous ayez de bonnes capacités de compréhension et que vous vous sentiez à l'aise dans un environnement de bureau. Les exigences idéales sont également de bonnes notes au secondaire et une passion pour les mathématiques et les langues. Au début on apprend surtout\n• Connaître les tâches du back-office, telles que le traitement des notes de frais, l'envoi de courrier ou des travaux supplémentaires sous forme de contrôles de factures, etc. L'étape suivante consiste à développer les bases de la facturation des prestations de transport et, après initiation, à exercer des activités indépendantes dans ce domaine de travail. Plus tard, nous vous offrons la possibilité d'être actif dans les affaires opérationnelles quotidiennes, de recevoir et de traiter des commandes, d'apporter des clarifications et dans des questions connexes.\n• Aide aux tâches Entre les deux, nous vous offrons également la possibilité de vivre l'expérience pratique en voyageant dans un camion et en le regardant de plus près.\n• Tâches des chauffeurs ainsi que la prise en charge du service sur place. Une semaine d'expérience en agence fait également partie de notre formation standard. Nous nous attendons à des niveaux d’études secondaires/secondaires attractifs. Intérêt pour le secteur des transports. Enthousiasme pour le travail sur PC. Mode de travail motivé et indépendant. Compréhension rapide. Attitude ouverte et honnête. Fiabilité et initiative\n• Nous proposons des formations variées et passionnantes. Activités intéressantes dans différents départements. Environnement de travail animé. Règlements de vacances flexibles. Aide à l'apprentissage --> -->"
-      },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://www.ete.ch/jobs/lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027/",
-      "source": "Emil Egger AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.650Z",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://www.ete.ch/jobs/lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-ete-ch"
-        ],
-        "it": [
-          "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-ete-ch",
-          "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-6517d934"
-        ],
-        "en": [
-          "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
-        ],
-        "fr": [
-          "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-ete-ch",
-        "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano",
-        "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-6517d934"
-      ],
-      "firstSeenAt": "2026-08-23T21:34:46.129Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
-          "unitText": "YEAR"
-        }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027"
+      }
     },
     {
       "id": "ete-feec8724ee5b",
@@ -285,7 +284,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-chauffeuse-fuer-kat-c-e-fuer-hebebuehnen-und-baumaschinen-sattelschlepper-100/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.648Z",
+      "crawledAt": "2026-09-25T14:46:53.930Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -336,8 +335,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/chauffeur-chauffeuse-fuer-kat-c-e-fuer-hebebuehnen-und-baumaschinen-sattelschlepper-100"
+      }
     },
     {
       "id": "ete-4f890e1dbbc4",
@@ -371,7 +369,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-c-e-transports-speciaux-h-f-11/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:44:14.647Z",
+      "crawledAt": "2026-09-25T14:46:53.929Z",
       "addressLocality": "Avenches",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -420,8 +418,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/chauffeur-c-e-transports-speciaux-h-f-11"
+      }
     },
     {
       "id": "ete-9499465dc46e",
@@ -455,7 +452,7 @@
       "url": "https://www.ete.ch/jobs/lehre-zum-logistikerin-efz-start-ab-sommer-2027/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.646Z",
+      "crawledAt": "2026-09-25T14:46:53.928Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -489,6 +486,7 @@
         "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-harkingen-9499465d"
       ],
       "firstSeenAt": "2026-08-23T21:34:44.604Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -501,8 +499,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/lehre-zum-logistikerin-efz-start-ab-sommer-2027"
+      }
     },
     {
       "id": "ete-b3aa4e179045",
@@ -536,7 +533,7 @@
       "url": "https://www.ete.ch/jobs/mitarbeiterin-gueterumschlag-dauerhafte-nachtschicht-2/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.644Z",
+      "crawledAt": "2026-09-25T14:46:53.926Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -586,8 +583,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/mitarbeiterin-gueterumschlag-dauerhafte-nachtschicht-2"
+      }
     },
     {
       "id": "ete-8f9f30e9dfdc",
@@ -604,7 +600,7 @@
       "companyDomain": "ete.ch",
       "title": "Transport Disponent/in",
       "titleByLocale": {
-        "it": "Smaltimento dei trasporti",
+        "it": "Transport Disponent/in",
         "en": "Transport Disposal",
         "de": "Transport Disponent/in",
         "fr": "Détecteur de transport"
@@ -621,7 +617,7 @@
       "url": "https://www.ete.ch/jobs/transport-disponent-in-2/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.642Z",
+      "crawledAt": "2026-09-25T14:46:53.925Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -663,6 +659,7 @@
         ]
       },
       "firstSeenAt": "2026-09-01T05:44:48.734Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -675,8 +672,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/transport-disponent-in-2"
+      }
     },
     {
       "id": "ete-27fbe7b56934",
@@ -710,7 +706,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-kat-c-e-fuer-wechselpritschen-100-m-w-d-4/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.641Z",
+      "crawledAt": "2026-09-25T14:46:53.924Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -759,8 +755,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/chauffeur-kat-c-e-fuer-wechselpritschen-100-m-w-d-4"
+      }
     },
     {
       "id": "ete-03c5de57b596",
@@ -794,7 +789,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-kat-c-e-fuer-wechselpritschen-100-m-w-d-3/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.640Z",
+      "crawledAt": "2026-09-25T14:46:53.923Z",
       "addressLocality": "Bassersdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -845,8 +840,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/chauffeur-kat-c-e-fuer-wechselpritschen-100-m-w-d-3"
+      }
     },
     {
       "id": "ete-08d39e2960e3",
@@ -880,7 +874,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-chauffeuse-fuer-kat-c-e-fuer-spezialtransporte-fuer-offenen-sattelschlepper-100/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.638Z",
+      "crawledAt": "2026-09-25T14:46:53.921Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -929,92 +923,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/chauffeur-chauffeuse-fuer-kat-c-e-fuer-spezialtransporte-fuer-offenen-sattelschlepper-100"
-    },
-    {
-      "id": "ete-207db82bf35c",
-      "slug": "disponent-in-lw-krane-100-emil-egger-ag-st-gallen-207db82b",
-      "slugByLocale": {
-        "it": "disponent-in-lw-krane-100-emil-egger-ag-lugano",
-        "en": "equipped-in-lw-krane-100-emil-egger-ag-lugano",
-        "de": "ausgestattet-in-lw-krane-100-emil-egger-ag-lugano",
-        "fr": "equipe-en-lw-krane-100-emil-egger-ag-lugano"
-      },
-      "slugDisambiguator": "207db82b",
-      "company": "Emil Egger AG",
-      "companyKey": "ete",
-      "companyDomain": "ete.ch",
-      "title": "Disponent / in LW-Krane 100%",
-      "titleByLocale": {
-        "it": "dotato / in gru LW 100%",
-        "en": "Equipped / in LW-Krane 100%",
-        "de": "Disponent / in LW-Krane 100%",
-        "fr": "Équipé / en LW-Krane 100%"
-      },
-      "description": "Jobbeschreibung Die Emil Egger Gruppe ist in der Schweiz der führende Anbieter von Schwergut-Logistik. In den Bereichen Kranarbeiten, Spezialtransporte, Industrieumzüge und Miethebebühnen sind über 230 Mitarbeitende beschäftigt. Mit dem umfassenden Spezial Know-how werden tagtäglich individuelle und innovative Kundenlösungen erarbeitet. Für unseren Hauptsitz in St. Gallen suchen wir eine engagierte Persönlichkeit für die Einsatz- und Transportplanung. In dieser Funktion koordinierst und planst du komplexe Kran- und Transportaufträge und stellst einen reibungslosen operativen Ablauf sicher. In dieser Schlüsselrolle bist du das organisatorische Herzstück zwischen Kunden, Chauffeuren und internen Projektteams. \n• Aufgaben Du planst und koordinierst den täglichen Einsatz unserer LKW-Krane und Teams Du stellst sicher, dass Fahrzeuge, Personal und Material effizient eingesetzt werden Du hältst alle Fäden in der Hand und sorgst für einen reibungslosen Tagesablauf Du kommunizierst aktiv mit Kunden, Fahrern und Projektleitern und findest schnelle, pragmatische Lösungen Du optimierst laufend die Auslastung unserer Ressourcen Wir erwarten Eine abgeschlossene technische oder kaufmännische Grundausbildung Erfahrung in Logistik, Transport oder operativer Planung ist von Vorteil Begeisterung für Technik, Krane, LKWs und anspruchsvolle Abläufe Du denkst strukturiert, handelst lösungsorientiert und behältst auch in hektischen Situationen den Überblick Sehr gute Deutschkenntnisse in Wort und Schrift \n• Wir bieten Eine verantwortungsvolle Rolle mit direktem Einfluss auf den operativen Erfolg Ein vielseitiges Arbeitsumfeld mit täglich neuen Herausforderungen Moderne Arbeitsmittel und Infrastruktur auf aktuellem Stand Ein eingespieltes, unterstützendes Team mit familiärer Unternehmenskultur (Du-Kultur) Attraktive Anstellungsbedingungen und zeitgemässe Sozialleistungen Kostenlose Parkmöglichkeiten direkt am Standort Wenn du Lust hast, in einem technisch spannenden Umfeld Verantwortung zu übernehmen und aktiv mitzudenken statt nur abzuarbeiten, dann bist du bei uns richtig. --> -->",
-      "descriptionByLocale": {
-        "it": "Il Gruppo Emil Egger è il fornitore leader della logistica dei beni pesanti in Svizzera. Nei settori dei lavori di gru, dei trasporti speciali, delle rimozioni industriali e degli impianti di noleggio, sono impiegati più di 230 dipendenti. Con il know-how speciale completo, le soluzioni clienti individuali e innovative vengono sviluppate ogni giorno. Per la nostra sede a St. Gallen, stiamo cercando una personalità impegnata per la pianificazione del trasporto e della distribuzione. In questa funzione, coordinare e pianificare ordini di gru e trasporto complessi e garantire un processo operativo regolare. In questo ruolo chiave, sei il centro organizzativo tra clienti, autista e team di progetto interni.\n• Pianifica e coordina l'uso quotidiano delle nostre gru e dei nostri team Assicurarsi che veicoli, personale e materiali vengano utilizzati in modo efficiente Tenere tutte le stringhe in mano e garantire una routine quotidiana liscia Si comunica attivamente con clienti, piloti e project manager e trovare soluzioni rapide e pragmatiche Ottimizzare continuamente l'utilizzo delle nostre risorse Ci aspettiamo che una completa esperienza di formazione di base tecnica o commerciale nella logistica, nei trasporti o nella pianificazione operativa sia di vantaggio per la tecnologia, gru, camion e processi esigenti Pensi strutturato, agire orientato alla soluzione e mantenere la panoramica anche in situazioni frenetiche Molto buona conoscenza del tedesco in parola e scrittura\n• Offriamo un ruolo responsabile con influenza diretta sul successo operativo Un ambiente di lavoro versatile con nuove sfide quotidiane Attrezzature e infrastrutture di lavoro moderne a livello attuale Un team consolidato e di supporto con una cultura familiare (du-culture) Condizioni di lavoro attraenti e vantaggi sociali contemporanei Possibilità di parcheggio gratuito direttamente in loco Se ti piace assumerti la responsabilità in un ambiente tecnicamente eccitante e pensare attivamente invece di lavorare, allora hai ragione con noi. - > >",
-        "en": "The Emil Egger Group is the leading provider of heavy goods logistics in Switzerland. In the areas of crane work, special transports, industrial removals and rental lifts, more than 230 employees are employed. With the comprehensive special know-how, individual and innovative customer solutions are developed every day. For our headquarters in St. Gallen, we are looking for a committed personality for deployment and transport planning. In this function, you coordinate and plan complex crane and transport orders and ensure a smooth operational process. In this key role, you are the organizational centerpiece between customers, chauffeurs and internal project teams.\n• You plan and coordinate the daily use of our truck cranes and teams You ensure that vehicles, personnel and materials are used efficiently You hold all the strings in your hand and ensure a smooth daily routine You actively communicate with customers, drivers and project managers and find fast, pragmatic solutions You continuously optimize the utilization of our resources We expect a completed technical or commercial basic training experience in logistics, transport or operational planning is of advantage enthusiasm for technology, cranes, trucks and demanding processes You think structured, act solution-oriented and keep the overview even in hectic situations Very good knowledge of German in word and writing\n• We offer a responsible role with direct influence on operational success A versatile working environment with daily new challenges Modern work equipment and infrastructure at the current level A well-established, supportive team with a family culture (du-culture) Attractive employment conditions and contemporary social benefits Free parking opportunities directly at the location If you feel like taking on responsibility in a technically exciting environment and thinking actively instead of just working, then you are right with us. --> -->>",
-        "de": "Jobbeschreibung Die Emil Egger Gruppe ist in der Schweiz der führende Anbieter von Schwergut-Logistik. In den Bereichen Kranarbeiten, Spezialtransporte, Industrieumzüge und Miethebebühnen sind über 230 Mitarbeitende beschäftigt. Mit dem umfassenden Spezial Know-how werden tagtäglich individuelle und innovative Kundenlösungen erarbeitet. Für unseren Hauptsitz in St. Gallen suchen wir eine engagierte Persönlichkeit für die Einsatz- und Transportplanung. In dieser Funktion koordinierst und planst du komplexe Kran- und Transportaufträge und stellst einen reibungslosen operativen Ablauf sicher. In dieser Schlüsselrolle bist du das organisatorische Herzstück zwischen Kunden, Chauffeuren und internen Projektteams. \n• Aufgaben Du planst und koordinierst den täglichen Einsatz unserer LKW-Krane und Teams Du stellst sicher, dass Fahrzeuge, Personal und Material effizient eingesetzt werden Du hältst alle Fäden in der Hand und sorgst für einen reibungslosen Tagesablauf Du kommunizierst aktiv mit Kunden, Fahrern und Projektleitern und findest schnelle, pragmatische Lösungen Du optimierst laufend die Auslastung unserer Ressourcen Wir erwarten Eine abgeschlossene technische oder kaufmännische Grundausbildung Erfahrung in Logistik, Transport oder operativer Planung ist von Vorteil Begeisterung für Technik, Krane, LKWs und anspruchsvolle Abläufe Du denkst strukturiert, handelst lösungsorientiert und behältst auch in hektischen Situationen den Überblick Sehr gute Deutschkenntnisse in Wort und Schrift \n• Wir bieten Eine verantwortungsvolle Rolle mit direktem Einfluss auf den operativen Erfolg Ein vielseitiges Arbeitsumfeld mit täglich neuen Herausforderungen Moderne Arbeitsmittel und Infrastruktur auf aktuellem Stand Ein eingespieltes, unterstützendes Team mit familiärer Unternehmenskultur (Du-Kultur) Attraktive Anstellungsbedingungen und zeitgemässe Sozialleistungen Kostenlose Parkmöglichkeiten direkt am Standort Wenn du Lust hast, in einem technisch spannenden Umfeld Verantwortung zu übernehmen und aktiv mitzudenken statt nur abzuarbeiten, dann bist du bei uns richtig. --> -->",
-        "fr": "Le Groupe Emil Egger est le premier fournisseur de logistique de marchandises lourdes en Suisse. Dans les domaines du travail des grues, des transports spéciaux, des déménagements industriels et des ascenseurs de location, plus de 230 employés sont employés. Grâce au savoir-faire complet, des solutions client individuelles et innovantes sont développées chaque jour. Pour notre siège à St. Gallen, nous recherchons une personnalité engagée pour le déploiement et la planification des transports. Dans cette fonction, vous coordonnez et planifiez des commandes de grue et de transport complexes et assurez un processus opérationnel en douceur. Dans ce rôle clé, vous êtes la pièce maîtresse de l'organisation entre clients, chauffeurs et équipes internes de projet.\n• Vous planifiez et coordonnez l'utilisation quotidienne de nos grues et équipes de camions Vous assurez que les véhicules, le personnel et le matériel sont utilisés efficacement Vous maintenez toutes les cordes dans votre main et vous assurez une routine quotidienne fluide Vous communiquez activement avec les clients, les pilotes et les gestionnaires de projets et trouvez des solutions rapides et pragmatiques Vous optimisez en permanence l'utilisation de nos ressources Nous nous attendons à une formation de base technique ou commerciale complète dans la logistique, le transport ou la planification opérationnelle est d'un enthousiasme d'avantage pour la technologie, les grues, les camions et les processus exigeants Vous pensez structuré, agir orienté solution et garder l'aperçu même dans des situations mouvementées Très bonne connaissance de l'allemand en paroles et en écriture\n• Nous offrons un rôle responsable avec une influence directe sur la réussite opérationnelle Un environnement de travail polyvalent avec de nouveaux défis quotidiens Équipement et infrastructure de travail modernes au niveau actuel Une équipe bien établie et solidaire avec une culture familiale (du-culture) Conditions d'emploi attrayantes et avantages sociaux contemporains Possibilités de stationnement gratuites directement sur place Si vous avez envie d'assumer la responsabilité dans un environnement techniquement passionnant et de penser activement au lieu de travailler, alors vous avez raison avec nous. -> -->>"
-      },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://www.ete.ch/jobs/disponent-in-lw-krane-100-2/",
-      "source": "Emil Egger AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.637Z",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://www.ete.ch/jobs/disponent-in-lw-krane-100-2/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "it": [
-          "disponent-in-lw-krane-100-ete-ch",
-          "disponent-in-industrieumzuge-100-ete-ch-st-gallen",
-          "disponent-in-industrieumzuge-100-emil-egger-ag-st-gallen",
-          "disponent-in-lw-krane-100-emil-egger-ag-st-gallen-207db82b"
-        ],
-        "de": [
-          "disponent-in-industrieumzuge-100-ete-ch-st-gallen"
-        ],
-        "fr": [
-          "disponent-in-industrieumzuge-100-emil-egger-ag-st-gallen"
-        ]
-      },
-      "previousSlugs": [
-        "disponent-in-lw-krane-100-ete-ch",
-        "disponent-in-industrieumzuge-100-ete-ch-st-gallen",
-        "disponent-in-industrieumzuge-100-emil-egger-ag-st-gallen",
-        "disponent-in-lw-krane-100-emil-egger-ag-st-gallen-207db82b"
-      ],
-      "firstSeenAt": "2026-08-23T21:34:42.782Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/disponent-in-lw-krane-100-2"
+      }
     },
     {
       "id": "ete-7a440ff68edb",
@@ -1048,7 +957,7 @@
       "url": "https://www.ete.ch/jobs/mecanicien-machines-de-chantier-agricoleh-f/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:44:14.636Z",
+      "crawledAt": "2026-09-25T14:46:53.917Z",
       "addressLocality": "Avenches",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1090,8 +999,91 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "ete-207db82bf35c",
+      "slug": "disponent-in-lw-krane-100-emil-egger-ag-st-gallen-207db82b",
+      "slugByLocale": {
+        "it": "disponent-in-lw-krane-100-emil-egger-ag-lugano",
+        "en": "equipped-in-lw-krane-100-emil-egger-ag-lugano",
+        "de": "ausgestattet-in-lw-krane-100-emil-egger-ag-lugano",
+        "fr": "equipe-en-lw-krane-100-emil-egger-ag-lugano"
       },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/mecanicien-machines-de-chantier-agricoleh-f"
+      "slugDisambiguator": "207db82b",
+      "company": "Emil Egger AG",
+      "companyKey": "ete",
+      "companyDomain": "ete.ch",
+      "title": "Disponent / in LW-Krane 100%",
+      "titleByLocale": {
+        "it": "Disponent / in LW-Krane 100%",
+        "en": "Equipped / in LW-Krane 100%",
+        "de": "Disponent / in LW-Krane 100%",
+        "fr": "Équipé / en LW-Krane 100%"
+      },
+      "description": "Jobbeschreibung Die Emil Egger Gruppe ist in der Schweiz der führende Anbieter von Schwergut-Logistik. In den Bereichen Kranarbeiten, Spezialtransporte, Industrieumzüge und Miethebebühnen sind über 230 Mitarbeitende beschäftigt. Mit dem umfassenden Spezial Know-how werden tagtäglich individuelle und innovative Kundenlösungen erarbeitet. Für unseren Hauptsitz in St. Gallen suchen wir eine engagierte Persönlichkeit für die Einsatz- und Transportplanung. In dieser Funktion koordinierst und planst du komplexe Kran- und Transportaufträge und stellst einen reibungslosen operativen Ablauf sicher. In dieser Schlüsselrolle bist du das organisatorische Herzstück zwischen Kunden, Chauffeuren und internen Projektteams. \n• Aufgaben Du planst und koordinierst den täglichen Einsatz unserer LKW-Krane und Teams Du stellst sicher, dass Fahrzeuge, Personal und Material effizient eingesetzt werden Du hältst alle Fäden in der Hand und sorgst für einen reibungslosen Tagesablauf Du kommunizierst aktiv mit Kunden, Fahrern und Projektleitern und findest schnelle, pragmatische Lösungen Du optimierst laufend die Auslastung unserer Ressourcen Wir erwarten Eine abgeschlossene technische oder kaufmännische Grundausbildung Erfahrung in Logistik, Transport oder operativer Planung ist von Vorteil Begeisterung für Technik, Krane, LKWs und anspruchsvolle Abläufe Du denkst strukturiert, handelst lösungsorientiert und behältst auch in hektischen Situationen den Überblick Sehr gute Deutschkenntnisse in Wort und Schrift \n• Wir bieten Eine verantwortungsvolle Rolle mit direktem Einfluss auf den operativen Erfolg Ein vielseitiges Arbeitsumfeld mit täglich neuen Herausforderungen Moderne Arbeitsmittel und Infrastruktur auf aktuellem Stand Ein eingespieltes, unterstützendes Team mit familiärer Unternehmenskultur (Du-Kultur) Attraktive Anstellungsbedingungen und zeitgemässe Sozialleistungen Kostenlose Parkmöglichkeiten direkt am Standort Wenn du Lust hast, in einem technisch spannenden Umfeld Verantwortung zu übernehmen und aktiv mitzudenken statt nur abzuarbeiten, dann bist du bei uns richtig. --> -->",
+      "descriptionByLocale": {
+        "it": "Il Gruppo Emil Egger è il fornitore leader della logistica dei beni pesanti in Svizzera. Nei settori dei lavori di gru, dei trasporti speciali, delle rimozioni industriali e degli impianti di noleggio, sono impiegati più di 230 dipendenti. Con il know-how speciale completo, le soluzioni clienti individuali e innovative vengono sviluppate ogni giorno. Per la nostra sede a St. Gallen, stiamo cercando una personalità impegnata per la pianificazione del trasporto e della distribuzione. In questa funzione, coordinare e pianificare ordini di gru e trasporto complessi e garantire un processo operativo regolare. In questo ruolo chiave, sei il centro organizzativo tra clienti, autista e team di progetto interni.\n• Pianifica e coordina l'uso quotidiano delle nostre gru e dei nostri team Assicurarsi che veicoli, personale e materiali vengano utilizzati in modo efficiente Tenere tutte le stringhe in mano e garantire una routine quotidiana liscia Si comunica attivamente con clienti, piloti e project manager e trovare soluzioni rapide e pragmatiche Ottimizzare continuamente l'utilizzo delle nostre risorse Ci aspettiamo che una completa esperienza di formazione di base tecnica o commerciale nella logistica, nei trasporti o nella pianificazione operativa sia di vantaggio per la tecnologia, gru, camion e processi esigenti Pensi strutturato, agire orientato alla soluzione e mantenere la panoramica anche in situazioni frenetiche Molto buona conoscenza del tedesco in parola e scrittura\n• Offriamo un ruolo responsabile con influenza diretta sul successo operativo Un ambiente di lavoro versatile con nuove sfide quotidiane Attrezzature e infrastrutture di lavoro moderne a livello attuale Un team consolidato e di supporto con una cultura familiare (du-culture) Condizioni di lavoro attraenti e vantaggi sociali contemporanei Possibilità di parcheggio gratuito direttamente in loco Se ti piace assumerti la responsabilità in un ambiente tecnicamente eccitante e pensare attivamente invece di lavorare, allora hai ragione con noi. - > >",
+        "en": "The Emil Egger Group is the leading provider of heavy goods logistics in Switzerland. In the areas of crane work, special transports, industrial removals and rental lifts, more than 230 employees are employed. With the comprehensive special know-how, individual and innovative customer solutions are developed every day. For our headquarters in St. Gallen, we are looking for a committed personality for deployment and transport planning. In this function, you coordinate and plan complex crane and transport orders and ensure a smooth operational process. In this key role, you are the organizational centerpiece between customers, chauffeurs and internal project teams.\n• You plan and coordinate the daily use of our truck cranes and teams You ensure that vehicles, personnel and materials are used efficiently You hold all the strings in your hand and ensure a smooth daily routine You actively communicate with customers, drivers and project managers and find fast, pragmatic solutions You continuously optimize the utilization of our resources We expect a completed technical or commercial basic training experience in logistics, transport or operational planning is of advantage enthusiasm for technology, cranes, trucks and demanding processes You think structured, act solution-oriented and keep the overview even in hectic situations Very good knowledge of German in word and writing\n• We offer a responsible role with direct influence on operational success A versatile working environment with daily new challenges Modern work equipment and infrastructure at the current level A well-established, supportive team with a family culture (du-culture) Attractive employment conditions and contemporary social benefits Free parking opportunities directly at the location If you feel like taking on responsibility in a technically exciting environment and thinking actively instead of just working, then you are right with us. --> -->>",
+        "de": "Jobbeschreibung Die Emil Egger Gruppe ist in der Schweiz der führende Anbieter von Schwergut-Logistik. In den Bereichen Kranarbeiten, Spezialtransporte, Industrieumzüge und Miethebebühnen sind über 230 Mitarbeitende beschäftigt. Mit dem umfassenden Spezial Know-how werden tagtäglich individuelle und innovative Kundenlösungen erarbeitet. Für unseren Hauptsitz in St. Gallen suchen wir eine engagierte Persönlichkeit für die Einsatz- und Transportplanung. In dieser Funktion koordinierst und planst du komplexe Kran- und Transportaufträge und stellst einen reibungslosen operativen Ablauf sicher. In dieser Schlüsselrolle bist du das organisatorische Herzstück zwischen Kunden, Chauffeuren und internen Projektteams. \n• Aufgaben Du planst und koordinierst den täglichen Einsatz unserer LKW-Krane und Teams Du stellst sicher, dass Fahrzeuge, Personal und Material effizient eingesetzt werden Du hältst alle Fäden in der Hand und sorgst für einen reibungslosen Tagesablauf Du kommunizierst aktiv mit Kunden, Fahrern und Projektleitern und findest schnelle, pragmatische Lösungen Du optimierst laufend die Auslastung unserer Ressourcen Wir erwarten Eine abgeschlossene technische oder kaufmännische Grundausbildung Erfahrung in Logistik, Transport oder operativer Planung ist von Vorteil Begeisterung für Technik, Krane, LKWs und anspruchsvolle Abläufe Du denkst strukturiert, handelst lösungsorientiert und behältst auch in hektischen Situationen den Überblick Sehr gute Deutschkenntnisse in Wort und Schrift \n• Wir bieten Eine verantwortungsvolle Rolle mit direktem Einfluss auf den operativen Erfolg Ein vielseitiges Arbeitsumfeld mit täglich neuen Herausforderungen Moderne Arbeitsmittel und Infrastruktur auf aktuellem Stand Ein eingespieltes, unterstützendes Team mit familiärer Unternehmenskultur (Du-Kultur) Attraktive Anstellungsbedingungen und zeitgemässe Sozialleistungen Kostenlose Parkmöglichkeiten direkt am Standort Wenn du Lust hast, in einem technisch spannenden Umfeld Verantwortung zu übernehmen und aktiv mitzudenken statt nur abzuarbeiten, dann bist du bei uns richtig. --> -->",
+        "fr": "Le Groupe Emil Egger est le premier fournisseur de logistique de marchandises lourdes en Suisse. Dans les domaines du travail des grues, des transports spéciaux, des déménagements industriels et des ascenseurs de location, plus de 230 employés sont employés. Grâce au savoir-faire complet, des solutions client individuelles et innovantes sont développées chaque jour. Pour notre siège à St. Gallen, nous recherchons une personnalité engagée pour le déploiement et la planification des transports. Dans cette fonction, vous coordonnez et planifiez des commandes de grue et de transport complexes et assurez un processus opérationnel en douceur. Dans ce rôle clé, vous êtes la pièce maîtresse de l'organisation entre clients, chauffeurs et équipes internes de projet.\n• Vous planifiez et coordonnez l'utilisation quotidienne de nos grues et équipes de camions Vous assurez que les véhicules, le personnel et le matériel sont utilisés efficacement Vous maintenez toutes les cordes dans votre main et vous assurez une routine quotidienne fluide Vous communiquez activement avec les clients, les pilotes et les gestionnaires de projets et trouvez des solutions rapides et pragmatiques Vous optimisez en permanence l'utilisation de nos ressources Nous nous attendons à une formation de base technique ou commerciale complète dans la logistique, le transport ou la planification opérationnelle est d'un enthousiasme d'avantage pour la technologie, les grues, les camions et les processus exigeants Vous pensez structuré, agir orienté solution et garder l'aperçu même dans des situations mouvementées Très bonne connaissance de l'allemand en paroles et en écriture\n• Nous offrons un rôle responsable avec une influence directe sur la réussite opérationnelle Un environnement de travail polyvalent avec de nouveaux défis quotidiens Équipement et infrastructure de travail modernes au niveau actuel Une équipe bien établie et solidaire avec une culture familiale (du-culture) Conditions d'emploi attrayantes et avantages sociaux contemporains Possibilités de stationnement gratuites directement sur place Si vous avez envie d'assumer la responsabilité dans un environnement techniquement passionnant et de penser activement au lieu de travailler, alors vous avez raison avec nous. -> -->>"
+      },
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://www.ete.ch/jobs/disponent-in-lw-krane-100-2/",
+      "source": "Emil Egger AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-25T14:46:53.917Z",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-23",
+      "applyUrl": "https://www.ete.ch/jobs/disponent-in-lw-krane-100-2/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "it": [
+          "disponent-in-lw-krane-100-ete-ch",
+          "disponent-in-industrieumzuge-100-ete-ch-st-gallen",
+          "disponent-in-industrieumzuge-100-emil-egger-ag-st-gallen",
+          "disponent-in-lw-krane-100-emil-egger-ag-st-gallen-207db82b"
+        ],
+        "de": [
+          "disponent-in-industrieumzuge-100-ete-ch-st-gallen"
+        ],
+        "fr": [
+          "disponent-in-industrieumzuge-100-emil-egger-ag-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "disponent-in-lw-krane-100-ete-ch",
+        "disponent-in-industrieumzuge-100-ete-ch-st-gallen",
+        "disponent-in-industrieumzuge-100-emil-egger-ag-st-gallen",
+        "disponent-in-lw-krane-100-emil-egger-ag-st-gallen-207db82b"
+      ],
+      "firstSeenAt": "2026-08-23T21:34:42.782Z",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "ete-0a81ee617f81",
@@ -1125,7 +1117,7 @@
       "url": "https://www.ete.ch/jobs/quereinsteigerin-fuer-kat-c-5/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.635Z",
+      "crawledAt": "2026-09-25T14:46:53.915Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1174,8 +1166,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/quereinsteigerin-fuer-kat-c-5"
+      }
     },
     {
       "id": "ete-224fcb1aaccf",
@@ -1209,7 +1200,7 @@
       "url": "https://www.ete.ch/jobs/ausnahmetransportbegleiter-in-100-3/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.634Z",
+      "crawledAt": "2026-09-25T14:46:53.914Z",
       "addressLocality": "Bassersdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1259,8 +1250,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/ausnahmetransportbegleiter-in-100-3"
+      }
     },
     {
       "id": "ete-d82a5625610a",
@@ -1294,7 +1284,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-chauffeuse-kat-c-e-6/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.632Z",
+      "crawledAt": "2026-09-25T14:46:53.912Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1324,6 +1314,7 @@
         "chauffeur-chauffeuse-kat-c-e-emil-egger-ag-harkingen-d82a5625"
       ],
       "firstSeenAt": "2026-08-23T21:34:41.568Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1336,8 +1327,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/chauffeur-chauffeuse-kat-c-e-6"
+      }
     },
     {
       "id": "ete-692f3baf5d3f",
@@ -1371,7 +1361,7 @@
       "url": "https://www.ete.ch/jobs/chauffeurin-kat-c-e-fuer-spezialtransporte-4x4-man-100/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.631Z",
+      "crawledAt": "2026-09-25T14:46:53.911Z",
       "addressLocality": "Bassersdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1420,8 +1410,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/chauffeurin-kat-c-e-fuer-spezialtransporte-4x4-man-100"
+      }
     },
     {
       "id": "ete-f8c27dc9648c",
@@ -1455,7 +1444,7 @@
       "url": "https://www.ete.ch/jobs/sachbearbeiterin-auftragserfassung-transport-logistik-100-4/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.629Z",
+      "crawledAt": "2026-09-25T14:46:53.909Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1505,8 +1494,93 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "ete-f71f04559441",
+      "slug": "logisticien-ne-de-nuit-emil-egger-ag-avenches-f71f0455",
+      "slugByLocale": {
+        "it": "logisticista-emil-egger-ag-avenches",
+        "en": "logistician-emil-egger-ag-avenches",
+        "de": "logistiker-emil-egger-ag-avenches",
+        "fr": "logisticien-ne-de-nuit-emil-egger-ag-avenches-f71f0455"
       },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/sachbearbeiterin-auftragserfassung-transport-logistik-100-4"
+      "slugDisambiguator": "f71f0455",
+      "company": "Emil Egger AG",
+      "companyKey": "ete",
+      "companyDomain": "ete.ch",
+      "title": "Logisticien/ne de nuit",
+      "titleByLocale": {
+        "it": "Logisticien/ne de nuit",
+        "en": "Logistician/nightclub",
+        "de": "Logistiker/Nachtclub",
+        "fr": "Logisticien/ne de nuit"
+      },
+      "description": "Description du travail EMIL EGGER SA est l’une des principales entreprises suisses de logistique et offre à ses clients une gamme complète de services dans les domaines du fret général, du transport lourd et de la logistique d’entrepôt. Environ 800 employés travaillent actuellement sur 11 sites pour des clients renommés de l’industrie, de l’artisanat et du commerce. Notre département logistique lourde comprend notamment des services de grutage, les transports spéciaux, les déménagements industriels et la location de plates-formes de levage. Tâches Chargement et déchargement de camions Organisation du triage des marchandises Gestion des priorités lié au flux des marchandises Entretien de base des locaux et des divers engins de manutention \n• Votre profil Permis de cariste reconnu SUVA + formation pont roulant (un plus) Bonne condition physique Flexible et capable d’assumer des horaires de nuit Bonnes connaissances de la langue française Les atouts Autonomie Stabilité professionnelle dans une société de premier plan Outils de travail modernes Un salaire en adéquation avec les responsabilités --> -->",
+      "descriptionByLocale": {
+        "it": "Descrizione del lavoro E MulGGGER SA è una delle principali aziende di logistica svizzere e offre ai propri clienti una gamma completa di servizi nei settori della logistica generale del trasporto merci, dei trasporti pesanti e dei magazzini. Circa 800 dipendenti lavorano attualmente su 11 siti per clienti di fama industriale, artigianale e commerciale. Il nostro reparto logistico pesante comprende in particolare servizi di gruting, trasporti speciali, asportazioni industriali e il noleggio di piattaforme di sollevamento.\n\nAttività Caricamento e scarico camion Organizzazione di smistamento merci Gestione delle priorità di flusso merci Manutenzione di locali e attrezzature di movimentazione varie\n• Il tuo profilo Cartoni auto riconosciuti\n\n(s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s)) (s) (s) (s) (s) (s) (s) (s))) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s))) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s))))) (s) (s) (s) (",
+        "en": "Description of the work E MulGGGER SA is one of the leading Swiss logistics companies and offers its customers a full range of services in the fields of general freight, heavy transport and warehouse logistics. About 800 employees currently work on 11 sites for renowned customers in industry, crafts and commerce. Our heavy logistics department includes in particular gruting services, special transport, industrial removals and the rental of lift platforms.\n\nTasks Loading and unloading of trucks Freight sorting organization Managing freight flow priorities Basic maintenance of premises and various handling equipment\n• Your profile Recognized cartoon permit(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)((s)(s)((s)(s)((s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)((s)((s)(s)(s)((s)(s)((s)(s)((s)(s)((s)(s)((s)(s)(s)(s)((s)((s)((s)((s)(s)(((s)((s)(s)(((s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)((s)((s)(((s)(s)((s)(s)(s)(s)(s)(s)(s)(s)((((s)(s)(s)((s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(",
+        "de": "Beschreibung der Arbeit Die E MulGGGER SA ist eines der führenden Schweizer Logistikunternehmen und bietet ihren Kunden ein umfassendes Leistungsspektrum in den Bereichen Allgemeingut-, Schwertransport- und Lagerlogistik. Rund 800 Mitarbeiter arbeiten derzeit an 11 Standorten für namhafte Kunden in Industrie, Handwerk und Handel. Zu unserer Schwerlogistik gehören insbesondere die Griting-Dienstleistungen, Sondertransporte, Industrieabzüge und die Vermietung von Liftplattformen.\n\nAufgaben Be- und Entladen von LKWs Frachtsortierung Organisation Verwaltung der Frachtflussprioritäten Grundlegende Instandhaltung von Räumlichkeiten und verschiedenen Handling-Ausrüstungen\n• Ihr Profil Anerkannter Cartoon\n\n((s)(s)(s)(s)((s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s))(s)((s))((s))((s)(s)(s)(s(())((()))(((())))((()))((()))(((())))))(((((((()))))))((((((())))))))))))))))))((((((((((((()))))))))))))))))(((((((())))))))))))))))))))((((((((((((())))))))))))))(((())))))))))(((((((((((()))))))))))))))))))))(((((((((((((((()))))))))))))))))))))((((((((((((((((((((((((((())))))))))))))))))))))))",
+        "fr": "Description du travail EMIL EGGER SA est l’une des principales entreprises suisses de logistique et offre à ses clients une gamme complète de services dans les domaines du fret général, du transport lourd et de la logistique d’entrepôt. Environ 800 employés travaillent actuellement sur 11 sites pour des clients renommés de l’industrie, de l’artisanat et du commerce. Notre département logistique lourde comprend notamment des services de grutage, les transports spéciaux, les déménagements industriels et la location de plates-formes de levage. Tâches Chargement et déchargement de camions Organisation du triage des marchandises Gestion des priorités lié au flux des marchandises Entretien de base des locaux et des divers engins de manutention \n• Votre profil Permis de cariste reconnu SUVA + formation pont roulant (un plus) Bonne condition physique Flexible et capable d’assumer des horaires de nuit Bonnes connaissances de la langue française Les atouts Autonomie Stabilité professionnelle dans une société de premier plan Outils de travail modernes Un salaire en adéquation avec les responsabilités --> -->"
+      },
+      "location": "Avenches",
+      "canton": "VD",
+      "url": "https://www.ete.ch/jobs/logisticien-ne-de-nuit-7/",
+      "source": "Emil Egger AG Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-25T14:46:53.908Z",
+      "addressLocality": "Avenches",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "applyUrl": "https://www.ete.ch/jobs/logisticien-ne-de-nuit-7/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "logisticien-ne-de-nuit-emil-egger-ag-avenches",
+        "logisticien-ne-de-nuit-ete-ch-avenches"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "logisticien-ne-de-nuit-emil-egger-ag-avenches",
+          "logisticien-ne-de-nuit-ete-ch-avenches"
+        ],
+        "en": [
+          "logisticien-ne-de-nuit-ete-ch-avenches"
+        ],
+        "de": [
+          "logisticien-ne-de-nuit-ete-ch-avenches"
+        ],
+        "fr": [
+          "logisticien-ne-de-nuit-ete-ch-avenches"
+        ]
+      },
+      "needsRetranslation": true,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1114,
+      "retranslationAttempts": 4,
+      "firstSeenAt": "2026-09-01T05:44:45.407Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "ete-2d4d449cf0c5",
@@ -1540,7 +1614,7 @@
       "url": "https://www.ete.ch/jobs/allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.628Z",
+      "crawledAt": "2026-09-25T14:46:53.908Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1588,95 +1662,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100"
-    },
-    {
-      "id": "ete-f71f04559441",
-      "slug": "logisticien-ne-de-nuit-emil-egger-ag-avenches-f71f0455",
-      "slugByLocale": {
-        "it": "logisticista-emil-egger-ag-avenches",
-        "en": "logistician-emil-egger-ag-avenches",
-        "de": "logistiker-emil-egger-ag-avenches",
-        "fr": "logisticien-ne-de-nuit-emil-egger-ag-avenches-f71f0455"
-      },
-      "slugDisambiguator": "f71f0455",
-      "company": "Emil Egger AG",
-      "companyKey": "ete",
-      "companyDomain": "ete.ch",
-      "title": "Logisticien/ne de nuit",
-      "titleByLocale": {
-        "it": "Logisticien/ne de nuit",
-        "en": "Logistician/nightclub",
-        "de": "Logistiker/Nachtclub",
-        "fr": "Logisticien/ne de nuit"
-      },
-      "description": "Description du travail EMIL EGGER SA est l’une des principales entreprises suisses de logistique et offre à ses clients une gamme complète de services dans les domaines du fret général, du transport lourd et de la logistique d’entrepôt. Environ 800 employés travaillent actuellement sur 11 sites pour des clients renommés de l’industrie, de l’artisanat et du commerce. Notre département logistique lourde comprend notamment des services de grutage, les transports spéciaux, les déménagements industriels et la location de plates-formes de levage. Tâches Chargement et déchargement de camions Organisation du triage des marchandises Gestion des priorités lié au flux des marchandises Entretien de base des locaux et des divers engins de manutention \n• Votre profil Permis de cariste reconnu SUVA + formation pont roulant (un plus) Bonne condition physique Flexible et capable d’assumer des horaires de nuit Bonnes connaissances de la langue française Les atouts Autonomie Stabilité professionnelle dans une société de premier plan Outils de travail modernes Un salaire en adéquation avec les responsabilités --> -->",
-      "descriptionByLocale": {
-        "it": "Descrizione del lavoro E MulGGGER SA è una delle principali aziende di logistica svizzere e offre ai propri clienti una gamma completa di servizi nei settori della logistica generale del trasporto merci, dei trasporti pesanti e dei magazzini. Circa 800 dipendenti lavorano attualmente su 11 siti per clienti di fama industriale, artigianale e commerciale. Il nostro reparto logistico pesante comprende in particolare servizi di gruting, trasporti speciali, asportazioni industriali e il noleggio di piattaforme di sollevamento.\n\nAttività Caricamento e scarico camion Organizzazione di smistamento merci Gestione delle priorità di flusso merci Manutenzione di locali e attrezzature di movimentazione varie\n• Il tuo profilo Cartoni auto riconosciuti\n\n(s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s)) (s) (s) (s) (s) (s) (s) (s))) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s))) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s) (s))))) (s) (s) (s) (",
-        "en": "Description of the work E MulGGGER SA is one of the leading Swiss logistics companies and offers its customers a full range of services in the fields of general freight, heavy transport and warehouse logistics. About 800 employees currently work on 11 sites for renowned customers in industry, crafts and commerce. Our heavy logistics department includes in particular gruting services, special transport, industrial removals and the rental of lift platforms.\n\nTasks Loading and unloading of trucks Freight sorting organization Managing freight flow priorities Basic maintenance of premises and various handling equipment\n• Your profile Recognized cartoon permit(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)((s)(s)((s)(s)((s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)((s)((s)(s)(s)((s)(s)((s)(s)((s)(s)((s)(s)((s)(s)(s)(s)((s)((s)((s)((s)(s)(((s)((s)(s)(((s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)((s)((s)(((s)(s)((s)(s)(s)(s)(s)(s)(s)(s)((((s)(s)(s)((s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(",
-        "de": "Beschreibung der Arbeit Die E MulGGGER SA ist eines der führenden Schweizer Logistikunternehmen und bietet ihren Kunden ein umfassendes Leistungsspektrum in den Bereichen Allgemeingut-, Schwertransport- und Lagerlogistik. Rund 800 Mitarbeiter arbeiten derzeit an 11 Standorten für namhafte Kunden in Industrie, Handwerk und Handel. Zu unserer Schwerlogistik gehören insbesondere die Griting-Dienstleistungen, Sondertransporte, Industrieabzüge und die Vermietung von Liftplattformen.\n\nAufgaben Be- und Entladen von LKWs Frachtsortierung Organisation Verwaltung der Frachtflussprioritäten Grundlegende Instandhaltung von Räumlichkeiten und verschiedenen Handling-Ausrüstungen\n• Ihr Profil Anerkannter Cartoon\n\n((s)(s)(s)(s)((s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s)(s))(s)((s))((s))((s)(s)(s)(s(())((()))(((())))((()))((()))(((())))))(((((((()))))))((((((())))))))))))))))))((((((((((((()))))))))))))))))(((((((())))))))))))))))))))((((((((((((())))))))))))))(((())))))))))(((((((((((()))))))))))))))))))))(((((((((((((((()))))))))))))))))))))((((((((((((((((((((((((((())))))))))))))))))))))))",
-        "fr": "Description du travail EMIL EGGER SA est l’une des principales entreprises suisses de logistique et offre à ses clients une gamme complète de services dans les domaines du fret général, du transport lourd et de la logistique d’entrepôt. Environ 800 employés travaillent actuellement sur 11 sites pour des clients renommés de l’industrie, de l’artisanat et du commerce. Notre département logistique lourde comprend notamment des services de grutage, les transports spéciaux, les déménagements industriels et la location de plates-formes de levage. Tâches Chargement et déchargement de camions Organisation du triage des marchandises Gestion des priorités lié au flux des marchandises Entretien de base des locaux et des divers engins de manutention \n• Votre profil Permis de cariste reconnu SUVA + formation pont roulant (un plus) Bonne condition physique Flexible et capable d’assumer des horaires de nuit Bonnes connaissances de la langue française Les atouts Autonomie Stabilité professionnelle dans une société de premier plan Outils de travail modernes Un salaire en adéquation avec les responsabilités --> -->"
-      },
-      "location": "Avenches",
-      "canton": "VD",
-      "url": "https://www.ete.ch/jobs/logisticien-ne-de-nuit-7/",
-      "source": "Emil Egger AG Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:44:14.627Z",
-      "addressLocality": "Avenches",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-01",
-      "applyUrl": "https://www.ete.ch/jobs/logisticien-ne-de-nuit-7/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "logisticien-ne-de-nuit-emil-egger-ag-avenches",
-        "logisticien-ne-de-nuit-ete-ch-avenches"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "logisticien-ne-de-nuit-emil-egger-ag-avenches",
-          "logisticien-ne-de-nuit-ete-ch-avenches"
-        ],
-        "en": [
-          "logisticien-ne-de-nuit-ete-ch-avenches"
-        ],
-        "de": [
-          "logisticien-ne-de-nuit-ete-ch-avenches"
-        ],
-        "fr": [
-          "logisticien-ne-de-nuit-ete-ch-avenches"
-        ]
-      },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1114,
-      "retranslationAttempts": 4,
-      "firstSeenAt": "2026-09-01T05:44:45.407Z",
-      "needsRetranslation": true,
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/logisticien-ne-de-nuit-7"
+      }
     },
     {
       "id": "ete-d5ea0472e9b7",
@@ -1710,7 +1696,7 @@
       "url": "https://www.ete.ch/jobs/lw-kranchauffeurin-kat-ce-100-36mt-fassi-kran/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.626Z",
+      "crawledAt": "2026-09-25T14:46:53.906Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1758,8 +1744,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/lw-kranchauffeurin-kat-ce-100-36mt-fassi-kran"
+      }
     },
     {
       "id": "ete-0b498480610d",
@@ -1793,7 +1778,7 @@
       "url": "https://www.ete.ch/jobs/atb-fahrer-ausnahmetransportbegleiter-a-100/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.624Z",
+      "crawledAt": "2026-09-25T14:46:53.904Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1843,8 +1828,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/atb-fahrer-ausnahmetransportbegleiter-a-100"
+      }
     },
     {
       "id": "ete-b5449b49d664",
@@ -1878,7 +1862,7 @@
       "url": "https://www.ete.ch/jobs/spontanbewerbung-2/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.623Z",
+      "crawledAt": "2026-09-25T14:46:53.903Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1916,6 +1900,7 @@
         ]
       },
       "firstSeenAt": "2026-09-01T05:44:44.499Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1928,8 +1913,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/spontanbewerbung-2"
+      }
     },
     {
       "id": "ete-a9ca67266d31",
@@ -1946,16 +1930,16 @@
       "companyDomain": "ete.ch",
       "title": "Chauffeur Kat. C/E für Rangier- und Umschlagtätigkeiten (dauerhafte Nachtschicht)",
       "titleByLocale": {
-        "de": "Chauffeur Kat. C/E für Rangier- und Umschlagtätigkeiten (dauerhafte Nachtschicht)",
         "it": "Chauffeur Cat C/E per attività di shunting e movimentazione (cambio notturno permanente)",
         "en": "Chauffeur Cat C/E for shunting and handling activities (permanent night shift)",
+        "de": "Chauffeur Kat. C/E für Rangier- und Umschlagtätigkeiten (dauerhafte Nachtschicht)",
         "fr": "Chauffeur Cat C/E pour les activités de chasse et de manutention (équipe de nuit permanente)"
       },
       "description": "Jobbeschreibung Die EMIL EGGER Gruppe gehört zu den führenden Schweizer Logistikunternehmen und bietet ihren Kunden ein umfassendes Dienstleistungsangebot in den Bereichen Stückgut-, Schwergut- und Lagerlogistik. An 11 Standorten arbeiten aktuell rund 800 Mitarbeitende für namhafte Auftraggeber aus Industrie, Gewerbe und Handel. \n• Aufgaben Internes Rangieren unserer Sattelschlepper + Anhängerzüge von und zu den Umschlagsrampen Mithilfe im Güterumschlag Wir erwarten Bereitschaft, für dauerhafte Arbeit in Abendschicht zu leisten (16.30 – 01.30 Uhr) Mehrjährige Erfahrung als Lastwagenfahrer sowie Fachkenntnisse im anspruchsvollen Gütertransport Freude an einer vielseitigen Tätigkeit Kundenorientiertes Denken und Handeln Flexibilität und Teamfähigkeit \n• Wir bieten Interessante, zukunftsorientierte Tätigkeiten in dynamischem Unternehmen Abwechslungsreiche \n• Aufgaben in einem spannenden Umfeld Fortschrittliche Anstellungsbedingungen und Sozialleistungen Möglichkeit für interne Ausbildungen Kostenloser Parkplatz Familiäre Firmenkultur / Du-Kultur Eintritt nach Vereinbarung --> -->",
       "descriptionByLocale": {
-        "de": "Jobbeschreibung Die EMIL EGGER Gruppe gehört zu den führenden Schweizer Logistikunternehmen und bietet ihren Kunden ein umfassendes Dienstleistungsangebot in den Bereichen Stückgut-, Schwergut- und Lagerlogistik. An 11 Standorten arbeiten aktuell rund 800 Mitarbeitende für namhafte Auftraggeber aus Industrie, Gewerbe und Handel. \n• Aufgaben Internes Rangieren unserer Sattelschlepper + Anhängerzüge von und zu den Umschlagsrampen Mithilfe im Güterumschlag Wir erwarten Bereitschaft, für dauerhafte Arbeit in Abendschicht zu leisten (16.30 – 01.30 Uhr) Mehrjährige Erfahrung als Lastwagenfahrer sowie Fachkenntnisse im anspruchsvollen Gütertransport Freude an einer vielseitigen Tätigkeit Kundenorientiertes Denken und Handeln Flexibilität und Teamfähigkeit \n• Wir bieten Interessante, zukunftsorientierte Tätigkeiten in dynamischem Unternehmen Abwechslungsreiche \n• Aufgaben in einem spannenden Umfeld Fortschrittliche Anstellungsbedingungen und Sozialleistungen Möglichkeit für interne Ausbildungen Kostenloser Parkplatz Familiäre Firmenkultur / Du-Kultur Eintritt nach Vereinbarung --> -->",
         "it": "Il Gruppo EMIL EGGER è una delle principali aziende logistiche svizzere e offre ai propri clienti una gamma completa di servizi nei settori della logistica generale dei carichi, dei carichi pesanti e dei magazzini. In 11 sedi, circa 800 dipendenti attualmente lavorano per clienti noti di settore, commercio e commercio.\n• Manovre interne dei nostri semirimorchio + treni rimorchio da e per le rampe di transhipment Assistenza nel trasporto merci Ci aspettiamo la disponibilità a fornire lavoro permanente in turno di sera (16.30 – 01.30) Diversi anni di esperienza come pilota di camion e competenze nel trasporto merci impegnativo Piacere in un'attività versatile pensiero orientato al cliente e agire Flessibilità e lavoro di squadra\n• Offriamo attività interessanti e orientate al futuro in un'azienda dinamica\n• Compiti in un ambiente emozionante Condizioni di lavoro avanzate e benefici sociali Opportunità per la formazione interna Parcheggio gratuito Cultura della famiglia / cultura di Du Ingresso d'intesa --> -->",
         "en": "The EMIL EGGER Group is one of the leading Swiss logistics companies and offers its customers a comprehensive range of services in the areas of general cargo, heavy cargo and warehouse logistics. At 11 locations, around 800 employees currently work for well-known clients from industry, trade and trade.\n• Internal maneuvering of our semi-trailers + trailer trains from and to the transhipment ramps Assistance in freight transhipment We expect willingness to provide for permanent work in evening shift (16.30 – 01.30) Several years of experience as a truck driver as well as expertise in demanding freight transport Pleasure in a versatile activity Customer-oriented thinking and acting Flexibility and teamwork\n• We offer interesting, future-oriented activities in a dynamic company\n• Tasks in an exciting environment Advanced employment conditions and social benefits Opportunity for internal training Free parking Family culture / Du culture Entry by agreement --> -->",
+        "de": "Jobbeschreibung Die EMIL EGGER Gruppe gehört zu den führenden Schweizer Logistikunternehmen und bietet ihren Kunden ein umfassendes Dienstleistungsangebot in den Bereichen Stückgut-, Schwergut- und Lagerlogistik. An 11 Standorten arbeiten aktuell rund 800 Mitarbeitende für namhafte Auftraggeber aus Industrie, Gewerbe und Handel. \n• Aufgaben Internes Rangieren unserer Sattelschlepper + Anhängerzüge von und zu den Umschlagsrampen Mithilfe im Güterumschlag Wir erwarten Bereitschaft, für dauerhafte Arbeit in Abendschicht zu leisten (16.30 – 01.30 Uhr) Mehrjährige Erfahrung als Lastwagenfahrer sowie Fachkenntnisse im anspruchsvollen Gütertransport Freude an einer vielseitigen Tätigkeit Kundenorientiertes Denken und Handeln Flexibilität und Teamfähigkeit \n• Wir bieten Interessante, zukunftsorientierte Tätigkeiten in dynamischem Unternehmen Abwechslungsreiche \n• Aufgaben in einem spannenden Umfeld Fortschrittliche Anstellungsbedingungen und Sozialleistungen Möglichkeit für interne Ausbildungen Kostenloser Parkplatz Familiäre Firmenkultur / Du-Kultur Eintritt nach Vereinbarung --> -->",
         "fr": "Le groupe EMIL EGGER est l'une des principales entreprises suisses de logistique et offre à ses clients une gamme complète de services dans les domaines de la logistique générale de fret, de fret lourd et d'entrepôt. À 11 endroits, environ 800 employés travaillent actuellement pour des clients bien connus de l'industrie, du commerce et du commerce.\n• Manoeuvres internes de nos semi-remorques + trains remorques depuis et vers les rampes de transbordement Assistance au transbordement de fret Nous nous attendons à la volonté de prévoir un travail permanent en équipe du soir (16.30 – 01.30) Plusieurs années d'expérience en tant que chauffeur de camion ainsi que l'expertise dans le transport de marchandises exigeant Plaisir dans une activité polyvalente Pensée orientée client et action Flexibilité et travail d'équipe\n• Nous offrons des activités intéressantes et orientées vers l'avenir dans une entreprise dynamique\n• Tâches dans un environnement passionnant Conditions d'emploi avancées et avantages sociaux Possibilité de formation interne Parking gratuit Culture familiale / Du culture Entrée par entente --> -->"
       },
       "location": "St. Gallen",
@@ -1963,7 +1947,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-kat-c-e-fuer-rangier-und-umschlagtaetigkeiten-dauerhafte-nachtschicht/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.622Z",
+      "crawledAt": "2026-09-25T14:46:53.902Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1978,23 +1962,11 @@
       "postedDate": "2026-09-23",
       "applyUrl": "https://www.ete.ch/jobs/chauffeur-kat-c-e-fuer-rangier-und-umschlagtaetigkeiten-dauerhafte-nachtschicht/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-23T23:44:14.622Z",
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chauffeur-kat-c-e-per-rangier-e-umschlagtatigkeiten-dauerhafte-nachtschicht-emil-egger-ag-st-gallen",
+        "chauffeur-kat-c-e-fur-rangier-und-umschlagtatigkeiten-dauerhafte-nachtschicht-emil-egger-ag-st-gallen-a9ca6726"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-kat-c-e-per-rangier-e-umschlagtatigkeiten-dauerhafte-nachtschicht-emil-egger-ag-st-gallen",
@@ -2007,11 +1979,20 @@
           "chauffeur-kat-c-e-fur-rangier-und-umschlagtatigkeiten-dauerhafte-nachtschicht-emil-egger-ag-st-gallen-a9ca6726"
         ]
       },
-      "previousSlugs": [
-        "chauffeur-kat-c-e-per-rangier-e-umschlagtatigkeiten-dauerhafte-nachtschicht-emil-egger-ag-st-gallen",
-        "chauffeur-kat-c-e-fur-rangier-und-umschlagtatigkeiten-dauerhafte-nachtschicht-emil-egger-ag-st-gallen-a9ca6726"
-      ],
-      "sourceIdentity": "url:https://www.ete.ch/jobs/chauffeur-kat-c-e-fuer-rangier-und-umschlagtaetigkeiten-dauerhafte-nachtschicht"
+      "firstSeenAt": "2026-09-23T23:44:14.622Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "ete-f45d285760e0",
@@ -2045,7 +2026,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-chauffeuse-kat-c-e-4/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.622Z",
+      "crawledAt": "2026-09-25T14:46:53.901Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2078,6 +2059,7 @@
         ]
       },
       "firstSeenAt": "2026-09-01T05:44:44.198Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2090,93 +2072,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/chauffeur-chauffeuse-kat-c-e-4"
-    },
-    {
-      "id": "ete-2aa60663d037",
-      "slug": "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-2aa60663",
-      "slugByLocale": {
-        "it": "apprendistato-come-logistico-efz-a-partire-dall-estate-2027-emil-egger-ag-st-gallen",
-        "en": "apprenticeship-as-a-logistician-efz-start-from-summer-2027-emil-egger-ag-st-gallen",
-        "de": "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-2aa60663",
-        "fr": "apprentissage-en-tant-que-logisticien-efz-a-partir-de-l-ete-2027-emil-egger-ag-st-gallen"
-      },
-      "slugDisambiguator": "2aa60663",
-      "company": "Emil Egger AG",
-      "companyKey": "ete",
-      "companyDomain": "ete.ch",
-      "title": "Lehre zum LogistikerIn EFZ (Start ab Sommer 2027)",
-      "titleByLocale": {
-        "it": "Apprendistato come logistico EFZ (a partire dall'estate 2027)",
-        "en": "Apprenticeship as a logistician EFZ (start from summer 2027)",
-        "de": "Lehre zum LogistikerIn EFZ (Start ab Sommer 2027)",
-        "fr": "Apprentissage en tant que logisticien EFZ (à partir de l'été 2027)"
-      },
-      "description": "Jobbeschreibung Bist du ein Organisationstalent, zuverlässig und ausdauernd? Hast du Freude an technischen Geräten, handwerkliches Geschick und ein hohes Verantwortungsbewusstsein? Wenn dies zutrifft und du ansprechende Schulnoten aus der Real- oder Sekundarschule mitbringst, wäre eine Ausbildung zum/zur LogistikerIn vielleicht das Passende für dich! Als LogistikerIn EFZ wartet eine 3-jährige Lehre auf dich. Bei uns kannst du in verschiedenen Lagerbereichen mitarbeiten und lernst die Arbeiten der Lagerlogistik in allen Facetten kennen. Am Anfang wirst du von erfahrenen Logistikern eingeführt und erledigst verschiedene, eher manuell ausgerichtete Tätigkeiten Es geht bei diesen \n• Aufgaben vor allem um die Kommissionierung und Bereitstellung von kleineren Gütern, Werbeartikeln und dergleichen Sobald du den Kurs für die Anwendung von Elektrohubwagen absolviert hast, darfst du die ersten internen mechanischen Warenverschiebungen durchführen Zusätzlich zum Unterricht in der Berufsschule in Rorschach lernst du die korrekte Abwicklung beim Warenempfang und bei der Warenausgabe in der Praxis kennen Wenn du den überbetrieblichen Staplerkurs erfolgreich absolviert hast, kannst du palettisierte Güter selbstständig ein- und auslagern Später lernst du, mittels Hallenkran auch Langgüter aller Art fachgerecht ein-, aus- oder umzulagern Nebst dem effizienten Warenverlad in/aus Lastwagen lernst du die wichtigsten Punkte einer korrekten Ladungssicherung kennen Wir erwarten Praktisches Verständnis Handwerkliches Geschick Freude an technischen Geräten Hohes Verantwortungsbewusstsein Zuverlässigkeit und Ausdauer Selbstständigkeit Ansprechende Real- oder Sekundarschulnoten \n• Wir bieten Interessante Tätigkeiten in verschiedenen Lagern Abwechslungsreiche und praxisbezogene Ausbildung Lebhaftes Arbeitsumfeld Top Infrastruktur (40 Tonnen Hallenkrananlage, Grossstapler etc.) Kollegiales Arbeitsklima --> -->",
-      "descriptionByLocale": {
-        "it": "Descrizione del lavoro Sei un talento organizzativo, affidabile e persistente? Ti piacciono i dispositivi tecnici, hai competenze tecniche e hai un alto senso di responsabilità? Se questo è vero e hai buoni voti alla scuola media o secondaria, la formazione per diventare specialista della logistica potrebbe fare al caso tuo! Come specialista della logistica EFZ ti aspetta un tirocinio di 3 anni. Con noi puoi lavorare in diverse aree del magazzino e conoscere tutti gli aspetti del lavoro logistico di magazzino. All'inizio verrai presentato da logisti esperti e svolgerai diverse attività più manuali. Questi sono possibili\n• Compiti legati principalmente alla raccolta e alla fornitura di beni di piccole dimensioni, articoli promozionali e simili. Non appena avrai completato il corso per l'utilizzo dei transpallet elettrici, sarai abilitato ad effettuare la prima movimentazione meccanica interna delle merci. Oltre alle lezioni presso la scuola professionale di Rorschach imparerete nella pratica la corretta gestione della ricezione e dell'uscita delle merci. Se hai completato con successo il corso interaziendale sui carrelli elevatori, sarai in grado di immagazzinare e scaricare la merce pallettizzata in autonomia. Successivamente imparerete attraverso Oltre al caricamento efficiente delle merci nei/dai camion, apprenderete i punti più importanti per un corretto fissaggio del carico. Ci aspettiamo comprensione pratica, abilità artigianale, godimento delle attrezzature tecniche, alto senso di responsabilità, affidabilità e resistenza, indipendenza, voti attraenti della scuola secondaria o secondaria\n• Offriamo attività interessanti in vari magazzini. Formazione varia e pratica. Ambiente lavorativo vivace. Infrastrutture di altissimo livello (sistema di gru da sala da 40 tonnellate, carrello elevatore di grandi dimensioni, ecc.). Atmosfera di lavoro collegiale --> -->",
-        "en": "Job description Are you an organizational talent, reliable and persistent? Do you enjoy technical devices, have technical skills and have a high sense of responsibility? If this is true and you have good grades from secondary or secondary school, training to become a logistics specialist might be right for you! As a logistics specialist EFZ, a 3-year apprenticeship awaits you. With us you can work in various warehouse areas and get to know all facets of warehouse logistics work. At the beginning you will be introduced by experienced logisticians and you will carry out various, more manual tasks. These are possible\n• Tasks primarily related to the picking and provision of smaller goods, promotional items and the like. As soon as you have completed the course for the use of electric pallet trucks, you are allowed to carry out the first internal mechanical movement of goods. In addition to the lessons at the vocational school in Rorschach, you will learn in practice the correct handling of receiving and issuing goods. If you have successfully completed the inter-company forklift course, you will be able to store and unload palletized goods independently. Later you will learn by means of In addition to the efficient loading of goods into/out of trucks, you will learn the most important points of correct load securing. We expect practical understanding, craftsmanship, enjoyment of technical equipment, high sense of responsibility, reliability and endurance, independence, attractive secondary or secondary school grades\n• We offer interesting activities in various warehouses. Varied and practical training. Lively working environment. Top infrastructure (40 ton hall crane system, large forklift, etc.). Collegial working atmosphere --> -->",
-        "de": "Jobbeschreibung Bist du ein Organisationstalent, zuverlässig und ausdauernd? Hast du Freude an technischen Geräten, handwerkliches Geschick und ein hohes Verantwortungsbewusstsein? Wenn dies zutrifft und du ansprechende Schulnoten aus der Real- oder Sekundarschule mitbringst, wäre eine Ausbildung zum/zur LogistikerIn vielleicht das Passende für dich! Als LogistikerIn EFZ wartet eine 3-jährige Lehre auf dich. Bei uns kannst du in verschiedenen Lagerbereichen mitarbeiten und lernst die Arbeiten der Lagerlogistik in allen Facetten kennen. Am Anfang wirst du von erfahrenen Logistikern eingeführt und erledigst verschiedene, eher manuell ausgerichtete Tätigkeiten Es geht bei diesen \n• Aufgaben vor allem um die Kommissionierung und Bereitstellung von kleineren Gütern, Werbeartikeln und dergleichen Sobald du den Kurs für die Anwendung von Elektrohubwagen absolviert hast, darfst du die ersten internen mechanischen Warenverschiebungen durchführen Zusätzlich zum Unterricht in der Berufsschule in Rorschach lernst du die korrekte Abwicklung beim Warenempfang und bei der Warenausgabe in der Praxis kennen Wenn du den überbetrieblichen Staplerkurs erfolgreich absolviert hast, kannst du palettisierte Güter selbstständig ein- und auslagern Später lernst du, mittels Hallenkran auch Langgüter aller Art fachgerecht ein-, aus- oder umzulagern Nebst dem effizienten Warenverlad in/aus Lastwagen lernst du die wichtigsten Punkte einer korrekten Ladungssicherung kennen Wir erwarten Praktisches Verständnis Handwerkliches Geschick Freude an technischen Geräten Hohes Verantwortungsbewusstsein Zuverlässigkeit und Ausdauer Selbstständigkeit Ansprechende Real- oder Sekundarschulnoten \n• Wir bieten Interessante Tätigkeiten in verschiedenen Lagern Abwechslungsreiche und praxisbezogene Ausbildung Lebhaftes Arbeitsumfeld Top Infrastruktur (40 Tonnen Hallenkrananlage, Grossstapler etc.) Kollegiales Arbeitsklima --> -->",
-        "fr": "Description du poste Êtes-vous un talent organisationnel, fiable et persévérant ? Vous appréciez les appareils techniques, possédez des compétences techniques et avez un grand sens des responsabilités ? Si cela est vrai et que vous avez de bonnes notes au collège ou au lycée, une formation pour devenir logisticien pourrait vous convenir ! En tant que spécialiste en logistique EFZ, un apprentissage de 3 ans vous attend. Avec nous, vous pouvez travailler dans différents domaines d'entrepôt et découvrir toutes les facettes du travail logistique d'entrepôt. Au début, vous serez initié par des logisticiens expérimentés et vous effectuerez diverses tâches plus manuelles. Ceux-ci sont possibles\n• Tâches principalement liées à la préparation et à la fourniture de petits biens, d'articles promotionnels, etc. Dès que vous avez suivi le cours d'utilisation des transpalettes électriques, vous êtes autorisé à effectuer le premier mouvement mécanique interne des marchandises. En plus des cours à l'école professionnelle de Rorschach, vous apprendrez en pratique comment gérer correctement la réception et la sortie des marchandises. Si vous avez réussi la formation chariot élévateur interentreprises, vous serez capable de stocker et décharger des marchandises palettisées en toute autonomie. Plus tard, vous apprendrez au moyen de En plus du chargement efficace des marchandises dans/hors des camions, vous apprendrez les points les plus importants pour une sécurisation correcte du chargement. Nous attendons une compréhension pratique, un savoir-faire artisanal, le plaisir de l'équipement technique, un sens élevé des responsabilités, de la fiabilité et de l'endurance, de l'indépendance, des résultats d'études secondaires ou secondaires attractifs.\n• Nous offrons des activités intéressantes dans divers entrepôts. Formation variée et pratique. Environnement de travail animé. Infrastructure de pointe (système de grue de hall de 40 tonnes, grand chariot élévateur, etc.). Ambiance de travail collégiale --> -->"
-      },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://www.ete.ch/jobs/lehre-zum-logistikerin-efz-start-ab-sommer-2027-2/",
-      "source": "Emil Egger AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.621Z",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-01",
-      "applyUrl": "https://www.ete.ch/jobs/lehre-zum-logistikerin-efz-start-ab-sommer-2027-2/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehre-zum-logistikerin-cfc-start-ab-sommer-2027-emil-egger-ag-st-gallen",
-        "lehre-zum-logistikerin-efz-start-ab-sommer-2027-ete-ch-st-gallen",
-        "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-2aa60663"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehre-zum-logistikerin-cfc-start-ab-sommer-2027-emil-egger-ag-st-gallen",
-          "lehre-zum-logistikerin-efz-start-ab-sommer-2027-ete-ch-st-gallen",
-          "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-2aa60663"
-        ],
-        "en": [
-          "lehre-zum-logistikerin-efz-start-ab-sommer-2027-ete-ch-st-gallen"
-        ],
-        "fr": [
-          "lehre-zum-logistikerin-efz-start-ab-sommer-2027-ete-ch-st-gallen"
-        ],
-        "de": [
-          "lehre-zum-logistikerin-efz-start-ab-sommer-2027-ete-ch-st-gallen"
-        ]
-      },
-      "firstSeenAt": "2026-09-01T05:44:43.595Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
-          "unitText": "YEAR"
-        }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/lehre-zum-logistikerin-efz-start-ab-sommer-2027-2"
+      }
     },
     {
       "id": "ete-d5fd3983aedd",
@@ -2210,7 +2106,7 @@
       "url": "https://www.ete.ch/jobs/quereinsteiger-in-fuer-kat-c-2/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.621Z",
+      "crawledAt": "2026-09-25T14:46:53.900Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2258,8 +2154,92 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "ete-2aa60663d037",
+      "slug": "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-2aa60663",
+      "slugByLocale": {
+        "it": "apprendistato-come-logistico-efz-a-partire-dall-estate-2027-emil-egger-ag-st-gallen",
+        "en": "apprenticeship-as-a-logistician-efz-start-from-summer-2027-emil-egger-ag-st-gallen",
+        "de": "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-2aa60663",
+        "fr": "apprentissage-en-tant-que-logisticien-efz-a-partir-de-l-ete-2027-emil-egger-ag-st-gallen"
       },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/quereinsteiger-in-fuer-kat-c-2"
+      "slugDisambiguator": "2aa60663",
+      "company": "Emil Egger AG",
+      "companyKey": "ete",
+      "companyDomain": "ete.ch",
+      "title": "Lehre zum LogistikerIn EFZ (Start ab Sommer 2027)",
+      "titleByLocale": {
+        "it": "Apprendistato come logistico EFZ (a partire dall'estate 2027)",
+        "en": "Apprenticeship as a logistician EFZ (start from summer 2027)",
+        "de": "Lehre zum LogistikerIn EFZ (Start ab Sommer 2027)",
+        "fr": "Apprentissage en tant que logisticien EFZ (à partir de l'été 2027)"
+      },
+      "description": "Jobbeschreibung Bist du ein Organisationstalent, zuverlässig und ausdauernd? Hast du Freude an technischen Geräten, handwerkliches Geschick und ein hohes Verantwortungsbewusstsein? Wenn dies zutrifft und du ansprechende Schulnoten aus der Real- oder Sekundarschule mitbringst, wäre eine Ausbildung zum/zur LogistikerIn vielleicht das Passende für dich! Als LogistikerIn EFZ wartet eine 3-jährige Lehre auf dich. Bei uns kannst du in verschiedenen Lagerbereichen mitarbeiten und lernst die Arbeiten der Lagerlogistik in allen Facetten kennen. Am Anfang wirst du von erfahrenen Logistikern eingeführt und erledigst verschiedene, eher manuell ausgerichtete Tätigkeiten Es geht bei diesen \n• Aufgaben vor allem um die Kommissionierung und Bereitstellung von kleineren Gütern, Werbeartikeln und dergleichen Sobald du den Kurs für die Anwendung von Elektrohubwagen absolviert hast, darfst du die ersten internen mechanischen Warenverschiebungen durchführen Zusätzlich zum Unterricht in der Berufsschule in Rorschach lernst du die korrekte Abwicklung beim Warenempfang und bei der Warenausgabe in der Praxis kennen Wenn du den überbetrieblichen Staplerkurs erfolgreich absolviert hast, kannst du palettisierte Güter selbstständig ein- und auslagern Später lernst du, mittels Hallenkran auch Langgüter aller Art fachgerecht ein-, aus- oder umzulagern Nebst dem effizienten Warenverlad in/aus Lastwagen lernst du die wichtigsten Punkte einer korrekten Ladungssicherung kennen Wir erwarten Praktisches Verständnis Handwerkliches Geschick Freude an technischen Geräten Hohes Verantwortungsbewusstsein Zuverlässigkeit und Ausdauer Selbstständigkeit Ansprechende Real- oder Sekundarschulnoten \n• Wir bieten Interessante Tätigkeiten in verschiedenen Lagern Abwechslungsreiche und praxisbezogene Ausbildung Lebhaftes Arbeitsumfeld Top Infrastruktur (40 Tonnen Hallenkrananlage, Grossstapler etc.) Kollegiales Arbeitsklima --> -->",
+      "descriptionByLocale": {
+        "it": "Descrizione del lavoro Sei un talento organizzativo, affidabile e persistente? Ti piacciono i dispositivi tecnici, hai competenze tecniche e hai un alto senso di responsabilità? Se questo è vero e hai buoni voti alla scuola media o secondaria, la formazione per diventare specialista della logistica potrebbe fare al caso tuo! Come specialista della logistica EFZ ti aspetta un tirocinio di 3 anni. Con noi puoi lavorare in diverse aree del magazzino e conoscere tutti gli aspetti del lavoro logistico di magazzino. All'inizio verrai presentato da logisti esperti e svolgerai diverse attività più manuali. Questi sono possibili\n• Compiti legati principalmente alla raccolta e alla fornitura di beni di piccole dimensioni, articoli promozionali e simili. Non appena avrai completato il corso per l'utilizzo dei transpallet elettrici, sarai abilitato ad effettuare la prima movimentazione meccanica interna delle merci. Oltre alle lezioni presso la scuola professionale di Rorschach imparerete nella pratica la corretta gestione della ricezione e dell'uscita delle merci. Se hai completato con successo il corso interaziendale sui carrelli elevatori, sarai in grado di immagazzinare e scaricare la merce pallettizzata in autonomia. Successivamente imparerete attraverso Oltre al caricamento efficiente delle merci nei/dai camion, apprenderete i punti più importanti per un corretto fissaggio del carico. Ci aspettiamo comprensione pratica, abilità artigianale, godimento delle attrezzature tecniche, alto senso di responsabilità, affidabilità e resistenza, indipendenza, voti attraenti della scuola secondaria o secondaria\n• Offriamo attività interessanti in vari magazzini. Formazione varia e pratica. Ambiente lavorativo vivace. Infrastrutture di altissimo livello (sistema di gru da sala da 40 tonnellate, carrello elevatore di grandi dimensioni, ecc.). Atmosfera di lavoro collegiale --> -->",
+        "en": "Job description Are you an organizational talent, reliable and persistent? Do you enjoy technical devices, have technical skills and have a high sense of responsibility? If this is true and you have good grades from secondary or secondary school, training to become a logistics specialist might be right for you! As a logistics specialist EFZ, a 3-year apprenticeship awaits you. With us you can work in various warehouse areas and get to know all facets of warehouse logistics work. At the beginning you will be introduced by experienced logisticians and you will carry out various, more manual tasks. These are possible\n• Tasks primarily related to the picking and provision of smaller goods, promotional items and the like. As soon as you have completed the course for the use of electric pallet trucks, you are allowed to carry out the first internal mechanical movement of goods. In addition to the lessons at the vocational school in Rorschach, you will learn in practice the correct handling of receiving and issuing goods. If you have successfully completed the inter-company forklift course, you will be able to store and unload palletized goods independently. Later you will learn by means of In addition to the efficient loading of goods into/out of trucks, you will learn the most important points of correct load securing. We expect practical understanding, craftsmanship, enjoyment of technical equipment, high sense of responsibility, reliability and endurance, independence, attractive secondary or secondary school grades\n• We offer interesting activities in various warehouses. Varied and practical training. Lively working environment. Top infrastructure (40 ton hall crane system, large forklift, etc.). Collegial working atmosphere --> -->",
+        "de": "Jobbeschreibung Bist du ein Organisationstalent, zuverlässig und ausdauernd? Hast du Freude an technischen Geräten, handwerkliches Geschick und ein hohes Verantwortungsbewusstsein? Wenn dies zutrifft und du ansprechende Schulnoten aus der Real- oder Sekundarschule mitbringst, wäre eine Ausbildung zum/zur LogistikerIn vielleicht das Passende für dich! Als LogistikerIn EFZ wartet eine 3-jährige Lehre auf dich. Bei uns kannst du in verschiedenen Lagerbereichen mitarbeiten und lernst die Arbeiten der Lagerlogistik in allen Facetten kennen. Am Anfang wirst du von erfahrenen Logistikern eingeführt und erledigst verschiedene, eher manuell ausgerichtete Tätigkeiten Es geht bei diesen \n• Aufgaben vor allem um die Kommissionierung und Bereitstellung von kleineren Gütern, Werbeartikeln und dergleichen Sobald du den Kurs für die Anwendung von Elektrohubwagen absolviert hast, darfst du die ersten internen mechanischen Warenverschiebungen durchführen Zusätzlich zum Unterricht in der Berufsschule in Rorschach lernst du die korrekte Abwicklung beim Warenempfang und bei der Warenausgabe in der Praxis kennen Wenn du den überbetrieblichen Staplerkurs erfolgreich absolviert hast, kannst du palettisierte Güter selbstständig ein- und auslagern Später lernst du, mittels Hallenkran auch Langgüter aller Art fachgerecht ein-, aus- oder umzulagern Nebst dem effizienten Warenverlad in/aus Lastwagen lernst du die wichtigsten Punkte einer korrekten Ladungssicherung kennen Wir erwarten Praktisches Verständnis Handwerkliches Geschick Freude an technischen Geräten Hohes Verantwortungsbewusstsein Zuverlässigkeit und Ausdauer Selbstständigkeit Ansprechende Real- oder Sekundarschulnoten \n• Wir bieten Interessante Tätigkeiten in verschiedenen Lagern Abwechslungsreiche und praxisbezogene Ausbildung Lebhaftes Arbeitsumfeld Top Infrastruktur (40 Tonnen Hallenkrananlage, Grossstapler etc.) Kollegiales Arbeitsklima --> -->",
+        "fr": "Description du poste Êtes-vous un talent organisationnel, fiable et persévérant ? Vous appréciez les appareils techniques, possédez des compétences techniques et avez un grand sens des responsabilités ? Si cela est vrai et que vous avez de bonnes notes au collège ou au lycée, une formation pour devenir logisticien pourrait vous convenir ! En tant que spécialiste en logistique EFZ, un apprentissage de 3 ans vous attend. Avec nous, vous pouvez travailler dans différents domaines d'entrepôt et découvrir toutes les facettes du travail logistique d'entrepôt. Au début, vous serez initié par des logisticiens expérimentés et vous effectuerez diverses tâches plus manuelles. Ceux-ci sont possibles\n• Tâches principalement liées à la préparation et à la fourniture de petits biens, d'articles promotionnels, etc. Dès que vous avez suivi le cours d'utilisation des transpalettes électriques, vous êtes autorisé à effectuer le premier mouvement mécanique interne des marchandises. En plus des cours à l'école professionnelle de Rorschach, vous apprendrez en pratique comment gérer correctement la réception et la sortie des marchandises. Si vous avez réussi la formation chariot élévateur interentreprises, vous serez capable de stocker et décharger des marchandises palettisées en toute autonomie. Plus tard, vous apprendrez au moyen de En plus du chargement efficace des marchandises dans/hors des camions, vous apprendrez les points les plus importants pour une sécurisation correcte du chargement. Nous attendons une compréhension pratique, un savoir-faire artisanal, le plaisir de l'équipement technique, un sens élevé des responsabilités, de la fiabilité et de l'endurance, de l'indépendance, des résultats d'études secondaires ou secondaires attractifs.\n• Nous offrons des activités intéressantes dans divers entrepôts. Formation variée et pratique. Environnement de travail animé. Infrastructure de pointe (système de grue de hall de 40 tonnes, grand chariot élévateur, etc.). Ambiance de travail collégiale --> -->"
+      },
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://www.ete.ch/jobs/lehre-zum-logistikerin-efz-start-ab-sommer-2027-2/",
+      "source": "Emil Egger AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-25T14:46:53.899Z",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "applyUrl": "https://www.ete.ch/jobs/lehre-zum-logistikerin-efz-start-ab-sommer-2027-2/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehre-zum-logistikerin-cfc-start-ab-sommer-2027-emil-egger-ag-st-gallen",
+        "lehre-zum-logistikerin-efz-start-ab-sommer-2027-ete-ch-st-gallen",
+        "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-2aa60663"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-zum-logistikerin-cfc-start-ab-sommer-2027-emil-egger-ag-st-gallen",
+          "lehre-zum-logistikerin-efz-start-ab-sommer-2027-ete-ch-st-gallen",
+          "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-st-gallen-2aa60663"
+        ],
+        "en": [
+          "lehre-zum-logistikerin-efz-start-ab-sommer-2027-ete-ch-st-gallen"
+        ],
+        "fr": [
+          "lehre-zum-logistikerin-efz-start-ab-sommer-2027-ete-ch-st-gallen"
+        ],
+        "de": [
+          "lehre-zum-logistikerin-efz-start-ab-sommer-2027-ete-ch-st-gallen"
+        ]
+      },
+      "firstSeenAt": "2026-09-01T05:44:43.595Z",
+      "needsRetranslation": true,
+      "salaryMin": 48000,
+      "salaryMax": 73000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48000,
+          "maxValue": 73000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "ete-a74ebdca32fe",
@@ -2293,7 +2273,7 @@
       "url": "https://www.ete.ch/jobs/lkw-mechaniker-in-80-100/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.620Z",
+      "crawledAt": "2026-09-25T14:46:53.897Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2329,6 +2309,7 @@
         "lkw-mechaniker-in-80-100-emil-egger-ag-st-gallen-a74ebdca"
       ],
       "firstSeenAt": "2026-08-23T21:34:39.144Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2341,8 +2322,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/lkw-mechaniker-in-80-100"
+      }
     },
     {
       "id": "ete-d86c95825995",
@@ -2376,7 +2356,7 @@
       "url": "https://www.ete.ch/jobs/lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-2/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.619Z",
+      "crawledAt": "2026-09-25T14:46:53.896Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -2410,6 +2390,7 @@
         "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-harkingen-d86c9582"
       ],
       "firstSeenAt": "2026-08-28T05:22:56.006Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2422,8 +2403,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-2"
+      }
     },
     {
       "id": "ete-89271a69d1db",
@@ -2457,7 +2437,7 @@
       "url": "https://www.ete.ch/jobs/lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.617Z",
+      "crawledAt": "2026-09-25T14:46:53.894Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2495,6 +2475,7 @@
         ]
       },
       "firstSeenAt": "2026-09-01T05:44:42.690Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -2507,8 +2488,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027"
+      }
     },
     {
       "id": "ete-435f909ea0b2",
@@ -2525,16 +2505,16 @@
       "companyDomain": "ete.ch",
       "title": "Verkaufsmitarbeiter im Aussendienst Stückgut – Logistik 80 – 100% (m/w)",
       "titleByLocale": {
-        "de": "Verkaufsmitarbeiter im Aussendienst Stückgut – Logistik 80 – 100% (m/w)",
         "it": "Dipendenti di vendita nel servizio di campo cargo generale – logistica 80 – 100% (m/f)",
         "en": "Sales employees in the field service General cargo – logistics 80 – 100% (m/f)",
+        "de": "Verkaufsmitarbeiter im Aussendienst Stückgut – Logistik 80 – 100% (m/w)",
         "fr": "Salariés dans le service sur le terrain Cargo général – logistique 80 – 100% (h/f)"
       },
       "description": "Jobbeschreibung Die EGGER Gruppe – das bedeutet Leidenschaft für Logistik und höchste Präzision auf Rädern! Mit über 800 KollegInnen an 11 Standorten sorgen wir dafür, dass Stückgut, Schwergut & Lagerlogistik nicht nur nach Plan, sondern mit Herz und Hirn bewegt werden. Jetzt suchen wir dich, um unser Team in Härkingen mit frischem Elan zu verstärken! Dein Gebiet Dein Gebiet: Zürich West, Innerschweiz, Mittelland & Jura – Hier bist du unterwegs und bringst die Dinge ins Rollen! Deine Mission Neukunden gewinnen & bestehende Kunden bestens betreuen Angebote erstellen – vom ersten Gespräch bis zur perfekten Systemanbindung CRM-Pflege & aktiver Austausch mit dem Team (Rapportwesen, Besuchsberichte, Kundenbewertungen) Frische Ideen einbringen, um unsere Dienstleistungen noch besser zu machen Marktveränderungen & die Mitbewerber im Auge behalten Messen, Netzwerkveranstaltungen & Kundenevents erfolgreich gestalten Profil Verkaufstalent mit Erfahrung in Dienstleistungen oder technischen Produkten – am besten im Bereich Transport/Logistik IT-Affinität & ein gutes Gespür für smarte Prozesse Kommunikationsprofi mit kundenorientiertem Denken & souveränem Auftreten Cool bleiben, auch wenn es hektisch wird – Flexibilität ist dein zweiter Vorname Verlässlich, engagiert und verantwortungsbewusst Gute Deutschkenntnisse, Französisch wäre ein Bonus \n• Was wir bieten Eine abwechslungsreiche & spannende Aufgabe in einem dynamischen Unternehmen Moderne Infrastruktur Ein top motiviertes Team, das sich auf dich freut! Firmenevents Familiäre Firmenkultur & eine Du-Kultur, die das Arbeiten angenehm macht Hast du Lust, mit uns die Logistikbranche aufzumischen? Dann bewirb dich jetzt und werde Teil der EGGER Familie! --> -->",
       "descriptionByLocale": {
-        "de": "Jobbeschreibung Die EGGER Gruppe – das bedeutet Leidenschaft für Logistik und höchste Präzision auf Rädern! Mit über 800 KollegInnen an 11 Standorten sorgen wir dafür, dass Stückgut, Schwergut & Lagerlogistik nicht nur nach Plan, sondern mit Herz und Hirn bewegt werden. Jetzt suchen wir dich, um unser Team in Härkingen mit frischem Elan zu verstärken! Dein Gebiet Dein Gebiet: Zürich West, Innerschweiz, Mittelland & Jura – Hier bist du unterwegs und bringst die Dinge ins Rollen! Deine Mission Neukunden gewinnen & bestehende Kunden bestens betreuen Angebote erstellen – vom ersten Gespräch bis zur perfekten Systemanbindung CRM-Pflege & aktiver Austausch mit dem Team (Rapportwesen, Besuchsberichte, Kundenbewertungen) Frische Ideen einbringen, um unsere Dienstleistungen noch besser zu machen Marktveränderungen & die Mitbewerber im Auge behalten Messen, Netzwerkveranstaltungen & Kundenevents erfolgreich gestalten Profil Verkaufstalent mit Erfahrung in Dienstleistungen oder technischen Produkten – am besten im Bereich Transport/Logistik IT-Affinität & ein gutes Gespür für smarte Prozesse Kommunikationsprofi mit kundenorientiertem Denken & souveränem Auftreten Cool bleiben, auch wenn es hektisch wird – Flexibilität ist dein zweiter Vorname Verlässlich, engagiert und verantwortungsbewusst Gute Deutschkenntnisse, Französisch wäre ein Bonus \n• Was wir bieten Eine abwechslungsreiche & spannende Aufgabe in einem dynamischen Unternehmen Moderne Infrastruktur Ein top motiviertes Team, das sich auf dich freut! Firmenevents Familiäre Firmenkultur & eine Du-Kultur, die das Arbeiten angenehm macht Hast du Lust, mit uns die Logistikbranche aufzumischen? Dann bewirb dich jetzt und werde Teil der EGGER Familie! --> -->",
         "it": "Il Gruppo EGGER – che significa passione per la logistica e massima precisione sulle ruote! Con più di 800 colleghi in 11 posizioni, ci assicuriamo che il carico generale, i beni pesanti e la logistica del magazzino non siano solo spostati secondo il piano, ma con cuore e cervello. Ora stiamo cercando di rafforzare la nostra squadra a Härkingen con slancio fresco! La tua zona La tua area: Zurigo Ovest, Svizzera Interna, Mittelland & Jura – Qui siete sulla strada e fate rotolare le cose! Vinci nuovi clienti e supervisiona i clienti esistenti Crea offerte – dalla prima conversazione alla perfetta connessione di sistema Manutenzione CRM e scambio attivo con il team (reporting, report visita, recensioni dei clienti) Portare idee fresche per rendere i nostri servizi ancora migliori cambiamenti di mercato e tenere d'occhio i nostri concorrenti Fiere, eventi di rete e clienti eventi modellare con successo il talento di vendita di profili con esperienza in servizi o prodotti tecnici – il migliore nel settore del trasporto / logistica affinità IT & un buon senso di processi intelligenti comunicazione professionale con il pensiero orientato al cliente e l'aspetto sovrano rimangono cool, anche se diventa frenetico – Flessibilità è il tuo nome medio Affidabilità, impegnata e responsabile Buona conoscenza di tedesco, francese\n• Che cosa offriamo Un compito variegato ed emozionante in un'azienda dinamica infrastruttura moderna Un team altamente motivato che vi aspetta! Eventi aziendali Cultura familiare e una cultura che rende piacevole il lavoro Vuoi mescolare l'industria logistica con noi? Allora applichi ora e diventi parte della famiglia EGGER! - >- >",
         "en": "The EGGER Group – that means passion for logistics and highest precision on wheels! With more than 800 colleagues at 11 locations, we ensure that general cargo, heavy goods & warehouse logistics are not only moved according to plan, but with heart and brain. Now we are looking for you to reinforce our team in Härkingen with fresh impetus! Your area Your area: Zurich West, Inner Switzerland, Mittelland & Jura – Here you are on the road and get things rolling! Win new customers & supervise existing customers Create offers – from the first conversation to the perfect system connection CRM maintenance & active exchange with the team (reporting, visit reports, customer reviews) Bring fresh ideas to make our services even better market changes & keep an eye on our competitors Trade fairs, network events & customer events successfully shape profile sales talent with experience in services or technical products – best in the area of transport / logistics IT affinity & a good sense of smart processes communication professional with customer-oriented thinking & sovereign appearance remain cool, even if it gets hectic – Flexibility is your middle name Reliable, committed and responsible Good knowledge of German, French would be a bonus\n• What we offer A varied & exciting task in a dynamic company Modern infrastructure A highly motivated team that is looking forward to you! Company events Family culture & a you culture that makes working pleasant Do you want to mix up the logistics industry with us? Then apply now and become part of the EGGER family! --> -->",
+        "de": "Jobbeschreibung Die EGGER Gruppe – das bedeutet Leidenschaft für Logistik und höchste Präzision auf Rädern! Mit über 800 KollegInnen an 11 Standorten sorgen wir dafür, dass Stückgut, Schwergut & Lagerlogistik nicht nur nach Plan, sondern mit Herz und Hirn bewegt werden. Jetzt suchen wir dich, um unser Team in Härkingen mit frischem Elan zu verstärken! Dein Gebiet Dein Gebiet: Zürich West, Innerschweiz, Mittelland & Jura – Hier bist du unterwegs und bringst die Dinge ins Rollen! Deine Mission Neukunden gewinnen & bestehende Kunden bestens betreuen Angebote erstellen – vom ersten Gespräch bis zur perfekten Systemanbindung CRM-Pflege & aktiver Austausch mit dem Team (Rapportwesen, Besuchsberichte, Kundenbewertungen) Frische Ideen einbringen, um unsere Dienstleistungen noch besser zu machen Marktveränderungen & die Mitbewerber im Auge behalten Messen, Netzwerkveranstaltungen & Kundenevents erfolgreich gestalten Profil Verkaufstalent mit Erfahrung in Dienstleistungen oder technischen Produkten – am besten im Bereich Transport/Logistik IT-Affinität & ein gutes Gespür für smarte Prozesse Kommunikationsprofi mit kundenorientiertem Denken & souveränem Auftreten Cool bleiben, auch wenn es hektisch wird – Flexibilität ist dein zweiter Vorname Verlässlich, engagiert und verantwortungsbewusst Gute Deutschkenntnisse, Französisch wäre ein Bonus \n• Was wir bieten Eine abwechslungsreiche & spannende Aufgabe in einem dynamischen Unternehmen Moderne Infrastruktur Ein top motiviertes Team, das sich auf dich freut! Firmenevents Familiäre Firmenkultur & eine Du-Kultur, die das Arbeiten angenehm macht Hast du Lust, mit uns die Logistikbranche aufzumischen? Dann bewirb dich jetzt und werde Teil der EGGER Familie! --> -->",
         "fr": "Le groupe EGGER – cela signifie passion pour la logistique et la plus grande précision sur les roues! Avec plus de 800 collègues sur 11 sites, nous veillons à ce que le fret général, les marchandises lourdes et la logistique des entrepôts ne soient pas seulement déplacés selon le plan, mais avec le cœur et le cerveau. Maintenant, nous sommes à votre recherche pour renforcer notre équipe à Härkingen avec une nouvelle impulsion! Votre région Votre secteur: Zurich Ouest, Suisse Intérieure, Mittelland & Jura – Vous êtes sur la route et faites rouler les choses ! Gagnez de nouveaux clients et supervisez des clients existants Créez des offres – de la première conversation à la connexion parfaite du système CRM maintenance & échange actif avec l'équipe (rapports, rapports de visite, commentaires des clients) Apportez de nouvelles idées pour améliorer encore nos services et gardez un œil sur nos concurrents Salons, événements réseau et événements clients façonner avec succès le profil de vente talent avec l'expérience dans les services ou les produits techniques – meilleur dans le domaine du transport / logistique affinité informatique & un bon sens des processus intelligents professionnels de communication avec la pensée orientée client & apparence souveraine restent cool, même si elle devient agitée – Flexibilité est votre second nom Fiable, engagé et responsable Bonne connaissance de l'allemand, français serait un bonus\n• Ce que nous offrons Une tâche variée et passionnante dans une entreprise dynamique Infrastructure moderne Une équipe très motivée qui vous attend avec impatience ! Événements d'entreprise Culture familiale & une culture qui rend le travail agréable Voulez-vous mélanger l'industrie de la logistique avec nous ? Puis appliquez maintenant et devenez membre de la famille EGGER! -> -->"
       },
       "location": "Härkingen",
@@ -2542,7 +2522,7 @@
       "url": "https://www.ete.ch/jobs/verkaufsmitarbeiter-im-aussendienst-stueckgut-logistik-80-100-m-w/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.616Z",
+      "crawledAt": "2026-09-25T14:46:53.893Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -2557,9 +2537,22 @@
       "postedDate": "2026-09-23",
       "applyUrl": "https://www.ete.ch/jobs/verkaufsmitarbeiter-im-aussendienst-stueckgut-logistik-80-100-m-w/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "verkaufsmitarbeiter-im-aussendienst-stuckgut-8211-logistik-80-8211-100-m-w-emil-egger-ag-harkingen-435f909e"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsmitarbeiter-im-aussendienst-stuckgut-8211-logistik-80-8211-100-m-w-emil-egger-ag-harkingen-435f909e"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-im-aussendienst-stuckgut-8211-logistik-80-8211-100-m-w-emil-egger-ag-harkingen-435f909e"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-im-aussendienst-stuckgut-8211-logistik-80-8211-100-m-w-emil-egger-ag-harkingen-435f909e"
+        ]
       },
+      "firstSeenAt": "2026-09-23T23:44:14.616Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -2572,23 +2565,7 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-23T23:44:14.616Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsmitarbeiter-im-aussendienst-stuckgut-8211-logistik-80-8211-100-m-w-emil-egger-ag-harkingen-435f909e"
-        ],
-        "en": [
-          "verkaufsmitarbeiter-im-aussendienst-stuckgut-8211-logistik-80-8211-100-m-w-emil-egger-ag-harkingen-435f909e"
-        ],
-        "fr": [
-          "verkaufsmitarbeiter-im-aussendienst-stuckgut-8211-logistik-80-8211-100-m-w-emil-egger-ag-harkingen-435f909e"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufsmitarbeiter-im-aussendienst-stuckgut-8211-logistik-80-8211-100-m-w-emil-egger-ag-harkingen-435f909e"
-      ],
-      "sourceIdentity": "url:https://www.ete.ch/jobs/verkaufsmitarbeiter-im-aussendienst-stueckgut-logistik-80-100-m-w"
+      }
     },
     {
       "id": "ete-db7ff58f1338",
@@ -2622,7 +2599,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-chauffeuse-kat-c-e-100-maschinenumzuege-spezialtransporte-100/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.614Z",
+      "crawledAt": "2026-09-25T14:46:53.890Z",
       "addressLocality": "Bassersdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2672,8 +2649,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/chauffeur-chauffeuse-kat-c-e-100-maschinenumzuege-spezialtransporte-100"
+      }
     },
     {
       "id": "ete-b4bfe6080b87",
@@ -2707,7 +2683,7 @@
       "url": "https://www.ete.ch/jobs/chauffeur-chauffeuse-auf-lw-kran-23m-t-5/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.609Z",
+      "crawledAt": "2026-09-25T14:46:53.886Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -2724,6 +2700,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-19T22:53:24.290Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2736,8 +2713,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/chauffeur-chauffeuse-auf-lw-kran-23m-t-5"
+      }
     },
     {
       "id": "ete-6346c369df43",
@@ -2771,7 +2747,7 @@
       "url": "https://www.ete.ch/jobs/lw-kranchauffeurin-kat-ce-100-36mt-fassi-kran-2/",
       "source": "Emil Egger AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:44:14.607Z",
+      "crawledAt": "2026-09-25T14:46:53.883Z",
       "addressLocality": "Bassersdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2800,8 +2776,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.ete.ch/jobs/lw-kranchauffeurin-kat-ce-100-36mt-fassi-kran-2"
+      }
     }
   ]
 }

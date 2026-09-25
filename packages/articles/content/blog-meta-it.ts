@@ -11983,6 +11983,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gehri-finanze-preventivo-27.title': 'Gehri lancia l\'allarme sul deficit del Ticino',
     'blog.article.gehri-finanze-preventivo-27.excerpt': 'Prima del Preventivo \'27, il presidente della Camera di commercio Gehri definisce insostenibile il deficit cantonale e critica l\'inerzia politica.',
     'blog.article.gehri-finanze-preventivo-27.imageAlt': 'Bellinzona e il Castelgrande in una giornata luminosa',
+    'blog.article.chiusura-gazzada-varese-ss707.title': 'Superstrada Gazzada-Varese chiusa il 24 settembre',
+    'blog.article.chiusura-gazzada-varese-ss707.excerpt': 'La SS 707 Raccordo Gazzada-Varese sarà chiusa verso Varese dalle 9 alle 17 tra il km 3+100 e il km 4+500 per lavori Anas.',
+    'blog.article.chiusura-gazzada-varese-ss707.imageAlt': 'Chiusura della SS 707 Gazzada-Varese in direzione del capoluogo',
 };
 
 export default blogMetaIt;

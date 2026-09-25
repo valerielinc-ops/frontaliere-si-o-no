@@ -6713,6 +6713,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.incentivo-fiscale-acquisto-locale.title': 'Steuerlicher Anreiz für lokale Einkäufe im Tessin: Vorschlag',
     'blog.article.incentivo-fiscale-acquisto-locale.excerpt': 'Das Zentrum bietet eine Steuergutschrift von bis zu 25% für Personen an, die bis zu 5% ihres Gehalts oder Jahreseinkommens teilnehmenden Tessiner Händlern zukommen lassen.',
     'blog.article.incentivo-fiscale-acquisto-locale.imageAlt': 'Smartphone mit digitalem Wallet für lokale Einkäufe in Ticino',
+    'blog.article.franco-svizzero-ribasso-settembre-novembre.title': 'Schweizer Franken im Abwärtstrend: Signale, die bis November zu beobachten sind',
+    'blog.article.franco-svizzero-ribasso-settembre-novembre.excerpt': 'Der Schweizer Franken ist seit den Höchstständen im Frühjahr 2026 um etwa 5% gefallen, was dem Rückgang von 2023 entspricht und weniger als den >6% von 2024; das saisonale Zeitfenster reicht von Ende September bis Anfang November.',
+    'blog.article.franco-svizzero-ribasso-settembre-novembre.imageAlt': 'Illustration des Schweizer Frankens und des Euro mit Hintergrund des Luganer Sees',
 };
 
 export default blogMetaChDe;
