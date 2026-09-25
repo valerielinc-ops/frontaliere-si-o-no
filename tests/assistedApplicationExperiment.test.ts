@@ -18,6 +18,7 @@ import {
   ASSISTED_APPLICATION_EXPERIMENT_RC_KEY,
   normalizeAssistedApplicationVariant,
   resolveAssistedApplicationVariant,
+  shouldSuppressAssistedApplicationEvent,
   trackAssistedApplicationEvent,
   useAssistedApplicationVariant,
 } from '../services/assistedApplicationExperiment';
@@ -99,6 +100,29 @@ describe('assisted application Remote Config assignment', () => {
 });
 
 describe('assisted application funnel events', () => {
+  it('suppresses events for crawler visitors even when the caller bypasses JobBoard', () => {
+    const originalUserAgent = navigator.userAgent;
+    Object.defineProperty(navigator, 'userAgent', {
+      configurable: true,
+      value: 'Googlebot/2.1 (+http://www.google.com/bot.html)',
+    });
+
+    try {
+      expect(shouldSuppressAssistedApplicationEvent()).toBe(true);
+      trackAssistedApplicationEvent('checkout_started', {
+        variant: 'assisted_application',
+        jobId: 'job-42',
+        companyId: 'company-acme',
+      });
+      expect(mocks.trackExperimentEvent).not.toHaveBeenCalled();
+    } finally {
+      Object.defineProperty(navigator, 'userAgent', {
+        configurable: true,
+        value: originalUserAgent,
+      });
+    }
+  });
+
   it('adds the shared experiment and job identity to every event', () => {
     trackAssistedApplicationEvent('checkout_started', {
       variant: 'assisted_application',
