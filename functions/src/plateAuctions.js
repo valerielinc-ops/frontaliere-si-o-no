@@ -578,8 +578,8 @@ function sourceDocument(sourceKey, config, fetchedAt, patch = {}) {
 /**
  * Sources whose fetch and Firestore write dominate the run (BS: ~16'000 rows)
  * go last, so a slow or failing heavy source can never leave the small
- * catalogues after it — SZ among them, which the static collector reads
- * through the API relay — on an old snapshot.
+ * catalogues after it — SZ, FR and TI among them, which the static collector
+ * reads through the API relay — on an old snapshot.
  */
 const PLATE_AUCTION_HEAVY_SOURCES = new Set(['bs']);
 

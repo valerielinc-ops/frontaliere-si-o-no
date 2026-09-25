@@ -74,8 +74,16 @@ export function extractEcariTabSection(html, tabContentId) {
 }
 
 const ECARI_TAB_IDS = ['tabContent1', 'tabContent2', 'tabContent3', 'tabContent4'];
-const ECARI_NO_RUNNING_AUCTION_RE = /Keine\s+laufende\s+Versteigerung/i;
-const ECARI_EMPTY_TAB_RE = /Keine\s+laufende\s+Versteigerung|Kontrollschilder\s+nicht\s+verf(?:ü|&uuml;)gbar/i;
+// Le etichette dello stato vuoto seguono la lingua della pagina, non il
+// cantone: VS e FR servono fr_ch, TI it_CH (catena root → bootstrap →
+// props?locale=it_CH misurata da Zurigo il 2026-09-25, Globalping
+// 2PC0TDQSHF4T7OySI00021CPL e 2IcfQS3Fl9FHl7rNB00021CPM). Con il solo tedesco
+// un catalogo vuoto di queste tre fonti restava `zero_rows`. Testi misurati il
+// 2026-09-25 sulle schede vuote di NW (432.10.83, locale fr_ch e it_ch), VS (fr)
+// e GR (it): fr «Aucune enchère en cours» / «Plaques indisponibles»; in
+// italiano anche la scheda d'asta dice «Nessuna targa disponibile».
+const ECARI_NO_RUNNING_AUCTION_RE = /Keine\s+laufende\s+Versteigerung|Aucune\s+ench(?:è|&egrave;|&#232;)re\s+en\s+cours|Nessuna\s+targa\s+disponibile/i;
+const ECARI_EMPTY_TAB_RE = /Keine\s+laufende\s+Versteigerung|Kontrollschilder\s+nicht\s+verf(?:ü|&uuml;)gbar|Aucune\s+ench(?:è|&egrave;|&#232;)re\s+en\s+cours|Plaques\s+indisponibles|Nessuna\s+targa\s+disponibile/i;
 
 /**
  * True when an eCari page is the portal's OWN empty catalogue, not a page we
