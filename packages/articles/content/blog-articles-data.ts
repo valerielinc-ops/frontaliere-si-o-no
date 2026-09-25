@@ -35991,6 +35991,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ticket-stipendio-acquisti-ticino',
+ category: 'novita',
+ date: '2026-09-25T18:43:53.949Z',
+ image: '/images/blog/ticket-stipendio-acquisti-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -11994,6 +11994,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavori-verde-a8-d08.title': 'Night closures A8 and D08: deviations in Varese from 28 September',
     'blog.article.lavori-verde-a8-d08.excerpt': 'Three nights of closures between A8 and D08 from 21:00 to 5:00, green maintenance work between Busto Arsizio, Besnate and Cavaria, detours on state, provincial and municipal roads.',
     'blog.article.lavori-verde-a8-d08.imageAlt': 'Green maintenance work on the A8 highway near Busto Arsizio at night',
+    'blog.article.ticket-stipendio-acquisti-ticino.title': 'Salary ticket: the proposal to buy in Ticino',
+    'blog.article.ticket-stipendio-acquisti-ticino.excerpt': 'Ticket-salary in Ticino: the Young People of the Centre propose to allocate up to 5% of the salary to local purchases, with a tax voucher of 25%.',
+    'blog.article.ticket-stipendio-acquisti-ticino.imageAlt': 'Salary voucher and purchases in a Ticino shop',
 };
 
 export default blogMetaEn;

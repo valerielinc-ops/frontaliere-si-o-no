@@ -11995,6 +11995,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavori-verde-a8-d08.title': 'Chiusure notturne A8 e D08: deviazioni nel Varesotto dal 28 settembre',
     'blog.article.lavori-verde-a8-d08.excerpt': 'Tre notti di chiusure tra A8 e D08 dalle 21:00 alle 5:00, lavori di manutenzione del verde tra Busto Arsizio, Besnate e Cavaria, deviazioni su strade statali, provinciali e comunali.',
     'blog.article.lavori-verde-a8-d08.imageAlt': 'Lavori di manutenzione del verde sull\'autostrada A8 vicino a Busto Arsizio di notte',
+    'blog.article.ticket-stipendio-acquisti-ticino.title': 'Ticket-stipendio: la proposta per comprare in Ticino',
+    'blog.article.ticket-stipendio-acquisti-ticino.excerpt': 'Ticket-stipendio in Ticino: i Giovani del Centro propongono di destinare fino al 5% dello stipendio agli acquisti locali, con un buono fiscale sul 25%.',
+    'blog.article.ticket-stipendio-acquisti-ticino.imageAlt': 'Voucher salariale e acquisti in un negozio del Ticino',
 };
 
 export default blogMetaIt;
