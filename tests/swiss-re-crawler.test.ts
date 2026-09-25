@@ -212,6 +212,35 @@ describe('Swiss Re crawler parser', () => {
       // Not a country segment: no comma, or a canton code that is no ISO country.
       expect(swissReEntryCountryCode('Zürich')).toBe('');
       expect(swissReEntryCountryCode('Lugano, TI')).toBe('');
+      expect(swissReEntryCountryCode('Brügg BE')).toBe('');
+    });
+
+    // Canton codes that are also ISO country codes (or sit beside them): the
+    // city decides. A municipality of the homonymous canton keeps the canton,
+    // any other city keeps the country — with or without the comma.
+    const CANTON_COLLISIONS: Array<[string, string, string]> = [
+      ['BE', 'Bern', 'Brussels'],
+      ['FR', 'Fribourg', 'Paris'],
+      ['SG', 'St. Gallen', 'Singapore'],
+      ['LU', 'Luzern', 'Luxembourg'],
+      ['AG', 'Aarau', "St. John's"],
+      ['AR', 'Herisau', 'Buenos Aires'],
+      ['GL', 'Glarus', 'Nuuk'],
+      ['NE', 'Neuchâtel', 'Niamey'],
+      ['SO', 'Solothurn', 'Mogadishu'],
+      ['TI', 'Lugano', 'Milano'],
+      ['UR', 'Altdorf', 'Montevideo'],
+    ];
+
+    it.each(CANTON_COLLISIONS)('keeps %s as a canton after %s and drops %s', (code, swissCity, foreignCity) => {
+      expect(resolveSwissReGeography(`${swissCity}, ${code}`)).toEqual({ location: `${swissCity}, ${code}`, canton: code });
+      expect(resolveSwissReGeography(`${swissCity} ${code}`)).toEqual({ location: `${swissCity} ${code}`, canton: code });
+      expect(resolveSwissReGeography(`${foreignCity}, ${code}`)).toBeNull();
+    });
+
+    it('keeps the canton-marker form without a comma (Brügg BE) and drops Paris, FR', () => {
+      expect(resolveSwissReGeography('Brügg BE')).toEqual({ location: 'Brügg BE', canton: 'BE' });
+      expect(resolveSwissReGeography('Paris, FR')).toBeNull();
     });
 
     it('drops explicitly foreign entries and resolves Swiss ones without an HQ fallback', () => {
