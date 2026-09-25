@@ -11965,6 +11965,11 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ridurre-tempi-ripristino-a2-mezzovico.title': 'Reduce recovery times after the A2 Mezzovico incident',
     'blog.article.ridurre-tempi-ripristino-a2-mezzovico.excerpt': 'Lorenzo Quadri (Lega) presents a motion to reduce restoration times after the accident on the A2 in Mezzovico: closure lasting over 5 hours, queues up to 13 km.',
     'blog.article.ridurre-tempi-ripristino-a2-mezzovico.imageAlt': 'Aerial view of the A2 highway near Mezzovico with traffic jam and emergency vehicles',
+    'blog.article.bollettino-frontaliere-2026-09-25.title': 'Cross-border daily brief – September 25, 2026: 1\'716 new job listings yesterday',
+    'blog.article.bollettino-frontaliere-2026-09-25.excerpt': 'Today\'s numbers, September 25, 2026, for cross-border commuters: the waits measured at every crossing this morning, the municipalities where fuel is cheapest, the franc-euro rate at yesterday\'s close and the jobs newly posted in Switzerland. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-25.imageAlt': 'The day\'s numbers for cross-border commuters – September 25, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.bollettino-frontaliere-2026-09-25.seoDescription': 'Cross-border brief, September 25, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-09-25.ogDescription': 'The numbers for September 25, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
 };
 
 export default blogMetaEn;
