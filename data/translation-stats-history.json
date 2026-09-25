@@ -1,88 +1,5 @@
 [
   {
-    "timestamp": "2026-09-07T21:52:28.850Z",
-    "label": "before",
-    "total": 28708,
-    "needsRetranslation": 16584,
-    "suppressed": 115,
-    "incomplete": 11118,
-    "complete": 17590,
-    "slotsPresent": 17590,
-    "flaggedAmongSlotsPresent": 6307,
-    "verifiedTranslated": 11283,
-    "sourceCopyExcused": 675,
-    "slotsPresentByLength": 28576,
-    "languageVerified": 18620,
-    "missingByLocale": {
-      "it": 631,
-      "en": 534,
-      "de": 231,
-      "fr": 392
-    },
-    "queueAge": {
-      "count": 16584,
-      "withTimestamp": 16584,
-      "oldestAgeDays": 147.5,
-      "p50AgeDays": 31,
-      "p90AgeDays": 104.3,
-      "buckets": {
-        "0-1d": 431,
-        "1-2d": 22,
-        "2-7d": 2514,
-        "0-7d": 2967,
-        "7-30d": 5218,
-        "30-90d": 6231,
-        "90-180d": 2168,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "completionAge": null,
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1108
-      },
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 932
-      },
-      {
-        "company": "Roche",
-        "pending": 561
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 331
-      },
-      {
-        "company": "BKW",
-        "pending": 249
-      },
-      {
-        "company": "Migrol AG",
-        "pending": 237
-      },
-      {
-        "company": "Galenica AG (Galenica)",
-        "pending": 209
-      },
-      {
-        "company": "Sulzer",
-        "pending": 198
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 192
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 189
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-07T21:57:04.044Z",
     "label": "after",
     "total": 28708,
@@ -19401,6 +19318,100 @@
       "seed": 20260908,
       "requested": 120,
       "queuedCandidates": 497,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "topPending": [
+      {
+        "company": "PEMSA",
+        "pending": 240
+      },
+      {
+        "company": "Manor AG",
+        "pending": 95
+      },
+      {
+        "company": "Roche",
+        "pending": 85
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 65
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 64
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 56
+      },
+      {
+        "company": "Swiss Life",
+        "pending": 54
+      },
+      {
+        "company": "HOCH Health Ostschweiz",
+        "pending": 52
+      },
+      {
+        "company": "Jaeger-LeCoultre",
+        "pending": 44
+      },
+      {
+        "company": "Sulzer",
+        "pending": 41
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-25T12:42:41.087Z",
+    "label": "before",
+    "total": 26541,
+    "needsRetranslation": 1814,
+    "suppressed": 260,
+    "incomplete": 2212,
+    "complete": 24329,
+    "slotsPresent": 24329,
+    "flaggedAmongSlotsPresent": 21,
+    "verifiedTranslated": 24308,
+    "sourceCopyExcused": 603,
+    "slotsPresentByLength": 26418,
+    "languageVerified": 24713,
+    "missingByLocale": {
+      "it": 33,
+      "en": 32,
+      "de": 73,
+      "fr": 70
+    },
+    "queueAge": {
+      "count": 1814,
+      "withTimestamp": 1814,
+      "oldestAgeDays": 165.1,
+      "p50AgeDays": 23,
+      "p90AgeDays": 105,
+      "buckets": {
+        "0-1d": 135,
+        "1-2d": 214,
+        "2-7d": 302,
+        "0-7d": 651,
+        "7-30d": 410,
+        "30-90d": 530,
+        "90-180d": 223,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 483,
       "sampled": 120,
       "processed": 0,
       "residual": 0,
