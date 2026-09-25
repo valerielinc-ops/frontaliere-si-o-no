@@ -413,6 +413,59 @@ describe('backfill-jobalerts-from-newsletter — buildAlertPayload', () => {
     expect(payload.sectors).toEqual(['health']);
   });
 
+  it('keeps the source offer title soft instead of making it an exact hard keyword', () => {
+    const payload = buildAlertPayload(
+      'a@b.ch',
+      {
+        job_title: 'Senior Fisioterapista',
+        job_category: 'health',
+        job_location: 'Lugano',
+        source_channel: 'job_gate',
+      },
+      null,
+    );
+
+    expect(payload.keywords).toEqual([]);
+    expect(payload.sourceJobTitle).toBe('Senior Fisioterapista');
+    expect(payload.locations).toEqual(['Lugano']);
+    expect(payload.sectors).toEqual(['health']);
+  });
+
+  it('does not promote a recovered source title to a hard keyword', () => {
+    const payload = buildAlertPayload(
+      'a@b.ch',
+      {
+        job_search_query: 'Senior Fisioterapista',
+        job_category: 'health',
+        job_context_backfill_source: 'active_job_exact',
+        source_channel: 'job_gate',
+      },
+      null,
+    );
+
+    expect(payload.keywords).toEqual([]);
+    expect(payload.sourceJobTitle).toBe('Senior Fisioterapista');
+  });
+
+  it('migrates an untouched recovered-title keyword array but preserves edited criteria', () => {
+    const source = {
+      job_search_query: 'Senior Fisioterapista',
+      job_category: 'health',
+      job_context_backfill_source: 'active_job_exact',
+      source_channel: 'job_gate',
+    };
+    expect(buildAlertPayload(
+      'a@b.ch',
+      source,
+      { keywords: ['Senior Fisioterapista', 'health'] },
+    ).keywords).toEqual([]);
+    expect(buildAlertPayload(
+      'a@b.ch',
+      source,
+      { keywords: ['Senior Fisioterapista', 'riabilitazione'] },
+    ).keywords).toEqual(['Senior Fisioterapista', 'riabilitazione']);
+  });
+
   it('removes generated taxonomy keywords from an untouched legacy backfill', () => {
     const payload = buildAlertPayload(
       'a@b.ch',
