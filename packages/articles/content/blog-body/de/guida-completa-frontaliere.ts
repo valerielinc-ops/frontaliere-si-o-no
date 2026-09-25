@@ -193,7 +193,7 @@ Für neue Grenzgänger wird die Steuererklärung obligatorisch:
 
 1. **Einkommen umrechnen** von CHF in EUR zum Jahresdurchschnittskurs (veröffentlicht von der Agenzia delle Entrate)
 2. **Freibetrag von €10.000 anwenden** (Abzug vom steuerpflichtigen Einkommen)
-3. **IRPEF berechnen** nach italienischen Stufen 2026 (23% bis €28.000, 35% bis €50.000, 43% darüber)
+3. **IRPEF berechnen** nach italienischen Stufen 2026 (23% bis €28.000, 33% bis €50.000, 43% darüber)
 4. **Steueranrechnung abziehen** für in der Schweiz gezahlte Steuern
 5. **Regionale und kommunale Zuschläge hinzufügen**
 

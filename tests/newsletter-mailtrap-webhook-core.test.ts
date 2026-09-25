@@ -11,7 +11,7 @@ import { persistMailtrapEvent } from '../functions/src/newsletterMailtrapWebhook
  * Mirrors tests/newsletter-mailjet-webhook-core.test.ts.
  */
 function createFakeDb(
-  existingDocs: Record<string, Record<string, Record<string, unknown>>> = {},
+  existingDocs: Record<string, Record<string, Record<string, unknown> | null>> = {},
   existingEvents: Record<string, Array<Record<string, unknown>>> = {},
 ) {
   const sets: Array<{ collection: string; docId: string; data: Record<string, unknown> }> = [];
@@ -24,7 +24,15 @@ function createFakeDb(
           sets.push({ collection: name, docId, data });
         },
         get: async () => {
-          const docData = existingDocs[name]?.[docId];
+          // A recipient is a known subscriber unless the test says otherwise:
+          // a provider event never creates the subscriber record
+          // (mergeAccountDeletedSubscriberUpdate, lib/subscriberReactivation.js),
+          // so a test about what an event WRITES needs the document to exist.
+          // Seed `null` for a recipient with no document.
+          const seeded = existingDocs[name] || {};
+          const docData = docId in seeded
+            ? seeded[docId]
+            : (name === 'newsletter_subscribers' || name === 'job_alert_subscribers' ? {} : undefined);
           return {
             exists: !!docData,
             data: () => docData || {},
@@ -312,5 +320,23 @@ describe('newsletterMailtrapWebhookCore — campaign attribution', () => {
       message_id: 'mt-message-id',
     } as any);
     expect(campaignOf(db)).toBe('winback-2026-08-20');
+  });
+});
+
+describe('newsletterMailtrapWebhookCore — a provider event never creates the subscriber record', () => {
+  it.each([
+    ['newsletter', undefined, 'newsletter_subscribers'],
+    ['job alert', { type: 'job-alert' }, 'job_alert_subscribers'],
+  ])('writes nothing for a recipient with no %s document', async (_label, customVariables, collection) => {
+    const db = createFakeDb({ [collection]: { 'nobody@example.com': null } });
+    for (const event of ['delivery', 'open', 'click', 'bounce', 'spam_complaint', 'unsubscribe']) {
+      const result = await persistMailtrapEvent(db as any, {
+        event, email: 'nobody@example.com', message_id: 'm1', timestamp: 1700000000,
+        ...(customVariables ? { custom_variables: customVariables } : {}),
+      });
+      expect(result, event).toEqual({ skipped: true, reason: 'unknown_recipient' });
+    }
+    expect(db.__sets).toEqual([]);
+    expect(db.__adds).toEqual([]);
   });
 });
