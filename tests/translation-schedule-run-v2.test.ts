@@ -190,6 +190,34 @@ describe('translation scheduler v2 runtime wiring', () => {
     expect(report.scheduler.outcomeCounts).not.toHaveProperty('generation_failed');
   });
 
+  it('keeps the production provider closed when generation is disabled', async () => {
+    const previous = process.env.TRANSLATION_SHADOW_ENABLE_GENERATION;
+    process.env.TRANSLATION_SHADOW_ENABLE_GENERATION = '0';
+    try {
+      const { translate } = await import('../scripts/lib/translation-shadow-provider-v2.mjs');
+      const controller = new AbortController();
+      let failures = 0;
+      let successes = 0;
+
+      translate({
+        sourceText: 'Senior developer',
+        sourceLang: 'en',
+        targetLang: 'it',
+        field: 'title',
+      }, {
+        signal: controller.signal,
+        succeedText: () => { successes += 1; },
+        fail: () => { failures += 1; },
+      });
+
+      expect(failures).toBe(1);
+      expect(successes).toBe(0);
+    } finally {
+      if (previous === undefined) delete process.env.TRANSLATION_SHADOW_ENABLE_GENERATION;
+      else process.env.TRANSLATION_SHADOW_ENABLE_GENERATION = previous;
+    }
+  });
+
   it('returns an empty report when the live queue has no pending units', async () => {
     const { one } = createRepositories();
     const slicePath = join(one, 'data/jobs/by-crawler/example-crawler.json');
