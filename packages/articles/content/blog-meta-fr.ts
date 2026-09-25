@@ -234,7 +234,7 @@ const blogMetaFr: Record<string, string> = {
  'blog.article.guida-contributi-sociali-svizzera.excerpt': 'AVS, LPP, LAA : découvrez les taux 2026 et combien vous et votre employeur payez. Exemple pratique sur un salaire brut de 5 500 CHF pour un frontalier.',
  'blog.article.guida-contributi-sociali-svizzera.imageAlt': 'Détail d\'un bulletin de paie suisse sur un bureau avec vue sur le lac de Lugano, symbole du travail frontalier',
  'blog.article.costo-vivere-lugano-trasferirsi.title': 'Vivre à Lugano : combien ça coûte vraiment en 2026 ?',
- 'blog.article.costo-vivere-lugano-trasferirsi.excerpt': 'Analyse détaillée des coûts 2026 pour un frontalier qui déménage : loyers dès 1 500 CHF, LAMal dès 380 CHF, transports et courses. Voici les calculs à faire.',
+ 'blog.article.costo-vivere-lugano-trasferirsi.excerpt': 'Analyse détaillée des coûts 2026 pour un frontalier qui déménage : loyers dès 1 500 CHF, LAMal dès 450 CHF, transports et courses. Voici les calculs à faire.',
  'blog.article.costo-vivere-lugano-trasferirsi.imageAlt': 'Balcon d\'un appartement à Lugano avec vue sur le lac, symbolisant le coût de la vie pour ceux qui envisagent de déménager au Tessin.', 'blog.article.calcolo-pensione-avs-inps.title': 'Retraite Frontalier: Guide de Calcul AVS + INPS 2026',
  'blog.article.calcolo-pensione-avs-inps.excerpt': 'Comment fonctionne la totalisation des cotisations entre la Suisse et l\'Italie ? Exemples pratiques, conditions et nouveaux seuils AVS estimés pour 2026 pour les travailleurs au Tessin.',
  'blog.article.calcolo-pensione-avs-inps.imageAlt': 'Couple de frontaliers mûrs planifiant leur retraite sur une tablette sur la promenade du lac de Lugano, vue sur le Monte San Salvatore.',
