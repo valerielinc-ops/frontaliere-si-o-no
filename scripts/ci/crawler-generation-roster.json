@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 623,
+  "crawlerCount": 624,
   "groups": {
     "10": [
       "atec-personal",
@@ -421,6 +421,7 @@
       "mcdonald-s-switzerland",
       "pole-sante-pays-enhaut",
       "postfinance",
+      "protectas",
       "tpl-lugano",
       "tsmg"
     ],
@@ -1116,6 +1117,7 @@
     "privatklinik-obach": "data/jobs/by-crawler/privatklinik-obach.json",
     "privatklinik-wyss": "data/jobs/by-crawler/privatklinik-wyss.json",
     "prosenectute-ti": "data/jobs/by-crawler/prosenectute-ti.json",
+    "protectas": "data/jobs/by-crawler/protectas.json",
     "proton": "data/jobs/by-crawler/proton.json",
     "psgn": "data/jobs/by-crawler/psgn.json",
     "puk-zuerich": "data/jobs/by-crawler/puk-zuerich.json",
@@ -1300,5 +1302,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:ee9dabc0d66ccd6c60d65906937e0d28126cecfdf258dcffa723139329d12e4a"
+  "digest": "sha256:fafef249451f285254d1a3603cb5adcb48f1832e95cd412a3f3bbc8dba7b415e"
 }
