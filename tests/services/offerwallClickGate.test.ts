@@ -5,6 +5,7 @@ import {
   FC_OFFERWALL_ENTITLEMENT_COOKIE,
   OFFERWALL_APPEAR_TIMEOUT_MS,
   OFFERWALL_ENTITLEMENT_GRACE_MS,
+  OFFERWALL_STALL_REPORT_MS,
   isOfferwallHeld,
   offerwallGateStatus,
   releaseHeldOfferwall,
@@ -68,7 +69,7 @@ describe('offerwallClickGate', () => {
     await expect(releaseHeldOfferwall()).resolves.toEqual({ outcome: 'not_shown', reason: 'release_refused' });
   });
 
-  it('hands over to the GPT path when no Offerwall renders in time', async () => {
+  it('reports appear_timeout when no Offerwall renders in time', async () => {
     holdOfferwall();
     const onShown = vi.fn();
     const pending = releaseHeldOfferwall({ onShown });
@@ -78,7 +79,7 @@ describe('offerwallClickGate', () => {
     expect(onShown).not.toHaveBeenCalled();
   });
 
-  it('completes when the root closes after Google granted the reward', async () => {
+  it('completes at the close when Google granted the reward before it', async () => {
     let root: HTMLDivElement | null = null;
     holdOfferwall(() => {
       setTimeout(() => {
@@ -86,28 +87,34 @@ describe('offerwallClickGate', () => {
       }, 600);
     });
     const onShown = vi.fn();
-    const pending = releaseHeldOfferwall({ onShown });
+    const onClosed = vi.fn();
+    const pending = releaseHeldOfferwall({ onShown, onClosed });
 
     await vi.advanceTimersByTimeAsync(1000);
     expect(onShown).toHaveBeenCalledWith(expect.objectContaining({ root: 'fc-message-root' }));
 
-    // Live order: entitlement cookie on the thank-you screen, root removed ~3 s later.
+    // Entitlement during the thank-you screen, root removed ~3 s later.
     setEntitlement('granted-1');
     await vi.advanceTimersByTimeAsync(3000);
     root!.remove();
     await vi.advanceTimersByTimeAsync(400);
-    await expect(pending).resolves.toMatchObject({ outcome: 'completed', root: 'fc-message-root' });
+    const result = await pending;
+    expect(result).toMatchObject({ outcome: 'completed', root: 'fc-message-root' });
+    expect(onClosed).toHaveBeenCalledTimes(1);
+    if (result.outcome === 'completed') expect(result.completedMs - result.closedMs).toBeLessThanOrEqual(400);
   });
 
-  it('waits a short grace for an entitlement set right after the close', async () => {
+  it('waits after the close for an entitlement written late', async () => {
     let root: HTMLDivElement | null = null;
     holdOfferwall(() => {
       root = mountRoot('fc-offerwall-root');
     });
-    const pending = releaseHeldOfferwall();
+    const onClosed = vi.fn();
+    const pending = releaseHeldOfferwall({ onClosed });
     await vi.advanceTimersByTimeAsync(400);
     root!.style.display = 'none';
-    await vi.advanceTimersByTimeAsync(OFFERWALL_ENTITLEMENT_GRACE_MS / 2);
+    await vi.advanceTimersByTimeAsync(OFFERWALL_ENTITLEMENT_GRACE_MS - 2000);
+    expect(onClosed).toHaveBeenCalledTimes(1);
     setEntitlement('granted-2');
     await vi.advanceTimersByTimeAsync(400);
     await expect(pending).resolves.toMatchObject({ outcome: 'completed' });
@@ -148,12 +155,41 @@ describe('offerwallClickGate', () => {
     expect(onShown).not.toHaveBeenCalled();
   });
 
-  it('stops waiting once the completion bound is reached', async () => {
+  it('reports a stall once and keeps following the Offerwall until it closes', async () => {
+    let root: HTMLDivElement | null = null;
     holdOfferwall(() => {
-      mountRoot('fc-message-root');
+      root = mountRoot('fc-message-root');
     });
-    const pending = releaseHeldOfferwall({ completionTimeoutMs: 5000 });
-    await vi.advanceTimersByTimeAsync(6000);
-    await expect(pending).resolves.toMatchObject({ outcome: 'timed_out', root: 'fc-message-root' });
+    const onStalled = vi.fn();
+    let settled = false;
+    const pending = releaseHeldOfferwall({ onStalled }).then((result) => {
+      settled = true;
+      return result;
+    });
+
+    await vi.advanceTimersByTimeAsync(OFFERWALL_STALL_REPORT_MS + 1000);
+    expect(onStalled).toHaveBeenCalledTimes(1);
+    expect(onStalled).toHaveBeenCalledWith(expect.objectContaining({ root: 'fc-message-root' }));
+    expect(settled, 'time on screen is not an outcome').toBe(false);
+
+    await vi.advanceTimersByTimeAsync(60_000);
+    expect(onStalled).toHaveBeenCalledTimes(1);
+
+    root!.remove();
+    await vi.advanceTimersByTimeAsync(OFFERWALL_ENTITLEMENT_GRACE_MS + 400);
+    await expect(pending).resolves.toMatchObject({ outcome: 'closed_without_reward' });
+  });
+
+  it('still grants a reward Google confirms after a stall', async () => {
+    let root: HTMLDivElement | null = null;
+    holdOfferwall(() => {
+      root = mountRoot('fc-message-root');
+    });
+    const pending = releaseHeldOfferwall();
+    await vi.advanceTimersByTimeAsync(OFFERWALL_STALL_REPORT_MS + 800);
+    setEntitlement('granted-late');
+    root!.remove();
+    await vi.advanceTimersByTimeAsync(400);
+    await expect(pending).resolves.toMatchObject({ outcome: 'completed' });
   });
 });

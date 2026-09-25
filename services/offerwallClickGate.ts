@@ -9,10 +9,17 @@
  * steps are read from what it leaves in the page: every message mounts under
  * a body-level `fc-<kind>-root`, and the Offerwall is the root that becomes
  * visible after the release. Live probe on the job board (25-09): after the
- * rewarded ad's own "Chiudi", Funding Choices thanks the visitor, sets its
- * first-party `FCOEC` cookie and removes the root about 3 s later. The root
- * going away is when the offer may take the screen back; the new `FCOEC` is
- * what says the reward was granted.
+ * rewarded ad's own "Chiudi", Funding Choices thanks the visitor and removes
+ * the root about 3 s later, and its first-party `FCOEC` cookie, absent before
+ * the close, is present afterwards. The root going away is when the offer may
+ * take the screen back; a new `FCOEC` is what says the reward was granted.
+ * When exactly Funding Choices writes it was not isolated, hence the wait
+ * after the close.
+ *
+ * A release cannot be taken back: once the held call proceeds, Google may
+ * still render the Offerwall later. So the observer never gives up on an
+ * Offerwall that is on screen, and a caller must not start a second rewarded
+ * flow after `appear_timeout` while it stays on this page.
  */
 
 export interface OfferwallGateState {
@@ -26,28 +33,31 @@ declare global {
   }
 }
 
-/** Time the Offerwall has to render after the release before the GPT path takes over. */
-export const OFFERWALL_APPEAR_TIMEOUT_MS = 4000;
-/** Upper bound on choice + rewarded video; past it the offer stops waiting. */
-export const OFFERWALL_COMPLETION_TIMEOUT_MS = 10 * 60 * 1000;
+/** Time the Offerwall has to render after the release (2.0-2.8 s live). */
+export const OFFERWALL_APPEAR_TIMEOUT_MS = 5000;
+/** Time on screen after which a stall is reported; the observer keeps going. */
+export const OFFERWALL_STALL_REPORT_MS = 10 * 60 * 1000;
 /** Cookie Funding Choices sets once the Offerwall's reward is granted. */
 export const FC_OFFERWALL_ENTITLEMENT_COOKIE = 'FCOEC';
 /** How long after the root closes the entitlement cookie may still arrive. */
-export const OFFERWALL_ENTITLEMENT_GRACE_MS = 2000;
+export const OFFERWALL_ENTITLEMENT_GRACE_MS = 10_000;
 const POLL_MS = 200;
 
 const FC_ROOT_CLASS = /^fc-[a-z0-9-]+-root$/;
 
 export type OfferwallReleaseResult =
-  | { outcome: 'completed'; shownMs: number; completedMs: number; root: string }
+  | { outcome: 'completed'; shownMs: number; closedMs: number; completedMs: number; root: string }
   | { outcome: 'closed_without_reward'; shownMs: number; closedMs: number; root: string }
-  | { outcome: 'not_shown'; reason: 'not_held' | 'release_refused' | 'appear_timeout' }
-  | { outcome: 'timed_out'; shownMs: number; root: string };
+  | { outcome: 'not_shown'; reason: 'not_held' | 'release_refused' | 'appear_timeout' };
 
 export interface ReleaseHeldOfferwallOptions {
   onShown?: (info: { shownMs: number; root: string }) => void;
+  /** The root closed; the entitlement check is running. */
+  onClosed?: (info: { shownMs: number; closedMs: number; root: string }) => void;
+  /** Still on screen after `stallReportMs`; reported once, observation continues. */
+  onStalled?: (info: { shownMs: number; root: string }) => void;
   appearTimeoutMs?: number;
-  completionTimeoutMs?: number;
+  stallReportMs?: number;
   entitlementGraceMs?: number;
   win?: Window;
 }
@@ -92,16 +102,17 @@ function visibleRoots(doc: Document): HTMLElement[] {
 
 /**
  * Release the held Offerwall and resolve once it has closed, or as soon as it
- * is clear that it will not show. Roots already visible before the release
- * (the consent message, the revocation link) are never mistaken for the
- * Offerwall. A close counts as `completed` only when the entitlement cookie
- * was set or renewed after the release.
+ * is clear that it did not show in time. Roots already visible before the
+ * release (the consent message, the revocation link) are never mistaken for
+ * the Offerwall. A close counts as `completed` only when the entitlement
+ * cookie was set or renewed after the release; there is no outcome for an
+ * Offerwall that simply stays open.
  */
 export function releaseHeldOfferwall(options: ReleaseHeldOfferwallOptions = {}): Promise<OfferwallReleaseResult> {
   const win = options.win ?? window;
   const doc = win.document;
   const appearTimeoutMs = options.appearTimeoutMs ?? OFFERWALL_APPEAR_TIMEOUT_MS;
-  const completionTimeoutMs = options.completionTimeoutMs ?? OFFERWALL_COMPLETION_TIMEOUT_MS;
+  const stallReportMs = options.stallReportMs ?? OFFERWALL_STALL_REPORT_MS;
   const entitlementGraceMs = options.entitlementGraceMs ?? OFFERWALL_ENTITLEMENT_GRACE_MS;
   const gate = win.__ftOfferwallGate;
   if (!isOfferwallHeld(win) || !gate?.release) {
@@ -122,6 +133,7 @@ export function releaseHeldOfferwall(options: ReleaseHeldOfferwallOptions = {}):
   return new Promise((resolve) => {
     let shown: { el: HTMLElement; root: string; shownMs: number } | null = null;
     let closedMs: number | null = null;
+    let stallReported = false;
     const finish = (result: OfferwallReleaseResult) => {
       win.clearInterval(timer);
       resolve(result);
@@ -138,18 +150,22 @@ export function releaseHeldOfferwall(options: ReleaseHeldOfferwallOptions = {}):
         if (elapsed >= appearTimeoutMs) finish({ outcome: 'not_shown', reason: 'appear_timeout' });
         return;
       }
-      if (closedMs === null && !isShown(shown.el)) closedMs = elapsed;
-      if (closedMs !== null) {
-        const entitlement = readCookie(doc, FC_OFFERWALL_ENTITLEMENT_COOKIE);
-        if (entitlement !== null && entitlement !== entitlementBefore) {
-          finish({ outcome: 'completed', shownMs: shown.shownMs, completedMs: closedMs, root: shown.root });
-        } else if (elapsed - closedMs >= entitlementGraceMs) {
-          finish({ outcome: 'closed_without_reward', shownMs: shown.shownMs, closedMs, root: shown.root });
+      if (closedMs === null) {
+        if (isShown(shown.el)) {
+          if (!stallReported && elapsed - shown.shownMs >= stallReportMs) {
+            stallReported = true;
+            options.onStalled?.({ shownMs: shown.shownMs, root: shown.root });
+          }
+          return;
         }
-        return;
+        closedMs = elapsed;
+        options.onClosed?.({ shownMs: shown.shownMs, closedMs, root: shown.root });
       }
-      if (elapsed - shown.shownMs >= completionTimeoutMs) {
-        finish({ outcome: 'timed_out', shownMs: shown.shownMs, root: shown.root });
+      const entitlement = readCookie(doc, FC_OFFERWALL_ENTITLEMENT_COOKIE);
+      if (entitlement !== null && entitlement !== entitlementBefore) {
+        finish({ outcome: 'completed', shownMs: shown.shownMs, closedMs, completedMs: elapsed, root: shown.root });
+      } else if (elapsed - closedMs >= entitlementGraceMs) {
+        finish({ outcome: 'closed_without_reward', shownMs: shown.shownMs, closedMs, root: shown.root });
       }
     }, POLL_MS);
   });

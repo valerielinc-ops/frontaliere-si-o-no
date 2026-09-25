@@ -31,10 +31,11 @@ const OFFERWALL_FORMAT = 'offerwall';
 /**
  * `offerwall`: the held AdSense Offerwall has been released and may render.
  * `offerwall_visible`: it is on screen, so this dialog steps out of its way.
- * `offerwall_done`: it was completed and the application is unlocked.
- * `gpt`: no Offerwall this time; the GPT rewarded request runs as before.
+ * `offerwall_verifying`: it closed; waiting for Google's entitlement.
+ * `offerwall_done`: reward granted, the visitor is on the way to the employer.
+ * `gpt`: no Offerwall was released for this click; the GPT request runs.
  */
-type OfferPhase = 'offerwall' | 'offerwall_visible' | 'offerwall_done' | 'gpt';
+type OfferPhase = 'offerwall' | 'offerwall_visible' | 'offerwall_verifying' | 'offerwall_done' | 'gpt';
 
 /** Why no Offerwall was waiting for this click (tracked before the GPT path). */
 const NOT_HELD_REASON: Record<Exclude<OfferwallGateStatus, 'held'>, string> = {
@@ -153,16 +154,18 @@ export default function RewardedApplicationOffer({
   };
 
   // `completed` means Funding Choices closed the Offerwall and granted its
-  // reward (entitlement cookie), so it unlocks the application like a GPT grant.
+  // reward (entitlement cookie): grant the access like a GPT grant and go on
+  // to the application at once. The rewarded choice inside Google's dialog
+  // was the visitor's action; no further click is asked here.
   const handleOfferwallCompleted = (result: Extract<OfferwallReleaseResult, { outcome: 'completed' }>) => {
     if (grantedRef.current) return;
     grantedRef.current = true;
     const accessExpiresAt = grantRewardedApplicationAccess();
-    setRewarded(true);
     setPhase('offerwall_done');
     trackAssistedApplicationEvent('rewarded_offerwall_completed', {
       ...offerwallContext(),
       shown_ms: result.shownMs,
+      closed_ms: result.closedMs,
       completed_ms: result.completedMs,
       fc_root: result.root,
     });
@@ -171,6 +174,7 @@ export default function RewardedApplicationOffer({
       access_expires_at: accessExpiresAt,
       access_ttl_hours: 12,
     });
+    onContinue();
   };
 
   useEffect(() => {
@@ -197,6 +201,19 @@ export default function RewardedApplicationOffer({
           fc_root: root,
         });
       },
+      onClosed: () => {
+        if (!mountedRef.current) return;
+        setPhase('offerwall_verifying');
+      },
+      onStalled: ({ shownMs, root }) => {
+        // Telemetry only: the observer keeps following the Offerwall, and
+        // time on screen never counts as a reward.
+        trackAssistedApplicationEvent('rewarded_offerwall_timed_out', {
+          ...offerwallContext(),
+          shown_ms: shownMs,
+          fc_root: root,
+        });
+      },
     }).then((result) => {
       if (!mountedRef.current) return;
       if (result.outcome === 'completed') {
@@ -215,22 +232,20 @@ export default function RewardedApplicationOffer({
         onUnavailable('offerwall_closed_without_reward');
         return;
       }
-      if (result.outcome === 'not_shown') {
-        // No Offerwall for this click (none configured, no ad, or access
-        // already granted by Google): the GPT request takes over.
-        trackAssistedApplicationEvent('rewarded_offerwall_not_shown', {
-          ...offerwallContext(),
-          reason: result.reason,
-        });
-        setPhase('gpt');
+      trackAssistedApplicationEvent('rewarded_offerwall_not_shown', {
+        ...offerwallContext(),
+        reason: result.reason,
+      });
+      if (result.reason === 'appear_timeout') {
+        // Released but not rendered in time (Google's frequency, experiment
+        // group, or access already granted). The release cannot be taken back,
+        // so no GPT request may follow it: a late Offerwall would overlap a
+        // second ad. Direct employer hand-off, which leaves this page.
+        onUnavailable('offerwall_not_shown');
         return;
       }
-      // Still on screen after the completion bound: nothing to unlock.
-      trackAssistedApplicationEvent('rewarded_offerwall_timed_out', {
-        ...offerwallContext(),
-        shown_ms: result.shownMs,
-        fc_root: result.root,
-      });
+      // Nothing was released for this click: the GPT request runs as before.
+      setPhase('gpt');
     });
     // Runs once per offer; the context is read at release time.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -367,6 +382,29 @@ export default function RewardedApplicationOffer({
               data-testid="rewarded-application-offerwall-pending"
             >
               Stiamo preparando il video…
+            </p>
+          )}
+
+          {phase === 'offerwall_verifying' && (
+            <p
+              role="status"
+              aria-live="polite"
+              className="text-sm font-semibold text-body"
+              data-testid="rewarded-application-offerwall-verifying"
+            >
+              Verifichiamo lo sblocco con Google…
+            </p>
+          )}
+
+          {phase === 'offerwall_done' && (
+            <p
+              role="status"
+              aria-live="polite"
+              className="flex items-center gap-2 text-sm font-semibold text-success"
+              data-testid="rewarded-application-offerwall-done"
+            >
+              <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
+              Candidatura sbloccata: ti portiamo al sito dell’azienda…
             </p>
           )}
 
