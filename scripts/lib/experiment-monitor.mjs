@@ -24,7 +24,7 @@
  * promozione. FORCE già impostato o kill switch spento: nessuna azione.
  */
 
-import { countInclusiveUtcDays, fmtUtcDate, utcDaysBefore } from './analytics-settled-window.mjs';
+import { countInclusiveUtcDays, fmtUtcDate } from './analytics-settled-window.mjs';
 import { achievedPower, fmtCi, fmtInt, fmtP, fmtPct, sampleSizePerArm } from './experiment-stats.mjs';
 
 /**
@@ -39,9 +39,11 @@ import { achievedPower, fmtCi, fmtInt, fmtP, fmtPct, sampleSizePerArm } from './
  * }} ExperimentPlan
  */
 
-/** `YYYY-MM-DD` + n giorni (calendario, UTC), sugli helper di analytics-settled-window. */
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+/** `YYYY-MM-DD` + n giorni (calendario, UTC). */
 export function addDaysIso(date, n) {
-  return fmtUtcDate(utcDaysBefore(new Date(`${date}T00:00:00Z`), -n));
+  return fmtUtcDate(new Date(Date.parse(`${date}T00:00:00Z`) + n * DAY_MS));
 }
 
 /** Giorni di calendario da `since` a `until` inclusi (0 se `until` precede `since`). */
