@@ -93010,6 +93010,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bns-decisione-tasso-invariato-2026': {
+    title: 'BNS lascia tasso allo 0% e alza PIL 2026 | Frontaliere Ticino',
+    description: 'La BNS mantiene il tasso di riferimento allo 0% (invariato da giugno 2025), prevede inflazione 0,7% nel 2026 e 0,8% nel 2027 e PIL 2026 tra l’1,5% e il 2,0%',
+    keywords: 'frontalieri, ticino, svizzera, italia, lascia, tasso, allo, alza',
+    ogTitle: 'BNS lascia tasso allo 0% e alza PIL 2026',
+    ogDescription: 'Il 24 settembre 2026 la Banca nazionale svizzera ha confermato il tasso di riferimento allo 0%, livello invariato da giugno 2025. Ha rivisto al rialzo le stime di inflazione (0,7% 2026, 0,8% 2027) e del PIL 2026 tra l’1,5% e il 2,0%. Un articolo',
+    canonicalPath: '/articoli-frontaliere/bns-decisione-tasso-invariato-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BNS lascia tasso allo 0% e alza PIL 2026",
+      "description": "La BNS mantiene il tasso di riferimento allo 0% (invariato da giugno 2025), prevede inflazione 0,7% nel 2026 e 0,8% nel 2027 e PIL 2026 tra l’1,5% e il 2,0%",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bns-decisione-tasso-invariato-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con le montagne sullo sfondo, luce mattutina"
+      },
+      "datePublished": "2026-09-25T04:30:31+00:00",
+      "dateModified": "2026-09-25T04:30:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bns-decisione-tasso-invariato-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

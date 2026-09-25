@@ -11956,6 +11956,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gornate-olona-regime-fiscale.title': 'Gornate Olona: working in Ticino as a border worker',
     'blog.article.gornate-olona-regime-fiscale.excerpt': 'From Gornate Olona to Ticino: border agreements in force from 1 January 2024, tax at source, exemption €7,500 or deductible €10,000, AVS and LAMal.',
     'blog.article.gornate-olona-regime-fiscale.imageAlt': 'Cross-border worker between Gornate Olona and Canton Ticino',
+    'blog.article.bns-decisione-tasso-invariato-2026.title': 'SNB leaves rate at 0% and raises GDP 2026',
+    'blog.article.bns-decisione-tasso-invariato-2026.excerpt': 'The SNB maintains the benchmark rate at 0% (unchanged from June 2025), forecasts inflation 0.7% in 2026 and 0.8% in 2027, and GDP 2026 between 1.5% and 2.0%.',
+    'blog.article.bns-decisione-tasso-invariato-2026.imageAlt': 'View of Lake Lugano with mountains in the background, morning light',
 };
 
 export default blogMetaEn;
