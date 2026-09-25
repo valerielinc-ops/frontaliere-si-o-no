@@ -50,6 +50,9 @@ describe('offerwallClickGate', () => {
     expect(offerwallGateStatus()).toBe('absent');
     window.__ftOfferwallGate = { state: 'suppressed' };
     expect(offerwallGateStatus()).toBe('suppressed');
+    window.__ftOfferwallGate = { state: 'off_board' };
+    expect(offerwallGateStatus()).toBe('off_board');
+    expect(isOfferwallHeld(), 'an off-board page never holds an Offerwall').toBe(false);
     window.__ftOfferwallGate = { state: 'released' };
     expect(offerwallGateStatus()).toBe('released');
     window.__ftOfferwallGate = { state: 'held' };
@@ -62,6 +65,12 @@ describe('offerwallClickGate', () => {
   it('reports not_held when Funding Choices never held an Offerwall on this page', async () => {
     expect(isOfferwallHeld()).toBe(false);
     await expect(releaseHeldOfferwall()).resolves.toEqual({ outcome: 'not_shown', reason: 'not_held' });
+  });
+
+  it('reports not_held when the visit started off the job board', async () => {
+    window.__ftOfferwallGate = { state: 'off_board' };
+    await expect(releaseHeldOfferwall()).resolves.toEqual({ outcome: 'not_shown', reason: 'not_held' });
+    expect(window.__ftOfferwallGate?.state).toBe('off_board');
   });
 
   it('reports release_refused when the gate was already released', async () => {

@@ -5,14 +5,21 @@
  * This file EXECUTES both against a fake Funding Choices, because identical
  * identifiers in both places prove nothing about identical behaviour.
  *
- * Contract on /cerca-lavoro-ticino pages, for the Funding Choices call that
- * carries OFFERWALL (the same call also carries the GDPR consent message):
- * - decision stored on both sides (our key AND a TC string in Funding
- *   Choices' FCCDCF cookie): hold the call until `__ftOfferwallGate.release()`;
- * - otherwise: suppress only the Offerwall, so the CMP shows at once (holding
- *   it kept the CMP off screen in the live probe), and mark the gate
- *   `suppressed`.
- * Every other call proceeds at once (holding the first, enum-less call delayed
+ * Contract for the Funding Choices call that carries OFFERWALL (the same
+ * call also carries the GDPR consent message and the ad-block message):
+ * - off the job-board sections (JOB_BOARD_SECTION_PATHNAME_RX, shared with
+ *   JobBoard's rewarded surface): suppress only the Offerwall, whatever the
+ *   consent state, and mark the gate `off_board`. AdSense includes the whole
+ *   site (owner decision 2026-09-26), so this is what keeps the Offerwall off
+ *   entry everywhere else; it never proceeds there;
+ * - on every job-board section (all cantons, the Switzerland aggregator,
+ *   it/en/de/fr), decision stored on both sides (our key AND a TC string in
+ *   Funding Choices' FCCDCF cookie): hold the call until
+ *   `__ftOfferwallGate.release()`;
+ * - on a job-board section otherwise: suppress only the Offerwall, so the CMP
+ *   shows at once (holding it kept the CMP off screen in the live probe), and
+ *   mark the gate `suppressed`.
+ * The first, enum-less call proceeds at once everywhere (holding it delayed
  * the display ads in the live probe).
  */
 import { readFileSync } from 'node:fs';
@@ -27,6 +34,11 @@ import {
   OFFERWALL_FC_SNIPPET,
 } from '@/build-plugins/constants';
 import { ADS_CONSENT_STORAGE_KEY } from '@/services/adsConsent';
+import {
+  JOB_BOARD_SECTION_PATHNAME_RX,
+  JOB_BOARD_SECTION_PREFIX_SOURCE,
+  isJobBoardSectionPathname,
+} from '../scripts/lib/jobBoardSections.mjs';
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const indexHtml = readFileSync(resolve(REPO_ROOT, 'index.html'), 'utf8');
@@ -93,22 +105,84 @@ function message(): FakeMessage {
 
 const ENUM = { OFFERWALL: 1, AD_BLOCKING: 2 };
 
+// Every section shape the shared matcher documents: TI legacy, other cantons
+// (hyphenated slugs too), the Switzerland aggregator, every locale, and the
+// section root with and without its trailing slash.
+const BOARD_PATHS = [
+  '/cerca-lavoro-ticino/',
+  '/cerca-lavoro-ticino',
+  '/cerca-lavoro-ticino/stagista-supsi/',
+  '/cerca-lavoro-ticino/tutti/page-2/',
+  '/cerca-lavoro-argovia/',
+  '/cerca-lavoro-san-gallo/infermiere-sg/',
+  '/cerca-lavoro-svizzera/',
+  '/en/find-jobs-ticino/some-job/',
+  '/en/find-jobs-geneva/',
+  '/en/find-jobs-switzerland/',
+  '/de/jobs-im-tessin/stelle/',
+  '/de/jobs-in-aargau/',
+  '/de/jobs-in-der-waadt/',
+  '/de/jobs-in-schweiz/',
+  '/fr/trouver-emploi-tessin/',
+  '/fr/trouver-emploi-vaud/emploi-x/',
+  '/fr/trouver-emploi-suisse/',
+];
+
+// Pages AdSense now includes but where "Candidati" does not exist: articles,
+// the generic job pages outside the sections, profession x city landings,
+// employer profiles, and paths that only carry a section segment further down.
+const OFF_BOARD_PATHS = [
+  '/',
+  '/articoli/fisco/',
+  '/articoli-frontaliere/permesso-g/',
+  '/lavoro/',
+  '/lavoro/infermiere/',
+  '/jobs-lugano-infermiere/',
+  '/en/jobs-lugano-nurse/',
+  '/cerca-lavoro/',
+  '/blog/cerca-lavoro-ticino/',
+  '/it/cerca-lavoro-ticino/',
+  '/en/',
+  '/aziende/esempio-sa/',
+];
+
+describe('fixtures', () => {
+  it('follow the shared job-board matcher', () => {
+    for (const path of BOARD_PATHS) expect(isJobBoardSectionPathname(path), path).toBe(true);
+    for (const path of OFF_BOARD_PATHS) expect(isJobBoardSectionPathname(path), path).toBe(false);
+  });
+});
+
 describe.each(COPIES)('%s', (_name, src) => {
-  it('proceeds every message outside the Italian job board', () => {
-    const win = install(src, '/articoli/fisco/');
+  it.each(OFF_BOARD_PATHS)('suppresses only the Offerwall off the job board (%s), even with consent stored', (path) => {
+    const win = install(src, path);
     win.googlefc!.MessageTypeEnum = ENUM;
     const m = message();
     win.googlefc!.controlledMessagingFunction!(m);
-    expect(m.calls).toEqual([[true]]);
-    expect(win.__ftOfferwallGate).toBeUndefined();
+    expect(m.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
+    expect(win.__ftOfferwallGate?.state).toBe('off_board');
+    expect(win.__ftOfferwallGate?.release).toBeUndefined();
   });
 
-  it('proceeds the first, enum-less call on the job board at once', () => {
-    const win = install(src, '/cerca-lavoro-ticino/tutti/page-2/');
+  it('suppresses only the Offerwall off the job board without a consent decision too', () => {
+    const win = install(src, '/articoli/fisco/', { consent: null, cookie: cookieWith(FCCDCF_BEFORE_CONSENT) });
+    win.googlefc!.MessageTypeEnum = ENUM;
     const m = message();
     win.googlefc!.controlledMessagingFunction!(m);
-    expect(m.calls).toEqual([[true]]);
+    expect(m.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
+    expect(win.__ftOfferwallGate?.state).toBe('off_board');
   });
+
+  it.each(['/articoli/fisco/', '/cerca-lavoro-ticino/tutti/page-2/', '/de/jobs-in-aargau/'])(
+    'proceeds the first, enum-less call at once (%s)',
+    (path) => {
+      const win = install(src, path);
+      const m = message();
+      win.googlefc!.controlledMessagingFunction!(m);
+      expect(m.calls).toEqual([[true]]);
+      expect(win.__ftOfferwallGate).toBeUndefined();
+    },
+  );
 
   it.each([
     ['no decision anywhere', { consent: null, cookie: cookieWith(FCCDCF_BEFORE_CONSENT) }],
@@ -117,12 +191,14 @@ describe.each(COPIES)('%s', (_name, src) => {
     ['our key, FCCDCF undecodable', { consent: 'granted', cookie: cookieWith('%E0%A4%A') }],
     ['a TC string, but not our key', { consent: null }],
   ])('%s: lets the CMP show, suppresses only the Offerwall', (_case, opts) => {
-    const win = install(src, '/cerca-lavoro-ticino/stagista-supsi/', opts);
-    win.googlefc!.MessageTypeEnum = ENUM;
-    const m = message();
-    win.googlefc!.controlledMessagingFunction!(m);
-    expect(m.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
-    expect(win.__ftOfferwallGate?.state).toBe('suppressed');
+    for (const path of ['/cerca-lavoro-ticino/stagista-supsi/', '/fr/trouver-emploi-vaud/emploi-x/']) {
+      const win = install(src, path, opts);
+      win.googlefc!.MessageTypeEnum = ENUM;
+      const m = message();
+      win.googlefc!.controlledMessagingFunction!(m);
+      expect(m.calls, path).toEqual([[false, [ENUM.OFFERWALL]]]);
+      expect(win.__ftOfferwallGate?.state, path).toBe('suppressed');
+    }
   });
 
   it.each(['granted', 'denied'])('with a decision stored on both sides (%s), holds the Offerwall call until release()', (consent) => {
@@ -137,6 +213,17 @@ describe.each(COPIES)('%s', (_name, src) => {
     expect(m.calls).toEqual([[true]]);
     expect(win.__ftOfferwallGate?.state).toBe('released');
     expect(win.__ftOfferwallGate!.release!()).toBe(false);
+    expect(m.calls).toEqual([[true]]);
+  });
+
+  it.each(BOARD_PATHS)('holds the Offerwall call on every job-board section (%s)', (path) => {
+    const win = install(src, path);
+    win.googlefc!.MessageTypeEnum = ENUM;
+    const m = message();
+    win.googlefc!.controlledMessagingFunction!(m);
+    expect(m.calls).toEqual([]);
+    expect(win.__ftOfferwallGate?.state).toBe('held');
+    expect(win.__ftOfferwallGate!.release!()).toBe(true);
     expect(m.calls).toEqual([[true]]);
   });
 
@@ -156,18 +243,31 @@ describe.each(COPIES)('%s', (_name, src) => {
     expect(late.calls).toEqual([[true]]);
   });
 
-  it('matches the section only, not look-alike paths', () => {
-    const win = install(src, '/cerca-lavoro-ticinese/');
-    win.googlefc!.MessageTypeEnum = ENUM;
-    const m = message();
-    win.googlefc!.controlledMessagingFunction!(m);
-    expect(m.calls).toEqual([[true]]);
-  });
-
   it('steps aside when another copy already installed the gate', () => {
     const existing = () => {};
     const win = install(src, '/cerca-lavoro-ticino/', { preset: { controlledMessagingFunction: existing } });
     expect(win.googlefc!.controlledMessagingFunction).toBe(existing);
+  });
+});
+
+/** The path regex literal a gate copy tests `pathname` against. */
+function gatePathRegex(src: string): RegExp {
+  const m = src.match(/if\s*\(\s*!\/((?:\\.|[^/\\\n])+)\/\.test\(p\)\)/);
+  if (!m) throw new Error('gate copy no longer tests the pathname with a regex literal');
+  return new RegExp(m[1]);
+}
+
+describe('job-board path drift', () => {
+  it.each(COPIES)('%s uses the shared job-board section matcher', (_name, src) => {
+    expect(gatePathRegex(src).source).toBe(JOB_BOARD_SECTION_PATHNAME_RX.source);
+    expect(gatePathRegex(src).source).toContain(`(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-`);
+  });
+
+  it('every carrier embeds the same path regex', () => {
+    const literal = `/${JOB_BOARD_SECTION_PATHNAME_RX.source}/`;
+    expect(FC_JOBBOARD_OFFERWALL_GATE_JS).toContain(literal);
+    expect(OFFERWALL_FC_SNIPPET).toContain(literal);
+    expect(ADSENSE_LOADER_CONTENT).toContain(literal);
   });
 });
 

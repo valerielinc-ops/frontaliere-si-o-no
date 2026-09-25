@@ -70,6 +70,32 @@ export const JOB_BOARD_SECTION_RX =
   new RegExp(`(?:^|/)(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*/`);
 
 /**
+ * Matches a browser pathname (`window.location.pathname`) inside a job-board
+ * section, for every canton, the Switzerland aggregator and every locale
+ * (optional `/en|/de|/fr` prefix): the section root, with or without its
+ * trailing slash, and any page below it. Anchored at the start, unlike
+ * JOB_BOARD_SECTION_RX, so `/blog/cerca-lavoro-ticino/` does not match.
+ *
+ * Runtime consumers: the rewarded "Candidati" surface
+ * (components/community/JobBoard.tsx) and the click-only Offerwall gate
+ * FC_JOBBOARD_OFFERWALL_GATE_JS (build-plugins/constants.ts), which embeds
+ * `.source` into inline JS. Its hand-written twins (index.html and the
+ * corpus's transported host/constants.ts) are pinned by
+ * tests/offerwall-click-gate-parity.test.ts and by the SiteShellContract
+ * fingerprint.
+ */
+export const JOB_BOARD_SECTION_PATHNAME_RX =
+  new RegExp(`^(?:/(?:en|de|fr))?/(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*(?:/|$)`);
+
+/**
+ * @param {string} pathname a browser pathname such as `window.location.pathname`.
+ * @returns {boolean} true when the page sits in any job-board section.
+ */
+export function isJobBoardSectionPathname(pathname) {
+  return JOB_BOARD_SECTION_PATHNAME_RX.test(String(pathname || ''));
+}
+
+/**
  * Profession × city landing pages are job-payload pages too, but they use
  * the locale-natural `/jobs-{city}-{role}/` (or `lavoro`/`arbeit`/`travail`)
  * shape instead of living below a canton job-board section. Keep this

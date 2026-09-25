@@ -1,16 +1,19 @@
 /**
  * Funding Choices Offerwall contract.
  *
- * The custom newsletter choice is intentionally disabled globally. On the
- * Italian job board the native page-level Offerwall (AdSense) is held until
- * the visitor clicks "Candidati"; other Funding Choices messages remain
- * available. Behaviour is executed in tests/offerwall-click-gate-parity.test.ts.
+ * The custom newsletter choice is intentionally disabled globally. On every
+ * job-board section the native page-level Offerwall (AdSense) is held until
+ * the visitor clicks "Candidati", and on every other page the Offerwall alone
+ * is suppressed; other Funding Choices messages remain available. Behaviour
+ * is executed in tests/offerwall-click-gate-parity.test.ts.
  */
 
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 import { describe, expect, it } from 'vitest';
+
+import { JOB_BOARD_SECTION_PATHNAME_RX } from '../scripts/lib/jobBoardSections.mjs';
 
 const indexHtml = readFileSync(resolve(__dirname, '..', 'index.html'), 'utf8');
 const appSource = readFileSync(resolve(__dirname, '..', 'App.tsx'), 'utf8');
@@ -42,9 +45,11 @@ describe('Offerwall custom-choice registry — globally disabled', () => {
 });
 
 describe('Offerwall controlled messaging — held until "Candidati"', () => {
-  it('holds the native Offerwall on the Italian job board instead of suppressing it', () => {
+  it('holds the native Offerwall on every job-board section, suppresses it elsewhere', () => {
     expect(CONTROLLED_MESSAGING_BLOCK).toContain('controlledMessagingFunction');
-    expect(CONTROLLED_MESSAGING_BLOCK).toContain('/^\\/cerca-lavoro-ticino(?:\\/|$)/');
+    expect(CONTROLLED_MESSAGING_BLOCK).toContain(`/${JOB_BOARD_SECTION_PATHNAME_RX.source}/`);
+    expect(CONTROLLED_MESSAGING_BLOCK).toContain("state: 'off_board'");
+    expect(CONTROLLED_MESSAGING_BLOCK).not.toContain('cerca-lavoro-ticino');
     expect(CONTROLLED_MESSAGING_BLOCK).toContain('__ftOfferwallGate');
     expect(CONTROLLED_MESSAGING_BLOCK).toContain('w.release = function()');
     // Before a consent decision only the Offerwall is suppressed, so the CMP shows.

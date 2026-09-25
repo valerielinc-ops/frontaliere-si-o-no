@@ -60,10 +60,12 @@ function hashDistinctId(value: string): number {
 }
 
 /**
- * Resolve the fallback assignment for non-job-board surfaces. Those pages run
- * only the requested subscription-vs-original A/B test; the rewarded arm is
- * reserved for the dedicated Italian job-board route and is forced there by
- * JobBoard instead of being assigned here.
+ * Resolve the fallback assignment for surfaces outside the job-board
+ * sections. Those pages run only the requested subscription-vs-original A/B
+ * test; the rewarded arm is reserved for the job-board sections (every
+ * canton, the Switzerland aggregator, every locale: owner decision
+ * 2026-09-26, which ended this A/B there) and is forced there by JobBoard
+ * instead of being assigned here.
  */
 export function resolveAssistedApplicationVariant(distinctId: string): AssistedApplicationVariant {
   const normalized = String(distinctId || '').trim();
@@ -126,8 +128,8 @@ export function useAssistedApplicationVariant(enabled = true): AssistedApplicati
     }
 
     // A route transition can leave the previous route-only rewarded arm in
-    // state for one render. Reset before Remote Config resolves so a
-    // non-Ticino surface never exposes a stale rewarded treatment.
+    // state for one render. Reset before Remote Config resolves so a surface
+    // outside the job-board sections never exposes a stale rewarded treatment.
     setVariant('control');
     setReady(false);
     setAssignmentEnabled(true);
@@ -140,7 +142,7 @@ export function useAssistedApplicationVariant(enabled = true): AssistedApplicati
       const configured = await getConfigValue(ASSISTED_APPLICATION_EXPERIMENT_RC_KEY).catch(() => '');
       if (cancelled) return;
       const flagged = normalizeAssistedApplicationVariant(configured.trim().toLowerCase());
-      // `rewarded_ad` remains a route-level variant for the Italian job board;
+      // `rewarded_ad` remains a route-level variant for the job-board sections;
       // a stale global value must fall back to the other-surface A/B split,
       // never turn every non-job-board visitor into the original arm.
       const resolved = flagged === 'rewarded_ad'

@@ -1,9 +1,11 @@
 /**
- * Click-only AdSense Offerwall on the Italian job board.
+ * Click-only AdSense Offerwall on the job board.
  *
  * FC_JOBBOARD_OFFERWALL_GATE_JS (build-plugins/constants.ts, twin inline in
- * index.html) holds the Offerwall phase of Funding Choices on
- * /cerca-lavoro-ticino pages, so the Offerwall never shows on entry. This
+ * index.html) holds the Offerwall phase of Funding Choices on every
+ * job-board section (JOB_BOARD_SECTION_PATHNAME_RX: all cantons, the
+ * Switzerland aggregator, every locale) and suppresses the Offerwall alone on
+ * every other page, so it never shows on entry. This
  * module releases it when the visitor clicks "Candidati" and follows it on
  * screen. Funding Choices exposes no Offerwall lifecycle callback, so both
  * steps are read from what it leaves in the page: every message mounts under
@@ -23,7 +25,7 @@
  */
 
 export interface OfferwallGateState {
-  state?: 'idle' | 'held' | 'released' | 'suppressed';
+  state?: 'idle' | 'held' | 'released' | 'suppressed' | 'off_board';
   release?: () => boolean;
 }
 
@@ -65,14 +67,17 @@ export interface ReleaseHeldOfferwallOptions {
 /**
  * `suppressed`: the gate let the consent message through and dropped the
  * Offerwall for this page view (no stored consent decision yet).
+ * `off_board`: Funding Choices reached the gate on a page outside the
+ * job-board sections, where the Offerwall is always dropped; the visitor
+ * then navigated to a job in the SPA without a new page load.
  * `absent`: Funding Choices never reached the gate on this page view.
  */
-export type OfferwallGateStatus = 'held' | 'released' | 'suppressed' | 'absent';
+export type OfferwallGateStatus = 'held' | 'released' | 'suppressed' | 'off_board' | 'absent';
 
 export function offerwallGateStatus(win: Window = window): OfferwallGateStatus {
   const gate = win.__ftOfferwallGate;
   if (gate?.state === 'held' && typeof gate.release === 'function') return 'held';
-  if (gate?.state === 'released' || gate?.state === 'suppressed') return gate.state;
+  if (gate?.state === 'released' || gate?.state === 'suppressed' || gate?.state === 'off_board') return gate.state;
   return 'absent';
 }
 
