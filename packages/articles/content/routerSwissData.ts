@@ -2264,6 +2264,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sanzioni-onu-ordinanze-2026': { it: 'sanzioni-onu-ordinanze-2026', en: 'sanctions-un-ordinances-2026', de: 'sanktionen-un-verordnungen-2026', fr: 'sanctions-onu-ordonnances-2026' },
  'francese-autonomia-cantoni': { it: 'francese-autonomia-cantoni', en: 'french-language-canton-autonomy', de: 'franzoesisch-kantone-autonomie', fr: 'francais-autonomie-cantons' },
  'svizzera-difesa-bilancio-iva': { it: 'svizzera-difesa-bilancio-iva', en: 'switzerland-defense-budget-vat', de: 'schweiz-verteidigungsbudget-mwst', fr: 'suisse-budget-defense-tva' },
+ 'costi-sanita-incentivi': { it: 'costi-sanita-incentivi', en: 'ticino-s-healthcare-system-needs-new-incentives', de: 'das-tessiner-gesundheitswesen-braucht-neue-anreize', fr: 'le-systeme-de-sante-tessinois-a-besoin-de-nouvelles-incitations' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

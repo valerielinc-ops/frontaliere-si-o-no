@@ -6725,6 +6725,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-difesa-bilancio-iva.title': 'IVA al 0,2% e fondo difesa da 24 miliardi: il compromesso agli Stati',
     'blog.article.svizzera-difesa-bilancio-iva.excerpt': 'Con 25 voti contro 17, il Consiglio degli Stati approva +0,2 punti IVA per 18 anni, un fondo difesa fino a 24 miliardi e indebitamento fino a 12 miliardi. Riduzione F-35 a ~30 e credito aggiuntivo di 394 milioni.',
     'blog.article.svizzera-difesa-bilancio-iva.imageAlt': 'Vista aerea delle Alpi svizzere con sagoma di un caccia, simbolo del dibattito su difesa e finanze',
+    'blog.article.costi-sanita-incentivi.title': 'La sanità ticinese ha bisogno di nuovi incentivi',
+    'blog.article.costi-sanita-incentivi.excerpt': 'Il Covid ha lasciato costi straordinari e duraturi; le casse malati trattengono al massimo il 5% della spesa; fino a un quinto della spesa sanitaria è legato a prestazioni inutili.',
+    'blog.article.costi-sanita-incentivi.imageAlt': 'Lago Lugano con montagne, simbolo delle sfide dei costi sanitari in Ticino.',
 };
 
 export default blogMetaChIt;
