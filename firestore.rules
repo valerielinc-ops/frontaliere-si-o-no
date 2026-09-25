@@ -107,6 +107,7 @@ service cloud.firestore {
         'confirmation_sent_at', 'confirmationSentAt',
         'confirmation_first_sent_at', 'confirmationFirstSentAt',
         'confirmation_expired_at', 'confirmationExpiredAt',
+        'confirmation_job_context',
         'confirmed_via', 'confirmedVia',
         'resubscribe_pending',
         'bounce_severity', 'bounce_reason', 'complained_at', 'complaint_at',
@@ -114,6 +115,18 @@ service cloud.firestore {
         'drip_last_step', 'drip_last_sent_at', 'drip_completed',
         'welcome_sent_at', 'welcome_trigger', 'autologin_revoked_before',
       ]);
+    }
+
+    // The job-context snapshot of the current confirmation cycle
+    // (functions/src/lib/confirmationJobContext.js): the offer request #1
+    // named, which the reminders repeat verbatim. Only the two Admin-SDK
+    // senders write it. Listed above as state, AND refused on every browser
+    // create/update below: the pending-renewal and re-consent clauses
+    // legitimately rewrite state fields, and none of them has a reason to
+    // touch this one — a browser-written snapshot would be a job title of the
+    // writer's choosing printed in somebody else's consent request.
+    function confirmationJobSnapshotTouched(newData, oldData) {
+      return newData.diff(oldData).affectedKeys().hasAny(['confirmation_job_context']);
     }
 
     // Only the Admin-SDK DOI handler may deposit this provenance. It is kept
@@ -533,7 +546,8 @@ service cloud.firestore {
       // reads many subscribers — scripts/send-newsletter.mjs and its siblings, the
       // ESP webhook cores — is Admin SDK and never evaluates this file.
       allow list: if isSiteAdmin();
-      allow create: if isPendingNewsletterCreate()
+      allow create: if !request.resource.data.keys().hasAny(['confirmation_job_context'])
+        && (isPendingNewsletterCreate()
         || isTermsBasedConfirmedCreate(email)
         || isVerifiedConfirmedCreate(email)
         || (isVerifiedSubscriberOwner(email)
@@ -543,7 +557,7 @@ service cloud.firestore {
             'unsubscribed_at', 'unsubscribedAt',
             'resubscribed_at', 'resubscribedAt',
             'confirmed_via', 'confirmedVia',
-          ]));
+          ])));
 
       // Field guard (#6378, phase 4 of #5928): `write: if true` let anyone who
       // knew a subscriber's email forge or overwrite `consent_*` on an
@@ -555,7 +569,8 @@ service cloud.firestore {
       // check already used for job_alert_subscribers (line ~243) and the
       // alerts subcollection below — the subscriber's own signed-in session
       // is always allowed to touch their own consent record.
-      allow update: if (
+      allow update: if !confirmationJobSnapshotTouched(request.resource.data, resource.data)
+        && ((
           !newsletterStateFieldsTouched(request.resource.data, resource.data)
           && !consentFieldsTouched(request.resource.data, resource.data)
         )
@@ -569,7 +584,7 @@ service cloud.firestore {
         || isVerifiedConfirmedUpdate(email)
         || isVerifiedPriorProofResubscribe(email)
         || isTermsBasedExplicitReactivation(email)
-        || isVerifiedLegacyResubscribe(email);
+        || isVerifiedLegacyResubscribe(email));
 
       // Engagement events (subscribe, confirm, click, open) — append-only, and
       // never readable by a client.

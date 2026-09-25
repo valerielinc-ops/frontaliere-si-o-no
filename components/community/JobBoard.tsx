@@ -6403,7 +6403,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const emailDomain = String(userEmail || '').split('@')[1] || 'unknown';
  const jobContext = buildJobTrackingContext(unlockedJob);
 
- void autoNewsletterSubscribe(userEmail || undefined, `job_gate_google${sourceSuffix}`, 'authenticated').then((consented) => {
+ void autoNewsletterSubscribe(userEmail || undefined, `job_gate_google${sourceSuffix}`, 'authenticated', undefined, unlockedJob).then((consented) => {
   if (consented) Analytics.trackNewsletter('subscribe', emailDomain, {
    sourceChannel: 'job_gate',
    sourceCta: 'job_gate_google_unlock',
@@ -6621,7 +6621,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  clearJobAuthRedirectSlug();
  const userEmail = result.email || result.user?.email;
  const sourceSuffix = jobToTrack ? `:${jobToTrack.company}:${sanitizeJobTitle(jobToTrack.title).slice(0, 60)}` : '';
- const consented = await autoNewsletterSubscribe(userEmail, `job_gate_${provider}${sourceSuffix}`, 'authenticated');
+ const consented = await autoNewsletterSubscribe(userEmail, `job_gate_${provider}${sourceSuffix}`, 'authenticated', undefined, jobToTrack);
  setAuthNotice(null);
  const emailDomain = String(userEmail || '').split('@')[1] || 'unknown';
  Analytics.trackJobAuthGate('success', {
@@ -6683,7 +6683,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const jobContext = pendingJob ? buildJobTrackingContext(pendingJob) : { jobSlug: null };
  try {
  const sourceSuffix = pendingJob ? `:${pendingJob.company}:${sanitizeJobTitle(pendingJob.title).slice(0, 60)}` : '';
- const consented = await autoNewsletterSubscribe(email, `job_gate_email${sourceSuffix}`, 'email');
+ const consented = await autoNewsletterSubscribe(email, `job_gate_email${sourceSuffix}`, 'email', undefined, pendingJob);
  localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  setEmailAccessGranted(true);
  setAuthNotice({ kind: 'pending', email });
@@ -6748,7 +6748,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setAuthError(null);
  const jobContext = buildJobTrackingContext(job);
  try {
- const consented = await autoNewsletterSubscribe(email, `job_gate:${job.company}:${sanitizeJobTitle(job.title).slice(0, 60)}`, 'email', 'job_board_email_unlock');
+ const consented = await autoNewsletterSubscribe(email, `job_gate:${job.company}:${sanitizeJobTitle(job.title).slice(0, 60)}`, 'email', 'job_board_email_unlock', job);
  localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  setEmailAccessGranted(true);
  setAuthNotice({ kind: 'pending', email });
@@ -6823,12 +6823,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
  };
 
  const autoNewsletterSubscribe = async (
- email?: string,
- source?: string,
- registrationMethod: 'email' | 'authenticated' = 'email',
+ email: string | undefined,
+ source: string,
+ registrationMethod: 'email' | 'authenticated',
  // Explicit CTA id; the fallback reads the registration method, never the
  // source name (`job_gate:<company>:<title>` holds no "email").
- sourceCta?: 'job_board_email_unlock' | 'job_board_social_unlock',
+ sourceCta: 'job_board_email_unlock' | 'job_board_social_unlock' | undefined,
+ // The offer whose company and title `source` carries. The job fields of the
+ // document (`job_company`, `job_location`, `job_slug`) must describe the SAME
+ // offer: the confirmation email prints the title from `source` next to the
+ // company from `job_company`. They used to come from `selectedJob ||
+ // sortedJobs[0]` while the list modal stamps `pendingJob` into `source`, so
+ // one signup could carry two offers: 5 single-signup documents of March–April
+ // 2026 hold the clicked offer's title and another offer's slug (measured
+ // 2026-09-25). Every caller now passes the job it stamped.
+ job: JobListing | null,
  ): Promise<boolean> => {
  if (!email) return false;
  try {
@@ -6839,7 +6848,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const firestore = getFirestore(await getApp());
  if (!firestore) return false;
  const sourceChannel = 'job_gate' as const;
- const focusedJob = selectedJob || sortedJobs[0] || null;
+ const focusedJob = job;
  const jobContext = focusedJob
  ? {
  slug: focusedJob.slug || null,

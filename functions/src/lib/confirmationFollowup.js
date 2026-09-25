@@ -406,9 +406,12 @@ export function decideConfirmationFollowup(data, { now, epochMs }) {
  * @param {string|null} [args.messageId]
  * @param {string} args.locale
  * @param {unknown} args.stamp
+ * @param {Record<string, unknown>|null} [args.jobSnapshot] the job context this
+ *   request named (`snapshot` of confirmationJobContextForSend), `null` for the
+ *   generic email; omitted, the field is not written
  * @returns {Record<string, unknown>}
  */
-export function buildConfirmationSentFields({ attemptsBefore, isCycleSend, messageId, locale, stamp }) {
+export function buildConfirmationSentFields({ attemptsBefore, isCycleSend, messageId, locale, stamp, jobSnapshot }) {
   const fields = {
     confirmation_sent_at: stamp,
     confirmation_message_id: messageId ?? null,
@@ -421,6 +424,11 @@ export function buildConfirmationSentFields({ attemptsBefore, isCycleSend, messa
   if (isCycleSend) {
     fields.confirmation_attempts = attemptsBefore + 1;
     if (attemptsBefore === 0) fields.confirmation_first_sent_at = stamp;
+    // Which offer this request named, frozen in the SAME write as the counter
+    // (the #9716 review nit): the reminders repeat it instead of re-reading
+    // last-touch fields a later signup overwrites. See
+    // lib/confirmationJobContext.js → confirmationJobContextForSend.
+    if (jobSnapshot !== undefined) fields.confirmation_job_context = jobSnapshot;
   }
   return fields;
 }
