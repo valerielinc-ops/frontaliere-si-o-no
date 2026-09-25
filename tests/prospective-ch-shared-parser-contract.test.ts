@@ -177,6 +177,49 @@ describe('Prospective.ch shared parser contract', () => {
       expect(where(jobs).map(({ location, canton }) => `${location}/${canton}`)).toEqual(['Lausanne/VD']);
     });
 
+    const skippedLog = (log: ReturnType<typeof vi.spyOn>) => log.mock.calls
+      .map((call) => call.join(' '))
+      .filter((line) => line.includes('Filtered out'));
+
+    it('never classifies an address as foreign: the next source field decides', async () => {
+      const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+      feed([
+        { szas: { 'sza_location.city': 'Rue de France 12', 'sza_workplace.city': 'Lausanne' } },
+        { szas: { 'sza_location.city': 'Rue de France', 'sza_workplace.city': 'Lausanne' } },
+        { szas: { 'sza_location.city': 'Via Italia', 'sza_workplace.city': 'Lugano' } },
+        { szas: { 'sza_location.city': 'Frankreichstrasse 5', 'sza_workplace.city': 'Basel' } },
+        // Schulthess Klinik: street and city in the same field.
+        { szas: { 'sza_workplace.city': 'Lengghalde 2, Zürich' } },
+        // A BFS alias that contains a street word is a place, not an address.
+        { szas: { 'sza_location.city': 'Davos Platz' } },
+        // A foreign value does not decide while a later field proves a Swiss place.
+        { szas: { 'sza_location.city': 'Prague', 'sza_workplace.city': 'Zürich' } },
+      ]);
+      const jobs = await createProspectiveChParser(hq).fetchAllJobs();
+      const lines = skippedLog(log);
+      log.mockRestore();
+      expect(where(jobs).map(({ location, canton }) => `${location}/${canton}`)).toEqual([
+        'Lausanne/VD', 'Lausanne/VD', 'Lugano/TI', 'Basel/BS', 'Zürich/ZH', 'Davos Platz/GR', 'Zürich/ZH',
+      ]);
+      expect(lines).toEqual([]);
+    });
+
+    it('still drops a foreign place when no later source field proves a Swiss one', async () => {
+      const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+      feed([
+        { szas: { 'sza_location.city': 'Paris, France' } },
+        { szas: { 'sza_location.city': 'Prague', 'sza_workplace.city': 'Wuxi' } },
+        { szas: { 'sza_workplace.city': 'Rue de Rivoli 3, Paris' } },
+      ]);
+      const jobs = await createProspectiveChParser({
+        ...hq, defaultCanton: 'BS', defaultCity: 'Basel', singleLocality: true,
+      }).fetchAllJobs();
+      const lines = skippedLog(log);
+      log.mockRestore();
+      expect(jobs).toEqual([]);
+      expect(lines).toEqual([expect.stringContaining('Filtered out 3 listings')]);
+    });
+
     it('allSitesInDefaultCanton only disambiguates a BFS municipality of that canton', async () => {
       const listings = [
         { szas: { 'sza_location.city': 'Oberwil', 'sza_location.zip': '4104' } },

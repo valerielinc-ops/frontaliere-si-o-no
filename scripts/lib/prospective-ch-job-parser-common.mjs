@@ -26,7 +26,11 @@ import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-com
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
-import { inferSwissTargetCanton, isKnownSwissMunicipalityInCanton } from './target-swiss-locations.mjs';
+import {
+  inferSwissTargetCanton,
+  isKnownSwissMunicipality,
+  isKnownSwissMunicipalityInCanton,
+} from './target-swiss-locations.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
@@ -82,10 +86,37 @@ async function fetchPage(apiUrl) {
 }
 
 const SWISS_COUNTRY_LABEL_RE = /^(?:ch|che|schweiz|suisse|svizzera|svizra|switzerland)$/i;
-// Some Prospective tenants put a street address in `sza_location.city`.
-// Treat it as an unresolved candidate before foreign-country heuristics run:
-// "Rue de France 12" contains a country name but is not a French location.
-const STREET_ADDRESS_LOCATION_RE = /^\s*(?:ch[-\s]?\d{4}\s+)?[^,;]+\s+\d+[a-z]?\s*$/iu;
+// Some Prospective tenants put a street address in `sza_location.city`
+// (UZH: "Kurvenstrasse 31"). An address is not a place: it is skipped before
+// the foreign-country heuristics run, because a Swiss street can carry a
+// country name ("Rue de France 12", "Via Italia", "Frankreichstrasse 5").
+// Shape = a word followed by a house number, or a street word/suffix. A BFS
+// municipality or alias is never an address ("Davos Platz", "Weggis").
+const HOUSE_NUMBER_RE = /\p{L}[\p{L}.'’-]*\s+\d{1,4}[a-z]?(?:[/-]\d+[a-z]?)?(?=$|[\s,])/iu;
+const STREET_WORD_RE = new RegExp(
+  '(?:^|[\\s,])(?:rue|route|chemin|avenue|boulevard|place|quai|via|viale|piazza|strada|corso|'
+  + 'strasse|straße|gasse|weg|platz|allee)(?=$|[\\s,.])'
+  + '|\\p{L}(?:strasse|straße|str\\.|gasse|weg|platz|allee)(?=$|[\\s,.\\d])',
+  'iu',
+);
+
+function isAddressShaped(candidate = '') {
+  if (isKnownSwissMunicipality(candidate)) return false;
+  return HOUSE_NUMBER_RE.test(candidate) || STREET_WORD_RE.test(candidate);
+}
+
+// An address candidate may still name its place in another comma segment
+// ("Lengghalde 2, Zürich", Schulthess Klinik): keep those segments, drop the
+// street ones and bare country/canton labels.
+function placeSegments(candidate = '') {
+  if (!isAddressShaped(candidate)) return [candidate];
+  return candidate.split(',').map((part) => normalizeSpace(part)).filter((part) => (
+    part
+    && !SWISS_COUNTRY_LABEL_RE.test(part)
+    && !ALL_CANTON_CODES.includes(part)
+    && !isAddressShaped(part)
+  ));
+}
 
 /**
  * Source-backed location candidates, in the historical priority order. There
@@ -384,16 +415,22 @@ export function createProspectiveChParser(config) {
   }
 
   // Default branch (no `locationResolver`): the first source candidate that
-  // decides wins. An explicitly foreign candidate drops the listing; a
-  // candidate that resolves to a Swiss canton keeps it. When no candidate
-  // decides — absent location, or a place no rule can prove Swiss — the
-  // listing is dropped: unknown geography stays fail-closed and never
-  // inherits the HQ canton (owner rule, issue 9844). The only exception is a
-  // tenant that declares `singleLocality`.
+  // resolves to a Swiss canton wins. Address-shaped candidates are never
+  // classified; only their non-street comma segments are tried. An explicitly
+  // foreign candidate does not decide on its
+  // own: it drops the listing only when no later candidate proves a Swiss
+  // place. When nothing resolves — absent location, or a place no rule can
+  // prove Swiss — the listing is dropped: unknown geography stays fail-closed
+  // and never inherits the HQ canton (owner rule, issue 9844). The only
+  // exception is a tenant that declares `singleLocality`, and never for a
+  // listing that named a foreign place.
   function resolveSourceLocation(listing) {
-    for (const candidate of pickLocationCandidates(listing)) {
-      if (STREET_ADDRESS_LOCATION_RE.test(candidate)) continue;
-      if (isLocationExplicitlyForeign(candidate)) return null;
+    let foreignSeen = false;
+    for (const candidate of pickLocationCandidates(listing).flatMap(placeSegments)) {
+      if (isLocationExplicitlyForeign(candidate)) {
+        foreignSeen = true;
+        continue;
+      }
       const canton = siteCantonByKey.get(normalizeSiteKey(candidate))
         || inferSwissTargetCanton(candidate)
         || (allSitesInDefaultCanton && isKnownSwissMunicipalityInCanton(candidate, defaultCanton)
@@ -401,6 +438,7 @@ export function createProspectiveChParser(config) {
           : '');
       if (canton) return { location: candidate, canton };
     }
+    if (foreignSeen) return null;
     if (singleLocality) {
       return { location: normalizeSpace(defaultCity), canton: String(defaultCanton).toUpperCase() };
     }
