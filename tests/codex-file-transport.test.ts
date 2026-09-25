@@ -221,4 +221,48 @@ esac
       await new Promise(resolve => server.once('exit', resolve));
     }
   });
+  it('confirms a posted review and never posts the same body twice on one HEAD (#9705)', async () => {
+    const root = mkdtempSync(join(tmpdir(), 'codex-gh-review-once-'));
+    roots.push(root);
+    const endpoint = join(root, 'mailbox');
+    const state = join(root, 'review-attempts');
+    writeFileSync(state, '0');
+    const fakeGh = join(root, 'gh');
+    // `gh pr review` riuscito senza TTY non stampa nulla: è il silenzio che
+    // sulla #9705 ha fatto ripubblicare la stessa review.
+    writeFileSync(fakeGh, `#!/bin/sh
+set -eu
+state='${state}'
+[ "\${1:-}" = pr ] && [ "\${2:-}" = review ] || exit 2
+count=$(cat "$state")
+printf '%s' "$((count + 1))" > "$state"
+`, { mode: 0o755 });
+    const action = resolve('.github/actions/claude-codex-fallback');
+    const server = spawn(process.execPath, [join(action, 'gh-bridge-server.mjs')], {
+      env: { PATH: '/usr/bin:/bin', HEAD_SHA: 'd'.repeat(40), CODEX_BRIDGE_TRANSPORT: 'files', CODEX_GH_SOCKET: endpoint,
+        CODEX_GH_AUTH: 'fixture-token', CODEX_REAL_GH: fakeGh, CODEX_GH_CWD: root,
+        CODEX_GH_WORKSPACE: root, CODEX_GH_SCRATCH: root, CODEX_GH_REPOSITORY: 'owner/repo', CODEX_GH_HOST: 'github.com' },
+      stdio: 'ignore',
+    });
+    const post = (body: string) => run(process.execPath, [join(action, 'gh-bridge-client.mjs'),
+      'pr', 'review', '9705', '--comment', '--body', body], {
+      env: { CODEX_BRIDGE_TRANSPORT: 'files', CODEX_GH_SOCKET: endpoint }, timeout: 10_000,
+    });
+    try {
+      await vi.waitFor(() => expect(existsSync(endpoint)).toBe(true));
+      const first = await post('## Findings (Important: 0, Nit: 0)\n\n## LGTM\n');
+      expect(first.stderr).toContain('review posted on PR #9705');
+      expect(readFileSync(state, 'utf8')).toBe('1');
+
+      const repeat = await post('## Findings (Important: 0, Nit: 0)\n\n## LGTM');
+      expect(repeat.stderr).toContain('already posted on PR #9705');
+      expect(readFileSync(state, 'utf8')).toBe('1');
+
+      await post('## Findings (Important: 1, Nit: 0)\n\n🔴 Important: altro verdetto');
+      expect(readFileSync(state, 'utf8')).toBe('2');
+    } finally {
+      server.kill('SIGTERM');
+      await new Promise(resolve => server.once('exit', resolve));
+    }
+  });
 });
