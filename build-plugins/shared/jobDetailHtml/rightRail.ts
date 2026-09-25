@@ -14,6 +14,7 @@
  *   tests/seo/static-job-page-spa-alignment.test.ts
  *   ("desktop right rail sidebar")
  */
+import { postalCodeBelongsToLocality } from '../postalCodes';
 import type { JobDetailLocale, JobDetailRenderContext } from './context';
 
 interface RailLabels {
@@ -163,7 +164,9 @@ export function renderRightRail(ctx: RightRailContext): string {
     locationRows.push(`<dt>${esc(L.city)}</dt><dd>${esc(addressLocality)}</dd>`);
   if (addressRegion)
     locationRows.push(`<dt>${esc(L.canton)}</dt><dd>${esc(addressRegion)}</dd>`);
-  if (postalCode)
+  // The CAP sits next to the printed city: print it only when it belongs to
+  // that city, never a company-HQ CAP stamped on another locality (#9841).
+  if (postalCode && postalCodeBelongsToLocality(addressLocality, postalCode))
     locationRows.push(`<dt>${esc(L.postal)}</dt><dd>${esc(postalCode)}</dd>`);
   const locationCard = locationRows.length > 0
     ? `<div class="rail-card"><h3>${esc(L.location)}</h3><dl class="rail-dl">${locationRows.join('')}</dl></div>`

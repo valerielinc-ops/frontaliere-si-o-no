@@ -308,6 +308,31 @@ describe('jobDetailHtml emitters — output regression', () => {
       expect(typeof renderRightRail(minimal)).toBe('string');
     });
 
+    // #9841: Helsana stamps its HQ CAP (8600 Dübendorf) on every vacancy.
+    // The rail pairs the CAP with the city it prints, so a CAP that the
+    // postal snapshot binds to another locality must be omitted, not shown
+    // next to Chur or Lausanne. A CAP of the printed city, or one the
+    // snapshot does not know, stays.
+    it('right rail shows the CAP only when it belongs to the printed locality', () => {
+      const railFor = (addressLocality: string, postalCode: string) => renderRightRail(buildCtx({
+        job: { category: '' },
+        locale: 'it',
+        addressLocality,
+        addressRegion: 'ZH',
+        postalCode,
+      }));
+      for (const [city, cap] of [['Chur', '8600'], ['Lausanne', '8600'], ['Biel', '8600'], ['Zürich', '8600'], ['Bern', '6900'], ['Muri bei Bern', '3001']]) {
+        const html = railFor(city, cap);
+        expect(html, `${city} + ${cap}`).toContain(city);
+        expect(html, `${city} + ${cap}`).not.toContain('<dt>CAP</dt>');
+        expect(html, `${city} + ${cap}`).not.toContain(cap);
+      }
+      expect(railFor('Dübendorf', '8600')).toContain('<dt>CAP</dt><dd>8600</dd>');
+      expect(railFor('Dübendorf-Stettbach', '8600')).toContain('<dt>CAP</dt><dd>8600</dd>');
+      expect(railFor('Gossau SG', '9200')).toContain('<dt>CAP</dt><dd>9200</dd>');
+      expect(railFor('Zürich', '8005')).toContain('<dt>CAP</dt><dd>8005</dd>');
+    });
+
     it('right rail returns "" when every card would be empty', () => {
       const empty = buildCtx({
         job: { category: '' },
