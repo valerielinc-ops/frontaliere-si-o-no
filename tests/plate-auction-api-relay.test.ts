@@ -3,6 +3,7 @@ import { isExplicitlyEmptyCatalogue } from '../functions/src/plateAuctionsCore.j
 import {
   fetchWithPublicApiRelay,
   PLATE_AUCTION_API_RELAY_MAX_AGE_MS,
+  PLATE_AUCTION_API_RELAY_READ_ATTEMPTS,
   PLATE_AUCTION_PUBLIC_API_RELAY_URL,
   rowsFromPublicApiRelay,
 } from '../scripts/plate-auctions/connectors/api-relay.mjs';
@@ -43,6 +44,14 @@ function serveRelay(body: unknown, status = 200) {
     relayCalls.push(String(url));
     if (/ricardo\.ch|ocn\.ch|carieauktion/.test(String(url))) throw new Error(`unexpected direct fetch ${String(url)}`);
     return new Response(typeof body === 'string' ? body : JSON.stringify(body), { status });
+  }));
+}
+// Un corpo 200 diverso per ogni lettura del relay, l'ultimo ripetuto.
+function serveRelayBodies(bodies: string[]) {
+  relayCalls = [];
+  vi.stubGlobal('fetch', vi.fn(async (url: string | URL) => {
+    relayCalls.push(String(url));
+    return new Response(bodies[Math.min(relayCalls.length, bodies.length) - 1], { status: 200 });
   }));
 }
 
@@ -166,6 +175,32 @@ describe('fetchWithPublicApiRelay', () => {
     serveRelay('not found', 404);
     await expect(fetchWithPublicApiRelay({ ...base, direct: async () => { throw new Error('geo-blocked'); } }))
       .rejects.toThrow(/TI official endpoint failed \(geo-blocked\); API relay failed \(HTTP 404/);
+    // Un errore HTTP non è un corpo incompleto: una sola lettura.
+    expect(relayCalls).toHaveLength(1);
+  });
+
+  it('rereads a 200 relay body that is empty or truncated (run 36165624557)', async () => {
+    const complete = JSON.stringify(healthy);
+    serveRelayBodies(['', complete.slice(0, Math.floor(complete.length / 2)), complete]);
+    const rows = await fetchWithPublicApiRelay({
+      ...base,
+      relayRetryDelayMs: 0,
+      direct: async () => { throw new TypeError('fetch failed'); },
+    });
+    expect(rows).toEqual([expect.objectContaining({ id: 'ti-1532', officialAuctionUrl: TI_AUCTION_URL })]);
+    expect(relayCalls).toEqual(Array(3).fill(PLATE_AUCTION_PUBLIC_API_RELAY_URL));
+  });
+
+  it('names the reads and the body length when the relay body never parses', async () => {
+    serveRelayBodies(['', '{"schema":1,"sources":{']);
+    await expect(fetchWithPublicApiRelay({
+      ...base,
+      relayRetryDelayMs: 0,
+      direct: async () => { throw new TypeError('fetch failed'); },
+    })).rejects.toThrow(
+      /^TI official endpoint failed \(fetch failed\); API relay failed \(relay body is not complete JSON after 3\/3 reads \(23 chars: /,
+    );
+    expect(relayCalls).toHaveLength(PLATE_AUCTION_API_RELAY_READ_ATTEMPTS);
   });
 });
 
