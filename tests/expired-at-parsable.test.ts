@@ -178,7 +178,12 @@ describe('assemble ingress repair — persists the repaired source slice', () =>
   it('writes the normalized value back before the aggregate cap can cut it', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'assemble-expired-repair-'));
     const slicePath = path.join(dir, 'acme.json');
-    const entries = [{ slug: 'legacy', expiredAt: 'not-a-date' }];
+    const entries = [{
+      slug: 'legacy',
+      expiredAt: 'not-a-date',
+      title: String.raw`Interpr\u00e8te communautaire`,
+      titleByLocale: { de: String.raw`Praktikum f\u00fcr 6 Monate` },
+    }];
     try {
       expect(normalizeAndPersistExpiredSlice(slicePath, entries, {
         now: '2026-09-06T12:00:00.000Z',
@@ -186,6 +191,8 @@ describe('assemble ingress repair — persists the repaired source slice', () =>
       })).toBe(1);
       const persisted = JSON.parse(fs.readFileSync(slicePath, 'utf8'));
       expect(persisted[0].expiredAt).toBe('2026-09-06T12:00:00.000Z');
+      expect(persisted[0].title).toBe('Interprète communautaire');
+      expect(persisted[0].titleByLocale.de).toBe('Praktikum für 6 Monate');
     } finally {
       fs.rmSync(dir, { recursive: true, force: true });
     }
