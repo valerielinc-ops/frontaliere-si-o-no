@@ -11984,6 +11984,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.gehri-finanze-preventivo-27.title': 'Gehri tire la sonnette d\'alarme sur le déficit du Tessin',
     'blog.article.gehri-finanze-preventivo-27.excerpt': 'Avant le budget \'27, le président de la Chambre de commerce Gehri qualifie le déficit cantonal d’insoutenable et critique l’inaction politique.',
     'blog.article.gehri-finanze-preventivo-27.imageAlt': 'Bellinzone et Castelgrande par une journée lumineuse',
+    'blog.article.chiusura-gazzada-varese-ss707.title': 'Voie rapide Gazzada-Varese fermée le 24 septembre',
+    'blog.article.chiusura-gazzada-varese-ss707.excerpt': 'Le SS 707 Raccord Gazzada-Varese sera fermé vers Varese de 9h à 17h entre le km 3+100 et le km 4+500 pour travaux Anas.',
+    'blog.article.chiusura-gazzada-varese-ss707.imageAlt': 'Fermeture de la SS 707 Gazzada-Varese en direction de Varese',
 };
 
 export default blogMetaFr;

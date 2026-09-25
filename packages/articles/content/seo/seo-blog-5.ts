@@ -93322,6 +93322,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiusura-gazzada-varese-ss707': {
+    title: 'Superstrada Gazzada-Varese chiusa il 24 settembre',
+    description: 'La SS 707 Raccordo Gazzada-Varese sarà chiusa verso Varese il 24 settembre, dalle 9 alle 17: lavori Anas tra km 3+100 e km 4+500, limite a 50 km/h nell\'area.',
+    keywords: 'frontalieri, ticino, svizzera, italia, superstrada, gazzada-varese, chiusa, settembre',
+    ogTitle: 'SS 707 Gazzada-Varese: chiusura verso Varese',
+    ogDescription: 'L\'ordinanza Anas prevede lo stop alla circolazione sulla SS 707 Raccordo Gazzada-Varese, in direzione Varese, dalle 9 alle 17 di giovedì 24 settembre. Coinvolti i chilometri dal 3+100 al 4+500 e limite di 50 km/h nell\'area dei lavori.',
+    canonicalPath: '/articoli-frontaliere/chiusura-gazzada-varese-ss707',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Superstrada Gazzada-Varese chiusa il 24 settembre",
+      "description": "La SS 707 Raccordo Gazzada-Varese sarà chiusa verso Varese il 24 settembre, dalle 9 alle 17: lavori Anas tra km 3+100 e km 4+500, limite a 50 km/h nell'area.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/chiusura-gazzada-varese-ss707.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Chiusura della SS 707 Gazzada-Varese in direzione del capoluogo"
+      },
+      "datePublished": "2026-09-25T14:53:02+00:00",
+      "dateModified": "2026-09-25T14:53:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusura-gazzada-varese-ss707/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
