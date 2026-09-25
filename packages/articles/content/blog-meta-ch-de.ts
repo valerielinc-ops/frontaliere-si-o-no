@@ -6680,6 +6680,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.turismo-agosto-ospiti-estero.title': 'Spätsommer mit weniger ausländischen Touristen in der Schweiz',
     'blog.article.turismo-agosto-ospiti-estero.excerpt': 'Im August gingen die Logiernächte in der Schweiz im Jahresvergleich um 1,9% zurück: Ausländische Gäste belasten, aber auch die Inlandsnachfrage geht zurück.',
     'blog.article.turismo-agosto-ospiti-estero.imageAlt': 'Touristen an einer Schweizer Seepromenade in einer Spätsommerszene.',
+    'blog.article.salasso-alla-pompa-benzina.title': 'Aderlass an der Pumpe: teurer Diesel, Benzin steigt',
+    'blog.article.salasso-alla-pompa-benzina.excerpt': 'Am 24. September 2026 kostet Diesel in Zürich durchschnittlich 2,46 CHF/l (Spitzenwerte >2,50), Benzin 95 2,14 CHF/l, während Öl über 100 USD/Barrel kostet.',
+    'blog.article.salasso-alla-pompa-benzina.imageAlt': 'Tankstelle in Zürich mit Anzeige für Diesel- und Benzinpreise',
 };
 
 export default blogMetaChDe;

@@ -6680,6 +6680,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.turismo-agosto-ospiti-estero.title': 'End of summer with fewer foreign tourists in Switzerland',
     'blog.article.turismo-agosto-ospiti-estero.excerpt': 'In August, overnight stays in Switzerland fell by 1.9% on an annual basis: foreign guests weigh on them, but domestic demand also lags behind.',
     'blog.article.turismo-agosto-ospiti-estero.imageAlt': 'Tourists on a Swiss lakeside promenade in a late-summer scene.',
+    'blog.article.salasso-alla-pompa-benzina.title': 'Salasso at the pump: expensive diesel, gasoline on the rise',
+    'blog.article.salasso-alla-pompa-benzina.excerpt': 'On 24 September 2026 in Zurich diesel costs on average 2.46 CHF/l (peaks >2.50), petrol 95 2.14 CHF/l, while oil exceeds 100 USD/barrel.',
+    'blog.article.salasso-alla-pompa-benzina.imageAlt': 'Fuel station in Zurich showing diesel and gasoline price signs',
 };
 
 export default blogMetaChEn;
