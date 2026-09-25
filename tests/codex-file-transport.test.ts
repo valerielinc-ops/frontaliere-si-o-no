@@ -221,6 +221,19 @@ esac
       await new Promise(resolve => server.once('exit', resolve));
     }
   });
+  it('starts the real gh bridge with HEAD_SHA, the last piece of the review idempotency key (#9778)', () => {
+    // I test end-to-end qui sopra passano HEAD_SHA al server da soli: senza
+    // questa riga nell'`env -i` della action, in produzione la chiave era
+    // sempre null e né il retry transitorio né l'anti-duplicato scattavano.
+    const action = readFileSync(resolve('.github/actions/claude-codex-fallback/action.yml'), 'utf8');
+    const launch = action.split('\n');
+    const serverLine = launch.findIndex((line) => line.includes('"$bridge_dir/gh-server.mjs"'));
+    expect(serverLine).toBeGreaterThan(0);
+    let start = serverLine;
+    while (start > 0 && !/^\s*env -i \\$/.test(launch[start])) start -= 1;
+    expect(launch[start]).toMatch(/^\s*env -i \\$/);
+    expect(launch.slice(start, serverLine + 1).join('\n')).toMatch(/^\s*HEAD_SHA="\$\{HEAD_SHA:-\}" \\$/m);
+  });
   it('confirms a posted review and never posts the same body twice on one HEAD (#9705)', async () => {
     const root = mkdtempSync(join(tmpdir(), 'codex-gh-review-once-'));
     roots.push(root);

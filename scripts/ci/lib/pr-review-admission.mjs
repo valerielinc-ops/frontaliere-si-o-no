@@ -45,6 +45,16 @@ export function isKnownReviewState(value) {
   return typeof value === 'string' && KNOWN_REVIEW_STATES.has(value.trim().toUpperCase());
 }
 
+/**
+ * Verdetto inviato e non ritirato: allowlist fail-closed (#9791). `PENDING`,
+ * `DISMISSED`, uno stato vuoto, non stringa o sconosciuto non sono mai
+ * terminali: un valore nuovo dell'API non vale come review solo perché
+ * nessuno lo ha escluso.
+ */
+export function isTerminalReviewState(value) {
+  return typeof value === 'string' && TERMINAL_STATES.has(value.trim().toUpperCase());
+}
+
 export function flattenReviewPages(value) {
   if (!Array.isArray(value)) return [];
   return value.flatMap((page) => (Array.isArray(page) ? page : [page]));
@@ -124,10 +134,7 @@ export function isManagedReviewer(review) {
 
 export function isTerminalManagedReview(review) {
   if (!isManagedReviewer(review)) return false;
-  if (typeof review?.state !== 'string' || !review.state.trim()) return false;
-  const state = review.state.trim().toUpperCase();
-  if (NON_TERMINAL_STATES.has(state)) return false;
-  return TERMINAL_STATES.has(state);
+  return isTerminalReviewState(review?.state);
 }
 
 function reviewSubmittedAt(review) {

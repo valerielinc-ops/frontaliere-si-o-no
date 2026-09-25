@@ -254,7 +254,7 @@ const blogMetaDe: Record<string, string> = {
  'blog.article.congedo-genitori-frontaliere-ticino.excerpt': 'Als Grenzgänger Eltern werden: Wie funktionieren Mutterschaft und Vaterschaft zwischen der Schweiz und Italien? Hier sind die Zahlen, Anforderungen und Verfahren für 2026.',
  'blog.article.congedo-genitori-frontaliere-ticino.imageAlt': 'Junge Grenzgänger-Eltern planen ihre Elternzeit auf einem Tablet, mit Blick auf den Luganersee im Tessin.',
  'blog.article.costo-pendolare-auto-ticino-2026.title': 'Autokosten für Grenzgänger: Wie sehr belastet es Ihr Gehalt?',
- 'blog.article.costo-pendolare-auto-ticino-2026.excerpt': 'Benzin, Verschleiss, Parken und Vignette: die komplette Kostenanalyse 2026. Ein Pendler gibt bis zu 7.500 CHF pro Jahr aus. Vergleich mit Zug und Bus.',
+ 'blog.article.costo-pendolare-auto-ticino-2026.excerpt': 'Benzin, Verschleiss, Parken und Vignette: die komplette Kostenanalyse 2026. Ein Pendler gibt rund 8.670 CHF pro Jahr aus. Vergleich mit Zug und Bus.',
  'blog.article.costo-pendolare-auto-ticino-2026.imageAlt': 'Autoschlange von Grenzgängern am Grenzübergang Chiasso-Brogeda im Tessin am frühen Morgen.',
  'blog.article.guida-dichiarazione-redditi-frontalieri.title': 'Steuererklärung für Grenzgänger: Leitfaden zum 730 für Tessin',
  'blog.article.guida-dichiarazione-redditi-frontalieri.excerpt': 'Formular 730/2026 und Redditi PF: Wo der Schweizer Lohn eingetragen wird, wie man die Steuergutschrift berechnet und welche Dokumente benötigt werden. Der komplette Leitfaden für Grenzgänger im Tessin.',
