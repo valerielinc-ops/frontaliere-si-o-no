@@ -11980,6 +11980,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiusura-cantonale-neggia-fosano.title': 'Cantonale chiusa tra Neggia e Fosano il 28 settembre',
     'blog.article.chiusura-cantonale-neggia-fosano.excerpt': 'La Cantonale tra Neggia e Fosano sarà totalmente sbarrata lunedì 28 settembre, dalle 8 alle 16.30, per lavori di pavimentazione nel comune di Gambarogno.',
     'blog.article.chiusura-cantonale-neggia-fosano.imageAlt': 'Strada Cantonale tra Neggia e Fosano chiusa per lavori di pavimentazione',
+    'blog.article.gehri-finanze-preventivo-27.title': 'Gehri lancia l\'allarme sul deficit del Ticino',
+    'blog.article.gehri-finanze-preventivo-27.excerpt': 'Prima del Preventivo \'27, il presidente della Camera di commercio Gehri definisce insostenibile il deficit cantonale e critica l\'inerzia politica.',
+    'blog.article.gehri-finanze-preventivo-27.imageAlt': 'Bellinzona e il Castelgrande in una giornata luminosa',
 };
 
 export default blogMetaIt;

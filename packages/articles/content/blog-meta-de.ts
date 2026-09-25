@@ -11978,6 +11978,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chiusura-cantonale-neggia-fosano.title': 'Kanton geschlossen zwischen Neggia und Fosano am 28. September',
     'blog.article.chiusura-cantonale-neggia-fosano.excerpt': 'Die Kantonsstraße zwischen Neggia und Fosano wird am Montag, dem 28. September, von 8 bis 16.30 Uhr wegen Belagsarbeiten in der Gemeinde Gambarogno vollständig gesperrt sein.',
     'blog.article.chiusura-cantonale-neggia-fosano.imageAlt': 'Kantonsstrasse zwischen Neggia und Fosano wegen Belagsarbeiten gesperrt',
+    'blog.article.gehri-finanze-preventivo-27.title': 'Gehri schlägt wegen des Defizits des Tessins Alarm',
+    'blog.article.gehri-finanze-preventivo-27.excerpt': 'Vor dem Voranschlag \'27 bezeichnet Handelskammerpräsident Gehri das kantonale Defizit als untragbar und kritisiert die politische Untätigkeit.',
+    'blog.article.gehri-finanze-preventivo-27.imageAlt': 'Bellinzona und Castelgrande an einem hellen Tag',
 };
 
 export default blogMetaDe;
