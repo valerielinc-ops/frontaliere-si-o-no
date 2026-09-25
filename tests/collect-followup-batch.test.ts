@@ -338,15 +338,22 @@ describe('marker idempotency requires durable bucket/item evidence', () => {
 });
 
 describe('maxTurnsFor', () => {
-  it('never drops below the original floor of 20 (AGENTS.md: mai abbassare)', () => {
-    expect(maxTurnsFor(0)).toBeGreaterThanOrEqual(20);
+  it('keeps the floor at 26 (AGENTS.md: mai abbassare)', () => {
+    expect(maxTurnsFor(-1)).toBe(26);
+    expect(maxTurnsFor(0)).toBe(26);
     expect(maxTurnsFor(1)).toBe(34);
   });
   it('scales with batch size', () => {
     expect(maxTurnsFor(5)).toBe(66);
   });
-  it('caps at 80', () => {
-    expect(maxTurnsFor(20)).toBe(80);
+  it('keeps scaling beyond the former 80-turn ceiling', () => {
+    expect(maxTurnsFor(7)).toBe(82);
+    expect(maxTurnsFor(11)).toBe(114);
+  });
+  it('caps at 240 only after the linear range', () => {
+    expect(maxTurnsFor(26)).toBe(234);
+    expect(maxTurnsFor(27)).toBe(240);
+    expect(maxTurnsFor(30)).toBe(240);
   });
 });
 
