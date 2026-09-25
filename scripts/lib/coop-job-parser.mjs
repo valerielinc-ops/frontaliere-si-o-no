@@ -10,6 +10,7 @@ import { JSDOM } from 'jsdom';
 import { fetch as undiciFetch } from 'undici';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { inferAnyCanton, normalizeSwissTargetLocationText } from './target-swiss-locations.mjs';
+import { preferLocationEncodedCanton } from './job-location-display.mjs';
 import {
   createSpecUrlPolicy,
   fetchFollowingValidatedRedirects,
@@ -218,16 +219,29 @@ function adapterSeedAddressEvidence(job) {
   const location = normalizeSpace(scope?.location || '');
   const canton = normalizeSpace(scope?.canton || '');
   if (!location || !canton) return null;
+  const sourceCanton = preferLocationEncodedCanton(location, canton);
+  if (!sourceCanton) return null;
   const candidate = {
     location,
     addressLocality: '',
-    addressRegion: canton,
+    addressRegion: sourceCanton,
     addressCountry: 'CH',
     postalCode: '',
     streetAddress: '',
   };
   const geography = resolveCoopJsonLdGeography(candidate);
-  return geography ? { candidate, geography } : null;
+  // The source adapter can intentionally publish a regional wrapper that the
+  // municipality resolver cannot reduce to one city (for example
+  // "Region Muri AG"). Keep that source-backed label and its explicit canton
+  // rather than replacing it with the detail page's employer address.
+  return {
+    candidate,
+    geography: geography || {
+      location,
+      canton: sourceCanton,
+      addressCountry: 'CH',
+    },
+  };
 }
 
 // ─────────────────────────────────────────────────────────────
