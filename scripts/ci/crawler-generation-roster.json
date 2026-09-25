@@ -60,8 +60,7 @@
       "spitex-ch",
       "stellenpartner",
       "swiss-re",
-      "tecan",
-      "tpl-lugano"
+      "tecan"
     ],
     "12": [
       "agie-charmilles",
@@ -401,8 +400,6 @@
       "albergo-gardenia",
       "artificialy",
       "brefispersonal",
-      "capri-holdings",
-      "confederazione-ticino",
       "csd-engineers",
       "ecam",
       "fust",
@@ -414,12 +411,15 @@
       "postauto"
     ],
     "24": [
+      "capri-holdings",
       "cnp",
+      "confederazione-ticino",
       "fachkraft",
       "fondation-domus",
       "mcdonald-s-switzerland",
       "pole-sante-pays-enhaut",
       "postfinance",
+      "tpl-lugano",
       "tsmg"
     ],
     "01": [
@@ -1296,5 +1296,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:6e4506a55989a1ebf277b2ddb528dcd4a963102a265b99b64422305eae23d2b2"
+  "digest": "sha256:d2798cb270d0010b5f7dd0a4bbd78d0026a68f1145c57b61e41d157f8e9ca8dc"
 }
