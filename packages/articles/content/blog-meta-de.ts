@@ -11972,6 +11972,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pasture-cambio-operatore.title': 'Bei Pasture wechselt der Betreiber: Arbeitsplätze in Gefahr',
     'blog.article.pasture-cambio-operatore.excerpt': 'Ab Januar wechselt das Bundesmandat des Asylzentrums von AOZ zu ORS: Im Tessin sind heute 120 Mitarbeitende im Einsatz, aber nicht alle werden wieder eingestellt.',
     'blog.article.pasture-cambio-operatore.imageAlt': 'Pasture: Betreiberwechsel bei der Betreuung im Tessin',
+    'blog.article.eta-pensione-2030-ragioneria.title': 'Rentenalter: 67 Jahre und 6 Monate im Jahr 2030',
+    'blog.article.eta-pensione-2030-ragioneria.excerpt': 'Die Staatliche Generalbuchhaltung sieht 2030 67 Jahre und 6 Monate sowie 2041 Rentenausgaben in Höhe von 17,1% des BIP vor.',
+    'blog.article.eta-pensione-2030-ragioneria.imageAlt': 'Älterer Arbeitnehmer prüft Rentenunterlagen vor der Landschaft des Tessins',
 };
 
 export default blogMetaDe;

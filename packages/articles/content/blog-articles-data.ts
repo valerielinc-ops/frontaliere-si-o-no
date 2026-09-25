@@ -35928,6 +35928,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'eta-pensione-2030-ragioneria',
+ category: 'pensione',
+ date: '2026-09-25T12:01:41.050Z',
+ image: '/images/blog/eta-pensione-2030-ragioneria.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
