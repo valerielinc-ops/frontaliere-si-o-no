@@ -24,6 +24,7 @@
  * promozione. FORCE già impostato o kill switch spento: nessuna azione.
  */
 
+import { countInclusiveUtcDays, fmtUtcDate } from './analytics-settled-window.mjs';
 import { achievedPower, fmtCi, fmtInt, fmtP, fmtPct, sampleSizePerArm } from './experiment-stats.mjs';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -42,13 +43,12 @@ const DAY_MS = 24 * 60 * 60 * 1000;
 
 /** `YYYY-MM-DD` + n giorni (calendario, UTC). */
 export function addDaysIso(date, n) {
-  return new Date(Date.parse(`${date}T00:00:00Z`) + n * DAY_MS).toISOString().slice(0, 10);
+  return fmtUtcDate(new Date(Date.parse(`${date}T00:00:00Z`) + n * DAY_MS));
 }
 
 /** Giorni di calendario da `since` a `until` inclusi (0 se `until` precede `since`). */
 export function inclusiveDays(since, until) {
-  const d = Math.round((Date.parse(`${until}T00:00:00Z`) - Date.parse(`${since}T00:00:00Z`)) / DAY_MS) + 1;
-  return d > 0 ? d : 0;
+  return countInclusiveUtcDays(since, until) ?? 0;
 }
 
 /**

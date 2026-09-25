@@ -2,8 +2,9 @@
  * experiment-stats.mjs — statistica PURA per il readout degli esperimenti A/B
  * (primo consumer: scripts/analytics/job-gate-experiment-readout.mjs).
  *
- * Niente I/O, niente rete, niente Firestore (l'unico import è la coercizione
- * pura dei timestamp): ogni funzione prende numeri o
+ * Niente I/O, niente rete, niente Firestore (gli unici import sono puri: la
+ * coercizione dei timestamp e il predicato delle pagine annuncio): ogni
+ * funzione prende numeri o
  * risposte GA4 già scaricate e restituisce numeri. Così i valori di
  * riferimento (Wilson, test z, Holm, chi-quadro, potenza) sono pinnati da
  * test deterministici e lo script di readout resta un sottile strato di
@@ -17,6 +18,7 @@
  */
 
 import { toMillis } from './firestoreTimestamp.mjs';
+import { isJobDetailPath } from './seo-health-contract.mjs';
 
 // ── Normale standard ─────────────────────────────────────────
 
@@ -510,12 +512,6 @@ export function aggregateSubscribers(classified, { keyOf, startMs, endMs, nowMs 
 }
 
 /**
- * Pagina di dettaglio di un annuncio (`/cerca-lavoro-<zona>/<slug>/` e i
- * gemelli EN/DE/FR, con o senza prefisso di lingua): dove vive il job gate.
- */
-export const JOB_DETAIL_PATH_RE = /^\/((en|de|fr)\/)?(cerca-lavoro|find-jobs|trouver-emploi|jobs-in|jobs-im)-[^/]+\/[^/]+\/?/;
-
-/**
  * Componenti che creano l'iscritto quando si passa dal job gate inline
  * (sblocco email o login social). NON JobExpiredView/JobOrphanView: sono
  * altre superfici, fuori dall'esperimento per contratto (#9725).
@@ -554,7 +550,8 @@ export function attributionCoverage(docs, { experimentId }) {
       tagged += 1;
       continue;
     }
-    const onJobPage = typeof d.sourcePage === 'string' && JOB_DETAIL_PATH_RE.test(d.sourcePage);
+    // Pagina di dettaglio di un annuncio, dove vive il job gate (predicato canonico).
+    const onJobPage = typeof d.sourcePage === 'string' && isJobDetailPath(d.sourcePage);
     if (!onJobPage || !JOB_GATE_SUBSCRIBER_COMPONENTS.has(d.sourceComponent)) continue;
     untaggedFromGate += 1;
     untaggedByComponent[d.sourceComponent] = (untaggedByComponent[d.sourceComponent] || 0) + 1;
