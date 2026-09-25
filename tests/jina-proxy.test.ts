@@ -162,6 +162,7 @@ describe('looksLikeAntiBotChallenge', () => {
     expect(looksLikeAntiBotChallenge('Checking your browser before accessing the site.')).toBe(true);
     expect(looksLikeAntiBotChallenge('window.__CF$cv$params; cf_chl_opt')).toBe(true);
     expect(looksLikeAntiBotChallenge('<script>_Incapsula_Resource</script>')).toBe(true);
+    expect(looksLikeAntiBotChallenge('<title>Challenge Validation</title><meta name="sec-cpt-if" content="provider=crypto">')).toBe(true);
   });
 
   it('does NOT flag a genuine jobs page (marker-only, no length heuristic)', () => {
