@@ -34,6 +34,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { isRedTestFileResult } from './lib/vitest-json-report.mjs';
 
 const MAX_MESSAGE_LENGTH = 300;
 
@@ -57,21 +58,19 @@ function firstLine(message) {
 
 /**
  * Estrae i file rossi dal report JSON di Vitest (formato jest-compatibile).
- * Un file è rosso quando il suo `status` non è `passed`/`skipped`/`pending`/
- * `todo`, oppure quando contiene almeno un'asserzione `failed`: il secondo caso
- * copre un report in cui lo stato del file e quello dei test divergono.
+ * Quale file è rosso lo decide `isRedTestFileResult`
+ * (`scripts/ci/lib/vitest-json-report.mjs`), la stessa regola che usa
+ * `report-vitest-failure.mjs`.
  */
 export function summarizeVitestReport(report, rootDir = process.cwd()) {
   if (!report || typeof report !== 'object' || !Array.isArray(report.testResults)) {
     throw new Error('report Vitest senza `testResults`: formato non riconosciuto');
   }
-  const okStatuses = new Set(['passed', 'skipped', 'pending', 'todo']);
   const redFiles = [];
   for (const result of report.testResults) {
+    if (!isRedTestFileResult(result)) continue;
     const assertions = Array.isArray(result?.assertionResults) ? result.assertionResults : [];
     const failedTests = assertions.filter((a) => a?.status === 'failed').length;
-    const status = String(result?.status ?? '');
-    if (okStatuses.has(status) && failedTests === 0) continue;
     const firstFailure = assertions.find((a) => a?.status === 'failed');
     redFiles.push({
       file: relativeTestFile(result?.name, rootDir),
