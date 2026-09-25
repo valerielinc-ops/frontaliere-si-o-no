@@ -36,7 +36,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
-import { fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
+import { fetchHtmlViaJinaWithRetry, rescueHtmlIfChallenged } from './jina-proxy.mjs';
 
 export const CIC_KEY = 'clinique-cic';
 export const CIC_COMPANY_NAME = 'Clinique CIC (Saxon & Clarens)';
@@ -85,7 +85,8 @@ async function fetchMaskHtml(url) {
       // The mask returns iso-8859-1 — decode explicitly so accented chars
       // (è, é, à, …) render correctly downstream.
       const buf = await res.arrayBuffer();
-      return new TextDecoder('iso-8859-1').decode(buf);
+      const html = new TextDecoder('iso-8859-1').decode(buf);
+      return await rescueHtmlIfChallenged(html, url, { timeoutMs });
     }
     directErr = new Error(`HTTP ${res.status} from ${url}`);
   } catch (err) {
