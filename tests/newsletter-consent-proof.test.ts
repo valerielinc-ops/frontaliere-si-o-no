@@ -364,8 +364,14 @@ describe('the record of the act: displayed only when shown, surface, language, c
     // The governing formula is still what the relationship is under.
     expect(payload.consent_text).toBe(CONSENT_TEXTS.communicationsOptIn.text);
     expect(payload.consent_given_at).toBe('__server_timestamp__');
-    expect(payload.confirmation_method).toBe('provider_verified_email');
-    expect(payload.confirmed_via_surface).toBe('auth_one_tap');
+    // The confirmation origin goes to the append-only event, not the root.
+    expect(payload).not.toHaveProperty('confirmation_method');
+    expect(payload).not.toHaveProperty('confirmed_via_surface');
+    const event = (addDocMock.mock.calls[0] as unknown[])[1] as Record<string, any>;
+    expect(event.metadata.consent).toMatchObject({
+      confirmation_method: 'provider_verified_email',
+      confirmed_via_surface: 'auth_one_tap',
+    });
   });
 
   it('a form gate that passes nothing is the rendered notice, and is named by its component', async () => {
@@ -380,7 +386,8 @@ describe('the record of the act: displayed only when shown, surface, language, c
     expect(payload.consent_text_displayed).toBe(true);
     expect(payload.consent_origin).toBe('newsletter_popup');
     // Typed address: nothing confirmed it yet, so no confirmation origin.
-    expect(payload).not.toHaveProperty('confirmation_method');
+    const event = (addDocMock.mock.calls[0] as unknown[])[1] as Record<string, any>;
+    expect(event.metadata.consent.confirmation_method).toBeNull();
   });
 
   it('stores the sentence in the site locale the notice rendered in, not the browser language', async () => {

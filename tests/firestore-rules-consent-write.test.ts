@@ -389,10 +389,9 @@ describe('firestore.rules — newsletter_subscribers consent field guard', () =>
   });
 
   // The sign-in writer (services/newsletterSubscribers.ts, PR #9837) records
-  // the surface and the origin of the confirmation beside the terms record.
-  // Neither key is in `newsletterStateFieldsTouched` or `consentFieldsTouched`
-  // (both are deny-lists of guarded keys, not allow-lists), so a displayed
-  // registration by the verified owner is accepted with them.
+  // the surface (`consent_origin`, a guarded consent key) beside the terms
+  // record; a displayed registration by the verified owner is accepted with
+  // it.
   const termsRegistration = (displayed: boolean) => ({
     email: 'owner@example.com',
     status: 'confirmed',
@@ -407,11 +406,9 @@ describe('firestore.rules — newsletter_subscribers consent field guard', () =>
     consent_act: 'registration_terms_acceptance',
     consent_method: 'terms_and_conditions',
     consent_origin: displayed ? 'job_gate' : 'auth_one_tap',
-    confirmation_method: 'provider_verified_email',
-    confirmed_via_surface: displayed ? 'job_gate' : 'auth_one_tap',
   });
 
-  it('a verified owner registers under the terms with the surface and confirmation-origin fields', async () => {
+  it('a verified owner registers under the terms with the surface of the act', async () => {
     const owner = testEnv.authenticatedContext('owner-uid', {
       email: 'owner@example.com',
       email_verified: true,

@@ -193,9 +193,9 @@ describe('One Tap', { timeout: 30_000 }, () => {
     expect(d.consent_text).toBe(consentDisplayText('communicationsOptIn', 'it'));
     expect(d.consent_text_version).toBe(CONSENT_TEXTS.communicationsOptIn.version);
     expect(d.consent_given_at).toBe('__server_timestamp__');
-    // How the address got confirmed, and where: Google vouched for it.
-    expect(d.confirmation_method).toBe('provider_verified_email');
-    expect(d.confirmed_via_surface).toBe('auth_one_tap');
+    // How the address got confirmed, and where, is in the append-only event
+    // (below), not on the root a browser could later rewrite.
+    expect(d).not.toHaveProperty('confirmation_method');
 
     const e = consentEvent();
     expect(e.metadata.consent).toMatchObject({
@@ -209,6 +209,7 @@ describe('One Tap', { timeout: 30_000 }, () => {
       provider: 'google',
       one_tap_select_by: 'user',
       confirmation_method: 'provider_verified_email',
+      confirmed_via_surface: 'auth_one_tap',
     });
   });
 
@@ -252,7 +253,7 @@ describe('rendered Google buttons and generic sign-ins', { timeout: 30_000 }, ()
     const d = registration();
     expect(d.consent_text_displayed).toBe(true);
     expect(d.consent_origin).toBe('newsletter_popup');
-    expect(d.confirmed_via_surface).toBe('newsletter_popup');
+    expect(consentEvent().metadata.consent.confirmed_via_surface).toBe('newsletter_popup');
   });
 
   it('the assistant sign-in: nothing displayed, surface ai_chatbot', async () => {
