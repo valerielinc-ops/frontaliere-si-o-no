@@ -279,6 +279,8 @@ jobs:
           # su una finestra da 11 PR; il ceiling 240 richiede ~29 min. I 31 min
           # lasciano margine misurato sotto lo step da 32 min e il job da 40 min,
           # evitando che il watchdog diventi un cap più basso del collector.
+          # Benchmark batch_count=27: provider+setup post 1.816.453 ms (30,27 min),
+          # watchdog 31 min e step 32 min non attivati; margine watchdog 43.547 ms.
           exec_timeout_minutes: "31"
           prompt: |
             Triage automatico follow-up in BATCH (${{ github.event_name }}).
