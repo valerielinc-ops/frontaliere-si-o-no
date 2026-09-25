@@ -19,9 +19,8 @@
  *     server-side query to CH jobs (Tecan's global portal lists US +
  *     EU + APAC sites).
  *   - Tecan detail pages expose separate `city` + `country` propertyids
- *     (not the canonical `location` block). When `city` is empty the
- *     factory falls back to `defaultCity` (Männedorf) and skips the
- *     country-only fallback automatically.
+ *     (not the canonical `location` block). A detail without a concrete city
+ *     is rejected by the shared factory instead of inheriting the HQ.
  */
 import { createSuccessFactorsParser } from './successfactors-shared-job-parser-common.mjs';
 

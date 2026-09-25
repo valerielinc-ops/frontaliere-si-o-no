@@ -11986,6 +11986,15 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiusura-gazzada-varese-ss707.title': 'Superstrada Gazzada-Varese chiusa il 24 settembre',
     'blog.article.chiusura-gazzada-varese-ss707.excerpt': 'La SS 707 Raccordo Gazzada-Varese sarà chiusa verso Varese dalle 9 alle 17 tra il km 3+100 e il km 4+500 per lavori Anas.',
     'blog.article.chiusura-gazzada-varese-ss707.imageAlt': 'Chiusura della SS 707 Gazzada-Varese in direzione del capoluogo',
+    'blog.article.roberto-gatti-11-promozioni-podcast.title': 'Roberto Gatti a Figli di un gol minore: 11 promozioni',
+    'blog.article.roberto-gatti-11-promozioni-podcast.excerpt': 'L\'ex calciatore e allenatore varesino racconta le undici promozioni tra Chiasso, Lugano e Solbiatese nel podcast di VareseNews.',
+    'blog.article.roberto-gatti-11-promozioni-podcast.imageAlt': 'Stadio di calcio a Lugano con montagne sullo sfondo',
+    'blog.article.trenord-abbandono-passeggeri-gallarate.title': 'Trenord lascia 30 passeggeri a Gallarate, Regione intervenga',
+    'blog.article.trenord-abbandono-passeggeri-gallarate.excerpt': 'Nella notte tra il 22 e il 23 settembre, una trentina di passeggeri diretti a Malpensa è rimasta a Gallarate dopo la partenza del’ultimo convoglio vuoto, senza assistenza né collegamenti.',
+    'blog.article.trenord-abbandono-passeggeri-gallarate.imageAlt': 'Stazione ticinese di notte, banchine vuote e viaggiatore solo davanti al tabellone degli orari',
+    'blog.article.lavori-verde-a8-d08.title': 'Chiusure notturne A8 e D08: deviazioni nel Varesotto dal 28 settembre',
+    'blog.article.lavori-verde-a8-d08.excerpt': 'Tre notti di chiusure tra A8 e D08 dalle 21:00 alle 5:00, lavori di manutenzione del verde tra Busto Arsizio, Besnate e Cavaria, deviazioni su strade statali, provinciali e comunali.',
+    'blog.article.lavori-verde-a8-d08.imageAlt': 'Lavori di manutenzione del verde sull\'autostrada A8 vicino a Busto Arsizio di notte',
 };
 
 export default blogMetaIt;

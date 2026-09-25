@@ -93361,6 +93361,123 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-roberto-gatti-11-promozioni-podcast': {
+    title: 'Roberto Gatti a Figli di un gol minore: 11 promozioni',
+    description: 'L\'ex difensore del Varese e \'Mister Promozione\' con 11 salti di categoria tra Italia e Svizzera è protagonista del podcast Figli di un gol minore su Radio',
+    keywords: 'frontalieri, ticino, svizzera, italia, roberto, gatti, figli, minore',
+    ogTitle: 'Roberto Gatti: 11 promozioni da Chiasso alla Solbiatese',
+    ogDescription: 'L\'ex calciatore del Varese e allenatore \'Mister Promozione\' racconta le undici gioie tra Svizzera e Italia nel podcast Figli di un gol minore. Ascolta ogni giorno alle 12 su Radio Materia.',
+    canonicalPath: '/articoli-frontaliere/roberto-gatti-11-promozioni-podcast',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Roberto Gatti a Figli di un gol minore: 11 promozioni",
+      "description": "L'ex difensore del Varese e 'Mister Promozione' con 11 salti di categoria tra Italia e Svizzera è protagonista del podcast Figli di un gol minore su Radio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/roberto-gatti-11-promozioni-podcast.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stadio di calcio a Lugano con montagne sullo sfondo"
+      },
+      "datePublished": "2026-09-25T15:46:26+00:00",
+      "dateModified": "2026-09-25T15:46:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/roberto-gatti-11-promozioni-podcast/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-trenord-abbandono-passeggeri-gallarate': {
+    title: 'Trenord lascia 30 passeggeri a Gallarate, Regione intervenga',
+    description: 'Nella notte tra il 22 e il 23 settembre, circa 30 passeggeri diretti a Malpensa sono stati abbandonati a Gallarate dopo la partenza di un convoglio vuoto',
+    keywords: 'frontalieri, ticino, svizzera, italia, trenord, lascia, passeggeri, gallarate',
+    ogTitle: 'Trenord lascia 30 passeggeri a Gallarate, Regione intervenga',
+    ogDescription: 'Durante la notte tra il 22 e il 23 settembre, una trentina di viaggiatori diretti all’aeroporto di Malpensa è rimasta bloccata alla stazione di Gallarate dopo che l’ultimo treno è partito senza passeggeri, senza alcun collegamento o assistenza',
+    canonicalPath: '/articoli-frontaliere/trenord-abbandono-passeggeri-gallarate',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trenord lascia 30 passeggeri a Gallarate, Regione intervenga",
+      "description": "Nella notte tra il 22 e il 23 settembre, circa 30 passeggeri diretti a Malpensa sono stati abbandonati a Gallarate dopo la partenza di un convoglio vuoto",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trenord-abbandono-passeggeri-gallarate.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione ticinese di notte, banchine vuote e viaggiatore solo davanti al tabellone degli orari"
+      },
+      "datePublished": "2026-09-25T17:01:16+00:00",
+      "dateModified": "2026-09-25T17:01:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trenord-abbandono-passeggeri-gallarate/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lavori-verde-a8-d08': {
+    title: 'Chiusure notturne A8 e D08: deviazioni nel Varesotto dal 28 settembre',
+    description: 'Tre notti di lavori di manutenzione del verde sulla A8 e D08 tra Busto Arsizio, Besnate e Cavaria, con chiusure dalle 21:00 alle 5:00 e deviazioni indicate',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiusure, notturne, deviazioni, varesotto',
+    ogTitle: 'Chiusure notturne A8 e D08: deviazioni nel Varesotto dal 28 settembre',
+    ogDescription: 'Durante le notti del 28-29, 29-30 settembre e 30 settembre-1 ottobre, Autostrade per l’Italia effettua lavori di manutenzione del verde lungo la A8 Milano-Varese e la Diramazione Gallarate-Gattico (D08). Le chiusure, attive dalle 21:00 alle 5:00',
+    canonicalPath: '/articoli-frontaliere/lavori-verde-a8-d08',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiusure notturne A8 e D08: deviazioni nel Varesotto dal 28 settembre",
+      "description": "Tre notti di lavori di manutenzione del verde sulla A8 e D08 tra Busto Arsizio, Besnate e Cavaria, con chiusure dalle 21:00 alle 5:00 e deviazioni indicate",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavori-verde-a8-d08.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavori di manutenzione del verde sull'autostrada A8 vicino a Busto Arsizio di notte"
+      },
+      "datePublished": "2026-09-25T17:54:10+00:00",
+      "dateModified": "2026-09-25T17:54:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-verde-a8-d08/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

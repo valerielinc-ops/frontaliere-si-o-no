@@ -35964,6 +35964,33 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'roberto-gatti-11-promozioni-podcast',
+ category: 'novita',
+ date: '2026-09-25T15:46:26.720Z',
+ image: '/images/blog/roberto-gatti-11-promozioni-podcast.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'trenord-abbandono-passeggeri-gallarate',
+ category: 'novita',
+ date: '2026-09-25T17:01:16.762Z',
+ image: '/images/blog/trenord-abbandono-passeggeri-gallarate.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'lavori-verde-a8-d08',
+ category: 'pratico',
+ date: '2026-09-25T17:54:10.380Z',
+ image: '/images/blog/lavori-verde-a8-d08.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

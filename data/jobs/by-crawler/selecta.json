@@ -16,7 +16,7 @@
       "companyDomain": "selecta.com",
       "title": "Deine Ausbildung bei Selecta: Logistiker/in EFZ",
       "titleByLocale": {
-        "it": "Deine Ausbildung bei Selecta: Logistiker/in CFC",
+        "it": "La tua formazione presso Selecta: operatore logistico/a AFC",
         "en": "Your apprenticeship at Selecta: Logistiker EFZ",
         "de": "Deine Ausbildung bei Selecta: Logistiker/in EFZ",
         "fr": "Votre apprentissage chez Selecta: logisticien/dans EFZ"
@@ -73,7 +73,6 @@
           "deine-ausbildung-bei-selecta-logistiker-in-efz-selecta-kirchberg-be"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:56:48.319Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -87,7 +86,10 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2696
     },
     {
       "id": "selecta-228d206a8287",

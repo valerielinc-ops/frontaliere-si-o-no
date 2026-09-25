@@ -244,7 +244,6 @@ import {
  saveUserProfileToFirestore,
  consumeAuthJobContext,
  consumeAuthAttributionContext,
- consumeConsentEvidence,
  resolveAuthConsentSurface,
  jobGateSubscriberVariantFor,
  sanitizeAuthReturnPath,
@@ -741,9 +740,6 @@ const App: React.FC = () => {
  // The surface that started the login, parked by signInWithLinkedIn under
  // this exact `state`; without it the origin page is the state path itself.
  const linkedInAttribution = consumeAuthAttributionContext({ linkedinState: state }) || { page: decodedState };
- // What was on screen at that click, parked under the same `state`: the
- // registration record says whether the notice was really displayed.
- const linkedInEvidence = consumeConsentEvidence({ linkedinState: state });
 
  if (errorParam) {
  // User cancelled or LinkedIn returned an error
@@ -766,7 +762,6 @@ const App: React.FC = () => {
  });
  const customToken = await exchangeLinkedInCode(code, linkedInAttribution, {
   surface: linkedInConsentSurface,
-  evidence: linkedInEvidence,
   // jobgate-v3 arm of an enrolled gate login: the Cloud Function creates the
   // subscriber, so the readout's join key has to reach it.
   variant: jobGateSubscriberVariantFor(savedJobCtx, linkedInConsentSurface),
@@ -787,11 +782,8 @@ const App: React.FC = () => {
 
  if (user) {
  // Best-effort: save/update user profile in Firestore for personalization,
- // with the job and surface contexts and the notice evidence that started
- // this LinkedIn login.
- saveUserProfileToFirestore(user, 'linkedin', savedJobCtx, linkedInAttribution, {
-  consentEvidence: linkedInEvidence,
- }).catch(() => {});
+ // with the job and surface contexts that started this LinkedIn login.
+ saveUserProfileToFirestore(user, 'linkedin', savedJobCtx, linkedInAttribution).catch(() => {});
 
  const email = getAuthEmail(user);
 

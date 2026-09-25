@@ -36,7 +36,12 @@
  *     a SPA, use `scripts/lib/ats-clients/successfactors-client.mjs`.
  */
 import { createHash } from 'node:crypto';
-import { detectLang, hqPostalCodeForLocality } from './dedicated-crawler-common.mjs';
+import {
+  detectLang,
+  hqPostalCodeForLocality,
+  isLocationExplicitlyForeign,
+} from './dedicated-crawler-common.mjs';
+import { isChCountry } from './ch-country-guard.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
 import {
@@ -239,7 +244,8 @@ export function extractCsbTotal(html) {
  * propertyid block, the apply button widget, or a layout closer.
  */
 function readPropertyBlock(html, propId) {
-  const re = new RegExp(`data-careersite-propertyid="${propId}"[^>]*>`, 'i');
+  const escapedPropId = String(propId).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp(`data-careersite-propertyid\\s*=\\s*["']${escapedPropId}["'][^>]*>`, 'i');
   const m = re.exec(html);
   if (!m) return '';
   const start = m.index + m[0].length;
@@ -359,8 +365,8 @@ export function parseSuccessFactorsMicrodataLocation(html) {
 
 /**
  * Parse a SuccessFactors CSB job detail page.
- * Returns `{ title, descriptionHtml, descriptionText, location, applyUrl,
- *            postedDate, rateText, language }`.
+ * Returns `{ title, descriptionHtml, descriptionText, location, country,
+ *            applyUrl, postedDate, rateText, language }`.
  */
 export function parseCsbDetailPage(html) {
   if (!html || typeof html !== 'string') return null;
@@ -415,8 +421,14 @@ export function parseCsbDetailPage(html) {
       if (pm) { postalCode = pm[1]; break; }
     }
   }
+  const propertyCity = decodeEntities(normalizeSpace(stripHtml(readPropertyBlock(html, 'city'))));
+  const propertyCountry = decodeEntities(normalizeSpace(stripHtml(readPropertyBlock(html, 'country'))));
   const microdataLocation = parseSuccessFactorsMicrodataLocation(html);
-  if (!city) city = microdataLocation?.city || '';
+  // Tecan and other CSB tenants expose the authoritative locality in these
+  // property blocks while omitting the generic `location` block. Prefer that
+  // source whenever present, then fall back to microdata/legacy location text.
+  if (propertyCity) city = propertyCity;
+  else if (!city) city = microdataLocation?.city || '';
   if (!region) region = microdataLocation?.region || '';
   if (!postalCode) postalCode = microdataLocation?.postalCode || '';
   const locationFirstLine = canonicalLoc
@@ -457,6 +469,7 @@ export function parseCsbDetailPage(html) {
     city,
     region,
     postalCode,
+    country: propertyCountry || microdataLocation?.country || '',
     rateText,
     postedDate,
     applyUrl,
@@ -476,8 +489,8 @@ export function parseCsbDetailPage(html) {
  * @param {string} config.sfCompanyId        SuccessFactors tenant code (e.g. 'ZURZACHCare').
  * @param {string} config.publicCareerUrl    Base URL (e.g. 'https://karriere.zurzachcare.ch').
  * @param {string} config.defaultCanton      ISO canton (e.g. 'AG').
- * @param {string} config.defaultCity        Fallback city.
- * @param {string} config.defaultPostalCode  Fallback postal code (e.g. '5330').
+ * @param {string} config.defaultCity        HQ locality for the postal fallback.
+ * @param {string} config.defaultPostalCode  HQ postal code (e.g. '5330').
  * @param {string} [config.defaultSourceLang='de']
  * @param {string} [config.sourceLabel]      Optional source label override.
  * @param {string} [config.sector]           Job-category sector label (default
@@ -683,7 +696,7 @@ export function createSuccessFactorsParser(config) {
       if (!title) continue;
 
       // Resolve city: prefer detail.city, then first comma-segment of the
-      // listing location, then defaultCity. Drop country-name fallbacks like
+      // listing location. Drop country-name fallbacks like
       // "Switzerland" / "Schweiz" / "Suisse" that some SF tenants emit when
       // a job has no specific city (e.g. Tecan remote / global roles).
       const COUNTRY_TOKEN = /^(?:switzerland|schweiz|suisse|svizzera|ch)$/i;
@@ -701,9 +714,63 @@ export function createSuccessFactorsParser(config) {
         const first = stripHybridSuffix(listing.location.split(',')[0]);
         return COUNTRY_TOKEN.test(first) ? '' : first;
       })();
-      const city = detailCity || listingCity || defaultCity;
-      const region = detail?.region || defaultCanton;
-      const canton = inferSwissTargetCanton(city) || normalizeCantonCode(region) || defaultCanton;
+      const listingSegments = String(listing.location || '')
+          .split(',')
+          .slice(1)
+          .map((segment) => segment.trim());
+      // A detail page may omit `addressCountry` while the search row still
+      // exposes an explicit foreign country (e.g. `Zürich, Germany`). Do not
+      // let the Swiss-looking city win that negative evidence and infer a
+      // target canton. Canton-shaped tokens stay ambiguous here: `Epagny, FR`
+      // is a valid Swiss locality when the detail supplies CH evidence.
+      const listingHasExplicitForeignCountry = listingSegments.some((segment) =>
+        !normalizeCantonCode(segment)
+        && !isChCountry(segment)
+        && isLocationExplicitlyForeign(segment),
+      );
+      if (listingHasExplicitForeignCountry) {
+        console.warn(`  ⏭️ Skipping explicitly foreign listing location "${listing.location}": ${listing.title} (${listing.jobId})`);
+        continue;
+      }
+      const sourceCountry = String(detail?.country || '').trim();
+      const detailHasSwissCountry = Boolean(sourceCountry && isChCountry(sourceCountry));
+      if (sourceCountry && !detailHasSwissCountry) {
+        console.warn(`  ⏭️ Skipping non-CH detail location (${sourceCountry}) for ${listing.title} (${listing.jobId})`);
+        continue;
+      }
+      const listingHasSwissCountry = listingSegments.some((segment) =>
+        isChCountry(segment),
+      );
+      // A two-segment listing such as "NotARealCity, FR" is not evidence that
+      // FR is a Swiss canton. Normalize listing regions only after a detail or
+      // listing country field explicitly establishes Switzerland.
+      const hasSwissCountryEvidence = detailHasSwissCountry || listingHasSwissCountry;
+      const listingRegion = hasSwissCountryEvidence
+        ? listingSegments.map((segment) => normalizeCantonCode(segment)).find(Boolean) || ''
+        : '';
+      const city = detailCity || listingCity;
+      if (!city) {
+        console.warn(`  ⏭️ Skipping location without a city: ${listing.title} (${listing.jobId})`);
+        continue;
+      }
+      if (isLocationExplicitlyForeign(city)) {
+        console.warn(`  ⏭️ Skipping explicitly foreign city "${city}": ${listing.title} (${listing.jobId})`);
+        continue;
+      }
+      // Keep source-backed Swiss localities that are absent from the BFS
+      // gazetteer (e.g. Epagny and Zollikerberg): their explicit region is
+      // valid evidence. A missing canton remains fail-closed.
+      const region = detail?.region || listingRegion;
+      const inferredCanton = inferSwissTargetCanton(city);
+      const canton = inferredCanton || (
+        hasSwissCountryEvidence
+          ? normalizeCantonCode(region)
+          : ''
+      );
+      if (!canton) {
+        console.warn(`  ⏭️ Skipping location without a Swiss canton: ${city} — ${listing.title} (${listing.jobId})`);
+        continue;
+      }
       // defaultPostalCode is the HQ CAP: only for a vacancy at the HQ (#9841).
       const postalCode = detail?.postalCode || hqPostalCodeForLocality(city, defaultCity, defaultPostalCode);
 

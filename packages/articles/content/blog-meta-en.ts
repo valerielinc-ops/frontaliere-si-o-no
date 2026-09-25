@@ -11985,6 +11985,15 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiusura-gazzada-varese-ss707.title': 'Gazzada-Varese expressway closed on September 24',
     'blog.article.chiusura-gazzada-varese-ss707.excerpt': 'The SS 707 Raccordo Gazzada-Varese will be closed toward Varese from 9 to 17 between km 3+100 and km 4+500 for Anas works.',
     'blog.article.chiusura-gazzada-varese-ss707.imageAlt': 'Closure of the SS 707 Gazzada-Varese road toward Varese',
+    'blog.article.roberto-gatti-11-promozioni-podcast.title': 'Roberto Gatti and Sons of a Minor Goal: 11 Promotions',
+    'blog.article.roberto-gatti-11-promozioni-podcast.excerpt': 'The former footballer and coach from Varese recounts the eleven promotions between Chiasso, Lugano and Solbiatese in the VareseNews podcast.',
+    'blog.article.roberto-gatti-11-promozioni-podcast.imageAlt': 'Football stadium in Lugano with mountains backdrop',
+    'blog.article.trenord-abbandono-passeggeri-gallarate.title': 'Trenord leaves 30 passengers stranded in Gallarate, Region must intervene',
+    'blog.article.trenord-abbandono-passeggeri-gallarate.excerpt': 'During the night between September 22 and 23, around thirty passengers bound for Malpensa were left stranded at Gallarate after the departure of the last empty train, without assistance or connections.',
+    'blog.article.trenord-abbandono-passeggeri-gallarate.imageAlt': 'Empty Ticino train station at night with a lone passenger facing the departure board',
+    'blog.article.lavori-verde-a8-d08.title': 'Night closures A8 and D08: deviations in Varese from 28 September',
+    'blog.article.lavori-verde-a8-d08.excerpt': 'Three nights of closures between A8 and D08 from 21:00 to 5:00, green maintenance work between Busto Arsizio, Besnate and Cavaria, detours on state, provincial and municipal roads.',
+    'blog.article.lavori-verde-a8-d08.imageAlt': 'Green maintenance work on the A8 highway near Busto Arsizio at night',
 };
 
 export default blogMetaEn;

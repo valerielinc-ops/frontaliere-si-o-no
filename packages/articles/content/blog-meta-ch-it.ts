@@ -6716,6 +6716,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.franco-svizzero-ribasso-settembre-novembre.title': 'Franco svizzero ribasso: segnali da seguire fino a novembre',
     'blog.article.franco-svizzero-ribasso-settembre-novembre.excerpt': 'Il franco svizzero è sceso circa il 5% dai massimi di primavera 2026, pari al ribasso del 2023 e inferiore al >6% del 2024; la finestra stagionale va da fine settembre a inizio novembre.',
     'blog.article.franco-svizzero-ribasso-settembre-novembre.imageAlt': 'Illustrazione del franco svizzero e dell\'euro con sfondo del lago di Lugano',
+    'blog.article.sanzioni-onu-ordinanze-2026.title': 'Svizzera armonizza le ordinanze sulle sanzioni ONU del 2026',
+    'blog.article.sanzioni-onu-ordinanze-2026.excerpt': 'Il 25 settembre 2026 il Consiglio federale ha deciso di armonizzare quattro ordinanze sulle sanzioni, estendendo alle organizzazioni internazionali l\'esenzione da notifica e autorizzazione per determinate transazioni iraniane.',
+    'blog.article.sanzioni-onu-ordinanze-2026.imageAlt': 'Documenti ufficiali SECO sulle sanzioni ONU con sfondo del Palazzo federale a Berna',
 };
 
 export default blogMetaChIt;

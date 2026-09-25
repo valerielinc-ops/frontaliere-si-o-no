@@ -6716,6 +6716,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.franco-svizzero-ribasso-settembre-novembre.title': 'Schweizer Franken im Abwärtstrend: Signale, die bis November zu beobachten sind',
     'blog.article.franco-svizzero-ribasso-settembre-novembre.excerpt': 'Der Schweizer Franken ist seit den Höchstständen im Frühjahr 2026 um etwa 5% gefallen, was dem Rückgang von 2023 entspricht und weniger als den >6% von 2024; das saisonale Zeitfenster reicht von Ende September bis Anfang November.',
     'blog.article.franco-svizzero-ribasso-settembre-novembre.imageAlt': 'Illustration des Schweizer Frankens und des Euro mit Hintergrund des Luganer Sees',
+    'blog.article.sanzioni-onu-ordinanze-2026.title': 'Die Schweiz harmonisiert die Verordnungen zu den UNO-Sanktionen von 2026',
+    'blog.article.sanzioni-onu-ordinanze-2026.excerpt': 'Am 25 settembre 2026 hat der Bundesrat beschlossen, vier Sanktionsverordnungen zu harmonisieren und die Befreiung von der Melde- und Bewilligungspflicht für bestimmte iranische Transaktionen auf internationale Organisationen auszuweiten.',
+    'blog.article.sanzioni-onu-ordinanze-2026.imageAlt': 'SECO-Offizielle Dokumente zu UN-Sanktionen mit dem Bundeshaus Bern im Hintergrund',
 };
 
 export default blogMetaChDe;
