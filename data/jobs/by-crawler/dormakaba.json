@@ -812,9 +812,9 @@
     },
     {
       "id": "dormakaba-11900",
-      "slug": "configurable-materials-master-data-domain-lead-dormakaba-ch",
+      "slug": "responsabile-dominio-dati-master-materiali-configurabili-dormakaba-rumlang",
       "slugByLocale": {
-        "it": "configurable-materials-master-data-domain-lead-dormakaba-ch",
+        "it": "responsabile-dominio-dati-master-materiali-configurabili-dormakaba-rumlang",
         "en": "configurable-materials-master-data-domain-lead-dormakaba-ch",
         "de": "konfigurierbare-materialien-master-data-domain-lead-dormakaba-rumlang",
         "fr": "materiaux-configurables-chef-de-domaine-de-donnees-principal-dormakaba-rumlang"
@@ -863,12 +863,14 @@
       "previousSlugs": [
         "responsabile-del-dominio-dati-master-dei-materiali-configurabili-dormakaba-rumlang",
         "lead-dominio-dati-master-materiali-configurabili-dormakaba-rumlang",
-        "configurable-materials-master-data-domain-lead-dormakaba-rumlang"
+        "configurable-materials-master-data-domain-lead-dormakaba-rumlang",
+        "configurable-materials-master-data-domain-lead-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsabile-del-dominio-dati-master-dei-materiali-configurabili-dormakaba-rumlang",
-          "lead-dominio-dati-master-materiali-configurabili-dormakaba-rumlang"
+          "lead-dominio-dati-master-materiali-configurabili-dormakaba-rumlang",
+          "configurable-materials-master-data-domain-lead-dormakaba-ch"
         ],
         "fr": [
           "configurable-materials-master-data-domain-lead-dormakaba-rumlang"
@@ -1349,13 +1351,11 @@
         "fr": []
       },
       "previousSlugs": [
-        "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch",
-        "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch",
-          "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
+          "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch"
         ],
         "en": [
           "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch"
@@ -1386,7 +1386,7 @@
       "slugByLocale": {
         "it": "linea-di-prodotto-di-piombo-skyra-m-f-d-dormakaba-wetzikon",
         "en": "lead-product-lines-skyra-m-f-d-dormakaba-ch",
-        "de": "lead-product-lines-skyra-m-f-d-dormakaba-ch",
+        "de": "fuhrende-produktlinien-skyra-m-w-d-dormakaba-wetzikon",
         "fr": "lignes-de-produits-de-plomb-skyra-h-f-d-dormakaba-wetzikon"
       },
       "company": "dormakaba",
@@ -1436,6 +1436,9 @@
           "lead-product-lines-skyra-m-f-d-dormakaba-ch"
         ],
         "fr": [
+          "lead-product-lines-skyra-m-f-d-dormakaba-ch"
+        ],
+        "de": [
           "lead-product-lines-skyra-m-f-d-dormakaba-ch"
         ]
       },

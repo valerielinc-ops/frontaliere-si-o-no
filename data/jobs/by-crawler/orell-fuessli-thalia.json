@@ -1651,12 +1651,12 @@
     },
     {
       "id": "orell-fuessli-thalia-f70768f50085",
-      "slug": "stv-filialleitung-buchhandler-in-80-a-orell-fuessli-thalia-wil-sg",
+      "slug": "vice-direttore-libraio-a-80-orell-fussli-thalia-wil-sg",
       "slugByLocale": {
         "de": "stv-filialleitung-buchhandler-in-80-a-orell-fuessli-thalia-wil-sg",
-        "it": "stv-filialleitung-buchhandler-in-80-a-orell-fuessli-thalia-wil-sg",
-        "en": "stv-filialleitung-buchhandler-in-80-a-orell-fuessli-thalia-wil-sg",
-        "fr": "stv-filialleitung-buchhandler-in-80-a-orell-fuessli-thalia-wil-sg"
+        "it": "vice-direttore-libraio-a-80-orell-fussli-thalia-wil-sg",
+        "en": "deputy-branch-manager-bookseller-80-orell-fussli-thalia-wil-sg",
+        "fr": "adjoint-e-de-gerance-de-succursale-libraire-80-orell-fussli-thalia-wil-sg"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -1716,7 +1716,21 @@
         }
       },
       "firstSeenAt": "2026-09-24T14:51:55.710Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-filialleitung-buchhandler-in-80-a-orell-fuessli-thalia-wil-sg"
+        ],
+        "en": [
+          "stv-filialleitung-buchhandler-in-80-a-orell-fuessli-thalia-wil-sg"
+        ],
+        "fr": [
+          "stv-filialleitung-buchhandler-in-80-a-orell-fuessli-thalia-wil-sg"
+        ]
+      },
+      "previousSlugs": [
+        "stv-filialleitung-buchhandler-in-80-a-orell-fuessli-thalia-wil-sg"
+      ]
     }
   ]
 }
