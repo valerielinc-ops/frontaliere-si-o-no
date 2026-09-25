@@ -38,6 +38,7 @@ const NARRATIVES: ReadonlyArray<readonly [string, string]> = [
   ['Based on the context, **Pflegefachperson HF**', 'Pflegefachperson HF'],
   ['Let me translate **Engineer** for you', 'Engineer'],
   ['Here is the title: **Foo** and some **Bar** notes', 'Foo'],
+  ['Traduzione: **Titolo vero**. Ecco: **nota**', 'Titolo vero'],
   ['Die Übersetzung: **Verkaufsberater:in**', 'Verkaufsberater:in'],
 ];
 

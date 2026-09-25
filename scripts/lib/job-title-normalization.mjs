@@ -12,7 +12,7 @@ const BOLD_SEGMENT_RE = /(?<!\*)\*\*([^*\n]{1,240})\*\*(?!\*)/g;
 
 // A title is recoverable when a narrative sentence structurally introduces
 // the following bold segment. This avoids length/suffix heuristics: the
-// explanation may be short, and the actual title may be the final value.
+// explanation may be short, and later bold fragments belong to the explanation.
 // `\b` is deliberately avoided at the start of these expressions because
 // JavaScript word boundaries are ASCII-only (`Übersetzung` would not match).
 const NARRATIVE_TITLE_INTRODUCERS = [
@@ -37,9 +37,9 @@ export function extractNarrativeJobTitle(value) {
   const matches = [...source.matchAll(BOLD_SEGMENT_RE)];
   if (matches.length === 0) return '';
 
-  // Prefer the last introduced segment, but keep looking if the explanation
-  // contains another bold fragment after the actual title.
-  for (let index = matches.length - 1; index >= 0; index -= 1) {
+  // The first introduced segment is the title. Later bold fragments belong to
+  // the explanation (for example, a note after the translated title).
+  for (let index = 0; index < matches.length; index += 1) {
     const match = matches[index];
     const candidate = String(match[1] || '').trim();
     const start = Number(match.index ?? -1);

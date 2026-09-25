@@ -63,9 +63,9 @@ export function sanitizeBrowserJobTitle(value: string): string {
   const whole = stripWholeMarkdownBoldWrapper(source);
   const segments = [...source.matchAll(/(^|[^*])\*\*([^*\n]{1,240})\*\*(?!\*)/g)];
   let narrative = '';
-  // Prefer the last introduced segment, but keep looking if the explanation
-  // contains another bold fragment after the actual title.
-  for (let index = segments.length - 1; index >= 0; index -= 1) {
+  // Keep the first introduced segment in lockstep with the build-time
+  // normalizer. Later bold fragments belong to the explanation, not the title.
+  for (let index = 0; index < segments.length; index += 1) {
     const match = segments[index];
     const candidate = String(match[2] || '').trim();
     const start = Number(match.index ?? -1) + String(match[1] || '').length;
