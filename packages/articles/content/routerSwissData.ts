@@ -2254,6 +2254,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'urne-due-iniziative-2026': { it: 'urne-due-iniziative-2026', en: 'swiss-vote-two-initiatives-2026', de: 'schweiz-zwei-initiativen-2026', fr: 'suisse-deux-initiatives-2026' },
  'conferenza-protezione-popolazione-berna': { it: 'conferenza-protezione-popolazione-berna', en: 'civil-protection-conference-bern', de: 'volksschutz-konferenz-bern', fr: 'conference-protection-population-berne' },
  'lumpy-skin-disease-fine-vaccinazione': { it: 'lumpy-skin-disease-fine-vaccinazione', en: 'lumpy-skin-disease-vaccination-end', de: 'lumpy-skin-disease-impfende', fr: 'fin-vaccination-lumpy-skin-disease' },
+ 'canicola-danni-economici-2026': { it: 'canicola-danni-economici-2026', en: 'switzerland-heatwave-economic-damage-2026', de: 'schweiz-hitzewelle-wirtschaftsschaeden-2026', fr: 'suisse-canicule-dommages-economiques-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

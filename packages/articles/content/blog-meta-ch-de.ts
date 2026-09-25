@@ -6695,6 +6695,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lumpy-skin-disease-fine-vaccinazione.title': 'LSD: Ende der Rinderimpfung am 30. September 2026',
     'blog.article.lumpy-skin-disease-fine-vaccinazione.excerpt': 'Die Kampagne endet am 30.09.2026. Ab dem 1. Oktober beginnt eine 8-monatige Wartezeit mit gezielter Überwachung bis Juni 2027.',
     'blog.article.lumpy-skin-disease-fine-vaccinazione.imageAlt': 'Kuh auf einer Schweizer Weide mit Bergen im Hintergrund, Kontext der LSD-Überwachung',
+    'blog.article.canicola-danni-economici-2026.title': 'Hitzewelle in der Schweiz: 400 Millionen Schäden im Jahr 2026',
+    'blog.article.canicola-danni-economici-2026.excerpt': 'Der heiße Sommer 2026 verursachte in der Schweiz 400 Millionen Franken Schaden. Allianz Trade warnt vor den wirtschaftlichen Risiken des Jahres 2027.',
+    'blog.article.canicola-danni-economici-2026.imageAlt': 'Arbeitende machen während einer Hitzewelle in einer Schweizer Stadt Pause',
 };
 
 export default blogMetaChDe;

@@ -6695,6 +6695,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lumpy-skin-disease-fine-vaccinazione.title': 'LSD: end of bovine vaccination on September 30, 2026',
     'blog.article.lumpy-skin-disease-fine-vaccinazione.excerpt': 'The campaign ends on 30/09/2026. An 8-month wait with targeted surveillance until June 2027 begins on October 1.',
     'blog.article.lumpy-skin-disease-fine-vaccinazione.imageAlt': 'Cow in a Swiss pasture with mountains in the background, context of LSD surveillance campaign',
+    'blog.article.canicola-danni-economici-2026.title': 'Canicola in Switzerland: 400 million damages in 2026',
+    'blog.article.canicola-danni-economici-2026.excerpt': 'The torrid summer of 2026 caused 400 million francs of damage in Switzerland. Allianz Trade warns about the economic risks of 2027.',
+    'blog.article.canicola-danni-economici-2026.imageAlt': 'Workers taking a break during a heatwave in a Swiss city',
 };
 
 export default blogMetaChEn;

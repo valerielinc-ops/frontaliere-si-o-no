@@ -86795,6 +86795,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-canicola-danni-economici-2026': {
+    title: 'Canicola in Svizzera: 400 milioni di danni nel 2026',
+    description: 'L\'estate torrida 2026 ha causato 400 milioni di franchi di danni in Svizzera. Allianz Trade stima i rischi di El Niño nel 2027 e indica la prevenzione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, canicola, milioni, danni, estate',
+    ogTitle: 'Svizzera, caldo 2026: danni per 400 milioni',
+    ogDescription: 'Il bilancio dell\'estate torrida pesa sull\'economia svizzera: 400 milioni di franchi e produttività del lavoro colpita da pause più lunghe e assenze per malattia. Lo studio Allianz Trade guarda già al forte El Niño del 2027.',
+    canonicalPath: '/articoli-svizzera/canicola-danni-economici-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Canicola in Svizzera: 400 milioni di danni nel 2026",
+      "description": "L'estate torrida 2026 ha causato 400 milioni di franchi di danni in Svizzera. Allianz Trade stima i rischi di El Niño nel 2027 e indica la prevenzione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/canicola-danni-economici-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratori in pausa durante la canicola in una città svizzera"
+      },
+      "datePublished": "2026-09-25T06:41:56+00:00",
+      "dateModified": "2026-09-25T06:41:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/canicola-danni-economici-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
