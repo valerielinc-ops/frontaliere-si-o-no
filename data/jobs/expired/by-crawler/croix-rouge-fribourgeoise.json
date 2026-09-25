@@ -47,10 +47,12 @@
       ],
       "en": [
         "ein-e-leiter-in-bereich-unterstutzung-zu-hause-mitglied-der-geschaftsleitung-croix-rouge",
-        "head-of-home-support-member-of-management-croix-rouge-fribourgeoise-fribourg"
+        "head-of-home-support-member-of-management-croix-rouge-fribourgeoise-fribourg",
+        "responsable-du-service-soutien-a-domicile-membre-de-la-direction-croix-rouge-fribourgeoise"
       ],
       "de": [
-        "head-of-home-support-mitglied-der-geschaftsleitung-croix-rouge-fribourgeoise-fribourg"
+        "head-of-home-support-mitglied-der-geschaftsleitung-croix-rouge-fribourgeoise-fribourg",
+        "responsable-du-service-soutien-a-domicile-membre-de-la-direction-croix-rouge-fribourgeoise"
       ],
       "fr": [
         "ein-e-leiter-in-bereich-unterstutzung-zu-hause-mitglied-der-geschaftsleitung-croix-rouge",
@@ -62,7 +64,21 @@
     "salaryMin": 94500,
     "salaryMax": 143000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://company.jobcloud.ch/fr/jobs/502b52ba-d781-416d-a177-27ac2a10c989",
+    "firstSeenAt": "2026-07-07T12:13:54.398Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://company.jobcloud.ch/fr/jobs/502b52ba-d781-416d-a177-27ac2a10c989",
+        "firstSeenAt": "2026-07-07T12:13:54.398Z",
+        "title": "Ein-e Leiter-in Bereich Unterstützung zu Hause (Mitglied der Geschäftsleitung)"
+      },
+      {
+        "sourceIdentity": "url:https://company.jobcloud.ch/fr/jobs/962b0a39-e87f-4de4-a068-58083fcebac5",
+        "firstSeenAt": "2026-07-04T10:49:18.819Z",
+        "title": "Responsable du service Soutien à domicile (Membre de la direction)"
+      }
+    ]
   },
   {
     "slug": "coordinatore-dell-allarme-della-croce-rossa-croix-rouge-fribourgeoise-fribourg",
@@ -110,7 +126,9 @@
     "salaryMin": 68500,
     "salaryMax": 104000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://company.jobcloud.ch/fr/jobs/a55e0f5b-afe7-4406-a15c-d0a73ef159fd",
+    "firstSeenAt": "2026-07-04T10:49:18.789Z"
   },
   {
     "slug": "coordinatore-della-chiamata-d-emergenza-della-croce-rossa-croix-rouge-fribourgeoise-fribourg",
@@ -158,6 +176,8 @@
     "salaryMin": 68500,
     "salaryMax": 104000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://company.jobcloud.ch/fr/jobs/fe286ed3-2d71-4453-a2b1-e4e469c69461",
+    "firstSeenAt": "2026-07-04T10:49:18.754Z"
   }
 ]

@@ -34,6 +34,9 @@
  * fail-closed. Se NESSUN vitest è ancora concluso ritorna '' (gate in attesa) —
  * preserva l'invariante #1454 "niente merge su pending/missing".
  */
+import { createHash } from 'node:crypto';
+import path from 'node:path';
+
 import {
   VITEST_CHECK_NAME,
   VITEST_EXECUTION_JOB_NAME,
@@ -567,6 +570,151 @@ export function vitestFailureIsNotAttributableToPr({
   }
 
   return NO;
+}
+
+// ── Rosso EREDITATO da main e poi riparato: rescue ripetibile per chiave ─────
+//
+// `vitestFailureIsNotAttributableToPr` dice solo che «esiste un tests.yml
+// verde su main dopo il rosso della PR». Su main, però, `tests.yml` esegue i
+// soli test collegati al diff del push, quindi è verde quasi sempre (24-25/09:
+// 90 success e 4 failure fra le 19:00Z e le 05:30Z) — anche mentre il test che
+// fa fallire la PR è ancora rotto. Il rescue one-shot si consumava così PRIMA
+// che main fosse riparato, e dopo la riparazione non restava nessun arco
+// uscente.
+//
+// Misurato il 2026-09-25: #9692 #9753 #9765 #9766 rosse solo per
+// `tests/live-data-test-guard.test.ts` (rotto da #9724 alle 21:26Z, riparato
+// da #9774 alle 02:03Z modificando `scripts/ci/live-data-test-guard.mjs`, che
+// quel test importa). Il marker one-shot era già speso su tutte e quattro
+// (17:25Z-22:37Z); alle 02:04Z il post-review le ha saltate con «GIÀ
+// ri-testata una volta (marker) — skip: il rosso è suo», e poi il
+// reopen-breaker le ha etichettate `needs-human`.
+//
+// Il criterio qui è la PROVA POSITIVA che main è cambiato proprio dove la PR
+// fallisce: dopo il rosso, un commit di main ha toccato un file di test fallito
+// o un file che quel test importa direttamente. La chiave del rescue è
+// (insieme dei file falliti, quel commit): un rescue per chiave, al massimo
+// `maxRescues` per PR. Se dopo il merge di main gli stessi file falliscono
+// ancora senza un commit di main nuovo su di loro, la chiave resta la stessa e
+// il rosso è della PR.
+
+/** Step del job di esecuzione che esegue i test collegati al diff della PR. */
+export const VITEST_RELATED_STEP_NAME = 'vitest related (PR diff)';
+
+/** Marker del commento sticky di `scripts/ci/report-vitest-failure.mjs`. */
+export const VITEST_FAILURE_REPORT_MARKER = '<!-- vitest-failure-report -->';
+
+/**
+ * Il job è rosso perché è fallito lo step dei TEST? Il review gate, il body e
+ * i gate sorgente (tsc, lint) hanno altri rimedi: un merge di main non ripara
+ * un TS2345 della PR.
+ *
+ * @param {Array<{name?: string, conclusion?: string}>} steps
+ * @returns {boolean}
+ */
+export function vitestFailureIsTestsStep(steps) {
+  if (!Array.isArray(steps)) return false;
+  return steps.some((s) => s && s.name === VITEST_RELATED_STEP_NAME && s.conclusion === 'failure');
+}
+
+/**
+ * I file di test falliti dichiarati dal commento sticky `vitest-failure-report`.
+ * `truncated` è vero quando il report elenca solo i primi fallimenti: l'insieme
+ * è allora incompleto e il chiamante non deve fondarci un rescue.
+ *
+ * @param {string} body
+ * @returns {{headPrefix: string, files: string[], truncated: boolean}|null}
+ */
+export function parseVitestFailureReport(body) {
+  const text = String(body ?? '');
+  if (!text.includes(VITEST_FAILURE_REPORT_MARKER)) return null;
+  const headPrefix = (text.match(/^HEAD verificata: `([0-9a-f]{7,40})`\s*$/mu)?.[1] || '').toLowerCase();
+  const files = [...new Set(
+    [...text.matchAll(/^- \*\*([^*\n]+)\*\* — /gmu)].map((m) => m[1].trim()).filter(Boolean),
+  )].sort();
+  const truncated = /^- … e altri \d+ test falliti/mu.test(text);
+  return { headPrefix, files, truncated };
+}
+
+const RELATIVE_IMPORT_RES = [
+  /\b(?:import|export)\s[^'"`;]*?\bfrom\s*['"](\.{1,2}\/[^'"]+)['"]/gu,
+  /\bimport\s*['"](\.{1,2}\/[^'"]+)['"]/gu,
+  /\bimport\(\s*['"](\.{1,2}\/[^'"]+)['"]\s*\)/gu,
+  /\brequire\(\s*['"](\.{1,2}\/[^'"]+)['"]\s*\)/gu,
+];
+const IMPORT_EXTENSIONS = ['.ts', '.tsx', '.mts', '.mjs', '.js', '.cjs', '.json'];
+
+/**
+ * I path (relativi alla radice del repo) dei moduli importati DIRETTAMENTE da
+ * `fromFile` con uno specifier relativo. Uno specifier senza estensione
+ * produce i candidati in ordine: il chiamante tiene quelli che esistono.
+ * Niente import transitivi: la prova resta economica e leggibile.
+ *
+ * @param {string} source
+ * @param {string} fromFile path del file relativo alla radice
+ * @returns {string[][]} un gruppo di candidati per ogni specifier
+ */
+export function relativeImportCandidates(source, fromFile) {
+  const dir = path.posix.dirname(String(fromFile || ''));
+  const seen = new Set();
+  const groups = [];
+  for (const re of RELATIVE_IMPORT_RES) {
+    for (const m of String(source ?? '').matchAll(re)) {
+      const spec = m[1].split(/[?#]/u)[0];
+      const resolved = path.posix.normalize(path.posix.join(dir, spec));
+      if (resolved.startsWith('../') || seen.has(resolved)) continue;
+      seen.add(resolved);
+      const ext = path.posix.extname(resolved);
+      groups.push(ext
+        ? [resolved]
+        : [...IMPORT_EXTENSIONS.map((e) => `${resolved}${e}`), ...IMPORT_EXTENSIONS.map((e) => `${resolved}/index${e}`)]);
+    }
+  }
+  return groups;
+}
+
+/** Chiave stabile di un insieme di file falliti (ordine e duplicati irrilevanti). */
+export function failingSetKey(files) {
+  const sorted = [...new Set((files || []).map(String))].sort();
+  return createHash('sha256').update(sorted.join('\n'), 'utf8').digest('hex').slice(0, 12);
+}
+
+/**
+ * Decisione pura del rescue del rosso ereditato.
+ *
+ * @param {object} args
+ * @param {{headPrefix: string, files: string[], truncated: boolean}|null} args.report
+ * @param {string} args.head SHA della HEAD della PR
+ * @param {string[]} args.prFiles file del diff della PR
+ * @param {string} args.relevantMainCommit SHA dell'ultimo commit di main, successivo
+ *   al rosso, che tocca un file fallito o un suo import diretto ('' se nessuno)
+ * @param {string[]} args.usedKeys chiavi dei rescue già fatti su questa PR
+ * @param {number} [args.maxRescues]
+ * @returns {{rescue: boolean, reason: string, key: string}}
+ */
+export function inheritedRedRescueDecision({
+  report,
+  head,
+  prFiles = [],
+  relevantMainCommit = '',
+  usedKeys = [],
+  maxRescues = 3,
+} = {}) {
+  const no = (reason, key = '') => ({ rescue: false, reason, key });
+  if (!report) return no('no-report');
+  const reportHead = String(report.headPrefix || '');
+  if (!reportHead || String(head || '').toLowerCase().slice(0, reportHead.length) !== reportHead) {
+    return no('report-other-head');
+  }
+  if (report.files.length === 0) return no('no-failing-files');
+  if (report.truncated) return no('report-truncated');
+  const inDiff = new Set(prFiles);
+  if (report.files.some((f) => inDiff.has(f))) return no('failing-test-in-diff');
+  if (!/^[0-9a-f]{7,40}$/iu.test(String(relevantMainCommit || ''))) return no('main-unchanged');
+  const key = `${failingSetKey(report.files)}@${String(relevantMainCommit).toLowerCase().slice(0, 12)}`;
+  if (usedKeys.includes(key)) return no('already-rescued', key);
+  if (usedKeys.length >= maxRescues) return no('cap-reached', key);
+  return { rescue: true, reason: 'inherited-fixed', key };
 }
 
 /**

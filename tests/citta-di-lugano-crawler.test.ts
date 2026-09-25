@@ -92,6 +92,18 @@ describe('parseListingPage', () => {
   it('extracts PDF URLs', () => {
     const jobs = parseListingPage(LISTING_HTML);
     expect((jobs[0] as any).pdfUrl).toContain('downloadConcorsi');
+    expect((jobs[0] as any).applyUrl).toBe((jobs[0] as any).pdfUrl);
+  });
+
+  it('does not publish a listing that exposes only the generic e-government service', () => {
+    const html = `
+      <ul>
+        <li>
+          <strong>Concorso senza bando individuale</strong>
+          <a href="https://egov.lugano.ch/it/services/3">Partecipa</a>
+        </li>
+      </ul>`;
+    expect(parseListingPage(html)).toHaveLength(0);
   });
 
   it('sets location to Lugano for all jobs', () => {
@@ -146,6 +158,17 @@ describe('buildJob', () => {
     expect(job!.companyKey).toBe('citta-di-lugano');
     expect(job!.location).toBe('Lugano');
     expect(job!.canton).toBe('TI');
+    expect(job!.applyUrl).toBe('');
+  });
+
+  it('uses the job-specific PDF as a handoff when the raw apply URL is generic', () => {
+    const job = buildJob({
+      title: 'Architetto/a progettista',
+      url: 'https://www.lugano.ch/downloadConcorsi/architetto.pdf',
+      pdfUrl: 'https://www.lugano.ch/downloadConcorsi/architetto.pdf',
+      applyUrl: 'https://egov.lugano.ch/it/services/3',
+    });
+    expect(job!.applyUrl).toBe('https://www.lugano.ch/downloadConcorsi/architetto.pdf');
   });
 
   it('generates slug with company name', () => {

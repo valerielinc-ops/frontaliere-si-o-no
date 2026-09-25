@@ -56,13 +56,16 @@ export const FABRICATED_ACRONYMS = [
 /**
  * Known incorrect facts, proximity-constrained (Italian only).
  *
- * No Convention-date pattern: the one that stood here rejected «9 marzo
- * 1976», which is the correct date (RS 0.672.945.41, Fedlex). The inverse
- * pattern cannot be added yet — about 550 IT bodies still carry «9 dicembre
- * 1976» from the old prompt ground truth. New articles are held to the right
- * date by mentionsWrongConventionDate in the generator.
+ * Convention date: it is 9 March 1976 (RS 0.672.945.41, Fedlex). The pattern
+ * that stood here until #9706 rejected the correct date; the two below are
+ * its inverse, same text as mentionsWrongConventionDate in the generator and
+ * as generator/tests/article-fabrication-guard.test.mjs in the corpus repo
+ * (frontaliere-articles#1818). They could land only after that PR corrected
+ * the corpus and the sync brought it into packages/articles/content.
  */
 export const INCORRECT_FACTS = [
+  { pattern: /convenzione.*\b0?9\s*(?:dicembre|[./]\s*12\s*[./])\s*1976\b/i, desc: 'Convenzione italo-svizzera: 9 marzo 1976, non 9 dicembre' },
+  { pattern: /\b0?9\s*(?:dicembre|[./]\s*12\s*[./])\s*1976\b.*convenzione/i, desc: 'Convenzione italo-svizzera: 9 marzo 1976, non 9 dicembre' },
   { pattern: /tassa\s+(?:sulla\s+)?salute\s+(?:\w+\s+){0,5}(?:del\s+)?10\s*%/i, desc: '"Tassa sulla salute del 10%" è un dato inventato' },
 ];
 
@@ -81,6 +84,20 @@ export const FABRICATED_LABOR_OFFICE = {
   de: /\b([Bb]undesamt(?:es)? für Arbeit|[Bb]undesarbeitsamt)\b/,
   fr: /\b(?:[Oo]ffice|[Bb]ureau) fédéral du travail\b/,
   en: /\b[Ff]ederal (?:Labou?r Office|Office of Labou?r)\b/,
+};
+
+// Cross-locale: the Convention's wrong date in any of its written forms. No
+// keyword proximity — a translation calls the Convention «Vereinbarung»,
+// «traité» or «agreement» as often as «Convention», and after the corpus
+// correction no body mentions 9 December 1976 for any other reason. Same
+// patterns as generator/tests/article-fabrication-guard.test.mjs in the corpus
+// repo.
+const NUMERIC_WRONG_CONVENTION_DATE = String.raw`\b0?9\s*[./]\s*12\s*[./]\s*1976\b`;
+export const WRONG_CONVENTION_DATE = {
+  it: new RegExp(String.raw`\b0?9\.?\s*dicembre\s*(?:del\s+)?1976\b|${NUMERIC_WRONG_CONVENTION_DATE}`, 'i'),
+  en: new RegExp(String.raw`\b0?9(?:th)?\s*December,?\s*1976\b|\bDecember\s+0?9(?:th)?,?\s+1976\b|${NUMERIC_WRONG_CONVENTION_DATE}`, 'i'),
+  de: new RegExp(String.raw`\b0?9\.?\s*Dezember\s*1976\b|${NUMERIC_WRONG_CONVENTION_DATE}`, 'i'),
+  fr: new RegExp(String.raw`\b0?9\s*décembre\s*1976\b|${NUMERIC_WRONG_CONVENTION_DATE}`, 'i'),
 };
 
 /**
@@ -148,11 +165,33 @@ export function scanFabricatedLaborOffice(text, locale) {
 }
 
 /**
+ * Runs the cross-locale Convention-date check for one locale.
+ * @param {string} text
+ * @param {string} locale one of 'it'|'en'|'de'|'fr'
+ * @returns {Array<{code: string, desc: string, evidence: string}>}
+ */
+export function scanWrongConventionDate(text, locale) {
+  const pattern = WRONG_CONVENTION_DATE[locale];
+  if (!pattern || typeof text !== 'string' || !text) return [];
+  const m = text.match(pattern);
+  if (!m) return [];
+  return [{
+    code: 'wrong-convention-date',
+    desc: 'Convenzione italo-svizzera: 9 marzo 1976, non 9 dicembre',
+    evidence: m[0].slice(0, 160),
+  }];
+}
+
+/**
  * All checks that apply to a single body-locale's text.
  * @param {string} text
  * @param {string} locale
  */
 export function scanFabricationPatterns(text, locale) {
   const violations = locale === 'it' ? scanItalianOnlyPatterns(text) : [];
-  return [...violations, ...scanFabricatedLaborOffice(text, locale)];
+  return [
+    ...violations,
+    ...scanFabricatedLaborOffice(text, locale),
+    ...scanWrongConventionDate(text, locale),
+  ];
 }
