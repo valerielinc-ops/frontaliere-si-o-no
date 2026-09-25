@@ -798,7 +798,9 @@ export class IncrementalManifest {
 
     const postWalk = compactPostWalkMetadata(input);
     const hash = computeInputHash(input, kind, templateVersion);
-    const reuseHash = computeInputHash(reuseInput, kind, templateVersion);
+    const reuseHash = reuseInput === input
+      ? hash
+      : computeInputHash(reuseInput, kind, templateVersion);
     const entry = {
       kind,
       // `hash` is the publish key. Consumers that decide which output bytes

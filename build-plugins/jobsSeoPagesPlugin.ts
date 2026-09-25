@@ -3278,14 +3278,15 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const activeJobReuseInput = activeJobManifestInput
   ? buildActiveJobPageReuseInput(activeJobManifestInput)
   : null;
- const activeJobSalaryText = formatActiveJobSalaryText(
-  locale,
-  perJob_salaryMin,
-  perJob_salaryMax,
-  perJob_salaryCurrency,
- );
- const activeReuseFragments: ActiveJobReuseFragments | null = activeJobManifestInput
-  ? {
+ const buildActiveReuseFragments = activeJobManifestInput
+  ? (): ActiveJobReuseFragments => {
+   const salaryText = formatActiveJobSalaryText(
+    locale,
+    perJob_salaryMin,
+    perJob_salaryMax,
+    perJob_salaryCurrency,
+   );
+   return {
    jobPostingDatePosted: safeIsoDate(job?.postedDate)
     || safeIsoDate(job?.crawledAt)
     || toIsoDateTime('', jobsSeoReuseBuildNow),
@@ -3298,7 +3299,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
     job,
     locale,
     salaryMin: perJob_salaryMin,
-    salaryText: activeJobSalaryText,
+    salaryText,
     esc,
     now: jobsSeoReuseBuildNow,
    }),
@@ -3308,7 +3309,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
     canonicalUrl,
     addressLocality: perJob_addressLocality,
     salaryMin: perJob_salaryMin,
-    salaryText: activeJobSalaryText,
+    salaryText,
     localeLabels: {
      applyNow: localeCopy[locale].applyNow,
      quickDetails: localeCopy[locale].quickDetails,
@@ -3320,6 +3321,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
     now: jobsSeoReuseBuildNow,
    }),
    recentArticles: recentArticlesHtml,
+   };
   }
   : null;
  const outDir = np.join(distDir, canonicalPath.slice(1));
@@ -3332,8 +3334,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   jobsSeoProbeShapeHints(job),
   {
    reuseInput: activeJobReuseInput,
-   rewriteHtml: activeReuseFragments
-    ? (html: string) => rewriteActiveJobHtml(html, activeReuseFragments)
+   rewriteHtml: buildActiveReuseFragments
+    ? (html: string) => rewriteActiveJobHtml(html, buildActiveReuseFragments())
     : undefined,
   },
  );
@@ -3642,7 +3644,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const salaryMin = perJob_salaryMin;
  const salaryMax = perJob_salaryMax;
  const salaryCurrency = perJob_salaryCurrency;
- const salaryText = activeJobSalaryText;
+ const salaryText = formatActiveJobSalaryText(locale, salaryMin, salaryMax, salaryCurrency);
  // Address fields hoisted to perJob block — all derived from job alone.
  const addressLocality = perJob_addressLocality;
  const addressRegion = perJob_addressRegion;
