@@ -9,6 +9,7 @@ import {
   rotationFromEnv,
   runtimeFailureFingerprint,
 } from '../scripts/runtime-reliability-watch.mjs';
+import { uncoveredAllowListCode } from '../scripts/ci/verify-checkout-profiles.mjs';
 
 function response(body: string, status = 200) {
   return {
@@ -323,30 +324,21 @@ describe('runtime reliability watchdog', () => {
       expect(workflow).toContain('--annotate runtime-reliability-final.json');
     });
 
-    it('checks out every module the watchdog imports (sparse checkout, no npm ci)', () => {
+    // The first version of this case compared import paths with the pattern
+    // list as strings, so a SYMLINK counted as checked out while its target
+    // was not: build-plugins/shared/articleSectionCore.mjs → packages/articles/
+    // engine/shared/articleSectionCore.mjs, ERR_MODULE_NOT_FOUND on the first
+    // run on main (36128534394). The generic allow-list check follows the links
+    // and asks git for the match.
+    it('checks out every module the watchdog loads, symlink targets included', () => {
       const block = workflow.slice(workflow.indexOf('sparse-checkout: |'), workflow.indexOf('sparse-checkout-cone-mode'));
       const patterns = block.split('\n').slice(1).map((line) => line.trim()).filter(Boolean);
-      const covered = (file: string) => patterns.some((pattern) => {
-        if (pattern.endsWith('/**')) return file.startsWith(pattern.slice(0, -2));
-        if (pattern.endsWith('/')) return file.startsWith(pattern);
-        return file === pattern;
-      });
-      // Walk the relative static-import graph from the entry point.
-      const root = new URL('../', import.meta.url);
-      const seen = new Set<string>();
-      const queue = ['scripts/runtime-reliability-watch.mjs'];
-      while (queue.length) {
-        const file = queue.shift()!;
-        if (seen.has(file)) continue;
-        seen.add(file);
-        const src = readFileSync(new URL(file, root), 'utf8');
-        for (const m of src.matchAll(/^import[^;]*?from\s*'(\.[^']+)'/gm)) {
-          queue.push(new URL(m[1], new URL(file, root)).pathname.slice(root.pathname.length));
-        }
-      }
-      expect(seen.has('build-plugins/shared/cantonResolvers.mjs')).toBe(true);
-      expect(seen.has('build-plugins/shared/articleSectionCore.mjs')).toBe(true);
-      expect([...seen].filter((file) => !covered(file))).toEqual([]);
+      expect(patterns).toContain('packages/articles/engine/shared/articleSectionCore.mjs');
+      expect(uncoveredAllowListCode(
+        patterns,
+        ['scripts/runtime-reliability-watch.mjs', 'scripts/load-rc-env.mjs', 'scripts/lib/github-issue-creator.mjs'],
+        { cone: false },
+      )).toEqual([]);
     });
 
     it('pins the content-sample window once per job', () => {

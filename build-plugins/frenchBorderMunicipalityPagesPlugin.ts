@@ -36,6 +36,7 @@ import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
 import { CALC_HREF } from './shared/calcHref';
 import { renderNearestComparison } from './shared/nearestMunicipalityComparison';
+import { buildPeerProse, rankPeerRows } from './shared/peerCohortComparison';
 import { formatSourceAttribution } from './shared/authoritativeSources';
 import { CALCULATOR_REGIME_SCOPE_NOTICE, CALCULATOR_REGIME_SCOPE_TAG } from './shared/calculatorRegimeScope';
 import { BASE_URL, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
@@ -90,6 +91,19 @@ function eur(amount: number, locale: FrenchLocale): string {
 }
 function intFmt(n: number, locale: FrenchLocale): string {
   return new Intl.NumberFormat(intlLang(locale), { maximumFractionDigits: 0 }).format(n);
+}
+
+/** Department names are a sourced, stable fact already present in the dataset. */
+const DEPARTMENT_LABEL: Record<string, Record<FrenchLocale, string>> = {
+  '01': { it: 'Ain', en: 'Ain', de: 'Ain', fr: 'Ain' },
+  '25': { it: 'Doubs', en: 'Doubs', de: 'Doubs', fr: 'Doubs' },
+  '39': { it: 'Giura', en: 'Jura', de: 'Jura', fr: 'Jura' },
+  '74': { it: 'Alta Savoia', en: 'Haute-Savoie', de: 'Haute-Savoie', fr: 'Haute-Savoie' },
+  '90': { it: 'Territorio di Belfort', en: 'Territoire de Belfort', de: 'Territoire de Belfort', fr: 'Territoire de Belfort' },
+};
+
+function departmentLabel(dept: string, locale: FrenchLocale): string {
+  return DEPARTMENT_LABEL[dept]?.[locale] ?? dept;
 }
 
 function taxAmountStr(regime: FrenchRegime, locale: FrenchLocale): string {
@@ -184,6 +198,10 @@ interface Copy {
   colRent: string;
   spreadComparison: string;
   comparisonSource: string;
+  comparisonPeerNoun: string;
+  rentMetric: string;
+  populationMetric: string;
+  rentObservation: (observations: number) => string;
   faqTitle: string;
   faqQ1: (name: string) => string;
   faqA1: (name: string, regime: string) => string;
@@ -240,6 +258,10 @@ const COPY: Record<FrenchLocale, Copy> = {
     colRent: 'Affitto bilocale',
     spreadComparison: 'la distanza dal confine',
     comparisonSource: 'Distanza su strada dal valico più vicino, popolazione e affitto indicativo dal dataset comunale francese (INSEE).',
+    comparisonPeerNoun: 'comuni',
+    rentMetric: "l'affitto mensile indicativo",
+    populationMetric: 'la popolazione',
+    rentObservation: (observations) => `Stima del canone su ${intFmt(observations, 'it')} osservazioni DGALN/DHUP.`,
     faqTitle: 'Domande frequenti',
     faqQ1: (n) => `Che regime fiscale si applica a ${n}?`,
     faqA1: (n, r) =>
@@ -299,6 +321,10 @@ const COPY: Record<FrenchLocale, Copy> = {
     colRent: 'One-bedroom rent',
     spreadComparison: 'the distance to the border',
     comparisonSource: 'Road distance to the nearest crossing, population and indicative rent from the French municipal dataset (INSEE).',
+    comparisonPeerNoun: 'towns',
+    rentMetric: 'indicative monthly rent',
+    populationMetric: 'population',
+    rentObservation: (observations) => `Rent estimate based on ${intFmt(observations, 'en')} DGALN/DHUP observations.`,
     faqTitle: 'FAQ',
     faqQ1: (n) => `Which tax regime applies in ${n}?`,
     faqA1: (n, r) =>
@@ -358,6 +384,10 @@ const COPY: Record<FrenchLocale, Copy> = {
     colRent: 'Miete 2-Zimmer',
     spreadComparison: 'die Entfernung zur Grenze',
     comparisonSource: 'Straßenentfernung zum nächsten Übergang, Einwohnerzahl und Richtmiete aus dem französischen Gemeindedatensatz (INSEE).',
+    comparisonPeerNoun: 'Gemeinden',
+    rentMetric: 'die monatliche Richtmiete',
+    populationMetric: 'die Einwohnerzahl',
+    rentObservation: (observations) => `Mietschätzung auf Basis von ${intFmt(observations, 'de')} Beobachtungen von DGALN/DHUP.`,
     faqTitle: 'Häufige Fragen',
     faqQ1: (n) => `Welches Steuerregime gilt in ${n}?`,
     faqA1: (n, r) =>
@@ -417,6 +447,10 @@ const COPY: Record<FrenchLocale, Copy> = {
     colRent: 'Loyer deux-pièces',
     spreadComparison: 'la distance de la frontière',
     comparisonSource: 'Distance routière du passage le plus proche, population et loyer indicatif issus du jeu de données communal français (INSEE).',
+    comparisonPeerNoun: 'communes',
+    rentMetric: 'le loyer mensuel indicatif',
+    populationMetric: 'la population',
+    rentObservation: (observations) => `Loyer estimé sur la base de ${intFmt(observations, 'fr')} observations DGALN/DHUP.`,
     faqTitle: 'Questions fréquentes',
     faqQ1: (n) => `Quel régime fiscal s'applique à ${n} ?`,
     faqA1: (n, r) =>
@@ -513,7 +547,36 @@ function renderRelated(locale: FrenchLocale, current: FrenchBorderMunicipality):
         value: (m) => eur(m.avgRentMonthly, locale),
       },
     ],
-    sourceNote: c.comparisonSource,
+    sourceNote: `${c.comparisonSource} ${c.rentObservation(current.rentObs)}`,
+    extraProse: ({ current: self, neighbours }) => {
+      const places = [self, ...neighbours.map((entry) => entry.place)];
+      const proseFor = (
+        key: 'avgRentMonthly' | 'population',
+        metricLabel: string,
+        formatValue: (value: number, valueLocale: FrenchLocale) => string,
+        higherIsBetter: boolean,
+      ) =>
+        buildPeerProse({
+          locale,
+          ranked: rankPeerRows(
+            places.map((place) => ({ key: place.slug, name: place.name, value: place[key] })),
+            higherIsBetter,
+          ),
+          currentKey: self.slug,
+          labels: { heading: '', metricLabel, peerNoun: c.comparisonPeerNoun },
+          formatValue,
+          higherIsBetter,
+        });
+
+      // The table exposes the raw values. These two ranked summaries explain
+      // what those values mean for a reader choosing among nearby communes;
+      // peer names survive the information-gain identity mask, while the
+      // figures remain visible and are still treated as data by the auditor.
+      return [
+        ...proseFor('avgRentMonthly', c.rentMetric, (value, valueLocale) => eur(value, valueLocale), false),
+        ...proseFor('population', c.populationMetric, (value, valueLocale) => intFmt(value, valueLocale), true),
+      ];
+    },
   });
 }
 
@@ -557,7 +620,7 @@ export function renderAboveFloorPage(params: {
     <header class="rounded-md border border-edge bg-surface p-5 sm:p-7" data-speakable>
       <div class="flex flex-wrap items-center gap-2 text-sm">
         <span class="rounded-full border border-info-border bg-info-subtle px-3 py-1 font-semibold text-info">${esc(c.role)}</span>
-        <span class="rounded-full border border-edge bg-surface-raised px-3 py-1 text-subtle">${esc(getCantonDisplayName(municipality.canton, locale))} · ${esc(municipality.nearestCrossing)}</span>
+        <span class="rounded-full border border-edge bg-surface-raised px-3 py-1 text-subtle">${esc(departmentLabel(municipality.dept, locale))} · ${esc(getCantonDisplayName(municipality.canton, locale))} · ${esc(municipality.nearestCrossing)}</span>
       </div>
       <h1 class="mt-4 text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(c.h1(n, regimeLabel))}</h1>
       <p class="mt-3 max-w-3xl text-base leading-7 text-body">${esc(c.lede(n, regimeLabel, taxStr))}</p>

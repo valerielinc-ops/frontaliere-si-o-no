@@ -277,11 +277,16 @@ export async function fetchAllLogitechJobs() {
       // was kept; a location string that failed to parse doesn't mean it's
       // foreign — try a real Swiss city in the detail description before
       // skipping, same second-chance anchor as assemble-jobs-dataset.mjs's
-      // canton rescue, falling back to Logitech's Lausanne HQ.
+      // canton rescue. No Lausanne HQ fallback (issue 9842): without a city
+      // the vacancy is dropped below.
       locationFromVacancyText = rescueSwissCityFromText(detailDescription);
-      location = locationFromVacancyText || 'Lausanne';
+      location = locationFromVacancyText;
     }
-    const canton = inferSwissTargetCanton(location) || 'VD';
+    const canton = location ? inferSwissTargetCanton(location) : '';
+    if (!canton) {
+      console.log(`  ⏭️  Skipped location without a Swiss canton: ${rawLocation || '(none)'} — ${title}`);
+      continue;
+    }
     // Same defect as scripts/lib/nestle-job-parser.mjs, same repair: Workday
     // hands back "Lausanne, Switzerland", that string was stored verbatim as
     // `location`/`addressLocality`, and every consumer then appended the canton
