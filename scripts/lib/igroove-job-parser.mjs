@@ -30,7 +30,11 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton, swissCityFromLocationField } from './target-swiss-locations.mjs';
+import {
+  inferSwissTargetCanton,
+  isWorkModeLocationLabel,
+  swissCityFromLocationField,
+} from './target-swiss-locations.mjs';
 import { fetchPersonioJobs } from './ats-clients/personio-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -217,6 +221,13 @@ export async function fetchAllIgrooveJobs() {
       listing.location,
       listing.locationDetail,
     );
+    // An office that is a work mode (`Remote`, `Hybrid`) names no place: skip
+    // it rather than publish the label with the HQ canton (issue 9839 rule).
+    // `Zürich Hybrid` still names Zürich and resolves above.
+    if (isWorkModeLocationLabel(location)) {
+      console.log(`  ⏭️  Skipped (office names no place: ${location}): ${title}`);
+      continue;
+    }
 
     const descriptionHtml = listing.descriptionHtml || '';
     const descriptionText = stripHtml(descriptionHtml);
