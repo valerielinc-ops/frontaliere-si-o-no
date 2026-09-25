@@ -809,6 +809,7 @@ const RAW_ARTICLES = [
  id: 'credito-imposta-doppia-tassazione',
  category: 'fiscale',
  date: '2026-02-23T16:13:02.045Z',
+ updatedAt: '2026-09-25',
  image: '/images/blog/credito-imposta-doppia-tassazione.webp',
  hasCalculator: true,
  authorSlug: 'redazione',

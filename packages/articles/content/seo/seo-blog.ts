@@ -2781,7 +2781,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
  'blog-credito-imposta-doppia-tassazione': {
  title: 'Doppia imposizione frontaliere: guida | Frontaliere Ticino',
- description: 'Nuovo frontaliere in Ticino? Scopri il credito d\'imposta per evitare la doppia tassazione sullo stipendio svizzero. Guida al Quadro CE del 730 con esempi 2026.',
+ description: 'Nuovo frontaliere in Ticino? Scopri il credito d\'imposta per evitare la doppia tassazione sullo stipendio svizzero. Guida ai quadri C e G del 730 con esempi 2026.',
  keywords: 'frontaliere doppia imposizione, credito imposta, come funziona, tasse frontalieri ticino, quadro ce 730, nuovo accordo fiscale, dichiarazione redditi frontalieri',
  ogTitle: 'Frontalieri, stop alla doppia tassa: la guida al credito d\'imposta',
  ogDescription: 'Lavori in Ticino e temi la doppia imposizione? Ecco come funziona il credito d\'imposta e come risparmiare migliaia di euro con il Modello 730.',
