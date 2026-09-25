@@ -1,21 +1,26 @@
 import { describe, expect, it } from 'vitest';
 import {
   KEY_ID,
+  newKeyId,
   provisionPagespeedKey,
   restrictionsMatch,
 } from '../scripts/ci/provision-pagespeed-key.mjs';
 
 const CREDENTIALS = { client_email: 'sa@example.iam.gserviceaccount.com', private_key: 'PRIVATE', project_id: 'demo-project' };
 const KEY_STRING = 'AIza-test-key-value';
-const KEY_NAME = `projects/demo-project/locations/global/keys/${KEY_ID}`;
+const NOW = new Date('2026-09-25T06:07:08Z');
+const NEW_KEY_ID = `${KEY_ID}-202609250607`;
+const NEW_KEY_NAME = `projects/demo-project/locations/global/keys/${NEW_KEY_ID}`;
+const OLD_KEY_NAME = `projects/demo-project/locations/global/keys/${KEY_ID}`;
+const BOTH_APIS = { apiTargets: [{ service: 'pagespeedonline.googleapis.com' }, { service: 'chromeuxreport.googleapis.com' }] };
 
 type Call = { method: string; url: string; body?: unknown };
 
-/** A fake Google: Service Usage, API Keys v2, PSI and CrUX, recording every call. */
+/** A fake Google: Service Usage, API Keys v2, PSI and CrUX, recording every call. Probe tuples: [PSI, queryRecord, queryHistoryRecord]. */
 function fakeGoogle({
   enabled = [] as string[],
-  existingKey = null as null | { name: string; restrictions?: unknown },
-  probeStatuses = [[200, 200]] as Array<[number, number]>,
+  existingKeys = [] as Array<{ name: string; restrictions?: unknown; createTime?: string; deleteTime?: string }>,
+  probeStatuses = [[200, 200, 200]] as Array<[number, number, number]>,
   forbidden = false,
 } = {}) {
   const calls: Call[] = [];
@@ -30,16 +35,19 @@ function fakeGoogle({
     }
     if (url.endsWith('services:batchEnable')) return json(200, { name: 'operations/enable-1', done: true, response: {} });
     if (url.includes('apikeys.googleapis.com') && url.endsWith('/locations/global/keys') && method === 'GET') {
-      return json(200, { keys: existingKey ? [existingKey] : [] });
+      return json(200, { keys: existingKeys });
     }
-    if (url.includes(`keys?keyId=${KEY_ID}`)) return json(200, { name: 'operations/create-1', done: true, response: { name: KEY_NAME } });
-    if (url.includes('updateMask=restrictions')) return json(200, { name: 'operations/patch-1', done: true, response: {} });
+    if (url.includes(`keys?keyId=${KEY_ID}-`) && method === 'POST') {
+      const keyId = new URL(url).searchParams.get('keyId');
+      return json(200, { name: 'operations/create-1', done: true, response: { name: `projects/demo-project/locations/global/keys/${keyId}` } });
+    }
     if (url.endsWith('/keyString')) return json(200, { keyString: KEY_STRING });
-    if (url.includes('pagespeedonline')) return new Response('{}', { status: (probeStatuses[probe] || probeStatuses.at(-1))![0] });
-    if (url.includes('chromeuxreport')) {
-      const status = (probeStatuses[probe] || probeStatuses.at(-1))![1];
+    const statuses = probeStatuses[probe] || probeStatuses.at(-1)!;
+    if (url.includes('pagespeedonline')) return new Response('{}', { status: statuses[0] });
+    if (url.includes('records:queryRecord')) return new Response('{}', { status: statuses[1] });
+    if (url.includes('records:queryHistoryRecord')) {
       probe += 1;
-      return new Response('{}', { status });
+      return new Response('{}', { status: statuses[2] });
     }
     return json(404, { error: { message: `unexpected ${method} ${url}` } });
   };
@@ -59,6 +67,7 @@ function run(google: ReturnType<typeof fakeGoogle>, overrides: Record<string, un
     mask: (value: string) => { masked.push(value); },
     probeAttempts: 3,
     probeDelayMs: 0,
+    now: NOW,
     ...overrides,
   });
   return { promise, writes, masked };
@@ -75,48 +84,108 @@ describe('provision-pagespeed-key', () => {
     expect(restrictionsMatch(undefined)).toBe(false);
   });
 
+  it('rejects a key whose API targets are limited to some methods only', () => {
+    expect(restrictionsMatch({
+      apiTargets: [
+        { service: 'pagespeedonline.googleapis.com' },
+        { service: 'chromeuxreport.googleapis.com', methods: ['google.chrome.uxreport.v1.RecordService.QueryRecord'] },
+      ],
+    })).toBe(false);
+  });
+
+  it('names a new key with the prefix and a UTC minute suffix', () => {
+    expect(newKeyId(NOW)).toBe(NEW_KEY_ID);
+    expect(NEW_KEY_ID).toMatch(/^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$/);
+  });
+
   it('dry run only reads: no enable, no key, no Remote Config', async () => {
-    const google = fakeGoogle();
+    const google = fakeGoogle({ enabled: ['apikeys.googleapis.com'] });
     const { promise, writes } = run(google, { dryRun: true });
     await expect(promise).resolves.toMatchObject({ dryRun: true, created: true });
     expect(google.calls.every((call) => call.method === 'GET')).toBe(true);
+    expect(google.calls.some((call) => call.url.endsWith('/locations/global/keys'))).toBe(true);
+    expect(writes).toEqual([]);
+  });
+
+  it('dry run with the API Keys API disabled stops before listing keys', async () => {
+    const google = fakeGoogle();
+    const { promise, writes } = run(google, { dryRun: true });
+    await expect(promise).resolves.toMatchObject({ dryRun: true, servicesEnabled: expect.arrayContaining(['apikeys.googleapis.com']) });
+    expect(google.calls.some((call) => call.url.includes('apikeys.googleapis.com'))).toBe(false);
     expect(writes).toEqual([]);
   });
 
   it('enables the APIs, creates the restricted key, verifies it, then writes Remote Config', async () => {
     const google = fakeGoogle({ enabled: ['pagespeedonline.googleapis.com'] });
     const { promise, writes, masked } = run(google);
-    await expect(promise).resolves.toMatchObject({ created: true, remoteConfig: 'written' });
+    await expect(promise).resolves.toMatchObject({ created: true, keyId: NEW_KEY_ID, remoteConfig: 'written' });
     const enable = google.calls.find((call) => call.url.endsWith('services:batchEnable'));
     expect(enable?.body).toEqual({ serviceIds: ['chromeuxreport.googleapis.com', 'apikeys.googleapis.com'] });
-    const create = google.calls.find((call) => call.url.includes(`keyId=${KEY_ID}`));
-    expect(create?.body).toMatchObject({ restrictions: { apiTargets: [{ service: 'pagespeedonline.googleapis.com' }, { service: 'chromeuxreport.googleapis.com' }] } });
+    const create = google.calls.find((call) => call.method === 'POST' && call.url.includes('keyId='));
+    expect(create?.url).toContain(`keyId=${NEW_KEY_ID}`);
+    expect(create?.body).toMatchObject({ restrictions: BOTH_APIS });
+    expect(google.calls.some((call) => call.url.includes(`${NEW_KEY_NAME}/keyString`))).toBe(true);
+    // Every consumer endpoint is probed before the write.
+    expect(google.calls.some((call) => call.url.includes('records:queryHistoryRecord'))).toBe(true);
     expect(writes).toHaveLength(1);
     expect(writes[0]).toMatchObject({ name: 'PAGESPEED_API_KEY', value: KEY_STRING });
     // The key and the token are masked before anything else happens with them.
     expect(masked).toEqual(expect.arrayContaining(['cloud-token', KEY_STRING]));
   });
 
-  it('realigns the restrictions of an existing key instead of creating a second one', async () => {
+  it('never mutates an existing non-conforming key: it creates a new one next to it', async () => {
     const google = fakeGoogle({
       enabled: ['pagespeedonline.googleapis.com', 'chromeuxreport.googleapis.com', 'apikeys.googleapis.com'],
-      existingKey: { name: KEY_NAME, restrictions: { apiTargets: [{ service: 'generativelanguage.googleapis.com' }] } },
+      existingKeys: [{ name: OLD_KEY_NAME, restrictions: { apiTargets: [{ service: 'generativelanguage.googleapis.com' }] } }],
     });
     const { promise } = run(google);
-    await expect(promise).resolves.toMatchObject({ created: false });
-    expect(google.calls.some((call) => call.url.includes(`keyId=${KEY_ID}`))).toBe(false);
-    expect(google.calls.find((call) => call.method === 'PATCH')?.url).toContain(`${KEY_NAME}?updateMask=restrictions`);
+    await expect(promise).resolves.toMatchObject({ created: true, keyId: NEW_KEY_ID });
+    expect(google.calls.some((call) => call.method === 'PATCH' || call.method === 'DELETE')).toBe(false);
+    expect(google.calls.some((call) => call.url.includes(`${OLD_KEY_NAME}/keyString`))).toBe(false);
+  });
+
+  it('a failed probe on a new key leaves every existing key and Remote Config untouched', async () => {
+    const google = fakeGoogle({
+      enabled: ['pagespeedonline.googleapis.com', 'chromeuxreport.googleapis.com', 'apikeys.googleapis.com'],
+      existingKeys: [{ name: OLD_KEY_NAME, restrictions: { apiTargets: [{ service: 'pagespeedonline.googleapis.com' }] } }],
+      probeStatuses: [[403, 403, 403]],
+    });
+    const { promise, writes } = run(google);
+    await expect(promise).rejects.toThrow(/Remote Config left unchanged/);
+    // The only write against Google is the creation of the new key; the probes are reads with the key.
+    const googleWrites = google.calls.filter((call) => call.method !== 'GET' && !call.url.includes('chromeuxreport.googleapis.com/v1/records:'));
+    expect(googleWrites.map((call) => call.url)).toEqual([expect.stringContaining(`keyId=${NEW_KEY_ID}`)]);
+    expect(google.calls.filter((call) => call.url.includes('records:queryHistoryRecord'))).toHaveLength(3);
+    expect(writes).toEqual([]);
+  });
+
+  it('reuses the newest conforming key and skips deleted ones', async () => {
+    const google = fakeGoogle({
+      enabled: ['pagespeedonline.googleapis.com', 'chromeuxreport.googleapis.com', 'apikeys.googleapis.com'],
+      existingKeys: [
+        { name: `${OLD_KEY_NAME}-202609200000`, restrictions: BOTH_APIS, createTime: '2026-09-20T00:00:00Z' },
+        { name: `${OLD_KEY_NAME}-202609240000`, restrictions: BOTH_APIS, createTime: '2026-09-24T00:00:00Z', deleteTime: '2026-09-24T01:00:00Z' },
+        { name: `${OLD_KEY_NAME}-202609220000`, restrictions: BOTH_APIS, createTime: '2026-09-22T00:00:00Z' },
+      ],
+    });
+    const { promise } = run(google);
+    await expect(promise).resolves.toMatchObject({ created: false, keyId: `${KEY_ID}-202609220000` });
+    expect(google.calls.some((call) => call.method === 'POST' && call.url.includes('keyId='))).toBe(false);
   });
 
   it('waits for a new key to propagate and treats CrUX 404 (no data) as authorized', async () => {
-    const google = fakeGoogle({ probeStatuses: [[403, 403], [200, 404]] });
+    const google = fakeGoogle({ probeStatuses: [[403, 403, 403], [200, 404, 404]] });
     const { promise, writes } = run(google);
     await expect(promise).resolves.toMatchObject({ remoteConfig: 'written' });
     expect(writes).toHaveLength(1);
   });
 
-  it('never writes Remote Config when the key does not authorize both APIs', async () => {
-    const google = fakeGoogle({ probeStatuses: [[200, 403]] });
+  it.each([
+    ['CrUX queryRecord', [200, 403, 200]],
+    ['CrUX queryHistoryRecord', [200, 200, 403]],
+    ['PSI runPagespeed', [403, 200, 200]],
+  ] as Array<[string, [number, number, number]]>)('never writes Remote Config when %s is not authorized', async (_endpoint, statuses) => {
+    const google = fakeGoogle({ probeStatuses: [statuses] });
     const { promise, writes } = run(google);
     await expect(promise).rejects.toThrow(/Remote Config left unchanged/);
     expect(writes).toEqual([]);
