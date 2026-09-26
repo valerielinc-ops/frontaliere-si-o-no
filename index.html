@@ -542,7 +542,6 @@
           w.release = function(){
             if (w.state !== 'held') return false;
             w.state = 'released';
-            w.reacquired = false;
             var h = w.held.splice(0);
             for (var i = 0; i < h.length; i++) {
               try { h[i].proceed(true); } catch (e) {}
@@ -554,20 +553,15 @@
           var w = window.__ftOfferwallGate;
           if (!w) return;
           if (isJobBoardPath()) {
-            if (w.state === 'off_board') {
-              var message = w.reacquire;
+            if (w.state === 'off_board' && w.reacquire) {
+              // The off-board callback was already completed with
+              // proceed(false). Wait for Funding Choices to deliver a fresh
+              // destination-route callback before exposing release().
               w.reacquire = undefined;
-              if (message && hasConsentDecision()) {
-                w.held = [];
-                hold(w, message, (g.MessageTypeEnum || {}).OFFERWALL);
-                w.reacquired = true;
-              } else {
-                w.state = message ? 'suppressed' : 'idle';
-                w.held = [];
-                w.release = undefined;
-                w.offerwall = undefined;
-                w.reacquired = false;
-              }
+              w.state = hasConsentDecision() ? 'idle' : 'suppressed';
+              w.held = [];
+              w.release = undefined;
+              w.offerwall = undefined;
             }
             return;
           }
@@ -586,7 +580,6 @@
           w.release = undefined;
           w.offerwall = undefined;
           w.reacquire = undefined;
-          w.reacquired = false;
         }
         function watchRoutes(){
           var h = window.history;
@@ -618,7 +611,7 @@
           // this call also carries still show.
           if (!isJobBoardPath()) {
             window.__ftOfferwallGate = window.__ftOfferwallGate || { state: 'off_board', held: [] };
-            window.__ftOfferwallGate.reacquire = message;
+            window.__ftOfferwallGate.reacquire = true;
             message.proceed(false, [E.OFFERWALL]);
             return;
           }
@@ -636,10 +629,6 @@
           if (w.state === 'released') {
             message.proceed(true);
             return;
-          }
-          if (w.reacquired) {
-            w.held = [];
-            w.reacquired = false;
           }
           hold(w, message, E.OFFERWALL);
         };

@@ -124,7 +124,15 @@ function install(
 
 function message(): FakeMessage {
   const calls: unknown[][] = [];
-  return { calls, proceed: (...args: unknown[]) => calls.push(args) };
+  let completed = false;
+  return {
+    calls,
+    proceed: (...args: unknown[]) => {
+      if (completed) throw new Error('Funding Choices messages are one-shot');
+      completed = true;
+      calls.push(args);
+    },
+  };
 }
 
 const ENUM = { OFFERWALL: 1, AD_BLOCKING: 2 };
@@ -312,7 +320,7 @@ describe.each(COPIES)('%s', (_name, src) => {
     expect(win.googlefc!.controlledMessagingFunction).toBe(callback);
   });
 
-  it('reacquires the off-board Offerwall callback when entering the job board', () => {
+  it('waits for a fresh Offerwall callback when entering the job board', () => {
     const win = install(src, '/');
     const callback = win.googlefc!.controlledMessagingFunction!;
 
@@ -321,16 +329,25 @@ describe.each(COPIES)('%s', (_name, src) => {
     expect(first.calls).toEqual([[true]]);
 
     win.googlefc!.MessageTypeEnum = ENUM;
-    const offerwall = message();
-    callback(offerwall);
-    expect(offerwall.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
+    const offBoardOfferwall = message();
+    callback(offBoardOfferwall);
+    expect(offBoardOfferwall.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
     expect(win.__ftOfferwallGate?.state).toBe('off_board');
 
     win.history.pushState({}, '', '/it/cerca-lavoro-ticino/');
+    expect(win.__ftOfferwallGate?.state).toBe('idle');
+    expect(win.__ftOfferwallGate!.release).toBeUndefined();
+
+    const destinationOfferwall = message();
+    callback(destinationOfferwall);
+    expect(destinationOfferwall.calls).toEqual([]);
     expect(win.__ftOfferwallGate?.state).toBe('held');
     expect(win.__ftOfferwallGate!.release!()).toBe(true);
-    expect(offerwall.calls).toEqual([[false, [ENUM.OFFERWALL]], [true]]);
-    expect(offerwall.calls.filter(([proceed]) => proceed === true)).toHaveLength(1);
+    expect(offBoardOfferwall.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
+    expect(destinationOfferwall.calls).toEqual([[true]]);
+    expect([offBoardOfferwall, destinationOfferwall]
+      .flatMap((m) => m.calls)
+      .filter(([proceed]) => proceed === true)).toHaveLength(1);
   });
 });
 
