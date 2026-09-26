@@ -4,11 +4,11 @@
   "generatorSha256": "6f2cd09fca08906ae233f535997403217908d5d4fc55160cc318563846ca2320",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "4f4099c8654694791ef508d476c398e313bc2f61",
+  "sourceCommit": "cd0d820d5b817230d1ba381436ec54e4ab00c052",
   "artifactObservation": {
     "generatorSha256": "6f2cd09fca08906ae233f535997403217908d5d4fc55160cc318563846ca2320",
     "sourceRef": "main",
-    "sourceCommit": "4f4099c8654694791ef508d476c398e313bc2f61"
+    "sourceCommit": "cd0d820d5b817230d1ba381436ec54e4ab00c052"
   },
   "groupCount": 24,
   "artifactCount": 25,
@@ -17,7 +17,7 @@
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:955c0cc302f3930558ab5e17058bb87590c9f22ee0c9062bf5b2b6547a8aaf63",
+    "rosterDigest": "sha256:f60cd973b20980d5033237756a8236659b2b92f5d529671adf97a70f456ea047",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -914,8 +914,8 @@
     {
       "file": "crawler-group-09.yml",
       "sourceLogic": "crawler-group-09-logic.yml",
-      "sourceSha256": "2fc19ba27a0a090f91e15c831b807c9d70aab7b1925c7df12c4fabd754bd6463",
-      "artifactSha256": "4fc0224725f8c52f5ae221f1ef11020cc6cce9d8c9665443070329ccd81d9191",
+      "sourceSha256": "ceb1b937408f30569793444e312701fac27fb5ea84751abed9edd8246febe066",
+      "artifactSha256": "5d74b0496c2445337a61b1d8a0292f8e1663c3a8c719c9c7928dbf0aeff76915",
       "generatorSha256": "6f2cd09fca08906ae233f535997403217908d5d4fc55160cc318563846ca2320",
       "members": [
         "solina",
@@ -927,8 +927,6 @@
         "oetiker",
         "suva",
         "weisse-arena",
-        "lwphr",
-        "sunrise",
         "csc-costruzioni",
         "spital-sts",
         "ete",
@@ -1139,15 +1137,14 @@
     {
       "file": "crawler-group-15.yml",
       "sourceLogic": "crawler-group-15-logic.yml",
-      "sourceSha256": "ddf4c04f5fd1443eaad102b769f66a9fb685a6a4f07d6d1b7899f2696adc7fc9",
-      "artifactSha256": "8db34bfbdecdac31a7c1f49bbbc48c3f4264c3d8c4a338e49a2913162f6dd12c",
+      "sourceSha256": "793137805c36480a1bc067824b01f9bf1fa86ccde319d7104b9f84ddd6d03937",
+      "artifactSha256": "d4601d5102a7f8aa33a445bf70a96ddd7a08c5945941fc3a3975e95c6a0a1e46",
       "generatorSha256": "6f2cd09fca08906ae233f535997403217908d5d4fc55160cc318563846ca2320",
       "members": [
         "kronenhof",
         "spital-affoltern",
         "valiant-bank",
         "octapharma",
-        "knowledge-lab",
         "wagerenhof",
         "pfister",
         "unispital-basel",
@@ -1459,8 +1456,8 @@
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "862c4577b0aebcb6086fbfc637affcc3f4d205af553b7c8b9568521889def738",
-      "artifactSha256": "5b0033beee43dc6b4e2806b8d24a4cf6282088101f5b51fcc54c622c00e96bd0",
+      "sourceSha256": "78ee68dc283d6e5d2de15a653de97ee35558b1bc5c787dd68586fc7f60cefc36",
+      "artifactSha256": "cb6b0b3d352bfad7b372b811990d2cc5b9d37676a01f0c125cfd44834987a5dd",
       "generatorSha256": "6f2cd09fca08906ae233f535997403217908d5d4fc55160cc318563846ca2320",
       "members": [
         "mcdonald-s-switzerland",
@@ -1475,7 +1472,10 @@
         "tpl-lugano",
         "capri-holdings",
         "confederazione",
-        "protectas"
+        "protectas",
+        "lwphr",
+        "sunrise",
+        "knowledge-lab"
       ]
     },
     {

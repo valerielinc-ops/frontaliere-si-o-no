@@ -1333,6 +1333,9 @@ describe('#6482 — committed crawler-group-*.yml are byte-identical to the gene
       'capri-holdings',
       'confederazione',
       'protectas',
+      'lwphr',
+      'sunrise',
+      'knowledge-lab',
     ]);
     expect(previousGroup).not.toContain('mcdonald-s-switzerland');
     expect(generated[GROUP_COUNT - 1].members).toEqual(newGroup);
