@@ -26,6 +26,7 @@ import path from 'path';
 import type { Plugin } from 'vite';
 import { BASE_URL } from './constants';
 import { pruneAlreadyListedLocaleVariants } from './shared/localeVariantSitemap';
+import { reconcileSitemapSearchClustersWithDist } from './relatedSearchClustersPlugin';
 
 /**
  * Filenames that must NEVER appear in the sitemap index itself:
@@ -298,7 +299,14 @@ export function sitemapAliasPlugin(rootDir: string): Plugin {
         const distDir = path.resolve(rootDir, 'dist');
         if (!fs.existsSync(distDir)) return;
 
-        // 0. Hreflang-reciprocity sanitizer (issue #3474). Runs BEFORE the
+        // 0. Final dist-truth reconciliation for cluster sitemaps. This hook
+        //    is deliberately the last sitemap hook in the post phase: the
+        //    related-search producer's first pass runs before later page
+        //    emitters, so only this position can catch a late noindex or
+        //    non-self-canonical overwrite.
+        await reconcileSitemapSearchClustersWithDist(distDir);
+
+        // 1. Hreflang-reciprocity sanitizer (issue #3474). Runs BEFORE the
         //    legacy alias copy so sitemap_news.xml inherits sanitized
         //    content, and before index regeneration.
         let sitemapFiles: SitemapXmlFile[] = fs
@@ -311,7 +319,7 @@ export function sitemapAliasPlugin(rootDir: string): Plugin {
             xml: fs.readFileSync(path.join(distDir, file), 'utf-8'),
           }));
 
-        // 0-pre. Locale-variant backfill de-duplication (issue #5110).
+        // 1-pre. Locale-variant backfill de-duplication (issue #5110).
         //    staticPagesPlugin writes sitemap-locale-variants-*.xml from its
         //    own emit bookkeeping, in a closeBundle that runs in parallel with
         //    every other SEO plugin's — it cannot know which URLs
@@ -344,7 +352,7 @@ export function sitemapAliasPlugin(rootDir: string): Plugin {
           );
         }
 
-        // 1. Legacy alias: sitemap-news.xml → sitemap_news.xml
+        // 2. Legacy alias: sitemap-news.xml → sitemap_news.xml
         //    Must run BEFORE discovery so the alias file exists when the
         //    discovery step runs (the alias is excluded from the index, but
         //    we still need it on disk for legacy consumers).
@@ -355,7 +363,7 @@ export function sitemapAliasPlugin(rootDir: string): Plugin {
           console.log('\x1b[36m[sitemap-alias]\x1b[0m Created sitemap_news.xml alias');
         }
 
-        // 2. Auto-discover all sitemap-*.xml in dist/ and regenerate the index
+        // 3. Auto-discover all sitemap-*.xml in dist/ and regenerate the index
         const discovered = await discoverSitemapFiles(distDir);
         const indexPath = path.join(distDir, 'sitemap.xml');
         const xml = buildSitemapIndexXml(discovered, BASE_URL);
