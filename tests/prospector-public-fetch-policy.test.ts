@@ -289,6 +289,41 @@ describe('prospector public-only polite transport', () => {
     expect(jinaFetchImpl).toHaveBeenCalledTimes(2);
   });
 
+  it('rescues a connection-level seed failure through Jina instead of returning zero listings', async () => {
+    const seed = 'https://employer.example/jobs';
+    const detail = 'https://employer.example/careers/detail/1';
+    const listing = `<a href="/careers/detail/1">Platform Engineer</a>${' listing'.repeat(60)}`;
+    const detailHtml = '<h1>Platform Engineer</h1><div class="job-location">Zürich</div>'
+      + '<article class="vacancy-description">Build reliable systems for our engineering organisation, '
+      + 'coordinate production releases, improve observability, support colleagues across the platform team, '
+      + 'and document resilient operational practices for every service owner.</article>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) throw new TypeError('fetch failed');
+      if (url === detail) return response(url, 200, null, detailHtml);
+      throw new Error(`unexpected URL ${url}`);
+    });
+    const jinaFetchImpl = vi.fn(async (url: string) => response(url, 200, null, listing));
+
+    const rows = await runSpecInProduction({
+      companyKey: 'employer', companyName: 'Employer', companyHost: 'employer.example',
+      mode: 'template', seedUrls: [seed], detailTemplate: '/careers/detail/*',
+    } as any, {
+      fetchImpl,
+      jinaFetchImpl,
+      retries: 0,
+      jinaRetries: 0,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      jinaSleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([expect.objectContaining({
+      title: 'Platform Engineer', url: detail, location: 'Zürich', canton: 'ZH',
+    })]);
+    expect(jinaFetchImpl).toHaveBeenCalledOnce();
+  });
+
   it('marks an exhausted WAF rescue as anti-bot so the prior slice can be preserved', async () => {
     const seed = 'https://employer.example/jobs';
     const fetchImpl = vi.fn(async (url: string) => response(
