@@ -71,7 +71,7 @@ Ogni 🟡 dichiara la propria disposizione:
 
 ## Tier review (effort + adversarial depth)
 
-`pr-review-loop.yml` passa il tier derivato dai file; regola depth+probing di conseguenza.
+`tests.yml` deriva il tier dai file; regola depth+probing di conseguenza.
 
 **Effort** (`tests.yml` → `reasoning_effort`): `max` per `high`/`high-mega`; `high` per gli altri tier. L'evidenza strutturata è validata contro `CODEX_ALLOWED_EFFORTS`.
 
@@ -80,11 +80,11 @@ Ogni 🟡 dichiara la propria disposizione:
 | Tier | Trigger files (CODE) | Adversarial depth |
 |---|---|---|
 | **high** | `tests/**`, `.github/workflows/**`, `build-plugins/**`, e gli script **funnel-critical**: crawler/parser/adapter, `backfill-*`, `migrate-*`, `assemble-*`, sitemap/canonical/slug/redirect/structured-data — tutto `scripts/**` ECCETTO i non-funnel sotto | Bug nel test/CI/build/emitter = falso senso sicurezza che si propaga su ogni merge. Probe regex/assertion/exit-code/idempotency. Lista 3 cose NON verificate prima dell'output (`## Adversarial check`). |
-| **high-mega** | Stesso trigger di `high`, ma con ≥25 code file nel diff (PR batch di grande taglia: crawler multipli, migrazioni cross-file) | Stesso rigore/probing di `high` (`## Adversarial check` incluso) — solo più budget di turni (90 vs 60), non più severity: la taglia della PR non abbassa lo standard. |
+| **high-mega** | Trigger di `high` con ≥25 code file nel diff (PR batch: crawler multipli, migrazioni) | Rigore di `high` (`## Adversarial check` incluso), solo più turni (90 vs 60): la taglia non abbassa lo standard. |
 | **normal** | tutto il resto, inclusi gli script NON-funnel: `scripts/{ci,dev,evals}/` (helper CI/dev) e gli audit/report read-only (`audit-*`, `analytics*`, `*-report` — verificano, non mutano l'indice) | Single-pass standard. No adversarial step obbligatorio. |
 | **minimal** | PR data/docs-only (ZERO code reviewable) | Percorso corto ≤6 turni di Codex Luna (effort `high`): solo completeness-contract del body, niente REVIEW.md/cross-file/adversarial. Posta `## LGTM`. |
-| **incremental** / **incremental-high** | Re-review con delta-code non-funnel (→ `incremental`) o funnel-critical (→ `incremental-high`). Codex Luna (`gpt-5.6-luna`, effort `high`) su entrambi: cambia solo il probing, non il modello. | **Token-lever**: i commit fino a `INCREMENTAL_BASE` erano già reviewati → review SOLO il delta dei file PR (`compare $INCREMENTAL_BASE...$HEAD`), non l'intero contributo. Read/grep dei file pieni consentito per il contesto. `incremental-high` mantiene il probing rigoroso + `## Adversarial check` sul delta; `incremental` è single-pass. Prima review → NON incrementale (high|normal full). Delta-code vuoto → vedi `carry-forward`. |
-| **carry-forward** | Nessun file code della PR cambiato dall'ultima review (merge di main, commit vuoto, sola metadata) **e** fingerprint del contributo identico (`scripts/ci/pr-contribution-fingerprint.mjs`) | Zero modello se l'ultimo verdetto era `## LGTM`: `scripts/ci/lib/review-carry-forward.mjs` pubblica sulla HEAD esatta una review marcata `REVIEW_CARRY_FORWARD` e il review gate la riverifica da capo. Se l'ultimo verdetto non era approvante → tier `minimal` con la sezione `## Code contribution unchanged` nel bundle: si rigiudica solo il body, i 🔴 di codice si riportano identici e non si chiudono con `Fix di`. Stesso tier `minimal` quando il body viene corretto sulla stessa HEAD dopo un verdetto non approvante (`shouldAdmitBodyReReview`). Fingerprint non calcolabile o diverso → review piena. |
+| **incremental** / **incremental-high** | Re-review con delta-code non-funnel (→ `incremental`) o funnel-critical (→ `incremental-high`). Stesso modello `gpt-5.6-luna`, effort `high`: cambia solo il probing. | **Token-lever**: i commit fino a `INCREMENTAL_BASE` erano già reviewati → review SOLO il delta dei file PR (`compare $INCREMENTAL_BASE...$HEAD`), non l'intero contributo. Read/grep dei file pieni consentito per il contesto. `incremental-high` mantiene il probing rigoroso + `## Adversarial check` sul delta; `incremental` è single-pass. Prima review → NON incrementale (high|normal full). Fingerprint identico → `carry-forward`. |
+| **carry-forward** | Fingerprint del contributo identico all'ultima review (`scripts/ci/pr-contribution-fingerprint.mjs`): merge di main, anche se tocca file della PR, commit vuoto, sola metadata | Zero modello se l'ultimo verdetto era `## LGTM`: `scripts/ci/lib/review-carry-forward.mjs` pubblica sulla HEAD esatta una review marcata `REVIEW_CARRY_FORWARD` e il review gate la riverifica da capo. Se l'ultimo verdetto non era approvante → tier `minimal` con la sezione `## Code contribution unchanged` nel bundle: si rigiudica solo il body, i 🔴 `open` di codice si riportano identici e non si chiudono con `Fix di`. Stesso tier `minimal` quando il body viene corretto sulla stessa HEAD dopo un verdetto non approvante (`shouldAdmitBodyReReview`). Fingerprint non calcolabile o diverso → review piena. |
 
 ### CODE vs DATA nel diff
 
@@ -183,8 +183,8 @@ spostare `path:Lline` non cambia il rilievo.
   ammesse `regression`, `correctness`, `contract`, `funnel`, `process`, `other`
   (default anche per classi ignote).
 
-Nel `## Findings ledger (id stabile + stato)`, riporta gli `open` con id/testo
-invariati e non rialzare i `confirmed-fixed`.
+Nel `## Findings ledger (id stabile + stato)`: `open` con id/testo invariati,
+`needs-verification` da verificare all'HEAD, mai rialzare i `confirmed-fixed`.
 
 ### 🔴 nuovi su righe non cambiate
 
@@ -207,9 +207,11 @@ Il body malformato viene scartato da `reviewBodyDefects()` con
 Dopo prima review:
 - Sopprimi 🟡. Posta solo 🔴.
 - Fix di `path:L<linea>` già applicato → conferma esplicitamente «Fix di `path:L<linea>`: ok.»
-- Riallineare la base non chiude un 🔴: riportalo se l'anchor `path:Llinea` resta;
+- Riallineare la base non chiude un 🔴 `open`: riportalo se l'anchor resta;
   se risolto, conferma ogni path citato (anche companion) con
   `Fix di \`path:L<linea corrente>\`: ok.` prima di `Important: 0` + `## LGTM`.
+- `needs-verification`: apri l'anchor all'HEAD; fix presente → `Fix di`; 🔴 solo
+  con evidenza dal codice attuale.
 - 🔴 senza file: se risolto, conferma «Fix di `<testo normalizzato>`: ok.» senza
   backtick interni.
 - No rilanciare nit già detti.

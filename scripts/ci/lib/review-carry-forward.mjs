@@ -131,7 +131,7 @@ export function renderCarryForwardBody({ priorReviewId, priorCommit, fingerprint
     `<!-- REVIEW_CARRY_FORWARD_FROM: review=${priorReviewId} commit=${priorCommit} fingerprint=${fingerprint} -->`,
     reviewInputMarker(revision),
     '## Scope',
-    `Verdetto riportato senza modello (tier: carry-forward): il contributo CODE della PR è identico a quello approvato dalla review ${priorReviewId} sul commit \`${priorCommit.slice(0, 12)}\` (fingerprint \`${fingerprint.slice(0, 12)}\`). Dall'ultima review nessun file code della PR è cambiato: merge di main, commit vuoto o sola metadata. Test e contratto del body sono rieseguiti su questa HEAD.`,
+    `Verdetto riportato senza modello (tier: carry-forward): il contributo CODE della PR è identico a quello approvato dalla review ${priorReviewId} sul commit \`${priorCommit.slice(0, 12)}\` (fingerprint \`${fingerprint.slice(0, 12)}\`). Dall'ultima review sono arrivati solo merge di main (anche su file della PR, con righe +/- del contributo invariate), commit vuoti o metadata. Test e contratto del body sono rieseguiti su questa HEAD.`,
     '',
     '## Findings (Important: 0, Nit: 0)',
     '',

@@ -31,6 +31,7 @@ import {
 import {
   isTerminalManagedReview,
   parseReviewPages,
+  reviewBodyIsApproving,
 } from './lib/pr-review-admission.mjs';
 import {
   acceptedReviewInputRevisionsFromPullRequest,
@@ -217,13 +218,38 @@ function importantFindingLine(line, { inLgtm = false } = {}) {
   return !ZERO_IMPORTANT_RE.test(String(line).slice(marker.index + marker[0].length).trim());
 }
 
+const FINDINGS_LEDGER_HEADING_RE = /^##\s+Findings ledger\b/iu;
+
+/**
+ * La sezione `## Findings ledger` e' la copia che il reviewer fa del ledger
+ * del bundle: id stabile + stato di finding GIA' emessi. Non e' un verdetto.
+ * Letta come tale, ogni bullet con un 🔴 citato diventava uno pseudo-finding
+ * nuovo con testo `- \`<id>\` **open** — ...` (su #9968 il ledger del bundle
+ * mostrava `ceb9b1b6adb4 confirmed-fixed — - eabf305bc1f8 **open** …`). I
+ * finding veri restano nella loro sezione e quelli storici restano aperti per
+ * il cammino storico, quindi svuotare il ledger non toglie nessun rilievo.
+ * Le righe diventano vuote invece di sparire: i numeri di riga restano quelli
+ * del body, e l'intestazione resta, cosi' chiude il finding che la precede
+ * come ogni altro H2.
+ */
+function withoutFindingsLedger(lines) {
+  let inLedger = false;
+  return lines.map((line) => {
+    if (/^##\s/u.test(line)) {
+      inLedger = FINDINGS_LEDGER_HEADING_RE.test(line);
+      return line;
+    }
+    return inLedger ? '' : line;
+  });
+}
+
 /**
  * Parse every real Important finding. Its text ends at the next finding of any
  * severity or at the next H2, so `## Adversarial check` and the summary cannot
  * leak paths into the previous finding.
  */
 function parseImportantFindings(body, extractCitations) {
-  const lines = normalizeReviewBody(body).split(/\r?\n/u);
+  const lines = withoutFindingsLedger(normalizeReviewBody(body).split(/\r?\n/u));
   const markerLines = lines
     .map((line, index) => ({ line, index, marker: firstFindingMarker(line) }))
     .filter(({ marker }) => marker);
@@ -1009,6 +1035,37 @@ export function citationConfirmed(
   }));
 }
 
+// Il dato letto/usato da quel file: «letto da `scripts/send-job-alerts.mjs`»
+// (#9965), «read by `x`». Elenco chiuso di proposito: una forma non prevista
+// lascia il companion un anchor, cioe' il comportamento precedente.
+const READER_CONTEXT_PREFIX_RE = /(?:\b(?:lett|usat|consumat|chiamat|importat|invocat)[oaie]\s+da|\b(?:read|used|consumed|called|imported|invoked)\s+by)\s*`?$/iu;
+const PATH_CHAR_RE = /[A-Za-z0-9_.@/-]/u;
+
+/**
+ * Vero solo se OGNI menzione del companion nel testo del finding sta dopo il
+ * marker 🔴 e lo nomina come lettore/consumer del dato. Una menzione
+ * nell'anchor (prima del marker), una richiesta di correggerlo o qualunque
+ * forma non riconosciuta lo lasciano un anchor da confermare.
+ */
+function bareCompanionIsReaderContext(finding, citation) {
+  const text = String(finding?.text || '');
+  const path = String(citation?.path || '');
+  if (!path) return false;
+  const markerIndex = text.search(IMPORTANT_MARKER_RE);
+  if (markerIndex < 0) return false;
+  let mentions = 0;
+  for (let index = text.indexOf(path); index !== -1; index = text.indexOf(path, index + 1)) {
+    const before = text[index - 1] || '';
+    const after = text[index + path.length] || '';
+    // Parte di un path piu' lungo: non e' una menzione di questo file.
+    if (PATH_CHAR_RE.test(before) || (PATH_CHAR_RE.test(after) && after !== '.')) continue;
+    if (index < markerIndex) return false;
+    if (!READER_CONTEXT_PREFIX_RE.test(text.slice(Math.max(0, index - 48), index))) return false;
+    mentions += 1;
+  }
+  return mentions > 0;
+}
+
 function findingConfirmed(
   finding,
   confirmations,
@@ -1017,6 +1074,12 @@ function findingConfirmed(
     repositoryPaths = null,
     repositoryPathsFromFallback = false,
     settledCitations = null,
+    // Le conferme vengono da una review approvante (`## LGTM` e
+    // `Important: 0`). Solo il cammino storico lo sa e lo passa.
+    approvingReview = false,
+    // Citazioni accoppiate fra finding dalle conferme di QUESTA review, senza
+    // il `carried` delle review precedenti.
+    pairedByThisReview = null,
   } = {},
 ) {
   if (finding.citations.length === 0) {
@@ -1034,17 +1097,44 @@ function findingConfirmed(
     || Boolean(settledCitations?.has(citation))
     || citationConfirmed(citation, confirmations, finding, openFindings, options);
   const preciseCitations = finding.citations.filter((citation) => citation.line !== null);
+  // The tree only ever *tightens* this anchor check, so a locally rebuilt
+  // tree would newly close findings on PRs that pass today. The fallback is
+  // allowed to prove that a path is outside the diff, never to raise the bar
+  // here: under a fallback tree this clause keeps the tree-unavailable
+  // posture. Only an authoritative API tree tightens it.
+  const preciseAnchorsResolve = repositoryPathsFromFallback
+    || !Array.isArray(repositoryPaths)
+    || preciseCitations.every((citation) =>
+      resolveCitedPath(citation, repositoryPaths).status === 'resolved');
   const preciseAnchorsConfirmed = preciseCitations.length > 0
     && preciseCitations.every((citation) => anchorConfirmed(citation))
-    // The tree only ever *tightens* this anchor check, so a locally rebuilt
-    // tree would newly close findings on PRs that pass today. The fallback is
-    // allowed to prove that a path is outside the diff, never to raise the bar
-    // here: under a fallback tree this clause keeps the tree-unavailable
-    // posture. Only an authoritative API tree tightens it.
-    && (repositoryPathsFromFallback
-      || !Array.isArray(repositoryPaths)
-      || preciseCitations.every((citation) =>
-        resolveCitedPath(citation, repositoryPaths).status === 'resolved'));
+    && preciseAnchorsResolve;
+  // Caso #9965: `services/applicationIntent.ts:L70` cita nel testo
+  // `scripts/send-job-alerts.mjs` senza riga, il consumer che legge il dato,
+  // non un secondo punto da correggere. L'anchor preciso era confermato da una
+  // review `## LGTM`, ma il companion esiste nel tree, quindi l'esenzione
+  // «unresolvable bare context» qui sotto non si applica e nessun reviewer
+  // scrive mai `Fix di` su un file che non ha toccato: il finding restava
+  // aperto per sempre. Il companion senza riga vale come contesto SOLO quando
+  // ogni anchor preciso e' confermato dalle conferme di QUESTA review (non
+  // dal `carried` di review precedenti) e questa review e' approvante: e' lei
+  // a dichiarare che nel contributo non resta nessun 🔴. Senza anchor preciso,
+  // con un anchor non confermato o con una review non approvante il companion
+  // resta un anchor da confermare, come prima. Due vincoli ulteriori tengono
+  // l'esenzione su questo caso: serve il tree autorevole (un tree di
+  // fallback resta inerte qui dentro, come per l'esenzione sotto) e ogni
+  // menzione del companion deve nominarlo come lettore del dato
+  // (`bareCompanionIsReaderContext`). Un companion che il finding chiede di
+  // correggere («also fix `data/x.json`», #9208) o che sta nell'anchor prima
+  // del marker resta un secondo punto da confermare.
+  const preciseConfirmedByApprovingReview = approvingReview
+    && preciseCitations.length > 0
+    && Array.isArray(repositoryPaths)
+    && !repositoryPathsFromFallback
+    && preciseCitations.every((citation) => cardinalityPaired.has(citation)
+      || Boolean(pairedByThisReview?.has(citation))
+      || citationConfirmed(citation, confirmations, finding, openFindings))
+    && preciseAnchorsResolve;
   return finding.citations.every((citation) => {
     const isBareCompanion = citation.line === null && citation.path.includes('/');
     // Review prose often uses illustrative paths that are not repository
@@ -1063,6 +1153,12 @@ function findingConfirmed(
       && resolveCitedPath(citation, repositoryPaths).status === 'non-risolubile'
       && resolveCitedPath(citation, repositoryPaths).candidates.length === 0;
     if (isUnresolvableBareContext) return true;
+    if (isBareCompanion
+        && preciseConfirmedByApprovingReview
+        && resolveCitedPath(citation, repositoryPaths).status === 'resolved'
+        && bareCompanionIsReaderContext(finding, citation)) {
+      return true;
+    }
     const otherAnchorsConfirmed = isBareCompanion
       && finding.citations
         .filter((other) => other !== citation)
@@ -1094,6 +1190,16 @@ export function historicalImportantFindings(reviews, options = {}) {
  * declassato per scope o per riga non cambiata non è stato confermato da
  * nessuno, e dirlo al reviewer lo autorizza a sopprimere un rilievo ancora
  * valido.
+ *
+ * `needsVerification` e' un SOTTOINSIEME di `open`, solo per il ledger del
+ * bundle: i 🔴 ancora aperti per il gate su cui una review approvante
+ * (`## LGTM`, `Important: 0`) successiva alla loro prima comparsa ha scritto
+ * `Fix di` sullo stesso path, a una riga qualunque. Su #9968 la conferma a
+ * riga spostata non si lasciava accoppiare e, dopo un merge di main, il
+ * reviewer ricopiava A e B come `open` senza aprire il file (review
+ * 5327152883). Il gate non cambia: per lui restano aperti finche' una
+ * conferma non li chiude; cambia solo cio' che il reviewer e' invitato a fare,
+ * cioe' verificare all'HEAD invece di ricopiare.
  */
 export function partitionHistoricalImportantFindings(
   reviews,
@@ -1109,27 +1215,41 @@ export function partitionHistoricalImportantFindings(
       && REVIEWER_LOGIN_RE.test(review.user.login || '')
       && isTerminalManagedReview(review),
   );
-  if (bots.length < (includeLatest ? 1 : 2)) return { open: [], confirmed: [] };
+  if (bots.length < (includeLatest ? 1 : 2)) return { open: [], confirmed: [], needsVerification: [] };
 
   const open = new Map();
   const confirmed = [];
+  // Prima review che ha emesso ciascun id stabile: un 🔴 ricopiato dopo un
+  // LGTM ha lo stesso id del primo, e la conferma approvante sta in mezzo.
+  const firstSeenById = new Map();
+  const approvingPaths = [];
   // Citazioni precise gia' confermate da una review precedente, per identita'
   // dell'oggetto: una citazione nata DOPO la conferma non la eredita mai.
   const carried = new Set();
   const latestIndex = bots.length - 1;
   for (const [index, review] of bots.entries()) {
     const confirmations = fixConfirmations(review?.body);
+    const approvingReview = reviewBodyIsApproving(review?.body);
+    if (approvingReview) {
+      approvingPaths.push({
+        index,
+        review,
+        paths: confirmations.flatMap((confirmation) => confirmation.citations)
+          .filter((candidate) => candidate.line !== null)
+          .map((candidate) => candidate.path),
+      });
+    }
     const openFindings = [...open.values()].map(({ finding }) => finding);
-    const settledCitations = new Set([
-      ...carried,
-      ...crossFindingPairedCitations(openFindings, confirmations, carried),
-    ]);
+    const pairedByThisReview = crossFindingPairedCitations(openFindings, confirmations, carried);
+    const settledCitations = new Set([...carried, ...pairedByThisReview]);
     for (const [key, entry] of open.entries()) {
       if (entry.reviewIndex >= index) continue;
       if (findingConfirmed(entry.finding, confirmations, openFindings, {
         repositoryPaths,
         repositoryPathsFromFallback,
         settledCitations,
+        approvingReview,
+        pairedByThisReview,
       })) {
         confirmed.push(entry.finding);
         open.delete(key);
@@ -1146,6 +1266,8 @@ export function partitionHistoricalImportantFindings(
     if (!includeLatest && index === latestIndex) break;
 
     for (const finding of parseImportantFindings(review?.body, citationExtractor)) {
+      const id = stableFindingId(finding);
+      if (!firstSeenById.has(id)) firstSeenById.set(id, index);
       open.set(findingKey(finding), {
         finding,
         reviewIndex: index,
@@ -1154,12 +1276,32 @@ export function partitionHistoricalImportantFindings(
     }
   }
 
-  return {
-    open: [...open.values()].map(({ finding, reviewCommit }) => ({
+  const openOut = [...open.values()].map(({ finding, reviewIndex, reviewCommit }) => ({
+    finding: { ...finding, reviewCommit },
+    firstSeen: firstSeenById.get(stableFindingId(finding)) ?? reviewIndex,
+  }));
+  const needsVerification = [];
+  for (const { finding, firstSeen } of openOut) {
+    const primary = finding.citations.find((citation) => citation.line !== null)
+      || finding.citations[0];
+    if (!primary) continue;
+    const later = approvingPaths.find(({ index, paths }) => index > firstSeen
+      && paths.some((path) => citationPathMatches(path, primary.path)));
+    if (!later) continue;
+    needsVerification.push({
       ...finding,
-      reviewCommit,
-    })),
+      verificationHint: {
+        path: primary.path,
+        reviewId: String(later.review?.id ?? ''),
+        reviewCommit: String(later.review?.commit_id || ''),
+      },
+    });
+  }
+
+  return {
+    open: openOut.map(({ finding }) => finding),
     confirmed,
+    needsVerification,
   };
 }
 

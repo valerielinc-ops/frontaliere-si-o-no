@@ -500,3 +500,97 @@ describe('finding ambiguo: mai declassato (review #9318, finding 4)', () => {
     expect(result.blocking).toBe(true);
   });
 });
+
+// Replay delle review reali: su #9968 (review 5327152883) e #9965 (review
+// 5327178068) il bundle passava come `open` 🔴 che una review `## LGTM`
+// successiva aveva confermato con `Fix di` sullo stesso file, e il reviewer li
+// ricopiava senza aprire il codice. Il gate resta com'è (li tiene aperti), il
+// ledger li presenta come `needs-verification`.
+describe('ledger: needs-verification per i 🔴 confermati da un LGTM successivo (#9968, #9965)', () => {
+  type Page = Array<{ id: number; user: { login: string; type: string }; state: string; commit_id: string; submitted_at: string; body: string }>;
+  const load = (pr: string): Page[] => JSON.parse(readFileSync(
+    new URL(`./fixtures/review-replay/pr-${pr}-reviews.json`, import.meta.url), 'utf8',
+  ));
+  const replay = (pages: unknown) => {
+    const partition = partitionHistoricalImportantFindings(pages, { includeLatest: true });
+    return { ...partition, ledger: renderFindingsLedger(partition) };
+  };
+  const bot = (id: number, body: string, at: string) => ({
+    id, user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+    state: 'COMMENTED', commit_id: String(id).repeat(40).slice(0, 40), body, submitted_at: at,
+  });
+  const RAISED = '## Findings (Important: 1, Nit: 0)\n\n`scripts/ci/uno.mjs:L3`: 🔴 Important: `alfa()` rotto.\n';
+  const lgtmConfirming = (anchor: string) => `## Findings (Important: 0, Nit: 0)\n\nFix di \`${anchor}\`: ok.\n\n## LGTM\n`;
+
+  it('replay #9968: A e B ricopiati dopo due LGTM sono needs-verification, non open', () => {
+    const { open, needsVerification, ledger } = replay(load('9968'));
+    // Il gate non cambia: per lui restano aperti finché una conferma non li chiude.
+    expect(open).toHaveLength(2);
+    expect(needsVerification.map(stableFindingId).sort()).toEqual(open.map(stableFindingId).sort());
+    expect(ledger).not.toContain('**open**');
+    expect((ledger.match(/\*\*needs-verification\*\*/gu) || []).length).toBe(2);
+    expect(needsVerification.map((finding) => finding.verificationHint?.reviewId)).toEqual(['5326999109', '5326999109']);
+    // Niente pseudo-finding dalla sezione `## Findings ledger` della review 2.
+    expect(ledger).not.toContain('eabf305bc1f8');
+  });
+
+  it('replay #9965: il 🔴 confermato da un LGTM è needs-verification, quello mai confermato resta open', () => {
+    const { open, needsVerification, ledger } = replay(load('9965'));
+    const [intent] = needsVerification;
+    expect(needsVerification).toHaveLength(1);
+    expect(intent.citations[0]).toEqual({ path: 'services/applicationIntent.ts', line: 70 });
+    const stillOpen = open.filter((finding) => !needsVerification.some((nv) => stableFindingId(nv) === stableFindingId(finding)));
+    expect(stillOpen.map((finding) => finding.citations[0])).toEqual([{ path: 'services/behaviorTracker.ts', line: 316 }]);
+    const openLines = ledger.split('\n').filter((line) => line.includes('**open**'));
+    expect(openLines).toHaveLength(1);
+    expect(openLines[0]).toContain(stableFindingId(stillOpen[0]));
+    expect(ledger).toContain(`\`${stableFindingId(intent)}\` **needs-verification**`);
+  });
+
+  it('un finding mai confermato resta open: l’LGTM conferma un altro path', () => {
+    const { open, needsVerification, ledger } = replay([[
+      bot(1, RAISED, '2026-09-19T10:00:00Z'),
+      bot(2, lgtmConfirming('scripts/ci/due.mjs:L9'), '2026-09-19T11:00:00Z'),
+    ]]);
+    expect(open).toHaveLength(1);
+    expect(needsVerification).toHaveLength(0);
+    expect(ledger).toContain('**open**');
+    expect(ledger).not.toContain('needs-verification');
+  });
+
+  it('resta open se la conferma sullo stesso path viene da una review non approvante', () => {
+    // Due 🔴 sullo stesso file e una sola conferma a riga spostata: il gate
+    // non sa quale chiude e li tiene aperti entrambi.
+    const twoOnSameFile = '## Findings (Important: 2, Nit: 0)\n\n`scripts/ci/uno.mjs:L3`: 🔴 Important: `alfa()` rotto.\n`scripts/ci/uno.mjs:L20`: 🔴 Important: `gamma()` rotto.\n';
+    const confirmation = 'Fix di `scripts/ci/uno.mjs:L40`: ok.';
+    const notApproving = replay([[
+      bot(1, twoOnSameFile, '2026-09-19T10:00:00Z'),
+      bot(2, `## Findings (Important: 1, Nit: 0)\n\n${confirmation}\n\n\`scripts/ci/due.mjs:L9\`: 🔴 Important: \`beta()\` rotto.\n`, '2026-09-19T11:00:00Z'),
+    ]]);
+    expect(notApproving.open).toHaveLength(3);
+    expect(notApproving.needsVerification).toHaveLength(0);
+    expect((notApproving.ledger.match(/\*\*open\*\*/gu) || []).length).toBe(3);
+    // Controllo: la stessa conferma in una review approvante li marca da verificare.
+    const approving = replay([[
+      bot(1, twoOnSameFile, '2026-09-19T10:00:00Z'),
+      bot(2, `## Findings (Important: 0, Nit: 0)\n\n${confirmation}\n\n## LGTM\n`, '2026-09-19T11:00:00Z'),
+    ]]);
+    expect(approving.open).toHaveLength(2);
+    expect(approving.needsVerification).toHaveLength(2);
+  });
+
+  it('resta open se l’LGTM con la conferma precede la prima comparsa del finding', () => {
+    const { needsVerification } = replay([[
+      bot(1, lgtmConfirming('scripts/ci/uno.mjs:L40'), '2026-09-19T09:00:00Z'),
+      bot(2, RAISED, '2026-09-19T10:00:00Z'),
+    ]]);
+    expect(needsVerification).toHaveLength(0);
+  });
+
+  it('senza needsVerification il ledger è quello di prima (chiamanti come il corpus)', () => {
+    const { open, confirmed } = replay(load('9968'));
+    const ledger = renderFindingsLedger({ open, confirmed });
+    expect((ledger.match(/\*\*open\*\*/gu) || []).length).toBe(2);
+    expect(ledger).not.toContain('needs-verification');
+  });
+});
