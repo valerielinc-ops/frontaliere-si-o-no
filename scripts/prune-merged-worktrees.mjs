@@ -204,11 +204,12 @@ if (!fetchRun.acquired) {
   console.log(`🧹 potati ${fetchRun.value.removed} pack temporanei di fetch abortiti (${mb} MB).`);
 }
 
-// Opera SOLO su worktree dentro le dir di isolamento canoniche (AGENTS.md): il
+// Opera SOLO su worktree dentro le dir di isolamento canoniche (AGENTS.md):
+// `.claude/worktrees`, `.worktrees` o `.wt`. Il
 // checkout principale (`main`) vive fuori da queste e non va MAI toccato. Nota:
 // `git rev-parse --show-toplevel` da dentro un worktree dà il path del worktree
 // stesso, non del repo principale → non si può identificare main per uguaglianza.
-const ISOLATION_RE = /[/\\]\.(?:claude[/\\]worktrees|worktrees)[/\\]/;
+const ISOLATION_RE = /[/\\]\.(?:claude[/\\]worktrees|worktrees|wt)[/\\]/;
 
 // Mappa branch → stato e metadati PR (MERGED|CLOSED|OPEN). NON gateare su
 // `gh auth status`:
@@ -517,7 +518,7 @@ for (const line of wtPorcelain.split('\n')) {
 const removeWt = []; // {path, branch}
 const reportWt = []; // {path, branch, reason}
 for (const wt of worktrees) {
-  if (!ISOLATION_RE.test(wt.path)) continue; // fuori da .claude/worktrees|.worktrees → mai toccare (incl. main checkout)
+  if (!ISOLATION_RE.test(wt.path)) continue; // fuori da .claude/worktrees|.worktrees|.wt → mai toccare (incl. main checkout)
   if (isCurrentWorktree(wt.path)) {
     reportWt.push({ ...wt, reason: 'checkout corrente — KEEP, mai rimuovere automaticamente' });
     continue;

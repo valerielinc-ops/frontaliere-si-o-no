@@ -262,6 +262,27 @@ describe('guardie del purge', () => {
   });
 });
 
+describe('scope del purge dei worktree', () => {
+  const src = fs.readFileSync(
+    path.join(process.cwd(), 'scripts', 'prune-merged-worktrees.mjs'),
+    'utf8',
+  );
+
+  it('considera anche `.wt` senza allargarsi a directory simili', () => {
+    const match = src.match(/const ISOLATION_RE\s*=\s*(\/[^;]+\/);/);
+    expect(match, 'ISOLATION_RE non trovato in prune-merged-worktrees.mjs').toBeTruthy();
+    const literal = match![1];
+    const end = literal.lastIndexOf('/');
+    const isolation = new RegExp(literal.slice(1, end), literal.slice(end + 1));
+
+    expect(isolation.test('/workspace/.claude/worktrees/fix')).toBe(true);
+    expect(isolation.test('/workspace/.worktrees/fix')).toBe(true);
+    expect(isolation.test('/workspace/.wt/fix')).toBe(true);
+    expect(isolation.test('/workspace/.wt-old/fix')).toBe(false);
+    expect(isolation.test('/workspace/fix')).toBe(false);
+  });
+});
+
 describe('local-ignore-cron.sh', () => {
   it('il comando che usa per caricare la lista rende davvero le glob', () => {
     // Lo stesso `node --input-type=module -e …` che gira dentro lo script: se
