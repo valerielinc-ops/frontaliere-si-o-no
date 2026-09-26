@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pdag",
-  "assembledAt": "2026-09-25T15:09:39.395Z",
+  "assembledAt": "2026-09-26T12:20:09.895Z",
   "jobs": [
     {
       "id": "pdag-74fbf3d41690",
@@ -17,7 +17,7 @@
       "title": "Ergotherapeutin / Ergotherapeut Neuropsychiatrie - mit Perspektive Tiergestützte Therapie",
       "titleByLocale": {
         "it": "terapeuta professionale / neuropsichiatria occupazionale - con una prospettiva animale-assistito terapia",
-        "en": "Occupational therapist / occupational neuropsychiatry - with a perspective animal-assisted therapy",
+        "en": "Ergotherapeutin / Ergotherapeut Neuropsychiatrie - mit Perspektive Tiergestützte Therapie",
         "de": "Ergotherapeutin / Ergotherapeut Neuropsychiatrie - mit Perspektive Tiergestützte Therapie",
         "fr": "Ergothérapie / neuropsychiatrie au travail - avec une perspective thérapie assistée par des animaux"
       },
@@ -54,13 +54,11 @@
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-neuropsychiatrie-mit-perspektive-tiergestutzte-therapie-psychiatrische-dienste-aargau-pdag",
         "occupational-therapist-occupational-neuropsychiatry-with-a-perspective-animal-assisted-therapy-psychiatrische-dienste",
-        "ergotherapeutin-ergotherapeut-neuropsychiatrie-mit-perspektive-tiergestutzte-therapie-pdag",
-        "terapeuta-professionale-neuropsichiatria-occupazionale-con-una-prospettiva-animale-assistito-terapia-psychiatrische"
+        "ergotherapeutin-ergotherapeut-neuropsychiatrie-mit-perspektive-tiergestutzte-therapie-pdag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapeutin-ergotherapeut-neuropsychiatrie-mit-perspektive-tiergestutzte-therapie-pdag",
-          "terapeuta-professionale-neuropsichiatria-occupazionale-con-una-prospettiva-animale-assistito-terapia-psychiatrische"
+          "ergotherapeutin-ergotherapeut-neuropsychiatrie-mit-perspektive-tiergestutzte-therapie-pdag"
         ],
         "en": [
           "ergotherapeutin-ergotherapeut-neuropsychiatrie-mit-perspektive-tiergestutzte-therapie-psychiatrische-dienste-aargau-pdag",
@@ -97,7 +95,7 @@
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF Akutstation Psychose und Diagnostik",
       "titleByLocale": {
         "it": "Dipl. Infermieristica professionale / Dipl. Infermieristica specialista HF stazione acuta psicosi e diagnosi",
-        "en": "Dipl. Nursing professional / Dipl. Nursing specialist HF acute station psychosis and diagnosis",
+        "en": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF Akutstation Psychose und Diagnostik",
         "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF Akutstation Psychose und Diagnostik",
         "fr": "Infirmière diplômée Unité de soins aigus Psychose et diagnostics"
       },
@@ -141,13 +139,11 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-akutstation-psychose-und-diagnostik-pdag",
-        "dipl-infermieristica-professionale-dipl-infermieristica-specialista-hf-stazione-acuta-psicosi-e-diagnosi-psychiatrische"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-akutstation-psychose-und-diagnostik-pdag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-akutstation-psychose-und-diagnostik-pdag",
-          "dipl-infermieristica-professionale-dipl-infermieristica-specialista-hf-stazione-acuta-psicosi-e-diagnosi-psychiatrische"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-akutstation-psychose-und-diagnostik-pdag"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-akutstation-psychose-und-diagnostik-pdag"
@@ -166,7 +162,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdag-77995ec85c41",
@@ -323,7 +320,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdag-aed5a4913ba3",
@@ -386,8 +384,7 @@
         "dipl-career-dipl-care-specialist-hf-fh-in-the-department-of-neuropsychiatrie-psychiatrische-dienste-aargau-pdag-windisch",
         "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-im-klinikbereich-neuropsychiatrie-pdag",
         "dipl-carriere-dipl-specialiste-des-soins-hf-fh-au-departement-de-neuropsychiatrie-psychiatrische-dienste-aargau-pdag",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-br-im-klinikbereich",
-        "dipl-infermiera-dipl-infermieristica-hf-servizio-notturno-psychiatrische-dienste-aargau-pdag-windisch"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-br-im-klinikbereich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -401,8 +398,7 @@
           "dipl-career-dipl-care-specialist-hf-fh-in-the-department-of-neuropsychiatrie-psychiatrische-dienste-aargau-pdag-windisch",
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-im-klinikbereich-neuropsychiatrie-pdag",
           "dipl-carriere-dipl-specialiste-des-soins-hf-fh-au-departement-de-neuropsychiatrie-psychiatrische-dienste-aargau-pdag",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-br-im-klinikbereich",
-          "dipl-infermiera-dipl-infermieristica-hf-servizio-notturno-psychiatrische-dienste-aargau-pdag-windisch"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-br-im-klinikbereich"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-br-im-klinikbereich"
@@ -441,7 +437,7 @@
       "title": "Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF Akutstation Psychose",
       "titleByLocale": {
         "it": "Infermiera laureata in Infermiere Infiocardio Psicosi Acuta del reparto",
-        "en": "Dipl. Nurse HF / Dipl. Care professional HF acute station psychosis",
+        "en": "Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF Akutstation Psychose",
         "de": "Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF Akutstation Psychose",
         "fr": "Infirmière diplômée en HF Psychose aiguë du service"
       },
@@ -490,8 +486,7 @@
         "infermiera-diplomata-infermiera-diplomata-infermiera-infermiera-semi-acuta-di-terapia-cardiaca-psychiatrische-dienste",
         "dipl-care-specialist-dipl-care-specialist-hf-semi-acute-station-psychiatrische-dienste-aargau-pdag-windisch",
         "dipl-pflegefachfrau-dipl-pflegefachmann-hf-semi-akutstation-pdag-windisch",
-        "infirmiere-diplomee-infirmiere-diplomee-infirmiere-unite-de-soins-semi-aigus-psychiatrische-dienste-aargau-pdag-windisch",
-        "infermiera-laureata-in-infermiere-infiocardio-psicosi-acuta-del-reparto-psychiatrische-dienste-aargau-pdag-windisch"
+        "infirmiere-diplomee-infirmiere-diplomee-infirmiere-unite-de-soins-semi-aigus-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -499,8 +494,7 @@
           "infermiera-diplomata-infermiera-diplomata-infermiera-infermiera-semi-acuta-di-terapia-cardiaca-psychiatrische-dienste",
           "dipl-care-specialist-dipl-care-specialist-hf-semi-acute-station-psychiatrische-dienste-aargau-pdag-windisch",
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-semi-akutstation-pdag-windisch",
-          "infirmiere-diplomee-infirmiere-diplomee-infirmiere-unite-de-soins-semi-aigus-psychiatrische-dienste-aargau-pdag-windisch",
-          "infermiera-laureata-in-infermiere-infiocardio-psicosi-acuta-del-reparto-psychiatrische-dienste-aargau-pdag-windisch"
+          "infirmiere-diplomee-infirmiere-diplomee-infirmiere-unite-de-soins-semi-aigus-psychiatrische-dienste-aargau-pdag-windisch"
         ],
         "en": [
           "dipl-nurse-hf-dipl-care-professional-hf-acute-station-psychosis-psychiatrische-dienste-aargau-pdag-windisch",
@@ -527,7 +521,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdag-1ae288edef32",
@@ -544,7 +539,7 @@
       "title": "Dipl. Pflegefachfrau Dipl. Pflegefachmann HF Semi-Akutstation",
       "titleByLocale": {
         "it": "Dipl. Specialista Dipl. Specialista HF Semi-Acute Station",
-        "en": "Dipl. Care specialist Dipl. Care specialist HF Semi-Acute Station",
+        "en": "Dipl. Pflegefachfrau Dipl. Pflegefachmann HF Semi-Akutstation",
         "de": "Dipl. Pflegefachfrau Dipl. Pflegefachmann HF Semi-Akutstation",
         "fr": "Dipl. Spécialiste des soins Dipl. Spécialiste des soins HF semi-acute Station"
       },
@@ -583,8 +578,7 @@
         "dipl-care-specialist-dipl-care-specialist-hf-semi-acute-station-psychiatrische-dienste-aargau-pdag-windisch",
         "infirmiere-diplomee-infirmiere-diplomee-infirmiere-unite-de-soins-semi-aigus-psychiatrische-dienste-aargau-pdag-windisch",
         "dipl-pflegefachfrau-dipl-pflegefachmann-hf-semi-akutstation-pdag-windisch",
-        "dipl-care-specialist-hf-dipl-care-specialist-hf-psychiatrische-dienste-aargau-pdag-windisch",
-        "dipl-specialista-dipl-specialista-hf-semi-acute-station-psychiatrische-dienste-aargau-pdag-windisch"
+        "dipl-care-specialist-hf-dipl-care-specialist-hf-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -592,8 +586,7 @@
           "dipl-care-specialist-dipl-care-specialist-hf-semi-acute-station-psychiatrische-dienste-aargau-pdag-windisch",
           "infirmiere-diplomee-infirmiere-diplomee-infirmiere-unite-de-soins-semi-aigus-psychiatrische-dienste-aargau-pdag-windisch",
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-semi-akutstation-pdag-windisch",
-          "dipl-care-specialist-hf-dipl-care-specialist-hf-psychiatrische-dienste-aargau-pdag-windisch",
-          "dipl-specialista-dipl-specialista-hf-semi-acute-station-psychiatrische-dienste-aargau-pdag-windisch"
+          "dipl-care-specialist-hf-dipl-care-specialist-hf-psychiatrische-dienste-aargau-pdag-windisch"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-semi-akutstation-pdag-windisch"
@@ -669,14 +662,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberarztin-oberarzt-pdag-aarau",
-        "senior-physician-senior-physician-psychiatrische-dienste-aargau-pdag-aarau",
-        "medico-senior-medico-senior-psychiatrische-dienste-aargau-pdag-aarau"
+        "senior-physician-senior-physician-psychiatrische-dienste-aargau-pdag-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-pdag-aarau",
-          "senior-physician-senior-physician-psychiatrische-dienste-aargau-pdag-aarau",
-          "medico-senior-medico-senior-psychiatrische-dienste-aargau-pdag-aarau"
+          "senior-physician-senior-physician-psychiatrische-dienste-aargau-pdag-aarau"
         ],
         "en": [
           "senior-physician-senior-physician-psychiatrische-dienste-aargau-pdag-aarau"
@@ -695,7 +686,8 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdag-bab8151aeae4",
@@ -748,13 +740,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-dipl-pflegefachmann-hf-o-fachfrau-fachmann-gesundheit-cfc-per-den-aufwachraum-der-interventionellen",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-oder-fachfrau-fachmann-gesundheit-efz-fur-den",
-        "infermiera-diplomata-in-hf-o-specialista-sanitario-efz-per-la-sala-recupero-della-psichiatria-interventistica"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-oder-fachfrau-fachmann-gesundheit-efz-fur-den"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-oder-fachfrau-fachmann-gesundheit-efz-fur-den",
-          "infermiera-diplomata-in-hf-o-specialista-sanitario-efz-per-la-sala-recupero-della-psichiatria-interventistica"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-oder-fachfrau-fachmann-gesundheit-efz-fur-den"
         ]
       },
       "firstSeenAt": "2026-06-11T11:20:03.555Z",
@@ -770,7 +760,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdag-2ec46e8aebc8",
@@ -831,13 +822,11 @@
         ]
       },
       "previousSlugs": [
-        "nachtarztin-nachtarzt-pdag-windisch",
-        "dottore-notturno-psychiatrische-dienste-aargau-pdag-windisch"
+        "nachtarztin-nachtarzt-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nachtarztin-nachtarzt-pdag-windisch",
-          "dottore-notturno-psychiatrische-dienste-aargau-pdag-windisch"
+          "nachtarztin-nachtarzt-pdag-windisch"
         ]
       },
       "firstSeenAt": "2026-06-11T11:20:03.551Z",
@@ -906,14 +895,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leitende-arztin-leitender-arzt-pdag-windisch",
-        "head-physician-psychiatrische-dienste-aargau-pdag-windisch",
-        "principale-medico-principal-medico-psychiatrische-dienste-aargau-pdag-windisch-2ddfbd"
+        "head-physician-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitende-arztin-leitender-arzt-pdag-windisch",
-          "head-physician-psychiatrische-dienste-aargau-pdag-windisch",
-          "principale-medico-principal-medico-psychiatrische-dienste-aargau-pdag-windisch-2ddfbd"
+          "head-physician-psychiatrische-dienste-aargau-pdag-windisch"
         ],
         "en": [
           "leitende-arztin-leitender-arzt-pdag-windisch"
@@ -935,7 +922,8 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdag-6b5cfce2612e",
@@ -1026,7 +1014,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdag-1ba6774d3609",
@@ -1042,7 +1031,7 @@
       "companyDomain": "pdag.ch",
       "title": "Dipl. Pflegefachfrau/ Pflegefachmann HF/FH Demenz/ Delir",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale HF/FH Demenza/Delior",
+        "it": "Dipl. Pflegefachfrau/ Pflegefachmann HF/FH Demenz/ Delir",
         "en": "Dipl. Nursing professional HF/FH Dementia/Delior",
         "de": "Dipl. Pflegefachfrau/ Pflegefachmann HF/FH Demenz/ Delir",
         "fr": "Dipl. Démence/délai professionnel des soins infirmiers"
@@ -1083,14 +1072,12 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-demenz-delir-pdag-windisch",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-demenz-delir-psychiatrische-dienste-aargau-pdag-windisch",
-        "dipl-infermieristica-professionale-hf-fh-demenza-delior-psychiatrische-dienste-aargau-pdag-windisch"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-demenz-delir-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-demenz-delir-pdag-windisch",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-demenz-delir-psychiatrische-dienste-aargau-pdag-windisch",
-          "dipl-infermieristica-professionale-hf-fh-demenza-delior-psychiatrische-dienste-aargau-pdag-windisch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-demenz-delir-psychiatrische-dienste-aargau-pdag-windisch"
         ]
       },
       "firstSeenAt": "2026-06-11T11:20:03.538Z",
@@ -1123,7 +1110,7 @@
       "title": "Psychomotoriktherapeutin / Psychomotoriktherapeut",
       "titleByLocale": {
         "it": "Terapeuta psicomotore / terapeuta psicomotore",
-        "en": "Psychomotor therapist/psychomotor therapist",
+        "en": "Psychomotoriktherapeutin / Psychomotoriktherapeut",
         "de": "Psychomotoriktherapeutin / Psychomotoriktherapeut",
         "fr": "Psychomothérapeute/psychomothérapeute"
       },
@@ -1171,13 +1158,11 @@
       },
       "previousSlugs": [
         "psychomotoriktherapeutin-psychomotoriktherapeut-pdag-windisch",
-        "psychomotor-therapist-psychomotor-therapist-psychiatrische-dienste-aargau-pdag-windisch",
-        "terapeuta-psicomotore-terapeuta-psicomotore-psychiatrische-dienste-aargau-pdag-windisch"
+        "psychomotor-therapist-psychomotor-therapist-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychomotoriktherapeutin-psychomotoriktherapeut-pdag-windisch",
-          "terapeuta-psicomotore-terapeuta-psicomotore-psychiatrische-dienste-aargau-pdag-windisch"
+          "psychomotoriktherapeutin-psychomotoriktherapeut-pdag-windisch"
         ],
         "en": [
           "psychomotoriktherapeutin-psychomotoriktherapeut-pdag-windisch",
@@ -1197,7 +1182,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdag-50f3a64c9ff9",
@@ -1251,14 +1237,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-fur-die-privatstation-pdag-windisch",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-psychiatrische-dienste-aargau-pdag-windisch",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-per-la-privatstation-psychiatrische-dienste-aargau-pdag-windisch"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-fur-die-privatstation-pdag-windisch",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-psychiatrische-dienste-aargau-pdag-windisch",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-per-la-privatstation-psychiatrische-dienste-aargau-pdag-windisch"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-psychiatrische-dienste-aargau-pdag-windisch"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-fur-die-privatstation-pdag-windisch"
@@ -1336,8 +1320,7 @@
         "ausbildungsplatz-zur-kauffrau-zum-kaufmann-cfc-con-o-ohne-berufsmaturitat-psychiatrische-dienste-aargau-pdag-windisch",
         "apprenticeship-to-the-merchant-efz-with-or-without-professional-maturity-psychiatrische-dienste-aargau-pdag-windisch",
         "ausbildungsplatz-zur-kauffrau-zum-kaufmann-efz-mit-oder-ohne-berufsmaturitat-pdag-windisch",
-        "apprentissage-au-commercant-efz-avec-ou-sans-maturite-professionnelle-psychiatrische-dienste-aargau-pdag-windisch",
-        "ausbildungsplatz-zur-gartnerin-zum-gartner-cfc-psychiatrische-dienste-aargau-pdag-windisch"
+        "apprentissage-au-commercant-efz-avec-ou-sans-maturite-professionnelle-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1345,8 +1328,7 @@
           "ausbildungsplatz-zur-kauffrau-zum-kaufmann-cfc-con-o-ohne-berufsmaturitat-psychiatrische-dienste-aargau-pdag-windisch",
           "apprenticeship-to-the-merchant-efz-with-or-without-professional-maturity-psychiatrische-dienste-aargau-pdag-windisch",
           "ausbildungsplatz-zur-kauffrau-zum-kaufmann-efz-mit-oder-ohne-berufsmaturitat-pdag-windisch",
-          "apprentissage-au-commercant-efz-avec-ou-sans-maturite-professionnelle-psychiatrische-dienste-aargau-pdag-windisch",
-          "ausbildungsplatz-zur-gartnerin-zum-gartner-cfc-psychiatrische-dienste-aargau-pdag-windisch"
+          "apprentissage-au-commercant-efz-avec-ou-sans-maturite-professionnelle-psychiatrische-dienste-aargau-pdag-windisch"
         ],
         "en": [
           "apprenticeship-to-the-merchant-efz-with-or-without-professional-maturity-psychiatrische-dienste-aargau-pdag-windisch"
@@ -1371,7 +1353,8 @@
           "maxValue": 96500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdag-1288352265c0",
@@ -1439,14 +1422,12 @@
         "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch",
         "dipl-carriere-dipl-specialiste-des-maladies-de-dependance-psychiatrische-dienste-aargau-pdag-windisch",
         "dipl-pflegefachfrau-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch",
-        "dipl-nurse-dipl-nurse-dependency-diseases-psychiatrische-dienste-aargau-pdag-windisch",
-        "dipl-infermiera-infermiera-specialista-dipendenze-malattie-psychiatrische-dienste-aargau-pdag-windisch"
+        "dipl-nurse-dipl-nurse-dependency-diseases-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch",
-          "dipl-nurse-dipl-nurse-dependency-diseases-psychiatrische-dienste-aargau-pdag-windisch",
-          "dipl-infermiera-infermiera-specialista-dipendenze-malattie-psychiatrische-dienste-aargau-pdag-windisch"
+          "dipl-nurse-dipl-nurse-dependency-diseases-psychiatrische-dienste-aargau-pdag-windisch"
         ]
       },
       "firstSeenAt": "2026-06-11T11:20:03.565Z",
@@ -1514,13 +1495,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-autismusberatung-pdag-aarau",
-        "assistente-medico-assistente-medico-consulenza-autismo-psychiatrische-dienste-aargau-pdag-aarau"
+        "assistenzarztin-assistenzarzt-autismusberatung-pdag-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-autismusberatung-pdag-aarau",
-          "assistente-medico-assistente-medico-consulenza-autismo-psychiatrische-dienste-aargau-pdag-aarau"
+          "assistenzarztin-assistenzarzt-autismusberatung-pdag-aarau"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-autismusberatung-pdag-aarau"
@@ -1542,7 +1521,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdag-8cfb26d2acfa",
@@ -1627,7 +1607,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdag-5977916ce38e",
@@ -1705,7 +1686,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdag-c5d4ed243245",
@@ -1722,7 +1704,7 @@
       "title": "Ergotherapeutin / Ergotherapeut",
       "titleByLocale": {
         "it": "Terapista occupazionale",
-        "en": "Occupational therapist",
+        "en": "Ergotherapeutin / Ergotherapeut",
         "de": "Ergotherapeutin / Ergotherapeut",
         "fr": "Ergothérapeute"
       },
@@ -1759,22 +1741,17 @@
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-pdag-windisch-2",
         "ergotherapeutin-ergotherapeut-pdag-windisch",
-        "terapeuta-del-lavoro-psychiatrische-dienste-aargau-pdag-windisch",
-        "ergotherapeute-psychiatrische-dienste-aargau-pdag-windisch",
         "ergotherapeutin-ergotherapeut-pdag-windisch-2sk7oa"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ergotherapeutin-ergotherapeut-pdag-windisch-2",
-          "ergotherapeutin-ergotherapeut-pdag-windisch",
-          "terapeuta-del-lavoro-psychiatrische-dienste-aargau-pdag-windisch"
+          "ergotherapeutin-ergotherapeut-pdag-windisch"
         ],
         "fr": [
-          "ergotherapeutin-ergotherapeut-pdag-windisch-2",
-          "ergotherapeute-psychiatrische-dienste-aargau-pdag-windisch"
+          "ergotherapeutin-ergotherapeut-pdag-windisch-2"
         ],
         "de": [
-          "ergotherapeutin-ergotherapeut-pdag-windisch",
           "ergotherapeutin-ergotherapeut-pdag-windisch-2sk7oa"
         ]
       },
@@ -1791,7 +1768,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdag-e3f33772def2",
@@ -1844,13 +1822,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-pdag-windisch",
-        "dipl-social-pedagogue-social-pedagogue-hf-fh-psychiatrische-dienste-aargau-pdag-windisch"
+        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-sozialpadagogin-sozialpadagoge-hf-fh-pdag-windisch",
-          "dipl-social-pedagogue-social-pedagogue-hf-fh-psychiatrische-dienste-aargau-pdag-windisch"
+          "dipl-sozialpadagogin-sozialpadagoge-hf-fh-pdag-windisch"
         ],
         "en": [
           "dipl-sozialpadagogin-sozialpadagoge-hf-fh-pdag-windisch"
@@ -1934,13 +1910,11 @@
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-oder-spitalfacharztin-spitalfacharzt-pdag-windisch",
-        "medico-senior-medico-senior-o-specialista-ospedaliero-specialista-ospedaliero-psychiatrische-dienste-aargau-pdag"
+        "oberarztin-oberarzt-oder-spitalfacharztin-spitalfacharzt-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-oder-spitalfacharztin-spitalfacharzt-pdag-windisch",
-          "medico-senior-medico-senior-o-specialista-ospedaliero-specialista-ospedaliero-psychiatrische-dienste-aargau-pdag"
+          "oberarztin-oberarzt-oder-spitalfacharztin-spitalfacharzt-pdag-windisch"
         ]
       },
       "firstSeenAt": "2026-06-11T11:20:03.558Z",
@@ -2018,13 +1992,11 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtwachen-equipe-pdag-windisch",
-        "infermiera-diplomatica-squadra-di-guardia-notturna-hf-fh-psychiatrische-dienste-aargau-pdag-windisch"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtwachen-equipe-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtwachen-equipe-pdag-windisch",
-          "infermiera-diplomatica-squadra-di-guardia-notturna-hf-fh-psychiatrische-dienste-aargau-pdag-windisch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtwachen-equipe-pdag-windisch"
         ]
       },
       "firstSeenAt": "2026-06-11T11:20:03.548Z",
@@ -2097,13 +2069,11 @@
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-in-der-klinik-fur-konsiliar-alters-und-br-neuropsychiatrie",
-        "assistente-medico-assistente-medico-in-clinica-per-consiliare-vecchiaia-e-assunzione-neuropsychiatry-psychiatrische"
+        "assistenzarztin-assistenzarzt-in-der-klinik-fur-konsiliar-alters-und-br-neuropsychiatrie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-in-der-klinik-fur-konsiliar-alters-und-br-neuropsychiatrie",
-          "assistente-medico-assistente-medico-in-clinica-per-consiliare-vecchiaia-e-assunzione-neuropsychiatry-psychiatrische"
+          "assistenzarztin-assistenzarzt-in-der-klinik-fur-konsiliar-alters-und-br-neuropsychiatrie"
         ]
       },
       "firstSeenAt": "2026-06-11T11:20:03.557Z",
@@ -2119,7 +2089,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdag-8958d9bfef72",
@@ -2181,13 +2152,11 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-akutstation-bipolare-storungen-pdag-windisch",
-        "dipl-infermieristica-professionale-dipl-specialista-di-cura-hf-stazione-di-cura-acuta-disturbi-bipolari-psychiatrische"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-akutstation-bipolare-storungen-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-akutstation-bipolare-storungen-pdag-windisch",
-          "dipl-infermieristica-professionale-dipl-specialista-di-cura-hf-stazione-di-cura-acuta-disturbi-bipolari-psychiatrische"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-akutstation-bipolare-storungen-pdag-windisch"
         ]
       },
       "firstSeenAt": "2026-06-11T11:20:03.561Z",
@@ -2256,13 +2225,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-vorwiegend-spatdienst",
-        "dipl-infermieristica-professionale-dipl-malattie-di-dipendenza-principalmente-servizio-in-ritardo-psychiatrische-dienste"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-vorwiegend-spatdienst"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-vorwiegend-spatdienst",
-          "dipl-infermieristica-professionale-dipl-malattie-di-dipendenza-principalmente-servizio-in-ritardo-psychiatrische-dienste"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-vorwiegend-spatdienst"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-vorwiegend-spatdienst"
@@ -2340,13 +2307,11 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachpersonen-hf-fh-im-spat-und-nachtdienst-pdag-windisch",
-        "infermieri-qualificati-hf-fh-nei-turni-notturni-e-notturni-psychiatrische-dienste-aargau-pdag-windisch"
+        "dipl-pflegefachpersonen-hf-fh-im-spat-und-nachtdienst-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachpersonen-hf-fh-im-spat-und-nachtdienst-pdag-windisch",
-          "infermieri-qualificati-hf-fh-nei-turni-notturni-e-notturni-psychiatrische-dienste-aargau-pdag-windisch"
+          "dipl-pflegefachpersonen-hf-fh-im-spat-und-nachtdienst-pdag-windisch"
         ]
       },
       "firstSeenAt": "2026-06-11T11:20:03.548Z",
@@ -2379,7 +2344,7 @@
       "title": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH Klinik für Forensische Psychiatrie",
       "titleByLocale": {
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH Klinik für Forensische Psychiatrie",
-        "it": "Dipl. Pflegesfachfrau / Pflegesfachmann HF/FH Klinik für Forensische Psychiatric",
+        "it": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH Klinik per Forensische Psychiatrie",
         "en": "Dipl. Pflegesfachfrau / Pflegesfachmann HF/FH Klinik für Forensische Psychiatrie",
         "fr": "Dipl. Pflegesfachfrau / Pflegesfachmann HF/FH Klinik für Forensische Psychiatrie"
       },
@@ -2494,14 +2459,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberpsychologe-oberpsychologin-oder-fachpsychologe-fachpsychologin-mutterschaftsvertretung",
-        "oberpsychologe-oberpsychologin-o-fachpsychologe-fachpsychologin-mutterschaftsvertretung-befristet-per-6-monate-psychiatrische-dienste-aargau-pdag-baden",
-        "psicologo-senior-o-psicologo-specializzato-rappresentazione-della-maternita-temporanea-per-6-mesi-psychiatrische-dienste"
+        "oberpsychologe-oberpsychologin-o-fachpsychologe-fachpsychologin-mutterschaftsvertretung-befristet-per-6-monate-psychiatrische-dienste-aargau-pdag-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberpsychologe-oberpsychologin-oder-fachpsychologe-fachpsychologin-mutterschaftsvertretung",
-          "oberpsychologe-oberpsychologin-o-fachpsychologe-fachpsychologin-mutterschaftsvertretung-befristet-per-6-monate-psychiatrische-dienste-aargau-pdag-baden",
-          "psicologo-senior-o-psicologo-specializzato-rappresentazione-della-maternita-temporanea-per-6-mesi-psychiatrische-dienste"
+          "oberpsychologe-oberpsychologin-o-fachpsychologe-fachpsychologin-mutterschaftsvertretung-befristet-per-6-monate-psychiatrische-dienste-aargau-pdag-baden"
         ],
         "en": [
           "oberpsychologe-oberpsychologin-oder-fachpsychologe-fachpsychologin-mutterschaftsvertretung"
@@ -2602,8 +2565,7 @@
         "class-assistant-class-assistant-psychiatrische-dienste-aargau-pdag-windisch",
         "klassenassistentin-klassenassistent-pdag-windisch",
         "assistant-de-classe-assistant-de-classe-psychiatrische-dienste-aargau-pdag-windisch",
-        "assistenzarztin-assistenzarzt-pdag-windisch",
-        "medico-assistente-psychiatrische-dienste-aargau-pdag-windisch"
+        "assistenzarztin-assistenzarzt-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2625,8 +2587,7 @@
           "psychologue-assistant-ou-psychologue-specialiste-psychiatrische-dienste-aargau-pdag-windisch",
           "assistente-di-classe-assistente-di-classe-psychiatrische-dienste-aargau-pdag-windisch",
           "assistenzarztin-assistenzarzt-pdag-windisch",
-          "assistente-psicologo-psicologa-psychiatrische-dienste-aargau-pdag-windisch",
-          "medico-assistente-psychiatrische-dienste-aargau-pdag-windisch"
+          "assistente-psicologo-psicologa-psychiatrische-dienste-aargau-pdag-windisch"
         ],
         "en": [
           "class-assistant-class-assistant-psychiatrische-dienste-aargau-pdag-windisch",
@@ -2654,7 +2615,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdag-2bcc6095448f",
@@ -2706,13 +2668,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ausbildungsplatz-zur-kochin-zum-koch-efz-pdag-windisch",
-        "ausbildungsplatz-zur-kochin-zum-koch-cfc-psychiatrische-dienste-aargau-pdag-windisch"
+        "ausbildungsplatz-zur-kochin-zum-koch-efz-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildungsplatz-zur-kochin-zum-koch-efz-pdag-windisch",
-          "ausbildungsplatz-zur-kochin-zum-koch-cfc-psychiatrische-dienste-aargau-pdag-windisch"
+          "ausbildungsplatz-zur-kochin-zum-koch-efz-pdag-windisch"
         ]
       },
       "firstSeenAt": "2026-07-10T13:26:23.293Z",
@@ -2728,7 +2688,8 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdag-9a653d63f889",
@@ -2787,13 +2748,11 @@
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-home-treatment-und-aufsuchende-angebote-pdag-windisch",
-        "servizi-di-trattamento-e-assistenza-a-domicilio-per-medici-senior-psychiatrische-dienste-aargau-pdag-windisch"
+        "oberarztin-oberarzt-home-treatment-und-aufsuchende-angebote-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-home-treatment-und-aufsuchende-angebote-pdag-windisch",
-          "servizi-di-trattamento-e-assistenza-a-domicilio-per-medici-senior-psychiatrische-dienste-aargau-pdag-windisch"
+          "oberarztin-oberarzt-home-treatment-und-aufsuchende-angebote-pdag-windisch"
         ]
       },
       "firstSeenAt": "2026-06-11T11:20:03.536Z",
@@ -2828,7 +2787,7 @@
         "it": "Dipl. Infermieristica professionale / Dipl. Infermieristica specialista HF principalmente servizio notturno psicosi acuta",
         "en": "Dipl. Nursing professional / Dipl. Nursing specialist HF mainly night service acute psychosis",
         "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF vorwiegend Nachtdienst Akutstation Psychose",
-        "fr": "Dipl. Professionnels des soins infirmiers / Dipl. Spécialiste des soins infirmiers HF principalement service de nuit psychose aiguë"
+        "fr": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF vorwiegend Nachtdienst Akutstation Psychose"
       },
       "description": "Zur Verstärkung unseres Teams suchen wir für die mehrheitlich offene Akutstation KPP-4 mit Schwerpunkt Psychose per sofort oder nach Vereinbarung Dich als\n\nAufgaben:\n• Du unterstützt und förderst im Rahmen der Nachtarbeit die sozialen Fähigkeiten und Fertigkeiten der Patientinnen und Patienten im milieutherapeutischen Setting\n\n• Du setzt den Pflegeprozess kompetent um und förderst die Gesundheit und die Ressourcen der Patientinnen und Patienten\n\n• In Krisensituationen handelst Du entsprechend kompetent und vermittelst den Patientinnen und Patienten Sicherheit\n\n• Du verstehst Dich als Teil eines interprofessionellen Behandlungsteams mit Verantwortung für die optimale Umsetzung des Konzepts sowie Leitbildes der PDAG\n\n• Du erhältst eine Akut-Zulage (bei Einsatz in zwei verschiedenen Diensten)\n\nAnforderungen:\n• Diplomierte Pflegefachperson (HF), vorzugsweise mit Berufserfahrung in der (Akut-) Psychiatrie\n\n• Du bist eine begeisterungsfähige Fachperson mit hoher Fach-, Sozial- sowie Selbstkompetenz und interessiert mit uns das Behandlungskonzept aktiv weiterzuentwickeln\n\n• Du verfügst über ein ressourcen- und lösungsorientiertes Pflegeverständnis\n\nWir bieten:\nUnsere Mitarbeitenden sind das Herz unseres Unternehmens. Genau deshalb bieten wir Ihnen auch sehr viel:\n\nWeiterbildungen werden bei uns stark gefördert. Ebenfalls investieren wir viel in den Teamzusammenhalt und bieten allen unseren Teams den Zugang zur Software \"Moodtalk\" an, mit der die Teamkommunikation gestärkt wird. Daneben bieten wir attraktive Vergünstigungen bei bekannten Marken wie Ikea, Zalando, Coop, Lidl und vielen mehr. Mitarbeitende, die mit den öffentlichen Verkehrsmitteln zu uns pendeln, erhalten am Ende des Jahres einen stattlichen Öko-Bonus ausbezahlt.\n\nZusätzlich bieten wir eine attraktive Pensionskassenlösung an. Auch die Work-Life-Balance wird bei uns gefördert: Wir sind jederzeit offen für Teilzeitarbeit und offerieren die Möglichkeit zum Ferienkauf.",
       "descriptionByLocale": {
@@ -2861,13 +2820,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-vorwiegend-nachtdienst-akutstation-psychose",
-        "dipl-infermieristica-professionale-dipl-infermieristica-specialista-hf-principalmente-servizio-notturno-psicosi-acuta"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-vorwiegend-nachtdienst-akutstation-psychose"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-vorwiegend-nachtdienst-akutstation-psychose",
-          "dipl-infermieristica-professionale-dipl-infermieristica-specialista-hf-principalmente-servizio-notturno-psicosi-acuta"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-vorwiegend-nachtdienst-akutstation-psychose"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-vorwiegend-nachtdienst-akutstation-psychose"
@@ -2941,13 +2898,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-kjp-pdag-windisch",
-        "medico-assistente-kjp-psychiatrische-dienste-aargau-pdag-windisch"
+        "assistenzarztin-assistenzarzt-kjp-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-kjp-pdag-windisch",
-          "medico-assistente-kjp-psychiatrische-dienste-aargau-pdag-windisch"
+          "assistenzarztin-assistenzarzt-kjp-pdag-windisch"
         ]
       },
       "firstSeenAt": "2026-06-11T11:20:03.570Z",
@@ -2963,7 +2918,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdag-17b1a3d9c0e9",
@@ -3015,13 +2971,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "co-stationsleiterin-co-stationsleiter-personelle-fuhrung-pdag-windisch",
-        "co-station-manager-co-station-manager-gestione-del-personale-psychiatrische-dienste-aargau-pdag-windisch"
+        "co-stationsleiterin-co-stationsleiter-personelle-fuhrung-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "co-stationsleiterin-co-stationsleiter-personelle-fuhrung-pdag-windisch",
-          "co-station-manager-co-station-manager-gestione-del-personale-psychiatrische-dienste-aargau-pdag-windisch"
+          "co-stationsleiterin-co-stationsleiter-personelle-fuhrung-pdag-windisch"
         ],
         "en": [
           "co-stationsleiterin-co-stationsleiter-personelle-fuhrung-pdag-windisch"
@@ -3043,7 +2997,8 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdag-39b013108216",
@@ -3097,14 +3052,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe",
-        "fachpsychologin-fachpsychologe-o-assistenzpsychologin-assistenzpsychologe-fortgeschritten-psychiatrische-dienste-aargau-pdag-zofingen",
-        "specialista-psicologo-o-assistente-psicologo-avanzato-psychiatrische-dienste-aargau-pdag-zofingen"
+        "fachpsychologin-fachpsychologe-o-assistenzpsychologin-assistenzpsychologe-fortgeschritten-psychiatrische-dienste-aargau-pdag-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe",
-          "fachpsychologin-fachpsychologe-o-assistenzpsychologin-assistenzpsychologe-fortgeschritten-psychiatrische-dienste-aargau-pdag-zofingen",
-          "specialista-psicologo-o-assistente-psicologo-avanzato-psychiatrische-dienste-aargau-pdag-zofingen"
+          "fachpsychologin-fachpsychologe-o-assistenzpsychologin-assistenzpsychologe-fortgeschritten-psychiatrische-dienste-aargau-pdag-zofingen"
         ],
         "en": [
           "fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe"
@@ -3180,14 +3133,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachverantwortliche-r-mitarbeiter-in-in-der-patientendisposition-pdag-windisch",
-        "fachverantwortliche-r-collaboratore-trice-in-der-patientendisposition-psychiatrische-dienste-aargau-pdag-windisch",
-        "dipendente-responsabile-professionale-nella-disposizione-dei-pazienti-psychiatrische-dienste-aargau-pdag-windisch"
+        "fachverantwortliche-r-collaboratore-trice-in-der-patientendisposition-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachverantwortliche-r-mitarbeiter-in-in-der-patientendisposition-pdag-windisch",
-          "fachverantwortliche-r-collaboratore-trice-in-der-patientendisposition-psychiatrische-dienste-aargau-pdag-windisch",
-          "dipendente-responsabile-professionale-nella-disposizione-dei-pazienti-psychiatrische-dienste-aargau-pdag-windisch"
+          "fachverantwortliche-r-collaboratore-trice-in-der-patientendisposition-psychiatrische-dienste-aargau-pdag-windisch"
         ],
         "en": [
           "fachverantwortliche-r-mitarbeiter-in-in-der-patientendisposition-pdag-windisch"
@@ -3263,15 +3214,13 @@
       "previousSlugs": [
         "fachverantwortliche-fachverantwortlicher-amp-stv-stationsleitung-forensische-psychiatrie-2",
         "fachverantwortliche-fachverantwortlicher-stv-stationsleitung-forensische-psychiatrie-stationar-psychiatrische-dienste",
-        "fachverantwortliche-fachverantwortlicher-amp-stv-stationsleitung-forensische-psychiatrie",
-        "specialisti-responsabili-stv-gestione-della-stazione-psichiatria-forense-stazionario-psychiatrische-dienste-aargau-pdag"
+        "fachverantwortliche-fachverantwortlicher-amp-stv-stationsleitung-forensische-psychiatrie"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachverantwortliche-fachverantwortlicher-amp-stv-stationsleitung-forensische-psychiatrie-2",
           "fachverantwortliche-fachverantwortlicher-stv-stationsleitung-forensische-psychiatrie-stationar-psychiatrische-dienste",
-          "fachverantwortliche-fachverantwortlicher-amp-stv-stationsleitung-forensische-psychiatrie",
-          "specialisti-responsabili-stv-gestione-della-stazione-psichiatria-forense-stazionario-psychiatrische-dienste-aargau-pdag"
+          "fachverantwortliche-fachverantwortlicher-amp-stv-stationsleitung-forensische-psychiatrie"
         ]
       },
       "firstSeenAt": "2026-06-11T13:15:23.496Z",
@@ -3346,8 +3295,7 @@
         "dipl-career-dipl-care-specialist-hf-fh-in-the-department-of-neuropsychiatrie-psychiatrische-dienste-aargau-pdag-windisch",
         "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-im-klinikbereich-neuropsychiatrie-pdag",
         "dipl-carriere-dipl-specialiste-des-soins-hf-fh-au-departement-de-neuropsychiatrie-psychiatrische-dienste-aargau-pdag",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-br-im-klinikbereich-neuropsychiatrie-pdag",
-        "dipl-infermieristica-professionale-dipl-infermieristica-specialista-hf-fh-br-nella-clinica-neuropsichiatria"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-br-im-klinikbereich-neuropsychiatrie-pdag"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3357,8 +3305,7 @@
           "dipl-career-dipl-care-specialist-hf-fh-in-the-department-of-neuropsychiatrie-psychiatrische-dienste-aargau-pdag-windisch",
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-im-klinikbereich-neuropsychiatrie-pdag",
           "dipl-carriere-dipl-specialiste-des-soins-hf-fh-au-departement-de-neuropsychiatrie-psychiatrische-dienste-aargau-pdag",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-br-im-klinikbereich-neuropsychiatrie-pdag",
-          "dipl-infermieristica-professionale-dipl-infermieristica-specialista-hf-fh-br-nella-clinica-neuropsichiatria"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-br-im-klinikbereich-neuropsychiatrie-pdag"
         ],
         "en": [
           "graduate-nurse-hf-fh-in-the-department-of-neuropsychiatry-psychiatrische-dienste-aargau-pdag-windisch",
@@ -3436,14 +3383,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberpsychologe-oberpsychologin-oder-fachpsychologe-fachpsychologin-pdag-baden",
-        "oberpsychologe-oberpsychologin-o-fachpsychologe-fachpsychologin-psychiatrische-dienste-aargau-pdag-baden",
-        "psicologo-senior-psicologo-senior-o-psicologo-specializzato-psicologo-specializzato-psychiatrische-dienste-aargau-pdag"
+        "oberpsychologe-oberpsychologin-o-fachpsychologe-fachpsychologin-psychiatrische-dienste-aargau-pdag-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberpsychologe-oberpsychologin-oder-fachpsychologe-fachpsychologin-pdag-baden",
-          "oberpsychologe-oberpsychologin-o-fachpsychologe-fachpsychologin-psychiatrische-dienste-aargau-pdag-baden",
-          "psicologo-senior-psicologo-senior-o-psicologo-specializzato-psicologo-specializzato-psychiatrische-dienste-aargau-pdag"
+          "oberpsychologe-oberpsychologin-o-fachpsychologe-fachpsychologin-psychiatrische-dienste-aargau-pdag-baden"
         ],
         "en": [
           "oberpsychologe-oberpsychologin-oder-fachpsychologe-fachpsychologin-pdag-baden"
@@ -3520,15 +3465,13 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-hf-fh-fur-eine-psychotherapiestation-pdag-windisch",
         "pflegefachfrau-pflegefachmann-hf-fh-demenz-delir-psychiatrische-dienste-aargau-pdag-windisch",
-        "pflegefachfrau-pflegefachmann-hf-fh-per-eine-psychotherapiestation-psychiatrische-dienste-aargau-pdag-windisch",
-        "specialista-infermieristico-hf-fh-per-un-unita-di-psicoterapia-psychiatrische-dienste-aargau-pdag-windisch"
+        "pflegefachfrau-pflegefachmann-hf-fh-per-eine-psychotherapiestation-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-hf-fh-fur-eine-psychotherapiestation-pdag-windisch",
           "pflegefachfrau-pflegefachmann-hf-fh-demenz-delir-psychiatrische-dienste-aargau-pdag-windisch",
-          "pflegefachfrau-pflegefachmann-hf-fh-per-eine-psychotherapiestation-psychiatrische-dienste-aargau-pdag-windisch",
-          "specialista-infermieristico-hf-fh-per-un-unita-di-psicoterapia-psychiatrische-dienste-aargau-pdag-windisch"
+          "pflegefachfrau-pflegefachmann-hf-fh-per-eine-psychotherapiestation-psychiatrische-dienste-aargau-pdag-windisch"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-hf-fh-fur-eine-psychotherapiestation-pdag-windisch"
@@ -3621,8 +3564,7 @@
         "assistente-medico-assistente-medico-ambulatorium-psychiatrische-dienste-aargau-pdag-baden",
         "assistant-doctor-assistant-doctor-ambulatorium-psychiatrische-dienste-aargau-pdag-baden",
         "assistenzarztin-assistenzarzt-ambulatorium-pdag-baden",
-        "clinique-ambulatoire-pour-medecins-assistants-psychiatrische-dienste-aargau-pdag-baden",
-        "medico-senior-psychiatrische-dienste-aargau-pdag-baden"
+        "clinique-ambulatoire-pour-medecins-assistants-psychiatrische-dienste-aargau-pdag-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3630,8 +3572,7 @@
           "assistente-medico-assistente-medico-ambulatorium-psychiatrische-dienste-aargau-pdag-baden",
           "assistant-doctor-assistant-doctor-ambulatorium-psychiatrische-dienste-aargau-pdag-baden",
           "assistenzarztin-assistenzarzt-ambulatorium-pdag-baden",
-          "clinique-ambulatoire-pour-medecins-assistants-psychiatrische-dienste-aargau-pdag-baden",
-          "medico-senior-psychiatrische-dienste-aargau-pdag-baden"
+          "clinique-ambulatoire-pour-medecins-assistants-psychiatrische-dienste-aargau-pdag-baden"
         ],
         "en": [
           "assistant-doctor-assistant-doctor-ambulatorium-psychiatrische-dienste-aargau-pdag-baden"
@@ -3656,7 +3597,8 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdag-e7bd68f252a8",
@@ -3822,84 +3764,6 @@
       }
     },
     {
-      "id": "pdag-384e29984b85",
-      "slug": "principale-medico-principal-medico-psychiatrische-dienste-aargau-pdag-windisch",
-      "slugByLocale": {
-        "it": "principale-medico-principal-medico-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "senior-physician-psychiatrische-dienste-aargau-pdag-windisch-81f126",
-        "de": "leitende-arztin-leitender-arzt-pdag-windisch",
-        "fr": "medecin-principal-psychiatrische-dienste-aargau-pdag-windisch"
-      },
-      "company": "Psychiatrische Dienste Aargau (PDAG)",
-      "companyKey": "pdag",
-      "companyDomain": "pdag.ch",
-      "title": "Leitende Ärztin / Leitender Arzt",
-      "titleByLocale": {
-        "it": "Medico Senior",
-        "en": "Senior Physician",
-        "de": "Leitende Ärztin / Leitender Arzt",
-        "fr": "Médecin principal"
-      },
-      "description": "Für unsere schweizweit einzigartiges Zentrum für Entwicklungs- und Neuropsychiatrie (Behandlungen für Menschen mit intellektueller Entwicklungsstörung 18+) am attraktiven Standort Windisch suchen wir per September oder gemäss Vereinbarung eine geeignete Verstärkung als\n\nAufgaben:\n• Gewährleistung einer qualitativ hochstehenden und zeitgemässen psychiatrisch-psychotherapeutischen Versorgung auf der Grundlage von gesetzlichen und betrieblichen Rahmenbedingungen sowie Fachempfehlungen (stationär, aufsuchend und ambulant)\n\n• Führung des multiprofessionellen und interdisziplinären Teams unter Berücksichtigung der Werte und Führungsgrundsätze der PDAG\n\n• Gewährleistung der Zielerreichung aktueller Jahresziele sowie weiterer quantitativen und qualitativen Ziele der Organisationseinheit\n\n• Gewährleistung einer sorgfältigen strukturierten Falldokumentation\n\n• Gewährleistung der fachlichen Weiterbildung bzw. des \"on-the-job Training\" der unterstellten Mitarbeitenden sowie Weiterbildungssupervisionen\n\n• Zusammenarbeit im multiprofessionellen und interdisziplinären Team\n\n• Mitwirkung an Aus-, Weiter- und Fortbildungsangeboten der PDAG\n\n• Öffentlichkeitsarbeit und Netzwerkpflege im Kontext unterschiedlicher Anlässe\n\n• Mitwirkung an Projekten, Aufträgen und Anpassungen gemäss Klinikleitung\n\n• Mitwirkung im Dienstsystem PDAG\n\nAnforderungen:\n• Abgeschlossene Weiterbildung zum Facharzttitel Psychiatrie und Psychotherapie\n\n• Interesse am Spezialbereich Entwicklungs- und Neuropsychiatrie\n\n• Verantwortungsbewusstsein, Zuverlässigkeit und Teamfähigkeit\n\n• Hohe Sozialkompetenzen, selbständiger und effizienter Arbeitsstil sowie hohe Belastbarkeit\n\n• Freude an der multiprofessionellen und interdisziplinären Zusammenarbeit\n\n• Identifikation mit unseren Unternehmenswerten: Mut, Engagement und Vertrauen\n\n• Sehr gute Führungskompetenzen (CAS Leadership)\n\n• Strategische und betriebswirtschaftliche Kompetenzen\n\nWir bieten:\nUnsere Mitarbeitenden sind das Herz unseres Unternehmens. Genau deshalb bieten wir Ihnen auch sehr viel:\n\nWeiterbildungen werden bei uns stark gefördert. Ebenfalls investieren wir viel in den Teamzusammenhalt und bieten allen unseren Teams den Zugang zur Software \"Moodtalk\" an, mit der die Teamkommunikation gestärkt wird. Daneben bieten wir attraktive Vergünstigungen bei bekannten Marken wie Ikea, Zalando, Coop, Lidl und vielen mehr. Mitarbeitende, die mit den öffentlichen Verkehrsmitteln zu uns pendeln, erhalten am Ende des Jahres einen stattlichen Öko-Bonus ausbezahlt.\n\nZusätzlich bieten wir eine attraktive Pensionskassenlösung an. Auch die Work-Life-Balance wird bei uns gefördert: Wir sind jederzeit offen für Teilzeitarbeit und offerieren die Möglichkeit zum Ferienkauf.",
-      "descriptionByLocale": {
-        "it": "Per il nostro centro unico in Svizzera di neuropsichiatria dello sviluppo e neuropsichiatria (trattamenti per persone con disabilità dello sviluppo intellettivo 18+), nell'attraente sede di Windisch, cerchiamo un adeguato rinforzo a settembre o come concordato. I nostri compiti sono:\n• Garantire un'assistenza psichiatrica e psicoterapeutica moderna e di alta qualità sulla base delle condizioni quadro legali e operative nonché delle raccomandazioni specialistiche (stazionarie, ambulatoriali e ambulatoriali)\n• Guidare il team multiprofessionale e interdisciplinare, tenendo conto dei valori e dei principi gestionali della PDAG\n• Garantire il raggiungimento degli attuali obiettivi annuali e di altri obiettivi quantitativi e qualitativi dell'unità organizzativa\n• Garantire una documentazione attenta e strutturata dei casi\n• Garantire la formazione professionale continua o la \"formazione sul posto di lavoro\" dei dipendenti subordinati nonché l'assistenza alla formazione continua\n• Collaborazione in un team multiprofessionale e interdisciplinare\n• Partecipazione alle offerte di formazione, perfezionamento e perfezionamento della PDAG\n• Relazioni pubbliche e mantenimento della rete nell'ambito di diverse occasioni\n• Partecipazione a progetti, ordini e adattamenti in base alla direzione della clinica\n• Partecipazione al sistema di servizi PDAG Requisiti:\n• Completamento della formazione continua per diventare specialista in psichiatria e psicoterapia\n• Interesse per l'area specialistica di sviluppo e psicoterapia Neuropsichiatria\n• Senso di responsabilità, affidabilità e capacità di lavorare in squadra\n• Elevate competenze sociali, stile di lavoro indipendente ed efficiente nonché elevata resilienza\n• Piacere della collaborazione multiprofessionale e interdisciplinare\n• Identificazione con i nostri valori aziendali: coraggio, impegno e fiducia\n• Ottime capacità di leadership (CAS Leadership)\n• Capacità di gestione strategica e aziendale Offriamo: I nostri dipendenti sono il cuore della nostra azienda. Proprio per questo ti offriamo molto: incoraggiamo fortemente la formazione continua. Investiamo molto anche nella coesione del team e offriamo a tutti i nostri team l'accesso al software \"Moodtalk\", che rafforza la comunicazione del team. Offriamo anche sconti interessanti su marchi rinomati come Ikea, Zalando, Coop, Lidl e molti altri. I dipendenti che si spostano da noi con i mezzi pubblici ricevono a fine anno un impressionante ecobonus. Offriamo anche un'interessante soluzione di cassa pensione. Promuoviamo inoltre l'equilibrio tra lavoro e vita privata: siamo sempre aperti al lavoro part-time e offriamo la possibilità di acquistare una vacanza.",
-        "en": "For our center for developmental and neuropsychiatry (treatments for people with intellectual developmental disabilities 18+), which is unique in Switzerland, at the attractive location in Windisch, we are looking for suitable reinforcement in September or as agreed. Our tasks will be:\n• Ensuring high-quality and contemporary psychiatric-psychotherapeutic care based on legal and operational framework conditions as well as specialist recommendations (inpatient, outpatient and outpatient)\n• Leading the multi-professional and interdisciplinary team, taking values into account and management principles of the PDAG\n• Ensuring the achievement of current annual goals as well as other quantitative and qualitative goals of the organizational unit\n• Ensuring careful, structured case documentation\n• Ensuring professional further training or the \"on-the-job training\" of the subordinate employees as well as further training supervision\n• Collaboration in a multi-professional and interdisciplinary team\n• Participation in PDAG training, further education and training offers\n• Public relations and network maintenance in the context of various occasions\n• Participation in projects, orders and adjustments according to the clinic management\n• Participation in the PDAG service system Requirements:\n• Completed further training to become a specialist in psychiatry and psychotherapy\n• Interest in the specialist area of developmental and psychotherapy Neuropsychiatry\n• Sense of responsibility, reliability and ability to work in a team\n• High social skills, independent and efficient working style as well as high resilience\n• Enjoyment of multi-professional and interdisciplinary collaboration\n• Identification with our company values: courage, commitment and trust\n• Very good leadership skills (CAS Leadership)\n• Strategic and business management skills We offer: Our employees are the heart of our company. That's exactly why we offer you a lot: we strongly encourage further training. We also invest a lot in team cohesion and offer all of our teams access to the “Moodtalk” software, which strengthens team communication. We also offer attractive discounts on well-known brands such as Ikea, Zalando, Coop, Lidl and many more. Employees who commute to us by public transport receive an impressive eco-bonus at the end of the year. We also offer an attractive pension fund solution. We also promote work-life balance: We are always open to part-time work and offer the opportunity to buy a holiday.",
-        "de": "Für unsere schweizweit einzigartiges Zentrum für Entwicklungs- und Neuropsychiatrie (Behandlungen für Menschen mit intellektueller Entwicklungsstörung 18+) am attraktiven Standort Windisch suchen wir per September oder gemäss Vereinbarung eine geeignete Verstärkung als\n\nAufgaben:\n• Gewährleistung einer qualitativ hochstehenden und zeitgemässen psychiatrisch-psychotherapeutischen Versorgung auf der Grundlage von gesetzlichen und betrieblichen Rahmenbedingungen sowie Fachempfehlungen (stationär, aufsuchend und ambulant)\n\n• Führung des multiprofessionellen und interdisziplinären Teams unter Berücksichtigung der Werte und Führungsgrundsätze der PDAG\n\n• Gewährleistung der Zielerreichung aktueller Jahresziele sowie weiterer quantitativen und qualitativen Ziele der Organisationseinheit\n\n• Gewährleistung einer sorgfältigen strukturierten Falldokumentation\n\n• Gewährleistung der fachlichen Weiterbildung bzw. des \"on-the-job Training\" der unterstellten Mitarbeitenden sowie Weiterbildungssupervisionen\n\n• Zusammenarbeit im multiprofessionellen und interdisziplinären Team\n\n• Mitwirkung an Aus-, Weiter- und Fortbildungsangeboten der PDAG\n\n• Öffentlichkeitsarbeit und Netzwerkpflege im Kontext unterschiedlicher Anlässe\n\n• Mitwirkung an Projekten, Aufträgen und Anpassungen gemäss Klinikleitung\n\n• Mitwirkung im Dienstsystem PDAG\n\nAnforderungen:\n• Abgeschlossene Weiterbildung zum Facharzttitel Psychiatrie und Psychotherapie\n\n• Interesse am Spezialbereich Entwicklungs- und Neuropsychiatrie\n\n• Verantwortungsbewusstsein, Zuverlässigkeit und Teamfähigkeit\n\n• Hohe Sozialkompetenzen, selbständiger und effizienter Arbeitsstil sowie hohe Belastbarkeit\n\n• Freude an der multiprofessionellen und interdisziplinären Zusammenarbeit\n\n• Identifikation mit unseren Unternehmenswerten: Mut, Engagement und Vertrauen\n\n• Sehr gute Führungskompetenzen (CAS Leadership)\n\n• Strategische und betriebswirtschaftliche Kompetenzen\n\nWir bieten:\nUnsere Mitarbeitenden sind das Herz unseres Unternehmens. Genau deshalb bieten wir Ihnen auch sehr viel:\n\nWeiterbildungen werden bei uns stark gefördert. Ebenfalls investieren wir viel in den Teamzusammenhalt und bieten allen unseren Teams den Zugang zur Software \"Moodtalk\" an, mit der die Teamkommunikation gestärkt wird. Daneben bieten wir attraktive Vergünstigungen bei bekannten Marken wie Ikea, Zalando, Coop, Lidl und vielen mehr. Mitarbeitende, die mit den öffentlichen Verkehrsmitteln zu uns pendeln, erhalten am Ende des Jahres einen stattlichen Öko-Bonus ausbezahlt.\n\nZusätzlich bieten wir eine attraktive Pensionskassenlösung an. Auch die Work-Life-Balance wird bei uns gefördert: Wir sind jederzeit offen für Teilzeitarbeit und offerieren die Möglichkeit zum Ferienkauf.",
-        "fr": "Pour notre centre de développement et de neuropsychiatrie (traitements pour personnes ayant une déficience intellectuelle du développement de 18 ans et plus), unique en Suisse, situé sur le site attrayant de Windisch, nous recherchons un renfort approprié en septembre ou comme convenu. Nos tâches seront les suivantes :\n• Assurer des soins psychiatriques et psychothérapeutiques contemporains et de haute qualité, sur la base des conditions-cadres juridiques et opérationnelles ainsi que des recommandations des spécialistes (hospitalisés, ambulatoires et ambulatoires)\n• Diriger l'équipe multiprofessionnelle et interdisciplinaire en tenant compte des valeurs et des principes de gestion du PDAG\n• Garantir la réalisation des objectifs annuels actuels ainsi que d'autres objectifs quantitatifs et qualitatifs de l'unité organisationnelle\n• Assurer une documentation de cas minutieuse et structurée\n• Assurer une formation professionnelle continue ou la \"formation sur le terrain\" des collaborateurs subordonnés ainsi que l'encadrement de la formation continue\n• Collaboration au sein d'une équipe multiprofessionnelle et interdisciplinaire\n• Participation aux offres de formation, de formation continue et de formation PDAG\n• Relations publiques et entretien du réseau dans le cadre de diverses occasions\n• Participation à des projets, commandes et adaptations selon la direction de la clinique\n• Participation au système de services PDAG Exigences :\n• Formation continue complète pour devenir spécialiste en psychiatrie et psychothérapie\n• Intérêt pour le domaine spécialisé de la neuropsychiatrie du développement et de la psychothérapie\n• Sens des responsabilités, fiabilité et capacité à travailler en équipe\n• Compétences sociales élevées, style de travail indépendant et efficace ainsi qu'une grande résilience\n• Appréciation de la collaboration multiprofessionnelle et interdisciplinaire\n• Identification aux valeurs de notre entreprise : courage, engagement et confiance\n• Très bonnes compétences en leadership (CAS Leadership)\n• Compétences en matière de stratégie et de gestion d'entreprise Nous offrons : Nos employés sont le cœur de notre entreprise. C'est exactement pourquoi nous vous proposons beaucoup : nous encourageons fortement la formation continue. Nous investissons également beaucoup dans la cohésion d’équipe et proposons à toutes nos équipes l’accès au logiciel « Moodtalk » qui renforce la communication en équipe. Nous proposons également des réductions intéressantes sur des marques connues telles que Ikea, Zalando, Coop, Lidl et bien d'autres encore. Les collaborateurs qui se rendent chez nous en transports en commun reçoivent un éco-bonus impressionnant à la fin de l'année. Nous proposons également une solution de prévoyance attractive. Nous promouvons également l'équilibre entre vie professionnelle et vie privée : nous sommes toujours ouverts au travail à temps partiel et offrons la possibilité d'acheter des vacances."
-      },
-      "location": "Windisch",
-      "canton": "AG",
-      "url": "https://jobs.pdag.ch/offene-stellen/leitende-aerztin-leitender-arzt/bbfaabdc-3515-437c-9cc0-6c704a1ab7a4",
-      "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:08:58.930Z",
-      "addressLocality": "Windisch",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5210",
-      "streetAddress": "Königsfelderstrasse 1",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-17",
-      "applyUrl": "https://jobs.pdag.ch/offene-stellen/leitende-aerztin-leitender-arzt/bbfaabdc-3515-437c-9cc0-6c704a1ab7a4",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "leitende-arztin-leitender-arzt-pdag-windisch",
-        "leitende-arztin-leitender-arzt-pdag-windisch-xsqv7c",
-        "principale-medico-principal-medico-psychiatrische-dienste-aargau-pdag-windisch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leitende-arztin-leitender-arzt-pdag-windisch",
-          "principale-medico-principal-medico-psychiatrische-dienste-aargau-pdag-windisch"
-        ],
-        "de": [
-          "leitende-arztin-leitender-arzt-pdag-windisch-xsqv7c"
-        ]
-      },
-      "firstSeenAt": "2026-06-11T13:15:23.523Z",
-      "salaryMin": 119000,
-      "salaryMax": 166000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 119000,
-          "maxValue": 166000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "pdag-c9dbd6ed65a5",
       "slug": "squadra-di-guardia-notturna-specialista-della-salute-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
@@ -3963,8 +3827,7 @@
         "responsabilita-specialistica-vice-direttore-della-stazione-della-squadra-di-guardia-notturna-m-f-80-100-psychiatrische",
         "specialist-responsibility-deputy-station-manager-night-watch-team-m-f-80-100-psychiatrische-dienste-aargau-pdag-windisch",
         "fachverantwortung-amp-stv-stationsleitung-nachtwachenequipe-m-w-80-100-pdag-windisch",
-        "responsabilite-specialisee-directeur-adjoint-de-la-station-night-watch-team-m-f-80-100-psychiatrische-dienste-aargau",
-        "squadra-di-guardia-notturna-specialista-della-salute-psychiatrische-dienste-aargau-pdag-windisch"
+        "responsabilite-specialisee-directeur-adjoint-de-la-station-night-watch-team-m-f-80-100-psychiatrische-dienste-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3972,8 +3835,7 @@
           "responsabilita-specialistica-vice-direttore-della-stazione-della-squadra-di-guardia-notturna-m-f-80-100-psychiatrische",
           "specialist-responsibility-deputy-station-manager-night-watch-team-m-f-80-100-psychiatrische-dienste-aargau-pdag-windisch",
           "fachverantwortung-amp-stv-stationsleitung-nachtwachenequipe-m-w-80-100-pdag-windisch",
-          "responsabilite-specialisee-directeur-adjoint-de-la-station-night-watch-team-m-f-80-100-psychiatrische-dienste-aargau",
-          "squadra-di-guardia-notturna-specialista-della-salute-psychiatrische-dienste-aargau-pdag-windisch"
+          "responsabilite-specialisee-directeur-adjoint-de-la-station-night-watch-team-m-f-80-100-psychiatrische-dienste-aargau"
         ],
         "en": [
           "specialist-responsibility-deputy-station-manager-night-watch-team-m-f-80-100-psychiatrische-dienste-aargau-pdag-windisch"
@@ -4056,13 +3918,11 @@
         ]
       },
       "previousSlugs": [
-        "leitende-arztin-leitender-arzt-pdag-aarau",
-        "medico-senior-psychiatrische-dienste-aargau-pdag-aarau"
+        "leitende-arztin-leitender-arzt-pdag-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-arztin-leitender-arzt-pdag-aarau",
-          "medico-senior-psychiatrische-dienste-aargau-pdag-aarau"
+          "leitende-arztin-leitender-arzt-pdag-aarau"
         ]
       },
       "firstSeenAt": "2026-06-11T11:20:03.557Z",
@@ -4078,7 +3938,8 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdag-3f57432a00df",
@@ -4142,13 +4003,11 @@
         ]
       },
       "previousSlugs": [
-        "oberpsychologin-oberpsychologe-home-treatment-pdag-windisch",
-        "psicologo-senior-trattamento-a-casa-psychiatrische-dienste-aargau-pdag-windisch"
+        "oberpsychologin-oberpsychologe-home-treatment-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberpsychologin-oberpsychologe-home-treatment-pdag-windisch",
-          "psicologo-senior-trattamento-a-casa-psychiatrische-dienste-aargau-pdag-windisch"
+          "oberpsychologin-oberpsychologe-home-treatment-pdag-windisch"
         ]
       },
       "firstSeenAt": "2026-06-11T11:20:03.567Z",
@@ -4229,8 +4088,7 @@
         "malattie-di-dipendenza-da-medico-senior-ambulatorio-psychiatrische-dienste-aargau-pdag-aarau",
         "senior-physician-addiction-disorders-outpatient-psychiatrische-dienste-aargau-pdag-aarau",
         "oberarztin-oberarzt-abhangigkeitserkrankungen-ambulant-pdag-aarau",
-        "troubles-de-la-dependance-chez-les-medecins-seniors-ambulatoire-psychiatrische-dienste-aargau-pdag-aarau",
-        "medico-senior-per-i-disturbi-da-dipendenza-psychiatrische-dienste-aargau-pdag-windisch"
+        "troubles-de-la-dependance-chez-les-medecins-seniors-ambulatoire-psychiatrische-dienste-aargau-pdag-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4238,8 +4096,7 @@
           "malattie-di-dipendenza-da-medico-senior-ambulatorio-psychiatrische-dienste-aargau-pdag-aarau",
           "senior-physician-addiction-disorders-outpatient-psychiatrische-dienste-aargau-pdag-aarau",
           "oberarztin-oberarzt-abhangigkeitserkrankungen-ambulant-pdag-aarau",
-          "troubles-de-la-dependance-chez-les-medecins-seniors-ambulatoire-psychiatrische-dienste-aargau-pdag-aarau",
-          "medico-senior-per-i-disturbi-da-dipendenza-psychiatrische-dienste-aargau-pdag-windisch"
+          "troubles-de-la-dependance-chez-les-medecins-seniors-ambulatoire-psychiatrische-dienste-aargau-pdag-aarau"
         ],
         "en": [
           "senior-physician-addiction-disorders-outpatient-psychiatrische-dienste-aargau-pdag-aarau"
@@ -4337,8 +4194,7 @@
         "dipl-nurse-day-clinic-psychiatrische-dienste-aargau-pdag-windisch",
         "dipl-pflegefachfrau-dipl-pflegefachmann-tagesklinik-pdag-windisch",
         "dipl-professionnels-des-soins-infirmiers-dipl-clinique-de-jour-specialisee-en-soins-infirmiers-psychiatrische-dienste",
-        "dipl-pflegefachfrau-pflegefachmann-vorwiegend-im-nachtdienst-pdag-windisch",
-        "dipl-infermieristica-professionale-infermieristica-psychiatrische-dienste-aargau-pdag-windisch"
+        "dipl-pflegefachfrau-pflegefachmann-vorwiegend-im-nachtdienst-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4360,8 +4216,7 @@
           "dipl-professionnels-des-soins-infirmiers-dipl-clinique-de-jour-specialisee-en-soins-infirmiers-psychiatrische-dienste",
           "dipl-infermieristica-professionale-dipl-infermieristica-professionale-psychiatrische-dienste-aargau-pdag-wohlen",
           "dipl-pflegefachfrau-pflegefachmann-vorwiegend-im-nachtdienst-pdag-windisch",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-pdag-wohlen",
-          "dipl-infermieristica-professionale-infermieristica-psychiatrische-dienste-aargau-pdag-windisch"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-pdag-wohlen"
         ],
         "en": [
           "dipl-nursing-professional-dipl-nursing-professional-psychiatrische-dienste-aargau-pdag-wohlen",
@@ -4447,13 +4302,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "information-security-officer-iso-pdag-windisch",
-        "responsabile-della-sicurezza-delle-informazioni-iso-psychiatrische-dienste-aargau-pdag-windisch"
+        "information-security-officer-iso-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "information-security-officer-iso-pdag-windisch",
-          "responsabile-della-sicurezza-delle-informazioni-iso-psychiatrische-dienste-aargau-pdag-windisch"
+          "information-security-officer-iso-pdag-windisch"
         ],
         "fr": [
           "information-security-officer-iso-pdag-windisch"
@@ -4525,13 +4378,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-ambulatorium-pdag-rheinfelden",
-        "senior-medico-senior-medico-ambulatorium-psychiatrische-dienste-aargau-pdag-rheinfelden"
+        "oberarztin-oberarzt-ambulatorium-pdag-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-ambulatorium-pdag-rheinfelden",
-          "senior-medico-senior-medico-ambulatorium-psychiatrische-dienste-aargau-pdag-rheinfelden"
+          "oberarztin-oberarzt-ambulatorium-pdag-rheinfelden"
         ],
         "en": [
           "oberarztin-oberarzt-ambulatorium-pdag-rheinfelden"
@@ -4553,7 +4404,8 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdag-91072171dd37",
@@ -4606,13 +4458,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-pdag-windisch",
-        "medico-senior-medico-senior-psychiatrische-dienste-aargau-pdag-windisch"
+        "oberarztin-oberarzt-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-pdag-windisch",
-          "medico-senior-medico-senior-psychiatrische-dienste-aargau-pdag-windisch"
+          "oberarztin-oberarzt-pdag-windisch"
         ],
         "en": [
           "oberarztin-oberarzt-pdag-windisch"
@@ -4687,13 +4537,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "arztin-arzt-pdag-baden",
-        "dottore-dottore-psychiatrische-dienste-aargau-pdag-baden"
+        "arztin-arzt-pdag-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztin-arzt-pdag-baden",
-          "dottore-dottore-psychiatrische-dienste-aargau-pdag-baden"
+          "arztin-arzt-pdag-baden"
         ],
         "en": [
           "arztin-arzt-pdag-baden"
@@ -4731,7 +4579,7 @@
       "companyDomain": "pdag.ch",
       "title": "Psychologin / Psychologe Ambulatorium",
       "titleByLocale": {
-        "it": "Psicologo/psicologo Ambulatorium",
+        "it": "Psychologin / Psychologe Ambulatorium",
         "en": "Psychologist/psychologist Ambulatorium",
         "de": "Psychologin / Psychologe Ambulatorium",
         "fr": "Psychologue/psychologue Ambulatoire"
@@ -4767,13 +4615,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychologin-psychologe-ambulatorium-pdag-baden",
-        "psicologo-psicologo-ambulatorium-psychiatrische-dienste-aargau-pdag-baden"
+        "psychologin-psychologe-ambulatorium-pdag-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologin-psychologe-ambulatorium-pdag-baden",
-          "psicologo-psicologo-ambulatorium-psychiatrische-dienste-aargau-pdag-baden"
+          "psychologin-psychologe-ambulatorium-pdag-baden"
         ]
       },
       "firstSeenAt": "2026-09-24T00:07:43.824Z",
@@ -4789,7 +4635,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdag-c6ced0282782",
@@ -4842,13 +4689,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiterin-sachbearbeiter-rechnungswesen-pdag-windisch",
-        "case-handler-case-handler-contabilita-psychiatrische-dienste-aargau-pdag-windisch"
+        "sachbearbeiterin-sachbearbeiter-rechnungswesen-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiterin-sachbearbeiter-rechnungswesen-pdag-windisch",
-          "case-handler-case-handler-contabilita-psychiatrische-dienste-aargau-pdag-windisch"
+          "sachbearbeiterin-sachbearbeiter-rechnungswesen-pdag-windisch"
         ],
         "en": [
           "sachbearbeiterin-sachbearbeiter-rechnungswesen-pdag-windisch"
@@ -4924,14 +4769,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leiterin-leiter-betriebe-br-mitglied-der-geschaftsleitung-pdag-windisch",
-        "leiterin-leiter-betriebe-br-mitglied-der-geschaftsleitung-psychiatrische-dienste-aargau-pdag-windisch",
-        "capo-capo-delle-operazioni-psychiatrische-dienste-aargau-pdag-windisch"
+        "leiterin-leiter-betriebe-br-mitglied-der-geschaftsleitung-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiterin-leiter-betriebe-br-mitglied-der-geschaftsleitung-pdag-windisch",
-          "leiterin-leiter-betriebe-br-mitglied-der-geschaftsleitung-psychiatrische-dienste-aargau-pdag-windisch",
-          "capo-capo-delle-operazioni-psychiatrische-dienste-aargau-pdag-windisch"
+          "leiterin-leiter-betriebe-br-mitglied-der-geschaftsleitung-psychiatrische-dienste-aargau-pdag-windisch"
         ],
         "en": [
           "leiterin-leiter-betriebe-br-mitglied-der-geschaftsleitung-pdag-windisch"
@@ -5005,13 +4848,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stationsassistentin-stationsassistent-pdag-windisch",
-        "assistente-stazione-assistente-stazione-psychiatrische-dienste-aargau-pdag-windisch"
+        "stationsassistentin-stationsassistent-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stationsassistentin-stationsassistent-pdag-windisch",
-          "assistente-stazione-assistente-stazione-psychiatrische-dienste-aargau-pdag-windisch"
+          "stationsassistentin-stationsassistent-pdag-windisch"
         ],
         "en": [
           "stationsassistentin-stationsassistent-pdag-windisch"
@@ -5033,16 +4874,17 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdag-7c0d6a3b60d8",
-      "slug": "stv-stationsleiterin-stv-stationsleiter-tagesklinik-mit-fachverantwortung-pdag-windisch",
+      "slug": "stv-station-manager-stv-station-manager-giorno-1974-con-responsabilita-per-l-argomento-psychiatrische-dienste-aargau",
       "slugByLocale": {
         "de": "stv-stationsleiterin-stv-stationsleiter-tagesklinik-mit-fachverantwortung-pdag-windisch",
-        "it": "stv-stationsleiterin-stv-stationsleiter-tagesklinik-mit-fachverantwortung-pdag-windisch",
-        "en": "stv-stationsleiterin-stv-stationsleiter-tagesklinik-mit-fachverantwortung-pdag-windisch",
-        "fr": "stv-stationsleiterin-stv-stationsleiter-tagesklinik-mit-fachverantwortung-pdag-windisch"
+        "it": "stv-station-manager-stv-station-manager-giorno-1974-con-responsabilita-per-l-argomento-psychiatrische-dienste-aargau",
+        "en": "stv-station-manager-stv-station-manager-day-clinic-with-responsibility-for-the-subject-psychiatrische-dienste-aargau",
+        "fr": "stv-gestionnaire-de-station-stv-gestionnaire-de-station-day-clinic-avec-la-responsabilite-du-sujet-psychiatrische"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -5050,7 +4892,7 @@
       "title": "Stv. Stationsleiterin / Stv. Stationsleiter Tagesklinik mit Fachverantwortung",
       "titleByLocale": {
         "de": "Stv. Stationsleiterin / Stv. Stationsleiter Tagesklinik mit Fachverantwortung",
-        "it": "Stv. Station Manager / Stv. Station Manager Giorno 1974 con responsabilità per l'argomento",
+        "it": "Stv. Stationsleiterin / Stv. Stationsleiter Tagesklinik con Fachverantwortung",
         "en": "Stv. Station Manager / Stv. Station Manager Day Clinic with responsibility for the subject",
         "fr": "Stv. Gestionnaire de station / Stv. Gestionnaire de station Day Clinic avec la responsabilité du sujet"
       },
@@ -5101,16 +4943,30 @@
         }
       },
       "firstSeenAt": "2026-09-25T15:08:58.902Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-stationsleiterin-stv-stationsleiter-tagesklinik-mit-fachverantwortung-pdag-windisch"
+        ],
+        "en": [
+          "stv-stationsleiterin-stv-stationsleiter-tagesklinik-mit-fachverantwortung-pdag-windisch"
+        ],
+        "fr": [
+          "stv-stationsleiterin-stv-stationsleiter-tagesklinik-mit-fachverantwortung-pdag-windisch"
+        ]
+      },
+      "previousSlugs": [
+        "stv-stationsleiterin-stv-stationsleiter-tagesklinik-mit-fachverantwortung-pdag-windisch"
+      ]
     },
     {
       "id": "pdag-dc0b9f798091",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-akutstation-kjp-pdag-windisch",
+      "slug": "dipl-infermieristica-professionale-dipl-cura-specialista-unita-di-cura-acuta-kjp-psychiatrische-dienste-aargau-pdag",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-akutstation-kjp-pdag-windisch",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-akutstation-kjp-pdag-windisch",
+        "it": "dipl-infermieristica-professionale-dipl-cura-specialista-unita-di-cura-acuta-kjp-psychiatrische-dienste-aargau-pdag",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-akutstation-kjp-pdag-windisch",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-akutstation-kjp-pdag-windisch"
+        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-unite-de-soins-actifs-kjp-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -5118,7 +4974,7 @@
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Akutstation KJP",
       "titleByLocale": {
         "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Akutstation KJP",
-        "en": "Dipl. Nursing professional / Dipl. Care specialist acute care unit KJP",
+        "en": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Akutstation KJP",
         "it": "Dipl. Infermieristica professionale / Dipl. Cura specialista unità di cura acuta KJP",
         "fr": "Dipl. Professionnels des soins infirmiers / Dipl. Unité de soins actifs KJP"
       },
@@ -5167,156 +5023,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T11:20:03.533Z"
-    },
-    {
-      "id": "pdag-b57e984a601c",
-      "slug": "ergotherapeutin-ergotherapeut-pdag-windisch",
-      "slugByLocale": {
-        "de": "ergotherapeutin-ergotherapeut-pdag-windisch",
-        "it": "ergotherapeutin-ergotherapeut-pdag-windisch",
-        "en": "ergotherapeutin-ergotherapeut-pdag-windisch",
-        "fr": "ergotherapeutin-ergotherapeut-pdag-windisch"
-      },
-      "company": "Psychiatrische Dienste Aargau (PDAG)",
-      "companyKey": "pdag",
-      "companyDomain": "pdag.ch",
-      "title": "Ergotherapeutin / Ergotherapeut",
-      "titleByLocale": {
-        "de": "Ergotherapeutin / Ergotherapeut",
-        "en": "Occupational therapist",
-        "it": "terapeuta del lavoro",
-        "fr": "ergothérapeute"
-      },
-      "description": "Für unsere Tagesklinik suchen wir per sofort oder nach Vereinbarung, Sie als\n\nAufgaben:\n• Sie bieten für Kinder- und Jugendliche mit einer psychischen Erkrankung Einzel- und Gruppentherapien an\n\n• Sie setzen die ergotherapeutische Behandlung (mit Schwerpunkt Kinder- und Jugend) evidenzbasiert um und passen ihre Interventionen den wissenschaftlichen Entwicklungen entsprechend an\n\n• Sie sind Teil des interprofessionellen Behandlungsteams und wirken aktiv an der Umsetzung der therapeutischen Ziele im Rahmen der Gesamtbehandlung mit\n\n• Sie setzen die ergotherapeutische Behandlung innerhalb des Behandlungskonzeptes fachkompetent um und unterstützen die Weiterentwicklung mit ihren Fachkenntnissen\n\n• Sie beteiligen sich an der interprofessionellen Zusammenarbeit, u.a. Teilnahme an patientenbezogenen Fallbesprechungen, Rapporten, Teamsitzungen und Supervisionen\n\n• Sie erstellen eine fachlich fundierte Dokumentation\n\nAnforderungen:\n• Dipl. Ergotherapeutin / Ergotherapeut (BSc, FH, HF) oder in der Schweiz anerkannte gleichwertige Ausbildung Erfahrung in der ergotherapeutischen Arbeit mit psychisch erkrankten Kindern- und Jugendlichen\n\n• Ausgeprägte Sozialkompetenz im Umgang mit psychisch erkrankten Kindern- und Jugendlichen\n\n• Fähigkeit vernetzt, konzeptionell und innovativ zu denken und zu handeln\n\n• Sie arbeiten eigenverantwortlich, strukturiert und zeichnen sich durch Flexibilität, Teamfähigkeit und Belastbarkeit aus\n\nWir bieten:\nUnsere Mitarbeitenden sind das Herz unseres Unternehmens. Genau deshalb bieten wir Ihnen auch sehr viel:\n\nWeiterbildungen werden bei uns stark gefördert. Ebenfalls investieren wir viel in den Teamzusammenhalt und bieten allen unseren Teams den Zugang zur Software \"Moodtalk\" an, mit der die Teamkommunikation gestärkt wird. Daneben bieten wir attraktive Vergünstigungen bei bekannten Marken wie Ikea, Zalando, Coop, Lidl und vielen mehr. Mitarbeitende, die mit den öffentlichen Verkehrsmitteln zu uns pendeln, erhalten am Ende des Jahres einen stattlichen Öko-Bonus ausbezahlt.\n\nZusätzlich bieten wir eine attraktive Pensionskassenlösung an. Auch die Work-Life-Balance wird bei uns gefördert: Wir sind jederzeit offen für Teilzeitarbeit und offerieren die Möglichkeit zum Ferienkauf.",
-      "descriptionByLocale": {
-        "de": "Für unsere Tagesklinik suchen wir per sofort oder nach Vereinbarung, Sie als\n\nAufgaben:\n• Sie bieten für Kinder- und Jugendliche mit einer psychischen Erkrankung Einzel- und Gruppentherapien an\n\n• Sie setzen die ergotherapeutische Behandlung (mit Schwerpunkt Kinder- und Jugend) evidenzbasiert um und passen ihre Interventionen den wissenschaftlichen Entwicklungen entsprechend an\n\n• Sie sind Teil des interprofessionellen Behandlungsteams und wirken aktiv an der Umsetzung der therapeutischen Ziele im Rahmen der Gesamtbehandlung mit\n\n• Sie setzen die ergotherapeutische Behandlung innerhalb des Behandlungskonzeptes fachkompetent um und unterstützen die Weiterentwicklung mit ihren Fachkenntnissen\n\n• Sie beteiligen sich an der interprofessionellen Zusammenarbeit, u.a. Teilnahme an patientenbezogenen Fallbesprechungen, Rapporten, Teamsitzungen und Supervisionen\n\n• Sie erstellen eine fachlich fundierte Dokumentation\n\nAnforderungen:\n• Dipl. Ergotherapeutin / Ergotherapeut (BSc, FH, HF) oder in der Schweiz anerkannte gleichwertige Ausbildung Erfahrung in der ergotherapeutischen Arbeit mit psychisch erkrankten Kindern- und Jugendlichen\n\n• Ausgeprägte Sozialkompetenz im Umgang mit psychisch erkrankten Kindern- und Jugendlichen\n\n• Fähigkeit vernetzt, konzeptionell und innovativ zu denken und zu handeln\n\n• Sie arbeiten eigenverantwortlich, strukturiert und zeichnen sich durch Flexibilität, Teamfähigkeit und Belastbarkeit aus\n\nWir bieten:\nUnsere Mitarbeitenden sind das Herz unseres Unternehmens. Genau deshalb bieten wir Ihnen auch sehr viel:\n\nWeiterbildungen werden bei uns stark gefördert. Ebenfalls investieren wir viel in den Teamzusammenhalt und bieten allen unseren Teams den Zugang zur Software \"Moodtalk\" an, mit der die Teamkommunikation gestärkt wird. Daneben bieten wir attraktive Vergünstigungen bei bekannten Marken wie Ikea, Zalando, Coop, Lidl und vielen mehr. Mitarbeitende, die mit den öffentlichen Verkehrsmitteln zu uns pendeln, erhalten am Ende des Jahres einen stattlichen Öko-Bonus ausbezahlt.\n\nZusätzlich bieten wir eine attraktive Pensionskassenlösung an. Auch die Work-Life-Balance wird bei uns gefördert: Wir sind jederzeit offen für Teilzeitarbeit und offerieren die Möglichkeit zum Ferienkauf.",
-        "it": "Per la nostra clinica diurna ti stiamo cercando immediatamente o su appuntamento come\n\nCompiti:\n• Offrono terapie individuali e di gruppo per bambini e adolescenti con malattia mentale\n\n• Essi implementano il trattamento ergotherapeutico (concentrandosi su bambini e adolescenti) basato su prove e adattare i loro interventi secondo gli sviluppi scientifici.\n\n• Sei parte del team di trattamento interprofessionale e partecipa attivamente all'attuazione degli obiettivi terapeutici nell'ambito del trattamento globale\n\n• Essi implementano il trattamento ergotherapeutic all'interno del concetto di trattamento competente e sostengono l'ulteriore sviluppo con le loro conoscenze specialistiche\n\n• Essi partecipano alla cooperazione interprofessionale, compresa la partecipazione a riunioni di casi, rapporti, riunioni di squadra e supervisione dei pazienti\n\n• Si crea una documentazione tecnicamente sana\n\nRequisiti\n• Dipl. terapeuta sul lavoro (BSc, FH, HF) o formazione equivalente riconosciuta in Svizzera Esperienza nel lavoro ergotherapeutic con bambini malati mentali e adolescenti\n\n• Forte capacità sociali nel trattare con bambini e adolescenti mentalmente malati\n\n• Capacità di pensare e agire in modo in rete, concettuale e innovativo\n\n• Lavorano in modo indipendente, strutturato e caratterizzato da flessibilità, lavoro di squadra e resilienza\n\nOffriamo:\nI nostri dipendenti sono il cuore della nostra azienda. Ecco perché vi offriamo molto:\n\nL'istruzione superiore è fortemente incoraggiata qui. Investiamo anche molto nella coesione del team e offriamo a tutti i nostri team l'accesso al software \"Moodtalk\", che rafforza la comunicazione del team. Inoltre, offriamo interessanti sconti per marchi noti come Ikea, Zalando, Coop, Lidl e molti altri. I dipendenti che ci commutano con i mezzi pubblici riceveranno un bel bonus ecologico alla fine dell'anno.\n\nInoltre, offriamo una soluzione di fondo pensione attraente. Promuoviamo anche l'equilibrio della vita lavorativa: Siamo sempre aperti al lavoro part-time e offriamo l'opportunità di acquistare vacanze.",
-        "en": "For our day clinic we are looking for you immediately or by appointment as\n\nTasks:\n• They offer individual and group therapies for children and adolescents with mental illness\n\n• They implement ergotherapeutic treatment (focusing on children and adolescents) based on evidence and adapt their interventions according to scientific developments.\n\n• You are part of the interprofessional treatment team and actively participate in the implementation of the therapeutic goals within the framework of the overall treatment\n\n• They implement the ergotherapeutic treatment within the treatment concept competently and support the further development with their specialist knowledge\n\n• They participate in interprofessional cooperation, including participation in patient-related case meetings, reports, team meetings and supervision\n\n• You create a technically sound documentation\n\nRequirements\n• Dipl. Occupational therapist (BSc, FH, HF) or equivalent training recognised in Switzerland Experience in ergotherapeutic work with mentally ill children and adolescents\n\n• Strong social skills in dealing with mentally ill children and adolescents\n\n• Ability to think and act in a networked, conceptual and innovative way\n\n• They work independently, structured and characterized by flexibility, teamwork and resilience\n\nWe offer:\nOur employees are the heart of our company. This is why we offer you a lot:\n\nFurther education is strongly encouraged here. We also invest a lot in team cohesion and offer all our teams access to the software \"Moodtalk\", which strengthens team communication. In addition, we offer attractive discounts for well-known brands such as Ikea, Zalando, Coop, Lidl and many more. Employees who commute to us by public transport will receive a handsome eco bonus at the end of the year.\n\nIn addition, we offer an attractive pension fund solution. We also promote work-life balance: We are always open to part-time work and offer the opportunity to buy holidays.",
-        "fr": "Pour notre clinique de jour, nous vous recherchons immédiatement ou sur rendez-vous comme\n\nTâches :\n• Ils offrent des thérapies individuelles et de groupe pour les enfants et les adolescents atteints de maladie mentale\n\n• Ils mettent en œuvre un traitement ergonomique (axé sur les enfants et les adolescents) basé sur des données probantes et adaptent leurs interventions en fonction des développements scientifiques.\n\n• Vous faites partie de l'équipe de traitement interprofessionnel et participez activement à la mise en œuvre des objectifs thérapeutiques dans le cadre du traitement global\n\n• Ils mettent en œuvre le traitement ergothérapeutique avec compétence dans le concept de traitement et soutiennent le développement ultérieur avec leurs connaissances spécialisées\n\n• Ils participent à la coopération interprofessionnelle, y compris à des réunions de cas, à des rapports, à des réunions d'équipe et à la supervision\n\n• Vous créez une documentation techniquement solide\n\nExigences\n• Dipl. Ergothérapie (BSc, FH, HF) ou formation équivalente reconnue en Suisse Expérience du travail ergothérapeutique auprès des enfants et adolescents souffrant de troubles mentaux\n\n• Compétences sociales fortes dans la prise en charge des enfants et des adolescents souffrant de troubles mentaux\n\n• Capacité de penser et d'agir en réseau, conceptuel et innovant\n\n• Ils travaillent de manière indépendante, structurée et caractérisée par la flexibilité, le travail d'équipe et la résilience\n\nNous offrons:\nNos employés sont au cœur de notre entreprise. C'est pourquoi nous vous offrons beaucoup:\n\nLa formation continue est fortement encouragée ici. Nous investissons également beaucoup dans la cohésion d'équipe et offrons à toutes nos équipes un accès au logiciel \"Moodtalk\", qui renforce la communication d'équipe. En outre, nous offrons des réductions attrayantes pour des marques bien connues telles que Ikea, Zalando, Coop, Lidl et bien d'autres. Les employés qui voyagent vers nous en transport public recevront un beau bonus écologique à la fin de l'année.\n\nEn outre, nous offrons une solution attrayante de fonds de pension. Nous favorisons également l'équilibre entre le travail et la vie personnelle : Nous sommes toujours ouverts au travail à temps partiel et offrons la possibilité d'acheter des vacances."
-      },
-      "location": "Windisch",
-      "canton": "AG",
-      "url": "https://jobs.pdag.ch/offene-stellen/ergotherapeutin-ergotherapeut/c555cfaa-dd2e-4d6f-8497-570b136d86ca",
-      "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:08:58.898Z",
-      "addressLocality": "Windisch",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5210",
-      "streetAddress": "Königsfelderstrasse 1",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-24",
-      "applyUrl": "https://jobs.pdag.ch/offene-stellen/ergotherapeutin-ergotherapeut/c555cfaa-dd2e-4d6f-8497-570b136d86ca",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-06-11T13:15:23.507Z"
-    },
-    {
-      "id": "pdag-fec4674b62bd",
-      "slug": "oberarztin-oberarzt-pdag-windisch-2",
-      "slugByLocale": {
-        "de": "oberarztin-oberarzt-pdag-windisch",
-        "it": "oberarztin-oberarzt-pdag-windisch-2",
-        "en": "oberarztin-oberarzt-pdag-windisch-2",
-        "fr": "oberarztin-oberarzt-pdag-windisch-2"
-      },
-      "company": "Psychiatrische Dienste Aargau (PDAG)",
-      "companyKey": "pdag",
-      "companyDomain": "pdag.ch",
-      "title": "Oberärztin / Oberarzt",
-      "titleByLocale": {
-        "de": "Oberärztin / Oberarzt",
-        "it": "medico senior / medico senior",
-        "en": "Senior physician / senior physician",
-        "fr": "Médecin supérieur / Médecin supérieur"
-      },
-      "description": "Für unsere Station KJP-1 (Akutbereich und Bereich für START NOW Behandlung) suchen wir per sofort oder nach Vereinbarung Sie als\n\nAufgaben:\n• Sie leiten die Akutstation und stellen den Betrieb fachlich, administrativ und betriebswirtschaftlich sicher\n\n• Gemeinsam mit dem Co-Leitungsteam Pflege/Sozialpädagogik führen Sie personell und fachlich ein interdisziplinäres Team mit einer ärztlichen, psychologischen, pflegerischen und sozialpädagogischen Belegschaft\n\n• Sie stellen neue Mitarbeitende an, unterstützen, entwickeln und qualifizieren ihr Team\n\n• Sie arbeiten mit der Gesamtleitung des stationären Bereichs zusammen, sowie weiteren Abteilungen der KJP und externen Partnern\n\n• Sie arbeiten an der übergeordneten Entwicklung von institutionellen und fachlichen Haltungen mit und setzen diese in Ihrem Team um\n\n• Sie beteiligen sich am Hintergrund-Notfalldienst der Klinik für Kinder- und Jugendpsychiatrie und Psychotherapie\n\nAnforderungen:\n• Sie verfügen über einen Facharzttitel für Kinder- und Jugendpsychiatrie und Psychotherapie FMH, befinden sich kurz vor dessen Abschluss oder haben einen äquivalenten MEBEKO anerkannten Abschluss\n\n• Sie haben eine Führungsausbildung oder sind bereit, eine solche zu absolvieren\n\n• Sie fördern interdisziplinäres Arbeiten und sind offen für integrative Therapiekonzepte\n\n• Sie zeichnen sich durch Eigeninitiative, hohe Sozialkompetenz und situationsgerechte Kommunikation wie auch Flexibilität und Belastbarkeit aus\n\nWir bieten:\nUnsere Mitarbeitenden sind das Herz unseres Unternehmens. Genau deshalb bieten wir Ihnen auch sehr viel:\n\nWeiterbildungen werden bei uns stark gefördert. Ebenfalls investieren wir viel in den Teamzusammenhalt und bieten allen unseren Teams den Zugang zur Software \"Moodtalk\" an, mit der die Teamkommunikation gestärkt wird. Daneben bieten wir attraktive Vergünstigungen bei bekannten Marken wie Ikea, Zalando, Coop, Lidl und vielen mehr. Mitarbeitende, die mit den öffentlichen Verkehrsmitteln zu uns pendeln, erhalten am Ende des Jahres einen stattlichen Öko-Bonus ausbezahlt.\n\nZusätzlich bieten wir eine attraktive Pensionskassenlösung an. Auch die Work-Life-Balance wird bei uns gefördert: Wir sind jederzeit offen für Teilzeitarbeit und offerieren die Möglichkeit zum Ferienkauf.",
-      "descriptionByLocale": {
-        "de": "Für unsere Station KJP-1 (Akutbereich und Bereich für START NOW Behandlung) suchen wir per sofort oder nach Vereinbarung Sie als\n\nAufgaben:\n• Sie leiten die Akutstation und stellen den Betrieb fachlich, administrativ und betriebswirtschaftlich sicher\n\n• Gemeinsam mit dem Co-Leitungsteam Pflege/Sozialpädagogik führen Sie personell und fachlich ein interdisziplinäres Team mit einer ärztlichen, psychologischen, pflegerischen und sozialpädagogischen Belegschaft\n\n• Sie stellen neue Mitarbeitende an, unterstützen, entwickeln und qualifizieren ihr Team\n\n• Sie arbeiten mit der Gesamtleitung des stationären Bereichs zusammen, sowie weiteren Abteilungen der KJP und externen Partnern\n\n• Sie arbeiten an der übergeordneten Entwicklung von institutionellen und fachlichen Haltungen mit und setzen diese in Ihrem Team um\n\n• Sie beteiligen sich am Hintergrund-Notfalldienst der Klinik für Kinder- und Jugendpsychiatrie und Psychotherapie\n\nAnforderungen:\n• Sie verfügen über einen Facharzttitel für Kinder- und Jugendpsychiatrie und Psychotherapie FMH, befinden sich kurz vor dessen Abschluss oder haben einen äquivalenten MEBEKO anerkannten Abschluss\n\n• Sie haben eine Führungsausbildung oder sind bereit, eine solche zu absolvieren\n\n• Sie fördern interdisziplinäres Arbeiten und sind offen für integrative Therapiekonzepte\n\n• Sie zeichnen sich durch Eigeninitiative, hohe Sozialkompetenz und situationsgerechte Kommunikation wie auch Flexibilität und Belastbarkeit aus\n\nWir bieten:\nUnsere Mitarbeitenden sind das Herz unseres Unternehmens. Genau deshalb bieten wir Ihnen auch sehr viel:\n\nWeiterbildungen werden bei uns stark gefördert. Ebenfalls investieren wir viel in den Teamzusammenhalt und bieten allen unseren Teams den Zugang zur Software \"Moodtalk\" an, mit der die Teamkommunikation gestärkt wird. Daneben bieten wir attraktive Vergünstigungen bei bekannten Marken wie Ikea, Zalando, Coop, Lidl und vielen mehr. Mitarbeitende, die mit den öffentlichen Verkehrsmitteln zu uns pendeln, erhalten am Ende des Jahres einen stattlichen Öko-Bonus ausbezahlt.\n\nZusätzlich bieten wir eine attraktive Pensionskassenlösung an. Auch die Work-Life-Balance wird bei uns gefördert: Wir sind jederzeit offen für Teilzeitarbeit und offerieren die Möglichkeit zum Ferienkauf.",
-        "it": "Per la nostra stazione KJP-1 (area di ingresso e area per il trattamento START NOW) stiamo cercando come\n\nCompiti:\n• Gestisci l'unità di cura acuta e assicurati l'operazione in modo professionale, amministrativo ed economico\n\n• Insieme alla pedagogia infermieristica/sociale, guidate un team interdisciplinare con una forza lavoro medica, psicologica, infermieristica e socio-pedagogica.\n\n• Assumono nuovi dipendenti, supportano, sviluppano e qualificano il loro team\n\n• Lavorano insieme alla gestione complessiva dell'area stazionaria, così come altri dipartimenti del KJP e dei partner esterni\n\n• Si lavora sullo sviluppo eccessivo di atteggiamenti istituzionali e professionali e implementarli nel vostro team\n\n• Partecipate al servizio di emergenza di fondo della clinica per la psichiatria infantile e adolescente e la psicoterapia\n\nRequisiti\n• Hai un titolo specialistico in psichiatria infantile e adolescente e psicoterapia FMH, sono vicino alla laurea o hanno un equivalente MEBEKO riconosciuto grado\n\n• Hai una formazione di leadership o sei pronto a completare uno\n\n• Promuovano il lavoro interdisciplinare e sono aperti ai concetti di terapia integrativa\n\n• Esse sono caratterizzate da una propria iniziativa, da un'alta capacità sociale e da una comunicazione situosa, dalla flessibilità e dalla resilienza.\n\nOffriamo:\nI nostri dipendenti sono il cuore della nostra azienda. Ecco perché vi offriamo molto:\n\nL'istruzione superiore è fortemente incoraggiata qui. Investiamo anche molto nella coesione del team e offriamo a tutti i nostri team l'accesso al software \"Moodtalk\", che rafforza la comunicazione del team. Inoltre, offriamo interessanti sconti per marchi noti come Ikea, Zalando, Coop, Lidl e molti altri. I dipendenti che ci commutano con i mezzi pubblici riceveranno un bel bonus ecologico alla fine dell'anno.\n\nInoltre, offriamo una soluzione di fondo pensione attraente. Promuoviamo anche l'equilibrio della vita lavorativa: Siamo sempre aperti al lavoro part-time e offriamo l'opportunità di acquistare vacanze.",
-        "en": "For our station KJP-1 (acute area and area for START NOW treatment) we are looking for you as\n\nTasks:\n• You manage the acute care unit and ensure the operation professionally, administratively and economically\n\n• Together with the co-leading team nursing/social pedagogy, you lead an interdisciplinary team with a medical, psychological, nursing and socio-pedagogical workforce.\n\n• They hire new employees, support, develop and qualify their team\n\n• They work together with the overall management of the stationary area, as well as other departments of the KJP and external partners\n\n• You work on the overarching development of institutional and professional attitudes and implement them in your team\n\n• You participate in the background emergency service of the clinic for child and adolescent psychiatry and psychotherapy\n\nRequirements\n• You have a specialist title in child and adolescent psychiatry and psychotherapy FMH, are close to graduation or have an equivalent MEBEKO recognised degree\n\n• You have a leadership education or are ready to complete one\n\n• They promote interdisciplinary work and are open to integrative therapy concepts\n\n• They are characterised by their own initiative, high social skills and situational communication as well as flexibility and resilience.\n\nWe offer:\nOur employees are the heart of our company. This is why we offer you a lot:\n\nFurther education is strongly encouraged here. We also invest a lot in team cohesion and offer all our teams access to the software \"Moodtalk\", which strengthens team communication. In addition, we offer attractive discounts for well-known brands such as Ikea, Zalando, Coop, Lidl and many more. Employees who commute to us by public transport will receive a handsome eco bonus at the end of the year.\n\nIn addition, we offer an attractive pension fund solution. We also promote work-life balance: We are always open to part-time work and offer the opportunity to buy holidays.",
-        "fr": "Pour notre station KJP-1 (zone d'aiguë et zone pour le traitement START NOW), nous vous recherchons comme\n\nTâches :\n• Vous gérez l'unité de soins actifs et assurez l'opération professionnellement, administrativement et économiquement\n\n• En collaboration avec l'équipe codirigeante infirmière/pédagogie sociale, vous dirigez une équipe interdisciplinaire avec une main-d'œuvre médicale, psychologique, infirmière et sociopédagogique.\n\n• Ils embauchent de nouveaux employés, soutiennent, développent et qualifient leur équipe\n\n• Ils travaillent en collaboration avec la gestion globale de la zone stationnaire, ainsi qu'avec d'autres départements du KJP et des partenaires externes.\n\n• Vous travaillez sur le développement global des attitudes institutionnelles et professionnelles et les mettre en œuvre dans votre équipe\n\n• Vous participez au service d'urgence de la clinique de psychiatrie et de psychothérapie pour enfants et adolescents\n\nExigences\n• Vous avez un titre spécialisé en psychiatrie de l'enfant et de l'adolescent et psychothérapie FMH, êtes proche de l'obtention du diplôme ou avez un diplôme MEBEKO équivalent reconnu\n\n• Vous avez une formation en leadership ou êtes prêt à en terminer une\n\n• Ils favorisent le travail interdisciplinaire et sont ouverts aux concepts de thérapie intégrative\n\n• Ils se caractérisent par leur propre initiative, des compétences sociales élevées et la communication situationnelle ainsi que la flexibilité et la résilience.\n\nNous offrons:\nNos employés sont au cœur de notre entreprise. C'est pourquoi nous vous offrons beaucoup:\n\nLa formation continue est fortement encouragée ici. Nous investissons également beaucoup dans la cohésion d'équipe et offrons à toutes nos équipes un accès au logiciel \"Moodtalk\", qui renforce la communication d'équipe. En outre, nous offrons des réductions attrayantes pour des marques bien connues telles que Ikea, Zalando, Coop, Lidl et bien d'autres. Les employés qui voyagent vers nous en transport public recevront un beau bonus écologique à la fin de l'année.\n\nEn outre, nous offrons une solution attrayante de fonds de pension. Nous favorisons également l'équilibre entre le travail et la vie personnelle : Nous sommes toujours ouverts au travail à temps partiel et offrons la possibilité d'acheter des vacances."
-      },
-      "location": "Windisch",
-      "canton": "AG",
-      "url": "https://jobs.pdag.ch/offene-stellen/oberaerztin-oberarzt/9833f6bf-9a58-4c52-a805-bf7088491f36",
-      "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:08:58.897Z",
-      "addressLocality": "Windisch",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5210",
-      "streetAddress": "Königsfelderstrasse 1",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-24",
-      "applyUrl": "https://jobs.pdag.ch/offene-stellen/oberaerztin-oberarzt/9833f6bf-9a58-4c52-a805-bf7088491f36",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-06-11T11:20:03.561Z",
+      "firstSeenAt": "2026-06-11T11:20:03.533Z",
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-pdag-windisch"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-akutstation-kjp-pdag-windisch"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-akutstation-kjp-pdag-windisch"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-pdag-windisch"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-akutstation-kjp-pdag-windisch"
       ]
     },
     {
       "id": "pdag-ef6eda901cdb",
-      "slug": "oberarzt-oberarztin-autismusfachstelle-pdag-aarau",
+      "slug": "medico-senior-specialista-di-autismo-medico-senior-psychiatrische-dienste-aargau-pdag-aarau",
       "slugByLocale": {
         "de": "oberarzt-oberarztin-autismusfachstelle-pdag-aarau",
-        "it": "oberarzt-oberarztin-autismusfachstelle-pdag-aarau",
-        "en": "oberarzt-oberarztin-autismusfachstelle-pdag-aarau",
-        "fr": "oberarzt-oberarztin-autismusfachstelle-pdag-aarau"
+        "it": "medico-senior-specialista-di-autismo-medico-senior-psychiatrische-dienste-aargau-pdag-aarau",
+        "en": "senior-physician-senior-physician-autism-specialist-psychiatrische-dienste-aargau-pdag-aarau",
+        "fr": "medecin-principal-medecin-principal-specialiste-de-l-autisme-psychiatrische-dienste-aargau-pdag-aarau"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -5373,7 +5100,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T11:20:03.534Z"
+      "firstSeenAt": "2026-06-11T11:20:03.534Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarzt-oberarztin-autismusfachstelle-pdag-aarau"
+        ],
+        "en": [
+          "oberarzt-oberarztin-autismusfachstelle-pdag-aarau"
+        ],
+        "fr": [
+          "oberarzt-oberarztin-autismusfachstelle-pdag-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "oberarzt-oberarztin-autismusfachstelle-pdag-aarau"
+      ]
     },
     {
       "id": "pdag-e860ef8fd794",
@@ -5425,13 +5166,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-sozialpadagogin-sozialpadagoge-pdag-windisch",
-        "dipl-social-pedagogue-social-pedagogue-psychiatrische-dienste-aargau-pdag-windisch"
+        "dipl-sozialpadagogin-sozialpadagoge-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-sozialpadagogin-sozialpadagoge-pdag-windisch",
-          "dipl-social-pedagogue-social-pedagogue-psychiatrische-dienste-aargau-pdag-windisch"
+          "dipl-sozialpadagogin-sozialpadagoge-pdag-windisch"
         ],
         "en": [
           "dipl-sozialpadagogin-sozialpadagoge-pdag-windisch"
@@ -5453,16 +5192,17 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdag-3bc02fb92f3c",
-      "slug": "sozialarbeiterin-sozialarbeiter-pdag-windisch",
+      "slug": "lavoratore-sociale-lavoratore-sociale-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "sozialarbeiterin-sozialarbeiter-pdag-windisch",
-        "it": "sozialarbeiterin-sozialarbeiter-pdag-windisch",
-        "en": "sozialarbeiterin-sozialarbeiter-pdag-windisch",
-        "fr": "sozialarbeiterin-sozialarbeiter-pdag-windisch"
+        "it": "lavoratore-sociale-lavoratore-sociale-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "social-worker-social-worker-psychiatrische-dienste-aargau-pdag-windisch",
+        "fr": "travailleurs-sociaux-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -5519,7 +5259,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T13:15:23.522Z"
+      "firstSeenAt": "2026-06-11T13:15:23.522Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiterin-sozialarbeiter-pdag-windisch"
+        ],
+        "en": [
+          "sozialarbeiterin-sozialarbeiter-pdag-windisch"
+        ],
+        "fr": [
+          "sozialarbeiterin-sozialarbeiter-pdag-windisch"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiterin-sozialarbeiter-pdag-windisch"
+      ]
     }
   ]
 }
