@@ -20219,6 +20219,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'carenze-medicinali-svizzera-2026',
+    category: 'pratico',
+    date: '2026-09-26T00:42:55.373Z',
+    image: '/images/blog/carenze-medicinali-svizzera-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
