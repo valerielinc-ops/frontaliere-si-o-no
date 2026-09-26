@@ -172,7 +172,6 @@
       "kanton-aargau",
       "kanton-solothurn",
       "klinik-adelheid",
-      "knowledge-lab",
       "mabetex",
       "my",
       "octapharma",
@@ -420,10 +419,13 @@
       "fachkraft",
       "fisba",
       "fondation-domus",
+      "knowledge-lab",
+      "lwphr",
       "mcdonald-s-switzerland",
       "pole-sante-pays-enhaut",
       "postfinance",
       "protectas",
+      "sunrise-sede-ticino",
       "tpl-lugano",
       "tsmg"
     ],
@@ -665,14 +667,12 @@
       "hirslanden",
       "klinik-barmelweid",
       "localsearch",
-      "lwphr",
       "oetiker",
       "paraplegie",
       "solina",
       "spital-muri",
       "spital-oberengadin",
       "spital-sts",
-      "sunrise-sede-ticino",
       "suva",
       "the-living-circle",
       "weisse-arena"
@@ -1306,5 +1306,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:955c0cc302f3930558ab5e17058bb87590c9f22ee0c9062bf5b2b6547a8aaf63"
+  "digest": "sha256:f60cd973b20980d5033237756a8236659b2b92f5d529671adf97a70f456ea047"
 }

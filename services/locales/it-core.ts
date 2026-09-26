@@ -1,11 +1,15 @@
 // Italian translations — core page chunk
 const translations: Record<string, string> = {
+ 'whatsNew.v3968.title': 'Interesse alle candidature: controlli e promemoria',
+ 'whatsNew.v3968.applicationIntentPrivacy.title': 'Scelta separata per i segnali di candidatura',
+ 'whatsNew.v3968.applicationIntentPrivacy.desc': 'Dal profilo puoi bloccare separatamente i segnali di candidatura; se cancelli l’account, i dati collegati vengono rimossi o resi inutilizzabili.',
  'whatsNew.v3967.title': 'Un osservatorio nazionale dei veicoli',
  'whatsNew.v3967.vehicleObservatory.title': 'ASTRA: cantoni, Ticino e nuove immatricolazioni',
  'whatsNew.v3967.vehicleObservatory.desc': 'Confronta il parco veicoli di tutti i 26 cantoni, segui il ritmo settimanale del Ticino e distingui stock, nuove immatricolazioni, import usati e alimentazioni.',
- 'whatsNew.v3968.title': 'Più trasparenza quando ti candidi',
  'whatsNew.v3968.applicationIntent.title': 'Un consenso chiaro sul click «Candidati»',
  'whatsNew.v3968.applicationIntent.desc': 'Prima del passaggio al sito dell’azienda, il sito mostra cosa registra il click e distingue l’interesse espresso dalla candidatura completata.',
+ 'whatsNew.v3968.applicationIntentDigest.title': 'Promemoria candidature nel digest settimanale',
+ 'whatsNew.v3968.applicationIntentDigest.desc': 'Il digest può ricordarti gli annunci per cui hai mostrato interesse, senza presumere che tu abbia inviato la candidatura.',
  'whatsNew.v3966.title': 'Una ricerca di lavoro più utile',
  'whatsNew.v3966.jobSearchLoop.title': 'Nuove offerte, categorie e alert',
  'whatsNew.v3966.jobSearchLoop.desc': 'Riprendi la ricerca dalle ultime visite, segui una categoria e passa tra categorie collegate, aziende e nuove pagine per il tedesco o la prima esperienza.',
