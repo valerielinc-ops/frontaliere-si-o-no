@@ -2275,6 +2275,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'keiser-stop-promozione-zugo': { it: 'keiser-stop-promozione-zugo', en: 'keiser-stop-economic-promotion-zug', de: 'keiser-stop-wirtschaftsfoerderung-zug', fr: 'keiser-arret-promotion-economique-zoug' },
  'seco-commercio-misure-2026': { it: 'seco-commercio-misure-2026', en: 'seco-trade-measures-2026', de: 'seco-handelsmassnahmen-2026', fr: 'seco-mesures-commerce-2026' },
  'voto-settembre-integrazione-2026': { it: 'voto-settembre-integrazione-2026', en: 'september-vote-integration-2026', de: 'september-abstimmung-integration-2026', fr: 'vote-septembre-integration-2026' },
+ 'integrazione-pic4-fondi-2028-2032': { it: 'integrazione-pic4-fondi-2028-2032', en: 'integration-pic4-funds-2028-2032', de: 'integration-pic4-mittel-2028-2032', fr: 'integration-pic4-fonds-2028-2032' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
