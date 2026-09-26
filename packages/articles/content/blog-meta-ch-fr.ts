@@ -6764,6 +6764,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.indennita-infermiere-bregaglia.title': 'Bregaglia, indemnité pour quatre infirmières licenciées',
     'blog.article.indennita-infermiere-bregaglia.excerpt': 'Le CSB accorde des indemnités à quatre infirmières licenciées en février 2025 après un accord devant la Pretura.',
     'blog.article.indennita-infermiere-bregaglia.imageAlt': 'Centre de santé de Bregaglia au cœur d\'un accord pour quatre infirmières licenciées.',
+    'blog.article.importazione-granoturco-foraggio-proroga.title': 'Exonération maïs fourrager droits douane jusqu\'en 2027',
+    'blog.article.importazione-granoturco-foraggio-proroga.excerpt': 'Le DEFR prolonge jusqu\'au 30 avril 2027 l\'exonération des droits pour le maïs frais ou l\'ensilage avec des matières sèches ≤60 %, destiné à l\'alimentation animale ; à partir du 1er octobre 2026, réduction des droits pour les fourrages riches en fibres.',
+    'blog.article.importazione-granoturco-foraggio-proroga.imageAlt': 'Maïs fourrager exempté de droit de douane pour l\'alimentation animale en Suisse',
 };
 
 export default blogMetaChFr;
