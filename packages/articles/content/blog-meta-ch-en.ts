@@ -6782,6 +6782,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dertour-suisse-ripresa-fatturato.title': 'Dertour Suisse aims to surpass one billion in revenue',
     'blog.article.dertour-suisse-ripresa-fatturato.excerpt': 'Dertour Suisse aims to exceed 1 billion francs, summer 2026 bookings show 14% for moderate destinations and it expects over 20% in 4‑6 years; branches 124, employees 1750, 250 positions to be cut by the end of 2027.',
     'blog.article.dertour-suisse-ripresa-fatturato.imageAlt': 'Lake Lugano with sailboats and mountains in the background, symbol of Swiss tourism.',
+    'blog.article.svizzera-auto-elettriche-classifica.title': 'Electric cars: Switzerland drops to 16th place in Europe',
+    'blog.article.svizzera-auto-elettriche-classifica.excerpt': 'In 2019, Switzerland ranked fifth for electrification, by the end of 2025 it was 13th and by mid-2026 16th; one quarter of new registrations are fully electric.',
+    'blog.article.svizzera-auto-elettriche-classifica.imageAlt': 'Modern electric SUV parked beside a charging station in a Swiss Alpine setting.',
+    'blog.article.premi-cassa-malati-stabilita-famiglie.title': 'Health insurance premiums rise, but the burden on families remains stable',
+    'blog.article.premi-cassa-malati-stabilita-famiglie.excerpt': 'From 2016 to 2023, the net burden on households remained stable: the standard premium increased by 19%, but its share of average income fell from 6,5% to 6,4% thanks to an increase in subsidies of approximately 440 francs.',
+    'blog.article.premi-cassa-malati-stabilita-famiglie.imageAlt': 'Swiss urban view with a modern hospital, representing health insurance',
+    'blog.article.protesta-asilo-berna-diritti.title': 'Bern: protest against the tightening of asylum law',
+    'blog.article.protesta-asilo-berna-diritti.excerpt': 'Several thousand people in Federal Square calling for health, work and education regardless of residence status and origin.',
+    'blog.article.protesta-asilo-berna-diritti.imageAlt': 'Demonstration in Bern\'s Federal Square against the tightening of asylum laws',
 };
 
 export default blogMetaChEn;

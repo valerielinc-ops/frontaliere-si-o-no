@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-sgm",
-  "assembledAt": "2026-09-25T14:44:38.395Z",
+  "assembledAt": "2026-09-26T14:00:10.582Z",
   "jobs": [
     {
       "id": "klinik-sgm-507ece49841a",
@@ -34,7 +34,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fuer-den-nachtdienst/dc234cfe-15af-4801-89eb-54d10ff87613",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:27.324Z",
+      "crawledAt": "2026-09-26T14:00:05.292Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -54,14 +54,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-hf-fur-den-nachtdienst-klinik-sgm-langenthal",
-        "pflegefachfrau-pflegefachmann-hf-per-den-nachtdienst-klinik-sgm-langenthal",
-        "infermieristica-professionale-hf-per-il-servizio-notturno-klinik-sgm-langenthal-langenthal"
+        "pflegefachfrau-pflegefachmann-hf-per-den-nachtdienst-klinik-sgm-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-hf-fur-den-nachtdienst-klinik-sgm-langenthal",
-          "pflegefachfrau-pflegefachmann-hf-per-den-nachtdienst-klinik-sgm-langenthal",
-          "infermieristica-professionale-hf-per-il-servizio-notturno-klinik-sgm-langenthal-langenthal"
+          "pflegefachfrau-pflegefachmann-hf-per-den-nachtdienst-klinik-sgm-langenthal"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-hf-fur-den-nachtdienst-klinik-sgm-langenthal"
@@ -90,7 +88,7 @@
       "slug": "terapista-professionale-terapista-occupazionale-temporaneo-klinik-sgm-langenthal-langenthal",
       "slugByLocale": {
         "it": "terapista-professionale-terapista-occupazionale-temporaneo-klinik-sgm-langenthal-langenthal",
-        "en": "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal",
+        "en": "occupational-therapist-occupational-therapist-temporary-klinik-sgm-langenthal-langenthal",
         "de": "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal",
         "fr": "ergotherapeute-ergotherapeute-temporaire-klinik-sgm-langenthal-langenthal"
       },
@@ -100,7 +98,7 @@
       "title": "Ergotherapeutin / Ergotherapeut, befristet",
       "titleByLocale": {
         "it": "Terapista professionale / terapista occupazionale, temporaneo",
-        "en": "Occupational therapist / occupational therapist, temporary",
+        "en": "Ergotherapeutin / Ergotherapeut, befristet",
         "de": "Ergotherapeutin / Ergotherapeut, befristet",
         "fr": "ergothérapeute / ergothérapeute temporaire"
       },
@@ -116,7 +114,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/ergotherapeutin-ergotherapeut-befristet/9ac1a12d-60af-4b8b-a26f-7440180f4f33",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:27.322Z",
+      "crawledAt": "2026-09-26T14:00:05.290Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -136,18 +134,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal",
-        "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal-langenthal",
-        "occupational-therapist-occupational-therapist-temporary-klinik-sgm-langenthal-langenthal",
-        "terapista-professionale-terapista-occupazionale-temporaneo-klinik-sgm-langenthal-langenthal"
+        "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal",
-          "terapista-professionale-terapista-occupazionale-temporaneo-klinik-sgm-langenthal-langenthal"
+          "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal"
         ],
         "en": [
           "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal-langenthal",
-          "occupational-therapist-occupational-therapist-temporary-klinik-sgm-langenthal-langenthal",
           "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal"
         ],
         "fr": [
@@ -167,7 +161,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "klinik-sgm-5ce5c0337e3a",
@@ -184,7 +179,7 @@
       "title": "Psychotherapeutin / Psychotherapeut, Ambulatorium Spiez",
       "titleByLocale": {
         "it": "Psicoterapeuta / Psicoterapeuta, Ambulatorium Spiez",
-        "en": "Psychotherapist / Psychotherapist, Ambulatorium Spiez",
+        "en": "Psychotherapeutin / Psychotherapeut, Ambulatorium Spiez",
         "de": "Psychotherapeutin / Psychotherapeut, Ambulatorium Spiez",
         "fr": "Psychothérapie / Psychothérapie, Ambulatoire Spiez"
       },
@@ -200,7 +195,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/psychotherapeutin-psychotherapeut-ambulatorium-spiez/50be073e-4d10-4c31-a624-159f478c9016",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:27.318Z",
+      "crawledAt": "2026-09-26T14:00:05.287Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -228,8 +223,7 @@
         "psychotherapist-psychotherapist-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal",
         "psychotherapeutin-psychotherapeut-ambulatorium-langenthal-klinik-sgm-langenthal",
         "psychotherapie-psychotherapie-ambulateurium-langenthal-klinik-sgm-langenthal-langenthal",
-        "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez",
-        "psicoterapeuta-psicoterapeuta-ambulatorium-spiez-klinik-sgm-langenthal-spiez"
+        "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -242,8 +236,7 @@
           "psychotherapist-psychotherapist-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal",
           "psychotherapeutin-psychotherapeut-ambulatorium-langenthal-klinik-sgm-langenthal",
           "psychotherapie-psychotherapie-ambulateurium-langenthal-klinik-sgm-langenthal-langenthal",
-          "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez",
-          "psicoterapeuta-psicoterapeuta-ambulatorium-spiez-klinik-sgm-langenthal-spiez"
+          "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez"
         ],
         "en": [
           "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez",
@@ -267,7 +260,83 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
+    },
+    {
+      "id": "klinik-sgm-16d1aaa38747",
+      "slug": "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez-2",
+      "slugByLocale": {
+        "de": "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez",
+        "it": "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez-2",
+        "en": "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez-2",
+        "fr": "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez-2"
+      },
+      "company": "Klinik SGM Langenthal",
+      "companyKey": "klinik-sgm",
+      "companyDomain": "klinik-sgm.ch",
+      "title": "Psychotherapeutin / Psychotherapeut, Ambulatorium Spiez",
+      "titleByLocale": {
+        "de": "Psychotherapeutin / Psychotherapeut, Ambulatorium Spiez",
+        "en": "Psychotherapeutin / Psychotherapeut, Ambulatorium Spiez",
+        "it": "Psychotherapeutin / Psychotherapeut, Ambulatorium Spiez",
+        "fr": "Psychotherapeutin / Psychotherapeut, Ambulatorium Spiez"
+      },
+      "description": "Aufgaben:\n• Zusammenarbeit mit Ärztinnen und Ärzten sowie Psychotherapeutinnen und -therapeuten im Team\n\n• Eigenverantwortliche Fallführung und Durchführung von psychotherapeutischen Behandlungen bei Erwachsenen\n\n• Abklärungs- und Beratungsgespräche\n\n• Führen der elektronischen Krankenakte und Verfassen von Berichten\n\n• Möglichkeit, ambulante Gruppenangebote anzubieten\n\n• Diagnostische Abklärungen\n\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n\n• Teilnahme an Fort- und Weiterbildungen\n\nAnforderungen:\n• Abgeschlossene eidg. anerkannte Psychotherapieweiterbildung oder kurz vor Abschluss stehend\n\n• Abgeschlossenes Studium der Psychologie (Master oder Lizenziat)\n\n• Initiative und belastbare Persönlichkeit mit stationärer Erfahrung in psychiatrisch-psychotherapeutischer Behandlung\n\n• Freude an der Zusammenarbeit im Team\n\n• gute bis sehr gute Kenntnisse im Berichtswesen (VVG, IV, KVG)\n\n• mind. 2 Jahre Erfahrung im stationären und ambulanten Setting\n\n• Vorerfahrungen in ambulanten Behandlungssettings von Vorteil\n\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\n\n• Sehr gute Deutschkenntnisse, mindestens Sprachniveau Level C1 (verhandlungssicher), zusätzliche Fremdsprachenkenntnisse sind von Vorteil\n\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.",
+      "descriptionByLocale": {
+        "de": "Aufgaben:\n• Zusammenarbeit mit Ärztinnen und Ärzten sowie Psychotherapeutinnen und -therapeuten im Team\n\n• Eigenverantwortliche Fallführung und Durchführung von psychotherapeutischen Behandlungen bei Erwachsenen\n\n• Abklärungs- und Beratungsgespräche\n\n• Führen der elektronischen Krankenakte und Verfassen von Berichten\n\n• Möglichkeit, ambulante Gruppenangebote anzubieten\n\n• Diagnostische Abklärungen\n\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n\n• Teilnahme an Fort- und Weiterbildungen\n\nAnforderungen:\n• Abgeschlossene eidg. anerkannte Psychotherapieweiterbildung oder kurz vor Abschluss stehend\n\n• Abgeschlossenes Studium der Psychologie (Master oder Lizenziat)\n\n• Initiative und belastbare Persönlichkeit mit stationärer Erfahrung in psychiatrisch-psychotherapeutischer Behandlung\n\n• Freude an der Zusammenarbeit im Team\n\n• gute bis sehr gute Kenntnisse im Berichtswesen (VVG, IV, KVG)\n\n• mind. 2 Jahre Erfahrung im stationären und ambulanten Setting\n\n• Vorerfahrungen in ambulanten Behandlungssettings von Vorteil\n\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\n\n• Sehr gute Deutschkenntnisse, mindestens Sprachniveau Level C1 (verhandlungssicher), zusätzliche Fremdsprachenkenntnisse sind von Vorteil\n\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.",
+        "it": "Aufgaben:\n• Zusammenarbeit mit Ärztinnen und Ärzten sowie Psychotherapeutinnen und -therapeuten im Team\n\n• Eigenverantwortliche Fallführung und Durchführung von psychotherapeutischen Behandlungen bei Erwachsenen\n\n• Abklärungs- und Beratungsgespräche\n\n• Führen der elektronischen Krankenakte und Verfassen von Berichten\n\n• Möglichkeit, ambulante Gruppenangebote anzubieten\n\n• Diagnostische Abklärungen\n\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n\n• Teilnahme an Fort- und Weiterbildungen\n\nAnforderungen:\n• Abgeschlossene eidg. anerkannte Psychotherapieweiterbildung oder kurz vor Abschluss stehend\n\n• Abgeschlossenes Studium der Psychologie (Master oder Lizenziat)\n\n• Initiative und belastbare Persönlichkeit mit stationärer Erfahrung in psychiatrisch-psychotherapeutischer Behandlung\n\n• Freude an der Zusammenarbeit im Team\n\n• gute bis sehr gute Kenntnisse im Berichtswesen (VVG, IV, KVG)\n\n• mind. 2 Jahre Erfahrung im stationären und ambulanten Setting\n\n• Vorerfahrungen in ambulanten Behandlungssettings von Vorteil\n\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\n\n• Sehr gute Deutschkenntnisse, mindestens Sprachniveau Level C1 (verhandlungssicher), zusätzliche Fremdsprachenkenntnisse sind von Vorteil\n\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.",
+        "en": "Aufgaben:\n• Zusammenarbeit mit Ärztinnen und Ärzten sowie Psychotherapeutinnen und -therapeuten im Team\n\n• Eigenverantwortliche Fallführung und Durchführung von psychotherapeutischen Behandlungen bei Erwachsenen\n\n• Abklärungs- und Beratungsgespräche\n\n• Führen der elektronischen Krankenakte und Verfassen von Berichten\n\n• Möglichkeit, ambulante Gruppenangebote anzubieten\n\n• Diagnostische Abklärungen\n\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n\n• Teilnahme an Fort- und Weiterbildungen\n\nAnforderungen:\n• Abgeschlossene eidg. anerkannte Psychotherapieweiterbildung oder kurz vor Abschluss stehend\n\n• Abgeschlossenes Studium der Psychologie (Master oder Lizenziat)\n\n• Initiative und belastbare Persönlichkeit mit stationärer Erfahrung in psychiatrisch-psychotherapeutischer Behandlung\n\n• Freude an der Zusammenarbeit im Team\n\n• gute bis sehr gute Kenntnisse im Berichtswesen (VVG, IV, KVG)\n\n• mind. 2 Jahre Erfahrung im stationären und ambulanten Setting\n\n• Vorerfahrungen in ambulanten Behandlungssettings von Vorteil\n\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\n\n• Sehr gute Deutschkenntnisse, mindestens Sprachniveau Level C1 (verhandlungssicher), zusätzliche Fremdsprachenkenntnisse sind von Vorteil\n\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.",
+        "fr": "Aufgaben:\n• Zusammenarbeit mit Ärztinnen und Ärzten sowie Psychotherapeutinnen und -therapeuten im Team\n\n• Eigenverantwortliche Fallführung und Durchführung von psychotherapeutischen Behandlungen bei Erwachsenen\n\n• Abklärungs- und Beratungsgespräche\n\n• Führen der elektronischen Krankenakte und Verfassen von Berichten\n\n• Möglichkeit, ambulante Gruppenangebote anzubieten\n\n• Diagnostische Abklärungen\n\n• Aktive Mitarbeit im interdisziplinären Therapeutenteam im Rahmen eines ganzheitlichen Behandlungskonzepts\n\n• Teilnahme an Fort- und Weiterbildungen\n\nAnforderungen:\n• Abgeschlossene eidg. anerkannte Psychotherapieweiterbildung oder kurz vor Abschluss stehend\n\n• Abgeschlossenes Studium der Psychologie (Master oder Lizenziat)\n\n• Initiative und belastbare Persönlichkeit mit stationärer Erfahrung in psychiatrisch-psychotherapeutischer Behandlung\n\n• Freude an der Zusammenarbeit im Team\n\n• gute bis sehr gute Kenntnisse im Berichtswesen (VVG, IV, KVG)\n\n• mind. 2 Jahre Erfahrung im stationären und ambulanten Setting\n\n• Vorerfahrungen in ambulanten Behandlungssettings von Vorteil\n\n• Bereitschaft, sich mit dem christlichen Glauben im Arbeitskontext aktiv auseinanderzusetzen\n\n• Sehr gute Deutschkenntnisse, mindestens Sprachniveau Level C1 (verhandlungssicher), zusätzliche Fremdsprachenkenntnisse sind von Vorteil\n\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein."
+      },
+      "needsRetranslation": true,
+      "location": "Spiez",
+      "canton": "BE",
+      "url": "https://jobs.klinik-sgm.ch/offene-stellen/psychotherapeutin-psychotherapeut-ambulatorium-spiez/7bcae5c3-d28b-4242-959f-31281fc7d255",
+      "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T14:00:05.283Z",
+      "addressLocality": "Spiez",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3700",
+      "streetAddress": "Seestrasse 2",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-30",
+      "applyUrl": "https://k61225.coveto.de/public/bewerbung/?id=1072",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-25T21:57:55.229Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez"
+        ]
+      },
+      "previousSlugs": [
+        "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez"
+      ]
     },
     {
       "id": "klinik-sgm-077f0e255b3c",
@@ -301,7 +370,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/fachaerztin-facharzt-psychiatrie-ambulatorium-bern/5efd4837-24c4-4579-b953-b1fd8fde802a",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:27.312Z",
+      "crawledAt": "2026-09-26T14:00:05.279Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -320,13 +389,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "facharztin-facharzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern",
-        "specialista-psichiatria-ambulatorium-berna-klinik-sgm-langenthal-bern-5bdf97"
+        "facharztin-facharzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern",
-          "specialista-psichiatria-ambulatorium-berna-klinik-sgm-langenthal-bern-5bdf97"
+          "facharztin-facharzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern"
         ],
         "en": [
           "facharztin-facharzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern"
@@ -381,7 +448,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/oberaerztin-oberarzt-psychiatrie-ambulatorium-spiez/d693c810-ba33-402d-91f6-6ce24b8de42d",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:27.311Z",
+      "crawledAt": "2026-09-26T14:00:05.277Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -400,13 +467,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez",
-        "medico-senior-psichiatria-senior-ambulatorium-spiez-klinik-sgm-langenthal-spiez-4ff272"
+        "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez",
-          "medico-senior-psichiatria-senior-ambulatorium-spiez-klinik-sgm-langenthal-spiez-4ff272"
+          "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez"
         ],
         "en": [
           "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez"
@@ -428,7 +493,8 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "klinik-sgm-bbd740e6c1b4",
@@ -462,7 +528,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/oberaerztin-oberarzt-abteilungsleitung/551cd479-9938-45d8-ae63-0e62d5991e12",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:27.308Z",
+      "crawledAt": "2026-09-26T14:00:05.274Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -481,13 +547,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-abteilungsleitung-klinik-sgm-langenthal",
-        "medico-senior-medico-senior-capo-del-dipartimento-klinik-sgm-langenthal-langenthal-eaa7e3"
+        "oberarztin-oberarzt-abteilungsleitung-klinik-sgm-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-abteilungsleitung-klinik-sgm-langenthal",
-          "medico-senior-medico-senior-capo-del-dipartimento-klinik-sgm-langenthal-langenthal-eaa7e3"
+          "oberarztin-oberarzt-abteilungsleitung-klinik-sgm-langenthal"
         ],
         "en": [
           "oberarztin-oberarzt-abteilungsleitung-klinik-sgm-langenthal"
@@ -543,7 +607,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/fachaerztin-facharzt-psychiatrie-ambulatorium-meggen/73b83f0b-95be-4626-bcfc-e3880c832e4f",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:27.306Z",
+      "crawledAt": "2026-09-26T14:00:05.272Z",
       "addressLocality": "Meggen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -562,13 +626,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "facharztin-facharzt-psychiatrie-ambulatorium-meggen-klinik-sgm-meggen",
-        "specialista-specialista-psichiatria-ambulatorium-meggen-klinik-sgm-langenthal-meggen-47d781"
+        "facharztin-facharzt-psychiatrie-ambulatorium-meggen-klinik-sgm-meggen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-psychiatrie-ambulatorium-meggen-klinik-sgm-meggen",
-          "specialista-specialista-psichiatria-ambulatorium-meggen-klinik-sgm-langenthal-meggen-47d781"
+          "facharztin-facharzt-psychiatrie-ambulatorium-meggen-klinik-sgm-meggen"
         ],
         "en": [
           "facharztin-facharzt-psychiatrie-ambulatorium-meggen-klinik-sgm-meggen"
@@ -624,7 +686,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/fachaerztin-facharzt-psychiatrie-ambulatorium-langenthal/1733aeff-e5a0-4953-b432-3009791467de",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:27.287Z",
+      "crawledAt": "2026-09-26T14:00:05.235Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -643,13 +705,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
-        "specialista-psichiatria-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal"
+        "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
-          "specialista-psichiatria-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal"
+          "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
         ],
         "en": [
           "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
@@ -705,7 +765,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/oberaerztin-oberarzt-psychiatrie-ambulatorium-langenthal/3390fb44-a3f4-4cbd-8fb7-9e4d4c935c89",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:27.285Z",
+      "crawledAt": "2026-09-26T14:00:05.232Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -724,13 +784,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
-        "medico-senior-psichiatria-senior-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal-9cf511"
+        "oberarztin-oberarzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
-          "medico-senior-psichiatria-senior-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal-9cf511"
+          "oberarztin-oberarzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
         ],
         "en": [
           "oberarztin-oberarzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
@@ -780,12 +838,13 @@
         "de": "Aufgaben:\n• Zubereitung von frischen und ausgewogenen Mahlzeiten\n\n• Mithilfe bei der Herstellung von Diät- und Spezialkost\n\n• Mitwirkung bei internen Anlässen und Apéros\n\n• Kontrolle des Wareneingangs hinsichtlich Qualität, Frische und Menge\n\n• Einhaltung der Hygienevorgaben gemäss HACCP\n\n• Verantwortungs- und kostenbewusster Umgang mit Lebensmitteln und Ressourcen\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Köchin / Koch EFZ und mehrjährige Berufserfahrung\n\n• Leidenschaft fürs Kochen und ein ausgeprägtes Qualitätsbewusstsein\n\n• Selbstständige, zuverlässige und verantwortungsvolle Arbeitsweise\n\n• Teamgeist, Flexibilität und Freude an einer abwechslungsreichen Tätigkeit\n\n• Bereitschaft zu Einsätzen an Wochenenden und Feiertagen\n\n• Weiterbildung als Diätköchin / Diätkoch oder die Bereitschaft, diese zu absolvieren\nDas erwartet dich:\n\n• Eine sinnstiftende Aufgabe, bei der du täglich einen wichtigen Beitrag zum Wohlbefinden unserer Gäste leistest\n\n• Ein engagiertes und wertschätzendes Team mit kurzen Entscheidungswegen\n\n• Transparente und offene Kommunikation auf allen Ebenen\n\n• Abwechslungsreiche Aufgaben mit Eigenverantwortung\n\n• Raum für persönliche und fachliche Weiterentwicklung\n\n• Attraktive Anstellungsbedingungen mit grosszügigen Benefits, guten Sozialleistungen, Vergünstigungen und kostenloser Parkplatz\n\nDie Klinik SGM Langenthal ist eine anerkannte Fachklinik für Psychiatrie, Psychotherapie und Psychosomatik mit stationären und ambulanten Behandlungsangeboten. Das Therapieangebot ist integrativ und bezieht die spirituelle Dimension mit ein.",
         "fr": "Tâches :\n• Préparation de repas frais et équilibrés\n\n• Aide à la production d'aliments spéciaux et de régimes alimentaires\n\n• Participation à des événements internes et à des aperos\n\n• Contrôle de la réception des marchandises en termes de qualité, de fraîcheur et de quantité\n\n• Conformité aux exigences d'hygiène selon HACCP\n\n• Manipulation responsable et rentable des aliments et des ressources\n\nExigences\n• Formation complète en tant que cuisinier / chef EFZ et plusieurs années d'expérience professionnelle\n\n• Passion pour la cuisine et une forte sensibilisation à la qualité\n\n• Travail indépendant, travail fiable et responsable\n\n• Esprit d'équipe, flexibilité et jouissance d'une activité variée\n\n• Préparation aux affectations les week-ends et jours fériés\n\n• Formation continue comme diététiste / diététiste cuisinier ou la volonté de le compléter\nVoilà ce qui vous attend :\n\n• Une tâche significative dans laquelle vous apportez une contribution importante au bien-être de nos invités chaque jour\n\n• Une équipe engagée et reconnaissante avec de courtes pistes de décision\n\n• Communication transparente et ouverte à tous les niveaux\n\n• Tâches variées avec responsabilité personnelle\n\n• Espace pour le développement personnel et professionnel\n\n• Des conditions d'emploi attrayantes avec des avantages généreux, de bonnes prestations sociales, des avantages et un parking gratuit\n\nLa clinique SGM Langenthal est une clinique spécialisée reconnue pour la psychiatrie, la psychothérapie et la psychosomatique avec des soins hospitaliers et externes. La thérapie offerte est intégrative et implique la dimension spirituelle."
       },
+      "needsRetranslation": true,
       "location": "Langenthal",
       "canton": "BE",
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/koechin-koch-efz/2ea70376-4dd3-44ab-96da-785fcc88c6cb",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:27.271Z",
+      "crawledAt": "2026-09-26T14:00:05.220Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -896,7 +955,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "caritas-schweiz",
-  "assembledAt": "2026-09-25T14:41:37.597Z",
+  "assembledAt": "2026-09-26T13:58:41.851Z",
   "jobs": [
     {
       "id": "caritas-schweiz-55efd0d16fa5",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/126757/2359/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:41:32.463Z",
+      "crawledAt": "2026-09-26T13:58:37.370Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -56,14 +56,12 @@
       "pensum": "60%",
       "previousSlugs": [
         "projektmitarbeiter-in-flickstuben-und-info-tische-60-caritas-schweiz-zurich",
-        "projektmitarbeiter-in-flickstuben-e-info-tische-60-caritas-schweiz-zurich",
-        "personale-del-progetto-flickstuben-e-info-tables-60-caritas-schweiz-zurich"
+        "projektmitarbeiter-in-flickstuben-e-info-tische-60-caritas-schweiz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektmitarbeiter-in-flickstuben-und-info-tische-60-caritas-schweiz-zurich",
-          "projektmitarbeiter-in-flickstuben-e-info-tische-60-caritas-schweiz-zurich",
-          "personale-del-progetto-flickstuben-e-info-tables-60-caritas-schweiz-zurich"
+          "projektmitarbeiter-in-flickstuben-e-info-tische-60-caritas-schweiz-zurich"
         ],
         "en": [
           "projektmitarbeiter-in-flickstuben-und-info-tische-60-caritas-schweiz-zurich"
@@ -119,7 +117,7 @@
       "url": "https://apply.refline.ch/126757/2360/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:41:32.050Z",
+      "crawledAt": "2026-09-26T13:58:36.895Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -141,14 +139,12 @@
       "pensum": "80%",
       "previousSlugs": [
         "leiter-in-abteilung-kommunikation-fundraising-mitglied-der-geschaftsleitung-80-caritas",
-        "leiter-in-abteilung-kommunikation-fundraising-mitglied-der-geschaftsleitung-80-caritas-schweiz-zurich",
-        "responsabile-comunicazione-e-finanziamento-membro-del-consiglio-esecutivo-80-caritas-schweiz-zurich"
+        "leiter-in-abteilung-kommunikation-fundraising-mitglied-der-geschaftsleitung-80-caritas-schweiz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-abteilung-kommunikation-fundraising-mitglied-der-geschaftsleitung-80-caritas",
-          "leiter-in-abteilung-kommunikation-fundraising-mitglied-der-geschaftsleitung-80-caritas-schweiz-zurich",
-          "responsabile-comunicazione-e-finanziamento-membro-del-consiglio-esecutivo-80-caritas-schweiz-zurich"
+          "leiter-in-abteilung-kommunikation-fundraising-mitglied-der-geschaftsleitung-80-caritas-schweiz-zurich"
         ],
         "en": [
           "leiter-in-abteilung-kommunikation-fundraising-mitglied-der-geschaftsleitung-80-caritas"
@@ -203,7 +199,7 @@
       "url": "https://apply.refline.ch/126757/2354/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:41:31.634Z",
+      "crawledAt": "2026-09-26T13:58:36.420Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -225,14 +221,12 @@
       "pensum": "80%",
       "previousSlugs": [
         "sozialarbeiter-in-in-der-sozialberatung-fur-familien-80-caritas-schweiz-zurich",
-        "sozialarbeiter-in-der-sozialberatung-per-familien-80-caritas-schweiz-zurich",
-        "social-workers-in-social-counseling-for-families-80-caritas-schweiz-zurich"
+        "sozialarbeiter-in-der-sozialberatung-per-familien-80-caritas-schweiz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sozialarbeiter-in-in-der-sozialberatung-fur-familien-80-caritas-schweiz-zurich",
-          "sozialarbeiter-in-der-sozialberatung-per-familien-80-caritas-schweiz-zurich",
-          "social-workers-in-social-counseling-for-families-80-caritas-schweiz-zurich"
+          "sozialarbeiter-in-der-sozialberatung-per-familien-80-caritas-schweiz-zurich"
         ],
         "fr": [
           "sozialarbeiter-in-in-der-sozialberatung-fur-familien-80-caritas-schweiz-zurich"
@@ -251,7 +245,8 @@
           "maxValue": 93200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "caritas-schweiz-f459c81be42b",
@@ -285,7 +280,7 @@
       "url": "https://apply.refline.ch/126757/2020/pub/4/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:41:31.219Z",
+      "crawledAt": "2026-09-26T13:58:35.945Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -306,13 +301,11 @@
       "pensumMax": 10,
       "pensum": "10%",
       "previousSlugs": [
-        "interkulturell-dolmetschende-caritas-schweiz-bern",
-        "interculturali-interpreti-caritas-schweiz-bern"
+        "interkulturell-dolmetschende-caritas-schweiz-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "interkulturell-dolmetschende-caritas-schweiz-bern",
-          "interculturali-interpreti-caritas-schweiz-bern"
+          "interkulturell-dolmetschende-caritas-schweiz-bern"
         ],
         "en": [
           "interkulturell-dolmetschende-caritas-schweiz-bern"
@@ -367,7 +360,7 @@
       "url": "https://apply.refline.ch/126757/2356/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:41:30.804Z",
+      "crawledAt": "2026-09-26T13:58:35.471Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -388,13 +381,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "teamleitung-caritas-care-pflegende-angehorige-80-100-caritas-schweiz-bern",
-        "team-leader-caritas-care-accompagnatori-80-100-caritas-schweiz-bern"
+        "teamleitung-caritas-care-pflegende-angehorige-80-100-caritas-schweiz-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleitung-caritas-care-pflegende-angehorige-80-100-caritas-schweiz-bern",
-          "team-leader-caritas-care-accompagnatori-80-100-caritas-schweiz-bern"
+          "teamleitung-caritas-care-pflegende-angehorige-80-100-caritas-schweiz-bern"
         ],
         "en": [
           "teamleitung-caritas-care-pflegende-angehorige-80-100-caritas-schweiz-bern"
@@ -416,7 +407,77 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
+    },
+    {
+      "id": "caritas-schweiz-40faabf58fb9",
+      "slug": "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
+      "slugByLocale": {
+        "de": "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
+        "it": "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
+        "en": "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
+        "fr": "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich"
+      },
+      "company": "Caritas Schweiz",
+      "companyKey": "caritas-schweiz",
+      "companyDomain": "caritas.ch",
+      "title": "Sozialpädagogische Bezugspersonen MNA 80 - 100 % in Zürich-Uster (m/w/d)",
+      "titleByLocale": {
+        "de": "Sozialpädagogische Bezugspersonen MNA 80 - 100 % in Zürich-Uster (m/w/d)",
+        "it": "Sozialpädagogische Bezugspersonen MNA 80 - 100 % in Zürich-Uster (m/w/d)",
+        "en": "Sozialpädagogische Bezugspersonen MNA 80 - 100 % in Zürich-Uster (m/w/d)",
+        "fr": "Sozialpädagogische Bezugspersonen MNA 80 - 100 % in Zürich-Uster (m/w/d)"
+      },
+      "description": "• Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\n\nSozialpädagogische Bezugspersonen MNA\n80 - 100 % in Zürich-Uster (m/w/d)\n\nCaritas Schweiz betreibt seit März 2024 im kantonalen Auftrag Asylzentren an unterschiedlichen Standorten im Kanton Zürich. Als sozialpädagogische Fach- und Bezugsperson sind Sie für die persönliche und altersgerechte Betreuung, Begleitung und Integration der unbegleiteten minderjährigen Asylsuchenden im MNA-Zentrum an der Aathalstrasse in Zürich-Uster verantwortlich.\n\nIhre Aufgaben\n\n• Sozialpädagogische und psychosoziale Begleitung und Betreuung der Jugendlichen im Rahmen des Bezugspersonensystems\n• Förderung der Jugendlichen in den verschiedenen Lebensbereichen (Schule, Freizeit, Gesundheit, Umgang mit Geld) mit individuellen Zielsetzungen und Zielüberprüfungen\n• Erarbeitung bedarfsgerechter Tagesstrukturen und Freizeitangeboten für und mit den Jugendlichen\n• Förderung der Sozial- und Selbstkompetenz, der Selbständigkeit und der psychischen und sozialen Integrität sowie Etablierung eines verbindlichen Rahmens für das gemeinschaftliche Zusammenleben\n• Krisenintervention und Konfliktbearbeitung\n• Aktive interdisziplinäre Koordination und Planung im Team (u.a. enge Zusammenarbeit mit Beistandschaft der minderjährigen Jugendlichen)\n• Budgetverantwortung gemäss der Umsetzungsrichtlinie des Kantons ZH und den Vorgaben der Caritas Schweiz, sowie erstellen der Abrechnungen\n• Externe Vernetzung mit Kooperationspartnern und Organisationen\n• Mitverantwortung für die Schaffung einer guten Hausatmosphäre und für die Einhaltung der Hausordnung und Sicherheit im Zentrum\n• Übernahme des sozialpädagogischen Pikettdienstes\n• Abgeschlossene anerkannte sozialpädagogische Ausbildung (oder gleichwertig)\n• Erfahrung im Migrationsbereich und/oder Jugendarbeit wünschenswert\n• Sehr gute Deutschkenntnisse, weitere Fremdsprachenkenntnisse von Vorteil\n• Interkulturelle Kompetenz\n• Bereitschaft und Flexibilität zeitlich variierende Arbeitszeiten zu leisten (Schicht-/Wochenendarbeit)\n• Hohes Verantwortungs- und Qualitätsbewusstsein für die Arbeit mit vulnerablen, schutzbedürftigen Jugendlichen\n• Eigeninitiative, Selbständigkeit, Teamfähigkeit sowie Durchsetzungsvermögen\n• Hohe Resilienz und Belastbarkeit\n• Gute Microsoft-Office Kenntnisse\n• Einwandfreier Leumund",
+      "descriptionByLocale": {
+        "de": "• Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\n\nSozialpädagogische Bezugspersonen MNA\n80 - 100 % in Zürich-Uster (m/w/d)\n\nCaritas Schweiz betreibt seit März 2024 im kantonalen Auftrag Asylzentren an unterschiedlichen Standorten im Kanton Zürich. Als sozialpädagogische Fach- und Bezugsperson sind Sie für die persönliche und altersgerechte Betreuung, Begleitung und Integration der unbegleiteten minderjährigen Asylsuchenden im MNA-Zentrum an der Aathalstrasse in Zürich-Uster verantwortlich.\n\nIhre Aufgaben\n\n• Sozialpädagogische und psychosoziale Begleitung und Betreuung der Jugendlichen im Rahmen des Bezugspersonensystems\n• Förderung der Jugendlichen in den verschiedenen Lebensbereichen (Schule, Freizeit, Gesundheit, Umgang mit Geld) mit individuellen Zielsetzungen und Zielüberprüfungen\n• Erarbeitung bedarfsgerechter Tagesstrukturen und Freizeitangeboten für und mit den Jugendlichen\n• Förderung der Sozial- und Selbstkompetenz, der Selbständigkeit und der psychischen und sozialen Integrität sowie Etablierung eines verbindlichen Rahmens für das gemeinschaftliche Zusammenleben\n• Krisenintervention und Konfliktbearbeitung\n• Aktive interdisziplinäre Koordination und Planung im Team (u.a. enge Zusammenarbeit mit Beistandschaft der minderjährigen Jugendlichen)\n• Budgetverantwortung gemäss der Umsetzungsrichtlinie des Kantons ZH und den Vorgaben der Caritas Schweiz, sowie erstellen der Abrechnungen\n• Externe Vernetzung mit Kooperationspartnern und Organisationen\n• Mitverantwortung für die Schaffung einer guten Hausatmosphäre und für die Einhaltung der Hausordnung und Sicherheit im Zentrum\n• Übernahme des sozialpädagogischen Pikettdienstes\n• Abgeschlossene anerkannte sozialpädagogische Ausbildung (oder gleichwertig)\n• Erfahrung im Migrationsbereich und/oder Jugendarbeit wünschenswert\n• Sehr gute Deutschkenntnisse, weitere Fremdsprachenkenntnisse von Vorteil\n• Interkulturelle Kompetenz\n• Bereitschaft und Flexibilität zeitlich variierende Arbeitszeiten zu leisten (Schicht-/Wochenendarbeit)\n• Hohes Verantwortungs- und Qualitätsbewusstsein für die Arbeit mit vulnerablen, schutzbedürftigen Jugendlichen\n• Eigeninitiative, Selbständigkeit, Teamfähigkeit sowie Durchsetzungsvermögen\n• Hohe Resilienz und Belastbarkeit\n• Gute Microsoft-Office Kenntnisse\n• Einwandfreier Leumund",
+        "it": "• Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\n\nSozialpädagogische Bezugspersonen MNA\n80 - 100 % in Zürich-Uster (m/w/d)\n\nCaritas Schweiz betreibt seit März 2024 im kantonalen Auftrag Asylzentren an unterschiedlichen Standorten im Kanton Zürich. Als sozialpädagogische Fach- und Bezugsperson sind Sie für die persönliche und altersgerechte Betreuung, Begleitung und Integration der unbegleiteten minderjährigen Asylsuchenden im MNA-Zentrum an der Aathalstrasse in Zürich-Uster verantwortlich.\n\nIhre Aufgaben\n\n• Sozialpädagogische und psychosoziale Begleitung und Betreuung der Jugendlichen im Rahmen des Bezugspersonensystems\n• Förderung der Jugendlichen in den verschiedenen Lebensbereichen (Schule, Freizeit, Gesundheit, Umgang mit Geld) mit individuellen Zielsetzungen und Zielüberprüfungen\n• Erarbeitung bedarfsgerechter Tagesstrukturen und Freizeitangeboten für und mit den Jugendlichen\n• Förderung der Sozial- und Selbstkompetenz, der Selbständigkeit und der psychischen und sozialen Integrität sowie Etablierung eines verbindlichen Rahmens für das gemeinschaftliche Zusammenleben\n• Krisenintervention und Konfliktbearbeitung\n• Aktive interdisziplinäre Koordination und Planung im Team (u.a. enge Zusammenarbeit mit Beistandschaft der minderjährigen Jugendlichen)\n• Budgetverantwortung gemäss der Umsetzungsrichtlinie des Kantons ZH und den Vorgaben der Caritas Schweiz, sowie erstellen der Abrechnungen\n• Externe Vernetzung mit Kooperationspartnern und Organisationen\n• Mitverantwortung für die Schaffung einer guten Hausatmosphäre und für die Einhaltung der Hausordnung und Sicherheit im Zentrum\n• Übernahme des sozialpädagogischen Pikettdienstes\n• Abgeschlossene anerkannte sozialpädagogische Ausbildung (oder gleichwertig)\n• Erfahrung im Migrationsbereich und/oder Jugendarbeit wünschenswert\n• Sehr gute Deutschkenntnisse, weitere Fremdsprachenkenntnisse von Vorteil\n• Interkulturelle Kompetenz\n• Bereitschaft und Flexibilität zeitlich variierende Arbeitszeiten zu leisten (Schicht-/Wochenendarbeit)\n• Hohes Verantwortungs- und Qualitätsbewusstsein für die Arbeit mit vulnerablen, schutzbedürftigen Jugendlichen\n• Eigeninitiative, Selbständigkeit, Teamfähigkeit sowie Durchsetzungsvermögen\n• Hohe Resilienz und Belastbarkeit\n• Gute Microsoft-Office Kenntnisse\n• Einwandfreier Leumund",
+        "en": "• Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\n\nSozialpädagogische Bezugspersonen MNA\n80 - 100 % in Zürich-Uster (m/w/d)\n\nCaritas Schweiz betreibt seit März 2024 im kantonalen Auftrag Asylzentren an unterschiedlichen Standorten im Kanton Zürich. Als sozialpädagogische Fach- und Bezugsperson sind Sie für die persönliche und altersgerechte Betreuung, Begleitung und Integration der unbegleiteten minderjährigen Asylsuchenden im MNA-Zentrum an der Aathalstrasse in Zürich-Uster verantwortlich.\n\nIhre Aufgaben\n\n• Sozialpädagogische und psychosoziale Begleitung und Betreuung der Jugendlichen im Rahmen des Bezugspersonensystems\n• Förderung der Jugendlichen in den verschiedenen Lebensbereichen (Schule, Freizeit, Gesundheit, Umgang mit Geld) mit individuellen Zielsetzungen und Zielüberprüfungen\n• Erarbeitung bedarfsgerechter Tagesstrukturen und Freizeitangeboten für und mit den Jugendlichen\n• Förderung der Sozial- und Selbstkompetenz, der Selbständigkeit und der psychischen und sozialen Integrität sowie Etablierung eines verbindlichen Rahmens für das gemeinschaftliche Zusammenleben\n• Krisenintervention und Konfliktbearbeitung\n• Aktive interdisziplinäre Koordination und Planung im Team (u.a. enge Zusammenarbeit mit Beistandschaft der minderjährigen Jugendlichen)\n• Budgetverantwortung gemäss der Umsetzungsrichtlinie des Kantons ZH und den Vorgaben der Caritas Schweiz, sowie erstellen der Abrechnungen\n• Externe Vernetzung mit Kooperationspartnern und Organisationen\n• Mitverantwortung für die Schaffung einer guten Hausatmosphäre und für die Einhaltung der Hausordnung und Sicherheit im Zentrum\n• Übernahme des sozialpädagogischen Pikettdienstes\n• Abgeschlossene anerkannte sozialpädagogische Ausbildung (oder gleichwertig)\n• Erfahrung im Migrationsbereich und/oder Jugendarbeit wünschenswert\n• Sehr gute Deutschkenntnisse, weitere Fremdsprachenkenntnisse von Vorteil\n• Interkulturelle Kompetenz\n• Bereitschaft und Flexibilität zeitlich variierende Arbeitszeiten zu leisten (Schicht-/Wochenendarbeit)\n• Hohes Verantwortungs- und Qualitätsbewusstsein für die Arbeit mit vulnerablen, schutzbedürftigen Jugendlichen\n• Eigeninitiative, Selbständigkeit, Teamfähigkeit sowie Durchsetzungsvermögen\n• Hohe Resilienz und Belastbarkeit\n• Gute Microsoft-Office Kenntnisse\n• Einwandfreier Leumund",
+        "fr": "• Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\n\nSozialpädagogische Bezugspersonen MNA\n80 - 100 % in Zürich-Uster (m/w/d)\n\nCaritas Schweiz betreibt seit März 2024 im kantonalen Auftrag Asylzentren an unterschiedlichen Standorten im Kanton Zürich. Als sozialpädagogische Fach- und Bezugsperson sind Sie für die persönliche und altersgerechte Betreuung, Begleitung und Integration der unbegleiteten minderjährigen Asylsuchenden im MNA-Zentrum an der Aathalstrasse in Zürich-Uster verantwortlich.\n\nIhre Aufgaben\n\n• Sozialpädagogische und psychosoziale Begleitung und Betreuung der Jugendlichen im Rahmen des Bezugspersonensystems\n• Förderung der Jugendlichen in den verschiedenen Lebensbereichen (Schule, Freizeit, Gesundheit, Umgang mit Geld) mit individuellen Zielsetzungen und Zielüberprüfungen\n• Erarbeitung bedarfsgerechter Tagesstrukturen und Freizeitangeboten für und mit den Jugendlichen\n• Förderung der Sozial- und Selbstkompetenz, der Selbständigkeit und der psychischen und sozialen Integrität sowie Etablierung eines verbindlichen Rahmens für das gemeinschaftliche Zusammenleben\n• Krisenintervention und Konfliktbearbeitung\n• Aktive interdisziplinäre Koordination und Planung im Team (u.a. enge Zusammenarbeit mit Beistandschaft der minderjährigen Jugendlichen)\n• Budgetverantwortung gemäss der Umsetzungsrichtlinie des Kantons ZH und den Vorgaben der Caritas Schweiz, sowie erstellen der Abrechnungen\n• Externe Vernetzung mit Kooperationspartnern und Organisationen\n• Mitverantwortung für die Schaffung einer guten Hausatmosphäre und für die Einhaltung der Hausordnung und Sicherheit im Zentrum\n• Übernahme des sozialpädagogischen Pikettdienstes\n• Abgeschlossene anerkannte sozialpädagogische Ausbildung (oder gleichwertig)\n• Erfahrung im Migrationsbereich und/oder Jugendarbeit wünschenswert\n• Sehr gute Deutschkenntnisse, weitere Fremdsprachenkenntnisse von Vorteil\n• Interkulturelle Kompetenz\n• Bereitschaft und Flexibilität zeitlich variierende Arbeitszeiten zu leisten (Schicht-/Wochenendarbeit)\n• Hohes Verantwortungs- und Qualitätsbewusstsein für die Arbeit mit vulnerablen, schutzbedürftigen Jugendlichen\n• Eigeninitiative, Selbständigkeit, Teamfähigkeit sowie Durchsetzungsvermögen\n• Hohe Resilienz und Belastbarkeit\n• Gute Microsoft-Office Kenntnisse\n• Einwandfreier Leumund"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/126757/2338/pub/8/index.html",
+      "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T13:58:34.995Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6002",
+      "category": "Sociale / Educazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sociale / NGO",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-26",
+      "applyUrl": "https://apply.refline.ch/126757/2338/pub/8/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "pensumMin": 80,
+      "pensumMax": 80,
+      "pensum": "80%",
+      "salaryMin": 63000,
+      "salaryMax": 116500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 116500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-27T00:41:55.297Z"
     },
     {
       "id": "caritas-schweiz-acc199c7188c",
@@ -424,25 +485,25 @@
       "slugByLocale": {
         "fr": "administrateur-d-applications-metier-generaliste-informatique-application-manager-80-100-h",
         "it": "administrateur-d-applications-metier-generaliste-informatique-application-manager-80-100-h",
-        "en": "administrateur-d-applications-metier-generaliste-informatique-application-manager-80-100-h",
-        "de": "administrateur-d-applications-metier-generaliste-informatique-application-manager-80-100-h"
+        "en": "business-general-manager-application-manager-80-100-m-f-d-csd-15months-caritas-schweiz-fribourg",
+        "de": "business-general-manager-application-manager-80-100-m-w-d-csd-15-monate-caritas-schweiz-fribourg"
       },
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
       "companyDomain": "caritas.ch",
       "title": "Administrateur d’applications métier / généraliste informatique (Application Manager) 80-100% (h/f/d) CDD 15mois",
       "titleByLocale": {
-        "fr": "Administrateur d’applications métier / généraliste informatique (Application Manager) 80-100% (h/f/d) CDD 15mois",
-        "en": "Business / General Manager (Application Manager) 80-100% (m/f/d) CSD 15months",
         "it": "Administrateur d’applications métier / généraliste informatique (Application Manager) 80-100% (f/m/d) CDD 15mois",
-        "de": "Business / General Manager (Application Manager) 80-100% (m/w/d) CSD 15 Monate"
+        "en": "Administrateur d’applications métier / généraliste informatique (Application Manager) 80-100% (h/f/d) CDD 15mois",
+        "de": "Business / General Manager (Application Manager) 80-100% (m/w/d) CSD 15 Monate",
+        "fr": "Administrateur d’applications métier / généraliste informatique (Application Manager) 80-100% (h/f/d) CDD 15mois"
       },
       "description": "• Agir, tout simplement. En Suisse et dans près de 20 pays répartis sur quatre continents. Engagez-vous avec nous pour concrétiser la vision d’une société solidaire, en tant que\n\nAdministrateur d’applications métier / généraliste informatique (Application Manager) (h/f/d) 80-100% CDD 15mois\n\nNotre Département Migration & Intégration Suisse romande – une antenne de Caritas Suisse à Fribourg employant une centaine de collaboratrices et collaborateurs – est responsable de l’accompagnement et de l’intégration des réfugiés statutaires dans le canton de Fribourg sur mandat cantonal. Dans ce cadre et afin d'optimiser la gestion de nos données ainsi que leur qualité, nous sommes à la recherche d’un administrateur d’applications métier / généraliste informatique (Application Manager) pour un CDD de 15 mois, avec possibilité de prolongation.\n\nVos tâches\n\n• Logiciel métier Tutoris : Administrer les accès / Donner des formations d’introduction / Mises à jour et paramétrage / Amélioration continue / Assurer le support aux utilisateurs de 1er et 2ème niveau du logiciel\n• Contribuer au respect des standards de qualité des données et des procédures avec leur mise à jour pour le Département MI-CHR\n• Exécuter des extractions de données, traiter et analyser les données en vue de l'établissement des statistiques sous forme de tableaux de bords, de rapports ou de listes\n• Développer et maintenir des applications de contrôle des données et d’assistance aux processus du Département MI-CHR à l'aide des outils Office 365, Microsoft Power Platform;\n• Collaborer à la mise à jour de l'Intranet (SharePoint) du département et des documents des procédures allant de leur création jusqu'à leur archivage/destruction\n• Rédiger et maintenir à jour la documentation utilisateur des différents outils informatiques\n• Assurer la standardisation des processus, la coordination et la communication entre les différents services\n• Formation en informatique de gestion (CFC d'informaticien) ou employé de commerce avec excellentes compétences informatiques en possession d’un CAS « Certificate of Advanced Studies » en gestion du cycle de vie des applications ou équivalent (un atout).\n• Maîtrise de Microsoft 365, notamment VBA, Excel (fonctions avancées, tableaux croisés dynamiques, Power Query).\n• Maîtrise des outils collaboratifs Microsoft (SharePoint, Teams, OneDrive).\n• Connaissances de Microsoft Power Platform (Power Apps, Power Automate, Power BI constitue un atout).\n• Connaissances des exigences en matière de protection des données et de la sécurité informatique.\n• Bonnes connaissances des bases de données, SQL (ou langage de requêtes) et des standards de la qualité des données (un atout).\n• Exigences en planification accrues; nécessité de fixer régulièrement de nouvelles priorités.\n• Français courant (parlé et écrit).\n• Excellentes connaissances d’allemand (bilingue atout).",
       "descriptionByLocale": {
-        "fr": "• Agir, tout simplement. En Suisse et dans près de 20 pays répartis sur quatre continents. Engagez-vous avec nous pour concrétiser la vision d’une société solidaire, en tant que\n\nAdministrateur d’applications métier / généraliste informatique (Application Manager) (h/f/d) 80-100% CDD 15mois\n\nNotre Département Migration & Intégration Suisse romande – une antenne de Caritas Suisse à Fribourg employant une centaine de collaboratrices et collaborateurs – est responsable de l’accompagnement et de l’intégration des réfugiés statutaires dans le canton de Fribourg sur mandat cantonal. Dans ce cadre et afin d'optimiser la gestion de nos données ainsi que leur qualité, nous sommes à la recherche d’un administrateur d’applications métier / généraliste informatique (Application Manager) pour un CDD de 15 mois, avec possibilité de prolongation.\n\nVos tâches\n\n• Logiciel métier Tutoris : Administrer les accès / Donner des formations d’introduction / Mises à jour et paramétrage / Amélioration continue / Assurer le support aux utilisateurs de 1er et 2ème niveau du logiciel\n• Contribuer au respect des standards de qualité des données et des procédures avec leur mise à jour pour le Département MI-CHR\n• Exécuter des extractions de données, traiter et analyser les données en vue de l'établissement des statistiques sous forme de tableaux de bords, de rapports ou de listes\n• Développer et maintenir des applications de contrôle des données et d’assistance aux processus du Département MI-CHR à l'aide des outils Office 365, Microsoft Power Platform;\n• Collaborer à la mise à jour de l'Intranet (SharePoint) du département et des documents des procédures allant de leur création jusqu'à leur archivage/destruction\n• Rédiger et maintenir à jour la documentation utilisateur des différents outils informatiques\n• Assurer la standardisation des processus, la coordination et la communication entre les différents services\n• Formation en informatique de gestion (CFC d'informaticien) ou employé de commerce avec excellentes compétences informatiques en possession d’un CAS « Certificate of Advanced Studies » en gestion du cycle de vie des applications ou équivalent (un atout).\n• Maîtrise de Microsoft 365, notamment VBA, Excel (fonctions avancées, tableaux croisés dynamiques, Power Query).\n• Maîtrise des outils collaboratifs Microsoft (SharePoint, Teams, OneDrive).\n• Connaissances de Microsoft Power Platform (Power Apps, Power Automate, Power BI constitue un atout).\n• Connaissances des exigences en matière de protection des données et de la sécurité informatique.\n• Bonnes connaissances des bases de données, SQL (ou langage de requêtes) et des standards de la qualité des données (un atout).\n• Exigences en planification accrues; nécessité de fixer régulièrement de nouvelles priorités.\n• Français courant (parlé et écrit).\n• Excellentes connaissances d’allemand (bilingue atout).",
         "it": "• Agisci e basta. In Svizzera e in quasi 20 paesi in quattro continenti. Coinvolgetevi con noi per realizzare la visione di una società solidale, come\n\nBusiness / General Manager (Application Manager) (m/f/d) 80-100% CSD 15 mesi\n\nIl nostro Dipartimento di Migrazione e Integrazione Svizzera di lingua francese – un ufficio della Caritas Svizzera di Friburgo che impiega circa 100 dipendenti – è responsabile per il sostegno e l'integrazione dei rifugiati statutari nel cantone di Friburgo su mandato cantonale. In questo contesto e per ottimizzare la gestione dei nostri dati e la loro qualità, stiamo cercando un amministratore di applicazioni IT professionale / generale (Application Manager) per un CDD di 15 mesi, con possibilità di estensione.\n\nI tuoi compiti\n\n• Tutorial del software di affari: Accesso di amministrazione / Fornire la formazione di introduzione / Aggiornamenti e impostazioni / Miglioramento continuo / Fornire il supporto agli utenti del software di 1 ° e 2 ° livello\n• Contribuisci al rispetto degli standard e delle procedure di qualità dei dati con il loro aggiornamento per MI-CHR Department\n• Eseguire l'estrazione dei dati, elaborare e analizzare i dati a fini statistici sotto forma di dashboard, report o liste\n• Sviluppare e mantenere le applicazioni di controllo e supporto di processo di MI-CHR utilizzando Office 365, Microsoft Power Platform;\n• Collaborare per aggiornare Intranet del Dipartimento (SharePoint) e documentare le procedure dalla creazione all'archiviazione/distruzione\n• Scrivere e mantenere la documentazione degli utenti dei vari strumenti IT\n• Assicurare la standardizzazione di processi, coordinamento e comunicazione tra diversi servizi\n• Gestione Information Technology (ITC) formazione o dipendente di affari con eccellenti competenze informatiche in possesso di un CAS \"Certificato di studi avanzati\" nella gestione del ciclo di applicazione o equivalente (un bene).\n• Mastery di Microsoft 365, tra cui VBA, Excel (funzioni avanzate, tabelle incrociate dinamiche, Power Query).\n• Mastery di strumenti collaborativi Microsoft (SharePoint, Teams, OneDrive).\n• Conoscenza di Microsoft Power Platform (Power Apps, Power Automation, Power BI è un bene).\n• Conoscenza dei requisiti di protezione dei dati e sicurezza IT.\n• Buona conoscenza dei database, SQL (o query language) e degli standard di qualità dei dati (un bene).\n• Aumento dei requisiti di pianificazione; la necessità di fissare regolarmente nuove priorità.\n• Francese attuale (spoken e scritto).\n• Ottima conoscenza del tedesco (attivo bilingue).",
         "en": "• Just act. In Switzerland and in almost 20 countries on four continents. Get involved with us to realize the vision of a solidarity society, as\n\nBusiness / General Manager (Application Manager) (m/f/d) 80-100% CSD 15months\n\nOur French-speaking Swiss Migration & Integration Department – an office of Caritas Switzerland in Freiburg employing about 100 employees – is responsible for the support and integration of statutory refugees in the canton of Freiburg on a cantonal mandate. In this context and in order to optimize the management of our data as well as their quality, we are looking for a professional / general IT application administrator (Application Manager) for a CDD of 15 months, with possibility of extension.\n\nYour tasks\n\n• Business Software Tutorial: Administer Access / Provide Introduction Training / Updates and Settings / Continuous Improvement / Provide Support to Users of 1st and 2nd Level Software\n• Contribute to compliance with data quality standards and procedures with their update for MI-CHR Department\n• Perform data extractions, process and analyse data for statistical purposes in the form of dashboards, reports or lists\n• Develop and maintain data control and process support applications of MI-CHR using Office 365, Microsoft Power Platform;\n• Collaborate in updating the Department's Intranet (SharePoint) and documents procedures from creation to archiving/destruction\n• Write and maintain user documentation of the various IT tools\n• Ensure standardization of processes, coordination and communication between different services\n• Management Information Technology (ITC) training or business employee with excellent computer skills in possession of a CAS \"Certificate of Advanced Studies\" in application life cycle management or equivalent (an asset).\n• Mastery of Microsoft 365, including VBA, Excel (advanced functions, dynamic cross tables, Power Query).\n• Mastery of Microsoft collaborative tools (SharePoint, Teams, OneDrive).\n• Knowledge of Microsoft Power Platform (Power Apps, Power Automation, Power BI is an asset).\n• Knowledge of data protection requirements and IT security.\n• Good knowledge of databases, SQL (or query language) and data quality standards (an asset).\n• Increased planning requirements; the need to set new priorities on a regular basis.\n• Current French (spoken and written).\n• Excellent knowledge of German (bilingual asset).",
-        "de": "• Handeln Sie einfach. In der Schweiz und in fast 20 Ländern auf vier Kontinenten. Beteiligen Sie sich mit uns, um die Vision einer solidarischen Gesellschaft zu verwirklichen, wie\n\nBusiness / General Manager (Application Manager) (m/w/d) 80-100% CSD 15 Monate\n\nUnsere französischsprachige Schweizer Migrations- und Integrationsabteilung – ein Büro der Caritas Schweiz in Freiburg mit rund 100 Mitarbeitern – ist im Rahmen eines kantonalen Mandats für die Unterstützung und Integration von gesetzlichen Flüchtlingen im Kanton Freiburg zuständig. In diesem Zusammenhang und um die Verwaltung unserer Daten sowie deren Qualität zu optimieren, suchen wir einen professionellen / allgemeinen IT-Anwendungsadministrator (Application Manager) für eine CDD von 15 Monaten mit Verlängerungsmöglichkeit.\n\nIhre Aufgaben\n\n• Business Software Tutorial: Administrieren Sie Zugriff / Einführungstraining / Updates und Einstellungen / Kontinuierliche Verbesserung / Support für Benutzer von 1st und 2nd Level Software\n• Beitrag zur Einhaltung der Datenqualitätsstandards und -verfahren mit dem Update für die MI-CHR-Abteilung\n• Durchführung von Datenextraktionen, Verarbeitung und Analyse von Daten für statistische Zwecke in Form von Dashboards, Berichten oder Listen\n• Entwicklung und Pflege von Anwendungen zur Datenkontrolle und Prozessunterstützung von MI-CHR unter Verwendung von Office 365, Microsoft Power Platform;\n• Zusammenarbeit bei der Aktualisierung des Intranets der Abteilung (SharePoint) und Dokumentation der Verfahren von der Erstellung bis zur Archivierung/Zerstörung\n• Schreiben und Pflegen der Benutzerdokumentation der verschiedenen IT-Tools\n• Standardisierung der Prozesse, Koordination und Kommunikation zwischen verschiedenen Diensten\n• Management Information Technology (ITC) Ausbildung oder Business-Mitarbeiter mit ausgezeichneten Computerkenntnissen im Besitz eines CAS \"Certificate of Advanced Studies\" in Application Life Cycle Management oder gleichwertig (ein Asset).\n• Beherrschung von Microsoft 365, einschließlich VBA, Excel (erweiterte Funktionen, dynamische Kreuztabellen, Power Query).\n• Beherrschung von Microsoft Collaboration Tools (SharePoint, Teams, OneDrive).\n• Kenntnisse der Microsoft Power Platform (Power Apps, Power Automation, Power BI sind ein Asset).\n• Kenntnis der Datenschutzanforderungen und der IT-Sicherheit.\n• Gute Kenntnisse in Datenbanken, SQL (oder Abfragesprache) und Datenqualitätsstandards (ein Asset).\n• Erhöhte Planungsanforderungen; die Notwendigkeit, regelmäßig neue Prioritäten zu setzen.\n• Aktuelles Französisch (gesprochen und geschrieben).\n• Hervorragende Deutschkenntnisse (zweisprachiges Vermögen)."
+        "de": "• Handeln Sie einfach. In der Schweiz und in fast 20 Ländern auf vier Kontinenten. Beteiligen Sie sich mit uns, um die Vision einer solidarischen Gesellschaft zu verwirklichen, wie\n\nBusiness / General Manager (Application Manager) (m/w/d) 80-100% CSD 15 Monate\n\nUnsere französischsprachige Schweizer Migrations- und Integrationsabteilung – ein Büro der Caritas Schweiz in Freiburg mit rund 100 Mitarbeitern – ist im Rahmen eines kantonalen Mandats für die Unterstützung und Integration von gesetzlichen Flüchtlingen im Kanton Freiburg zuständig. In diesem Zusammenhang und um die Verwaltung unserer Daten sowie deren Qualität zu optimieren, suchen wir einen professionellen / allgemeinen IT-Anwendungsadministrator (Application Manager) für eine CDD von 15 Monaten mit Verlängerungsmöglichkeit.\n\nIhre Aufgaben\n\n• Business Software Tutorial: Administrieren Sie Zugriff / Einführungstraining / Updates und Einstellungen / Kontinuierliche Verbesserung / Support für Benutzer von 1st und 2nd Level Software\n• Beitrag zur Einhaltung der Datenqualitätsstandards und -verfahren mit dem Update für die MI-CHR-Abteilung\n• Durchführung von Datenextraktionen, Verarbeitung und Analyse von Daten für statistische Zwecke in Form von Dashboards, Berichten oder Listen\n• Entwicklung und Pflege von Anwendungen zur Datenkontrolle und Prozessunterstützung von MI-CHR unter Verwendung von Office 365, Microsoft Power Platform;\n• Zusammenarbeit bei der Aktualisierung des Intranets der Abteilung (SharePoint) und Dokumentation der Verfahren von der Erstellung bis zur Archivierung/Zerstörung\n• Schreiben und Pflegen der Benutzerdokumentation der verschiedenen IT-Tools\n• Standardisierung der Prozesse, Koordination und Kommunikation zwischen verschiedenen Diensten\n• Management Information Technology (ITC) Ausbildung oder Business-Mitarbeiter mit ausgezeichneten Computerkenntnissen im Besitz eines CAS \"Certificate of Advanced Studies\" in Application Life Cycle Management oder gleichwertig (ein Asset).\n• Beherrschung von Microsoft 365, einschließlich VBA, Excel (erweiterte Funktionen, dynamische Kreuztabellen, Power Query).\n• Beherrschung von Microsoft Collaboration Tools (SharePoint, Teams, OneDrive).\n• Kenntnisse der Microsoft Power Platform (Power Apps, Power Automation, Power BI sind ein Asset).\n• Kenntnis der Datenschutzanforderungen und der IT-Sicherheit.\n• Gute Kenntnisse in Datenbanken, SQL (oder Abfragesprache) und Datenqualitätsstandards (ein Asset).\n• Erhöhte Planungsanforderungen; die Notwendigkeit, regelmäßig neue Prioritäten zu setzen.\n• Aktuelles Französisch (gesprochen und geschrieben).\n• Hervorragende Deutschkenntnisse (zweisprachiges Vermögen).",
+        "fr": "• Agir, tout simplement. En Suisse et dans près de 20 pays répartis sur quatre continents. Engagez-vous avec nous pour concrétiser la vision d’une société solidaire, en tant que\n\nAdministrateur d’applications métier / généraliste informatique (Application Manager) (h/f/d) 80-100% CDD 15mois\n\nNotre Département Migration & Intégration Suisse romande – une antenne de Caritas Suisse à Fribourg employant une centaine de collaboratrices et collaborateurs – est responsable de l’accompagnement et de l’intégration des réfugiés statutaires dans le canton de Fribourg sur mandat cantonal. Dans ce cadre et afin d'optimiser la gestion de nos données ainsi que leur qualité, nous sommes à la recherche d’un administrateur d’applications métier / généraliste informatique (Application Manager) pour un CDD de 15 mois, avec possibilité de prolongation.\n\nVos tâches\n\n• Logiciel métier Tutoris : Administrer les accès / Donner des formations d’introduction / Mises à jour et paramétrage / Amélioration continue / Assurer le support aux utilisateurs de 1er et 2ème niveau du logiciel\n• Contribuer au respect des standards de qualité des données et des procédures avec leur mise à jour pour le Département MI-CHR\n• Exécuter des extractions de données, traiter et analyser les données en vue de l'établissement des statistiques sous forme de tableaux de bords, de rapports ou de listes\n• Développer et maintenir des applications de contrôle des données et d’assistance aux processus du Département MI-CHR à l'aide des outils Office 365, Microsoft Power Platform;\n• Collaborer à la mise à jour de l'Intranet (SharePoint) du département et des documents des procédures allant de leur création jusqu'à leur archivage/destruction\n• Rédiger et maintenir à jour la documentation utilisateur des différents outils informatiques\n• Assurer la standardisation des processus, la coordination et la communication entre les différents services\n• Formation en informatique de gestion (CFC d'informaticien) ou employé de commerce avec excellentes compétences informatiques en possession d’un CAS « Certificate of Advanced Studies » en gestion du cycle de vie des applications ou équivalent (un atout).\n• Maîtrise de Microsoft 365, notamment VBA, Excel (fonctions avancées, tableaux croisés dynamiques, Power Query).\n• Maîtrise des outils collaboratifs Microsoft (SharePoint, Teams, OneDrive).\n• Connaissances de Microsoft Power Platform (Power Apps, Power Automate, Power BI constitue un atout).\n• Connaissances des exigences en matière de protection des données et de la sécurité informatique.\n• Bonnes connaissances des bases de données, SQL (ou langage de requêtes) et des standards de la qualité des données (un atout).\n• Exigences en planification accrues; nécessité de fixer régulièrement de nouvelles priorités.\n• Français courant (parlé et écrit).\n• Excellentes connaissances d’allemand (bilingue atout)."
       },
       "needsRetranslation": true,
       "location": "Fribourg",
@@ -450,7 +511,7 @@
       "url": "https://apply.refline.ch/126757/2369/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:41:30.382Z",
+      "crawledAt": "2026-09-26T13:58:33.683Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -466,9 +527,7 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://apply.refline.ch/126757/2369/pub/1/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
@@ -501,24 +560,25 @@
       "companyDomain": "caritas.ch",
       "title": "Betreuung Nacht und Wochenende Asylzentrum (80-100%) befristet, Kollbrunn",
       "titleByLocale": {
-        "de": "Betreuung Nacht und Wochenende Asylzentrum (80-100%) befristet, Kollbrunn",
         "it": "Sostenere notte e fine settimana Centro asilo (80-100%) temporaneo, Kollbrunn",
         "en": "Support night and weekend Asylum center (80-100%) temporary, Kollbrunn",
+        "de": "Betreuung Nacht und Wochenende Asylzentrum (80-100%) befristet, Kollbrunn",
         "fr": "Soutien nuit et week-end Centre d'asile (80-100%) temporaire, Kollbrunn"
       },
       "description": "• Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\n\nBetreuung Nacht und Wochenende Asylzentrum (80-100%) befristet, Kollbrunn\n\nCaritas Schweiz betreibt seit März 2024 im kantonalen Auftrag Asylzentren an unterschiedlichen Standorten im Kanton Zürich. Das Zentrum befindet sich in ländlicher Umgebung direkt beim Bahnhof Kollbrunn und beherbergt maximal 130 Familien und Einzelpersonen. Für die Betreuung der geflüchteten Personen in der Nacht und insbesondere am Wochenende suchen wir nach Verstärkung unseres Teams.\n\nIhre Aufgaben\n\n• Einführung, Anleitung und Begleitung der Bewohner/innen bei Themen wie Ernährung, Hygiene, Ordnung und Sauberkeit\n• Mitverantwortung der Schaffung einer guten Hausatmosphäre\n• Mitverantwortung für die Einhaltung der Hausordnung und die Sicherheit im Zentrum\n• Erstellung von Berichten sowie Informationsweitergabe intern und extern\n• Umsetzen der Reinigungs- und Hygienekonzepte\n• Regelmässige Rundgänge und Präsenz\n• Mitwirkung bei Beschäftigung und Animation\n• Teilnahme an monatlichen Teamsitzungen\n• Einsatz im Schichtdienst mit alleiniger Verantwortung\n• Regelmässige Teilnahme an Früh-, Spät- und Wochenenddiensten – Einsatzbereitschaft an 365 Tagen im Jahr gemäss Einsatzplanung.\n• Abgeschlossene Ausbildung\n• Erfahrung im Migrationsbereich und/oder Jugendarbeit wünschenswert\n• Gute Kenntnisse der deutschen Sprache sowie gute mündliche Kenntnisse in Englisch, weitere Fremdsprachenkenntnisse von Vorteil\n• Gute Computeranwenderkenntnisse (MS-Office)\n• Hohe Resilienz und Belastbarkeit sowie Konfliktbewältigungskompetenz\n• Flexibilität, Belastbarkeit und Durchsetzungsvermögen\n• Eigeninitiative, Selbständigkeit und hohes Mass an Arbeitsorganisation\n• Bereitschaft zeitlich variierende Arbeitsdienste zu leisten\n• Hohes Verantwortungs- und Pflichtbewusstsein",
       "descriptionByLocale": {
+        "it": "• Fate la cosa giusta. In Svizzera e in circa 20 paesi in quattro continenti. Impegnatevi con noi nella visione di una società solidale, nel suo insieme.\n\nSostenere notte e fine settimana Centro asilo (80-100%) temporaneo, Kollbrunn\n\nDal marzo 2024 Caritas Svizzera opera in diversi centri di asilo nel cantone di Zurigo per una missione di 133 anni. Il centro si trova in un ambiente rurale direttamente alla stazione di Kollbrunn e ospita un massimo di 130 famiglie e persone. Per la cura dei rifugiati di notte e soprattutto nei fine settimana, stiamo cercando rinforzi del nostro team.\n\nI tuoi compiti\n\n• introduzione, orientamento e sostegno dei residenti in temi quali alimentazione, igiene, ordine e pulizia\n• corresponsabilità per creare un'atmosfera di buona casa\n• corresponsabilità per mantenere l'ordine e la sicurezza della casa nel centro\n• preparazione di relazioni e trasferimento di informazioni internamente ed esternamente\n• implementazione di concetti di pulizia e igiene\n• visite regolari e presenza\n• partecipazione all'occupazione e all'animazione\n• partecipazione a riunioni mensili di gruppo\n• uso del lavoro a turni con responsabilità esclusiva\n• partecipazione regolare a riunioni di lavoro anticipato, tardivo e tardivo\n\ne servizi weekend. pronti per essere distribuiti 365 giorni all'anno secondo la pianificazione operativa.\n\n• Formazione completa\n• Esperienza in migrazione e/o lavoro giovanile desiderabile\n• Buona conoscenza della lingua tedesca e buona conoscenza orale in inglese, ulteriore conoscenza delle lingue straniere di vantaggio\n• Buona conoscenza dell'utente del computer (MS-Office)\n• Alta resilienza e capacità di gestione dei conflitti\n• Flessibilità, resilienza e assertività\n• Autoiniziativa, indipendenza e alto livello di organizzazione del lavoro\n• Volontà di fornire servizi di lavoro che cambiano nel tempo\n• Alta consapevolezza della responsabilità e dei doveri",
+        "en": "• Do the right thing. In Switzerland and in around 20 countries on four continents. Engage with us in the vision of a society of solidarity, as a whole.\n\nSupport night and weekend Asylum center (80-100%) temporary, Kollbrunn\n\nCaritas Switzerland has been operating asylum centres at various locations in the canton of Zurich since March 2024 on a cantonal mission. The centre is located in a rural environment directly at the station of Kollbrunn and accommodates a maximum of 130 families and individuals. For the care of refugees at night and especially at weekends, we are looking for reinforcements of our team.\n\nYour tasks\n\n• introduction, guidance and support of residents in topics such as nutrition, hygiene, order and cleanliness\n• co-responsibility for creating a good house atmosphere\n• co-responsibility for keeping the house order and safety in the centre\n• preparation of reports and information transfer internally and externally\n• implementation of cleaning and hygiene concepts\n• regular tours and presence\n• participation in employment and animation\n• participation in monthly team meetings\n• use of shift work with sole responsibility\n• regular participation in early, late and late-\n\nand weekend services – ready to be deployed 365 days a year according to operational planning.\n\n• Completed training\n• Experience in migration and/or youth work desirable\n• Good knowledge of the German language and good oral knowledge in English, further knowledge of foreign languages of advantage\n• Good computer user knowledge (MS-Office)\n• High resilience and resilience and conflict management competence\n• Flexibility, resilience and assertiveness\n• Self-initiative, independence and high level of work organisation\n• Willingness to provide time-changing work services\n• High awareness of responsibility and duty",
         "de": "• Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\n\nBetreuung Nacht und Wochenende Asylzentrum (80-100%) befristet, Kollbrunn\n\nCaritas Schweiz betreibt seit März 2024 im kantonalen Auftrag Asylzentren an unterschiedlichen Standorten im Kanton Zürich. Das Zentrum befindet sich in ländlicher Umgebung direkt beim Bahnhof Kollbrunn und beherbergt maximal 130 Familien und Einzelpersonen. Für die Betreuung der geflüchteten Personen in der Nacht und insbesondere am Wochenende suchen wir nach Verstärkung unseres Teams.\n\nIhre Aufgaben\n\n• Einführung, Anleitung und Begleitung der Bewohner/innen bei Themen wie Ernährung, Hygiene, Ordnung und Sauberkeit\n• Mitverantwortung der Schaffung einer guten Hausatmosphäre\n• Mitverantwortung für die Einhaltung der Hausordnung und die Sicherheit im Zentrum\n• Erstellung von Berichten sowie Informationsweitergabe intern und extern\n• Umsetzen der Reinigungs- und Hygienekonzepte\n• Regelmässige Rundgänge und Präsenz\n• Mitwirkung bei Beschäftigung und Animation\n• Teilnahme an monatlichen Teamsitzungen\n• Einsatz im Schichtdienst mit alleiniger Verantwortung\n• Regelmässige Teilnahme an Früh-, Spät- und Wochenenddiensten – Einsatzbereitschaft an 365 Tagen im Jahr gemäss Einsatzplanung.\n• Abgeschlossene Ausbildung\n• Erfahrung im Migrationsbereich und/oder Jugendarbeit wünschenswert\n• Gute Kenntnisse der deutschen Sprache sowie gute mündliche Kenntnisse in Englisch, weitere Fremdsprachenkenntnisse von Vorteil\n• Gute Computeranwenderkenntnisse (MS-Office)\n• Hohe Resilienz und Belastbarkeit sowie Konfliktbewältigungskompetenz\n• Flexibilität, Belastbarkeit und Durchsetzungsvermögen\n• Eigeninitiative, Selbständigkeit und hohes Mass an Arbeitsorganisation\n• Bereitschaft zeitlich variierende Arbeitsdienste zu leisten\n• Hohes Verantwortungs- und Pflichtbewusstsein",
-        "it": "• Fate la cosa giusta. In Svizzera e in circa 20 paesi in quattro continenti. Impegnatevi con noi nella visione di una società solidale, nel suo insieme.\n\nSostenere notte e fine settimana Centro asilo (80-100%) temporaneo, Kollbrunn\n\nDal marzo 2024 Caritas Svizzera opera in diversi centri di asilo nel cantone di Zurigo per una missione di 133 anni. Il centro si trova in un ambiente rurale direttamente alla stazione di Kollbrunn e ospita un massimo di 130 famiglie e persone. Per la cura dei rifugiati di notte e soprattutto nei fine settimana, stiamo cercando rinforzi del nostro team.\n\nI tuoi compiti\n\n• introduzione, orientamento e sostegno dei residenti in temi quali alimentazione, igiene, ordine e pulizia • corresponsabilità per creare un'atmosfera di buona casa • corresponsabilità per mantenere l'ordine e la sicurezza della casa nel centro • preparazione di relazioni e trasferimento di informazioni internamente ed esternamente • implementazione di concetti di pulizia e igiene • visite regolari e presenza • partecipazione all'occupazione e all'animazione • partecipazione a riunioni mensili di gruppo • uso del lavoro a turni con responsabilità esclusiva • partecipazione regolare a riunioni di lavoro anticipato, tardivo e tardivo\n\ne servizi weekend. pronti per essere distribuiti 365 giorni all'anno secondo la pianificazione operativa.\n\n• Formazione completa • Esperienza in migrazione e/o lavoro giovanile desiderabile • Buona conoscenza della lingua tedesca e buona conoscenza orale in inglese, ulteriore conoscenza delle lingue straniere di vantaggio • Buona conoscenza dell'utente del computer (MS-Office) • Alta resilienza e capacità di gestione dei conflitti • Flessibilità, resilienza e assertività • Autoiniziativa, indipendenza e alto livello di organizzazione del lavoro • Volontà di fornire servizi di lavoro che cambiano nel tempo • Alta consapevolezza della responsabilità e dei doveri",
-        "en": "• Do the right thing. In Switzerland and in around 20 countries on four continents. Engage with us in the vision of a society of solidarity, as a whole.\n\nSupport night and weekend Asylum center (80-100%) temporary, Kollbrunn\n\nCaritas Switzerland has been operating asylum centres at various locations in the canton of Zurich since March 2024 on a cantonal mission. The centre is located in a rural environment directly at the station of Kollbrunn and accommodates a maximum of 130 families and individuals. For the care of refugees at night and especially at weekends, we are looking for reinforcements of our team.\n\nYour tasks\n\n• introduction, guidance and support of residents in topics such as nutrition, hygiene, order and cleanliness • co-responsibility for creating a good house atmosphere • co-responsibility for keeping the house order and safety in the centre • preparation of reports and information transfer internally and externally • implementation of cleaning and hygiene concepts • regular tours and presence • participation in employment and animation • participation in monthly team meetings • use of shift work with sole responsibility • regular participation in early, late and late-\n\nand weekend services – ready to be deployed 365 days a year according to operational planning.\n\n• Completed training • Experience in migration and/or youth work desirable • Good knowledge of the German language and good oral knowledge in English, further knowledge of foreign languages of advantage • Good computer user knowledge (MS-Office) • High resilience and resilience and conflict management competence • Flexibility, resilience and assertiveness • Self-initiative, independence and high level of work organisation • Willingness to provide time-changing work services • High awareness of responsibility and duty",
-        "fr": "• Faites ce qui est juste. En Suisse et dans une vingtaine de pays sur quatre continents.\n\nSoutien nuit et week-end Centre d'asile (80-100%) temporaire, Kollbrunn\n\nCaritas Suisse exploite des centres d'asile dans différents endroits du canton de Zurich depuis mars 2024 en mission cantonale. Le centre est situé dans un environnement rural directement à la gare de Kollbrunn et accueille un maximum de 130 familles et individus. Pour la prise en charge des réfugiés la nuit et surtout le week-end, nous cherchons des renforts de notre équipe.\n\nVos tâches\n\n• l'introduction, l'orientation et le soutien des résidents dans des domaines tels que la nutrition, l'hygiène, l'ordre et la propreté • la coresponsabilité pour créer une bonne ambiance ménagère • la coresponsabilité pour maintenir l'ordre et la sécurité ménagères dans le centre • la préparation de rapports et le transfert d'informations à l'interne et à l'externe • la mise en œuvre des concepts de nettoyage et d'hygiène • les visites et la présence régulières • la participation à l'emploi et à l'animation • la participation aux réunions mensuelles d'équipes • l'utilisation du travail posté à responsabilité exclusive • la participation régulière aux premières, aux dernières et aux dernières étapes\n\net services du week-end – prêts à être déployés 365 jours par an selon la planification opérationnelle.\n\n• Formation terminée • Expérience dans le domaine de la migration et/ou du travail des jeunes souhaitable • Bonne connaissance de la langue allemande et bonne connaissance orale en anglais, meilleure connaissance des langues étrangères présentant un avantage • Bonne connaissance de l'utilisateur informatique (MS-Office) • Haute résilience et résilience et compétence en gestion des conflits • Flexibilité, résilience et assertivité • Auto-initiative, indépendance et haut niveau d'organisation du travail • Volonté de fournir des services de travail en évolution du temps • Haute conscience des responsabilités et des devoirs"
+        "fr": "• Faites ce qui est juste. En Suisse et dans une vingtaine de pays sur quatre continents.\n\nSoutien nuit et week-end Centre d'asile (80-100%) temporaire, Kollbrunn\n\nCaritas Suisse exploite des centres d'asile dans différents endroits du canton de Zurich depuis mars 2024 en mission cantonale. Le centre est situé dans un environnement rural directement à la gare de Kollbrunn et accueille un maximum de 130 familles et individus. Pour la prise en charge des réfugiés la nuit et surtout le week-end, nous cherchons des renforts de notre équipe.\n\nVos tâches\n\n• l'introduction, l'orientation et le soutien des résidents dans des domaines tels que la nutrition, l'hygiène, l'ordre et la propreté\n• la coresponsabilité pour créer une bonne ambiance ménagère\n• la coresponsabilité pour maintenir l'ordre et la sécurité ménagères dans le centre\n• la préparation de rapports et le transfert d'informations à l'interne et à l'externe\n• la mise en œuvre des concepts de nettoyage et d'hygiène\n• les visites et la présence régulières\n• la participation à l'emploi et à l'animation\n• la participation aux réunions mensuelles d'équipes\n• l'utilisation du travail posté à responsabilité exclusive\n• la participation régulière aux premières, aux dernières et aux dernières étapes\n\net services du week-end – prêts à être déployés 365 jours par an selon la planification opérationnelle.\n\n• Formation terminée\n• Expérience dans le domaine de la migration et/ou du travail des jeunes souhaitable\n• Bonne connaissance de la langue allemande et bonne connaissance orale en anglais, meilleure connaissance des langues étrangères présentant un avantage\n• Bonne connaissance de l'utilisateur informatique (MS-Office)\n• Haute résilience et résilience et compétence en gestion des conflits\n• Flexibilité, résilience et assertivité\n• Auto-initiative, indépendance et haut niveau d'organisation du travail\n• Volonté de fournir des services de travail en évolution du temps\n• Haute conscience des responsabilités et des devoirs"
       },
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://apply.refline.ch/126757/2368/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:41:29.968Z",
+      "crawledAt": "2026-09-26T13:58:33.208Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -538,6 +598,9 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "previousSlugs": [
+        "betreuung-nacht-und-wochenende-asylzentrum-80-100-befristet-kollbrunn-caritas-schweiz"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "betreuung-nacht-und-wochenende-asylzentrum-80-100-befristet-kollbrunn-caritas-schweiz"
@@ -549,9 +612,7 @@
           "betreuung-nacht-und-wochenende-asylzentrum-80-100-befristet-kollbrunn-caritas-schweiz"
         ]
       },
-      "previousSlugs": [
-        "betreuung-nacht-und-wochenende-asylzentrum-80-100-befristet-kollbrunn-caritas-schweiz"
-      ],
+      "firstSeenAt": "2026-09-24T14:22:48.752Z",
       "salaryMin": 63000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -564,8 +625,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-24T14:22:48.752Z"
+      }
     },
     {
       "id": "caritas-schweiz-f37936fb3d2d",
@@ -599,7 +659,7 @@
       "url": "https://apply.refline.ch/126757/2365/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:41:29.552Z",
+      "crawledAt": "2026-09-26T13:58:32.733Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -620,13 +680,11 @@
       "pensumMax": 90,
       "pensum": "20 - 90%",
       "previousSlugs": [
-        "un-ou-deux-assistant-s-socio-educatif-s-ase-de-la-petite-enfance-au-service-integration-20",
-        "one-or-two-early-childhood-socio-educational-assistants-sea-at-the-integration-service-20-90-m-f-d-cdd-a-5-mesi-caritas"
+        "un-ou-deux-assistant-s-socio-educatif-s-ase-de-la-petite-enfance-au-service-integration-20"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-ou-deux-assistant-s-socio-educatif-s-ase-de-la-petite-enfance-au-service-integration-20",
-          "one-or-two-early-childhood-socio-educational-assistants-sea-at-the-integration-service-20-90-m-f-d-cdd-a-5-mesi-caritas"
+          "un-ou-deux-assistant-s-socio-educatif-s-ase-de-la-petite-enfance-au-service-integration-20"
         ],
         "en": [
           "un-ou-deux-assistant-s-socio-educatif-s-ase-de-la-petite-enfance-au-service-integration-20"
@@ -682,7 +740,7 @@
       "url": "https://apply.refline.ch/126757/2366/pub/3/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:41:29.133Z",
+      "crawledAt": "2026-09-26T13:58:32.255Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -703,13 +761,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "leitung-asylzentrum-100-m-w-d-caritas-schweiz-zurich",
-        "testa-di-asylum-centre-100-m-f-d-caritas-schweiz-zurich"
+        "leitung-asylzentrum-100-m-w-d-caritas-schweiz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitung-asylzentrum-100-m-w-d-caritas-schweiz-zurich",
-          "testa-di-asylum-centre-100-m-f-d-caritas-schweiz-zurich"
+          "leitung-asylzentrum-100-m-w-d-caritas-schweiz-zurich"
         ],
         "en": [
           "leitung-asylzentrum-100-m-w-d-caritas-schweiz-zurich"
@@ -764,7 +820,7 @@
       "url": "https://apply.refline.ch/126757/2367/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:41:28.719Z",
+      "crawledAt": "2026-09-26T13:58:31.779Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -785,13 +841,11 @@
       "pensumMax": 80,
       "pensum": "70 - 80%",
       "previousSlugs": [
-        "jurist-in-70-80-befristet-auf-12-monate-m-w-d-caritas-schweiz-luzern",
-        "avvocato-70-80-limitato-a-12-mesi-m-f-d-caritas-schweiz-luzern"
+        "jurist-in-70-80-befristet-auf-12-monate-m-w-d-caritas-schweiz-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "jurist-in-70-80-befristet-auf-12-monate-m-w-d-caritas-schweiz-luzern",
-          "avvocato-70-80-limitato-a-12-mesi-m-f-d-caritas-schweiz-luzern"
+          "jurist-in-70-80-befristet-auf-12-monate-m-w-d-caritas-schweiz-luzern"
         ],
         "en": [
           "jurist-in-70-80-befristet-auf-12-monate-m-w-d-caritas-schweiz-luzern"
@@ -813,7 +867,8 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "caritas-schweiz-3beb0ce65ad2",
@@ -847,7 +902,7 @@
       "url": "https://apply.refline.ch/126757/2363/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:41:28.302Z",
+      "crawledAt": "2026-09-26T13:58:31.304Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -868,13 +923,11 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "integrationscoach-mna-80-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
-        "allenatore-di-integrazione-mna-80-a-zurigo-uster-m-f-d-caritas-schweiz-zurich"
+        "integrationscoach-mna-80-in-zurich-uster-m-w-d-caritas-schweiz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "integrationscoach-mna-80-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
-          "allenatore-di-integrazione-mna-80-a-zurigo-uster-m-f-d-caritas-schweiz-zurich"
+          "integrationscoach-mna-80-in-zurich-uster-m-w-d-caritas-schweiz-zurich"
         ],
         "en": [
           "integrationscoach-mna-80-in-zurich-uster-m-w-d-caritas-schweiz-zurich"
@@ -930,7 +983,7 @@
       "url": "https://apply.refline.ch/126757/2364/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:41:27.886Z",
+      "crawledAt": "2026-09-26T13:58:30.828Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -951,13 +1004,11 @@
       "pensumMax": 80,
       "pensum": "60 - 80%",
       "previousSlugs": [
-        "betreuer-in-fachbereich-hauswirtschaft-mna-60-80-in-zurich-uster-m-w-d-caritas-schweiz",
-        "dipartimento-economia-domestica-mna-60-80-a-zurigo-uster-m-f-d-caritas-schweiz-zurich"
+        "betreuer-in-fachbereich-hauswirtschaft-mna-60-80-in-zurich-uster-m-w-d-caritas-schweiz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betreuer-in-fachbereich-hauswirtschaft-mna-60-80-in-zurich-uster-m-w-d-caritas-schweiz",
-          "dipartimento-economia-domestica-mna-60-80-a-zurigo-uster-m-f-d-caritas-schweiz-zurich"
+          "betreuer-in-fachbereich-hauswirtschaft-mna-60-80-in-zurich-uster-m-w-d-caritas-schweiz"
         ],
         "en": [
           "betreuer-in-fachbereich-hauswirtschaft-mna-60-80-in-zurich-uster-m-w-d-caritas-schweiz"
@@ -982,89 +1033,6 @@
       }
     },
     {
-      "id": "caritas-schweiz-26131ed688e6",
-      "slug": "amministrazione-specialistica-servizi-50-con-aumento-da-meta-2027-m-f-d-caritas-schweiz-luzern",
-      "slugByLocale": {
-        "it": "amministrazione-specialistica-servizi-50-con-aumento-da-meta-2027-m-f-d-caritas-schweiz-luzern",
-        "en": "specialist-administration-services-50-with-increase-from-mid-2027-m-f-d-caritas-schweiz-luzern",
-        "de": "fachperson-administration-services-50-mit-pensumserhohung-ab-mitte-2027-m-w-d-caritas",
-        "fr": "administration-et-services-specialises-50-avec-une-augmentation-par-rapport-au-milieu-de-2027-h-f-d-caritas-schweiz"
-      },
-      "company": "Caritas Schweiz",
-      "companyKey": "caritas-schweiz",
-      "companyDomain": "caritas.ch",
-      "title": "Fachperson Administration & Services 50% mit Pensumserhöhung ab Mitte 2027 (m/w/d)",
-      "titleByLocale": {
-        "it": "Amministrazione specialistica & Servizi 50% con aumento da metà 2027 (m/f/d)",
-        "en": "Specialist Administration & Services 50% with increase from mid-2027 (m/f/d)",
-        "de": "Fachperson Administration & Services 50% mit Pensumserhöhung ab Mitte 2027 (m/w/d)",
-        "fr": "Administration et services spécialisés 50% avec une augmentation par rapport au milieu de 2027 (h/f/d)"
-      },
-      "description": "• Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\n\nFachperson Administration & Services 50% mit Pensumserhöhung ab Mitte 2027 (m/w/d)\n\nDer Admin Hub ist Teil des Stabs Projekte Schweiz und arbeitet eng mit Fachbereichen sowie weiteren Stabsfunktionen zusammen. Wir unterstützen den Bereich Projekte Schweiz mit professionellen administrativen Dienstleistungen und schaffen Entlastung im Arbeitsalltag unserer internen Kund/innen. Als lernende und zukunftsorientierte Einheit entwickeln wir unsere Arbeitsweisen laufend weiter und nutzen die Chancen der Digitalisierung.\n\nWir suchen per 01.11.2026 oder nach Vereinbarung eine Fachperson Administration & Services in Luzern. Wer Freude daran hat, Verantwortung zu übernehmen, Veränderungen mitzugestalten und gemeinsam im Team Lösungen zu finden, ist bei uns genau richtig.\n\nIhre Aufgaben\n\n• Übernehmen administrativer und organisatorischer Aufgaben sowie Dienstleistungen für den Admin Hub und verschiedene Fachbereiche\n• Feste administrative Ansprechperson für die zugeordneten Fachbereiche\n• Administratives Begleiten von Projekten und Veranstaltungen der Fachbereiche\n• Sicherstellen einer professionellen sowie serviceorientierten Kommunikation und Zusammenarbeit\n• Aktives Mitarbeiten im Team des Admin Hub sowie Übernehmen von Stellvertretungen\n• Mitwirken bei der Weiterentwicklung administrativer Dienstleistungen und Einbringen von Verbesserungsvorschlägen aus dem Arbeitsalltag\n• Unterstützen bei der Einführung und Nutzung digitaler Arbeitsweisen und Lösungen\n• Abgeschlossene kaufmännische Ausbildung (EFZ) oder gleichwertige Qualifikation\n• Erfahrung in einer administrativen Funktion in einem Umfeld mit unterschiedlichen Anspruchsgruppen und im Begleiten von End-to-End Prozessen\n• Hohe digitale Affinität sowie Interesse an neuen Technologien und digitalen Arbeitsweisen, sehr gute Kenntnisse im Umgang mit MS 365\n• Stilsichere Deutschkenntnisse in Wort und Schrift sowie sehr gute Kenntnisse in Französisch, umgangssprachliche Kenntnisse in Englisch von Vorteil\n• Hohe Dienstleistungsorientierung sowie Freude an der Zusammenarbeit mit unterschiedlichen Fachbereichen und Schnittstellen\n• Lösungsorientiertes Mindset und Interesse, die Weiterentwicklung des Admin Hubs aktiv mitzugestalten\n• Erfahrung im Umgang mit digitalen Plattformen und Anwendungen von Vorteil\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Umsetzung der digitalen Transformation zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\n\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Teresa Zauner, Verantwortliche Caritas Netz und Stellvertretung für Catherine Hepner, Leitung Admin Hub, unter tzauner@caritas.ch.\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung über das Online-Portal.",
-      "descriptionByLocale": {
-        "it": "• Fare la cosa giusta. In Svizzera e in circa 20 paesi su quattro continenti. Impegnarsi con noi per la visione di una società solidale, come\n\nAmministrazione specialistica & Servizi 50% con aumento da metà 2027 (m/f/d)\n\nL'Admin Hub fa parte del team Swiss Projects e lavora a stretto contatto con dipartimenti specializzati e altre funzioni del personale. Sosteniamo Progetti Svizzera con servizi amministrativi professionali e creiamo sollievo nel lavoro quotidiano dei nostri clienti interni. Come unità di apprendimento e orientata al futuro, sviluppiamo continuamente i nostri metodi di lavoro e approfittiamo delle opportunità offerte dalla digitalizzazione.\n\nSiamo alla ricerca di uno specialista Amministrazione e Servizi a Lucerna entro il 01.11.2026 o su appuntamento. Chiunque si diverte assumersi la responsabilità, aiutando a plasmare i cambiamenti e a trovare soluzioni insieme in un team è giusto per noi.\n\nI loro compiti\n\n• Assumendo compiti amministrativi e organizzativi, nonché servizi per l'Admin Hub e vari dipartimenti\n• Persona di contatto amministrativa fissa per i dipartimenti assegnati\n• Sostegno amministrativo di progetti ed eventi dei dipartimenti\n• Garantire comunicazione e cooperazione professionale e orientata al servizio\n• Partecipazione attiva al team dell'Admin Hub oltre a prendere il controllo dei deputati\n• Partecipare all'ulteriore sviluppo dei servizi amministrativi e presentare suggerimenti per il miglioramento del lavoro quotidiano\n• Sostenere l'introduzione e l'uso di metodi e soluzioni di lavoro digitali\n• Istruzione commerciale (EFZ) o qualifica equivalente\n• Esperienza in una funzione amministrativa in un ambiente con diversi stakeholder e nei processi end-to-end\n• Alta affinità digitale così come l'interesse per le nuove tecnologie e i metodi di lavoro digitali, molto buona conoscenza nel trattare con MS 365\n• La conoscenza sicura del tedesco nelle parole e nella scrittura, nonché la conoscenza molto buona del francese, la conoscenza colloquiale in inglese è vantaggiosa\n• Alto orientamento al servizio e godimento di lavorare con diverse aree specialistiche e interfacce\n• mentalità orientata alla soluzione e interesse a modellare attivamente l'ulteriore sviluppo del Admin Hub\n• Esperienza nel trattare piattaforme e applicazioni digitali\nCaritas offre interessanti condizioni di lavoro e un'atmosfera di lavoro aperta al polso delle questioni sociali. Per l'implementazione della trasformazione digitale, contiamo su dipendenti con una mentalità digitale e agile che amano partecipare ai processi di cambiamento e prendersi la responsabilità.\n\nLe informazioni su questa posizione possono essere fornite da Teresa Zauner, responsabile Caritas Netz e vice di Catherine Hepner, responsabile di Admin Hub, a tzauner@caritas.ch.\nVi ringraziamo per il vostro interesse e non vediamo l'ora della vostra applicazione tramite il portale online.",
-        "en": "• Doing the right thing. In Switzerland and in around 20 countries on four continents. Engage with us for the vision of a solidarity society, as\n\nSpecialist Administration & Services 50% with increase from mid-2027 (m/f/d)\n\nThe Admin Hub is part of the Swiss Projects team and works closely with specialist departments and other staff functions. We support Projects Switzerland with professional administrative services and create relief in the everyday work of our internal customers. As a learning and future-oriented unit, we continuously develop our working methods and take advantage of the opportunities offered by digitalization.\n\nWe are looking for a specialist Administration & Services in Lucerne by 01.11.2026 or by appointment. Anyone who enjoys taking on responsibility, helping to shape changes and finding solutions together in a team is right for us.\n\nTheir tasks\n\n• Assuming administrative and organizational tasks as well as services for the Admin Hub and various departments\n• Fixed administrative contact person for the assigned departments\n• Administrative support of projects and events of the departments\n• Ensuring professional and service-oriented communication and cooperation\n• Active participation in the team of the Admin Hub as well as taking over deputies\n• Participating in the further development of administrative services and submitting suggestions for improvement from everyday work\n• Support the introduction and use of digital working methods and solutions\n• Commercial education (EFZ) or equivalent qualification\n• Experience in an administrative function in an environment with different stakeholders and in accompanying end-to-end processes\n• High digital affinity as well as interest in new technologies and digital working methods, very good knowledge in dealing with MS 365\n• Confident knowledge of German in words and writing as well as very good knowledge of French, colloquial knowledge in English is advantageous\n• High service orientation and enjoyment of working with different specialist areas and interfaces\n• Solution-oriented mindset and interest in actively shaping the further development of the Admin Hub\n• Experience in dealing with digital platforms and applications\nCaritas offers attractive employment conditions and an open working atmosphere at the pulse of social issues. For the implementation of the digital transformation, we count on employees with a digital and agile mindset who like to participate in change processes and take responsibility.\n\nInformation about this position can be provided by Teresa Zauner, responsible Caritas Netz and deputy for Catherine Hepner, head of Admin Hub, at tzauner@caritas.ch.\nWe thank you for your interest and look forward to your application via the online portal.",
-        "de": "• Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\n\nFachperson Administration & Services 50% mit Pensumserhöhung ab Mitte 2027 (m/w/d)\n\nDer Admin Hub ist Teil des Stabs Projekte Schweiz und arbeitet eng mit Fachbereichen sowie weiteren Stabsfunktionen zusammen. Wir unterstützen den Bereich Projekte Schweiz mit professionellen administrativen Dienstleistungen und schaffen Entlastung im Arbeitsalltag unserer internen Kund/innen. Als lernende und zukunftsorientierte Einheit entwickeln wir unsere Arbeitsweisen laufend weiter und nutzen die Chancen der Digitalisierung.\n\nWir suchen per 01.11.2026 oder nach Vereinbarung eine Fachperson Administration & Services in Luzern. Wer Freude daran hat, Verantwortung zu übernehmen, Veränderungen mitzugestalten und gemeinsam im Team Lösungen zu finden, ist bei uns genau richtig.\n\nIhre Aufgaben\n\n• Übernehmen administrativer und organisatorischer Aufgaben sowie Dienstleistungen für den Admin Hub und verschiedene Fachbereiche\n• Feste administrative Ansprechperson für die zugeordneten Fachbereiche\n• Administratives Begleiten von Projekten und Veranstaltungen der Fachbereiche\n• Sicherstellen einer professionellen sowie serviceorientierten Kommunikation und Zusammenarbeit\n• Aktives Mitarbeiten im Team des Admin Hub sowie Übernehmen von Stellvertretungen\n• Mitwirken bei der Weiterentwicklung administrativer Dienstleistungen und Einbringen von Verbesserungsvorschlägen aus dem Arbeitsalltag\n• Unterstützen bei der Einführung und Nutzung digitaler Arbeitsweisen und Lösungen\n• Abgeschlossene kaufmännische Ausbildung (EFZ) oder gleichwertige Qualifikation\n• Erfahrung in einer administrativen Funktion in einem Umfeld mit unterschiedlichen Anspruchsgruppen und im Begleiten von End-to-End Prozessen\n• Hohe digitale Affinität sowie Interesse an neuen Technologien und digitalen Arbeitsweisen, sehr gute Kenntnisse im Umgang mit MS 365\n• Stilsichere Deutschkenntnisse in Wort und Schrift sowie sehr gute Kenntnisse in Französisch, umgangssprachliche Kenntnisse in Englisch von Vorteil\n• Hohe Dienstleistungsorientierung sowie Freude an der Zusammenarbeit mit unterschiedlichen Fachbereichen und Schnittstellen\n• Lösungsorientiertes Mindset und Interesse, die Weiterentwicklung des Admin Hubs aktiv mitzugestalten\n• Erfahrung im Umgang mit digitalen Plattformen und Anwendungen von Vorteil\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Umsetzung der digitalen Transformation zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\n\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Teresa Zauner, Verantwortliche Caritas Netz und Stellvertretung für Catherine Hepner, Leitung Admin Hub, unter tzauner@caritas.ch.\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung über das Online-Portal.",
-        "fr": "• Faire ce qu'il faut. En Suisse et dans une vingtaine de pays sur quatre continents. Engager avec nous la vision d'une société solidaire,\n\nAdministration et services spécialisés 50% avec une augmentation par rapport au milieu de 2027 (h/f/d)\n\nL'Admin Hub fait partie de l'équipe Swiss Projects et travaille en étroite collaboration avec les départements spécialisés et d'autres fonctions du personnel. Nous soutenons Projets Suisse avec des services administratifs professionnels et créons du soulagement dans le travail quotidien de nos clients internes. En tant qu'unité d'apprentissage et de prospective, nous développons continuellement nos méthodes de travail et profitons des possibilités offertes par la numérisation.\n\nNous recherchons un spécialiste Administration & Services à Lucerne au 01.11.2026 ou sur rendez-vous. Quiconque aime assumer ses responsabilités, aider à façonner les changements et trouver des solutions ensemble dans une équipe est bon pour nous.\n\nLeurs tâches\n\n• Assumer des tâches administratives et organisationnelles ainsi que des services pour le centre administratif et divers départements\n• Personne-ressource administrative fixe pour les départements affectés\n• Appui administratif aux projets et événements des départements\n• Assurer une communication et une coopération professionnelles et orientées vers le service\n• Participation active à l'équipe du centre administratif et prise en charge des adjoints\n• Participation à la poursuite du développement des services administratifs et présentation de suggestions pour améliorer le travail quotidien\n• Soutenir l'introduction et l'utilisation de méthodes de travail et de solutions numériques\n• Éducation commerciale (EFZ) ou qualification équivalente\n• Expérience d'une fonction administrative dans un environnement avec différentes parties prenantes et dans les processus d'accompagnement de bout en bout\n• Haute affinité numérique ainsi que l'intérêt pour les nouvelles technologies et les méthodes de travail numériques, très bonne connaissance dans le traitement de MS 365\n• Connaissance confidentielle de l'allemand dans les mots et l'écriture ainsi que très bonne connaissance du français, connaissance collective en anglais est avantageux\n• Orientation haut service et plaisir de travailler avec différents domaines spécialisés et interfaces\n• L'état d'esprit axé sur la solution et l'intérêt à façonner activement le développement du Hub Admin\n• Expérience dans le traitement des plateformes et applications numériques\nCaritas offre des conditions d'emploi attrayantes et une atmosphère de travail ouverte à l'impulsion des questions sociales. Pour la mise en œuvre de la transformation numérique, nous comptons sur des employés avec une mentalité numérique et agile qui aiment participer aux processus de changement et prendre des responsabilités.\n\nLes informations sur ce poste peuvent être fournies par Teresa Zauner, responsable Caritas Netz et députée de Catherine Hepner, chef de Admin Hub, à tzauner@caritas.ch.\nNous vous remercions de votre intérêt et attendons avec impatience votre candidature via le portail en ligne."
-      },
-      "needsRetranslation": false,
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://apply.refline.ch/126757/2362/pub/2/index.html",
-      "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:41:27.470Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6002",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sociale / NGO",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-19",
-      "applyUrl": "https://apply.refline.ch/126757/2362/pub/2/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "pensumMin": 50,
-      "pensumMax": 80,
-      "pensum": "50 - 80%",
-      "previousSlugs": [
-        "fachperson-administration-services-50-mit-pensumserhohung-ab-mitte-2027-m-w-d-caritas",
-        "amministrazione-specialistica-servizi-50-con-aumento-da-meta-2027-m-f-d-caritas-schweiz-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachperson-administration-services-50-mit-pensumserhohung-ab-mitte-2027-m-w-d-caritas",
-          "amministrazione-specialistica-servizi-50-con-aumento-da-meta-2027-m-f-d-caritas-schweiz-luzern"
-        ],
-        "en": [
-          "fachperson-administration-services-50-mit-pensumserhohung-ab-mitte-2027-m-w-d-caritas"
-        ],
-        "fr": [
-          "fachperson-administration-services-50-mit-pensumserhohung-ab-mitte-2027-m-w-d-caritas"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T22:49:36.128Z",
-      "salaryMin": 34800,
-      "salaryMax": 53000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 34800,
-          "maxValue": 53000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "caritas-schweiz-50e544e6d175",
       "slug": "referents-sociaux-70-100-lausanne-et-ou-geneve-h-f-d-caritas-schweiz-lausanne",
       "slugByLocale": {
@@ -1080,7 +1048,7 @@
       "titleByLocale": {
         "it": "Référents sociaux 70-100 %, Lausanne et/ou Genève (f/m/d)",
         "en": "Social Reference 70-100%, Lausanne and/or Geneva (m/f/d)",
-        "de": "Soziale Referenz 70-100%, Lausanne und / oder Genf (m/w/d)",
+        "de": "Référents sociaux 70-100 %, Lausanne et/ou Genève (h/f/d)",
         "fr": "Référents sociaux 70-100 %, Lausanne et/ou Genève (h/f/d)"
       },
       "description": "• Agir, tout simplement. En Suisse et dans près de 20 pays répartis sur quatre continents. Engagez-vous avec nous pour concrétiser la vision d’une société solidaire, en tant que\n\nRéférents sociaux 70-100 %, Lausanne et/ou Genève (h/f/d)\n\nCaritas Suisse gère une structure qui organise et coordonne les placements en famille d’accueil. Cette organisation, Caritas Placement familial, est certifiée et approuvée par différents cantons, selon l’Ordonnance sur le placement d’enfants. Caritas Placement familial s’engage à accompagner les enfants placés ainsi que les familles d’accueil selon les meilleurs standards professionnels possibles.\n\nVos tâches\n\n• Organisation et accompagnement de placements en famille d’accueil\n• Recrutement de nouvelles familles, accompagnement du processus d’évaluation et d’autorisation\n• Organisation et animation de journées de formation destinées aux familles d’accueil en présentiel et en visioconférence\n• Coordination du travail et gestion de projets avec le réseau professionnel ou social entourant les jeunes placés\n• Soutien, conseil et coaching auprès des familles d’accueil ainsi que des enfants et jeunes placés\n• Travail administratif et suivi financier des budgets des mineurs et des familles d’accueil\n• Diplôme HES ou Master universitaire en sciences sociales ou diplôme équivalent\n• Aisance relationnelle, sens de l’écoute et capacité à travailler avec des situations complexes\n• Aptitude à agir de manière autonome tout en collaborant étroitement avec une équipe pluridisciplinaire et avec le réseau\n• Expérience professionnelle minimale de 2 à 3 ans dans l’accompagnement d’enfants et/ou de jeunes, idéalement en protection des mineurs\n• Connaissance de l’environnement social de la Suisse romande - Aisance pour animer des séances (intervision et colloque d’équipe avec les familles d’accueil)\n• Très bonne maîtrise du français oral et écrit\n• Connaissances de l’allemand un plus\n• Maîtrise des outils informatiques courants\n• Disponibilités quelques samedis par année\n• Flexibilité pour intervenir hors des horaires de bureau de manière ponctuelle\n• La remise des extraits ordinaire et spécial du casier judiciaire sera exigée avant l'entrée en fonction\n• Permis de conduire, un plus",
@@ -1090,12 +1058,13 @@
         "de": "• Handeln Sie einfach. In der Schweiz und in fast 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns, um die Vision einer solidarischen Gesellschaft zu verwirklichen, wie\n\nSoziale Referenz 70-100%, Lausanne und / oder Genf (m/w/d)\n\nDie Caritas Schweiz verwaltet eine Struktur, die Pflegeeinsätze organisiert und koordiniert. Diese Organisation, Caritas Family Placement, ist von verschiedenen Kantonen nach der Verordnung über die Platzierung von Kindern zertifiziert und zugelassen. Caritas Family Placement setzt sich dafür ein, Kinder in Pflege- und Pflegefamilien nach bestmöglichen professionellen Standards zu unterstützen.\n\nIhre Aufgaben\n\n• Organisation und Unterstützung der Pflege\n• Rekrutierung neuer Familien, Unterstützung des Beurteilungs- und Genehmigungsprozesses\n• Organisation und Erleichterung von Schulungstagen für Gastfamilien bei Präsentationen und Videokonferenzen\n• Koordination von Arbeits- und Projektmanagement mit dem beruflichen oder sozialen Netzwerk rund um junge Menschen in der Pflege\n• Unterstützung, Beratung und Coaching für Pflegefamilien, Kinder und Jugendliche in der Pflege\n• Verwaltungsarbeiten und finanzielle Überwachung der Haushalte von Minderjährigen und Pflegefamilien\n• HES oder Master-Abschluss in Sozialwissenschaften oder gleichwertig\n• Beziehung, Zuhören und Fähigkeit, mit komplexen Situationen zu arbeiten\n• Fähigkeit, unabhängig zu handeln und dabei eng mit einem multidisziplinären Team und dem Netzwerk zusammenzuarbeiten\n• Mindestarbeitserfahrung von 2 bis 3 Jahren in der Betreuung von Kindern und/oder Jugendlichen, idealerweise in der Betreuung von Minderjährigen\n• Kenntnisse des sozialen Umfelds in der französischsprachigen Schweiz - Vorfahre von Sitzungen (Interview und Teamkonferenz mit Gastfamilien)\n• Sehr gute Beherrschung von mündlichem und schriftlichem Französisch\n• Deutschkenntnisse a plus\n• Beherrschung gemeinsamer Computer-Tools\n• Verfügbarkeit an einigen Samstagen im Jahr\n• Flexibilität bei Ad-hoc-Interventionen außerhalb der Bürozeiten\n• Gerichtliche Akte\n• Führerschein, ein Plus",
         "fr": "• Agir, tout simplement. En Suisse et dans près de 20 pays répartis sur quatre continents. Engagez-vous avec nous pour concrétiser la vision d’une société solidaire, en tant que\n\nRéférents sociaux 70-100 %, Lausanne et/ou Genève (h/f/d)\n\nCaritas Suisse gère une structure qui organise et coordonne les placements en famille d’accueil. Cette organisation, Caritas Placement familial, est certifiée et approuvée par différents cantons, selon l’Ordonnance sur le placement d’enfants. Caritas Placement familial s’engage à accompagner les enfants placés ainsi que les familles d’accueil selon les meilleurs standards professionnels possibles.\n\nVos tâches\n\n• Organisation et accompagnement de placements en famille d’accueil\n• Recrutement de nouvelles familles, accompagnement du processus d’évaluation et d’autorisation\n• Organisation et animation de journées de formation destinées aux familles d’accueil en présentiel et en visioconférence\n• Coordination du travail et gestion de projets avec le réseau professionnel ou social entourant les jeunes placés\n• Soutien, conseil et coaching auprès des familles d’accueil ainsi que des enfants et jeunes placés\n• Travail administratif et suivi financier des budgets des mineurs et des familles d’accueil\n• Diplôme HES ou Master universitaire en sciences sociales ou diplôme équivalent\n• Aisance relationnelle, sens de l’écoute et capacité à travailler avec des situations complexes\n• Aptitude à agir de manière autonome tout en collaborant étroitement avec une équipe pluridisciplinaire et avec le réseau\n• Expérience professionnelle minimale de 2 à 3 ans dans l’accompagnement d’enfants et/ou de jeunes, idéalement en protection des mineurs\n• Connaissance de l’environnement social de la Suisse romande - Aisance pour animer des séances (intervision et colloque d’équipe avec les familles d’accueil)\n• Très bonne maîtrise du français oral et écrit\n• Connaissances de l’allemand un plus\n• Maîtrise des outils informatiques courants\n• Disponibilités quelques samedis par année\n• Flexibilité pour intervenir hors des horaires de bureau de manière ponctuelle\n• La remise des extraits ordinaire et spécial du casier judiciaire sera exigée avant l'entrée en fonction\n• Permis de conduire, un plus"
       },
+      "needsRetranslation": true,
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://apply.refline.ch/126757/2361/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:41:27.053Z",
+      "crawledAt": "2026-09-26T13:58:30.351Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1162,7 +1131,7 @@
       "url": "https://apply.refline.ch/126757/2358/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:41:26.630Z",
+      "crawledAt": "2026-09-26T13:58:29.875Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1183,13 +1152,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "stagiaire-juridique-80-100-stage-12-mois-caritas-schweiz-fribourg",
-        "interno-legale-80-100-12-mesi-caritas-schweiz-fribourg"
+        "stagiaire-juridique-80-100-stage-12-mois-caritas-schweiz-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-juridique-80-100-stage-12-mois-caritas-schweiz-fribourg",
-          "interno-legale-80-100-12-mesi-caritas-schweiz-fribourg"
+          "stagiaire-juridique-80-100-stage-12-mois-caritas-schweiz-fribourg"
         ],
         "en": [
           "stagiaire-juridique-80-100-stage-12-mois-caritas-schweiz-fribourg"
@@ -1212,6 +1179,169 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "caritas-schweiz-12934f3eb02e",
+      "slug": "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-m-w-d-caritas-schweiz-fribourg",
+      "slugByLocale": {
+        "it": "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-m-w-d-caritas-schweiz-fribourg",
+        "en": "apprenti-business-employee-swc-start-learning-2027-in-fribourg-h-f-d-caritas-schweiz-fribourg",
+        "de": "lehrling-business-mitarbeiter-swc-beginnen-zu-lernen-2027-in-freiburg-h-w-d-caritas-schweiz-fribourg",
+        "fr": "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-h-f-d-caritas"
+      },
+      "company": "Caritas Schweiz",
+      "companyKey": "caritas-schweiz",
+      "companyDomain": "caritas.ch",
+      "title": "Apprenti Employé de commerce CFC début d’apprentissage 2027 à Fribourg (h/f/d)",
+      "titleByLocale": {
+        "it": "Apprenti Employé de commerce CFC début d’apprentissage 2027 à Fribourg (f/m/d)",
+        "en": "Apprenti Business employee CFC start of, learning 2027 in Fribourg (m/f/d)",
+        "de": "Ansprechende Mitarbeiter CFC Beginn, Lernen 2027 in Freiburg (m/w/d)",
+        "fr": "Apprenti Employé de commerce CFC début d’apprentissage 2027 à Fribourg (h/f/d)"
+      },
+      "description": "• Agir, tout simplement. En Suisse et dans près de 20 pays répartis sur quatre continents. Engagez-vous avec nous pour concrétiser la vision d’une société solidaire, en tant que\n\nApprenti Employé de commerce CFC début d’apprentissage 2027 à Fribourg (h/f/d)\n\nau sein de Caritas Suisse est exactement ce qu’il vous faut. Au cours des trois années de votre formation d’employé·e de commerce, vous aurez l’opportunité de travailler dans les différents services de Caritas Suisse. En plus des domaines classiques tels que l’administration, la réception ou la comptabilité, vous découvrirez également notre engagement en faveur d’un monde sans pauvreté, particulièrement auprès des réfugié·e·s statutaires.\n\nVos tâches\n\n• Exécution autonome de tâches administratives et organisationnelles\n• Conseil, prise en charge et exécution de mandats pour les clients internes et externes, les fournisseurs et d’autres groupes d’intérêt\n• Traitement de dossiers spécifiques à chaque service\n• Rédaction de textes en français et en langues étrangères sur la base de modèles\n• Mise en pratique des connaissances professionnelles acquises\n• Scolarité secondaire terminée avec de bons à très bons résultats\n• Vous êtes talentueux·se en communication dans votre première langue nationale et appréciez rédiger des textes en français et en langues étrangères sur la base de modèles\n• Vous aimez apprendre et approfondir les langues étrangères (anglais et/ou allemand)\n• Vous disposez d’une bonne compréhension des technologies et des canaux modernes de communication et d’information",
+      "descriptionByLocale": {
+        "it": "• Basta agire. In Svizzera e in quasi 20 paesi in quattro continenti. Get coinvolto con noi per realizzare la visione di una società solidale, come una società che è\n\nApprenti Impiegato di business CFC inizio di, apprendimento 2027 in Friburgo (m/f/d)\n\nNel corso dei tre anni di formazione come impiegato commerciale, avrete la possibilità di lavorare nei vari servizi della Caritas Svizzera. Oltre ai classici campi come l'amministrazione, l'accoglienza o la contabilità, scoprirete anche il nostro impegno verso un mondo libero dalla povertà, in particolare con i rifugiati.\n\nI tuoi compiti\n\n• Auto-esecuzione di compiti amministrativi e organizzativi\n• Consulenza, supporto ed esecuzione di mandati per clienti interni ed esterni, fornitori e altri gruppi di interesse\n• Elaborazione di file specifici per ciascun servizio\n• Scrittura di testi in lingua francese e straniera sulla base di modelli\n• Praticalizzazione delle conoscenze professionali acquisite\n• Completamento della scuola secondaria con buoni risultati\n• Hai talento nella comunicazione nella tua prima lingua nazionale e godi di testi scritti in francese e francese\n\n• Ti piace imparare e approfondire le lingue straniere (inglese e/o tedesco)\n• Hai una buona comprensione delle moderne tecnologie di comunicazione e informazione e dei canali",
+        "en": "• Just act. In Switzerland and in almost 20 countries on four continents. Get involved with us to realize the vision of a solidarity society, as a society that is\n\nApprenti Business employee CFC start of, learning 2027 in Fribourg (m/f/d)\n\nIn the course of three years of your training as a business employee, you will have the opportunity to work in the various services of Caritas Switzerland. In addition to the classic fields such as administration, reception or accounting, you will also discover our commitment to a world free of poverty, particularly with refugees.\n\nYour tasks\n\n• Self-executing administrative and organisational tasks\n• Advice, support and execution of mandates for internal and external clients, suppliers and other interest groups\n• Processing of specific files for each service\n• Writing texts in French and foreign languages on the basis of models\n• Practicalization of professional knowledge acquired\n• Secondary school completion with good to very good results\n• You are talented in communication in your first national language and enjoy writing texts in French and French\n\n• You like to learn and deepen foreign languages (English and/or German)\n• You have a good understanding of modern communication and information technologies and channels",
+        "de": "• Nur handeln. In der Schweiz und in fast 20 Ländern auf vier Kontinenten. Machen Sie sich mit uns ein, um die Vision einer Solidaritätsgesellschaft als Gesellschaft, die\n\nAnsprechende Mitarbeiter CFC Beginn, Lernen 2027 in Freiburg (m/w/d)\n\nIn drei Jahren Ihrer Ausbildung zum Business-Mitarbeiter haben Sie die Möglichkeit, in den verschiedenen Dienstleistungen der Caritas Schweiz zu arbeiten. Neben den klassischen Bereichen Verwaltung, Rezeption oder Buchhaltung entdecken Sie auch unser Engagement für eine armutsfreie Welt, insbesondere bei Flüchtlingen.\n\nIhre Aufgaben\n\n• Selbsterledigung administrativer und organisatorischer Aufgaben\n• Beratung, Unterstützung und Ausführung von Mandaten für interne und externe Kunden, Lieferanten und andere Interessengruppen\n• Bearbeitung von spezifischen Dateien für jeden Dienst\n• Texterstellung in Französisch und Fremdsprachen auf der Grundlage von Modellen\n• Praxis der erworbenen beruflichen Kenntnisse\n• Abschluss der Sekundarstufe mit guten bis sehr guten Ergebnissen\n• Sie sind talentiert in der Kommunikation in Ihrer ersten Landessprache und genießen es, Texte auf Französisch und Französisch zu schreiben\n\n• Sie lernen und vertiefen gerne Fremdsprachen (Englisch und/oder Deutsch)\n• Sie haben ein gutes Verständnis für moderne Kommunikations- und Informationstechnologien und Kanäle",
+        "fr": "• Agir, tout simplement. En Suisse et dans près de 20 pays répartis sur quatre continents. Engagez-vous avec nous pour concrétiser la vision d’une société solidaire, en tant que\n\nApprenti Employé de commerce CFC début d’apprentissage 2027 à Fribourg (h/f/d)\n\nau sein de Caritas Suisse est exactement ce qu’il vous faut. Au cours des trois années de votre formation d’employé·e de commerce, vous aurez l’opportunité de travailler dans les différents services de Caritas Suisse. En plus des domaines classiques tels que l’administration, la réception ou la comptabilité, vous découvrirez également notre engagement en faveur d’un monde sans pauvreté, particulièrement auprès des réfugié·e·s statutaires.\n\nVos tâches\n\n• Exécution autonome de tâches administratives et organisationnelles\n• Conseil, prise en charge et exécution de mandats pour les clients internes et externes, les fournisseurs et d’autres groupes d’intérêt\n• Traitement de dossiers spécifiques à chaque service\n• Rédaction de textes en français et en langues étrangères sur la base de modèles\n• Mise en pratique des connaissances professionnelles acquises\n• Scolarité secondaire terminée avec de bons à très bons résultats\n• Vous êtes talentueux·se en communication dans votre première langue nationale et appréciez rédiger des textes en français et en langues étrangères sur la base de modèles\n• Vous aimez apprendre et approfondir les langues étrangères (anglais et/ou allemand)\n• Vous disposez d’une bonne compréhension des technologies et des canaux modernes de communication et d’information"
+      },
+      "needsRetranslation": true,
+      "location": "Fribourg",
+      "canton": "FR",
+      "url": "https://apply.refline.ch/126757/2345/pub/1/index.html",
+      "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-26T13:58:29.392Z",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6002",
+      "category": "Formazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sociale / NGO",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-06",
+      "applyUrl": "https://apply.refline.ch/126757/2345/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "previousSlugs": [
+        "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-h-f-d-caritas"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-h-f-d-caritas"
+        ],
+        "en": [
+          "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-h-f-d-caritas"
+        ],
+        "de": [
+          "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-h-f-d-caritas"
+        ]
+      },
+      "firstSeenAt": "2026-08-06T11:59:20.254Z",
+      "salaryMin": 59000,
+      "salaryMax": 108500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 108500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "caritas-schweiz-26131ed688e6",
+      "slug": "amministrazione-specialistica-servizi-50-con-aumento-da-meta-2027-m-f-d-caritas-schweiz-luzern",
+      "slugByLocale": {
+        "it": "amministrazione-specialistica-servizi-50-con-aumento-da-meta-2027-m-f-d-caritas-schweiz-luzern",
+        "en": "specialist-administration-services-50-with-increase-from-mid-2027-m-f-d-caritas-schweiz-luzern",
+        "de": "fachperson-administration-services-50-mit-pensumserhohung-ab-mitte-2027-m-w-d-caritas",
+        "fr": "administration-et-services-specialises-50-avec-une-augmentation-par-rapport-au-milieu-de-2027-h-f-d-caritas-schweiz"
+      },
+      "company": "Caritas Schweiz",
+      "companyKey": "caritas-schweiz",
+      "companyDomain": "caritas.ch",
+      "title": "Fachperson Administration & Services 50% mit Pensumserhöhung ab Mitte 2027 (m/w/d)",
+      "titleByLocale": {
+        "it": "Amministrazione specialistica & Servizi 50% con aumento da metà 2027 (m/f/d)",
+        "en": "Specialist Administration & Services 50% with increase from mid-2027 (m/f/d)",
+        "de": "Fachperson Administration & Services 50% mit Pensumserhöhung ab Mitte 2027 (m/w/d)",
+        "fr": "Administration et services spécialisés 50% avec une augmentation par rapport au milieu de 2027 (h/f/d)"
+      },
+      "description": "• Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\n\nFachperson Administration & Services 50% mit Pensumserhöhung ab Mitte 2027 (m/w/d)\n\nDer Admin Hub ist Teil des Stabs Projekte Schweiz und arbeitet eng mit Fachbereichen sowie weiteren Stabsfunktionen zusammen. Wir unterstützen den Bereich Projekte Schweiz mit professionellen administrativen Dienstleistungen und schaffen Entlastung im Arbeitsalltag unserer internen Kund/innen. Als lernende und zukunftsorientierte Einheit entwickeln wir unsere Arbeitsweisen laufend weiter und nutzen die Chancen der Digitalisierung.\n\nWir suchen per 01.11.2026 oder nach Vereinbarung eine Fachperson Administration & Services in Luzern. Wer Freude daran hat, Verantwortung zu übernehmen, Veränderungen mitzugestalten und gemeinsam im Team Lösungen zu finden, ist bei uns genau richtig.\n\nIhre Aufgaben\n\n• Übernehmen administrativer und organisatorischer Aufgaben sowie Dienstleistungen für den Admin Hub und verschiedene Fachbereiche\n• Feste administrative Ansprechperson für die zugeordneten Fachbereiche\n• Administratives Begleiten von Projekten und Veranstaltungen der Fachbereiche\n• Sicherstellen einer professionellen sowie serviceorientierten Kommunikation und Zusammenarbeit\n• Aktives Mitarbeiten im Team des Admin Hub sowie Übernehmen von Stellvertretungen\n• Mitwirken bei der Weiterentwicklung administrativer Dienstleistungen und Einbringen von Verbesserungsvorschlägen aus dem Arbeitsalltag\n• Unterstützen bei der Einführung und Nutzung digitaler Arbeitsweisen und Lösungen\n• Abgeschlossene kaufmännische Ausbildung (EFZ) oder gleichwertige Qualifikation\n• Erfahrung in einer administrativen Funktion in einem Umfeld mit unterschiedlichen Anspruchsgruppen und im Begleiten von End-to-End Prozessen\n• Hohe digitale Affinität sowie Interesse an neuen Technologien und digitalen Arbeitsweisen, sehr gute Kenntnisse im Umgang mit MS 365\n• Stilsichere Deutschkenntnisse in Wort und Schrift sowie sehr gute Kenntnisse in Französisch, umgangssprachliche Kenntnisse in Englisch von Vorteil\n• Hohe Dienstleistungsorientierung sowie Freude an der Zusammenarbeit mit unterschiedlichen Fachbereichen und Schnittstellen\n• Lösungsorientiertes Mindset und Interesse, die Weiterentwicklung des Admin Hubs aktiv mitzugestalten\n• Erfahrung im Umgang mit digitalen Plattformen und Anwendungen von Vorteil\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Umsetzung der digitalen Transformation zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\n\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Teresa Zauner, Verantwortliche Caritas Netz und Stellvertretung für Catherine Hepner, Leitung Admin Hub, unter tzauner@caritas.ch.\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung über das Online-Portal.",
+      "descriptionByLocale": {
+        "it": "• Fare la cosa giusta. In Svizzera e in circa 20 paesi su quattro continenti. Impegnarsi con noi per la visione di una società solidale, come\n\nAmministrazione specialistica & Servizi 50% con aumento da metà 2027 (m/f/d)\n\nL'Admin Hub fa parte del team Swiss Projects e lavora a stretto contatto con dipartimenti specializzati e altre funzioni del personale. Sosteniamo Progetti Svizzera con servizi amministrativi professionali e creiamo sollievo nel lavoro quotidiano dei nostri clienti interni. Come unità di apprendimento e orientata al futuro, sviluppiamo continuamente i nostri metodi di lavoro e approfittiamo delle opportunità offerte dalla digitalizzazione.\n\nSiamo alla ricerca di uno specialista Amministrazione e Servizi a Lucerna entro il 01.11.2026 o su appuntamento. Chiunque si diverte assumersi la responsabilità, aiutando a plasmare i cambiamenti e a trovare soluzioni insieme in un team è giusto per noi.\n\nI loro compiti\n\n• Assumendo compiti amministrativi e organizzativi, nonché servizi per l'Admin Hub e vari dipartimenti\n• Persona di contatto amministrativa fissa per i dipartimenti assegnati\n• Sostegno amministrativo di progetti ed eventi dei dipartimenti\n• Garantire comunicazione e cooperazione professionale e orientata al servizio\n• Partecipazione attiva al team dell'Admin Hub oltre a prendere il controllo dei deputati\n• Partecipare all'ulteriore sviluppo dei servizi amministrativi e presentare suggerimenti per il miglioramento del lavoro quotidiano\n• Sostenere l'introduzione e l'uso di metodi e soluzioni di lavoro digitali\n• Istruzione commerciale (EFZ) o qualifica equivalente\n• Esperienza in una funzione amministrativa in un ambiente con diversi stakeholder e nei processi end-to-end\n• Alta affinità digitale così come l'interesse per le nuove tecnologie e i metodi di lavoro digitali, molto buona conoscenza nel trattare con MS 365\n• La conoscenza sicura del tedesco nelle parole e nella scrittura, nonché la conoscenza molto buona del francese, la conoscenza colloquiale in inglese è vantaggiosa\n• Alto orientamento al servizio e godimento di lavorare con diverse aree specialistiche e interfacce\n• mentalità orientata alla soluzione e interesse a modellare attivamente l'ulteriore sviluppo del Admin Hub\n• Esperienza nel trattare piattaforme e applicazioni digitali\nCaritas offre interessanti condizioni di lavoro e un'atmosfera di lavoro aperta al polso delle questioni sociali. Per l'implementazione della trasformazione digitale, contiamo su dipendenti con una mentalità digitale e agile che amano partecipare ai processi di cambiamento e prendersi la responsabilità.\n\nLe informazioni su questa posizione possono essere fornite da Teresa Zauner, responsabile Caritas Netz e vice di Catherine Hepner, responsabile di Admin Hub, a tzauner@caritas.ch.\nVi ringraziamo per il vostro interesse e non vediamo l'ora della vostra applicazione tramite il portale online.",
+        "en": "• Doing the right thing. In Switzerland and in around 20 countries on four continents. Engage with us for the vision of a solidarity society, as\n\nSpecialist Administration & Services 50% with increase from mid-2027 (m/f/d)\n\nThe Admin Hub is part of the Swiss Projects team and works closely with specialist departments and other staff functions. We support Projects Switzerland with professional administrative services and create relief in the everyday work of our internal customers. As a learning and future-oriented unit, we continuously develop our working methods and take advantage of the opportunities offered by digitalization.\n\nWe are looking for a specialist Administration & Services in Lucerne by 01.11.2026 or by appointment. Anyone who enjoys taking on responsibility, helping to shape changes and finding solutions together in a team is right for us.\n\nTheir tasks\n\n• Assuming administrative and organizational tasks as well as services for the Admin Hub and various departments\n• Fixed administrative contact person for the assigned departments\n• Administrative support of projects and events of the departments\n• Ensuring professional and service-oriented communication and cooperation\n• Active participation in the team of the Admin Hub as well as taking over deputies\n• Participating in the further development of administrative services and submitting suggestions for improvement from everyday work\n• Support the introduction and use of digital working methods and solutions\n• Commercial education (EFZ) or equivalent qualification\n• Experience in an administrative function in an environment with different stakeholders and in accompanying end-to-end processes\n• High digital affinity as well as interest in new technologies and digital working methods, very good knowledge in dealing with MS 365\n• Confident knowledge of German in words and writing as well as very good knowledge of French, colloquial knowledge in English is advantageous\n• High service orientation and enjoyment of working with different specialist areas and interfaces\n• Solution-oriented mindset and interest in actively shaping the further development of the Admin Hub\n• Experience in dealing with digital platforms and applications\nCaritas offers attractive employment conditions and an open working atmosphere at the pulse of social issues. For the implementation of the digital transformation, we count on employees with a digital and agile mindset who like to participate in change processes and take responsibility.\n\nInformation about this position can be provided by Teresa Zauner, responsible Caritas Netz and deputy for Catherine Hepner, head of Admin Hub, at tzauner@caritas.ch.\nWe thank you for your interest and look forward to your application via the online portal.",
+        "de": "• Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\n\nFachperson Administration & Services 50% mit Pensumserhöhung ab Mitte 2027 (m/w/d)\n\nDer Admin Hub ist Teil des Stabs Projekte Schweiz und arbeitet eng mit Fachbereichen sowie weiteren Stabsfunktionen zusammen. Wir unterstützen den Bereich Projekte Schweiz mit professionellen administrativen Dienstleistungen und schaffen Entlastung im Arbeitsalltag unserer internen Kund/innen. Als lernende und zukunftsorientierte Einheit entwickeln wir unsere Arbeitsweisen laufend weiter und nutzen die Chancen der Digitalisierung.\n\nWir suchen per 01.11.2026 oder nach Vereinbarung eine Fachperson Administration & Services in Luzern. Wer Freude daran hat, Verantwortung zu übernehmen, Veränderungen mitzugestalten und gemeinsam im Team Lösungen zu finden, ist bei uns genau richtig.\n\nIhre Aufgaben\n\n• Übernehmen administrativer und organisatorischer Aufgaben sowie Dienstleistungen für den Admin Hub und verschiedene Fachbereiche\n• Feste administrative Ansprechperson für die zugeordneten Fachbereiche\n• Administratives Begleiten von Projekten und Veranstaltungen der Fachbereiche\n• Sicherstellen einer professionellen sowie serviceorientierten Kommunikation und Zusammenarbeit\n• Aktives Mitarbeiten im Team des Admin Hub sowie Übernehmen von Stellvertretungen\n• Mitwirken bei der Weiterentwicklung administrativer Dienstleistungen und Einbringen von Verbesserungsvorschlägen aus dem Arbeitsalltag\n• Unterstützen bei der Einführung und Nutzung digitaler Arbeitsweisen und Lösungen\n• Abgeschlossene kaufmännische Ausbildung (EFZ) oder gleichwertige Qualifikation\n• Erfahrung in einer administrativen Funktion in einem Umfeld mit unterschiedlichen Anspruchsgruppen und im Begleiten von End-to-End Prozessen\n• Hohe digitale Affinität sowie Interesse an neuen Technologien und digitalen Arbeitsweisen, sehr gute Kenntnisse im Umgang mit MS 365\n• Stilsichere Deutschkenntnisse in Wort und Schrift sowie sehr gute Kenntnisse in Französisch, umgangssprachliche Kenntnisse in Englisch von Vorteil\n• Hohe Dienstleistungsorientierung sowie Freude an der Zusammenarbeit mit unterschiedlichen Fachbereichen und Schnittstellen\n• Lösungsorientiertes Mindset und Interesse, die Weiterentwicklung des Admin Hubs aktiv mitzugestalten\n• Erfahrung im Umgang mit digitalen Plattformen und Anwendungen von Vorteil\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Umsetzung der digitalen Transformation zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\n\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Teresa Zauner, Verantwortliche Caritas Netz und Stellvertretung für Catherine Hepner, Leitung Admin Hub, unter tzauner@caritas.ch.\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung über das Online-Portal.",
+        "fr": "• Faire ce qu'il faut. En Suisse et dans une vingtaine de pays sur quatre continents. Engager avec nous la vision d'une société solidaire,\n\nAdministration et services spécialisés 50% avec une augmentation par rapport au milieu de 2027 (h/f/d)\n\nL'Admin Hub fait partie de l'équipe Swiss Projects et travaille en étroite collaboration avec les départements spécialisés et d'autres fonctions du personnel. Nous soutenons Projets Suisse avec des services administratifs professionnels et créons du soulagement dans le travail quotidien de nos clients internes. En tant qu'unité d'apprentissage et de prospective, nous développons continuellement nos méthodes de travail et profitons des possibilités offertes par la numérisation.\n\nNous recherchons un spécialiste Administration & Services à Lucerne au 01.11.2026 ou sur rendez-vous. Quiconque aime assumer ses responsabilités, aider à façonner les changements et trouver des solutions ensemble dans une équipe est bon pour nous.\n\nLeurs tâches\n\n• Assumer des tâches administratives et organisationnelles ainsi que des services pour le centre administratif et divers départements\n• Personne-ressource administrative fixe pour les départements affectés\n• Appui administratif aux projets et événements des départements\n• Assurer une communication et une coopération professionnelles et orientées vers le service\n• Participation active à l'équipe du centre administratif et prise en charge des adjoints\n• Participation à la poursuite du développement des services administratifs et présentation de suggestions pour améliorer le travail quotidien\n• Soutenir l'introduction et l'utilisation de méthodes de travail et de solutions numériques\n• Éducation commerciale (EFZ) ou qualification équivalente\n• Expérience d'une fonction administrative dans un environnement avec différentes parties prenantes et dans les processus d'accompagnement de bout en bout\n• Haute affinité numérique ainsi que l'intérêt pour les nouvelles technologies et les méthodes de travail numériques, très bonne connaissance dans le traitement de MS 365\n• Connaissance confidentielle de l'allemand dans les mots et l'écriture ainsi que très bonne connaissance du français, connaissance collective en anglais est avantageux\n• Orientation haut service et plaisir de travailler avec différents domaines spécialisés et interfaces\n• L'état d'esprit axé sur la solution et l'intérêt à façonner activement le développement du Hub Admin\n• Expérience dans le traitement des plateformes et applications numériques\nCaritas offre des conditions d'emploi attrayantes et une atmosphère de travail ouverte à l'impulsion des questions sociales. Pour la mise en œuvre de la transformation numérique, nous comptons sur des employés avec une mentalité numérique et agile qui aiment participer aux processus de changement et prendre des responsabilités.\n\nLes informations sur ce poste peuvent être fournies par Teresa Zauner, responsable Caritas Netz et députée de Catherine Hepner, chef de Admin Hub, à tzauner@caritas.ch.\nNous vous remercions de votre intérêt et attendons avec impatience votre candidature via le portail en ligne."
+      },
+      "needsRetranslation": false,
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://apply.refline.ch/126757/2362/pub/2/index.html",
+      "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-25T14:41:27.470Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6002",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sociale / NGO",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-19",
+      "applyUrl": "https://apply.refline.ch/126757/2362/pub/2/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "pensumMin": 50,
+      "pensumMax": 80,
+      "pensum": "50 - 80%",
+      "previousSlugs": [
+        "fachperson-administration-services-50-mit-pensumserhohung-ab-mitte-2027-m-w-d-caritas"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-administration-services-50-mit-pensumserhohung-ab-mitte-2027-m-w-d-caritas"
+        ],
+        "en": [
+          "fachperson-administration-services-50-mit-pensumserhohung-ab-mitte-2027-m-w-d-caritas"
+        ],
+        "fr": [
+          "fachperson-administration-services-50-mit-pensumserhohung-ab-mitte-2027-m-w-d-caritas"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:49:36.128Z",
+      "salaryMin": 34800,
+      "salaryMax": 53000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 34800,
+          "maxValue": 53000,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "caritas-schweiz-9be3ab9f2922",
@@ -1268,8 +1398,7 @@
       "previousSlugsByLocale": {
         "de": [
           "sozialpadagogische-bezugsperson-mna-100-in-zurich-oerlikon-m-w-d-caritas-schweiz-zurich",
-          "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
-          "sozialpadagogische-bezugsperson-mna-80-in-zurich-uster-m-w-d-caritas-schweiz-zurich"
+          "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich"
         ],
         "it": [
           "sozialpadagogische-bezugsperson-mna-80-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
@@ -1277,8 +1406,7 @@
           "social-pedagogical-reference-person-mna-100-in-zurich-oerlikon-m-f-d-caritas-schweiz-zurich",
           "sozialpadagogische-bezugsperson-mna-100-in-zurich-oerlikon-m-w-d-caritas-schweiz-zurich",
           "personne-de-reference-pedagogique-sociale-mna-100-a-zurich-oerlikon-h-f-d-caritas-schweiz-zurich",
-          "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
-          "persona-di-riferimento-pedagogico-sociale-mna-80-a-zurigo-uster-m-f-d-caritas-schweiz-zurich"
+          "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich"
         ],
         "en": [
           "sozialpadagogische-bezugsperson-mna-80-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
@@ -1295,8 +1423,7 @@
         "social-pedagogical-reference-person-mna-100-in-zurich-oerlikon-m-f-d-caritas-schweiz-zurich",
         "sozialpadagogische-bezugsperson-mna-100-in-zurich-oerlikon-m-w-d-caritas-schweiz-zurich",
         "personne-de-reference-pedagogique-sociale-mna-100-a-zurich-oerlikon-h-f-d-caritas-schweiz-zurich",
-        "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
-        "persona-di-riferimento-pedagogico-sociale-mna-80-a-zurigo-uster-m-f-d-caritas-schweiz-zurich"
+        "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich"
       ],
       "firstSeenAt": "2026-08-27T00:41:55.297Z",
       "salaryMin": 63000,
@@ -1311,89 +1438,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "caritas-schweiz-12934f3eb02e",
-      "slug": "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-m-w-d-caritas-schweiz-fribourg",
-      "slugByLocale": {
-        "it": "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-m-w-d-caritas-schweiz-fribourg",
-        "en": "apprenti-business-employee-swc-start-learning-2027-in-fribourg-h-f-d-caritas-schweiz-fribourg",
-        "de": "lehrling-business-mitarbeiter-swc-beginnen-zu-lernen-2027-in-freiburg-h-w-d-caritas-schweiz-fribourg",
-        "fr": "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-h-f-d-caritas"
       },
-      "company": "Caritas Schweiz",
-      "companyKey": "caritas-schweiz",
-      "companyDomain": "caritas.ch",
-      "title": "Apprenti Employé de commerce CFC début d’apprentissage 2027 à Fribourg (h/f/d)",
-      "titleByLocale": {
-        "it": "Apprenti Impiegato di business CFC inizio di, apprendimento 2027 in Friburgo (m/f/d)",
-        "en": "Apprenti Business employee CFC start of, learning 2027 in Fribourg (m/f/d)",
-        "de": "Ansprechende Mitarbeiter CFC Beginn, Lernen 2027 in Freiburg (m/w/d)",
-        "fr": "Apprenti Employé de commerce CFC début d’apprentissage 2027 à Fribourg (h/f/d)"
-      },
-      "description": "• Agir, tout simplement. En Suisse et dans près de 20 pays répartis sur quatre continents. Engagez-vous avec nous pour concrétiser la vision d’une société solidaire, en tant que\n\nApprenti Employé de commerce CFC début d’apprentissage 2027 à Fribourg (h/f/d)\n\nau sein de Caritas Suisse est exactement ce qu’il vous faut. Au cours des trois années de votre formation d’employé·e de commerce, vous aurez l’opportunité de travailler dans les différents services de Caritas Suisse. En plus des domaines classiques tels que l’administration, la réception ou la comptabilité, vous découvrirez également notre engagement en faveur d’un monde sans pauvreté, particulièrement auprès des réfugié·e·s statutaires.\n\nVos tâches\n\n• Exécution autonome de tâches administratives et organisationnelles\n• Conseil, prise en charge et exécution de mandats pour les clients internes et externes, les fournisseurs et d’autres groupes d’intérêt\n• Traitement de dossiers spécifiques à chaque service\n• Rédaction de textes en français et en langues étrangères sur la base de modèles\n• Mise en pratique des connaissances professionnelles acquises\n• Scolarité secondaire terminée avec de bons à très bons résultats\n• Vous êtes talentueux·se en communication dans votre première langue nationale et appréciez rédiger des textes en français et en langues étrangères sur la base de modèles\n• Vous aimez apprendre et approfondir les langues étrangères (anglais et/ou allemand)\n• Vous disposez d’une bonne compréhension des technologies et des canaux modernes de communication et d’information",
-      "descriptionByLocale": {
-        "it": "• Basta agire. In Svizzera e in quasi 20 paesi in quattro continenti. Get coinvolto con noi per realizzare la visione di una società solidale, come una società che è\n\nApprenti Impiegato di business CFC inizio di, apprendimento 2027 in Friburgo (m/f/d)\n\nNel corso dei tre anni di formazione come impiegato commerciale, avrete la possibilità di lavorare nei vari servizi della Caritas Svizzera. Oltre ai classici campi come l'amministrazione, l'accoglienza o la contabilità, scoprirete anche il nostro impegno verso un mondo libero dalla povertà, in particolare con i rifugiati.\n\nI tuoi compiti\n\n• Auto-esecuzione di compiti amministrativi e organizzativi • Consulenza, supporto ed esecuzione di mandati per clienti interni ed esterni, fornitori e altri gruppi di interesse • Elaborazione di file specifici per ciascun servizio • Scrittura di testi in lingua francese e straniera sulla base di modelli • Praticalizzazione delle conoscenze professionali acquisite • Completamento della scuola secondaria con buoni risultati • Hai talento nella comunicazione nella tua prima lingua nazionale e godi di testi scritti in francese e francese\n\n• Ti piace imparare e approfondire le lingue straniere (inglese e/o tedesco) • Hai una buona comprensione delle moderne tecnologie di comunicazione e informazione e dei canali",
-        "en": "• Just act. In Switzerland and in almost 20 countries on four continents. Get involved with us to realize the vision of a solidarity society, as a society that is\n\nApprenti Business employee CFC start of, learning 2027 in Fribourg (m/f/d)\n\nIn the course of three years of your training as a business employee, you will have the opportunity to work in the various services of Caritas Switzerland. In addition to the classic fields such as administration, reception or accounting, you will also discover our commitment to a world free of poverty, particularly with refugees.\n\nYour tasks\n\n• Self-executing administrative and organisational tasks • Advice, support and execution of mandates for internal and external clients, suppliers and other interest groups • Processing of specific files for each service • Writing texts in French and foreign languages on the basis of models • Practicalization of professional knowledge acquired • Secondary school completion with good to very good results • You are talented in communication in your first national language and enjoy writing texts in French and French\n\n• You like to learn and deepen foreign languages (English and/or German) • You have a good understanding of modern communication and information technologies and channels",
-        "de": "• Nur handeln. In der Schweiz und in fast 20 Ländern auf vier Kontinenten. Machen Sie sich mit uns ein, um die Vision einer Solidaritätsgesellschaft als Gesellschaft, die\n\nAnsprechende Mitarbeiter CFC Beginn, Lernen 2027 in Freiburg (m/w/d)\n\nIn drei Jahren Ihrer Ausbildung zum Business-Mitarbeiter haben Sie die Möglichkeit, in den verschiedenen Dienstleistungen der Caritas Schweiz zu arbeiten. Neben den klassischen Bereichen Verwaltung, Rezeption oder Buchhaltung entdecken Sie auch unser Engagement für eine armutsfreie Welt, insbesondere bei Flüchtlingen.\n\nIhre Aufgaben\n\n• Selbsterledigung administrativer und organisatorischer Aufgaben • Beratung, Unterstützung und Ausführung von Mandaten für interne und externe Kunden, Lieferanten und andere Interessengruppen • Bearbeitung von spezifischen Dateien für jeden Dienst • Texterstellung in Französisch und Fremdsprachen auf der Grundlage von Modellen • Praxis der erworbenen beruflichen Kenntnisse • Abschluss der Sekundarstufe mit guten bis sehr guten Ergebnissen • Sie sind talentiert in der Kommunikation in Ihrer ersten Landessprache und genießen es, Texte auf Französisch und Französisch zu schreiben\n\n• Sie lernen und vertiefen gerne Fremdsprachen (Englisch und/oder Deutsch) • Sie haben ein gutes Verständnis für moderne Kommunikations- und Informationstechnologien und Kanäle",
-        "fr": "• Agir, tout simplement. En Suisse et dans près de 20 pays répartis sur quatre continents. Engagez-vous avec nous pour concrétiser la vision d’une société solidaire, en tant que\n\nApprenti Employé de commerce CFC début d’apprentissage 2027 à Fribourg (h/f/d)\n\nau sein de Caritas Suisse est exactement ce qu’il vous faut. Au cours des trois années de votre formation d’employé·e de commerce, vous aurez l’opportunité de travailler dans les différents services de Caritas Suisse. En plus des domaines classiques tels que l’administration, la réception ou la comptabilité, vous découvrirez également notre engagement en faveur d’un monde sans pauvreté, particulièrement auprès des réfugié·e·s statutaires.\n\nVos tâches\n\n• Exécution autonome de tâches administratives et organisationnelles\n• Conseil, prise en charge et exécution de mandats pour les clients internes et externes, les fournisseurs et d’autres groupes d’intérêt\n• Traitement de dossiers spécifiques à chaque service\n• Rédaction de textes en français et en langues étrangères sur la base de modèles\n• Mise en pratique des connaissances professionnelles acquises\n• Scolarité secondaire terminée avec de bons à très bons résultats\n• Vous êtes talentueux·se en communication dans votre première langue nationale et appréciez rédiger des textes en français et en langues étrangères sur la base de modèles\n• Vous aimez apprendre et approfondir les langues étrangères (anglais et/ou allemand)\n• Vous disposez d’une bonne compréhension des technologies et des canaux modernes de communication et d’information"
-      },
-      "needsRetranslation": true,
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://apply.refline.ch/126757/2345/pub/1/index.html",
-      "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:41:25.794Z",
-      "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6002",
-      "category": "Formazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sociale / NGO",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-06",
-      "applyUrl": "https://apply.refline.ch/126757/2345/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "previousSlugs": [
-        "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-h-f-d-caritas"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-h-f-d-caritas"
-        ],
-        "en": [
-          "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-h-f-d-caritas"
-        ],
-        "de": [
-          "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-h-f-d-caritas"
-        ]
-      },
-      "firstSeenAt": "2026-08-06T11:59:20.254Z",
-      "salaryMin": 49500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "retranslationAttempts": 1
+      "crawlerMissStreak": 1
     }
   ]
 }

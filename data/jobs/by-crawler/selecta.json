@@ -1,6 +1,6 @@
 {
   "crawlerKey": "selecta",
-  "assembledAt": "2026-09-25T14:47:08.950Z",
+  "assembledAt": "2026-09-26T14:02:46.769Z",
   "jobs": [
     {
       "id": "selecta-6f7943b1ecf7",
@@ -33,7 +33,7 @@
       "url": "https://careers.selecta.ch/Job/4558",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:47:02.200Z",
+      "crawledAt": "2026-09-26T14:02:40.939Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -73,7 +73,11 @@
           "deine-ausbildung-bei-selecta-logistiker-in-efz-selecta-kirchberg-be"
         ]
       },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2696,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-04T11:56:48.319Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -86,10 +90,7 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2696
+      }
     },
     {
       "id": "selecta-228d206a8287",
@@ -122,7 +123,7 @@
       "url": "https://careers.selecta.ch/Job/4557",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:47:02.087Z",
+      "crawledAt": "2026-09-26T14:02:40.234Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -156,11 +157,11 @@
           "il-tuo-allenamento-a-selecta-kauffrau-kaufmann-efz-selecta-kirchberg-be"
         ]
       },
+      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2618,
       "retranslationAttempts": 4,
       "firstSeenAt": "2026-07-04T11:56:47.626Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -206,7 +207,7 @@
       "url": "https://careers.selecta.ch/Job/4610",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:47:01.978Z",
+      "crawledAt": "2026-09-26T14:02:39.543Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -294,7 +295,7 @@
       "url": "https://careers.selecta.ch/Job/4614",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:47:01.865Z",
+      "crawledAt": "2026-09-26T14:02:38.853Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -382,7 +383,7 @@
       "url": "https://careers.selecta.ch/Job/4607",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:47:01.752Z",
+      "crawledAt": "2026-09-26T14:02:38.656Z",
       "addressLocality": "Steinhausen",
       "addressRegion": "ZG",
       "streetAddress": "Hinterbergstrasse 16",
@@ -416,8 +417,8 @@
           "key-account-manager-nuova-attivita-caccia-selecta-steinhausen"
         ]
       },
-      "firstSeenAt": "2026-07-04T11:56:49.954Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T11:56:49.954Z",
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -463,7 +464,7 @@
       "url": "https://careers.selecta.ch/Job/4592",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:47:01.631Z",
+      "crawledAt": "2026-09-26T14:02:38.473Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -548,7 +549,7 @@
       "url": "https://careers.selecta.ch/Job/4615",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:47:01.521Z",
+      "crawledAt": "2026-09-26T14:02:37.795Z",
       "addressLocality": "Sargans / Landquart",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -634,7 +635,7 @@
       "url": "https://careers.selecta.ch/Job/4620",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:47:01.407Z",
+      "crawledAt": "2026-09-26T14:02:37.612Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -701,7 +702,7 @@
       "title": "Business Development Manager B2B (m/w/d)",
       "titleByLocale": {
         "it": "Business Development Manager B2B (m/f/d)",
-        "en": "Business Development Manager B2B (m/f/d)",
+        "en": "Business Development Manager B2B (m/w/d)",
         "de": "Business Development Manager B2B (m/w/d)",
         "fr": "Business Development Manager B2B (m/f/d)"
       },
@@ -717,7 +718,7 @@
       "url": "https://careers.selecta.ch/Job/4622",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:47:01.299Z",
+      "crawledAt": "2026-09-26T14:02:36.842Z",
       "addressLocality": "Steinhausen",
       "addressRegion": "ZG",
       "streetAddress": "Hinterbergstrasse 16",
@@ -756,6 +757,7 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:06:38.054Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -769,6 +771,176 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "selecta-d5b41be2249f",
+      "slug": "business-development-manager-b2b-m-w-d-selecta-steinhausen",
+      "slugByLocale": {
+        "de": "business-development-manager-b2b-m-w-d-selecta-deutschschweiz-region-be-so-fr-bl-bs-und",
+        "it": "business-development-manager-b2b-m-w-d-selecta-steinhausen",
+        "en": "business-development-manager-b2b-m-w-d-selecta-steinhausen",
+        "fr": "directeur-du-developpement-des-affaires-b2b-m-f-d-selecta-steinhausen-6f9477"
+      },
+      "company": "Selecta",
+      "companyKey": "selecta",
+      "companyDomain": "selecta.com",
+      "title": "Business Development Manager B2B (m/w/d)",
+      "titleByLocale": {
+        "de": "Business Development Manager B2B (m/w/d)",
+        "en": "Business Development Manager B2B (m/w/d)",
+        "it": "Business Development Manager B2B (m/w/d)",
+        "fr": "Business Development Manager B2B (m/w/d)"
+      },
+      "description": "Business Development Manager B2B (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Deutschschweiz (Region BE, SO, FR, BL, BS und Zentralschweiz) Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben Du verantwortest den Aufbau neuer Kundenbeziehungen in der Deutschschweiz und begleitest den gesamten Verkaufsprozess – von der ersten Kontaktaufnahme bis zum erfolgreichen Vertragsabschluss. Dabei...\n• gewinnst du aktiv neue Geschäftskunden im B2B-Umfeld\n• identifizierst und entwickelst du attraktive Marktpotenziale\n• baust du nachhaltige Beziehungen zu Entscheidungsträgern bis auf C-Level auf\n• berätst du deine Kunden zu unseren Kaffee-, Vending-, FoodTech- und Workplace-Lösungen\n• entwickelst du überzeugende und wirtschaftlich attraktive Angebote\n• führst du Vertrags- und Preisverhandlungen bis zum Abschluss\n• steuerst du deine Verkaufsaktivitäten professionell über CRM, Pipeline und Forecast\n• arbeitest du eng mit Marketing, Service, Operations, Technik und Finance zusammen Ausbildung\n• Abgeschlossenes Hochschulstudium, idealerweise FH, Universität oder vergleichbare betriebswirtschaftliche Ausbildung\n• Zusätzliche Weiterbildung im Verkauf, Key Account Management oder in der Neukundengewinnung von Vorteil Profil\n• Mehrjährige Erfahrung in der erfolgreichen Gewinnung von Neukunden im B2B-Vertrieb, idealerweise in der Vendingbranche\n• Freude daran, neue Geschäftsmöglichkeiten zu erkennen und Kunden langfristig zu begeistern\n• Sicheres Auftreten auf allen Hierarchiestufen sowie ausgeprägte Abschluss- und Verhandlungskompetenz\n• Unternehmerisches Denken sowie ein gutes Verständnis für wirtschaftliche Zusammenhänge\n• Strukturierte und eigenverantwortliche Arbeitsweise\n• Erfahrung im Umgang mit CRM-Systemen sowie den gängigen MS-Office-Anwendungen\n• Sehr gute Deutschkenntnisse, Französisch und Englisch von Vorteil\n• Führerausweis Kategorie B und Bereitschaft zu Reisetätigkeit innerhalb der Deutschschweiz Spezielles Das erwartet dich\n• Eine Schlüsselrolle innerhalb unserer Wachstumsstrategie\n• Viel Gestaltungsfreiraum und Eigenverantwortung\n• Ein attraktives und innovatives Lösungsportfolio mit grossem Marktpotenzial\n• Kurze Entscheidungswege und ein motiviertes Team\n• Moderne Arbeitsmittel sowie zeitgemässe Anstellungsbedingungen\n• Die Möglichkeit, den zukünftigen Erfolg von Selecta aktiv mitzugestalten Haben wir dein Interesse geweckt? Dann freuen wir uns auf Ihre Bewerbung. Werde Teil von Selecta und gestalte mit uns die Zukunft der modernen Workplace-Lösungen. Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+      "descriptionByLocale": {
+        "de": "Business Development Manager B2B (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Deutschschweiz (Region BE, SO, FR, BL, BS und Zentralschweiz) Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben Du verantwortest den Aufbau neuer Kundenbeziehungen in der Deutschschweiz und begleitest den gesamten Verkaufsprozess – von der ersten Kontaktaufnahme bis zum erfolgreichen Vertragsabschluss. Dabei...\n• gewinnst du aktiv neue Geschäftskunden im B2B-Umfeld\n• identifizierst und entwickelst du attraktive Marktpotenziale\n• baust du nachhaltige Beziehungen zu Entscheidungsträgern bis auf C-Level auf\n• berätst du deine Kunden zu unseren Kaffee-, Vending-, FoodTech- und Workplace-Lösungen\n• entwickelst du überzeugende und wirtschaftlich attraktive Angebote\n• führst du Vertrags- und Preisverhandlungen bis zum Abschluss\n• steuerst du deine Verkaufsaktivitäten professionell über CRM, Pipeline und Forecast\n• arbeitest du eng mit Marketing, Service, Operations, Technik und Finance zusammen Ausbildung\n• Abgeschlossenes Hochschulstudium, idealerweise FH, Universität oder vergleichbare betriebswirtschaftliche Ausbildung\n• Zusätzliche Weiterbildung im Verkauf, Key Account Management oder in der Neukundengewinnung von Vorteil Profil\n• Mehrjährige Erfahrung in der erfolgreichen Gewinnung von Neukunden im B2B-Vertrieb, idealerweise in der Vendingbranche\n• Freude daran, neue Geschäftsmöglichkeiten zu erkennen und Kunden langfristig zu begeistern\n• Sicheres Auftreten auf allen Hierarchiestufen sowie ausgeprägte Abschluss- und Verhandlungskompetenz\n• Unternehmerisches Denken sowie ein gutes Verständnis für wirtschaftliche Zusammenhänge\n• Strukturierte und eigenverantwortliche Arbeitsweise\n• Erfahrung im Umgang mit CRM-Systemen sowie den gängigen MS-Office-Anwendungen\n• Sehr gute Deutschkenntnisse, Französisch und Englisch von Vorteil\n• Führerausweis Kategorie B und Bereitschaft zu Reisetätigkeit innerhalb der Deutschschweiz Spezielles Das erwartet dich\n• Eine Schlüsselrolle innerhalb unserer Wachstumsstrategie\n• Viel Gestaltungsfreiraum und Eigenverantwortung\n• Ein attraktives und innovatives Lösungsportfolio mit grossem Marktpotenzial\n• Kurze Entscheidungswege und ein motiviertes Team\n• Moderne Arbeitsmittel sowie zeitgemässe Anstellungsbedingungen\n• Die Möglichkeit, den zukünftigen Erfolg von Selecta aktiv mitzugestalten Haben wir dein Interesse geweckt? Dann freuen wir uns auf Ihre Bewerbung. Werde Teil von Selecta und gestalte mit uns die Zukunft der modernen Workplace-Lösungen. Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "it": "Business Development Manager B2B (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Deutschschweiz (Region BE, SO, FR, BL, BS und Zentralschweiz) Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben Du verantwortest den Aufbau neuer Kundenbeziehungen in der Deutschschweiz und begleitest den gesamten Verkaufsprozess – von der ersten Kontaktaufnahme bis zum erfolgreichen Vertragsabschluss. Dabei...\n• gewinnst du aktiv neue Geschäftskunden im B2B-Umfeld\n• identifizierst und entwickelst du attraktive Marktpotenziale\n• baust du nachhaltige Beziehungen zu Entscheidungsträgern bis auf C-Level auf\n• berätst du deine Kunden zu unseren Kaffee-, Vending-, FoodTech- und Workplace-Lösungen\n• entwickelst du überzeugende und wirtschaftlich attraktive Angebote\n• führst du Vertrags- und Preisverhandlungen bis zum Abschluss\n• steuerst du deine Verkaufsaktivitäten professionell über CRM, Pipeline und Forecast\n• arbeitest du eng mit Marketing, Service, Operations, Technik und Finance zusammen Ausbildung\n• Abgeschlossenes Hochschulstudium, idealerweise FH, Universität oder vergleichbare betriebswirtschaftliche Ausbildung\n• Zusätzliche Weiterbildung im Verkauf, Key Account Management oder in der Neukundengewinnung von Vorteil Profil\n• Mehrjährige Erfahrung in der erfolgreichen Gewinnung von Neukunden im B2B-Vertrieb, idealerweise in der Vendingbranche\n• Freude daran, neue Geschäftsmöglichkeiten zu erkennen und Kunden langfristig zu begeistern\n• Sicheres Auftreten auf allen Hierarchiestufen sowie ausgeprägte Abschluss- und Verhandlungskompetenz\n• Unternehmerisches Denken sowie ein gutes Verständnis für wirtschaftliche Zusammenhänge\n• Strukturierte und eigenverantwortliche Arbeitsweise\n• Erfahrung im Umgang mit CRM-Systemen sowie den gängigen MS-Office-Anwendungen\n• Sehr gute Deutschkenntnisse, Französisch und Englisch von Vorteil\n• Führerausweis Kategorie B und Bereitschaft zu Reisetätigkeit innerhalb der Deutschschweiz Spezielles Das erwartet dich\n• Eine Schlüsselrolle innerhalb unserer Wachstumsstrategie\n• Viel Gestaltungsfreiraum und Eigenverantwortung\n• Ein attraktives und innovatives Lösungsportfolio mit grossem Marktpotenzial\n• Kurze Entscheidungswege und ein motiviertes Team\n• Moderne Arbeitsmittel sowie zeitgemässe Anstellungsbedingungen\n• Die Möglichkeit, den zukünftigen Erfolg von Selecta aktiv mitzugestalten Haben wir dein Interesse geweckt? Dann freuen wir uns auf Ihre Bewerbung. Werde Teil von Selecta und gestalte mit uns die Zukunft der modernen Workplace-Lösungen. Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "en": "Business Development Manager B2B (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Deutschschweiz (Region BE, SO, FR, BL, BS und Zentralschweiz) Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben Du verantwortest den Aufbau neuer Kundenbeziehungen in der Deutschschweiz und begleitest den gesamten Verkaufsprozess – von der ersten Kontaktaufnahme bis zum erfolgreichen Vertragsabschluss. Dabei...\n• gewinnst du aktiv neue Geschäftskunden im B2B-Umfeld\n• identifizierst und entwickelst du attraktive Marktpotenziale\n• baust du nachhaltige Beziehungen zu Entscheidungsträgern bis auf C-Level auf\n• berätst du deine Kunden zu unseren Kaffee-, Vending-, FoodTech- und Workplace-Lösungen\n• entwickelst du überzeugende und wirtschaftlich attraktive Angebote\n• führst du Vertrags- und Preisverhandlungen bis zum Abschluss\n• steuerst du deine Verkaufsaktivitäten professionell über CRM, Pipeline und Forecast\n• arbeitest du eng mit Marketing, Service, Operations, Technik und Finance zusammen Ausbildung\n• Abgeschlossenes Hochschulstudium, idealerweise FH, Universität oder vergleichbare betriebswirtschaftliche Ausbildung\n• Zusätzliche Weiterbildung im Verkauf, Key Account Management oder in der Neukundengewinnung von Vorteil Profil\n• Mehrjährige Erfahrung in der erfolgreichen Gewinnung von Neukunden im B2B-Vertrieb, idealerweise in der Vendingbranche\n• Freude daran, neue Geschäftsmöglichkeiten zu erkennen und Kunden langfristig zu begeistern\n• Sicheres Auftreten auf allen Hierarchiestufen sowie ausgeprägte Abschluss- und Verhandlungskompetenz\n• Unternehmerisches Denken sowie ein gutes Verständnis für wirtschaftliche Zusammenhänge\n• Strukturierte und eigenverantwortliche Arbeitsweise\n• Erfahrung im Umgang mit CRM-Systemen sowie den gängigen MS-Office-Anwendungen\n• Sehr gute Deutschkenntnisse, Französisch und Englisch von Vorteil\n• Führerausweis Kategorie B und Bereitschaft zu Reisetätigkeit innerhalb der Deutschschweiz Spezielles Das erwartet dich\n• Eine Schlüsselrolle innerhalb unserer Wachstumsstrategie\n• Viel Gestaltungsfreiraum und Eigenverantwortung\n• Ein attraktives und innovatives Lösungsportfolio mit grossem Marktpotenzial\n• Kurze Entscheidungswege und ein motiviertes Team\n• Moderne Arbeitsmittel sowie zeitgemässe Anstellungsbedingungen\n• Die Möglichkeit, den zukünftigen Erfolg von Selecta aktiv mitzugestalten Haben wir dein Interesse geweckt? Dann freuen wir uns auf Ihre Bewerbung. Werde Teil von Selecta und gestalte mit uns die Zukunft der modernen Workplace-Lösungen. Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "fr": "Business Development Manager B2B (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Deutschschweiz (Region BE, SO, FR, BL, BS und Zentralschweiz) Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben Du verantwortest den Aufbau neuer Kundenbeziehungen in der Deutschschweiz und begleitest den gesamten Verkaufsprozess – von der ersten Kontaktaufnahme bis zum erfolgreichen Vertragsabschluss. Dabei...\n• gewinnst du aktiv neue Geschäftskunden im B2B-Umfeld\n• identifizierst und entwickelst du attraktive Marktpotenziale\n• baust du nachhaltige Beziehungen zu Entscheidungsträgern bis auf C-Level auf\n• berätst du deine Kunden zu unseren Kaffee-, Vending-, FoodTech- und Workplace-Lösungen\n• entwickelst du überzeugende und wirtschaftlich attraktive Angebote\n• führst du Vertrags- und Preisverhandlungen bis zum Abschluss\n• steuerst du deine Verkaufsaktivitäten professionell über CRM, Pipeline und Forecast\n• arbeitest du eng mit Marketing, Service, Operations, Technik und Finance zusammen Ausbildung\n• Abgeschlossenes Hochschulstudium, idealerweise FH, Universität oder vergleichbare betriebswirtschaftliche Ausbildung\n• Zusätzliche Weiterbildung im Verkauf, Key Account Management oder in der Neukundengewinnung von Vorteil Profil\n• Mehrjährige Erfahrung in der erfolgreichen Gewinnung von Neukunden im B2B-Vertrieb, idealerweise in der Vendingbranche\n• Freude daran, neue Geschäftsmöglichkeiten zu erkennen und Kunden langfristig zu begeistern\n• Sicheres Auftreten auf allen Hierarchiestufen sowie ausgeprägte Abschluss- und Verhandlungskompetenz\n• Unternehmerisches Denken sowie ein gutes Verständnis für wirtschaftliche Zusammenhänge\n• Strukturierte und eigenverantwortliche Arbeitsweise\n• Erfahrung im Umgang mit CRM-Systemen sowie den gängigen MS-Office-Anwendungen\n• Sehr gute Deutschkenntnisse, Französisch und Englisch von Vorteil\n• Führerausweis Kategorie B und Bereitschaft zu Reisetätigkeit innerhalb der Deutschschweiz Spezielles Das erwartet dich\n• Eine Schlüsselrolle innerhalb unserer Wachstumsstrategie\n• Viel Gestaltungsfreiraum und Eigenverantwortung\n• Ein attraktives und innovatives Lösungsportfolio mit grossem Marktpotenzial\n• Kurze Entscheidungswege und ein motiviertes Team\n• Moderne Arbeitsmittel sowie zeitgemässe Anstellungsbedingungen\n• Die Möglichkeit, den zukünftigen Erfolg von Selecta aktiv mitzugestalten Haben wir dein Interesse geweckt? Dann freuen wir uns auf Ihre Bewerbung. Werde Teil von Selecta und gestalte mit uns die Zukunft der modernen Workplace-Lösungen. Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt."
+      },
+      "location": "Steinhausen",
+      "canton": "ZG",
+      "url": "https://careers.selecta.ch/Job/4621",
+      "source": "Selecta Dedicated Parser (eRecruiter)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T14:02:36.665Z",
+      "addressLocality": "Steinhausen",
+      "addressRegion": "ZG",
+      "streetAddress": "Hinterbergstrasse 16",
+      "postalCode": "6312",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Vending / Food & Coffee Tech",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-17",
+      "applyUrl": "https://careers.selecta.ch/Job/4621",
+      "department": "",
+      "jobReqId": "4621",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "_targetScope": {
+        "canton": "ZG",
+        "location": "Steinhausen"
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "business-development-manager-b2b-m-w-d-selecta-deutschschweiz-region-be-so-fr-bl-bs-und"
+        ]
+      },
+      "previousSlugs": [
+        "business-development-manager-b2b-m-w-d-selecta-deutschschweiz-region-be-so-fr-bl-bs-und"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 96000,
+      "salaryMax": 146000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 96000,
+          "maxValue": 146000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-17T11:06:38.054Z"
+    },
+    {
+      "id": "selecta-476a5d282cc4",
+      "slug": "operatore-automatico-m-f-d-selecta-berner-oberland",
+      "slugByLocale": {
+        "de": "automatenbetreuer-m-w-d-selecta-region-berner-oberland",
+        "it": "operatore-automatico-m-f-d-selecta-berner-oberland",
+        "en": "automatenbetreuer-m-w-d-selecta-berner-oberland",
+        "fr": "automatenbetreuer-m-w-d-selecta-berner-oberland"
+      },
+      "company": "Selecta",
+      "companyKey": "selecta",
+      "companyDomain": "selecta.com",
+      "title": "Automatenbetreuer (m/w/d)",
+      "titleByLocale": {
+        "de": "Automatenbetreuer (m/w/d)",
+        "it": "Automatenbetreuer (m/w/d)",
+        "en": "Automatenbetreuer (m/w/d)",
+        "fr": "Automatenbetreuer (m/w/d)"
+      },
+      "description": "Automatenbetreuer (m/w/d) 100% - Befristete Anstellung (Start per sofort bis ca. 31. August 2026 oder bis auf Weiteres) Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Region Berner Oberland Arbeitsbeginn Befristete Anstellung (Start per sofort bis ca. 31. August 2026 oder länger) Hauptaufgaben\n• Betreuung von Kaffee-, Verpflegungs- und Getränkestationen im Berner Oberland\n• Sicherstellung des Reinigungs-, Befüllungs- und Wartungsservices an Automatenstandorten\n• Kundenorientierte Betreuung und Ansprechpartner/in vor Ort\n• Gewährleistung eines gepflegten und einladenden Erscheinungsbilds der Pausenzonen Ausbildung\n• Ausbildung im Gastgewerbe, Detailhandel (Lebensmittelbranche) oder einem vergleichbaren Dienstleistungsbereich von Vorteil Profil\n• Führerausweis Kategorie B (Handschaltung)\n• Guter Orientierungssinn\n• Selbstständige, flexible und zuverlässige Arbeitsweise\n• Teamfähigkeit und Belastbarkeit\n• Gute Deutschkenntnisse in Wort und Schrift\n• Gepflegtes Erscheinungsbild und freundliche Umgangsformen\n• Positive, kunden- und dienstleistungsorientierte Persönlichkeit Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+      "descriptionByLocale": {
+        "de": "Automatenbetreuer (m/w/d) 100% - Befristete Anstellung (Start per sofort bis ca. 31. August 2026 oder bis auf Weiteres) Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Region Berner Oberland Arbeitsbeginn Befristete Anstellung (Start per sofort bis ca. 31. August 2026 oder länger) Hauptaufgaben\n• Betreuung von Kaffee-, Verpflegungs- und Getränkestationen im Berner Oberland\n• Sicherstellung des Reinigungs-, Befüllungs- und Wartungsservices an Automatenstandorten\n• Kundenorientierte Betreuung und Ansprechpartner/in vor Ort\n• Gewährleistung eines gepflegten und einladenden Erscheinungsbilds der Pausenzonen Ausbildung\n• Ausbildung im Gastgewerbe, Detailhandel (Lebensmittelbranche) oder einem vergleichbaren Dienstleistungsbereich von Vorteil Profil\n• Führerausweis Kategorie B (Handschaltung)\n• Guter Orientierungssinn\n• Selbstständige, flexible und zuverlässige Arbeitsweise\n• Teamfähigkeit und Belastbarkeit\n• Gute Deutschkenntnisse in Wort und Schrift\n• Gepflegtes Erscheinungsbild und freundliche Umgangsformen\n• Positive, kunden- und dienstleistungsorientierte Persönlichkeit Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "it": "Automatenbetreuer (m/w/d) 100% - Befristete Anstellung (Start per sofort bis ca. 31. August 2026 oder bis auf Weiteres) Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Region Berner Oberland Arbeitsbeginn Befristete Anstellung (Start per sofort bis ca. 31. August 2026 oder länger) Hauptaufgaben\n• Betreuung von Kaffee-, Verpflegungs- und Getränkestationen im Berner Oberland\n• Sicherstellung des Reinigungs-, Befüllungs- und Wartungsservices an Automatenstandorten\n• Kundenorientierte Betreuung und Ansprechpartner/in vor Ort\n• Gewährleistung eines gepflegten und einladenden Erscheinungsbilds der Pausenzonen Ausbildung\n• Ausbildung im Gastgewerbe, Detailhandel (Lebensmittelbranche) oder einem vergleichbaren Dienstleistungsbereich von Vorteil Profil\n• Führerausweis Kategorie B (Handschaltung)\n• Guter Orientierungssinn\n• Selbstständige, flexible und zuverlässige Arbeitsweise\n• Teamfähigkeit und Belastbarkeit\n• Gute Deutschkenntnisse in Wort und Schrift\n• Gepflegtes Erscheinungsbild und freundliche Umgangsformen\n• Positive, kunden- und dienstleistungsorientierte Persönlichkeit Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "en": "Automatenbetreuer (m/w/d) 100% - Befristete Anstellung (Start per sofort bis ca. 31. August 2026 oder bis auf Weiteres) Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Region Berner Oberland Arbeitsbeginn Befristete Anstellung (Start per sofort bis ca. 31. August 2026 oder länger) Hauptaufgaben\n• Betreuung von Kaffee-, Verpflegungs- und Getränkestationen im Berner Oberland\n• Sicherstellung des Reinigungs-, Befüllungs- und Wartungsservices an Automatenstandorten\n• Kundenorientierte Betreuung und Ansprechpartner/in vor Ort\n• Gewährleistung eines gepflegten und einladenden Erscheinungsbilds der Pausenzonen Ausbildung\n• Ausbildung im Gastgewerbe, Detailhandel (Lebensmittelbranche) oder einem vergleichbaren Dienstleistungsbereich von Vorteil Profil\n• Führerausweis Kategorie B (Handschaltung)\n• Guter Orientierungssinn\n• Selbstständige, flexible und zuverlässige Arbeitsweise\n• Teamfähigkeit und Belastbarkeit\n• Gute Deutschkenntnisse in Wort und Schrift\n• Gepflegtes Erscheinungsbild und freundliche Umgangsformen\n• Positive, kunden- und dienstleistungsorientierte Persönlichkeit Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "fr": "Automatenbetreuer (m/w/d) 100% - Befristete Anstellung (Start per sofort bis ca. 31. August 2026 oder bis auf Weiteres) Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Region Berner Oberland Arbeitsbeginn Befristete Anstellung (Start per sofort bis ca. 31. August 2026 oder länger) Hauptaufgaben\n• Betreuung von Kaffee-, Verpflegungs- und Getränkestationen im Berner Oberland\n• Sicherstellung des Reinigungs-, Befüllungs- und Wartungsservices an Automatenstandorten\n• Kundenorientierte Betreuung und Ansprechpartner/in vor Ort\n• Gewährleistung eines gepflegten und einladenden Erscheinungsbilds der Pausenzonen Ausbildung\n• Ausbildung im Gastgewerbe, Detailhandel (Lebensmittelbranche) oder einem vergleichbaren Dienstleistungsbereich von Vorteil Profil\n• Führerausweis Kategorie B (Handschaltung)\n• Guter Orientierungssinn\n• Selbstständige, flexible und zuverlässige Arbeitsweise\n• Teamfähigkeit und Belastbarkeit\n• Gute Deutschkenntnisse in Wort und Schrift\n• Gepflegtes Erscheinungsbild und freundliche Umgangsformen\n• Positive, kunden- und dienstleistungsorientierte Persönlichkeit Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt."
+      },
+      "location": "Berner Oberland",
+      "canton": "BE",
+      "url": "https://careers.selecta.ch/Job/4612",
+      "source": "Selecta Dedicated Parser (eRecruiter)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T14:02:36.479Z",
+      "addressLocality": "Berner Oberland",
+      "addressRegion": "BE",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Assistenza Clienti",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Vending / Food & Coffee Tech",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-17",
+      "applyUrl": "https://careers.selecta.ch/Job/4612",
+      "department": "",
+      "jobReqId": "4612",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Berner Oberland"
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "automatenbetreuer-m-w-d-selecta-region-berner-oberland"
+        ],
+        "en": [
+          "automatic-operator-m-f-d-selecta-berner-oberland"
+        ],
+        "fr": [
+          "operateur-automatique-m-f-d-selecta-berner-oberland"
+        ]
+      },
+      "previousSlugs": [
+        "automatenbetreuer-m-w-d-selecta-region-berner-oberland",
+        "automatic-operator-m-f-d-selecta-berner-oberland",
+        "operateur-automatique-m-f-d-selecta-berner-oberland"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-26T14:02:36.479Z"
     },
     {
       "id": "selecta-1d2e8b7923e0",
@@ -801,7 +973,7 @@
       "url": "https://careers.selecta.ch/Job/4616",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:47:00.913Z",
+      "crawledAt": "2026-09-26T14:02:36.242Z",
       "addressLocality": "primär Spiez",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -887,7 +1059,7 @@
       "url": "https://careers.selecta.ch/Job/4623",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:47:00.222Z",
+      "crawledAt": "2026-09-26T14:02:35.527Z",
       "addressLocality": "Wolhusen / Luzern",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -973,7 +1145,7 @@
       "url": "https://careers.selecta.ch/Job/4601",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:47:00.106Z",
+      "crawledAt": "2026-09-26T14:02:35.356Z",
       "addressLocality": "Kirchberg BE -",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1027,13 +1199,94 @@
       }
     },
     {
+      "id": "selecta-2da14a0c9720",
+      "slug": "chauffeur-cat-c-ed-e-m-f-d-selecta-kirchberg-be",
+      "slugByLocale": {
+        "de": "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15",
+        "it": "chauffeur-cat-c-ed-e-m-f-d-selecta-kirchberg-be",
+        "en": "chauffeur-cat-c-and-e-m-f-d-selecta-kirchberg-be-fbad9f",
+        "fr": "chauffeur-cat-c-et-e-m-f-d-selecta-kirchberg-be-fbad9f"
+      },
+      "company": "Selecta",
+      "companyKey": "selecta",
+      "companyDomain": "selecta.com",
+      "title": "Chauffeur Kat. C und E (m/w/d)",
+      "titleByLocale": {
+        "de": "Chauffeur Kat. C und E (m/w/d)",
+        "it": "Chauffeur Kat. C e E (m/w/d)",
+        "en": "Chauffeur Kat. C und E (m/w/d)",
+        "fr": "Chauffeur Kat. C und E (m/w/d)"
+      },
+      "description": "Chauffeur Kat. C und E (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE - (Montag bis Freitag von 05:00 Uhr bis 15:00 Uhr) Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Anlieferung und Einlagerung von Einfüllprodukten an zahlreichen Standorten unserer Verpflegungsautomaten direkt bei unseren Kunden im Mittelland\n• Beladen des Lastwagens mit bereitgestellten Produkten\n• Rücknahme von Leergebinden\n• Pflege und Unterhalt des Fahrzeugs Ausbildung\n• Führerausweis Kat. C/E Profil\n• Mehrjährige Erfahrung als Chauffeur von Vorteil\n• Guter Orientierungssinn\n• Körperlich belastbar und gewohnt, anzupacken\n• Erfahrung im Umgang mit Kunden\n• Sehr gute Deutschkenntnisse in Wort und Schrift Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+      "descriptionByLocale": {
+        "de": "Chauffeur Kat. C und E (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE - (Montag bis Freitag von 05:00 Uhr bis 15:00 Uhr) Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Anlieferung und Einlagerung von Einfüllprodukten an zahlreichen Standorten unserer Verpflegungsautomaten direkt bei unseren Kunden im Mittelland\n• Beladen des Lastwagens mit bereitgestellten Produkten\n• Rücknahme von Leergebinden\n• Pflege und Unterhalt des Fahrzeugs Ausbildung\n• Führerausweis Kat. C/E Profil\n• Mehrjährige Erfahrung als Chauffeur von Vorteil\n• Guter Orientierungssinn\n• Körperlich belastbar und gewohnt, anzupacken\n• Erfahrung im Umgang mit Kunden\n• Sehr gute Deutschkenntnisse in Wort und Schrift Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "it": "Chauffeur Kat. C und E (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE - (Montag bis Freitag von 05:00 Uhr bis 15:00 Uhr) Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Anlieferung und Einlagerung von Einfüllprodukten an zahlreichen Standorten unserer Verpflegungsautomaten direkt bei unseren Kunden im Mittelland\n• Beladen des Lastwagens mit bereitgestellten Produkten\n• Rücknahme von Leergebinden\n• Pflege und Unterhalt des Fahrzeugs Ausbildung\n• Führerausweis Kat. C/E Profil\n• Mehrjährige Erfahrung als Chauffeur von Vorteil\n• Guter Orientierungssinn\n• Körperlich belastbar und gewohnt, anzupacken\n• Erfahrung im Umgang mit Kunden\n• Sehr gute Deutschkenntnisse in Wort und Schrift Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "en": "Chauffeur Kat. C und E (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE - (Montag bis Freitag von 05:00 Uhr bis 15:00 Uhr) Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Anlieferung und Einlagerung von Einfüllprodukten an zahlreichen Standorten unserer Verpflegungsautomaten direkt bei unseren Kunden im Mittelland\n• Beladen des Lastwagens mit bereitgestellten Produkten\n• Rücknahme von Leergebinden\n• Pflege und Unterhalt des Fahrzeugs Ausbildung\n• Führerausweis Kat. C/E Profil\n• Mehrjährige Erfahrung als Chauffeur von Vorteil\n• Guter Orientierungssinn\n• Körperlich belastbar und gewohnt, anzupacken\n• Erfahrung im Umgang mit Kunden\n• Sehr gute Deutschkenntnisse in Wort und Schrift Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "fr": "Chauffeur Kat. C und E (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE - (Montag bis Freitag von 05:00 Uhr bis 15:00 Uhr) Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Anlieferung und Einlagerung von Einfüllprodukten an zahlreichen Standorten unserer Verpflegungsautomaten direkt bei unseren Kunden im Mittelland\n• Beladen des Lastwagens mit bereitgestellten Produkten\n• Rücknahme von Leergebinden\n• Pflege und Unterhalt des Fahrzeugs Ausbildung\n• Führerausweis Kat. C/E Profil\n• Mehrjährige Erfahrung als Chauffeur von Vorteil\n• Guter Orientierungssinn\n• Körperlich belastbar und gewohnt, anzupacken\n• Erfahrung im Umgang mit Kunden\n• Sehr gute Deutschkenntnisse in Wort und Schrift Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt."
+      },
+      "location": "Kirchberg BE -",
+      "canton": "BE",
+      "url": "https://careers.selecta.ch/Job/4600",
+      "source": "Selecta Dedicated Parser (eRecruiter)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T14:02:35.162Z",
+      "addressLocality": "Kirchberg BE -",
+      "addressRegion": "BE",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Vending / Food & Coffee Tech",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "applyUrl": "https://careers.selecta.ch/Job/4600",
+      "department": "",
+      "jobReqId": "4600",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Kirchberg BE -"
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-26T14:02:35.162Z"
+    },
+    {
       "id": "selecta-92850fd481d5",
       "slug": "servicetechniker-m-w-d-selecta-basel-solothurn",
       "slugByLocale": {
         "it": "servicetechniker-m-w-d-selecta-basel-solothurn",
         "en": "service-technician-m-f-d-selecta-basel-solothurn",
         "de": "servicetechniker-m-w-d-selecta-region-basel-solothurn",
-        "fr": "technicien-de-service-h-f-d-selecta-basel-solothurn"
+        "fr": "servicetechniker-m-w-d-selecta-basel-solothurn"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -1043,7 +1296,7 @@
         "it": "Tecnico di servizio (m/f/d)",
         "en": "Service technician (m/f/d)",
         "de": "Servicetechniker (m/w/d)",
-        "fr": "Technicien de service (h/f/d)"
+        "fr": "Servicetechniker (m/w/d)"
       },
       "description": "Servicetechniker (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Region Basel / Solothurn Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben Du bist selbständig für unsere Kunden und Deine Automaten in der Region Basel / Solothurn verantwortlich. Dank Dir ist die Verfügbarkeit unserer Dienstleistung jederzeit gewährt. Du unterstützt unser Unternehmen, das die Verpflegung bei unseren Kunden 24/7 in einwandfreier Qualität zur Verfügung stellt. Zu Deinen vielseitigen \n• Aufgaben gehören das selbstständige Beheben von Störungen, das Durchführen von Wartungen, Bereitschaft für gelegentlichen Pikettdienst sowie die Mithilfe bei Projektumsetzungen. Ausbildung Für diese abwechslungsreichen \n• Aufgaben verfügst Du über eine Grundausbildung als Elektromechaniker, Elektromonteur, Automobil Mechatroniker oder eine andere technische Ausbildung mit guten Elektrokenntnissen. Profil Du hast einige Jahre Berufserfahrung in einer ähnlichen Funktion, sprichst Deutsch und bist im Besitz eines Führerausweises Kategorie B. Dank Deiner kunden- und dienstleistungsorientierten Einstellung hast Du Freude am engen Kontakt mit unseren Kunden. Du arbeitest gerne selbstständig, zuverlässig und pflichtbewusst. Ein korrektes und gewinnbringendes Auftreten rundet Dein Profil ab. Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
       "descriptionByLocale": {
@@ -1057,7 +1310,7 @@
       "url": "https://careers.selecta.ch/Job/4525",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:46:59.862Z",
+      "crawledAt": "2026-09-26T14:02:34.469Z",
       "addressLocality": "Basel / Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1084,7 +1337,8 @@
       "previousSlugs": [
         "servicetechniker-m-w-d-selecta-region-basel-solothurn",
         "technicien-des-services-m-f-d-selecta-basel-solothurn",
-        "tecnico-di-servizio-m-f-d-selecta-basel-solothurn"
+        "tecnico-di-servizio-m-f-d-selecta-basel-solothurn",
+        "technicien-de-service-h-f-d-selecta-basel-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1096,10 +1350,12 @@
         ],
         "fr": [
           "servicetechniker-m-w-d-selecta-region-basel-solothurn",
-          "technicien-des-services-m-f-d-selecta-basel-solothurn"
+          "technicien-des-services-m-f-d-selecta-basel-solothurn",
+          "technicien-de-service-h-f-d-selecta-basel-solothurn"
         ]
       },
       "firstSeenAt": "2026-08-06T11:58:32.609Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -1121,7 +1377,7 @@
         "it": "tecnico-del-progetto-m-f-d-selecta-zurich-aargau-solothurn",
         "en": "project-technician-m-f-d-selecta-zurich-aargau-solothurn",
         "de": "projekttechniker-m-w-d-selecta-region-zurich-aargau-solothurn",
-        "fr": "technicien-de-projet-m-f-d-selecta-zurich-aargau-solothurn"
+        "fr": "projekttechniker-m-w-d-selecta-zurich-aargau-solothurn"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -1131,7 +1387,7 @@
         "it": "Tecnico del progetto (m/f/d)",
         "en": "Project technician (m/f/d)",
         "de": "Projekttechniker (m/w/d)",
-        "fr": "Ingénieur de projet (h/f/d)"
+        "fr": "Projekttechniker (m/w/d)"
       },
       "description": "Projekttechniker (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Region Zürich / Aargau / Solothurn Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Diagnose von technischen Problemen an Zahlungssystemen und Durchführung von Reparaturen vor Ort\n• Mitarbeit bei grossen Rollouts und Projekten\n• Sicherstellung der ordnungsgemässen Funktionsweise der Maschinen\n• Dokumentation von Modifikation und Reparaturarbeiten\n• Bereitstellung von technischem Support für Kunden und Kollegen\n• Einhaltung von Sicherheitsstandards und Vorschriften Ausbildung\n• Abgeschlossene technische Ausbildung, vorzugsweise im Bereich Elektromechanik oder Vergleichbare Profil\n• Wohnhaft in der Region Zürich / Aargau / Solothurn\n• Erfahrung in der Modifikation und Wartung von Maschinen, idealerweise in der Verpflegungsautomaten Branche\n• Technisches Verständnis und Fähigkeit zur Fehlerdiagnose\n• Selbstständige Arbeitsweise und Teamfähigkeit\n• Gute Kommunikationsfähigkeiten\n• Kunden- und dienstleistungsorientierten Einstellung\n• Zuverlässige und pflichtbewusste Arbeitsweise\n• Führerschein der Klasse B & C1 Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
       "descriptionByLocale": {
@@ -1145,7 +1401,7 @@
       "url": "https://careers.selecta.ch/Job/4603",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:46:59.738Z",
+      "crawledAt": "2026-09-26T14:02:34.294Z",
       "addressLocality": "Zürich / Aargau / Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1190,6 +1446,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:56:54.039Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -1205,13 +1462,94 @@
       }
     },
     {
+      "id": "selecta-b92530adfcbe",
+      "slug": "servicetechniker-m-w-d-selecta-tessin",
+      "slugByLocale": {
+        "de": "servicetechniker-m-w-d-selecta-region-tessin",
+        "it": "servicetechniker-m-w-d-selecta-tessin",
+        "en": "servicetechniker-m-w-d-selecta-tessin",
+        "fr": "servicetechniker-m-w-d-selecta-tessin"
+      },
+      "company": "Selecta",
+      "companyKey": "selecta",
+      "companyDomain": "selecta.com",
+      "title": "Servicetechniker (m/w/d)",
+      "titleByLocale": {
+        "de": "Servicetechniker (m/w/d)",
+        "fr": "Servicetechniker (m/w/d)",
+        "it": "Servicetechniker (m/w/d)",
+        "en": "Servicetechniker (m/w/d)"
+      },
+      "description": "Servicetechniker (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Region Tessin Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Selbstständige Betreuung der Kunden und Automaten im Einsatzgebiet\n• Sicherstellung der Verfügbarkeit und Qualität der Dienstleistung (24/7)\n• Behebung von Störungen an Automaten\n• Durchführung von Wartungs- und Servicearbeiten\n• Gelegentlicher Pikettdienst\n• Mitarbeit bei Projektumsetzungen Ausbildung\n• Grundausbildung als Elektromechaniker, Elektromonteur oder Automobil-Mechatroniker oder vergleichbare technische Ausbildung mit guten Elektrokenntnissen Profil\n• Mehrjährige Berufserfahrung in einer vergleichbaren technischen Funktion\n• Kunden- und dienstleistungsorientierte Persönlichkeit\n• Selbstständige, zuverlässige und pflichtbewusste Arbeitsweise\n• Freude am direkten Kundenkontakt\n• Korrektes, professionelles und gewinnbringendes Auftreten\n• Deutschkenntnisse erwünscht\n• Führerausweis Kategorie B Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+      "descriptionByLocale": {
+        "de": "Servicetechniker (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Region Tessin Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Selbstständige Betreuung der Kunden und Automaten im Einsatzgebiet\n• Sicherstellung der Verfügbarkeit und Qualität der Dienstleistung (24/7)\n• Behebung von Störungen an Automaten\n• Durchführung von Wartungs- und Servicearbeiten\n• Gelegentlicher Pikettdienst\n• Mitarbeit bei Projektumsetzungen Ausbildung\n• Grundausbildung als Elektromechaniker, Elektromonteur oder Automobil-Mechatroniker oder vergleichbare technische Ausbildung mit guten Elektrokenntnissen Profil\n• Mehrjährige Berufserfahrung in einer vergleichbaren technischen Funktion\n• Kunden- und dienstleistungsorientierte Persönlichkeit\n• Selbstständige, zuverlässige und pflichtbewusste Arbeitsweise\n• Freude am direkten Kundenkontakt\n• Korrektes, professionelles und gewinnbringendes Auftreten\n• Deutschkenntnisse erwünscht\n• Führerausweis Kategorie B Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "it": "Servicetechniker (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Region Tessin Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Selbstständige Betreuung der Kunden und Automaten im Einsatzgebiet\n• Sicherstellung der Verfügbarkeit und Qualität der Dienstleistung (24/7)\n• Behebung von Störungen an Automaten\n• Durchführung von Wartungs- und Servicearbeiten\n• Gelegentlicher Pikettdienst\n• Mitarbeit bei Projektumsetzungen Ausbildung\n• Grundausbildung als Elektromechaniker, Elektromonteur oder Automobil-Mechatroniker oder vergleichbare technische Ausbildung mit guten Elektrokenntnissen Profil\n• Mehrjährige Berufserfahrung in einer vergleichbaren technischen Funktion\n• Kunden- und dienstleistungsorientierte Persönlichkeit\n• Selbstständige, zuverlässige und pflichtbewusste Arbeitsweise\n• Freude am direkten Kundenkontakt\n• Korrektes, professionelles und gewinnbringendes Auftreten\n• Deutschkenntnisse erwünscht\n• Führerausweis Kategorie B Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "en": "Servicetechniker (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Region Tessin Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Selbstständige Betreuung der Kunden und Automaten im Einsatzgebiet\n• Sicherstellung der Verfügbarkeit und Qualität der Dienstleistung (24/7)\n• Behebung von Störungen an Automaten\n• Durchführung von Wartungs- und Servicearbeiten\n• Gelegentlicher Pikettdienst\n• Mitarbeit bei Projektumsetzungen Ausbildung\n• Grundausbildung als Elektromechaniker, Elektromonteur oder Automobil-Mechatroniker oder vergleichbare technische Ausbildung mit guten Elektrokenntnissen Profil\n• Mehrjährige Berufserfahrung in einer vergleichbaren technischen Funktion\n• Kunden- und dienstleistungsorientierte Persönlichkeit\n• Selbstständige, zuverlässige und pflichtbewusste Arbeitsweise\n• Freude am direkten Kundenkontakt\n• Korrektes, professionelles und gewinnbringendes Auftreten\n• Deutschkenntnisse erwünscht\n• Führerausweis Kategorie B Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "fr": "Servicetechniker (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Region Tessin Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Selbstständige Betreuung der Kunden und Automaten im Einsatzgebiet\n• Sicherstellung der Verfügbarkeit und Qualität der Dienstleistung (24/7)\n• Behebung von Störungen an Automaten\n• Durchführung von Wartungs- und Servicearbeiten\n• Gelegentlicher Pikettdienst\n• Mitarbeit bei Projektumsetzungen Ausbildung\n• Grundausbildung als Elektromechaniker, Elektromonteur oder Automobil-Mechatroniker oder vergleichbare technische Ausbildung mit guten Elektrokenntnissen Profil\n• Mehrjährige Berufserfahrung in einer vergleichbaren technischen Funktion\n• Kunden- und dienstleistungsorientierte Persönlichkeit\n• Selbstständige, zuverlässige und pflichtbewusste Arbeitsweise\n• Freude am direkten Kundenkontakt\n• Korrektes, professionelles und gewinnbringendes Auftreten\n• Deutschkenntnisse erwünscht\n• Führerausweis Kategorie B Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt."
+      },
+      "location": "Tessin",
+      "canton": "TI",
+      "url": "https://careers.selecta.ch/Job/4626",
+      "source": "Selecta Dedicated Parser (eRecruiter)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T14:02:34.123Z",
+      "addressLocality": "Tessin",
+      "addressRegion": "TI",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Vending / Food & Coffee Tech",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-17",
+      "applyUrl": "https://careers.selecta.ch/Job/4626",
+      "department": "",
+      "jobReqId": "4626",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Tessin"
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-m-w-d-selecta-region-tessin"
+        ]
+      },
+      "previousSlugs": [
+        "servicetechniker-m-w-d-selecta-region-tessin"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-26T14:02:34.123Z"
+    },
+    {
       "id": "selecta-1ed3c74ce61c",
       "slug": "tecnico-di-servizio-m-f-d-selecta-zurich-aargau",
       "slugByLocale": {
         "it": "tecnico-di-servizio-m-f-d-selecta-zurich-aargau",
         "en": "service-technician-m-f-d-selecta-zurich-aargau",
         "de": "servicetechniker-m-w-d-selecta-region-zurich-aargau",
-        "fr": "technicien-des-services-m-f-d-selecta-zurich-aargau"
+        "fr": "servicetechniker-m-w-d-selecta-zurich-aargau"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -1221,7 +1559,7 @@
         "it": "Tecnico di servizio (m/f/d)",
         "en": "Service technician (m/f/d)",
         "de": "Servicetechniker (m/w/d)",
-        "fr": "Technicien de service (h/f/d)"
+        "fr": "Servicetechniker (m/w/d)"
       },
       "description": "Servicetechniker (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Region Zürich / Aargau Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Selbstständige Betreuung der Kunden und Automaten im Einsatzgebiet\n• Sicherstellung der Verfügbarkeit und Qualität der Dienstleistung (24/7)\n• Behebung von Störungen an Automaten\n• Durchführung von Wartungs- und Servicearbeiten\n• Gelegentlicher Pikettdienst\n• Mitarbeit bei Projektumsetzungen Ausbildung\n• Grundausbildung als Elektromechaniker, Elektromonteur oder Automobil-Mechatroniker oder vergleichbare technische Ausbildung mit guten Elektrokenntnissen Profil\n• Mehrjährige Berufserfahrung in einer vergleichbaren technischen Funktion\n• Kunden- und dienstleistungsorientierte Persönlichkeit\n• Selbstständige, zuverlässige und pflichtbewusste Arbeitsweise\n• Freude am direkten Kundenkontakt\n• Korrektes, professionelles und gewinnbringendes Auftreten\n• Sehr gute Deutschkenntnisse\n• Führerausweis Kategorie B Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
       "descriptionByLocale": {
@@ -1235,7 +1573,7 @@
       "url": "https://careers.selecta.ch/Job/4591",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:46:59.509Z",
+      "crawledAt": "2026-09-26T14:02:33.949Z",
       "addressLocality": "Zürich / Aargau",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -1281,6 +1619,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:56:53.326Z",
+      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -1326,7 +1665,7 @@
       "url": "https://careers.selecta.ch/Job/4618",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:46:59.394Z",
+      "crawledAt": "2026-09-26T14:02:33.779Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1409,7 +1748,7 @@
       "url": "https://careers.selecta.ch/Job/4617",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:46:59.286Z",
+      "crawledAt": "2026-09-26T14:02:32.948Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1433,6 +1772,7 @@
         "canton": "BE",
         "location": "Kirchberg BE"
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "hr-assistant-m-w-d-selecta-kirchberg-be",
         "assistant-rh-m-f-d-selecta-kirchberg-be",
@@ -1478,7 +1818,7 @@
       "title": "Sales Support Associate (m/w/d)",
       "titleByLocale": {
         "it": "Supporto vendite Associate (m/f/d)",
-        "en": "Sales Support Associate (m/f/d)",
+        "en": "Sales Support Associate (m/w/d)",
         "de": "Sales Support Associate (m/w/d)",
         "fr": "Soutien aux ventes associé (h/f/d)"
       },
@@ -1494,7 +1834,7 @@
       "url": "https://careers.selecta.ch/Job/4628",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:46:59.175Z",
+      "crawledAt": "2026-09-26T14:02:32.779Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1532,6 +1872,7 @@
         ]
       },
       "firstSeenAt": "2026-08-24T21:43:13.112Z",
+      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -1577,7 +1918,7 @@
       "url": "https://careers.selecta.ch/Job/4605",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:46:59.064Z",
+      "crawledAt": "2026-09-26T14:02:32.603Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1633,6 +1974,181 @@
       }
     },
     {
+      "id": "selecta-0957b3462a29",
+      "slug": "supporto-commerciale-associate-m-f-d-selecta-kirchberg-be",
+      "slugByLocale": {
+        "de": "sales-support-associate-m-w-d-selecta-kirchberg-be",
+        "it": "supporto-commerciale-associate-m-f-d-selecta-kirchberg-be",
+        "fr": "sales-support-associate-m-w-d-selecta-kirchberg-be",
+        "en": "sales-support-associate-m-w-d-selecta-kirchberg-be-cjdx81"
+      },
+      "company": "Selecta",
+      "companyKey": "selecta",
+      "companyDomain": "selecta.com",
+      "title": "Sales Support Associate (m/w/d)",
+      "titleByLocale": {
+        "de": "Sales Support Associate (m/w/d)",
+        "en": "Sales Support Associate (m/w/d)",
+        "it": "Sales Support Associate (m/w/d)",
+        "fr": "Sales Support Associate (m/w/d)"
+      },
+      "description": "Sales Support Associate (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Erstellen von Offerten\n• Erstellen von Kalkulationen und Investitionsanträgen\n• Erstellen und Weiterverarbeiten von Automatenbestellungen\n• Kontrollieren von Auftragsbestätigungen\n• Erstellen von Verträgen und Rahmenverträgen\n• Erstellen von individuellen Kundenschreiben\n• Erstellen, Bearbeiten und Weiterleiten von Mutationen und Kündigungen\n• Erstellen von Kundenauswertungen und Analysen\n• Erfassen von Daten in diversen Systemen\n• Schnittstellen-Funktion zwischen verschiedenen Abteilungen (direkte Kundenbetreuung ist eher selten)\n• Spezialaufgaben nach Vorgabe\n• Aufgaben innerhalb eines Projektes, selbständige Koordination, Überwachung und Mitarbeit Ausbildung\n• Abgeschlossene kaufmännische oder gleichwertige Ausbildung\n• Erste Berufserfahrung im Verkaufsinnendienst\n• Sehr gute IT-Anwenderkenntnisse (Movex, Microsoft CRM, Office Programme, Outlook)\n• Muttersprache Französisch sowie stilsicheres Deutsch in Wort und Schrift\n• Sehr gute Englischkenntnisse von Vorteil Profil\n• Speditive und exakte Arbeitsweise\n• Anpassungsfähigkeit bei Unvorhergesehenem\n• Dienstleistungsorientiertheit\n• Hohes Mass an Selbstständigkeit\n• Teamfähigkeit\n• Kritik- und Konfliktfähigkeit\n• Belastbarkeit\n• Gute vernetzte Denkweise Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+      "descriptionByLocale": {
+        "de": "Sales Support Associate (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Erstellen von Offerten\n• Erstellen von Kalkulationen und Investitionsanträgen\n• Erstellen und Weiterverarbeiten von Automatenbestellungen\n• Kontrollieren von Auftragsbestätigungen\n• Erstellen von Verträgen und Rahmenverträgen\n• Erstellen von individuellen Kundenschreiben\n• Erstellen, Bearbeiten und Weiterleiten von Mutationen und Kündigungen\n• Erstellen von Kundenauswertungen und Analysen\n• Erfassen von Daten in diversen Systemen\n• Schnittstellen-Funktion zwischen verschiedenen Abteilungen (direkte Kundenbetreuung ist eher selten)\n• Spezialaufgaben nach Vorgabe\n• Aufgaben innerhalb eines Projektes, selbständige Koordination, Überwachung und Mitarbeit Ausbildung\n• Abgeschlossene kaufmännische oder gleichwertige Ausbildung\n• Erste Berufserfahrung im Verkaufsinnendienst\n• Sehr gute IT-Anwenderkenntnisse (Movex, Microsoft CRM, Office Programme, Outlook)\n• Muttersprache Französisch sowie stilsicheres Deutsch in Wort und Schrift\n• Sehr gute Englischkenntnisse von Vorteil Profil\n• Speditive und exakte Arbeitsweise\n• Anpassungsfähigkeit bei Unvorhergesehenem\n• Dienstleistungsorientiertheit\n• Hohes Mass an Selbstständigkeit\n• Teamfähigkeit\n• Kritik- und Konfliktfähigkeit\n• Belastbarkeit\n• Gute vernetzte Denkweise Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "it": "Sales Support Associate (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Erstellen von Offerten\n• Erstellen von Kalkulationen und Investitionsanträgen\n• Erstellen und Weiterverarbeiten von Automatenbestellungen\n• Kontrollieren von Auftragsbestätigungen\n• Erstellen von Verträgen und Rahmenverträgen\n• Erstellen von individuellen Kundenschreiben\n• Erstellen, Bearbeiten und Weiterleiten von Mutationen und Kündigungen\n• Erstellen von Kundenauswertungen und Analysen\n• Erfassen von Daten in diversen Systemen\n• Schnittstellen-Funktion zwischen verschiedenen Abteilungen (direkte Kundenbetreuung ist eher selten)\n• Spezialaufgaben nach Vorgabe\n• Aufgaben innerhalb eines Projektes, selbständige Koordination, Überwachung und Mitarbeit Ausbildung\n• Abgeschlossene kaufmännische oder gleichwertige Ausbildung\n• Erste Berufserfahrung im Verkaufsinnendienst\n• Sehr gute IT-Anwenderkenntnisse (Movex, Microsoft CRM, Office Programme, Outlook)\n• Muttersprache Französisch sowie stilsicheres Deutsch in Wort und Schrift\n• Sehr gute Englischkenntnisse von Vorteil Profil\n• Speditive und exakte Arbeitsweise\n• Anpassungsfähigkeit bei Unvorhergesehenem\n• Dienstleistungsorientiertheit\n• Hohes Mass an Selbstständigkeit\n• Teamfähigkeit\n• Kritik- und Konfliktfähigkeit\n• Belastbarkeit\n• Gute vernetzte Denkweise Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "en": "Sales Support Associate (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Erstellen von Offerten\n• Erstellen von Kalkulationen und Investitionsanträgen\n• Erstellen und Weiterverarbeiten von Automatenbestellungen\n• Kontrollieren von Auftragsbestätigungen\n• Erstellen von Verträgen und Rahmenverträgen\n• Erstellen von individuellen Kundenschreiben\n• Erstellen, Bearbeiten und Weiterleiten von Mutationen und Kündigungen\n• Erstellen von Kundenauswertungen und Analysen\n• Erfassen von Daten in diversen Systemen\n• Schnittstellen-Funktion zwischen verschiedenen Abteilungen (direkte Kundenbetreuung ist eher selten)\n• Spezialaufgaben nach Vorgabe\n• Aufgaben innerhalb eines Projektes, selbständige Koordination, Überwachung und Mitarbeit Ausbildung\n• Abgeschlossene kaufmännische oder gleichwertige Ausbildung\n• Erste Berufserfahrung im Verkaufsinnendienst\n• Sehr gute IT-Anwenderkenntnisse (Movex, Microsoft CRM, Office Programme, Outlook)\n• Muttersprache Französisch sowie stilsicheres Deutsch in Wort und Schrift\n• Sehr gute Englischkenntnisse von Vorteil Profil\n• Speditive und exakte Arbeitsweise\n• Anpassungsfähigkeit bei Unvorhergesehenem\n• Dienstleistungsorientiertheit\n• Hohes Mass an Selbstständigkeit\n• Teamfähigkeit\n• Kritik- und Konfliktfähigkeit\n• Belastbarkeit\n• Gute vernetzte Denkweise Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "fr": "Sales Support Associate (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Erstellen von Offerten\n• Erstellen von Kalkulationen und Investitionsanträgen\n• Erstellen und Weiterverarbeiten von Automatenbestellungen\n• Kontrollieren von Auftragsbestätigungen\n• Erstellen von Verträgen und Rahmenverträgen\n• Erstellen von individuellen Kundenschreiben\n• Erstellen, Bearbeiten und Weiterleiten von Mutationen und Kündigungen\n• Erstellen von Kundenauswertungen und Analysen\n• Erfassen von Daten in diversen Systemen\n• Schnittstellen-Funktion zwischen verschiedenen Abteilungen (direkte Kundenbetreuung ist eher selten)\n• Spezialaufgaben nach Vorgabe\n• Aufgaben innerhalb eines Projektes, selbständige Koordination, Überwachung und Mitarbeit Ausbildung\n• Abgeschlossene kaufmännische oder gleichwertige Ausbildung\n• Erste Berufserfahrung im Verkaufsinnendienst\n• Sehr gute IT-Anwenderkenntnisse (Movex, Microsoft CRM, Office Programme, Outlook)\n• Muttersprache Französisch sowie stilsicheres Deutsch in Wort und Schrift\n• Sehr gute Englischkenntnisse von Vorteil Profil\n• Speditive und exakte Arbeitsweise\n• Anpassungsfähigkeit bei Unvorhergesehenem\n• Dienstleistungsorientiertheit\n• Hohes Mass an Selbstständigkeit\n• Teamfähigkeit\n• Kritik- und Konfliktfähigkeit\n• Belastbarkeit\n• Gute vernetzte Denkweise Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt."
+      },
+      "location": "Kirchberg BE",
+      "canton": "BE",
+      "url": "https://careers.selecta.ch/Job/4589",
+      "source": "Selecta Dedicated Parser (eRecruiter)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T14:02:32.431Z",
+      "addressLocality": "Kirchberg BE",
+      "addressRegion": "BE",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Vending / Food & Coffee Tech",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://careers.selecta.ch/Job/4589",
+      "department": "",
+      "jobReqId": "4589",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Kirchberg BE"
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-support-associate-m-w-d-selecta-kirchberg-be"
+        ],
+        "fr": [
+          "associe-de-soutien-aux-ventes-m-f-d-selecta-kirchberg-be"
+        ]
+      },
+      "previousSlugs": [
+        "sales-support-associate-m-w-d-selecta-kirchberg-be",
+        "associe-de-soutien-aux-ventes-m-f-d-selecta-kirchberg-be"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 77500,
+      "salaryMax": 118500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77500,
+          "maxValue": 118500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-24T21:43:13.112Z"
+    },
+    {
+      "id": "selecta-f525a4ac08a1",
+      "slug": "kundenbetreuer-m-w-d-selecta-wallis",
+      "slugByLocale": {
+        "de": "kundenbetreuer-m-w-d-selecta-region-wallis",
+        "it": "kundenbetreuer-m-w-d-selecta-wallis",
+        "en": "kundenbetreuer-m-w-d-selecta-wallis",
+        "fr": "kundenbetreuer-m-w-d-selecta-wallis"
+      },
+      "company": "Selecta",
+      "companyKey": "selecta",
+      "companyDomain": "selecta.com",
+      "title": "Kundenbetreuer (m/w/d)",
+      "titleByLocale": {
+        "de": "Kundenbetreuer (m/w/d)",
+        "it": "Kundenbetreuer (m/w/d)",
+        "en": "Kundenbetreuer (m/w/d)",
+        "fr": "Kundenbetreuer (m/w/d)"
+      },
+      "description": "Kundenbetreuer (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Region Wallis Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Ausbau, Weiterentwicklung und Pflege von Kundenbeziehungen; Vorstellung von Produktneuheiten\n• Verhandlung von Preisen und kommerziellen Rahmenbedingungen\n• Budgetverantwortung und Massnahmenplanung zur Zielerreichung\n• Pflege und Aufbau von Kontakten zu Entscheidungsträgern\n• Verkauf unserer Top-Kaffee-Konzepte wie Starbucks, Nescafé und Foodies\n• Regelmässige Kundenbesuche und Organisation von Management-Meetings\n• Erstellung von Angeboten und Kundenpräsentationen\n• Ansprechperson für das Vertragsmanagement\n• Pflege des CRM-Systems\n• Erledigung kundenbezogener administrativer Aufgaben\n• Erstellung von Kundenanalysen und -auswertungen Ausbildung\n• Abgeschlossene Berufsausbildung\n• Weiterbildungen mit Schwerpunkt Verkauf von Vorteil Profil\n• Erfahrung im Verkaufsaussendienst mit nachweisbaren Erfolgen\n• Erfahrung im Bereich FMCG von Vorteil\n• CRM-Erfahrung (z. B. Microsoft Dynamics oder vergleichbar)\n• Anwendungssichere Kenntnisse in MS Office\n• Selbstständige Arbeitsweise und ausgeprägtes Verständnis für Zusammenhänge\n• Stilsichere Deutsch- und Französischkenntnisse in Wort und Schrift (zwingend)\n• Führerausweis der Kategorie B\n• \"Macher\"- Mentalität und Motivation, etwas zu bewegen und mit der Firma zu wachsen Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+      "descriptionByLocale": {
+        "de": "Kundenbetreuer (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Region Wallis Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Ausbau, Weiterentwicklung und Pflege von Kundenbeziehungen; Vorstellung von Produktneuheiten\n• Verhandlung von Preisen und kommerziellen Rahmenbedingungen\n• Budgetverantwortung und Massnahmenplanung zur Zielerreichung\n• Pflege und Aufbau von Kontakten zu Entscheidungsträgern\n• Verkauf unserer Top-Kaffee-Konzepte wie Starbucks, Nescafé und Foodies\n• Regelmässige Kundenbesuche und Organisation von Management-Meetings\n• Erstellung von Angeboten und Kundenpräsentationen\n• Ansprechperson für das Vertragsmanagement\n• Pflege des CRM-Systems\n• Erledigung kundenbezogener administrativer Aufgaben\n• Erstellung von Kundenanalysen und -auswertungen Ausbildung\n• Abgeschlossene Berufsausbildung\n• Weiterbildungen mit Schwerpunkt Verkauf von Vorteil Profil\n• Erfahrung im Verkaufsaussendienst mit nachweisbaren Erfolgen\n• Erfahrung im Bereich FMCG von Vorteil\n• CRM-Erfahrung (z. B. Microsoft Dynamics oder vergleichbar)\n• Anwendungssichere Kenntnisse in MS Office\n• Selbstständige Arbeitsweise und ausgeprägtes Verständnis für Zusammenhänge\n• Stilsichere Deutsch- und Französischkenntnisse in Wort und Schrift (zwingend)\n• Führerausweis der Kategorie B\n• \"Macher\"- Mentalität und Motivation, etwas zu bewegen und mit der Firma zu wachsen Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "it": "Kundenbetreuer (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Region Wallis Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Ausbau, Weiterentwicklung und Pflege von Kundenbeziehungen; Vorstellung von Produktneuheiten\n• Verhandlung von Preisen und kommerziellen Rahmenbedingungen\n• Budgetverantwortung und Massnahmenplanung zur Zielerreichung\n• Pflege und Aufbau von Kontakten zu Entscheidungsträgern\n• Verkauf unserer Top-Kaffee-Konzepte wie Starbucks, Nescafé und Foodies\n• Regelmässige Kundenbesuche und Organisation von Management-Meetings\n• Erstellung von Angeboten und Kundenpräsentationen\n• Ansprechperson für das Vertragsmanagement\n• Pflege des CRM-Systems\n• Erledigung kundenbezogener administrativer Aufgaben\n• Erstellung von Kundenanalysen und -auswertungen Ausbildung\n• Abgeschlossene Berufsausbildung\n• Weiterbildungen mit Schwerpunkt Verkauf von Vorteil Profil\n• Erfahrung im Verkaufsaussendienst mit nachweisbaren Erfolgen\n• Erfahrung im Bereich FMCG von Vorteil\n• CRM-Erfahrung (z. B. Microsoft Dynamics oder vergleichbar)\n• Anwendungssichere Kenntnisse in MS Office\n• Selbstständige Arbeitsweise und ausgeprägtes Verständnis für Zusammenhänge\n• Stilsichere Deutsch- und Französischkenntnisse in Wort und Schrift (zwingend)\n• Führerausweis der Kategorie B\n• \"Macher\"- Mentalität und Motivation, etwas zu bewegen und mit der Firma zu wachsen Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "en": "Kundenbetreuer (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Region Wallis Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Ausbau, Weiterentwicklung und Pflege von Kundenbeziehungen; Vorstellung von Produktneuheiten\n• Verhandlung von Preisen und kommerziellen Rahmenbedingungen\n• Budgetverantwortung und Massnahmenplanung zur Zielerreichung\n• Pflege und Aufbau von Kontakten zu Entscheidungsträgern\n• Verkauf unserer Top-Kaffee-Konzepte wie Starbucks, Nescafé und Foodies\n• Regelmässige Kundenbesuche und Organisation von Management-Meetings\n• Erstellung von Angeboten und Kundenpräsentationen\n• Ansprechperson für das Vertragsmanagement\n• Pflege des CRM-Systems\n• Erledigung kundenbezogener administrativer Aufgaben\n• Erstellung von Kundenanalysen und -auswertungen Ausbildung\n• Abgeschlossene Berufsausbildung\n• Weiterbildungen mit Schwerpunkt Verkauf von Vorteil Profil\n• Erfahrung im Verkaufsaussendienst mit nachweisbaren Erfolgen\n• Erfahrung im Bereich FMCG von Vorteil\n• CRM-Erfahrung (z. B. Microsoft Dynamics oder vergleichbar)\n• Anwendungssichere Kenntnisse in MS Office\n• Selbstständige Arbeitsweise und ausgeprägtes Verständnis für Zusammenhänge\n• Stilsichere Deutsch- und Französischkenntnisse in Wort und Schrift (zwingend)\n• Führerausweis der Kategorie B\n• \"Macher\"- Mentalität und Motivation, etwas zu bewegen und mit der Firma zu wachsen Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "fr": "Kundenbetreuer (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Region Wallis Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Ausbau, Weiterentwicklung und Pflege von Kundenbeziehungen; Vorstellung von Produktneuheiten\n• Verhandlung von Preisen und kommerziellen Rahmenbedingungen\n• Budgetverantwortung und Massnahmenplanung zur Zielerreichung\n• Pflege und Aufbau von Kontakten zu Entscheidungsträgern\n• Verkauf unserer Top-Kaffee-Konzepte wie Starbucks, Nescafé und Foodies\n• Regelmässige Kundenbesuche und Organisation von Management-Meetings\n• Erstellung von Angeboten und Kundenpräsentationen\n• Ansprechperson für das Vertragsmanagement\n• Pflege des CRM-Systems\n• Erledigung kundenbezogener administrativer Aufgaben\n• Erstellung von Kundenanalysen und -auswertungen Ausbildung\n• Abgeschlossene Berufsausbildung\n• Weiterbildungen mit Schwerpunkt Verkauf von Vorteil Profil\n• Erfahrung im Verkaufsaussendienst mit nachweisbaren Erfolgen\n• Erfahrung im Bereich FMCG von Vorteil\n• CRM-Erfahrung (z. B. Microsoft Dynamics oder vergleichbar)\n• Anwendungssichere Kenntnisse in MS Office\n• Selbstständige Arbeitsweise und ausgeprägtes Verständnis für Zusammenhänge\n• Stilsichere Deutsch- und Französischkenntnisse in Wort und Schrift (zwingend)\n• Führerausweis der Kategorie B\n• \"Macher\"- Mentalität und Motivation, etwas zu bewegen und mit der Firma zu wachsen Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt."
+      },
+      "location": "Wallis",
+      "canton": "VS",
+      "url": "https://careers.selecta.ch/Job/4606",
+      "source": "Selecta Dedicated Parser (eRecruiter)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T14:02:32.256Z",
+      "addressLocality": "Wallis",
+      "addressRegion": "VS",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Assistenza Clienti",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Vending / Food & Coffee Tech",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-26",
+      "applyUrl": "https://careers.selecta.ch/Job/4606",
+      "department": "",
+      "jobReqId": "4606",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Wallis"
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuer-m-w-d-selecta-region-wallis",
+          "account-manager-m-f-d-selecta-wallis"
+        ],
+        "en": [
+          "account-manager-m-f-d-selecta-wallis"
+        ],
+        "fr": [
+          "gestionnaire-de-comptes-m-f-d-selecta-wallis"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuer-m-w-d-selecta-region-wallis",
+        "account-manager-m-f-d-selecta-wallis",
+        "gestionnaire-de-comptes-m-f-d-selecta-wallis"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-26T14:02:32.256Z"
+    },
+    {
       "id": "selecta-031285260b42",
       "slug": "operatore-automatico-m-f-d-selecta-suhr-reiden",
       "slugByLocale": {
@@ -1663,7 +2179,7 @@
       "url": "https://careers.selecta.ch/Job/4604",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:46:58.721Z",
+      "crawledAt": "2026-09-26T14:02:32.083Z",
       "addressLocality": "Suhr / Reiden",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -1743,7 +2259,7 @@
       "url": "https://careers.selecta.ch/Job/4633",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:46:58.607Z",
+      "crawledAt": "2026-09-26T14:02:31.377Z",
       "addressLocality": "Reinach BL / Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1784,6 +2300,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:57:42.872Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1805,7 +2322,7 @@
         "it": "selettore-di-ordini-di-investimento-m-f-d-selecta-kirchberg-be",
         "en": "investment-order-picker-m-f-d-selecta-kirchberg-be",
         "de": "anlage-kommissionierer-m-w-d-selecta-kirchberg-be",
-        "fr": "picker-d-ordre-d-investissement-h-f-d-selecta-kirchberg-be"
+        "fr": "anlage-kommissionierer-m-w-d-selecta-kirchberg-be"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -1815,7 +2332,7 @@
         "it": "Selettore di ordini di investimento (m/f/d)",
         "en": "Investment order picker (m/f/d)",
         "de": "Anlage-Kommissionierer (m/w/d)",
-        "fr": "Récupérateur d'ordre d'investissement (h/f/d)"
+        "fr": "Anlage-Kommissionierer (m/w/d)"
       },
       "description": "Anlage-Kommissionierer (m/w/d) 60% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Einzelkommissionierung (Lightspeed-Anlage)\n• Operator-Tätigkeiten (Lightspeed-Anlage)\n• Nachschub- sowie Vorbereitungsarbeiten (Lightspeed-Anlage) Arbeitszeit:\n• Montag bis Freitag\n• Arbeitsbeginn täglich um 10:30 Uhr\n• Arbeitsende individuell nach Arbeitsvolumen, spätestens um 22:00 Uhr Ausbildung\n• Erfahrung in diesem Bereich von Vorteil. Profil\n• Belastbarkeit\n• Flexibilität\n• Erfahrung in körperlicher Arbeit\n• Deutsch oder Englischkenntnisse (Grundvoraussetzung) Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
       "descriptionByLocale": {
@@ -1829,7 +2346,7 @@
       "url": "https://careers.selecta.ch/Job/4634",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:46:57.984Z",
+      "crawledAt": "2026-09-26T14:02:31.202Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1872,6 +2389,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:57:42.726Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1917,7 +2435,7 @@
       "url": "https://careers.selecta.ch/Job/4609",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:46:57.874Z",
+      "crawledAt": "2026-09-26T14:02:31.025Z",
       "addressLocality": "Wädenswil bis Glarus",
       "addressRegion": "GL",
       "streetAddress": "",
@@ -1997,7 +2515,7 @@
       "url": "https://careers.selecta.ch/Job/4608",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:46:57.230Z",
+      "crawledAt": "2026-09-26T14:02:30.294Z",
       "addressLocality": "Dübendorf / Volketswil / Pfäffikon",
       "addressRegion": "ZH",
       "streetAddress": "",

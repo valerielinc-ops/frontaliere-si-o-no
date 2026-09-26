@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gz-dielsdorf",
-  "assembledAt": "2026-09-25T14:56:32.658Z",
+  "assembledAt": "2026-09-26T14:21:27.173Z",
   "jobs": [
     {
       "id": "gz-dielsdorf-ed958c0f08dc",
@@ -33,7 +33,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/e5c95f59-a715-4eec-a78d-1a6385964be0",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:27.290Z",
+      "crawledAt": "2026-09-26T14:21:22.914Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -58,8 +58,7 @@
         "apprenticeship-as-a-merchant-merchant-efz-gesundheitszentrum-dielsdorf-dielsdorf",
         "lehrstelle-als-kauffrau-kaufmann-efz-gz-dielsdorf-dielsdorf",
         "apprentissage-en-tant-que-marchand-marchand-efz-gesundheitszentrum-dielsdorf-dielsdorf",
-        "apprendistato-come-kauffrau-kaufmann-cfc-gesundheitszentrum-dielsdorf",
-        "apprendistato-come-specialista-salute-efz-spitex-gesundheitszentrum-dielsdorf-dielsdorf"
+        "apprendistato-come-kauffrau-kaufmann-cfc-gesundheitszentrum-dielsdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -69,8 +68,7 @@
           "apprenticeship-as-a-merchant-merchant-efz-gesundheitszentrum-dielsdorf-dielsdorf",
           "lehrstelle-als-kauffrau-kaufmann-efz-gz-dielsdorf-dielsdorf",
           "apprentissage-en-tant-que-marchand-marchand-efz-gesundheitszentrum-dielsdorf-dielsdorf",
-          "apprendistato-come-kauffrau-kaufmann-cfc-gesundheitszentrum-dielsdorf",
-          "apprendistato-come-specialista-salute-efz-spitex-gesundheitszentrum-dielsdorf-dielsdorf"
+          "apprendistato-come-kauffrau-kaufmann-cfc-gesundheitszentrum-dielsdorf"
         ],
         "en": [
           "lehrstelle-als-fachfrau-mann-gesundheit-efz-spitex-gz-dielsdorf-dielsdorf",
@@ -97,7 +95,8 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "gz-dielsdorf-4e58a1a56018",
@@ -130,7 +129,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b4a3f004-191e-4d7f-a0ec-0a3ceb9440ac",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:27.287Z",
+      "crawledAt": "2026-09-26T14:21:22.910Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -150,14 +149,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-fachfrau-mann-gesundheit-efz-stationare-pflege-gz-dielsdorf-dielsdorf",
-        "apprendistato-fachfrau-mann-gesundheit-cfc-stationare-pflege-gesundheitszentrum-dielsdorf",
-        "apprendistato-specialista-salute-efz-assistenza-stazionaria-gesundheitszentrum-dielsdorf-dielsdorf"
+        "apprendistato-fachfrau-mann-gesundheit-cfc-stationare-pflege-gesundheitszentrum-dielsdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-fachfrau-mann-gesundheit-efz-stationare-pflege-gz-dielsdorf-dielsdorf",
-          "apprendistato-fachfrau-mann-gesundheit-cfc-stationare-pflege-gesundheitszentrum-dielsdorf",
-          "apprendistato-specialista-salute-efz-assistenza-stazionaria-gesundheitszentrum-dielsdorf-dielsdorf"
+          "apprendistato-fachfrau-mann-gesundheit-cfc-stationare-pflege-gesundheitszentrum-dielsdorf"
         ],
         "en": [
           "lehrstelle-fachfrau-mann-gesundheit-efz-stationare-pflege-gz-dielsdorf-dielsdorf"
@@ -179,7 +176,8 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "gz-dielsdorf-a8aa31ab3419",
@@ -212,7 +210,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/55b861eb-bc65-4532-9e55-5f30a5f33885",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:27.283Z",
+      "crawledAt": "2026-09-26T14:21:22.907Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -232,14 +230,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-assistent-in-gesundheit-und-soziales-eba-stationare-pflege-gz-dielsdorf",
-        "apprendistato-assistent-in-gesundheit-e-soziales-afp-stationare-pflege-gesundheitszentrum-dielsdorf",
-        "assistente-sanitario-e-sociale-eba-assistenza-ospedaliera-gesundheitszentrum-dielsdorf-dielsdorf"
+        "apprendistato-assistent-in-gesundheit-e-soziales-afp-stationare-pflege-gesundheitszentrum-dielsdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-assistent-in-gesundheit-und-soziales-eba-stationare-pflege-gz-dielsdorf",
-          "apprendistato-assistent-in-gesundheit-e-soziales-afp-stationare-pflege-gesundheitszentrum-dielsdorf",
-          "assistente-sanitario-e-sociale-eba-assistenza-ospedaliera-gesundheitszentrum-dielsdorf-dielsdorf"
+          "apprendistato-assistent-in-gesundheit-e-soziales-afp-stationare-pflege-gesundheitszentrum-dielsdorf"
         ],
         "en": [
           "lehrstelle-assistent-in-gesundheit-und-soziales-eba-stationare-pflege-gz-dielsdorf"
@@ -261,7 +257,8 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "gz-dielsdorf-d510e8c5305b",
@@ -294,7 +291,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/a2dc93a9-8497-4645-a300-27e6daa437dd",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:27.280Z",
+      "crawledAt": "2026-09-26T14:21:22.904Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -314,14 +311,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-gz-dielsdorf-dielsdorf",
-        "apprendistato-come-fachfrau-mann-hotellerie-hauswirtschaft-cfc-gesundheitszentrum-dielsdorf",
-        "apprendistato-come-industria-alberghiera-specializzata-efz-gesundheitszentrum-dielsdorf-dielsdorf"
+        "apprendistato-come-fachfrau-mann-hotellerie-hauswirtschaft-cfc-gesundheitszentrum-dielsdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-gz-dielsdorf-dielsdorf",
-          "apprendistato-come-fachfrau-mann-hotellerie-hauswirtschaft-cfc-gesundheitszentrum-dielsdorf",
-          "apprendistato-come-industria-alberghiera-specializzata-efz-gesundheitszentrum-dielsdorf-dielsdorf"
+          "apprendistato-come-fachfrau-mann-hotellerie-hauswirtschaft-cfc-gesundheitszentrum-dielsdorf"
         ],
         "en": [
           "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-gz-dielsdorf-dielsdorf"
@@ -343,7 +338,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "gz-dielsdorf-14ce8bb850dd",
@@ -377,7 +373,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/04fbcd79-75ef-4d5c-bb25-efc2d7a8a3d6",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:27.277Z",
+      "crawledAt": "2026-09-26T14:21:22.901Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -397,14 +393,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-gz-dielsdorf-dielsdorf",
-        "apprendistato-come-praktiker-in-hotellerie-hauswirtschaft-afp-gesundheitszentrum-dielsdorf",
-        "apprendistato-come-praticante-nel-settore-dell-ospitalita-eba-gesundheitszentrum-dielsdorf-dielsdorf"
+        "apprendistato-come-praktiker-in-hotellerie-hauswirtschaft-afp-gesundheitszentrum-dielsdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-gz-dielsdorf-dielsdorf",
-          "apprendistato-come-praktiker-in-hotellerie-hauswirtschaft-afp-gesundheitszentrum-dielsdorf",
-          "apprendistato-come-praticante-nel-settore-dell-ospitalita-eba-gesundheitszentrum-dielsdorf-dielsdorf"
+          "apprendistato-come-praktiker-in-hotellerie-hauswirtschaft-afp-gesundheitszentrum-dielsdorf"
         ],
         "en": [
           "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-gz-dielsdorf-dielsdorf"
@@ -460,7 +454,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/235e85e5-32cf-40da-ad55-3b389ad19a73",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:27.273Z",
+      "crawledAt": "2026-09-26T14:21:22.898Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -479,13 +473,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-gz-dielsdorf-regensdorf",
-        "dipl-professionista-hf-gesundheitszentrum-dielsdorf-regensdorf"
+        "dipl-pflegefachperson-hf-gz-dielsdorf-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-gz-dielsdorf-regensdorf",
-          "dipl-professionista-hf-gesundheitszentrum-dielsdorf-regensdorf"
+          "dipl-pflegefachperson-hf-gz-dielsdorf-regensdorf"
         ],
         "en": [
           "dipl-pflegefachperson-hf-gz-dielsdorf-regensdorf"
@@ -541,7 +533,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/ef32664f-32dd-4c02-8404-68bc87bb25d4",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:27.269Z",
+      "crawledAt": "2026-09-26T14:21:22.894Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -566,8 +558,7 @@
         "degree-in-nursing-at-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf-54ea44",
         "diplome-e-en-soins-infirmiers-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
         "diplome-en-soins-infirmiers-chez-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf-54ea44",
-        "studium-pflegefachfrau-mann-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
-        "studio-infermiere-uomo-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf"
+        "studium-pflegefachfrau-mann-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -577,8 +568,7 @@
           "degree-in-nursing-at-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf-54ea44",
           "diplome-e-en-soins-infirmiers-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
           "diplome-en-soins-infirmiers-chez-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf-54ea44",
-          "studium-pflegefachfrau-mann-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
-          "studio-infermiere-uomo-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf"
+          "studium-pflegefachfrau-mann-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf"
         ],
         "en": [
           "degree-in-nursing-at-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
@@ -636,7 +626,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/eabd48e5-84ee-4d19-8697-08af23eb9ff4",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:27.264Z",
+      "crawledAt": "2026-09-26T14:21:22.890Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -656,14 +646,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
-        "dipl-pflegefachperson-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
-        "dipl-professionista-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf"
+        "dipl-pflegefachperson-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
-          "dipl-pflegefachperson-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
-          "dipl-professionista-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf"
+          "dipl-pflegefachperson-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf"
         ]
       },
       "firstSeenAt": "2026-08-26T10:13:16.563Z",
@@ -680,6 +668,81 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "gz-dielsdorf-8a6581967ffa",
+      "slug": "professionista-della-salute-efz-gesundheitszentrum-dielsdorf-regensdorf",
+      "slugByLocale": {
+        "de": "fachperson-gesundheit-efz-gz-dielsdorf-regensdorf",
+        "it": "professionista-della-salute-efz-gesundheitszentrum-dielsdorf-regensdorf",
+        "en": "health-professional-efz-gesundheitszentrum-dielsdorf-regensdorf",
+        "fr": "professionnels-de-la-sante-efz-gesundheitszentrum-dielsdorf-regensdorf"
+      },
+      "company": "Gesundheitszentrum Dielsdorf",
+      "companyKey": "gz-dielsdorf",
+      "companyDomain": "gz-dielsdorf.ch",
+      "title": "Fachperson Gesundheit EFZ",
+      "titleByLocale": {
+        "de": "Fachperson Gesundheit EFZ",
+        "it": "Fachperson Gesundheit CFC",
+        "en": "Fachperson Gesundheit EFZ",
+        "fr": "Fachperson Gesundheit EFZ"
+      },
+      "description": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.</p>\n\nAufgaben:\n• Selbständige Ausführung der Grund- und Behandlungspflege von Bewohnenden im Bezugspersonen- System\n\n• Zusammenarbeit im multiprofessionellen Team\n\n• Übernahme der Tagesverantwortung\n\n• Sicherstellung der Einhaltung innerbetrieblicher Weisungen (Pflegerichtlinien, Weisungen)\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Zeitgemässe IT-Kenntnisse (MS Office, Perigon)\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unserem Restaurant und Gratisparkplätzen.",
+      "descriptionByLocale": {
+        "de": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.</p>\n\nAufgaben:\n• Selbständige Ausführung der Grund- und Behandlungspflege von Bewohnenden im Bezugspersonen- System\n\n• Zusammenarbeit im multiprofessionellen Team\n\n• Übernahme der Tagesverantwortung\n\n• Sicherstellung der Einhaltung innerbetrieblicher Weisungen (Pflegerichtlinien, Weisungen)\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Zeitgemässe IT-Kenntnisse (MS Office, Perigon)\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unserem Restaurant und Gratisparkplätzen.",
+        "it": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.</p>\n\nAufgaben:\n• Selbständige Ausführung der Grund- und Behandlungspflege von Bewohnenden im Bezugspersonen- System\n\n• Zusammenarbeit im multiprofessionellen Team\n\n• Übernahme der Tagesverantwortung\n\n• Sicherstellung der Einhaltung innerbetrieblicher Weisungen (Pflegerichtlinien, Weisungen)\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Zeitgemässe IT-Kenntnisse (MS Office, Perigon)\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unserem Restaurant und Gratisparkplätzen.",
+        "en": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.</p>\n\nAufgaben:\n• Selbständige Ausführung der Grund- und Behandlungspflege von Bewohnenden im Bezugspersonen- System\n\n• Zusammenarbeit im multiprofessionellen Team\n\n• Übernahme der Tagesverantwortung\n\n• Sicherstellung der Einhaltung innerbetrieblicher Weisungen (Pflegerichtlinien, Weisungen)\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Zeitgemässe IT-Kenntnisse (MS Office, Perigon)\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unserem Restaurant und Gratisparkplätzen.",
+        "fr": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.</p>\n\nAufgaben:\n• Selbständige Ausführung der Grund- und Behandlungspflege von Bewohnenden im Bezugspersonen- System\n\n• Zusammenarbeit im multiprofessionellen Team\n\n• Übernahme der Tagesverantwortung\n\n• Sicherstellung der Einhaltung innerbetrieblicher Weisungen (Pflegerichtlinien, Weisungen)\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Zeitgemässe IT-Kenntnisse (MS Office, Perigon)\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unserem Restaurant und Gratisparkplätzen."
+      },
+      "needsRetranslation": true,
+      "location": "Regensdorf",
+      "canton": "ZH",
+      "url": "https://ohws.prospective.ch/public/v1/jobs/c0bd766a-b33b-4462-91d6-dfb91567611a",
+      "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T14:21:22.884Z",
+      "addressLocality": "Regensdorf",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8105",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-26",
+      "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/709/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-efz-gz-dielsdorf-regensdorf"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-efz-gz-dielsdorf-regensdorf"
+      ],
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-28T05:38:21.569Z"
     },
     {
       "id": "gz-dielsdorf-14da8d4c2599",
@@ -712,7 +775,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/cdf67d19-7ead-4813-98aa-8745f8f831ef",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:27.259Z",
+      "crawledAt": "2026-09-26T14:21:22.880Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -732,14 +795,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachperson-gesundheit-efz-gz-dielsdorf-regensdorf",
-        "fachperson-gesundheit-efz-gz-dielsdorf-regensdorf-2",
-        "professionista-della-salute-efz-gesundheitszentrum-dielsdorf-regensdorf-d55a6e"
+        "fachperson-gesundheit-efz-gz-dielsdorf-regensdorf-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-efz-gz-dielsdorf-regensdorf",
-          "fachperson-gesundheit-efz-gz-dielsdorf-regensdorf-2",
-          "professionista-della-salute-efz-gesundheitszentrum-dielsdorf-regensdorf-d55a6e"
+          "fachperson-gesundheit-efz-gz-dielsdorf-regensdorf-2"
         ],
         "en": [
           "fachperson-gesundheit-efz-gz-dielsdorf-regensdorf-2"
@@ -764,7 +825,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "gz-dielsdorf-e1db42728d12",
@@ -798,7 +860,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/41427caf-48cd-4b48-8042-a98f049f9e8d",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:27.250Z",
+      "crawledAt": "2026-09-26T14:21:22.875Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -818,14 +880,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "studium-pflegefachfrau-mann-hf-fachrichtung-langzeitpflege-gz-dielsdorf-dielsdorf",
-        "studium-pflegefachfrau-mann-hf-specializzazione-langzeitpflege-gesundheitszentrum-dielsdorf",
-        "studio-specialista-in-allattamento-hf-specializzazione-in-assistenza-a-lungo-termine-gesundheitszentrum-dielsdorf"
+        "studium-pflegefachfrau-mann-hf-specializzazione-langzeitpflege-gesundheitszentrum-dielsdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "studium-pflegefachfrau-mann-hf-fachrichtung-langzeitpflege-gz-dielsdorf-dielsdorf",
-          "studium-pflegefachfrau-mann-hf-specializzazione-langzeitpflege-gesundheitszentrum-dielsdorf",
-          "studio-specialista-in-allattamento-hf-specializzazione-in-assistenza-a-lungo-termine-gesundheitszentrum-dielsdorf"
+          "studium-pflegefachfrau-mann-hf-specializzazione-langzeitpflege-gesundheitszentrum-dielsdorf"
         ],
         "en": [
           "studium-pflegefachfrau-mann-hf-fachrichtung-langzeitpflege-gz-dielsdorf-dielsdorf"
@@ -881,7 +941,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/8d84d081-7e87-4972-974d-b9bd8bbe0743",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:27.246Z",
+      "crawledAt": "2026-09-26T14:21:22.870Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -904,15 +964,13 @@
         "collaboratore-trice-hauswirtschaft-reinigung-gesundheitszentrum-dielsdorf",
         "collaboratore-trice-hauswirtschaft-reinigung-gesundheitszentrum-dielsdorf-dielsdorf",
         "associate-hauswirtschaft-reinigung-gesundheitszentrum-dielsdorf-dielsdorf",
-        "collaborateur-trice-hauswirtschaft-reinigung-gesundheitszentrum-dielsdorf-dielsdorf",
-        "dipendenti-pulizia-pulizia-gesundheitszentrum-dielsdorf-dielsdorf"
+        "collaborateur-trice-hauswirtschaft-reinigung-gesundheitszentrum-dielsdorf-dielsdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-hauswirtschaft-reinigung-gz-dielsdorf-dielsdorf",
           "collaboratore-trice-hauswirtschaft-reinigung-gesundheitszentrum-dielsdorf",
-          "collaboratore-trice-hauswirtschaft-reinigung-gesundheitszentrum-dielsdorf-dielsdorf",
-          "dipendenti-pulizia-pulizia-gesundheitszentrum-dielsdorf-dielsdorf"
+          "collaboratore-trice-hauswirtschaft-reinigung-gesundheitszentrum-dielsdorf-dielsdorf"
         ],
         "en": [
           "mitarbeiter-in-hauswirtschaft-reinigung-gz-dielsdorf-dielsdorf",
@@ -970,7 +1028,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/82fb90bd-4339-4661-8d29-42f027a567b5",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:27.241Z",
+      "crawledAt": "2026-09-26T14:21:22.866Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -992,14 +1050,12 @@
         "mitarbeiter-in-hauswirtschaft-service-gz-dielsdorf-dielsdorf",
         "collaboratore-trice-hauswirtschaft-service-gesundheitszentrum-dielsdorf",
         "associate-hauswirtschaft-service-gesundheitszentrum-dielsdorf-dielsdorf",
-        "collaborateur-trice-hauswirtschaft-service-gesundheitszentrum-dielsdorf-dielsdorf",
-        "dipendenti-servizio-di-pulizia-servizio-gesundheitszentrum-dielsdorf-dielsdorf"
+        "collaborateur-trice-hauswirtschaft-service-gesundheitszentrum-dielsdorf-dielsdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-hauswirtschaft-service-gz-dielsdorf-dielsdorf",
-          "collaboratore-trice-hauswirtschaft-service-gesundheitszentrum-dielsdorf",
-          "dipendenti-servizio-di-pulizia-servizio-gesundheitszentrum-dielsdorf-dielsdorf"
+          "collaboratore-trice-hauswirtschaft-service-gesundheitszentrum-dielsdorf"
         ],
         "en": [
           "mitarbeiter-in-hauswirtschaft-service-gz-dielsdorf-dielsdorf",
@@ -1056,7 +1112,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/1b05578b-b070-46ab-9533-43d30cf15b59",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:27.236Z",
+      "crawledAt": "2026-09-26T14:21:22.861Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1075,13 +1131,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf",
-        "salute-professionale-efz-spitex-gesundheitszentrum-dielsdorf-regensdorf-40455b"
+        "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf",
-          "salute-professionale-efz-spitex-gesundheitszentrum-dielsdorf-regensdorf-40455b"
+          "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf"
         ],
         "en": [
           "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf"
@@ -1103,7 +1157,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "gz-dielsdorf-2ae3e085d18f",
@@ -1136,7 +1191,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b1c73df1-bba5-47bb-a4ce-aae61d6f316b",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:27.231Z",
+      "crawledAt": "2026-09-26T14:21:22.858Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1155,13 +1210,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-efz-gz-dielsdorf-dielsdorf",
-        "chef-koch-efz-gesundheitszentrum-dielsdorf-dielsdorf"
+        "kochin-koch-efz-gz-dielsdorf-dielsdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-efz-gz-dielsdorf-dielsdorf",
-          "chef-koch-efz-gesundheitszentrum-dielsdorf-dielsdorf"
+          "kochin-koch-efz-gz-dielsdorf-dielsdorf"
         ],
         "en": [
           "kochin-koch-efz-gz-dielsdorf-dielsdorf"
@@ -1183,7 +1236,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "gz-dielsdorf-4b685baadaef",
@@ -1216,7 +1270,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/40f16983-a20e-41f2-86c4-84680efa2218",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:27.225Z",
+      "crawledAt": "2026-09-26T14:21:22.853Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1236,14 +1290,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-spitex-fachrichtung-psychiatrie-gz-dielsdorf-regensdorf",
-        "dipl-pflegefachperson-hf-spitex-specializzazione-psychiatrie-gesundheitszentrum-dielsdorf-regensdorf",
-        "dipl-infermiera-hf-spitex-specializzata-in-psichiatria-gesundheitszentrum-dielsdorf-regensdorf"
+        "dipl-pflegefachperson-hf-spitex-specializzazione-psychiatrie-gesundheitszentrum-dielsdorf-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-spitex-fachrichtung-psychiatrie-gz-dielsdorf-regensdorf",
-          "dipl-pflegefachperson-hf-spitex-specializzazione-psychiatrie-gesundheitszentrum-dielsdorf-regensdorf",
-          "dipl-infermiera-hf-spitex-specializzata-in-psichiatria-gesundheitszentrum-dielsdorf-regensdorf"
+          "dipl-pflegefachperson-hf-spitex-specializzazione-psychiatrie-gesundheitszentrum-dielsdorf-regensdorf"
         ],
         "en": [
           "dipl-pflegefachperson-hf-spitex-fachrichtung-psychiatrie-gz-dielsdorf-regensdorf"
@@ -1265,7 +1317,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "gz-dielsdorf-d040264e32e6",
@@ -1299,7 +1352,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/8f551c5a-87eb-41fb-aeb6-69b25719b70f",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:27.213Z",
+      "crawledAt": "2026-09-26T14:21:22.848Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1319,14 +1372,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lohnverantwortliche-r-80-gz-dielsdorf-dielsdorf",
-        "lohnverantwortliche-r-80-gesundheitszentrum-dielsdorf-dielsdorf",
-        "responsabile-dei-salari-r-80-gesundheitszentrum-dielsdorf-dielsdorf"
+        "lohnverantwortliche-r-80-gesundheitszentrum-dielsdorf-dielsdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lohnverantwortliche-r-80-gz-dielsdorf-dielsdorf",
-          "lohnverantwortliche-r-80-gesundheitszentrum-dielsdorf-dielsdorf",
-          "responsabile-dei-salari-r-80-gesundheitszentrum-dielsdorf-dielsdorf"
+          "lohnverantwortliche-r-80-gesundheitszentrum-dielsdorf-dielsdorf"
         ],
         "en": [
           "lohnverantwortliche-r-80-gesundheitszentrum-dielsdorf-dielsdorf"
@@ -1350,13 +1401,214 @@
       }
     },
     {
+      "id": "gz-dielsdorf-49654237aba4",
+      "slug": "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf",
+      "slugByLocale": {
+        "de": "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf",
+        "it": "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf",
+        "en": "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf",
+        "fr": "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf"
+      },
+      "company": "Gesundheitszentrum Dielsdorf",
+      "companyKey": "gz-dielsdorf",
+      "companyDomain": "gz-dielsdorf.ch",
+      "title": "Fachperson Gesundheit EFZ Spitex",
+      "titleByLocale": {
+        "de": "Fachperson Gesundheit EFZ Spitex",
+        "it": "Fachperson Gesundheit CFC Spitex",
+        "en": "Fachperson Gesundheit EFZ Spitex",
+        "fr": "Fachperson Gesundheit EFZ Spitex"
+      },
+      "description": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Als grösste öffentliche Spitex im Bezirk Dielsdorf erbringen wir ambulante Leistungen für unsere neun Vertragsgemeinden. Mit unserem umfassenden Pflegeangebot ermöglichen wir es Menschen, trotz gesundheitlicher Einschränkungen so lange wie möglich in ihrem gewohnten Zuhause zu bleiben. Zukünftig ist geplant, eine Nachtspitex zu etablieren.</p>\n\nAufgaben:\n• Pflege, Betreuung und hauswirtschaftliche Arbeiten bei unseren Klientinnen und Klienten zu Hause\n\n• Sicherstellung des Pflegeprozesses\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Zeitgemässe IT-Kenntnisse (MS Office, Perigon)\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Führerausweis Kat. B\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, Lunch-Checks, Vergünstigung bei SBB und Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unseren Restaurants und Gratisparkplätzen.",
+      "descriptionByLocale": {
+        "de": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Als grösste öffentliche Spitex im Bezirk Dielsdorf erbringen wir ambulante Leistungen für unsere neun Vertragsgemeinden. Mit unserem umfassenden Pflegeangebot ermöglichen wir es Menschen, trotz gesundheitlicher Einschränkungen so lange wie möglich in ihrem gewohnten Zuhause zu bleiben. Zukünftig ist geplant, eine Nachtspitex zu etablieren.</p>\n\nAufgaben:\n• Pflege, Betreuung und hauswirtschaftliche Arbeiten bei unseren Klientinnen und Klienten zu Hause\n\n• Sicherstellung des Pflegeprozesses\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Zeitgemässe IT-Kenntnisse (MS Office, Perigon)\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Führerausweis Kat. B\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, Lunch-Checks, Vergünstigung bei SBB und Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unseren Restaurants und Gratisparkplätzen.",
+        "it": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Als grösste öffentliche Spitex im Bezirk Dielsdorf erbringen wir ambulante Leistungen für unsere neun Vertragsgemeinden. Mit unserem umfassenden Pflegeangebot ermöglichen wir es Menschen, trotz gesundheitlicher Einschränkungen so lange wie möglich in ihrem gewohnten Zuhause zu bleiben. Zukünftig ist geplant, eine Nachtspitex zu etablieren.</p>\n\nAufgaben:\n• Pflege, Betreuung und hauswirtschaftliche Arbeiten bei unseren Klientinnen und Klienten zu Hause\n\n• Sicherstellung des Pflegeprozesses\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Zeitgemässe IT-Kenntnisse (MS Office, Perigon)\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Führerausweis Kat. B\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, Lunch-Checks, Vergünstigung bei SBB und Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unseren Restaurants und Gratisparkplätzen.",
+        "en": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Als grösste öffentliche Spitex im Bezirk Dielsdorf erbringen wir ambulante Leistungen für unsere neun Vertragsgemeinden. Mit unserem umfassenden Pflegeangebot ermöglichen wir es Menschen, trotz gesundheitlicher Einschränkungen so lange wie möglich in ihrem gewohnten Zuhause zu bleiben. Zukünftig ist geplant, eine Nachtspitex zu etablieren.</p>\n\nAufgaben:\n• Pflege, Betreuung und hauswirtschaftliche Arbeiten bei unseren Klientinnen und Klienten zu Hause\n\n• Sicherstellung des Pflegeprozesses\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Zeitgemässe IT-Kenntnisse (MS Office, Perigon)\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Führerausweis Kat. B\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, Lunch-Checks, Vergünstigung bei SBB und Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unseren Restaurants und Gratisparkplätzen.",
+        "fr": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Als grösste öffentliche Spitex im Bezirk Dielsdorf erbringen wir ambulante Leistungen für unsere neun Vertragsgemeinden. Mit unserem umfassenden Pflegeangebot ermöglichen wir es Menschen, trotz gesundheitlicher Einschränkungen so lange wie möglich in ihrem gewohnten Zuhause zu bleiben. Zukünftig ist geplant, eine Nachtspitex zu etablieren.</p>\n\nAufgaben:\n• Pflege, Betreuung und hauswirtschaftliche Arbeiten bei unseren Klientinnen und Klienten zu Hause\n\n• Sicherstellung des Pflegeprozesses\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Zeitgemässe IT-Kenntnisse (MS Office, Perigon)\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Führerausweis Kat. B\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, Lunch-Checks, Vergünstigung bei SBB und Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unseren Restaurants und Gratisparkplätzen."
+      },
+      "needsRetranslation": true,
+      "location": "Regensdorf",
+      "canton": "ZH",
+      "url": "https://ohws.prospective.ch/public/v1/jobs/95c4d58f-6a7a-4f58-b379-850fda14f411",
+      "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T14:21:22.844Z",
+      "addressLocality": "Regensdorf",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8105",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-24",
+      "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/683/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-18T14:20:10.585Z"
+    },
+    {
+      "id": "gz-dielsdorf-f7c2f23043e5",
+      "slug": "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
+      "slugByLocale": {
+        "de": "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
+        "it": "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
+        "en": "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
+        "fr": "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf"
+      },
+      "company": "Gesundheitszentrum Dielsdorf",
+      "companyKey": "gz-dielsdorf",
+      "companyDomain": "gz-dielsdorf.ch",
+      "title": "Dipl. Pflegefachperson HF Spitex",
+      "titleByLocale": {
+        "de": "Dipl. Pflegefachperson HF Spitex",
+        "it": "Dipl. Pflegefachperson HF Spitex",
+        "en": "Dipl. Pflegefachperson HF Spitex",
+        "fr": "Dipl. Pflegefachperson HF Spitex"
+      },
+      "description": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Als grösste öffentliche Spitex im Bezirk Dielsdorf erbringen wir ambulante Leistungen für unsere neun Vertragsgemeinden. Mit unserem umfassenden Pflegeangebot ermöglichen wir es Menschen, trotz gesundheitlicher Einschränkungen so lange wie möglich in ihrem gewohnten Zuhause zu bleiben. Zukünftig ist geplant, eine Nachtspitex zu etablieren.</p>\n\nAufgaben:\n• Pflege und Betreuung bei unseren Klientinnen und Klienten zu Hause\n\n• Sicherstellung des Pflegeprozesses\n\n• Führung von Beratungsgesprächen\n\n• Verantwortung für die fachliche und organisatorische Koordination des Spitex-Betriebs während Abend-, Wochenend- und Feiertagsdiensten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson DN I/DN II/HF/FH\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Zeitgemässe IT-Kenntnisse (MS Office, Perigon)\n\n• Führerausweis Kat. B\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, Lunch-Checks, Vergünstigung bei SBB und Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unseren Restaurants und Gratisparkplätzen.",
+      "descriptionByLocale": {
+        "de": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Als grösste öffentliche Spitex im Bezirk Dielsdorf erbringen wir ambulante Leistungen für unsere neun Vertragsgemeinden. Mit unserem umfassenden Pflegeangebot ermöglichen wir es Menschen, trotz gesundheitlicher Einschränkungen so lange wie möglich in ihrem gewohnten Zuhause zu bleiben. Zukünftig ist geplant, eine Nachtspitex zu etablieren.</p>\n\nAufgaben:\n• Pflege und Betreuung bei unseren Klientinnen und Klienten zu Hause\n\n• Sicherstellung des Pflegeprozesses\n\n• Führung von Beratungsgesprächen\n\n• Verantwortung für die fachliche und organisatorische Koordination des Spitex-Betriebs während Abend-, Wochenend- und Feiertagsdiensten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson DN I/DN II/HF/FH\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Zeitgemässe IT-Kenntnisse (MS Office, Perigon)\n\n• Führerausweis Kat. B\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, Lunch-Checks, Vergünstigung bei SBB und Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unseren Restaurants und Gratisparkplätzen.",
+        "it": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Als grösste öffentliche Spitex im Bezirk Dielsdorf erbringen wir ambulante Leistungen für unsere neun Vertragsgemeinden. Mit unserem umfassenden Pflegeangebot ermöglichen wir es Menschen, trotz gesundheitlicher Einschränkungen so lange wie möglich in ihrem gewohnten Zuhause zu bleiben. Zukünftig ist geplant, eine Nachtspitex zu etablieren.</p>\n\nAufgaben:\n• Pflege und Betreuung bei unseren Klientinnen und Klienten zu Hause\n\n• Sicherstellung des Pflegeprozesses\n\n• Führung von Beratungsgesprächen\n\n• Verantwortung für die fachliche und organisatorische Koordination des Spitex-Betriebs während Abend-, Wochenend- und Feiertagsdiensten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson DN I/DN II/HF/FH\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Zeitgemässe IT-Kenntnisse (MS Office, Perigon)\n\n• Führerausweis Kat. B\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, Lunch-Checks, Vergünstigung bei SBB und Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unseren Restaurants und Gratisparkplätzen.",
+        "en": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Als grösste öffentliche Spitex im Bezirk Dielsdorf erbringen wir ambulante Leistungen für unsere neun Vertragsgemeinden. Mit unserem umfassenden Pflegeangebot ermöglichen wir es Menschen, trotz gesundheitlicher Einschränkungen so lange wie möglich in ihrem gewohnten Zuhause zu bleiben. Zukünftig ist geplant, eine Nachtspitex zu etablieren.</p>\n\nAufgaben:\n• Pflege und Betreuung bei unseren Klientinnen und Klienten zu Hause\n\n• Sicherstellung des Pflegeprozesses\n\n• Führung von Beratungsgesprächen\n\n• Verantwortung für die fachliche und organisatorische Koordination des Spitex-Betriebs während Abend-, Wochenend- und Feiertagsdiensten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson DN I/DN II/HF/FH\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Zeitgemässe IT-Kenntnisse (MS Office, Perigon)\n\n• Führerausweis Kat. B\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, Lunch-Checks, Vergünstigung bei SBB und Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unseren Restaurants und Gratisparkplätzen.",
+        "fr": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Als grösste öffentliche Spitex im Bezirk Dielsdorf erbringen wir ambulante Leistungen für unsere neun Vertragsgemeinden. Mit unserem umfassenden Pflegeangebot ermöglichen wir es Menschen, trotz gesundheitlicher Einschränkungen so lange wie möglich in ihrem gewohnten Zuhause zu bleiben. Zukünftig ist geplant, eine Nachtspitex zu etablieren.</p>\n\nAufgaben:\n• Pflege und Betreuung bei unseren Klientinnen und Klienten zu Hause\n\n• Sicherstellung des Pflegeprozesses\n\n• Führung von Beratungsgesprächen\n\n• Verantwortung für die fachliche und organisatorische Koordination des Spitex-Betriebs während Abend-, Wochenend- und Feiertagsdiensten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson DN I/DN II/HF/FH\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Zeitgemässe IT-Kenntnisse (MS Office, Perigon)\n\n• Führerausweis Kat. B\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, Lunch-Checks, Vergünstigung bei SBB und Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unseren Restaurants und Gratisparkplätzen."
+      },
+      "needsRetranslation": true,
+      "location": "Regensdorf",
+      "canton": "ZH",
+      "url": "https://ohws.prospective.ch/public/v1/jobs/37878915-a625-4a99-835e-163765318811",
+      "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T14:21:22.839Z",
+      "addressLocality": "Regensdorf",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8105",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-24",
+      "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/680/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-26T10:13:16.563Z"
+    },
+    {
+      "id": "gz-dielsdorf-02e674140e41",
+      "slug": "fachperson-gesundheit-efz-gz-dielsdorf-regensdorf",
+      "slugByLocale": {
+        "de": "fachperson-gesundheit-efz-gz-dielsdorf-regensdorf",
+        "it": "fachperson-gesundheit-efz-gz-dielsdorf-regensdorf",
+        "en": "fachperson-gesundheit-efz-gz-dielsdorf-regensdorf",
+        "fr": "fachperson-gesundheit-efz-gz-dielsdorf-regensdorf"
+      },
+      "company": "Gesundheitszentrum Dielsdorf",
+      "companyKey": "gz-dielsdorf",
+      "companyDomain": "gz-dielsdorf.ch",
+      "title": "Fachperson Gesundheit EFZ",
+      "titleByLocale": {
+        "de": "Fachperson Gesundheit EFZ",
+        "it": "Fachperson Gesundheit CFC",
+        "en": "Fachperson Gesundheit EFZ",
+        "fr": "Fachperson Gesundheit EFZ"
+      },
+      "description": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.</p>\n\nAufgaben:\n• Selbständige Ausführung der Grund- und Behandlungspflege von Bewohnenden im Bezugspersonen- System\n\n• Zusammenarbeit im multiprofessionellen Team\n\n• Übernahme der Tagesverantwortung\n\n• Sicherstellung der Einhaltung innerbetrieblicher Weisungen (Pflegerichtlinien, Weisungen)\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Zeitgemässe IT-Kenntnisse (MS Office, Perigon)\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unserem Restaurant und Gratisparkplätzen.",
+      "descriptionByLocale": {
+        "de": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.</p>\n\nAufgaben:\n• Selbständige Ausführung der Grund- und Behandlungspflege von Bewohnenden im Bezugspersonen- System\n\n• Zusammenarbeit im multiprofessionellen Team\n\n• Übernahme der Tagesverantwortung\n\n• Sicherstellung der Einhaltung innerbetrieblicher Weisungen (Pflegerichtlinien, Weisungen)\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Zeitgemässe IT-Kenntnisse (MS Office, Perigon)\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unserem Restaurant und Gratisparkplätzen.",
+        "it": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.</p>\n\nAufgaben:\n• Selbständige Ausführung der Grund- und Behandlungspflege von Bewohnenden im Bezugspersonen- System\n\n• Zusammenarbeit im multiprofessionellen Team\n\n• Übernahme der Tagesverantwortung\n\n• Sicherstellung der Einhaltung innerbetrieblicher Weisungen (Pflegerichtlinien, Weisungen)\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Zeitgemässe IT-Kenntnisse (MS Office, Perigon)\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unserem Restaurant und Gratisparkplätzen.",
+        "en": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.</p>\n\nAufgaben:\n• Selbständige Ausführung der Grund- und Behandlungspflege von Bewohnenden im Bezugspersonen- System\n\n• Zusammenarbeit im multiprofessionellen Team\n\n• Übernahme der Tagesverantwortung\n\n• Sicherstellung der Einhaltung innerbetrieblicher Weisungen (Pflegerichtlinien, Weisungen)\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Zeitgemässe IT-Kenntnisse (MS Office, Perigon)\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unserem Restaurant und Gratisparkplätzen.",
+        "fr": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Am Standort Regensdorf bieten wir 54 Bewohnenden ein familiäres Umfeld mit professioneller Pflegebetreuung an.</p>\n\nAufgaben:\n• Selbständige Ausführung der Grund- und Behandlungspflege von Bewohnenden im Bezugspersonen- System\n\n• Zusammenarbeit im multiprofessionellen Team\n\n• Übernahme der Tagesverantwortung\n\n• Sicherstellung der Einhaltung innerbetrieblicher Weisungen (Pflegerichtlinien, Weisungen)\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Zeitgemässe IT-Kenntnisse (MS Office, Perigon)\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Wir befinden uns in ländlicher Lage mit guten öffentlichen Verkehrsanbindungen. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, vergünstigten Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unserem Restaurant und Gratisparkplätzen."
+      },
+      "needsRetranslation": true,
+      "location": "Regensdorf",
+      "canton": "ZH",
+      "url": "https://ohws.prospective.ch/public/v1/jobs/cb972e87-7c38-4eb5-a2f3-9ea43b426eb0",
+      "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T14:21:22.831Z",
+      "addressLocality": "Regensdorf",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8105",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-24",
+      "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/710/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-28T05:38:21.569Z"
+    },
+    {
       "id": "gz-dielsdorf-7e05032d6a2a",
       "slug": "assistente-hr-in-gesundheitszentrum-dielsdorf-dielsdorf",
       "slugByLocale": {
         "it": "assistente-hr-in-gesundheitszentrum-dielsdorf-dielsdorf",
-        "en": "hr-generalist-gesundheitszentrum-dielsdorf",
+        "en": "hr-assistant-in-gesundheitszentrum-dielsdorf-dielsdorf",
         "de": "hr-generalist-in-gesundheitszentrum-dielsdorf",
-        "fr": "generaliste-rh-gesundheitszentrum-dielsdorf"
+        "fr": "assistant-rh-gesundheitszentrum-dielsdorf-dielsdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -1410,13 +1662,11 @@
         "en": [
           "hr-assistent-in-gz-dielsdorf-dielsdorf",
           "hr-generalist-in-gesundheitszentrum-dielsdorf",
-          "hr-assistant-in-gesundheitszentrum-dielsdorf-dielsdorf",
           "hr-generalist-gesundheitszentrum-dielsdorf"
         ],
         "fr": [
           "hr-assistent-in-gz-dielsdorf-dielsdorf",
           "ressources-humaines-generalist-in-gesundheitszentrum-dielsdorf",
-          "assistant-rh-gesundheitszentrum-dielsdorf-dielsdorf",
           "generaliste-rh-gesundheitszentrum-dielsdorf"
         ]
       },
@@ -1425,8 +1675,6 @@
         "hr-generalist-in-gz-dielsdorf-dielsdorf",
         "ressources-humaines-generalist-in-gesundheitszentrum-dielsdorf",
         "hr-generalist-in-gesundheitszentrum-dielsdorf",
-        "hr-assistant-in-gesundheitszentrum-dielsdorf-dielsdorf",
-        "assistant-rh-gesundheitszentrum-dielsdorf-dielsdorf",
         "hr-generalist-gesundheitszentrum-dielsdorf",
         "generaliste-rh-gesundheitszentrum-dielsdorf"
       ],
@@ -1444,7 +1692,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }

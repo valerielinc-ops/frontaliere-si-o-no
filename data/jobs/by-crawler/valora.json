@@ -1,6 +1,6 @@
 {
   "crawlerKey": "valora",
-  "assembledAt": "2026-09-26T12:21:39.057Z",
+  "assembledAt": "2026-09-26T13:54:57.601Z",
   "jobs": [
     {
       "id": "valora-fe3aaf06b9b5",
@@ -33,7 +33,7 @@
       "url": "https://career.valora.com/en/job/229/agenturpartnerin-agenturpartner-kanton-graubunden",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:44:17.867Z",
+      "crawledAt": "2026-09-26T13:54:50.419Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "streetAddress": "Hofackerstrasse 40",
@@ -53,11 +53,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "agenturpartnerin-agenturpartner-kanton-graubunden-valora-muttenz"
+        "agenturpartnerin-agenturpartner-kanton-graubunden-valora-muttenz",
+        "agenturpartnerin-agenturpartner-kanton-grigio-valora-group-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agenturpartnerin-agenturpartner-kanton-graubunden-valora-muttenz"
+          "agenturpartnerin-agenturpartner-kanton-graubunden-valora-muttenz",
+          "agenturpartnerin-agenturpartner-kanton-grigio-valora-group-muttenz"
         ],
         "fr": [
           "agenturpartnerin-agenturpartner-kanton-graubunden-valora-muttenz"
@@ -110,7 +112,7 @@
       "url": "https://career.valora.com/en/job/4743/agenturpartnerin-agenturpartner-prattigau",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:44:17.866Z",
+      "crawledAt": "2026-09-26T13:54:50.418Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "streetAddress": "Hofackerstrasse 40",
@@ -176,7 +178,7 @@
       "url": "https://career.valora.com/en/job/5864/verkauferin-verkaufer-avec-8-6-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.865Z",
+      "crawledAt": "2026-09-26T13:54:50.415Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Könizstrasse 12a",
@@ -196,11 +198,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkaufer-avec-8-6-std-valora-bern"
+        "verkauferin-verkaufer-avec-8-6-std-valora-bern",
+        "venditore-venditore-avec-8-6-ore-valora-group-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-avec-8-6-std-valora-bern"
+          "verkauferin-verkaufer-avec-8-6-std-valora-bern",
+          "venditore-venditore-avec-8-6-ore-valora-group-bern"
         ],
         "en": [
           "verkauferin-verkaufer-avec-8-6-std-valora-bern"
@@ -256,7 +260,7 @@
       "url": "https://career.valora.com/en/job/5768/consumer-finance-specialist-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.865Z",
+      "crawledAt": "2026-09-26T13:54:50.417Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Hardturmstrasse 161",
@@ -277,11 +281,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "consumer-finance-specialist-w-m-d-valora-zurich",
-        "financial-applications-specialist-m-f-d-valora-group-zurich"
+        "financial-applications-specialist-m-f-d-valora-group-zurich",
+        "consumer-finanza-specialista-w-m-d-valora-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "consumer-finance-specialist-w-m-d-valora-zurich"
+          "consumer-finance-specialist-w-m-d-valora-zurich",
+          "consumer-finanza-specialista-w-m-d-valora-group-zurich"
         ],
         "en": [
           "consumer-finance-specialist-w-m-d-valora-zurich",
@@ -292,6 +298,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:43:13.465Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -337,7 +344,7 @@
       "url": "https://career.valora.com/en/job/5792/verkauferin-verkaufer-k-kiosk-15-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.864Z",
+      "crawledAt": "2026-09-26T13:54:50.414Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "Bern",
       "streetAddress": "Dorfstrasse 32",
@@ -358,11 +365,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
-        "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-jo1dne"
+        "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-jo1dne",
+        "venditore-k-chiosco-15-ore-valora-group-uetendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
+          "venditore-k-chiosco-15-ore-valora-group-uetendorf"
         ],
         "en": [
           "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
@@ -420,7 +429,7 @@
       "url": "https://career.valora.com/en/job/5635/verkauferin-verkaufer-k-kiosk-13-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.863Z",
+      "crawledAt": "2026-09-26T13:54:50.412Z",
       "addressLocality": "Derendingen",
       "addressRegion": "Solothurn",
       "streetAddress": "Hauptstrasse 22",
@@ -445,7 +454,8 @@
         "seller-seller-k-kiosk-13-hours-valora-group-biberist-d6764a",
         "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist",
         "vendeur-vendeur-k-kiosque-13-heures-valora-group-biberist-d6764a",
-        "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist-2"
+        "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist-2",
+        "venditore-venditore-k-kiosk-13-ore-valora-group-derendingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -454,7 +464,8 @@
           "seller-seller-k-kiosk-13-hours-valora-group-biberist-d6764a",
           "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist",
           "vendeur-vendeur-k-kiosque-13-heures-valora-group-biberist-d6764a",
-          "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist-2"
+          "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist-2",
+          "venditore-venditore-k-kiosk-13-ore-valora-group-derendingen"
         ],
         "en": [
           "verkauferin-verkaufer-k-kiosk-13-std-valora-derendingen",
@@ -514,7 +525,7 @@
       "url": "https://career.valora.com/en/job/5996/barista-caffe-spettacolo-16-4-h-h-f-x",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:44:17.861Z",
+      "crawledAt": "2026-09-26T13:54:50.409Z",
       "addressLocality": "Lausanne",
       "addressRegion": "Waadt",
       "streetAddress": "Rue des Terreaux 25",
@@ -587,7 +598,7 @@
       "url": "https://career.valora.com/en/job/5728/manager-integration-services-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.859Z",
+      "crawledAt": "2026-09-26T13:54:50.406Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -607,11 +618,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manager-integration-services-w-m-d-valora-muttenz"
+        "manager-integration-services-w-m-d-valora-muttenz",
+        "servizi-di-integrazione-manager-f-m-d-valora-group-muttenz-4db532"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-integration-services-w-m-d-valora-muttenz"
+          "manager-integration-services-w-m-d-valora-muttenz",
+          "servizi-di-integrazione-manager-f-m-d-valora-group-muttenz-4db532"
         ],
         "fr": [
           "manager-integration-services-w-m-d-valora-muttenz"
@@ -663,7 +676,7 @@
       "url": "https://career.valora.com/en/job/5772/manager-integration-services-f-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:44:17.858Z",
+      "crawledAt": "2026-09-26T13:54:50.405Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -683,11 +696,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manager-integration-services-f-m-d-valora-muttenz"
+        "manager-integration-services-f-m-d-valora-muttenz",
+        "servizi-di-integrazione-manager-f-m-d-valora-group-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-integration-services-f-m-d-valora-muttenz"
+          "manager-integration-services-f-m-d-valora-muttenz",
+          "servizi-di-integrazione-manager-f-m-d-valora-group-muttenz"
         ],
         "de": [
           "manager-integration-services-f-m-d-valora-muttenz"
@@ -709,8 +724,7 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "valora-4189d7d3e44c",
@@ -743,7 +757,7 @@
       "url": "https://career.valora.com/en/job/6020/barista-caffe-spettacolo-32-std-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.856Z",
+      "crawledAt": "2026-09-26T13:54:50.401Z",
       "addressLocality": "Solothurn",
       "addressRegion": "Solothurn",
       "streetAddress": "Dornacherstrasse 48",
@@ -763,11 +777,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "barista-caffe-spettacolo-32-std-w-m-d-valora-solothurn"
+        "barista-caffe-spettacolo-32-std-w-m-d-valora-solothurn",
+        "barista-caffe-spettacolo-32-ore-f-m-d-valora-group-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "barista-caffe-spettacolo-32-std-w-m-d-valora-solothurn"
+          "barista-caffe-spettacolo-32-std-w-m-d-valora-solothurn",
+          "barista-caffe-spettacolo-32-ore-f-m-d-valora-group-solothurn"
         ],
         "en": [
           "barista-caffe-spettacolo-32-std-w-m-d-valora-solothurn"
@@ -786,7 +802,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "valora-f4bb81a139ca",
@@ -819,7 +836,7 @@
       "url": "https://career.valora.com/en/job/6019/barista-caffe-spettacolo-24-std-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.855Z",
+      "crawledAt": "2026-09-26T13:54:50.400Z",
       "addressLocality": "Solothurn",
       "addressRegion": "Solothurn",
       "streetAddress": "Dornacherstrasse 48",
@@ -839,11 +856,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "barista-caffe-spettacolo-24-std-w-m-d-valora-solothurn"
+        "barista-caffe-spettacolo-24-std-w-m-d-valora-solothurn",
+        "barista-caffe-spettacolo-24-ore-f-m-d-valora-group-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "barista-caffe-spettacolo-24-std-w-m-d-valora-solothurn"
+          "barista-caffe-spettacolo-24-std-w-m-d-valora-solothurn",
+          "barista-caffe-spettacolo-24-ore-f-m-d-valora-group-solothurn"
         ],
         "en": [
           "barista-caffe-spettacolo-24-std-w-m-d-valora-solothurn"
@@ -862,7 +881,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "valora-fcea321d17b3",
@@ -895,7 +915,7 @@
       "url": "https://career.valora.com/en/job/6225/verkauferin-verkauferin-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.854Z",
+      "crawledAt": "2026-09-26T13:54:50.398Z",
       "addressLocality": "Lauterbrunnen",
       "addressRegion": "Bern",
       "streetAddress": "Station 469b",
@@ -915,11 +935,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkauferin-k-kiosk-10-std-valora-lauterbrunnen"
+        "verkauferin-verkauferin-k-kiosk-10-std-valora-lauterbrunnen",
+        "venditore-venditore-k-kiosk-10-ore-valora-group-lauterbrunnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkauferin-k-kiosk-10-std-valora-lauterbrunnen"
+          "verkauferin-verkauferin-k-kiosk-10-std-valora-lauterbrunnen",
+          "venditore-venditore-k-kiosk-10-ore-valora-group-lauterbrunnen"
         ],
         "en": [
           "verkauferin-verkauferin-k-kiosk-10-std-valora-lauterbrunnen"
@@ -950,7 +972,7 @@
         "it": "manutenzione-del-manubrio-f-m-d-valora-group-emmenbrucke",
         "en": "teamlead-maintenance-f-m-d-valora-group-emmenbrucke",
         "de": "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
-        "fr": "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
+        "fr": "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -974,7 +996,7 @@
       "url": "https://career.valora.com/en/job/5860/mitarbeiter-instandhaltung-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.846Z",
+      "crawledAt": "2026-09-26T13:54:50.382Z",
       "addressLocality": "Emmenbrücke",
       "addressRegion": "Luzern",
       "streetAddress": "Neuenkirchstrasse 91",
@@ -995,11 +1017,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "mitarbeiter-instandhaltung-w-m-d-valora-emmenbrucke"
+          "mitarbeiter-instandhaltung-w-m-d-valora-emmenbrucke",
+          "teamlead-instandhaltung-w-m-d-valora-emmenbrucke"
         ],
         "it": [
           "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
-          "mitarbeiter-instandhaltung-w-m-d-valora-emmenbrucke"
+          "mitarbeiter-instandhaltung-w-m-d-valora-emmenbrucke",
+          "manutenzione-del-manubrio-f-m-d-valora-group-emmenbrucke"
         ],
         "en": [
           "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
@@ -1008,14 +1032,16 @@
         "fr": [
           "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
           "mitarbeiter-instandhaltung-m-w-d-valora-group-emmenbrucke",
-          "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke"
+          "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
         ]
       },
       "previousSlugs": [
         "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
         "mitarbeiter-instandhaltung-w-m-d-valora-emmenbrucke",
         "mitarbeiter-instandhaltung-m-w-d-valora-group-emmenbrucke",
-        "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke"
+        "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke",
+        "manutenzione-del-manubrio-f-m-d-valora-group-emmenbrucke",
+        "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
       ],
       "firstSeenAt": "2026-07-22T22:06:00.739Z",
       "salaryMin": 69500,
@@ -1063,7 +1089,7 @@
       "url": "https://career.valora.com/en/job/6276/verkauferin-verkaufer-k-kiosk-15-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.843Z",
+      "crawledAt": "2026-09-26T13:54:50.378Z",
       "addressLocality": "Kandersteg",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofstrasse 7",
@@ -1083,11 +1109,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkaufer-k-kiosk-15-std-valora-kandersteg"
+        "verkauferin-verkaufer-k-kiosk-15-std-valora-kandersteg",
+        "venditore-venditore-k-kiosk-15-ore-valora-group-kandersteg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-k-kiosk-15-std-valora-kandersteg"
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-kandersteg",
+          "venditore-venditore-k-kiosk-15-ore-valora-group-kandersteg"
         ],
         "en": [
           "verkauferin-verkaufer-k-kiosk-15-std-valora-kandersteg"
@@ -1142,7 +1170,7 @@
       "url": "https://career.valora.com/en/job/6274/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.842Z",
+      "crawledAt": "2026-09-26T13:54:50.376Z",
       "addressLocality": "Oberhofen",
       "addressRegion": "Bern",
       "streetAddress": "Staatsstrasse 4",
@@ -1162,11 +1190,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkaufer-k-kiosk-10-std-valora-oberhofen"
+        "verkauferin-verkaufer-k-kiosk-10-std-valora-oberhofen",
+        "venditore-venditore-k-kiosk-10-ore-valora-group-oberhofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-k-kiosk-10-std-valora-oberhofen"
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-oberhofen",
+          "venditore-venditore-k-kiosk-10-ore-valora-group-oberhofen"
         ],
         "en": [
           "verkauferin-verkaufer-k-kiosk-10-std-valora-oberhofen"
@@ -1221,7 +1251,7 @@
       "url": "https://career.valora.com/en/job/3181/agenturpartnerin-agenturpartner-kanton-solothurn",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:44:17.839Z",
+      "crawledAt": "2026-09-26T13:54:50.370Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1287,7 +1317,7 @@
       "url": "https://career.valora.com/en/job/3180/agenturpartnerin-agenturpartner-kanton-bern",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:44:17.839Z",
+      "crawledAt": "2026-09-26T13:54:50.369Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1307,11 +1337,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "agenturpartnerin-agenturpartner-kanton-bern-valora-bern"
+        "agenturpartnerin-agenturpartner-kanton-bern-valora-bern",
+        "agenturpartnerin-agenturpartner-canton-berna-valora-group-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agenturpartnerin-agenturpartner-kanton-bern-valora-bern"
+          "agenturpartnerin-agenturpartner-kanton-bern-valora-bern",
+          "agenturpartnerin-agenturpartner-canton-berna-valora-group-bern"
         ]
       },
       "needsRetranslation": true,
@@ -1361,7 +1393,7 @@
       "url": "https://career.valora.com/en/job/6353/verkauferin-verkaufer-k-kiosk-20-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.838Z",
+      "crawledAt": "2026-09-26T13:54:50.367Z",
       "addressLocality": "Kandersteg",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofstrasse 7",
@@ -1381,11 +1413,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg"
+        "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg",
+        "venditore-venditore-k-kiosk-20-ore-valora-group-kandersteg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg"
+          "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg",
+          "venditore-venditore-k-kiosk-20-ore-valora-group-kandersteg"
         ],
         "en": [
           "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg"
@@ -1440,7 +1474,7 @@
       "url": "https://career.valora.com/en/job/6439/stv-geschaftsfuhrerin-stv-geschaftsfuhrer-80",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.836Z",
+      "crawledAt": "2026-09-26T13:54:50.360Z",
       "addressLocality": "Bagnes",
       "addressRegion": "Wallis",
       "streetAddress": "Place de la Curela 5",
@@ -1462,12 +1496,14 @@
       "previousSlugs": [
         "stv-geschaftsfuhrerin-stv-geschaftsfuhrer-80-valora-bagnes",
         "stv-amministratore-delegato-stv-managing-director-80-valora-group-bagnes",
-        "stv-administrateur-delegue-stv-administrateur-delegue-80-valora-group-bagnes"
+        "stv-administrateur-delegue-stv-administrateur-delegue-80-valora-group-bagnes",
+        "amministratore-delegato-80-valora-group-bagnes"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-geschaftsfuhrerin-stv-geschaftsfuhrer-80-valora-bagnes",
-          "stv-amministratore-delegato-stv-managing-director-80-valora-group-bagnes"
+          "stv-amministratore-delegato-stv-managing-director-80-valora-group-bagnes",
+          "amministratore-delegato-80-valora-group-bagnes"
         ],
         "en": [
           "stv-geschaftsfuhrerin-stv-geschaftsfuhrer-80-valora-bagnes"
@@ -1523,7 +1559,7 @@
       "url": "https://career.valora.com/en/job/6417/verkauferin-verkaufer-backwerk-24-6-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.836Z",
+      "crawledAt": "2026-09-26T13:54:50.363Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Sihlquai C5",
@@ -1543,11 +1579,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich"
+        "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich",
+        "venditore-venditore-backwerk-24-6-ore-valora-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich"
+          "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich",
+          "venditore-venditore-backwerk-24-6-ore-valora-group-zurich"
         ],
         "en": [
           "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich"
@@ -1602,7 +1640,7 @@
       "url": "https://career.valora.com/en/job/6438/verkauferin-verkaufer-press-books-21-5-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.834Z",
+      "crawledAt": "2026-09-26T13:54:50.355Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "streetAddress": "Spitzwaldstrasse 215",
@@ -1626,7 +1664,8 @@
         "seller-seller-press-books-50-valora-group-bern",
         "verkauferin-verkaufer-press-amp-books-50-valora-bern",
         "vendeur-vendeur-presse-livres-50-valora-group-bern",
-        "verkauferin-verkaufer-press-amp-books-21-5-std-valora-basel"
+        "verkauferin-verkaufer-press-amp-books-21-5-std-valora-basel",
+        "vendita-vendita-presse-e-libri-21-5-ore-valora-group-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1634,7 +1673,8 @@
           "seller-seller-press-books-50-valora-group-bern",
           "verkauferin-verkaufer-press-amp-books-50-valora-bern",
           "vendeur-vendeur-presse-livres-50-valora-group-bern",
-          "verkauferin-verkaufer-press-amp-books-21-5-std-valora-basel"
+          "verkauferin-verkaufer-press-amp-books-21-5-std-valora-basel",
+          "vendita-vendita-presse-e-libri-21-5-ore-valora-group-basel"
         ],
         "en": [
           "seller-seller-press-books-50-valora-group-bern",
@@ -1694,7 +1734,7 @@
       "url": "https://career.valora.com/en/job/6463/lead-expansion-lease-switzerland",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.833Z",
+      "crawledAt": "2026-09-26T13:54:50.353Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstr. 40",
@@ -1714,11 +1754,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lead-expansion-amp-lease-switzerland-valora-muttenz"
+        "lead-expansion-amp-lease-switzerland-valora-muttenz",
+        "expansion-lease-svizzera-valora-group-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-expansion-amp-lease-switzerland-valora-muttenz"
+          "lead-expansion-amp-lease-switzerland-valora-muttenz",
+          "expansion-lease-svizzera-valora-group-muttenz"
         ],
         "fr": [
           "lead-expansion-amp-lease-switzerland-valora-muttenz"
@@ -1771,7 +1813,7 @@
       "url": "https://career.valora.com/en/job/6470/verkauferin-verkaufer-press-books-22-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.831Z",
+      "crawledAt": "2026-09-26T13:54:50.351Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofplatz 10",
@@ -1792,12 +1834,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkauferin-verkaufer-press-amp-books-22-std-valora-bern",
-        "verkauferin-verkaufer-press-amp-books-22-std-valora-bern-2"
+        "verkauferin-verkaufer-press-amp-books-22-std-valora-bern-2",
+        "venditore-venditore-press-books-22-ore-valora-group-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkauferin-verkaufer-press-amp-books-22-std-valora-bern",
-          "verkauferin-verkaufer-press-amp-books-22-std-valora-bern-2"
+          "verkauferin-verkaufer-press-amp-books-22-std-valora-bern-2",
+          "venditore-venditore-press-books-22-ore-valora-group-bern"
         ],
         "en": [
           "verkauferin-verkaufer-press-amp-books-22-std-valora-bern"
@@ -1852,7 +1896,7 @@
       "url": "https://career.valora.com/en/job/6483/lehrstelle-kaufmann-frau-efz-dienstleistung-und-administration-br",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.830Z",
+      "crawledAt": "2026-09-26T13:54:50.349Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -1873,12 +1917,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-kaufmann-frau-efz-dienstleistung-und-administration-lt-br-gt-valora-muttenz",
-        "apprendistato-kaufmann-frau-cfc-dienstleistung-e-administration-br-valora-group-muttenz"
+        "apprendistato-kaufmann-frau-cfc-dienstleistung-e-administration-br-valora-group-muttenz",
+        "apprendistato-uomo-d-affari-donna-efz-servizio-e-amministrazione-valora-group-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-kaufmann-frau-efz-dienstleistung-und-administration-lt-br-gt-valora-muttenz",
-          "apprendistato-kaufmann-frau-cfc-dienstleistung-e-administration-br-valora-group-muttenz"
+          "apprendistato-kaufmann-frau-cfc-dienstleistung-e-administration-br-valora-group-muttenz",
+          "apprendistato-uomo-d-affari-donna-efz-servizio-e-amministrazione-valora-group-muttenz"
         ],
         "en": [
           "lehrstelle-kaufmann-frau-efz-dienstleistung-und-administration-lt-br-gt-valora-muttenz"
@@ -1900,8 +1946,7 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "valora-229a8e9eeeb3",
@@ -1934,7 +1979,7 @@
       "url": "https://career.valora.com/en/job/6510/verkauferin-verkaufer-k-kiosk-8-6-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.829Z",
+      "crawledAt": "2026-09-26T13:54:50.346Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Murtenstrasse 1",
@@ -1978,7 +2023,8 @@
         "seller-seller-k-kiosk-10-hours-valora-group-bern",
         "verkauferin-verkaufer-k-kiosk-32-std-valora-bern",
         "vendeur-vendeur-k-kiosque-32-heures-valora-group-bern",
-        "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
+        "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern",
+        "venditore-venditore-k-chiosco-8-6-ore-valora-group-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2000,7 +2046,8 @@
           "vendeur-vendeur-k-kiosque-20-heures-valora-group-bern-1f2c53",
           "venditore-venditore-k-kiosk-32-ore-valora-group-bern",
           "venditore-venditore-k-kiosk-10-ore-valora-group-bern",
-          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
+          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern",
+          "venditore-venditore-k-chiosco-8-6-ore-valora-group-bern"
         ],
         "en": [
           "seller-seller-k-kiosk-32-hours-valora-group-bern",
@@ -2066,7 +2113,7 @@
       "url": "https://career.valora.com/en/job/6511/verkauferin-verkaufer-k-kiosk-20-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.827Z",
+      "crawledAt": "2026-09-26T13:54:50.342Z",
       "addressLocality": "Grenchen",
       "addressRegion": "Solothurn",
       "streetAddress": "Nordbahnhofstrasse 41",
@@ -2086,11 +2133,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkaufer-k-kiosk-20-std-valora-grenchen"
+        "verkauferin-verkaufer-k-kiosk-20-std-valora-grenchen",
+        "venditore-venditore-k-kiosk-20-ore-valora-group-grenchen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-k-kiosk-20-std-valora-grenchen"
+          "verkauferin-verkaufer-k-kiosk-20-std-valora-grenchen",
+          "venditore-venditore-k-kiosk-20-ore-valora-group-grenchen"
         ],
         "en": [
           "verkauferin-verkaufer-k-kiosk-20-std-valora-grenchen"
@@ -2145,7 +2194,7 @@
       "url": "https://career.valora.com/en/job/6519/verkauferin-verkaufer-k-kiosk-10-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.826Z",
+      "crawledAt": "2026-09-26T13:54:50.340Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bubenbergplatz 11",
@@ -2171,7 +2220,8 @@
         "venditore-venditore-k-kiosk-10-ore-valora-group-bern-5de493",
         "seller-seller-k-kiosk-10-hours-valora-group-bern-5de493",
         "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern-5de493",
-        "verkauferin-verkaufer-k-kiosk-10-std-valora-bern"
+        "verkauferin-verkaufer-k-kiosk-10-std-valora-bern",
+        "venditore-venditore-k-kiosk-10-ore-valora-group-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2181,7 +2231,8 @@
           "venditore-venditore-k-kiosk-10-ore-valora-group-bern-5de493",
           "seller-seller-k-kiosk-10-hours-valora-group-bern-5de493",
           "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern-5de493",
-          "verkauferin-verkaufer-k-kiosk-10-std-valora-bern"
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-bern",
+          "venditore-venditore-k-kiosk-10-ore-valora-group-bern"
         ],
         "en": [
           "verkauferin-verkaufer-k-kiosk-10-std-valora-bern"
@@ -2236,7 +2287,7 @@
       "url": "https://career.valora.com/en/job/6533/business-information-security-officer-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.825Z",
+      "crawledAt": "2026-09-26T13:54:50.339Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstrasse 40",
@@ -2302,7 +2353,7 @@
       "url": "https://career.valora.com/en/job/6545/verkauferin-verkaufer-press-books-21-5-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.824Z",
+      "crawledAt": "2026-09-26T13:54:50.334Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Bahnhofplatz 10",
@@ -2322,11 +2373,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkaufer-press-amp-books-21-5-std-valora-bern"
+        "verkauferin-verkaufer-press-amp-books-21-5-std-valora-bern",
+        "vendita-vendita-presse-e-libri-21-5-ore-valora-group-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-press-amp-books-21-5-std-valora-bern"
+          "verkauferin-verkaufer-press-amp-books-21-5-std-valora-bern",
+          "vendita-vendita-presse-e-libri-21-5-ore-valora-group-bern"
         ],
         "en": [
           "verkauferin-verkaufer-press-amp-books-21-5-std-valora-bern"
@@ -2381,7 +2434,7 @@
       "url": "https://career.valora.com/en/job/6540/verkauferin-verkaufer-backwerk-24-6-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.823Z",
+      "crawledAt": "2026-09-26T13:54:50.333Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "streetAddress": "Streitgasse 4",
@@ -2407,7 +2460,8 @@
         "seller-seller-backwerk-24-6-hours-valora-group-basel",
         "vendeur-vendeur-retourwerk-24-6-heures-valora-group-basel",
         "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-3",
-        "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-jo0t2r"
+        "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-jo0t2r",
+        "venditore-venditore-backwerk-24-6-ore-valora-group-basel-299208"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2417,7 +2471,8 @@
           "seller-seller-backwerk-24-6-hours-valora-group-basel",
           "vendeur-vendeur-retourwerk-24-6-heures-valora-group-basel",
           "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-3",
-          "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-jo0t2r"
+          "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-jo0t2r",
+          "venditore-venditore-backwerk-24-6-ore-valora-group-basel-299208"
         ],
         "en": [
           "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-4",
@@ -2474,7 +2529,7 @@
       "url": "https://career.valora.com/en/job/6546/verkauferin-verkaufer-k-kiosk-8-std",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.822Z",
+      "crawledAt": "2026-09-26T13:54:50.331Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "streetAddress": "Scheibenstrasse 21",
@@ -2494,11 +2549,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkaufer-k-kiosk-8-std-valora-bern"
+        "verkauferin-verkaufer-k-kiosk-8-std-valora-bern",
+        "venditore-venditore-k-kiosk-8-ore-valora-group-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-k-kiosk-8-std-valora-bern"
+          "verkauferin-verkaufer-k-kiosk-8-std-valora-bern",
+          "venditore-venditore-k-kiosk-8-ore-valora-group-bern"
         ],
         "en": [
           "verkauferin-verkaufer-k-kiosk-8-std-valora-bern"
@@ -2553,7 +2610,7 @@
       "url": "https://career.valora.com/en/job/6559/senior-software-engineer-fullstack-f-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:44:17.821Z",
+      "crawledAt": "2026-09-26T13:54:50.329Z",
       "addressLocality": "Zürich",
       "addressRegion": "Switzerland",
       "streetAddress": "Hardturmstrasse 161",
@@ -2573,11 +2630,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-software-engineer-fullstack-f-m-d-valora-zurich"
+        "senior-software-engineer-fullstack-f-m-d-valora-zurich",
+        "senior-software-ingegnere-fullstack-f-m-d-valora-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-fullstack-f-m-d-valora-zurich"
+          "senior-software-engineer-fullstack-f-m-d-valora-zurich",
+          "senior-software-ingegnere-fullstack-f-m-d-valora-group-zurich"
         ],
         "de": [
           "senior-software-engineer-fullstack-f-m-d-valora-zurich"
@@ -2599,8 +2658,7 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "valora-ffa0b6e1b2f5",
@@ -2633,7 +2691,7 @@
       "url": "https://career.valora.com/en/job/6568/barista-caffe-spettacolo-26-4-h-h-f-x",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:44:17.820Z",
+      "crawledAt": "2026-09-26T13:54:50.327Z",
       "addressLocality": "Neuenburg",
       "addressRegion": "Switzerland",
       "streetAddress": "Rue des Terreaux 25",
@@ -2673,7 +2731,7 @@
       "slugByLocale": {
         "it": "dipendenti-di-produzione-m-f-d-valora-group-emmenbrucke",
         "en": "production-employees-m-f-d-valora-group-emmenbrucke",
-        "de": "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke",
+        "de": "produktionsmitarbeiter-w-m-d-valora-emmenbrucke",
         "fr": "employes-de-production-h-f-d-valora-group-emmenbrucke"
       },
       "company": "Valora Group",
@@ -2698,7 +2756,7 @@
       "url": "https://career.valora.com/en/job/6567/produktionsmitarbeiter-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.819Z",
+      "crawledAt": "2026-09-26T13:54:50.325Z",
       "addressLocality": "Emmenbrücke",
       "addressRegion": "Luzern",
       "streetAddress": "Neuenkirchstrasse 91",
@@ -2724,7 +2782,10 @@
         "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke-jo0vus",
         "production-staff-f-m-d-valora-group-emmenbrucke-927157",
         "personnel-de-production-f-m-d-valora-group-emmenbrucke-927157",
-        "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
+        "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke",
+        "dipendenti-di-produzione-m-f-d-valora-group-emmenbrucke",
+        "dipendenti-di-produzione-m-f-d-valora-group-emmenbrucke-jo0s7q",
+        "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke-jo0s7q"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2734,7 +2795,10 @@
           "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke-jo0vus",
           "production-staff-f-m-d-valora-group-emmenbrucke-927157",
           "personnel-de-production-f-m-d-valora-group-emmenbrucke-927157",
-          "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
+          "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke",
+          "dipendenti-di-produzione-m-f-d-valora-group-emmenbrucke",
+          "dipendenti-di-produzione-m-f-d-valora-group-emmenbrucke-jo0s7q",
+          "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke-jo0s7q"
         ],
         "en": [
           "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
@@ -2743,6 +2807,7 @@
           "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
         ],
         "de": [
+          "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke",
           "produktionsmitarbeiter-w-m-d-valora-emmenbrucke"
         ]
       },
@@ -2792,7 +2857,7 @@
       "url": "https://career.valora.com/en/job/5369/agenturpartnerin-agenturpartner-kanton-st-gallen",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:44:17.767Z",
+      "crawledAt": "2026-09-26T13:54:50.234Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "streetAddress": "Hofackerstrasse 40",
@@ -2813,11 +2878,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "agenturpartnerin-agenturpartner-kanton-st-gallen-valora-muttenz",
-        "agenturpartnerin-agenturpartner-canton-de-saint-gall-valora-group-muttenz"
+        "agenturpartnerin-agenturpartner-canton-de-saint-gall-valora-group-muttenz",
+        "agenturpartnerin-agenturpartner-kanton-san-gallo-valora-group-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agenturpartnerin-agenturpartner-kanton-st-gallen-valora-muttenz"
+          "agenturpartnerin-agenturpartner-kanton-st-gallen-valora-muttenz",
+          "agenturpartnerin-agenturpartner-kanton-san-gallo-valora-group-muttenz"
         ],
         "fr": [
           "agenturpartnerin-agenturpartner-kanton-st-gallen-valora-muttenz",
@@ -2871,7 +2938,7 @@
       "url": "https://career.valora.com/en/job/5800/agenturpartnerin-agenturpartner-kanton-basel-stadt-baselland",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:44:17.766Z",
+      "crawledAt": "2026-09-26T13:54:50.233Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "",
@@ -2937,7 +3004,7 @@
       "url": "https://career.valora.com/en/job/4745/agenturpartnerin-agenturpartner-sarganserland",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:44:17.765Z",
+      "crawledAt": "2026-09-26T13:54:50.231Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "streetAddress": "Hofackerstrasse 40",
@@ -2957,17 +3024,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "agenturpartnerin-agenturpartner-sarganserland-valora-muttenz"
+        "agenturpartnerin-agenturpartner-sarganserland-valora-muttenz",
+        "agente-partner-agente-partner-sarganserland-valora-group-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agenturpartnerin-agenturpartner-sarganserland-valora-muttenz"
+          "agenturpartnerin-agenturpartner-sarganserland-valora-muttenz",
+          "agente-partner-agente-partner-sarganserland-valora-group-muttenz"
         ],
         "de": [
           "agenturpartnerin-agenturpartner-sarganserland-valora-muttenz"
         ]
       },
       "firstSeenAt": "2026-07-04T12:43:13.468Z",
+      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -3013,7 +3083,7 @@
       "url": "https://career.valora.com/en/job/4744/agenturpartnerin-agenturpartner-imboden",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:44:17.764Z",
+      "crawledAt": "2026-09-26T13:54:50.230Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "streetAddress": "Hofackerstrasse 40",
@@ -3079,7 +3149,7 @@
       "url": "https://career.valora.com/en/job/2653/agenturpartnerin-agenturpartner-region-berner-oberland",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:44:17.762Z",
+      "crawledAt": "2026-09-26T13:54:50.227Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "streetAddress": "Hofackerstrasse 40",
@@ -3099,11 +3169,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "agenturpartnerin-agenturpartner-region-berner-oberland-valora-muttenz"
+        "agenturpartnerin-agenturpartner-region-berner-oberland-valora-muttenz",
+        "agenturpartnerin-agenturpartner-regione-berner-oberland-valora-group-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agenturpartnerin-agenturpartner-region-berner-oberland-valora-muttenz"
+          "agenturpartnerin-agenturpartner-region-berner-oberland-valora-muttenz",
+          "agenturpartnerin-agenturpartner-regione-berner-oberland-valora-group-muttenz"
         ]
       },
       "needsRetranslation": true,
@@ -3153,7 +3225,7 @@
       "url": "https://career.valora.com/en/job/3159/agenturpartnerin-agenturpartner-region-oberwallis",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:44:17.761Z",
+      "crawledAt": "2026-09-26T13:54:50.222Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "streetAddress": "Hofackerstrasse 40",
@@ -3173,11 +3245,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "agenturpartnerin-agenturpartner-region-oberwallis-valora-muttenz"
+        "agenturpartnerin-agenturpartner-region-oberwallis-valora-muttenz",
+        "agenturpartnerin-agenturpartner-regione-oberwallis-valora-group-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agenturpartnerin-agenturpartner-region-oberwallis-valora-muttenz"
+          "agenturpartnerin-agenturpartner-region-oberwallis-valora-muttenz",
+          "agenturpartnerin-agenturpartner-regione-oberwallis-valora-group-muttenz"
         ]
       },
       "needsRetranslation": true,
@@ -3200,9 +3274,9 @@
       "id": "valora-afd7a3aab424",
       "slug": "agenzie-partner-commerciali-m-f-d-valora-group-muttenz",
       "slugByLocale": {
-        "de": "business-partner-agenturen-w-m-d-valora-muttenz",
         "it": "agenzie-partner-commerciali-m-f-d-valora-group-muttenz",
         "en": "business-partner-agencies-m-f-d-valora-group-muttenz",
+        "de": "business-partner-agenturen-w-m-d-valora-muttenz",
         "fr": "agences-partenaires-d-affaires-h-f-d-valora-group-muttenz"
       },
       "company": "Valora Group",
@@ -3210,16 +3284,16 @@
       "companyDomain": "valora.com",
       "title": "Business Partner Agenturen (w/m/d)",
       "titleByLocale": {
-        "de": "Business Partner Agenturen (w/m/d)",
         "it": "Agenzie partner commerciali (m/f/d)",
         "en": "Business Partner Agencies (m/f/d)",
+        "de": "Business Partner Agenturen (w/m/d)",
         "fr": "Agences partenaires d'affaires (h/f/d)"
       },
       "description": "Du möchtest Partnerschaften aktiv mitgestalten und Betreibermodelle weiterentwickeln? Im Agenturmodell der Valora führen selbstständige Agenturpartner unsere Verkaufsstellen mit Valora als starke Partnerin an ihrer Seite. Als Business Partner Agenturen förderst Du die Zusammenarbeit mit unseren Agenturpartnern und übernimmst eine zentrale Rolle bei Vertrags-, Vergütungs- und Prozessthemen sowie der Weiterentwicklung unseres Agenturmodells. Aufgaben, die Dir gefallen werden\n• Betreuung und Beratung unserer Agenturpartner bei operativen, vertraglichen und strategischen Fragestellungen in enger Zusammenarbeit mit dem Vertrieb\n• Gestaltung, Optimierung und Umsetzung von Agentur-, Vergütungs- und Provisionsmodellen\n• Erstellung, Pflege und Weiterentwicklung von Agenturverträgen sowie Begleitung von Vertragsanpassungen und Nachträgen\n• Vorbereitung, Kalkulation und Durchführung von Neu- und Nachverhandlungen mit bestehenden und künftigen Agenturpartnern\n• Analyse betriebswirtschaftlicher Kennzahlen sowie Identifikation von Optimierungs- und Entwicklungspotenzialen im Agenturgeschäft\n• Verantwortung für die korrekte und termingerechte Abwicklung der monatlichen Agenturabrechnungen\n• Mitarbeit in Projekten zur Weiterentwicklung des Agenturmodells sowie der zugehörigen Prozesse und Systeme Voraussetzungen, die Du mitbringst\n• Mehrjährige Berufserfahrung in einer vergleichbaren Funktion, idealerweise im Agentur-, Franchise-, Retail- oder Partnermanagement\n• Erfahrung in der Erstellung, Analyse und Plausibilisierung von Rentabilitäts-, Business-Case- und Wirtschaftlichkeitsberechnungen\n• Ausgeprägtes betriebswirtschaftliches Verständnis sowie die Fähigkeit, Kennzahlen zu interpretieren und daraus fundierte Handlungsempfehlungen abzuleiten\n• Erfahrung in der Kalkulation von Vergütungs-, Provisions- oder Partnerschaftsmodellen von Vorteil\n• Sehr gute Excel-Kenntnisse sowie ein sicherer Umgang mit grossen Datenmengen und komplexen Berechnungen\n• Hohe IT- und Prozessaffinität sowie Freude an der kontinuierlichen Optimierung von Abläufen\n• Strukturierte, selbstständige und analytische Arbeitsweise mit ausgeprägter Zahlenaffinität\n• Kommunikationsstärke und Verhandlungsgeschick im Umgang mit internen und externen Geschäftspartnern\n• Stilsichere Deutschkenntnisse in Wort und Schrift, Italienischkenntnisse sind von Vorteil Vorteile, die wir Dir bieten\n• Ein dynamisches, internationales Arbeitsumfeld mit viel Raum für Ideen und kreative Mitgestaltung\n• Vielfältige Entwicklungs- und Weiterbildungsmöglichkeiten, unter anderem durch unsere interne Valora Academy und Live-Schulungen pro Jahr\n• Eine unkomplizierte Unternehmenskultur mit direktem Austausch und gelebter Du-Kultur, die Innovation und Agilität fördert\n• Geniesse attraktive Mitarbeiterrabatte bei Valora-Formaten und ausgewählten Partnern aus den Bereichen Freizeit, Sport, Gesundheit und Mobilität\n• Attraktive Anstellungsbedingungen mit eigener Pensionskasse und drei flexibel wählbaren Sparplänen\n• Möglichkeit im Homeoffice zu arbeiten",
       "descriptionByLocale": {
-        "de": "Du möchtest Partnerschaften aktiv mitgestalten und Betreibermodelle weiterentwickeln? Im Agenturmodell der Valora führen selbstständige Agenturpartner unsere Verkaufsstellen mit Valora als starke Partnerin an ihrer Seite. Als Business Partner Agenturen förderst Du die Zusammenarbeit mit unseren Agenturpartnern und übernimmst eine zentrale Rolle bei Vertrags-, Vergütungs- und Prozessthemen sowie der Weiterentwicklung unseres Agenturmodells. Aufgaben, die Dir gefallen werden\n• Betreuung und Beratung unserer Agenturpartner bei operativen, vertraglichen und strategischen Fragestellungen in enger Zusammenarbeit mit dem Vertrieb\n• Gestaltung, Optimierung und Umsetzung von Agentur-, Vergütungs- und Provisionsmodellen\n• Erstellung, Pflege und Weiterentwicklung von Agenturverträgen sowie Begleitung von Vertragsanpassungen und Nachträgen\n• Vorbereitung, Kalkulation und Durchführung von Neu- und Nachverhandlungen mit bestehenden und künftigen Agenturpartnern\n• Analyse betriebswirtschaftlicher Kennzahlen sowie Identifikation von Optimierungs- und Entwicklungspotenzialen im Agenturgeschäft\n• Verantwortung für die korrekte und termingerechte Abwicklung der monatlichen Agenturabrechnungen\n• Mitarbeit in Projekten zur Weiterentwicklung des Agenturmodells sowie der zugehörigen Prozesse und Systeme Voraussetzungen, die Du mitbringst\n• Mehrjährige Berufserfahrung in einer vergleichbaren Funktion, idealerweise im Agentur-, Franchise-, Retail- oder Partnermanagement\n• Erfahrung in der Erstellung, Analyse und Plausibilisierung von Rentabilitäts-, Business-Case- und Wirtschaftlichkeitsberechnungen\n• Ausgeprägtes betriebswirtschaftliches Verständnis sowie die Fähigkeit, Kennzahlen zu interpretieren und daraus fundierte Handlungsempfehlungen abzuleiten\n• Erfahrung in der Kalkulation von Vergütungs-, Provisions- oder Partnerschaftsmodellen von Vorteil\n• Sehr gute Excel-Kenntnisse sowie ein sicherer Umgang mit grossen Datenmengen und komplexen Berechnungen\n• Hohe IT- und Prozessaffinität sowie Freude an der kontinuierlichen Optimierung von Abläufen\n• Strukturierte, selbstständige und analytische Arbeitsweise mit ausgeprägter Zahlenaffinität\n• Kommunikationsstärke und Verhandlungsgeschick im Umgang mit internen und externen Geschäftspartnern\n• Stilsichere Deutschkenntnisse in Wort und Schrift, Italienischkenntnisse sind von Vorteil Vorteile, die wir Dir bieten\n• Ein dynamisches, internationales Arbeitsumfeld mit viel Raum für Ideen und kreative Mitgestaltung\n• Vielfältige Entwicklungs- und Weiterbildungsmöglichkeiten, unter anderem durch unsere interne Valora Academy und Live-Schulungen pro Jahr\n• Eine unkomplizierte Unternehmenskultur mit direktem Austausch und gelebter Du-Kultur, die Innovation und Agilität fördert\n• Geniesse attraktive Mitarbeiterrabatte bei Valora-Formaten und ausgewählten Partnern aus den Bereichen Freizeit, Sport, Gesundheit und Mobilität\n• Attraktive Anstellungsbedingungen mit eigener Pensionskasse und drei flexibel wählbaren Sparplänen\n• Möglichkeit im Homeoffice zu arbeiten",
         "it": "Vuoi modellare attivamente partnership e sviluppare ulteriormente modelli di operatore? Nel modello di agenzia di Valora, partner di agenzia indipendenti conducono i nostri punti vendita con Valora come partner forte al loro fianco. In qualità di Business Partner Agencies, promuovete la cooperazione con i nostri partner di agenzia e assumete un ruolo centrale nel campo dei contratti, della remunerazione e dei processi, nonché nell'ulteriore sviluppo del nostro modello di agenzia. Compiti che ti piacerà\n• Supporto e consulenza dei nostri partner di agenzia su questioni operative, contrattuali e strategiche in stretta collaborazione con le vendite\n• Progettazione, ottimizzazione e implementazione di modelli di agenzia, compensazione e commissioni\n• Preparazione, manutenzione e sviluppo di contratti di agenzia e supporto per adeguamenti contrattuali e integratori\n• Preparazione, calcolo e attuazione di nuovi e rinegoziati con i partner di agenzia esistenti e futuri\n• Analisi degli indicatori aziendali e identificazione del potenziale di ottimizzazione e sviluppo nel business dell'agenzia\n• Responsabilità per la corretta e tempestiva gestione dei conti delle agenzie mensili\n• Partecipazione a progetti per l'ulteriore sviluppo del modello dell'agenzia, nonché ai processi e sistemi associati\n• Diversi anni di esperienza professionale in una funzione paragonabile, idealmente in agenzia, franchising, vendita al dettaglio o gestione di partner\n• Esperienza nella preparazione, analisi e verifica della plausibilità dei calcoli di redditività, caso di business e redditività\n• Forte comprensione aziendale e la capacità di interpretare figure chiave e di ricavare raccomandazioni sonore per l'azione da loro\n• Esperienza nel calcolo dei modelli di remunerazione, commissione o partenariato\n• Conoscenza di Excel e una gestione sicura di grandi quantità di dati e calcoli complessi\n• Alta affinità IT e processo così come il piacere nella continua ottimizzazione dei processi\n• Metodo di lavoro strutturato, indipendente e analitico con spiccata affinità numerica\n• Capacità di comunicazione e di negoziazione nel trattare con partner commerciali interni ed esterni\n• Conoscenza sicura del tedesco nelle parole e nella scrittura, la conoscenza dell'italiano sono vantaggi vantaggiosi che vi offriamo\n• Un ambiente di lavoro dinamico e internazionale con ampio spazio per idee e partecipazione creativa\n• Varie opportunità di sviluppo e formazione, anche attraverso la nostra Accademia Valora interna e corsi di formazione dal vivo all'anno\n• Una cultura aziendale semplice con scambio diretto e una vivace du-culture che promuove innovazione e agilità\n• Approfitta di interessanti sconti per i dipendenti nei formati Valora e partner selezionati nei settori del tempo libero, dello sport, della salute e della mobilità\n• Condizioni di lavoro attraenti con il proprio fondo pensionistico e tre piani di risparmio selezionabili in modo flessibile\n• Possibilità di lavorare in ufficio",
         "en": "Do you want to actively shape partnerships and further develop operator models? In the agency model of Valora, independent agency partners lead our sales outlets with Valora as a strong partner at their side. As Business Partner Agencies, you promote cooperation with our agency partners and take on a central role in contract, remuneration and process topics as well as the further development of our agency model. Tasks you will like\n• Support and advice of our agency partners on operational, contractual and strategic issues in close cooperation with sales\n• Design, optimization and implementation of agency, compensation and commission models\n• Preparation, maintenance and further development of agency contracts and support for contract adjustments and supplements\n• Preparation, calculation and implementation of new and renegotiations with existing and future agency partners\n• Analysis of business indicators as well as identification of optimization and development potential in agency business\n• Responsibility for the correct and timely handling of monthly agency accounts\n• Participation in projects for the further development of the agency model as well as the associated processes and systems\n• Several years of professional experience in a comparable function, ideally in agency, franchise, retail or partner management\n• Experience in the preparation, analysis and plausibility checking of profitability, business case and profitability calculations\n• Strong business understanding and the ability to interpret key figures and derive sound recommendations for action from them\n• Experience in calculating remuneration, commission or partnership models\n• Excel knowledge and a secure handling of large amounts of data and complex calculations\n• High IT and process affinity as well as pleasure in the continuous optimization of processes\n• Structured, independent and analytical working method with pronounced numerical affinity\n• Communication strength and negotiating skills in dealing with internal and external business partners\n• Confident knowledge of German in words and writing, knowledge of Italian are advantageous advantages that we offer you\n• A dynamic, international working environment with plenty of room for ideas and creative participation\n• Various development and further education opportunities, including through our internal Valora Academy and live trainings per year\n• An uncomplicated corporate culture with direct exchange and a lively du-culture that promotes innovation and agility\n• Enjoy attractive employee discounts at Valora formats and selected partners in the fields of leisure, sports, health and mobility\n• Attractive employment conditions with own pension fund and three flexibly selectable savings plans\n• Opportunity to work in the home office",
+        "de": "Du möchtest Partnerschaften aktiv mitgestalten und Betreibermodelle weiterentwickeln? Im Agenturmodell der Valora führen selbstständige Agenturpartner unsere Verkaufsstellen mit Valora als starke Partnerin an ihrer Seite. Als Business Partner Agenturen förderst Du die Zusammenarbeit mit unseren Agenturpartnern und übernimmst eine zentrale Rolle bei Vertrags-, Vergütungs- und Prozessthemen sowie der Weiterentwicklung unseres Agenturmodells. Aufgaben, die Dir gefallen werden\n• Betreuung und Beratung unserer Agenturpartner bei operativen, vertraglichen und strategischen Fragestellungen in enger Zusammenarbeit mit dem Vertrieb\n• Gestaltung, Optimierung und Umsetzung von Agentur-, Vergütungs- und Provisionsmodellen\n• Erstellung, Pflege und Weiterentwicklung von Agenturverträgen sowie Begleitung von Vertragsanpassungen und Nachträgen\n• Vorbereitung, Kalkulation und Durchführung von Neu- und Nachverhandlungen mit bestehenden und künftigen Agenturpartnern\n• Analyse betriebswirtschaftlicher Kennzahlen sowie Identifikation von Optimierungs- und Entwicklungspotenzialen im Agenturgeschäft\n• Verantwortung für die korrekte und termingerechte Abwicklung der monatlichen Agenturabrechnungen\n• Mitarbeit in Projekten zur Weiterentwicklung des Agenturmodells sowie der zugehörigen Prozesse und Systeme Voraussetzungen, die Du mitbringst\n• Mehrjährige Berufserfahrung in einer vergleichbaren Funktion, idealerweise im Agentur-, Franchise-, Retail- oder Partnermanagement\n• Erfahrung in der Erstellung, Analyse und Plausibilisierung von Rentabilitäts-, Business-Case- und Wirtschaftlichkeitsberechnungen\n• Ausgeprägtes betriebswirtschaftliches Verständnis sowie die Fähigkeit, Kennzahlen zu interpretieren und daraus fundierte Handlungsempfehlungen abzuleiten\n• Erfahrung in der Kalkulation von Vergütungs-, Provisions- oder Partnerschaftsmodellen von Vorteil\n• Sehr gute Excel-Kenntnisse sowie ein sicherer Umgang mit grossen Datenmengen und komplexen Berechnungen\n• Hohe IT- und Prozessaffinität sowie Freude an der kontinuierlichen Optimierung von Abläufen\n• Strukturierte, selbstständige und analytische Arbeitsweise mit ausgeprägter Zahlenaffinität\n• Kommunikationsstärke und Verhandlungsgeschick im Umgang mit internen und externen Geschäftspartnern\n• Stilsichere Deutschkenntnisse in Wort und Schrift, Italienischkenntnisse sind von Vorteil Vorteile, die wir Dir bieten\n• Ein dynamisches, internationales Arbeitsumfeld mit viel Raum für Ideen und kreative Mitgestaltung\n• Vielfältige Entwicklungs- und Weiterbildungsmöglichkeiten, unter anderem durch unsere interne Valora Academy und Live-Schulungen pro Jahr\n• Eine unkomplizierte Unternehmenskultur mit direktem Austausch und gelebter Du-Kultur, die Innovation und Agilität fördert\n• Geniesse attraktive Mitarbeiterrabatte bei Valora-Formaten und ausgewählten Partnern aus den Bereichen Freizeit, Sport, Gesundheit und Mobilität\n• Attraktive Anstellungsbedingungen mit eigener Pensionskasse und drei flexibel wählbaren Sparplänen\n• Möglichkeit im Homeoffice zu arbeiten",
         "fr": "Voulez-vous façonner activement les partenariats et développer davantage les modèles d'opérateurs? Dans le modèle d'agence de Valora, nos partenaires indépendants dirigent nos points de vente avec Valora en tant que partenaire fort à leurs côtés. En tant qu'agences partenaires d'affaires, vous encouragez la coopération avec nos partenaires d'agence et assumez un rôle central dans les domaines des contrats, de la rémunération et du processus, ainsi que dans le développement de notre modèle d'agence. Tâches que vous aimerez\n• Soutien et conseils de nos partenaires sur des questions opérationnelles, contractuelles et stratégiques en étroite collaboration avec les ventes\n• Conception, optimisation et mise en œuvre de modèles d'agence, de rémunération et de commission\n• Préparation, entretien et poursuite de l ' élaboration de contrats d ' agence et appui aux ajustements et compléments de contrats\n• Préparation, calcul et mise en œuvre de nouvelles négociations et renégociations avec les partenaires actuels et futurs de l'agence\n• Analyse des indicateurs commerciaux et identification des possibilités d'optimisation et de développement dans les entreprises d'agence\n• Responsabilité du traitement correct et opportun des comptes mensuels des agences\n• Participation à des projets visant à développer le modèle d'agence ainsi que les processus et systèmes associés\n• Plusieurs années d'expérience professionnelle dans une fonction comparable, idéalement dans l'agence, la franchise, le commerce de détail ou la gestion de partenaires\n• Expérience dans la préparation, l'analyse et le contrôle de plausibilité des calculs de rentabilité, d'analyse de rentabilisation et de rentabilité\n• Une bonne compréhension des affaires et la capacité d'interpréter les chiffres clés et d'en tirer des recommandations judicieuses.\n• Expérience dans le calcul des modèles de rémunération, de commission ou de partenariat\n• Connaissance Excel et traitement sécurisé de grandes quantités de données et de calculs complexes\n• Haute affinité informatique et process ainsi que plaisir dans l'optimisation continue des process\n• Méthode de travail structurée, indépendante et analytique avec affinité numérique prononcée\n• Capacité de communication et compétences en matière de négociation avec les partenaires commerciaux internes et externes\n• Connaissance de l'allemand dans les mots et l'écriture, connaissance de l'italien sont des avantages que nous vous offrons\n• Un environnement de travail international dynamique avec beaucoup de place pour les idées et la participation créative\n• Diverses possibilités de développement et de formation continue, y compris par l'intermédiaire de notre Académie interne de Valora et des formations en direct par an\n• Une culture d'entreprise simple avec un échange direct et une du-culture vivante qui favorise l'innovation et l'agilité\n• Profitez de réductions d'employés attractives aux formats Valora et de partenaires sélectionnés dans les domaines des loisirs, du sport, de la santé et de la mobilité\n• Conditions d'emploi attrayantes avec fonds de pension propre et trois plans d'épargne flexibles sélectionnables\n• Possibilité de travailler à domicile"
       },
       "location": "Muttenz",
@@ -3227,7 +3301,7 @@
       "url": "https://career.valora.com/en/job/6640/business-partner-agenturen-w-m-d",
       "source": "Valora Group Dedicated Parser (Custom)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.759Z",
+      "crawledAt": "2026-09-26T13:54:50.218Z",
       "addressLocality": "Muttenz",
       "addressRegion": "Baselland",
       "streetAddress": "Hofackerstr. 40",
@@ -3245,9 +3319,7 @@
       "applyUrl": "https://career.valora.com/en/job/6640/business-partner-agenturen-w-m-d",
       "jobReqId": "21342",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -3261,10 +3333,10 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "business-partner-agenturen-w-m-d-valora-muttenz"
+          "business-partner-agenturen-w-m-d-valora-muttenz",
+          "agenzie-partner-commerciali-m-f-d-valora-group-muttenz"
         ],
         "en": [
           "business-partner-agenturen-w-m-d-valora-muttenz"
@@ -3274,8 +3346,693 @@
         ]
       },
       "previousSlugs": [
-        "business-partner-agenturen-w-m-d-valora-muttenz"
+        "business-partner-agenturen-w-m-d-valora-muttenz",
+        "agenzie-partner-commerciali-m-f-d-valora-group-muttenz"
       ]
+    },
+    {
+      "id": "valora-1ba64f9f6328",
+      "slug": "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne",
+      "slugByLocale": {
+        "fr": "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne",
+        "it": "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne",
+        "en": "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne",
+        "de": "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne"
+      },
+      "company": "Valora Group",
+      "companyKey": "valora",
+      "companyDomain": "valora.com",
+      "title": "barista Caffè Spettacolo - 16.4 h (h/f/x)",
+      "titleByLocale": {
+        "fr": "barista Caffè Spettacolo - 16.4 h (h/f/x)",
+        "it": "barista Caffè Spettacolo - 16.4 h (h/f/x)",
+        "en": "barista Caffè Spettacolo - 16.4 h (h/f/x)",
+        "de": "barista Caffè Spettacolo - 16.4 h (h/f/x)"
+      },
+      "description": "Le contact avec les clients dans le quotidien animé d’un café te passionne ? Alors nous avons l’opportunité idéale pour toi. Pour notre Caffè Spettacolo à Lausanne nous recherchons dès maintenant du renfort pour 16 h/semaine, rémunérées à l’heure. Tu seras responsable de\n• Accueillir et conseiller nos clients avec professionnalisme et amabilité, ainsi que vendre activement des spécialités de café et des snacks italiens\n• Préparer fraîchement des spécialités de café chaudes et froides ainsi que des produits de boulangerie\n• Transmettre une véritable Italianità grâce à une excellente connaissance des produits et à une présence authentique\n• Utiliser la caisse avec assurance\n• Présenter notre offre de manière attrayante et veiller à la propreté et à l’ordre de l’environnement de travail (y compris le débarrassage et le réassort) Ce qui te distingue\n• Expérience ou formation dans la restauration ou la vente\n• Forte orientation client et sens du service\n• Passion pour le caffè ainsi qu’une personnalité ouverte et enthousiaste\n• Très bonnes connaissances de l’allemand\n• Flexibilité pour travailler le week-end ainsi qu’en service du matin et du soir Ce que nous t’offrons\n• Faire partie du principal fournisseur de foodvenience et apporter du bonheur à notre clientèle\n• Des possibilités de développement et des formations en ligne passionnantes sur notre Valora Academy\n• Des horaires de travail réguliers du lundi au dimanche\n• Un salaire supérieur à la CCNT\n• Un supplément attractif pour le soir (20h00–23h00), en complément des suppléments de nuit, du dimanche et des jours fériés",
+      "descriptionByLocale": {
+        "fr": "Le contact avec les clients dans le quotidien animé d’un café te passionne ? Alors nous avons l’opportunité idéale pour toi. Pour notre Caffè Spettacolo à Lausanne nous recherchons dès maintenant du renfort pour 16 h/semaine, rémunérées à l’heure. Tu seras responsable de\n• Accueillir et conseiller nos clients avec professionnalisme et amabilité, ainsi que vendre activement des spécialités de café et des snacks italiens\n• Préparer fraîchement des spécialités de café chaudes et froides ainsi que des produits de boulangerie\n• Transmettre une véritable Italianità grâce à une excellente connaissance des produits et à une présence authentique\n• Utiliser la caisse avec assurance\n• Présenter notre offre de manière attrayante et veiller à la propreté et à l’ordre de l’environnement de travail (y compris le débarrassage et le réassort) Ce qui te distingue\n• Expérience ou formation dans la restauration ou la vente\n• Forte orientation client et sens du service\n• Passion pour le caffè ainsi qu’une personnalité ouverte et enthousiaste\n• Très bonnes connaissances de l’allemand\n• Flexibilité pour travailler le week-end ainsi qu’en service du matin et du soir Ce que nous t’offrons\n• Faire partie du principal fournisseur de foodvenience et apporter du bonheur à notre clientèle\n• Des possibilités de développement et des formations en ligne passionnantes sur notre Valora Academy\n• Des horaires de travail réguliers du lundi au dimanche\n• Un salaire supérieur à la CCNT\n• Un supplément attractif pour le soir (20h00–23h00), en complément des suppléments de nuit, du dimanche et des jours fériés",
+        "it": "Le contact avec les clients dans le quotidien animé d’un café te passionne ? Alors nous avons l’opportunité idéale pour toi. Pour notre Caffè Spettacolo à Lausanne nous recherchons dès maintenant du renfort pour 16 h/semaine, rémunérées à l’heure. Tu seras responsable de\n• Accueillir et conseiller nos clients avec professionnalisme et amabilité, ainsi que vendre activement des spécialités de café et des snacks italiens\n• Préparer fraîchement des spécialités de café chaudes et froides ainsi que des produits de boulangerie\n• Transmettre une véritable Italianità grâce à une excellente connaissance des produits et à une présence authentique\n• Utiliser la caisse avec assurance\n• Présenter notre offre de manière attrayante et veiller à la propreté et à l’ordre de l’environnement de travail (y compris le débarrassage et le réassort) Ce qui te distingue\n• Expérience ou formation dans la restauration ou la vente\n• Forte orientation client et sens du service\n• Passion pour le caffè ainsi qu’une personnalité ouverte et enthousiaste\n• Très bonnes connaissances de l’allemand\n• Flexibilité pour travailler le week-end ainsi qu’en service du matin et du soir Ce que nous t’offrons\n• Faire partie du principal fournisseur de foodvenience et apporter du bonheur à notre clientèle\n• Des possibilités de développement et des formations en ligne passionnantes sur notre Valora Academy\n• Des horaires de travail réguliers du lundi au dimanche\n• Un salaire supérieur à la CCNT\n• Un supplément attractif pour le soir (20h00–23h00), en complément des suppléments de nuit, du dimanche et des jours fériés",
+        "en": "Le contact avec les clients dans le quotidien animé d’un café te passionne ? Alors nous avons l’opportunité idéale pour toi. Pour notre Caffè Spettacolo à Lausanne nous recherchons dès maintenant du renfort pour 16 h/semaine, rémunérées à l’heure. Tu seras responsable de\n• Accueillir et conseiller nos clients avec professionnalisme et amabilité, ainsi que vendre activement des spécialités de café et des snacks italiens\n• Préparer fraîchement des spécialités de café chaudes et froides ainsi que des produits de boulangerie\n• Transmettre une véritable Italianità grâce à une excellente connaissance des produits et à une présence authentique\n• Utiliser la caisse avec assurance\n• Présenter notre offre de manière attrayante et veiller à la propreté et à l’ordre de l’environnement de travail (y compris le débarrassage et le réassort) Ce qui te distingue\n• Expérience ou formation dans la restauration ou la vente\n• Forte orientation client et sens du service\n• Passion pour le caffè ainsi qu’une personnalité ouverte et enthousiaste\n• Très bonnes connaissances de l’allemand\n• Flexibilité pour travailler le week-end ainsi qu’en service du matin et du soir Ce que nous t’offrons\n• Faire partie du principal fournisseur de foodvenience et apporter du bonheur à notre clientèle\n• Des possibilités de développement et des formations en ligne passionnantes sur notre Valora Academy\n• Des horaires de travail réguliers du lundi au dimanche\n• Un salaire supérieur à la CCNT\n• Un supplément attractif pour le soir (20h00–23h00), en complément des suppléments de nuit, du dimanche et des jours fériés",
+        "de": "Le contact avec les clients dans le quotidien animé d’un café te passionne ? Alors nous avons l’opportunité idéale pour toi. Pour notre Caffè Spettacolo à Lausanne nous recherchons dès maintenant du renfort pour 16 h/semaine, rémunérées à l’heure. Tu seras responsable de\n• Accueillir et conseiller nos clients avec professionnalisme et amabilité, ainsi que vendre activement des spécialités de café et des snacks italiens\n• Préparer fraîchement des spécialités de café chaudes et froides ainsi que des produits de boulangerie\n• Transmettre une véritable Italianità grâce à une excellente connaissance des produits et à une présence authentique\n• Utiliser la caisse avec assurance\n• Présenter notre offre de manière attrayante et veiller à la propreté et à l’ordre de l’environnement de travail (y compris le débarrassage et le réassort) Ce qui te distingue\n• Expérience ou formation dans la restauration ou la vente\n• Forte orientation client et sens du service\n• Passion pour le caffè ainsi qu’une personnalité ouverte et enthousiaste\n• Très bonnes connaissances de l’allemand\n• Flexibilité pour travailler le week-end ainsi qu’en service du matin et du soir Ce que nous t’offrons\n• Faire partie du principal fournisseur de foodvenience et apporter du bonheur à notre clientèle\n• Des possibilités de développement et des formations en ligne passionnantes sur notre Valora Academy\n• Des horaires de travail réguliers du lundi au dimanche\n• Un salaire supérieur à la CCNT\n• Un supplément attractif pour le soir (20h00–23h00), en complément des suppléments de nuit, du dimanche et des jours fériés"
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://career.valora.com/en/job/5997/barista-caffe-spettacolo-16-4-h-h-f-x",
+      "source": "Valora Group Dedicated Parser (Custom)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-26T13:54:50.410Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "Waadt",
+      "streetAddress": "Rue des Terreaux 25",
+      "postalCode": "1003",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendita",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail / Foodvenience",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-19",
+      "applyUrl": "https://career.valora.com/en/job/5997/barista-caffe-spettacolo-16-4-h-h-f-x",
+      "jobReqId": "21299",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 72000,
+      "salaryMax": 111000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72000,
+          "maxValue": 111000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-04T12:43:13.426Z"
+    },
+    {
+      "id": "valora-a82733abdd4b",
+      "slug": "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne-3",
+      "slugByLocale": {
+        "fr": "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne-jo0w2h",
+        "it": "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne-3",
+        "en": "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne-3",
+        "de": "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne-3"
+      },
+      "company": "Valora Group",
+      "companyKey": "valora",
+      "companyDomain": "valora.com",
+      "title": "barista Caffè Spettacolo - 16.4 h (h/f/x)",
+      "titleByLocale": {
+        "fr": "barista Caffè Spettacolo - 16.4 h (h/f/x)",
+        "it": "barista Caffè Spettacolo - 16.4 h (h/f/x)",
+        "en": "barista Caffè Spettacolo - 16.4 h (h/f/x)",
+        "de": "barista Caffè Spettacolo - 16.4 h (h/f/x)"
+      },
+      "description": "Le contact avec les clients dans le quotidien animé d’un café te passionne ? Alors nous avons l’opportunité idéale pour toi. Pour notre Caffè Spettacolo à Lausanne nous recherchons dès maintenant du renfort pour 16 h/semaine, rémunérées à l’heure. Tu seras responsable de\n• Accueillir et conseiller nos clients avec professionnalisme et amabilité, ainsi que vendre activement des spécialités de café et des snacks italiens\n• Préparer fraîchement des spécialités de café chaudes et froides ainsi que des produits de boulangerie\n• Transmettre une véritable Italianità grâce à une excellente connaissance des produits et à une présence authentique\n• Utiliser la caisse avec assurance\n• Présenter notre offre de manière attrayante et veiller à la propreté et à l’ordre de l’environnement de travail (y compris le débarrassage et le réassort) Ce qui te distingue\n• Expérience ou formation dans la restauration ou la vente\n• Forte orientation client et sens du service\n• Passion pour le caffè ainsi qu’une personnalité ouverte et enthousiaste\n• Très bonnes connaissances de l’allemand\n• Flexibilité pour travailler le week-end ainsi qu’en service du matin et du soir Ce que nous t’offrons\n• Faire partie du principal fournisseur de foodvenience et apporter du bonheur à notre clientèle\n• Des possibilités de développement et des formations en ligne passionnantes sur notre Valora Academy\n• Des horaires de travail réguliers du lundi au dimanche\n• Un salaire supérieur à la CCNT\n• Un supplément attractif pour le soir (20h00–23h00), en complément des suppléments de nuit, du dimanche et des jours fériés",
+      "descriptionByLocale": {
+        "fr": "Le contact avec les clients dans le quotidien animé d’un café te passionne ? Alors nous avons l’opportunité idéale pour toi. Pour notre Caffè Spettacolo à Lausanne nous recherchons dès maintenant du renfort pour 16 h/semaine, rémunérées à l’heure. Tu seras responsable de\n• Accueillir et conseiller nos clients avec professionnalisme et amabilité, ainsi que vendre activement des spécialités de café et des snacks italiens\n• Préparer fraîchement des spécialités de café chaudes et froides ainsi que des produits de boulangerie\n• Transmettre une véritable Italianità grâce à une excellente connaissance des produits et à une présence authentique\n• Utiliser la caisse avec assurance\n• Présenter notre offre de manière attrayante et veiller à la propreté et à l’ordre de l’environnement de travail (y compris le débarrassage et le réassort) Ce qui te distingue\n• Expérience ou formation dans la restauration ou la vente\n• Forte orientation client et sens du service\n• Passion pour le caffè ainsi qu’une personnalité ouverte et enthousiaste\n• Très bonnes connaissances de l’allemand\n• Flexibilité pour travailler le week-end ainsi qu’en service du matin et du soir Ce que nous t’offrons\n• Faire partie du principal fournisseur de foodvenience et apporter du bonheur à notre clientèle\n• Des possibilités de développement et des formations en ligne passionnantes sur notre Valora Academy\n• Des horaires de travail réguliers du lundi au dimanche\n• Un salaire supérieur à la CCNT\n• Un supplément attractif pour le soir (20h00–23h00), en complément des suppléments de nuit, du dimanche et des jours fériés",
+        "it": "Le contact avec les clients dans le quotidien animé d’un café te passionne ? Alors nous avons l’opportunité idéale pour toi. Pour notre Caffè Spettacolo à Lausanne nous recherchons dès maintenant du renfort pour 16 h/semaine, rémunérées à l’heure. Tu seras responsable de\n• Accueillir et conseiller nos clients avec professionnalisme et amabilité, ainsi que vendre activement des spécialités de café et des snacks italiens\n• Préparer fraîchement des spécialités de café chaudes et froides ainsi que des produits de boulangerie\n• Transmettre une véritable Italianità grâce à une excellente connaissance des produits et à une présence authentique\n• Utiliser la caisse avec assurance\n• Présenter notre offre de manière attrayante et veiller à la propreté et à l’ordre de l’environnement de travail (y compris le débarrassage et le réassort) Ce qui te distingue\n• Expérience ou formation dans la restauration ou la vente\n• Forte orientation client et sens du service\n• Passion pour le caffè ainsi qu’une personnalité ouverte et enthousiaste\n• Très bonnes connaissances de l’allemand\n• Flexibilité pour travailler le week-end ainsi qu’en service du matin et du soir Ce que nous t’offrons\n• Faire partie du principal fournisseur de foodvenience et apporter du bonheur à notre clientèle\n• Des possibilités de développement et des formations en ligne passionnantes sur notre Valora Academy\n• Des horaires de travail réguliers du lundi au dimanche\n• Un salaire supérieur à la CCNT\n• Un supplément attractif pour le soir (20h00–23h00), en complément des suppléments de nuit, du dimanche et des jours fériés",
+        "en": "Le contact avec les clients dans le quotidien animé d’un café te passionne ? Alors nous avons l’opportunité idéale pour toi. Pour notre Caffè Spettacolo à Lausanne nous recherchons dès maintenant du renfort pour 16 h/semaine, rémunérées à l’heure. Tu seras responsable de\n• Accueillir et conseiller nos clients avec professionnalisme et amabilité, ainsi que vendre activement des spécialités de café et des snacks italiens\n• Préparer fraîchement des spécialités de café chaudes et froides ainsi que des produits de boulangerie\n• Transmettre une véritable Italianità grâce à une excellente connaissance des produits et à une présence authentique\n• Utiliser la caisse avec assurance\n• Présenter notre offre de manière attrayante et veiller à la propreté et à l’ordre de l’environnement de travail (y compris le débarrassage et le réassort) Ce qui te distingue\n• Expérience ou formation dans la restauration ou la vente\n• Forte orientation client et sens du service\n• Passion pour le caffè ainsi qu’une personnalité ouverte et enthousiaste\n• Très bonnes connaissances de l’allemand\n• Flexibilité pour travailler le week-end ainsi qu’en service du matin et du soir Ce que nous t’offrons\n• Faire partie du principal fournisseur de foodvenience et apporter du bonheur à notre clientèle\n• Des possibilités de développement et des formations en ligne passionnantes sur notre Valora Academy\n• Des horaires de travail réguliers du lundi au dimanche\n• Un salaire supérieur à la CCNT\n• Un supplément attractif pour le soir (20h00–23h00), en complément des suppléments de nuit, du dimanche et des jours fériés",
+        "de": "Le contact avec les clients dans le quotidien animé d’un café te passionne ? Alors nous avons l’opportunité idéale pour toi. Pour notre Caffè Spettacolo à Lausanne nous recherchons dès maintenant du renfort pour 16 h/semaine, rémunérées à l’heure. Tu seras responsable de\n• Accueillir et conseiller nos clients avec professionnalisme et amabilité, ainsi que vendre activement des spécialités de café et des snacks italiens\n• Préparer fraîchement des spécialités de café chaudes et froides ainsi que des produits de boulangerie\n• Transmettre une véritable Italianità grâce à une excellente connaissance des produits et à une présence authentique\n• Utiliser la caisse avec assurance\n• Présenter notre offre de manière attrayante et veiller à la propreté et à l’ordre de l’environnement de travail (y compris le débarrassage et le réassort) Ce qui te distingue\n• Expérience ou formation dans la restauration ou la vente\n• Forte orientation client et sens du service\n• Passion pour le caffè ainsi qu’une personnalité ouverte et enthousiaste\n• Très bonnes connaissances de l’allemand\n• Flexibilité pour travailler le week-end ainsi qu’en service du matin et du soir Ce que nous t’offrons\n• Faire partie du principal fournisseur de foodvenience et apporter du bonheur à notre clientèle\n• Des possibilités de développement et des formations en ligne passionnantes sur notre Valora Academy\n• Des horaires de travail réguliers du lundi au dimanche\n• Un salaire supérieur à la CCNT\n• Un supplément attractif pour le soir (20h00–23h00), en complément des suppléments de nuit, du dimanche et des jours fériés"
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://career.valora.com/en/job/6002/barista-caffe-spettacolo-16-4-h-h-f-x",
+      "source": "Valora Group Dedicated Parser (Custom)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-26T13:54:50.407Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "Waadt",
+      "streetAddress": "Rue des Terreaux 25",
+      "postalCode": "1003",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendita",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail / Foodvenience",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-22",
+      "applyUrl": "https://career.valora.com/en/job/6002/barista-caffe-spettacolo-16-4-h-h-f-x",
+      "jobReqId": "21226",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne"
+        ],
+        "fr": [
+          "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 72000,
+      "salaryMax": 111000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72000,
+          "maxValue": 111000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-04T12:43:13.426Z"
+    },
+    {
+      "id": "valora-a3b60fc49f5b",
+      "slug": "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne-4",
+      "slugByLocale": {
+        "fr": "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne-jo0w2i",
+        "it": "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne-4",
+        "en": "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne-4",
+        "de": "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne-4"
+      },
+      "company": "Valora Group",
+      "companyKey": "valora",
+      "companyDomain": "valora.com",
+      "title": "barista Caffè Spettacolo - 16.4 h (h/f/x)",
+      "titleByLocale": {
+        "fr": "barista Caffè Spettacolo - 16.4 h (h/f/x)",
+        "it": "barista Caffè Spettacolo - 16.4 h (h/f/x)",
+        "en": "barista Caffè Spettacolo - 16.4 h (h/f/x)",
+        "de": "barista Caffè Spettacolo - 16.4 h (h/f/x)"
+      },
+      "description": "Le contact avec les clients dans le quotidien animé d’un café te passionne ? Alors nous avons l’opportunité idéale pour toi. Pour notre Caffè Spettacolo à Lausanne nous recherchons dès maintenant du renfort pour 16 h/semaine, rémunérées à l’heure. Tu seras responsable de\n• Accueillir et conseiller nos clients avec professionnalisme et amabilité, ainsi que vendre activement des spécialités de café et des snacks italiens\n• Préparer fraîchement des spécialités de café chaudes et froides ainsi que des produits de boulangerie\n• Transmettre une véritable Italianità grâce à une excellente connaissance des produits et à une présence authentique\n• Utiliser la caisse avec assurance\n• Présenter notre offre de manière attrayante et veiller à la propreté et à l’ordre de l’environnement de travail (y compris le débarrassage et le réassort) Ce qui te distingue\n• Expérience ou formation dans la restauration ou la vente\n• Forte orientation client et sens du service\n• Passion pour le caffè ainsi qu’une personnalité ouverte et enthousiaste\n• Très bonnes connaissances de l’allemand\n• Flexibilité pour travailler le week-end ainsi qu’en service du matin et du soir Ce que nous t’offrons\n• Faire partie du principal fournisseur de foodvenience et apporter du bonheur à notre clientèle\n• Des possibilités de développement et des formations en ligne passionnantes sur notre Valora Academy\n• Des horaires de travail réguliers du lundi au dimanche\n• Un salaire supérieur à la CCNT\n• Un supplément attractif pour le soir (20h00–23h00), en complément des suppléments de nuit, du dimanche et des jours fériés",
+      "descriptionByLocale": {
+        "fr": "Le contact avec les clients dans le quotidien animé d’un café te passionne ? Alors nous avons l’opportunité idéale pour toi. Pour notre Caffè Spettacolo à Lausanne nous recherchons dès maintenant du renfort pour 16 h/semaine, rémunérées à l’heure. Tu seras responsable de\n• Accueillir et conseiller nos clients avec professionnalisme et amabilité, ainsi que vendre activement des spécialités de café et des snacks italiens\n• Préparer fraîchement des spécialités de café chaudes et froides ainsi que des produits de boulangerie\n• Transmettre une véritable Italianità grâce à une excellente connaissance des produits et à une présence authentique\n• Utiliser la caisse avec assurance\n• Présenter notre offre de manière attrayante et veiller à la propreté et à l’ordre de l’environnement de travail (y compris le débarrassage et le réassort) Ce qui te distingue\n• Expérience ou formation dans la restauration ou la vente\n• Forte orientation client et sens du service\n• Passion pour le caffè ainsi qu’une personnalité ouverte et enthousiaste\n• Très bonnes connaissances de l’allemand\n• Flexibilité pour travailler le week-end ainsi qu’en service du matin et du soir Ce que nous t’offrons\n• Faire partie du principal fournisseur de foodvenience et apporter du bonheur à notre clientèle\n• Des possibilités de développement et des formations en ligne passionnantes sur notre Valora Academy\n• Des horaires de travail réguliers du lundi au dimanche\n• Un salaire supérieur à la CCNT\n• Un supplément attractif pour le soir (20h00–23h00), en complément des suppléments de nuit, du dimanche et des jours fériés",
+        "it": "Le contact avec les clients dans le quotidien animé d’un café te passionne ? Alors nous avons l’opportunité idéale pour toi. Pour notre Caffè Spettacolo à Lausanne nous recherchons dès maintenant du renfort pour 16 h/semaine, rémunérées à l’heure. Tu seras responsable de\n• Accueillir et conseiller nos clients avec professionnalisme et amabilité, ainsi que vendre activement des spécialités de café et des snacks italiens\n• Préparer fraîchement des spécialités de café chaudes et froides ainsi que des produits de boulangerie\n• Transmettre une véritable Italianità grâce à une excellente connaissance des produits et à une présence authentique\n• Utiliser la caisse avec assurance\n• Présenter notre offre de manière attrayante et veiller à la propreté et à l’ordre de l’environnement de travail (y compris le débarrassage et le réassort) Ce qui te distingue\n• Expérience ou formation dans la restauration ou la vente\n• Forte orientation client et sens du service\n• Passion pour le caffè ainsi qu’une personnalité ouverte et enthousiaste\n• Très bonnes connaissances de l’allemand\n• Flexibilité pour travailler le week-end ainsi qu’en service du matin et du soir Ce que nous t’offrons\n• Faire partie du principal fournisseur de foodvenience et apporter du bonheur à notre clientèle\n• Des possibilités de développement et des formations en ligne passionnantes sur notre Valora Academy\n• Des horaires de travail réguliers du lundi au dimanche\n• Un salaire supérieur à la CCNT\n• Un supplément attractif pour le soir (20h00–23h00), en complément des suppléments de nuit, du dimanche et des jours fériés",
+        "en": "Le contact avec les clients dans le quotidien animé d’un café te passionne ? Alors nous avons l’opportunité idéale pour toi. Pour notre Caffè Spettacolo à Lausanne nous recherchons dès maintenant du renfort pour 16 h/semaine, rémunérées à l’heure. Tu seras responsable de\n• Accueillir et conseiller nos clients avec professionnalisme et amabilité, ainsi que vendre activement des spécialités de café et des snacks italiens\n• Préparer fraîchement des spécialités de café chaudes et froides ainsi que des produits de boulangerie\n• Transmettre une véritable Italianità grâce à une excellente connaissance des produits et à une présence authentique\n• Utiliser la caisse avec assurance\n• Présenter notre offre de manière attrayante et veiller à la propreté et à l’ordre de l’environnement de travail (y compris le débarrassage et le réassort) Ce qui te distingue\n• Expérience ou formation dans la restauration ou la vente\n• Forte orientation client et sens du service\n• Passion pour le caffè ainsi qu’une personnalité ouverte et enthousiaste\n• Très bonnes connaissances de l’allemand\n• Flexibilité pour travailler le week-end ainsi qu’en service du matin et du soir Ce que nous t’offrons\n• Faire partie du principal fournisseur de foodvenience et apporter du bonheur à notre clientèle\n• Des possibilités de développement et des formations en ligne passionnantes sur notre Valora Academy\n• Des horaires de travail réguliers du lundi au dimanche\n• Un salaire supérieur à la CCNT\n• Un supplément attractif pour le soir (20h00–23h00), en complément des suppléments de nuit, du dimanche et des jours fériés",
+        "de": "Le contact avec les clients dans le quotidien animé d’un café te passionne ? Alors nous avons l’opportunité idéale pour toi. Pour notre Caffè Spettacolo à Lausanne nous recherchons dès maintenant du renfort pour 16 h/semaine, rémunérées à l’heure. Tu seras responsable de\n• Accueillir et conseiller nos clients avec professionnalisme et amabilité, ainsi que vendre activement des spécialités de café et des snacks italiens\n• Préparer fraîchement des spécialités de café chaudes et froides ainsi que des produits de boulangerie\n• Transmettre une véritable Italianità grâce à une excellente connaissance des produits et à une présence authentique\n• Utiliser la caisse avec assurance\n• Présenter notre offre de manière attrayante et veiller à la propreté et à l’ordre de l’environnement de travail (y compris le débarrassage et le réassort) Ce qui te distingue\n• Expérience ou formation dans la restauration ou la vente\n• Forte orientation client et sens du service\n• Passion pour le caffè ainsi qu’une personnalité ouverte et enthousiaste\n• Très bonnes connaissances de l’allemand\n• Flexibilité pour travailler le week-end ainsi qu’en service du matin et du soir Ce que nous t’offrons\n• Faire partie du principal fournisseur de foodvenience et apporter du bonheur à notre clientèle\n• Des possibilités de développement et des formations en ligne passionnantes sur notre Valora Academy\n• Des horaires de travail réguliers du lundi au dimanche\n• Un salaire supérieur à la CCNT\n• Un supplément attractif pour le soir (20h00–23h00), en complément des suppléments de nuit, du dimanche et des jours fériés"
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://career.valora.com/en/job/6001/barista-caffe-spettacolo-16-4-h-h-f-x",
+      "source": "Valora Group Dedicated Parser (Custom)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-26T13:54:50.402Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "Waadt",
+      "streetAddress": "Rue des Terreaux 25",
+      "postalCode": "1003",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendita",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail / Foodvenience",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-22",
+      "applyUrl": "https://career.valora.com/en/job/6001/barista-caffe-spettacolo-16-4-h-h-f-x",
+      "jobReqId": "21267",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne"
+        ],
+        "fr": [
+          "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "barista-caffe-spettacolo-16-4-h-h-f-x-valora-lausanne"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 72000,
+      "salaryMax": 111000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72000,
+          "maxValue": 111000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-04T12:43:13.426Z"
+    },
+    {
+      "id": "valora-4c80410311ef",
+      "slug": "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg-2",
+      "slugByLocale": {
+        "de": "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg-jo0tq3",
+        "it": "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg-2",
+        "en": "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg-2",
+        "fr": "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg-2"
+      },
+      "company": "Valora Group",
+      "companyKey": "valora",
+      "companyDomain": "valora.com",
+      "title": "Verkäuferin / Verkäufer k kiosk 20 Std.",
+      "titleByLocale": {
+        "de": "Verkäuferin / Verkäufer k kiosk 20 Std.",
+        "it": "Verkäuferin / Verkäufer k kiosk 20 Std.",
+        "en": "Verkäuferin / Verkäufer k kiosk 20 Std.",
+        "fr": "Verkäuferin / Verkäufer k kiosk 20 Std."
+      },
+      "description": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Kandersteg suchen wir ab sofort Verstärkung für 20 Std./Woche im Stundenlohn . Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+      "descriptionByLocale": {
+        "de": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Kandersteg suchen wir ab sofort Verstärkung für 20 Std./Woche im Stundenlohn . Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "it": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Kandersteg suchen wir ab sofort Verstärkung für 20 Std./Woche im Stundenlohn . Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "en": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Kandersteg suchen wir ab sofort Verstärkung für 20 Std./Woche im Stundenlohn . Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "fr": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Kandersteg suchen wir ab sofort Verstärkung für 20 Std./Woche im Stundenlohn . Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst"
+      },
+      "location": "Kandersteg",
+      "canton": "BE",
+      "url": "https://career.valora.com/en/job/6352/verkauferin-verkaufer-k-kiosk-20-std",
+      "source": "Valora Group Dedicated Parser (Custom)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T13:54:50.364Z",
+      "addressLocality": "Kandersteg",
+      "addressRegion": "Bern",
+      "streetAddress": "Bahnhofstrasse 7",
+      "postalCode": "3718",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendita",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail / Foodvenience",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-18",
+      "applyUrl": "https://career.valora.com/en/job/6352/verkauferin-verkaufer-k-kiosk-20-std",
+      "jobReqId": "21710",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg"
+        ],
+        "de": [
+          "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 77500,
+      "salaryMax": 118500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77500,
+          "maxValue": 118500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-18T21:37:25.993Z"
+    },
+    {
+      "id": "valora-5d8a7d108673",
+      "slug": "verkauferin-verkaufer-press-books-22-std-valora-group-bern",
+      "slugByLocale": {
+        "de": "verkauferin-verkaufer-press-amp-books-22-std-valora-bern",
+        "it": "verkauferin-verkaufer-press-books-22-std-valora-group-bern",
+        "en": "verkauferin-verkaufer-press-books-22-std-valora-group-bern",
+        "fr": "verkauferin-verkaufer-press-books-22-std-valora-group-bern"
+      },
+      "company": "Valora Group",
+      "companyKey": "valora",
+      "companyDomain": "valora.com",
+      "title": "Verkäuferin / Verkäufer Press & Books 22 Std.",
+      "titleByLocale": {
+        "de": "Verkäuferin / Verkäufer Press & Books 22 Std.",
+        "it": "Verkäuferin / Verkäufer Press & Books 22 Std.",
+        "en": "Verkäuferin / Verkäufer Press & Books 22 Std.",
+        "fr": "Verkäuferin / Verkäufer Press & Books 22 Std."
+      },
+      "description": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren Press & Books in Bern suchen wir ab sofort Verstärkung für 22 Std./Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+      "descriptionByLocale": {
+        "de": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren Press & Books in Bern suchen wir ab sofort Verstärkung für 22 Std./Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "it": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren Press & Books in Bern suchen wir ab sofort Verstärkung für 22 Std./Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "en": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren Press & Books in Bern suchen wir ab sofort Verstärkung für 22 Std./Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "fr": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren Press & Books in Bern suchen wir ab sofort Verstärkung für 22 Std./Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst"
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://career.valora.com/en/job/6469/verkauferin-verkaufer-press-books-22-std",
+      "source": "Valora Group Dedicated Parser (Custom)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T13:54:50.350Z",
+      "addressLocality": "Bern",
+      "addressRegion": "Bern",
+      "streetAddress": "Bahnhofplatz 10",
+      "postalCode": "3011",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendita",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail / Foodvenience",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://career.valora.com/en/job/6469/verkauferin-verkaufer-press-books-22-std",
+      "jobReqId": "21846",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-press-amp-books-22-std-valora-bern-2",
+          "verkauferin-verkaufer-press-amp-books-22-std-valora-bern"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-press-amp-books-22-std-valora-bern-2",
+        "verkauferin-verkaufer-press-amp-books-22-std-valora-bern"
+      ],
+      "salaryMin": 77500,
+      "salaryMax": 118500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77500,
+          "maxValue": 118500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-26T13:54:50.350Z"
+    },
+    {
+      "id": "valora-1cf39074e462",
+      "slug": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
+      "slugByLocale": {
+        "de": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
+        "it": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
+        "en": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
+        "fr": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
+      },
+      "company": "Valora Group",
+      "companyKey": "valora",
+      "companyDomain": "valora.com",
+      "title": "Verkäuferin/Verkäufer k kiosk 15 Std.",
+      "titleByLocale": {
+        "de": "Verkäuferin/Verkäufer k kiosk 15 Std.",
+        "it": "Verkäuferin/Verkäufer k kiosk 15 Std.",
+        "en": "Verkäuferin/Verkäufer k kiosk 15 Std.",
+        "fr": "Verkäuferin/Verkäufer k kiosk 15 Std."
+      },
+      "description": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Uetendorf suchen wir ab sofort Verstärkung für 15 Stunden/Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+      "descriptionByLocale": {
+        "de": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Uetendorf suchen wir ab sofort Verstärkung für 15 Stunden/Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "it": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Uetendorf suchen wir ab sofort Verstärkung für 15 Stunden/Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "en": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Uetendorf suchen wir ab sofort Verstärkung für 15 Stunden/Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "fr": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren k kiosk in Uetendorf suchen wir ab sofort Verstärkung für 15 Stunden/Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Freundliche und professionelle Beratung und Verkauf im Bereich Food und Non-Food\n• Warenbewirtschaftung und Umsetzung der Verkaufsförderungsmassnahmen\n• Kassiertätigkeit und Abwicklung von Bestellungen\n• Attraktive Warenpräsentation und Sicherstellung eines sauberen und ordentlichen Arbeitsplatzes\n• Einhaltung und Umsetzung der gesetzlichen Standards im Verkauf Das zeichnet Dich aus\n• Zuverlässig, flexibel, motiviert und belastbar\n• Berufserfahrung im Detailhandel oder ähnlichem Bereich (Hotellerie oder Gastronomie)\n• Begeisterungsfähig und serviceorientiert\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Teamplayer mit schneller Auffassungsgabe Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• Ein dynamisches Umfeld\n• Flexible Schichtmodelle\n• Nachtzuschläge ab 20 Uhr sowie Sonn- und Feiertagszuschläge\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst"
+      },
+      "location": "Uetendorf",
+      "canton": "BE",
+      "url": "https://career.valora.com/en/job/6515/verkauferin-verkaufer-k-kiosk-15-std",
+      "source": "Valora Group Dedicated Parser (Custom)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T13:54:50.345Z",
+      "addressLocality": "Uetendorf",
+      "addressRegion": "Bern",
+      "streetAddress": "Dorfstrasse 32",
+      "postalCode": "3661",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendita",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail / Foodvenience",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-10",
+      "applyUrl": "https://career.valora.com/en/job/6515/verkauferin-verkaufer-k-kiosk-15-std",
+      "jobReqId": "21042",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 77500,
+      "salaryMax": 118500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77500,
+          "maxValue": 118500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-04T12:43:13.456Z"
+    },
+    {
+      "id": "valora-654b82e41e12",
+      "slug": "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke",
+      "slugByLocale": {
+        "de": "produktionsmitarbeiter-w-m-d-valora-emmenbrucke",
+        "it": "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke",
+        "en": "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke",
+        "fr": "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
+      },
+      "company": "Valora Group",
+      "companyKey": "valora",
+      "companyDomain": "valora.com",
+      "title": "Produktionsmitarbeiter (w/m/d)",
+      "titleByLocale": {
+        "de": "Produktionsmitarbeiter (w/m/d)",
+        "it": "Produktionsmitarbeiter (w/m/d)",
+        "en": "Produktionsmitarbeiter (w/m/d)",
+        "fr": "Produktionsmitarbeiter (w/m/d)"
+      },
+      "description": "Du suchst eine abwechslungsreiche Tätigkeit in der Produktion und möchtest unser Team in Emmenbrücke mit einem Pensum von 21 Stunden pro Woche im Stundenlohn unterstützen? Dann freuen wir uns darauf, dich kennenzulernen. Aufgaben, die Dir gefallen werden\n• Teig nach Vorgaben herstellen\n• Produktionsanlagen bedienen\n• Produkte verpacken\n• Sicherstellung und Einhaltung unserer Qualitätsstandards\n• Arbeiten gemäss Hygiene- und Sicherheitsrichtlinien Voraussetzungen, die Du mitbringst\n• Bereit für 3-Schichtarbeit und flexible Einsätze (Montag bis Freitag, bei Bedarf auch am Wochenende)\n• Gute Deutschkenntnisse (mindestens Niveau B1)\n• Erfahrung in der Produktion, idealerweise in der Lebensmittelbranche\n• Körperlich fit und belastbar\n• Du arbeitest zuverlässig und selbständig Vorteile, die wir Dir bieten\n• Vielseitiges und spannendes Arbeitsumfeld\n• Attraktive Rabatte bei den Valora Formaten\n• Direkter Austausch und eine offene Du-Kultur\n• Täglich frische Brezeln und guter italienischer Caffè\n• Faire Anstellungsbedingungen\n• Gemeinsame Firmen-Events",
+      "descriptionByLocale": {
+        "de": "Du suchst eine abwechslungsreiche Tätigkeit in der Produktion und möchtest unser Team in Emmenbrücke mit einem Pensum von 21 Stunden pro Woche im Stundenlohn unterstützen? Dann freuen wir uns darauf, dich kennenzulernen. Aufgaben, die Dir gefallen werden\n• Teig nach Vorgaben herstellen\n• Produktionsanlagen bedienen\n• Produkte verpacken\n• Sicherstellung und Einhaltung unserer Qualitätsstandards\n• Arbeiten gemäss Hygiene- und Sicherheitsrichtlinien Voraussetzungen, die Du mitbringst\n• Bereit für 3-Schichtarbeit und flexible Einsätze (Montag bis Freitag, bei Bedarf auch am Wochenende)\n• Gute Deutschkenntnisse (mindestens Niveau B1)\n• Erfahrung in der Produktion, idealerweise in der Lebensmittelbranche\n• Körperlich fit und belastbar\n• Du arbeitest zuverlässig und selbständig Vorteile, die wir Dir bieten\n• Vielseitiges und spannendes Arbeitsumfeld\n• Attraktive Rabatte bei den Valora Formaten\n• Direkter Austausch und eine offene Du-Kultur\n• Täglich frische Brezeln und guter italienischer Caffè\n• Faire Anstellungsbedingungen\n• Gemeinsame Firmen-Events",
+        "it": "Du suchst eine abwechslungsreiche Tätigkeit in der Produktion und möchtest unser Team in Emmenbrücke mit einem Pensum von 21 Stunden pro Woche im Stundenlohn unterstützen? Dann freuen wir uns darauf, dich kennenzulernen. Aufgaben, die Dir gefallen werden\n• Teig nach Vorgaben herstellen\n• Produktionsanlagen bedienen\n• Produkte verpacken\n• Sicherstellung und Einhaltung unserer Qualitätsstandards\n• Arbeiten gemäss Hygiene- und Sicherheitsrichtlinien Voraussetzungen, die Du mitbringst\n• Bereit für 3-Schichtarbeit und flexible Einsätze (Montag bis Freitag, bei Bedarf auch am Wochenende)\n• Gute Deutschkenntnisse (mindestens Niveau B1)\n• Erfahrung in der Produktion, idealerweise in der Lebensmittelbranche\n• Körperlich fit und belastbar\n• Du arbeitest zuverlässig und selbständig Vorteile, die wir Dir bieten\n• Vielseitiges und spannendes Arbeitsumfeld\n• Attraktive Rabatte bei den Valora Formaten\n• Direkter Austausch und eine offene Du-Kultur\n• Täglich frische Brezeln und guter italienischer Caffè\n• Faire Anstellungsbedingungen\n• Gemeinsame Firmen-Events",
+        "en": "Du suchst eine abwechslungsreiche Tätigkeit in der Produktion und möchtest unser Team in Emmenbrücke mit einem Pensum von 21 Stunden pro Woche im Stundenlohn unterstützen? Dann freuen wir uns darauf, dich kennenzulernen. Aufgaben, die Dir gefallen werden\n• Teig nach Vorgaben herstellen\n• Produktionsanlagen bedienen\n• Produkte verpacken\n• Sicherstellung und Einhaltung unserer Qualitätsstandards\n• Arbeiten gemäss Hygiene- und Sicherheitsrichtlinien Voraussetzungen, die Du mitbringst\n• Bereit für 3-Schichtarbeit und flexible Einsätze (Montag bis Freitag, bei Bedarf auch am Wochenende)\n• Gute Deutschkenntnisse (mindestens Niveau B1)\n• Erfahrung in der Produktion, idealerweise in der Lebensmittelbranche\n• Körperlich fit und belastbar\n• Du arbeitest zuverlässig und selbständig Vorteile, die wir Dir bieten\n• Vielseitiges und spannendes Arbeitsumfeld\n• Attraktive Rabatte bei den Valora Formaten\n• Direkter Austausch und eine offene Du-Kultur\n• Täglich frische Brezeln und guter italienischer Caffè\n• Faire Anstellungsbedingungen\n• Gemeinsame Firmen-Events",
+        "fr": "Du suchst eine abwechslungsreiche Tätigkeit in der Produktion und möchtest unser Team in Emmenbrücke mit einem Pensum von 21 Stunden pro Woche im Stundenlohn unterstützen? Dann freuen wir uns darauf, dich kennenzulernen. Aufgaben, die Dir gefallen werden\n• Teig nach Vorgaben herstellen\n• Produktionsanlagen bedienen\n• Produkte verpacken\n• Sicherstellung und Einhaltung unserer Qualitätsstandards\n• Arbeiten gemäss Hygiene- und Sicherheitsrichtlinien Voraussetzungen, die Du mitbringst\n• Bereit für 3-Schichtarbeit und flexible Einsätze (Montag bis Freitag, bei Bedarf auch am Wochenende)\n• Gute Deutschkenntnisse (mindestens Niveau B1)\n• Erfahrung in der Produktion, idealerweise in der Lebensmittelbranche\n• Körperlich fit und belastbar\n• Du arbeitest zuverlässig und selbständig Vorteile, die wir Dir bieten\n• Vielseitiges und spannendes Arbeitsumfeld\n• Attraktive Rabatte bei den Valora Formaten\n• Direkter Austausch und eine offene Du-Kultur\n• Täglich frische Brezeln und guter italienischer Caffè\n• Faire Anstellungsbedingungen\n• Gemeinsame Firmen-Events"
+      },
+      "location": "Emmenbrücke",
+      "canton": "LU",
+      "url": "https://career.valora.com/en/job/6566/produktionsmitarbeiter-w-m-d",
+      "source": "Valora Group Dedicated Parser (Custom)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T13:54:50.285Z",
+      "addressLocality": "Emmenbrücke",
+      "addressRegion": "Luzern",
+      "streetAddress": "Neuenkirchstrasse 91",
+      "postalCode": "6020",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail / Foodvenience",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-22",
+      "applyUrl": "https://career.valora.com/en/job/6566/produktionsmitarbeiter-w-m-d",
+      "jobReqId": "21265",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "produktionsmitarbeiter-w-m-d-valora-emmenbrucke-2",
+          "produktionsmitarbeiter-w-m-d-valora-emmenbrucke"
+        ]
+      },
+      "previousSlugs": [
+        "produktionsmitarbeiter-w-m-d-valora-emmenbrucke-2",
+        "produktionsmitarbeiter-w-m-d-valora-emmenbrucke"
+      ],
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-23T23:35:45.536Z"
+    },
+    {
+      "id": "valora-4d9385130ab4",
+      "slug": "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-2",
+      "slugByLocale": {
+        "de": "verkauferin-verkaufer-backwerk-24-6-std-valora-basel",
+        "it": "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-2",
+        "en": "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-2",
+        "fr": "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-2"
+      },
+      "company": "Valora Group",
+      "companyKey": "valora",
+      "companyDomain": "valora.com",
+      "title": "Verkäuferin/Verkäufer BackWerk 24.6 Std.",
+      "titleByLocale": {
+        "de": "Verkäuferin/Verkäufer BackWerk 24.6 Std.",
+        "it": "Verkäuferin/Verkäufer BackWerk 24.6 Std.",
+        "en": "Verkäuferin/Verkäufer BackWerk 24.6 Std.",
+        "fr": "Verkäuferin/Verkäufer BackWerk 24.6 Std."
+      },
+      "description": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren BackWerk in Basel suchen wir ab sofort Verstärkung für 24.6 Std./Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Du sorgst für einen reibungslosen Ablauf in der Verkaufsstelle\n• Gäste und Kunden begeisterst Du mit freundlichem Service\n• Du lebst das BackWerk-Konzept jeden Tag aktiv vor\n• Hygiene-, Qualitäts- und Sicherheitsstandards hältst Du zuverlässig ein\n• Frische Produkte bereitest Du mit Sorgfalt zu und präsentierst sie ansprechend\n• Sauberkeit, Ordnung und volle Regale stellst Du jederzeit sicher\n• Lagerbestände bewirtschaftest Du wirtschaftlich und verantwortungsvoll Das zeichnet Dich aus\n• Ausbildung und/oder Erfahrung in der Gastronomie/Lebensmittelbranche oder im Verkauf von Vorteil\n• Ausgeprägtes kunden- und dienstleistungsorientiertes Verhalten\n• Du hast eine Leidenschaft für Backwaren und Frischeprodukte und begeistert die Kunden mit deiner aufgestellten Persönlichkeit\n• Sehr gute Deutschkenntnisse\n• Bereitschaft an Wochenenden und im Früh- und Spätdienst zu arbeiten Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• geregelte Arbeitseinsätze von Montag bis Sonntag\n• Salär über LGAV\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+      "descriptionByLocale": {
+        "de": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren BackWerk in Basel suchen wir ab sofort Verstärkung für 24.6 Std./Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Du sorgst für einen reibungslosen Ablauf in der Verkaufsstelle\n• Gäste und Kunden begeisterst Du mit freundlichem Service\n• Du lebst das BackWerk-Konzept jeden Tag aktiv vor\n• Hygiene-, Qualitäts- und Sicherheitsstandards hältst Du zuverlässig ein\n• Frische Produkte bereitest Du mit Sorgfalt zu und präsentierst sie ansprechend\n• Sauberkeit, Ordnung und volle Regale stellst Du jederzeit sicher\n• Lagerbestände bewirtschaftest Du wirtschaftlich und verantwortungsvoll Das zeichnet Dich aus\n• Ausbildung und/oder Erfahrung in der Gastronomie/Lebensmittelbranche oder im Verkauf von Vorteil\n• Ausgeprägtes kunden- und dienstleistungsorientiertes Verhalten\n• Du hast eine Leidenschaft für Backwaren und Frischeprodukte und begeistert die Kunden mit deiner aufgestellten Persönlichkeit\n• Sehr gute Deutschkenntnisse\n• Bereitschaft an Wochenenden und im Früh- und Spätdienst zu arbeiten Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• geregelte Arbeitseinsätze von Montag bis Sonntag\n• Salär über LGAV\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "it": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren BackWerk in Basel suchen wir ab sofort Verstärkung für 24.6 Std./Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Du sorgst für einen reibungslosen Ablauf in der Verkaufsstelle\n• Gäste und Kunden begeisterst Du mit freundlichem Service\n• Du lebst das BackWerk-Konzept jeden Tag aktiv vor\n• Hygiene-, Qualitäts- und Sicherheitsstandards hältst Du zuverlässig ein\n• Frische Produkte bereitest Du mit Sorgfalt zu und präsentierst sie ansprechend\n• Sauberkeit, Ordnung und volle Regale stellst Du jederzeit sicher\n• Lagerbestände bewirtschaftest Du wirtschaftlich und verantwortungsvoll Das zeichnet Dich aus\n• Ausbildung und/oder Erfahrung in der Gastronomie/Lebensmittelbranche oder im Verkauf von Vorteil\n• Ausgeprägtes kunden- und dienstleistungsorientiertes Verhalten\n• Du hast eine Leidenschaft für Backwaren und Frischeprodukte und begeistert die Kunden mit deiner aufgestellten Persönlichkeit\n• Sehr gute Deutschkenntnisse\n• Bereitschaft an Wochenenden und im Früh- und Spätdienst zu arbeiten Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• geregelte Arbeitseinsätze von Montag bis Sonntag\n• Salär über LGAV\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "en": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren BackWerk in Basel suchen wir ab sofort Verstärkung für 24.6 Std./Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Du sorgst für einen reibungslosen Ablauf in der Verkaufsstelle\n• Gäste und Kunden begeisterst Du mit freundlichem Service\n• Du lebst das BackWerk-Konzept jeden Tag aktiv vor\n• Hygiene-, Qualitäts- und Sicherheitsstandards hältst Du zuverlässig ein\n• Frische Produkte bereitest Du mit Sorgfalt zu und präsentierst sie ansprechend\n• Sauberkeit, Ordnung und volle Regale stellst Du jederzeit sicher\n• Lagerbestände bewirtschaftest Du wirtschaftlich und verantwortungsvoll Das zeichnet Dich aus\n• Ausbildung und/oder Erfahrung in der Gastronomie/Lebensmittelbranche oder im Verkauf von Vorteil\n• Ausgeprägtes kunden- und dienstleistungsorientiertes Verhalten\n• Du hast eine Leidenschaft für Backwaren und Frischeprodukte und begeistert die Kunden mit deiner aufgestellten Persönlichkeit\n• Sehr gute Deutschkenntnisse\n• Bereitschaft an Wochenenden und im Früh- und Spätdienst zu arbeiten Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• geregelte Arbeitseinsätze von Montag bis Sonntag\n• Salär über LGAV\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "fr": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren BackWerk in Basel suchen wir ab sofort Verstärkung für 24.6 Std./Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Du sorgst für einen reibungslosen Ablauf in der Verkaufsstelle\n• Gäste und Kunden begeisterst Du mit freundlichem Service\n• Du lebst das BackWerk-Konzept jeden Tag aktiv vor\n• Hygiene-, Qualitäts- und Sicherheitsstandards hältst Du zuverlässig ein\n• Frische Produkte bereitest Du mit Sorgfalt zu und präsentierst sie ansprechend\n• Sauberkeit, Ordnung und volle Regale stellst Du jederzeit sicher\n• Lagerbestände bewirtschaftest Du wirtschaftlich und verantwortungsvoll Das zeichnet Dich aus\n• Ausbildung und/oder Erfahrung in der Gastronomie/Lebensmittelbranche oder im Verkauf von Vorteil\n• Ausgeprägtes kunden- und dienstleistungsorientiertes Verhalten\n• Du hast eine Leidenschaft für Backwaren und Frischeprodukte und begeistert die Kunden mit deiner aufgestellten Persönlichkeit\n• Sehr gute Deutschkenntnisse\n• Bereitschaft an Wochenenden und im Früh- und Spätdienst zu arbeiten Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• geregelte Arbeitseinsätze von Montag bis Sonntag\n• Salär über LGAV\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst"
+      },
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://career.valora.com/en/job/6635/verkauferin-verkaufer-backwerk-24-6-std",
+      "source": "Valora Group Dedicated Parser (Custom)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T13:54:50.220Z",
+      "addressLocality": "Basel",
+      "addressRegion": "Basel-Stadt",
+      "streetAddress": "Streitgasse 4",
+      "postalCode": "4051",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail / Foodvenience",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-24",
+      "applyUrl": "https://career.valora.com/en/job/6635/verkauferin-verkaufer-backwerk-24-6-std",
+      "jobReqId": "21691",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 69500,
+      "salaryMax": 93500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 93500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-16T23:44:47.492Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-backwerk-24-6-std-valora-basel"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-backwerk-24-6-std-valora-basel"
+      ]
+    },
+    {
+      "id": "valora-3b37c26b9ac1",
+      "slug": "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich-3",
+      "slugByLocale": {
+        "de": "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich-jo0t2s",
+        "it": "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich-3",
+        "en": "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich-3",
+        "fr": "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich-3"
+      },
+      "company": "Valora Group",
+      "companyKey": "valora",
+      "companyDomain": "valora.com",
+      "title": "Verkäuferin/Verkäufer BackWerk 24.6 Std.",
+      "titleByLocale": {
+        "de": "Verkäuferin/Verkäufer BackWerk 24.6 Std.",
+        "it": "Verkäuferin/Verkäufer BackWerk 24.6 Std.",
+        "en": "Verkäuferin/Verkäufer BackWerk 24.6 Std.",
+        "fr": "Verkäuferin/Verkäufer BackWerk 24.6 Std."
+      },
+      "description": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren BackWerk in Zürich suchen wir ab sofort Verstärkung für 24.6 Std./Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Du sorgst für einen reibungslosen Ablauf in der Verkaufsstelle\n• Gäste und Kunden begeisterst Du mit freundlichem Service\n• Du lebst das BackWerk-Konzept jeden Tag aktiv vor\n• Hygiene-, Qualitäts- und Sicherheitsstandards hältst Du zuverlässig ein\n• Frische Produkte bereitest Du mit Sorgfalt zu und präsentierst sie ansprechend\n• Sauberkeit, Ordnung und volle Regale stellst Du jederzeit sicher\n• Lagerbestände bewirtschaftest Du wirtschaftlich und verantwortungsvoll Das zeichnet Dich aus\n• Ausbildung und/oder Erfahrung in der Gastronomie/Lebensmittelbranche oder im Verkauf von Vorteil\n• Ausgeprägtes kunden- und dienstleistungsorientiertes Verhalten\n• Du hast eine Leidenschaft für Backwaren und Frischeprodukte und begeistert die Kunden mit deiner aufgestellten Persönlichkeit\n• Sehr gute Deutschkenntnisse\n• Bereitschaft an Wochenenden und im Früh- und Spätdienst zu arbeiten Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• geregelte Arbeitseinsätze von Montag bis Sonntag\n• Salär über LGAV\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+      "descriptionByLocale": {
+        "de": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren BackWerk in Zürich suchen wir ab sofort Verstärkung für 24.6 Std./Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Du sorgst für einen reibungslosen Ablauf in der Verkaufsstelle\n• Gäste und Kunden begeisterst Du mit freundlichem Service\n• Du lebst das BackWerk-Konzept jeden Tag aktiv vor\n• Hygiene-, Qualitäts- und Sicherheitsstandards hältst Du zuverlässig ein\n• Frische Produkte bereitest Du mit Sorgfalt zu und präsentierst sie ansprechend\n• Sauberkeit, Ordnung und volle Regale stellst Du jederzeit sicher\n• Lagerbestände bewirtschaftest Du wirtschaftlich und verantwortungsvoll Das zeichnet Dich aus\n• Ausbildung und/oder Erfahrung in der Gastronomie/Lebensmittelbranche oder im Verkauf von Vorteil\n• Ausgeprägtes kunden- und dienstleistungsorientiertes Verhalten\n• Du hast eine Leidenschaft für Backwaren und Frischeprodukte und begeistert die Kunden mit deiner aufgestellten Persönlichkeit\n• Sehr gute Deutschkenntnisse\n• Bereitschaft an Wochenenden und im Früh- und Spätdienst zu arbeiten Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• geregelte Arbeitseinsätze von Montag bis Sonntag\n• Salär über LGAV\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "it": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren BackWerk in Zürich suchen wir ab sofort Verstärkung für 24.6 Std./Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Du sorgst für einen reibungslosen Ablauf in der Verkaufsstelle\n• Gäste und Kunden begeisterst Du mit freundlichem Service\n• Du lebst das BackWerk-Konzept jeden Tag aktiv vor\n• Hygiene-, Qualitäts- und Sicherheitsstandards hältst Du zuverlässig ein\n• Frische Produkte bereitest Du mit Sorgfalt zu und präsentierst sie ansprechend\n• Sauberkeit, Ordnung und volle Regale stellst Du jederzeit sicher\n• Lagerbestände bewirtschaftest Du wirtschaftlich und verantwortungsvoll Das zeichnet Dich aus\n• Ausbildung und/oder Erfahrung in der Gastronomie/Lebensmittelbranche oder im Verkauf von Vorteil\n• Ausgeprägtes kunden- und dienstleistungsorientiertes Verhalten\n• Du hast eine Leidenschaft für Backwaren und Frischeprodukte und begeistert die Kunden mit deiner aufgestellten Persönlichkeit\n• Sehr gute Deutschkenntnisse\n• Bereitschaft an Wochenenden und im Früh- und Spätdienst zu arbeiten Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• geregelte Arbeitseinsätze von Montag bis Sonntag\n• Salär über LGAV\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "en": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren BackWerk in Zürich suchen wir ab sofort Verstärkung für 24.6 Std./Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Du sorgst für einen reibungslosen Ablauf in der Verkaufsstelle\n• Gäste und Kunden begeisterst Du mit freundlichem Service\n• Du lebst das BackWerk-Konzept jeden Tag aktiv vor\n• Hygiene-, Qualitäts- und Sicherheitsstandards hältst Du zuverlässig ein\n• Frische Produkte bereitest Du mit Sorgfalt zu und präsentierst sie ansprechend\n• Sauberkeit, Ordnung und volle Regale stellst Du jederzeit sicher\n• Lagerbestände bewirtschaftest Du wirtschaftlich und verantwortungsvoll Das zeichnet Dich aus\n• Ausbildung und/oder Erfahrung in der Gastronomie/Lebensmittelbranche oder im Verkauf von Vorteil\n• Ausgeprägtes kunden- und dienstleistungsorientiertes Verhalten\n• Du hast eine Leidenschaft für Backwaren und Frischeprodukte und begeistert die Kunden mit deiner aufgestellten Persönlichkeit\n• Sehr gute Deutschkenntnisse\n• Bereitschaft an Wochenenden und im Früh- und Spätdienst zu arbeiten Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• geregelte Arbeitseinsätze von Montag bis Sonntag\n• Salär über LGAV\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst",
+        "fr": "Ist verkaufen Deine Leidenschaft? Dann haben wir die perfekte Gelegenheit für Dich. Für unseren BackWerk in Zürich suchen wir ab sofort Verstärkung für 24.6 Std./Woche im Stundenlohn. Dafür bist Du verantwortlich\n• Du sorgst für einen reibungslosen Ablauf in der Verkaufsstelle\n• Gäste und Kunden begeisterst Du mit freundlichem Service\n• Du lebst das BackWerk-Konzept jeden Tag aktiv vor\n• Hygiene-, Qualitäts- und Sicherheitsstandards hältst Du zuverlässig ein\n• Frische Produkte bereitest Du mit Sorgfalt zu und präsentierst sie ansprechend\n• Sauberkeit, Ordnung und volle Regale stellst Du jederzeit sicher\n• Lagerbestände bewirtschaftest Du wirtschaftlich und verantwortungsvoll Das zeichnet Dich aus\n• Ausbildung und/oder Erfahrung in der Gastronomie/Lebensmittelbranche oder im Verkauf von Vorteil\n• Ausgeprägtes kunden- und dienstleistungsorientiertes Verhalten\n• Du hast eine Leidenschaft für Backwaren und Frischeprodukte und begeistert die Kunden mit deiner aufgestellten Persönlichkeit\n• Sehr gute Deutschkenntnisse\n• Bereitschaft an Wochenenden und im Früh- und Spätdienst zu arbeiten Das bieten wir Dir\n• Teil des führenden Foodvenience-Anbieters und Glücksbringer für unsere Kundschaft zu sein\n• Weiterentwicklungsmöglichkeiten und spannende Online-Trainings auf unserer Valora Academy\n• geregelte Arbeitseinsätze von Montag bis Sonntag\n• Salär über LGAV\n• Attraktiver Abendzuschlag (20:00–23:00 Uhr) ergänzend zu Nacht-, Sonn- und Feiertagszuschlägen\n• Einen Mitarbeiterrabatt mit dem Du in unseren Stores nach Herzenslust Shoppen kannst"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://career.valora.com/en/job/6414/verkauferin-verkaufer-backwerk-24-6-std",
+      "source": "Valora Group Dedicated Parser (Custom)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T13:54:50.211Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "Zürich",
+      "streetAddress": "Sihlquai C5",
+      "postalCode": "8005",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail / Foodvenience",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-25",
+      "applyUrl": "https://career.valora.com/en/job/6414/verkauferin-verkaufer-backwerk-24-6-std",
+      "jobReqId": "21798",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich"
+        ],
+        "de": [
+          "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 76000,
+      "salaryMax": 102500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 76000,
+          "maxValue": 102500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-25T21:32:49.010Z"
     }
   ]
 }

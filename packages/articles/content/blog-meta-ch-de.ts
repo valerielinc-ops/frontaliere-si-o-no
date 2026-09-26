@@ -6782,6 +6782,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dertour-suisse-ripresa-fatturato.title': 'Dertour Suisse will die Umsatzmilliarde übertreffen',
     'blog.article.dertour-suisse-ripresa-fatturato.excerpt': 'Dertour Suisse strebt an, 1 Milliarde Franken zu überschreiten, bei den Sommerbuchungen 2026 entfallen 14% auf gemäßigte Reiseziele und in 4‑6 Jahren werden über 20% erwartet; 124 Filialen, 1750 Mitarbeitende, Abbau von 250 Stellen bis Ende 2027.',
     'blog.article.dertour-suisse-ripresa-fatturato.imageAlt': 'Der Luganer See mit Segelbooten und Alpen im Hintergrund, Symbol des schweizerischen Tourismus.',
+    'blog.article.svizzera-auto-elettriche-classifica.title': 'Elektroautos: Die Schweiz fällt in Europa auf den 16. Platz',
+    'blog.article.svizzera-auto-elettriche-classifica.excerpt': '2019 lag die Schweiz bei der Elektrifizierung an fünfter Stelle, Ende 2025 am 13. und Mitte 2026 am 16.; ein Viertel der Neuzulassungen ist rein elektrisch.',
+    'blog.article.svizzera-auto-elettriche-classifica.imageAlt': 'Modernes Elektro‑SUV neben einer Ladestation in einer Schweizer Alpenlandschaft geparkt.',
+    'blog.article.premi-cassa-malati-stabilita-famiglie.title': 'Krankenkassenprämien steigen, aber das Familiengewicht ist stabil',
+    'blog.article.premi-cassa-malati-stabilita-famiglie.excerpt': 'Von 2016 bis 2023 blieb die Nettobelastung der Haushalte stabil: Die Standardprämie stieg um 19%, aber der Anteil am durchschnittlichen Einkommen sank dank einer Erhöhung der Subventionen um etwa 440 Franken von 6,5% auf 6,4%.',
+    'blog.article.premi-cassa-malati-stabilita-famiglie.imageAlt': 'Schweizer Stadtansicht mit modernem Krankenhaus, Symbol für Krankenkassen',
+    'blog.article.protesta-asilo-berna-diritti.title': 'Bern: Protest gegen die Verschärfungen des Asylrechts',
+    'blog.article.protesta-asilo-berna-diritti.excerpt': 'Mehrere Tausend Menschen auf dem Bundesplatz, um Gesundheit, Arbeit und Bildung unabhängig vom Aufenthaltsstatus und der Herkunft zu fordern.',
+    'blog.article.protesta-asilo-berna-diritti.imageAlt': 'Demonstration auf dem Bundesplatz in Bern gegen die Verschärfung des Asylrechts',
 };
 
 export default blogMetaChDe;

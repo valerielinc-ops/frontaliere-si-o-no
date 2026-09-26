@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-solothurn",
-  "assembledAt": "2026-09-26T09:43:47.260Z",
+  "assembledAt": "2026-09-26T14:05:07.270Z",
   "jobs": [
     {
       "id": "kanton-solothurn-e34f08aa6360",
@@ -33,7 +33,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung/fa6b7d68-1ec9-4005-a4e5-50ee5d5729d4",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:46.379Z",
+      "crawledAt": "2026-09-26T14:04:44.942Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -52,13 +52,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-solothurn-solothurn",
-        "apprendistato-come-informatiker-in-cfc-plattformentwicklung-kanton-solothurn"
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-solothurn-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-solothurn-solothurn",
-          "apprendistato-come-informatiker-in-cfc-plattformentwicklung-kanton-solothurn"
+          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-solothurn-solothurn"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kanton-solothurn-solothurn"
@@ -80,7 +78,8 @@
           "maxValue": 112000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-solothurn-1ef770d83a68",
@@ -113,7 +112,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-fachmann-fachfrau-betriebsunterhalt-efz/065b6048-21b7-4eda-b46e-718abf7d3725",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:45.395Z",
+      "crawledAt": "2026-09-26T14:04:43.971Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -132,13 +131,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-fachmann-fachfrau-betriebsunterhalt-efz-kanton-solothurn-solothurn",
-        "apprendistato-come-fachmann-fachfrau-betriebsunterhalt-cfc-kanton-solothurn"
+        "lehrstelle-als-fachmann-fachfrau-betriebsunterhalt-efz-kanton-solothurn-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachmann-fachfrau-betriebsunterhalt-efz-kanton-solothurn-solothurn",
-          "apprendistato-come-fachmann-fachfrau-betriebsunterhalt-cfc-kanton-solothurn"
+          "lehrstelle-als-fachmann-fachfrau-betriebsunterhalt-efz-kanton-solothurn-solothurn"
         ],
         "en": [
           "lehrstelle-als-fachmann-fachfrau-betriebsunterhalt-efz-kanton-solothurn-solothurn"
@@ -160,7 +157,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-solothurn-1e60e0e3b74e",
@@ -193,7 +191,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-uhrmacher-in-efz/35eac920-78d1-4fa2-b308-ea4121b54715",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:44.898Z",
+      "crawledAt": "2026-09-26T14:04:43.444Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -213,14 +211,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-uhrmacher-in-efz-kanton-solothurn-grenchen",
-        "apprendistato-come-uhrmacher-in-cfc-kanton-solothurn-grenchen",
-        "apprendistato-come-orologiaio-efz-kanton-solothurn-grenchen"
+        "apprendistato-come-uhrmacher-in-cfc-kanton-solothurn-grenchen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-uhrmacher-in-efz-kanton-solothurn-grenchen",
-          "apprendistato-come-uhrmacher-in-cfc-kanton-solothurn-grenchen",
-          "apprendistato-come-orologiaio-efz-kanton-solothurn-grenchen"
+          "apprendistato-come-uhrmacher-in-cfc-kanton-solothurn-grenchen"
         ],
         "en": [
           "lehrstelle-als-uhrmacher-in-efz-kanton-solothurn-grenchen"
@@ -242,7 +238,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-solothurn-6bb5de56e133",
@@ -275,7 +272,7 @@
       "url": "https://job.so.ch/offene-stellen/abteilungsleiter-in-verkehrsplanung/8afdf1df-86f0-4e78-999f-04592ad93bdf",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:44.389Z",
+      "crawledAt": "2026-09-26T14:04:43.051Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -294,13 +291,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "abteilungsleiter-in-verkehrsplanung-80-100-kanton-solothurn-solothurn",
-        "responsabile-della-pianificazione-del-traffico-80-100-kanton-solothurn-solothurn"
+        "abteilungsleiter-in-verkehrsplanung-80-100-kanton-solothurn-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiter-in-verkehrsplanung-80-100-kanton-solothurn-solothurn",
-          "responsabile-della-pianificazione-del-traffico-80-100-kanton-solothurn-solothurn"
+          "abteilungsleiter-in-verkehrsplanung-80-100-kanton-solothurn-solothurn"
         ],
         "en": [
           "abteilungsleiter-in-verkehrsplanung-80-100-kanton-solothurn-solothurn"
@@ -322,7 +317,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-solothurn-f0ba162140a5",
@@ -355,7 +351,7 @@
       "url": "https://job.so.ch/offene-stellen/logopaede-in/ac6e7cb0-f1df-439c-b682-05dba5ae22ee",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:43.891Z",
+      "crawledAt": "2026-09-26T14:04:42.447Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -374,13 +370,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logopade-in-50-100-kanton-solothurn-olten",
-        "pedagoga-del-discorso-50-100-kanton-solothurn-olten"
+        "logopade-in-50-100-kanton-solothurn-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logopade-in-50-100-kanton-solothurn-olten",
-          "pedagoga-del-discorso-50-100-kanton-solothurn-olten"
+          "logopade-in-50-100-kanton-solothurn-olten"
         ],
         "en": [
           "logopade-in-50-100-kanton-solothurn-olten"
@@ -402,7 +396,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-solothurn-5936b548bdb4",
@@ -435,7 +430,7 @@
       "url": "https://job.so.ch/offene-stellen/raumplaner-in/d70153c0-8051-4775-af63-be1fbb4c705f",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:42.887Z",
+      "crawledAt": "2026-09-26T14:04:41.940Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -454,13 +449,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "raumplaner-in-70-100-kanton-solothurn-solothurn",
-        "pianificatore-in-camera-70-100-kanton-solothurn-solothurn"
+        "raumplaner-in-70-100-kanton-solothurn-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "raumplaner-in-70-100-kanton-solothurn-solothurn",
-          "pianificatore-in-camera-70-100-kanton-solothurn-solothurn"
+          "raumplaner-in-70-100-kanton-solothurn-solothurn"
         ],
         "en": [
           "raumplaner-in-70-100-kanton-solothurn-solothurn"
@@ -482,7 +475,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-solothurn-c2c34acc32f5",
@@ -515,7 +509,7 @@
       "url": "https://job.so.ch/offene-stellen/leiter-in-administration-und-controlling/954948c1-ea61-468e-afb8-6cc5c6b44aec",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:41.896Z",
+      "crawledAt": "2026-09-26T14:04:41.431Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -534,13 +528,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-administration-und-controlling-80-100-kanton-solothurn-solothurn",
-        "responsabile-administration-e-controlling-80-100-kanton-solothurn"
+        "leiter-in-administration-und-controlling-80-100-kanton-solothurn-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-administration-und-controlling-80-100-kanton-solothurn-solothurn",
-          "responsabile-administration-e-controlling-80-100-kanton-solothurn"
+          "leiter-in-administration-und-controlling-80-100-kanton-solothurn-solothurn"
         ],
         "fr": [
           "leiter-in-administration-und-controlling-80-100-kanton-solothurn-solothurn"
@@ -559,7 +551,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-solothurn-8f8c17239030",
@@ -592,7 +585,7 @@
       "url": "https://job.so.ch/offene-stellen/abteilungsleiter-in-strassenbau/461439dc-5b62-48c3-a854-e56992152293",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:40.911Z",
+      "crawledAt": "2026-09-26T14:04:40.944Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -611,13 +604,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "abteilungsleiter-in-strassenbau-80-100-kanton-solothurn-solothurn",
-        "capo-reparto-in-costruzione-stradale-80-100-kanton-solothurn-solothurn"
+        "abteilungsleiter-in-strassenbau-80-100-kanton-solothurn-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiter-in-strassenbau-80-100-kanton-solothurn-solothurn",
-          "capo-reparto-in-costruzione-stradale-80-100-kanton-solothurn-solothurn"
+          "abteilungsleiter-in-strassenbau-80-100-kanton-solothurn-solothurn"
         ],
         "en": [
           "abteilungsleiter-in-strassenbau-80-100-kanton-solothurn-solothurn"
@@ -639,7 +630,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-solothurn-28156ee2d565",
@@ -673,7 +665,7 @@
       "url": "https://job.so.ch/offene-stellen/praktikant-in/34ab0557-5920-4ab9-8d93-c01696cd5a24",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:39.895Z",
+      "crawledAt": "2026-09-26T14:04:40.432Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -704,8 +696,7 @@
         "terapeuta-psicomotore-59-kanton-solothurn-olten",
         "psychomotor-therapist-59-kanton-solothurn-olten",
         "psychomotoriktherapeut-in-59-kanton-solothurn-olten",
-        "psychomotherapeute-59-kanton-solothurn-olten",
-        "interno-in-100-kanton-solothurn-olten"
+        "psychomotherapeute-59-kanton-solothurn-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -721,8 +712,7 @@
           "terapeuta-psicomotore-59-kanton-solothurn-olten",
           "psychomotor-therapist-59-kanton-solothurn-olten",
           "psychomotoriktherapeut-in-59-kanton-solothurn-olten",
-          "psychomotherapeute-59-kanton-solothurn-olten",
-          "interno-in-100-kanton-solothurn-olten"
+          "psychomotherapeute-59-kanton-solothurn-olten"
         ],
         "en": [
           "praktikant-in-100-kanton-solothurn-olten",
@@ -788,7 +778,7 @@
       "url": "https://job.so.ch/offene-stellen/gerichtsschreiber-in-des-obergerichts/b8b48373-b759-4f06-a83d-143cc81bae8b",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:38.900Z",
+      "crawledAt": "2026-09-26T14:04:39.956Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -807,13 +797,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gerichtsschreiber-in-des-obergerichts-70-kanton-solothurn-solothurn",
-        "alto-impiegato-della-corte-70-kanton-solothurn-solothurn"
+        "gerichtsschreiber-in-des-obergerichts-70-kanton-solothurn-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gerichtsschreiber-in-des-obergerichts-70-kanton-solothurn-solothurn",
-          "alto-impiegato-della-corte-70-kanton-solothurn-solothurn"
+          "gerichtsschreiber-in-des-obergerichts-70-kanton-solothurn-solothurn"
         ],
         "en": [
           "gerichtsschreiber-in-des-obergerichts-70-kanton-solothurn-solothurn"
@@ -835,7 +823,8 @@
           "maxValue": 72800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-solothurn-87b041e236d3",
@@ -868,7 +857,7 @@
       "url": "https://job.so.ch/offene-stellen/gerichtsschreiber-in/7b357934-4163-482e-b96c-55c49b5f25fe",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:37.894Z",
+      "crawledAt": "2026-09-26T14:04:39.450Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -895,8 +884,7 @@
         "personale-in-registro-di-terra-100-kanton-solothurn-solothurn",
         "personnel-in-land-registry-100-kanton-solothurn-solothurn",
         "sachbearbeiter-in-grundbuchamt-100-kanton-solothurn-solothurn",
-        "personnel-dans-le-registre-foncier-100-kanton-solothurn-solothurn",
-        "corte-di-giustizia-60-100-kanton-solothurn-solothurn"
+        "personnel-dans-le-registre-foncier-100-kanton-solothurn-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -908,8 +896,7 @@
           "personale-in-registro-di-terra-100-kanton-solothurn-solothurn",
           "personnel-in-land-registry-100-kanton-solothurn-solothurn",
           "sachbearbeiter-in-grundbuchamt-100-kanton-solothurn-solothurn",
-          "personnel-dans-le-registre-foncier-100-kanton-solothurn-solothurn",
-          "corte-di-giustizia-60-100-kanton-solothurn-solothurn"
+          "personnel-dans-le-registre-foncier-100-kanton-solothurn-solothurn"
         ],
         "en": [
           "gerichtsschreiber-in-60-100-kanton-solothurn-solothurn",
@@ -937,7 +924,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-solothurn-52d03573e642",
@@ -971,7 +959,7 @@
       "url": "https://job.so.ch/offene-stellen/richter-in-kantonales-steuergericht-nebenamt/099d8d6c-36a4-4411-867f-670a1803628f",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:36.908Z",
+      "crawledAt": "2026-09-26T14:04:38.933Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -990,13 +978,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "richter-in-kantonales-steuergericht-nebenamt-kanton-solothurn-solothurn",
-        "giudice-corte-d-imposta-cantonale-ufficio-amministrativo-kanton-solothurn-solothurn"
+        "richter-in-kantonales-steuergericht-nebenamt-kanton-solothurn-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "richter-in-kantonales-steuergericht-nebenamt-kanton-solothurn-solothurn",
-          "giudice-corte-d-imposta-cantonale-ufficio-amministrativo-kanton-solothurn-solothurn"
+          "richter-in-kantonales-steuergericht-nebenamt-kanton-solothurn-solothurn"
         ],
         "en": [
           "richter-in-kantonales-steuergericht-nebenamt-kanton-solothurn-solothurn"
@@ -1051,7 +1037,7 @@
       "url": "https://job.so.ch/offene-stellen/fachspezialist-in-wehrpflichtersatzabgabe/0c44daa4-fbad-46fb-9a43-eccb5fa0f767",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:35.879Z",
+      "crawledAt": "2026-09-26T14:04:38.446Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1070,13 +1056,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachspezialist-in-wehrpflichtersatzabgabe-80-100-kanton-solothurn-solothurn",
-        "tassa-di-compensazione-militare-specializzata-80-100-kanton-solothurn-solothurn"
+        "fachspezialist-in-wehrpflichtersatzabgabe-80-100-kanton-solothurn-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-wehrpflichtersatzabgabe-80-100-kanton-solothurn-solothurn",
-          "tassa-di-compensazione-militare-specializzata-80-100-kanton-solothurn-solothurn"
+          "fachspezialist-in-wehrpflichtersatzabgabe-80-100-kanton-solothurn-solothurn"
         ],
         "en": [
           "fachspezialist-in-wehrpflichtersatzabgabe-80-100-kanton-solothurn-solothurn"
@@ -1098,7 +1082,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-solothurn-6814b8aecb45",
@@ -1131,7 +1116,7 @@
       "url": "https://job.so.ch/offene-stellen/leitende-r-gerichtsschreiber-in-des-obergerichts/bd841a43-68dc-4f36-a98e-59bc3b2a5da4",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:34.881Z",
+      "crawledAt": "2026-09-26T14:04:37.926Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1150,13 +1135,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitende-r-gerichtsschreiber-in-des-obergerichts-80-kanton-solothurn-solothurn",
-        "capo-della-corte-80-kanton-solothurn-solothurn"
+        "leitende-r-gerichtsschreiber-in-des-obergerichts-80-kanton-solothurn-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-r-gerichtsschreiber-in-des-obergerichts-80-kanton-solothurn-solothurn",
-          "capo-della-corte-80-kanton-solothurn-solothurn"
+          "leitende-r-gerichtsschreiber-in-des-obergerichts-80-kanton-solothurn-solothurn"
         ],
         "en": [
           "leitende-r-gerichtsschreiber-in-des-obergerichts-80-kanton-solothurn-solothurn"
@@ -1178,7 +1161,8 @@
           "maxValue": 114400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-solothurn-d59302a8ccaf",
@@ -1211,7 +1195,7 @@
       "url": "https://job.so.ch/offene-stellen/leiter-in-finanzen-und-controlling/cddc4e9d-5cef-416f-a8c3-64683d716863",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:33.911Z",
+      "crawledAt": "2026-09-26T14:04:37.546Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1230,13 +1214,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-finanzen-und-controlling-80-kanton-solothurn-solothurn",
-        "responsabile-finanzen-e-controlling-80-kanton-solothurn"
+        "leiter-in-finanzen-und-controlling-80-kanton-solothurn-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-finanzen-und-controlling-80-kanton-solothurn-solothurn",
-          "responsabile-finanzen-e-controlling-80-kanton-solothurn"
+          "leiter-in-finanzen-und-controlling-80-kanton-solothurn-solothurn"
         ],
         "en": [
           "leiter-in-finanzen-und-controlling-80-kanton-solothurn-solothurn"
@@ -1258,7 +1240,8 @@
           "maxValue": 114400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-solothurn-a9d07a3b8a17",
@@ -1291,7 +1274,7 @@
       "url": "https://job.so.ch/offene-stellen/teamleiter-in-finanzen-und-controlling/d3980875-796e-489d-85fb-fe7da55d0cb0",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:32.901Z",
+      "crawledAt": "2026-09-26T14:04:37.035Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1311,14 +1294,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "teamleiter-in-finanzen-und-controlling-80-100-kanton-solothurn-solothurn",
-        "teamleiter-in-finanzen-e-controlling-80-100-kanton-solothurn",
-        "team-leader-finance-e-controlling-80-100-kanton-solothurn-solothurn"
+        "teamleiter-in-finanzen-e-controlling-80-100-kanton-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-finanzen-und-controlling-80-100-kanton-solothurn-solothurn",
-          "teamleiter-in-finanzen-e-controlling-80-100-kanton-solothurn",
-          "team-leader-finance-e-controlling-80-100-kanton-solothurn-solothurn"
+          "teamleiter-in-finanzen-e-controlling-80-100-kanton-solothurn"
         ],
         "en": [
           "teamleiter-in-finanzen-und-controlling-80-100-kanton-solothurn-solothurn"
@@ -1340,7 +1321,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-solothurn-f361651dce62",
@@ -1373,7 +1355,7 @@
       "url": "https://job.so.ch/offene-stellen/amtliche-r-tierarzt-tieraerztin/b9e45555-ec89-4b41-8ad7-35a3375382d6",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:31.878Z",
+      "crawledAt": "2026-09-26T14:04:36.424Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1392,13 +1374,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "amtliche-r-tierarzt-tierarztin-80-100-kanton-solothurn-solothurn",
-        "veterinario-ufficiale-80-100-kanton-solothurn-solothurn"
+        "amtliche-r-tierarzt-tierarztin-80-100-kanton-solothurn-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "amtliche-r-tierarzt-tierarztin-80-100-kanton-solothurn-solothurn",
-          "veterinario-ufficiale-80-100-kanton-solothurn-solothurn"
+          "amtliche-r-tierarzt-tierarztin-80-100-kanton-solothurn-solothurn"
         ],
         "en": [
           "amtliche-r-tierarzt-tierarztin-80-100-kanton-solothurn-solothurn"
@@ -1420,7 +1400,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-solothurn-e6144341ceea",
@@ -1453,7 +1434,7 @@
       "url": "https://job.so.ch/offene-stellen/juristische-r-mitarbeiter-in/e79e2db6-6555-4d3b-9efb-4758746705eb",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:30.905Z",
+      "crawledAt": "2026-09-26T14:04:35.971Z",
       "addressLocality": "Thal-Gäu",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -1473,14 +1454,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "juristische-r-mitarbeiter-in-80-100-kanton-solothurn-thal-gau",
-        "juristische-r-collaboratore-trice-in-80-100-kanton-solothurn-thal-gau",
-        "personale-legale-80-100-kanton-solothurn-thal-gau"
+        "juristische-r-collaboratore-trice-in-80-100-kanton-solothurn-thal-gau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "juristische-r-mitarbeiter-in-80-100-kanton-solothurn-thal-gau",
-          "juristische-r-collaboratore-trice-in-80-100-kanton-solothurn-thal-gau",
-          "personale-legale-80-100-kanton-solothurn-thal-gau"
+          "juristische-r-collaboratore-trice-in-80-100-kanton-solothurn-thal-gau"
         ],
         "en": [
           "juristische-r-mitarbeiter-in-80-100-kanton-solothurn-thal-gau"
@@ -1502,7 +1481,8 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-solothurn-56769d2bdc90",
@@ -1535,7 +1515,7 @@
       "url": "https://job.so.ch/offene-stellen/stellvertretende-r-lehrer-in-fuer-das-fach-allgemeinbildender-unterricht-abu/7f09483f-9e96-4e5e-b8dd-d3d301f7ffd2",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:29.894Z",
+      "crawledAt": "2026-09-26T14:04:35.443Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1555,14 +1535,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stellvertretende-r-lehrer-in-fur-das-fach-allgemeinbildender-unterricht-abu-57-68-kanton",
-        "stellvertretende-r-lehrer-in-per-das-fach-allgemeinbildender-unterricht-abu-57-68-kanton-solothurn-olten",
-        "professore-aggiunto-per-l-istruzione-generale-abu-57-68-kanton-solothurn-olten"
+        "stellvertretende-r-lehrer-in-per-das-fach-allgemeinbildender-unterricht-abu-57-68-kanton-solothurn-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stellvertretende-r-lehrer-in-fur-das-fach-allgemeinbildender-unterricht-abu-57-68-kanton",
-          "stellvertretende-r-lehrer-in-per-das-fach-allgemeinbildender-unterricht-abu-57-68-kanton-solothurn-olten",
-          "professore-aggiunto-per-l-istruzione-generale-abu-57-68-kanton-solothurn-olten"
+          "stellvertretende-r-lehrer-in-per-das-fach-allgemeinbildender-unterricht-abu-57-68-kanton-solothurn-olten"
         ],
         "en": [
           "stellvertretende-r-lehrer-in-fur-das-fach-allgemeinbildender-unterricht-abu-57-68-kanton"
@@ -1584,7 +1562,8 @@
           "maxValue": 73800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-solothurn-4006dc688ae5",
@@ -1617,7 +1596,7 @@
       "url": "https://job.so.ch/offene-stellen/leiter-in-stab-staatsschreiber/99285753-1127-4969-90dd-a06c5547ff1f",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:28.897Z",
+      "crawledAt": "2026-09-26T14:04:35.045Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1637,14 +1616,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leiter-in-stab-staatsschreiber-80-90-kanton-solothurn-solothurn",
-        "responsabile-stab-staatsschreiber-80-90-kanton-solothurn",
-        "capo-dello-stato-maggiore-80-90-kanton-solothurn-solothurn"
+        "responsabile-stab-staatsschreiber-80-90-kanton-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-stab-staatsschreiber-80-90-kanton-solothurn-solothurn",
-          "responsabile-stab-staatsschreiber-80-90-kanton-solothurn",
-          "capo-dello-stato-maggiore-80-90-kanton-solothurn-solothurn"
+          "responsabile-stab-staatsschreiber-80-90-kanton-solothurn"
         ],
         "en": [
           "leiter-in-stab-staatsschreiber-80-90-kanton-solothurn-solothurn"
@@ -1666,7 +1643,8 @@
           "maxValue": 128700,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-solothurn-056a04d6a35d",
@@ -1699,7 +1677,7 @@
       "url": "https://job.so.ch/offene-stellen/applikationsverantwortliche-r/a349f2f2-9c16-4a5e-a3a4-b547ceccb4fe",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:27.902Z",
+      "crawledAt": "2026-09-26T14:04:34.439Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1718,13 +1696,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "applikationsverantwortliche-r-80-100-kanton-solothurn-solothurn",
-        "responsabile-applicazioni-80-100-kanton-solothurn-solothurn"
+        "applikationsverantwortliche-r-80-100-kanton-solothurn-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applikationsverantwortliche-r-80-100-kanton-solothurn-solothurn",
-          "responsabile-applicazioni-80-100-kanton-solothurn-solothurn"
+          "applikationsverantwortliche-r-80-100-kanton-solothurn-solothurn"
         ],
         "en": [
           "applikationsverantwortliche-r-80-100-kanton-solothurn-solothurn"
@@ -1746,7 +1722,8 @@
           "maxValue": 192000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-solothurn-28e9b55728c1",
@@ -1780,7 +1757,7 @@
       "url": "https://job.so.ch/offene-stellen/prorektor-in-gibs-solothurn/345c2489-b8c4-402b-8b8d-907fb7b0d0ee",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:26.891Z",
+      "crawledAt": "2026-09-26T14:04:34.023Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1844,7 +1821,7 @@
       "url": "https://job.so.ch/offene-stellen/amtliche-r-fachassistent-in-fleisch/c4b5a065-b7a1-4143-9f00-cd6a6fa5d702",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:25.904Z",
+      "crawledAt": "2026-09-26T14:04:33.459Z",
       "addressLocality": "Thal-Gäu",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -1863,13 +1840,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "amtliche-r-fachassistent-in-fleisch-80-100-kanton-solothurn-thal-gau",
-        "carni-bovine-80-100-kanton-solothurn-thal-gau"
+        "amtliche-r-fachassistent-in-fleisch-80-100-kanton-solothurn-thal-gau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "amtliche-r-fachassistent-in-fleisch-80-100-kanton-solothurn-thal-gau",
-          "carni-bovine-80-100-kanton-solothurn-thal-gau"
+          "amtliche-r-fachassistent-in-fleisch-80-100-kanton-solothurn-thal-gau"
         ],
         "en": [
           "amtliche-r-fachassistent-in-fleisch-80-100-kanton-solothurn-thal-gau"
@@ -1891,13 +1866,14 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-solothurn-eca5d6131213",
-      "slug": "avvocato-in-diritto-digitale-70-80-kanton-solothurn-solothurn",
+      "slug": "jurist-in-digitalrecht-70-80-kanton-solothurn",
       "slugByLocale": {
-        "it": "avvocato-in-diritto-digitale-70-80-kanton-solothurn-solothurn",
+        "it": "jurist-in-digitalrecht-70-80-kanton-solothurn",
         "en": "lawyer-digitalrecht-70-80-kanton-solothurn-solothurn",
         "de": "jurist-in-digitalrecht-70-80-kanton-solothurn-solothurn",
         "fr": "avocat-digitalrecht-70-80-kanton-solothurn-solothurn"
@@ -1907,7 +1883,7 @@
       "companyDomain": "so.ch",
       "title": "Jurist/-in Digitalrecht, 70-80%",
       "titleByLocale": {
-        "it": "Avvocato in diritto digitale, 70-80%",
+        "it": "Jurist/-in Digitalrecht, 70-80%",
         "en": "Lawyer Digitalrecht, 70-80 %",
         "de": "Jurist/-in Digitalrecht, 70-80%",
         "fr": "Avocat Digitalrecht, 70-80 %"
@@ -1919,12 +1895,13 @@
         "de": "Die Staatskanzlei ist die Stabsstelle des Regierungsrates und unterstützt diesen bei der Wahrnehmung seiner Regierungs- und Führungsaufgaben. Sie stellt die Koordination der Regierungsgeschäfte sicher, erbringt zentrale Dienstleistungen für die kantonale Verwaltung und gewährleistet die Verbindung zum Kantonsrat. Sie begleitet die digitale Transformation der kantonalen Verwaltung und unterstützt digitale Vorhaben und Geschäftsprozesse insbesondere in rechtlichen Fragestellungen. Für die Abteilung Business Analyse und Digitalrecht suchen wir per 01.02.2027 oder nach Vereinbarung am Standort Solothurn eine/-n Jurist/-in Digitalrecht, 70-80%.\n\nIhre Verantwortung\n\n• Als Spezialist/-in für Digitalrecht beraten Sie zu Fragen des IT-, Datenschutz- und Digitalisierungsrechts und beurteilen rechtliche Risiken.\n\n• Digitale Vorhaben begleiten Sie frühzeitig rechtlich und leiten daraus konkrete Anforderungen für Projekte und Geschäftsprozesse ab.\n\n• Sie erkennen Rechtsetzungsbedarf im Zusammenhang mit der digitalen Transformation und bearbeiten bzw. leiten entsprechende Rechtsetzungsvorhaben bis zur Beschlussreife.\n\n• Technologische und regulatorische Entwicklungen, insbesondere in den Bereichen KI und Cloud, beurteilen Sie rechtlich und leiten daraus Handlungsbedarf ab.\n\n• Sie bauen ein verwaltungsweites Netzwerk Digitalrecht auf und fördern den fachlichen Austausch sowie die Entwicklung gemeinsamer rechtlicher Standards, Leitlinien und Arbeitshilfen.\n\nIhr Profil\n\n• Voraussetzung sind ein abgeschlossenes Hochschulstudium der Rechtswissenschaften und vertiefte Kenntnisse im IT-, Datenschutz- und Digitalisierungsrecht.\n\n• Sie verfügen über mehrjährige Berufserfahrung in der rechtlichen Begleitung digitaler Vorhaben, vorzugsweise in der öffentlichen Verwaltung oder einem vergleichbaren Umfeld.\n\n• Erfahrung in der fachlichen Leitung oder Steuerung von Projekten ist von Vorteil.\n\n• Ausgeprägte analytische und konzeptionelle Fähigkeiten sowie ein gutes Verständnis für technische, organisatorische und prozessuale Zusammenhänge zeichnen Sie aus.\n\n• Eine selbstständige und lösungsorientierte Arbeitsweise sowie ausgeprägte Kommunikations- und Beratungskompetenz runden Ihr Profil ab. Sehr gute Deutsch- und Englischkenntnisse werden vorausgesetzt.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nPascale von Roll\nStaatsschreiber-Stellvertreterin/Leiterin Abteilung Politische Rechte und Services\n032 627 20 33\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
         "fr": "La Chancellerie d'État est le bureau du personnel du Conseil gouvernemental et l'appuie dans l'exécution de ses tâches de gouvernement et de direction. Il assure la coordination des activités gouvernementales, fournit des services centraux à l ' administration cantonale et assure la liaison avec le Conseil cantonal. Il accompagne la transformation numérique de l'administration cantonale et soutient les projets numériques et les processus d'affaires, notamment dans les domaines juridiques. Pour le département d'analyse des affaires et de droit numérique, nous recherchons un avocat en droit numérique, 70-80%, au 01.02.2027 ou par accord à l'emplacement Soleure.\n\nVotre responsabilité\n\n• En tant que spécialiste en droit numérique, vous conseillez sur les questions de droit informatique, de protection des données et de numérisation et évaluez les risques juridiques.\n\n• Les projets numériques vous accompagnent légalement à un stade précoce et en tirent des exigences spécifiques pour les projets et les processus d'affaires.\n\n• Ils identifient la nécessité d'une législation dans le contexte de la transformation et du processus numériques ou dirigent des projets législatifs correspondants jusqu'à la maturité décisionnelle.\n\n• Les développements technologiques et réglementaires, en particulier dans les domaines de l'IA et du cloud, vous évaluez légalement la nécessité d'agir.\n\n• Ils créent un réseau administratif de droit numérique et encouragent les échanges professionnels et l'élaboration de normes juridiques communes, de lignes directrices et d'aides au travail.\n\nVotre profil\n\n• La condition préalable est une étude universitaire complète du droit et une connaissance approfondie du droit informatique, de la protection des données et de la numérisation.\n\n• Ils ont plusieurs années d'expérience professionnelle dans le soutien juridique aux projets numériques, de préférence dans l'administration publique ou dans un environnement comparable.\n\n• L'expérience dans la gestion professionnelle ou la gestion de projets est un avantage.\n\n• De solides compétences analytiques et conceptuelles ainsi qu'une bonne compréhension des contextes techniques, organisationnels et procéduraux vous distinguent.\n\n• Une méthode de travail indépendante et orientée vers la solution ainsi que de solides compétences en communication et en conseil complètent votre profil. Une très bonne connaissance de l'allemand et de l'anglais est requise.\n\n• Promouvoir l'équilibre entre vie professionnelle et vie privée au moyen d'un modèle annuel de temps de travail\n\n• Travail à temps partiel, également en milieu de travail\n\n• Possibilité de travailler mobile\n\n• Conditions d'emploi progressives basées sur un VAB\n\n• Égalité de rémunération entre hommes et femmes\n\n• Récompenses de fidélité\n\n• 16 semaines de congé de maternité à plein salaire\n\n• 2 semaines de congé de paternité\n\n• Contributions financières à la garde des enfants\n\n• Offre complète de formation interne et externe\n\nDes questions ?\n\nPascale de Roll\nGreffier adjoint/chef du Département des droits et services politiques\n032 627 20 33\n\nSe déplacer avec engagement. – C'est l'occasion d'assumer la responsabilité d'activités significatives d'intérêt politique et social et de faire évoluer les développements durables pour la population et l'économie avec leur propre empreinte. Derrière cette promesse se trouve le canton de Soleure avec d'innombrables possibilités, une flexibilité tangible et une stabilité dans l'environnement de travail.\n\nConvaincu ?\n\nNous aimerions combler ce poste sans le soutien de fournisseurs de services externes. Les demandes par courriel ne peuvent pas être prises en considération."
       },
+      "needsRetranslation": true,
       "location": "Solothurn",
       "canton": "SO",
       "url": "https://job.so.ch/offene-stellen/jurist-in-digitalrecht/71a272af-a9a3-4e69-ab60-807f9611cae7",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:24.884Z",
+      "crawledAt": "2026-09-26T14:04:33.053Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1942,6 +1919,16 @@
       "applyUrl": "https://job.so.ch/offene-stellen/jurist-in-digitalrecht/71a272af-a9a3-4e69-ab60-807f9611cae7",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "jurist-in-digitalrecht-70-80-kanton-solothurn-solothurn",
+        "avvocato-in-diritto-digitale-70-80-kanton-solothurn-solothurn"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "jurist-in-digitalrecht-70-80-kanton-solothurn-solothurn",
+          "avvocato-in-diritto-digitale-70-80-kanton-solothurn-solothurn"
+        ]
+      },
       "firstSeenAt": "2026-09-23T23:46:47.630Z",
       "salaryMin": 54800,
       "salaryMax": 83200,
@@ -1955,15 +1942,7 @@
           "maxValue": 83200,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "jurist-in-digitalrecht-70-80-kanton-solothurn-solothurn"
-        ]
-      },
-      "previousSlugs": [
-        "jurist-in-digitalrecht-70-80-kanton-solothurn-solothurn"
-      ]
+      }
     },
     {
       "id": "kanton-solothurn-a41bfe6f74ac",
@@ -1996,7 +1975,7 @@
       "url": "https://job.so.ch/offene-stellen/verantwortliche-r-aussenbeziehungen/acd908c6-8cbc-4b2c-9837-39b0c8119d21",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:23.911Z",
+      "crawledAt": "2026-09-26T14:04:32.546Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -2015,13 +1994,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verantwortliche-r-aussenbeziehungen-50-60-kanton-solothurn-solothurn",
-        "relazioni-esterne-responsabili-50-60-kanton-solothurn-solothurn"
+        "verantwortliche-r-aussenbeziehungen-50-60-kanton-solothurn-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verantwortliche-r-aussenbeziehungen-50-60-kanton-solothurn-solothurn",
-          "relazioni-esterne-responsabili-50-60-kanton-solothurn-solothurn"
+          "verantwortliche-r-aussenbeziehungen-50-60-kanton-solothurn-solothurn"
         ],
         "en": [
           "verantwortliche-r-aussenbeziehungen-50-60-kanton-solothurn-solothurn"
@@ -2043,7 +2020,8 @@
           "maxValue": 62400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-solothurn-050259ddad73",
@@ -2076,7 +2054,7 @@
       "url": "https://job.so.ch/offene-stellen/leiter-in-legistik-und-justiz/58b13094-fe7c-4790-a57f-c34f58d2cb2a",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:22.883Z",
+      "crawledAt": "2026-09-26T14:04:32.055Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -2095,13 +2073,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-legistik-und-justiz-80-100-kanton-solothurn-solothurn",
-        "responsabile-legistik-e-justiz-80-100-kanton-solothurn"
+        "leiter-in-legistik-und-justiz-80-100-kanton-solothurn-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-legistik-und-justiz-80-100-kanton-solothurn-solothurn",
-          "responsabile-legistik-e-justiz-80-100-kanton-solothurn"
+          "leiter-in-legistik-und-justiz-80-100-kanton-solothurn-solothurn"
         ],
         "en": [
           "leiter-in-legistik-und-justiz-80-100-kanton-solothurn-solothurn"
@@ -2123,15 +2099,16 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kanton-solothurn-7af30c6de9d4",
       "slug": "wissenschaftliche-r-collaboratore-trice-in-hydrometrie-40-60-kanton-solothurn",
       "slugByLocale": {
-        "de": "wissenschaftliche-r-mitarbeiter-in-hydrometrie-40-60-kanton-solothurn-solothurn",
         "it": "wissenschaftliche-r-collaboratore-trice-in-hydrometrie-40-60-kanton-solothurn",
         "en": "wissenschaftliche-r-mitarbeiter-in-hydrometrie-40-60-kanton-solothurn-solothurn",
+        "de": "wissenschaftliche-r-mitarbeiter-in-hydrometrie-40-60-kanton-solothurn-solothurn",
         "fr": "wissenschaftliche-r-mitarbeiter-in-hydrometrie-40-60-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
@@ -2139,16 +2116,16 @@
       "companyDomain": "so.ch",
       "title": "Wissenschaftliche/-r Mitarbeiter/-in Hydrometrie, 40-60%",
       "titleByLocale": {
-        "de": "Wissenschaftliche/-r Mitarbeiter/-in Hydrometrie, 40-60%",
         "it": "Wissenschaftliche/-r Collaboratore/trice/-in Hydrometrie, 40-60%",
         "en": "Wissenschaftliche/-r Mitarbeiter/-in Hydrometrie, 40-60%",
+        "de": "Wissenschaftliche/-r Mitarbeiter/-in Hydrometrie, 40-60%",
         "fr": "Wissenschaftliche/-r Mitarbeiter/-in Hydrometrie, 40-60%"
       },
       "description": "Das Amt für Umwelt sichert den Schutz und die nachhaltige Bewirtschaftung der natürlichen Ressourcen und sorgt dafür, dass die Umwelt des Kantons Solothurn lebenswert bleibt. Für die Abteilung Wasserbau suchen wir per 01.01.2027 oder nach Vereinbarung am Standort Solothurn eine/-n Wissenschaftliche/-n Mitarbeiter/-in Hydrometrie, 40-60%.\n\nIhre Verantwortung\n\n• Sie gewährleisten in Zusammenarbeit mit externen Auftragnehmern den reibungslosen Betrieb und Unterhalt des kantonalen Hydrometrie-Messnetzes und stellen die Koordination der Hydrometrie mit Bund und anderen Kantonen sicher.\n\n• Durch Plausibilisierung, Aufbereitung und Auswertung der Messdaten stellen Sie wichtige Grundlagen für interne und externe Nutzer bereit.\n\n• Zunehmende hydrologische Extremereignisse (Hochwasser, Trockenheit) erfordern von Ihnen ein engagiertes Management von Ausnahmesituationen in den Oberflächengewässern.\n\n• Die laufende Aktualisierung des Gewässernetzes, Nachführung der Ökomorphologie und Publikation wichtiger Daten für die Öffentlichkeit gehören zu Ihrem Aufgabengebiet.\n\n• Sie sind Mitglied im kantonalen Hochwasser-Pikettdienst.\n\nIhr Profil\n\n• Ihr fachliches Rüstzeug haben Sie in einem Hochschulstudium im Bereich der Ingenieur- oder Umweltwissenschaften oder einer höheren umwelttechnischen Fachausbildung erworben und besitzen Erfahrung in den Bereichen Hydrometrie, Ökomorphologie, Trockenheits-/Hochwassermanagement und Datenauswertung.\n\n• Das Initiieren und Leiten von Projekten liegt Ihnen und Sie bringen Erfahrung im Projektmanagement mit.\n\n• Der Umgang mit GIS, Datenbanken und Software zur statistischen Datenanalyse ist Ihnen vertraut.\n\n• Sie bringen Geduld, Humor und die Überzeugung mit, sich für eine gute Sache zu engagieren.\n\n• Sie arbeiten gerne im Team und sind bereit, die Aufgaben und Herausforderungen engagiert anzugehen.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nChristoph Dietschi\nLeiter Abteilung Wasserbau\n032 627 26 92\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
       "descriptionByLocale": {
-        "de": "Das Amt für Umwelt sichert den Schutz und die nachhaltige Bewirtschaftung der natürlichen Ressourcen und sorgt dafür, dass die Umwelt des Kantons Solothurn lebenswert bleibt. Für die Abteilung Wasserbau suchen wir per 01.01.2027 oder nach Vereinbarung am Standort Solothurn eine/-n Wissenschaftliche/-n Mitarbeiter/-in Hydrometrie, 40-60%.\n\nIhre Verantwortung\n\n• Sie gewährleisten in Zusammenarbeit mit externen Auftragnehmern den reibungslosen Betrieb und Unterhalt des kantonalen Hydrometrie-Messnetzes und stellen die Koordination der Hydrometrie mit Bund und anderen Kantonen sicher.\n\n• Durch Plausibilisierung, Aufbereitung und Auswertung der Messdaten stellen Sie wichtige Grundlagen für interne und externe Nutzer bereit.\n\n• Zunehmende hydrologische Extremereignisse (Hochwasser, Trockenheit) erfordern von Ihnen ein engagiertes Management von Ausnahmesituationen in den Oberflächengewässern.\n\n• Die laufende Aktualisierung des Gewässernetzes, Nachführung der Ökomorphologie und Publikation wichtiger Daten für die Öffentlichkeit gehören zu Ihrem Aufgabengebiet.\n\n• Sie sind Mitglied im kantonalen Hochwasser-Pikettdienst.\n\nIhr Profil\n\n• Ihr fachliches Rüstzeug haben Sie in einem Hochschulstudium im Bereich der Ingenieur- oder Umweltwissenschaften oder einer höheren umwelttechnischen Fachausbildung erworben und besitzen Erfahrung in den Bereichen Hydrometrie, Ökomorphologie, Trockenheits-/Hochwassermanagement und Datenauswertung.\n\n• Das Initiieren und Leiten von Projekten liegt Ihnen und Sie bringen Erfahrung im Projektmanagement mit.\n\n• Der Umgang mit GIS, Datenbanken und Software zur statistischen Datenanalyse ist Ihnen vertraut.\n\n• Sie bringen Geduld, Humor und die Überzeugung mit, sich für eine gute Sache zu engagieren.\n\n• Sie arbeiten gerne im Team und sind bereit, die Aufgaben und Herausforderungen engagiert anzugehen.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nChristoph Dietschi\nLeiter Abteilung Wasserbau\n032 627 26 92\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
         "it": "L'Ufficio per l'Ambiente garantisce la protezione e la gestione sostenibile delle risorse naturali e garantisce che l'ambiente del cantone Solothurn rimanga vivibile. Per il dipartimento di ingegneria idraulica, siamo alla ricerca di un dipendente scientifico in idrometria, 40-60%, a partire dal 01.01.2027 o da accordo presso il sito Solothurn.\n\nLa tua responsabilità\n\n• In collaborazione con gli appaltatori esterni, assicurano il regolare funzionamento e manutenzione della rete di misura idrometrica cantonale e assicurano il coordinamento delle idrometrie con la Confederazione e altri Cantoni.\n\n• Plausibilizzazione, elaborazione e valutazione dei dati misurati Essi forniscono basi importanti per gli utenti interni ed esterni.\n\n• Aumentare gli eventi estremi idrologici (flooding, siccità) richiedono di gestire situazioni eccezionali nelle acque superficiali.\n\n• L'aggiornamento continuo della rete idrica, il monitoraggio dell'ecomorfologia e la pubblicazione di dati importanti per il pubblico fanno parte della vostra area di responsabilità.\n\n• Sei un membro del servizio di inondazione cantonale.\n\nIl tuo profilo\n\n• Hai acquisito le tue competenze tecniche in uno studio universitario nel campo dell'ingegneria o delle scienze ambientali o in una più alta formazione specialistica dell'ingegneria ambientale e hai esperienza in idrometria, ecomorfologia, siccità / gestione degli alimenti e valutazione dei dati.\n\n• Iniziare e gestire i progetti è tuo e hai esperienza nella gestione dei progetti.\n\n• Conoscete GIS, database e software per l'analisi statistica dei dati.\n\n• Portano pazienza, umorismo e convinzione a commettere una buona causa.\n\n• Godono di lavorare in un team e sono pronti ad affrontare i compiti e le sfide con impegno.\n\n• Promuovere l'equilibrio personale della vita lavorativa attraverso un modello annuale di tempo di lavoro\n\n• Lavoro a tempo parziale, anche in cadre\n\n• Opportunità di lavorare mobile\n\n• Condizioni di lavoro progressive basate su un GAV\n\n• Pari retribuzione tra uomini e donne\n\n• Ricompense fedeltà\n\n• 16 settimane di congedo di maternità a pagamento completo\n\n• 2 settimane congedo di paternità\n\n• Contributi finanziari all'assistenza all'infanzia\n\n• Completa offerta di formazione interna ed esterna\n\nDomande?\n\nChristoph Dietschi\nCapo di ingegneria idraulica\n032 627 26 92\n\nSpostarsi con impegno. – Questa è l'opportunità di assumersi la responsabilità di una significativa attività di rilevanza politica e sociale e di spostare gli sviluppi sostenibili per la popolazione e l'economia con la propria impronta. Dietro questa promessa sorge il cantone di Solothurn con innumerevoli possibilità, una flessibilità tangibile e una stabilità nell'ambiente di lavoro.\n\nConvinto?\n\nVorremmo riempire questa posizione senza il supporto di fornitori di servizi esterni. Le applicazioni e-mail non possono essere considerate.",
         "en": "The Office for the Environment ensures the protection and sustainable management of natural resources and ensures that the environment of the canton Solothurn remains livable. For the department of hydraulic engineering, we are looking for a scientific employee in hydrometry, 40-60%, as of 01.01.2027 or by agreement at the Solothurn site.\n\nYour responsibility\n\n• In cooperation with external contractors, they ensure the smooth operation and maintenance of the cantonal hydrometric measuring network and ensure the coordination of hydrometrics with the Confederation and other cantons.\n\n• Plausibilization, processing and evaluation of the measured data They provide important basics for internal and external users.\n\n• Increasing hydrological extreme events (flooding, drought) require you to manage exceptional situations in the surface waters.\n\n• The ongoing updating of the water network, tracking of the ecomorphology and publication of important data for the public are part of your area of responsibility.\n\n• You are a member of the Cantonal Flood Picetting Service.\n\nYour profile\n\n• You have acquired your technical skills in a university study in the field of engineering or environmental sciences or a higher environmental engineering specialist training and have experience in hydrometrics, ecomorphology, drought/flood management and data evaluation.\n\n• Initiating and managing projects is yours and you have experience in project management.\n\n• You are familiar with GIS, databases and software for statistical data analysis.\n\n• They bring patience, humor and the conviction to commit to a good cause.\n\n• They enjoy working in a team and are ready to tackle the tasks and challenges with commitment.\n\n• Promoting personal work-life balance through an annual working time model\n\n• Part-time work, also in cadre\n\n• Opportunity to work mobile\n\n• Progressive employment conditions based on a GAV\n\n• Equal pay between men and women\n\n• Loyalty rewards\n\n• 16 weeks of maternity leave on full pay\n\n• 2 weeks paternity leave\n\n• Financial contributions to childcare\n\n• Comprehensive offer of internal and external training\n\nQuestions?\n\nChristoph Dietschi\nHead of Hydraulic Engineering\n032 627 26 92\n\nMoving with commitment. – This is the opportunity to bear responsibility in meaningful activity of political and social relevance and to move sustainable developments for the population and economy with their own imprint. Behind this promise stands the canton of Solothurn with countless possibilities, a tangible flexibility and a stability in the working environment.\n\nConvinced?\n\nWe would like to fill this position without the support of external service providers. Email applications cannot be considered.",
+        "de": "Das Amt für Umwelt sichert den Schutz und die nachhaltige Bewirtschaftung der natürlichen Ressourcen und sorgt dafür, dass die Umwelt des Kantons Solothurn lebenswert bleibt. Für die Abteilung Wasserbau suchen wir per 01.01.2027 oder nach Vereinbarung am Standort Solothurn eine/-n Wissenschaftliche/-n Mitarbeiter/-in Hydrometrie, 40-60%.\n\nIhre Verantwortung\n\n• Sie gewährleisten in Zusammenarbeit mit externen Auftragnehmern den reibungslosen Betrieb und Unterhalt des kantonalen Hydrometrie-Messnetzes und stellen die Koordination der Hydrometrie mit Bund und anderen Kantonen sicher.\n\n• Durch Plausibilisierung, Aufbereitung und Auswertung der Messdaten stellen Sie wichtige Grundlagen für interne und externe Nutzer bereit.\n\n• Zunehmende hydrologische Extremereignisse (Hochwasser, Trockenheit) erfordern von Ihnen ein engagiertes Management von Ausnahmesituationen in den Oberflächengewässern.\n\n• Die laufende Aktualisierung des Gewässernetzes, Nachführung der Ökomorphologie und Publikation wichtiger Daten für die Öffentlichkeit gehören zu Ihrem Aufgabengebiet.\n\n• Sie sind Mitglied im kantonalen Hochwasser-Pikettdienst.\n\nIhr Profil\n\n• Ihr fachliches Rüstzeug haben Sie in einem Hochschulstudium im Bereich der Ingenieur- oder Umweltwissenschaften oder einer höheren umwelttechnischen Fachausbildung erworben und besitzen Erfahrung in den Bereichen Hydrometrie, Ökomorphologie, Trockenheits-/Hochwassermanagement und Datenauswertung.\n\n• Das Initiieren und Leiten von Projekten liegt Ihnen und Sie bringen Erfahrung im Projektmanagement mit.\n\n• Der Umgang mit GIS, Datenbanken und Software zur statistischen Datenanalyse ist Ihnen vertraut.\n\n• Sie bringen Geduld, Humor und die Überzeugung mit, sich für eine gute Sache zu engagieren.\n\n• Sie arbeiten gerne im Team und sind bereit, die Aufgaben und Herausforderungen engagiert anzugehen.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nChristoph Dietschi\nLeiter Abteilung Wasserbau\n032 627 26 92\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
         "fr": "L ' Office de l ' environnement assure la protection et la gestion durable des ressources naturelles et veille à ce que l ' environnement du canton de Soleure reste viable. Pour le département de génie hydraulique, nous recherchons un employé scientifique en hydrométrie, 40-60%, au 01.01.2027 ou par accord sur le site Soleure.\n\nVotre responsabilité\n\n• En coopération avec des entrepreneurs extérieurs, ils assurent le bon fonctionnement et l'entretien du réseau de mesure hydrométrique cantonal et assurent la coordination de l'hydrométrie avec la Confédération et d'autres cantons.\n\n• Plausibilité, traitement et évaluation des données mesurées Ils fournissent des bases importantes pour les utilisateurs internes et externes.\n\n• De plus en plus d'événements hydrologiques extrêmes (inondation, sécheresse) vous obligent à gérer des situations exceptionnelles dans les eaux de surface.\n\n• La mise à jour continue du réseau d'eau, le suivi de l'écomorphologie et la publication de données importantes pour le public font partie de votre domaine de responsabilité.\n\n• Vous êtes membre du Service cantonal de piquetage des inondations.\n\nVotre profil\n\n• Vous avez acquis vos compétences techniques dans une étude universitaire dans le domaine de l'ingénierie ou des sciences de l'environnement ou une formation spécialisée supérieure en génie de l'environnement et avez une expérience en hydrométrie, en écomorphologie, en gestion de la sécheresse et des inondations et en évaluation des données.\n\n• L'initiation et la gestion des projets sont à vous et vous avez de l'expérience en gestion de projet.\n\n• Vous connaissez le SIG, les bases de données et les logiciels d'analyse des données statistiques.\n\n• Ils apportent patience, humour et conviction pour s'engager dans une bonne cause.\n\n• Ils aiment travailler en équipe et sont prêts à relever les tâches et les défis avec engagement.\n\n• Promouvoir l'équilibre entre vie professionnelle et vie privée au moyen d'un modèle annuel de temps de travail\n\n• Travail à temps partiel, également en milieu de travail\n\n• Possibilité de travailler mobile\n\n• Conditions d'emploi progressives basées sur un VAB\n\n• Égalité de rémunération entre hommes et femmes\n\n• Récompenses de fidélité\n\n• 16 semaines de congé de maternité à plein salaire\n\n• 2 semaines de congé de paternité\n\n• Contributions financières à la garde des enfants\n\n• Offre complète de formation interne et externe\n\nDes questions ?\n\nChristoph Dietschi\nChef du génie hydraulique\n032 627 26 92\n\nSe déplacer avec engagement. – C'est l'occasion d'assumer la responsabilité d'activités significatives d'importance politique et sociale et de faire évoluer les développements durables pour la population et l'économie avec leur propre empreinte. Derrière cette promesse se trouve le canton de Soleure avec d'innombrables possibilités, une flexibilité tangible et une stabilité dans l'environnement de travail.\n\nConvaincu ?\n\nNous aimerions combler ce poste sans le soutien de fournisseurs de services externes. Les demandes par courriel ne peuvent pas être prises en considération."
       },
       "needsRetranslation": true,
@@ -2157,7 +2134,7 @@
       "url": "https://job.so.ch/offene-stellen/wissenschaftliche-r-mitarbeiter-in-hydrometrie/74022999-a1b9-4a30-8383-78c071d0ab00",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:21.889Z",
+      "crawledAt": "2026-09-26T14:04:31.531Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -2174,17 +2151,18 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://job.so.ch/offene-stellen/wissenschaftliche-r-mitarbeiter-in-hydrometrie/74022999-a1b9-4a30-8383-78c071d0ab00",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "wissenschaftliche-r-mitarbeiter-in-hydrometrie-40-60-kanton-solothurn-solothurn",
+        "wissenschaftliche-r-collaboratore-trice-in-hydrometrie-40-60-kanton-solothurn"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-r-mitarbeiter-in-hydrometrie-40-60-kanton-solothurn-solothurn"
+          "wissenschaftliche-r-mitarbeiter-in-hydrometrie-40-60-kanton-solothurn-solothurn",
+          "wissenschaftliche-r-collaboratore-trice-in-hydrometrie-40-60-kanton-solothurn"
         ]
       },
-      "previousSlugs": [
-        "wissenschaftliche-r-mitarbeiter-in-hydrometrie-40-60-kanton-solothurn-solothurn"
-      ],
+      "firstSeenAt": "2026-09-25T14:53:21.889Z",
       "salaryMin": 41100,
       "salaryMax": 62400,
       "salarySource": "estimated",
@@ -2197,16 +2175,15 @@
           "maxValue": 62400,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-25T14:53:21.889Z"
+      }
     },
     {
       "id": "kanton-solothurn-38b136945c9f",
       "slug": "jurist-in-60-kanton-solothurn-solothurn",
       "slugByLocale": {
-        "de": "jurist-in-60-kanton-solothurn-solothurn",
         "it": "jurist-in-60-kanton-solothurn-solothurn",
         "en": "jurist-in-60-kanton-solothurn-solothurn",
+        "de": "jurist-in-60-kanton-solothurn-solothurn",
         "fr": "jurist-in-60-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
@@ -2214,16 +2191,16 @@
       "companyDomain": "so.ch",
       "title": "Jurist/-in, 60%",
       "titleByLocale": {
-        "de": "Jurist/-in, 60%",
         "it": "Jurist/-in, 60%",
         "en": "Jurist/-in, 60%",
+        "de": "Jurist/-in, 60%",
         "fr": "Jurist/-in, 60%"
       },
       "description": "Das Departementssekretariat ist die Stabsstelle und das Dienstleistungszentrum des Departements des Innern. Es gliedert sich in die Abteilungen Administration, Rechtsdienst, Controlling und Digitalisierung, Kommunikation, Swisslos-Fonds und die Oberämter. Es unterstützt und berät die Departementsvorsteherin und erbringt Querschnittsaufgaben für die fünf Ämter des Departements. Für den Rechtsdienst suchen wir per 01.01.2027 oder nach Vereinbarung am Standort Solothurn eine/-n Jurist/-in, 60%.\n\nIhre Verantwortung\n\n• Es erwartet Sie eine vielfältige juristische Tätigkeit im Bereich Soziales des departementalen Rechtsdienstes.\n\n• Sie führen Verwaltungsbeschwerdeverfahren (insbesondere im Bereich der Sozialhilfe) und bearbeiten Aufsichtsbeschwerden im Bereich des Kindes- und Erwachsenenschutzes.\n\n• Die Bearbeitung von Schadenersatzbegehren im Bereich des Kindes- und Erwachsenenschutzes und die Abklärung von Anfragen aus verschiedenen Rechtsgebieten im sozialen Bereich, gehören ebenfalls zu Ihren Kernaufgaben.\n\n• Überdies wirken Sie an Gesetzgebungs- und Verordnungsprojekten im Bereich Soziales mit.\n\nIhr Profil\n\n• Sie verfügen über ein abgeschlossenes juristisches Hochschulstudium und Berufserfahrung im Bereich Soziales (insbesondere Sozialhilfe und/oder Kindes- und Erwachsenenschutz). Ein Anwaltspatent sowie erste Erfahrungen in der Gesetzgebung sind von Vorteil.\n\n• Analytisches Denken, eine hohe Selbständigkeit und die nötige Flexibilität für den Einsatz in verschiedenen Bereichen gehören zu Ihren Stärken.\n\n• Belastbarkeit und eine stilsichere, adressatengerechte schriftliche Ausdrucksweise zeichnen Sie aus.\n\n• Sie verfügen über Eigeninitiative, erledigen anfallende Arbeiten exakt und speditiv und schätzen die Arbeit im Team.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nNoemi Sprenger\nLeiterin Fachbereich Soziales\n032 627 93 73\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
       "descriptionByLocale": {
-        "de": "Das Departementssekretariat ist die Stabsstelle und das Dienstleistungszentrum des Departements des Innern. Es gliedert sich in die Abteilungen Administration, Rechtsdienst, Controlling und Digitalisierung, Kommunikation, Swisslos-Fonds und die Oberämter. Es unterstützt und berät die Departementsvorsteherin und erbringt Querschnittsaufgaben für die fünf Ämter des Departements. Für den Rechtsdienst suchen wir per 01.01.2027 oder nach Vereinbarung am Standort Solothurn eine/-n Jurist/-in, 60%.\n\nIhre Verantwortung\n\n• Es erwartet Sie eine vielfältige juristische Tätigkeit im Bereich Soziales des departementalen Rechtsdienstes.\n\n• Sie führen Verwaltungsbeschwerdeverfahren (insbesondere im Bereich der Sozialhilfe) und bearbeiten Aufsichtsbeschwerden im Bereich des Kindes- und Erwachsenenschutzes.\n\n• Die Bearbeitung von Schadenersatzbegehren im Bereich des Kindes- und Erwachsenenschutzes und die Abklärung von Anfragen aus verschiedenen Rechtsgebieten im sozialen Bereich, gehören ebenfalls zu Ihren Kernaufgaben.\n\n• Überdies wirken Sie an Gesetzgebungs- und Verordnungsprojekten im Bereich Soziales mit.\n\nIhr Profil\n\n• Sie verfügen über ein abgeschlossenes juristisches Hochschulstudium und Berufserfahrung im Bereich Soziales (insbesondere Sozialhilfe und/oder Kindes- und Erwachsenenschutz). Ein Anwaltspatent sowie erste Erfahrungen in der Gesetzgebung sind von Vorteil.\n\n• Analytisches Denken, eine hohe Selbständigkeit und die nötige Flexibilität für den Einsatz in verschiedenen Bereichen gehören zu Ihren Stärken.\n\n• Belastbarkeit und eine stilsichere, adressatengerechte schriftliche Ausdrucksweise zeichnen Sie aus.\n\n• Sie verfügen über Eigeninitiative, erledigen anfallende Arbeiten exakt und speditiv und schätzen die Arbeit im Team.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nNoemi Sprenger\nLeiterin Fachbereich Soziales\n032 627 93 73\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
         "it": "Il Segretariato del Dipartimento è il dipartimento e il centro di servizio del Dipartimento dell'Interno. Esso è suddiviso nei dipartimenti di amministrazione, servizio giuridico, controllo e digitalizzazione, comunicazione, fondi Swisslos e gli uffici superiori. Supporta e consiglia la testa del dipartimento e svolge attività di taglio incrociato per i cinque uffici. Per il servizio legale siamo alla ricerca di un avvocato, 60%, a partire dal 01.01.2027 o di un accordo presso la sede di Solothurn.\n\nLa tua responsabilità\n\n• Si aspetta una diversificata attività legale nel campo degli affari sociali del servizio legale dipartimentale.\n\n• Essi svolgono procedure di denuncia amministrativa (soprattutto nel settore dell'assistenza sociale) e si occupano di reclami di controllo nel settore della protezione dei bambini e degli adulti.\n\n• Il trattamento dei reclami per danni nel settore della protezione dei bambini e degli adulti e la chiarificazione delle indagini da varie aree legali nell'area sociale sono anche tra i vostri compiti principali.\n\n• Partecipa anche a progetti legislativi e regolamentari nel settore degli affari sociali.\n\nIl tuo profilo\n\n• Hai completato gli studi di legge e l'esperienza professionale nel campo degli affari sociali (in particolare l'assistenza sociale e/o la protezione dei bambini e degli adulti). Il brevetto di un avvocato e l'esperienza iniziale nella legislazione sono utili.\n\n• Il pensiero analitico, un alto grado di indipendenza e la flessibilità necessaria per l'uso in varie aree sono tra i vostri punti di forza.\n\n• Risilienza e un'espressione scritta elegante e indirizzabile ti caratterizzano.\n\n• Hanno una propria iniziativa, fanno il lavoro che fanno esattamente e rapidamente e apprezzano il lavoro che fanno nella squadra.\n\n• Promuovere l'equilibrio personale della vita lavorativa attraverso un modello annuale di tempo di lavoro\n\n• Lavoro a tempo parziale, anche in cadre\n\n• Opportunità di lavorare mobile\n\n• Condizioni di lavoro progressive basate su un GAV\n\n• Pari retribuzione tra uomini e donne\n\n• Ricompense fedeltà\n\n• 16 settimane di congedo di maternità a pagamento completo\n\n• 2 settimane congedo di paternità\n\n• Contributi finanziari all'assistenza all'infanzia\n\n• Completa offerta di formazione interna ed esterna\n\nDomande?\n\nNoemi Sprenger\nCapo degli affari sociali\n032 627 93 73\n\nSpostarsi con impegno. – Questa è l'opportunità di assumersi la responsabilità di una significativa attività di rilevanza politica e sociale e di spostare gli sviluppi sostenibili per la popolazione e l'economia con la propria impronta. Dietro questa promessa sorge il cantone di Solothurn con innumerevoli possibilità, una flessibilità tangibile e una stabilità nell'ambiente di lavoro.\n\nConvinto?\n\nVorremmo riempire questa posizione senza il supporto di fornitori di servizi esterni. Le applicazioni e-mail non possono essere considerate.",
         "en": "The Departmental Secretariat shall be the department and service centre of the Department of the Interior. It is divided into the departments of administration, legal service, controlling and digitization, communication, Swisslos funds and the upper offices. It supports and advises the department head and performs cross-cutting tasks for the five department offices. For the legal service we are looking for a lawyer, 60%, as of 01.01.2027 or by agreement at the Solothurn location.\n\nYour responsibility\n\n• It expects you a diverse legal activity in the field of social affairs of the departmental legal service.\n\n• They conduct administrative complaint procedures (especially in the area of social assistance) and deal with supervisory complaints in the area of child and adult protection.\n\n• The processing of claims for damages in the area of child and adult protection and the clarification of inquiries from various legal areas in the social area are also among your core tasks.\n\n• You also participate in legislative and regulatory projects in the field of social affairs.\n\nYour profile\n\n• You have completed law studies and professional experience in the field of social affairs (in particular social assistance and/or child and adult protection). A lawyer's patent and initial experience in legislation are beneficial.\n\n• Analytical thinking, a high degree of independence and the necessary flexibility for use in various areas are among your strengths.\n\n• Resilience and a stylish, addressable written expression characterize you.\n\n• They have their own initiative, do the work they do precisely and quickly and appreciate the work they do in the team.\n\n• Promoting personal work-life balance through an annual working time model\n\n• Part-time work, also in cadre\n\n• Opportunity to work mobile\n\n• Progressive employment conditions based on a GAV\n\n• Equal pay between men and women\n\n• Loyalty rewards\n\n• 16 weeks of maternity leave on full pay\n\n• 2 weeks paternity leave\n\n• Financial contributions to childcare\n\n• Comprehensive offer of internal and external training\n\nQuestions?\n\nNoemi Sprenger\nHead of Social Affairs\n032 627 93 73\n\nMoving with commitment. – This is the opportunity to bear responsibility in meaningful activity of political and social relevance and to move sustainable developments for the population and economy with their own imprint. Behind this promise stands the canton of Solothurn with countless possibilities, a tangible flexibility and a stability in the working environment.\n\nConvinced?\n\nWe would like to fill this position without the support of external service providers. Email applications cannot be considered.",
+        "de": "Das Departementssekretariat ist die Stabsstelle und das Dienstleistungszentrum des Departements des Innern. Es gliedert sich in die Abteilungen Administration, Rechtsdienst, Controlling und Digitalisierung, Kommunikation, Swisslos-Fonds und die Oberämter. Es unterstützt und berät die Departementsvorsteherin und erbringt Querschnittsaufgaben für die fünf Ämter des Departements. Für den Rechtsdienst suchen wir per 01.01.2027 oder nach Vereinbarung am Standort Solothurn eine/-n Jurist/-in, 60%.\n\nIhre Verantwortung\n\n• Es erwartet Sie eine vielfältige juristische Tätigkeit im Bereich Soziales des departementalen Rechtsdienstes.\n\n• Sie führen Verwaltungsbeschwerdeverfahren (insbesondere im Bereich der Sozialhilfe) und bearbeiten Aufsichtsbeschwerden im Bereich des Kindes- und Erwachsenenschutzes.\n\n• Die Bearbeitung von Schadenersatzbegehren im Bereich des Kindes- und Erwachsenenschutzes und die Abklärung von Anfragen aus verschiedenen Rechtsgebieten im sozialen Bereich, gehören ebenfalls zu Ihren Kernaufgaben.\n\n• Überdies wirken Sie an Gesetzgebungs- und Verordnungsprojekten im Bereich Soziales mit.\n\nIhr Profil\n\n• Sie verfügen über ein abgeschlossenes juristisches Hochschulstudium und Berufserfahrung im Bereich Soziales (insbesondere Sozialhilfe und/oder Kindes- und Erwachsenenschutz). Ein Anwaltspatent sowie erste Erfahrungen in der Gesetzgebung sind von Vorteil.\n\n• Analytisches Denken, eine hohe Selbständigkeit und die nötige Flexibilität für den Einsatz in verschiedenen Bereichen gehören zu Ihren Stärken.\n\n• Belastbarkeit und eine stilsichere, adressatengerechte schriftliche Ausdrucksweise zeichnen Sie aus.\n\n• Sie verfügen über Eigeninitiative, erledigen anfallende Arbeiten exakt und speditiv und schätzen die Arbeit im Team.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nNoemi Sprenger\nLeiterin Fachbereich Soziales\n032 627 93 73\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
         "fr": "Le Secrétariat du Département est le département et le centre de services du Département de l'intérieur. Il est divisé en départements de l'administration, du service juridique, du contrôle et de la numérisation, de la communication, des fonds Swisslos et des bureaux supérieurs. Il appuie et conseille le chef de département et exécute des tâches transversales pour les cinq bureaux de département. Pour le service juridique, nous recherchons un avocat, 60%, au 01.01.2027 ou par accord au lieu de Soleure.\n\nVotre responsabilité\n\n• Il vous attend une activité juridique diversifiée dans le domaine des affaires sociales du service juridique ministériel.\n\n• Ils mènent des procédures administratives de plainte (en particulier dans le domaine de l'aide sociale) et traitent les plaintes de surveillance dans le domaine de la protection des enfants et des adultes.\n\n• Le traitement des demandes de dommages-intérêts dans le domaine de la protection de l'enfant et de l'adulte et la clarification des enquêtes dans divers domaines juridiques dans le domaine social comptent également parmi vos tâches principales.\n\n• Vous participez également à des projets législatifs et réglementaires dans le domaine des affaires sociales.\n\nVotre profil\n\n• Vous avez terminé des études de droit et une expérience professionnelle dans le domaine des affaires sociales (en particulier l'assistance sociale et/ou la protection des enfants et des adultes). Le brevet d'un avocat et l'expérience initiale en matière de législation sont bénéfiques.\n\n• La pensée analytique, un degré élevé d'indépendance et la flexibilité nécessaire pour l'utilisation dans différents domaines sont parmi vos forces.\n\n• La résilience et une expression écrite élégante et adressable vous caractérisent.\n\n• Ils ont leur propre initiative, font le travail qu'ils font précisément et rapidement et apprécient le travail qu'ils font dans l'équipe.\n\n• Promouvoir l'équilibre entre vie professionnelle et vie privée au moyen d'un modèle annuel de temps de travail\n\n• Travail à temps partiel, également en milieu de travail\n\n• Possibilité de travailler mobile\n\n• Conditions d'emploi progressives basées sur un VAB\n\n• Égalité de rémunération entre hommes et femmes\n\n• Récompenses de fidélité\n\n• 16 semaines de congé de maternité à plein salaire\n\n• 2 semaines de congé de paternité\n\n• Contributions financières à la garde des enfants\n\n• Offre complète de formation interne et externe\n\nDes questions ?\n\nNoemi Sprenger\nChef des affaires sociales\n032 627 93 73\n\nSe déplacer avec engagement. – C'est l'occasion d'assumer la responsabilité d'activités significatives d'importance politique et sociale et de faire évoluer les développements durables pour la population et l'économie avec leur propre empreinte. Derrière cette promesse se trouve le canton de Soleure avec d'innombrables possibilités, une flexibilité tangible et une stabilité dans l'environnement de travail.\n\nConvaincu ?\n\nNous aimerions combler ce poste sans le soutien de fournisseurs de services externes. Les demandes par courriel ne peuvent pas être prises en considération."
       },
       "needsRetranslation": true,
@@ -2232,7 +2209,7 @@
       "url": "https://job.so.ch/offene-stellen/jurist-in/8529e9e2-e746-44ed-9b18-728cad45b57f",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:20.900Z",
+      "crawledAt": "2026-09-26T14:04:31.030Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -2249,9 +2226,8 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://job.so.ch/offene-stellen/jurist-in/8529e9e2-e746-44ed-9b18-728cad45b57f",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-25T14:53:20.900Z",
       "salaryMin": 41100,
       "salaryMax": 62400,
       "salarySource": "estimated",
@@ -2264,33 +2240,32 @@
           "maxValue": 62400,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-25T14:53:20.900Z"
+      }
     },
     {
       "id": "kanton-solothurn-16a7037ef985",
-      "slug": "steuerfachmann-steuerfachfrau-privatpersonen-80-100-kanton-solothurn-solothurn",
+      "slug": "specialista-fiscale-privati-80-100-kanton-solothurn-solothurn",
       "slugByLocale": {
         "de": "steuerfachmann-steuerfachfrau-privatpersonen-80-100-kanton-solothurn-solothurn",
-        "it": "steuerfachmann-steuerfachfrau-privatpersonen-80-100-kanton-solothurn-solothurn",
-        "en": "steuerfachmann-steuerfachfrau-privatpersonen-80-100-kanton-solothurn-solothurn",
-        "fr": "steuerfachmann-steuerfachfrau-privatpersonen-80-100-kanton-solothurn-solothurn"
+        "it": "specialista-fiscale-privati-80-100-kanton-solothurn-solothurn",
+        "en": "tax-specialist-private-individuals-80-100-kanton-solothurn-solothurn",
+        "fr": "specialiste-fiscal-particuliers-80-100-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
       "companyDomain": "so.ch",
       "title": "Steuerfachmann/Steuerfachfrau Privatpersonen, 80-100%",
       "titleByLocale": {
-        "de": "Steuerfachmann/Steuerfachfrau Privatpersonen, 80-100%",
-        "it": "Specialista fiscale privati, 80-100 %",
+        "it": "Steuerfachmann/Steuerfachfrau Privatpersonen, 80-100%",
         "en": "Tax specialist Private individuals, 80-100 %",
+        "de": "Steuerfachmann/Steuerfachfrau Privatpersonen, 80-100%",
         "fr": "Spécialiste fiscal Particuliers, 80-100 %"
       },
       "description": "Das Steueramt beschafft die finanziellen Mittel für das öffentliche Gemeinwesen und versteht sich als partnerschaftliches Bindeglied zwischen Staat, Bund, Gemeinden, Bevölkerung und Wirtschaft. Für die Abteilung Privatpersonen suchen wir per sofort oder nach Vereinbarung an den Standorten Solothurn, Olten, Balsthal oder Dornach eine/-n Steuerfachmann/Steuerfachfrau Privatpersonen, 80-100%.\n\nIhre Verantwortung\n\n• Zu Ihrem Aufgabenbereich gehört die Veranlagung von natürlichen Personen für die Staats- und direkte Bundessteuer im Bereich Privatpersonen.\n\n• Sie führen Steuerausscheidungen von Innerkantonalen, Interkantonalen und Internationalen durch.\n\n• Die Selbstständige Erledigung der Korrespondenz, Einforderung von Beweisunterlagen sowie Erteilung von Auskünften an andere Steuerbehörden und Amtsstellen gehören ebenfalls zu Ihren Aufgaben.\n\n• Sie beraten Steuerpflichtige sowie deren Vertretungen und wirken bei Einspracheverhandlungen wie auch weiteren Fachaufgaben mit.\n\nIhr Profil\n\n• Sie bringen einen kaufmännischen Lehrabschluss, eine abgeschlossene Mittelschulbildung oder eine gleichwertige Ausbildung mit.\n\n• Ihr Interesse zeigt sich am Steuerrecht und an der fachlichen Weiterentwicklung im Bereich der natürlichen Personen.\n\n• Eine selbstständige, sorgfältige und effiziente Arbeitsweise mit hohem Qualitätsbewusstsein zeichnet Sie aus.\n\n• Sie haben Freude am Kontakt mit Menschen, verfügen über eine kundenorientierte wie auch respektvolle Kommunikation. Zudem haben Sie sehr gute mündliche und schriftliche Deutschkenntnisse.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nDaniel Lüthi\nLeiter Privatpersonen\n032 627 88 47\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
       "descriptionByLocale": {
-        "de": "Das Steueramt beschafft die finanziellen Mittel für das öffentliche Gemeinwesen und versteht sich als partnerschaftliches Bindeglied zwischen Staat, Bund, Gemeinden, Bevölkerung und Wirtschaft. Für die Abteilung Privatpersonen suchen wir per sofort oder nach Vereinbarung an den Standorten Solothurn, Olten, Balsthal oder Dornach eine/-n Steuerfachmann/Steuerfachfrau Privatpersonen, 80-100%.\n\nIhre Verantwortung\n\n• Zu Ihrem Aufgabenbereich gehört die Veranlagung von natürlichen Personen für die Staats- und direkte Bundessteuer im Bereich Privatpersonen.\n\n• Sie führen Steuerausscheidungen von Innerkantonalen, Interkantonalen und Internationalen durch.\n\n• Die Selbstständige Erledigung der Korrespondenz, Einforderung von Beweisunterlagen sowie Erteilung von Auskünften an andere Steuerbehörden und Amtsstellen gehören ebenfalls zu Ihren Aufgaben.\n\n• Sie beraten Steuerpflichtige sowie deren Vertretungen und wirken bei Einspracheverhandlungen wie auch weiteren Fachaufgaben mit.\n\nIhr Profil\n\n• Sie bringen einen kaufmännischen Lehrabschluss, eine abgeschlossene Mittelschulbildung oder eine gleichwertige Ausbildung mit.\n\n• Ihr Interesse zeigt sich am Steuerrecht und an der fachlichen Weiterentwicklung im Bereich der natürlichen Personen.\n\n• Eine selbstständige, sorgfältige und effiziente Arbeitsweise mit hohem Qualitätsbewusstsein zeichnet Sie aus.\n\n• Sie haben Freude am Kontakt mit Menschen, verfügen über eine kundenorientierte wie auch respektvolle Kommunikation. Zudem haben Sie sehr gute mündliche und schriftliche Deutschkenntnisse.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nDaniel Lüthi\nLeiter Privatpersonen\n032 627 88 47\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
         "it": "L'ufficio tributario procura le risorse finanziarie per la comunità pubblica e si vede come un legame di partenariato tra lo stato, il governo federale, i comuni, la popolazione e l'economia. Per il dipartimento del settore privato, stiamo cercando uno specialista fiscale 80-100% nelle sedi Solothurn, Olten, Balsthal o Dornach.\n\nLa tua responsabilità\n\n• Le vostre responsabilità includono la valutazione delle persone fisiche per lo stato e la tassa federale diretta nel settore dei privati.\n\n• Essi effettuano esenzioni fiscali da cantonali nazionali, intercantoni e internazionali.\n\n• La gestione indipendente della corrispondenza, la richiesta di documenti di prova e la fornitura di informazioni ad altre autorità fiscali e uffici fanno parte dei vostri compiti.\n\n• Essi consigliano ai contribuenti e ai loro rappresentanti e partecipano ai negoziati di consultazione e ad altri compiti specializzati.\n\nIl tuo profilo\n\n• Si porta un diploma di apprendistato commerciale, una formazione secondaria completa o un'istruzione equivalente.\n\n• Il suo interesse si riflette nel diritto tributario e nello sviluppo professionale nel campo delle persone fisiche.\n\n• Un modo indipendente, attento ed efficiente di lavorare con la consapevolezza di alta qualità ti distingue.\n\n• Essi godono di contatto con le persone, hanno la comunicazione orientata al cliente e rispettosa. Inoltre, hai una buona conoscenza orale e scritta del tedesco.\n\n• Promuovere l'equilibrio personale della vita lavorativa attraverso un modello annuale di tempo di lavoro\n\n• Lavoro a tempo parziale, anche in cadre\n\n• Opportunità di lavorare mobile\n\n• Condizioni di lavoro progressive basate su un GAV\n\n• Pari retribuzione tra uomini e donne\n\n• Ricompense fedeltà\n\n• 16 settimane di congedo di maternità a pagamento completo\n\n• 2 settimane congedo di paternità\n\n• Contributi finanziari all'assistenza all'infanzia\n\n• Completa offerta di formazione interna ed esterna\n\nDomande?\n\nDaniel Lüthi\nCapo di privati\n032 627 88 47\n\nSpostarsi con impegno. – Questa è l'opportunità di assumersi la responsabilità di una significativa attività di rilevanza politica e sociale e di spostare gli sviluppi sostenibili per la popolazione e l'economia con la propria impronta. Dietro questa promessa sorge il cantone di Solothurn con innumerevoli possibilità, una flessibilità tangibile e una stabilità nell'ambiente di lavoro.\n\nConvinto?\n\nVorremmo riempire questa posizione senza il supporto di fornitori di servizi esterni. Le applicazioni e-mail non possono essere considerate.",
         "en": "The tax office procures the financial resources for the public community and sees itself as a partnership link between the state, the federal government, municipalities, the population and the economy. For the private sector department, we are looking for an 80-100% tax specialist at the Solothurn, Olten, Balsthal or Dornach locations.\n\nYour responsibility\n\n• Your responsibilities include the assessment of natural persons for state and direct federal tax in the area of private individuals.\n\n• They carry out tax exemptions from domestic cantonals, intercantonals and international.\n\n• The independent handling of correspondence, requesting documents of evidence and providing information to other tax authorities and offices are also part of your tasks.\n\n• They advise taxpayers and their representatives and participate in consultation negotiations as well as other specialist tasks.\n\nYour profile\n\n• You bring a commercial apprenticeship degree, a completed secondary education or an equivalent education.\n\n• Her interest is reflected in tax law and professional development in the field of natural persons.\n\n• An independent, careful and efficient way of working with high quality awareness distinguishes you.\n\n• They enjoy contact with people, have customer-oriented and respectful communication. In addition, you have very good oral and written knowledge of German.\n\n• Promoting personal work-life balance through an annual working time model\n\n• Part-time work, also in cadre\n\n• Opportunity to work mobile\n\n• Progressive employment conditions based on a GAV\n\n• Equal pay between men and women\n\n• Loyalty rewards\n\n• 16 weeks of maternity leave on full pay\n\n• 2 weeks paternity leave\n\n• Financial contributions to childcare\n\n• Comprehensive offer of internal and external training\n\nQuestions?\n\nDaniel Lüthi\nHead of private individuals\n032 627 88 47\n\nMoving with commitment. – This is the opportunity to bear responsibility in meaningful activity of political and social relevance and to move sustainable developments for the population and economy with their own imprint. Behind this promise stands the canton of Solothurn with countless possibilities, a tangible flexibility and a stability in the working environment.\n\nConvinced?\n\nWe would like to fill this position without the support of external service providers. Email applications cannot be considered.",
+        "de": "Das Steueramt beschafft die finanziellen Mittel für das öffentliche Gemeinwesen und versteht sich als partnerschaftliches Bindeglied zwischen Staat, Bund, Gemeinden, Bevölkerung und Wirtschaft. Für die Abteilung Privatpersonen suchen wir per sofort oder nach Vereinbarung an den Standorten Solothurn, Olten, Balsthal oder Dornach eine/-n Steuerfachmann/Steuerfachfrau Privatpersonen, 80-100%.\n\nIhre Verantwortung\n\n• Zu Ihrem Aufgabenbereich gehört die Veranlagung von natürlichen Personen für die Staats- und direkte Bundessteuer im Bereich Privatpersonen.\n\n• Sie führen Steuerausscheidungen von Innerkantonalen, Interkantonalen und Internationalen durch.\n\n• Die Selbstständige Erledigung der Korrespondenz, Einforderung von Beweisunterlagen sowie Erteilung von Auskünften an andere Steuerbehörden und Amtsstellen gehören ebenfalls zu Ihren Aufgaben.\n\n• Sie beraten Steuerpflichtige sowie deren Vertretungen und wirken bei Einspracheverhandlungen wie auch weiteren Fachaufgaben mit.\n\nIhr Profil\n\n• Sie bringen einen kaufmännischen Lehrabschluss, eine abgeschlossene Mittelschulbildung oder eine gleichwertige Ausbildung mit.\n\n• Ihr Interesse zeigt sich am Steuerrecht und an der fachlichen Weiterentwicklung im Bereich der natürlichen Personen.\n\n• Eine selbstständige, sorgfältige und effiziente Arbeitsweise mit hohem Qualitätsbewusstsein zeichnet Sie aus.\n\n• Sie haben Freude am Kontakt mit Menschen, verfügen über eine kundenorientierte wie auch respektvolle Kommunikation. Zudem haben Sie sehr gute mündliche und schriftliche Deutschkenntnisse.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nDaniel Lüthi\nLeiter Privatpersonen\n032 627 88 47\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
         "fr": "Le bureau fiscal procure les ressources financières à la communauté publique et se considère comme un lien de partenariat entre l'État, le gouvernement fédéral, les municipalités, la population et l'économie. Pour le département du secteur privé, nous recherchons un spécialiste de l'impôt de 80 à 100 % aux endroits de Soleure, Olten, Balsthal ou Dornach.\n\nVotre responsabilité\n\n• Vos responsabilités comprennent l'évaluation des personnes physiques pour l'État et l'impôt fédéral direct dans le domaine des particuliers.\n\n• Ils appliquent des exonérations fiscales aux cantonaux, intercantonaux et internationaux.\n\n• Le traitement indépendant de la correspondance, la demande de pièces justificatives et la communication d'informations à d'autres autorités et bureaux fiscaux font également partie de vos tâches.\n\n• Ils conseillent les contribuables et leurs représentants et participent aux négociations de consultation ainsi qu'à d'autres tâches spécialisées.\n\nVotre profil\n\n• Vous apportez un diplôme d'apprentissage commercial, un enseignement secondaire terminé ou un enseignement équivalent.\n\n• Son intérêt se reflète dans le droit fiscal et le développement professionnel dans le domaine des personnes physiques.\n\n• Une façon indépendante, prudente et efficace de travailler avec une conscience de haute qualité vous distingue.\n\n• Ils aiment le contact avec les gens, ont une communication orientée client et respectueuse. De plus, vous avez une très bonne connaissance orale et écrite de l'allemand.\n\n• Promouvoir l'équilibre entre vie professionnelle et vie privée au moyen d'un modèle annuel de temps de travail\n\n• Travail à temps partiel, également en milieu de travail\n\n• Possibilité de travailler mobile\n\n• Conditions d'emploi progressives basées sur un VAB\n\n• Égalité de rémunération entre hommes et femmes\n\n• Récompenses de fidélité\n\n• 16 semaines de congé de maternité à plein salaire\n\n• 2 semaines de congé de paternité\n\n• Contributions financières à la garde des enfants\n\n• Offre complète de formation interne et externe\n\nDes questions ?\n\nDaniel Lüthi\nChef des personnes privées\n032 627 88 47\n\nSe déplacer avec engagement. – C'est l'occasion d'assumer la responsabilité d'activités significatives d'importance politique et sociale et de faire évoluer les développements durables pour la population et l'économie avec leur propre empreinte. Derrière cette promesse se trouve le canton de Soleure avec d'innombrables possibilités, une flexibilité tangible et une stabilité dans l'environnement de travail.\n\nConvaincu ?\n\nNous aimerions combler ce poste sans le soutien de fournisseurs de services externes. Les demandes par courriel ne peuvent pas être prises en considération."
       },
       "location": "Solothurn",
@@ -2298,7 +2273,7 @@
       "url": "https://job.so.ch/offene-stellen/steuerfachmann-steuerfachfrau-privatpersonen/33364d92-f55d-4dec-abac-388f89bb540d",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:53:19.902Z",
+      "crawledAt": "2026-09-26T14:04:27.543Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -2315,9 +2290,7 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://job.so.ch/offene-stellen/steuerfachmann-steuerfachfrau-privatpersonen/33364d92-f55d-4dec-abac-388f89bb540d",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -2331,379 +2304,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T14:53:19.902Z"
-    },
-    {
-      "id": "kanton-solothurn-5e495707c723",
-      "slug": "juristische-r-collaboratore-trice-in-60-80-kanton-solothurn",
-      "slugByLocale": {
-        "it": "juristische-r-collaboratore-trice-in-60-80-kanton-solothurn",
-        "en": "legal-staff-60-80-kanton-solothurn-solothurn",
-        "de": "juristische-r-mitarbeiter-in-60-80-kanton-solothurn-solothurn",
-        "fr": "personnel-juridique-60-80-kanton-solothurn-solothurn"
-      },
-      "company": "Kanton Solothurn",
-      "companyKey": "kanton-solothurn",
-      "companyDomain": "so.ch",
-      "title": "Juristische/-r Mitarbeiter/-in, 60-80%",
-      "titleByLocale": {
-        "it": "Personale legale, 60-80 %",
-        "en": "Legal staff, 60-80 %",
-        "de": "Juristische/-r Mitarbeiter/-in, 60-80%",
-        "fr": "Personnel juridique, 60-80 %"
-      },
-      "description": "Das Amt für Justizvollzug stellt den rechtmässigen, risiko- und ressourcenorientierten Vollzug von rechtskräftigen Sanktionen sowie von Freiheitsentzügen während oder ausserhalb einer Strafuntersuchung sicher. Mit Professionalität und Engagement leisten wir von der Prävention bis hin zur Wiedereingliederung einen Beitrag zur öffentlichen Sicherheit. Engagieren Sie sich mit uns für einen wirkungsvollen Justizvollzug. Für die Abteilung Zentrale Dienste (Rechts- und Stabsdienst) suchen wir per sofort oder nach Vereinbarung befristet auf 12 Monate am Standort Solothurn eine/-n Juristische/-n Mitarbeiter/-in, 60-80%.\n\nIhre Verantwortung\n\n• Sie unterstützen die Amtsleitung und die einzelnen Abteilungen in rechtlicher, strategischer, operativer und organisatorischer Hinsicht.\n\n• Selbstständig bearbeiten Sie juristische Fragestellungen aus verschiedenen Rechtsgebieten, insbesondere im Finanz-, Sozialversicherungs- und öffentlichen Beschaffungsrecht.\n\n• Sie leiten Projekte sowie Fach- und Arbeitsgruppen oder wirken in solchen mit, insbesondere im Zusammenhang mit Gesundheitskosten im Justizvollzug und Beschaffungen.\n\n• Bei der Erarbeitung, Aktualisierung und Verwaltung von amtsinternen Erlassen und Prozessen wirken Sie mit.\n\n• Sie verfolgen die Entwicklungen der Rechtsprechung und Gesetzgebung im Bereich des Justizvollzugs, stellen das interne Wissensmanagement sicher und unterstützen das Team der Zentralen Dienste in administrativen Belangen.\n\nIhr Profil\n\n• Sie sind eine dienstleistungsorientierte, flexible und belastbare Persönlichkeit mit einem juristischen Hochschulabschluss, vorzugsweise ergänzt mit einem Anwaltspatent.\n\n• Zudem verfügen Sie über Erfahrung in der öffentlichen Verwaltung, insbesondere im Justizvollzug, oder in einer vergleichbaren Organisation, und bringen Kenntnisse des Verwaltungsverfahrensrechts und in den Verwaltungsabläufen mit.\n\n• Sie verfügen über ein Flair für Projekt-, Change- und Organisationsmanagement und haben eine hohe Zahlenaffinität.\n\n• Ihre guten organisatorischen, analytischen und redaktionellen Fähigkeiten unterstützen Sie in Ihrer vielseitigen Tätigkeit.\n\n• Eine strukturierte, sorgfältige und selbstständige Arbeitsweise sowie eine hohe Sozialkompetenz und gute Kommunikationsfähigkeiten runden Ihr Profil ab.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nAnja Eugster\nLeiterin Zentrale Dienste\n032 627 63 36\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
-      "descriptionByLocale": {
-        "it": "L'Ufficio per l'esecuzione della prigione garantisce l'esecuzione lecita, rischiosa e orientata alle risorse delle sanzioni finali, nonché la detenzione durante o fuori un'indagine penale. Con professionalità e impegno, contribuiamo alla sicurezza pubblica dalla prevenzione alla reintegrazione. Unisciti a noi per un efficace sistema giudiziario. Per il dipartimento Servizi Centrali (servizio legale e personale), stiamo cercando un dipendente legale, 60-80%, presso la sede Solothurn per un periodo limitato di 12 mesi.\n\nLa tua responsabilità\n\n• Sostengono la gestione e i singoli dipartimenti in termini legali, strategici, operativi e organizzativi.\n\n• Indipendentemente, si occuperà di questioni legali da vari settori legali, in particolare nel diritto finanziario, di sicurezza sociale e di appalti pubblici.\n\n• Essi gestiscono o partecipano a progetti, nonché a gruppi specializzati e di lavoro, in particolare in relazione ai costi sanitari del sistema giudiziario e degli appalti.\n\n• Partecipate allo sviluppo, all'aggiornamento e alla gestione di decreti e processi interni.\n\n• Essi seguono gli sviluppi della giurisprudenza e della legislazione nel settore delle forze dell'ordine, assicurano la gestione della conoscenza interna e sostengono il team dei Servizi centrali in materia amministrativa.\n\nIl tuo profilo\n\n• Sei una personalità orientata al servizio, flessibile e resiliente con un grado di legge, preferibilmente integrato con un brevetto di legge.\n\n• Inoltre, avete esperienza nella pubblica amministrazione, in particolare nel sistema carcerario, o in un'organizzazione comparabile, e avete conoscenza del diritto amministrativo procedurale e dei processi amministrativi.\n\n• Hanno un fascino per il progetto, il cambiamento e la gestione organizzativa e hanno un'alta affinità per i numeri.\n\n• Le tue buone capacità organizzative, analitiche e editoriali ti supportano nel tuo lavoro versatile.\n\n• Un metodo di lavoro strutturato, attento e indipendente, nonché un alto livello di competenza sociale e buone capacità di comunicazione completano il tuo profilo.\n\n• Promuovere l'equilibrio personale della vita lavorativa attraverso un modello annuale di tempo di lavoro\n\n• Lavoro a tempo parziale, anche in cadre\n\n• Opportunità di lavorare mobile\n\n• Condizioni di lavoro progressive basate su un GAV\n\n• Pari retribuzione tra uomini e donne\n\n• Ricompense di fedeltà\n\n• 16 settimane di congedo di maternità a pagamento completo\n\n• 2 settimane congedo di paternità\n\n• Contributi finanziari all'infanzia\n\n• Completa offerta di formazione interna ed esterna\n\nDomande?\n\nAnja Eugster\nCapo dei servizi centrali\n032 627 63 36\n\nSpostarsi con impegno. – Questa è l'opportunità di assumersi la responsabilità di una significativa attività di rilevanza politica e sociale e di spostare gli sviluppi sostenibili per la popolazione e l'economia con la propria impronta. Dietro questa promessa sorge il cantone di Solothurn con innumerevoli possibilità, una flessibilità tangibile e una stabilità nell'ambiente di lavoro.\n\nConvinto?\n\nVorremmo riempire questa posizione senza il supporto di fornitori di servizi esterni. Le applicazioni e-mail non possono essere considerate.",
-        "en": "The Office for Prison Enforcement shall ensure the lawful, risk- and resource-oriented execution of final sanctions as well as detention during or outside a criminal investigation. With professionalism and commitment, we contribute to public safety from prevention to reintegration. Join us for an effective justice system. For the Central Services department (legal and staff service), we are looking for a legal employee, 60-80%, at the Solothurn location for a limited period of 12 months.\n\nYour responsibility\n\n• They support the management and the individual departments in legal, strategic, operational and organisational terms.\n\n• Independently, you will deal with legal issues from various legal fields, in particular in financial, social security and public procurement law.\n\n• They manage or participate in projects as well as specialist and working groups, in particular in connection with healthcare costs in the judicial system and procurement.\n\n• You participate in the development, updating and management of internal decrees and processes.\n\n• They follow the developments in jurisprudence and legislation in the area of law enforcement, ensure internal knowledge management and support the Central Services team in administrative matters.\n\nYour profile\n\n• You are a service-oriented, flexible and resilient personality with a law degree, preferably supplemented with a law patent.\n\n• In addition, you have experience in public administration, in particular in the prison system, or in a comparable organization, and you have knowledge of administrative procedural law and administrative processes.\n\n• They have a flair for project, change and organizational management and have a high affinity for numbers.\n\n• Your good organizational, analytical and editorial skills support you in your versatile work.\n\n• A structured, careful and independent working method as well as a high level of social competence and good communication skills round off your profile.\n\n• Promoting personal work-life balance through an annual working time model\n\n• Part-time work, also in cadre\n\n• Opportunity to work mobile\n\n• Progressive employment conditions based on a GAV\n\n• Equal pay between men and women\n\n• Loyalty rewards\n\n• 16 weeks of maternity leave on full pay\n\n• 2 weeks paternity leave\n\n• Financial contributions to childcare\n\n• Comprehensive offer of internal and external training\n\nQuestions?\n\nAnja Eugster\nHead of Central Services\n032 627 63 36\n\nMoving with commitment. – This is the opportunity to bear responsibility in meaningful activity of political and social relevance and to move sustainable developments for the population and economy with their own imprint. Behind this promise stands the canton of Solothurn with countless possibilities, a tangible flexibility and a stability in the working environment.\n\nConvinced?\n\nWe would like to fill this position without the support of external service providers. Email applications cannot be considered.",
-        "de": "Das Amt für Justizvollzug stellt den rechtmässigen, risiko- und ressourcenorientierten Vollzug von rechtskräftigen Sanktionen sowie von Freiheitsentzügen während oder ausserhalb einer Strafuntersuchung sicher. Mit Professionalität und Engagement leisten wir von der Prävention bis hin zur Wiedereingliederung einen Beitrag zur öffentlichen Sicherheit. Engagieren Sie sich mit uns für einen wirkungsvollen Justizvollzug. Für die Abteilung Zentrale Dienste (Rechts- und Stabsdienst) suchen wir per sofort oder nach Vereinbarung befristet auf 12 Monate am Standort Solothurn eine/-n Juristische/-n Mitarbeiter/-in, 60-80%.\n\nIhre Verantwortung\n\n• Sie unterstützen die Amtsleitung und die einzelnen Abteilungen in rechtlicher, strategischer, operativer und organisatorischer Hinsicht.\n\n• Selbstständig bearbeiten Sie juristische Fragestellungen aus verschiedenen Rechtsgebieten, insbesondere im Finanz-, Sozialversicherungs- und öffentlichen Beschaffungsrecht.\n\n• Sie leiten Projekte sowie Fach- und Arbeitsgruppen oder wirken in solchen mit, insbesondere im Zusammenhang mit Gesundheitskosten im Justizvollzug und Beschaffungen.\n\n• Bei der Erarbeitung, Aktualisierung und Verwaltung von amtsinternen Erlassen und Prozessen wirken Sie mit.\n\n• Sie verfolgen die Entwicklungen der Rechtsprechung und Gesetzgebung im Bereich des Justizvollzugs, stellen das interne Wissensmanagement sicher und unterstützen das Team der Zentralen Dienste in administrativen Belangen.\n\nIhr Profil\n\n• Sie sind eine dienstleistungsorientierte, flexible und belastbare Persönlichkeit mit einem juristischen Hochschulabschluss, vorzugsweise ergänzt mit einem Anwaltspatent.\n\n• Zudem verfügen Sie über Erfahrung in der öffentlichen Verwaltung, insbesondere im Justizvollzug, oder in einer vergleichbaren Organisation, und bringen Kenntnisse des Verwaltungsverfahrensrechts und in den Verwaltungsabläufen mit.\n\n• Sie verfügen über ein Flair für Projekt-, Change- und Organisationsmanagement und haben eine hohe Zahlenaffinität.\n\n• Ihre guten organisatorischen, analytischen und redaktionellen Fähigkeiten unterstützen Sie in Ihrer vielseitigen Tätigkeit.\n\n• Eine strukturierte, sorgfältige und selbstständige Arbeitsweise sowie eine hohe Sozialkompetenz und gute Kommunikationsfähigkeiten runden Ihr Profil ab.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nAnja Eugster\nLeiterin Zentrale Dienste\n032 627 63 36\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
-        "fr": "Le Bureau de l'exécution des peines pénitentiaires veille à l'exécution légale, axée sur les risques et les ressources des sanctions finales ainsi qu'à la détention pendant ou en dehors d'une enquête pénale. Avec professionnalisme et engagement, nous contribuons à la sécurité publique, de la prévention à la réinsertion. Rejoignez-nous pour un système de justice efficace. Pour le service des Services centraux (services juridiques et de personnel), nous recherchons un employé juridique, 60-80%, à l'emplacement Soleure pour une période limitée de 12 mois.\n\nVotre responsabilité\n\n• Ils soutiennent la gestion et les différents départements en termes juridiques, stratégiques, opérationnels et organisationnels.\n\n• Indépendantement, vous traiterez des questions juridiques dans différents domaines juridiques, notamment en matière de droit financier, de sécurité sociale et de marchés publics.\n\n• Ils gèrent ou participent à des projets ainsi qu'à des groupes de travail spécialisés, notamment en ce qui concerne les coûts des soins de santé dans le système judiciaire et les marchés publics.\n\n• Vous participez au développement, à la mise à jour et à la gestion des décrets et des processus internes.\n\n• Ils suivent l'évolution de la jurisprudence et de la législation dans le domaine de l'application de la loi, assurent la gestion interne des connaissances et soutiennent l'équipe des services centraux en matière administrative.\n\nVotre profil\n\n• Vous êtes une personnalité orientée vers le service, flexible et résiliente avec un diplôme de droit, de préférence complété par un brevet de droit.\n\n• En outre, vous avez de l'expérience dans l'administration publique, en particulier dans le système pénitentiaire, ou dans une organisation comparable, et vous connaissez le droit de procédure administrative et les procédures administratives.\n\n• Ils ont un goût pour le projet, le changement et la gestion organisationnelle et ont une grande affinité pour les chiffres.\n\n• Vos bonnes compétences organisationnelles, analytiques et éditoriales vous accompagnent dans votre travail polyvalent.\n\n• Une méthode de travail structurée, prudente et indépendante ainsi qu'un haut niveau de compétence sociale et de bonnes compétences en communication complètent votre profil.\n\n• Promouvoir l'équilibre entre vie professionnelle et vie privée à l'aide d'un modèle annuel de temps de travail\n\n• Travail à temps partiel, également en milieu de travail\n\n• Possibilité de travailler mobile\n\n• Conditions d'emploi progressives fondées sur un VAB\n\n• Égalité de rémunération entre hommes et femmes\n\n• Récompenses de fidélité\n\n• 16 semaines de congé de maternité à plein salaire\n\n• 2 semaines de congé de paternité\n\n• Contributions financières à la garde des enfants\n\n• Offre complète de formation interne et externe\n\nDes questions ?\n\nAnja Eugster\nChef des services centraux\n032 627 63 36\n\nSe déplacer avec engagement. – C'est l'occasion d'assumer la responsabilité d'activités significatives d'importance politique et sociale et de faire évoluer les développements durables pour la population et l'économie avec leur propre empreinte. Derrière cette promesse se trouve le canton de Soleure avec d'innombrables possibilités, une flexibilité tangible et une stabilité dans l'environnement de travail.\n\nConvaincu ?\n\nNous aimerions combler ce poste sans le soutien de fournisseurs de services externes. Les demandes de courriel ne peuvent pas être prises en considération."
-      },
-      "location": "Solothurn",
-      "canton": "SO",
-      "url": "https://job.so.ch/offene-stellen/juristische-r-mitarbeiter-in/3960db84-1cd6-4c7f-8eee-e17ddf81805c",
-      "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:29:51.345Z",
-      "addressLocality": "Solothurn",
-      "addressRegion": "SO",
-      "streetAddress": "",
-      "postalCode": "4500",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sicurezza & Giustizia",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-26",
-      "applyUrl": "https://job.so.ch/offene-stellen/juristische-r-mitarbeiter-in/3960db84-1cd6-4c7f-8eee-e17ddf81805c",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "juristische-r-mitarbeiter-in-60-80-kanton-solothurn-solothurn",
-        "wissenschaftliche-r-collaboratore-trice-in-70-kanton-solothurn",
-        "scientific-staff-70-kanton-solothurn-solothurn",
-        "wissenschaftliche-r-mitarbeiter-in-70-kanton-solothurn-solothurn",
-        "personnel-scientifique-70-kanton-solothurn-solothurn",
-        "collaboratore-trice-in-personalwesen-60-80-kanton-solothurn",
-        "staff-60-80-kanton-solothurn-solothurn",
-        "mitarbeiter-in-personalwesen-60-80-kanton-solothurn-solothurn",
-        "personnel-60-80-kanton-solothurn-solothurn",
-        "collaboratore-trice-in-schreinerei-50-100-kanton-solothurn",
-        "employee-in-carpentry-50-100-kanton-solothurn-solothurn",
-        "mitarbeiter-in-schreinerei-50-100-kanton-solothurn-solothurn",
-        "employes-en-menuiserie-50-a-100-kanton-solothurn-solothurn",
-        "collaboratore-trice-in-reinigung-50-kanton-solothurn",
-        "employee-in-cleaning-50-kanton-solothurn-solothurn",
-        "mitarbeiter-in-reinigung-50-kanton-solothurn-solothurn",
-        "employe-agent-de-nettoyage-50-kanton-solothurn-solothurn",
-        "personnel-mesures-administratives-80-100-kanton-solothurn-solothurn",
-        "personale-in-80-100-kanton-solothurn-solothurn",
-        "misure-amministrative-del-personale-80-100-kanton-solothurn-solothurn",
-        "personnel-in-administrative-measures-80-100-kanton-solothurn-solothurn",
-        "personnel-in-80-100-kanton-solothurn-solothurn",
-        "sachbearbeiter-in-80-100-kanton-solothurn-solothurn",
-        "sachbearbeiter-in-administrativmassnahmen-80-100-kanton-solothurn-solothurn",
-        "personnel-en-80-100-kanton-solothurn-solothurn"
-      ],
+      "firstSeenAt": "2026-09-25T14:53:19.902Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "personnel-scientifique-70-kanton-solothurn-solothurn",
-          "collaboratore-trice-in-personalwesen-60-80-kanton-solothurn",
-          "staff-60-80-kanton-solothurn-solothurn",
-          "mitarbeiter-in-personalwesen-60-80-kanton-solothurn-solothurn",
-          "personnel-60-80-kanton-solothurn-solothurn",
-          "collaboratore-trice-in-schreinerei-50-100-kanton-solothurn",
-          "employee-in-carpentry-50-100-kanton-solothurn-solothurn",
-          "mitarbeiter-in-schreinerei-50-100-kanton-solothurn-solothurn",
-          "employes-en-menuiserie-50-a-100-kanton-solothurn-solothurn",
-          "collaboratore-trice-in-reinigung-50-kanton-solothurn",
-          "employee-in-cleaning-50-kanton-solothurn-solothurn",
-          "mitarbeiter-in-reinigung-50-kanton-solothurn-solothurn",
-          "employe-agent-de-nettoyage-50-kanton-solothurn-solothurn",
-          "personnel-mesures-administratives-80-100-kanton-solothurn-solothurn",
-          "personale-in-80-100-kanton-solothurn-solothurn",
-          "misure-amministrative-del-personale-80-100-kanton-solothurn-solothurn",
-          "personnel-in-administrative-measures-80-100-kanton-solothurn-solothurn",
-          "juristische-r-mitarbeiter-in-60-80-kanton-solothurn-solothurn",
-          "scientific-staff-70-kanton-solothurn-solothurn"
+          "steuerfachmann-steuerfachfrau-privatpersonen-80-100-kanton-solothurn-solothurn"
         ],
         "en": [
-          "juristische-r-mitarbeiter-in-60-80-kanton-solothurn-solothurn",
-          "scientific-staff-70-kanton-solothurn-solothurn",
-          "personnel-in-80-100-kanton-solothurn-solothurn"
-        ],
-        "de": [
-          "wissenschaftliche-r-mitarbeiter-in-70-kanton-solothurn-solothurn",
-          "mitarbeiter-in-personalwesen-60-80-kanton-solothurn-solothurn",
-          "mitarbeiter-in-schreinerei-50-100-kanton-solothurn-solothurn",
-          "mitarbeiter-in-reinigung-50-kanton-solothurn-solothurn",
-          "sachbearbeiter-in-80-100-kanton-solothurn-solothurn",
-          "sachbearbeiter-in-administrativmassnahmen-80-100-kanton-solothurn-solothurn"
+          "steuerfachmann-steuerfachfrau-privatpersonen-80-100-kanton-solothurn-solothurn"
         ],
         "fr": [
-          "juristische-r-mitarbeiter-in-60-80-kanton-solothurn-solothurn",
-          "personnel-scientifique-70-kanton-solothurn-solothurn",
-          "personnel-en-80-100-kanton-solothurn-solothurn"
+          "steuerfachmann-steuerfachfrau-privatpersonen-80-100-kanton-solothurn-solothurn"
         ]
       },
-      "firstSeenAt": "2026-07-27T22:29:57.575Z",
-      "salaryMin": 54800,
-      "salaryMax": 83200,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 54800,
-          "maxValue": 83200,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "kanton-solothurn-36fd3c3c5716",
-      "slug": "insegnante-curativo-scolastico-34-kanton-solothurn-olten",
-      "slugByLocale": {
-        "it": "insegnante-curativo-scolastico-34-kanton-solothurn-olten",
-        "en": "school-curative-teacher-34-kanton-solothurn-olten",
-        "de": "schulische-r-heilpadagoge-heilpadagogin-34-kanton-solothurn-olten",
-        "fr": "professeur-a-l-ecole-34-kanton-solothurn-olten"
-      },
-      "company": "Kanton Solothurn",
-      "companyKey": "kanton-solothurn",
-      "companyDomain": "so.ch",
-      "title": "Schulische/-r Heilpädagoge/Heilpädagogin, 34%",
-      "titleByLocale": {
-        "it": "Insegnante curativo scolastico, 34 %",
-        "en": "School curative teacher, 34 %",
-        "de": "Schulische/-r Heilpädagoge/Heilpädagogin, 34%",
-        "fr": "Professeur à l'école, 34 %"
-      },
-      "description": "Das Heilpädagogische Schulzentrum (HPSZ): Eine Schule - vier Standorte. Wir unterrichten und fördern unsere Schülerinnen und Schüler vom Kindergartenalter bis zum Schulaustritt ganzheitlich und individuell. Unser vielfältiges pädagogisches Angebot ermöglicht eine gute schulische, soziale und persönliche Entwicklung. Für das HPSZ Olten suchen wir per 01.01.2027 oder nach Vereinbarung befristet bis 31.07.2027 eine/-n schulische/-n Heilpädagogen/Heilpädagogin, 34%.\n\nIhre Verantwortung\n\n• Sie übernehmen Teilverantwortung für eine Klasse mit acht Schülern und Schülerinnen und arbeiten dabei eng mit der Klassenlehrperson sowie dem Klassenteam zusammen.\n\n• Ihr Einsatz erfolgt in einer Klasse der Unterstufe an einem festgelegten Tag pro Woche.\n\n• Sie sind mitverantwortlich für die Planung und Umsetzung der individuellen Förderplanung der Schüler und Schülerinnen. Dazu gehören auch die Teilnahme an Elterngesprächen, Koordinationsaufgaben sowie das Verfassen von Berichten und Förderdokumentationen.\n\n• Gemeinsam mit den pädagogischen Mitarbeitenden tragen Sie die Verantwortung für die Zusammenarbeit und Organisation im Klassenteam.\n\nIhr Profil\n\n• Sie verfügen über eine Ausbildung in schulischer Heilpädagogik (SHP) oder über ein Lehrdiplom. Alternativ befinden Sie sich in der Ausbildung zur SHP oder im Anerkennungsverfahren der EDK.\n\n• Die Arbeit mit Kindern, insbesondere im Förderbereich Kognition und Kommunikation, bereitet Ihnen Freude.\n\n• Sie berücksichtigen die individuellen Bedürfnisse der Kinder und passen Ihre Lernmethoden und Förderangebote entsprechend an.\n\n• Gute Beziehungs- und Kommunikationsfähigkeiten sowie ein ausgeprägter Teamgeist zeichnen Sie ebenso aus wie Ihre Belastbarkeit in herausfordernden Situationen.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nSaskia Braune\nBereichsleitung Kognition\n062 311 95 12\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
-      "descriptionByLocale": {
-        "it": "The Healing Education School Center (HPSZ): Una scuola - quattro sedi. Noi insegniamo e sosteniamo i nostri studenti dall'età dell'asilo alla scuola lasciando olistico e individualmente. La nostra offerta educativa diversificata consente una buona scuola, sviluppo sociale e personale. Per la HPSZ Olten stiamo cercando un curriculum pedagogue / pedagoga curativa, 34% a partire dal 01.01.2027 o per accordo fino al 31.07.2027.\n\nLa tua responsabilità\n\n• Si assumono una responsabilità parziale per una classe con otto studenti e lavorano a stretto contatto con l'insegnante di classe e la squadra di classe.\n\n• Il loro incarico avviene in una classe del sottolivello in un giorno fisso alla settimana.\n\n• Essi sono congiuntamente responsabili per la pianificazione e l'attuazione della pianificazione individuale di sostegno degli studenti. Ciò include anche la partecipazione ai colloqui genitoriali, ai compiti di coordinamento, alla stesura di report e alla documentazione di supporto.\n\n• Insieme al personale pedagogico, siete responsabili della cooperazione e dell'organizzazione nella squadra di classe.\n\nIl tuo profilo\n\n• Hai una formazione in educazione curativa (SHP) o un diploma di insegnamento. In alternativa, sei in formazione per la SHP o nel processo di riconoscimento del EDK.\n\n• Lavorare con i bambini, soprattutto nel campo della cognizione e della comunicazione, vi dà piacere.\n\n• Prendere in considerazione le esigenze individuali dei bambini e adattare i metodi di apprendimento e le offerte di supporto di conseguenza.\n\n• Buon rapporto e capacità di comunicazione e un forte spirito di squadra ti distinguono così come la tua resilienza in situazioni difficili.\n\n• Promuovere l'equilibrio personale della vita lavorativa attraverso un modello annuale di tempo di lavoro\n\n• Lavoro a tempo parziale, anche in cadre\n\n• Opportunità di lavorare mobile\n\n• Condizioni di lavoro progressive basate su un GAV\n\n• Pari retribuzione tra uomini e donne\n\n• Ricompense di fedeltà\n\n• 16 settimane di congedo di maternità a pagamento completo\n\n• 2 settimane congedo di paternità\n\n• Contributi finanziari all'infanzia\n\n• Completa offerta di formazione interna ed esterna\n\nDomande?\n\nSaskia marrone\nGestione della divisione di cognizione\n062 311 95 12\n\nSpostarsi con impegno. – Questa è l'opportunità di assumersi la responsabilità di una significativa attività di rilevanza politica e sociale e di spostare gli sviluppi sostenibili per la popolazione e l'economia con la propria impronta. Dietro questa promessa sorge il cantone di Solothurn con innumerevoli possibilità, una flessibilità tangibile e una stabilità nell'ambiente di lavoro.\n\nConvinto?\n\nVorremmo riempire questa posizione senza il supporto di fornitori di servizi esterni. Le applicazioni e-mail non possono essere considerate.",
-        "en": "The Healing Education School Center (HPSZ): One school - four locations. We teach and support our students from kindergarten age to school leaving holistically and individually. Our diverse educational offer enables a good school, social and personal development. For the HPSZ Olten we are looking for a curriculum pedagogue / curative pedagogue, 34% as of 01.01.2027 or by agreement until 31.07.2027.\n\nYour responsibility\n\n• They assume partial responsibility for a class with eight students and work closely with the class teacher and the class team.\n\n• Their assignment takes place in a class of the sub-level on a fixed day per week.\n\n• They are jointly responsible for planning and implementing the individual support planning of the students. This also includes participation in parent talks, coordination tasks as well as writing reports and support documentation.\n\n• Together with the pedagogical staff, you are responsible for the cooperation and organization in the class team.\n\nYour profile\n\n• You have an education in curative curative education (SHP) or a teaching diploma. Alternatively, you are in training for the SHP or in the recognition process of the EDK.\n\n• Working with children, especially in the field of cognition and communication, gives you pleasure.\n\n• You take into account the individual needs of the children and adapt your learning methods and support offers accordingly.\n\n• Good relationship and communication skills as well as a strong team spirit distinguish you as well as your resilience in challenging situations.\n\n• Promoting personal work-life balance through an annual working time model\n\n• Part-time work, also in cadre\n\n• Opportunity to work mobile\n\n• Progressive employment conditions based on a GAV\n\n• Equal pay between men and women\n\n• Loyalty rewards\n\n• 16 weeks of maternity leave on full pay\n\n• 2 weeks paternity leave\n\n• Financial contributions to childcare\n\n• Comprehensive offer of internal and external training\n\nQuestions?\n\nSaskia brown\nCognition division management\n062 311 95 12\n\nMoving with commitment. – This is the opportunity to bear responsibility in meaningful activity of political and social relevance and to move sustainable developments for the population and economy with their own imprint. Behind this promise stands the canton of Solothurn with countless possibilities, a tangible flexibility and a stability in the working environment.\n\nConvinced?\n\nWe would like to fill this position without the support of external service providers. Email applications cannot be considered.",
-        "de": "Das Heilpädagogische Schulzentrum (HPSZ): Eine Schule - vier Standorte. Wir unterrichten und fördern unsere Schülerinnen und Schüler vom Kindergartenalter bis zum Schulaustritt ganzheitlich und individuell. Unser vielfältiges pädagogisches Angebot ermöglicht eine gute schulische, soziale und persönliche Entwicklung. Für das HPSZ Olten suchen wir per 01.01.2027 oder nach Vereinbarung befristet bis 31.07.2027 eine/-n schulische/-n Heilpädagogen/Heilpädagogin, 34%.\n\nIhre Verantwortung\n\n• Sie übernehmen Teilverantwortung für eine Klasse mit acht Schülern und Schülerinnen und arbeiten dabei eng mit der Klassenlehrperson sowie dem Klassenteam zusammen.\n\n• Ihr Einsatz erfolgt in einer Klasse der Unterstufe an einem festgelegten Tag pro Woche.\n\n• Sie sind mitverantwortlich für die Planung und Umsetzung der individuellen Förderplanung der Schüler und Schülerinnen. Dazu gehören auch die Teilnahme an Elterngesprächen, Koordinationsaufgaben sowie das Verfassen von Berichten und Förderdokumentationen.\n\n• Gemeinsam mit den pädagogischen Mitarbeitenden tragen Sie die Verantwortung für die Zusammenarbeit und Organisation im Klassenteam.\n\nIhr Profil\n\n• Sie verfügen über eine Ausbildung in schulischer Heilpädagogik (SHP) oder über ein Lehrdiplom. Alternativ befinden Sie sich in der Ausbildung zur SHP oder im Anerkennungsverfahren der EDK.\n\n• Die Arbeit mit Kindern, insbesondere im Förderbereich Kognition und Kommunikation, bereitet Ihnen Freude.\n\n• Sie berücksichtigen die individuellen Bedürfnisse der Kinder und passen Ihre Lernmethoden und Förderangebote entsprechend an.\n\n• Gute Beziehungs- und Kommunikationsfähigkeiten sowie ein ausgeprägter Teamgeist zeichnen Sie ebenso aus wie Ihre Belastbarkeit in herausfordernden Situationen.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nSaskia Braune\nBereichsleitung Kognition\n062 311 95 12\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
-        "fr": "Centre d'éducation à la guérison (HPSZ): Une école - quatre emplacements. Nous enseignons et soutenons nos élèves de l'âge de la maternelle à l'école en quittant l'école de façon holistique et individuelle. Notre offre éducative diversifiée permet un bon développement scolaire, social et personnel. Pour le HPSZ Olten nous sommes à la recherche d'un programme pédagogique / pédagogique curatif, 34% au 01.01.2027 ou par accord jusqu'au 31.07.2027.\n\nVotre responsabilité\n\n• Ils assument la responsabilité partielle d'une classe avec huit étudiants et travaillent en étroite collaboration avec l'enseignant et l'équipe de classe.\n\n• Leur affectation a lieu dans une classe du sous-niveau le jour fixe par semaine.\n\n• Ils sont conjointement responsables de la planification et de la mise en œuvre de la planification de soutien individuel des étudiants. Cela comprend également la participation à des discussions avec les parents, à des tâches de coordination ainsi qu'à la rédaction de rapports et de documents d'appui.\n\n• Avec le personnel pédagogique, vous êtes responsable de la coopération et de l'organisation dans l'équipe de classe.\n\nVotre profil\n\n• Vous avez une éducation curative ou un diplôme d'enseignement. Sinon, vous êtes en formation pour le SHP ou dans le processus de reconnaissance de l'EDK.\n\n• Travailler avec les enfants, en particulier dans le domaine de la connaissance et de la communication, vous procure du plaisir.\n\n• Vous prenez en compte les besoins individuels des enfants et adaptez vos méthodes d'apprentissage et vos offres de soutien en conséquence.\n\n• De bonnes compétences en relation et en communication ainsi qu'un esprit d'équipe fort vous distinguent ainsi que votre résilience dans des situations difficiles.\n\n• Promouvoir l'équilibre entre vie professionnelle et vie privée à l'aide d'un modèle annuel de temps de travail\n\n• Travail à temps partiel, également en milieu de travail\n\n• Possibilité de travailler mobile\n\n• Conditions d'emploi progressives fondées sur un VAB\n\n• Égalité de rémunération entre hommes et femmes\n\n• Récompenses de fidélité\n\n• 16 semaines de congé de maternité à plein salaire\n\n• 2 semaines de congé de paternité\n\n• Contributions financières à la garde des enfants\n\n• Offre complète de formation interne et externe\n\nDes questions ?\n\nSaskia brun\nGestion de la division de la connaissance\n062 311 95 12\n\nSe déplacer avec engagement. – C'est l'occasion d'assumer la responsabilité d'activités significatives d'importance politique et sociale et de faire évoluer les développements durables pour la population et l'économie avec leur propre empreinte. Derrière cette promesse se trouve le canton de Soleure avec d'innombrables possibilités, une flexibilité tangible et une stabilité dans l'environnement de travail.\n\nConvaincu ?\n\nNous aimerions combler ce poste sans le soutien de fournisseurs de services externes. Les demandes de courriel ne peuvent pas être prises en considération."
-      },
-      "location": "Olten",
-      "canton": "SO",
-      "url": "https://job.so.ch/offene-stellen/schulische-r-heilpaedagoge-heilpaedagogin/89de9172-daa6-408c-9158-9312f25aaf11",
-      "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:29:49.754Z",
-      "addressLocality": "Olten",
-      "addressRegion": "SO",
-      "streetAddress": "",
-      "postalCode": "4600",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Educazione & Cultura",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-27",
-      "applyUrl": "https://job.so.ch/offene-stellen/schulische-r-heilpaedagoge-heilpaedagogin/89de9172-daa6-408c-9158-9312f25aaf11",
-      "requirements": [],
-      "requirementsByLocale": {},
       "previousSlugs": [
-        "schulische-r-heilpadagoge-heilpadagogin-34-kanton-solothurn-olten"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "schulische-r-heilpadagoge-heilpadagogin-34-kanton-solothurn-olten"
-        ],
-        "en": [
-          "schulische-r-heilpadagoge-heilpadagogin-34-kanton-solothurn-olten"
-        ],
-        "fr": [
-          "schulische-r-heilpadagoge-heilpadagogin-34-kanton-solothurn-olten"
-        ]
-      },
-      "firstSeenAt": "2026-08-28T05:30:18.686Z",
-      "salaryMin": 20100,
-      "salaryMax": 36900,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 20100,
-          "maxValue": 36900,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "kanton-solothurn-08e839c46e43",
-      "slug": "fornitura-di-acqua-esperto-80-100-kanton-solothurn-solothurn",
-      "slugByLocale": {
-        "it": "fornitura-di-acqua-esperto-80-100-kanton-solothurn-solothurn",
-        "en": "expert-water-supply-80-100-kanton-solothurn-solothurn",
-        "de": "fachexperte-fachexpertin-wasserversorgung-80-100-kanton-solothurn-solothurn",
-        "fr": "approvisionnement-en-eau-expert-80-100-kanton-solothurn-solothurn"
-      },
-      "company": "Kanton Solothurn",
-      "companyKey": "kanton-solothurn",
-      "companyDomain": "so.ch",
-      "title": "Fachexperte/Fachexpertin Wasserversorgung, 80-100%",
-      "titleByLocale": {
-        "it": "Fornitura di acqua esperto, 80-100 %",
-        "en": "Expert water supply, 80-100 %",
-        "de": "Fachexperte/Fachexpertin Wasserversorgung, 80-100%",
-        "fr": "Approvisionnement en eau expert, 80-100 %"
-      },
-      "description": "Das Amt für Umwelt sorgt für einen nachhaltigen Umgang mit der Umwelt. Die Abteilung Wasser ist zuständig für die Siedlungswasserwirtschaft und den Gewässerschutz. Für die Abteilung Wasser suchen wir per 01.12.2026 oder nach Vereinbarung am Standort Solothurn eine/-n Fachexperte/Fachexpertin Wasserversorgung, 80-100%.\n\nIhre Verantwortung\n\n• Sie sind fachlich verantwortlich für den Fachbereich Generelle Wasserversorgungsplanung (GWP).\n\n• Eigenständig initiieren Sie Projekte zur Umsetzung des Solothurner Wassernetzes (SWAN).\n\n• Sie beraten und begleiten Gemeinden und Verbände in Fragen der Siedlungswasserwirtschaft inklusive der Generellen Entwässerungsplanung (GEP).\n\n• Zu Ihren Aufgaben gehört das Prüfen und Bewilligen von verschiedenen Planungen sowie der dazugehörigen Bauvorhaben.\n\n• Die Arbeit in interdisziplinären Arbeitsgruppen und im kantonalen Schadendienst-Pikett zählt ebenfalls zu Ihren Aufgaben.\n\nIhr Profil\n\n• Sie haben ein abgeschlossenes Hochschulstudium im Ingenieurwesen (Bau/Umwelt) oder im Umweltbereich bzw. eine vergleichbare höhere bau- oder umwelttechnische Fachausbildung mit mehrjähriger Erfahrung in der Siedlungswasserwirtschaft und/oder im Gewässerschutz.\n\n• Ihre fundierten Fachkenntnisse sowie Ihre Erfahrung in Projektmanagement und Projektleitung ermöglichen Ihnen eine vertrauensvolle Zusammenarbeit mit Partnern und Stakeholdern.\n\n• Idealerweise verfügen Sie über mehrjährige Praxis in Ingenieurbüros oder der öffentlichen Verwaltung.\n\n• Sie zeichnen sich durch ausgeprägtes Verhandlungsgeschick, Teamgeist und Begeisterungsfähigkeit aus.\n\n• Interdisziplinäres Arbeiten und vernetztes Denken sind für Sie selbstverständlich, und Sie sind offen für neue Aufgaben und Herausforderungen.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nDr. Stephan Margreth\nLeiter Abteilung Wasser\n032 627 24 47\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
-      "descriptionByLocale": {
-        "it": "L'Ufficio per l'Ambiente garantisce un approccio sostenibile all'ambiente. Il Dipartimento dell'acqua è responsabile della gestione delle acque comunali e della protezione dell'acqua. Per il reparto acqua, stiamo cercando un esperto specializzato per l'approvvigionamento idrico, 80-100%, a partire dal 01.12.2026 o d'accordo sul sito Solothurn.\n\nLa tua responsabilità\n\n• Lei è tecnicamente responsabile della pianificazione generale dell'approvvigionamento idrico (GWP).\n\n• Indipendentemente si avviano progetti per l'implementazione della Solothurn Water Network (SWAN).\n\n• Essi consigliano e accompagnano i comuni e le associazioni su questioni di gestione delle acque comunali, compresa la pianificazione generale del drenaggio (GEP).\n\n• I vostri compiti includono il controllo e l'approvazione di vari piani così come i progetti di costruzione associati.\n\n• Lavorare in gruppi di lavoro interdisciplinari e nel gruppo di assistenza cantonale è anche uno dei vostri compiti.\n\nIl tuo profilo\n\n• Hai completato una laurea in ingegneria (costruzione/ambiente) o nel settore ambientale o una formazione tecnica comparabile superiore in ingegneria edile o ambientale con diversi anni di esperienza nella gestione delle acque comunali e/o nella protezione dell'acqua.\n\n• La vostra esperienza approfondita e la vostra esperienza nella gestione dei progetti e nella gestione dei progetti consentono di lavorare nella fiducia con partner e stakeholder.\n\n• Idealmente, avrete diversi anni di pratica negli uffici di ingegneria o nell'amministrazione pubblica.\n\n• Sono caratterizzate da forti capacità di negoziazione, spirito di squadra e entusiasmo.\n\n• Il lavoro interdisciplinare e il pensiero in rete sono una questione naturalmente per voi, e siete aperti a nuovi compiti e sfide.\n\n• Promuovere l'equilibrio personale della vita lavorativa attraverso un modello annuale di tempo di lavoro\n\n• Lavoro a tempo parziale, anche in cadre\n\n• Opportunità di lavorare mobile\n\n• Condizioni di lavoro progressive basate su un GAV\n\n• Pari retribuzione tra uomini e donne\n\n• Ricompense fedeltà\n\n• 16 settimane di congedo di maternità a pagamento completo\n\n• 2 settimane congedo di paternità\n\n• Contributi finanziari all'assistenza all'infanzia\n\n• Completa offerta di formazione interna ed esterna\n\nDomande?\n\nDr Stephan Margreth\nCapo Dipartimento dell'acqua\n032 627 24 47\n\nSpostarsi con impegno. – Questa è l'opportunità di assumersi la responsabilità di una significativa attività di rilevanza politica e sociale e di spostare gli sviluppi sostenibili per la popolazione e l'economia con la propria impronta. Dietro questa promessa sorge il cantone di Solothurn con innumerevoli possibilità, una flessibilità tangibile e una stabilità nell'ambiente di lavoro.\n\nConvinto?\n\nVorremmo riempire questa posizione senza il supporto di fornitori di servizi esterni. Le applicazioni e-mail non possono essere considerate.",
-        "en": "The Office for the Environment ensures a sustainable approach to the environment. The Water Department is responsible for municipal water management and water protection. For the water department, we are looking for a specialist expert for water supply, 80-100%, as of 01.12.2026 or by agreement at the Solothurn site.\n\nYour responsibility\n\n• You are technically responsible for General Water Supply Planning (GWP).\n\n• You independently initiate projects for the implementation of the Solothurn Water Network (SWAN).\n\n• They advise and accompany municipalities and associations on issues of municipal water management, including general drainage planning (GEP).\n\n• Your tasks include checking and approving various plans as well as the associated construction projects.\n\n• Working in interdisciplinary working groups and in the cantonal claims service panel is also one of your tasks.\n\nYour profile\n\n• You have completed a university degree in engineering (construction/environment) or in the environmental sector or a comparable higher technical training in construction or environmental engineering with several years of experience in municipal water management and/or water protection.\n\n• Your in-depth expertise as well as your experience in project management and project management enable you to work in trust with partners and stakeholders.\n\n• Ideally, you will have several years of practice in engineering offices or public administration.\n\n• They are characterised by strong negotiating skills, team spirit and enthusiasm.\n\n• Interdisciplinary work and networked thinking are a matter of course for you, and you are open to new tasks and challenges.\n\n• Promoting personal work-life balance through an annual working time model\n\n• Part-time work, also in cadre\n\n• Opportunity to work mobile\n\n• Progressive employment conditions based on a GAV\n\n• Equal pay between men and women\n\n• Loyalty rewards\n\n• 16 weeks of maternity leave on full pay\n\n• 2 weeks paternity leave\n\n• Financial contributions to childcare\n\n• Comprehensive offer of internal and external training\n\nQuestions?\n\nDr Stephan Margreth\nHead of Water Department\n032 627 24 47\n\nMoving with commitment. – This is the opportunity to bear responsibility in meaningful activity of political and social relevance and to move sustainable developments for the population and economy with their own imprint. Behind this promise stands the canton of Solothurn with countless possibilities, a tangible flexibility and a stability in the working environment.\n\nConvinced?\n\nWe would like to fill this position without the support of external service providers. Email applications cannot be considered.",
-        "de": "Das Amt für Umwelt sorgt für einen nachhaltigen Umgang mit der Umwelt. Die Abteilung Wasser ist zuständig für die Siedlungswasserwirtschaft und den Gewässerschutz. Für die Abteilung Wasser suchen wir per 01.12.2026 oder nach Vereinbarung am Standort Solothurn eine/-n Fachexperte/Fachexpertin Wasserversorgung, 80-100%.\n\nIhre Verantwortung\n\n• Sie sind fachlich verantwortlich für den Fachbereich Generelle Wasserversorgungsplanung (GWP).\n\n• Eigenständig initiieren Sie Projekte zur Umsetzung des Solothurner Wassernetzes (SWAN).\n\n• Sie beraten und begleiten Gemeinden und Verbände in Fragen der Siedlungswasserwirtschaft inklusive der Generellen Entwässerungsplanung (GEP).\n\n• Zu Ihren Aufgaben gehört das Prüfen und Bewilligen von verschiedenen Planungen sowie der dazugehörigen Bauvorhaben.\n\n• Die Arbeit in interdisziplinären Arbeitsgruppen und im kantonalen Schadendienst-Pikett zählt ebenfalls zu Ihren Aufgaben.\n\nIhr Profil\n\n• Sie haben ein abgeschlossenes Hochschulstudium im Ingenieurwesen (Bau/Umwelt) oder im Umweltbereich bzw. eine vergleichbare höhere bau- oder umwelttechnische Fachausbildung mit mehrjähriger Erfahrung in der Siedlungswasserwirtschaft und/oder im Gewässerschutz.\n\n• Ihre fundierten Fachkenntnisse sowie Ihre Erfahrung in Projektmanagement und Projektleitung ermöglichen Ihnen eine vertrauensvolle Zusammenarbeit mit Partnern und Stakeholdern.\n\n• Idealerweise verfügen Sie über mehrjährige Praxis in Ingenieurbüros oder der öffentlichen Verwaltung.\n\n• Sie zeichnen sich durch ausgeprägtes Verhandlungsgeschick, Teamgeist und Begeisterungsfähigkeit aus.\n\n• Interdisziplinäres Arbeiten und vernetztes Denken sind für Sie selbstverständlich, und Sie sind offen für neue Aufgaben und Herausforderungen.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nDr. Stephan Margreth\nLeiter Abteilung Wasser\n032 627 24 47\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
-        "fr": "Le Bureau de l'environnement assure une approche durable de l'environnement. Le Département de l'eau est responsable de la gestion municipale de l'eau et de la protection de l'eau. Pour le service de l'eau, nous recherchons un spécialiste de l'approvisionnement en eau, 80-100%, au 01.12.2026 ou en accord sur le site Soleure.\n\nVotre responsabilité\n\n• Vous êtes techniquement responsable de la planification générale de l'approvisionnement en eau.\n\n• Vous lancez des projets indépendants pour la mise en œuvre du réseau Soleure (SWAN).\n\n• Ils conseillent et accompagnent les municipalités et les associations sur les questions de gestion des eaux municipales, y compris la planification générale du drainage (GEP).\n\n• Vos tâches comprennent la vérification et l'approbation de divers plans ainsi que les projets de construction associés.\n\n• Travailler dans des groupes de travail interdisciplinaires et au sein du comité cantonal de service des réclamations est également une de vos tâches.\n\nVotre profil\n\n• Vous avez obtenu un diplôme universitaire en génie (construction/environnement) ou dans le secteur de l'environnement ou une formation technique supérieure comparable en construction ou en génie de l'environnement avec plusieurs années d'expérience dans la gestion municipale de l'eau et/ou la protection de l'eau.\n\n• Votre expertise approfondie ainsi que votre expérience en gestion de projet et de projet vous permettent de travailler en confiance avec vos partenaires et intervenants.\n\n• Idéalement, vous aurez plusieurs années de pratique dans les bureaux d'ingénierie ou l'administration publique.\n\n• Ils se caractérisent par de solides compétences de négociation, l'esprit d'équipe et l'enthousiasme.\n\n• Le travail interdisciplinaire et la pensée en réseau sont une question bien sûr pour vous, et vous êtes ouvert à de nouvelles tâches et défis.\n\n• Promouvoir l'équilibre entre vie professionnelle et vie privée au moyen d'un modèle annuel de temps de travail\n\n• Travail à temps partiel, également en milieu de travail\n\n• Possibilité de travailler mobile\n\n• Conditions d'emploi progressives basées sur un VAB\n\n• Égalité de rémunération entre hommes et femmes\n\n• Récompenses de fidélité\n\n• 16 semaines de congé de maternité à plein salaire\n\n• 2 semaines de congé de paternité\n\n• Contributions financières à la garde des enfants\n\n• Offre complète de formation interne et externe\n\nDes questions ?\n\nDr Stephan Margreth\nChef du Département de l ' eau\n032 627 24 47\n\nSe déplacer avec engagement. – C'est l'occasion d'assumer la responsabilité d'activités significatives d'importance politique et sociale et de faire évoluer les développements durables pour la population et l'économie avec leur propre empreinte. Derrière cette promesse se trouve le canton de Soleure avec d'innombrables possibilités, une flexibilité tangible et une stabilité dans l'environnement de travail.\n\nConvaincu ?\n\nNous aimerions combler ce poste sans le soutien de fournisseurs de services externes. Les demandes par courriel ne peuvent pas être prises en considération."
-      },
-      "location": "Solothurn",
-      "canton": "SO",
-      "url": "https://job.so.ch/offene-stellen/fachexperte-fachexpertin-wasserversorgung/9dc40023-9687-4d3a-b74c-c3a39f66ab47",
-      "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:29:46.952Z",
-      "addressLocality": "Solothurn",
-      "addressRegion": "SO",
-      "streetAddress": "",
-      "postalCode": "4500",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ambiente & Infrastrutture",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-18",
-      "applyUrl": "https://job.so.ch/offene-stellen/fachexperte-fachexpertin-wasserversorgung/9dc40023-9687-4d3a-b74c-c3a39f66ab47",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachexperte-fachexpertin-wasserversorgung-80-100-kanton-solothurn-solothurn"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachexperte-fachexpertin-wasserversorgung-80-100-kanton-solothurn-solothurn"
-        ],
-        "en": [
-          "fachexperte-fachexpertin-wasserversorgung-80-100-kanton-solothurn-solothurn"
-        ],
-        "fr": [
-          "fachexperte-fachexpertin-wasserversorgung-80-100-kanton-solothurn-solothurn"
-        ]
-      },
-      "firstSeenAt": "2026-08-18T21:38:01.675Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "kanton-solothurn-b9996c9af04b",
-      "slug": "kesb-case-officer-40-kanton-solothurn-thal-gau",
-      "slugByLocale": {
-        "it": "kesb-case-officer-40-kanton-solothurn-thal-gau",
-        "en": "case-handler-in-kesb-40-kanton-solothurn-thal-gau",
-        "de": "sachbearbeiter-in-kesb-40-kanton-solothurn-thal-gau",
-        "fr": "gestionnaire-de-cas-en-kesb-40-kanton-solothurn-thal-gau"
-      },
-      "company": "Kanton Solothurn",
-      "companyKey": "kanton-solothurn",
-      "companyDomain": "so.ch",
-      "title": "Sachbearbeiter/-in KESB, 40%",
-      "titleByLocale": {
-        "it": "KESB case officer, 40 %",
-        "en": "KESB case officer, 40 %",
-        "de": "Sachbearbeiter/-in KESB, 40%",
-        "fr": "Gestionnaire de cas/en KESB, 40 %"
-      },
-      "description": "Die kantonalen Kindes- und Erwachsenenschutzbehörden (KESB) stellen das Wohl und den Schutz hilfsbedürftiger Menschen sicher. Für die KESB Thal-Gäu/Dorneck-Thierstein suchen wir per 01.11.2026 oder nach Vereinbarung am Standort Balsthal oder Breitenbach eine/-n Sachbearbeiter/-in KESB, 40%.\n\nIhre Verantwortung\n\n• Als Mitarbeiter/-in der Kanzlei der KESB erledigen Sie alle anfallenden administrativen Aufgaben.\n\n• Sie verwalten Dossiers und sorgen für deren Vollständigkeit, unterstützen die Kanzleileitung bei der Sitzungsplanung der KESB, bereiten Geschäfte und Verfügungen selbstständig vor nach Weisung der Kanzleileitung und erledigen Korrespondenzen.\n\n• In Ihrer Funktion führen Sie die Geschäftskontrolle nach und sorgen für die ordentliche Bereitstellung administrativer Strukturen.\n\n• Weiter gehören der Schalter- und Telefondienst sowie der Postversand zu Ihren Aufgaben.\n\nIhr Profil\n\n• Sie besitzen einen kaufmännischen Lehrabschluss oder verfügen über eine gleichwertige Ausbildung.\n\n• Berufserfahrung im Kindes- und Erwachsenenschutz sowie Kenntnisse des zivilprozessualen oder verwaltungsrechtlichen Verfahrens sowie Verwaltungserfahrung sind von Vorteil.\n\n• Ein versierter Umgang mit IT-Mitteln wird vorausgesetzt.\n\n• Sie sind eine belastbare, leistungsorientierte und integre Persönlichkeit mit hoher Sozialkompetenz.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nTamara Wingeier\nPräsidentin KESB Thal-Gäu/Dorneck-Thierstein\n062 311 91 77\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
-      "descriptionByLocale": {
-        "it": "Le autorità cantonali di protezione dei bambini e degli adulti (KESB) assicurano il benessere e la protezione delle persone bisognose. Per KESB Thal-Gäu/Dorneck-Thierstein stiamo cercando un impiegato presso KESB, 40% entro il 01.11.2026 o per accordo presso la sede di Balsthal o Breitenbach.\n\nLa tua responsabilità\n\n• Come dipendente dello studio legale KESB, eseguirai tutti i compiti amministrativi.\n\n• Gestiscono i dossier e garantiscono la loro completezza, sostengono la gestione ferma nella pianificazione di riunioni del KESB, preparano in modo indipendente le imprese e gli ordini secondo le istruzioni della gestione aziendale e effettuano la corrispondenza.\n\n• Nel vostro ruolo, si segue il controllo aziendale e garantire la corretta fornitura di strutture amministrative.\n\n• Inoltre, il servizio di contatore e telefono così come la spedizione postale sono tra i vostri compiti.\n\nIl tuo profilo\n\n• Hai un apprendistato commerciale o un'istruzione equivalente.\n\n• L'esperienza professionale nella protezione dei bambini e degli adulti, nonché la conoscenza della procedura civile o del procedimento amministrativo nonché l'esperienza amministrativa sono vantaggiose.\n\n• È richiesto un uso esperto delle risorse IT.\n\n• Sei una personalità resiliente, orientata alle prestazioni e all'integrità con un alto livello di competenza sociale.\n\n• Promuovere l'equilibrio personale della vita lavorativa attraverso un modello annuale di tempo di lavoro\n\n• Lavoro a tempo parziale, anche in cadre\n\n• Opportunità di lavorare mobile\n\n• Condizioni di lavoro progressive basate su un GAV\n\n• Pari retribuzione tra uomini e donne\n\n• Ricompense fedeltà\n\n• 16 settimane di congedo di maternità a pagamento completo\n\n• 2 settimane congedo di paternità\n\n• Contributi finanziari all'assistenza all'infanzia\n\n• Completa offerta di formazione interna ed esterna\n\nDomande?\n\nTamara Winger\nPresidente KESB Thal-Gäu/Dorneck-Thierstein\n062 311 91 77\n\nSpostarsi con impegno. – Questa è l'opportunità di assumersi la responsabilità di una significativa attività di rilevanza politica e sociale e di spostare gli sviluppi sostenibili per la popolazione e l'economia con la propria impronta. Dietro questa promessa sorge il cantone di Solothurn con innumerevoli possibilità, una flessibilità tangibile e una stabilità nell'ambiente di lavoro.\n\nConvinto?\n\nVorremmo riempire questa posizione senza il supporto di fornitori di servizi esterni. Le applicazioni e-mail non possono essere considerate.",
-        "en": "The cantonal child and adult protection authorities (KESB) ensure the well-being and protection of people in need. For KESB Thal-Gäu/Dorneck-Thierstein we are looking for a clerk at KESB, 40% by 01.11.2026 or by agreement at the Balsthal or Breitenbach location.\n\nYour responsibility\n\n• As an employee of the KESB law firm, you will perform all administrative tasks.\n\n• They manage dossiers and ensure their completeness, support the firm management in the planning of meetings of the KESB, independently prepare business and orders according to the instructions of the firm management and carry out correspondence.\n\n• In your role, you follow up the business control and ensure the proper provision of administrative structures.\n\n• Furthermore, the counter and telephone service as well as postal shipping are among your tasks.\n\nYour profile\n\n• You have a commercial apprenticeship or an equivalent education.\n\n• Professional experience in child and adult protection as well as knowledge of civil procedure or administrative law proceedings as well as administrative experience are advantageous.\n\n• An experienced use of IT resources is required.\n\n• You are a resilient, performance-oriented and integrity personality with a high level of social competence.\n\n• Promoting personal work-life balance through an annual working time model\n\n• Part-time work, also in cadre\n\n• Opportunity to work mobile\n\n• Progressive employment conditions based on a GAV\n\n• Equal pay between men and women\n\n• Loyalty rewards\n\n• 16 weeks of maternity leave on full pay\n\n• 2 weeks paternity leave\n\n• Financial contributions to childcare\n\n• Comprehensive offer of internal and external training\n\nQuestions?\n\nTamara Winger\nPresident KESB Thal-Gäu/Dorneck-Thierstein\n062 311 91 77\n\nMoving with commitment. – This is the opportunity to bear responsibility in meaningful activity of political and social relevance and to move sustainable developments for the population and economy with their own imprint. Behind this promise stands the canton of Solothurn with countless possibilities, a tangible flexibility and a stability in the working environment.\n\nConvinced?\n\nWe would like to fill this position without the support of external service providers. Email applications cannot be considered.",
-        "de": "Die kantonalen Kindes- und Erwachsenenschutzbehörden (KESB) stellen das Wohl und den Schutz hilfsbedürftiger Menschen sicher. Für die KESB Thal-Gäu/Dorneck-Thierstein suchen wir per 01.11.2026 oder nach Vereinbarung am Standort Balsthal oder Breitenbach eine/-n Sachbearbeiter/-in KESB, 40%.\n\nIhre Verantwortung\n\n• Als Mitarbeiter/-in der Kanzlei der KESB erledigen Sie alle anfallenden administrativen Aufgaben.\n\n• Sie verwalten Dossiers und sorgen für deren Vollständigkeit, unterstützen die Kanzleileitung bei der Sitzungsplanung der KESB, bereiten Geschäfte und Verfügungen selbstständig vor nach Weisung der Kanzleileitung und erledigen Korrespondenzen.\n\n• In Ihrer Funktion führen Sie die Geschäftskontrolle nach und sorgen für die ordentliche Bereitstellung administrativer Strukturen.\n\n• Weiter gehören der Schalter- und Telefondienst sowie der Postversand zu Ihren Aufgaben.\n\nIhr Profil\n\n• Sie besitzen einen kaufmännischen Lehrabschluss oder verfügen über eine gleichwertige Ausbildung.\n\n• Berufserfahrung im Kindes- und Erwachsenenschutz sowie Kenntnisse des zivilprozessualen oder verwaltungsrechtlichen Verfahrens sowie Verwaltungserfahrung sind von Vorteil.\n\n• Ein versierter Umgang mit IT-Mitteln wird vorausgesetzt.\n\n• Sie sind eine belastbare, leistungsorientierte und integre Persönlichkeit mit hoher Sozialkompetenz.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nTamara Wingeier\nPräsidentin KESB Thal-Gäu/Dorneck-Thierstein\n062 311 91 77\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
-        "fr": "Les autorités cantonales de protection des enfants et des adultes (KESB) assurent le bien-être et la protection des personnes dans le besoin. Pour KESB Thal-Gäu/Dorneck-Thierstein nous sommes à la recherche d'un commis à KESB, 40% au 01.11.2026 ou par accord à l'emplacement Balsthal ou Breitenbach.\n\nVotre responsabilité\n\n• En tant qu'employé du cabinet d'avocats KESB, vous accomplirez toutes les tâches administratives.\n\n• Ils gèrent les dossiers et s'assurent de leur exhaustivité, soutiennent la direction de l'entreprise dans la planification des réunions du KESB, préparent indépendamment les affaires et les commandes selon les instructions de la direction de l'entreprise et effectuent la correspondance.\n\n• Dans votre rôle, vous suivez le contrôle de l'entreprise et vous assurez la bonne mise en place des structures administratives.\n\n• De plus, le comptoir et le service téléphonique ainsi que le transport postal font partie de vos tâches.\n\nVotre profil\n\n• Vous avez un apprentissage commercial ou une formation équivalente.\n\n• L'expérience professionnelle en matière de protection des enfants et des adultes ainsi que la connaissance des procédures civiles ou administratives et de l'expérience administrative sont avantageuses.\n\n• Une utilisation expérimentée des ressources en TI est nécessaire.\n\n• Vous êtes une personnalité résiliente, orientée vers la performance et intègre avec un haut niveau de compétence sociale.\n\n• Promouvoir l'équilibre entre vie professionnelle et vie privée au moyen d'un modèle annuel de temps de travail\n\n• Travail à temps partiel, également en milieu de travail\n\n• Possibilité de travailler mobile\n\n• Conditions d'emploi progressives basées sur un VAB\n\n• Égalité de rémunération entre hommes et femmes\n\n• Récompenses de fidélité\n\n• 16 semaines de congé de maternité à plein salaire\n\n• 2 semaines de congé de paternité\n\n• Contributions financières à la garde des enfants\n\n• Offre complète de formation interne et externe\n\nDes questions ?\n\nTamara Winger\nPrésident KESB Thal-Gäu/Dorneck-Thierstein\n062 311 91 77\n\nSe déplacer avec engagement. – C'est l'occasion d'assumer la responsabilité d'activités significatives d'importance politique et sociale et de faire évoluer les développements durables pour la population et l'économie avec leur propre empreinte. Derrière cette promesse se trouve le canton de Soleure avec d'innombrables possibilités, une flexibilité tangible et une stabilité dans l'environnement de travail.\n\nConvaincu ?\n\nNous aimerions combler ce poste sans le soutien de fournisseurs de services externes. Les demandes par courriel ne peuvent pas être prises en considération."
-      },
-      "location": "Thal-Gäu",
-      "canton": "SG",
-      "url": "https://job.so.ch/offene-stellen/sachbearbeiter-in-kesb/d8fadbc8-5769-44ab-9fb2-ea6ac8607717",
-      "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:29:45.847Z",
-      "addressLocality": "Thal-Gäu",
-      "addressRegion": "SG",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-04",
-      "applyUrl": "https://job.so.ch/offene-stellen/sachbearbeiter-in-kesb/d8fadbc8-5769-44ab-9fb2-ea6ac8607717",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-in-kesb-40-kanton-solothurn-thal-gau",
-        "manipolatore-in-kesb-40-kanton-solothurn-thal-gau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-in-kesb-40-kanton-solothurn-thal-gau",
-          "manipolatore-in-kesb-40-kanton-solothurn-thal-gau"
-        ],
-        "en": [
-          "sachbearbeiter-in-kesb-40-kanton-solothurn-thal-gau"
-        ],
-        "fr": [
-          "sachbearbeiter-in-kesb-40-kanton-solothurn-thal-gau"
-        ]
-      },
-      "firstSeenAt": "2026-09-04T13:39:35.433Z",
-      "salaryMin": 32600,
-      "salaryMax": 45600,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 32600,
-          "maxValue": 45600,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
+        "steuerfachmann-steuerfachfrau-privatpersonen-80-100-kanton-solothurn-solothurn"
+      ]
     }
   ]
 }

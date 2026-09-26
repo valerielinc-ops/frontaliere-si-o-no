@@ -1,6 +1,6 @@
 {
   "crawlerKey": "brack-alltron",
-  "assembledAt": "2026-09-25T14:48:44.457Z",
+  "assembledAt": "2026-09-26T14:04:37.981Z",
   "jobs": [
     {
       "id": "brack-alltron-ec1ba397b901",
@@ -34,7 +34,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/kv-langzeitpratikant-in-sog-handel/243abb8a-9937-4217-a0cb-de62ac53bc5e",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.574Z",
+      "crawledAt": "2026-09-26T14:04:14.631Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -53,13 +53,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kv-langzeitpratikant-in-sog-handel-brack-alltron-magenwil",
-        "professionista-a-lungo-termine-kv-in-sog-trade-brack-alltron-ag-magenwil"
+        "kv-langzeitpratikant-in-sog-handel-brack-alltron-magenwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kv-langzeitpratikant-in-sog-handel-brack-alltron-magenwil",
-          "professionista-a-lungo-termine-kv-in-sog-trade-brack-alltron-ag-magenwil"
+          "kv-langzeitpratikant-in-sog-handel-brack-alltron-magenwil"
         ],
         "en": [
           "kv-langzeitpratikant-in-sog-handel-brack-alltron-magenwil"
@@ -114,7 +112,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/lehrstelle-als-ict-fachmann-frau-efz/b7c7b927-603f-4b0e-b3ec-4ca5737e54c4",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.573Z",
+      "crawledAt": "2026-09-26T14:04:14.629Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -135,15 +133,13 @@
       "previousSlugs": [
         "ict-fachmann-frau-efz-brack-alltron-magenwil",
         "lehrstelle-als-ict-fachmann-frau-efz-brack-alltron-magenwil",
-        "apprendistato-come-ict-fachmann-frau-cfc-brack-alltron-ag-magenwil",
-        "ict-fachmann-frau-cfc-brack-alltron-ag-magenwil"
+        "apprendistato-come-ict-fachmann-frau-cfc-brack-alltron-ag-magenwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ict-fachmann-frau-efz-brack-alltron-magenwil",
           "lehrstelle-als-ict-fachmann-frau-efz-brack-alltron-magenwil",
-          "apprendistato-come-ict-fachmann-frau-cfc-brack-alltron-ag-magenwil",
-          "ict-fachmann-frau-cfc-brack-alltron-ag-magenwil"
+          "apprendistato-come-ict-fachmann-frau-cfc-brack-alltron-ag-magenwil"
         ],
         "en": [
           "ict-fachmann-frau-efz-brack-alltron-magenwil"
@@ -165,7 +161,8 @@
           "maxValue": 99000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-2fe8c7b7e2ae",
@@ -198,7 +195,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/lehrstelle-als-kaufmann-frau-efz-handel/f9114c3e-2250-40c0-b9f3-d69dffc73a43",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.572Z",
+      "crawledAt": "2026-09-26T14:04:14.627Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -219,15 +216,13 @@
       "previousSlugs": [
         "kaufmann-frau-efz-handel-brack-alltron-magenwil",
         "lehrstelle-als-kaufmann-frau-efz-handel-brack-alltron-magenwil",
-        "apprendistato-come-kaufmann-frau-cfc-handel-brack-alltron-ag-magenwil",
-        "kaufmann-frau-cfc-handel-brack-alltron-ag-magenwil"
+        "apprendistato-come-kaufmann-frau-cfc-handel-brack-alltron-ag-magenwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kaufmann-frau-efz-handel-brack-alltron-magenwil",
           "lehrstelle-als-kaufmann-frau-efz-handel-brack-alltron-magenwil",
-          "apprendistato-come-kaufmann-frau-cfc-handel-brack-alltron-ag-magenwil",
-          "kaufmann-frau-cfc-handel-brack-alltron-ag-magenwil"
+          "apprendistato-come-kaufmann-frau-cfc-handel-brack-alltron-ag-magenwil"
         ],
         "en": [
           "kaufmann-frau-efz-handel-brack-alltron-magenwil"
@@ -249,100 +244,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "brack-alltron-b4b696e51562",
-      "slug": "apprendistato-come-logistiker-in-cfc-magazzino-brack-alltron-ag-willisau",
-      "slugByLocale": {
-        "it": "apprendistato-come-logistiker-in-cfc-magazzino-brack-alltron-ag-willisau",
-        "en": "apprenticeship-as-logistician-efz-warehouse-brack-alltron-ag-willisau",
-        "de": "lehrstelle-als-logistiker-in-efz-lager-brack-alltron-willisau",
-        "fr": "apprentissage-en-tant-que-logistique-efz-warehouse-brack-alltron-ag-willisau"
       },
-      "company": "Brack.Alltron AG",
-      "companyKey": "brack-alltron",
-      "companyDomain": "brack.ch",
-      "title": "Lehrstelle als Logistiker*in EFZ (Lager)",
-      "titleByLocale": {
-        "it": "Apprendistato come logistico EFZ (Warehouse)",
-        "en": "Apprenticeship as logistician EFZ (Warehouse)",
-        "de": "Lehrstelle als Logistiker*in EFZ (Lager)",
-        "fr": "Apprentissage en tant que logistique EFZ (Warehouse)"
-      },
-      "description": "Aufgaben:\n• Eine abwechslungsreiche Lehrstelle in einem modernen und erfolgreichen Logistikbetrieb\n\n• Du lernst verschiedene Lagerprozesse kennen – vom Wareneingang über die Lagerung bis zur Bereitstellung für den Versand\n\n• Der Einsatz von fortschrittlichen Lagertechniken und modernen Hilfsmitteln gehört zu deinem Ausbildungsalltag\n\n• Du arbeitest praktisch mit Waren, Systemen und Prozessen und übernimmst Schritt für Schritt Verantwortung\n\n• Im Team lernst du, wie eine effiziente und zuverlässige Logistik funktioniert\n\n• Deine Lernbegleitung und die Berufsbildungsverantwortlichen unterstützen dich während deiner Ausbildung\n\n• Dich erwartet ein gut eingespieltes Team, das dich begleitet und unterstützt\n\n• Du entwickelst dich fachlich, praktisch und persönlich weiter\n\nAnforderungen:\n• Sehr gutes Real- oder gutes Sekundarschulniveau\n\n• Gute Mathematikkenntnisse und Freude an praktischen Aufgaben\n\n• Logisches und abstraktes Denken\n\n• Interesse an Lagerprozessen, Warenflüssen und moderner Logistik\n\n• Leistungs- und Lernbereitschaft\n\n• Sorgfältige, zuverlässige und verantwortungsbewusste Arbeitsweise\n\n• Freude an der Zusammenarbeit mit Menschen und im Team\n\n• Körperliche Belastbarkeit und Motivation, in einem aktiven Umfeld zu arbeiten\n\nWir bieten:\n• Vergünstigungen: Attraktive Vergünstigungen im Brack-Onlineshop sowie Mittagessenvergünstigungen und Personalrestaurants in Mägenwil und Willisau.\n\n• Erholung: Mindestens 5 Wochen Ferien, zusätzlich besteht die Möglichkeit für Ferienkauf und unbezahlten Urlaub.\n\n• Entwicklung: Interne Ausbildungen in der eigenen Academy sowie finanzielle Beteiligung an externen Weiterbildungen.\n\n• Familie: 18 Wochen bezahlter Mutterschaftsurlaub mit Verlängerungsmöglichkeit und 4 Wochen bezahlter Vaterschaftsurlaub.\n\n• Versicherungen: Überobligatorisch – 100% Lohnfortzahlung sowie vollständige Finanzierung der Krankentaggeldversicherung durch den Arbeitgeber.\n\n• Mobilität: Gratisparkplätze, finanzielle Beteiligung an den ÖV und Poolfahrzeuge für Geschäftstermine.\n\n\"Gemeinsam gestalten wir den Handel von morgen\" Brack.Alltron beschäftigt rund 1300 Mitarbeitende und erwirtschaftet über eine Milliarde Umsatz. Das Unternehmen gibt es, weil ein Mensch den Mut hatte, neue Wege zu finden und sie zu gehen. Unsere Erfolgsgeschichte zeigt, dass durch jeden Einzelnen, gemeinsam etwas Grosses entsteht und wir lieben unsere Einzigartigkeit. Wir setzen uns ambitionierte Ziele, dabei ist es uns sehr wichtig, dass wir verantwortlich handeln, uns gegenseitig fördern und fordern und Freude haben an dem, was wir tagtäglich tun.",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Un apprendistato vario in un'operazione logistica moderna e di successo\n\n• Si arriva a conoscere diversi processi di stoccaggio – dal ricevimento delle merci tramite stoccaggio alla fornitura per la spedizione\n\n• L'uso di tecniche di storage avanzate e strumenti moderni fa parte della vostra giornata di allenamento\n\n• Si lavora praticamente con beni, sistemi e processi e si assume responsabilità passo dopo passo\n\n• Come team, imparerai come funziona la logistica efficiente e affidabile\n\n• Il vostro sostegno all'apprendimento e i responsabili della formazione professionale vi sostengono durante la vostra formazione\n\n• Ci si può aspettare un team ben funzionante che accompagna e ti supporta\n\n• Si sviluppa professionalmente, praticamente e personalmente\n\nRequisiti\n• Ottimo livello di scuola secondaria reale o buono\n\n• Buona conoscenza della matematica e il godimento dei compiti pratici\n\n• Logica e pensiero astratto\n\n• Interessi in processi di stoccaggio, flussi di merci e logistica moderna\n\n• Volontà di eseguire e imparare\n\n• Metodi di lavoro attenti, affidabili e responsabili\n\n• Gioia di lavorare con le persone e in una squadra\n\n• Resistenza fisica e motivazione a lavorare in un ambiente attivo\n\nOffriamo:\n• Perks: Perk interessanti nel negozio online di Brack, nonché perks di pranzo e ristoranti di personale a Mägenwil e Willisau.\n\n• Ricreazione: Almeno 5 settimane di vacanza, inoltre c'è la possibilità di acquisto di vacanza e vacanza non pagata.\n\n• Sviluppo: Formazione interna alla propria Accademia e partecipazione finanziaria all'ulteriore istruzione esterna.\n\n• Famiglia: 18 settimane di congedo di maternità retribuito con prolungamento e 4 settimane di congedo di paternità pagato.\n\n• Assicurazione: Superobbligatorio – 100% paga continuata e pieno finanziamento dell'assicurazione malattia da parte del datore di lavoro.\n\n• Mobilità: parcheggio gratuito, partecipazione finanziaria ai trasporti pubblici e veicoli a bordo piscina per appuntamenti aziendali.\n\n\"Insieme formiamo il commercio di domani\" Brack. Alltron impiega circa 1300 dipendenti e genera oltre un miliardo di fatturato. L'azienda esiste perché una persona ha avuto il coraggio di trovare nuovi modi e andare loro. La nostra storia di successo mostra che attraverso ogni individuo, qualcosa di grande è creato insieme e amiamo la nostra unicità. Ci siamo posti obiettivi ambiziosi, ma è molto importante per noi che agiamo responsabilmente, promuoviamo e ci sfidiamo e godiamo ciò che facciamo ogni giorno.",
-        "en": "Tasks:\n• A varied apprenticeship in a modern and successful logistics operation\n\n• You get to know different storage processes – from receipt of goods via storage to provision for shipping\n\n• The use of advanced storage techniques and modern tools is part of your training day\n\n• You work practically with goods, systems and processes and take responsibility step by step\n\n• As a team, you will learn how efficient and reliable logistics work\n\n• Your learning support and those responsible for vocational training support you during your training\n\n• You can expect a well-functioning team that accompanies and supports you\n\n• You develop professionally, practically and personally\n\nRequirements\n• Very good real or good secondary school level\n\n• Good knowledge of mathematics and enjoyment of practical tasks\n\n• Logical and Abstract Thinking\n\n• Interest in storage processes, flows of goods and modern logistics\n\n• Willingness to perform and learn\n\n• Careful, reliable and responsible working methods\n\n• Joy of working with people and in a team\n\n• Physical resilience and motivation to work in an active environment\n\nWe offer:\n• Perks: Attractive perks in the Brack online shop as well as lunch perks and staff restaurants in Mägenwil and Willisau.\n\n• Recreation: At least 5 weeks of vacation, in addition there is the possibility for holiday purchase and unpaid vacation.\n\n• Development: Internal training in the own Academy as well as financial participation in external further education.\n\n• Family: 18 weeks of paid maternity leave with extension and 4 weeks of paid paternity leave.\n\n• Insurance: Super-compulsory – 100% continued pay and full financing of the sickness allowance insurance by the employer.\n\n• Mobility: free parking, financial participation in public transport and pool vehicles for business appointments.\n\n\"Together we shape the trade of tomorrow\" Brack.Alltron employs around 1300 employees and generates over one billion turnover. The company exists because a person had the courage to find new ways and go them. Our success story shows that through each individual, something great is created together and we love our uniqueness. We set ourselves ambitious goals, but it is very important to us that we act responsibly, promote and challenge each other and enjoy what we do every day.",
-        "de": "Aufgaben:\n• Eine abwechslungsreiche Lehrstelle in einem modernen und erfolgreichen Logistikbetrieb\n\n• Du lernst verschiedene Lagerprozesse kennen – vom Wareneingang über die Lagerung bis zur Bereitstellung für den Versand\n\n• Der Einsatz von fortschrittlichen Lagertechniken und modernen Hilfsmitteln gehört zu deinem Ausbildungsalltag\n\n• Du arbeitest praktisch mit Waren, Systemen und Prozessen und übernimmst Schritt für Schritt Verantwortung\n\n• Im Team lernst du, wie eine effiziente und zuverlässige Logistik funktioniert\n\n• Deine Lernbegleitung und die Berufsbildungsverantwortlichen unterstützen dich während deiner Ausbildung\n\n• Dich erwartet ein gut eingespieltes Team, das dich begleitet und unterstützt\n\n• Du entwickelst dich fachlich, praktisch und persönlich weiter\n\nAnforderungen:\n• Sehr gutes Real- oder gutes Sekundarschulniveau\n\n• Gute Mathematikkenntnisse und Freude an praktischen Aufgaben\n\n• Logisches und abstraktes Denken\n\n• Interesse an Lagerprozessen, Warenflüssen und moderner Logistik\n\n• Leistungs- und Lernbereitschaft\n\n• Sorgfältige, zuverlässige und verantwortungsbewusste Arbeitsweise\n\n• Freude an der Zusammenarbeit mit Menschen und im Team\n\n• Körperliche Belastbarkeit und Motivation, in einem aktiven Umfeld zu arbeiten\n\nWir bieten:\n• Vergünstigungen: Attraktive Vergünstigungen im Brack-Onlineshop sowie Mittagessenvergünstigungen und Personalrestaurants in Mägenwil und Willisau.\n\n• Erholung: Mindestens 5 Wochen Ferien, zusätzlich besteht die Möglichkeit für Ferienkauf und unbezahlten Urlaub.\n\n• Entwicklung: Interne Ausbildungen in der eigenen Academy sowie finanzielle Beteiligung an externen Weiterbildungen.\n\n• Familie: 18 Wochen bezahlter Mutterschaftsurlaub mit Verlängerungsmöglichkeit und 4 Wochen bezahlter Vaterschaftsurlaub.\n\n• Versicherungen: Überobligatorisch – 100% Lohnfortzahlung sowie vollständige Finanzierung der Krankentaggeldversicherung durch den Arbeitgeber.\n\n• Mobilität: Gratisparkplätze, finanzielle Beteiligung an den ÖV und Poolfahrzeuge für Geschäftstermine.\n\n\"Gemeinsam gestalten wir den Handel von morgen\" Brack.Alltron beschäftigt rund 1300 Mitarbeitende und erwirtschaftet über eine Milliarde Umsatz. Das Unternehmen gibt es, weil ein Mensch den Mut hatte, neue Wege zu finden und sie zu gehen. Unsere Erfolgsgeschichte zeigt, dass durch jeden Einzelnen, gemeinsam etwas Grosses entsteht und wir lieben unsere Einzigartigkeit. Wir setzen uns ambitionierte Ziele, dabei ist es uns sehr wichtig, dass wir verantwortlich handeln, uns gegenseitig fördern und fordern und Freude haben an dem, was wir tagtäglich tun.",
-        "fr": "Tâches :\n• Un apprentissage varié dans une opération logistique moderne et réussie\n\n• Vous apprenez à connaître différents processus de stockage – de la réception des marchandises par stockage à la fourniture pour l'expédition\n\n• L'utilisation de techniques de stockage avancées et d'outils modernes fait partie de votre journée de formation\n\n• Vous travaillez pratiquement avec des biens, des systèmes et des processus et prenez la responsabilité étape par étape\n\n• En tant qu'équipe, vous apprendrez comment fonctionne la logistique efficace et fiable\n\n• Votre soutien à l'apprentissage et les responsables de la formation professionnelle vous soutiennent pendant votre formation\n\n• Vous pouvez vous attendre à une équipe qui fonctionne bien et qui vous accompagne\n\n• Vous développez professionnellement, pratiquement et personnellement\n\nExigences\n• Très bon niveau réel ou bon niveau secondaire\n\n• Bonne connaissance des mathématiques et jouissance des tâches pratiques\n\n• Pensée logique et abstraite\n\n• Intérêt pour les processus de stockage, les flux de marchandises et la logistique moderne\n\n• Volonté d'accomplir et d'apprendre\n\n• Méthodes de travail prudentes, fiables et responsables\n\n• Joy de travailler avec les gens et dans une équipe\n\n• La résilience physique et la motivation au travail dans un environnement actif\n\nNous offrons:\n• Avantages: avantages attrayants dans la boutique en ligne Brack ainsi que les avantages du déjeuner et les restaurants du personnel à Mägenwil et Willisau.\n\n• Loisirs: Au moins 5 semaines de vacances, il y a aussi la possibilité d'acheter des vacances et des vacances non rémunérées.\n\n• Développement: formation interne dans la propre Académie ainsi que participation financière à l'enseignement complémentaire externe.\n\n• Famille : 18 semaines de congé de maternité payé avec prolongation et 4 semaines de congé de paternité payé.\n\n• Assurance : Super-obligatoire – 100% de la rémunération continue et le financement intégral de l'assurance maladie par l'employeur.\n\n• Mobilité: parking gratuit, participation financière aux transports publics et véhicules de pool pour les rendez-vous d'affaires.\n\n\"Ensemble nous façonnons le commerce de demain\" Brack. Alltron emploie environ 1300 employés et génère plus d'un milliard de chiffre d'affaires. L'entreprise existe parce qu'une personne a eu le courage de trouver de nouvelles façons de les faire. Notre success story montre qu'à travers chaque individu, quelque chose de grand est créé ensemble et nous aimons notre unicité. Nous nous sommes fixé des objectifs ambitieux, mais il est très important pour nous d'agir de manière responsable, de nous promouvoir et de nous défier mutuellement et de profiter de ce que nous faisons chaque jour."
-      },
-      "location": "Willisau",
-      "canton": "LU",
-      "url": "https://jobs.brackalltron.ch/offene-stellen/lehrstelle-als-logistiker-in-efz-lager/841de3c4-d4ba-493c-8a7d-29eed54db63f",
-      "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.571Z",
-      "addressLocality": "Willisau",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5506",
-      "streetAddress": "",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "E-commerce / Distribuzione elettronica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-15",
-      "applyUrl": "https://jobs.brackalltron.ch/offene-stellen/lehrstelle-als-logistiker-in-efz-lager/841de3c4-d4ba-493c-8a7d-29eed54db63f",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-als-logistiker-in-efz-lager-brack-alltron-willisau",
-        "apprendistato-come-polymechaniker-in-cfc-brack-alltron-ag-willisau",
-        "apprenticeship-as-a-polymechanic-in-efz-brack-alltron-ag-willisau",
-        "lehrstelle-als-polymechaniker-in-efz-brack-alltron-willisau",
-        "apprentissage-en-tant-que-polymecanique-en-efz-brack-alltron-ag-willisau",
-        "apprendistato-come-logistiker-in-cfc-magazzino-brack-alltron-ag-willisau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-als-logistiker-in-efz-lager-brack-alltron-willisau",
-          "apprendistato-come-polymechaniker-in-cfc-brack-alltron-ag-willisau",
-          "apprenticeship-as-a-polymechanic-in-efz-brack-alltron-ag-willisau",
-          "lehrstelle-als-polymechaniker-in-efz-brack-alltron-willisau",
-          "apprentissage-en-tant-que-polymecanique-en-efz-brack-alltron-ag-willisau",
-          "apprendistato-come-logistiker-in-cfc-magazzino-brack-alltron-ag-willisau"
-        ],
-        "en": [
-          "lehrstelle-als-logistiker-in-efz-lager-brack-alltron-willisau",
-          "apprenticeship-as-a-polymechanic-in-efz-brack-alltron-ag-willisau"
-        ],
-        "de": [
-          "lehrstelle-als-polymechaniker-in-efz-brack-alltron-willisau"
-        ],
-        "fr": [
-          "lehrstelle-als-logistiker-in-efz-lager-brack-alltron-willisau",
-          "apprentissage-en-tant-que-polymecanique-en-efz-brack-alltron-ag-willisau"
-        ]
-      },
-      "firstSeenAt": "2026-07-15T22:39:06.036Z",
-      "salaryMin": 58500,
-      "salaryMax": 89000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58500,
-          "maxValue": 89000,
-          "unitText": "YEAR"
-        }
-      }
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-dada4efa1113",
@@ -375,7 +278,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/lehrstelle-als-mediamatiker-in-efz/423304bb-69c6-4da4-8233-8b378c421288",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.571Z",
+      "crawledAt": "2026-09-26T14:04:14.626Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -395,14 +298,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mediamatiker-in-efz-brack-alltron-magenwil",
-        "lehrstelle-als-mediamatiker-in-efz-brack-alltron-magenwil",
-        "mediamatiker-in-cfc-brack-alltron-ag-magenwil"
+        "lehrstelle-als-mediamatiker-in-efz-brack-alltron-magenwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mediamatiker-in-efz-brack-alltron-magenwil",
-          "lehrstelle-als-mediamatiker-in-efz-brack-alltron-magenwil",
-          "mediamatiker-in-cfc-brack-alltron-ag-magenwil"
+          "lehrstelle-als-mediamatiker-in-efz-brack-alltron-magenwil"
         ],
         "en": [
           "mediamatiker-in-efz-brack-alltron-magenwil"
@@ -424,7 +325,100 @@
           "maxValue": 92500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
+    },
+    {
+      "id": "brack-alltron-b4b696e51562",
+      "slug": "apprendistato-come-logistiker-in-cfc-magazzino-brack-alltron-ag-willisau",
+      "slugByLocale": {
+        "it": "apprendistato-come-logistiker-in-cfc-magazzino-brack-alltron-ag-willisau",
+        "en": "apprenticeship-as-logistician-efz-warehouse-brack-alltron-ag-willisau",
+        "de": "lehrstelle-als-logistiker-in-efz-lager-brack-alltron-willisau",
+        "fr": "apprentissage-en-tant-que-logistique-efz-warehouse-brack-alltron-ag-willisau"
+      },
+      "company": "Brack.Alltron AG",
+      "companyKey": "brack-alltron",
+      "companyDomain": "brack.ch",
+      "title": "Lehrstelle als Logistiker*in EFZ (Lager)",
+      "titleByLocale": {
+        "it": "Apprendistato come logistico EFZ (Warehouse)",
+        "en": "Apprenticeship as logistician EFZ (Warehouse)",
+        "de": "Lehrstelle als Logistiker*in EFZ (Lager)",
+        "fr": "Apprentissage en tant que logistique EFZ (Warehouse)"
+      },
+      "description": "Aufgaben:\n• Eine abwechslungsreiche Lehrstelle in einem modernen und erfolgreichen Logistikbetrieb\n\n• Du lernst verschiedene Lagerprozesse kennen – vom Wareneingang über die Lagerung bis zur Bereitstellung für den Versand\n\n• Der Einsatz von fortschrittlichen Lagertechniken und modernen Hilfsmitteln gehört zu deinem Ausbildungsalltag\n\n• Du arbeitest praktisch mit Waren, Systemen und Prozessen und übernimmst Schritt für Schritt Verantwortung\n\n• Im Team lernst du, wie eine effiziente und zuverlässige Logistik funktioniert\n\n• Deine Lernbegleitung und die Berufsbildungsverantwortlichen unterstützen dich während deiner Ausbildung\n\n• Dich erwartet ein gut eingespieltes Team, das dich begleitet und unterstützt\n\n• Du entwickelst dich fachlich, praktisch und persönlich weiter\n\nAnforderungen:\n• Sehr gutes Real- oder gutes Sekundarschulniveau\n\n• Gute Mathematikkenntnisse und Freude an praktischen Aufgaben\n\n• Logisches und abstraktes Denken\n\n• Interesse an Lagerprozessen, Warenflüssen und moderner Logistik\n\n• Leistungs- und Lernbereitschaft\n\n• Sorgfältige, zuverlässige und verantwortungsbewusste Arbeitsweise\n\n• Freude an der Zusammenarbeit mit Menschen und im Team\n\n• Körperliche Belastbarkeit und Motivation, in einem aktiven Umfeld zu arbeiten\n\nWir bieten:\n• Vergünstigungen: Attraktive Vergünstigungen im Brack-Onlineshop sowie Mittagessenvergünstigungen und Personalrestaurants in Mägenwil und Willisau.\n\n• Erholung: Mindestens 5 Wochen Ferien, zusätzlich besteht die Möglichkeit für Ferienkauf und unbezahlten Urlaub.\n\n• Entwicklung: Interne Ausbildungen in der eigenen Academy sowie finanzielle Beteiligung an externen Weiterbildungen.\n\n• Familie: 18 Wochen bezahlter Mutterschaftsurlaub mit Verlängerungsmöglichkeit und 4 Wochen bezahlter Vaterschaftsurlaub.\n\n• Versicherungen: Überobligatorisch – 100% Lohnfortzahlung sowie vollständige Finanzierung der Krankentaggeldversicherung durch den Arbeitgeber.\n\n• Mobilität: Gratisparkplätze, finanzielle Beteiligung an den ÖV und Poolfahrzeuge für Geschäftstermine.\n\n\"Gemeinsam gestalten wir den Handel von morgen\" Brack.Alltron beschäftigt rund 1300 Mitarbeitende und erwirtschaftet über eine Milliarde Umsatz. Das Unternehmen gibt es, weil ein Mensch den Mut hatte, neue Wege zu finden und sie zu gehen. Unsere Erfolgsgeschichte zeigt, dass durch jeden Einzelnen, gemeinsam etwas Grosses entsteht und wir lieben unsere Einzigartigkeit. Wir setzen uns ambitionierte Ziele, dabei ist es uns sehr wichtig, dass wir verantwortlich handeln, uns gegenseitig fördern und fordern und Freude haben an dem, was wir tagtäglich tun.",
+      "descriptionByLocale": {
+        "it": "Compiti:\n• Un apprendistato vario in un'operazione logistica moderna e di successo\n\n• Si arriva a conoscere diversi processi di stoccaggio – dal ricevimento delle merci tramite stoccaggio alla fornitura per la spedizione\n\n• L'uso di tecniche di storage avanzate e strumenti moderni fa parte della vostra giornata di allenamento\n\n• Si lavora praticamente con beni, sistemi e processi e si assume responsabilità passo dopo passo\n\n• Come team, imparerai come funziona la logistica efficiente e affidabile\n\n• Il vostro sostegno all'apprendimento e i responsabili della formazione professionale vi sostengono durante la vostra formazione\n\n• Ci si può aspettare un team ben funzionante che accompagna e ti supporta\n\n• Si sviluppa professionalmente, praticamente e personalmente\n\nRequisiti\n• Ottimo livello di scuola secondaria reale o buono\n\n• Buona conoscenza della matematica e il godimento dei compiti pratici\n\n• Logica e pensiero astratto\n\n• Interessi in processi di stoccaggio, flussi di merci e logistica moderna\n\n• Volontà di eseguire e imparare\n\n• Metodi di lavoro attenti, affidabili e responsabili\n\n• Gioia di lavorare con le persone e in una squadra\n\n• Resistenza fisica e motivazione a lavorare in un ambiente attivo\n\nOffriamo:\n• Perks: Perk interessanti nel negozio online di Brack, nonché perks di pranzo e ristoranti di personale a Mägenwil e Willisau.\n\n• Ricreazione: Almeno 5 settimane di vacanza, inoltre c'è la possibilità di acquisto di vacanza e vacanza non pagata.\n\n• Sviluppo: Formazione interna alla propria Accademia e partecipazione finanziaria all'ulteriore istruzione esterna.\n\n• Famiglia: 18 settimane di congedo di maternità retribuito con prolungamento e 4 settimane di congedo di paternità pagato.\n\n• Assicurazione: Superobbligatorio – 100% paga continuata e pieno finanziamento dell'assicurazione malattia da parte del datore di lavoro.\n\n• Mobilità: parcheggio gratuito, partecipazione finanziaria ai trasporti pubblici e veicoli a bordo piscina per appuntamenti aziendali.\n\n\"Insieme formiamo il commercio di domani\" Brack. Alltron impiega circa 1300 dipendenti e genera oltre un miliardo di fatturato. L'azienda esiste perché una persona ha avuto il coraggio di trovare nuovi modi e andare loro. La nostra storia di successo mostra che attraverso ogni individuo, qualcosa di grande è creato insieme e amiamo la nostra unicità. Ci siamo posti obiettivi ambiziosi, ma è molto importante per noi che agiamo responsabilmente, promuoviamo e ci sfidiamo e godiamo ciò che facciamo ogni giorno.",
+        "en": "Tasks:\n• A varied apprenticeship in a modern and successful logistics operation\n\n• You get to know different storage processes – from receipt of goods via storage to provision for shipping\n\n• The use of advanced storage techniques and modern tools is part of your training day\n\n• You work practically with goods, systems and processes and take responsibility step by step\n\n• As a team, you will learn how efficient and reliable logistics work\n\n• Your learning support and those responsible for vocational training support you during your training\n\n• You can expect a well-functioning team that accompanies and supports you\n\n• You develop professionally, practically and personally\n\nRequirements\n• Very good real or good secondary school level\n\n• Good knowledge of mathematics and enjoyment of practical tasks\n\n• Logical and Abstract Thinking\n\n• Interest in storage processes, flows of goods and modern logistics\n\n• Willingness to perform and learn\n\n• Careful, reliable and responsible working methods\n\n• Joy of working with people and in a team\n\n• Physical resilience and motivation to work in an active environment\n\nWe offer:\n• Perks: Attractive perks in the Brack online shop as well as lunch perks and staff restaurants in Mägenwil and Willisau.\n\n• Recreation: At least 5 weeks of vacation, in addition there is the possibility for holiday purchase and unpaid vacation.\n\n• Development: Internal training in the own Academy as well as financial participation in external further education.\n\n• Family: 18 weeks of paid maternity leave with extension and 4 weeks of paid paternity leave.\n\n• Insurance: Super-compulsory – 100% continued pay and full financing of the sickness allowance insurance by the employer.\n\n• Mobility: free parking, financial participation in public transport and pool vehicles for business appointments.\n\n\"Together we shape the trade of tomorrow\" Brack.Alltron employs around 1300 employees and generates over one billion turnover. The company exists because a person had the courage to find new ways and go them. Our success story shows that through each individual, something great is created together and we love our uniqueness. We set ourselves ambitious goals, but it is very important to us that we act responsibly, promote and challenge each other and enjoy what we do every day.",
+        "de": "Aufgaben:\n• Eine abwechslungsreiche Lehrstelle in einem modernen und erfolgreichen Logistikbetrieb\n\n• Du lernst verschiedene Lagerprozesse kennen – vom Wareneingang über die Lagerung bis zur Bereitstellung für den Versand\n\n• Der Einsatz von fortschrittlichen Lagertechniken und modernen Hilfsmitteln gehört zu deinem Ausbildungsalltag\n\n• Du arbeitest praktisch mit Waren, Systemen und Prozessen und übernimmst Schritt für Schritt Verantwortung\n\n• Im Team lernst du, wie eine effiziente und zuverlässige Logistik funktioniert\n\n• Deine Lernbegleitung und die Berufsbildungsverantwortlichen unterstützen dich während deiner Ausbildung\n\n• Dich erwartet ein gut eingespieltes Team, das dich begleitet und unterstützt\n\n• Du entwickelst dich fachlich, praktisch und persönlich weiter\n\nAnforderungen:\n• Sehr gutes Real- oder gutes Sekundarschulniveau\n\n• Gute Mathematikkenntnisse und Freude an praktischen Aufgaben\n\n• Logisches und abstraktes Denken\n\n• Interesse an Lagerprozessen, Warenflüssen und moderner Logistik\n\n• Leistungs- und Lernbereitschaft\n\n• Sorgfältige, zuverlässige und verantwortungsbewusste Arbeitsweise\n\n• Freude an der Zusammenarbeit mit Menschen und im Team\n\n• Körperliche Belastbarkeit und Motivation, in einem aktiven Umfeld zu arbeiten\n\nWir bieten:\n• Vergünstigungen: Attraktive Vergünstigungen im Brack-Onlineshop sowie Mittagessenvergünstigungen und Personalrestaurants in Mägenwil und Willisau.\n\n• Erholung: Mindestens 5 Wochen Ferien, zusätzlich besteht die Möglichkeit für Ferienkauf und unbezahlten Urlaub.\n\n• Entwicklung: Interne Ausbildungen in der eigenen Academy sowie finanzielle Beteiligung an externen Weiterbildungen.\n\n• Familie: 18 Wochen bezahlter Mutterschaftsurlaub mit Verlängerungsmöglichkeit und 4 Wochen bezahlter Vaterschaftsurlaub.\n\n• Versicherungen: Überobligatorisch – 100% Lohnfortzahlung sowie vollständige Finanzierung der Krankentaggeldversicherung durch den Arbeitgeber.\n\n• Mobilität: Gratisparkplätze, finanzielle Beteiligung an den ÖV und Poolfahrzeuge für Geschäftstermine.\n\n\"Gemeinsam gestalten wir den Handel von morgen\" Brack.Alltron beschäftigt rund 1300 Mitarbeitende und erwirtschaftet über eine Milliarde Umsatz. Das Unternehmen gibt es, weil ein Mensch den Mut hatte, neue Wege zu finden und sie zu gehen. Unsere Erfolgsgeschichte zeigt, dass durch jeden Einzelnen, gemeinsam etwas Grosses entsteht und wir lieben unsere Einzigartigkeit. Wir setzen uns ambitionierte Ziele, dabei ist es uns sehr wichtig, dass wir verantwortlich handeln, uns gegenseitig fördern und fordern und Freude haben an dem, was wir tagtäglich tun.",
+        "fr": "Tâches :\n• Un apprentissage varié dans une opération logistique moderne et réussie\n\n• Vous apprenez à connaître différents processus de stockage – de la réception des marchandises par stockage à la fourniture pour l'expédition\n\n• L'utilisation de techniques de stockage avancées et d'outils modernes fait partie de votre journée de formation\n\n• Vous travaillez pratiquement avec des biens, des systèmes et des processus et prenez la responsabilité étape par étape\n\n• En tant qu'équipe, vous apprendrez comment fonctionne la logistique efficace et fiable\n\n• Votre soutien à l'apprentissage et les responsables de la formation professionnelle vous soutiennent pendant votre formation\n\n• Vous pouvez vous attendre à une équipe qui fonctionne bien et qui vous accompagne\n\n• Vous développez professionnellement, pratiquement et personnellement\n\nExigences\n• Très bon niveau réel ou bon niveau secondaire\n\n• Bonne connaissance des mathématiques et jouissance des tâches pratiques\n\n• Pensée logique et abstraite\n\n• Intérêt pour les processus de stockage, les flux de marchandises et la logistique moderne\n\n• Volonté d'accomplir et d'apprendre\n\n• Méthodes de travail prudentes, fiables et responsables\n\n• Joy de travailler avec les gens et dans une équipe\n\n• La résilience physique et la motivation au travail dans un environnement actif\n\nNous offrons:\n• Avantages: avantages attrayants dans la boutique en ligne Brack ainsi que les avantages du déjeuner et les restaurants du personnel à Mägenwil et Willisau.\n\n• Loisirs: Au moins 5 semaines de vacances, il y a aussi la possibilité d'acheter des vacances et des vacances non rémunérées.\n\n• Développement: formation interne dans la propre Académie ainsi que participation financière à l'enseignement complémentaire externe.\n\n• Famille : 18 semaines de congé de maternité payé avec prolongation et 4 semaines de congé de paternité payé.\n\n• Assurance : Super-obligatoire – 100% de la rémunération continue et le financement intégral de l'assurance maladie par l'employeur.\n\n• Mobilité: parking gratuit, participation financière aux transports publics et véhicules de pool pour les rendez-vous d'affaires.\n\n\"Ensemble nous façonnons le commerce de demain\" Brack. Alltron emploie environ 1300 employés et génère plus d'un milliard de chiffre d'affaires. L'entreprise existe parce qu'une personne a eu le courage de trouver de nouvelles façons de les faire. Notre success story montre qu'à travers chaque individu, quelque chose de grand est créé ensemble et nous aimons notre unicité. Nous nous sommes fixé des objectifs ambitieux, mais il est très important pour nous d'agir de manière responsable, de nous promouvoir et de nous défier mutuellement et de profiter de ce que nous faisons chaque jour."
+      },
+      "location": "Willisau",
+      "canton": "LU",
+      "url": "https://jobs.brackalltron.ch/offene-stellen/lehrstelle-als-logistiker-in-efz-lager/841de3c4-d4ba-493c-8a7d-29eed54db63f",
+      "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T14:04:14.624Z",
+      "addressLocality": "Willisau",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5506",
+      "streetAddress": "",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "E-commerce / Distribuzione elettronica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-15",
+      "applyUrl": "https://jobs.brackalltron.ch/offene-stellen/lehrstelle-als-logistiker-in-efz-lager/841de3c4-d4ba-493c-8a7d-29eed54db63f",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-als-logistiker-in-efz-lager-brack-alltron-willisau",
+        "apprendistato-come-polymechaniker-in-cfc-brack-alltron-ag-willisau",
+        "apprenticeship-as-a-polymechanic-in-efz-brack-alltron-ag-willisau",
+        "lehrstelle-als-polymechaniker-in-efz-brack-alltron-willisau",
+        "apprentissage-en-tant-que-polymecanique-en-efz-brack-alltron-ag-willisau"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-als-logistiker-in-efz-lager-brack-alltron-willisau",
+          "apprendistato-come-polymechaniker-in-cfc-brack-alltron-ag-willisau",
+          "apprenticeship-as-a-polymechanic-in-efz-brack-alltron-ag-willisau",
+          "lehrstelle-als-polymechaniker-in-efz-brack-alltron-willisau",
+          "apprentissage-en-tant-que-polymecanique-en-efz-brack-alltron-ag-willisau"
+        ],
+        "en": [
+          "lehrstelle-als-logistiker-in-efz-lager-brack-alltron-willisau",
+          "apprenticeship-as-a-polymechanic-in-efz-brack-alltron-ag-willisau"
+        ],
+        "de": [
+          "lehrstelle-als-polymechaniker-in-efz-brack-alltron-willisau"
+        ],
+        "fr": [
+          "lehrstelle-als-logistiker-in-efz-lager-brack-alltron-willisau",
+          "apprentissage-en-tant-que-polymecanique-en-efz-brack-alltron-ag-willisau"
+        ]
+      },
+      "firstSeenAt": "2026-07-15T22:39:06.036Z",
+      "salaryMin": 58500,
+      "salaryMax": 89000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58500,
+          "maxValue": 89000,
+          "unitText": "YEAR"
+        }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-42d52152fcf0",
@@ -441,7 +435,7 @@
       "title": "Deputy Teamlead Warehousing & Goods Flow",
       "titleByLocale": {
         "it": "Vice Teamlead Warehousing & Goods Flow",
-        "en": "Deputy Team Lead Warehousing & Goods Flow",
+        "en": "Deputy Teamlead Warehousing & Goods Flow",
         "de": "Deputy Teamlead Warehousing & Goods Flow",
         "fr": "Sous-chef d'équipe Entreposage et flux de marchandises"
       },
@@ -452,12 +446,13 @@
         "de": "Aufgaben:\n• Stellvertretung des Teamlead bei der Organisation und Sicherstellung des täglichen Betriebs\n\n• Aktive Mitarbeit im operativen Tagesgeschäft mit einem Anteil von rund 80 %\n\n• Koordination und Disposition der Mitarbeitenden innerhalb des Teams sowie bereichsübergreifend mit dem Leitstand\n\n• Fachliche Anleitung und Unterstützung der Mitarbeitenden im Arbeitsalltag\n\n• Übernahme einzelner Führungsaufgaben und Mitarbeitendengespräche im Auftrag des Teamlead\n\n• Unterstützung bei der Personal- und Einsatzplanung sowie bei der Einführung neuer Mitarbeitender\n\n• Sicherstellung der Qualitäts-, Sicherheits- und Prozessstandards im Verantwortungsbereich\n\n• Kontrolle der korrekten und termingerechten Zeiterfassung von internen und temporären Mitarbeitenden\n\n• Aktive Mitarbeit bei der Optimierung von Prozessen, Arbeitsabläufen sowie Material- und Informationsflüssen\n\nAnforderungen:\n• Mehrjährige Berufserfahrung in einem Produktions-, Lager- oder Logistikumfeld\n\n• Erste Erfahrung in der fachlichen Führung, Koordination oder Anleitung von Mitarbeitenden ist von Vorteil\n\n• Freude daran, operativ mitzuarbeiten und gleichzeitig Verantwortung für das Team und die Abläufe zu übernehmen\n\n• Bereitschaft und Flexibilität für den Schichtbetrieb von Montag bis Freitag zwischen 05.00 und 23.00 Uhr sowie für regelmässige Samstageinsätze\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift, mindestens auf Niveau B2\n\n• Gute Anwenderkenntnisse in MS Office\n\n• Organisationsgeschick und eine strukturierte, lösungsorientierte Arbeitsweise\n\n• Klare und verständliche Kommunikation sowie ein sicheres Auftreten\n\n• Hohes Verantwortungsbewusstsein, Zuverlässigkeit und ausgeprägte Eigeninitiative\n\n• Durchsetzungsvermögen, Teamfähigkeit und eine glaubwürdige Vorbildfunktion\n\nWir bieten:\n• Vergünstigungen: Attraktive Vergünstigungen im Brack-Onlineshop sowie Mittagessenvergünstigungen und Personalrestaurants in Mägenwil und Willisau.\n\n• Erholung: Mindestens 5 Wochen Ferien, zusätzlich besteht die Möglichkeit für Ferienkauf und unbezahlten Urlaub.\n\n• Entwicklung: Interne Ausbildungen in der eigenen Academy sowie finanzielle Beteiligung an externen Weiterbildungen.\n\n• Familie: 18 Wochen bezahlter Mutterschaftsurlaub mit Verlängerungsmöglichkeit und 4 Wochen bezahlter Vaterschaftsurlaub.\n\n• Versicherungen: Überobligatorisch – 100% Lohnfortzahlung sowie vollständige Finanzierung der Krankentaggeldversicherung durch den Arbeitgeber.\n\n• Mobilität: Gratisparkplätze, finanzielle Beteiligung an den ÖV und Poolfahrzeuge für Geschäftstermine.\n\n\"Gemeinsam gestalten wir den Handel von morgen\" Brack.Alltron beschäftigt rund 1300 Mitarbeitende und erwirtschaftet über eine Milliarde Umsatz. Das Unternehmen gibt es, weil ein Mensch den Mut hatte, neue Wege zu finden und sie zu gehen. Unsere Erfolgsgeschichte zeigt, dass durch jeden Einzelnen, gemeinsam etwas Grosses entsteht und wir lieben unsere Einzigartigkeit. Wir setzen uns ambitionierte Ziele, dabei ist es uns sehr wichtig, dass wir verantwortlich handeln, uns gegenseitig fördern und fordern und Freude haben an dem, was wir tagtäglich tun.",
         "fr": "Tâches :\n• Chef d'équipe adjoint pour organiser et assurer les opérations quotidiennes\n\n• Participation active aux opérations quotidiennes avec une part d'environ 80%\n\n• Coordination et disposition des employés au sein de l'équipe ainsi que dans tous les ministères avec la salle de contrôle\n\n• Orientation professionnelle et soutien des employés dans le travail quotidien\n\n• Assomption de tâches de gestion individuelles et de discussions avec les employés au nom de Teamlead\n\n• Appui à la planification du personnel et du déploiement ainsi qu'à l'introduction de nouveaux employés\n\n• Assurer la qualité, la sécurité et les normes de procédure dans le domaine de responsabilité\n\n• Contrôle de l'enregistrement correct et opportun des employés internes et temporaires\n\n• Participation active à l'optimisation des processus, des flux de travail et des flux de matériel et d'information\n\nExigences\n• Plusieurs années d'expérience professionnelle dans un environnement de production, d'entreposage ou de logistique\n\n• L'expérience initiale dans la gestion professionnelle, la coordination ou l'orientation des employés est un avantage\n\n• Profitez du travail opérationnel tout en assumant la responsabilité de l'équipe et des processus\n\n• Disponibilité et flexibilité pour les équipes du lundi au vendredi entre 05.00 et 23.00 ainsi que pour les affectations régulières du samedi\n\n• Très bonne connaissance de l'allemand en mots et en écriture, au moins au niveau B2\n\n• Bonne connaissance des utilisateurs dans MS Office\n\n• Compétence organisationnelle et méthode de travail structurée axée sur la solution\n\n• Communication claire et compréhensible ainsi qu'une apparence sûre\n\n• Haut sens des responsabilités, fiabilité et initiative forte\n\n• assertion, travail d'équipe et modèle de rôle crédible\n\nNous offrons:\n• Avantages: Des avantages attrayants dans la boutique en ligne Brack ainsi que des avantages pour le déjeuner et les restaurants du personnel à Mägenwil et Willisau.\n\n• Loisirs: Au moins 5 semaines de vacances, en plus il ya la possibilité d'acheter des vacances et des vacances non payées.\n\n• Développement: formation interne dans la propre Académie ainsi que participation financière à l'enseignement complémentaire externe.\n\n• Famille : 18 semaines de congé de maternité payé avec prolongation et 4 semaines de congé de paternité payé.\n\n• Assurance : Superobligatoire – 100% de la rémunération continue et le financement intégral de l'assurance maladie par l'employeur.\n\n• Mobilité: parking gratuit, participation financière dans les transports publics et les véhicules de piscine pour les réunions d'affaires.\n\n\"Ensemble nous façonnons le commerce de demain\" Brack. Alltron emploie environ 1300 employés et génère plus d'un milliard de ventes. L'entreprise existe parce qu'une personne a eu le courage de trouver de nouvelles façons de les faire. Notre success story montre qu'à travers chaque individu, quelque chose de grand est créé ensemble et nous aimons notre unicité. Nous nous fixons des objectifs ambitieux, mais il est très important pour nous d'agir de manière responsable, de nous promouvoir, de nous défier mutuellement et de profiter de ce que nous faisons chaque jour."
       },
+      "needsRetranslation": true,
       "location": "Willisau",
       "canton": "LU",
       "url": "https://jobs.brackalltron.ch/offene-stellen/deputy-teamlead-warehousing-goods-flow/db26aeb7-0956-46ef-9362-b2ba1c83e318",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.569Z",
+      "crawledAt": "2026-09-26T14:04:14.620Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -516,12 +511,13 @@
         "de": "Aufgaben:\n• Verantwortung für die Frontend-Architektur über mehrere Teams und Domänen hinweg – von Storefront und Search bis zu Checkout, Account und Loyalty\n\n• Weiterentwicklung unserer Standards für React, TypeScript, Server-Side Rendering, Micro-Frontends und Self-Contained Systems\n\n• Aufbau und Etablierung gemeinsamer Component-Foundations sowie eines skalierbaren Design-Systems\n\n• Gezielte Optimierung von Web Performance und Core Web Vitals als relevante Hebel für Customer Experience und Conversion\n\n• Gestaltung moderner Rendering-, Streaming-, Edge-, Caching- und Bundle-Strategien sowie einer aussagekräftigen Frontend-Observability\n\n• Beseitigung organisationsweiter technischer Blocker in der lokalen Entwicklung, im Tooling, in Build-Pipelines und in der Architektur\n\n• Verankerung von Security, Accessibility und Privacy by Default in der gesamten Frontend-Landschaft\n\n• Definition und Weiterentwicklung unserer AI-Tooling-Strategie inklusive geeigneter Architektur, automatisierter Code Reviews und wirksamer Nutzung moderner Engineering-Tools\n\n• Technisches Coaching von Engineers und Team Leads sowie enge Zusammenarbeit mit Domain Architecture, Product Management und Leadership\n\n• Repräsentation unserer technischen Ausrichtung innerhalb der Organisation, gegenüber Budgetverantwortlichen und in der externen Tech-Community\n\nAnforderungen:\n• Mindestens zehn Jahre Erfahrung in der modernen Softwareentwicklung mit einem ausgeprägten Schwerpunkt im Frontend sowie mindestens zwei Jahre in einer technischen Leadership- oder Architekturrolle\n\n• Tiefgehende Praxiserfahrung mit React und TypeScript in produktiven, geschäftskritischen Anwendungen\n\n• Fundierte Kenntnisse in Server-Side Rendering, beispielsweise mit Next.js, Remix oder einem vergleichbaren Setup, sowie mit Micro-Frontends oder Self-Contained Systems\n\n• Ausgewiesene Expertise in Web Performance, Core Web Vitals, Accessibility und der Entwicklung schneller, skalierbarer Customer Experiences\n\n• Souveräner Umgang mit Konzepten wie DDD, Clean Architecture, Event-Driven Architecture, SOLID, Feature Flags und Dependency Injection sowie mit Design Systems, State-Management und Component-Driven Development\n\n• Solides Verständnis für verteilte Systeme, DevOps-Praktiken, automatisiertes Testing, CI/CD und den Betrieb von Systemen nach dem Prinzip \"You build it, you run it\"\n\n• Erfahrung in einer schnellen, produktorientierten Engineering-Organisation mit kurzen Iterationen, regelmässigen Releases und echter End-to-End-Verantwortung\n\n• Freude daran, Anforderungen gemeinsam mit Product Management zu schärfen, Kundürfnisse zu verstehen und technische Entscheidungen aus Nutzer- und Business-Sicht zu treffen\n\n• Ausgeprägte Coaching- und Kommunikationskompetenz, Servant-Leadership-Mindset sowie die Fähigkeit, komplexe Veränderungen mit Ausdauer, Wärme und Humor voranzutreiben\n\n• Sehr gute Deutsch- und/oder Englischkenntnisse sowie kontinuierliche Neugier auf neue Technologien, Methoden und AI-gestützte Softwareentwicklung\n\nWir bieten:\n• Vergünstigungen: Attraktive Vergünstigungen im Brack-Onlineshop sowie Mittagessenvergünstigungen und Personalrestaurants in Mägenwil und Willisau.\n\n• Erholung: Mindestens 5 Wochen Ferien, zusätzlich besteht die Möglichkeit für Ferienkauf und unbezahlten Urlaub.\n\n• Entwicklung: Interne Ausbildungen in der eigenen Academy sowie finanzielle Beteiligung an externen Weiterbildungen.\n\n• Familie: 18 Wochen bezahlter Mutterschaftsurlaub mit Verlängerungsmöglichkeit und 4 Wochen bezahlter Vaterschaftsurlaub.\n\n• Versicherungen: Überobligatorisch – 100% Lohnfortzahlung sowie vollständige Finanzierung der Krankentaggeldversicherung durch den Arbeitgeber.\n\n• Mobilität: Gratisparkplätze, finanzielle Beteiligung an den ÖV und Poolfahrzeuge für Geschäftstermine.\n\n\"Gemeinsam gestalten wir den Handel von morgen\" Brack.Alltron beschäftigt rund 1300 Mitarbeitende und erwirtschaftet über eine Milliarde Umsatz. Das Unternehmen gibt es, weil ein Mensch den Mut hatte, neue Wege zu finden und sie zu gehen. Unsere Erfolgsgeschichte zeigt, dass durch jeden Einzelnen, gemeinsam etwas Grosses entsteht und wir lieben unsere Einzigartigkeit. Wir setzen uns ambitionierte Ziele, dabei ist es uns sehr wichtig, dass wir verantwortlich handeln, uns gegenseitig fördern und fordern und Freude haben an dem, was wir tagtäglich tun.",
         "fr": "Tâches :\n• Responsabilité de l'architecture front-end à travers plusieurs équipes et domaines – de l'avant du magasin et de la recherche à la caisse, compte et fidélité\n\n• Poursuite du développement de nos normes pour les systèmes React, TypeScript, Serveur, Micro-Frontends et Auto-Contained\n\n• Création et mise en place de fondations communes ainsi que d'un système de conception évolutive\n\n• Optimisation ciblée des performances du web et des éléments essentiels du web comme leviers pertinents pour l'expérience client et la conversion\n\n• Conception de stratégies modernes de rendu, de streaming, de bord, de cache et de bundle ainsi qu'une visibilité frontale significative\n\n• Élimination des obstacles techniques à l'échelle de l'organisation dans le développement local, l'outillage, la construction de pipelines et l'architecture\n\n• Ancrer la sécurité, l'accessibilité et la confidentialité par défaut dans le paysage frontal\n\n• Définir et développer davantage notre stratégie d'outils d'IA, y compris une architecture appropriée, des examens automatisés de codes et une utilisation efficace des outils d'ingénierie modernes\n\n• Coaching technique des ingénieurs et des chefs d'équipe ainsi qu'une coopération étroite avec l'architecture de domaine, la gestion de produits et le leadership\n\n• Représenter notre orientation technique au sein de l'organisation, vers les gestionnaires budgétaires et dans la communauté technique externe\n\nExigences\n• Au moins dix ans d'expérience dans le développement de logiciels modernes avec un accent particulier sur la façade et au moins deux ans dans un rôle de leadership technique ou d'architecture\n\n• Expérience pratique approfondie avec React et TypeScript dans des applications productives et critiques pour les entreprises\n\n• Connaissance approfondie du rendu côté serveur, par exemple avec Next.js, Remix ou une configuration comparable, ainsi qu'avec des micro-frontends ou des systèmes autonomes\n\n• Expertise éprouvée en performance web, éléments essentiels du web, accessibilité et développement d'expériences client rapides et évolutives\n\n• Gestion fiable de concepts tels que DDD, Clean Architecture, Event-Driven Architecture, SOLID, Feature Flags et Dependency Injection ainsi que de systèmes de conception, de gestion d'État et de développement de composants-Driven\n\n• Compréhension solide des systèmes distribués, des pratiques DevOps, des tests automatisés, du CI/CD et du fonctionnement des systèmes selon le principe \"Vous le construisez, vous l'exécutez\"\n\n• Expérience dans une organisation d'ingénierie rapide et orientée produit avec des itérations courtes, des sorties régulières et une responsabilité réelle de bout en bout\n\n• Profitez de l'affûtage des exigences et de la gestion des produits, de la compréhension des besoins des clients et de la prise de décisions techniques du point de vue des utilisateurs et des entreprises\n\n• Forte capacité de coaching et de communication, esprit de leadership de serviteur et capacité de conduire un changement complexe avec endurance, chaleur et humour\n\n• Très bonne connaissance de l'allemand et/ou de l'anglais ainsi qu'une curiosité continue au sujet des nouvelles technologies, méthodes et développement de logiciels soutenus par l'IA\n\nNous offrons:\n• Avantages: Des avantages attrayants dans la boutique en ligne Brack ainsi que des avantages pour le déjeuner et les restaurants du personnel à Mägenwil et Willisau.\n\n• Loisirs: Au moins 5 semaines de vacances, en plus il ya la possibilité d'acheter des vacances et des vacances non payées.\n\n• Développement: formation interne dans la propre Académie ainsi que participation financière à l'enseignement complémentaire externe.\n\n• Famille : 18 semaines de congé de maternité payé avec prolongation et 4 semaines de congé de paternité payé.\n\n• Assurance : Superobligatoire – 100% de la rémunération continue et le financement intégral de l'assurance maladie par l'employeur.\n\n• Mobilité: parking gratuit, participation financière dans les transports publics et les véhicules de piscine pour les réunions d'affaires.\n\n\"Ensemble nous façonnons le commerce de demain\" Brack. Alltron emploie environ 1300 employés et génère plus d'un milliard de ventes. L'entreprise existe parce qu'une personne a eu le courage de trouver de nouvelles façons de les faire. Notre success story montre qu'à travers chaque individu, quelque chose de grand est créé ensemble et nous aimons notre unicité. Nous nous fixons des objectifs ambitieux, mais il est très important pour nous d'agir de manière responsable, de nous promouvoir, de nous défier mutuellement et de profiter de ce que nous faisons chaque jour."
       },
+      "needsRetranslation": true,
       "location": "Mägenwil",
       "canton": "AG",
       "url": "https://jobs.brackalltron.ch/offene-stellen/principal-engineer-frontend/969a83de-4767-4ef4-a38b-451b3210374c",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.566Z",
+      "crawledAt": "2026-09-26T14:04:14.614Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -586,7 +582,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/enterprise-architect-business-applications/4c929d04-3d6c-428d-a466-80c1286f7274",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.565Z",
+      "crawledAt": "2026-09-26T14:04:14.612Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -650,7 +646,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/teamleiter-infrastruktur-gebaeudetechnik/a739868c-1ba8-43f2-a05b-0f895a86a323",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.564Z",
+      "crawledAt": "2026-09-26T14:04:14.609Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -669,13 +665,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-infrastruktur-amp-gebaudetechnik-brack-alltron-willisau",
-        "team-leader-infrastructure-building-technology-brack-alltron-ag-willisau"
+        "teamleiter-infrastruktur-amp-gebaudetechnik-brack-alltron-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-infrastruktur-amp-gebaudetechnik-brack-alltron-willisau",
-          "team-leader-infrastructure-building-technology-brack-alltron-ag-willisau"
+          "teamleiter-infrastruktur-amp-gebaudetechnik-brack-alltron-willisau"
         ],
         "fr": [
           "teamleiter-infrastruktur-amp-gebaudetechnik-brack-alltron-willisau"
@@ -694,7 +688,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-b17a6824faef",
@@ -711,7 +706,7 @@
       "title": "Specialist Operational Planning & Control - Logistikleitstand",
       "titleByLocale": {
         "it": "Specialista Operational Planning & Control",
-        "en": "Specialist Operational Planning & Control - Logistics Control Center",
+        "en": "Specialist Operational Planning & Control - Logistikleitstand",
         "de": "Spezialist Operational Planning & Control - Logistikleitstand",
         "fr": "Spécialiste Operational Planning & Control"
       },
@@ -727,7 +722,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/specialist-operational-planning-control-logistikleitstand/1511e978-195d-4995-9efd-fb01e453e0f7",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.562Z",
+      "crawledAt": "2026-09-26T14:04:14.604Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -747,14 +742,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "specialist-operational-planning-amp-control-brack-alltron-willisau",
-        "specialist-operational-planning-amp-control-logistikleitstand-brack-alltron-willisau",
-        "specialista-operational-planning-control-brack-alltron-ag-willisau"
+        "specialist-operational-planning-amp-control-logistikleitstand-brack-alltron-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialist-operational-planning-amp-control-brack-alltron-willisau",
-          "specialist-operational-planning-amp-control-logistikleitstand-brack-alltron-willisau",
-          "specialista-operational-planning-control-brack-alltron-ag-willisau"
+          "specialist-operational-planning-amp-control-logistikleitstand-brack-alltron-willisau"
         ],
         "fr": [
           "specialist-operational-planning-amp-control-brack-alltron-willisau"
@@ -773,7 +766,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-4d4d873ec26e",
@@ -806,7 +800,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/mitarbeiter-in-haustechnik/a902831a-c9f4-4708-a033-fae662a7bcc6",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.561Z",
+      "crawledAt": "2026-09-26T14:04:14.596Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -825,13 +819,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-haustechnik-brack-alltron-willisau",
-        "collaboratore-trice-haustechnik-brack-alltron-ag-willisau"
+        "mitarbeiter-in-haustechnik-brack-alltron-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-haustechnik-brack-alltron-willisau",
-          "collaboratore-trice-haustechnik-brack-alltron-ag-willisau"
+          "mitarbeiter-in-haustechnik-brack-alltron-willisau"
         ],
         "en": [
           "mitarbeiter-in-haustechnik-brack-alltron-willisau"
@@ -853,7 +845,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-bd3fd987999b",
@@ -886,7 +879,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/lehrstelle-als-polymechaniker-in-efz/c5cada14-1429-4713-8d54-ba9f840f71e0",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.559Z",
+      "crawledAt": "2026-09-26T14:04:14.588Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -905,13 +898,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-polymechaniker-in-efz-brack-alltron-willisau",
-        "apprendistato-come-polymechaniker-in-cfc-brack-alltron-ag-willisau"
+        "lehrstelle-als-polymechaniker-in-efz-brack-alltron-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-polymechaniker-in-efz-brack-alltron-willisau",
-          "apprendistato-come-polymechaniker-in-cfc-brack-alltron-ag-willisau"
+          "lehrstelle-als-polymechaniker-in-efz-brack-alltron-willisau"
         ],
         "en": [
           "lehrstelle-als-polymechaniker-in-efz-brack-alltron-willisau"
@@ -933,7 +924,8 @@
           "maxValue": 108000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-73abf978bfe9",
@@ -961,12 +953,13 @@
         "de": "Aufgaben:\n• Eines der modernsten E-Commerce-Lager Europas mit hohem Automatisierungs- und Digitalisierungsgrad: Auf unserem Förderband werden jährlich ca. 4.3 Mio. Päckli verarbeitet.\n\n• Dich faszinieren hochautomatisierte Lagersysteme und du möchtest die Prozesse dahinter kennen und optimieren\n\n• Deine Hauptaufgabe liegt in der Fehlerbehebung der kommissionierten Gesamtaufträge oder der zur Verpackung freigegebenen Ware\n\n• Fehlende Rüstscheine oder Artikel, falsche Seriennummer, fehlende Etikette, defekte Artikel etc. - dies sind nur einige Fehlerbehebungen, die dir im Berufsalltag begegnen werden\n\n• Diese Aufgaben meistern bei uns ein 15-köpfiges Support-Team, welches vom Teamlead Operations Support geleitet wird: Sei Teil davon!\n\n• Ein junges, aufgestelltes und eingespieltes Team sowie eine hohe Mitarbeiterzufriedenheit\n\nAnforderungen:\n• Du hast eine berufliche Grundbildung oder idealerweise die Grundausbildung als Logistiker*in EFZ abgeschlossen\n\n• Du kennst bereits die Welt der dynamischen Logistik und dir gelingt es, auch in stressigen Situationen einen kühlen Kopf zu bewahren, dich zu fokussieren und richtig zu priorisieren.\n\n• Du lernst gerne Neues dazu und bist gewillt die gesamte Wertschöpfungskette und die dahinterliegenden, komplexen Zusammenhänge zu verstehen\n\n• Gute PC-Kenntnisse und die Bereitschaft die Logik unseres ERP-Systems, Navision, zu verinnerlichen\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (Niveau C1) sind notwendig\n\n• Bereitschaft in wöchentlich wechselnden Diensten zu arbeiten (Montag 08:00 Uhr bis 17:10 Uhr / 13:50 Uhr bis 23:00 Uhr, Dienstag - Freitag 08:00 Uhr bis 17:10 Uhr / 13:50 Uhr bis 23:00 Uhr und regelmässigen Samstagseinsätzen (10:00 bis 18:00)\n\nWir bieten:\n• Vergünstigungen: Attraktive Vergünstigungen im Brack-Onlineshop sowie Mittagessenvergünstigungen und Personalrestaurants in Mägenwil und Willisau.\n\n• Erholung: Mindestens 5 Wochen Ferien, zusätzlich besteht die Möglichkeit für Ferienkauf und unbezahlten Urlaub.\n\n• Entwicklung: Interne Ausbildungen in der eigenen Academy sowie finanzielle Beteiligung an externen Weiterbildungen.\n\n• Familie: 18 Wochen bezahlter Mutterschaftsurlaub mit Verlängerungsmöglichkeit und 4 Wochen bezahlter Vaterschaftsurlaub.\n\n• Versicherungen: Überobligatorisch – 100% Lohnfortzahlung sowie vollständige Finanzierung der Krankentaggeldversicherung durch den Arbeitgeber.\n\n• Mobilität: Gratisparkplätze, finanzielle Beteiligung an den ÖV und Poolfahrzeuge für Geschäftstermine.\n\n\"Gemeinsam gestalten wir den Handel von morgen\" Brack.Alltron beschäftigt rund 1300 Mitarbeitende und erwirtschaftet über eine Milliarde Umsatz. Das Unternehmen gibt es, weil ein Mensch den Mut hatte, neue Wege zu finden und sie zu gehen. Unsere Erfolgsgeschichte zeigt, dass durch jeden Einzelnen, gemeinsam etwas Grosses entsteht und wir lieben unsere Einzigartigkeit. Wir setzen uns ambitionierte Ziele, dabei ist es uns sehr wichtig, dass wir verantwortlich handeln, uns gegenseitig fördern und fordern und Freude haben an dem, was wir tagtäglich tun.",
         "fr": "Tâches :\n• Un des entrepôts de commerce électronique les plus modernes d'Europe avec un haut degré d'automatisation et de numérisation: environ 4,3 millions de personnes par an sont transportées sur notre tapis roulant. Päckli traité.\n\n• Vous êtes fasciné par les systèmes de stockage hautement automatisés et vous voulez connaître et optimiser les processus derrière eux\n\n• Votre tâche principale est de résoudre les commandes totales commandées ou les marchandises dédouanées pour l'emballage\n\n• Certificats ou articles de configuration manquants, numéro de série incorrect, étiquette manquante, articles défectueux, etc. - ce ne sont que quelques corrections d'erreur que vous rencontrerez dans le travail quotidien\n\n• Ces tâches sont confiées à une équipe de soutien de 15 membres dirigée par Teamlead Operations Support: Faites partie de cette équipe!\n\n• Une équipe jeune, établie et expérimentée ainsi qu'un niveau élevé de satisfaction des employés\n\nExigences\n• Vous avez suivi une formation professionnelle de base ou idéalement une formation de base en tant que logisticien EFZ\n\n• Vous connaissez déjà le monde de la logistique dynamique et vous réussissez à garder une tête cool, de se concentrer et de prioriser correctement même dans des situations stressantes.\n\n• Vous aimez apprendre de nouvelles choses et êtes prêt à comprendre toute la chaîne de valeur et les relations complexes sous-jacentes\n\n• Bonne connaissance PC et la volonté d'internaliser la logique de notre système ERP, Navision\n\n• Très bonne connaissance de l'allemand en paroles et en écriture (niveau C1) est nécessaire\n\n• Préparation au travail dans les services de changement hebdomadaire (lundi 08:00 à 17:10 / 13:50 à 23:00, mardi - vendredi 08:00 à 17:10 / 13:50 à 23:00 et affectations régulières le samedi (10:00 à 18:00)\n\nNous offrons:\n• Avantages: Des avantages attrayants dans la boutique en ligne Brack ainsi que des avantages pour le déjeuner et les restaurants du personnel à Mägenwil et Willisau.\n\n• Loisirs: Au moins 5 semaines de vacances, en plus il ya la possibilité d'acheter des vacances et des vacances non payées.\n\n• Développement: formation interne dans la propre Académie ainsi que participation financière à l'enseignement complémentaire externe.\n\n• Famille : 18 semaines de congé de maternité payé avec prolongation et 4 semaines de congé de paternité payé.\n\n• Assurance : Superobligatoire – 100% de la rémunération continue et le financement intégral de l'assurance maladie par l'employeur.\n\n• Mobilité: parking gratuit, participation financière dans les transports publics et les véhicules de piscine pour les réunions d'affaires.\n\n\"Ensemble nous façonnons le commerce de demain\" Brack. Alltron emploie environ 1300 employés et génère plus d'un milliard de ventes. L'entreprise existe parce qu'une personne a eu le courage de trouver de nouvelles façons de les faire. Notre success story montre qu'à travers chaque individu, quelque chose de grand est créé ensemble et nous aimons notre unicité. Nous nous fixons des objectifs ambitieux, mais il est très important pour nous d'agir de manière responsable, de nous promouvoir, de nous défier mutuellement et de profiter de ce que nous faisons chaque jour."
       },
+      "needsRetranslation": true,
       "location": "Willisau",
       "canton": "LU",
       "url": "https://jobs.brackalltron.ch/offene-stellen/logistics-agent-operations-support/8962bf5f-3294-45c9-927b-866d80e4657e",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.558Z",
+      "crawledAt": "2026-09-26T14:04:14.584Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1048,7 +1041,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/deputy-teamlead-cargo-large-orders/17058df6-d06b-4528-bb2a-7e8ca6385670",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.556Z",
+      "crawledAt": "2026-09-26T14:04:14.579Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1073,8 +1066,7 @@
         "stv-team-leadership-technology-brack-alltron-ag-willisau",
         "stv-teamleitung-technik-brack-alltron-willisau",
         "stv-technologie-de-leadership-d-equipe-brack-alltron-ag-willisau",
-        "deputy-teamlead-cargo-amp-large-orders-brack-alltron-willisau",
-        "vice-teamlead-cargo-grandi-ordini-brack-alltron-ag-willisau"
+        "deputy-teamlead-cargo-amp-large-orders-brack-alltron-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1084,8 +1076,7 @@
           "stv-team-leadership-technology-brack-alltron-ag-willisau",
           "stv-teamleitung-technik-brack-alltron-willisau",
           "stv-technologie-de-leadership-d-equipe-brack-alltron-ag-willisau",
-          "deputy-teamlead-cargo-amp-large-orders-brack-alltron-willisau",
-          "vice-teamlead-cargo-grandi-ordini-brack-alltron-ag-willisau"
+          "deputy-teamlead-cargo-amp-large-orders-brack-alltron-willisau"
         ],
         "fr": [
           "deputy-teamlead-cargo-amp-large-orders-brack-alltron-willisau"
@@ -1104,7 +1095,8 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-bf617c6e1f79",
@@ -1138,7 +1130,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/specialized-sales-physical-ai-robotics/db946c1b-0dde-48dc-a0cf-200251971c58",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.554Z",
+      "crawledAt": "2026-09-26T14:04:14.575Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1160,16 +1152,14 @@
         "specialized-sales-physical-ai-robotics-brack-alltron-magenwil",
         "vendita-tecnica-fisica-ai-robotica-brack-alltron-ag-magenwil",
         "technical-sales-physical-ai-robotics-brack-alltron-magenwil",
-        "ventes-techniques-ai-physique-robotique-brack-alltron-ag-magenwil",
-        "vendita-specializzata-fisica-ai-robotica-brack-alltron-ag-magenwil"
+        "ventes-techniques-ai-physique-robotique-brack-alltron-ag-magenwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialized-sales-physical-ai-robotics-brack-alltron-magenwil",
           "vendita-tecnica-fisica-ai-robotica-brack-alltron-ag-magenwil",
           "technical-sales-physical-ai-robotics-brack-alltron-magenwil",
-          "ventes-techniques-ai-physique-robotique-brack-alltron-ag-magenwil",
-          "vendita-specializzata-fisica-ai-robotica-brack-alltron-ag-magenwil"
+          "ventes-techniques-ai-physique-robotique-brack-alltron-ag-magenwil"
         ],
         "de": [
           "technical-sales-physical-ai-robotics-brack-alltron-magenwil"
@@ -1220,12 +1210,13 @@
         "de": "Aufgaben:\n• Führung, Coaching und Weiterentwicklung eines kleinen Engineering-Teams mit Fokus auf Eigenverantwortung, Qualität und kontinuierliches Lernen\n\n• Hands-on-Mitarbeit in der Softwareentwicklung – von der ersten Idee über Architektur und Lösungsdesign bis zum produktiven Betrieb\n\n• Enge Zusammenarbeit mit Product Management, Stakeholdern und angrenzenden Engineering-Teams\n\n• Entwicklung moderner und skalierbarer Lösungen für zentrale Prozesse im Bereich Sourcing & Purchasing\n\n• Gestaltung modularer Architekturen und Schnittstellen mit Ansätzen wie Domain-Driven Design, Self-Contained Systems und Data Mesh\n\n• Sicherstellung hoher Codequalität durch Code Reviews, Pair Programming und strukturierte Testing-Prozesse\n\n• Weiterentwicklung von CI/CD, DevOps und Deployments, damit das Team schnell, stabil und regelmässig ausliefern kann\n\n• Förderung einer vertrauensvollen Teamumgebung mit offener Fehler-, Feedback- und Lernkultur\n\nAnforderungen:\n• Mindestens fünf Jahre Erfahrung in der Softwareentwicklung sowie mindestens ein Jahr Erfahrung in einer fachlichen oder personellen Führungsrolle\n\n• Fundierte Kenntnisse in Java sowie Erfahrung mit SQL, Datenmodellierung, CI/CD und DevOps\n\n• Vertrautheit mit modularer Softwarearchitektur, Schnittstellendesign und asynchroner Datenverarbeitung\n\n• Erfahrung mit Domain-Driven Design, Self-Contained Systems oder vergleichbaren Architekturansätzen\n\n• Freude an kurzen agilen Iterationen, Automatisierung und hands-on Softwareentwicklung\n\n• Eine empathische, klare und motivierende Leadership-Mentalität\n\n• Erfahrung darin, Mitarbeitende weiterzuentwickeln und eine offene Lern- und Feedbackkultur zu fördern\n\n• Abgeschlossenes Studium in Informatik oder Wirtschaftsinformatik oder eine vergleichbare Qualifikation\n\n• Erfahrung im E-Commerce und mit Cloud-Technologien von Vorteil\n\nWir bieten:\n• Vergünstigungen: Attraktive Vergünstigungen im Brack-Onlineshop sowie Mittagessenvergünstigungen und Personalrestaurants in Mägenwil und Willisau.\n\n• Erholung: Mindestens 5 Wochen Ferien, zusätzlich besteht die Möglichkeit für Ferienkauf und unbezahlten Urlaub.\n\n• Entwicklung: Interne Ausbildungen in der eigenen Academy sowie finanzielle Beteiligung an externen Weiterbildungen.\n\n• Familie: 18 Wochen bezahlter Mutterschaftsurlaub mit Verlängerungsmöglichkeit und 4 Wochen bezahlter Vaterschaftsurlaub.\n\n• Versicherungen: Überobligatorisch – 100% Lohnfortzahlung sowie vollständige Finanzierung der Krankentaggeldversicherung durch den Arbeitgeber.\n\n• Mobilität: Gratisparkplätze, finanzielle Beteiligung an den ÖV und Poolfahrzeuge für Geschäftstermine.\n\n\"Gemeinsam gestalten wir den Handel von morgen\" Brack.Alltron beschäftigt rund 1300 Mitarbeitende und erwirtschaftet über eine Milliarde Umsatz. Das Unternehmen gibt es, weil ein Mensch den Mut hatte, neue Wege zu finden und sie zu gehen. Unsere Erfolgsgeschichte zeigt, dass durch jeden Einzelnen, gemeinsam etwas Grosses entsteht und wir lieben unsere Einzigartigkeit. Wir setzen uns ambitionierte Ziele, dabei ist es uns sehr wichtig, dass wir verantwortlich handeln, uns gegenseitig fördern und fordern und Freude haben an dem, was wir tagtäglich tun.",
         "fr": "Tâches :\n• Leadership, encadrement et perfectionnement d'une petite équipe d'ingénieurs axée sur la responsabilité personnelle, la qualité et l'apprentissage continu\n\n• Coopération pratique dans le développement de logiciels – de la première idée à la conception d'architecture et de solutions à l'exploitation productive\n\n• Coopération étroite avec la gestion des produits, les parties prenantes et les équipes d'ingénierie connexes\n\n• Développement de solutions modernes et évolutives pour les processus centraux d'approvisionnement et d'achat\n\n• Conception d'architectures modulaires et d'interfaces avec des approches telles que la conception par domaine, les systèmes autonomes et le maillage de données\n\n• Assurer une qualité de code élevée par l'examen des codes, la programmation par paires et les processus d'essais structurés\n\n• Poursuite du développement de CI/CD, DevOps et déploiements afin que l'équipe puisse livrer rapidement, stable et régulièrement\n\n• Promouvoir un environnement d'équipe de confiance avec une culture ouverte d'erreur, de rétroaction et d'apprentissage\n\nExigences\n• Au moins cinq ans d'expérience dans le développement de logiciels et au moins un an d'expérience dans un rôle de leadership professionnel ou humain\n\n• Connaissance approfondie de Java et expérience avec SQL, modélisation de données, CI/CD et DevOps\n\n• Familiarité avec l'architecture logicielle modulaire, la conception d'interface et le traitement asynchrone des données\n\n• Expérience de la conception par domaine, des systèmes autonomes ou des approches architecturales comparables\n\n• Profitez des itérations agiles courtes, de l'automatisation et du développement de logiciels pratiques\n\n• Une mentalité de leadership empathique, claire et motivante\n\n• Expérience dans le développement des employés et la promotion d'une culture ouverte d'apprentissage et de rétroaction\n\n• Diplôme d'informatique ou d'informatique d'affaires ou diplôme comparable\n\n• L'expérience des technologies du commerce électronique et du cloud est un avantage\n\nNous offrons:\n• Avantages: avantages attrayants dans la boutique en ligne Brack ainsi que les avantages du déjeuner et les restaurants du personnel à Mägenwil et Willisau.\n\n• Loisirs: Au moins 5 semaines de vacances, il y a aussi la possibilité d'acheter des vacances et des vacances non rémunérées.\n\n• Développement: formation interne dans la propre Académie ainsi que participation financière à l'enseignement complémentaire externe.\n\n• Famille : 18 semaines de congé de maternité payé avec prolongation et 4 semaines de congé de paternité payé.\n\n• Assurance : Super-obligatoire – 100% de la rémunération continue et le financement intégral de l'assurance maladie par l'employeur.\n\n• Mobilité: parking gratuit, participation financière aux transports publics et véhicules de pool pour les rendez-vous d'affaires.\n\n\"Ensemble nous façonnons le commerce de demain\" Brack. Alltron emploie environ 1300 employés et génère plus d'un milliard de chiffre d'affaires. L'entreprise existe parce qu'une personne a eu le courage de trouver de nouvelles façons de les faire. Notre success story montre qu'à travers chaque individu, quelque chose de grand est créé ensemble et nous aimons notre unicité. Nous nous sommes fixé des objectifs ambitieux, mais il est très important pour nous d'agir de manière responsable, de nous promouvoir et de nous défier mutuellement et de profiter de ce que nous faisons chaque jour."
       },
+      "needsRetranslation": true,
       "location": "Mägenwil",
       "canton": "AG",
       "url": "https://jobs.brackalltron.ch/offene-stellen/team-lead-software-engineering-sourcing-purchasing/d24fcd1d-8fd4-4a67-9027-08d4a54842e9",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.553Z",
+      "crawledAt": "2026-09-26T14:04:14.572Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1290,7 +1281,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/business-development-manager-physical-ai-robotics/395728d0-a41d-47af-8e9f-08e119fc7a26",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.552Z",
+      "crawledAt": "2026-09-26T14:04:14.570Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1309,13 +1300,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "business-development-manager-physical-ai-robotics-brack-alltron-magenwil",
-        "business-development-manager-fisico-ai-robotica-brack-alltron-ag-magenwil"
+        "business-development-manager-physical-ai-robotics-brack-alltron-magenwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-development-manager-physical-ai-robotics-brack-alltron-magenwil",
-          "business-development-manager-fisico-ai-robotica-brack-alltron-ag-magenwil"
+          "business-development-manager-physical-ai-robotics-brack-alltron-magenwil"
         ],
         "fr": [
           "business-development-manager-physical-ai-robotics-brack-alltron-magenwil"
@@ -1368,7 +1357,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/lead-category-computing/82e7d61b-6ab3-40da-8df9-51e0b1c5e649",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.550Z",
+      "crawledAt": "2026-09-26T14:04:14.565Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1387,13 +1376,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lead-category-computing-brack-alltron-magenwil",
-        "categoria-di-piombo-computing-brack-alltron-ag-magenwil"
+        "lead-category-computing-brack-alltron-magenwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-category-computing-brack-alltron-magenwil",
-          "categoria-di-piombo-computing-brack-alltron-ag-magenwil"
+          "lead-category-computing-brack-alltron-magenwil"
         ],
         "fr": [
           "lead-category-computing-brack-alltron-magenwil"
@@ -1445,7 +1432,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/teamlead-goods-controlling-intake/c53f30f4-6c2a-426a-96bd-3130789257a5",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.549Z",
+      "crawledAt": "2026-09-26T14:04:14.563Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1464,13 +1451,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamlead-goods-controlling-amp-intake-brack-alltron-willisau",
-        "controllo-e-accoglienza-merci-teamlead-brack-alltron-ag-willisau"
+        "teamlead-goods-controlling-amp-intake-brack-alltron-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamlead-goods-controlling-amp-intake-brack-alltron-willisau",
-          "controllo-e-accoglienza-merci-teamlead-brack-alltron-ag-willisau"
+          "teamlead-goods-controlling-amp-intake-brack-alltron-willisau"
         ],
         "en": [
           "teamlead-goods-controlling-amp-intake-brack-alltron-willisau"
@@ -1489,7 +1474,8 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-ed988cdc2ee3",
@@ -1505,7 +1491,7 @@
       "companyDomain": "brack.ch",
       "title": "Logistician",
       "titleByLocale": {
-        "it": "Logisticista",
+        "it": "Logistician",
         "en": "Logistician",
         "de": "Logistician",
         "fr": "Logisticien"
@@ -1523,7 +1509,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/logistician/513304a6-2122-4ea9-a6dd-c520bed5764a",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.546Z",
+      "crawledAt": "2026-09-26T14:04:14.558Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1544,15 +1530,13 @@
       "previousSlugs": [
         "logisticien-brack-alltron-ag-willisau",
         "logistician-brack-alltron-willisau",
-        "logistician-brack-alltron-ag-willisau",
-        "logisticista-brack-alltron-ag-willisau"
+        "logistician-brack-alltron-ag-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logisticien-brack-alltron-ag-willisau",
           "logistician-brack-alltron-willisau",
-          "logistician-brack-alltron-ag-willisau",
-          "logisticista-brack-alltron-ag-willisau"
+          "logistician-brack-alltron-ag-willisau"
         ],
         "fr": [
           "logistician-brack-alltron-willisau"
@@ -1604,7 +1588,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/senior-software-engineer/60ab728e-698b-4c13-8152-02ea6c3baf2e",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.544Z",
+      "crawledAt": "2026-09-26T14:04:14.547Z",
       "addressLocality": "Zürich und/oder Mägenwil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1623,13 +1607,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-software-engineer-brack-alltron-zurich-und-oder-magenwil",
-        "senior-software-ingegnere-brack-alltron-ag-zurich-und-oder-magenwil"
+        "senior-software-engineer-brack-alltron-zurich-und-oder-magenwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-brack-alltron-zurich-und-oder-magenwil",
-          "senior-software-ingegnere-brack-alltron-ag-zurich-und-oder-magenwil"
+          "senior-software-engineer-brack-alltron-zurich-und-oder-magenwil"
         ]
       },
       "firstSeenAt": "2026-09-08T23:27:15.975Z",
@@ -1645,7 +1627,8 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-e1fbad29dd17",
@@ -1679,7 +1662,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/senior-modern-workplace-engineer/cae81230-fbbc-4950-801d-0d7d6cd25707",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.542Z",
+      "crawledAt": "2026-09-26T14:04:14.542Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1743,7 +1726,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/erp-developer-nav/ef39d19d-6519-41aa-a60e-b11201c79cbe",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.540Z",
+      "crawledAt": "2026-09-26T14:04:14.539Z",
       "addressLocality": "Zürich und/oder Mägenwil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1762,13 +1745,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "erp-developer-nav-brack-alltron-zurich-und-oder-magenwil",
-        "erp-sviluppatore-nav-brack-alltron-ag-zurich-und-oder-magenwil"
+        "erp-developer-nav-brack-alltron-zurich-und-oder-magenwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "erp-developer-nav-brack-alltron-zurich-und-oder-magenwil",
-          "erp-sviluppatore-nav-brack-alltron-ag-zurich-und-oder-magenwil"
+          "erp-developer-nav-brack-alltron-zurich-und-oder-magenwil"
         ]
       },
       "firstSeenAt": "2026-09-11T23:13:43.109Z",
@@ -1784,7 +1765,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-460aa21e1ee2",
@@ -1817,7 +1799,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/logistics-coordinator-shipping/7f080993-e05d-46a0-96a9-c316cca92fff",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.538Z",
+      "crawledAt": "2026-09-26T14:04:14.533Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1836,13 +1818,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logistics-coordinator-shipping-brack-alltron-willisau",
-        "logistica-coordinatore-shipping-brack-alltron-ag-willisau"
+        "logistics-coordinator-shipping-brack-alltron-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistics-coordinator-shipping-brack-alltron-willisau",
-          "logistica-coordinatore-shipping-brack-alltron-ag-willisau"
+          "logistics-coordinator-shipping-brack-alltron-willisau"
         ],
         "fr": [
           "logistics-coordinator-shipping-brack-alltron-willisau"
@@ -1861,7 +1841,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-b78a340cc261",
@@ -1880,7 +1861,7 @@
         "it": "Servizi a valore aggiunto Teamlead",
         "en": "Value-added services",
         "de": "Teamlead Value Added Services",
-        "fr": "Teamleader Services à valeur ajoutée"
+        "fr": "Teamlead Value Added Services"
       },
       "description": "Aufgaben:\n• Fachliche und disziplinarische Führung sowie Weiterentwicklung der Mitarbeitenden\n\n• Verantwortung für die Planung und Steuerung des Tagesgeschäfts, die Aufgabenverteilung und einen reibungslosen Ablauf\n\n• Koordination von Kundenaufträgen sowie Umsetzung technischer Zusatzleistungen und individueller Kundenlösungen\n\n• Beurteilung von Kundenanforderungen und Entwicklung passender Lösungen gemeinsam mit internen und externen Partnern\n\n• Verantwortung für Offerten, Kalkulationen, Servicebeschriebe und weitere Unterlagen\n\n• Laufende Optimierung von Prozessen, Arbeitsabläufen und der Zusammenarbeit mit anderen Bereichen\n\n• Verantwortung für Projekte sowie aktive Weiterentwicklung unserer Value Added Services\n\nAnforderungen:\n• Mindestens Fachausweis oder eine vergleichbare Berufsbildung / höhere Ausbildung\n\n• Führungserfahrung und Freude daran, ein Team fachlich und disziplinarisch zu führen und weiterzuentwickeln\n\n• Erfahrung in der Planung und Steuerung des Tagesgeschäfts sowie in der Aufgabenverteilung und Priorisierung\n\n• Know-how in der Koordination von Kundenaufträgen, der Umsetzung technischer Zusatzleistungen und individueller Kundenlösungen\n\n• Freude daran, Kundenanforderungen zu prüfen und gemeinsam mit internen und externen Partnern passende Lösungen zu entwickeln\n\n• Kenntnisse in der Erstellung von Offerten, Kalkulationen, Servicebeschrieben und weiteren Unterlagen\n\n• Eine selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie Freude an der Weiterentwicklung von Prozessen und Arbeitsabläufen\n\n• Bereitschaft zu frühen und späten Einsätzen, da sich die Arbeitszeiten an Kundenbedürfnissen und logistischen Prozessen orientieren, sowie ein einwandfreier Leumund\n\nWir bieten:\n• Vergünstigungen: Attraktive Vergünstigungen im Brack-Onlineshop sowie Mittagessenvergünstigungen und Personalrestaurants in Mägenwil und Willisau.\n\n• Erholung: Mindestens 5 Wochen Ferien, zusätzlich besteht die Möglichkeit für Ferienkauf und unbezahlten Urlaub.\n\n• Entwicklung: Interne Ausbildungen in der eigenen Academy sowie finanzielle Beteiligung an externen Weiterbildungen.\n\n• Familie: 18 Wochen bezahlter Mutterschaftsurlaub mit Verlängerungsmöglichkeit und 4 Wochen bezahlter Vaterschaftsurlaub.\n\n• Versicherungen: Überobligatorisch – 100% Lohnfortzahlung sowie vollständige Finanzierung der Krankentaggeldversicherung durch den Arbeitgeber.\n\n• Mobilität: Gratisparkplätze, finanzielle Beteiligung an den ÖV und Poolfahrzeuge für Geschäftstermine.\n\n\"Gemeinsam gestalten wir den Handel von morgen\" Brack.Alltron beschäftigt rund 1300 Mitarbeitende und erwirtschaftet über eine Milliarde Umsatz. Das Unternehmen gibt es, weil ein Mensch den Mut hatte, neue Wege zu finden und sie zu gehen. Unsere Erfolgsgeschichte zeigt, dass durch jeden Einzelnen, gemeinsam etwas Grosses entsteht und wir lieben unsere Einzigartigkeit. Wir setzen uns ambitionierte Ziele, dabei ist es uns sehr wichtig, dass wir verantwortlich handeln, uns gegenseitig fördern und fordern und Freude haben an dem, was wir tagtäglich tun.",
       "descriptionByLocale": {
@@ -1894,7 +1875,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/teamlead-value-added-services/0a44558c-ef59-47ae-81ef-9e1c0fdb1c2c",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.535Z",
+      "crawledAt": "2026-09-26T14:04:14.527Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1914,13 +1895,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "teamlead-value-added-services-brack-alltron-willisau",
-        "teamlead-value-added-services-brack-alltron-ag-willisau",
-        "servizi-a-valore-aggiunto-teamlead-brack-alltron-ag-willisau"
+        "teamlead-value-added-services-brack-alltron-ag-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamlead-value-added-services-brack-alltron-willisau",
-          "servizi-a-valore-aggiunto-teamlead-brack-alltron-ag-willisau"
+          "teamlead-value-added-services-brack-alltron-willisau"
         ],
         "fr": [
           "teamlead-value-added-services-brack-alltron-willisau",
@@ -1940,7 +1919,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-6291f9aeef06",
@@ -1957,7 +1937,7 @@
       "title": "Product Manager:in Sport",
       "titleByLocale": {
         "it": "Product Manager Sport",
-        "en": "Product Manager Sport",
+        "en": "Product Manager:in Sport",
         "de": "Product Manager:in Sport",
         "fr": "Gestionnaire de produit: dans Sport"
       },
@@ -1968,12 +1948,13 @@
         "de": "Aufgaben:\n• Unternehmerische Verantwortung für die zugewiesenen Sortimente inklusive Umsatz, Marge, Deckungsbeitrag, Budget und Preisstrategie über alle Vertriebskanäle (B2B & B2C)\n\n• Strategische Weiterentwicklung des Sortiments auf Basis von Markt-, Konsum- und Sporttrends sowie Evaluation neuer Hersteller, Lieferanten und wettbewerbsfähiger Bezugsquellen (Graumarktquellen)\n\n• Selbstständige Beziehungspflege und Verhandlung mit Herstellern und Lieferanten sowie Umsetzung der Beschaffungsstrategie in enger Zusammenarbeit mit dem Einkauf\n\n• Sicherstellung einer wirtschaftlichen Warenverfügbarkeit, effizienter Bestellprozesse (Vororder und Reorder) und einer hohen Datenqualität über alle Vertriebskanäle hinweg\n\n• Entwicklung von Vermarktungsmassnahmen gemeinsam mit Marketing und Vertrieb sowie Koordination der internen und externen Schnittstellen\n\n• Erstellung relevanter Reportings und Herstellerabrechnungen sowie Sicherstellung der Einhaltung gesetzlicher und regulatorischer Anforderungen in den verantworteten Sortimentsbereichen\n\n• Selbstständigkeit im strategischen Projektmanagement und Zusammenarbeit mit internen und externen Stakeholdern bei Programmen wie Dropshipping, Datenanbindungen und Einkaufstools\n\nAnforderungen:\n• Abgeschlossene Grundausbildung mit EFZ oder gleichwertige Qualifikation, idealerweise im Handel oder E-Commerce\n\n• Weiterbildung im Bereich Marketing, Product Management, Einkauf oder Betriebswirtschaft von Vorteil\n\n• Du bringst mindestens 2–3 Jahre Berufserfahrung im Product Management, Category Management, Einkauf oder Verkauf mit, idealerweise im Sport, Outdoor oder Fashion- Lifestyle-Umfeld\n\n• Sehr gute analytische Fähigkeiten sowie Freude daran, aus Kennzahlen konkrete Handlungsempfehlungen abzuleiten\n\n• Erfahrung im Umgang mit Herstellern und Lieferanten sowie ausgeprägtes Verhandlungsgeschick\n\n• Sicherer Umgang mit ERP-Systemen, Stammdatenmanagement und MS Office\n\n• Kenntnisse in kanalübergreifender Preisgestaltung und Vermarktung\n\n• Sehr gute Deutsch- sowie gute Englischkenntnisse\n\n• Du überzeugst durch unternehmerisches Denken, Eigeninitiative, eine strukturierte und selbstständige Arbeitsweise sowie ausgeprägte Kommunikations- und Teamfähigkeit. Deine Leidenschaft für Sport und den digitalen Handel rundet dein Profil ab\n\nWir bieten:\n• Vergünstigungen: Attraktive Vergünstigungen im Brack-Onlineshop sowie Mittagessenvergünstigungen und Personalrestaurants in Mägenwil und Willisau.\n\n• Erholung: Mindestens 5 Wochen Ferien, zusätzlich besteht die Möglichkeit für Ferienkauf und unbezahlten Urlaub.\n\n• Entwicklung: Interne Ausbildungen in der eigenen Academy sowie finanzielle Beteiligung an externen Weiterbildungen.\n\n• Familie: 18 Wochen bezahlter Mutterschaftsurlaub mit Verlängerungsmöglichkeit und 4 Wochen bezahlter Vaterschaftsurlaub.\n\n• Versicherungen: Überobligatorisch – 100% Lohnfortzahlung sowie vollständige Finanzierung der Krankentaggeldversicherung durch den Arbeitgeber.\n\n• Mobilität: Gratisparkplätze, finanzielle Beteiligung an den ÖV und Poolfahrzeuge für Geschäftstermine.\n\n\"Gemeinsam gestalten wir den Handel von morgen\" Brack.Alltron beschäftigt rund 1300 Mitarbeitende und erwirtschaftet über eine Milliarde Umsatz. Das Unternehmen gibt es, weil ein Mensch den Mut hatte, neue Wege zu finden und sie zu gehen. Unsere Erfolgsgeschichte zeigt, dass durch jeden Einzelnen, gemeinsam etwas Grosses entsteht und wir lieben unsere Einzigartigkeit. Wir setzen uns ambitionierte Ziele, dabei ist es uns sehr wichtig, dass wir verantwortlich handeln, uns gegenseitig fördern und fordern und Freude haben an dem, was wir tagtäglich tun.",
         "fr": "Tâches :\n• Responsabilité de l'entreprise pour les gammes attribuées, y compris les ventes, la marge, la marge de contribution, le budget et la stratégie de tarification pour tous les canaux de vente (B2B & B2C)\n\n• Développement stratégique de la gamme en fonction des tendances du marché, du consommateur et du sport ainsi que de l'évaluation de nouveaux fabricants, fournisseurs et sources d'approvisionnement compétitives (sources de marché grises)\n\n• Entretien et négociation indépendants avec les fabricants et les fournisseurs ainsi que mise en œuvre de la stratégie d ' achat en étroite coopération avec l ' achat\n\n• Assurer la disponibilité économique des biens, l'efficacité des processus de commande (en amont et en réordre) et la qualité des données dans tous les circuits de vente\n\n• Développement de mesures de commercialisation ainsi que de commercialisation et de vente et coordination des interfaces internes et externes\n\n• Préparation des rapports pertinents et facturation du fabricant ainsi que le respect des exigences légales et réglementaires dans les domaines de la gamme de produits responsables\n\n• Travail indépendant dans la gestion stratégique de projets et coopération avec des intervenants internes et externes dans des programmes tels que le décrochage, les connexions de données et les outils d'achat\n\nExigences\n• Formation de base complétée avec EFZ ou qualification équivalente, idéalement dans le commerce ou le commerce électronique\n\n• Une formation complémentaire en marketing, gestion de produits, achats ou administration des entreprises est avantageuse\n\n• 2–3 ans d'expérience professionnelle dans la gestion de produits, la gestion de catégories ou l'achat, de préférence dans le commerce électronique ou le sport/style de vie\n\n• Très bonne capacité d'analyse et plaisir à formuler des recommandations concrètes à partir de chiffres clés\n\n• Expérience dans les relations avec les fabricants et les fournisseurs ainsi que de solides compétences en matière de négociation\n\n• Gestion sécurisée des systèmes ERP, gestion des données et MS Office\n\n• Connaissance de la tarification et de la commercialisation transversales\n\n• Très bonnes compétences en allemand et en anglais\n\n• Vous convainquez par la pensée entrepreneuriale, l'auto-initiative, une méthode de travail structurée et indépendante, ainsi que de solides compétences en communication et en équipe. Votre passion pour le sport et le commerce numérique vient compléter votre profil\n\nNous offrons:\n• Avantages: Des avantages attrayants dans la boutique en ligne Brack ainsi que des avantages pour le déjeuner et les restaurants du personnel à Mägenwil et Willisau.\n\n• Loisirs: Au moins 5 semaines de vacances, en plus il ya la possibilité d'acheter des vacances et des vacances non payées.\n\n• Développement: formation interne dans la propre Académie ainsi que participation financière à l'enseignement complémentaire externe.\n\n• Famille : 18 semaines de congé de maternité payé avec prolongation et 4 semaines de congé de paternité payé.\n\n• Assurance : Superobligatoire – 100% de la rémunération continue et le financement intégral de l'assurance maladie par l'employeur.\n\n• Mobilité: parking gratuit, participation financière dans les transports publics et les véhicules de piscine pour les réunions d'affaires.\n\n\"Ensemble nous façonnons le commerce de demain\" Brack. Alltron emploie environ 1300 employés et génère plus d'un milliard de ventes. L'entreprise existe parce qu'une personne a eu le courage de trouver de nouvelles façons de les faire. Notre success story montre qu'à travers chaque individu, quelque chose de grand est créé ensemble et nous aimons notre unicité. Nous nous fixons des objectifs ambitieux, mais il est très important pour nous d'agir de manière responsable, de nous promouvoir, de nous défier mutuellement et de profiter de ce que nous faisons chaque jour."
       },
+      "needsRetranslation": true,
       "location": "Mägenwil",
       "canton": "AG",
       "url": "https://jobs.brackalltron.ch/offene-stellen/product-manager-in-sport/3ccc86ee-33ec-48be-96c6-7187bbd37bc8",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.532Z",
+      "crawledAt": "2026-09-26T14:04:14.521Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2038,7 +2019,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/product-manager-in-cables-batteries-computing-accessories/d36e6519-f773-467c-8aae-bf7b271d763d",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.531Z",
+      "crawledAt": "2026-09-26T14:04:14.519Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2057,13 +2038,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "product-manager-in-cables-batteries-amp-computing-accessories-brack-alltron-magenwil",
-        "product-manager-cavi-batterie-e-accessori-computing-brack-alltron-ag-magenwil"
+        "product-manager-in-cables-batteries-amp-computing-accessories-brack-alltron-magenwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-manager-in-cables-batteries-amp-computing-accessories-brack-alltron-magenwil",
-          "product-manager-cavi-batterie-e-accessori-computing-brack-alltron-ag-magenwil"
+          "product-manager-in-cables-batteries-amp-computing-accessories-brack-alltron-magenwil"
         ],
         "en": [
           "product-manager-in-cables-batteries-amp-computing-accessories-brack-alltron-magenwil"
@@ -2119,7 +2098,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/product-manager-in-microsoft-surface-und-monitore/3bcbb499-e76e-4a83-9042-d9be14150007",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.530Z",
+      "crawledAt": "2026-09-26T14:04:14.516Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2194,7 +2173,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/machine-specialist/fdfd5b1c-4c57-4bcc-8db8-d415266d044c",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.528Z",
+      "crawledAt": "2026-09-26T14:04:14.512Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2213,13 +2192,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "machine-specialist-brack-alltron-willisau",
-        "machine-specialista-brack-alltron-ag-willisau"
+        "machine-specialist-brack-alltron-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "machine-specialist-brack-alltron-willisau",
-          "machine-specialista-brack-alltron-ag-willisau"
+          "machine-specialist-brack-alltron-willisau"
         ],
         "fr": [
           "machine-specialist-brack-alltron-willisau"
@@ -2238,7 +2215,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-3bfffcb91e81",
@@ -2272,7 +2250,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/mitarbeiter-in-kommissionieren-autostore-kleinteilelager/9ca496c0-e10a-4493-bbcf-a53f601e76f6",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.525Z",
+      "crawledAt": "2026-09-26T14:04:14.507Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2291,15 +2269,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaboratore-trice-kommissionieren-autostore-kleinteilelager-brack-alltron-ag-mlj1ga",
         "mitarbeiter-in-kommissionieren-autostore-kleinteilelager-brack-alltron-willisau",
-        "collaboratore-trice-kommissionieren-autostore-kleinteilelager-brack-alltron-ag-willisau"
+        "collaboratore-trice-kommissionieren-autostore-kleinteilelager-brack-alltron-ag-willisau",
+        "collaboratore-trice-kommissionieren-autostore-kleinteilelager-brack-alltron-ag-mlj1ga"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaboratore-trice-kommissionieren-autostore-kleinteilelager-brack-alltron-ag-mlj1ga",
           "mitarbeiter-in-kommissionieren-autostore-kleinteilelager-brack-alltron-willisau",
-          "collaboratore-trice-kommissionieren-autostore-kleinteilelager-brack-alltron-ag-willisau"
+          "collaboratore-trice-kommissionieren-autostore-kleinteilelager-brack-alltron-ag-willisau",
+          "collaboratore-trice-kommissionieren-autostore-kleinteilelager-brack-alltron-ag-mlj1ga"
         ],
         "en": [
           "mitarbeiter-in-kommissionieren-autostore-kleinteilelager-brack-alltron-willisau"
@@ -2354,7 +2332,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/stellvertretende-teamleitung-warenausgang/a64f7c12-9b0b-45cf-aa91-0cbd3a51ec26",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.523Z",
+      "crawledAt": "2026-09-26T14:04:14.501Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2373,13 +2351,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stellvertretende-teamleitung-warenausgang-brack-alltron-willisau",
-        "capo-squadra-aggiunto-goods-outbound-brack-alltron-ag-willisau"
+        "stellvertretende-teamleitung-warenausgang-brack-alltron-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretende-teamleitung-warenausgang-brack-alltron-willisau",
-          "capo-squadra-aggiunto-goods-outbound-brack-alltron-ag-willisau"
+          "stellvertretende-teamleitung-warenausgang-brack-alltron-willisau"
         ],
         "en": [
           "stellvertretende-teamleitung-warenausgang-brack-alltron-willisau"
@@ -2401,7 +2377,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-79acd775d3b5",
@@ -2435,7 +2412,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/operative-r-einkaeufer-in-befristet-fuer-6-monate/8c0b107a-cfe1-42c7-b6f9-7050892bd1b2",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.520Z",
+      "crawledAt": "2026-09-26T14:04:14.496Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2455,14 +2432,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "operative-r-einkaufer-in-befristet-fur-6-monate-brack-alltron-magenwil",
-        "operative-r-einkaufer-in-befristet-per-6-monate-brack-alltron-ag-magenwil",
-        "operativo-r-acquirente-temporaneo-per-6-mesi-brack-alltron-ag-magenwil"
+        "operative-r-einkaufer-in-befristet-per-6-monate-brack-alltron-ag-magenwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "operative-r-einkaufer-in-befristet-fur-6-monate-brack-alltron-magenwil",
-          "operative-r-einkaufer-in-befristet-per-6-monate-brack-alltron-ag-magenwil",
-          "operativo-r-acquirente-temporaneo-per-6-mesi-brack-alltron-ag-magenwil"
+          "operative-r-einkaufer-in-befristet-per-6-monate-brack-alltron-ag-magenwil"
         ],
         "en": [
           "operative-r-einkaufer-in-befristet-fur-6-monate-brack-alltron-magenwil"
@@ -2491,7 +2466,7 @@
       "slug": "logistican-forniture-consumabili-brack-alltron-ag-willisau",
       "slugByLocale": {
         "it": "logistican-forniture-consumabili-brack-alltron-ag-willisau",
-        "en": "logistican-consumable-supplies-brack-alltron-willisau",
+        "en": "specialist-logistics-consumables-brack-alltron-ag-willisau",
         "de": "logistican-consumable-supplies-brack-alltron-willisau",
         "fr": "fournitures-consommables-logistican-brack-alltron-ag-willisau"
       },
@@ -2500,9 +2475,9 @@
       "companyDomain": "brack.ch",
       "title": "Fachperson Logistik Verbrauchsmaterialien",
       "titleByLocale": {
-        "de": "Fachperson Logistik Verbrauchsmaterialien",
         "it": "Specialist Logistics Consumables",
         "en": "Specialist Logistics Consumables",
+        "de": "Fachperson Logistik Verbrauchsmaterialien",
         "fr": "Consommables logistiques spécialisés"
       },
       "description": "Aufgaben:\n• Du nimmst Verbrauchsmaterialien entgegen, kontrollierst sie und lagerst sie fachgerecht ein\n\n• Du kommissionierst und stellst Verbrauchsmaterialien für unsere internen Logistikbereiche termingerecht bereit\n\n• Du überwachst Lagerbestände, führst Inventuren durch und verbuchst Warenbewegungen im Lagerverwaltungssystem\n\n• Du erkennst Materialengpässe frühzeitig und unterstützt bei der Nachschubplanung\n\n• Du sorgst für Ordnung, Sauberkeit und die Einhaltung von Qualitäts- und Sicherheitsvorgaben\n\n• Du bringst dich aktiv ins Tagesgeschäft ein und unterstützt bei der Optimierung unserer Prozesse\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Logistiker EFZ sowie Berufserfahrung in der Lagerlogistik\n\n• Erfahrung im Umgang mit Lagerverwaltungssystemen sowie gute Deutschkenntnisse (mindestens B2); MS-Office-Kenntnisse und ein Staplerausweis sind von Vorteil\n\n• Du arbeitest selbstständig, zuverlässig und behältst auch in hektischen Situationen den Überblick\n\n• Du bist körperlich fit und packst im Lageralltag gerne mit an\n\n• Du bist bereit, in Schichten zu arbeiten\n\n• Du verfügst über einen einwandfreien Leumund und schätzt eine verantwortungsbewusste Arbeitsweise\n\nWir bieten:\n• Vergünstigungen: Attraktive Vergünstigungen im Brack-Onlineshop sowie Mittagessenvergünstigungen und Personalrestaurants in Mägenwil und Willisau.\n\n• Erholung: Mindestens 5 Wochen Ferien, zusätzlich besteht die Möglichkeit für Ferienkauf und unbezahlten Urlaub.\n\n• Entwicklung: Interne Ausbildungen in der eigenen Academy sowie finanzielle Beteiligung an externen Weiterbildungen.\n\n• Familie: 18 Wochen bezahlter Mutterschaftsurlaub mit Verlängerungsmöglichkeit und 4 Wochen bezahlter Vaterschaftsurlaub.\n\n• Versicherungen: Überobligatorisch – 100% Lohnfortzahlung sowie vollständige Finanzierung der Krankentaggeldversicherung durch den Arbeitgeber.\n\n• Mobilität: Gratisparkplätze, finanzielle Beteiligung an den ÖV und Poolfahrzeuge für Geschäftstermine.\n\n\"Gemeinsam gestalten wir den Handel von morgen\" Brack.Alltron beschäftigt rund 1300 Mitarbeitende und erwirtschaftet über eine Milliarde Umsatz. Das Unternehmen gibt es, weil ein Mensch den Mut hatte, neue Wege zu finden und sie zu gehen. Unsere Erfolgsgeschichte zeigt, dass durch jeden Einzelnen, gemeinsam etwas Grosses entsteht und wir lieben unsere Einzigartigkeit. Wir setzen uns ambitionierte Ziele, dabei ist es uns sehr wichtig, dass wir verantwortlich handeln, uns gegenseitig fördern und fordern und Freude haben an dem, was wir tagtäglich tun.",
@@ -2517,7 +2492,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/fachperson-logistik-verbrauchsmaterialien/4693e955-dc97-4fb1-bb90-558a2277ccd8",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.516Z",
+      "crawledAt": "2026-09-26T14:04:14.487Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2537,22 +2512,22 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fachperson-logistik-verbrauchsmaterialien-brack-alltron-willisau",
-          "logistican-consumable-supplies-brack-alltron-willisau"
+          "fachperson-logistik-verbrauchsmaterialien-brack-alltron-willisau"
         ],
         "it": [
           "logistican-consumable-supplies-brack-alltron-willisau",
-          "fachperson-logistik-verbrauchsmaterialien-brack-alltron-willisau",
-          "logistican-forniture-consumabili-brack-alltron-ag-willisau"
+          "fachperson-logistik-verbrauchsmaterialien-brack-alltron-willisau"
         ],
         "fr": [
+          "logistican-consumable-supplies-brack-alltron-willisau"
+        ],
+        "en": [
           "logistican-consumable-supplies-brack-alltron-willisau"
         ]
       },
       "previousSlugs": [
         "logistican-consumable-supplies-brack-alltron-willisau",
-        "fachperson-logistik-verbrauchsmaterialien-brack-alltron-willisau",
-        "logistican-forniture-consumabili-brack-alltron-ag-willisau"
+        "fachperson-logistik-verbrauchsmaterialien-brack-alltron-willisau"
       ],
       "firstSeenAt": "2026-08-04T11:48:19.906Z",
       "salaryMin": 69500,
@@ -2567,32 +2542,33 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-3a6c7d36e340",
-      "slug": "logistics-agent-brack-alltron-willisau",
+      "slug": "logistica-agent-brack-alltron-ag-willisau",
       "slugByLocale": {
         "de": "logistics-agent-brack-alltron-willisau",
-        "it": "logistics-agent-brack-alltron-willisau",
+        "it": "logistica-agent-brack-alltron-ag-willisau",
         "en": "logistics-agent-brack-alltron-willisau",
-        "fr": "logistics-agent-brack-alltron-willisau"
+        "fr": "logistique-agent-brack-alltron-ag-willisau"
       },
       "company": "Brack.Alltron AG",
       "companyKey": "brack-alltron",
       "companyDomain": "brack.ch",
       "title": "Logistics Agent",
       "titleByLocale": {
-        "de": "Logistics Agent",
         "it": "Logistica Agent",
         "en": "Logistics Agent",
+        "de": "Logistics Agent",
         "fr": "Logistique Agent"
       },
       "description": "Aufgaben:\n• Du nimmst Waren entgegen, kontrollierst sie und lagerst sie fachgerecht ein\n\n• Du kommissionierst Bestellungen und bereitest sie für den Versand vor\n\n• Du führst Inventuren durch und unterstützt bei der Lagerpflege und Bestandskontrolle\n\n• Du stellst eine hohe Qualität sicher und bringst Verbesserungsideen aktiv ein\n\n• Du arbeitest in verschiedenen Lagerbereichen und übernimmst abwechslungsreiche Aufgaben\n\n• Du sorgst gemeinsam mit deinem Team für einen reibungslosen Warenfluss\n\n• Du arbeitest in einem modernen und dynamischen Arbeitsumfeld\n\nAnforderungen:\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Einen Staplerausweis oder die Bereitschaft, diesen zu erwerben (von Vorteil)\n\n• Bereitschaft, zu folgenden Arbeitszeiten zu arbeiten: Montag bis Samstag zwischen 05.00-23.00 Uhr im Wechseldienst\n\n• Eine selbstständige, zuverlässige und verantwortungsbewusste Arbeitsweise\n\n• Eigeninitiative, Teamgeist sowie ein ausgeprägtes Dienstleistungsbewusstsein\n\n• Einen einwandfreien Leumund\n\nWir bieten:\n• Vergünstigungen: Attraktive Vergünstigungen im Brack-Onlineshop sowie Mittagessenvergünstigungen und Personalrestaurants in Mägenwil und Willisau.\n\n• Erholung: Mindestens 5 Wochen Ferien, zusätzlich besteht die Möglichkeit für Ferienkauf und unbezahlten Urlaub.\n\n• Entwicklung: Interne Ausbildungen in der eigenen Academy sowie finanzielle Beteiligung an externen Weiterbildungen.\n\n• Familie: 18 Wochen bezahlter Mutterschaftsurlaub mit Verlängerungsmöglichkeit und 4 Wochen bezahlter Vaterschaftsurlaub.\n\n• Versicherungen: Überobligatorisch – 100% Lohnfortzahlung sowie vollständige Finanzierung der Krankentaggeldversicherung durch den Arbeitgeber.\n\n• Mobilität: Gratisparkplätze, finanzielle Beteiligung an den ÖV und Poolfahrzeuge für Geschäftstermine.\n\n\"Gemeinsam gestalten wir den Handel von morgen\" Brack.Alltron beschäftigt rund 1300 Mitarbeitende und erwirtschaftet über eine Milliarde Umsatz. Das Unternehmen gibt es, weil ein Mensch den Mut hatte, neue Wege zu finden und sie zu gehen. Unsere Erfolgsgeschichte zeigt, dass durch jeden Einzelnen, gemeinsam etwas Grosses entsteht und wir lieben unsere Einzigartigkeit. Wir setzen uns ambitionierte Ziele, dabei ist es uns sehr wichtig, dass wir verantwortlich handeln, uns gegenseitig fördern und fordern und Freude haben an dem, was wir tagtäglich tun.",
       "descriptionByLocale": {
-        "de": "Aufgaben:\n• Du nimmst Waren entgegen, kontrollierst sie und lagerst sie fachgerecht ein\n\n• Du kommissionierst Bestellungen und bereitest sie für den Versand vor\n\n• Du führst Inventuren durch und unterstützt bei der Lagerpflege und Bestandskontrolle\n\n• Du stellst eine hohe Qualität sicher und bringst Verbesserungsideen aktiv ein\n\n• Du arbeitest in verschiedenen Lagerbereichen und übernimmst abwechslungsreiche Aufgaben\n\n• Du sorgst gemeinsam mit deinem Team für einen reibungslosen Warenfluss\n\n• Du arbeitest in einem modernen und dynamischen Arbeitsumfeld\n\nAnforderungen:\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Einen Staplerausweis oder die Bereitschaft, diesen zu erwerben (von Vorteil)\n\n• Bereitschaft, zu folgenden Arbeitszeiten zu arbeiten: Montag bis Samstag zwischen 05.00-23.00 Uhr im Wechseldienst\n\n• Eine selbstständige, zuverlässige und verantwortungsbewusste Arbeitsweise\n\n• Eigeninitiative, Teamgeist sowie ein ausgeprägtes Dienstleistungsbewusstsein\n\n• Einen einwandfreien Leumund\n\nWir bieten:\n• Vergünstigungen: Attraktive Vergünstigungen im Brack-Onlineshop sowie Mittagessenvergünstigungen und Personalrestaurants in Mägenwil und Willisau.\n\n• Erholung: Mindestens 5 Wochen Ferien, zusätzlich besteht die Möglichkeit für Ferienkauf und unbezahlten Urlaub.\n\n• Entwicklung: Interne Ausbildungen in der eigenen Academy sowie finanzielle Beteiligung an externen Weiterbildungen.\n\n• Familie: 18 Wochen bezahlter Mutterschaftsurlaub mit Verlängerungsmöglichkeit und 4 Wochen bezahlter Vaterschaftsurlaub.\n\n• Versicherungen: Überobligatorisch – 100% Lohnfortzahlung sowie vollständige Finanzierung der Krankentaggeldversicherung durch den Arbeitgeber.\n\n• Mobilität: Gratisparkplätze, finanzielle Beteiligung an den ÖV und Poolfahrzeuge für Geschäftstermine.\n\n\"Gemeinsam gestalten wir den Handel von morgen\" Brack.Alltron beschäftigt rund 1300 Mitarbeitende und erwirtschaftet über eine Milliarde Umsatz. Das Unternehmen gibt es, weil ein Mensch den Mut hatte, neue Wege zu finden und sie zu gehen. Unsere Erfolgsgeschichte zeigt, dass durch jeden Einzelnen, gemeinsam etwas Grosses entsteht und wir lieben unsere Einzigartigkeit. Wir setzen uns ambitionierte Ziele, dabei ist es uns sehr wichtig, dass wir verantwortlich handeln, uns gegenseitig fördern und fordern und Freude haben an dem, was wir tagtäglich tun.",
         "it": "Compiti:\n• Si prende la merce, controllarli e conservarli professionalmente\n\n• Scegli gli ordini e preparali per la spedizione\n\n• Effettuate inventari e supporto con la manutenzione del magazzino e il controllo dell'inventario\n\n• Assicurare alta qualità e contribuire attivamente idee per il miglioramento\n\n• Si lavora in diverse aree di archiviazione e si occupa di varie attività\n\n• Insieme al vostro team, assicurate un flusso regolare di merci\n\n• Lavori in un ambiente di lavoro moderno e dinamico\n\nRequisiti\n• Buona conoscenza del tedesco nelle parole e nella scrittura\n\n• Una carta per carrelli elevatori o la volontà di acquistarla (vantageous)\n\n• Volontà di lavorare alle seguenti ore di lavoro: dal lunedì al sabato dalle 5 alle 11.\n\n• Un modo di lavorare indipendente, affidabile e responsabile\n\n• Iniziativa, spirito di squadra e un forte senso di servizio\n\n• Una reputazione perfetta\n\nOffriamo:\n• Perks: Perk interessanti nel negozio online di Brack, nonché perks di pranzo e ristoranti di personale a Mägenwil e Willisau.\n\n• Ricreazione: Almeno 5 settimane di vacanza, inoltre c'è la possibilità di acquisto di vacanza e vacanza non pagata.\n\n• Sviluppo: Formazione interna alla propria Accademia e partecipazione finanziaria all'ulteriore istruzione esterna.\n\n• Famiglia: 18 settimane di congedo di maternità retribuito con prolungamento e 4 settimane di congedo di paternità pagato.\n\n• Assicurazione: Superobbligatorio – 100% paga continuata e pieno finanziamento dell'assicurazione malattia da parte del datore di lavoro.\n\n• Mobilità: parcheggio gratuito, partecipazione finanziaria ai trasporti pubblici e veicoli a bordo piscina per appuntamenti aziendali.\n\n\"Insieme formiamo il commercio di domani\" Brack. Alltron impiega circa 1300 dipendenti e genera oltre un miliardo di fatturato. L'azienda esiste perché una persona ha avuto il coraggio di trovare nuovi modi e andare loro. La nostra storia di successo mostra che attraverso ogni individuo, qualcosa di grande è creato insieme e amiamo la nostra unicità. Ci siamo posti obiettivi ambiziosi, ma è molto importante per noi che agiamo responsabilmente, promuoviamo e ci sfidiamo e godiamo ciò che facciamo ogni giorno.",
         "en": "Tasks:\n• You take goods, check them and store them professionally\n\n• You pick orders and prepare them for shipping\n\n• You carry out inventories and support with warehouse maintenance and inventory control\n\n• You ensure high quality and actively contribute ideas for improvement\n\n• You work in different storage areas and take on varied tasks\n\n• Together with your team, you ensure a smooth flow of goods\n\n• You work in a modern and dynamic working environment\n\nRequirements\n• Good knowledge of German in words and writing\n\n• A forklift card or the willingness to purchase it (advantageous)\n\n• Willingness to work at the following working hours: Monday to Saturday between 5 a.m. and 11 p.m.\n\n• An independent, reliable and responsible way of working\n\n• Initiative, team spirit and a strong sense of service\n\n• A perfect reputation\n\nWe offer:\n• Perks: Attractive perks in the Brack online shop as well as lunch perks and staff restaurants in Mägenwil and Willisau.\n\n• Recreation: At least 5 weeks of vacation, in addition there is the possibility for holiday purchase and unpaid vacation.\n\n• Development: Internal training in the own Academy as well as financial participation in external further education.\n\n• Family: 18 weeks of paid maternity leave with extension and 4 weeks of paid paternity leave.\n\n• Insurance: Super-compulsory – 100% continued pay and full financing of the sickness allowance insurance by the employer.\n\n• Mobility: free parking, financial participation in public transport and pool vehicles for business appointments.\n\n\"Together we shape the trade of tomorrow\" Brack.Alltron employs around 1300 employees and generates over one billion turnover. The company exists because a person had the courage to find new ways and go them. Our success story shows that through each individual, something great is created together and we love our uniqueness. We set ourselves ambitious goals, but it is very important to us that we act responsibly, promote and challenge each other and enjoy what we do every day.",
+        "de": "Aufgaben:\n• Du nimmst Waren entgegen, kontrollierst sie und lagerst sie fachgerecht ein\n\n• Du kommissionierst Bestellungen und bereitest sie für den Versand vor\n\n• Du führst Inventuren durch und unterstützt bei der Lagerpflege und Bestandskontrolle\n\n• Du stellst eine hohe Qualität sicher und bringst Verbesserungsideen aktiv ein\n\n• Du arbeitest in verschiedenen Lagerbereichen und übernimmst abwechslungsreiche Aufgaben\n\n• Du sorgst gemeinsam mit deinem Team für einen reibungslosen Warenfluss\n\n• Du arbeitest in einem modernen und dynamischen Arbeitsumfeld\n\nAnforderungen:\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Einen Staplerausweis oder die Bereitschaft, diesen zu erwerben (von Vorteil)\n\n• Bereitschaft, zu folgenden Arbeitszeiten zu arbeiten: Montag bis Samstag zwischen 05.00-23.00 Uhr im Wechseldienst\n\n• Eine selbstständige, zuverlässige und verantwortungsbewusste Arbeitsweise\n\n• Eigeninitiative, Teamgeist sowie ein ausgeprägtes Dienstleistungsbewusstsein\n\n• Einen einwandfreien Leumund\n\nWir bieten:\n• Vergünstigungen: Attraktive Vergünstigungen im Brack-Onlineshop sowie Mittagessenvergünstigungen und Personalrestaurants in Mägenwil und Willisau.\n\n• Erholung: Mindestens 5 Wochen Ferien, zusätzlich besteht die Möglichkeit für Ferienkauf und unbezahlten Urlaub.\n\n• Entwicklung: Interne Ausbildungen in der eigenen Academy sowie finanzielle Beteiligung an externen Weiterbildungen.\n\n• Familie: 18 Wochen bezahlter Mutterschaftsurlaub mit Verlängerungsmöglichkeit und 4 Wochen bezahlter Vaterschaftsurlaub.\n\n• Versicherungen: Überobligatorisch – 100% Lohnfortzahlung sowie vollständige Finanzierung der Krankentaggeldversicherung durch den Arbeitgeber.\n\n• Mobilität: Gratisparkplätze, finanzielle Beteiligung an den ÖV und Poolfahrzeuge für Geschäftstermine.\n\n\"Gemeinsam gestalten wir den Handel von morgen\" Brack.Alltron beschäftigt rund 1300 Mitarbeitende und erwirtschaftet über eine Milliarde Umsatz. Das Unternehmen gibt es, weil ein Mensch den Mut hatte, neue Wege zu finden und sie zu gehen. Unsere Erfolgsgeschichte zeigt, dass durch jeden Einzelnen, gemeinsam etwas Grosses entsteht und wir lieben unsere Einzigartigkeit. Wir setzen uns ambitionierte Ziele, dabei ist es uns sehr wichtig, dass wir verantwortlich handeln, uns gegenseitig fördern und fordern und Freude haben an dem, was wir tagtäglich tun.",
         "fr": "Tâches :\n• Vous prenez des marchandises, les vérifiez et les entreposez professionnellement\n\n• Vous choisissez les commandes et les préparez à l'expédition\n\n• Vous effectuez des inventaires et du soutien avec l'entretien des entrepôts et le contrôle des stocks\n\n• Vous assurez la haute qualité et contribuez activement des idées d'amélioration\n\n• Vous travaillez dans différentes zones de stockage et vous assumez des tâches variées\n\n• Avec votre équipe, vous assurez un flux de marchandises en douceur\n\n• Vous travaillez dans un environnement de travail moderne et dynamique\n\nExigences\n• Bonne connaissance de l'allemand en paroles et en écriture\n\n• Une carte élévateur ou la volonté de l'acheter (avantageuse)\n\n• Volonté de travailler aux heures de travail suivantes: du lundi au samedi entre 5 heures et 23 heures\n\n• Une manière de travailler indépendante, fiable et responsable\n\n• Initiative, esprit d'équipe et fort sens du service\n\n• Une réputation parfaite\n\nNous offrons:\n• Avantages: avantages attrayants dans la boutique en ligne Brack ainsi que les avantages du déjeuner et les restaurants du personnel à Mägenwil et Willisau.\n\n• Loisirs: Au moins 5 semaines de vacances, en plus il y a la possibilité d'acheter des vacances et des vacances non rémunérées.\n\n• Développement: formation interne dans la propre Académie ainsi que participation financière à l'enseignement complémentaire externe.\n\n• Famille : 18 semaines de congé de maternité payé avec prolongation et 4 semaines de congé de paternité payé.\n\n• Assurance : Super-obligatoire – 100% de la rémunération continue et le financement intégral de l'assurance maladie par l'employeur.\n\n• Mobilité: parking gratuit, participation financière aux transports publics et véhicules de pool pour les rendez-vous d'affaires.\n\n\"Ensemble nous façonnons le commerce de demain\" Brack. Alltron emploie environ 1300 salariés et génère plus d'un milliard de chiffre d'affaires. L'entreprise existe parce qu'une personne a eu le courage de trouver de nouvelles façons de les faire. Notre success story montre qu'à travers chaque individu, quelque chose de grand est créé ensemble et nous aimons notre unicité. Nous nous sommes fixé des objectifs ambitieux, mais il est très important pour nous d'agir de manière responsable, de nous promouvoir et de nous défier mutuellement et de profiter de ce que nous faisons chaque jour."
       },
       "needsRetranslation": true,
@@ -2601,7 +2577,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/logistics-agent/c0e40810-ea5c-4744-9165-1f81a5a8242b",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.514Z",
+      "crawledAt": "2026-09-26T14:04:14.482Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2618,9 +2594,7 @@
       "postedDate": "2026-09-23",
       "applyUrl": "https://jobs.brackalltron.ch/offene-stellen/logistics-agent/c0e40810-ea5c-4744-9165-1f81a5a8242b",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -2634,32 +2608,43 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-16T11:36:59.640Z"
+      "firstSeenAt": "2026-07-16T11:36:59.640Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logistics-agent-brack-alltron-willisau"
+        ],
+        "fr": [
+          "logistics-agent-brack-alltron-willisau"
+        ]
+      },
+      "previousSlugs": [
+        "logistics-agent-brack-alltron-willisau"
+      ]
     },
     {
       "id": "brack-alltron-47f21b9e58b8",
-      "slug": "industrial-mechanic-brack-alltron-willisau",
+      "slug": "meccanica-industriale-brack-alltron-ag-willisau",
       "slugByLocale": {
         "de": "industrial-mechanic-brack-alltron-willisau",
-        "it": "industrial-mechanic-brack-alltron-willisau",
-        "en": "industrial-mechanic-brack-alltron-willisau",
-        "fr": "industrial-mechanic-brack-alltron-willisau"
+        "it": "meccanica-industriale-brack-alltron-ag-willisau",
+        "en": "industrial-mechanical-brack-alltron-ag-willisau",
+        "fr": "mecanicien-industriel-brack-alltron-ag-willisau"
       },
       "company": "Brack.Alltron AG",
       "companyKey": "brack-alltron",
       "companyDomain": "brack.ch",
       "title": "Industrial Mechanic",
       "titleByLocale": {
-        "de": "Industrial Mechanic",
         "it": "Meccanica industriale",
         "en": "Industrial Mechanical",
+        "de": "Industrial Mechanic",
         "fr": "Mécanicien industriel"
       },
       "description": "Aufgaben:\n• Eine hochmoderne und hochautomatisierte Intralogistikanlage mit diversen Gewerken (über 5 Kilometer lange Leichtgutförderanlage, Palettenförderanlage, Hochregallager mit bis zu 40 Meter Höhe und grösster Autostore Europas)\n\n• Im vierköpfigen Team verantwortest du die Instandhaltung der Intralogistikanlage und stellst die Verfügbarkeit, Zuverlässigkeit und Sicherheit aller Anlagen sicher\n\n• Nebst deinem Team, steht dir für diese Herausforderung dein Vorgesetzter, Gruppenleiter Instandhaltung, unterstützend zur Seite\n\n• Du behebst technische Störungen an der Intralogistikanlage und der gesamten Infrastruktur\n\n• Wir wachsen! Damit einhergehend braucht es deine Unterstützung bei der Inbetriebnahme von neuen Anlagen und bei Umbauten\n\n• Eine äusserst vielfältige und selbständige Tätigkeit, ein spannender Arbeitsplatz und ein familiäres, engagiertes und kompetentes Team\n\n• Unser Angebot beinhaltet interessante Anstellungsbedingungen und du wirst bei guter Leistung und sichtbarem Engagement eine spannende Entwicklung bei uns durchlaufen können\n\nAnforderungen:\n• Du bringst eine abgeschlossene Lehre als Mechaniker:in, Landmaschinenmechaniker:in, Polymechaniker:in, Anlagen- und Apparatebauer:in oder eine gleichwertige Ausbildung mit\n\n• Deine mehrjährige Berufserfahrung (vorzugsweise im industriellen Umfeld) kannst du bei uns erweitern und ausbauen\n\n• Nebst Kenntnissen in der Mechanik/Pneumatik kennst du dich auch im Bereich Elektro aus\n\n• Dein Profil wird abgerundet durch Anwenderkenntnisse im MS-Office\n\n• Du pflegst eine selbstständige und zuverlässige Arbeitsweise und arbeitest gerne im Team\n\n• Die üblichen Arbeitszeiten sind von Montag bis Freitag von 07:00 bis ca. 17:00 Uhr (Flexibilität für Sondereinsätze von 06:00 bis 20:00 Uhr und sporadischen Samstagseinsätzen ist erwünscht)\n\nWir bieten:\n• Vergünstigungen: Attraktive Vergünstigungen im Brack-Onlineshop sowie Mittagessenvergünstigungen und Personalrestaurants in Mägenwil und Willisau.\n\n• Erholung: Mindestens 5 Wochen Ferien, zusätzlich besteht die Möglichkeit für Ferienkauf und unbezahlten Urlaub.\n\n• Entwicklung: Interne Ausbildungen in der eigenen Academy sowie finanzielle Beteiligung an externen Weiterbildungen.\n\n• Familie: 18 Wochen bezahlter Mutterschaftsurlaub mit Verlängerungsmöglichkeit und 4 Wochen bezahlter Vaterschaftsurlaub.\n\n• Versicherungen: Überobligatorisch – 100% Lohnfortzahlung sowie vollständige Finanzierung der Krankentaggeldversicherung durch den Arbeitgeber.\n\n• Mobilität: Gratisparkplätze, finanzielle Beteiligung an den ÖV und Poolfahrzeuge für Geschäftstermine.\n\n\"Gemeinsam gestalten wir den Handel von morgen\" Brack.Alltron beschäftigt rund 1300 Mitarbeitende und erwirtschaftet über eine Milliarde Umsatz. Das Unternehmen gibt es, weil ein Mensch den Mut hatte, neue Wege zu finden und sie zu gehen. Unsere Erfolgsgeschichte zeigt, dass durch jeden Einzelnen, gemeinsam etwas Grosses entsteht und wir lieben unsere Einzigartigkeit. Wir setzen uns ambitionierte Ziele, dabei ist es uns sehr wichtig, dass wir verantwortlich handeln, uns gegenseitig fördern und fordern und Freude haben an dem, was wir tagtäglich tun.",
       "descriptionByLocale": {
-        "de": "Aufgaben:\n• Eine hochmoderne und hochautomatisierte Intralogistikanlage mit diversen Gewerken (über 5 Kilometer lange Leichtgutförderanlage, Palettenförderanlage, Hochregallager mit bis zu 40 Meter Höhe und grösster Autostore Europas)\n\n• Im vierköpfigen Team verantwortest du die Instandhaltung der Intralogistikanlage und stellst die Verfügbarkeit, Zuverlässigkeit und Sicherheit aller Anlagen sicher\n\n• Nebst deinem Team, steht dir für diese Herausforderung dein Vorgesetzter, Gruppenleiter Instandhaltung, unterstützend zur Seite\n\n• Du behebst technische Störungen an der Intralogistikanlage und der gesamten Infrastruktur\n\n• Wir wachsen! Damit einhergehend braucht es deine Unterstützung bei der Inbetriebnahme von neuen Anlagen und bei Umbauten\n\n• Eine äusserst vielfältige und selbständige Tätigkeit, ein spannender Arbeitsplatz und ein familiäres, engagiertes und kompetentes Team\n\n• Unser Angebot beinhaltet interessante Anstellungsbedingungen und du wirst bei guter Leistung und sichtbarem Engagement eine spannende Entwicklung bei uns durchlaufen können\n\nAnforderungen:\n• Du bringst eine abgeschlossene Lehre als Mechaniker:in, Landmaschinenmechaniker:in, Polymechaniker:in, Anlagen- und Apparatebauer:in oder eine gleichwertige Ausbildung mit\n\n• Deine mehrjährige Berufserfahrung (vorzugsweise im industriellen Umfeld) kannst du bei uns erweitern und ausbauen\n\n• Nebst Kenntnissen in der Mechanik/Pneumatik kennst du dich auch im Bereich Elektro aus\n\n• Dein Profil wird abgerundet durch Anwenderkenntnisse im MS-Office\n\n• Du pflegst eine selbstständige und zuverlässige Arbeitsweise und arbeitest gerne im Team\n\n• Die üblichen Arbeitszeiten sind von Montag bis Freitag von 07:00 bis ca. 17:00 Uhr (Flexibilität für Sondereinsätze von 06:00 bis 20:00 Uhr und sporadischen Samstagseinsätzen ist erwünscht)\n\nWir bieten:\n• Vergünstigungen: Attraktive Vergünstigungen im Brack-Onlineshop sowie Mittagessenvergünstigungen und Personalrestaurants in Mägenwil und Willisau.\n\n• Erholung: Mindestens 5 Wochen Ferien, zusätzlich besteht die Möglichkeit für Ferienkauf und unbezahlten Urlaub.\n\n• Entwicklung: Interne Ausbildungen in der eigenen Academy sowie finanzielle Beteiligung an externen Weiterbildungen.\n\n• Familie: 18 Wochen bezahlter Mutterschaftsurlaub mit Verlängerungsmöglichkeit und 4 Wochen bezahlter Vaterschaftsurlaub.\n\n• Versicherungen: Überobligatorisch – 100% Lohnfortzahlung sowie vollständige Finanzierung der Krankentaggeldversicherung durch den Arbeitgeber.\n\n• Mobilität: Gratisparkplätze, finanzielle Beteiligung an den ÖV und Poolfahrzeuge für Geschäftstermine.\n\n\"Gemeinsam gestalten wir den Handel von morgen\" Brack.Alltron beschäftigt rund 1300 Mitarbeitende und erwirtschaftet über eine Milliarde Umsatz. Das Unternehmen gibt es, weil ein Mensch den Mut hatte, neue Wege zu finden und sie zu gehen. Unsere Erfolgsgeschichte zeigt, dass durch jeden Einzelnen, gemeinsam etwas Grosses entsteht und wir lieben unsere Einzigartigkeit. Wir setzen uns ambitionierte Ziele, dabei ist es uns sehr wichtig, dass wir verantwortlich handeln, uns gegenseitig fördern und fordern und Freude haben an dem, was wir tagtäglich tun.",
         "it": "Compiti:\n• Un sistema intralogistico all'avanguardia e altamente automatizzato con vari mestieri (sistema di trasporto di merci leggere di più di 5 chilometri di lunghezza, sistema di trasporto di pallet, magazzino di alto livello con altezza fino a 40 metri e porta auto più grande in Europa)\n\n• In un team di quattro, si è responsabili per la manutenzione del sistema intralogistico e garantire la disponibilità, l'affidabilità e la sicurezza di tutti i sistemi.\n\n• Oltre al vostro team, il vostro supervisore, la manutenzione leader di gruppo, vi supporta per questa sfida\n\n• Riparare le interruzioni tecniche al sistema intralogistico e all'intera infrastruttura\n\n• Stiamo crescendo! Ciò richiede il vostro sostegno nella messa in servizio di nuove piante e nelle conversioni\n\n• Un'attività estremamente diversificata e indipendente, un posto di lavoro emozionante e una famiglia, un team impegnato e competente\n\n• La nostra offerta include interessanti condizioni di lavoro e sarete in grado di passare attraverso uno sviluppo emozionante con noi con buone prestazioni e impegno visibile\n\nRequisiti\n• Portate un apprendistato completo come meccanico:in, meccanico di macchine agricole:in, polimeccanico:in, fabbricante di impianti ed apparecchi:in o un'istruzione equivalente\n\n• È possibile estendere e espandere i diversi anni di esperienza professionale (preferibilmente nell'ambiente industriale) con noi\n\n• Oltre alla conoscenza della meccanica/pneumatica, si conosce anche il campo dell'ingegneria elettrica.\n\n• Il tuo profilo è arrotondato dalla conoscenza dell'utente in MS-Office\n\n• Si mantiene un modo indipendente e affidabile di lavorare e godere di lavorare in un team\n\n• Le ore di lavoro abituali sono da lunedì a venerdì dalle 07:00 alle 17:00 circa (flessibilità per missioni speciali dalle 06:00 alle 20:00 e sporadiche missioni del sabato è desiderato)\n\nOffriamo:\n• Perks: Perk interessanti nel negozio online di Brack, nonché perks di pranzo e ristoranti di personale a Mägenwil e Willisau.\n\n• Ricreazione: Almeno 5 settimane di vacanza, inoltre c'è la possibilità di acquisto di vacanza e vacanza non pagata.\n\n• Sviluppo: Formazione interna alla propria Accademia e partecipazione finanziaria all'ulteriore istruzione esterna.\n\n• Famiglia: 18 settimane di congedo di maternità retribuito con prolungamento e 4 settimane di congedo di paternità pagato.\n\n• Assicurazione: Superobbligatorio – 100% paga continuata e pieno finanziamento dell'assicurazione malattia da parte del datore di lavoro.\n\n• Mobilità: parcheggio gratuito, partecipazione finanziaria ai trasporti pubblici e veicoli a bordo piscina per appuntamenti aziendali.\n\n\"Insieme formiamo il commercio di domani\" Brack. Alltron impiega circa 1300 dipendenti e genera oltre un miliardo di fatturato. L'azienda esiste perché una persona ha avuto il coraggio di trovare nuovi modi e andare loro. La nostra storia di successo mostra che attraverso ogni individuo, qualcosa di grande è creato insieme e amiamo la nostra unicità. Ci siamo posti obiettivi ambiziosi, ma è molto importante per noi che agiamo responsabilmente, promuoviamo e ci sfidiamo e godiamo ciò che facciamo ogni giorno.",
         "en": "Tasks:\n• A state-of-the-art and highly automated intralogistics system with various trades (more than 5 kilometres long light goods conveying system, pallet conveying system, high-bay warehouse with up to 40 meters height and largest car door in Europe)\n\n• In a team of four, you are responsible for the maintenance of the intralogistics system and ensure the availability, reliability and safety of all systems.\n\n• In addition to your team, your supervisor, group leader maintenance, supports you for this challenge\n\n• You will repair technical disruptions to the intralogistics system and the entire infrastructure\n\n• We are growing! This requires your support in the commissioning of new plants and in conversions\n\n• An extremely diverse and independent activity, an exciting workplace and a family, committed and competent team\n\n• Our offer includes interesting employment conditions and you will be able to go through an exciting development with us with good performance and visible commitment\n\nRequirements\n• You bring a completed apprenticeship as a mechanic:in, agricultural machinery mechanic:in, polymechanic:in, plant and apparatus manufacturer:in or an equivalent education\n\n• You can extend and expand your several years of professional experience (preferably in the industrial environment) with us\n\n• In addition to knowledge of mechanics/pneumatics, you are also familiar with the field of electrical engineering.\n\n• Your profile is rounded off by user knowledge in the MS-Office\n\n• You maintain an independent and reliable way of working and enjoy working in a team\n\n• The usual working hours are from Monday to Friday from 07:00 to about 17:00 (flexibility for special missions from 06:00 to 20:00 and sporadic Saturday missions is desired)\n\nWe offer:\n• Perks: Attractive perks in the Brack online shop as well as lunch perks and staff restaurants in Mägenwil and Willisau.\n\n• Recreation: At least 5 weeks of vacation, in addition there is the possibility for holiday purchase and unpaid vacation.\n\n• Development: Internal training in the own Academy as well as financial participation in external further education.\n\n• Family: 18 weeks of paid maternity leave with extension and 4 weeks of paid paternity leave.\n\n• Insurance: Super-compulsory – 100% continued pay and full financing of the sickness allowance insurance by the employer.\n\n• Mobility: free parking, financial participation in public transport and pool vehicles for business appointments.\n\n\"Together we shape the trade of tomorrow\" Brack.Alltron employs around 1300 employees and generates over one billion turnover. The company exists because a person had the courage to find new ways and go them. Our success story shows that through each individual, something great is created together and we love our uniqueness. We set ourselves ambitious goals, but it is very important to us that we act responsibly, promote and challenge each other and enjoy what we do every day.",
+        "de": "Aufgaben:\n• Eine hochmoderne und hochautomatisierte Intralogistikanlage mit diversen Gewerken (über 5 Kilometer lange Leichtgutförderanlage, Palettenförderanlage, Hochregallager mit bis zu 40 Meter Höhe und grösster Autostore Europas)\n\n• Im vierköpfigen Team verantwortest du die Instandhaltung der Intralogistikanlage und stellst die Verfügbarkeit, Zuverlässigkeit und Sicherheit aller Anlagen sicher\n\n• Nebst deinem Team, steht dir für diese Herausforderung dein Vorgesetzter, Gruppenleiter Instandhaltung, unterstützend zur Seite\n\n• Du behebst technische Störungen an der Intralogistikanlage und der gesamten Infrastruktur\n\n• Wir wachsen! Damit einhergehend braucht es deine Unterstützung bei der Inbetriebnahme von neuen Anlagen und bei Umbauten\n\n• Eine äusserst vielfältige und selbständige Tätigkeit, ein spannender Arbeitsplatz und ein familiäres, engagiertes und kompetentes Team\n\n• Unser Angebot beinhaltet interessante Anstellungsbedingungen und du wirst bei guter Leistung und sichtbarem Engagement eine spannende Entwicklung bei uns durchlaufen können\n\nAnforderungen:\n• Du bringst eine abgeschlossene Lehre als Mechaniker:in, Landmaschinenmechaniker:in, Polymechaniker:in, Anlagen- und Apparatebauer:in oder eine gleichwertige Ausbildung mit\n\n• Deine mehrjährige Berufserfahrung (vorzugsweise im industriellen Umfeld) kannst du bei uns erweitern und ausbauen\n\n• Nebst Kenntnissen in der Mechanik/Pneumatik kennst du dich auch im Bereich Elektro aus\n\n• Dein Profil wird abgerundet durch Anwenderkenntnisse im MS-Office\n\n• Du pflegst eine selbstständige und zuverlässige Arbeitsweise und arbeitest gerne im Team\n\n• Die üblichen Arbeitszeiten sind von Montag bis Freitag von 07:00 bis ca. 17:00 Uhr (Flexibilität für Sondereinsätze von 06:00 bis 20:00 Uhr und sporadischen Samstagseinsätzen ist erwünscht)\n\nWir bieten:\n• Vergünstigungen: Attraktive Vergünstigungen im Brack-Onlineshop sowie Mittagessenvergünstigungen und Personalrestaurants in Mägenwil und Willisau.\n\n• Erholung: Mindestens 5 Wochen Ferien, zusätzlich besteht die Möglichkeit für Ferienkauf und unbezahlten Urlaub.\n\n• Entwicklung: Interne Ausbildungen in der eigenen Academy sowie finanzielle Beteiligung an externen Weiterbildungen.\n\n• Familie: 18 Wochen bezahlter Mutterschaftsurlaub mit Verlängerungsmöglichkeit und 4 Wochen bezahlter Vaterschaftsurlaub.\n\n• Versicherungen: Überobligatorisch – 100% Lohnfortzahlung sowie vollständige Finanzierung der Krankentaggeldversicherung durch den Arbeitgeber.\n\n• Mobilität: Gratisparkplätze, finanzielle Beteiligung an den ÖV und Poolfahrzeuge für Geschäftstermine.\n\n\"Gemeinsam gestalten wir den Handel von morgen\" Brack.Alltron beschäftigt rund 1300 Mitarbeitende und erwirtschaftet über eine Milliarde Umsatz. Das Unternehmen gibt es, weil ein Mensch den Mut hatte, neue Wege zu finden und sie zu gehen. Unsere Erfolgsgeschichte zeigt, dass durch jeden Einzelnen, gemeinsam etwas Grosses entsteht und wir lieben unsere Einzigartigkeit. Wir setzen uns ambitionierte Ziele, dabei ist es uns sehr wichtig, dass wir verantwortlich handeln, uns gegenseitig fördern und fordern und Freude haben an dem, was wir tagtäglich tun.",
         "fr": "Tâches :\n• Un système intralogistique ultra-moderne et hautement automatisé avec différents métiers (système de transport de marchandises légères de plus de 5 kilomètres de long, système de transport de palettes, entrepôt à grande baie d'une hauteur pouvant atteindre 40 mètres et plus grande porte de voiture en Europe)\n\n• Dans une équipe de quatre personnes, vous êtes responsable de la maintenance du système intralogistique et vous assurez la disponibilité, la fiabilité et la sécurité de tous les systèmes.\n\n• En plus de votre équipe, votre superviseur, l'entretien du chef de groupe, vous soutient pour ce défi\n\n• Vous réparerez les perturbations techniques au système intralogistique et à l'ensemble de l'infrastructure\n\n• Nous grandissons ! Cela nécessite votre soutien dans la mise en service de nouvelles plantes et dans les conversions\n\n• Une activité extrêmement diversifiée et indépendante, un lieu de travail passionnant et une famille, une équipe engagée et compétente\n\n• Notre offre comprend des conditions d'emploi intéressantes et vous serez en mesure de passer par un développement passionnant avec nous avec une bonne performance et un engagement visible\n\nExigences\n• Vous apportez un apprentissage complet comme mécanicien:in, mécanicien de machines agricoles:in, polymécanique:in, fabricant d'installations et d'appareils:in ou un enseignement équivalent\n\n• Vous pouvez étendre et étendre vos années d'expérience professionnelle (de préférence dans l'environnement industriel) avec nous\n\n• En plus de la connaissance de la mécanique / pneumatique, vous êtes également familier avec le domaine de l'ingénierie électrique.\n\n• Votre profil est arrondi par la connaissance utilisateur dans le MS-Office\n\n• Vous maintenez une façon indépendante et fiable de travailler et aimez travailler en équipe\n\n• Les heures de travail habituelles sont du lundi au vendredi de 07h00 à 17h00 environ (la flexibilité pour les missions spéciales de 06h00 à 20h00 et les missions sporadiques du samedi sont souhaitées)\n\nNous offrons:\n• Avantages: avantages attrayants dans la boutique en ligne Brack ainsi que les avantages du déjeuner et les restaurants du personnel à Mägenwil et Willisau.\n\n• Loisirs: Au moins 5 semaines de vacances, en plus il y a la possibilité d'acheter des vacances et des vacances non rémunérées.\n\n• Développement: formation interne dans la propre Académie ainsi que participation financière à l'enseignement complémentaire externe.\n\n• Famille : 18 semaines de congé de maternité payé avec prolongation et 4 semaines de congé de paternité payé.\n\n• Assurance : Super-obligatoire – 100% de la rémunération continue et le financement intégral de l'assurance maladie par l'employeur.\n\n• Mobilité: parking gratuit, participation financière aux transports publics et véhicules de pool pour les rendez-vous d'affaires.\n\n\"Ensemble nous façonnons le commerce de demain\" Brack. Alltron emploie environ 1300 salariés et génère plus d'un milliard de chiffre d'affaires. L'entreprise existe parce qu'une personne a eu le courage de trouver de nouvelles façons de les faire. Notre success story montre qu'à travers chaque individu, quelque chose de grand est créé ensemble et nous aimons notre unicité. Nous nous sommes fixé des objectifs ambitieux, mais il est très important pour nous d'agir de manière responsable, de nous promouvoir et de nous défier mutuellement et de profiter de ce que nous faisons chaque jour."
       },
       "location": "Willisau",
@@ -2667,7 +2652,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/industrial-mechanic/dabd0227-1168-49ab-9911-7ecd2beef6bd",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:48:31.508Z",
+      "crawledAt": "2026-09-26T14:04:14.469Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2684,9 +2669,7 @@
       "postedDate": "2026-09-24",
       "applyUrl": "https://jobs.brackalltron.ch/offene-stellen/industrial-mechanic/dabd0227-1168-49ab-9911-7ecd2beef6bd",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -2700,7 +2683,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-16T11:36:59.638Z"
+      "firstSeenAt": "2026-07-16T11:36:59.638Z",
+      "needsRetranslation": false,
+      "previousSlugsByLocale": {
+        "it": [
+          "industrial-mechanic-brack-alltron-willisau"
+        ],
+        "en": [
+          "industrial-mechanic-brack-alltron-willisau"
+        ],
+        "fr": [
+          "industrial-mechanic-brack-alltron-willisau"
+        ]
+      },
+      "previousSlugs": [
+        "industrial-mechanic-brack-alltron-willisau"
+      ]
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lhm-luzerner-hohenklinik-montana",
-  "assembledAt": "2026-09-25T14:47:21.376Z",
+  "assembledAt": "2026-09-26T14:05:44.768Z",
   "jobs": [
     {
       "id": "lhm-luzerner-hohenklinik-montana-93cfc81b59b2",
@@ -33,7 +33,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/koch--koechin-efz",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:47:16.044Z",
+      "crawledAt": "2026-09-26T14:05:40.521Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana",
-        "cuocere-cucinare-efz-100-luzerner-hohenklinik-montana-crans-montana"
+        "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana",
-          "cuocere-cucinare-efz-100-luzerner-hohenklinik-montana-crans-montana"
+          "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana"
         ],
         "en": [
           "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana"
@@ -79,7 +77,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "lhm-luzerner-hohenklinik-montana-e5dc0f811a97",
@@ -112,7 +111,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/assistenzaerztin-assistenzarzt",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:47:15.688Z",
+      "crawledAt": "2026-09-26T14:05:40.105Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -149,13 +148,11 @@
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-lhm-luzerner-hohenklinik-montana-crans-montana",
-        "medico-specializzando-luzerner-hohenklinik-montana-crans-montana"
+        "assistenzarztin-assistenzarzt-lhm-luzerner-hohenklinik-montana-crans-montana"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-lhm-luzerner-hohenklinik-montana-crans-montana",
-          "medico-specializzando-luzerner-hohenklinik-montana-crans-montana"
+          "assistenzarztin-assistenzarzt-lhm-luzerner-hohenklinik-montana-crans-montana"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:27.000Z",
@@ -171,7 +168,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "lhm-luzerner-hohenklinik-montana-2cf0692f3f32",
@@ -204,7 +202,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/leitender-arzt--leitende-aerztin-psychosomatik",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:47:15.330Z",
+      "crawledAt": "2026-09-26T14:05:39.670Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -243,13 +241,11 @@
         ]
       },
       "previousSlugs": [
-        "leitender-arzt-leitende-arztin-psychosomatik-lhm-luzerner-hohenklinik-montana-crans",
-        "medico-primario-medico-primaria-psicosomatica-luzerner-hohenklinik-montana-crans-montana"
+        "leitender-arzt-leitende-arztin-psychosomatik-lhm-luzerner-hohenklinik-montana-crans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitender-arzt-leitende-arztin-psychosomatik-lhm-luzerner-hohenklinik-montana-crans",
-          "medico-primario-medico-primaria-psicosomatica-luzerner-hohenklinik-montana-crans-montana"
+          "leitender-arzt-leitende-arztin-psychosomatik-lhm-luzerner-hohenklinik-montana-crans"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:26.587Z",
@@ -265,7 +261,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "lhm-luzerner-hohenklinik-montana-9541cabb9fa2",
@@ -299,7 +296,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/oberaerztin-oberarzt-oder-stv",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:47:14.954Z",
+      "crawledAt": "2026-09-26T14:05:39.254Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -317,13 +314,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-oder-stv-lhm-luzerner-hohenklinik-montana-crans-montana",
-        "medico-senior-capo-dipartimento-o-vice-luzerner-hohenklinik-montana-crans-montana"
+        "oberarztin-oberarzt-oder-stv-lhm-luzerner-hohenklinik-montana-crans-montana"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-oder-stv-lhm-luzerner-hohenklinik-montana-crans-montana",
-          "medico-senior-capo-dipartimento-o-vice-luzerner-hohenklinik-montana-crans-montana"
+          "oberarztin-oberarzt-oder-stv-lhm-luzerner-hohenklinik-montana-crans-montana"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:26.172Z",
@@ -373,7 +368,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/fachaerztin-arzt-allgemeine-innere-medizin",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:47:14.585Z",
+      "crawledAt": "2026-09-26T14:05:38.836Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -391,13 +386,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "facharztin-facharzt-allgemeine-innere-medizin-lhm-luzerner-hohenklinik-montana-crans",
-        "medico-specialista-in-medicina-interna-generale-luzerner-hohenklinik-montana-crans-montana"
+        "facharztin-facharzt-allgemeine-innere-medizin-lhm-luzerner-hohenklinik-montana-crans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-allgemeine-innere-medizin-lhm-luzerner-hohenklinik-montana-crans",
-          "medico-specialista-in-medicina-interna-generale-luzerner-hohenklinik-montana-crans-montana"
+          "facharztin-facharzt-allgemeine-innere-medizin-lhm-luzerner-hohenklinik-montana-crans"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:25.756Z",
@@ -419,7 +412,7 @@
       "id": "lhm-luzerner-hohenklinik-montana-8c9336f89402",
       "slug": "infermiere-i-praticante-con-autorizzazione-all-insegnamento-luzerner-hohenklinik-montana-crans-montana",
       "slugByLocale": {
-        "it": "infermiere-i-praticante-con-autorizzazione-all-insegnamento-luzerner-hohenklinik-montana-crans-montana",
+        "it": "infermieristica-professionale-hf-fh-luzerner-hohenklinik-montana-crans-montana",
         "en": "registered-nurse-hf-fh-luzerner-hohenklinik-montana-crans-montana",
         "de": "praktizierende-n-pflegefachmann-frau-mit-ausbildungsbefugnis-lhm-luzerner-hohenklinik",
         "fr": "infirmier-infirmiere-hf-fh-luzerner-hohenklinik-montana-crans-montana"
@@ -446,7 +439,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/pflegefachfrau-pflegefachmann-hf-fh",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:47:14.225Z",
+      "crawledAt": "2026-09-26T14:05:38.422Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -482,9 +475,7 @@
         "formation-pour-le-specialiste-infirmier-qualifie-hf-pour-le-specialiste-infirmier-qualifie-hf-luzerner-hohenklinik",
         "training-for-the-qualified-nursing-specialist-hf-for-the-qualified-nursing-specialist-hf-luzerner-hohenklinik-montana-crans-montana",
         "pflegefachfrau-pflegefachmann-hf-fh-luzerner-hohenklinik-montana-crans-montana",
-        "praktizierende-n-pflegefachmann-frau-mit-ausbildungsbefugnis-lhm-luzerner-hohenklinik",
-        "infermieristica-professionale-hf-fh-luzerner-hohenklinik-montana-crans-montana",
-        "infermiere-i-praticante-con-autorizzazione-all-insegnamento-luzerner-hohenklinik-montana-crans-montana"
+        "praktizierende-n-pflegefachmann-frau-mit-ausbildungsbefugnis-lhm-luzerner-hohenklinik"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -499,9 +490,7 @@
           "formation-pour-le-specialiste-infirmier-qualifie-hf-pour-le-specialiste-infirmier-qualifie-hf-luzerner-hohenklinik",
           "training-for-the-qualified-nursing-specialist-hf-for-the-qualified-nursing-specialist-hf-luzerner-hohenklinik-montana-crans-montana",
           "pflegefachfrau-pflegefachmann-hf-fh-luzerner-hohenklinik-montana-crans-montana",
-          "praktizierende-n-pflegefachmann-frau-mit-ausbildungsbefugnis-lhm-luzerner-hohenklinik",
-          "infermieristica-professionale-hf-fh-luzerner-hohenklinik-montana-crans-montana",
-          "infermiere-i-praticante-con-autorizzazione-all-insegnamento-luzerner-hohenklinik-montana-crans-montana"
+          "praktizierende-n-pflegefachmann-frau-mit-ausbildungsbefugnis-lhm-luzerner-hohenklinik"
         ],
         "en": [
           "apprenticeship-as-registered-nurse-hf-luzerner-hohenklinik-montana-crans-montana"
@@ -527,13 +516,14 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "lhm-luzerner-hohenklinik-montana-98567d01b9d0",
-      "slug": "infirmier-ere-praticien-ne-formateur-trice-luzerner-hohenklinik-montana-crans-montana",
+      "slug": "infermiera-practitioner-trainer-luzerner-hohenklinik-montana-crans-montana",
       "slugByLocale": {
-        "it": "infirmier-ere-praticien-ne-formateur-trice-luzerner-hohenklinik-montana-crans-montana",
+        "it": "infermiera-practitioner-trainer-luzerner-hohenklinik-montana-crans-montana",
         "en": "nurse-practitioner-luzerner-hohenklinik-montana-crans-montana",
         "de": "krankenpfleger-luzerner-hohenklinik-montana-crans-montana",
         "fr": "infirmier-ere-praticien-ne-formateur-trice-lhm-luzerner-hohenklinik-montana-crans-montana"
@@ -543,7 +533,7 @@
       "companyDomain": "lhm.ch",
       "title": "Infirmier/ère Praticien/ne formateur/trice",
       "titleByLocale": {
-        "it": "Infermiera Practitioner/Trainer",
+        "it": "Infirmier/ère Praticien/ne formateur/trice",
         "en": "Nurse Practitioner",
         "de": "Krankenpfleger",
         "fr": "Infirmier/ère Praticien/ne formateur/trice"
@@ -560,7 +550,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/infirmier-praticien-formateur",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:47:13.864Z",
+      "crawledAt": "2026-09-26T14:05:38.001Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -580,14 +570,12 @@
       "previousSlugs": [
         "infirmier-ere-praticien-ne-formateur-trice-lhm-luzerner-hohenklinik-montana-crans-montana",
         "infermiera-practitioner-luzerner-hohenklinik-montana-crans-montana",
-        "infermiera-practitioner-trainer-luzerner-hohenklinik-montana-crans-montana",
         "infirmier-ere-praticien-ne-formateur-trice-luzerner-hohenklinik-montana-crans-montana"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-praticien-ne-formateur-trice-lhm-luzerner-hohenklinik-montana-crans-montana",
           "infermiera-practitioner-luzerner-hohenklinik-montana-crans-montana",
-          "infermiera-practitioner-trainer-luzerner-hohenklinik-montana-crans-montana",
           "infirmier-ere-praticien-ne-formateur-trice-luzerner-hohenklinik-montana-crans-montana"
         ],
         "en": [
@@ -610,7 +598,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }

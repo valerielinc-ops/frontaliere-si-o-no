@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ameos-ch",
-  "assembledAt": "2026-09-25T14:43:53.241Z",
+  "assembledAt": "2026-09-26T13:52:33.536Z",
   "jobs": [
     {
       "id": "ameos-ch-5f7314a7f5c2",
@@ -34,7 +34,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/11076-mitarbeiter-personalmanagement-80%25-in-z%C3%BCrich",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:43:48.644Z",
+      "crawledAt": "2026-09-26T13:52:27.981Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -52,13 +52,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-m-w-d-personalmanagement-80-ameos-zurich",
-        "collaboratore-trice-m-w-d-personalmanagement-80-ameos-schweiz-zurich"
+        "mitarbeiter-m-w-d-personalmanagement-80-ameos-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-m-w-d-personalmanagement-80-ameos-zurich",
-          "collaboratore-trice-m-w-d-personalmanagement-80-ameos-schweiz-zurich"
+          "mitarbeiter-m-w-d-personalmanagement-80-ameos-zurich"
         ],
         "en": [
           "mitarbeiter-m-w-d-personalmanagement-80-ameos-zurich"
@@ -113,7 +111,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/9318-unterassistent-pj-chirurgie-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:43:47.853Z",
+      "crawledAt": "2026-09-26T13:52:27.133Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -131,13 +129,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln",
-        "sub-assistant-pj-m-f-d-chirurgia-ameos-schweiz-einsiedeln"
+        "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln",
-          "sub-assistant-pj-m-f-d-chirurgia-ameos-schweiz-einsiedeln"
+          "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln"
         ],
         "en": [
           "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln"
@@ -159,7 +155,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ameos-ch-173b1d8ec3aa",
@@ -192,7 +189,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/11227-medizinischen-masseur-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:43:47.031Z",
+      "crawledAt": "2026-09-26T13:52:26.247Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -210,13 +207,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medizinischen-masseur-m-w-d-ameos-einsiedeln",
-        "massaggiatore-medico-m-f-d-ameos-schweiz-einsiedeln"
+        "medizinischen-masseur-m-w-d-ameos-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinischen-masseur-m-w-d-ameos-einsiedeln",
-          "massaggiatore-medico-m-f-d-ameos-schweiz-einsiedeln"
+          "medizinischen-masseur-m-w-d-ameos-einsiedeln"
         ],
         "en": [
           "medizinischen-masseur-m-w-d-ameos-einsiedeln"
@@ -238,7 +233,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ameos-ch-8006baa87e24",
@@ -272,7 +268,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/11782-mitarbeiter-case-management-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:43:46.263Z",
+      "crawledAt": "2026-09-26T13:52:25.365Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -294,8 +290,7 @@
         "collaboratore-trice-m-w-d-roomservice-ameos-schweiz-einsiedeln",
         "employees-m-f-d-roomservice-ameos-schweiz-einsiedeln",
         "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln",
-        "employes-h-f-d-roomservice-ameos-schweiz-einsiedeln",
-        "collaboratore-trice-m-w-d-case-management-ameos-schweiz-einsiedeln"
+        "employes-h-f-d-roomservice-ameos-schweiz-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -303,8 +298,7 @@
           "collaboratore-trice-m-w-d-roomservice-ameos-schweiz-einsiedeln",
           "employees-m-f-d-roomservice-ameos-schweiz-einsiedeln",
           "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln",
-          "employes-h-f-d-roomservice-ameos-schweiz-einsiedeln",
-          "collaboratore-trice-m-w-d-case-management-ameos-schweiz-einsiedeln"
+          "employes-h-f-d-roomservice-ameos-schweiz-einsiedeln"
         ],
         "en": [
           "mitarbeiter-m-w-d-case-management-ameos-einsiedeln",
@@ -365,7 +359,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/11821-ern%C3%A4hrungsberater-rehabilitation-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:43:45.510Z",
+      "crawledAt": "2026-09-26T13:52:24.448Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -385,15 +379,13 @@
       "previousSlugs": [
         "nutritionist-m-f-d-rehabilitation-ameos-schweiz-einsiedeln",
         "nutritionniste-rehabilitation-h-f-d-ameos-schweiz-einsiedeln",
-        "ernahrungsberater-m-w-d-rehabilitation-ameos-einsiedeln",
-        "riabilitazione-nutrizionale-m-f-d-ameos-schweiz-einsiedeln"
+        "ernahrungsberater-m-w-d-rehabilitation-ameos-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
           "nutritionist-m-f-d-rehabilitation-ameos-schweiz-einsiedeln",
           "nutritionniste-rehabilitation-h-f-d-ameos-schweiz-einsiedeln",
-          "ernahrungsberater-m-w-d-rehabilitation-ameos-einsiedeln",
-          "riabilitazione-nutrizionale-m-f-d-ameos-schweiz-einsiedeln"
+          "ernahrungsberater-m-w-d-rehabilitation-ameos-einsiedeln"
         ],
         "en": [
           "ernahrungsberater-m-w-d-rehabilitation-ameos-einsiedeln"
@@ -448,7 +440,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/11824-leitung-technischer-dienst-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:43:44.751Z",
+      "crawledAt": "2026-09-26T13:52:23.569Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -466,13 +458,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitung-m-w-d-technischer-dienst-ameos-einsiedeln",
-        "responsabile-del-servizio-tecnico-m-f-d-ameos-schweiz-einsiedeln"
+        "leitung-m-w-d-technischer-dienst-ameos-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitung-m-w-d-technischer-dienst-ameos-einsiedeln",
-          "responsabile-del-servizio-tecnico-m-f-d-ameos-schweiz-einsiedeln"
+          "leitung-m-w-d-technischer-dienst-ameos-einsiedeln"
         ],
         "en": [
           "leitung-m-w-d-technischer-dienst-ameos-einsiedeln"
@@ -494,7 +484,8 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ameos-ch-e59d0994c9db",
@@ -527,7 +518,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/12421-mitarbeiter-roomservice-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:43:43.972Z",
+      "crawledAt": "2026-09-26T13:52:22.693Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -552,8 +543,7 @@
         "employee-m-f-d-reception-ameos-schweiz-einsiedeln",
         "mitarbeiter-m-w-d-empfang-ameos-einsiedeln",
         "reception-de-l-employe-h-f-d-ameos-schweiz-einsiedeln",
-        "collaboratore-trice-m-w-d-empfang-ameos-schweiz-einsiedeln",
-        "collaboratore-trice-m-w-d-roomservice-ameos-schweiz-einsiedeln"
+        "collaboratore-trice-m-w-d-empfang-ameos-schweiz-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -562,8 +552,7 @@
           "employee-m-f-d-reception-ameos-schweiz-einsiedeln",
           "mitarbeiter-m-w-d-empfang-ameos-einsiedeln",
           "reception-de-l-employe-h-f-d-ameos-schweiz-einsiedeln",
-          "collaboratore-trice-m-w-d-empfang-ameos-schweiz-einsiedeln",
-          "collaboratore-trice-m-w-d-roomservice-ameos-schweiz-einsiedeln"
+          "collaboratore-trice-m-w-d-empfang-ameos-schweiz-einsiedeln"
         ],
         "en": [
           "employees-m-f-d-roomservice-ameos-schweiz-einsiedeln",
@@ -592,7 +581,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ameos-ch-beea9499803f",
@@ -626,7 +616,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/12457-operativen-eink%C3%A4ufer-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:43:43.182Z",
+      "crawledAt": "2026-09-26T13:52:21.794Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -644,13 +634,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "operativen-einkaufer-m-w-d-ameos-einsiedeln",
-        "acquirenti-operativi-m-f-d-ameos-schweiz-einsiedeln"
+        "operativen-einkaufer-m-w-d-ameos-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operativen-einkaufer-m-w-d-ameos-einsiedeln",
-          "acquirenti-operativi-m-f-d-ameos-schweiz-einsiedeln"
+          "operativen-einkaufer-m-w-d-ameos-einsiedeln"
         ],
         "en": [
           "operativen-einkaufer-m-w-d-ameos-einsiedeln"
@@ -676,28 +664,28 @@
     },
     {
       "id": "ameos-ch-f1f33599864a",
-      "slug": "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
+      "slug": "stv-station-management-m-f-d-stazione-di-letto-interdisciplinare-ameos-schweiz-einsiedeln",
       "slugByLocale": {
         "de": "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
-        "it": "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
-        "en": "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
-        "fr": "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
+        "it": "stv-station-management-m-f-d-stazione-di-letto-interdisciplinare-ameos-schweiz-einsiedeln",
+        "en": "stv-station-management-m-f-d-interdisciplinary-bed-station-ameos-schweiz-einsiedeln",
+        "fr": "gestion-de-station-stv-h-f-d-station-lit-interdisciplinaire-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
       "companyDomain": "karriere.ameos.eu",
       "title": "Stv. Stationsleitung (m/w/d) Interdisziplinäre Bettenstation",
       "titleByLocale": {
-        "de": "Stv. Stationsleitung (m/w/d) Interdisziplinäre Bettenstation",
         "it": "Stv. Station Management (m/f/d) Stazione di letto interdisciplinare",
         "en": "Stv. Station Management (m/f/d) Interdisciplinary bed station",
+        "de": "Stv. Stationsleitung (m/w/d) Interdisziplinäre Bettenstation",
         "fr": "Gestion de station Stv. (h/f/d) Station-lit interdisciplinaire"
       },
       "description": "AMEOS Schweiz — Teil der AMEOS-Gruppe (Spitäler, Polikliniken, Reha- und Pflegeeinrichtungen). Schweizer Standorte: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. Stelle: Stv. Stationsleitung (m/w/d) Interdisziplinäre Bettenstation (Einsiedeln, SZ).\n\nStv. Stationsleitung (m/w/d) Interdisziplinäre Bettenstation Gestalten Sie mit uns die Zukunft in Einsiedeln!Zur Verstärkung unseres Teams im AMEOS Spital Einsiedeln suchen wir per sofort oder nach Vereinbarung eine Stv. Stationsleitung (m/w/d) Interdisziplinäre Bettenstation80-100 %Ihre VorteileEine verantwortungsvolle und abwechslungsreiche FührungsfunktionEngagiertes, interprofessionelles Team und wertschätzende ZusammenarbeitStrukturierte Einarbeitung sowie Unterstützung in der FührungsrolleAttraktive Fort- und WeiterbildungsmöglichkeitenZeitgemäße Anstellungsbedingungen und gute SozialleistungenMöglichkeit zur aktiven Mitgestaltung von Prozessen und StrukturenIhre AufgabenUnterstützung der Stationsleitung in der personellen und fachlichen Führung des PflegeteamsMitverantwortung für die Sicherstellung einer professionellen, evidenzbasierten PflegeÜbernahme der Tagesverantwortung bei Abwesenheit der StationsleitungAktive Mitarbeit in der direkten PatientenversorgungKoordination interdisziplinärer Zusammenarbeit mit ärztlichem Dienst und weiteren BerufsgruppenMitwirkung bei der Dienstplanung sowie bei Personalentwicklung und -förderungSicherstellung der Einhaltung von Qualitäts- und SicherheitsstandardsMitarbeit in Projekten sowie bei der Weiterentwicklung von PflegeprozessenIhr ProfilAbgeschlossene Ausbildung als dipl. Pflegefachperson HF/FH oder gleichwertige Anerkennung (zwingend SRK Anerkennung bei ausländischem Diplom)Mehrjährige Berufserfahrung im Akutbereich, idealerweise auf einer interdisziplinären BettenstationErste Führungserfahrung oder absolvierte/angefangene Weiterbildung im Führungsbereich von VorteilHohe Sozial- und Fachkompetenz sowie ausgeprägte TeamfähigkeitOrganisationsstärke, Belastbarkeit und lösungsorientierte ArbeitsweiseFreude an interdisziplinärer Zusammenarbeit und an der Weiterentwicklung der PflegequalitätGute IT-Anwenderkenntnisse und Bereitschaft zur Mitgestaltung digitaler Prozesse Haben wir Ihr Interesse geweckt? Für nähere Auskünfte wenden Sie sich bitte an die Stationsleitung, Frau Kerstin Wyen, unter Tel. +41 (0)55 418 55 51 oder per E-Mail an kerstin.wyen@einsiedeln.ameos.ch.Gerne erwarten wir Ihre vollständige Bewerbung mit Motivationsschreiben, Lebenslauf, Diplome, Zeugnissen über unser Online-Bewerbungsportal.Wir freuen uns auf Ihre Bewerbung! Folge uns auf Instagram@ameos_gruppeJetzt bewerben Vor allem Gesundheit ameos.eu Laden... \" onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"Stellenbeschreibung\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\" >",
       "descriptionByLocale": {
-        "de": "AMEOS Schweiz — Teil der AMEOS-Gruppe (Spitäler, Polikliniken, Reha- und Pflegeeinrichtungen). Schweizer Standorte: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. Stelle: Stv. Stationsleitung (m/w/d) Interdisziplinäre Bettenstation (Einsiedeln, SZ).\n\nStv. Stationsleitung (m/w/d) Interdisziplinäre Bettenstation Gestalten Sie mit uns die Zukunft in Einsiedeln!Zur Verstärkung unseres Teams im AMEOS Spital Einsiedeln suchen wir per sofort oder nach Vereinbarung eine Stv. Stationsleitung (m/w/d) Interdisziplinäre Bettenstation80-100 %Ihre VorteileEine verantwortungsvolle und abwechslungsreiche FührungsfunktionEngagiertes, interprofessionelles Team und wertschätzende ZusammenarbeitStrukturierte Einarbeitung sowie Unterstützung in der FührungsrolleAttraktive Fort- und WeiterbildungsmöglichkeitenZeitgemäße Anstellungsbedingungen und gute SozialleistungenMöglichkeit zur aktiven Mitgestaltung von Prozessen und StrukturenIhre AufgabenUnterstützung der Stationsleitung in der personellen und fachlichen Führung des PflegeteamsMitverantwortung für die Sicherstellung einer professionellen, evidenzbasierten PflegeÜbernahme der Tagesverantwortung bei Abwesenheit der StationsleitungAktive Mitarbeit in der direkten PatientenversorgungKoordination interdisziplinärer Zusammenarbeit mit ärztlichem Dienst und weiteren BerufsgruppenMitwirkung bei der Dienstplanung sowie bei Personalentwicklung und -förderungSicherstellung der Einhaltung von Qualitäts- und SicherheitsstandardsMitarbeit in Projekten sowie bei der Weiterentwicklung von PflegeprozessenIhr ProfilAbgeschlossene Ausbildung als dipl. Pflegefachperson HF/FH oder gleichwertige Anerkennung (zwingend SRK Anerkennung bei ausländischem Diplom)Mehrjährige Berufserfahrung im Akutbereich, idealerweise auf einer interdisziplinären BettenstationErste Führungserfahrung oder absolvierte/angefangene Weiterbildung im Führungsbereich von VorteilHohe Sozial- und Fachkompetenz sowie ausgeprägte TeamfähigkeitOrganisationsstärke, Belastbarkeit und lösungsorientierte ArbeitsweiseFreude an interdisziplinärer Zusammenarbeit und an der Weiterentwicklung der PflegequalitätGute IT-Anwenderkenntnisse und Bereitschaft zur Mitgestaltung digitaler Prozesse Haben wir Ihr Interesse geweckt? Für nähere Auskünfte wenden Sie sich bitte an die Stationsleitung, Frau Kerstin Wyen, unter Tel. +41 (0)55 418 55 51 oder per E-Mail an kerstin.wyen@einsiedeln.ameos.ch.Gerne erwarten wir Ihre vollständige Bewerbung mit Motivationsschreiben, Lebenslauf, Diplome, Zeugnissen über unser Online-Bewerbungsportal.Wir freuen uns auf Ihre Bewerbung! Folge uns auf Instagram@ameos_gruppeJetzt bewerben Vor allem Gesundheit ameos.eu Laden... \" onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"Stellenbeschreibung\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\" >",
         "it": "AMEOS Svizzera — parte del Gruppo AMEOS (ospedale, policlinici, riabilitazione e assistenza). Località svizzere: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zurich. Posizione: Stv. Stationsleitung (m/f/d) Stazione di letto interdisciplinare (Einsiedeln, SZ).\n\nGestione stazione (m/f/d) Stazione interdisciplinare Design il futuro in Einsiedeln con noi! Per rafforzare il nostro team di AMEOS Spital Einsiedeln, stiamo cercando un Stv immediatamente o su appuntamento. Gestione della stazione (m/f/d) Stazione interdisciplinare 80-100 %I vostri vantaggiUna funzione di leadership responsabile e diversificataEngaged, team interprofessionale e cooperazione apprezzativaLa familiarizzazione strutturata e il supporto nel ruolo di leadershipLa formazione attraente e ulteriori opportunità di istruzione Le condizioni di lavoro contemporaneo e i buoni benefici socialiPossibilità per la partecipazione attiva al personale e la gestione professionale del team di curaCo-responsabilità per garantire una formazione professionale Specialista infermieristico HF/FH o riconoscimento equivalente (riconoscimento obbligatorio SRK con diploma straniero) Diversi anni di esperienza professionale nel campo acuto, idealmente su una stazione di letto interdisciplinarePrima esperienza di gestione o completato/avviamento ulteriore formazione nella zona di gestione di vantaggioAlta competenza sociale e professionale, nonché le competenze di squadra pronunciateLa forza di organizzazione, resilienza e metodi di lavoro orientati alla soluzioneFreudere sulla cooperazione interdisciplinare e sull'ulteriore sviluppo della qualità della curaOttima conoscenza dell'utente IT e la disponibilità a modellare i processi digitali? Per ulteriori informazioni, si prega di contattare la direzione della stazione, signora Kerstin Wyen, al tel. +41 (0)55 418 55 51 o via e-mail a kerstin.wyen@einsiedeln.ameos.ch.we sono lieti di attendere la vostra applicazione completa con lettera di motivazione, CV, diplomi, certificati tramite il nostro portale di richiesta online. Attendiamo con ansia la vostra applicazione! Seguici su Instagram@ameos groupNow Applicare Sopra tutto il negozio di salute ameos.eu... \"onload=\"this.removeAttribute('srcdoc')\" larghezza=\"320\" altezza=\"2130\" titolo=\"job Description\" id=\"job-details-frame\" style=\"larghezza: 100%;\" referrerpolicy=\"origin\"rolling=\"auto\">",
         "en": "AMEOS Switzerland — part of the AMEOS Group (hospitals, polyclinics, rehabilitation and care facilities). Swiss locations: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zurich. Position: Stv. Stationsleitung (m/f/d) Interdisciplinary bed station (Einsiedeln, SZ).\n\nStation management (m/f/d) Interdisciplinary bed station Design the future in Einsiedeln with us! To strengthen our team at AMEOS Spital Einsiedeln, we are looking for a Stv immediately or by appointment. Station management (m/f/d) Interdisciplinary bed station 80-100 %Your advantagesA responsible and varied leadership functionEngaged, interprofessional team and appreciative cooperationStructured familiarisation as well as support in the leadership roleAttractive training and further education opportunities Contemporary employment conditions and good social benefitsPossibility for active participation in the personnel and professional management of the nursing teamCo-responsibility for ensuring a professional, evidence-based nursing responsibility in the absence of the station managementCo-operation in direct patient careCo-ordination of interdisciplinary cooperation with medical service and other professional groupsCo-operation in service planning as well as in personnel development and promotionCo-operation in projects as well as in the further development of nursing processesCompleted training as dipl. Nursing specialist HF/FH or equivalent recognition (mandatory SRK recognition with foreign diploma)Several years of professional experience in the acute field, ideally on an interdisciplinary bed stationFirst management experience or completed/started further training in the management area of advantageHigh social and professional competence as well as pronounced team skillsOrganization strength, resilience and solution-oriented working methodsFreude on interdisciplinary cooperation and on the further development of care qualityGood IT user knowledge and willingness to shape digital processes Have we aroused your interest? For further information, please contact the station management, Mrs. Kerstin Wyen, at tel. +41 (0)55 418 55 51 or by e-mail to kerstin.wyen@einsiedeln.ameos.ch.we are happy to await your complete application with letter of motivation, CV, diplomas, certificates via our online application portal.We look forward to your application! Follow us on Instagram@ameos groupNow Apply Above all health ameos.eu store... \"onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"job description\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\">",
+        "de": "AMEOS Schweiz — Teil der AMEOS-Gruppe (Spitäler, Polikliniken, Reha- und Pflegeeinrichtungen). Schweizer Standorte: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. Stelle: Stv. Stationsleitung (m/w/d) Interdisziplinäre Bettenstation (Einsiedeln, SZ).\n\nStv. Stationsleitung (m/w/d) Interdisziplinäre Bettenstation Gestalten Sie mit uns die Zukunft in Einsiedeln!Zur Verstärkung unseres Teams im AMEOS Spital Einsiedeln suchen wir per sofort oder nach Vereinbarung eine Stv. Stationsleitung (m/w/d) Interdisziplinäre Bettenstation80-100 %Ihre VorteileEine verantwortungsvolle und abwechslungsreiche FührungsfunktionEngagiertes, interprofessionelles Team und wertschätzende ZusammenarbeitStrukturierte Einarbeitung sowie Unterstützung in der FührungsrolleAttraktive Fort- und WeiterbildungsmöglichkeitenZeitgemäße Anstellungsbedingungen und gute SozialleistungenMöglichkeit zur aktiven Mitgestaltung von Prozessen und StrukturenIhre AufgabenUnterstützung der Stationsleitung in der personellen und fachlichen Führung des PflegeteamsMitverantwortung für die Sicherstellung einer professionellen, evidenzbasierten PflegeÜbernahme der Tagesverantwortung bei Abwesenheit der StationsleitungAktive Mitarbeit in der direkten PatientenversorgungKoordination interdisziplinärer Zusammenarbeit mit ärztlichem Dienst und weiteren BerufsgruppenMitwirkung bei der Dienstplanung sowie bei Personalentwicklung und -förderungSicherstellung der Einhaltung von Qualitäts- und SicherheitsstandardsMitarbeit in Projekten sowie bei der Weiterentwicklung von PflegeprozessenIhr ProfilAbgeschlossene Ausbildung als dipl. Pflegefachperson HF/FH oder gleichwertige Anerkennung (zwingend SRK Anerkennung bei ausländischem Diplom)Mehrjährige Berufserfahrung im Akutbereich, idealerweise auf einer interdisziplinären BettenstationErste Führungserfahrung oder absolvierte/angefangene Weiterbildung im Führungsbereich von VorteilHohe Sozial- und Fachkompetenz sowie ausgeprägte TeamfähigkeitOrganisationsstärke, Belastbarkeit und lösungsorientierte ArbeitsweiseFreude an interdisziplinärer Zusammenarbeit und an der Weiterentwicklung der PflegequalitätGute IT-Anwenderkenntnisse und Bereitschaft zur Mitgestaltung digitaler Prozesse Haben wir Ihr Interesse geweckt? Für nähere Auskünfte wenden Sie sich bitte an die Stationsleitung, Frau Kerstin Wyen, unter Tel. +41 (0)55 418 55 51 oder per E-Mail an kerstin.wyen@einsiedeln.ameos.ch.Gerne erwarten wir Ihre vollständige Bewerbung mit Motivationsschreiben, Lebenslauf, Diplome, Zeugnissen über unser Online-Bewerbungsportal.Wir freuen uns auf Ihre Bewerbung! Folge uns auf Instagram@ameos_gruppeJetzt bewerben Vor allem Gesundheit ameos.eu Laden... \" onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"Stellenbeschreibung\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\" >",
         "fr": "AMEOS Suisse — faisant partie du groupe AMEOS (hôpitaux, polycliniques, centres de réadaptation et de soins). Lieux suisses: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zurich. Position: Stv. Stationsleitung (h/f/d) Station-lit interdisciplinaire (Einsiedeln, SZ).\n\nGestion de station (h/f/d) Station lit interdisciplinaire Concevez l'avenir à Einsiedeln avec nous! Pour renforcer notre équipe chez AMEOS Spital Einsiedeln, nous recherchons un Stv immédiatement ou sur rendez-vous. Gestion de la station (h/f/d) Station de lit interdisciplinaire 80-100 %Vos avantagesUne fonction de leadership responsable et variéeCoopération dynamique, interprofessionnelle et appréciatriceFamiliarisation structurée ainsi que soutien au rôle de leadershipFormation attractive et possibilités d'éducation continueConditions d'emploi contemporaines et bons avantages sociauxPossibilité de participation active au personnel et à la gestion professionnelle de l'équipe infirmièreCoresponsabilité d'assurer une responsabilité infirmière professionnelle fondée sur des données probantes en l'absence de gestion de la stationCoopération en soins directs aux patientsCoordination de la coopération interdisciplinaire avec les services médicaux et d'autres groupes professionnelsCoopération en matière de planification des services ainsi qu'en matière de développement et de promotion du personnelCoopération dans les projets ainsi que dans le développement ultérieur des processus de soins infirmiers. Spécialiste des soins infirmiers HF/FH ou reconnaissance équivalente (reconnaissance obligatoire SRK avec diplôme étranger) Plusieurs années d'expérience professionnelle dans le domaine aigu, idéalement sur une station-lit interdisciplinairePremière expérience de gestion ou formation continue complétée/démarrée dans le domaine de la gestion d'avantageHaute compétence sociale et professionnelle ainsi que compétences d'équipe élevéesFort d'organisation, résilience et méthodes de travail orientées vers la solutionFreude sur la coopération interdisciplinaire et sur le développement ultérieur de la qualité des soins Bonne connaissance des utilisateurs informatiques et volonté de façonner les processus numériques Avons-nous suscité votre intérêt? Pour de plus amples informations, veuillez contacter la direction de la station, Mme Kerstin Wyen, tél. +41 (0)55 418 55 51 ou par e-mail à kerstin.wyen@einsiedeln.ameos.ch.Nous sommes heureux d'attendre votre candidature complète avec lettre de motivation, CV, diplômes, certificats via notre portail d'application en ligne. Nous attendons avec impatience votre candidature! Suivez-nous sur Instagram@ameos groupNow Apply Par-dessus tout santé ameos.eu store... \"onload\"this.removeAttribute('srcdoc')\" width\"320\" height\"2130\" title\" id\"job-details-frame\" style\"width: 100%;\" referrerpolicy\"origin\" scrolling\"auto\">"
       },
       "needsRetranslation": true,
@@ -706,7 +694,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/12964-stv-stationsleitung-interdisziplin%C3%A4re-bettenstation-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:43:42.403Z",
+      "crawledAt": "2026-09-26T13:52:20.929Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -722,9 +710,7 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://karriere.ameos.eu/offene-stellen/stelle/12964-stv-stationsleitung-interdisziplin%C3%A4re-bettenstation-in-einsiedeln",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -738,7 +724,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-20T10:54:37.604Z"
+      "firstSeenAt": "2026-05-20T10:54:37.604Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
+        ],
+        "en": [
+          "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
+        ],
+        "fr": [
+          "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
+        ]
+      },
+      "previousSlugs": [
+        "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
+      ]
     },
     {
       "id": "ameos-ch-c0a673d90dfa",
@@ -755,7 +755,7 @@
       "title": "Physiotherapeut (m/w/d)",
       "titleByLocale": {
         "it": "Fisioterapista (m/f/d)",
-        "en": "Physiotherapist (m/f/d)",
+        "en": "Physiotherapeut (m/w/d)",
         "de": "Physiotherapeut (m/w/d)",
         "fr": "Physiothérapeute (m/f/d)"
       },
@@ -771,7 +771,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/9441-physiotherapeut-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:43:41.587Z",
+      "crawledAt": "2026-09-26T13:52:20.046Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -792,19 +792,16 @@
         "physiotherapeut-m-w-d-ameos-einsiedeln",
         "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
         "fisioterapista-lun-f-d-ameos-schweiz-einsiedeln",
-        "physiotherapist-m-f-d-ameos-schweiz-einsiedeln",
-        "fisioterapista-m-f-d-ameos-schweiz-einsiedeln"
+        "physiotherapist-m-f-d-ameos-schweiz-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeut-m-w-d-ameos-einsiedeln",
           "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
-          "fisioterapista-lun-f-d-ameos-schweiz-einsiedeln",
-          "fisioterapista-m-f-d-ameos-schweiz-einsiedeln"
+          "fisioterapista-lun-f-d-ameos-schweiz-einsiedeln"
         ],
         "en": [
-          "physiotherapist-m-f-d-ameos-schweiz-einsiedeln",
-          "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
+          "physiotherapist-m-f-d-ameos-schweiz-einsiedeln"
         ],
         "fr": [
           "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
@@ -823,7 +820,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ameos-ch-f9e909cf382c",
@@ -856,7 +854,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/8764-assistenzarzt-psychiatrie-und-psychotherapie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:43:40.807Z",
+      "crawledAt": "2026-09-26T13:52:19.187Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -875,14 +873,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistenzarzt-m-w-d-psychiatrie-und-psychotherapie-ameos-brunnen",
-        "assistenzarzt-m-w-d-psychiatrie-e-psychotherapie-ameos-schweiz-brunnen",
-        "assistente-medico-m-f-d-psichiatria-e-psicoterapia-ameos-schweiz-brunnen"
+        "assistenzarzt-m-w-d-psychiatrie-e-psychotherapie-ameos-schweiz-brunnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarzt-m-w-d-psychiatrie-und-psychotherapie-ameos-brunnen",
-          "assistenzarzt-m-w-d-psychiatrie-e-psychotherapie-ameos-schweiz-brunnen",
-          "assistente-medico-m-f-d-psichiatria-e-psicoterapia-ameos-schweiz-brunnen"
+          "assistenzarzt-m-w-d-psychiatrie-e-psychotherapie-ameos-schweiz-brunnen"
         ],
         "en": [
           "assistenzarzt-m-w-d-psychiatrie-und-psychotherapie-ameos-brunnen"
@@ -904,7 +900,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ameos-ch-3ec2bc5a0083",
@@ -920,7 +917,7 @@
       "companyDomain": "karriere.ameos.eu",
       "title": "IT-Administrator (m/w/d)",
       "titleByLocale": {
-        "it": "Amministratore IT (m/f/d)",
+        "it": "IT-Administrator (m/w/d)",
         "en": "IT administrator (m/f/d)",
         "de": "IT-Administrator (m/w/d)",
         "fr": "Administrateur informatique (m/f/d)"
@@ -937,7 +934,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/9394-it-administrator-in-z%C3%BCrich",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:43:40.044Z",
+      "crawledAt": "2026-09-26T13:52:18.320Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -956,14 +953,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "it-administrator-m-w-d-ameos-zurich",
-        "amministratore-it-m-f-d-ameos-schweiz-zurich",
-        "it-administrator-m-w-d-ameos-schweiz-zurich"
+        "amministratore-it-m-f-d-ameos-schweiz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-administrator-m-w-d-ameos-zurich",
-          "amministratore-it-m-f-d-ameos-schweiz-zurich",
-          "it-administrator-m-w-d-ameos-schweiz-zurich"
+          "amministratore-it-m-f-d-ameos-schweiz-zurich"
         ],
         "fr": [
           "it-administrator-m-w-d-ameos-zurich"
@@ -982,7 +977,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ameos-ch-e7574768d958",
@@ -1016,7 +1012,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/10368-leitung-psychologie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:43:39.259Z",
+      "crawledAt": "2026-09-26T13:52:17.451Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1035,14 +1031,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leitung-psychologie-m-w-d-ameos-brunnen",
-        "responsabile-psicologia-m-f-d-ameos-schweiz-brunnen",
-        "capo-di-psicologia-m-f-d-ameos-schweiz-brunnen"
+        "responsabile-psicologia-m-f-d-ameos-schweiz-brunnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitung-psychologie-m-w-d-ameos-brunnen",
-          "responsabile-psicologia-m-f-d-ameos-schweiz-brunnen",
-          "capo-di-psicologia-m-f-d-ameos-schweiz-brunnen"
+          "responsabile-psicologia-m-f-d-ameos-schweiz-brunnen"
         ],
         "en": [
           "leitung-psychologie-m-w-d-ameos-brunnen"
@@ -1098,7 +1092,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/10362-eidgen%C3%B6ssisch-anerkannter-psychotherapeut-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:43:38.479Z",
+      "crawledAt": "2026-09-26T13:52:16.602Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1117,14 +1111,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-brunnen",
-        "lo-psicoterapeuta-riconosciuto-federale-m-f-d-ameos-schweiz-einsiedeln",
-        "lo-psicoterapeuta-riconosciuto-federale-m-f-d-ameos-schweiz-brunnen"
+        "lo-psicoterapeuta-riconosciuto-federale-m-f-d-ameos-schweiz-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
           "eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-brunnen",
-          "lo-psicoterapeuta-riconosciuto-federale-m-f-d-ameos-schweiz-einsiedeln",
-          "lo-psicoterapeuta-riconosciuto-federale-m-f-d-ameos-schweiz-brunnen"
+          "lo-psicoterapeuta-riconosciuto-federale-m-f-d-ameos-schweiz-einsiedeln"
         ],
         "en": [
           "eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-brunnen"
@@ -1179,7 +1171,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/10365-assistenzpsychologe-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:43:37.689Z",
+      "crawledAt": "2026-09-26T13:52:15.732Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1198,14 +1190,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistenzpsychologe-m-w-d-ameos-brunnen",
-        "assistenzpsychologe-m-w-d-ameos-schweiz-brunnen",
-        "assistente-psicologo-m-f-d-ameos-schweiz-brunnen"
+        "assistenzpsychologe-m-w-d-ameos-schweiz-brunnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzpsychologe-m-w-d-ameos-brunnen",
-          "assistenzpsychologe-m-w-d-ameos-schweiz-brunnen",
-          "assistente-psicologo-m-f-d-ameos-schweiz-brunnen"
+          "assistenzpsychologe-m-w-d-ameos-schweiz-brunnen"
         ],
         "en": [
           "assistenzpsychologe-m-w-d-ameos-schweiz-brunnen"
@@ -1230,7 +1220,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ameos-ch-735203073399",
@@ -1263,7 +1254,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/12839-diplomierte-pflegefachperson-hf-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:43:36.916Z",
+      "crawledAt": "2026-09-26T13:52:14.876Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1281,13 +1272,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "diplomierte-pflegefachperson-hf-m-w-d-ameos-brunnen",
-        "infermiera-certificata-hf-m-f-d-ameos-schweiz-brunnen"
+        "diplomierte-pflegefachperson-hf-m-w-d-ameos-brunnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diplomierte-pflegefachperson-hf-m-w-d-ameos-brunnen",
-          "infermiera-certificata-hf-m-f-d-ameos-schweiz-brunnen"
+          "diplomierte-pflegefachperson-hf-m-w-d-ameos-brunnen"
         ],
         "en": [
           "diplomierte-pflegefachperson-hf-m-w-d-ameos-brunnen"
@@ -1309,7 +1298,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ameos-ch-fcc20b46d678",
@@ -1343,7 +1333,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/8680-stationsleitung-und-stellvertretende-leitung-pflege-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:43:36.101Z",
+      "crawledAt": "2026-09-26T13:52:14.004Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1363,15 +1353,13 @@
       "previousSlugs": [
         "stationsleitung-m-w-d-und-stellvertretende-leitung-pflege-m-w-d-ameos-brunnen",
         "stationsleitung-m-w-d-e-stellvertretende-leitung-pflege-m-w-d-ameos-schweiz-einsiedeln",
-        "stationsleitung-m-w-d-e-stellvertretende-leitung-pflege-m-w-d-ameos-schweiz-brunnen",
-        "gestione-stazione-m-f-d-e-gestione-aggiunto-care-m-f-d-ameos-schweiz-brunnen"
+        "stationsleitung-m-w-d-e-stellvertretende-leitung-pflege-m-w-d-ameos-schweiz-brunnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stationsleitung-m-w-d-und-stellvertretende-leitung-pflege-m-w-d-ameos-brunnen",
           "stationsleitung-m-w-d-e-stellvertretende-leitung-pflege-m-w-d-ameos-schweiz-einsiedeln",
-          "stationsleitung-m-w-d-e-stellvertretende-leitung-pflege-m-w-d-ameos-schweiz-brunnen",
-          "gestione-stazione-m-f-d-e-gestione-aggiunto-care-m-f-d-ameos-schweiz-brunnen"
+          "stationsleitung-m-w-d-e-stellvertretende-leitung-pflege-m-w-d-ameos-schweiz-brunnen"
         ],
         "en": [
           "stationsleitung-m-w-d-und-stellvertretende-leitung-pflege-m-w-d-ameos-brunnen"
@@ -1427,7 +1415,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/7902-oberarzt-undoder-leitender-facharzt-psychiatrie-und-psychotherapie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:43:35.331Z",
+      "crawledAt": "2026-09-26T13:52:13.106Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1446,14 +1434,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberarzt-m-w-d-und-oder-leitender-facharzt-m-w-d-psychiatrie-und-psychotherapie-ameos",
-        "oberarzt-m-w-d-e-o-leitender-facharzt-m-w-d-psychiatrie-e-psychotherapie-ameos-schweiz-brunnen",
-        "medico-senior-m-f-d-e-o-specialista-senior-m-f-d-psichiatria-e-psicoterapia-ameos-schweiz-brunnen"
+        "oberarzt-m-w-d-e-o-leitender-facharzt-m-w-d-psychiatrie-e-psychotherapie-ameos-schweiz-brunnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-m-w-d-und-oder-leitender-facharzt-m-w-d-psychiatrie-und-psychotherapie-ameos",
-          "oberarzt-m-w-d-e-o-leitender-facharzt-m-w-d-psychiatrie-e-psychotherapie-ameos-schweiz-brunnen",
-          "medico-senior-m-f-d-e-o-specialista-senior-m-f-d-psichiatria-e-psicoterapia-ameos-schweiz-brunnen"
+          "oberarzt-m-w-d-e-o-leitender-facharzt-m-w-d-psychiatrie-e-psychotherapie-ameos-schweiz-brunnen"
         ],
         "en": [
           "oberarzt-m-w-d-und-oder-leitender-facharzt-m-w-d-psychiatrie-und-psychotherapie-ameos"
@@ -1509,7 +1495,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/11806-sozialarbeiter-m-w-d-in-der-klinischen-sozialberatung-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:43:34.537Z",
+      "crawledAt": "2026-09-26T13:52:12.238Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1527,13 +1513,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sozialarbeiter-m-w-d-in-der-klinischen-sozialberatung-ameos-brunnen",
-        "lavoratore-sociale-m-w-d-in-consulenza-sociale-clinica-ameos-schweiz-brunnen"
+        "sozialarbeiter-m-w-d-in-der-klinischen-sozialberatung-ameos-brunnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-m-w-d-in-der-klinischen-sozialberatung-ameos-brunnen",
-          "lavoratore-sociale-m-w-d-in-consulenza-sociale-clinica-ameos-schweiz-brunnen"
+          "sozialarbeiter-m-w-d-in-der-klinischen-sozialberatung-ameos-brunnen"
         ],
         "en": [
           "sozialarbeiter-m-w-d-in-der-klinischen-sozialberatung-ameos-brunnen"
@@ -1634,7 +1618,8 @@
         }
       },
       "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/9270-unterassistent-pj-innere-medizin-in-einsiedeln",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }

@@ -20372,6 +20372,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'svizzera-auto-elettriche-classifica',
+    category: 'pratico',
+    date: '2026-09-26T13:50:34.383Z',
+    image: '/images/blog/svizzera-auto-elettriche-classifica.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'premi-cassa-malati-stabilita-famiglie',
+    category: 'fiscale',
+    date: '2026-09-26T14:59:40.353Z',
+    image: '/images/blog/premi-cassa-malati-stabilita-famiglie.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'protesta-asilo-berna-diritti',
+    category: 'novita',
+    date: '2026-09-26T15:55:24.250Z',
+    image: '/images/blog/protesta-asilo-berna-diritti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
