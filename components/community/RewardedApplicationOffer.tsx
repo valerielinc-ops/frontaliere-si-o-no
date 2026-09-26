@@ -368,6 +368,10 @@ export default function RewardedApplicationOffer({
       },
       onShown: ({ shownMs, root }) => {
         if (!mountedRef.current) return;
+        // Once the visitor opted in to the GPT video, GPT is authoritative:
+        // a late Offerwall report (a callback already queued, or a browser
+        // without AbortController) must not take this flow over.
+        if (gptVideoStartedRef.current) return;
         // Google's Offerwall won the race: the GPT fallback (prepared, or
         // offered but not started) steps aside for it.
         if (fallbackActive()) {

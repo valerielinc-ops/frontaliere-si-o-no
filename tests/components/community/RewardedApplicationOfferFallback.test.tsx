@@ -296,6 +296,27 @@ describe('RewardedApplicationOffer — GPT fallback of a late Offerwall', () => 
     expect(tracked('rewarded_offerwall_gpt_fallback_granted')).toEqual([]);
   });
 
+  it('keeps the GPT flow authoritative once its video started, even if a late Offerwall is reported', () => {
+    render(<RewardedApplicationOffer {...props} />);
+    slow();
+    callGpt('onReady', { requestId: 26 } satisfies Info);
+    appearTimeout();
+    callGpt('onOptIn', { requestId: 26 } satisfies Info);
+
+    // A report already queued before the watch ended (or no AbortController).
+    showOfferwall(7_200);
+
+    expect(screen.getByTestId('rewarded-application-offer')).toBeInTheDocument();
+    expect(screen.getByTestId('mock-google-rewarded')).toBeInTheDocument();
+    expect(mocks.disposeRewardedWebAd).not.toHaveBeenCalled();
+    expect(tracked('rewarded_offerwall_shown')).toEqual([]);
+    expect(tracked('rewarded_offerwall_gpt_fallback_aborted')).toEqual([]);
+
+    callGpt('onGranted', { requestId: 26 } satisfies Info);
+    expect(props.onContinue).toHaveBeenCalledTimes(1);
+    expect(tracked('rewarded_offerwall_gpt_fallback_granted')).toHaveLength(1);
+  });
+
   it('destroys a prepared slot when the Offerwall appears before the timeout', () => {
     render(<RewardedApplicationOffer {...props} />);
     slow();
