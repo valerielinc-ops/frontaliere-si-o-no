@@ -80,6 +80,7 @@ import {
  trackSearch as trackSearchBehavior,
  trackFilterUsage,
 } from '@/services/behaviorTracker';
+import { compareApplicationIntentJobKeys } from '@/services/applicationIntentRanking.mjs';
 import {
  computePersonalScore,
  createPersonalScorer,
@@ -207,6 +208,7 @@ import {
 } from '@/services/assistedApplicationExperiment';
 import {
  getRewardedApplicationAccessExpiresAt,
+ REWARDED_APPLICATION_ACCESS_TTL_HOURS,
 } from '@/services/rewardedApplicationAccess';
 import { isAdsConsentGranted, onAdsConsentChange } from '@/services/adsConsent';
 import { preloadRewardedWebAd } from '@/services/rewardedWebAd';
@@ -688,6 +690,10 @@ interface JobBoardProps {
  onRequireAuth?: () => void;
  /** Personalization feature flag (from Firebase Remote Config) */
  enablePersonalization?: boolean;
+ /** Exact-job application-intent ranking flag (off by default). */
+ enableApplicationIntentRanking?: boolean;
+ /** Refresh local behavior after the account's private Firestore profile hydrates. */
+ behaviorHydrationRevision?: number;
  /** User profile data for personalization scoring */
  userProfile?: import('@/components/pages/UserProfile').UserProfileData | null;
  /**
@@ -2313,6 +2319,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onFacebookAuthRequired,
  onRequireAuth,
  enablePersonalization = false,
+ enableApplicationIntentRanking = false,
+ behaviorHydrationRevision = 0,
  userProfile = null,
  initialFilterCanton = null,
 }) => {
@@ -2635,6 +2643,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [behaviorData, setBehaviorData] = useState<BehaviorData | null>(null);
  const [lastVisitTimestamp, setLastVisitTimestamp] = useState<number | null>(null);
  const visitCapturedRef = useRef(false);
+ const applicationIntentExposureRef = useRef(false);
+ const applicationIntentSyncRef = useRef<{ jobId: string; promise: Promise<boolean> } | null>(null);
  const [newJobsDismissed, setNewJobsDismissed] = useState(false);
  const [jobMatchProfile, setJobMatchProfile] = useState<JobMatchProfileData | null>(null);
  // INP: behaviorData/jobMatchProfile land via a post-mount effect (localStorage
@@ -2695,12 +2705,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // stays in React state for this board session, so later SPA updates to
  // behaviorData cannot make the counter compare against "now".
  useEffect(() => {
- if (!enablePersonalization || visitCapturedRef.current) return;
- visitCapturedRef.current = true;
- const { data, previousLastVisit } = readBehaviorAndMarkVisit();
- setBehaviorData(data);
- setLastVisitTimestamp(previousLastVisit);
- }, [enablePersonalization]);
+ if (!enablePersonalization && !enableApplicationIntentRanking) return;
+ if (enablePersonalization && !visitCapturedRef.current) {
+  visitCapturedRef.current = true;
+  const { data, previousLastVisit } = readBehaviorAndMarkVisit();
+  setBehaviorData(data);
+  setLastVisitTimestamp(previousLastVisit);
+ } else {
+  setBehaviorData(getBehaviorData());
+ }
+ }, [enablePersonalization, enableApplicationIntentRanking, behaviorHydrationRevision]);
 
  // Load survey-derived job-match profile (sector/canton/experience level).
  // Independent of behaviorData: a user who only completed SalarySurvey (no
@@ -2885,9 +2899,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // main thread for 14 s (1x CPU) right after mount and again on every
  // deferred search keystroke (trackSearch refreshes behaviorData).
  const personalScoreByJob = useMemo(() => {
- if (!enablePersonalization || !deferredBehaviorData) return null;
- return scorePersonalJobs(jobs, createPersonalScorer(deferredBehaviorData, deferredUserProfile ?? null, deferredJobMatchProfile));
- }, [enablePersonalization, deferredBehaviorData, jobs, deferredUserProfile, deferredJobMatchProfile]);
+ if ((!enablePersonalization && !enableApplicationIntentRanking) || !deferredBehaviorData) return null;
+ return scorePersonalJobs(jobs, createPersonalScorer(
+  deferredBehaviorData,
+  deferredUserProfile ?? null,
+  deferredJobMatchProfile,
+  {
+   applicationIntentRankingEnabled: enableApplicationIntentRanking,
+   personalizationEnabled: enablePersonalization,
+  },
+ ));
+ }, [enablePersonalization, enableApplicationIntentRanking, deferredBehaviorData, jobs, deferredUserProfile, deferredJobMatchProfile]);
  const matchedJobCount = useMemo(() => {
  if (!personalScoreByJob) return 0;
  let count = 0;
@@ -2897,6 +2919,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  // Whether personalization is actively changing sort order (any job scored > 0)
  const isPersonalizationActive = matchedJobCount > 0;
+
+ // Low-cardinality experiment exposure; this helper is Firebase Analytics-only
+ // and deliberately carries no user, employer, or job identifiers.
+ useEffect(() => {
+ if ((!enablePersonalization && !enableApplicationIntentRanking) || !behaviorData || applicationIntentExposureRef.current) return;
+ applicationIntentExposureRef.current = true;
+ Analytics.trackExperimentEvent('application_intent_ranking_exposure', {
+  experiment_id: 'application_intent_ranking',
+  variant: enableApplicationIntentRanking ? 'treatment' : 'control',
+ });
+ }, [enablePersonalization, enableApplicationIntentRanking, behaviorData]);
 
  // Analytics: track personalization state
  useEffect(() => {
@@ -4286,17 +4319,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ...keys,
  personal: personalScoreByJob?.get(keys.job) ?? NO_PERSONAL_SCORE,
  }));
- withMeta.sort((a, b) =>
- (b.sp - a.sp)
- || (b.personal.score - a.personal.score)
- || (a.rank - b.rank)
- || (b.day - a.day)
- || (b.qs - a.qs)
- );
+ withMeta.sort((a, b) => {
+ const existingOrder = (b.sp - a.sp)
+  || (b.personal.score - a.personal.score)
+  || (a.rank - b.rank)
+  || (b.day - a.day)
+  || (b.qs - a.qs);
+ if (existingOrder !== 0 || !enableApplicationIntentRanking) return existingOrder;
+ return compareApplicationIntentJobKeys(a.job, b.job);
+ });
  const next = reuseIfSameOrder(sortedJobsRef.current, withMeta.map(({ job }) => job));
  sortedJobsRef.current = next;
  return next;
- }, [jobSortKeys, personalScoreByJob]);
+ }, [jobSortKeys, personalScoreByJob, enableApplicationIntentRanking]);
 
  // Pre-built search index: caches normalised haystack per job so
  // queryMatchesJob doesn't recompute expensive string normalisation on every keystroke.
@@ -7043,8 +7078,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onJobRouteChange?.(undefined);
  };
 
- const recordJobApplicationIntent = (job: JobListing, surface: string): void => {
-  void recordApplicationIntent({
+ const recordJobApplicationIntent = (job: JobListing, surface: string): Promise<boolean> => recordApplicationIntent({
    job: {
     id: job.id,
     slug: job.slug,
@@ -7055,9 +7089,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
    origin: typeof window !== 'undefined' ? window.location.pathname : '/',
    surface,
    consentText: t('jobBoard.applicationIntent.disclosure'),
+   authEmail: getAuthEmail(authUser),
    authUser,
   });
- };
 
   const trackPublisherApplySignals = (
   job: JobListing,
@@ -7085,7 +7119,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return eventId;
  };
 
- const redirectExternalApplication = (
+ const redirectExternalApplication = async (
   job: JobListing,
   surface: string,
   trackHandoff: boolean,
@@ -7105,6 +7139,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
    { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, ...extraParams },
   );
   if (sameTab) {
+   const pendingIntent = applicationIntentSyncRef.current;
+   if (pendingIntent?.jobId === String(job.id)) {
+    try {
+     await pendingIntent.promise;
+    } catch {
+     // Persistence is best-effort; never block the user's external hand-off.
+    }
+    applicationIntentSyncRef.current = null;
+   }
    window.location.assign(applyDestination);
   } else {
    window.open(applyDestination, '_blank', 'noopener,noreferrer');
@@ -7123,7 +7166,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   );
   setAssistedApplicationJob(null);
   setAssistedCheckoutError(null);
-  redirectExternalApplication(
+  void redirectExternalApplication(
    job,
    assistedApplicationVariant === 'rewarded_ad' ? 'rewarded_application_fallback' : 'assisted_application_offer',
    true,
@@ -7137,7 +7180,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // This callback fires on Google's reward (the Offerwall entitlement or the
   // GPT grant), with no further click, so use the current tab: a late
   // window.open is commonly blocked by the browser.
-  redirectExternalApplication(job, 'rewarded_application_inline_completed', true, true, {
+  void redirectExternalApplication(job, 'rewarded_application_inline_completed', true, true, {
    handoff: 'rewarded_granted',
   });
  };
@@ -7149,7 +7192,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // offer has already tracked the technical detail, and the same click goes
   // straight to the employer. No retry, no local video, no second click.
   setRewardedApplicationJob(null);
-  redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, true, {
+  void redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, true, {
    handoff: 'direct_external',
    reason,
   });
@@ -7223,7 +7266,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // Keep anonymous job-board visitors on the sign-in/subscription funnel.
   // The detail view is the only surface allowed to request the rewarded ad
   // before sign-in, because it owns the canonical rewarded offer host.
-  recordJobApplicationIntent(job, surface);
+  applicationIntentSyncRef.current = {
+   jobId: String(job.id),
+   promise: recordJobApplicationIntent(job, surface),
+  };
   if (isExternal && assistedApplicationVariant === 'rewarded_ad' && !authUser?.uid && !isJobDetailView) {
    onRequireAuth?.();
    return;
@@ -7264,10 +7310,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
    if (rewardedAccessExpiresAt !== null) {
     trackAssistedApplicationEvent(
      'rewarded_application_access_used',
-     { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, access_expires_at: rewardedAccessExpiresAt, access_ttl_hours: 12 },
+     { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, access_expires_at: rewardedAccessExpiresAt, access_ttl_hours: REWARDED_APPLICATION_ACCESS_TTL_HOURS },
     );
    }
-   redirectExternalApplication(
+   void redirectExternalApplication(
     job,
     killSwitches.rewardedApplicationAd ? 'rewarded_application_killswitch' : 'rewarded_application_entitlement',
     false,
@@ -7300,7 +7346,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   if (!isJobDetailView) openDetail(job);
   return;
  }
- redirectExternalApplication(job, surface, false);
+ void redirectExternalApplication(job, surface, false);
  };
 
  const handleShare = async (job: JobListing) => {

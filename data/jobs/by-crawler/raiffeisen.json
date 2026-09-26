@@ -2024,11 +2024,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
+        "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach-snnf11",
         "mitarbeiter-kreditadministration-m-w-d-raiffeisen-egnach",
         "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach-snnf11",
           "mitarbeiter-kreditadministration-m-w-d-raiffeisen-egnach",
           "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach"
         ],
@@ -3570,8 +3572,7 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "raiffeisen-e75cea3c5195",
@@ -3863,12 +3864,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
+        "collaboratore-trice-services-m-w-d-raiffeisen-obergosgen-red4iq",
         "mitarbeiter-services-w-m-d-raiffeisen-obergosgen",
         "mitarbeiter-services-w-m-d-raiffeisen-obergosgen-2",
         "collaboratore-trice-services-m-w-d-raiffeisen-obergosgen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "collaboratore-trice-services-m-w-d-raiffeisen-obergosgen-red4iq",
           "mitarbeiter-services-w-m-d-raiffeisen-obergosgen",
           "mitarbeiter-services-w-m-d-raiffeisen-obergosgen-2",
           "collaboratore-trice-services-m-w-d-raiffeisen-obergosgen"
@@ -5791,7 +5794,6 @@
         "de": "Als Middleware Engineer gestaltest du die Schnittstellen, die unsere Anwendungen und Services miteinander vernetzen. Du arbeitest in einem dynamischen Umfeld mit technologisch spannenden Aufgaben. Dabei stehen für uns nicht nur deine fachlichen Fähigkeiten im Vordergrund – uns ist es vor allem wichtig, wie wir als Team zusammenarbeiten, voneinander lernen und uns gegenseitig unterstützen.<br/><br/>Zur Verstärkung unseres Teams Middleware & Integration in St. Gallen suchen wir per sofort oder nach Vereinbarung eine kommunikative und lösungsorientierte Persönlichkeit als Middleware-Platform Engineer (m/w/d).\n\nAufgaben:\n• Engineering, Betrieb und Weiterentwicklung der Middleware-Plattform (Kafka, Message, Call und File)\n\n• Unterstützung der Entwickler bei der Integration von Applikationen\n\n• Zusammenarbeit mit Experten aus Netzwerk, Storage, OS und Datenbanken\n\n• Automatisierung von Routineaufgaben\n\nAnforderungen:\n• Abgeschlossene Ausbildung in Informatik oder vergleichbare Berufserfahrung\n\n• Mindestens 1 Jahr Erfahrung mit Kafka, idealerweise mit Red Hat Streams auf OpenShift\n\n• Fundierte Erfahrung im Umgang mit APIs (Design, Integration und Betrieb)\n\n• Kenntnisse in IBM MQ sind wünschenswert\n\n• Routine im Umgang mit Enterprise-Betriebssystemen wie AIX, Linux und Windows\n\n• Kenntnisse in Kotlin, Java sowie Argo CD in Verbindung mit Helm sind von Vorteil\n\n• Bereitschaft für Piketteinsätze\n\n• Sehr gute Deutschkenntnisse (mindestens Niveau C1)\n\nWir bieten:\nDie Work-Life-Balance unserer Mitarbeitenden ist uns wichtig. Deshalb schaffen wir die Voraussetzungen dafür, dass die Arbeitszeit flexibel gestaltet werden kann – mit Angeboten für mobiles Arbeiten, Homeoffice und Teilzeit-Pensen.",
         "fr": "En tant qu'ingénieur en middleware, vous concevez les interfaces qui relient nos applications et nos services. Vous travaillez dans un environnement dynamique avec des tâches technologiquement passionnantes. Pour nous, ce ne sont pas seulement vos compétences professionnelles qui sont à l'avant-garde, c'est avant tout important pour nous comment nous travaillons ensemble en équipe, nous apprenons les uns des autres et nous soutenons mutuellement. <br/><br/ >Pour renforcer notre équipe Middleware & Integration à St. Gallen, nous recherchons une personnalité communicative et orientée vers la solution en tant qu'ingénieur de plate-forme Middleware (h/f/d).\n\nTâches:\n• Ingénierie, fonctionnement et développement ultérieur de la plate-forme intergiciel (Kafka, Message, Call and File)\n\n• Soutenir les développeurs dans l'intégration des applications\n\n• Collaboration avec des experts du réseau, du stockage, du système d'exploitation et des bases de données\n\n• Automatisation des tâches courantes\n\nExigences\n• Formation en informatique ou expérience professionnelle comparable\n\n• Au moins 1 an d'expérience avec Kafka, idéalement avec Red Hat sur OpenShift\n\n• Expérience approfondie dans le traitement des API (conception, intégration et fonctionnement)\n\n• La connaissance de IBM MQ est souhaitable\n\n• La routine dans le traitement des systèmes d'exploitation d'entreprise tels que AIX, Linux et Windows\n\n• Connaissance de Kotlin, Java et Argo CD en lien avec le casque sont avantageux\n\n• Préparation pour les piquettes\n\n• Très bonne connaissance de l'allemand (au moins niveau C1)\n\nNous offrons:\nL'équilibre entre le travail et la vie personnelle de nos employés est important pour nous. C'est pourquoi nous créons les conditions pour des horaires de travail flexibles – avec des offres pour le travail mobile, bureau à domicile et à temps partiel."
       },
-      "needsRetranslation": true,
       "location": "St. Gallen",
       "canton": "SG",
       "url": "https://jobs.raiffeisen.ch/offene-stellen/middleware-platform-engineer-m-w-d/7b34e4a5-555e-4e96-aa90-9a98d8397aae",
@@ -7114,7 +7116,6 @@
         "de": "Im Team Data-Services IWH gestalten wir die Datenplattformen und Data-Warehouse-Lösungen von der Anbindung neuer Datenquellen bis zur Sicherstellung stabiler Datenlieferungen für unsere internen Kunden aktiv mit. Wir arbeiten eng mit Fachbereichen und IT-Teams zusammen, um datengetriebene Lösungen effizient und nachhaltig umzusetzen.<br/><br/>Zur Verstärkung unseres Teams am Standort St. Gallen, suchen wir per sofort oder nach Vereinbarung, eine engagierte und analytisch starke Persönlichkeit als DevOps Engineer DWH (w/m/d).\n\nAufgaben:\n• Übersetzen fachlicher Anforderungen in technische Lösungen und deren anschliessende Umsetzung\n\n• Strategische Weiterentwicklung der Datenlösung in Abstimmung mit Unternehmens‑ und Solution‑Architektur\n\n• Verantwortung für zuverlässige und qualitativ hochwertige Datenlieferungen; inklusive Betrieb neuer und bestehender Schnittstellen\n\n• Eigenständige Analyse und Behebung von Fehlern in den Datenprozessen\n\n• Vielfältiges Aufgabenfeld mit starkem Team‑Rückhalt und enger Zusammenarbeit mit angrenzenden Fachbereichen\n\nAnforderungen:\n• Sehr gute Kenntnisse im Einsatz von Gestaltungsansätzen (SCD, ETL, CIF, ...) und Technologien (PL/SQL, Automic, PowerCenter, APEX, ...) von Datenintegrationslösungen\n\n• Mehrjährige Erfahrung in End‑to‑End Arbeitsweise: von der Spezifikation über die Umsetzung bis zum stabilen Betrieb in komplexen Systemlandschaften\n\n• Unternehmerische Persönlichkeit mit einem kooperativen und kommunikativen Arbeitsstil\n\n• Interesse an der aktiven Gestaltung deines direkten Arbeitsumfeldes\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nWir bieten:\nDie Work-Life-Balance unserer Mitarbeitenden ist uns wichtig. Deshalb schaffen wir die Voraussetzungen dafür, dass die Arbeitszeit flexibel gestaltet werden kann – mit Angeboten für mobiles Arbeiten, Homeoffice und Teilzeit-Pensen.",
         "fr": "Dans l'équipe Data-Services IWH, nous élaborons activement des plateformes de données et des solutions d'entrepôt de données, depuis la connexion de nouvelles sources de données jusqu'à la stabilité des livraisons de données pour nos clients internes.\n\nPour renforcer notre équipe sur notre site St. Gallen, nous recherchons une personnalité engagée et hautement analytique comme DevOps Engineer DWH (h/f/d) par immédiatement ou par arrangement.\n\nTâches:\n• Traduire les exigences techniques en solutions techniques et leur mise en œuvre ultérieure\n\n• Développement stratégique de la solution de données en coordination avec l'architecture d'entreprise et de solution\n\n• Responsabilité de la fourniture de données fiables et de haute qualité, y compris le fonctionnement des interfaces nouvelles et existantes\n\n• Analyse indépendante et correction des erreurs dans les processus de données\n\n• Un large éventail de tâches, avec un solide soutien de l'équipe et une coopération étroite avec les départements concernés\n\nExigences:\n• Très bonne connaissance des approches de conception (SCD, ETL, CIF,...) et des technologies (PL/SQL, Automic, PowerCenter, APEX,...) des solutions d'intégration de données\n\n• Expérience pluriannuelle en exploitation de bout en bout: de la spécification à la mise en œuvre à l'exploitation stable dans des paysages complexes\n\n• Personnalité entrepreneuriale avec un style de travail coopératif et communicatif\n\n• Intérêt pour la conception active de votre environnement de travail direct\n\n• Très bonne compétence en langue allemande en paroles et en écriture\n\nNous offrons: L'équilibre travail-vie personnelle de nos employés est important pour nous. Par conséquent, nous créons les conditions pour des heures de travail flexibles – avec des offres pour le travail mobile, le bureau à domicile et les pensions à temps partiel."
       },
-      "needsRetranslation": true,
       "location": "St. Gallen",
       "canton": "SG",
       "url": "https://jobs.raiffeisen.ch/offene-stellen/devops-engineer-data-warehouse-w-m-d/884ac4ea-aa09-4871-a0be-9a599646d70e",
@@ -7476,8 +7477,7 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "raiffeisen-92f06dba4de8",
@@ -7541,8 +7541,7 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "raiffeisen-05444c6b399d",
@@ -8510,8 +8509,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "raiffeisen-561313f7e1a7",
@@ -8539,7 +8537,6 @@
         "de": "Für die <b>Raiffeisenbank Rapperswil-Jona</b>, eine erfolgreiche und lokal ausgerichtete Bank mit Hauptsitz in Rapperswil-Jona SG und Geschäftsstellen in Egg ZH, Hombrechtikon ZH und Rüti ZH, suchen wir für unseren Hauptsitz in Rapperswil-Jona SG eine engagierte, dienstleistungsorientierte und selbstständige Persönlichkeit als Kundenberater (w/m/d).\n\nAufgaben:\n• Gesamtheitliche und bedürfnisgerechte Beratung der Kunden in den Themen Basisprodukte, Sparen, Zahlen, Anlegen und Vorsorge\n\n• Bedienung und umfassender Kundenservice an unserem Beratungs-Schalter\n\n• Aktives Cross-Selling in allen Produkten inklusive Fondssparen\n\n• Bedarfserkennung und Weitervermittlung von Kunden an die zuständigen Fachberater\n\n• Proaktive Umsetzung von Vertriebs- und Marktbearbeitungsmassnahmen\n\nAnforderungen:\n• Abgeschlossene Bankausbildung, Erfahrung in einer vergleichbaren Funktion (Kundenberatung)\n\n• Freude am intensiven Kundenkontakt\n\n• Dienstleistungsorientiertes Denken und Handeln\n\n• Gewinnender, kompetenter und professioneller Auftritt\n\n• Gute Kommunikations- und Sozialkompetenz\n\n• Zuverlässigkeit, Vertrauenswürdigkeit, Belastbarkeit\n\n• Grosse Flexibilität und Teamfähigkeit\n\nWir bieten:\nWir laden unsere Mitarbeitenden dazu ein, ihre Arbeit aktiv mitzugestalten und Verantwortung zu übernehmen. So entstehen abwechslungsreiche Aufgaben, die echten Mehrwert schaffen – für alle, die etwas bewegen wollen.",
         "fr": "Pour <b>Raiffeisenbank Rapperswil-Jona</b>, une banque réussie et orientée localement avec siège social à Rapperswil-Jona SG et des bureaux à Egg ZH, Hombrechtikon ZH et Rüti ZH, nous recherchons une personnalité engagée, orientée vers le service et indépendante en tant que conseiller client (h/f/d) pour notre siège social à Rapperswil-Jona SG.\n\nTâches:\n• Conseils complets et axés sur les besoins aux clients sur les produits de base, l'épargne, les paiements, l'investissement et la fourniture\n\n• Fonctionnement et service client complet à notre bureau de conseil\n\n• Ventes croisées actives dans tous les produits, y compris les économies de fonds\n\n• Reconnaissance de la demande et transmission des clients aux conseillers experts responsables\n\n• Mise en œuvre proactive des mesures relatives aux ventes et au développement des marchés\n\nExigences\n• Formation bancaire terminée, expérience dans une fonction comparable (conseil aux clients)\n\n• Profitez d'un contact intensif avec le client\n\n• Pensée et action axées sur le service\n\n• Comportement gagnant, compétent et professionnel\n\n• Bonne communication et compétences sociales\n\n• Fiabilité, fiabilité, résilience\n\n• Grande flexibilité et travail d'équipe\n\nNous offrons:\nNous invitons nos employés à participer activement à leur travail et à assumer leurs responsabilités. Cela crée des tâches variées qui créent une réelle valeur ajoutée – pour tous ceux qui veulent faire la différence."
       },
-      "needsRetranslation": true,
       "location": "Rapperswil-Jona",
       "canton": "SG",
       "url": "https://jobs.raiffeisen.ch/offene-stellen/kundenberater-w-m-d/16a8e646-8189-4b09-8d69-badc64096c18",
@@ -10668,8 +10665,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "raiffeisen-8208246b03de",

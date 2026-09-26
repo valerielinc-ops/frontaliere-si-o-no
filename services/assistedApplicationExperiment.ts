@@ -34,6 +34,11 @@ export const ASSISTED_APPLICATION_EVENT_NAMES = [
   'rewarded_offerwall_closed_without_reward',
   'rewarded_offerwall_not_shown',
   'rewarded_offerwall_timed_out',
+  // GPT rewarded fallback of a released Offerwall that is late or never shows.
+  'rewarded_offerwall_gpt_fallback_started',
+  'rewarded_offerwall_gpt_fallback_shown',
+  'rewarded_offerwall_gpt_fallback_granted',
+  'rewarded_offerwall_gpt_fallback_aborted',
   'external_apply_redirected',
   'checkout_started',
   'checkout_completed',

@@ -95,7 +95,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:32:43.492Z",
-      "needsRetranslation": true,
       "salaryMin": 109000,
       "salaryMax": 167000,
       "salarySource": "estimated",
@@ -203,7 +202,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -340,7 +338,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -903,7 +900,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "salarySource": "estimated",
@@ -1011,7 +1007,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "salarySource": "estimated",
@@ -1121,7 +1116,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
-      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -1231,7 +1225,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -1346,7 +1339,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T12:43:40.252Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -1454,7 +1446,6 @@
         ]
       },
       "firstSeenAt": "2026-06-15T14:22:55.803Z",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "salarySource": "estimated",
@@ -1595,7 +1586,6 @@
         ]
       },
       "firstSeenAt": "2026-05-26T22:40:49.364Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89500,
       "salarySource": "estimated",
@@ -1803,7 +1793,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T13:07:44.708Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -2001,7 +1990,6 @@
         ]
       },
       "firstSeenAt": "2026-06-18T22:40:00.067Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -2196,7 +2184,6 @@
         ]
       },
       "firstSeenAt": "2026-06-25T10:59:14.461Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -2320,7 +2307,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:30:58.162Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -2403,7 +2389,10 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-basel-j9jhrv",
+          "seller-denner-ag-basel-66c0e2",
+          "vendeur-denner-ag-basel-66c0e2"
         ],
         "en": [
           "seller-denner-ag-basel-129873"
@@ -2415,7 +2404,10 @@
       "previousSlugs": [
         "verkaufer-in-denner",
         "seller-denner-ag-basel-129873",
-        "vendeur-denner-ag-basel"
+        "vendeur-denner-ag-basel",
+        "verkaufer-in-denner-basel-j9jhrv",
+        "seller-denner-ag-basel-66c0e2",
+        "vendeur-denner-ag-basel-66c0e2"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -2524,7 +2516,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:19:35.940Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -2615,7 +2606,6 @@
         ]
       },
       "firstSeenAt": "2026-05-26T22:41:04.706Z",
-      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -2636,7 +2626,7 @@
       "slugByLocale": {
         "it": "stv-branch-manager-in-denner-ag-zurich-3e601b",
         "fr": "directeur-de-succursale-stv-in-denner-ag-zurich-3e601b",
-        "en": "stv-filialleiter-in-denner-zurich",
+        "en": "stv-filialleiter-in-denner-zurich-2zbait",
         "de": "stv-filialleiter-in-denner-ag-zurich-2zbait"
       },
       "company": "Denner",
@@ -2700,12 +2690,14 @@
           "stv-filialleiter-in-denner"
         ],
         "en": [
-          "assistant-store-manager-denner-ag-zurich"
+          "assistant-store-manager-denner-ag-zurich",
+          "stv-filialleiter-in-denner-zurich"
         ]
       },
       "previousSlugs": [
         "stv-filialleiter-in-denner",
-        "assistant-store-manager-denner-ag-zurich"
+        "assistant-store-manager-denner-ag-zurich",
+        "stv-filialleiter-in-denner-zurich"
       ],
       "needsRetranslation": true,
       "salaryMin": 83000,
@@ -2817,7 +2809,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:18:41.612Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -2908,7 +2899,6 @@
         ]
       },
       "firstSeenAt": "2026-08-05T11:32:23.467Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -3027,7 +3017,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:07:59.282Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -3145,7 +3134,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:40:35.590Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -3279,7 +3267,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T13:36:21.421Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -3393,7 +3380,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:10:52.243Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "salarySource": "estimated",
@@ -3515,7 +3501,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:32:43.492Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -3716,7 +3701,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -3824,7 +3808,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T12:28:20.322Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "salarySource": "estimated",
@@ -3949,7 +3932,6 @@
         ]
       },
       "firstSeenAt": "2026-07-15T11:41:02.895Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -4075,7 +4057,6 @@
         ]
       },
       "firstSeenAt": "2026-07-15T11:41:02.895Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -4201,7 +4182,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:18:40.683Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -4314,7 +4294,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:37:29.966Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -4424,7 +4403,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:12:28.866Z",
-      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -4524,7 +4502,6 @@
         ]
       },
       "firstSeenAt": "2026-06-18T12:11:29.405Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -4639,7 +4616,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "salarySource": "estimated",
@@ -4743,7 +4719,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T09:55:09.777Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -4927,11 +4902,15 @@
       "crawledAt": "2026-09-26T14:01:04.302Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner-2",
-        "verkaufer-in-im-stundenlohn-denner-aarau"
+        "verkaufer-in-im-stundenlohn-denner-aarau",
+        "verkaufer-in-im-stundenlohn-denner-8b4mqi",
+        "verkaufer-in-im-stundenlohn-denner-12"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner-2"
+          "verkaufer-in-im-stundenlohn-denner-2",
+          "verkaufer-in-im-stundenlohn-denner-8b4mqi",
+          "verkaufer-in-im-stundenlohn-denner-12"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-aarau"
@@ -4941,7 +4920,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T16:05:11.579Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -5042,7 +5020,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:05.727Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -5249,7 +5226,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:12:30.428Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -5359,7 +5335,6 @@
         ]
       },
       "firstSeenAt": "2026-06-16T13:14:26.124Z",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "salarySource": "estimated",
@@ -5539,19 +5514,84 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner"
+          "stv-branch-manager-in-denner-ag-zurich-vcsi9t",
+          "stv-branch-manager-in-denner-ag-zurich",
+          "stv-filialleiter-in-denner-ehqxop",
+          "stv-filialleiter-in-denner-15",
+          "stv-filialleiter-in-denner-meilen",
+          "stv-filialleiter-in-denner-r8ohg4",
+          "stv-filialleiter-in-denner-12",
+          "stv-filialleiter-in-denner-tp6czy",
+          "stv-filialleiter-in-denner-bern",
+          "stv-filialleiter-in-denner-ag-bern-tp6czy",
+          "stv-filialleiter-in-denner-uk1txa",
+          "stv-filialleiter-in-denner-13",
+          "stv-filialleiter-in-denner-fullinsdorf",
+          "stv-filialleiter-in-denner-xwqsvk",
+          "stv-filialleiter-in-denner-14",
+          "stv-filialleiter-in-denner-sissach",
+          "stv-filialleiter-in-denner-yw0jyp",
+          "stv-filialleiter-in-denner-16",
+          "stv-filialleiter-in-denner-amriswil",
+          "stv-filialleiter-in-denner-3nkluz"
         ],
         "en": [
           "deputy-branch-manager-denner-ag-zurich-6527ca"
         ],
         "fr": [
-          "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca"
+          "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca",
+          "directeur-de-succursale-stv-in-denner-ag-zurich"
+        ],
+        "de": [
+          "stv-filialleiter-in-denner-ag-zurich-vcsi9t"
         ]
       },
       "previousSlugs": [
         "stv-filialleiter-in-denner",
         "deputy-branch-manager-denner-ag-zurich-6527ca",
-        "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca"
+        "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca",
+        "stv-filialleiter-in-denner-8",
+        "stv-filialleiter-in-denner-9zqjsc",
+        "stv-filialleiter-in-denner-9",
+        "stv-filialleiter-in-denner-gelterkinden",
+        "stv-filialleiter-in-denner-aztzmm",
+        "stv-filialleiter-in-denner-7",
+        "stv-filialleiter-in-denner-brugg-be",
+        "stv-filialleiter-in-denner-rgvddr",
+        "stv-filialleiter-in-denner-11",
+        "stv-filialleiter-in-denner-mannedorf",
+        "stv-filialleiter-in-denner-syjkk9",
+        "stv-filialleiter-in-denner-10",
+        "stv-filialleiter-in-denner-malters",
+        "stv-filialleiter-in-denner-zurich-geicje",
+        "deputy-branch-manager-denner-ag-zurich",
+        "stv-filialleiter-in-denner-ag-zurich-geicje",
+        "directeur-adjoint-de-la-succursale-denner-ag-zurich",
+        "stv-filialleiter-in-denner-dd2ywz",
+        "stv-filialleiter-in-denner-4",
+        "stv-filialleiter-in-denner-emmenbrucke",
+        "stv-filialleiter-in-denner-ag-zurich-vcsi9t",
+        "directeur-de-succursale-stv-in-denner-ag-zurich",
+        "stv-branch-manager-in-denner-ag-zurich-vcsi9t",
+        "stv-branch-manager-in-denner-ag-zurich",
+        "stv-filialleiter-in-denner-ehqxop",
+        "stv-filialleiter-in-denner-15",
+        "stv-filialleiter-in-denner-meilen",
+        "stv-filialleiter-in-denner-r8ohg4",
+        "stv-filialleiter-in-denner-12",
+        "stv-filialleiter-in-denner-tp6czy",
+        "stv-filialleiter-in-denner-bern",
+        "stv-filialleiter-in-denner-ag-bern-tp6czy",
+        "stv-filialleiter-in-denner-uk1txa",
+        "stv-filialleiter-in-denner-13",
+        "stv-filialleiter-in-denner-fullinsdorf",
+        "stv-filialleiter-in-denner-xwqsvk",
+        "stv-filialleiter-in-denner-14",
+        "stv-filialleiter-in-denner-sissach",
+        "stv-filialleiter-in-denner-yw0jyp",
+        "stv-filialleiter-in-denner-16",
+        "stv-filialleiter-in-denner-amriswil",
+        "stv-filialleiter-in-denner-3nkluz"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -5635,7 +5675,9 @@
       "crawledAt": "2026-09-26T14:01:03.278Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-umuug6",
+          "verkaufer-in-denner-36"
         ],
         "en": [
           "seller-denner-zurich"
@@ -5647,7 +5689,9 @@
       "previousSlugs": [
         "verkaufer-in-denner",
         "seller-denner-zurich",
-        "vendeur-denner-zurich"
+        "vendeur-denner-zurich",
+        "verkaufer-in-denner-umuug6",
+        "verkaufer-in-denner-36"
       ],
       "needsRetranslation": true,
       "salaryMin": 83000,
@@ -5763,7 +5807,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:49:42.713Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -5970,7 +6013,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T14:19:58.281Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -6080,7 +6122,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:18:40.683Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -6169,7 +6210,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T16:05:08.450Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -6272,7 +6312,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:46:51.164Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -6486,7 +6525,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T21:38:11.196Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -6635,11 +6673,11 @@
         "seller-in-in-hourly-wage-denner-stein-ag",
         "seller-denner-ag-frauenfeld-008421",
         "venditore-denner-ag-frauenfeld",
-        "vendor-in-hourly-wages-denner-frauenfeld"
+        "vendor-in-hourly-wages-denner-frauenfeld",
+        "verkaufer-in-im-stundenlohn-denner-d6nn5t"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner-zurich",
           "seller-in-the-hourly-wage-denner-ag-zurich-1f4f1e",
           "vendeur-dans-le-salaire-horaire-denner-ag-zurich-1f4f1e",
           "venditore-in-salario-orario-denner-reinach-bl",
@@ -6658,7 +6696,8 @@
           "seller-in-in-hourly-wage-denner-stein-ag",
           "verkaufer-in-im-stundenlohn-denner",
           "verkaufer-in-im-stundenlohn-denner-wohlen-ag",
-          "venditore-denner-ag-frauenfeld"
+          "venditore-denner-ag-frauenfeld",
+          "verkaufer-in-im-stundenlohn-denner-d6nn5t"
         ],
         "en": [
           "seller-denner-ag-frauenfeld",
@@ -6670,7 +6709,6 @@
         ]
       },
       "firstSeenAt": "2026-07-22T12:00:00.493Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -6927,7 +6965,6 @@
         ]
       },
       "firstSeenAt": "2026-06-19T21:40:04.162Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -7035,7 +7072,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -7161,7 +7197,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "salarySource": "estimated",
@@ -7276,7 +7311,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:47:21.627Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -7414,7 +7448,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:40:16.362Z",
-      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -7623,7 +7656,6 @@
         ]
       },
       "firstSeenAt": "2026-06-19T12:26:40.005Z",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 158500,
       "salarySource": "estimated",
@@ -7717,7 +7749,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T22:07:57.962Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -7849,7 +7880,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:30:51.530Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -7944,7 +7974,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T22:07:57.954Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "salarySource": "estimated",
@@ -8060,7 +8089,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:40:35.590Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -8180,7 +8208,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:40:35.590Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "salarySource": "estimated",
@@ -8303,7 +8330,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:40:35.590Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -8423,7 +8449,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:40:35.590Z",
-      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -8526,7 +8551,6 @@
         ]
       },
       "firstSeenAt": "2026-06-01T14:22:11.295Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "salarySource": "estimated",
@@ -8623,7 +8647,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T22:33:45.051Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "salarySource": "estimated",
@@ -8706,7 +8729,9 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-o0skmk",
+          "verkaufer-in-denner-27"
         ],
         "en": [
           "seller-denner-ag-winterthur"
@@ -8718,7 +8743,9 @@
       "previousSlugs": [
         "verkaufer-in-denner",
         "seller-denner-ag-winterthur",
-        "vendeur-denner-ag-winterthur"
+        "vendeur-denner-ag-winterthur",
+        "verkaufer-in-denner-o0skmk",
+        "verkaufer-in-denner-27"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -8822,7 +8849,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:43:38.551Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -8905,7 +8931,9 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-bcu0pc",
+          "verkaufer-in-denner-11"
         ],
         "en": [
           "seller-denner-ag-wattwil-8129f7"
@@ -8917,7 +8945,9 @@
       "previousSlugs": [
         "verkaufer-in-denner",
         "seller-denner-ag-wattwil-8129f7",
-        "vendeur-denner-ag-wattwil-8129f7"
+        "vendeur-denner-ag-wattwil-8129f7",
+        "verkaufer-in-denner-bcu0pc",
+        "verkaufer-in-denner-11"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -9032,7 +9062,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -9148,7 +9177,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T21:56:21.006Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -9447,7 +9475,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "salarySource": "estimated",
@@ -9563,7 +9590,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T13:07:45.292Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -9771,7 +9797,6 @@
         ]
       },
       "firstSeenAt": "2026-06-18T13:17:21.364Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -9902,7 +9927,6 @@
         ]
       },
       "firstSeenAt": "2026-06-01T14:22:16.288Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -10012,7 +10036,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T22:32:55.915Z",
-      "needsRetranslation": true,
       "salaryMin": 109000,
       "salaryMax": 167000,
       "salarySource": "estimated",
@@ -10122,7 +10145,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "salarySource": "estimated",
@@ -10249,7 +10271,6 @@
         ]
       },
       "firstSeenAt": "2026-06-18T23:24:06.541Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -10357,7 +10378,6 @@
         ]
       },
       "firstSeenAt": "2026-06-25T10:59:13.898Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -10477,7 +10497,6 @@
         ]
       },
       "firstSeenAt": "2026-06-26T21:47:48.098Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -10569,7 +10588,12 @@
         "verkaufer-in-denner-ag-luzern-ofjr2x",
         "verkaufer-in-denner-ag-luzern",
         "verkaufer-in-denner",
-        "venditore-denner-ag-luzern-7f4c33"
+        "venditore-denner-ag-luzern-7f4c33",
+        "verkaufer-in-denner-0w78hf",
+        "verkaufer-in-denner-luzern",
+        "verkaufer-in-denner-23",
+        "verkaufer-in-denner-8fgkfx",
+        "verkaufer-in-denner-16"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10577,11 +10601,17 @@
           "verkaufer-in-denner-ag-luzern-ofjr2x",
           "verkaufer-in-denner-ag-luzern",
           "verkaufer-in-denner",
-          "venditore-denner-ag-luzern-7f4c33"
+          "venditore-denner-ag-luzern-7f4c33",
+          "verkaufer-in-denner-0w78hf",
+          "verkaufer-in-denner-luzern",
+          "verkaufer-in-denner-23",
+          "verkaufer-in-denner-8fgkfx",
+          "verkaufer-in-denner-16"
         ],
         "en": [
           "verkaufer-in-denner-ag-luzern-ofjr2x",
-          "verkaufer-in-denner-ag-luzern"
+          "verkaufer-in-denner-ag-luzern",
+          "verkaufer-in-denner-luzern"
         ],
         "de": [
           "verkaufer-in-denner-ag-luzern-ofjr2x"
@@ -10592,7 +10622,6 @@
         ]
       },
       "firstSeenAt": "2026-06-26T22:46:36.093Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -10699,7 +10728,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T22:41:17.664Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -10820,7 +10848,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T22:41:17.659Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -11021,7 +11048,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:13:38.802Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -11129,7 +11155,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:36:24.077Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -11239,7 +11264,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:15:03.067Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -11351,7 +11375,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -11474,7 +11497,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -11580,7 +11602,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T09:55:09.779Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -11794,7 +11815,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:13:38.256Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -11879,7 +11899,9 @@
         "stv-filialleiter-in-denner-ag-luzern-81vwm4",
         "stv-filialleiter-in-denner-81vwm4",
         "stv-filialleiter-in-denner-luzern",
-        "stv-branch-manager-in-denner-ag-luzern-30c621"
+        "stv-branch-manager-in-denner-ag-luzern-30c621",
+        "stv-filialleiter-in-denner-7ltn3x",
+        "stv-filialleiter-in-denner-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11888,7 +11910,9 @@
           "stv-filialleiter-in-denner-ag-luzern-81vwm4",
           "stv-filialleiter-in-denner-81vwm4",
           "stv-filialleiter-in-denner-luzern",
-          "stv-branch-manager-in-denner-ag-luzern-30c621"
+          "stv-branch-manager-in-denner-ag-luzern-30c621",
+          "stv-filialleiter-in-denner-7ltn3x",
+          "stv-filialleiter-in-denner-2"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-luzern-81vwm4"
@@ -11898,7 +11922,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:42:45.040Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -12010,7 +12033,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T11:06:33.256Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -12102,7 +12124,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:05:28.571Z",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "salarySource": "estimated",
@@ -12182,23 +12203,26 @@
       "sourceLang": "de",
       "crawledAt": "2026-09-26T14:00:51.681Z",
       "previousSlugs": [
+        "verkaufer-in-denner-uyleak",
         "verkaufer-in-denner",
         "verkaufer-in-denner-ag-oftringen-bd8i9d",
         "verkaufer-in-denner-oftringen",
         "verkaufer-in-denner-18",
-        "venditore-denner-ag-oftringen-79429a"
+        "venditore-denner-ag-oftringen-79429a",
+        "verkaufer-in-denner-17"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "verkaufer-in-denner-uyleak",
           "verkaufer-in-denner",
           "verkaufer-in-denner-ag-oftringen-bd8i9d",
           "verkaufer-in-denner-oftringen",
           "verkaufer-in-denner-18",
-          "venditore-denner-ag-oftringen-79429a"
+          "venditore-denner-ag-oftringen-79429a",
+          "verkaufer-in-denner-17"
         ]
       },
       "firstSeenAt": "2026-07-27T22:21:05.566Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -12705,7 +12729,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:40:17.111Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -12801,7 +12824,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T10:50:29.341Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -12905,7 +12927,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T06:44:54.971Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -13091,7 +13112,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:47:19.557Z",
-      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -13191,7 +13211,6 @@
         ]
       },
       "firstSeenAt": "2026-09-18T23:12:45.499Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -13291,7 +13310,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:55:14.114Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -13401,7 +13419,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T11:44:46.349Z",
-      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -13606,7 +13623,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T21:56:21.569Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -13710,7 +13726,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T06:44:54.971Z",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "salarySource": "estimated",
@@ -13823,7 +13838,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T13:24:47.217Z",
-      "needsRetranslation": true,
       "salaryMin": 109000,
       "salaryMax": 167000,
       "salarySource": "estimated",
@@ -13936,7 +13950,6 @@
         ]
       },
       "firstSeenAt": "2026-06-26T22:46:36.093Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -14044,7 +14057,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T14:19:58.281Z",
-      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -14159,7 +14171,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T22:07:15.543Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -14459,7 +14470,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T22:52:24.488Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -14573,7 +14583,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:51:47.612Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -14819,7 +14828,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:21:46.566Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -14946,7 +14954,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T22:17:10.683Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -15059,7 +15066,6 @@
         ]
       },
       "firstSeenAt": "2026-08-10T11:03:52.766Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -15177,7 +15183,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T10:50:29.341Z",
-      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -15389,7 +15394,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:49:42.713Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -15502,7 +15506,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:49:42.713Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -15619,7 +15622,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:49:42.713Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -15707,6 +15709,7 @@
       "sourceLang": "de",
       "crawledAt": "2026-09-26T14:00:42.680Z",
       "previousSlugs": [
+        "verkaufer-in-im-stundenlohn-denner-x84zlj",
         "verkaufer-in-im-stundenlohn-denner-ag-zurich",
         "verkaufer-in-im-stundenlohn-denner-ag-zurich-se0fxo",
         "verkaufer-in-im-stundenlohn-denner",
@@ -15721,6 +15724,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "verkaufer-in-im-stundenlohn-denner-x84zlj",
           "verkaufer-in-im-stundenlohn-denner-ag-zurich",
           "verkaufer-in-im-stundenlohn-denner-ag-zurich-se0fxo",
           "verkaufer-in-im-stundenlohn-denner",
@@ -15744,7 +15748,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:49:42.713Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -15848,7 +15851,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T09:55:09.264Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -15961,7 +15963,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:39:47.577Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -16064,7 +16065,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:39:47.575Z",
-      "needsRetranslation": true,
       "salaryMin": 109000,
       "salaryMax": 167000,
       "salarySource": "estimated",
@@ -16144,6 +16144,8 @@
       "sourceLang": "de",
       "crawledAt": "2026-09-26T14:00:41.684Z",
       "previousSlugs": [
+        "verkaufer-in-denner-pfzdrt",
+        "verkaufer-in-denner-t9tqag",
         "verkaufer-in-denner-usapjx",
         "verkaufer-in-denner",
         "verkaufer-in-denner-interlaken",
@@ -16186,6 +16188,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "verkaufer-in-denner-pfzdrt",
+          "verkaufer-in-denner-t9tqag",
           "verkaufer-in-denner-3",
           "verkaufer-in-denner-kirchberg",
           "verkaufer-in-denner-baar",
@@ -16223,7 +16227,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:39:46.806Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -16303,6 +16306,8 @@
       "sourceLang": "de",
       "crawledAt": "2026-09-26T14:00:41.682Z",
       "previousSlugs": [
+        "verkaufer-in-denner-k7ptw1",
+        "verkaufer-in-denner-rtrz4s",
         "verkaufer-in-denner-ag-zug-g83nvt",
         "vendeur-denner-zug",
         "verkaufer-in-denner-8",
@@ -16310,10 +16315,14 @@
         "verkaufer-in-denner",
         "verkaufer-in-denner-zug",
         "verkaufer-in-denner-22",
-        "venditore-denner-ag-zug"
+        "venditore-denner-ag-zug",
+        "verkaufer-in-denner-21",
+        "verkaufer-in-denner-13"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "verkaufer-in-denner-k7ptw1",
+          "verkaufer-in-denner-rtrz4s",
           "verkaufer-in-denner-ag-zug-g83nvt",
           "vendeur-denner-zug",
           "verkaufer-in-denner-8",
@@ -16321,14 +16330,15 @@
           "verkaufer-in-denner",
           "verkaufer-in-denner-zug",
           "verkaufer-in-denner-22",
-          "venditore-denner-ag-zug"
+          "venditore-denner-ag-zug",
+          "verkaufer-in-denner-21",
+          "verkaufer-in-denner-13"
         ],
         "de": [
           "verkaufer-in-denner-ag-zug-g83nvt"
         ]
       },
       "firstSeenAt": "2026-07-02T21:37:00.850Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -16423,7 +16433,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:38:01.573Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -16519,7 +16528,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:38:01.569Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",

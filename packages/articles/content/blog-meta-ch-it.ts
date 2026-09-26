@@ -6791,6 +6791,21 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.protesta-asilo-berna-diritti.title': 'Berna: protesta contro gli inasprimenti del diritto d\'asilo',
     'blog.article.protesta-asilo-berna-diritti.excerpt': 'Diverse migliaia di persone in Piazza Federale per chiedere salute, lavoro e istruzione indipendentemente dallo statuto di soggiorno e dalla provenienza.',
     'blog.article.protesta-asilo-berna-diritti.imageAlt': 'Manifestazione a Berna in Piazza Federale contro gli inasprimenti del diritto d\'asilo',
+    'blog.article.avenergy-lobby-clima.title': 'Avenergy e la lobby del petrolio: clima in Svizzera',
+    'blog.article.avenergy-lobby-clima.excerpt': 'Uno studio ricostruisce la comunicazione di Avenergy, associazione degli importatori di petrolio, e la rete di interessi che arriva al Consiglio federale.',
+    'blog.article.avenergy-lobby-clima.imageAlt': 'Bellinzona e le montagne svizzere sotto un cielo nuvoloso, immagine sul clima nazionale',
+    'blog.article.assicurazione-grandine-2026.title': 'Assicurazione grandine: premi a rischio nel 2026',
+    'blog.article.assicurazione-grandine-2026.excerpt': 'Nel 2026 Grandine Svizzera prevede perdite finanziarie e risarcimenti fino a 170 milioni di franchi, con raccolti di barbabietole, patate e mais in calo fino al 30%.',
+    'blog.article.assicurazione-grandine-2026.imageAlt': 'Campo agricolo svizzero colpito da grandine con nuvole minacciose',
+    'blog.article.ubs-sede-elvetica-costi.title': 'Ubs: trasferimento sede poco probabile per Keller-Sutter',
+    'blog.article.ubs-sede-elvetica-costi.excerpt': 'Secondo Karin Keller‑Sutter, spostare la sede di Ubs all’estero sarebbe molto più costoso e giuridicamente complesso; il Consiglio federale ha già concesso agevolazioni sull’ordinanza sui fondi propri.',
+    'blog.article.ubs-sede-elvetica-costi.imageAlt': 'Edificio della sede di Ubs nel distretto finanziario svizzero',
+    'blog.article.sanzioni-finanziarie-onu-2026.title': 'Sanzioni ONU: il Consiglio federale aggiorna quattro ordinanze',
+    'blog.article.sanzioni-finanziarie-onu-2026.excerpt': 'Decisione del 25 settembre 2026 per uniformare le disposizioni finanziarie su terrorismo e proliferazione, con esenzioni specifiche per l\'Iran.',
+    'blog.article.sanzioni-finanziarie-onu-2026.imageAlt': 'Palazzo Federale a Berna, sede del Consiglio federale',
+    'blog.article.jans-monaco-lotta-trafficanti.title': 'Beat Jans a Monaco: lotta ai trafficanti di esseri umani',
+    'blog.article.jans-monaco-lotta-trafficanti.excerpt': 'Il consigliere federale Beat Jans punta su cooperazione europea e procedure rapide per i rimpatri durante il vertice di Monaco con 18 Stati.',
+    'blog.article.jans-monaco-lotta-trafficanti.imageAlt': 'Edificio governativo svizzero con bandiera nazionale',
 };
 
 export default blogMetaChIt;

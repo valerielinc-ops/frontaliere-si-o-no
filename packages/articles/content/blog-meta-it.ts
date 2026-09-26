@@ -12072,6 +12072,21 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rapina-como-residente-ticino.title': 'Rapina a Como: arrestato residente in Ticino',
     'blog.article.rapina-como-residente-ticino.excerpt': 'Il 32enne italiano, residente nel Bellinzonese, è tra i due arrestati per la rapina da 90\'000 euro del 24 aprile.',
     'blog.article.rapina-como-residente-ticino.imageAlt': 'Polizia e gioielleria a Como dopo la rapina del 24 aprile; arrestato un residente nel Bellinzonese.',
+    'blog.article.cantieri-reti-gas-acqua-varese.title': 'Varese: cantieri gas e acqua in tre vie fino ad aprile 2027',
+    'blog.article.cantieri-reti-gas-acqua-varese.excerpt': 'Dal 28 settembre 2026 iniziano i lavori di Lereti (Gruppo Acinque) in via Masolino da Panicale, Pagliano e Giovannini. Divieto di transito e sosta.',
+    'blog.article.cantieri-reti-gas-acqua-varese.imageAlt': 'Lavori di rinnovamento reti gas e acqua a Varese',
+    'blog.article.erba-punto-nascita-interrogazione-lega.title': 'Chiusura punto nascita Erba: interrogazione Lega',
+    'blog.article.erba-punto-nascita-interrogazione-lega.excerpt': 'Eugenio Zoffili interroga il ministro Schillaci e chiede tavoli tecnici e deroghe per mantenere operativo il punto nascita di Erba.',
+    'blog.article.erba-punto-nascita-interrogazione-lega.imageAlt': 'Ospedale di Erba al centro della discussione sulla chiusura del punto nascita',
+    'blog.article.vpdd-ssp-contro-iva-avs.title': 'VPOD-SSP contro l\'aumento dell\'IVA per la 13esima AVS',
+    'blog.article.vpdd-ssp-contro-iva-avs.excerpt': 'Il VPOD-SSP respinge il finanziamento della 13esima AVS tramite aumento dell\'IVA, voto popolare il 29 novembre; utili AVS 5,6 mld nel 2024 e 4,4 mld nel 2025, patrimonio 60,4 mld.',
+    'blog.article.vpdd-ssp-contro-iva-avs.imageAlt': 'Promenade di Lugano con lago e montagne sullo sfondo, scena reale',
+    'blog.article.m5s-vco-tavolo-frontalieri.title': 'Frontalieri, M5S VCO chiede risposte su NASpI e salute',
+    'blog.article.m5s-vco-tavolo-frontalieri.excerpt': 'Dopo l\'incontro del 17 settembre a Roma, il M5S VCO sollecita un cronoprogramma vincolante su contributo sanitario, NASpI e opzione fiscale.',
+    'blog.article.m5s-vco-tavolo-frontalieri.imageAlt': 'Vista di Lugano con edifici moderni e lago',
+    'blog.article.derby-lugano-ambri-settembre-2026.title': 'L\'Ambrì batte il Lugano 5-3 nel primo derby stagionale',
+    'blog.article.derby-lugano-ambri-settembre-2026.excerpt': 'L\'Ambrì espugna la Cornèr Arena con un 5-3 deciso nel secondo periodo. I biancoblù salgono a 11 punti, mentre il Lugano resta ultimo con 5 punti.',
+    'blog.article.derby-lugano-ambri-settembre-2026.imageAlt': 'Cornèr Arena di Lugano durante il derby di hockey tra Lugano e Ambrì',
 };
 
 export default blogMetaIt;

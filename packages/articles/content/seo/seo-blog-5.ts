@@ -94453,6 +94453,201 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cantieri-reti-gas-acqua-varese': {
+    title: 'Varese: cantieri gas e acqua in tre vie fino ad aprile 2027',
+    description: 'Lavori di rinnovamento reti gas e acqua a Varese in via Masolino da Panicale, Pagliano e Giovannini. Divieto di transito e sosta fino al 2 aprile 2027.',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, cantieri, acqua, fino',
+    ogTitle: 'Varese: cantieri gas e acqua in tre vie fino ad aprile 2027',
+    ogDescription: 'Al via i lavori di rinnovamento delle reti di distribuzione gas e acqua a Varese. Scopri le date e le vie interessate: Masolino da Panicale, Pagliano e Giovannini.',
+    canonicalPath: '/articoli-frontaliere/cantieri-reti-gas-acqua-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: cantieri gas e acqua in tre vie fino ad aprile 2027",
+      "description": "Lavori di rinnovamento reti gas e acqua a Varese in via Masolino da Panicale, Pagliano e Giovannini. Divieto di transito e sosta fino al 2 aprile 2027.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cantieri-reti-gas-acqua-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavori di rinnovamento reti gas e acqua a Varese"
+      },
+      "datePublished": "2026-09-26T16:24:18+00:00",
+      "dateModified": "2026-09-26T16:24:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cantieri-reti-gas-acqua-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-erba-punto-nascita-interrogazione-lega': {
+    title: 'Chiusura punto nascita Erba: interrogazione Lega',
+    description: 'La prossima chiusura del punto nascita di Erba arriva in Parlamento: Eugenio Zoffili chiede tavoli tecnici e deroghe al ministro Schillaci. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiusura, punto, nascita, erba',
+    ogTitle: 'Chiusura punto nascita Erba: interrogazione Lega',
+    ogDescription: 'Il deputato comasco Eugenio Zoffili contesta la prossima chiusura del punto nascita dell’Ospedale di Erba e propone un confronto tra Governo, Regione Lombardia e territorio per valutare deroghe e condizioni di continuità.',
+    canonicalPath: '/articoli-frontaliere/erba-punto-nascita-interrogazione-lega',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiusura punto nascita Erba: interrogazione Lega",
+      "description": "La prossima chiusura del punto nascita di Erba arriva in Parlamento: Eugenio Zoffili chiede tavoli tecnici e deroghe al ministro Schillaci. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/erba-punto-nascita-interrogazione-lega.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale di Erba al centro della discussione sulla chiusura del punto nascita"
+      },
+      "datePublished": "2026-09-26T17:11:15+00:00",
+      "dateModified": "2026-09-26T17:11:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/erba-punto-nascita-interrogazione-lega/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vpdd-ssp-contro-iva-avs': {
+    title: 'VPOD-SSP contro l\'aumento dell\'IVA per la 13esima AVS',
+    description: 'Il VPOD-SSP si oppone all\'aumento dell\'IVA per finanziare la 13esima AVS, definendolo antisociale; cita utili AVS di 5,6 mld (2024) e 4,4 mld (2025)',
+    keywords: 'frontalieri, ticino, svizzera, italia, vpod-ssp, contro, aumento, dell',
+    ogTitle: 'VPOD-SSP contro aumento IVA per 13esima AVS, voto 29 nov',
+    ogDescription: 'Il VPOD-SSP ha respinto il finanziamento della 13esima AVS tramite aumento dell\'IVA, definendo la misura antisociale e regressiva. L\'assemblea dei delegati a Zurigo ha votato 22 contro 6. Il sindacato evidenzia gli utili AVS di 5,6 miliardi nel 2024',
+    canonicalPath: '/articoli-frontaliere/vpdd-ssp-contro-iva-avs',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "VPOD-SSP contro l'aumento dell'IVA per la 13esima AVS",
+      "description": "Il VPOD-SSP si oppone all'aumento dell'IVA per finanziare la 13esima AVS, definendolo antisociale; cita utili AVS di 5,6 mld (2024) e 4,4 mld (2025)",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vpdd-ssp-contro-iva-avs.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Promenade di Lugano con lago e montagne sullo sfondo, scena reale"
+      },
+      "datePublished": "2026-09-26T19:00:14+00:00",
+      "dateModified": "2026-09-26T19:00:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vpdd-ssp-contro-iva-avs/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-m5s-vco-tavolo-frontalieri': {
+    title: 'Frontalieri, M5S VCO chiede risposte su NASpI e salute',
+    description: 'M5S VCO sollecita risposte concrete su NASpI, opzione fiscale e contributo sanitario dopo il tavolo interministeriale. Prossimo incontro 9 novembre 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiede, risposte, naspi, salute',
+    ogTitle: 'Frontalieri, M5S VCO: \'Servono risposte, non rinvii\'',
+    ogDescription: 'Il tavolo interministeriale si riunirà il 9 novembre 2026. Restano aperti i nodi su NASpI, doppia imposizione e contributo sanitario. Il M5S VCO chiede un cronoprogramma vincolante.',
+    canonicalPath: '/articoli-frontaliere/m5s-vco-tavolo-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri, M5S VCO chiede risposte su NASpI e salute",
+      "description": "M5S VCO sollecita risposte concrete su NASpI, opzione fiscale e contributo sanitario dopo il tavolo interministeriale. Prossimo incontro 9 novembre 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/m5s-vco-tavolo-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano con edifici moderni e lago"
+      },
+      "datePublished": "2026-09-26T20:04:20+00:00",
+      "dateModified": "2026-09-26T20:04:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/m5s-vco-tavolo-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-derby-lugano-ambri-settembre-2026': {
+    title: 'L\'Ambrì batte il Lugano 5-3 nel primo derby stagionale',
+    description: 'L\'Ambrì espugna la Cornèr Arena battendo il Lugano 5-3. Analisi del match, marcatori e impatto sulla classifica del campionato di hockey. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, ambrì, batte, lugano, primo',
+    ogTitle: 'L\'Ambrì sbanca Lugano: vittoria 5-3 nel primo derby',
+    ogDescription: 'L\'Ambrì vince 5-3 contro il Lugano alla Cornèr Arena. I biancoblù salgono a 11 punti in 6 partite, mentre i bianconeri restano ultimi con 5 punti in 4 gare.',
+    canonicalPath: '/articoli-frontaliere/derby-lugano-ambri-settembre-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L'Ambrì batte il Lugano 5-3 nel primo derby stagionale",
+      "description": "L'Ambrì espugna la Cornèr Arena battendo il Lugano 5-3. Analisi del match, marcatori e impatto sulla classifica del campionato di hockey. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/derby-lugano-ambri-settembre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cornèr Arena di Lugano durante il derby di hockey tra Lugano e Ambrì"
+      },
+      "datePublished": "2026-09-26T21:00:58+00:00",
+      "dateModified": "2026-09-26T21:00:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/derby-lugano-ambri-settembre-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

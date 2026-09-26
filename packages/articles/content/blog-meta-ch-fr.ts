@@ -6791,6 +6791,21 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.protesta-asilo-berna-diritti.title': 'Berne : protestation contre les durcissements du droit d\'asile',
     'blog.article.protesta-asilo-berna-diritti.excerpt': 'Plusieurs milliers de personnes sur la Place fédérale pour demander la santé, le travail et l’éducation indépendamment du statut de séjour et de l’origine.',
     'blog.article.protesta-asilo-berna-diritti.imageAlt': 'Manifestation sur la Place Fédérale à Berne contre le durcissement du droit d\'asile',
+    'blog.article.avenergy-lobby-clima.title': 'Avenergy et le lobby du pétrole : climat en Suisse',
+    'blog.article.avenergy-lobby-clima.excerpt': 'Une étude reconstitue la communication d’Avenergy, association des importateurs de pétrole, et le réseau d’intérêts qui remonte jusqu’au Conseil fédéral.',
+    'blog.article.avenergy-lobby-clima.imageAlt': 'Bellinzone et montagnes suisses sous un ciel nuageux, image du débat climatique national',
+    'blog.article.assicurazione-grandine-2026.title': 'Assurance grêle : primes à risque en 2026',
+    'blog.article.assicurazione-grandine-2026.excerpt': 'En 2026, Grandine Svizzera prévoit des pertes financières et des indemnisations pouvant atteindre 170 millions de francs, avec des récoltes de betteraves, de pommes de terre et de maïs en baisse jusqu\'à 30%.',
+    'blog.article.assicurazione-grandine-2026.imageAlt': 'Champ agricole suisse touché par la grêle sous des nuages menaçants',
+    'blog.article.ubs-sede-elvetica-costi.title': 'Ubs : transfert du siège peu probable pour Keller-Sutter',
+    'blog.article.ubs-sede-elvetica-costi.excerpt': 'Selon Karin Keller‑Sutter, déplacer le siège d’Ubs à l’étranger serait beaucoup plus coûteux et juridiquement complexe ; le Conseil fédéral a déjà accordé des allègements concernant l’ordonnance sur les fonds propres.',
+    'blog.article.ubs-sede-elvetica-costi.imageAlt': 'Siège de l\'Ubs dans le district financier suisse',
+    'blog.article.sanzioni-finanziarie-onu-2026.title': 'Sanctions de l’ONU : le Conseil fédéral met à jour quatre ordonnances',
+    'blog.article.sanzioni-finanziarie-onu-2026.excerpt': 'Décision du 25 septembre 2026 visant à harmoniser les dispositions financières relatives au terrorisme et à la prolifération, avec des exemptions spécifiques pour l\'Iran.',
+    'blog.article.sanzioni-finanziarie-onu-2026.imageAlt': 'Palais fédéral à Berne, siège du Conseil fédéral',
+    'blog.article.jans-monaco-lotta-trafficanti.title': 'Beat Jans à Munich : lutte contre les trafiquants d\'êtres humains',
+    'blog.article.jans-monaco-lotta-trafficanti.excerpt': 'Le conseiller fédéral Beat Jans mise sur la coopération européenne et des procédures rapides pour les renvois lors du sommet de Munich avec 18 États.',
+    'blog.article.jans-monaco-lotta-trafficanti.imageAlt': 'Bâtiment gouvernemental suisse avec drapeau national',
 };
 
 export default blogMetaChFr;

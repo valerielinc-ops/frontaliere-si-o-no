@@ -1,106 +1,5 @@
 [
   {
-    "timestamp": "2026-09-08T10:51:58.911Z",
-    "label": "after",
-    "total": 28827,
-    "needsRetranslation": 5443,
-    "suppressed": 153,
-    "incomplete": 6013,
-    "complete": 22814,
-    "slotsPresent": 22814,
-    "flaggedAmongSlotsPresent": 0,
-    "verifiedTranslated": 22814,
-    "sourceCopyExcused": 706,
-    "slotsPresentByLength": 28669,
-    "languageVerified": 23781,
-    "missingByLocale": {
-      "it": 99,
-      "en": 80,
-      "de": 97,
-      "fr": 121
-    },
-    "queueAge": {
-      "count": 5443,
-      "withTimestamp": 5443,
-      "oldestAgeDays": 148,
-      "p50AgeDays": 12.4,
-      "p90AgeDays": 69.5,
-      "buckets": {
-        "0-1d": 122,
-        "1-2d": 99,
-        "2-7d": 1223,
-        "0-7d": 1444,
-        "7-30d": 2202,
-        "30-90d": 1436,
-        "90-180d": 361,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "completionAge": {
-      "count": 4,
-      "withTimestamp": 4,
-      "oldestAgeDays": 62.9,
-      "p50AgeDays": 49.9,
-      "p90AgeDays": 62.9,
-      "buckets": {
-        "0-1d": 0,
-        "1-2d": 0,
-        "2-7d": 0,
-        "0-7d": 0,
-        "7-30d": 1,
-        "30-90d": 3,
-        "90-180d": 0,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "topPending": [
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 775
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 556
-      },
-      {
-        "company": "Roche",
-        "pending": 476
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 294
-      },
-      {
-        "company": "PEMSA",
-        "pending": 185
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 176
-      },
-      {
-        "company": "Sulzer",
-        "pending": 163
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 151
-      },
-      {
-        "company": "Manor AG",
-        "pending": 103
-      },
-      {
-        "company": "JUMBO",
-        "pending": 72
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-08T11:48:13.231Z",
     "label": "before",
     "total": 28827,
@@ -19525,6 +19424,100 @@
       {
         "company": "Die Schweizerische Post",
         "pending": 202
+      },
+      {
+        "company": "VOLG",
+        "pending": 190
+      },
+      {
+        "company": "Manor AG",
+        "pending": 150
+      },
+      {
+        "company": "Hirslanden Klinik",
+        "pending": 117
+      },
+      {
+        "company": "Anker Swiss Ticino AG",
+        "pending": 112
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 106
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-26T16:31:25.587Z",
+    "label": "before",
+    "total": 28272,
+    "needsRetranslation": 16085,
+    "suppressed": 232,
+    "incomplete": 9626,
+    "complete": 18646,
+    "slotsPresent": 18646,
+    "flaggedAmongSlotsPresent": 7204,
+    "verifiedTranslated": 11442,
+    "sourceCopyExcused": 763,
+    "slotsPresentByLength": 27460,
+    "languageVerified": 19121,
+    "missingByLocale": {
+      "it": 5702,
+      "en": 5243,
+      "de": 725,
+      "fr": 5163
+    },
+    "queueAge": {
+      "count": 16085,
+      "withTimestamp": 16085,
+      "oldestAgeDays": 501.7,
+      "p50AgeDays": 26,
+      "p90AgeDays": 115.4,
+      "buckets": {
+        "0-1d": 2173,
+        "1-2d": 330,
+        "2-7d": 1998,
+        "0-7d": 4501,
+        "7-30d": 4145,
+        "30-90d": 5083,
+        "90-180d": 2350,
+        "180d+": 6
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 6521,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 2922
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 734
+      },
+      {
+        "company": "PEMSA",
+        "pending": 255
+      },
+      {
+        "company": "Pizzeria Ristorante Molino",
+        "pending": 241
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 207
       },
       {
         "company": "VOLG",

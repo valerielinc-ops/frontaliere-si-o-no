@@ -6791,6 +6791,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.protesta-asilo-berna-diritti.title': 'Bern: Protest gegen die Verschärfungen des Asylrechts',
     'blog.article.protesta-asilo-berna-diritti.excerpt': 'Mehrere Tausend Menschen auf dem Bundesplatz, um Gesundheit, Arbeit und Bildung unabhängig vom Aufenthaltsstatus und der Herkunft zu fordern.',
     'blog.article.protesta-asilo-berna-diritti.imageAlt': 'Demonstration auf dem Bundesplatz in Bern gegen die Verschärfung des Asylrechts',
+    'blog.article.avenergy-lobby-clima.title': 'Avenergy und die Erdöllobby: Klima in der Schweiz',
+    'blog.article.avenergy-lobby-clima.excerpt': 'Eine Studie zeichnet die Kommunikation von Avenergy, dem Verband der Erdölimporteure, und das Interessennetzwerk nach, das bis in den Bundesrat reicht.',
+    'blog.article.avenergy-lobby-clima.imageAlt': 'Bellinzona und Schweizer Berge unter wolkigem Himmel zum nationalen Klimadiskurs',
+    'blog.article.assicurazione-grandine-2026.title': 'Hagelversicherung: Prämien 2026 in Gefahr',
+    'blog.article.assicurazione-grandine-2026.excerpt': 'Im Jahr 2026 erwartet Grandine Svizzera finanzielle Verluste und Entschädigungen von bis zu 170 Millionen Franken, wobei die Ernten von Zuckerrüben, Kartoffeln und Mais um bis zu 30% zurückgehen.',
+    'blog.article.assicurazione-grandine-2026.imageAlt': 'Schweizer landwirtschaftliches Feld, das von Hagel betroffen ist, mit drohenden Wolken',
+    'blog.article.ubs-sede-elvetica-costi.title': 'UBS: Standortverlegung für Keller-Sutter unwahrscheinlich',
+    'blog.article.ubs-sede-elvetica-costi.excerpt': 'Laut Karin Keller‑Sutter wäre eine Verlegung des Sitzes von Ubs ins Ausland deutlich kostspieliger und rechtlich komplex; der Bundesrat hat bereits Erleichterungen bei der Eigenmittelverordnung gewährt.',
+    'blog.article.ubs-sede-elvetica-costi.imageAlt': 'Ubs‑Hauptsitz im schweizerischen Finanzdistrict',
+    'blog.article.sanzioni-finanziarie-onu-2026.title': 'UN-Sanktionen: Der Bundesrat aktualisiert vier Verordnungen',
+    'blog.article.sanzioni-finanziarie-onu-2026.excerpt': 'Entscheidung vom 25. September 2026 zur Vereinheitlichung der Finanzbestimmungen zu Terrorismus und Proliferation, mit spezifischen Ausnahmen für den Iran.',
+    'blog.article.sanzioni-finanziarie-onu-2026.imageAlt': 'Bundeshaus in Bern, Sitz des Bundesrates',
+    'blog.article.jans-monaco-lotta-trafficanti.title': 'Beat Jans in München: Kampf gegen Menschenhändler',
+    'blog.article.jans-monaco-lotta-trafficanti.excerpt': 'Bundesrat Beat Jans setzt beim Münchner Gipfel mit 18 Staaten auf europäische Zusammenarbeit und schnelle Rückkehrverfahren.',
+    'blog.article.jans-monaco-lotta-trafficanti.imageAlt': 'Schweizer Regierungsgebäude mit Nationalflagge',
 };
 
 export default blogMetaChDe;

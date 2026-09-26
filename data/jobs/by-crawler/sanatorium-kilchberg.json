@@ -116,8 +116,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "sanatorium-kilchberg-0e4e4e0f5e5d",
@@ -213,8 +212,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "sanatorium-kilchberg-9d7b5fd4744c",
@@ -315,8 +313,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "sanatorium-kilchberg-27ac27e9eae8",
@@ -324,7 +321,7 @@
       "slugByLocale": {
         "it": "operatore-socio-sanitario-oss-con-attestato-federale-di-capacita-afc-sanatorium-kilchberg-kilchberg",
         "en": "healthcare-professional-fage-efz-sanatorium-kilchberg-kilchberg",
-        "de": "fachperson-gesundheit-efz-sanatorium-kilchberg-kilchberg",
+        "de": "fachperson-gesundheit-efz-sanatorium-kilchberg-kilchberg-4x5esi",
         "fr": "assistant-e-en-soins-et-sante-communautaire-assc-sanatorium-kilchberg-kilchberg"
       },
       "company": "Sanatorium Kilchberg",
@@ -396,7 +393,8 @@
         ],
         "de": [
           "vorsorgeberater-in-80-100-generalagentur-berner-oberland",
-          "fachperson-gesundheit-efz-sanatorium-kilchberg-kilchberg-4x5esi"
+          "fachperson-gesundheit-efz-sanatorium-kilchberg-kilchberg-4x5esi",
+          "fachperson-gesundheit-efz-sanatorium-kilchberg-kilchberg"
         ]
       },
       "firstSeenAt": "2026-05-19T14:37:15.820Z",
@@ -412,8 +410,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "sanatorium-kilchberg-356e0f5506b1",
@@ -515,8 +512,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "sanatorium-kilchberg-436cf9be7104",
@@ -593,8 +589,7 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "sanatorium-kilchberg-7a158fff9cff",
@@ -602,7 +597,7 @@
       "slugByLocale": {
         "it": "cura-professionale-hf-fh-sanatorium-kilchberg-kilchberg-5f5b1f",
         "en": "care-professional-hf-fh-sanatorium-kilchberg-kilchberg-5f5b1f",
-        "de": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
+        "de": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4x5fho",
         "fr": "soins-professionnels-hf-fh-sanatorium-kilchberg-kilchberg-5f5b1f"
       },
       "company": "Sanatorium Kilchberg",
@@ -656,7 +651,8 @@
           "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
         ],
         "de": [
-          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4x5fho"
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4x5fho",
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
         ],
         "fr": [
           "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
@@ -753,8 +749,7 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "sanatorium-kilchberg-f51d92b553f6",
@@ -826,7 +821,7 @@
       "id": "sanatorium-kilchberg-1dc5b66d44ed",
       "slug": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-2",
       "slugByLocale": {
-        "de": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
+        "de": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4x5fk4",
         "it": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-2",
         "en": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-2",
         "fr": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-2"
@@ -890,6 +885,9 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
+        ],
+        "de": [
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
         ]
       },
       "previousSlugs": [
@@ -900,7 +898,7 @@
       "id": "sanatorium-kilchberg-11a5e19f0f00",
       "slug": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-3",
       "slugByLocale": {
-        "de": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
+        "de": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4x5fk5",
         "it": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-3",
         "en": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-3",
         "fr": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-3"
@@ -963,6 +961,9 @@
       "firstSeenAt": "2026-07-29T11:41:38.590Z",
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
+        ],
+        "de": [
           "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
         ]
       },
@@ -1203,8 +1204,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "sanatorium-kilchberg-9a9af16c5117",
@@ -1358,7 +1358,7 @@
       "id": "sanatorium-kilchberg-56dc28263951",
       "slug": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4",
       "slugByLocale": {
-        "de": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
+        "de": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4x5flv",
         "it": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4",
         "en": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4",
         "fr": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4"
@@ -1421,6 +1421,9 @@
       "firstSeenAt": "2026-07-29T11:41:38.590Z",
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
+        ],
+        "de": [
           "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
         ]
       },
@@ -1583,8 +1586,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "sanatorium-kilchberg-742c606f9cb8",

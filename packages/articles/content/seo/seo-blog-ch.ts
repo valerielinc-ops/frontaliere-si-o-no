@@ -88043,6 +88043,201 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avenergy-lobby-clima': {
+    title: 'Avenergy e la lobby del petrolio: clima in Svizzera',
+    description: 'Avenergy, associazione degli importatori di petrolio, è al centro di uno studio sulla comunicazione e sulla rete di interessi che arriva al Consiglio federale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, avenergy, lobby, petrolio, clima',
+    ogTitle: 'Avenergy, petrolio e clima: la rete in Svizzera',
+    ogDescription: 'Uno studio ricostruisce la comunicazione di Avenergy, associazione degli importatori di petrolio, nel quadro di una rete di interessi che arriva in Consiglio federale. La fonte colloca l\'analisi nel dibattito sul clima in Svizzera.',
+    canonicalPath: '/articoli-svizzera/avenergy-lobby-clima/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Avenergy e la lobby del petrolio: clima in Svizzera",
+      "description": "Avenergy, associazione degli importatori di petrolio, è al centro di uno studio sulla comunicazione e sulla rete di interessi che arriva al Consiglio federale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avenergy-lobby-clima.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona e le montagne svizzere sotto un cielo nuvoloso, immagine sul clima nazionale"
+      },
+      "datePublished": "2026-09-26T16:40:49+00:00",
+      "dateModified": "2026-09-26T16:40:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avenergy-lobby-clima/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-assicurazione-grandine-2026': {
+    title: 'Assicurazione grandine: premi a rischio nel 2026',
+    description: 'Nel 2026 Grandine Svizzera prevede perdite e risarcimenti fino a 170 milioni di franchi, con raccolti di barbabietole, patate e mais in calo fino al 30%. Aebi',
+    keywords: 'frontalieri, ticino, svizzera, italia, assicurazione, grandine, premi, rischio',
+    ogTitle: 'Assicurazione grandine: premi a rischio nel 2026',
+    ogDescription: 'Grandine Svizzera, principale assicuratrice europea per rischi agricoli, avverte che nel 2026 potrebbe dover pagare fino a 170 milioni di franchi di risarcimenti a causa di grandinate che hanno ridotto le rese di barbabietole, patate e mais fino',
+    canonicalPath: '/articoli-svizzera/assicurazione-grandine-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assicurazione grandine: premi a rischio nel 2026",
+      "description": "Nel 2026 Grandine Svizzera prevede perdite e risarcimenti fino a 170 milioni di franchi, con raccolti di barbabietole, patate e mais in calo fino al 30%. Aebi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assicurazione-grandine-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campo agricolo svizzero colpito da grandine con nuvole minacciose"
+      },
+      "datePublished": "2026-09-26T17:26:33+00:00",
+      "dateModified": "2026-09-26T17:26:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assicurazione-grandine-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ubs-sede-elvetica-costi': {
+    title: 'Ubs: trasferimento sede poco probabile per Keller-Sutter',
+    description: 'Karin Keller‑Sutter giudica improbabile il trasferimento della sede di Ubs all’estero, citando costi elevati e complessità giuridiche. Il Consiglio federale ha',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferimento, sede, poco, probabile',
+    ogTitle: 'Ubs: trasferimento sede poco probabile per Keller-Sutter',
+    ogDescription: 'La ministra delle finanze Karin Keller‑Sutter afferma che spostare la sede di Ubs all’estero sarebbe molto più costoso e giuridicamente complesso. L’articolo analizza le agevolazioni già concesse dal Consiglio federale, la posizione della banca',
+    canonicalPath: '/articoli-svizzera/ubs-sede-elvetica-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ubs: trasferimento sede poco probabile per Keller-Sutter",
+      "description": "Karin Keller‑Sutter giudica improbabile il trasferimento della sede di Ubs all’estero, citando costi elevati e complessità giuridiche. Il Consiglio federale ha",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ubs-sede-elvetica-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio della sede di Ubs nel distretto finanziario svizzero"
+      },
+      "datePublished": "2026-09-26T18:41:25+00:00",
+      "dateModified": "2026-09-26T18:41:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ubs-sede-elvetica-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sanzioni-finanziarie-onu-2026': {
+    title: 'Sanzioni ONU: il Consiglio federale aggiorna quattro ordinanze',
+    description: 'Il Consiglio federale uniforma quattro ordinanze sulle sanzioni ONU (25 settembre 2026). Esenzioni per organizzazioni internazionali nei casi dell\'Iran.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sanzioni, consiglio, federale, aggiorna',
+    ogTitle: 'Sanzioni ONU: il Consiglio federale aggiorna quattro ordinanze',
+    ogDescription: 'Decisione del 25 settembre 2026: armonizzazione delle norme finanziarie su terrorismo e proliferazione. Focus sull\'esenzione per organizzazioni internazionali relativa all\'Iran.',
+    canonicalPath: '/articoli-svizzera/sanzioni-finanziarie-onu-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sanzioni ONU: il Consiglio federale aggiorna quattro ordinanze",
+      "description": "Il Consiglio federale uniforma quattro ordinanze sulle sanzioni ONU (25 settembre 2026). Esenzioni per organizzazioni internazionali nei casi dell'Iran.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sanzioni-finanziarie-onu-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo Federale a Berna, sede del Consiglio federale"
+      },
+      "datePublished": "2026-09-26T19:39:43+00:00",
+      "dateModified": "2026-09-26T19:39:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sanzioni-finanziarie-onu-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-jans-monaco-lotta-trafficanti': {
+    title: 'Beat Jans a Monaco: lotta ai trafficanti di esseri umani',
+    description: 'Il consigliere federale Beat Jans partecipa al vertice di Monaco con 18 Stati europei per intensificare la lotta ai trafficanti e coordinare i rimpatri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, beat, jans, monaco, lotta',
+    ogTitle: 'Beat Jans a Monaco: lotta ai trafficanti di esseri umani',
+    ogDescription: 'La Svizzera intensifica la cooperazione europea contro la criminalità transnazionale e i trafficanti. Dettagli sul vertice di Monaco e i nuovi «Return Hubs».',
+    canonicalPath: '/articoli-svizzera/jans-monaco-lotta-trafficanti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Beat Jans a Monaco: lotta ai trafficanti di esseri umani",
+      "description": "Il consigliere federale Beat Jans partecipa al vertice di Monaco con 18 Stati europei per intensificare la lotta ai trafficanti e coordinare i rimpatri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/jans-monaco-lotta-trafficanti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio governativo svizzero con bandiera nazionale"
+      },
+      "datePublished": "2026-09-26T20:28:16+00:00",
+      "dateModified": "2026-09-26T20:28:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/jans-monaco-lotta-trafficanti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

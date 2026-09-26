@@ -5,6 +5,7 @@ import {
   FC_OFFERWALL_ENTITLEMENT_COOKIE,
   OFFERWALL_APPEAR_TIMEOUT_MS,
   OFFERWALL_ENTITLEMENT_GRACE_MS,
+  OFFERWALL_SLOW_MS,
   OFFERWALL_STALL_REPORT_MS,
   isOfferwallHeld,
   offerwallGateStatus,
@@ -221,5 +222,105 @@ describe('offerwallClickGate', () => {
     root!.remove();
     await vi.advanceTimersByTimeAsync(400);
     await expect(pending).resolves.toMatchObject({ outcome: 'completed', signal: 'root_closed' });
+  });
+
+  describe('late Offerwall (GPT fallback support)', () => {
+    it('reports a slow Offerwall once, before the appear timeout, without resolving', async () => {
+      holdOfferwall();
+      const onSlow = vi.fn();
+      let settled = false;
+      const pending = releaseHeldOfferwall({ onSlow }).then((result) => {
+        settled = true;
+        return result;
+      });
+
+      await vi.advanceTimersByTimeAsync(OFFERWALL_SLOW_MS - 200);
+      expect(onSlow).not.toHaveBeenCalled();
+      await vi.advanceTimersByTimeAsync(400);
+      expect(onSlow).toHaveBeenCalledTimes(1);
+      expect(onSlow.mock.calls[0][0].elapsedMs).toBeGreaterThanOrEqual(OFFERWALL_SLOW_MS);
+      expect(settled).toBe(false);
+
+      await vi.advanceTimersByTimeAsync(OFFERWALL_APPEAR_TIMEOUT_MS);
+      expect(onSlow).toHaveBeenCalledTimes(1);
+      await expect(pending).resolves.toEqual({ outcome: 'not_shown', reason: 'appear_timeout' });
+    });
+
+    it('does not report slow when the Offerwall renders in time', async () => {
+      holdOfferwall(() => {
+        setTimeout(() => {
+          mountRoot('fc-message-root');
+        }, 1000);
+      });
+      const onSlow = vi.fn();
+      const onShown = vi.fn();
+      void releaseHeldOfferwall({ onSlow, onShown });
+      await vi.advanceTimersByTimeAsync(OFFERWALL_APPEAR_TIMEOUT_MS + 400);
+      expect(onShown).toHaveBeenCalledTimes(1);
+      expect(onSlow).not.toHaveBeenCalled();
+    });
+
+    it('resolves appear_timeout when onAppearTimeout does not ask to keep watching', async () => {
+      holdOfferwall();
+      const onAppearTimeout = vi.fn(() => 'resolve' as const);
+      const pending = releaseHeldOfferwall({ onAppearTimeout });
+      await vi.advanceTimersByTimeAsync(OFFERWALL_APPEAR_TIMEOUT_MS + 400);
+      expect(onAppearTimeout).toHaveBeenCalledTimes(1);
+      await expect(pending).resolves.toEqual({ outcome: 'not_shown', reason: 'appear_timeout' });
+    });
+
+    it('keeps following a late Offerwall after the timeout, through to its reward', async () => {
+      holdOfferwall(() => {
+        setTimeout(() => {
+          mountRoot('fc-message-root');
+        }, OFFERWALL_APPEAR_TIMEOUT_MS + 3000);
+      });
+      const onAppearTimeout = vi.fn(() => 'keep_watching' as const);
+      const onShown = vi.fn();
+      let settled = false;
+      const pending = releaseHeldOfferwall({ onAppearTimeout, onShown }).then((result) => {
+        settled = true;
+        return result;
+      });
+
+      await vi.advanceTimersByTimeAsync(OFFERWALL_APPEAR_TIMEOUT_MS + 400);
+      expect(onAppearTimeout).toHaveBeenCalledTimes(1);
+      expect(settled, 'kept watching after the timeout').toBe(false);
+
+      await vi.advanceTimersByTimeAsync(3000);
+      expect(onShown).toHaveBeenCalledWith(expect.objectContaining({ root: 'fc-message-root' }));
+      expect(onAppearTimeout).toHaveBeenCalledTimes(1);
+
+      setEntitlement('granted-late-render');
+      await vi.advanceTimersByTimeAsync(400);
+      await expect(pending).resolves.toMatchObject({ outcome: 'completed', signal: 'entitlement' });
+    });
+
+    it('stops watching on abort, and a later Offerwall is no longer reported', async () => {
+      holdOfferwall();
+      const controller = new AbortController();
+      const onShown = vi.fn();
+      const pending = releaseHeldOfferwall({
+        signal: controller.signal,
+        onShown,
+        onAppearTimeout: () => 'keep_watching',
+      });
+      await vi.advanceTimersByTimeAsync(OFFERWALL_APPEAR_TIMEOUT_MS + 1000);
+      controller.abort();
+      await expect(pending).resolves.toEqual({ outcome: 'not_shown', reason: 'aborted' });
+
+      mountRoot('fc-message-root');
+      await vi.advanceTimersByTimeAsync(2000);
+      expect(onShown).not.toHaveBeenCalled();
+    });
+
+    it('does not release at all when the signal is already aborted', async () => {
+      holdOfferwall();
+      const controller = new AbortController();
+      controller.abort();
+      await expect(releaseHeldOfferwall({ signal: controller.signal }))
+        .resolves.toEqual({ outcome: 'not_shown', reason: 'aborted' });
+      expect(window.__ftOfferwallGate?.state).toBe('held');
+    });
   });
 });

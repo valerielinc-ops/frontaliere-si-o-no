@@ -93,8 +93,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "omega-32963",
@@ -188,8 +187,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "omega-33095",
@@ -444,7 +442,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:17:44.352Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -752,8 +749,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "omega-33245",
@@ -851,8 +847,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-28T11:52:27.421Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-07-28T11:52:27.421Z"
     },
     {
       "id": "omega-33244",
@@ -952,8 +947,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-28T11:53:31.231Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-07-28T11:53:31.231Z"
     },
     {
       "id": "omega-33057",
@@ -1049,8 +1043,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

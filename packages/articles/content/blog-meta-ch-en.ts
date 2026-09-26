@@ -6791,6 +6791,21 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.protesta-asilo-berna-diritti.title': 'Bern: protest against the tightening of asylum law',
     'blog.article.protesta-asilo-berna-diritti.excerpt': 'Several thousand people in Federal Square calling for health, work and education regardless of residence status and origin.',
     'blog.article.protesta-asilo-berna-diritti.imageAlt': 'Demonstration in Bern\'s Federal Square against the tightening of asylum laws',
+    'blog.article.avenergy-lobby-clima.title': 'Avenergy and the oil lobby: climate in Switzerland',
+    'blog.article.avenergy-lobby-clima.excerpt': 'A study reconstructs the communications of Avenergy, the association of oil importers, and the network of interests that reaches the Federal Council.',
+    'blog.article.avenergy-lobby-clima.imageAlt': 'Bellinzona and Swiss mountains under a cloudy sky, evoking the national climate debate',
+    'blog.article.assicurazione-grandine-2026.title': 'Hail insurance: premiums at risk in 2026',
+    'blog.article.assicurazione-grandine-2026.excerpt': 'In 2026, Grandine Svizzera expects financial losses and compensation payments of up to 170 million francs, with beet, potato and corn harvests declining by up to 30%.',
+    'blog.article.assicurazione-grandine-2026.imageAlt': 'Swiss agricultural field affected by hail under threatening clouds',
+    'blog.article.ubs-sede-elvetica-costi.title': 'Ubs: relocation of headquarters unlikely, according to Keller-Sutter',
+    'blog.article.ubs-sede-elvetica-costi.excerpt': 'According to Karin Keller‑Sutter, moving Ubs’s headquarters abroad would be much more costly and legally complex; the Federal Council has already granted concessions regarding the Capital Adequacy Ordinance.',
+    'blog.article.ubs-sede-elvetica-costi.imageAlt': 'Ubs headquarters building in the Swiss financial district',
+    'blog.article.sanzioni-finanziarie-onu-2026.title': 'UN sanctions: the Federal Council updates four ordinances',
+    'blog.article.sanzioni-finanziarie-onu-2026.excerpt': 'Decision of 25 September 2026 to harmonize financial provisions on terrorism and proliferation, with specific exemptions for Iran.',
+    'blog.article.sanzioni-finanziarie-onu-2026.imageAlt': 'Federal Palace in Bern, seat of the Federal Council',
+    'blog.article.jans-monaco-lotta-trafficanti.title': 'Beat Jans in Munich: Fighting human traffickers',
+    'blog.article.jans-monaco-lotta-trafficanti.excerpt': 'Federal Councillor Beat Jans focuses on European cooperation and fast-track return procedures during the Munich summit with 18 states.',
+    'blog.article.jans-monaco-lotta-trafficanti.imageAlt': 'Swiss government building with national flag',
 };
 
 export default blogMetaChEn;

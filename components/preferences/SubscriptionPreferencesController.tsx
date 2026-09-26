@@ -15,7 +15,7 @@
  */
 
 import React, { useEffect, useMemo, useState, useCallback } from 'react';
-import { Bell, BellOff, Bookmark, Mail, Loader2, CheckCircle2, AlertCircle, Trash2, Key, Pencil, Plus, Save, X, Pause, Play, Sunrise, Megaphone } from 'lucide-react';
+import { Bell, BellOff, Bookmark, Mail, Loader2, CheckCircle2, AlertCircle, Trash2, Key, Pencil, Plus, Save, X, Pause, Play, Sunrise, Megaphone, Target } from 'lucide-react';
 import {
  getFullSubscriptionStatus,
  toggleNewsletterSubscription,
@@ -157,6 +157,10 @@ interface SectionStrings {
  digestDesc: string;
  digestOn: string;
  digestOff: string;
+ applicationIntentTitle: string;
+ applicationIntentDesc: string;
+ applicationIntentOn: string;
+ applicationIntentOff: string;
  /**
   * Third-party advertising is included in the base registration. This card
   * records the reader's separate opt-out/restore choice without turning it
@@ -203,6 +207,11 @@ const STRINGS: Record<Locale, SectionStrings> = {
  'Ogni settimana ti ricordiamo via email gli annunci che hai salvato, con qualche proposta simile. Vale solo per questo promemoria: newsletter, bollettino e avvisi lavoro restano come sono.',
  digestOn: 'Attivo',
  digestOff: 'Disattivato',
+ applicationIntentTitle: 'Uso dei segnali di candidatura',
+ applicationIntentDesc:
+ 'Puoi impedire che il sito registri il tuo interesse per una candidatura. È una scelta separata da newsletter, avvisi lavoro e promemoria degli annunci salvati.',
+ applicationIntentOn: 'Consentito',
+ applicationIntentOff: 'Escluso',
  adsTitle: 'Annunci di inserzionisti',
  adsDesc:
  'Messaggi promozionali di aziende terze. È incluso nell’attivazione base ed è attivo in partenza; questo interruttore separato ti permette di disattivarlo senza cambiare newsletter, bollettino o avvisi lavoro.',
@@ -287,6 +296,11 @@ const STRINGS: Record<Locale, SectionStrings> = {
  'Once a week we email you the jobs you saved, plus a few similar ones. This switch covers that reminder only: the newsletter, the daily brief and your job alerts stay as they are.',
  digestOn: 'On',
  digestOff: 'Off',
+ applicationIntentTitle: 'Use of application-intent signals',
+ applicationIntentDesc:
+ 'You can stop the site from recording your interest in an application. This choice is separate from newsletters, job alerts and saved-job reminders.',
+ applicationIntentOn: 'Allowed',
+ applicationIntentOff: 'Blocked',
  adsTitle: 'Advertiser announcements',
  adsDesc:
  'Promotional messages from third-party companies. They are included in the base activation and on by default; this separate switch lets you turn them off without changing the newsletter, daily brief or your job alerts.',
@@ -371,6 +385,11 @@ const STRINGS: Record<Locale, SectionStrings> = {
  'Einmal pro Woche erinnern wir dich per E-Mail an deine gespeicherten Stellen, samt ähnlicher Vorschläge. Dieser Schalter gilt nur dafür: Newsletter, Tagesbulletin und Job-Alerts bleiben unverändert.',
  digestOn: 'Aktiv',
  digestOff: 'Abgeschaltet',
+ applicationIntentTitle: 'Nutzung von Bewerbungssignalen',
+ applicationIntentDesc:
+ 'Du kannst verhindern, dass die Website dein Interesse an einer Bewerbung speichert. Diese Wahl ist unabhängig von Newsletter, Job-Alerts und Erinnerungen an gespeicherte Stellen.',
+ applicationIntentOn: 'Erlaubt',
+ applicationIntentOff: 'Ausgeschlossen',
  adsTitle: 'Anzeigen von Inserenten',
  adsDesc:
  'Werbenachrichten von Drittunternehmen. Sie gehören zur Basisaktivierung und sind zunächst aktiv; mit diesem eigenen Schalter kannst du sie ausschalten, ohne Newsletter, Tagesbulletin oder Job-Alerts zu ändern.',
@@ -455,6 +474,11 @@ const STRINGS: Record<Locale, SectionStrings> = {
  'Chaque semaine nous te rappelons par email les offres que tu as enregistrées, avec quelques suggestions similaires. Cet interrupteur ne concerne que ce rappel : la newsletter, le bulletin et tes alertes emploi restent inchangés.',
  digestOn: 'Actif',
  digestOff: 'Désactivé',
+ applicationIntentTitle: 'Utilisation des signaux de candidature',
+ applicationIntentDesc:
+ 'Vous pouvez empêcher le site d’enregistrer votre intérêt pour une candidature. Ce choix est distinct de la newsletter, des alertes emploi et des rappels des offres enregistrées.',
+ applicationIntentOn: 'Autorisé',
+ applicationIntentOff: 'Exclu',
  adsTitle: 'Annonces d’annonceurs',
  adsDesc:
  'Messages promotionnels d’entreprises tierces. Ils sont inclus dans l’activation de base et actifs par défaut ; cet interrupteur distinct te permet de les désactiver sans modifier la newsletter, le bulletin ni tes alertes emploi.',
@@ -885,6 +909,56 @@ async function authSetSavedJobsDigest(userId: string, email: string, enabled: bo
  },
  },
  { merge: true },
+ );
+}
+
+/**
+ * Application intent is a separate purpose from every email channel. The
+ * server predicate consumes users/{uid}.applicationIntent.optedOut; this read
+ * never writes a default, so logging in cannot silently re-enable the signal.
+ */
+async function authLoadApplicationIntentOptOut(userId: string): Promise<boolean> {
+ const { getFirestore, doc, getDoc } = await resilientImport(
+  () => import('firebase/firestore'),
+  (m) => typeof m.getFirestore === 'function',
+ );
+ const { getApp } = await resilientImport(
+  () => import('@/services/firebase'),
+  (m) => typeof m.getApp === 'function',
+ );
+ const app = await getApp();
+ const db = getFirestore(app as any);
+ const profileSnap = await getDoc(doc(db, 'users', userId));
+ const profile = profileSnap.exists() ? profileSnap.data() || {} : {};
+ return profile?.applicationIntent?.optedOut === true;
+}
+
+/**
+ * Explicit owner action for the application-intent purpose. No email-keyed
+ * document is touched, and setting false is only possible through this
+ * deliberate toggle — never through profile load or Auth login.
+ */
+async function authSetApplicationIntentOptOut(userId: string, optedOut: boolean): Promise<void> {
+ const { getFirestore, doc, setDoc, serverTimestamp } = await resilientImport(
+  () => import('firebase/firestore'),
+  (m) => typeof m.getFirestore === 'function',
+ );
+ const { getApp } = await resilientImport(
+  () => import('@/services/firebase'),
+  (m) => typeof m.getApp === 'function',
+ );
+ const app = await getApp();
+ const db = getFirestore(app as any);
+ await setDoc(
+  doc(db, 'users', userId),
+  {
+   applicationIntent: {
+    optedOut,
+    optedOutAt: optedOut ? serverTimestamp() : null,
+    updatedAt: serverTimestamp(),
+   },
+  },
+  { merge: true },
  );
 }
 
@@ -1655,6 +1729,11 @@ export function SubscriptionPreferencesController({
  /** Auth mode only — token mode has no uid to key `users/{uid}` by. See authLoadSavedJobsDigest. */
  const [digestAvailable, setDigestAvailable] = useState<boolean>(false);
  const [savingDigest, setSavingDigest] = useState(false);
+ // Auth mode only. Missing profile data is read as enabled, but is never
+ // written back until the owner explicitly changes this separate purpose.
+ const [applicationIntentOptedOut, setApplicationIntentOptedOut] = useState(false);
+ const [applicationIntentAvailable, setApplicationIntentAvailable] = useState(false);
+ const [savingApplicationIntent, setSavingApplicationIntent] = useState(false);
  // Third-party advertising is included in the base activation; this is the
  // separate preference-centre switch that lets the reader opt out.
  const [adsEnabled, setAdsEnabled] = useState<boolean>(false);
@@ -1733,6 +1812,17 @@ export function SubscriptionPreferencesController({
  }
  } catch (digestErr: any) {
  console.warn('[SubscriptionPreferencesController] Saved-jobs digest read failed:', digestErr?.message);
+ }
+ try {
+  const optedOut = await authLoadApplicationIntentOptOut(userId);
+  if (!cancelled) {
+   setApplicationIntentOptedOut(optedOut);
+   setApplicationIntentAvailable(true);
+  }
+ } catch (applicationIntentErr: any) {
+  // A failed privacy read hides the control rather than presenting a false
+  // opt-out state. Server-side callers still fail closed on their own read.
+  console.warn('[SubscriptionPreferencesController] Application-intent preference read failed:', applicationIntentErr?.message);
  }
  }
  setLoadStatus('ready');
@@ -1941,6 +2031,24 @@ export function SubscriptionPreferencesController({
  } finally {
  setSavingDigest(false);
  }
+ };
+
+ const handleToggleApplicationIntent = async () => {
+  if (!applicationIntentAvailable || !userId) return;
+  const nextOptedOut = !applicationIntentOptedOut;
+  setApplicationIntentOptedOut(nextOptedOut);
+  setSavingApplicationIntent(true);
+  setErrorMsg('');
+  try {
+   await authSetApplicationIntentOptOut(userId, nextOptedOut);
+   flashSaved('application-intent');
+  } catch (err: any) {
+   console.warn('[SubscriptionPreferencesController] Toggle application-intent privacy failed:', err?.message);
+   setApplicationIntentOptedOut(!nextOptedOut);
+   reportError(S.saveError);
+  } finally {
+   setSavingApplicationIntent(false);
+  }
  };
 
  /**
@@ -2479,6 +2587,40 @@ export function SubscriptionPreferencesController({
  {digestEnabled ? S.digestOn : S.digestOff}
  </span>
  {savedTickKey === 'saved-jobs-digest' && (
+ <span className="ml-2 inline-flex items-center gap-1 text-success">
+ <CheckCircle2 size={14} /> {S.saved}
+ </span>
+ )}
+ </div>
+ </section>
+ )}
+
+ {/* ── Application-intent privacy card ──
+     This is account-scoped and intentionally absent from token mode: an
+     anonymous email address must never be guessed as the owner of a signal. */}
+ {applicationIntentAvailable && userId && (
+ <section className="border border-edge rounded-xl p-5 bg-surface scroll-mt-20">
+ <div className="flex items-start justify-between gap-4">
+ <div className="flex-1">
+ <div className="flex items-center gap-2 mb-1">
+ <Target size={16} className="text-muted" />
+ <h2 className="font-semibold text-heading">{S.applicationIntentTitle}</h2>
+ </div>
+ <p className="text-sm text-muted leading-relaxed">{S.applicationIntentDesc}</p>
+ </div>
+ <Toggle
+ enabled={!applicationIntentOptedOut}
+ saving={savingApplicationIntent}
+ onClick={handleToggleApplicationIntent}
+ ariaLabel={S.applicationIntentTitle}
+ />
+ </div>
+ <div className="mt-3 text-xs text-muted">
+ {S.currentState}{' '}
+ <span className={`font-semibold ${applicationIntentOptedOut ? 'text-muted' : 'text-success'}`}>
+ {applicationIntentOptedOut ? S.applicationIntentOff : S.applicationIntentOn}
+ </span>
+ {savedTickKey === 'application-intent' && (
  <span className="ml-2 inline-flex items-center gap-1 text-success">
  <CheckCircle2 size={14} /> {S.saved}
  </span>

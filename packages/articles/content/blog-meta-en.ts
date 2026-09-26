@@ -12071,6 +12071,21 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rapina-como-residente-ticino.title': 'Robbery in Como: Ticino resident arrested',
     'blog.article.rapina-como-residente-ticino.excerpt': 'The 32-year-old Italian, resident in the Bellinzona area, is among the two arrested for the robbery of 90\'000 euros on April 24.',
     'blog.article.rapina-como-residente-ticino.imageAlt': 'Police investigation in Como after the April 24 jewellery robbery; a Bellinzona-area resident was arrested.',
+    'blog.article.cantieri-reti-gas-acqua-varese.title': 'Varese: gas and water works on three streets until April 2027',
+    'blog.article.cantieri-reti-gas-acqua-varese.excerpt': 'Starting September 28, 2026, Lereti (Gruppo Acinque) will begin work on Via Masolino da Panicale, Pagliano, and Giovannini. No traffic or parking.',
+    'blog.article.cantieri-reti-gas-acqua-varese.imageAlt': 'Gas and water network renewal works in Varese',
+    'blog.article.erba-punto-nascita-interrogazione-lega.title': 'Closure of Erba maternity unit: League inquiry',
+    'blog.article.erba-punto-nascita-interrogazione-lega.excerpt': 'Eugenio Zoffili questions Minister Schillaci and calls for technical working groups and exemptions to keep the Erba maternity unit operational.',
+    'blog.article.erba-punto-nascita-interrogazione-lega.imageAlt': 'Erba hospital at the center of the debate over its maternity ward closure',
+    'blog.article.vpdd-ssp-contro-iva-avs.title': 'VPOD-SSP against the increase in VAT for the 13th AVS pension payment',
+    'blog.article.vpdd-ssp-contro-iva-avs.excerpt': 'VPOD-SSP rejects funding the 13th AVS pension payment through a VAT increase, popular vote on November 29; AVS profits of 5.6 billion in 2024 and 4.4 billion in 2025, assets of 60.4 billion.',
+    'blog.article.vpdd-ssp-contro-iva-avs.imageAlt': 'Lugano lakeside promenade with lake and mountains, real scene',
+    'blog.article.m5s-vco-tavolo-frontalieri.title': 'Cross-border workers, M5S VCO asks for answers on NASpI and healthcare',
+    'blog.article.m5s-vco-tavolo-frontalieri.excerpt': 'After the September 17 meeting in Rome, M5S VCO calls for a binding timetable on the healthcare contribution, NASpI and tax option.',
+    'blog.article.m5s-vco-tavolo-frontalieri.imageAlt': 'View of Lugano with modern buildings and lake',
+    'blog.article.derby-lugano-ambri-settembre-2026.title': 'Ambrì beat Lugano 5-3 in the first derby of the season',
+    'blog.article.derby-lugano-ambri-settembre-2026.excerpt': 'Ambrì conquers the Cornèr Arena with a 5-3 score decided in the second period. The blue-and-whites rise to 11 points, while Lugano remains last with 5 points.',
+    'blog.article.derby-lugano-ambri-settembre-2026.imageAlt': 'Corner Arena in Lugano during the hockey derby between Lugano and Ambrì',
 };
 
 export default blogMetaEn;

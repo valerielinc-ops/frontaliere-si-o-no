@@ -12073,6 +12073,21 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rapina-como-residente-ticino.title': 'Braquage à Côme : un résident du Tessin arrêté',
     'blog.article.rapina-como-residente-ticino.excerpt': 'L\'Italien de 32 ans, résidant dans la région de Bellinzone, figure parmi les deux personnes arrêtées pour le braquage de 90\'000 euro du 24 avril.',
     'blog.article.rapina-como-residente-ticino.imageAlt': 'Enquête à Côme après le braquage du 24 avril; un résident de la région de Bellinzone a été arrêté. (Como)',
+    'blog.article.cantieri-reti-gas-acqua-varese.title': 'Varese : chantiers de gaz et d’eau dans trois rues jusqu’en avril 2027',
+    'blog.article.cantieri-reti-gas-acqua-varese.excerpt': 'À partir du 28 septembre 2026, les travaux de Lereti (Gruppo Acinque) commencent via Masolino da Panicale, Pagliano et Giovannini. Interdiction de circulation et de stationnement.',
+    'blog.article.cantieri-reti-gas-acqua-varese.imageAlt': 'Travaux de rénovation des réseaux de gaz et d\'eau à Varese',
+    'blog.article.erba-punto-nascita-interrogazione-lega.title': 'Fermeture de la maternité d’Erba : question de la Lega',
+    'blog.article.erba-punto-nascita-interrogazione-lega.excerpt': 'Eugenio Zoffili interroge le ministre Schillaci et demande des tables techniques et des dérogations pour maintenir opérationnel le service de maternité d’Erba.',
+    'blog.article.erba-punto-nascita-interrogazione-lega.imageAlt': 'L’hôpital d’Erba au cœur du débat sur la fermeture de la maternité',
+    'blog.article.vpdd-ssp-contro-iva-avs.title': 'VPOD-SSP contre l\'augmentation de la TVA pour la 13ème AVS',
+    'blog.article.vpdd-ssp-contro-iva-avs.excerpt': 'Le VPOD-SSP refuse le financement de la 13ème AVS par augmentation de la TVA, vote populaire le 29 novembre ; bénéfices AVS 5,6 milliards en 2024 et 4,4 milliards en 2025, patrimoine 60,4 milliards.',
+    'blog.article.vpdd-ssp-contro-iva-avs.imageAlt': 'Promenade du lac de Lugano avec montagnes en arrière-plan, scène réelle',
+    'blog.article.m5s-vco-tavolo-frontalieri.title': 'Frontaliers, M5S VCO demande des réponses sur les NASpI et la santé',
+    'blog.article.m5s-vco-tavolo-frontalieri.excerpt': 'Après la réunion du 17 septembre à Rome, le M5S VCO demande un calendrier contraignant concernant la contribution sanitaire, la NASpI et l’option fiscale.',
+    'blog.article.m5s-vco-tavolo-frontalieri.imageAlt': 'Vue de Lugano avec bâtiments modernes et lac',
+    'blog.article.derby-lugano-ambri-settembre-2026.title': 'Ambrì bat Lugano 5-3 lors du premier derby de la saison',
+    'blog.article.derby-lugano-ambri-settembre-2026.excerpt': 'Ambrì conquiert la Cornèr Arena avec un score de 5-3 en deuxième période. Les bleus et blancs montent à 11 points, tandis que Lugano reste dernier avec 5 points.',
+    'blog.article.derby-lugano-ambri-settembre-2026.imageAlt': 'Corner Arena à Lugano pendant le derby de hockey entre Lugano et Ambrì',
 };
 
 export default blogMetaFr;
