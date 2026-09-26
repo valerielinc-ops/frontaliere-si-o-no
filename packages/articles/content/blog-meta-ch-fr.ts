@@ -6761,6 +6761,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.integrazione-pic4-fondi-2028-2032.title': 'Conseil fédéral : 334,5 millions pour l\'intégration 2028-2032',
     'blog.article.integrazione-pic4-fondi-2028-2032.excerpt': 'Crédit d’engagement de 334,5 millions pour le PIC 4 et les programmes nationaux. 66,9 millions/an aux cantons pour la langue, la formation et le travail. Emploi des immigrés à 77 % selon l’OCDE.',
     'blog.article.integrazione-pic4-fondi-2028-2032.imageAlt': 'Palais fédéral à Berne avec drapeaux suisses',
+    'blog.article.indennita-infermiere-bregaglia.title': 'Bregaglia, indemnité pour quatre infirmières licenciées',
+    'blog.article.indennita-infermiere-bregaglia.excerpt': 'Le CSB accorde des indemnités à quatre infirmières licenciées en février 2025 après un accord devant la Pretura.',
+    'blog.article.indennita-infermiere-bregaglia.imageAlt': 'Centre de santé de Bregaglia au cœur d\'un accord pour quatre infirmières licenciées.',
 };
 
 export default blogMetaChFr;

@@ -87653,6 +87653,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-indennita-infermiere-bregaglia': {
+    title: 'Bregaglia, indennità per quattro infermiere licenziate',
+    description: 'Il CSB riconosce indennità a quattro infermiere licenziate nel febbraio 2025 dopo un accordo davanti alla Pretura. Il VPOD aveva impugnato i licenziamenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bregaglia, indennità, quattro, infermiere',
+    ogTitle: 'Indennità a quattro infermiere: accordo in Bregaglia',
+    ogDescription: 'Il Centro Sanitario Bregaglia ha raggiunto davanti alla Pretura un accordo con quattro infermiere licenziate. Il VPOD aveva contestato le modalità delle decisioni e il mancato coinvolgimento delle rappresentanze del personale.',
+    canonicalPath: '/articoli-svizzera/indennita-infermiere-bregaglia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bregaglia, indennità per quattro infermiere licenziate",
+      "description": "Il CSB riconosce indennità a quattro infermiere licenziate nel febbraio 2025 dopo un accordo davanti alla Pretura. Il VPOD aveva impugnato i licenziamenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/indennita-infermiere-bregaglia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro sanitario in Bregaglia, al centro dell'accordo per quattro infermiere licenziate."
+      },
+      "datePublished": "2026-09-26T07:56:08+00:00",
+      "dateModified": "2026-09-26T07:56:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/indennita-infermiere-bregaglia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

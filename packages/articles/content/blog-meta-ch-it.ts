@@ -6761,6 +6761,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.integrazione-pic4-fondi-2028-2032.title': 'Consiglio federale: 334,5 milioni per integrazione 2028-2032',
     'blog.article.integrazione-pic4-fondi-2028-2032.excerpt': 'Credito d\'impegno 334,5 mln per PIC 4 e programmi nazionali. 66,9 mln/anno ai Cantoni per lingua, formazione e lavoro. Occupazione immigrati al 77% OCSE.',
     'blog.article.integrazione-pic4-fondi-2028-2032.imageAlt': 'Palazzo federale a Berna con bandiere svizzere',
+    'blog.article.indennita-infermiere-bregaglia.title': 'Bregaglia, indennità per quattro infermiere licenziate',
+    'blog.article.indennita-infermiere-bregaglia.excerpt': 'Il CSB riconosce indennità a quattro infermiere licenziate nel febbraio 2025 dopo un accordo davanti alla Pretura.',
+    'blog.article.indennita-infermiere-bregaglia.imageAlt': 'Centro sanitario in Bregaglia, al centro dell\'accordo per quattro infermiere licenziate.',
 };
 
 export default blogMetaChIt;
