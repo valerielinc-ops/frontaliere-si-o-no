@@ -39,6 +39,7 @@ on:
       - '.github/actions/**'
       - '.github/scripts/**'
       - 'scripts/ci/technical-operations-audit.mjs'
+      - 'scripts/ci/line-at.mjs'
       - 'scripts/ci/loop-fleet-*.mjs'
       - 'scripts/ci/loop-l*.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'

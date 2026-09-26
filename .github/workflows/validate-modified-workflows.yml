@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/workflows/**'
       - 'scripts/ci/validate-modified-workflows.mjs'
+      - 'scripts/ci/line-at.mjs'
   workflow_dispatch:
 
 permissions:
