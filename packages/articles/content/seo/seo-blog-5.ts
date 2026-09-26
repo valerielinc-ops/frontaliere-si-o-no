@@ -93751,6 +93751,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cavalcavia-boesio-chiusura-lavori-2026': {
+    title: 'Chiusura cavalcavia boesio laveno mombello 25 settembre 2026',
+    description: 'Venerdì 25 settembre 2026, dalle 9:00 alle 17:00, chiusura totale del Cavalcavia Boesio (S.P. 32 e S.P. 69) per l\'installazione di tre portali limitatori; dopo',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiusura, cavalcavia, boesio, laveno',
+    ogTitle: 'Chiusura Cavalcavia Boesio Laveno Mombello 25 settembre 2026',
+    ogDescription: 'Il 25 settembre 2026, dalle 9 alle 17, il Cavalcavia Boesio nel comune di Laveno Mombello sarà chiuso totalmente per consentire l\'installazione di tre portali limitatori di sagoma sulle S.P. 32 e S.P. 69. Dopo i lavori resteranno in vigore il divieto',
+    canonicalPath: '/articoli-frontaliere/cavalcavia-boesio-chiusura-lavori-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiusura cavalcavia boesio laveno mombello 25 settembre 2026",
+      "description": "Venerdì 25 settembre 2026, dalle 9:00 alle 17:00, chiusura totale del Cavalcavia Boesio (S.P. 32 e S.P. 69) per l'installazione di tre portali limitatori; dopo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cavalcavia-boesio-chiusura-lavori-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Chiusura del Cavalcavia Boesio a Laveno Mombello con deviazioni sulla viabilità comunale"
+      },
+      "datePublished": "2026-09-26T02:34:11+00:00",
+      "dateModified": "2026-09-26T02:34:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cavalcavia-boesio-chiusura-lavori-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

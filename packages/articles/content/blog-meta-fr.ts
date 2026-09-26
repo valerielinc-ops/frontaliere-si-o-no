@@ -12017,6 +12017,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.centri-asilanti-chiasso-pasture.title': 'Centres d’asile de Chiasso-Pasture : 40 places menacées en 2027',
     'blog.article.centri-asilanti-chiasso-pasture.excerpt': 'À partir du 1° gennaio 2027, le mandat fédéral passe d’AOZ à ORS Service ; les syndicats VPOD et OCST mettent en garde contre jusqu’à 40 licenciements à Chiasso et Pasture parmi les 120 employés d’AOZ Ticino.',
     'blog.article.centri-asilanti-chiasso-pasture.imageAlt': 'Vue aérienne des centres d\'accueil de Chiasso et de Pasture au Tessin, montagnes en arrière-plan',
+    'blog.article.cavalcavia-boesio-chiusura-lavori-2026.title': 'Fermeture du passage supérieur de Boesio, Laveno Mombello, 25 septembre 2026',
+    'blog.article.cavalcavia-boesio-chiusura-lavori-2026.excerpt': 'Vendredi 25 septembre 2026, de 9:00 à 17:00, fermeture totale du Cavalcavia Boesio (S.P. 32 et S.P. 69) pour l’installation de trois portiques limiteurs ; après les travaux, limite de 3,5 t, 3,5 m et 30 km/h.',
+    'blog.article.cavalcavia-boesio-chiusura-lavori-2026.imageAlt': 'Fermeture du Cavalcavia Boesio près de Laveno Mombello avec déviations sur les voies communales',
 };
 
 export default blogMetaFr;
