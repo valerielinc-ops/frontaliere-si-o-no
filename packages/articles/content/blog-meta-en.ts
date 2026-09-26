@@ -12071,6 +12071,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rapina-como-residente-ticino.title': 'Robbery in Como: Ticino resident arrested',
     'blog.article.rapina-como-residente-ticino.excerpt': 'The 32-year-old Italian, resident in the Bellinzona area, is among the two arrested for the robbery of 90\'000 euros on April 24.',
     'blog.article.rapina-como-residente-ticino.imageAlt': 'Police investigation in Como after the April 24 jewellery robbery; a Bellinzona-area resident was arrested.',
+    'blog.article.cantieri-reti-gas-acqua-varese.title': 'Varese: gas and water works on three streets until April 2027',
+    'blog.article.cantieri-reti-gas-acqua-varese.excerpt': 'Starting September 28, 2026, Lereti (Gruppo Acinque) will begin work on Via Masolino da Panicale, Pagliano, and Giovannini. No traffic or parking.',
+    'blog.article.cantieri-reti-gas-acqua-varese.imageAlt': 'Gas and water network renewal works in Varese',
 };
 
 export default blogMetaEn;

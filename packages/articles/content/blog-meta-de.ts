@@ -12070,6 +12070,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rapina-como-residente-ticino.title': 'Raubüberfall in Como: Im Tessin wohnhafte Person festgenommen',
     'blog.article.rapina-como-residente-ticino.excerpt': 'Der 32-jährige Italiener mit Wohnsitz im Raum Bellinzona gehört zu den beiden Verhafteten wegen des Raubüberfalls von 90\'000 Euro am 24. April.',
     'blog.article.rapina-como-residente-ticino.imageAlt': 'Polizeiermittlungen in Como nach dem Juwelierraub vom 24. April; ein Bewohner aus dem Raum Bellinzona wurde verhaftet.',
+    'blog.article.cantieri-reti-gas-acqua-varese.title': 'Varese: Drei-Wege-Gas- und Wasserbaustellen bis April 2027',
+    'blog.article.cantieri-reti-gas-acqua-varese.excerpt': 'Ab dem 28. September 2026 beginnen die Arbeiten von Lereti (Acinque-Gruppe) in der Via Masolino da Panicale, Pagliano und Giovannini. Durchreise- und Halteverbot.',
+    'blog.article.cantieri-reti-gas-acqua-varese.imageAlt': 'Erneuerung der Gas- und Wassernetze in Varese',
 };
 
 export default blogMetaDe;
