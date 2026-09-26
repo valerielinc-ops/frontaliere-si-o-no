@@ -1,6 +1,6 @@
 {
   "crawlerKey": "apple-retail-switzerland",
-  "assembledAt": "2026-09-25T14:45:35.391Z",
+  "assembledAt": "2026-09-26T13:58:22.918Z",
   "jobs": [
     {
       "id": "apple-retail-switzerland-514c0e1f28a1",
@@ -33,7 +33,7 @@
       "url": "https://jobs.apple.com/en-us/details/200617889/aiml-apple-foundation-models-senior-ml-research-scientist-rl-agentic-reasoning?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:45:31.236Z",
+      "crawledAt": "2026-09-26T13:58:18.956Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -69,11 +69,11 @@
           "aiml-senior-machine-learning-research-scientist-afm-apple-retail-switzerland-ch"
         ]
       },
+      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 744,
       "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-03T21:19:38.775Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -84,89 +84,6 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
-    },
-    {
-      "id": "apple-retail-switzerland-e8f22ffb06db",
-      "slug": "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich",
-      "slugByLocale": {
-        "it": "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich",
-        "en": "aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning-apple-retail",
-        "de": "aiml-machine-learning-forschung-ingenieur-generative-ai-afm-apple-retail-switzerland-zurich",
-        "fr": "aiml-machine-learning-recherche-ingenieur-generative-ai-afm-apple-retail-switzerland-zurich"
-      },
-      "company": "Apple Retail Switzerland",
-      "companyKey": "apple-retail-switzerland",
-      "companyDomain": "jobs.apple.com",
-      "title": "AIML - Apple Foundation Models: ML Research Engineer, RL & Agentic Reasoning",
-      "titleByLocale": {
-        "it": "AIML - Machine Learning Ricerca Ingegnere, Generative AI - AFM",
-        "en": "AIML - Apple Foundation Models: ML Research Engineer, RL & Agentic Reasoning",
-        "de": "AIML - Machine Learning Forschung Ingenieur, Generative AI - AFM",
-        "fr": "AIML - Machine Learning Recherche Ingénieur, Generative AI - AFM"
-      },
-      "description": "Join Apple’s Generative AI team in Zurich as a Machine Learning Engineer specializing in foundation model post-training! Our team advances reinforcement learning (RL) for agentic tool use, planning and reasoning to enhance Apple’s foundation models. Our work directly shapes Apple Intelligence features such as Siri—impacting billions of users—while contributing to state-of-the-art research. You’ll collaborate with a dedicated group of researchers in Zurich and work closely with Apple’s core Foundation Model teams in Cupertino and NY.",
-      "descriptionByLocale": {
-        "it": "Unisciti al team AI Generativo di Apple a Zurigo come Machine Learning Engineer specializzato nel modello di fondazione post-formazione! Il nostro team avanza l'apprendimento di rinforzo (RL) per l'uso degli strumenti agentici, la pianificazione e il ragionamento per migliorare i modelli di base di Apple. Il nostro lavoro forma direttamente le caratteristiche di Apple Intelligence come Siri, che comporta miliardi di utenti, mentre contribuisce alla ricerca all'avanguardia. Collaborerai con un gruppo dedicato di ricercatori a Zurigo e lavorerai a stretto contatto con le principali squadre di Apple Foundation Model di Cupertino e NY.",
-        "en": "Join Apple’s Generative AI team in Zurich as a Machine Learning Engineer specializing in foundation model post-training! Our team advances reinforcement learning (RL) for agentic tool use, planning and reasoning to enhance Apple’s foundation models. Our work directly shapes Apple Intelligence features such as Siri—impacting billions of users—while contributing to state-of-the-art research. You’ll collaborate with a dedicated group of researchers in Zurich and work closely with Apple’s core Foundation Model teams in Cupertino and NY.",
-        "de": "Schließen Sie sich dem Generative AI-Team von Apple in Zürich als Machine Learning Engineer an, der sich auf das Post-Training von Grundlagenmodellen spezialisiert hat! Unser Team erweitert das Reinforcement Learning (RL) für die agentische Werkzeugnutzung, Planung und Argumentation, um Apples Grundlagenmodelle zu verbessern. Unsere Arbeit prägt Apple Intelligence-Funktionen wie Siri, die Milliarden von Benutzern betreffen, und trägt gleichzeitig zu modernster Forschung bei. Sie arbeiten mit einer engagierten Forschergruppe in Zürich zusammen und arbeiten eng mit Apples Kernteams von Foundation Model in Cupertino und NY zusammen.",
-        "fr": "Rejoignez l'équipe de l'IA à Zurich en tant qu'ingénieur d'apprentissage automatique spécialisé dans les modèles post-formation ! Notre équipe avance l'apprentissage du renforcement (RL) pour l'utilisation d'outils d'agents, la planification et le raisonnement pour améliorer les modèles de fondation d'Apple. Notre travail façonne directement les fonctionnalités d'Apple Intelligence telles que Siri, qui affecte des milliards d'utilisateurs, tout en contribuant à la recherche de pointe. Vous collaborerez avec un groupe de chercheurs dévoués à Zurich et travaillerez en étroite collaboration avec les équipes de la Fondation modèle Apple à Cupertino et NY."
-      },
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://jobs.apple.com/en-us/details/200617882/aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning?team=MLAI",
-      "source": "Apple Retail Switzerland Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:45:31.235Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-09-01",
-      "applyUrl": "https://jobs.apple.com/en-us/details/200617882/aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning?team=MLAI",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch",
-        "aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning-apple-retail",
-        "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch",
-          "aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning-apple-retail",
-          "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich"
-        ],
-        "en": [
-          "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch"
-        ],
-        "de": [
-          "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch"
-        ],
-        "fr": [
-          "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T21:19:38.774Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
           "unitText": "YEAR"
         }
       },
@@ -203,7 +120,7 @@
       "url": "https://jobs.apple.com/en-us/details/200634000/applied-machine-learning-engineer-security?team=SFTWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:45:31.234Z",
+      "crawledAt": "2026-09-26T13:58:18.954Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -264,6 +181,90 @@
           "unitText": "YEAR"
         }
       },
+      "addressRegion": "ZH",
+      "needsRetranslation": true
+    },
+    {
+      "id": "apple-retail-switzerland-e8f22ffb06db",
+      "slug": "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich",
+      "slugByLocale": {
+        "it": "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich",
+        "en": "aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning-apple-retail",
+        "de": "aiml-machine-learning-forschung-ingenieur-generative-ai-afm-apple-retail-switzerland-zurich",
+        "fr": "aiml-machine-learning-recherche-ingenieur-generative-ai-afm-apple-retail-switzerland-zurich"
+      },
+      "company": "Apple Retail Switzerland",
+      "companyKey": "apple-retail-switzerland",
+      "companyDomain": "jobs.apple.com",
+      "title": "AIML - Apple Foundation Models: ML Research Engineer, RL & Agentic Reasoning",
+      "titleByLocale": {
+        "it": "AIML - Machine Learning Ricerca Ingegnere, Generative AI - AFM",
+        "en": "AIML - Apple Foundation Models: ML Research Engineer, RL & Agentic Reasoning",
+        "de": "AIML - Machine Learning Forschung Ingenieur, Generative AI - AFM",
+        "fr": "AIML - Machine Learning Recherche Ingénieur, Generative AI - AFM"
+      },
+      "description": "Join Apple’s Generative AI team in Zurich as a Machine Learning Engineer specializing in foundation model post-training! Our team advances reinforcement learning (RL) for agentic tool use, planning and reasoning to enhance Apple’s foundation models. Our work directly shapes Apple Intelligence features such as Siri—impacting billions of users—while contributing to state-of-the-art research. You’ll collaborate with a dedicated group of researchers in Zurich and work closely with Apple’s core Foundation Model teams in Cupertino and NY.",
+      "descriptionByLocale": {
+        "it": "Unisciti al team AI Generativo di Apple a Zurigo come Machine Learning Engineer specializzato nel modello di fondazione post-formazione! Il nostro team avanza l'apprendimento di rinforzo (RL) per l'uso degli strumenti agentici, la pianificazione e il ragionamento per migliorare i modelli di base di Apple. Il nostro lavoro forma direttamente le caratteristiche di Apple Intelligence come Siri, che comporta miliardi di utenti, mentre contribuisce alla ricerca all'avanguardia. Collaborerai con un gruppo dedicato di ricercatori a Zurigo e lavorerai a stretto contatto con le principali squadre di Apple Foundation Model di Cupertino e NY.",
+        "en": "Join Apple’s Generative AI team in Zurich as a Machine Learning Engineer specializing in foundation model post-training! Our team advances reinforcement learning (RL) for agentic tool use, planning and reasoning to enhance Apple’s foundation models. Our work directly shapes Apple Intelligence features such as Siri—impacting billions of users—while contributing to state-of-the-art research. You’ll collaborate with a dedicated group of researchers in Zurich and work closely with Apple’s core Foundation Model teams in Cupertino and NY.",
+        "de": "Schließen Sie sich dem Generative AI-Team von Apple in Zürich als Machine Learning Engineer an, der sich auf das Post-Training von Grundlagenmodellen spezialisiert hat! Unser Team erweitert das Reinforcement Learning (RL) für die agentische Werkzeugnutzung, Planung und Argumentation, um Apples Grundlagenmodelle zu verbessern. Unsere Arbeit prägt Apple Intelligence-Funktionen wie Siri, die Milliarden von Benutzern betreffen, und trägt gleichzeitig zu modernster Forschung bei. Sie arbeiten mit einer engagierten Forschergruppe in Zürich zusammen und arbeiten eng mit Apples Kernteams von Foundation Model in Cupertino und NY zusammen.",
+        "fr": "Rejoignez l'équipe de l'IA à Zurich en tant qu'ingénieur d'apprentissage automatique spécialisé dans les modèles post-formation ! Notre équipe avance l'apprentissage du renforcement (RL) pour l'utilisation d'outils d'agents, la planification et le raisonnement pour améliorer les modèles de fondation d'Apple. Notre travail façonne directement les fonctionnalités d'Apple Intelligence telles que Siri, qui affecte des milliards d'utilisateurs, tout en contribuant à la recherche de pointe. Vous collaborerez avec un groupe de chercheurs dévoués à Zurich et travaillerez en étroite collaboration avec les équipes de la Fondation modèle Apple à Cupertino et NY."
+      },
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://jobs.apple.com/en-us/details/200617882/aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning?team=MLAI",
+      "source": "Apple Retail Switzerland Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-26T13:58:18.954Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-09-01",
+      "applyUrl": "https://jobs.apple.com/en-us/details/200617882/aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning?team=MLAI",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch",
+        "aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning-apple-retail",
+        "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch",
+          "aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning-apple-retail",
+          "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich"
+        ],
+        "en": [
+          "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch"
+        ],
+        "de": [
+          "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch"
+        ],
+        "fr": [
+          "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-03T21:19:38.774Z",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
       "addressRegion": "ZH"
     },
     {
@@ -297,7 +298,7 @@
       "url": "https://jobs.apple.com/en-us/details/200634821/aiml-senior-ml-rl-training-infrastructure-engineer-afm?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:45:31.233Z",
+      "crawledAt": "2026-09-26T13:58:18.953Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -342,7 +343,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "apple-retail-switzerland-99675b310169",
@@ -375,7 +377,7 @@
       "url": "https://jobs.apple.com/en-us/details/200643040/ai-research-scientist-multimodal-intelligence?team=HRDWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:45:31.232Z",
+      "crawledAt": "2026-09-26T13:58:18.952Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -407,6 +409,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.772Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -453,7 +456,7 @@
       "url": "https://jobs.apple.com/en-us/details/200664779/aiml-machine-learning-researcher-mlr?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:45:31.230Z",
+      "crawledAt": "2026-09-26T13:58:18.951Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -481,7 +484,7 @@
           "aiml-machine-learning-researcher-mlr-apple-retail-switzerland-ch"
         ]
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-03T21:19:38.768Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -529,7 +532,7 @@
       "url": "https://jobs.apple.com/en-us/details/200664795/aiml-research-scientist-health?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:45:31.229Z",
+      "crawledAt": "2026-09-26T13:58:18.950Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -561,6 +564,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.767Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -607,7 +611,7 @@
       "url": "https://jobs.apple.com/en-us/details/200672455/research-scientist-llm-efficiency?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:45:31.228Z",
+      "crawledAt": "2026-09-26T13:58:18.949Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -644,6 +648,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T23:03:17.856Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -658,6 +663,85 @@
         }
       },
       "addressRegion": "ZH"
+    },
+    {
+      "id": "apple-retail-switzerland-336db49a2819",
+      "slug": "content-engineering-author-sviluppatore-publications-apple-retail-switzerland-dietlikon",
+      "slugByLocale": {
+        "it": "content-engineering-author-sviluppatore-publications-apple-retail-switzerland-dietlikon",
+        "en": "content-engineering-author-developer-publications-apple-retail-switzerland-ch",
+        "de": "content-engineering-author-entwickler-publications-apple-retail-switzerland-dietlikon",
+        "fr": "content-engineering-author-developpeur-publications-apple-retail-switzerland-dietlikon"
+      },
+      "company": "Apple Retail Switzerland",
+      "companyKey": "apple-retail-switzerland",
+      "companyDomain": "jobs.apple.com",
+      "title": "Content Engineering Author, Developer Publications",
+      "titleByLocale": {
+        "it": "Content Engineering Author, Sviluppatore Publications",
+        "en": "Content Engineering Author, Developer Publications",
+        "de": "Content Engineering Author, Entwickler Publications",
+        "fr": "Content Engineering Author, Développeur Publications"
+      },
+      "description": "Apple is where individual imaginations gather together, committing to the values that lead to great work. Every new product we build, service we create, or Apple Store experience we deliver is the result of us making each other’s ideas stronger. That happens because every one of us shares a belief that we can make something wonderful and share it with the world, changing lives for the better. It’s the diversity of our people and their thinking that inspires the innovation that runs through everything we do. When we bring everybody in, we can do the best work of our lives. Here, you’ll do more than join something — you’ll add something. In Developer Publications, we teach people to design and build incredible software for Appleʼs platforms. Our audience includes developers getting their first introduction to Apple platforms, designers using our Human Interface Guidelines, and advanced engineers learning details of our hundreds of frameworks. As a Software Engineering Author, youʼll work closely with editors, engineers, designers, and teams across Apple to produce clear, concise, engaging content. Your articles, sample code, and API reference documentation will reach millions of developers and help them craft apps that use the latest Apple technologies to surprise and delight users.",
+      "descriptionByLocale": {
+        "it": "Apple è dove le immaginazioni individuali si riuniscono, impegnando i valori che portano al grande lavoro. Ogni nuovo prodotto che costruiamo, il servizio che creiamo, o l'esperienza Apple Store che offriamo è il risultato di noi rendendo le idee l'un l'altro più forte. Questo accade perché ognuno di noi condivide una convinzione che possiamo fare qualcosa di meraviglioso e condividerlo con il mondo, cambiando vite per il meglio. È la diversità della nostra gente e il loro pensiero che ispira l’innovazione che attraversa tutto ciò che facciamo. Quando portiamo tutti dentro, possiamo fare il miglior lavoro della nostra vita. Qui, farai più che unire qualcosa — si aggiungerà qualcosa. Nelle pubblicazioni degli sviluppatori, insegniamo alle persone a progettare e costruire un software incredibile per le piattaforme Apple. Il nostro pubblico include sviluppatori che ottengono la loro prima introduzione a piattaforme Apple, progettisti che utilizzano le nostre linee guida per l'interfaccia umana, e ingegneri avanzati dettagli di apprendimento delle nostre centinaia di framework. Come Software Engineering Author, lavorerai a stretto contatto con editor, ingegneri, progettisti e team di Apple per produrre contenuti chiari, concisi e coinvolgenti. I tuoi articoli, il codice campione e la documentazione di riferimento API raggiungeranno milioni di sviluppatori e li aiuteranno a creare applicazioni che utilizzano le ultime tecnologie Apple per sorprendere e deliziare gli utenti.",
+        "en": "Apple is where individual imaginations gather together, committing to the values that lead to great work. Every new product we build, service we create, or Apple Store experience we deliver is the result of us making each other’s ideas stronger. That happens because every one of us shares a belief that we can make something wonderful and share it with the world, changing lives for the better. It’s the diversity of our people and their thinking that inspires the innovation that runs through everything we do. When we bring everybody in, we can do the best work of our lives. Here, you’ll do more than join something — you’ll add something. In Developer Publications, we teach people to design and build incredible software for Appleʼs platforms. Our audience includes developers getting their first introduction to Apple platforms, designers using our Human Interface Guidelines, and advanced engineers learning details of our hundreds of frameworks. As a Software Engineering Author, youʼll work closely with editors, engineers, designers, and teams across Apple to produce clear, concise, engaging content. Your articles, sample code, and API reference documentation will reach millions of developers and help them craft apps that use the latest Apple technologies to surprise and delight users.",
+        "de": "Apple ist der Ort, an dem sich die individuellen Vorstellungen versammeln und sich zu den Werten bekennen, die zu großartiger Arbeit führen. Jedes neue Produkt, das wir entwickeln, jeder Service, den wir erstellen, oder jedes Apple Store-Erlebnis, das wir liefern, ist das Ergebnis unserer gegenseitigen Ideen. Das passiert, weil jeder von uns den Glauben teilt, dass wir etwas Wunderbares machen und es mit der Welt teilen können, das Leben zum Besseren verändern. Es ist die Vielfalt unserer Mitarbeiter und ihr Denken, die die Innovation inspiriert, die sich durch alles, was wir tun, zieht. Wenn wir alle einbringen, können wir die beste Arbeit unseres Lebens leisten. Hier werden Sie mehr tun, als sich etwas anzuschließen - Sie werden etwas hinzufügen. In Developer Publications bringen wir Menschen bei, unglaubliche Software für Apples Plattformen zu entwerfen und zu bauen. Zu unserem Publikum gehören Entwickler, die ihre erste Einführung in Apple-Plattformen erhalten, Designer, die unsere Human Interface-Richtlinien verwenden, und fortgeschrittene Ingenieure, die Details zu unseren Hunderten von Frameworks erfahren. Als Autor von Software Engineering arbeiten Sie eng mit Redakteuren, Ingenieuren, Designern und Teams in ganz Apple zusammen, um klare, prägnante und ansprechende Inhalte zu erstellen. Ihre Artikel, Ihr Beispielcode und Ihre API-Referenzdokumentation erreichen Millionen von Entwicklern und helfen ihnen, Apps zu erstellen, die die neuesten Apple-Technologien verwenden, um Benutzer zu überraschen und zu begeistern.",
+        "fr": "Apple est l'endroit où les imaginations individuelles se rassemblent, s'engageant aux valeurs qui mènent à un grand travail. Chaque nouveau produit que nous construisons, service que nous créons, ou expérience Apple Store que nous livrons est le résultat de nous rendre les idées les uns les autres plus fortes. Cela arrive parce que chacun d'entre nous partage la conviction que nous pouvons faire quelque chose de merveilleux et le partager avec le monde, changer des vies pour le mieux. C'est la diversité de nos gens et leur pensée qui inspire l'innovation qui traverse tout ce que nous faisons. Quand on amène tout le monde, on peut faire le meilleur travail de notre vie. Ici, vous ferez plus que rejoindre quelque chose — vous ajouterez quelque chose. Dans Developer Publications, nous enseignons aux gens à concevoir et à construire des logiciels incroyables pour les plateformes Apple. Notre public comprend les développeurs qui reçoivent leur première introduction sur les plateformes Apple, les concepteurs utilisant nos lignes directrices pour l'interface humaine et les ingénieurs avancés qui apprennent des détails sur nos centaines de cadres. En tant qu'auteur en génie logiciel, vous travaillerez en étroite collaboration avec les éditeurs, les ingénieurs, les concepteurs et les équipes d'Apple pour produire un contenu clair, concis et stimulant. Vos articles, votre exemple de code et la documentation de référence de l'API toucheront des millions de développeurs et les aideront à créer des applications qui utilisent les dernières technologies Apple pour surprendre et ravir les utilisateurs."
+      },
+      "location": "Dietlikon",
+      "canton": "ZH",
+      "url": "https://jobs.apple.com/en-us/details/200679192/content-engineering-author-developer-publications?team=SFTWR",
+      "source": "Apple Retail Switzerland Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-26T13:58:18.948Z",
+      "addressLocality": "Dietlikon",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-21",
+      "applyUrl": "https://jobs.apple.com/en-us/details/200679192/content-engineering-author-developer-publications?team=SFTWR",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "content-engineering-author-developer-publications-apple-retail-switzerland-ch",
+        "content-engineering-author-sviluppatore-publications-apple-retail-switzerland-dietlikon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "content-engineering-author-developer-publications-apple-retail-switzerland-ch",
+          "content-engineering-author-sviluppatore-publications-apple-retail-switzerland-dietlikon"
+        ],
+        "de": [
+          "content-engineering-author-developer-publications-apple-retail-switzerland-ch"
+        ],
+        "fr": [
+          "content-engineering-author-developer-publications-apple-retail-switzerland-ch"
+        ]
+      },
+      "firstSeenAt": "2026-08-21T10:01:12.124Z",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "apple-retail-switzerland-6fc6bba1b22c",
@@ -690,7 +774,7 @@
       "url": "https://jobs.apple.com/en-us/details/200672941/research-scientist-engineer-special-projects?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:45:31.227Z",
+      "crawledAt": "2026-09-26T13:58:18.948Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -738,84 +822,6 @@
       "addressRegion": "ZH"
     },
     {
-      "id": "apple-retail-switzerland-336db49a2819",
-      "slug": "content-engineering-author-sviluppatore-publications-apple-retail-switzerland-dietlikon",
-      "slugByLocale": {
-        "it": "content-engineering-author-sviluppatore-publications-apple-retail-switzerland-dietlikon",
-        "en": "content-engineering-author-developer-publications-apple-retail-switzerland-ch",
-        "de": "content-engineering-author-entwickler-publications-apple-retail-switzerland-dietlikon",
-        "fr": "content-engineering-author-developpeur-publications-apple-retail-switzerland-dietlikon"
-      },
-      "company": "Apple Retail Switzerland",
-      "companyKey": "apple-retail-switzerland",
-      "companyDomain": "jobs.apple.com",
-      "title": "Content Engineering Author, Developer Publications",
-      "titleByLocale": {
-        "it": "Content Engineering Author, Sviluppatore Publications",
-        "en": "Content Engineering Author, Developer Publications",
-        "de": "Content Engineering Author, Entwickler Publications",
-        "fr": "Content Engineering Author, Développeur Publications"
-      },
-      "description": "Apple is where individual imaginations gather together, committing to the values that lead to great work. Every new product we build, service we create, or Apple Store experience we deliver is the result of us making each other’s ideas stronger. That happens because every one of us shares a belief that we can make something wonderful and share it with the world, changing lives for the better. It’s the diversity of our people and their thinking that inspires the innovation that runs through everything we do. When we bring everybody in, we can do the best work of our lives. Here, you’ll do more than join something — you’ll add something. In Developer Publications, we teach people to design and build incredible software for Appleʼs platforms. Our audience includes developers getting their first introduction to Apple platforms, designers using our Human Interface Guidelines, and advanced engineers learning details of our hundreds of frameworks. As a Software Engineering Author, youʼll work closely with editors, engineers, designers, and teams across Apple to produce clear, concise, engaging content. Your articles, sample code, and API reference documentation will reach millions of developers and help them craft apps that use the latest Apple technologies to surprise and delight users.",
-      "descriptionByLocale": {
-        "it": "Apple è dove le immaginazioni individuali si riuniscono, impegnando i valori che portano al grande lavoro. Ogni nuovo prodotto che costruiamo, il servizio che creiamo, o l'esperienza Apple Store che offriamo è il risultato di noi rendendo le idee l'un l'altro più forte. Questo accade perché ognuno di noi condivide una convinzione che possiamo fare qualcosa di meraviglioso e condividerlo con il mondo, cambiando vite per il meglio. È la diversità della nostra gente e il loro pensiero che ispira l’innovazione che attraversa tutto ciò che facciamo. Quando portiamo tutti dentro, possiamo fare il miglior lavoro della nostra vita. Qui, farai più che unire qualcosa — si aggiungerà qualcosa. Nelle pubblicazioni degli sviluppatori, insegniamo alle persone a progettare e costruire un software incredibile per le piattaforme Apple. Il nostro pubblico include sviluppatori che ottengono la loro prima introduzione a piattaforme Apple, progettisti che utilizzano le nostre linee guida per l'interfaccia umana, e ingegneri avanzati dettagli di apprendimento delle nostre centinaia di framework. Come Software Engineering Author, lavorerai a stretto contatto con editor, ingegneri, progettisti e team di Apple per produrre contenuti chiari, concisi e coinvolgenti. I tuoi articoli, il codice campione e la documentazione di riferimento API raggiungeranno milioni di sviluppatori e li aiuteranno a creare applicazioni che utilizzano le ultime tecnologie Apple per sorprendere e deliziare gli utenti.",
-        "en": "Apple is where individual imaginations gather together, committing to the values that lead to great work. Every new product we build, service we create, or Apple Store experience we deliver is the result of us making each other’s ideas stronger. That happens because every one of us shares a belief that we can make something wonderful and share it with the world, changing lives for the better. It’s the diversity of our people and their thinking that inspires the innovation that runs through everything we do. When we bring everybody in, we can do the best work of our lives. Here, you’ll do more than join something — you’ll add something. In Developer Publications, we teach people to design and build incredible software for Appleʼs platforms. Our audience includes developers getting their first introduction to Apple platforms, designers using our Human Interface Guidelines, and advanced engineers learning details of our hundreds of frameworks. As a Software Engineering Author, youʼll work closely with editors, engineers, designers, and teams across Apple to produce clear, concise, engaging content. Your articles, sample code, and API reference documentation will reach millions of developers and help them craft apps that use the latest Apple technologies to surprise and delight users.",
-        "de": "Apple ist der Ort, an dem sich die individuellen Vorstellungen versammeln und sich zu den Werten bekennen, die zu großartiger Arbeit führen. Jedes neue Produkt, das wir entwickeln, jeder Service, den wir erstellen, oder jedes Apple Store-Erlebnis, das wir liefern, ist das Ergebnis unserer gegenseitigen Ideen. Das passiert, weil jeder von uns den Glauben teilt, dass wir etwas Wunderbares machen und es mit der Welt teilen können, das Leben zum Besseren verändern. Es ist die Vielfalt unserer Mitarbeiter und ihr Denken, die die Innovation inspiriert, die sich durch alles, was wir tun, zieht. Wenn wir alle einbringen, können wir die beste Arbeit unseres Lebens leisten. Hier werden Sie mehr tun, als sich etwas anzuschließen - Sie werden etwas hinzufügen. In Developer Publications bringen wir Menschen bei, unglaubliche Software für Apples Plattformen zu entwerfen und zu bauen. Zu unserem Publikum gehören Entwickler, die ihre erste Einführung in Apple-Plattformen erhalten, Designer, die unsere Human Interface-Richtlinien verwenden, und fortgeschrittene Ingenieure, die Details zu unseren Hunderten von Frameworks erfahren. Als Autor von Software Engineering arbeiten Sie eng mit Redakteuren, Ingenieuren, Designern und Teams in ganz Apple zusammen, um klare, prägnante und ansprechende Inhalte zu erstellen. Ihre Artikel, Ihr Beispielcode und Ihre API-Referenzdokumentation erreichen Millionen von Entwicklern und helfen ihnen, Apps zu erstellen, die die neuesten Apple-Technologien verwenden, um Benutzer zu überraschen und zu begeistern.",
-        "fr": "Apple est l'endroit où les imaginations individuelles se rassemblent, s'engageant aux valeurs qui mènent à un grand travail. Chaque nouveau produit que nous construisons, service que nous créons, ou expérience Apple Store que nous livrons est le résultat de nous rendre les idées les uns les autres plus fortes. Cela arrive parce que chacun d'entre nous partage la conviction que nous pouvons faire quelque chose de merveilleux et le partager avec le monde, changer des vies pour le mieux. C'est la diversité de nos gens et leur pensée qui inspire l'innovation qui traverse tout ce que nous faisons. Quand on amène tout le monde, on peut faire le meilleur travail de notre vie. Ici, vous ferez plus que rejoindre quelque chose — vous ajouterez quelque chose. Dans Developer Publications, nous enseignons aux gens à concevoir et à construire des logiciels incroyables pour les plateformes Apple. Notre public comprend les développeurs qui reçoivent leur première introduction sur les plateformes Apple, les concepteurs utilisant nos lignes directrices pour l'interface humaine et les ingénieurs avancés qui apprennent des détails sur nos centaines de cadres. En tant qu'auteur en génie logiciel, vous travaillerez en étroite collaboration avec les éditeurs, les ingénieurs, les concepteurs et les équipes d'Apple pour produire un contenu clair, concis et stimulant. Vos articles, votre exemple de code et la documentation de référence de l'API toucheront des millions de développeurs et les aideront à créer des applications qui utilisent les dernières technologies Apple pour surprendre et ravir les utilisateurs."
-      },
-      "location": "Dietlikon",
-      "canton": "ZH",
-      "url": "https://jobs.apple.com/en-us/details/200679192/content-engineering-author-developer-publications?team=SFTWR",
-      "source": "Apple Retail Switzerland Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:45:31.226Z",
-      "addressLocality": "Dietlikon",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-21",
-      "applyUrl": "https://jobs.apple.com/en-us/details/200679192/content-engineering-author-developer-publications?team=SFTWR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "content-engineering-author-developer-publications-apple-retail-switzerland-ch",
-        "content-engineering-author-sviluppatore-publications-apple-retail-switzerland-dietlikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "content-engineering-author-developer-publications-apple-retail-switzerland-ch",
-          "content-engineering-author-sviluppatore-publications-apple-retail-switzerland-dietlikon"
-        ],
-        "de": [
-          "content-engineering-author-developer-publications-apple-retail-switzerland-ch"
-        ],
-        "fr": [
-          "content-engineering-author-developer-publications-apple-retail-switzerland-ch"
-        ]
-      },
-      "firstSeenAt": "2026-08-21T10:01:12.124Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
-    },
-    {
       "id": "apple-retail-switzerland-feb2f352f1a3",
       "slug": "staff-machine-learning-engineer-siri-attention-and-invocation-apple-retail-switzerland-ch",
       "slugByLocale": {
@@ -846,7 +852,7 @@
       "url": "https://jobs.apple.com/en-us/details/200680814/staff-machine-learning-engineer-siri-runtime-systems-and-interaction?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:45:31.204Z",
+      "crawledAt": "2026-09-26T13:58:18.924Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -918,7 +924,7 @@
       "url": "https://jobs.apple.com/en-us/details/200679630/aiml-foundation-model-post-training-research-scientist?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:45:31.204Z",
+      "crawledAt": "2026-09-26T13:58:18.924Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -998,7 +1004,7 @@
       "url": "https://jobs.apple.com/en-us/details/200683178/aiml-machine-learning-researcher-multimodal-foundation-models?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:45:31.203Z",
+      "crawledAt": "2026-09-26T13:58:18.923Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1076,7 +1082,7 @@
       "url": "https://jobs.apple.com/en-us/details/200684066/channel-communications-manager-switzerland?team=SLDEV",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:45:31.202Z",
+      "crawledAt": "2026-09-26T13:58:18.922Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1092,6 +1098,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-19T22:52:45.856Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1109,27 +1116,27 @@
     },
     {
       "id": "apple-retail-switzerland-5c5b1b69c809",
-      "slug": "internship-machine-learning-foundation-models-apple-retail-switzerland-ch",
+      "slug": "stage-machine-learning-modelli-di-formazione-apple-retail-switzerland-zurich",
       "slugByLocale": {
+        "it": "stage-machine-learning-modelli-di-formazione-apple-retail-switzerland-zurich",
         "en": "internship-machine-learning-foundation-models-apple-retail-switzerland-ch",
-        "it": "internship-machine-learning-foundation-models-apple-retail-switzerland-ch",
-        "de": "internship-machine-learning-foundation-models-apple-retail-switzerland-ch",
-        "fr": "internship-machine-learning-foundation-models-apple-retail-switzerland-ch"
+        "de": "praktikum-machine-learning-stiftungsmodelle-apple-retail-switzerland-zurich",
+        "fr": "stage-apprentissage-automatique-modeles-de-fondation-apple-retail-switzerland-zurich"
       },
       "company": "Apple Retail Switzerland",
       "companyKey": "apple-retail-switzerland",
       "companyDomain": "jobs.apple.com",
       "title": "Internship - Machine Learning (Foundation Models)",
       "titleByLocale": {
-        "en": "Internship - Machine Learning (Foundation Models)",
         "it": "Stage - Machine Learning (modelli di formazione)",
+        "en": "Internship - Machine Learning (Foundation Models)",
         "de": "Praktikum - Machine Learning (Stiftungsmodelle)",
         "fr": "Stage - apprentissage automatique (modèles de fondation)"
       },
       "description": "We are looking for a machine learning research intern with passion to spearhead new solutions to challenging problems in foundation model development with an emphasis on agentic capabilities and Reinforcement Learning. You will closely work with an applied ML team of around 35 engineers in Zurich, and get the chance to connect with other experts in the US.",
       "descriptionByLocale": {
-        "en": "We are looking for a machine learning research intern with passion to spearhead new solutions to challenging problems in foundation model development with an emphasis on agentic capabilities and Reinforcement Learning. You will closely work with an applied ML team of around 35 engineers in Zurich, and get the chance to connect with other experts in the US.",
         "it": "Siamo alla ricerca di uno stagista di ricerca di machine learning con la passione per testare nuove soluzioni per sfidare i problemi nello sviluppo del modello di fondazione con l'accento sulle capacità agentiche e l'apprendimento di rinforzo. Potrai lavorare a stretto contatto con un team ML applicato di circa 35 ingegneri a Zurigo, e ottenere la possibilità di connettersi con altri esperti negli Stati Uniti.",
+        "en": "We are looking for a machine learning research intern with passion to spearhead new solutions to challenging problems in foundation model development with an emphasis on agentic capabilities and Reinforcement Learning. You will closely work with an applied ML team of around 35 engineers in Zurich, and get the chance to connect with other experts in the US.",
         "de": "Wir suchen einen Forschungspraktikanten für maschinelles Lernen mit Leidenschaft, um neue Lösungen für herausfordernde Probleme in der Entwicklung von Grundlagenmodellen mit Schwerpunkt auf agentischen Fähigkeiten und Verstärkungslernen anzuführen. Sie werden eng mit einem angewandten ML-Team von rund 35 Ingenieuren in Zürich zusammenarbeiten und die Möglichkeit haben, sich mit anderen Experten in den USA zu verbinden.",
         "fr": "Nous sommes à la recherche d'un stagiaire en recherche sur l'apprentissage automatique avec passion pour diriger de nouvelles solutions aux problèmes difficiles dans le développement de modèles de base, en mettant l'accent sur les capacités d'agents et le renforcement de l'apprentissage. Vous travaillerez en étroite collaboration avec une équipe ML appliquée d'environ 35 ingénieurs à Zurich et aurez la chance de vous connecter avec d'autres experts américains."
       },
@@ -1138,7 +1145,7 @@
       "url": "https://jobs.apple.com/en-us/details/200685035/internship-machine-learning-foundation-models?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:45:31.200Z",
+      "crawledAt": "2026-09-26T13:58:18.919Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1152,24 +1159,252 @@
       "postedDate": "2026-09-22",
       "applyUrl": "https://jobs.apple.com/en-us/details/200685035/internship-machine-learning-foundation-models?team=MLAI",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-25T14:45:31.200Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-machine-learning-foundation-models-apple-retail-switzerland-ch"
+        ],
+        "de": [
+          "internship-machine-learning-foundation-models-apple-retail-switzerland-ch"
+        ],
+        "fr": [
+          "internship-machine-learning-foundation-models-apple-retail-switzerland-ch"
+        ]
       },
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "previousSlugs": [
+        "internship-machine-learning-foundation-models-apple-retail-switzerland-ch"
+      ],
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-25T14:45:31.200Z"
+      "addressRegion": "ZH"
+    },
+    {
+      "id": "apple-retail-switzerland-3d4b15d6efc3",
+      "slug": "ch-technical-specialista-m-f-d-apple-retail-switzerland-switzerland",
+      "slugByLocale": {
+        "en": "ch-technical-specialist-m-f-d-apple-retail-switzerland-ch",
+        "it": "ch-technical-specialista-m-f-d-apple-retail-switzerland-switzerland",
+        "de": "ch-technical-spezialist-m-f-d-apple-retail-switzerland-switzerland",
+        "fr": "ch-technical-specialiste-m-f-d-apple-retail-switzerland-switzerland"
+      },
+      "company": "Apple Retail Switzerland",
+      "companyKey": "apple-retail-switzerland",
+      "companyDomain": "jobs.apple.com",
+      "title": "CH-Technical Specialist (m/f/d)",
+      "titleByLocale": {
+        "en": "CH-Technical Specialist (m/f/d)",
+        "it": "CH-Technical Specialista (m/f/d)",
+        "de": "CH-Technical Spezialist (m/f/d)",
+        "fr": "CH-Technical Spécialiste (m/f/d)"
+      },
+      "description": "Apple Retail is where the best of Apple comes together. We bring our expertise to help people do what they love, delivering an only-at-Apple experience. At Apple, we believe inclusion is a shared responsibility and we work together to foster a culture where everyone belongs and is inspired to do their best work.\n\nAs a Technical Specialist, you offer technical support and skilled troubleshooting for all customers while also generating excitement for Apple’s products and services. You deliver exceptional service and empower customers to get the most out of their Apple products.\n\nA Technical Specialist also makes sure customers are educated about repair options and Apple products and services.",
+      "descriptionByLocale": {
+        "en": "Apple Retail is where the best of Apple comes together. We bring our expertise to help people do what they love, delivering an only-at-Apple experience. At Apple, we believe inclusion is a shared responsibility and we work together to foster a culture where everyone belongs and is inspired to do their best work.\n\nAs a Technical Specialist, you offer technical support and skilled troubleshooting for all customers while also generating excitement for Apple’s products and services. You deliver exceptional service and empower customers to get the most out of their Apple products.\n\nA Technical Specialist also makes sure customers are educated about repair options and Apple products and services.",
+        "it": "Apple Retail is where the best of Apple comes together. We bring our expertise to help people do what they love, delivering an only-at-Apple experience. At Apple, we believe inclusion is a shared responsibility and we work together to foster a culture where everyone belongs and is inspired to do their best work.\n\nAs a Technical Specialist, you offer technical support and skilled troubleshooting for all customers while also generating excitement for Apple’s products and services. You deliver exceptional service and empower customers to get the most out of their Apple products.\n\nA Technical Specialist also makes sure customers are educated about repair options and Apple products and services.",
+        "de": "Apple Retail is where the best of Apple comes together. We bring our expertise to help people do what they love, delivering an only-at-Apple experience. At Apple, we believe inclusion is a shared responsibility and we work together to foster a culture where everyone belongs and is inspired to do their best work.\n\nAs a Technical Specialist, you offer technical support and skilled troubleshooting for all customers while also generating excitement for Apple’s products and services. You deliver exceptional service and empower customers to get the most out of their Apple products.\n\nA Technical Specialist also makes sure customers are educated about repair options and Apple products and services.",
+        "fr": "Apple Retail is where the best of Apple comes together. We bring our expertise to help people do what they love, delivering an only-at-Apple experience. At Apple, we believe inclusion is a shared responsibility and we work together to foster a culture where everyone belongs and is inspired to do their best work.\n\nAs a Technical Specialist, you offer technical support and skilled troubleshooting for all customers while also generating excitement for Apple’s products and services. You deliver exceptional service and empower customers to get the most out of their Apple products.\n\nA Technical Specialist also makes sure customers are educated about repair options and Apple products and services."
+      },
+      "location": "Switzerland",
+      "canton": "",
+      "url": "https://jobs.apple.com/en-us/details/114438204/ch-technical-specialist-m-f-d?team=APPST",
+      "source": "Apple Retail Switzerland Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-26T13:58:18.914Z",
+      "addressLocality": "Switzerland",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-26",
+      "applyUrl": "https://jobs.apple.com/en-us/details/114438204/ch-technical-specialist-m-f-d?team=APPST",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ch-technical-specialist-m-f-d-apple-retail-switzerland-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ch-technical-specialist-m-f-d-apple-retail-switzerland-ch"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-26T13:58:18.914Z"
+    },
+    {
+      "id": "apple-retail-switzerland-86f997e905a7",
+      "slug": "esperto-ch-operations-m-f-d-apple-retail-switzerland-switzerland",
+      "slugByLocale": {
+        "en": "ch-operations-expert-m-f-d-apple-retail-switzerland-ch",
+        "it": "esperto-ch-operations-m-f-d-apple-retail-switzerland-switzerland",
+        "fr": "specialiste-des-operations-du-ch-m-f-d-apple-retail-switzerland-switzerland",
+        "de": "esperto-ch-operations-m-f-d-apple-retail-switzerland-switzerland"
+      },
+      "company": "Apple Retail Switzerland",
+      "companyKey": "apple-retail-switzerland",
+      "companyDomain": "jobs.apple.com",
+      "title": "CH-Operations Expert (m/f/d)",
+      "titleByLocale": {
+        "en": "CH-Operations Expert (m/f/d)",
+        "it": "CH-Operations Expert (m/f/d)",
+        "de": "CH-Operations Expert (m/f/d)",
+        "fr": "CH-Operations Expert (m/f/d)"
+      },
+      "description": "Apple Retail is where the best of Apple comes together. We bring our expertise to help people do what they love, delivering an only-at-Apple experience. We believe inclusion is a shared responsibility and we work together to foster a culture where everyone belongs and is inspired to do their best work.\n\nAs an Operations Expert, you help drive sales and the customer experience by delivering excellence in operations, inventory accuracy, and preservation activities. You have a deep understanding of operational practices and mentor the Operations team to complete operational tasks accurately and in accordance with Retail Inventory processes.",
+      "descriptionByLocale": {
+        "en": "Apple Retail is where the best of Apple comes together. We bring our expertise to help people do what they love, delivering an only-at-Apple experience. We believe inclusion is a shared responsibility and we work together to foster a culture where everyone belongs and is inspired to do their best work.\n\nAs an Operations Expert, you help drive sales and the customer experience by delivering excellence in operations, inventory accuracy, and preservation activities. You have a deep understanding of operational practices and mentor the Operations team to complete operational tasks accurately and in accordance with Retail Inventory processes.",
+        "it": "Apple Retail is where the best of Apple comes together. We bring our expertise to help people do what they love, delivering an only-at-Apple experience. We believe inclusion is a shared responsibility and we work together to foster a culture where everyone belongs and is inspired to do their best work.\n\nAs an Operations Expert, you help drive sales and the customer experience by delivering excellence in operations, inventory accuracy, and preservation activities. You have a deep understanding of operational practices and mentor the Operations team to complete operational tasks accurately and in accordance with Retail Inventory processes.",
+        "de": "Apple Retail is where the best of Apple comes together. We bring our expertise to help people do what they love, delivering an only-at-Apple experience. We believe inclusion is a shared responsibility and we work together to foster a culture where everyone belongs and is inspired to do their best work.\n\nAs an Operations Expert, you help drive sales and the customer experience by delivering excellence in operations, inventory accuracy, and preservation activities. You have a deep understanding of operational practices and mentor the Operations team to complete operational tasks accurately and in accordance with Retail Inventory processes.",
+        "fr": "Apple Retail is where the best of Apple comes together. We bring our expertise to help people do what they love, delivering an only-at-Apple experience. We believe inclusion is a shared responsibility and we work together to foster a culture where everyone belongs and is inspired to do their best work.\n\nAs an Operations Expert, you help drive sales and the customer experience by delivering excellence in operations, inventory accuracy, and preservation activities. You have a deep understanding of operational practices and mentor the Operations team to complete operational tasks accurately and in accordance with Retail Inventory processes."
+      },
+      "location": "Switzerland",
+      "canton": "",
+      "url": "https://jobs.apple.com/en-us/details/114438011/ch-operations-expert-m-f-d?team=APPST",
+      "source": "Apple Retail Switzerland Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-26T13:58:18.912Z",
+      "addressLocality": "Switzerland",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-26",
+      "applyUrl": "https://jobs.apple.com/en-us/details/114438011/ch-operations-expert-m-f-d?team=APPST",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ch-operations-expert-m-f-d-apple-retail-switzerland-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ch-operations-expert-m-f-d-apple-retail-switzerland-ch"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-26T13:58:18.912Z"
+    },
+    {
+      "id": "apple-retail-switzerland-9ea4c7a211dc",
+      "slug": "ch-specialista-m-f-d-apple-retail-switzerland-switzerland",
+      "slugByLocale": {
+        "en": "ch-specialist-m-f-d-apple-retail-switzerland-ch",
+        "it": "ch-specialista-m-f-d-apple-retail-switzerland-switzerland",
+        "de": "ch-spezialist-m-f-d-apple-retail-switzerland-switzerland",
+        "fr": "ch-specialiste-m-f-d-apple-retail-switzerland-switzerland"
+      },
+      "company": "Apple Retail Switzerland",
+      "companyKey": "apple-retail-switzerland",
+      "companyDomain": "jobs.apple.com",
+      "title": "CH-Specialist (m/f/d)",
+      "titleByLocale": {
+        "en": "CH-Specialist (m/f/d)",
+        "it": "CH-Specialista (m/f/d)",
+        "de": "CH-Spezialist (m/f/d)",
+        "fr": "CH-Spécialiste (m/f/d)"
+      },
+      "description": "Apple Retail is where the best of Apple comes together. We bring our expertise to help people do what they love, delivering an only-at-Apple experience. We believe inclusion is a shared responsibility and we work together to foster a culture where everyone belongs and is inspired to do their best work.\n\nAs a Specialist, you build brand loyalty and create owners of Apple products and services. You’re dedicated to selling and delivering a customer service experience that is unlike any other. A Specialist is curious — you ask questions to learn about our customers’ needs, customizing recommendations to enrich their lives.",
+      "descriptionByLocale": {
+        "en": "Apple Retail is where the best of Apple comes together. We bring our expertise to help people do what they love, delivering an only-at-Apple experience. We believe inclusion is a shared responsibility and we work together to foster a culture where everyone belongs and is inspired to do their best work.\n\nAs a Specialist, you build brand loyalty and create owners of Apple products and services. You’re dedicated to selling and delivering a customer service experience that is unlike any other. A Specialist is curious — you ask questions to learn about our customers’ needs, customizing recommendations to enrich their lives.",
+        "it": "Apple Retail is where the best of Apple comes together. We bring our expertise to help people do what they love, delivering an only-at-Apple experience. We believe inclusion is a shared responsibility and we work together to foster a culture where everyone belongs and is inspired to do their best work.\n\nAs a Specialist, you build brand loyalty and create owners of Apple products and services. You’re dedicated to selling and delivering a customer service experience that is unlike any other. A Specialist is curious — you ask questions to learn about our customers’ needs, customizing recommendations to enrich their lives.",
+        "de": "Apple Retail is where the best of Apple comes together. We bring our expertise to help people do what they love, delivering an only-at-Apple experience. We believe inclusion is a shared responsibility and we work together to foster a culture where everyone belongs and is inspired to do their best work.\n\nAs a Specialist, you build brand loyalty and create owners of Apple products and services. You’re dedicated to selling and delivering a customer service experience that is unlike any other. A Specialist is curious — you ask questions to learn about our customers’ needs, customizing recommendations to enrich their lives.",
+        "fr": "Apple Retail is where the best of Apple comes together. We bring our expertise to help people do what they love, delivering an only-at-Apple experience. We believe inclusion is a shared responsibility and we work together to foster a culture where everyone belongs and is inspired to do their best work.\n\nAs a Specialist, you build brand loyalty and create owners of Apple products and services. You’re dedicated to selling and delivering a customer service experience that is unlike any other. A Specialist is curious — you ask questions to learn about our customers’ needs, customizing recommendations to enrich their lives."
+      },
+      "location": "Switzerland",
+      "canton": "",
+      "url": "https://jobs.apple.com/en-us/details/114438017/ch-specialist-m-f-d?team=APPST",
+      "source": "Apple Retail Switzerland Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-26T13:58:18.910Z",
+      "addressLocality": "Switzerland",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-26",
+      "applyUrl": "https://jobs.apple.com/en-us/details/114438017/ch-specialist-m-f-d?team=APPST",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ch-specialist-m-f-d-apple-retail-switzerland-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ch-specialist-m-f-d-apple-retail-switzerland-ch"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-26T13:58:18.910Z"
     }
   ]
 }
