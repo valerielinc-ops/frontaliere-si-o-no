@@ -13,6 +13,7 @@ import {
   italyDutyPublicationMismatches,
   sourceCoverageModel,
   sourcePublicationClass,
+  vcoMirrorUrlError,
   verifyItalyReleaseSnapshots,
 } from './lib/pharmacy-italy-duty-parser.mjs';
 
@@ -86,6 +87,8 @@ export function checkItalyDutyData({ duties, status, sources, catalogue, now = n
     if (!sameHttpsHost(source?.officialSourceUrl, source?.rawUrl)) {
       errors.push(`source ${source?.key || '<unknown>'}: rawUrl host must match the official source host`);
     }
+    const mirrorError = vcoMirrorUrlError(source);
+    if (mirrorError) errors.push(`source ${source?.key || '<unknown>'}: ${mirrorError}`);
     // Il minimo in giorni-calendario vale solo per una fonte `full-calendar`.
     // Una fonte `corrections-only` pubblica i soli cambi turno, quindi non puo'
     // dichiarare 300 giorni senza mentire: pretenderlo la marcava invalida.

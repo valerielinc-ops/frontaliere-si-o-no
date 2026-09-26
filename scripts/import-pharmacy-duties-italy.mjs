@@ -11,6 +11,7 @@ import {
   parseItalyDutySource,
   sourceCoverageModel,
   sourcePublicationClass,
+  vcoMirrorUrlError,
 } from './lib/pharmacy-italy-duty-parser.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -63,17 +64,17 @@ export function assertOfficialItalyUrl(url, source, label = 'official source URL
   return parsed;
 }
 
-async function fetchResponse(url, options = {}, source, label = 'official source') {
+async function fetchResponse(url, options = {}, source, label = 'official source', fetchImpl = fetch) {
   let lastError;
   for (let attempt = 1; attempt <= FETCH_ATTEMPTS; attempt += 1) {
     try {
-      return await fetchResponseOnce(url, options, source, label);
+      return await fetchResponseOnce(url, options, source, label, fetchImpl);
     } catch (error) {
       lastError = error;
       // L'URL non ufficiale e il 4xx non sono transitori: ritentarli e' solo
       // tempo speso, e il messaggio di errore deve restare quello vero.
       const message = error instanceof Error ? error.message : String(error);
-      if (/must remain official|is not a valid URL|host does not match/i.test(message)) throw error;
+      if (/must remain official|is not a valid URL|host does not match|vcoMirrorUrl/i.test(message)) throw error;
       if (/^HTTP 4\d\d/.test(message)) throw error;
       if (attempt === FETCH_ATTEMPTS) break;
       await sleep(FETCH_RETRY_BASE_MS * attempt);
@@ -82,12 +83,12 @@ async function fetchResponse(url, options = {}, source, label = 'official source
   throw lastError;
 }
 
-async function fetchResponseOnce(url, options = {}, source, label = 'official source') {
+async function fetchResponseOnce(url, options = {}, source, label = 'official source', fetchImpl = fetch) {
   assertOfficialItalyUrl(url, source, label);
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
   try {
-    const response = await fetch(url, {
+    const response = await fetchImpl(url, {
       ...options,
       headers: {
         'User-Agent': USER_AGENT,
@@ -105,7 +106,41 @@ async function fetchResponseOnce(url, options = {}, source, label = 'official so
   }
 }
 
-async function fetchPdfBytes(source) {
+export function assertVcoMirrorUrl(url, source, label = 'VCO mirror URL') {
+  const error = vcoMirrorUrlError({ ...source, vcoMirrorUrl: url });
+  if (error) throw new Error(`${label}: ${error}`);
+  return new URL(url);
+}
+
+async function fetchMirrorResponse(source, { fetchImpl = fetch } = {}) {
+  assertVcoMirrorUrl(source.vcoMirrorUrl, source);
+  const response = await fetchImpl(source.vcoMirrorUrl, {
+    headers: {
+      'User-Agent': USER_AGENT,
+      'Accept': 'text/markdown,text/plain,application/pdf;q=0.9,*/*;q=0.1',
+      'X-Return-Format': 'markdown',
+    },
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+    redirect: 'follow',
+  });
+  assertVcoMirrorUrl(response.url || source.vcoMirrorUrl, source, 'VCO mirror final URL');
+  if (!response.ok) throw new Error(`HTTP ${response.status} for ${source.vcoMirrorUrl}`);
+  return response;
+}
+
+async function fetchMirrorText(source, { fetchImpl = fetch } = {}) {
+  const response = await fetchMirrorResponse(source, { fetchImpl });
+  const contentType = response.headers.get('content-type') || '';
+  const bytes = Buffer.from(await response.arrayBuffer());
+  if (contentType.includes('application/pdf') || bytes.subarray(0, 4).toString() === '%PDF') {
+    return pdfToText(bytes, source);
+  }
+  const text = bytes.toString('utf8');
+  if (!text.trim()) throw new Error(`VCO mirror returned an empty document for ${source.vcoMirrorUrl}`);
+  return text;
+}
+
+async function fetchPdfBytes(source, { fetchImpl = fetch } = {}) {
   if (source.fetchMode === 'halley-post-pdf') {
     const boundary = 'AZazAZ';
     const halley = source.halley || {};
@@ -114,7 +149,7 @@ async function fetchPdfBytes(source) {
       method: 'POST',
       headers: { 'Content-Type': `text/plain;charset=UTF-8; boundary=${boundary}` },
       body,
-    }, source, 'official raw URL');
+    }, source, 'official raw URL', fetchImpl);
     const result = await response.json();
     if (result?.K !== 'DOWNLOAD' || typeof result.PATH !== 'string') {
       throw new Error('official Halley source did not return a PDF download');
@@ -124,6 +159,7 @@ async function fetchPdfBytes(source) {
       { headers: { Accept: 'application/pdf' } },
       source,
       'official Halley PDF URL',
+      fetchImpl,
     );
     return Buffer.from(await pdfResponse.arrayBuffer());
   }
@@ -132,6 +168,7 @@ async function fetchPdfBytes(source) {
     { headers: { Accept: 'application/pdf,application/octet-stream' } },
     source,
     'official raw URL',
+    fetchImpl,
   );
   return Buffer.from(await response.arrayBuffer());
 }
@@ -149,15 +186,37 @@ function pdfToText(bytes, source) {
   }
 }
 
-async function loadSourceText(source, fixtureDir) {
+export async function loadSourceText(source, fixtureDir, { fetchImpl = fetch } = {}) {
   if (fixtureDir) {
     const fixturePath = source.fixturePath || source.key;
-    return readFile(resolve(fixtureDir, fixturePath, 'source.txt'), 'utf8');
+    return {
+      text: await readFile(resolve(fixtureDir, fixturePath, 'source.txt'), 'utf8'),
+      fetchedVia: 'fixture',
+    };
   }
-  return pdfToText(await fetchPdfBytes(source), source);
+  try {
+    return {
+      text: pdfToText(await fetchPdfBytes(source, { fetchImpl }), source),
+      fetchedVia: 'official',
+    };
+  } catch (officialError) {
+    if (vcoMirrorUrlError(source)) throw officialError;
+    if (!source.vcoMirrorUrl) throw officialError;
+    try {
+      return {
+        text: await fetchMirrorText(source, { fetchImpl }),
+        fetchedVia: 'vco-mirror',
+        officialError,
+      };
+    } catch (mirrorError) {
+      const officialMessage = officialError instanceof Error ? officialError.message : String(officialError);
+      const mirrorMessage = mirrorError instanceof Error ? mirrorError.message : String(mirrorError);
+      throw new Error(`${officialMessage}; VCO mirror failed: ${mirrorMessage}`);
+    }
+  }
 }
 
-function sourceStatus(source, parsed, fetchedAt) {
+function sourceStatus(source, parsed, fetchedAt, fetchedVia = 'official') {
   const state = parsed.errors.length > 0
     ? (parsed.freshness === 'stale' ? 'stale' : 'partial')
     : (parsed.coverage === 'covered' && parsed.freshness === 'fresh' ? 'fresh' : 'not_published');
@@ -179,6 +238,7 @@ function sourceStatus(source, parsed, fetchedAt) {
     minimumCalendarDays: parsed.minimumCalendarDays ?? null,
     errors: parsed.errors,
     warnings: parsed.warnings,
+    fetchedVia,
   };
 }
 
@@ -249,6 +309,7 @@ export async function importItalyPharmacyDuties({
     || null,
   attemptedAt = new Date().toISOString(),
   write = true,
+  fetchImpl = fetch,
 } = {}) {
   const sourceData = await readJson(SOURCES_PATH);
   const catalogue = await readJson(CATALOGUE_PATH);
@@ -260,7 +321,8 @@ export async function importItalyPharmacyDuties({
 
   for (const source of sourceData.sources || []) {
     try {
-      const rawText = await loadSourceText(source, fixtureDir);
+      const loaded = await loadSourceText(source, fixtureDir, { fetchImpl });
+      const rawText = loaded.text;
       const parsed = parseItalyDutySource(rawText, source, {
         fetchedAt: attemptedAt,
         asOf: attemptedAt,
@@ -270,7 +332,11 @@ export async function importItalyPharmacyDuties({
       const bucket = sourcePublicationClass(source) === 'best-effort' ? allBestEffortErrors : allErrors;
       bucket.push(...parsed.errors.map((error) => `${source.key}: ${error}`));
       allWarnings.push(...parsed.warnings.map((warning) => `${source.key}: ${warning}`));
-      statuses.push(sourceStatus(source, parsed, attemptedAt));
+      if (loaded.fetchedVia === 'vco-mirror') {
+        const detail = loaded.officialError instanceof Error ? ` after official fetch failure (${loaded.officialError.message})` : '';
+        allWarnings.push(`${source.key}: fetched via configured vcoMirrorUrl${detail}`);
+      }
+      statuses.push(sourceStatus(source, parsed, attemptedAt, loaded.fetchedVia));
     } catch (error) {
       const baseMessage = error instanceof Error ? error.message : String(error);
       const causeCode = error?.cause?.code ? ' (' + error.cause.code + ')' : '';
@@ -293,6 +359,7 @@ export async function importItalyPharmacyDuties({
         minimumCalendarDays: null,
         errors: [message],
         warnings: [],
+        fetchedVia: 'unavailable',
       });
     }
   }
