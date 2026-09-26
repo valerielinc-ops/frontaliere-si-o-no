@@ -148,6 +148,7 @@ import {
  resolveAnalyticsCompanyHubKey,
  resolveAnalyticsJobIdentity,
 } from '@/services/analytics';
+import { recordApplicationIntent } from '@/services/applicationIntent';
 import { deriveAnalyticsPageContext } from '@/services/analyticsPageContext';
 // Type-only: jobAlertService itself is always dynamically imported below (code
 // splitting) — this import is erased at build time, no bundle/runtime impact.
@@ -7042,6 +7043,22 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onJobRouteChange?.(undefined);
  };
 
+ const recordJobApplicationIntent = (job: JobListing, surface: string): void => {
+  void recordApplicationIntent({
+   job: {
+    id: job.id,
+    slug: job.slug,
+    slugByLocale: job.slugByLocale,
+    companyKey: job.companyKey,
+    title: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
+   },
+   origin: typeof window !== 'undefined' ? window.location.pathname : '/',
+   surface,
+   consentText: t('jobBoard.applicationIntent.disclosure'),
+   authUser,
+  });
+ };
+
   const trackPublisherApplySignals = (
   job: JobListing,
   contentType: string,
@@ -7203,10 +7220,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // click that reached the page behind the dialog): one gesture, one offer.
   if (applicationOfferOpenRef.current) return;
   const isExternal = isExternalApplicationJob(job);
+  // Keep anonymous job-board visitors on the sign-in/subscription funnel.
+  // The detail view is the only surface allowed to request the rewarded ad
+  // before sign-in, because it owns the canonical rewarded offer host.
+  recordJobApplicationIntent(job, surface);
   if (isExternal && assistedApplicationVariant === 'rewarded_ad' && !authUser?.uid && !isJobDetailView) {
-   // Keep anonymous job-board visitors on the sign-in/subscription funnel.
-   // The detail view is the only surface allowed to request the rewarded ad
-   // before sign-in, because it owns the canonical rewarded offer host.
    onRequireAuth?.();
    return;
   }
@@ -9939,6 +9957,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  >
  {t('jobBoard.apply')}
  </button>
+ <p className="mt-1.5 text-xs text-muted" data-testid="application-intent-disclosure">
+  {t('jobBoard.applicationIntent.disclosure')}
+ </p>
  {rewardedCtaDisclosure && (
   <p className="mt-1.5 text-xs text-muted" data-testid="rewarded-cta-disclosure">{rewardedCtaDisclosure}</p>
  )}
@@ -10191,6 +10212,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
          alert slots.
          One control, moved. */}
  {companyFollowCta(selectedJob, 'company_follow_button')}
+ <p className="mt-2 text-xs text-muted" data-testid="application-intent-disclosure">
+  {t('jobBoard.applicationIntent.disclosure')}
+ </p>
  </header>
 
  <section className="section rounded-2xl border border-edge bg-surface p-4 sm:p-5 space-y-3">
@@ -10306,6 +10330,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <ArrowUpRight className="w-4 h-4" />
  {t('jobBoard.apply')}
  </button>
+ <p className="text-xs text-muted" data-testid="application-intent-disclosure">
+  {t('jobBoard.applicationIntent.disclosure')}
+ </p>
  {appliedNoticeJsx}
  <dl className="grid grid-cols-3 gap-2 text-xs">
  <div className="rounded-lg bg-surface-alt p-2 text-center">
@@ -10373,6 +10400,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  loading="lazy"
  onError={handleCompanyLogoError} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold font-display text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-subtle mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> {rewardedCtaDisclosure && ( <p className="mt-2 text-xs text-muted" data-testid="rewarded-cta-disclosure">{rewardedCtaDisclosure}</p> )} {appliedNoticeJsx}
  {detailAlertCtaJsx}
+ <p className="mt-2 text-xs text-muted" data-testid="application-intent-disclosure">
+  {t('jobBoard.applicationIntent.disclosure')}
+ </p>
  {isPublisherAd && userId && userEmail && (
  <Suspense fallback={null}>
  <JobDetailJobAlertButton
