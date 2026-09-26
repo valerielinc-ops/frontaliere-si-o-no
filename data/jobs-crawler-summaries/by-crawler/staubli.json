@@ -1,23 +1,24 @@
 {
   "key": "staubli",
   "label": "Stäubli",
-  "generatedAt": "2026-09-26T14:02:08.879Z",
+  "generatedAt": "2026-09-26T23:44:27.337Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
   "lastFetchOutcome": null,
   "written": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 6,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6389,
-  "avgDurationMs": 6389,
+  "durationMs": 5791,
+  "avgDurationMs": 5791,
   "durationHistory": [
-    6389
+    5791
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "staubli-edd3495b5c3a",
       "slug": "project-leader-renewable-energy-m-w-d-staubli-allschwil-switzerland",
@@ -25,13 +26,13 @@
       "companyKey": "staubli",
       "companyDomain": "staubli.com",
       "title": "Project Leader Renewable Energy (m/w/d)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Allschwil, , Switzerland",
       "canton": "BL",
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000151872259-project-leader-renewable-energy-m-w-d-?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:02:02.179Z",
+      "crawledAt": "2026-09-26T23:44:20.853Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "streetAddress": "Stockbrunnenrain 8",
@@ -48,16 +49,15 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://jobs.smartrecruiters.com/StaubliGroup/744000151872259-project-leader-renewable-energy-m-w-d-?oga=true",
       "jobReqId": "744000151872259",
-      "_qualityScore": 62,
+      "firstSeenAt": "2026-09-26T14:02:02.179Z",
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "staubli-671b4d1ed152",
       "slug": "sap-mm-inhouse-consultant-staubli-allschwil-switzerland",
@@ -71,7 +71,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000151326059-sap-mm-inhouse-consultant?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:02:02.184Z",
+      "crawledAt": "2026-09-26T23:44:20.876Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "streetAddress": "Stockbrunnenrain 8",
@@ -110,7 +110,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000150040359-lehre-als-kauffrau-oder-kaufmann-efz?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:02:02.185Z",
+      "crawledAt": "2026-09-26T23:44:20.874Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "streetAddress": "Stockbrunnenrain 8",
@@ -149,7 +149,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000148155361-aussenhandelsspezialist-in-80-100-m-w-d-?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:02:02.200Z",
+      "crawledAt": "2026-09-26T23:44:20.871Z",
       "addressLocality": "Sargans",
       "addressRegion": "SG",
       "streetAddress": "Grossfeldstrasse 71",
@@ -188,7 +188,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000145658619-field-service-engineer-robotics?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:02:02.203Z",
+      "crawledAt": "2026-09-26T23:44:20.878Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "streetAddress": "Rue du Tombet",
@@ -206,11 +206,11 @@
       "applyUrl": "https://jobs.smartrecruiters.com/StaubliGroup/744000145658619-field-service-engineer-robotics?oga=true",
       "jobReqId": "744000145658619",
       "firstSeenAt": "2026-08-28T05:26:26.194Z",
-      "_qualityScore": 72,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 14,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -227,7 +227,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000144288079-management-assistant-80-?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:02:02.204Z",
+      "crawledAt": "2026-09-26T23:44:20.880Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "streetAddress": "Stockbrunnenrain 8",
@@ -245,11 +245,11 @@
       "applyUrl": "https://jobs.smartrecruiters.com/StaubliGroup/744000144288079-management-assistant-80-?oga=true",
       "jobReqId": "744000144288079",
       "firstSeenAt": "2026-08-19T21:43:48.169Z",
-      "_qualityScore": 81,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -266,7 +266,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000135670729-division-procurement-controller?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:02:02.205Z",
+      "crawledAt": "2026-09-26T23:44:20.882Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "streetAddress": "Stockbrunnenrain 8",
