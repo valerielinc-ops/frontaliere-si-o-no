@@ -1,9 +1,15 @@
 import { spawnSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 
 import sources from '../data/pharmacy-duties-italy-sources.json';
-import { assertOfficialItalyUrl, importItalyPharmacyDuties } from '../scripts/import-pharmacy-duties-italy.mjs';
+import {
+  assertOfficialItalyUrl,
+  assertVcoMirrorUrl,
+  importItalyPharmacyDuties,
+  loadSourceText,
+} from '../scripts/import-pharmacy-duties-italy.mjs';
 
 const REPO_ROOT = fileURLToPath(new URL('../', import.meta.url));
 const SCRIPT_PATH = fileURLToPath(new URL('../scripts/import-pharmacy-duties-italy.mjs', import.meta.url));
@@ -50,6 +56,61 @@ describe('Italian pharmacy duty importer', () => {
     expect(() => assertOfficialItalyUrl('http://www.comune.merone.co.it/calendar.pdf', source, 'redirect final URL'))
       .toThrow('redirect final URL must remain official HTTPS');
     expect(() => assertOfficialItalyUrl(source.rawUrl, source)).not.toThrow();
+  });
+
+  it('uses the authorized VCO mirror after an official transport timeout', async () => {
+    const source = sources.sources.find((entry: { province: string }) => entry.province === 'VB');
+    const fixtureText = readFileSync(fileURLToPath(new URL('./fixtures/pharmacy-duties/italy/vb/source.txt', import.meta.url)), 'utf8');
+    const requests: Array<{ url: string; headers: Record<string, string> }> = [];
+
+    expect(source).toMatchObject({
+      vcoMirrorUrl: 'https://r.jina.ai/https://www.aslvco.it/wp-content/uploads/2025/12/2968938.pdf',
+    });
+    expect(() => assertVcoMirrorUrl(source.vcoMirrorUrl, source)).not.toThrow();
+
+    const loaded = await loadSourceText(source, null, {
+      fetchImpl: async (url: string, options: { headers?: Record<string, string> }) => {
+        requests.push({ url, headers: options.headers || {} });
+        if (url === source.rawUrl) {
+          throw new Error('official source connect timeout', {
+            cause: { code: 'UND_ERR_CONNECT_TIMEOUT' },
+          });
+        }
+        return new Response(fixtureText, {
+          status: 200,
+          headers: { 'content-type': 'text/plain; charset=utf-8' },
+        });
+      },
+    });
+
+    expect(loaded.fetchedVia).toBe('vco-mirror');
+    expect(loaded.text).toContain('DETERMINAZIONE');
+    expect(requests.map(({ url }) => url)).toEqual([
+      source.rawUrl,
+      source.rawUrl,
+      source.rawUrl,
+      source.vcoMirrorUrl,
+    ]);
+    expect(requests[3].headers['X-Return-Format']).toBe('markdown');
+  });
+
+  it('does not use the VCO mirror after an official HTTP failure', async () => {
+    const source = sources.sources.find((entry: { province: string }) => entry.province === 'VB');
+    const fixtureText = readFileSync(fileURLToPath(new URL('./fixtures/pharmacy-duties/italy/vb/source.txt', import.meta.url)), 'utf8');
+    const requests: string[] = [];
+
+    await expect(loadSourceText(source, null, {
+      fetchImpl: async (url: string) => {
+        requests.push(url);
+        if (url === source.rawUrl) return new Response('', { status: 404 });
+        return new Response(fixtureText, {
+          status: 200,
+          headers: { 'content-type': 'text/plain; charset=utf-8' },
+        });
+      },
+    })).rejects.toThrow('HTTP 404');
+
+    expect(requests).toEqual([source.rawUrl]);
   });
 
   it('is deterministic for the same fixture snapshot and timestamp', async () => {
