@@ -12077,6 +12077,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.erba-punto-nascita-interrogazione-lega.title': 'Closure of Erba maternity unit: League inquiry',
     'blog.article.erba-punto-nascita-interrogazione-lega.excerpt': 'Eugenio Zoffili questions Minister Schillaci and calls for technical working groups and exemptions to keep the Erba maternity unit operational.',
     'blog.article.erba-punto-nascita-interrogazione-lega.imageAlt': 'Erba hospital at the center of the debate over its maternity ward closure',
+    'blog.article.vpdd-ssp-contro-iva-avs.title': 'VPOD-SSP against the increase in VAT for the 13th AVS pension payment',
+    'blog.article.vpdd-ssp-contro-iva-avs.excerpt': 'VPOD-SSP rejects funding the 13th AVS pension payment through a VAT increase, popular vote on November 29; AVS profits of 5.6 billion in 2024 and 4.4 billion in 2025, assets of 60.4 billion.',
+    'blog.article.vpdd-ssp-contro-iva-avs.imageAlt': 'Lugano lakeside promenade with lake and mountains, real scene',
 };
 
 export default blogMetaEn;

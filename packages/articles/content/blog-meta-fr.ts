@@ -12079,6 +12079,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.erba-punto-nascita-interrogazione-lega.title': 'Fermeture de la maternité d’Erba : question de la Lega',
     'blog.article.erba-punto-nascita-interrogazione-lega.excerpt': 'Eugenio Zoffili interroge le ministre Schillaci et demande des tables techniques et des dérogations pour maintenir opérationnel le service de maternité d’Erba.',
     'blog.article.erba-punto-nascita-interrogazione-lega.imageAlt': 'L’hôpital d’Erba au cœur du débat sur la fermeture de la maternité',
+    'blog.article.vpdd-ssp-contro-iva-avs.title': 'VPOD-SSP contre l\'augmentation de la TVA pour la 13ème AVS',
+    'blog.article.vpdd-ssp-contro-iva-avs.excerpt': 'Le VPOD-SSP refuse le financement de la 13ème AVS par augmentation de la TVA, vote populaire le 29 novembre ; bénéfices AVS 5,6 milliards en 2024 et 4,4 milliards en 2025, patrimoine 60,4 milliards.',
+    'blog.article.vpdd-ssp-contro-iva-avs.imageAlt': 'Promenade du lac de Lugano avec montagnes en arrière-plan, scène réelle',
 };
 
 export default blogMetaFr;

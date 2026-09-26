@@ -36234,6 +36234,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vpdd-ssp-contro-iva-avs',
+ category: 'novita',
+ date: '2026-09-26T19:00:14.258Z',
+ image: '/images/blog/vpdd-ssp-contro-iva-avs.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

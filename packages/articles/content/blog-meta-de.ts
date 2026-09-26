@@ -12076,6 +12076,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.erba-punto-nascita-interrogazione-lega.title': 'Schließung der Geburtsstation in Erba: Anfrage der Lega',
     'blog.article.erba-punto-nascita-interrogazione-lega.excerpt': 'Eugenio Zoffili befragt Minister Schillaci und bittet um technische Tische und Ausnahmen, um den Geburtsort von Erba in Betrieb zu halten.',
     'blog.article.erba-punto-nascita-interrogazione-lega.imageAlt': 'Das Krankenhaus Erba im Mittelpunkt der Debatte über die Schließung der Geburtsstation',
+    'blog.article.vpdd-ssp-contro-iva-avs.title': 'VPOD-SSP gegen Mehrwertsteuererhöhung für die 13. AHV',
+    'blog.article.vpdd-ssp-contro-iva-avs.excerpt': 'Der VPOD-SSP lehnt die Finanzierung der 13. AHV durch Erhöhung der Mehrwertsteuer ab, Volksabstimmung am 29. November; AHV-Gewinne 5,6 Milliarden im Jahr 2024 und 4,4 Milliarden im Jahr 2025, Vermögen 60,4 Milliarden.',
+    'blog.article.vpdd-ssp-contro-iva-avs.imageAlt': 'Luganer Seepromenade mit See und Bergen im Hintergrund, reale Szene',
 };
 
 export default blogMetaDe;
