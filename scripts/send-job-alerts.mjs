@@ -35,6 +35,11 @@ import {
   FRESHNESS_BOOST_48H_MS,
 } from '../services/jobAlertMatching.mjs';
 import {
+  buildApplicationIntentJobKey,
+  compareApplicationIntentJobKeys,
+  ALERT_APPLICATION_INTENT_BOOST,
+} from '../services/applicationIntentRanking.mjs';
+import {
   classifyZeroMatchCause,
   getZeroMatchMonitorAction,
   summarizeZeroMatchPlans,
@@ -899,7 +904,7 @@ function clickedJobMeta(lastClickedUrl, locationIndex) {
 // use; `searches[].query` + viewed-job categories add intent tokens.
 function behaviorSignals(personalization) {
   if (!personalization || typeof personalization !== 'object') {
-    return { behaviorLocations: [], behaviorTokens: [], filterLocations: [] };
+    return { behaviorLocations: [], behaviorTokens: [], filterLocations: [], applicationIntent: null };
   }
   const viewedJobs = Array.isArray(personalization.viewedJobs) ? personalization.viewedJobs : [];
   const searches = Array.isArray(personalization.searches) ? personalization.searches : [];
@@ -917,7 +922,12 @@ function behaviorSignals(personalization) {
     ...searches.map((s) => s?.query).filter(Boolean),
     ...viewedJobs.map((v) => v?.category).filter(Boolean),
   ];
-  return { behaviorLocations, behaviorTokens, filterLocations };
+  return {
+    behaviorLocations,
+    behaviorTokens,
+    filterLocations,
+    applicationIntent: personalization.applicationIntent || null,
+  };
 }
 
 // ── Matching logic ───────────────────────────────────────────
@@ -1914,6 +1924,7 @@ function planAlertMatch(alert, {
   recentJobs,
   now,
   featureCache = null,
+  applicationIntentRankingEnabled = process.env.APPLICATION_INTENT_RANKING_ENABLED === 'true',
 }) {
   // Enrich the alert with the subscriber's newsletter profile, browsing
   // personalization (filter usage + viewed-job geography) and the geography of
@@ -1936,6 +1947,8 @@ function planAlertMatch(alert, {
       ...sourceJobLocations,
     ],
     cityToCanton,
+    applicationIntent: behavior.applicationIntent,
+    now,
   };
   const profile = buildAlertProfile(
     alert,
@@ -1969,7 +1982,12 @@ function planAlertMatch(alert, {
   // were ~40% of the matching CPU. The value is the exact expression the
   // comparator used (NaN included), so every pairwise result — and therefore
   // the order — is unchanged.
-  const scoreJob = createAlertScorer(profile, alertLocale, featureCache);
+  const scoreJob = createAlertScorer(profile, alertLocale, featureCache, {
+    applicationIntentRankingEnabled,
+  });
+  const applicationIntentJobKeys = applicationIntentRankingEnabled
+    ? profile.applicationIntentJobKeys || new Set()
+    : new Set();
   const scored = [];
   let candidateCount = 0;
   for (const job of recentJobs) {
@@ -1978,8 +1996,22 @@ function planAlertMatch(alert, {
     candidateCount++;
     const relevance = scoreJob(job);
     if (relevance <= 0) continue;
+    const applicationIntentRanked = applicationIntentRankingEnabled
+      && applicationIntentJobKeys.has(buildApplicationIntentJobKey(job));
+    const existingRelevanceSignals = applicationIntentRanked && Array.isArray(job.relevanceSignals)
+      ? job.relevanceSignals
+        .filter((signal) => typeof signal === 'string' && signal.length <= 64)
+        .slice(0, 15)
+      : [];
     scored.push({
-      job: { ...job, relevanceScore: relevance },
+      job: {
+        ...job,
+        relevanceScore: relevance,
+        ...(applicationIntentRanked ? {
+          applicationIntentBoost: ALERT_APPLICATION_INTENT_BOOST,
+          relevanceSignals: [...new Set([...existingRelevanceSignals, 'application_intent'])],
+        } : {}),
+      },
       score: relevance + freshnessBoost(job, now),
       firstSeenMs: job.firstSeenAt ? new Date(job.firstSeenAt).getTime() : 0,
     });
@@ -1992,7 +2024,11 @@ function planAlertMatch(alert, {
       // Tiebreak: more recently first-seen jobs first. Without this, location-only
       // alerts (where every match has score=2) yielded an arbitrary insertion order
       // and stale jobs leaked into the subject line.
-      return b.firstSeenMs - a.firstSeenMs;
+      const recencyDiff = b.firstSeenMs - a.firstSeenMs;
+      if (recencyDiff !== 0) return recencyDiff;
+      return applicationIntentRankingEnabled
+        ? compareApplicationIntentJobKeys(a.job, b.job)
+        : 0;
     });
 
   // Per-company cap: at most 2 jobs per company in the surfaced list. Without

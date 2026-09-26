@@ -72,6 +72,8 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  ENABLE_JOB_ALERTS: 'false',
  // Personalization: personalized job sorting based on behavior + profile data
  ENABLE_JOB_PERSONALIZATION: 'false',
+ // Exact-job application-intent ranking; off on missing RC and fetch failure.
+ APPLICATION_INTENT_RANKING_ENABLED: 'false',
  // E2: Calculator paywall modal (soft paywall — PDF report capture after
  // 3+ simulations or 2+ visits). Default off for gradual rollout.
  ENABLE_CALCULATOR_PAYWALL: 'false',

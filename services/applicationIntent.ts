@@ -1,4 +1,8 @@
 import { RECORD_APPLICATION_INTENT_URL } from './functionsBase';
+import { buildApplicationIntentJobKey } from './applicationIntentRanking.mjs';
+import { hydrateFromFirestore, syncToFirestore, trackApplicationIntent } from './behaviorTracker';
+
+export { buildApplicationIntentJobKey };
 
 /** Wire version shared with functions/src/applicationIntentCore.js. */
 export const APPLICATION_INTENT_CONSENT_VERSION = 'application-intent-v1';
@@ -19,11 +23,27 @@ export interface RecordApplicationIntentInput {
   origin: string;
   surface: string;
   consentText: string;
-  authUser?: { uid?: string | null; getIdToken?: () => Promise<string> } | null;
+  authEmail?: string | null;
+  authUser?: {
+    uid?: string | null;
+    email?: string | null;
+    providerData?: Array<{ email?: string | null }> | null;
+    getIdToken?: () => Promise<string>;
+  } | null;
 }
 
 function clean(value: unknown): string {
   return typeof value === 'string' ? value.trim() : '';
+}
+
+function authenticatedUserEmail(user: RecordApplicationIntentInput['authUser']): string {
+  const direct = clean(user?.email);
+  if (direct) return direct;
+  for (const provider of user?.providerData || []) {
+    const email = clean(provider?.email);
+    if (email) return email;
+  }
+  return '';
 }
 
 function randomVisitorId(): string {
@@ -50,29 +70,33 @@ function visitorIdentifier(): string {
   }
 }
 
-/** Stable job identity shared by retries, locales and the referral URL. */
-export function buildApplicationIntentJobKey(job: ApplicationIntentJob): string {
-  const companyKey = clean(job.companyKey) || 'unknown-company';
-  const canonicalSlug = clean(job.slugByLocale?.it) || clean(job.slug);
-  return canonicalSlug
-    ? `${companyKey}:${canonicalSlug}`
-    : `${companyKey}:id:${clean(job.id) || 'unknown-job'}`;
-}
-
 /**
- * Fire-and-forget from the click handler, but keep the request alive through a
- * same-tab redirect. The server accepts the opaque visitor id when Auth is not
- * available and prefers the verified Firebase uid when a token is present.
+ * The click handler can continue immediately, while authenticated same-tab
+ * redirects await the private profile write. The consent record stays
+ * keepalive; the server prefers verified Firebase Auth when a token is present.
  */
 export async function recordApplicationIntent({
   job,
   origin,
   surface,
   consentText,
+  authEmail = null,
   authUser = null,
 }: RecordApplicationIntentInput): Promise<boolean> {
+  const jobKey = buildApplicationIntentJobKey(job);
+  const email = clean(authEmail || authenticatedUserEmail(authUser)).toLowerCase();
+  const hasAuthenticatedUser = Boolean(clean(authUser?.uid));
+  const hasAuthenticatedProfile = hasAuthenticatedUser && Boolean(email);
+  // Read the authenticated profile first so a remote opt-out is merged locally
+  // before this click can add a ranking key or write the profile back. If the
+  // account has no usable email, fail closed because its opt-out cannot be read.
+  const profileReady = hasAuthenticatedUser
+    ? hasAuthenticatedProfile && await hydrateFromFirestore(email)
+    : true;
+  const recorded = profileReady && trackApplicationIntent(jobKey);
+
   const payload = {
-    jobKey: buildApplicationIntentJobKey(job),
+    jobKey,
     jobSlug: clean(job.slugByLocale?.it) || clean(job.slug) || clean(job.id),
     companyKey: clean(job.companyKey) || null,
     jobTitle: clean(job.title) || null,
@@ -83,21 +107,28 @@ export async function recordApplicationIntent({
     clientIdentifier: visitorIdentifier(),
   };
 
-  try {
-    const token = authUser?.getIdToken ? await authUser.getIdToken() : '';
-    const headers: Record<string, string> = { 'Content-Type': 'application/json' };
-    if (token) headers.Authorization = `Bearer ${token}`;
-    const response = await fetch(RECORD_APPLICATION_INTENT_URL, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify(payload),
-      keepalive: true,
-      credentials: 'omit',
-    });
-    return response.ok;
-  } catch {
-    // The external hand-off remains available if telemetry is unavailable; the
-    // next click/retry is still deduplicated by the deterministic server key.
-    return false;
-  }
+  // Start the consented server record independently; the same-tab hand-off
+  // waits only for the authenticated personalization write below.
+  void (async () => {
+    try {
+      const token = authUser?.getIdToken ? await authUser.getIdToken() : '';
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+      if (token) headers.Authorization = `Bearer ${token}`;
+      await fetch(RECORD_APPLICATION_INTENT_URL, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify(payload),
+        keepalive: true,
+        credentials: 'omit',
+      });
+    } catch {
+      // The external hand-off remains available if the consent record is unavailable.
+    }
+  })();
+
+  if (!recorded) return false;
+  if (!hasAuthenticatedProfile) return true;
+  // setDoc resolves after the private personalization profile is persisted;
+  // callers that navigate in the same tab can await this promise first.
+  return syncToFirestore(email);
 }

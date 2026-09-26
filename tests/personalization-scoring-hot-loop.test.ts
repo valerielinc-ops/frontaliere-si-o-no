@@ -342,7 +342,7 @@ describe('JobBoard wiring (#9583)', () => {
     expect(keys![1]).toContain('dayTs(');
     const sorted = SRC.match(/const sortedJobs = useMemo\(\(\) => \{([\s\S]*?)\n \}, \[([^\]]*)\]\);/);
     expect(sorted, 'sortedJobs memo').not.toBeNull();
-    expect(sorted![2]).toBe('jobSortKeys, personalScoreByJob');
+    expect(sorted![2]).toBe('jobSortKeys, personalScoreByJob, enableApplicationIntentRanking');
     expect(sorted![1]).not.toContain('isForeignLocation(');
     expect(sorted![1]).not.toContain('dayTs(');
   });
