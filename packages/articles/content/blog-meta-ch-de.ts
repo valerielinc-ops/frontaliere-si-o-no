@@ -6767,6 +6767,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.importazione-granoturco-foraggio-proroga.title': 'Verlängerung der Zollbefreiung Maisfutter bis April 2027',
     'blog.article.importazione-granoturco-foraggio-proroga.excerpt': 'Das WBF verlängert bis zum 30. April 2027 die Zollbefreiung für frischen oder silierten Mais mit Trockensubstanz ≤60%, der zur Tierernährung bestimmt ist; ab dem 1. Oktober 2026 Zollsenkung für faserreiches Futter.',
     'blog.article.importazione-granoturco-foraggio-proroga.imageAlt': 'Futtermais von Zoll befreit für Tierfutter in der Schweiz',
+    'blog.article.bns-inflazione-pil-previsioni-2026.title': 'SNB lässt Zinssatz bei 0%, BIP 2026 bei 1,5-2%',
+    'blog.article.bns-inflazione-pil-previsioni-2026.excerpt': 'Gleichbleibende Rate von 0%, Inflation 2026 bei 0,7%, revidiertes BIP-Wachstum zwischen 1,5% und 2,0%. SNB bereit, bei Wechselkursen einzugreifen.',
+    'blog.article.bns-inflazione-pil-previsioni-2026.imageAlt': 'Schweizerische Nationalbank Hauptsitz in Zürich mit Schweizer Flagge',
 };
 
 export default blogMetaChDe;

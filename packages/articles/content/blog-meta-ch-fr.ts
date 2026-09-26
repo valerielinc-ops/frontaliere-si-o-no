@@ -6767,6 +6767,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.importazione-granoturco-foraggio-proroga.title': 'Exonération maïs fourrager droits douane jusqu\'en 2027',
     'blog.article.importazione-granoturco-foraggio-proroga.excerpt': 'Le DEFR prolonge jusqu\'au 30 avril 2027 l\'exonération des droits pour le maïs frais ou l\'ensilage avec des matières sèches ≤60 %, destiné à l\'alimentation animale ; à partir du 1er octobre 2026, réduction des droits pour les fourrages riches en fibres.',
     'blog.article.importazione-granoturco-foraggio-proroga.imageAlt': 'Maïs fourrager exempté de droit de douane pour l\'alimentation animale en Suisse',
+    'blog.article.bns-inflazione-pil-previsioni-2026.title': 'La BNS maintient le taux à 0%, PIB 2026 à 1,5-2%',
+    'blog.article.bns-inflazione-pil-previsioni-2026.excerpt': 'Taux inchangé à 0%, inflation 2026 à 0,7%, croissance du PIB revue entre 1,5% et 2,0%. BNS prête à intervenir sur les changements.',
+    'blog.article.bns-inflazione-pil-previsioni-2026.imageAlt': 'Siège de la Banque nationale suisse à Zurich avec drapeau suisse',
 };
 
 export default blogMetaChFr;
