@@ -6803,6 +6803,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sanzioni-finanziarie-onu-2026.title': 'Sanzioni ONU: il Consiglio federale aggiorna quattro ordinanze',
     'blog.article.sanzioni-finanziarie-onu-2026.excerpt': 'Decisione del 25 settembre 2026 per uniformare le disposizioni finanziarie su terrorismo e proliferazione, con esenzioni specifiche per l\'Iran.',
     'blog.article.sanzioni-finanziarie-onu-2026.imageAlt': 'Palazzo Federale a Berna, sede del Consiglio federale',
+    'blog.article.jans-monaco-lotta-trafficanti.title': 'Beat Jans a Monaco: lotta ai trafficanti di esseri umani',
+    'blog.article.jans-monaco-lotta-trafficanti.excerpt': 'Il consigliere federale Beat Jans punta su cooperazione europea e procedure rapide per i rimpatri durante il vertice di Monaco con 18 Stati.',
+    'blog.article.jans-monaco-lotta-trafficanti.imageAlt': 'Edificio governativo svizzero con bandiera nazionale',
 };
 
 export default blogMetaChIt;
