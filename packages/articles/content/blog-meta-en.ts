@@ -12062,6 +12062,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.arresto-mente-bennet-tavernola.title': 'Robbery at Bennet: alleged mastermind arrested in Ticino',
     'blog.article.arresto-mente-bennet-tavernola.excerpt': 'A 32-year-old resident of the Bellinzona area and a 25-year-old from Monza were arrested for the robbery at the Stroili jewelry store in the Bennet shopping center in Tavernola.',
     'blog.article.arresto-mente-bennet-tavernola.imageAlt': 'Suspect from the Bellinzona area arrested over the Bennet Tavernola jewelry robbery',
+    'blog.article.protesta-impianto-betonaggio-intelvi.title': 'Protest in Castiglione d\'Intelvi over concrete batching plant',
+    'blog.article.protesta-impianto-betonaggio-intelvi.excerpt': 'Over 750 signatures collected in six days against the concrete batching plant and crusher planned in Castiglione d\'Intelvi for the Tremezzina Bypass.',
+    'blog.article.protesta-impianto-betonaggio-intelvi.imageAlt': 'Landscape of the Intelvi Valley with narrow winding roads',
 };
 
 export default blogMetaEn;
