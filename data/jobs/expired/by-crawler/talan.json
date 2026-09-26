@@ -912,5 +912,57 @@
     "salaryMax": 165500,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "system-ingegnere-talan-geneve",
+    "title": "System Engineer",
+    "titleByLocale": {
+      "it": "System Ingegnere",
+      "en": "System Engineer",
+      "de": "System Ingenieur",
+      "fr": "System Ingénieur"
+    },
+    "company": "Talan",
+    "companyKey": "talan",
+    "location": "Genève, , Switzerland",
+    "addressLocality": "Genève",
+    "descriptionByLocale": {
+      "it": "• Progettazione, implementare e amministrare ambienti Microsoft: Active Directory, DNS, DHCP, Exchange, PKI, DFS, Microsoft Teams, ecc.\n\n• Assicurare la disponibilità, le prestazioni e la sicurezza delle infrastrutture.\n\n• Diagnosi e ottimizzare i problemi relativi a Active Directory, DNS e GPO.\n\n• Implementare e mantenere le politiche di sicurezza: gestione password, blocco account, audit e conformità.\n\n• Assicurare l'integrazione di Active Directory con Microsoft 365, Azure AD/Entra ID e applicazioni di terze parti.\n\n• Sviluppare e mantenere gli script PowerShell per automatizzare le attività di amministrazione e reporting.\n\n• Progettare e mantenere i dispositivi Disaster Recovery per Active Directory.\n\n• Amministrazione delle infrastrutture PKI, comprese le autorità di certificazione Root e Intermediate.\n\n• Progettazione, distribuzione e gestione degli ambienti Citrix.\n\n• Fornire supporto alla produzione e risoluzione di incidenti complessi.\n\n• Implementare e mantenere le soluzioni di monitoraggio e supervisione.\n\n• Condurre analisi della causa radice e contribuire alla gestione dei problemi.\n\n• Collabora con team tecnici e commerciali nel contesto degli sviluppi e delle integrazioni.\n\n• Assicurare la conformità del sistema alle politiche e procedure di sicurezza interne.\n\n• Mantenere la documentazione tecnica completa di ambienti e procedure.\n\n• Partecipare a un pagamento di penalità 24/7, circa una settimana al mese.\n\n• Esperienza confermata nell'amministrazione e nell'ingegneria delle infrastrutture Microsoft.\n\n• Ottima padronanza di Active Directory, DHCP, SCOM, SCCM e Exchange 2019.\n\n• Forte capacità PKI e gestione dei certificati.\n\n• Mastery PowerShell per l'automazione e la scrittura.\n\n• Buona conoscenza degli ambienti Microsoft Teams e Windows Server.\n\n• Esperienza nell'automazione con Ansible.\n\n• Forte sensibilità ai problemi di sicurezza, disponibilità, supervisione e continuità del servizio.\n\n• Capacità di rispondere a incidenti complessi, condurre analisi causa radice e proporre miglioramenti duraturi.\n\n• Un'esperienza su Citrix, Microsoft 365, Intune o AirWatch è un vero vantaggio.\n\n• Autonomia, rigore e capacità di evolversi in un ambiente esigente e altamente regolamentato.",
+      "en": "• Design, implement and administer Microsoft environments: Active Directory, DNS, DHCP, Exchange, PKI, DFS, Microsoft Teams, etc.\n\n• Ensure availability, performance and security of infrastructure.\n\n• Diagnose and optimize issues related to Active Directory, DNS and GPO.\n\n• Implement and maintain security policies: password management, account locking, audit and compliance.\n\n• Ensure integration of Active Directory with Microsoft 365, Azure AD/Entra ID and third-party applications.\n\n• Develop and maintain PowerShell scripts to automate administration and reporting tasks.\n\n• Design and maintain Disaster Recovery devices for Active Directory.\n\n• Administration of PKI infrastructure, including Root and Intermediate certification authorities.\n\n• Design, deploy and administer Citrix environments.\n\n• Provide production support and resolution of complex incidents.\n\n• Implement and maintain monitoring and oversight solutions.\n\n• Conduct root cause analyses and contribute to Problem Management.\n\n• Collaborate with technical and trade teams in the context of developments and integrations.\n\n• Ensure system compliance with internal security policies and procedures.\n\n• Maintain full technical documentation of environments and procedures.\n\n• Participate in a 24/7 penalty payment, approximately one week a month.\n\n• Confirmed experience in Microsoft infrastructure administration and engineering.\n\n• Very good mastery of Active Directory, DHCP, SCOM, SCCM and Exchange 2019.\n\n• Strong PKI skills and certificate management.\n\n• PowerShell mastery for automation and scripting.\n\n• Good knowledge of Microsoft Teams and Windows Server environments.\n\n• Experience in automation with Ansible.\n\n• Strong sensitivity to security issues, availability, supervision and continuity of service.\n\n• Ability to respond to complex incidents, conduct root cause analyses and propose lasting improvements.\n\n• An experience on Citrix, Microsoft 365, Intune or AirWatch is a real asset.\n\n• Autonomy, rigour and ability to evolve in a demanding and highly regulated environment.",
+      "de": "• Entwerfen, Implementieren und Verwalten von Microsoft-Umgebungen: Active Directory, DNS, DHCP, Exchange, PKI, DFS, Microsoft Teams usw.\n\n• Gewährleistung der Verfügbarkeit, Leistung und Sicherheit der Infrastruktur.\n\n• Diagnose und Optimierung von Problemen im Zusammenhang mit Active Directory, DNS und GPO.\n\n• Implementieren und pflegen Sie Sicherheitsrichtlinien: Passwortverwaltung, Kontosperrung, Audit und Compliance.\n\n• Sicherstellen der Integration von Active Directory mit Microsoft 365, Azure AD/Entra ID und Anwendungen von Drittanbietern.\n\n• Entwicklung und Pflege von PowerShell-Scripts zur Automatisierung von Verwaltungs- und Berichtsaufgaben.\n\n• Design und Wartung von Disaster Recovery-Geräten für Active Directory.\n\n• Verwaltung der PKI-Infrastruktur, einschließlich Root- und Intermediate-Zertifizierungsstellen.\n\n• Design, Bereitstellung und Verwaltung von Citrix-Umgebungen.\n\n• Bereitstellung von Produktionsunterstützung und Lösung komplexer Vorfälle.\n\n• Umsetzung und Pflege von Überwachungs- und Aufsichtslösungen.\n\n• Führen Sie Ursachenanalysen durch und tragen Sie zum Problemmanagement bei.\n\n• Arbeiten Sie mit technischen und Handelsteams im Rahmen von Entwicklungen und Integrationen zusammen.\n\n• Gewährleistung der Einhaltung der internen Sicherheitsrichtlinien und -verfahren.\n\n• Führen Sie eine vollständige technische Dokumentation der Umgebungen und Verfahren.\n\n• Nehmen Sie an einer 24/7 Strafzahlung teil, etwa eine Woche im Monat.\n\n• Bestätigte Erfahrung im Bereich Microsoft Infrastructure Administration und Engineering.\n\n• Sehr gute Beherrschung von Active Directory, DHCP, SCOM, SCCM und Exchange 2019.\n\n• Starke PKI-Fähigkeiten und Zertifikatsmanagement.\n\n• PowerShell Mastery für Automatisierung und Scripting.\n\n• Gute Kenntnisse von Microsoft Teams und Windows Server-Umgebungen.\n\n• Erfahrung in der Automatisierung mit Ansible.\n\n• Starke Sensibilität für Sicherheitsfragen, Verfügbarkeit, Überwachung und Kontinuität des Dienstes.\n\n• Fähigkeit, auf komplexe Vorfälle zu reagieren, Ursachenanalysen durchzuführen und dauerhafte Verbesserungen vorzuschlagen.\n\n• Eine Erfahrung auf Citrix, Microsoft 365, Intune oder AirWatch ist eine echte Bereicherung.\n\n• Autonomie, Strenge und Entwicklungsfähigkeit in einem anspruchsvollen und stark regulierten Umfeld.",
+      "fr": "• Concevoir, implémenter et administrer les environnements Microsoft : Active Directory, DNS, DHCP, Exchange, PKI, DFS, Microsoft Teams, etc.\n\n• Garantir la disponibilité, la performance et la sécurité des infrastructures.\n\n• Diagnostiquer et optimiser les problématiques liées à Active Directory, DNS et GPO.\n\n• Mettre en œuvre et maintenir les politiques de sécurité : gestion des mots de passe, verrouillage des comptes, audit et conformité.\n\n• Assurer l’intégration d’Active Directory avec Microsoft 365, Azure AD/Entra ID et des applications tierces.\n\n• Développer et maintenir des scripts PowerShell pour automatiser les tâches d’administration et de reporting.\n\n• Concevoir et maintenir les dispositifs de disaster recovery pour Active Directory.\n\n• Administrer les infrastructures PKI, notamment les autorités de certification Root et Intermediate.\n\n• Concevoir, déployer et administrer les environnements Citrix.\n\n• Assurer le support de production et la résolution d’incidents complexes.\n\n• Mettre en place et maintenir les solutions de monitoring et de supervision.\n\n• Réaliser les analyses de causes racines et contribuer au Problem Management.\n\n• Collaborer avec les équipes techniques et métiers dans le cadre des évolutions et intégrations.\n\n• Garantir la conformité des systèmes avec les politiques de sécurité et procédures internes.\n\n• Maintenir une documentation technique complète des environnements et procédures.\n\n• Participer à une astreinte 24/7, environ une semaine par mois.\n\n• Expérience confirmée en administration et ingénierie des infrastructures Microsoft.\n\n• Très bonne maîtrise de Active Directory, DHCP, SCOM, SCCM et Exchange 2019.\n\n• Solides compétences en PKI et gestion des certificats.\n\n• Maîtrise de PowerShell pour l’automatisation et le scripting.\n\n• Bonne connaissance de Microsoft Teams et des environnements Windows Server.\n\n• Expérience en automatisation avec Ansible.\n\n• Sensibilité forte aux enjeux de sécurité, disponibilité, supervision et continuité de service.\n\n• Capacité à intervenir sur des incidents complexes, à réaliser des analyses de causes racines et à proposer des améliorations durables.\n\n• Une expérience sur Citrix, Microsoft 365, Intune ou AirWatch constitue un réel atout.\n\n• Autonomie, rigueur et capacité à évoluer dans un environnement exigeant et fortement réglementé."
+    },
+    "slugByLocale": {
+      "it": "system-ingegnere-talan-geneve",
+      "en": "system-engineer-talan-geneve",
+      "de": "system-ingenieur-talan-geneve",
+      "fr": "system-engineer-talan-geneve-switzerland"
+    },
+    "sector": "IT / SAP / AI Consulting",
+    "expiredAt": "2026-09-26T13:55:21.352Z",
+    "previousSlugs": [
+      "system-engineer-talan-geneve-switzerland",
+      "systemist-talan-geneve-switzerland"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "system-engineer-talan-geneve-switzerland"
+      ],
+      "en": [
+        "system-engineer-talan-geneve-switzerland",
+        "systemist-talan-geneve-switzerland"
+      ],
+      "de": [
+        "system-engineer-talan-geneve-switzerland"
+      ]
+    },
+    "postalCode": "1201",
+    "streetAddress": "Place Ruth-Bösiger 6",
+    "salaryMin": 63000,
+    "salaryMax": 107500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000145209489-system-engineer-?oga=true",
+    "firstSeenAt": "2026-08-24T09:59:31.879Z"
   }
 ]
