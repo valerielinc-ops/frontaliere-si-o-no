@@ -1,88 +1,5 @@
 [
   {
-    "timestamp": "2026-09-08T07:27:13.733Z",
-    "label": "before",
-    "total": 28831,
-    "needsRetranslation": 8076,
-    "suppressed": 113,
-    "incomplete": 8884,
-    "complete": 19947,
-    "slotsPresent": 19947,
-    "flaggedAmongSlotsPresent": 18,
-    "verifiedTranslated": 19929,
-    "sourceCopyExcused": 704,
-    "slotsPresentByLength": 28672,
-    "languageVerified": 20893,
-    "missingByLocale": {
-      "it": 106,
-      "en": 84,
-      "de": 97,
-      "fr": 122
-    },
-    "queueAge": {
-      "count": 8076,
-      "withTimestamp": 8076,
-      "oldestAgeDays": 147.9,
-      "p50AgeDays": 17.4,
-      "p90AgeDays": 67.8,
-      "buckets": {
-        "0-1d": 299,
-        "1-2d": 106,
-        "2-7d": 1511,
-        "0-7d": 1916,
-        "7-30d": 3134,
-        "30-90d": 2563,
-        "90-180d": 463,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "completionAge": null,
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1193
-      },
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 889
-      },
-      {
-        "company": "Roche",
-        "pending": 492
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 318
-      },
-      {
-        "company": "BKW",
-        "pending": 240
-      },
-      {
-        "company": "PEMSA",
-        "pending": 194
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 191
-      },
-      {
-        "company": "Migrol AG",
-        "pending": 170
-      },
-      {
-        "company": "JUMBO",
-        "pending": 166
-      },
-      {
-        "company": "Sulzer",
-        "pending": 164
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-08T08:24:01.857Z",
     "label": "after",
     "total": 28831,
@@ -19474,6 +19391,118 @@
       {
         "company": "Fresh Food & Beverage Group",
         "pending": 75
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 73
+      },
+      {
+        "company": "Roche",
+        "pending": 71
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 64
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 56
+      },
+      {
+        "company": "Swiss Life",
+        "pending": 50
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-26T10:20:58.656Z",
+    "label": "after",
+    "total": 26331,
+    "needsRetranslation": 2067,
+    "suppressed": 258,
+    "incomplete": 2446,
+    "complete": 23885,
+    "slotsPresent": 23885,
+    "flaggedAmongSlotsPresent": 18,
+    "verifiedTranslated": 23867,
+    "sourceCopyExcused": 572,
+    "slotsPresentByLength": 26206,
+    "languageVerified": 24278,
+    "missingByLocale": {
+      "it": 36,
+      "en": 34,
+      "de": 76,
+      "fr": 71
+    },
+    "queueAge": {
+      "count": 2067,
+      "withTimestamp": 2067,
+      "oldestAgeDays": 501.4,
+      "p50AgeDays": 16.8,
+      "p90AgeDays": 84.5,
+      "buckets": {
+        "0-1d": 283,
+        "1-2d": 105,
+        "2-7d": 500,
+        "0-7d": 888,
+        "7-30d": 513,
+        "30-90d": 486,
+        "90-180d": 179,
+        "180d+": 1
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": {
+      "count": 33,
+      "withTimestamp": 33,
+      "oldestAgeDays": 129.2,
+      "p50AgeDays": 6.5,
+      "p90AgeDays": 58.9,
+      "buckets": {
+        "0-1d": 7,
+        "1-2d": 3,
+        "2-7d": 9,
+        "0-7d": 19,
+        "7-30d": 5,
+        "30-90d": 8,
+        "90-180d": 1,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "genderFormRepair": {
+      "measured": false,
+      "status": "partial",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 657,
+      "sampled": 120,
+      "processed": 1,
+      "residual": 0,
+      "residualRate": 0
+    },
+    "topPending": [
+      {
+        "company": "PEMSA",
+        "pending": 257
+      },
+      {
+        "company": "Manor AG",
+        "pending": 113
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 109
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 77
+      },
+      {
+        "company": "Fresh Food & Beverage Group",
+        "pending": 74
       },
       {
         "company": "Confederazione Svizzera",
