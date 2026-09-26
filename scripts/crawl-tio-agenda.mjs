@@ -59,7 +59,7 @@ import {
   saveEventTitleTranslationCache,
 } from './lib/events-utils.mjs';
 import { freeTranslateWithRetryDetailed, asTranslationResult } from './lib/free-translate.mjs';
-import { extractEventPeopleFromText, extractEventPeopleFromTitle } from './lib/event-metadata.mjs';
+import { extractEventPeopleFromText, extractEventPeopleFromTitle, normalizeEventPeople } from './lib/event-metadata.mjs';
 
 const SOURCE = EVENT_SOURCES['tio-agenda'];
 const DAY_URL = (compact) => `https://www.tio.ch/agenda/day/${compact}`;
@@ -332,7 +332,7 @@ export async function enrichEventsWithPrice(events, fetchFn = fetchHtml) {
       ...(metadata.address ? { address: metadata.address } : {}),
       ...(metadata.venue ? { venue: metadata.venue } : {}),
       ...(metadata.price ? { price: metadata.price } : {}),
-      ...(metadata.organizer ? { organizer: metadata.organizer } : {}),
+      ...(metadata.organizer ? { organizer: normalizeEventPeople(metadata.organizer, ev.url, ev.url) } : {}),
       ...(metadata.performer ? { performer: metadata.performer } : {}),
       ...(detailComune ? { comune: detailComune, comuneMatch: 'exact' } : {}),
     };

@@ -272,6 +272,26 @@ describe('mergeDetailEventMetadata', () => {
     expect(merged?.image).toBe('https://www.myswitzerland.com/-/media/events/alternate.jpg');
   });
 
+  it('uses a later locale organizer URL when the primary locale only has a name', () => {
+    const merged = mergeDetailEventMetadata(
+      {
+        '@type': 'MusicEvent',
+        organizer: { '@type': 'Organization', name: 'Organizzatore principale' },
+      },
+      {
+        '@type': 'MusicEvent',
+        organizer: { '@type': 'Organization', name: 'Organizzatore principale', url: '/organizer' },
+      },
+      'https://www.myswitzerland.com/it-ch/eventi/principale',
+      'https://www.myswitzerland.com/en-ch/events/principale',
+    );
+    expect(merged?.organizer).toEqual({
+      '@type': 'Organization',
+      name: 'Organizzatore principale',
+      url: 'https://www.myswitzerland.com/organizer',
+    });
+  });
+
   it('fills missing Offer fields from a later localized JSON-LD variant', () => {
     const merged = mergeDetailEventMetadata(
       { '@type': 'Event', offers: { price: '25', priceCurrency: 'CHF' } },
@@ -319,7 +339,7 @@ describe('mergeDetailEventMetadata', () => {
 describe('detailEnrichmentReady', () => {
   const perLocaleHits = { it: { image: 'https://cdn.myswitzerland.com/images/event.jpg' } };
   const sourcePeople = {
-    organizer: { '@type': 'Organization', name: 'Promotore' },
+    organizer: { '@type': 'Organization', name: 'Promotore', url: 'https://example.com/promotore' },
     performer: { name: 'Artista' },
   };
   const complete = {
@@ -340,9 +360,18 @@ describe('detailEnrichmentReady', () => {
     expect(detailEnrichmentReady({
       ...complete,
       detailPeople: {
-        organizer: { '@type': 'Organization', name: 'Promotore dalla pagina' },
+        organizer: { '@type': 'Organization', name: 'Promotore dalla pagina', url: 'https://example.com/promotore' },
         performer: { name: 'Artista dalla pagina' },
       },
+    }, perLocaleHits)).toBe(true);
+  });
+
+  it('treats a named contact as resolved when the verified detail URL can backfill it', () => {
+    expect(detailEnrichmentReady({
+      ...complete,
+      detailUrl: 'https://www.myswitzerland.com/it-ch/eventi/promotore',
+      detailContactName: 'Promotore dalla pagina',
+      detailPeople: { performer: { name: 'Artista dalla pagina' } },
     }, perLocaleHits)).toBe(true);
   });
 });
@@ -473,7 +502,11 @@ describe('mapEventRecord', () => {
       },
     );
     const event = mapped?.event as never as Record<string, unknown>;
-    expect(event.organizer).toEqual({ '@type': 'Organization', name: 'Noise Reduction & Musikbüro Rote Fabrik' });
+    expect(event.organizer).toEqual({
+      '@type': 'Organization',
+      name: 'Noise Reduction & Musikbüro Rote Fabrik',
+      url: 'https://www.myswitzerland.com/it-ch/eventi/autechre',
+    });
     expect(event.performer).toEqual({ name: 'Autechre' });
     expect((mapped as never as { imageSourceUrl: string }).imageSourceUrl).toBe(
       'https://www.myswitzerland.com/-/media/events/autechre.jpg',
@@ -499,7 +532,11 @@ describe('mapEventRecord', () => {
       },
     );
     const event = mapped?.event as never as Record<string, unknown>;
-    expect(event.organizer).toEqual({ '@type': 'Organization', name: 'Noise Reduction & Musikbüro Rote Fabrik' });
+    expect(event.organizer).toEqual({
+      '@type': 'Organization',
+      name: 'Noise Reduction & Musikbüro Rote Fabrik',
+      url: 'https://www.myswitzerland.com/it-ch/eventi/autechre',
+    });
     expect(event.performer).toEqual({ name: 'Autechre' });
   });
 
