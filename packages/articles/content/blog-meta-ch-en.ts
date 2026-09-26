@@ -6743,6 +6743,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.destra-ticino-elezioni-aprile.title': 'United right in Ticino: cantonal elections 2027',
     'blog.article.destra-ticino-elezioni-aprile.excerpt': 'In Ticino, the two right-wing factions will run together in the cantonal elections scheduled for April 2027, after a rift that has been ongoing for months.',
     'blog.article.destra-ticino-elezioni-aprile.imageAlt': 'Ticino cantonal elections scheduled for April 2027',
+    'blog.article.carburante-sgravio-berna.title': 'No fuel discount: Bern confirms full price',
+    'blog.article.carburante-sgravio-berna.excerpt': 'On September 25, 2026, SECO ruled out fuel relief: diesel at a record high, gasoline above 2 francs/liter, no aid planned for artisans, farmers, and commuters.',
+    'blog.article.carburante-sgravio-berna.imageAlt': 'Fuel pump on a Swiss road with Alps in the background, symbolizing high diesel and petrol prices',
 };
 
 export default blogMetaChEn;

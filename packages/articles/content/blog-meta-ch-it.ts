@@ -6743,6 +6743,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.destra-ticino-elezioni-aprile.title': 'Destra unita in Ticino: elezioni cantonali 2027',
     'blog.article.destra-ticino-elezioni-aprile.excerpt': 'In Ticino le due fazioni di destra correranno insieme alle elezioni cantonali previste per aprile 2027, dopo uno strappo in corso da mesi.',
     'blog.article.destra-ticino-elezioni-aprile.imageAlt': 'Elezioni cantonali in Ticino previste per aprile 2027',
+    'blog.article.carburante-sgravio-berna.title': 'Nessuno sgravio sul carburante: Berna conferma il pieno caro',
+    'blog.article.carburante-sgravio-berna.excerpt': 'Il 25 settembre 2026 la SECO ha escluso uno sgravio sul carburante: diesel al massimo storico, benzina oltre 2 franchi/litro, nessun aiuto previsto per artigiani, agricoltori e pendolari.',
+    'blog.article.carburante-sgravio-berna.imageAlt': 'Pompa di carburante su strada svizzera con Alpi sullo sfondo, simbolo dei prezzi alti del diesel e della benzina',
 };
 
 export default blogMetaChIt;

@@ -87419,6 +87419,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-carburante-sgravio-berna': {
+    title: 'Nessuno sgravio sul carburante: Berna conferma il pieno caro',
+    description: 'Il 25 settembre 2026 la SECO ha escluso uno sgravio sul carburante: diesel al massimo storico, benzina oltre 2 franchi/litro. Nessun aiuto previsto',
+    keywords: 'frontalieri, ticino, svizzera, italia, nessuno, sgravio, carburante, berna',
+    ogTitle: 'Nessuno sgravio sul carburante: Berna conferma il pieno caro',
+    ogDescription: 'Berna, tramite la SECO, ha confermato che non ci saranno sussidi sul carburante nonostante il diesel abbia toccato il massimo storico e la benzina superi i 2 franchi al litro. L\'autorità considera i prezzi alti un segnale di scarsità che promuove',
+    canonicalPath: '/articoli-svizzera/carburante-sgravio-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nessuno sgravio sul carburante: Berna conferma il pieno caro",
+      "description": "Il 25 settembre 2026 la SECO ha escluso uno sgravio sul carburante: diesel al massimo storico, benzina oltre 2 franchi/litro. Nessun aiuto previsto",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/carburante-sgravio-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pompa di carburante su strada svizzera con Alpi sullo sfondo, simbolo dei prezzi alti del diesel e della benzina"
+      },
+      "datePublished": "2026-09-26T03:41:13+00:00",
+      "dateModified": "2026-09-26T03:41:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/carburante-sgravio-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -6743,6 +6743,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.destra-ticino-elezioni-aprile.title': 'Droite unie au Tessin : élections cantonales 2027',
     'blog.article.destra-ticino-elezioni-aprile.excerpt': 'Au Tessin, les deux factions de droite se présenteront ensemble aux élections cantonales prévues pour avril 2027, après une rupture qui dure depuis des mois.',
     'blog.article.destra-ticino-elezioni-aprile.imageAlt': 'Élections cantonales tessinoises prévues en avril 2027',
+    'blog.article.carburante-sgravio-berna.title': 'Aucun allègement sur le carburant : Berne confirme le plein hors de prix',
+    'blog.article.carburante-sgravio-berna.excerpt': 'Le 25 septembre 2026, le SECO a exclu un allègement sur le carburant : diesel au plus haut historique, essence à plus de 2 francs/litre, aucune aide prévue pour les artisans, les agriculteurs et les navetteurs.',
+    'blog.article.carburante-sgravio-berna.imageAlt': 'Pompe à carburant sur une route suisse avec les Alpes en arrière-plan, symbole des prix élevés du diesel et de l\'essence',
 };
 
 export default blogMetaChFr;
