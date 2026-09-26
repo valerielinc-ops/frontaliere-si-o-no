@@ -177,6 +177,43 @@ jobs:
           node scripts/runtime-reliability-watch.mjs --json > runtime-reliability-final.json
           status=$?
           set -e
+
+          # The graph is sampled from live edge POPs. A candidate can appear
+          # between the first probe and this verification pass, especially
+          # when the first pass saw no divergence. Reuse the report's
+          # marker-authorized exact URLs for one bounded second repair attempt
+          # instead of failing without ever trying the newly observed repair.
+          if [ "$status" -ne 0 ]; then
+            retry_count="$(node --input-type=module -e "import fs from 'node:fs'; try { const p=JSON.parse(fs.readFileSync('runtime-reliability-final.json','utf8')); process.stdout.write(String((p.purgeUrls||[]).length)); } catch { process.stdout.write('0'); }")"
+            if [ "$retry_count" -gt 0 ]; then
+              if [ -z "${CF_API_TOKEN:-}" ]; then
+                echo "::warning::runtime reliability found $retry_count final-pass purge candidate(s) but CF_API_TOKEN is unavailable; no retry was attempted"
+              else
+                echo "::warning::runtime reliability discovered $retry_count purge candidate(s) during verification; retrying targeted repair"
+                set +e
+                node scripts/runtime-reliability-watch.mjs --purge-from runtime-reliability-final.json
+                purge_status=$?
+                set -e
+                sleep 30
+                set +e
+                node scripts/runtime-reliability-watch.mjs --json > runtime-reliability-final.json
+                status=$?
+                set -e
+                RETRY_PURGE_COUNT="$retry_count" RETRY_PURGE_STATUS="$purge_status" node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const path = 'runtime-reliability-final.json';
+          const report = JSON.parse(fs.readFileSync(path, 'utf8'));
+          report.repair = {
+            action: 'purge',
+            outcome: Number(process.env.RETRY_PURGE_STATUS) === 0 ? 'success' : 'failure',
+            reason: 'final_probe_retry',
+            urls: Number(process.env.RETRY_PURGE_COUNT),
+          };
+          fs.writeFileSync(path, `${JSON.stringify(report, null, 2)}\n`);
+          NODE
+              fi
+            fi
+          fi
           echo "exit_code=$status" >> "$GITHUB_OUTPUT"
           if [ -s runtime-reliability-final.json ]; then
             node scripts/runtime-reliability-watch.mjs --annotate runtime-reliability-final.json || true
@@ -206,16 +243,19 @@ jobs:
             ? previous.lastActionAt
             : null;
           const sameFingerprint = Boolean(fingerprint) && previous.fingerprint === fingerprint;
-          const purgeSucceeded = Boolean(fingerprint)
+          const initialPurgeSucceeded = Boolean(fingerprint)
             && first.fingerprint === fingerprint
             && first.repair?.action === 'purge'
             && '${{ steps.purge.outcome }}' === 'success';
+          const finalPurgeSucceeded = report.repair?.action === 'purge'
+            && report.repair?.outcome === 'success';
+          const purgeSucceeded = initialPurgeSucceeded || finalPurgeSucceeded;
           const state = {
             fingerprint,
             lastActionAt: purgeSucceeded
               ? new Date().toISOString()
               : sameFingerprint ? previousLastActionAt : null,
-            lastAction: first.repair?.action || 'none',
+            lastAction: report.repair?.action || first.repair?.action || 'none',
             markerState: report.markerState || null,
           };
           fs.writeFileSync('.runtime-reliability-state/state.json', `${JSON.stringify(state, null, 2)}\n`);
