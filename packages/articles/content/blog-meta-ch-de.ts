@@ -6794,6 +6794,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avenergy-lobby-clima.title': 'Avenergy und die Erdöllobby: Klima in der Schweiz',
     'blog.article.avenergy-lobby-clima.excerpt': 'Eine Studie zeichnet die Kommunikation von Avenergy, dem Verband der Erdölimporteure, und das Interessennetzwerk nach, das bis in den Bundesrat reicht.',
     'blog.article.avenergy-lobby-clima.imageAlt': 'Bellinzona und Schweizer Berge unter wolkigem Himmel zum nationalen Klimadiskurs',
+    'blog.article.assicurazione-grandine-2026.title': 'Hagelversicherung: Prämien 2026 in Gefahr',
+    'blog.article.assicurazione-grandine-2026.excerpt': 'Im Jahr 2026 erwartet Grandine Svizzera finanzielle Verluste und Entschädigungen von bis zu 170 Millionen Franken, wobei die Ernten von Zuckerrüben, Kartoffeln und Mais um bis zu 30% zurückgehen.',
+    'blog.article.assicurazione-grandine-2026.imageAlt': 'Schweizer landwirtschaftliches Feld, das von Hagel betroffen ist, mit drohenden Wolken',
 };
 
 export default blogMetaChDe;

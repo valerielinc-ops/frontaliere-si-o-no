@@ -2287,6 +2287,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'premi-cassa-malati-stabilita-famiglie': { it: 'premi-cassa-malati-stabilita-famiglie', en: 'health-insurance-premiums-stable-family-burden', de: 'krankenversicherungspraemen-stabile-familienbelastung', fr: 'primes-assurance-sante-charge-familiale-stable' },
  'protesta-asilo-berna-diritti': { it: 'protesta-asilo-berna-diritti', en: 'asylum-rights-protest-bern', de: 'asylrecht-protest-bern', fr: 'protestation-droit-asile-berne' },
  'avenergy-lobby-clima': { it: 'avenergy-lobby-clima', en: 'avenergy-oil-lobby-climate-switzerland', de: 'avenergy-oellobby-klima-schweiz', fr: 'avenergy-lobby-petrole-climat-suisse' },
+ 'assicurazione-grandine-2026': { it: 'assicurazione-grandine-2026', en: 'hail-insurance-2026', de: 'hagelversicherung-2026', fr: 'assurance-grele-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
