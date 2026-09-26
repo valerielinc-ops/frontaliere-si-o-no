@@ -12035,6 +12035,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.saronno-lavori-via-volonterio.title': 'Saronno, travaux via Volonterio : circulation modifiée',
     'blog.article.saronno-lavori-via-volonterio.excerpt': 'À partir du lundi 28 septembre, travaux sur les trottoirs de la via Volonterio : stationnement interdit, circulation à sens unique vers la via Varese et déviations jusqu’au 16 octobre.',
     'blog.article.saronno-lavori-via-volonterio.imageAlt': 'Travaux routiers et changements de circulation dans une zone urbaine pres de Saronno',
+    'blog.article.telelavoro-frontalieri-limite-italia.title': 'Télétravail des travailleurs frontaliers : limite de 25 % des journées',
+    'blog.article.telelavoro-frontalieri-limite-italia.excerpt': 'Le seuil fiscal du télétravail depuis l’Italie est de 25 % ; entré en vigueur le 9 février 2026, application rétroactive à partir du 1er janvier 2024. Une journée sur cinq représente 20 %.',
+    'blog.article.telelavoro-frontalieri-limite-italia.imageAlt': 'Travailleur frontalier en télétravail depuis le domicile avec vue sur le lac de Lugano',
 };
 
 export default blogMetaFr;
