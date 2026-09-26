@@ -224,9 +224,13 @@ export function listItBodyFiles(dir = BODY_DIR_IT) {
 }
 
 /**
- * Returns the list of body files that DO NOT yet have AI-search optimization.
+ * Returns the list of body files that DO NOT yet have AI-search optimization
+ * in the requested locale. A complete block in another locale is not enough:
+ * it is commonly the residue of a translation fallback.
+ * @param {string[]} files
+ * @param {'it'|'en'|'de'|'fr'} [locale='it']
  */
-export function findArticlesNeedingBackfill(files) {
+export function findArticlesNeedingBackfill(files, locale = 'it') {
   const needing = [];
   const skipped = [];
   for (const filePath of files) {
@@ -235,7 +239,7 @@ export function findArticlesNeedingBackfill(files) {
       skipped.push({ filePath, reason: 'unparseable' });
       continue;
     }
-    if (hasAiSearchOptimization(parsed.body1)) {
+    if (hasAiSearchOptimization(parsed.body1, locale)) {
       skipped.push({ filePath, reason: 'already-optimized' });
       continue;
     }
@@ -272,7 +276,7 @@ async function main() {
   for (const locale of LOCALES) {
     const dir = bodyDirFor(locale);
     const files = listItBodyFiles(dir);
-    const { needing, skipped } = findArticlesNeedingBackfill(files);
+    const { needing, skipped } = findArticlesNeedingBackfill(files, locale);
     const alreadyOptimized = skipped.filter((s) => s.reason === 'already-optimized').length;
     console.log(`[${locale}] Total: ${files.length} | Already optimized: ${alreadyOptimized} | Need backfill: ${needing.length}`);
     if (skipped.some((s) => s.reason === 'unparseable')) {
@@ -324,7 +328,7 @@ async function runLocaleBackfill(locale, callLLM, AI_MODELS) {
   const dir = bodyDirFor(locale);
   const relDir = resolveGitAddPath(ROOT, path.relative(ROOT, dir));
   const files = listItBodyFiles(dir);
-  const { needing, skipped } = findArticlesNeedingBackfill(files);
+  const { needing, skipped } = findArticlesNeedingBackfill(files, locale);
   const alreadyOptimized = skipped.filter((s) => s.reason === 'already-optimized').length;
   console.log(`\n[${locale}] ${files.length} files | ${alreadyOptimized} already optimized | ${needing.length} need backfill`);
   if (needing.length === 0) return { locale, written: 0, failed: 0 };

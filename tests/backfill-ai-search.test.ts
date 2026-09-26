@@ -123,6 +123,12 @@ describe('findArticlesNeedingBackfill()', () => {
     expect(needing.map((n: { articleId: string }) => n.articleId)).toEqual(['foo']);
   });
 
+  it('does not skip a complete block written in the wrong locale', () => {
+    const { needing, skipped } = findArticlesNeedingBackfill([barPath], 'en');
+    expect(needing.map((n: { articleId: string }) => n.articleId)).toEqual(['bar']);
+    expect(skipped).toEqual([]);
+  });
+
   it('skips articles already optimized', () => {
     const { skipped } = findArticlesNeedingBackfill([fooPath, barPath]);
     const optimized = skipped.filter((s: { reason: string }) => s.reason === 'already-optimized');
