@@ -1,40 +1,38 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-09-26T13:50:39.906Z",
-  "total": 8,
+  "generatedAt": "2026-09-26T23:30:05.597Z",
+  "total": 6,
   "discovered": null,
   "parsed": 6,
   "lastFetchOutcome": null,
-  "written": 8,
+  "written": 6,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 46605,
-  "avgDurationMs": 46605,
+  "unchangedCount": 0,
+  "durationMs": 39081,
+  "avgDurationMs": 39081,
   "durationHistory": [
-    46605
+    39081
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "spital-zollikerberg-1e264c1c7550",
-      "slug": "centro-vecchio-hottingen-dipl-infermieristica-professionale-dipl-specialista-di-cura-spitex-con-responsabilita-di",
+      "id": "spital-zollikerberg-e1d7ac14f635",
+      "slug": "facharztin-facharzt-psychiatrie-e-psychotherapie-arztbereich-spital-zollikerberg",
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
-      "title": "Alterszentrum Hottingen Dipl. Pflegefachfrau / Dipl. Pflegefachmann Spitex mit Tagestreff-Verantwortung",
+      "title": "Fachärztin / Facharzt Psychiatrie und Psychotherapie Arztbereich",
       "needsRetranslation": false,
       "location": "Zollikerberg",
       "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=14d39694-6234-42c6-9ebd-d075eabe721a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=f6986dfe-7b9e-4b72-8b01-8ad27ab25037,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:34:16.835Z",
+      "crawledAt": "2026-09-26T23:29:57.415Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -43,24 +41,22 @@
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "OTHER",
-      "experienceLevel": "senior",
+      "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=14d39694-6234-42c6-9ebd-d075eabe721a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=f6986dfe-7b9e-4b72-8b01-8ad27ab25037,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
