@@ -12036,6 +12036,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-limite-italia.title': 'Smart working for cross-border workers: 25% limit on days',
     'blog.article.telelavoro-frontalieri-limite-italia.excerpt': 'The tax threshold for smart working from Italy is 25%; entered into force on 9 febbraio 2026, retroactive application from 1 gennaio 2024. One day out of five is 20%.',
     'blog.article.telelavoro-frontalieri-limite-italia.imageAlt': 'Cross-border worker doing smart working from home with a view of Lake Lugano',
+    'blog.article.castronno-chiusure-notturni-ottobre-2026.title': 'Nighttime closures of SS 341 and A8 in Castronno October 2026',
+    'blog.article.castronno-chiusure-notturni-ottobre-2026.excerpt': 'On the nights of 5‑6 and 6‑7 October 2026, from 21:00 to 05:00, SS 341 and the A8 section at Castronno will be closed simultaneously, with a possible delay of a few dozen minutes in the opening of the state road.',
+    'blog.article.castronno-chiusure-notturni-ottobre-2026.imageAlt': 'Night closure of SS 341 and A8 near Castronno with detour signs and construction lights',
 };
 
 export default blogMetaEn;

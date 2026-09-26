@@ -36117,6 +36117,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'castronno-chiusure-notturni-ottobre-2026',
+ category: 'pratico',
+ date: '2026-09-26T07:38:57.308Z',
+ image: '/images/blog/castronno-chiusure-notturni-ottobre-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

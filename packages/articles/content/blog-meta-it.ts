@@ -12037,6 +12037,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-limite-italia.title': 'Smart working frontalieri: limite 25% dalle giornate',
     'blog.article.telelavoro-frontalieri-limite-italia.excerpt': 'La soglia fiscale per lo smart working dall\'Italia è 25%; entrata in vigore il 9 febbraio 2026, applicazione retroattiva dal 1 gennaio 2024. Una giornata su cinque vale 20%.',
     'blog.article.telelavoro-frontalieri-limite-italia.imageAlt': 'Lavoratore frontaliere che svolge smart working da casa con vista sul lago di Lugano',
+    'blog.article.castronno-chiusure-notturni-ottobre-2026.title': 'Chiusure notturne SS 341 e A8 a Castronno ottobre 2026',
+    'blog.article.castronno-chiusure-notturni-ottobre-2026.excerpt': 'Le notti del 5‑6 e 6‑7 ottobre 2026, dalle 21:00 alle 05:00, la SS 341 e il tratto A8 a Castronno saranno chiusi contemporaneamente, con possibile ritardo di qualche decina di minuti sull’avvio della statale.',
+    'blog.article.castronno-chiusure-notturni-ottobre-2026.imageAlt': 'Chiusura notturna della SS 341 e dell\'A8 a Castronno con segnaletica di deviazione e luci dei lavori',
 };
 
 export default blogMetaIt;

@@ -94024,6 +94024,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-castronno-chiusure-notturni-ottobre-2026': {
+    title: 'Chiusure notturne SS 341 e A8 a Castronno ottobre 2026',
+    description: 'Le notti del 5‑6 e 6‑7 ottobre 2026, dalle 21:00 alle 05:00, la SS 341 e il tratto A8 a Castronno saranno chiusi contemporaneamente. Possibile ritardo',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiusure, notturne, castronno, ottobre',
+    ogTitle: 'Chiusure notturne SS 341 e A8 a Castronno ottobre 2026',
+    ogDescription: 'Durante le notti del 5‑6 e 6‑7 ottobre 2026, dalle 21:00 alle 05:00, la Strada Statale 341 e il tratto autostradale dell\'A8 a Castronno resteranno chiusi contemporaneamente per consentire interventi programmati sulla rete stradale. L\'avvio effettivo',
+    canonicalPath: '/articoli-frontaliere/castronno-chiusure-notturni-ottobre-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiusure notturne SS 341 e A8 a Castronno ottobre 2026",
+      "description": "Le notti del 5‑6 e 6‑7 ottobre 2026, dalle 21:00 alle 05:00, la SS 341 e il tratto A8 a Castronno saranno chiusi contemporaneamente. Possibile ritardo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/castronno-chiusure-notturni-ottobre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Chiusura notturna della SS 341 e dell'A8 a Castronno con segnaletica di deviazione e luci dei lavori"
+      },
+      "datePublished": "2026-09-26T07:38:57+00:00",
+      "dateModified": "2026-09-26T07:38:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/castronno-chiusure-notturni-ottobre-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
