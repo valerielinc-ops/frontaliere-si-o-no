@@ -1,7 +1,7 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-09-25T14:39:22.640Z",
+  "generatedAt": "2026-09-26T13:50:39.906Z",
   "total": 8,
   "discovered": null,
   "parsed": 6,
@@ -9,16 +9,18 @@
   "written": 8,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 44577,
-  "avgDurationMs": 44577,
+  "unchangedCount": 1,
+  "durationMs": 46605,
+  "avgDurationMs": 46605,
   "durationHistory": [
-    44577
+    46605
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "spital-zollikerberg-1e264c1c7550",
       "slug": "centro-vecchio-hottingen-dipl-infermieristica-professionale-dipl-specialista-di-cura-spitex-con-responsabilita-di",
@@ -51,7 +53,7 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -60,7 +62,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
