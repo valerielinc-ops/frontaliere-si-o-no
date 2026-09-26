@@ -240,7 +240,7 @@
         "de": "teamleiter-elektrofertigung-gn-oerlikon-ch",
         "it": "team-leader-electric-manufacturing-gn-oerlikon-wohlen",
         "en": "team-leader-electrical-manufacturing-gn-oerlikon-wohlen",
-        "fr": "teamleiter-elektrofertigung-gn-oerlikon-wohlen"
+        "fr": "chef-d-equipe-fabrication-electrique-gn-oerlikon-wohlen"
       },
       "company": "Oerlikon",
       "companyKey": "oerlikon",
@@ -290,7 +290,8 @@
           "team-leader-electric-manufacturing-gn-oerlikon-wohlen"
         ],
         "fr": [
-          "chef-d-equipe-fabrication-electrique-gn-oerlikon-wohlen"
+          "chef-d-equipe-fabrication-electrique-gn-oerlikon-wohlen",
+          "teamleiter-elektrofertigung-gn-oerlikon-wohlen"
         ],
         "en": [
           "team-leader-electrical-manufacturing-gn-oerlikon-wohlen"
@@ -495,7 +496,7 @@
         "it": "project-contract-manager-gn-oerlikon-wohlen",
         "en": "project-contract-manager-gn-oerlikon-ch",
         "de": "project-contract-manager-gn-oerlikon-ch",
-        "fr": "project-contract-manager-gn-oerlikon-wohlen"
+        "fr": "gestionnaire-de-contrat-de-projet-gn-oerlikon-wohlen"
       },
       "company": "Oerlikon",
       "companyKey": "oerlikon",
@@ -539,16 +540,12 @@
       "needsRetranslation": true,
       "previousSlugs": [
         "project-contract-manager-gn-oerlikon-ch",
-        "responsabile-del-contratto-di-progetto-gn-oerlikon-wohlen",
-        "gestionnaire-de-contrat-de-projet-gn-oerlikon-wohlen"
+        "responsabile-del-contratto-di-progetto-gn-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "project-contract-manager-gn-oerlikon-ch",
           "responsabile-del-contratto-di-progetto-gn-oerlikon-wohlen"
-        ],
-        "fr": [
-          "gestionnaire-de-contrat-de-projet-gn-oerlikon-wohlen"
         ]
       },
       "firstSeenAt": "2026-08-25T10:10:41.061Z",

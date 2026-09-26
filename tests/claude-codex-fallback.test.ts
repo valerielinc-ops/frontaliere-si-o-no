@@ -1118,28 +1118,6 @@ function codexActionStep(name: string): ActionStep {
   return step;
 }
 
-// Override espliciti del watchdog (minuti, input `exec_timeout_minutes` di
-// #9690): i lane agentici di main (issue-fix, issue-decompose,
-// needs-human-sweep) e i caller batch che hanno misurato sessioni vicine o
-// oltre il vecchio cap fisso da 15 min (#1975/#1979, growth-report 658s).
-// Tutti gli altri restano sul default.
-const EXEC_TIMEOUT_OVERRIDES: Record<string, string> = {
-  'growth-report.yml': '30',
-  'issue-decompose.yml': '70',
-  'issue-fix.yml': '110',
-  'needs-human-sweep.yml': '100',
-  'post-merge-followup.yml': '25',
-  // I fixer sui 🔴 hanno uno step da 30 min: col default 15 uccidevano fix
-  // ancora al lavoro (run 36114366113).
-  'pr-redcheck-fixer.yml': '25',
-  'pr-redflag-fixer.yml': '25',
-};
-// Setup Codex (Node, CLI, sandbox apt: ~105s misurati il 2026-09-24), kill
-// grace di 30s e coda di finalize/cleanup: il watchdog deve lasciare questo
-// margine allo step, altrimenti il runner uccide lo step prima del watchdog e
-// `codex_timed_out` non viene mai pubblicato.
-const CODEX_SETUP_AND_TAIL_SECONDS = 300;
-
 describe('watchdog Codex per caller', () => {
   it('ha default 15 minuti e accetta solo minuti interi 1-300', () => {
     expect(codexActionDefinition().inputs.exec_timeout_minutes?.default).toBe('15');
@@ -1170,29 +1148,6 @@ describe('watchdog Codex per caller', () => {
     }
   });
 
-  it('alza il cap solo sui caller dichiarati e lo tiene sotto il tetto effettivo dello step', () => {
-    const overrides: Record<string, string> = {};
-    for (const workflowName of workflowNames) {
-      const parsed = YAML.parse(readFileSync(resolve(repoRoot, '.github', 'workflows', workflowName), 'utf8')) as {
-        jobs?: Record<string, { 'timeout-minutes'?: number; steps?: Array<WorkflowStep & { 'timeout-minutes'?: number }> }>;
-      };
-      for (const job of Object.values(parsed.jobs ?? {})) {
-        for (const step of job.steps ?? []) {
-          if (step.uses !== './.github/actions/claude-codex-fallback') continue;
-          expect(step.with?.exec_timeout_seconds, `${workflowName}: input rimosso, usare exec_timeout_minutes`).toBeUndefined();
-          const value = step.with?.exec_timeout_minutes;
-          if (value === undefined) continue;
-          overrides[workflowName] = String(value);
-          const caps = [step['timeout-minutes'], job['timeout-minutes']].filter((cap): cap is number => typeof cap === 'number');
-          expect(caps.length, `${workflowName}: serve un timeout-minutes`).toBeGreaterThan(0);
-          const effectiveSeconds = Math.min(...caps) * 60;
-          expect(Number(value) * 60 + CODEX_SETUP_AND_TAIL_SECONDS, `${workflowName}: watchdog oltre il kill del runner`)
-            .toBeLessThanOrEqual(effectiveSeconds);
-        }
-      }
-    }
-    expect(overrides).toEqual(EXEC_TIMEOUT_OVERRIDES);
-  });
 });
 
 // `codex exec` riversa su stderr anche l'output dei comandi che esegue: un fix

@@ -6770,6 +6770,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bns-inflazione-pil-previsioni-2026.title': 'BNS lascia tasso allo 0%, PIL 2026 all\'1,5-2%',
     'blog.article.bns-inflazione-pil-previsioni-2026.excerpt': 'Tasso invariato allo 0%, inflazione 2026 allo 0,7%, crescita PIL rivista tra 1,5% e 2,0%. BNS pronta a intervenire sui cambi.',
     'blog.article.bns-inflazione-pil-previsioni-2026.imageAlt': 'Sede della Banca nazionale svizzera a Zurigo con bandiera elvetica',
+    'blog.article.valutazione-universitaria-intelligenza-artificiale.title': 'Università svizzere: l\'IA cambia la valutazione delle tesi',
+    'blog.article.valutazione-universitaria-intelligenza-artificiale.excerpt': 'Università di Zurigo, ZHAW e SUPSI rivedono i metodi di esame puntando su prove orali e trasparenza nell\'uso dell\'intelligenza artificiale.',
+    'blog.article.valutazione-universitaria-intelligenza-artificiale.imageAlt': 'Studente universitario svizzero al lavoro con laptop e libri',
 };
 
 export default blogMetaChIt;
