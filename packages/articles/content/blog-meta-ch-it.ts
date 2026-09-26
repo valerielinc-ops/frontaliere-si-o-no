@@ -6773,6 +6773,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.valutazione-universitaria-intelligenza-artificiale.title': 'Università svizzere: l\'IA cambia la valutazione delle tesi',
     'blog.article.valutazione-universitaria-intelligenza-artificiale.excerpt': 'Università di Zurigo, ZHAW e SUPSI rivedono i metodi di esame puntando su prove orali e trasparenza nell\'uso dell\'intelligenza artificiale.',
     'blog.article.valutazione-universitaria-intelligenza-artificiale.imageAlt': 'Studente universitario svizzero al lavoro con laptop e libri',
+    'blog.article.iniziativa-congedo-parentale-quorum.title': 'Congedo parentale: l\'iniziativa raggiunge il quorum',
+    'blog.article.iniziativa-congedo-parentale-quorum.excerpt': 'Raccolte 136\'000 firme per l\'iniziativa «Società ed economia forti grazie al congedo parentale»: proposta 18 settimane retribuite per madri e padri.',
+    'blog.article.iniziativa-congedo-parentale-quorum.imageAlt': 'Palazzo Federale a Berna, sede della Cancelleria federale',
 };
 
 export default blogMetaChIt;
