@@ -2179,10 +2179,14 @@ export async function upsertNewsletterSubscriber(
  input: NewsletterUpsertInput,
  options: { skipRateLimit?: boolean } = {},
 ): Promise<NewsletterCaptureResult> {
- // FRO-19: Rate limiting. Authentication profile reconciliation opts out at
- // the call site because it is an idempotent background write, not a new
- // newsletter/alert attempt. Explicit subscription actions keep the limit.
- if (!options.skipRateLimit) {
+ // FRO-19: rate-limit only implicit/background captures. A visible,
+ // terms-bearing action is already the user's deliberate subscription
+ // attempt; blocking it because an auth/profile reconciliation or another
+ // stale UI event spent the same session bucket turns a valid click into the
+ // generic "could not update" error. Authentication reconciliation can also
+ // opt out explicitly because it is an idempotent background write.
+ const skipRateLimit = options.skipRateLimit === true || input.explicitConsentAction === true;
+ if (!skipRateLimit) {
   const rateCheck = checkSubscriptionRateLimit();
   if (!rateCheck.allowed) {
    throw new Error(`Rate limited. Retry after ${Math.ceil(rateCheck.retryAfterMs / 1000)}s.`);
