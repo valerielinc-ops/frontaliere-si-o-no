@@ -20246,6 +20246,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'destra-ticino-elezioni-aprile',
+    category: 'novita',
+    date: '2026-09-26T02:53:35.937Z',
+    image: '/images/blog/destra-ticino-elezioni-aprile.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

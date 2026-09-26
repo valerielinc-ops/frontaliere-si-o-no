@@ -6740,6 +6740,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.voci-morgan-stanley-ubs.title': 'Gerüchte über Morgan Stanley, UBS steigt um mehr als 3%',
     'blog.article.voci-morgan-stanley-ubs.excerpt': 'Die UBS-Aktien steigen in Zürich um mehr als 3 % und nähern sich 41 Franken nach Gerüchten über eine mögliche Fusion mit Morgan Stanley.',
     'blog.article.voci-morgan-stanley-ubs.imageAlt': 'Börsenbildschirme in Zürich während des Anstiegs der UBS-Aktie',
+    'blog.article.destra-ticino-elezioni-aprile.title': 'Vereinte Rechte im Tessin: Kantonswahlen 2027',
+    'blog.article.destra-ticino-elezioni-aprile.excerpt': 'Im Tessin werden die beiden rechten Lager bei den für April 2027 angesetzten Kantonswahlen gemeinsam antreten, nach einem monatelangen Zerwürfnis.',
+    'blog.article.destra-ticino-elezioni-aprile.imageAlt': 'Tessiner Kantonswahlen für April 2027',
 };
 
 export default blogMetaChDe;

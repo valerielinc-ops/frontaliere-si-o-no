@@ -6740,6 +6740,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.voci-morgan-stanley-ubs.title': 'Rumors about Morgan Stanley, UBS rises above 3%',
     'blog.article.voci-morgan-stanley-ubs.excerpt': 'UBS shares are up more than 3% in Zurich and close to 41 francs after rumours about a possible merger with Morgan Stanley.',
     'blog.article.voci-morgan-stanley-ubs.imageAlt': 'Stock-market screens in Zurich during the rise of UBS shares',
+    'blog.article.destra-ticino-elezioni-aprile.title': 'United right in Ticino: cantonal elections 2027',
+    'blog.article.destra-ticino-elezioni-aprile.excerpt': 'In Ticino, the two right-wing factions will run together in the cantonal elections scheduled for April 2027, after a rift that has been ongoing for months.',
+    'blog.article.destra-ticino-elezioni-aprile.imageAlt': 'Ticino cantonal elections scheduled for April 2027',
 };
 
 export default blogMetaChEn;
