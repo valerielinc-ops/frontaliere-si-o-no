@@ -2708,6 +2708,7 @@ async function main() {
     const {
       evaluatedAlertCount,
       noEligibleCandidateCount,
+      emptyProfileCount,
       zeroMatchCount,
       zeroMatchRate,
       zeroMatchByCause,
@@ -2715,6 +2716,7 @@ async function main() {
     const rateLabel = zeroMatchRate === null ? 'n/a' : `${(zeroMatchRate * 100).toFixed(1)}%`;
     console.log(`   📉 Zero-match: ${zeroMatchCount}/${evaluatedAlertCount} alerts with eligible candidates (${rateLabel}) — by cause: ${JSON.stringify(zeroMatchByCause)}`);
     console.log(`   🪟 No eligible candidates after recipient cursor: ${noEligibleCandidateCount}/${alerts.length} alerts (excluded from matcher-health rate)`);
+    console.log(`   🧭 Empty profiles with no hard/soft signal: ${emptyProfileCount}/${alerts.length} alerts (excluded from matcher-health rate)`);
     const monitorAction = getZeroMatchMonitorAction({
       zeroMatchCount,
       alertCount: evaluatedAlertCount,
@@ -2740,6 +2742,7 @@ async function main() {
             `${zeroMatchCount}/${evaluatedAlertCount} job alerts with eligible candidates (${rateLabel}) matched **zero** jobs this run `
               + `(threshold: ${(ZERO_MATCH_ISSUE_THRESHOLD_RATIO * 100).toFixed(0)}%).`,
             `${noEligibleCandidateCount}/${alerts.length} alert(s) had no eligible candidates after the recipient cursor and were excluded from the matcher-health denominator.`,
+            `${emptyProfileCount}/${alerts.length} alert(s) had no hard or soft matching signal and were excluded from the matcher-health denominator (intentional fail-closed behavior).`,
             '',
             'Breakdown by cause (see scripts/lib/job-alert-zero-match-diagnosis.mjs):',
             causeLines,
@@ -2748,7 +2751,7 @@ async function main() {
             '- `geo-narrow`: the alert\'s location/canton filter matched nothing — may be a genuine inventory gap in that area, or the filter is too narrow.',
             '- `pinned-job-or-company-gone`: the alert is pinned to a specific job/company that\'s no longer active.',
             '- `soft-profile-narrow`: no hard filter is set, but the profile\'s soft intent signals matched nothing in the eligible pool.',
-            '- `empty-profile`: the alert has no hard or soft matching signal; the matcher intentionally keeps it fail-closed instead of broadcasting unrelated jobs.',
+            '- `empty-profile`: the alert has no hard or soft matching signal; it is intentionally excluded from the matcher-health denominator instead of broadcasting unrelated jobs.',
             '',
             'No subscriber PII in this report (aggregate counts/causes only).',
           ].join('\n'),
