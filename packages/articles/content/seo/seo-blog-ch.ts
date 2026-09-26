@@ -87965,6 +87965,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premi-cassa-malati-stabilita-famiglie': {
+    title: 'Premi casse malati salgono, ma il peso familiare è stabile',
+    description: 'Dal 2016 al 2023 il carico netto delle famiglie svizzere è rimasto stabile: il premio standard è salito del 19%, ma la quota sul reddito medio è passata',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, casse, malati, salgono',
+    ogTitle: 'Premi casse malati in crescita, ma carico familiare stabile',
+    ogDescription: 'L\'analisi di circa 300.000 famiglie mostra che, nonostante l\'aumento del 19% del premio standard e un incremento medio dei premi lordi del 11%, il peso netto sul reddito è rimasto stabile grazie a sussidi più consistenti. La previsione per il 2027',
+    canonicalPath: '/articoli-svizzera/premi-cassa-malati-stabilita-famiglie/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi casse malati salgono, ma il peso familiare è stabile",
+      "description": "Dal 2016 al 2023 il carico netto delle famiglie svizzere è rimasto stabile: il premio standard è salito del 19%, ma la quota sul reddito medio è passata",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-cassa-malati-stabilita-famiglie.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista urbana svizzera con ospedale moderno, simbolo delle casse malati"
+      },
+      "datePublished": "2026-09-26T14:59:40+00:00",
+      "dateModified": "2026-09-26T14:59:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-cassa-malati-stabilita-famiglie/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

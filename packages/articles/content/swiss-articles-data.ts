@@ -20381,6 +20381,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'premi-cassa-malati-stabilita-famiglie',
+    category: 'fiscale',
+    date: '2026-09-26T14:59:40.353Z',
+    image: '/images/blog/premi-cassa-malati-stabilita-famiglie.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

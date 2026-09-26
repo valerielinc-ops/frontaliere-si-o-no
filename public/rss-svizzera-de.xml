@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag</description>
     <language>de</language>
-    <lastBuildDate>Sat, 26 Sep 2026 13:50:34 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 26 Sep 2026 14:59:40 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Schweiz</title>
@@ -17,6 +17,38 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Krankenkassenprämien steigen, aber das Familiengewicht ist stabil</title>
+      <link>https://frontaliereticino.ch/de/schweiz-artikel/krankenversicherungspraemen-stabile-familienbelastung/</link>
+      <description><![CDATA[Von 2016 bis 2023 blieb die Nettobelastung der Haushalte stabil: Die Standardprämie stieg um 19%, aber der Anteil am durchschnittlichen Einkommen sank dank einer Erhöhung der Subventionen um etwa 440 Franken von 6,5% auf 6,4%.]]></description>
+      <content:encoded><![CDATA[### Das Verhältnis zwischen Prämie und Einkommen
+
+Der von der Analyse vorgeschlagene Vergleich betrifft die Bruttorechnung, das Bruttoeinkommen und den Anteil, der nach den Subventionen verbleibt. Nur die Standardprämie zu betrachten, kann daher ein anderes Bild vermitteln als jenes, das sich für das Familienbudget ergibt. Die Medianfamilie zeigt diese Diskrepanz gut: Der Preis des Standardmodells ist gestiegen, aber die Nettobelastung im Verhältnis zum Einkommen ist nahezu unverändert geblieben.
+
+| Kennzahl | Festgestellte Entwicklung |
+|---|---|
+| Mittleres Bruttoeinkommen | von 88'875 auf 95'760 Franken |
+| Belastung der Mittelschicht | von 6,5% auf 6,4% |
+| Standardprämie | +19% |
+| Bruttoprämien der Medianfamilie | +11%, entspricht 750 Franken jährlich |
+| Bundes- und Kantonsbeiträge | rund 440 Franken mehr |
+
+Dieser Unterschied spielt vor allem beim Vergleich verschiedener Jahre eine Rolle. Eine Erhöhung der Rechnung führt nicht automatisch zu derselben Erhöhung der Belastung, wenn in der Zwischenzeit das Einkommen oder die Subventionen steigen. Die Studie zeigt auch, dass der Wechsel zu Modellen mit stärker eingeschränkter Arztwahl und höheren Franchisen die Zahlungen für viele Versicherte reduziert hat. Das bedeutet nicht, dass jede Familie denselben Weg eingeschlagen hat, erklärt aber, warum die Standardprämie allein die tatsächlichen Ausgaben nicht beschreibt.
+
+Bei Familien mit Kindern überschreitet der Durchschnittswert im Jahr 2023 nicht 8% des Bruttoeinkommens. Die Situation der niedrigsten Einkommen reagiert jedoch empfindlicher auf Unterstützung: Ohne staatliche Unterstützung würde die Belastung des untersten Dezils 20% übersteigen; für viele Haushalte deckt die Sozialhilfe die Prämien vollständig und senkt die Belastung unter 5%. Das Ergebnis zeigt somit eine Umverteilungswirkung der Subventionen, keine einheitliche Senkung der Rechnungen.
+
+Auch die Region verändert die Lesart. Im Tessin, in einigen Regionen der Romandie und in Basel sind die Prämien höher, und einige Familien überschreiten eine Nettobelastung von 10% des Bruttoeinkommens. Der nationale Durchschnitt lässt diese Unterschiede nicht verschwinden. Um die Versicherungskennzahl den anderen Ausgaben des Haushalts gegenüberzustellen, kann man [costo della vita in Svizzera](nav:cost-of-living) konsultieren.
+
+Die Überprüfung der jüngsten Jahre steht noch aus. Von 2024 bis 2026 verlief der Gesamtanstieg der Prämien ähnlich wie der von 2016 bis 2023 verzeichnete, während die Einkommen nur im Durchschnitt gestiegen sind. Die NZZ räumt daher ein, dass die Belastung schwerer geworden sein könnte, weist aber auch darauf hin, dass die Bindung der Subventionen an die Referenzprämien dem Staat einen wesentlichen Teil der Erhöhungen belassen haben dürfte. Erst künftige Daten werden zeigen, wie stark die Belastung tatsächlich gestiegen ist.
+
+## Empfohlene Tools
+Für eine aktuelle Schätzung nutzen Sie den [Nettolohnrechner](nav:calculator) und den [CHF-EUR-Wechselvergleich](nav:exchange).]]></content:encoded>
+      <pubDate>Sat, 26 Sep 2026 14:59:40 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/premi-cassa-malati-stabilita-famiglie</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/premi-cassa-malati-stabilita-famiglie.webp" medium="image"/>
+    </item>
     <item>
       <title>Elektroautos: Die Schweiz fällt in Europa auf den 16. Platz</title>
       <link>https://frontaliereticino.ch/de/schweiz-artikel/schweiz-elektroautos-rangliste/</link>
@@ -3191,22 +3223,6 @@ Szenarienvergleich: Eine Pflegefachperson in Freiburg (Mangelberuf) erhält die 
       <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/permesso-dimora-b-canton-friburgo-requisiti-rinnovo</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/permesso-dimora-b-canton-friburgo-requisiti-rinnovo.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Führerschein Kt. Zug: Ausländ. Umwandlung, Prüfungen &amp; Verfahren</title>
-      <link>https://frontaliereticino.ch/de/schweiz-artikel/zug-fuhrerschein-umtausch-prufungen/</link>
-      <description><![CDATA[Vollständiger Leitfaden zur Umwandlung eines ausländischen Führerscheins im Kanton Zug: erforderliche Dokumente, theoretische und praktische Prüfungen, Pflichtkurse und Fristen.]]></description>
-      <content:encoded><![CDATA[## Zusamenfassend&#10; Der Kanton Zug verpflichtet seine Einwohner, ausländische Führerscheine innerhalb eines Jahres umschreiben zu lassen.&#10; - Theoretische (mehrsprachige) und praktische Prüfung erforderlich, mit einigen Ausnahmen.&#10; - Pflichtkurse: Erste Hilfe (10 Stunden) und Umweltschulung (4 Stunden)&#10; - Das Straßenverkehrsamt Zug ist die zuständige Stelle&#10;&#10; ## Wichtigste Fakten&#10; **Frist für die Umwandlung**: 1 Jahr ab Erteilung der B/C-Genehmigung&#10; Erforderliche Prüfungen: Theoretische + Praktische Prüfung&#10; Pflichtkurse: Erste Hilfe (10 Std.) + Ökologie (4 Std.)&#10; Zuständige Stelle: Strassenverkehrsamt Zug&#10; Erforderliche Dokumente: Reisepass, Aufenthaltserlaubnis, Führungszeugnis, Foto&#10;&#10; Für Einwohner des Kantons Zug mit einem ausländischen Führerschein ist die Umschreibung in einen Schweizer Führerschein innerhalb eines Jahres nach Erhalt der Klasse B oder C verpflichtend. Das Verfahren wird vom Straßenverkehrsamt Zug durchgeführt, das die Dokumente prüft und die Prüfungen abnimmt. Kandidaten müssen – außer in bestimmten Fällen – sowohl die Theorie- als auch die Praxisprüfung bestehen. Die Theorieprüfung kann, der Mehrsprachigkeit der Schweiz entsprechend, auf Deutsch, Französisch, Italienisch oder Englisch abgelegt werden. In der Praxisprüfung werden die Fahrfähigkeiten unter realen Bedingungen bewertet, wobei besonderes Augenmerk auf die Sicherheit und die Einhaltung der örtlichen Vorschriften gelegt wird.&#10;&#10; ### Erforderliche Dokumente&#10; Für die Bewerbung werden ein gültiger Reisepass, eine Aufenthaltserlaubnis (B/C), ein polizeiliches Führungszeugnis aus dem Herkunftsland (nicht älter als sechs Monate), ein Passfoto und der Original-Führerschein benötigt. Die Behörde prüft die Echtheit und Gültigkeit dieser Dokumente, bevor die Bewerber zu den Prüfungen zugelassen werden.&#10;&#10; ### Kurse
-## Praktische Auswirkungen für die Bewohner&#10; Die Anerkennung von Führerscheinen im Kanton Zug unterscheidet sich von anderen Schweizer Kantonen. Während einige Kantone EU-Führerscheine ohne Prüfung anerkennen, gelten im Zug strenge Anforderungen, um hohe Sicherheitsstandards im Straßenverkehr zu gewährleisten. Diese Vorgehensweise spiegelt den vorsichtigen Ansatz des Kantons wider, der für seine niedrige Unfallstatistik (laut Daten des Bundesamts für Statistik und Bundessicherheit) bekannt ist.&#10;&#10; ### Interkantonaler Vergleich&#10; Anders als in Kantonen wie Waadt oder Genf, wo EU-Bürger ihren Führerschein ohne Prüfung umschreiben lassen können, verlangt Zug von allen ausländischen Fahrern eine theoretische und praktische Prüfung. Diese einheitliche Regelung vereinfacht zwar die Verwaltung, erfordert aber von den Bewerbern eine intensivere Vorbereitung. Obligatorische Kurse, die sich an den bundesstaatlichen Vorschriften zur Straßenverkehrssicherheit orientieren, bereiten die Fahrer auf die besonderen Gegebenheiten der Schweiz vor, wie beispielsweise Bergstraßen und winterliche Bedingungen.&#10;&#10; ### Konkrete Szenarien&#10; Ein italienischer Staatsbürger mit einer B-Fahrerlaubnis muss sein italienisches Führungszeugnis mit Apostille und Übersetzung vorlegen. Bewerber, die bereits eine Schweizer Fahrerlaubnis einer anderen Kategorie (z. B. Motorrad) besitzen, können nach Ermessen der Behörde von der praktischen Pkw-Prüfung befreit werden. Bei Nichtbestehen der Theorieprüfung kann diese nach 14 Tagen wiederholt werden; für die praktische Prüfung beträgt die Frist 30 Tage.&#10;&#10; Die Verpflichtung zur Umschreibung innerhalb eines Jahres vermeidet rechtliche Komplikationen: Das Fahren mit einem ausländischen Führerschein nach Ablauf der Frist birgt Risiken.
-
-## Empfohlene Tools
-Für eine aktuelle Schätzung nutzen Sie den [Nettolohnrechner](nav:calculator) und den [CHF-EUR-Wechselvergleich](nav:exchange).
-## Schritt-für-Schritt-Anleitung&#10; 1. **Dokumentenbeschaffung**: Ein Führungszeugnis einholen und ins Deutsche (die Amtssprache des Kantons) übersetzen lassen.&#10; 2. Kursanmeldung: Teilnahme an Erste-Hilfe-Kursen (10 Stunden) und Ökologie-Kursen (4 Stunden) in autorisierten Zentren.&#10; 3. Offizieller Antrag: Senden Sie das Formular zusammen mit allen Unterlagen an das Straßenverkehrsamt Zug.&#10; 4. Prüfungsanmeldung: Theoretische Prüfung (in zugelassenen Zentren) und praktische Prüfung (bei einem lokalen Ausbilder).&#10; 5. Entzug des Führerscheins: Nach bestandener Prüfung können Sie Ihren Schweizer Führerschein bei der Behörde abholen.&#10;&#10; ### Kritische Fristen&#10; - Beginnen Sie den Prozess mindestens 4 Monate vor Ablauf Ihres Aufenthaltsjahres, um Verzögerungen zu vermeiden.&#10; - Führungszeugnisse sind maximal 6 Monate gültig; beantragen Sie sie daher umgehend.&#10; - Die Wartezeiten für praktische Prüfungen können in der Hochsaison bis zu 8 Wochen betragen.&#10;&#10; ### Nützliche Werkzeuge&#10; Um die Gesamtkosten (Kurse + Prüfungen + Gebühren) zu berechnen, nutzen Sie bitte unseren Code [calcolatore patente](nav:calculator). Die zugelassenen Prüfungszentren finden Sie auf der offiziellen Website des Straßenverkehrsamts Zug. Bei einem Wechsel aus einem anderen Schweizer Kanton ist das Verfahren vereinfacht und Sie müssen keine Prüfungen erneut ablegen.&#10;&#10; ⚠️ Bitte beachten Sie: Vorläufige Führerscheine berechtigen nicht zur Umwandlung. Inhaber müssen ihren originalen, unbefristeten Führerschein vorlegen.&#10;&#10; Die Umschreibung Ihres Führerscheins ist ein obligatorischer Schritt für die vollständige Integration in die Schweizer Mobilität. Halten Sie die Fristen ein und bereiten Sie sich sorgfältig auf Ihre Prüfungen vor, um Strafen und Verzögerungen zu vermeiden.]]></content:encoded>
-      <pubDate>Tue, 22 Sep 2026 00:32:07 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/patente-guida-zugo-conversione-esami</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/patente-guida-zugo-conversione-esami.webp" medium="image"/>
     </item>
   </channel>
 </rss>

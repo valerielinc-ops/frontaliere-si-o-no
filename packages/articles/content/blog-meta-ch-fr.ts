@@ -6785,6 +6785,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzera-auto-elettriche-classifica.title': 'Voitures électriques : la Suisse descend à la 16e place en Europe',
     'blog.article.svizzera-auto-elettriche-classifica.excerpt': 'En 2019, la Suisse était cinquième pour l\'électrification, fin 2025 au 13e et mi-2026 au 16e ; un quart des nouvelles immatriculations est purement électrique.',
     'blog.article.svizzera-auto-elettriche-classifica.imageAlt': 'SUV électrique moderne garé près d\'une station de recharge dans un décor alpin suisse.',
+    'blog.article.premi-cassa-malati-stabilita-famiglie.title': 'Les primes des caisses-maladie augmentent, mais la charge familiale reste stable',
+    'blog.article.premi-cassa-malati-stabilita-famiglie.excerpt': 'De 2016 à 2023, la charge nette des ménages est restée stable : la prime standard a augmenté de 19 %, mais la part du revenu moyen est passée de 6,5 % à 6,4 % grâce à une augmentation des subventions d’environ 440 francs.',
+    'blog.article.premi-cassa-malati-stabilita-famiglie.imageAlt': 'Vue urbaine suisse avec hôpital moderne, symbole des caisses maladie',
 };
 
 export default blogMetaChFr;
