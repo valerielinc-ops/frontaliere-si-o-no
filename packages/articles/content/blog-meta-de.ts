@@ -12041,6 +12041,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.eco-barriere-statale-707.title': 'Lärmschutzwände: Lärm auf der Umgehungsstraße von Varese',
     'blog.article.eco-barriere-statale-707.excerpt': 'Der Brief eines Lesers weist auf ein Echo oder eine Vibration bei jedem Auto auf der Staatsstraße 707 hin, die in drei Bereichen von Varese hörbar ist, und fragt ANAS, wann das Problem behoben sein wird.',
     'blog.article.eco-barriere-statale-707.imageAlt': 'Lärmschutzwände an einer Straße, Symbolbild für die Umfahrung von Varese',
+    'blog.article.iwt-pharma-casale-litta-ampliamento.title': 'IWT Pharma weiht neues Gebäude in Casale Litta ein',
+    'blog.article.iwt-pharma-casale-litta-ampliamento.excerpt': 'Erweiterung um etwa 9.000 m², Investition von 15 Millionen Euro, Ziel ist es, Kapazität und Umsatz innerhalb von fünf Jahren zu verdoppeln.',
+    'blog.article.iwt-pharma-casale-litta-ampliamento.imageAlt': 'Modernes Industriegebäude mit Solarpaneelen und Ladestationen für Elektrofahrzeuge neben einem Fluss in einer grünen Landschaft',
 };
 
 export default blogMetaDe;

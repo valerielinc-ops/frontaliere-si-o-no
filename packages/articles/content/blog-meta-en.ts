@@ -12042,6 +12042,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.eco-barriere-statale-707.title': 'Sound-absorbing barriers: noise on the Varese connector road',
     'blog.article.eco-barriere-statale-707.excerpt': 'A reader\'s letter reports an echo or vibration every time a car drives on state road 707, audible in three areas of Varese, and asks ANAS when it will be resolved.',
     'blog.article.eco-barriere-statale-707.imageAlt': 'Sound barriers beside a road, illustrative image for the Varese bypass',
+    'blog.article.iwt-pharma-casale-litta-ampliamento.title': 'IWT Pharma inaugurates new building in Casale Litta',
+    'blog.article.iwt-pharma-casale-litta-ampliamento.excerpt': 'Expansion of approximately 9,000 sq m, investment of 15 million euros, objective to double capacity and revenue within five years.',
+    'blog.article.iwt-pharma-casale-litta-ampliamento.imageAlt': 'Modern industrial building with solar panels and electric charging stations near a river surrounded by greenery',
 };
 
 export default blogMetaEn;

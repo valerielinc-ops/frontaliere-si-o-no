@@ -12043,6 +12043,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.eco-barriere-statale-707.title': 'Barriere fonoassorbenti: rumore sulla bretella di Varese',
     'blog.article.eco-barriere-statale-707.excerpt': 'La lettera di un lettore segnala un eco o una vibrazione a ogni auto sulla strada statale 707, udibile in tre zone di Varese, e chiede ad ANAS quando sarà risolto.',
     'blog.article.eco-barriere-statale-707.imageAlt': 'Barriere fonoassorbenti lungo una strada, immagine illustrativa per la bretella di Varese',
+    'blog.article.iwt-pharma-casale-litta-ampliamento.title': 'IWT Pharma inaugura nuovo building a Casale Litta',
+    'blog.article.iwt-pharma-casale-litta-ampliamento.excerpt': 'Ampliamento di circa 9.000 mq, investimento di 15 milioni di euro, obiettivo raddoppiare capacità e fatturato entro cinque anni.',
+    'blog.article.iwt-pharma-casale-litta-ampliamento.imageAlt': 'Edificio industriale moderno con pannelli fotovoltaici e colonnine di ricarica elettrica vicino a un fiume circondato da verde',
 };
 
 export default blogMetaIt;
