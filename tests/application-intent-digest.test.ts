@@ -254,6 +254,7 @@ describe('saved-jobs digest — campaign ledger idempotency', () => {
 
   it('allows only one concurrent claim for the same uid, email, and campaign', async () => {
     const docs = new Map<string, Record<string, unknown>>();
+    const providerSends: string[] = [];
     let transactionTail = Promise.resolve();
     const deliveryId = 'saved-jobs-digest-today__person@example.test';
     const deliveryRef = { id: deliveryId, path: `users/uid-1/campaign_deliveries/${deliveryId}` };
@@ -289,13 +290,17 @@ describe('saved-jobs digest — campaign ledger idempotency', () => {
       campaignId: 'saved-jobs-digest-today',
     };
 
-    const claims = await Promise.all([
-      claimSavedJobsDigestDelivery(db, input),
-      claimSavedJobsDigestDelivery(db, input),
-    ]);
+    const invoke = async () => {
+      const claimed = await claimSavedJobsDigestDelivery(db, input);
+      if (!claimed) return 'skip';
+      providerSends.push(input.email);
+      return 'send';
+    };
 
-    expect(claims.filter(Boolean)).toHaveLength(1);
-    expect(claims.filter((claim) => !claim)).toHaveLength(1);
+    const outcomes = await Promise.all([invoke(), invoke()]);
+
+    expect(outcomes.sort()).toEqual(['send', 'skip']);
+    expect(providerSends).toEqual([input.email]);
     expect([...docs.values()]).toMatchObject([{ status: 'sending', campaign_id: input.campaignId }]);
   });
 });
