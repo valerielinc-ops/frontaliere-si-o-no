@@ -94218,6 +94218,46 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-cotonificio-liuc-industrial-quest': {
+    title: 'Cotonificio LIUC protagonista di Industrial Quest 2026',
+    description: 'La prima edizione di Industrial Quest 2026 ha visto il Cotonificio Cantoni LIUC di Castellanza rappresentare l’Italia con 5 squadre, 40 punti per Zamponari e 35',
+    keywords: 'frontalieri, ticino, svizzera, italia, cotonificio, liuc, protagonista, industrial',
+    ogTitle: 'Cotonificio LIUC protagonista di Industrial Quest 2026',
+    ogDescription: 'Il 12‑13 settembre 2026 la LIUC – Università Cattaneo ha portato l’Italia alla prima edizione europea di Industrial Quest, ospitando il percorso dedicato al Cotonificio Cantoni nel campus di Castellanza. Con cinque squadre partecipanti, Zamponari ha',
+    canonicalPath: '/articoli-frontaliere/cotonificio-liuc-industrial-quest',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cotonificio LIUC protagonista di Industrial Quest 2026",
+      "description": "La prima edizione di Industrial Quest 2026 ha visto il Cotonificio Cantoni LIUC di Castellanza rappresentare l’Italia con 5 squadre, 40 punti per Zamponari e 35",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cotonificio-liuc-industrial-quest.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con le montagne sullo sfondo, luce del mattino"
+      },
+      "datePublished": "2026-09-26T11:03:12+00:00",
+      "dateModified": "2026-09-26T11:03:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cotonificio-liuc-industrial-quest/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
