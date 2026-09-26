@@ -99,7 +99,7 @@ jobs:
           node-version: "22"
           cache: npm
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --ignore-scripts
       - name: Restore per-company translation cache
         id: translation_cache_restore
         continue-on-error: true

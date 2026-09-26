@@ -281,6 +281,22 @@ describe('generate() — shared install step reflects per-crawler prep requireme
     }
   });
 
+  it('preserves a committed group install command when membership is regenerated', () => {
+    const crawlers = Array.from({ length: CRAWLER_COUNT }, (_, i) => baseCrawler(`normal-${i}`));
+    writeManifestAndBaseline(crawlers);
+
+    generate({ manifestPath, baselinePath, outDir, write: true });
+    const firstGroupPath = path.join(outDir, 'crawler-group-01.yml');
+    const seeded = fs.readFileSync(firstGroupPath, 'utf8');
+    fs.writeFileSync(firstGroupPath, seeded.replace('run: npm ci\n', 'run: npm ci --ignore-scripts\n'));
+
+    const regenerated = generate({ manifestPath, baselinePath, outDir, write: true });
+    const doc = YAML.parse(regenerated[0].content);
+    const jobKey = Object.keys(doc.jobs)[0];
+    const installStep = doc.jobs[jobKey].steps.find((s: any) => s.name === 'Install dependencies');
+    expect(installStep.run).toBe('npm ci --ignore-scripts');
+  });
+
   it('hydrates and saves the runtime-only per-company translation cache around every group', () => {
     const crawlers = Array.from({ length: CRAWLER_COUNT }, (_, i) => baseCrawler(`cache-${i}`));
     writeManifestAndBaseline(crawlers);
