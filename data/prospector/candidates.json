@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-26T10:39:25.846Z",
+  "updatedAt": "2026-09-26T10:39:47.358Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -165822,12 +165822,12 @@
     },
     "christina-vassalli-services-inhaberin-denise-tschappat@wollerau": {
       "key": "christina-vassalli-services-inhaberin-denise-tschappat@wollerau",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:29:55.557Z",
-      "updatedAt": "2026-09-26T10:36:19.399Z",
+      "updatedAt": "2026-09-26T10:39:47.334Z",
       "name": "CHRISTINA VASSALLI Services, Inhaberin Denise Tschäppät",
       "city": "Wollerau",
       "zip": "8832",
@@ -165896,7 +165896,9 @@
           "jobLikeRate": 1,
           "logoFound": true
         }
-      ]
+      ],
+      "promotionPr": "9923",
+      "promotionBranch": "prospector/promote-2026-09-26"
     },
     "christina-vassalli@zurich": {
       "key": "christina-vassalli@zurich",
@@ -587748,12 +587750,12 @@
     },
     "premiumpflege24@subingen": {
       "key": "premiumpflege24@subingen",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:29:29.713Z",
-      "updatedAt": "2026-09-26T10:36:47.051Z",
+      "updatedAt": "2026-09-26T10:39:47.334Z",
       "name": "PremiumPflege24 GmbH",
       "city": "Subingen",
       "zip": "4553",
@@ -587821,7 +587823,9 @@
           "jobLikeRate": 1,
           "logoFound": true
         }
-      ]
+      ],
+      "promotionPr": "9923",
+      "promotionBranch": "prospector/promote-2026-09-26"
     },
     "premiumshop-schindellegi.ch": {
       "key": "premiumshop-schindellegi.ch",
