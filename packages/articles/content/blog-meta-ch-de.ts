@@ -6806,6 +6806,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.jans-monaco-lotta-trafficanti.title': 'Beat Jans in München: Kampf gegen Menschenhändler',
     'blog.article.jans-monaco-lotta-trafficanti.excerpt': 'Bundesrat Beat Jans setzt beim Münchner Gipfel mit 18 Staaten auf europäische Zusammenarbeit und schnelle Rückkehrverfahren.',
     'blog.article.jans-monaco-lotta-trafficanti.imageAlt': 'Schweizer Regierungsgebäude mit Nationalflagge',
+    'blog.article.risarcimenti-grandine-svizzera-2026.title': 'Hagelversicherung: Entschädigungen bis zu 170 Millionen',
+    'blog.article.risarcimenti-grandine-svizzera-2026.excerpt': 'Grandine Svizzera erwartet Entschädigungszahlungen von bis zu 170 Millionen Franken im Jahr 2026. Adrian Aebi warnt: Die Prämien könnten untragbar werden.',
+    'blog.article.risarcimenti-grandine-svizzera-2026.imageAlt': 'Schweizer landwirtschaftliches Feld mit Mais- und Kartoffelkulturen',
 };
 
 export default blogMetaChDe;

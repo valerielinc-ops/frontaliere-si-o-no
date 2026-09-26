@@ -88238,6 +88238,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-risarcimenti-grandine-svizzera-2026': {
+    title: 'Assicurazione grandine: risarcimenti fino a 170 milioni',
+    description: 'Grandine Svizzera prevede risarcimenti fino a 170 milioni di franchi nel 2026. Rischio premi insostenibili per agricoltori e perdite di resa al 30%.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assicurazione, grandine, risarcimenti, fino',
+    ogTitle: 'Assicurazione grandine: risarcimenti fino a 170 milioni',
+    ogDescription: 'Il direttore di Grandine Svizzera, Adrian Aebi, avverte che i risarcimenti per il 2026 potrebbero toccare i 170 milioni di franchi, rendendo i premi difficili da sostenere per molte aziende.',
+    canonicalPath: '/articoli-svizzera/risarcimenti-grandine-svizzera-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assicurazione grandine: risarcimenti fino a 170 milioni",
+      "description": "Grandine Svizzera prevede risarcimenti fino a 170 milioni di franchi nel 2026. Rischio premi insostenibili per agricoltori e perdite di resa al 30%.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/risarcimenti-grandine-svizzera-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campo agricolo svizzero con colture di mais e patate"
+      },
+      "datePublished": "2026-09-26T21:39:23+00:00",
+      "dateModified": "2026-09-26T21:39:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/risarcimenti-grandine-svizzera-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
