@@ -53,6 +53,11 @@ import {
   APPLICATION_INTENT_CONSENT_VERSION,
   APPLICATION_INTENTS_COLLECTION,
 } from '../functions/src/applicationIntentCore.js';
+import {
+  canSendApplicationIntentReminder,
+  canUseApplicationIntentForRanking,
+  isApplicationIntentAccountDeleted,
+} from '../functions/src/applicationIntentPrivacy.js';
 // localePathPrefix aliased to the local name this script has always used —
 // the implementation is the canonical shared helper (also used by
 // send-newsletter.mjs, send-job-alerts.mjs, AGENTS.md #6).
@@ -1121,9 +1126,41 @@ async function main() {
       continue;
     }
 
-    const applicationIntentEntries = intentSnapshots
-      .map((snapshot) => buildApplicationIntentEntry(snapshot, jobsById, locale, nowMs))
-      .filter(Boolean);
+    let accountDeleted = false;
+    if (intentSnapshots.length > 0) {
+      try {
+        accountDeleted = await isApplicationIntentAccountDeleted(db, uid);
+      } catch {
+        // A failed deletion-boundary read must not turn into a reminder or
+        // ranking signal. Skip this user's digest and continue the batch.
+        skippedCount++;
+        continue;
+      }
+    }
+    const applicationIntentEntries = [];
+    const rankingIntentEntries = [];
+    for (const snapshot of intentSnapshots) {
+      const intent = snapshot.data() || {};
+      const reminderAllowed = canSendApplicationIntentReminder({
+        profile: userData,
+        intent,
+        userId: uid,
+        accountDeleted,
+        now: nowMs,
+      });
+      const rankingAllowed = canUseApplicationIntentForRanking({
+        profile: userData,
+        intent,
+        userId: uid,
+        accountDeleted,
+        now: nowMs,
+      });
+      if (!reminderAllowed && !rankingAllowed) continue;
+      const entry = buildApplicationIntentEntry(snapshot, jobsById, locale, nowMs);
+      if (!entry) continue;
+      if (reminderAllowed) applicationIntentEntries.push(entry);
+      if (rankingAllowed) rankingIntentEntries.push(entry);
+    }
     const savedCardCandidates = savedSourceEntries.map((entry) => {
       const job = jobsById.get(entry.id);
       // Expired path: the job left data/jobs.json, so none of the card's
@@ -1184,10 +1221,10 @@ async function main() {
 
     // "Potrebbero interessarti anche" — dominant category/canton from the
     const criteria = deriveSavedJobsAlertCriteria(
-      [...savedCardCandidates, ...applicationIntentEntries]
+      [...savedCardCandidates, ...rankingIntentEntries]
         .map((e) => ({ category: e.category ?? null, canton: e.canton ?? null, savedAt: e.savedAt || e.intentAt || 0 })),
     );
-    const savedIds = new Set([...savedCardCandidates, ...applicationIntentEntries].map((entry) => entry.id));
+    const savedIds = new Set([...savedCardCandidates, ...rankingIntentEntries].map((entry) => entry.id));
     const recommendations = [];
     if (criteria.category || criteria.cantonCode) {
       for (const job of jobsById.values()) {
