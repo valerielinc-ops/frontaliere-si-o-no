@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { isHistoricalMissingTarget, isNoindexPage } from '../../scripts/audit-hreflang.mjs';
 
 /**
  * Do the hreflang gates retain the page each failing href came from?
@@ -190,5 +191,22 @@ describe('hreflang failure message — measured retention at the push boundary',
       perFailure,
       `retained ${perFailure.toFixed(0)} B/failure — each failure is still holding its ~${FILLER_BYTES} B page alive`,
     ).toBeLessThan(FILLER_BYTES / 8);
+  });
+});
+
+describe('hreflang historical-corpus exception', () => {
+  it('recognises quote-flexible robots/googlebot noindex metadata', () => {
+    expect(isNoindexPage('<meta name="robots" content="noindex,follow">')).toBe(true);
+    expect(isNoindexPage('<meta content=noindex,follow name=googlebot>')).toBe(true);
+    expect(isNoindexPage('<meta name="description" content="noindex is a word">')).toBe(false);
+  });
+
+  it('limits the advisory exception to missing targets on noindex pages', () => {
+    const noindex = '<meta name="robots" content="noindex,follow">';
+    const indexable = '<meta name="robots" content="index,follow">';
+
+    expect(isHistoricalMissingTarget(noindex, 'missingTarget')).toBe(true);
+    expect(isHistoricalMissingTarget(indexable, 'missingTarget')).toBe(false);
+    expect(isHistoricalMissingTarget(noindex, 'invalidPair')).toBe(false);
   });
 });

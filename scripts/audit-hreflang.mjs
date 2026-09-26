@@ -61,9 +61,10 @@
  * every sampled run and recorded in the audit report.
  */
 
-import { existsSync } from 'node:fs';
+import { existsSync, realpathSync } from 'node:fs';
 import { open } from 'node:fs/promises';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { walkHtmlFiles, sampleFiles, resolveSamplingEnv } from './lib/audit-runner.mjs';
 import { readHeadOrAll } from './lib/readHead.mjs';
@@ -74,6 +75,28 @@ const DIST = path.resolve('dist');
 const BASE_URL = 'https://frontaliereticino.ch';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const PREFIXED_LOCALES = ['en', 'de', 'fr'];
+
+// A noindex relocation/compat page can survive in a reassembled shard even
+// after the source emitter that produced it has changed. Its copied hreflang
+// block may therefore point at a target no longer present in the current
+// corpus. Keep the historical exception narrow: only a missing target on an
+// explicit noindex page is advisory; partial sets, invalid locale/host pairs,
+// and every defect on an indexable page remain blocking.
+const NOINDEX_META_RE = /<meta\b(?=[^>]*\bname\s*=\s*["']?(?:robots|googlebot)(?![a-z0-9_-])["']?)(?=[^>]*\bcontent\s*=\s*["']?[^"'>]*\bnoindex\b)/i;
+
+/** True when the page explicitly opts out of indexing via robots metadata. */
+export function isNoindexPage(html) {
+  return NOINDEX_META_RE.test(html);
+}
+
+/**
+ * Historical missing-target exception for the post-deploy reassembled corpus.
+ * Keep this as a named predicate so the exception cannot silently widen to
+ * malformed hreflang or to indexable pages.
+ */
+export function isHistoricalMissingTarget(html, failureKind) {
+  return failureKind === 'missingTarget' && isNoindexPage(html);
+}
 
 // Bounded in-flight reads. Mirrors the 64-lane cap
 // relatedSearchClustersPlugin's `dropOverwrittenLocs` settled on for the same
@@ -226,6 +249,12 @@ async function main() {
     /** hreflang target is missing from dist/. */
     missingTarget: [],
   };
+  const historicalFailures = {
+    /** Missing targets on explicit noindex pages are measured, not blocking. */
+    missingTarget: [],
+  };
+  const historicalPagesWithHreflang = new Set();
+  const historicalPagesWithFailure = new Set();
   let scanned = 0;
   let withHreflang = 0;
 
@@ -245,10 +274,22 @@ async function main() {
       withHreflang += 1;
 
       const rel = path.relative(DIST, file);
+      const historical = isNoindexPage(html);
+      if (historical) historicalPagesWithHreflang.add(rel);
+
+      const recordFailure = (kind, message) => {
+        if (isHistoricalMissingTarget(html, kind)) {
+          historicalFailures[kind].push(flatString(message));
+          historicalPagesWithFailure.add(rel);
+          return;
+        }
+        failures[kind].push(flatString(message));
+      };
 
       if (alternates.size < 5) {
-        failures.tooFew.push(
-          flatString(`${rel}: has only ${alternates.size} hreflang entries (need 4 locales + x-default)`),
+        recordFailure(
+          'tooFew',
+          `${rel}: has only ${alternates.size} hreflang entries (need 4 locales + x-default)`,
         );
       }
 
@@ -258,7 +299,7 @@ async function main() {
         if (error) {
           // flatString: `error` embeds `href` (and slices of it), which are
           // captures INTO the page HTML — see the block above `failures`.
-          failures.invalidPair.push(flatString(`${rel}: ${error}`));
+          recordFailure('invalidPair', `${rel}: ${error}`);
         }
       }
 
@@ -266,8 +307,9 @@ async function main() {
       const itHref = alternates.get('it');
       const xDefault = alternates.get('x-default');
       if (itHref && xDefault && normaliseHref(itHref) !== normaliseHref(xDefault)) {
-        failures.xDefaultMismatch.push(
-          flatString(`${rel}: x-default "${xDefault}" does not match IT hreflang "${itHref}"`),
+        recordFailure(
+          'xDefaultMismatch',
+          `${rel}: x-default "${xDefault}" does not match IT hreflang "${itHref}"`,
         );
       }
 
@@ -275,9 +317,7 @@ async function main() {
       for (const [hreflang, href] of alternates) {
         if (!href.startsWith(BASE_URL)) continue;
         if (!targetExists(href, distFiles)) {
-          failures.missingTarget.push(
-            flatString(`${rel}: hreflang="${hreflang}" target not found in dist/ (${href})`),
-          );
+          recordFailure('missingTarget', `${rel}: hreflang="${hreflang}" target not found in dist/ (${href})`);
         }
       }
     }
@@ -295,6 +335,34 @@ async function main() {
     failures.invalidPair.length +
     failures.xDefaultMismatch.length +
     failures.missingTarget.length;
+  const totalHistoricalFailures = historicalFailures.missingTarget.length;
+  const historicalFailureRate = historicalPagesWithFailure.size / Math.max(withHreflang, 1);
+  const historicalCorpusRate = historicalPagesWithFailure.size / Math.max(scanned, 1);
+
+  const historical = {
+    pagesWithHreflang: historicalPagesWithHreflang.size,
+    pagesWithMissingTargets: historicalPagesWithFailure.size,
+    missingTargetIssues: totalHistoricalFailures,
+    rateOfPagesWithHreflang: historicalFailureRate,
+    rateOfScannedCorpus: historicalCorpusRate,
+    byFeature: { missingTarget: totalHistoricalFailures },
+  };
+
+  if (totalHistoricalFailures > 0) {
+    console.warn(
+      `audit-hreflang: ADVISORY — ${totalHistoricalFailures} missing-target issue(s) across ` +
+      `${historicalPagesWithFailure.size} noindex historical page(s); ` +
+      `${(historicalFailureRate * 100).toFixed(4)}% of ${withHreflang} pages with hreflang ` +
+      `(${(historicalCorpusRate * 100).toFixed(4)}% of ${scanned} scanned pages). ` +
+      'Measured for the reassembled post-deploy corpus; not a blocking defect.',
+    );
+    for (const msg of historicalFailures.missingTarget.slice(0, 50)) {
+      console.warn(`  - ${msg}`);
+    }
+    if (totalHistoricalFailures > 50) {
+      console.warn(`  ... and ${totalHistoricalFailures - 50} more`);
+    }
+  }
 
   // Flatten failures to the shared offender schema. Each failure msg starts
   // with "<relPath>: ..." so the page is the first colon-segment.
@@ -329,7 +397,7 @@ async function main() {
       threshold: { metric: 'count', value: 0, comparator: '<=' },
       offenders: _structuredOffenders,
       byFeature: _byFeature,
-      extra: { sampling },
+      extra: { sampling, historical },
     });
     process.exit(0);
   }
@@ -354,12 +422,22 @@ async function main() {
     threshold: { metric: 'count', value: 0, comparator: '<=' },
     offenders: _structuredOffenders,
     byFeature: _byFeature,
-    extra: { sampling },
+    extra: { sampling, historical },
   });
   process.exit(1);
 }
 
-main().catch((err) => {
-  console.error('audit-hreflang: fatal', err);
-  process.exit(2);
-});
+const invokedDirectly = (() => {
+  try {
+    return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href;
+  } catch {
+    return false;
+  }
+})();
+
+if (invokedDirectly) {
+  main().catch((err) => {
+    console.error('audit-hreflang: fatal', err);
+    process.exit(2);
+  });
+}
