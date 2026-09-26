@@ -6749,6 +6749,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.portali-cv-lucerna.title': 'Arbeitssuche in der Schweiz: Leitfaden 2026 für Luzern',
     'blog.article.portali-cv-lucerna.excerpt': 'Jobportale, Lebenslauf, Vorstellungsgespräch und Bewilligungen: der Leitfaden 2026 für die Arbeitssuche in der Schweiz, mit Schwerpunkt auf Luzern und einem landesweiten Vergleich.',
     'blog.article.portali-cv-lucerna.imageAlt': 'Stellensuchende prüft einen Schweizer Lebenslauf in einem Büroviertel in Luzern.',
+    'blog.article.keiser-stop-promozione-zugo.title': 'Zug: Stopp Wirtschaftsförderung, 272 Wohnungen unter 1800 Franken',
+    'blog.article.keiser-stop-promozione-zugo.excerpt': 'Urban Keiser (Korporation Zug) fordert, die Wirtschaftsförderung zu stoppen: unhaltbares Wachstum, Mieten auf astronomischem Niveau. 272 Wohnungen für <1800 CHF, lange Warteliste. Wahlen 4 ottobre.',
+    'blog.article.keiser-stop-promozione-zugo.imageAlt': 'Luftaufnahme von Zug mit See, Bergen und Baustellen',
 };
 
 export default blogMetaChDe;

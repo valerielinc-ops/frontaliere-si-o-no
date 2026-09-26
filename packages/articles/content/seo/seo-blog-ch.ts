@@ -87497,6 +87497,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-keiser-stop-promozione-zugo': {
+    title: 'Zugo: stop promozione economica, 272 alloggi sotto 1800 franchi',
+    description: 'Urban Keiser, presidente Korporation Zug, chiede stop promozione economica: crescita 50% in 20 anni, affitti insostenibili. 272 alloggi a <1800 CHF, criteri',
+    keywords: 'frontalieri, ticino, svizzera, italia, zugo, stop, promozione, economica',
+    ogTitle: 'Zugo: stop promozione economica, 272 alloggi accessibili sotto 1800 franchi',
+    ogDescription: 'Il presidente della Korporation Zug Urban Keiser lancia l\'allarme: la promozione economica va fermata perché la crescita ha reso gli affitti intollerabili. La corporazione costruisce 272 appartamenti a meno di 1800 franchi per 3,5 locali, ma la lista',
+    canonicalPath: '/articoli-svizzera/keiser-stop-promozione-zugo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Zugo: stop promozione economica, 272 alloggi sotto 1800 franchi",
+      "description": "Urban Keiser, presidente Korporation Zug, chiede stop promozione economica: crescita 50% in 20 anni, affitti insostenibili. 272 alloggi a <1800 CHF, criteri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/keiser-stop-promozione-zugo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea di Zugo con lago, montagne e cantieri edili"
+      },
+      "datePublished": "2026-09-26T05:15:31+00:00",
+      "dateModified": "2026-09-26T05:15:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/keiser-stop-promozione-zugo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -6749,6 +6749,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.portali-cv-lucerna.title': 'Looking for work in Switzerland: 2026 guide to Lucerne',
     'blog.article.portali-cv-lucerna.excerpt': 'Job portals, CV, interviews and permits: the 2026 guide to looking for work in Switzerland, with a focus on Lucerne and a nationwide comparison.',
     'blog.article.portali-cv-lucerna.imageAlt': 'Job seeker reviews a Swiss CV in an office district in Lucerne.',
+    'blog.article.keiser-stop-promozione-zugo.title': 'Zug: economic promotion halted, 272 apartments under 1800 francs',
+    'blog.article.keiser-stop-promozione-zugo.excerpt': 'Urban Keiser (Korporation Zug) calls for an end to economic promotion: unsustainable growth, skyrocketing rents. 272 homes at <1800 CHF, long waiting list. Elections 4 October.',
+    'blog.article.keiser-stop-promozione-zugo.imageAlt': 'Aerial view of Zug with lake, mountains and construction sites',
 };
 
 export default blogMetaChEn;

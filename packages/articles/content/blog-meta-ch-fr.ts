@@ -6749,6 +6749,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.portali-cv-lucerna.title': 'Chercher un emploi en Suisse : guide 2026 de Lucerne',
     'blog.article.portali-cv-lucerna.excerpt': 'Portails, CV, entretien et permis : le guide 2026 pour chercher du travail en Suisse, avec un focus sur Lucerne et une comparaison nationale.',
     'blog.article.portali-cv-lucerna.imageAlt': 'Une personne consulte un CV suisse dans un quartier de bureaux à Lucerne.',
+    'blog.article.keiser-stop-promozione-zugo.title': 'Zoug : fin de la promotion économique, 272 logements à moins de 1800 francs',
+    'blog.article.keiser-stop-promozione-zugo.excerpt': 'Urban Keiser (Korporation Zug) demande d\'arrêter la promotion économique : croissance insoutenable, loyers aux étoiles. 272 logements à <1800 CHF, longue liste d\'attente. Élections du 4 octobre.',
+    'blog.article.keiser-stop-promozione-zugo.imageAlt': 'Vue aérienne de Zoug avec lac, montagnes et chantiers',
 };
 
 export default blogMetaChFr;

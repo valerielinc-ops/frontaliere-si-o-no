@@ -20273,6 +20273,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'keiser-stop-promozione-zugo',
+    category: 'novita',
+    date: '2026-09-26T05:15:31.893Z',
+    image: '/images/blog/keiser-stop-promozione-zugo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
