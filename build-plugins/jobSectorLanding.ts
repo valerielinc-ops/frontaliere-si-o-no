@@ -407,6 +407,21 @@ const INTRA_FIELD_SEP = '(?:[^\\S\\n]|[-–—/_.]){1,3}';
  */
 const CYBER_QUALIFIER_SRC = '(?:\\binformation|\\bit\\b|\\bcloud|\\bnetwork|\\bcyber)';
 
+/**
+ * Qualifiers that turn a security-system phrase into cyber or occupational
+ * safety terminology. The same veto is applied to every language-specific
+ * physical-systems alternative below: otherwise a new qualifier can turn
+ * only one locale into a duplicate landing.
+ */
+const SECURITY_SYSTEM_PREFIX_VETO_SRC =
+  `(?:${CYBER_QUALIFIER_SRC}|\\binformations?|\\barbeit(?:s)?)`;
+const SECURITY_SYSTEM_SUFFIX_VETO_SRC =
+  `(?:${CYBER_QUALIFIER_SRC}|informat\\w*`
+  + `|(?:sul|sulla|del)${INTRA_FIELD_SEP}lavoro`
+  + `|(?:au|du)${INTRA_FIELD_SEP}travail`
+  + `|arbeit\\w*`
+  + `|(?:am|zur|f[uü]r)${INTRA_FIELD_SEP}arbeit\\w*)`;
+
 export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   infermieri: /infermier|infermiere|pfleger|pflegepersonal|pflegefach|krankenpfleg|krankensch|nurse|nursing|infirmier|infirmi[eè]re/i,
   // NOTE: do NOT add 3-letter abbreviations like \bris\b or \blis\b here —
@@ -540,9 +555,15 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
     // alarms). They are physical-security jobs even when the title has no
     // guard/officer noun (#9938); keep the phrases explicit so generic
     // occupational-safety and cyber titles remain out of this hub.
-    + '|\\bsistem[ai]' + INTRA_FIELD_SEP + 'di' + INTRA_FIELD_SEP + 'sicurezza'
-    + '|\\bsicherheits(?:systeme?|technik)\\b'
-    + '|\\bsyst[eè]mes?' + INTRA_FIELD_SEP + 'de' + INTRA_FIELD_SEP + 's[eé]curit[eé]'
+    + `|(?<!${SECURITY_SYSTEM_PREFIX_VETO_SRC}${INTRA_FIELD_SEP})`
+      + '\\bsistem[ai]' + INTRA_FIELD_SEP + 'di' + INTRA_FIELD_SEP + 'sicurezza'
+      + `(?!${INTRA_FIELD_SEP}${SECURITY_SYSTEM_SUFFIX_VETO_SRC})`
+    + `|(?<!${SECURITY_SYSTEM_PREFIX_VETO_SRC}${INTRA_FIELD_SEP})`
+      + '\\bsicherheits(?:systeme?|technik)\\b'
+      + `(?!${INTRA_FIELD_SEP}${SECURITY_SYSTEM_SUFFIX_VETO_SRC})`
+    + `|(?<!${SECURITY_SYSTEM_PREFIX_VETO_SRC}${INTRA_FIELD_SEP})`
+      + '\\bsyst[eè]mes?' + INTRA_FIELD_SEP + 'de' + INTRA_FIELD_SEP + 's[eé]curit[eé]'
+      + `(?!${INTRA_FIELD_SEP}${SECURITY_SYSTEM_SUFFIX_VETO_SRC})`
     + '|\\bphysical' + INTRA_FIELD_SEP + 'security'
     + '|\\bsorvegli',
     'i',

@@ -273,6 +273,23 @@ describe('jobSectorLanding — sector match regex', () => {
     }
   });
 
+  it('vieta i qualificatori cyber e di sicurezza sul lavoro nei sistemi fisici (#9954)', () => {
+    for (const title of [
+      'Sistemi di sicurezza informatica',
+      'Sistemi di sicurezza sul lavoro',
+      'IT-Sicherheitstechnik',
+      'Arbeits-Sicherheitstechnik',
+      'Sicherheitstechnik für Arbeitssicherheit',
+      'systèmes de sécurité informatique',
+      'Systèmes de sécurité au travail',
+    ]) {
+      expect(jobMatchesSector({ title }, 'sicurezza'), `non fisica: ${title}`).toBe(false);
+    }
+
+    expect(jobMatchesSector({ title: 'Sistemi di sicurezza informatica' }, 'cybersecurity')).toBe(true);
+    expect(jobMatchesSector({ title: 'Sistemi di sicurezza fisica' }, 'sicurezza')).toBe(true);
+  });
+
   // ── Il separatore non e' sempre uno spazio singolo (follow-up di #7496) ──
   //
   // Il lookbehind di `sicurezza` esiste per impedire che UNO stesso annuncio
