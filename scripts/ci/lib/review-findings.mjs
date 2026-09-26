@@ -305,30 +305,54 @@ export function changedLinesFromPatch(patch) {
  * nel bundle. `open` = ancora da chiudere, `confirmed` = già confermato con
  * `Fix di ...: ok`. Il reviewer riceve gli id stabili, quindi può riportare un
  * rilievo aperto senza riscriverlo e non ha motivo di duplicarne uno chiuso.
+ *
+ * `needs-verification` (#9968, #9965) = ancora aperto per il gate, ma una
+ * review approvante successiva ha scritto `Fix di` sullo stesso path, a una
+ * riga che il gate non ha saputo accoppiare. Presentato come `open`, il
+ * reviewer lo ricopiava senza aprire il file, anche con le guardie gia'
+ * presenti all'HEAD. Lo stato chiede la verifica sul codice attuale; il gate
+ * resta com'e', quindi un rilievo vero non si chiude per silenzio.
+ * `needsVerification` e' facoltativo: chi non lo passa (il corpus, o una
+ * policy pinnata precedente) ottiene esattamente il ledger di prima.
  */
 export const LEDGER_MAX_ENTRIES = 40;
 
-export function renderFindingsLedger({ open = [], confirmed = [] } = {}) {
+export const LEDGER_NEEDS_VERIFICATION = 'needs-verification';
+
+export function renderFindingsLedger({ open = [], confirmed = [], needsVerification = [] } = {}) {
   const lines = [];
-  const uniqueOpen = dedupeFindingsById(open);
+  const uniqueToVerify = dedupeFindingsById(needsVerification);
+  const verifyIds = new Set(uniqueToVerify.map(stableFindingId));
+  const uniqueOpen = dedupeFindingsById(open)
+    .filter((finding) => !verifyIds.has(stableFindingId(finding)));
   const openIds = new Set(uniqueOpen.map(stableFindingId));
   const allConfirmed = dedupeFindingsById(confirmed)
-    .filter((finding) => !openIds.has(stableFindingId(finding)));
-  // Il ledger finisce nel bundle che il reviewer legge: gli `open` non si
-  // tagliano mai (sono lavoro dovuto), i `confirmed` sì, perché servono solo a
-  // non far rialzare un rilievo chiuso e una coda lunga costerebbe contesto
-  // senza cambiare il verdetto.
-  const budget = Math.max(0, LEDGER_MAX_ENTRIES - uniqueOpen.length);
-  const uniqueConfirmed = allConfirmed.slice(-budget);
+    .filter((finding) => !openIds.has(stableFindingId(finding))
+      && !verifyIds.has(stableFindingId(finding)));
+  // Il ledger finisce nel bundle che il reviewer legge: gli `open` e i
+  // `needs-verification` non si tagliano mai (sono lavoro dovuto), i
+  // `confirmed` sì, perché servono solo a non far rialzare un rilievo chiuso
+  // e una coda lunga costerebbe contesto senza cambiare il verdetto. Con il
+  // budget esaurito `slice(-0)` restituirebbe l'intera coda, non zero voci.
+  const budget = Math.max(0, LEDGER_MAX_ENTRIES - uniqueOpen.length - uniqueToVerify.length);
+  const uniqueConfirmed = budget > 0 ? allConfirmed.slice(-budget) : [];
   const dropped = allConfirmed.length - uniqueConfirmed.length;
-  if (uniqueOpen.length === 0 && uniqueConfirmed.length === 0) {
+  if (uniqueOpen.length === 0 && uniqueToVerify.length === 0 && uniqueConfirmed.length === 0) {
     return 'Nessun finding Important storico: questa è la prima review utile.';
   }
   lines.push('Ogni voce porta il suo id stabile `(path, simbolo, classe)`, invariante alla riga.');
   lines.push('Riporta un `open` con lo STESSO id e testo; non rialzare un `confirmed`.');
+  if (uniqueToVerify.length > 0) {
+    lines.push(`Un \`${LEDGER_NEEDS_VERIFICATION}\` è aperto per il gate, ma una review approvante successiva ha confermato un fix sullo stesso file: `
+      + 'apri l’anchor all’HEAD e verifica. Se il fix c’è scrivi `` Fix di `path:L<riga attuale>`: ok. ``; '
+      + 'ripresentalo come 🔴 solo con evidenza dal codice attuale, mai ricopiandolo.');
+  }
   lines.push('');
   for (const finding of uniqueOpen) {
     lines.push(`- \`${stableFindingId(finding)}\` **open** — ${firstLine(finding)}`);
+  }
+  for (const finding of uniqueToVerify) {
+    lines.push(`- \`${stableFindingId(finding)}\` **${LEDGER_NEEDS_VERIFICATION}** — ${firstLine(finding)}`);
   }
   for (const finding of uniqueConfirmed) {
     lines.push(`- \`${stableFindingId(finding)}\` **confirmed-fixed** — ${firstLine(finding)}`);

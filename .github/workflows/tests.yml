@@ -2736,6 +2736,44 @@ jobs:
           if [ -n "$lastRev" ] && [ "$lastRev" != "$HEAD_SHA" ]; then
             delta_code=$("$TRUSTED_GH_BIN" api "repos/$REPO/compare/$lastRev...$HEAD_SHA" --jq '.files[] | .filename, (.previous_filename // empty)' 2>/dev/null \
               | grep -Fxf <(echo "$code_files") || true)
+            # Il compare 2-dot vede anche il codice che main ha portato con un
+            # merge di autorebase: su #9968 (review 5327152883) #9947 e #9949
+            # toccavano `services/locales/*-core.ts`, gli stessi file della
+            # PR, quindi `delta_code` usciva non vuoto e il tier diventava
+            # `incremental` senza mai confrontare il contributo, che era
+            # identico riga per riga. Il fingerprint del contributo (3-dot vs
+            # merge-base, righe +/- dei soli file code: la stessa funzione del
+            # review gate) si confronta quindi PRIMA del delta, come fa gia' il
+            # guard del corpus. Identico → il verdetto precedente si riusa:
+            # LGTM → carry-forward senza modello, verdetto non approvante →
+            # minimal che riporta i 🔴 aperti. Fingerprint diverso o non
+            # calcolabile (NULL, errore) → si prosegue come prima: nel dubbio
+            # si fa la review.
+            fp_head=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$HEAD_SHA" 2>/dev/null || echo NULL)
+            fp_prior=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$lastRev" 2>/dev/null || echo NULL)
+            carry=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp 2>/dev/null \
+              | node "$REVIEW_POLICY_ROOT/scripts/ci/lib/review-carry-forward.mjs" decide --head "$HEAD_SHA" --prior-commit "$lastRev" \
+                  --fp-head "$fp_head" --fp-prior "$fp_prior" || echo 'carry_tier=full')
+            carry_tier=$(printf '%s\n' "$carry" | sed -n 's/^carry_tier=//p' | tail -n 1)
+            if [ -n "$delta_code" ]; then
+              carry_what="delta-code portato dalla base ($(echo "$delta_code" | grep -c .) file PR nel compare)"
+            else
+              carry_what="nessun delta-code"
+            fi
+            case "$carry_tier" in
+              carry-forward)
+                printf '%s\n' "$carry" | grep -E '^carry_(prior_review|prior_commit|fingerprint)=' >> "$GITHUB_OUTPUT"
+                echo "Contributo CODE identico alla review LGTM su $lastRev ($carry_what) → carry-forward senza modello."
+                set_tier carry-forward none 0
+                exit 0
+                ;;
+              minimal)
+                echo "code_unchanged_since=$lastRev" >> "$GITHUB_OUTPUT"
+                echo "Contributo CODE identico a un verdetto non approvante su $lastRev ($carry_what) → tier minimal (body + 🔴 riportati)."
+                set_tier minimal gpt-5.6-luna 12
+                exit 0
+                ;;
+            esac
             if [ -n "$delta_code" ]; then
               echo "incremental_base=$lastRev" >> "$GITHUB_OUTPUT"
               echo "Incremental re-review: solo il delta dei file PR da $lastRev:"; echo "$delta_code"
@@ -2751,33 +2789,10 @@ jobs:
               fi
               exit 0
             fi
-            # Nessun file code della PR e' cambiato dall'ultima review: merge
-            # di main, commit vuoto o sola metadata. Se anche il fingerprint
-            # del contributo (3-dot vs merge-base, righe +/- dei soli file
-            # code: la stessa funzione del review gate) e' identico, il
-            # verdetto precedente si riusa: LGTM → carry-forward senza modello,
-            # verdetto non approvante → minimal che riporta i 🔴 aperti.
-            # Fingerprint non calcolabile o diverso → review piena, come prima.
-            fp_head=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$HEAD_SHA" 2>/dev/null || echo NULL)
-            fp_prior=$(node "$REVIEW_POLICY_ROOT/scripts/ci/pr-contribution-fingerprint.mjs" "$lastRev" 2>/dev/null || echo NULL)
-            carry=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp 2>/dev/null \
-              | node "$REVIEW_POLICY_ROOT/scripts/ci/lib/review-carry-forward.mjs" decide --head "$HEAD_SHA" --prior-commit "$lastRev" \
-                  --fp-head "$fp_head" --fp-prior "$fp_prior" || echo 'carry_tier=full')
-            carry_tier=$(printf '%s\n' "$carry" | sed -n 's/^carry_tier=//p' | tail -n 1)
-            case "$carry_tier" in
-              carry-forward)
-                printf '%s\n' "$carry" | grep -E '^carry_(prior_review|prior_commit|fingerprint)=' >> "$GITHUB_OUTPUT"
-                echo "Nessun delta-code e contributo identico alla review LGTM su $lastRev → carry-forward senza modello."
-                set_tier carry-forward none 0
-                exit 0
-                ;;
-              minimal)
-                echo "code_unchanged_since=$lastRev" >> "$GITHUB_OUTPUT"
-                echo "Nessun delta-code e contributo identico a un verdetto non approvante su $lastRev → tier minimal (body + 🔴 riportati)."
-                set_tier minimal gpt-5.6-luna 12
-                exit 0
-                ;;
-            esac
+            # Nessun file code della PR e' cambiato dall'ultima review (merge
+            # di main, commit vuoto o sola metadata), ma il carry sopra non si
+            # e' applicato: fingerprint non calcolabile o cambiato, oppure
+            # l'ultimo verdetto non e' su $lastRev → review piena, come prima.
             echo "Nessun delta-code nei file PR dall'ultima review, ma contributo non verificabile o cambiato → review piena."
           fi
 
@@ -2900,15 +2915,30 @@ jobs:
           // per scope o per riga non cambiata non è stato confermato da
           // nessuno, e marcarlo chiuso autorizzerebbe il reviewer a
           // sopprimere un rilievo ancora valido.
+          // `needsVerification` (sottoinsieme di `open`): 🔴 ancora aperti per
+          // il gate su cui una review approvante successiva ha scritto `Fix di`
+          // sullo stesso path. Nel bundle non sono `open` da ricopiare
+          // (#9968, review 5327152883) ma rilievi da verificare all'HEAD. Una
+          // policy pinnata che non lo espone ancora lascia tutto `open`.
           if (findings && gate.partitionHistoricalImportantFindings) {
-            const { open, confirmed } = gate.partitionHistoricalImportantFindings(reviews, { includeLatest: true });
-            console.log(findings.renderFindingsLedger({ open, confirmed }));
+            const partition = gate.partitionHistoricalImportantFindings(reviews, { includeLatest: true });
+            const { open, confirmed } = partition;
+            const needsVerification = Array.isArray(partition.needsVerification) ? partition.needsVerification : [];
+            console.log(findings.renderFindingsLedger({ open, confirmed, needsVerification }));
             console.log('');
+            const toVerify = new Set(needsVerification.map((finding) => findings.stableFindingId(finding)));
+            const hints = new Map(needsVerification.map((finding) => [findings.stableFindingId(finding), finding.verificationHint]));
             for (const finding of open) {
               const anchors = finding.citations.map((citation) =>
                 `${citation.path}${citation.line ? `:L${citation.line}` : ''}`,
               ).join(', ');
-              console.log(`- Open Important \`${findings.stableFindingId(finding)}\` (${anchors || 'anchor non risolvibile'}):`);
+              const id = findings.stableFindingId(finding);
+              if (toVerify.has(id)) {
+                const hint = hints.get(id) || {};
+                console.log(`- Important da verificare all'HEAD \`${id}\` (${anchors || 'anchor non risolvibile'}; review approvante ${hint.reviewId || '?'} ha confermato un fix su \`${hint.path || '?'}\`):`);
+              } else {
+                console.log(`- Open Important \`${id}\` (${anchors || 'anchor non risolvibile'}):`);
+              }
               console.log(finding.text);
               console.log('');
             }
@@ -3008,7 +3038,7 @@ jobs:
             echo
             if [ -n "${CODE_UNCHANGED_SINCE:-}" ]; then
               echo "## Code contribution unchanged"
-              echo "The PR code contribution is identical to the one reviewed at ${CODE_UNCHANGED_SINCE} (same contribution fingerprint, no PR code file changed since). This is a body-only re-review: judge only the PR body, carry every historical code Important below verbatim with its anchor, and never write \`Fix di\` for a code anchor unless \`## Risposta del 🔴-fixer\` below answers that finding: then judge that answer as REVIEW.md «Re-review convergence» requires."
+              echo "The PR code contribution is identical to the one reviewed at ${CODE_UNCHANGED_SINCE} (same contribution fingerprint, no PR code file changed since). This is a body-only re-review: judge only the PR body, carry every historical code Important marked \`open\` below verbatim with its anchor, and never write \`Fix di\` for a code anchor unless \`## Risposta del 🔴-fixer\` below answers that finding (then judge that answer as REVIEW.md «Re-review convergence» requires) or the ledger marks it \`needs-verification\` (then verify it at HEAD)."
               echo
             fi
             echo "## Deterministic body contract"
@@ -3211,9 +3241,9 @@ jobs:
 
             The deterministic review bundle is already prepared in `${{ runner.temp }}/review-ctx/`: `review-bundle.md` is the primary input and includes PR metadata, historical open Important findings with their path+line anchors, the review-scoped code-file list, code-only diff, incremental delta (when present), and sibling signal. Generated data/static paths are intentionally omitted from the bundle. Read it before using GitHub or repository tools. Do not repeat `gh pr view`, `gh pr diff`, or `gh api compare` unless the bundle explicitly reports that a section is incomplete.
 
-            If `INCREMENTAL_BASE` is set, review only the delta and its interactions, but do not treat the prior Codex review as permission to erase an open Important finding. The bundle's historical section is authoritative: when the bundle has `## Risposta del 🔴-fixer`, first judge every answered finding as REVIEW.md «Re-review convergence» requires; otherwise, if a cited anchor is unchanged or the delta is only a base alignment, carry that finding into this review with the same path and line and do not append `## LGTM`; if the cited code was actually fixed, write `Fix di \`path:L<line>\`: ok.` for every cited anchor before allowing `Important: 0` and `## LGTM`. For an Important without a file citation, carry it unless it is explicitly resolved with `Fix di \`<normalized finding text>\`: ok.` (omit inner backticks). A merge-only delta can never resolve a prior Important by silence. If the bundle says the code contribution is unchanged, post a short review only when the historical section has no open Important findings.
+            If `INCREMENTAL_BASE` is set, review only the delta and its interactions, but do not treat the prior Codex review as permission to erase an open Important finding. The bundle's historical section is authoritative: when the bundle has `## Risposta del 🔴-fixer`, first judge every answered finding as REVIEW.md «Re-review convergence» requires; otherwise, for a ledger entry marked `open`, if a cited anchor is unchanged or the delta is only a base alignment, carry that finding into this review with the same path and line and do not append `## LGTM` (aligning the base never closes a real open Important); if the cited code was actually fixed, write `Fix di \`path:L<line>\`: ok.` for every cited anchor before allowing `Important: 0` and `## LGTM`. A ledger entry marked `needs-verification` is still open for the gate, but a later approving review already confirmed a fix on the same file: do not copy it forward. Open its anchor at HEAD and check the current code; if the fix is there, write `Fix di \`path:L<current line>\`: ok.`; raise it again as `🔴 Important` only with evidence from the current code (the line that still fails), never by copying the historical text. For an Important without a file citation, carry it unless it is explicitly resolved with `Fix di \`<normalized finding text>\`: ok.` (omit inner backticks). A merge-only delta can never resolve a prior Important by silence. If the bundle says the code contribution is unchanged, post a short review only when the historical section has no open Important findings.
 
-            If the bundle has a `## Code contribution unchanged` section, the code has not changed since that review: re-judge only the PR body, carry every historical code Important verbatim with the same path and line, never write `Fix di` for a code anchor unless `## Risposta del 🔴-fixer` answers that finding (then judge the answer as REVIEW.md requires), and resolve a PR-body Important only when the current body fixes it.
+            If the bundle has a `## Code contribution unchanged` section, the code has not changed since that review: re-judge only the PR body, carry every historical code Important marked `open` verbatim with the same path and line, never write `Fix di` for a code anchor unless `## Risposta del 🔴-fixer` answers that finding (then judge the answer as REVIEW.md requires) or the ledger marks it `needs-verification` (then verify it at HEAD as described above), and resolve a PR-body Important only when the current body fixes it.
 
             If the bundle identifies a historical Important on the PR body with an anchor `PR body:L<n>`, its resolution MUST be written exactly as `Fix di \`PR body:L<n>\`: ok.` (one line per anchor), before `Important: 0` and `## LGTM`; never replace that metadata anchor with a prose paraphrase. For an Important without a file or PR-body anchor, use the normalized finding text required above, inside the confirmation backticks.
 

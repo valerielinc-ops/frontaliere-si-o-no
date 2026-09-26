@@ -1,4 +1,8 @@
-import { readFileSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
+import { chmodSync, mkdirSync, mkdtempSync, readFileSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 import {
@@ -243,5 +247,156 @@ describe('tests.yml wiring', () => {
   it('feeds the guard with the body edit time', () => {
     expect(byId('guard')?.run).toContain('lastEditedAt');
     expect(byId('guard')?.run).toContain('--body-edited-at');
+  });
+});
+
+// Replay del tier step di `tests.yml` con il suo bash vero: fetch, compare e
+// fingerprint sono stub, `review-carry-forward.mjs decide` e i filtri jq sono
+// quelli reali. Caso #9968 (review 5327152883 sull'head 3b348916): un merge di
+// autorebase porta #9947/#9949, che toccano `services/locales/*-core.ts`, gli
+// stessi file della PR. Il compare dall'ultima review vede quindi 4 file code
+// della PR, ma il contributo è identico: il tier deve riusare il verdetto.
+describe('tier step: fingerprint before the code delta (#9968)', () => {
+  const workflow = YAML.parse(readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8'));
+  const job = workflow.jobs.vitest as { env: Record<string, string>; steps: Array<{ id?: string; run?: string }> };
+  const tierRun = job.steps.find((step) => step.id === 'tier')?.run || '';
+  const libDir = fileURLToPath(new URL('../scripts/ci/lib', import.meta.url));
+  const pages = JSON.parse(readFileSync(new URL('./fixtures/review-replay/pr-9968-reviews.json', import.meta.url), 'utf8')) as Array<Array<{ id: number; commit_id: string; submitted_at: string }>>;
+  const HEAD_9968 = '3b348916e69d99a4c7d3b04e630a1eac0a4614de';
+  const PRIOR_9968 = 'ed4e4abe62331a754663be9bb8a9fd491e317316';
+  const PR_FILES = [
+    'components/community/JobBoard.tsx',
+    'components/community/RewardedApplicationOffer.tsx',
+    'services/assistedApplicationExperiment.ts',
+    'services/locales/de-core.ts',
+    'services/locales/en-core.ts',
+    'services/locales/fr-core.ts',
+    'services/locales/it-core.ts',
+    'services/offerwallClickGate.ts',
+    'services/rewardedApplicationAccess.ts',
+  ];
+  // Il compare 2-dot dopo il merge di main: i 4 locale della PR (toccati
+  // anche da #9947/#9949) più file che la PR non tocca.
+  const COMPARE_FILES = [
+    'services/locales/de-core.ts',
+    'services/locales/en-core.ts',
+    'services/locales/fr-core.ts',
+    'services/locales/it-core.ts',
+    'services/jobAlertsDigest.ts',
+    'data/jobs-stats-history.json',
+  ];
+
+  function runTier({ reviewPages, fps }: { reviewPages: unknown; fps: Record<string, string> }) {
+    const dir = mkdtempSync(join(tmpdir(), 'tier-replay-'));
+    try {
+      const ci = join(dir, 'policy', 'scripts', 'ci');
+      mkdirSync(ci, { recursive: true });
+      symlinkSync(libDir, join(ci, 'lib'));
+      writeFileSync(join(dir, 'reviews.json'), JSON.stringify(reviewPages));
+      writeFileSync(join(dir, 'compare.json'), JSON.stringify({ files: COMPARE_FILES.map((filename) => ({ filename })) }));
+      writeFileSync(join(ci, 'fps.json'), JSON.stringify(fps));
+      writeFileSync(join(ci, 'fetch-pr-files.mjs'), `process.stdout.write(JSON.stringify(${JSON.stringify({
+        files: PR_FILES, count: PR_FILES.length, expected: PR_FILES.length, complete: true,
+      })}));\n`);
+      writeFileSync(join(ci, 'review-test-policy.mjs'), [
+        "import { readFileSync } from 'node:fs';",
+        "if (process.argv[2] === 'filter') process.stdout.write(readFileSync(0, 'utf8'));",
+        'else process.exitCode = 1;',
+        '',
+      ].join('\n'));
+      writeFileSync(join(ci, 'pr-contribution-fingerprint.mjs'), [
+        "import { readFileSync } from 'node:fs';",
+        "const fps = JSON.parse(readFileSync(new URL('./fps.json', import.meta.url), 'utf8'));",
+        "process.stdout.write(`${fps[process.argv[2]] ?? 'NULL'}\\n`);",
+        '',
+      ].join('\n'));
+      writeFileSync(join(dir, 'gh.cjs'), [
+        "const { readFileSync } = require('node:fs');",
+        "const { execFileSync } = require('node:child_process');",
+        'const args = process.argv.slice(2);',
+        "const path = args[1] || '';",
+        "const jqAt = args.indexOf('--jq');",
+        'const jq = jqAt >= 0 ? args[jqAt + 1] : null;',
+        "const runJq = (value) => execFileSync('jq', ['-r', jq], { input: JSON.stringify(value), encoding: 'utf8' });",
+        'if (/\\/compare\\//.test(path)) {',
+        "  const compare = JSON.parse(readFileSync(`${__dirname}/compare.json`, 'utf8'));",
+        '  process.stdout.write(jq ? runJq(compare) : JSON.stringify(compare));',
+        '} else if (/\\/pulls\\/\\d+\\/reviews$/.test(path)) {',
+        "  const reviewPages = JSON.parse(readFileSync(`${__dirname}/reviews.json`, 'utf8'));",
+        "  if (args.includes('--slurp')) process.stdout.write(JSON.stringify(reviewPages));",
+        "  else process.stdout.write(reviewPages.map(runJq).join(''));",
+        '} else {',
+        '  process.exitCode = 1;',
+        '}',
+        '',
+      ].join('\n'));
+      const gh = join(dir, 'gh');
+      writeFileSync(gh, `#!/usr/bin/env bash\nexec node "${join(dir, 'gh.cjs')}" "$@"\n`);
+      chmodSync(gh, 0o755);
+      const output = join(dir, 'github-output');
+      writeFileSync(output, '');
+      const result = spawnSync('bash', ['-c', tierRun], {
+        encoding: 'utf8',
+        env: {
+          PATH: process.env.PATH,
+          HOME: process.env.HOME,
+          GITHUB_OUTPUT: output,
+          REVIEW_POLICY_ROOT: join(dir, 'policy'),
+          TRUSTED_GH_BIN: gh,
+          PR_NUMBER: '9968',
+          HEAD_SHA: HEAD_9968,
+          REPO: 'valerielinc-ops/frontaliere-si-o-no',
+          BODY_REREVIEW: '',
+          NONCODE_RE: job.env.NONCODE_RE,
+        },
+      });
+      const outputs: Record<string, string> = Object.fromEntries(readFileSync(output, 'utf8').split('\n').filter(Boolean)
+        .map((line) => [line.slice(0, line.indexOf('=')), line.slice(line.indexOf('=') + 1)]));
+      return { status: result.status, stdout: result.stdout, stderr: result.stderr, outputs };
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  }
+
+  const before = (at: string) => pages.map((page) => page.filter((entry) => entry.submitted_at < at));
+  const reviewsOneToFour = before('2026-09-26T19:30:00Z');
+  const SAME = 'a'.repeat(64);
+
+  it('replays #9968: 4 PR locale files in the compare, identical fingerprints, reviews 1-4 → carry-forward', () => {
+    const run = runTier({ reviewPages: reviewsOneToFour, fps: { [HEAD_9968]: SAME, [PRIOR_9968]: SAME } });
+    expect(run.status, run.stderr).toBe(0);
+    expect(run.outputs.tier).toBe('carry-forward');
+    expect(run.outputs.carry_prior_review).toBe('5327040158');
+    expect(run.outputs.carry_prior_commit).toBe(PRIOR_9968);
+    expect(run.outputs.incremental_base).toBeUndefined();
+    expect(run.stdout).toContain('delta-code portato dalla base (4 file PR nel compare)');
+  });
+
+  it('keeps the incremental review when the contribution fingerprint changed', () => {
+    const run = runTier({ reviewPages: reviewsOneToFour, fps: { [HEAD_9968]: SAME, [PRIOR_9968]: 'b'.repeat(64) } });
+    expect(run.status, run.stderr).toBe(0);
+    expect(run.outputs.tier).toBe('incremental');
+    expect(run.outputs.incremental_base).toBe(PRIOR_9968);
+    expect(run.outputs.carry_prior_review).toBeUndefined();
+  });
+
+  it.each([
+    ['the HEAD fingerprint is NULL', { [PRIOR_9968]: SAME }],
+    ['both fingerprints are NULL', {}],
+  ])('keeps the incremental review when %s', (_label, fps: Record<string, string>) => {
+    const run = runTier({ reviewPages: reviewsOneToFour, fps });
+    expect(run.status, run.stderr).toBe(0);
+    expect(run.outputs.tier).toBe('incremental');
+    expect(run.outputs.incremental_base).toBe(PRIOR_9968);
+  });
+
+  it('turns an identical contribution after a non-approving verdict into minimal, not incremental', () => {
+    const reviewsOneToTwo = before('2026-09-26T18:45:00Z');
+    const prior = reviewsOneToTwo.flat().at(-1)!.commit_id;
+    const run = runTier({ reviewPages: reviewsOneToTwo, fps: { [HEAD_9968]: SAME, [prior]: SAME } });
+    expect(run.status, run.stderr).toBe(0);
+    expect(run.outputs.tier).toBe('minimal');
+    expect(run.outputs.code_unchanged_since).toBe(prior);
+    expect(run.outputs.incremental_base).toBeUndefined();
   });
 });
