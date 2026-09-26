@@ -2268,6 +2268,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'cembra-vontobel-sede-baden-baar': { it: 'cembra-vontobel-sede-baden-baar', en: 'cembra-vontobel-relocation-baden-baar', de: 'cembra-vontobel-sitz-baden-baar', fr: 'cembra-vontobel-siege-baden-baar' },
  'carenze-medicinali-svizzera-2026': { it: 'carenze-medicinali-svizzera-2026', en: 'medicines-shortages-switzerland-2026', de: 'arzneimittel-mangel-schweiz-2026', fr: 'penurie-medicaments-suisse-2026' },
  'kof-consensus-forecast-pil-2026': { it: 'kof-consensus-forecast-pil-2026', en: 'kof-forecast-swiss-gdp-2026', de: 'kof-vorhersage-schweizer-bip-2026', fr: 'kof-prevision-pib-suisse-2026' },
+ 'voci-morgan-stanley-ubs': { it: 'voci-morgan-stanley-ubs', en: 'ubs-morgan-stanley-merger-rumors', de: 'ubs-morgan-stanley-fusionsgeruechte', fr: 'rumeurs-fusion-ubs-morgan-stanley' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
