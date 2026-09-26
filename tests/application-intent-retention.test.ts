@@ -6,11 +6,13 @@ const fake = vi.hoisted(() => {
     docs: Map<string, Record<string, unknown>>;
     commits: number;
     queryCalls: string[];
+    queryCutoffs: number[];
     deleted: string[];
   } = {
     docs: new Map(),
     commits: 0,
     queryCalls: [],
+    queryCutoffs: [],
     deleted: [],
   };
 
@@ -48,6 +50,7 @@ const fake = vi.hoisted(() => {
             },
             async get() {
               const cutoffMs = cutoff.toMillis();
+              state.queryCutoffs.push(cutoffMs);
               const rows = [...state.docs.entries()]
                 .filter(([, data]) => Object.prototype.hasOwnProperty.call(data, field))
                 .filter(([, data]) => {
@@ -114,13 +117,14 @@ import {
 
 const DAY = 86400000;
 const NOW = 1_800_000_000_000;
-const CUTOFF = NOW - 90 * DAY;
+const OLD_CREATED_AT = NOW - 190 * DAY;
 const functionsIndexSource = readFileSync(new URL('../functions/index.js', import.meta.url), 'utf8');
 
 function reset(entries: Array<[string, Record<string, unknown>]>) {
   fake.state.docs = new Map(entries);
   fake.state.commits = 0;
   fake.state.queryCalls = [];
+  fake.state.queryCutoffs = [];
   fake.state.deleted = [];
 }
 
@@ -133,12 +137,12 @@ describe('application-intent retention', () => {
 
   it('purges only demonstrably expired records and keeps the boundary fail-closed', async () => {
     reset([
-      ['expired', { expiresAt: fake.timestamp(CUTOFF - 1), createdAt: fake.timestamp(CUTOFF - 100 * DAY) }],
-      ['boundary', { expiresAt: fake.timestamp(CUTOFF) }],
-      ['future', { expiresAt: fake.timestamp(CUTOFF + 1) }],
-      ['legacy', { retentionUntil: fake.timestamp(CUTOFF - 1) }],
-      ['missing-expiry', { createdAt: fake.timestamp(CUTOFF - 100 * DAY) }],
-      ['invalid-expiry', { expiresAt: 'not-a-timestamp', createdAt: fake.timestamp(CUTOFF - 100 * DAY) }],
+      ['expired', { expiresAt: fake.timestamp(NOW - 1), createdAt: fake.timestamp(NOW - 100 * DAY) }],
+      ['boundary', { expiresAt: fake.timestamp(NOW) }],
+      ['future', { expiresAt: fake.timestamp(NOW + 1) }],
+      ['legacy', { retentionUntil: fake.timestamp(NOW - 1) }],
+      ['missing-expiry', { createdAt: fake.timestamp(OLD_CREATED_AT) }],
+      ['invalid-expiry', { expiresAt: 'not-a-timestamp', createdAt: fake.timestamp(OLD_CREATED_AT) }],
     ]);
 
     const result = await purgeExpiredApplicationIntents(90, NOW, fake.firestore() as never);
@@ -153,10 +157,21 @@ describe('application-intent retention', () => {
     expect(fake.state.docs.has('invalid-expiry')).toBe(true);
   });
 
+  it('uses the current time as the cutoff for absolute expiry fields', async () => {
+    const expiry = NOW;
+    reset([['expires-at-T', { expiresAt: fake.timestamp(expiry) }]]);
+
+    const result = await purgeExpiredApplicationIntents(90, expiry + 1, fake.firestore() as never);
+
+    expect(fake.state.queryCutoffs).toEqual([expiry + 1, expiry + 1]);
+    expect(result.purged).toBe(1);
+    expect(fake.state.docs.has('expires-at-T')).toBe(false);
+  });
+
   it('walks past one bounded page and is safe to retry', async () => {
     reset(Array.from({ length: APPLICATION_INTENT_RETENTION_PAGE_SIZE + 1 }, (_, index) => [
       `expired-${String(index).padStart(3, '0')}`,
-      { expiresAt: fake.timestamp(CUTOFF - 1) },
+      { expiresAt: fake.timestamp(NOW - 1) },
     ]));
 
     const first = await purgeExpiredApplicationIntents(90, NOW, fake.firestore() as never);

@@ -14,7 +14,6 @@ export const APPLICATION_INTENT_RETENTION_DAYS = 90;
 export const APPLICATION_INTENT_RETENTION_PAGE_SIZE = 450;
 export const APPLICATION_INTENT_RETENTION_MAX_PAGES = 20;
 
-const DAY_MS = 86400000;
 const EXPIRY_FIELDS = Object.freeze(['expiresAt', 'retentionUntil']);
 
 function timestampMillis(value) {
@@ -136,7 +135,10 @@ export async function purgeExpiredApplicationIntents(
   injectedDb,
 ) {
   validateRetentionInput(retentionDays, nowMs);
-  const cutoffMs = nowMs - retentionDays * DAY_MS;
+  // Both supported fields are absolute expiry timestamps. The retention
+  // window is applied when the record is written, so purge at the current
+  // time instead of aging the expiry a second time.
+  const cutoffMs = nowMs;
   const cutoff = admin.firestore.Timestamp.fromMillis(cutoffMs);
   const db = injectedDb || admin.firestore();
   const collection = db.collection(APPLICATION_INTENTS_COLLECTION);
