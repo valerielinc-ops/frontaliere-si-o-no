@@ -17,7 +17,7 @@
       "title": "Ergotherapeutin / Ergotherapeut Neuropsychiatrie - mit Perspektive Tiergestützte Therapie",
       "titleByLocale": {
         "it": "terapeuta professionale / neuropsichiatria occupazionale - con una prospettiva animale-assistito terapia",
-        "en": "Ergotherapeutin / Ergotherapeut Neuropsychiatrie - mit Perspektive Tiergestützte Therapie",
+        "en": "Occupational therapist / Occupational neuropsychiatry - with a perspective animal-assisted therapy",
         "de": "Ergotherapeutin / Ergotherapeut Neuropsychiatrie - mit Perspektive Tiergestützte Therapie",
         "fr": "Ergothérapie / neuropsychiatrie au travail - avec une perspective thérapie assistée par des animaux"
       },
@@ -95,7 +95,7 @@
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF Akutstation Psychose und Diagnostik",
       "titleByLocale": {
         "it": "Dipl. Infermieristica professionale / Dipl. Infermieristica specialista HF stazione acuta psicosi e diagnosi",
-        "en": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF Akutstation Psychose und Diagnostik",
+        "en": "Dipl. Nursing professional / Dipl. Nursing specialist HF acute station psychosis and diagnosis",
         "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF Akutstation Psychose und Diagnostik",
         "fr": "Infirmière diplômée Unité de soins aigus Psychose et diagnostics"
       },
@@ -162,8 +162,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "pdag-77995ec85c41",
@@ -437,7 +436,7 @@
       "title": "Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF Akutstation Psychose",
       "titleByLocale": {
         "it": "Infermiera laureata in Infermiere Infiocardio Psicosi Acuta del reparto",
-        "en": "Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF Akutstation Psychose",
+        "en": "Dipl. Care specialist HF / Dipl. Care professional HF acute station psychosis",
         "de": "Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF Akutstation Psychose",
         "fr": "Infirmière diplômée en HF Psychose aiguë du service"
       },
@@ -521,8 +520,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "pdag-1ae288edef32",
@@ -539,7 +537,7 @@
       "title": "Dipl. Pflegefachfrau Dipl. Pflegefachmann HF Semi-Akutstation",
       "titleByLocale": {
         "it": "Dipl. Specialista Dipl. Specialista HF Semi-Acute Station",
-        "en": "Dipl. Pflegefachfrau Dipl. Pflegefachmann HF Semi-Akutstation",
+        "en": "Dipl. Care specialist Dipl. Care specialist HF Semi-Acute Station",
         "de": "Dipl. Pflegefachfrau Dipl. Pflegefachmann HF Semi-Akutstation",
         "fr": "Dipl. Spécialiste des soins Dipl. Spécialiste des soins HF semi-acute Station"
       },
@@ -1031,7 +1029,7 @@
       "companyDomain": "pdag.ch",
       "title": "Dipl. Pflegefachfrau/ Pflegefachmann HF/FH Demenz/ Delir",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/ Pflegefachmann HF/FH Demenz/ Delir",
+        "it": "Dipl. Infermieristica professionale HF/FH Demenza/Delior",
         "en": "Dipl. Nursing professional HF/FH Dementia/Delior",
         "de": "Dipl. Pflegefachfrau/ Pflegefachmann HF/FH Demenz/ Delir",
         "fr": "Dipl. Démence/délai professionnel des soins infirmiers"
@@ -1110,7 +1108,7 @@
       "title": "Psychomotoriktherapeutin / Psychomotoriktherapeut",
       "titleByLocale": {
         "it": "Terapeuta psicomotore / terapeuta psicomotore",
-        "en": "Psychomotoriktherapeutin / Psychomotoriktherapeut",
+        "en": "Psychomotor therapist/psychomotor therapist",
         "de": "Psychomotoriktherapeutin / Psychomotoriktherapeut",
         "fr": "Psychomothérapeute/psychomothérapeute"
       },
@@ -1182,8 +1180,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "pdag-50f3a64c9ff9",
@@ -1704,7 +1701,7 @@
       "title": "Ergotherapeutin / Ergotherapeut",
       "titleByLocale": {
         "it": "Terapista occupazionale",
-        "en": "Ergotherapeutin / Ergotherapeut",
+        "en": "Occupational therapist",
         "de": "Ergotherapeutin / Ergotherapeut",
         "fr": "Ergothérapeute"
       },
@@ -1768,8 +1765,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "pdag-e3f33772def2",
@@ -2787,7 +2783,7 @@
         "it": "Dipl. Infermieristica professionale / Dipl. Infermieristica specialista HF principalmente servizio notturno psicosi acuta",
         "en": "Dipl. Nursing professional / Dipl. Nursing specialist HF mainly night service acute psychosis",
         "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF vorwiegend Nachtdienst Akutstation Psychose",
-        "fr": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF vorwiegend Nachtdienst Akutstation Psychose"
+        "fr": "Dipl. Professionnels des soins infirmiers / Dipl. Spécialiste des soins infirmiers HF principalement service de nuit psychose aiguë"
       },
       "description": "Zur Verstärkung unseres Teams suchen wir für die mehrheitlich offene Akutstation KPP-4 mit Schwerpunkt Psychose per sofort oder nach Vereinbarung Dich als\n\nAufgaben:\n• Du unterstützt und förderst im Rahmen der Nachtarbeit die sozialen Fähigkeiten und Fertigkeiten der Patientinnen und Patienten im milieutherapeutischen Setting\n\n• Du setzt den Pflegeprozess kompetent um und förderst die Gesundheit und die Ressourcen der Patientinnen und Patienten\n\n• In Krisensituationen handelst Du entsprechend kompetent und vermittelst den Patientinnen und Patienten Sicherheit\n\n• Du verstehst Dich als Teil eines interprofessionellen Behandlungsteams mit Verantwortung für die optimale Umsetzung des Konzepts sowie Leitbildes der PDAG\n\n• Du erhältst eine Akut-Zulage (bei Einsatz in zwei verschiedenen Diensten)\n\nAnforderungen:\n• Diplomierte Pflegefachperson (HF), vorzugsweise mit Berufserfahrung in der (Akut-) Psychiatrie\n\n• Du bist eine begeisterungsfähige Fachperson mit hoher Fach-, Sozial- sowie Selbstkompetenz und interessiert mit uns das Behandlungskonzept aktiv weiterzuentwickeln\n\n• Du verfügst über ein ressourcen- und lösungsorientiertes Pflegeverständnis\n\nWir bieten:\nUnsere Mitarbeitenden sind das Herz unseres Unternehmens. Genau deshalb bieten wir Ihnen auch sehr viel:\n\nWeiterbildungen werden bei uns stark gefördert. Ebenfalls investieren wir viel in den Teamzusammenhalt und bieten allen unseren Teams den Zugang zur Software \"Moodtalk\" an, mit der die Teamkommunikation gestärkt wird. Daneben bieten wir attraktive Vergünstigungen bei bekannten Marken wie Ikea, Zalando, Coop, Lidl und vielen mehr. Mitarbeitende, die mit den öffentlichen Verkehrsmitteln zu uns pendeln, erhalten am Ende des Jahres einen stattlichen Öko-Bonus ausbezahlt.\n\nZusätzlich bieten wir eine attraktive Pensionskassenlösung an. Auch die Work-Life-Balance wird bei uns gefördert: Wir sind jederzeit offen für Teilzeitarbeit und offerieren die Möglichkeit zum Ferienkauf.",
       "descriptionByLocale": {
@@ -4579,7 +4575,7 @@
       "companyDomain": "pdag.ch",
       "title": "Psychologin / Psychologe Ambulatorium",
       "titleByLocale": {
-        "it": "Psychologin / Psychologe Ambulatorium",
+        "it": "Psicologo/psicologo Ambulatorium",
         "en": "Psychologist/psychologist Ambulatorium",
         "de": "Psychologin / Psychologe Ambulatorium",
         "fr": "Psychologue/psychologue Ambulatoire"
@@ -4635,8 +4631,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "pdag-c6ced0282782",
@@ -4974,7 +4969,7 @@
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Akutstation KJP",
       "titleByLocale": {
         "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Akutstation KJP",
-        "en": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Akutstation KJP",
+        "en": "Dipl. Nursing professional / Dipl. Care specialist acute care unit KJP",
         "it": "Dipl. Infermieristica professionale / Dipl. Cura specialista unità di cura acuta KJP",
         "fr": "Dipl. Professionnels des soins infirmiers / Dipl. Unité de soins actifs KJP"
       },
