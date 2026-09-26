@@ -170,10 +170,20 @@ describe('cleanupUserDataForDeletedAccount', () => {
     const { cleanupUserDataForDeletedAccount, isAccountDeletedTombstone } = await import(
       '../functions/src/authAccountCleanup.js'
     );
+    const { isApplicationIntentAccountDeleted } = await import(
+      '../functions/src/applicationIntentPrivacy.js'
+    );
     const db = seedDeletedUser({
       [`petition_signatures/${UID}`]: {
         petitionId: 'stabio-dosso',
         uid: UID,
+      },
+      [`application_intents/intent-1`]: {
+        userId: UID,
+        email: EMAIL,
+        ip_anonymized: '198.51.100.0',
+        user_agent: 'browser-details-that-must-not-survive',
+        occurred_at: '2026-09-20T00:00:00.000Z',
       },
     });
 
@@ -183,6 +193,8 @@ describe('cleanupUserDataForDeletedAccount', () => {
     expect(result.tombstonedNewsletter).toBe(true);
     expect(result.tombstonedJobAlert).toBe(true);
     expect(result.deletedPetitionSignature).toBe(true);
+    expect(result.tombstonedApplicationIntents).toBe(1);
+    expect(result.tombstonedApplicationIntentAccount).toBe(true);
     expect(db.store[`petition_signatures/${UID}`]).toBeUndefined();
     expect(db.store[`users/${UID}`]).toBeUndefined();
     expect(db.store[`users/${UID}/savedJobs/job-a`]).toBeUndefined();
@@ -198,6 +210,15 @@ describe('cleanupUserDataForDeletedAccount', () => {
     expect(isAccountDeletedTombstone(jobAlert)).toBe(true);
     expect(jobAlert.status).toBe('inactive');
     expect(jobAlert.isActive).toBe(false);
+
+    expect(await isApplicationIntentAccountDeleted(db as never, UID)).toBe(true);
+    expect(db.store[`application_intents/intent-1`]).toEqual(expect.objectContaining({
+      userId: UID,
+      status: 'account_deleted',
+    }));
+    expect(db.store[`application_intents/intent-1`]).not.toHaveProperty('email');
+    expect(db.store[`application_intents/intent-1`]).not.toHaveProperty('ip_anonymized');
+    expect(db.store[`application_intents/intent-1`]).not.toHaveProperty('user_agent');
   });
 
   it('writes a tombstone even when no subscriber docs existed, so a later create is an update', async () => {

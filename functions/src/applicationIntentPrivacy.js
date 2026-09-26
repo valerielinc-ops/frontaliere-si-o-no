@@ -99,10 +99,10 @@ export function canRegisterApplicationIntent({ profile, userId, accountDeleted =
 
 /** Gate for an application-intent reminder sender. */
 export function canSendApplicationIntentReminder({ profile, intent, userId, accountDeleted = false, now = Date.now() } = {}) {
-  return canUseApplicationIntent({
-    profile,
-    intent,
-    identity: { userId },
+ return canUseApplicationIntent({
+  profile,
+  intent,
+  identity: userId ? { userId } : intent,
     accountDeleted,
     now,
     requireRetention: true,
@@ -111,10 +111,10 @@ export function canSendApplicationIntentReminder({ profile, intent, userId, acco
 
 /** Gate for ranking application-intent signals. */
 export function canUseApplicationIntentForRanking({ profile, intent, userId, accountDeleted = false, now = Date.now() } = {}) {
-  return canUseApplicationIntent({
-    profile,
-    intent,
-    identity: { userId },
+ return canUseApplicationIntent({
+  profile,
+  intent,
+  identity: userId ? { userId } : intent,
     accountDeleted,
     now,
     requireRetention: true,
@@ -141,8 +141,20 @@ export async function isApplicationIntentAccountDeleted(db, rawUid) {
  * drift apart.
  */
 export async function canWriteApplicationIntentForAccount(db, { uid, profile } = {}) {
-  if (!canRegisterApplicationIntent({ profile, userId: uid })) return false;
-  return !(await isApplicationIntentAccountDeleted(db, uid));
+ if (!canRegisterApplicationIntent({ profile, userId: uid })) return false;
+ return !(await isApplicationIntentAccountDeleted(db, uid));
+}
+
+/** Account-aware reminder gate: the deletion boundary is read fail-closed. */
+export async function canSendApplicationIntentReminderForAccount(db, args = {}) {
+ const accountDeleted = await isApplicationIntentAccountDeleted(db, args.userId || args.intent?.userId || args.intent?.uid);
+ return canSendApplicationIntentReminder({ ...args, accountDeleted });
+}
+
+/** Account-aware ranking gate: callers cannot accidentally omit the tombstone check. */
+export async function canUseApplicationIntentForRankingForAccount(db, args = {}) {
+ const accountDeleted = await isApplicationIntentAccountDeleted(db, args.userId || args.intent?.userId || args.intent?.uid);
+ return canUseApplicationIntentForRanking({ ...args, accountDeleted });
 }
 
 /** Build the metadata retained after account-linked intent data is erased. */

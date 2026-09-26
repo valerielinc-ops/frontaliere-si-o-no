@@ -56,6 +56,8 @@ async function collectApplicationIntentRefs(db, uid) {
  };
 
  const root = db.collection(APPLICATION_INTENTS_COLLECTION);
+ const direct = await root.doc(uid).get();
+ if (direct.exists) addDocs({ docs: [direct] }, false);
  if (typeof root.where === 'function') {
   // Single-field queries avoid a composite index and cover both shapes used
   // by early writers (`userId`) and callback migrations (`uid`/`accountUid`).
@@ -223,7 +225,7 @@ export async function cleanupUserDataForDeletedAccount(user, injectedDb) {
  const subscribers = await tombstoneEmailKeyedSubscribers(email, db);
  // The tombstone is the safety boundary: finish it before best-effort data
  // deletion so a savedJobs failure can never leave the old email lifecycle
-  // without an address-level cleanup marker.
+ // without an address-level cleanup marker.
  const saved = await cleanupSavedJobsForDeletedUser(uid, db);
  const petition = await cleanupPetitionSignatureForDeletedUser(uid, db);
  return { ...saved, ...subscribers, ...petition, ...applicationIntent };
