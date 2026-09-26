@@ -207,6 +207,7 @@ import {
 } from '@/services/assistedApplicationExperiment';
 import {
  getRewardedApplicationAccessExpiresAt,
+ REWARDED_APPLICATION_ACCESS_TTL_HOURS,
 } from '@/services/rewardedApplicationAccess';
 import { isAdsConsentGranted, onAdsConsentChange } from '@/services/adsConsent';
 import { preloadRewardedWebAd } from '@/services/rewardedWebAd';
@@ -7264,7 +7265,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
    if (rewardedAccessExpiresAt !== null) {
     trackAssistedApplicationEvent(
      'rewarded_application_access_used',
-     { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, access_expires_at: rewardedAccessExpiresAt, access_ttl_hours: 12 },
+     { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, access_expires_at: rewardedAccessExpiresAt, access_ttl_hours: REWARDED_APPLICATION_ACCESS_TTL_HOURS },
     );
    }
    redirectExternalApplication(
