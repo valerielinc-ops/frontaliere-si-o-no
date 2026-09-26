@@ -436,8 +436,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "giardino-09336b0daa13",
@@ -521,8 +520,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "giardino-e226ca4d399b",
@@ -1112,8 +1110,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "giardino-e983ec4646d9",
@@ -1490,8 +1487,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "giardino-111f635d1923",
@@ -1591,8 +1587,8 @@
       "slug": "responsabile-del-ristorante-giardino-group-champfer",
       "slugByLocale": {
         "it": "responsabile-del-ristorante-giardino-group-champfer",
-        "en": "restaurant-manager-giardino-group-champfer",
-        "de": "restaurant-manager-giardino-group-champfer",
+        "en": "restaurant-manager-giardino-group-champfer-stggaq",
+        "de": "restaurant-manager-giardino-group-champfer-stggaq",
         "fr": "directeur-du-restaurant-giardino-group-champfer"
       },
       "company": "Giardino Group",
@@ -1663,6 +1659,12 @@
           "restaurant-manager-giardino-group-champfer"
         ],
         "fr": [
+          "restaurant-manager-giardino-group-champfer"
+        ],
+        "en": [
+          "restaurant-manager-giardino-group-champfer"
+        ],
+        "de": [
           "restaurant-manager-giardino-group-champfer"
         ]
       },

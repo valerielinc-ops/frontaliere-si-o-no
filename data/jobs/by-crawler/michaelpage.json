@@ -512,7 +512,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T23:19:58.716Z",
-      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "salarySource": "estimated",
@@ -602,7 +601,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T23:19:59.018Z",
-      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -923,8 +921,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "michaelpage-ca8e7c62ebbe",

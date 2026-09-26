@@ -152,7 +152,6 @@
         "specialista-ai-80-100-burkhalter-services-ag-zurich",
         "ki-spezialist-in-80-100-burkhalter-services-ag-zurich"
       ],
-      "needsRetranslation": true,
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/ki-spezialist-in-1740"
     },
     {
@@ -710,7 +709,6 @@
       "previousSlugs": [
         "telematiker-in-systemtechniker-in-ict-80-100-k-schweizer-ag-allschwil"
       ],
-      "needsRetranslation": true,
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/telematiker-in-systemtechniker-in-ict-1729"
     },
     {
@@ -865,7 +863,6 @@
       "previousSlugs": [
         "servicetechniker-in-elektro-80-100-burkhalter-technics-ag-zurich"
       ],
-      "needsRetranslation": true,
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/servicetechniker-in-elektro-1727"
     },
     {
@@ -1179,7 +1176,6 @@
       "previousSlugs": [
         "systemintegrator-in-knx-80-100-elektro-burkhalter-ag-bern"
       ],
-      "needsRetranslation": true,
       "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/montage-elektriker-in-efz-1335-8"
     },
     {
@@ -5647,7 +5643,8 @@
       },
       "retranslationAttempts": 1,
       "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/dachdecker-in-1217"
+      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/dachdecker-in-1217",
+      "needsRetranslation": true
     },
     {
       "title": "Sanitärinstallateur/in (80 - 100%)",
@@ -12636,7 +12633,8 @@
         "installatore-trice-di-sanitari-100-sada-ag-glattpark-opfikon"
       ],
       "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-898"
+      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-898",
+      "needsRetranslation": true
     },
     {
       "title": "Projektleiter/in Planung Sanitär (80 - 100%)",
@@ -13769,7 +13767,8 @@
       },
       "retranslationAttempts": 1,
       "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-sanitaermonteur-in-837"
+      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/bauleitende-r-sanitaermonteur-in-837",
+      "needsRetranslation": true
     },
     {
       "title": "Sanitärinstallateur/in (100%)",
@@ -13843,7 +13842,8 @@
         "installatore-trice-di-sanitari-100-demuth-ag-baden-dattwil"
       ],
       "salarySource": "reported",
-      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-838"
+      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaerinstallateur-in-838",
+      "needsRetranslation": true
     },
     {
       "title": "Bauleitende/r Sanitärinstallateur/in (100%)",
@@ -17780,7 +17780,7 @@
       "titleByLocale": {
         "it": "Installatore/trice elettrico/a EFZ o Elettricista di montaggio EFZ (100 %)",
         "en": "Electrician EFZ or Assembly Electrician EFZ (100%)",
-        "de": "Elektroinstallateur/in EFZ oder Montage-Elektriker/in EFZ (100%)",
+        "de": "Elektroinstallation des Stroms/in EFZ oder PL-Elektroniker/in EFZ (100%)",
         "fr": "Monteur électrique/en EDC ou électricien/en EDC (100 %)"
       },
       "descriptionByLocale": {

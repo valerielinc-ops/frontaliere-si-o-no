@@ -633,7 +633,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:23:59.226Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 94500,
       "currency": "CHF",
@@ -648,8 +647,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "retranslationAttempts": 1
+      "addressRegion": "VS"
     },
     {
       "id": "hopital-du-valais-0b7607564171",
@@ -1344,7 +1342,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:22:30.516Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -1359,8 +1356,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "retranslationAttempts": 1
+      "addressRegion": "VS"
     },
     {
       "id": "hopital-du-valais-aa4a82ec68c2",
@@ -4891,7 +4887,6 @@
         ]
       },
       "firstSeenAt": "2026-08-19T21:39:37.121Z",
-      "needsRetranslation": true,
       "salaryMin": 81000,
       "salaryMax": 135000,
       "currency": "CHF",
@@ -4906,8 +4901,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "retranslationAttempts": 1
+      "addressRegion": "VS"
     },
     {
       "id": "hopital-du-valais-84cd5e73941b",
@@ -6114,7 +6108,6 @@
         "famille": "Médico-Thérapeutique",
         "site": "BRIG"
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "praxisausbildner-in-80-ergo-und-spezialtherapie-hopital-du-valais-brig"
@@ -6144,8 +6137,7 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-09-24T14:23:58.299Z",
-      "retranslationAttempts": 1
+      "firstSeenAt": "2026-09-24T14:23:58.299Z"
     },
     {
       "id": "hopital-du-valais-217b665422c2",
