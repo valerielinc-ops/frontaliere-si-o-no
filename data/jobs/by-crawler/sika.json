@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sika",
-  "assembledAt": "2026-09-25T14:51:54.116Z",
+  "assembledAt": "2026-09-26T14:03:33.201Z",
   "jobs": [
     {
       "id": "sika-830dc4ea55aa",
@@ -33,7 +33,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-801917fc-80ba-4766-a2ec-8beac8c4bb54.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:49.609Z",
+      "crawledAt": "2026-09-26T14:03:27.364Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -62,6 +62,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:50.424Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -107,7 +108,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a9d9e454-ab4b-43ec-872c-8b47bfc67c7a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:48.796Z",
+      "crawledAt": "2026-09-26T14:03:27.023Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -158,28 +159,28 @@
     },
     {
       "id": "sika-5f372ae9687e",
-      "slug": "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch",
+      "slug": "lavoratore-di-impianti-chimici-m-f-dipendente-chimico-chimico-m-f-sika-dudingen",
       "slugByLocale": {
+        "it": "lavoratore-di-impianti-chimici-m-f-dipendente-chimico-chimico-m-f-sika-dudingen",
+        "en": "chemical-plant-worker-m-f-chemical-employee-chemical-m-f-sika-dudingen",
         "de": "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch",
-        "it": "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch",
-        "en": "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch",
-        "fr": "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch"
+        "fr": "travailleur-de-l-usine-chimique-h-f-employe-de-l-usine-chimique-h-f-sika-dudingen"
       },
       "company": "Sika",
       "companyKey": "sika",
       "companyDomain": "sika.com",
       "title": "Chemical plant worker (m/f) / Chemiemitarbeiter/Chemikant (m/w)",
       "titleByLocale": {
-        "de": "Chemical plant worker (m/f) / Chemiemitarbeiter/Chemikant (m/w)",
         "it": "Lavoratore di impianti chimici (m/f) / Dipendente chimico / chimico (m/f)",
         "en": "Chemical plant worker (m/f) / Chemical employee/Chemical (m/f)",
+        "de": "Chemical plant worker (m/f) / Chemiemitarbeiter/Chemikant (m/w)",
         "fr": "Travailleur de l'usine chimique (h/f) / Employé de l'usine chimique (h/f)"
       },
       "description": "Für den Produktionsstandort in Düdingen/FR suchen wir per 01. Januar 2027 oder nach Vereinbarung einen Chemiebetriebsmitarbeiter / Chemikant (m/w) . Folgende spannende Arbeiten erwarten Sie: Produktion chemischer Zwischenprodukte inklusive Inprozesskontrollen Gleichzeitiges steuern und überwachen am Prozessleitsystem von mehreren Anlagen/Reaktoren Ziehen von Mustern, selbständige Durchführung der Inprozesskontrollen sowie anfallende Wartungsarbeiten an der Anlage Kontinuierliche Verbesserung der Arbeitsabläufe im Team",
       "descriptionByLocale": {
-        "de": "Für den Produktionsstandort in Düdingen/FR suchen wir per 01. Januar 2027 oder nach Vereinbarung einen Chemiebetriebsmitarbeiter / Chemikant (m/w) . Folgende spannende Arbeiten erwarten Sie: Produktion chemischer Zwischenprodukte inklusive Inprozesskontrollen Gleichzeitiges steuern und überwachen am Prozessleitsystem von mehreren Anlagen/Reaktoren Ziehen von Mustern, selbständige Durchführung der Inprozesskontrollen sowie anfallende Wartungsarbeiten an der Anlage Kontinuierliche Verbesserung der Arbeitsabläufe im Team",
         "it": "Per il sito di produzione a Düdingen/FR stiamo cercando 01. Gennaio 2027 o per accordo un dipendente di impianto chimico / chimico (m/f). Il seguente entusiasmante lavoro vi aspetta: Produzione di intermedi chimici, compresi i controlli in-processo Controllare e monitorare contemporaneamente il sistema di controllo del processo di diversi impianti / reattori Disegno di campioni, implementazione indipendente dei controlli in-processo e lavori di manutenzione sull'impianto Miglioramento continuo dei flussi di lavoro nel team",
         "en": "For the production site in Düdingen/FR we are looking for 01. January 2027 or by arrangement a chemical plant employee / chemical (m/f). The following exciting work awaits you: Production of chemical intermediates including in-process controls Simultaneously control and monitor the process control system of several plants/reactors Drawing of samples, independent implementation of in-process controls as well as maintenance work on the plant Continuous improvement of workflows in the team",
+        "de": "Für den Produktionsstandort in Düdingen/FR suchen wir per 01. Januar 2027 oder nach Vereinbarung einen Chemiebetriebsmitarbeiter / Chemikant (m/w) . Folgende spannende Arbeiten erwarten Sie: Produktion chemischer Zwischenprodukte inklusive Inprozesskontrollen Gleichzeitiges steuern und überwachen am Prozessleitsystem von mehreren Anlagen/Reaktoren Ziehen von Mustern, selbständige Durchführung der Inprozesskontrollen sowie anfallende Wartungsarbeiten an der Anlage Kontinuierliche Verbesserung der Arbeitsabläufe im Team",
         "fr": "Pour le site de production à Düdingen/FR nous recherchons 01. Janvier 2027 ou par arrangement une usine chimique employé / chimique (h/f). Le travail passionnant suivant vous attend: Production d'intermédiaires chimiques, y compris des contrôles en cours de fabrication Contrôler et surveiller simultanément le système de contrôle des procédés de plusieurs usines/réacteurs Dessin des échantillons, mise en oeuvre indépendante des contrôles en cours de fabrication ainsi que des travaux de maintenance de l'usine Amélioration continue des flux de travail dans l'équipe"
       },
       "location": "Düdingen, Canton of Fribourg",
@@ -187,7 +188,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-06c3ea52-4733-4376-92fa-edc4842d799a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:47.898Z",
+      "crawledAt": "2026-09-26T14:03:26.705Z",
       "addressLocality": "Düdingen",
       "postalCode": "",
       "streetAddress": "",
@@ -204,9 +205,22 @@
       "postedDate": "2025-10-14",
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-06c3ea52-4733-4376-92fa-edc4842d799a.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-25T14:51:47.898Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch"
+        ],
+        "en": [
+          "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch"
+        ],
+        "fr": [
+          "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch"
+        ]
       },
+      "previousSlugs": [
+        "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -219,8 +233,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-25T14:51:47.898Z"
+      }
     },
     {
       "id": "sika-eddd20ef7319",
@@ -253,7 +266,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-5c159c3b-6f5e-407d-ac74-ef35ffc50d29.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:51:46.979Z",
+      "crawledAt": "2026-09-26T14:03:26.388Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -288,6 +301,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:32.932Z",
+      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -333,7 +347,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a83ab262-97a6-4d10-a5a4-e2269c5bfc4a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:51:45.997Z",
+      "crawledAt": "2026-09-26T14:03:25.553Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -368,6 +382,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:30.183Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -386,8 +401,8 @@
       "id": "sika-c641d6c8e75f",
       "slug": "piattaforma-di-innovazione-globale-amp-gestione-dei-processi-sika-zurich-zurich",
       "slugByLocale": {
-        "en": "global-innovation-platform-process-manager-sika-ch",
         "it": "piattaforma-di-innovazione-globale-amp-gestione-dei-processi-sika-zurich-zurich",
+        "en": "global-innovation-platform-process-manager-sika-ch",
         "de": "globale-innovationsplattform-und-prozessmanager-sika-zurich-zurich",
         "fr": "plateforme-mondiale-d-innovation-et-gestionnaire-de-processus-sika-zurich-zurich"
       },
@@ -396,8 +411,8 @@
       "companyDomain": "sika.com",
       "title": "Global Innovation Platform & Process Manager",
       "titleByLocale": {
-        "en": "Global Innovation Platform & Process Manager",
         "it": "Piattaforma di innovazione globale & Gestione dei processi",
+        "en": "Global Innovation Platform & Process Manager",
         "de": "Globale Innovationsplattform und Prozessmanager",
         "fr": "Plateforme mondiale d'innovation et gestionnaire de processus"
       },
@@ -413,7 +428,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-7a72a172-4966-459e-b87f-3c6d36cd60f3.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:51:44.749Z",
+      "crawledAt": "2026-09-26T14:03:24.680Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -431,20 +446,10 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-7a72a172-4966-459e-b87f-3c6d36cd60f3.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-23T23:43:30.361Z",
+      "previousSlugs": [
+        "global-innovation-platform-process-manager-sika-ch",
+        "piattaforma-di-innovazione-globale-amp-gestione-dei-processi-sika-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "global-innovation-platform-process-manager-sika-ch",
@@ -457,10 +462,20 @@
           "global-innovation-platform-process-manager-sika-ch"
         ]
       },
-      "previousSlugs": [
-        "global-innovation-platform-process-manager-sika-ch",
-        "piattaforma-di-innovazione-globale-amp-gestione-dei-processi-sika-zurich-zurich"
-      ]
+      "firstSeenAt": "2026-09-23T23:43:30.361Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "sika-44d37d89fa1d",
@@ -493,7 +508,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-03295a71-729c-4904-8b5e-f2574649a9c0.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:51:43.642Z",
+      "crawledAt": "2026-09-26T14:03:23.468Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -528,6 +543,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T12:46:37.005Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -573,7 +589,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-14ec562b-e189-4f29-a2f7-af58ab74c7f4.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:51:43.307Z",
+      "crawledAt": "2026-09-26T14:03:23.146Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -621,6 +637,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:19.553Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -666,7 +683,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-5deb4953-a448-4e1f-8090-10c715bad5df.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:51:42.272Z",
+      "crawledAt": "2026-09-26T14:03:22.824Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -730,7 +747,7 @@
       "title": "Automatiker / SPS-Programmierer / Automatisierungstechniker",
       "titleByLocale": {
         "it": "Automatico (m/f/d)",
-        "en": "Automatic / PLC programmer / automation technician",
+        "en": "Automatiker / SPS-Programmierer / Automatisierungstechniker",
         "de": "Automatiker / SPS-Programmierer / Automatisierungstechniker",
         "fr": "Automatique (m/f/d)"
       },
@@ -746,7 +763,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f6406866-8261-42b2-b18c-75a219d69ce1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:41.491Z",
+      "crawledAt": "2026-09-26T14:03:21.931Z",
       "addressLocality": "Romanshorn",
       "postalCode": "",
       "streetAddress": "",
@@ -790,6 +807,7 @@
         "automatico-m-f-d-sika-romanshorn-thurgau-switzerland"
       ],
       "firstSeenAt": "2026-06-17T13:57:12.304Z",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -806,27 +824,27 @@
     },
     {
       "id": "sika-7b725bb749fd",
-      "slug": "strategic-hr-projects-specialist-sika-ch",
+      "slug": "strategic-risorse-umane-projects-specialista-sika-zurich",
       "slugByLocale": {
+        "it": "strategic-risorse-umane-projects-specialista-sika-zurich",
         "en": "strategic-hr-projects-specialist-sika-ch",
-        "it": "strategic-hr-projects-specialist-sika-ch",
-        "de": "strategic-hr-projects-specialist-sika-ch",
-        "fr": "strategic-hr-projects-specialist-sika-ch"
+        "de": "strategic-personalwesen-projects-spezialist-sika-zurich",
+        "fr": "strategic-ressources-humaines-projects-specialiste-sika-zurich"
       },
       "company": "Sika",
       "companyKey": "sika",
       "companyDomain": "sika.com",
       "title": "Strategic HR Projects Specialist",
       "titleByLocale": {
-        "en": "Strategic HR Projects Specialist",
         "it": "Strategic Risorse Umane Projects Specialista",
+        "en": "Strategic HR Projects Specialist",
         "de": "Strategic Personalwesen Projects Spezialist",
         "fr": "Strategic Ressources Humaines Projects Spécialiste"
       },
       "description": "Key \n• Responsibilities In this role, you will contribute to global projects, from strategical design to execution: Support strategic HR initiatives from concept through to global roll-out, collaborating with regions, and cross-functional stakeholders to ensure alignment and consistent execution Translate evolving business needs into targeted actions that strengthen talent attraction, engagement, and retention Leverage HR data and workforce analytics to generate actionable insights and provide evidence-based recommendations Develop clear, impactful presentations that communicate insights, opportunities, and progress to diverse audiences Manage multiple projects end-to-end, including scoping, planning, stakeholder alignment, and delivery Contribute to and drive cross-functional HR initiatives across Talent Management, Employee Experience, and Early Careers",
       "descriptionByLocale": {
-        "en": "Key \n• Responsibilities In this role, you will contribute to global projects, from strategical design to execution: Support strategic HR initiatives from concept through to global roll-out, collaborating with regions, and cross-functional stakeholders to ensure alignment and consistent execution Translate evolving business needs into targeted actions that strengthen talent attraction, engagement, and retention Leverage HR data and workforce analytics to generate actionable insights and provide evidence-based recommendations Develop clear, impactful presentations that communicate insights, opportunities, and progress to diverse audiences Manage multiple projects end-to-end, including scoping, planning, stakeholder alignment, and delivery Contribute to and drive cross-functional HR initiatives across Talent Management, Employee Experience, and Early Careers",
         "it": "chiave\n• responsabilità In questo ruolo, contribuirai a progetti globali, dal design strategico all'esecuzione: Supporta iniziative strategiche HR dal concept fino all'implementazione globale, collaborando con regioni e stakeholder interfunzionali per garantire l'allineamento e l'esecuzione coerente Traduci le esigenze aziendali in evoluzione in azioni mirate che rafforzino l'attrazione del talento, l'impegno e la conservazione dati Leverage HR e analisi della forza lavoro per generare insight attuabili e fornire raccomandazioni basate sulle prove",
+        "en": "Key \n• Responsibilities In this role, you will contribute to global projects, from strategical design to execution: Support strategic HR initiatives from concept through to global roll-out, collaborating with regions, and cross-functional stakeholders to ensure alignment and consistent execution Translate evolving business needs into targeted actions that strengthen talent attraction, engagement, and retention Leverage HR data and workforce analytics to generate actionable insights and provide evidence-based recommendations Develop clear, impactful presentations that communicate insights, opportunities, and progress to diverse audiences Manage multiple projects end-to-end, including scoping, planning, stakeholder alignment, and delivery Contribute to and drive cross-functional HR initiatives across Talent Management, Employee Experience, and Early Careers",
         "de": "Schlüssel\n• Zuständigkeiten In dieser Rolle werden Sie zu globalen Projekten beitragen, vom strategischen Design bis zur Ausführung: Unterstützen Sie strategische HR-Initiativen vom Konzept bis zur globalen Einführung, die Zusammenarbeit mit Regionen und funktionsübergreifenden Stakeholdern, um die Ausrichtung und konsistente Ausführung zu gewährleisten Übersetzen Sie sich entwickelnde Geschäftsanforderungen in zielgerichtete Maßnahmen, die die Attraktivität von Talenten, das Engagement und die Bindung stärken Nutzen Sie HR-Daten und Workforce-Analysen, um umsetzbare Einblicke zu generieren und evidenzbasierte Empfehlungen zu erstellen Erstellen Sie klare, wirkungsvolle Präsentationen, die Einblicke, Chancen und Fortschritte für verschiedene Zielgruppen vermitteln Verwalten Sie mehrere Projekte Ende-zu-Ende, einschließlich Scoping, Planung, Ausrichtung von Stakeholdern und Bereitstellung Beitrag zu und treiben Sie funktionsübergreifende HR-Initiativen über Talent Management, Employee Experience und Early Careers hinweg",
         "fr": "Clé\n• Responsabilités Dans ce rôle, vous contribuerez à des projets mondiaux, de la conception stratégique à l'exécution : Appuyer les initiatives stratégiques en matière de ressources humaines du concept au déploiement mondial, collaborer avec les régions et les intervenants interfonctionnels pour assurer l'alignement et l'exécution cohérente Traduire les besoins opérationnels en évolution en actions ciblées qui renforcent l'attraction, l'engagement et la rétention des talents Tirer parti des données sur les ressources humaines et de l'analyse des effectifs pour générer des renseignements concrets et formuler des recommandations fondées sur des données probantes Élaborer des présentations claires et pertinentes qui communiquent des renseignements, des possibilités et des progrès à divers publics Gérer plusieurs projets de bout en bout, y compris l'établissement de la portée, la planification, l'harmonisation des intervenants et la prestation des services Contribuer aux initiatives en matière de ressources humaines interfonctionnelles et les diriger à travers la gestion des talents, l'expérience des employés et les carrières initiales"
       },
@@ -835,7 +853,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-57c3529d-e8d3-45be-a901-3d8db18a42b2.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:51:40.428Z",
+      "crawledAt": "2026-09-26T14:03:21.124Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -852,9 +870,23 @@
       "postedDate": "2026-04-21",
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-57c3529d-e8d3-45be-a901-3d8db18a42b2.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-25T14:51:40.428Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "strategic-hr-projects-specialist-sika-ch"
+        ],
+        "de": [
+          "strategic-hr-projects-specialist-sika-ch"
+        ],
+        "fr": [
+          "strategic-hr-projects-specialist-sika-ch"
+        ]
       },
+      "previousSlugs": [
+        "strategic-hr-projects-specialist-sika-ch"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -867,8 +899,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-25T14:51:40.428Z"
+      }
     },
     {
       "id": "sika-f29f6c1b2d83",
@@ -901,7 +932,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-e62349e4-b260-46b1-b5b1-558137b84dfa.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:39.477Z",
+      "crawledAt": "2026-09-26T14:03:20.111Z",
       "addressLocality": "Sarnen",
       "postalCode": "",
       "streetAddress": "",
@@ -936,6 +967,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:10.542Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -981,7 +1013,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f60aaabf-46d6-48de-bd14-7b67aa95a9ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:51:38.639Z",
+      "crawledAt": "2026-09-26T14:03:19.236Z",
       "addressLocality": "Sarnen",
       "postalCode": "",
       "streetAddress": "",
@@ -1062,7 +1094,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-465ec003-7a5e-4cd9-881a-2b492edbf36f.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:37.686Z",
+      "crawledAt": "2026-09-26T14:03:18.252Z",
       "addressLocality": "Sarnen",
       "postalCode": "",
       "streetAddress": "",
@@ -1142,7 +1174,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-00070f8e-b43c-46c7-9d5d-94e7dab3912d.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:36.717Z",
+      "crawledAt": "2026-09-26T14:03:17.929Z",
       "addressLocality": "Sarnen",
       "postalCode": "",
       "streetAddress": "",
@@ -1177,6 +1209,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:05.923Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -1206,7 +1239,7 @@
       "title": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
       "titleByLocale": {
         "it": "Linee di estrusione (m/f/d) - Operatore di processo (m/f/d)",
-        "en": "Plant Manager (m/f/d) Extrusion Lines - Process Operator (m/f/d)",
+        "en": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
         "de": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
         "fr": "Plant Manager (h/f/d) Lignes d'extrusion - Opérateur de processus (h/f/d)"
       },
@@ -1222,7 +1255,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-bdfb0e95-97e0-4a0d-af2c-174bfdd23681.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:35.793Z",
+      "crawledAt": "2026-09-26T14:03:17.607Z",
       "addressLocality": "Sarnen",
       "postalCode": "",
       "streetAddress": "",
@@ -1258,6 +1291,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:02.407Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 97000,
       "salarySource": "estimated",
@@ -1287,7 +1321,7 @@
       "title": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
       "titleByLocale": {
         "it": "Plant Manager Recycling (m/f/d) - Process Operator Recycling (m/f/d)",
-        "en": "Plant Manager Recycling (m/f/d) - Process Operator Recycling (m/f/d)",
+        "en": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
         "de": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
         "fr": "Gestionnaire d'usine Recyclage (h/f/d) - Recyclage de l'opérateur de processus (h/f/d)"
       },
@@ -1303,7 +1337,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-0923cb82-640a-4fe7-a00e-b8832c0307a9.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:34.752Z",
+      "crawledAt": "2026-09-26T14:03:16.744Z",
       "addressLocality": "Sarnen",
       "postalCode": "",
       "streetAddress": "",
@@ -1335,6 +1369,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:00.845Z",
+      "needsRetranslation": true,
       "salaryMin": 127000,
       "salaryMax": 171000,
       "salarySource": "estimated",
@@ -1380,7 +1415,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d49d212d-425b-4df8-b472-647e7f47b720.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:33.718Z",
+      "crawledAt": "2026-09-26T14:03:16.419Z",
       "addressLocality": "Sarnen",
       "postalCode": "",
       "streetAddress": "",
@@ -1428,6 +1463,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:36:50.859Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -1473,7 +1509,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-16cc041b-642b-405a-8c8b-1eb258ed05ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:33.389Z",
+      "crawledAt": "2026-09-26T14:03:15.559Z",
       "addressLocality": "Sarnen",
       "postalCode": "",
       "streetAddress": "",
@@ -1538,7 +1574,7 @@
       "companyDomain": "sika.com",
       "title": "Palettierer",
       "titleByLocale": {
-        "it": "Palletizzatori",
+        "it": "Palettierer",
         "en": "Palletizers",
         "de": "Palettierer",
         "fr": "Palettisants"
@@ -1555,7 +1591,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9b6bfb1d-bd31-45c4-ba52-1678901ee794.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:33.044Z",
+      "crawledAt": "2026-09-26T14:03:14.537Z",
       "addressLocality": "Altstätten",
       "postalCode": "",
       "streetAddress": "",
@@ -1592,6 +1628,7 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:33:58.578Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1637,7 +1674,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3e5739e9-cee4-4b47-92c7-67b01f151b2e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:32.133Z",
+      "crawledAt": "2026-09-26T14:03:13.655Z",
       "addressLocality": "Widen",
       "postalCode": "",
       "streetAddress": "",
@@ -1719,7 +1756,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d60c6ce1-5511-421d-bb24-b7240688f0c5.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:31.188Z",
+      "crawledAt": "2026-09-26T14:03:12.687Z",
       "addressLocality": "Düdingen",
       "postalCode": "",
       "streetAddress": "",
@@ -1754,6 +1791,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:56:50.007Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1799,7 +1837,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-6a2c4b22-d8ce-4c8f-a8ae-ebef8bb94bb6.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:30.130Z",
+      "crawledAt": "2026-09-26T14:03:11.749Z",
       "addressLocality": "Düdingen",
       "postalCode": "",
       "streetAddress": "",
@@ -1855,7 +1893,7 @@
         "it": "programma-internazionale-di-formazione-professionale-a-i-dipartimento-tecnico-sika-widen-aargau",
         "en": "international-traineeship-program-a-i-technical-department-sika-ch",
         "de": "international-traineeship-program-a-i-technische-abteilung-sika-widen-aargau-switzerland",
-        "fr": "programme-de-stages-internationaux-a-et-i-departement-technique-sika-widen-aargau-switzerland"
+        "fr": "international-traineeship-program-a-i-technical-department-sika-widen"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -1865,7 +1903,7 @@
         "it": "Programma internazionale di formazione professionale - A&I - Dipartimento tecnico",
         "en": "International Traineeship Program - A&I - Technical Department",
         "de": "International Traineeship Program - A&I - Technische Abteilung",
-        "fr": "Programme de stages internationaux - A et I - Département technique"
+        "fr": "International Traineeship Program - A&I - Technical Department"
       },
       "description": "Sika is gearing up for the next edition of its International Traineeship Program 2026! This exciting journey lasts 12 months , starting in Switzerland—primarily at our hub in Widen . During this rotational program , you’ll gain hands-on experience across different areas, build a strong network, and prepare for your next big step: an international assignment. Ready to launch your international career with us? We are currently looking for at least one additional Trainee for our Business Unit Automotive & Industry to join the Technical Services / Market Field Engineering Team. This Traineeship will take place in Widen, Switzerland, for 12 months, before joining our Technical Team in Bad Urach, Germany . What could the job of such Engineer look like after the Traineeship? Providing technical advice and support independently of selected key accounts, engineering offices, consultants, etc. (including visits) for assigned product groups Technical interpretation of customer and market needs and initiation of new developments based on PCP Develop innovating solutions for new or existing applications Implementation of new products (including field tests) and solutions in close cooperation with sales and marketing and other involved departments Technical responsibility for the specific product portfolio including maintenance Identification of corresponding and competitive gaps, niches and opportunities Supporting local sales organizations and global key accounts in case of complaints/claims Arrange and support of trainings for customers and local SO’s Work out of technical argumentation for sales and marketing",
       "descriptionByLocale": {
@@ -1879,7 +1917,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3cbc69e7-e55b-46ad-bd21-83adbb7da047.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:51:28.139Z",
+      "crawledAt": "2026-09-26T14:03:10.820Z",
       "addressLocality": "Widen",
       "postalCode": "",
       "streetAddress": "",
@@ -1914,6 +1952,7 @@
         ]
       },
       "firstSeenAt": "2026-06-24T12:15:19.902Z",
+      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -1943,7 +1982,7 @@
       "title": "Anlagenführer (w/m) / Process Operator (f/m)",
       "titleByLocale": {
         "it": "Gestione del sistema (m/f) / Operatore di processo (m/f)",
-        "en": "System Manager (m/f) / Process Operator (m/f)",
+        "en": "Anlagenführer (w/m) / Process Operator (f/m)",
         "de": "Anlagenführer (w/m) / Process Operator (f/m)",
         "fr": "Gestionnaire de système (h/f) / Opérateur de processus (h/f)"
       },
@@ -1959,7 +1998,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f6219ca1-f42f-4e64-8889-27137b4bfc59.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:27.816Z",
+      "crawledAt": "2026-09-26T14:03:09.943Z",
       "addressLocality": "Düdingen",
       "postalCode": "",
       "streetAddress": "",
@@ -1994,6 +2033,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:33:55.431Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "salarySource": "estimated",
@@ -2039,7 +2079,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-84394ce8-7a82-4266-a4ed-e5430c33a22c.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:51:26.875Z",
+      "crawledAt": "2026-09-26T14:03:08.994Z",
       "addressLocality": "Widen",
       "postalCode": "",
       "streetAddress": "",
@@ -2071,6 +2111,7 @@
         ]
       },
       "firstSeenAt": "2026-06-24T12:15:17.810Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -2116,7 +2157,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-7935c6a5-a982-417c-a831-a729f915110a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:25.861Z",
+      "crawledAt": "2026-09-26T14:03:08.027Z",
       "addressLocality": "Romanshorn",
       "postalCode": "",
       "streetAddress": "",
@@ -2194,7 +2235,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-11c0233a-49dd-4757-87a2-ab955f3fe3ae.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:25.527Z",
+      "crawledAt": "2026-09-26T14:03:07.708Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -2229,6 +2270,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:04:47.537Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2274,7 +2316,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-efd2a596-305a-4daa-bcd2-b8e6a6aeb483.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:24.400Z",
+      "crawledAt": "2026-09-26T14:03:06.910Z",
       "addressLocality": "Sarnen",
       "postalCode": "",
       "streetAddress": "",
@@ -2321,7 +2363,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-0731946ae70b",
@@ -2354,7 +2397,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9c76864a-9d47-46eb-af82-10893fcfc91e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:51:23.461Z",
+      "crawledAt": "2026-09-26T14:03:06.591Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -2420,7 +2463,7 @@
       "companyDomain": "sika.com",
       "title": "Accountant Administrator 80-100% (m/w/d)",
       "titleByLocale": {
-        "it": "Amministratore Contabile 80-100% (m/f/d)",
+        "it": "Accountant Administrator 80-100% (m/w/d)",
         "en": "Accountant Administrator 80-100% (m/f/d)",
         "de": "Buchhalter Administrator 80-100% (m/w/d)",
         "fr": "Comptable Administrator 80-100% (m/w/d)"
@@ -2437,7 +2480,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d897ff96-9443-4d94-9960-aa782e205a4e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:23.127Z",
+      "crawledAt": "2026-09-26T14:03:06.258Z",
       "addressLocality": "Sarnen",
       "postalCode": "",
       "streetAddress": "",
@@ -2466,6 +2509,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:04:44.056Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -2511,7 +2555,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-ceb48e09-8c2c-4301-8606-3eb66706399e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:22.100Z",
+      "crawledAt": "2026-09-26T14:03:05.914Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -2597,7 +2641,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-598b5ba4-0f88-44a2-a6f6-3f57a14b3489.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:21.022Z",
+      "crawledAt": "2026-09-26T14:03:05.596Z",
       "addressLocality": "Romanshorn",
       "postalCode": "",
       "streetAddress": "",
@@ -2632,6 +2676,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:29:24.819Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -2677,7 +2722,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a59da0b4-eae8-4a6a-bbe8-eb7b46d5097a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:19.778Z",
+      "crawledAt": "2026-09-26T14:03:04.652Z",
       "addressLocality": "Romanshorn",
       "postalCode": "",
       "streetAddress": "",
@@ -2714,6 +2759,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:29:23.952Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -2759,7 +2805,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-20c6a9ab-10e9-4574-b3da-f46b36088efb.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:18.869Z",
+      "crawledAt": "2026-09-26T14:03:03.710Z",
       "addressLocality": "Romanshorn",
       "postalCode": "",
       "streetAddress": "",
@@ -2811,6 +2857,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:29:22.601Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -2824,6 +2871,84 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "sika-279a84ce4477",
+      "slug": "apprendistato-logistiker-cfc-m-w-d-sika-arbon-romanshorn",
+      "slugByLocale": {
+        "de": "lehrstelle-logistiker-efz-m-w-d-sika-ch",
+        "it": "apprendistato-logistiker-cfc-m-w-d-sika-arbon-romanshorn",
+        "en": "apprenticeship-logistics-efz-m-f-d-sika-arbon-romanshorn-thurgau-switzerland",
+        "fr": "apprentissage-logistique-efz-m-f-d-sika-arbon-romanshorn-thurgau-switzerland"
+      },
+      "company": "Sika",
+      "companyKey": "sika",
+      "companyDomain": "sika.com",
+      "title": "Lehrstelle Logistiker EFZ",
+      "titleByLocale": {
+        "de": "Lehrstelle Logistiker EFZ",
+        "it": "Apprendistato Logistiker CFC",
+        "en": "Lehrstelle Logistiker EFZ",
+        "fr": "Lehrstelle Logistiker EFZ"
+      },
+      "description": "Du steuerst Warenflüsse und hältst den Betrieb am Laufen Du planst organisierst und koordinierst spannende Abläufe Du kommissionierst Bestellungen für Kunden zusammen Du bedienst Stapler und weitere moderne Förderfahrzeug Du arbeitest mit digitalem Lager und Logistksysteme Du sorgst dafür dass unsere Produkte ihren Weg um die ganze Welt finden Du trägst dazu bei, dass aus Ideen erfolgreiche Produkte werden",
+      "descriptionByLocale": {
+        "de": "Du steuerst Warenflüsse und hältst den Betrieb am Laufen Du planst organisierst und koordinierst spannende Abläufe Du kommissionierst Bestellungen für Kunden zusammen Du bedienst Stapler und weitere moderne Förderfahrzeug Du arbeitest mit digitalem Lager und Logistksysteme Du sorgst dafür dass unsere Produkte ihren Weg um die ganze Welt finden Du trägst dazu bei, dass aus Ideen erfolgreiche Produkte werden",
+        "it": "Du steuerst Warenflüsse und hältst den Betrieb am Laufen Du planst organisierst und koordinierst spannende Abläufe Du kommissionierst Bestellungen für Kunden zusammen Du bedienst Stapler und weitere moderne Förderfahrzeug Du arbeitest mit digitalem Lager und Logistksysteme Du sorgst dafür dass unsere Produkte ihren Weg um die ganze Welt finden Du trägst dazu bei, dass aus Ideen erfolgreiche Produkte werden",
+        "en": "Du steuerst Warenflüsse und hältst den Betrieb am Laufen Du planst organisierst und koordinierst spannende Abläufe Du kommissionierst Bestellungen für Kunden zusammen Du bedienst Stapler und weitere moderne Förderfahrzeug Du arbeitest mit digitalem Lager und Logistksysteme Du sorgst dafür dass unsere Produkte ihren Weg um die ganze Welt finden Du trägst dazu bei, dass aus Ideen erfolgreiche Produkte werden",
+        "fr": "Du steuerst Warenflüsse und hältst den Betrieb am Laufen Du planst organisierst und koordinierst spannende Abläufe Du kommissionierst Bestellungen für Kunden zusammen Du bedienst Stapler und weitere moderne Förderfahrzeug Du arbeitest mit digitalem Lager und Logistksysteme Du sorgst dafür dass unsere Produkte ihren Weg um die ganze Welt finden Du trägst dazu bei, dass aus Ideen erfolgreiche Produkte werden"
+      },
+      "location": "Arbon / Romanshorn, Thurgau",
+      "canton": "TG",
+      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-40cd3de7-667b-42a1-8711-7f423ba87261.html",
+      "source": "Sika Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T14:03:02.864Z",
+      "addressLocality": "Arbon / Romanshorn",
+      "postalCode": "",
+      "streetAddress": "",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Specialty chemicals (construction & industrial)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-22",
+      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-40cd3de7-667b-42a1-8711-7f423ba87261.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-logistiker-efz-sika-ch"
+        ],
+        "de": [
+          "lehrstelle-logistiker-efz-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-logistiker-efz-sika-ch"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 48000,
+      "salaryMax": 73000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48000,
+          "maxValue": 73000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-26T14:03:02.864Z"
     },
     {
       "id": "sika-52e97de70284",
@@ -2856,7 +2981,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f8349eaa-d440-4a6a-9632-85b45ced7aac.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:51:16.799Z",
+      "crawledAt": "2026-09-26T14:03:01.974Z",
       "addressLocality": "Widen",
       "postalCode": "",
       "streetAddress": "",
@@ -2891,6 +3016,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:04:36.555Z",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -2936,7 +3062,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-cb6e612b-ff81-44e4-9192-a70e20d8cd24.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:16.471Z",
+      "crawledAt": "2026-09-26T14:03:01.648Z",
       "addressLocality": "Romanshorn",
       "postalCode": "",
       "streetAddress": "",
@@ -3010,7 +3136,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f8c274e8-611d-4253-9602-49e5c5a31e35.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:15.549Z",
+      "crawledAt": "2026-09-26T14:03:00.618Z",
       "addressLocality": "Birr",
       "postalCode": "",
       "streetAddress": "",
@@ -3045,6 +3171,7 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:27:27.990Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -3090,7 +3217,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-17f2ace7-6f20-4008-8a3a-75c49582965e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:14.570Z",
+      "crawledAt": "2026-09-26T14:03:00.296Z",
       "addressLocality": "Sarnen",
       "postalCode": "",
       "streetAddress": "",
@@ -3170,7 +3297,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-361ed442-ee02-45af-bc96-ad72b2960b3e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:51:14.224Z",
+      "crawledAt": "2026-09-26T14:02:59.973Z",
       "addressLocality": "Baar",
       "postalCode": "6341",
       "streetAddress": "",
@@ -3248,7 +3375,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-fe672698-3d58-4497-869a-177533567acd.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:51:13.204Z",
+      "crawledAt": "2026-09-26T14:02:59.639Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -3328,7 +3455,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a63c423e-926d-4bc3-9fe6-dff0557bd56d.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:12.012Z",
+      "crawledAt": "2026-09-26T14:02:58.686Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -3361,6 +3488,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:04:27.461Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -3406,7 +3534,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-876da52f-e983-4a7f-a401-e43daa0a535a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:10.874Z",
+      "crawledAt": "2026-09-26T14:02:57.856Z",
       "addressLocality": "Birr",
       "postalCode": "",
       "streetAddress": "",
@@ -3443,6 +3571,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:04:26.508Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -3459,28 +3588,28 @@
     },
     {
       "id": "sika-1f9bcd5b2c78",
-      "slug": "regulatory-data-digital-solutions-manager-sika-ch",
+      "slug": "gestione-dei-dati-e-delle-soluzioni-digitali-sika-zurich",
       "slugByLocale": {
+        "it": "gestione-dei-dati-e-delle-soluzioni-digitali-sika-zurich",
         "en": "regulatory-data-digital-solutions-manager-sika-ch",
-        "it": "regulatory-data-digital-solutions-manager-sika-ch",
-        "de": "regulatory-data-digital-solutions-manager-sika-ch",
-        "fr": "regulatory-data-digital-solutions-manager-sika-ch"
+        "de": "regulatorische-daten-digital-solutions-manager-sika-zurich",
+        "fr": "gestionnaire-de-donnees-et-de-solutions-numeriques-sika-zurich"
       },
       "company": "Sika",
       "companyKey": "sika",
       "companyDomain": "sika.com",
       "title": "Regulatory Data & Digital Solutions Manager",
       "titleByLocale": {
-        "en": "Regulatory Data & Digital Solutions Manager",
         "it": "Gestione dei dati e delle soluzioni digitali",
+        "en": "Regulatory Data & Digital Solutions Manager",
         "de": "Regulatorische Daten & Digital Solutions Manager",
         "fr": "Gestionnaire de données et de solutions numériques"
       },
       "description": "Develop and drive the regulatory data strategy, target architecture, and capability roadmap Translate regulatory requirements into structured data, metadata, traceability, retention, access, and reporting requirements Define regulatory data objects, ownership models, quality standards, controls, and lifecycle governance Collaborate with Product Conformity, Data Management, IT, Procurement, Supply Chain, Sustainability, and business stakeholders to identify and prioritize requirements Coordinate solution design and integration across enterprise platforms such as SAP, PIM, EDMS, and related systems Support packaging and supplier information management, Digital Product Passport (DPP) initiatives, and external information publication requirements Establish and maintain a transparent regulatory data and digital solutions backlog Design reusable data models, interfaces, and governance components for current and future regulatory frameworks Prepare implementation roadmaps and transition plans while ensuring alignment with corporate Data and IT standards",
       "descriptionByLocale": {
-        "en": "Develop and drive the regulatory data strategy, target architecture, and capability roadmap Translate regulatory requirements into structured data, metadata, traceability, retention, access, and reporting requirements Define regulatory data objects, ownership models, quality standards, controls, and lifecycle governance Collaborate with Product Conformity, Data Management, IT, Procurement, Supply Chain, Sustainability, and business stakeholders to identify and prioritize requirements Coordinate solution design and integration across enterprise platforms such as SAP, PIM, EDMS, and related systems Support packaging and supplier information management, Digital Product Passport (DPP) initiatives, and external information publication requirements Establish and maintain a transparent regulatory data and digital solutions backlog Design reusable data models, interfaces, and governance components for current and future regulatory frameworks Prepare implementation roadmaps and transition plans while ensuring alignment with corporate Data and IT standards",
         "it": "Sviluppare e guidare la strategia dei dati regolamentari, l'architettura di destinazione e la roadmap di capacità Tradurre i requisiti normativi in dati strutturati, metadati, tracciabilità, ritenzione, accesso e requisiti di reporting Definire gli oggetti di dati normativi, modelli di proprietà, standard di qualità, controlli e governance del ciclo di vita Collaborare con Conformità del prodotto, Gestione dei dati, IT, Procurement, Supply Chain, Sostenibilità e stakeholder aziendali per identificare i requisiti per identificare e priorità",
-        "de": "Entwicklung und Umsetzung der regulatorischen Datenstrategie, Zielarchitektur und Kapazitäts-Roadmap Übersetzen Sie regulatorische Anforderungen in strukturierte Daten, Metadaten, Rückverfolgbarkeit, Aufbewahrung, Zugriff und Berichtsanforderungen Definieren Sie regulatorische Datenobjekte, Eigentümermodelle, Qualitätsstandards, Kontrollen und Lifecycle-Governance In Zusammenarbeit mit Produktkonformität, Datenmanagement, IT, Beschaffung, Supply Chain, Nachhaltigkeit und Geschäftsbeteiligten, um Anforderungen zu identifizieren und zu priorisieren Koordinieren Sie das Lösungsdesign und die Integration über Unternehmensplattformen wie SAP, PIM, EDMS und verwandte Systeme Support Packaging and Supplier Information Management, Digital Product Passport (DPP) Initiativen und externe Informationspublikationsanforderungen Aufbau und Pflege eines transparenten Backlogs für regulatorische Daten und digitale Lösungen Aufbau und Pflege wiederverwendbare Datenmodelle, Schnittstellen und Governance-Komponenten für aktuelle und zukünftige regulatorische Rahmenbedingungen Bereiten Sie Implementierungs-Roadmaps und Übergangspläne vor und stellen gleichzeitig die Ausrichtung mit Unternehmensdaten und IT-Standards sicher",
+        "en": "Develop and drive the regulatory data strategy, target architecture, and capability roadmap Translate regulatory requirements into structured data, metadata, traceability, retention, access, and reporting requirements Define regulatory data objects, ownership models, quality standards, controls, and lifecycle governance Collaborate with Product Conformity, Data Management, IT, Procurement, Supply Chain, Sustainability, and business stakeholders to identify and prioritize requirements Coordinate solution design and integration across enterprise platforms such as SAP, PIM, EDMS, and related systems Support packaging and supplier information management, Digital Product Passport (DPP) initiatives, and external information publication requirements Establish and maintain a transparent regulatory data and digital solutions backlog Design reusable data models, interfaces, and governance components for current and future regulatory frameworks Prepare implementation roadmaps and transition plans while ensuring alignment with corporate Data and IT standards",
+        "de": "Entwicklung und Umsetzung der regulatorischen Datenstrategie, Zielarchitektur und Kapazitäts-Roadmap Übersetzen Sie regulatorische \n• Anforderungen in strukturierte Daten, Metadaten, Rückverfolgbarkeit, Aufbewahrung, Zugriff und Berichtsanforderungen Definieren Sie regulatorische Datenobjekte, Eigentümermodelle, Qualitätsstandards, Kontrollen und Lifecycle-Governance In Zusammenarbeit mit Produktkonformität, Datenmanagement, IT, Beschaffung, Supply Chain, Nachhaltigkeit und Geschäftsbeteiligten, um \n• Anforderungen zu identifizieren und zu priorisieren Koordinieren Sie das Lösungsdesign und die Integration über Unternehmensplattformen wie SAP, PIM, EDMS und verwandte Systeme Support Packaging and Supplier Information Management, Digital Product Passport (DPP) Initiativen und externe Informationspublikationsanforderungen Aufbau und Pflege eines transparenten Backlogs für regulatorische Daten und digitale Lösungen Aufbau und Pflege wiederverwendbare Datenmodelle, Schnittstellen und Governance-Komponenten für aktuelle und zukünftige regulatorische Rahmenbedingungen Bereiten Sie Implementierungs-Roadmaps und Übergangspläne vor und stellen gleichzeitig die Ausrichtung mit Unternehmensdaten und IT-Standards sicher",
         "fr": "Élaborer et diriger la stratégie de données réglementaires, l'architecture cible et la feuille de route des capacités Traduire les exigences réglementaires en données structurées, en métadonnées, en traçabilité, en conservation, en accès et en rapports Définir les objets de données réglementaires, les modèles de propriété, les normes de qualité, les contrôles et la gouvernance du cycle de vie Collaborer avec la conformité des produits, la gestion des données, les technologies de l'information, les achats, la chaîne d'approvisionnement, la durabilité et les intervenants commerciaux afin d'identifier et de hiérarchiser les exigences Coordonner la conception et l'intégration des solutions entre les plates-formes d'entreprise telles que SAP, PIM, EDMS et les systèmes connexes Soutenir les initiatives de gestion de l'information des emballages et des fournisseurs, les passeports pour produits numériques et les exigences de publication de l'information externe Établir et maintenir un arriéré de données réglementaires et de solutions numériques transparents Concevoir des modèles de données, des interfaces et des composantes de gouvernance réutilisables pour les cadres réglementaires actuels et futurs Préparer des feuilles de route et des plans de transition tout en assurant l'alignement sur les normes ministérielles en matière de données et de TI"
       },
       "location": "Zürich, Zurich",
@@ -3488,7 +3617,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-056d3c3e-9158-4e55-82ab-f4f6be0c76c0.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:51:09.823Z",
+      "crawledAt": "2026-09-26T14:02:56.933Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -3505,10 +3634,23 @@
       "postedDate": "2026-09-02",
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-056d3c3e-9158-4e55-82ab-f4f6be0c76c0.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-25T14:51:09.823Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "regulatory-data-digital-solutions-manager-sika-ch"
+        ],
+        "de": [
+          "regulatory-data-digital-solutions-manager-sika-ch"
+        ],
+        "fr": [
+          "regulatory-data-digital-solutions-manager-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "regulatory-data-digital-solutions-manager-sika-ch"
+      ],
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -3521,8 +3663,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-25T14:51:09.823Z"
+      }
     },
     {
       "id": "sika-d613c2147364",
@@ -3555,7 +3696,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-0dbecc32-10e1-4d94-be74-f6326d4f2bbe.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:51:08.788Z",
+      "crawledAt": "2026-09-26T14:02:55.930Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "streetAddress": "",
@@ -3590,6 +3731,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:04:24.346Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -3635,7 +3777,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f0e3bbbd-3961-486f-ab8e-49a3c9614bfe.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:51:07.584Z",
+      "crawledAt": "2026-09-26T14:02:54.774Z",
       "addressLocality": "Romanshorn",
       "postalCode": "",
       "streetAddress": "",
@@ -3682,7 +3824,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
