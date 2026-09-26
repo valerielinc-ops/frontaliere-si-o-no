@@ -12023,6 +12023,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.simex-26-emergenza-agno.title': 'Incident aérien simulé à l’aéroport d’Agno',
     'blog.article.simex-26-emergenza-agno.excerpt': 'SIMEX 26 a testé à Agno les alarmes, les secours, la communication et la coordination entre l’aéroport et les organisations de premiers intervenants.',
     'blog.article.simex-26-emergenza-agno.imageAlt': 'Aéroport d’Agno pendant un exercice d’urgence',
+    'blog.article.bilaterali-tre-primo-test.title': 'Bilatérales III : lundi le test au Conseil des Etats',
+    'blog.article.bilaterali-tre-primo-test.excerpt': 'Le paquet d\'accords Suisse-UE arrive dès lundi au Conseil des Etats : la source prévoit un débat fleuve, avec des étincelles dans la confrontation.',
+    'blog.article.bilaterali-tre-primo-test.imageAlt': 'Bellinzone et les montagnes tessinoises sur les accords bilatéraux III',
 };
 
 export default blogMetaFr;
