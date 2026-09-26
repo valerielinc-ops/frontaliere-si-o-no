@@ -1,11 +1,11 @@
 /**
  * Classifies WHY a job-alert matched zero jobs this run, using only the
  * alert's own HARD filters — buildAlertProfile (services/jobAlertMatching.mjs)
- * documents hardKeywords, alertLocations/cantons, and specificJobIds/
- * specificCompanyKey as the only HARD eliminators; sectors/contractTypes are
- * soft ranking signals there and never zero out a match on their own. No
- * re-scoring against the job pool — a field-only heuristic, cheap enough to
- * run for every zero-match alert in a run.
+ * documents hardKeywords/hardCategoryKeys, alertLocations/cantons, and
+ * specificJobIds/specificCompanyKey as the only HARD eliminators;
+ * sectors/contractTypes are soft ranking signals there and never zero out a
+ * match on their own. No re-scoring against the job pool — a field-only
+ * heuristic, cheap enough to run for every zero-match alert in a run.
  */
 export const ZERO_MATCH_CAUSES = {
   NO_ELIGIBLE_CANDIDATES: 'no-eligible-candidates',
@@ -75,6 +75,7 @@ export function summarizeZeroMatchPlans(plans = []) {
   const zeroMatchByCause = {};
   let evaluatedAlertCount = 0;
   let noEligibleCandidateCount = 0;
+  let emptyProfileCount = 0;
   let zeroMatchCount = 0;
 
   for (const plan of plans) {
@@ -82,10 +83,17 @@ export function summarizeZeroMatchPlans(plans = []) {
       noEligibleCandidateCount += 1;
       continue;
     }
-    evaluatedAlertCount += 1;
-    if ((plan?.rankedCount ?? 0) > 0) continue;
-    zeroMatchCount += 1;
+    if ((plan?.rankedCount ?? 0) > 0) {
+      evaluatedAlertCount += 1;
+      continue;
+    }
     const cause = plan?.zeroCause || ZERO_MATCH_CAUSES.EMPTY_PROFILE;
+    if (cause === ZERO_MATCH_CAUSES.EMPTY_PROFILE) {
+      emptyProfileCount += 1;
+      continue;
+    }
+    evaluatedAlertCount += 1;
+    zeroMatchCount += 1;
     zeroMatchByCause[cause] = (zeroMatchByCause[cause] || 0) + 1;
   }
 
@@ -93,6 +101,7 @@ export function summarizeZeroMatchPlans(plans = []) {
     alertCount: plans.length,
     evaluatedAlertCount,
     noEligibleCandidateCount,
+    emptyProfileCount,
     zeroMatchCount,
     zeroMatchRate: evaluatedAlertCount > 0 ? zeroMatchCount / evaluatedAlertCount : null,
     zeroMatchByCause,

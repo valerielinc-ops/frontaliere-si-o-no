@@ -94531,6 +94531,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vpdd-ssp-contro-iva-avs': {
+    title: 'VPOD-SSP contro l\'aumento dell\'IVA per la 13esima AVS',
+    description: 'Il VPOD-SSP si oppone all\'aumento dell\'IVA per finanziare la 13esima AVS, definendolo antisociale; cita utili AVS di 5,6 mld (2024) e 4,4 mld (2025)',
+    keywords: 'frontalieri, ticino, svizzera, italia, vpod-ssp, contro, aumento, dell',
+    ogTitle: 'VPOD-SSP contro aumento IVA per 13esima AVS, voto 29 nov',
+    ogDescription: 'Il VPOD-SSP ha respinto il finanziamento della 13esima AVS tramite aumento dell\'IVA, definendo la misura antisociale e regressiva. L\'assemblea dei delegati a Zurigo ha votato 22 contro 6. Il sindacato evidenzia gli utili AVS di 5,6 miliardi nel 2024',
+    canonicalPath: '/articoli-frontaliere/vpdd-ssp-contro-iva-avs',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "VPOD-SSP contro l'aumento dell'IVA per la 13esima AVS",
+      "description": "Il VPOD-SSP si oppone all'aumento dell'IVA per finanziare la 13esima AVS, definendolo antisociale; cita utili AVS di 5,6 mld (2024) e 4,4 mld (2025)",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vpdd-ssp-contro-iva-avs.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Promenade di Lugano con lago e montagne sullo sfondo, scena reale"
+      },
+      "datePublished": "2026-09-26T19:00:14+00:00",
+      "dateModified": "2026-09-26T19:00:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vpdd-ssp-contro-iva-avs/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

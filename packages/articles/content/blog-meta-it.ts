@@ -12078,6 +12078,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.erba-punto-nascita-interrogazione-lega.title': 'Chiusura punto nascita Erba: interrogazione Lega',
     'blog.article.erba-punto-nascita-interrogazione-lega.excerpt': 'Eugenio Zoffili interroga il ministro Schillaci e chiede tavoli tecnici e deroghe per mantenere operativo il punto nascita di Erba.',
     'blog.article.erba-punto-nascita-interrogazione-lega.imageAlt': 'Ospedale di Erba al centro della discussione sulla chiusura del punto nascita',
+    'blog.article.vpdd-ssp-contro-iva-avs.title': 'VPOD-SSP contro l\'aumento dell\'IVA per la 13esima AVS',
+    'blog.article.vpdd-ssp-contro-iva-avs.excerpt': 'Il VPOD-SSP respinge il finanziamento della 13esima AVS tramite aumento dell\'IVA, voto popolare il 29 novembre; utili AVS 5,6 mld nel 2024 e 4,4 mld nel 2025, patrimonio 60,4 mld.',
+    'blog.article.vpdd-ssp-contro-iva-avs.imageAlt': 'Promenade di Lugano con lago e montagne sullo sfondo, scena reale',
 };
 
 export default blogMetaIt;

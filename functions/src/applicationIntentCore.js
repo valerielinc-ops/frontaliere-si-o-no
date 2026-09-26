@@ -17,6 +17,10 @@ import {
   extractClientIp,
   truncateUserAgent,
 } from './lib/requestForensics.js';
+import {
+  canRegisterApplicationIntent,
+  canWriteApplicationIntentForAccount,
+} from './applicationIntentPrivacy.js';
 
 export const APPLICATION_INTENTS_COLLECTION = 'application_intents';
 export const APPLICATION_INTENT_CONSENT_VERSION = 'application-intent-v1';
@@ -222,11 +226,24 @@ function boundedRetryCount(value) {
  */
 export async function persistApplicationIntent({ db, record }) {
   const intentRef = db.collection(APPLICATION_INTENTS_COLLECTION).doc(record.intentId);
+  const uid = record.identifierType === 'firebase_uid' ? record.identifier : null;
   let recorded = false;
   let retryCount = 0;
+  let allowed = false;
 
   await db.runTransaction(async (transaction) => {
     recorded = false;
+    allowed = !uid;
+
+    if (uid) {
+      const profileRef = db.collection('users').doc(uid);
+      const profileSnapshot = await transaction.get(profileRef);
+      const profile = profileSnapshot.exists ? profileSnapshot.data() || {} : null;
+      if (!canRegisterApplicationIntent({ profile, userId: uid })) return;
+      if (!await canWriteApplicationIntentForAccount(db, { uid, profile, transaction })) return;
+      allowed = true;
+    }
+
     const existing = await transaction.get(intentRef);
     if (existing.exists) {
       const current = existing.data() || {};
@@ -243,7 +260,7 @@ export async function persistApplicationIntent({ db, record }) {
     recorded = true;
   });
 
-  return { recorded, duplicate: !recorded, retryCount };
+  return { allowed, recorded, duplicate: !recorded, retryCount };
 }
 
 /** Injectable core used by the HTTP wrapper and unit tests. */
@@ -268,6 +285,9 @@ export async function handleRecordApplicationIntent({
 
   const db = injectedDb || getAdminDb();
   const result = await persistApplicationIntent({ db, record });
+  if (!result.allowed) {
+    return { status: 403, body: { ok: false, error: 'application_intent_not_allowed' } };
+  }
   return {
     status: 200,
     body: {

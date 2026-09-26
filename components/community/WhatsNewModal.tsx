@@ -46,6 +46,11 @@ export const RELEASES: Release[] = [
         link: { tab: 'job-board' },
       },
       {
+        type: 'feature',
+        titleKey: 'whatsNew.v3968.applicationIntentPrivacy.title',
+        descKey: 'whatsNew.v3968.applicationIntentPrivacy.desc',
+      },
+      {
         type: 'improvement',
         titleKey: 'whatsNew.v3968.applicationIntentDigest.title',
         descKey: 'whatsNew.v3968.applicationIntentDigest.desc',
