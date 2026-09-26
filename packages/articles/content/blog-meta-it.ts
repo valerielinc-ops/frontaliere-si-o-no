@@ -12075,6 +12075,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cantieri-reti-gas-acqua-varese.title': 'Varese: cantieri gas e acqua in tre vie fino ad aprile 2027',
     'blog.article.cantieri-reti-gas-acqua-varese.excerpt': 'Dal 28 settembre 2026 iniziano i lavori di Lereti (Gruppo Acinque) in via Masolino da Panicale, Pagliano e Giovannini. Divieto di transito e sosta.',
     'blog.article.cantieri-reti-gas-acqua-varese.imageAlt': 'Lavori di rinnovamento reti gas e acqua a Varese',
+    'blog.article.erba-punto-nascita-interrogazione-lega.title': 'Chiusura punto nascita Erba: interrogazione Lega',
+    'blog.article.erba-punto-nascita-interrogazione-lega.excerpt': 'Eugenio Zoffili interroga il ministro Schillaci e chiede tavoli tecnici e deroghe per mantenere operativo il punto nascita di Erba.',
+    'blog.article.erba-punto-nascita-interrogazione-lega.imageAlt': 'Ospedale di Erba al centro della discussione sulla chiusura del punto nascita',
 };
 
 export default blogMetaIt;
