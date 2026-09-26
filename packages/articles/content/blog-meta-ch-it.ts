@@ -6785,6 +6785,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-auto-elettriche-classifica.title': 'Auto elettriche: Svizzera scende al 16° posto in Europa',
     'blog.article.svizzera-auto-elettriche-classifica.excerpt': 'Nel 2019 la Svizzera era quinta per elettrificazione, a fine 2025 al 13° e a metà 2026 al 16°; un quarto delle nuove immatricolazioni è elettrico puro.',
     'blog.article.svizzera-auto-elettriche-classifica.imageAlt': 'SUV elettrico moderno parcheggiato accanto a una stazione di ricarica in una località alpina svizzera.',
+    'blog.article.premi-cassa-malati-stabilita-famiglie.title': 'Premi casse malati salgono, ma il peso familiare è stabile',
+    'blog.article.premi-cassa-malati-stabilita-famiglie.excerpt': 'Dal 2016 al 2023 il carico netto delle famiglie è rimasto stabile: il premio standard è aumentato del 19%, ma la quota sul reddito medio è passata dal 6,5% al 6,4% grazie a un aumento dei sussidi di circa 440 franchi.',
+    'blog.article.premi-cassa-malati-stabilita-famiglie.imageAlt': 'Vista urbana svizzera con ospedale moderno, simbolo delle casse malati',
 };
 
 export default blogMetaChIt;

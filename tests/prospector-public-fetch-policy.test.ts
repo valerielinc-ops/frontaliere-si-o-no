@@ -4,7 +4,7 @@ import {
   politeFetch,
 } from '../scripts/lib/prospector/polite-fetch.mjs';
 import { createSpecUrlPolicy } from '../scripts/lib/prospector/public-fetch-policy.mjs';
-import { runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs';
+import { fetchRuntimePage, runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs';
 
 function response(url: string, status: number, location: string | null = null, body = '') {
   return {
@@ -287,6 +287,74 @@ describe('prospector public-only polite transport', () => {
       title: 'Platform Engineer', url: detail, location: 'Zürich', canton: 'ZH',
     })]);
     expect(jinaFetchImpl).toHaveBeenCalledTimes(2);
+  });
+
+  it('rescues a connection-level seed failure through Jina instead of returning zero listings', async () => {
+    const seed = 'https://employer.example/jobs';
+    const detail = 'https://employer.example/careers/detail/1';
+    const listing = `<a href="/careers/detail/1">Platform Engineer</a>${' listing'.repeat(60)}`;
+    const detailHtml = '<h1>Platform Engineer</h1><div class="job-location">Zürich</div>'
+      + '<article class="vacancy-description">Build reliable systems for our engineering organisation, '
+      + 'coordinate production releases, improve observability, support colleagues across the platform team, '
+      + 'and document resilient operational practices for every service owner.</article>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) throw new TypeError('fetch failed');
+      if (url === detail) return response(url, 200, null, detailHtml);
+      throw new Error(`unexpected URL ${url}`);
+    });
+    const jinaFetchImpl = vi.fn(async (url: string) => response(url, 200, null, listing));
+
+    const rows = await runSpecInProduction({
+      companyKey: 'employer', companyName: 'Employer', companyHost: 'employer.example',
+      mode: 'template', seedUrls: [seed], detailTemplate: '/careers/detail/*',
+    } as any, {
+      fetchImpl,
+      jinaFetchImpl,
+      retries: 0,
+      jinaRetries: 0,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      jinaSleepImpl: async () => {},
+    });
+
+    expect(rows).toEqual([expect.objectContaining({
+      title: 'Platform Engineer', url: detail, location: 'Zürich', canton: 'ZH',
+    })]);
+    expect(jinaFetchImpl).toHaveBeenCalledOnce();
+  });
+
+  it('keeps an exhausted connection rescue retryable instead of marking it anti-bot', async () => {
+    const seed = 'https://employer.example/jobs';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      const error = Object.assign(new Error('upstream timeout'), { code: 'ETIMEDOUT' });
+      throw error;
+    });
+    const jinaFetchImpl = vi.fn(async (url: string) => response(url, 502));
+    const policy = createSpecUrlPolicy({ seedUrls: [seed] }, {
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+    });
+
+    let error: any;
+    try {
+      await fetchRuntimePage(seed, policy, {
+        fetchImpl,
+        jinaFetchImpl,
+        retries: 0,
+        jinaRetries: 0,
+        sleepImpl: async () => {},
+        jinaSleepImpl: async () => {},
+      });
+    } catch (caught) {
+      error = caught;
+    } finally {
+      await policy.dispatcher.close();
+    }
+
+    expect(error).toMatchObject({ status: 0, retryable: true });
+    expect(error).not.toHaveProperty('antiBotExhausted');
+    expect(jinaFetchImpl).toHaveBeenCalledOnce();
   });
 
   it('marks an exhausted WAF rescue as anti-bot so the prior slice can be preserved', async () => {
