@@ -1,4 +1,8 @@
 import { RECORD_APPLICATION_INTENT_URL } from './functionsBase';
+import { buildApplicationIntentJobKey } from './applicationIntentRanking.mjs';
+import { trackApplicationIntent } from './behaviorTracker';
+
+export { buildApplicationIntentJobKey };
 
 /** Wire version shared with functions/src/applicationIntentCore.js. */
 export const APPLICATION_INTENT_CONSENT_VERSION = 'application-intent-v1';
@@ -50,15 +54,6 @@ function visitorIdentifier(): string {
   }
 }
 
-/** Stable job identity shared by retries, locales and the referral URL. */
-export function buildApplicationIntentJobKey(job: ApplicationIntentJob): string {
-  const companyKey = clean(job.companyKey) || 'unknown-company';
-  const canonicalSlug = clean(job.slugByLocale?.it) || clean(job.slug);
-  return canonicalSlug
-    ? `${companyKey}:${canonicalSlug}`
-    : `${companyKey}:id:${clean(job.id) || 'unknown-job'}`;
-}
-
 /**
  * Fire-and-forget from the click handler, but keep the request alive through a
  * same-tab redirect. The server accepts the opaque visitor id when Auth is not
@@ -71,8 +66,11 @@ export async function recordApplicationIntent({
   consentText,
   authUser = null,
 }: RecordApplicationIntentInput): Promise<boolean> {
+  const jobKey = buildApplicationIntentJobKey(job);
+  trackApplicationIntent(jobKey);
+
   const payload = {
-    jobKey: buildApplicationIntentJobKey(job),
+    jobKey,
     jobSlug: clean(job.slugByLocale?.it) || clean(job.slug) || clean(job.id),
     companyKey: clean(job.companyKey) || null,
     jobTitle: clean(job.title) || null,

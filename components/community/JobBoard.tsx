@@ -80,6 +80,7 @@ import {
  trackSearch as trackSearchBehavior,
  trackFilterUsage,
 } from '@/services/behaviorTracker';
+import { compareApplicationIntentJobKeys } from '@/services/applicationIntentRanking.mjs';
 import {
  computePersonalScore,
  createPersonalScorer,
@@ -688,6 +689,8 @@ interface JobBoardProps {
  onRequireAuth?: () => void;
  /** Personalization feature flag (from Firebase Remote Config) */
  enablePersonalization?: boolean;
+ /** Exact-job application-intent ranking flag (off by default). */
+ enableApplicationIntentRanking?: boolean;
  /** User profile data for personalization scoring */
  userProfile?: import('@/components/pages/UserProfile').UserProfileData | null;
  /**
@@ -2313,6 +2316,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onFacebookAuthRequired,
  onRequireAuth,
  enablePersonalization = false,
+ enableApplicationIntentRanking = false,
  userProfile = null,
  initialFilterCanton = null,
 }) => {
@@ -2635,6 +2639,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [behaviorData, setBehaviorData] = useState<BehaviorData | null>(null);
  const [lastVisitTimestamp, setLastVisitTimestamp] = useState<number | null>(null);
  const visitCapturedRef = useRef(false);
+ const applicationIntentExposureRef = useRef(false);
  const [newJobsDismissed, setNewJobsDismissed] = useState(false);
  const [jobMatchProfile, setJobMatchProfile] = useState<JobMatchProfileData | null>(null);
  // INP: behaviorData/jobMatchProfile land via a post-mount effect (localStorage
@@ -2695,12 +2700,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // stays in React state for this board session, so later SPA updates to
  // behaviorData cannot make the counter compare against "now".
  useEffect(() => {
- if (!enablePersonalization || visitCapturedRef.current) return;
+ if ((!enablePersonalization && !enableApplicationIntentRanking) || visitCapturedRef.current) return;
  visitCapturedRef.current = true;
- const { data, previousLastVisit } = readBehaviorAndMarkVisit();
- setBehaviorData(data);
- setLastVisitTimestamp(previousLastVisit);
- }, [enablePersonalization]);
+ if (enablePersonalization) {
+  const { data, previousLastVisit } = readBehaviorAndMarkVisit();
+  setBehaviorData(data);
+  setLastVisitTimestamp(previousLastVisit);
+ } else {
+  setBehaviorData(getBehaviorData());
+ }
+ }, [enablePersonalization, enableApplicationIntentRanking]);
 
  // Load survey-derived job-match profile (sector/canton/experience level).
  // Independent of behaviorData: a user who only completed SalarySurvey (no
@@ -2885,9 +2894,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // main thread for 14 s (1x CPU) right after mount and again on every
  // deferred search keystroke (trackSearch refreshes behaviorData).
  const personalScoreByJob = useMemo(() => {
- if (!enablePersonalization || !deferredBehaviorData) return null;
- return scorePersonalJobs(jobs, createPersonalScorer(deferredBehaviorData, deferredUserProfile ?? null, deferredJobMatchProfile));
- }, [enablePersonalization, deferredBehaviorData, jobs, deferredUserProfile, deferredJobMatchProfile]);
+ if ((!enablePersonalization && !enableApplicationIntentRanking) || !deferredBehaviorData) return null;
+ return scorePersonalJobs(jobs, createPersonalScorer(
+  deferredBehaviorData,
+  deferredUserProfile ?? null,
+  deferredJobMatchProfile,
+  { applicationIntentRankingEnabled: enableApplicationIntentRanking },
+ ));
+ }, [enablePersonalization, enableApplicationIntentRanking, deferredBehaviorData, jobs, deferredUserProfile, deferredJobMatchProfile]);
  const matchedJobCount = useMemo(() => {
  if (!personalScoreByJob) return 0;
  let count = 0;
@@ -2897,6 +2911,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  // Whether personalization is actively changing sort order (any job scored > 0)
  const isPersonalizationActive = matchedJobCount > 0;
+
+ // Low-cardinality experiment exposure; this helper is Firebase Analytics-only
+ // and deliberately carries no user, employer, or job identifiers.
+ useEffect(() => {
+ if ((!enablePersonalization && !enableApplicationIntentRanking) || !behaviorData || applicationIntentExposureRef.current) return;
+ applicationIntentExposureRef.current = true;
+ Analytics.trackExperimentEvent('application_intent_ranking_exposure', {
+  experiment_id: 'application_intent_ranking',
+  variant: enableApplicationIntentRanking ? 'treatment' : 'control',
+ });
+ }, [enablePersonalization, enableApplicationIntentRanking, behaviorData]);
 
  // Analytics: track personalization state
  useEffect(() => {
@@ -4286,17 +4311,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ...keys,
  personal: personalScoreByJob?.get(keys.job) ?? NO_PERSONAL_SCORE,
  }));
- withMeta.sort((a, b) =>
- (b.sp - a.sp)
- || (b.personal.score - a.personal.score)
- || (a.rank - b.rank)
- || (b.day - a.day)
- || (b.qs - a.qs)
- );
+ withMeta.sort((a, b) => {
+ const existingOrder = (b.sp - a.sp)
+  || (b.personal.score - a.personal.score)
+  || (a.rank - b.rank)
+  || (b.day - a.day)
+  || (b.qs - a.qs);
+ if (existingOrder !== 0 || !enableApplicationIntentRanking) return existingOrder;
+ return compareApplicationIntentJobKeys(a.job, b.job);
+ });
  const next = reuseIfSameOrder(sortedJobsRef.current, withMeta.map(({ job }) => job));
  sortedJobsRef.current = next;
  return next;
- }, [jobSortKeys, personalScoreByJob]);
+ }, [jobSortKeys, personalScoreByJob, enableApplicationIntentRanking]);
 
  // Pre-built search index: caches normalised haystack per job so
  // queryMatchesJob doesn't recompute expensive string normalisation on every keystroke.

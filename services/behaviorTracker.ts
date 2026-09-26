@@ -1,7 +1,8 @@
 /**
  * Behavior Tracker — localStorage CRUD + Firestore sync for job personalization.
  *
- * Tracks: viewed jobs, search queries, filter usage.
+ * Tracks: viewed jobs, search queries, filter usage, and bounded redirect-only
+ * application-intent ranking keys.
  * Syncs to Firestore for logged-in users (cross-device).
  * localStorage is source of truth; Firestore is best-effort.
  */
@@ -9,6 +10,11 @@
 import type { Firestore } from 'firebase/firestore';
 import { resilientImport } from '@/services/resilientImport';
 import { isStorageAvailable } from '@/services/storageAvailability';
+import {
+ activeApplicationIntentJobKeys,
+ MAX_APPLICATION_INTENT_SIGNALS,
+ recordApplicationIntentSignal as updateApplicationIntentSignal,
+} from '@/services/applicationIntentRanking.mjs';
 
 // ─── Types ──────────────────────────────────────────────────────
 
@@ -26,11 +32,24 @@ export interface SearchEntry {
  resultCount: number;
 }
 
+export interface ApplicationIntentSignal {
+ jobKey: string;
+ application_status: 'redirect_only';
+ timestamp: number;
+ retentionUntil: number;
+}
+
+export interface ApplicationIntentProfile {
+ optedOut?: boolean;
+ intents: ApplicationIntentSignal[];
+}
+
 export interface BehaviorData {
  version: 1;
  lastVisit: string | null;
  viewedJobs: ViewedJob[];
  searches: SearchEntry[];
+ applicationIntent?: ApplicationIntentProfile;
  filterUsage: {
  category: Record<string, number>;
  location: Record<string, number>;
@@ -98,7 +117,57 @@ function pruneExpired(data: BehaviorData): BehaviorData {
  ...data,
  viewedJobs: data.viewedJobs.filter((v) => v.ts > cutoff),
  searches: data.searches.filter((s) => s.ts > cutoff),
+ applicationIntent: normalizeApplicationIntentProfile(data.applicationIntent),
  };
+}
+
+function epochMs(value: unknown): number {
+ if (typeof value === 'number' && Number.isFinite(value)) return value;
+ if (value instanceof Date) return value.getTime();
+ if (value && typeof value === 'object' && 'toMillis' in value && typeof value.toMillis === 'function') {
+ const timestamp = value.toMillis();
+ return Number.isFinite(timestamp) ? timestamp : NaN;
+ }
+ if (typeof value === 'string' && value.trim()) {
+ const timestamp = Date.parse(value);
+ return Number.isFinite(timestamp) ? timestamp : NaN;
+ }
+ return NaN;
+}
+
+function normalizeApplicationIntentProfile(value: unknown): ApplicationIntentProfile | undefined {
+ if (!value || typeof value !== 'object') return undefined;
+ const source = value as Record<string, unknown>;
+ const applicationIntent = {
+ optedOut: source.optedOut === true,
+ intents: Array.isArray(source.intents) ? source.intents : [],
+ };
+ const activeKeys = activeApplicationIntentJobKeys(applicationIntent);
+ const latestByKey = new Map<string, ApplicationIntentSignal>();
+ for (const raw of applicationIntent.intents.slice(-MAX_APPLICATION_INTENT_SIGNALS)) {
+ if (!raw || typeof raw !== 'object') continue;
+ const item = raw as Record<string, unknown>;
+ const jobKey = typeof item.jobKey === 'string' ? item.jobKey.trim() : '';
+ if (!jobKey || !activeKeys.has(jobKey) || item.application_status !== 'redirect_only') continue;
+ const timestamp = epochMs(item.timestamp ?? item.ts ?? item.createdAt);
+ const retentionUntil = epochMs(item.retentionUntil);
+ if (!Number.isFinite(timestamp) || !Number.isFinite(retentionUntil)) continue;
+ const prior = latestByKey.get(jobKey);
+ if (!prior || timestamp > prior.timestamp) {
+ latestByKey.set(jobKey, {
+ jobKey,
+ application_status: 'redirect_only',
+ timestamp,
+ retentionUntil,
+ });
+ }
+ }
+ const result: ApplicationIntentProfile = {
+ intents: [...latestByKey.values()].sort((a, b) => a.timestamp - b.timestamp).slice(-MAX_APPLICATION_INTENT_SIGNALS),
+ };
+ if (source.optedOut === true) result.optedOut = true;
+ else if (source.optedOut === false) result.optedOut = false;
+ return result;
 }
 
 function pruneSize(data: BehaviorData): BehaviorData {
@@ -131,6 +200,16 @@ function available(): boolean {
 export function getBehaviorData(): BehaviorData {
  if (!available()) return emptyBehavior();
  return pruneExpired(readRaw());
+}
+
+/** Record only the bounded ranking projection of an explicitly consented apply click. */
+export function trackApplicationIntent(jobKey: string, now = Date.now()): boolean {
+ if (!available()) return false;
+ const data = readRaw();
+ const updated = updateApplicationIntentSignal(data.applicationIntent, jobKey, now);
+ data.applicationIntent = normalizeApplicationIntentProfile(updated.applicationIntent);
+ writeRaw(pruneSize(pruneExpired(data)));
+ return updated.recorded;
 }
 
 /**
@@ -251,6 +330,7 @@ export async function syncToFirestore(email: string): Promise<void> {
  viewedJobs: data.viewedJobs,
  searches: data.searches,
  filterUsage: data.filterUsage,
+ ...(data.applicationIntent ? { applicationIntent: data.applicationIntent } : {}),
  lastSynced: new Date(),
  },
  { merge: true },
@@ -285,6 +365,7 @@ export async function hydrateFromFirestore(email: string): Promise<void> {
  lastVisit: null,
  viewedJobs: Array.isArray(remote.viewedJobs) ? remote.viewedJobs : [],
  searches: Array.isArray(remote.searches) ? remote.searches : [],
+ applicationIntent: normalizeApplicationIntentProfile(remote.applicationIntent),
  filterUsage: remote.filterUsage || { category: {}, location: {}, contract: {} },
  syncedAt: null,
  };
@@ -335,9 +416,29 @@ export function mergeBehavior(local: BehaviorData, cloud: BehaviorData): Behavio
  lastVisit: local.lastVisit || cloud.lastVisit,
  viewedJobs: Array.from(jobMap.values()).sort((a, b) => a.ts - b.ts),
  searches: mergedSearches.sort((a, b) => a.ts - b.ts),
+ applicationIntent: mergeApplicationIntentProfiles(local.applicationIntent, cloud.applicationIntent),
  filterUsage: mergedFilters,
  syncedAt: null,
  }));
+}
+
+function mergeApplicationIntentProfiles(
+ local: ApplicationIntentProfile | undefined,
+ cloud: ApplicationIntentProfile | undefined,
+): ApplicationIntentProfile | undefined {
+ if (!local && !cloud) return undefined;
+ const optedOut = local?.optedOut === true || cloud?.optedOut === true;
+ const byJob = new Map<string, ApplicationIntentSignal>();
+ for (const intent of [...(cloud?.intents || []), ...(local?.intents || [])]) {
+ const previous = byJob.get(intent.jobKey);
+ if (!previous || intent.timestamp > previous.timestamp) byJob.set(intent.jobKey, intent);
+ }
+ const result: ApplicationIntentProfile = {
+ intents: [...byJob.values()].sort((a, b) => a.timestamp - b.timestamp).slice(-MAX_APPLICATION_INTENT_SIGNALS),
+ };
+ if (optedOut) result.optedOut = true;
+ else if (local?.optedOut === false || cloud?.optedOut === false) result.optedOut = false;
+ return result;
 }
 
 /** Start debounced sync interval for authenticated users. Returns cleanup function. */

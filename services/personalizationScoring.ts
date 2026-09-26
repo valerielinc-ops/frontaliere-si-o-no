@@ -1,7 +1,7 @@
 /**
  * Personalization Scoring Engine — pure functions, no side effects.
  *
- * Computes a personal relevance score (0-31) for each job based on:
+ * Computes a personal relevance score (0-39) for each job based on:
  * - Behavior signals (viewed jobs, search queries, filter usage)
  * - Profile signals (municipality, workPosition)
  * - Job-match profile signals (sector, canton, experience level — from
@@ -18,6 +18,11 @@ import type { BehaviorData } from '@/services/behaviorTracker';
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import type { JobMatchProfileData } from '@/services/jobMatchProfile';
 import {
+ activeApplicationIntentJobKeys,
+ buildApplicationIntentJobKey,
+ PERSONAL_APPLICATION_INTENT_BOOST,
+} from '@/services/applicationIntentRanking.mjs';
+import {
  normalizeSearchText,
  extractKeywords,
  keywordOverlap,
@@ -30,7 +35,10 @@ import {
 
 interface ScoredJob {
  /** Slug, category, company, location, title fields used for matching */
+ id?: string;
  slug?: string;
+ slugByLocale?: Partial<Record<string, string | null>> | null;
+ companyKey?: string;
  category: string;
  company: string;
  location: string;
@@ -46,6 +54,11 @@ interface ScoredJob {
 export interface PersonalScore {
  score: number;
  topSignal: string;
+}
+
+export interface PersonalScoringOptions {
+ applicationIntentRankingEnabled?: boolean;
+ now?: number;
 }
 
 // ─── Job-match profile lookup tables ─────────────────────────────
@@ -122,6 +135,7 @@ export function createPersonalScorer(
  behavior: BehaviorData,
  profile: UserProfileData | null,
  jobMatchProfile: JobMatchProfileData | null = null,
+ options: PersonalScoringOptions = {},
 ): PersonalScorer {
  const viewedJobs = behavior.viewedJobs;
  const viewedCompanies = new Set(viewedJobs.map((v) => normalizeSearchText(v.company)));
@@ -167,6 +181,9 @@ export function createPersonalScorer(
  const matchCanton = jobMatchProfile?.canton || '';
  const matchCantonNorm = matchCanton ? normalizeSearchText(matchCanton) : '';
  const experienceLevel = jobMatchProfile?.experienceLevel || '';
+ const applicationIntentJobKeys = options.applicationIntentRankingEnabled
+ ? activeApplicationIntentJobKeys(behavior.applicationIntent, options.now)
+ : new Set<string>();
 
  // The list repeats a few hundred localities and a couple of thousand
  // companies across ~12k rows: normalize each distinct raw value once per
@@ -294,6 +311,13 @@ export function createPersonalScorer(
  addSignal(2, 'profile_experience');
  }
 
+ // A consented apply click is an exact-job signal, not evidence of completion.
+ // One fixed increment is capped independently of repeat clicks and outranks
+ // every individual passive browsing/profile signal.
+ if (applicationIntentJobKeys.size > 0 && applicationIntentJobKeys.has(buildApplicationIntentJobKey(job))) {
+ addSignal(PERSONAL_APPLICATION_INTENT_BOOST, 'application_intent');
+ }
+
  return { score, topSignal };
  };
 }
@@ -310,8 +334,9 @@ export function computePersonalScore(
  behavior: BehaviorData,
  profile: UserProfileData | null,
  jobMatchProfile: JobMatchProfileData | null = null,
+ options: PersonalScoringOptions = {},
 ): PersonalScore {
- return createPersonalScorer(behavior, profile, jobMatchProfile)(job);
+ return createPersonalScorer(behavior, profile, jobMatchProfile, options)(job);
 }
 
 /** Score of a job when personalization is off or has no signal for it. */

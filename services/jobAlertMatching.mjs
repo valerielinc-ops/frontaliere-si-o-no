@@ -43,6 +43,11 @@ import {
 } from '../build-plugins/shared/companyProfileSlug.mjs';
 import { normalizeLocToken } from './locToken.mjs';
 import { municipalityToCantons } from './provinceCantonAffinity.ts';
+import {
+ activeApplicationIntentJobKeys,
+ buildApplicationIntentJobKey,
+ ALERT_APPLICATION_INTENT_BOOST,
+} from './applicationIntentRanking.mjs';
 
 /** @typedef {Set<string>} TokenSet */
 
@@ -281,6 +286,9 @@ function preferenceCities(preferences) {
  * @property {Record<string,string>|Map<string,string>} [cityToCanton] Lowercased
  *   city → canton index (built from the full jobs dataset) used to resolve the
  *   preferred cities to their cantons for the geo-preference split.
+ * @property {Record<string,unknown>|null} [applicationIntent] Bounded private
+ *   exact-job intent projection; opted-out or expired entries score zero.
+ * @property {number} [now] Fixed epoch for deterministic retention checks/tests.
  */
 
 /**
@@ -433,6 +441,7 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
   return {
     hardKeywords, softTokens, company, locations, alertLocations, cantons, sectors, contractTypes,
     specificJobIds, specificCompanyKey, preferredLocations: preferredLocationNames, preferredCantons,
+    applicationIntentJobKeys: activeApplicationIntentJobKeys(ex.applicationIntent, ex.now),
   };
 }
 
@@ -758,8 +767,18 @@ export function createJobFeatureCache() {
  * @param {ReturnType<typeof createJobFeatureCache>|null} [featureCache] See {@link scoreJobForAlert}.
  * @returns {(job: object) => number}
  */
-export function createAlertScorer(profile, locale, featureCache = null) {
+export function createAlertScorer(profile, locale, featureCache = null, options = {}) {
   if (!profile) return () => 0;
+  const applicationIntentEnabled = options.applicationIntentRankingEnabled === true;
+  const applicationIntentJobKeys = applicationIntentEnabled
+    ? profile.applicationIntentJobKeys || new Set()
+    : new Set();
+  const applicationIntentBoost = (job) => (
+    applicationIntentJobKeys.size > 0
+      && applicationIntentJobKeys.has(buildApplicationIntentJobKey(job))
+      ? ALERT_APPLICATION_INTENT_BOOST
+      : 0
+  );
 
   // Job-specific scope: a pinned alert ("notify me about THIS job/company")
   // surfaces ONLY the pinned job(s) / company, bypassing keyword/intent scoring.
@@ -777,7 +796,7 @@ export function createAlertScorer(profile, locale, featureCache = null) {
       const idHit = pinnedJobs.includes(String(job.id || ''))
         || pinnedJobs.includes(String(job.publisherJobId || ''));
       const companyHit = Boolean(pinnedCompany && jobCompanyKeys.includes(pinnedCompany));
-      return (idHit || companyHit) ? 10 : 0;
+      return (idHit || companyHit) ? 10 + applicationIntentBoost(job) : 0;
     };
   }
 
@@ -877,7 +896,7 @@ export function createAlertScorer(profile, locale, featureCache = null) {
       }
     }
 
-    return Math.max(score, 1);
+    return Math.max(score, 1) + applicationIntentBoost(job);
   };
 }
 
@@ -901,7 +920,7 @@ export function createAlertScorer(profile, locale, featureCache = null) {
  *   many alerts. Omitted: computed per call, as before.
  * @returns {number}
  */
-export function scoreJobForAlert(job, profile, locale, featureCache = null) {
+export function scoreJobForAlert(job, profile, locale, featureCache = null, options = {}) {
   if (!job || !profile) return 0;
-  return createAlertScorer(profile, locale, featureCache)(job);
+  return createAlertScorer(profile, locale, featureCache, options)(job);
 }
