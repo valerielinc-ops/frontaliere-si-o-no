@@ -532,14 +532,15 @@ export function buildAlertPayload(email, data, existingBackfill, personalization
       JSON.stringify(normalizeCriteria(existingKeywords)) === JSON.stringify(generated));
   const preservedExistingKeywords = existingWasGenerated ? contextKeywords : existingKeywords;
   const generatedLocationForms = legacyContextLocations.length > 0
-    ? [normalizeCriteria(legacyContextLocations)]
+    ? [legacyContextLocations]
     : [];
   // Migrate only the exact location array emitted by the old writer. Any
   // extra, removed or reordered criterion proves that the subscriber edited
-  // the alert and must be preserved byte-for-byte.
+  // the alert and must be preserved byte-for-byte. Unlike keyword matching,
+  // whitespace and casing are part of the user's location value here.
   const existingLocationWasGenerated = existingLocations.length > 0
     && generatedLocationForms.some((generated) =>
-      JSON.stringify(normalizeCriteria(existingLocations)) === JSON.stringify(generated));
+      JSON.stringify(existingLocations) === JSON.stringify(generated));
   const preservedExistingLocations = existingLocationWasGenerated ? [] : existingLocations;
   const tierSuffix =
     tier === 'location-fallback' || tier === 'personalization-fallback' || tier === 'url-fallback'

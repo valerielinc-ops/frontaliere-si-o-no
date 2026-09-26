@@ -450,6 +450,19 @@ describe('backfill-jobalerts-from-newsletter — buildAlertPayload', () => {
     ).locations).toEqual(['Lugano', 'Bellinzona']);
   });
 
+  it('preserves a legacy location edited by whitespace or casing', () => {
+    const payload = buildAlertPayload(
+      'a@b.ch',
+      {
+        job_location: 'Lugano',
+        source_channel: 'job_gate',
+      },
+      { locations: [' Lugano '] },
+    );
+
+    expect(payload.locations).toEqual([' Lugano ']);
+  });
+
   it('does not promote a recovered source title to a hard keyword', () => {
     const payload = buildAlertPayload(
       'a@b.ch',
