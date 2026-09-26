@@ -1,5 +1,506 @@
 [
   {
+    "slug": "meccanica-aziendale-in-emmi-suhr-aargau",
+    "title": "Betriebsmechaniker:in",
+    "titleByLocale": {
+      "it": "Meccanica aziendale:",
+      "en": "Business mechanic:",
+      "de": "Betriebsmechaniker:in",
+      "fr": "Mécanicien d'affaires :"
+    },
+    "company": "Emmi",
+    "companyKey": "emmi",
+    "location": "Suhr, Aargau",
+    "addressLocality": "Suhr",
+    "descriptionByLocale": {
+      "it": "• Sei responsabile per la manutenzione/manutenzione e la risoluzione dei problemi degli impianti di riempimento moderni.\n\n• Attraverso la vostra buona autogestione, è possibile identificare rapidamente, analizzare e ottenere il lavoro fatto e si è in grado di supportare il vostro team in modo efficiente con un sacco di know-how e motivazione.\n\n• Con la vostra iniziativa, riconoscete in modo indipendente cosa c'è da fare e siete un membro di squadra così prezioso.\n\n• Hai completato la formazione EFZ nel campo tecnico e hai già acquisito qualche esperienza professionale nella manutenzione e nella pneumatica.\n\n• Nella lingua tedesca si può facilmente esprimere verbalmente e per iscritto.\n\n• Ti piace imparare cose nuove e vuoi sempre sviluppare.\n\n• Flessibilità è importante e ti piace lavorare in un modello a 3 turni con incarichi previsti per il fine settimana e non hai problemi a fornire servizi di picket.",
+      "en": "• You are responsible for the maintenance/maintenance and troubleshooting of modern filling plants.\n\n• Through your good self-management, you can quickly identify, analyze and get work done and you are able to support your team efficiently with a lot of know-how and motivation.\n\n• With your own initiative, you independently recognize what there is to do and are such a valuable team member.\n\n• You have completed EFZ training in the technical field and have already gained some professional experience in maintenance and pneumatics.\n\n• In the German language you can easily express yourself verbally and in writing.\n\n• You like to learn new things and you always want to develop.\n\n• Flexibility is important and you like to work in a 3-shift model with planned weekend assignments and have no problem providing picket services.",
+      "de": "• Du bist zuständig Für die Wartung/Instandhaltung und Störungsbehebung an modernen Abfüllanlagen.\n\n• Durch dein gutes Selbstmanagement kannst du Arbeiten schnell erkennen, analysieren und erledigen und du bist in der Lage dein Team mit viel Know-How und Motivation effizient zu unterstützen.\n\n• Mit deiner Eigeninitiative erkennst du selbständig was es zu tun gibt und bist so ein wertvolles Teammitglied.\n\n• Du bringst eine abgeschlossene Ausbildung EFZ im technischen Bereich mit und hast schon etwas Berufserfahrung in der Instandhaltung und Pneumatik gesammelt.\n\n• In der deutschen Sprache kannst du dich problemlos mündlich und schriftlich ausdrücken.\n\n• Du lernst gerne Neues und du möchtest dich immer weiterentwickeln.\n\n• Flexibilität ist wichtig und du arbeitest gerne im 3-Schichtmodell mit geplanten Wochenendeinsätzen und hast kein Problem Pikettdienste zu leisten.",
+      "fr": "• Vous êtes responsable de l'entretien et du dépannage des usines de remplissage modernes.\n\n• Grâce à votre bonne autogestion, vous pouvez rapidement identifier, analyser et faire du travail et vous pouvez soutenir votre équipe efficacement avec beaucoup de savoir-faire et de motivation.\n\n• De votre propre initiative, vous reconnaissez de façon indépendante ce qu'il y a à faire et êtes un membre d'équipe si précieux.\n\n• Vous avez suivi une formation EFZ dans le domaine technique et avez déjà acquis une certaine expérience professionnelle en maintenance et pneumatique.\n\n• En allemand, vous pouvez facilement vous exprimer verbalement et par écrit.\n\n• Vous aimez apprendre de nouvelles choses et vous voulez toujours développer.\n\n• La flexibilité est importante et vous aimez travailler dans un modèle de 3 équipes avec des affectations prévues le week-end et n'avez aucun problème à fournir des services de piquet."
+    },
+    "slugByLocale": {
+      "it": "meccanica-aziendale-in-emmi-suhr-aargau",
+      "en": "business-mechanic-in-emmi-suhr-aargau",
+      "de": "betriebsmechaniker-in-emmi-ch",
+      "fr": "mecanicien-d-affaires-emmi-suhr-aargau"
+    },
+    "sector": "Food & Beverage (dairy)",
+    "expiredAt": "2026-09-26T13:56:43.794Z",
+    "previousSlugs": [
+      "betriebsmechaniker-in-emmi-ch-2",
+      "betriebsmechaniker-in-emmi-ch",
+      "meccanico-di-impianti-emmi-suhr-ml20rj",
+      "mecanicien-d-usine-emmi-suhr",
+      "plant-mechanic-emmi-suhr",
+      "meccanico-di-impianti-emmi-suhr",
+      "mecanicien-d-entreprise-in-emmi-suhr-aargau",
+      "business-mechanic-in-emmi-suhr-aargau",
+      "betriebsmechaniker-in-emmi-suhr",
+      "meccanica-aziendale-in-emmi-dagmersellen-luzern-p6k5ia",
+      "meccanica-aziendale-in-emmi-dagmersellen-luzern-ky8pwb",
+      "betriebsmechaniker-in-emmi-dagmersellen",
+      "meccanica-aziendale-in-emmi-bischofszell-thurgau-62bq4u",
+      "betriebsmechaniker-in-emmi-bischofszell",
+      "meccanica-aziendale-emmi-bischofszell",
+      "business-mechanic-in-emmi-dagmersellen-luzern",
+      "business-mechanic-in-emmi-bischofszell-thurgau",
+      "plant-mechanic-emmi-bischofszell",
+      "mecanicien-d-entreprise-in-emmi-dagmersellen-luzern",
+      "mecanicien-d-entreprise-in-emmi-bischofszell-thurgau",
+      "mecanicien-d-affaires-emmi-bischofszell",
+      "meccanica-aziendale-in-emmi-dagmersellen-luzern",
+      "meccanica-aziendale-in-emmi-bischofszell-thurgau"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "betriebsmechaniker-in-emmi-ch-2",
+        "betriebsmechaniker-in-emmi-ch",
+        "meccanico-di-impianti-emmi-suhr-ml20rj",
+        "mecanicien-d-usine-emmi-suhr",
+        "plant-mechanic-emmi-suhr",
+        "mecanicien-d-entreprise-in-emmi-suhr-aargau",
+        "business-mechanic-in-emmi-suhr-aargau",
+        "betriebsmechaniker-in-emmi-suhr",
+        "meccanica-aziendale-in-emmi-dagmersellen-luzern-p6k5ia",
+        "meccanica-aziendale-in-emmi-dagmersellen-luzern-ky8pwb",
+        "betriebsmechaniker-in-emmi-dagmersellen",
+        "meccanica-aziendale-in-emmi-bischofszell-thurgau-62bq4u",
+        "betriebsmechaniker-in-emmi-bischofszell",
+        "meccanica-aziendale-emmi-bischofszell"
+      ],
+      "en": [
+        "betriebsmechaniker-in-emmi-suhr",
+        "business-mechanic-in-emmi-dagmersellen-luzern",
+        "plant-mechanic-emmi-suhr",
+        "betriebsmechaniker-in-emmi-dagmersellen",
+        "business-mechanic-in-emmi-bischofszell-thurgau",
+        "betriebsmechaniker-in-emmi-bischofszell",
+        "plant-mechanic-emmi-bischofszell"
+      ],
+      "de": [
+        "betriebsmechaniker-in-emmi-suhr"
+      ],
+      "fr": [
+        "betriebsmechaniker-in-emmi-suhr",
+        "mecanicien-d-entreprise-in-emmi-suhr-aargau",
+        "mecanicien-d-entreprise-in-emmi-dagmersellen-luzern",
+        "mecanicien-d-usine-emmi-suhr",
+        "betriebsmechaniker-in-emmi-dagmersellen",
+        "mecanicien-d-entreprise-in-emmi-bischofszell-thurgau",
+        "betriebsmechaniker-in-emmi-bischofszell",
+        "mecanicien-d-affaires-emmi-bischofszell"
+      ]
+    },
+    "postalCode": "5034",
+    "streetAddress": "Obertelweg 2",
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/cbe9a62a-2eab-483e-a598-80e87ed430b4",
+    "firstSeenAt": "2026-09-01T14:17:24.040Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/141cdaa8-eba9-4571-a845-5a34d9e07c5e",
+        "firstSeenAt": "2026-09-01T14:17:24.053Z",
+        "title": "Betriebsmechaniker:in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/35574ad9-df02-4c3a-8b5b-93457d599926",
+        "firstSeenAt": "2026-06-10T07:51:39.192Z",
+        "title": "Betriebsmechaniker:in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/4324850e-58b8-4ec0-9541-61e4ec9b2e76",
+        "firstSeenAt": "2026-07-20T23:32:26.511Z",
+        "title": "Betriebsmechaniker:in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/5631a74d-e998-4c0a-ada9-2346605acb61",
+        "firstSeenAt": "2026-08-18T09:51:07.010Z",
+        "title": "Betriebsmechaniker:in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/6d2a9718-8d1c-4937-984f-4f01dbf35b18",
+        "firstSeenAt": "2026-07-02T21:52:12.251Z",
+        "title": "Betriebsmechaniker:in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/90a6efcf-b50f-46fc-86de-cd037a27bdcb",
+        "firstSeenAt": "2026-08-10T21:49:51.287Z",
+        "title": "Betriebsmechaniker:in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/c5bccc70-53fd-437e-ada5-fc7f125a0172",
+        "firstSeenAt": "2026-06-10T07:51:39.184Z",
+        "title": "Betriebsmechaniker:in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/ca4cfb46-11ff-4866-ad45-c3a1cd0d4f05",
+        "firstSeenAt": "2026-07-02T10:58:29.752Z",
+        "title": "Betriebsmechaniker:in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/cbe9a62a-2eab-483e-a598-80e87ed430b4",
+        "firstSeenAt": "2026-09-01T14:17:24.040Z",
+        "title": "Betriebsmechaniker:in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/d03427a5-0ded-45fd-a92d-1a807c7ef1f2",
+        "firstSeenAt": "2026-07-24T11:36:28.732Z",
+        "title": "Betriebsmechaniker:in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/d2b552d3-4a9c-44c0-91d8-7bb36ae82f71",
+        "firstSeenAt": "2026-07-20T23:32:26.504Z",
+        "title": "Betriebsmechaniker:in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/e63ed6ef-243c-4cbf-ae79-beb765d533cd",
+        "firstSeenAt": "2026-07-24T11:36:28.743Z",
+        "title": "Betriebsmechaniker:in"
+      }
+    ]
+  },
+  {
+    "slug": "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern-05d350",
+    "title": "Anlagenführer:in Pulverproduktion",
+    "titleByLocale": {
+      "it": "Operatore vegetale: nella produzione di polvere",
+      "en": "Plant manager powder production",
+      "de": "Anlagenführer:in Pulverproduktion",
+      "fr": "Directeur de la production de poudre"
+    },
+    "company": "Emmi",
+    "companyKey": "emmi",
+    "location": "Dagmersellen, Luzern",
+    "addressLocality": "Dagmersellen",
+    "descriptionByLocale": {
+      "it": "• Siete responsabili del funzionamento e del monitoraggio dei nostri moderni impianti di produzione (evaporatori, torri spray, rulli).\n\n• Nel rispetto dei nostri requisiti di qualità e igiene, si producono latte e varie polveri speciali e concentrati.\n\n• Documenti tutti i dati di processo e esegui analisi di prodotti più piccole.\n\n• Hai una formazione di base nel settore alimentare o tecnico o un'esperienza professionale come gestore di impianti.\n\n• Buona conoscenza del tedesco nelle parole e nella scrittura.\n\n• Porti un alto grado di consapevolezza dell'igiene.\n\n• Fisicamente si è in forma, si lavora indipendentemente, comunicare apertamente e come imparare cose nuove.\n\n• Sei flessibile e apprezzi i vantaggi del funzionamento a turni ininterrotto.",
+      "en": "• You are responsible for the operation and monitoring of our modern production facilities (evaporators, spray towers, rollers).\n\n• In compliance with our quality and hygiene requirements, you produce milk and various specialty powders as well as concentrates.\n\n• You document all process data and perform smaller product analyses.\n\n• You have basic training in the food or technical field or professional experience as a plant manager.\n\n• Good knowledge of German in words and writing.\n\n• You bring a high degree of hygiene awareness.\n\n• Physically you are fit, you work independently, communicate openly and like to learn new things.\n\n• You are flexible and appreciate the benefits of uninterrupted shift operation.",
+      "de": "• Du bist verantwortlich für die Bedienung und Überwachung unserer modernen Produktionsanlagen (Eindampfer, Sprühtürme, Walzen).\n\n• Unter Einhaltung unserer Qualitäts- und Hygienevorgaben produzierst du Milch- und diverse Spezialpulver sowie Konzentrate.\n\n• Du dokumentierst sämtliche Prozessdaten und führst dabei kleinere Produktanalysen durch.\n\n• Du hast eine Grundausbildung im Lebensmittel- oder technischen Bereich oder Berufserfahrung als Anlagenführer.\n\n• Gute Deutschkenntnisse in Wort und Schrift.\n\n• Du bringst ein hohes Mass an Hygienebewusstsein mit.\n\n• Körperlich bist du fit, du arbeitest selbständig, kommunizierst offen und lernst gerne und Neues dazu.\n\n• Du bist flexibel und schätzt die Vorteile des ununterbrochenen Schichtbetriebes.",
+      "fr": "• Vous êtes responsable du fonctionnement et de la surveillance de nos installations de production modernes (évaporateurs, tours de pulvérisation, rouleaux).\n\n• Conformément à nos exigences de qualité et d'hygiène, vous produisez du lait et diverses poudres de spécialité ainsi que des concentrés.\n\n• Vous documentez toutes les données de traitement et effectuez de petites analyses de produits.\n\n• Vous avez une formation de base dans le domaine alimentaire ou technique ou une expérience professionnelle en tant que gestionnaire d'usine.\n\n• Bonne connaissance de l'allemand en mots et en écriture.\n\n• Vous apportez un haut degré de sensibilisation à l'hygiène.\n\n• Physiquement, vous êtes en forme, vous travaillez de façon indépendante, communiquez ouvertement et aimez apprendre de nouvelles choses.\n\n• Vous êtes flexible et appréciez les avantages d'une opération de quart ininterrompue."
+    },
+    "slugByLocale": {
+      "it": "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern-05d350",
+      "en": "plant-operator-in-powder-production-emmi-dagmersellen-luzern-05d350",
+      "de": "anlagenfuhrer-in-pulverproduktion-emmi-ch",
+      "fr": "directeur-de-la-production-de-poudre-emmi-dagmersellen-luzern"
+    },
+    "sector": "Food & Beverage (dairy)",
+    "expiredAt": "2026-09-26T13:56:43.794Z",
+    "previousSlugs": [
+      "anlagenfuhrer-in-pulverproduktion-emmi-ch",
+      "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen",
+      "operateur-en-poudre-emmi-dagmersellen-luzern",
+      "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern",
+      "plant-operator-in-powder-production-emmi-dagmersellen-luzern",
+      "operateur-de-la-centrale-en-poudre-emmi-dagmersellen-luzern",
+      "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern-1aziii",
+      "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern-6b2ydp",
+      "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern-sun8ym"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "anlagenfuhrer-in-pulverproduktion-emmi-ch",
+        "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen",
+        "plant-operator-in-powder-production-emmi-dagmersellen-luzern",
+        "operateur-de-la-centrale-en-poudre-emmi-dagmersellen-luzern",
+        "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern-1aziii",
+        "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern-6b2ydp",
+        "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern-sun8ym"
+      ],
+      "en": [
+        "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen",
+        "plant-operator-in-powder-production-emmi-dagmersellen-luzern"
+      ],
+      "fr": [
+        "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen",
+        "operateur-en-poudre-emmi-dagmersellen-luzern",
+        "operateur-de-la-centrale-en-poudre-emmi-dagmersellen-luzern"
+      ]
+    },
+    "postalCode": "6252",
+    "streetAddress": "Stationsstrasse 21",
+    "salaryMin": 96000,
+    "salaryMax": 146000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-pulverproduktion/163e0882-baea-489e-85b7-d6d78744a035",
+    "firstSeenAt": "2026-09-07T15:10:44.258Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-pulverproduktion/163e0882-baea-489e-85b7-d6d78744a035",
+        "firstSeenAt": "2026-09-07T15:10:44.258Z",
+        "title": "Anlagenführer:in Pulverproduktion"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-pulverproduktion/17aa1862-e77a-4f67-a302-69a1d342193a",
+        "firstSeenAt": "2026-07-07T22:23:34.058Z",
+        "title": "Anlagenführer:in Pulverproduktion"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-pulverproduktion/227eb514-c53c-4da9-a433-771536b69c46",
+        "firstSeenAt": "2026-06-30T22:12:58.335Z",
+        "title": "Anlagenführer:in Pulverproduktion"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-pulverproduktion/33c9a0c9-6b73-4f94-9ba1-3c9347a2713b",
+        "firstSeenAt": "2026-08-10T21:49:51.288Z",
+        "title": "Anlagenführer:in Pulverproduktion"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-pulverproduktion/91560e27-a427-4209-a350-281d901492a9",
+        "firstSeenAt": "2026-06-25T22:17:28.783Z",
+        "title": "Anlagenführer:in Pulverproduktion"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-pulverproduktion/d5760a00-ab5e-49bb-8fbd-1fb31fc8891d",
+        "firstSeenAt": "2026-07-24T11:36:28.741Z",
+        "title": "Anlagenführer:in Pulverproduktion"
+      }
+    ]
+  },
+  {
+    "slug": "responsabile-del-processo-logistico-in-sala-di-controllo-ricevuta-di-merci-container-vuoto-emmi-kirchberg-bern",
+    "title": "Logistik Prozessleiter:in Leitstand, Wareneingang & Leergebinde",
+    "titleByLocale": {
+      "it": "Logistica processo manager sala di controllo, merce ricevuta & container vuoto",
+      "en": "Logistics process manager control room, goods receipt & empty container",
+      "de": "Logistik Prozessleiter:in Leitstand, Wareneingang & Leergebinde",
+      "fr": "Gestionnaire de processus logistique: dans la salle de contrôle, réception de marchandises & conteneur vide"
+    },
+    "company": "Emmi",
+    "companyKey": "emmi",
+    "location": "Kirchberg, Bern",
+    "addressLocality": "Kirchberg",
+    "descriptionByLocale": {
+      "it": "• Si prende il controllo della leadership del team di 9 membri e garantire un processo logistico liscio nella posizione.\n\n• Nella sala di controllo, sei l'interfaccia centrale tra pianificazione del trasporto e magazzino, monitora i processi logistici e garantisce un flusso efficiente di informazioni.\n\n• Si comunica attivamente con interfacce interne ed esterne e assicurarsi che tutti i partecipanti siano informati correttamente e prontamente in ogni momento.\n\n• Fornisci anche supporto amministrativo, mantieni i dati master nei sistemi logistici e tratti documenti rilevanti per un trattamento logistico impeccabile.\n\n• Se necessario, è possibile imballarsi nel magazzino freddo – sia durante la raccolta, il caricamento, nella ricevuta della merce o nel contenitore vuoto.\n\n• Hai completato un apprendistato come logistico: in EFZ e già hai esperienza di gestione personale; Idealmente completato da ulteriore formazione come specialista di logistica con un certificato federale.\n\n• Una chiara comprensione del processo, il rapido riconoscimento delle connessioni e il pensiero orientato alla soluzione sono tra i vostri punti di forza.\n\n• Si esegue in modo sicuro e convincere con una sana affermatività.\n\n• Anche in situazioni frenetiche, si rimane calmi, resilienti e flessibili - soprattutto durante le fluttuazioni stagionali nel business quotidiano.\n\n• Hai una buona conoscenza orale e scritta del tedesco; La conoscenza del francese è un vantaggio.\n\n• Conoscenza di MS Office molto buona e l'esperienza nel trattare con sistemi IT logistica arrotondare il vostro profilo.",
+      "en": "• You take over the leadership of the 9-member team and ensure a smooth logistics process at the location.\n\n• In the control room, you are the central interface between transport scheduling and warehouse, monitor the logistics processes and ensure an efficient flow of information.\n\n• You actively communicate with internal and external interfaces and ensure that everyone involved is informed correctly and promptly at all times.\n\n• You also provide administrative support, maintain master data in the logistics systems and process relevant documents for flawless logistics processing.\n\n• If necessary, you can pack yourself in the cold warehouse – whether during picking, loading, in the goods receipt or in the empty container.\n\n• You have completed an apprenticeship as a logistician: in EFZ and already have personal management experience; Ideally supplemented by further training as a logistics specialist with a federal certificate.\n\n• A pronounced process understanding, rapid recognition of connections and solution-oriented thinking are among your strengths.\n\n• You perform safely and convince with a healthy assertiveness.\n\n• Even in hectic situations, you remain calm, resilient and flexible - especially during seasonal fluctuations in day-to-day business.\n\n• You have very good oral and written knowledge of German; Knowledge of French is an advantage.\n\n• Very good MS Office knowledge as well as experience in dealing with logistics IT systems round off your profile.",
+      "de": "• Du übernimmst die Führung des 9-köpfigen Teams und stellst einen reibungslosen Logistikablauf am Standort sicher.\n\n• Im Leitstand bist du die zentrale Schnittstelle zwischen Transportdisposition und Lager, überwachst die Logistikprozesse und sorgst für einen effizienten Informationsfluss.\n\n• Du kommunizierst aktiv mit internen und externen Schnittstellen und stellst sicher, dass alle Beteiligten jederzeit korrekt und zeitnah informiert sind.\n\n• Zudem unterstützt du administrativ, pflegst Stammdaten in den Logistiksystemen und bearbeitest relevante Dokumente für eine einwandfreie Logistikabwicklung.\n\n• Bei Bedarf packst du im Kühllager selbst mit an – ob bei der Kommissionierung, beim Verladen, im Wareneingang oder im Leergebinde.\n\n• Du hast eine Ausbildung als Logistiker:in EFZ abgeschlossen und bringst bereits personelle Führungserfahrung mit; idealerweise ergänzt durch eine Weiterbildung als Logistikfachmann/-frau mit eidg. Fachausweis.\n\n• Ein ausgeprägtes Prozessverständnis, rasches Erkennen von Zusammenhängen sowie lösungsorientiertes Denken zählen zu deinen Stärken.\n\n• Du trittst sicher auf und überzeugst mit einem gesunden Durchsetzungsvermögen.\n\n• Auch in hektischen Situationen bleibst du ruhig, belastbar und flexibel - insbesondere bei saisonalen Schwankungen im Tagesgeschäft.\n\n• Du verfügst über sehr gute mündliche und schriftliche Deutschkenntnisse; Französischkenntnisse sind von Vorteil.\n\n• Sehr gute MS-Office-Kenntnisse sowie Erfahrung im Umgang mti logistischen IT-Systemen runden dein Profil ab.",
+      "fr": "• Vous prenez la direction de l'équipe de 9 membres et assurez un processus logistique en douceur à l'emplacement.\n\n• Dans la salle de contrôle, vous êtes l'interface centrale entre l'horaire de transport et l'entrepôt, surveiller les processus logistiques et assurer un flux efficace d'informations.\n\n• Vous communiquez activement avec les interfaces internes et externes et veillez à ce que toutes les personnes concernées soient informées correctement et rapidement en tout temps.\n\n• Vous fournissez également un soutien administratif, maintenez les données maîtresses dans les systèmes logistiques et traitez les documents pertinents pour un traitement logistique impeccable.\n\n• Si nécessaire, vous pouvez vous emballer dans l'entrepôt froid, que ce soit lors de la cueillette, du chargement, dans le reçu de la marchandise ou dans le contenant vide.\n\n• Vous avez suivi un apprentissage en tant que logisticien: en EFZ et avez déjà une expérience de gestion personnelle; Idéalement complété par une formation continue en tant que spécialiste de la logistique avec un certificat fédéral.\n\n• Une compréhension du processus prononcée, la reconnaissance rapide des connexions et la pensée orientée vers la solution sont parmi vos forces.\n\n• Vous effectuez en toute sécurité et convainquez avec une saine assurance.\n\n• Même dans des situations agitées, vous restez calme, résilient et flexible, surtout pendant les fluctuations saisonnières des affaires quotidiennes.\n\n• Vous avez une très bonne connaissance orale et écrite de l'allemand ; la connaissance du français est un avantage.\n\n• Très bonne connaissance MS Office ainsi que l'expérience dans le traitement des systèmes informatiques de logistique complètent votre profil."
+    },
+    "slugByLocale": {
+      "it": "responsabile-del-processo-logistico-in-sala-di-controllo-ricevuta-di-merci-container-vuoto-emmi-kirchberg-bern",
+      "en": "logistics-process-manager-in-control-room-goods-receipt-empty-container-emmi-kirchberg-bern",
+      "de": "logistik-prozessleiter-in-leitstand-wareneingang-leergebinde-emmi-ch",
+      "fr": "gestionnaire-de-processus-logistique-dans-la-salle-de-controle-reception-de-marchandises-conteneur-vide-emmi-kirchberg"
+    },
+    "sector": "Food & Beverage (dairy)",
+    "expiredAt": "2026-09-26T13:56:43.794Z",
+    "previousSlugs": [
+      "logistics-process-manager-in-control-room-goods-receipt-empty-container-emmi-kirchberg-bern",
+      "logistics-process-manager-dans-la-salle-de-controle-recepisse-de-marchandises-conteneur-vide-emmi-kirchberg-bern",
+      "responsabile-del-processo-logistico-in-sala-di-controllo-merci-in-entrata-e-contenitori-vuoti-emmi-kirchberg",
+      "logistics-process-manager-in-control-station-incoming-goods-empty-containers-emmi-kirchberg",
+      "responsable-des-processus-logistiques-dans-le-poste-de-commande-la-reception-des-marchandises-et-les-conteneurs-vides",
+      "logistik-prozessleiter-in-leitstand-wareneingang-leergebinde-emmi-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "logistics-process-manager-in-control-room-goods-receipt-empty-container-emmi-kirchberg-bern",
+        "logistics-process-manager-dans-la-salle-de-controle-recepisse-de-marchandises-conteneur-vide-emmi-kirchberg-bern",
+        "responsabile-del-processo-logistico-in-sala-di-controllo-merci-in-entrata-e-contenitori-vuoti-emmi-kirchberg",
+        "logistics-process-manager-in-control-station-incoming-goods-empty-containers-emmi-kirchberg",
+        "responsable-des-processus-logistiques-dans-le-poste-de-commande-la-reception-des-marchandises-et-les-conteneurs-vides",
+        "logistik-prozessleiter-in-leitstand-wareneingang-leergebinde-emmi-ch"
+      ],
+      "en": [
+        "logistik-prozessleiter-in-leitstand-wareneingang-leergebinde-emmi-ch"
+      ],
+      "fr": [
+        "logistics-process-manager-dans-la-salle-de-controle-recepisse-de-marchandises-conteneur-vide-emmi-kirchberg-bern",
+        "logistik-prozessleiter-in-leitstand-wareneingang-leergebinde-emmi-ch"
+      ]
+    },
+    "postalCode": "3422",
+    "streetAddress": "Winkelweg 4",
+    "salaryMin": 94500,
+    "salaryMax": 143000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/logistik-prozessleiter-in-leitstand-wareneingang-leergebinde/d96205f2-3615-40c1-bc33-327f9248eb1d",
+    "firstSeenAt": "2026-08-11T10:23:21.720Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/logistik-prozessleiter-in-leitstand-wareneingang-leergebinde/3c3ad34f-2ed8-4fc6-94ca-366552d28511",
+        "firstSeenAt": "2026-06-10T07:51:39.205Z",
+        "title": "Logistik Prozessleiter:in Leitstand, Wareneingang & Leergebinde"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/logistik-prozessleiter-in-leitstand-wareneingang-leergebinde/822be13a-57b7-4398-b331-56900bfd6454",
+        "firstSeenAt": "2026-07-22T11:39:07.780Z",
+        "title": "Logistik Prozessleiter:in Leitstand, Wareneingang & Leergebinde"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/logistik-prozessleiter-in-leitstand-wareneingang-leergebinde/d96205f2-3615-40c1-bc33-327f9248eb1d",
+        "firstSeenAt": "2026-08-11T10:23:21.720Z",
+        "title": "Logistik Prozessleiter:in Leitstand, Wareneingang & Leergebinde"
+      }
+    ]
+  },
+  {
+    "slug": "responsabile-della-gestione-della-qualita-emmi-landquart-graubunden",
+    "title": "Leiter:in Qualitätsmanagment",
+    "titleByLocale": {
+      "it": "Responsabile della gestione della qualità",
+      "en": "Head of Quality Management",
+      "de": "Leiter:in Qualitätsmanagment",
+      "fr": "Chef de la gestion de la qualité"
+    },
+    "company": "Emmi",
+    "companyKey": "emmi",
+    "location": "Landquart, Graubünden",
+    "addressLocality": "Landquart",
+    "descriptionByLocale": {
+      "it": "• Una stretta collaborazione con la produzione – insieme ai team di produzione, continuerete a sviluppare processi e garantire un controllo ottimale della qualità lungo tutta la catena del valore.\n\n• Impostazione e conformità agli standard – Definisci, comunichi e monitori gli obiettivi di qualità del sito e funzionale e garantisci il rispetto degli standard ISO 9001 e FSSC 22000.\n\n• Analisi e ottimizzazione – Monitora e analizza i dati di laboratorio, organizza degustazioni e avvia misure per il miglioramento continuo.\n\n• Focus sui clienti – Gestisci specifiche lamentele dei clienti professionalmente e assicurati che i nostri elevati standard igienici siano rispettati durante l'operazione.\n\n• Hai la formazione in tecnologia alimentare, laboratorio o biologia (HS, FHS) e l'esperienza in garanzia di qualità e / o laboratorio.\n\n• L'affinità del sistema e il pensiero in rete sono i vostri punti di forza – si rimane sempre sul polso delle ultime tecnologie.\n\n• Certamente padrone tedesco in parola e scrittura e avere una buona conoscenza dell'inglese.",
+      "en": "• Close cooperation with production – Together with the production teams, you will continue to develop processes and ensure optimal quality control along the entire value chain.\n\n• Setting and complying with standards – You define, communicate and monitor site- and functional quality goals and ensure compliance with ISO 9001 and FSSC 22000 standards.\n\n• Analysis and optimization – You monitor and analyze laboratory data, organize tastings and initiate measures for continuous improvement.\n\n• Focus on customers – You handle specific customer complaints professionally and ensure that our high hygiene standards are met throughout the operation.\n\n• You have training in food technology, laboratory or biology (HS, FHS) and experience in quality assurance and/or laboratory.\n\n• System affinity and networked thinking are your strengths – you always stay on the pulse of the latest technologies.\n\n• You certainly master German in word and writing and have good knowledge of English.",
+      "de": "• Enge Zusammenarbeit mit der Produktion – Gemeinsam mit den Teams in der Produktion entwickelst du Prozesse weiter und sorgst für eine optimale Qualitätskontrolle entlang der gesamten Wertschöpfungskette.\n\n• Standards setzen und einhalten – Du definierst, kommunizierst und überwachst standort- und funktionsgerechte Qualitätsziele und stellst die Einhaltung der Normen ISO 9001 sowie FSSC 22000 sicher.\n\n• Analyse und Optimierung – Du überwachst und analysierst Labordaten, organisierst Degustationen und leitest Massnahmen zur kontinuierlichen Verbesserung ein.\n\n• Kunden im Fokus – Du bearbeitest spezifische Kundenreklamationen professionell und stellst sicher, dass unsere hohen Hygienestandards im gesamten Betrieb eingehalten werden.\n\n• Du hast eine Ausbildung im Bereich Lebensmitteltechnologie, Labor oder Biologie (HS, FHS) und bringst Erfahrung in der Qualitätssicherung und/oder im Labor mit.\n\n• Systemaffinität und vernetztes Denken sind deine Stärken – du bleibst immer am Puls der neuesten Technologien.\n\n• Deutsch beherrschst du sicher in Wort und Schrift und hast gute Englischkenntnisse.",
+      "fr": "• Coopération étroite avec la production – Avec les équipes de production, vous continuerez à développer des processus et assurerez un contrôle de qualité optimal tout au long de la chaîne de valeur.\n\n• Fixation et conformité aux normes – Vous définissez, communiquez et surveillez les objectifs de qualité du site et des fonctions et vous assurez la conformité aux normes ISO 9001 et FSSC 22000.\n\n• Analyse et optimisation – Vous surveillez et analysez les données de laboratoire, organisez des dégustations et lancez des mesures d'amélioration continue.\n\n• Focus sur les clients – Vous traitez les plaintes spécifiques des clients de manière professionnelle et vous assurez que nos normes d'hygiène élevées sont respectées tout au long de l'opération.\n\n• Vous avez une formation en technologie alimentaire, en laboratoire ou en biologie (SH, SHF) et une expérience en assurance de la qualité et/ou en laboratoire.\n\n• L'affinité du système et la pensée en réseau sont vos forces – vous restez toujours sur le pouls des dernières technologies.\n\n• Vous maîtrisez certainement l'allemand en paroles et en écriture et avez une bonne connaissance de l'anglais."
+    },
+    "slugByLocale": {
+      "it": "responsabile-della-gestione-della-qualita-emmi-landquart-graubunden",
+      "en": "head-of-quality-management-emmi-landquart-graubunden",
+      "de": "leiter-in-qualitatsmanagment-emmi-ch",
+      "fr": "chef-de-la-gestion-de-la-qualite-emmi-landquart-graubunden"
+    },
+    "sector": "Food & Beverage (dairy)",
+    "expiredAt": "2026-09-26T13:56:43.794Z",
+    "previousSlugs": [
+      "leiter-in-qualitatsmanagment-emmi-ch",
+      "responsabile-qualitatsmanagment-emmi-landquart",
+      "leiter-in-qualitatsmanagment-emmi-landquart"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "leiter-in-qualitatsmanagment-emmi-ch",
+        "responsabile-qualitatsmanagment-emmi-landquart"
+      ],
+      "en": [
+        "leiter-in-qualitatsmanagment-emmi-landquart"
+      ],
+      "fr": [
+        "leiter-in-qualitatsmanagment-emmi-landquart"
+      ]
+    },
+    "postalCode": "7302",
+    "streetAddress": "Mühlestrasse 2",
+    "salaryMin": 79000,
+    "salaryMax": 120000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/leiter-in-qualitaetsmanagment/49a275fd-3c2e-4e06-8c05-237423aae638",
+    "firstSeenAt": "2026-09-10T23:08:44.773Z"
+  },
+  {
+    "slug": "senior-brand-manager-emmi-caff-latte-emmi-luzern",
+    "title": "Senior Brand Manager Emmi CAFFÈ LATTE",
+    "titleByLocale": {
+      "it": "Senior Brand Manager Emmi caff latte",
+      "en": "Senior Brand Manager Emmi CAFFÈ LATTE",
+      "de": "Senior Brand Managerin Emmi CAFFÈ LATTE",
+      "fr": "Directrice de marque senior Emmi CAFFÈ LATTE"
+    },
+    "company": "Emmi",
+    "companyKey": "emmi",
+    "location": "Luzern, Luzern",
+    "addressLocality": "Luzern",
+    "descriptionByLocale": {
+      "it": "• Siete responsabili della gestione dei progetti di marchio EMM CAFFÈ LATTE sul mercato svizzero\n\n• Come progetto guidate gruppi di lavoro interdisciplinare e sviluppate il marchio nel mercato svizzero del retail\n\n• Siete responsabili dell'attuazione di campagne di comunicazione globali e, se del caso, della progettazione e dell'attuazione di campagne di comunicazione locali\n\n• Lavorate a stretto contatto con il Global Marketing Team per i progetti di innovazione e siete responsabili della loro attuazione sul mercato svizzero\n\n• Sulla base di dati di mercato, di mercato e di osservazione competitiva, segui anche i golfi locali, avvia i tuoi progetti per sviluppare i concetti di attivazione locale se necessario e definisci il mix di marketing e comunicazione per le attività ATL & BTL.\n\n• Lei garantisce l'interfaccia con le vendite, produzione, acquisto e altri reparti specializzati, nonché lo scambio con agenzie esterne\n\n• Siete una personalità vincente con molta spinta, capace di guidare progetti ambiziosi in modo indipendente e proattivo e in grado di identificare e coinvolgere tutte le parti interessate\n\n• Laurea magistrale (Uni/FH) con specializzazione in marketing\n\n• Almeno 5 anni di esperienza nella gestione del marchio di un FMC-Corcom è obbligatorio\n\n• Lavorate con le agenzie e avete esperienza nella progettazione e realizzazione di progetti complessi con diversi stakeholder\n\n• Conoscete bene il mercato svizzero del commercio al dettaglio e le esigenze dei consumatori\n\n• L'esperienza professionale nel mercato delle bevande/bevande è vantaggiosa\n\n• Lei comunica in inglese e tedesco\n\n• Conoscete bene il database Nielsen\n\n• Impegno, passione e passione per il marchio EMI CAFFÈ LATTE che porti con te",
+      "en": "• You are responsible for the management of Emmi CAFFÈ LATTE brand projects in the Swiss market\n\n• As a project lead you lead interdisciplinary working groups and develop the brand in the Swiss retail market\n\n• You are responsible for implementing global communication campaigns and, where appropriate, for designing and implementing local communication campaigns\n\n• You work closely with the Global Marketing Team on innovation projects and are responsible for their implementation in the Swiss market\n\n• Based on consumer-sl, market data and competitive observation, you also follow the local gulfs, initiate your own projects to develop local activation concepts if necessary, and define the marketing and communication mix for ATL & BTL activities.\n\n• You ensure the interface to sales, production, purchasing and other specialist departments as well as the exchange with external agencies\n\n• You are a winning personality with a lot of drive, capable of driving ambitious projects independently and proactively and able to identify and involve all stakeholders\n\n• Bachelor or Master degree (Uni/FH) with specialisation in marketing\n\n• At least 5 years of experience in the brand management of an FMC-Corcom is mandatory\n\n• You work with agencies and have experience in designing and implementing complex projects with different stakeholders\n\n• You have good knowledge of the Swiss retail market and consumer needs\n\n• Professional experience in the beverage/soft drinks market is beneficial\n\n• You communicate in English and German\n\n• You have good knowledge of the Nielsen database\n\n• Commitment, passion and passion for the brand Emmi CAFFÈ LATTE you bring with you",
+      "de": "• Du bist für die Führung von Emmi CAFFÈ LATTE Markenprojekten im Schweizer Markt verantwortlich\n\n• Als Projektlead führst du interdisziplinäre Arbeitsgruppen und entwickelst die Marke im Schweizer Retail Markt weiter\n\n• Du bist für die Umsetzung globaler Kommunikationskampagnen und ggfs. für Konzeption und Umsetzung lokaler Kommunikationskampagnen verantwortlich\n\n• Du arbeitest eng mit dem Global Marketing Team an Innovationsprojekten und bist für deren Umsetzung im Schweizer Markt verantwortlich\n\n• Basierend auf consumer insights, Marktdaten und Wettbewerbsbeobachtung verfolgst du auch die lokalen Needs, initiierst bei Bedarf eigene Projekte zur Erarbeitung lokaler Aktivierungskonzepte und definierst den Marketing- und Kommunikationsmix für ATL & BTL Aktivitäten.\n\n• Du stellst die Schnittstelle zu Verkauf, Produktion, Einkauf und anderen Fachabteilungen sicher sowie den Austausch mit externen Agenturen\n\n• Du bist eine gewinnende Persönlichkeit mit viel Drive, die es versteht, anspruchsvolle Projekte eigenständig und proaktiv voranzutreiben und alle Interessengruppen gekonnt zu identifizieren und entsprechend einzubeziehen\n\n• Bachelor oder Master-Abschluss (Uni/FH) mit Vertiefung Marketing\n\n• Mindestens 5 Jahre Berufserfahrung im Brand Management einer FMCG Unternehmung sind zwingend erforderlich\n\n• Du arbeitest routiniert mit Agenturen zusammen und hast Erfahrung in Konzeption und Durchführung komplexer Projekte mit verschiedenen Stakeholdern\n\n• Du hast gute Kenntnisse des Schweizer Retail Markts und der Konsumentenbedürfnisse\n\n• Berufserfahrung im Getränke/Softgetränke Markt ist von Vorteil\n\n• Du kommunizierst fliessend auf Deutsch und Englisch\n\n• Du hast gute Kenntnisse der Nielsen Datenbank\n\n• Engagement, Herzblut und Leidenschaft für die Brand Emmi CAFFÈ LATTE bringst du mit",
+      "fr": "• Vous êtes responsable de la gestion des projets de marque Emmi CAFFÈ LAtte sur le marché suisse\n\n• En tant que chef de projet, vous dirigez des groupes de travail interdisciplinaires et développez la marque sur le marché de détail suisse\n\n• Vous êtes responsable de la mise en œuvre de campagnes de communication mondiales et, le cas échéant, de la conception et de la mise en œuvre de campagnes de communication locales\n\n• Vous travaillez en étroite collaboration avec l'équipe de marketing mondial sur des projets d'innovation et êtes responsable de leur mise en œuvre sur le marché suisse\n\n• Sur la base des données du consommateur, du marché et de l'observation compétitive, vous suivez également les gulfs locaux, lancez vos propres projets pour développer des concepts d'activation locale si nécessaire, et définissez le mix marketing et communication pour les activités ATL & BTL.\n\n• Vous assurez l'interface avec les départements de vente, de production, d'achat et autres services spécialisés ainsi que l'échange avec les agences externes\n\n• Vous êtes une personnalité gagnante avec beaucoup de dynamisme, capable de conduire des projets ambitieux de manière indépendante et proactive et capable d'identifier et d'impliquer toutes les parties prenantes\n\n• Baccalauréat ou maîtrise (Uni/FH) avec spécialisation en marketing\n\n• Au moins 5 ans d'expérience dans la gestion de marque d'un FMC-Corcom est obligatoire\n\n• Vous travaillez avec des agences et avez de l'expérience dans la conception et la mise en œuvre de projets complexes avec différentes parties prenantes\n\n• Vous avez une bonne connaissance du marché de détail suisse et des besoins des consommateurs\n\n• L'expérience professionnelle sur le marché des boissons/boissons gazeuses est bénéfique\n\n• Vous communiquez en anglais et en allemand\n\n• Vous avez une bonne connaissance de la base de données Nielsen\n\n• Engagement, passion et passion pour la marque Emmi CAFFÈ LAtte que vous apportez avec vous"
+    },
+    "slugByLocale": {
+      "it": "senior-brand-manager-emmi-caff-latte-emmi-luzern",
+      "en": "senior-brand-manager-emmi-caffe-latte-emmi-ch",
+      "de": "senior-brand-manager-emmi-caffe-latte-emmi-ch",
+      "fr": "directeur-principal-de-la-marque-emmi-caffe-latte-emmi-luzern-luzern"
+    },
+    "sector": "Food & Beverage (dairy)",
+    "expiredAt": "2026-09-26T13:56:43.794Z",
+    "previousSlugs": [
+      "senior-brand-manager-emmi-caffe-latte-emmi-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "senior-brand-manager-emmi-caffe-latte-emmi-ch"
+      ]
+    },
+    "postalCode": "6005",
+    "streetAddress": "Landenbergstrasse 1",
+    "salaryMin": 96000,
+    "salaryMax": 146000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/senior-brand-manager-emmi-caffe-latte/77232062-8a37-47e2-a234-2f3887ca3ea6",
+    "firstSeenAt": "2026-09-02T23:10:39.201Z"
+  },
+  {
+    "slug": "senior-product-manager-categoria-competenza-e-analisi-emmi-luzern-luzern",
+    "title": "Senior Product Manager",
+    "titleByLocale": {
+      "it": "Responsabile prodotto senior",
+      "en": "Senior Product Manager",
+      "de": "Leitender Produktmanager",
+      "fr": "Chef de produit senior"
+    },
+    "company": "Emmi",
+    "companyKey": "emmi",
+    "location": "Luzern, Luzern",
+    "addressLocality": "Luzern",
+    "descriptionByLocale": {
+      "it": "• Siete responsabili dell'intero ciclo di vita del prodotto nelle categorie latte, crema, burro e mozzarella. dall'idea-finding al mercato lancio a sviluppo continuo.\n\n• Sviluppi e ottimizzi il portafoglio prodotti lungo il mercato e le esigenze dei clienti.\n\n• Analizza i dati di mercato, i clienti e la concorrenza e ne ricavano valide raccomandazioni per l'azione.\n\n• Siete attivamente coinvolti nello sviluppo e nell'implementazione di strategie di categoria, tenendo conto della redditività, delle capacità e delle esigenze dei clienti.\n\n• Identificate le opportunità e i rischi in anticipo e utilizzate informazioni basate sulle informazioni per le decisioni strategiche.\n\n• Lavorate a stretto contatto con i settori della ricerca e sviluppo, delle vendite, degli acquisti, del controllo e della produzione e assicurate la realizzazione di progetti di successo\n\n• Hai diversi anni di esperienza nella gestione dei prodotti, nella gestione delle categorie o in una funzione simile, idealmente nell'ambiente FMC-Court.\n\n• Convincete con forti capacità analitiche e potete trarre raccomandazioni concrete da dati complessi.\n\n• Avrete una profonda conoscenza di Excel e l'esperienza con gli strumenti BI e NielsenIQ.\n\n• Pensi strategicamente, agisci in modo imprenditoriale e lavori in modo strutturato e autonomo.\n\n• È possibile comunicare con diversi stakeholder e riunire con successo diversi interessi.\n\n• Hai una buona conoscenza del tedesco e dell'inglese.",
+      "en": "• You are responsible for the entire product life cycle in the categories milk, cream, butter and mozzarella – from the idea-finding to the market launch to continuous development.\n\n• You develop and optimize the product portfolio along market and customer needs.\n\n• You analyse market, customer and competition data and derive sound recommendations for action from it.\n\n• You are actively involved in the development and implementation of category strategies, taking into account profitability, capacities and customer needs.\n\n• You identify opportunities and risks early on and use information-based insights for strategic decisions.\n\n• You work closely with the areas of research & development, sales, purchasing, controlling and production and ensure successful implementation of projects\n\n• You have several years of experience in product management, category management or a similar function, ideally in the FMC-Court environment.\n\n• You convince with strong analytical skills and can derive concrete recommendations from complex data.\n\n• You will have a profound knowledge of Excel and experience with BI tools and NielsenIQ.\n\n• You think strategically, act entrepreneurially and work in a structured and autonomous manner.\n\n• You can communicate with different stakeholders and successfully bring different interests together.\n\n• You have very good knowledge of German and English.",
+      "de": "• Du verantwortest den gesamten Produktlebenszyklus in den Kategorien Milch, Rahm, Butter und Mozzarella – von der Ideenfindung über die Markteinführung bis zur kontinuierlichen Weiterentwicklung.\n\n• Du entwickelst und optimierst das Produktportfolio entlang der Markt- und Kundenbedürfnisse.\n\n• Du analysierst Markt-, Kunden- und Wettbewerbsdaten und leitest daraus fundierte Handlungsempfehlungen ab.\n\n• Du arbeitest aktiv bei der Entwicklung und Umsetzung von Kategoriestrategien mit und berücksichtigst dabei Rentabilität, Kapazitäten und Kundenbedürfnisse.\n\n• Du identifizierst Chancen und Risiken frühzeitig und nutzt datenbasierte Erkenntnisse für strategische Entscheidungen.\n\n• Du arbeitest eng mit den Bereichen Forschung & Entwicklung, Verkauf, Einkauf, Controlling und Produktion zusammen und sorgst für eine erfolgreiche Umsetzung von Projekten\n\n• Du verfügst über mehrere Jahre Erfahrung im Product Management, Category Management oder einer vergleichbaren Funktion, idealerweise im FMCG-Umfeld.\n\n• Du überzeugst mit ausgeprägten analytischen Fähigkeiten und kannst aus komplexen Daten konkrete Handlungsempfehlungen ableiten.\n\n• Du bringst fundierte Kenntnisse in Excel sowie Erfahrung mit BI-Tools und NielsenIQ mit.\n\n• Du denkst strategisch, handelst unternehmerisch und arbeitest strukturiert sowie eigenverantwortlich.\n\n• Du kommunizierst sicher mit unterschiedlichen Anspruchsgruppen und schaffst es, verschiedene Interessen erfolgreich zusammenzubringen.\n\n• Du verfügst über sehr gute Deutsch- und Englischkenntnisse.",
+      "fr": "• Vous êtes responsable de l'ensemble du cycle de vie des produits dans les catégories lait, crème, beurre et mozzarella – de la recherche d'idées au lancement du marché au développement continu.\n\n• Vous développez et optimisez le portefeuille de produits en fonction des besoins du marché et des clients.\n\n• Vous analysez les données du marché, du client et de la concurrence et vous en formulez des recommandations solides.\n\n• Vous participez activement au développement et à la mise en œuvre de stratégies de catégorie, en tenant compte de la rentabilité, des capacités et des besoins des clients.\n\n• Vous identifiez les possibilités et les risques et vous utilisez les informations pour prendre des décisions stratégiques.\n\n• Vous travaillez en étroite collaboration avec les domaines de la recherche et du développement, des ventes, de l'achat, du contrôle et de la production et vous assurez la réalisation réussie des projets\n\n• Vous avez plusieurs années d'expérience dans la gestion de produits, la gestion de catégorie ou une fonction similaire, idéalement dans l'environnement de la courbure FMC.\n\n• Vous convainquez avec de solides compétences analytiques et pouvez tirer des recommandations concrètes à partir de données complexes.\n\n• Vous aurez une connaissance approfondie d'Excel et de l'expérience avec les outils BI et NielsenIQ.\n\n• Vous pensez stratégiquement, agir de manière entrepreneuriale et travailler de manière structurée et autonome.\n\n• Vous pouvez communiquer avec les différents acteurs et rapprocher les différents intérêts.\n\n• Vous avez une très bonne connaissance de l'allemand et de l'anglais."
+    },
+    "slugByLocale": {
+      "it": "senior-product-manager-categoria-competenza-e-analisi-emmi-luzern-luzern",
+      "en": "senior-product-manager-emmi-luzern",
+      "de": "senior-product-manager-kategorie-expertise-analytik-emmi-ch",
+      "fr": "responsable-principal-de-produit-emmi-luzern-luzern"
+    },
+    "sector": "Food & Beverage (dairy)",
+    "expiredAt": "2026-09-26T13:56:43.794Z",
+    "previousSlugs": [
+      "senior-product-manager-kategorie-expertise-analytik-emmi-ch",
+      "senior-product-manager-emmi-luzern"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "senior-product-manager-kategorie-expertise-analytik-emmi-ch"
+      ],
+      "en": [
+        "senior-product-manager-kategorie-expertise-analytik-emmi-ch"
+      ],
+      "fr": [
+        "senior-product-manager-kategorie-expertise-analytik-emmi-ch",
+        "senior-product-manager-emmi-luzern"
+      ]
+    },
+    "postalCode": "6005",
+    "streetAddress": "Landenbergstrasse 1",
+    "salaryMin": 96000,
+    "salaryMax": 146000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/senior-product-manager/c8cdc073-df20-4003-83b3-205f717969ca",
+    "firstSeenAt": "2026-07-27T22:18:47.908Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/senior-product-manager-kategorie-expertise-analytik/c8cdc073-df20-4003-83b3-205f717969ca",
+        "firstSeenAt": "2026-07-27T22:18:47.908Z",
+        "title": "Senior Product Manager Kategorie-Expertise & Analytik"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/senior-product-manager/c8cdc073-df20-4003-83b3-205f717969ca",
+        "firstSeenAt": "2026-07-27T22:18:47.908Z",
+        "title": "Senior Product Manager"
+      }
+    ]
+  },
+  {
     "slug": "capo-turno-in-glace-1-2-turno-emmi-ostermundigen-bern",
     "title": "Schichtführer:in Glace (1-2 Schicht)",
     "titleByLocale": {
@@ -1049,101 +1550,6 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/internship-corporate-communications/4822b124-269f-4ec3-bbfa-6f11e9c00f4e",
     "firstSeenAt": "2026-07-22T11:39:07.778Z"
-  },
-  {
-    "slug": "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern",
-    "title": "Anlagenführer:in Pulverproduktion",
-    "titleByLocale": {
-      "it": "Operatore vegetale: nella produzione di polvere",
-      "en": "Plant manager powder production",
-      "de": "Anlagenführer:in Pulverproduktion",
-      "fr": "Directeur de la production de poudre"
-    },
-    "company": "Emmi",
-    "companyKey": "emmi",
-    "location": "Dagmersellen, Luzern",
-    "addressLocality": "Dagmersellen",
-    "descriptionByLocale": {
-      "it": "• Siete responsabili del funzionamento e del monitoraggio dei nostri moderni impianti di produzione (evaporatori, torri spray, rulli).\n• Nel rispetto dei nostri requisiti di qualità e igiene, si producono latte e varie polveri speciali e concentrati.\n• Documenti tutti i dati di processo e esegui analisi di prodotto più piccole.\n• Hai una formazione di base nel settore alimentare o tecnico o un'esperienza professionale come responsabile di impianti.\n• Buona conoscenza del tedesco nelle parole e nella scrittura.\n• Porti un alto grado di consapevolezza dell'igiene.\n• Fisicamente si è in forma, si lavora in modo indipendente, comunicare apertamente e come imparare cose nuove.\n• Sei flessibile e apprezzi i vantaggi del funzionamento a turni ininterrotto.",
-      "en": "• You are responsible for the operation and monitoring of our modern production facilities (evaporators, spray towers, rollers).\n• In compliance with our quality and hygiene requirements, you produce milk and various specialty powders as well as concentrates.\n• You document all process data and perform smaller product analyses.\n• You have basic training in the food or technical field or professional experience as a plant manager.\n• Good knowledge of German in words and writing.\n• You bring a high degree of hygiene awareness.\n• Physically you are fit, you work independently, communicate openly and like to learn new things.\n• You are flexible and appreciate the benefits of uninterrupted shift operation.",
-      "de": "• Du bist verantwortlich für die Bedienung und Überwachung unserer modernen Produktionsanlagen (Eindampfer, Sprühtürme, Walzen).\n\n• Unter Einhaltung unserer Qualitäts- und Hygienevorgaben produzierst du Milch- und diverse Spezialpulver sowie Konzentrate.\n\n• Du dokumentierst sämtliche Prozessdaten und führst dabei kleinere Produktanalysen durch.\n\n• Du hast eine Grundausbildung im Lebensmittel- oder technischen Bereich oder Berufserfahrung als Anlagenführer.\n\n• Gute Deutschkenntnisse in Wort und Schrift.\n\n• Du bringst ein hohes Mass an Hygienebewusstsein mit.\n\n• Körperlich bist du fit, du arbeitest selbständig, kommunizierst offen und lernst gerne und Neues dazu.\n\n• Du bist flexibel und schätzt die Vorteile des ununterbrochenen Schichtbetriebes.",
-      "fr": "• Vous êtes responsable du fonctionnement et de la surveillance de nos installations de production modernes (évaporateurs, tours de pulvérisation, rouleaux).\n• Conformément à nos exigences de qualité et d'hygiène, vous produisez du lait et diverses poudres spécialisées ainsi que des concentrés.\n• Vous documentez toutes les données de traitement et effectuez des analyses de produits plus petites.\n• Vous avez une formation de base dans le domaine alimentaire ou technique ou une expérience professionnelle en tant que gestionnaire d'usine.\n• Bonne connaissance de l'allemand en paroles et en écriture.\n• Vous apportez un haut degré de sensibilisation à l'hygiène.\n• Physiquement, vous êtes en forme, vous travaillez de manière indépendante, communiquez ouvertement et aimez apprendre de nouvelles choses.\n• Vous êtes flexible et appréciez les avantages d'une opération de quart ininterrompue."
-    },
-    "slugByLocale": {
-      "it": "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern",
-      "en": "plant-operator-in-powder-production-emmi-dagmersellen-luzern",
-      "de": "anlagenfuhrer-in-pulverproduktion-emmi-ch",
-      "fr": "operateur-de-la-centrale-en-poudre-emmi-dagmersellen-luzern"
-    },
-    "sector": "Food & Beverage (dairy)",
-    "expiredAt": "2026-09-08T13:41:08.741Z",
-    "previousSlugs": [
-      "anlagenfuhrer-in-pulverproduktion-emmi-ch",
-      "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern-1aziii",
-      "operateur-de-la-centrale-en-poudre-emmi-dagmersellen-luzern",
-      "plant-operator-in-powder-production-emmi-dagmersellen-luzern",
-      "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen",
-      "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern-6b2ydp",
-      "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern",
-      "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern-sun8ym"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "anlagenfuhrer-in-pulverproduktion-emmi-ch",
-        "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern-1aziii",
-        "operateur-de-la-centrale-en-poudre-emmi-dagmersellen-luzern",
-        "plant-operator-in-powder-production-emmi-dagmersellen-luzern",
-        "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen",
-        "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern-6b2ydp",
-        "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern-sun8ym"
-      ],
-      "en": [
-        "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen"
-      ],
-      "fr": [
-        "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen"
-      ]
-    },
-    "postalCode": "6252",
-    "streetAddress": "Stationsstrasse 21",
-    "salaryMin": 69500,
-    "salaryMax": 106000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-pulverproduktion/91560e27-a427-4209-a350-281d901492a9",
-    "firstSeenAt": "2026-06-25T22:17:28.783Z",
-    "sourceIdentityHistory": [
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-pulverproduktion/163e0882-baea-489e-85b7-d6d78744a035",
-        "firstSeenAt": "2026-09-07T15:10:44.258Z",
-        "title": "Anlagenführer:in Pulverproduktion"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-pulverproduktion/17aa1862-e77a-4f67-a302-69a1d342193a",
-        "firstSeenAt": "2026-07-07T22:23:34.058Z",
-        "title": "Anlagenführer:in Pulverproduktion"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-pulverproduktion/227eb514-c53c-4da9-a433-771536b69c46",
-        "firstSeenAt": "2026-06-30T22:12:58.335Z",
-        "title": "Anlagenführer:in Pulverproduktion"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-pulverproduktion/33c9a0c9-6b73-4f94-9ba1-3c9347a2713b",
-        "firstSeenAt": "2026-08-10T21:49:51.288Z",
-        "title": "Anlagenführer:in Pulverproduktion"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-pulverproduktion/91560e27-a427-4209-a350-281d901492a9",
-        "firstSeenAt": "2026-06-25T22:17:28.783Z",
-        "title": "Anlagenführer:in Pulverproduktion"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-pulverproduktion/d5760a00-ab5e-49bb-8fbd-1fb31fc8891d",
-        "firstSeenAt": "2026-07-24T11:36:28.741Z",
-        "title": "Anlagenführer:in Pulverproduktion"
-      }
-    ]
   },
   {
     "slug": "responsabile-di-progetto-f-e-schmelzkase-emmi-langnau-im-emmental",
@@ -3064,52 +3470,6 @@
     ]
   },
   {
-    "slug": "senior-product-manager-categoria-competenza-e-analisi-emmi-luzern-luzern",
-    "title": "Senior Product Manager Kategorie-Expertise & Analytik",
-    "titleByLocale": {
-      "it": "Senior Product Manager Categoria Competenza e analisi",
-      "en": "Senior Product Manager Kategorie-Expertise & Analytik",
-      "de": "Senior Product Manager Kategorie-Expertise & Analytik",
-      "fr": "Catégorie Expertise & Analytics Senior Product Manager"
-    },
-    "company": "Emmi",
-    "companyKey": "emmi",
-    "location": "Luzern, Luzern",
-    "addressLocality": "Luzern",
-    "descriptionByLocale": {
-      "it": "• Sei responsabile dell'intero ciclo di vita del prodotto nelle categorie di latte, crema, burro e mozzarella – dall'ideazione al lancio di mercato allo sviluppo continuo.\n\n• Sviluppa e ottimizza il portafoglio prodotti in base alle esigenze del mercato e del cliente.\n\n• Si analizzano i dati di mercato, cliente e concorrenza e si ricavano raccomandazioni valide per l'azione.\n\n• Parteciperete attivamente allo sviluppo e all'implementazione di strategie di categoria, tenendo conto della redditività, della capacità e delle esigenze del cliente.\n\n• Identifichi le opportunità e i rischi in una fase iniziale e utilizzi informazioni basate sui dati per le decisioni strategiche.\n\n• Lavorate a stretto contatto con i settori della ricerca e dello sviluppo, delle vendite, dell'acquisto, del controllo e della produzione e assicurate l'attuazione di progetti di successo\n\n• Hai diversi anni di esperienza nella gestione dei prodotti, nella gestione delle categorie o in una funzione simile, idealmente nell'ambiente FMCG.\n\n• Convinci con forti capacità analitiche e puoi trarre raccomandazioni concrete per l'azione da dati complessi.\n\n• Porterai una conoscenza approfondita di Excel e l'esperienza con gli strumenti BI e NielsenIQ.\n\n• Pensate strategicamente, agire imprenditoriale e lavorare in modo strutturato e responsabile.\n\n• È possibile comunicare in modo sicuro con diversi stakeholder e portare con successo diversi interessi insieme.\n\n• Hai una buona conoscenza del tedesco e dell'inglese.",
-      "en": "• You are responsible for the entire product life cycle in the categories of milk, cream, butter and mozzarella – from ideation to market launch to continuous development.\n\n• You develop and optimize the product portfolio according to market and customer needs.\n\n• You analyze market, customer and competition data and derive sound recommendations for action.\n\n• You will actively participate in the development and implementation of category strategies, taking into account profitability, capacity and customer needs.\n\n• You identify opportunities and risks at an early stage and use data-based insights for strategic decisions.\n\n• You work closely with the areas of research & development, sales, purchasing, controlling and production and ensure the successful implementation of projects\n\n• You have several years of experience in product management, category management or a similar function, ideally in the FMCG environment.\n\n• You convince with strong analytical skills and can derive concrete recommendations for action from complex data.\n\n• You will bring in-depth knowledge of Excel as well as experience with BI tools and NielsenIQ.\n\n• You think strategically, act entrepreneurially and work in a structured and self-responsible way.\n\n• You can safely communicate with different stakeholders and successfully bring different interests together.\n\n• You have very good knowledge of German and English.",
-      "de": "• Du verantwortest den gesamten Produktlebenszyklus in den Kategorien Milch, Rahm, Butter und Mozzarella – von der Ideenfindung über die Markteinführung bis zur kontinuierlichen Weiterentwicklung.\n\n• Du entwickelst und optimierst das Produktportfolio entlang der Markt- und Kundenbedürfnisse.\n\n• Du analysierst Markt-, Kunden- und Wettbewerbsdaten und leitest daraus fundierte Handlungsempfehlungen ab.\n\n• Du arbeitest aktiv bei der Entwicklung und Umsetzung von Kategoriestrategien mit und berücksichtigst dabei Rentabilität, Kapazitäten und Kundenbedürfnisse.\n\n• Du identifizierst Chancen und Risiken frühzeitig und nutzt datenbasierte Erkenntnisse für strategische Entscheidungen.\n\n• Du arbeitest eng mit den Bereichen Forschung & Entwicklung, Verkauf, Einkauf, Controlling und Produktion zusammen und sorgst für eine erfolgreiche Umsetzung von Projekten\n\n• Du verfügst über mehrere Jahre Erfahrung im Product Management, Category Management oder einer vergleichbaren Funktion, idealerweise im FMCG-Umfeld.\n\n• Du überzeugst mit ausgeprägten analytischen Fähigkeiten und kannst aus komplexen Daten konkrete Handlungsempfehlungen ableiten.\n\n• Du bringst fundierte Kenntnisse in Excel sowie Erfahrung mit BI-Tools und NielsenIQ mit.\n\n• Du denkst strategisch, handelst unternehmerisch und arbeitest strukturiert sowie eigenverantwortlich.\n\n• Du kommunizierst sicher mit unterschiedlichen Anspruchsgruppen und schaffst es, verschiedene Interessen erfolgreich zusammenzubringen.\n\n• Du verfügst über sehr gute Deutsch- und Englischkenntnisse.",
-      "fr": "• Vous êtes responsable de l'ensemble du cycle de vie du produit dans les catégories lait, crème, beurre et mozzarella – des idées au lancement du marché au développement continu.\n\n• Vous développez et optimisez le portefeuille de produits en fonction des besoins du marché et des clients.\n\n• Vous analysez les données du marché, des clients et de la concurrence et vous formulez des recommandations d'action solides.\n\n• Vous participerez activement au développement et à la mise en œuvre de stratégies de catégorie, en tenant compte de la rentabilité, de la capacité et des besoins des clients.\n\n• Vous identifiez les possibilités et les risques à un stade précoce et vous servez de données pour prendre des décisions stratégiques.\n\n• Vous travaillez en étroite collaboration avec les domaines de la recherche et du développement, de la vente, de l'achat, du contrôle et de la production et veillez à la mise en œuvre réussie des projets\n\n• Vous avez plusieurs années d'expérience dans la gestion de produits, la gestion de catégorie ou une fonction similaire, idéalement dans l'environnement FMCG.\n\n• Vous convainquez avec de solides compétences analytiques et pouvez tirer des recommandations concrètes pour l'action à partir de données complexes.\n\n• Vous apporterez une connaissance approfondie d'Excel ainsi qu'une expérience avec les outils BI et NielsenIQ.\n\n• Vous pensez stratégiquement, agissez de manière entrepreneuriale et travaillez de manière structurée et responsable.\n\n• Vous pouvez communiquer en toute sécurité avec différentes parties prenantes et rassembler avec succès différents intérêts.\n\n• Vous avez une très bonne connaissance de l'allemand et de l'anglais."
-    },
-    "slugByLocale": {
-      "it": "senior-product-manager-categoria-competenza-e-analisi-emmi-luzern-luzern",
-      "en": "senior-product-manager-kategorie-expertise-analytik-emmi-ch",
-      "de": "senior-product-manager-kategorie-expertise-analytik-emmi-ch",
-      "fr": "senior-product-manager-kategorie-expertise-analytik-emmi-ch"
-    },
-    "sector": "Food & Beverage (dairy)",
-    "expiredAt": "2026-08-12T22:21:39.796Z",
-    "previousSlugs": [
-      "senior-product-manager-kategorie-expertise-analytik-emmi-ch",
-      "senior-product-manager-categoria-competenza-e-analisi-emmi-luzern-luzern"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "senior-product-manager-kategorie-expertise-analytik-emmi-ch",
-        "senior-product-manager-categoria-competenza-e-analisi-emmi-luzern-luzern"
-      ]
-    },
-    "postalCode": "6005",
-    "streetAddress": "Landenbergstrasse 1",
-    "salaryMin": 96000,
-    "salaryMax": 146000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/senior-product-manager-kategorie-expertise-analytik/c8cdc073-df20-4003-83b3-205f717969ca",
-    "firstSeenAt": "2026-07-27T22:18:47.908Z"
-  },
-  {
     "slug": "collaboratore-trice-in-der-kasekonfektionierung-emmi-emmen",
     "title": "Transportmitarbeiter:in in der Käsekonfektionierung",
     "titleByLocale": {
@@ -3469,152 +3829,6 @@
         "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/milchtechnologin-oder-milchtechnologe/aebd0975-ab67-449a-a87a-85ca8568fe0b",
         "firstSeenAt": "2026-07-07T22:23:34.052Z",
         "title": "Milchtechnologin oder Milchtechnologe"
-      }
-    ]
-  },
-  {
-    "slug": "meccanica-aziendale-in-emmi-dagmersellen-luzern-p6k5ia",
-    "title": "Betriebsmechaniker:in",
-    "titleByLocale": {
-      "it": "Meccanica aziendale:in",
-      "en": "Business mechanic:in",
-      "de": "Betriebsmechaniker:in",
-      "fr": "Mécanicien d'entreprise:in"
-    },
-    "company": "Emmi",
-    "companyKey": "emmi",
-    "location": "Dagmersellen, Luzern",
-    "addressLocality": "Dagmersellen",
-    "descriptionByLocale": {
-      "it": "• Con il vostro impegno, assicuratevi che i nostri moderni impianti di produzione siano sempre più affidabili: Effettuate il lavoro di controllo, manutenzione e manutenzione in modo indipendente e responsabile, dando così un contributo diretto ad un processo di produzione liscio.\n• Grazie al vostro know-how tecnico e ai vostri metodi di lavoro analitici, è possibile rilevare interruzioni in una fase iniziale e ripararli in modo efficiente e sostenibile. Questo garantisce elevata disponibilità degli impianti e mantiene la nostra produzione in movimento.\n• Contribuisci attivamente nuove idee, identifichi il potenziale per migliorare e condurre progetti di ottimizzazione dalla prima idea all'implementazione di successo. La vostra volontà di creare rende i nostri processi un po 'meglio ogni giorno.\n• Con il vostro impegno, apportate un contributo significativo per garantire che i nostri prodotti rimangano sicuri e di alta qualità e che i nostri processi funzionino in modo economico ed efficiente.\n• La collaborazione con colleghi di produzione, tecnologia e altre aree specializzate ti rende felice. Valori un ambiente in cui si comunica apertamente, trovare soluzioni insieme e miglioramento continuo fa parte della cultura.\n• Si porta una formazione completa in una professione tecnica meccanica o comparabile – e quindi esattamente la competenza che è fondamentale nell'ambiente industriale. La vostra esperienza costituisce la base per un lavoro di alta qualità nelle operazioni quotidiane.\n• Flessibilità e un senso di responsabilità ti caratterizzano: durante 3-5 settimane all'anno, ti occupi in modo affidabile del servizio di piketting (senza operazione a turni) e assicurati che le nostre strutture rimangano sempre operative.\n• La vostra disponibilità ad imparare così come il vostro modo di lavorare strutturato e indipendente vi permette di familiarizzare rapidamente con nuove tecnologie e compiti. Si affronta, rapidamente diventare sicuri di nuovi argomenti e sviluppare continuamente\n• Come personalità aperta, comunicativa e orientata agli obiettivi, ti piace lavorare in un team – e allo stesso tempo assumerti la responsabilità dei tuoi compiti. In questo modo, contribuite attivamente ad una cooperazione costruttiva e orientata alla soluzione.\n• Molto buona conoscenza della patente tedesca e di una categoria B completano il tuo profilo e ti rendono flessibile – sia nelle operazioni giornaliere che in incarichi in loco.",
-      "en": "• With your commitment, you ensure that our modern production facilities run reliably at all times: You carry out control, maintenance and maintenance work independently and responsibly and thus make a direct contribution to a smooth production process.\n• Thanks to your technical know-how and your analytical working methods, you can detect disruptions at an early stage and repair them efficiently and sustainably. This ensures high plant availability and keeps our production moving.\n• You actively contribute new ideas, identify potential for improvement and lead optimization projects from the first idea to successful implementation. Your will to create makes our processes a bit better every day.\n• With your commitment, you make a significant contribution to ensuring that our products remain safe and of high quality – and that our processes function economically and efficiently.\n• Collaboration with colleagues from production, technology and other specialist areas makes you happy. You value an environment where you communicate openly, find solutions together and continual improvement is part of the culture.\n• You bring a completed training in a mechanical or comparable technical profession – and thus exactly the expertise that is crucial in the industrial environment. Your experience forms the basis for high-quality work in daily operations.\n• Flexibility and a sense of responsibility characterize you: During 3–5 weeks per year, you reliably take care of early and piketting service (without shift operation) and ensure that our facilities remain operational at all times.\n• Your willingness to learn as well as your structured and independent way of working allow you to quickly familiarize yourself with new technologies and tasks. You tackle, quickly become confident in new topics and develop continuously\n• As an open, communicative and goal-oriented personality, you enjoy working in a team – and at the same time take responsibility for your own tasks. In this way, you actively contribute to a constructive and solution-oriented cooperation.\n• Very good knowledge of German and a category B driver’s license round off your profile and make you flexible – whether in daily operations or on-site assignments.",
-      "de": "• Mit deinem Engagement sorgst du dafür, dass unsere modernen Produktionsanlagen jederzeit zuverlässig laufen: Du führst Kontroll-, Wartungs- und Instandhaltungsarbeiten selbstständig und verantwortungsvoll durch und leistest damit einen direkten Beitrag zu einem reibungslosen Produktionsablauf.\n\n• Dank deines technischen Know-hows und deiner analytischen Arbeitsweise erkennst du Störungen frühzeitig und behebst sie effizient und nachhaltig. So stellst du eine hohe Anlagenverfügbarkeit sicher und hältst unsere Produktion in Bewegung.\n\n• Du bringst aktiv neue Ideen ein, identifizierst Verbesserungspotenziale und führst Optimierungsprojekte von der ersten Idee bis zur erfolgreichen Umsetzung. Dein Gestaltungswille macht unsere Prozesse jeden Tag ein Stück besser.\n\n• Mit deinem Einsatz trägst du massgeblich dazu bei, dass unsere Produkte sicher und qualitativ hochwertig bleiben – und dass unsere Abläufe wirtschaftlich und effizient funktionieren.\n\n• Die Zusammenarbeit mit Kolleginnen und Kollegen aus Produktion, Technik und weiteren Fachbereichen macht dir Freude. Du schätzt ein Umfeld, in dem man offen kommuniziert, gemeinsam Lösungen findet und kontinuierliche Verbesserung Teil der Kultur ist.\n\n• Du bringst eine abgeschlossene Ausbildung in einem mechanischen oder vergleichbaren technischen Beruf mit – und damit genau das Fachwissen, das im industriellen Umfeld entscheidend ist. Deine Erfahrung bildet die Grundlage für qualitativ hochwertige Arbeit im täglichen Betrieb.\n\n• Flexibilität und Verantwortungsbewusstsein zeichnen dich aus: Während 3–5 Wochen pro Jahr übernimmst du zuverlässig Früh- und Pikettdienst (ohne Schichtbetrieb) und sorgst so dafür, dass unsere Anlagen jederzeit einsatzbereit bleiben.\n\n• Deine hohe Lernbereitschaft sowie deine strukturierte und selbstständige Arbeitsweise ermöglichen es dir, dich schnell in neue Technologien und Aufgaben einzuarbeiten. Du packst an, wirst rasch sicher in neuen Themen und entwickelst dich kontinuierlich weiter\n\n• Als offene, kommunikative und zielorientierte Persönlichkeit arbeitest du gerne im Team – und übernimmst gleichzeitig Verantwortung für deine eigenen Aufgaben. So trägst du aktiv zu einem konstruktiven und lösungsorientierten Miteinander bei.\n\n• Sehr gute Deutschkenntnisse und ein Führerausweis der Kategorie B runden dein Profil ab und machen dich flexibel einsetzbar – egal ob im täglichen Betrieb oder bei Einsätzen vor Ort.",
-      "fr": "• Avec votre engagement, vous assurez que nos installations de production modernes fonctionnent de manière fiable en tout temps: Vous effectuez le contrôle, l'entretien et l'entretien de manière indépendante et responsable et contribuez ainsi directement à un processus de production en douceur.\n• Grâce à votre savoir-faire technique et à vos méthodes de travail analytiques, vous pouvez détecter les perturbations à un stade précoce et les réparer efficacement et durablement. Cela assure une grande disponibilité des installations et maintient notre production en mouvement.\n• Vous apportez activement de nouvelles idées, identifiez le potentiel d'amélioration et dirigez des projets d'optimisation de la première idée à la mise en œuvre réussie. Votre volonté de créer rend nos processus un peu mieux chaque jour.\n• Avec votre engagement, vous contribuez de manière significative à assurer la sécurité et la qualité de nos produits et à assurer le bon fonctionnement de nos processus.\n• La collaboration avec des collègues de la production, de la technologie et d'autres domaines spécialisés vous rend heureux. Vous appréciez un environnement où vous communiquez ouvertement, trouvez des solutions ensemble et l'amélioration continue fait partie de la culture.\n• Vous apportez une formation complète dans une profession mécanique ou technique comparable – et donc exactement l'expertise qui est cruciale dans l'environnement industriel. Votre expérience constitue la base d'un travail de qualité dans les opérations quotidiennes.\n• La flexibilité et le sens des responsabilités vous caractérisent : Pendant 3 à 5 semaines par année, vous vous occupez de façon fiable du service de départ et de départ (sans service de quart) et vous assurez que nos installations demeurent opérationnelles en tout temps.\n• Votre volonté d'apprendre ainsi que votre façon de travailler structurée et indépendante vous permettent de vous familiariser rapidement avec les nouvelles technologies et les nouvelles tâches. Vous abordez, devenez rapidement confiant dans de nouveaux sujets et développez continuellement\n• En tant que personnalité ouverte, communicative et orientée vers le but, vous aimez travailler en équipe – et en même temps prendre en charge vos propres tâches. De cette manière, vous contribuez activement à une coopération constructive et orientée vers la solution.\n• Très bonne connaissance de l'allemand et un permis de conduire de catégorie B complètent votre profil et vous rendent flexible – que ce soit dans les opérations quotidiennes ou les missions sur place."
-    },
-    "slugByLocale": {
-      "it": "meccanica-aziendale-in-emmi-dagmersellen-luzern-p6k5ia",
-      "en": "business-mechanic-in-emmi-dagmersellen-luzern",
-      "de": "betriebsmechaniker-in-emmi-ch",
-      "fr": "mecanicien-d-entreprise-in-emmi-dagmersellen-luzern"
-    },
-    "sector": "Food & Beverage (dairy)",
-    "expiredAt": "2026-08-11T10:24:17.069Z",
-    "previousSlugs": [
-      "betriebsmechaniker-in-emmi-ch",
-      "betriebsmechaniker-in-emmi-ch-2",
-      "meccanica-aziendale-in-emmi-dagmersellen-luzern-ky8pwb",
-      "betriebsmechaniker-in-emmi-dagmersellen",
-      "meccanica-aziendale-in-emmi-dagmersellen-luzern",
-      "meccanico-di-impianti-emmi-suhr",
-      "betriebsmechaniker-in-emmi-suhr",
-      "meccanico-di-impianti-emmi-suhr-ml20rj",
-      "plant-mechanic-emmi-suhr",
-      "mecanicien-d-usine-emmi-suhr",
-      "meccanica-aziendale-in-emmi-bischofszell-thurgau-62bq4u",
-      "betriebsmechaniker-in-emmi-bischofszell",
-      "meccanica-aziendale-emmi-bischofszell",
-      "business-mechanic-in-emmi-bischofszell-thurgau",
-      "plant-mechanic-emmi-bischofszell",
-      "mecanicien-d-entreprise-in-emmi-bischofszell-thurgau",
-      "mecanicien-d-affaires-emmi-bischofszell",
-      "meccanica-aziendale-in-emmi-bischofszell-thurgau"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "betriebsmechaniker-in-emmi-ch",
-        "betriebsmechaniker-in-emmi-ch-2",
-        "meccanica-aziendale-in-emmi-dagmersellen-luzern-ky8pwb",
-        "betriebsmechaniker-in-emmi-dagmersellen",
-        "betriebsmechaniker-in-emmi-suhr",
-        "meccanico-di-impianti-emmi-suhr-ml20rj",
-        "meccanica-aziendale-in-emmi-bischofszell-thurgau-62bq4u",
-        "betriebsmechaniker-in-emmi-bischofszell",
-        "meccanica-aziendale-emmi-bischofszell"
-      ],
-      "en": [
-        "plant-mechanic-emmi-suhr",
-        "betriebsmechaniker-in-emmi-dagmersellen",
-        "business-mechanic-in-emmi-bischofszell-thurgau",
-        "betriebsmechaniker-in-emmi-bischofszell",
-        "plant-mechanic-emmi-bischofszell"
-      ],
-      "fr": [
-        "mecanicien-d-usine-emmi-suhr",
-        "betriebsmechaniker-in-emmi-dagmersellen",
-        "mecanicien-d-entreprise-in-emmi-bischofszell-thurgau",
-        "betriebsmechaniker-in-emmi-bischofszell",
-        "mecanicien-d-affaires-emmi-bischofszell"
-      ]
-    },
-    "postalCode": "6252",
-    "streetAddress": "Stationsstrasse 21",
-    "salaryMin": 69500,
-    "salaryMax": 106000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "dedupArchive": true,
-    "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/c5bccc70-53fd-437e-ada5-fc7f125a0172",
-    "firstSeenAt": "2026-06-10T07:51:39.184Z",
-    "sourceIdentityHistory": [
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/141cdaa8-eba9-4571-a845-5a34d9e07c5e",
-        "firstSeenAt": "2026-09-01T14:17:24.053Z",
-        "title": "Betriebsmechaniker:in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/35574ad9-df02-4c3a-8b5b-93457d599926",
-        "firstSeenAt": "2026-06-10T07:51:39.192Z",
-        "title": "Betriebsmechaniker:in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/4324850e-58b8-4ec0-9541-61e4ec9b2e76",
-        "firstSeenAt": "2026-07-20T23:32:26.511Z",
-        "title": "Betriebsmechaniker:in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/5631a74d-e998-4c0a-ada9-2346605acb61",
-        "firstSeenAt": "2026-08-18T09:51:07.010Z",
-        "title": "Betriebsmechaniker:in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/6d2a9718-8d1c-4937-984f-4f01dbf35b18",
-        "firstSeenAt": "2026-07-02T21:52:12.251Z",
-        "title": "Betriebsmechaniker:in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/90a6efcf-b50f-46fc-86de-cd037a27bdcb",
-        "firstSeenAt": "2026-08-10T21:49:51.287Z",
-        "title": "Betriebsmechaniker:in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/c5bccc70-53fd-437e-ada5-fc7f125a0172",
-        "firstSeenAt": "2026-06-10T07:51:39.184Z",
-        "title": "Betriebsmechaniker:in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/ca4cfb46-11ff-4866-ad45-c3a1cd0d4f05",
-        "firstSeenAt": "2026-07-02T10:58:29.752Z",
-        "title": "Betriebsmechaniker:in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/cbe9a62a-2eab-483e-a598-80e87ed430b4",
-        "firstSeenAt": "2026-09-01T14:17:24.040Z",
-        "title": "Betriebsmechaniker:in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/d03427a5-0ded-45fd-a92d-1a807c7ef1f2",
-        "firstSeenAt": "2026-07-24T11:36:28.732Z",
-        "title": "Betriebsmechaniker:in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/d2b552d3-4a9c-44c0-91d8-7bb36ae82f71",
-        "firstSeenAt": "2026-07-20T23:32:26.504Z",
-        "title": "Betriebsmechaniker:in"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/betriebsmechaniker-in/e63ed6ef-243c-4cbf-ae79-beb765d533cd",
-        "firstSeenAt": "2026-07-24T11:36:28.743Z",
-        "title": "Betriebsmechaniker:in"
       }
     ]
   },
@@ -4529,79 +4743,6 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/praktikum-projektassistenz/881e147a-a0e9-452b-96d9-f188160e5368",
     "firstSeenAt": "2026-07-08T11:27:36.022Z"
-  },
-  {
-    "slug": "responsabile-del-processo-logistico-in-sala-di-controllo-ricevuta-di-merci-container-vuoto-emmi-kirchberg-bern",
-    "title": "Logistik Prozessleiter:in Leitstand, Wareneingang & Leergebinde",
-    "titleByLocale": {
-      "it": "Responsabile del processo logistico: in sala di controllo, ricevuta di merci & container vuoto",
-      "en": "Logistics Process Manager: in control room, goods receipt & empty container",
-      "de": "Logistik Prozessleiter:in Leitstand, Wareneingang & Leergebinde",
-      "fr": "Logistics Process Manager: dans la salle de contrôle, récépissé de marchandises & conteneur vide"
-    },
-    "company": "Emmi",
-    "companyKey": "emmi",
-    "location": "Kirchberg, Bern",
-    "addressLocality": "Kirchberg",
-    "descriptionByLocale": {
-      "it": "• Si prende il controllo della leadership del team di 9 membri e garantire un processo logistico liscio nella posizione.\n\n• Nella sala di controllo, sei l'interfaccia centrale tra pianificazione del trasporto e magazzino, monitora i processi logistici e garantisce un flusso efficiente di informazioni.\n\n• Si comunica attivamente con interfacce interne ed esterne e assicurarsi che tutti i partecipanti siano informati correttamente e prontamente in ogni momento.\n\n• Fornisci anche supporto amministrativo, mantieni i dati master nei sistemi logistici e tratti documenti rilevanti per un trattamento logistico impeccabile.\n\n• Se necessario, è possibile imballarsi nel magazzino freddo – sia durante la raccolta, il caricamento, nella ricevuta della merce o nel contenitore vuoto.\n\n• Hai completato un apprendistato come logistico: in EFZ e hai già esperienza di gestione; idealmente completato da ulteriore formazione come specialista di logistica con un certificato federale.\n\n• Una chiara comprensione del processo, il rapido riconoscimento delle connessioni e il pensiero orientato alla soluzione sono tra i vostri punti di forza.\n\n• Si esegue in modo sicuro e convincere con una sana affermatività.\n\n• Anche in situazioni frenetiche, si rimane calmi, resilienti e flessibili - soprattutto durante le fluttuazioni stagionali nel business quotidiano.\n\n• Hai una buona conoscenza orale e scritta del tedesco; La conoscenza del francese è un vantaggio.\n\n• Conoscenza di MS Office molto buona e l'esperienza nel trattare con sistemi IT logistici arrotondare il tuo profilo.",
-      "en": "• You take over the leadership of the 9-member team and ensure a smooth logistics process at the location.\n\n• In the control room, you are the central interface between transport scheduling and warehouse, monitor the logistics processes and ensure an efficient flow of information.\n\n• You actively communicate with internal and external interfaces and ensure that everyone involved is informed correctly and promptly at all times.\n\n• You also provide administrative support, maintain master data in the logistics systems and process relevant documents for flawless logistics processing.\n\n• If necessary, you can pack yourself in the cold warehouse – whether during picking, loading, in the goods receipt or in the empty container.\n\n• You have completed an apprenticeship as a logistician: in EFZ and already have management experience; Ideally supplemented by further training as a logistics specialist with a federal certificate.\n\n• A pronounced process understanding, rapid recognition of connections and solution-oriented thinking are among your strengths.\n\n• You perform safely and convince with a healthy assertiveness.\n\n• Even in hectic situations, you remain calm, resilient and flexible - especially during seasonal fluctuations in day-to-day business.\n\n• You have very good oral and written knowledge of German; Knowledge of French is an advantage.\n\n• Very good MS Office knowledge as well as experience in dealing with logistics IT systems round off your profile.",
-      "de": "• Du übernimmst die Führung des 9-köpfigen Teams und stellst einen reibungslosen Logistikablauf am Standort sicher.\n\n• Im Leitstand bist du die zentrale Schnittstelle zwischen Transportdisposition und Lager, überwachst die Logistikprozesse und sorgst für einen effizienten Informationsfluss.\n\n• Du kommunizierst aktiv mit internen und externen Schnittstellen und stellst sicher, dass alle Beteiligten jederzeit korrekt und zeitnah informiert sind.\n\n• Zudem unterstützt du administrativ, pflegst Stammdaten in den Logistiksystemen und bearbeitest relevante Dokumente für eine einwandfreie Logistikabwicklung.\n\n• Bei Bedarf packst du im Kühllager selbst mit an – ob bei der Kommissionierung, beim Verladen, im Wareneingang oder im Leergebinde.\n\n• Du hast eine Ausbildung als Logistiker:in EFZ abgeschlossen und bringst bereits Führungserfahrung mit; idealerweise ergänzt durch eine Weiterbildung als Logistikfachmann/-frau mit eidg. Fachausweis.\n\n• Ein ausgeprägtes Prozessverständnis, rasches Erkennen von Zusammenhängen sowie lösungsorientiertes Denken zählen zu deinen Stärken.\n\n• Du trittst sicher auf und überzeugst mit einem gesunden Durchsetzungsvermögen.\n\n• Auch in hektischen Situationen bleibst du ruhig, belastbar und flexibel - insbesondere bei saisonalen Schwankungen im Tagesgeschäft.\n\n• Du verfügst über sehr gute mündliche und schriftliche Deutschkenntnisse; Französischkenntnisse sind von Vorteil.\n\n• Sehr gute MS-Office-Kenntnisse sowie Erfahrung im Umgang mti logistischen IT-Systemen runden dein Profil ab.",
-      "fr": "• Vous prenez la direction de l'équipe de 9 membres et assurez un processus logistique en douceur à l'emplacement.\n\n• Dans la salle de contrôle, vous êtes l'interface centrale entre l'horaire de transport et l'entrepôt, surveiller les processus logistiques et assurer un flux d'information efficace.\n\n• Vous communiquez activement avec les interfaces internes et externes et vous assurez que toutes les personnes concernées sont informées correctement et rapidement en tout temps.\n\n• Vous fournissez également un soutien administratif, maintenez les données maîtresses dans les systèmes logistiques et traitez les documents pertinents pour un traitement logistique impeccable.\n\n• Si nécessaire, vous pouvez vous emballer dans l'entrepôt froid, que ce soit lors de la cueillette, du chargement, dans le reçu de la marchandise ou dans le contenant vide.\n\n• Vous avez suivi un apprentissage en tant que logisticien : en EFZ et avez déjà une expérience en gestion ; Idéalement complété par une formation continue en tant que spécialiste de la logistique avec un certificat fédéral.\n\n• Une compréhension du processus prononcée, la reconnaissance rapide des connexions et la pensée orientée vers la solution sont parmi vos forces.\n\n• Vous effectuez en toute sécurité et convainquez avec une saine assurance.\n\n• Même dans des situations agitées, vous restez calme, résilient et flexible, surtout pendant les fluctuations saisonnières des affaires quotidiennes.\n\n• Vous avez une très bonne connaissance orale et écrite de l'allemand ; la connaissance du français est un avantage.\n\n• Très bonne connaissance de MS Office ainsi que l'expérience dans le traitement des systèmes informatiques logistiques complètent votre profil."
-    },
-    "slugByLocale": {
-      "it": "responsabile-del-processo-logistico-in-sala-di-controllo-ricevuta-di-merci-container-vuoto-emmi-kirchberg-bern",
-      "en": "logistics-process-manager-in-control-room-goods-receipt-empty-container-emmi-kirchberg-bern",
-      "de": "logistik-prozessleiter-in-leitstand-wareneingang-leergebinde-emmi-ch",
-      "fr": "logistics-process-manager-dans-la-salle-de-controle-recepisse-de-marchandises-conteneur-vide-emmi-kirchberg-bern"
-    },
-    "sector": "Food & Beverage (dairy)",
-    "expiredAt": "2026-07-28T11:49:11.123Z",
-    "previousSlugs": [
-      "responsabile-del-processo-logistico-in-sala-di-controllo-merci-in-entrata-e-contenitori-vuoti-emmi-kirchberg",
-      "logistics-process-manager-in-control-station-incoming-goods-empty-containers-emmi-kirchberg",
-      "responsable-des-processus-logistiques-dans-le-poste-de-commande-la-reception-des-marchandises-et-les-conteneurs-vides",
-      "logistik-prozessleiter-in-leitstand-wareneingang-leergebinde-emmi-ch"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "responsabile-del-processo-logistico-in-sala-di-controllo-merci-in-entrata-e-contenitori-vuoti-emmi-kirchberg",
-        "logistik-prozessleiter-in-leitstand-wareneingang-leergebinde-emmi-ch"
-      ],
-      "en": [
-        "logistics-process-manager-in-control-station-incoming-goods-empty-containers-emmi-kirchberg",
-        "logistik-prozessleiter-in-leitstand-wareneingang-leergebinde-emmi-ch"
-      ],
-      "fr": [
-        "responsable-des-processus-logistiques-dans-le-poste-de-commande-la-reception-des-marchandises-et-les-conteneurs-vides",
-        "logistik-prozessleiter-in-leitstand-wareneingang-leergebinde-emmi-ch"
-      ]
-    },
-    "postalCode": "3422",
-    "streetAddress": "Winkelweg 4",
-    "salaryMin": 94500,
-    "salaryMax": 143000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/logistik-prozessleiter-in-leitstand-wareneingang-leergebinde/3c3ad34f-2ed8-4fc6-94ca-366552d28511",
-    "firstSeenAt": "2026-06-10T07:51:39.205Z",
-    "sourceIdentityHistory": [
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/logistik-prozessleiter-in-leitstand-wareneingang-leergebinde/3c3ad34f-2ed8-4fc6-94ca-366552d28511",
-        "firstSeenAt": "2026-06-10T07:51:39.205Z",
-        "title": "Logistik Prozessleiter:in Leitstand, Wareneingang & Leergebinde"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/logistik-prozessleiter-in-leitstand-wareneingang-leergebinde/822be13a-57b7-4398-b331-56900bfd6454",
-        "firstSeenAt": "2026-07-22T11:39:07.780Z",
-        "title": "Logistik Prozessleiter:in Leitstand, Wareneingang & Leergebinde"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.emmi.com/offene-stellen/logistik-prozessleiter-in-leitstand-wareneingang-leergebinde/d96205f2-3615-40c1-bc33-327f9248eb1d",
-        "firstSeenAt": "2026-08-11T10:23:21.720Z",
-        "title": "Logistik Prozessleiter:in Leitstand, Wareneingang & Leergebinde"
-      }
-    ]
   },
   {
     "slug": "specialista-di-maturazione-dei-formaggi-emmi-kaltbach-luzern",

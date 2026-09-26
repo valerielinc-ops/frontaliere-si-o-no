@@ -1,6 +1,6 @@
 {
   "crawlerKey": "centiel",
-  "assembledAt": "2026-09-24T14:30:31.772Z",
+  "assembledAt": "2026-09-26T13:57:03.623Z",
   "jobs": [
     {
       "title": "Product Manager – Critical Power",
@@ -61,6 +61,7 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
       "salarySource": "estimated",
+      "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/07/2026.06-jd-eg-product-manager-critical-power.pdf",
       "previousSlugsByLocale": {
         "it": [
           "product-manager-critical-power-centiel-ticino"
@@ -68,8 +69,7 @@
       },
       "previousSlugs": [
         "product-manager-critical-power-centiel-ticino"
-      ],
-      "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/07/2026.06-jd-eg-product-manager-critical-power.pdf"
+      ]
     },
     {
       "title": "Specialista Ufficio Tecnico",
@@ -130,6 +130,7 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
       "salarySource": "estimated",
+      "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/07/2026.06-jd-it-specialista-ufficio-tecnico.pdf",
       "previousSlugsByLocale": {
         "it": [
           "specialista-ufficio-tecnico-centiel-ticino"
@@ -146,8 +147,7 @@
       },
       "previousSlugs": [
         "specialista-ufficio-tecnico-centiel-ticino"
-      ],
-      "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/07/2026.06-jd-it-specialista-ufficio-tecnico.pdf"
+      ]
     },
     {
       "title": "Operatore di produzione",
@@ -208,6 +208,7 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
       "salarySource": "estimated",
+      "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/07/2026.03-jd-it-operatore-di-produzione.pdf",
       "previousSlugsByLocale": {
         "it": [
           "operatore-di-produzione-centiel-ticino"
@@ -224,8 +225,7 @@
       },
       "previousSlugs": [
         "operatore-di-produzione-centiel-ticino"
-      ],
-      "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/07/2026.03-jd-it-operatore-di-produzione.pdf"
+      ]
     },
     {
       "title": "Tecnico Collaudatore",
@@ -286,6 +286,7 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
       "salarySource": "estimated",
+      "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/07/2026.03-jd-it-tecnico-collaudatore.pdf",
       "previousSlugsByLocale": {
         "it": [
           "tecnico-collaudatore-centiel-ticino"
@@ -302,8 +303,7 @@
       },
       "previousSlugs": [
         "tecnico-collaudatore-centiel-ticino"
-      ],
-      "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/07/2026.03-jd-it-tecnico-collaudatore.pdf"
+      ]
     },
     {
       "title": "Project Manager – Critical Power",
@@ -457,7 +457,8 @@
         "pre-sales-application-engineer-critical-power-centiel-ticino"
       ],
       "salarySource": "estimated",
-      "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/05/2026.02-jd-eg-pre-sales-application-engineer-cp.pdf"
+      "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/05/2026.02-jd-eg-pre-sales-application-engineer-cp.pdf",
+      "needsRetranslation": true
     },
     {
       "title": "Research & Development Engineer",
