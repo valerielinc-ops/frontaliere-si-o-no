@@ -60,6 +60,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { buildScheda } from './lib/monitor-scheda.mjs';
+import { SECTION_LEGACY_TI_PATH } from '../build-plugins/shared/cantonSection.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -71,6 +72,7 @@ const EXPIRED_JOBS_PATH = path.join(REPO_ROOT, 'public/data/expired-jobs.json');
 // below which a profession-canton page falls back to a noindex bridge.
 const MIN_JOBS = 3;
 const DRY_RUN = process.argv.includes('--dry-run');
+const TI_SECTOR_HUB_PATH = SECTION_LEGACY_TI_PATH.it;
 
 /**
  * Zero TI già verificati come strutturali: il mercato watchmaking è
@@ -377,11 +379,11 @@ async function checkTiSectorHubs({ resolveJobCanton, jobs }) {
 
 Le seguenti pagine \`/cerca-lavoro-ticino/{settore}/\` non hanno **nessuna offerta reale** per il canton Ticino in questo deploy. La pagina resta live/indicizzata (decisione owner 2026-07-16: nessuna soglia minima per i settori TI), ma il gap non classificato va investigato:
 
-${actionableZeroSectors.map((s) => `- \`/cerca-lavoro-ticino/${s}/\``).join('\n')}
+${actionableZeroSectors.map((s) => `- \`${TI_SECTOR_HUB_PATH}${s}/\``).join('\n')}
 ${structuralZeroSectors.length > 0 ? `
 **Zero osservati ma strutturalmente classificati** (restano monitorati e non vengono instradati a onboarding crawler finché non entra una vacancy TI verificata):
 
-${structuralZeroSectors.map((s) => `- \`/cerca-lavoro-ticino/${s}/\` — ${STRUCTURAL_TI_ZERO_EVIDENCE[s].reason}`).join('\n')}
+${structuralZeroSectors.map((s) => `- \`${TI_SECTOR_HUB_PATH}${s}/\` — ${STRUCTURAL_TI_ZERO_EVIDENCE[s].reason}`).join('\n')}
 ` : ''}
 
 **Possibili cause da verificare:**
