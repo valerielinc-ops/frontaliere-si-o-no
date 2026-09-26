@@ -12046,6 +12046,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.iwt-pharma-casale-litta-ampliamento.title': 'IWT Pharma inaugura nuovo building a Casale Litta',
     'blog.article.iwt-pharma-casale-litta-ampliamento.excerpt': 'Ampliamento di circa 9.000 mq, investimento di 15 milioni di euro, obiettivo raddoppiare capacità e fatturato entro cinque anni.',
     'blog.article.iwt-pharma-casale-litta-ampliamento.imageAlt': 'Edificio industriale moderno con pannelli fotovoltaici e colonnine di ricarica elettrica vicino a un fiume circondato da verde',
+    'blog.article.bollettino-frontaliere-2026-09-26.title': 'Bollettino del frontaliere – 26 settembre 2026: 769 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-09-26.excerpt': 'I numeri di oggi, 26 settembre 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-09-26.imageAlt': 'I numeri del giorno per i frontalieri – 26 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-09-26.seoDescription': 'Bollettino frontalieri del 26 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-09-26.ogDescription': 'I numeri del 26 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;
