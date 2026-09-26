@@ -36036,6 +36036,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cattura-latitante-provincia-como',
+ category: 'novita',
+ date: '2026-09-26T01:02:44.659Z',
+ image: '/images/blog/cattura-latitante-provincia-como.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

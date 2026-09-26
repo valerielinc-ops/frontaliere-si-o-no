@@ -12011,6 +12011,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.plr-bellinzona-investimento-fortezza.title': 'Forteresse de Bellinzone : le Oui du PLR à l’investissement',
     'blog.article.plr-bellinzona-investimento-fortezza.excerpt': 'Bellinzona vote le 27 septembre sur la Forteresse : le PLR soutient le Message 1019, avec plus de 14 millions de retombées économiques et environ 4,5 millions à la charge de la Ville.',
     'blog.article.plr-bellinzona-investimento-fortezza.imageAlt': 'Trois châteaux et remparts de Bellinzona, patrimoine mondial UNESCO',
+    'blog.article.cattura-latitante-provincia-como.title': 'Côme, arrestation du fugitif du braquage à Campione',
+    'blog.article.cattura-latitante-provincia-como.excerpt': 'Dario De Bernardi, 55 ans, a été arrêté le 23 septembre : il doit avoir plus de 19 ans et est désigné comme l\'auteur du vol à 750 000 francs par Campione.',
+    'blog.article.cattura-latitante-provincia-como.imageAlt': 'Panorama de Mendrisio pour une actualité locale liée à l’affaire de Campione',
 };
 
 export default blogMetaFr;
