@@ -1,6 +1,6 @@
 {
   "crawlerKey": "yellowshark",
-  "assembledAt": "2026-09-25T15:03:11.788Z",
+  "assembledAt": "2026-09-26T12:21:49.706Z",
   "jobs": [
     {
       "id": "yellowshark-e91273caadfb",
@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dachdecker-bauspengler-m-w-schwyz-sz-yellowshark-ch",
-        "attrezzature-per-tetto-e-costruzione-m-f-yellowshark-ag-schwyz-sz"
+        "dachdecker-bauspengler-m-w-schwyz-sz-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dachdecker-bauspengler-m-w-schwyz-sz-yellowshark-ch",
-          "attrezzature-per-tetto-e-costruzione-m-f-yellowshark-ag-schwyz-sz"
+          "dachdecker-bauspengler-m-w-schwyz-sz-yellowshark-ch"
         ],
         "en": [
           "dachdecker-bauspengler-m-w-schwyz-sz-yellowshark-ch"
@@ -130,13 +128,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch",
-        "giardini-nuovi-m-f-yellowshark-ag-zurich-zh"
+        "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch",
-          "giardini-nuovi-m-f-yellowshark-ag-zurich-zh"
+          "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch"
         ],
         "en": [
           "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch"
@@ -158,16 +154,17 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-1d4d7d5577de",
-      "slug": "betriebselektriker-m-w-100-rubigen-be-yellowshark-ch",
+      "slug": "elettricista-commerciale-m-f-100-yellowshark-ag-rubigen",
       "slugByLocale": {
         "de": "betriebselektriker-m-w-100-rubigen-be-yellowshark-ch",
-        "it": "betriebselektriker-m-w-100-rubigen-be-yellowshark-ch",
+        "it": "elettricista-commerciale-m-f-100-yellowshark-ag-rubigen",
         "en": "betriebselektriker-m-w-100-rubigen-be-yellowshark-ch",
-        "fr": "betriebselektriker-m-w-100-rubigen-be-yellowshark-ch"
+        "fr": "electricien-d-affaires-h-f-100-yellowshark-ag-rubigen"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -175,7 +172,7 @@
       "title": "Betriebselektriker (m/w) 100%",
       "titleByLocale": {
         "de": "Betriebselektriker (m/w) 100%",
-        "en": "Business electrician (m/f) 100%",
+        "en": "Betriebselektriker (m/w) 100%",
         "it": "Elettricista commerciale (m/f) 100%",
         "fr": "Électricien d'affaires (h/f) 100%"
       },
@@ -222,7 +219,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T15:03:04.721Z"
+      "firstSeenAt": "2026-09-25T15:03:04.721Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebselektriker-m-w-100-rubigen-be-yellowshark-ch"
+        ],
+        "fr": [
+          "betriebselektriker-m-w-100-rubigen-be-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "betriebselektriker-m-w-100-rubigen-be-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-dc28cb9e9f06",
@@ -273,13 +281,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cnc-dreher-polymechaniker-m-w-80-100-uster-zh-yellowshark-ch",
-        "cnc-turner-polymechanic-m-f-80-100-yellowshark-ag-uster-zh"
+        "cnc-dreher-polymechaniker-m-w-80-100-uster-zh-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cnc-dreher-polymechaniker-m-w-80-100-uster-zh-yellowshark-ch",
-          "cnc-turner-polymechanic-m-f-80-100-yellowshark-ag-uster-zh"
+          "cnc-dreher-polymechaniker-m-w-80-100-uster-zh-yellowshark-ch"
         ],
         "fr": [
           "cnc-dreher-polymechaniker-m-w-80-100-uster-zh-yellowshark-ch"
@@ -298,15 +304,16 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-eef7cc9f0258",
-      "slug": "automationsingenieur-automationstechniker-80-100-m-w-kaiseraugst-ag-yellowshark-ch",
+      "slug": "automazione-engineer-automazione-engineer-80-100-m-f-yellowshark-ag-kaiseraugst",
       "slugByLocale": {
         "de": "automationsingenieur-automationstechniker-80-100-m-w-kaiseraugst-ag-yellowshark-ch",
-        "it": "automationsingenieur-automationstechniker-80-100-m-w-kaiseraugst-ag-yellowshark-ch",
-        "en": "automationsingenieur-automationstechniker-80-100-m-w-kaiseraugst-ag-yellowshark-ch",
+        "it": "automazione-engineer-automazione-engineer-80-100-m-f-yellowshark-ag-kaiseraugst",
+        "en": "automation-engineer-automation-engineer-80-100-m-f-yellowshark-ag-kaiseraugst",
         "fr": "automationsingenieur-automationstechniker-80-100-m-w-kaiseraugst-ag-yellowshark-ch"
       },
       "company": "yellowshark AG",
@@ -315,7 +322,7 @@
       "title": "Automationsingenieur / Automationstechniker 80–100 % (m/w)",
       "titleByLocale": {
         "de": "Automationsingenieur / Automationstechniker 80–100 % (m/w)",
-        "fr": "Ingénieur d'automatisation / Ingénieur d'automatisation 80-100% (h/f)",
+        "fr": "Automationsingenieur / Automationstechniker 80–100 % (m/w)",
         "it": "Automazione Engineer / Automazione Engineer 80-100% (m/f)",
         "en": "Automation Engineer / Automation Engineer 80-100% (m/f)"
       },
@@ -363,16 +370,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T15:03:04.719Z"
+      "firstSeenAt": "2026-09-25T15:03:04.719Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "automationsingenieur-automationstechniker-80-100-m-w-kaiseraugst-ag-yellowshark-ch"
+        ],
+        "en": [
+          "automationsingenieur-automationstechniker-80-100-m-w-kaiseraugst-ag-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "automationsingenieur-automationstechniker-80-100-m-w-kaiseraugst-ag-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-b1df83653f0b",
-      "slug": "strategischer-einkaufer-m-w-80-100-wohlen-ag-ag-yellowshark-ch",
+      "slug": "acquirente-strategico-m-f-80-100-yellowshark-ag-wohlen-ag",
       "slugByLocale": {
         "de": "strategischer-einkaufer-m-w-80-100-wohlen-ag-ag-yellowshark-ch",
-        "it": "strategischer-einkaufer-m-w-80-100-wohlen-ag-ag-yellowshark-ch",
-        "en": "strategischer-einkaufer-m-w-80-100-wohlen-ag-ag-yellowshark-ch",
-        "fr": "strategischer-einkaufer-m-w-80-100-wohlen-ag-ag-yellowshark-ch"
+        "it": "acquirente-strategico-m-f-80-100-yellowshark-ag-wohlen-ag",
+        "en": "strategic-buyer-m-f-80-100-yellowshark-ag-wohlen-ag",
+        "fr": "acheteur-strategique-h-f-80-100-yellowshark-ag-wohlen-ag"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -428,16 +447,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T15:03:04.718Z"
+      "firstSeenAt": "2026-09-25T15:03:04.718Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strategischer-einkaufer-m-w-80-100-wohlen-ag-ag-yellowshark-ch"
+        ],
+        "en": [
+          "strategischer-einkaufer-m-w-80-100-wohlen-ag-ag-yellowshark-ch"
+        ],
+        "fr": [
+          "strategischer-einkaufer-m-w-80-100-wohlen-ag-ag-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "strategischer-einkaufer-m-w-80-100-wohlen-ag-ag-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-1a70289b9cbb",
-      "slug": "technischer-key-account-manager-m-w-d-100-aarberg-be-yellowshark-ch",
+      "slug": "gestione-account-chiave-tecnica-m-f-d-100-yellowshark-ag-aarberg",
       "slugByLocale": {
         "de": "technischer-key-account-manager-m-w-d-100-aarberg-be-yellowshark-ch",
-        "it": "technischer-key-account-manager-m-w-d-100-aarberg-be-yellowshark-ch",
+        "it": "gestione-account-chiave-tecnica-m-f-d-100-yellowshark-ag-aarberg",
         "en": "technischer-key-account-manager-m-w-d-100-aarberg-be-yellowshark-ch",
-        "fr": "technischer-key-account-manager-m-w-d-100-aarberg-be-yellowshark-ch"
+        "fr": "gestionnaire-de-compte-cle-technique-h-f-d-100-yellowshark-ag-aarberg"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -445,7 +478,7 @@
       "title": "Technischer Key Account Manager (m/w/d) 100%",
       "titleByLocale": {
         "de": "Technischer Key Account Manager (m/w/d) 100%",
-        "en": "Technical Key Account Manager (m/f/d) 100%",
+        "en": "Technischer Key Account Manager (m/w/d) 100%",
         "it": "Gestione account chiave tecnica (m/f/d) 100%",
         "fr": "Gestionnaire de compte clé technique (h/f/d) 100%"
       },
@@ -492,16 +525,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T15:03:04.718Z"
+      "firstSeenAt": "2026-09-25T15:03:04.718Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technischer-key-account-manager-m-w-d-100-aarberg-be-yellowshark-ch"
+        ],
+        "fr": [
+          "technischer-key-account-manager-m-w-d-100-aarberg-be-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technischer-key-account-manager-m-w-d-100-aarberg-be-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-9da4e4539cd0",
-      "slug": "schreiner-m-w-chur-gr-yellowshark-ch",
+      "slug": "carpenter-m-f-yellowshark-ag-chur",
       "slugByLocale": {
-        "de": "schreiner-m-w-chur-gr-yellowshark-ch",
-        "it": "schreiner-m-w-chur-gr-yellowshark-ch",
-        "en": "schreiner-m-w-chur-gr-yellowshark-ch",
-        "fr": "schreiner-m-w-chur-gr-yellowshark-ch"
+        "de": "schreiner-m-w-yellowshark-ag-chur",
+        "it": "carpenter-m-f-yellowshark-ag-chur",
+        "en": "carpenter-m-f-yellowshark-ag-chur",
+        "fr": "charpentier-h-f-yellowshark-ag-chur"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -557,16 +601,33 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T00:09:46.446Z"
+      "firstSeenAt": "2026-09-24T00:09:46.446Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-m-w-chur-gr-yellowshark-ch"
+        ],
+        "en": [
+          "schreiner-m-w-chur-gr-yellowshark-ch"
+        ],
+        "de": [
+          "schreiner-m-w-chur-gr-yellowshark-ch"
+        ],
+        "fr": [
+          "schreiner-m-w-chur-gr-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-m-w-chur-gr-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-bf357fd424af",
-      "slug": "strategischer-einkaufer-8211-industrie-m-w-100-urdorf-zh-yellowshark-ch",
+      "slug": "acquirente-strategico-industria-m-f-100-yellowshark-ag-urdorf",
       "slugByLocale": {
         "de": "strategischer-einkaufer-8211-industrie-m-w-100-urdorf-zh-yellowshark-ch",
-        "it": "strategischer-einkaufer-8211-industrie-m-w-100-urdorf-zh-yellowshark-ch",
-        "en": "strategischer-einkaufer-8211-industrie-m-w-100-urdorf-zh-yellowshark-ch",
-        "fr": "strategischer-einkaufer-8211-industrie-m-w-100-urdorf-zh-yellowshark-ch"
+        "it": "acquirente-strategico-industria-m-f-100-yellowshark-ag-urdorf",
+        "en": "strategic-buyer-industry-m-f-100-yellowshark-ag-urdorf",
+        "fr": "acheteur-strategique-industrie-h-f-100-yellowshark-ag-urdorf"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -622,7 +683,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T15:03:04.716Z"
+      "firstSeenAt": "2026-09-25T15:03:04.716Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "strategischer-einkaufer-8211-industrie-m-w-100-urdorf-zh-yellowshark-ch"
+        ],
+        "en": [
+          "strategischer-einkaufer-8211-industrie-m-w-100-urdorf-zh-yellowshark-ch"
+        ],
+        "fr": [
+          "strategischer-einkaufer-8211-industrie-m-w-100-urdorf-zh-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "strategischer-einkaufer-8211-industrie-m-w-100-urdorf-zh-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-fe1882ade18b",
@@ -692,12 +768,12 @@
     },
     {
       "id": "yellowshark-57beaec7540b",
-      "slug": "sachbearbeiter-finanzen-m-w-d-windisch-ag-yellowshark-ch",
+      "slug": "finanza-del-personale-m-f-d-yellowshark-ag-windisch",
       "slugByLocale": {
         "de": "sachbearbeiter-finanzen-m-w-d-windisch-ag-yellowshark-ch",
-        "it": "sachbearbeiter-finanzen-m-w-d-windisch-ag-yellowshark-ch",
-        "en": "sachbearbeiter-finanzen-m-w-d-windisch-ag-yellowshark-ch",
-        "fr": "sachbearbeiter-finanzen-m-w-d-windisch-ag-yellowshark-ch"
+        "it": "finanza-del-personale-m-f-d-yellowshark-ag-windisch",
+        "en": "personnel-finance-m-f-d-yellowshark-ag-windisch",
+        "fr": "financement-du-personnel-h-f-d-yellowshark-ag-windisch"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -753,16 +829,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T15:03:04.714Z"
+      "firstSeenAt": "2026-09-25T15:03:04.714Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-finanzen-m-w-d-windisch-ag-yellowshark-ch"
+        ],
+        "en": [
+          "sachbearbeiter-finanzen-m-w-d-windisch-ag-yellowshark-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-finanzen-m-w-d-windisch-ag-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-finanzen-m-w-d-windisch-ag-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-0db61f0019b3",
-      "slug": "microsoft-cloud-system-engineer-m-w-80-8211-100-zuchwil-so-yellowshark-ch",
+      "slug": "microsoft-cloud-system-ingegnere-m-w-80-100-yellowshark-ag-zuchwil",
       "slugByLocale": {
-        "de": "microsoft-cloud-system-engineer-m-w-80-8211-100-zuchwil-so-yellowshark-ch",
-        "it": "microsoft-cloud-system-engineer-m-w-80-8211-100-zuchwil-so-yellowshark-ch",
+        "de": "microsoft-cloud-system-ingenieur-m-w-80-100-yellowshark-ag-zuchwil",
+        "it": "microsoft-cloud-system-ingegnere-m-w-80-100-yellowshark-ag-zuchwil",
         "en": "microsoft-cloud-system-engineer-m-w-80-8211-100-zuchwil-so-yellowshark-ch",
-        "fr": "microsoft-cloud-system-engineer-m-w-80-8211-100-zuchwil-so-yellowshark-ch"
+        "fr": "microsoft-cloud-system-ingenieur-m-w-80-100-yellowshark-ag-zuchwil"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -770,7 +860,7 @@
       "title": "Microsoft Cloud System Engineer (m/w) 80 – 100%",
       "titleByLocale": {
         "de": "Microsoft Cloud System Ingenieur (m/w) 80 – 100%",
-        "en": "Microsoft Cloud System Engineer (m/f) 80 – 100%",
+        "en": "Microsoft Cloud System Engineer (m/w) 80 – 100%",
         "it": "Microsoft Cloud System Ingegnere (m/w) 80 – 100%",
         "fr": "Microsoft Cloud System Ingénieur (m/w) 80 – 100%"
       },
@@ -819,7 +909,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T15:03:04.713Z"
+      "firstSeenAt": "2026-09-25T15:03:04.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "microsoft-cloud-system-engineer-m-w-80-8211-100-zuchwil-so-yellowshark-ch"
+        ],
+        "de": [
+          "microsoft-cloud-system-engineer-m-w-80-8211-100-zuchwil-so-yellowshark-ch"
+        ],
+        "fr": [
+          "microsoft-cloud-system-engineer-m-w-80-8211-100-zuchwil-so-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "microsoft-cloud-system-engineer-m-w-80-8211-100-zuchwil-so-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-63b0c26a0d22",
@@ -828,7 +932,7 @@
         "de": "it-product-owner-8211-business-and-it-m-w-80-100-st-gallen-sg-yellowshark-ch",
         "it": "it-product-owner-8211-business-and-it-m-w-80-100-st-gallen-sg-yellowshark-ch",
         "en": "it-product-owner-8211-business-and-it-m-w-80-100-st-gallen-sg-yellowshark-ch",
-        "fr": "it-product-owner-8211-business-and-it-m-w-80-100-st-gallen-sg-yellowshark-ch"
+        "fr": "proprietaire-de-produits-informatiques-entreprise-et-it-h-f-80-100-yellowshark-ag-st-gallen"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -836,7 +940,7 @@
       "title": "IT Product Owner – Business and IT (m/w) 80-100%",
       "titleByLocale": {
         "de": "IT Product Owner – Business and IT (m/w) 80-100%",
-        "en": "IT Product Owner – Business and IT (m/f) 80-100 %",
+        "en": "IT Product Owner – Business and IT (m/w) 80-100%",
         "it": "IT Product Owner – Business e IT (m/f) 80-100 %",
         "fr": "Propriétaire de produits informatiques – Entreprise et IT (h/f) 80-100 %"
       },
@@ -884,16 +988,17 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T15:03:04.710Z"
+      "firstSeenAt": "2026-09-25T15:03:04.710Z",
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-a8d71853e065",
-      "slug": "hr-specialist-m-w-d-zug-zg-yellowshark-ch",
+      "slug": "risorse-umane-specialista-m-w-d-yellowshark-ag-zug",
       "slugByLocale": {
-        "de": "hr-specialist-m-w-d-zug-zg-yellowshark-ch",
-        "it": "hr-specialist-m-w-d-zug-zg-yellowshark-ch",
+        "de": "personalwesen-spezialist-m-w-d-yellowshark-ag-zug",
+        "it": "risorse-umane-specialista-m-w-d-yellowshark-ag-zug",
         "en": "hr-specialist-m-w-d-yellowshark-ag-zug",
-        "fr": "hr-specialist-m-w-d-zug-zg-yellowshark-ch"
+        "fr": "ressources-humaines-specialiste-m-w-d-yellowshark-ag-zug"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -901,7 +1006,7 @@
       "title": "HR Specialist (m/w/d)",
       "titleByLocale": {
         "de": "Personalwesen Spezialist (m/w/d)",
-        "en": "HR Specialist (m/f/d)",
+        "en": "HR Specialist (m/w/d)",
         "it": "Risorse Umane Specialista (m/w/d)",
         "fr": "Ressources Humaines Spécialiste (m/w/d)"
       },
@@ -949,16 +1054,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T15:03:04.708Z"
+      "firstSeenAt": "2026-09-25T15:03:04.708Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-specialist-m-w-d-zug-zg-yellowshark-ch"
+        ],
+        "de": [
+          "hr-specialist-m-w-d-zug-zg-yellowshark-ch"
+        ],
+        "fr": [
+          "hr-specialist-m-w-d-zug-zg-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-specialist-m-w-d-zug-zg-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-382620e32264",
-      "slug": "finanzmanager-80-100-m-w-d-baden-ag-yellowshark-ch",
+      "slug": "responsabile-finanziario-80-100-m-f-d-yellowshark-ag-baden",
       "slugByLocale": {
         "de": "finanzmanager-80-100-m-w-d-baden-ag-yellowshark-ch",
-        "it": "finanzmanager-80-100-m-w-d-baden-ag-yellowshark-ch",
-        "en": "finanzmanager-80-100-m-w-d-baden-ag-yellowshark-ch",
-        "fr": "finanzmanager-80-100-m-w-d-baden-ag-yellowshark-ch"
+        "it": "responsabile-finanziario-80-100-m-f-d-yellowshark-ag-baden",
+        "en": "financial-manager-80-100-m-f-d-yellowshark-ag-baden",
+        "fr": "gestionnaire-financier-80-100-h-f-d-yellowshark-ag-baden"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -1014,16 +1133,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T15:03:04.707Z"
+      "firstSeenAt": "2026-09-25T15:03:04.707Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "finanzmanager-80-100-m-w-d-baden-ag-yellowshark-ch"
+        ],
+        "en": [
+          "finanzmanager-80-100-m-w-d-baden-ag-yellowshark-ch"
+        ],
+        "fr": [
+          "finanzmanager-80-100-m-w-d-baden-ag-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "finanzmanager-80-100-m-w-d-baden-ag-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-2446ddd28859",
-      "slug": "fassadenmonteur-m-w-yellowshark-ag-chur",
+      "slug": "facade-fitter-m-f-yellowshark-ag-chur",
       "slugByLocale": {
-        "de": "fassadenmonteur-m-w-chur-gr-yellowshark-ch",
-        "it": "fassadenmonteur-m-w-yellowshark-ag-chur",
-        "en": "fassadenmonteur-m-w-yellowshark-ag-chur",
-        "fr": "fassadenmonteur-m-w-yellowshark-ag-chur"
+        "de": "fassadenmonteur-m-w-yellowshark-ag-chur",
+        "it": "facade-fitter-m-f-yellowshark-ag-chur",
+        "en": "facade-fitter-m-f-yellowshark-ag-chur",
+        "fr": "fixeur-de-facade-h-f-yellowshark-ag-chur"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -1068,11 +1201,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fassadenmonteur-m-w-chur-gr-yellowshark-ch",
+          "fassadenmonteur-m-w-yellowshark-ag-chur"
+        ],
+        "en": [
+          "fassadenmonteur-m-w-yellowshark-ag-chur"
+        ],
+        "de": [
           "fassadenmonteur-m-w-chur-gr-yellowshark-ch"
+        ],
+        "fr": [
+          "fassadenmonteur-m-w-yellowshark-ag-chur"
         ]
       },
       "previousSlugs": [
-        "fassadenmonteur-m-w-chur-gr-yellowshark-ch"
+        "fassadenmonteur-m-w-chur-gr-yellowshark-ch",
+        "fassadenmonteur-m-w-yellowshark-ag-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1095,7 +1239,7 @@
       "slugByLocale": {
         "de": "automationsingenieur-steuerungs-und-leittechnik-m-w-80-100-egerkingen-so-yellowshark-ch",
         "it": "automationsingenieur-steuerungs-e-leittechnik-m-w-d-80-100-yellowshark-ag-egerkingen",
-        "en": "automationsingenieur-steuerungs-und-leittechnik-m-w-80-100-egerkingen-so-yellowshark-ch",
+        "en": "automation-engineer-control-and-control-technology-m-f-80-100-yellowshark-ag-egerkingen",
         "fr": "automationsingenieur-steuerungs-und-leittechnik-m-w-80-100-egerkingen-so-yellowshark-ch"
       },
       "company": "yellowshark AG",
@@ -1104,7 +1248,7 @@
       "title": "Automationsingenieur Steuerungs- und Leittechnik (m/w) 80-100%",
       "titleByLocale": {
         "de": "Automationsingenieur Steuerungs- und Leittechnik (m/w) 80-100%",
-        "fr": "Technologie de contrôle et de contrôle de l'ingénieur d'automatisation (h/f) 80-100 %",
+        "fr": "Automationsingenieur Steuerungs- und Leittechnik (m/w) 80-100%",
         "it": "Automationsingenieur Steuerungs- e Leittechnik (m/w) 80-100%",
         "en": "Automation Engineer Control and Control Technology (m/f) 80-100 %"
       },
@@ -1142,6 +1286,9 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "automationsingenieur-steuerungs-und-leittechnik-m-w-80-100-egerkingen-so-yellowshark-ch"
+        ],
+        "en": [
           "automationsingenieur-steuerungs-und-leittechnik-m-w-80-100-egerkingen-so-yellowshark-ch"
         ]
       },
@@ -1245,7 +1392,7 @@
       "slugByLocale": {
         "it": "facade-fitter-m-f-yellowshark-ag-zurich-zh",
         "en": "facade-fitter-m-w-d-yellowshark-ag-zurich",
-        "de": "fassadenmonteur-m-w-zurich-zh-yellowshark-ch",
+        "de": "fassadenmonteur-m-w-yellowshark-ag-zurich",
         "fr": "fixeur-de-facade-h-f-yellowshark-ag-zurich-zh"
       },
       "company": "yellowshark AG",
@@ -1301,6 +1448,9 @@
         ],
         "en": [
           "fassadenmonteur-m-w-yellowshark-ag-zurich"
+        ],
+        "de": [
+          "fassadenmonteur-m-w-zurich-zh-yellowshark-ch"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:46.438Z",
@@ -1335,7 +1485,7 @@
       "title": "System Engineer IT Infrastructure (m/w) 80 – 100%",
       "titleByLocale": {
         "de": "System Ingenieur IT Infrastructure (m/w) 80 – 100%",
-        "en": "System Engineer IT Infrastructure (m/f) 80 – 100%",
+        "en": "System Engineer IT Infrastructure (m/w) 80 – 100%",
         "it": "System Ingegnere IT Infrastructure (m/w) 80 – 100%",
         "fr": "System Ingénieur IT Infrastructure (m/w) 80 – 100%"
       },
@@ -1945,7 +2095,7 @@
       "title": "IT System Engineer – SCCM (m/w) 80-100%",
       "titleByLocale": {
         "de": "IT System Ingenieur – SCCM (m/w) 80-100%",
-        "en": "IT System Engineer – SCCM (m/f) 80-100 %",
+        "en": "IT System Engineer – SCCM (m/w) 80-100%",
         "it": "IT System Ingegnere – SCCM (m/w) 80-100%",
         "fr": "IT System Ingénieur – SCCM (m/w) 80-100%"
       },
@@ -2104,7 +2254,7 @@
       "title": "IT Product Manager Digitalisierung (m/w) 80-100%",
       "titleByLocale": {
         "de": "IT Product Manager Digitalisierung (m/w) 80-100%",
-        "en": "IT Product Manager Digitalization (m/f) 80-100 %",
+        "en": "IT Product Manager Digitalisierung (m/w) 80-100%",
         "it": "IT Product Manager Digitalizzazione (m/f) 80-100 %",
         "fr": "Gestionnaire de produits informatiques Digitalisation (h/f) 80-100 %"
       },
@@ -2179,7 +2329,7 @@
       "title": "IT Digital System Engineer (m/w) 100%",
       "titleByLocale": {
         "de": "IT Digital System Ingenieur (m/w) 100%",
-        "en": "IT Digital System Engineer (m/f) 100%",
+        "en": "IT Digital System Engineer (m/w) 100%",
         "it": "IT Digital System Ingegnere (m/w) 100%",
         "fr": "IT Digital System Ingénieur (m/w) 100%"
       },
@@ -2256,7 +2406,7 @@
       "title": "Head of AI Vision (m/w) 100%",
       "titleByLocale": {
         "de": "Leiter AI Vision (m/w) 100%",
-        "en": "Head of AI Vision (m/f) 100%",
+        "en": "Head of AI Vision (m/w) 100%",
         "it": "Responsabile AI Vision (m/w) 100%",
         "fr": "Responsable AI Vision (m/w) 100%"
       },
@@ -2952,89 +3102,6 @@
       ]
     },
     {
-      "id": "yellowshark-65a0b348df08",
-      "slug": "carpenter-m-f-yellowshark-ag-chur",
-      "slugByLocale": {
-        "de": "schreiner-m-w-chur-gr-yellowshark-ch-bgtjux",
-        "it": "carpenter-m-f-yellowshark-ag-chur",
-        "en": "carpenter-m-f-yellowshark-ag-chur",
-        "fr": "charpentier-h-f-yellowshark-ag-chur"
-      },
-      "company": "yellowshark AG",
-      "companyKey": "yellowshark",
-      "companyDomain": "jobs.yellowshark.com",
-      "title": "Schreiner (m/w)",
-      "titleByLocale": {
-        "de": "Schreiner (m/w)",
-        "it": "Carpenter (m/f)",
-        "en": "Carpenter (m/f)",
-        "fr": "Charpentier (h/f)"
-      },
-      "description": "23.09.2026 Schreiner (m/w) 7000 Chur Schreinerei Temporär Office 01 Zukünftiger Arbeitgeber Exaktes Arbeiten nach Plan bereitet Ihnen Freude? Laufend suchen wir für unsere Kunden aus dem Kanton Graubünden (GR) per sofort oder nach Vereinbarung motivierte und erfahrene Schreiner zur Temporären- oder Festanstellung. 02 Ihre Aufgabe Als Schreiner ist Ihr Arbeitsplatz vorwiegend die Werkstatt. Sie erledigen alle anfallenden Arbeiten wie das Erstellen von Küchen, Türen oder Möbel selbstständig und makellos. Massivholz oder beschichteten Platten nach Plan zu verarbeiten stellt für Sie keine Schwierigkeit dar. Ein Team zeichnet sich durch Verlässlichkeit und Pünktlichkeit aus und lebt eine offene Arbeitskultur. 04\n• Ihr Profil – Abgeschlossene Berufsausbildung als Schreiner in der Schweiz oder EU-Staaten – Freude am selbstständigen Arbeiten – Technisches Flair – Saubere Arbeitsweise – Gute mündliche Deutschkenntnisse – 20 50 Jahre alt – Plan lesen und gutes Vorstellungsvermögen – Kenntnisse über die Arbeitssicherheit 05 Wissenswertes Es können nur elektronische Bewerbungen berücksichtigt werden. Bewerbungen auf dem Postweg werden nicht retourniert. Stelle weiterempfehlen Jetzt bewerben Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen. Ansprechpartner T E-Mail Zum Team Bewerbungsprozess 01 Einreichen deiner Bewerbung in 10 Minuten 02 Prüfung der Unterlagen 03 Rückmeldung innerhalb von 5 Tagen Ähnliche Stellen 27.08.2026 / 5000 Aarau Möbelschreiner (m/w) 27.08.2026 / 5000 Aarau Schreiner Monteur (m/w) 12.09.2026 / 5000 Aarau Schreiner Monteur (m/w) 07.09.2026 / 3020 Bern Schreiner (m/w) Job-Ticker Erhalten Sie die neusten Jobangebote direkt in Ihr Postfach. Spontanbewerbung Sie ergreifen die Initiative, wir prüfen passende Stellenangebote. VORHERIGER JOB NÄCHSTER JOB Haben wir Ihr Interesse geweckt? Senden Sie Ihre Bewerbung in 3 einfachen Schritten. Jetzt bewerben Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.",
-      "descriptionByLocale": {
-        "de": "23.09.2026 Schreiner (m/w) 7000 Chur Schreinerei Temporär Office 01 Zukünftiger Arbeitgeber Exaktes Arbeiten nach Plan bereitet Ihnen Freude? Laufend suchen wir für unsere Kunden aus dem Kanton Graubünden (GR) per sofort oder nach Vereinbarung motivierte und erfahrene Schreiner zur Temporären- oder Festanstellung. 02 Ihre Aufgabe Als Schreiner ist Ihr Arbeitsplatz vorwiegend die Werkstatt. Sie erledigen alle anfallenden Arbeiten wie das Erstellen von Küchen, Türen oder Möbel selbstständig und makellos. Massivholz oder beschichteten Platten nach Plan zu verarbeiten stellt für Sie keine Schwierigkeit dar. Ein Team zeichnet sich durch Verlässlichkeit und Pünktlichkeit aus und lebt eine offene Arbeitskultur. 04\n• Ihr Profil – Abgeschlossene Berufsausbildung als Schreiner in der Schweiz oder EU-Staaten – Freude am selbstständigen Arbeiten – Technisches Flair – Saubere Arbeitsweise – Gute mündliche Deutschkenntnisse – 20 50 Jahre alt – Plan lesen und gutes Vorstellungsvermögen – Kenntnisse über die Arbeitssicherheit 05 Wissenswertes Es können nur elektronische Bewerbungen berücksichtigt werden. Bewerbungen auf dem Postweg werden nicht retourniert. Stelle weiterempfehlen Jetzt bewerben Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen. Ansprechpartner T E-Mail Zum Team Bewerbungsprozess 01 Einreichen deiner Bewerbung in 10 Minuten 02 Prüfung der Unterlagen 03 Rückmeldung innerhalb von 5 Tagen Ähnliche Stellen 27.08.2026 / 5000 Aarau Möbelschreiner (m/w) 27.08.2026 / 5000 Aarau Schreiner Monteur (m/w) 12.09.2026 / 5000 Aarau Schreiner Monteur (m/w) 07.09.2026 / 3020 Bern Schreiner (m/w) Job-Ticker Erhalten Sie die neusten Jobangebote direkt in Ihr Postfach. Spontanbewerbung Sie ergreifen die Initiative, wir prüfen passende Stellenangebote. VORHERIGER JOB NÄCHSTER JOB Haben wir Ihr Interesse geweckt? Senden Sie Ihre Bewerbung in 3 einfachen Schritten. Jetzt bewerben Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.",
-        "it": "23.09.2026 Carpenter (m/f) 7000 Chur Carpentry Ufficio temporaneo 01 Datore di lavoro futuro Lavoro esatto secondo il piano Le piacerà? Siamo costantemente alla ricerca dei nostri clienti del Canton Grigioni (GR) da subito o da accordo motivati ed esperti carpentieri per un impiego temporaneo o permanente. 02 Come falegname, il vostro posto di lavoro è principalmente il laboratorio. Fanno tutto il lavoro necessario come la creazione di cucine, porte o mobili in modo indipendente e immacolato. Lavorare legno massiccio o pannelli rivestiti secondo il piano non è difficile per voi. Un team è caratterizzato da affidabilità e puntualità e vive una cultura di lavoro aperta. 04 04 04\n• Il tuo profilo – Formazione professionale completa come carpentiere in Svizzera o nei paesi dell’UE – Gioia di lavorare in modo indipendente – Difficoltà tecnica – Metodi di lavoro puliti – Buona conoscenza orale del tedesco – 20 50 anni – Piano di lettura e buona immaginazione – Conoscenza della sicurezza sul lavoro 05 Solo applicazioni elettroniche possono essere considerate. Le domande per posta non saranno restituite. Purtroppo non possiamo attualmente sostenere le applicazioni della vostra regione. Persona di contatto T e-mail Al processo di applicazione del team 01 Inviare la tua applicazione in 10 minuti 02 Esame dei documenti 03 Rispondi entro 5 giorni Posti simili 27.08.2026 / 5000 Aarau mobili carpenter (m/f) 27.08.2026 / 5000 Aarau carpenter installer (m/f) 12.09.2026 / 5000 Aarau carpenter installer (m/f) 30.09.20 Carpenter Berne (m/f) Lavoro ticker Ricevi Ottieni le ultime offerte di lavoro direttamente nella tua casella di posta. Applicazione spontanea Si prende l'iniziativa, controlliamo le offerte di lavoro adatte. Precedente Post precedente Abbiamo suscitato il vostro interesse? Invia la tua applicazione in 3 semplici passaggi. Purtroppo non possiamo attualmente sostenere le applicazioni della vostra regione.",
-        "en": "23.09.2026 Carpenter (m/f) 7000 Chur Carpentry Temporary Office 01 Future employer Exact work according to plan will please you? We are constantly looking for our customers from the Canton of Graubünden (GR) by immediately or by agreement motivated and experienced carpenters for temporary or permanent employment. 02 As a carpenter, your workplace is mainly the workshop. They do all the necessary work such as creating kitchens, doors or furniture independently and immaculately. Processing solid wood or coated boards according to plan is no difficulty for you. A team is characterized by reliability and punctuality and lives an open working culture. 04 04\n• Your profile – Completed vocational training as a carpenter in Switzerland or EU countries – Joy of working independently – Technical flair – Clean working methods – Good oral knowledge of German – 20 50 years old – Reading plan and good imagination – Knowledge of occupational safety 05 Only electronic applications can be considered. Applications by post will not be returned. Apply now Unfortunately, we cannot currently support applications from your region. Contact person T e-mail To the team application process 01 Submitting your application in 10 minutes 02 Examination of documents 03 Reply within 5 days Similar positions 27.08.2026 / 5000 Aarau furniture carpenter (m/f) 27.08.2026 / 5000 Aarau carpenter installer (m/f) 12.09.2026 / 5000 Aarau carpenter installer (m/f) 07.09.2026 / 3020 Berne carpenter (m/f) Job ticker Receive Get the latest job offers directly into your mailbox. Spontaneous application You take the initiative, we check suitable job offers. Previous Previous post Have we aroused your interest? Send your application in 3 easy steps. Unfortunately, we cannot currently support applications from your region.",
-        "fr": "23.09.2026 Charpentier (h/f) 7000 Charpenterie Chur Office temporaire 01 Futur employeur Travail exact selon le plan vous plaira-t-il? Nous sommes constamment à la recherche de nos clients du Canton des Grisons (GR) par immédiatement ou par accord motivé et expérimenté charpentiers pour un emploi temporaire ou permanent. 02 En tant que charpentier, votre lieu de travail est principalement l'atelier. Ils font tout le travail nécessaire, comme créer des cuisines, des portes ou des meubles indépendamment et immaculés. Le traitement du bois massif ou des panneaux enduits selon le plan n'est pas une difficulté pour vous. Une équipe se caractérise par la fiabilité et la ponctualité et vit une culture de travail ouverte. Autres\n• Votre profil – Formation professionnelle terminée en tant que menuisier en Suisse ou dans les pays de l'UE – Joy de travailler de manière indépendante – Aspect technique – Méthodes de travail propres – Bonne connaissance orale de l'allemand – 20 ans – Plan de lecture et bonne imagination – Connaissance de la sécurité au travail 05 Seules les applications électroniques peuvent être envisagées. Les demandes par la poste ne seront pas retournées. Postuler maintenant Malheureusement, nous ne pouvons pas soutenir les applications de votre région. Personne à contacter E-mail À la procédure de demande d'équipe 01 Soumettre votre demande en 10 minutes 02 Examen des documents 03 Répondre dans les 5 jours Postes similaires 27.08.2026 / 5000 Aarau carpenter mobilier (h/f) 27.08.2026 / 5000 Aarau carpenter installateur (h/f) 12.09.2026 / 5000 Aarau carpenter installateur (h/f) 07.09.2026 / 3020 Charpentier de Berne (h/f) Cochez la case Recevoir Obtenez les dernières offres d'emploi directement dans votre boîte aux lettres. Demande spontanée Vous prenez l'initiative, nous vérifions les offres d'emploi appropriées. Previous Previous post Avons-nous suscité votre intérêt? Envoyez votre application en 3 étapes faciles. Malheureusement, nous ne pouvons pas soutenir les applications de votre région."
-      },
-      "location": "Chur, GR",
-      "canton": "GR",
-      "url": "https://jobs.yellowshark.com/job/sa036214/",
-      "source": "yellowshark AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-24T00:09:46.446Z",
-      "addressLocality": "Chur",
-      "addressRegion": "GR",
-      "addressCountry": "Switzerland",
-      "country": "Switzerland",
-      "postalCode": "7000",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-23T00:00:00+02:00",
-      "applyUrl": "https://jobs.yellowshark.com/job/sa036214/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-24T00:09:46.446Z",
-      "crawlerMissStreak": 2,
-      "previousSlugsByLocale": {
-        "it": [
-          "schreiner-m-w-chur-gr-yellowshark-ch"
-        ],
-        "en": [
-          "schreiner-m-w-chur-gr-yellowshark-ch"
-        ],
-        "fr": [
-          "schreiner-m-w-chur-gr-yellowshark-ch"
-        ],
-        "de": [
-          "schreiner-m-w-chur-gr-yellowshark-ch"
-        ]
-      },
-      "previousSlugs": [
-        "schreiner-m-w-chur-gr-yellowshark-ch"
-      ]
-    },
-    {
       "id": "yellowshark-bc073c26a849",
       "slug": "senior-system-ingegnere-microsoft-365-80-100-yellowshark-ag-zurich",
       "slugByLocale": {
@@ -3118,7 +3185,7 @@
       "slugByLocale": {
         "de": "it-workplace-spezialist-m-w-80-8211-100-steinmaur-zh-yellowshark-ch",
         "it": "specialista-it-workplace-m-f-80-100-yellowshark-ag-steinmaur",
-        "en": "it-workplace-specialist-m-f-80-100-yellowshark-ag-steinmaur-zh",
+        "en": "it-workplace-spezialist-m-w-80-100-yellowshark-ag-steinmaur",
         "fr": "specialiste-en-informatique-sur-le-lieu-de-travail-h-f-80-100-yellowshark-ag-steinmaur"
       },
       "company": "yellowshark AG",
@@ -3127,7 +3194,7 @@
       "title": "IT Workplace Spezialist (m/w) 80 – 100%",
       "titleByLocale": {
         "de": "IT Workplace Spezialist (m/w) 80 – 100%",
-        "en": "IT Workplace specialist (m/f) 80 – 100%",
+        "en": "IT Workplace Spezialist (m/w) 80 – 100%",
         "it": "Specialista IT Workplace (m/f) 80 – 100%",
         "fr": "Spécialiste en informatique sur le lieu de travail (h/f) 80 – 100%"
       },
@@ -3185,11 +3252,13 @@
           "it-workplace-spezialist-m-w-80-8211-100-steinmaur-zh-yellowshark-ch"
         ],
         "en": [
-          "it-workplace-spezialist-m-w-80-8211-100-steinmaur-zh-yellowshark-ch"
+          "it-workplace-spezialist-m-w-80-8211-100-steinmaur-zh-yellowshark-ch",
+          "it-workplace-specialist-m-f-80-100-yellowshark-ag-steinmaur-zh"
         ]
       },
       "previousSlugs": [
-        "it-workplace-spezialist-m-w-80-8211-100-steinmaur-zh-yellowshark-ch"
+        "it-workplace-spezialist-m-w-80-8211-100-steinmaur-zh-yellowshark-ch",
+        "it-workplace-specialist-m-f-80-100-yellowshark-ag-steinmaur-zh"
       ]
     },
     {
@@ -3207,7 +3276,7 @@
       "title": "Sales Manager Westschweiz 100% (m/w)",
       "titleByLocale": {
         "de": "Sales Manager Westschweiz 100% (m/w)",
-        "en": "Sales Manager Western Switzerland 100% (m/f)",
+        "en": "Sales Manager Westschweiz 100% (m/w)",
         "it": "Responsabile vendite Western Svizzera 100% (m/f)",
         "fr": "Sales Manager Suisse occidentale 100% (h/f)"
       },
@@ -3267,7 +3336,8 @@
       },
       "previousSlugs": [
         "sales-manager-westschweiz-100-m-w-fribourg-fr-yellowshark-ch"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-4158c93708f8",
@@ -3432,7 +3502,7 @@
       "slugByLocale": {
         "de": "finance-specialist-m-w-100-winterthur-zh-yellowshark-ch",
         "it": "finanza-specialista-m-w-100-yellowshark-ag-winterthur",
-        "en": "quality-assurance-specialist-m-f-100-yellowshark-ag-winterthur-zh",
+        "en": "finance-specialist-m-w-100-yellowshark-ag-winterthur",
         "fr": "finance-specialiste-m-w-100-yellowshark-ag-winterthur"
       },
       "company": "yellowshark AG",
@@ -3441,7 +3511,7 @@
       "title": "Finance Specialist (m/w) 100%",
       "titleByLocale": {
         "de": "Finanzen Spezialist (m/w) 100%",
-        "en": "Quality Assurance Specialist (m/f) 100%",
+        "en": "Finance Specialist (m/w) 100%",
         "it": "Finanza Specialista (m/w) 100%",
         "fr": "Finance Spécialiste (m/w) 100%"
       },
@@ -3499,11 +3569,13 @@
           "finance-specialist-m-w-100-winterthur-zh-yellowshark-ch"
         ],
         "en": [
-          "finance-specialist-m-w-100-winterthur-zh-yellowshark-ch"
+          "finance-specialist-m-w-100-winterthur-zh-yellowshark-ch",
+          "quality-assurance-specialist-m-f-100-yellowshark-ag-winterthur-zh"
         ]
       },
       "previousSlugs": [
-        "finance-specialist-m-w-100-winterthur-zh-yellowshark-ch"
+        "finance-specialist-m-w-100-winterthur-zh-yellowshark-ch",
+        "quality-assurance-specialist-m-f-100-yellowshark-ag-winterthur-zh"
       ]
     }
   ]
