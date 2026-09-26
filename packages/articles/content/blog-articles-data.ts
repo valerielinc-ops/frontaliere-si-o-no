@@ -36243,6 +36243,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'm5s-vco-tavolo-frontalieri',
+ category: 'novita',
+ date: '2026-09-26T20:04:20.072Z',
+ image: '/images/blog/m5s-vco-tavolo-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

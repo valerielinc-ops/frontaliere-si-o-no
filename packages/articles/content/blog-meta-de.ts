@@ -12079,6 +12079,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vpdd-ssp-contro-iva-avs.title': 'VPOD-SSP gegen Mehrwertsteuererhöhung für die 13. AHV',
     'blog.article.vpdd-ssp-contro-iva-avs.excerpt': 'Der VPOD-SSP lehnt die Finanzierung der 13. AHV durch Erhöhung der Mehrwertsteuer ab, Volksabstimmung am 29. November; AHV-Gewinne 5,6 Milliarden im Jahr 2024 und 4,4 Milliarden im Jahr 2025, Vermögen 60,4 Milliarden.',
     'blog.article.vpdd-ssp-contro-iva-avs.imageAlt': 'Luganer Seepromenade mit See und Bergen im Hintergrund, reale Szene',
+    'blog.article.m5s-vco-tavolo-frontalieri.title': 'Grenzgänger, M5S VCO fordert Antworten zu NASpI und Gesundheit',
+    'blog.article.m5s-vco-tavolo-frontalieri.excerpt': 'Nach dem Treffen am 17 settembre in Rom fordert der M5S VCO einen verbindlichen Zeitplan für den Gesundheitsbeitrag, NASpI und die Steueroption.',
+    'blog.article.m5s-vco-tavolo-frontalieri.imageAlt': 'Blick auf Lugano mit modernen Gebäuden und See',
 };
 
 export default blogMetaDe;

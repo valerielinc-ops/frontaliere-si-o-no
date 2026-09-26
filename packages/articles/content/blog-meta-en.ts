@@ -12080,6 +12080,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vpdd-ssp-contro-iva-avs.title': 'VPOD-SSP against the increase in VAT for the 13th AVS pension payment',
     'blog.article.vpdd-ssp-contro-iva-avs.excerpt': 'VPOD-SSP rejects funding the 13th AVS pension payment through a VAT increase, popular vote on November 29; AVS profits of 5.6 billion in 2024 and 4.4 billion in 2025, assets of 60.4 billion.',
     'blog.article.vpdd-ssp-contro-iva-avs.imageAlt': 'Lugano lakeside promenade with lake and mountains, real scene',
+    'blog.article.m5s-vco-tavolo-frontalieri.title': 'Cross-border workers, M5S VCO asks for answers on NASpI and healthcare',
+    'blog.article.m5s-vco-tavolo-frontalieri.excerpt': 'After the September 17 meeting in Rome, M5S VCO calls for a binding timetable on the healthcare contribution, NASpI and tax option.',
+    'blog.article.m5s-vco-tavolo-frontalieri.imageAlt': 'View of Lugano with modern buildings and lake',
 };
 
 export default blogMetaEn;
