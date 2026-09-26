@@ -293,8 +293,12 @@ describe('mapDetailPageToLocaleData', () => {
         location: { name: 'Rote Fabrik', address: { addressLocality: 'Zurigo' } },
       }),
     }).replace('</body>', '<p itemprop="description">Präsentiert von Noise Reduction &amp; Musikbüro Rote Fabrik<br>Mitwirkende und Zusatzinformationen:<br>Autechre</p></body>');
-    const mapped = mapDetailPageToLocaleData(html, 'de');
-    expect(mapped?.organizer).toEqual({ '@type': 'Organization', name: 'Noise Reduction & Musikbüro Rote Fabrik' });
+    const mapped = mapDetailPageToLocaleData(html, 'de', 'https://www.guidle.com/de/veranstaltungen/zug/autechre_AU123');
+    expect(mapped?.organizer).toEqual({
+      '@type': 'Organization',
+      name: 'Noise Reduction & Musikbüro Rote Fabrik',
+      url: 'https://www.guidle.com/de/veranstaltungen/zug/autechre_AU123',
+    });
     expect(mapped?.performer).toEqual({ name: 'Autechre' });
   });
 
@@ -386,7 +390,11 @@ describe('mapGuidleEvent', () => {
     expect((mapped as never as { imageSourceUrl: string }).imageSourceUrl).toBe(
       'https://www.guidle.com/imagekit/en-abc.jpg',
     );
-    expect(event.organizer).toEqual({ '@type': 'Organization', name: 'Guidle Veranstalter' });
+    expect(event.organizer).toEqual({
+      '@type': 'Organization',
+      name: 'Guidle Veranstalter',
+      url: 'https://www.guidle.com/it/eventi/zugo/stadtfuehrung_AZ3RYEB',
+    });
     expect(event.performer).toEqual({ '@type': 'Person', name: 'Artista Guidle' });
   });
 

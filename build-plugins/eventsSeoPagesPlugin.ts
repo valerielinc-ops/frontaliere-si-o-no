@@ -85,6 +85,7 @@ export { cleanEventText } from '../scripts/lib/events-utils.mjs';
 import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
 import { differentiateH1FromTitle, osmEmbedSrc, CTA_PRIMARY_CLASS } from './shared/seoContentTokens';
+import { normalizeEventPeople } from '../scripts/lib/event-metadata.mjs';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 type EventEntity = { '@type'?: string; name: string; url?: string };
@@ -1250,7 +1251,12 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
     },
     description: description.length >= 30 ? description : `${description} Evento in ${cantonName || 'Svizzera'}.`,
     ...(eventImage ? { image: eventImage } : {}),
-    ...(event.organizer ? { organizer: event.organizer } : {}),
+    // If the source published a named organizer but no own URL, event.url is
+    // the verified source page that publishes that identity. It avoids
+    // inventing a homepage and keeps stale dataset records complete too.
+    ...(event.organizer
+      ? { organizer: normalizeEventPeople(event.organizer, event.url, event.url) }
+      : {}),
     ...(event.performer ? { performer: event.performer } : {}),
     // On a detail page `url` is OUR canonical page (the page about the event);
     // the original source is then surfaced as `sameAs`. On aggregate pages

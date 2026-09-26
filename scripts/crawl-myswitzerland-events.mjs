@@ -89,7 +89,9 @@ import {
   eventOfferPriceAmount,
   firstEventImageUrl,
   firstEventImageUrlFromHtml,
+  hasCompleteEventPeopleUrls,
   mergeEventOfferMetadata,
+  mergeEventPeopleUrls,
   normalizeEventPeople,
 } from './lib/event-metadata.mjs';
 
@@ -483,9 +485,19 @@ export function mergeDetailEventMetadata(primaryLd, candidateLd, primaryUrl = SI
     if (image) merged.image = image;
   }
   for (const field of ['organizer', 'performer']) {
-    if (normalizeEventPeople(merged[field], primaryUrl)) continue;
-    const people = normalizeEventPeople(candidateLd[field], candidateUrl);
-    if (people) merged[field] = people;
+    const primaryPeople = normalizeEventPeople(merged[field], primaryUrl);
+    const candidatePeople = normalizeEventPeople(candidateLd[field], candidateUrl);
+    const candidateAddsOrganizerUrl = field === 'organizer'
+      && candidatePeople
+      && hasCompleteEventPeopleUrls(candidatePeople)
+      && !hasCompleteEventPeopleUrls(primaryPeople);
+    if (!primaryPeople || candidateAddsOrganizerUrl) {
+      if (candidatePeople) {
+        merged[field] = field === 'organizer' && primaryPeople
+          ? mergeEventPeopleUrls(primaryPeople, candidatePeople)
+          : candidatePeople;
+      }
+    }
   }
   const mergedOffers = mergeEventOfferMetadata(merged.offers, candidateLd.offers, primaryUrl, candidateUrl);
   if (mergedOffers !== undefined) merged.offers = mergedOffers;
@@ -547,9 +559,11 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
     organizer: detailPeople?.organizer || detailPeopleFromHtml.organizer || indexedPeople.organizer,
     performer: detailPeople?.performer || detailPeopleFromHtml.performer || indexedPeople.performer || indexedTitlePeople,
   };
-  const organizer = normalizeEventPeople(detailLd?.organizer, detailUrl || SITE_ORIGIN)
-    || normalizeEventPeople(sourcePeople.organizer, SITE_ORIGIN)
-    || (detailContactName ? { '@type': 'Organization', name: detailContactName } : undefined);
+  const organizer = normalizeEventPeople(detailLd?.organizer, detailUrl || SITE_ORIGIN, detailUrl)
+    || normalizeEventPeople(sourcePeople.organizer, SITE_ORIGIN, detailUrl)
+    || (detailContactName
+      ? normalizeEventPeople({ '@type': 'Organization', name: detailContactName }, detailUrl || SITE_ORIGIN, detailUrl)
+      : undefined);
   const performer = normalizeEventPeople(detailLd?.performer, detailUrl || SITE_ORIGIN)
     || normalizeEventPeople(sourcePeople.performer, SITE_ORIGIN);
   const ldAddress = extractAddress(detailLd);
@@ -676,11 +690,13 @@ export function detailEnrichmentReady(enrichment, perLocaleHits = {}, sourcePeop
     || firstEventImageUrl(enrichment?.detailLd?.image, enrichment?.detailUrl || SITE_ORIGIN)
     || enrichment?.detailImageSourceUrl,
   );
-  const organizerReady = Boolean(
-    normalizeEventPeople(enrichment?.detailLd?.organizer, enrichment?.detailUrl || SITE_ORIGIN)
+  const organizerEvidence = normalizeEventPeople(enrichment?.detailLd?.organizer, enrichment?.detailUrl || SITE_ORIGIN)
     || sourcePeople.organizer
     || normalizeEventPeople(enrichment?.detailPeople?.organizer, enrichment?.detailUrl || SITE_ORIGIN)
-    || enrichment?.detailContactName,
+    || enrichment?.detailContactName;
+  const organizerReady = Boolean(
+    hasCompleteEventPeopleUrls(organizerEvidence)
+    || (enrichment?.detailUrl && organizerEvidence)
   );
   const performerReady = Boolean(
     normalizeEventPeople(enrichment?.detailLd?.performer, enrichment?.detailUrl || SITE_ORIGIN)
