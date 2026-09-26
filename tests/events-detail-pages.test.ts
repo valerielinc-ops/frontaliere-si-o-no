@@ -206,6 +206,19 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.performer).toEqual(withPeople.performer);
   });
 
+  it('fills a missing organizer URL with the verified source event page', () => {
+    const withOrganizer = {
+      ...EVENT,
+      organizer: { '@type': 'Organization', name: 'Vokalensemble VIVAT' },
+    };
+    const ld = eventLd(withOrganizer as never, 'it') as Record<string, any>;
+    expect(ld.organizer).toEqual({
+      '@type': 'Organization',
+      name: 'Vokalensemble VIVAT',
+      url: EVENT.url,
+    });
+  });
+
   it('prefers a real crawled description over the synthesized one when long enough', () => {
     const withDescription = {
       ...EVENT,
