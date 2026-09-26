@@ -6755,6 +6755,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.seco-commercio-misure-2026.title': 'SECO: US-Zölle bis zu 12,5% und Rücktritte',
     'blog.article.seco-commercio-misure-2026.excerpt': 'US-Zölle von bis zu 12,5 % auf Schweizer Importe; Helene Budliger Artieda wird die SECO Ende März 2027 verlassen.',
     'blog.article.seco-commercio-misure-2026.imageAlt': 'Schweizer Verwaltungsgebäude und Dokumente zum internationalen Handel',
+    'blog.article.voto-settembre-integrazione-2026.title': 'Bundesrat: Abstimmung und Entscheidungen 2026',
+    'blog.article.voto-settembre-integrazione-2026.excerpt': 'Am 27. September 2026 wird über Neutralität und Ernährung abgestimmt. Ebenfalls auf dem Tisch: Integration, Mieten, Cybersicherheit und Abkommen mit der EU.',
+    'blog.article.voto-settembre-integrazione-2026.imageAlt': 'Dokumente zu Schweizer Bundesentscheiden und ein Stimmzettel für den 27. September 2026',
 };
 
 export default blogMetaChDe;

@@ -2274,6 +2274,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'portali-cv-lucerna': { it: 'portali-cv-lucerna', en: 'swiss-job-search-lucerne-2026', de: 'arbeitssuche-schweiz-luzern-2026', fr: 'recherche-emploi-suisse-lucerne-2026' },
  'keiser-stop-promozione-zugo': { it: 'keiser-stop-promozione-zugo', en: 'keiser-stop-economic-promotion-zug', de: 'keiser-stop-wirtschaftsfoerderung-zug', fr: 'keiser-arret-promotion-economique-zoug' },
  'seco-commercio-misure-2026': { it: 'seco-commercio-misure-2026', en: 'seco-trade-measures-2026', de: 'seco-handelsmassnahmen-2026', fr: 'seco-mesures-commerce-2026' },
+ 'voto-settembre-integrazione-2026': { it: 'voto-settembre-integrazione-2026', en: 'september-vote-integration-2026', de: 'september-abstimmung-integration-2026', fr: 'vote-septembre-integration-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

@@ -6755,6 +6755,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.seco-commercio-misure-2026.title': 'SECO: US tariffs up to 12,5% and resignations',
     'blog.article.seco-commercio-misure-2026.excerpt': 'US tariffs of up to 12.5% on Swiss imports; Helene Budliger Artieda will leave SECO at the end of March 2027.',
     'blog.article.seco-commercio-misure-2026.imageAlt': 'Swiss administrative building and international trade documents',
+    'blog.article.voto-settembre-integrazione-2026.title': 'Federal Council: vote and decisions 2026',
+    'blog.article.voto-settembre-integrazione-2026.excerpt': 'On September 27, 2026, voters will vote on neutrality and food. Also on the agenda: integration, rents, cybersecurity and agreements with the EU.',
+    'blog.article.voto-settembre-integrazione-2026.imageAlt': 'Documents on Swiss federal decisions and a ballot for the vote on 27 September 2026',
 };
 
 export default blogMetaChEn;
