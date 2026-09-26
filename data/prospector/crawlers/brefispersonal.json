@@ -3,16 +3,20 @@
   "companyName": "brefis personal ag",
   "companyHost": "brefispersonal.ch",
   "platform": "",
-  "mode": "jsonld",
+  "mode": "template",
   "seedUrls": [
-    "https://brefispersonal.ch/Vacancyboard/Detail/46980"
+    "https://brefispersonal.ch/Vacancyboard/"
   ],
-  "detailTemplate": "/Vacancyboard/Detail/46980",
-  "detailEnrichment": false,
+  "detailTemplate": "/Vacancyboard/Detail/#",
+  "detailEnrichment": true,
   "detailFetchWorkers": 4,
-  "sampleVacancyCount": 1,
+  "sampleVacancyCount": 15,
   "sampleTitles": [
-    "Sanitärinstallateur/in EFZ"
+    "Sanitärinstallateur/in EFZ in Bremgarten AG",
+    "Sanitärinstallateur/in EFZ in Dättwil AG",
+    "Metallbauer/in EFZ in Aarau",
+    "Metallbauer/in EFZ in Aarau",
+    "Schreiner/in gelernt in Zürich"
   ],
   "canton": "GR",
   "sourceLang": "de",
