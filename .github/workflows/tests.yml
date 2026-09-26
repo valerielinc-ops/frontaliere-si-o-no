@@ -2069,6 +2069,7 @@ jobs:
           # already in the full-history checkout: use that local diff when the
           # compare API is transiently unavailable instead of promoting a
           # healthy small change to the entire 2,400-test suite.
+          local_sha_diff_complete=false
           use_local_sha_diff() {
             local require_nonempty="${1:-false}"
             local local_diff_file="${RUNNER_TEMP}/changed-paths-local.txt"
@@ -2082,6 +2083,7 @@ jobs:
                 return 1
               fi
               printf '%s\n' complete > changed-paths-status.txt
+              local_sha_diff_complete=true
               return 0
             fi
             rm -f "$local_diff_file"
@@ -2109,30 +2111,33 @@ jobs:
           # files and no truncation flag. On push/merge_group the checkout has
           # the two complete SHAs, so prefer the exact local tree diff before
           # declaring the measurement partial. If the local diff cannot be
-          # computed, keep the conservative full-suite fallback below.
+          # computed, keep the conservative full-suite fallback below. Once
+          # materialized, the local diff is exact regardless of its size, so
+          # the compare API cap no longer applies to it.
           if [ "$count" -ge "$cap" ] && [ -z "$PR_NUMBER" ] && [ -n "${compare_base:-}" ] && [ -n "$AFTER_SHA" ]; then
-            echo "elenco al cap dell'API → verifica con diff locale degli SHA"
-            if use_local_sha_diff true; then
-              count="$(wc -l < changed-paths.txt | tr -d ' ')"
-              echo "diff locale completo: $count path toccati"
+            if [ "$local_sha_diff_complete" = "true" ]; then
+              echo "diff locale completo già disponibile: $count path toccati"
+            else
+              echo "elenco al cap dell'API → verifica con diff locale degli SHA"
+              if use_local_sha_diff true; then
+                count="$(wc -l < changed-paths.txt | tr -d ' ')"
+                echo "diff locale completo: $count path toccati"
+              fi
             fi
           fi
           # Sia `pulls/<n>/files` che `compare` troncano su un diff enorme
           # (rispondono 200 con una lista PARZIALE, non un errore, e senza un
           # campo che dichiari il troncamento) — il fail-safe sul fallimento
           # non lo copre: un path corpus caduto oltre il taglio non entra nella
-          # selezione related. La soglia
-          # è quella del ramo che ha prodotto `changed-paths.txt` ($cap,
-          # impostato sopra): 3000 per `pulls/<n>/files` (verificato, quella
-          # API pagina per davvero), 300 per `compare` (documentato, "Working
-          # with large comparisons": copre solo la prima pagina e non va
-          # oltre). Usare 3000 anche sul ramo `compare` — la versione
-          # precedente di questo step lo faceva — lascerebbe passare
-          # indisturbato un push fra 300 e 2999 file con `changed-paths.txt`
-          # già troncato, cioè esattamente il rischio che questo controllo
-          # esiste per intercettare. Sopra la soglia si rinuncia a decidere e
-          # mantiene comunque il comportamento related-only sul diff disponibile.
-          if [ "$count" -ge "$cap" ]; then
+          # selezione related. La soglia è quella del ramo che ha prodotto
+          # `changed-paths.txt` ($cap, impostato sopra): 3000 per
+          # `pulls/<n>/files` (verificato, quella API pagina per davvero), 300
+          # per `compare` (documentato, "Working with large comparisons":
+          # copre solo la prima pagina e non va oltre). Un diff locale già
+          # materializzato non è troncato dall'API, quindi resta `complete`
+          # anche quando supera la soglia; se non è disponibile, sopra la
+          # soglia si rinuncia a decidere e si mantiene il fallback conservativo.
+          if [ "$count" -ge "$cap" ] && [ "$local_sha_diff_complete" != "true" ]; then
             printf '%s\n' partial > changed-paths-status.txt
             echo "elenco al cap dell'API ($count >= $cap): fallback conservativo alla suite completa"
             exit 0
