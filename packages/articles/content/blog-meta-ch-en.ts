@@ -6806,6 +6806,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.jans-monaco-lotta-trafficanti.title': 'Beat Jans in Munich: Fighting human traffickers',
     'blog.article.jans-monaco-lotta-trafficanti.excerpt': 'Federal Councillor Beat Jans focuses on European cooperation and fast-track return procedures during the Munich summit with 18 states.',
     'blog.article.jans-monaco-lotta-trafficanti.imageAlt': 'Swiss government building with national flag',
+    'blog.article.risarcimenti-grandine-svizzera-2026.title': 'Hail insurance: compensation up to 170 million',
+    'blog.article.risarcimenti-grandine-svizzera-2026.excerpt': 'Grandine Svizzera expects compensation payments of up to 170 million francs in 2026. Adrian Aebi warns: premiums could become unaffordable.',
+    'blog.article.risarcimenti-grandine-svizzera-2026.imageAlt': 'Swiss agricultural field with corn and potato crops',
 };
 
 export default blogMetaChEn;
