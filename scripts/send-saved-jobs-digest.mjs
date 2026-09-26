@@ -723,7 +723,7 @@ export function buildEmailHtml({ locale, s, savedEntries = [], applicationIntent
     : '';
   const applicationSectionHtml = hasApplicationIntents
     ? `
-        ${hasSaved ? `<tr><td style="padding:24px 0 8px;font-size:16px;font-weight:800;color:${BRAND_DARK};">${escapeHtml(s.applicationSectionLabel)}</td></tr>` : ''}
+        ${hasSaved ? `<tr><td style="padding:24px 0 8px;color:${BRAND_DARK};"><div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">${escapeHtml(s.applicationSectionLabel)}</div><div style="font-size:16px;font-weight:800;">${escapeHtml(s.applicationSectionTitle)}</div></td></tr>` : ''}
         <tr><td style="padding:8px 0 10px;font-size:13px;color:${MUTED};line-height:1.5;">${escapeHtml(s.applicationIntentNotice)}</td></tr>
         ${applicationCardsHtml}`
     : '';

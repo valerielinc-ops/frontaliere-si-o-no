@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   APPLICATION_INTENT_RETENTION_DAYS,
   buildApplicationIntentEntry,
+  buildEmailHtml,
   buildEmailText,
   getStrings,
   hasSavedJobsDigestDelivery,
@@ -136,6 +137,27 @@ describe('saved-jobs digest — localized application reminder copy', () => {
     });
     expect(text).toContain(expectedQuestion);
     expect(text).toContain(strings.applicationIntentNotice);
+  });
+
+  it('keeps the completion question visible when saved jobs and intents share one digest', () => {
+    const strings = getStrings('it');
+    const html = buildEmailHtml({
+      locale: 'it',
+      s: strings,
+      savedEntries: [savedEntry('saved-1')],
+      applicationIntentEntries: [{
+        id: 'job-live',
+        title: 'Live job',
+        company: 'ACME SA',
+        url: 'https://frontaliereticino.ch/job-live/',
+      }],
+      recommendations: [],
+      manageUrl: 'https://frontaliereticino.ch/profilo/',
+      unsubUrl: 'https://frontaliereticino.ch/disiscrivi-promemoria-salvati/',
+      email: 'person@example.test',
+    });
+    expect(html).toContain(strings.applicationSectionTitle);
+    expect(html).toContain(strings.applicationIntentNotice);
   });
 });
 
