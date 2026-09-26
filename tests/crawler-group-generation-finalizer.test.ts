@@ -32,7 +32,8 @@ function fixtureRepository() {
 }
 
 function writeReceipt(fixture: ReturnType<typeof fixtureRepository>, receipt: object) {
-  fs.writeFileSync(path.join(fixture.receiptsDir, 'acme.json'), `${JSON.stringify(receipt)}\n`);
+  const crawlerId = String((receipt as { crawlerId?: string }).crawlerId || 'acme');
+  fs.writeFileSync(path.join(fixture.receiptsDir, `${crawlerId}.json`), `${JSON.stringify(receipt)}\n`);
 }
 
 function receiptFor(
@@ -41,9 +42,10 @@ function receiptFor(
   outcome = 'pushed',
   commit?: string,
   generationToken = '9001-2',
+  crawlerId = 'acme',
 ) {
   return createCrawlerGenerationReceipt({
-    cwd: fixture.work, generationToken, crawlerId: 'acme', outcome,
+    cwd: fixture.work, generationToken, crawlerId, outcome,
     commit: commit ?? git(fixture.work, ['rev-parse', 'HEAD']), remoteBaseCommit: fixture.initial, paths,
   });
 }
@@ -60,6 +62,55 @@ function baseInput(fixture: ReturnType<typeof fixtureRepository>) {
 }
 
 describe('crawler group generation finalizer', () => {
+  it('preserves the Nestlé slice when a current group-23 sibling has no receipt', () => {
+    const fixture = fixtureRepository();
+    const workflow = fs.readFileSync(
+      path.join(process.cwd(), '.github/workflows/crawler-group-23-logic.yml'),
+      'utf8',
+    );
+    const rosterMatch = workflow.match(/^[ \t]*CRAWLER_GENERATION_EXPECTED_CRAWLERS:[ \t]*'([^'\r\n]+)'[ \t]*$/m);
+    if (!rosterMatch) throw new Error('current group-23 crawler roster is missing');
+    const expectedCrawlers = JSON.parse(rosterMatch[1]) as Array<{ crawlerId: string; primarySlice: string }>;
+    const nestle = expectedCrawlers.find((crawler) => crawler.crawlerId === 'nestle');
+    expect(nestle).toBeDefined();
+    expect(expectedCrawlers.length).toBeGreaterThan(1);
+
+    const generationToken = '9936-20260926';
+    fs.mkdirSync(path.dirname(path.join(fixture.work, nestle!.primarySlice)), { recursive: true });
+    fs.writeFileSync(path.join(fixture.work, nestle!.primarySlice), '{"jobs":[{"id":"nestle"}]}\n');
+    git(fixture.work, ['add', nestle!.primarySlice]);
+    git(fixture.work, ['commit', '-m', 'Nestlé crawler succeeded']);
+    const nestleCommit = git(fixture.work, ['rev-parse', 'HEAD']);
+    git(fixture.work, ['push', 'origin', 'main']);
+    writeReceipt(fixture, receiptFor(
+      fixture,
+      [nestle!.primarySlice],
+      'pushed',
+      nestleCommit,
+      generationToken,
+      'nestle',
+    ));
+
+    const manifest = finalizeCrawlerGroup({
+      ...baseInput(fixture),
+      group: '23',
+      generationToken,
+      waitOutcome: 'failure',
+      expectedCrawlers,
+    });
+
+    expect(manifest.valid).toBe(false);
+    expect(manifest.reasons).toEqual(expect.arrayContaining(['receipt_missing', 'wait_failed']));
+    expect(manifest.slices).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        crawlerId: 'nestle',
+        path: nestle!.primarySlice,
+        persisted: true,
+      }),
+    ]));
+    expect(manifest.verifiedCrawlers).toBe(1);
+  });
+
   it('appends a digest-bound durable record without replacing prior runs', () => {
     const fixture = fixtureRepository();
     writeReceipt(fixture, receiptFor(fixture, [fixture.slice], 'noop', fixture.initial));

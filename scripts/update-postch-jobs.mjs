@@ -125,12 +125,10 @@ function slugify(text = '', suffix = '') {
   return truncateSlugAtWordBoundary(s, 200);
 }
 
-/**
- * Match a job object as belonging to the Post.ch crawl.
- */
+/** Match the Swiss Post umbrella slice after applying dedicated-brand ownership. */
 function isPostJob(job) {
   const key = normalizeKey(job?.companyKey || job?.company || '');
-  if (isDedicatedPostBrand(job?.company) || key === 'postauto' || key === 'postfinance') return false;
+  if (isDedicatedPostBrand(job) || key === 'postauto' || key === 'postfinance') return false;
   const url = String(job?.url || '').toLowerCase();
   const host = (() => {
     try { return new URL(url).hostname.toLowerCase(); } catch { return ''; }
@@ -447,7 +445,7 @@ async function fetchPostJobs() {
     const brandCompany = Array.isArray(record.cust_brandCompanyJobSearch)
       ? record.cust_brandCompanyJobSearch[0]
       : '';
-    if (isDedicatedPostBrand(brandCompany)) continue;
+    if (isDedicatedPostBrand(record)) continue;
     const resolved = resolveRecordCanton(record);
     if (!resolved) continue;
     record._resolvedCanton = resolved.canton;
