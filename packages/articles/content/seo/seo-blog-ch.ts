@@ -88277,6 +88277,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-onere-premi-cassa-malati-nzz': {
+    title: 'Premi cassa malati: l\'onere netto è rimasto stabile',
+    description: 'Analisi NZZ su 300\'000 famiglie: tra il 2016 e il 2023 l\'onere netto dei premi è rimasto stabile grazie a sussidi e crescita dei redditi lordi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, onere',
+    ogTitle: 'Premi cassa malati: l\'onere netto è rimasto stabile',
+    ogDescription: 'L\'analisi su 300\'000 famiglie rivela che, nonostante l\'aumento dei premi lordi, il peso effettivo sul reddito è rimasto stabile tra il 2016 e il 2023 grazie ai sussidi.',
+    canonicalPath: '/articoli-svizzera/onere-premi-cassa-malati-nzz/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati: l'onere netto è rimasto stabile",
+      "description": "Analisi NZZ su 300'000 famiglie: tra il 2016 e il 2023 l'onere netto dei premi è rimasto stabile grazie a sussidi e crescita dei redditi lordi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/onere-premi-cassa-malati-nzz.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista urbana della Svizzera, simbolo del costo della vita e delle spese familiari"
+      },
+      "datePublished": "2026-09-26T22:49:26+00:00",
+      "dateModified": "2026-09-26T22:49:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/onere-premi-cassa-malati-nzz/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
