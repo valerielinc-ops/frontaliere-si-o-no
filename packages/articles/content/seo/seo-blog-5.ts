@@ -94570,6 +94570,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-m5s-vco-tavolo-frontalieri': {
+    title: 'Frontalieri, M5S VCO chiede risposte su NASpI e salute',
+    description: 'M5S VCO sollecita risposte concrete su NASpI, opzione fiscale e contributo sanitario dopo il tavolo interministeriale. Prossimo incontro 9 novembre 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiede, risposte, naspi, salute',
+    ogTitle: 'Frontalieri, M5S VCO: \'Servono risposte, non rinvii\'',
+    ogDescription: 'Il tavolo interministeriale si riunirà il 9 novembre 2026. Restano aperti i nodi su NASpI, doppia imposizione e contributo sanitario. Il M5S VCO chiede un cronoprogramma vincolante.',
+    canonicalPath: '/articoli-frontaliere/m5s-vco-tavolo-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri, M5S VCO chiede risposte su NASpI e salute",
+      "description": "M5S VCO sollecita risposte concrete su NASpI, opzione fiscale e contributo sanitario dopo il tavolo interministeriale. Prossimo incontro 9 novembre 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/m5s-vco-tavolo-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano con edifici moderni e lago"
+      },
+      "datePublished": "2026-09-26T20:04:20+00:00",
+      "dateModified": "2026-09-26T20:04:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/m5s-vco-tavolo-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -12081,6 +12081,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vpdd-ssp-contro-iva-avs.title': 'VPOD-SSP contro l\'aumento dell\'IVA per la 13esima AVS',
     'blog.article.vpdd-ssp-contro-iva-avs.excerpt': 'Il VPOD-SSP respinge il finanziamento della 13esima AVS tramite aumento dell\'IVA, voto popolare il 29 novembre; utili AVS 5,6 mld nel 2024 e 4,4 mld nel 2025, patrimonio 60,4 mld.',
     'blog.article.vpdd-ssp-contro-iva-avs.imageAlt': 'Promenade di Lugano con lago e montagne sullo sfondo, scena reale',
+    'blog.article.m5s-vco-tavolo-frontalieri.title': 'Frontalieri, M5S VCO chiede risposte su NASpI e salute',
+    'blog.article.m5s-vco-tavolo-frontalieri.excerpt': 'Dopo l\'incontro del 17 settembre a Roma, il M5S VCO sollecita un cronoprogramma vincolante su contributo sanitario, NASpI e opzione fiscale.',
+    'blog.article.m5s-vco-tavolo-frontalieri.imageAlt': 'Vista di Lugano con edifici moderni e lago',
 };
 
 export default blogMetaIt;
