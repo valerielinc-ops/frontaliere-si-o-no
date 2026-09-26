@@ -116,6 +116,11 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
   });
   let wafProxyExhausted = false;
   const directChallenge = result.ok && looksLikeAntiBotChallenge(result.body);
+  const connectionLevelFailure = !result.policyBlocked
+    && !result.blockedByRobots
+    && !result.status
+    && Boolean(result.transportError);
+  const antiBotResponse = directChallenge || WAF_IP_BLOCK_STATUS.has(Number(result.status));
 
   // A WAF may answer HTTP 200 with an interstitial instead of a hard block.
   // Treat that response like the existing 403/406/415/451 rescue path: a
@@ -125,16 +130,18 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
   // and the standard pipeline records a misleading `no-jobs-parsed` bail-out.
   if (result.ok && !directChallenge) return result;
 
-  // A public career page can answer 403/406/415/451 only to the GitHub
-  // Actions egress IP while serving the same URL to a clean residential IP.
-  // The ordinary crawler transport already has this rescue; the prospector
-  // used to be the one HTML path that failed closed before trying it. Keep the
-  // target URL policy in front of the request, then reuse the same retried
-  // Jina HTML rescue. If the rescue is exhausted, mark the error as an
-  // anti-bot outage so the standard pipeline preserves the previous slice and
-  // the next scheduled run can retry it without opening a false crawler red.
+  // Two source-side egress failures can be rescued by the clean-IP Jina path:
+  // (a) a public career page answers 403/406/415/451, or an explicit 200
+  // challenge, only to the GitHub Actions egress IP; (b) the runner cannot
+  // establish a connection at all while a clean egress can still reach the
+  // source. The ordinary crawler transport already rescues both classes; the
+  // prospector used to be the one HTML path that failed closed before trying
+  // it. Keep the target URL policy in front of the request, then reuse the
+  // same retried Jina HTML rescue. If the rescue is exhausted, only a
+  // confirmed anti-bot response is marked as such; a transport failure stays
+  // a transport failure so the standard pipeline preserves the prior slice.
   if (!result.policyBlocked && !result.blockedByRobots
-    && (directChallenge || WAF_IP_BLOCK_STATUS.has(Number(result.status)))
+    && (connectionLevelFailure || antiBotResponse)
     && runtime.disableWafProxy !== true) {
     const proxiedBody = await fetchHtmlViaJinaWithRetry(url, {
       timeoutMs: runtime.timeoutMs,
@@ -157,7 +164,7 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
     // challenge variants are valid-looking 200 bodies. Keep the same
     // anti-bot safe-fail semantics for those variants instead of parsing a
     // challenge as an empty listing page.
-    wafProxyExhausted = true;
+    wafProxyExhausted = antiBotResponse;
   } else if (directChallenge) {
     // Proxy rescue was disabled or the response was otherwise not eligible;
     // the body is still a confirmed anti-bot fence, not an empty source.
