@@ -1,6 +1,6 @@
 import { RECORD_APPLICATION_INTENT_URL } from './functionsBase';
 import { buildApplicationIntentJobKey } from './applicationIntentRanking.mjs';
-import { syncToFirestore, trackApplicationIntent } from './behaviorTracker';
+import { hydrateFromFirestore, syncToFirestore, trackApplicationIntent } from './behaviorTracker';
 
 export { buildApplicationIntentJobKey };
 
@@ -23,6 +23,7 @@ export interface RecordApplicationIntentInput {
   origin: string;
   surface: string;
   consentText: string;
+  authEmail?: string | null;
   authUser?: {
     uid?: string | null;
     email?: string | null;
@@ -70,25 +71,25 @@ function visitorIdentifier(): string {
 }
 
 /**
- * Fire-and-forget from the click handler, but keep the request alive through a
- * same-tab redirect. The server accepts the opaque visitor id when Auth is not
- * available and prefers the verified Firebase uid when a token is present.
+ * The click handler can continue immediately, while authenticated same-tab
+ * redirects await the private profile write. The consent record stays
+ * keepalive; the server prefers verified Firebase Auth when a token is present.
  */
 export async function recordApplicationIntent({
   job,
   origin,
   surface,
   consentText,
+  authEmail = null,
   authUser = null,
 }: RecordApplicationIntentInput): Promise<boolean> {
   const jobKey = buildApplicationIntentJobKey(job);
-  trackApplicationIntent(jobKey);
-
-  // The alert sender reads this profile directly. A same-tab handoff can unload
-  // the page before the normal five-minute/auth lifecycle sync, so flush the
-  // authenticated projection before allowing the handoff to continue.
-  const email = authenticatedUserEmail(authUser);
-  if (clean(authUser?.uid) && email) await syncToFirestore(email);
+  const email = clean(authEmail || authenticatedUserEmail(authUser)).toLowerCase();
+  const hasAuthenticatedProfile = Boolean(clean(authUser?.uid) && email);
+  // Read the authenticated profile first so a remote opt-out is merged locally
+  // before this click can add a ranking key or write the profile back.
+  const profileReady = hasAuthenticatedProfile ? await hydrateFromFirestore(email) : true;
+  const recorded = profileReady && trackApplicationIntent(jobKey);
 
   const payload = {
     jobKey,
@@ -102,21 +103,28 @@ export async function recordApplicationIntent({
     clientIdentifier: visitorIdentifier(),
   };
 
-  try {
-    const token = authUser?.getIdToken ? await authUser.getIdToken() : '';
-    const headers: Record<string, string> = { 'Content-Type': 'application/json' };
-    if (token) headers.Authorization = `Bearer ${token}`;
-    const response = await fetch(RECORD_APPLICATION_INTENT_URL, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify(payload),
-      keepalive: true,
-      credentials: 'omit',
-    });
-    return response.ok;
-  } catch {
-    // The external hand-off remains available if telemetry is unavailable; the
-    // next click/retry is still deduplicated by the deterministic server key.
-    return false;
-  }
+  // Start the consented server record independently; the same-tab hand-off
+  // waits only for the authenticated personalization write below.
+  void (async () => {
+    try {
+      const token = authUser?.getIdToken ? await authUser.getIdToken() : '';
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+      if (token) headers.Authorization = `Bearer ${token}`;
+      await fetch(RECORD_APPLICATION_INTENT_URL, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify(payload),
+        keepalive: true,
+        credentials: 'omit',
+      });
+    } catch {
+      // The external hand-off remains available if the consent record is unavailable.
+    }
+  })();
+
+  if (!recorded) return false;
+  if (!hasAuthenticatedProfile) return true;
+  // setDoc resolves after the private personalization profile is persisted;
+  // callers that navigate in the same tab can await this promise first.
+  return syncToFirestore(email);
 }

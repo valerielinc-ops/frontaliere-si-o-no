@@ -1,5 +1,6 @@
 export const APPLICATION_INTENT_RETENTION_MS = 90 * 24 * 60 * 60 * 1000;
 export const MAX_APPLICATION_INTENT_SIGNALS = 100;
+export const MAX_APPLICATION_INTENT_SCAN = MAX_APPLICATION_INTENT_SIGNALS * 5;
 
 // One exact, non-stacking score increment: larger than a passive job-view
 // signal, while bounded independently of how many times the person clicked.
@@ -44,8 +45,8 @@ export function activeApplicationIntentJobKeys(applicationIntent, now = Date.now
   if (!applicationIntent || typeof applicationIntent !== 'object') return new Set();
   if (applicationIntent.optedOut === true || !Array.isArray(applicationIntent.intents)) return new Set();
 
-  const keys = new Set();
-  for (const intent of applicationIntent.intents.slice(-MAX_APPLICATION_INTENT_SIGNALS)) {
+  const validKeys = [];
+  for (const intent of applicationIntent.intents.slice(-MAX_APPLICATION_INTENT_SCAN)) {
     if (!intent || intent.application_status !== 'redirect_only') continue;
     const jobKey = clean(intent.jobKey);
     const timestamp = toEpochMs(intent.timestamp ?? intent.ts ?? intent.createdAt);
@@ -54,8 +55,9 @@ export function activeApplicationIntentJobKeys(applicationIntent, now = Date.now
     if (!Number.isFinite(timestamp) || timestamp > now || now - timestamp > APPLICATION_INTENT_RETENTION_MS) continue;
     if (!Number.isFinite(retentionUntil) || retentionUntil <= now) continue;
     if (retentionUntil > timestamp + APPLICATION_INTENT_RETENTION_MS) continue;
-    keys.add(jobKey);
+    validKeys.push(jobKey);
   }
+  const keys = new Set(validKeys.slice(-MAX_APPLICATION_INTENT_SIGNALS));
   return keys;
 }
 
@@ -63,7 +65,9 @@ export function activeApplicationIntentJobKeys(applicationIntent, now = Date.now
 export function recordApplicationIntentSignal(applicationIntent, jobKey, now = Date.now()) {
   const current = applicationIntent && typeof applicationIntent === 'object' ? applicationIntent : {};
   const optedOut = current.optedOut === true;
-  const existing = Array.isArray(current.intents) ? current.intents : [];
+  const existing = Array.isArray(current.intents)
+    ? current.intents.slice(-MAX_APPLICATION_INTENT_SCAN)
+    : [];
   const cutoff = now - APPLICATION_INTENT_RETENTION_MS;
   const intents = existing.filter((intent) => {
     if (!intent || intent.application_status !== 'redirect_only') return false;

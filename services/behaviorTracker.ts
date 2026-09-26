@@ -12,6 +12,7 @@ import { resilientImport } from '@/services/resilientImport';
 import { isStorageAvailable } from '@/services/storageAvailability';
 import {
  activeApplicationIntentJobKeys,
+ MAX_APPLICATION_INTENT_SCAN,
  MAX_APPLICATION_INTENT_SIGNALS,
  recordApplicationIntentSignal as updateApplicationIntentSignal,
 } from '@/services/applicationIntentRanking.mjs';
@@ -144,7 +145,7 @@ function normalizeApplicationIntentProfile(value: unknown): ApplicationIntentPro
  };
  const activeKeys = activeApplicationIntentJobKeys(applicationIntent);
  const latestByKey = new Map<string, ApplicationIntentSignal>();
- for (const raw of applicationIntent.intents.slice(-MAX_APPLICATION_INTENT_SIGNALS)) {
+ for (const raw of applicationIntent.intents.slice(-MAX_APPLICATION_INTENT_SCAN)) {
  if (!raw || typeof raw !== 'object') continue;
  const item = raw as Record<string, unknown>;
  const jobKey = typeof item.jobKey === 'string' ? item.jobKey.trim() : '';
@@ -313,12 +314,12 @@ async function getDb(): Promise<Firestore | null> {
 }
 
 /** Sync behavior data to Firestore (newsletter_subscribers/{email}/private/personalization). */
-export async function syncToFirestore(email: string): Promise<void> {
- if (!email || !available()) return;
+export async function syncToFirestore(email: string): Promise<boolean> {
+ if (!email || !available()) return false;
  try {
  const normalizedEmail = email.trim().toLowerCase();
  const db = await getDb();
- if (!db) return;
+ if (!db) return false;
  const data = getBehaviorData();
  const { doc, setDoc } = await resilientImport(
  () => import('firebase/firestore'),
@@ -339,26 +340,28 @@ export async function syncToFirestore(email: string): Promise<void> {
  const updated = readRaw();
  updated.syncedAt = Date.now();
  writeRaw(updated);
+ return true;
  } catch {
  // Firestore unavailable — silent, localStorage-only mode
+ return false;
  }
 }
 
 /** Hydrate behavior data from Firestore and merge with localStorage. */
-export async function hydrateFromFirestore(email: string): Promise<void> {
- if (!email || !available()) return;
+export async function hydrateFromFirestore(email: string): Promise<boolean> {
+ if (!email || !available()) return false;
  try {
  const normalizedEmail = email.trim().toLowerCase();
  const db = await getDb();
- if (!db) return;
+ if (!db) return false;
  const { doc, getDoc } = await resilientImport(
  () => import('firebase/firestore'),
  (m) => typeof m.doc === 'function',
  );
  const snap = await getDoc(doc(db, 'newsletter_subscribers', normalizedEmail, 'private', 'personalization'));
- if (!snap.exists()) return;
+ if (!snap.exists()) return true;
  const remote = snap.data();
- if (!remote) return;
+ if (!remote) return true;
 
  const cloud: BehaviorData = {
  version: 1,
@@ -372,8 +375,10 @@ export async function hydrateFromFirestore(email: string): Promise<void> {
  const local = getBehaviorData();
  const merged = mergeBehavior(local, cloud);
  writeRaw(merged);
+ return true;
  } catch {
  // Firestore unavailable — keep localStorage data
+ return false;
  }
 }
 
@@ -442,15 +447,20 @@ function mergeApplicationIntentProfiles(
 }
 
 /** Start debounced sync interval for authenticated users. Returns cleanup function. */
-export function startSyncInterval(email: string): () => void {
+export function startSyncInterval(email: string, profileHydrated = false): () => void {
  stopSyncInterval();
- _syncTimer = setInterval(() => {
- syncToFirestore(email);
+ let hydrated = profileHydrated;
+ _syncTimer = setInterval(async () => {
+  if (!hydrated) {
+   hydrated = await hydrateFromFirestore(email);
+   if (!hydrated) return;
+  }
+  await syncToFirestore(email);
  }, SYNC_DEBOUNCE_MS);
 
  // Best-effort sync on page unload
  const onUnload = () => {
- syncToFirestore(email);
+  if (hydrated) void syncToFirestore(email);
  };
  window.addEventListener('beforeunload', onUnload);
 

@@ -1408,13 +1408,13 @@ const App: React.FC = () => {
  let cancelled = false;
  let cleanup: (() => void) | undefined;
  import('@/services/behaviorTracker').then(({ hydrateFromFirestore, syncToFirestore, startSyncInterval }) => {
- if (cancelled) return;
- hydrateFromFirestore(authEmail).then(() => {
   if (cancelled) return;
-  setBehaviorHydrationRevision((revision) => revision + 1);
-  return syncToFirestore(authEmail);
- }).catch(() => {});
- cleanup = startSyncInterval(authEmail);
+  hydrateFromFirestore(authEmail).then(async (hydrated) => {
+   if (cancelled) return;
+   setBehaviorHydrationRevision((revision) => revision + 1);
+   if (hydrated) await syncToFirestore(authEmail);
+   if (!cancelled) cleanup = startSyncInterval(authEmail, hydrated);
+  }).catch(() => {});
  }).catch(() => {});
  return () => { cancelled = true; cleanup?.(); };
  }, [enablePersonalization, enableApplicationIntentRanking, authEmail]);

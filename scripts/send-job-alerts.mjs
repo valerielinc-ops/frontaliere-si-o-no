@@ -1998,13 +1998,18 @@ function planAlertMatch(alert, {
     if (relevance <= 0) continue;
     const applicationIntentRanked = applicationIntentRankingEnabled
       && applicationIntentJobKeys.has(buildApplicationIntentJobKey(job));
+    const existingRelevanceSignals = applicationIntentRanked && Array.isArray(job.relevanceSignals)
+      ? job.relevanceSignals
+        .filter((signal) => typeof signal === 'string' && signal.length <= 64)
+        .slice(0, 15)
+      : [];
     scored.push({
       job: {
         ...job,
         relevanceScore: relevance,
         ...(applicationIntentRanked ? {
           applicationIntentBoost: ALERT_APPLICATION_INTENT_BOOST,
-          relevanceSignals: ['application_intent'],
+          relevanceSignals: [...new Set([...existingRelevanceSignals, 'application_intent'])],
         } : {}),
       },
       score: relevance + freshnessBoost(job, now),

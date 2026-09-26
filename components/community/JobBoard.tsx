@@ -2540,7 +2540,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // run must not emit a second apply/offer event pair (or a second rewarded
  // request) for the same gesture.
  const applicationOfferOpenRef = useRef(false);
- const applicationIntentReadyRef = useRef<Promise<boolean> | null>(null);
  useEffect(() => {
   if (!rewardedApplicationJob && !assistedApplicationJob) applicationOfferOpenRef.current = false;
  }, [assistedApplicationJob, rewardedApplicationJob]);
@@ -2644,6 +2643,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [lastVisitTimestamp, setLastVisitTimestamp] = useState<number | null>(null);
  const visitCapturedRef = useRef(false);
  const applicationIntentExposureRef = useRef(false);
+ const applicationIntentSyncRef = useRef<{ jobId: string; promise: Promise<boolean> } | null>(null);
  const [newJobsDismissed, setNewJobsDismissed] = useState(false);
  const [jobMatchProfile, setJobMatchProfile] = useState<JobMatchProfileData | null>(null);
  // INP: behaviorData/jobMatchProfile land via a post-mount effect (localStorage
@@ -7077,8 +7077,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onJobRouteChange?.(undefined);
  };
 
- const recordJobApplicationIntent = (job: JobListing, surface: string): Promise<boolean> => {
-  const ready = recordApplicationIntent({
+ const recordJobApplicationIntent = (job: JobListing, surface: string): Promise<boolean> => recordApplicationIntent({
    job: {
     id: job.id,
     slug: job.slug,
@@ -7089,11 +7088,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
    origin: typeof window !== 'undefined' ? window.location.pathname : '/',
    surface,
    consentText: t('jobBoard.applicationIntent.disclosure'),
+   authEmail: getAuthEmail(authUser),
    authUser,
   });
-  applicationIntentReadyRef.current = ready;
-  return ready;
- };
 
   const trackPublisherApplySignals = (
   job: JobListing,
@@ -7141,10 +7138,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
    { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, ...extraParams },
   );
   if (sameTab) {
-   try {
-    await applicationIntentReadyRef.current;
-   } catch {
-    // Telemetry must never strand the user before the external handoff.
+   const pendingIntent = applicationIntentSyncRef.current;
+   if (pendingIntent?.jobId === String(job.id)) {
+    try {
+     await pendingIntent.promise;
+    } catch {
+     // Persistence is best-effort; never block the user's external hand-off.
+    }
+    applicationIntentSyncRef.current = null;
    }
    window.location.assign(applyDestination);
   } else {
@@ -7164,7 +7165,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   );
   setAssistedApplicationJob(null);
   setAssistedCheckoutError(null);
-  redirectExternalApplication(
+  void redirectExternalApplication(
    job,
    assistedApplicationVariant === 'rewarded_ad' ? 'rewarded_application_fallback' : 'assisted_application_offer',
    true,
@@ -7178,7 +7179,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // This callback fires on Google's reward (the Offerwall entitlement or the
   // GPT grant), with no further click, so use the current tab: a late
   // window.open is commonly blocked by the browser.
-  redirectExternalApplication(job, 'rewarded_application_inline_completed', true, true, {
+  void redirectExternalApplication(job, 'rewarded_application_inline_completed', true, true, {
    handoff: 'rewarded_granted',
   });
  };
@@ -7190,7 +7191,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // offer has already tracked the technical detail, and the same click goes
   // straight to the employer. No retry, no local video, no second click.
   setRewardedApplicationJob(null);
-  redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, true, {
+  void redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, true, {
    handoff: 'direct_external',
    reason,
   });
@@ -7264,7 +7265,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // Keep anonymous job-board visitors on the sign-in/subscription funnel.
   // The detail view is the only surface allowed to request the rewarded ad
   // before sign-in, because it owns the canonical rewarded offer host.
-  recordJobApplicationIntent(job, surface);
+  applicationIntentSyncRef.current = {
+   jobId: String(job.id),
+   promise: recordJobApplicationIntent(job, surface),
+  };
   if (isExternal && assistedApplicationVariant === 'rewarded_ad' && !authUser?.uid && !isJobDetailView) {
    onRequireAuth?.();
    return;
@@ -7308,7 +7312,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
      { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, access_expires_at: rewardedAccessExpiresAt, access_ttl_hours: 12 },
     );
    }
-   redirectExternalApplication(
+   void redirectExternalApplication(
     job,
     killSwitches.rewardedApplicationAd ? 'rewarded_application_killswitch' : 'rewarded_application_entitlement',
     false,
@@ -7341,7 +7345,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   if (!isJobDetailView) openDetail(job);
   return;
  }
- redirectExternalApplication(job, surface, false);
+ void redirectExternalApplication(job, surface, false);
  };
 
  const handleShare = async (job: JobListing) => {

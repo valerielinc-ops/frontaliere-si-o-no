@@ -14,6 +14,7 @@ import { PUBLIC_CONFIG_KEYS } from '../functions/src/publicConfigKeys.js';
 const NOW = Date.parse('2026-09-26T12:00:00.000Z');
 const RETENTION_MS = 90 * 24 * 60 * 60 * 1000;
 const FIREBASE_SOURCE = readFileSync(new URL('../services/firebase.ts', import.meta.url), 'utf8');
+const ANALYTICS_SOURCE = readFileSync(new URL('../services/analytics.ts', import.meta.url), 'utf8');
 const RC_LOADER_SOURCE = readFileSync(new URL('../scripts/load-rc-env.mjs', import.meta.url), 'utf8');
 const JOB_BOARD_SOURCE = readFileSync(new URL('../components/community/JobBoard.tsx', import.meta.url), 'utf8');
 
@@ -73,6 +74,12 @@ describe('application-intent ranking — bounded control/treatment', () => {
     expect(event?.[1]).toContain("experiment_id: 'application_intent_ranking'");
     expect(event?.[1]).toContain("variant: enableApplicationIntentRanking ? 'treatment' : 'control'");
     expect(event?.[1]).not.toMatch(/email|userId|uid|jobKey|company|posthog/i);
+    const experimentAnalyticsMethod = ANALYTICS_SOURCE.slice(
+      ANALYTICS_SOURCE.indexOf('trackExperimentEvent:'),
+      ANALYTICS_SOURCE.indexOf('trackExperimentUIInteraction:'),
+    );
+    expect(experimentAnalyticsMethod).toContain('logFirebaseOnly(eventName, params)');
+    expect(experimentAnalyticsMethod).not.toContain('posthogCapture');
   });
 
   it('uses the same stable Italian job key as the apply-intent writer', () => {
@@ -82,6 +89,17 @@ describe('application-intent ranking — bounded control/treatment', () => {
       slug: 'software-engineer-en',
       slugByLocale: { it: 'ingegnere-software-lugano' },
     })).toBe('acme:ingegnere-software-lugano');
+  });
+
+  it('waits for the authenticated intent-profile write before same-tab hand-off', () => {
+    const start = JOB_BOARD_SOURCE.indexOf('const redirectExternalApplication = async');
+    const end = JOB_BOARD_SOURCE.indexOf('const handleAssistedExternal', start);
+    const redirectSource = JOB_BOARD_SOURCE.slice(start, end);
+
+    expect(JOB_BOARD_SOURCE).toMatch(/applicationIntentSyncRef\.current\s*=\s*\{[\s\S]*?promise:\s*recordJobApplicationIntent\(job, surface\)/);
+    expect(redirectSource).toContain('await pendingIntent.promise');
+    expect(redirectSource.indexOf('await pendingIntent.promise'))
+      .toBeLessThan(redirectSource.indexOf('window.location.assign(applyDestination)'));
   });
 
   it('uses a locale-independent stable key tie-break', () => {
@@ -148,6 +166,23 @@ describe('application-intent ranking — bounded control/treatment', () => {
     expect(keys.size).toBe(0);
   });
 
+  it('does not let expired trailing entries consume the valid-signal window', () => {
+    const oldValidIntent = intentState('acme:still-valid').intents[0];
+    const expiredIntents = Array.from({ length: 100 }, (_, index) => ({
+      jobKey: `acme:expired-${index}`,
+      application_status: 'redirect_only',
+      timestamp: NOW - RETENTION_MS - 1,
+      retentionUntil: NOW - 1,
+    }));
+
+    const keys = activeApplicationIntentJobKeys({
+      optedOut: false,
+      intents: [oldValidIntent, ...expiredIntents],
+    }, NOW);
+
+    expect(keys).toEqual(new Set(['acme:still-valid']));
+  });
+
   it('gives an opted-out profile zero weight in both ranking consumers', () => {
     const optedOut = { ...intentState('acme:software-engineer-lugano'), optedOut: true };
     expect(activeApplicationIntentJobKeys(optedOut, NOW).size).toBe(0);
@@ -199,7 +234,11 @@ describe('application-intent ranking — bounded control/treatment', () => {
     const baseline = job({
       id: 'baseline-id', slug: 'baseline', companyKey: 'other', company: 'Other SA',
     });
-    const intent = job({ id: 'intent-id', slug: 'software-engineer-lugano' });
+    const intent = job({
+      id: 'intent-id',
+      slug: 'software-engineer-lugano',
+      relevanceSignals: ['keyword_match', 'location_match'],
+    });
     const alert = {
       id: 'alert-1',
       email: 'person@example.ch',
@@ -232,7 +271,8 @@ describe('application-intent ranking — bounded control/treatment', () => {
 
     expect(control.matched.map((item) => item.id)).toEqual(['baseline-id', 'intent-id']);
     expect(treatment.matched.map((item) => item.id)).toEqual(['intent-id', 'baseline-id']);
-    expect(treatment.matched[0].relevanceSignals).toEqual(['application_intent']);
+    expect(treatment.matched[0].relevanceSignals)
+      .toEqual(['keyword_match', 'location_match', 'application_intent']);
     expect(treatment.matched[0].applicationIntentBoost).toBe(6);
 
     const tiedA = job({ id: 'tie-a', slug: 'role', companyKey: 'a', company: 'A SA' });

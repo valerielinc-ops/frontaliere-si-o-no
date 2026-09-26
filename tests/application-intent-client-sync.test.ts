@@ -10,6 +10,7 @@ const writes = vi.hoisted(() => [] as Array<{
 vi.mock('firebase/firestore', () => ({
   getFirestore: vi.fn(() => ({ id: 'test-firestore' })),
   doc: vi.fn((_db: unknown, ...segments: string[]) => ({ path: segments.join('/') })),
+  getDoc: vi.fn(async () => ({ exists: () => false, data: () => undefined })),
   setDoc: vi.fn(async (ref: { path: string }, data: Record<string, any>) => {
     writes.push({ ref, data });
   }),
@@ -43,7 +44,7 @@ describe('authenticated application-intent client sync', () => {
     vi.unstubAllGlobals();
   });
 
-  it('writes the personalization document before the redirect telemetry request', async () => {
+  it('flushes the personalization document before the same-tab caller can continue', async () => {
     const order: string[] = [];
     const setDocMock = (await import('firebase/firestore')).setDoc;
     vi.mocked(setDocMock).mockImplementation(async (ref: any, data: any) => {
@@ -64,11 +65,15 @@ describe('authenticated application-intent client sync', () => {
       ...input,
       authUser: { uid: 'uid-1', email: 'reader@example.test', getIdToken },
     });
+    order.push('handoff');
+    await vi.waitFor(() => expect(fetchMock).toHaveBeenCalled());
 
     expect(writes).toHaveLength(1);
     expect(writes[0].ref.path).toBe('newsletter_subscribers/reader@example.test/private/personalization');
     expect(writes[0].data.applicationIntent.intents[0].jobKey).toBe('acme:software-engineer-lugano');
-    expect(order).toEqual(['firestore', 'token', 'endpoint']);
+    expect(order.indexOf('firestore')).toBeLessThan(order.indexOf('handoff'));
+    expect(order).toContain('token');
+    expect(order).toContain('endpoint');
     expect(fetchMock).toHaveBeenCalledWith(expect.anything(), expect.objectContaining({ keepalive: true }));
   });
 
