@@ -6770,6 +6770,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bns-inflazione-pil-previsioni-2026.title': 'SNB lässt Zinssatz bei 0%, BIP 2026 bei 1,5-2%',
     'blog.article.bns-inflazione-pil-previsioni-2026.excerpt': 'Gleichbleibende Rate von 0%, Inflation 2026 bei 0,7%, revidiertes BIP-Wachstum zwischen 1,5% und 2,0%. SNB bereit, bei Wechselkursen einzugreifen.',
     'blog.article.bns-inflazione-pil-previsioni-2026.imageAlt': 'Schweizerische Nationalbank Hauptsitz in Zürich mit Schweizer Flagge',
+    'blog.article.valutazione-universitaria-intelligenza-artificiale.title': 'Schweizer Universitäten: KI verändert die Bewertung von Thesen',
+    'blog.article.valutazione-universitaria-intelligenza-artificiale.excerpt': 'Universität Zürich, ZHAW und SUPSI überarbeiten die Prüfungsmethoden und setzen dabei auf mündliche Prüfungen und Transparenz beim Einsatz künstlicher Intelligenz.',
+    'blog.article.valutazione-universitaria-intelligenza-artificiale.imageAlt': 'Schweizer Universitätsstudent arbeitet mit Laptop und Büchern',
 };
 
 export default blogMetaChDe;

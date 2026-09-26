@@ -6770,6 +6770,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bns-inflazione-pil-previsioni-2026.title': 'La BNS maintient le taux à 0%, PIB 2026 à 1,5-2%',
     'blog.article.bns-inflazione-pil-previsioni-2026.excerpt': 'Taux inchangé à 0%, inflation 2026 à 0,7%, croissance du PIB revue entre 1,5% et 2,0%. BNS prête à intervenir sur les changements.',
     'blog.article.bns-inflazione-pil-previsioni-2026.imageAlt': 'Siège de la Banque nationale suisse à Zurich avec drapeau suisse',
+    'blog.article.valutazione-universitaria-intelligenza-artificiale.title': 'Universités suisses : l’IA change l’évaluation des thèses',
+    'blog.article.valutazione-universitaria-intelligenza-artificiale.excerpt': 'L’Université de Zurich, la ZHAW et la SUPSI révisent les méthodes d’examen en misant sur les épreuves orales et la transparence dans l’utilisation de l’intelligence artificielle.',
+    'blog.article.valutazione-universitaria-intelligenza-artificiale.imageAlt': 'Étudiant universitaire suisse travaillant avec un ordinateur portable et des livres',
 };
 
 export default blogMetaChFr;
