@@ -6785,6 +6785,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-auto-elettriche-classifica.title': 'Elektroautos: Die Schweiz fällt in Europa auf den 16. Platz',
     'blog.article.svizzera-auto-elettriche-classifica.excerpt': '2019 lag die Schweiz bei der Elektrifizierung an fünfter Stelle, Ende 2025 am 13. und Mitte 2026 am 16.; ein Viertel der Neuzulassungen ist rein elektrisch.',
     'blog.article.svizzera-auto-elettriche-classifica.imageAlt': 'Modernes Elektro‑SUV neben einer Ladestation in einer Schweizer Alpenlandschaft geparkt.',
+    'blog.article.premi-cassa-malati-stabilita-famiglie.title': 'Krankenkassenprämien steigen, aber das Familiengewicht ist stabil',
+    'blog.article.premi-cassa-malati-stabilita-famiglie.excerpt': 'Von 2016 bis 2023 blieb die Nettobelastung der Haushalte stabil: Die Standardprämie stieg um 19%, aber der Anteil am durchschnittlichen Einkommen sank dank einer Erhöhung der Subventionen um etwa 440 Franken von 6,5% auf 6,4%.',
+    'blog.article.premi-cassa-malati-stabilita-famiglie.imageAlt': 'Schweizer Stadtansicht mit modernem Krankenhaus, Symbol für Krankenkassen',
 };
 
 export default blogMetaChDe;

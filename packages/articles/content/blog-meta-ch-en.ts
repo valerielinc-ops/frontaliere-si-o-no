@@ -6785,6 +6785,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-auto-elettriche-classifica.title': 'Electric cars: Switzerland drops to 16th place in Europe',
     'blog.article.svizzera-auto-elettriche-classifica.excerpt': 'In 2019, Switzerland ranked fifth for electrification, by the end of 2025 it was 13th and by mid-2026 16th; one quarter of new registrations are fully electric.',
     'blog.article.svizzera-auto-elettriche-classifica.imageAlt': 'Modern electric SUV parked beside a charging station in a Swiss Alpine setting.',
+    'blog.article.premi-cassa-malati-stabilita-famiglie.title': 'Health insurance premiums rise, but the burden on families remains stable',
+    'blog.article.premi-cassa-malati-stabilita-famiglie.excerpt': 'From 2016 to 2023, the net burden on households remained stable: the standard premium increased by 19%, but its share of average income fell from 6,5% to 6,4% thanks to an increase in subsidies of approximately 440 francs.',
+    'blog.article.premi-cassa-malati-stabilita-famiglie.imageAlt': 'Swiss urban view with a modern hospital, representing health insurance',
 };
 
 export default blogMetaChEn;
