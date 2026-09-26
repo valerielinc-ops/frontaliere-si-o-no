@@ -85,10 +85,14 @@ export async function recordApplicationIntent({
 }: RecordApplicationIntentInput): Promise<boolean> {
   const jobKey = buildApplicationIntentJobKey(job);
   const email = clean(authEmail || authenticatedUserEmail(authUser)).toLowerCase();
-  const hasAuthenticatedProfile = Boolean(clean(authUser?.uid) && email);
+  const hasAuthenticatedUser = Boolean(clean(authUser?.uid));
+  const hasAuthenticatedProfile = hasAuthenticatedUser && Boolean(email);
   // Read the authenticated profile first so a remote opt-out is merged locally
-  // before this click can add a ranking key or write the profile back.
-  const profileReady = hasAuthenticatedProfile ? await hydrateFromFirestore(email) : true;
+  // before this click can add a ranking key or write the profile back. If the
+  // account has no usable email, fail closed because its opt-out cannot be read.
+  const profileReady = hasAuthenticatedUser
+    ? hasAuthenticatedProfile && await hydrateFromFirestore(email)
+    : true;
   const recorded = profileReady && trackApplicationIntent(jobKey);
 
   const payload = {

@@ -144,4 +144,20 @@ describe('authenticated application-intent persistence', () => {
     expect(JSON.parse(localStorage.getItem('frontaliere_job_personalization') || '{}')
       .applicationIntent).toBeUndefined();
   });
+
+  it('fails closed when an authenticated user has no email for the opt-out lookup', async () => {
+    const recorded = await recordApplicationIntent({
+      job: { id: 'job-1', slug: 'software-engineer-lugano', companyKey: 'acme' },
+      origin: '/cerca-lavoro',
+      surface: 'job_board_apply',
+      consentText: 'Consenso test',
+      authUser: { uid: 'uid-without-email', getIdToken: async () => 'test-token' },
+    });
+
+    expect(recorded).toBe(false);
+    expect(firestore.getDoc).not.toHaveBeenCalled();
+    expect(firestore.writes).toHaveLength(0);
+    expect(JSON.parse(localStorage.getItem('frontaliere_job_personalization') || '{}')
+      .applicationIntent).toBeUndefined();
+  });
 });
