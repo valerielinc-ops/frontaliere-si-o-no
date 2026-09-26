@@ -1,14 +1,22 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-09-25T09:49:38.160Z",
+  "lastRunAt": "2026-09-26T09:28:32.307Z",
   "findings": {
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-san-gallo/anlagenfuhrer-cfc-a-100-geberit-rapperswil-jona/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-san-gallo/anlagenfuhrer-cfc-a-100-geberit-rapperswil-jona/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-09-26T09:28:32.307Z",
+      "lastSeenAt": "2026-09-26T09:28:32.307Z",
+      "detail": "edge=503 count=1 live=503 surface=apex-pages"
+    },
     "cloudflare-5xx-unverified|source:cloudflare-5xx-unverified": {
       "code": "cloudflare-5xx-unverified",
       "url": "source:cloudflare-5xx-unverified",
-      "consecutiveRuns": 5,
+      "consecutiveRuns": 6,
       "firstSeenAt": "2026-09-21T10:05:52.042Z",
-      "lastSeenAt": "2026-09-25T09:49:38.160Z",
-      "detail": "count=111 sampled-out-or-unprobed; no live recovery asserted"
+      "lastSeenAt": "2026-09-26T09:28:32.307Z",
+      "detail": "count=234 sampled-out-or-unprobed; no live recovery asserted"
     }
   },
   "cleanRuns": 0,
