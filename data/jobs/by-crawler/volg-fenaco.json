@@ -633,6 +633,14 @@
       },
       "crawledAt": "2026-09-26T13:58:21.043Z",
       "id": "volg-fenaco-e03d9aa51473",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauf-landi-w-m-d-landi-sins-zugerland-genossenschaft-risch-rotkreuz"
+        ]
+      },
+      "previousSlugs": [
+        "verkauf-landi-w-m-d-landi-sins-zugerland-genossenschaft-risch-rotkreuz"
+      ],
       "salaryMin": 79000,
       "salaryMax": 121500,
       "currency": "CHF",
@@ -647,15 +655,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T14:42:44.000Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "verkauf-landi-w-m-d-landi-sins-zugerland-genossenschaft-risch-rotkreuz"
-        ]
-      },
-      "previousSlugs": [
-        "verkauf-landi-w-m-d-landi-sins-zugerland-genossenschaft-risch-rotkreuz"
-      ]
+      "firstSeenAt": "2026-09-25T14:42:44.000Z"
     },
     {
       "title": "Führungstrainee (w/m/d)",
@@ -4787,8 +4787,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:50:09.541Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-09-19T22:50:09.541Z"
     },
     {
       "title": "Logistikerin / Logistiker EFZ (w/m/d)",
@@ -13804,14 +13803,34 @@
       "id": "volg-fenaco-77748bb213e5",
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-m-w-d-volg-bern",
-          "verkauferin-verkaufer-m-w-d-volg-sevelen-sg"
+          "venditore-venditore-m-f-d-volg-bern-979aaf",
+          "seller-seller-m-f-d-volg-bern-979aaf",
+          "verkauferin-verkaufer-m-w-d-volg-bern-hy16m4",
+          "vendeur-vendeur-h-f-d-volg-bern-979aaf",
+          "venditore-venditore-m-f-d-volg-bern-jffcdj",
+          "verkauferin-verkaufer-m-w-d-volg-uttwil-tg",
+          "venditore-venditore-m-f-d-volg-bern-8ddc78",
+          "seller-seller-m-f-d-volg-bern-8ddc78",
+          "verkauferin-verkaufer-m-w-d-volg-bern-jffcdj",
+          "vendeur-vendeur-h-f-d-volg-bern-8ddc78",
+          "verkauferin-verkaufer-m-w-d-volg-bern-84fcve",
+          "venditore-venditore-m-f-d-volg-uttwil-tg",
+          "seller-seller-m-f-d-volg-uttwil-tg",
+          "vendeur-vendeur-h-f-d-volg-uttwil-tg",
+          "venditore-m-f-d-volg-oberegg-ai",
+          "seller-m-f-d-volg-oberegg-ai",
+          "vendeur-m-f-d-volg-oberegg-ai",
+          "venditore-venditore-m-f-d-volg-bern-84fcve",
+          "verkauferin-verkaufer-m-w-d-volg-steinach-sg",
+          "venditore-venditore-m-f-d-volg-bern-c2936d"
         ],
         "en": [
-          "verkauferin-verkaufer-m-w-d-volg-bern"
+          "verkauferin-verkaufer-m-w-d-volg-bern",
+          "seller-seller-m-f-d-volg-bern-c2936d"
         ],
         "fr": [
-          "verkauferin-verkaufer-m-w-d-volg-bern"
+          "verkauferin-verkaufer-m-w-d-volg-bern",
+          "vendeur-vendeur-h-f-d-volg-bern-c2936d"
         ],
         "de": [
           "verkauferin-verkaufer-m-w-d-volg-bern-8skag2"
@@ -13820,7 +13839,32 @@
       "previousSlugs": [
         "verkauferin-verkaufer-m-w-d-volg-bern",
         "verkauferin-verkaufer-m-w-d-volg-bern-8skag2",
-        "verkauferin-verkaufer-m-w-d-volg-sevelen-sg"
+        "verkauferin-verkaufer-m-w-d-volg-sevelen-sg",
+        "venditore-venditore-m-f-d-volg-bern",
+        "venditore-venditore-m-f-d-volg-bern-hy16m4",
+        "verkauferin-verkaufer-m-w-d-volg-oberegg-ai",
+        "venditore-venditore-m-f-d-volg-bern-979aaf",
+        "seller-seller-m-f-d-volg-bern-979aaf",
+        "verkauferin-verkaufer-m-w-d-volg-bern-hy16m4",
+        "vendeur-vendeur-h-f-d-volg-bern-979aaf",
+        "venditore-venditore-m-f-d-volg-bern-jffcdj",
+        "verkauferin-verkaufer-m-w-d-volg-uttwil-tg",
+        "venditore-venditore-m-f-d-volg-bern-8ddc78",
+        "seller-seller-m-f-d-volg-bern-8ddc78",
+        "verkauferin-verkaufer-m-w-d-volg-bern-jffcdj",
+        "vendeur-vendeur-h-f-d-volg-bern-8ddc78",
+        "verkauferin-verkaufer-m-w-d-volg-bern-84fcve",
+        "venditore-venditore-m-f-d-volg-uttwil-tg",
+        "seller-seller-m-f-d-volg-uttwil-tg",
+        "vendeur-vendeur-h-f-d-volg-uttwil-tg",
+        "venditore-m-f-d-volg-oberegg-ai",
+        "seller-m-f-d-volg-oberegg-ai",
+        "vendeur-m-f-d-volg-oberegg-ai",
+        "seller-seller-m-f-d-volg-bern-c2936d",
+        "vendeur-vendeur-h-f-d-volg-bern-c2936d",
+        "venditore-venditore-m-f-d-volg-bern-84fcve",
+        "verkauferin-verkaufer-m-w-d-volg-steinach-sg",
+        "venditore-venditore-m-f-d-volg-bern-c2936d"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,

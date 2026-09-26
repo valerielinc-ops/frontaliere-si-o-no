@@ -711,7 +711,6 @@
           "manager-integration-services-f-m-d-valora-muttenz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T12:43:13.426Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -1933,7 +1932,6 @@
           "lehrstelle-kaufmann-frau-efz-dienstleistung-und-administration-lt-br-gt-valora-muttenz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T13:35:54.078Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -2646,7 +2644,6 @@
           "senior-software-engineer-fullstack-f-m-d-valora-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:35:45.538Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
@@ -2777,28 +2774,6 @@
       "jobReqId": "21289",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke",
-          "produktionsmitarbeiter-w-m-d-valora-emmenbrucke"
-        ],
-        "it": [
-          "produktionsmitarbeiter-w-m-d-valora-emmenbrucke",
-          "produktionsmitarbeiter-w-m-d-valora-emmenbrucke-2",
-          "personale-di-produzione-f-m-d-valora-group-emmenbrucke-927157",
-          "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke-jo0vus",
-          "production-staff-f-m-d-valora-group-emmenbrucke-927157",
-          "personnel-de-production-f-m-d-valora-group-emmenbrucke-927157",
-          "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke",
-          "dipendenti-di-produzione-m-f-d-valora-group-emmenbrucke"
-        ],
-        "en": [
-          "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
-        ],
-        "fr": [
-          "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
-        ]
-      },
       "previousSlugs": [
         "produktionsmitarbeiter-w-m-d-valora-emmenbrucke",
         "produktionsmitarbeiter-w-m-d-valora-emmenbrucke-2",
@@ -2807,8 +2782,34 @@
         "production-staff-f-m-d-valora-group-emmenbrucke-927157",
         "personnel-de-production-f-m-d-valora-group-emmenbrucke-927157",
         "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke",
-        "dipendenti-di-produzione-m-f-d-valora-group-emmenbrucke"
+        "dipendenti-di-produzione-m-f-d-valora-group-emmenbrucke",
+        "dipendenti-di-produzione-m-f-d-valora-group-emmenbrucke-jo0s7q",
+        "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke-jo0s7q"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "produktionsmitarbeiter-w-m-d-valora-emmenbrucke",
+          "produktionsmitarbeiter-w-m-d-valora-emmenbrucke-2",
+          "personale-di-produzione-f-m-d-valora-group-emmenbrucke-927157",
+          "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke-jo0vus",
+          "production-staff-f-m-d-valora-group-emmenbrucke-927157",
+          "personnel-de-production-f-m-d-valora-group-emmenbrucke-927157",
+          "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke",
+          "dipendenti-di-produzione-m-f-d-valora-group-emmenbrucke",
+          "dipendenti-di-produzione-m-f-d-valora-group-emmenbrucke-jo0s7q",
+          "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke-jo0s7q"
+        ],
+        "en": [
+          "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
+        ],
+        "fr": [
+          "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
+        ],
+        "de": [
+          "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke",
+          "produktionsmitarbeiter-w-m-d-valora-emmenbrucke"
+        ]
+      },
       "firstSeenAt": "2026-09-23T23:35:45.536Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -3318,23 +3319,6 @@
       "jobReqId": "21342",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "business-partner-agenturen-w-m-d-valora-muttenz",
-        "agenzie-partner-commerciali-m-f-d-valora-group-muttenz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "business-partner-agenturen-w-m-d-valora-muttenz",
-          "agenzie-partner-commerciali-m-f-d-valora-group-muttenz"
-        ],
-        "en": [
-          "business-partner-agenturen-w-m-d-valora-muttenz"
-        ],
-        "fr": [
-          "business-partner-agenturen-w-m-d-valora-muttenz"
-        ]
-      },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -3347,7 +3331,23 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "business-partner-agenturen-w-m-d-valora-muttenz",
+          "agenzie-partner-commerciali-m-f-d-valora-group-muttenz"
+        ],
+        "en": [
+          "business-partner-agenturen-w-m-d-valora-muttenz"
+        ],
+        "fr": [
+          "business-partner-agenturen-w-m-d-valora-muttenz"
+        ]
+      },
+      "previousSlugs": [
+        "business-partner-agenturen-w-m-d-valora-muttenz",
+        "agenzie-partner-commerciali-m-f-d-valora-group-muttenz"
+      ]
     },
     {
       "id": "valora-1ba64f9f6328",

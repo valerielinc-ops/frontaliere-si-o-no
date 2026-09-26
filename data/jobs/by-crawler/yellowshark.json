@@ -156,7 +156,6 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
       "crawlerMissStreak": 1
     },
     {
@@ -309,7 +308,6 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
       "crawlerMissStreak": 1
     },
     {
@@ -612,7 +610,9 @@
       "firstSeenAt": "2026-09-24T00:09:46.446Z",
       "previousSlugsByLocale": {
         "it": [
-          "schreiner-m-w-chur-gr-yellowshark-ch"
+          "schreiner-m-w-chur-gr-yellowshark-ch",
+          "carpenter-m-f-yellowshark-ag-chur-bgtjux",
+          "schreiner-m-w-chur-gr-yellowshark-ch-bgtjux"
         ],
         "en": [
           "schreiner-m-w-chur-gr-yellowshark-ch"
@@ -625,7 +625,9 @@
         ]
       },
       "previousSlugs": [
-        "schreiner-m-w-chur-gr-yellowshark-ch"
+        "schreiner-m-w-chur-gr-yellowshark-ch",
+        "carpenter-m-f-yellowshark-ag-chur-bgtjux",
+        "schreiner-m-w-chur-gr-yellowshark-ch-bgtjux"
       ],
       "crawlerMissStreak": 1
     },
@@ -693,7 +695,6 @@
         }
       },
       "firstSeenAt": "2026-09-25T15:03:04.716Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "strategischer-einkaufer-8211-industrie-m-w-100-urdorf-zh-yellowshark-ch"
