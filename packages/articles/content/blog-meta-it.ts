@@ -12072,6 +12072,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rapina-como-residente-ticino.title': 'Rapina a Como: arrestato residente in Ticino',
     'blog.article.rapina-como-residente-ticino.excerpt': 'Il 32enne italiano, residente nel Bellinzonese, è tra i due arrestati per la rapina da 90\'000 euro del 24 aprile.',
     'blog.article.rapina-como-residente-ticino.imageAlt': 'Polizia e gioielleria a Como dopo la rapina del 24 aprile; arrestato un residente nel Bellinzonese.',
+    'blog.article.cantieri-reti-gas-acqua-varese.title': 'Varese: cantieri gas e acqua in tre vie fino ad aprile 2027',
+    'blog.article.cantieri-reti-gas-acqua-varese.excerpt': 'Dal 28 settembre 2026 iniziano i lavori di Lereti (Gruppo Acinque) in via Masolino da Panicale, Pagliano e Giovannini. Divieto di transito e sosta.',
+    'blog.article.cantieri-reti-gas-acqua-varese.imageAlt': 'Lavori di rinnovamento reti gas e acqua a Varese',
 };
 
 export default blogMetaIt;

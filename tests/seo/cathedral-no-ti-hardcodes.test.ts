@@ -120,7 +120,7 @@ const SEGMENT_BASELINE: Record<string, number> = {
   'scripts/lib/seo-ctr-curve.mjs': 4,
   'scripts/lib/telegram-templates.mjs': 1,
   'scripts/monitor-cls-posthog.mjs': 4,
-  'scripts/monitor-sector-coverage.mjs': 2,
+  'scripts/monitor-sector-coverage.mjs': 0,
   'scripts/newsletter-qa.mjs': 1,
   'scripts/newsletter-template.mjs': 4,
   'scripts/reconcile-job-slugs.mjs': 2,

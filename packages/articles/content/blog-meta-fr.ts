@@ -12073,6 +12073,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rapina-como-residente-ticino.title': 'Braquage à Côme : un résident du Tessin arrêté',
     'blog.article.rapina-como-residente-ticino.excerpt': 'L\'Italien de 32 ans, résidant dans la région de Bellinzone, figure parmi les deux personnes arrêtées pour le braquage de 90\'000 euro du 24 avril.',
     'blog.article.rapina-como-residente-ticino.imageAlt': 'Enquête à Côme après le braquage du 24 avril; un résident de la région de Bellinzone a été arrêté. (Como)',
+    'blog.article.cantieri-reti-gas-acqua-varese.title': 'Varese : chantiers de gaz et d’eau dans trois rues jusqu’en avril 2027',
+    'blog.article.cantieri-reti-gas-acqua-varese.excerpt': 'À partir du 28 septembre 2026, les travaux de Lereti (Gruppo Acinque) commencent via Masolino da Panicale, Pagliano et Giovannini. Interdiction de circulation et de stationnement.',
+    'blog.article.cantieri-reti-gas-acqua-varese.imageAlt': 'Travaux de rénovation des réseaux de gaz et d\'eau à Varese',
 };
 
 export default blogMetaFr;
