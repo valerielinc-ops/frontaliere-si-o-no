@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bobst",
-  "assembledAt": "2026-09-26T12:17:23.649Z",
+  "assembledAt": "2026-09-26T14:14:02.469Z",
   "jobs": [
     {
       "id": "bobst-17eb037c0ecb",
@@ -17,7 +17,7 @@
       "title": "Technical Support Specialist 100% - Maschinen- & Anlagenbau",
       "titleByLocale": {
         "it": "Specialista di Supporto Tecnico al 100% - Ingegneria Meccanica e Impianti",
-        "en": "Technical Support Specialist 100% - Maschinen- & Anlagenbau",
+        "en": "Technical Support Specialist 100% - Mechanical & Plant Engineering",
         "de": "Technical Support Spezialist 100% - Maschinen- & Anlagenbau",
         "fr": "Spécialiste Support Technique 100% - Machines et Installations"
       },
@@ -33,7 +33,7 @@
       "url": "https://jobs.bobst.com/Vacancies/7707/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:45:46.488Z",
+      "crawledAt": "2026-09-26T14:13:56.957Z",
       "addressLocality": "Switzerland (Grenchen)",
       "addressCountry": "CH",
       "country": "CH",
@@ -80,12 +80,14 @@
         "technical-support-specialist-100-maschinen-anlagenbau-bobst-ch",
         "technischer-support-spezialist-100-maschinen-anlagenbau-bobst-switzerland-grenchen",
         "technical-support-specialist-100-maschinen-anlagenbau-bobst-switzerland-grenchen",
-        "technical-support-specialist-100-maschinen-anlagenbau-bobst-grenchen"
+        "technical-support-specialist-100-maschinen-anlagenbau-bobst-grenchen",
+        "specialista-di-supporto-tecnico-100-macchinari-impianti-bobst-switzerland-grenchen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technical-support-specialist-100-maschinen-anlagenbau-bobst-ch",
-          "technical-support-specialist-100-maschinen-anlagenbau-bobst-grenchen"
+          "technical-support-specialist-100-maschinen-anlagenbau-bobst-grenchen",
+          "specialista-di-supporto-tecnico-100-macchinari-impianti-bobst-switzerland-grenchen"
         ],
         "en": [
           "technical-support-specialist-100-maschinen-anlagenbau-bobst-ch",
@@ -110,7 +112,7 @@
         }
       },
       "addressRegion": "SO",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/7707/description/2"
+      "needsRetranslation": true
     },
     {
       "id": "bobst-f254d67b8a12",
@@ -127,7 +129,7 @@
       "title": "Field Application Engineer 100% – Kaschierprozesse & -anlagen",
       "titleByLocale": {
         "it": "Field Application Engineer 100% – Processi e impianti di laminazione",
-        "en": "Field Application Engineer 100% – Kaschierprozesse & -anlagen",
+        "en": "Field Application Engineer 100% – Laminating Processes & Facilities",
         "de": "Field Application Ingenieur 100% – Kaschierprozesse & -anlagen",
         "fr": "Field Application Engineer 100% – Processus et installations de contrecollage"
       },
@@ -143,7 +145,7 @@
       "url": "https://jobs.bobst.com/Vacancies/7706/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:45:45.706Z",
+      "crawledAt": "2026-09-26T14:13:56.177Z",
       "addressLocality": "Switzerland (Grenchen)",
       "addressCountry": "CH",
       "country": "CH",
@@ -194,12 +196,14 @@
         "field-application-engineer-100-kaschierprozesse-anlagen-bobst-ch",
         "field-application-engineer-100-kaschierprozesse-anlagen-bobst-switzerland-grenchen",
         "ingegnere-di-applicazione-sul-campo-100-processi-e-impianti-di-incartamento-bobst-switzerland-grenchen",
-        "ingenieur-d-application-sur-le-terrain-100-processus-et-equipements-d-emballage-bobst-switzerland-grenchen"
+        "ingenieur-d-application-sur-le-terrain-100-processus-et-equipements-d-emballage-bobst-switzerland-grenchen",
+        "field-application-engineer-100-processi-e-impianti-di-laminazione-bobst-switzerland-grenchen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "field-application-engineer-100-kaschierprozesse-anlagen-bobst-ch",
-          "ingegnere-di-applicazione-sul-campo-100-processi-e-impianti-di-incartamento-bobst-switzerland-grenchen"
+          "ingegnere-di-applicazione-sul-campo-100-processi-e-impianti-di-incartamento-bobst-switzerland-grenchen",
+          "field-application-engineer-100-processi-e-impianti-di-laminazione-bobst-switzerland-grenchen"
         ],
         "en": [
           "field-application-engineer-100-kaschierprozesse-anlagen-bobst-ch",
@@ -223,9 +227,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SO",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/7706/description/2",
-      "needsRetranslation": true
+      "addressRegion": "SO"
     },
     {
       "id": "bobst-42d29368f8b4",
@@ -253,12 +255,13 @@
         "de": "Field Service & Commissioning Engineer – Automation & Motion Control BSA - Bobst Mex SA Bewerben Sie sich jetzt für unser Web-Fed Solutions Team In der Services & Performance Business Unit bieten wir Ihnen die Möglichkeit, unserem Web-Fed Solutions External Field Service Pool als Field Service & Commissioning Engineer – Automation & Motion Control beizutreten. Dies ist eine Vollzeit-Festanstellung (100%) mit Sitz in unserem Mex (VD) Standort, der als Hauptsitz und Produktionszentrum dient. Diese Rolle ist für einen Fachmann gedacht, der sich für komplexe Industrieumgebungen begeistert und in der Lage ist, autonom an hochentwickelten automatisierten Produktionslinien zu arbeiten. Sie müssen für 50% bis 60% Ihrer Arbeitszeit international reisen, oft für mehrere Wochen in Folge. YOUR MISSION Commission automatisierte Produktionslinien in der Schweiz und international.\n\nFühren Sie Nachrüst-, Modernisierungs- und Upgrade-Projekte an bestehenden Anlagen durch.\n\nPlanen und organisieren Sie selbstständig die Inbetriebnahme vor Ort.\n\nDiagnose und Lösung komplexer technischer Probleme im Zusammenhang mit Automatisierung, Bewegungssteuerung, elektrischen Systemen und industrieller IT.\n\nProgrammieren, modifizieren und optimieren Sie Automatisierungssysteme mit Siemens TIA Portal und Siemens S7.\n\nKommissionieren und konfigurieren Sie Antriebssysteme und synchronisierte Bewegungsachsen.\n\nFühren Sie Fehlerbehebungsmaßnahmen sowohl auf Kundenstandorten als auch aus der Ferne durch.\n\nKoordination der technischen Aktivitäten mit den Kundenteams.",
         "fr": "Engineer Service & Commissioning – Automation & Motion Control BSA - Bobst Mex SA Postulez Inscrivez-vous à notre équipe de solutions Web-Fed au sein de l'unité Services & Performance, nous vous offrons la possibilité de rejoindre notre groupe de services Web-Fed Solutions en tant qu'ingénieur Service & Commissioning – Automation & Motion Control. Il s'agit d'un poste permanent à temps plein (100 %) basé sur notre site Mex (VD), qui sert de siège social et de centre de production. Ce rôle est destiné à un professionnel passionné par des environnements industriels complexes et capable de travailler de manière autonome sur des lignes de production automatisées très sophistiquées. Vous devrez voyager à l'étranger pour 50 à 60 % de votre temps de travail, souvent sur des affectations de plusieurs semaines consécutives. VOTRE MISSION Commission des lignes de production automatisées en Suisse et dans le monde.\n\nRénover, moderniser et moderniser les installations existantes.\n\nPlanifier et organiser indépendamment les activités de mise en service sur place.\n\nDiagnostiquer et résoudre des problèmes techniques complexes liés à l'automatisation, au contrôle des mouvements, aux systèmes électriques et aux TI industrielles.\n\nProgrammer, modifier et optimiser les systèmes d'automatisation en utilisant Siemens TIA Portal et Siemens S7.\n\nCommande et configuration des systèmes d'entraînement et des axes de mouvement synchronisés.\n\nEffectuer des interventions de dépannage à la fois sur les sites clients et à distance.\n\nCoordonner les activités techniques avec les équipes clientes."
       },
+      "needsRetranslation": true,
       "location": "Switzerland (Mex)",
       "canton": "VD",
       "url": "https://jobs.bobst.com/Vacancies/9070/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:45:41.176Z",
+      "crawledAt": "2026-09-26T14:13:53.060Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -280,14 +283,16 @@
         "field-service-technician-ingegnere-di-montaggio-esterno-h-f-bobst-switzerland-mex",
         "field-service-technician-external-mount-engineer-h-f-bobst-switzerland-mex",
         "field-service-techniker-monteur-externe-ingenieur-h-f-bobst-switzerland-mex",
-        "field-service-commissioning-engineer-automation-motion-control-bobst-ch"
+        "field-service-commissioning-engineer-automation-motion-control-bobst-ch",
+        "field-service-commissioning-ingegnere-automation-motion-control-bobst-switzerland-mex"
       ],
       "previousSlugsByLocale": {
         "it": [
           "field-service-technician-monteur-externe-ingenieur-h-f-bobst-ch",
           "field-service-engineer-monteur-externe-ingenieur-h-f-bobst-ch",
           "field-service-technician-ingegnere-di-montaggio-esterno-h-f-bobst-switzerland-mex",
-          "field-service-commissioning-engineer-automation-motion-control-bobst-ch"
+          "field-service-commissioning-engineer-automation-motion-control-bobst-ch",
+          "field-service-commissioning-ingegnere-automation-motion-control-bobst-switzerland-mex"
         ],
         "en": [
           "field-service-technician-monteur-externe-ingenieur-h-f-bobst-ch",
@@ -318,8 +323,1137 @@
           "unitText": "YEAR"
         }
       },
+      "addressRegion": "VD"
+    },
+    {
+      "id": "bobst-a50d899700e3",
+      "slug": "senior-writing-systems-engineer-bobst-ch",
+      "slugByLocale": {
+        "en": "senior-writing-systems-engineer-bobst-ch",
+        "it": "senior-writing-systems-engineer-bobst-ch",
+        "de": "senior-writing-systems-engineer-bobst-ch",
+        "fr": "senior-writing-systems-engineer-bobst-ch"
+      },
+      "company": "Bobst",
+      "companyKey": "bobst",
+      "companyDomain": "bobst.com",
+      "title": "Senior Writing Systems Engineer",
+      "titleByLocale": {
+        "en": "Senior Writing Systems Engineer",
+        "it": "Senior Writing Systems Ingegnere",
+        "de": "Senior Writing Systems Ingenieur",
+        "fr": "Senior Writing Systems Ingénieur"
+      },
+      "description": "Senior Writing Systems Engineer BSA - Bobst Mex SA Apply now Shape the future of industrial inkjet printing At BOBST, we are redefining the future of packaging through advanced industrial printing technologies. As a global leader in packaging equipment and services, we combine Swiss engineering excellence with digital transformation to deliver high-performance production systems worldwide. To strengthen our R&D team, we are looking for a Senior Writing Systems Engineer who will play a key role in developing and optimizing next-generation industrial inkjet printing systems for demanding production and application environments. Your mission As a senior technical expert, you will own and drive the performance of our writing systems at the heart of our digital printing platforms. You will work on highly complex multidisciplinary challenges involving printheads, fluidics, motion systems, electronics, software, print applications, and industrial process stability to ensure outstanding image quality, robustness, uptime, and production performance in real customer environments. The role requires a strong connection between technology development and real industrial application realities, including substrates, inks, workflows, operator usage, and production constraints. Your mission As a senior technical expert, you will own and drive the performance of our writing systems , at the heart of our digital printing platforms. You will operate at the crossroads of mechanics, electronics, software and fluid physics , ensuring that our machines deliver outstanding print quality, reliability, and industrial performance. \n• Responsibilities Drive innovation & system performace Drive the design and optimization of industrial inkjet writing system architectures.\n\nDefine and challenge performance targets related to: printhead behavior,\n\nAct as technical owner from concept to product launch\n\nEnsure alignment between performance, quality, cost and manufacturability\n\nTranslate business needs into robust engineering solutions\n\nDevelop physical and empirical models (fluid dynamics, drop formation, thermal behavior)\n\nDesign and execute advanced experiments (DOE)\n\nAnalyze data to improve system behavior and reliability",
+      "descriptionByLocale": {
+        "en": "Senior Writing Systems Engineer BSA - Bobst Mex SA Apply now Shape the future of industrial inkjet printing At BOBST, we are redefining the future of packaging through advanced industrial printing technologies. As a global leader in packaging equipment and services, we combine Swiss engineering excellence with digital transformation to deliver high-performance production systems worldwide. To strengthen our R&D team, we are looking for a Senior Writing Systems Engineer who will play a key role in developing and optimizing next-generation industrial inkjet printing systems for demanding production and application environments. Your mission As a senior technical expert, you will own and drive the performance of our writing systems at the heart of our digital printing platforms. You will work on highly complex multidisciplinary challenges involving printheads, fluidics, motion systems, electronics, software, print applications, and industrial process stability to ensure outstanding image quality, robustness, uptime, and production performance in real customer environments. The role requires a strong connection between technology development and real industrial application realities, including substrates, inks, workflows, operator usage, and production constraints. Your mission As a senior technical expert, you will own and drive the performance of our writing systems , at the heart of our digital printing platforms. You will operate at the crossroads of mechanics, electronics, software and fluid physics , ensuring that our machines deliver outstanding print quality, reliability, and industrial performance. \n• Responsibilities Drive innovation & system performace Drive the design and optimization of industrial inkjet writing system architectures.\n\nDefine and challenge performance targets related to: printhead behavior,\n\nAct as technical owner from concept to product launch\n\nEnsure alignment between performance, quality, cost and manufacturability\n\nTranslate business needs into robust engineering solutions\n\nDevelop physical and empirical models (fluid dynamics, drop formation, thermal behavior)\n\nDesign and execute advanced experiments (DOE)\n\nAnalyze data to improve system behavior and reliability",
+        "it": "Senior Writing Systems Engineer BSA - Bobst Mex SA Apply now Shape the future of industrial inkjet printing At BOBST, we are redefining the future of packaging through advanced industrial printing technologies. As a global leader in packaging equipment and services, we combine Swiss engineering excellence with digital transformation to deliver high-performance production systems worldwide. To strengthen our R&D team, we are looking for a Senior Writing Systems Engineer who will play a key role in developing and optimizing next-generation industrial inkjet printing systems for demanding production and application environments. Your mission As a senior technical expert, you will own and drive the performance of our writing systems at the heart of our digital printing platforms. You will work on highly complex multidisciplinary challenges involving printheads, fluidics, motion systems, electronics, software, print applications, and industrial process stability to ensure outstanding image quality, robustness, uptime, and production performance in real customer environments. The role requires a strong connection between technology development and real industrial application realities, including substrates, inks, workflows, operator usage, and production constraints. Your mission As a senior technical expert, you will own and drive the performance of our writing systems , at the heart of our digital printing platforms. You will operate at the crossroads of mechanics, electronics, software and fluid physics , ensuring that our machines deliver outstanding print quality, reliability, and industrial performance. \n• Responsibilities Drive innovation & system performace Drive the design and optimization of industrial inkjet writing system architectures.\n\nDefine and challenge performance targets related to: printhead behavior,\n\nAct as technical owner from concept to product launch\n\nEnsure alignment between performance, quality, cost and manufacturability\n\nTranslate business needs into robust engineering solutions\n\nDevelop physical and empirical models (fluid dynamics, drop formation, thermal behavior)\n\nDesign and execute advanced experiments (DOE)\n\nAnalyze data to improve system behavior and reliability",
+        "de": "Senior Writing Systems Engineer BSA - Bobst Mex SA Apply now Shape the future of industrial inkjet printing At BOBST, we are redefining the future of packaging through advanced industrial printing technologies. As a global leader in packaging equipment and services, we combine Swiss engineering excellence with digital transformation to deliver high-performance production systems worldwide. To strengthen our R&D team, we are looking for a Senior Writing Systems Engineer who will play a key role in developing and optimizing next-generation industrial inkjet printing systems for demanding production and application environments. Your mission As a senior technical expert, you will own and drive the performance of our writing systems at the heart of our digital printing platforms. You will work on highly complex multidisciplinary challenges involving printheads, fluidics, motion systems, electronics, software, print applications, and industrial process stability to ensure outstanding image quality, robustness, uptime, and production performance in real customer environments. The role requires a strong connection between technology development and real industrial application realities, including substrates, inks, workflows, operator usage, and production constraints. Your mission As a senior technical expert, you will own and drive the performance of our writing systems , at the heart of our digital printing platforms. You will operate at the crossroads of mechanics, electronics, software and fluid physics , ensuring that our machines deliver outstanding print quality, reliability, and industrial performance. \n• Responsibilities Drive innovation & system performace Drive the design and optimization of industrial inkjet writing system architectures.\n\nDefine and challenge performance targets related to: printhead behavior,\n\nAct as technical owner from concept to product launch\n\nEnsure alignment between performance, quality, cost and manufacturability\n\nTranslate business needs into robust engineering solutions\n\nDevelop physical and empirical models (fluid dynamics, drop formation, thermal behavior)\n\nDesign and execute advanced experiments (DOE)\n\nAnalyze data to improve system behavior and reliability",
+        "fr": "Senior Writing Systems Engineer BSA - Bobst Mex SA Apply now Shape the future of industrial inkjet printing At BOBST, we are redefining the future of packaging through advanced industrial printing technologies. As a global leader in packaging equipment and services, we combine Swiss engineering excellence with digital transformation to deliver high-performance production systems worldwide. To strengthen our R&D team, we are looking for a Senior Writing Systems Engineer who will play a key role in developing and optimizing next-generation industrial inkjet printing systems for demanding production and application environments. Your mission As a senior technical expert, you will own and drive the performance of our writing systems at the heart of our digital printing platforms. You will work on highly complex multidisciplinary challenges involving printheads, fluidics, motion systems, electronics, software, print applications, and industrial process stability to ensure outstanding image quality, robustness, uptime, and production performance in real customer environments. The role requires a strong connection between technology development and real industrial application realities, including substrates, inks, workflows, operator usage, and production constraints. Your mission As a senior technical expert, you will own and drive the performance of our writing systems , at the heart of our digital printing platforms. You will operate at the crossroads of mechanics, electronics, software and fluid physics , ensuring that our machines deliver outstanding print quality, reliability, and industrial performance. \n• Responsibilities Drive innovation & system performace Drive the design and optimization of industrial inkjet writing system architectures.\n\nDefine and challenge performance targets related to: printhead behavior,\n\nAct as technical owner from concept to product launch\n\nEnsure alignment between performance, quality, cost and manufacturability\n\nTranslate business needs into robust engineering solutions\n\nDevelop physical and empirical models (fluid dynamics, drop formation, thermal behavior)\n\nDesign and execute advanced experiments (DOE)\n\nAnalyze data to improve system behavior and reliability"
+      },
+      "needsRetranslation": true,
+      "location": "Switzerland (Mex)",
+      "canton": "VD",
+      "url": "https://jobs.bobst.com/Vacancies/8743/Description/2",
+      "source": "Bobst Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-26T14:13:55.403Z",
+      "addressLocality": "Switzerland (Mex)",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "27.05.2026",
+      "applyUrl": "https://jobs.bobst.com/Vacancies/8743/Description/2",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "department": "Research & Development (R&D)",
+      "salaryMin": 97500,
+      "salaryMax": 148000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 148000,
+          "unitText": "YEAR"
+        }
+      },
       "addressRegion": "VD",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9070/description/2"
+      "firstSeenAt": "2026-09-26T14:13:55.403Z"
+    },
+    {
+      "id": "bobst-fb32aad751a0",
+      "slug": "ingenieur-specialiste-ehs-bobst-ch",
+      "slugByLocale": {
+        "fr": "ingenieur-specialiste-ehs-bobst-ch",
+        "it": "ingenieur-specialiste-ehs-bobst-ch",
+        "en": "ingenieur-specialiste-ehs-bobst-ch",
+        "de": "ingenieur-specialiste-ehs-bobst-ch"
+      },
+      "company": "Bobst",
+      "companyKey": "bobst",
+      "companyDomain": "bobst.com",
+      "title": "Ingénieur Spécialiste EHS",
+      "titleByLocale": {
+        "fr": "Ingénieur Spécialiste EHS",
+        "it": "Ingénieur Spécialiste EHS",
+        "en": "Ingénieur Spécialiste EHS",
+        "de": "Ingénieur Spécialiste EHS"
+      },
+      "description": "Ingénieur Spécialiste EHS BSA - Bobst Mex SA Postuler BOBST Mex SA recherche un(e) Ingénieur S pécialiste en Environnement, Santé et Sécurité (EHS) et devenez un acteur clé de la prévention sur le terrain. Vous jouerez un rôle central dans le développement et le renforcement de la culture EHS au sein des équipes d’assemblage et de logistique. En étroite collaboration avec les managers et les collaborateurs(trices), vous contribuerez à définir et déployer des mesures de prévention concrètes et efficaces, tout en garantissant le respect des exigences légales et réglementaires. \n• Votre mission Vous conseillez et accompagnez les équipes en matière de sécurité et environnement au travail pour les secteurs assembly et supply chain, tout en participant activement au système de management EHS. Vous rapportez directement à l'Ingénieur EHS. \n• Vos responsabilités Prévention des accidents Réaliser les analyses de risques\n\nEnquêter sur les incidents et accidents\n\nFormer et sensibiliser les collaborateurs à la sécurité\n\nDéployer des actions de communication en prévention\n\nParticiper aux projets d’amélioration sécurité\n\nInvestiguer les incidents environnementaux\n\nOptimiser la gestion des déchets et proposer des améliorations\n\nDéfinir et maintenir les processus d’analyse des risques",
+      "descriptionByLocale": {
+        "fr": "Ingénieur Spécialiste EHS BSA - Bobst Mex SA Postuler BOBST Mex SA recherche un(e) Ingénieur S pécialiste en Environnement, Santé et Sécurité (EHS) et devenez un acteur clé de la prévention sur le terrain. Vous jouerez un rôle central dans le développement et le renforcement de la culture EHS au sein des équipes d’assemblage et de logistique. En étroite collaboration avec les managers et les collaborateurs(trices), vous contribuerez à définir et déployer des mesures de prévention concrètes et efficaces, tout en garantissant le respect des exigences légales et réglementaires. \n• Votre mission Vous conseillez et accompagnez les équipes en matière de sécurité et environnement au travail pour les secteurs assembly et supply chain, tout en participant activement au système de management EHS. Vous rapportez directement à l'Ingénieur EHS. \n• Vos responsabilités Prévention des accidents Réaliser les analyses de risques\n\nEnquêter sur les incidents et accidents\n\nFormer et sensibiliser les collaborateurs à la sécurité\n\nDéployer des actions de communication en prévention\n\nParticiper aux projets d’amélioration sécurité\n\nInvestiguer les incidents environnementaux\n\nOptimiser la gestion des déchets et proposer des améliorations\n\nDéfinir et maintenir les processus d’analyse des risques",
+        "it": "Ingénieur Spécialiste EHS BSA - Bobst Mex SA Postuler BOBST Mex SA recherche un(e) Ingénieur S pécialiste en Environnement, Santé et Sécurité (EHS) et devenez un acteur clé de la prévention sur le terrain. Vous jouerez un rôle central dans le développement et le renforcement de la culture EHS au sein des équipes d’assemblage et de logistique. En étroite collaboration avec les managers et les collaborateurs(trices), vous contribuerez à définir et déployer des mesures de prévention concrètes et efficaces, tout en garantissant le respect des exigences légales et réglementaires. \n• Votre mission Vous conseillez et accompagnez les équipes en matière de sécurité et environnement au travail pour les secteurs assembly et supply chain, tout en participant activement au système de management EHS. Vous rapportez directement à l'Ingénieur EHS. \n• Vos responsabilités Prévention des accidents Réaliser les analyses de risques\n\nEnquêter sur les incidents et accidents\n\nFormer et sensibiliser les collaborateurs à la sécurité\n\nDéployer des actions de communication en prévention\n\nParticiper aux projets d’amélioration sécurité\n\nInvestiguer les incidents environnementaux\n\nOptimiser la gestion des déchets et proposer des améliorations\n\nDéfinir et maintenir les processus d’analyse des risques",
+        "en": "Ingénieur Spécialiste EHS BSA - Bobst Mex SA Postuler BOBST Mex SA recherche un(e) Ingénieur S pécialiste en Environnement, Santé et Sécurité (EHS) et devenez un acteur clé de la prévention sur le terrain. Vous jouerez un rôle central dans le développement et le renforcement de la culture EHS au sein des équipes d’assemblage et de logistique. En étroite collaboration avec les managers et les collaborateurs(trices), vous contribuerez à définir et déployer des mesures de prévention concrètes et efficaces, tout en garantissant le respect des exigences légales et réglementaires. \n• Votre mission Vous conseillez et accompagnez les équipes en matière de sécurité et environnement au travail pour les secteurs assembly et supply chain, tout en participant activement au système de management EHS. Vous rapportez directement à l'Ingénieur EHS. \n• Vos responsabilités Prévention des accidents Réaliser les analyses de risques\n\nEnquêter sur les incidents et accidents\n\nFormer et sensibiliser les collaborateurs à la sécurité\n\nDéployer des actions de communication en prévention\n\nParticiper aux projets d’amélioration sécurité\n\nInvestiguer les incidents environnementaux\n\nOptimiser la gestion des déchets et proposer des améliorations\n\nDéfinir et maintenir les processus d’analyse des risques",
+        "de": "Ingénieur Spécialiste EHS BSA - Bobst Mex SA Postuler BOBST Mex SA recherche un(e) Ingénieur S pécialiste en Environnement, Santé et Sécurité (EHS) et devenez un acteur clé de la prévention sur le terrain. Vous jouerez un rôle central dans le développement et le renforcement de la culture EHS au sein des équipes d’assemblage et de logistique. En étroite collaboration avec les managers et les collaborateurs(trices), vous contribuerez à définir et déployer des mesures de prévention concrètes et efficaces, tout en garantissant le respect des exigences légales et réglementaires. \n• Votre mission Vous conseillez et accompagnez les équipes en matière de sécurité et environnement au travail pour les secteurs assembly et supply chain, tout en participant activement au système de management EHS. Vous rapportez directement à l'Ingénieur EHS. \n• Vos responsabilités Prévention des accidents Réaliser les analyses de risques\n\nEnquêter sur les incidents et accidents\n\nFormer et sensibiliser les collaborateurs à la sécurité\n\nDéployer des actions de communication en prévention\n\nParticiper aux projets d’amélioration sécurité\n\nInvestiguer les incidents environnementaux\n\nOptimiser la gestion des déchets et proposer des améliorations\n\nDéfinir et maintenir les processus d’analyse des risques"
+      },
+      "needsRetranslation": true,
+      "location": "Switzerland (Mex)",
+      "canton": "VD",
+      "url": "https://jobs.bobst.com/Vacancies/8868/Description/3",
+      "source": "Bobst Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-26T14:13:54.643Z",
+      "addressLocality": "Switzerland (Mex)",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "30.06.2026",
+      "applyUrl": "https://jobs.bobst.com/Vacancies/8868/Description/3",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "department": "Health & Safety",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-09-26T14:13:54.643Z"
+    },
+    {
+      "id": "bobst-d5cc3069bc1c",
+      "slug": "iot-technology-director-bobst-ch",
+      "slugByLocale": {
+        "en": "iot-technology-director-bobst-ch",
+        "it": "iot-technology-director-bobst-ch",
+        "de": "iot-technology-director-bobst-ch",
+        "fr": "iot-technology-director-bobst-ch"
+      },
+      "company": "Bobst",
+      "companyKey": "bobst",
+      "companyDomain": "bobst.com",
+      "title": "IoT Technology Director",
+      "titleByLocale": {
+        "en": "IoT Technology Director",
+        "fr": "IoT Technology Director",
+        "it": "IoT Technology Direttore",
+        "de": "IoT Technology Direktor"
+      },
+      "description": "IoT Technology Director BSA - Bobst Mex SA Apply now Shape the Future of Connected Packaging Industry At BOBST, we are transforming the packaging world through digitalization, connectivity and data-driven services. Our IoT ecosystem, BOBST Connect , enables customers worldwide to optimize performance, increase productivity and unlock the power of their data. To support our ambitious growth journey, we are looking for an IoT Technology Director to lead the development of our cloud platform, data capabilities and operations teams. This is a high-impact leadership role at the crossroads of technology, innovation and business transformation. You will lead a multidisciplinary organization of more than 40 engineers and specialists and play a key role in defining the future of BOBST's digital solutions. Your Mission As a member of the IoT Leadership Team, you will drive the technology strategy, architecture and delivery of the BOBST Connect platform while partnering closely with the Iot Product Director to bring innovative solutions to market. You will lead teams based in Switzerland and Morocco and report directly to the Chief Technology Officer (CTO). Key responsibilities Lead and inspire Lead, develop and grow multidisciplinary IoT, Data Science and Operations teams (+40 people).\n\nFoster a culture of agility, collaboration, innovation and continuous improvement.\n\nCoach leaders and technical experts, ensuring the organization is equipped to deliver on its ambitions.\n\nOwn the technology roadmap and execution of the BOBST Connect platform together with the Iot Product Director.\n\nDefine architecture, technology stack, cybersecurity and cloud strategies that ensure scalability, reliability and performance.\n\nPromote modern engineering practices including Agile, DevSecOps, CI/CD and AI-enabled development approaches.\n\nPartner with Product Lines, Business Units and commercial teams to maximize customer value.\n\nTranslate business needs into innovative digital solutions and services.",
+      "descriptionByLocale": {
+        "en": "IoT Technology Director BSA - Bobst Mex SA Apply now Shape the Future of Connected Packaging Industry At BOBST, we are transforming the packaging world through digitalization, connectivity and data-driven services. Our IoT ecosystem, BOBST Connect , enables customers worldwide to optimize performance, increase productivity and unlock the power of their data. To support our ambitious growth journey, we are looking for an IoT Technology Director to lead the development of our cloud platform, data capabilities and operations teams. This is a high-impact leadership role at the crossroads of technology, innovation and business transformation. You will lead a multidisciplinary organization of more than 40 engineers and specialists and play a key role in defining the future of BOBST's digital solutions. Your Mission As a member of the IoT Leadership Team, you will drive the technology strategy, architecture and delivery of the BOBST Connect platform while partnering closely with the Iot Product Director to bring innovative solutions to market. You will lead teams based in Switzerland and Morocco and report directly to the Chief Technology Officer (CTO). Key responsibilities Lead and inspire Lead, develop and grow multidisciplinary IoT, Data Science and Operations teams (+40 people).\n\nFoster a culture of agility, collaboration, innovation and continuous improvement.\n\nCoach leaders and technical experts, ensuring the organization is equipped to deliver on its ambitions.\n\nOwn the technology roadmap and execution of the BOBST Connect platform together with the Iot Product Director.\n\nDefine architecture, technology stack, cybersecurity and cloud strategies that ensure scalability, reliability and performance.\n\nPromote modern engineering practices including Agile, DevSecOps, CI/CD and AI-enabled development approaches.\n\nPartner with Product Lines, Business Units and commercial teams to maximize customer value.\n\nTranslate business needs into innovative digital solutions and services.",
+        "it": "IoT Technology Director BSA - Bobst Mex SA Apply now Shape the Future of Connected Packaging Industry At BOBST, we are transforming the packaging world through digitalization, connectivity and data-driven services. Our IoT ecosystem, BOBST Connect , enables customers worldwide to optimize performance, increase productivity and unlock the power of their data. To support our ambitious growth journey, we are looking for an IoT Technology Director to lead the development of our cloud platform, data capabilities and operations teams. This is a high-impact leadership role at the crossroads of technology, innovation and business transformation. You will lead a multidisciplinary organization of more than 40 engineers and specialists and play a key role in defining the future of BOBST's digital solutions. Your Mission As a member of the IoT Leadership Team, you will drive the technology strategy, architecture and delivery of the BOBST Connect platform while partnering closely with the Iot Product Director to bring innovative solutions to market. You will lead teams based in Switzerland and Morocco and report directly to the Chief Technology Officer (CTO). Key responsibilities Lead and inspire Lead, develop and grow multidisciplinary IoT, Data Science and Operations teams (+40 people).\n\nFoster a culture of agility, collaboration, innovation and continuous improvement.\n\nCoach leaders and technical experts, ensuring the organization is equipped to deliver on its ambitions.\n\nOwn the technology roadmap and execution of the BOBST Connect platform together with the Iot Product Director.\n\nDefine architecture, technology stack, cybersecurity and cloud strategies that ensure scalability, reliability and performance.\n\nPromote modern engineering practices including Agile, DevSecOps, CI/CD and AI-enabled development approaches.\n\nPartner with Product Lines, Business Units and commercial teams to maximize customer value.\n\nTranslate business needs into innovative digital solutions and services.",
+        "de": "IoT Technology Director BSA - Bobst Mex SA Apply now Shape the Future of Connected Packaging Industry At BOBST, we are transforming the packaging world through digitalization, connectivity and data-driven services. Our IoT ecosystem, BOBST Connect , enables customers worldwide to optimize performance, increase productivity and unlock the power of their data. To support our ambitious growth journey, we are looking for an IoT Technology Director to lead the development of our cloud platform, data capabilities and operations teams. This is a high-impact leadership role at the crossroads of technology, innovation and business transformation. You will lead a multidisciplinary organization of more than 40 engineers and specialists and play a key role in defining the future of BOBST's digital solutions. Your Mission As a member of the IoT Leadership Team, you will drive the technology strategy, architecture and delivery of the BOBST Connect platform while partnering closely with the Iot Product Director to bring innovative solutions to market. You will lead teams based in Switzerland and Morocco and report directly to the Chief Technology Officer (CTO). Key responsibilities Lead and inspire Lead, develop and grow multidisciplinary IoT, Data Science and Operations teams (+40 people).\n\nFoster a culture of agility, collaboration, innovation and continuous improvement.\n\nCoach leaders and technical experts, ensuring the organization is equipped to deliver on its ambitions.\n\nOwn the technology roadmap and execution of the BOBST Connect platform together with the Iot Product Director.\n\nDefine architecture, technology stack, cybersecurity and cloud strategies that ensure scalability, reliability and performance.\n\nPromote modern engineering practices including Agile, DevSecOps, CI/CD and AI-enabled development approaches.\n\nPartner with Product Lines, Business Units and commercial teams to maximize customer value.\n\nTranslate business needs into innovative digital solutions and services.",
+        "fr": "IoT Technology Director BSA - Bobst Mex SA Apply now Shape the Future of Connected Packaging Industry At BOBST, we are transforming the packaging world through digitalization, connectivity and data-driven services. Our IoT ecosystem, BOBST Connect , enables customers worldwide to optimize performance, increase productivity and unlock the power of their data. To support our ambitious growth journey, we are looking for an IoT Technology Director to lead the development of our cloud platform, data capabilities and operations teams. This is a high-impact leadership role at the crossroads of technology, innovation and business transformation. You will lead a multidisciplinary organization of more than 40 engineers and specialists and play a key role in defining the future of BOBST's digital solutions. Your Mission As a member of the IoT Leadership Team, you will drive the technology strategy, architecture and delivery of the BOBST Connect platform while partnering closely with the Iot Product Director to bring innovative solutions to market. You will lead teams based in Switzerland and Morocco and report directly to the Chief Technology Officer (CTO). Key responsibilities Lead and inspire Lead, develop and grow multidisciplinary IoT, Data Science and Operations teams (+40 people).\n\nFoster a culture of agility, collaboration, innovation and continuous improvement.\n\nCoach leaders and technical experts, ensuring the organization is equipped to deliver on its ambitions.\n\nOwn the technology roadmap and execution of the BOBST Connect platform together with the Iot Product Director.\n\nDefine architecture, technology stack, cybersecurity and cloud strategies that ensure scalability, reliability and performance.\n\nPromote modern engineering practices including Agile, DevSecOps, CI/CD and AI-enabled development approaches.\n\nPartner with Product Lines, Business Units and commercial teams to maximize customer value.\n\nTranslate business needs into innovative digital solutions and services."
+      },
+      "needsRetranslation": true,
+      "location": "Switzerland (Mex)",
+      "canton": "VD",
+      "url": "https://jobs.bobst.com/Vacancies/9073/Description/2",
+      "source": "Bobst Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-26T14:13:53.862Z",
+      "addressLocality": "Switzerland (Mex)",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "03.07.2026",
+      "applyUrl": "https://jobs.bobst.com/Vacancies/9073/Description/2",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "department": "Research & Development (R&D)",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-09-26T14:13:53.862Z"
+    },
+    {
+      "id": "bobst-2317c4fa7029",
+      "slug": "dessinateur-batiment-et-technique-bobst-ch",
+      "slugByLocale": {
+        "fr": "dessinateur-batiment-et-technique-bobst-ch",
+        "it": "dessinateur-batiment-et-technique-bobst-ch",
+        "en": "dessinateur-batiment-et-technique-bobst-ch",
+        "de": "dessinateur-batiment-et-technique-bobst-ch"
+      },
+      "company": "Bobst",
+      "companyKey": "bobst",
+      "companyDomain": "bobst.com",
+      "title": "Dessinateur bâtiment et technique",
+      "titleByLocale": {
+        "fr": "Dessinateur bâtiment et technique",
+        "it": "Dessinateur bâtiment et technique",
+        "en": "Dessinateur bâtiment et technique",
+        "de": "Dessinateur bâtiment et technique"
+      },
+      "description": "Dessinateur bâtiment et technique BSA - Bobst Mex SA Postuler En tant que spécialiste du dessin technique au sein de notre équipe Workplace & Facility Services, vous jouez un rôle clé dans l'établissement et la mise à jour des plans d'architecture et techniques mais également dans l’aménagement de nos espaces de travail. Vous collaborez étroitement avec notre Spécialiste Technique Senior, les chefs de projets et le Manager du service pour concevoir des plans fiables, précis et indispensables au fonctionnement quotidien de notre site (REVIT/AUTOCAD). \n• Votre mission : créer, mettre à jour et garantir la qualité des plans architecturaux, techniques, d’aménagement et de sécurité, afin d’offrir à nos collaborateurs un environnement moderne, conforme et adapté à leurs besoins. \n• Vos responsabilités principales Elaborer et mettre à jour les plans architecturaux et techniques Réaliser des plans architecturaux, techniques et schémas de principe selon charte graphique et normes SIA.\n\nEffectuer les prises de mesures sur site et assurer la mise à jour des plans “tels que construits”.\n\nActualiser la charte graphique.\n\nGarantir l’application des standards (internes et externes) et des bonnes pratiques.\n\nConcevoir et actualiser les plans d’aménagement des espaces de travail selon les exigences OLT3, EHS et autres normes légales ou internes.\n\nProduire et maintenir les plans de sécurité incendie et les affiches d’évacuation en lien avec l'équipe sécurité du campus.\n\nIntégrer les plans et générer les rapports nécessaires au pilotage du service.\n\nParticiper au développement de l’outil.",
+      "descriptionByLocale": {
+        "fr": "Dessinateur bâtiment et technique BSA - Bobst Mex SA Postuler En tant que spécialiste du dessin technique au sein de notre équipe Workplace & Facility Services, vous jouez un rôle clé dans l'établissement et la mise à jour des plans d'architecture et techniques mais également dans l’aménagement de nos espaces de travail. Vous collaborez étroitement avec notre Spécialiste Technique Senior, les chefs de projets et le Manager du service pour concevoir des plans fiables, précis et indispensables au fonctionnement quotidien de notre site (REVIT/AUTOCAD). \n• Votre mission : créer, mettre à jour et garantir la qualité des plans architecturaux, techniques, d’aménagement et de sécurité, afin d’offrir à nos collaborateurs un environnement moderne, conforme et adapté à leurs besoins. \n• Vos responsabilités principales Elaborer et mettre à jour les plans architecturaux et techniques Réaliser des plans architecturaux, techniques et schémas de principe selon charte graphique et normes SIA.\n\nEffectuer les prises de mesures sur site et assurer la mise à jour des plans “tels que construits”.\n\nActualiser la charte graphique.\n\nGarantir l’application des standards (internes et externes) et des bonnes pratiques.\n\nConcevoir et actualiser les plans d’aménagement des espaces de travail selon les exigences OLT3, EHS et autres normes légales ou internes.\n\nProduire et maintenir les plans de sécurité incendie et les affiches d’évacuation en lien avec l'équipe sécurité du campus.\n\nIntégrer les plans et générer les rapports nécessaires au pilotage du service.\n\nParticiper au développement de l’outil.",
+        "it": "Dessinateur bâtiment et technique BSA - Bobst Mex SA Postuler En tant que spécialiste du dessin technique au sein de notre équipe Workplace & Facility Services, vous jouez un rôle clé dans l'établissement et la mise à jour des plans d'architecture et techniques mais également dans l’aménagement de nos espaces de travail. Vous collaborez étroitement avec notre Spécialiste Technique Senior, les chefs de projets et le Manager du service pour concevoir des plans fiables, précis et indispensables au fonctionnement quotidien de notre site (REVIT/AUTOCAD). \n• Votre mission : créer, mettre à jour et garantir la qualité des plans architecturaux, techniques, d’aménagement et de sécurité, afin d’offrir à nos collaborateurs un environnement moderne, conforme et adapté à leurs besoins. \n• Vos responsabilités principales Elaborer et mettre à jour les plans architecturaux et techniques Réaliser des plans architecturaux, techniques et schémas de principe selon charte graphique et normes SIA.\n\nEffectuer les prises de mesures sur site et assurer la mise à jour des plans “tels que construits”.\n\nActualiser la charte graphique.\n\nGarantir l’application des standards (internes et externes) et des bonnes pratiques.\n\nConcevoir et actualiser les plans d’aménagement des espaces de travail selon les exigences OLT3, EHS et autres normes légales ou internes.\n\nProduire et maintenir les plans de sécurité incendie et les affiches d’évacuation en lien avec l'équipe sécurité du campus.\n\nIntégrer les plans et générer les rapports nécessaires au pilotage du service.\n\nParticiper au développement de l’outil.",
+        "en": "Dessinateur bâtiment et technique BSA - Bobst Mex SA Postuler En tant que spécialiste du dessin technique au sein de notre équipe Workplace & Facility Services, vous jouez un rôle clé dans l'établissement et la mise à jour des plans d'architecture et techniques mais également dans l’aménagement de nos espaces de travail. Vous collaborez étroitement avec notre Spécialiste Technique Senior, les chefs de projets et le Manager du service pour concevoir des plans fiables, précis et indispensables au fonctionnement quotidien de notre site (REVIT/AUTOCAD). \n• Votre mission : créer, mettre à jour et garantir la qualité des plans architecturaux, techniques, d’aménagement et de sécurité, afin d’offrir à nos collaborateurs un environnement moderne, conforme et adapté à leurs besoins. \n• Vos responsabilités principales Elaborer et mettre à jour les plans architecturaux et techniques Réaliser des plans architecturaux, techniques et schémas de principe selon charte graphique et normes SIA.\n\nEffectuer les prises de mesures sur site et assurer la mise à jour des plans “tels que construits”.\n\nActualiser la charte graphique.\n\nGarantir l’application des standards (internes et externes) et des bonnes pratiques.\n\nConcevoir et actualiser les plans d’aménagement des espaces de travail selon les exigences OLT3, EHS et autres normes légales ou internes.\n\nProduire et maintenir les plans de sécurité incendie et les affiches d’évacuation en lien avec l'équipe sécurité du campus.\n\nIntégrer les plans et générer les rapports nécessaires au pilotage du service.\n\nParticiper au développement de l’outil.",
+        "de": "Dessinateur bâtiment et technique BSA - Bobst Mex SA Postuler En tant que spécialiste du dessin technique au sein de notre équipe Workplace & Facility Services, vous jouez un rôle clé dans l'établissement et la mise à jour des plans d'architecture et techniques mais également dans l’aménagement de nos espaces de travail. Vous collaborez étroitement avec notre Spécialiste Technique Senior, les chefs de projets et le Manager du service pour concevoir des plans fiables, précis et indispensables au fonctionnement quotidien de notre site (REVIT/AUTOCAD). \n• Votre mission : créer, mettre à jour et garantir la qualité des plans architecturaux, techniques, d’aménagement et de sécurité, afin d’offrir à nos collaborateurs un environnement moderne, conforme et adapté à leurs besoins. \n• Vos responsabilités principales Elaborer et mettre à jour les plans architecturaux et techniques Réaliser des plans architecturaux, techniques et schémas de principe selon charte graphique et normes SIA.\n\nEffectuer les prises de mesures sur site et assurer la mise à jour des plans “tels que construits”.\n\nActualiser la charte graphique.\n\nGarantir l’application des standards (internes et externes) et des bonnes pratiques.\n\nConcevoir et actualiser les plans d’aménagement des espaces de travail selon les exigences OLT3, EHS et autres normes légales ou internes.\n\nProduire et maintenir les plans de sécurité incendie et les affiches d’évacuation en lien avec l'équipe sécurité du campus.\n\nIntégrer les plans et générer les rapports nécessaires au pilotage du service.\n\nParticiper au développement de l’outil."
+      },
+      "needsRetranslation": true,
+      "location": "Switzerland (Mex)",
+      "canton": "VD",
+      "url": "https://jobs.bobst.com/Vacancies/8728/Description/3",
+      "source": "Bobst Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-26T14:13:52.273Z",
+      "addressLocality": "Switzerland (Mex)",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "19.08.2026",
+      "applyUrl": "https://jobs.bobst.com/Vacancies/8728/Description/3",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "department": "General Services",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-09-26T14:13:52.273Z"
+    },
+    {
+      "id": "bobst-bdedce751de6",
+      "slug": "apprenti-automaticien-ne-bobst-ch",
+      "slugByLocale": {
+        "fr": "apprenti-automaticien-ne-bobst-ch",
+        "it": "apprenti-automaticien-ne-bobst-ch",
+        "en": "apprenti-automaticien-ne-bobst-ch",
+        "de": "apprenti-automaticien-ne-bobst-ch"
+      },
+      "company": "Bobst",
+      "companyKey": "bobst",
+      "companyDomain": "bobst.com",
+      "title": "Apprenti automaticien-ne",
+      "titleByLocale": {
+        "fr": "Apprenti automaticien-ne",
+        "it": "Apprenti automaticien-ne",
+        "en": "Apprenti automaticien-ne",
+        "de": "Apprenti automaticien-ne"
+      },
+      "description": "Apprenti automaticien-ne Apprentissages Postuler AU QUOTIDIEN AUTOMATICIEN C'EST: des travaux pratiques dans les domaines de la mécanique, l'électrique, la pneumatique, l'électronique et les systèmes logiques\n\nl'utilisation de logiciels de programmation\n\nle montage, mise en service et dépannage d'installations électriques\n\nl'assemblages électromécaniques\n\nune scolarité obligatoire achevée\n\nune aptitude à travailler en équipe\n\nun attrait pour la polyvalence technique\n\nune capacité à analyser et à résoudre les problèmesune",
+      "descriptionByLocale": {
+        "fr": "Apprenti automaticien-ne Apprentissages Postuler AU QUOTIDIEN AUTOMATICIEN C'EST: des travaux pratiques dans les domaines de la mécanique, l'électrique, la pneumatique, l'électronique et les systèmes logiques\n\nl'utilisation de logiciels de programmation\n\nle montage, mise en service et dépannage d'installations électriques\n\nl'assemblages électromécaniques\n\nune scolarité obligatoire achevée\n\nune aptitude à travailler en équipe\n\nun attrait pour la polyvalence technique\n\nune capacité à analyser et à résoudre les problèmesune",
+        "it": "Apprenti automaticien-ne Apprentissages Postuler AU QUOTIDIEN AUTOMATICIEN C'EST: des travaux pratiques dans les domaines de la mécanique, l'électrique, la pneumatique, l'électronique et les systèmes logiques\n\nl'utilisation de logiciels de programmation\n\nle montage, mise en service et dépannage d'installations électriques\n\nl'assemblages électromécaniques\n\nune scolarité obligatoire achevée\n\nune aptitude à travailler en équipe\n\nun attrait pour la polyvalence technique\n\nune capacité à analyser et à résoudre les problèmesune",
+        "en": "Apprenti automaticien-ne Apprentissages Postuler AU QUOTIDIEN AUTOMATICIEN C'EST: des travaux pratiques dans les domaines de la mécanique, l'électrique, la pneumatique, l'électronique et les systèmes logiques\n\nl'utilisation de logiciels de programmation\n\nle montage, mise en service et dépannage d'installations électriques\n\nl'assemblages électromécaniques\n\nune scolarité obligatoire achevée\n\nune aptitude à travailler en équipe\n\nun attrait pour la polyvalence technique\n\nune capacité à analyser et à résoudre les problèmesune",
+        "de": "Apprenti automaticien-ne Apprentissages Postuler AU QUOTIDIEN AUTOMATICIEN C'EST: des travaux pratiques dans les domaines de la mécanique, l'électrique, la pneumatique, l'électronique et les systèmes logiques\n\nl'utilisation de logiciels de programmation\n\nle montage, mise en service et dépannage d'installations électriques\n\nl'assemblages électromécaniques\n\nune scolarité obligatoire achevée\n\nune aptitude à travailler en équipe\n\nun attrait pour la polyvalence technique\n\nune capacité à analyser et à résoudre les problèmesune"
+      },
+      "needsRetranslation": true,
+      "location": "Switzerland (Mex)",
+      "canton": "VD",
+      "url": "https://jobs.bobst.com/Vacancies/9221/Description/3",
+      "source": "Bobst Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-26T14:13:51.733Z",
+      "addressLocality": "Switzerland (Mex)",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "28.08.2026",
+      "applyUrl": "https://jobs.bobst.com/Vacancies/9221/Description/3",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "department": "Apprenticeship",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-09-26T14:13:51.733Z"
+    },
+    {
+      "id": "bobst-855585a4eeb5",
+      "slug": "apprenti-employe-e-de-commerce-cfc-bobst-ch",
+      "slugByLocale": {
+        "fr": "apprenti-employe-e-de-commerce-cfc-bobst-ch",
+        "it": "apprenti-employe-e-de-commerce-cfc-bobst-ch",
+        "en": "apprenti-employe-e-de-commerce-cfc-bobst-ch",
+        "de": "apprenti-employe-e-de-commerce-cfc-bobst-ch"
+      },
+      "company": "Bobst",
+      "companyKey": "bobst",
+      "companyDomain": "bobst.com",
+      "title": "Apprenti employé-e de commerce CFC",
+      "titleByLocale": {
+        "fr": "Apprenti employé-e de commerce CFC",
+        "it": "Apprenti employé-e de commerce CFC",
+        "en": "Apprenti employé-e de commerce CFC",
+        "de": "Apprenti employé-e de commerce CFC"
+      },
+      "description": "Apprenti employé-e de commerce CFC Apprentissages Postuler AU QUOTIDIEN EMPLOYÉ DE COMMERCE C'EST: accueil des clients\n\nplanification et administration des ressources\n\ngestion de la correspondanceréception,\n\ngestion et facturation de commandes\n\nsaisie et vérification d’écritures comptables\n\nune scolarité obligatoire achevée\n\nun esprit logique et une bonne faculté d’analyse\n\nun goût pour les contacts humains et une",
+      "descriptionByLocale": {
+        "fr": "Apprenti employé-e de commerce CFC Apprentissages Postuler AU QUOTIDIEN EMPLOYÉ DE COMMERCE C'EST: accueil des clients\n\nplanification et administration des ressources\n\ngestion de la correspondanceréception,\n\ngestion et facturation de commandes\n\nsaisie et vérification d’écritures comptables\n\nune scolarité obligatoire achevée\n\nun esprit logique et une bonne faculté d’analyse\n\nun goût pour les contacts humains et une",
+        "it": "Apprenti employé-e de commerce CFC Apprentissages Postuler AU QUOTIDIEN EMPLOYÉ DE COMMERCE C'EST: accueil des clients\n\nplanification et administration des ressources\n\ngestion de la correspondanceréception,\n\ngestion et facturation de commandes\n\nsaisie et vérification d’écritures comptables\n\nune scolarité obligatoire achevée\n\nun esprit logique et une bonne faculté d’analyse\n\nun goût pour les contacts humains et une",
+        "en": "Apprenti employé-e de commerce CFC Apprentissages Postuler AU QUOTIDIEN EMPLOYÉ DE COMMERCE C'EST: accueil des clients\n\nplanification et administration des ressources\n\ngestion de la correspondanceréception,\n\ngestion et facturation de commandes\n\nsaisie et vérification d’écritures comptables\n\nune scolarité obligatoire achevée\n\nun esprit logique et une bonne faculté d’analyse\n\nun goût pour les contacts humains et une",
+        "de": "Apprenti employé-e de commerce CFC Apprentissages Postuler AU QUOTIDIEN EMPLOYÉ DE COMMERCE C'EST: accueil des clients\n\nplanification et administration des ressources\n\ngestion de la correspondanceréception,\n\ngestion et facturation de commandes\n\nsaisie et vérification d’écritures comptables\n\nune scolarité obligatoire achevée\n\nun esprit logique et une bonne faculté d’analyse\n\nun goût pour les contacts humains et une"
+      },
+      "needsRetranslation": true,
+      "location": "Switzerland (Mex)",
+      "canton": "VD",
+      "url": "https://jobs.bobst.com/Vacancies/9220/Description/3",
+      "source": "Bobst Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-26T14:13:50.940Z",
+      "addressLocality": "Switzerland (Mex)",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "28.08.2026",
+      "applyUrl": "https://jobs.bobst.com/Vacancies/9220/Description/3",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "department": "Apprenticeship",
+      "salaryMin": 72000,
+      "salaryMax": 111000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72000,
+          "maxValue": 111000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-09-26T14:13:50.940Z"
+    },
+    {
+      "id": "bobst-f8dd9f2738dd",
+      "slug": "apprenti-polymecanicien-ne-bobst-ch",
+      "slugByLocale": {
+        "fr": "apprenti-polymecanicien-ne-bobst-ch",
+        "it": "apprenti-polymecanicien-ne-bobst-ch",
+        "en": "apprenti-polymecanicien-ne-bobst-ch",
+        "de": "apprenti-polymecanicien-ne-bobst-ch"
+      },
+      "company": "Bobst",
+      "companyKey": "bobst",
+      "companyDomain": "bobst.com",
+      "title": "Apprenti polymécanicien-ne",
+      "titleByLocale": {
+        "fr": "Apprenti polymécanicien-ne",
+        "it": "Apprenti polymécanicien-ne",
+        "en": "Apprenti polymécanicien-ne",
+        "de": "Apprenti polymécanicien-ne"
+      },
+      "description": "Apprenti polymécanicien-ne Apprentissages Postuler AU QUOTIDIEN, POLYMÉCANICIEN C'EST: l'usinage de pièces à partir de dessins techniques\n\nla programmation de machines à commande numérique\n\nla conception de pièces pour la réparation de machines\n\nla création de gabarits pour la fixation de pièces complexes sur des machines\n\nle montage et réglage d’outils\n\nune aptitude à travailler en équipe\n\nun attrait pour la polyvalence technique\n\nune aptitude au travail manuel",
+      "descriptionByLocale": {
+        "fr": "Apprenti polymécanicien-ne Apprentissages Postuler AU QUOTIDIEN, POLYMÉCANICIEN C'EST: l'usinage de pièces à partir de dessins techniques\n\nla programmation de machines à commande numérique\n\nla conception de pièces pour la réparation de machines\n\nla création de gabarits pour la fixation de pièces complexes sur des machines\n\nle montage et réglage d’outils\n\nune aptitude à travailler en équipe\n\nun attrait pour la polyvalence technique\n\nune aptitude au travail manuel",
+        "it": "Apprenti polymécanicien-ne Apprentissages Postuler AU QUOTIDIEN, POLYMÉCANICIEN C'EST: l'usinage de pièces à partir de dessins techniques\n\nla programmation de machines à commande numérique\n\nla conception de pièces pour la réparation de machines\n\nla création de gabarits pour la fixation de pièces complexes sur des machines\n\nle montage et réglage d’outils\n\nune aptitude à travailler en équipe\n\nun attrait pour la polyvalence technique\n\nune aptitude au travail manuel",
+        "en": "Apprenti polymécanicien-ne Apprentissages Postuler AU QUOTIDIEN, POLYMÉCANICIEN C'EST: l'usinage de pièces à partir de dessins techniques\n\nla programmation de machines à commande numérique\n\nla conception de pièces pour la réparation de machines\n\nla création de gabarits pour la fixation de pièces complexes sur des machines\n\nle montage et réglage d’outils\n\nune aptitude à travailler en équipe\n\nun attrait pour la polyvalence technique\n\nune aptitude au travail manuel",
+        "de": "Apprenti polymécanicien-ne Apprentissages Postuler AU QUOTIDIEN, POLYMÉCANICIEN C'EST: l'usinage de pièces à partir de dessins techniques\n\nla programmation de machines à commande numérique\n\nla conception de pièces pour la réparation de machines\n\nla création de gabarits pour la fixation de pièces complexes sur des machines\n\nle montage et réglage d’outils\n\nune aptitude à travailler en équipe\n\nun attrait pour la polyvalence technique\n\nune aptitude au travail manuel"
+      },
+      "needsRetranslation": true,
+      "location": "Switzerland (Mex)",
+      "canton": "VD",
+      "url": "https://jobs.bobst.com/Vacancies/9222/Description/3",
+      "source": "Bobst Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-26T14:13:50.166Z",
+      "addressLocality": "Switzerland (Mex)",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "28.08.2026",
+      "applyUrl": "https://jobs.bobst.com/Vacancies/9222/Description/3",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "department": "Apprenticeship",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-09-26T14:13:50.166Z"
+    },
+    {
+      "id": "bobst-093858ad3e55",
+      "slug": "apprenti-dessinateur-trice-constructeur-trice-industriel-le-bobst-ch",
+      "slugByLocale": {
+        "fr": "apprenti-dessinateur-trice-constructeur-trice-industriel-le-bobst-ch",
+        "it": "apprenti-dessinateur-trice-constructeur-trice-industriel-le-bobst-ch",
+        "en": "apprenti-dessinateur-trice-constructeur-trice-industriel-le-bobst-ch",
+        "de": "apprenti-dessinateur-trice-constructeur-trice-industriel-le-bobst-ch"
+      },
+      "company": "Bobst",
+      "companyKey": "bobst",
+      "companyDomain": "bobst.com",
+      "title": "Apprenti dessinateur-trice constructeur-trice industriel-le",
+      "titleByLocale": {
+        "fr": "Apprenti dessinateur-trice constructeur-trice industriel-le",
+        "it": "Apprenti dessinateur-trice constructeur-trice industriel-le",
+        "en": "Apprenti dessinateur-trice constructeur-trice industriel-le",
+        "de": "Apprenti dessinateur-trice constructeur-trice industriel-le"
+      },
+      "description": "Apprenti dessinateur-trice constructeur-trice industriel-le Apprentissages Postuler AU QUOTIDIEN DESSINATEUR CONSTRUCTEUR INDUSTRIEL C'EST dessin technique (dessin 2D et modélisation 3D)\n\nutilisation d’outils de gestion informatique\n\ncontacts directs avec la production et la fabrication\n\nune scolarité obligatoire achevée\n\nbonne représentation spatiale\n\nde bonnes connaissances en informatique, mathématique et géométrie\n\nprécision, soin et minutie dans son travail\n\nesprit logique et méthodique",
+      "descriptionByLocale": {
+        "fr": "Apprenti dessinateur-trice constructeur-trice industriel-le Apprentissages Postuler AU QUOTIDIEN DESSINATEUR CONSTRUCTEUR INDUSTRIEL C'EST dessin technique (dessin 2D et modélisation 3D)\n\nutilisation d’outils de gestion informatique\n\ncontacts directs avec la production et la fabrication\n\nune scolarité obligatoire achevée\n\nbonne représentation spatiale\n\nde bonnes connaissances en informatique, mathématique et géométrie\n\nprécision, soin et minutie dans son travail\n\nesprit logique et méthodique",
+        "it": "Apprenti dessinateur-trice constructeur-trice industriel-le Apprentissages Postuler AU QUOTIDIEN DESSINATEUR CONSTRUCTEUR INDUSTRIEL C'EST dessin technique (dessin 2D et modélisation 3D)\n\nutilisation d’outils de gestion informatique\n\ncontacts directs avec la production et la fabrication\n\nune scolarité obligatoire achevée\n\nbonne représentation spatiale\n\nde bonnes connaissances en informatique, mathématique et géométrie\n\nprécision, soin et minutie dans son travail\n\nesprit logique et méthodique",
+        "en": "Apprenti dessinateur-trice constructeur-trice industriel-le Apprentissages Postuler AU QUOTIDIEN DESSINATEUR CONSTRUCTEUR INDUSTRIEL C'EST dessin technique (dessin 2D et modélisation 3D)\n\nutilisation d’outils de gestion informatique\n\ncontacts directs avec la production et la fabrication\n\nune scolarité obligatoire achevée\n\nbonne représentation spatiale\n\nde bonnes connaissances en informatique, mathématique et géométrie\n\nprécision, soin et minutie dans son travail\n\nesprit logique et méthodique",
+        "de": "Apprenti dessinateur-trice constructeur-trice industriel-le Apprentissages Postuler AU QUOTIDIEN DESSINATEUR CONSTRUCTEUR INDUSTRIEL C'EST dessin technique (dessin 2D et modélisation 3D)\n\nutilisation d’outils de gestion informatique\n\ncontacts directs avec la production et la fabrication\n\nune scolarité obligatoire achevée\n\nbonne représentation spatiale\n\nde bonnes connaissances en informatique, mathématique et géométrie\n\nprécision, soin et minutie dans son travail\n\nesprit logique et méthodique"
+      },
+      "needsRetranslation": true,
+      "location": "Switzerland (Mex)",
+      "canton": "VD",
+      "url": "https://jobs.bobst.com/Vacancies/9223/Description/3",
+      "source": "Bobst Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-26T14:13:49.357Z",
+      "addressLocality": "Switzerland (Mex)",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "28.08.2026",
+      "applyUrl": "https://jobs.bobst.com/Vacancies/9223/Description/3",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "department": "Apprenticeship",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-09-26T14:13:49.357Z"
+    },
+    {
+      "id": "bobst-49bee4b2fcbf",
+      "slug": "apprenti-praticien-ne-en-mecanique-afp-bobst-ch",
+      "slugByLocale": {
+        "fr": "apprenti-praticien-ne-en-mecanique-afp-bobst-ch",
+        "it": "apprenti-praticien-ne-en-mecanique-afp-bobst-ch",
+        "en": "apprenti-praticien-ne-en-mecanique-afp-bobst-ch",
+        "de": "apprenti-praticien-ne-en-mecanique-afp-bobst-ch"
+      },
+      "company": "Bobst",
+      "companyKey": "bobst",
+      "companyDomain": "bobst.com",
+      "title": "Apprenti praticien-ne en mécanique AFP",
+      "titleByLocale": {
+        "fr": "Apprenti praticien-ne en mécanique AFP",
+        "it": "Apprenti praticien-ne en mécanique AFP",
+        "en": "Apprenti praticien-ne en mécanique AFP",
+        "de": "Apprenti praticien-ne en mécanique AFP"
+      },
+      "description": "Apprenti praticien-ne en mécanique AFP Apprentissages Postuler AU QUOTIDIEN PRATICIEN EN MÉCANIQUE C'EST: la planification des opérations pour la fabrication traditionnelle de pièces simples\n\nla fabrication de séries simples sur machines-outils traditionnelles\n\nla possibilité de fabrication en série sur machines CNC réglées à cet effet\n\nla vérification de la qualité des pièces produites\n\nla résolution des problèmes relevant du quotidien à l’atelier\n\nUne scolarité obligatoire achevée\n\nUne aptitude à travailler en équipe\n\nUne passion pour la transformation du métal",
+      "descriptionByLocale": {
+        "fr": "Apprenti praticien-ne en mécanique AFP Apprentissages Postuler AU QUOTIDIEN PRATICIEN EN MÉCANIQUE C'EST: la planification des opérations pour la fabrication traditionnelle de pièces simples\n\nla fabrication de séries simples sur machines-outils traditionnelles\n\nla possibilité de fabrication en série sur machines CNC réglées à cet effet\n\nla vérification de la qualité des pièces produites\n\nla résolution des problèmes relevant du quotidien à l’atelier\n\nUne scolarité obligatoire achevée\n\nUne aptitude à travailler en équipe\n\nUne passion pour la transformation du métal",
+        "it": "Apprenti praticien-ne en mécanique AFP Apprentissages Postuler AU QUOTIDIEN PRATICIEN EN MÉCANIQUE C'EST: la planification des opérations pour la fabrication traditionnelle de pièces simples\n\nla fabrication de séries simples sur machines-outils traditionnelles\n\nla possibilité de fabrication en série sur machines CNC réglées à cet effet\n\nla vérification de la qualité des pièces produites\n\nla résolution des problèmes relevant du quotidien à l’atelier\n\nUne scolarité obligatoire achevée\n\nUne aptitude à travailler en équipe\n\nUne passion pour la transformation du métal",
+        "en": "Apprenti praticien-ne en mécanique AFP Apprentissages Postuler AU QUOTIDIEN PRATICIEN EN MÉCANIQUE C'EST: la planification des opérations pour la fabrication traditionnelle de pièces simples\n\nla fabrication de séries simples sur machines-outils traditionnelles\n\nla possibilité de fabrication en série sur machines CNC réglées à cet effet\n\nla vérification de la qualité des pièces produites\n\nla résolution des problèmes relevant du quotidien à l’atelier\n\nUne scolarité obligatoire achevée\n\nUne aptitude à travailler en équipe\n\nUne passion pour la transformation du métal",
+        "de": "Apprenti praticien-ne en mécanique AFP Apprentissages Postuler AU QUOTIDIEN PRATICIEN EN MÉCANIQUE C'EST: la planification des opérations pour la fabrication traditionnelle de pièces simples\n\nla fabrication de séries simples sur machines-outils traditionnelles\n\nla possibilité de fabrication en série sur machines CNC réglées à cet effet\n\nla vérification de la qualité des pièces produites\n\nla résolution des problèmes relevant du quotidien à l’atelier\n\nUne scolarité obligatoire achevée\n\nUne aptitude à travailler en équipe\n\nUne passion pour la transformation du métal"
+      },
+      "needsRetranslation": true,
+      "location": "Switzerland (Mex)",
+      "canton": "VD",
+      "url": "https://jobs.bobst.com/Vacancies/9225/Description/3",
+      "source": "Bobst Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-26T14:13:48.557Z",
+      "addressLocality": "Switzerland (Mex)",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "28.08.2026",
+      "applyUrl": "https://jobs.bobst.com/Vacancies/9225/Description/3",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "department": "Apprenticeship",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-09-26T14:13:48.557Z"
+    },
+    {
+      "id": "bobst-ca582ec179f7",
+      "slug": "apprenti-mediamaticien-ne-bobst-ch",
+      "slugByLocale": {
+        "fr": "apprenti-mediamaticien-ne-bobst-ch",
+        "it": "apprenti-mediamaticien-ne-bobst-ch",
+        "en": "apprenti-mediamaticien-ne-bobst-ch",
+        "de": "apprenti-mediamaticien-ne-bobst-ch"
+      },
+      "company": "Bobst",
+      "companyKey": "bobst",
+      "companyDomain": "bobst.com",
+      "title": "Apprenti Médiamaticien-ne",
+      "titleByLocale": {
+        "fr": "Apprenti Médiamaticien-ne",
+        "it": "Apprenti Médiamaticien-ne",
+        "en": "Apprenti Médiamaticien-ne",
+        "de": "Apprenti Médiamaticien-ne"
+      },
+      "description": "Apprenti Médiamaticien-ne Apprentissages Postuler AU QUOTIDIEN MÉDIAMATICIEN C'EST créer l’agencement de l’information\n\nutiliser des produits multimédias\n\nconcevoir des prospectus et des animations\n\nutiliser les médias de communication de manière ciblée\n\nfaire du design, du marketing et de la gestion de projet\n\nune scolarité obligatoire achevée\n\nun intérêt pour les ordinateurs, les nouveaux médias et l’informatique\n\nune bonne faculté de communication et un sens du travail en équipe",
+      "descriptionByLocale": {
+        "fr": "Apprenti Médiamaticien-ne Apprentissages Postuler AU QUOTIDIEN MÉDIAMATICIEN C'EST créer l’agencement de l’information\n\nutiliser des produits multimédias\n\nconcevoir des prospectus et des animations\n\nutiliser les médias de communication de manière ciblée\n\nfaire du design, du marketing et de la gestion de projet\n\nune scolarité obligatoire achevée\n\nun intérêt pour les ordinateurs, les nouveaux médias et l’informatique\n\nune bonne faculté de communication et un sens du travail en équipe",
+        "it": "Apprenti Médiamaticien-ne Apprentissages Postuler AU QUOTIDIEN MÉDIAMATICIEN C'EST créer l’agencement de l’information\n\nutiliser des produits multimédias\n\nconcevoir des prospectus et des animations\n\nutiliser les médias de communication de manière ciblée\n\nfaire du design, du marketing et de la gestion de projet\n\nune scolarité obligatoire achevée\n\nun intérêt pour les ordinateurs, les nouveaux médias et l’informatique\n\nune bonne faculté de communication et un sens du travail en équipe",
+        "en": "Apprenti Médiamaticien-ne Apprentissages Postuler AU QUOTIDIEN MÉDIAMATICIEN C'EST créer l’agencement de l’information\n\nutiliser des produits multimédias\n\nconcevoir des prospectus et des animations\n\nutiliser les médias de communication de manière ciblée\n\nfaire du design, du marketing et de la gestion de projet\n\nune scolarité obligatoire achevée\n\nun intérêt pour les ordinateurs, les nouveaux médias et l’informatique\n\nune bonne faculté de communication et un sens du travail en équipe",
+        "de": "Apprenti Médiamaticien-ne Apprentissages Postuler AU QUOTIDIEN MÉDIAMATICIEN C'EST créer l’agencement de l’information\n\nutiliser des produits multimédias\n\nconcevoir des prospectus et des animations\n\nutiliser les médias de communication de manière ciblée\n\nfaire du design, du marketing et de la gestion de projet\n\nune scolarité obligatoire achevée\n\nun intérêt pour les ordinateurs, les nouveaux médias et l’informatique\n\nune bonne faculté de communication et un sens du travail en équipe"
+      },
+      "needsRetranslation": true,
+      "location": "Switzerland (Mex)",
+      "canton": "VD",
+      "url": "https://jobs.bobst.com/Vacancies/9227/Description/3",
+      "source": "Bobst Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-26T14:13:47.720Z",
+      "addressLocality": "Switzerland (Mex)",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "28.08.2026",
+      "applyUrl": "https://jobs.bobst.com/Vacancies/9227/Description/3",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "department": "Apprenticeship",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-09-26T14:13:47.720Z"
+    },
+    {
+      "id": "bobst-10e0ab0d935a",
+      "slug": "apprenti-mecanicien-de-production-cfc-bobst-ch",
+      "slugByLocale": {
+        "fr": "apprenti-mecanicien-de-production-cfc-bobst-ch",
+        "it": "apprenti-mecanicien-de-production-cfc-bobst-ch",
+        "en": "apprenti-mecanicien-de-production-cfc-bobst-ch",
+        "de": "apprenti-mecanicien-de-production-cfc-bobst-ch"
+      },
+      "company": "Bobst",
+      "companyKey": "bobst",
+      "companyDomain": "bobst.com",
+      "title": "Apprenti mécanicien de production CFC",
+      "titleByLocale": {
+        "fr": "Apprenti mécanicien de production CFC",
+        "it": "Apprenti mécanicien de production CFC",
+        "en": "Apprenti mécanicien de production CFC",
+        "de": "Apprenti mécanicien de production CFC"
+      },
+      "description": "Apprenti mécanicien de production CFC Apprentissages Postuler AU QUOTIDIEN MÉCANICIEN DE PRODUCTION C'EST: la planification des opérations pour la fabrication traditionnelle de pièces simples\n\nla fabrication de séries simples sur machines-outils traditionnelles\n\nla possibilité de fabrication en série sur machines CNC réglées à cet effet\n\nla vérification de la qualité des pièces produites\n\nla résolution des problèmes relevant du quotidien à l’atelier\n\nUne scolarité obligatoire achevée\n\nUne aptitude à travailler en équipe\n\nUne passion pour la transformation du métal",
+      "descriptionByLocale": {
+        "fr": "Apprenti mécanicien de production CFC Apprentissages Postuler AU QUOTIDIEN MÉCANICIEN DE PRODUCTION C'EST: la planification des opérations pour la fabrication traditionnelle de pièces simples\n\nla fabrication de séries simples sur machines-outils traditionnelles\n\nla possibilité de fabrication en série sur machines CNC réglées à cet effet\n\nla vérification de la qualité des pièces produites\n\nla résolution des problèmes relevant du quotidien à l’atelier\n\nUne scolarité obligatoire achevée\n\nUne aptitude à travailler en équipe\n\nUne passion pour la transformation du métal",
+        "it": "Apprenti mécanicien de production CFC Apprentissages Postuler AU QUOTIDIEN MÉCANICIEN DE PRODUCTION C'EST: la planification des opérations pour la fabrication traditionnelle de pièces simples\n\nla fabrication de séries simples sur machines-outils traditionnelles\n\nla possibilité de fabrication en série sur machines CNC réglées à cet effet\n\nla vérification de la qualité des pièces produites\n\nla résolution des problèmes relevant du quotidien à l’atelier\n\nUne scolarité obligatoire achevée\n\nUne aptitude à travailler en équipe\n\nUne passion pour la transformation du métal",
+        "en": "Apprenti mécanicien de production CFC Apprentissages Postuler AU QUOTIDIEN MÉCANICIEN DE PRODUCTION C'EST: la planification des opérations pour la fabrication traditionnelle de pièces simples\n\nla fabrication de séries simples sur machines-outils traditionnelles\n\nla possibilité de fabrication en série sur machines CNC réglées à cet effet\n\nla vérification de la qualité des pièces produites\n\nla résolution des problèmes relevant du quotidien à l’atelier\n\nUne scolarité obligatoire achevée\n\nUne aptitude à travailler en équipe\n\nUne passion pour la transformation du métal",
+        "de": "Apprenti mécanicien de production CFC Apprentissages Postuler AU QUOTIDIEN MÉCANICIEN DE PRODUCTION C'EST: la planification des opérations pour la fabrication traditionnelle de pièces simples\n\nla fabrication de séries simples sur machines-outils traditionnelles\n\nla possibilité de fabrication en série sur machines CNC réglées à cet effet\n\nla vérification de la qualité des pièces produites\n\nla résolution des problèmes relevant du quotidien à l’atelier\n\nUne scolarité obligatoire achevée\n\nUne aptitude à travailler en équipe\n\nUne passion pour la transformation du métal"
+      },
+      "needsRetranslation": true,
+      "location": "Switzerland (Mex)",
+      "canton": "VD",
+      "url": "https://jobs.bobst.com/Vacancies/9228/Description/3",
+      "source": "Bobst Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-26T14:13:46.964Z",
+      "addressLocality": "Switzerland (Mex)",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "28.08.2026",
+      "applyUrl": "https://jobs.bobst.com/Vacancies/9228/Description/3",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "department": "Apprenticeship",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-09-26T14:13:46.964Z"
+    },
+    {
+      "id": "bobst-9b1013c9b68b",
+      "slug": "stagiaire-mpc-3-1-ressources-humaines-formation-developpement-bobst-ch",
+      "slugByLocale": {
+        "fr": "stagiaire-mpc-3-1-ressources-humaines-formation-developpement-bobst-ch",
+        "it": "stagiaire-mpc-3-1-ressources-humaines-formation-developpement-bobst-ch",
+        "en": "stagiaire-mpc-3-1-ressources-humaines-formation-developpement-bobst-ch",
+        "de": "stagiaire-mpc-3-1-ressources-humaines-formation-developpement-bobst-ch"
+      },
+      "company": "Bobst",
+      "companyKey": "bobst",
+      "companyDomain": "bobst.com",
+      "title": "Stagiaire MPC (3+1) - Ressources Humaines - Formation & Développement",
+      "titleByLocale": {
+        "fr": "Stagiaire MPC (3+1) - Ressources Humaines - Formation & Développement",
+        "it": "Stagiaire MPC (3+1) - Ressources Humaines - Formation & Développement",
+        "en": "Stagiaire MPC (3+1) - Ressources Humaines - Formation & Développement",
+        "de": "Stagiaire MPC (3+1) - Ressources Humaines - Formation & Développement"
+      },
+      "description": "Stagiaire MPC (3+1) - Ressources Humaines - Formation & Développement Apprentissages Postuler Pour la prochaine rentrée du mois d'août, nous sommes à la recherche d'un/une stagiaire pour un stage d'une année permettant d'obtenir une maturité professionnelle commerciale (MPC 3+1) dans notre service HR - Formation Continue (support aux clients internes, organisation de la logistique des formations, tenue de tableaux de bord, établissement des statistiques, création de documents de communication interne, contact avec les fournisseurs externes de formations) Connaissances et savoir faire exigé Langue : Français (excellente maîtrise) / Anglais (bonnes connaissances)\n\nInformatique : Word, Excel, PowerPoint, Outlook, SAP un atout\n\nConnaissance ou intérêt dans la gestion des Ressources Humaines\n\nQualités: curiosité, ouverture d'esprit, initiative, proactivité, organisé, autonome, esprit d'équipe, bonne capacité d'expression et de communication, rigueur, gestion du temps, orientation client, discrétion et respect de la confidentialité",
+      "descriptionByLocale": {
+        "fr": "Stagiaire MPC (3+1) - Ressources Humaines - Formation & Développement Apprentissages Postuler Pour la prochaine rentrée du mois d'août, nous sommes à la recherche d'un/une stagiaire pour un stage d'une année permettant d'obtenir une maturité professionnelle commerciale (MPC 3+1) dans notre service HR - Formation Continue (support aux clients internes, organisation de la logistique des formations, tenue de tableaux de bord, établissement des statistiques, création de documents de communication interne, contact avec les fournisseurs externes de formations) Connaissances et savoir faire exigé Langue : Français (excellente maîtrise) / Anglais (bonnes connaissances)\n\nInformatique : Word, Excel, PowerPoint, Outlook, SAP un atout\n\nConnaissance ou intérêt dans la gestion des Ressources Humaines\n\nQualités: curiosité, ouverture d'esprit, initiative, proactivité, organisé, autonome, esprit d'équipe, bonne capacité d'expression et de communication, rigueur, gestion du temps, orientation client, discrétion et respect de la confidentialité",
+        "it": "Stagiaire MPC (3+1) - Ressources Humaines - Formation & Développement Apprentissages Postuler Pour la prochaine rentrée du mois d'août, nous sommes à la recherche d'un/une stagiaire pour un stage d'une année permettant d'obtenir une maturité professionnelle commerciale (MPC 3+1) dans notre service HR - Formation Continue (support aux clients internes, organisation de la logistique des formations, tenue de tableaux de bord, établissement des statistiques, création de documents de communication interne, contact avec les fournisseurs externes de formations) Connaissances et savoir faire exigé Langue : Français (excellente maîtrise) / Anglais (bonnes connaissances)\n\nInformatique : Word, Excel, PowerPoint, Outlook, SAP un atout\n\nConnaissance ou intérêt dans la gestion des Ressources Humaines\n\nQualités: curiosité, ouverture d'esprit, initiative, proactivité, organisé, autonome, esprit d'équipe, bonne capacité d'expression et de communication, rigueur, gestion du temps, orientation client, discrétion et respect de la confidentialité",
+        "en": "Stagiaire MPC (3+1) - Ressources Humaines - Formation & Développement Apprentissages Postuler Pour la prochaine rentrée du mois d'août, nous sommes à la recherche d'un/une stagiaire pour un stage d'une année permettant d'obtenir une maturité professionnelle commerciale (MPC 3+1) dans notre service HR - Formation Continue (support aux clients internes, organisation de la logistique des formations, tenue de tableaux de bord, établissement des statistiques, création de documents de communication interne, contact avec les fournisseurs externes de formations) Connaissances et savoir faire exigé Langue : Français (excellente maîtrise) / Anglais (bonnes connaissances)\n\nInformatique : Word, Excel, PowerPoint, Outlook, SAP un atout\n\nConnaissance ou intérêt dans la gestion des Ressources Humaines\n\nQualités: curiosité, ouverture d'esprit, initiative, proactivité, organisé, autonome, esprit d'équipe, bonne capacité d'expression et de communication, rigueur, gestion du temps, orientation client, discrétion et respect de la confidentialité",
+        "de": "Stagiaire MPC (3+1) - Ressources Humaines - Formation & Développement Apprentissages Postuler Pour la prochaine rentrée du mois d'août, nous sommes à la recherche d'un/une stagiaire pour un stage d'une année permettant d'obtenir une maturité professionnelle commerciale (MPC 3+1) dans notre service HR - Formation Continue (support aux clients internes, organisation de la logistique des formations, tenue de tableaux de bord, établissement des statistiques, création de documents de communication interne, contact avec les fournisseurs externes de formations) Connaissances et savoir faire exigé Langue : Français (excellente maîtrise) / Anglais (bonnes connaissances)\n\nInformatique : Word, Excel, PowerPoint, Outlook, SAP un atout\n\nConnaissance ou intérêt dans la gestion des Ressources Humaines\n\nQualités: curiosité, ouverture d'esprit, initiative, proactivité, organisé, autonome, esprit d'équipe, bonne capacité d'expression et de communication, rigueur, gestion du temps, orientation client, discrétion et respect de la confidentialité"
+      },
+      "needsRetranslation": true,
+      "location": "Switzerland (Mex)",
+      "canton": "VD",
+      "url": "https://jobs.bobst.com/Vacancies/9229/Description/3",
+      "source": "Bobst Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-26T14:13:46.215Z",
+      "addressLocality": "Switzerland (Mex)",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "28.08.2026",
+      "applyUrl": "https://jobs.bobst.com/Vacancies/9229/Description/3",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "department": "Human Resources (HR)",
+      "salaryMin": 51000,
+      "salaryMax": 77500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-09-26T14:13:46.215Z"
+    },
+    {
+      "id": "bobst-7953b2006541",
+      "slug": "stagista-mpc-3-1-hr-centro-di-formazione-bobst-switzerland-mex",
+      "slugByLocale": {
+        "fr": "stagiaire-mpc-3-1-rh-centre-de-formation-bobst-ch",
+        "it": "stagista-mpc-3-1-hr-centro-di-formazione-bobst-switzerland-mex",
+        "en": "intern-mpc-3-1-hr-training-centre-bobst-switzerland-mex",
+        "de": "praktikant-mpc-3-1-hr-ausbildungszentrum-bobst-switzerland-mex"
+      },
+      "company": "Bobst",
+      "companyKey": "bobst",
+      "companyDomain": "bobst.com",
+      "title": "Stagiaire MPC (3+1) - RH - Centre de Formation",
+      "titleByLocale": {
+        "fr": "Stagiaire MPC (3+1) - RH - Centre de Formation",
+        "it": "Stagiaire MPC (3+1) - RH - Centre de Formation",
+        "en": "Stagiaire MPC (3+1) - RH - Centre de Formation",
+        "de": "Stagiaire MPC (3+1) - RH - Centre de Formation"
+      },
+      "description": "Stagiaire MPC (3+1) - RH - Centre de Formation Apprentissages Postuler Pour la prochaine rentrée du mois d'août, nous sommes à la recherche d'un/une stagiaire pour un stage d'une année permettant d'obtenir une maturité professionnelle commerciale (MPC 3+1) dans notre service HR - Centre de Formation (création de commandes, support aux clients internes, organisation de la logistique des formations, tenue de tableaux de bord, établissement des statistiques) Connaissances et savoir faire exigé Langue : Français (excellente maîtrise) / Anglais (bonnes connaissances)\n\nInformatique : Word, Excel, PowerPoint, Outlook, SAP un atout\n\nQualités: curiosité, ouverture d'esprit, initiative, proactivité, organisé, autonome, esprit d'équipe, bonne capacité d'expression et de communication, rigueur, gestion du temps, orientation client, discrétion et respect de la confidentialité",
+      "descriptionByLocale": {
+        "fr": "Stagiaire MPC (3+1) - RH - Centre de Formation Apprentissages Postuler Pour la prochaine rentrée du mois d'août, nous sommes à la recherche d'un/une stagiaire pour un stage d'une année permettant d'obtenir une maturité professionnelle commerciale (MPC 3+1) dans notre service HR - Centre de Formation (création de commandes, support aux clients internes, organisation de la logistique des formations, tenue de tableaux de bord, établissement des statistiques) Connaissances et savoir faire exigé Langue : Français (excellente maîtrise) / Anglais (bonnes connaissances)\n\nInformatique : Word, Excel, PowerPoint, Outlook, SAP un atout\n\nQualités: curiosité, ouverture d'esprit, initiative, proactivité, organisé, autonome, esprit d'équipe, bonne capacité d'expression et de communication, rigueur, gestion du temps, orientation client, discrétion et respect de la confidentialité",
+        "it": "Stagiaire MPC (3+1) - RH - Centre de Formation Apprentissages Postuler Pour la prochaine rentrée du mois d'août, nous sommes à la recherche d'un/une stagiaire pour un stage d'une année permettant d'obtenir une maturité professionnelle commerciale (MPC 3+1) dans notre service HR - Centre de Formation (création de commandes, support aux clients internes, organisation de la logistique des formations, tenue de tableaux de bord, établissement des statistiques) Connaissances et savoir faire exigé Langue : Français (excellente maîtrise) / Anglais (bonnes connaissances)\n\nInformatique : Word, Excel, PowerPoint, Outlook, SAP un atout\n\nQualités: curiosité, ouverture d'esprit, initiative, proactivité, organisé, autonome, esprit d'équipe, bonne capacité d'expression et de communication, rigueur, gestion du temps, orientation client, discrétion et respect de la confidentialité",
+        "en": "Stagiaire MPC (3+1) - RH - Centre de Formation Apprentissages Postuler Pour la prochaine rentrée du mois d'août, nous sommes à la recherche d'un/une stagiaire pour un stage d'une année permettant d'obtenir une maturité professionnelle commerciale (MPC 3+1) dans notre service HR - Centre de Formation (création de commandes, support aux clients internes, organisation de la logistique des formations, tenue de tableaux de bord, établissement des statistiques) Connaissances et savoir faire exigé Langue : Français (excellente maîtrise) / Anglais (bonnes connaissances)\n\nInformatique : Word, Excel, PowerPoint, Outlook, SAP un atout\n\nQualités: curiosité, ouverture d'esprit, initiative, proactivité, organisé, autonome, esprit d'équipe, bonne capacité d'expression et de communication, rigueur, gestion du temps, orientation client, discrétion et respect de la confidentialité",
+        "de": "Stagiaire MPC (3+1) - RH - Centre de Formation Apprentissages Postuler Pour la prochaine rentrée du mois d'août, nous sommes à la recherche d'un/une stagiaire pour un stage d'une année permettant d'obtenir une maturité professionnelle commerciale (MPC 3+1) dans notre service HR - Centre de Formation (création de commandes, support aux clients internes, organisation de la logistique des formations, tenue de tableaux de bord, établissement des statistiques) Connaissances et savoir faire exigé Langue : Français (excellente maîtrise) / Anglais (bonnes connaissances)\n\nInformatique : Word, Excel, PowerPoint, Outlook, SAP un atout\n\nQualités: curiosité, ouverture d'esprit, initiative, proactivité, organisé, autonome, esprit d'équipe, bonne capacité d'expression et de communication, rigueur, gestion du temps, orientation client, discrétion et respect de la confidentialité"
+      },
+      "needsRetranslation": true,
+      "location": "Switzerland (Mex)",
+      "canton": "VD",
+      "url": "https://jobs.bobst.com/Vacancies/9230/Description/3",
+      "source": "Bobst Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-26T14:13:45.387Z",
+      "addressLocality": "Switzerland (Mex)",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "28.08.2026",
+      "applyUrl": "https://jobs.bobst.com/Vacancies/9230/Description/3",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "department": "Human Resources (HR)",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-mpc-3-1-rh-centre-de-formation-bobst-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-mpc-3-1-rh-centre-de-formation-bobst-ch"
+      ],
+      "salaryMin": 51000,
+      "salaryMax": 77500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-09-26T14:13:45.387Z"
+    },
+    {
+      "id": "bobst-3621de669a99",
+      "slug": "stagiaire-mpc-3-1-rh-environnement-sante-et-securite-bobst-ch",
+      "slugByLocale": {
+        "fr": "stagiaire-mpc-3-1-rh-environnement-sante-et-securite-bobst-ch",
+        "it": "stagiaire-mpc-3-1-rh-environnement-sante-et-securite-bobst-ch",
+        "en": "stagiaire-mpc-3-1-rh-environnement-sante-et-securite-bobst-ch",
+        "de": "stagiaire-mpc-3-1-rh-environnement-sante-et-securite-bobst-ch"
+      },
+      "company": "Bobst",
+      "companyKey": "bobst",
+      "companyDomain": "bobst.com",
+      "title": "Stagiaire MPC (3+1) - RH – Environnement, Santé et Sécurité",
+      "titleByLocale": {
+        "fr": "Stagiaire MPC (3+1) - RH – Environnement, Santé et Sécurité",
+        "it": "Stagiaire MPC (3+1) - RH – Environnement, Santé et Sécurité",
+        "en": "Stagiaire MPC (3+1) - RH – Environnement, Santé et Sécurité",
+        "de": "Stagiaire MPC (3+1) - RH – Environnement, Santé et Sécurité"
+      },
+      "description": "Stagiaire MPC (3+1) - RH – Environnement, Santé et Sécurité Apprentissages Postuler Pour la prochaine rentrée du mois d'août, nous sommes à la recherche d'un/une stagiaire pour un stage d'une année permettant d'obtenir une maturité professionnelle commerciale (MPC 3+1) dans notre service HR - Formation Continue (support aux clients internes, organisation de la logistique des formations, tenue de tableaux de bord, établissement des statistiques, création de documents de communication interne, contact avec les fournisseurs externes de formations) Connaissances et savoir faire exigé * Langue : Français (excellente maîtrise) / Anglais (bonnes connaissances) * Informatique : Word, Excel, PowerPoint, Outlook, SAP un atout * Connaissance ou intérêt dans la gestion des Ressources Humaines * Qualités: curiosité, ouverture d\\'esprit, initiative, proactivité, organisé, autonome, esprit d'équipe, bonne capacité d'expression et de communication, rigueur, gestion du temps, orientation client, discrétion et respect de la confidentialité",
+      "descriptionByLocale": {
+        "fr": "Stagiaire MPC (3+1) - RH – Environnement, Santé et Sécurité Apprentissages Postuler Pour la prochaine rentrée du mois d'août, nous sommes à la recherche d'un/une stagiaire pour un stage d'une année permettant d'obtenir une maturité professionnelle commerciale (MPC 3+1) dans notre service HR - Formation Continue (support aux clients internes, organisation de la logistique des formations, tenue de tableaux de bord, établissement des statistiques, création de documents de communication interne, contact avec les fournisseurs externes de formations) Connaissances et savoir faire exigé * Langue : Français (excellente maîtrise) / Anglais (bonnes connaissances) * Informatique : Word, Excel, PowerPoint, Outlook, SAP un atout * Connaissance ou intérêt dans la gestion des Ressources Humaines * Qualités: curiosité, ouverture d\\'esprit, initiative, proactivité, organisé, autonome, esprit d'équipe, bonne capacité d'expression et de communication, rigueur, gestion du temps, orientation client, discrétion et respect de la confidentialité",
+        "it": "Stagiaire MPC (3+1) - RH – Environnement, Santé et Sécurité Apprentissages Postuler Pour la prochaine rentrée du mois d'août, nous sommes à la recherche d'un/une stagiaire pour un stage d'une année permettant d'obtenir une maturité professionnelle commerciale (MPC 3+1) dans notre service HR - Formation Continue (support aux clients internes, organisation de la logistique des formations, tenue de tableaux de bord, établissement des statistiques, création de documents de communication interne, contact avec les fournisseurs externes de formations) Connaissances et savoir faire exigé * Langue : Français (excellente maîtrise) / Anglais (bonnes connaissances) * Informatique : Word, Excel, PowerPoint, Outlook, SAP un atout * Connaissance ou intérêt dans la gestion des Ressources Humaines * Qualités: curiosité, ouverture d\\'esprit, initiative, proactivité, organisé, autonome, esprit d'équipe, bonne capacité d'expression et de communication, rigueur, gestion du temps, orientation client, discrétion et respect de la confidentialité",
+        "en": "Stagiaire MPC (3+1) - RH – Environnement, Santé et Sécurité Apprentissages Postuler Pour la prochaine rentrée du mois d'août, nous sommes à la recherche d'un/une stagiaire pour un stage d'une année permettant d'obtenir une maturité professionnelle commerciale (MPC 3+1) dans notre service HR - Formation Continue (support aux clients internes, organisation de la logistique des formations, tenue de tableaux de bord, établissement des statistiques, création de documents de communication interne, contact avec les fournisseurs externes de formations) Connaissances et savoir faire exigé * Langue : Français (excellente maîtrise) / Anglais (bonnes connaissances) * Informatique : Word, Excel, PowerPoint, Outlook, SAP un atout * Connaissance ou intérêt dans la gestion des Ressources Humaines * Qualités: curiosité, ouverture d\\'esprit, initiative, proactivité, organisé, autonome, esprit d'équipe, bonne capacité d'expression et de communication, rigueur, gestion du temps, orientation client, discrétion et respect de la confidentialité",
+        "de": "Stagiaire MPC (3+1) - RH – Environnement, Santé et Sécurité Apprentissages Postuler Pour la prochaine rentrée du mois d'août, nous sommes à la recherche d'un/une stagiaire pour un stage d'une année permettant d'obtenir une maturité professionnelle commerciale (MPC 3+1) dans notre service HR - Formation Continue (support aux clients internes, organisation de la logistique des formations, tenue de tableaux de bord, établissement des statistiques, création de documents de communication interne, contact avec les fournisseurs externes de formations) Connaissances et savoir faire exigé * Langue : Français (excellente maîtrise) / Anglais (bonnes connaissances) * Informatique : Word, Excel, PowerPoint, Outlook, SAP un atout * Connaissance ou intérêt dans la gestion des Ressources Humaines * Qualités: curiosité, ouverture d\\'esprit, initiative, proactivité, organisé, autonome, esprit d'équipe, bonne capacité d'expression et de communication, rigueur, gestion du temps, orientation client, discrétion et respect de la confidentialité"
+      },
+      "needsRetranslation": true,
+      "location": "Switzerland (Mex)",
+      "canton": "VD",
+      "url": "https://jobs.bobst.com/Vacancies/9231/Description/3",
+      "source": "Bobst Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-26T14:13:44.610Z",
+      "addressLocality": "Switzerland (Mex)",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "28.08.2026",
+      "applyUrl": "https://jobs.bobst.com/Vacancies/9231/Description/3",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "department": "Human Resources (HR)",
+      "salaryMin": 51000,
+      "salaryMax": 77500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-09-26T14:13:44.610Z"
+    },
+    {
+      "id": "bobst-06d7cab87f11",
+      "slug": "2025-stagiaire-mpc-3-1-ressources-humaines-centre-de-formation-bobst-ch",
+      "slugByLocale": {
+        "fr": "2025-stagiaire-mpc-3-1-ressources-humaines-centre-de-formation-bobst-ch",
+        "it": "2025-stagiaire-mpc-3-1-ressources-humaines-centre-de-formation-bobst-ch",
+        "en": "2025-stagiaire-mpc-3-1-ressources-humaines-centre-de-formation-bobst-ch",
+        "de": "2025-stagiaire-mpc-3-1-ressources-humaines-centre-de-formation-bobst-ch"
+      },
+      "company": "Bobst",
+      "companyKey": "bobst",
+      "companyDomain": "bobst.com",
+      "title": "2025_Stagiaire MPC (3+1) - Ressources Humaines - Centre de Formation",
+      "titleByLocale": {
+        "fr": "2025_Stagiaire MPC (3+1) - Ressources Humaines - Centre de Formation",
+        "it": "2025_Stagiaire MPC (3+1) - Ressources Humaines - Centre de Formation",
+        "en": "2025_Stagiaire MPC (3+1) - Ressources Humaines - Centre de Formation",
+        "de": "2025_Stagiaire MPC (3+1) - Ressources Humaines - Centre de Formation"
+      },
+      "description": "2025_Stagiaire MPC (3+1) - Ressources Humaines - Centre de Formation Apprentissages Postuler Pour la prochaine rentrée du mois d'août, nous sommes à la recherche d'un/une stagiaire pour un stage d'une année permettant d'obtenir une maturité professionnelle commerciale (MPC 3+1) dans notre service HR - Centre de Formation (création de commandes, support aux clients internes, organisation de la logistique des formations, tenue de tableaux de bord, établissement des statistiques) Connaissances et savoir faire exigé Langue : Français (excellente maîtrise) / Anglais (bonnes connaissances)\n\nInformatique : Word, Excel, PowerPoint, Outlook, SAP un atout\n\nQualités: curiosité, ouverture d'esprit, initiative, proactivité, organisé, autonome, esprit d'équipe, bonne capacité d'expression et de communication, rigueur, gestion du temps, orientation client, discrétion et respect de la confidentialité",
+      "descriptionByLocale": {
+        "fr": "2025_Stagiaire MPC (3+1) - Ressources Humaines - Centre de Formation Apprentissages Postuler Pour la prochaine rentrée du mois d'août, nous sommes à la recherche d'un/une stagiaire pour un stage d'une année permettant d'obtenir une maturité professionnelle commerciale (MPC 3+1) dans notre service HR - Centre de Formation (création de commandes, support aux clients internes, organisation de la logistique des formations, tenue de tableaux de bord, établissement des statistiques) Connaissances et savoir faire exigé Langue : Français (excellente maîtrise) / Anglais (bonnes connaissances)\n\nInformatique : Word, Excel, PowerPoint, Outlook, SAP un atout\n\nQualités: curiosité, ouverture d'esprit, initiative, proactivité, organisé, autonome, esprit d'équipe, bonne capacité d'expression et de communication, rigueur, gestion du temps, orientation client, discrétion et respect de la confidentialité",
+        "it": "2025_Stagiaire MPC (3+1) - Ressources Humaines - Centre de Formation Apprentissages Postuler Pour la prochaine rentrée du mois d'août, nous sommes à la recherche d'un/une stagiaire pour un stage d'une année permettant d'obtenir une maturité professionnelle commerciale (MPC 3+1) dans notre service HR - Centre de Formation (création de commandes, support aux clients internes, organisation de la logistique des formations, tenue de tableaux de bord, établissement des statistiques) Connaissances et savoir faire exigé Langue : Français (excellente maîtrise) / Anglais (bonnes connaissances)\n\nInformatique : Word, Excel, PowerPoint, Outlook, SAP un atout\n\nQualités: curiosité, ouverture d'esprit, initiative, proactivité, organisé, autonome, esprit d'équipe, bonne capacité d'expression et de communication, rigueur, gestion du temps, orientation client, discrétion et respect de la confidentialité",
+        "en": "2025_Stagiaire MPC (3+1) - Ressources Humaines - Centre de Formation Apprentissages Postuler Pour la prochaine rentrée du mois d'août, nous sommes à la recherche d'un/une stagiaire pour un stage d'une année permettant d'obtenir une maturité professionnelle commerciale (MPC 3+1) dans notre service HR - Centre de Formation (création de commandes, support aux clients internes, organisation de la logistique des formations, tenue de tableaux de bord, établissement des statistiques) Connaissances et savoir faire exigé Langue : Français (excellente maîtrise) / Anglais (bonnes connaissances)\n\nInformatique : Word, Excel, PowerPoint, Outlook, SAP un atout\n\nQualités: curiosité, ouverture d'esprit, initiative, proactivité, organisé, autonome, esprit d'équipe, bonne capacité d'expression et de communication, rigueur, gestion du temps, orientation client, discrétion et respect de la confidentialité",
+        "de": "2025_Stagiaire MPC (3+1) - Ressources Humaines - Centre de Formation Apprentissages Postuler Pour la prochaine rentrée du mois d'août, nous sommes à la recherche d'un/une stagiaire pour un stage d'une année permettant d'obtenir une maturité professionnelle commerciale (MPC 3+1) dans notre service HR - Centre de Formation (création de commandes, support aux clients internes, organisation de la logistique des formations, tenue de tableaux de bord, établissement des statistiques) Connaissances et savoir faire exigé Langue : Français (excellente maîtrise) / Anglais (bonnes connaissances)\n\nInformatique : Word, Excel, PowerPoint, Outlook, SAP un atout\n\nQualités: curiosité, ouverture d'esprit, initiative, proactivité, organisé, autonome, esprit d'équipe, bonne capacité d'expression et de communication, rigueur, gestion du temps, orientation client, discrétion et respect de la confidentialité"
+      },
+      "needsRetranslation": true,
+      "location": "Switzerland (Mex)",
+      "canton": "VD",
+      "url": "https://jobs.bobst.com/Vacancies/6267/Description/3",
+      "source": "Bobst Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-26T14:13:43.830Z",
+      "addressLocality": "Switzerland (Mex)",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "03.09.2026",
+      "applyUrl": "https://jobs.bobst.com/Vacancies/6267/Description/3",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "department": "Human Resources (HR)",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-09-03T13:47:59.152Z"
+    },
+    {
+      "id": "bobst-54b2a93e6104",
+      "slug": "apprenti-logisitcien-ne-bobst-ch",
+      "slugByLocale": {
+        "fr": "apprenti-logisitcien-ne-bobst-ch",
+        "it": "apprenti-logisitcien-ne-bobst-ch",
+        "en": "apprenti-logisitcien-ne-bobst-ch",
+        "de": "apprenti-logisitcien-ne-bobst-ch"
+      },
+      "company": "Bobst",
+      "companyKey": "bobst",
+      "companyDomain": "bobst.com",
+      "title": "Apprenti logisitcien-ne",
+      "titleByLocale": {
+        "fr": "Apprenti logisitcien-ne",
+        "it": "Apprenti logisitcien-ne",
+        "en": "Apprenti logisitcien-ne",
+        "de": "Apprenti logisitcien-ne"
+      },
+      "description": "Apprenti logisitcien-ne Apprentissages Postuler AU QUOTIDIEN LOGISTICIEN C'EST la commande d’outillage et de matériel de production\n\nl'utilisation des moyens de transport (élévateurs)\n\nl'utilisation de programmes informatiques\n\nla gestion des gaz et produits toxiques\n\nl'arrivage central des marchandises\n\nla réception, contrôle, conditionnement et transport de marchandises\n\nla gestion de l’outillage et du matériel en stock (magasins)\n\nune scolarité obligatoire achevée",
+      "descriptionByLocale": {
+        "fr": "Apprenti logisitcien-ne Apprentissages Postuler AU QUOTIDIEN LOGISTICIEN C'EST la commande d’outillage et de matériel de production\n\nl'utilisation des moyens de transport (élévateurs)\n\nl'utilisation de programmes informatiques\n\nla gestion des gaz et produits toxiques\n\nl'arrivage central des marchandises\n\nla réception, contrôle, conditionnement et transport de marchandises\n\nla gestion de l’outillage et du matériel en stock (magasins)\n\nune scolarité obligatoire achevée",
+        "it": "Apprenti logisitcien-ne Apprentissages Postuler AU QUOTIDIEN LOGISTICIEN C'EST la commande d’outillage et de matériel de production\n\nl'utilisation des moyens de transport (élévateurs)\n\nl'utilisation de programmes informatiques\n\nla gestion des gaz et produits toxiques\n\nl'arrivage central des marchandises\n\nla réception, contrôle, conditionnement et transport de marchandises\n\nla gestion de l’outillage et du matériel en stock (magasins)\n\nune scolarité obligatoire achevée",
+        "en": "Apprenti logisitcien-ne Apprentissages Postuler AU QUOTIDIEN LOGISTICIEN C'EST la commande d’outillage et de matériel de production\n\nl'utilisation des moyens de transport (élévateurs)\n\nl'utilisation de programmes informatiques\n\nla gestion des gaz et produits toxiques\n\nl'arrivage central des marchandises\n\nla réception, contrôle, conditionnement et transport de marchandises\n\nla gestion de l’outillage et du matériel en stock (magasins)\n\nune scolarité obligatoire achevée",
+        "de": "Apprenti logisitcien-ne Apprentissages Postuler AU QUOTIDIEN LOGISTICIEN C'EST la commande d’outillage et de matériel de production\n\nl'utilisation des moyens de transport (élévateurs)\n\nl'utilisation de programmes informatiques\n\nla gestion des gaz et produits toxiques\n\nl'arrivage central des marchandises\n\nla réception, contrôle, conditionnement et transport de marchandises\n\nla gestion de l’outillage et du matériel en stock (magasins)\n\nune scolarité obligatoire achevée"
+      },
+      "needsRetranslation": true,
+      "location": "Switzerland (Mex)",
+      "canton": "VD",
+      "url": "https://jobs.bobst.com/Vacancies/9224/Description/3",
+      "source": "Bobst Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-26T14:13:43.067Z",
+      "addressLocality": "Switzerland (Mex)",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "09.09.2026",
+      "applyUrl": "https://jobs.bobst.com/Vacancies/9224/Description/3",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "department": "Apprenticeship",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-09-26T14:13:43.067Z"
+    },
+    {
+      "id": "bobst-ddacd8e2accc",
+      "slug": "flagship-event-manager-bobst-ch",
+      "slugByLocale": {
+        "en": "flagship-event-manager-bobst-ch",
+        "it": "flagship-event-manager-bobst-ch",
+        "de": "flagship-event-manager-bobst-ch",
+        "fr": "flagship-event-manager-bobst-ch"
+      },
+      "company": "Bobst",
+      "companyKey": "bobst",
+      "companyDomain": "bobst.com",
+      "title": "Flagship Event Manager",
+      "titleByLocale": {
+        "en": "Flagship Event Manager",
+        "it": "Flagship Event Manager",
+        "de": "Flagship Event Manager",
+        "fr": "Flagship Event Manager"
+      },
+      "description": "Flagship Event Manager BSA - Bobst Mex SA Apply now Want to shape high-impact customer experiences that engage customers and showcase innovation? This role will be located in one of our BOBST entity in EUROPE. As Flagship Event Manager, you will lead the end-to-end delivery of BOBST's flagship customer events, ensuring execution excellence through strong project governance, cross-functional coordination, budget management, and impact measurement. Key \n• Responsibilities Lead the planning and execution of flagship customer events.\n\nManage event timelines, milestones, and end-to-end delivery to ensure execution excellence.\n\nEstablish project governance and prepare and lead steering committee meetings.\n\nMonitor project progress, manage risks and dependencies, and facilitate timely decision-making.\n\nAlign and coordinate cross-functional stakeholders, including Product Lines, Industries, Sales, and Regional MarCom teams.\n\nFoster effective collaboration and manage project communications across all involved parties.\n\nManage event budgets, procurement activities, and agency selection and performance.\n\nMonitor spending and forecasts while ensuring compliance with approved budgets.",
+      "descriptionByLocale": {
+        "en": "Flagship Event Manager BSA - Bobst Mex SA Apply now Want to shape high-impact customer experiences that engage customers and showcase innovation? This role will be located in one of our BOBST entity in EUROPE. As Flagship Event Manager, you will lead the end-to-end delivery of BOBST's flagship customer events, ensuring execution excellence through strong project governance, cross-functional coordination, budget management, and impact measurement. Key \n• Responsibilities Lead the planning and execution of flagship customer events.\n\nManage event timelines, milestones, and end-to-end delivery to ensure execution excellence.\n\nEstablish project governance and prepare and lead steering committee meetings.\n\nMonitor project progress, manage risks and dependencies, and facilitate timely decision-making.\n\nAlign and coordinate cross-functional stakeholders, including Product Lines, Industries, Sales, and Regional MarCom teams.\n\nFoster effective collaboration and manage project communications across all involved parties.\n\nManage event budgets, procurement activities, and agency selection and performance.\n\nMonitor spending and forecasts while ensuring compliance with approved budgets.",
+        "it": "Flagship Event Manager BSA - Bobst Mex SA Apply now Want to shape high-impact customer experiences that engage customers and showcase innovation? This role will be located in one of our BOBST entity in EUROPE. As Flagship Event Manager, you will lead the end-to-end delivery of BOBST's flagship customer events, ensuring execution excellence through strong project governance, cross-functional coordination, budget management, and impact measurement. Key \n• Responsibilities Lead the planning and execution of flagship customer events.\n\nManage event timelines, milestones, and end-to-end delivery to ensure execution excellence.\n\nEstablish project governance and prepare and lead steering committee meetings.\n\nMonitor project progress, manage risks and dependencies, and facilitate timely decision-making.\n\nAlign and coordinate cross-functional stakeholders, including Product Lines, Industries, Sales, and Regional MarCom teams.\n\nFoster effective collaboration and manage project communications across all involved parties.\n\nManage event budgets, procurement activities, and agency selection and performance.\n\nMonitor spending and forecasts while ensuring compliance with approved budgets.",
+        "de": "Flagship Event Manager BSA - Bobst Mex SA Apply now Want to shape high-impact customer experiences that engage customers and showcase innovation? This role will be located in one of our BOBST entity in EUROPE. As Flagship Event Manager, you will lead the end-to-end delivery of BOBST's flagship customer events, ensuring execution excellence through strong project governance, cross-functional coordination, budget management, and impact measurement. Key \n• Responsibilities Lead the planning and execution of flagship customer events.\n\nManage event timelines, milestones, and end-to-end delivery to ensure execution excellence.\n\nEstablish project governance and prepare and lead steering committee meetings.\n\nMonitor project progress, manage risks and dependencies, and facilitate timely decision-making.\n\nAlign and coordinate cross-functional stakeholders, including Product Lines, Industries, Sales, and Regional MarCom teams.\n\nFoster effective collaboration and manage project communications across all involved parties.\n\nManage event budgets, procurement activities, and agency selection and performance.\n\nMonitor spending and forecasts while ensuring compliance with approved budgets.",
+        "fr": "Flagship Event Manager BSA - Bobst Mex SA Apply now Want to shape high-impact customer experiences that engage customers and showcase innovation? This role will be located in one of our BOBST entity in EUROPE. As Flagship Event Manager, you will lead the end-to-end delivery of BOBST's flagship customer events, ensuring execution excellence through strong project governance, cross-functional coordination, budget management, and impact measurement. Key \n• Responsibilities Lead the planning and execution of flagship customer events.\n\nManage event timelines, milestones, and end-to-end delivery to ensure execution excellence.\n\nEstablish project governance and prepare and lead steering committee meetings.\n\nMonitor project progress, manage risks and dependencies, and facilitate timely decision-making.\n\nAlign and coordinate cross-functional stakeholders, including Product Lines, Industries, Sales, and Regional MarCom teams.\n\nFoster effective collaboration and manage project communications across all involved parties.\n\nManage event budgets, procurement activities, and agency selection and performance.\n\nMonitor spending and forecasts while ensuring compliance with approved budgets."
+      },
+      "needsRetranslation": true,
+      "location": "Switzerland (Mex)",
+      "canton": "VD",
+      "url": "https://jobs.bobst.com/Vacancies/9307/Description/2",
+      "source": "Bobst Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-26T14:13:42.234Z",
+      "addressLocality": "Switzerland (Mex)",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "25.09.2026",
+      "applyUrl": "https://jobs.bobst.com/Vacancies/9307/Description/2",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "department": "Marketing",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-09-26T14:13:42.234Z"
     }
   ]
 }

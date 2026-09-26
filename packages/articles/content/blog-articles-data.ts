@@ -36198,6 +36198,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'merone-pendolare-frontiera-ch',
+ category: 'fiscale',
+ date: '2026-09-26T14:33:30.972Z',
+ image: '/images/blog/merone-pendolare-frontiera-ch.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'rapina-como-residente-ticino',
+ category: 'novita',
+ date: '2026-09-26T15:24:58.017Z',
+ image: '/images/blog/rapina-como-residente-ticino.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

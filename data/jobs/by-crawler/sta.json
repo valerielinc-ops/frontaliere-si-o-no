@@ -1,87 +1,14 @@
 {
   "crawlerKey": "sta",
-  "assembledAt": "2026-09-25T14:56:38.209Z",
+  "assembledAt": "2026-09-26T14:07:25.450Z",
   "jobs": [
-    {
-      "id": "sta-42baf43f9942",
-      "slug": "automatikmonteur-in-per-schaltschrankmontage-sta-personal-ag-zurich",
-      "slugByLocale": {
-        "de": "automatikmonteur-in-fur-schaltschrankmontage-zurich-zurich-sta-ch",
-        "it": "automatikmonteur-in-per-schaltschrankmontage-sta-personal-ag-zurich",
-        "en": "automatikmonteur-in-fur-schaltschrankmontage-zurich-zurich-sta-ch",
-        "fr": "automatikmonteur-in-fur-schaltschrankmontage-zurich-zurich-sta-ch"
-      },
-      "company": "STA Personal AG",
-      "companyKey": "sta",
-      "companyDomain": "sta.jobs",
-      "title": "Automatikmonteur/in für Schaltschrankmontage",
-      "titleByLocale": {
-        "de": "Automatikmonteur/in für Schaltschrankmontage",
-        "it": "Automatikmonteur/in per Schaltschrankmontage",
-        "en": "Automatikmonteur/in für Schaltschrankmontage",
-        "fr": "Automatikmonteur/in für Schaltschrankmontage"
-      },
-      "description": "Tätigkeiten Montagearbeiten in der Produktionsumgebung ausführen Schaltschränke fachgerecht aufbauen und verdrahten Umrichter montieren und in Baugruppen integrieren Komponenten für Magnetlager sorgfältig zusammenbauen \n• Anforderungen Lehrabschluss als Automatikmonteurin oder Automatikmonteur EFZ Gutes Verständnis für elektrische und mechanische Zusammenhänge Exakte und zuverlässige Arbeitsweise im Montagebereich Angebot Anspruchsvolle \n• Aufgaben in einem technischen Spezialgebiet Raum für berufliche Weiterbildung Zeitgemässe Arbeitsmittel im modernen Produktionsumfeld",
-      "descriptionByLocale": {
-        "de": "Tätigkeiten Montagearbeiten in der Produktionsumgebung ausführen Schaltschränke fachgerecht aufbauen und verdrahten Umrichter montieren und in Baugruppen integrieren Komponenten für Magnetlager sorgfältig zusammenbauen \n• Anforderungen Lehrabschluss als Automatikmonteurin oder Automatikmonteur EFZ Gutes Verständnis für elektrische und mechanische Zusammenhänge Exakte und zuverlässige Arbeitsweise im Montagebereich Angebot Anspruchsvolle \n• Aufgaben in einem technischen Spezialgebiet Raum für berufliche Weiterbildung Zeitgemässe Arbeitsmittel im modernen Produktionsumfeld",
-        "it": "Attività Il lavoro di assemblaggio nell'ambiente di produzione esegue armadi interruttori professionalmente assemblare e cablare convertitori assemblare e assemblare accuratamente i componenti per cuscinetti magnetici\n• Requisiti Grado di insegnamento come installatore automatico o installatore automatico EFZ Buona comprensione delle relazioni elettriche e meccaniche Metodo di lavoro esatto e affidabile nel settore dell'assemblaggio\n• Compiti in una specialità tecnica Spazio per la formazione professionale Attrezzature di lavoro contemporanee nell'ambiente di produzione moderno",
-        "en": "Activities Assembly work in the production environment perform switchgear cabinets professionally assemble and wire converters assemble and carefully assemble components for magnetic bearings\n• Requirements Teaching degree as an automatic installer or automatic installer EFZ Good understanding of electrical and mechanical relationships Exact and reliable working method in the assembly sector Offer demanding\n• Tasks in a technical specialty Space for Vocational Training Contemporary work equipment in the modern production environment",
-        "fr": "Activités Le travail d'assemblage dans l'environnement de production effectue l'assemblage professionnel des armoires de commutation et des convertisseurs de fils assemblent et assemblent soigneusement les composants pour roulements magnétiques\n• Exigences Diplôme d'enseignement en tant qu'installateur automatique ou installateur automatique EFZ Bonne compréhension des relations électriques et mécaniques Méthode de travail exacte et fiable dans le secteur de l'assemblage Offre exigeante\n• Tâches dans une spécialité technique Espace de formation professionnelle Équipement de travail contemporain dans l'environnement de production moderne"
-      },
-      "location": "Zürich, Zürich",
-      "canton": "ZH",
-      "url": "https://www.sta.jobs/stellen/automatikmonteur-in-zuerich-temporaer-111463/",
-      "source": "STA Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:32.165Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-25",
-      "applyUrl": "https://www.sta.jobs/stellen/automatikmonteur-in-zuerich-temporaer-111463/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "automatikmonteur-in-fur-schaltschrankmontage-zurich-zurich-sta-ch"
-        ]
-      },
-      "previousSlugs": [
-        "automatikmonteur-in-fur-schaltschrankmontage-zurich-zurich-sta-ch"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-25T14:56:32.165Z"
-    },
     {
       "id": "sta-29f2e636507e",
       "slug": "bauarbeiter-in-per-genio-civile-con-moderner-technik-sta-personal-ag-aarau",
       "slugByLocale": {
-        "de": "bauarbeiter-in-fur-tiefbau-mit-moderner-technik-aarau-aargau-sta-ch",
         "it": "bauarbeiter-in-per-genio-civile-con-moderner-technik-sta-personal-ag-aarau",
         "en": "bauarbeiter-in-fur-tiefbau-mit-moderner-technik-aarau-aargau-sta-ch",
+        "de": "bauarbeiter-in-fur-tiefbau-mit-moderner-technik-aarau-aargau-sta-ch",
         "fr": "bauarbeiter-in-fur-tiefbau-mit-moderner-technik-aarau-aargau-sta-ch"
       },
       "company": "STA Personal AG",
@@ -89,16 +16,16 @@
       "companyDomain": "sta.jobs",
       "title": "Bauarbeiter/in für Tiefbau mit moderner Technik",
       "titleByLocale": {
-        "de": "Bauarbeiter/in für Tiefbau mit moderner Technik",
         "it": "Bauarbeiter/in per genio civile con moderner Technik",
         "en": "Bauarbeiter/in für Tiefbau mit moderner Technik",
+        "de": "Bauarbeiter/in für Tiefbau mit moderner Technik",
         "fr": "Bauarbeiter/in für Tiefbau mit moderner Technik"
       },
       "description": "Tätigkeiten Unterstützung bei Aushubarbeiten auf der Baustelle Ausführung von Bodenstabilisierungs-Massnahmen Mithilfe bei Transportaufgaben auf der Baustelle Mitwirkung beim Rückbau von Bauobjekten Allgemeine Hilfstätigkeiten im Tiefbaubereich \n• Anforderungen Erfahrung im Tiefbau oder als Bauarbeiter von Vorteil Bereitschaft zu körperlich anspruchsvoller Arbeit im Freien Teamorientierte Arbeitsweise und Zuverlässigkeit Grundkenntnisse im Umgang mit Baumaschinen und Werkzeugen Flexibilität und Einsatzbereitschaft bei wechselnden \n• Aufgaben Angebot Arbeiten in einem erfahrenen und engagierten Team Einsatz moderner Technik und Maschinen Sicherer Arbeitsplatz in einem professionellen Tiefbauunternehmen",
       "descriptionByLocale": {
-        "de": "Tätigkeiten Unterstützung bei Aushubarbeiten auf der Baustelle Ausführung von Bodenstabilisierungs-Massnahmen Mithilfe bei Transportaufgaben auf der Baustelle Mitwirkung beim Rückbau von Bauobjekten Allgemeine Hilfstätigkeiten im Tiefbaubereich \n• Anforderungen Erfahrung im Tiefbau oder als Bauarbeiter von Vorteil Bereitschaft zu körperlich anspruchsvoller Arbeit im Freien Teamorientierte Arbeitsweise und Zuverlässigkeit Grundkenntnisse im Umgang mit Baumaschinen und Werkzeugen Flexibilität und Einsatzbereitschaft bei wechselnden \n• Aufgaben Angebot Arbeiten in einem erfahrenen und engagierten Team Einsatz moderner Technik und Maschinen Sicherer Arbeitsplatz in einem professionellen Tiefbauunternehmen",
         "it": "Attività Assistenza in lavori di scavo sul cantiere Attuazione delle misure di stabilizzazione del suolo Assistenza nei compiti di trasporto sul cantiere Assistenza nello smantellamento degli oggetti da costruzione Attività ausiliarie generali nel settore dell'ingegneria civile\n• Esperienza nell'ingegneria civile o come costruttore di vantaggi Prontezza per il lavoro fisicamente impegnativo nel lavoro e nell'affidabilità all'aperto Competenze di base nella gestione di macchine e utensili da costruzione Flessibilità e disponibilità per il cambiamento\n• Lavoro in un team esperto e dedicato Utilizzo di tecnologie e macchinari moderni Posto di lavoro sicuro in una società di ingegneria civile professionale",
         "en": "Activities Assistance in excavation work on the construction site Implementation of soil stabilization measures Assistance in transport tasks on the construction site Assistance in the dismantling of construction objects General auxiliary activities in the civil engineering sector\n• Experience in civil engineering or as a construction worker of advantage Readiness for physically demanding work in outdoors team-oriented work and reliability Basic knowledge in handling construction machinery and tools Flexibility and readiness for changing\n• Tasks Offer Work in an experienced and dedicated team Using modern technology and machinery Secure workplace in a professional civil engineering company",
+        "de": "Tätigkeiten Unterstützung bei Aushubarbeiten auf der Baustelle Ausführung von Bodenstabilisierungs-Massnahmen Mithilfe bei Transportaufgaben auf der Baustelle Mitwirkung beim Rückbau von Bauobjekten Allgemeine Hilfstätigkeiten im Tiefbaubereich \n• Anforderungen Erfahrung im Tiefbau oder als Bauarbeiter von Vorteil Bereitschaft zu körperlich anspruchsvoller Arbeit im Freien Teamorientierte Arbeitsweise und Zuverlässigkeit Grundkenntnisse im Umgang mit Baumaschinen und Werkzeugen Flexibilität und Einsatzbereitschaft bei wechselnden \n• Aufgaben Angebot Arbeiten in einem erfahrenen und engagierten Team Einsatz moderner Technik und Maschinen Sicherer Arbeitsplatz in einem professionellen Tiefbauunternehmen",
         "fr": "Activités Assistance aux travaux d'excavation sur le chantier Mise en œuvre des mesures de stabilisation des sols Assistance aux travaux de transport sur le chantier Assistance au démantèlement des objets de construction Activités auxiliaires générales dans le secteur du génie civil\n• Expérience en génie civil ou en tant qu'ouvrier de construction d'avant-garde Préparation à des travaux exigeants physiquement en plein air Travail en équipe et fiabilité Connaissances de base en matière de manutention des machines et outils de construction Flexibilité et préparation au changement\n• Tâches Offre Travail dans une équipe expérimentée et dévouée Utilisation de la technologie moderne et des machines Secure workplace in a professional civil engineering company"
       },
       "location": "Aarau, Aargau",
@@ -106,7 +33,7 @@
       "url": "https://www.sta.jobs/stellen/bauarbeiter-in-aarau-temporaer-106605/",
       "source": "STA Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:32.165Z",
+      "crawledAt": "2026-09-26T14:07:19.825Z",
       "addressLocality": "Aarau",
       "addressRegion": "Aargau",
       "addressCountry": "CH",
@@ -121,18 +48,18 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://www.sta.jobs/stellen/bauarbeiter-in-aarau-temporaer-106605/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "bauarbeiter-in-fur-tiefbau-mit-moderner-technik-aarau-aargau-sta-ch",
+        "bauarbeiter-in-per-genio-civile-con-moderner-technik-sta-personal-ag-aarau"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "bauarbeiter-in-fur-tiefbau-mit-moderner-technik-aarau-aargau-sta-ch"
+          "bauarbeiter-in-fur-tiefbau-mit-moderner-technik-aarau-aargau-sta-ch",
+          "bauarbeiter-in-per-genio-civile-con-moderner-technik-sta-personal-ag-aarau"
         ]
       },
-      "previousSlugs": [
-        "bauarbeiter-in-fur-tiefbau-mit-moderner-technik-aarau-aargau-sta-ch"
-      ],
+      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -145,42 +72,43 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-26T14:07:19.825Z"
     },
     {
-      "id": "sta-fed2131aa819",
-      "slug": "automatiker-in-mit-steuerungstechnik-luzern-luzern-sta-ch",
+      "id": "sta-42baf43f9942",
+      "slug": "automatikmonteur-in-per-schaltschrankmontage-sta-personal-ag-zurich",
       "slugByLocale": {
-        "de": "automatiker-in-mit-steuerungstechnik-luzern-luzern-sta-ch",
-        "it": "automatiker-in-mit-steuerungstechnik-luzern-luzern-sta-ch",
-        "en": "automatiker-in-mit-steuerungstechnik-luzern-luzern-sta-ch",
-        "fr": "automatiker-in-mit-steuerungstechnik-luzern-luzern-sta-ch"
+        "it": "automatikmonteur-in-per-schaltschrankmontage-sta-personal-ag-zurich",
+        "en": "automatikmonteur-in-fur-schaltschrankmontage-zurich-zurich-sta-ch",
+        "de": "automatikmonteur-in-fur-schaltschrankmontage-zurich-zurich-sta-ch",
+        "fr": "automatikmonteur-in-fur-schaltschrankmontage-zurich-zurich-sta-ch"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
       "companyDomain": "sta.jobs",
-      "title": "Automatiker/in mit Steuerungstechnik",
+      "title": "Automatikmonteur/in für Schaltschrankmontage",
       "titleByLocale": {
-        "de": "Automatiker/in mit Steuerungstechnik",
-        "it": "Automatiker/in con Steuerungstechnik",
-        "en": "Automatiker/in mit Steuerungstechnik",
-        "fr": "Automatiker/in mit Steuerungstechnik"
+        "it": "Automatikmonteur/in per Schaltschrankmontage",
+        "en": "Automatikmonteur/in für Schaltschrankmontage",
+        "de": "Automatikmonteur/in für Schaltschrankmontage",
+        "fr": "Automatikmonteur/in für Schaltschrankmontage"
       },
-      "description": "Tätigkeiten Durchführen von Störungsbehebungen an Anlagen und Maschinen, remote oder direkt vor Ort beim Kunden Durchführen von geplanten Wartungsarbeiten Selbstständige Realisieren kleinerer Automations-Projekte \n• Anforderungen Ausbildung als Automatiker/in Technisch affin und Erfahrung im industriellen Umfeld Kenntnisse in Steuerungstechnik mit gängigen Steuerungssystemen Bereit für Pikett-Dienst 24/7, ca. 1 Woche pro Monat Angebot Interessantes und vielseitiges Aufgabengebiet mit hoher Selbstständigkeit und Eigenverantwortung Fortschrittliches Pikett-Reglement Moderne Infrastruktur Attraktive Anstellungsbedingungen",
+      "description": "Tätigkeiten Montagearbeiten in der Produktionsumgebung ausführen Schaltschränke fachgerecht aufbauen und verdrahten Umrichter montieren und in Baugruppen integrieren Komponenten für Magnetlager sorgfältig zusammenbauen \n• Anforderungen Lehrabschluss als Automatikmonteurin oder Automatikmonteur EFZ Gutes Verständnis für elektrische und mechanische Zusammenhänge Exakte und zuverlässige Arbeitsweise im Montagebereich Angebot Anspruchsvolle \n• Aufgaben in einem technischen Spezialgebiet Raum für berufliche Weiterbildung Zeitgemässe Arbeitsmittel im modernen Produktionsumfeld",
       "descriptionByLocale": {
-        "de": "Tätigkeiten Durchführen von Störungsbehebungen an Anlagen und Maschinen, remote oder direkt vor Ort beim Kunden Durchführen von geplanten Wartungsarbeiten Selbstständige Realisieren kleinerer Automations-Projekte \n• Anforderungen Ausbildung als Automatiker/in Technisch affin und Erfahrung im industriellen Umfeld Kenntnisse in Steuerungstechnik mit gängigen Steuerungssystemen Bereit für Pikett-Dienst 24/7, ca. 1 Woche pro Monat Angebot Interessantes und vielseitiges Aufgabengebiet mit hoher Selbstständigkeit und Eigenverantwortung Fortschrittliches Pikett-Reglement Moderne Infrastruktur Attraktive Anstellungsbedingungen",
-        "it": "Eseguire la risoluzione dei problemi su impianti e macchine, da remoto o direttamente in loco presso il cliente Eseguire lavori di manutenzione pianificati Realizzazione indipendente di piccoli progetti di automazione\n• Formazione come tecnico automatico e esperienza in ambiente industriale Conoscenza nella tecnologia di controllo con sistemi di controllo comuni Pronto per il servizio Pikett 24/7, ca. 1 settimana al mese Offerta Interessante e versatile area di responsabilità con alto lavoro autonomo e auto-responsabilità Regolamenti avanzati Picett",
-        "en": "Activities Performing troubleshooting on plants and machines, remotely or directly on site at the customer Performing planned maintenance work Independently realizing smaller automation projects\n• Requirements Training as an automatic technician and experience in industrial environment Knowledge in control technology with common control systems Ready for Pikett service 24/7, approx. 1 week per month Offer Interesting and versatile area of responsibility with high self-employment and self-responsibility Advanced Picett regulations Modern infrastructure Attractive employment conditions",
-        "fr": "Activités Effectuer des dépannages sur des installations et des machines, à distance ou directement sur place chez le client Effectuer des travaux d'entretien planifiés Réalisation indépendante de petits projets d'automatisation\n• Exigences Formation en tant que technicien automatique et expérience en environnement industriel Connaissance de la technologie de contrôle avec des systèmes de contrôle communs Prêt pour le service Pikett 24/7, approx. Offre d'une semaine par mois Domaine de responsabilité intéressant et polyvalent avec un travail indépendant élevé et une responsabilité autonome Règlements avancés Picett Infrastructure moderne Conditions d'emploi attrayantes"
+        "it": "Attività Il lavoro di assemblaggio nell'ambiente di produzione esegue armadi interruttori professionalmente assemblare e cablare convertitori assemblare e assemblare accuratamente i componenti per cuscinetti magnetici\n• Requisiti Grado di insegnamento come installatore automatico o installatore automatico EFZ Buona comprensione delle relazioni elettriche e meccaniche Metodo di lavoro esatto e affidabile nel settore dell'assemblaggio\n• Compiti in una specialità tecnica Spazio per la formazione professionale Attrezzature di lavoro contemporanee nell'ambiente di produzione moderno",
+        "en": "Activities Assembly work in the production environment perform switchgear cabinets professionally assemble and wire converters assemble and carefully assemble components for magnetic bearings\n• Requirements Teaching degree as an automatic installer or automatic installer EFZ Good understanding of electrical and mechanical relationships Exact and reliable working method in the assembly sector Offer demanding\n• Tasks in a technical specialty Space for Vocational Training Contemporary work equipment in the modern production environment",
+        "de": "Tätigkeiten Montagearbeiten in der Produktionsumgebung ausführen Schaltschränke fachgerecht aufbauen und verdrahten Umrichter montieren und in Baugruppen integrieren Komponenten für Magnetlager sorgfältig zusammenbauen \n• Anforderungen Lehrabschluss als Automatikmonteurin oder Automatikmonteur EFZ Gutes Verständnis für elektrische und mechanische Zusammenhänge Exakte und zuverlässige Arbeitsweise im Montagebereich Angebot Anspruchsvolle \n• Aufgaben in einem technischen Spezialgebiet Raum für berufliche Weiterbildung Zeitgemässe Arbeitsmittel im modernen Produktionsumfeld",
+        "fr": "Activités Le travail d'assemblage dans l'environnement de production effectue l'assemblage professionnel des armoires de commutation et des convertisseurs de fils assemblent et assemblent soigneusement les composants pour roulements magnétiques\n• Exigences Diplôme d'enseignement en tant qu'installateur automatique ou installateur automatique EFZ Bonne compréhension des relations électriques et mécaniques Méthode de travail exacte et fiable dans le secteur de l'assemblage Offre exigeante\n• Tâches dans une spécialité technique Espace de formation professionnelle Équipement de travail contemporain dans l'environnement de production moderne"
       },
-      "location": "Luzern, Luzern",
-      "canton": "LU",
-      "url": "https://www.sta.jobs/stellen/automatiker-in-luzern-temporaer-111231/",
+      "location": "Zürich, Zürich",
+      "canton": "ZH",
+      "url": "https://www.sta.jobs/stellen/automatikmonteur-in-zuerich-temporaer-111463/",
       "source": "STA Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:32.164Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "Luzern",
+      "crawledAt": "2026-09-26T14:07:19.824Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Altro",
@@ -191,99 +119,29 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-09-25",
-      "applyUrl": "https://www.sta.jobs/stellen/automatiker-in-luzern-temporaer-111231/",
+      "applyUrl": "https://www.sta.jobs/stellen/automatikmonteur-in-zuerich-temporaer-111463/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-25T14:56:32.164Z"
-    },
-    {
-      "id": "sta-5a2cc2b2b850",
-      "slug": "operatore-automatico-per-il-montaggio-e-il-cablaggio-dell-armadio-di-controllo-sta-personal-ag-schaffhausen-schaffhausen",
-      "slugByLocale": {
-        "de": "automatiker-in-fur-montage-und-schaltschrankverdrahtung-schaffhausen-schaffhausen-sta-ch",
-        "it": "operatore-automatico-per-il-montaggio-e-il-cablaggio-dell-armadio-di-controllo-sta-personal-ag-schaffhausen-schaffhausen",
-        "en": "automatiker-in-fur-montage-und-schaltschrankverdrahtung-sta-personal-ag-schaffhausen",
-        "fr": "operateur-automatique-pour-le-cablage-de-l-armoire-de-montage-et-de-commande-sta-personal-ag-schaffhausen-schaffhausen"
-      },
-      "company": "STA Personal AG",
-      "companyKey": "sta",
-      "companyDomain": "sta.jobs",
-      "title": "Automatiker/in für Montage und Schaltschrankverdrahtung",
-      "titleByLocale": {
-        "de": "Automatiker/in für Montage und Schaltschrankverdrahtung",
-        "it": "Automatiker/in per Montage e Schaltschrankverdrahtung",
-        "en": "Automatiker/in für Montage und Schaltschrankverdrahtung",
-        "fr": "Automatiker/in für Montage und Schaltschrankverdrahtung"
-      },
-      "description": "Tätigkeiten Maschinen und technische Anlagen fachgerecht montieren Schaltschränke verdrahten und auf Funktion prüfen \n• Anforderungen Ausbildung zum Automatiker EFZ Technisches Verständnis im Maschinen- oder Anlagenbau Sorgfältige Arbeitsweise bei Montage und Verdrahtung Bereitschaft für Einsätze bei Kundschaft Angebot Vielseitige \n• Aufgaben im technischen Umfeld Solides Arbeitsumfeld mit Entwicklungsmöglichkeiten",
-      "descriptionByLocale": {
-        "de": "Tätigkeiten Maschinen und technische Anlagen fachgerecht montieren Schaltschränke verdrahten und auf Funktion prüfen \n• Anforderungen Ausbildung zum Automatiker EFZ Technisches Verständnis im Maschinen- oder Anlagenbau Sorgfältige Arbeitsweise bei Montage und Verdrahtung Bereitschaft für Einsätze bei Kundschaft Angebot Vielseitige \n• Aufgaben im technischen Umfeld Solides Arbeitsumfeld mit Entwicklungsmöglichkeiten",
-        "it": "Macchine e attrezzature tecniche assemblano professionalmente armadi di commutazione cablaggio e controllo per la funzione\n• Requisiti Formazione per Ingegnere Automatico EFZ Comprensione tecnica nell'ingegneria meccanica o vegetale Metodi di lavoro accurati nell'assemblaggio e nel cablaggio\n• Compiti nell'ambiente tecnico Solido ambiente di lavoro con opportunità di sviluppo",
-        "en": "Activities Machinery and technical equipment professionally assemble switch cabinets wiring and checking for function\n• Requirements Training for Automatic Engineer EFZ Technical understanding in mechanical or plant engineering Careful working methods in assembly and wiring Readiness for use in customers Offer versatile\n• Tasks in the technical environment Solid working environment with development opportunities",
-        "fr": "Activités Machines et équipements techniques assemblent professionnellement les armoires de commutation câblage et contrôle de la fonction\n• Exigences Formation pour l'ingénieur automatique EFZ Compréhension technique en mécanique ou en ingénierie d'usine Méthodes de travail soignées en montage et câblage Capacité d'utilisation pour les clients Offre polyvalente\n• Tâches dans l ' environnement technique"
-      },
-      "location": "Schaffhausen, Schaffhausen",
-      "canton": "SH",
-      "url": "https://www.sta.jobs/stellen/automatiker-in-schaffhausen-temporaer-108744/",
-      "source": "STA Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:32.162Z",
-      "addressLocality": "Schaffhausen",
-      "addressRegion": "Schaffhausen",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-25",
-      "applyUrl": "https://www.sta.jobs/stellen/automatiker-in-schaffhausen-temporaer-108744/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "automatikmonteur-in-fur-schaltschrankmontage-zurich-zurich-sta-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-fur-montage-und-schaltschrankverdrahtung-schaffhausen-schaffhausen-sta-ch"
-        ],
-        "en": [
-          "automatic-operator-for-assembly-and-control-cabinet-wiring-sta-personal-ag-schaffhausen-schaffhausen"
+          "automatikmonteur-in-fur-schaltschrankmontage-zurich-zurich-sta-ch"
         ]
       },
-      "previousSlugs": [
-        "automatiker-in-fur-montage-und-schaltschrankverdrahtung-schaffhausen-schaffhausen-sta-ch",
-        "automatic-operator-for-assembly-and-control-cabinet-wiring-sta-personal-ag-schaffhausen-schaffhausen"
-      ],
       "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "firstSeenAt": "2026-09-25T14:56:32.165Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -292,9 +150,9 @@
       "id": "sta-4ad00d6f60b4",
       "slug": "automatiker-in-per-montage-von-mittel-e-niederspannungsanlagen-sta-personal-ag-zofingen",
       "slugByLocale": {
-        "de": "automatiker-in-fur-montage-von-mittel-und-niederspannungsanlagen-zofingen-aargau-sta-ch",
         "it": "automatiker-in-per-montage-von-mittel-e-niederspannungsanlagen-sta-personal-ag-zofingen",
         "en": "automatiker-in-fur-montage-von-mittel-und-niederspannungsanlagen-sta-personal-ag-zofingen",
+        "de": "automatiker-in-fur-montage-von-mittel-und-niederspannungsanlagen-zofingen-aargau-sta-ch",
         "fr": "automatiker-in-fur-montage-von-mittel-und-niederspannungsanlagen-sta-personal-ag-zofingen"
       },
       "company": "STA Personal AG",
@@ -302,16 +160,16 @@
       "companyDomain": "sta.jobs",
       "title": "Automatiker/in für Montage von Mittel- und Niederspannungsanlagen",
       "titleByLocale": {
-        "de": "Automatiker/in für Montage von Mittel- und Niederspannungsanlagen",
         "it": "Automatiker/in per Montage von Mittel- e Niederspannungsanlagen",
         "en": "Automatiker/in für Montage von Mittel- und Niederspannungsanlagen",
+        "de": "Automatiker/in für Montage von Mittel- und Niederspannungsanlagen",
         "fr": "Automatiker/in für Montage von Mittel- und Niederspannungsanlagen"
       },
       "description": "Tätigkeiten Bau von Trafostationen Montage von Niederspannungsverteilungen Montage von Mittelspannungsanlagen Montage von weiteren technischen Komponenten Montage von weiterem technischen Bauzubehör \n• Anforderungen Grundausbildung als Elektroinstallateur oder Automatiker oder Automatikmonteur EFZ Erfahrung in Instandhaltung & Montage Erfahrung im Bereich Niederspannungsverteilung & Mittelspannungsanlagen sowie technischem Bauzubehör Erfahrung & Freude an Team- sowie Projektarbeit Deutsche Sprachkenntnisse als Voraussetzung Verantwortungsbewusst, flexibel, rasche Auffas- sungsgabe sowie strukturierte Arbeitsweise Angebot Es erwartet Sie ein dynamisches Umfeld, ein vielseitiges Tätigkeitsgebiet, ein sehr guter Stundenlohn und die Chance auf eine Festanstellung.",
       "descriptionByLocale": {
-        "de": "Tätigkeiten Bau von Trafostationen Montage von Niederspannungsverteilungen Montage von Mittelspannungsanlagen Montage von weiteren technischen Komponenten Montage von weiterem technischen Bauzubehör \n• Anforderungen Grundausbildung als Elektroinstallateur oder Automatiker oder Automatikmonteur EFZ Erfahrung in Instandhaltung & Montage Erfahrung im Bereich Niederspannungsverteilung & Mittelspannungsanlagen sowie technischem Bauzubehör Erfahrung & Freude an Team- sowie Projektarbeit Deutsche Sprachkenntnisse als Voraussetzung Verantwortungsbewusst, flexibel, rasche Auffas- sungsgabe sowie strukturierte Arbeitsweise Angebot Es erwartet Sie ein dynamisches Umfeld, ein vielseitiges Tätigkeitsgebiet, ein sehr guter Stundenlohn und die Chance auf eine Festanstellung.",
         "it": "Attività Costruzione di stazioni di trasformazione Montaggio di distribuzioni a bassa tensione Montaggio di impianti a media tensione Montaggio di ulteriori componenti tecnici Montaggio di ulteriori accessori tecnici di costruzione\n• Formazione di base come installatore elettrico o tecnico automatico o installatore automatico EFZ Esperienza nella manutenzione e assemblaggio Esperienza nell'area di distribuzione a bassa tensione e sistemi di media tensione, nonché accessori tecnici di costruzione Esperienza e piacere nel lavoro di squadra e progetto Le competenze linguistiche tedesche come prerequisito Responsabile, flessibile, veloce apprezzamento e metodo di lavoro strutturato Vi aspetta un ambiente dinamico, un campo di attività versatile, un salario orario molto buono e la possibilità di un impiego permanente.",
         "en": "Activities Construction of transformer stations Assembly of low voltage distributions Assembly of medium voltage installations Assembly of further technical components Assembly of further technical construction accessories\n• Basic training as an electrical installer or automatic technician or automatic installer EFZ Experience in maintenance & assembly Experience in the area of low voltage distribution & medium voltage systems as well as technical construction accessories Experience & pleasure in team and project work German language skills as a prerequisite Responsible, flexible, fast appreciation as well as structured working method Offer It awaits you a dynamic environment, a versatile field of activity, a very good hourly wage and the chance of permanent employment.",
+        "de": "Tätigkeiten Bau von Trafostationen Montage von Niederspannungsverteilungen Montage von Mittelspannungsanlagen Montage von weiteren technischen Komponenten Montage von weiterem technischen Bauzubehör \n• Anforderungen Grundausbildung als Elektroinstallateur oder Automatiker oder Automatikmonteur EFZ Erfahrung in Instandhaltung & Montage Erfahrung im Bereich Niederspannungsverteilung & Mittelspannungsanlagen sowie technischem Bauzubehör Erfahrung & Freude an Team- sowie Projektarbeit Deutsche Sprachkenntnisse als Voraussetzung Verantwortungsbewusst, flexibel, rasche Auffas- sungsgabe sowie strukturierte Arbeitsweise Angebot Es erwartet Sie ein dynamisches Umfeld, ein vielseitiges Tätigkeitsgebiet, ein sehr guter Stundenlohn und die Chance auf eine Festanstellung.",
         "fr": "Activités Construction de stations de transformation Montage de distributions basse tension Montage d'installations moyenne tension Montage d'autres composants techniques Montage d'autres accessoires techniques de construction\n• Formation de base en tant qu'installateur électrique ou technicien automatique ou installateur automatique EFZ Expérience en maintenance et montage Expérience dans le domaine de la distribution basse tension et des systèmes à moyenne tension ainsi que des accessoires techniques de construction Expérience et plaisir en travail d'équipe et de projet Compétences linguistiques en allemand comme condition préalable Appréciation responsable, flexible, rapide et méthode de travail structurée Offre Il vous attend un environnement dynamique, un champ d'activité polyvalent, un très bon salaire horaire et la chance d'un emploi permanent."
       },
       "location": "Zofingen, Aargau",
@@ -319,7 +177,7 @@
       "url": "https://www.sta.jobs/stellen/automatiker-in-zofingen-tryhire-111141/",
       "source": "STA Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:32.162Z",
+      "crawledAt": "2026-09-26T14:07:19.823Z",
       "addressLocality": "Zofingen",
       "addressRegion": "Aargau",
       "addressCountry": "CH",
@@ -334,18 +192,19 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://www.sta.jobs/stellen/automatiker-in-zofingen-tryhire-111141/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "automatiker-in-fur-montage-von-mittel-und-niederspannungsanlagen-zofingen-aargau-sta-ch",
+        "automatiker-in-per-montage-von-mittel-e-niederspannungsanlagen-sta-personal-ag-zofingen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-fur-montage-von-mittel-und-niederspannungsanlagen-zofingen-aargau-sta-ch"
+          "automatiker-in-fur-montage-von-mittel-und-niederspannungsanlagen-zofingen-aargau-sta-ch",
+          "automatiker-in-per-montage-von-mittel-e-niederspannungsanlagen-sta-personal-ag-zofingen"
         ]
       },
-      "previousSlugs": [
-        "automatiker-in-fur-montage-von-mittel-und-niederspannungsanlagen-zofingen-aargau-sta-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-25T14:56:32.162Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -358,113 +217,40 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-25T14:56:32.162Z"
-    },
-    {
-      "id": "sta-c7f74e4f188a",
-      "slug": "automatici-per-elettromobilita-e-diagnosi-del-veicolo-sta-personal-ag-grenchen-solothurn",
-      "slugByLocale": {
-        "de": "automatiker-in-fur-elektromobilitat-und-fahrzeugdiagnose-grenchen-solothurn-sta-ch",
-        "it": "automatici-per-elettromobilita-e-diagnosi-del-veicolo-sta-personal-ag-grenchen-solothurn",
-        "en": "automaticians-for-electromobility-and-vehicle-diagnosis-sta-personal-ag-grenchen-solothurn",
-        "fr": "automatistes-pour-l-electromobilite-et-le-diagnostic-des-vehicules-sta-personal-ag-grenchen-solothurn"
-      },
-      "company": "STA Personal AG",
-      "companyKey": "sta",
-      "companyDomain": "sta.jobs",
-      "title": "Automatiker/in für Elektromobilität und Fahrzeugdiagnose",
-      "titleByLocale": {
-        "de": "Automatiker/in für Elektromobilität und Fahrzeugdiagnose",
-        "it": "Automatiker/in per Elektromobilität e Fahrzeugdiagnose",
-        "en": "Automatiker/in für Elektromobilität und Fahrzeugdiagnose",
-        "fr": "Automatiker/in für Elektromobilität und Fahrzeugdiagnose"
-      },
-      "description": "Tätigkeiten Elektro- und Trolleybusse sowie deren Systeme in Betrieb nehmen Qualitäts- und Funktionsprüfungen an elektrischen und elektronischen Bauteilen sowie Verkabelungen durchführen Pneumatik- und Hydrauliksysteme wie Bremsen, Luftfahrwerke und Lenksysteme überprüfen und anschliessen Erst-Inbetriebnahmen mit Systemkalibrierungen und Einstellungen ausführen Komplexe Fahrzeugdiagnosen durchführen und Fehler beheben \n• Anforderungen Abgeschlossene Ausbildung als Automobil-Mechatroniker, Automatiker, Automatikmonteur oder Automobilfachmann mit relevanter Diagnoseerfahrung Interesse an kontinuierlicher Weiterbildung und neuen technischen Herausforderungen Fundierte Kenntnisse im Lesen und Interpretieren von Schaltplänen Analytische, strukturierte und lösungsorientierte Arbeitsweise Hohe Flexibilität und ausgeprägte Teamfähigkeit Angebot Abwechslungsreiche und langfristige Tätigkeit im Bereich Elektromobilität Festanstellung in einem etablierten Unternehmen mit Fokus auf Qualität Flexible Arbeitszeitmodelle mit gleitender Arbeitszeit",
-      "descriptionByLocale": {
-        "de": "Tätigkeiten Elektro- und Trolleybusse sowie deren Systeme in Betrieb nehmen Qualitäts- und Funktionsprüfungen an elektrischen und elektronischen Bauteilen sowie Verkabelungen durchführen Pneumatik- und Hydrauliksysteme wie Bremsen, Luftfahrwerke und Lenksysteme überprüfen und anschliessen Erst-Inbetriebnahmen mit Systemkalibrierungen und Einstellungen ausführen Komplexe Fahrzeugdiagnosen durchführen und Fehler beheben \n• Anforderungen Abgeschlossene Ausbildung als Automobil-Mechatroniker, Automatiker, Automatikmonteur oder Automobilfachmann mit relevanter Diagnoseerfahrung Interesse an kontinuierlicher Weiterbildung und neuen technischen Herausforderungen Fundierte Kenntnisse im Lesen und Interpretieren von Schaltplänen Analytische, strukturierte und lösungsorientierte Arbeitsweise Hohe Flexibilität und ausgeprägte Teamfähigkeit Angebot Abwechslungsreiche und langfristige Tätigkeit im Bereich Elektromobilität Festanstellung in einem etablierten Unternehmen mit Fokus auf Qualität Flexible Arbeitszeitmodelle mit gleitender Arbeitszeit",
-        "it": "Gli autobus elettrici e dei carrelli e i loro sistemi commissionano test di qualità e funzionali su componenti elettrici ed elettronici, nonché il cablaggio effettuano sistemi pneumatici e idraulici come freni, telai aerei e sistemi di sterzo controllano e collegano le commissioni iniziali con le tarature del sistema ed eseguono la diagnostica complessa del veicolo ed errori di correzione\n• Formazione completa come ingegnere meccanico meccatronico automobilistico, ingegnere automatico, installatore automatico o specialista automobilistico con esperienza diagnostica rilevante Interessato a un'ulteriore formazione continua e nuove sfide tecniche Conoscenza del suono nella lettura e nell'interpretazione di schemi Analitici, strutturati e orientati alla soluzione Metodo di lavoro Alta flessibilità e lavoro pronunciato Offerta variegata e a lungo termine attività nel campo dell'elettromobilità Lavoro permanente in un'azienda consolidata con focus sulla qualità Modelli di tempo di lavoro flessibile",
-        "en": "Activities Electric and trolley buses and their systems commission quality and functional tests on electrical and electronic components as well as wiring perform pneumatic and hydraulic systems such as brakes, aerial chassis and steering systems check and connect initial commissionings with system calibrations and perform complex vehicle diagnostics and fix errors\n• Requirements Completed training as an automotive mechatronics engineer, automatic engineer, automatic installer or automotive specialist with relevant diagnostic experience Interested in continuous further education and new technical challenges Sound knowledge in reading and interpreting schematics Analytical, structured and solution-oriented working method High flexibility and pronounced teamwork Offer varied and long-term activity in the field of electromobility Permanent employment in an established company with focus on quality Flexible working time models with smooth working time",
-        "fr": "Activités Les autobus électriques et les trolleybus et leurs systèmes commandent la qualité et les essais fonctionnels sur les composants électriques et électroniques ainsi que le câblage effectuent des systèmes pneumatiques et hydrauliques tels que les freins, le châssis aérien et les systèmes de direction vérifient et connectent les commandes initiales avec les étalonnages du système et effectuent des diagnostics complexes des véhicules et corrigent les erreurs\n• Exigences Formation complète en tant qu'ingénieur mécatronique automobile, ingénieur automatique, installateur automatique ou spécialiste de l'automobile ayant une expérience diagnostique pertinente Intéressé par une formation continue et de nouveaux défis techniques Connaissances solides en lecture et interprétation des schémas Méthode de travail analytique, structurée et orientée vers la solution Haute flexibilité et travail d'équipe prononcé Offre d'activités variées et à long terme dans le domaine de l'électromobilité Emploi permanent dans une entreprise établie mettant l'accent sur la qualité"
-      },
-      "location": "Grenchen, Solothurn",
-      "canton": "SO",
-      "url": "https://www.sta.jobs/stellen/automatiker-in-grenchen-temporaer-109525/",
-      "source": "STA Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:32.161Z",
-      "addressLocality": "Grenchen",
-      "addressRegion": "Solothurn",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-25",
-      "applyUrl": "https://www.sta.jobs/stellen/automatiker-in-grenchen-temporaer-109525/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "automatiker-in-fur-elektromobilitat-und-fahrzeugdiagnose-grenchen-solothurn-sta-ch"
-        ]
-      },
-      "previousSlugs": [
-        "automatiker-in-fur-elektromobilitat-und-fahrzeugdiagnose-grenchen-solothurn-sta-ch"
-      ],
-      "needsRetranslation": true,
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 116500,
-          "unitText": "YEAR"
-        }
       }
     },
     {
-      "id": "sta-4ed90ce9176e",
-      "slug": "anlagen-e-apparatebauer-in-con-mig-mag-tig-schweisskenntnissen-sta-personal-ag-luzern",
+      "id": "sta-fed2131aa819",
+      "slug": "automatiker-in-mit-steuerungstechnik-luzern-luzern-sta-ch",
       "slugByLocale": {
-        "de": "anlagen-und-apparatebauer-in-mit-mig-mag-tig-schweisskenntnissen-luzern-luzern-sta-ch",
-        "it": "anlagen-e-apparatebauer-in-con-mig-mag-tig-schweisskenntnissen-sta-personal-ag-luzern",
-        "en": "anlagen-und-apparatebauer-in-mit-mig-mag-tig-schweisskenntnissen-luzern-luzern-sta-ch",
-        "fr": "anlagen-und-apparatebauer-in-mit-mig-mag-tig-schweisskenntnissen-luzern-luzern-sta-ch"
+        "it": "automatiker-in-mit-steuerungstechnik-luzern-luzern-sta-ch",
+        "en": "automatiker-in-mit-steuerungstechnik-luzern-luzern-sta-ch",
+        "de": "automatiker-in-mit-steuerungstechnik-luzern-luzern-sta-ch",
+        "fr": "automatiker-in-mit-steuerungstechnik-luzern-luzern-sta-ch"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
       "companyDomain": "sta.jobs",
-      "title": "Anlagen- und Apparatebauer/in mit MIG/MAG/TIG Schweisskenntnissen",
+      "title": "Automatiker/in mit Steuerungstechnik",
       "titleByLocale": {
-        "de": "Anlagen- und Apparatebauer/in mit MIG/MAG/TIG Schweisskenntnissen",
-        "it": "Anlagen- e Apparatebauer/in con MIG/MAG/TIG Schweisskenntnissen",
-        "en": "Anlagen- und Apparatebauer/in mit MIG/MAG/TIG Schweisskenntnissen",
-        "fr": "Anlagen- und Apparatebauer/in mit MIG/MAG/TIG Schweisskenntnissen"
+        "it": "Automatiker/in con Steuerungstechnik",
+        "en": "Automatiker/in mit Steuerungstechnik",
+        "de": "Automatiker/in mit Steuerungstechnik",
+        "fr": "Automatiker/in mit Steuerungstechnik"
       },
-      "description": "Tätigkeiten Schweissen von anspruchsvollen Blech- und Profilkonstruktionen aus Aluminium und Chromstahl nach Zeichnung Schweissen im MIG, MAG- und TIG- Verfahren Verschleifen der Schweissnähte nach Vorgaben Richten und Prüfen der hergestellten Teile \n• Anforderungen Abgeschlossene Ausbildung als Anlagen- und Apparatebauer/in oder Metallbauer/in Sehr gute Kenntnisse im Planlesen Fundierte Schweisskenntnisse (MIG/MAG/TIG) Belastbar, motiviert und teamfähig Hohes Qualitätsbewusstsein Angebot Interessante und abwechslungsreiche Tätigkeiten Flexible Arbeitszeiten Familiäres Umfeld Förderungs- und Weiterentwicklungsmöglichkeiten",
+      "description": "Tätigkeiten Durchführen von Störungsbehebungen an Anlagen und Maschinen, remote oder direkt vor Ort beim Kunden Durchführen von geplanten Wartungsarbeiten Selbstständige Realisieren kleinerer Automations-Projekte \n• Anforderungen Ausbildung als Automatiker/in Technisch affin und Erfahrung im industriellen Umfeld Kenntnisse in Steuerungstechnik mit gängigen Steuerungssystemen Bereit für Pikett-Dienst 24/7, ca. 1 Woche pro Monat Angebot Interessantes und vielseitiges Aufgabengebiet mit hoher Selbstständigkeit und Eigenverantwortung Fortschrittliches Pikett-Reglement Moderne Infrastruktur Attraktive Anstellungsbedingungen",
       "descriptionByLocale": {
-        "de": "Tätigkeiten Schweissen von anspruchsvollen Blech- und Profilkonstruktionen aus Aluminium und Chromstahl nach Zeichnung Schweissen im MIG, MAG- und TIG- Verfahren Verschleifen der Schweissnähte nach Vorgaben Richten und Prüfen der hergestellten Teile \n• Anforderungen Abgeschlossene Ausbildung als Anlagen- und Apparatebauer/in oder Metallbauer/in Sehr gute Kenntnisse im Planlesen Fundierte Schweisskenntnisse (MIG/MAG/TIG) Belastbar, motiviert und teamfähig Hohes Qualitätsbewusstsein Angebot Interessante und abwechslungsreiche Tätigkeiten Flexible Arbeitszeiten Familiäres Umfeld Förderungs- und Weiterentwicklungsmöglichkeiten",
-        "it": "saldatura di lamiera e profilati impegnativi costruzioni di alluminio e acciaio al cromo dopo la saldatura di disegno nel MIG, MAG e rettifica di processo TIG delle cuciture di saldatura secondo specifiche raddrizzamento e collaudo delle parti prodotte\n• Requisiti Formazione completa come costruttore di impianti e apparati o metal builder / in Molto buona conoscenza nella pianificazione Conoscenze di saldatura sonora (MIG/MAG/TIG) Resiliente, motivato e capace di lavoro di squadra Sensibilizzazione di alta qualità Offerta Attività interessanti e varie Ore lavorative flessibili Ambiente familiare Promozione e ulteriori opportunità di sviluppo",
-        "en": "welding of demanding sheet and profile constructions of aluminum and chromium steel after drawing welding in the MIG, MAG and TIG process grinding of the weld seams according to specifications straightening and testing of the manufactured parts\n• Requirements Completed training as a plant and apparatus builder or metal builder / in Very good knowledge in planning Sound welding knowledge (MIG/MAG/TIG) Resilient, motivated and capable of teamwork High quality awareness Offer Interesting and varied activities Flexible working hours Family environment Promotion and further development opportunities",
-        "fr": "soudage des constructions exigeantes en tôle et profil en aluminium et en acier chromé après étirage soudage dans le procédé MIG, MAG et TIG broyage des soudures selon les spécifications de redressage et d'essai des pièces fabriquées\n• Exigences Formation complète en tant que constructeur d'usines et d'appareils ou constructeur de métaux / en très bonne connaissance de la planification Connaissances en matière de soudage sonore (MIG/MAG/TIG) Résilient, motivé et capable de travailler en équipe Sensibilisation de haute qualité Offre Activités intéressantes et variées Horaires de travail flexibles Environnement familial Promotion et possibilités de développement"
+        "it": "Eseguire la risoluzione dei problemi su impianti e macchine, da remoto o direttamente in loco presso il cliente Eseguire lavori di manutenzione pianificati Realizzazione indipendente di piccoli progetti di automazione\n• Formazione come tecnico automatico e esperienza in ambiente industriale Conoscenza nella tecnologia di controllo con sistemi di controllo comuni Pronto per il servizio Pikett 24/7, ca. 1 settimana al mese Offerta Interessante e versatile area di responsabilità con alto lavoro autonomo e auto-responsabilità Regolamenti avanzati Picett",
+        "en": "Activities Performing troubleshooting on plants and machines, remotely or directly on site at the customer Performing planned maintenance work Independently realizing smaller automation projects\n• Requirements Training as an automatic technician and experience in industrial environment Knowledge in control technology with common control systems Ready for Pikett service 24/7, approx. 1 week per month Offer Interesting and versatile area of responsibility with high self-employment and self-responsibility Advanced Picett regulations Modern infrastructure Attractive employment conditions",
+        "de": "Tätigkeiten Durchführen von Störungsbehebungen an Anlagen und Maschinen, remote oder direkt vor Ort beim Kunden Durchführen von geplanten Wartungsarbeiten Selbstständige Realisieren kleinerer Automations-Projekte \n• Anforderungen Ausbildung als Automatiker/in Technisch affin und Erfahrung im industriellen Umfeld Kenntnisse in Steuerungstechnik mit gängigen Steuerungssystemen Bereit für Pikett-Dienst 24/7, ca. 1 Woche pro Monat Angebot Interessantes und vielseitiges Aufgabengebiet mit hoher Selbstständigkeit und Eigenverantwortung Fortschrittliches Pikett-Reglement Moderne Infrastruktur Attraktive Anstellungsbedingungen",
+        "fr": "Activités Effectuer des dépannages sur des installations et des machines, à distance ou directement sur place chez le client Effectuer des travaux d'entretien planifiés Réalisation indépendante de petits projets d'automatisation\n• Exigences Formation en tant que technicien automatique et expérience en environnement industriel Connaissance de la technologie de contrôle avec des systèmes de contrôle communs Prêt pour le service Pikett 24/7, approx. Offre d'une semaine par mois Domaine de responsabilité intéressant et polyvalent avec un travail indépendant élevé et une responsabilité autonome Règlements avancés Picett Infrastructure moderne Conditions d'emploi attrayantes"
       },
       "location": "Luzern, Luzern",
       "canton": "LU",
-      "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-luzern-temporaer-111451/",
+      "url": "https://www.sta.jobs/stellen/automatiker-in-luzern-temporaer-111231/",
       "source": "STA Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:32.159Z",
+      "crawledAt": "2026-09-26T14:07:19.823Z",
       "addressLocality": "Luzern",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -477,20 +263,11 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-09-25",
-      "applyUrl": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-luzern-temporaer-111451/",
+      "applyUrl": "https://www.sta.jobs/stellen/automatiker-in-luzern-temporaer-111231/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "anlagen-und-apparatebauer-in-mit-mig-mag-tig-schweisskenntnissen-luzern-luzern-sta-ch"
-        ]
-      },
-      "previousSlugs": [
-        "anlagen-und-apparatebauer-in-mit-mig-mag-tig-schweisskenntnissen-luzern-luzern-sta-ch"
-      ],
+      "firstSeenAt": "2026-09-25T14:56:32.164Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -506,12 +283,162 @@
       }
     },
     {
+      "id": "sta-5a2cc2b2b850",
+      "slug": "operatore-automatico-per-il-montaggio-e-il-cablaggio-dell-armadio-di-controllo-sta-personal-ag-schaffhausen-schaffhausen",
+      "slugByLocale": {
+        "it": "operatore-automatico-per-il-montaggio-e-il-cablaggio-dell-armadio-di-controllo-sta-personal-ag-schaffhausen-schaffhausen",
+        "en": "automatiker-in-fur-montage-und-schaltschrankverdrahtung-sta-personal-ag-schaffhausen",
+        "de": "automatiker-in-fur-montage-und-schaltschrankverdrahtung-schaffhausen-schaffhausen-sta-ch",
+        "fr": "operateur-automatique-pour-le-cablage-de-l-armoire-de-montage-et-de-commande-sta-personal-ag-schaffhausen-schaffhausen"
+      },
+      "company": "STA Personal AG",
+      "companyKey": "sta",
+      "companyDomain": "sta.jobs",
+      "title": "Automatiker/in für Montage und Schaltschrankverdrahtung",
+      "titleByLocale": {
+        "it": "Automatiker/in per Montage e Schaltschrankverdrahtung",
+        "en": "Automatiker/in für Montage und Schaltschrankverdrahtung",
+        "de": "Automatiker/in für Montage und Schaltschrankverdrahtung",
+        "fr": "Automatiker/in für Montage und Schaltschrankverdrahtung"
+      },
+      "description": "Tätigkeiten Maschinen und technische Anlagen fachgerecht montieren Schaltschränke verdrahten und auf Funktion prüfen \n• Anforderungen Ausbildung zum Automatiker EFZ Technisches Verständnis im Maschinen- oder Anlagenbau Sorgfältige Arbeitsweise bei Montage und Verdrahtung Bereitschaft für Einsätze bei Kundschaft Angebot Vielseitige \n• Aufgaben im technischen Umfeld Solides Arbeitsumfeld mit Entwicklungsmöglichkeiten",
+      "descriptionByLocale": {
+        "it": "Macchine e attrezzature tecniche assemblano professionalmente armadi di commutazione cablaggio e controllo per la funzione\n• Requisiti Formazione per Ingegnere Automatico EFZ Comprensione tecnica nell'ingegneria meccanica o vegetale Metodi di lavoro accurati nell'assemblaggio e nel cablaggio\n• Compiti nell'ambiente tecnico Solido ambiente di lavoro con opportunità di sviluppo",
+        "en": "Activities Machinery and technical equipment professionally assemble switch cabinets wiring and checking for function\n• Requirements Training for Automatic Engineer EFZ Technical understanding in mechanical or plant engineering Careful working methods in assembly and wiring Readiness for use in customers Offer versatile\n• Tasks in the technical environment Solid working environment with development opportunities",
+        "de": "Tätigkeiten Maschinen und technische Anlagen fachgerecht montieren Schaltschränke verdrahten und auf Funktion prüfen \n• Anforderungen Ausbildung zum Automatiker EFZ Technisches Verständnis im Maschinen- oder Anlagenbau Sorgfältige Arbeitsweise bei Montage und Verdrahtung Bereitschaft für Einsätze bei Kundschaft Angebot Vielseitige \n• Aufgaben im technischen Umfeld Solides Arbeitsumfeld mit Entwicklungsmöglichkeiten",
+        "fr": "Activités Machines et équipements techniques assemblent professionnellement les armoires de commutation câblage et contrôle de la fonction\n• Exigences Formation pour l'ingénieur automatique EFZ Compréhension technique en mécanique ou en ingénierie d'usine Méthodes de travail soignées en montage et câblage Capacité d'utilisation pour les clients Offre polyvalente\n• Tâches dans l ' environnement technique"
+      },
+      "location": "Schaffhausen, Schaffhausen",
+      "canton": "SH",
+      "url": "https://www.sta.jobs/stellen/automatiker-in-schaffhausen-temporaer-108744/",
+      "source": "STA Personal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T14:07:19.822Z",
+      "addressLocality": "Schaffhausen",
+      "addressRegion": "Schaffhausen",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-25",
+      "applyUrl": "https://www.sta.jobs/stellen/automatiker-in-schaffhausen-temporaer-108744/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "automatiker-in-fur-montage-und-schaltschrankverdrahtung-schaffhausen-schaffhausen-sta-ch",
+        "automatic-operator-for-assembly-and-control-cabinet-wiring-sta-personal-ag-schaffhausen-schaffhausen",
+        "operatore-automatico-per-il-montaggio-e-il-cablaggio-dell-armadio-di-controllo-sta-personal-ag-schaffhausen-schaffhausen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-in-fur-montage-und-schaltschrankverdrahtung-schaffhausen-schaffhausen-sta-ch",
+          "operatore-automatico-per-il-montaggio-e-il-cablaggio-dell-armadio-di-controllo-sta-personal-ag-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "automatic-operator-for-assembly-and-control-cabinet-wiring-sta-personal-ag-schaffhausen-schaffhausen"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-26T14:07:19.822Z"
+    },
+    {
+      "id": "sta-c7f74e4f188a",
+      "slug": "automatici-per-elettromobilita-e-diagnosi-del-veicolo-sta-personal-ag-grenchen-solothurn",
+      "slugByLocale": {
+        "it": "automatici-per-elettromobilita-e-diagnosi-del-veicolo-sta-personal-ag-grenchen-solothurn",
+        "en": "automaticians-for-electromobility-and-vehicle-diagnosis-sta-personal-ag-grenchen-solothurn",
+        "de": "automatiker-in-fur-elektromobilitat-und-fahrzeugdiagnose-grenchen-solothurn-sta-ch",
+        "fr": "automatistes-pour-l-electromobilite-et-le-diagnostic-des-vehicules-sta-personal-ag-grenchen-solothurn"
+      },
+      "company": "STA Personal AG",
+      "companyKey": "sta",
+      "companyDomain": "sta.jobs",
+      "title": "Automatiker/in für Elektromobilität und Fahrzeugdiagnose",
+      "titleByLocale": {
+        "it": "Automatiker/in per Elektromobilität e Fahrzeugdiagnose",
+        "en": "Automatiker/in für Elektromobilität und Fahrzeugdiagnose",
+        "de": "Automatiker/in für Elektromobilität und Fahrzeugdiagnose",
+        "fr": "Automatiker/in für Elektromobilität und Fahrzeugdiagnose"
+      },
+      "description": "Tätigkeiten Elektro- und Trolleybusse sowie deren Systeme in Betrieb nehmen Qualitäts- und Funktionsprüfungen an elektrischen und elektronischen Bauteilen sowie Verkabelungen durchführen Pneumatik- und Hydrauliksysteme wie Bremsen, Luftfahrwerke und Lenksysteme überprüfen und anschliessen Erst-Inbetriebnahmen mit Systemkalibrierungen und Einstellungen ausführen Komplexe Fahrzeugdiagnosen durchführen und Fehler beheben \n• Anforderungen Abgeschlossene Ausbildung als Automobil-Mechatroniker, Automatiker, Automatikmonteur oder Automobilfachmann mit relevanter Diagnoseerfahrung Interesse an kontinuierlicher Weiterbildung und neuen technischen Herausforderungen Fundierte Kenntnisse im Lesen und Interpretieren von Schaltplänen Analytische, strukturierte und lösungsorientierte Arbeitsweise Hohe Flexibilität und ausgeprägte Teamfähigkeit Angebot Abwechslungsreiche und langfristige Tätigkeit im Bereich Elektromobilität Festanstellung in einem etablierten Unternehmen mit Fokus auf Qualität Flexible Arbeitszeitmodelle mit gleitender Arbeitszeit",
+      "descriptionByLocale": {
+        "it": "Gli autobus elettrici e dei carrelli e i loro sistemi commissionano test di qualità e funzionali su componenti elettrici ed elettronici, nonché il cablaggio effettuano sistemi pneumatici e idraulici come freni, telai aerei e sistemi di sterzo controllano e collegano le commissioni iniziali con le tarature del sistema ed eseguono la diagnostica complessa del veicolo ed errori di correzione\n• Formazione completa come ingegnere meccanico meccatronico automobilistico, ingegnere automatico, installatore automatico o specialista automobilistico con esperienza diagnostica rilevante Interessato a un'ulteriore formazione continua e nuove sfide tecniche Conoscenza del suono nella lettura e nell'interpretazione di schemi Analitici, strutturati e orientati alla soluzione Metodo di lavoro Alta flessibilità e lavoro pronunciato Offerta variegata e a lungo termine attività nel campo dell'elettromobilità Lavoro permanente in un'azienda consolidata con focus sulla qualità Modelli di tempo di lavoro flessibile",
+        "en": "Activities Electric and trolley buses and their systems commission quality and functional tests on electrical and electronic components as well as wiring perform pneumatic and hydraulic systems such as brakes, aerial chassis and steering systems check and connect initial commissionings with system calibrations and perform complex vehicle diagnostics and fix errors\n• Requirements Completed training as an automotive mechatronics engineer, automatic engineer, automatic installer or automotive specialist with relevant diagnostic experience Interested in continuous further education and new technical challenges Sound knowledge in reading and interpreting schematics Analytical, structured and solution-oriented working method High flexibility and pronounced teamwork Offer varied and long-term activity in the field of electromobility Permanent employment in an established company with focus on quality Flexible working time models with smooth working time",
+        "de": "Tätigkeiten Elektro- und Trolleybusse sowie deren Systeme in Betrieb nehmen Qualitäts- und Funktionsprüfungen an elektrischen und elektronischen Bauteilen sowie Verkabelungen durchführen Pneumatik- und Hydrauliksysteme wie Bremsen, Luftfahrwerke und Lenksysteme überprüfen und anschliessen Erst-Inbetriebnahmen mit Systemkalibrierungen und Einstellungen ausführen Komplexe Fahrzeugdiagnosen durchführen und Fehler beheben \n• Anforderungen Abgeschlossene Ausbildung als Automobil-Mechatroniker, Automatiker, Automatikmonteur oder Automobilfachmann mit relevanter Diagnoseerfahrung Interesse an kontinuierlicher Weiterbildung und neuen technischen Herausforderungen Fundierte Kenntnisse im Lesen und Interpretieren von Schaltplänen Analytische, strukturierte und lösungsorientierte Arbeitsweise Hohe Flexibilität und ausgeprägte Teamfähigkeit Angebot Abwechslungsreiche und langfristige Tätigkeit im Bereich Elektromobilität Festanstellung in einem etablierten Unternehmen mit Fokus auf Qualität Flexible Arbeitszeitmodelle mit gleitender Arbeitszeit",
+        "fr": "Activités Les autobus électriques et les trolleybus et leurs systèmes commandent la qualité et les essais fonctionnels sur les composants électriques et électroniques ainsi que le câblage effectuent des systèmes pneumatiques et hydrauliques tels que les freins, le châssis aérien et les systèmes de direction vérifient et connectent les commandes initiales avec les étalonnages du système et effectuent des diagnostics complexes des véhicules et corrigent les erreurs\n• Exigences Formation complète en tant qu'ingénieur mécatronique automobile, ingénieur automatique, installateur automatique ou spécialiste de l'automobile ayant une expérience diagnostique pertinente Intéressé par une formation continue et de nouveaux défis techniques Connaissances solides en lecture et interprétation des schémas Méthode de travail analytique, structurée et orientée vers la solution Haute flexibilité et travail d'équipe prononcé Offre d'activités variées et à long terme dans le domaine de l'électromobilité Emploi permanent dans une entreprise établie mettant l'accent sur la qualité"
+      },
+      "location": "Grenchen, Solothurn",
+      "canton": "SO",
+      "url": "https://www.sta.jobs/stellen/automatiker-in-grenchen-temporaer-109525/",
+      "source": "STA Personal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T14:07:19.821Z",
+      "addressLocality": "Grenchen",
+      "addressRegion": "Solothurn",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-25",
+      "applyUrl": "https://www.sta.jobs/stellen/automatiker-in-grenchen-temporaer-109525/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "automatiker-in-fur-elektromobilitat-und-fahrzeugdiagnose-grenchen-solothurn-sta-ch",
+        "automatici-per-elettromobilita-e-diagnosi-del-veicolo-sta-personal-ag-grenchen-solothurn"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-in-fur-elektromobilitat-und-fahrzeugdiagnose-grenchen-solothurn-sta-ch",
+          "automatici-per-elettromobilita-e-diagnosi-del-veicolo-sta-personal-ag-grenchen-solothurn"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77000,
+          "maxValue": 116500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-26T14:07:19.821Z"
+    },
+    {
       "id": "sta-01ef328b4eaf",
       "slug": "automatiker-in-per-elektrische-installazioni-sta-personal-ag-zofingen",
       "slugByLocale": {
-        "de": "automatiker-in-fur-elektrische-installationen-zofingen-aargau-sta-ch",
         "it": "automatiker-in-per-elektrische-installazioni-sta-personal-ag-zofingen",
         "en": "automatiker-in-fur-elektrische-installationen-zofingen-aargau-sta-ch",
+        "de": "automatiker-in-fur-elektrische-installationen-zofingen-aargau-sta-ch",
         "fr": "automatiker-in-fur-elektrische-installationen-zofingen-aargau-sta-ch"
       },
       "company": "STA Personal AG",
@@ -519,16 +446,16 @@
       "companyDomain": "sta.jobs",
       "title": "Automatiker/in für elektrische Installationen",
       "titleByLocale": {
-        "de": "Automatiker/in für elektrische Installationen",
         "it": "Automatiker/in per elektrische installazioni",
         "en": "Automatiker/in für elektrische Installationen",
+        "de": "Automatiker/in für elektrische Installationen",
         "fr": "Automatiker/in für elektrische Installationen"
       },
       "description": "Tätigkeiten Steuerkabel verlegen und anschliessen Elektrische Installationen in Kraft- und Unterwerken ausführen Steuerschränke ausbauen und erweitern Erd- und Kabeltragsysteme montieren Projektunterlagen aktualisieren und ergänzen \n• Anforderungen abgeschlossene Lehre als Automatiker/in oder Elektromonteur/in ausgeprägte Teamfähigkeit und Eigenmotivation verlässliche sowie eigenständige Arbeitsweise Führerausweis Kategorie B Angebot abwechslungsreiche Tätigkeiten in einem dynamischen Umfeld leistungsgerechte Anstellungsbedingungen ein engagiertes und kollegiales Team",
       "descriptionByLocale": {
-        "de": "Tätigkeiten Steuerkabel verlegen und anschliessen Elektrische Installationen in Kraft- und Unterwerken ausführen Steuerschränke ausbauen und erweitern Erd- und Kabeltragsysteme montieren Projektunterlagen aktualisieren und ergänzen \n• Anforderungen abgeschlossene Lehre als Automatiker/in oder Elektromonteur/in ausgeprägte Teamfähigkeit und Eigenmotivation verlässliche sowie eigenständige Arbeitsweise Führerausweis Kategorie B Angebot abwechslungsreiche Tätigkeiten in einem dynamischen Umfeld leistungsgerechte Anstellungsbedingungen ein engagiertes und kollegiales Team",
         "it": "I cavi di controllo installano e collegano gli impianti elettrici in potenza e sottostazioni eseguono gli armadi di controllo rimuovere ed espandere i sistemi di supporto terrestre e via cavo assemblano i documenti di progetto di aggiornamento e supplemento\n• Requisiti Completato l'apprendistato come ingegnere automatico o ingegnere elettrico pronunciato abilità di squadra e auto-motivazione Metodo di lavoro affidabile e indipendente Patente di guida Categoria B Offrire varie attività in un ambiente dinamico condizioni di lavoro basato sulle prestazioni un team impegnato e collegiale",
         "en": "Activities Control cables install and connect Electrical installations in power and substations execute control cabinets remove and expand earth and cable support systems assemble project documents update and supplement\n• Requirements Completed apprenticeship as an automatic engineer or electric engineer pronounced team skills and self-motivation Reliable and independent working method Driver's license Category B Offer varied activities in a dynamic environment performance-based employment conditions a committed and collegial team",
+        "de": "Tätigkeiten Steuerkabel verlegen und anschliessen Elektrische Installationen in Kraft- und Unterwerken ausführen Steuerschränke ausbauen und erweitern Erd- und Kabeltragsysteme montieren Projektunterlagen aktualisieren und ergänzen \n• Anforderungen abgeschlossene Lehre als Automatiker/in oder Elektromonteur/in ausgeprägte Teamfähigkeit und Eigenmotivation verlässliche sowie eigenständige Arbeitsweise Führerausweis Kategorie B Angebot abwechslungsreiche Tätigkeiten in einem dynamischen Umfeld leistungsgerechte Anstellungsbedingungen ein engagiertes und kollegiales Team",
         "fr": "Activités Contrôler les câbles installer et connecter Les installations électriques dans les centrales électriques et les sous-stations exécutent les armoires de contrôle enlever et étendre les systèmes de soutien de la terre et des câbles assembler les documents de projet mettre à jour et compléter\n• Exigences Apprentissage terminé en tant qu'ingénieur automatique ou ingénieur électrique prononcé compétences de l'équipe et automotivation Méthode de travail fiable et indépendante Permis de conduire Catégorie B Offrir des activités variées dans un environnement dynamique des conditions d'emploi basées sur la performance une équipe engagée et collégiale"
       },
       "location": "Zofingen, Aargau",
@@ -536,7 +463,7 @@
       "url": "https://www.sta.jobs/stellen/automatiker-in-zofingen-tryhire-110998/",
       "source": "STA Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:32.159Z",
+      "crawledAt": "2026-09-26T14:07:19.820Z",
       "addressLocality": "Zofingen",
       "addressRegion": "Aargau",
       "addressCountry": "CH",
@@ -551,18 +478,19 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://www.sta.jobs/stellen/automatiker-in-zofingen-tryhire-110998/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "automatiker-in-fur-elektrische-installationen-zofingen-aargau-sta-ch",
+        "automatiker-in-per-elektrische-installazioni-sta-personal-ag-zofingen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-fur-elektrische-installationen-zofingen-aargau-sta-ch"
+          "automatiker-in-fur-elektrische-installationen-zofingen-aargau-sta-ch",
+          "automatiker-in-per-elektrische-installazioni-sta-personal-ag-zofingen"
         ]
       },
-      "previousSlugs": [
-        "automatiker-in-fur-elektrische-installationen-zofingen-aargau-sta-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-25T14:56:32.159Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -575,16 +503,86 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "sta-4ed90ce9176e",
+      "slug": "anlagen-e-apparatebauer-in-con-mig-mag-tig-schweisskenntnissen-sta-personal-ag-luzern",
+      "slugByLocale": {
+        "it": "anlagen-e-apparatebauer-in-con-mig-mag-tig-schweisskenntnissen-sta-personal-ag-luzern",
+        "en": "anlagen-und-apparatebauer-in-mit-mig-mag-tig-schweisskenntnissen-luzern-luzern-sta-ch",
+        "de": "anlagen-und-apparatebauer-in-mit-mig-mag-tig-schweisskenntnissen-luzern-luzern-sta-ch",
+        "fr": "anlagen-und-apparatebauer-in-mit-mig-mag-tig-schweisskenntnissen-luzern-luzern-sta-ch"
       },
-      "firstSeenAt": "2026-09-25T14:56:32.159Z"
+      "company": "STA Personal AG",
+      "companyKey": "sta",
+      "companyDomain": "sta.jobs",
+      "title": "Anlagen- und Apparatebauer/in mit MIG/MAG/TIG Schweisskenntnissen",
+      "titleByLocale": {
+        "it": "Anlagen- e Apparatebauer/in con MIG/MAG/TIG Schweisskenntnissen",
+        "en": "Anlagen- und Apparatebauer/in mit MIG/MAG/TIG Schweisskenntnissen",
+        "de": "Anlagen- und Apparatebauer/in mit MIG/MAG/TIG Schweisskenntnissen",
+        "fr": "Anlagen- und Apparatebauer/in mit MIG/MAG/TIG Schweisskenntnissen"
+      },
+      "description": "Tätigkeiten Schweissen von anspruchsvollen Blech- und Profilkonstruktionen aus Aluminium und Chromstahl nach Zeichnung Schweissen im MIG, MAG- und TIG- Verfahren Verschleifen der Schweissnähte nach Vorgaben Richten und Prüfen der hergestellten Teile \n• Anforderungen Abgeschlossene Ausbildung als Anlagen- und Apparatebauer/in oder Metallbauer/in Sehr gute Kenntnisse im Planlesen Fundierte Schweisskenntnisse (MIG/MAG/TIG) Belastbar, motiviert und teamfähig Hohes Qualitätsbewusstsein Angebot Interessante und abwechslungsreiche Tätigkeiten Flexible Arbeitszeiten Familiäres Umfeld Förderungs- und Weiterentwicklungsmöglichkeiten",
+      "descriptionByLocale": {
+        "it": "saldatura di lamiera e profilati impegnativi costruzioni di alluminio e acciaio al cromo dopo la saldatura di disegno nel MIG, MAG e rettifica di processo TIG delle cuciture di saldatura secondo specifiche raddrizzamento e collaudo delle parti prodotte\n• Requisiti Formazione completa come costruttore di impianti e apparati o metal builder / in Molto buona conoscenza nella pianificazione Conoscenze di saldatura sonora (MIG/MAG/TIG) Resiliente, motivato e capace di lavoro di squadra Sensibilizzazione di alta qualità Offerta Attività interessanti e varie Ore lavorative flessibili Ambiente familiare Promozione e ulteriori opportunità di sviluppo",
+        "en": "welding of demanding sheet and profile constructions of aluminum and chromium steel after drawing welding in the MIG, MAG and TIG process grinding of the weld seams according to specifications straightening and testing of the manufactured parts\n• Requirements Completed training as a plant and apparatus builder or metal builder / in Very good knowledge in planning Sound welding knowledge (MIG/MAG/TIG) Resilient, motivated and capable of teamwork High quality awareness Offer Interesting and varied activities Flexible working hours Family environment Promotion and further development opportunities",
+        "de": "Tätigkeiten Schweissen von anspruchsvollen Blech- und Profilkonstruktionen aus Aluminium und Chromstahl nach Zeichnung Schweissen im MIG, MAG- und TIG- Verfahren Verschleifen der Schweissnähte nach Vorgaben Richten und Prüfen der hergestellten Teile \n• Anforderungen Abgeschlossene Ausbildung als Anlagen- und Apparatebauer/in oder Metallbauer/in Sehr gute Kenntnisse im Planlesen Fundierte Schweisskenntnisse (MIG/MAG/TIG) Belastbar, motiviert und teamfähig Hohes Qualitätsbewusstsein Angebot Interessante und abwechslungsreiche Tätigkeiten Flexible Arbeitszeiten Familiäres Umfeld Förderungs- und Weiterentwicklungsmöglichkeiten",
+        "fr": "soudage des constructions exigeantes en tôle et profil en aluminium et en acier chromé après étirage soudage dans le procédé MIG, MAG et TIG broyage des soudures selon les spécifications de redressage et d'essai des pièces fabriquées\n• Exigences Formation complète en tant que constructeur d'usines et d'appareils ou constructeur de métaux / en très bonne connaissance de la planification Connaissances en matière de soudage sonore (MIG/MAG/TIG) Résilient, motivé et capable de travailler en équipe Sensibilisation de haute qualité Offre Activités intéressantes et variées Horaires de travail flexibles Environnement familial Promotion et possibilités de développement"
+      },
+      "location": "Luzern, Luzern",
+      "canton": "LU",
+      "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-luzern-temporaer-111451/",
+      "source": "STA Personal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T14:07:19.819Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "Luzern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-25",
+      "applyUrl": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-luzern-temporaer-111451/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "anlagen-und-apparatebauer-in-mit-mig-mag-tig-schweisskenntnissen-luzern-luzern-sta-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagen-und-apparatebauer-in-mit-mig-mag-tig-schweisskenntnissen-luzern-luzern-sta-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-26T14:07:19.819Z"
     },
     {
       "id": "sta-4e2772ad5e60",
       "slug": "anlagen-e-apparatebauer-in-con-mag-schweissprufung-sta-personal-ag-zofingen",
       "slugByLocale": {
-        "de": "anlagen-und-apparatebauer-in-mit-mag-schweissprufung-zofingen-aargau-sta-ch",
         "it": "anlagen-e-apparatebauer-in-con-mag-schweissprufung-sta-personal-ag-zofingen",
         "en": "anlagen-und-apparatebauer-in-mit-mag-schweissprufung-sta-personal-ag-zofingen",
+        "de": "anlagen-und-apparatebauer-in-mit-mag-schweissprufung-zofingen-aargau-sta-ch",
         "fr": "anlagen-und-apparatebauer-in-mit-mag-schweissprufung-sta-personal-ag-zofingen"
       },
       "company": "STA Personal AG",
@@ -592,16 +590,16 @@
       "companyDomain": "sta.jobs",
       "title": "Anlagen- und Apparatebauer/in mit MAG-Schweissprüfung",
       "titleByLocale": {
-        "de": "Anlagen- und Apparatebauer/in mit MAG-Schweissprüfung",
         "it": "Anlagen- e Apparatebauer/in con MAG-Schweissprüfung",
         "en": "Anlagen- und Apparatebauer/in mit MAG-Schweissprüfung",
+        "de": "Anlagen- und Apparatebauer/in mit MAG-Schweissprüfung",
         "fr": "Anlagen- und Apparatebauer/in mit MAG-Schweissprüfung"
       },
       "description": "Tätigkeiten Zu Ihrem Tätigkeitsgebiet gehört das Schweissen und Schleifen von Teilen aus Chromstahl. Sie sind verantwortlich für das Schweissen, Verschleifen und Richten von kleinen bis mittelgrossen Werkstücken \n• Anforderungen Ausbildung als Anlagen- und Apparatebauer EFZ Zwingend MAG-Schweissprüfung Vielseitige und langjährige Berufspraxis Effiziente und selbständige Arbeitsweise Aufgestellte Persönlichkeit Teamplayer Angebot Hier finden Sie eine vielseitige und interessante Tätigkeit in welcher Sie gefordert werden. Bei Eignung besteht die Chance auf eine Festanstellung.",
       "descriptionByLocale": {
-        "de": "Tätigkeiten Zu Ihrem Tätigkeitsgebiet gehört das Schweissen und Schleifen von Teilen aus Chromstahl. Sie sind verantwortlich für das Schweissen, Verschleifen und Richten von kleinen bis mittelgrossen Werkstücken \n• Anforderungen Ausbildung als Anlagen- und Apparatebauer EFZ Zwingend MAG-Schweissprüfung Vielseitige und langjährige Berufspraxis Effiziente und selbständige Arbeitsweise Aufgestellte Persönlichkeit Teamplayer Angebot Hier finden Sie eine vielseitige und interessante Tätigkeit in welcher Sie gefordert werden. Bei Eignung besteht die Chance auf eine Festanstellung.",
         "it": "Attività Il suo campo di attività comprende la saldatura e la rettifica di parti in acciaio al cromo. Sono responsabili per la saldatura, la rettifica e la raddrizzatura di pezzi di piccole e medie dimensioni\n• Formazione come produttore di impianti e apparati EFZ Compelling MAG saldatura esame Versatile e lunga pratica professionale Efficiente e indipendente metodo di lavoro Configurare la personalità squadra giocatore offerta Qui troverete un'attività versatile e interessante in cui si sono sfidati. Se adatto, c'è una possibilità di occupazione permanente.",
         "en": "Activities Her field of activity includes the welding and grinding of parts made of chromium steel. They are responsible for welding, grinding and straightening small to medium-sized workpieces\n• Requirements Training as a plant and apparatus manufacturer EFZ Compelling MAG welding examination Versatile and long-standing professional practice Efficient and independent working method Set up personality team player offer Here you will find a versatile and interesting activity in which you are challenged. If suitable, there is a chance of permanent employment.",
+        "de": "Tätigkeiten Zu Ihrem Tätigkeitsgebiet gehört das Schweissen und Schleifen von Teilen aus Chromstahl. Sie sind verantwortlich für das Schweissen, Verschleifen und Richten von kleinen bis mittelgrossen Werkstücken \n• Anforderungen Ausbildung als Anlagen- und Apparatebauer EFZ Zwingend MAG-Schweissprüfung Vielseitige und langjährige Berufspraxis Effiziente und selbständige Arbeitsweise Aufgestellte Persönlichkeit Teamplayer Angebot Hier finden Sie eine vielseitige und interessante Tätigkeit in welcher Sie gefordert werden. Bei Eignung besteht die Chance auf eine Festanstellung.",
         "fr": "Activités Son domaine d'activité comprend le soudage et le broyage de pièces en acier au chrome. Ils sont responsables du soudage, du broyage et du lissage des pièces de petite à moyenne taille\n• Exigences Formation en tant que fabricant d'installations et d'appareils EFZ Compelling MAG souding examination Pratique professionnelle polyvalente et de longue date Méthode de travail efficace et indépendante Configurer l'offre de joueur de personnalité Vous trouverez ici une activité polyvalente et intéressante dans laquelle vous êtes défié. Le cas échéant, il y a une possibilité d'emploi permanent."
       },
       "location": "Zofingen, Aargau",
@@ -609,7 +607,7 @@
       "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-zofingen-temporaer-111177/",
       "source": "STA Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:32.158Z",
+      "crawledAt": "2026-09-26T14:07:19.818Z",
       "addressLocality": "Zofingen",
       "addressRegion": "Aargau",
       "addressCountry": "CH",
@@ -624,18 +622,19 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-zofingen-temporaer-111177/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "anlagen-und-apparatebauer-in-mit-mag-schweissprufung-zofingen-aargau-sta-ch",
+        "anlagen-e-apparatebauer-in-con-mag-schweissprufung-sta-personal-ag-zofingen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-mit-mag-schweissprufung-zofingen-aargau-sta-ch"
+          "anlagen-und-apparatebauer-in-mit-mag-schweissprufung-zofingen-aargau-sta-ch",
+          "anlagen-e-apparatebauer-in-con-mag-schweissprufung-sta-personal-ag-zofingen"
         ]
       },
-      "previousSlugs": [
-        "anlagen-und-apparatebauer-in-mit-mag-schweissprufung-zofingen-aargau-sta-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-25T14:56:32.158Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -648,8 +647,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-25T14:56:32.158Z"
+      }
     },
     {
       "id": "sta-f040279c4673",
@@ -665,9 +663,9 @@
       "companyDomain": "sta.jobs",
       "title": "Anlagen- und Apparatebauer/in für Rohrleitungs- und Konsolenbau",
       "titleByLocale": {
-        "de": "Anlagen- und Apparatebauer/in für Rohrleitungs- und Konsolenbau",
         "it": "Anlagen- e Apparatebauer/in per Rohrleitungs- e Konsolenbau",
         "en": "Plant and apparatus engineer for pipeline and console construction",
+        "de": "Anlagen- und Apparatebauer/in für Rohrleitungs- und Konsolenbau",
         "fr": "Ingénieur d'installations et d'appareils pour la construction de conduites et de consoles"
       },
       "description": "Tätigkeiten Konsolen für technische Anlagen herstellen Rohrleitungen im Betrieb anfertigen und montieren Pressleitungen in Weiss und Schwarz bearbeiten \n• Anforderungen Lehrabschluss als Anlagen- und Apparatebauerin oder Anlagen- und Apparatebauer EFZ Alternativ Abschluss als Metallbauerin oder Metallbauer EFZ Saubere und präzise Arbeitsweise im Rohrleitungsbau Angebot Vielseitige Einsätze im Rohrleitungs- und Konsolenbau Zeitgemässe Ausstattung für die tägliche Werkstattarbeit",
@@ -682,7 +680,7 @@
       "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-muri-ag-temporaer-109272/",
       "source": "STA Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:32.157Z",
+      "crawledAt": "2026-09-26T14:07:19.818Z",
       "addressLocality": "Muri AG",
       "addressRegion": "Aargau",
       "addressCountry": "CH",
@@ -698,17 +696,18 @@
       "applyUrl": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-muri-ag-temporaer-109272/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "anlagen-und-apparatebauer-in-fur-rohrleitungs-und-konsolenbau-muri-ag-aargau-sta-ch",
+        "installazione-e-apparati-per-costruzione-di-tubazioni-e-console-sta-personal-ag-muri-ag-aargau"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "anlagen-und-apparatebauer-in-fur-rohrleitungs-und-konsolenbau-muri-ag-aargau-sta-ch",
           "installazione-e-apparati-per-costruzione-di-tubazioni-e-console-sta-personal-ag-muri-ag-aargau"
         ]
       },
-      "previousSlugs": [
-        "anlagen-und-apparatebauer-in-fur-rohrleitungs-und-konsolenbau-muri-ag-aargau-sta-ch",
-        "installazione-e-apparati-per-costruzione-di-tubazioni-e-console-sta-personal-ag-muri-ag-aargau"
-      ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-25T14:56:32.157Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -721,87 +720,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-25T14:56:32.157Z"
-    },
-    {
-      "id": "sta-c6a85b0ba4be",
-      "slug": "anlagen-e-apparatebauer-in-per-moderne-laser-e-cnc-anlagen-sta-personal-ag-olten",
-      "slugByLocale": {
-        "de": "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch",
-        "it": "anlagen-e-apparatebauer-in-per-moderne-laser-e-cnc-anlagen-sta-personal-ag-olten",
-        "en": "plant-and-apparatus-engineer-for-modern-laser-and-cnc-systems-sta-personal-ag-olten-solothurn",
-        "fr": "ingenieur-d-usine-et-d-appareils-pour-les-systemes-laser-et-cnc-modernes-sta-personal-ag-olten-solothurn"
-      },
-      "company": "STA Personal AG",
-      "companyKey": "sta",
-      "companyDomain": "sta.jobs",
-      "title": "Anlagen- und Apparatebauer/in für moderne Laser- und CNC-Anlagen",
-      "titleByLocale": {
-        "de": "Anlagen- und Apparatebauer/in für moderne Laser- und CNC-Anlagen",
-        "it": "Anlagen- e Apparatebauer/in per moderne Laser- e CNC-Anlagen",
-        "en": "Plant and apparatus engineer for modern laser and CNC systems",
-        "fr": "Ingénieur d'usine et d'appareils pour les systèmes laser et CNC modernes"
-      },
-      "description": "Tätigkeiten Technische Zeichnungen erstellen und anpassen Aufträge für das Nesting aufbereiten Metalllaser-Anlagen eigenständig bedienen und bestücken CNC-Maschinen einrichten, umrüsten und programmieren Wagenkästen mit dem Lasertracker von Hexagon vermessen \n• Anforderungen Berufspraxis im Anlagen- und Apparatebau Sicherer Umgang mit technischen Zeichnungen Erfahrung in der Blechbearbeitung und CNC-Fertigung Präzise und selbstständige Arbeitsweise Technisches Verständnis für Metallbearbeitung Angebot Temporäre Anstellung bis mindestens Mai 2027 Vielseitiger Einsatz in der Fertigungstechnik Arbeit mit modernen Laser- und CNC-Anlagen",
-      "descriptionByLocale": {
-        "it": "I disegni tecnici creano e adattano gli ordini per il processo di nidificazione dei sistemi laser in metallo operano in modo indipendente e equipaggiano le macchine CNC per configurare, convertire e programmare i corpi auto con il tracker laser di Hexagon\n• Pratiche professionali in impianti e apparatus Costruzione Gestione sicura dei disegni tecnici Esperienza nella lavorazione della lamiera e produzione CNC Metodi di lavoro precisi e indipendenti La comprensione tecnica della lavorazione del metallo offre un impiego temporaneo fino ad almeno il maggio 2027 Uso versatile nel lavoro di ingegneria manifatturiera con moderni sistemi laser e CNC",
-        "en": "Activities Technical drawings create and adapt orders for the nesting process metal laser systems independently operate and equip CNC machines to set up, convert and program car bodies with the laser tracker from Hexagon\n• Requirements Professional Practice in Plant and Apparatus Construction Secure handling of technical drawings Experience in sheet metal processing and CNC manufacturing Precise and independent working methods Technical understanding of metal processing offer Temporary employment until at least May 2027 Versatile use in manufacturing engineering work with modern laser and CNC systems",
-        "de": "Tätigkeiten Technische Zeichnungen erstellen und anpassen Aufträge für das Nesting aufbereiten Metalllaser-Anlagen eigenständig bedienen und bestücken CNC-Maschinen einrichten, umrüsten und programmieren Wagenkästen mit dem Lasertracker von Hexagon vermessen \n• Anforderungen Berufspraxis im Anlagen- und Apparatebau Sicherer Umgang mit technischen Zeichnungen Erfahrung in der Blechbearbeitung und CNC-Fertigung Präzise und selbstständige Arbeitsweise Technisches Verständnis für Metallbearbeitung Angebot Temporäre Anstellung bis mindestens Mai 2027 Vielseitiger Einsatz in der Fertigungstechnik Arbeit mit modernen Laser- und CNC-Anlagen",
-        "fr": "Activités Dessins techniques créer et adapter les commandes pour les systèmes laser métal de processus de nidification fonctionnent et équipent indépendamment les machines CNC pour mettre en place, convertir et programmer des carrosseries avec le tracker laser de Hexagon\n• Exigences Pratique professionnelle dans la construction d'installations et d'appareils Manipulation sécurisée des dessins techniques Expérience dans le traitement des tôles et la fabrication de CNC Méthodes de travail précises et indépendantes La compréhension technique de la transformation des métaux offre un emploi temporaire jusqu'au moins mai 2027 Utilisation polyvalente dans les travaux d'ingénierie de fabrication avec des systèmes laser et CNC modernes"
-      },
-      "location": "Olten, Solothurn",
-      "canton": "SO",
-      "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-olten-temporaer-110918/",
-      "source": "STA Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:32.156Z",
-      "addressLocality": "Olten",
-      "addressRegion": "Solothurn",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-24",
-      "applyUrl": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-olten-temporaer-110918/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch",
-          "anlagen-e-apparatebauer-in-per-moderne-laser-e-cnc-anlagen-sta-personal-ag-olten"
-        ],
-        "en": [
-          "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch"
-        ],
-        "fr": [
-          "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch"
-        ]
-      },
-      "previousSlugs": [
-        "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch",
-        "anlagen-e-apparatebauer-in-per-moderne-laser-e-cnc-anlagen-sta-personal-ag-olten"
-      ],
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-24T14:29:27.712Z"
+      }
     },
     {
       "id": "sta-8aa303feeb73",
@@ -817,9 +736,9 @@
       "companyDomain": "sta.jobs",
       "title": "Anlagen- und Apparatebauer/in für Fahrzeugaufbauten",
       "titleByLocale": {
-        "de": "Anlagen- und Apparatebauer/in für Fahrzeugaufbauten",
         "it": "Anlagen- e Apparatebauer/in per Fahrzeugaufbauten",
         "en": "Plant and apparatus manufacturer for vehicle bodies",
+        "de": "Anlagen- und Apparatebauer/in für Fahrzeugaufbauten",
         "fr": "Fabricant d'usines et d'appareils pour carrosseries de véhicules"
       },
       "description": "Tätigkeiten Fahrzeugaufbauten für leichte und schwere Fahrzeuge herstellen Einzelne Aufbauteile neu fertigen Kranaufbauten konstruieren und montieren Wartungsarbeiten an Fahrzeugaufbauten ausführen Schäden an Fahrzeugaufbauten instand setzen \n• Anforderungen Lehrabschluss in einem metallverarbeitenden oder fahrzeugnahen Beruf Erfahrung im Schweissen von Stahl und Aluminium zählt als Pluspunkt Selbständiges Arbeiten gehört zu deinen Stärken Hohe Genauigkeit und saubere Arbeitsweise Auch bei Zeitdruck arbeitest du effizient Angebot Gleitende Arbeitszeiten im Werkstattbetrieb Fünf Wochen Ferien pro Jahr Raum für berufliche Weiterbildung",
@@ -834,7 +753,7 @@
       "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-langenthal-tryhire-107172/",
       "source": "STA Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:32.155Z",
+      "crawledAt": "2026-09-26T14:07:19.817Z",
       "addressLocality": "Langenthal",
       "addressRegion": "Bern",
       "addressCountry": "CH",
@@ -850,17 +769,18 @@
       "applyUrl": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-langenthal-tryhire-107172/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "anlagen-und-apparatebauer-in-fur-fahrzeugaufbauten-langenthal-bern-sta-ch",
+        "installazione-e-costruttori-di-apparecchi-per-i-corpi-dei-veicoli-sta-personal-ag-langenthal-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "anlagen-und-apparatebauer-in-fur-fahrzeugaufbauten-langenthal-bern-sta-ch",
           "installazione-e-costruttori-di-apparecchi-per-i-corpi-dei-veicoli-sta-personal-ag-langenthal-bern"
         ]
       },
-      "previousSlugs": [
-        "anlagen-und-apparatebauer-in-fur-fahrzeugaufbauten-langenthal-bern-sta-ch",
-        "installazione-e-costruttori-di-apparecchi-per-i-corpi-dei-veicoli-sta-personal-ag-langenthal-bern"
-      ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-25T14:56:32.155Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -873,16 +793,94 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "sta-c6a85b0ba4be",
+      "slug": "anlagen-e-apparatebauer-in-per-moderne-laser-e-cnc-anlagen-sta-personal-ag-olten",
+      "slugByLocale": {
+        "it": "anlagen-e-apparatebauer-in-per-moderne-laser-e-cnc-anlagen-sta-personal-ag-olten",
+        "en": "plant-and-apparatus-engineer-for-modern-laser-and-cnc-systems-sta-personal-ag-olten-solothurn",
+        "de": "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch",
+        "fr": "ingenieur-d-usine-et-d-appareils-pour-les-systemes-laser-et-cnc-modernes-sta-personal-ag-olten-solothurn"
       },
-      "firstSeenAt": "2026-09-25T14:56:32.155Z"
+      "company": "STA Personal AG",
+      "companyKey": "sta",
+      "companyDomain": "sta.jobs",
+      "title": "Anlagen- und Apparatebauer/in für moderne Laser- und CNC-Anlagen",
+      "titleByLocale": {
+        "it": "Anlagen- e Apparatebauer/in per moderne Laser- e CNC-Anlagen",
+        "en": "Plant and apparatus engineer for modern laser and CNC systems",
+        "de": "Anlagen- und Apparatebauer/in für moderne Laser- und CNC-Anlagen",
+        "fr": "Ingénieur d'usine et d'appareils pour les systèmes laser et CNC modernes"
+      },
+      "description": "Tätigkeiten Technische Zeichnungen erstellen und anpassen Aufträge für das Nesting aufbereiten Metalllaser-Anlagen eigenständig bedienen und bestücken CNC-Maschinen einrichten, umrüsten und programmieren Wagenkästen mit dem Lasertracker von Hexagon vermessen \n• Anforderungen Berufspraxis im Anlagen- und Apparatebau Sicherer Umgang mit technischen Zeichnungen Erfahrung in der Blechbearbeitung und CNC-Fertigung Präzise und selbstständige Arbeitsweise Technisches Verständnis für Metallbearbeitung Angebot Temporäre Anstellung bis mindestens Mai 2027 Vielseitiger Einsatz in der Fertigungstechnik Arbeit mit modernen Laser- und CNC-Anlagen",
+      "descriptionByLocale": {
+        "it": "I disegni tecnici creano e adattano gli ordini per il processo di nidificazione dei sistemi laser in metallo operano in modo indipendente e equipaggiano le macchine CNC per configurare, convertire e programmare i corpi auto con il tracker laser di Hexagon\n• Pratiche professionali in impianti e apparatus Costruzione Gestione sicura dei disegni tecnici Esperienza nella lavorazione della lamiera e produzione CNC Metodi di lavoro precisi e indipendenti La comprensione tecnica della lavorazione del metallo offre un impiego temporaneo fino ad almeno il maggio 2027 Uso versatile nel lavoro di ingegneria manifatturiera con moderni sistemi laser e CNC",
+        "en": "Activities Technical drawings create and adapt orders for the nesting process metal laser systems independently operate and equip CNC machines to set up, convert and program car bodies with the laser tracker from Hexagon\n• Requirements Professional Practice in Plant and Apparatus Construction Secure handling of technical drawings Experience in sheet metal processing and CNC manufacturing Precise and independent working methods Technical understanding of metal processing offer Temporary employment until at least May 2027 Versatile use in manufacturing engineering work with modern laser and CNC systems",
+        "de": "Tätigkeiten Technische Zeichnungen erstellen und anpassen Aufträge für das Nesting aufbereiten Metalllaser-Anlagen eigenständig bedienen und bestücken CNC-Maschinen einrichten, umrüsten und programmieren Wagenkästen mit dem Lasertracker von Hexagon vermessen \n• Anforderungen Berufspraxis im Anlagen- und Apparatebau Sicherer Umgang mit technischen Zeichnungen Erfahrung in der Blechbearbeitung und CNC-Fertigung Präzise und selbstständige Arbeitsweise Technisches Verständnis für Metallbearbeitung Angebot Temporäre Anstellung bis mindestens Mai 2027 Vielseitiger Einsatz in der Fertigungstechnik Arbeit mit modernen Laser- und CNC-Anlagen",
+        "fr": "Activités Dessins techniques créer et adapter les commandes pour les systèmes laser métal de processus de nidification fonctionnent et équipent indépendamment les machines CNC pour mettre en place, convertir et programmer des carrosseries avec le tracker laser de Hexagon\n• Exigences Pratique professionnelle dans la construction d'installations et d'appareils Manipulation sécurisée des dessins techniques Expérience dans le traitement des tôles et la fabrication de CNC Méthodes de travail précises et indépendantes La compréhension technique de la transformation des métaux offre un emploi temporaire jusqu'au moins mai 2027 Utilisation polyvalente dans les travaux d'ingénierie de fabrication avec des systèmes laser et CNC modernes"
+      },
+      "location": "Olten, Solothurn",
+      "canton": "SO",
+      "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-olten-temporaer-110918/",
+      "source": "STA Personal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T14:07:19.817Z",
+      "addressLocality": "Olten",
+      "addressRegion": "Solothurn",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-24",
+      "applyUrl": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-olten-temporaer-110918/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch",
+        "anlagen-e-apparatebauer-in-per-moderne-laser-e-cnc-anlagen-sta-personal-ag-olten"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch",
+          "anlagen-e-apparatebauer-in-per-moderne-laser-e-cnc-anlagen-sta-personal-ag-olten"
+        ],
+        "en": [
+          "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch"
+        ],
+        "fr": [
+          "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-24T14:29:27.712Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "sta-7a835b7a3c13",
       "slug": "anlagen-e-apparatebauer-in-per-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans",
       "slugByLocale": {
-        "de": "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-stans-nidwalden-sta-ch",
         "it": "anlagen-e-apparatebauer-in-per-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans",
         "en": "plant-and-apparatus-engineer-for-cnc-controlled-bending-machines-sta-personal-ag-stans-nidwalden",
+        "de": "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-stans-nidwalden-sta-ch",
         "fr": "ingenieur-d-installation-et-d-appareils-pour-machines-de-pliage-controlees-par-cnc-sta-personal-ag-stans-nidwalden"
       },
       "company": "STA Personal AG",
@@ -890,9 +888,9 @@
       "companyDomain": "sta.jobs",
       "title": "Anlagen- und Apparatebauer/in für CNC-gesteuerte Abkantmaschinen",
       "titleByLocale": {
-        "de": "Anlagen- und Apparatebauer/in für CNC-gesteuerte Abkantmaschinen",
         "it": "Anlagen- e Apparatebauer/in per CNC-gesteuerte Abkantmaschinen",
         "en": "Plant and apparatus engineer for CNC-controlled bending machines",
+        "de": "Anlagen- und Apparatebauer/in für CNC-gesteuerte Abkantmaschinen",
         "fr": "Ingénieur d'installation et d'appareils pour machines de pliage contrôlées par CNC"
       },
       "description": "Tätigkeiten Einrichten, Programmieren, Bedienen von CNC-gesteuerter Abkantmaschine (Bystronic) Fertigung von Einzelteilen und Serien Pflege und Unterhalt vom Maschinenpark Allgemeine Mitarbeit in der Werkstatt \n• Anforderungen Mehrjährige Erfahrung als Abkanter/in Selbständige und zuverlässige Arbeitsweise Hohe Flexibilität Gute Deutschkenntnisse Angebot Geregelte Arbeitszeiten Einen vielseitigen und verantwortungsvollen Arbeitsplatz Angenehmes Arbeitsklima in einem motivierten Team",
@@ -907,7 +905,7 @@
       "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-stans-temporaer-111167/",
       "source": "STA Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:32.154Z",
+      "crawledAt": "2026-09-26T14:07:19.816Z",
       "addressLocality": "Stans",
       "addressRegion": "Nidwalden",
       "addressCountry": "CH",
@@ -923,7 +921,11 @@
       "applyUrl": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-stans-temporaer-111167/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-stans-nidwalden-sta-ch",
+        "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans",
+        "anlagen-e-apparatebauer-in-per-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-stans-nidwalden-sta-ch",
@@ -936,11 +938,8 @@
           "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans"
         ]
       },
-      "previousSlugs": [
-        "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-stans-nidwalden-sta-ch",
-        "anlagen-e-apparatebauer-in-per-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans",
-        "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-24T14:29:27.710Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -953,8 +952,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-24T14:29:27.710Z"
+      }
     },
     {
       "id": "sta-f6be768a0734",
@@ -970,9 +968,9 @@
       "companyDomain": "sta.jobs",
       "title": "Anlagen- und Apparatebauer/in für CNC-Abkanten und Schweissen",
       "titleByLocale": {
-        "de": "Anlagen- und Apparatebauer/in für CNC-Abkanten und Schweissen",
         "it": "Anlagen- e Apparatebauer/in per CNC-Abkanten e Schweissen",
         "en": "Plant and apparatus engineer for CNC bending and welding",
+        "de": "Anlagen- und Apparatebauer/in für CNC-Abkanten und Schweissen",
         "fr": "Ingénieur d'usine et d'appareils pour le pliage et le soudage CNC"
       },
       "description": "Tätigkeiten Moderne CNC-Abkantpressen programmieren und bedienen Abkantmaschinen eigenständig einrichten Bleche nach technischen Zeichnungen kanten und bearbeiten Einzelteile und Baugruppen mit TIG und MAG schweissen An Edelstahl-Rohranlagen und Sonderkonstruktionen mitarbeiten \n• Anforderungen Lehrabschluss als Anlagen- und Apparatebauer EFZ, Metallbauer EFZ, Mechaniker EFZ oder vergleichbare handwerkliche Ausbildung Erfahrung in der Blechbearbeitung und im CNC-Abkanten Gute Kenntnisse im Programmieren und Bedienen von CNC-Abkantpressen Technische Zeichnungen sicher lesen und verstehen Gute Schweisskenntnisse idealerweise mit TIG und MAG Angebot Anspruchsvolle Einzelanfertigungen im Anlagen- und Apparatebau Modern eingerichteter Arbeitsplatz im Produktionsumfeld Möglichkeiten zur fachlichen Weiterentwicklung im CNC- und Schweissbereich",
@@ -987,7 +985,7 @@
       "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-hochdorf-temporaer-107839/",
       "source": "STA Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:32.153Z",
+      "crawledAt": "2026-09-26T14:07:19.815Z",
       "addressLocality": "Hochdorf",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -1003,17 +1001,18 @@
       "applyUrl": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-hochdorf-temporaer-107839/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "anlagen-und-apparatebauer-in-fur-cnc-abkanten-und-schweissen-hochdorf-luzern-sta-ch",
+        "produttori-di-impianti-e-apparati-per-bordi-cnc-e-saldatura-sta-personal-ag-hochdorf-luzern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "anlagen-und-apparatebauer-in-fur-cnc-abkanten-und-schweissen-hochdorf-luzern-sta-ch",
           "produttori-di-impianti-e-apparati-per-bordi-cnc-e-saldatura-sta-personal-ag-hochdorf-luzern"
         ]
       },
-      "previousSlugs": [
-        "anlagen-und-apparatebauer-in-fur-cnc-abkanten-und-schweissen-hochdorf-luzern-sta-ch",
-        "produttori-di-impianti-e-apparati-per-bordi-cnc-e-saldatura-sta-personal-ag-hochdorf-luzern"
-      ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-25T14:56:32.153Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -1026,8 +1025,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-25T14:56:32.153Z"
+      }
     },
     {
       "id": "sta-74efaa51670d",
@@ -1043,9 +1041,9 @@
       "companyDomain": "sta.jobs",
       "title": "Anlagen- und Apparatebauer/in als Laser-Operateur",
       "titleByLocale": {
-        "de": "Anlagen- und Apparatebauer/in als Laser-Operateur",
         "it": "Anlagen- e Apparatebauer/in come Laser-Operateur",
         "en": "Plant and apparatus engineer as laser operator",
+        "de": "Anlagen- und Apparatebauer/in als Laser-Operateur",
         "fr": "Ingénieur d'usine et d'appareils en tant qu'opérateur laser"
       },
       "description": "Tätigkeiten Laseranlagen für Zuschnitte und Bearbeitungen bedienen Fertigungsteile nach Vorgaben einrichten und überwachen Werkstücke auf Qualität und Masshaltigkeit kontrollieren \n• Anforderungen Lehrabschluss als Anlagen- und Apparatebauerin oder Anlagen- und Apparatebauer EFZ Praxis als Laser-Operateurin oder Laser-Operateur Programmierkenntnisse zählen als Pluspunkt Angebot Vielseitige \n• Aufgaben in der metallverarbeitenden Produktion Zeitgemässe Ausstattung im technischen Arbeitsumfeld",
@@ -1060,7 +1058,7 @@
       "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-lenzburg-tryhire-107372/",
       "source": "STA Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:32.152Z",
+      "crawledAt": "2026-09-26T14:07:19.814Z",
       "addressLocality": "Lenzburg",
       "addressRegion": "Aargau",
       "addressCountry": "CH",
@@ -1076,17 +1074,18 @@
       "applyUrl": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-lenzburg-tryhire-107372/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "anlagen-und-apparatebauer-in-als-laser-operateur-lenzburg-aargau-sta-ch",
+        "produttore-di-impianti-e-apparecchi-come-operatore-laser-sta-personal-ag-lenzburg-aargau"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "anlagen-und-apparatebauer-in-als-laser-operateur-lenzburg-aargau-sta-ch",
           "produttore-di-impianti-e-apparecchi-come-operatore-laser-sta-personal-ag-lenzburg-aargau"
         ]
       },
-      "previousSlugs": [
-        "anlagen-und-apparatebauer-in-als-laser-operateur-lenzburg-aargau-sta-ch",
-        "produttore-di-impianti-e-apparecchi-come-operatore-laser-sta-personal-ag-lenzburg-aargau"
-      ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-25T14:56:32.152Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -1099,8 +1098,7 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-25T14:56:32.152Z"
+      }
     },
     {
       "id": "sta-3267f76b352f",
@@ -1133,7 +1131,7 @@
       "url": "https://www.sta.jobs/stellen/metallbauer-in-hilfsarbeiter-in-luzern-temporaer-110922/",
       "source": "STA Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:32.152Z",
+      "crawledAt": "2026-09-26T14:07:19.813Z",
       "addressLocality": "Luzern",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -1211,7 +1209,7 @@
       "url": "https://www.sta.jobs/stellen/produktionsmitarbeiter-in-lenzburg-temporaer-110356/",
       "source": "STA Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:32.151Z",
+      "crawledAt": "2026-09-26T14:07:19.812Z",
       "addressLocality": "Lenzburg",
       "addressRegion": "Aargau",
       "addressCountry": "CH",
@@ -1292,7 +1290,7 @@
       "url": "https://www.sta.jobs/stellen/maler-in-olten-temporaer-110636/",
       "source": "STA Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:32.150Z",
+      "crawledAt": "2026-09-26T14:07:19.811Z",
       "addressLocality": "Olten",
       "addressRegion": "Solothurn",
       "addressCountry": "CH",
@@ -1373,7 +1371,7 @@
       "url": "https://www.sta.jobs/stellen/maler-in-olten-temporaer-110608/",
       "source": "STA Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:32.149Z",
+      "crawledAt": "2026-09-26T14:07:19.810Z",
       "addressLocality": "Olten",
       "addressRegion": "Solothurn",
       "addressCountry": "CH",
@@ -1453,7 +1451,7 @@
       "url": "https://www.sta.jobs/stellen/gaertner-in-hilfsarbeiter-in-aarau-temporaer-110388/",
       "source": "STA Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:56:32.147Z",
+      "crawledAt": "2026-09-26T14:07:19.808Z",
       "addressLocality": "Aarau",
       "addressRegion": "Aargau",
       "addressCountry": "CH",
@@ -1579,7 +1577,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "sta-96bbc9e24c1f",
@@ -1658,7 +1656,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "sta-58dadb3e555a",
@@ -1737,7 +1736,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "sta-ae1d20f7fdc5",
@@ -1816,7 +1815,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "sta-1af015907e27",
@@ -1896,7 +1895,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "sta-ef55ecd2fdf6",
@@ -1976,7 +1975,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "sta-03dc1fbd18ea",
@@ -2055,7 +2054,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "sta-135f7d382628",
@@ -2131,323 +2130,6 @@
           "@type": "QuantitativeValue",
           "minValue": 73500,
           "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "sta-af64d555855e",
-      "slug": "i-professionisti-della-pittura-per-nuove-e-ristrutturazioni-sta-personal-ag-sursee-luzern",
-      "slugByLocale": {
-        "it": "i-professionisti-della-pittura-per-nuove-e-ristrutturazioni-sta-personal-ag-sursee-luzern",
-        "en": "painting-practitioners-for-new-and-renovations-sta-personal-ag-sursee-luzern",
-        "de": "malerpraktiker-in-fur-neu-und-umbauten-sursee-luzern-sta-ch",
-        "fr": "pratiques-de-peinture-pour-les-nouveautes-et-les-renovations-sta-personal-ag-sursee-luzern"
-      },
-      "company": "STA Personal AG",
-      "companyKey": "sta",
-      "companyDomain": "sta.jobs",
-      "title": "Malerpraktiker/in für Neu- und Umbauten",
-      "titleByLocale": {
-        "it": "I professionisti della pittura per nuove e ristrutturazioni",
-        "en": "Painting practitioners for new and renovations",
-        "de": "Malerpraktiker/in für Neu- und Umbauten",
-        "fr": "Pratiques de peinture pour les nouveautés et les rénovations"
-      },
-      "description": "Tätigkeiten Malerarbeiten in Neu- und Umbauten Holzwerk streichen Tapezieren\n• Anforderungen Abgeschlossene Lehre als Maler/in EFZ oder EBA Einige Jahre Berufserfahrung Selbstständiges Arbeiten gewohnt Teamplayer mit Eigenverantwortung Freude am Kundenkontakt Führerausweis Kat. B Angebot Durchmischtes dynamisches Team Spannende und abwechslungsreiche Tätigkeiten Modern eingerichteter Betrieb Solide Einarbeitung Zeitgemässe und leistungsorientierte Entlöhnung",
-      "descriptionByLocale": {
-        "it": "Attività: Lavori di pittura in nuovi edifici e ristrutturazioni, dipingere lavori in legno, tappezzare la carta da parati\n• Requisiti Completato l'apprendistato come pittore EFZ o EBA Diversi anni di esperienza professionale Abituato a lavorare in modo indipendente Giocatore di squadra con responsabilità personale Piacere del contatto con il cliente Patente di guida Cat. B Offerta Squadra mista e dinamica Attività entusiasmanti e varie Azienda moderna Solida introduzione Stipendio contemporaneo e orientato alle prestazioni",
-        "en": "Activities: Painting work in new buildings and renovations, painting woodwork, wallpapering\n• Requirements Completed apprenticeship as a painter EFZ or EBA Several years of professional experience Used to working independently Team player with personal responsibility Enjoyment of customer contact Driving licence Cat. B Offer Mixed, dynamic team Exciting and varied activities Modern company Solid induction Contemporary and performance-oriented remuneration",
-        "de": "Tätigkeiten Malerarbeiten in Neu- und Umbauten Holzwerk streichen Tapezieren\n• Anforderungen Abgeschlossene Lehre als Maler/in EFZ oder EBA Einige Jahre Berufserfahrung Selbstständiges Arbeiten gewohnt Teamplayer mit Eigenverantwortung Freude am Kundenkontakt Führerausweis Kat. B Angebot Durchmischtes dynamisches Team Spannende und abwechslungsreiche Tätigkeiten Modern eingerichteter Betrieb Solide Einarbeitung Zeitgemässe und leistungsorientierte Entlöhnung",
-        "fr": "Activités : Peindre dans de nouveaux bâtiments et rénovations, peindre le menuisier, papier peint\n• Exigences : Apprentissage en tant que peintre EFZ ou EBA Plusieurs années d'expérience professionnelle Habitué à travailler de manière autonome Travail d'équipe avec responsabilité personnelle Appréciation du contact client Permis de conduire Cat. B Offre Équipe mixte et dynamique Activités passionnantes et variées Entreprise moderne Solide intégration Rémunération contemporaine et axée sur la performance"
-      },
-      "location": "Sursee, Luzern",
-      "canton": "LU",
-      "url": "https://www.sta.jobs/stellen/malerpraktiker-in-sursee-tryhire-110096/",
-      "source": "STA Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:21.055Z",
-      "addressLocality": "Sursee",
-      "addressRegion": "Luzern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-21",
-      "applyUrl": "https://www.sta.jobs/stellen/malerpraktiker-in-sursee-tryhire-110096/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "malerpraktiker-in-fur-neu-und-umbauten-sursee-luzern-sta-ch",
-        "malerpraktiker-in-per-neu-e-umbauten-sta-personal-ag-sursee"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "malerpraktiker-in-fur-neu-und-umbauten-sursee-luzern-sta-ch",
-          "malerpraktiker-in-per-neu-e-umbauten-sta-personal-ag-sursee"
-        ],
-        "en": [
-          "malerpraktiker-in-fur-neu-und-umbauten-sursee-luzern-sta-ch"
-        ],
-        "fr": [
-          "malerpraktiker-in-fur-neu-und-umbauten-sursee-luzern-sta-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-21T16:07:55.164Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "sta-65b6c497899b",
-      "slug": "pittori-per-nuove-e-ristrutturazioni-sta-personal-ag-sursee-luzern",
-      "slugByLocale": {
-        "it": "pittori-per-nuove-e-ristrutturazioni-sta-personal-ag-sursee-luzern",
-        "en": "painters-for-new-and-renovations-sta-personal-ag-sursee-luzern",
-        "de": "maler-in-fur-neu-und-umbauten-sursee-luzern-sta-ch",
-        "fr": "peintres-pour-nouveautes-et-renovations-sta-personal-ag-sursee-luzern"
-      },
-      "company": "STA Personal AG",
-      "companyKey": "sta",
-      "companyDomain": "sta.jobs",
-      "title": "Maler/in für Neu- und Umbauten",
-      "titleByLocale": {
-        "it": "Pittori per nuove e ristrutturazioni",
-        "en": "Painters for new and renovations",
-        "de": "Maler/in für Neu- und Umbauten",
-        "fr": "Peintres pour nouveautés et rénovations"
-      },
-      "description": "Tätigkeiten Malerarbeiten in Neu- und Umbauten Holzwerk streichen Tapezieren\n• Anforderungen Abgeschlossene Lehre als Maler/in EFZ oder EBA Einige Jahre Berufserfahrung Selbstständiges Arbeiten gewohnt Teamplayer mit Eigenverantwortung Freude am Kundenkontakt Führerausweis Kat. B Angebot Durchmischtes dynamisches Team Spannende und abwechslungsreiche Tätigkeiten Modern eingerichteter Betrieb Solide Einarbeitung Zeitgemässe und leistungsorientierte Entlöhnung",
-      "descriptionByLocale": {
-        "it": "Attività: Lavori di pittura in nuovi edifici e ristrutturazioni, dipingere lavori in legno, tappezzare la carta da parati\n• Requisiti Completato l'apprendistato come pittore EFZ o EBA Diversi anni di esperienza professionale Abituato a lavorare in modo indipendente Giocatore di squadra con responsabilità personale Piacere del contatto con il cliente Patente di guida Cat. B Offerta Squadra mista e dinamica Attività entusiasmanti e varie Azienda moderna Solida introduzione Stipendio contemporaneo e orientato alle prestazioni",
-        "en": "Activities: Painting work in new buildings and renovations, painting woodwork, wallpapering\n• Requirements Completed apprenticeship as a painter EFZ or EBA Several years of professional experience Used to working independently Team player with personal responsibility Enjoyment of customer contact Driving licence Cat. B Offer Mixed, dynamic team Exciting and varied activities Modern company Solid induction Contemporary and performance-oriented remuneration",
-        "de": "Tätigkeiten Malerarbeiten in Neu- und Umbauten Holzwerk streichen Tapezieren\n• Anforderungen Abgeschlossene Lehre als Maler/in EFZ oder EBA Einige Jahre Berufserfahrung Selbstständiges Arbeiten gewohnt Teamplayer mit Eigenverantwortung Freude am Kundenkontakt Führerausweis Kat. B Angebot Durchmischtes dynamisches Team Spannende und abwechslungsreiche Tätigkeiten Modern eingerichteter Betrieb Solide Einarbeitung Zeitgemässe und leistungsorientierte Entlöhnung",
-        "fr": "Activités : Peindre dans de nouveaux bâtiments et rénovations, peindre le menuisier, papier peint\n• Exigences : Apprentissage en tant que peintre EFZ ou EBA Plusieurs années d'expérience professionnelle Habitué à travailler de manière autonome Travail d'équipe avec responsabilité personnelle Appréciation du contact client Permis de conduire Cat. B Offre Équipe mixte et dynamique Activités passionnantes et variées Entreprise moderne Solide intégration Rémunération contemporaine et axée sur la performance"
-      },
-      "location": "Sursee, Luzern",
-      "canton": "LU",
-      "url": "https://www.sta.jobs/stellen/maler-in-sursee-tryhire-110094/",
-      "source": "STA Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:21.047Z",
-      "addressLocality": "Sursee",
-      "addressRegion": "Luzern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-21",
-      "applyUrl": "https://www.sta.jobs/stellen/maler-in-sursee-tryhire-110094/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "maler-in-fur-neu-und-umbauten-sursee-luzern-sta-ch",
-        "maler-in-per-neu-e-umbauten-sta-personal-ag-sursee"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "maler-in-fur-neu-und-umbauten-sursee-luzern-sta-ch",
-          "maler-in-per-neu-e-umbauten-sta-personal-ag-sursee"
-        ],
-        "en": [
-          "maler-in-fur-neu-und-umbauten-sursee-luzern-sta-ch"
-        ],
-        "fr": [
-          "maler-in-fur-neu-und-umbauten-sursee-luzern-sta-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-21T16:07:55.158Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "sta-70ff96e6848d",
-      "slug": "pittori-pittorici-sta-personal-ag-aarau-aargau",
-      "slugByLocale": {
-        "it": "pittori-pittorici-sta-personal-ag-aarau-aargau",
-        "en": "paint-painters-sta-personal-ag-aarau-aargau",
-        "de": "maler-in-fur-fassadenanstriche-aarau-aargau-sta-ch",
-        "fr": "peintures-sta-personal-ag-aarau-aargau"
-      },
-      "company": "STA Personal AG",
-      "companyKey": "sta",
-      "companyDomain": "sta.jobs",
-      "title": "Maler/in für Fassadenanstriche",
-      "titleByLocale": {
-        "it": "Pittori pittorici",
-        "en": "Paint painters",
-        "de": "Maler/in für Fassadenanstriche",
-        "fr": "Peintures"
-      },
-      "description": "Tätigkeiten Ausführen von Fassadenanstrichen und Kundenmalerei Vorbereitung von Oberflächen und Materialien Sauberes und termingerechtes Arbeiten auf Baustellen Beratung und Umsetzung der Kundenwünsche vor Ort\n• Anforderungen Abgeschlossene Ausbildung als Maler/in EFZ Führerausweis B zwingend vorhanden Sorgfältige, selbstständige und zuverlässige Arbeitsweise Teamfähigkeit und Freude am direkten Kundenkontakt Angebot Temporäre Anstellung mit abwechslungsreichen Projekten Arbeiten in einem etablierten und motivierten Team Einblick in unterschiedliche Kundenprojekte und Techniken Faire Entlohnung und flexible Einsatzmöglichkeiten",
-      "descriptionByLocale": {
-        "it": "Attività: Esecuzione della verniciatura di facciate e pittura del cliente, Preparazione di superfici e materiali, lavoro pulito e tempestivo nei cantieri Consulenza e implementazione dei requisiti del cliente sul cantiere\n• Requisiti Completamento della formazione come pittore EFZ Patente di guida B obbligatoria Modo di lavorare attento, indipendente e affidabile Capacità di lavorare in squadra e godimento del contatto diretto con i clienti Offerta Impiego temporaneo con progetti vari Lavorare in un team consolidato e motivato Conoscenza di diversi progetti e tecniche dei clienti Retribuzione equa e opportunità di impiego flessibili",
-        "en": "Activities Execution of façade painting and customer painting Preparation of surfaces and materials Clean and timely work on construction sites Consulting and implementation of customer requirements on site\n• Requirements Completed training as a painter EFZ Driving licence B mandatory Careful, independent and reliable way of working Ability to work in a team and enjoyment of direct customer contact Offer Temporary employment with varied projects Working in an established and motivated team Insight into different customer projects and techniques Fair remuneration and flexible employment opportunities",
-        "de": "Tätigkeiten Ausführen von Fassadenanstrichen und Kundenmalerei Vorbereitung von Oberflächen und Materialien Sauberes und termingerechtes Arbeiten auf Baustellen Beratung und Umsetzung der Kundenwünsche vor Ort\n• Anforderungen Abgeschlossene Ausbildung als Maler/in EFZ Führerausweis B zwingend vorhanden Sorgfältige, selbstständige und zuverlässige Arbeitsweise Teamfähigkeit und Freude am direkten Kundenkontakt Angebot Temporäre Anstellung mit abwechslungsreichen Projekten Arbeiten in einem etablierten und motivierten Team Einblick in unterschiedliche Kundenprojekte und Techniken Faire Entlohnung und flexible Einsatzmöglichkeiten",
-        "fr": "Activités : Exécution de la peinture de façade et de la peinture client Préparation des surfaces et matériaux Travail propre et en temps opportun sur les chantiers Consultation et mise en œuvre des exigences clients sur le site\n• Exigences : Formation de peintre EFZ Permis de conduire B obligatoire Méthode de travail prudente, indépendante et fiable Capacité à travailler en équipe et plaisir d'un contact direct avec les clients Offre Emploi temporaire dans divers projets Travail dans une équipe établie et motivée Compréhension des différents projets et techniques clients Rémunération équitable et opportunités d'emploi flexibles"
-      },
-      "location": "Aarau, Aargau",
-      "canton": "AG",
-      "url": "https://www.sta.jobs/stellen/maler-in-aarau-temporaer-110076/",
-      "source": "STA Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:21.044Z",
-      "addressLocality": "Aarau",
-      "addressRegion": "Aargau",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-21",
-      "applyUrl": "https://www.sta.jobs/stellen/maler-in-aarau-temporaer-110076/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "maler-in-fur-fassadenanstriche-aarau-aargau-sta-ch",
-        "maler-in-per-fassadenanstriche-sta-personal-ag-aarau",
-        "maler-in-fur-fassadenanstriche-sta-personal-ag-aarau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "maler-in-fur-fassadenanstriche-aarau-aargau-sta-ch",
-          "maler-in-per-fassadenanstriche-sta-personal-ag-aarau"
-        ],
-        "en": [
-          "maler-in-fur-fassadenanstriche-sta-personal-ag-aarau"
-        ],
-        "fr": [
-          "maler-in-fur-fassadenanstriche-sta-personal-ag-aarau"
-        ]
-      },
-      "firstSeenAt": "2026-09-21T16:07:55.154Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "sta-f8535bd70e24",
-      "slug": "sviluppo-globale-per-la-tecnologia-pubblicitaria-sta-personal-ag-zofingen-aargau",
-      "slugByLocale": {
-        "it": "sviluppo-globale-per-la-tecnologia-pubblicitaria-sta-personal-ag-zofingen-aargau",
-        "en": "all-rounder-development-for-advertising-technology-sta-personal-ag-zofingen-aargau",
-        "de": "allrounder-in-ausbaugewerbe-fur-werbetechnik-zofingen-aargau-sta-ch",
-        "fr": "developpement-complet-pour-la-technologie-publicitaire-sta-personal-ag-zofingen-aargau"
-      },
-      "company": "STA Personal AG",
-      "companyKey": "sta",
-      "companyDomain": "sta.jobs",
-      "title": "Allrounder/in Ausbaugewerbe für Werbetechnik",
-      "titleByLocale": {
-        "it": "Sviluppo globale per la tecnologia pubblicitaria",
-        "en": "All-rounder development for advertising technology",
-        "de": "Allrounder/in Ausbaugewerbe für Werbetechnik",
-        "fr": "Développement complet pour la technologie publicitaire"
-      },
-      "description": "Tätigkeiten Unterstützung bei der Installation von Folien und Paneelen Vorbereitung von Materialien für die Montage Ausführung einfacher Montagearbeiten unter Anleitung\n• Anforderungen Genaue und sorgfältige Arbeitsweise Verantwortungsbewusstsein und Zuverlässigkeit im Job Erfahrungen als Hilfsarbeiter von Vorteil Führerausweis Kat. B Angebot Abwechslungsreiche Tätigkeit im Bereich Werbetechnik",
-      "descriptionByLocale": {
-        "it": "Attività Supporto nell'installazione di film e pannelli Preparazione di materiali per l'assemblaggio\n• Responsabilità e affidabilità del lavoro accurate e accurate nelle esperienze di lavoro come patente di guida benefica del lavoratore ausiliario Cat. B Offrire varie attività nel campo della tecnologia pubblicitaria",
-        "en": "Activities Support in the installation of films and panels Preparation of materials for assembly Implementation simple assembly work under guidance\n• Requirements Accurate and careful working Responsibility and reliability in the job experiences as an auxiliary worker beneficial driver's license Cat. B Offer varied activity in the field of advertising technology",
-        "de": "Tätigkeiten Unterstützung bei der Installation von Folien und Paneelen Vorbereitung von Materialien für die Montage Ausführung einfacher Montagearbeiten unter Anleitung\n• Anforderungen Genaue und sorgfältige Arbeitsweise Verantwortungsbewusstsein und Zuverlässigkeit im Job Erfahrungen als Hilfsarbeiter von Vorteil Führerausweis Kat. B Angebot Abwechslungsreiche Tätigkeit im Bereich Werbetechnik",
-        "fr": "Activités Appui à l'installation de films et de panneaux Préparation de matériaux d'assemblage Mise en œuvre de travaux d'assemblage simples sous direction\n• Exigences Travail précis et soigné Responsabilité et fiabilité dans les expériences de travail en tant que travailleur auxiliaire permis de conduire bénéfique Cat. B Offre d'activités variées dans le domaine de la technologie de la publicité"
-      },
-      "location": "Zofingen, Aargau",
-      "canton": "AG",
-      "url": "https://www.sta.jobs/stellen/allrounder-in-ausbaugewerbe-zofingen-temporaer-109967/",
-      "source": "STA Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:45:21.040Z",
-      "addressLocality": "Zofingen",
-      "addressRegion": "Aargau",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-17",
-      "applyUrl": "https://www.sta.jobs/stellen/allrounder-in-ausbaugewerbe-zofingen-temporaer-109967/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "allrounder-in-ausbaugewerbe-fur-werbetechnik-zofingen-aargau-sta-ch",
-        "allrounder-in-ausbaugewerbe-per-werbetechnik-sta-personal-ag-zofingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "allrounder-in-ausbaugewerbe-fur-werbetechnik-zofingen-aargau-sta-ch",
-          "allrounder-in-ausbaugewerbe-per-werbetechnik-sta-personal-ag-zofingen"
-        ],
-        "en": [
-          "allrounder-in-ausbaugewerbe-fur-werbetechnik-zofingen-aargau-sta-ch"
-        ],
-        "fr": [
-          "allrounder-in-ausbaugewerbe-fur-werbetechnik-zofingen-aargau-sta-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-17T06:57:16.964Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
           "unitText": "YEAR"
         }
       },

@@ -12064,6 +12064,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.protesta-impianto-betonaggio-intelvi.title': 'Protest in Castiglione d\'Intelvi gegen Betonmischanlage',
     'blog.article.protesta-impianto-betonaggio-intelvi.excerpt': 'Mehr als 750 Unterschriften in sechs Tagen gegen die in Castiglione d\'Intelvi für die Variante der Tremezzina geplante Betonmischanlage und Brecheranlage.',
     'blog.article.protesta-impianto-betonaggio-intelvi.imageAlt': 'Landschaft des Intelvi-Tals mit engen, gewundenen Straßen',
+    'blog.article.merone-pendolare-frontiera-ch.title': 'Leben in Meron und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.merone-pendolare-frontiera-ch.excerpt': 'Wohnen bei Merone und Arbeiten im Tessin: Was ändert sich bei Quellensteuer, Franchisen von 7.500 und 10.000 Euro, AHV, BVG und KVG?',
+    'blog.article.merone-pendolare-frontiera-ch.imageAlt': 'Morgenstrasse im Tessin für Pendler aus Merone mit Arbeit jenseits der Grenze',
+    'blog.article.rapina-como-residente-ticino.title': 'Raubüberfall in Como: Im Tessin wohnhafte Person festgenommen',
+    'blog.article.rapina-como-residente-ticino.excerpt': 'Der 32-jährige Italiener mit Wohnsitz im Raum Bellinzona gehört zu den beiden Verhafteten wegen des Raubüberfalls von 90\'000 Euro am 24. April.',
+    'blog.article.rapina-como-residente-ticino.imageAlt': 'Polizeiermittlungen in Como nach dem Juwelierraub vom 24. April; ein Bewohner aus dem Raum Bellinzona wurde verhaftet.',
 };
 
 export default blogMetaDe;

@@ -12066,6 +12066,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.protesta-impianto-betonaggio-intelvi.title': 'Protesta a Castiglione d\'Intelvi per impianto betonaggio',
     'blog.article.protesta-impianto-betonaggio-intelvi.excerpt': 'Oltre 750 firme raccolte in sei giorni contro l\'impianto di betonaggio e frantoio previsti a Castiglione d\'Intelvi per la Variante della Tremezzina.',
     'blog.article.protesta-impianto-betonaggio-intelvi.imageAlt': 'Paesaggio della Valle d\'Intelvi con strade strette e tortuose',
+    'blog.article.merone-pendolare-frontiera-ch.title': 'Vivere a Merone e lavorare in Ticino da frontaliere',
+    'blog.article.merone-pendolare-frontiera-ch.excerpt': 'Vivere a Merone e lavorare in Ticino: cosa cambia per imposta alla fonte, franchigie di 7.500 e 10.000 euro, AVS, LPP e LAMal.',
+    'blog.article.merone-pendolare-frontiera-ch.imageAlt': 'Strada mattutina in Ticino per chi vive a Merone e lavora oltreconfine',
+    'blog.article.rapina-como-residente-ticino.title': 'Rapina a Como: arrestato residente in Ticino',
+    'blog.article.rapina-como-residente-ticino.excerpt': 'Il 32enne italiano, residente nel Bellinzonese, è tra i due arrestati per la rapina da 90\'000 euro del 24 aprile.',
+    'blog.article.rapina-como-residente-ticino.imageAlt': 'Polizia e gioielleria a Como dopo la rapina del 24 aprile; arrestato un residente nel Bellinzonese.',
 };
 
 export default blogMetaIt;

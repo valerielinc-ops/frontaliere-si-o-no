@@ -25,6 +25,10 @@ Le fonti sono registrate in
   che approva il calendario 2026 e i cambi turno (validità dichiarata
   2026-01-01–2026-12-31). La tabella base è una successione; vengono
   pubblicate soltanto le righe che recano una data esplicita nel documento.
+  Dal runner GitHub il PDF passa, quando il fetch ufficiale va in timeout, dal
+  `vcoMirrorUrl` Jina Reader dichiarato nel registry; il mirror è vincolato allo
+  stesso host e percorso ufficiali e il risultato resta attribuito alla fonte
+  ASL VCO.
 
 Il catalogo anagrafico usato per risolvere `pharmacyId` è il dataset ufficiale
 del Ministero della Salute già presente in

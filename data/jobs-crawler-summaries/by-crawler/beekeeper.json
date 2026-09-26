@@ -1,7 +1,7 @@
 {
   "key": "beekeeper",
   "label": "Beekeeper",
-  "generatedAt": "2026-09-25T15:13:20.542Z",
+  "generatedAt": "2026-09-26T14:19:48.953Z",
   "total": 3,
   "discovered": null,
   "parsed": 2,
@@ -10,12 +10,12 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 2376,
-  "avgDurationMs": 2376,
+  "durationMs": 4484,
+  "avgDurationMs": 4484,
   "durationHistory": [
-    2376
+    4484
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://job.lumapps.com/jobs/8081204-senior-account-manager",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T15:13:11.425Z",
+      "crawledAt": "2026-09-26T14:19:42.613Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -71,7 +71,7 @@
       "url": "https://job.lumapps.com/jobs/8052689-forward-deployed-engineer-fde-zurich",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T15:13:11.428Z",
+      "crawledAt": "2026-09-26T14:19:42.615Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -98,51 +98,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "beekeeper-70cd41465d83",
-      "slug": "customer-success-manager-fr-speaking-beekeeper-zurich",
-      "company": "Beekeeper",
-      "companyKey": "beekeeper",
-      "companyDomain": "beekeeper.io",
-      "title": "Customer Success Manager, FR speaking",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://job.lumapps.com/jobs/7938577-customer-success-manager-fr-speaking",
-      "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-19T23:16:10.601Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "streetAddress": "Herostrasse 12",
-      "postalCode": "8048",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Customer Success",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Tecnologia / Software",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-18",
-      "applyUrl": "https://job.lumapps.com/jobs/7938577-customer-success-manager-fr-speaking",
-      "jobReqId": "a61d2741-4de5-4327-b661-5dc065748c39",
-      "firstSeenAt": "2026-07-03T21:28:59.357Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "sourceIdentity": "url:https://job.lumapps.com/jobs/7938577-customer-success-manager-fr-speaking",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "beekeeper-877c21c09c76",
@@ -178,7 +134,7 @@
       "salaryMax": 127500,
       "salarySource": "estimated",
       "sourceIdentity": "url:https://job.lumapps.com/jobs/8241616-business-development-representative-zurich",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
