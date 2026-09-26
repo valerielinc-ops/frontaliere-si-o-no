@@ -289,29 +289,34 @@ export function updateLastVisit(): void {
 
 // ─── Firestore sync ─────────────────────────────────────────────
 
-let _db: Firestore | null = null;
-let _dbInit = false;
+type FirestoreRuntime = {
+ db: Firestore;
+ api: typeof import('firebase/firestore');
+};
+
+let _firestoreRuntimePromise: Promise<FirestoreRuntime | null> | null = null;
 let _syncTimer: ReturnType<typeof setInterval> | null = null;
 let _firestoreSyncQueue: Promise<void> = Promise.resolve();
 
-async function getDb(): Promise<Firestore | null> {
- if (!_dbInit) {
- _dbInit = true;
- try {
- const { getFirestore } = await resilientImport(
- () => import('firebase/firestore'),
- (m) => typeof m.getFirestore === 'function',
- );
- const { app } = await resilientImport(
- () => import('@/services/firebase'),
- (m) => m.app !== undefined,
- );
- _db = getFirestore(app);
- } catch {
- _db = null;
+function getFirestoreRuntime(): Promise<FirestoreRuntime | null> {
+ if (!_firestoreRuntimePromise) {
+  _firestoreRuntimePromise = (async (): Promise<FirestoreRuntime | null> => {
+   try {
+    const api = await resilientImport(
+     () => import('firebase/firestore'),
+     (m) => typeof m.getFirestore === 'function',
+    );
+    const { app } = await resilientImport(
+     () => import('@/services/firebase'),
+     (m) => m.app !== undefined,
+    );
+    return { db: api.getFirestore(app), api };
+   } catch {
+    return null;
+   }
+  })();
  }
- }
- return _db;
+ return _firestoreRuntimePromise;
 }
 
 /** Sync behavior data to Firestore (newsletter_subscribers/{email}/private/personalization). */
@@ -320,14 +325,12 @@ export function syncToFirestore(email: string): Promise<boolean> {
  const normalizedEmail = email.trim().toLowerCase();
  const operation = _firestoreSyncQueue.then(async () => {
   try {
-   const db = await getDb();
-   if (!db) return false;
+   const runtime = await getFirestoreRuntime();
+   if (!runtime) return false;
+   const { db, api } = runtime;
    // Read at execution time so a queued click flush includes newer local intent.
    const data = getBehaviorData();
-   const { doc, setDoc } = await resilientImport(
-    () => import('firebase/firestore'),
-    (m) => typeof m.doc === 'function',
-   );
+   const { doc, setDoc } = api;
    await setDoc(
     doc(db, 'newsletter_subscribers', normalizedEmail, 'private', 'personalization'),
     {
@@ -358,12 +361,10 @@ export async function hydrateFromFirestore(email: string): Promise<boolean> {
  if (!email || !available()) return false;
  try {
  const normalizedEmail = email.trim().toLowerCase();
- const db = await getDb();
- if (!db) return false;
- const { doc, getDoc } = await resilientImport(
- () => import('firebase/firestore'),
- (m) => typeof m.doc === 'function',
- );
+ const runtime = await getFirestoreRuntime();
+ if (!runtime) return false;
+ const { db, api } = runtime;
+ const { doc, getDoc } = api;
  const snap = await getDoc(doc(db, 'newsletter_subscribers', normalizedEmail, 'private', 'personalization'));
  if (!snap.exists()) return true;
  const remote = snap.data();

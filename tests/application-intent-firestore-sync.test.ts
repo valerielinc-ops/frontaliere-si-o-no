@@ -31,7 +31,7 @@ vi.mock('firebase/firestore', () => ({
 vi.mock('@/services/firebase', () => ({ app: { __testApp: true } }));
 
 import { recordApplicationIntent } from '@/services/applicationIntent';
-import { syncToFirestore, trackApplicationIntent } from '@/services/behaviorTracker';
+import { hydrateFromFirestore, syncToFirestore, trackApplicationIntent } from '@/services/behaviorTracker';
 
 const email = 'applicant@example.test';
 const profilePath = `newsletter_subscribers/${email}/private/personalization`;
@@ -46,8 +46,11 @@ beforeEach(() => {
 });
 
 describe('authenticated application-intent persistence', () => {
-  it('writes the bounded profile before the recording promise resolves', async () => {
-    const recorded = await recordApplicationIntent({
+  it('shares first database initialization with app hydration and writes before same-tab Apply resolves', async () => {
+    // Keep both calls on the same statically imported module while its first
+    // Firestore import is still pending, as happens during app startup.
+    const appHydration = hydrateFromFirestore(email);
+    const sameTabApply = recordApplicationIntent({
       job: { id: 'job-1', slug: 'software-engineer-lugano', companyKey: 'acme' },
       origin: '/cerca-lavoro',
       surface: 'job_board_apply',
@@ -55,9 +58,12 @@ describe('authenticated application-intent persistence', () => {
       authEmail: email,
       authUser: { uid: 'uid-test', getIdToken: async () => 'test-token' },
     });
+    const [hydrated, recorded] = await Promise.all([appHydration, sameTabApply]);
 
-    expect(recorded).toBe(true);
-    expect(firestore.getDoc).toHaveBeenCalledOnce();
+    expect(hydrated).toBe(true);
+    expect(firestore.getFirestore).toHaveBeenCalledOnce();
+    expect(firestore.getDoc).toHaveBeenCalledTimes(2);
+    expect(recorded, `local profile: ${localStorage.getItem('frontaliere_job_personalization')}`).toBe(true);
     expect(firestore.writes).toHaveLength(1);
     expect(firestore.writes[0].path).toBe(profilePath);
     expect(firestore.writes[0].data.applicationIntent).toEqual({
