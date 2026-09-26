@@ -69,7 +69,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.826Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -168,9 +167,7 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "komax-aafe73ad37b8",
@@ -239,7 +236,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.823Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 70000,
       "salarySource": "estimated",
@@ -361,7 +357,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.824Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -659,7 +654,6 @@
       "jobReqId": "1165252455",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "sales-switzerland-technical-sales-engineer-w-m-d-komax-ch",
         "sales-switzerland-technical-sales-ingegnere-w-m-d-komax-dierikon-ij2xjh",
@@ -689,8 +683,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "komax-925f9fb150d6",
@@ -773,7 +766,7 @@
       "slug": "servizio-it-di-gruppo-di-piombo-m-f-d-komax-dierikon",
       "slugByLocale": {
         "it": "servizio-it-di-gruppo-di-piombo-m-f-d-komax-dierikon",
-        "en": "lead-group-it-service-desk-w-m-d-komax-ch",
+        "en": "lead-group-it-service-desk-w-m-d-komax-ch-jisu5n",
         "de": "leitgruppe-it-service-desk-m-w-d-komax-dierikon",
         "fr": "groupe-principal-bureau-de-service-informatique-h-f-d-komax-dierikon"
       },
@@ -828,6 +821,9 @@
           "servizio-it-di-gruppo-di-piombo-m-f-d-komax-dierikon"
         ],
         "de": [
+          "lead-group-it-service-desk-w-m-d-komax-ch"
+        ],
+        "en": [
           "lead-group-it-service-desk-w-m-d-komax-ch"
         ]
       },

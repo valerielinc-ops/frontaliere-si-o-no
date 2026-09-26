@@ -1164,7 +1164,6 @@
       },
       "firstSeenAt": "2026-08-27T19:54:30.926Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -1255,8 +1254,7 @@
         }
       },
       "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "needsRetranslation": true
+      "addressRegion": "FR"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4307?c=groupemutuel&lang=fr-FR",
@@ -2384,7 +2382,6 @@
       },
       "firstSeenAt": "2026-04-16T21:40:55.557Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 131000,
       "currency": "CHF",
@@ -2476,8 +2473,7 @@
       },
       "addressLocality": "Delémont",
       "addressRegion": "JU",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }
