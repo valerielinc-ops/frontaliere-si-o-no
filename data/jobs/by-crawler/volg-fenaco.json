@@ -627,14 +627,20 @@
       },
       "slugByLocale": {
         "it": "vendita-landi-m-w-d-landi-sins-zugerland-genossenschaft-risch-rotkreuz",
-        "en": "verkauf-landi-w-m-d-landi-sins-zugerland-genossenschaft-risch-rotkreuz",
+        "en": "sales-landi-w-m-d-landi-sins-zugerland-genossenschaft-risch-rotkreuz",
         "de": "verkauf-landi-w-m-d-landi-sins-zugerland-genossenschaft-risch-rotkreuz",
-        "fr": "verkauf-landi-w-m-d-landi-sins-zugerland-genossenschaft-risch-rotkreuz"
+        "fr": "vente-landi-w-m-d-landi-sins-zugerland-genossenschaft-risch-rotkreuz"
       },
       "crawledAt": "2026-09-26T13:58:21.043Z",
       "id": "volg-fenaco-e03d9aa51473",
       "previousSlugsByLocale": {
         "it": [
+          "verkauf-landi-w-m-d-landi-sins-zugerland-genossenschaft-risch-rotkreuz"
+        ],
+        "en": [
+          "verkauf-landi-w-m-d-landi-sins-zugerland-genossenschaft-risch-rotkreuz"
+        ],
+        "fr": [
           "verkauf-landi-w-m-d-landi-sins-zugerland-genossenschaft-risch-rotkreuz"
         ]
       },
@@ -1709,7 +1715,7 @@
       },
       "slugByLocale": {
         "it": "contenuto-interno-pratico-marketing-online-m-f-d-limitato-a-01-01-2027-fino-al-31-12-2027-ramseier-suisse-ag-sursee",
-        "en": "praktikantin-praktikant-content-online-marketing-w-m-d-befristet-01-01-2027-bis-31-12-2027-ramseier-suisse-ag-sursee",
+        "en": "intern-practical-content-online-marketing-m-f-d-limited-to-01-01-2027-until-31-12-2027-ramseier-suisse-ag-sursee",
         "de": "praktikantin-praktikant-content-online-marketing-w-m-d-befristet-01-01-2027-bis-31-12-2027-ramseier-suisse-ag-sursee",
         "fr": "contenu-stagiaire-pratique-et-marketing-en-ligne-h-f-d-limite-au-01-01-2027-jusqu-au-31-12-2027-ramseier-suisse-ag"
       },
@@ -1736,7 +1742,7 @@
           "praktikantin-praktikant-content-online-marketing-w-m-d-befristet-01-01-2027-bis-31-12-2027-ramseier-suisse-ag-sursee"
         ],
         "en": [
-          "intern-practical-content-online-marketing-m-f-d-limited-to-01-01-2027-until-31-12-2027-ramseier-suisse-ag-sursee"
+          "praktikantin-praktikant-content-online-marketing-w-m-d-befristet-01-01-2027-bis-31-12-2027-ramseier-suisse-ag-sursee"
         ],
         "fr": [
           "praktikantin-praktikant-content-online-marketing-w-m-d-befristet-01-01-2027-bis-31-12-2027-ramseier-suisse-ag-sursee"
@@ -8030,7 +8036,7 @@
       },
       "slugByLocale": {
         "it": "applicazione-spontanea-landi-zola-ag-m-f-d-landi-zola-ag-illnau-effretikon",
-        "en": "spontanbewerbung-landi-zola-ag-m-w-d-landi-zola-ag-illnau-effretikon",
+        "en": "spontaneous-application-landi-zola-ag-m-f-d-landi-zola-ag-illnau-effretikon",
         "de": "spontanbewerbung-landi-zola-ag-w-m-d-landi-zola-ag-illnau-effretikon",
         "fr": "application-spontanee-landi-zola-ag-h-f-d-landi-zola-ag-illnau-effretikon"
       },
@@ -8053,8 +8059,8 @@
       "firstSeenAt": "2026-09-11T13:33:33.420Z",
       "previousSlugsByLocale": {
         "en": [
-          "spontaneous-application-landi-zola-ag-m-f-d-landi-zola-ag-illnau-effretikon",
-          "spontanbewerbung-landi-zola-ag-w-m-d-landi-zola-ag-illnau-effretikon"
+          "spontanbewerbung-landi-zola-ag-w-m-d-landi-zola-ag-illnau-effretikon",
+          "spontanbewerbung-landi-zola-ag-m-w-d-landi-zola-ag-illnau-effretikon"
         ],
         "it": [
           "application-spontanee-landi-zola-ag-m-w-d-landi-zola-ag-illnau-effretikon",
@@ -8067,7 +8073,8 @@
       "previousSlugs": [
         "application-spontanee-landi-zola-ag-m-w-d-landi-zola-ag-illnau-effretikon",
         "spontaneous-application-landi-zola-ag-m-f-d-landi-zola-ag-illnau-effretikon",
-        "spontanbewerbung-landi-zola-ag-w-m-d-landi-zola-ag-illnau-effretikon"
+        "spontanbewerbung-landi-zola-ag-w-m-d-landi-zola-ag-illnau-effretikon",
+        "spontanbewerbung-landi-zola-ag-m-w-d-landi-zola-ag-illnau-effretikon"
       ],
       "needsRetranslation": true
     },
@@ -13571,7 +13578,7 @@
         "it": "tecnologie-dell-agricoltura-intelligente-responsabile-sevra-suisse-ag-oberbipp",
         "en": "responsable-smart-farming-et-technologies-agricoles-sevra-suisse-ag-oberbipp",
         "de": "responsable-smart-farming-et-technologies-agricoles-sevra-suisse-ag-oberbipp",
-        "fr": "responsable-smart-farming-et-technologies-agricoles-sevra-suisse-ag-oberbipp"
+        "fr": "les-technologies-de-l-agriculture-intelligente-sevra-suisse-ag-oberbipp"
       },
       "crawledAt": "2026-09-26T13:58:21.057Z",
       "id": "volg-fenaco-37bd5dc5e9ec",
@@ -13595,7 +13602,7 @@
           "responsable-smart-farming-et-technologies-agricoles-sevra-suisse-ag-oberbipp"
         ],
         "fr": [
-          "les-technologies-de-l-agriculture-intelligente-sevra-suisse-ag-oberbipp"
+          "responsable-smart-farming-et-technologies-agricoles-sevra-suisse-ag-oberbipp"
         ]
       },
       "previousSlugs": [
@@ -17284,7 +17291,7 @@
         "it": "traiteur-confectioner-traiteur-confectioner-m-f-d-volg-ennetburgen",
         "en": "traiteur-confectioner-traiteur-confectioner-m-f-d-volg-ennetburgen",
         "de": "traiteur-konditorin-traiteur-konditor-m-w-d-volg-ennetburgen",
-        "fr": "traiteur-konditorin-traiteur-konditor-m-w-d-volg-ennetburgen"
+        "fr": "confectioner-de-trappeur-confectioner-de-trappeur-h-f-d-volg-ennetburgen"
       },
       "crawledAt": "2026-09-26T13:58:21.060Z",
       "id": "volg-fenaco-287677df2ff3",
@@ -17308,7 +17315,7 @@
           "traiteur-konditorin-traiteur-konditor-m-w-d-volg-ennetburgen"
         ],
         "fr": [
-          "confectioner-de-trappeur-confectioner-de-trappeur-h-f-d-volg-ennetburgen"
+          "traiteur-konditorin-traiteur-konditor-m-w-d-volg-ennetburgen"
         ],
         "en": [
           "traiteur-konditorin-traiteur-konditor-m-w-d-volg-ennetburgen"
@@ -19020,7 +19027,7 @@
       },
       "slugByLocale": {
         "it": "gestione-licenze-operativa-m-f-d-bison-winterthur",
-        "en": "operativer-lizenzmanager-m-w-d-bison-winterthur",
+        "en": "operational-license-manager-m-f-d-bison-winterthur",
         "de": "operativer-lizenzmanager-w-m-d-bison-winterthur",
         "fr": "gestionnaire-de-licences-operationnelles-h-f-d-bison-winterthur"
       },
@@ -19042,8 +19049,8 @@
       "firstSeenAt": "2026-08-18T09:47:55.379Z",
       "previousSlugsByLocale": {
         "en": [
-          "operational-license-manager-m-f-d-bison-winterthur",
-          "operativer-lizenzmanager-w-m-d-bison-winterthur"
+          "operativer-lizenzmanager-w-m-d-bison-winterthur",
+          "operativer-lizenzmanager-m-w-d-bison-winterthur"
         ],
         "de": [
           "operativer-lizenzmanager-w-m-d-bison-winterthur-3t556q"
@@ -19058,7 +19065,8 @@
       "previousSlugs": [
         "operativer-lizenzmanager-w-m-d-bison-winterthur-3t556q",
         "operational-license-manager-m-f-d-bison-winterthur",
-        "operativer-lizenzmanager-w-m-d-bison-winterthur"
+        "operativer-lizenzmanager-w-m-d-bison-winterthur",
+        "operativer-lizenzmanager-m-w-d-bison-winterthur"
       ],
       "salarySource": "reported",
       "needsRetranslation": true
@@ -25360,7 +25368,7 @@
       },
       "slugByLocale": {
         "it": "applicazione-spontanea-landi-albis-f-m-d-landi-albis-genossenschaft-mettmenstetten-daf2e3",
-        "en": "spontanbewerbung-landi-albis-m-w-d-landi-albis-genossenschaft-mettmenstetten",
+        "en": "spontaneous-application-landi-albis-f-m-d-landi-albis-genossenschaft-mettmenstetten-daf2e3",
         "de": "spontanbewerbung-landi-albis-w-m-d-landi-albis-genossenschaft-mettmenstetten",
         "fr": "application-spontanee-landi-albis-f-m-d-landi-albis-genossenschaft-mettmenstetten-daf2e3"
       },
@@ -25383,8 +25391,8 @@
       "previousSlugsByLocale": {
         "en": [
           "spontaneous-application-landi-albis-f-m-d-landi-albis-genossenschaft-mettmenstetten",
-          "spontaneous-application-landi-albis-f-m-d-landi-albis-genossenschaft-mettmenstetten-daf2e3",
-          "spontanbewerbung-landi-albis-w-m-d-landi-albis-genossenschaft-mettmenstetten"
+          "spontanbewerbung-landi-albis-w-m-d-landi-albis-genossenschaft-mettmenstetten",
+          "spontanbewerbung-landi-albis-m-w-d-landi-albis-genossenschaft-mettmenstetten"
         ],
         "it": [
           "spontanbewerbung-landi-albis-w-m-d-landi-albis-genossenschaft-mettmenstetten"
@@ -25396,7 +25404,8 @@
       "previousSlugs": [
         "spontaneous-application-landi-albis-f-m-d-landi-albis-genossenschaft-mettmenstetten",
         "spontaneous-application-landi-albis-f-m-d-landi-albis-genossenschaft-mettmenstetten-daf2e3",
-        "spontanbewerbung-landi-albis-w-m-d-landi-albis-genossenschaft-mettmenstetten"
+        "spontanbewerbung-landi-albis-w-m-d-landi-albis-genossenschaft-mettmenstetten",
+        "spontanbewerbung-landi-albis-m-w-d-landi-albis-genossenschaft-mettmenstetten"
       ],
       "salarySource": "reported",
       "needsRetranslation": true
@@ -28837,7 +28846,7 @@
       },
       "slugByLocale": {
         "it": "venditore-m-f-d-volg-dallenwil",
-        "en": "sales-associate-volg-dallenwil",
+        "en": "seller-m-f-d-volg-dallenwil",
         "de": "verkauferin-verkaufer-m-w-d-volg-dallenwil",
         "fr": "vendeur-m-f-d-volg-dallenwil"
       },
@@ -28859,8 +28868,8 @@
       "firstSeenAt": "2026-07-10T10:44:51.864Z",
       "previousSlugsByLocale": {
         "en": [
-          "seller-m-f-d-volg-dallenwil",
-          "verkauferin-verkaufer-m-w-d-volg-dallenwil"
+          "verkauferin-verkaufer-m-w-d-volg-dallenwil",
+          "sales-associate-volg-dallenwil"
         ],
         "it": [
           "verkauferin-verkaufer-m-w-d-volg-dallenwil"
@@ -28871,7 +28880,8 @@
       },
       "previousSlugs": [
         "seller-m-f-d-volg-dallenwil",
-        "verkauferin-verkaufer-m-w-d-volg-dallenwil"
+        "verkauferin-verkaufer-m-w-d-volg-dallenwil",
+        "sales-associate-volg-dallenwil"
       ],
       "salarySource": "reported"
     },
@@ -35244,7 +35254,7 @@
       },
       "slugByLocale": {
         "it": "applicazione-spontanea-landi-seeland-ag-w-m-d-landi-seeland-ag-kerzers",
-        "en": "spontanbewerbung-landi-seeland-ag-m-w-d-landi-seeland-ag-kerzers",
+        "en": "spontaneous-application-landi-seeland-ag-m-f-d-landi-seeland-ag-kerzers",
         "de": "spontanbewerbung-landi-seeland-ag-w-m-d-landi-seeland-ag-kerzers",
         "fr": "application-spontanee-landi-seeland-ag-h-f-d-landi-seeland-ag-kerzers"
       },
@@ -35266,8 +35276,8 @@
       "firstSeenAt": "2026-06-10T23:47:14.709Z",
       "previousSlugsByLocale": {
         "en": [
-          "spontaneous-application-landi-seeland-ag-m-f-d-landi-seeland-ag-kerzers",
-          "spontanbewerbung-landi-seeland-ag-w-m-d-landi-seeland-ag-kerzers"
+          "spontanbewerbung-landi-seeland-ag-w-m-d-landi-seeland-ag-kerzers",
+          "spontanbewerbung-landi-seeland-ag-m-w-d-landi-seeland-ag-kerzers"
         ],
         "it": [
           "spontanbewerbung-landi-seeland-ag-w-m-d-landi-seeland-ag-kerzers"
@@ -35278,7 +35288,8 @@
       },
       "previousSlugs": [
         "spontaneous-application-landi-seeland-ag-m-f-d-landi-seeland-ag-kerzers",
-        "spontanbewerbung-landi-seeland-ag-w-m-d-landi-seeland-ag-kerzers"
+        "spontanbewerbung-landi-seeland-ag-w-m-d-landi-seeland-ag-kerzers",
+        "spontanbewerbung-landi-seeland-ag-m-w-d-landi-seeland-ag-kerzers"
       ],
       "salarySource": "reported"
     },
@@ -35710,7 +35721,7 @@
       },
       "slugByLocale": {
         "it": "vendor-venditore-volg-regione-frauenfeld-m-f-d-volg-region-frauenfeld",
-        "en": "sales-assistant-volg-frauenfeld-region-m-w-d-volg-region-frauenfeld",
+        "en": "seller-seller-volg-region-frauenfeld-m-f-d-volg-region-frauenfeld",
         "de": "verkauferin-verkaufer-volg-region-frauenfeld-m-w-d-volg-region-frauenfeld",
         "fr": "vendeur-vendeur-volg-region-frauenfeld-m-f-d-volg-region-frauenfeld"
       },
@@ -35732,8 +35743,8 @@
       "firstSeenAt": "2026-06-10T23:47:14.710Z",
       "previousSlugsByLocale": {
         "en": [
-          "seller-seller-volg-region-frauenfeld-m-f-d-volg-region-frauenfeld",
-          "verkauferin-verkaufer-volg-region-frauenfeld-m-w-d-volg-region-frauenfeld"
+          "verkauferin-verkaufer-volg-region-frauenfeld-m-w-d-volg-region-frauenfeld",
+          "sales-assistant-volg-frauenfeld-region-m-w-d-volg-region-frauenfeld"
         ],
         "it": [
           "verkauferin-verkaufer-volg-region-frauenfeld-m-w-d-volg-region-frauenfeld"
@@ -35744,7 +35755,8 @@
       },
       "previousSlugs": [
         "seller-seller-volg-region-frauenfeld-m-f-d-volg-region-frauenfeld",
-        "verkauferin-verkaufer-volg-region-frauenfeld-m-w-d-volg-region-frauenfeld"
+        "verkauferin-verkaufer-volg-region-frauenfeld-m-w-d-volg-region-frauenfeld",
+        "sales-assistant-volg-frauenfeld-region-m-w-d-volg-region-frauenfeld"
       ],
       "salarySource": "reported"
     },
@@ -36718,7 +36730,7 @@
       },
       "slugByLocale": {
         "it": "elettricista-societa-elettrica-w-m-d-ufa-ag-herzogenbuchsee",
-        "en": "betriebselektrikerin-betriebselektriker-m-w-d-ufa-ag-herzogenbuchsee",
+        "en": "business-electrician-business-electrician-m-f-d-ufa-ag-herzogenbuchsee",
         "de": "betriebselektrikerin-betriebselektriker-w-m-d-ufa-ag-herzogenbuchsee",
         "fr": "electricien-ne-d-exploitation-h-f-ufa-ag-herzogenbuchsee"
       },
@@ -36740,8 +36752,8 @@
       "firstSeenAt": "2026-06-10T23:47:14.712Z",
       "previousSlugsByLocale": {
         "en": [
-          "business-electrician-business-electrician-m-f-d-ufa-ag-herzogenbuchsee",
-          "betriebselektrikerin-betriebselektriker-w-m-d-ufa-ag-herzogenbuchsee"
+          "betriebselektrikerin-betriebselektriker-w-m-d-ufa-ag-herzogenbuchsee",
+          "betriebselektrikerin-betriebselektriker-m-w-d-ufa-ag-herzogenbuchsee"
         ],
         "de": [
           "betriebselektrikerin-betriebelektriker-w-m-d-ufa-ag-herzogenbuchsee"
@@ -36756,7 +36768,8 @@
       "previousSlugs": [
         "betriebselektrikerin-betriebelektriker-w-m-d-ufa-ag-herzogenbuchsee",
         "business-electrician-business-electrician-m-f-d-ufa-ag-herzogenbuchsee",
-        "betriebselektrikerin-betriebselektriker-w-m-d-ufa-ag-herzogenbuchsee"
+        "betriebselektrikerin-betriebselektriker-w-m-d-ufa-ag-herzogenbuchsee",
+        "betriebselektrikerin-betriebselektriker-m-w-d-ufa-ag-herzogenbuchsee"
       ],
       "salarySource": "reported"
     },

@@ -692,7 +692,7 @@
       "slug": "assistente-giardino-group-champfer",
       "slugByLocale": {
         "it": "assistente-giardino-group-champfer",
-        "en": "assistant-concierge-giardino-group-champfer",
+        "en": "the-council-giardino-group-champfer",
         "de": "assistant-concierge-giardino-group-champfer",
         "fr": "assistante-conciergerie-giardino-group-champfer"
       },
@@ -757,8 +757,7 @@
         ]
       },
       "previousSlugs": [
-        "assistant-concierge-giardino-group-champfer",
-        "assistante-conciergerie-giardino-group-champfer"
+        "assistant-concierge-giardino-group-champfer"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -766,6 +765,9 @@
         ],
         "fr": [
           "assistante-conciergerie-giardino-group-champfer",
+          "assistant-concierge-giardino-group-champfer"
+        ],
+        "en": [
           "assistant-concierge-giardino-group-champfer"
         ]
       },
@@ -953,8 +955,7 @@
       },
       "previousSlugs": [
         "housekeeping-attendant-giardino-group-ascona",
-        "agent-de-menage-giardino-group-ascona",
-        "employe-de-menage-giardino-group-ascona"
+        "agent-de-menage-giardino-group-ascona"
       ],
       "previousSlugsByLocale": {
         "it": [

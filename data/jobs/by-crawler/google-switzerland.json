@@ -2402,8 +2402,8 @@
       "id": "google-switzerland-9c6f8b81824d",
       "slug": "product-manager-ads-deals-platform-google-switzerland-zurich",
       "slugByLocale": {
-        "it": "product-manager-ads-deals-platform-google-switzerland-zurich",
         "en": "product-manager-ads-deals-platform-google-switzerland-zurich",
+        "it": "product-manager-ads-deals-platform-google-switzerland-zurich",
         "de": "produktmanager-ads-deals-plattform-google-switzerland-zurich",
         "fr": "gestionnaire-de-produits-plateforme-ads-deals-google-switzerland-zurich"
       },
@@ -2460,7 +2460,6 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-25T14:41:40.379Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -2473,7 +2472,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-25T14:41:40.379Z"
     },
     {
       "id": "google-switzerland-c10ce7a4f54c",

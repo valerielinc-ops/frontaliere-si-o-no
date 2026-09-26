@@ -6,10 +6,10 @@
       "id": "straumann-4134dd862955",
       "slug": "assistente-amministrativo-ip-temporaneo-tempo-parziale-50-straumann-basel",
       "slugByLocale": {
-        "it": "assistente-amministrativo-ip-temporaneo-tempo-parziale-50-straumann-basel",
         "en": "ip-administrative-assistant-temporary-part-time-50-straumann-ch",
+        "it": "assistente-amministrativo-ip-temporaneo-tempo-parziale-50-straumann-basel",
         "de": "ip-administrative-assistent-temporary-teilzeit-50-straumann-basel",
-        "fr": "ip-administrative-assistant-temporary-part-time-50-straumann-ch"
+        "fr": "assistant-administratif-de-pi-temporaire-temps-partiel-50-straumann-basel"
       },
       "company": "Straumann",
       "companyKey": "straumann",
@@ -51,18 +51,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-25T14:40:47.072Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "ip-administrative-assistant-temporary-part-time-50-straumann-ch"
-        ],
-        "de": [
-          "ip-administrative-assistant-temporary-part-time-50-straumann-ch"
-        ]
-      },
-      "previousSlugs": [
-        "ip-administrative-assistant-temporary-part-time-50-straumann-ch"
-      ],
       "salaryMin": 31000,
       "salaryMax": 47000,
       "salarySource": "estimated",
@@ -75,7 +63,22 @@
           "maxValue": 47000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-25T14:40:47.072Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ip-administrative-assistant-temporary-part-time-50-straumann-ch"
+        ],
+        "de": [
+          "ip-administrative-assistant-temporary-part-time-50-straumann-ch"
+        ],
+        "fr": [
+          "ip-administrative-assistant-temporary-part-time-50-straumann-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ip-administrative-assistant-temporary-part-time-50-straumann-ch"
+      ]
     },
     {
       "id": "straumann-ede36e57fc6e",
@@ -126,13 +129,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch",
-        "apprendistato-come-interactive-media-designer-cfc-m-w-d-ab-august-2027-straumann-basel"
+        "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch",
-          "apprendistato-come-interactive-media-designer-cfc-m-w-d-ab-august-2027-straumann-basel"
+          "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch"
         ],
         "fr": [
           "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch"
@@ -202,13 +203,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch",
-        "apprendistato-meccanico-di-produzione-e-polimeccanico-afc-straumann-villeret"
+        "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch",
-          "apprendistato-meccanico-di-produzione-e-polimeccanico-afc-straumann-villeret"
+          "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch"
         ]
       },
       "needsRetranslation": true,

@@ -69,21 +69,16 @@
           "Charge de travail : jours fériés individuels et week-ends par an"
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
-          "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen",
-          "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-kantonsspital-obwalden-sarnen"
+          "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen"
         ],
         "it": [
-          "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen",
-          "specialista-fmh-medicina-interna-generale-a-10-kantonsspital-obwalden-sarnen"
+          "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen"
         ]
       },
       "previousSlugs": [
-        "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen",
-        "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-kantonsspital-obwalden-sarnen",
-        "specialista-fmh-medicina-interna-generale-a-10-kantonsspital-obwalden-sarnen"
+        "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:31.266Z",
       "salaryMin": 8700,
@@ -98,14 +93,15 @@
           "maxValue": 12100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksow-f155573c4581",
       "slug": "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
         "it": "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen",
-        "en": "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen",
+        "en": "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen",
         "de": "hebamme-hf-als-beleghebamme-kantonsspital-obwalden-sarnen",
         "fr": "sage-femme-es-hes-agreee-independante-kantonsspital-obwalden-sarnen"
       },
@@ -170,26 +166,19 @@
           "Activité en tant que sage-femme indépendante"
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
-          "hebamme-hf-als-beleghebamme-ksow-sarnen",
-          "hebamme-hf-als-beleghebamme-kantonsspital-obwalden-sarnen"
+          "hebamme-hf-als-beleghebamme-ksow-sarnen"
         ],
         "it": [
-          "hebamme-hf-als-beleghebamme-ksow-sarnen",
-          "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen"
+          "hebamme-hf-als-beleghebamme-ksow-sarnen"
         ],
         "en": [
-          "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen",
           "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
         "hebamme-hf-als-beleghebamme-ksow-sarnen",
-        "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen",
-        "hebamme-hf-als-beleghebamme-kantonsspital-obwalden-sarnen",
-        "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen",
         "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:22.515Z",
@@ -205,7 +194,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksow-4221766af345",
@@ -281,15 +271,12 @@
           "Esprit d'équipe, flexibilité et plaisir à travailler dans un environnement dynamique"
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
-          "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen",
-          "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen"
+          "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen"
         ],
         "it": [
-          "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen",
-          "tecnico-di-sala-operatoria-sss-a-50-100-kantonsspital-obwalden-sarnen"
+          "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen"
         ],
         "en": [
           "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen"
@@ -297,8 +284,7 @@
       },
       "previousSlugs": [
         "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen",
-        "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen",
-        "tecnico-di-sala-operatoria-sss-a-50-100-kantonsspital-obwalden-sarnen"
+        "dipl-fachperson-operationstechnik-hf-a-50-100-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:17.375Z",
       "salaryMin": 78500,
@@ -313,7 +299,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksow-5701ea8c0df9",
@@ -366,14 +353,12 @@
       "needsRetranslation": false,
       "previousSlugs": [
         "leitende-r-arzt-arztin-innere-medizin-schwerpunkt-geriatrie-ksow-sarnen",
-        "dottore-principale-medico-di-medicina-interna-concentrarsi-sulla-geriatria-kantonsspital-obwalden-sarnen",
-        "medico-senior-in-medicina-interna-con-focus-in-geriatria-kantonsspital-obwalden-sarnen"
+        "dottore-principale-medico-di-medicina-interna-concentrarsi-sulla-geriatria-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitende-r-arzt-arztin-innere-medizin-schwerpunkt-geriatrie-ksow-sarnen",
-          "dottore-principale-medico-di-medicina-interna-concentrarsi-sulla-geriatria-kantonsspital-obwalden-sarnen",
-          "medico-senior-in-medicina-interna-con-focus-in-geriatria-kantonsspital-obwalden-sarnen"
+          "dottore-principale-medico-di-medicina-interna-concentrarsi-sulla-geriatria-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "leitende-r-arzt-arztin-innere-medizin-schwerpunkt-geriatrie-ksow-sarnen"
@@ -445,7 +430,6 @@
       "applyUrl": "https://link.ostendis.com/publication/dipl-experte-in-notfallpflege-nds-hf-oder-pflegefachperson-hf/cltooq170hv1mlpf74ma4qorps5m7365vh2wprt4vphrz7gfqlkehwozvtr2jhv7",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "dipl-experte-in-notfallpflege-nds-hf-oder-pflegefachperson-hf-a-40-80-ksow-sarnen",
         "dipl-experte-expertin-notfallpflege-nds-hf-o-pflegefachperson-hf-a-40-80-kantonsspital-obwalden-sarnen",
@@ -464,8 +448,7 @@
         "dipl-experte-in-anasthesiepflege-nds-hf-70-100-ksow-sarnen",
         "dipl-experte-in-notfallpflege-nds-hf-o-pflegefachperson-hf-a-40-80-kantonsspital-obwalden-sarnen",
         "dipl-experte-in-notfallpflege-nds-hf-oder-pflegefachperson-hf-a-40-80-kantonsspital-obwalden-sarnen",
-        "dipl-experte-in-notfallpflege-nds-hf-oder-pflegefachperson-hf-a-50-100-ksow-sarnen",
-        "dipl-esperto-in-pronto-soccorso-nds-hf-o-infermiere-hf-a-40-80-kantonsspital-obwalden-sarnen"
+        "dipl-experte-in-notfallpflege-nds-hf-oder-pflegefachperson-hf-a-50-100-ksow-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -485,8 +468,7 @@
           "dipl-expert-e-en-soins-anesthesiques-nds-hf-70-100-kantonsspital-obwalden-sarnen",
           "dipl-experte-in-anasthesiepflege-nds-hf-70-100-ksow-sarnen",
           "dipl-experte-in-notfallpflege-nds-hf-o-pflegefachperson-hf-a-40-80-kantonsspital-obwalden-sarnen",
-          "dipl-experte-in-notfallpflege-nds-hf-oder-pflegefachperson-hf-a-50-100-ksow-sarnen",
-          "dipl-esperto-in-pronto-soccorso-nds-hf-o-infermiere-hf-a-40-80-kantonsspital-obwalden-sarnen"
+          "dipl-experte-in-notfallpflege-nds-hf-oder-pflegefachperson-hf-a-50-100-ksow-sarnen"
         ],
         "en": [
           "dipl-expert-emergency-care-nds-hf-or-care-professional-hf-a-40-80-kantonsspital-obwalden-sarnen",
@@ -513,7 +495,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksow-1202da82a680",
@@ -563,17 +546,14 @@
       "applyUrl": "https://link.ostendis.com/publication/lehrstelle-fachfrau-fachmann-hauswirtschaft-efz/mhpe6got6kp8aehvbhvrutqet94iqlvveti51x2mzy0czw1etpot27jvsddb54w2",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "lehrstelle-fachfrau-fachmann-hauswirtschaft-a-efz-2027-ksow-sarnen",
-        "apprendistato-fachfrau-fachmann-hauswirtschaft-a-cfc-2027-kantonsspital-obwalden-sarnen",
-        "apprendistato-di-specializzazione-pulizia-specialistica-a-efz-2027-kantonsspital-obwalden-sarnen"
+        "apprendistato-fachfrau-fachmann-hauswirtschaft-a-cfc-2027-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-fachfrau-fachmann-hauswirtschaft-a-efz-2027-ksow-sarnen",
-          "apprendistato-fachfrau-fachmann-hauswirtschaft-a-cfc-2027-kantonsspital-obwalden-sarnen",
-          "apprendistato-di-specializzazione-pulizia-specialistica-a-efz-2027-kantonsspital-obwalden-sarnen"
+          "apprendistato-fachfrau-fachmann-hauswirtschaft-a-cfc-2027-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "lehrstelle-fachfrau-fachmann-hauswirtschaft-a-efz-2027-ksow-sarnen"
@@ -595,7 +575,8 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksow-7c363e194ca4",
@@ -645,18 +626,15 @@
       "applyUrl": "https://link.ostendis.com/publication/lehrstelle-koechin-koch-efz/pkihhblzupj8tzcuezrj0x6dvyd4l66pc5to2p54fimn1cifw3r4e8anlzpsh653",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "lehrstelle-kochin-koch-efz-2027-ksow-sarnen",
         "lehrstelle-kochin-koch-efz-2027-kantonsspital-obwalden-sarnen",
-        "apprendistato-kochin-koch-cfc-2027-kantonsspital-obwalden-sarnen",
-        "apprendistato-chef-cuoco-efz-2027-kantonsspital-obwalden-sarnen"
+        "apprendistato-kochin-koch-cfc-2027-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-kochin-koch-efz-2027-ksow-sarnen",
-          "apprendistato-kochin-koch-cfc-2027-kantonsspital-obwalden-sarnen",
-          "apprendistato-chef-cuoco-efz-2027-kantonsspital-obwalden-sarnen"
+          "apprendistato-kochin-koch-cfc-2027-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "lehrstelle-kochin-koch-efz-2027-ksow-sarnen"
@@ -681,7 +659,8 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksow-3b8ab4244617",
@@ -731,18 +710,15 @@
       "applyUrl": "https://link.ostendis.com/publication/diaetkoch-koechin-koch-koechin-efz/b25hpdst0m650cnwzvsprrbs7c6e70klrwvz5vnyvxp4bl27bh3sd5imd8if0f1v",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "diatkoch-kochin-koch-kochin-efz-a-60-100-ksow-sarnen",
         "diatkoch-kochin-koch-kochin-efz-a-60-100-kantonsspital-obwalden-sarnen",
-        "diatkoch-kochin-koch-kochin-cfc-a-60-100-kantonsspital-obwalden-sarnen",
-        "cucina-dietetica-cuoco-cuoco-efz-a-60-100-kantonsspital-obwalden-sarnen"
+        "diatkoch-kochin-koch-kochin-cfc-a-60-100-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diatkoch-kochin-koch-kochin-efz-a-60-100-ksow-sarnen",
-          "diatkoch-kochin-koch-kochin-cfc-a-60-100-kantonsspital-obwalden-sarnen",
-          "cucina-dietetica-cuoco-cuoco-efz-a-60-100-kantonsspital-obwalden-sarnen"
+          "diatkoch-kochin-koch-kochin-cfc-a-60-100-kantonsspital-obwalden-sarnen"
         ],
         "de": [
           "diatkoch-kochin-koch-kochin-efz-a-60-100-kantonsspital-obwalden-sarnen"
@@ -761,7 +737,8 @@
           "maxValue": 86500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksow-4e682c6f7d2e",
@@ -811,15 +788,12 @@
       "applyUrl": "https://link.ostendis.com/publication/vollzeitstudium-dipl-fachfrau-fachmann-operationstechnik-hf/uivc5rdvnw5u75bub47fcsvf1qy0d33dzjw5xpokd0t1uewhxn6eb1dhue0z83xw",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
-        "vollzeitstudium-dipl-fachfrau-fachmann-operationstechnik-hf-a-100-ksow-sarnen",
-        "studio-a-tempo-pieno-dipl-specialista-specialist-operations-technology-hf-a-100-kantonsspital-obwalden-sarnen"
+        "vollzeitstudium-dipl-fachfrau-fachmann-operationstechnik-hf-a-100-ksow-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vollzeitstudium-dipl-fachfrau-fachmann-operationstechnik-hf-a-100-ksow-sarnen",
-          "studio-a-tempo-pieno-dipl-specialista-specialist-operations-technology-hf-a-100-kantonsspital-obwalden-sarnen"
+          "vollzeitstudium-dipl-fachfrau-fachmann-operationstechnik-hf-a-100-ksow-sarnen"
         ],
         "en": [
           "vollzeitstudium-dipl-fachfrau-fachmann-operationstechnik-hf-a-100-ksow-sarnen"
@@ -841,7 +815,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksow-593ff8c2ff22",
@@ -894,14 +869,12 @@
       "needsRetranslation": false,
       "previousSlugs": [
         "dipl-rettungssanitater-in-hf-mit-fachverantwortung-a-80-100-ksow-sarnen",
-        "dipl-rettungssanitater-in-hf-mit-fachverantwortung-a-80-100-kantonsspital-obwalden-sarnen",
-        "dipl-soccorso-paramedico-con-responsabilita-professionale-a-80-100-kantonsspital-obwalden-sarnen"
+        "dipl-rettungssanitater-in-hf-mit-fachverantwortung-a-80-100-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-rettungssanitater-in-hf-mit-fachverantwortung-a-80-100-ksow-sarnen",
-          "dipl-rettungssanitater-in-hf-mit-fachverantwortung-a-80-100-kantonsspital-obwalden-sarnen",
-          "dipl-soccorso-paramedico-con-responsabilita-professionale-a-80-100-kantonsspital-obwalden-sarnen"
+          "dipl-rettungssanitater-in-hf-mit-fachverantwortung-a-80-100-kantonsspital-obwalden-sarnen"
         ],
         "en": [
           "dipl-rettungssanitater-in-hf-mit-fachverantwortung-a-80-100-kantonsspital-obwalden-sarnen"
@@ -975,13 +948,11 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "previousSlugs": [
-        "dipl-hebamme-hf-fh-100-ksow-sarnen",
-        "dipl-midwife-hf-fh-100-kantonsspital-obwalden-sarnen"
+        "dipl-hebamme-hf-fh-100-ksow-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-hebamme-hf-fh-100-ksow-sarnen",
-          "dipl-midwife-hf-fh-100-kantonsspital-obwalden-sarnen"
+          "dipl-hebamme-hf-fh-100-ksow-sarnen"
         ],
         "en": [
           "dipl-hebamme-hf-fh-100-ksow-sarnen"
@@ -1055,13 +1026,11 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "previousSlugs": [
-        "sozialarbeiter-in-fh-hfs-a-40-ksow-sarnen",
-        "lavoratore-sociale-fh-hfs-a-40-kantonsspital-obwalden-sarnen"
+        "sozialarbeiter-in-fh-hfs-a-40-ksow-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-fh-hfs-a-40-ksow-sarnen",
-          "lavoratore-sociale-fh-hfs-a-40-kantonsspital-obwalden-sarnen"
+          "sozialarbeiter-in-fh-hfs-a-40-ksow-sarnen"
         ],
         "en": [
           "sozialarbeiter-in-fh-hfs-a-40-ksow-sarnen"
@@ -1133,17 +1102,14 @@
       "applyUrl": "https://link.ostendis.com/publication/dipl-pflegefachperson-hf/fhxo6l278epi2dgok5rmap3yy8b5u2id06xfy8r82s1rrx278iilohou3ssxfx8z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "dipl-pflegefachperson-hf-a-60-100-ksow-sarnen",
-        "dipl-pflegefachperson-hf-a-60-100-kantonsspital-obwalden-sarnen",
-        "infermiera-hf-a-60-100-kantonsspital-obwalden-sarnen"
+        "dipl-pflegefachperson-hf-a-60-100-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-a-60-100-ksow-sarnen",
-          "dipl-pflegefachperson-hf-a-60-100-kantonsspital-obwalden-sarnen",
-          "infermiera-hf-a-60-100-kantonsspital-obwalden-sarnen"
+          "dipl-pflegefachperson-hf-a-60-100-kantonsspital-obwalden-sarnen"
         ],
         "fr": [
           "dipl-pflegefachperson-hf-a-60-100-kantonsspital-obwalden-sarnen"
@@ -1162,7 +1128,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksow-088e15023380",
@@ -1213,15 +1180,9 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "previousSlugs": [
-        "mitarbeiter-in-reinigungs-und-hausdienst-a-80-100-ksow-sarnen",
-        "mitarbeiter-in-reinigungs-und-hausdienst-a-80-100-kantonsspital-obwalden-sarnen",
-        "collaboratore-trice-reinigungs-e-hausdienst-a-80-100-kantonsspital-obwalden-sarnen"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-reinigungs-und-hausdienst-a-80-100-ksow-sarnen",
-          "collaboratore-trice-reinigungs-e-hausdienst-a-80-100-kantonsspital-obwalden-sarnen"
+          "mitarbeiter-in-reinigungs-und-hausdienst-a-80-100-ksow-sarnen"
         ],
         "en": [
           "mitarbeiter-in-reinigungs-und-hausdienst-a-80-100-kantonsspital-obwalden-sarnen"
@@ -1230,7 +1191,11 @@
           "mitarbeiter-in-reinigungs-und-hausdienst-a-80-100-kantonsspital-obwalden-sarnen"
         ]
       },
-      "firstSeenAt": "2026-09-24T14:28:49.137Z",
+      "previousSlugs": [
+        "mitarbeiter-in-reinigungs-und-hausdienst-a-80-100-ksow-sarnen",
+        "mitarbeiter-in-reinigungs-und-hausdienst-a-80-100-kantonsspital-obwalden-sarnen",
+        "collaboratore-trice-reinigungs-e-hausdienst-a-80-100-kantonsspital-obwalden-sarnen"
+      ],
       "salaryMin": 69000,
       "salaryMax": 86500,
       "salarySource": "estimated",
@@ -1243,7 +1208,8 @@
           "maxValue": 86500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-24T14:28:49.137Z"
     }
   ]
 }
