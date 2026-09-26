@@ -198,8 +198,10 @@ describe('search-landing emitters route every hreflang block through the shared 
   it('jobsSeoPagesPlugin derives the alternate set from eligibility, not the locale list', () => {
     const src = read('build-plugins/jobsSeoPagesPlugin.ts');
     const calls = callSites(src);
-    // GSC keyword landings + search-stats leaders + combo landings.
-    expect(calls.length, 'expected all three search-landing emit sites').toBe(3);
+    // GSC keyword landings + search-stats leaders + combo landings + active
+    // job detail pages, whose per-locale deduplication can also remove a
+    // target after another locale has already been rendered.
+    expect(calls.length, 'expected every all-or-nothing hreflang emit site').toBe(4);
     for (const call of calls) {
       expect(call).toMatch(/eligibleLocales:/);
       // The regression: the alternate set taken straight from the locale
@@ -210,6 +212,13 @@ describe('search-landing emitters route every hreflang block through the shared 
       ).not.toMatch(/eligibleLocales:\s*localeList/);
       expect(call).toMatch(/hrefFor:/);
     }
+  });
+
+  it('active job detail pages derive eligibility from the dedup winner set', () => {
+    const src = read('build-plugins/jobsSeoPagesPlugin.ts');
+    expect(src).toContain('const activeJobEligibleLocales = new Set(');
+    expect(src).toContain('emittedActiveJobPaths.has(`${jobCanton}:${candidateLocale}:${perLocaleSlug[candidateLocale]}`)');
+    expect(src).toContain('eligibleLocales: activeJobEligibleLocales');
   });
 
   it.each(FLOOR_EMITTERS)('%s settles its eligible set before rendering for real', (rel) => {

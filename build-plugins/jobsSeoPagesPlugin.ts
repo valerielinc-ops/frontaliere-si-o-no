@@ -3184,6 +3184,23 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // not in the IT source). Keeping the computation inside the locale loop
  // preserves byte-for-byte output parity with the pre-refactor version.
  recordPhase('per-job-invariants', __tPh_perJob);
+ // A less-recent job can lose one localized slug to the per-locale
+ // deduplication winner while its other locale pages still emit. Hreflang
+ // must describe only a complete, actually-emitted cluster; otherwise the
+ // surviving pages advertise the skipped variant as a 404 target.
+ const activeJobEligibleLocales = new Set(
+ localeList.filter((candidateLocale) =>
+ !emittedActiveJobPaths.has(`${jobCanton}:${candidateLocale}:${perLocaleSlug[candidateLocale]}`),
+ ),
+ );
+ const hreflangHtml = buildLocaleAlternateBlock({
+ eligibleLocales: activeJobEligibleLocales,
+ hrefFor: (alternateLocale) => {
+ const p = `${localePrefix[alternateLocale]}/${buildCantonAwareSection(alternateLocale, jobCanton)}/${perLocaleSlug[alternateLocale]}`
+ .replace(/\/+/g, '/');
+ return `${BASE_URL}${withSlash(p)}`;
+ },
+ });
  for (const locale of localeList) {
  const __tActiveJob = startTimer();
  const sectionForJob = buildCantonAwareSection(locale, jobCanton);
@@ -3203,8 +3220,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // (~line 8642) reads `emittedActiveJobPaths` to decide which job URLs to
  // list, so the `it`/main shard's sitemap stays complete. We only skip the
  // expensive per-locale render/minify/emit below for locales this shard is
- // not responsible for. hreflang stays complete: the `alternates` block
- // maps over the full `localeList` using the pre-loop `perLocaleSlug` map.
+ // not responsible for. Hreflang is computed from the pre-loop eligibility
+ // set; if any localized slug was already claimed by a newer job, the shared
+ // builder voids the block for the whole cluster instead of advertising a
+ // missing target.
  if (!shouldEmitLocale(locale)) {
  recordEmit('active-job', __tActiveJob);
  continue;
@@ -3614,19 +3633,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const addressCountry = perJob_addressCountry;
  const postalCode = perJob_postalCode;
  const streetAddress = perJob_streetAddress;
- const alternates = localeList.map((l) => {
- const p = `${localePrefix[l]}/${buildCantonAwareSection(l, jobCanton)}/${perLocaleSlug[l]}`.replace(/\/+/g, '/');
- return { lang: l, href: `${BASE_URL}${withSlash(p)}` };
- });
- // audit-hreflang requires 5 entries (4 locales + x-default) on every
- // page that emits any hreflang. Force x-default with canonicalUrl as
- // last-resort fallback so the entry is never silently dropped.
- const xDefaultHref = (alternates.find((h) => h.lang === 'it') || alternates[0])?.href || canonicalUrl;
- const hreflangHtml = [
- ...alternates.map((h) => ` <link rel="alternate" hreflang="${h.lang}" href="${h.href}">`),
- ` <link rel="alternate" hreflang="x-default" href="${xDefaultHref}">`,
- ].join('\n');
-
  const __tPh_jsonld = phaseTimer();
  // Build an HTML-formatted description for JobPosting structured data.
  // Google requires a non-empty description and recommends HTML format.
