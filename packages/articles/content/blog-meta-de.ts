@@ -12035,6 +12035,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-limite-italia.title': 'Homeoffice für Grenzgänger: Grenze von 25 % der Arbeitstage',
     'blog.article.telelavoro-frontalieri-limite-italia.excerpt': 'Die steuerliche Schwelle für Smart Working aus Italien beträgt 25%; sie trat am 9 febbraio 2026 in Kraft und gilt rückwirkend ab dem 1 gennaio 2024. Ein Tag von fünf entspricht 20%.',
     'blog.article.telelavoro-frontalieri-limite-italia.imageAlt': 'Grenzgänger, der im Homeoffice Smart Working macht mit Blick auf den Luganersee',
+    'blog.article.castronno-chiusure-notturni-ottobre-2026.title': 'Nächtliche Sperrungen der SS 341 und A8 in Castronno im Oktober 2026',
+    'blog.article.castronno-chiusure-notturni-ottobre-2026.excerpt': 'In den Nächten vom 5‑6 und 6‑7 Oktober 2026, von 21:00 bis 05:00 Uhr, werden die SS 341 und der Abschnitt A8 bei Castronno gleichzeitig gesperrt sein, wobei sich der Beginn der Sperrung der Staatsstraße möglicherweise um einige Dutzend Minuten verzögert.',
+    'blog.article.castronno-chiusure-notturni-ottobre-2026.imageAlt': 'Nachtsperre der SS 341 und A8 bei Castronno mit Umleitungsschildern und Baulichtern',
 };
 
 export default blogMetaDe;

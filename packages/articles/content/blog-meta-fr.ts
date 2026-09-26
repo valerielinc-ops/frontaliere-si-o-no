@@ -12038,6 +12038,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.telelavoro-frontalieri-limite-italia.title': 'Télétravail des travailleurs frontaliers : limite de 25 % des journées',
     'blog.article.telelavoro-frontalieri-limite-italia.excerpt': 'Le seuil fiscal du télétravail depuis l’Italie est de 25 % ; entré en vigueur le 9 février 2026, application rétroactive à partir du 1er janvier 2024. Une journée sur cinq représente 20 %.',
     'blog.article.telelavoro-frontalieri-limite-italia.imageAlt': 'Travailleur frontalier en télétravail depuis le domicile avec vue sur le lac de Lugano',
+    'blog.article.castronno-chiusure-notturni-ottobre-2026.title': 'Fermetures nocturnes de la SS 341 et de l’A8 à Castronno en octobre 2026',
+    'blog.article.castronno-chiusure-notturni-ottobre-2026.excerpt': 'Les nuits des 5‑6 et 6‑7 octobre 2026, de 21:00 à 05:00, la SS 341 et le tronçon de l’A8 à Castronno seront fermés simultanément, avec un éventuel retard de quelques dizaines de minutes au début de la route nationale.',
+    'blog.article.castronno-chiusure-notturni-ottobre-2026.imageAlt': 'Fermeture nocturne de la SS 341 et de l\'A8 à Castronno avec panneaux de déviation et lumières de chantier',
 };
 
 export default blogMetaFr;
