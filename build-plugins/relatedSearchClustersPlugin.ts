@@ -459,6 +459,7 @@ const CACHE_VERSION = 'v11';
 // `DEFAULT_CAP_PER_SHARD`/`padIndex`) in scripts/lib/sitemap-shard.mjs, each
 // comment naming the other as a sibling to keep in lockstep by hand.
 const SITEMAP_SHARD_PREFIX = 'sitemap-search-clusters';
+const CLUSTER_SITEMAP_FILE_RE = /^sitemap-search-clusters(?:-\d+)?\.xml$/;
 
 function shardFilename(index: number): string {
   return `${SITEMAP_SHARD_PREFIX}-${padShardIndex(index)}.xml`;
@@ -472,9 +473,8 @@ function shardFilename(index: number): string {
 function clearStaleClusterSitemaps(distDir: string): string[] {
   const removed: string[] = [];
   if (!fs.existsSync(distDir)) return removed;
-  const re = new RegExp(`^${SITEMAP_SHARD_PREFIX}(?:-\\d+)?\\.xml$`);
   for (const file of fs.readdirSync(distDir)) {
-    if (!re.test(file)) continue;
+    if (!CLUSTER_SITEMAP_FILE_RE.test(file)) continue;
     try {
       fs.unlinkSync(path.join(distDir, file));
       removed.push(file);
@@ -1703,12 +1703,14 @@ export interface ClusterEmissionDecision {
  *     still contributes that locale's `<loc>`s so the it/main shard ships a
  *     COMPLETE cross-locale sitemap.
  *
- * The skip path cannot be backstopped after the fact. `dropOverwrittenLocs`
- * re-reads each loc's HTML in dist/ and drops the noindex ones, but for a
- * non-owned locale there IS no HTML on this shard by design, so its cross-shard
- * branch keeps those locs unconditionally (see `tests/sitemap-clusters-shard-
- * keep.test.ts` — that KEEP is correct, and removing it would truncate the
- * sitemap to IT-only). Whatever the skip path pushes, ships.
+ * The initial dist-truth pass cannot validate a non-owned locale: there IS no
+ * HTML for it on this shard by design, so its cross-shard branch keeps those
+ * locs unconditionally (see `tests/sitemap-clusters-shard-keep.test.ts` — that
+ * KEEP is correct, and removing it would truncate the sitemap to IT-only).
+ * The final serialized sitemap-alias pass can re-check every URL owned by the
+ * current shard after later emitters finish, but it must retain this same
+ * cross-shard rule. The skip producer therefore still has to use the shared
+ * decision rather than relying on a filesystem backstop.
  *
  * Divergence #1 (run 29636707053, CACHE_VERSION v8): the skip path pushed every
  * cross-locale loc without applying MIN_JOBS_FOR_INDEXABLE_CLUSTER → 31,624
@@ -3688,9 +3690,9 @@ export async function dropOverwrittenLocs(
  *
  * Safe ordering: sitemap-jobs.xml is written in the `default` phase, fully
  * flushed before any `post`-phase plugin runs (and we additionally await
- * `jobsSeoPagesFlushed` at both call sites). sitemapAliasPlugin only regenerates
- * the master `sitemap.xml` INDEX from a directory scan; it never rewrites this
- * file's URL body, so our patch survives.
+ * `jobsSeoPagesFlushed` at both call sites). The final `sitemapAliasPlugin`
+ * pass also rechecks the cluster URL bodies after every later emitter has
+ * finished; this earlier patch remains scoped to the jobs sitemap.
  */
 /**
  * Pure core of the sitemap-jobs.xml patch: remove every `<url>...</url>` block
@@ -3727,6 +3729,54 @@ export function extractSitemapLocs(xml: string): string[] {
   let m: RegExpExecArray | null;
   while ((m = re.exec(xml)) !== null) out.push(m[1]);
   return out;
+}
+
+/**
+ * Reconcile every cluster sitemap shard against the final bytes in dist/.
+ *
+ * `relatedSearchClustersPlugin` writes its sitemap before the serialized
+ * post-phase hooks. Those later emitters normally avoid collisions, but a
+ * collision on one cluster path can still replace an indexable page with a
+ * noindex or non-self-canonical document after the first
+ * `dropOverwrittenLocs` pass. `sitemapAliasPlugin` is the final sitemap hook;
+ * it calls this function after all page emitters and before regenerating the
+ * sitemap index. Reuse the same predicate so the source producer and the
+ * final dist truth check cannot drift.
+ *
+ * Only `sitemap-search-clusters*.xml` is touched. Other sitemap families have
+ * different ownership contracts and must not be filtered by the cluster
+ * locale-shard rule.
+ */
+export async function reconcileSitemapSearchClustersWithDist(distDir: string): Promise<number> {
+  if (!fs.existsSync(distDir)) return 0;
+  const files = fs
+    .readdirSync(distDir)
+    .filter((file) => CLUSTER_SITEMAP_FILE_RE.test(file))
+    .map((file) => ({ file, xml: fs.readFileSync(path.join(distDir, file), 'utf-8') }));
+  if (files.length === 0) return 0;
+
+  const advertised = files.flatMap(({ xml }) => extractSitemapLocs(xml));
+  if (advertised.length === 0) return 0;
+  const kept = new Set(
+    (await dropOverwrittenLocs(distDir, advertised)).map(normalizeLocForCanonicalCmp),
+  );
+  const droppedLocs = advertised.filter((loc) => !kept.has(normalizeLocForCanonicalCmp(loc)));
+  if (droppedLocs.length === 0) return 0;
+
+  let droppedBlocks = 0;
+  for (const { file, xml } of files) {
+    const result = dropUrlBlocksByLoc(xml, droppedLocs);
+    if (result.xml === xml) continue;
+    fs.writeFileSync(path.join(distDir, file), result.xml, 'utf-8');
+    droppedBlocks += result.dropped;
+  }
+  if (droppedBlocks > 0) {
+    console.log(
+      `\x1b[36m[sitemap-alias]\x1b[0m final dist-truth reconciliation removed ` +
+      `${droppedBlocks} cluster sitemap URL(s) whose final HTML was missing, noindex, or non-self-canonical`,
+    );
+  }
+  return droppedBlocks;
 }
 
 /**
