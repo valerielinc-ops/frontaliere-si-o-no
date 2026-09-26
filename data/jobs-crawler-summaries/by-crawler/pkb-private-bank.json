@@ -1,16 +1,16 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-09-24T14:43:05.584Z",
+  "generatedAt": "2026-09-26T14:10:54.135Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3656,
-  "avgDurationMs": 3656,
+  "durationMs": 4470,
+  "avgDurationMs": 4470,
   "durationHistory": [
-    3656
+    4470
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,9 +33,10 @@
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-24T14:42:56.051Z",
+      "crawledAt": "2026-09-26T14:10:46.506Z",
       "id": "pkb-private-bank-0b868337e255",
       "firstSeenAt": "2026-08-18T10:07:39.850Z",
+      "applyUrl": "https://careers.pkb.ch/job/view-job.php?id=30-risk-officer-lugano&language=it",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
