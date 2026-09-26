@@ -353,7 +353,7 @@ describe('SEO surfaces that must survive the shard (the traffic the owner asked 
     expect(jobBoardSrc).toContain('const loadUnscopedPool = useCallback');
     expect(jobBoardSrc).toMatch(/\/data\/jobs-\$\{locale\}-index\.json/);
     // Both triggers still present: thin in-canton search, and the company hub.
-    expect(jobBoardSrc).toContain('searchBroadenFetchAttempted');
+    expect(jobBoardSrc).toContain('searchBroadenAttemptedQueries');
     expect(jobBoardSrc).toContain('companyBroadenFetchAttempted');
     // And the tier itself still reads the pool.
     expect(jobBoardSrc).toMatch(/for \(const job of unscopedJobs\)/);

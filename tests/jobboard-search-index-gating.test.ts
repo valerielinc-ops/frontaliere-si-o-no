@@ -75,17 +75,19 @@ describe('search-index gating of the lazy corpus-fetch tiers', () => {
   it('lets a canton-scoped search finish its same-locale broaden before Tier 4', () => {
     const body = effectBodyAfter('if (crossLocaleFetchAttempted.current) return;');
     expect(body).toContain('const cantonScopedSearch');
-    expect(body).toContain('!searchBroadenSettled');
-    expect(body).toContain('searchBroadenSettled,');
+    expect(body).toContain('searchBroadenSettledQuery !== q');
+    expect(body).toContain('searchBroadenSettledQuery,');
   });
 
-  it('marks the same-locale broaden terminal on empty and error paths', () => {
-    const body = effectBodyAfter('if (searchBroadenFetchAttempted.current) return;');
-    expect(body).toContain('setSearchBroadenSettled(true)');
+  it('tracks same-locale broaden completion per query and shares its pool request', () => {
+    const body = effectBodyAfter('if (searchBroadenAttemptedQueries.current.has(query)) return;');
+    expect(body).toContain('searchBroadenAttemptedQueries.current.has(query)');
+    expect(body).toContain('searchBroadenPoolPromiseRef.current');
+    expect(body).toContain('setSearchBroadenSettledQuery(query)');
   });
 
   it('gates the same-locale cross-canton broaden on it', () => {
-    const body = effectBodyAfter('if (searchBroadenFetchAttempted.current) return;');
+    const body = effectBodyAfter('if (searchIndexPending) return;\n if (companySlugFilter) return; // company path owns its loader');
     expect(body).toContain('if (searchIndexPending) return;');
     // Anchored to the neighbouring dep: a bare `searchIndexPending` substring
     // is already satisfied by the early return above, so it would pass with the

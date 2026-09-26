@@ -310,7 +310,7 @@ const CITY_MATCH_BOOST = 1000;
 // Reference stability — WeakMap hit-rate analysis:
 // The cache key is the job object reference. References are stable because
 // `unscopedJobs` and `crossLocaleJobs` are React state populated once per
-// session via one-shot guards (searchBroadenFetchAttempted,
+// session via one-shot guards (searchBroadenAttemptedQueries,
 // companyBroadenFetchAttempted, crossLocaleFetchAttempted). React never
 // recreates state values on re-render; the same JobListing objects live in
 // state until unmount or an explicit setState call. Therefore:
@@ -2450,14 +2450,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Search-broaden: when a canton-scoped SEARCH yields a thin in-canton set
  // (< BROADEN_BELOW) we lazy-load the locale-wide pool so the cross-canton tier
  // can fill the page. Closes the gap left by `unscopedJobs` (populated only via
- // the legacy path) for the healthy-shard search case. One-shot per mount.
- const searchBroadenFetchAttempted = useRef(false);
+ // the legacy path) for the healthy-shard search case. Track attempts per
+ // query: a new thin query must not inherit the terminal state of the query
+ // that was visible when the previous request started.
+ const searchBroadenAttemptedQueries = useRef<Set<string>>(new Set());
+ // The pool is query-independent. Share the in-flight request across rapid
+ // query changes so the per-query correctness guard does not create duplicate
+ // downloads while the user is typing.
+ const searchBroadenPoolPromiseRef = useRef<{
+   locale: Locale;
+   promise: Promise<JobListing[] | null>;
+ } | null>(null);
  // A canton-scoped thin search must finish its same-locale pool attempt before
- // Tier 4 decides that the query is empty. Without this terminal bit, the two
- // effects can observe the same provisional zero and fetch the IT pool plus
- // all three other locale pools at once; the cross-canton tier usually makes
- // the latter work unnecessary.
- const [searchBroadenSettled, setSearchBroadenSettled] = useState(false);
+ // Tier 4 decides that the query is empty. This is the query whose attempt has
+ // reached a terminal state, not a mount-wide boolean.
+ const [searchBroadenSettledQuery, setSearchBroadenSettledQuery] = useState<string | null>(null);
  const [jobsLoading, setJobsLoading] = useState(true);
  // In-flight count of the lazy broaden / cross-locale fallback fetches. A thin
  // canton-scoped search/company page reads `filteredJobs.length === 0` after the
@@ -4758,7 +4765,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const cantonScopedSearch =
    !companySlugFilter
    && (initialFilterCanton || getDefaultCantonForVisit()) !== AGGREGATE_CANTON_CODE;
- if (cantonScopedSearch && unscopedJobs.length === 0 && !searchBroadenSettled) return;
+ if (cantonScopedSearch && unscopedJobs.length === 0 && searchBroadenSettledQuery !== q) return;
  crossLocaleFetchAttempted.current = true;
  setPendingFallbacks((n) => n + 1);
  let cancelled = false;
@@ -4805,7 +4812,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [
  deferredSearchQuery, jobsLoading, locale,
  strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length,
- unscopedJobs, sortedJobs, initialFilterCanton, companySlugFilter, searchBroadenSettled,
+ unscopedJobs, sortedJobs, initialFilterCanton, companySlugFilter, searchBroadenSettledQuery,
  // Load-bearing: on a search that is genuinely empty, the tier counts above
  // never change when the index completes, so without this dep the effect
  // would not re-run and the fallback would never fire at all.
@@ -4868,36 +4875,39 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // canton tier can fill the page. Distinct from the company trigger (no search)
  // and the cross-locale tier (other locales): this is same-locale, other-canton.
  // Skipped on the aggregate board (already nationwide) and when the pool is
- // already loaded. One-shot per mount (ref set only when we actually fetch, so a
- // later thin search still triggers if the first search was well-populated).
+ // already loaded. One attempt is recorded per query; the shared promise keeps
+ // rapid query changes from downloading the same locale-wide pool repeatedly.
  useEffect(() => {
- if (searchBroadenFetchAttempted.current) return;
  if (jobsLoading) return;
  // The in-canton counts below are provisional until the index is complete.
  if (searchIndexPending) return;
  if (companySlugFilter) return; // company path owns its loader
- if (!deferredSearchQuery.trim()) return;
+ const query = deferredSearchQuery.trim();
+ if (!query) return;
  if ((initialFilterCanton || getDefaultCantonForVisit()) === AGGREGATE_CANTON_CODE) return;
  if (unscopedJobs.length > 0) return; // pool already available
  // strict + OR-fill tail (the fill excludes strict ids, so no double count).
  const inCantonCount = strictFilteredJobs.length + orFallbackInCantonJobs.length;
  if (inCantonCount >= BROADEN_BELOW) return; // enough in-canton results already
- searchBroadenFetchAttempted.current = true;
+ if (searchBroadenAttemptedQueries.current.has(query)) return;
+ searchBroadenAttemptedQueries.current.add(query);
  setPendingFallbacks((n) => n + 1);
  let cancelled = false;
  (async () => {
  try {
- const pool = await loadUnscopedPool();
+ const cached = searchBroadenPoolPromiseRef.current;
+ const promise = cached?.locale === locale ? cached.promise : loadUnscopedPool();
+ searchBroadenPoolPromiseRef.current = { locale, promise };
+ const pool = await promise;
  if (cancelled || !pool) return;
  setUnscopedJobs(pool);
  } catch (err: unknown) {
  reportCaughtError(err, 'jobBoard.loadJobs.searchBroaden');
  } finally {
  setPendingFallbacks((n) => n - 1);
- // Mark the same-locale attempt terminal even when the index is empty, failed,
- // or the user changed query while it was in flight; otherwise that one-shot
- // request could leave Tier 4 waiting forever on the next query.
- setSearchBroadenSettled(true);
+ // Mark THIS query terminal even when the index is empty, failed, or the user
+ // changed query while it was in flight. A later query has its own gate.
+ setSearchBroadenSettledQuery(query);
  }
  })();
  return () => { cancelled = true; };
@@ -5162,7 +5172,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // in-flight fallback phase (pendingFallbacks) and the first frame after the
  // index load, before the fetch effects have fired (no fallback attempted yet).
  const anyFallbackAttempted =
- searchBroadenFetchAttempted.current
+ searchBroadenAttemptedQueries.current.size > 0
  || companyBroadenFetchAttempted.current
  || crossLocaleFetchAttempted.current;
  const resultsResolving =
