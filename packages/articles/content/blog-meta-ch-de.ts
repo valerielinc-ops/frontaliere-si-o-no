@@ -6743,6 +6743,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.destra-ticino-elezioni-aprile.title': 'Vereinte Rechte im Tessin: Kantonswahlen 2027',
     'blog.article.destra-ticino-elezioni-aprile.excerpt': 'Im Tessin werden die beiden rechten Lager bei den für April 2027 angesetzten Kantonswahlen gemeinsam antreten, nach einem monatelangen Zerwürfnis.',
     'blog.article.destra-ticino-elezioni-aprile.imageAlt': 'Tessiner Kantonswahlen für April 2027',
+    'blog.article.carburante-sgravio-berna.title': 'Keine Entlastung beim Treibstoff: Bern bestätigt das teure Tanken',
+    'blog.article.carburante-sgravio-berna.excerpt': 'Am 25. September 2026 hat die SECO eine Entlastung beim Treibstoff ausgeschlossen: Diesel auf dem historischen Höchststand, Benzin über 2 Franken/Liter, keine Hilfe für Handwerker, Landwirte und Pendler vorgesehen.',
+    'blog.article.carburante-sgravio-berna.imageAlt': 'Kraftstoffpumpe an einer Schweizer Straße mit Alpen im Hintergrund, Symbol für hohe Diesel- und Benzinpreise',
 };
 
 export default blogMetaChDe;
