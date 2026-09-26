@@ -29,6 +29,7 @@ import { parseDocument } from 'yaml';
 import { createGithubIssue, ensureLabelsExist } from '../lib/github-issue-creator.mjs';
 import { loadLoopPolicy } from '../lib/loop-fleet-contract.mjs';
 import { auditLoopFleetBindings } from './loop-fleet-registry-audit.mjs';
+import { lineAt } from './line-at.mjs';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const WORKFLOW_DIR_NAME = path.join('.github', 'workflows');
@@ -70,9 +71,6 @@ function isRecord(value) {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
 }
 
-let cachedLineSource = null;
-let cachedLineStarts = [];
-
 function lineFor(source, needle) {
   const index = typeof needle === 'string' ? source.indexOf(needle) : source.search(needle);
   if (index < 0) return 1;
@@ -82,21 +80,7 @@ function lineFor(source, needle) {
   // old slice+split rescanned the whole prefix for every call (quadratic in the
   // number of steps); retain one file-local index and resolve each match with
   // a binary search instead.
-  if (source !== cachedLineSource) {
-    cachedLineSource = source;
-    cachedLineStarts = [0];
-    for (let newline = source.indexOf('\n'); newline >= 0; newline = source.indexOf('\n', newline + 1)) {
-      cachedLineStarts.push(newline + 1);
-    }
-  }
-  let low = 0;
-  let high = cachedLineStarts.length;
-  while (low < high) {
-    const middle = low + Math.floor((high - low) / 2);
-    if (cachedLineStarts[middle] <= index) low = middle + 1;
-    else high = middle;
-  }
-  return low;
+  return lineAt(source, index);
 }
 
 function finding(file, rule, severity, message, line = 1, evidence = null) {
