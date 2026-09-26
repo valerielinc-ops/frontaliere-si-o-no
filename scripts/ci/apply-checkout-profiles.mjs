@@ -42,6 +42,7 @@ export const TYPECHECK_REQUIRED_SPARSE_PATHS = [
 export const GLOBAL_TESTS_REQUIRED_SPARSE_PATHS = Object.freeze([
   '/data/blog-articles-data.ts',
   '/data/swiss-articles-data.ts',
+  '/data/fuel-prices.json',
   '/public/data/fuel-prices.json',
   '/packages/articles/content/blog-articles-data.ts',
   '/packages/articles/content/swiss-articles-data.ts',

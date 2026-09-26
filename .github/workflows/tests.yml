@@ -1242,6 +1242,7 @@ jobs:
             # explicit public fuel snapshot visible to the sparse contract.
             /data/blog-articles-data.ts
             /data/swiss-articles-data.ts
+            /data/fuel-prices.json
             # related-search-candidates.json e slug-registry.json restano IN
             # checkout: due test del suite blocking li leggono da filesystem
             # con un path runtime (resolve(__dirname, ...)), invisibile

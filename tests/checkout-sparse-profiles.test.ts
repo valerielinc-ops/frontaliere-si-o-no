@@ -123,6 +123,7 @@ describe('profili di sparse-checkout', () => {
   it('il profilo globale materializza tutti gli input runtime del build', () => {
     const source = fs.readFileSync(path.join(WF_DIR, 'tests.yml'), 'utf8');
     expect(missingGlobalTestsSparsePaths(source, 'tests.yml')).toEqual([]);
+    expect(GLOBAL_TESTS_REQUIRED_SPARSE_PATHS).toContain('/data/fuel-prices.json');
     expect(GLOBAL_TESTS_REQUIRED_SPARSE_PATHS).toContain('/public/data/fuel-prices.json');
     expect(GLOBAL_TESTS_REQUIRED_SPARSE_PATHS).toContain('/data/swiss-articles-data.ts');
     expect(GLOBAL_TESTS_REQUIRED_SPARSE_PATHS).toContain('/packages/articles/content/seo/seo-blog-7.ts');
