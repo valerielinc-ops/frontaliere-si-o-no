@@ -12052,6 +12052,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-26.imageAlt': 'Les chiffres du jour pour les frontaliers – 26 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-09-26.seoDescription': 'Bulletin du frontalier du 26 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-09-26.ogDescription': 'Les chiffres du 26 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.varese-biglietto-a-bordo-doppio.title': 'Varese, le billet à bord coûte le double : le témoignage',
+    'blog.article.varese-biglietto-a-bordo-doppio.excerpt': 'Une étudiante de l\'Università dell\'Insubria a payé 3,20 euros pour un billet de bus à bord, soit le double du prix normal selon son témoignage, après que le paiement par carte n’a pas fonctionné.',
+    'blog.article.varese-biglietto-a-bordo-doppio.imageAlt': 'Autobus urbain à l\'arrêt dans un contexte tessinois, passagers en attente',
 };
 
 export default blogMetaFr;
