@@ -529,7 +529,7 @@ describe('bounded live-link shortlist (#9314)', () => {
     expect(checked).toHaveLength(3);
   });
 
-  it('re-ranks only when a dead shortlist page needs a replacement', async () => {
+  it('keeps only the verified shortlist when its check budget is consumed', async () => {
     const checked = [];
     const live = await rankLiveJobsForEmail(
       rankedJobs(),
@@ -545,11 +545,11 @@ describe('bounded live-link shortlist (#9314)', () => {
       },
     );
 
-    expect(live.map((job) => job.id)).toEqual(['bounded-1', 'bounded-2', 'bounded-3']);
-    expect(checked).toHaveLength(4);
+    expect(live.map((job) => job.id)).toEqual(['bounded-1', 'bounded-2']);
+    expect(checked).toHaveLength(3);
   });
 
-  it('checks the full pool before failing open on an entirely dead shortlist', async () => {
+  it('uses lower-ranked candidates without another HTTP scan after a dead shortlist', async () => {
     const checked = [];
     const live = await rankLiveJobsForEmail(
       rankedJobs(100),
@@ -569,11 +569,11 @@ describe('bounded live-link shortlist (#9314)', () => {
     expect(live.map((job) => job.id)).toEqual(
       Array.from({ length: 10 }, (_, index) => `bounded-${index + 10}`),
     );
-    expect(checked).toHaveLength(100);
+    expect(checked).toHaveLength(10);
   });
 
   it('keeps ranked order when the full-pool fail-open guard trips', async () => {
-    const matched = rankedJobs(20).reverse();
+    const matched = rankedJobs(5).reverse();
     const treatmentRankingOptions = {
       ...rankingOptions,
       variant: 'treatment',
@@ -596,6 +596,6 @@ describe('bounded live-link shortlist (#9314)', () => {
     );
 
     expect(live.map((job) => job.id)).toEqual(expected.map((job) => job.id));
-    expect(checked).toHaveLength(20);
+    expect(checked).toHaveLength(5);
   });
 });

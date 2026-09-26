@@ -235,15 +235,24 @@ export const checkJobPageLive = checkPageBodyLive;
  * aren't re-checked). Jobs with no resolvable slug fall back to the site root
  * in the email (always live) and are never filtered. Exported for tests.
  */
-async function inspectLiveJobs(jobs, locale, cache, { check = checkJobPageLive } = {}) {
+async function inspectLiveJobs(
+  jobs,
+  locale,
+  cache,
+  { check = checkJobPageLive, maxNewChecks = Number.POSITIVE_INFINITY } = {},
+) {
   const withUrls = jobs.map((job) => ({ job, url: jobPageUrl(job, locale) }));
   // Dedupe by URL both across calls (via the shared `cache`) AND within this
   // single call (two jobs — e.g. two locale variants — can resolve to the
   // same page); otherwise a duplicate URL in the same batch would be
   // checked once per occurrence before either result lands in `cache`.
   const uniqueToCheck = [...new Set(withUrls.map(({ url }) => url).filter((url) => url && !cache.has(url)))];
-  if (uniqueToCheck.length > 0) {
-    await runWithConcurrency(uniqueToCheck, JOB_LIVE_CHECK_CONCURRENCY, async (url) => {
+  const checkBudget = Number.isFinite(maxNewChecks)
+    ? Math.max(0, Math.trunc(maxNewChecks))
+    : uniqueToCheck.length;
+  const urlsToCheck = uniqueToCheck.slice(0, checkBudget);
+  if (urlsToCheck.length > 0) {
+    await runWithConcurrency(urlsToCheck, JOB_LIVE_CHECK_CONCURRENCY, async (url) => {
       cache.set(url, await check(url));
     });
   }
@@ -287,7 +296,19 @@ async function rankLiveJobsForEmail(
   { limit = MAX_JOB_CARDS, initialRanked = null, check = checkJobPageLive } = {},
 ) {
   const excludedUrls = new Set();
+  const checkedUrls = new Set();
   let ranked = initialRanked;
+
+  const inspectWithinBudget = async (jobs) => {
+    const uniqueUrls = [...new Set(jobs.map((job) => jobPageUrl(job, locale)).filter(Boolean))];
+    for (const url of uniqueUrls) {
+      if (cache.has(url)) checkedUrls.add(url);
+    }
+    const uncachedUrls = uniqueUrls.filter((url) => !cache.has(url));
+    const remaining = Math.max(0, limit - checkedUrls.size);
+    for (const url of uncachedUrls.slice(0, remaining)) checkedUrls.add(url);
+    return inspectLiveJobs(jobs, locale, cache, { check, maxNewChecks: remaining });
+  };
 
   while (true) {
     if (!ranked) {
@@ -299,7 +320,7 @@ async function rankLiveJobsForEmail(
     }
     if (ranked.length === 0) return [];
 
-    const result = await inspectLiveJobs(ranked, locale, cache, { check });
+    const result = await inspectWithinBudget(ranked);
     if (result.failOpen) {
       // A dead top-ten shortlist is not enough evidence of a transient
       // network failure: the lower-ranked pool may contain the live cards
@@ -307,7 +328,12 @@ async function rankLiveJobsForEmail(
       // before returning anything unfiltered. This keeps true fail-open
       // behaviour for an outage while preventing dead cards from winning over
       // live replacements.
-      const fullResult = await inspectLiveJobs(matched, locale, cache, { check });
+      // The shortlist has exhausted this alert's HTTP budget. The full-pool
+      // pass is therefore a bounded fail-open classification: cached answers
+      // are respected, while the uncached tail is treated as unverified rather
+      // than triggering another network scan. This keeps the replacement pool
+      // live-orderable without reintroducing the pre-#9314 fan-out.
+      const fullResult = await inspectWithinBudget(matched);
       if (fullResult.failOpen) return rankEmailJobs(fullResult.jobs, { ...rankingOptions, limit });
       ranked = rankEmailJobs(fullResult.jobs, { ...rankingOptions, limit });
       continue;
@@ -318,7 +344,7 @@ async function rankLiveJobsForEmail(
         .map((job) => jobPageUrl(job, locale))
         .filter((url) => url && cache.get(url) === false),
     );
-    if (deadUrls.size === 0) return result.jobs;
+    if (deadUrls.size === 0 || checkedUrls.size >= limit) return result.jobs;
 
     for (const url of deadUrls) excludedUrls.add(url);
     ranked = null;
