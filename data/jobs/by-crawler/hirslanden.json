@@ -27701,12 +27701,12 @@
     },
     {
       "id": "hirslanden-a723ef600575",
-      "slug": "radiologiefachperson-a-50-100-hirslanden-hirslanden-klinik-stephanshorn",
+      "slug": "specialista-di-radiologia-a-50-100-hirslanden-klinik-hirslanden-klinik-stephanshorn",
       "slugByLocale": {
         "de": "radiologiefachperson-a-50-100-hirslanden-hirslanden-klinik-stephanshorn",
-        "it": "radiologiefachperson-a-50-100-hirslanden-hirslanden-klinik-stephanshorn",
-        "en": "radiologiefachperson-a-50-100-hirslanden-hirslanden-klinik-stephanshorn",
-        "fr": "radiologiefachperson-a-50-100-hirslanden-hirslanden-klinik-stephanshorn"
+        "it": "specialista-di-radiologia-a-50-100-hirslanden-klinik-hirslanden-klinik-stephanshorn",
+        "en": "radiology-specialist-a-50-100-hirslanden-klinik-hirslanden-klinik-stephanshorn",
+        "fr": "specialiste-de-radiologie-a-50-100-hirslanden-klinik-hirslanden-klinik-stephanshorn"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27747,7 +27747,6 @@
       "crawledAt": "2026-09-26T13:59:54.131Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-25T14:47:03.276Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -27760,16 +27759,31 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-25T14:47:03.276Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "radiologiefachperson-a-50-100-hirslanden-hirslanden-klinik-stephanshorn"
+        ],
+        "en": [
+          "radiologiefachperson-a-50-100-hirslanden-hirslanden-klinik-stephanshorn"
+        ],
+        "fr": [
+          "radiologiefachperson-a-50-100-hirslanden-hirslanden-klinik-stephanshorn"
+        ]
+      },
+      "previousSlugs": [
+        "radiologiefachperson-a-50-100-hirslanden-hirslanden-klinik-stephanshorn"
+      ]
     },
     {
       "id": "hirslanden-15893d0b511c",
-      "slug": "sachbearbeiterin-sachbearbeiter-ertragssicherung-a-80-100-hirslanden-hirslanden-klinik-st",
+      "slug": "persone-in-carica-a-80-100-hirslanden-klinik-hirslanden-klinik-st-anna",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-ertragssicherung-a-80-100-hirslanden-hirslanden-klinik-st",
-        "it": "sachbearbeiterin-sachbearbeiter-ertragssicherung-a-80-100-hirslanden-hirslanden-klinik-st",
-        "en": "sachbearbeiterin-sachbearbeiter-ertragssicherung-a-80-100-hirslanden-hirslanden-klinik-st",
-        "fr": "sachbearbeiterin-sachbearbeiter-ertragssicherung-a-80-100-hirslanden-hirslanden-klinik-st"
+        "it": "persone-in-carica-a-80-100-hirslanden-klinik-hirslanden-klinik-st-anna",
+        "en": "person-in-charge-a-80-100-hirslanden-klinik-hirslanden-klinik-st-anna",
+        "fr": "responsable-a-80-100-hirslanden-klinik-hirslanden-klinik-st-anna"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27810,7 +27824,6 @@
       "crawledAt": "2026-09-26T13:59:52.911Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-25T14:47:04.502Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -27823,7 +27836,22 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-25T14:47:04.502Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-sachbearbeiter-ertragssicherung-a-80-100-hirslanden-hirslanden-klinik-st"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-ertragssicherung-a-80-100-hirslanden-hirslanden-klinik-st"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-ertragssicherung-a-80-100-hirslanden-hirslanden-klinik-st"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-ertragssicherung-a-80-100-hirslanden-hirslanden-klinik-st"
+      ]
     },
     {
       "id": "hirslanden-1e8855467022",
@@ -28528,12 +28556,12 @@
     },
     {
       "id": "hirslanden-daf2db0a2c44",
-      "slug": "dipl-radiologiefachfrau-radiologiefachmann-a-100-hirslanden-hirslanden-klinik-linde",
+      "slug": "dipl-specialista-di-radiologia-a-100-hirslanden-klinik-hirslanden-klinik-linde",
       "slugByLocale": {
         "de": "dipl-radiologiefachfrau-radiologiefachmann-a-100-hirslanden-hirslanden-klinik-linde",
-        "it": "dipl-radiologiefachfrau-radiologiefachmann-a-100-hirslanden-hirslanden-klinik-linde",
-        "en": "dipl-radiologiefachfrau-radiologiefachmann-a-100-hirslanden-hirslanden-klinik-linde",
-        "fr": "dipl-radiologiefachfrau-radiologiefachmann-a-100-hirslanden-hirslanden-klinik-linde"
+        "it": "dipl-specialista-di-radiologia-a-100-hirslanden-klinik-hirslanden-klinik-linde",
+        "en": "dipl-radiology-specialist-a-100-hirslanden-klinik-hirslanden-klinik-linde",
+        "fr": "dipl-specialiste-en-radiologie-a-100-hirslanden-klinik-hirslanden-klinik-linde"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -28574,8 +28602,6 @@
       "crawledAt": "2026-09-26T13:59:40.575Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-25T14:46:49.891Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -28588,7 +28614,23 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-25T14:46:49.891Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-radiologiefachfrau-radiologiefachmann-a-100-hirslanden-hirslanden-klinik-linde"
+        ],
+        "en": [
+          "dipl-radiologiefachfrau-radiologiefachmann-a-100-hirslanden-hirslanden-klinik-linde"
+        ],
+        "fr": [
+          "dipl-radiologiefachfrau-radiologiefachmann-a-100-hirslanden-hirslanden-klinik-linde"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-radiologiefachfrau-radiologiefachmann-a-100-hirslanden-hirslanden-klinik-linde"
+      ]
     },
     {
       "id": "hirslanden-7b0ac44a526d",

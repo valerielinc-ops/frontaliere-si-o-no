@@ -9,7 +9,7 @@
         "it": "berater-previdenza-m-w-d-quereinsteigende-willkommen-swiss-life-bern",
         "en": "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
         "de": "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
-        "fr": "berater-vorsorge-m-w-d-quereinsteigende-willkommen-swiss-life-bern"
+        "fr": "consultant-fournissant-h-f-d-bienvenue-croisee-swiss-life-bern"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -55,18 +55,14 @@
       "hiringOrganization": "Swiss Life AG",
       "previousSlugs": [
         "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
-        "consultant-fournissant-h-f-d-bienvenue-croisee-swiss-life-bern",
-        "berater-previdenza-m-w-d-quereinsteigende-willkommen-swiss-life-bern",
         "berater-vorsorge-m-w-d-quereinsteigende-willkommen-swiss-life-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
-          "berater-previdenza-m-w-d-quereinsteigende-willkommen-swiss-life-bern"
+          "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch"
         ],
         "fr": [
           "berater-vorsorge-w-m-d-quereinsteigende-willkommen-swiss-life-ch",
-          "consultant-fournissant-h-f-d-bienvenue-croisee-swiss-life-bern",
           "berater-vorsorge-m-w-d-quereinsteigende-willkommen-swiss-life-bern"
         ]
       },
@@ -138,20 +134,17 @@
       "jobReqId": "R10449",
       "hiringOrganization": "Swiss Life GA Glarus-Rheintal",
       "previousSlugs": [
-        "sales-support-w-m-d-40-60-generalagentur-glarus-rheintal-swiss-life-ch",
-        "sales-support-m-w-d-40-60-agenzia-generale-glarus-rheintal-swiss-life-st-gallen"
+        "sales-support-w-m-d-40-60-generalagentur-glarus-rheintal-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-support-w-m-d-40-60-generalagentur-glarus-rheintal-swiss-life-ch",
-          "sales-support-m-w-d-40-60-agenzia-generale-glarus-rheintal-swiss-life-st-gallen"
+          "sales-support-w-m-d-40-60-generalagentur-glarus-rheintal-swiss-life-ch"
         ],
         "fr": [
           "sales-support-w-m-d-40-60-generalagentur-glarus-rheintal-swiss-life-ch"
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:42.441Z",
-      "needsRetranslation": true,
       "salaryMin": 41100,
       "salaryMax": 63000,
       "salarySource": "estimated",
@@ -164,7 +157,8 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-1018a191bf7b",
@@ -218,13 +212,11 @@
       "jobReqId": "R00096",
       "hiringOrganization": "Swiss Life AG Svizzera italiana",
       "previousSlugs": [
-        "consulente-immobiliare-f-m-d-agenzia-generale-svizzera-italiana-lugano-swiss-life-ch",
-        "consulente-55-m-f-d-4997-469-lugano-swiss-life-lugano"
+        "consulente-immobiliare-f-m-d-agenzia-generale-svizzera-italiana-lugano-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "consulente-immobiliare-f-m-d-agenzia-generale-svizzera-italiana-lugano-swiss-life-ch",
-          "consulente-55-m-f-d-4997-469-lugano-swiss-life-lugano"
+          "consulente-immobiliare-f-m-d-agenzia-generale-svizzera-italiana-lugano-swiss-life-ch"
         ],
         "fr": [
           "consulente-immobiliare-f-m-d-agenzia-generale-svizzera-italiana-lugano-swiss-life-ch"
@@ -298,20 +290,17 @@
       "jobReqId": "R00120",
       "hiringOrganization": "Swiss Life GA Glarus-Rheintal",
       "previousSlugs": [
-        "immobilienberater-w-m-d-generalagentur-glarus-rheintal-swiss-life-ch",
-        "immobilienberater-m-w-d-agenzia-generale-glarus-rheintal-swiss-life-st-gallen"
+        "immobilienberater-w-m-d-generalagentur-glarus-rheintal-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "immobilienberater-w-m-d-generalagentur-glarus-rheintal-swiss-life-ch",
-          "immobilienberater-m-w-d-agenzia-generale-glarus-rheintal-swiss-life-st-gallen"
+          "immobilienberater-w-m-d-generalagentur-glarus-rheintal-swiss-life-ch"
         ],
         "fr": [
           "immobilienberater-w-m-d-generalagentur-glarus-rheintal-swiss-life-ch"
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:40.464Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -324,7 +313,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-6af3b43356fa",
@@ -378,13 +368,11 @@
       "jobReqId": "R08751",
       "hiringOrganization": "Swiss Life GA Bern-Ost",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-bern-ost-swiss-life-ch",
-        "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-bern-ost-swiss-life-bern"
+        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-bern-ost-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-bern-ost-swiss-life-ch",
-          "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-bern-ost-swiss-life-bern"
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-bern-ost-swiss-life-ch"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-bern-ost-swiss-life-ch"
@@ -394,7 +382,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:39.818Z",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -407,7 +394,8 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-2f29929f10fd",
@@ -461,20 +449,17 @@
       "jobReqId": "R08750",
       "hiringOrganization": "Swiss Life GA Bern-Ost",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bern-ost",
-        "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-bern-ost-swiss-life-bern"
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bern-ost"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bern-ost",
-          "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-bern-ost-swiss-life-bern"
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bern-ost"
         ],
         "fr": [
           "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bern-ost"
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:39.152Z",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -487,7 +472,8 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-b8b314f81d56",
@@ -541,20 +527,17 @@
       "jobReqId": "R08842",
       "hiringOrganization": "Swiss Life GA Thun-Oberland",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-thun-swiss",
-        "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-thun-swiss-life-bern"
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-thun-swiss"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-thun-swiss",
-          "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-thun-swiss-life-bern"
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-thun-swiss"
         ],
         "fr": [
           "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-thun-swiss"
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:38.475Z",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -567,7 +550,8 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-61acad470883",
@@ -621,13 +605,11 @@
       "jobReqId": "R09258",
       "hiringOrganization": "Swiss Life GA Baden",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-baden",
-        "previdenza-e-finanzberatende-m-w-d-im-rahmen-einer-nachfolgeregelung-agenzia-generale-baden-swiss-life-aarau"
+        "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-baden",
-          "previdenza-e-finanzberatende-m-w-d-im-rahmen-einer-nachfolgeregelung-agenzia-generale-baden-swiss-life-aarau"
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-baden"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-baden"
@@ -637,7 +619,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:37.807Z",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500,
       "salarySource": "estimated",
@@ -650,7 +631,8 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-bbbcf9d2f3fb",
@@ -704,13 +686,11 @@
       "jobReqId": "R09256",
       "hiringOrganization": "Swiss Life GA Baden",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-baden-swiss-life-ch",
-        "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-baden-swiss-life-aarau"
+        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-baden-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-baden-swiss-life-ch",
-          "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-baden-swiss-life-aarau"
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-baden-swiss-life-ch"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-baden-swiss-life-ch"
@@ -720,7 +700,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:37.138Z",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500,
       "salarySource": "estimated",
@@ -733,7 +712,8 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-f915a4f7f6f6",
@@ -787,13 +767,11 @@
       "jobReqId": "R09369",
       "hiringOrganization": "Swiss Life GA Biel-Seeland",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-biel-seeland",
-        "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-biel-seeland-swiss-life-bern"
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-biel-seeland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-biel-seeland",
-          "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-biel-seeland-swiss-life-bern"
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-biel-seeland"
         ],
         "fr": [
           "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-biel-seeland"
@@ -867,13 +845,11 @@
       "jobReqId": "R09379",
       "hiringOrganization": "Swiss Life GA Biel-Seeland",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-biel-seeland",
-        "previdenza-e-finanzberatende-m-w-d-spezialisierung-kollektiv-agenzia-generale-biel-seeland-swiss-life-bern"
+        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-biel-seeland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-biel-seeland",
-          "previdenza-e-finanzberatende-m-w-d-spezialisierung-kollektiv-agenzia-generale-biel-seeland-swiss-life-bern"
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-biel-seeland"
         ],
         "fr": [
           "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-biel-seeland"
@@ -947,13 +923,11 @@
       "jobReqId": "R09380",
       "hiringOrganization": "Swiss Life GA Biel-Seeland",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-pensionsplanungen-generalagentur-biel",
-        "previdenza-e-finanzberatende-m-w-d-spezialisierung-pensionsplanungen-agenzia-generale-biel-seeland-swiss-life-bern"
+        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-pensionsplanungen-generalagentur-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-pensionsplanungen-generalagentur-biel",
-          "previdenza-e-finanzberatende-m-w-d-spezialisierung-pensionsplanungen-agenzia-generale-biel-seeland-swiss-life-bern"
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-pensionsplanungen-generalagentur-biel"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-spezialisierung-pensionsplanungen-generalagentur-biel"
@@ -1030,13 +1004,11 @@
       "jobReqId": "R09388",
       "hiringOrganization": "Swiss Life GA Biel-Seeland",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-biel",
-        "previdenza-e-finanzberatende-m-w-d-im-rahmen-einer-nachfolgeregelung-agenzia-generale-biel-seeland-swiss-life-bern"
+        "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-biel",
-          "previdenza-e-finanzberatende-m-w-d-im-rahmen-einer-nachfolgeregelung-agenzia-generale-biel-seeland-swiss-life-bern"
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-biel"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-biel"
@@ -1046,7 +1018,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:34.218Z",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -1059,7 +1030,8 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-a4559353b2c9",
@@ -1113,20 +1085,17 @@
       "jobReqId": "R09071",
       "hiringOrganization": "Swiss Life GA Solothurn-Oberaargau",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
-        "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn"
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
-          "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn"
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn"
         ],
         "fr": [
           "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn"
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:33.553Z",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -1139,7 +1108,8 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-84dd4281bdde",
@@ -1195,13 +1165,15 @@
       "previousSlugs": [
         "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
         "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch-2",
-        "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn"
+        "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn",
+        "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-bhp163"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
           "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch-2",
-          "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn"
+          "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn",
+          "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-bhp163"
         ],
         "en": [
           "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch-2",
@@ -1212,7 +1184,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:32.876Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -1225,7 +1196,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-60f11dc74a6b",
@@ -1279,13 +1251,11 @@
       "jobReqId": "R05165",
       "hiringOrganization": "Swiss Life GA Bern-West",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-bern-west-swiss-life-ch",
-        "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-bern-west-swiss-life-bern"
+        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-bern-west-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-bern-west-swiss-life-ch",
-          "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-bern-west-swiss-life-bern"
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-bern-west-swiss-life-ch"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-bern-west-swiss-life-ch"
@@ -1295,7 +1265,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:32.201Z",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -1308,7 +1277,8 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-63e7653a3513",
@@ -1362,13 +1332,11 @@
       "jobReqId": "R07044",
       "hiringOrganization": "Swiss Life GA Zürich-Binz Direkt/Digital",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-binz-swiss-life-ch",
-        "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-zurich-binz-swiss-life-zurich"
+        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-binz-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-binz-swiss-life-ch",
-          "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-zurich-binz-swiss-life-zurich"
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-binz-swiss-life-ch"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-binz-swiss-life-ch"
@@ -1378,7 +1346,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:31.547Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -1391,7 +1358,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-82a26860db74",
@@ -1445,20 +1413,17 @@
       "jobReqId": "R10027",
       "hiringOrganization": "Swiss Life GA Bern-West",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bern-west",
-        "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-bern-west-swiss-life-bern"
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bern-west"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bern-west",
-          "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-bern-west-swiss-life-bern"
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bern-west"
         ],
         "fr": [
           "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bern-west"
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:30.873Z",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -1471,7 +1436,8 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-c50bef18a097",
@@ -1525,13 +1491,11 @@
       "jobReqId": "R11687",
       "hiringOrganization": "Swiss Life GA Bern-Ost",
       "previousSlugs": [
-        "immobilienberater-w-m-d-generalagentur-bern-ost-swiss-life-ch",
-        "immobilienberater-m-w-d-agenzia-generale-bern-ost-swiss-life-bern"
+        "immobilienberater-w-m-d-generalagentur-bern-ost-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "immobilienberater-w-m-d-generalagentur-bern-ost-swiss-life-ch",
-          "immobilienberater-m-w-d-agenzia-generale-bern-ost-swiss-life-bern"
+          "immobilienberater-w-m-d-generalagentur-bern-ost-swiss-life-ch"
         ],
         "fr": [
           "immobilienberater-w-m-d-generalagentur-bern-ost-swiss-life-ch"
@@ -1605,13 +1569,11 @@
       "jobReqId": "R11919",
       "hiringOrganization": "Swiss Life GA Basel",
       "previousSlugs": [
-        "immobilienberater-w-m-d-generalagentur-basel-swiss-life-ch",
-        "immobilienberater-m-w-d-agenzia-generale-basel-swiss-life-basel"
+        "immobilienberater-w-m-d-generalagentur-basel-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "immobilienberater-w-m-d-generalagentur-basel-swiss-life-ch",
-          "immobilienberater-m-w-d-agenzia-generale-basel-swiss-life-basel"
+          "immobilienberater-w-m-d-generalagentur-basel-swiss-life-ch"
         ],
         "fr": [
           "immobilienberater-w-m-d-generalagentur-basel-swiss-life-ch"
@@ -1685,13 +1647,11 @@
       "jobReqId": "R11964",
       "hiringOrganization": "Swiss Life GA Baden",
       "previousSlugs": [
-        "immobilienberater-w-m-d-generalagentur-baden-swiss-life-ch",
-        "immobilienberater-m-w-d-agenzia-generale-baden-swiss-life-bern"
+        "immobilienberater-w-m-d-generalagentur-baden-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "immobilienberater-w-m-d-generalagentur-baden-swiss-life-ch",
-          "immobilienberater-m-w-d-agenzia-generale-baden-swiss-life-bern"
+          "immobilienberater-w-m-d-generalagentur-baden-swiss-life-ch"
         ],
         "fr": [
           "immobilienberater-w-m-d-generalagentur-baden-swiss-life-ch"
@@ -1765,13 +1725,11 @@
       "jobReqId": "R07198",
       "hiringOrganization": "Swiss Life GA Thun-Oberland",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-thun-oberland-swiss-life",
-        "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-thun-oberland-swiss-life-bern"
+        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-thun-oberland-swiss-life"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-thun-oberland-swiss-life",
-          "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-thun-oberland-swiss-life-bern"
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-thun-oberland-swiss-life"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-thun-oberland-swiss-life"
@@ -1781,7 +1739,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:27.372Z",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -1794,7 +1751,8 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-18679273ee70",
@@ -1848,13 +1806,11 @@
       "jobReqId": "R07472",
       "hiringOrganization": "Swiss Life GA Basel",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-basel-swiss-life-ch",
-        "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-basel-swiss-life-basel"
+        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-basel-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-basel-swiss-life-ch",
-          "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-basel-swiss-life-basel"
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-basel-swiss-life-ch"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-basel-swiss-life-ch"
@@ -1930,13 +1886,11 @@
       "jobReqId": "R10388",
       "hiringOrganization": "Swiss Life GA Baden",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-baden-swiss",
-        "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-baden-swiss-life-aarau"
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-baden-swiss"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-baden-swiss",
-          "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-baden-swiss-life-aarau"
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-baden-swiss"
         ]
       },
       "needsRetranslation": true,
@@ -2007,13 +1961,11 @@
       "jobReqId": "R09222",
       "hiringOrganization": "Swiss Life AG Lausanne",
       "previousSlugs": [
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
-        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-lausanne-swiss"
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
-          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-lausanne-swiss"
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle"
         ],
         "de": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle"
@@ -2087,13 +2039,11 @@
       "jobReqId": "R09221",
       "hiringOrganization": "Swiss Life AG Lausanne",
       "previousSlugs": [
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
-        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale"
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
-          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale"
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre"
         ],
         "de": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre"
@@ -2103,7 +2053,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:24.692Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -2116,7 +2065,8 @@
           "maxValue": 183500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-7411d0f2883c",
@@ -2171,14 +2121,12 @@
       "hiringOrganization": "Swiss Life AG Genève Rive Droite",
       "previousSlugs": [
         "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-2",
-        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-geneve-rive"
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-2",
-          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-geneve-rive"
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-2"
         ],
         "de": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-2"
@@ -2321,13 +2269,11 @@
       "jobReqId": "R09474",
       "hiringOrganization": "Swiss Life AG Genève Rive Gauche",
       "previousSlugs": [
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-specialisation-en-prevoyance",
-        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-specialisation-en-prevoyance-sante-agence-generale-geneve"
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-specialisation-en-prevoyance"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-specialisation-en-prevoyance",
-          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-specialisation-en-prevoyance-sante-agence-generale-geneve"
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-specialisation-en-prevoyance"
         ],
         "de": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-specialisation-en-prevoyance"
@@ -2551,13 +2497,11 @@
       "jobReqId": "R09389",
       "hiringOrganization": "Swiss Life GA Uster",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-uster-swiss-life-ch",
-        "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-uster-swiss-life-zurich"
+        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-uster-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-uster-swiss-life-ch",
-          "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-uster-swiss-life-zurich"
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-uster-swiss-life-ch"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-uster-swiss-life-ch"
@@ -2633,13 +2577,11 @@
       "jobReqId": "R11848",
       "hiringOrganization": "Swiss Life GA Uster",
       "previousSlugs": [
-        "immobilienberater-w-m-d-generalagentur-uster-swiss-life-ch",
-        "immobilienberater-m-w-d-agenzia-generale-uster-swiss-life-zurich"
+        "immobilienberater-w-m-d-generalagentur-uster-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "immobilienberater-w-m-d-generalagentur-uster-swiss-life-ch",
-          "immobilienberater-m-w-d-agenzia-generale-uster-swiss-life-zurich"
+          "immobilienberater-w-m-d-generalagentur-uster-swiss-life-ch"
         ],
         "fr": [
           "immobilienberater-w-m-d-generalagentur-uster-swiss-life-ch"
@@ -2713,13 +2655,11 @@
       "jobReqId": "R09259",
       "hiringOrganization": "Swiss Life GA Schaffhausen",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-schaffhausen",
-        "previdenza-e-finanzberatende-m-w-d-spezialisierung-kollektiv-agenzia-generale-schaffhausen-swiss-life-schaffhausen"
+        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-schaffhausen",
-          "previdenza-e-finanzberatende-m-w-d-spezialisierung-kollektiv-agenzia-generale-schaffhausen-swiss-life-schaffhausen"
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-schaffhausen"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-schaffhausen"
@@ -2729,7 +2669,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:18.021Z",
-      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -2742,7 +2681,8 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-9ec8361cf3e2",
@@ -2796,13 +2736,11 @@
       "jobReqId": "R09266",
       "hiringOrganization": "Swiss Life GA Schaffhausen",
       "previousSlugs": [
-        "immobilienberater-w-m-d-generalagentur-schaffhausen-swiss-life-ch",
-        "immobilienberater-m-w-d-agenzia-generale-schaffhausen-swiss-life-schaffhausen"
+        "immobilienberater-w-m-d-generalagentur-schaffhausen-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "immobilienberater-w-m-d-generalagentur-schaffhausen-swiss-life-ch",
-          "immobilienberater-m-w-d-agenzia-generale-schaffhausen-swiss-life-schaffhausen"
+          "immobilienberater-w-m-d-generalagentur-schaffhausen-swiss-life-ch"
         ],
         "fr": [
           "immobilienberater-w-m-d-generalagentur-schaffhausen-swiss-life-ch"
@@ -2876,13 +2814,11 @@
       "jobReqId": "R09263",
       "hiringOrganization": "Swiss Life GA Winterthur",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-winterthur-swiss-life-ch",
-        "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-winterthur-swiss-life-winterthur"
+        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-winterthur-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-winterthur-swiss-life-ch",
-          "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-winterthur-swiss-life-winterthur"
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-winterthur-swiss-life-ch"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-winterthur-swiss-life-ch"
@@ -2958,13 +2894,11 @@
       "jobReqId": "R07403",
       "hiringOrganization": "Swiss Life GA Schaffhausen",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-schaffhausen",
-        "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-schaffhausen-swiss-life-schaffhausen"
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-schaffhausen",
-          "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-schaffhausen-swiss-life-schaffhausen"
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-schaffhausen"
         ]
       },
       "needsRetranslation": true,
@@ -3035,13 +2969,11 @@
       "jobReqId": "R10111",
       "hiringOrganization": "Swiss Life GA Winterthur",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-winterthur",
-        "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-winterthur-swiss-life-winterthur"
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-winterthur",
-          "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-winterthur-swiss-life-winterthur"
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-winterthur"
         ]
       },
       "needsRetranslation": true,
@@ -3112,13 +3044,11 @@
       "jobReqId": "R11693",
       "hiringOrganization": "Swiss Life GA Winterthur",
       "previousSlugs": [
-        "immobilienberater-w-m-d-generalagentur-winterthur-swiss-life-ch",
-        "immobilienberater-m-w-d-agenzia-generale-winterthur-swiss-life-winterthur"
+        "immobilienberater-w-m-d-generalagentur-winterthur-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "immobilienberater-w-m-d-generalagentur-winterthur-swiss-life-ch",
-          "immobilienberater-m-w-d-agenzia-generale-winterthur-swiss-life-winterthur"
+          "immobilienberater-w-m-d-generalagentur-winterthur-swiss-life-ch"
         ],
         "fr": [
           "immobilienberater-w-m-d-generalagentur-winterthur-swiss-life-ch"
@@ -3192,20 +3122,17 @@
       "jobReqId": "R11794",
       "hiringOrganization": "Swiss Life GA Schaffhausen",
       "previousSlugs": [
-        "sales-support-w-m-d-100-generalagentur-schaffhausen-swiss-life-ch",
-        "sales-support-m-w-d-100-agenzia-generale-schaffhausen-swiss-life-schaffhausen"
+        "sales-support-w-m-d-100-generalagentur-schaffhausen-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-support-w-m-d-100-generalagentur-schaffhausen-swiss-life-ch",
-          "sales-support-m-w-d-100-agenzia-generale-schaffhausen-swiss-life-schaffhausen"
+          "sales-support-w-m-d-100-generalagentur-schaffhausen-swiss-life-ch"
         ],
         "fr": [
           "sales-support-w-m-d-100-generalagentur-schaffhausen-swiss-life-ch"
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:11.919Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -3218,7 +3145,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-0127fae00e58",
@@ -3272,13 +3200,11 @@
       "jobReqId": "R12127",
       "hiringOrganization": "Swiss Life GA Wil",
       "previousSlugs": [
-        "sales-support-w-m-d-50-70-generalagentur-wil-swiss-life-ch",
-        "sales-support-m-w-d-50-70-agenzia-generale-wil-swiss-life-st-gallen"
+        "sales-support-w-m-d-50-70-generalagentur-wil-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-support-w-m-d-50-70-generalagentur-wil-swiss-life-ch",
-          "sales-support-m-w-d-50-70-agenzia-generale-wil-swiss-life-st-gallen"
+          "sales-support-w-m-d-50-70-generalagentur-wil-swiss-life-ch"
         ],
         "de": [
           "sales-support-w-m-d-50-70-generalagentur-wil-swiss-life-ch"
@@ -3288,7 +3214,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:10.604Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73500,
       "salarySource": "estimated",
@@ -3301,7 +3226,8 @@
           "maxValue": 73500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-8879644d2439",
@@ -3355,13 +3281,11 @@
       "jobReqId": "R09080",
       "hiringOrganization": "Swiss Life GA Winterthur",
       "previousSlugs": [
-        "teamleiter-verkauf-w-m-d-generalagentur-winterthur-swiss-life-ch",
-        "teamleiter-vendita-m-w-d-agenzia-generale-winterthur-swiss-life-winterthur"
+        "teamleiter-verkauf-w-m-d-generalagentur-winterthur-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-verkauf-w-m-d-generalagentur-winterthur-swiss-life-ch",
-          "teamleiter-vendita-m-w-d-agenzia-generale-winterthur-swiss-life-winterthur"
+          "teamleiter-verkauf-w-m-d-generalagentur-winterthur-swiss-life-ch"
         ],
         "en": [
           "teamleiter-verkauf-w-m-d-generalagentur-winterthur-swiss-life-ch"
@@ -3437,13 +3361,11 @@
       "jobReqId": "R10095",
       "hiringOrganization": "Swiss Life GA Uster",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-uster",
-        "previdenza-e-finanzberatende-m-w-d-im-rahmen-einer-nachfolgeregelung-agenzia-generale-uster-swiss-life-zurich"
+        "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-uster",
-          "previdenza-e-finanzberatende-m-w-d-im-rahmen-einer-nachfolgeregelung-agenzia-generale-uster-swiss-life-zurich"
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-uster"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-uster"
@@ -3453,7 +3375,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:09.100Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -3466,7 +3387,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-011f1a8974f2",
@@ -3520,13 +3442,11 @@
       "jobReqId": "R08974",
       "hiringOrganization": "Swiss Life AG Canton de Fribourg",
       "previousSlugs": [
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-specialisation-en-themes-de",
-        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-specialisation-en-themes-de-placement-agence-generale"
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-specialisation-en-themes-de"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-specialisation-en-themes-de",
-          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-specialisation-en-themes-de-placement-agence-generale"
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-specialisation-en-themes-de"
         ],
         "de": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-specialisation-en-themes-de"
@@ -3600,13 +3520,11 @@
       "jobReqId": "R08973",
       "hiringOrganization": "Swiss Life AG Canton de Fribourg",
       "previousSlugs": [
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-specialisation-en",
-        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-specialisation-en-planifications-de-la-retraite-agence"
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-specialisation-en"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-specialisation-en",
-          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-specialisation-en-planifications-de-la-retraite-agence"
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-specialisation-en"
         ],
         "de": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-specialisation-en"
@@ -3825,14 +3743,12 @@
       "hiringOrganization": "Swiss Life AG Canton de Fribourg",
       "previousSlugs": [
         "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-3",
-        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-canton-de"
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-3"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-3",
-          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-canton-de"
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-3"
         ],
         "de": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-3"
@@ -3972,26 +3888,24 @@
       "requirementsByLocale": {},
       "jobReqId": "R09012",
       "hiringOrganization": "Swiss Life AG Morges-La Côte",
+      "previousSlugsByLocale": {
+        "en": [
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle"
+        ],
+        "it": [
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-4"
+        ],
+        "de": [
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-4"
+        ]
+      },
       "previousSlugs": [
         "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
         "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-4",
         "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-morges-la-cote",
         "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-bh9lnk"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-4",
-          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-morges-la-cote"
-        ],
-        "en": [
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-bh9lnk"
-        ],
-        "de": [
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-4"
-        ]
-      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:01:04.031Z",
       "salaryMin": 104500,
@@ -4172,14 +4086,12 @@
         "real-estate-advisor-f-h-d-sion-valais-french-general-agency-swiss-life-sion",
         "real-estate-advisor-f-m-d-agence-generale-sion-valais-romand-swiss-life-sion",
         "immobilienberater-w-m-d-generalagentur-sitten-wallis-swiss-life-sion",
-        "consulente-immobiliare-f-m-d-agenzia-generale-sion-vallese-romando-swiss-life-sion",
-        "consulente-immobiliare-f-h-d-agenzia-generale-sion-valais-romand-swiss-life-sion"
+        "consulente-immobiliare-f-m-d-agenzia-generale-sion-vallese-romando-swiss-life-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-en-immobilier-f-h-d-agence-generale-sion-valais-romand-swiss-life-ch",
-          "consulente-immobiliare-f-m-d-agenzia-generale-sion-vallese-romando-swiss-life-sion",
-          "consulente-immobiliare-f-h-d-agenzia-generale-sion-valais-romand-swiss-life-sion"
+          "consulente-immobiliare-f-m-d-agenzia-generale-sion-vallese-romando-swiss-life-sion"
         ],
         "en": [
           "real-estate-advisor-f-h-d-sion-valais-french-general-agency-swiss-life-sion",
@@ -4190,7 +4102,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:38.624Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -4203,7 +4114,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-733ff068b71f",
@@ -4290,15 +4202,13 @@
         "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la",
         "provident-and-financial-advisor-f-h-d-for-retirement-general-agency-sion-valais-romand-val-de-bagnes-region-swiss-life-s",
         "pension-and-financial-advisor-f-m-d-as-part-of-a-retirement-agence-generale-sion-valais-romand-val-de-bagnes-region-swis",
-        "vorsorge-und-finanzberater-w-m-d-im-rahmen-einer-pensionierung-generalagentur-sitten-wallis-region-val-de-bagnes-swiss-l",
-        "conseiller-conseillre-in-previdenza-e-in-finanza-f-h-d-in-un-contesto-di-pensionamento-agenzia-generale-sion-valais-roma"
+        "vorsorge-und-finanzberater-w-m-d-im-rahmen-einer-pensionierung-generalagentur-sitten-wallis-region-val-de-bagnes-swiss-l"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la-re",
           "consulente-previdenziale-e-finanziario-f-m-d-per-pensionamento-agenzia-generale-sion-vallese-romando-regione-val-de-bagn",
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la",
-          "conseiller-conseillre-in-previdenza-e-in-finanza-f-h-d-in-un-contesto-di-pensionamento-agenzia-generale-sion-valais-roma"
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la"
         ],
         "en": [
           "provident-and-financial-advisor-f-h-d-for-retirement-general-agency-sion-valais-romand-val-de-bagnes-region-swiss-life-s",
@@ -4408,23 +4318,20 @@
         "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la",
         "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la-re-2",
         "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la-2",
-        "vor-und-finanzberater-f-h-d-fur-den-ruhestand-allgemeine-agentur-sion-valais-romand-region-val-d-anniviers-swiss-life-si",
-        "consulente-consulente-in-previdenza-e-finanza-f-m-d-in-occasione-di-un-pensionamento-agenzia-generale-sion-valais-romand"
+        "vor-und-finanzberater-f-h-d-fur-den-ruhestand-allgemeine-agentur-sion-valais-romand-region-val-d-anniviers-swiss-life-si"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-e-consulente-finanziario-f-h-d-per-la-pensione-agenzia-generale-sion-valais-romand-regione-val-d-anniviers-sw",
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la",
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la-re-2",
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la-2",
-          "consulente-consulente-in-previdenza-e-finanza-f-m-d-in-occasione-di-un-pensionamento-agenzia-generale-sion-valais-romand"
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la-2"
         ],
         "de": [
           "vor-und-finanzberater-f-h-d-fur-den-ruhestand-allgemeine-agentur-sion-valais-romand-region-val-d-anniviers-swiss-life-si"
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:37.334Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -4437,7 +4344,8 @@
           "maxValue": 183500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-a86fd26bef3f",
@@ -4527,15 +4435,13 @@
         "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
         "provident-and-finance-advisor-f-h-d-with-professional-experience-sion-valais-romand-general-agency-swiss-life-sion",
         "pension-and-financial-advisor-f-h-d-with-professional-experience-agence-generale-sion-valais-romand-swiss-life-sion",
-        "vorsorge-und-finanzberater-w-m-d-mit-berufserfahrung-generalagentur-sitten-wallis-swiss-life-sion",
-        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-sion-valais-rom"
+        "vorsorge-und-finanzberater-w-m-d-mit-berufserfahrung-generalagentur-sitten-wallis-swiss-life-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-a",
           "consulente-previdenziale-e-finanziario-f-m-d-con-esperienza-professionale-agenzia-generale-sion-vallese-romando-swiss-li",
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
-          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-sion-valais-rom"
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle"
         ],
         "en": [
           "provident-and-finance-advisor-f-h-d-with-professional-experience-sion-valais-romand-general-agency-swiss-life-sion",
@@ -4645,20 +4551,17 @@
       "hiringOrganization": "Swiss Life GA Visp-Oberwallis",
       "previousSlugs": [
         "immobilienberater-w-m-d-generalagentur-visp-oberwallis-swiss-life-ch",
-        "real-estate-consultant-f-m-d-general-agency-visp-oberwallis-swiss-life-visp",
-        "consulente-immobiliare-m-f-d-agenzia-generale-visp-alto-vallese-swiss-life-visp"
+        "real-estate-consultant-f-m-d-general-agency-visp-oberwallis-swiss-life-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "immobilienberater-w-m-d-generalagentur-visp-oberwallis-swiss-life-ch",
-          "consulente-immobiliare-m-f-d-agenzia-generale-visp-alto-vallese-swiss-life-visp"
+          "immobilienberater-w-m-d-generalagentur-visp-oberwallis-swiss-life-ch"
         ],
         "en": [
           "real-estate-consultant-f-m-d-general-agency-visp-oberwallis-swiss-life-visp"
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:40.576Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -4671,7 +4574,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-925a50eb1c92",
@@ -4755,31 +4659,27 @@
       },
       "jobReqId": "R09488",
       "hiringOrganization": "Swiss Life GA Visp-Oberwallis",
+      "previousSlugsByLocale": {
+        "de": [
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-visp"
+        ],
+        "it": [
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-visp-o",
+          "consulente-previdenziale-e-finanziario-f-m-d-nell-ambito-di-una-successione-agenzia-generale-visp-oberwallis-swiss-life-",
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-visp"
+        ],
+        "en": [
+          "pension-and-financial-advisor-f-m-d-as-part-of-a-succession-plan-general-agency-visp-oberwallis-swiss-life-visp"
+        ]
+      },
       "previousSlugs": [
         "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-visp-o",
         "consulente-previdenziale-e-finanziario-f-m-d-nell-ambito-di-una-successione-agenzia-generale-visp-oberwallis-swiss-life-",
         "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-visp",
         "pension-and-financial-advisor-f-m-d-as-part-of-a-succession-plan-general-agency-visp-oberwallis-swiss-life-visp",
-        "consulente-in-assicurazioni-e-finanza-w-m-d-nel-quadro-di-una-successione-agenzia-generale-visp-oberwallis-swiss-life-vi",
-        "consulente-in-assicurazioni-e-finanza-w-m-d-nel-quadro-di-una-successione-agenzia-generale-visp-oberwallis-swiss-life"
+        "consulente-in-assicurazioni-e-finanza-w-m-d-nel-quadro-di-una-successione-agenzia-generale-visp-oberwallis-swiss-life-vi"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-visp-o",
-          "consulente-previdenziale-e-finanziario-f-m-d-nell-ambito-di-una-successione-agenzia-generale-visp-oberwallis-swiss-life-",
-          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-visp",
-          "consulente-in-assicurazioni-e-finanza-w-m-d-nel-quadro-di-una-successione-agenzia-generale-visp-oberwallis-swiss-life"
-        ],
-        "en": [
-          "pension-and-financial-advisor-f-m-d-as-part-of-a-succession-plan-general-agency-visp-oberwallis-swiss-life-visp"
-        ],
-        "de": [
-          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-visp",
-          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-visp-o"
-        ]
-      },
       "firstSeenAt": "2026-04-13T11:22:39.938Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -4792,7 +4692,8 @@
           "maxValue": 183500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-a8186e2c72af",
@@ -4876,6 +4777,22 @@
       },
       "jobReqId": "R08506",
       "hiringOrganization": "Swiss Life GA Visp-Oberwallis",
+      "previousSlugsByLocale": {
+        "en": [
+          "w-m-d-transboundary-welcome-generalagentur-visp-oberwallis-swiss-life-visp",
+          "pension-and-financial-advisers-f-m-d-welcome-lateral-entrants-general-agency-visp-oberwallis-swiss-life-visp",
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-visp-oberwal",
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-visp"
+        ],
+        "it": [
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-visp-oberwal",
+          "consulente-previdenziale-e-finanziario-f-m-d-benvenuti-i-profili-trasversali-agenzia-generale-visp-oberwallis-swiss-life",
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-visp"
+        ],
+        "fr": [
+          "conseiller-en-prevoyance-et-finance-h-f-d-profils-en-reconversion-bienvenus-agence-generale-visp-oberwallis-swiss-life-v"
+        ]
+      },
       "previousSlugs": [
         "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-visp-oberwal",
         "consulente-previdenziale-e-finanziario-f-m-d-benvenuti-i-profili-trasversali-agenzia-generale-visp-oberwallis-swiss-life",
@@ -4886,26 +4803,7 @@
         "previdenza-e-finanzberatende-w-m-d-quereinsteigende-willkommen-agenzia-generale-visp-oberwallis-swiss-life-visp",
         "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-visp-oberwallis-swiss-life-visp"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-visp-oberwal",
-          "consulente-previdenziale-e-finanziario-f-m-d-benvenuti-i-profili-trasversali-agenzia-generale-visp-oberwallis-swiss-life",
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-visp",
-          "previdenza-e-finanzberatende-w-m-d-quereinsteigende-willkommen-agenzia-generale-visp-oberwallis-swiss-life-visp"
-        ],
-        "en": [
-          "w-m-d-transboundary-welcome-generalagentur-visp-oberwallis-swiss-life-visp",
-          "pension-and-financial-advisers-f-m-d-welcome-lateral-entrants-general-agency-visp-oberwallis-swiss-life-visp",
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-visp-oberwal",
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-visp",
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-visp-oberwallis-swiss-life-visp"
-        ],
-        "fr": [
-          "conseiller-en-prevoyance-et-finance-h-f-d-profils-en-reconversion-bienvenus-agence-generale-visp-oberwallis-swiss-life-v"
-        ]
-      },
       "firstSeenAt": "2026-04-13T11:22:39.261Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -4918,7 +4816,8 @@
           "maxValue": 183500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-989baa21e2a3",
@@ -4972,13 +4871,11 @@
       "jobReqId": "R11835",
       "hiringOrganization": "Swiss Life GA St. Gallen-Appenzellerland",
       "previousSlugs": [
-        "immobilienberater-w-m-d-generalagentur-st-gallen-appenzellerland-swiss-life-ch",
-        "immobilienberater-m-w-d-agenzia-generale-st-gallen-appenzellerland-swiss-life-st-gallen"
+        "immobilienberater-w-m-d-generalagentur-st-gallen-appenzellerland-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "immobilienberater-w-m-d-generalagentur-st-gallen-appenzellerland-swiss-life-ch",
-          "immobilienberater-m-w-d-agenzia-generale-st-gallen-appenzellerland-swiss-life-st-gallen"
+          "immobilienberater-w-m-d-generalagentur-st-gallen-appenzellerland-swiss-life-ch"
         ]
       },
       "needsRetranslation": true,
@@ -5049,20 +4946,17 @@
       "jobReqId": "R11165",
       "hiringOrganization": "Swiss Life GA St. Gallen-Appenzellerland",
       "previousSlugs": [
-        "sales-support-40-100-generalagentur-st-gallen-appenzellerland-swiss-life-ch",
-        "sales-support-40-100-agenzia-generale-st-gallen-appenzellerland-swiss-life-st-gallen"
+        "sales-support-40-100-generalagentur-st-gallen-appenzellerland-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-support-40-100-generalagentur-st-gallen-appenzellerland-swiss-life-ch",
-          "sales-support-40-100-agenzia-generale-st-gallen-appenzellerland-swiss-life-st-gallen"
+          "sales-support-40-100-generalagentur-st-gallen-appenzellerland-swiss-life-ch"
         ],
         "fr": [
           "sales-support-40-100-generalagentur-st-gallen-appenzellerland-swiss-life-ch"
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:52.660Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -5075,7 +4969,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-0f8667b891d3",
@@ -5129,13 +5024,11 @@
       "jobReqId": "R09201",
       "hiringOrganization": "Swiss Life GA St. Gallen-Appenzellerland",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-pensionsplanungen-generalagentur-st",
-        "previdenza-e-finanzberatende-m-w-d-spezialisierung-pensionsplanungen-agenzia-generale-st-gallen-appenzellerland-swiss-life-st-gallen"
+        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-pensionsplanungen-generalagentur-st"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-pensionsplanungen-generalagentur-st",
-          "previdenza-e-finanzberatende-m-w-d-spezialisierung-pensionsplanungen-agenzia-generale-st-gallen-appenzellerland-swiss-life-st-gallen"
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-pensionsplanungen-generalagentur-st"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-spezialisierung-pensionsplanungen-generalagentur-st"
@@ -5212,13 +5105,11 @@
       "jobReqId": "R08753",
       "hiringOrganization": "Swiss Life GA St. Gallen-Appenzellerland",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-st-gallen",
-        "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-st-gallen-appenzellerland-swiss-life-st-gallen"
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-st-gallen",
-          "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-st-gallen-appenzellerland-swiss-life-st-gallen"
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-st-gallen"
         ]
       },
       "needsRetranslation": true,
@@ -5289,13 +5180,11 @@
       "jobReqId": "R08752",
       "hiringOrganization": "Swiss Life GA St. Gallen-Appenzellerland",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-st",
-        "previdenza-e-finanzberatende-m-w-d-im-rahmen-einer-nachfolgeregelung-agenzia-generale-st-gallen-appenzellerland-swiss-life-st-gallen"
+        "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-st"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-st",
-          "previdenza-e-finanzberatende-m-w-d-im-rahmen-einer-nachfolgeregelung-agenzia-generale-st-gallen-appenzellerland-swiss-life-st-gallen"
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-st"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-st"
@@ -5372,13 +5261,11 @@
       "jobReqId": "R09621",
       "hiringOrganization": "Swiss Life GA Thurgau",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-thurgau",
-        "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-thurgau-swiss-life-frauenfeld"
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-thurgau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-thurgau",
-          "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-thurgau-swiss-life-frauenfeld"
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-thurgau"
         ]
       },
       "needsRetranslation": true,
@@ -5449,13 +5336,11 @@
       "jobReqId": "R09622",
       "hiringOrganization": "Swiss Life GA Thurgau",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-thurgau-swiss",
-        "previdenza-e-finanzberatende-m-w-d-spezialisierung-kollektiv-agenzia-generale-thurgau-swiss-life-frauenfeld"
+        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-thurgau-swiss"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-thurgau-swiss",
-          "previdenza-e-finanzberatende-m-w-d-spezialisierung-kollektiv-agenzia-generale-thurgau-swiss-life-frauenfeld"
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-thurgau-swiss"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-thurgau-swiss"
@@ -5465,7 +5350,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:48.578Z",
-      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -5478,7 +5362,8 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-27cf2da5d869",
@@ -5533,18 +5418,15 @@
       "hiringOrganization": "Swiss Life GA Thurgau",
       "previousSlugs": [
         "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte-3",
-        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte",
-        "previdenza-e-finanzberatende-m-w-d-spezialisierung-hypotheken-finanzierungsexperte-agenzia-generale-thurgau-swiss-life-frauenfeld"
+        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte-3",
-          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte",
-          "previdenza-e-finanzberatende-m-w-d-spezialisierung-hypotheken-finanzierungsexperte-agenzia-generale-thurgau-swiss-life-frauenfeld"
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte"
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:47.901Z",
-      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -5557,7 +5439,8 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-afd5953d17cd",
@@ -5611,13 +5494,11 @@
       "jobReqId": "R09763",
       "hiringOrganization": "Swiss Life GA Zürich-Limmat",
       "previousSlugs": [
-        "sales-support-w-m-d-40-generalagentur-zurich-limmat-swiss-life-ch",
-        "sales-support-m-w-d-40-agenzia-generale-zurich-limmat-swiss-life-zurich"
+        "sales-support-w-m-d-40-generalagentur-zurich-limmat-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-support-w-m-d-40-generalagentur-zurich-limmat-swiss-life-ch",
-          "sales-support-m-w-d-40-agenzia-generale-zurich-limmat-swiss-life-zurich"
+          "sales-support-w-m-d-40-generalagentur-zurich-limmat-swiss-life-ch"
         ],
         "de": [
           "sales-support-w-m-d-40-generalagentur-zurich-limmat-swiss-life-ch"
@@ -5627,7 +5508,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:47.219Z",
-      "needsRetranslation": true,
       "salaryMin": 33200,
       "salaryMax": 51000,
       "salarySource": "estimated",
@@ -5640,7 +5520,8 @@
           "maxValue": 51000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-d58931049c1f",
@@ -5694,13 +5575,11 @@
       "jobReqId": "R09414",
       "hiringOrganization": "Swiss Life GA Zürich-Limmat",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-zurich",
-        "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-zurich-limmat-swiss-life-zurich"
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-zurich",
-          "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-zurich-limmat-swiss-life-zurich"
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -5771,13 +5650,11 @@
       "jobReqId": "R09420",
       "hiringOrganization": "Swiss Life GA Zürich-Limmat",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-anlagethemen-generalagentur-zurich",
-        "previdenza-e-finanzberatende-m-w-d-spezialisierung-anlagethemen-agenzia-generale-zurich-limmat-swiss-life-zurich"
+        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-anlagethemen-generalagentur-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-anlagethemen-generalagentur-zurich",
-          "previdenza-e-finanzberatende-m-w-d-spezialisierung-anlagethemen-agenzia-generale-zurich-limmat-swiss-life-zurich"
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-anlagethemen-generalagentur-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -5848,13 +5725,11 @@
       "jobReqId": "R09418",
       "hiringOrganization": "Swiss Life GA Zürich-Limmat",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-limmat-swiss-life",
-        "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-zurich-limmat-swiss-life-zurich"
+        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-limmat-swiss-life"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-limmat-swiss-life",
-          "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-zurich-limmat-swiss-life-zurich"
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-limmat-swiss-life"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-limmat-swiss-life"
@@ -5864,7 +5739,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:45.195Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -5877,7 +5751,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-099bcd7e12f4",
@@ -5931,13 +5806,11 @@
       "jobReqId": "R09421",
       "hiringOrganization": "Swiss Life GA Zürich-Limmat",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-zurich",
-        "previdenza-e-finanzberatende-m-w-d-im-rahmen-einer-nachfolgeregelung-agenzia-generale-zurich-limmat-swiss-life-zurich"
+        "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-zurich",
-          "previdenza-e-finanzberatende-m-w-d-im-rahmen-einer-nachfolgeregelung-agenzia-generale-zurich-limmat-swiss-life-zurich"
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-zurich"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-zurich"
@@ -5947,7 +5820,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:44.391Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -5960,7 +5832,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-a886a3d317b4",
@@ -6014,13 +5887,11 @@
       "jobReqId": "R09262",
       "hiringOrganization": "Swiss Life GA Zürich-Pfannenstiel",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-zurich",
-        "previdenza-e-finanzberatende-m-w-d-spezialisierung-kollektiv-agenzia-generale-zurich-pfannenstiel-swiss-life-zurich"
+        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-zurich",
-          "previdenza-e-finanzberatende-m-w-d-spezialisierung-kollektiv-agenzia-generale-zurich-pfannenstiel-swiss-life-zurich"
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-zurich"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-zurich"
@@ -6096,13 +5967,11 @@
       "jobReqId": "R09261",
       "hiringOrganization": "Swiss Life GA Zürich-Pfannenstiel",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-pfannenstiel-swiss",
-        "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-zurich-pfannenstiel-swiss-life-zurich"
+        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-pfannenstiel-swiss"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-pfannenstiel-swiss",
-          "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-zurich-pfannenstiel-swiss-life-zurich"
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-pfannenstiel-swiss"
         ]
       },
       "needsRetranslation": true,
@@ -6173,13 +6042,11 @@
       "jobReqId": "R11309",
       "hiringOrganization": "Swiss Life GA Zürich-Pfannenstiel",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-m-w-d-quereinsteigende-willkommen-generalagentur-zurich",
-        "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-zurich-pfannenstiel-swiss-life-zurich"
+        "vorsorge-und-finanzberatende-m-w-d-quereinsteigende-willkommen-generalagentur-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-m-w-d-quereinsteigende-willkommen-generalagentur-zurich",
-          "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-zurich-pfannenstiel-swiss-life-zurich"
+          "vorsorge-und-finanzberatende-m-w-d-quereinsteigende-willkommen-generalagentur-zurich"
         ],
         "de": [
           "vorsorge-und-finanzberatende-m-w-d-quereinsteigende-willkommen-generalagentur-zurich"
@@ -6253,13 +6120,11 @@
       "jobReqId": "R08737",
       "hiringOrganization": "Swiss Life GA Aarau",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-aarau-swiss-life-ch",
-        "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-aarau-swiss-life-aarau"
+        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-aarau-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-aarau-swiss-life-ch",
-          "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-aarau-swiss-life-aarau"
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-aarau-swiss-life-ch"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-aarau-swiss-life-ch"
@@ -6335,13 +6200,11 @@
       "jobReqId": "R09189",
       "hiringOrganization": "Swiss Life GA Luzern-Stans",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-luzern-stans-gebiet-sarnen",
-        "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-luzern-stans-gebiet-sarnen-swiss-life-luzern"
+        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-luzern-stans-gebiet-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-luzern-stans-gebiet-sarnen",
-          "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-luzern-stans-gebiet-sarnen-swiss-life-luzern"
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-luzern-stans-gebiet-sarnen"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-luzern-stans-gebiet-sarnen"
@@ -6417,13 +6280,11 @@
       "jobReqId": "R09190",
       "hiringOrganization": "Swiss Life GA Schwyz-Urnerland",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-schwyz-urnerland-swiss",
-        "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-schwyz-urnerland-swiss-life-schwyz"
+        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-schwyz-urnerland-swiss"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-schwyz-urnerland-swiss",
-          "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-schwyz-urnerland-swiss-life-schwyz"
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-schwyz-urnerland-swiss"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-schwyz-urnerland-swiss"
@@ -6499,13 +6360,11 @@
       "jobReqId": "R09264",
       "hiringOrganization": "Swiss Life GA Zug",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zug-swiss-life-ch",
-        "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-zug-swiss-life-zug"
+        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zug-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zug-swiss-life-ch",
-          "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-zug-swiss-life-zug"
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zug-swiss-life-ch"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zug-swiss-life-ch"
@@ -6582,14 +6441,12 @@
       "hiringOrganization": "Swiss Life GA Schwyz-Urnerland",
       "previousSlugs": [
         "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte-4",
-        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte",
-        "previdenza-e-finanzberatende-m-w-d-spezialisierung-hypotheken-finanzierungsexperte-agenzia-generale-schwyz-urnerland-swiss-life-schwyz"
+        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte-4",
-          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte",
-          "previdenza-e-finanzberatende-m-w-d-spezialisierung-hypotheken-finanzierungsexperte-agenzia-generale-schwyz-urnerland-swiss-life-schwyz"
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte"
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:38.720Z",
@@ -6659,13 +6516,11 @@
       "jobReqId": "R09417",
       "hiringOrganization": "Swiss Life GA Zug",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-zug-swiss-life",
-        "previdenza-e-finanzberatende-m-w-d-spezialisierung-kollektiv-agenzia-generale-zug-swiss-life-zug"
+        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-zug-swiss-life"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-zug-swiss-life",
-          "previdenza-e-finanzberatende-m-w-d-spezialisierung-kollektiv-agenzia-generale-zug-swiss-life-zug"
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-zug-swiss-life"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-zug-swiss-life"
@@ -6675,7 +6530,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:37.961Z",
-      "needsRetranslation": true,
       "salaryMin": 107500,
       "salaryMax": 188500,
       "salarySource": "estimated",
@@ -6688,7 +6542,8 @@
           "maxValue": 188500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-78cbf83a135e",
@@ -6742,13 +6597,11 @@
       "jobReqId": "R09415",
       "hiringOrganization": "Swiss Life GA Schwyz-Urnerland",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-schwyz",
-        "previdenza-e-finanzberatende-m-w-d-im-rahmen-einer-nachfolgeregelung-agenzia-generale-schwyz-urnerland-region-innerschwyz-swiss-life-schwyz"
+        "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-schwyz",
-          "previdenza-e-finanzberatende-m-w-d-im-rahmen-einer-nachfolgeregelung-agenzia-generale-schwyz-urnerland-region-innerschwyz-swiss-life-schwyz"
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-schwyz"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-schwyz"
@@ -6758,7 +6611,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:37.287Z",
-      "needsRetranslation": true,
       "salaryMin": 107500,
       "salaryMax": 188500,
       "salarySource": "estimated",
@@ -6771,7 +6623,8 @@
           "maxValue": 188500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-e558496b28eb",
@@ -6825,13 +6678,11 @@
       "jobReqId": "R09416",
       "hiringOrganization": "Swiss Life GA Zug",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-zug",
-        "previdenza-e-finanzberatende-m-w-d-im-rahmen-einer-nachfolgeregelung-agenzia-generale-zug-swiss-life-zug"
+        "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-zug",
-          "previdenza-e-finanzberatende-m-w-d-im-rahmen-einer-nachfolgeregelung-agenzia-generale-zug-swiss-life-zug"
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-zug"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-zug"
@@ -6841,7 +6692,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:36.607Z",
-      "needsRetranslation": true,
       "salaryMin": 107500,
       "salaryMax": 188500,
       "salarySource": "estimated",
@@ -6854,7 +6704,8 @@
           "maxValue": 188500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-45194c6f32f7",
@@ -6908,13 +6759,11 @@
       "jobReqId": "R09465",
       "hiringOrganization": "Swiss Life GA Sursee",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-sursee-swiss",
-        "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-sursee-swiss-life-luzern"
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-sursee-swiss"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-sursee-swiss",
-          "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-sursee-swiss-life-luzern"
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-sursee-swiss"
         ]
       },
       "needsRetranslation": true,
@@ -6985,13 +6834,11 @@
       "jobReqId": "R06680",
       "hiringOrganization": "Swiss Life GA Luzern-Stans",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteiger-willkommen-generalagentur-luzern-stans",
-        "previdenza-e-finanzberatende-m-w-d-candidato-a-in-riqualificazione-willkommen-agenzia-generale-luzern-stans-swiss-life-luzern"
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteiger-willkommen-generalagentur-luzern-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteiger-willkommen-generalagentur-luzern-stans",
-          "previdenza-e-finanzberatende-m-w-d-candidato-a-in-riqualificazione-willkommen-agenzia-generale-luzern-stans-swiss-life-luzern"
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteiger-willkommen-generalagentur-luzern-stans"
         ]
       },
       "needsRetranslation": true,
@@ -7062,13 +6909,11 @@
       "jobReqId": "R11692",
       "hiringOrganization": "Swiss Life GA Aarau",
       "previousSlugs": [
-        "immobilienberater-w-m-d-generalagentur-aarau-swiss-life-ch",
-        "immobilienberater-m-w-d-agenzia-generale-aarau-swiss-life-aarau"
+        "immobilienberater-w-m-d-generalagentur-aarau-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "immobilienberater-w-m-d-generalagentur-aarau-swiss-life-ch",
-          "immobilienberater-m-w-d-agenzia-generale-aarau-swiss-life-aarau"
+          "immobilienberater-w-m-d-generalagentur-aarau-swiss-life-ch"
         ],
         "fr": [
           "immobilienberater-w-m-d-generalagentur-aarau-swiss-life-ch"
@@ -7142,13 +6987,11 @@
       "jobReqId": "R09265",
       "hiringOrganization": "Swiss Life GA Zürich-Zimmerberg",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-zimmerberg-swiss",
-        "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-zurich-zimmerberg-swiss-life-zurich"
+        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-zimmerberg-swiss"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-zimmerberg-swiss",
-          "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-zurich-zimmerberg-swiss-life-zurich"
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-zimmerberg-swiss"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-zimmerberg-swiss"
@@ -7158,7 +7001,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:33.733Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -7171,7 +7013,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-311f9d60d7ea",
@@ -7225,13 +7068,11 @@
       "jobReqId": "R11686",
       "hiringOrganization": "Swiss Life GA Luzern-Stans",
       "previousSlugs": [
-        "immobilienberater-w-m-d-generalagentur-luzern-stans-swiss-life-ch",
-        "immobilienberater-m-w-d-agenzia-generale-luzern-stans-swiss-life-luzern"
+        "immobilienberater-w-m-d-generalagentur-luzern-stans-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "immobilienberater-w-m-d-generalagentur-luzern-stans-swiss-life-ch",
-          "immobilienberater-m-w-d-agenzia-generale-luzern-stans-swiss-life-luzern"
+          "immobilienberater-w-m-d-generalagentur-luzern-stans-swiss-life-ch"
         ],
         "fr": [
           "immobilienberater-w-m-d-generalagentur-luzern-stans-swiss-life-ch"
@@ -7305,13 +7146,11 @@
       "jobReqId": "R12013",
       "hiringOrganization": "Swiss Life GA Schwyz-Urnerland",
       "previousSlugs": [
-        "teamleiter-verkauf-w-m-d-generalagentur-schwyz-urnerland-swiss-life-ch",
-        "teamleiter-vendita-m-w-d-agenzia-generale-schwyz-urnerland-swiss-life-schwyz"
+        "teamleiter-verkauf-w-m-d-generalagentur-schwyz-urnerland-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-verkauf-w-m-d-generalagentur-schwyz-urnerland-swiss-life-ch",
-          "teamleiter-vendita-m-w-d-agenzia-generale-schwyz-urnerland-swiss-life-schwyz"
+          "teamleiter-verkauf-w-m-d-generalagentur-schwyz-urnerland-swiss-life-ch"
         ],
         "en": [
           "teamleiter-verkauf-w-m-d-generalagentur-schwyz-urnerland-swiss-life-ch"
@@ -7387,13 +7226,11 @@
       "jobReqId": "R12530",
       "hiringOrganization": "Swiss Life GA Solothurn-Oberaargau",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur",
-        "previdenza-e-finanzberatende-m-w-d-im-rahmen-einer-nachfolgeregelung-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn"
+        "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur",
-          "previdenza-e-finanzberatende-m-w-d-im-rahmen-einer-nachfolgeregelung-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn"
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur"
@@ -7403,7 +7240,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:31.731Z",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -7416,7 +7252,8 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-c968f7017dcb",
@@ -7471,14 +7308,12 @@
       "hiringOrganization": "Swiss Life GA Solothurn-Oberaargau",
       "previousSlugs": [
         "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-2",
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
-        "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-solothurn-oberaargau-gebiet-langenthal-swiss-life-solothurn"
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-2",
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
-          "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-solothurn-oberaargau-gebiet-langenthal-swiss-life-solothurn"
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn"
         ]
       },
       "needsRetranslation": true,
@@ -7550,14 +7385,12 @@
       "hiringOrganization": "Swiss Life GA Solothurn-Oberaargau",
       "previousSlugs": [
         "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-3",
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
-        "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-solothurn-oberaargau-gebiet-olten-swiss-life-solothurn"
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-3",
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
-          "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-solothurn-oberaargau-gebiet-olten-swiss-life-solothurn"
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn"
         ]
       },
       "needsRetranslation": true,
@@ -7628,13 +7461,11 @@
       "jobReqId": "R12559",
       "hiringOrganization": "Swiss Life GA Aarau",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-aarau-swiss",
-        "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-aarau-swiss-life-aarau"
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-aarau-swiss"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-aarau-swiss",
-          "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-aarau-swiss-life-aarau"
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-aarau-swiss"
         ]
       },
       "needsRetranslation": true,
@@ -7705,13 +7536,11 @@
       "jobReqId": "R12557",
       "hiringOrganization": "Swiss Life GA Aarau",
       "previousSlugs": [
-        "sales-support-60-generalagentur-aarau-swiss-life-ch",
-        "sales-support-60-agenzia-generale-aarau-swiss-life-aarau"
+        "sales-support-60-generalagentur-aarau-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-support-60-generalagentur-aarau-swiss-life-ch",
-          "sales-support-60-agenzia-generale-aarau-swiss-life-aarau"
+          "sales-support-60-generalagentur-aarau-swiss-life-ch"
         ],
         "en": [
           "sales-support-60-generalagentur-aarau-swiss-life-ch"
@@ -7721,7 +7550,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:28.951Z",
-      "needsRetranslation": true,
       "salaryMin": 44400,
       "salaryMax": 68100,
       "salarySource": "estimated",
@@ -7734,7 +7562,8 @@
           "maxValue": 68100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-9fa4db52937c",
@@ -7788,13 +7617,11 @@
       "jobReqId": "R12680",
       "hiringOrganization": "Swiss Life GA Bern-West",
       "previousSlugs": [
-        "teamleiter-verkauf-w-m-d-generalagentur-bern-west-swiss-life-ch",
-        "teamleiter-vendita-m-w-d-agenzia-generale-bern-west-swiss-life-bern"
+        "teamleiter-verkauf-w-m-d-generalagentur-bern-west-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-verkauf-w-m-d-generalagentur-bern-west-swiss-life-ch",
-          "teamleiter-vendita-m-w-d-agenzia-generale-bern-west-swiss-life-bern"
+          "teamleiter-verkauf-w-m-d-generalagentur-bern-west-swiss-life-ch"
         ],
         "en": [
           "teamleiter-verkauf-w-m-d-generalagentur-bern-west-swiss-life-ch"
@@ -7804,7 +7631,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:27.658Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -7817,7 +7643,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-2935f61b3521",
@@ -7938,13 +7765,11 @@
       "jobReqId": "R12793",
       "hiringOrganization": "Swiss Life GA Baden",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-baden-swiss",
-        "previdenza-e-finanzberatende-m-w-d-spezialisierung-kollektiv-agenzia-generale-baden-swiss-life-aarau"
+        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-baden-swiss"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-baden-swiss",
-          "previdenza-e-finanzberatende-m-w-d-spezialisierung-kollektiv-agenzia-generale-baden-swiss-life-aarau"
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-baden-swiss"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-baden-swiss"
@@ -7954,7 +7779,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:24.970Z",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500,
       "salarySource": "estimated",
@@ -7967,7 +7791,8 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-62ec52052cf9",
@@ -8168,13 +7993,11 @@
       "jobReqId": "R13229",
       "hiringOrganization": "Swiss Life GA Winterthur",
       "previousSlugs": [
-        "mitarbeiter-sales-support-w-m-d-40-generalagentur-winterthur-swiss-life-ch",
-        "collaboratore-trice-sales-support-m-w-d-40-agenzia-generale-winterthur-swiss-life-winterthur"
+        "mitarbeiter-sales-support-w-m-d-40-generalagentur-winterthur-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-sales-support-w-m-d-40-generalagentur-winterthur-swiss-life-ch",
-          "collaboratore-trice-sales-support-m-w-d-40-agenzia-generale-winterthur-swiss-life-winterthur"
+          "mitarbeiter-sales-support-w-m-d-40-generalagentur-winterthur-swiss-life-ch"
         ],
         "en": [
           "mitarbeiter-sales-support-w-m-d-40-generalagentur-winterthur-swiss-life-ch"
@@ -8184,7 +8007,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:21.593Z",
-      "needsRetranslation": true,
       "salaryMin": 33200,
       "salaryMax": 51000,
       "salarySource": "estimated",
@@ -8197,7 +8019,8 @@
           "maxValue": 51000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-d68dbdfeb6f6",
@@ -8251,13 +8074,11 @@
       "jobReqId": "R13290",
       "hiringOrganization": "Swiss Life GA Thurgau",
       "previousSlugs": [
-        "teamleiter-verkauf-w-m-d-generalagentur-thurgau-swiss-life-ch",
-        "teamleiter-vendita-m-w-d-agenzia-generale-thurgau-swiss-life-frauenfeld"
+        "teamleiter-verkauf-w-m-d-generalagentur-thurgau-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-verkauf-w-m-d-generalagentur-thurgau-swiss-life-ch",
-          "teamleiter-vendita-m-w-d-agenzia-generale-thurgau-swiss-life-frauenfeld"
+          "teamleiter-verkauf-w-m-d-generalagentur-thurgau-swiss-life-ch"
         ],
         "en": [
           "teamleiter-verkauf-w-m-d-generalagentur-thurgau-swiss-life-ch"
@@ -8267,7 +8088,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:20.934Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "salarySource": "estimated",
@@ -8280,7 +8100,8 @@
           "maxValue": 147500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-9a7ed10ce016",
@@ -8334,13 +8155,11 @@
       "jobReqId": "R09255",
       "hiringOrganization": "Swiss Life GA Sursee",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-sursee-gebiet-schupfheim",
-        "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-sursee-gebiet-schupfheim-swiss-life-luzern"
+        "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-sursee-gebiet-schupfheim"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-sursee-gebiet-schupfheim",
-          "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-sursee-gebiet-schupfheim-swiss-life-luzern"
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-sursee-gebiet-schupfheim"
         ],
         "en": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-sursee-gebiet-schupfheim"
@@ -8418,13 +8237,11 @@
       "previousSlugsByLocale": {
         "de": [
           "ai-system-engineer-w-m-d-80-100-swiss-life-ch",
-          "ai-engineer-w-m-d-80-100-swiss-life-ch",
-          "ai-system-ingenieur-w-m-d-80-100-swiss-life-zurich"
+          "ai-engineer-w-m-d-80-100-swiss-life-ch"
         ],
         "it": [
           "ai-system-engineer-w-m-d-80-100-swiss-life-ch",
-          "ai-engineer-w-m-d-80-100-swiss-life-ch",
-          "ai-system-ingegnere-w-m-d-80-100-swiss-life-zurich"
+          "ai-engineer-w-m-d-80-100-swiss-life-ch"
         ],
         "fr": [
           "ai-system-engineer-w-m-d-80-100-swiss-life-ch"
@@ -8432,12 +8249,9 @@
       },
       "previousSlugs": [
         "ai-system-engineer-w-m-d-80-100-swiss-life-ch",
-        "ai-engineer-w-m-d-80-100-swiss-life-ch",
-        "ai-system-ingenieur-w-m-d-80-100-swiss-life-zurich",
-        "ai-system-ingegnere-w-m-d-80-100-swiss-life-zurich"
+        "ai-engineer-w-m-d-80-100-swiss-life-ch"
       ],
       "firstSeenAt": "2026-09-19T23:00:19.595Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -8450,7 +8264,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-50fa7da4b093",
@@ -8649,13 +8464,11 @@
       "jobReqId": "R08709",
       "hiringOrganization": "Swiss Life AG",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-deutschschweiz-swiss-life-ch",
-        "previdenza-e-finanzberatende-m-w-d-deutschschweiz-swiss-life-zurich"
+        "vorsorge-und-finanzberatende-w-m-d-deutschschweiz-swiss-life-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-deutschschweiz-swiss-life-ch",
-          "previdenza-e-finanzberatende-m-w-d-deutschschweiz-swiss-life-zurich"
+          "vorsorge-und-finanzberatende-w-m-d-deutschschweiz-swiss-life-ch"
         ]
       },
       "needsRetranslation": true,
@@ -8761,15 +8574,13 @@
         "provident-and-finance-advisor-e-h-d-romandie-swiss-life-sion",
         "welfare-and-finance-advisor-f-h-d-romandie-swiss-life-sion",
         "vorsorge-und-finanzberater-w-m-d-romandie-swiss-life-sion",
-        "consulente-consulente-in-previdenza-e-finanza-f-m-d-romandia-swiss-life-lausanne",
-        "consulente-consulente-in-previdenza-e-finanza-f-m-d-romandia-swiss-life-sion"
+        "consulente-consulente-in-previdenza-e-finanza-f-m-d-romandia-swiss-life-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-romandie-swiss-life-ch",
           "consulente-previdenziale-e-finanziario-f-m-d-romandia-swiss-life-sion",
-          "consulente-consulente-in-previdenza-e-finanza-f-m-d-romandia-swiss-life-lausanne",
-          "consulente-consulente-in-previdenza-e-finanza-f-m-d-romandia-swiss-life-sion"
+          "consulente-consulente-in-previdenza-e-finanza-f-m-d-romandia-swiss-life-lausanne"
         ],
         "en": [
           "provident-and-finance-advisor-e-h-d-romandie-swiss-life-sion",
@@ -8780,7 +8591,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:35.812Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -8793,15 +8603,16 @@
           "maxValue": 183500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-2baf73fa01fc",
       "slug": "reinsurance-pricing-actuary-80-100-w-m-d-swiss-life-ch",
       "slugByLocale": {
+        "de": "reinsurance-pricing-actuary-80-100-w-m-d-swiss-life-ch",
         "it": "reinsurance-pricing-actuary-80-100-w-m-d-swiss-life-ch",
         "en": "reinsurance-pricing-actuary-80-100-w-m-d-swiss-life-ch",
-        "de": "reinsurance-pricing-actuary-80-100-w-m-d-swiss-life-ch",
         "fr": "actuaire-des-prix-de-reassurance-80-100-h-f-d-swiss-life-zurich"
       },
       "company": "Swiss Life",
@@ -8846,8 +8657,6 @@
       "requirementsByLocale": {},
       "jobReqId": "R13003",
       "hiringOrganization": "Swiss Life AG",
-      "firstSeenAt": "2026-09-25T14:50:47.585Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -8860,7 +8669,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-25T14:50:47.585Z",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-aeffa620a7e9",

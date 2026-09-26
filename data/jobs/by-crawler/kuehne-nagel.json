@@ -53,20 +53,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-01T14:15:31.466Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "blue-yonder-wms-specialist-m-w-d-kuehne-nagel-embrach",
-          "blue-yonder-wms-specialist-m-w-d-kuehne-nagel-moehlin"
+          "blue-yonder-wms-specialist-m-w-d-kuehne-nagel-embrach"
         ],
         "en": [
-          "blue-yonder-wms-specialist-m-w-d-kuehne-nagel-embrach",
-          "blue-yonder-wms-specialist-m-w-d-kuehne-nagel-moehlin"
+          "blue-yonder-wms-specialist-m-w-d-kuehne-nagel-embrach"
         ]
       },
       "previousSlugs": [
-        "blue-yonder-wms-specialist-m-w-d-kuehne-nagel-embrach",
-        "blue-yonder-wms-specialist-m-w-d-kuehne-nagel-moehlin"
+        "blue-yonder-wms-specialist-m-w-d-kuehne-nagel-embrach"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -80,7 +76,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kuehne-nagel-c721f3fe0790",
@@ -133,13 +130,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach",
-        "tecnico-di-servizio-logistica-lun-f-d-kuehne-nagel-embrach"
+        "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach",
-          "tecnico-di-servizio-logistica-lun-f-d-kuehne-nagel-embrach"
+          "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach"
         ],
         "en": [
           "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach"
@@ -149,7 +144,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:08:08.265Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -162,14 +156,15 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kuehne-nagel-4116e8bfc73f",
       "slug": "senior-sea-logistica-specialista-m-f-d-geneva-kuehne-nagel-ge-chatelaine",
       "slugByLocale": {
-        "it": "senior-sea-logistica-specialista-m-f-d-geneva-kuehne-nagel-ge-chatelaine",
         "en": "senior-sea-logistics-specialist-m-f-d-geneva-kuehne-nagel-ge-chatelaine",
+        "it": "senior-sea-logistica-specialista-m-f-d-geneva-kuehne-nagel-ge-chatelaine",
         "de": "senior-sea-logistik-spezialist-m-f-d-geneva-kuehne-nagel-ge-chatelaine",
         "fr": "senior-sea-logistique-specialiste-m-f-d-geneva-kuehne-nagel-ge-chatelaine"
       },
@@ -214,6 +209,19 @@
       "jobReqId": "17789",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
       "firstSeenAt": "2026-09-25T14:44:57.232Z",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
@@ -229,20 +237,7 @@
       },
       "previousSlugs": [
         "senior-sea-logistics-specialist-m-f-d-geneva-kuehne-nagel-ge-chatelaine"
-      ],
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     },
     {
       "id": "kuehne-nagel-e682041b5b7f",
@@ -295,13 +290,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-internal-auditor-kuehne-nagel-schindellegi",
-        "auditore-interno-senior-kuehne-nagel-schindellegi"
+        "senior-internal-auditor-kuehne-nagel-schindellegi"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-internal-auditor-kuehne-nagel-schindellegi",
-          "auditore-interno-senior-kuehne-nagel-schindellegi"
+          "senior-internal-auditor-kuehne-nagel-schindellegi"
         ],
         "de": [
           "senior-internal-auditor-kuehne-nagel-schindellegi"
@@ -311,7 +304,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T23:26:37.350Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -324,7 +316,8 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kuehne-nagel-d8007556cee6",
@@ -377,13 +370,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-sea-logistics-trade-specialist-kuehne-nagel-schindellegi",
-        "global-sea-logistica-trade-specialista-kuehne-nagel-schindellegi"
+        "global-sea-logistics-trade-specialist-kuehne-nagel-schindellegi"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-sea-logistics-trade-specialist-kuehne-nagel-schindellegi",
-          "global-sea-logistica-trade-specialista-kuehne-nagel-schindellegi"
+          "global-sea-logistics-trade-specialist-kuehne-nagel-schindellegi"
         ],
         "de": [
           "global-sea-logistics-trade-specialist-kuehne-nagel-schindellegi"
@@ -524,13 +515,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-export-m-w-d-landverkehr-kuehne-nagel-embrach",
-        "personale-in-esportazione-m-f-d-trasporti-terrestri-kuehne-nagel-embrach"
+        "sachbearbeiter-in-export-m-w-d-landverkehr-kuehne-nagel-embrach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-export-m-w-d-landverkehr-kuehne-nagel-embrach",
-          "personale-in-esportazione-m-f-d-trasporti-terrestri-kuehne-nagel-embrach"
+          "sachbearbeiter-in-export-m-w-d-landverkehr-kuehne-nagel-embrach"
         ],
         "en": [
           "sachbearbeiter-in-export-m-w-d-landverkehr-kuehne-nagel-embrach"
@@ -540,7 +529,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T23:19:43.927Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -553,7 +541,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kuehne-nagel-937b4aab0d8d",

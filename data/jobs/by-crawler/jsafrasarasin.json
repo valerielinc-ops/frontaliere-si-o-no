@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "team-head-legal-entita-ufficio-gestione-dati-del-cliente-j-safra-sarasin-lugano",
         "en": "team-head-legal-entities-client-data-management-office-j-safra-sarasin-lugano",
-        "de": "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel",
+        "de": "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
         "fr": "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
       },
       "company": "J. Safra Sarasin",
@@ -51,22 +51,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
-          "team-head-legal-entities-client-data-management-office-j-safra-sarasin-lugano"
+          "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
         ],
         "it": [
-          "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
-          "team-head-legal-entita-ufficio-gestione-dati-del-cliente-j-safra-sarasin-lugano"
+          "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
         ],
         "de": [
-          "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
           "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel"
         ]
       },
       "previousSlugs": [
         "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
-        "team-head-legal-entities-client-data-management-office-j-safra-sarasin-lugano",
-        "team-head-legal-entita-ufficio-gestione-dati-del-cliente-j-safra-sarasin-lugano",
         "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel"
       ],
       "firstSeenAt": "2026-08-23T09:42:52.269Z",
@@ -133,21 +128,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "senior-fix-engineer-specialist-jsafrasarasin-ch",
-          "senior-fix-engineer-specialist-j-safra-sarasin-lugano"
+          "senior-fix-engineer-specialist-jsafrasarasin-ch"
         ],
         "it": [
-          "senior-fix-engineer-specialist-jsafrasarasin-ch",
-          "senior-fix-ingegnere-specialista-j-safra-sarasin-lugano"
+          "senior-fix-engineer-specialist-jsafrasarasin-ch"
         ],
         "fr": [
           "senior-fix-engineer-specialist-jsafrasarasin-ch"
         ]
       },
       "previousSlugs": [
-        "senior-fix-engineer-specialist-jsafrasarasin-ch",
-        "senior-fix-engineer-specialist-j-safra-sarasin-lugano",
-        "senior-fix-ingegnere-specialista-j-safra-sarasin-lugano"
+        "senior-fix-engineer-specialist-jsafrasarasin-ch"
       ],
       "firstSeenAt": "2026-08-23T09:42:49.241Z",
       "salaryMin": 113500,
@@ -171,7 +162,7 @@
         "it": "societa-di-gestione-degli-ufficiali-del-rischio-j-safra-sarasin-basel-ch",
         "en": "risk-officer-management-company-jsafrasarasin-ch",
         "de": "risiko-officer-management-unternehmen-j-safra-sarasin-basel-ch",
-        "fr": "risk-officer-management-company-j-safra-sarasin-basel"
+        "fr": "agent-de-gestion-des-risques-j-safra-sarasin-basel-ch"
       },
       "company": "J. Safra Sarasin",
       "companyKey": "jsafrasarasin",
@@ -213,25 +204,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "risk-officer-management-company-jsafrasarasin-ch",
-        "agent-de-gestion-des-risques-j-safra-sarasin-basel-ch",
-        "societa-di-gestione-degli-ufficiali-del-rischio-j-safra-sarasin-basel-ch",
         "risk-officer-management-company-j-safra-sarasin-basel"
       ],
       "previousSlugsByLocale": {
-        "fr": [
-          "agent-de-gestion-des-risques-j-safra-sarasin-basel-ch",
-          "risk-officer-management-company-j-safra-sarasin-basel"
-        ],
         "it": [
-          "risk-officer-management-company-jsafrasarasin-ch",
-          "societa-di-gestione-degli-ufficiali-del-rischio-j-safra-sarasin-basel-ch"
+          "risk-officer-management-company-jsafrasarasin-ch"
         ],
         "de": [
           "risk-officer-management-company-jsafrasarasin-ch"
+        ],
+        "fr": [
+          "risk-officer-management-company-j-safra-sarasin-basel"
         ]
       },
       "firstSeenAt": "2026-09-02T13:34:11.477Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -244,7 +230,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jsafrasarasin-f5141b65059d",
@@ -294,13 +281,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-fmi-business-analyst-jsafrasarasin-ch",
-        "senior-fmi-business-analista-j-safra-sarasin-zurich"
+        "senior-fmi-business-analyst-jsafrasarasin-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-fmi-business-analyst-jsafrasarasin-ch",
-          "senior-fmi-business-analista-j-safra-sarasin-zurich"
+          "senior-fmi-business-analyst-jsafrasarasin-ch"
         ],
         "de": [
           "senior-fmi-business-analyst-jsafrasarasin-ch"
@@ -372,13 +357,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "equity-product-specialist-jsafrasarasin-ch",
-        "equity-product-specialista-j-safra-sarasin-zurich-ch"
+        "equity-product-specialist-jsafrasarasin-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "equity-product-specialist-jsafrasarasin-ch",
-          "equity-product-specialista-j-safra-sarasin-zurich-ch"
+          "equity-product-specialist-jsafrasarasin-ch"
         ],
         "de": [
           "equity-product-specialist-jsafrasarasin-ch"
@@ -388,7 +371,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:50:25.720Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -401,7 +383,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jsafrasarasin-085c58fde3b8",
@@ -451,13 +434,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "investment-communications-specialist-jsafrasarasin-ch",
-        "investment-communications-specialista-j-safra-sarasin-zurich-ch"
+        "investment-communications-specialist-jsafrasarasin-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "investment-communications-specialist-jsafrasarasin-ch",
-          "investment-communications-specialista-j-safra-sarasin-zurich-ch"
+          "investment-communications-specialist-jsafrasarasin-ch"
         ],
         "de": [
           "investment-communications-specialist-jsafrasarasin-ch"
@@ -529,13 +510,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "marketing-materials-designer-fixed-term-1-year-jsafrasarasin-ch",
-        "marketing-materiali-designer-termine-fisso-1-anno-j-safra-sarasin-zurich-ch"
+        "marketing-materials-designer-fixed-term-1-year-jsafrasarasin-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "marketing-materials-designer-fixed-term-1-year-jsafrasarasin-ch",
-          "marketing-materiali-designer-termine-fisso-1-anno-j-safra-sarasin-zurich-ch"
+          "marketing-materials-designer-fixed-term-1-year-jsafrasarasin-ch"
         ],
         "de": [
           "marketing-materials-designer-fixed-term-1-year-jsafrasarasin-ch"
@@ -545,7 +524,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:50:24.814Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
@@ -558,7 +536,8 @@
           "maxValue": 136000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jsafrasarasin-8b235c638a3b",
@@ -608,20 +587,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "junior-portfolio-manager-execution-jsafrasarasin-ch",
-        "esecuzione-junior-portfolio-manager-j-safra-sarasin-basel"
+        "junior-portfolio-manager-execution-jsafrasarasin-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-portfolio-manager-execution-jsafrasarasin-ch",
-          "esecuzione-junior-portfolio-manager-j-safra-sarasin-basel"
+          "junior-portfolio-manager-execution-jsafrasarasin-ch"
         ],
         "de": [
           "junior-portfolio-manager-execution-jsafrasarasin-ch"
         ]
       },
       "firstSeenAt": "2026-09-21T15:56:01.655Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -634,7 +610,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jsafrasarasin-cf7f9af0c102",
@@ -684,13 +661,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "crm-external-asset-manager-jsafrasarasin-ch",
-        "crm-gestione-delle-risorse-esterne-j-safra-sarasin-basel-ch"
+        "crm-external-asset-manager-jsafrasarasin-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "crm-external-asset-manager-jsafrasarasin-ch",
-          "crm-gestione-delle-risorse-esterne-j-safra-sarasin-basel-ch"
+          "crm-external-asset-manager-jsafrasarasin-ch"
         ],
         "de": [
           "crm-external-asset-manager-jsafrasarasin-ch"
@@ -763,13 +738,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "avaloq-integration-engineer-jsafrasarasin-ch",
-          "senior-banking-systems-integration-engineer-jsafrasarasin-ch"
+          "avaloq-integration-engineer-jsafrasarasin-ch"
         ],
         "it": [
           "senior-banking-systems-integration-engineer-jsafrasarasin-ch",
-          "avaloq-integration-engineer-jsafrasarasin-ch",
-          "senior-banking-systems-integration-ingegnere-j-safra-sarasin-lugano"
+          "avaloq-integration-engineer-jsafrasarasin-ch"
         ],
         "de": [
           "senior-banking-systems-integration-engineer-jsafrasarasin-ch"
@@ -780,8 +753,7 @@
       },
       "previousSlugs": [
         "senior-banking-systems-integration-engineer-jsafrasarasin-ch",
-        "avaloq-integration-engineer-jsafrasarasin-ch",
-        "senior-banking-systems-integration-ingegnere-j-safra-sarasin-lugano"
+        "avaloq-integration-engineer-jsafrasarasin-ch"
       ],
       "firstSeenAt": "2026-08-23T09:42:51.665Z",
       "salaryMin": 99500,

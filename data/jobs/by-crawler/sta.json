@@ -286,9 +286,9 @@
       "id": "sta-5a2cc2b2b850",
       "slug": "operatore-automatico-per-il-montaggio-e-il-cablaggio-dell-armadio-di-controllo-sta-personal-ag-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "operatore-automatico-per-il-montaggio-e-il-cablaggio-dell-armadio-di-controllo-sta-personal-ag-schaffhausen-schaffhausen",
-        "en": "automatiker-in-fur-montage-und-schaltschrankverdrahtung-sta-personal-ag-schaffhausen",
         "de": "automatiker-in-fur-montage-und-schaltschrankverdrahtung-schaffhausen-schaffhausen-sta-ch",
+        "it": "operatore-automatico-per-il-montaggio-e-il-cablaggio-dell-armadio-di-controllo-sta-personal-ag-schaffhausen-schaffhausen",
+        "en": "automatic-operator-for-assembly-and-control-cabinet-wiring-sta-personal-ag-schaffhausen-schaffhausen",
         "fr": "operateur-automatique-pour-le-cablage-de-l-armoire-de-montage-et-de-commande-sta-personal-ag-schaffhausen-schaffhausen"
       },
       "company": "STA Personal AG",
@@ -329,20 +329,21 @@
       "applyUrl": "https://www.sta.jobs/stellen/automatiker-in-schaffhausen-temporaer-108744/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "automatiker-in-fur-montage-und-schaltschrankverdrahtung-schaffhausen-schaffhausen-sta-ch",
-        "automatic-operator-for-assembly-and-control-cabinet-wiring-sta-personal-ag-schaffhausen-schaffhausen",
-        "operatore-automatico-per-il-montaggio-e-il-cablaggio-dell-armadio-di-controllo-sta-personal-ag-schaffhausen-schaffhausen"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-fur-montage-und-schaltschrankverdrahtung-schaffhausen-schaffhausen-sta-ch",
           "operatore-automatico-per-il-montaggio-e-il-cablaggio-dell-armadio-di-controllo-sta-personal-ag-schaffhausen-schaffhausen"
         ],
         "en": [
-          "automatic-operator-for-assembly-and-control-cabinet-wiring-sta-personal-ag-schaffhausen-schaffhausen"
+          "automatiker-in-fur-montage-und-schaltschrankverdrahtung-sta-personal-ag-schaffhausen"
         ]
       },
+      "previousSlugs": [
+        "automatiker-in-fur-montage-und-schaltschrankverdrahtung-schaffhausen-schaffhausen-sta-ch",
+        "automatic-operator-for-assembly-and-control-cabinet-wiring-sta-personal-ag-schaffhausen-schaffhausen",
+        "operatore-automatico-per-il-montaggio-e-il-cablaggio-dell-armadio-di-controllo-sta-personal-ag-schaffhausen-schaffhausen",
+        "automatiker-in-fur-montage-und-schaltschrankverdrahtung-sta-personal-ag-schaffhausen"
+      ],
       "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -696,18 +697,15 @@
       "applyUrl": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-muri-ag-temporaer-109272/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "anlagen-und-apparatebauer-in-fur-rohrleitungs-und-konsolenbau-muri-ag-aargau-sta-ch",
-        "installazione-e-apparati-per-costruzione-di-tubazioni-e-console-sta-personal-ag-muri-ag-aargau"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-fur-rohrleitungs-und-konsolenbau-muri-ag-aargau-sta-ch",
-          "installazione-e-apparati-per-costruzione-di-tubazioni-e-console-sta-personal-ag-muri-ag-aargau"
+          "anlagen-und-apparatebauer-in-fur-rohrleitungs-und-konsolenbau-muri-ag-aargau-sta-ch"
         ]
       },
+      "previousSlugs": [
+        "anlagen-und-apparatebauer-in-fur-rohrleitungs-und-konsolenbau-muri-ag-aargau-sta-ch"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-25T14:56:32.157Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -720,7 +718,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-25T14:56:32.157Z"
     },
     {
       "id": "sta-8aa303feeb73",
@@ -769,18 +768,15 @@
       "applyUrl": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-langenthal-tryhire-107172/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "anlagen-und-apparatebauer-in-fur-fahrzeugaufbauten-langenthal-bern-sta-ch",
-        "installazione-e-costruttori-di-apparecchi-per-i-corpi-dei-veicoli-sta-personal-ag-langenthal-bern"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-fur-fahrzeugaufbauten-langenthal-bern-sta-ch",
-          "installazione-e-costruttori-di-apparecchi-per-i-corpi-dei-veicoli-sta-personal-ag-langenthal-bern"
+          "anlagen-und-apparatebauer-in-fur-fahrzeugaufbauten-langenthal-bern-sta-ch"
         ]
       },
+      "previousSlugs": [
+        "anlagen-und-apparatebauer-in-fur-fahrzeugaufbauten-langenthal-bern-sta-ch"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-25T14:56:32.155Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -793,7 +789,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-25T14:56:32.155Z"
     },
     {
       "id": "sta-c6a85b0ba4be",
@@ -842,14 +839,10 @@
       "applyUrl": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-olten-temporaer-110918/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch",
-        "anlagen-e-apparatebauer-in-per-moderne-laser-e-cnc-anlagen-sta-personal-ag-olten"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch",
-          "anlagen-e-apparatebauer-in-per-moderne-laser-e-cnc-anlagen-sta-personal-ag-olten"
+          "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch"
         ],
         "en": [
           "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch"
@@ -858,8 +851,9 @@
           "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-24T14:29:27.712Z",
+      "previousSlugs": [
+        "anlagen-und-apparatebauer-in-fur-moderne-laser-und-cnc-anlagen-olten-solothurn-sta-ch"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -872,7 +866,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-24T14:29:27.712Z"
     },
     {
       "id": "sta-7a835b7a3c13",
@@ -921,15 +916,10 @@
       "applyUrl": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-stans-temporaer-111167/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-stans-nidwalden-sta-ch",
-        "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans",
-        "anlagen-e-apparatebauer-in-per-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-stans-nidwalden-sta-ch",
-          "anlagen-e-apparatebauer-in-per-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans"
+          "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-stans-nidwalden-sta-ch"
         ],
         "en": [
           "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans"
@@ -938,8 +928,11 @@
           "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-24T14:29:27.710Z",
+      "previousSlugs": [
+        "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-stans-nidwalden-sta-ch",
+        "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans",
+        "anlagen-e-apparatebauer-in-per-cnc-gesteuerte-abkantmaschinen-sta-personal-ag-stans"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -952,7 +945,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-24T14:29:27.710Z"
     },
     {
       "id": "sta-f6be768a0734",
@@ -1001,18 +995,15 @@
       "applyUrl": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-hochdorf-temporaer-107839/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "anlagen-und-apparatebauer-in-fur-cnc-abkanten-und-schweissen-hochdorf-luzern-sta-ch",
-        "produttori-di-impianti-e-apparati-per-bordi-cnc-e-saldatura-sta-personal-ag-hochdorf-luzern"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-fur-cnc-abkanten-und-schweissen-hochdorf-luzern-sta-ch",
-          "produttori-di-impianti-e-apparati-per-bordi-cnc-e-saldatura-sta-personal-ag-hochdorf-luzern"
+          "anlagen-und-apparatebauer-in-fur-cnc-abkanten-und-schweissen-hochdorf-luzern-sta-ch"
         ]
       },
+      "previousSlugs": [
+        "anlagen-und-apparatebauer-in-fur-cnc-abkanten-und-schweissen-hochdorf-luzern-sta-ch"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-25T14:56:32.153Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -1025,7 +1016,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-25T14:56:32.153Z"
     },
     {
       "id": "sta-74efaa51670d",
@@ -1074,18 +1066,15 @@
       "applyUrl": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-lenzburg-tryhire-107372/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "anlagen-und-apparatebauer-in-als-laser-operateur-lenzburg-aargau-sta-ch",
-        "produttore-di-impianti-e-apparecchi-come-operatore-laser-sta-personal-ag-lenzburg-aargau"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-als-laser-operateur-lenzburg-aargau-sta-ch",
-          "produttore-di-impianti-e-apparecchi-come-operatore-laser-sta-personal-ag-lenzburg-aargau"
+          "anlagen-und-apparatebauer-in-als-laser-operateur-lenzburg-aargau-sta-ch"
         ]
       },
+      "previousSlugs": [
+        "anlagen-und-apparatebauer-in-als-laser-operateur-lenzburg-aargau-sta-ch"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-25T14:56:32.152Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -1098,7 +1087,8 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-25T14:56:32.152Z"
     },
     {
       "id": "sta-3267f76b352f",
@@ -1148,13 +1138,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "metallbauer-in-hilfsarbeiter-in-mit-schwerpunkt-demontage-luzern-luzern-sta-ch",
-        "lavoratori-di-metalli-lavoratori-ausiliari-con-particolare-attenzione-allo-smantellamento-sta-personal-ag-luzern"
+        "metallbauer-in-hilfsarbeiter-in-mit-schwerpunkt-demontage-luzern-luzern-sta-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "metallbauer-in-hilfsarbeiter-in-mit-schwerpunkt-demontage-luzern-luzern-sta-ch",
-          "lavoratori-di-metalli-lavoratori-ausiliari-con-particolare-attenzione-allo-smantellamento-sta-personal-ag-luzern"
+          "metallbauer-in-hilfsarbeiter-in-mit-schwerpunkt-demontage-luzern-luzern-sta-ch"
         ],
         "en": [
           "metallbauer-in-hilfsarbeiter-in-mit-schwerpunkt-demontage-luzern-luzern-sta-ch"
@@ -1228,14 +1216,12 @@
       "previousSlugs": [
         "produktionsmitarbeiter-in-fur-prazise-armaturenteile-lenzburg-aargau-sta-ch",
         "produktionsmitarbeiter-in-per-prazise-armaturenteile-sta-personal-ag-lenzburg",
-        "produktionsmitarbeiter-in-fur-prazise-armaturenteile-sta-personal-ag-lenzburg",
-        "staff-di-produzione-per-parti-di-valvole-precise-sta-personal-ag-lenzburg-aargau"
+        "produktionsmitarbeiter-in-fur-prazise-armaturenteile-sta-personal-ag-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "produktionsmitarbeiter-in-fur-prazise-armaturenteile-lenzburg-aargau-sta-ch",
-          "produktionsmitarbeiter-in-per-prazise-armaturenteile-sta-personal-ag-lenzburg",
-          "staff-di-produzione-per-parti-di-valvole-precise-sta-personal-ag-lenzburg-aargau"
+          "produktionsmitarbeiter-in-per-prazise-armaturenteile-sta-personal-ag-lenzburg"
         ],
         "en": [
           "produktionsmitarbeiter-in-fur-prazise-armaturenteile-sta-personal-ag-lenzburg"
@@ -1309,14 +1295,12 @@
       "previousSlugs": [
         "maler-in-fur-neubauten-und-renovationsprojekte-olten-solothurn-sta-ch",
         "maler-in-per-neubauten-e-renovationsprojekte-sta-personal-ag-olten",
-        "maler-in-fur-neubauten-und-renovationsprojekte-sta-personal-ag-olten",
-        "pittore-per-nuovi-edifici-e-progetti-di-ristrutturazione-sta-personal-ag-olten-solothurn"
+        "maler-in-fur-neubauten-und-renovationsprojekte-sta-personal-ag-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-neubauten-und-renovationsprojekte-olten-solothurn-sta-ch",
-          "maler-in-per-neubauten-e-renovationsprojekte-sta-personal-ag-olten",
-          "pittore-per-nuovi-edifici-e-progetti-di-ristrutturazione-sta-personal-ag-olten-solothurn"
+          "maler-in-per-neubauten-e-renovationsprojekte-sta-personal-ag-olten"
         ],
         "en": [
           "maler-in-fur-neubauten-und-renovationsprojekte-sta-personal-ag-olten"
@@ -1389,14 +1373,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-fur-langfristigen-temporaren-einsatz-olten-solothurn-sta-ch",
-        "maler-in-per-langfristigen-temporaren-einsatz-sta-personal-ag-olten",
-        "pittore-per-uso-temporaneo-a-lungo-termine-sta-personal-ag-olten-solothurn"
+        "maler-in-per-langfristigen-temporaren-einsatz-sta-personal-ag-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-langfristigen-temporaren-einsatz-olten-solothurn-sta-ch",
-          "maler-in-per-langfristigen-temporaren-einsatz-sta-personal-ag-olten",
-          "pittore-per-uso-temporaneo-a-lungo-termine-sta-personal-ag-olten-solothurn"
+          "maler-in-per-langfristigen-temporaren-einsatz-sta-personal-ag-olten"
         ],
         "en": [
           "maler-in-fur-langfristigen-temporaren-einsatz-olten-solothurn-sta-ch"
@@ -1469,14 +1451,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-aarau-aargau-sta-ch",
-        "gartner-in-hilfsarbeiter-in-per-garten-e-landschaftsbau-sta-personal-ag-aarau",
-        "giardino-e-giardinieri-paesaggistici-sta-personal-ag-aarau-aargau"
+        "gartner-in-hilfsarbeiter-in-per-garten-e-landschaftsbau-sta-personal-ag-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-aarau-aargau-sta-ch",
-          "gartner-in-hilfsarbeiter-in-per-garten-e-landschaftsbau-sta-personal-ag-aarau",
-          "giardino-e-giardinieri-paesaggistici-sta-personal-ag-aarau-aargau"
+          "gartner-in-hilfsarbeiter-in-per-garten-e-landschaftsbau-sta-personal-ag-aarau"
         ],
         "en": [
           "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-aarau-aargau-sta-ch"

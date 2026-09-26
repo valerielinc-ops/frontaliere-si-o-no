@@ -6,7 +6,7 @@
       "id": "see-spital-5c7a070a875d",
       "slug": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
       "slugByLocale": {
-        "it": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
+        "it": "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
         "en": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
         "de": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "fr": "sous-assistant-e-diplome-e-pj-en-chirurgie-see-spital-horgen"
@@ -33,7 +33,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/301/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:05:33.886Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -55,15 +54,11 @@
       "previousSlugs": [
         "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "pj-absolvens-in-chirurgie-see-spital-horgen",
-        "pj-absolvent-in-chirurgies-see-spital-horgen",
-        "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
-        "sub-assistant-pj-graduate-surgery-see-spital-horgen"
+        "pj-absolvent-in-chirurgies-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
-          "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
-          "sub-assistant-pj-graduate-surgery-see-spital-horgen"
+          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch"
         ],
         "en": [
           "pj-absolvent-in-chirurgies-see-spital-horgen"
@@ -86,7 +81,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-dd3f1efb3f84",
@@ -119,7 +115,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/391/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:05:32.794Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -148,13 +143,11 @@
       "pensum": "60%",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen",
-        "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch",
-        "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen"
+        "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch",
-          "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen"
+          "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen"
@@ -174,7 +167,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-2005348b822f",
@@ -230,13 +224,11 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch",
-        "specialisti-salute-per-il-pool-di-assistenza-max-60-see-spital-horgen"
+        "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch",
-          "specialisti-salute-per-il-pool-di-assistenza-max-60-see-spital-horgen"
+          "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:07.176Z",
@@ -286,7 +278,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/688/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:05:30.651Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -349,8 +340,7 @@
         "assistant-in-aemp-see-spital-horgen",
         "assistent-in-aemp-see-spital-ch",
         "assistant-en-aemp-see-spital-horgen",
-        "praxisassistent-in-policlinic-see-spital-ch",
-        "assistente-assistente-di-medicina-see-spital-horgen"
+        "praxisassistent-in-policlinic-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -368,8 +358,7 @@
           "assistant-in-aemp-see-spital-horgen",
           "assistent-in-aemp-see-spital-ch",
           "assistant-en-aemp-see-spital-horgen",
-          "praxisassistent-in-policlinic-see-spital-ch",
-          "assistente-assistente-di-medicina-see-spital-horgen"
+          "praxisassistent-in-policlinic-see-spital-ch"
         ],
         "en": [
           "practical-assistant-see-spital-horgen"
@@ -395,7 +384,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-23aff0d58641",
@@ -428,7 +418,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/851/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:05:29.591Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -484,8 +473,7 @@
         "dipl-career-mann-hf-gynecology-and-weekbed-see-spital-horgen",
         "dipl-pflegefachfrau-mann-hf-gynakologie-und-wochenbett-see-spital-ch",
         "dipl-carriere-mann-hf-gynecologie-see-spital-horgen",
-        "dipl-carriera-mann-hf-ginecologia-e-letto-settimanale-see-spital-horgen",
-        "dipl-infermiere-re-notturno-see-spital-horgen"
+        "dipl-carriera-mann-hf-ginecologia-e-letto-settimanale-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -500,8 +488,7 @@
           "dipl-career-mann-hf-gynecology-and-weekbed-see-spital-horgen",
           "dipl-pflegefachfrau-mann-hf-gynakologie-und-wochenbett-see-spital-ch",
           "dipl-carriere-mann-hf-gynecologie-see-spital-horgen",
-          "dipl-carriera-mann-hf-ginecologia-e-letto-settimanale-see-spital-horgen",
-          "dipl-infermiere-re-notturno-see-spital-horgen"
+          "dipl-carriera-mann-hf-ginecologia-e-letto-settimanale-see-spital-horgen"
         ],
         "en": [
           "dipl-care-specialist-mann-hf-excellence-mainly-in-night-service-see-spital-horgen",
@@ -530,7 +517,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-00ed8d5dfb61",
@@ -563,7 +551,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/285/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:05:28.481Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -605,13 +592,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch",
-        "specialista-in-tecnica-chirurgica-hf-see-spital-horgen"
+        "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch",
-          "specialista-in-tecnica-chirurgica-hf-see-spital-horgen"
+          "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:04.181Z",
@@ -628,7 +613,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-34c8b3dc8dd5",
@@ -661,7 +647,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/696/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:05:27.414Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -713,13 +698,11 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-chirurgie-see-spital-ch",
-        "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen",
-        "dipl-persona-di-cura-hf-chirurgia-see-spital-horgen"
+        "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-chirurgie-see-spital-ch",
-          "dipl-persona-di-cura-hf-chirurgia-see-spital-horgen"
+          "dipl-pflegefachperson-hf-chirurgie-see-spital-ch"
         ],
         "en": [
           "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen"
@@ -739,16 +722,17 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-74bfb782fc7e",
       "slug": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
       "slugByLocale": {
         "it": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
-        "en": "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
+        "en": "emergency-medical-technician-in-training-see-spital-horgen",
         "de": "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "fr": "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
+        "fr": "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -772,7 +756,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/782/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:05:26.343Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -824,23 +807,17 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "emergency-medical-technician-in-training-see-spital-horgen",
-        "technicien-en-soins-d-urgence-en-formation-see-spital-horgen",
-        "sanitario-di-emergenza-in-formazione-see-spital-horgen",
         "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
         "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rettungssanitater-in-in-ausbildung-see-spital-ch",
-          "sanitario-di-emergenza-in-formazione-see-spital-horgen"
+          "rettungssanitater-in-in-ausbildung-see-spital-ch"
         ],
         "en": [
-          "emergency-medical-technician-in-training-see-spital-horgen",
           "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen"
         ],
         "fr": [
-          "technicien-en-soins-d-urgence-en-formation-see-spital-horgen",
           "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
         ]
       },
@@ -858,7 +835,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-407c1c2c9e98",
@@ -891,7 +869,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1028/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:05:25.305Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -939,13 +916,11 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch",
-        "radiologo-a-formatore-a-hf-see-spital-horgen"
+        "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch",
-          "radiologo-a-formatore-a-hf-see-spital-horgen"
+          "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:59.812Z",
@@ -962,7 +937,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-edb543d4b531",
@@ -995,7 +971,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1058/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:05:24.234Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1038,14 +1013,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "stellvertretung-stationsleitung-akutgeriatrie-see-spital-ch",
-        "stellvertretung-stationsleitung-akutgeriatrie-tertianum-see-spital-ch",
-        "vice-direttore-di-sezione-di-geriatria-acuta-see-spital-horgen"
+        "stellvertretung-stationsleitung-akutgeriatrie-tertianum-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stellvertretung-stationsleitung-akutgeriatrie-see-spital-ch",
-          "stellvertretung-stationsleitung-akutgeriatrie-tertianum-see-spital-ch",
-          "vice-direttore-di-sezione-di-geriatria-acuta-see-spital-horgen"
+          "stellvertretung-stationsleitung-akutgeriatrie-tertianum-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:59.370Z",
@@ -1062,7 +1035,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-50f9b4fcb057",
@@ -1095,7 +1069,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/470/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:05:23.168Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1146,13 +1119,11 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "dipl-expert-in-anasthesiepflege-see-spital-ch",
-        "esperto-a-di-anestesia-see-spital-horgen"
+        "dipl-expert-in-anasthesiepflege-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expert-in-anasthesiepflege-see-spital-ch",
-          "esperto-a-di-anestesia-see-spital-horgen"
+          "dipl-expert-in-anasthesiepflege-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:58.768Z",
@@ -1169,7 +1140,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-d366c216c3fa",
@@ -1202,7 +1174,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/972/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:05:22.091Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1254,18 +1225,14 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-excellence-see-spital-ch",
-          "dipl-pflegefachperson-hf-exzellenz-see-spital-horgen"
+          "dipl-pflegefachperson-hf-excellence-see-spital-ch"
         ],
         "it": [
-          "dipl-pflegefachperson-hf-excellence-see-spital-ch",
-          "dipl-persona-di-cura-hf-excellence-see-spital-horgen"
+          "dipl-pflegefachperson-hf-excellence-see-spital-ch"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-excellence-see-spital-ch",
-        "dipl-pflegefachperson-hf-exzellenz-see-spital-horgen",
-        "dipl-persona-di-cura-hf-excellence-see-spital-horgen"
+        "dipl-pflegefachperson-hf-excellence-see-spital-ch"
       ],
       "firstSeenAt": "2026-05-26T14:55:58.325Z",
       "salaryMin": 91500,
@@ -1281,7 +1248,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-e1ca4dda76b5",
@@ -1314,7 +1282,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/880/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:05:21.037Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1365,14 +1332,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
-        "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen",
-        "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen"
+        "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
-          "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen",
-          "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen"
+          "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:57.723Z",
@@ -1389,7 +1354,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-c12e26eed94d",
@@ -1422,7 +1388,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/717/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:05:19.927Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1473,13 +1438,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-medizin-see-spital-ch",
-        "specialista-infermieristico-qualificato-medicina-hf-see-spital-horgen"
+        "dipl-pflegefachperson-hf-medizin-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-medizin-see-spital-ch",
-          "specialista-infermieristico-qualificato-medicina-hf-see-spital-horgen"
+          "dipl-pflegefachperson-hf-medizin-see-spital-ch"
         ],
         "en": [
           "dipl-pflegefachperson-hf-medizin-see-spital-ch"
@@ -1499,7 +1462,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-9e120b457cb2",
@@ -1532,7 +1496,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1137/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:05:18.816Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1573,14 +1536,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "sportarztin-arzt-see-spital-ch",
-        "sportarztin-arzt-policlinic-see-spital-ch",
-        "medico-dello-sport-see-spital-horgen"
+        "sportarztin-arzt-policlinic-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sportarztin-arzt-see-spital-ch",
-          "sportarztin-arzt-policlinic-see-spital-ch",
-          "medico-dello-sport-see-spital-horgen"
+          "sportarztin-arzt-policlinic-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:56.535Z",
@@ -1597,7 +1558,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-6322c79842ec",
@@ -1630,7 +1592,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:05:17.720Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1675,14 +1636,12 @@
         "assistenzarzt-arztin-nephrologie-see-spital-ch",
         "medico-di-medicina-interna-nefrologia-see-spital-horgen",
         "assistant-physician-nephrology-see-spital-horgen",
-        "assistant-en-medecine-interne-nephrologie-see-spital-horgen",
-        "infermiere-a-specializzato-a-see-spital-horgen"
+        "assistant-en-medecine-interne-nephrologie-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarzt-arztin-nephrologie-see-spital-ch",
-          "medico-di-medicina-interna-nefrologia-see-spital-horgen",
-          "infermiere-a-specializzato-a-see-spital-horgen"
+          "medico-di-medicina-interna-nefrologia-see-spital-horgen"
         ],
         "en": [
           "assistant-physician-nephrology-see-spital-horgen"
@@ -1708,7 +1667,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-ee0a2e2dc56b",
@@ -1741,7 +1701,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1032/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:05:16.639Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1791,13 +1750,11 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "studierende-r-operationstechnik-hf-see-spital-ch",
-        "studente-operatore-tecnico-see-spital-horgen"
+        "studierende-r-operationstechnik-hf-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-operationstechnik-hf-see-spital-ch",
-          "studente-operatore-tecnico-see-spital-horgen"
+          "studierende-r-operationstechnik-hf-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:55.490Z",
@@ -1814,7 +1771,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-b49fdf672641",
@@ -1847,7 +1805,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1198/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:05:15.527Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1897,14 +1854,12 @@
         "healthcare-professional-efz-medicine-see-spital-horgen",
         "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch",
         "professionnel-de-sante-efz-medecine-see-spital-horgen",
-        "fachfrau-mann-gesundheit-cfc-medizin-see-spital-horgen",
-        "fachinfermiere-efz-excellence-see-spital-horgen"
+        "fachfrau-mann-gesundheit-cfc-medizin-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-efz-excellence-see-spital-ch",
-          "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen",
-          "fachinfermiere-efz-excellence-see-spital-horgen"
+          "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:55.019Z",
@@ -1921,7 +1876,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-d1dec150ebdf",
@@ -1954,7 +1910,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/313/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:05:14.444Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -2003,13 +1958,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "studierende-r-pflegefachfrau-mann-hf-see-spital-ch",
-        "studente-studente-di-infermieristica-hf-see-spital-horgen"
+        "studierende-r-pflegefachfrau-mann-hf-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-pflegefachfrau-mann-hf-see-spital-ch",
-          "studente-studente-di-infermieristica-hf-see-spital-horgen"
+          "studierende-r-pflegefachfrau-mann-hf-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:53.834Z",
@@ -2026,7 +1979,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-402ad0c03dba",
@@ -2059,7 +2013,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1240/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:05:13.366Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -2111,8 +2064,7 @@
         "dipl-cura-professionale-hf-oncologia-see-spital-horgen",
         "dipl-care-professional-hf-oncology-see-spital-horgen",
         "dipl-pflegefachperson-hf-onkologie-see-spital-ch",
-        "dipl-soins-professionnels-hf-oncologie-see-spital-horgen",
-        "dipl-persona-di-cura-hf-interdisciplinare-see-spital-horgen"
+        "dipl-soins-professionnels-hf-oncologie-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2120,8 +2072,7 @@
           "dipl-cura-professionale-hf-oncologia-see-spital-horgen",
           "dipl-care-professional-hf-oncology-see-spital-horgen",
           "dipl-pflegefachperson-hf-onkologie-see-spital-ch",
-          "dipl-soins-professionnels-hf-oncologie-see-spital-horgen",
-          "dipl-persona-di-cura-hf-interdisciplinare-see-spital-horgen"
+          "dipl-soins-professionnels-hf-oncologie-see-spital-horgen"
         ],
         "en": [
           "dipl-care-professional-hf-oncology-see-spital-horgen"
@@ -2147,7 +2098,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-b31b0f026929",
@@ -2308,14 +2260,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "oberarztin-arzt-onkologie-see-spital-ch",
-        "medico-senior-see-spital-horgen",
-        "oncologia-del-medico-senior-see-spital-horgen"
+        "medico-senior-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-arzt-onkologie-see-spital-ch",
-          "medico-senior-see-spital-horgen",
-          "oncologia-del-medico-senior-see-spital-horgen"
+          "medico-senior-see-spital-horgen"
         ],
         "en": [
           "oberarztin-arzt-onkologie-see-spital-ch"
@@ -2371,7 +2321,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1278/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:05:10.066Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -2391,13 +2340,11 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "lehrstelle-als-kochin-koch-efz-see-spital-ch",
-        "apprendistato-come-kochin-koch-cfc-see-spital-horgen"
+        "lehrstelle-als-kochin-koch-efz-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kochin-koch-efz-see-spital-ch",
-          "apprendistato-come-kochin-koch-cfc-see-spital-horgen"
+          "lehrstelle-als-kochin-koch-efz-see-spital-ch"
         ],
         "en": [
           "lehrstelle-als-kochin-koch-efz-see-spital-ch"
@@ -2420,7 +2367,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-0ff0c4ca1a74",
@@ -2473,13 +2421,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "lehrstelle-als-kuchenangestellte-r-eba-see-spital-ch",
-        "apprendistato-come-kuchenangestellte-r-afp-see-spital-horgen"
+        "lehrstelle-als-kuchenangestellte-r-eba-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kuchenangestellte-r-eba-see-spital-ch",
-          "apprendistato-come-kuchenangestellte-r-afp-see-spital-horgen"
+          "lehrstelle-als-kuchenangestellte-r-eba-see-spital-ch"
         ],
         "en": [
           "lehrstelle-als-kuchenangestellte-r-eba-see-spital-ch"
@@ -2555,13 +2501,11 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-see-spital-ch",
-        "apprendistato-come-praktiker-in-hotellerie-hauswirtschaft-afp-see-spital-horgen"
+        "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-see-spital-ch",
-          "apprendistato-come-praktiker-in-hotellerie-hauswirtschaft-afp-see-spital-horgen"
+          "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-see-spital-ch"
         ],
         "en": [
           "lehrstelle-als-praktiker-in-hotellerie-hauswirtschaft-eba-see-spital-ch"
@@ -2617,7 +2561,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1285/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:05:06.755Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -2637,13 +2580,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "hr-assistent-in-see-spital-ch",
-        "risorse-umane-assistent-in-see-spital-horgen"
+        "hr-assistent-in-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-assistent-in-see-spital-ch",
-          "risorse-umane-assistent-in-see-spital-horgen"
+          "hr-assistent-in-see-spital-ch"
         ],
         "en": [
           "hr-assistent-in-see-spital-ch"
@@ -2666,7 +2607,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-b1324a1f0146",
@@ -2699,7 +2641,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1262/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:05:05.667Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -2719,13 +2660,11 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "assistenzarzt-arztin-geriatrie-see-spital-ch",
-        "assistente-medico-geriatrico-see-spital-horgen"
+        "assistenzarzt-arztin-geriatrie-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-arztin-geriatrie-see-spital-ch",
-          "assistente-medico-geriatrico-see-spital-horgen"
+          "assistenzarzt-arztin-geriatrie-see-spital-ch"
         ],
         "en": [
           "assistenzarzt-arztin-geriatrie-see-spital-ch"
@@ -2748,14 +2687,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-981ac5a06760",
       "slug": "esperto-di-cura-see-spital-horgen",
       "slugByLocale": {
         "it": "esperto-di-cura-see-spital-horgen",
-        "en": "pflegeexpert-in-see-spital-horgen",
+        "en": "nursing-expert-see-spital-horgen",
         "de": "pflegeexpert-in-see-spital-ch",
         "fr": "specialiste-des-soins-see-spital-horgen"
       },
@@ -2803,18 +2743,14 @@
       "previousSlugs": [
         "pflegeexpert-in-see-spital-ch",
         "care-expert-see-spital-horgen",
-        "nursing-expert-see-spital-horgen",
-        "esperto-di-cura-see-spital-horgen",
         "pflegeexpert-in-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegeexpert-in-see-spital-ch",
-          "esperto-di-cura-see-spital-horgen"
+          "pflegeexpert-in-see-spital-ch"
         ],
         "en": [
           "care-expert-see-spital-horgen",
-          "nursing-expert-see-spital-horgen",
           "pflegeexpert-in-see-spital-horgen"
         ],
         "fr": [
@@ -2889,14 +2825,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "oberarzt-arztin-pneumologie-jobsharing-und-flexible-pensumsmodelle-moglich-see-spital-ch",
-        "oberarzt-arztin-pneumologie-jobsharing-e-flexible-pensumsmodelle-moglich-see-spital-horgen",
-        "pneumologia-del-medico-senior-condivisione-del-lavoro-e-modelli-di-peso-flessibile-possibile-see-spital-horgen"
+        "oberarzt-arztin-pneumologie-jobsharing-e-flexible-pensumsmodelle-moglich-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-arztin-pneumologie-jobsharing-und-flexible-pensumsmodelle-moglich-see-spital-ch",
-          "oberarzt-arztin-pneumologie-jobsharing-e-flexible-pensumsmodelle-moglich-see-spital-horgen",
-          "pneumologia-del-medico-senior-condivisione-del-lavoro-e-modelli-di-peso-flessibile-possibile-see-spital-horgen"
+          "oberarzt-arztin-pneumologie-jobsharing-e-flexible-pensumsmodelle-moglich-see-spital-horgen"
         ],
         "en": [
           "oberarzt-arztin-pneumologie-jobsharing-und-flexible-pensumsmodelle-moglich-see-spital-ch"
@@ -2952,7 +2886,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1290/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:05:02.431Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -2977,8 +2910,7 @@
         "apprendistato-come-fachfrau-mann-gesundheit-cfc-see-spital-horgen",
         "apprenticeship-as-a-specialist-health-efz-see-spital-horgen",
         "lehrstelle-als-fachfrau-mann-gesundheit-efz-see-spital-ch",
-        "apprentissage-en-tant-que-specialiste-de-la-sante-efz-see-spital-horgen",
-        "salute-efz-interdisciplinare-see-spital-horgen"
+        "apprentissage-en-tant-que-specialiste-de-la-sante-efz-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2987,8 +2919,7 @@
           "apprendistato-come-fachfrau-mann-gesundheit-cfc-see-spital-horgen",
           "apprenticeship-as-a-specialist-health-efz-see-spital-horgen",
           "lehrstelle-als-fachfrau-mann-gesundheit-efz-see-spital-ch",
-          "apprentissage-en-tant-que-specialiste-de-la-sante-efz-see-spital-horgen",
-          "salute-efz-interdisciplinare-see-spital-horgen"
+          "apprentissage-en-tant-que-specialiste-de-la-sante-efz-see-spital-horgen"
         ],
         "en": [
           "fachfrau-mann-gesundheit-efz-interdisziplinar-see-spital-ch",
@@ -3016,7 +2947,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-99b4074f7140",
@@ -3069,13 +3001,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "stationssekretar-in-interdisziplinar-see-spital-ch",
-        "segretario-della-stazione-interdisciplinare-see-spital-horgen"
+        "stationssekretar-in-interdisziplinar-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stationssekretar-in-interdisziplinar-see-spital-ch",
-          "segretario-della-stazione-interdisciplinare-see-spital-horgen"
+          "stationssekretar-in-interdisziplinar-see-spital-ch"
         ],
         "en": [
           "stationssekretar-in-interdisziplinar-see-spital-ch"
@@ -3151,13 +3081,11 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "oberarztin-arzt-innere-medizin-see-spital-ch",
-        "medicina-interna-del-medico-senior-see-spital-horgen"
+        "oberarztin-arzt-innere-medizin-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-arzt-innere-medizin-see-spital-ch",
-          "medicina-interna-del-medico-senior-see-spital-horgen"
+          "oberarztin-arzt-innere-medizin-see-spital-ch"
         ],
         "en": [
           "oberarztin-arzt-innere-medizin-see-spital-ch"
@@ -3234,14 +3162,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "mitarbeiter-in-gebaudemanagement-see-spital-ch",
-        "collaboratore-trice-in-gebaudemanagement-see-spital-horgen",
-        "dipendenti-nella-gestione-degli-edifici-see-spital-horgen"
+        "collaboratore-trice-in-gebaudemanagement-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-gebaudemanagement-see-spital-ch",
-          "collaboratore-trice-in-gebaudemanagement-see-spital-horgen",
-          "dipendenti-nella-gestione-degli-edifici-see-spital-horgen"
+          "collaboratore-trice-in-gebaudemanagement-see-spital-horgen"
         ],
         "en": [
           "mitarbeiter-in-gebaudemanagement-see-spital-ch"
@@ -3297,7 +3223,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1298/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:04:58.013Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -3317,13 +3242,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-sportphysiotherapeut-in-policlinic-see-spital-ch",
-        "dipl-fisioterapista-sportiva-policlinic-see-spital-horgen"
+        "dipl-sportphysiotherapeut-in-policlinic-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-sportphysiotherapeut-in-policlinic-see-spital-ch",
-          "dipl-fisioterapista-sportiva-policlinic-see-spital-horgen"
+          "dipl-sportphysiotherapeut-in-policlinic-see-spital-ch"
         ],
         "en": [
           "dipl-sportphysiotherapeut-in-policlinic-see-spital-ch"
@@ -3346,7 +3269,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-888a2fcce30f",
@@ -3399,13 +3323,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "expert-in-intensivpflege-nds-hf-see-spital-ch",
-        "cura-intensiva-degli-esperti-nds-hf-see-spital-horgen"
+        "expert-in-intensivpflege-nds-hf-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expert-in-intensivpflege-nds-hf-see-spital-ch",
-          "cura-intensiva-degli-esperti-nds-hf-see-spital-horgen"
+          "expert-in-intensivpflege-nds-hf-see-spital-ch"
         ],
         "en": [
           "expert-in-intensivpflege-nds-hf-see-spital-ch"
@@ -3481,13 +3403,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "teamleiter-in-akutgeriatrie-tertianum-see-spital-ch",
-        "team-leader-acute-career-tertianum-see-spital-horgen"
+        "teamleiter-in-akutgeriatrie-tertianum-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-akutgeriatrie-tertianum-see-spital-ch",
-          "team-leader-acute-career-tertianum-see-spital-horgen"
+          "teamleiter-in-akutgeriatrie-tertianum-see-spital-ch"
         ],
         "en": [
           "teamleiter-in-akutgeriatrie-tertianum-see-spital-ch"
@@ -3543,7 +3463,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1294/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-09-26T14:04:54.748Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -3563,13 +3482,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "med-praxisassistent-in-frauenklinik-see-spital-ch",
-        "med-assistente-pratico-clinica-femminile-see-spital-horgen"
+        "med-praxisassistent-in-frauenklinik-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistent-in-frauenklinik-see-spital-ch",
-          "med-assistente-pratico-clinica-femminile-see-spital-horgen"
+          "med-praxisassistent-in-frauenklinik-see-spital-ch"
         ],
         "en": [
           "med-praxisassistent-in-frauenklinik-see-spital-ch"
@@ -3592,7 +3509,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "see-spital-9f9164e305d1",
@@ -3646,14 +3564,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "mitarbeiter-in-empfang-see-spital-ch",
-        "collaboratore-trice-in-empfang-see-spital-horgen",
-        "ricevimento-dei-dipendenti-see-spital-horgen"
+        "collaboratore-trice-in-empfang-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-empfang-see-spital-ch",
-          "collaboratore-trice-in-empfang-see-spital-horgen",
-          "ricevimento-dei-dipendenti-see-spital-horgen"
+          "collaboratore-trice-in-empfang-see-spital-horgen"
         ],
         "en": [
           "mitarbeiter-in-empfang-see-spital-ch"

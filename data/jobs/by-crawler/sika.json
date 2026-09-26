@@ -52,17 +52,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikum-in-der-f-e-chemie-uni-eth-fh-6-12-monate-sika-ch",
-        "internship-in-r-d-chemistry-uni-eth-fh-sika-zurich"
+        "praktikum-in-der-f-e-chemie-uni-eth-fh-6-12-monate-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-in-der-f-e-chemie-uni-eth-fh-6-12-monate-sika-ch",
-          "internship-in-r-d-chemistry-uni-eth-fh-sika-zurich"
+          "praktikum-in-der-f-e-chemie-uni-eth-fh-6-12-monate-sika-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:50.424Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -75,7 +72,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-6d949ed88b42",
@@ -127,13 +125,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verantwortliche-kaufm-berufliche-grundbildung-sowie-ubergeordnete-berufliche-grundbildung",
-        "acquisto-responsabile-formazione-professionale-di-base-80-100-m-f-d-sika-zurich-zurich"
+        "verantwortliche-kaufm-berufliche-grundbildung-sowie-ubergeordnete-berufliche-grundbildung"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verantwortliche-kaufm-berufliche-grundbildung-sowie-ubergeordnete-berufliche-grundbildung",
-          "acquisto-responsabile-formazione-professionale-di-base-80-100-m-f-d-sika-zurich-zurich"
+          "verantwortliche-kaufm-berufliche-grundbildung-sowie-ubergeordnete-berufliche-grundbildung"
         ],
         "en": [
           "verantwortliche-kaufm-berufliche-grundbildung-sowie-ubergeordnete-berufliche-grundbildung"
@@ -159,12 +155,12 @@
     },
     {
       "id": "sika-5f372ae9687e",
-      "slug": "lavoratore-di-impianti-chimici-m-f-dipendente-chimico-chimico-m-f-sika-dudingen",
+      "slug": "lavoratore-di-impianti-chimici-m-f-dipendente-chimico-chimico-m-f-sika-dudingen-canton-of-fribourg",
       "slugByLocale": {
-        "it": "lavoratore-di-impianti-chimici-m-f-dipendente-chimico-chimico-m-f-sika-dudingen",
-        "en": "chemical-plant-worker-m-f-chemical-employee-chemical-m-f-sika-dudingen",
         "de": "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch",
-        "fr": "travailleur-de-l-usine-chimique-h-f-employe-de-l-usine-chimique-h-f-sika-dudingen"
+        "it": "lavoratore-di-impianti-chimici-m-f-dipendente-chimico-chimico-m-f-sika-dudingen-canton-of-fribourg",
+        "en": "chemical-plant-worker-m-f-chemical-employee-chemical-m-f-sika-dudingen",
+        "fr": "travailleur-de-l-usine-chimique-h-f-employe-de-l-usine-chimique-h-f-sika-dudingen-canton-of-fribourg"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -206,21 +202,6 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-06c3ea52-4733-4376-92fa-edc4842d799a.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-25T14:51:47.898Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch"
-        ],
-        "en": [
-          "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch"
-        ],
-        "fr": [
-          "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch"
-        ]
-      },
-      "previousSlugs": [
-        "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch"
-      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -233,7 +214,26 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-25T14:51:47.898Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch",
+          "lavoratore-di-impianti-chimici-m-f-dipendente-chimico-chimico-m-f-sika-dudingen"
+        ],
+        "en": [
+          "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch"
+        ],
+        "fr": [
+          "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch",
+          "travailleur-de-l-usine-chimique-h-f-employe-de-l-usine-chimique-h-f-sika-dudingen"
+        ]
+      },
+      "previousSlugs": [
+        "chemical-plant-worker-m-f-chemiemitarbeiter-chemikant-m-w-sika-ch",
+        "lavoratore-di-impianti-chimici-m-f-dipendente-chimico-chimico-m-f-sika-dudingen",
+        "travailleur-de-l-usine-chimique-h-f-employe-de-l-usine-chimique-h-f-sika-dudingen"
+      ]
     },
     {
       "id": "sika-eddd20ef7319",
@@ -285,13 +285,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-technical-consultant-sap-development-transportation-management-sika-ch",
-        "senior-technical-consulente-sap-development-transportation-management-sika-zurich"
+        "senior-technical-consultant-sap-development-transportation-management-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-technical-consultant-sap-development-transportation-management-sika-ch",
-          "senior-technical-consulente-sap-development-transportation-management-sika-zurich"
+          "senior-technical-consultant-sap-development-transportation-management-sika-ch"
         ],
         "de": [
           "senior-technical-consultant-sap-development-transportation-management-sika-ch"
@@ -301,7 +299,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:32.932Z",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -314,7 +311,8 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-931b92f5e4c0",
@@ -366,13 +364,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-project-manager-solution-architect-sap-tm-transportation-management-sika-ch",
-        "senior-project-manager-solution-architetto-sap-tm-transportation-management-sika-zurich"
+        "senior-project-manager-solution-architect-sap-tm-transportation-management-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-project-manager-solution-architect-sap-tm-transportation-management-sika-ch",
-          "senior-project-manager-solution-architetto-sap-tm-transportation-management-sika-zurich"
+          "senior-project-manager-solution-architect-sap-tm-transportation-management-sika-ch"
         ],
         "de": [
           "senior-project-manager-solution-architect-sap-tm-transportation-management-sika-ch"
@@ -382,7 +378,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:30.183Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -395,7 +390,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-c641d6c8e75f",
@@ -446,23 +442,6 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-7a72a172-4966-459e-b87f-3c6d36cd60f3.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "global-innovation-platform-process-manager-sika-ch",
-        "piattaforma-di-innovazione-globale-amp-gestione-dei-processi-sika-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "global-innovation-platform-process-manager-sika-ch",
-          "piattaforma-di-innovazione-globale-amp-gestione-dei-processi-sika-zurich-zurich"
-        ],
-        "de": [
-          "global-innovation-platform-process-manager-sika-ch"
-        ],
-        "fr": [
-          "global-innovation-platform-process-manager-sika-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:43:30.361Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -475,7 +454,22 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-23T23:43:30.361Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-innovation-platform-process-manager-sika-ch"
+        ],
+        "de": [
+          "global-innovation-platform-process-manager-sika-ch"
+        ],
+        "fr": [
+          "global-innovation-platform-process-manager-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-innovation-platform-process-manager-sika-ch"
+      ]
     },
     {
       "id": "sika-44d37d89fa1d",
@@ -527,13 +521,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "software-engineering-intern-sika-ch",
-        "software-engineering-tirocinante-sika-zurich"
+        "software-engineering-intern-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineering-intern-sika-ch",
-          "software-engineering-tirocinante-sika-zurich"
+          "software-engineering-intern-sika-ch"
         ],
         "de": [
           "software-engineering-intern-sika-ch"
@@ -543,7 +535,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T12:46:37.005Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -556,7 +547,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-15d11e8b7603",
@@ -612,8 +604,7 @@
         "senior-solution-architetto-project-manager-sap-fin-sika-zurich",
         "senior-solution-architect-project-manager-sap-fin-sika-ch",
         "senior-solution-architect-projektmanager-sap-fin-sika-zurich",
-        "senior-solution-architecte-project-manager-sap-fin-sika-zurich",
-        "senior-solution-architetto-project-manager-sap-ewm-sika-zurich"
+        "senior-solution-architecte-project-manager-sap-fin-sika-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -621,8 +612,7 @@
           "senior-solution-architetto-project-manager-sap-fin-sika-zurich",
           "senior-solution-architect-project-manager-sap-fin-sika-ch",
           "senior-solution-architect-projektmanager-sap-fin-sika-zurich",
-          "senior-solution-architecte-project-manager-sap-fin-sika-zurich",
-          "senior-solution-architetto-project-manager-sap-ewm-sika-zurich"
+          "senior-solution-architecte-project-manager-sap-fin-sika-zurich"
         ],
         "en": [
           "senior-solution-architect-project-manager-sap-fin-sika-ch"
@@ -637,7 +627,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:19.553Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -650,7 +639,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-d379683015d6",
@@ -702,13 +692,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "risk-insurance-manager-sika-ch",
-        "rischio-e-assicurazione-sika-zurich-zurich-switzerland"
+        "risk-insurance-manager-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "risk-insurance-manager-sika-ch",
-          "rischio-e-assicurazione-sika-zurich-zurich-switzerland"
+          "risk-insurance-manager-sika-ch"
         ],
         "de": [
           "risk-insurance-manager-sika-ch"
@@ -784,14 +772,12 @@
       "previousSlugsByLocale": {
         "de": [
           "automatiker-sps-programmierer-automatisierungstechniker-m-w-d-sika-ch",
-          "automatiker-sps-programmierer-automatisierungstechniker-sika-ch",
-          "automatiker-m-w-d-sika-ch"
+          "automatiker-sps-programmierer-automatisierungstechniker-sika-ch"
         ],
         "it": [
           "automatiker-m-w-d-sika-ch",
           "automatiker-sps-programmierer-automatisierungstechniker-m-w-d-sika-ch",
-          "automatiker-sps-programmierer-automatisierungstechniker-sika-ch",
-          "automatico-m-f-d-sika-romanshorn-thurgau-switzerland"
+          "automatiker-sps-programmierer-automatisierungstechniker-sika-ch"
         ],
         "en": [
           "automatiker-m-w-d-sika-ch"
@@ -803,11 +789,9 @@
       "previousSlugs": [
         "automatiker-sps-programmierer-automatisierungstechniker-m-w-d-sika-ch",
         "automatiker-m-w-d-sika-ch",
-        "automatiker-sps-programmierer-automatisierungstechniker-sika-ch",
-        "automatico-m-f-d-sika-romanshorn-thurgau-switzerland"
+        "automatiker-sps-programmierer-automatisierungstechniker-sika-ch"
       ],
       "firstSeenAt": "2026-06-17T13:57:12.304Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -820,16 +804,17 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-7b725bb749fd",
-      "slug": "strategic-risorse-umane-projects-specialista-sika-zurich",
+      "slug": "strategic-risorse-umane-projects-specialista-sika-zurich-zurich",
       "slugByLocale": {
-        "it": "strategic-risorse-umane-projects-specialista-sika-zurich",
         "en": "strategic-hr-projects-specialist-sika-ch",
-        "de": "strategic-personalwesen-projects-spezialist-sika-zurich",
-        "fr": "strategic-ressources-humaines-projects-specialiste-sika-zurich"
+        "it": "strategic-risorse-umane-projects-specialista-sika-zurich-zurich",
+        "de": "strategic-personalwesen-projects-spezialist-sika-zurich-zurich",
+        "fr": "strategic-ressources-humaines-projects-specialiste-sika-zurich-zurich"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -871,22 +856,6 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-57c3529d-e8d3-45be-a901-3d8db18a42b2.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-25T14:51:40.428Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "strategic-hr-projects-specialist-sika-ch"
-        ],
-        "de": [
-          "strategic-hr-projects-specialist-sika-ch"
-        ],
-        "fr": [
-          "strategic-hr-projects-specialist-sika-ch"
-        ]
-      },
-      "previousSlugs": [
-        "strategic-hr-projects-specialist-sika-ch"
-      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -899,7 +868,29 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-25T14:51:40.428Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "strategic-hr-projects-specialist-sika-ch",
+          "strategic-risorse-umane-projects-specialista-sika-zurich"
+        ],
+        "de": [
+          "strategic-hr-projects-specialist-sika-ch",
+          "strategic-personalwesen-projects-spezialist-sika-zurich"
+        ],
+        "fr": [
+          "strategic-hr-projects-specialist-sika-ch",
+          "strategic-ressources-humaines-projects-specialiste-sika-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "strategic-hr-projects-specialist-sika-ch",
+        "strategic-risorse-umane-projects-specialista-sika-zurich",
+        "strategic-personalwesen-projects-spezialist-sika-zurich",
+        "strategic-ressources-humaines-projects-specialiste-sika-zurich"
+      ]
     },
     {
       "id": "sika-f29f6c1b2d83",
@@ -951,13 +942,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-anlagenfuhrer-in-efz-2027-sika-ch",
-        "apprendistato-come-anlagenfuhrer-in-cfc-2027-sika-sarnen"
+        "lehrstelle-als-anlagenfuhrer-in-efz-2027-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-anlagenfuhrer-in-efz-2027-sika-ch",
-          "apprendistato-come-anlagenfuhrer-in-cfc-2027-sika-sarnen"
+          "lehrstelle-als-anlagenfuhrer-in-efz-2027-sika-ch"
         ],
         "en": [
           "lehrstelle-als-anlagenfuhrer-in-efz-2027-sika-ch"
@@ -967,7 +956,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:10.542Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -980,7 +968,8 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-a2ef14aa1c26",
@@ -1032,13 +1021,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-polymechaniker-in-efz-2027-sika-ch",
-        "apprendistato-come-polymechaniker-in-cfc-2027-sika-sarnen"
+        "lehrstelle-als-polymechaniker-in-efz-2027-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-polymechaniker-in-efz-2027-sika-ch",
-          "apprendistato-come-polymechaniker-in-cfc-2027-sika-sarnen"
+          "lehrstelle-als-polymechaniker-in-efz-2027-sika-ch"
         ],
         "en": [
           "lehrstelle-als-polymechaniker-in-efz-2027-sika-ch"
@@ -1113,13 +1100,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-automatiker-in-efz-2027-sika-ch",
-        "apprendistato-come-automatiker-in-cfc-2027-sika-sarnen"
+        "lehrstelle-als-automatiker-in-efz-2027-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-automatiker-in-efz-2027-sika-ch",
-          "apprendistato-come-automatiker-in-cfc-2027-sika-sarnen"
+          "lehrstelle-als-automatiker-in-efz-2027-sika-ch"
         ],
         "en": [
           "lehrstelle-als-automatiker-in-efz-2027-sika-ch"
@@ -1193,13 +1178,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-logistiker-in-efz-2027-sika-ch",
-        "apprendistato-come-impiegato-a-in-logistica-cfc-2027-sika-sarnen"
+        "lehrstelle-als-logistiker-in-efz-2027-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-logistiker-in-efz-2027-sika-ch",
-          "apprendistato-come-impiegato-a-in-logistica-cfc-2027-sika-sarnen"
+          "lehrstelle-als-logistiker-in-efz-2027-sika-ch"
         ],
         "en": [
           "lehrstelle-als-logistiker-in-efz-2027-sika-ch"
@@ -1209,7 +1192,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:05.923Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -1222,7 +1204,8 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-7dd7e2fcb22c",
@@ -1275,13 +1258,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "anlagenfuhrer-m-w-d-extrusionslinien-process-operator-m-w-d-sika-ch",
-        "anlagenfuhrer-m-w-d-extrusionslinien-process-operator-m-w-d-sika-sarnen",
-        "anlagenfuhrer-m-w-d-extrusionslinien-process-operatore-m-w-d-sika-sarnen"
+        "anlagenfuhrer-m-w-d-extrusionslinien-process-operator-m-w-d-sika-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagenfuhrer-m-w-d-extrusionslinien-process-operator-m-w-d-sika-ch",
-          "anlagenfuhrer-m-w-d-extrusionslinien-process-operatore-m-w-d-sika-sarnen"
+          "anlagenfuhrer-m-w-d-extrusionslinien-process-operator-m-w-d-sika-ch"
         ],
         "en": [
           "anlagenfuhrer-m-w-d-extrusionslinien-process-operator-m-w-d-sika-ch"
@@ -1291,7 +1272,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:02.407Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 97000,
       "salarySource": "estimated",
@@ -1304,7 +1284,8 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-480d8c0d855e",
@@ -1356,20 +1337,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anlagenfuhrer-recycling-m-w-d-process-operator-recycling-m-w-d-sika-ch",
-        "anlagenfuhrer-recycling-m-w-d-process-operatore-recycling-m-w-d-sika-sarnen"
+        "anlagenfuhrer-recycling-m-w-d-process-operator-recycling-m-w-d-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagenfuhrer-recycling-m-w-d-process-operator-recycling-m-w-d-sika-ch",
-          "anlagenfuhrer-recycling-m-w-d-process-operatore-recycling-m-w-d-sika-sarnen"
+          "anlagenfuhrer-recycling-m-w-d-process-operator-recycling-m-w-d-sika-ch"
         ],
         "fr": [
           "anlagenfuhrer-recycling-m-w-d-process-operator-recycling-m-w-d-sika-ch"
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:00.845Z",
-      "needsRetranslation": true,
       "salaryMin": 127000,
       "salaryMax": 171000,
       "salarySource": "estimated",
@@ -1382,7 +1360,8 @@
           "maxValue": 171000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-3fe11d440497",
@@ -1438,8 +1417,7 @@
         "apprendistato-come-kaufmann-frau-cfc-2027-sika-sarnen",
         "apprenticeship-as-a-businessman-woman-efz-2027-sika-sarnen-obwalden-switzerland",
         "lehrstelle-als-kaufmann-frau-efz-2027-sika-ch",
-        "apprentissage-en-tant-qu-homme-d-affaires-femme-efz-2027-sika-sarnen-obwalden-switzerland",
-        "apprendistato-come-kunstofftechnologe-in-cfc-2027-sika-sarnen"
+        "apprentissage-en-tant-qu-homme-d-affaires-femme-efz-2027-sika-sarnen-obwalden-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1447,8 +1425,7 @@
           "apprendistato-come-kaufmann-frau-cfc-2027-sika-sarnen",
           "apprenticeship-as-a-businessman-woman-efz-2027-sika-sarnen-obwalden-switzerland",
           "lehrstelle-als-kaufmann-frau-efz-2027-sika-ch",
-          "apprentissage-en-tant-qu-homme-d-affaires-femme-efz-2027-sika-sarnen-obwalden-switzerland",
-          "apprendistato-come-kunstofftechnologe-in-cfc-2027-sika-sarnen"
+          "apprentissage-en-tant-qu-homme-d-affaires-femme-efz-2027-sika-sarnen-obwalden-switzerland"
         ],
         "en": [
           "lehrstelle-als-kunstofftechnologe-in-efz-2027-sika-ch",
@@ -1463,7 +1440,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:36:50.859Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -1476,7 +1452,8 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-4a7542c1eb1c",
@@ -1529,14 +1506,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-laborant-in-efz-2027-fachrichtung-chemie-sika-ch-2",
-        "lehrstelle-als-laborant-in-efz-2027-fachrichtung-chemie-sika-ch",
-        "apprendistato-come-laborant-in-cfc-2027-specializzazione-chemie-sika-sarnen"
+        "lehrstelle-als-laborant-in-efz-2027-fachrichtung-chemie-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-laborant-in-efz-2027-fachrichtung-chemie-sika-ch-2",
-          "lehrstelle-als-laborant-in-efz-2027-fachrichtung-chemie-sika-ch",
-          "apprendistato-come-laborant-in-cfc-2027-specializzazione-chemie-sika-sarnen"
+          "lehrstelle-als-laborant-in-efz-2027-fachrichtung-chemie-sika-ch"
         ],
         "en": [
           "lehrstelle-als-laborant-in-efz-2027-fachrichtung-chemie-sika-ch-2"
@@ -1611,14 +1586,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "palettierer-sika-ch",
-        "palettierer-sika-altstatten",
-        "palletizzatori-sika-altstatten-st-gallen-switzerland"
+        "palettierer-sika-altstatten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "palettierer-sika-ch",
-          "palettierer-sika-altstatten",
-          "palletizzatori-sika-altstatten-st-gallen-switzerland"
+          "palettierer-sika-altstatten"
         ],
         "en": [
           "palettierer-sika-ch"
@@ -1628,7 +1601,6 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:33:58.578Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1641,7 +1613,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-757e4a7d8e68",
@@ -1694,14 +1667,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "servicetechniker-dosieranlagen-100-w-m-d-sika-ch",
-        "servicetechniker-dosieranlagen-100-m-w-d-sika-widen",
-        "sistemi-di-dosaggio-tecnico-servizio-100-w-m-d-sika-widen-aargau-switzerland"
+        "servicetechniker-dosieranlagen-100-m-w-d-sika-widen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-dosieranlagen-100-w-m-d-sika-ch",
-          "servicetechniker-dosieranlagen-100-m-w-d-sika-widen",
-          "sistemi-di-dosaggio-tecnico-servizio-100-w-m-d-sika-widen-aargau-switzerland"
+          "servicetechniker-dosieranlagen-100-m-w-d-sika-widen"
         ],
         "en": [
           "servicetechniker-dosieranlagen-100-w-m-d-sika-ch"
@@ -1775,13 +1746,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-polymechaniker-in-efz-2027-sika-ch",
-        "apprendistato-polymechaniker-in-cfc-2027-sika-dudingen"
+        "lehrstelle-polymechaniker-in-efz-2027-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-polymechaniker-in-efz-2027-sika-ch",
-          "apprendistato-polymechaniker-in-cfc-2027-sika-dudingen"
+          "lehrstelle-polymechaniker-in-efz-2027-sika-ch"
         ],
         "en": [
           "lehrstelle-polymechaniker-in-efz-2027-sika-ch"
@@ -1791,7 +1760,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:56:50.007Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1804,7 +1772,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-75a953aa2ad5",
@@ -1856,13 +1825,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-logistiker-in-efz-2027-sika-ch",
-        "apprendistato-impiegato-a-in-logistica-cfc-2027-sika-dudingen"
+        "lehrstelle-logistiker-in-efz-2027-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-logistiker-in-efz-2027-sika-ch",
-          "apprendistato-impiegato-a-in-logistica-cfc-2027-sika-dudingen"
+          "lehrstelle-logistiker-in-efz-2027-sika-ch"
         ],
         "en": [
           "lehrstelle-logistiker-in-efz-2027-sika-ch"
@@ -1937,22 +1904,19 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "international-traineeship-program-a-i-technical-department-sika-ch",
-        "programme-de-stages-internationaux-a-et-i-departement-technique-sika-widen-aargau-switzerland",
-        "programma-internazionale-di-formazione-professionale-a-i-dipartimento-tecnico-sika-widen-aargau",
-        "international-traineeship-program-a-i-technical-department-sika-widen"
+        "international-traineeship-program-a-i-technical-department-sika-widen",
+        "programme-de-stages-internationaux-a-et-i-departement-technique-sika-widen-aargau-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "international-traineeship-program-a-i-technical-department-sika-ch",
-          "programma-internazionale-di-formazione-professionale-a-i-dipartimento-tecnico-sika-widen-aargau"
+          "international-traineeship-program-a-i-technical-department-sika-ch"
         ],
         "fr": [
-          "programme-de-stages-internationaux-a-et-i-departement-technique-sika-widen-aargau-switzerland",
-          "international-traineeship-program-a-i-technical-department-sika-widen"
+          "international-traineeship-program-a-i-technical-department-sika-widen",
+          "programme-de-stages-internationaux-a-et-i-departement-technique-sika-widen-aargau-switzerland"
         ]
       },
       "firstSeenAt": "2026-06-24T12:15:19.902Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -1965,7 +1929,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-a1eb943625a5",
@@ -2017,13 +1982,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anlagenfuhrer-w-m-process-operator-f-m-sika-ch",
-        "anlagenfuhrer-w-m-process-operatore-f-m-sika-dudingen"
+        "anlagenfuhrer-w-m-process-operator-f-m-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagenfuhrer-w-m-process-operator-f-m-sika-ch",
-          "anlagenfuhrer-w-m-process-operatore-f-m-sika-dudingen"
+          "anlagenfuhrer-w-m-process-operator-f-m-sika-ch"
         ],
         "en": [
           "anlagenfuhrer-w-m-process-operator-f-m-sika-ch"
@@ -2033,7 +1996,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:33:55.431Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "salarySource": "estimated",
@@ -2046,7 +2008,8 @@
           "maxValue": 95500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-880538c4d908",
@@ -2098,20 +2061,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "international-traineeship-program-a-i-key-account-manager-uk-sika-ch",
-        "programma-di-stage-internazionale-a-i-manager-di-account-chiave-uk-sika-widen-aargau-switzerland"
+        "international-traineeship-program-a-i-key-account-manager-uk-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "international-traineeship-program-a-i-key-account-manager-uk-sika-ch",
-          "programma-di-stage-internazionale-a-i-manager-di-account-chiave-uk-sika-widen-aargau-switzerland"
+          "international-traineeship-program-a-i-key-account-manager-uk-sika-ch"
         ],
         "de": [
           "international-traineeship-program-a-i-key-account-manager-uk-sika-ch"
         ]
       },
       "firstSeenAt": "2026-06-24T12:15:17.810Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -2124,7 +2084,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-b9b1302ac25b",
@@ -2254,13 +2215,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "laborant-sika-ch",
-        "laboratorio-sika-zurich-zurich"
+        "laborant-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laborant-sika-ch",
-          "laboratorio-sika-zurich-zurich"
+          "laborant-sika-ch"
         ],
         "en": [
           "laborant-sika-ch"
@@ -2270,7 +2229,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:04:47.537Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2283,7 +2241,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-2c2ce333f52e",
@@ -2335,13 +2294,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-facility-management-post-und-service-desk-80-100-m-w-d-sika-ch",
-        "collaboratore-trice-facility-management-post-e-service-desk-80-100-m-w-d-sika-sarnen"
+        "mitarbeiter-facility-management-post-und-service-desk-80-100-m-w-d-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-facility-management-post-und-service-desk-80-100-m-w-d-sika-ch",
-          "collaboratore-trice-facility-management-post-e-service-desk-80-100-m-w-d-sika-sarnen"
+          "mitarbeiter-facility-management-post-und-service-desk-80-100-m-w-d-sika-ch"
         ],
         "en": [
           "mitarbeiter-facility-management-post-und-service-desk-80-100-m-w-d-sika-ch"
@@ -2417,13 +2374,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "architect-sap-integration-sika-ch",
-          "senior-technical-consultant-sap-integration-sika-ch"
+          "architect-sap-integration-sika-ch"
         ],
         "it": [
           "senior-technical-consultant-sap-integration-sika-ch",
-          "architect-sap-integration-sika-ch",
-          "senior-technical-consulente-sap-integration-sika-zurich"
+          "architect-sap-integration-sika-ch"
         ],
         "de": [
           "senior-technical-consultant-sap-integration-sika-ch"
@@ -2431,8 +2386,7 @@
       },
       "previousSlugs": [
         "senior-technical-consultant-sap-integration-sika-ch",
-        "architect-sap-integration-sika-ch",
-        "senior-technical-consulente-sap-integration-sika-zurich"
+        "architect-sap-integration-sika-ch"
       ],
       "firstSeenAt": "2026-07-23T11:57:19.315Z",
       "salaryMin": 101500,
@@ -2499,17 +2453,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "accountant-administrator-80-100-m-w-d-sika-ch",
-        "amministratore-contabile-80-100-m-f-d-sika-sarnen-obwalden"
+        "accountant-administrator-80-100-m-w-d-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "accountant-administrator-80-100-m-w-d-sika-ch",
-          "amministratore-contabile-80-100-m-f-d-sika-sarnen-obwalden"
+          "accountant-administrator-80-100-m-w-d-sika-ch"
         ]
       },
       "firstSeenAt": "2026-09-19T23:04:44.056Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -2522,7 +2473,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-d98934919978",
@@ -2575,13 +2527,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fachspezialist-in-zutritts-und-schliessmanagement-real-estate-w-m-d-sika-ch",
-          "systemadministrator-mit-verantwortung-zutrittsmanagement-real-estate-w-m-d-sika-ch"
+          "fachspezialist-in-zutritts-und-schliessmanagement-real-estate-w-m-d-sika-ch"
         ],
         "it": [
           "systemadministrator-mit-verantwortung-zutrittsmanagement-real-estate-w-m-d-sika-ch",
-          "fachspezialist-in-zutritts-und-schliessmanagement-real-estate-w-m-d-sika-ch",
-          "amministratore-di-sistema-con-responsabilita-gestione-accesso-immobiliare-m-f-d-sika-zurich-zurich"
+          "fachspezialist-in-zutritts-und-schliessmanagement-real-estate-w-m-d-sika-ch"
         ],
         "en": [
           "systemadministrator-mit-verantwortung-zutrittsmanagement-real-estate-w-m-d-sika-ch"
@@ -2592,8 +2542,7 @@
       },
       "previousSlugs": [
         "systemadministrator-mit-verantwortung-zutrittsmanagement-real-estate-w-m-d-sika-ch",
-        "fachspezialist-in-zutritts-und-schliessmanagement-real-estate-w-m-d-sika-ch",
-        "amministratore-di-sistema-con-responsabilita-gestione-accesso-immobiliare-m-f-d-sika-zurich-zurich"
+        "fachspezialist-in-zutritts-und-schliessmanagement-real-estate-w-m-d-sika-ch"
       ],
       "firstSeenAt": "2026-09-19T23:04:42.838Z",
       "salaryMin": 73500,
@@ -2660,13 +2609,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-polymechaniker-efz-m-w-d-sika-ch",
-        "apprendistato-polymechaniker-cfc-m-w-d-sika-romanshorn"
+        "lehrstelle-polymechaniker-efz-m-w-d-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-polymechaniker-efz-m-w-d-sika-ch",
-          "apprendistato-polymechaniker-cfc-m-w-d-sika-romanshorn"
+          "lehrstelle-polymechaniker-efz-m-w-d-sika-ch"
         ],
         "en": [
           "lehrstelle-polymechaniker-efz-m-w-d-sika-ch"
@@ -2676,7 +2623,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:29:24.819Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -2689,7 +2635,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-95b84569df47",
@@ -2742,14 +2689,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-kunststofftechnologe-efz-m-w-d-sika-ch",
-        "lehrstelle-kunststofftechnologe-efz-sika-ch",
-        "apprendistato-kunststofftechnologe-cfc-m-w-d-sika-romanshorn"
+        "lehrstelle-kunststofftechnologe-efz-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-kunststofftechnologe-efz-m-w-d-sika-ch",
-          "lehrstelle-kunststofftechnologe-efz-sika-ch",
-          "apprendistato-kunststofftechnologe-cfc-m-w-d-sika-romanshorn"
+          "lehrstelle-kunststofftechnologe-efz-sika-ch"
         ],
         "en": [
           "lehrstelle-kunststofftechnologe-efz-m-w-d-sika-ch"
@@ -2759,7 +2704,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:29:23.952Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -2772,7 +2716,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-fc585964520e",
@@ -2830,8 +2775,7 @@
         "konstrukteur-m-w-d-sika-ch",
         "ingenieur-de-conception-m-f-d-sika-romanshorn-thurgau-switzerland",
         "konstrukteur-m-w-d-sika-romanshorn",
-        "lehrstelle-konstrukteur-efz-sika-ch",
-        "apprendistato-konstrukteur-cfc-m-w-d-sika-romanshorn"
+        "lehrstelle-konstrukteur-efz-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2841,8 +2785,7 @@
           "konstrukteur-m-w-d-sika-ch",
           "ingenieur-de-conception-m-f-d-sika-romanshorn-thurgau-switzerland",
           "konstrukteur-m-w-d-sika-romanshorn",
-          "lehrstelle-konstrukteur-efz-sika-ch",
-          "apprendistato-konstrukteur-cfc-m-w-d-sika-romanshorn"
+          "lehrstelle-konstrukteur-efz-sika-ch"
         ],
         "en": [
           "lehrstelle-konstrukteur-efz-m-w-d-sika-ch",
@@ -2857,7 +2800,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:29:22.601Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -2870,7 +2812,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-279a84ce4477",
@@ -3000,13 +2943,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "business-development-manager-adhesive-technologies-commercial-transportation-sika-ch",
-        "business-development-manager-tecnologie-adesive-trasporti-commerciali-sika-widen-aargau"
+        "business-development-manager-adhesive-technologies-commercial-transportation-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-development-manager-adhesive-technologies-commercial-transportation-sika-ch",
-          "business-development-manager-tecnologie-adesive-trasporti-commerciali-sika-widen-aargau"
+          "business-development-manager-adhesive-technologies-commercial-transportation-sika-ch"
         ],
         "de": [
           "business-development-manager-adhesive-technologies-commercial-transportation-sika-ch"
@@ -3016,7 +2957,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:04:36.555Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -3029,7 +2969,8 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-5912000fd803",
@@ -3081,13 +3022,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "betriebsmechaniker-sika-ch",
-        "betriebsmechaniker-sika-romanshorn"
+        "betriebsmechaniker-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmechaniker-sika-ch",
-          "betriebsmechaniker-sika-romanshorn"
+          "betriebsmechaniker-sika-ch"
         ]
       },
       "firstSeenAt": "2026-09-19T23:04:35.420Z",
@@ -3155,13 +3094,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-logistiker-in-efz-2027-sika-ch",
-        "apprendistato-come-logistiker-in-cfc-2027-sika-birr"
+        "lehrstelle-als-logistiker-in-efz-2027-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-logistiker-in-efz-2027-sika-ch",
-          "apprendistato-come-logistiker-in-cfc-2027-sika-birr"
+          "lehrstelle-als-logistiker-in-efz-2027-sika-ch"
         ],
         "en": [
           "lehrstelle-als-logistiker-in-efz-2027-sika-ch"
@@ -3171,7 +3108,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:27:27.990Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -3184,7 +3120,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-bc2af3250c8e",
@@ -3236,13 +3173,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "produktionsplaner-production-planner-sika-ch",
-        "pianificatore-di-produzione-pianificatore-di-produzione-sika-sarnen-obwalden"
+        "produktionsplaner-production-planner-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "produktionsplaner-production-planner-sika-ch",
-          "pianificatore-di-produzione-pianificatore-di-produzione-sika-sarnen-obwalden"
+          "produktionsplaner-production-planner-sika-ch"
         ],
         "en": [
           "produktionsplaner-production-planner-sika-ch"
@@ -3316,13 +3251,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "compliance-manager-sika-ch",
-        "responsabile-della-conformita-sika-baar-canton-of-zug"
+        "compliance-manager-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "compliance-manager-sika-ch",
-          "responsabile-della-conformita-sika-baar-canton-of-zug"
+          "compliance-manager-sika-ch"
         ],
         "fr": [
           "compliance-manager-sika-ch"
@@ -3394,13 +3327,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "intern-vertical-market-residential-sika-ch",
-        "tirocinante-vertical-market-residential-sika-zurich"
+        "intern-vertical-market-residential-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "intern-vertical-market-residential-sika-ch",
-          "tirocinante-vertical-market-residential-sika-zurich"
+          "intern-vertical-market-residential-sika-ch"
         ],
         "de": [
           "intern-vertical-market-residential-sika-ch"
@@ -3554,14 +3485,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-kauffrau-mann-efz-2027-sika-ch",
-        "apprendistato-come-kauffrau-mann-cfc-2027-sika-birr",
-        "apprendistato-come-uomo-d-affari-efz-2027-sika-birr-aargau"
+        "apprendistato-come-kauffrau-mann-cfc-2027-sika-birr"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-kauffrau-mann-efz-2027-sika-ch",
-          "apprendistato-come-kauffrau-mann-cfc-2027-sika-birr",
-          "apprendistato-come-uomo-d-affari-efz-2027-sika-birr-aargau"
+          "apprendistato-come-kauffrau-mann-cfc-2027-sika-birr"
         ],
         "en": [
           "lehrstelle-als-kauffrau-mann-efz-2027-sika-ch"
@@ -3571,7 +3500,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:04:26.508Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -3584,16 +3512,17 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-1f9bcd5b2c78",
-      "slug": "gestione-dei-dati-e-delle-soluzioni-digitali-sika-zurich",
+      "slug": "gestione-dei-dati-e-delle-soluzioni-digitali-sika-zurich-zurich",
       "slugByLocale": {
-        "it": "gestione-dei-dati-e-delle-soluzioni-digitali-sika-zurich",
         "en": "regulatory-data-digital-solutions-manager-sika-ch",
-        "de": "regulatorische-daten-digital-solutions-manager-sika-zurich",
-        "fr": "gestionnaire-de-donnees-et-de-solutions-numeriques-sika-zurich"
+        "it": "gestione-dei-dati-e-delle-soluzioni-digitali-sika-zurich-zurich",
+        "de": "regulatorische-daten-digital-solutions-manager-sika-zurich-zurich",
+        "fr": "gestionnaire-de-donnees-et-de-solutions-numeriques-sika-zurich-zurich"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -3636,21 +3565,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-25T14:51:09.823Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "regulatory-data-digital-solutions-manager-sika-ch"
-        ],
-        "de": [
-          "regulatory-data-digital-solutions-manager-sika-ch"
-        ],
-        "fr": [
-          "regulatory-data-digital-solutions-manager-sika-ch"
-        ]
-      },
-      "previousSlugs": [
-        "regulatory-data-digital-solutions-manager-sika-ch"
-      ],
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -3663,7 +3577,28 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-25T14:51:09.823Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "regulatory-data-digital-solutions-manager-sika-ch",
+          "gestione-dei-dati-e-delle-soluzioni-digitali-sika-zurich"
+        ],
+        "de": [
+          "regulatory-data-digital-solutions-manager-sika-ch",
+          "regulatorische-daten-digital-solutions-manager-sika-zurich"
+        ],
+        "fr": [
+          "regulatory-data-digital-solutions-manager-sika-ch",
+          "gestionnaire-de-donnees-et-de-solutions-numeriques-sika-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "regulatory-data-digital-solutions-manager-sika-ch",
+        "gestione-dei-dati-e-delle-soluzioni-digitali-sika-zurich",
+        "regulatorische-daten-digital-solutions-manager-sika-zurich",
+        "gestionnaire-de-donnees-et-de-solutions-numeriques-sika-zurich"
+      ]
     },
     {
       "id": "sika-d613c2147364",
@@ -3715,13 +3650,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chemielaborant-in-sika-ch",
-        "laboratorio-chimico-sika-zurich-zurich"
+        "chemielaborant-in-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chemielaborant-in-sika-ch",
-          "laboratorio-chimico-sika-zurich-zurich"
+          "chemielaborant-in-sika-ch"
         ],
         "en": [
           "chemielaborant-in-sika-ch"
@@ -3731,7 +3664,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:04:24.346Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -3744,7 +3676,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sika-34e5f88f35ec",
@@ -3796,13 +3729,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "supplier-quality-engineer-injection-molding-emea-sika-ch",
-        "supplier-quality-ingegnere-injection-molding-emea-sika-romanshorn"
+        "supplier-quality-engineer-injection-molding-emea-sika-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "supplier-quality-engineer-injection-molding-emea-sika-ch",
-          "supplier-quality-ingegnere-injection-molding-emea-sika-romanshorn"
+          "supplier-quality-engineer-injection-molding-emea-sika-ch"
         ],
         "de": [
           "supplier-quality-engineer-injection-molding-emea-sika-ch"

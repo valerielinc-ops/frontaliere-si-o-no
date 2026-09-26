@@ -7786,7 +7786,7 @@
       },
       "slugByLocale": {
         "it": "chef-chef-m-f-d-coop-genossenschaft-winterthur-8e06f9",
-        "en": "kochin-koch-w-m-d-coop-genossenschaft-winterthur",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-winterthur",
         "de": "kochin-koch-m-w-d-coop-winterthur-2o0q60",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-winterthur-8e06f9"
       },
@@ -7819,8 +7819,8 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-winterthur-2o0q60",
-          "chef-chef-m-f-d-coop-genossenschaft-winterthur",
-          "chef-chef-m-f-d-coop-genossenschaft-winterthur-2o0q60"
+          "chef-chef-m-f-d-coop-genossenschaft-winterthur-2o0q60",
+          "kochin-koch-w-m-d-coop-genossenschaft-winterthur"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-winterthur-2o0q60"
@@ -7829,8 +7829,8 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-winterthur-2o0q60",
         "kochin-koch-m-w-d-coop-winterthur",
-        "chef-chef-m-f-d-coop-genossenschaft-winterthur",
-        "chef-chef-m-f-d-coop-genossenschaft-winterthur-2o0q60"
+        "chef-chef-m-f-d-coop-genossenschaft-winterthur-2o0q60",
+        "kochin-koch-w-m-d-coop-genossenschaft-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -8602,7 +8602,7 @@
       },
       "slugByLocale": {
         "it": "chef-chef-m-f-d-coop-genossenschaft-zurich-95ca1a",
-        "en": "kochin-koch-w-m-d-coop-genossenschaft-zurich",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-zurich",
         "de": "kochin-koch-m-w-d-coop-ristorante-zurich-55jsrk",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-zurich-95ca1a"
       },
@@ -8636,8 +8636,8 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-ristorante-zurich-55jsrk",
-          "chef-chef-m-f-d-coop-genossenschaft-zurich",
-          "chef-chef-m-f-d-coop-genossenschaft-zurich-55jsrk"
+          "chef-chef-m-f-d-coop-genossenschaft-zurich-55jsrk",
+          "kochin-koch-w-m-d-coop-genossenschaft-zurich"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-ristorante-zurich-55jsrk"
@@ -8648,7 +8648,8 @@
         "kochin-koch-m-w-d-coop-ristorante-zurich-2",
         "chef-chef-m-f-d-coop-genossenschaft-zurich",
         "chef-chef-m-f-d-coop-genossenschaft-zurich-55jsrk",
-        "kochin-koch-m-w-d-coop-ristorante-zurich"
+        "kochin-koch-m-w-d-coop-ristorante-zurich",
+        "kochin-koch-w-m-d-coop-genossenschaft-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -12045,7 +12046,7 @@
         "it": "picker-in-packer-in-e-shop-60-coop-genossenschaft-langenthal",
         "en": "picker-in-packer-in-e-shop-60-coop-genossenschaft-langenthal",
         "de": "kommissionierer-in-verpacker-in-e-shop-60-coop-langenthal-1x4mhb",
-        "fr": "kommissionierer-in-verpacker-in-e-shop-60-coop-genossenschaft-langenthal"
+        "fr": "picker-160-dans-packer-160-dans-e-shop-60-coop-genossenschaft-langenthal"
       },
       "requirementsByLocale": {},
       "addressLocality": "Langenthal",
@@ -12069,7 +12070,7 @@
         ],
         "fr": [
           "kommissionierer-in-verpacker-in-e-shop-60-coop-langenthal-1x4mhb",
-          "picker-160-dans-packer-160-dans-e-shop-60-coop-genossenschaft-langenthal"
+          "kommissionierer-in-verpacker-in-e-shop-60-coop-genossenschaft-langenthal"
         ],
         "en": [
           "kommissionierer-in-verpacker-in-e-shop-60-coop-langenthal-1x4mhb"
@@ -12078,7 +12079,7 @@
       "previousSlugs": [
         "kommissionierer-in-verpacker-in-e-shop-60-coop-langenthal-1x4mhb",
         "kommissionierer-in-verpacker-in-e-shop-60-coop-langenthal",
-        "picker-160-dans-packer-160-dans-e-shop-60-coop-genossenschaft-langenthal"
+        "kommissionierer-in-verpacker-in-e-shop-60-coop-genossenschaft-langenthal"
       ],
       "salaryMin": 41100,
       "salaryMax": 62400,
@@ -12209,7 +12210,7 @@
         "it": "picker-in-packer-in-e-shop-40-coop-genossenschaft-langenthal",
         "en": "picker-in-packer-in-e-shop-40-coop-genossenschaft-langenthal",
         "de": "kommissionierer-in-verpacker-in-e-shop-40-coop-langenthal-sli94y",
-        "fr": "kommissionierer-in-verpacker-in-e-shop-40-coop-genossenschaft-langenthal"
+        "fr": "picker-160-dans-packer-160-dans-e-shop-40-coop-genossenschaft-langenthal"
       },
       "requirementsByLocale": {},
       "addressLocality": "Langenthal",
@@ -12233,7 +12234,7 @@
         ],
         "fr": [
           "kommissionierer-in-verpacker-in-e-shop-40-coop-langenthal-sli94y",
-          "picker-160-dans-packer-160-dans-e-shop-40-coop-genossenschaft-langenthal"
+          "kommissionierer-in-verpacker-in-e-shop-40-coop-genossenschaft-langenthal"
         ],
         "en": [
           "kommissionierer-in-verpacker-in-e-shop-40-coop-langenthal-sli94y"
@@ -12242,7 +12243,7 @@
       "previousSlugs": [
         "kommissionierer-in-verpacker-in-e-shop-40-coop-langenthal-sli94y",
         "kommissionierer-in-verpacker-in-e-shop-40-coop-langenthal",
-        "picker-160-dans-packer-160-dans-e-shop-40-coop-genossenschaft-langenthal"
+        "kommissionierer-in-verpacker-in-e-shop-40-coop-genossenschaft-langenthal"
       ],
       "salaryMin": 27400,
       "salaryMax": 41600,
@@ -16059,7 +16060,7 @@
       },
       "slugByLocale": {
         "it": "chef-chef-m-f-d-coop-genossenschaft-bern-f15ffc",
-        "en": "kochin-koch-w-m-d-coop-genossenschaft-bern",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-bern",
         "de": "kochin-koch-m-w-d-coop-ristorante-bern-d2pftm",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-bern-f15ffc"
       },
@@ -16092,8 +16093,8 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-ristorante-bern-d2pftm",
-          "chef-chef-m-f-d-coop-genossenschaft-bern",
-          "chef-chef-m-f-d-coop-genossenschaft-bern-d2pftm"
+          "chef-chef-m-f-d-coop-genossenschaft-bern-d2pftm",
+          "kochin-koch-w-m-d-coop-genossenschaft-bern"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-ristorante-bern-d2pftm"
@@ -16102,8 +16103,8 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-ristorante-bern-d2pftm",
         "kochin-koch-m-w-d-coop-ristorante-bern",
-        "chef-chef-m-f-d-coop-genossenschaft-bern",
-        "chef-chef-m-f-d-coop-genossenschaft-bern-d2pftm"
+        "chef-chef-m-f-d-coop-genossenschaft-bern-d2pftm",
+        "kochin-koch-w-m-d-coop-genossenschaft-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -30958,7 +30959,7 @@
       },
       "slugByLocale": {
         "it": "cooker-m-f-d-coop-genossenschaft-balgach",
-        "en": "kochin-koch-m-w-d-coop-genossenschaft-balgach",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-balgach",
         "de": "kochin-koch-m-w-d-coop-ristorante-balgach-sankt-gallen-7ubws3",
         "fr": "cuisiniere-h-f-d-coop-genossenschaft-balgach"
       },
@@ -30991,7 +30992,7 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-ristorante-balgach-sankt-gallen-7ubws3",
-          "chef-chef-m-f-d-coop-genossenschaft-balgach"
+          "kochin-koch-m-w-d-coop-genossenschaft-balgach"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-ristorante-balgach-sankt-gallen-7ubws3"
@@ -31000,7 +31001,7 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-ristorante-balgach-sankt-gallen-7ubws3",
         "kochin-koch-m-w-d-coop-ristorante-balgach-sankt-gallen",
-        "chef-chef-m-f-d-coop-genossenschaft-balgach"
+        "kochin-koch-m-w-d-coop-genossenschaft-balgach"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -31189,7 +31190,7 @@
     },
     {
       "id": "company-f1nnj1",
-      "slug": "cheffe-chef-de-rayon-poissonnerie-f-h-d-coop-genossenschaft-chene-bougeries",
+      "slug": "cheff-chef-de-ray-poissonerie-m-f-d-coop-genossenschaft-chene-bougeries",
       "company": "Coop Genossenschaft",
       "title": "Cheffe / Chef de rayon Poissonnerie (f/h/d)",
       "location": "Chêne-Bougeries",
@@ -31229,7 +31230,7 @@
         "fr": "## Cheffe / Chef de rayon Poissonnerie (f/h/d)\n\n**Coop Genossenschaft** — Chêne-Bougeries, Genève, Svizzera\n\n## Mission\n- Vous gérez le rayon Produits convenience et Poisson avec pour objectif de garantir des produits frais et une agréable expérience d'achat.\n- Votre mission: proposer des produits toujours frais qui mettent l'eau à la bouche.\n- La clientèle apprécie votre accompagnement et vos conseils avisés.\n- Le respect mutuel est votre mot d'ordre au quotidien et garantit un bon esprit d'équipe.\n\n## Compétences requises\n- Vous êtes au bénéfice d'une formation initiale de cuisinière/cuisinier dans le commerce de détail ou disposez d'une expérience professionnelle équivalente dans le secteur Produits convenience/Viande? Alors vous êtes la personne qu'il nous faut.\n- Vous avez de l'expérience dans la conduite de personnel et la vente, idéalement dans le secteur du poisson.\n- Vous avez un bon niveau de français, à l'écrit comme à l'oral.\n- Vous êtes flexible en termes d'horaires de travail.\n- Vous êtes à l'aise dans le maniement des outils informatiques.\n- Rabais et réductions: rabais sur les voyages chez ITS Coop Travel, 5 fois plus de superpoints dans les supermarchés, jusqu'à 20% de rabais sur diverses prestations d'assurance, jusqu'à 20% de rabais dans tous les formats du groupe Coop, abonnements mobiles et prépayés à prix réduit chez Coop Mobile, réduction sur la Reka Card, réduction sur les tarifs de Mobility CarSharing, rabais au personnel accordé aussi au/à la partenaire (vivant sous le même toit), abonnement général à prix réduit, entrées à prix réduit à des manifestations culturelles, entrées à prix réduit à des activités de loisirs\n- Conditions d'engagement. caisse de pension: prise en charge par Coop des 2/3 des cotisations, conditions d'engagement attrayantes et égalité salariale garantie, primes d'ancienneté, plan d'épargne à la caisse de pension, Convention collective de travail (CCT), dispositif de RA souple et attrayant pour un départ anticipé à la retraite à partir de l'âge de 58 ans révolus, 18 semaines de congé de maternité payé et 3 semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles horaires souples\n- Formation continue: Plus de 600 cours de formation interne, Gestion des talents avec de nombreuses et diverses possibilités de développement, pour les formations et les cours de perfectionnement externes\n- Développement durable: Un engagement envers l'homme, les animaux et la nature avec plus de 400 actes\n- Communication: appli interne dédiée au personnel\n- Santé: Update-Fitness: Fr. 200.– de réduction sur l'abonnement annuel, participation gratuite à différentes courses d'entreprise, activités sportives proposées par l'entreprise\n\n## Votre personne de contact\nViviane Natsch-Artmann\nRH Marketing\n\n**Tipo:** Full-time\n**Sede:** Chêne-Bougeries"
       },
       "slugByLocale": {
-        "it": "cheffe-chef-de-rayon-poissonnerie-f-h-d-coop-genossenschaft-chene-bougeries",
+        "it": "cheff-chef-de-ray-poissonerie-m-f-d-coop-genossenschaft-chene-bougeries",
         "en": "cheffe-chef-de-rayon-poissonnerie-m-w-d-coop-chene-bougeries-f1nnj1",
         "de": "cheff-chef-de-ray-poissonerie-m-w-d-coop-genossenschaft-chene-bougeries",
         "fr": "cheffe-chef-de-rayon-poissonnerie-m-w-d-coop-chene-bougeries-f1nnj1"
@@ -31261,7 +31262,7 @@
         "it": [
           "cheffe-chef-de-rayon-poissonnerie-m-w-d-coop-chene-bougeries",
           "cheffe-chef-de-rayon-poissonnerie-m-w-d-coop-chene-bougeries-f1nnj1",
-          "cheff-chef-de-ray-poissonerie-m-f-d-coop-genossenschaft-chene-bougeries"
+          "cheffe-chef-de-rayon-poissonnerie-f-h-d-coop-genossenschaft-chene-bougeries"
         ],
         "de": [
           "cheffe-chef-de-rayon-poissonnerie-m-w-d-coop-chene-bougeries-f1nnj1"
@@ -31270,7 +31271,7 @@
       "previousSlugs": [
         "cheffe-chef-de-rayon-poissonnerie-m-w-d-coop-chene-bougeries",
         "cheffe-chef-de-rayon-poissonnerie-m-w-d-coop-chene-bougeries-f1nnj1",
-        "cheff-chef-de-ray-poissonerie-m-f-d-coop-genossenschaft-chene-bougeries"
+        "cheffe-chef-de-rayon-poissonnerie-f-h-d-coop-genossenschaft-chene-bougeries"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -61008,9 +61009,9 @@
         "vendeur-dans-la-nourriture-coop-genossenschaft-kandersteg"
       ],
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/af75df6a-5d1e-4cd6-a377-aad18974aae3",
-      "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/af75df6a-5d1e-4cd6-a377-aad18974aae3",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/af75df6a-5d1e-4cd6-a377-aad18974aae3"
     },
     {
       "id": "company-qkt4wt",
@@ -63655,9 +63656,9 @@
         "vendeur-dans-la-nourriture-coop-genossenschaft-fehraltorf"
       ],
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/6cb2a3ab-a92d-4919-ab9b-5c42e7825837",
-      "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/6cb2a3ab-a92d-4919-ab9b-5c42e7825837",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/6cb2a3ab-a92d-4919-ab9b-5c42e7825837"
     },
     {
       "id": "company-l7qaoc",
@@ -64917,9 +64918,9 @@
         "vendeur-dans-la-nourriture-coop-genossenschaft-illnau-effretikon"
       ],
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/5e66fa8c-c8bc-4355-ae02-2a57bc8d403b",
-      "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/5e66fa8c-c8bc-4355-ae02-2a57bc8d403b",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/5e66fa8c-c8bc-4355-ae02-2a57bc8d403b"
     },
     {
       "id": "company-tkmi5g",
@@ -65276,7 +65277,7 @@
         "it": "risorse-umane-business-partner-m-w-d-coop-bern-ny3n0d",
         "en": "hr-business-partner-m-w-d-coop-bern-ny3n0d",
         "de": "personalwesen-business-partner-m-w-d-coop-bern-ny3n0d",
-        "fr": "hr-business-partner-m-w-d-coop-genossenschaft-bern"
+        "fr": "partenaire-d-affaires-rh-h-f-d-coop-genossenschaft-bern"
       },
       "addressLocality": "Bern",
       "sourceLang": "de",
@@ -65305,7 +65306,7 @@
         "fr": [
           "hr-business-partner-m-w-d-coop-gossau-sankt-gallen-oc615m",
           "hr-business-partner-m-w-d-coop-bern-ny3n0d",
-          "partenaire-d-affaires-rh-h-f-d-coop-genossenschaft-bern"
+          "hr-business-partner-m-w-d-coop-genossenschaft-bern"
         ]
       },
       "previousSlugs": [
@@ -65315,7 +65316,7 @@
         "hr-business-partner-m-w-d-coop-gossau-sankt-gallen",
         "hr-business-partner-m-w-d-coop-bern-ny3n0d",
         "hr-business-partner-m-w-d-coop-bern",
-        "partenaire-d-affaires-rh-h-f-d-coop-genossenschaft-bern"
+        "hr-business-partner-m-w-d-coop-genossenschaft-bern"
       ],
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/hr-business-partner-w-m-d/b4b030fc-da11-42d8-b312-51d11e28e5bb",
       "salaryMin": 68500,
@@ -65410,9 +65411,9 @@
         "vendeur-dans-la-nourriture-coop-genossenschaft-ruegsau"
       ],
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/98453393-5ae6-4c71-ad4f-afadcf0a4dc1",
-      "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/98453393-5ae6-4c71-ad4f-afadcf0a4dc1",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/98453393-5ae6-4c71-ad4f-afadcf0a4dc1"
     },
     {
       "id": "company-60dval",
@@ -65582,9 +65583,9 @@
         "vendeur-dans-la-nourriture-coop-genossenschaft-balgach"
       ],
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/a115d7d0-18b5-4321-892a-41de27c03bc7",
-      "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/a115d7d0-18b5-4321-892a-41de27c03bc7",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/a115d7d0-18b5-4321-892a-41de27c03bc7"
     },
     {
       "id": "company-cxaxm8",
@@ -67516,9 +67517,9 @@
         "produits-alimentaires-vendus-coop-genossenschaft-wattenwil"
       ],
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/346e937c-d10f-4f51-9fa1-c5aa3cec5f16",
-      "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/346e937c-d10f-4f51-9fa1-c5aa3cec5f16",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/346e937c-d10f-4f51-9fa1-c5aa3cec5f16"
     },
     {
       "id": "company-c10tm0",
@@ -67810,9 +67811,9 @@
         "produits-alimentaires-vendus-coop-genossenschaft-seuzach"
       ],
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/d9f29cd9-ced6-4b4e-b3c1-a786e35aa33c",
-      "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/d9f29cd9-ced6-4b4e-b3c1-a786e35aa33c",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/d9f29cd9-ced6-4b4e-b3c1-a786e35aa33c"
     },
     {
       "id": "company-krhzhz",

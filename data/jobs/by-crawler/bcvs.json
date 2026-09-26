@@ -9,7 +9,7 @@
         "it": "personale-credito-back-office-banque-cantonale-du-valais-sion",
         "en": "personnel-credit-back-office-banque-cantonale-du-valais-sion",
         "de": "sachbearbeiter-in-kredit-backoffice-bcvs-sion",
-        "fr": "employe-de-bureau-de-pret-banque-cantonale-du-valais-sion"
+        "fr": "personnel-departement-crediteur-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -53,22 +53,18 @@
       "previousSlugs": [
         "sachbearbeiter-in-kredit-backoffice-bcvs-sion",
         "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
-        "personnel-departement-crediteur-banque-cantonale-du-valais-sion",
-        "personale-credito-back-office-banque-cantonale-du-valais-sion",
         "employe-de-bureau-de-pret-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-kredit-backoffice-bcvs-sion",
-          "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
-          "personale-credito-back-office-banque-cantonale-du-valais-sion"
+          "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion"
         ],
         "en": [
           "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion"
         ],
         "fr": [
           "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
-          "personnel-departement-crediteur-banque-cantonale-du-valais-sion",
           "employe-de-bureau-de-pret-banque-cantonale-du-valais-sion"
         ]
       },
@@ -154,13 +150,11 @@
       },
       "previousSlugs": [
         "hr-business-partner-bcvs-sion",
-        "hr-business-partner-banque-cantonale-du-valais-sion",
-        "risorse-umane-business-partner-banque-cantonale-du-valais-sion"
+        "hr-business-partner-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-business-partner-bcvs-sion",
-          "risorse-umane-business-partner-banque-cantonale-du-valais-sion"
+          "hr-business-partner-bcvs-sion"
         ],
         "de": [
           "hr-business-partner-bcvs-sion"
@@ -253,13 +247,11 @@
       },
       "previousSlugs": [
         "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny",
-        "conseiller-ere-clientele-des-prives-individuelle-banque-cantonale-du-valais-martigny",
-        "consulente-privato-cliente-individuale-banque-cantonale-du-valais-martigny"
+        "conseiller-ere-clientele-des-prives-individuelle-banque-cantonale-du-valais-martigny"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny",
-          "consulente-privato-cliente-individuale-banque-cantonale-du-valais-martigny"
+          "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny"
         ],
         "en": [
           "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny"
@@ -272,7 +264,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:49:34.583Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -285,7 +276,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bcvs-479c7c8ed449",

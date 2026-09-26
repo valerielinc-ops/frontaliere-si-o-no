@@ -240,8 +240,8 @@
       "id": "fisba-9b88586a6270",
       "slug": "applicazione-spontanea-non-richiesta-fisba-ag-st-gallen",
       "slugByLocale": {
-        "it": "applicazione-spontanea-non-richiesta-fisba-ag-st-gallen",
         "en": "spontaneous-unsolicited-application-st-gallen-fisba-ch",
+        "it": "applicazione-spontanea-non-richiesta-fisba-ag-st-gallen",
         "de": "spontane-unaufgeforderte-anwendung-fisba-ag-st-gallen",
         "fr": "demande-spontanee-fisba-ag-st-gallen"
       },
@@ -284,6 +284,19 @@
       "applyUrl": "https://fisba.com/en/jobs/spontaneous-unsolicited-application",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
       "firstSeenAt": "2026-09-25T15:09:05.587Z",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
@@ -299,20 +312,7 @@
       },
       "previousSlugs": [
         "spontaneous-unsolicited-application-st-gallen-fisba-ch"
-      ],
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     }
   ]
 }

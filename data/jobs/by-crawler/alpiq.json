@@ -6,7 +6,9 @@
       "id": "alpiq-49d8995dc2b6",
       "slug": "technische-r-betriebsmitarbeiter-in-wasserkraftwerk-gosgen-alpiq-niedergosgen",
       "slugByLocale": {
-        "it": "technische-r-betriebsmitarbeiter-in-wasserkraftwerk-gosgen-alpiq-niedergosgen"
+        "it": "technische-r-betriebsmitarbeiter-in-wasserkraftwerk-gosgen-alpiq-niedergosgen",
+        "en": "technical-r-operational-employee-hydropower-plant-gosgen-alpiq-niedergosgen",
+        "fr": "technique-r-employes-operationnels-centrale-hydroelectrique-gosgen-alpiq-niedergosgen"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -44,7 +46,6 @@
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-09-26T14:21:48.975Z",
-      "firstSeenAt": "2026-09-25T15:00:06.553Z",
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -57,7 +58,8 @@
           "maxValue": 140000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-25T15:00:06.553Z"
     },
     {
       "id": "alpiq-8ca59717291e",
@@ -116,17 +118,7 @@
           "maxValue": 179500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "project-manager-hydropower-alpiq-switzerland",
-          "gestione-del-progetto-hydropower-alpiq-lausanne"
-        ]
-      },
-      "previousSlugs": [
-        "project-manager-hydropower-alpiq-switzerland",
-        "gestione-del-progetto-hydropower-alpiq-lausanne"
-      ]
+      }
     },
     {
       "id": "alpiq-c58e916d1b0b",

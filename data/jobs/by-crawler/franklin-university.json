@@ -6,10 +6,10 @@
       "id": "franklin-university-f0ff46335a56",
       "slug": "vice-presidente-della-direzione-iscrizioni-franklin-university-switzerland-sorengo",
       "slugByLocale": {
-        "it": "vice-presidente-della-direzione-iscrizioni-franklin-university-switzerland-sorengo",
         "en": "vice-president-of-enrollment-management-sorengo-franklin-university",
+        "it": "vice-presidente-della-direzione-iscrizioni-franklin-university-switzerland-sorengo",
         "de": "vizeprasidentin-fur-enrollment-management-franklin-university-switzerland-sorengo",
-        "fr": "vice-president-of-enrollment-management-sorengo-franklin-university"
+        "fr": "vice-president-de-la-gestion-des-inscriptions-franklin-university-switzerland-sorengo"
       },
       "company": "Franklin University Switzerland",
       "companyKey": "franklin-university",
@@ -47,19 +47,6 @@
       "source": "Franklin University Switzerland Dedicated Parser",
       "sourceLang": "en",
       "crawledAt": "2026-09-26T14:11:05.024Z",
-      "firstSeenAt": "2026-07-08T11:31:39.336Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "vice-president-of-enrollment-management-sorengo-franklin-university"
-        ],
-        "de": [
-          "vice-president-of-enrollment-management-sorengo-franklin-university"
-        ]
-      },
-      "previousSlugs": [
-        "vice-president-of-enrollment-management-sorengo-franklin-university"
-      ],
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -73,7 +60,23 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-08T11:31:39.336Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "vice-president-of-enrollment-management-sorengo-franklin-university"
+        ],
+        "de": [
+          "vice-president-of-enrollment-management-sorengo-franklin-university"
+        ],
+        "fr": [
+          "vice-president-of-enrollment-management-sorengo-franklin-university"
+        ]
+      },
+      "previousSlugs": [
+        "vice-president-of-enrollment-management-sorengo-franklin-university"
+      ]
     }
   ]
 }

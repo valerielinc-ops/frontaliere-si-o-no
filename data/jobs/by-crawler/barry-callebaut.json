@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "commercio-di-derivati-del-cacao-senior-barry-callebaut-zurich",
         "en": "senior-cocoa-derivatives-trader-barry-callebaut-ch",
-        "de": "cocoa-derivatives-trader-barry-callebaut-zurich",
+        "de": "kakaoderivatehandler-barry-callebaut-zurich",
         "fr": "metier-principal-des-derives-du-cacao-barry-callebaut-zurich"
       },
       "company": "Barry Callebaut",
@@ -51,19 +51,15 @@
       "previousSlugs": [
         "senior-cocoa-derivatives-trader-barry-callebaut-ch",
         "cocoa-derivatives-trader-barry-callebaut-ch",
-        "kakaoderivatehandler-barry-callebaut-zurich",
-        "commercio-di-derivati-del-cacao-senior-barry-callebaut-zurich",
         "cocoa-derivatives-trader-barry-callebaut-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-cocoa-derivatives-trader-barry-callebaut-ch",
-          "cocoa-derivatives-trader-barry-callebaut-ch",
-          "commercio-di-derivati-del-cacao-senior-barry-callebaut-zurich"
+          "cocoa-derivatives-trader-barry-callebaut-ch"
         ],
         "de": [
           "senior-cocoa-derivatives-trader-barry-callebaut-ch",
-          "kakaoderivatehandler-barry-callebaut-zurich",
           "cocoa-derivatives-trader-barry-callebaut-zurich"
         ],
         "fr": [
@@ -71,7 +67,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T21:57:23.365Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -85,7 +80,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "barry-callebaut-799d5eeb0258",
@@ -171,7 +167,7 @@
         "it": "direttore-digital-finanza-co-barry-callebaut-zurich",
         "en": "director-digital-finance-co-barry-callebaut-ch",
         "de": "direktor-digital-finanzen-co-barry-callebaut-zurich",
-        "fr": "director-digital-finance-co-barry-callebaut-zurich"
+        "fr": "directeur-finances-numeriques-co-barry-callebaut-zurich"
       },
       "company": "Barry Callebaut",
       "companyKey": "barry-callebaut",
@@ -212,24 +208,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "director-digital-finance-co-barry-callebaut-ch",
-        "directeur-finances-numeriques-co-barry-callebaut-zurich",
-        "direttore-digital-finanza-co-barry-callebaut-zurich"
+        "director-digital-finance-co-barry-callebaut-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-digital-finance-co-barry-callebaut-ch",
-          "direttore-digital-finanza-co-barry-callebaut-zurich"
+          "director-digital-finance-co-barry-callebaut-ch"
         ],
         "de": [
           "director-digital-finance-co-barry-callebaut-ch"
         ],
         "fr": [
           "director-digital-finance-co-barry-callebaut-ch",
-          "directeur-finances-numeriques-co-barry-callebaut-zurich"
+          "director-digital-finance-co-barry-callebaut-zurich"
         ]
       },
       "firstSeenAt": "2026-09-24T14:28:51.136Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -243,7 +236,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     }
   ]
 }

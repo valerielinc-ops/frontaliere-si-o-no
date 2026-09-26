@@ -66,14 +66,12 @@
       },
       "previousSlugs": [
         "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne",
-        "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne",
-        "avviso-occupato-del-trade-swc-omega-sa-biel-bienne"
+        "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne",
-          "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne",
-          "avviso-occupato-del-trade-swc-omega-sa-biel-bienne"
+          "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne"
         ],
         "en": [
           "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne"
@@ -83,7 +81,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:52:48.559Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -96,7 +93,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "omega-32963",
@@ -163,14 +161,12 @@
       },
       "previousSlugs": [
         "apprentissage-de-cuisinier-ere-cfc-omega-biel-bienne",
-        "apprentissage-de-cuisinier-ere-cfc-omega-sa-biel-bienne",
-        "attenzione-del-cucato-omega-sa-biel-bienne"
+        "apprentissage-de-cuisinier-ere-cfc-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-de-cuisinier-ere-cfc-omega-biel-bienne",
-          "apprentissage-de-cuisinier-ere-cfc-omega-sa-biel-bienne",
-          "attenzione-del-cucato-omega-sa-biel-bienne"
+          "apprentissage-de-cuisinier-ere-cfc-omega-sa-biel-bienne"
         ],
         "en": [
           "apprentissage-de-cuisinier-ere-cfc-omega-biel-bienne"
@@ -180,7 +176,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:37:18.891Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -193,7 +188,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "omega-33095",
@@ -359,13 +355,11 @@
         ]
       },
       "previousSlugs": [
-        "creative-marketing-project-manager-omega-biel-bienne",
-        "progetto-di-mercato-creative-omega-sa-biel-bienne"
+        "creative-marketing-project-manager-omega-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "creative-marketing-project-manager-omega-biel-bienne",
-          "progetto-di-mercato-creative-omega-sa-biel-bienne"
+          "creative-marketing-project-manager-omega-biel-bienne"
         ],
         "en": [
           "creative-marketing-project-manager-omega-biel-bienne"
@@ -375,7 +369,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:18:05.824Z",
-      "needsRetranslation": true,
       "salaryMin": 106500,
       "salaryMax": 188500,
       "salarySource": "estimated",
@@ -388,7 +381,8 @@
           "maxValue": 188500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "omega-33153",
@@ -543,8 +537,7 @@
           "sales-representative-m-w-80-omega-boutique-bern-omega-berne"
         ],
         "en": [
-          "supporting-representatives-m-f-omega-sa-berne",
-          "sales-representative-m-w-d-80-omega-boutique-bern-omega-sa-berne"
+          "supporting-representatives-m-f-omega-sa-berne"
         ]
       },
       "firstSeenAt": "2026-09-19T23:17:22.823Z",
@@ -732,14 +725,12 @@
       },
       "previousSlugs": [
         "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne",
-        "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne",
-        "attenzione-della-produzione-di-cfc-omega-sa-biel-bienne"
+        "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne",
-          "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne",
-          "attenzione-della-produzione-di-cfc-omega-sa-biel-bienne"
+          "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne"
         ],
         "en": [
           "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne"
@@ -749,7 +740,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:53:10.043Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -762,16 +752,17 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "omega-33245",
       "slug": "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
       "slugByLocale": {
+        "fr": "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
         "it": "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
-        "en": "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
-        "de": "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
-        "fr": "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
+        "en": "operational-learning-omega-sa-biel-bienne",
+        "de": "betriebliches-lernen-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -833,16 +824,20 @@
           "Très bonnes connaissances du français"
         ]
       },
-      "previousSlugs": [
-        "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
+        ],
+        "en": [
+          "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
+        ],
+        "de": [
+          "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
         ]
       },
-      "firstSeenAt": "2026-07-28T11:52:27.421Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
+      ],
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -855,16 +850,18 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-28T11:52:27.421Z",
+      "needsRetranslation": true
     },
     {
       "id": "omega-33244",
       "slug": "apprentissage-horloger-ere-cfc-omega-sa-biel-bienne",
       "slugByLocale": {
+        "fr": "apprentissage-horloger-ere-cfc-omega-biel-bienne",
         "it": "apprentissage-horloger-ere-cfc-omega-sa-biel-bienne",
-        "en": "apprentissage-horloger-ere-cfc-omega-biel-bienne",
-        "de": "apprentissage-horloger-ere-cfc-omega-biel-bienne",
-        "fr": "apprentissage-horloger-ere-cfc-omega-biel-bienne"
+        "en": "learning-horland-cfc-omega-sa-biel-bienne",
+        "de": "lernen-horland-cfc-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -928,16 +925,20 @@
           "Esprit méthodique et capacité à persévérer"
         ]
       },
-      "previousSlugs": [
-        "apprentissage-horloger-ere-cfc-omega-biel-bienne"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-horloger-ere-cfc-omega-biel-bienne"
+        ],
+        "en": [
+          "apprentissage-horloger-ere-cfc-omega-biel-bienne"
+        ],
+        "de": [
+          "apprentissage-horloger-ere-cfc-omega-biel-bienne"
         ]
       },
-      "firstSeenAt": "2026-07-28T11:53:31.231Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "apprentissage-horloger-ere-cfc-omega-biel-bienne"
+      ],
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -950,7 +951,9 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-28T11:53:31.231Z",
+      "needsRetranslation": true
     },
     {
       "id": "omega-33057",
