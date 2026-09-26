@@ -2867,7 +2867,7 @@
       "slugByLocale": {
         "it": "direttore-progetto-generale-linea-diretta-neuchatel-la-chaux-de-fonds-ffs-officine-ferrovie-federali-renens-vd",
         "en": "general-project-manager-neuchatel-la-chaux-de-fonds-direct-line-ffs-officine-ferrovie-federali-renens-vd",
-        "de": "chef-fe-de-projet-general-ligne-directe-neuchatel-la-chaux-de-fonds-ffs-officine-ferrovie-federali-renens-vd",
+        "de": "leiter-des-allgemeinen-projekts-direkte-linie-neuchatel-la-chaux-de-fonds-ffs-officine-ferrovie-federali-renens-vd",
         "fr": "chef-fe-de-projet-general-ligne-directe-neuchatel-la-chaux-de-fonds-ffs-officine-ferrovie-federali-renens-vd"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -2922,19 +2922,19 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/cheffe-de-projet-general-ligne-directe-neuchatel-la-chaux-de-fonds/cd82c9b7-e643-44b5-83c7-f842f5a2457b",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-09-26T14:10:21.826Z",
-      "previousSlugs": [
-        "chef-fe-de-projet-general-ligne-directe-neuchatel-la-chaux-de-fonds-ffs-officine-ferrovie-federali-renens-vd",
-        "gesamtprojektleiter-neuchatel-la-chaux-de-fonds-direktleitung-ffs-officine-ferrovie-federali-renens-vd"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "chef-fe-de-projet-general-ligne-directe-neuchatel-la-chaux-de-fonds-ffs-officine-ferrovie-federali-renens-vd"
         ],
         "de": [
-          "gesamtprojektleiter-neuchatel-la-chaux-de-fonds-direktleitung-ffs-officine-ferrovie-federali-renens-vd"
+          "gesamtprojektleiter-neuchatel-la-chaux-de-fonds-direktleitung-ffs-officine-ferrovie-federali-renens-vd",
+          "chef-fe-de-projet-general-ligne-directe-neuchatel-la-chaux-de-fonds-ffs-officine-ferrovie-federali-renens-vd"
         ]
       },
-      "firstSeenAt": "2026-09-25T15:01:00.329Z",
+      "previousSlugs": [
+        "chef-fe-de-projet-general-ligne-directe-neuchatel-la-chaux-de-fonds-ffs-officine-ferrovie-federali-renens-vd",
+        "gesamtprojektleiter-neuchatel-la-chaux-de-fonds-direktleitung-ffs-officine-ferrovie-federali-renens-vd"
+      ],
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -2951,6 +2951,7 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/cheffe-de-projet-general-ligne-directe-neuchatel-la-chaux-de-fonds/cd82c9b7-e643-44b5-83c7-f842f5a2457b",
+      "firstSeenAt": "2026-09-25T15:01:00.329Z",
       "needsRetranslation": true
     },
     {
@@ -11232,9 +11233,9 @@
       "slug": "riciclatore-in-ffs-officine-ferrovie-federali-trimbach",
       "slugByLocale": {
         "it": "riciclatore-in-ffs-officine-ferrovie-federali-trimbach",
-        "en": "recycling-specialist-ffs-officine-ferrovie-federali-trimbach",
+        "en": "recycler-ffs-officine-ferrovie-federali-trimbach",
         "de": "recyclist-in-ffs-officine-ferrovie-federali-trimbach",
-        "fr": "specialiste-en-recyclage-ffs-officine-ferrovie-federali-trimbach"
+        "fr": "recycler-ffs-officine-ferrovie-federali-trimbach"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -11291,7 +11292,6 @@
       "previousSlugs": [
         "recyclist-in-ffs-officine-ferrovie-federali-trimbach",
         "recycleur-ffs-officine-ferrovie-federali-trimbach",
-        "recycler-ffs-officine-ferrovie-federali-trimbach",
         "recycling-specialist-ffs-officine-ferrovie-federali-trimbach",
         "specialiste-en-recyclage-ffs-officine-ferrovie-federali-trimbach"
       ],
@@ -11300,12 +11300,10 @@
           "recyclist-in-ffs-officine-ferrovie-federali-trimbach"
         ],
         "en": [
-          "recycler-ffs-officine-ferrovie-federali-trimbach",
           "recycling-specialist-ffs-officine-ferrovie-federali-trimbach"
         ],
         "fr": [
           "recycleur-ffs-officine-ferrovie-federali-trimbach",
-          "recycler-ffs-officine-ferrovie-federali-trimbach",
           "specialiste-en-recyclage-ffs-officine-ferrovie-federali-trimbach"
         ]
       },
@@ -12745,9 +12743,9 @@
       "slug": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
         "de": "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -12816,8 +12814,6 @@
         "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf",
         "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
-        "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
         "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
       ],
@@ -12827,12 +12823,10 @@
           "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "en": [
-          "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
           "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "fr": [
           "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
           "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },

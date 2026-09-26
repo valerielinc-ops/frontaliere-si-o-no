@@ -7,7 +7,7 @@
       "slug": "security-operations-engineer-kudelski-nagra-ch",
       "slugByLocale": {
         "it": "security-operations-engineer-kudelski-nagra-ch",
-        "en": "security-5-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client",
+        "en": "security-operations-engineer-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client",
         "de": "security-operations-ingenieur-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client",
         "fr": "security-operations-ingenieur-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client"
       },
@@ -53,16 +53,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "securit-oper-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client",
-        "security-operations-engineer-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client"
+        "security-5-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client"
       ],
       "previousSlugsByLocale": {
         "en": [
           "securit-oper-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client",
-          "security-operations-engineer-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client"
+          "security-5-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client"
         ]
       },
       "firstSeenAt": "2026-09-19T23:09:21.794Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -75,7 +74,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
