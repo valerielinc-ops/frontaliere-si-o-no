@@ -1,4 +1,12 @@
 // @vitest-environment jsdom
+/**
+ * GPT path of the rewarded application offer (no Offerwall held for the page
+ * view). Since 2026-09-26 the "Candidati" click opens a neutral loading
+ * screen that never mentions a video, so the GPT rewarded ad must not start
+ * by itself: the visitor opts in explicitly once the slot is ready, a slot
+ * that is not ready in time hands the click to the employer, and the reward
+ * continues to the application with no further click.
+ */
 
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -31,7 +39,7 @@ vi.mock('@/services/assistedApplicationExperiment', () => ({
   trackAssistedApplicationEvent: mocks.trackAssistedApplicationEvent,
 }));
 
-import RewardedApplicationOffer from '@/components/community/RewardedApplicationOffer';
+import RewardedApplicationOffer, { GPT_OPT_IN_READY_TIMEOUT_MS } from '@/components/community/RewardedApplicationOffer';
 import { isActive, POPUP_PRIORITY, releaseSlot, requestSlot } from '@/services/popupQueue';
 
 const callProp = <T extends unknown[]>(name: string, ...args: T) => {
@@ -73,53 +81,107 @@ afterEach(() => {
   document.body.style.overflow = '';
 });
 
-describe('RewardedApplicationOffer', () => {
-  it('portals the dialog above the application shell and locks page scrolling', () => {
+describe('RewardedApplicationOffer — GPT path (no Offerwall held)', () => {
+  it('portals the overlay above the application shell and locks page scrolling', () => {
     render(<RewardedApplicationOffer {...defaultProps} />);
 
-    const dialog = screen.getByRole('dialog');
-    expect(dialog.parentElement?.parentElement).toBe(document.body);
-    expect(dialog.parentElement).toHaveClass('z-[1000]');
+    const overlay = screen.getByTestId('rewarded-application-offer');
+    expect(overlay.parentElement).toBe(document.body);
+    expect(overlay).toHaveClass('z-[1000]');
     expect(document.body.style.overflow).toBe('hidden');
   });
 
-  it('can be dismissed with the close control or Escape', () => {
-    const onDismiss = vi.fn();
-    render(<RewardedApplicationOffer {...defaultProps} onDismiss={onDismiss} />);
-
-    fireEvent.click(screen.getByTestId('rewarded-application-offer-close'));
-    fireEvent.keyDown(document, { key: 'Escape' });
-
-    expect(onDismiss).toHaveBeenCalledTimes(2);
-  });
-
-  it('ignores the second click of a double click on the backdrop, but honours a later one', () => {
-    let clock = 1_000;
-    vi.spyOn(performance, 'now').mockImplementation(() => clock);
-    const onDismiss = vi.fn();
-    render(<RewardedApplicationOffer {...defaultProps} onDismiss={onDismiss} />);
-    const backdrop = screen.getByTestId('rewarded-application-offer');
-
-    clock += 120;
-    fireEvent.click(backdrop);
-    expect(onDismiss).not.toHaveBeenCalled();
-
-    clock += 1_000;
-    fireEvent.click(backdrop);
-    expect(onDismiss).toHaveBeenCalledTimes(1);
-  });
-
-  it('starts the Google video automatically from the Candidati click, without a second button', () => {
+  it('shows a neutral loading screen while GPT loads, and never starts the video by itself', () => {
     render(<RewardedApplicationOffer {...defaultProps} />);
 
-    expect(mocks.props?.autoStart).toBe(true);
-    expect(screen.getByRole('dialog')).toHaveTextContent('parte da solo appena è pronto');
+    const loading = screen.getByTestId('rewarded-application-loading');
+    expect(loading).toHaveAttribute('role', 'status');
+    expect(loading).toHaveTextContent('Apertura dell’offerta…');
+    expect(loading.textContent).not.toMatch(/video|google|pubblicit/i);
+    expect(document.activeElement).toBe(loading);
+    // Mounted (the request runs) but hidden until the slot is ready.
+    expect(screen.getByTestId('rewarded-application-opt-in')).toHaveClass('hidden');
+    expect(mocks.props?.autoStart).toBeUndefined();
     expect(tracked('rewarded_application_offer_viewed')).toEqual([expect.objectContaining(adContext)]);
+  });
+
+  it('asks for an explicit opt-in only once the rewarded slot is ready', () => {
+    const onDismiss = vi.fn();
+    render(<RewardedApplicationOffer {...defaultProps} onDismiss={onDismiss} />);
+
+    callProp('onReady', { requestId: 7 } satisfies Info);
+
+    const card = screen.getByTestId('rewarded-application-opt-in');
+    expect(card).not.toHaveClass('hidden');
+    expect(card).toHaveAttribute('role', 'dialog');
+    expect(card).toHaveTextContent('Guarda un breve video per aprire l’offerta');
+    expect(mocks.props?.label).toBe('Guarda il video');
+    expect(screen.queryByTestId('rewarded-application-loading')).not.toBeInTheDocument();
+    expect(document.activeElement).toBe(card);
 
     callProp('onOptIn', { requestId: 7 } satisfies Info);
     expect(tracked('rewarded_ad_opt_in')).toEqual([
       expect.objectContaining({ ...adContext, request_id: 7, ms_since_click: expect.any(Number) }),
     ]);
+
+    // The only secondary action closes the card.
+    fireEvent.click(screen.getByRole('button', { name: 'Chiudi' }));
+    expect(onDismiss).toHaveBeenCalledTimes(1);
+  });
+
+  it('hands off to the employer when the slot is not ready in time', () => {
+    vi.useFakeTimers();
+    try {
+      const onUnavailable = vi.fn();
+      render(<RewardedApplicationOffer {...defaultProps} onUnavailable={onUnavailable} />);
+
+      act(() => {
+        vi.advanceTimersByTime(GPT_OPT_IN_READY_TIMEOUT_MS - 1);
+      });
+      expect(onUnavailable).not.toHaveBeenCalled();
+
+      act(() => {
+        vi.advanceTimersByTime(1);
+      });
+      expect(onUnavailable).toHaveBeenCalledTimes(1);
+      expect(onUnavailable).toHaveBeenCalledWith('gpt_ready_timeout');
+      expect(tracked('rewarded_gpt_ready_timeout')).toEqual([
+        expect.objectContaining({ ...adContext, timeout_ms: GPT_OPT_IN_READY_TIMEOUT_MS }),
+      ]);
+      expect(tracked('rewarded_ad_unavailable')).toEqual([
+        expect.objectContaining({ ...adContext, reason: 'gpt_ready_timeout', handoff: 'direct_external' }),
+      ]);
+
+      // A slot that turns ready after the hand-off changes nothing.
+      callProp('onReady', { requestId: 8 } satisfies Info);
+      callProp('onUnavailable', 'no_fill', { requestId: 8 } satisfies Info);
+      expect(screen.getByTestId('rewarded-application-opt-in')).toHaveClass('hidden');
+      expect(onUnavailable).toHaveBeenCalledTimes(1);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('keeps the opt-in card once the slot was ready in time', () => {
+    vi.useFakeTimers();
+    try {
+      const onUnavailable = vi.fn();
+      render(<RewardedApplicationOffer {...defaultProps} onUnavailable={onUnavailable} />);
+
+      act(() => {
+        vi.advanceTimersByTime(1_500);
+      });
+      callProp('onReady', { requestId: 7 } satisfies Info);
+      act(() => {
+        vi.advanceTimersByTime(GPT_OPT_IN_READY_TIMEOUT_MS * 3);
+      });
+
+      expect(onUnavailable).not.toHaveBeenCalled();
+      expect(tracked('rewarded_gpt_ready_timeout')).toEqual([]);
+      expect(screen.getByTestId('rewarded-application-opt-in')).not.toHaveClass('hidden');
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it('hands off directly to the employer on no_fill, with the reason tracked and no retry', () => {
@@ -139,7 +201,7 @@ describe('RewardedApplicationOffer', () => {
         request_id: 3,
       }),
     ]);
-    expect(screen.queryByRole('button', { name: 'Riprova con il video' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Riprova' })).not.toBeInTheDocument();
     expect(mocks.grantRewardedApplicationAccess).not.toHaveBeenCalled();
   });
 
@@ -164,39 +226,86 @@ describe('RewardedApplicationOffer', () => {
     if (detail) expect(event).toEqual(expect.objectContaining({ detail }));
   });
 
-  it('unlocks only after the authoritative Google reward signal and waits for an explicit continue', () => {
+  it('continues to the employer on the authoritative Google reward, with no further click', () => {
     const onContinue = vi.fn();
     render(<RewardedApplicationOffer {...defaultProps} onContinue={onContinue} />);
+    callProp('onReady', { requestId: 9 } satisfies Info);
 
     callProp('onVideoCompleted', { requestId: 9 } satisfies Info);
-    expect(screen.queryByRole('button', { name: 'Apri la candidatura sul sito dell’azienda' })).not.toBeInTheDocument();
     expect(mocks.grantRewardedApplicationAccess).not.toHaveBeenCalled();
-
-    callProp('onGranted', { requestId: 9 } satisfies Info);
-    expect(screen.getByRole('button', { name: 'Apri la candidatura sul sito dell’azienda' })).toBeInTheDocument();
-    expect(mocks.grantRewardedApplicationAccess).toHaveBeenCalledTimes(1);
-    expect(tracked('rewarded_ad_granted')).toEqual([expect.objectContaining({ ...adContext, request_id: 9 })]);
     expect(onContinue).not.toHaveBeenCalled();
 
-    fireEvent.click(screen.getByRole('button', { name: 'Apri la candidatura sul sito dell’azienda' }));
+    callProp('onGranted', { requestId: 9 } satisfies Info);
+    expect(mocks.grantRewardedApplicationAccess).toHaveBeenCalledTimes(1);
+    expect(onContinue).toHaveBeenCalledTimes(1);
+    expect(tracked('rewarded_ad_granted')).toEqual([expect.objectContaining({ ...adContext, request_id: 9 })]);
+    expect(screen.getByTestId('rewarded-application-loading')).toHaveTextContent('Ti portiamo all’offerta…');
+    expect(screen.queryByRole('button')).not.toBeInTheDocument();
+
+    // The close that follows the grant does not continue twice.
+    callProp('onClosed', true, { requestId: 9 } satisfies Info);
     expect(onContinue).toHaveBeenCalledTimes(1);
   });
 
-  it('keeps the application locked when the video is closed before the reward', () => {
+  it('offers a compact retry when the video is closed before the reward', () => {
     const onContinue = vi.fn();
     const onUnavailable = vi.fn();
-    render(<RewardedApplicationOffer {...defaultProps} onContinue={onContinue} onUnavailable={onUnavailable} />);
+    const onDismiss = vi.fn();
+    render(
+      <RewardedApplicationOffer
+        {...defaultProps}
+        onContinue={onContinue}
+        onUnavailable={onUnavailable}
+        onDismiss={onDismiss}
+      />,
+    );
+    callProp('onReady', { requestId: 11 } satisfies Info);
 
     callProp('onClosed', false, { requestId: 11 } satisfies Info);
 
     expect(mocks.grantRewardedApplicationAccess).not.toHaveBeenCalled();
     expect(onContinue).not.toHaveBeenCalled();
     expect(onUnavailable).not.toHaveBeenCalled();
-    expect(screen.queryByRole('button', { name: 'Apri la candidatura sul sito dell’azienda' })).not.toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Riprova con il video' })).toBeInTheDocument();
+    expect(screen.getByTestId('rewarded-application-retry')).toBeInTheDocument();
     expect(tracked('rewarded_ad_unavailable')).toEqual([
       expect.objectContaining({ ...adContext, reason: 'video_closed_before_reward', handoff: 'none', request_id: 11 }),
     ]);
+
+    // A retry is a new request behind the same loading screen, and again
+    // waits for an explicit opt-in.
+    fireEvent.click(screen.getByRole('button', { name: 'Riprova' }));
+    expect(screen.getByTestId('rewarded-application-loading')).toHaveTextContent('Apertura dell’offerta…');
+    expect(mocks.props?.retryToken).toBe(1);
+    expect(mocks.props?.autoStart).toBeUndefined();
+
+    callProp('onReady', { requestId: 12 } satisfies Info);
+    callProp('onClosed', false, { requestId: 12 } satisfies Info);
+    fireEvent.click(screen.getByRole('button', { name: 'Chiudi' }));
+    expect(onDismiss).toHaveBeenCalledTimes(1);
+  });
+
+  it('can be dismissed with Escape while nothing irrevocable is in flight', () => {
+    const onDismiss = vi.fn();
+    render(<RewardedApplicationOffer {...defaultProps} onDismiss={onDismiss} />);
+
+    fireEvent.keyDown(document, { key: 'Escape' });
+    expect(onDismiss).toHaveBeenCalledTimes(1);
+  });
+
+  it('ignores the second click of a double click on the backdrop, but honours a later one', () => {
+    let clock = 1_000;
+    vi.spyOn(performance, 'now').mockImplementation(() => clock);
+    const onDismiss = vi.fn();
+    render(<RewardedApplicationOffer {...defaultProps} onDismiss={onDismiss} />);
+    const backdrop = screen.getByTestId('rewarded-application-offer');
+
+    clock += 120;
+    fireEvent.click(backdrop);
+    expect(onDismiss).not.toHaveBeenCalled();
+
+    clock += 1_000;
+    fireEvent.click(backdrop);
+    expect(onDismiss).toHaveBeenCalledTimes(1);
   });
 
   it('holds the popup queue so the newsletter popup cannot hide the Google video', () => {

@@ -10,13 +10,16 @@
  * screen. Funding Choices exposes no Offerwall lifecycle callback, so both
  * steps are read from what it leaves in the page: every message mounts under
  * a body-level `fc-<kind>-root`, and the Offerwall is the root that becomes
- * visible after the release. Live probe on the job board (25-09): after the
- * rewarded ad's own "Chiudi", Funding Choices thanks the visitor and removes
- * the root about 3 s later, and its first-party `FCOEC` cookie, absent before
- * the close, is present afterwards. The root going away is when the offer may
- * take the screen back; a new `FCOEC` is what says the reward was granted.
- * When exactly Funding Choices writes it was not isolated, hence the wait
- * after the close.
+ * visible after the release. Live probe on the job board (E4, 25-09): after
+ * the rewarded ad's own "Chiudi", Funding Choices writes its first-party
+ * `FCOEC` cookie about 100 ms later, shows a thank-you screen, and removes the
+ * root about 3.1 s after that. A NEW or changed `FCOEC` is what says the
+ * reward was granted, so it is watched while the Offerwall is on screen and
+ * resolves `completed` at once: the visitor is not kept on the thank-you
+ * screen for 3 s. The value is snapshotted at the release, so a cookie left
+ * by an earlier grant never counts. The root going away stays as the fallback
+ * signal: after it, the cookie still has `OFFERWALL_ENTITLEMENT_GRACE_MS` to
+ * arrive (a renewal that happens to write the same value is not visible).
  *
  * A release cannot be taken back: once the held call proceeds, Google may
  * still render the Offerwall later. So the observer never gives up on an
@@ -47,8 +50,21 @@ const POLL_MS = 200;
 
 const FC_ROOT_CLASS = /^fc-[a-z0-9-]+-root$/;
 
+/**
+ * `completed.signal`: `entitlement` when the new `FCOEC` arrived while the
+ * Offerwall was still on screen (the usual case, ~100 ms after the ad's
+ * close; `closedMs` is then null), `root_closed` when it arrived after the
+ * root went away.
+ */
 export type OfferwallReleaseResult =
-  | { outcome: 'completed'; shownMs: number; closedMs: number; completedMs: number; root: string }
+  | {
+    outcome: 'completed';
+    signal: 'entitlement' | 'root_closed';
+    shownMs: number;
+    closedMs: number | null;
+    completedMs: number;
+    root: string;
+  }
   | { outcome: 'closed_without_reward'; shownMs: number; closedMs: number; root: string }
   | { outcome: 'not_shown'; reason: 'not_held' | 'release_refused' | 'appear_timeout' };
 
@@ -106,12 +122,13 @@ function visibleRoots(doc: Document): HTMLElement[] {
 }
 
 /**
- * Release the held Offerwall and resolve once it has closed, or as soon as it
- * is clear that it did not show in time. Roots already visible before the
- * release (the consent message, the revocation link) are never mistaken for
- * the Offerwall. A close counts as `completed` only when the entitlement
- * cookie was set or renewed after the release; there is no outcome for an
- * Offerwall that simply stays open.
+ * Release the held Offerwall and resolve as soon as Google grants its reward
+ * (a new entitlement cookie, even while the Offerwall is still on screen),
+ * once it has closed without one, or as soon as it is clear that it did not
+ * show in time. Roots already visible before the release (the consent
+ * message, the revocation link) are never mistaken for the Offerwall. Only an
+ * entitlement cookie set or changed after the release counts; there is no
+ * outcome for an Offerwall that simply stays open.
  */
 export function releaseHeldOfferwall(options: ReleaseHeldOfferwallOptions = {}): Promise<OfferwallReleaseResult> {
   const win = options.win ?? window;
@@ -155,8 +172,23 @@ export function releaseHeldOfferwall(options: ReleaseHeldOfferwallOptions = {}):
         if (elapsed >= appearTimeoutMs) finish({ outcome: 'not_shown', reason: 'appear_timeout' });
         return;
       }
+      const entitlement = readCookie(doc, FC_OFFERWALL_ENTITLEMENT_COOKIE);
+      const granted = entitlement !== null && entitlement !== entitlementBefore;
       if (closedMs === null) {
         if (isShown(shown.el)) {
+          // Reward granted while Google's thank-you screen is still up:
+          // no reason to keep the visitor there until the root goes away.
+          if (granted) {
+            finish({
+              outcome: 'completed',
+              signal: 'entitlement',
+              shownMs: shown.shownMs,
+              closedMs: null,
+              completedMs: elapsed,
+              root: shown.root,
+            });
+            return;
+          }
           if (!stallReported && elapsed - shown.shownMs >= stallReportMs) {
             stallReported = true;
             options.onStalled?.({ shownMs: shown.shownMs, root: shown.root });
@@ -166,9 +198,15 @@ export function releaseHeldOfferwall(options: ReleaseHeldOfferwallOptions = {}):
         closedMs = elapsed;
         options.onClosed?.({ shownMs: shown.shownMs, closedMs, root: shown.root });
       }
-      const entitlement = readCookie(doc, FC_OFFERWALL_ENTITLEMENT_COOKIE);
-      if (entitlement !== null && entitlement !== entitlementBefore) {
-        finish({ outcome: 'completed', shownMs: shown.shownMs, closedMs, completedMs: elapsed, root: shown.root });
+      if (granted) {
+        finish({
+          outcome: 'completed',
+          signal: 'root_closed',
+          shownMs: shown.shownMs,
+          closedMs,
+          completedMs: elapsed,
+          root: shown.root,
+        });
       } else if (elapsed - closedMs >= entitlementGraceMs) {
         finish({ outcome: 'closed_without_reward', shownMs: shown.shownMs, closedMs, root: shown.root });
       }
