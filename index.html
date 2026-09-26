@@ -520,6 +520,52 @@
       (function(){
         var g = window.googlefc = window.googlefc || {};
         if (g.controlledMessagingFunction) return;
+        function isJobBoardPath(){
+          var p = window.location && window.location.pathname || '';
+          return /^(?:\/(?:it|en|de|fr))?\/(?:cerca-lavoro|find-jobs|trouver-emploi|jobs-in|jobs-im)-[a-z][a-z-]*(?:\/|$)/.test(p);
+        }
+        function syncRoute(){
+          var w = window.__ftOfferwallGate;
+          if (!w) return;
+          if (isJobBoardPath()) {
+            if (w.state === 'off_board') {
+              w.state = 'idle';
+              w.held = [];
+              w.release = undefined;
+              w.offerwall = undefined;
+            }
+            return;
+          }
+          if (w.state === 'held') {
+            var h = w.held.splice(0), o = w.offerwall !== undefined
+              ? w.offerwall
+              : (g.MessageTypeEnum || {}).OFFERWALL;
+            for (var i = 0; i < h.length; i++) {
+              try {
+                o === undefined ? h[i].proceed(false) : h[i].proceed(false, [o]);
+              } catch (e) {}
+            }
+          }
+          w.state = 'off_board';
+          w.held = [];
+          w.release = undefined;
+          w.offerwall = undefined;
+        }
+        function watchRoutes(){
+          var h = window.history;
+          if (h) {
+            ['pushState', 'replaceState'].forEach(function(k){
+              var original = h[k];
+              if (typeof original !== 'function') return;
+              h[k] = function(){
+                var result = original.apply(this, arguments);
+                syncRoute();
+                return result;
+              };
+            });
+          }
+          if (typeof window.addEventListener === 'function') window.addEventListener('popstate', syncRoute);
+        }
         g.controlledMessagingFunction = function(message){
           var E = g.MessageTypeEnum || {};
           // The first call arrives with an empty enum and must proceed at
@@ -528,12 +574,12 @@
             message.proceed(true);
             return;
           }
+          syncRoute();
           // Off the job-board sections (every canton, the Switzerland
           // aggregator, every locale) there is no "Candidati" to open the
           // Offerwall: suppress it alone, the consent and ad-block messages
           // this call also carries still show.
-          var p = window.location && window.location.pathname || '';
-          if (!/^(?:\/(?:it|en|de|fr))?\/(?:cerca-lavoro|find-jobs|trouver-emploi|jobs-in|jobs-im)-[a-z][a-z-]*(?:\/|$)/.test(p)) {
+          if (!isJobBoardPath()) {
             window.__ftOfferwallGate = window.__ftOfferwallGate || { state: 'off_board', held: [] };
             message.proceed(false, [E.OFFERWALL]);
             return;
@@ -561,6 +607,7 @@
             return;
           }
           w.held.push(message);
+          w.offerwall = E.OFFERWALL;
           w.state = 'held';
           w.release = function(){
             if (w.state !== 'held') return false;
@@ -572,6 +619,7 @@
             return true;
           };
         };
+        watchRoutes();
       })();
     </script>
 
