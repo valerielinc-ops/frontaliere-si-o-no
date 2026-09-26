@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
 import {
   BREFISPERSONAL_KEY,
   BREFISPERSONAL_COMPANY_NAME,
@@ -7,7 +8,21 @@ import {
 } from '../scripts/lib/brefispersonal-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
+const brefispersonalSpec = JSON.parse(
+  readFileSync(new URL('../data/prospector/crawlers/brefispersonal.json', import.meta.url), 'utf8'),
+);
+
 describe('brefis personal ag crawler parser', () => {
+  describe('promoted prospector spec', () => {
+    it('uses the vacancy index and variable detail template', () => {
+      expect(brefispersonalSpec.seedUrls).toEqual(['https://brefispersonal.ch/Vacancyboard/']);
+      expect(brefispersonalSpec.mode).toBe('template');
+      expect(brefispersonalSpec.detailTemplate).toBe('/Vacancyboard/Detail/#');
+      expect(brefispersonalSpec.detailEnrichment).toBe(true);
+      expect(brefispersonalSpec.sampleVacancyCount).toBeGreaterThan(1);
+    });
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(BREFISPERSONAL_KEY).toBe('brefispersonal');

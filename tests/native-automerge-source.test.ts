@@ -79,8 +79,8 @@ describe('native auto-merge source-loading contract', () => {
     expect(validation?.run).not.toContain('gh api');
     expect(source).toContain('$NATIVE_AUTOMERGE_SOURCE_ROOT/scripts/load-rc-env.mjs');
     expect(gate?.run).toContain('cd "$NATIVE_AUTOMERGE_SOURCE_ROOT"');
-    expect(source).not.toContain('NATIVE_AUTOMERGE_BOOTSTRAP_READY');
-    expect(source).not.toMatch(/if:\s+env\.NATIVE_AUTOMERGE_/u);
+    expect(validation?.run).toContain('NATIVE_AUTOMERGE_BOOTSTRAP_READY=true');
+    expect(gate?.if).toBe("env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'");
     expect(source).not.toMatch(/contents\/.*\?ref=main/u);
     expect(source).not.toContain('needs-human');
     expect(source).not.toMatch(/human approval/iu);
