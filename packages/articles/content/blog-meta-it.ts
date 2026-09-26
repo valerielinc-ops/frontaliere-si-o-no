@@ -12019,6 +12019,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cavalcavia-boesio-chiusura-lavori-2026.title': 'Chiusura cavalcavia boesio laveno mombello 25 settembre 2026',
     'blog.article.cavalcavia-boesio-chiusura-lavori-2026.excerpt': 'Venerdì 25 settembre 2026, dalle 9:00 alle 17:00, chiusura totale del Cavalcavia Boesio (S.P. 32 e S.P. 69) per installazione di tre portali limitatori; dopo i lavori limite 3,5 t, 3,5 m e 30 km/h.',
     'blog.article.cavalcavia-boesio-chiusura-lavori-2026.imageAlt': 'Chiusura del Cavalcavia Boesio a Laveno Mombello con deviazioni sulla viabilità comunale',
+    'blog.article.simex-26-emergenza-agno.title': 'Incidente aereo simulato all’aeroporto di Agno',
+    'blog.article.simex-26-emergenza-agno.excerpt': 'SIMEX 26 ha testato ad Agno allarmi, soccorsi, comunicazione e coordinamento tra aeroporto e organizzazioni di primo intervento.',
+    'blog.article.simex-26-emergenza-agno.imageAlt': 'Aeroporto di Agno durante un’esercitazione di emergenza',
 };
 
 export default blogMetaIt;

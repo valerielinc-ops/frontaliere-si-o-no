@@ -36063,6 +36063,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'simex-26-emergenza-agno',
+ category: 'novita',
+ date: '2026-09-26T03:27:10.037Z',
+ image: '/images/blog/simex-26-emergenza-agno.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

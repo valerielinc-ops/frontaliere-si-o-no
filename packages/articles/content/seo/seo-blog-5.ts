@@ -93790,6 +93790,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-simex-26-emergenza-agno': {
+    title: 'Incidente aereo simulato all’aeroporto di Agno',
+    description: 'All’aeroporto di Agno SIMEX 26 ha simulato un incidente aereo: testati allarmi, soccorsi, comunicazione e coordinamento sotto la supervisione dell’UFAC.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, aereo, simulato, aeroporto',
+    ogTitle: 'Agno, esercitazione SIMEX 26 su un incidente aereo',
+    ogDescription: 'Giovedì sera l’aeroporto di Agno ha ospitato una simulazione su larga scala: testati la catena di allarme, l’intervento dei soccorsi, il Comitato di crisi e la gestione delle informazioni in emergenza.',
+    canonicalPath: '/articoli-frontaliere/simex-26-emergenza-agno',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente aereo simulato all’aeroporto di Agno",
+      "description": "All’aeroporto di Agno SIMEX 26 ha simulato un incidente aereo: testati allarmi, soccorsi, comunicazione e coordinamento sotto la supervisione dell’UFAC.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/simex-26-emergenza-agno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aeroporto di Agno durante un’esercitazione di emergenza"
+      },
+      "datePublished": "2026-09-26T03:27:10+00:00",
+      "dateModified": "2026-09-26T03:27:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/simex-26-emergenza-agno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
