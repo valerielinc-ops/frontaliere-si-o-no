@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bcv",
-  "assembledAt": "2026-09-26T13:59:51.623Z",
+  "assembledAt": "2026-09-26T23:35:02.959Z",
   "jobs": [
     {
       "id": "bcv-949095af3d5b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Conseill%C3%A8re-ou-Conseiller-Senior-Private-Banking-Key-Clients/1242200201/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:45.838Z",
+      "crawledAt": "2026-09-26T23:34:57.789Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -58,7 +58,8 @@
         "assistant-advisor-private-banking-key-clients-banque-cantonale-vaudoise-lausanne",
         "assistante-conseillere-ou-assistent-conseiller-private-banking-key-clients-banque-cantonale-vaudoise-lausanne",
         "assistante-conseillere-ou-assistant-conseiller-private-banking-key-clients-bcv-lausanne",
-        "assistante-conseillere-ou-assistant-conseiller-private-banking-key-clients-lausanne-bcv"
+        "assistante-conseillere-ou-assistant-conseiller-private-banking-key-clients-lausanne-bcv",
+        "consulente-senior-per-i-clienti-chiave-di-private-banking-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -67,7 +68,8 @@
           "assistant-advisor-private-banking-key-clients-banque-cantonale-vaudoise-lausanne",
           "assistante-conseillere-ou-assistent-conseiller-private-banking-key-clients-banque-cantonale-vaudoise-lausanne",
           "assistante-conseillere-ou-assistant-conseiller-private-banking-key-clients-bcv-lausanne",
-          "assistante-conseillere-ou-assistant-conseiller-private-banking-key-clients-lausanne-bcv"
+          "assistante-conseillere-ou-assistant-conseiller-private-banking-key-clients-lausanne-bcv",
+          "consulente-senior-per-i-clienti-chiave-di-private-banking-banque-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "conseillere-ou-conseiller-senior-private-banking-key-clients-bcv-lausanne",
@@ -82,6 +84,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:11.588Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 156000,
       "salarySource": "estimated",
@@ -127,7 +130,7 @@
       "url": "https://jobs.bcv.ch/job/Stagiaires-maturantes-ou-maturants-mars-2027/1431013433/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:45.074Z",
+      "crawledAt": "2026-09-26T23:34:57.140Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -147,11 +150,13 @@
       "requirementsByLocale": {},
       "sfJobId": "1431013433",
       "previousSlugs": [
-        "stagiaires-maturantes-ou-maturants-mars-2027-bcv-lausanne"
+        "stagiaires-maturantes-ou-maturants-mars-2027-bcv-lausanne",
+        "allenamenti-di-stucco-o-di-maturazione-marzo-2027-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaires-maturantes-ou-maturants-mars-2027-bcv-lausanne"
+          "stagiaires-maturantes-ou-maturants-mars-2027-bcv-lausanne",
+          "allenamenti-di-stucco-o-di-maturazione-marzo-2027-banque-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "stagiaires-maturantes-ou-maturants-mars-2027-bcv-lausanne"
@@ -206,7 +211,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Product-Manager-Trafic-des-paiements/1254978701/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:44.264Z",
+      "crawledAt": "2026-09-26T23:34:56.481Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -227,11 +232,13 @@
       "sfJobId": "1254978701",
       "previousSlugs": [
         "product-manager-trafic-des-paiements-bcv-lausanne",
-        "product-manager-trafic-des-paiements-banque-cantonale-vaudoise-lausanne"
+        "product-manager-trafic-des-paiements-banque-cantonale-vaudoise-lausanne",
+        "product-manager-transazioni-di-pagamento-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-manager-trafic-des-paiements-bcv-lausanne"
+          "product-manager-trafic-des-paiements-bcv-lausanne",
+          "product-manager-transazioni-di-pagamento-banque-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "product-manager-trafic-des-paiements-banque-cantonale-vaudoise-lausanne"
@@ -240,6 +247,7 @@
           "product-manager-trafic-des-paiements-bcv-lausanne"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:16:24.288Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -253,8 +261,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bcv-398230a06b99",
@@ -287,7 +294,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Responsable-d'applications-bancaires-domaine-Op%C3%A9rations-de-March%C3%A9/1408671433/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:43.468Z",
+      "crawledAt": "2026-09-26T23:34:55.811Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -325,6 +332,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:04.866Z",
+      "needsRetranslation": true,
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -343,10 +351,10 @@
       "id": "bcv-e18d41db539c",
       "slug": "capo-della-segreteria-generale-bcv-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
-        "fr": "responsable-du-secretariat-general-de-la-bcv-bcv-lausanne",
         "it": "capo-della-segreteria-generale-bcv-banque-cantonale-vaudoise-lausanne",
         "en": "head-of-the-bcv-general-secretariat-banque-cantonale-vaudoise-lausanne",
-        "de": "leiter-des-generalsekretariats-der-bcv-banque-cantonale-vaudoise-lausanne"
+        "de": "leiter-des-generalsekretariats-der-bcv-banque-cantonale-vaudoise-lausanne",
+        "fr": "responsable-du-secretariat-general-de-la-bcv-bcv-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
@@ -370,7 +378,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Responsable-du-Secr%C3%A9tariat-g%C3%A9n%C3%A9ral-de-la-BCV/1441409733/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:42.661Z",
+      "crawledAt": "2026-09-26T23:34:55.145Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -389,6 +397,23 @@
       "requirements": [],
       "requirementsByLocale": {},
       "sfJobId": "1441409733",
+      "previousSlugs": [
+        "responsable-du-secretariat-general-de-la-bcv-bcv-lausanne",
+        "capo-della-segreteria-generale-bcv-banque-cantonale-vaudoise-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-du-secretariat-general-de-la-bcv-bcv-lausanne",
+          "capo-della-segreteria-generale-bcv-banque-cantonale-vaudoise-lausanne"
+        ],
+        "en": [
+          "responsable-du-secretariat-general-de-la-bcv-bcv-lausanne"
+        ],
+        "de": [
+          "responsable-du-secretariat-general-de-la-bcv-bcv-lausanne"
+        ]
+      },
+      "firstSeenAt": "2026-09-25T14:45:59.233Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -401,22 +426,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-25T14:45:59.233Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "responsable-du-secretariat-general-de-la-bcv-bcv-lausanne"
-        ],
-        "en": [
-          "responsable-du-secretariat-general-de-la-bcv-bcv-lausanne"
-        ],
-        "de": [
-          "responsable-du-secretariat-general-de-la-bcv-bcv-lausanne"
-        ]
-      },
-      "previousSlugs": [
-        "responsable-du-secretariat-general-de-la-bcv-bcv-lausanne"
-      ]
+      }
     },
     {
       "id": "bcv-04ac8559f8a1",
@@ -449,7 +459,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Senior-credit-officer-PME-Pros-Immobilier-Particuliers/1440007133/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:41.889Z",
+      "crawledAt": "2026-09-26T23:34:54.477Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -481,8 +491,8 @@
           "senior-credit-officer-pme-pros-immobilier-particuliers-bcv-lausanne"
         ]
       },
-      "firstSeenAt": "2026-09-23T23:41:48.400Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-23T23:41:48.400Z",
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -528,7 +538,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Conseill%C3%A8re-successorale-ou-conseiller-successoral-R%C3%A9gion-Lausanne/1411874433/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:41.114Z",
+      "crawledAt": "2026-09-26T23:34:53.811Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -549,18 +559,23 @@
       "sfJobId": "1411874433",
       "previousSlugsByLocale": {
         "fr": [
-          "conseillere-successorale-ou-conseiller-successoral-region-lausanne-bcv-lausanne"
+          "conseillere-successorale-ou-conseiller-successoral-region-lausanne-bcv-lausanne",
+          "conseiller-ere-successoral-e-region-lausanne-bcv-lausanne"
         ],
         "it": [
           "conseillere-successorale-ou-conseiller-successoral-region-lausanne-bcv-lausanne",
-          "bankberater-region-lausanne-banque-cantonale-vaudoise-lausanne"
+          "bankberater-region-lausanne-banque-cantonale-vaudoise-lausanne",
+          "consigliere-immobiliare-lausanne-regione-banque-cantonale-vaudoise-lausanne"
         ]
       },
       "previousSlugs": [
         "conseillere-successorale-ou-conseiller-successoral-region-lausanne-bcv-lausanne",
-        "bankberater-region-lausanne-banque-cantonale-vaudoise-lausanne"
+        "bankberater-region-lausanne-banque-cantonale-vaudoise-lausanne",
+        "conseiller-ere-successoral-e-region-lausanne-bcv-lausanne",
+        "consigliere-immobiliare-lausanne-regione-banque-cantonale-vaudoise-lausanne"
       ],
       "firstSeenAt": "2026-09-02T13:36:26.503Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -606,7 +621,7 @@
       "url": "https://jobs.bcv.ch/job/Cash-Manager-pour-la-client%C3%A8le-des-entreprises/1438347133/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:40.314Z",
+      "crawledAt": "2026-09-26T23:34:53.178Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -626,16 +641,19 @@
       "requirementsByLocale": {},
       "sfJobId": "1438347133",
       "previousSlugs": [
-        "cash-manager-pour-la-clientele-des-entreprises-bcv-lausanne"
+        "cash-manager-pour-la-clientele-des-entreprises-bcv-lausanne",
+        "cash-manager-per-clienti-aziendali-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cash-manager-pour-la-clientele-des-entreprises-bcv-lausanne"
+          "cash-manager-pour-la-clientele-des-entreprises-bcv-lausanne",
+          "cash-manager-per-clienti-aziendali-banque-cantonale-vaudoise-lausanne"
         ],
         "de": [
           "cash-manager-pour-la-clientele-des-entreprises-bcv-lausanne"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:52:39.969Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -649,8 +667,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bcv-4ae2e84a4dbc",
@@ -683,7 +700,7 @@
       "url": "https://jobs.bcv.ch/job/Vevey-Conseiller-ou-Conseill%C3%A8re-PME-sp%C3%A9cialis%C3%A9%28e%29-R%C3%A9gion-Riviera/1420578833/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:39.524Z",
+      "crawledAt": "2026-09-26T23:34:52.473Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -703,14 +720,17 @@
       "requirementsByLocale": {},
       "sfJobId": "1420578833",
       "previousSlugs": [
-        "conseiller-ou-conseillere-pme-specialise-e-region-riviera-bcv-vevey"
+        "conseiller-ou-conseillere-pme-specialise-e-region-riviera-bcv-vevey",
+        "specialista-pmi-advisor-regione-riviera-banque-cantonale-vaudoise-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ou-conseillere-pme-specialise-e-region-riviera-bcv-vevey"
+          "conseiller-ou-conseillere-pme-specialise-e-region-riviera-bcv-vevey",
+          "specialista-pmi-advisor-regione-riviera-banque-cantonale-vaudoise-vevey"
         ]
       },
       "firstSeenAt": "2026-07-30T11:32:45.206Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -756,7 +776,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Assistante-ou-Assistant-RH-80-%28Contrat-d'un-an%29/1435690033/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:38.681Z",
+      "crawledAt": "2026-09-26T23:34:51.844Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -787,6 +807,7 @@
         "assistante-ou-assistant-rh-80-contrat-d-un-an-bcv-lausanne"
       ],
       "firstSeenAt": "2026-09-25T14:45:53.366Z",
+      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "salarySource": "estimated",
@@ -832,7 +853,7 @@
       "url": "https://jobs.bcv.ch/job/Echallens-Conseiller-ou-Conseill%C3%A8re-PME-Expert%28e%29-R%C3%A9gion-Gros-de-Vaud/1421186233/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:37.918Z",
+      "crawledAt": "2026-09-26T23:34:51.195Z",
       "addressLocality": "Echallens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -852,11 +873,13 @@
       "requirementsByLocale": {},
       "sfJobId": "1421186233",
       "previousSlugs": [
-        "conseiller-ou-conseillere-pme-expert-e-region-gros-de-vaud-bcv-echallens"
+        "conseiller-ou-conseillere-pme-expert-e-region-gros-de-vaud-bcv-echallens",
+        "consulente-pmi-regione-gros-de-vaud-banque-cantonale-vaudoise-echallens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ou-conseillere-pme-expert-e-region-gros-de-vaud-bcv-echallens"
+          "conseiller-ou-conseillere-pme-expert-e-region-gros-de-vaud-bcv-echallens",
+          "consulente-pmi-regione-gros-de-vaud-banque-cantonale-vaudoise-echallens"
         ]
       },
       "firstSeenAt": "2026-07-31T11:55:51.805Z",
@@ -905,7 +928,7 @@
       "url": "https://jobs.bcv.ch/job/Morges-Conseill%C3%A8re-ou-Conseiller-Private-Banking-Key-Clients-&-Entrepreneurs-Morges/1429188533/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:37.161Z",
+      "crawledAt": "2026-09-26T23:34:50.551Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -935,6 +958,7 @@
         ]
       },
       "firstSeenAt": "2026-08-24T22:15:02.330Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -980,7 +1004,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-IT-Business-Analyst-domaine-Op%C3%A9rations-de-March%C3%A9/1374027533/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:36.370Z",
+      "crawledAt": "2026-09-26T23:34:49.900Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1003,11 +1027,13 @@
         "it-business-analyst-domaine-operations-de-marche-banque-cantonale-vaudoise-lausanne",
         "it-business-analyst-market-operations-area-banque-cantonale-vaudoise-lausanne",
         "it-business-analyst-marktoperationsgebiet-banque-cantonale-vaudoise-lausanne",
-        "it-business-analyst-domaine-operations-de-marche-bcv-lausanne"
+        "it-business-analyst-domaine-operations-de-marche-bcv-lausanne",
+        "it-business-analista-domaine-operations-de-marche-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-business-analyst-domaine-operations-de-marche-bcv-lausanne"
+          "it-business-analyst-domaine-operations-de-marche-bcv-lausanne",
+          "it-business-analista-domaine-operations-de-marche-banque-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "it-business-analyst-domaine-operations-de-marche-banque-cantonale-vaudoise-lausanne",
@@ -1018,6 +1044,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:26.214Z",
+      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -1063,7 +1090,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Analyse-d%C3%A9veloppeur-CA-Gen-Cobol/1414462733/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:35.612Z",
+      "crawledAt": "2026-09-26T23:34:49.223Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1083,11 +1110,13 @@
       "requirementsByLocale": {},
       "sfJobId": "1414462733",
       "previousSlugs": [
-        "analyse-developpeur-ca-gen-cobol-bcv-lausanne"
+        "analyse-developpeur-ca-gen-cobol-bcv-lausanne",
+        "analizzatore-sviluppo-ca-gen-cobol-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "analyse-developpeur-ca-gen-cobol-bcv-lausanne"
+          "analyse-developpeur-ca-gen-cobol-bcv-lausanne",
+          "analizzatore-sviluppo-ca-gen-cobol-banque-cantonale-vaudoise-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-13T22:48:02.555Z",
@@ -1136,7 +1165,7 @@
       "url": "https://jobs.bcv.ch/job/Aigle-Responsable-d'agence-Villars/1070859301/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:34.765Z",
+      "crawledAt": "2026-09-26T23:34:48.529Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1217,7 +1246,7 @@
       "url": "https://jobs.bcv.ch/job/Aigle-Conseiller-ou-Conseill%C3%A8re-PME-sp%C3%A9cialis%C3%A9%28e%29-R%C3%A9gion-Chablais/1407738733/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:34.010Z",
+      "crawledAt": "2026-09-26T23:34:47.858Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1249,7 +1278,8 @@
         "specialista-pmi-advisor-regione-riviera-banque-cantonale-vaudoise-vevey",
         "specialist-sme-advisor-riviera-region-banque-cantonale-vaudoise-vevey",
         "specialist-sme-advisor-region-riviera-banque-cantonale-vaudoise-vevey",
-        "conseiller-ou-conseillere-pme-specialise-e-region-riviera-bcv-vevey"
+        "conseiller-ou-conseillere-pme-specialise-e-region-riviera-bcv-vevey",
+        "consulente-specializzato-per-le-pmi-chablais-banque-cantonale-vaudoise-aigle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1265,7 +1295,8 @@
           "specialista-pmi-advisor-regione-riviera-banque-cantonale-vaudoise-vevey",
           "specialist-sme-advisor-riviera-region-banque-cantonale-vaudoise-vevey",
           "specialist-sme-advisor-region-riviera-banque-cantonale-vaudoise-vevey",
-          "conseiller-ou-conseillere-pme-specialise-e-region-riviera-bcv-vevey"
+          "conseiller-ou-conseillere-pme-specialise-e-region-riviera-bcv-vevey",
+          "consulente-specializzato-per-le-pmi-chablais-banque-cantonale-vaudoise-aigle"
         ],
         "en": [
           "specialized-sme-advisor-lausanne-region-banque-cantonale-vaudoise-lausanne",
@@ -1281,6 +1312,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:11:58.690Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -1326,7 +1358,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Responsable-projet-Etat-major-Finance-&-Risques/1434450333/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:33.174Z",
+      "crawledAt": "2026-09-26T23:34:47.159Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1365,6 +1397,7 @@
         "responsable-projet-etat-major-finance-risques-bcv-lausanne"
       ],
       "firstSeenAt": "2026-09-07T15:09:40.644Z",
+      "needsRetranslation": true,
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -1410,7 +1443,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Collaboratrice-ou-collaborateur-au-Contr%C3%B4le-de-gestion-CDD-de-6-mois/1433821333/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:32.379Z",
+      "crawledAt": "2026-09-26T23:34:46.515Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1430,11 +1463,13 @@
       "requirementsByLocale": {},
       "sfJobId": "1433821333",
       "previousSlugs": [
-        "collaboratrice-ou-collaborateur-au-controle-de-gestion-cdd-de-6-mois-bcv-lausanne"
+        "collaboratrice-ou-collaborateur-au-controle-de-gestion-cdd-de-6-mois-bcv-lausanne",
+        "collaborazione-o-collaborazione-in-management-control-cdd-di-6-mesi-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaboratrice-ou-collaborateur-au-controle-de-gestion-cdd-de-6-mois-bcv-lausanne"
+          "collaboratrice-ou-collaborateur-au-controle-de-gestion-cdd-de-6-mois-bcv-lausanne",
+          "collaborazione-o-collaborazione-in-management-control-cdd-di-6-mesi-banque-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "collaboratrice-ou-collaborateur-au-controle-de-gestion-cdd-de-6-mois-bcv-lausanne"
@@ -1489,7 +1524,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Analyste-D%C3%A9veloppeur-IT-Trading/1390833833/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:31.612Z",
+      "crawledAt": "2026-09-26T23:34:45.797Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1510,12 +1545,14 @@
       "sfJobId": "1390833833",
       "previousSlugs": [
         "analyste-developpeur-it-trading-ingenieur-financier-bcv-lausanne",
-        "analyste-developpeur-it-trading-bcv-lausanne"
+        "analyste-developpeur-it-trading-bcv-lausanne",
+        "sviluppatore-analista-it-trading-ingegnere-finanziario-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "analyste-developpeur-it-trading-ingenieur-financier-bcv-lausanne",
-          "analyste-developpeur-it-trading-bcv-lausanne"
+          "analyste-developpeur-it-trading-bcv-lausanne",
+          "sviluppatore-analista-it-trading-ingegnere-finanziario-banque-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "analyste-developpeur-it-trading-ingenieur-financier-bcv-lausanne"
@@ -1525,6 +1562,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:19.315Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -1570,7 +1608,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Conseill%C3%A8re-ou-Conseiller-%C3%A0-distance/1435367333/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:30.825Z",
+      "crawledAt": "2026-09-26T23:34:45.100Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1590,17 +1628,20 @@
       "requirementsByLocale": {},
       "sfJobId": "1435367333",
       "previousSlugs": [
-        "conseillere-ou-conseiller-a-distance-bcv-lausanne"
+        "conseillere-ou-conseiller-a-distance-bcv-lausanne",
+        "consulente-remoto-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseillere-ou-conseiller-a-distance-bcv-lausanne"
+          "conseillere-ou-conseiller-a-distance-bcv-lausanne",
+          "consulente-remoto-banque-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "conseillere-ou-conseiller-a-distance-bcv-lausanne"
         ]
       },
       "firstSeenAt": "2026-09-09T13:49:10.864Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -1646,7 +1687,7 @@
       "url": "https://jobs.bcv.ch/job/Aigle-Responsable-r%C3%A9gionale-ou-Responsable-r%C3%A9gional-PME-R%C3%A9gion-Chablais/1434865933/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:30.033Z",
+      "crawledAt": "2026-09-26T23:34:44.470Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1666,11 +1707,13 @@
       "requirementsByLocale": {},
       "sfJobId": "1434865933",
       "previousSlugs": [
-        "responsable-regionale-ou-responsable-regional-pme-region-chablais-bcv-aigle"
+        "responsable-regionale-ou-responsable-regional-pme-region-chablais-bcv-aigle",
+        "capo-regionale-o-capo-regionale-pmi-regione-chablais-banque-cantonale-vaudoise-aigle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-regionale-ou-responsable-regional-pme-region-chablais-bcv-aigle"
+          "responsable-regionale-ou-responsable-regional-pme-region-chablais-bcv-aigle",
+          "capo-regionale-o-capo-regionale-pmi-regione-chablais-banque-cantonale-vaudoise-aigle"
         ],
         "en": [
           "responsable-regionale-ou-responsable-regional-pme-region-chablais-bcv-aigle"
@@ -1725,7 +1768,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Sp%C3%A9cialiste-en-financement-immobilier-Acquisition-et-d%C3%A9veloppement/1282231601/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:29.238Z",
+      "crawledAt": "2026-09-26T23:34:43.753Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1746,11 +1789,13 @@
       "sfJobId": "1282231601",
       "previousSlugs": [
         "specialiste-en-financement-immobilier-acquisition-et-developpement-bcv-lausanne",
-        "real-estate-finance-spezialist-akquisition-und-entwicklung-banque-cantonale-vaudoise-lausanne"
+        "real-estate-finance-spezialist-akquisition-und-entwicklung-banque-cantonale-vaudoise-lausanne",
+        "specialista-in-finanziamento-immobiliare-acquisizione-e-sviluppo-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-en-financement-immobilier-acquisition-et-developpement-bcv-lausanne"
+          "specialiste-en-financement-immobilier-acquisition-et-developpement-bcv-lausanne",
+          "specialista-in-finanziamento-immobiliare-acquisizione-e-sviluppo-banque-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "specialiste-en-financement-immobilier-acquisition-et-developpement-bcv-lausanne"
@@ -1806,7 +1851,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Gestionnaire-avoirs-sans-nouvelles/1433973833/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:28.476Z",
+      "crawledAt": "2026-09-26T23:34:43.096Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1827,12 +1872,14 @@
       "sfJobId": "1433973833",
       "previousSlugs": [
         "gestionnaire-avoirs-sans-nouvelles-bcv-lausanne",
-        "gestionnaire-avoirs-sans-nouvelles-banque-cantonale-vaudoise-lausanne"
+        "gestionnaire-avoirs-sans-nouvelles-banque-cantonale-vaudoise-lausanne",
+        "asset-manager-senza-notizie-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-avoirs-sans-nouvelles-bcv-lausanne",
-          "gestionnaire-avoirs-sans-nouvelles-banque-cantonale-vaudoise-lausanne"
+          "gestionnaire-avoirs-sans-nouvelles-banque-cantonale-vaudoise-lausanne",
+          "asset-manager-senza-notizie-banque-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "gestionnaire-avoirs-sans-nouvelles-bcv-lausanne"
@@ -1842,6 +1889,7 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:29:18.649Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1887,7 +1935,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Apprenties-ou-apprentis-de-commerce-Banque-ao%C3%BBt-2027/1426475433/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:27.652Z",
+      "crawledAt": "2026-09-26T23:34:42.432Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1907,11 +1955,13 @@
       "requirementsByLocale": {},
       "sfJobId": "1426475433",
       "previousSlugs": [
-        "apprenties-ou-apprentis-de-commerce-banque-aout-2027-bcv-lausanne"
+        "apprenties-ou-apprentis-de-commerce-banque-aout-2027-bcv-lausanne",
+        "apprentices-o-commercial-apprentices-bank-agosto-2027-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenties-ou-apprentis-de-commerce-banque-aout-2027-bcv-lausanne"
+          "apprenties-ou-apprentis-de-commerce-banque-aout-2027-bcv-lausanne",
+          "apprentices-o-commercial-apprentices-bank-agosto-2027-banque-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "apprenties-ou-apprentis-de-commerce-banque-aout-2027-bcv-lausanne"
@@ -1941,7 +1991,7 @@
       "slugByLocale": {
         "it": "fx-vendite-banque-cantonale-vaudoise-lausanne",
         "en": "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "de": "fx-verkaufe-banque-cantonale-vaudoise-lausanne",
+        "de": "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
         "fr": "fx-sales-bcv-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
@@ -1966,7 +2016,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Corporate-Sales-Rates-&-FX/1277101301/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:26.871Z",
+      "crawledAt": "2026-09-26T23:34:41.780Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1996,14 +2046,14 @@
         "de": [
           "fx-sales-bcv-lausanne",
           "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-          "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne"
+          "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
         ]
       },
       "previousSlugs": [
         "fx-sales-bcv-lausanne",
         "corporate-sales-rates-fx-bcv-lausanne",
         "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne"
+        "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:16:12.392Z",
@@ -2052,7 +2102,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Responsable-de-projets-IT-SAP/1383719133/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:26.036Z",
+      "crawledAt": "2026-09-26T23:34:41.114Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2078,7 +2128,8 @@
         "senior-it-projektmanager-banque-cantonale-vaudoise-lausanne",
         "chef-de-projets-it-senior-bcv-lausanne",
         "chef-de-projets-it-senior-banque-cantonale-vaudoise-lausanne",
-        "responsable-de-projets-it-expert-bcv-lausanne"
+        "responsable-de-projets-it-expert-bcv-lausanne",
+        "responsabile-progetto-it-sap-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2088,7 +2139,8 @@
           "senior-it-projektmanager-banque-cantonale-vaudoise-lausanne",
           "chef-de-projets-it-senior-bcv-lausanne",
           "chef-de-projets-it-senior-banque-cantonale-vaudoise-lausanne",
-          "responsable-de-projets-it-expert-bcv-lausanne"
+          "responsable-de-projets-it-expert-bcv-lausanne",
+          "responsabile-progetto-it-sap-banque-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "responsable-de-projets-it-sap-bcv-lausanne",
@@ -2149,7 +2201,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Conseill%C3%A8re-ou-Conseiller-%C3%A0-distance-Client%C3%A8le-Internationale-%28orientation-compliance%29/1426085933/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:25.261Z",
+      "crawledAt": "2026-09-26T23:34:40.450Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2169,11 +2221,13 @@
       "requirementsByLocale": {},
       "sfJobId": "1426085933",
       "previousSlugs": [
-        "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv"
+        "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv",
+        "remote-advisor-cliente-internazionale-conformita-guida-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv"
+          "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv",
+          "remote-advisor-cliente-internazionale-conformita-guida-banque-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv"
@@ -2183,6 +2237,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T22:10:44.623Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -2228,7 +2283,7 @@
       "url": "https://jobs.bcv.ch/job/Aigle-Responsable-r%C3%A9gional-Private-Banking-Chablais/1265000701/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:24.476Z",
+      "crawledAt": "2026-09-26T23:34:39.729Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2248,11 +2303,13 @@
       "requirementsByLocale": {},
       "sfJobId": "1265000701",
       "previousSlugs": [
-        "responsable-regional-private-banking-chablais-bcv-aigle"
+        "responsable-regional-private-banking-chablais-bcv-aigle",
+        "responsabile-regionale-della-private-banking-chablais-banque-cantonale-vaudoise-aigle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-regional-private-banking-chablais-bcv-aigle"
+          "responsable-regional-private-banking-chablais-bcv-aigle",
+          "responsabile-regionale-della-private-banking-chablais-banque-cantonale-vaudoise-aigle"
         ],
         "en": [
           "responsable-regional-private-banking-chablais-bcv-aigle"
@@ -2262,6 +2319,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:14.928Z",
+      "needsRetranslation": true,
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -2307,7 +2365,7 @@
       "url": "https://jobs.bcv.ch/job/Payerne-Responsable-r%C3%A9gional-Private-Banking-Broye/1188391001/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:23.680Z",
+      "crawledAt": "2026-09-26T23:34:39.095Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2328,12 +2386,14 @@
       "sfJobId": "1188391001",
       "previousSlugs": [
         "responsable-regional-private-banking-broye-bcv-payerne",
-        "responsable-regional-private-banking-broye-banque-cantonale-vaudoise-payerne"
+        "responsable-regional-private-banking-broye-banque-cantonale-vaudoise-payerne",
+        "responsabile-regionale-della-private-banking-broye-banque-cantonale-vaudoise-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-regional-private-banking-broye-bcv-payerne",
-          "responsable-regional-private-banking-broye-banque-cantonale-vaudoise-payerne"
+          "responsable-regional-private-banking-broye-banque-cantonale-vaudoise-payerne",
+          "responsabile-regionale-della-private-banking-broye-banque-cantonale-vaudoise-payerne"
         ],
         "en": [
           "responsable-regional-private-banking-broye-bcv-payerne"
@@ -2346,6 +2406,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:17.681Z",
+      "needsRetranslation": true,
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -2391,7 +2452,7 @@
       "url": "https://jobs.bcv.ch/job/Verwaltungssachbearbeiterin-BVG/1281964401/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T13:59:22.842Z",
+      "crawledAt": "2026-09-26T23:34:38.255Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2412,12 +2473,14 @@
       "sfJobId": "1281964401",
       "previousSlugs": [
         "verwaltungssachbearbeiter-in-bvg-bcv-lausanne",
-        "verwaltungssachbearbeiter-in-bvg-banque-cantonale-vaudoise-lausanne"
+        "verwaltungssachbearbeiter-in-bvg-banque-cantonale-vaudoise-lausanne",
+        "impiegato-amministrativo-bvg-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verwaltungssachbearbeiter-in-bvg-bcv-lausanne",
-          "verwaltungssachbearbeiter-in-bvg-banque-cantonale-vaudoise-lausanne"
+          "verwaltungssachbearbeiter-in-bvg-banque-cantonale-vaudoise-lausanne",
+          "impiegato-amministrativo-bvg-banque-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "verwaltungssachbearbeiter-in-bvg-banque-cantonale-vaudoise-lausanne"
@@ -2472,7 +2535,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Responsable-du-secteur-Conseil-Private-Banking-&-Advisory/1265629801/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:22.056Z",
+      "crawledAt": "2026-09-26T23:34:37.551Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2510,8 +2573,8 @@
           "sektormanager-private-banking-advisory-banque-cantonale-vaudoise-lausanne"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:16:15.798Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:16:15.798Z",
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -2557,7 +2620,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Conseill%C3%A8re-ou-Conseiller-Private-Banking-Lausanne/1436963233/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:21.240Z",
+      "crawledAt": "2026-09-26T23:34:36.899Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2578,18 +2641,21 @@
       "sfJobId": "1436963233",
       "previousSlugs": [
         "conseillere-ou-conseiller-private-banking-lausanne-bcv-lausanne",
-        "banking-advisor-lausanne-region-banque-cantonale-vaudoise-lausanne"
+        "banking-advisor-lausanne-region-banque-cantonale-vaudoise-lausanne",
+        "consulente-bancario-privato-losanna-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseillere-ou-conseiller-private-banking-lausanne-bcv-lausanne",
-          "banking-advisor-lausanne-region-banque-cantonale-vaudoise-lausanne"
+          "banking-advisor-lausanne-region-banque-cantonale-vaudoise-lausanne",
+          "consulente-bancario-privato-losanna-banque-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "conseillere-ou-conseiller-private-banking-lausanne-bcv-lausanne"
         ]
       },
       "firstSeenAt": "2026-09-19T22:52:17.469Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -2635,7 +2701,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Responsable-de-plateformes-IT-Distribution-Marketing-Chef-de-service/1406030833/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:20.421Z",
+      "crawledAt": "2026-09-26T23:34:36.249Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2658,11 +2724,13 @@
         "responsable-de-plateformes-it-distribution-marketing-chef-de-service-bcv-lausanne",
         "responsable-de-plateformes-it-distribution-marketing-chef-de-service-banque-cantonale-vaudoise-lausanne",
         "it-platform-manager-distribution-marketing-head-of-service-banque-cantonale-vaudoise-lausanne",
-        "it-platform-manager-distribution-marketing-leiter-service-banque-cantonale-vaudoise-lausanne"
+        "it-platform-manager-distribution-marketing-leiter-service-banque-cantonale-vaudoise-lausanne",
+        "responsabile-della-piattaforma-it-marketing-distribuzione-capo-dipartimento-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-plateformes-it-distribution-marketing-chef-de-service-bcv-lausanne"
+          "responsable-de-plateformes-it-distribution-marketing-chef-de-service-bcv-lausanne",
+          "responsabile-della-piattaforma-it-marketing-distribuzione-capo-dipartimento-banque-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "responsable-de-plateformes-it-distribution-marketing-chef-de-service-banque-cantonale-vaudoise-lausanne",
@@ -2673,6 +2741,7 @@
           "it-platform-manager-distribution-marketing-leiter-service-banque-cantonale-vaudoise-lausanne"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:16:00.579Z",
       "salaryMin": 97500,
       "salaryMax": 165500,
@@ -2686,8 +2755,7 @@
           "maxValue": 165500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bcv-d8c3c496d54d",
@@ -2720,7 +2788,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Responsable-du-secteur-conseil-pr%C3%A9voyance-priv%C3%A9e/1408024733/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:59:19.432Z",
+      "crawledAt": "2026-09-26T23:34:35.547Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2740,11 +2808,13 @@
       "requirementsByLocale": {},
       "sfJobId": "1408024733",
       "previousSlugs": [
-        "responsable-du-secteur-conseil-prevoyance-privee-bcv-lausanne"
+        "responsable-du-secteur-conseil-prevoyance-privee-bcv-lausanne",
+        "capo-della-consulenza-privata-sulle-pensioni-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-du-secteur-conseil-prevoyance-privee-bcv-lausanne"
+          "responsable-du-secteur-conseil-prevoyance-privee-bcv-lausanne",
+          "capo-della-consulenza-privata-sulle-pensioni-banque-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "responsable-du-secteur-conseil-prevoyance-privee-bcv-lausanne"
