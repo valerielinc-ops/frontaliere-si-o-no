@@ -558,6 +558,14 @@ jobs:
           # name. Cheap (single equality check per file per audit) and
           # catches accidental side-effects during future audit migrations.
           AUDIT_STRICT: '1'
+          # This dist/ is reassembled from published shards and can retain
+          # pages emitted by code that no longer exists. Only the single-H1
+          # auditor consumes this opt-in: it prints the observed rate and uses
+          # its historical-corpus ratchet, while source/local runs stay strict.
+          # The ledger is fail-closed, and its absolute noise floor is sized
+          # for the sampled draw rather than used to hide a systemic emission
+          # regression (AGENTS.md non-negotiable #1 exception for this corpus).
+          AUDIT_REASSEMBLED_CORPUS: '1'
           # Rotating sample (scripts/lib/audit-runner.mjs's sampleFiles(),
           # read via resolveSamplingEnv() by `npm run audit:all` below plus
           # audit:hreflang and audit:canonical-trailing-slash — the two

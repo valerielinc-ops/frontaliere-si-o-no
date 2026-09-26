@@ -82,9 +82,10 @@ const ROOT = resolve(__dirname, '..');
 /**
  * `ledger: null` — DETECTION TESTS RUN WITHOUT THE RATCHET, ON PURPOSE.
  *
- * Two of these four auditors gained a descending corpus ceiling from
- * `data/seo-defect-families.json` (families `link-anchor-text-non-descriptive`
- * and `duplicate-meta-description`; see scripts/lib/seoDefectRatchet.mjs).
+ * Three of these four auditors gained a descending corpus ceiling from
+ * `data/seo-defect-families.json` (families `single-h1-per-page`,
+ * `link-anchor-text-non-descriptive`, and `duplicate-meta-description`; see
+ * scripts/lib/seoDefectRatchet.mjs).
  * Every assertion in this file is about DETECTION — does the auditor see the
  * defect it exists to see — measured on fixtures of three to two hundred
  * pages. A ceiling expressed as a rate over a ~1'000'000-file draw cannot be
@@ -497,9 +498,9 @@ describe('duplicate-meta-description: sampled group sizes, declared', () => {
   });
 });
 
-// ─── 4. The two per-page invariants that needed no conversion ────────────────
+// ─── 4. The strict source invariant plus its historical-corpus opt-in ────────
 
-describe('single-h1-per-page: per-page, zero tolerance, denominator-free', () => {
+describe('single-h1-per-page: strict source path, historical ratchet opt-in', () => {
   it('one <h1> passes, two fail, and the count is reported', () => {
     expect(runOn(createSingleH1Auditor(), [['a.html', page('<h1>Uno</h1>')]]).passed).toBe(true);
     const bad = runOn(createSingleH1Auditor(), [['a.html', page('<h1>Uno</h1><h1>Due</h1>')]]);
@@ -541,6 +542,46 @@ describe('single-h1-per-page: per-page, zero tolerance, denominator-free', () =>
     expect(countH1Tags('<h1>a</h1><template><h1>b</h1></template>')).toBe(1);
     expect(countH1Tags('<h1>a</h1><!-- <h1>b</h1> -->')).toBe(1);
     expect(countH1Tags('<h1 class="x">a</h1><h1>b</h1>')).toBe(2);
+  });
+
+  it('uses the historical-corpus rate ratchet only when explicitly enabled', () => {
+    const ledger = {
+      families: {
+        'single-h1-per-page': {
+          enforcement: 'ratchet',
+          ceilingRatePct: 0,
+          tolerance: { relPct: 0, absPp: 0, minAbsDelta: 5 },
+        },
+      },
+    };
+    const smallDraw = runOn(
+      createSingleH1Auditor({ historicalCorpus: true, ledger }),
+      [
+        ['bad-1.html', page('<h1>Uno</h1><h1>Due</h1>')],
+        ['bad-2.html', page('<h1>Uno</h1><h1>Due</h1>')],
+        ...Array.from({ length: 98 }, (_, i) => [`ok-${i}.html`, page('<h1>Solo</h1>')] as [string, string]),
+      ],
+    );
+    expect(smallDraw.passed).toBe(true);
+    expect(smallDraw.extra.historicalCorpus).toBe(true);
+    expect(smallDraw.extra.ratchet.ratcheted).toBe(true);
+    expect(smallDraw.humanSummary).toContain('noise floor');
+
+    const systemicDraw = runOn(
+      createSingleH1Auditor({ historicalCorpus: true, ledger }),
+      Array.from({ length: 100 }, (_, i) => [
+        `page-${i}.html`,
+        page(i < 6 ? '<h1>Uno</h1><h1>Due</h1>' : '<h1>Solo</h1>'),
+      ] as [string, string]),
+    );
+    expect(systemicDraw.passed).toBe(false);
+    expect(systemicDraw.humanSummary).toContain('REGRESSION');
+
+    // The source/local path remains the original per-page zero-tolerance
+    // invariant even when a ledger is available to the historical mode.
+    expect(
+      runOn(createSingleH1Auditor(), [['bad.html', page('<h1>Uno</h1><h1>Due</h1>')]]).passed,
+    ).toBe(false);
   });
 });
 

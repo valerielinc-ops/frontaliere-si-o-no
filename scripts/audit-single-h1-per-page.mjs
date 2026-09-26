@@ -21,11 +21,19 @@
  * bounds that: `audit-all` does (AUDIT_SAMPLE_RATE / AUDIT_SAMPLE_SALT, with
  * the rotation guarantee in `scripts/lib/audit-runner.mjs::sampleFiles`).
  *
- * THRESHOLD: unchanged. This is a PER-PAGE invariant with zero tolerance —
- * "this page has 2 h1" is true or false about one file and does not depend on
- * how many other files were scanned, so sampling costs recall (which pages
- * get looked at this run), never correctness of a verdict. No conversion was
- * needed, and none was made.
+ * THRESHOLD: strict by default. This is a PER-PAGE invariant with zero
+ * tolerance — "this page has 2 h1" is true or false about one file. Local
+ * runs, source tests, and every caller that does not opt in therefore keep the
+ * original verdict.
+ *
+ * The post-deploy validator is different: its dist/ is reassembled from
+ * published shards and can contain pages emitted by code that no longer
+ * exists. `audit-all` opts this auditor into the `historicalCorpus` mode for
+ * that one workflow. It measures and prints the offender RATE and applies the
+ * per-family descending ceiling in `data/seo-defect-families.json`; the
+ * absolute noise floor prevents a two-page sampled draw from being mistaken
+ * for a systemic emission regression. A missing or malformed ledger falls
+ * back to the strict verdict, never to a green result.
  *
  * Two execution modes:
  *   1. Standalone CLI:  node scripts/audit-single-h1-per-page.mjs [--json] [--limit N]
@@ -38,6 +46,10 @@ import { readFile, stat } from 'node:fs/promises';
 import { relative } from 'node:path';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { writeAuditReport } from './lib/auditReport.mjs';
+import { evaluateCeiling, familyEntry, readLedgerOrNull } from './lib/seoDefectRatchet.mjs';
+
+/** Ledger family name for the reassembled post-deploy corpus exception. */
+export const SINGLE_H1_FAMILY = 'single-h1-per-page';
 
 /**
  * Pages where a multi-H1 emit pattern is intentional and a single-H1 fix
@@ -80,10 +92,18 @@ export function countH1Tags(html) {
 
 export function createAuditor(opts = {}) {
   const limit = opts.limit ?? 25;
+  const historicalCorpus = opts.historicalCorpus === true;
   // Injectable so the leading-slash contract above is TESTABLE. Both lists
   // being empty is exactly what let the mismatch with the mirror survive
   // review: an exemption nobody can exercise is an exemption nobody can check.
   const allowlist = opts.allowlist ?? ALLOWLIST_PATHS;
+  // Only the reassembled post-deploy corpus may use this ledger. Keeping the
+  // default strict makes local/standalone execution and source mirrors retain
+  // the per-page invariant even when the ledger contains a historical draw.
+  const ledger = historicalCorpus
+    ? (opts.ledger !== undefined ? opts.ledger : readLedgerOrNull(opts.ledgerPath))
+    : null;
+  const ceilingEntry = familyEntry(ledger, SINGLE_H1_FAMILY);
   // Counter + bounded sample, same shape and same reason as the sibling fold
   // auditors' accumulators (`audit-link-anchor-text.mjs`'s `nonDescriptiveTotal`
   // / `nonDescriptiveSample`): the known failure mode here is a shared SPA
@@ -121,15 +141,30 @@ export function createAuditor(opts = {}) {
       }
     },
     report() {
-      const passed = offendersTotal === 0;
+      const ratePct = filesScanned > 0 ? (offendersTotal / filesScanned) * 100 : null;
+      const ratchet = historicalCorpus
+        ? evaluateCeiling({
+            family: SINGLE_H1_FAMILY,
+            offenders: offendersTotal,
+            filesScanned,
+            entry: ceilingEntry,
+          })
+        : null;
+      const passed = ratchet?.ratcheted ? ratchet.passed : offendersTotal === 0;
+      const rateSummary = ratePct === null ? 'unmeasured (0 files)' : `${ratePct.toFixed(6)} %`;
       return {
         passed,
         offendersTotal,
         offenders,
-        threshold: { metric: 'count', value: 0, comparator: '<=' },
+        threshold: ratchet?.ratcheted
+          ? { metric: 'ratePct', value: ratchet.ceilingRatePct, comparator: '<= (ratchet cap + absolute noise floor)' }
+          : { metric: 'count', value: 0, comparator: '<=' },
         extra: {
           limit,
           filesScanned,
+          historicalCorpus,
+          offenderRatePct: ratePct,
+          ratchet,
           // The writer (`writeAuditReport`) derives ITS OWN `offendersTotal`
           // from `offenders.length`, so in the artifact that field is the
           // sample size once the cap bites, not the true count. This is the
@@ -138,8 +173,13 @@ export function createAuditor(opts = {}) {
           offendersListTruncated: offendersTotal > offenders.length,
         },
         humanSummary: passed
-          ? `single-H1 gate: 0 offenders across ${filesScanned} page(s)`
-          : `${offendersTotal} page(s) with more than one <h1> (of ${filesScanned} scanned)`,
+          ? ratchet?.ratcheted
+            ? `single-H1 gate (reassembled corpus): ${ratchet.humanSummary}`
+            : `single-H1 gate: 0 offenders across ${filesScanned} page(s)`
+          : ratchet?.ratcheted
+            ? `single-H1 gate (reassembled corpus): ${ratchet.humanSummary}`
+            : `${offendersTotal} page(s) with more than one <h1> (of ${filesScanned} scanned)` +
+              (historicalCorpus ? ` — measured offender rate ${rateSummary}; ${ratchet?.humanSummary ?? 'strict mode'}` : ''),
       };
     },
   };

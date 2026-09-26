@@ -160,6 +160,10 @@ jobs:
           #
           # Dispatch inputs reach the shell as DATA, never as script text.
           INPUT_AUDITS: ${{ inputs.audits }}
+          # Keep audit:all replays equivalent to the post-deploy validator:
+          # only its single-H1 auditor reads this flag, and only for the
+          # reassembled published corpus.
+          AUDIT_REASSEMBLED_CORPUS: '1'
         run: |
           set +e
           mkdir -p /tmp/audit-logs
