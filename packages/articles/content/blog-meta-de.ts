@@ -12011,6 +12011,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cattura-latitante-provincia-como.title': 'Como: Flüchtiger des Raubüberfalls in Campione festgenommen',
     'blog.article.cattura-latitante-provincia-como.excerpt': 'Dario De Bernardi, 55 Jahre alt, wurde am 23. September verhaftet: Er muss mehr als 19 Jahre verbüßen und gilt als Täter des Raubüberfalls auf 750.000 Franken in Campione.',
     'blog.article.cattura-latitante-provincia-como.imageAlt': 'Panorama von Mendrisio zu einer lokalen Kriminalmeldung über den Fall Campione',
+    'blog.article.centri-asilanti-chiasso-pasture.title': 'Asylzentren Chiasso-Pasture: 40 Plätze 2027 gefährdet',
+    'blog.article.centri-asilanti-chiasso-pasture.excerpt': 'Ab dem 1. Januar 2027 geht das Bundesmandat von AOZ an ORS Service über; die Gewerkschaften VPOD und OCST warnen vor bis zu 40 Entlassungen in Chiasso und Pasture unter 120 AOZ Ticino-Mitarbeitenden.',
+    'blog.article.centri-asilanti-chiasso-pasture.imageAlt': 'Luftaufnahme der Aufnahmzentren in Chiasso und Pasture im Tessin, Alpen im Hintergrund',
 };
 
 export default blogMetaDe;

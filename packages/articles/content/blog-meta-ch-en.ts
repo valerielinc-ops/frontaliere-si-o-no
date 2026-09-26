@@ -6737,6 +6737,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.kof-consensus-forecast-pil-2026.title': 'KOF: Swiss GDP 2026 at +1,7%, inflation at 0,6%',
     'blog.article.kof-consensus-forecast-pil-2026.excerpt': 'The KOF\'s 123rd Consensus Forecast reveals 1,7% growth for 2026 and expected inflation of 0,6%.',
     'blog.article.kof-consensus-forecast-pil-2026.imageAlt': 'View of a modern building in Zurich with economic charts in the background',
+    'blog.article.voci-morgan-stanley-ubs.title': 'Rumors about Morgan Stanley, UBS rises above 3%',
+    'blog.article.voci-morgan-stanley-ubs.excerpt': 'UBS shares are up more than 3% in Zurich and close to 41 francs after rumours about a possible merger with Morgan Stanley.',
+    'blog.article.voci-morgan-stanley-ubs.imageAlt': 'Stock-market screens in Zurich during the rise of UBS shares',
 };
 
 export default blogMetaChEn;

@@ -36045,6 +36045,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'centri-asilanti-chiasso-pasture',
+ category: 'novita',
+ date: '2026-09-26T01:43:15.448Z',
+ image: '/images/blog/centri-asilanti-chiasso-pasture.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

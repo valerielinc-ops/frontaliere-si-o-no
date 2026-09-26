@@ -93712,6 +93712,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-centri-asilanti-chiasso-pasture': {
+    title: 'Centri asilanti Chiasso-Pasture: 40 posti a rischio 2027',
+    description: 'Dal 1° gennaio 2027 il mandato federale dei centri di Chiasso e Pasture passa da AOZ a ORS Service. Sindacati VPOD e OCST avvertono fino a 40 licenziamenti',
+    keywords: 'frontalieri, ticino, svizzera, italia, centri, asilanti, chiasso-pasture, posti',
+    ogTitle: 'Centri asilanti Chiasso-Pasture: 40 posti a rischio 2027',
+    ogDescription: 'Il passaggio del mandato federale da AOZ a ORS Service previsto per il 1° gennaio 2027 mette a rischio fino a 40 posti di lavoro nei centri di accoglienza di Chiasso e Pasture. I sindacati VPOD e OCST, rappresentanti dei 120 dipendenti AOZ Ticino',
+    canonicalPath: '/articoli-frontaliere/centri-asilanti-chiasso-pasture',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Centri asilanti Chiasso-Pasture: 40 posti a rischio 2027",
+      "description": "Dal 1° gennaio 2027 il mandato federale dei centri di Chiasso e Pasture passa da AOZ a ORS Service. Sindacati VPOD e OCST avvertono fino a 40 licenziamenti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/centri-asilanti-chiasso-pasture.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea dei centri di accoglienza di Chiasso e Pasture in Ticino, con montagne sullo sfondo"
+      },
+      "datePublished": "2026-09-26T01:43:15+00:00",
+      "dateModified": "2026-09-26T01:43:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/centri-asilanti-chiasso-pasture/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
