@@ -7071,9 +7071,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
   const job = rewardedApplicationJob;
   if (!job) return;
   setRewardedApplicationJob(null);
-  // This callback happens after the visitor has explicitly chosen to continue
-  // from the rewarded modal, so use the current tab: a late window.open is
-  // commonly blocked by the browser.
+  // This callback fires on Google's reward (the Offerwall entitlement or the
+  // GPT grant), with no further click, so use the current tab: a late
+  // window.open is commonly blocked by the browser.
   redirectExternalApplication(job, 'rewarded_application_inline_completed', true, true, {
    handoff: 'rewarded_granted',
   });
