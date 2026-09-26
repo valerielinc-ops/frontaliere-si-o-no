@@ -2271,6 +2271,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'voci-morgan-stanley-ubs': { it: 'voci-morgan-stanley-ubs', en: 'ubs-morgan-stanley-merger-rumors', de: 'ubs-morgan-stanley-fusionsgeruechte', fr: 'rumeurs-fusion-ubs-morgan-stanley' },
  'destra-ticino-elezioni-aprile': { it: 'destra-ticino-elezioni-aprile', en: 'ticino-right-elections-april', de: 'tessin-rechte-wahlen-april', fr: 'tessin-droite-elections-avril' },
  'carburante-sgravio-berna': { it: 'carburante-sgravio-berna', en: 'no-fuel-discount-bern-confirms-full-price', de: 'keine-entlastung-beim-treibstoff-bern-bestatigt-das-teure-tanken', fr: 'aucun-allegement-sur-le-carburant-berne-confirme-le-plein-hors-de-prix' },
+ 'portali-cv-lucerna': { it: 'portali-cv-lucerna', en: 'swiss-job-search-lucerne-2026', de: 'arbeitssuche-schweiz-luzern-2026', fr: 'recherche-emploi-suisse-lucerne-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
