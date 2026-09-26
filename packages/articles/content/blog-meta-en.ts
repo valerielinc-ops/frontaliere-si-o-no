@@ -12024,6 +12024,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bilaterali-tre-primo-test.title': 'Bilateral Agreements III: Council of States test on Monday',
     'blog.article.bilaterali-tre-primo-test.excerpt': 'The package of Switzerland-EU agreements reaches the Council of States on Monday: the source expects a marathon debate, with sparks in the exchange.',
     'blog.article.bilaterali-tre-primo-test.imageAlt': 'Bellinzona and the Ticino mountains for a Bilaterals III news story',
+    'blog.article.incidente-lozza-gazzada-vedano.title': 'Accident between Lozza and Gazzada: queues as far as Vedano',
+    'blog.article.incidente-lozza-gazzada-vedano.excerpt': 'Incident between Lozza and Gazzada Schianno on September 23: according to initial information, there are reportedly no injuries. Queues and traffic as far as the Vedano bridge.',
+    'blog.article.incidente-lozza-gazzada-vedano.imageAlt': 'Cars queued on a provincial road near a roundabout',
 };
 
 export default blogMetaEn;
