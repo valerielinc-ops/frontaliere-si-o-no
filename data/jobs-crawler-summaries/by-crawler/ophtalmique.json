@@ -1,21 +1,21 @@
 {
   "key": "ophtalmique",
   "label": "Hôpital ophtalmique Jules-Gonin (Fondation Asile des aveugles)",
-  "generatedAt": "2026-09-26T14:08:01.468Z",
-  "total": 6,
+  "generatedAt": "2026-09-26T23:46:14.045Z",
+  "total": 4,
   "discovered": null,
   "parsed": 4,
   "lastFetchOutcome": null,
-  "written": 6,
+  "written": 4,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 6119,
-  "avgDurationMs": 6119,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 5319,
+  "avgDurationMs": 5319,
   "durationHistory": [
-    6119
+    5319
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,13 +26,13 @@
       "companyKey": "ophtalmique",
       "companyDomain": "ophtalmique.ch",
       "title": "Infirmier-ère EMS Clair-Soleil",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1913",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:07:51.986Z",
+      "crawledAt": "2026-09-26T23:46:08.463Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -64,13 +64,13 @@
       "companyKey": "ophtalmique",
       "companyDomain": "ophtalmique.ch",
       "title": "Infirmier-ère pooliste",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1862",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:07:51.606Z",
+      "crawledAt": "2026-09-26T23:46:08.050Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1888",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:07:51.224Z",
+      "crawledAt": "2026-09-26T23:46:07.638Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -146,7 +146,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1870",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:07:50.732Z",
+      "crawledAt": "2026-09-26T23:46:07.086Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -172,8 +172,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "ophtalmique-0fe5672c1e88",
       "slug": "interno-di-insegnamento-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
@@ -258,5 +257,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
