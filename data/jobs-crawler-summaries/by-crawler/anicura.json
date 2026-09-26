@@ -1,23 +1,24 @@
 {
   "key": "anicura",
   "label": "anicura",
-  "generatedAt": "2026-09-25T15:09:04.127Z",
+  "generatedAt": "2026-09-26T14:14:32.715Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
   "written": 1,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5089,
-  "avgDurationMs": 5089,
+  "durationMs": 5096,
+  "avgDurationMs": 5096,
   "durationHistory": [
-    5089
+    5096
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "anicura-8cd5c9f07b0e",
       "slug": "tierarzt-in-80-100-w-m-d-thun-thun-anicura-ch",
@@ -30,7 +31,7 @@
       "url": "https://jobs.anicura.ch/jobs/5851151-tieraerzt-in-80-100-w-m-d-thun",
       "source": "anicura Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:08:56.323Z",
+      "crawledAt": "2026-09-26T14:14:24.735Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -46,16 +47,17 @@
       "featured": false,
       "postedDate": "2025-04-25T11:11:40+02:00",
       "applyUrl": "https://jobs.anicura.ch/jobs/5851151-tieraerzt-in-80-100-w-m-d-thun",
-      "_qualityScore": 59,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-25T15:08:56.323Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 4,
+        "translation": 20,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
