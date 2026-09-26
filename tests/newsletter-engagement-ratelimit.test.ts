@@ -1,8 +1,26 @@
-import { describe, expect, it, beforeEach } from 'vitest';
+import { describe, expect, it, beforeEach, vi } from 'vitest';
+
+const { getDocMock, setDocMock } = vi.hoisted(() => ({
+ getDocMock: vi.fn(),
+ setDocMock: vi.fn(async () => undefined),
+}));
+
+vi.mock('firebase/firestore', () => ({
+  collection: vi.fn(() => ({})),
+  doc: vi.fn(() => ({})),
+  getDoc: getDocMock,
+  setDoc: setDocMock,
+  addDoc: vi.fn(async () => ({ id: 'event-1' })),
+  increment: vi.fn((value: number) => ({ __increment: value })),
+  serverTimestamp: vi.fn(() => '__server_timestamp__'),
+  deleteField: vi.fn(() => '__delete_field__'),
+}));
+
 import {
-  calculateEngagementScore,
-  checkSubscriptionRateLimit,
-  recordSubscriptionAttempt,
+ calculateEngagementScore,
+ checkSubscriptionRateLimit,
+ recordSubscriptionAttempt,
+ upsertNewsletterSubscriber,
 } from '@/services/newsletterSubscribers';
 
 describe('calculateEngagementScore (FRO-17)', () => {
@@ -168,5 +186,59 @@ describe('checkSubscriptionRateLimit (FRO-19)', () => {
     );
     const result = checkSubscriptionRateLimit();
     expect(result.allowed).toBe(true);
+ });
+});
+
+describe('explicit subscription actions and FRO-19', () => {
+ beforeEach(() => {
+  window.sessionStorage.clear();
+  getDocMock.mockReset();
+  setDocMock.mockClear();
+ });
+
+ it('does not block an explicit authenticated action after the session bucket is full', async () => {
+  getDocMock.mockResolvedValue({
+   exists: () => true,
+   data: () => ({
+    email: 'owner@example.com',
+    status: 'confirmed',
+    isActive: true,
+    active: true,
+    registration_terms_accepted: true,
+    consent_text: 'Comunicazioni di Frontaliere Ticino',
+    consent_text_displayed: true,
+    consent_act: 'email_submit',
+    consent_method: 'email_submit',
+    confirmed_at: '2026-09-25T12:00:00.000Z',
+   }),
   });
+  recordSubscriptionAttempt();
+  recordSubscriptionAttempt();
+  recordSubscriptionAttempt();
+
+  const result = await upsertNewsletterSubscriber({} as any, {
+   email: 'owner@example.com',
+   userId: 'user-1',
+   registrationMethod: 'authenticated',
+   source: 'company_follow',
+   sourceChannel: 'company_follow_unified',
+   explicitConsentAction: true,
+   locale: 'it',
+  });
+
+  expect(result.status).toBe('confirmed');
+  expect(setDocMock).toHaveBeenCalled();
+ });
+
+ it('keeps blocking an implicit capture after the session bucket is full', async () => {
+  recordSubscriptionAttempt();
+  recordSubscriptionAttempt();
+  recordSubscriptionAttempt();
+
+  await expect(upsertNewsletterSubscriber({} as any, {
+   email: 'background@example.com',
+   source: 'session_restore',
+  })).rejects.toThrow('Rate limited');
+  expect(getDocMock).not.toHaveBeenCalled();
+ });
 });
