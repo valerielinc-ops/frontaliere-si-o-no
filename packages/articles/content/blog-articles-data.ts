@@ -36090,6 +36090,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'aggressioni-notte-lugano',
+ category: 'novita',
+ date: '2026-09-26T05:34:08.508Z',
+ image: '/images/blog/aggressioni-notte-lugano.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

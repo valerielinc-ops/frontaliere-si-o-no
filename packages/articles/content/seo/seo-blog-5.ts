@@ -93907,6 +93907,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aggressioni-notte-lugano': {
+    title: 'Aggressioni e notti violente: giovani ticinesi raccontano',
+    description: 'Il 1° agosto 2025 un 19enne è stato pestato sotto la pensilina di Mario Botta a Lugano; nel 2024 la magistratura minorile ha aperto 912 incarti (+18%); Taha, 24',
+    keywords: 'frontalieri, ticino, svizzera, italia, aggressioni, notti, violente, giovani',
+    ogTitle: 'Aggressioni e notti violente: giovani ticinesi raccontano',
+    ogDescription: 'A Lugano, la notte del 1° agosto 2025 ha visto un diciannovenne bellinzonese vittima di un brutale pestaggio sotto la pensilina di Mario Botta. Il episodio si inserisce in un contesto di crescente violenza giovanile: nel 2024 la magistratura minorile',
+    canonicalPath: '/articoli-frontaliere/aggressioni-notte-lugano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aggressioni e notti violente: giovani ticinesi raccontano",
+      "description": "Il 1° agosto 2025 un 19enne è stato pestato sotto la pensilina di Mario Botta a Lugano; nel 2024 la magistratura minorile ha aperto 912 incarti (+18%); Taha, 24",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aggressioni-notte-lugano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Visione notturna della pensilina di Mario Botta a Lugano, luogo dell'aggressione del 1° agosto 2025."
+      },
+      "datePublished": "2026-09-26T05:34:08+00:00",
+      "dateModified": "2026-09-26T05:34:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aggressioni-notte-lugano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

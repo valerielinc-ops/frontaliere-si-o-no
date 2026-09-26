@@ -12026,6 +12026,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incidente-lozza-gazzada-vedano.title': 'Unfall zwischen Lozza und Gazzada: Stau bis Vedano',
     'blog.article.incidente-lozza-gazzada-vedano.excerpt': 'Unfall zwischen Lozza und Gazzada Schianno am 23. September: Nach ersten Informationen soll es keine Verletzten geben. Staus und Verkehr bis zur Brücke von Vedano.',
     'blog.article.incidente-lozza-gazzada-vedano.imageAlt': 'Autoschlange auf einer Provinzstrasse nahe einem Kreisverkehr',
+    'blog.article.aggressioni-notte-lugano.title': 'Übergriffe und gewalttätige Nächte: Tessiner Jugendliche erzählen',
+    'blog.article.aggressioni-notte-lugano.excerpt': 'Am 1. August 2025 wurde ein 19-jähriger Bellinzoneser unter dem Vordach von Mario Botta verprügelt; 2024 eröffnete die Jugendjustiz 912 Akten; Taha, 24, wartet nach einer Haftstrafe von 2 Jahren und 6 Monaten im Gefängnis von Kloten auf die Abschiebung.',
+    'blog.article.aggressioni-notte-lugano.imageAlt': 'Nachtsicht der Mario Botta Bushaltestelle in Lugano, Ort des Angriffs vom 1. August 2025.',
 };
 
 export default blogMetaDe;
