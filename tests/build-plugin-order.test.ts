@@ -127,6 +127,11 @@ describe('build plugin ordering', () => {
     expectPluginAfter(names, 'salary-hub-index-link', 'salary-hub-seo');
     expectPluginAfter(names, 'related-search-clusters', 'jobs-seo-pages');
     expectPluginAfter(names, 'post-walk-coordinator', 'related-search-clusters');
+    // The final sitemap dist-truth pass must run after every page emitter and
+    // after the CDN rewrite, otherwise a late closeBundle collision can put a
+    // noindex cluster URL back into the already-written sitemap shard.
+    expectPluginAfter(names, 'sitemap-alias', 'post-walk-coordinator');
+    expectPluginAfter(names, 'sitemap-alias', 'blog-image-cdn-finalize');
     // professionCityLandings' below-floor bridge (renderBelowFloorBridge)
     // targets the per-(canton,city,locale) hub that jobs-seo-pages emits
     // unconditionally (issue #4330 item 1) — lock the order so a future
