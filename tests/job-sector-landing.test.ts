@@ -252,6 +252,27 @@ describe('jobSectorLanding — sector match regex', () => {
     }
   });
 
+  it('include i sistemi di sicurezza fisica senza inglobare il lessico cyber (#9938)', () => {
+    for (const title of [
+      'Capo Progetto Sistemi di Sicurezza 80–100%',
+      'Systemtechniker:in für Sicherheitstechnik und Zutrittskontrollsysteme',
+      'Physical Security coordinator',
+      'Chef de projet systèmes de sécurité',
+    ]) {
+      expect(jobMatchesSector({ title }, 'sicurezza'), `fisica: ${title}`).toBe(true);
+      expect(jobMatchesSector({ title }, 'cybersecurity'), `non cyber: ${title}`).toBe(false);
+    }
+
+    for (const title of [
+      'Cloud Security Architect',
+      'IT Security Engineer - Cloud and Data Loss Prevention',
+      'Network Security Systems Engineer',
+    ]) {
+      expect(jobMatchesSector({ title }, 'cybersecurity'), `cyber: ${title}`).toBe(true);
+      expect(jobMatchesSector({ title }, 'sicurezza'), `non fisica: ${title}`).toBe(false);
+    }
+  });
+
   // ── Il separatore non e' sempre uno spazio singolo (follow-up di #7496) ──
   //
   // Il lookbehind di `sicurezza` esiste per impedire che UNO stesso annuncio

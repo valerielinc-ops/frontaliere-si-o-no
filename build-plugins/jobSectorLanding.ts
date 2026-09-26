@@ -513,7 +513,7 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
     /\bcameri[eè]r|\bkellner|\bwaiter\b|\bwaitress\b|\bserveur|\bserveuse|\bservice[ -]de[ -]table|\bbarista\b|\bbarman\b|\bbartender\b|\b(?:impiegat|collaborat)\S*\s+(?:di|della)\s+ristorazione/i,
   hotel: /\bhotel\b|\balbergh|\bhotelfach|\bhospitality\b|\breceptionist|\brezeption|\bconcierge\b|\bgouvernante\b|\bh[oô]tellerie|\bgovernante\b/i,
   pulizie: /\bpulizi|\breinigung|\bcleaning\b|\bnettoyage\b|\bputzfrau|\braumpfleg|\baddetto[ -]alle[ -]pulizie|\bagent[ -]d.entretien|\bfacility[ -]cleaning/i,
-  // Sicurezza FISICA. Il lookbehind tiene fuori `Information/IT/Cloud/Network/
+  // Sicurezza FISICA e sistemi di sicurezza. Il lookbehind tiene fuori `Information/IT/Cloud/Network/
   // Cyber Security Officer`, che non e' un guardiano ma un ruolo cyber: senza,
   // l'allargamento del lessico `cybersecurity` sopra lo farebbe comparire su
   // ENTRAMBE le landing. Il separatore del lookbehind e' `INTRA_FIELD_SEP`: un
@@ -535,6 +535,15 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
     + '|\\bsicherheitsdienst|\\bwachmann|\\bvigilanz'
     + '|\\bguardia' + SEC_SEP + 'giurat'
     + '|\\bagent' + SEC_SEP + 'de' + SEC_SEP + 's[eé]curit'
+    // The TI corpus also contains project and technician roles for physical
+    // security systems (access control, video surveillance and intrusion
+    // alarms). They are physical-security jobs even when the title has no
+    // guard/officer noun (#9938); keep the phrases explicit so generic
+    // occupational-safety and cyber titles remain out of this hub.
+    + '|\\bsistem[ai]' + INTRA_FIELD_SEP + 'di' + INTRA_FIELD_SEP + 'sicurezza'
+    + '|\\bsicherheits(?:systeme?|technik)\\b'
+    + '|\\bsyst[eè]mes?' + INTRA_FIELD_SEP + 'de' + INTRA_FIELD_SEP + 's[eé]curit[eé]'
+    + '|\\bphysical' + INTRA_FIELD_SEP + 'security'
     + '|\\bsorvegli',
     'i',
   ),
