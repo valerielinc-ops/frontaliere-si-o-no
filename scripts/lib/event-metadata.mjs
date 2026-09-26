@@ -175,6 +175,35 @@ export function hasCompleteEventPeopleUrls(value) {
   return entries.length > 0 && entries.every((entry) => typeof entry?.url === 'string' && /^https?:\/\//i.test(entry.url));
 }
 
+function eventPersonNameKey(value) {
+  return typeof value?.name === 'string' ? value.name.replace(/\s+/g, ' ').trim().toLowerCase() : '';
+}
+
+/** Merge source-backed URLs into matching primary people without dropping entries. */
+export function mergeEventPeopleUrls(primary, candidate) {
+  if (primary === undefined || primary === null) return candidate;
+  if (candidate === undefined || candidate === null) return primary;
+  const primaryWasArray = Array.isArray(primary);
+  const primaryEntries = primaryWasArray ? primary : [primary];
+  const candidateEntries = Array.isArray(candidate) ? candidate : [candidate];
+  const merged = primaryEntries.map((entry) => (
+    entry && typeof entry === 'object' ? { ...entry } : entry
+  ));
+
+  for (const candidateEntry of candidateEntries) {
+    const candidateName = eventPersonNameKey(candidateEntry);
+    if (!candidateName || typeof candidateEntry?.url !== 'string') continue;
+    const index = merged.findIndex((entry) => eventPersonNameKey(entry) === candidateName);
+    if (index < 0) continue;
+    const current = merged[index];
+    if (current && typeof current === 'object' && !current.url) {
+      merged[index] = { ...current, url: candidateEntry.url };
+    }
+  }
+
+  return primaryWasArray ? merged : merged[0];
+}
+
 function sourceText(value) {
   return cleanEventText(value);
 }

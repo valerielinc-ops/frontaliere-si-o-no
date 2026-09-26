@@ -91,6 +91,7 @@ import {
   firstEventImageUrlFromHtml,
   hasCompleteEventPeopleUrls,
   mergeEventOfferMetadata,
+  mergeEventPeopleUrls,
   normalizeEventPeople,
 } from './lib/event-metadata.mjs';
 
@@ -491,7 +492,11 @@ export function mergeDetailEventMetadata(primaryLd, candidateLd, primaryUrl = SI
       && hasCompleteEventPeopleUrls(candidatePeople)
       && !hasCompleteEventPeopleUrls(primaryPeople);
     if (!primaryPeople || candidateAddsOrganizerUrl) {
-      if (candidatePeople) merged[field] = candidatePeople;
+      if (candidatePeople) {
+        merged[field] = field === 'organizer' && primaryPeople
+          ? mergeEventPeopleUrls(primaryPeople, candidatePeople)
+          : candidatePeople;
+      }
     }
   }
   const mergedOffers = mergeEventOfferMetadata(merged.offers, candidateLd.offers, primaryUrl, candidateUrl);
@@ -692,7 +697,6 @@ export function detailEnrichmentReady(enrichment, perLocaleHits = {}, sourcePeop
   const organizerReady = Boolean(
     hasCompleteEventPeopleUrls(organizerEvidence)
     || (enrichment?.detailUrl && organizerEvidence)
-    || !organizerEvidence,
   );
   const performerReady = Boolean(
     normalizeEventPeople(enrichment?.detailLd?.performer, enrichment?.detailUrl || SITE_ORIGIN)

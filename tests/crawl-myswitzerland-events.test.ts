@@ -292,6 +292,28 @@ describe('mergeDetailEventMetadata', () => {
     });
   });
 
+  it('merges a later organizer URL into a matching primary entry without dropping siblings', () => {
+    const merged = mergeDetailEventMetadata(
+      {
+        '@type': 'MusicEvent',
+        organizer: [
+          { '@type': 'Organization', name: 'Organizzatore A' },
+          { '@type': 'Organization', name: 'Organizzatore B' },
+        ],
+      },
+      {
+        '@type': 'MusicEvent',
+        organizer: [{ '@type': 'Organization', name: 'Organizzatore A', url: '/organizer-a' }],
+      },
+      'https://www.myswitzerland.com/it-ch/eventi/principale',
+      'https://www.myswitzerland.com/en-ch/events/principale',
+    );
+    expect(merged?.organizer).toEqual([
+      { '@type': 'Organization', name: 'Organizzatore A', url: 'https://www.myswitzerland.com/organizer-a' },
+      { '@type': 'Organization', name: 'Organizzatore B' },
+    ]);
+  });
+
   it('fills missing Offer fields from a later localized JSON-LD variant', () => {
     const merged = mergeDetailEventMetadata(
       { '@type': 'Event', offers: { price: '25', priceCurrency: 'CHF' } },
@@ -373,6 +395,14 @@ describe('detailEnrichmentReady', () => {
       detailContactName: 'Promotore dalla pagina',
       detailPeople: { performer: { name: 'Artista dalla pagina' } },
     }, perLocaleHits)).toBe(true);
+  });
+
+  it('keeps fetching when no organizer evidence exists in the current locale', () => {
+    expect(detailEnrichmentReady({
+      ...complete,
+      detailUrl: 'https://www.myswitzerland.com/it-ch/eventi/senza-organizer',
+      detailPeople: { performer: { name: 'Artista dalla pagina' } },
+    }, perLocaleHits)).toBe(false);
   });
 });
 
