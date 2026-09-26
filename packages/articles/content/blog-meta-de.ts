@@ -12055,6 +12055,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cotonificio-liuc-industrial-quest.title': 'Cotonificio LIUC im Mittelpunkt von Industrial Quest 2026',
     'blog.article.cotonificio-liuc-industrial-quest.excerpt': 'Am 12.bis13. September 2026 vertrat Castellanza Italien in der ersten Ausgabe von Industrial Quest: 46 Standorte in 15 Ländern, 5 Teams in der Cotonificio Cantoni LIUC, Zamponari 40 Punkte, Die Ausländer 35.',
     'blog.article.cotonificio-liuc-industrial-quest.imageAlt': 'Blick auf den Luganer See mit den Bergen im Hintergrund, Morgenlicht',
+    'blog.article.incendio-capannone-turate.title': 'Brand in Turate, Angst um die Tiere in der Lagerhalle',
+    'blog.article.incendio-capannone-turate.excerpt': 'Brand in einem landwirtschaftlichen Betrieb von Turate: Rauch kilometerweit sichtbar, Verkehr zwischen Turate und Cislago verlangsamt und möglicherweise Tiere in der Halle.',
+    'blog.article.incendio-capannone-turate.imageAlt': 'Dichter Rauch über einem Landwirtschaftsbetrieb beim Brand in Turate',
 };
 
 export default blogMetaDe;
