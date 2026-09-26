@@ -71,6 +71,7 @@ import { handleCreatePublisherCheckout, handleAttachPublisherJob, handleStripeWe
 import { handleCreateReaderCheckout, handleClaimReaderCheckout, handleCreateReaderBillingPortal } from './src/stripeReaderCore.js';
 import { handleCreateConsultingCheckout, handleConsultingDetailsSubmitted } from './src/consultingCore.js';
 import { handleCreateAssistedApplicationCheckout } from './src/assistedApplicationCheckout.js';
+import { recordApplicationIntent as handleRecordApplicationIntent } from './src/applicationIntentCore.js';
 import { purgeExpiredAssistedApplicationFiles } from './src/assistedApplicationRetention.js';
 import { reapStalePendingPayments } from './src/publisherPendingReapCore.js';
 import { onDocumentCreated, onDocumentWritten } from 'firebase-functions/v2/firestore';
@@ -1821,6 +1822,37 @@ export const createAssistedApplicationCheckout = onRequest(
     } catch (error) {
       console.error(
         '[createAssistedApplicationCheckout]',
+        error instanceof Error ? error.message : String(error),
+      );
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// Record the explicit "Candidati" intent before the browser leaves for the
+// employer. The endpoint is anonymous-compatible for organic visitors, while
+// a verified Firebase token lets the writer retain a stable account identity.
+// Firestore writes stay server-side; the client collection is deny-by-rule.
+export const recordApplicationIntent = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 15,
+    cors: [
+      'https://frontaliereticino.ch',
+      'https://www.frontaliereticino.ch',
+      'https://frontaliere-ticino.web.app',
+      'https://frontaliere-ticino.firebaseapp.com',
+      /^http:\/\/localhost(:\d+)?$/,
+    ],
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleRecordApplicationIntent(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error(
+        '[recordApplicationIntent]',
         error instanceof Error ? error.message : String(error),
       );
       res.status(500).json({ ok: false, error: 'internal_error' });

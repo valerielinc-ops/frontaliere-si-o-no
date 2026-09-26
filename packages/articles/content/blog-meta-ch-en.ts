@@ -6779,6 +6779,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mobilitazione-esercito-ponte.title': 'The Swiss army tests rapid mobilization',
     'blog.article.mobilitazione-esercito-ponte.excerpt': 'MOBILO 26 involved approximately 3\'000 soldiers, 300 wheeled vehicles and 50 armored vehicles from Bière to Frauenfeld, with a floating bridge.',
     'blog.article.mobilitazione-esercito-ponte.imageAlt': 'Swiss soldiers assemble a floating bridge during exercise MOBILO 26',
+    'blog.article.dertour-suisse-ripresa-fatturato.title': 'Dertour Suisse aims to surpass one billion in revenue',
+    'blog.article.dertour-suisse-ripresa-fatturato.excerpt': 'Dertour Suisse aims to exceed 1 billion francs, summer 2026 bookings show 14% for moderate destinations and it expects over 20% in 4‑6 years; branches 124, employees 1750, 250 positions to be cut by the end of 2027.',
+    'blog.article.dertour-suisse-ripresa-fatturato.imageAlt': 'Lake Lugano with sailboats and mountains in the background, symbol of Swiss tourism.',
 };
 
 export default blogMetaChEn;

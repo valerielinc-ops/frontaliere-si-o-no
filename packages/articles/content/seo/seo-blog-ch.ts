@@ -87887,6 +87887,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dertour-suisse-ripresa-fatturato': {
+    title: 'Dertour Suisse punta a superare il miliardo di fatturato',
+    description: 'Dertour Suisse mira a oltre 1 miliardo di franchi di fatturato grazie all\'acquisizione di Hotelplan; le prenotazioni estive 2026 mostrano il 14% per mete',
+    keywords: 'frontalieri, ticino, svizzera, italia, dertour, suisse, punta, superare',
+    ogTitle: 'Dertour Suisse punta a superare il miliardo di fatturato',
+    ogDescription: 'Dertour Suisse, principale tour operator svizzero, annuncia l\'obiettivo di superare il miliardo di franchi di fatturato dopo l\'acquisizione di Hotelplan. Le prenotazioni sono tornate sopra i livelli dell\'anno precedente e il 14% delle prenotazioni',
+    canonicalPath: '/articoli-svizzera/dertour-suisse-ripresa-fatturato/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dertour Suisse punta a superare il miliardo di fatturato",
+      "description": "Dertour Suisse mira a oltre 1 miliardo di franchi di fatturato grazie all'acquisizione di Hotelplan; le prenotazioni estive 2026 mostrano il 14% per mete",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dertour-suisse-ripresa-fatturato.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago Lugano con barche a vela e montagne sullo sfondo, simbolo del turismo svizzero."
+      },
+      "datePublished": "2026-09-26T12:56:20+00:00",
+      "dateModified": "2026-09-26T12:56:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dertour-suisse-ripresa-fatturato/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
