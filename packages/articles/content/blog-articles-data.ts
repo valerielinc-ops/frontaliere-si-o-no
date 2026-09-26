@@ -36225,6 +36225,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'erba-punto-nascita-interrogazione-lega',
+ category: 'novita',
+ date: '2026-09-26T17:11:15.315Z',
+ image: '/images/blog/erba-punto-nascita-interrogazione-lega.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

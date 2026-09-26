@@ -12076,6 +12076,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cantieri-reti-gas-acqua-varese.title': 'Varese : chantiers de gaz et d’eau dans trois rues jusqu’en avril 2027',
     'blog.article.cantieri-reti-gas-acqua-varese.excerpt': 'À partir du 28 septembre 2026, les travaux de Lereti (Gruppo Acinque) commencent via Masolino da Panicale, Pagliano et Giovannini. Interdiction de circulation et de stationnement.',
     'blog.article.cantieri-reti-gas-acqua-varese.imageAlt': 'Travaux de rénovation des réseaux de gaz et d\'eau à Varese',
+    'blog.article.erba-punto-nascita-interrogazione-lega.title': 'Fermeture de la maternité d’Erba : question de la Lega',
+    'blog.article.erba-punto-nascita-interrogazione-lega.excerpt': 'Eugenio Zoffili interroge le ministre Schillaci et demande des tables techniques et des dérogations pour maintenir opérationnel le service de maternité d’Erba.',
+    'blog.article.erba-punto-nascita-interrogazione-lega.imageAlt': 'L’hôpital d’Erba au cœur du débat sur la fermeture de la maternité',
 };
 
 export default blogMetaFr;

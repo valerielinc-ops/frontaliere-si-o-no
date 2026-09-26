@@ -12074,6 +12074,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cantieri-reti-gas-acqua-varese.title': 'Varese: gas and water works on three streets until April 2027',
     'blog.article.cantieri-reti-gas-acqua-varese.excerpt': 'Starting September 28, 2026, Lereti (Gruppo Acinque) will begin work on Via Masolino da Panicale, Pagliano, and Giovannini. No traffic or parking.',
     'blog.article.cantieri-reti-gas-acqua-varese.imageAlt': 'Gas and water network renewal works in Varese',
+    'blog.article.erba-punto-nascita-interrogazione-lega.title': 'Closure of Erba maternity unit: League inquiry',
+    'blog.article.erba-punto-nascita-interrogazione-lega.excerpt': 'Eugenio Zoffili questions Minister Schillaci and calls for technical working groups and exemptions to keep the Erba maternity unit operational.',
+    'blog.article.erba-punto-nascita-interrogazione-lega.imageAlt': 'Erba hospital at the center of the debate over its maternity ward closure',
 };
 
 export default blogMetaEn;

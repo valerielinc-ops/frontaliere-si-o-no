@@ -12073,6 +12073,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cantieri-reti-gas-acqua-varese.title': 'Varese: Drei-Wege-Gas- und Wasserbaustellen bis April 2027',
     'blog.article.cantieri-reti-gas-acqua-varese.excerpt': 'Ab dem 28. September 2026 beginnen die Arbeiten von Lereti (Acinque-Gruppe) in der Via Masolino da Panicale, Pagliano und Giovannini. Durchreise- und Halteverbot.',
     'blog.article.cantieri-reti-gas-acqua-varese.imageAlt': 'Erneuerung der Gas- und Wassernetze in Varese',
+    'blog.article.erba-punto-nascita-interrogazione-lega.title': 'Schließung der Geburtsstation in Erba: Anfrage der Lega',
+    'blog.article.erba-punto-nascita-interrogazione-lega.excerpt': 'Eugenio Zoffili befragt Minister Schillaci und bittet um technische Tische und Ausnahmen, um den Geburtsort von Erba in Betrieb zu halten.',
+    'blog.article.erba-punto-nascita-interrogazione-lega.imageAlt': 'Das Krankenhaus Erba im Mittelpunkt der Debatte über die Schließung der Geburtsstation',
 };
 
 export default blogMetaDe;
