@@ -1,16 +1,16 @@
 {
   "key": "the-living-circle",
   "label": "livingcircle",
-  "generatedAt": "2026-09-26T13:57:08.670Z",
+  "generatedAt": "2026-09-26T23:33:27.003Z",
   "total": 30,
   "newCount": 0,
   "updatedCount": 30,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1606,
-  "avgDurationMs": 1606,
+  "durationMs": 1329,
+  "avgDurationMs": 1329,
   "durationHistory": [
-    1606
+    1329
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -270,11 +270,11 @@
       "id": "the-living-circle-2dbc96755e9e",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-19T22:51:40.722Z",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 23,
         "completeness": 14
       }
     },
@@ -565,7 +565,7 @@
       "contractType": "full-time",
       "validThrough": "",
       "id": "the-living-circle-e28ac1886309",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-11T13:38:48.303Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -996,11 +996,11 @@
       "id": "the-living-circle-6b16f6fb5301",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-25T14:44:48.658Z",
-      "_qualityScore": 86,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 23,
         "completeness": 14
       }
     }
