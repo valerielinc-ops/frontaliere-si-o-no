@@ -2289,6 +2289,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avenergy-lobby-clima': { it: 'avenergy-lobby-clima', en: 'avenergy-oil-lobby-climate-switzerland', de: 'avenergy-oellobby-klima-schweiz', fr: 'avenergy-lobby-petrole-climat-suisse' },
  'assicurazione-grandine-2026': { it: 'assicurazione-grandine-2026', en: 'hail-insurance-2026', de: 'hagelversicherung-2026', fr: 'assurance-grele-2026' },
  'ubs-sede-elvetica-costi': { it: 'ubs-sede-elvetica-costi', en: 'ubs-relocation-of-headquarters-unlikely-according-to-keller-sutter', de: 'ubs-standortverlegung-fur-keller-sutter-unwahrscheinlich', fr: 'ubs-transfert-du-siege-peu-probable-pour-keller-sutter' },
+ 'sanzioni-finanziarie-onu-2026': { it: 'sanzioni-finanziarie-onu-2026', en: 'onu-financial-sanctions-2026', de: 'onu-finanzsanktionen-2026', fr: 'sanctions-financieres-onu-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
