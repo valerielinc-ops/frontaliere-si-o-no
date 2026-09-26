@@ -141,6 +141,23 @@ describe('review → autorebase ordering', () => {
     expect(workflow).not.toContain('QUOTA_LEASE_ACTION');
   });
 
+  it('classifies nested structured 429/5xx markers before generic review failure', () => {
+    const abortStart = workflow.indexOf('id: review_abort');
+    const gateStart = workflow.indexOf('id: review_gate');
+    const abortBlock = workflow.slice(abortStart, gateStart);
+    const structuredMarker = abortBlock.indexOf('structured_marker=$(');
+    const genericFailure = abortBlock.indexOf('if [ "${REVIEW_OUTCOME}" = "failure" ]');
+
+    expect(structuredMarker).toBeGreaterThanOrEqual(0);
+    expect(genericFailure).toBeGreaterThan(structuredMarker);
+    expect(abortBlock).toContain('rate_limit_info.status');
+    expect(abortBlock).toContain("if (status === 429) rateLimit = true;");
+    expect(abortBlock).toContain("if (status >= 500 && status <= 599) retryable5xx = true;");
+    expect(abortBlock).toContain('visit(child);');
+    expect(abortBlock).toContain('retryable_5xx');
+    expect(abortBlock).toContain('overageStatus');
+  });
+
   it('lets the red-flag fixer act only when scope is blocking or unverifiable', () => {
     expect(redflagFixer).toContain('scope:');
     expect(redflagFixer).toContain('node scripts/ci/review-gate.mjs --scope');
