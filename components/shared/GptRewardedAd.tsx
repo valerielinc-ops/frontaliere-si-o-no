@@ -31,9 +31,12 @@ export interface GptRewardedAdProps {
   showUnavailableMessage?: boolean;
   enabled?: boolean;
   /**
-   * Make the ad visible as soon as GPT emits `rewardedSlotReady`. The caller
-   * mounts this component only after the visitor's own click and discloses
-   * the video, so no second click is needed to start it.
+   * Make the ad visible as soon as GPT emits `rewardedSlotReady`. Only for a
+   * caller whose own UI already disclosed the video and obtained the
+   * visitor's explicit opt-in to it (Google rewarded policy: clear value
+   * exchange, user-initiated). RewardedApplicationOffer does not use it since
+   * 2026-09-26: its loading screen deliberately does not mention a video, so
+   * it shows this component's button instead.
    */
   autoStart?: boolean;
   /**

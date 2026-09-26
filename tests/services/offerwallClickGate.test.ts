@@ -88,11 +88,11 @@ describe('offerwallClickGate', () => {
     expect(onShown).not.toHaveBeenCalled();
   });
 
-  it('completes at the close when Google granted the reward before it', async () => {
-    let root: HTMLDivElement | null = null;
+  it('completes as soon as Google writes a new entitlement, while the thank-you screen is still up', async () => {
+    // Live E4 (25-09): FCOEC ~100 ms after the ad's close, root removed ~3.1 s later.
     holdOfferwall(() => {
       setTimeout(() => {
-        root = mountRoot('fc-message-root');
+        mountRoot('fc-message-root');
       }, 600);
     });
     const onShown = vi.fn();
@@ -102,15 +102,36 @@ describe('offerwallClickGate', () => {
     await vi.advanceTimersByTimeAsync(1000);
     expect(onShown).toHaveBeenCalledWith(expect.objectContaining({ root: 'fc-message-root' }));
 
-    // Entitlement during the thank-you screen, root removed ~3 s later.
     setEntitlement('granted-1');
-    await vi.advanceTimersByTimeAsync(3000);
-    root!.remove();
-    await vi.advanceTimersByTimeAsync(400);
+    await vi.advanceTimersByTimeAsync(200);
     const result = await pending;
-    expect(result).toMatchObject({ outcome: 'completed', root: 'fc-message-root' });
-    expect(onClosed).toHaveBeenCalledTimes(1);
-    if (result.outcome === 'completed') expect(result.completedMs - result.closedMs).toBeLessThanOrEqual(400);
+    expect(result).toMatchObject({
+      outcome: 'completed',
+      signal: 'entitlement',
+      closedMs: null,
+      root: 'fc-message-root',
+    });
+    expect(onClosed).not.toHaveBeenCalled();
+    // The root is still on screen: completion did not wait for it.
+    expect(document.querySelector('.fc-message-root')).not.toBeNull();
+  });
+
+  it('ignores an entitlement left by an earlier grant, and completes only when it changes', async () => {
+    setEntitlement('earlier-visit');
+    holdOfferwall(() => {
+      mountRoot('fc-message-root');
+    });
+    let settled = false;
+    const pending = releaseHeldOfferwall().then((result) => {
+      settled = true;
+      return result;
+    });
+    await vi.advanceTimersByTimeAsync(3000);
+    expect(settled, 'the pre-existing cookie is not a new grant').toBe(false);
+
+    setEntitlement('granted-now');
+    await vi.advanceTimersByTimeAsync(200);
+    await expect(pending).resolves.toMatchObject({ outcome: 'completed', signal: 'entitlement' });
   });
 
   it('waits after the close for an entitlement written late', async () => {
@@ -126,7 +147,7 @@ describe('offerwallClickGate', () => {
     expect(onClosed).toHaveBeenCalledTimes(1);
     setEntitlement('granted-2');
     await vi.advanceTimersByTimeAsync(400);
-    await expect(pending).resolves.toMatchObject({ outcome: 'completed' });
+    await expect(pending).resolves.toMatchObject({ outcome: 'completed', signal: 'root_closed' });
   });
 
   it('reports closed_without_reward when no entitlement follows the close', async () => {
@@ -199,6 +220,6 @@ describe('offerwallClickGate', () => {
     setEntitlement('granted-late');
     root!.remove();
     await vi.advanceTimersByTimeAsync(400);
-    await expect(pending).resolves.toMatchObject({ outcome: 'completed' });
+    await expect(pending).resolves.toMatchObject({ outcome: 'completed', signal: 'root_closed' });
   });
 });
