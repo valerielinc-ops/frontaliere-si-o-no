@@ -184,7 +184,7 @@ jobs:
           # marker-authorized exact URLs for one bounded second repair attempt
           # instead of failing without ever trying the newly observed repair.
           if [ "$status" -ne 0 ]; then
-            retry_count="$(node --input-type=module -e "import fs from 'node:fs'; try { const p=JSON.parse(fs.readFileSync('runtime-reliability-final.json','utf8')); process.stdout.write(String((p.purgeUrls||[]).length)); } catch { process.stdout.write('0'); }")"
+            retry_count="$(node --input-type=module -e "import fs from 'node:fs'; try { const p=JSON.parse(fs.readFileSync('runtime-reliability-final.json','utf8')); process.stdout.write(String(Array.isArray(p.purgeUrls) ? p.purgeUrls.length : 0)); } catch { process.stdout.write('0'); }")"
             if [ "$retry_count" -gt 0 ]; then
               if [ -z "${CF_API_TOKEN:-}" ]; then
                 echo "::warning::runtime reliability found $retry_count final-pass purge candidate(s) but CF_API_TOKEN is unavailable; no retry was attempted"
