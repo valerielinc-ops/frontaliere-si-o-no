@@ -40,7 +40,7 @@
  * (open/click tracking) a no-op.
  *
  * Signal tiers, cheapest-first:
- *  1. `job_category`/`job_location`/`sector_interest` — explicit job-search
+ *  1. `job_category`/`job_location`/`sector_interest` — job-search context
  *     intent, whether captured with job-page context (job_gate unlock,
  *     JobBoard social sign-in with a job in progress) or from a standalone
  *     sector pick with no job in progress (e.g. a newsletter-signup sector
@@ -497,7 +497,13 @@ export function buildAlertPayload(email, data, existingBackfill, personalization
   const contextKeywords = isJobBoardRegistration
     ? [...new Set([explicitSearchQuery].map((value) => String(value || '').trim()).filter(Boolean))]
     : [];
-  const contextLocations = isJobBoardRegistration && data?.job_location
+  // `job_location` is the location of the source offer captured at signup,
+  // not a location the subscriber explicitly selected for the alert. Keep it
+  // in the linked subscriber profile as a soft signal. The old writer put it
+  // into `alert.locations`, which the matcher correctly treats as a HARD
+  // filter; retain this value only long enough to migrate an untouched legacy
+  // payload below.
+  const legacyContextLocations = isJobBoardRegistration && data?.job_location
     ? [String(data.job_location).trim()]
     : [];
   const contextSectors = isJobBoardRegistration
@@ -525,6 +531,16 @@ export function buildAlertPayload(email, data, existingBackfill, personalization
     && generatedKeywordForms.some((generated) =>
       JSON.stringify(normalizeCriteria(existingKeywords)) === JSON.stringify(generated));
   const preservedExistingKeywords = existingWasGenerated ? contextKeywords : existingKeywords;
+  const generatedLocationForms = legacyContextLocations.length > 0
+    ? [normalizeCriteria(legacyContextLocations)]
+    : [];
+  // Migrate only the exact location array emitted by the old writer. Any
+  // extra, removed or reordered criterion proves that the subscriber edited
+  // the alert and must be preserved byte-for-byte.
+  const existingLocationWasGenerated = existingLocations.length > 0
+    && generatedLocationForms.some((generated) =>
+      JSON.stringify(normalizeCriteria(existingLocations)) === JSON.stringify(generated));
+  const preservedExistingLocations = existingLocationWasGenerated ? [] : existingLocations;
   const tierSuffix =
     tier === 'location-fallback' || tier === 'personalization-fallback' || tier === 'url-fallback'
       ? `:${tier}`
@@ -533,10 +549,12 @@ export function buildAlertPayload(email, data, existingBackfill, personalization
     email,
     userId: data?.user_id || null,
     // A typed job-board search remains a hard criterion. The clicked/source
-    // offer title and recovered historical context stay in the soft profile so
-    // the alert can continue finding related roles after that offer expires.
+    // offer title, source-offer location and recovered historical context stay
+    // in the soft profile so the alert can continue finding related roles after
+    // that offer expires. Only locations explicitly edited on the alert remain
+    // a hard geo scope.
     keywords: preservedExistingKeywords.length > 0 ? preservedExistingKeywords : contextKeywords,
-    locations: existingLocations.length > 0 ? existingLocations : contextLocations,
+    locations: preservedExistingLocations,
     contractTypes: [],
     sectors: existingSectors.length > 0 ? existingSectors : contextSectors,
     cantonFilter: null,
