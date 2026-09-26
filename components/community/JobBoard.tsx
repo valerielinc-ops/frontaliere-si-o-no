@@ -148,6 +148,7 @@ import {
  resolveAnalyticsCompanyHubKey,
  resolveAnalyticsJobIdentity,
 } from '@/services/analytics';
+import { recordApplicationIntent } from '@/services/applicationIntent';
 import { deriveAnalyticsPageContext } from '@/services/analyticsPageContext';
 // Type-only: jobAlertService itself is always dynamically imported below (code
 // splitting) — this import is erased at build time, no bundle/runtime impact.
@@ -298,6 +299,9 @@ const BROADEN_BELOW = 10;
 // above jobs that merely mention the city in their description). Large enough to
 // dominate token-hit score so city-relevant listings lead the broadened tail.
 const CITY_MATCH_BOOST = 1000;
+function makeSearchBroadenKey(locale: Locale, query: string): string {
+ return `${locale}\u001f${query}`;
+}
 
 // Memoized stemmed haystack for the broaden tiers (cross-canton / cross-locale).
 // Those tiers scan the locale-wide unscoped pool (thousands of jobs) and used to
@@ -310,7 +314,7 @@ const CITY_MATCH_BOOST = 1000;
 // Reference stability — WeakMap hit-rate analysis:
 // The cache key is the job object reference. References are stable because
 // `unscopedJobs` and `crossLocaleJobs` are React state populated once per
-// session via one-shot guards (searchBroadenFetchAttempted,
+// session via one-shot guards (searchBroadenAttemptedQueries,
 // companyBroadenFetchAttempted, crossLocaleFetchAttempted). React never
 // recreates state values on re-render; the same JobListing objects live in
 // state until unmount or an explicit setState call. Therefore:
@@ -2450,8 +2454,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Search-broaden: when a canton-scoped SEARCH yields a thin in-canton set
  // (< BROADEN_BELOW) we lazy-load the locale-wide pool so the cross-canton tier
  // can fill the page. Closes the gap left by `unscopedJobs` (populated only via
- // the legacy path) for the healthy-shard search case. One-shot per mount.
- const searchBroadenFetchAttempted = useRef(false);
+ // the legacy path) for the healthy-shard search case. Track attempts per
+ // (locale, query): a new thin query or locale must not inherit the terminal
+ // state of the pair that was visible when the previous request started.
+ const searchBroadenAttemptedQueries = useRef<Set<string>>(new Set());
+ // The pool is query-independent. Share the in-flight request across rapid
+ // query changes so the per-query correctness guard does not create duplicate
+ // downloads while the user is typing.
+ const searchBroadenPoolPromiseRef = useRef<{
+   locale: Locale;
+   promise: Promise<JobListing[] | null>;
+ } | null>(null);
+ // A canton-scoped thin search must finish its same-locale pool attempt before
+ // Tier 4 decides that the query is empty. This is the (locale, query) pair
+ // whose attempt has reached a terminal state, not a mount-wide boolean.
+ const [searchBroadenSettledQueries, setSearchBroadenSettledQueries] = useState<ReadonlySet<string>>(() => new Set());
  const [jobsLoading, setJobsLoading] = useState(true);
  // In-flight count of the lazy broaden / cross-locale fallback fetches. A thin
  // canton-scoped search/company page reads `filteredJobs.length === 0` after the
@@ -4744,6 +4761,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (strictFilteredJobs.length > 0) return;
  if (orFallbackInCantonJobs.length > 0) return;
  if (crossCantonFallbackJobs.length > 0) return;
+ // On a canton-scoped search, let the same-locale broaden answer first. It
+ // either populates `unscopedJobs` (so Tier 3 can return) or settles empty /
+ // failed, in which case Tier 4 remains the correct terminal fallback. The
+ // aggregate board and company+search path intentionally skip this gate:
+ // neither path owns a same-locale search-broaden fetch.
+ const cantonScopedSearch =
+   !companySlugFilter
+   && (initialFilterCanton || getDefaultCantonForVisit()) !== AGGREGATE_CANTON_CODE;
+ const searchBroadenKey = makeSearchBroadenKey(locale, q);
+ if (cantonScopedSearch && unscopedJobs.length === 0 && !searchBroadenSettledQueries.has(searchBroadenKey)) return;
  crossLocaleFetchAttempted.current = true;
  setPendingFallbacks((n) => n + 1);
  let cancelled = false;
@@ -4790,7 +4817,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [
  deferredSearchQuery, jobsLoading, locale,
  strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length,
- unscopedJobs, sortedJobs,
+ unscopedJobs, sortedJobs, initialFilterCanton, companySlugFilter, searchBroadenSettledQueries,
  // Load-bearing: on a search that is genuinely empty, the tier counts above
  // never change when the index completes, so without this dep the effect
  // would not re-run and the fallback would never fire at all.
@@ -4853,39 +4880,59 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // canton tier can fill the page. Distinct from the company trigger (no search)
  // and the cross-locale tier (other locales): this is same-locale, other-canton.
  // Skipped on the aggregate board (already nationwide) and when the pool is
- // already loaded. One-shot per mount (ref set only when we actually fetch, so a
- // later thin search still triggers if the first search was well-populated).
+ // already loaded. An attempt is recorded per query; the shared promise keeps
+ // rapid query changes from downloading the same locale-wide pool repeatedly.
+ // A query that was attempted but is not terminal yet may attach again after
+ // A→B→A, so the current query still receives the shared pool result.
  useEffect(() => {
- if (searchBroadenFetchAttempted.current) return;
  if (jobsLoading) return;
  // The in-canton counts below are provisional until the index is complete.
  if (searchIndexPending) return;
  if (companySlugFilter) return; // company path owns its loader
- if (!deferredSearchQuery.trim()) return;
+ const query = deferredSearchQuery.trim();
+ if (!query) return;
  if ((initialFilterCanton || getDefaultCantonForVisit()) === AGGREGATE_CANTON_CODE) return;
  if (unscopedJobs.length > 0) return; // pool already available
  // strict + OR-fill tail (the fill excludes strict ids, so no double count).
  const inCantonCount = strictFilteredJobs.length + orFallbackInCantonJobs.length;
  if (inCantonCount >= BROADEN_BELOW) return; // enough in-canton results already
- searchBroadenFetchAttempted.current = true;
- setPendingFallbacks((n) => n + 1);
- let cancelled = false;
+ const queryKey = makeSearchBroadenKey(locale, query);
+ const alreadyAttempted = searchBroadenAttemptedQueries.current.has(queryKey);
+ if (alreadyAttempted && searchBroadenSettledQueries.has(queryKey)) return;
+ if (!alreadyAttempted) {
+   searchBroadenAttemptedQueries.current.add(queryKey);
+   setPendingFallbacks((n) => n + 1);
+ }
  (async () => {
  try {
- const pool = await loadUnscopedPool();
- if (cancelled || !pool) return;
+ const cached = searchBroadenPoolPromiseRef.current;
+ const promise = cached?.locale === locale ? cached.promise : loadUnscopedPool();
+ searchBroadenPoolPromiseRef.current = { locale, promise };
+ const pool = await promise;
+ // The pool is query-independent. An observer from an earlier query must still
+ // publish it when this is the current locale request, otherwise A→B→A can leave the
+ // final A waiter with a terminal marker but no same-locale pool in state.
+ const currentRequest = searchBroadenPoolPromiseRef.current;
+ if (!pool || currentRequest?.locale !== locale || currentRequest.promise !== promise) return;
  setUnscopedJobs(pool);
  } catch (err: unknown) {
  reportCaughtError(err, 'jobBoard.loadJobs.searchBroaden');
  } finally {
- setPendingFallbacks((n) => n - 1);
+ if (!alreadyAttempted) setPendingFallbacks((n) => n - 1);
+ // Mark THIS (locale, query) pair terminal even when the index is empty, failed,
+ // or the user changed query while it was in flight. A later pair has its own gate.
+ setSearchBroadenSettledQueries((previous) => {
+   if (previous.has(queryKey)) return previous;
+   const next = new Set(previous);
+   next.add(queryKey);
+   return next;
+ });
  }
  })();
- return () => { cancelled = true; };
  // `searchIndexPending` is load-bearing, same reason as the cross-locale tier:
  // a genuinely thin search leaves every other dep unchanged when the index
  // completes, so the broaden would never fire without it.
- }, [companySlugFilter, deferredSearchQuery, jobsLoading, initialFilterCanton, strictFilteredJobs.length, orFallbackInCantonJobs.length, unscopedJobs.length, locale, loadUnscopedPool, searchIndexPending]);
+ }, [companySlugFilter, deferredSearchQuery, jobsLoading, initialFilterCanton, strictFilteredJobs.length, orFallbackInCantonJobs.length, unscopedJobs.length, locale, loadUnscopedPool, searchIndexPending, searchBroadenSettledQueries]);
 
  // Tier 4: cross-locale OR fallback. Same scoring as Tier 3, run against the
  // lazily-loaded DE/FR/EN pool. Job ID + slug are canonical across locale
@@ -5143,7 +5190,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // in-flight fallback phase (pendingFallbacks) and the first frame after the
  // index load, before the fetch effects have fired (no fallback attempted yet).
  const anyFallbackAttempted =
- searchBroadenFetchAttempted.current
+ searchBroadenAttemptedQueries.current.size > 0
  || companyBroadenFetchAttempted.current
  || crossLocaleFetchAttempted.current;
  const resultsResolving =
@@ -6996,6 +7043,22 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onJobRouteChange?.(undefined);
  };
 
+ const recordJobApplicationIntent = (job: JobListing, surface: string): void => {
+  void recordApplicationIntent({
+   job: {
+    id: job.id,
+    slug: job.slug,
+    slugByLocale: job.slugByLocale,
+    companyKey: job.companyKey,
+    title: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
+   },
+   origin: typeof window !== 'undefined' ? window.location.pathname : '/',
+   surface,
+   consentText: t('jobBoard.applicationIntent.disclosure'),
+   authUser,
+  });
+ };
+
   const trackPublisherApplySignals = (
   job: JobListing,
   contentType: string,
@@ -7157,10 +7220,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // click that reached the page behind the dialog): one gesture, one offer.
   if (applicationOfferOpenRef.current) return;
   const isExternal = isExternalApplicationJob(job);
+  // Keep anonymous job-board visitors on the sign-in/subscription funnel.
+  // The detail view is the only surface allowed to request the rewarded ad
+  // before sign-in, because it owns the canonical rewarded offer host.
+  recordJobApplicationIntent(job, surface);
   if (isExternal && assistedApplicationVariant === 'rewarded_ad' && !authUser?.uid && !isJobDetailView) {
-   // Keep anonymous job-board visitors on the sign-in/subscription funnel.
-   // The detail view is the only surface allowed to request the rewarded ad
-   // before sign-in, because it owns the canonical rewarded offer host.
    onRequireAuth?.();
    return;
   }
@@ -9893,6 +9957,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  >
  {t('jobBoard.apply')}
  </button>
+ <p className="mt-1.5 text-xs text-muted" data-testid="application-intent-disclosure">
+  {t('jobBoard.applicationIntent.disclosure')}
+ </p>
  {rewardedCtaDisclosure && (
   <p className="mt-1.5 text-xs text-muted" data-testid="rewarded-cta-disclosure">{rewardedCtaDisclosure}</p>
  )}
@@ -10145,6 +10212,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
          alert slots.
          One control, moved. */}
  {companyFollowCta(selectedJob, 'company_follow_button')}
+ <p className="mt-2 text-xs text-muted" data-testid="application-intent-disclosure">
+  {t('jobBoard.applicationIntent.disclosure')}
+ </p>
  </header>
 
  <section className="section rounded-2xl border border-edge bg-surface p-4 sm:p-5 space-y-3">
@@ -10260,6 +10330,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <ArrowUpRight className="w-4 h-4" />
  {t('jobBoard.apply')}
  </button>
+ <p className="text-xs text-muted" data-testid="application-intent-disclosure">
+  {t('jobBoard.applicationIntent.disclosure')}
+ </p>
  {appliedNoticeJsx}
  <dl className="grid grid-cols-3 gap-2 text-xs">
  <div className="rounded-lg bg-surface-alt p-2 text-center">
@@ -10327,6 +10400,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  loading="lazy"
  onError={handleCompanyLogoError} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold font-display text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-subtle mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> {rewardedCtaDisclosure && ( <p className="mt-2 text-xs text-muted" data-testid="rewarded-cta-disclosure">{rewardedCtaDisclosure}</p> )} {appliedNoticeJsx}
  {detailAlertCtaJsx}
+ <p className="mt-2 text-xs text-muted" data-testid="application-intent-disclosure">
+  {t('jobBoard.applicationIntent.disclosure')}
+ </p>
  {isPublisherAd && userId && userEmail && (
  <Suspense fallback={null}>
  <JobDetailJobAlertButton

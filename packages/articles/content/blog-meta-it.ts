@@ -12063,6 +12063,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.arresto-mente-bennet-tavernola.title': 'Rapina al Bennet: arrestata la presunta mente in Ticino',
     'blog.article.arresto-mente-bennet-tavernola.excerpt': 'Un 32enne residente nel Bellinzonese e un 25enne di Monza sono stati arrestati per la rapina alla gioielleria Stroili del Bennet di Tavernola.',
     'blog.article.arresto-mente-bennet-tavernola.imageAlt': 'Arrestata la presunta mente della rapina al Bennet di Tavernola, residente nel Bellinzonese',
+    'blog.article.protesta-impianto-betonaggio-intelvi.title': 'Protesta a Castiglione d\'Intelvi per impianto betonaggio',
+    'blog.article.protesta-impianto-betonaggio-intelvi.excerpt': 'Oltre 750 firme raccolte in sei giorni contro l\'impianto di betonaggio e frantoio previsti a Castiglione d\'Intelvi per la Variante della Tremezzina.',
+    'blog.article.protesta-impianto-betonaggio-intelvi.imageAlt': 'Paesaggio della Valle d\'Intelvi con strade strette e tortuose',
 };
 
 export default blogMetaIt;

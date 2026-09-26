@@ -1092,6 +1092,14 @@ service cloud.firestore {
       allow write: if false;
     }
 
+    // Application intent is a server-owned consent/audit record. The browser
+    // may submit the displayed proof only through recordApplicationIntent;
+    // direct reads would expose identifiers and network metadata, while direct
+    // writes would let a caller forge consent or application status.
+    match /application_intents/{intentId} {
+      allow read, write: if false;
+    }
+
     // Candidate applications (in-house / forward modes). Contains PII, so reads
     // are restricted to the publisher who owns the target job (denormalized
     // publisherUid) — never public. Create is open (candidate submits) but the

@@ -12064,6 +12064,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.arresto-mente-bennet-tavernola.title': 'Vol au Bennet : l\'esprit présumé arrêté au Tessin',
     'blog.article.arresto-mente-bennet-tavernola.excerpt': 'Un homme de 32 ans résidant dans la région de Bellinzone et un homme de 25 ans de Monza ont été arrêtés pour le braquage de la bijouterie Stroili du Bennet de Tavernola.',
     'blog.article.arresto-mente-bennet-tavernola.imageAlt': 'Un suspect du Bellinzonese arrêté après le braquage de la bijouterie de Tavernola',
+    'blog.article.protesta-impianto-betonaggio-intelvi.title': 'Protestation à Castiglione d\'Intelvi pour l\'installation de bétonnage',
+    'blog.article.protesta-impianto-betonaggio-intelvi.excerpt': 'Plus de 750 signatures recueillies en six jours contre l\'installation de bétonnage et de concassage prévue à Castiglione d\'Intelvi pour la variante Tremezzina.',
+    'blog.article.protesta-impianto-betonaggio-intelvi.imageAlt': 'Paysage de la Vallée d\'Intelvi avec des routes étroites et sinueuses',
 };
 
 export default blogMetaFr;
