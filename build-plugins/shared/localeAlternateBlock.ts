@@ -1,6 +1,6 @@
 /**
- * Cross-locale hreflang alternate block — ONE builder for the search-landing
- * URL family (`/{section}/{ricerca|search|suche|recherche}-{slug}/`).
+ * Cross-locale hreflang alternate block — ONE builder for page families whose
+ * locale eligibility must be all-or-nothing.
  *
  * Why this module exists
  * ---------------------
@@ -40,7 +40,7 @@
  * these offenders reached the rehydrated dist the audit walks.
  */
 
-/** The four locales every search landing must cover to carry hreflang. */
+/** The four locales every all-or-nothing page family must cover to carry hreflang. */
 export const ALTERNATE_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
 export type AlternateLocale = (typeof ALTERNATE_LOCALES)[number];
