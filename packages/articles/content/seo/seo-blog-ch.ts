@@ -88121,6 +88121,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ubs-sede-elvetica-costi': {
+    title: 'Ubs: trasferimento sede poco probabile per Keller-Sutter',
+    description: 'Karin Keller‑Sutter giudica improbabile il trasferimento della sede di Ubs all’estero, citando costi elevati e complessità giuridiche. Il Consiglio federale ha',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferimento, sede, poco, probabile',
+    ogTitle: 'Ubs: trasferimento sede poco probabile per Keller-Sutter',
+    ogDescription: 'La ministra delle finanze Karin Keller‑Sutter afferma che spostare la sede di Ubs all’estero sarebbe molto più costoso e giuridicamente complesso. L’articolo analizza le agevolazioni già concesse dal Consiglio federale, la posizione della banca',
+    canonicalPath: '/articoli-svizzera/ubs-sede-elvetica-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ubs: trasferimento sede poco probabile per Keller-Sutter",
+      "description": "Karin Keller‑Sutter giudica improbabile il trasferimento della sede di Ubs all’estero, citando costi elevati e complessità giuridiche. Il Consiglio federale ha",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ubs-sede-elvetica-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio della sede di Ubs nel distretto finanziario svizzero"
+      },
+      "datePublished": "2026-09-26T18:41:25+00:00",
+      "dateModified": "2026-09-26T18:41:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ubs-sede-elvetica-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
