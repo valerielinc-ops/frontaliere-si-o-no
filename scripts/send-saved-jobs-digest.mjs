@@ -2,8 +2,8 @@
 /**
  * send-saved-jobs-digest.mjs — weekly reminder email for users' saved jobs.
  *
- * Queries the `savedJobs` and `application_intent` collectionGroups
- * (users/{uid}/<source>/{id}), groups by uid, and sends one email per user
+ * Queries the `savedJobs` and `application_intents` collection groups, groups
+ * authenticated application intents by uid, and sends one email per user
  * listing what they saved and the live jobs for which they clicked to apply —
  * with an "expired" badge for listings pruned from data/jobs.json since —
  * plus a small "potrebbero interessarti anche" block derived from the same
@@ -49,6 +49,10 @@ import { resolveLogoUrl, parseDateField, formatSalary, emailTagChip, normalizeCo
 import { renderRecommendedBlock } from '../services/newsletter/recommendedBlock.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
+import {
+  APPLICATION_INTENT_CONSENT_VERSION,
+  APPLICATION_INTENTS_COLLECTION,
+} from '../functions/src/applicationIntentCore.js';
 // localePathPrefix aliased to the local name this script has always used —
 // the implementation is the canonical shared helper (also used by
 // send-newsletter.mjs, send-job-alerts.mjs, AGENTS.md #6).
@@ -65,7 +69,7 @@ export const APPLICATION_INTENT_RETENTION_DAYS = 90;
 const MAX_DIGEST_ENTRIES = 20; // one bounded message across both source lists
 const MAX_APPLICATION_INTENTS_LISTED = 5; // application reminders take priority
 const MAX_RECOMMENDATIONS = 3;
-const APPLICATION_INTENT_COLLECTION = 'application_intent';
+export const APPLICATION_INTENT_COLLECTION = APPLICATION_INTENTS_COLLECTION;
 
 /**
  * Decide whether this particular recurring channel may send.
@@ -267,10 +271,16 @@ function hasApplicationIntentConsent(data) {
   const hasExplicitNegative = APPLICATION_INTENT_CONSENT_ACCEPTANCE_FIELDS.some((field) => data?.[field] === false);
   if (hasExplicitNegative) return false;
   const hasExplicitPositive = APPLICATION_INTENT_CONSENT_ACCEPTANCE_FIELDS.some((field) => data?.[field] === true);
-  if (!hasExplicitPositive) return false;
   const hasVersion = APPLICATION_INTENT_CONSENT_VERSION_FIELDS.some((field) => isNonEmpty(data?.[field]));
   const hasText = APPLICATION_INTENT_CONSENT_TEXT_FIELDS.some((field) => isNonEmpty(data?.[field]));
-  return hasVersion && hasText;
+  if (!hasVersion || !hasText) return false;
+
+  // The canonical server writer records the versioned disclosure and text,
+  // rather than a second boolean. Legacy shapes must still carry an explicit
+  // positive flag, and every explicit negative flag wins.
+  const canonicalProof = data?.consentVersion === APPLICATION_INTENT_CONSENT_VERSION
+    && isNonEmpty(data?.consentText);
+  return hasExplicitPositive || canonicalProof;
 }
 
 /**
@@ -313,6 +323,10 @@ function jobMatchesIdentity(job, candidate) {
   if (String(job.id || '').trim() === value) return true;
   if (String(job.slug || '').trim() === value) return true;
   if (Object.values(job.slugByLocale || {}).some((slug) => String(slug || '').trim() === value)) return true;
+  const companyKey = String(job.companyKey || '').trim() || 'unknown-company';
+  const canonicalSlug = String(job.slugByLocale?.it || job.slug || '').trim();
+  if (canonicalSlug && `${companyKey}:${canonicalSlug}` === value) return true;
+  if (job.id && `${companyKey}:id:${String(job.id).trim()}` === value) return true;
   return String(job.url || '').trim() === value || String(job.applyUrl || '').trim() === value;
 }
 
@@ -335,8 +349,12 @@ export function resolveApplicationIntentJob(data, documentId, jobsById) {
   }
 
   const identityCandidates = [
+    data?.jobKey,
+    data?.job_key,
     ...APPLICATION_INTENT_JOB_SLUG_FIELDS.map((field) => data?.[field]),
+    nestedJob.jobKey,
     nestedJob.slug,
+    nestedListing.jobKey,
     nestedListing.slug,
     data?.jobUrl,
     data?.job_url,
@@ -380,6 +398,31 @@ export function buildApplicationIntentEntry(documentSnapshot, jobsById, locale, 
     baseSalary: job.baseSalary || null,
     contract: job.contract || null,
   };
+}
+
+/** Return only a verified account uid; anonymous producer identifiers cannot receive email reminders. */
+export function applicationIntentUid(documentSnapshot) {
+  const collection = documentSnapshot?.ref?.parent;
+  const parentDocument = collection?.parent;
+  const rawData = documentSnapshot?.data;
+  const data = typeof rawData === 'function'
+    ? rawData()
+    : rawData || documentSnapshot || {};
+
+  if (collection?.id === APPLICATION_INTENT_COLLECTION && parentDocument?.parent?.id === 'users') {
+    const pathUid = String(parentDocument.id || '').trim();
+    if (!pathUid) return null;
+    const conflictingUid = ['uid', 'userId', 'accountUid'].some((field) => (
+      data[field] != null && String(data[field]).trim() !== pathUid
+    ));
+    if (conflictingUid) return null;
+    if (data.identifierType != null && data.identifierType !== 'firebase_uid') return null;
+    if (data.identifier != null && String(data.identifier).trim() !== pathUid) return null;
+    return pathUid;
+  }
+
+  if (data.identifierType !== 'firebase_uid') return null;
+  return String(data.identifier || '').trim() || null;
 }
 
 /**
@@ -889,15 +932,15 @@ export function buildEmailText({ locale, s, savedEntries = [], applicationIntent
 // scripts/report-send-hour-impact.mjs's collectionGroup('campaign_deliveries')
 // query. Written under users/{uid}/campaign_deliveries/{deliveryDocId} since
 // uid (not email) is this channel's subscriber key (see makeUnsubscribeUrl).
-async function persistSavedJobsDigestDelivery({ uid, email, campaignId }, sendResult) {
+async function persistSavedJobsDigestDelivery(db, { uid, email, campaignId }, sendResult) {
   if (!uid || !email || !campaignId) return;
   try {
-    const db = await getFirestoreAdmin();
     const deliveryDocId = buildDeliveryDocId(campaignId, email);
     await db.collection('users').doc(uid)
       .collection('campaign_deliveries').doc(deliveryDocId).set({
       email: email.toLowerCase().trim(),
       campaign_id: campaignId,
+      status: 'sent',
       message_id: sendResult?.messageId || null,
       provider: sendResult?.provider || null,
       scheduled_for: sendResult?.scheduledFor ?? null,
@@ -906,6 +949,42 @@ async function persistSavedJobsDigestDelivery({ uid, email, campaignId }, sendRe
   } catch (e) {
     console.warn('⚠️ Saved-jobs-digest delivery persist failed:', e?.message);
   }
+}
+
+/** Atomically reserve one uid/email/campaign tuple before any provider call. */
+export async function claimSavedJobsDigestDelivery(db, { uid, email, campaignId }) {
+  if (!uid || !email || !campaignId) return false;
+  const deliveryDocId = buildDeliveryDocId(campaignId, email);
+  const deliveryRef = db.collection('users').doc(uid)
+    .collection('campaign_deliveries').doc(deliveryDocId);
+
+  return db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(deliveryRef);
+    const exists = typeof snapshot?.exists === 'function' ? snapshot.exists() : snapshot?.exists;
+    if (exists) return false;
+
+    transaction.create(deliveryRef, {
+      email: email.toLowerCase().trim(),
+      campaign_id: campaignId,
+      status: 'sending',
+      claimed_at: new Date(),
+    });
+    return true;
+  });
+}
+
+/** Release a claim only after the provider reports a definite, non-ambiguous failure. */
+async function releaseSavedJobsDigestDeliveryClaim(db, { uid, email, campaignId }) {
+  const deliveryDocId = buildDeliveryDocId(campaignId, email);
+  const deliveryRef = db.collection('users').doc(uid)
+    .collection('campaign_deliveries').doc(deliveryDocId);
+
+  await db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(deliveryRef);
+    const exists = typeof snapshot?.exists === 'function' ? snapshot.exists() : snapshot?.exists;
+    if (!exists) return;
+    if (snapshot.data?.()?.status === 'sending') transaction.delete(deliveryRef);
+  });
 }
 
 export async function hasSavedJobsDigestDelivery(db, { uid, email, campaignId }) {
@@ -921,7 +1000,7 @@ export async function hasSavedJobsDigestDelivery(db, { uid, email, campaignId })
     || data.status === 'accepted';
 }
 
-async function sendDigest({ uid, email, locale, savedEntries, applicationIntentEntries, recommendations, campaignId }) {
+async function sendDigest({ db, uid, email, locale, savedEntries, applicationIntentEntries, recommendations, campaignId }) {
   const s = getStrings(locale);
   const manageUrl = profileUrl(locale);
   const unsubUrl = makeUnsubscribeUrl(uid, email, locale);
@@ -958,10 +1037,20 @@ async function sendDigest({ uid, email, locale, savedEntries, applicationIntentE
     },
   ], {
     concurrency: 1,
-    onSent: (item, sendResult) => persistSavedJobsDigestDelivery({ uid, email, campaignId }, sendResult),
+    onSent: (item, sendResult) => persistSavedJobsDigestDelivery(db, { uid, email, campaignId }, sendResult),
   });
 
-  return { sent: result.sent.length > 0, failed: result.failed };
+  const sent = result.sent.length > 0;
+  const failures = Array.isArray(result.failed) ? result.failed : [];
+  if (!sent && failures.length > 0 && failures.every((failure) => failure.ambiguousDelivery !== true)) {
+    try {
+      await releaseSavedJobsDigestDeliveryClaim(db, { uid, email, campaignId });
+    } catch (error) {
+      console.warn('⚠️ Saved-jobs-digest failed-send claim release failed:', error?.message);
+    }
+  }
+
+  return { sent, failed: result.failed };
 }
 
 // ── Main ──────────────────────────────────────────────────────────────────
@@ -994,7 +1083,7 @@ async function main() {
     byUid.get(uid).push({ id: docSnap.id, ...docSnap.data() });
   }
   for (const docSnap of intentDocs) {
-    const uid = docSnap.ref.parent.parent?.id;
+    const uid = applicationIntentUid(docSnap);
     if (!uid) continue;
     if (!byUid.has(uid)) byUid.set(uid, []);
     byUid.get(uid).push({ __applicationIntentSnapshot: docSnap });
@@ -1128,14 +1217,15 @@ async function main() {
       }
     }
 
-    if (await hasSavedJobsDigestDelivery(db, { uid, email, campaignId })) {
-      console.log(`   ↩️  ${email} already has campaign ${campaignId} in the delivery ledger — skip`);
+    if (!DRY_RUN && !await claimSavedJobsDigestDelivery(db, { uid, email, campaignId })) {
+      console.log(`   ↩️  ${email} already has campaign ${campaignId} claimed or delivered — skip`);
       skippedCount++;
       continue;
     }
 
     console.log(`   ✉️  ${email} (${locale}) — ${selected.savedEntries.length} saved, ${selected.applicationIntentEntries.length} application reminder(s), ${recommendations.length} recommended`);
     const result = await sendDigest({
+      db,
       uid,
       email,
       locale,
