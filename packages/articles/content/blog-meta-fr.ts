@@ -12061,6 +12061,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incendio-capannone-turate.title': 'Incendie à Turate, peur pour les animaux dans le hangar',
     'blog.article.incendio-capannone-turate.excerpt': 'Incendie dans une exploitation agricole de Turate : fumée visible à des kilomètres, circulation ralentie entre Turate et Cislago et présence possible d’animaux dans le hangar.',
     'blog.article.incendio-capannone-turate.imageAlt': 'Épaisse fumée au-dessus d\'une exploitation agricole en feu à Turate',
+    'blog.article.arresto-mente-bennet-tavernola.title': 'Vol au Bennet : l\'esprit présumé arrêté au Tessin',
+    'blog.article.arresto-mente-bennet-tavernola.excerpt': 'Un homme de 32 ans résidant dans la région de Bellinzone et un homme de 25 ans de Monza ont été arrêtés pour le braquage de la bijouterie Stroili du Bennet de Tavernola.',
+    'blog.article.arresto-mente-bennet-tavernola.imageAlt': 'Un suspect du Bellinzonese arrêté après le braquage de la bijouterie de Tavernola',
 };
 
 export default blogMetaFr;
