@@ -2,17 +2,18 @@
 /**
  * send-saved-jobs-digest.mjs — weekly reminder email for users' saved jobs.
  *
- * Queries the `savedJobs` collectionGroup (users/{uid}/savedJobs/{jobId}),
- * groups by uid, and sends one email per user listing what they saved —
+ * Queries the `savedJobs` and `application_intents` collection groups, groups
+ * authenticated application intents by uid, and sends one email per user
+ * listing what they saved and the live jobs for which they clicked to apply —
  * with an "expired" badge for listings pruned from data/jobs.json since —
  * plus a small "potrebbero interessarti anche" block derived from the same
  * dominant category/canton used by the in-app nudge
  * (services/savedJobsAlertCriteria.ts, shared with the browser bundle).
  *
- * Saving jobs / accepting the saved-jobs prompt is the separate activation for
- * this channel; an explicit channel opt-out still wins. Delivery additionally
- * requires the central subscriber record and shared suppression predicate, but
- * never a double-opt-in proof or a purpose marker.
+ * Saving jobs / accepting the saved-jobs prompt or recording a consented
+ * application intent activates this channel; an explicit channel opt-out still
+ * wins. Delivery additionally requires the central subscriber record and
+ * shared suppression predicate, but never a second double-opt-in proof.
  *
  * The channel-specific preference stays on the user document and must never
  * mutate `newsletter_subscribers` or `job_alert_subscribers/*`. An explicit
@@ -48,6 +49,10 @@ import { resolveLogoUrl, parseDateField, formatSalary, emailTagChip, normalizeCo
 import { renderRecommendedBlock } from '../services/newsletter/recommendedBlock.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
+import {
+  APPLICATION_INTENT_CONSENT_VERSION,
+  APPLICATION_INTENTS_COLLECTION,
+} from '../functions/src/applicationIntentCore.js';
 // localePathPrefix aliased to the local name this script has always used —
 // the implementation is the canonical shared helper (also used by
 // send-newsletter.mjs, send-job-alerts.mjs, AGENTS.md #6).
@@ -60,21 +65,24 @@ const BASE_URL = 'https://frontaliereticino.ch';
 const IMAGE_CDN_BASE = 'https://cdn.frontaliereticino.ch';
 const FROM_EMAIL = 'Frontaliere Ticino <alerts@frontaliereticino.ch>';
 const DRY_RUN = process.argv.includes('--dry-run');
-const MAX_SAVED_LISTED = 20; // hard UI cap, matches SAVED_JOBS_CAP order of magnitude
+export const APPLICATION_INTENT_RETENTION_DAYS = 90;
+const MAX_DIGEST_ENTRIES = 20; // one bounded message across both source lists
+const MAX_APPLICATION_INTENTS_LISTED = 5; // application reminders take priority
 const MAX_RECOMMENDATIONS = 3;
+export const APPLICATION_INTENT_COLLECTION = APPLICATION_INTENTS_COLLECTION;
 
 /**
  * Decide whether this particular recurring channel may send.
  *
  * The user profile is the channel activation/opt-out source; the email-keyed
  * subscriber is the registration/suppression source. An explicit
- * `savedJobsDigest.optedIn` activation is required, regardless of DOI proof or
- * legacy fields; merely having a saved-job record is not an activation.
+ * `savedJobsDigest.optedIn` activation or a consented application intent is
+ * required; merely having a saved-job record is not an activation.
  */
-export function isSavedJobsDigestEligible(userData, subscriberData) {
+export function isSavedJobsDigestEligible(userData, subscriberData, { hasApplicationIntent = false } = {}) {
   const digest = userData?.savedJobsDigest || {};
   if (digest.optedOut === true) return false;
-  if (digest.optedIn !== true) return false;
+  if (digest.optedIn !== true && !hasApplicationIntent) return false;
   if (!subscriberData || isCrossChannelStop(subscriberData)) {
     return false;
   }
@@ -168,6 +176,298 @@ function loadJobsById() {
   return byId;
 }
 
+const APPLICATION_INTENT_TIMESTAMP_FIELDS = Object.freeze([
+  'timestamp',
+  'createdAt',
+  'created_at',
+  'occurredAt',
+  'occurred_at',
+  'intentAt',
+  'intent_at',
+  'clickedAt',
+  'clicked_at',
+]);
+
+const APPLICATION_INTENT_CONSENT_VERSION_FIELDS = Object.freeze([
+  'consentVersion',
+  'consent_version',
+  'termsVersion',
+  'terms_version',
+  'policyVersion',
+  'version',
+]);
+
+const APPLICATION_INTENT_CONSENT_TEXT_FIELDS = Object.freeze([
+  'consentText',
+  'consent_text',
+  'termsText',
+  'terms_text',
+  'textShown',
+  'text_shown',
+  'shownText',
+]);
+
+const APPLICATION_INTENT_CONSENT_ACCEPTANCE_FIELDS = Object.freeze([
+  'consentGiven',
+  'consent_given',
+]);
+
+const APPLICATION_INTENT_JOB_ID_FIELDS = Object.freeze([
+  'jobId',
+  'job_id',
+  'listingId',
+  'listing_id',
+  'jobIdentifier',
+]);
+
+const APPLICATION_INTENT_JOB_SLUG_FIELDS = Object.freeze([
+  'jobSlug',
+  'job_slug',
+  'slug',
+]);
+
+const APPLICATION_INTENT_TERMINAL_STATUSES = new Set([
+  'completed',
+  'submitted',
+  'cancelled',
+  'canceled',
+  'deleted',
+  'withdrawn',
+  'closed',
+]);
+
+function isNonEmpty(value) {
+  return typeof value === 'string' ? value.trim().length > 0 : value != null;
+}
+
+function timestampMillis(value) {
+  if (value && typeof value.toMillis === 'function') {
+    const millis = value.toMillis();
+    return Number.isFinite(millis) ? millis : null;
+  }
+  if (value && typeof value.seconds === 'number') {
+    const nanos = typeof value.nanoseconds === 'number' ? value.nanoseconds : 0;
+    const millis = value.seconds * 1000 + Math.floor(nanos / 1e6);
+    return Number.isFinite(millis) ? millis : null;
+  }
+  if (value instanceof Date) return Number.isFinite(value.getTime()) ? value.getTime() : null;
+  if (typeof value === 'number') return Number.isFinite(value) ? value : null;
+  if (typeof value === 'string' && value.trim()) {
+    const millis = Date.parse(value);
+    return Number.isFinite(millis) ? millis : null;
+  }
+  return null;
+}
+
+export function applicationIntentTimestamp(data) {
+  for (const field of APPLICATION_INTENT_TIMESTAMP_FIELDS) {
+    const millis = timestampMillis(data?.[field]);
+    if (millis !== null) return millis;
+  }
+  return null;
+}
+
+function hasApplicationIntentConsent(data) {
+  const hasExplicitNegative = APPLICATION_INTENT_CONSENT_ACCEPTANCE_FIELDS.some((field) => data?.[field] === false);
+  if (hasExplicitNegative) return false;
+  const hasExplicitPositive = APPLICATION_INTENT_CONSENT_ACCEPTANCE_FIELDS.some((field) => data?.[field] === true);
+  const hasVersion = APPLICATION_INTENT_CONSENT_VERSION_FIELDS.some((field) => isNonEmpty(data?.[field]));
+  const hasText = APPLICATION_INTENT_CONSENT_TEXT_FIELDS.some((field) => isNonEmpty(data?.[field]));
+  if (!hasVersion || !hasText) return false;
+
+  // The canonical server writer records the versioned disclosure and text,
+  // rather than a second boolean. Legacy shapes must still carry an explicit
+  // positive flag, and every explicit negative flag wins.
+  const canonicalProof = data?.consentVersion === APPLICATION_INTENT_CONSENT_VERSION
+    && isNonEmpty(data?.consentText);
+  return hasExplicitPositive || canonicalProof;
+}
+
+/**
+ * An application intent is a reminder signal, not proof of a submitted
+ * application. Keep the retention and consent boundary here so every caller
+ * (including a future replay path) makes the same privacy decision.
+ */
+export function isApplicationIntentEligible(data, nowMs = Date.now()) {
+  if (!data || typeof data !== 'object') return false;
+  if (!hasApplicationIntentConsent(data)) return false;
+  if (data.optedOut === true || data.reminderOptedOut === true || data.reminder_opted_out === true) return false;
+
+  const deletionFields = [
+    'deletedAt',
+    'deleted_at',
+    'erasedAt',
+    'erased_at',
+    'retentionPurgedAt',
+    'retention_purged_at',
+    'cancelledAt',
+    'cancelled_at',
+    'consentRevokedAt',
+    'consent_revoked_at',
+  ];
+  if (deletionFields.some((field) => data[field] != null)) return false;
+  if (data.applicationCompleted === true || data.application_completed === true) return false;
+  if (data.completedAt != null || data.completed_at != null) return false;
+
+  const status = String(data.status || '').trim().toLowerCase();
+  if (APPLICATION_INTENT_TERMINAL_STATUSES.has(status)) return false;
+
+  const occurredAt = applicationIntentTimestamp(data);
+  if (occurredAt === null || occurredAt > nowMs) return false;
+  return nowMs - occurredAt <= APPLICATION_INTENT_RETENTION_DAYS * 86400000;
+}
+
+function jobMatchesIdentity(job, candidate) {
+  const value = String(candidate || '').trim();
+  if (!value || !job) return false;
+  if (String(job.id || '').trim() === value) return true;
+  if (String(job.slug || '').trim() === value) return true;
+  if (Object.values(job.slugByLocale || {}).some((slug) => String(slug || '').trim() === value)) return true;
+  const companyKey = String(job.companyKey || '').trim() || 'unknown-company';
+  const canonicalSlug = String(job.slugByLocale?.it || job.slug || '').trim();
+  if (canonicalSlug && `${companyKey}:${canonicalSlug}` === value) return true;
+  if (job.id && `${companyKey}:id:${String(job.id).trim()}` === value) return true;
+  return String(job.url || '').trim() === value || String(job.applyUrl || '').trim() === value;
+}
+
+/** Resolve only against the current jobs index; stale or unidentifiable intents are omitted. */
+export function resolveApplicationIntentJob(data, documentId, jobsById) {
+  const nestedJob = data?.job && typeof data.job === 'object' ? data.job : {};
+  const nestedListing = data?.listing && typeof data.listing === 'object' ? data.listing : {};
+  const directCandidates = [
+    ...APPLICATION_INTENT_JOB_ID_FIELDS.map((field) => data?.[field]),
+    nestedJob.id,
+    nestedListing.id,
+    data?.id,
+    documentId,
+  ];
+  for (const candidate of directCandidates) {
+    if (jobsById.has(candidate)) return jobsById.get(candidate);
+    for (const job of jobsById.values()) {
+      if (jobMatchesIdentity(job, candidate)) return job;
+    }
+  }
+
+  const identityCandidates = [
+    data?.jobKey,
+    data?.job_key,
+    ...APPLICATION_INTENT_JOB_SLUG_FIELDS.map((field) => data?.[field]),
+    nestedJob.jobKey,
+    nestedJob.slug,
+    nestedListing.jobKey,
+    nestedListing.slug,
+    data?.jobUrl,
+    data?.job_url,
+    data?.url,
+  ];
+  for (const candidate of identityCandidates) {
+    for (const job of jobsById.values()) {
+      if (jobMatchesIdentity(job, candidate)) return job;
+    }
+  }
+  return null;
+}
+
+/** Convert one consented, recent Firestore intent into a live digest card. */
+export function buildApplicationIntentEntry(documentSnapshot, jobsById, locale, nowMs = Date.now()) {
+  const rawData = documentSnapshot?.data;
+  const data = typeof rawData === 'function'
+    ? rawData()
+    : rawData || documentSnapshot || {};
+  if (!isApplicationIntentEligible(data, nowMs)) return null;
+  const job = resolveApplicationIntentJob(data, documentSnapshot?.id, jobsById);
+  if (!job) return null;
+  return {
+    id: job.id,
+    applicationIntent: true,
+    intentAt: applicationIntentTimestamp(data),
+    expired: false,
+    url: jobPageUrl(job, locale),
+    title: jobTitle(job, locale),
+    company: job.company || '',
+    canton: job.canton || null,
+    location: job.location || job.addressLocality || null,
+    postedDate: job.postedDate || null,
+    sector: job.sector || job.category || null,
+    category: job.category || null,
+    companyKey: job.companyKey || null,
+    firstSeenAt: job.firstSeenAt || null,
+    salaryMin: job.salaryMin ?? null,
+    salaryMax: job.salaryMax ?? null,
+    currency: job.currency || null,
+    baseSalary: job.baseSalary || null,
+    contract: job.contract || null,
+  };
+}
+
+/** Return only a verified account uid; anonymous producer identifiers cannot receive email reminders. */
+export function applicationIntentUid(documentSnapshot) {
+  const collection = documentSnapshot?.ref?.parent;
+  const parentDocument = collection?.parent;
+  const rawData = documentSnapshot?.data;
+  const data = typeof rawData === 'function'
+    ? rawData()
+    : rawData || documentSnapshot || {};
+
+  if (collection?.id === APPLICATION_INTENT_COLLECTION && parentDocument?.parent?.id === 'users') {
+    const pathUid = String(parentDocument.id || '').trim();
+    if (!pathUid) return null;
+    const conflictingUid = ['uid', 'userId', 'accountUid'].some((field) => (
+      data[field] != null && String(data[field]).trim() !== pathUid
+    ));
+    if (conflictingUid) return null;
+    if (data.identifierType != null && data.identifierType !== 'firebase_uid') return null;
+    if (data.identifier != null && String(data.identifier).trim() !== pathUid) return null;
+    return pathUid;
+  }
+
+  if (data.identifierType !== 'firebase_uid') return null;
+  return String(data.identifier || '').trim() || null;
+}
+
+/**
+ * Union both source lists by live job id. Application reminders are kept first
+ * (up to their own cap), so a long saved list cannot crowd out the higher
+ * intent signal; a job present in both sources renders exactly once.
+ */
+export function mergeDigestEntries(
+  savedEntries = [],
+  applicationIntentEntries = [],
+  { maxEntries = MAX_DIGEST_ENTRIES, maxApplicationIntents = MAX_APPLICATION_INTENTS_LISTED } = {},
+) {
+  const totalCap = Number.isFinite(maxEntries) ? Math.max(0, Math.floor(maxEntries)) : MAX_DIGEST_ENTRIES;
+  const intentCap = Math.min(
+    totalCap,
+    Number.isFinite(maxApplicationIntents)
+      ? Math.max(0, Math.floor(maxApplicationIntents))
+      : MAX_APPLICATION_INTENTS_LISTED,
+  );
+  const latestIntentByJob = new Map();
+  for (const entry of applicationIntentEntries) {
+    if (!entry?.id) continue;
+    const previous = latestIntentByJob.get(entry.id);
+    if (!previous || (entry.intentAt || 0) >= (previous.intentAt || 0)) latestIntentByJob.set(entry.id, entry);
+  }
+  const selectedIntents = [...latestIntentByJob.values()]
+    .sort((a, b) => (b.intentAt || 0) - (a.intentAt || 0))
+    .slice(0, intentCap);
+  const intentIds = new Set(selectedIntents.map((entry) => entry.id));
+  const latestSavedByJob = new Map();
+  for (const entry of savedEntries) {
+    if (!entry?.id || intentIds.has(entry.id)) continue;
+    const previous = latestSavedByJob.get(entry.id);
+    if (!previous || (entry.savedAt || 0) >= (previous.savedAt || 0)) latestSavedByJob.set(entry.id, entry);
+  }
+  const savedLimit = Math.max(0, totalCap - selectedIntents.length);
+  const selectedSaved = [...latestSavedByJob.values()]
+    .sort((a, b) => (b.savedAt || 0) - (a.savedAt || 0))
+    .slice(0, savedLimit);
+  return {
+    savedEntries: selectedSaved,
+    applicationIntentEntries: selectedIntents,
+  };
+}
+
 // ── Scoped unsubscribe token — must match generateSavedJobsDigestUnsubToken
 // in functions/src/savedJobsDigestUnsubscribe.js exactly. Recomputed inline
 // (not imported) because functions/ has no bundler and cannot be imported
@@ -183,9 +483,21 @@ function makeUnsubscribeUrl(uid, email, locale = 'it') {
 
 // ── i18n strings ──────────────────────────────────────────────────────────
 
+function normalizeDigestCounts(counts) {
+  if (typeof counts === 'number') return { savedCount: counts, intentCount: 0 };
+  return counts || {};
+}
+
 const EMAIL_STRINGS = {
   it: {
-    subject: (n) => `📌 I tuoi ${n} lavor${n === 1 ? 'o salvato' : 'i salvati'} — promemoria settimanale`,
+    subject: (counts) => {
+      const { savedCount = 0, intentCount = 0 } = normalizeDigestCounts(counts);
+      return intentCount > 0
+        ? (savedCount > 0
+          ? '📌 I tuoi annunci e candidature da verificare — promemoria settimanale'
+          : '📝 Hai completato la candidatura? — promemoria settimanale')
+        : `📌 I tuoi ${savedCount} lavor${savedCount === 1 ? 'o salvato' : 'i salvati'} — promemoria settimanale`;
+    },
     preheader: 'Un riepilogo settimanale di quello che hai messo da parte.',
     heroTitle: 'I tuoi lavori salvati',
     heroDesc: 'Promemoria settimanale — nessuno di questi è andato perso.',
@@ -193,6 +505,11 @@ const EMAIL_STRINGS = {
     sectionTitle: 'I lavori che hai messo da parte',
     sectionDesc: 'Dal più recente al più vecchio, con l\'annuncio ancora attivo dove disponibile.',
     manageCta: 'Vai ai salvati →',
+    applicationSectionLabel: '📝 Candidature',
+    applicationSectionTitle: 'Hai già completato queste candidature?',
+    applicationSectionDesc: 'Hai cliccato su «Candidati»: controlla sul sito dell’azienda se la procedura è terminata.',
+    applicationIntentNotice: 'Questo promemoria registra un clic su «Candidati», non presume che la candidatura sia stata completata.',
+    applicationIntentBadge: 'Da verificare',
     newBadge: '✨ NUOVA',
     expiredBadge: 'Annuncio scaduto',
     at: 'presso',
@@ -201,6 +518,7 @@ const EMAIL_STRINGS = {
     manageLink: 'Gestisci i salvati nella tua area personale',
     recoTitle: '✨ Potrebbero interessarti anche',
     closer: 'Ricevi questa email perché hai salvato almeno un lavoro. Puoi disiscriverti in ogni momento.',
+    intentCloser: 'Ricevi anche un promemoria perché hai cliccato su «Candidati». Puoi disiscriverti in ogni momento.',
     closerSign: 'Alla prossima. ☕',
     footerSentTo: (email) => `Questa email è stata inviata a ${email} perché hai almeno un lavoro salvato su Frontaliere Ticino.`,
     unsubLine: 'Disiscriviti da questo promemoria (i tuoi altri alert non vengono toccati):',
@@ -209,7 +527,14 @@ const EMAIL_STRINGS = {
     textUnsubLine: 'Disiscriviti da questo promemoria:',
   },
   en: {
-    subject: (n) => `📌 Your ${n} saved job${n === 1 ? '' : 's'} — weekly reminder`,
+    subject: (counts) => {
+      const { savedCount = 0, intentCount = 0 } = normalizeDigestCounts(counts);
+      return intentCount > 0
+        ? (savedCount > 0
+          ? '📌 Your saved jobs and applications to check — weekly reminder'
+          : '📝 Did you complete your application? — weekly reminder')
+        : `📌 Your ${savedCount} saved job${savedCount === 1 ? '' : 's'} — weekly reminder`;
+    },
     preheader: 'A weekly recap of what you bookmarked.',
     heroTitle: 'Your saved jobs',
     heroDesc: "Weekly reminder — none of these are lost.",
@@ -217,6 +542,11 @@ const EMAIL_STRINGS = {
     sectionTitle: 'The jobs you set aside',
     sectionDesc: 'Most recent first, with the live listing where still available.',
     manageCta: 'Go to saved jobs →',
+    applicationSectionLabel: '📝 Applications',
+    applicationSectionTitle: 'Have you completed these applications?',
+    applicationSectionDesc: 'You clicked “Apply”: check the employer’s site to see whether the process is finished.',
+    applicationIntentNotice: 'This reminder records an “Apply” click; it does not assume that the application was completed.',
+    applicationIntentBadge: 'To check',
     newBadge: '✨ NEW',
     expiredBadge: 'Listing expired',
     at: 'at',
@@ -225,6 +555,7 @@ const EMAIL_STRINGS = {
     manageLink: 'Manage saved jobs in your account',
     recoTitle: '✨ You might also like',
     closer: "You're getting this because you saved at least one job. You can unsubscribe anytime.",
+    intentCloser: 'You are also getting a reminder because you clicked “Apply”. You can unsubscribe anytime.',
     closerSign: 'See you next week. ☕',
     footerSentTo: (email) => `This email was sent to ${email} because you have at least one saved job on Frontaliere Ticino.`,
     unsubLine: 'Unsubscribe from this reminder (your other alerts stay untouched):',
@@ -233,7 +564,14 @@ const EMAIL_STRINGS = {
     textUnsubLine: 'Unsubscribe from this reminder:',
   },
   de: {
-    subject: (n) => `📌 Ihre ${n} gespeicherte${n === 1 ? '' : 'n'} Stelle${n === 1 ? '' : 'n'} — wöchentliche Erinnerung`,
+    subject: (counts) => {
+      const { savedCount = 0, intentCount = 0 } = normalizeDigestCounts(counts);
+      return intentCount > 0
+        ? (savedCount > 0
+          ? '📌 Ihre gespeicherten Stellen und Bewerbungen zum Prüfen — wöchentliche Erinnerung'
+          : '📝 Bewerbung schon abgeschlossen? — wöchentliche Erinnerung')
+        : `📌 Ihre ${savedCount} gespeicherte${savedCount === 1 ? '' : 'n'} Stelle${savedCount === 1 ? '' : 'n'} — wöchentliche Erinnerung`;
+    },
     preheader: 'Eine wöchentliche Übersicht Ihrer gemerkten Stellen.',
     heroTitle: 'Ihre gespeicherten Stellen',
     heroDesc: 'Wöchentliche Erinnerung — keine davon ist verloren.',
@@ -241,6 +579,11 @@ const EMAIL_STRINGS = {
     sectionTitle: 'Die Stellen, die Sie sich gemerkt haben',
     sectionDesc: 'Neueste zuerst, mit dem noch aktiven Angebot, wo verfügbar.',
     manageCta: 'Zu den gespeicherten Stellen →',
+    applicationSectionLabel: '📝 Bewerbungen',
+    applicationSectionTitle: 'Haben Sie diese Bewerbungen schon abgeschlossen?',
+    applicationSectionDesc: 'Sie haben auf „Bewerben“ geklickt: Prüfen Sie auf der Website des Arbeitgebers, ob der Vorgang abgeschlossen ist.',
+    applicationIntentNotice: 'Diese Erinnerung registriert einen Klick auf „Bewerben“; sie setzt nicht voraus, dass die Bewerbung abgeschlossen wurde.',
+    applicationIntentBadge: 'Zu prüfen',
     newBadge: '✨ NEU',
     expiredBadge: 'Angebot abgelaufen',
     at: 'bei',
@@ -249,6 +592,7 @@ const EMAIL_STRINGS = {
     manageLink: 'Gespeicherte Stellen in Ihrem Konto verwalten',
     recoTitle: '✨ Das könnte Sie auch interessieren',
     closer: 'Sie erhalten diese E-Mail, weil Sie mindestens eine Stelle gespeichert haben. Sie können sich jederzeit abmelden.',
+    intentCloser: 'Sie erhalten außerdem eine Erinnerung, weil Sie auf „Bewerben“ geklickt haben. Sie können sich jederzeit abmelden.',
     closerSign: 'Bis nächste Woche. ☕',
     footerSentTo: (email) => `Diese E-Mail wurde an ${email} gesendet, weil Sie mindestens eine Stelle auf Frontaliere Ticino gespeichert haben.`,
     unsubLine: 'Von dieser Erinnerung abmelden (Ihre anderen Alerts bleiben unberührt):',
@@ -257,7 +601,14 @@ const EMAIL_STRINGS = {
     textUnsubLine: 'Von dieser Erinnerung abmelden:',
   },
   fr: {
-    subject: (n) => `📌 Vos ${n} offre${n === 1 ? '' : 's'} enregistrée${n === 1 ? '' : 's'} — rappel hebdomadaire`,
+    subject: (counts) => {
+      const { savedCount = 0, intentCount = 0 } = normalizeDigestCounts(counts);
+      return intentCount > 0
+        ? (savedCount > 0
+          ? '📌 Vos offres enregistrées et candidatures à vérifier — rappel hebdomadaire'
+          : '📝 Candidature terminée ? — rappel hebdomadaire')
+        : `📌 Vos ${savedCount} offre${savedCount === 1 ? '' : 's'} enregistrée${savedCount === 1 ? '' : 's'} — rappel hebdomadaire`;
+    },
     preheader: 'Un récapitulatif hebdomadaire de ce que vous avez mis de côté.',
     heroTitle: 'Vos offres enregistrées',
     heroDesc: "Rappel hebdomadaire — aucune n'est perdue.",
@@ -265,6 +616,11 @@ const EMAIL_STRINGS = {
     sectionTitle: 'Les offres que vous avez mises de côté',
     sectionDesc: "Les plus récentes d'abord, avec l'annonce encore active si disponible.",
     manageCta: 'Voir mes offres enregistrées →',
+    applicationSectionLabel: '📝 Candidatures',
+    applicationSectionTitle: 'Avez-vous terminé ces candidatures ?',
+    applicationSectionDesc: 'Vous avez cliqué sur « Postuler » : vérifiez sur le site de l’employeur si la démarche est terminée.',
+    applicationIntentNotice: 'Ce rappel enregistre un clic sur « Postuler » ; il ne suppose pas que la candidature est terminée.',
+    applicationIntentBadge: 'À vérifier',
     newBadge: '✨ NOUVELLE',
     expiredBadge: 'Offre expirée',
     at: 'chez',
@@ -273,6 +629,7 @@ const EMAIL_STRINGS = {
     manageLink: 'Gérer vos offres enregistrées dans votre compte',
     recoTitle: '✨ Pourrait aussi vous intéresser',
     closer: 'Vous recevez cet e-mail car vous avez enregistré au moins une offre. Vous pouvez vous désabonner à tout moment.',
+    intentCloser: 'Vous recevez aussi un rappel car vous avez cliqué sur « Postuler ». Vous pouvez vous désabonner à tout moment.',
     closerSign: 'À la semaine prochaine. ☕',
     footerSentTo: (email) => `Cet e-mail a été envoyé à ${email} car vous avez au moins une offre enregistrée sur Frontaliere Ticino.`,
     unsubLine: 'Se désabonner de ce rappel (vos autres alertes restent actives) :',
@@ -327,11 +684,16 @@ function formatPostedDate(raw, locale) {
 // palette — so the saved-jobs reminder and the job alert read as one
 // product. postedDate/sector stay saved-digest-only additions (job-alert
 // doesn't carry them) rendered as a small detail line under the badges.
-function renderJobCard(entry, locale, s, { expired }) {
+function renderJobCard(entry, locale, s, { expired, applicationIntent = false }) {
   const url = expired ? `${BASE_URL}/cerca-lavoro-ticino/` : entry.url;
-  const titleBadge = expired
-    ? `<span style="display:inline-block;background:rgba(239,68,68,0.2);color:#fca5a5;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;margin-left:8px;">${s.expiredBadge}</span>`
-    : '';
+  const titleBadges = [];
+  if (expired) {
+    titleBadges.push(`<span style="display:inline-block;background:rgba(239,68,68,0.2);color:#fca5a5;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;margin-left:8px;">${s.expiredBadge}</span>`);
+  }
+  if (applicationIntent) {
+    titleBadges.push(`<span style="display:inline-block;background:rgba(249,115,22,0.2);color:#fdba74;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;margin-left:8px;">${s.applicationIntentBadge}</span>`);
+  }
+  const titleBadge = titleBadges.join('');
 
   const locationLabel = entry.location || entry.canton || '';
   const dateLabel = expired ? '' : formatPostedDate(entry.postedDate, locale);
@@ -394,13 +756,35 @@ function renderJobCard(entry, locale, s, { expired }) {
 // copyright line. One deliberate difference from job-alert: there is a
 // single unsubscribe link (this channel has no "alerts" to unsubscribe from
 // individually).
-function buildEmailHtml({ locale, s, savedEntries, recommendations, manageUrl, unsubUrl, email }) {
+export function buildEmailHtml({ locale, s, savedEntries = [], applicationIntentEntries = [], recommendations = [], manageUrl, unsubUrl, email }) {
+  const hasSaved = savedEntries.length > 0;
+  const hasApplicationIntents = applicationIntentEntries.length > 0;
+  const heroTitle = hasSaved ? s.heroTitle : s.applicationSectionTitle;
+  const heroDesc = hasSaved ? s.heroDesc : s.applicationSectionDesc;
+  const sectionLabel = hasSaved ? s.sectionLabel : s.applicationSectionLabel;
+  const sectionTitle = hasSaved ? s.sectionTitle : s.applicationSectionTitle;
+  const sectionDesc = hasSaved ? s.sectionDesc : s.applicationSectionDesc;
   const cardsHtml = savedEntries.map((e) => renderJobCard(e, locale, s, { expired: e.expired })).join('');
+  const applicationCardsHtml = applicationIntentEntries
+    .map((e) => renderJobCard(e, locale, s, { expired: false, applicationIntent: true }))
+    .join('');
   const recoHtml = recommendations.length
     ? `
     <tr><td style="padding:20px 0 8px;font-size:16px;font-weight:800;color:${BRAND_DARK};">${escapeHtml(s.recoTitle)}</td></tr>
     ${recommendations.map((e) => renderJobCard(e, locale, s, { expired: false })).join('')}`
     : '';
+  const applicationSectionHtml = hasApplicationIntents
+    ? `
+        ${hasSaved ? `<tr><td style="padding:24px 0 8px;color:${BRAND_DARK};"><div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">${escapeHtml(s.applicationSectionLabel)}</div><div style="font-size:16px;font-weight:800;">${escapeHtml(s.applicationSectionTitle)}</div></td></tr>` : ''}
+        <tr><td style="padding:8px 0 10px;font-size:13px;color:${MUTED};line-height:1.5;">${escapeHtml(s.applicationIntentNotice)}</td></tr>
+        ${applicationCardsHtml}`
+    : '';
+  const closer = hasSaved && hasApplicationIntents
+    ? `${s.closer} ${s.intentCloser}`
+    : hasApplicationIntents ? s.intentCloser : s.closer;
+  const footerReason = hasApplicationIntents && !hasSaved
+    ? s.intentCloser
+    : s.footerSentTo(email);
 
   // Recommended (revenue) block — config-driven affiliate/sponsor slot
   // (#4450/#4449), same shared renderer as job-alert/newsletter/drip.
@@ -419,7 +803,7 @@ function buildEmailHtml({ locale, s, savedEntries, recommendations, manageUrl, u
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<title>${escapeHtml(s.heroTitle)} — Frontaliere Ticino</title>
+<title>${escapeHtml(heroTitle)} — Frontaliere Ticino</title>
 <style>
 body{margin:0;padding:0;background:${LIGHT_BG};font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%;}
 table{border-collapse:collapse;}
@@ -451,15 +835,15 @@ table{border-collapse:collapse;}
 
         <!-- Hero -->
         <tr><td style="background:${BRAND_DARK};padding:20px 28px 28px;" class="section-pad">
-          <div style="font-size:22px;font-weight:800;color:${WHITE};margin:0;">${escapeHtml(s.heroTitle)}</div>
-          <div style="font-size:13px;color:${MUTED_ON_DARK};margin-top:6px;">${escapeHtml(s.heroDesc)}</div>
+          <div style="font-size:22px;font-weight:800;color:${WHITE};margin:0;">${escapeHtml(heroTitle)}</div>
+          <div style="font-size:13px;color:${MUTED_ON_DARK};margin-top:6px;">${escapeHtml(heroDesc)}</div>
         </td></tr>
 
         <!-- Section header -->
         <tr><td class="section-pad" style="background:${WHITE};padding:24px 28px 8px;">
-          <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">${escapeHtml(s.sectionLabel)}</div>
-          <div style="font-size:18px;font-weight:800;color:${BRAND_DARK};margin:0;">${escapeHtml(s.sectionTitle)}</div>
-          <div style="font-size:13px;color:${MUTED};margin:4px 0 0;">${escapeHtml(s.sectionDesc)}</div>
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">${escapeHtml(sectionLabel)}</div>
+          <div style="font-size:18px;font-weight:800;color:${BRAND_DARK};margin:0;">${escapeHtml(sectionTitle)}</div>
+          <div style="font-size:13px;color:${MUTED};margin:4px 0 0;">${escapeHtml(sectionDesc)}</div>
         </td></tr>
 
         <!-- Job cards -->
@@ -467,6 +851,7 @@ table{border-collapse:collapse;}
           <table width="100%" cellpadding="0" cellspacing="0">
             ${cardsHtml}
             ${recoHtml}
+            ${applicationSectionHtml}
             <tr><td style="text-align:center;padding-top:14px;">
               <a target="_blank" rel="noopener noreferrer" href="${manageUrl}" style="display:inline-block;background:transparent;border:2px solid ${BRAND_ORANGE};color:${BRAND_ORANGE};font-weight:700;font-size:13px;text-decoration:none;padding:11px 28px;border-radius:8px;">${escapeHtml(s.manageCta)}</a>
             </td></tr>
@@ -478,7 +863,7 @@ table{border-collapse:collapse;}
         <!-- Closer -->
         <tr><td class="section-pad" style="background:${WHITE};padding:0 28px 20px;">
           <div style="background:${CARD_BG};border-radius:12px;padding:18px 20px;text-align:center;">
-            <div style="font-size:14px;color:#334155;line-height:1.5;margin:0 0 8px;">${escapeHtml(s.closer)}</div>
+            <div style="font-size:14px;color:#334155;line-height:1.5;margin:0 0 8px;">${escapeHtml(closer)}</div>
             <div style="font-size:12px;color:${BRAND_ORANGE};font-weight:700;">${escapeHtml(s.closerSign)}</div>
           </div>
         </td></tr>
@@ -486,7 +871,7 @@ table{border-collapse:collapse;}
         <!-- Footer -->
         <tr><td style="background:${BRAND_DARK};padding:28px;text-align:center;">
           <div style="font-size:11px;color:${MUTED_ON_DARK};margin:0 0 14px;line-height:1.5;">
-            ${escapeHtml(s.footerSentTo(email))}
+            ${escapeHtml(footerReason)}
           </div>
           <div style="margin-bottom:12px;">
             <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=61588174947294" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">📘</a>
@@ -510,10 +895,18 @@ table{border-collapse:collapse;}
 </html>`;
 }
 
-function buildEmailText({ locale, s, savedEntries, recommendations, manageUrl, unsubUrl }) {
-  const lines = [s.heroTitle, ''];
+export function buildEmailText({ locale, s, savedEntries = [], applicationIntentEntries = [], recommendations = [], manageUrl, unsubUrl }) {
+  const hasSaved = savedEntries.length > 0;
+  const hasApplicationIntents = applicationIntentEntries.length > 0;
+  const lines = [hasSaved ? s.heroTitle : s.applicationSectionTitle, ''];
   for (const e of savedEntries) {
     lines.push(`- ${e.title} (${s.at} ${e.company})${e.expired ? ` [${s.expiredBadge}]` : ''}: ${e.expired ? `${BASE_URL}/cerca-lavoro-ticino/` : e.url}`);
+  }
+  if (hasApplicationIntents) {
+    lines.push('', s.applicationSectionTitle, s.applicationIntentNotice);
+    for (const e of applicationIntentEntries) {
+      lines.push(`- ${e.title} (${s.at} ${e.company}) [${s.applicationIntentBadge}]: ${e.url}`);
+    }
   }
   if (recommendations.length) {
     lines.push('', s.recoTitle);
@@ -539,15 +932,15 @@ function buildEmailText({ locale, s, savedEntries, recommendations, manageUrl, u
 // scripts/report-send-hour-impact.mjs's collectionGroup('campaign_deliveries')
 // query. Written under users/{uid}/campaign_deliveries/{deliveryDocId} since
 // uid (not email) is this channel's subscriber key (see makeUnsubscribeUrl).
-async function persistSavedJobsDigestDelivery({ uid, email, campaignId }, sendResult) {
+async function persistSavedJobsDigestDelivery(db, { uid, email, campaignId }, sendResult) {
   if (!uid || !email || !campaignId) return;
   try {
-    const db = await getFirestoreAdmin();
     const deliveryDocId = buildDeliveryDocId(campaignId, email);
     await db.collection('users').doc(uid)
       .collection('campaign_deliveries').doc(deliveryDocId).set({
       email: email.toLowerCase().trim(),
       campaign_id: campaignId,
+      status: 'sent',
       message_id: sendResult?.messageId || null,
       provider: sendResult?.provider || null,
       scheduled_for: sendResult?.scheduledFor ?? null,
@@ -558,13 +951,62 @@ async function persistSavedJobsDigestDelivery({ uid, email, campaignId }, sendRe
   }
 }
 
-async function sendDigest({ uid, email, locale, savedEntries, recommendations, campaignId }) {
+/** Atomically reserve one uid/email/campaign tuple before any provider call. */
+export async function claimSavedJobsDigestDelivery(db, { uid, email, campaignId }) {
+  if (!uid || !email || !campaignId) return false;
+  const deliveryDocId = buildDeliveryDocId(campaignId, email);
+  const deliveryRef = db.collection('users').doc(uid)
+    .collection('campaign_deliveries').doc(deliveryDocId);
+
+  return db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(deliveryRef);
+    const exists = typeof snapshot?.exists === 'function' ? snapshot.exists() : snapshot?.exists;
+    if (exists) return false;
+
+    transaction.create(deliveryRef, {
+      email: email.toLowerCase().trim(),
+      campaign_id: campaignId,
+      status: 'sending',
+      claimed_at: new Date(),
+    });
+    return true;
+  });
+}
+
+/** Release a claim only after the provider reports a definite, non-ambiguous failure. */
+async function releaseSavedJobsDigestDeliveryClaim(db, { uid, email, campaignId }) {
+  const deliveryDocId = buildDeliveryDocId(campaignId, email);
+  const deliveryRef = db.collection('users').doc(uid)
+    .collection('campaign_deliveries').doc(deliveryDocId);
+
+  await db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(deliveryRef);
+    const exists = typeof snapshot?.exists === 'function' ? snapshot.exists() : snapshot?.exists;
+    if (!exists) return;
+    if (snapshot.data?.()?.status === 'sending') transaction.delete(deliveryRef);
+  });
+}
+
+export async function hasSavedJobsDigestDelivery(db, { uid, email, campaignId }) {
+  const deliveryDocId = buildDeliveryDocId(campaignId, email);
+  const snapshot = await db.collection('users').doc(uid)
+    .collection('campaign_deliveries').doc(deliveryDocId).get();
+  const exists = typeof snapshot?.exists === 'function' ? snapshot.exists() : snapshot?.exists;
+  if (!exists) return false;
+  const data = snapshot.data?.() || {};
+  return data.sent_at != null
+    || data.message_id != null
+    || data.status === 'sent'
+    || data.status === 'accepted';
+}
+
+async function sendDigest({ db, uid, email, locale, savedEntries, applicationIntentEntries, recommendations, campaignId }) {
   const s = getStrings(locale);
   const manageUrl = profileUrl(locale);
   const unsubUrl = makeUnsubscribeUrl(uid, email, locale);
-  const html = buildEmailHtml({ locale, s, savedEntries, recommendations, manageUrl, unsubUrl, email });
-  const text = buildEmailText({ locale, s, savedEntries, recommendations, manageUrl, unsubUrl });
-  const subject = s.subject(savedEntries.length);
+  const html = buildEmailHtml({ locale, s, savedEntries, applicationIntentEntries, recommendations, manageUrl, unsubUrl, email });
+  const text = buildEmailText({ locale, s, savedEntries, applicationIntentEntries, recommendations, manageUrl, unsubUrl });
+  const subject = s.subject({ savedCount: savedEntries.length, intentCount: applicationIntentEntries.length });
 
   if (DRY_RUN) {
     console.log(`   📝 [dry-run] would send to ${email} (${locale}) — subject: ${subject}`);
@@ -595,10 +1037,20 @@ async function sendDigest({ uid, email, locale, savedEntries, recommendations, c
     },
   ], {
     concurrency: 1,
-    onSent: (item, sendResult) => persistSavedJobsDigestDelivery({ uid, email, campaignId }, sendResult),
+    onSent: (item, sendResult) => persistSavedJobsDigestDelivery(db, { uid, email, campaignId }, sendResult),
   });
 
-  return { sent: result.sent.length > 0, failed: result.failed };
+  const sent = result.sent.length > 0;
+  const failures = Array.isArray(result.failed) ? result.failed : [];
+  if (!sent && failures.length > 0 && failures.every((failure) => failure.ambiguousDelivery !== true)) {
+    try {
+      await releaseSavedJobsDigestDeliveryClaim(db, { uid, email, campaignId });
+    } catch (error) {
+      console.warn('⚠️ Saved-jobs-digest failed-send claim release failed:', error?.message);
+    }
+  }
+
+  return { sent, failed: result.failed };
 }
 
 // ── Main ──────────────────────────────────────────────────────────────────
@@ -606,32 +1058,48 @@ async function sendDigest({ uid, email, locale, savedEntries, recommendations, c
 async function main() {
   const db = await getFirestoreAdmin();
   const jobsById = loadJobsById();
+  const nowMs = Date.now();
   // One campaignId per run (#4862) — all recipients of a given weekly send
   // share it, same convention as send-newsletter.mjs's weekly_{monday}.
-  const campaignId = `saved-jobs-digest-${new Date().toISOString().split('T')[0]}`;
+  const campaignId = `saved-jobs-digest-${new Date(nowMs).toISOString().split('T')[0]}`;
 
-  console.log('📌 Saved-jobs digest — querying collectionGroup(savedJobs)…');
-  const snap = await db.collectionGroup('savedJobs').get();
-  if (snap.empty) {
-    console.log('   No saved jobs found — nothing to send.');
+  console.log('📌 Saved-jobs digest — querying saved jobs and application intents…');
+  const [savedSnap, intentSnap] = await Promise.all([
+    db.collectionGroup('savedJobs').get(),
+    db.collectionGroup(APPLICATION_INTENT_COLLECTION).get(),
+  ]);
+  const savedDocs = savedSnap.docs || [];
+  const intentDocs = intentSnap.docs || [];
+  if (savedDocs.length === 0 && intentDocs.length === 0) {
+    console.log('   No saved jobs or application intents found — nothing to send.');
     return;
   }
 
   const byUid = new Map();
-  for (const docSnap of snap.docs) {
+  for (const docSnap of savedDocs) {
     const uid = docSnap.ref.parent.parent?.id;
     if (!uid) continue;
     if (!byUid.has(uid)) byUid.set(uid, []);
     byUid.get(uid).push({ id: docSnap.id, ...docSnap.data() });
   }
+  for (const docSnap of intentDocs) {
+    const uid = applicationIntentUid(docSnap);
+    if (!uid) continue;
+    if (!byUid.has(uid)) byUid.set(uid, []);
+    byUid.get(uid).push({ __applicationIntentSnapshot: docSnap });
+  }
 
-  console.log(`   ${byUid.size} user(s) with ≥1 saved job`);
+  console.log(`   ${byUid.size} user(s) with saved jobs and/or application intents`);
 
   let sentCount = 0;
   let skippedCount = 0;
 
-  for (const [uid, entries] of byUid) {
-    if (entries.length === 0) {
+  for (const [uid, sources] of byUid) {
+    const savedSourceEntries = sources.filter((entry) => !entry.__applicationIntentSnapshot);
+    const intentSnapshots = sources
+      .map((entry) => entry.__applicationIntentSnapshot)
+      .filter(Boolean);
+    if (savedSourceEntries.length === 0 && intentSnapshots.length === 0) {
       skippedCount++;
       continue;
     }
@@ -653,66 +1121,73 @@ async function main() {
       continue;
     }
 
-    // The explicit saved-jobs preference activates this channel. An explicit
-    // channel opt-out and the shared address/global suppression predicate still
-    // win; a saved-job record alone is not enough.
-    const subscriberDoc = await db.collection('newsletter_subscribers').doc(email.toLowerCase()).get();
-    const subscriberData = subscriberDoc.exists ? subscriberDoc.data() || {} : null;
-    if (!isSavedJobsDigestEligible(userData, subscriberData)) {
+    const applicationIntentEntries = intentSnapshots
+      .map((snapshot) => buildApplicationIntentEntry(snapshot, jobsById, locale, nowMs))
+      .filter(Boolean);
+    const savedCardCandidates = savedSourceEntries.map((entry) => {
+      const job = jobsById.get(entry.id);
+      // Expired path: the job left data/jobs.json, so none of the card's
+      // new fields (logo/location/date/sector) have a live source — only
+      // `entry.category`, already persisted on the saved-job doc itself
+      // (services/savedJobsService.ts), survives to feed the sector tag.
+      if (!job) {
+        return {
+          ...entry,
+          expired: true,
+          url: null,
+          company: entry.company,
+          title: entry.title,
+          canton: entry.canton,
+          sector: entry.category,
+        };
+      }
+      return {
+        ...entry,
+        expired: false,
+        url: jobPageUrl(job, locale),
+        title: jobTitle(job, locale),
+        company: job.company || entry.company,
+        canton: job.canton || entry.canton,
+        location: job.location || job.addressLocality || null,
+        postedDate: job.postedDate || null,
+        sector: job.sector || job.category || entry.category || null,
+        companyKey: job.companyKey || null,
+        // Salary/contract/firstSeenAt (#6104): same badge fields as
+        // send-job-alerts.mjs's jobCards — live-only, so only carried on
+        // the non-expired path (a departed job has no current salary to
+        // present as still valid).
+        firstSeenAt: job.firstSeenAt || null,
+        salaryMin: job.salaryMin ?? null,
+        salaryMax: job.salaryMax ?? null,
+        currency: job.currency || null,
+        baseSalary: job.baseSalary || null,
+        contract: job.contract || null,
+      };
+    });
+    const selected = mergeDigestEntries(savedCardCandidates, applicationIntentEntries);
+    if (selected.savedEntries.length === 0 && selected.applicationIntentEntries.length === 0) {
       skippedCount++;
       continue;
     }
 
-    const savedEntries = entries
-      .sort((a, b) => (b.savedAt || 0) - (a.savedAt || 0))
-      .slice(0, MAX_SAVED_LISTED)
-      .map((entry) => {
-        const job = jobsById.get(entry.id);
-        // Expired path: the job left data/jobs.json, so none of the card's
-        // new fields (logo/location/date/sector) have a live source — only
-        // `entry.category`, already persisted on the saved-job doc itself
-        // (services/savedJobsService.ts), survives to feed the sector tag.
-        if (!job) {
-          return {
-            ...entry,
-            expired: true,
-            url: null,
-            company: entry.company,
-            title: entry.title,
-            canton: entry.canton,
-            sector: entry.category,
-          };
-        }
-        return {
-          ...entry,
-          expired: false,
-          url: jobPageUrl(job, locale),
-          title: jobTitle(job, locale),
-          company: job.company || entry.company,
-          canton: job.canton || entry.canton,
-          location: job.location || job.addressLocality || null,
-          postedDate: job.postedDate || null,
-          sector: job.sector || job.category || entry.category || null,
-          companyKey: job.companyKey || null,
-          // Salary/contract/firstSeenAt (#6104): same badge fields as
-          // send-job-alerts.mjs's jobCards — live-only, so only carried on
-          // the non-expired path (a departed job has no current salary to
-          // present as still valid).
-          firstSeenAt: job.firstSeenAt || null,
-          salaryMin: job.salaryMin ?? null,
-          salaryMax: job.salaryMax ?? null,
-          currency: job.currency || null,
-          baseSalary: job.baseSalary || null,
-          contract: job.contract || null,
-        };
-      });
+    // Explicit saved-jobs activation or a consented application intent activates
+    // this existing channel. An explicit channel opt-out and the shared
+    // address/global suppression predicate still win.
+    const subscriberDoc = await db.collection('newsletter_subscribers').doc(email.toLowerCase()).get();
+    const subscriberData = subscriberDoc.exists ? subscriberDoc.data() || {} : null;
+    if (!isSavedJobsDigestEligible(userData, subscriberData, {
+      hasApplicationIntent: selected.applicationIntentEntries.length > 0,
+    })) {
+      skippedCount++;
+      continue;
+    }
 
     // "Potrebbero interessarti anche" — dominant category/canton from the
-    // saved set, same derivation the in-app nudge uses (#4467 addendum).
     const criteria = deriveSavedJobsAlertCriteria(
-      entries.map((e) => ({ category: e.category ?? null, canton: e.canton ?? null, savedAt: e.savedAt || 0 })),
+      [...savedCardCandidates, ...applicationIntentEntries]
+        .map((e) => ({ category: e.category ?? null, canton: e.canton ?? null, savedAt: e.savedAt || e.intentAt || 0 })),
     );
-    const savedIds = new Set(entries.map((e) => e.id));
+    const savedIds = new Set([...savedCardCandidates, ...applicationIntentEntries].map((entry) => entry.id));
     const recommendations = [];
     if (criteria.category || criteria.cantonCode) {
       for (const job of jobsById.values()) {
@@ -742,8 +1217,23 @@ async function main() {
       }
     }
 
-    console.log(`   ✉️  ${email} (${locale}) — ${savedEntries.length} saved, ${recommendations.length} recommended`);
-    const result = await sendDigest({ uid, email, locale, savedEntries, recommendations, campaignId });
+    if (!DRY_RUN && !await claimSavedJobsDigestDelivery(db, { uid, email, campaignId })) {
+      console.log(`   ↩️  ${email} already has campaign ${campaignId} claimed or delivered — skip`);
+      skippedCount++;
+      continue;
+    }
+
+    console.log(`   ✉️  ${email} (${locale}) — ${selected.savedEntries.length} saved, ${selected.applicationIntentEntries.length} application reminder(s), ${recommendations.length} recommended`);
+    const result = await sendDigest({
+      db,
+      uid,
+      email,
+      locale,
+      savedEntries: selected.savedEntries,
+      applicationIntentEntries: selected.applicationIntentEntries,
+      recommendations,
+      campaignId,
+    });
     if (result.sent) sentCount++;
     else skippedCount++;
   }
@@ -758,4 +1248,12 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   });
 }
 
-export { main, jobPageUrl, makeUnsubscribeUrl, loadJobsById, renderJobCard, formatPostedDate, getStrings };
+export {
+  main,
+  jobPageUrl,
+  makeUnsubscribeUrl,
+  loadJobsById,
+  renderJobCard,
+  formatPostedDate,
+  getStrings,
+};

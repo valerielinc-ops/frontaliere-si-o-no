@@ -21,7 +21,9 @@ on:
         type: boolean
 concurrency:
   group: saved-jobs-digest
-  cancel-in-progress: true
+  # A queued retry must observe the same campaign delivery ledger instead of
+  # cancelling a run after the provider may already have accepted its email.
+  cancel-in-progress: false
 
 permissions:
   contents: read

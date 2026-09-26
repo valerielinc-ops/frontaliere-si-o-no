@@ -5,6 +5,8 @@ const frCore: Record<string, string> = {
  'whatsNew.v3968.title': 'Plus de transparence quand vous postulez',
  'whatsNew.v3968.applicationIntent.title': 'Un consentement clair sur le clic « Postuler »',
  'whatsNew.v3968.applicationIntent.desc': 'Avant de vous rediriger vers le site de l’employeur, nous expliquons ce que le clic enregistre et distinguons l’intérêt exprimé d’une candidature terminée.',
+ 'whatsNew.v3968.applicationIntentDigest.title': 'Rappels de candidature dans le récapitulatif hebdomadaire',
+ 'whatsNew.v3968.applicationIntentDigest.desc': 'Le récapitulatif peut rappeler les offres qui vous ont intéressé sans supposer que vous avez envoyé une candidature.',
  'whatsNew.v3966.title': 'Une recherche d’emploi plus utile',
  'whatsNew.v3966.jobSearchLoop.title': 'Nouvelles offres, catégories et alertes',
  'whatsNew.v3966.jobSearchLoop.desc': 'Reprenez votre recherche là où vous l’aviez laissée, suivez une catégorie et passez entre catégories liées, employeurs et nouvelles pages pour l’allemand ou les débutants.',

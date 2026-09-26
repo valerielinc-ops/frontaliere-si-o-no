@@ -5,6 +5,8 @@ const enCore: Record<string, string> = {
  'whatsNew.v3968.title': 'More transparency when you apply',
  'whatsNew.v3968.applicationIntent.title': 'Clear consent on the “Apply” click',
  'whatsNew.v3968.applicationIntent.desc': 'Before sending you to the employer site, we explain what the click records and distinguish expressed interest from a completed application.',
+ 'whatsNew.v3968.applicationIntentDigest.title': 'Application reminders in your weekly digest',
+ 'whatsNew.v3968.applicationIntentDigest.desc': 'The digest can remind you about listings you showed interest in without assuming that you submitted an application.',
  'whatsNew.v3966.title': 'A more useful job search',
  'whatsNew.v3966.jobSearchLoop.title': 'New jobs, categories and alerts',
  'whatsNew.v3966.jobSearchLoop.desc': 'Pick up where you left off, follow a category, and move between related categories, employers and new German-speaking or entry-level job pages.',
