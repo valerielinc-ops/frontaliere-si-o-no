@@ -20399,6 +20399,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'avenergy-lobby-clima',
+    category: 'novita',
+    date: '2026-09-26T16:40:49.176Z',
+    image: '/images/blog/avenergy-lobby-clima.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

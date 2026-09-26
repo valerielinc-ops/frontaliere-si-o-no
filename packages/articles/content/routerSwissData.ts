@@ -2286,6 +2286,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'svizzera-auto-elettriche-classifica': { it: 'svizzera-auto-elettriche-classifica', en: 'switzerland-electric-cars-ranking', de: 'schweiz-elektroautos-rangliste', fr: 'suisse-voitures-electriques-classement' },
  'premi-cassa-malati-stabilita-famiglie': { it: 'premi-cassa-malati-stabilita-famiglie', en: 'health-insurance-premiums-stable-family-burden', de: 'krankenversicherungspraemen-stabile-familienbelastung', fr: 'primes-assurance-sante-charge-familiale-stable' },
  'protesta-asilo-berna-diritti': { it: 'protesta-asilo-berna-diritti', en: 'asylum-rights-protest-bern', de: 'asylrecht-protest-bern', fr: 'protestation-droit-asile-berne' },
+ 'avenergy-lobby-clima': { it: 'avenergy-lobby-clima', en: 'avenergy-oil-lobby-climate-switzerland', de: 'avenergy-oellobby-klima-schweiz', fr: 'avenergy-lobby-petrole-climat-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

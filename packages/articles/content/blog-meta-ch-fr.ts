@@ -6791,6 +6791,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.protesta-asilo-berna-diritti.title': 'Berne : protestation contre les durcissements du droit d\'asile',
     'blog.article.protesta-asilo-berna-diritti.excerpt': 'Plusieurs milliers de personnes sur la Place fédérale pour demander la santé, le travail et l’éducation indépendamment du statut de séjour et de l’origine.',
     'blog.article.protesta-asilo-berna-diritti.imageAlt': 'Manifestation sur la Place Fédérale à Berne contre le durcissement du droit d\'asile',
+    'blog.article.avenergy-lobby-clima.title': 'Avenergy et le lobby du pétrole : climat en Suisse',
+    'blog.article.avenergy-lobby-clima.excerpt': 'Une étude reconstitue la communication d’Avenergy, association des importateurs de pétrole, et le réseau d’intérêts qui remonte jusqu’au Conseil fédéral.',
+    'blog.article.avenergy-lobby-clima.imageAlt': 'Bellinzone et montagnes suisses sous un ciel nuageux, image du débat climatique national',
 };
 
 export default blogMetaChFr;

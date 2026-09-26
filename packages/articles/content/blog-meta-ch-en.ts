@@ -6791,6 +6791,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.protesta-asilo-berna-diritti.title': 'Bern: protest against the tightening of asylum law',
     'blog.article.protesta-asilo-berna-diritti.excerpt': 'Several thousand people in Federal Square calling for health, work and education regardless of residence status and origin.',
     'blog.article.protesta-asilo-berna-diritti.imageAlt': 'Demonstration in Bern\'s Federal Square against the tightening of asylum laws',
+    'blog.article.avenergy-lobby-clima.title': 'Avenergy and the oil lobby: climate in Switzerland',
+    'blog.article.avenergy-lobby-clima.excerpt': 'A study reconstructs the communications of Avenergy, the association of oil importers, and the network of interests that reaches the Federal Council.',
+    'blog.article.avenergy-lobby-clima.imageAlt': 'Bellinzona and Swiss mountains under a cloudy sky, evoking the national climate debate',
 };
 
 export default blogMetaChEn;
