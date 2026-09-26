@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { isHistoricalMissingTarget, isNoindexPage } from '../../scripts/audit-hreflang.mjs';
 
 /**
  * Do the hreflang gates retain the page each failing href came from?
@@ -190,5 +191,30 @@ describe('hreflang failure message — measured retention at the push boundary',
       perFailure,
       `retained ${perFailure.toFixed(0)} B/failure — each failure is still holding its ~${FILLER_BYTES} B page alive`,
     ).toBeLessThan(FILLER_BYTES / 8);
+  });
+});
+
+describe('hreflang historical-corpus exception', () => {
+  it('recognises quote-flexible robots/googlebot noindex metadata', () => {
+    expect(isNoindexPage('<head><meta name="robots" content="noindex,follow"></head>')).toBe(true);
+    expect(isNoindexPage('<head><meta content=noindex,follow name=googlebot></head>')).toBe(true);
+    expect(isNoindexPage('<head><meta name="description" content="noindex is a word"></head>')).toBe(false);
+  });
+
+  it('only recognises a real noindex meta in head markup', () => {
+    expect(isNoindexPage('<!-- <meta name="robots" content="noindex"> -->')).toBe(false);
+    expect(isNoindexPage('<head><!-- <meta name="robots" content="noindex"> --></head>')).toBe(false);
+    expect(isNoindexPage('<head><script>"<meta name=robots content=noindex>"</script></head>')).toBe(false);
+    expect(isNoindexPage('<body><meta name="robots" content="noindex"></body>')).toBe(false);
+    expect(isNoindexPage('<html><head><meta content="noindex,follow" name="robots"></head></html>')).toBe(true);
+  });
+
+  it('limits the advisory exception to missing targets on noindex pages', () => {
+    const noindex = '<head><meta name="robots" content="noindex,follow"></head>';
+    const indexable = '<head><meta name="robots" content="index,follow"></head>';
+
+    expect(isHistoricalMissingTarget(noindex, 'missingTarget')).toBe(true);
+    expect(isHistoricalMissingTarget(indexable, 'missingTarget')).toBe(false);
+    expect(isHistoricalMissingTarget(noindex, 'invalidPair')).toBe(false);
   });
 });

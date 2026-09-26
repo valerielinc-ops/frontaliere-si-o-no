@@ -48,6 +48,7 @@ import {
   EMPLOYER_PROFILE_PATH_RX,
 } from './lib/jobBoardSections.mjs';
 import { flatString } from './lib/flat-string.mjs';
+import { isHistoricalMissingTarget, isNoindexPage } from './audit-hreflang.mjs';
 import { classifyFeature as classifyFeatureRatioOriginal } from './audit-text-html-ratio.mjs';
 import { classifyFeature as classifyFeatureTitleOriginal } from './audit-title-length.mjs';
 import { MAX_HTML_BYTES } from './audit-page-weight.mjs';
@@ -557,6 +558,9 @@ class HreflangAudit {
       xDefaultMismatch: [],
       missingTarget: [],
     };
+    this.historicalFailures = { missingTarget: [] };
+    this.historicalPagesWithHreflang = new Set();
+    this.historicalPagesWithFailure = new Set();
   }
   /** Mirrors per-file body of audit-hreflang.main loop (uses cached file index). */
   ingest(file, html, distRel) {
@@ -566,6 +570,7 @@ class HreflangAudit {
     this.withHreflang++;
 
     const rel = distRel;
+    if (isNoindexPage(html)) this.historicalPagesWithHreflang.add(rel);
 
     if (alternates.size < 5) {
       this.failures.tooFew.push(
@@ -597,9 +602,13 @@ class HreflangAudit {
           ? target.slice(0, -`${sep}index.html`.length) + '.html'
           : join(dirname(target), basename(target, '.html'), 'index.html');
         if (!this.distFileSet.has(alt)) {
-          this.failures.missingTarget.push(
-            flatString(`${rel}: hreflang="${hreflang}" target not found in dist/ (${href})`),
-          );
+          const message = `${rel}: hreflang="${hreflang}" target not found in dist/ (${href})`;
+          if (isHistoricalMissingTarget(html, 'missingTarget')) {
+            this.historicalFailures.missingTarget.push(flatString(message));
+            this.historicalPagesWithFailure.add(rel);
+          } else {
+            this.failures.missingTarget.push(flatString(message));
+          }
         }
       }
     }
@@ -1847,6 +1856,18 @@ function runHreflang(audit) {
     audit.failures.invalidPair.length +
     audit.failures.xDefaultMismatch.length +
     audit.failures.missingTarget.length;
+  const historicalFailures = audit.historicalFailures.missingTarget.length;
+  if (historicalFailures > 0) {
+    const pageRate = audit.historicalPagesWithFailure.size / Math.max(audit.withHreflang, 1);
+    const corpusRate = audit.historicalPagesWithFailure.size / Math.max(audit.scanned, 1);
+    console.warn(
+      `audit-hreflang: ADVISORY — ${historicalFailures} missing-target issue(s) across ` +
+      `${audit.historicalPagesWithFailure.size} noindex historical page(s); ` +
+      `${(pageRate * 100).toFixed(4)}% of ${audit.withHreflang} pages with hreflang ` +
+      `(${(corpusRate * 100).toFixed(4)}% of ${audit.scanned} scanned pages). ` +
+      'Measured for the reassembled post-deploy corpus; not a blocking defect.',
+    );
+  }
 
   if (totalFailures === 0) {
     console.log(
