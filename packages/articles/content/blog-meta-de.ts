@@ -12088,6 +12088,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.parita-salariale-carta-ticino.title': 'Lohngleichheit im Tessiner Publikum: Nächste Schritte',
     'blog.article.parita-salariale-carta-ticino.excerpt': 'Mehr als dreißig Tessiner Gemeinden haben die Charta für Lohngleichheit unterzeichnet; 2024 betrug der Lohnunterschied im öffentlichen Sektor 847 Franken, und Locarno investiert jährlich mehr als 3,2 Millionen in Maßnahmen zur Vereinbarkeit von Beruf und Familie.',
     'blog.article.parita-salariale-carta-ticino.imageAlt': 'Fassade des Locarnoer Gemeindehauses mit tessinischen Mitarbeitenden, Sonnenschein und professioneller Atmosphäre',
+    'blog.article.manfrinati-sentenza-varese.title': 'Varese, Marco Manfrinati zu lebenslanger Haft verurteilt',
+    'blog.article.manfrinati-sentenza-varese.excerpt': 'Das Schwurgericht in Varese hat Marco Manfrinati wegen des Mordes an Fabio Limido und des versuchten Mordes an Lavinia Limido zu lebenslanger Haft verurteilt.',
+    'blog.article.manfrinati-sentenza-varese.imageAlt': 'Lokale Nachrichten aus Varese: Stadtstraße als Hinweis auf die Ereignisse in der Via Ciro Menotti',
 };
 
 export default blogMetaDe;

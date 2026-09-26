@@ -111,7 +111,8 @@ function saveBaseline(baseline) {
   writeFileSync(BASELINE_PATH, JSON.stringify(baseline, null, 2) + '\n', 'utf-8');
 }
 
-// Retry on transient PSI 5xx errors (Lighthouse-side flakes). Backoff: 2s/4s/8s.
+// Retry on transient PSI 5xx errors (Lighthouse-side flakes) and response
+// stream interruptions. Backoff: 2s/4s/8s.
 // PSI returns 500/502 surprisingly often under load; treating them as hard
 // failures fails the deploy gate even when Google is the problem, not us.
 // 4xx errors (bad URL, missing key, quota) are NOT retried with the same
@@ -197,7 +198,7 @@ export function compactShiftItems(audit, limit = 5) {
   }));
 }
 
-async function runPsiRequest(url, strategy, apiKey = '') {
+export async function runPsiRequest(url, strategy, apiKey = '', fetchImpl = fetch) {
   const params = new URLSearchParams({ url, strategy, category: 'performance' });
   if (apiKey) params.set('key', apiKey);
   const endpoint = `${PSI_ENDPOINT}?${params.toString()}`;
@@ -206,7 +207,7 @@ async function runPsiRequest(url, strategy, apiKey = '') {
   for (let attempt = 1; attempt <= PSI_MAX_ATTEMPTS; attempt++) {
     let r;
     try {
-      r = await fetch(endpoint, { method: 'GET' });
+      r = await fetchImpl(endpoint, { method: 'GET' });
     } catch (e) {
       // Network-layer failure (DNS, ECONNRESET, abort). Treat as transient.
       lastError = new Error(`PSI network error for ${url} (${strategy}): ${e.message || e}`);
@@ -216,11 +217,30 @@ async function runPsiRequest(url, strategy, apiKey = '') {
       }
       throw lastError;
     }
+    let body;
+    try {
+      // Read the body explicitly so an undici `terminated`/premature-close
+      // error is retried like the equivalent failure before headers arrive.
+      // Previously `r.json()` lived outside the retry boundary and one
+      // truncated PSI response became a false live-validation failure.
+      body = await r.text();
+    } catch (e) {
+      lastError = new Error(`PSI network error for ${url} (${strategy}): ${e.message || e}`);
+      if (attempt < PSI_MAX_ATTEMPTS) {
+        await sleep(PSI_RETRY_BASE_MS * Math.pow(2, attempt - 1));
+        continue;
+      }
+      throw lastError;
+    }
     if (r.ok) {
-      const j = await r.json();
+      let j;
+      try {
+        j = JSON.parse(body);
+      } catch (e) {
+        throw new Error(`PSI malformed JSON for ${url} (${strategy}): ${e.message || e}`, { cause: e });
+      }
       return parsePsiResponse(j);
     }
-    const body = await r.text();
     const isTransient5xx = r.status >= 500 && r.status < 600;
     lastError = new Error(`PSI ${r.status} for ${url} (${strategy}): ${body.slice(0, 200)}`);
     if (!isTransient5xx || attempt >= PSI_MAX_ATTEMPTS) {

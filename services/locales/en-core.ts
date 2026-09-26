@@ -762,7 +762,7 @@ const enCore: Record<string, string> = {
  'jobBoard.requirementsHeading': 'Required skills',
  'jobBoard.faq.title': 'Frequently asked questions about this job',
  'jobBoard.apply': 'Apply',
- 'jobBoard.applicationIntent.disclosure': 'By selecting “Apply”, you agree that we record your interest in this listing. We record the click and necessary technical data; this does not mean the application was completed.',
+ 'jobBoard.applicationIntentConsent': 'By selecting “Apply”, you agree that we record your interest in this listing. We record the click and necessary technical data; this does not mean the application was completed.',
  'jobBoard.assisted.title': 'Would you like us to handle this application?',
  'jobBoard.assisted.body': 'Send your CV and the necessary details: we will prepare and manually send the application for this listing when the company’s process allows it.',
  'jobBoard.assisted.stepsLabel': 'How it works',
