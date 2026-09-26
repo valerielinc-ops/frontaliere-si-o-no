@@ -291,6 +291,14 @@ describe('source-detail fidelity checks', () => {
     expect(sourceLocationMatches('Ginevra', 'Geneva (GVA)')).toBe(true);
     expect(sourceLocationMatches('Zürich', 'Klinik Lengg AG | Bleulerstrasse 60 | 8008 Zürich, Zürich')).toBe(true);
     expect(sourceLocationMatches('Kriens', 'Kreuzstrasse 34 6010 Kriens')).toBe(true);
+    expect(sourceLocationMatches(
+      'Bielstrasse 45 2543 Lengnau (Bern) Schweiz',
+      '2543 Lengnau',
+    )).toBe(true);
+    expect(sourceLocationMatches(
+      'Bielstrasse 45 2543 Lengnau (Bern) Schweiz',
+      '2543 Pieterlen',
+    )).toBe(false);
     expect(sourceLocationMatches('Pfäffikon', 'Pfäffikon Zürich')).toBe(true);
     expect(sourceLocationMatches('Lengghalde 2, Zürich', 'Zürich, Zürich')).toBe(true);
     expect(sourceLocationMatches('Sede Stabio Svizzera', 'Stabio, 2106')).toBe(true);
