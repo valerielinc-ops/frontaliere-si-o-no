@@ -1,6 +1,6 @@
 {
   "crawlerKey": "beekeeper",
-  "assembledAt": "2026-09-25T15:13:16.578Z",
+  "assembledAt": "2026-09-26T14:19:47.123Z",
   "jobs": [
     {
       "id": "beekeeper-6bd5944da725",
@@ -34,7 +34,7 @@
       "url": "https://job.lumapps.com/jobs/8052689-forward-deployed-engineer-fde-zurich",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T15:13:11.428Z",
+      "crawledAt": "2026-09-26T14:19:42.615Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -100,7 +100,7 @@
       "url": "https://job.lumapps.com/jobs/8081204-senior-account-manager",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T15:13:11.425Z",
+      "crawledAt": "2026-09-26T14:19:42.613Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -164,7 +164,7 @@
         "it": "Rappresentante per lo sviluppo commerciale (Zurich)",
         "en": "Business Development Representative (Zurich)",
         "de": "Geschäftsentwicklungsbeauftragter (Zürich)",
-        "fr": "Représentant pour le développement des entreprises (Zurich)"
+        "fr": "Business Development Representative (Zurich)"
       },
       "description": "LumApps is now more than just an Employee Experience Platform — it is an AI-powered Employee Hub that supports companies in their digital transformation of communication, collaboration, and engagement with their customers, partners, and above all their employees.\n Our platform is a proven leader in this dynamic market with a truly unique vision and product. It has been deployed by Fortune 500 clients around the world and is delivering meaningful business benefits. LumApps is identified as a leader in Gartner's Magic Quadrant for Intranet Packaged Solutions as well as in Intranets Forrester Wave, and regularly selected for the French Tech Next40/120 program.\n ✨ In 2024, LumApps strengthened its leadership position by partnering with Beekeeper , a pioneer in frontline employee experience solutions. This strategic collaboration expands our reach and impact across all types of workers — from HQ to the frontline.\n Our mission: To make people feel that they belong and have a purpose.\n To create an environment where all employees are engaged and work together towards the same goal. Over 700 leading companies trust our solution to:\n 🎯 Improve the productivity of their teams with our AI-powered Collaborative Experience Platform integrated with both Google and Microsoft collaborative suites,\n 🎯 Transform employees into real ambassadors of their company,\n 🎯 Make employees more efficient and better connected to their peers and relevant information, regardless of their location, with the tools and information they need at their fingertips,\n 🎯 Help companies reduce turnover, accelerate employee onboarding, better collaborate and share knowledge, and even improve their customer experiences.\n With a team of over 600 Lumies spread across 11 offices (Lyon, Paris, Lille, Sophia Antipolis, London, Barcelona, Hamburg, Austin, Tokyo, Zurich, Krakow), we support large enterprises all around the world. Over the past year, we have been driving an ambitious phase in our journey under the impulse of our new shareholder Bridgepoint, aimed at propelling us to become the clear leader in our market and shine worldwide in our industry. We are looking for individuals who are excited to actively participate in this transformation.\n If these core values sound like you: \"be bold, do amazing things\" , \"say what you mean, do what you say\" , \"one team, same mission\" , \"always be evolving\" : apply now!\n *Role*\n LumApps is seeking a Business Development Representative to join our team in Zurich, Switzerland. With a winning confidence and enthusiasm for a job well done, you will both contribute directly to new business development and support a small team of SDRs in their day-to-day success.\n\n*Missions*\n\n• Assertively use phone, email, social media, LinkedIn and other sales & marketing tools to generate interest in LumApps and secure meetings with potential customers.\n\n• Be a leader and valued contributor to the sales team to generate meetings with new potential customers and contribute to pipeline growth.\n\n• Research accounts, identify key players and generate interest.\n\n• Record and track activities; leverage the tools and technologies (e.g. Salesforce CRM, Outreach, LinkedIn, Lusha, and more) that will be available to you to help you succeed at work.\n\n• Collaborate with management on meeting company-wide goals and targets\n\n*Skills*\n\n• 1-3 years experience with new customer acquisition (cold calling, appointment setting, email outreach, lead qualification).\n\n• Excellent communication skills.\n\n• (Swiss) German on native level. Fluent English language skills.\n\n• Experienced talking to C-level decision makers and understanding their challenges.\n\n• Experienced with objection handling.\n\n• A high level of self-motivation and creativity i. Resilient and can deal professionally and effectively with the pressure to succeed.\n\n• Have an independent, committed and goal-oriented way of working.\n\n• Goal-oriented and committed to achieving results.\n\n💡 Why You’ll Love Working at LumApps\n We’re proud to offer a work environment where people feel supported, valued, and empowered. Here’s a peek at what we offer:\n 🏡 Hybrid work model\n 🎉 Team Celebrations & Seasonal Events – Because culture matters\n 💳 Phone & Home Internet Cost Reimbursement\n 💻 Equipment for your work\n We aim to celebrate diversity and are committed to creating an inclusive environment for all employees. We encourage applications from candidates of all backgrounds, identities, and experiences.",
       "descriptionByLocale": {
@@ -231,7 +231,8 @@
         }
       },
       "sourceIdentity": "url:https://job.lumapps.com/jobs/8241616-business-development-representative-zurich",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }

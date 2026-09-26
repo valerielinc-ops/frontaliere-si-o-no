@@ -1,7 +1,7 @@
 {
   "key": "ricola",
   "label": "Ricola",
-  "generatedAt": "2026-09-25T15:13:31.635Z",
+  "generatedAt": "2026-09-26T14:25:14.478Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -10,12 +10,12 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4665,
-  "avgDurationMs": 4665,
+  "durationMs": 6277,
+  "avgDurationMs": 6277,
   "durationHistory": [
-    4665
+    6277
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://career.ricola.com/Vacancies/1064/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T15:13:24.901Z",
+      "crawledAt": "2026-09-26T14:25:08.768Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -70,7 +70,7 @@
       "url": "https://career.ricola.com/Vacancies/1062/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T15:13:25.090Z",
+      "crawledAt": "2026-09-26T14:25:09.172Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -96,49 +96,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "ricola-b854a7c402be",
-      "slug": "global-consumer-service-coordinatore-50-ricola-laufen",
-      "company": "Ricola",
-      "companyKey": "ricola",
-      "companyDomain": "ricola.com",
-      "title": "Global Consumer Service Coordinator 50%",
-      "needsRetranslation": false,
-      "location": "Laufen",
-      "canton": "BL",
-      "url": "https://career.ricola.com/Vacancies/1063/Description/2",
-      "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-19T23:21:23.154Z",
-      "addressLocality": "Laufen",
-      "addressRegion": "BL",
-      "streetAddress": "Baselstrasse 31",
-      "postalCode": "4242",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "temporary",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria alimentare / Dolciumi",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-29",
-      "applyUrl": "https://career.ricola.com/Vacancies/1063/Description/2",
-      "firstSeenAt": "2026-07-29T11:45:13.958Z",
-      "salaryMin": 31000,
-      "salaryMax": 47000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
