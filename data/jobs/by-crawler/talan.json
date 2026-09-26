@@ -246,7 +246,7 @@
       "title": "Business Analyste Core Banking",
       "titleByLocale": {
         "it": "Business Analyst Core Banking",
-        "en": "Business Analyste Core Banking",
+        "en": "Business Analyst Core Banking",
         "de": "Business Analyst Core Banking",
         "fr": "Business Analyste Core Banking"
       },
@@ -305,8 +305,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "talan-2e087420bea1",
@@ -403,7 +402,7 @@
       "title": "Senior Java Platform Engineer",
       "titleByLocale": {
         "it": "Ingegnere di piattaforma Java senior",
-        "en": "Senior Java Platform Engineer",
+        "en": "Senior Java Platform+",
         "de": "Senior Java Platform+",
         "fr": "Senior Java Platform Ingénieur"
       },
@@ -462,8 +461,7 @@
           "maxValue": 165500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "talan-3d22739aef94",
@@ -638,7 +636,7 @@
       "title": "Consultant Test de performance (H/F)",
       "titleByLocale": {
         "it": "Consulente Test de performance (H/F)",
-        "en": "Consultant Test de performance (H/F)",
+        "en": "Consultant Performance Test (M/F)",
         "de": "Berater Test de performance (H/F)",
         "fr": "Consultant Test de performance (H/F)"
       },
@@ -713,7 +711,7 @@
       "title": "Consultant Power BI / Microsoft Fabric",
       "titleByLocale": {
         "fr": "Consultant Power BI / Microsoft Fabric",
-        "en": "Consultant Power BI / Microsoft Fabric",
+        "en": "Power BI Consultant / Microsoft Fabric",
         "it": "Consulente Power BI / Microsoft Fabric",
         "de": "Berater Power BI / Microsoft Fabric"
       },
@@ -801,7 +799,7 @@
       "title": "Lead Data Analyst",
       "titleByLocale": {
         "fr": "Lead Data Analyste",
-        "en": "Lead Data Analyst",
+        "en": "Lead Data Allegedly,",
         "it": "Lead Data Analista",
         "de": "Bleidaten sind unübersehbar,"
       },
@@ -864,8 +862,7 @@
       "previousSlugs": [
         "bleidaten-sind-unubersehbar-talan-geneve-switzerland",
         "lead-data-analyst-talan-geneve-switzerland"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "talan-827097ba6739",
@@ -1050,7 +1047,7 @@
       "title": "Consultant SAP Basis",
       "titleByLocale": {
         "it": "Consulente SAP Basis",
-        "en": "Consultant SAP Basis",
+        "en": "SAP Basis Consultant",
         "de": "Berater SAP Basis",
         "fr": "Consultant SAP Basis"
       },

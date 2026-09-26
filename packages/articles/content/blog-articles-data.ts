@@ -36189,6 +36189,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'protesta-impianto-betonaggio-intelvi',
+ category: 'novita',
+ date: '2026-09-26T13:24:58.821Z',
+ image: '/images/blog/protesta-impianto-betonaggio-intelvi.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

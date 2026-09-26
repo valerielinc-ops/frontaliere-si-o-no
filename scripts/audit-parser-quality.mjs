@@ -382,6 +382,15 @@ function endsWithTokens(value, suffix) {
     && suffix.every((token, index) => value[value.length - suffix.length + index] === token);
 }
 
+function sharesPostalCodeAndLocality(published, source, publishedTokens, sourceTokens) {
+  const publishedPostalCodes = String(published).match(/\b\d{4,5}\b/g) || [];
+  const sourcePostalCodes = String(source).match(/\b\d{4,5}\b/g) || [];
+  if (!sourcePostalCodes.some((code) => publishedPostalCodes.includes(code))) return false;
+  const sourceLocalityTokens = sourceTokens.filter((token) => !SWISS_REGION_NAMES.has(token));
+  return sourceLocalityTokens.length > 0
+    && sourceLocalityTokens.every((token) => publishedTokens.includes(token));
+}
+
 function hasCoherentCantonSuffix(value, locality) {
   if (locality.length === 0 || value.length <= locality.length) return false;
   if (!locality.every((token, index) => value[index] === token)) return false;
@@ -562,6 +571,8 @@ export function sourceLocationMatches(published, source) {
       if (tokensEqual(sourceTokens, publishedTokens)) return true;
       if (candidateHasPostalCode && endsWithTokens(sourceTokens, publishedTokens)) return true;
       if (publishedHasPostalCode && endsWithTokens(publishedTokens, sourceTokens)) return true;
+      if (candidateHasPostalCode && publishedHasPostalCode
+        && sharesPostalCodeAndLocality(publishedCandidate, rawSourceCandidate, publishedTokens, sourceTokens)) return true;
       if (hasCoherentCantonSuffix(sourceTokens, publishedTokens)
         || hasCoherentCantonSuffix(publishedTokens, sourceTokens)) return true;
     }
