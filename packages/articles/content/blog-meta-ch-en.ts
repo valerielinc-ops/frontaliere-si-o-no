@@ -6764,6 +6764,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.indennita-infermiere-bregaglia.title': 'Bregaglia, compensation for four dismissed nurses',
     'blog.article.indennita-infermiere-bregaglia.excerpt': 'CSB awards compensation to four nurses dismissed in February 2025 following a settlement before the District Court.',
     'blog.article.indennita-infermiere-bregaglia.imageAlt': 'Healthcare center in Bregaglia linked to an agreement for four dismissed nurses.',
+    'blog.article.importazione-granoturco-foraggio-proroga.title': 'Extension of duty exemption for fodder maize until April 2027',
+    'blog.article.importazione-granoturco-foraggio-proroga.excerpt': 'The DEFR extends until 30 April 2027 the duty exemption for fresh or silage maize with dry matter ≤60%, intended for animal feed; from 1 October 2026 duty reduction for fibre-rich fodder.',
+    'blog.article.importazione-granoturco-foraggio-proroga.imageAlt': 'Forage corn exempt from customs duty for animal feed in Switzerland',
 };
 
 export default blogMetaChEn;

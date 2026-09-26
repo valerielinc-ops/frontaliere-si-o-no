@@ -6764,6 +6764,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.indennita-infermiere-bregaglia.title': 'Bregaglia, Abfindung für vier entlassene Krankenschwestern',
     'blog.article.indennita-infermiere-bregaglia.excerpt': 'Das CSB zahlt vier im Februar 2025 entlassenen Krankenschwestern nach einem Vergleich vor der Pretura Entschädigungen.',
     'blog.article.indennita-infermiere-bregaglia.imageAlt': 'Gesundheitszentrum in Bregaglia im Fall von vier entlassenen Pflegefachfrauen.',
+    'blog.article.importazione-granoturco-foraggio-proroga.title': 'Verlängerung der Zollbefreiung Maisfutter bis April 2027',
+    'blog.article.importazione-granoturco-foraggio-proroga.excerpt': 'Das WBF verlängert bis zum 30. April 2027 die Zollbefreiung für frischen oder silierten Mais mit Trockensubstanz ≤60%, der zur Tierernährung bestimmt ist; ab dem 1. Oktober 2026 Zollsenkung für faserreiches Futter.',
+    'blog.article.importazione-granoturco-foraggio-proroga.imageAlt': 'Futtermais von Zoll befreit für Tierfutter in der Schweiz',
 };
 
 export default blogMetaChDe;

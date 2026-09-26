@@ -6764,6 +6764,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.indennita-infermiere-bregaglia.title': 'Bregaglia, indennità per quattro infermiere licenziate',
     'blog.article.indennita-infermiere-bregaglia.excerpt': 'Il CSB riconosce indennità a quattro infermiere licenziate nel febbraio 2025 dopo un accordo davanti alla Pretura.',
     'blog.article.indennita-infermiere-bregaglia.imageAlt': 'Centro sanitario in Bregaglia, al centro dell\'accordo per quattro infermiere licenziate.',
+    'blog.article.importazione-granoturco-foraggio-proroga.title': 'Proroga esenzione dazi granoturco foraggio fino aprile 2027',
+    'blog.article.importazione-granoturco-foraggio-proroga.excerpt': 'Il DEFR proroga fino al 30 aprile 2027 l\'esenzione dazi per granoturco fresco o insilato con sostanza secca ≤60%, destinato all\'alimentazione animale; dal 1 ottobre 2026 riduzione dazi per foraggi ricchi di fibre.',
+    'blog.article.importazione-granoturco-foraggio-proroga.imageAlt': 'Mais da foraggio esente da dazio per alimentazione animale in Svizzera',
 };
 
 export default blogMetaChIt;

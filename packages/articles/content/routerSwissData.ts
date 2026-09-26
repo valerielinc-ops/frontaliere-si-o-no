@@ -2277,6 +2277,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'voto-settembre-integrazione-2026': { it: 'voto-settembre-integrazione-2026', en: 'september-vote-integration-2026', de: 'september-abstimmung-integration-2026', fr: 'vote-septembre-integration-2026' },
  'integrazione-pic4-fondi-2028-2032': { it: 'integrazione-pic4-fondi-2028-2032', en: 'integration-pic4-funds-2028-2032', de: 'integration-pic4-mittel-2028-2032', fr: 'integration-pic4-fonds-2028-2032' },
  'indennita-infermiere-bregaglia': { it: 'indennita-infermiere-bregaglia', en: 'bregaglia-nurse-indemnities', de: 'bregaglia-pflege-entschaedigungen', fr: 'bregaglia-indemnites-infirmieres' },
+ 'importazione-granoturco-foraggio-proroga': { it: 'importazione-granoturco-foraggio-proroga', en: 'import-forage-corn-proroga', de: 'einfuhr-futtermais-proroga', fr: 'importation-mais-fourrager-proroga' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
