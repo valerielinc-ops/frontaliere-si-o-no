@@ -12059,6 +12059,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incendio-capannone-turate.title': 'Fire in Turate, concern for the animals in the warehouse',
     'blog.article.incendio-capannone-turate.excerpt': 'Fire at a farm in Turate: smoke visible for kilometers, traffic slowed between Turate and Cislago and possible presence of animals in the barn.',
     'blog.article.incendio-capannone-turate.imageAlt': 'Dense smoke above an agricultural company during the fire in Turate',
+    'blog.article.arresto-mente-bennet-tavernola.title': 'Robbery at Bennet: alleged mastermind arrested in Ticino',
+    'blog.article.arresto-mente-bennet-tavernola.excerpt': 'A 32-year-old resident of the Bellinzona area and a 25-year-old from Monza were arrested for the robbery at the Stroili jewelry store in the Bennet shopping center in Tavernola.',
+    'blog.article.arresto-mente-bennet-tavernola.imageAlt': 'Suspect from the Bellinzona area arrested over the Bennet Tavernola jewelry robbery',
 };
 
 export default blogMetaEn;
