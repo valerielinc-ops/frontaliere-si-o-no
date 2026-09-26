@@ -6731,6 +6731,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cembra-vontobel-sede-baden-baar.title': 'Cembra e Vontobel lasciano Zurigo: fisco e spazi spingono il trasloco',
     'blog.article.cembra-vontobel-sede-baden-baar.excerpt': 'Cembra sposta 660 dipendenti a Baden (15% imposte) in autunno 2027; Vontobel porta 1.500 posti a Baar (12%) entro il 2030. Zurigo al 20%.',
     'blog.article.cembra-vontobel-sede-baden-baar.imageAlt': 'Veduta del distretto finanziario di Lugano con uffici moderni e lago',
+    'blog.article.carenze-medicinali-svizzera-2026.title': 'Carenze farmaci: 700 prodotti a rischio in Svizzera',
+    'blog.article.carenze-medicinali-svizzera-2026.excerpt': 'Drugshortage.ch segnala 67 medicinali in carenza critica su 42 principi attivi. Il Consiglio nazionale sostiene la controproposta.',
+    'blog.article.carenze-medicinali-svizzera-2026.imageAlt': 'Scaffale di farmacia ospedaliera svizzera con medicinali e tablet per il monitoraggio scorte',
 };
 
 export default blogMetaChIt;

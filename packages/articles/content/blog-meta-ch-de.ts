@@ -6731,6 +6731,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cembra-vontobel-sede-baden-baar.title': 'Cembra & Vontobel Zürich: Steuern & Räume treiben Umzug',
     'blog.article.cembra-vontobel-sede-baden-baar.excerpt': 'Cembra verlegt im Herbst 2027 660 Mitarbeitende nach Baden (15% Steuern); Vontobel verlegt bis 2030 1.500 Arbeitsplätze nach Baar (12%). Zürich bei 20%.',
     'blog.article.cembra-vontobel-sede-baden-baar.imageAlt': 'Lugano Finanzdistrikt mit modernen Büros und See',
+    'blog.article.carenze-medicinali-svizzera-2026.title': 'Arzneimittelengpässe: 700 Produkte in der Schweiz gefährdet',
+    'blog.article.carenze-medicinali-svizzera-2026.excerpt': 'Drugshortage.ch meldet 67 Arzneimittel mit kritischem Mangel bei 42 Wirkstoffen. Der Nationalrat unterstützt den Gegenvorschlag.',
+    'blog.article.carenze-medicinali-svizzera-2026.imageAlt': 'Schweizer Krankenhaus-Apothekeregal mit Medikamenten und Tablet zur Bestandsüberwachung',
 };
 
 export default blogMetaChDe;
