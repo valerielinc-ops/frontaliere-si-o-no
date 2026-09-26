@@ -12029,6 +12029,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aggressioni-notte-lugano.title': 'Übergriffe und gewalttätige Nächte: Tessiner Jugendliche erzählen',
     'blog.article.aggressioni-notte-lugano.excerpt': 'Am 1. August 2025 wurde ein 19-jähriger Bellinzoneser unter dem Vordach von Mario Botta verprügelt; 2024 eröffnete die Jugendjustiz 912 Akten; Taha, 24, wartet nach einer Haftstrafe von 2 Jahren und 6 Monaten im Gefängnis von Kloten auf die Abschiebung.',
     'blog.article.aggressioni-notte-lugano.imageAlt': 'Nachtsicht der Mario Botta Bushaltestelle in Lugano, Ort des Angriffs vom 1. August 2025.',
+    'blog.article.saronno-lavori-via-volonterio.title': 'Saronno, Arbeiten in der Via Volonterio: veränderter Verkehr',
+    'blog.article.saronno-lavori-via-volonterio.excerpt': 'Ab Montag, dem 28. September, arbeiten Sie an den Bürgersteigen in der Via Volonterio: Haltestelle verboten, Einbahnstraße in Richtung Via Varese und Umwege bis zum 16. Oktober.',
+    'blog.article.saronno-lavori-via-volonterio.imageAlt': 'Strassenarbeiten und Verkehrsaenderungen in einem Stadtgebiet bei Saronno',
 };
 
 export default blogMetaDe;

@@ -12032,6 +12032,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aggressioni-notte-lugano.title': 'Agressions et nuits violentes : de jeunes Tessinois racontent',
     'blog.article.aggressioni-notte-lugano.excerpt': 'Le 1° agosto 2025, un jeune homme de 19 ans originaire de Bellinzone a été roué de coups sous l’abri de Mario Botta ; en 2024, la magistrature des mineurs a ouvert 912 dossiers ; Taha, 24 ans, attend son expulsion après une condamnation à 2 ans et 6 mois de prison à Kloten.',
     'blog.article.aggressioni-notte-lugano.imageAlt': 'Vue nocturne de l\'abribus Mario Botta à Lugano, lieu de l\'agression du 1er août 2025.',
+    'blog.article.saronno-lavori-via-volonterio.title': 'Saronno, travaux via Volonterio : circulation modifiée',
+    'blog.article.saronno-lavori-via-volonterio.excerpt': 'À partir du lundi 28 septembre, travaux sur les trottoirs de la via Volonterio : stationnement interdit, circulation à sens unique vers la via Varese et déviations jusqu’au 16 octobre.',
+    'blog.article.saronno-lavori-via-volonterio.imageAlt': 'Travaux routiers et changements de circulation dans une zone urbaine pres de Saronno',
 };
 
 export default blogMetaFr;

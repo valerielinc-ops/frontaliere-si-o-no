@@ -12031,6 +12031,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aggressioni-notte-lugano.title': 'Aggressioni e notti violente: giovani ticinesi raccontano',
     'blog.article.aggressioni-notte-lugano.excerpt': 'Il 1° agosto 2025 un 19enne bellinzonese è stato pestato sotto la pensilina di Mario Botta; nel 2024 la magistratura minorile ha aperto 912 incarti; Taha, 24 anni, attende l\'espulsione dopo una condanna a 2 anni e 6 mesi nel carcere di Kloten.',
     'blog.article.aggressioni-notte-lugano.imageAlt': 'Visione notturna della pensilina di Mario Botta a Lugano, luogo dell\'aggressione del 1° agosto 2025.',
+    'blog.article.saronno-lavori-via-volonterio.title': 'Saronno, lavori in via Volonterio: traffico modificato',
+    'blog.article.saronno-lavori-via-volonterio.excerpt': 'Da lunedì 28 settembre lavori ai marciapiedi in via Volonterio: sosta vietata, senso unico verso via Varese e deviazioni fino al 16 ottobre.',
+    'blog.article.saronno-lavori-via-volonterio.imageAlt': 'Lavori stradali e deviazioni del traffico in un\'area urbana del Saronnese',
 };
 
 export default blogMetaIt;
