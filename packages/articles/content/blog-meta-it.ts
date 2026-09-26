@@ -12016,6 +12016,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.centri-asilanti-chiasso-pasture.title': 'Centri asilanti Chiasso-Pasture: 40 posti a rischio 2027',
     'blog.article.centri-asilanti-chiasso-pasture.excerpt': 'Dal 1° gennaio 2027 il mandato federale passa da AOZ a ORS Service; i sindacati VPOD e OCST avvertono fino a 40 licenziamenti a Chiasso e Pasture su 120 dipendenti AOZ Ticino.',
     'blog.article.centri-asilanti-chiasso-pasture.imageAlt': 'Vista aerea dei centri di accoglienza di Chiasso e Pasture in Ticino, con montagne sullo sfondo',
+    'blog.article.cavalcavia-boesio-chiusura-lavori-2026.title': 'Chiusura cavalcavia boesio laveno mombello 25 settembre 2026',
+    'blog.article.cavalcavia-boesio-chiusura-lavori-2026.excerpt': 'Venerdì 25 settembre 2026, dalle 9:00 alle 17:00, chiusura totale del Cavalcavia Boesio (S.P. 32 e S.P. 69) per installazione di tre portali limitatori; dopo i lavori limite 3,5 t, 3,5 m e 30 km/h.',
+    'blog.article.cavalcavia-boesio-chiusura-lavori-2026.imageAlt': 'Chiusura del Cavalcavia Boesio a Laveno Mombello con deviazioni sulla viabilità comunale',
 };
 
 export default blogMetaIt;

@@ -12015,6 +12015,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.centri-asilanti-chiasso-pasture.title': 'Chiasso-Pasture asylum centers: 40 places at risk in 2027',
     'blog.article.centri-asilanti-chiasso-pasture.excerpt': 'From 1° gennaio 2027, the federal mandate passes from AOZ to ORS Service; the VPOD and OCST unions warn of up to 40 layoffs in Chiasso and Pasture among 120 AOZ Ticino employees.',
     'blog.article.centri-asilanti-chiasso-pasture.imageAlt': 'Aerial view of the Chiasso and Pasture reception centers in Ticino, mountains in the background',
+    'blog.article.cavalcavia-boesio-chiusura-lavori-2026.title': 'Closure of Boesio overpass Laveno Mombello 25 settembre 2026',
+    'blog.article.cavalcavia-boesio-chiusura-lavori-2026.excerpt': 'Friday 25 September 2026, from 9:00 to 17:00, total closure of the Boesio Overpass (S.P. 32 and S.P. 69) for the installation of three restriction gantries; after the works, limits of 3,5 t, 3,5 m and 30 km/h.',
+    'blog.article.cavalcavia-boesio-chiusura-lavori-2026.imageAlt': 'Closure of Cavalcavia Boesio near Laveno Mombello with municipal detours',
 };
 
 export default blogMetaEn;
