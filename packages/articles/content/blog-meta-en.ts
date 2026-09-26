@@ -12068,6 +12068,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.merone-pendolare-frontiera-ch.title': 'Living in Merone and working in Ticino as a cross-border commuter',
     'blog.article.merone-pendolare-frontiera-ch.excerpt': 'Living in Merone and working in Ticino: what changes regarding withholding tax, deductibles of 7.500 and 10.000 euro, AVS, LPP and LAMal.',
     'blog.article.merone-pendolare-frontiera-ch.imageAlt': 'Morning road in Ticino for someone living in Merone and working across the border',
+    'blog.article.rapina-como-residente-ticino.title': 'Robbery in Como: Ticino resident arrested',
+    'blog.article.rapina-como-residente-ticino.excerpt': 'The 32-year-old Italian, resident in the Bellinzona area, is among the two arrested for the robbery of 90\'000 euros on April 24.',
+    'blog.article.rapina-como-residente-ticino.imageAlt': 'Police investigation in Como after the April 24 jewellery robbery; a Bellinzona-area resident was arrested.',
 };
 
 export default blogMetaEn;
