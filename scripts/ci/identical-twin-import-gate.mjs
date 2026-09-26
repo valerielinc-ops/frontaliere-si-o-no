@@ -22,25 +22,28 @@
  * ## Cosa blocca e cosa no
  *
  * - Blocca un pericolo INTRODOTTO dalla PR: presente su HEAD e assente sulla
- *   base, fra quelli in cui l'importatore o il file importato cambia nella PR.
- *   Sul checkout di `tests.yml` HEAD e' `refs/pull/N/merge`, quindi `HEAD^1` e'
- *   la punta di main.
+ *   base, dove «assente» si misura con l'albero E con le dichiarazioni della
+ *   base. La PR puo' introdurlo aggiungendo l'import, aggiungendo il file
+ *   importato, o togliendo una riga del transport manifest che lo copriva.
+ * - La base: sul checkout di `tests.yml` HEAD e' `refs/pull/N/merge` e `HEAD^1`
+ *   e' la punta di main, quindi il diff copre tutti i commit della PR. Senza
+ *   `--base` un HEAD con un solo genitore e' un errore, non un'ipotesi; la merge
+ *   queue passa `merge_group.base_sha`.
  * - Un pericolo gia' presente sulla base resta un `::warning::`. Bloccarlo
  *   renderebbe rossa ogni PR che tocca quel gemello per un difetto che non ha
  *   introdotto; peggio, una voce tolta dal manifest del CORPUS renderebbe rosse
  *   tutte le PR del sito senza che nessuna abbia cambiato niente. Quei casi
  *   restano del controllo giornaliero.
- * - Manifest del corpus illeggibile o base non risolvibile: `::warning::` ed
- *   exit 0. Fail-closed qui fermerebbe ogni PR del sito per un'indisponibilita'
- *   di raw.githubusercontent.com; la rete di sicurezza resta
- *   `corpus-ahead-check.yml`.
+ * - Manifest del corpus illeggibile (dopo tre tentativi) o base non
+ *   risolvibile: rosso. Un cancello che non ha potuto guardare non e' verde;
+ *   se era un'indisponibilita' passeggera basta un rerun.
  *
  * Costo: i gemelli si leggono dal checkout (o da `git show HEAD:` se lo sparse
  * non li ha); la base si legge solo per i pochi pericoli candidati, perche' il
  * checkout di CI e' `filter: tree:0` e ogni oggetto assente e' un fetch.
  *
  * Uso:
- *   node scripts/ci/identical-twin-import-gate.mjs                     # base = HEAD^1
+ *   node scripts/ci/identical-twin-import-gate.mjs                     # base = HEAD^1 di un merge commit
  *   node scripts/ci/identical-twin-import-gate.mjs --base origin/main  # base esplicita
  *   node scripts/ci/identical-twin-import-gate.mjs --manifest <file>   # manifest locale, senza rete
  *
@@ -55,9 +58,11 @@ import {
   CORPUS_REF,
   CORPUS_REPO,
   MANIFEST_PATH_IN_CORPUS,
+  TRANSPORT_MANIFEST,
   declaredTwinPaths,
   fetchRaw,
   identicalTwinEntries,
+  parseTransportManifest,
   readSiteText,
   relativeImportSpecifiers,
   resolveRelativeImport,
@@ -70,29 +75,32 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 /**
  * Separa i pericoli di HEAD fra introdotti dalla PR e gia' presenti sulla base.
  *
- * Un pericolo in cui ne' l'importatore ne' il file importato cambiano non puo'
- * essere nuovo: non si legge nemmeno la base. Per gli altri si rilegge
- * l'importatore alla base e si chiede se un suo import risolveva gia', CON
- * L'ALBERO DELLA BASE, allo stesso file: e' il caso di una PR che ritocca un
- * gemello senza toccarne l'import scoperto.
+ * Un pericolo esisteva alla base se, CON L'ALBERO E LE DICHIARAZIONI DELLA
+ * BASE, l'importatore importava gia' quel file e quel file non era dichiarato.
+ * Tre modi di introdurlo, quindi: la PR aggiunge l'import, aggiunge il file
+ * importato (prima l'import non risolveva), oppure toglie la dichiarazione (una
+ * riga del transport manifest, che vive in questo repo). Se nessuna delle tre
+ * cose e' cambiata non si legge nemmeno la base.
  *
  * @param {object} args
  * @param {Array<{from: string, mode?: string, spec: string, target: string}>} args.hazards
  *   pericoli calcolati su HEAD da `undeclaredRelativeImports`.
  * @param {Set<string>} args.changed path cambiati fra base e HEAD.
  * @param {(rel: string) => string|null} args.readBase sorgente alla base, null se assente.
+ * @param {(rel: string) => boolean} [args.isDeclaredAtBase] il path era dichiarato alla base?
  * @returns {{introduced: Array<object>, preexisting: Array<object>}}
  */
-export function splitIntroducedHazards({ hazards, changed, readBase }) {
+export function splitIntroducedHazards({ hazards, changed, readBase, isDeclaredAtBase = () => false }) {
   const introduced = [];
   const preexisting = [];
   const existsAtBase = (rel) => readBase(rel) !== null;
   for (const h of hazards) {
-    if (!changed.has(h.from) && !changed.has(h.target)) {
+    const declaredAtBase = isDeclaredAtBase(h.target);
+    if (!declaredAtBase && !changed.has(h.from) && !changed.has(h.target)) {
       preexisting.push(h);
       continue;
     }
-    const baseSource = readBase(h.from);
+    const baseSource = declaredAtBase ? null : readBase(h.from);
     const atBase =
       baseSource !== null &&
       relativeImportSpecifiers(baseSource).some(
@@ -101,6 +109,31 @@ export function splitIntroducedHazards({ hazards, changed, readBase }) {
     (atBase ? preexisting : introduced).push(h);
   }
   return { introduced, preexisting };
+}
+
+/**
+ * La consegna del transport alla base. Uguale a quella di HEAD se la PR non
+ * tocca ne' il transport manifest ne' un file sotto uno dei suoi glob: e' il
+ * caso di quasi ogni PR, e cosi' non costa niente.
+ *
+ * @param {object} args
+ * @param {Set<string>} args.changed
+ * @param {string[]} args.headPaths `transportManifestPaths()` su HEAD.
+ * @param {(rel: string) => string|null} args.readBase
+ * @param {(dir: string) => string[]} args.listBase file tracciati sotto `dir` alla base.
+ * @returns {string[]}
+ */
+export function transportPathsAtBase({ changed, headPaths, readBase, listBase }) {
+  const headText = readSiteText(TRANSPORT_MANIFEST);
+  const globsOf = (text) => (text === null ? [] : parseTransportManifest(text).globs);
+  const touchesGlob = (globs) => [...changed].some((p) => globs.some((g) => p.startsWith(`${g}/`)));
+  if (!changed.has(TRANSPORT_MANIFEST) && !touchesGlob(globsOf(headText))) return headPaths;
+  const baseText = readBase(TRANSPORT_MANIFEST);
+  if (baseText === null) return [];
+  const { listed, globs } = parseTransportManifest(baseText);
+  const out = new Set(listed);
+  for (const g of globs) for (const rel of listBase(g)) out.add(rel);
+  return [...out];
 }
 
 /** Il rimedio, uguale per ogni pericolo introdotto: detto una volta sola. */
@@ -137,11 +170,45 @@ function baseReader(base) {
   };
 }
 
+function listBaseReader(base) {
+  return (dir) => gitLines(['ls-tree', '-r', '--name-only', '-z', base, '--', dir]).split('\0').filter(Boolean);
+}
+
+/**
+ * La base del confronto. Con `--base` e' quella. Senza, HEAD deve essere un
+ * merge commit: sul checkout di `tests.yml` (`ref: github.ref`, cioe'
+ * `refs/pull/N/merge`) `HEAD^1` e' la punta di main e il diff copre TUTTI i
+ * commit della PR. Su un HEAD con un solo genitore `HEAD^1` sarebbe solo il
+ * commit precedente della PR: un import introdotto in un commit prima passerebbe
+ * per «gia' presente». Meglio rosso che quella risposta.
+ */
+function resolveBase(explicit) {
+  if (explicit) return explicit;
+  const parents = gitLines(['rev-list', '--parents', '-n', '1', 'HEAD']).trim().split(/\s+/).length - 1;
+  if (parents < 2) {
+    throw new Error("HEAD non e' un merge commit: senza --base il confronto coprirebbe solo l'ultimo commit della PR");
+  }
+  return 'HEAD^1';
+}
+
+const MANIFEST_FETCH_ATTEMPTS = 3;
+
 async function loadManifest(manifestFile) {
   if (manifestFile) return JSON.parse(fs.readFileSync(manifestFile, 'utf8'));
-  const buf = await fetchRaw(CORPUS_REPO, CORPUS_REF, MANIFEST_PATH_IN_CORPUS);
-  if (!buf) throw new Error(`manifest non trovato: ${CORPUS_REPO}@${CORPUS_REF}/${MANIFEST_PATH_IN_CORPUS}`);
-  return JSON.parse(buf.toString('utf8'));
+  // Tre tentativi: un blip di raw.githubusercontent.com non deve diventare un
+  // rosso; un'indisponibilita' vera si'.
+  let lastError;
+  for (let attempt = 1; attempt <= MANIFEST_FETCH_ATTEMPTS; attempt += 1) {
+    try {
+      const buf = await fetchRaw(CORPUS_REPO, CORPUS_REF, MANIFEST_PATH_IN_CORPUS);
+      if (!buf) throw new Error(`manifest non trovato: ${CORPUS_REPO}@${CORPUS_REF}/${MANIFEST_PATH_IN_CORPUS}`);
+      return JSON.parse(buf.toString('utf8'));
+    } catch (e) {
+      lastError = e;
+      if (attempt < MANIFEST_FETCH_ATTEMPTS) await new Promise((r) => setTimeout(r, attempt * 3000));
+    }
+  }
+  throw lastError;
 }
 
 function describe(h) {
@@ -153,29 +220,44 @@ export async function main(argv = process.argv.slice(2)) {
     const i = argv.indexOf(flag);
     return i >= 0 ? argv[i + 1] : undefined;
   };
-  const base = valueOf('--base') || 'HEAD^1';
 
+  // Fail-closed sui due input: un cancello che non ha potuto guardare non e' un
+  // cancello verde. Il rosso dice quale input manca, e un rerun basta se era
+  // un'indisponibilita' passeggera.
   let manifest;
   try {
     manifest = await loadManifest(valueOf('--manifest'));
     if (!Array.isArray(manifest.files)) throw new Error('manifest senza array `files`');
   } catch (e) {
-    console.log(`::warning::identical-twin-import-gate: manifest del corpus illeggibile (${e instanceof Error ? e.message : e}); controllo saltato, resta corpus-ahead-check.yml.`);
-    return 0;
+    console.log(`::error::identical-twin-import-gate: manifest del corpus illeggibile (${e instanceof Error ? e.message : e}); impossibile verificare gli import dei gemelli identical. Se e' un'indisponibilita' di rete, rilancia il job.`);
+    return 1;
   }
 
+  let base;
   let changed;
   try {
+    base = resolveBase(valueOf('--base'));
     changed = changedPaths(base);
-  } catch {
-    console.log(`::warning::identical-twin-import-gate: base \`${base}\` non risolvibile; controllo saltato.`);
-    return 0;
+  } catch (e) {
+    console.log(`::error::identical-twin-import-gate: base del confronto non risolvibile (${e instanceof Error ? e.message.split('\n')[0] : e}).`);
+    return 1;
   }
 
+  const readBase = baseReader(base);
   const entries = identicalTwinEntries(manifest);
-  const declared = declaredTwinPaths(manifest, transportManifestPaths());
+  const headTransport = transportManifestPaths();
+  const declared = declaredTwinPaths(manifest, headTransport);
+  const declaredAtBase = declaredTwinPaths(
+    manifest,
+    transportPathsAtBase({ changed, headPaths: headTransport, readBase, listBase: listBaseReader(base) }),
+  );
   const hazards = undeclaredRelativeImports({ entries, read: readSiteText, isDeclared: (rel) => declared.has(rel) });
-  const { introduced, preexisting } = splitIntroducedHazards({ hazards, changed, readBase: baseReader(base) });
+  const { introduced, preexisting } = splitIntroducedHazards({
+    hazards,
+    changed,
+    readBase,
+    isDeclaredAtBase: (rel) => declaredAtBase.has(rel),
+  });
 
   for (const h of preexisting) {
     console.log(`::warning file=${h.from}::${describe(h)}. Gia' presente su \`${base}\`, non introdotto da questa PR.`);
