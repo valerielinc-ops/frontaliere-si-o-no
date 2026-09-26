@@ -2280,6 +2280,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'importazione-granoturco-foraggio-proroga': { it: 'importazione-granoturco-foraggio-proroga', en: 'import-forage-corn-proroga', de: 'einfuhr-futtermais-proroga', fr: 'importation-mais-fourrager-proroga' },
  'bns-inflazione-pil-previsioni-2026': { it: 'bns-inflazione-pil-previsioni-2026', en: 'bns-inflation-gdp-forecasts-2026', de: 'bns-inflation-bip-prognosen-2026', fr: 'bns-inflation-pib-previsions-2026' },
  'valutazione-universitaria-intelligenza-artificiale': { it: 'valutazione-universitaria-intelligenza-artificiale', en: 'university-assessment-artificial-intelligence', de: 'universitaetsbewertung-kuenstliche-intelligenz', fr: 'evaluation-universitaire-intelligence-artificielle' },
+ 'iniziativa-congedo-parentale-quorum': { it: 'iniziativa-congedo-parentale-quorum', en: 'parental-leave-initiative-quorum', de: 'elternurlaub-initiative-quorum', fr: 'initiative-conge-parental-quorum' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

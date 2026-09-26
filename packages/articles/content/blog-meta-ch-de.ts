@@ -6773,6 +6773,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.valutazione-universitaria-intelligenza-artificiale.title': 'Schweizer Universitäten: KI verändert die Bewertung von Thesen',
     'blog.article.valutazione-universitaria-intelligenza-artificiale.excerpt': 'Universität Zürich, ZHAW und SUPSI überarbeiten die Prüfungsmethoden und setzen dabei auf mündliche Prüfungen und Transparenz beim Einsatz künstlicher Intelligenz.',
     'blog.article.valutazione-universitaria-intelligenza-artificiale.imageAlt': 'Schweizer Universitätsstudent arbeitet mit Laptop und Büchern',
+    'blog.article.iniziativa-congedo-parentale-quorum.title': 'Elternzeit: Die Initiative erreicht das Quorum',
+    'blog.article.iniziativa-congedo-parentale-quorum.excerpt': '136\'000 Unterschriften für die Initiative «Starke Gesellschaft und Wirtschaft dank Elternurlaub» gesammelt: 18 bezahlte Wochen für Mütter und Väter vorgeschlagen.',
+    'blog.article.iniziativa-congedo-parentale-quorum.imageAlt': 'Bundeshaus in Bern, Sitz der Bundeskanzlei',
 };
 
 export default blogMetaChDe;
