@@ -6752,6 +6752,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.keiser-stop-promozione-zugo.title': 'Zugo: stop promozione economica, 272 alloggi sotto 1800 franchi',
     'blog.article.keiser-stop-promozione-zugo.excerpt': 'Urban Keiser (Korporation Zug) chiede di fermare la promozione economica: crescita insostenibile, affitti alle stelle. 272 alloggi a <1800 CHF, lista d\'attesa lunga. Elezioni 4 ottobre.',
     'blog.article.keiser-stop-promozione-zugo.imageAlt': 'Veduta aerea di Zugo con lago, montagne e cantieri edili',
+    'blog.article.seco-commercio-misure-2026.title': 'SECO: dazi USA fino al 12,5% e dimissioni',
+    'blog.article.seco-commercio-misure-2026.excerpt': 'Dazi USA fino al 12,5% per le importazioni svizzere; Helene Budliger Artieda lascerà la SECO a fine marzo 2027.',
+    'blog.article.seco-commercio-misure-2026.imageAlt': 'Edificio amministrativo svizzero e documenti sul commercio internazionale',
 };
 
 export default blogMetaChIt;

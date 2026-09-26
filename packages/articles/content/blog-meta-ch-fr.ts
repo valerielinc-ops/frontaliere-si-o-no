@@ -6752,6 +6752,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.keiser-stop-promozione-zugo.title': 'Zoug : fin de la promotion économique, 272 logements à moins de 1800 francs',
     'blog.article.keiser-stop-promozione-zugo.excerpt': 'Urban Keiser (Korporation Zug) demande d\'arrêter la promotion économique : croissance insoutenable, loyers aux étoiles. 272 logements à <1800 CHF, longue liste d\'attente. Élections du 4 octobre.',
     'blog.article.keiser-stop-promozione-zugo.imageAlt': 'Vue aérienne de Zoug avec lac, montagnes et chantiers',
+    'blog.article.seco-commercio-misure-2026.title': 'SECO : droits de douane américains jusqu\'à 12,5 % et démission',
+    'blog.article.seco-commercio-misure-2026.excerpt': 'Droits de douane américains allant jusqu’à 12,5% pour les importations suisses; Helene Budliger Artieda quittera le SECO fin mars 2027.',
+    'blog.article.seco-commercio-misure-2026.imageAlt': 'Bâtiment administratif suisse et documents sur le commerce international',
 };
 
 export default blogMetaChFr;
