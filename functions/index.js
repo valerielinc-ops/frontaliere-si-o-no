@@ -1980,7 +1980,7 @@ export const syncNewsletterSubscriberAuth = onDocumentWritten(
 export const cleanupUserDataOnAccountDelete = functionsV1.runWith({ failurePolicy: true }).auth.user().onDelete(async (user) => {
  try {
  const result = await cleanupUserDataForDeletedAccount({ uid: user.uid, email: user.email });
- console.log(`[cleanupUserDataOnAccountDelete] uid=${user.uid} deletedSavedJobs=${result.deletedSavedJobs} tombstonedNewsletter=${result.tombstonedNewsletter} tombstonedJobAlert=${result.tombstonedJobAlert}`);
+ console.log(`[cleanupUserDataOnAccountDelete] uid=${user.uid} deletedSavedJobs=${result.deletedSavedJobs} tombstonedApplicationIntents=${result.tombstonedApplicationIntents} tombstonedNewsletter=${result.tombstonedNewsletter} tombstonedJobAlert=${result.tombstonedJobAlert}`);
  } catch (error) {
  console.error('[cleanupUserDataOnAccountDelete]', error instanceof Error ? error.message : String(error));
  throw error;

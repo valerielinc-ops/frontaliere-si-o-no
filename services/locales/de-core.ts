@@ -1,8 +1,10 @@
 const deCore: Record<string, string> = {
+ 'whatsNew.v3968.title': 'Bewerbungsinteresse: Zustimmung, Kontrolle und Erinnerungen',
+ 'whatsNew.v3968.applicationIntentPrivacy.title': 'Eigener Opt-out für Bewerbungsinteressen',
+ 'whatsNew.v3968.applicationIntentPrivacy.desc': 'In deinem Profil kannst du Bewerbungssignale separat sperren; bei der Kontolöschung werden verbundene Daten entfernt oder unbrauchbar gemacht.',
  'whatsNew.v3967.title': 'Ein nationales Fahrzeugobservatorium',
  'whatsNew.v3967.vehicleObservatory.title': 'ASTRA: Kantone, Tessin und Neuzulassungen',
  'whatsNew.v3967.vehicleObservatory.desc': 'Vergleiche den Fahrzeugbestand aller 26 Kantone, verfolge das wöchentliche Tempo im Tessin und trenne Bestand, Neuzulassungen, Gebrauchtimporte und Treibstoffe.',
- 'whatsNew.v3968.title': 'Mehr Transparenz beim Bewerben',
  'whatsNew.v3968.applicationIntent.title': 'Klare Zustimmung beim Klick auf «Bewerben»',
  'whatsNew.v3968.applicationIntent.desc': 'Bevor du zur Arbeitgeberseite weitergeleitet wirst, erklären wir, was der Klick speichert, und unterscheiden Interesse von einer abgeschlossenen Bewerbung.',
  'whatsNew.v3968.applicationIntentDigest.title': 'Bewerbungserinnerungen im Wochen-Digest',

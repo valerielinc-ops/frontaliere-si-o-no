@@ -69,6 +69,170 @@ const SWISS_CANTONS = new Set([
 ]);
 
 /**
+ * One-tap board/category alerts predate a structured category field and store
+ * the localized board label in `keywords` (for example, "Tecnologia"). Keep
+ * recognizing those persisted labels instead of treating them as literal job
+ * text. The keys are deliberately limited to the labels emitted by the four
+ * supported board locales; arbitrary typed keywords remain text-only hard
+ * filters.
+ */
+const ALERT_CATEGORY_LABELS = new Map([
+  ['technology', 'tech'],
+  ['tecnologia', 'tech'],
+  ['technologie', 'tech'],
+  ['tech', 'tech'],
+  ['it', 'tech'],
+  ['software', 'tech'],
+  ['informatik', 'tech'],
+  ['informatique', 'tech'],
+  ['finance', 'finance'],
+  ['finanza', 'finance'],
+  ['finanzen', 'finance'],
+  ['healthcare', 'health'],
+  ['health', 'health'],
+  ['sanita', 'health'],
+  ['gesundheit', 'health'],
+  ['sante', 'health'],
+  ['medical', 'health'],
+  ['engineering', 'engineering'],
+  ['production', 'engineering'],
+  ['manufacturing', 'engineering'],
+  ['maintenance', 'engineering'],
+  ['ingegneria', 'engineering'],
+  ['ingenieurwesen', 'engineering'],
+  ['ingenierie', 'engineering'],
+  ['administration', 'admin'],
+  ['amministrazione', 'admin'],
+  ['verwaltung', 'admin'],
+  ['hospitality', 'hospitality'],
+  ['ristorazione', 'hospitality'],
+  ['gastronomie', 'hospitality'],
+  ['ospitalita', 'hospitality'],
+  ['gastgewerbe', 'hospitality'],
+  ['hotellerie', 'hospitality'],
+  ['sales marketing', 'sales'],
+  ['sales', 'sales'],
+  ['marketing', 'sales'],
+  ['vendite marketing', 'sales'],
+  ['vertrieb marketing', 'sales'],
+  ['ventes marketing', 'sales'],
+  ['other', 'other'],
+  ['altro', 'other'],
+  ['sonstiges', 'other'],
+  ['autre', 'other'],
+]);
+
+/**
+ * The crawler corpus carries both canonical categories and publisher/source
+ * labels. These aliases are only used on the structured `category`/`sector`
+ * side of the comparison; they never turn a free-form alert keyword into a
+ * category intent.
+ */
+const JOB_CATEGORY_VALUES = new Map([
+  ['tech', 'tech'],
+  ['it', 'tech'],
+  ['software', 'tech'],
+  ['technology', 'tech'],
+  ['tecnologia', 'tech'],
+  ['technologie', 'tech'],
+  ['informatica', 'tech'],
+  ['informatik', 'tech'],
+  ['informatique', 'tech'],
+  ['information technology', 'tech'],
+  ['finance', 'finance'],
+  ['finanza', 'finance'],
+  ['finanzen', 'finance'],
+  ['financial', 'finance'],
+  ['banking', 'finance'],
+  ['bank', 'finance'],
+  ['contabilita', 'finance'],
+  ['health', 'health'],
+  ['healthcare', 'health'],
+  ['sanita', 'health'],
+  ['gesundheit', 'health'],
+  ['sante', 'health'],
+  ['medical', 'health'],
+  ['medical affairs', 'health'],
+  ['regulatory', 'health'],
+  ['care', 'health'],
+  ['cura', 'health'],
+  ['soins', 'health'],
+  ['pflege', 'health'],
+  ['fisioterapia', 'health'],
+  ['nursing', 'health'],
+  ['infermieristica', 'health'],
+  ['pharma', 'health'],
+  ['pharmacy', 'health'],
+  ['engineering', 'engineering'],
+  ['ingegneria', 'engineering'],
+  ['ingenieurwesen', 'engineering'],
+  ['ingenierie', 'engineering'],
+  ['quality assurance', 'engineering'],
+  ['quality', 'engineering'],
+  ['operations', 'engineering'],
+  ['production', 'engineering'],
+  ['produzione', 'engineering'],
+  ['manufacturing', 'engineering'],
+  ['maintenance', 'engineering'],
+  ['admin', 'admin'],
+  ['administration', 'admin'],
+  ['amministrazione', 'admin'],
+  ['verwaltung', 'admin'],
+  ['hr', 'admin'],
+  ['human resources', 'admin'],
+  ['general services', 'admin'],
+  ['servizi generali', 'admin'],
+  ['office', 'admin'],
+  ['hospitality', 'hospitality'],
+  ['ospitalita', 'hospitality'],
+  ['gastgewerbe', 'hospitality'],
+  ['hotellerie', 'hospitality'],
+  ['ristorazione', 'hospitality'],
+  ['restaurant', 'hospitality'],
+  ['hotel', 'hospitality'],
+  ['tourism', 'hospitality'],
+  ['gastronomie', 'hospitality'],
+  ['sales', 'sales'],
+  ['marketing', 'sales'],
+  ['sales marketing', 'sales'],
+  ['vendite marketing', 'sales'],
+  ['vertrieb marketing', 'sales'],
+  ['ventes marketing', 'sales'],
+  ['commercial', 'sales'],
+  ['commerce', 'sales'],
+  ['other', 'other'],
+  ['altro', 'other'],
+  ['sonstiges', 'other'],
+  ['autre', 'other'],
+]);
+
+function normalizeCategoryValue(value) {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function alertCategoryKey(value) {
+  return ALERT_CATEGORY_LABELS.get(normalizeCategoryValue(value)) || null;
+}
+
+function jobCategoryKey(value) {
+  return JOB_CATEGORY_VALUES.get(normalizeCategoryValue(value)) || null;
+}
+
+function jobCategoryKeys(job) {
+  return new Set(
+    [job?.category, job?.sector]
+      .map(jobCategoryKey)
+      .filter(Boolean),
+  );
+}
+
+/**
  * Minimum number of in-area matches required before {@link partitionByGeoPreference}
  * drops out-of-area jobs entirely. Below this floor the email is padded with
  * out-of-area matches so a subscriber with few local jobs is never starved.
@@ -117,6 +281,9 @@ export function freshnessBoost(job, nowMs) {
 /**
  * @typedef {object} AlertProfile
  * @property {TokenSet}  hardKeywords  Explicit user keywords (hard filter when non-empty).
+ * @property {Set<string>} hardCategoryKeys  Board taxonomy labels persisted as
+ *                                           keywords, matched against structured
+ *                                           job category/sector fields.
  * @property {TokenSet}  softTokens    Intent tokens from source job + newsletter profile.
  * @property {string}    company       Normalized company affinity token ('' when none).
  * @property {string[]}  locations     Lowercased location signals (soft — ranking only).
@@ -318,6 +485,9 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
   // Italian "infermiere" listing even though the shared job-search taxonomy
   // already knows both terms.
   const hardKeywords = new Set(expandKeywordsWithSynonymPhrases(hardKeywordInputs));
+  const hardCategoryKeys = new Set(
+    hardKeywordInputs.map(alertCategoryKey).filter(Boolean),
+  );
 
   // 2. Soft intent tokens — boost relevance and, for keyword-less alerts, act as
   //    the matching filter. Sourced from the job the user engaged with plus the
@@ -439,7 +609,7 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
   );
 
   return {
-    hardKeywords, softTokens, company, locations, alertLocations, cantons, sectors, contractTypes,
+    hardKeywords, hardCategoryKeys, softTokens, company, locations, alertLocations, cantons, sectors, contractTypes,
     specificJobIds, specificCompanyKey, preferredLocations: preferredLocationNames, preferredCantons,
     applicationIntentJobKeys: activeApplicationIntentJobKeys(ex.applicationIntent, ex.now),
   };
@@ -527,6 +697,7 @@ export function jobMatchFeatures(job, locale) {
     jobLoc: `${job.location || ''} ${job.addressLocality || ''} ${job.addressRegion || ''} ${job.canton || ''}`.toLowerCase(),
     jobCanton: String(job.canton || '').toLowerCase(),
     jobSector: `${job.sector || ''} ${job.category || ''}`.toLowerCase(),
+    jobCategoryKeys: jobCategoryKeys(job),
     jobContract: String(job.contract || '').toLowerCase(),
   };
 }
@@ -800,7 +971,14 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
     };
   }
 
-  const { hardKeywords, softTokens, cantons, sectors, contractTypes } = profile;
+  const {
+    hardKeywords,
+    hardCategoryKeys = new Set(),
+    softTokens,
+    cantons,
+    sectors,
+    contractTypes,
+  } = profile;
   const hardList = [...hardKeywords];
   const keywordTests = featureCache ? hardList.map((kw) => featureCache.keywordTest(locale, kw)) : null;
   const alertLocationNeedles = paddedLocNeedles(profile.alertLocations);
@@ -818,7 +996,7 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
     if (!job || neverMatches) return 0;
     const cached = featureCache ? featureCache.entry(job, locale) : null;
     const {
-      titleText, fullText, jobTokens, jobCompany, jobLoc, jobCanton, jobSector, jobContract,
+      titleText, fullText, jobTokens, jobCategoryKeys: jobCategories, jobCompany, jobLoc, jobCanton, jobSector, jobContract,
     } = cached ? cached.features : jobMatchFeatures(job, locale);
     let locHaystack = '';
     if (needsLocation) {
@@ -846,11 +1024,21 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
 
     // 1. HARD keyword filter — preserve the legacy contract: when the user typed
     //    keywords, at least one MUST appear in the job text or the job is dropped.
+    //    The one-tap board labels are the exception: they are persisted in this
+    //    same field, but their source of truth is the structured job taxonomy.
     if (hardList.length > 0) {
       let hit = false;
       for (let k = 0; k < hardList.length; k++) {
         const found = keywordTests ? keywordTests[k](cached) : fullText.includes(hardList[k]);
         if (found) { hit = true; break; }
+      }
+      if (!hit && hardCategoryKeys.size > 0) {
+        for (const category of hardCategoryKeys) {
+          if (jobCategories.has(category)) {
+            hit = true;
+            break;
+          }
+        }
       }
       if (!hit) return 0;
       score += 3;

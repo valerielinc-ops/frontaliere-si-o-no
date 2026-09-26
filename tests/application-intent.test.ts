@@ -28,8 +28,8 @@ import {
 
 type StoredDoc = Record<string, unknown>;
 
-function makeDb() {
-  const store: Record<string, StoredDoc> = {};
+function makeDb(seed: Record<string, StoredDoc> = {}) {
+  const store: Record<string, StoredDoc> = { ...seed };
   const writes: Array<{ kind: string; path: string; data: StoredDoc }> = [];
 
   function doc(collection: string, id: string) {
@@ -176,6 +176,40 @@ describe('application intent contract', () => {
     expect(stored.identifierType).toBe('anonymous_client');
     expect(stored.identifier).toMatch(/^[a-f0-9]{64}$/);
     expect(stored.ipAnonymized).not.toBe('203.0.113.42');
+  });
+
+  it('fails closed when the authenticated profile opted out', async () => {
+    const database = makeDb({
+      'users/firebase-user-1': { applicationIntent: { optedOut: true } },
+    });
+    const result = await handleRecordApplicationIntent({
+      req: request(BASE_BODY),
+      token: { uid: 'firebase-user-1' },
+      db: database.db as never,
+    });
+
+    expect(result).toMatchObject({
+      status: 403,
+      body: { ok: false, error: 'application_intent_not_allowed' },
+    });
+    expect(Object.keys(database.store).filter((path) => path.startsWith(`${APPLICATION_INTENTS_COLLECTION}/`))).toHaveLength(0);
+  });
+
+  it('fails closed when account deletion tombstone exists before the transactional write', async () => {
+    const database = makeDb({
+      'application_intent_account_tombstones/firebase-user-1': { status: 'account_deleted' },
+    });
+    const result = await handleRecordApplicationIntent({
+      req: request(BASE_BODY),
+      token: { uid: 'firebase-user-1' },
+      db: database.db as never,
+    });
+
+    expect(result).toMatchObject({
+      status: 403,
+      body: { ok: false, error: 'application_intent_not_allowed' },
+    });
+    expect(Object.keys(database.store).filter((path) => path.startsWith(`${APPLICATION_INTENTS_COLLECTION}/`))).toHaveLength(0);
   });
 
   it('denies direct client access to the server-owned collection', () => {

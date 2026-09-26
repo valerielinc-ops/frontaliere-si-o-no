@@ -747,13 +747,21 @@ function confirmationHasUniqueTarget(
   // the complete cardinality and exact path so one confirmation can never
   // close two findings.
   if (ignoreLine && candidate.line !== null) {
-    const samePathFindings = openFindings
+    const samePathEntries = openFindings
       .map((openFinding) => ({
         finding: openFinding,
         citations: openFinding.citations.filter((citation) =>
           citation.line !== null && citationPathMatches(citation.path, candidate.path)),
       }))
-      .filter((entry) => entry.citations.length === 1);
+      .filter((entry) => entry.citations.length > 0);
+    // Il conteggio vale solo se TUTTI i finding aperti sul path hanno una
+    // citazione sola. Con un finding a due citazioni accanto (#9968) scartarlo
+    // dal conteggio lascia una conferma ambigua fra i due finding — `L390`
+    // poteva essere la B:`L391` spostata e chiudeva invece A:`L378`. Quel caso
+    // lo risolve `crossFindingPairedCitations`, che conta tutte le localita'.
+    const samePathFindings = samePathEntries.every((entry) => entry.citations.length === 1)
+      ? samePathEntries
+      : [];
     const candidates = [...new Map(
       confirmations
         .flatMap((confirmation) => confirmation.citations)
@@ -898,6 +906,78 @@ function cardinalityPairedCitations(finding, confirmations, openFindings) {
 }
 
 /**
+ * Accoppiamento per cardinalita' FRA finding sullo stesso path (#9968).
+ *
+ * `cardinalityPairedCitations` chiude un gruppo solo quando nessun ALTRO
+ * finding aperto cita quel path, e il ramo «stable line order» di
+ * `confirmationHasUniqueTarget` considera solo i finding con UNA citazione sul
+ * path. Il caso misto — un finding con una citazione e un altro con due sullo
+ * stesso file — cade fra i due: su #9968 A:`L378` e B:`L374, L391` restavano
+ * aperti per sempre dopo due `## LGTM`, perche' `L378` e `L391` non esistevano
+ * piu' nel file e ogni conferma a riga spostata vedeva due finding aperti.
+ *
+ * La regola generalizza lo stesso conteggio all'insieme dei finding aperti,
+ * sulle LOCALITA' (path esatto + riga), non sulle citazioni:
+ *   1. si lavora solo su un path completo `P` (contiene `/`) che una conferma
+ *      di QUESTA review cita con una riga;
+ *   2. fail-closed se una qualunque citazione aperta o conferma che denota `P`
+ *      per suffix-matching non e' esattamente `P` con una riga (basename nudo,
+ *      path piu' corto, companion senza riga): l'ambiguita' fra file omonimi
+ *      non si scioglie contando;
+ *   3. le localita' confermate a riga esatta, o gia' confermate da una review
+ *      precedente (`carried`), sono consumate; restano N localita' aperte;
+ *   4. le conferme di `P` su righe che non corrispondono a nessuna localita'
+ *      nota sono le conferme «a riga spostata», deduplicate per riga: servono
+ *      ESATTAMENTE N. Con meno (o con piu') non si chiude niente — una
+ *      conferma non vale mai per due punti da correggere;
+ *   5. l'accoppiamento in ordine di riga crescente e' una biiezione fra le N
+ *      localita' residue e le N conferme distinte: ogni citazione aperta su
+ *      quelle localita' e' confermata, e nessuna conferma copre due punti.
+ *
+ * Le conferme sono raccolte da UNA sola review alla volta: righe di review
+ * diverse appartengono a head diverse, e ordinarle insieme non ha senso. La
+ * memoria fra review e' a livello di citazione (`carried`): una citazione che
+ * una review ha confermato resta confermata anche se il finding, nel suo
+ * insieme, si chiude solo con una review successiva.
+ */
+function crossFindingPairedCitations(openFindings, confirmations, carried = new Set()) {
+  const paired = new Set();
+  const confirmationCitations = confirmations.flatMap((confirmation) => confirmation.citations);
+  const paths = [...new Set(confirmationCitations
+    .filter((candidate) => candidate.line !== null && candidate.path.includes('/'))
+    .map((candidate) => candidate.path))];
+  const openCitations = openFindings.flatMap((openFinding) => openFinding.citations);
+  const byLine = (left, right) => left - right;
+
+  for (const path of paths) {
+    const related = openCitations.filter((citation) => citationPathMatches(citation.path, path));
+    if (related.length === 0) continue;
+    if (related.some((citation) => citation.path !== path || citation.line === null)) continue;
+    const relatedConfirmations = confirmationCitations
+      .filter((candidate) => citationPathMatches(candidate.path, path));
+    if (relatedConfirmations.some((candidate) => candidate.path !== path || candidate.line === null)) {
+      continue;
+    }
+
+    const confirmedLines = new Set(relatedConfirmations.map((candidate) => candidate.line));
+    const knownLines = new Set(related.map((citation) => citation.line));
+    const settled = (citation) => carried.has(citation) || confirmedLines.has(citation.line);
+    const remainingLines = [...new Set(related
+      .filter((citation) => !settled(citation))
+      .map((citation) => citation.line))].sort(byLine);
+    if (remainingLines.length === 0) continue;
+    const movedLines = [...confirmedLines].filter((line) => !knownLines.has(line)).sort(byLine);
+    if (movedLines.length !== remainingLines.length) continue;
+
+    const pairedLines = new Set(remainingLines);
+    for (const citation of related) {
+      if (!settled(citation) && pairedLines.has(citation.line)) paired.add(citation);
+    }
+  }
+  return paired;
+}
+
+/**
  * `citationConfirmed()` follows a moved path+line anchor only when the path
  * still identifies one finding, preserving convergence without broad matching.
  */
@@ -933,7 +1013,11 @@ function findingConfirmed(
   finding,
   confirmations,
   openFindings = [finding],
-  { repositoryPaths = null, repositoryPathsFromFallback = false } = {},
+  {
+    repositoryPaths = null,
+    repositoryPathsFromFallback = false,
+    settledCitations = null,
+  } = {},
 ) {
   if (finding.citations.length === 0) {
     const bodyAnchor = prBodyAnchor(finding.line);
@@ -943,8 +1027,11 @@ function findingConfirmed(
   // Le citazioni chiuse dall'accoppiamento per cardinalita' non passano da
   // `citationConfirmed`: li' l'ambiguita' di path dentro lo stesso finding e'
   // per costruzione irrisolvibile, e il conteggio l'ha gia' risolta.
+  // `settledCitations` arriva solo dal cammino storico: citazioni confermate
+  // da una review precedente o accoppiate fra finding (#9968).
   const cardinalityPaired = cardinalityPairedCitations(finding, confirmations, openFindings);
   const anchorConfirmed = (citation, options = {}) => cardinalityPaired.has(citation)
+    || Boolean(settledCitations?.has(citation))
     || citationConfirmed(citation, confirmations, finding, openFindings, options);
   const preciseCitations = finding.citations.filter((citation) => citation.line !== null);
   const preciseAnchorsConfirmed = preciseCitations.length > 0
@@ -1026,18 +1113,34 @@ export function partitionHistoricalImportantFindings(
 
   const open = new Map();
   const confirmed = [];
+  // Citazioni precise gia' confermate da una review precedente, per identita'
+  // dell'oggetto: una citazione nata DOPO la conferma non la eredita mai.
+  const carried = new Set();
   const latestIndex = bots.length - 1;
   for (const [index, review] of bots.entries()) {
     const confirmations = fixConfirmations(review?.body);
     const openFindings = [...open.values()].map(({ finding }) => finding);
+    const settledCitations = new Set([
+      ...carried,
+      ...crossFindingPairedCitations(openFindings, confirmations, carried),
+    ]);
     for (const [key, entry] of open.entries()) {
       if (entry.reviewIndex >= index) continue;
       if (findingConfirmed(entry.finding, confirmations, openFindings, {
         repositoryPaths,
         repositoryPathsFromFallback,
+        settledCitations,
       })) {
         confirmed.push(entry.finding);
         open.delete(key);
+        continue;
+      }
+      for (const citation of entry.finding.citations) {
+        if (citation.line === null) continue;
+        if (settledCitations.has(citation)
+            || citationConfirmed(citation, confirmations, entry.finding, openFindings)) {
+          carried.add(citation);
+        }
       }
     }
     if (!includeLatest && index === latestIndex) break;
