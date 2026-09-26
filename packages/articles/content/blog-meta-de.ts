@@ -12085,6 +12085,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.derby-lugano-ambri-settembre-2026.title': 'Ambrì besiegt Lugano im ersten Derby der Saison mit 5:3',
     'blog.article.derby-lugano-ambri-settembre-2026.excerpt': 'L\'Ambrì bezwingt die Cornèr Arena mit einem 5:3, das im zweiten Drittel entschieden wurde. Die Biancoblù kommen auf 11 Punkte, während Lugano mit 5 Punkten Letzter bleibt.',
     'blog.article.derby-lugano-ambri-settembre-2026.imageAlt': 'Corner Arena in Lugano während des Hockey-Derbys zwischen Lugano und Ambrì',
+    'blog.article.parita-salariale-carta-ticino.title': 'Lohngleichheit im Tessiner Publikum: Nächste Schritte',
+    'blog.article.parita-salariale-carta-ticino.excerpt': 'Mehr als dreißig Tessiner Gemeinden haben die Charta für Lohngleichheit unterzeichnet; 2024 betrug der Lohnunterschied im öffentlichen Sektor 847 Franken, und Locarno investiert jährlich mehr als 3,2 Millionen in Maßnahmen zur Vereinbarkeit von Beruf und Familie.',
+    'blog.article.parita-salariale-carta-ticino.imageAlt': 'Fassade des Locarnoer Gemeindehauses mit tessinischen Mitarbeitenden, Sonnenschein und professioneller Atmosphäre',
 };
 
 export default blogMetaDe;

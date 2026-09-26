@@ -12087,6 +12087,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.derby-lugano-ambri-settembre-2026.title': 'L\'Ambrì batte il Lugano 5-3 nel primo derby stagionale',
     'blog.article.derby-lugano-ambri-settembre-2026.excerpt': 'L\'Ambrì espugna la Cornèr Arena con un 5-3 deciso nel secondo periodo. I biancoblù salgono a 11 punti, mentre il Lugano resta ultimo con 5 punti.',
     'blog.article.derby-lugano-ambri-settembre-2026.imageAlt': 'Cornèr Arena di Lugano durante il derby di hockey tra Lugano e Ambrì',
+    'blog.article.parita-salariale-carta-ticino.title': 'Parità salariale nel pubblico ticinese: prossimi passi',
+    'blog.article.parita-salariale-carta-ticino.excerpt': 'Oltre trenta Comuni ticinesi hanno aderito alla Carta per la parità salariale; nel 2024 la differenza nel settore pubblico era di 847 franchi e Locarno investe oltre 3,2 milioni l’anno in misure di conciliazione lavoro‑famiglia.',
+    'blog.article.parita-salariale-carta-ticino.imageAlt': 'Facade del comune di Locarno con impiegati ticinesi che camminano, sole e atmosfera professionale',
 };
 
 export default blogMetaIt;

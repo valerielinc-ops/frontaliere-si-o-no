@@ -12086,6 +12086,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.derby-lugano-ambri-settembre-2026.title': 'Ambrì beat Lugano 5-3 in the first derby of the season',
     'blog.article.derby-lugano-ambri-settembre-2026.excerpt': 'Ambrì conquers the Cornèr Arena with a 5-3 score decided in the second period. The blue-and-whites rise to 11 points, while Lugano remains last with 5 points.',
     'blog.article.derby-lugano-ambri-settembre-2026.imageAlt': 'Corner Arena in Lugano during the hockey derby between Lugano and Ambrì',
+    'blog.article.parita-salariale-carta-ticino.title': 'Pay equity in Ticino\'s public sector: next steps',
+    'blog.article.parita-salariale-carta-ticino.excerpt': 'Over thirty municipalities in Ticino have joined the Charter for equal pay; in 2024 the difference in the public sector was 847 francs and Locarno invests over 3.2 million a year in work-family reconciliation measures.',
+    'blog.article.parita-salariale-carta-ticino.imageAlt': 'Locarno town hall facade with Ticino employees walking, sunshine and professional atmosphere',
 };
 
 export default blogMetaEn;
