@@ -183,7 +183,6 @@ export default defineConfig(({ mode }) => {
  // served in place of data/news-ticker-data.ts — dev + FAST_BUILD + full builds.
  newsTickerDataPlugin(__dirname),
  preloadLocalePlugin(__dirname),
- sitemapAliasPlugin(__dirname),
  adminDataPlugin(__dirname),
  crawlerRegistryPlugin(__dirname),
  localeJobsSplitPlugin(__dirname), // SPA reads per-locale job JSONs at runtime
@@ -570,11 +569,15 @@ export default defineConfig(({ mode }) => {
  // build-plugins/precompressHtmlPlugin.ts for future revival.
  // precompressHtmlPlugin(__dirname),
  ]),
- // Blog-image CDN offload — MUST be last: rewrites full /images/blog refs in
- // emitted HTML/XML to jsDelivr (SHA-pinned), guards against any survivor,
- // then deletes the full images from dist (keeps 480w thumbnails). Runs after
- // postWalkCoordinator so it sees the final HTML. ~224 MB off the Pages artifact.
+ // Blog-image CDN offload: rewrites full /images/blog refs in emitted
+ // HTML/XML to jsDelivr (SHA-pinned), guards against any survivor, then
+ // deletes the full images from dist (keeps 480w thumbnails). It runs after
+ // postWalkCoordinator so it sees the final HTML.
  blogImageCdnFinalizePlugin(__dirname),
+ // Keep the sitemap writer after every page emitter and the CDN rewrite. Its
+ // final cluster dist-truth pass is the last protection against a late
+ // closeBundle overwrite reintroducing a noindex URL into a sitemap shard.
+ sitemapAliasPlugin(__dirname),
  // ── Content-hash manifest finalize DISABLED 2026-04-28 ──────
  // Paired with the disabled bootstrap above. Code retained for future
  // revival once a use-case (rollback / hotfix-only chains) emerges.

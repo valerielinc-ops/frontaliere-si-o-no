@@ -20390,6 +20390,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'protesta-asilo-berna-diritti',
+    category: 'novita',
+    date: '2026-09-26T15:55:24.250Z',
+    image: '/images/blog/protesta-asilo-berna-diritti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -29,6 +29,21 @@ describe('shared career-board ownership', () => {
     expect(isDedicatedPostBrand('Die Schweizerische Post')).toBe(false);
   });
 
+  it('resolves Swiss Post ownership from every brand and the posting URL', () => {
+    expect(isDedicatedPostBrand({
+      company: 'Die Schweizerische Post',
+      url: '/PostFinance/job/finance-role/123',
+    })).toBe(true);
+    expect(isDedicatedPostBrand({
+      company: 'Die Schweizerische Post',
+      cust_brandCompanyJobSearch: ['Die Schweizerische Post', 'PostAuto'],
+    })).toBe(true);
+    expect(isDedicatedPostBrand({
+      company: 'Die Schweizerische Post',
+      url: '/PostCH/job/post-role/123',
+    })).toBe(false);
+  });
+
   it('separates RFSM/FNPG and HFR from the Fribourg administration', () => {
     expect(dedicatedFribourgOwner({ title: 'Infirmier-ère HES/ES, RFSM Marsens' })).toBe('rfsm-fribourg');
     expect(dedicatedFribourgOwner({ title: 'Pflegefachperson FNPG' })).toBe('rfsm-fribourg');
