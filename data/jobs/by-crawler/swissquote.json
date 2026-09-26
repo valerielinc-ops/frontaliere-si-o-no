@@ -87,7 +87,7 @@
         "it": "compliance-officer-investigazioni-swissquote-gland",
         "en": "compliance-officer-investigations-swissquote-gland",
         "de": "compliance-officer-untersuchungen-swissquote-gland",
-        "fr": "compliance-officer-investigations-swissquote-gland"
+        "fr": "agent-de-conformite-enquetes-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -745,7 +745,7 @@
         "it": "financial-contabile-swissquote-gland",
         "en": "financial-accountant-swissquote-gland",
         "de": "financial-buchhalter-swissquote-gland",
-        "fr": "financial-accountant-swissquote-gland"
+        "fr": "comptable-financier-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -2665,7 +2665,7 @@
       "id": "swissquote-778e18f7055d",
       "slug": "internal-controlling-officer-swissquote-gland",
       "slugByLocale": {
-        "it": "internal-controlling-officer-swissquote-gland",
+        "it": "responsabile-del-controllo-interno-swissquote-gland",
         "en": "internal-controlling-officer-swissquote-gland",
         "de": "interner-kontrollbeamter-swissquote-gland",
         "fr": "specialiste-du-controle-interne-swissquote-gland"
@@ -2713,12 +2713,12 @@
       "streetAddress": "Chemin de la Crétaux 33",
       "previousSlugs": [
         "ufficiale-di-controllo-interno-swissquote-gland",
-        "responsabile-del-controllo-interno-swissquote-gland"
+        "internal-controlling-officer-swissquote-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ufficiale-di-controllo-interno-swissquote-gland",
-          "responsabile-del-controllo-interno-swissquote-gland"
+          "internal-controlling-officer-swissquote-gland"
         ]
       },
       "firstSeenAt": "2026-08-07T01:19:10.490Z",

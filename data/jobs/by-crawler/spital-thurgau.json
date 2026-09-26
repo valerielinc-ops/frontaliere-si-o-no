@@ -581,7 +581,7 @@
         "it": "tirocinante-fisioterapista-ergoterapista-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "en": "pre-practical-in-physio-occupational-therapy-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "de": "vorpraktikant-in-physio-ergotherapie-stgag-ch",
-        "fr": "stagiaire-en-physiotherapie-ergotherapie-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "fr": "traitement-pre-pratique-inphysiologique-professionnel-spital-thurgau-stgag-kantonsspital-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -11910,8 +11910,8 @@
       "id": "spital-thurgau-974860289ada",
       "slug": "amministrazione-paziente-fatturazione-ambulatoriale-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
-        "it": "amministrazione-paziente-fatturazione-ambulatoriale-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "en": "patient-administration-outpatient-invoicing-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "it": "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-munsterlingen",
+        "en": "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-munsterlingen",
         "de": "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-ch-r134jq",
         "fr": "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-munsterlingen"
       },
@@ -11961,21 +11961,18 @@
         "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-munsterlingen-r134jq",
         "personnel-in-patient-administration-ambulatory-billing-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "personale-in-amministrazione-paziente-fatturazione-ambulatoria-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-munsterlingen",
-        "amministrazione-paziente-fatturazione-ambulatoriale-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "patient-administration-outpatient-invoicing-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "patient-administration-outpatient-invoicing-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "amministrazione-paziente-fatturazione-ambulatoriale-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-ch",
           "personale-in-amministrazione-paziente-fatturazione-ambulatoria-spital-thurgau-stgag-kantonsspital-munsterlingen",
-          "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-munsterlingen",
           "amministrazione-paziente-fatturazione-ambulatoriale-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ],
         "en": [
           "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-ch",
           "personnel-in-patient-administration-ambulatory-billing-spital-thurgau-stgag-kantonsspital-munsterlingen",
-          "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-munsterlingen",
           "patient-administration-outpatient-invoicing-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ],
         "de": [
@@ -12000,7 +11997,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-2c4b65e8821e",
@@ -12860,7 +12858,7 @@
       "slug": "infermiere-a-diplomato-a-sss-sup-ambulatorio-oncologia-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
         "it": "infermiere-a-diplomato-a-sss-sup-ambulatorio-oncologia-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "en": "registered-nurse-hf-fh-oncology-outpatient-clinic-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "en": "dipl-nursing-specialist-hf-fh-ambulatorium-oncologie-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "de": "dipl-pflegefachmann-frau-hf-fh-ambulatorium-onkologie-stgag-ch",
         "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-ambulateurium-oncologie-spital-thurgau-stgag-kantonsspital-munsterlingen"
       },
@@ -13743,8 +13741,8 @@
       "slugByLocale": {
         "de": "fachmann-frau-gesundheit-intensivstation-stgag-ch",
         "it": "specialista-in-salute-terapia-intensiva-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "en": "fachmann-frau-gesundheit-intensivstation-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "fr": "fachmann-frau-gesundheit-intensivstation-spital-thurgau-stgag-kantonsspital-frauenfeld"
+        "en": "professional-female-health-intensive-care-unit-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "fr": "unite-de-soins-intensifs-de-sante-professionnelle-feminine-spital-thurgau-stgag-kantonsspital-frauenfeld"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -13794,16 +13792,15 @@
           "fachmann-frau-gesundheit-intensivstation-stgag-ch"
         ],
         "en": [
-          "professional-female-health-intensive-care-unit-spital-thurgau-stgag-kantonsspital-frauenfeld"
+          "fachmann-frau-gesundheit-intensivstation-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ],
         "fr": [
-          "unite-de-soins-intensifs-de-sante-professionnelle-feminine-spital-thurgau-stgag-kantonsspital-frauenfeld"
+          "fachmann-frau-gesundheit-intensivstation-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ]
       },
       "previousSlugs": [
         "fachmann-frau-gesundheit-intensivstation-stgag-ch",
-        "professional-female-health-intensive-care-unit-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "unite-de-soins-intensifs-de-sante-professionnelle-feminine-spital-thurgau-stgag-kantonsspital-frauenfeld"
+        "fachmann-frau-gesundheit-intensivstation-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "needsRetranslation": true,
       "salaryMin": 81500,

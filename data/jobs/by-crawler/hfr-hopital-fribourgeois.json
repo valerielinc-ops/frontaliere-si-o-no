@@ -1101,7 +1101,7 @@
       "slugByLocale": {
         "it": "infermiera-60-hopital-fribourgeois-hfr-hfr-riaz",
         "en": "nurse-60-hopital-fribourgeois-hfr-hfr-riaz",
-        "de": "infirmier-ere-60-hopital-fribourgeois-hfr-riaz",
+        "de": "krankenschwester-60-hopital-fribourgeois-hfr-hfr-riaz",
         "fr": "infirmier-ere-60-hfr-hopital-fribourgeois-hfr-riaz"
       },
       "company": "Hôpital fribourgeois (HFR)",
@@ -1147,7 +1147,8 @@
       "previousSlugs": [
         "infirmier-ere-60-hfr-hopital-fribourgeois-hfr-riaz",
         "krankenschwester-60-hopital-fribourgeois-hfr-hfr-riaz",
-        "infermiera-60-hopital-fribourgeois-hfr-hfr-riaz"
+        "infermiera-60-hopital-fribourgeois-hfr-hfr-riaz",
+        "infirmier-ere-60-hopital-fribourgeois-hfr-riaz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1159,7 +1160,8 @@
         ],
         "de": [
           "infirmier-ere-60-hfr-hopital-fribourgeois-hfr-riaz",
-          "krankenschwester-60-hopital-fribourgeois-hfr-hfr-riaz"
+          "krankenschwester-60-hopital-fribourgeois-hfr-hfr-riaz",
+          "infirmier-ere-60-hopital-fribourgeois-hfr-riaz"
         ]
       },
       "firstSeenAt": "2026-09-24T00:03:59.369Z",
@@ -1358,7 +1360,7 @@
       "slug": "terapista-occupazionale-40-hopital-fribourgeois-hfr-hfr-tafers",
       "slugByLocale": {
         "it": "terapista-occupazionale-40-hopital-fribourgeois-hfr-hfr-tafers",
-        "en": "ergotherapeutin-ergotherapeuten-40-ergotherapeute-40-hopital-fribourgeois-hfr-tafers",
+        "en": "occupational-therapist-occupational-therapist-40-ergotherapist-40-hopital-fribourgeois-hfr-hfr-tafers",
         "de": "ergotherapeutin-ergotherapeuten-40-hfr-hopital-fribourgeois-hfr-tafers",
         "fr": "ergotherapie-40-hopital-fribourgeois-hfr-hfr-tafers"
       },
@@ -2252,7 +2254,7 @@
       "slug": "biomedizinische-r-analytiker-in-hf-50-60-biomedical-technician-50-60-hopital-fribourgeois-hfr-hfr-tafers",
       "slugByLocale": {
         "it": "biomedizinische-r-analytiker-in-hf-50-60-biomedical-technician-50-60-hopital-fribourgeois-hfr-hfr-tafers",
-        "en": "biomedical-r-analyst-hf-50-60-technicien-ne-en-analyses-biomedicales-50-60-hopital-fribourgeois-hfr-hfr-tafers",
+        "en": "biomedizinische-r-analytiker-in-hf-50-60-technicien-ne-en-analyses-biomedicales-50-60-hfr",
         "de": "biomedizinischer-r-analytiker-in-hf-50-60-biomedizinischer-techniker-50-60-hopital-fribourgeois-hfr-hfr-tafers",
         "fr": "biomedizinische-r-analytiker-in-hf-50-60-technicien-ne-en-analyses-biomedicales-50-60-hfr"
       },
@@ -2299,22 +2301,17 @@
       "externalId": "1e8ca30504f2",
       "previousSlugsByLocale": {
         "de": [
-          "biomedizinische-r-analytiker-in-hf-50-60-technicien-ne-en-analyses-biomedicales-50-60-hfr",
-          "biomedizinischer-r-analytiker-in-hf-50-60-biomedizinischer-techniker-50-60-hopital-fribourgeois-hfr-hfr-tafers"
+          "biomedizinische-r-analytiker-in-hf-50-60-technicien-ne-en-analyses-biomedicales-50-60-hfr"
         ],
         "it": [
-          "biomedizinische-r-analytiker-in-hf-50-60-technicien-ne-en-analyses-biomedicales-50-60-hfr",
-          "biomedizinische-r-analytiker-in-hf-50-60-biomedical-technician-50-60-hopital-fribourgeois-hfr-hfr-tafers"
+          "biomedizinische-r-analytiker-in-hf-50-60-technicien-ne-en-analyses-biomedicales-50-60-hfr"
         ],
         "en": [
-          "biomedizinische-r-analytiker-in-hf-50-60-technicien-ne-en-analyses-biomedicales-50-60-hfr",
           "biomedical-r-analyst-hf-50-60-technicien-ne-en-analyses-biomedicales-50-60-hopital-fribourgeois-hfr-hfr-tafers"
         ]
       },
       "previousSlugs": [
         "biomedizinische-r-analytiker-in-hf-50-60-technicien-ne-en-analyses-biomedicales-50-60-hfr",
-        "biomedizinischer-r-analytiker-in-hf-50-60-biomedizinischer-techniker-50-60-hopital-fribourgeois-hfr-hfr-tafers",
-        "biomedizinische-r-analytiker-in-hf-50-60-biomedical-technician-50-60-hopital-fribourgeois-hfr-hfr-tafers",
         "biomedical-r-analyst-hf-50-60-technicien-ne-en-analyses-biomedicales-50-60-hopital-fribourgeois-hfr-hfr-tafers"
       ],
       "firstSeenAt": "2026-09-17T07:37:38.719Z",

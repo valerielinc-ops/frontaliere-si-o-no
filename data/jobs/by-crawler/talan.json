@@ -776,7 +776,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T22:55:58.544Z"
+      "firstSeenAt": "2026-09-04T22:55:58.544Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "consulente-power-bi-microsoft-fabric-talan-lausanne-gyu53n",
+          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n",
+          "consulente-power-bi-microsoft-fabric-talan-lausanne"
+        ],
+        "en": [
+          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n",
+          "power-bi-microsoft-connect-talan-lausanne-vd-switzerland"
+        ],
+        "de": [
+          "berater-power-bi-microsoft-fabric-talan-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "consulente-power-bi-microsoft-fabric-talan-lausanne-gyu53n",
+        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n",
+        "consulente-power-bi-microsoft-fabric-talan-lausanne",
+        "power-bi-microsoft-connect-talan-lausanne-vd-switzerland",
+        "berater-power-bi-microsoft-fabric-talan-lausanne"
+      ]
     },
     {
       "id": "talan-abecfab11e41",
@@ -843,7 +864,19 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-17T23:30:46.934Z"
+      "firstSeenAt": "2026-09-17T23:30:46.934Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-data-analista-talan-geneve"
+        ],
+        "de": [
+          "bleidaten-sind-unubersehbar-talan-geneve-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "lead-data-analista-talan-geneve",
+        "bleidaten-sind-unubersehbar-talan-geneve-switzerland"
+      ]
     },
     {
       "id": "talan-827097ba6739",
@@ -910,7 +943,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T22:55:58.547Z"
+      "firstSeenAt": "2026-09-04T22:55:58.547Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-platform-ingegnere-plugins-marketplace-talan-geneva-rt15jv",
+          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv",
+          "ai-platform-ingegnere-plugins-marketplace-talan-geneva"
+        ],
+        "en": [
+          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv",
+          "ai-platformlander-plugins-marketplace-talan-geneva-ge-switzerland"
+        ],
+        "de": [
+          "ai-platform-ingenieur-plugins-marketplace-talan-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "ai-platform-ingegnere-plugins-marketplace-talan-geneva-rt15jv",
+        "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv",
+        "ai-platform-ingegnere-plugins-marketplace-talan-geneva",
+        "ai-platformlander-plugins-marketplace-talan-geneva-ge-switzerland",
+        "ai-platform-ingenieur-plugins-marketplace-talan-geneva"
+      ]
     },
     {
       "id": "talan-6e0c26bb9825",
@@ -1046,7 +1100,8 @@
       "previousSlugs": [
         "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland",
         "consulente-power-bi-microsoft-fabric-talan-lausanne-gyu53n",
-        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n"
+        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-gyu53n",
+        "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-rjxnpj"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1062,7 +1117,8 @@
           "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland"
         ],
         "fr": [
-          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland"
+          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland",
+          "consultant-power-bi-microsoft-fabric-talan-lausanne-vd-switzerland-rjxnpj"
         ]
       },
       "firstSeenAt": "2026-09-04T22:55:58.544Z",
@@ -1225,7 +1281,8 @@
       "previousSlugs": [
         "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland",
         "ai-platform-ingegnere-plugins-marketplace-talan-geneva-rt15jv",
-        "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv"
+        "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv",
+        "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-gq076j"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1241,7 +1298,8 @@
           "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland"
         ],
         "fr": [
-          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland"
+          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland",
+          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-gq076j"
         ]
       },
       "firstSeenAt": "2026-09-04T22:55:58.547Z",
@@ -1311,17 +1369,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lead-data-analyst-talan-geneve-switzerland"
+        "lead-data-analyst-talan-geneve-switzerland",
+        "lead-data-analyst-talan-geneve-switzerland-js9wtq"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lead-data-analyst-talan-geneve-switzerland"
         ],
         "en": [
-          "lead-data-analyst-talan-geneve-switzerland"
+          "lead-data-analyst-talan-geneve-switzerland",
+          "lead-data-analyst-talan-geneve-switzerland-js9wtq"
         ],
         "fr": [
-          "lead-data-analyst-talan-geneve-switzerland"
+          "lead-data-analyst-talan-geneve-switzerland",
+          "lead-data-analyst-talan-geneve-switzerland-js9wtq"
         ]
       },
       "firstSeenAt": "2026-09-17T23:30:46.934Z",
