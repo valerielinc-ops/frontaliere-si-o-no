@@ -88199,6 +88199,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-jans-monaco-lotta-trafficanti': {
+    title: 'Beat Jans a Monaco: lotta ai trafficanti di esseri umani',
+    description: 'Il consigliere federale Beat Jans partecipa al vertice di Monaco con 18 Stati europei per intensificare la lotta ai trafficanti e coordinare i rimpatri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, beat, jans, monaco, lotta',
+    ogTitle: 'Beat Jans a Monaco: lotta ai trafficanti di esseri umani',
+    ogDescription: 'La Svizzera intensifica la cooperazione europea contro la criminalità transnazionale e i trafficanti. Dettagli sul vertice di Monaco e i nuovi «Return Hubs».',
+    canonicalPath: '/articoli-svizzera/jans-monaco-lotta-trafficanti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Beat Jans a Monaco: lotta ai trafficanti di esseri umani",
+      "description": "Il consigliere federale Beat Jans partecipa al vertice di Monaco con 18 Stati europei per intensificare la lotta ai trafficanti e coordinare i rimpatri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/jans-monaco-lotta-trafficanti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio governativo svizzero con bandiera nazionale"
+      },
+      "datePublished": "2026-09-26T20:28:16+00:00",
+      "dateModified": "2026-09-26T20:28:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/jans-monaco-lotta-trafficanti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

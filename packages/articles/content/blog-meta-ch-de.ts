@@ -6803,6 +6803,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sanzioni-finanziarie-onu-2026.title': 'UN-Sanktionen: Der Bundesrat aktualisiert vier Verordnungen',
     'blog.article.sanzioni-finanziarie-onu-2026.excerpt': 'Entscheidung vom 25. September 2026 zur Vereinheitlichung der Finanzbestimmungen zu Terrorismus und Proliferation, mit spezifischen Ausnahmen für den Iran.',
     'blog.article.sanzioni-finanziarie-onu-2026.imageAlt': 'Bundeshaus in Bern, Sitz des Bundesrates',
+    'blog.article.jans-monaco-lotta-trafficanti.title': 'Beat Jans in München: Kampf gegen Menschenhändler',
+    'blog.article.jans-monaco-lotta-trafficanti.excerpt': 'Bundesrat Beat Jans setzt beim Münchner Gipfel mit 18 Staaten auf europäische Zusammenarbeit und schnelle Rückkehrverfahren.',
+    'blog.article.jans-monaco-lotta-trafficanti.imageAlt': 'Schweizer Regierungsgebäude mit Nationalflagge',
 };
 
 export default blogMetaChDe;
