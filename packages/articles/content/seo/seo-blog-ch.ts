@@ -87458,6 +87458,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-portali-cv-lucerna': {
+    title: 'Cercare lavoro in Svizzera: guida 2026 a Lucerna',
+    description: 'Cercare lavoro in Svizzera nel 2026: portali, CV, colloqui, permessi e regole su salario, tasse, LAMal e affitti con focus su Lucerna e confronto nazionale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cercare, lavoro, lucerna, portali',
+    ogTitle: 'Guida 2026: cercare lavoro in Svizzera, focus Lucerna',
+    ogDescription: 'Portali e CV svizzero, colloqui, permessi L e B, contributi AVS/AHV e LPP/BVG, LAMal e affitti: una guida pratica 2026 per orientarsi nel mercato del lavoro svizzero con un focus sul canton Lucerna e confronto nazionale.',
+    canonicalPath: '/articoli-svizzera/portali-cv-lucerna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cercare lavoro in Svizzera: guida 2026 a Lucerna",
+      "description": "Cercare lavoro in Svizzera nel 2026: portali, CV, colloqui, permessi e regole su salario, tasse, LAMal e affitti con focus su Lucerna e confronto nazionale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/portali-cv-lucerna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona in cerca di lavoro esamina un CV svizzero in un quartiere di uffici a Lucerna."
+      },
+      "datePublished": "2026-09-26T04:35:33+00:00",
+      "dateModified": "2026-09-26T04:35:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/portali-cv-lucerna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -6746,6 +6746,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.carburante-sgravio-berna.title': 'No fuel discount: Bern confirms full price',
     'blog.article.carburante-sgravio-berna.excerpt': 'On September 25, 2026, SECO ruled out fuel relief: diesel at a record high, gasoline above 2 francs/liter, no aid planned for artisans, farmers, and commuters.',
     'blog.article.carburante-sgravio-berna.imageAlt': 'Fuel pump on a Swiss road with Alps in the background, symbolizing high diesel and petrol prices',
+    'blog.article.portali-cv-lucerna.title': 'Looking for work in Switzerland: 2026 guide to Lucerne',
+    'blog.article.portali-cv-lucerna.excerpt': 'Job portals, CV, interviews and permits: the 2026 guide to looking for work in Switzerland, with a focus on Lucerne and a nationwide comparison.',
+    'blog.article.portali-cv-lucerna.imageAlt': 'Job seeker reviews a Swiss CV in an office district in Lucerne.',
 };
 
 export default blogMetaChEn;

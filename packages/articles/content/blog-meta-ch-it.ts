@@ -6746,6 +6746,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.carburante-sgravio-berna.title': 'Nessuno sgravio sul carburante: Berna conferma il pieno caro',
     'blog.article.carburante-sgravio-berna.excerpt': 'Il 25 settembre 2026 la SECO ha escluso uno sgravio sul carburante: diesel al massimo storico, benzina oltre 2 franchi/litro, nessun aiuto previsto per artigiani, agricoltori e pendolari.',
     'blog.article.carburante-sgravio-berna.imageAlt': 'Pompa di carburante su strada svizzera con Alpi sullo sfondo, simbolo dei prezzi alti del diesel e della benzina',
+    'blog.article.portali-cv-lucerna.title': 'Cercare lavoro in Svizzera: guida 2026 a Lucerna',
+    'blog.article.portali-cv-lucerna.excerpt': 'Portali, CV, colloquio e permessi: la guida 2026 per cercare lavoro in Svizzera, con focus su Lucerna e confronto nazionale.',
+    'blog.article.portali-cv-lucerna.imageAlt': 'Persona in cerca di lavoro esamina un CV svizzero in un quartiere di uffici a Lucerna.',
 };
 
 export default blogMetaChIt;

@@ -6746,6 +6746,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.carburante-sgravio-berna.title': 'Aucun allègement sur le carburant : Berne confirme le plein hors de prix',
     'blog.article.carburante-sgravio-berna.excerpt': 'Le 25 septembre 2026, le SECO a exclu un allègement sur le carburant : diesel au plus haut historique, essence à plus de 2 francs/litre, aucune aide prévue pour les artisans, les agriculteurs et les navetteurs.',
     'blog.article.carburante-sgravio-berna.imageAlt': 'Pompe à carburant sur une route suisse avec les Alpes en arrière-plan, symbole des prix élevés du diesel et de l\'essence',
+    'blog.article.portali-cv-lucerna.title': 'Chercher un emploi en Suisse : guide 2026 de Lucerne',
+    'blog.article.portali-cv-lucerna.excerpt': 'Portails, CV, entretien et permis : le guide 2026 pour chercher du travail en Suisse, avec un focus sur Lucerne et une comparaison nationale.',
+    'blog.article.portali-cv-lucerna.imageAlt': 'Une personne consulte un CV suisse dans un quartier de bureaux à Lucerne.',
 };
 
 export default blogMetaChFr;

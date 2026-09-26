@@ -6746,6 +6746,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.carburante-sgravio-berna.title': 'Keine Entlastung beim Treibstoff: Bern bestätigt das teure Tanken',
     'blog.article.carburante-sgravio-berna.excerpt': 'Am 25. September 2026 hat die SECO eine Entlastung beim Treibstoff ausgeschlossen: Diesel auf dem historischen Höchststand, Benzin über 2 Franken/Liter, keine Hilfe für Handwerker, Landwirte und Pendler vorgesehen.',
     'blog.article.carburante-sgravio-berna.imageAlt': 'Kraftstoffpumpe an einer Schweizer Straße mit Alpen im Hintergrund, Symbol für hohe Diesel- und Benzinpreise',
+    'blog.article.portali-cv-lucerna.title': 'Arbeitssuche in der Schweiz: Leitfaden 2026 für Luzern',
+    'blog.article.portali-cv-lucerna.excerpt': 'Jobportale, Lebenslauf, Vorstellungsgespräch und Bewilligungen: der Leitfaden 2026 für die Arbeitssuche in der Schweiz, mit Schwerpunkt auf Luzern und einem landesweiten Vergleich.',
+    'blog.article.portali-cv-lucerna.imageAlt': 'Stellensuchende prüft einen Schweizer Lebenslauf in einem Büroviertel in Luzern.',
 };
 
 export default blogMetaChDe;
