@@ -6734,6 +6734,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.carenze-medicinali-svizzera-2026.title': 'Pénuries de médicaments : 700 produits à risque en Suisse',
     'blog.article.carenze-medicinali-svizzera-2026.excerpt': 'Drugshortage.ch signale 67 médicaments en pénurie critique concernant 42 principes actifs. Le Conseil national soutient le contre-projet.',
     'blog.article.carenze-medicinali-svizzera-2026.imageAlt': 'Étagère de pharmacie hospitalière suisse avec médicaments et tablette pour le suivi des stocks',
+    'blog.article.kof-consensus-forecast-pil-2026.title': 'KOF : PIB suisse 2026 à +1,7%, inflation à 0,6%',
+    'blog.article.kof-consensus-forecast-pil-2026.excerpt': 'Le 123e consensus prévisionnel du KOF révèle une croissance de 1,7% pour 2026 et une inflation attendue de 0,6%.',
+    'blog.article.kof-consensus-forecast-pil-2026.imageAlt': 'Vue d\'un bâtiment moderne à Zurich avec des graphiques économiques en arrière-plan',
 };
 
 export default blogMetaChFr;

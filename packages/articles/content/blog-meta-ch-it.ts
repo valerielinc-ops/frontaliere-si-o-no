@@ -6734,6 +6734,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.carenze-medicinali-svizzera-2026.title': 'Carenze farmaci: 700 prodotti a rischio in Svizzera',
     'blog.article.carenze-medicinali-svizzera-2026.excerpt': 'Drugshortage.ch segnala 67 medicinali in carenza critica su 42 principi attivi. Il Consiglio nazionale sostiene la controproposta.',
     'blog.article.carenze-medicinali-svizzera-2026.imageAlt': 'Scaffale di farmacia ospedaliera svizzera con medicinali e tablet per il monitoraggio scorte',
+    'blog.article.kof-consensus-forecast-pil-2026.title': 'KOF: PIL svizzera 2026 al +1,7%, inflazione al 0,6%',
+    'blog.article.kof-consensus-forecast-pil-2026.excerpt': 'La 123esima Consensus Forecast del KOF rivela una crescita del 1,7% per il 2026 e un\'inflazione attesa dello 0,6%.',
+    'blog.article.kof-consensus-forecast-pil-2026.imageAlt': 'Vista di un edificio moderno a Zurigo con grafici economici sullo sfondo',
 };
 
 export default blogMetaChIt;
