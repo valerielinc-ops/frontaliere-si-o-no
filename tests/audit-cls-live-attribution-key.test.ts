@@ -37,6 +37,7 @@ import {
   pickLayoutShiftAudit,
   compactShiftItems,
   isInconclusivePsiError,
+  runPsiRequest,
   shouldFailOpenForPsiErrors,
 } from '../scripts/audit-cls-live.mjs';
 
@@ -144,6 +145,48 @@ describe('PSI provider failures — gate inconclusive, not CLS regression', () =
     ])).toBe(false);
     expect(shouldFailOpenForPsiErrors([{ error: 'PSI network error for target A' }])).toBe(false);
     expect(shouldFailOpenForPsiErrors([])).toBe(false);
+  });
+});
+
+describe('PSI response streams', () => {
+  it('retries a terminated response body before reporting a provider failure', async () => {
+    let attempts = 0;
+    const fetchImpl = async () => {
+      attempts += 1;
+      if (attempts === 1) {
+        return {
+          ok: true,
+          text: async () => { throw new TypeError('terminated'); },
+        };
+      }
+      return {
+        ok: true,
+        text: async () => JSON.stringify({
+          lighthouseResult: {
+            audits: { 'cumulative-layout-shift': { numericValue: 0.12 } },
+          },
+        }),
+      };
+    };
+
+    const result = await runPsiRequest('https://example.test', 'desktop', '', fetchImpl);
+
+    expect(attempts).toBe(2);
+    expect(result.effective).toBe(0.12);
+    expect(result.source).toBe('lab');
+  });
+
+  it('does not retry a malformed successful payload', async () => {
+    let attempts = 0;
+    const fetchImpl = async () => {
+      attempts += 1;
+      return { ok: true, text: async () => '{not-json' };
+    };
+
+    await expect(
+      runPsiRequest('https://example.test', 'desktop', '', fetchImpl),
+    ).rejects.toThrow('PSI malformed JSON');
+    expect(attempts).toBe(1);
   });
 });
 
