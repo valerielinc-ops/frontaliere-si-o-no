@@ -411,7 +411,8 @@ const CHECK_LABEL = {
 function actionSentence(decision, applied) {
   if (decision.action === 'promote') {
     if (applied === true) return `**Promosso \`${decision.winner}\`**: Remote Config \`JOBGATE_EXPERIMENT_FORCE=${decision.winner}\` pubblicato (etag, senza force).`;
-    return `**Promozione di \`${decision.winner}\` pronta** — dry-run: nessuna pubblicazione (serve \`--apply\`).`;
+    if (applied === false) return `**Promozione di \`${decision.winner}\` pronta** — pubblicazione fallita; Remote Config non modificato.`;
+    return `**Promozione di \`${decision.winner}\` pronta** — nessuna pubblicazione senza approvazione manuale via \`workflow_dispatch\` (servono \`--apply --approve-promotion\`).`;
   }
   if (decision.action === 'ask-owner') return 'Nessun cambio automatico: durata massima raggiunta senza un vincente promuovibile. Decisione richiesta al proprietario.';
   if (decision.phase === 'forced') return `Nessuna azione: \`JOBGATE_EXPERIMENT_FORCE=${decision.winner}\` è già impostato (promozione fatta o QA in corso).`;

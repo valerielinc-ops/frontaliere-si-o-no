@@ -13,15 +13,15 @@
  *     puro e testato);
  *  4. aggiorna UNA issue di stato a titolo stabile; apre (dedup) o chiude le
  *     issue di allarme quando un allarme compare o rientra;
- *  5. se TUTTE le condizioni di promozione sono vere e c'è `--apply`,
- *     pubblica `JOBGATE_EXPERIMENT_FORCE=<vincente>` con
+ *  5. se TUTTE le condizioni sono vere e la promozione ha `--apply` e
+ *     `--approve-promotion`, scrive `JOBGATE_EXPERIMENT_FORCE=<vincente>` con
  *     scripts/experiments/jobgate-v3-rc.mjs (etag, niente force) e apre la
  *     issue «promosso». Al giro dopo FORCE è impostato: fase `forced`, nessuna
  *     nuova pubblicazione (idempotente).
  *
  * Uso:
  *   node scripts/experiments/jobgate-v3-monitor.mjs                 # dry-run, niente issue
- *   node scripts/experiments/jobgate-v3-monitor.mjs --issues --apply # come il workflow
+ *   node scripts/experiments/jobgate-v3-monitor.mjs --issues --apply --approve-promotion # approvazione manuale
  *   node scripts/experiments/jobgate-v3-monitor.mjs --rc-json rc.json \
  *     --status-json status.json [--decision-json decision.json]    # fixture, niente rete
  * Opzioni del piano (default in jobgate-v3-plan.mjs): --mde, --baseline-rate,
@@ -87,6 +87,7 @@ function parseCli(argv) {
     args: argv,
     options: {
       apply: { type: 'boolean', default: false },
+      'approve-promotion': { type: 'boolean', default: false },
       issues: { type: 'boolean', default: false },
       'rc-json': { type: 'string' },
       'status-json': { type: 'string' },
@@ -106,6 +107,16 @@ function parseCli(argv) {
     strict: true,
   });
   return values;
+}
+
+export function mayPublishPromotion({
+  apply = false,
+  approvePromotion = false,
+  eventName,
+} = {}) {
+  return apply === true
+    && approvePromotion === true
+    && (!eventName || eventName === 'workflow_dispatch');
 }
 
 /** Piano con le sostituzioni da CLI (numeri validati). */
@@ -268,7 +279,11 @@ async function syncIssues({ report, state, prevIssue, alarms, decision, applied,
 
 // ── Main ─────────────────────────────────────────────────────
 
-export async function runMonitor(argv, { now = new Date() } = {}) {
+export async function runMonitor(argv, {
+  now = new Date(),
+  eventName = process.env.GITHUB_EVENT_NAME,
+  publishRc = (args) => execFileSync(process.execPath, args, { stdio: ['ignore', 2, 'inherit'] }),
+} = {}) {
   const args = parseCli(argv);
   if (args.help) {
     console.log(fs.readFileSync(new URL(import.meta.url), 'utf8').split('\n').slice(2, 34).join('\n'));
@@ -280,13 +295,13 @@ export async function runMonitor(argv, { now = new Date() } = {}) {
   const planned = planExperiment(plan, rc.weights);
   const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'jobgate-monitor-'));
   try {
-    return await monitorOnce({ args, plan, rc, planned, tmpDir, now });
+    return await monitorOnce({ args, plan, rc, planned, tmpDir, now, eventName, publishRc });
   } finally {
     fs.rmSync(tmpDir, { recursive: true, force: true });
   }
 }
 
-async function monitorOnce({ args, plan, rc, planned, tmpDir, now }) {
+async function monitorOnce({ args, plan, rc, planned, tmpDir, now, eventName, publishRc }) {
 
   const settledEnd = args.until || settledWindow({ days: 1, now, lagDays: ANALYTICS_PROCESSING_LAG_DAYS }).end;
   const available = inclusiveDays(plan.analysisStart, settledEnd);
@@ -322,18 +337,25 @@ async function monitorOnce({ args, plan, rc, planned, tmpDir, now }) {
 
   let applied = null;
   let publishError = null;
+  const promotionApproved = mayPublishPromotion({
+    apply: args.apply,
+    approvePromotion: args['approve-promotion'],
+    eventName,
+  });
   if (decision.action === 'promote') {
     const rcArgs = [RC_SCRIPT, '--enabled', 'true', '--arms', JSON.stringify(rc.weights), '--force-arm', decision.winner];
-    if (args.apply) {
+    if (promotionApproved) {
       try {
-        execFileSync(process.execPath, [...rcArgs, '--apply'], { stdio: ['ignore', 2, 'inherit'] });
+        publishRc([...rcArgs, '--apply']);
         applied = true;
       } catch (e) {
         applied = false;
         publishError = e;
       }
+    } else if (!args.apply && !args['approve-promotion']) {
+      console.error(`DRY-RUN: promozione pronta, comando non eseguito: node ${path.relative(process.cwd(), RC_SCRIPT)} ${rcArgs.slice(1).map(shellQuote).join(' ')} --apply --approve-promotion`);
     } else {
-      console.error(`DRY-RUN: promozione pronta, comando non eseguito: node ${path.relative(process.cwd(), RC_SCRIPT)} ${rcArgs.slice(1).map(shellQuote).join(' ')} --apply`);
+      console.error('PROMOZIONE BLOCCATA: servono --apply e --approve-promotion; nei workflow GitHub è ammessa solo con workflow_dispatch.');
     }
   }
 

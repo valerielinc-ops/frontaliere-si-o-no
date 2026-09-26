@@ -1,7 +1,7 @@
 name: jobgate-experiment-monitor
 
 # Monitor giornaliero del test A/B `jobgate-v3` sul job gate (#9725), con
-# promozione automatica del braccio vincente.
+# promozione del braccio vincente solo dopo approvazione manuale.
 #
 # Ogni giro (scripts/experiments/jobgate-v3-monitor.mjs):
 #   - readout in sola lettura (GA4 + Firestore, robot esclusi) sull'ultima
@@ -13,13 +13,15 @@ name: jobgate-experiment-monitor
 #   - apre (dedup) o chiude le issue di allarme: SRM, braccio significativamente
 #     peggiore del control, attribuzione incompleta degli iscritti. Un allarme
 #     non cambia mai Remote Config;
-#   - promuove SOLO se tutte le condizioni del piano sono vere
+#   - propone la promozione SOLO se tutte le condizioni del piano sono vere;
+#     il cron non scrive su Remote Config e solo workflow_dispatch con apply=true approva
 #     (scripts/experiments/jobgate-v3-plan.mjs, pinnate da
 #     tests/experiment-monitor.test.ts): pubblica JOBGATE_EXPERIMENT_FORCE
 #     con scripts/experiments/jobgate-v3-rc.mjs (etag, niente force). Il giro
 #     dopo FORCE è impostato e il monitor non ripubblica.
 #
-# Il run schedulato passa --apply; quello manuale lo fa solo con apply=true.
+# Il run schedulato aggiorna il monitor ma non scrive su Remote Config;
+# il run manuale richiede apply=true.
 
 on:
   schedule:
@@ -30,7 +32,7 @@ on:
   workflow_dispatch:
     inputs:
       apply:
-        description: 'Pubblica la promozione su Remote Config se TUTTE le condizioni sono vere'
+        description: 'Conferma manualmente la pubblicazione su Remote Config; vale solo per workflow_dispatch'
         required: false
         default: 'false'
         type: choice
@@ -121,11 +123,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
-          APPLY: ${{ github.event_name == 'schedule' && 'true' || inputs.apply }}
+          APPLY: ${{ github.event_name == 'workflow_dispatch' && inputs.apply == 'true' && 'true' || 'false' }}
         run: |
           set -euo pipefail
           flags=(--issues --out "$RUNNER_TEMP/jobgate-monitor")
-          if [ "${APPLY}" = "true" ]; then flags+=(--apply); fi
+          if [ "${APPLY}" = "true" ]; then flags+=(--apply --approve-promotion); fi
           node scripts/experiments/jobgate-v3-monitor.mjs "${flags[@]}"
 
       - name: Job summary
