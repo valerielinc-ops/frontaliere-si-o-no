@@ -87,10 +87,26 @@ const PREFIXED_LOCALES = ['en', 'de', 'fr'];
 // explicit noindex page is advisory; partial sets, invalid locale/host pairs,
 // and every defect on an indexable page remain blocking.
 const NOINDEX_META_RE = /<meta\b(?=[^>]*\bname\s*=\s*["']?(?:robots|googlebot)(?![a-z0-9_-])["']?)(?=[^>]*\bcontent\s*=\s*["']?[^"'>]*\bnoindex\b)/i;
+const HEAD_RE = /<head\b[^>]*>([\s\S]*?)(?:<\/head>|$)/i;
+const META_TAG_RE = /<meta\b[^>]*>/gi;
+const RAW_TEXT_RE = /<(script|style)\b[^>]*>[\s\S]*?(?:<\/\1\s*>|$)/gi;
+const HTML_COMMENT_RE = /<!--[\s\S]*?(?:-->|$)/g;
 
 /** True when the page explicitly opts out of indexing via robots metadata. */
 export function isNoindexPage(html) {
-  return NOINDEX_META_RE.test(html);
+  // readHeadOrAll() intentionally omits the closing </head>, so HEAD_RE also
+  // accepts an EOF-terminated head fragment. Keep the sanitising pass scoped
+  // to the head: a literal meta tag in a comment or raw-text element is not a
+  // real document element and must not turn an indexable page historical.
+  const headMatch = HEAD_RE.exec(html);
+  const head = headMatch?.[1];
+  if (!head) return false;
+  const metadata = head.replace(RAW_TEXT_RE, ' ').replace(HTML_COMMENT_RE, ' ');
+
+  for (const metaTag of metadata.match(META_TAG_RE) ?? []) {
+    if (NOINDEX_META_RE.test(metaTag)) return true;
+  }
+  return false;
 }
 
 /**

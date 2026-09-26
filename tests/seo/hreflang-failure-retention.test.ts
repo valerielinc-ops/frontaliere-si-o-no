@@ -196,14 +196,22 @@ describe('hreflang failure message — measured retention at the push boundary',
 
 describe('hreflang historical-corpus exception', () => {
   it('recognises quote-flexible robots/googlebot noindex metadata', () => {
-    expect(isNoindexPage('<meta name="robots" content="noindex,follow">')).toBe(true);
-    expect(isNoindexPage('<meta content=noindex,follow name=googlebot>')).toBe(true);
-    expect(isNoindexPage('<meta name="description" content="noindex is a word">')).toBe(false);
+    expect(isNoindexPage('<head><meta name="robots" content="noindex,follow"></head>')).toBe(true);
+    expect(isNoindexPage('<head><meta content=noindex,follow name=googlebot></head>')).toBe(true);
+    expect(isNoindexPage('<head><meta name="description" content="noindex is a word"></head>')).toBe(false);
+  });
+
+  it('only recognises a real noindex meta in head markup', () => {
+    expect(isNoindexPage('<!-- <meta name="robots" content="noindex"> -->')).toBe(false);
+    expect(isNoindexPage('<head><!-- <meta name="robots" content="noindex"> --></head>')).toBe(false);
+    expect(isNoindexPage('<head><script>"<meta name=robots content=noindex>"</script></head>')).toBe(false);
+    expect(isNoindexPage('<body><meta name="robots" content="noindex"></body>')).toBe(false);
+    expect(isNoindexPage('<html><head><meta content="noindex,follow" name="robots"></head></html>')).toBe(true);
   });
 
   it('limits the advisory exception to missing targets on noindex pages', () => {
-    const noindex = '<meta name="robots" content="noindex,follow">';
-    const indexable = '<meta name="robots" content="index,follow">';
+    const noindex = '<head><meta name="robots" content="noindex,follow"></head>';
+    const indexable = '<head><meta name="robots" content="index,follow"></head>';
 
     expect(isHistoricalMissingTarget(noindex, 'missingTarget')).toBe(true);
     expect(isHistoricalMissingTarget(indexable, 'missingTarget')).toBe(false);
