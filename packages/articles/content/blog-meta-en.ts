@@ -12021,6 +12021,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.simex-26-emergenza-agno.title': 'Simulated aircraft accident at Agno Airport',
     'blog.article.simex-26-emergenza-agno.excerpt': 'SIMEX 26 tested alarms, emergency response, communication and coordination between the airport and first-response organizations in Agno.',
     'blog.article.simex-26-emergenza-agno.imageAlt': 'Agno Airport during an emergency exercise',
+    'blog.article.bilaterali-tre-primo-test.title': 'Bilateral Agreements III: Council of States test on Monday',
+    'blog.article.bilaterali-tre-primo-test.excerpt': 'The package of Switzerland-EU agreements reaches the Council of States on Monday: the source expects a marathon debate, with sparks in the exchange.',
+    'blog.article.bilaterali-tre-primo-test.imageAlt': 'Bellinzona and the Ticino mountains for a Bilaterals III news story',
 };
 
 export default blogMetaEn;

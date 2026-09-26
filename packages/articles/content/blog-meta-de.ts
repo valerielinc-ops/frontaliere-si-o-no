@@ -12020,6 +12020,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.simex-26-emergenza-agno.title': 'Simulierter Flugunfall am Flughafen Agno',
     'blog.article.simex-26-emergenza-agno.excerpt': 'SIMEX 26 hat in Agno Alarme, Rettungseinsätze, Kommunikation und die Koordination zwischen dem Flughafen und den Organisationen der Ersthilfe getestet.',
     'blog.article.simex-26-emergenza-agno.imageAlt': 'Flughafen Agno während einer Notfallübung',
+    'blog.article.bilaterali-tre-primo-test.title': 'Bilaterale III: Test am Montag im Ständerat',
+    'blog.article.bilaterali-tre-primo-test.excerpt': 'Das Paket der Abkommen zwischen der Schweiz und der EU kommt seit Montag im Ständerat an: Die Quelle sieht eine Flussdebatte vor, mit Funken im Vergleich.',
+    'blog.article.bilaterali-tre-primo-test.imageAlt': 'Bellinzona und die Tessiner Berge zum Thema Bilaterale III',
 };
 
 export default blogMetaDe;
