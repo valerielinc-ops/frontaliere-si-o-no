@@ -12053,6 +12053,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-biglietto-a-bordo-doppio.title': 'Varese, onboard ticket costs twice as much: the testimony',
     'blog.article.varese-biglietto-a-bordo-doppio.excerpt': 'A student at Università dell\'Insubria paid 3,20 euro for an onboard bus ticket, twice the normal price according to her testimony, after card payment did not work.',
     'blog.article.varese-biglietto-a-bordo-doppio.imageAlt': 'City bus at a stop in a Ticino setting, passengers waiting',
+    'blog.article.cotonificio-liuc-industrial-quest.title': 'Cotonificio LIUC protagonist of Industrial Quest 2026',
+    'blog.article.cotonificio-liuc-industrial-quest.excerpt': 'On September 12‑13, 2026, Castellanza represented Italy in the first edition of Industrial Quest: 46 sites in 15 countries, 5 teams at Cotonificio Cantoni LIUC, Zamponari 40 points, The foreigners 35.',
+    'blog.article.cotonificio-liuc-industrial-quest.imageAlt': 'View of Lake Lugano with mountains in the background, morning light',
 };
 
 export default blogMetaEn;
