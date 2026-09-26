@@ -265,6 +265,7 @@ import { buildCurrentWeekPath } from '@/build-plugins/weeklyEmployersData';
 import { buildHubPath as buildJobMarketHubPath } from '@/build-plugins/jobMarketSnapshotData';
 import { buildHealthPremiumsCantonPath } from '@/build-plugins/shared/healthPremiumsPaths';
 import { formatJobLocation } from '../../scripts/lib/job-location-display.mjs';
+import { isJobBoardSectionPathname } from '../../scripts/lib/jobBoardSections.mjs';
 import {
  buildJobCareVariantLandingModel,
  buildJobLocationLandingModel,
@@ -2246,10 +2247,16 @@ function readCurrentPageViewPath(): string {
  return `${window.location.pathname}${window.location.search}${window.location.hash}`;
 }
 
-/** The Italian Ticino job-board surface runs the rewarded treatment without an experiment. */
+/**
+ * Every job-board section (all cantons, the Switzerland aggregator, every
+ * locale) runs the rewarded treatment without an experiment (owner decision
+ * 2026-09-26, which ends the control/assisted_application A/B there). Same
+ * matcher as the click-only Offerwall gate, so "Candidati" opens the
+ * Offerwall wherever the gate holds it.
+ */
 function isAlwaysRewardedApplicationSurface(): boolean {
  if (typeof window === 'undefined') return false;
- return /^\/cerca-lavoro-ticino(?:\/|$)/.test(window.location.pathname);
+ return isJobBoardSectionPathname(window.location.pathname);
 }
 
 function readAssistedApplicationOrderId(): string | null {

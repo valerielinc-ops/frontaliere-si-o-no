@@ -507,25 +507,35 @@
     <!-- Google AdSense: deferred until after page is interactive to avoid
          blocking critical resources and deprecated-API warnings (Fledge) -->
 
-    <!-- Click-only Offerwall on the Italian job board: the AdSense Offerwall
-         (the site's only rewarded demand) must appear only when the visitor
-         clicks "Candidati". Funding Choices calls this twice per page view;
-         the call that carries OFFERWALL is held and released by
-         services/offerwallClickGate.ts. Readable twin of
-         FC_JOBBOARD_OFFERWALL_GATE_JS (build-plugins/constants.ts);
-         tests/offerwall-click-gate-parity.test.ts executes both. -->
+    <!-- Click-only Offerwall: the AdSense Offerwall (the site's only rewarded
+         demand) must appear only when the visitor clicks "Candidati" on a
+         job-board section. Funding Choices calls this twice per page view;
+         on the job board the call that carries OFFERWALL is held and released
+         by services/offerwallClickGate.ts, on every other page the Offerwall
+         alone is suppressed. Readable twin of FC_JOBBOARD_OFFERWALL_GATE_JS
+         (build-plugins/constants.ts); tests/offerwall-click-gate-parity.test.ts
+         executes both and pins this path regex to
+         JOB_BOARD_SECTION_PATHNAME_RX (scripts/lib/jobBoardSections.mjs). -->
     <script>
       (function(){
         var g = window.googlefc = window.googlefc || {};
         if (g.controlledMessagingFunction) return;
         g.controlledMessagingFunction = function(message){
           var E = g.MessageTypeEnum || {};
-          var p = window.location && window.location.pathname || '';
           // The first call arrives with an empty enum and must proceed at
-          // once: holding it delays the CMP and the display ads. Other pages
-          // keep every message.
-          if (E.OFFERWALL === undefined || !/^\/cerca-lavoro-ticino(?:\/|$)/.test(p)) {
+          // once: holding it delays the CMP and the display ads.
+          if (E.OFFERWALL === undefined) {
             message.proceed(true);
+            return;
+          }
+          // Off the job-board sections (every canton, the Switzerland
+          // aggregator, every locale) there is no "Candidati" to open the
+          // Offerwall: suppress it alone, the consent and ad-block messages
+          // this call also carries still show.
+          var p = window.location && window.location.pathname || '';
+          if (!/^(?:\/(?:it|en|de|fr))?\/(?:cerca-lavoro|find-jobs|trouver-emploi|jobs-in|jobs-im)-[a-z][a-z-]*(?:\/|$)/.test(p)) {
+            window.__ftOfferwallGate = window.__ftOfferwallGate || { state: 'off_board', held: [] };
+            message.proceed(false, [E.OFFERWALL]);
             return;
           }
           // This call also carries the GDPR consent message. Hold it only

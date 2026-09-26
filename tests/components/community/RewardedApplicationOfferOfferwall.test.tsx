@@ -21,7 +21,7 @@ type ReleaseResult =
   | { outcome: 'not_shown'; reason: string };
 
 const mocks = vi.hoisted(() => ({
-  status: 'absent' as 'held' | 'released' | 'suppressed' | 'absent',
+  status: 'absent' as 'held' | 'released' | 'suppressed' | 'off_board' | 'absent',
   releaseOptions: null as ReleaseOptions | null,
   resolveRelease: null as ((result: ReleaseResult) => void) | null,
   releaseHeldOfferwall: vi.fn(),
@@ -117,6 +117,7 @@ describe('RewardedApplicationOffer — click-only Offerwall', () => {
 
   it.each([
     ['suppressed', 'no_consent_decision'],
+    ['off_board', 'off_board_page'],
     ['released', 'already_released'],
   ] as const)('reports a %s gate as %s before the GPT path', (status, reason) => {
     mocks.status = status;

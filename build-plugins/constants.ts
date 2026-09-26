@@ -69,6 +69,7 @@ import { adSlotHtml } from './lib/adSlotHtml';
 import { REDIRECT_STUB_MARKER } from './shared/redirectStubMarker';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { ROBOTS_INDEX_ENHANCED_CONTENT } from './shared/robotsDirective';
+import { JOB_BOARD_SECTION_PATHNAME_RX } from '../scripts/lib/jobBoardSections.mjs';
 
 /**
  * Regex-source strings interpolated into SELF_HEAL_SCRIPT_CONTENT below,
@@ -744,39 +745,52 @@ export const FC_CONSENT_BRIDGE_JS = `(function(){if(window.__ftFcConsentBridge)r
 export const FC_ADBLOCK_SIGNAL_EVENT = 'frontaliere:adblock-data';
 
 /**
- * Click-only Offerwall gate for the Italian job board (2026-09-24).
+ * Click-only Offerwall gate (2026-09-24; every job-board section and
+ * off-board suppression since 2026-09-26, owner decision).
  *
- * The job-board Offerwall is the AdSense one, the only rewarded demand the
- * site has, and it must appear only when the visitor clicks "Candidati",
- * never on entry to a listing or job page. Funding Choices calls
- * `controlledMessagingFunction` twice per page view: first with an empty
- * MessageTypeEnum, then with OFFERWALL/AD_BLOCKING populated. The second
- * call also carries the GDPR consent message: holding it for a visitor with
- * no consent decision kept the CMP off screen until the release (live probe,
- * 24-09). So on /cerca-lavoro-ticino pages the call is HELD only when a
- * decision is stored on both sides: `frontaliere_ads_consent` (our bridge)
- * AND a TC string in Funding Choices' own `FCCDCF` cookie (before consent its
- * TC slot is null; a TCF v2 string always starts with "C"). Our key alone
- * outlives the Funding Choices cookie, and a held re-prompt would hide the
- * CMP for the whole SPA session. Otherwise it suppresses only the Offerwall
- * (the CMP shows at once; no Offerwall on that page view) and marks the gate
- * `suppressed` so the click can report why. `window.__ftOfferwallGate.release()`
+ * The Offerwall is the AdSense one, the only rewarded demand the site has,
+ * and it must appear only when the visitor clicks "Candidati", never on entry
+ * to a page. AdSense includes the whole site, so the gate decides where it
+ * may open. Funding Choices calls `controlledMessagingFunction` twice per
+ * page view: first with an empty MessageTypeEnum, then with
+ * OFFERWALL/AD_BLOCKING populated. The second call also carries the GDPR
+ * consent message: holding it for a visitor with no consent decision kept
+ * the CMP off screen until the release (live probe, 24-09). So:
+ *  - off the job-board sections (JOB_BOARD_SECTION_PATHNAME_RX: every canton,
+ *    the Switzerland aggregator, it/en/de/fr) it suppresses only the
+ *    Offerwall (`proceed(false,[OFFERWALL])`; the CMP and the ad-block
+ *    message still show) and marks the gate `off_board`. It never proceeds
+ *    the Offerwall there: "Candidati" does not exist on those pages;
+ *  - on a job-board section the call is HELD only when a decision is stored
+ *    on both sides: `frontaliere_ads_consent` (our bridge) AND a TC string in
+ *    Funding Choices' own `FCCDCF` cookie (before consent its TC slot is null;
+ *    a TCF v2 string always starts with "C"). Our key alone outlives the
+ *    Funding Choices cookie, and a held re-prompt would hide the CMP for the
+ *    whole SPA session. Otherwise it suppresses only the Offerwall (the CMP
+ *    shows at once; no Offerwall on that page view) and marks the gate
+ *    `suppressed` so the click can report why.
+ * The state set by the first page of the visit wins: a visitor who lands off
+ * the board and navigates to a job in the SPA finds `off_board`, and the
+ * click takes the GPT path. `window.__ftOfferwallGate.release()`
  * (services/offerwallClickGate.ts, from the rewarded application offer)
  * proceeds a held call. Live probe on the job board
  * with consent stored: holding only that call left the TCF signal and the
  * first AdSense request on schedule (11.9 s vs 7.7-16.5 s in two controls),
  * while holding the first call pushed the first ad request from 16.5 s to
  * 32.9 s — so the first call always proceeds. Cost: an ad-block recovery
- * message on these pages also waits for the click.
+ * message on job-board pages also waits for the click.
  *
- * Carried by index.html (inline copy), OFFERWALL_FC_SNIPPET and
- * ADSENSE_LOADER_CONTENT. The loader matters most: 87% of the section's
- * sitemap URLs (listing, company, search, sector pages) and the unlisted job
- * pages load Funding Choices only through it. The first copy to run installs
- * the gate and the others step aside. tests/offerwall-click-gate-parity.test.ts
- * executes the copies.
+ * Carried by index.html (inline copy), OFFERWALL_FC_SNIPPET,
+ * ADSENSE_LOADER_CONTENT and GPT_LOADER_CONTENT (build-plugins/jobBoardGpt.ts,
+ * synchronous, so it precedes a gpt.js injected during parsing), so every
+ * page that loads Funding Choices installs it first. The loader matters most:
+ * most job-board URLs (listing, company, search, sector pages) and every
+ * static page without the snippet load Funding Choices only through it. The
+ * first copy to run installs the gate and the others step aside.
+ * tests/offerwall-click-gate-parity.test.ts executes the copies and pins the
+ * path regex of the inline twin.
  */
-export const FC_JOBBOARD_OFFERWALL_GATE_JS = `(function(){var g=window.googlefc=window.googlefc||{};if(g.controlledMessagingFunction)return;g.controlledMessagingFunction=function(message){var E=g.MessageTypeEnum||{};var p=window.location&&window.location.pathname||'';if(E.OFFERWALL===undefined||!/^\\/cerca-lavoro-ticino(?:\\/|$)/.test(p)){message.proceed(true);return;}var d=false;try{d=!!window.localStorage.getItem('${ADS_CONSENT_STORAGE_KEY}');}catch(e){}if(d){var c=(window.document&&window.document.cookie||'').match(/(?:^|;\\s*)FCCDCF=([^;]*)/),v='';try{v=c?decodeURIComponent(c[1]):'';}catch(e){}d=/\\x22C[A-Za-z0-9_-]{20,}/.test(v);}if(!d){window.__ftOfferwallGate=window.__ftOfferwallGate||{state:'suppressed',held:[]};message.proceed(false,[E.OFFERWALL]);return;}var w=window.__ftOfferwallGate=window.__ftOfferwallGate||{state:'idle',held:[]};if(w.state==='released'){message.proceed(true);return;}w.held.push(message);w.state='held';w.release=function(){if(w.state!=='held')return false;w.state='released';var h=w.held.splice(0);for(var i=0;i<h.length;i++){try{h[i].proceed(true);}catch(e){}}return true;};};})();`;
+export const FC_JOBBOARD_OFFERWALL_GATE_JS = `(function(){var g=window.googlefc=window.googlefc||{};if(g.controlledMessagingFunction)return;g.controlledMessagingFunction=function(message){var E=g.MessageTypeEnum||{};if(E.OFFERWALL===undefined){message.proceed(true);return;}var p=window.location&&window.location.pathname||'';if(!/${JOB_BOARD_SECTION_PATHNAME_RX.source}/.test(p)){window.__ftOfferwallGate=window.__ftOfferwallGate||{state:'off_board',held:[]};message.proceed(false,[E.OFFERWALL]);return;}var d=false;try{d=!!window.localStorage.getItem('${ADS_CONSENT_STORAGE_KEY}');}catch(e){}if(d){var c=(window.document&&window.document.cookie||'').match(/(?:^|;\\s*)FCCDCF=([^;]*)/),v='';try{v=c?decodeURIComponent(c[1]):'';}catch(e){}d=/\\x22C[A-Za-z0-9_-]{20,}/.test(v);}if(!d){window.__ftOfferwallGate=window.__ftOfferwallGate||{state:'suppressed',held:[]};message.proceed(false,[E.OFFERWALL]);return;}var w=window.__ftOfferwallGate=window.__ftOfferwallGate||{state:'idle',held:[]};if(w.state==='released'){message.proceed(true);return;}w.held.push(message);w.state='held';w.release=function(){if(w.state!=='held')return false;w.state='released';var h=w.held.splice(0);for(var i=0;i<h.length;i++){try{h[i].proceed(true);}catch(e){}}return true;};};})();`;
 
 export const FC_ADBLOCK_BRIDGE_JS = `(function(){if(window.__ftFcAdBlockBridge)return;window.__ftFcAdBlockBridge=1;var g=window.googlefc=window.googlefc||{};g.callbackQueue=g.callbackQueue||[];g.callbackQueue.push({'AD_BLOCK_DATA_READY':function(){try{var E=g.AdBlockerStatusEnum||{},A=g.AllowAdsStatusEnum||{};var s=typeof g.getAdBlockerStatus==='function'?g.getAdBlockerStatus():null;var a=typeof g.getAllowAdsStatus==='function'?g.getAllowAdsStatus():null;function eq(v,e){return v!==undefined&&e!==undefined&&v===e;}window.__ftAdBlock={status:s,allowAds:a,blocked:eq(s,E.EXTENSION_LEVEL_AD_BLOCKER)||eq(s,E.NETWORK_LEVEL_AD_BLOCKER),adsAllowed:eq(a,A.ADS_ALLOWED)};try{window.dispatchEvent(new CustomEvent('${FC_ADBLOCK_SIGNAL_EVENT}'));}catch(e){}}catch(e){}}});})();`;
 
@@ -784,9 +798,9 @@ export const FC_ADBLOCK_BRIDGE_JS = `(function(){if(window.__ftFcAdBlockBridge)r
  * Inline lazy-loader injected at the bottom of every static page (and also
  * emitted from index.html). Runs once per page and:
  *  -1. Installs FC_JOBBOARD_OFFERWALL_GATE_JS before anything can load
- *     Funding Choices, so the job-board Offerwall waits for "Candidati" on
- *     every static page of the section, not only where OFFERWALL_FC_SNIPPET
- *     is injected.
+ *     Funding Choices, so on every static page the Offerwall waits for
+ *     "Candidati" (job-board sections) or stays suppressed (every other
+ *     page), not only where OFFERWALL_FC_SNIPPET is injected.
  *  0. Bot gate: `BOT_GATE_FN` (shared with POSTHOG_INIT_CONTENT, the inline-JS
  *     twin of services/botPatterns.ts `isLikelyBot()`) returns true for bots —
  *     the loader then returns immediately. This is the static-HTML counterpart
@@ -850,9 +864,9 @@ export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_
 /**
  * Funding Choices MESSAGING loader, injected PARSE-TIME into the <head> of
  * in-scope STATIC pages. The custom newsletter choice is disabled globally;
- * on the Italian Ticino job board FC_JOBBOARD_OFFERWALL_GATE_JS holds the
- * native Offerwall until the visitor clicks "Candidati", while article and
- * other non-job-board pages keep their configured native Offerwall.
+ * on every job-board section FC_JOBBOARD_OFFERWALL_GATE_JS holds the native
+ * Offerwall until the visitor clicks "Candidati", and on article and every
+ * other page it suppresses the Offerwall alone (the CMP still shows).
  *
  * WHY THIS EXISTS (2026-06-16): static SSG HTML (article pages and the Italian
  * job-board pages) does not carry index.html's inline Funding Choices block.
