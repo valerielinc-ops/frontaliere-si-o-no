@@ -6737,6 +6737,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.kof-consensus-forecast-pil-2026.title': 'KOF: Schweizer BIP 2026 bei +1,7%, Inflation bei 0,6%',
     'blog.article.kof-consensus-forecast-pil-2026.excerpt': 'Der 123. KOF Consensus Forecast zeigt für 2026 ein Wachstum von 1,7% und eine erwartete Inflation von 0,6%.',
     'blog.article.kof-consensus-forecast-pil-2026.imageAlt': 'Ansicht eines modernen Gebäudes in Zürich mit Wirtschaftskurven im Hintergrund',
+    'blog.article.voci-morgan-stanley-ubs.title': 'Gerüchte über Morgan Stanley, UBS steigt um mehr als 3%',
+    'blog.article.voci-morgan-stanley-ubs.excerpt': 'Die UBS-Aktien steigen in Zürich um mehr als 3 % und nähern sich 41 Franken nach Gerüchten über eine mögliche Fusion mit Morgan Stanley.',
+    'blog.article.voci-morgan-stanley-ubs.imageAlt': 'Börsenbildschirme in Zürich während des Anstiegs der UBS-Aktie',
 };
 
 export default blogMetaChDe;

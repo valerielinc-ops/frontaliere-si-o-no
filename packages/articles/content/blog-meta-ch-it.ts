@@ -6737,6 +6737,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.kof-consensus-forecast-pil-2026.title': 'KOF: PIL svizzera 2026 al +1,7%, inflazione al 0,6%',
     'blog.article.kof-consensus-forecast-pil-2026.excerpt': 'La 123esima Consensus Forecast del KOF rivela una crescita del 1,7% per il 2026 e un\'inflazione attesa dello 0,6%.',
     'blog.article.kof-consensus-forecast-pil-2026.imageAlt': 'Vista di un edificio moderno a Zurigo con grafici economici sullo sfondo',
+    'blog.article.voci-morgan-stanley-ubs.title': 'Voci su Morgan Stanley, UBS sale oltre il 3%',
+    'blog.article.voci-morgan-stanley-ubs.excerpt': 'Le azioni UBS salgono oltre il 3% a Zurigo e sfiorano 41 franchi dopo le voci su una possibile fusione con Morgan Stanley.',
+    'blog.article.voci-morgan-stanley-ubs.imageAlt': 'Schermi di borsa a Zurigo durante il rialzo del titolo UBS',
 };
 
 export default blogMetaChIt;
