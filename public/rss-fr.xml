@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides pour les frontaliers au Tessin</description>
     <language>fr</language>
-    <lastBuildDate>Sat, 26 Sep 2026 06:21:03 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 26 Sep 2026 06:53:27 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Français</title>
@@ -17,6 +17,63 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Télétravail des travailleurs frontaliers : limite de 25 % des journées</title>
+      <link>https://frontaliereticino.ch/fr/articles-frontalier/teletravail-des-travailleurs-frontaliers-limite-de-25-des-journees/</link>
+      <description><![CDATA[Le seuil fiscal du télétravail depuis l’Italie est de 25 % ; entré en vigueur le 9 février 2026, application rétroactive à partir du 1er janvier 2024. Une journée sur cinq représente 20 %.]]></description>
+      <content:encoded><![CDATA[## En bref
+- Le seuil fiscal pour le télétravail depuis l'Italie est de 25%
+- Le protocole est entré en vigueur le 9 febbraio 2026
+- L'application est rétroactive à compter du 1 gennaio 2024
+- En cinq jours, une journée de télétravail vaut 20%
+
+## Faits clés
+- Seuil fiscal → 25%
+- Entrée en vigueur → 9 febbraio 2026
+- Application rétroactive → 1 gennaio 2024
+- Une journée sur cinq → 20%
+- Deux journées par semaine → 40%
+
+Le 9 febbraio 2026, le protocole qui régit le télétravail des frontaliers est définitivement entré en vigueur. La règle concerne les personnes qui travaillent pour une entreprise suisse mais exercent une partie de leur activité depuis leur domicile en Italie, sans franchir la frontière chaque jour.
+
+Le seuil fixé par l'accord entre l'Italie et la Suisse est de 25% du temps de travail. Dans cette limite, les journées travaillées à domicile sont considérées, aux fins de l'imposition prévue par l'accord, comme des journées travaillées chez l'employeur suisse. Le point n'est donc pas seulement de savoir où se trouve le travailleur au cours d'une journée donnée, mais quelle part du temps total est effectuée depuis l'Italie.
+
+Le protocole n'est plus lié à une mesure temporaire. Son application est rétroactive à compter du 1 gennaio 2024, tandis que son entrée en vigueur définitive a eu lieu le 9 febbraio 2026. La réponse brève fournie par la source concerne donc le seuil fiscal applicable au travail effectué depuis le domicile italien.
+
+### Ce que fixe le seuil
+
+La mesure concerne le statut fiscal de frontalier. Un travailleur peut exercer jusqu'à 25% de son activité depuis son domicile en Italie sans que, dans cette limite, cela ne modifie son statut fiscal de frontalier. La source précise en outre que la règle s'applique également aux travailleurs relevant du régime transitoire des travailleurs dits «anciens frontaliers».
+
+La traduction pratique est indicative : 25% correspond à un jour par semaine. Toutefois, le calcul correct doit être effectué sur le temps de travail total et non pas simplement en comptant les semaines. Sur une semaine de travail de cinq jours, une journée de télétravail équivaut à 20% du temps de travail ; deux jours par semaine correspondent en revanche à 40% et dépassent le seuil fiscal de 25%.
+
+Pour le frontalier qui travaille pour un employeur suisse, c'est la distinction à garder à l'esprit : l'accord autorise le travail depuis le domicile en Italie dans la limite en pourcentage, tandis qu'une organisation qui dépasse la limite indiquée par la source ne relève pas du seuil fiscal décrit. Pour un premier contrôle, on peut mettre la donnée en regard de [calcolatore fiscale](nav:calculator), en maintenant séparés le calcul du temps et l'évaluation du revenu.
+Pour le travailleur frontalier, la difficulté pratique ne consiste pas à lire le nombre 25%, mais à le traduire en une organisation hebdomadaire sans confondre le pourcentage avec un nombre fixe de journées. La source indique en effet que le calcul correct doit être effectué sur le temps de travail total et non en comptant simplement les semaines. La référence à un jour par semaine est donc indicative : elle sert à s'orienter, mais ne remplace pas le rapport entre le temps travaillé depuis l'Italie et le total de l'activité.
+
+Sur une semaine de travail de cinq jours, les exemples fournis rendent clairement compte du passage :
+
+| Organisation | Part du temps de travail | Lecture par rapport à 25% |
+|---|---:|---|
+| Une journée de télétravail | 20% | Dans le seuil indiqué |
+| Deux journées de télétravail | 40% | Au-delà du seuil indiqué |
+
+Un jour sur cinq n'équivaut pas à 25%, mais à 20%. Deux jours sur cinq correspondent à 40%. Par conséquent, la question à se poser n'est pas seulement combien de journées sont passées à la maison, mais quel pourcentage elles représentent du temps total. Dans le cas de la semaine de cinq jours, la comparaison ne nécessite pas de transformer 25% en un autre chiffre : les valeurs fournies suffisent à distinguer la limite de sa traduction pratique.
+
+### Le calendrier doit être interprété conjointement avec la part
+
+Un travailleur frontalier qui exerce une partie de son activité depuis son domicile en Italie peut utiliser le calendrier comme point de départ, mais doit ensuite rapporter cette donnée au total du travail. Si l'organisation suit une semaine de cinq jours, une journée reste à 20%, tandis que deux montent à 40%. Dans le second cas, le seuil fiscal de 25% est dépassé, conformément à l'exemple indiqué par la source.
+
+Cette règle vaut également pour les travailleurs qui relèvent du régime transitoire des «anciens travailleurs frontaliers». Pour cette catégorie, la donnée à contrôler reste le seuil fiscal de 25% prévu pour l'activité exercée depuis le domicile en Italie. Le paramètre est donc la part du temps de travail, et non le simple nom donné à la journée passée à la maison.
+
+Cette distinction permet de ne pas attribuer au calendrier une signification qu'il n'a pas : la semaine fournit un exemple, tandis que le paramètre est le temps total. Pour relier le calcul de la part à la lecture du net, on peut utiliser le [simulatore busta paga](nav:payslip), en gardant séparés le décompte des journées et le résultat fiscal.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).]]></content:encoded>
+      <pubDate>Sat, 26 Sep 2026 06:53:27 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/telelavoro-frontalieri-limite-italia</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/telelavoro-frontalieri-limite-italia.webp" medium="image"/>
+    </item>
     <item>
       <title>Saronno, travaux via Volonterio : circulation modifiée</title>
       <link>https://frontaliereticino.ch/fr/articles-frontalier/saronno-travaux-rue-volonterio/</link>
@@ -2807,69 +2864,6 @@ Pour ceux qui souhaitent analyser en profondeur leur situation professionnelle, 
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/regole-chiare-assunzioni-ticino</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/regole-chiare-assunzioni-ticino.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Pellicini (FDI) : Indemnités de frontière et fonds pour les travailleurs</title>
-      <link>https://frontaliereticino.ch/fr/articles-frontalier/pellicini-fdi-indemnite-frontaliere/</link>
-      <description><![CDATA[Un député de Fratelli d'Italia intervient sur les ressources de la bande frontalière pour valoriser l'emploi en Italie.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Déclaration d'un parlementaire de Fratelli d'Italia
-- Un fonds pour mieux rémunérer
-- Travailleurs de la zone frontalière
-- Rester travailler en Italie
-
-## Faits clés
-Qui : Parlementaire de Fratelli d'Italia
-Destinataires : Travailleurs de la zone frontalière
-Objectif : Mieux rémunérer en Italie
-
-Le débat politique et institutionnel sur les mesures de soutien à l'emploi dans les zones frontalières enregistre une nouvelle intervention de la part d'un responsable politique national. Un parlementaire appartenant à Fratelli d'Italia est intervenu récemment dans le débat public pour clarifier les finalités d'un instrument financier spécifique visant à soutenir le tissu économique et professionnel local.
-
-### La destination des ressources
-Le fonds en question, selon ce qu'a spécifié le parlementaire de Fratelli d'Italia, assumera un rôle central pour la gestion des dynamiques salariales et de l'emploi dans les zones territoriales limitrophes. La mesure décrite par le représentant politique est conçue de manière spécifique pour intervenir sur les conditions économiques du personnel employé sur le territoire national.
-
-La question de la valorisation des compétences professionnelles et du traitement économique représente un thème central pour les territoires italiens frontaliers, où l'on enregistre historiquement des dynamiques de mobilité de la main-d'œuvre vers les pays helvétiques. Les déclarations faites par le représentant politique offrent une clé de lecture sur les intentions relatives à l'utilisation des ressources allouées à cet objectif spécifique.
-
-### Le contexte de la zone frontalière
-Les zones géographiques frontalières avec la Suisse vivent depuis un certain temps une réalité professionnelle complexe, caractérisée par des écarts de rémunération qui poussent de nombreux travailleurs à évaluer des emplois de l'autre côté de la frontière. Dans ce scénario, l'intervention annoncée par le parlementaire de Fratelli d'Italia vise à influer directement sur les opportunités offertes par le marché du travail local italien.
-
-La discussion autour du fonds et de son fonctionnement s'inscrit dans un cadre plus large d'attention institutionnelle envers les communautés locales et les travailleurs qui choisissent d'exercer leur activité professionnelle à l'intérieur des frontières nationales, en essayant de combler le fossé économique existant.
-
-La prise de position du responsable politique entend souligner l'importance de soutenir l'emploi résident et d'offrir des incitations concrètes afin que la main-d'œuvre locale puisse trouver dans les territoires frontaliers italiens des perspectives professionnelles et économiques adaptées à ses attentes.
-L'analyse des déclarations faites par le parlementaire de Fratelli d'Italia permet d'examiner les implications pratiques liées à la gestion du fonds destiné à la zone frontalière. Les dynamiques de l'emploi qui touchent les zones frontalières nécessitent des interventions ciblées pour comprendre pleinement l'impact que de telles mesures peuvent engendrer sur le tissu économique local.
-
-### Dynamiques salariales et marché du travail
-Le choix de miser sur la rémunération des travailleurs qui décident de rester travailler en Italie répond à un besoin ressenti depuis longtemps dans les zones frontalières. La comparaison entre les conditions économiques offertes par les entreprises italiennes et celles d'au-delà de la frontière représente l'un des facteurs déterminants dans les choix professionnels des résidents.
-
-Le fonds décrit par le parlementaire de FdI se présente comme un outil opérationnel visant à influencer cette dynamique, en cherchant à offrir un soutien économique capable de rendre plus attractif l'emploi sur le territoire national. L'évaluation de ces mesures nécessite toutefois une observation attentive des modalités selon lesquelles les ressources seront effectivement distribuées et appliquées dans les contextes locaux.
-
-### Perspectives pour les travailleurs résidents
-Pour les travailleurs qui opèrent dans la zone frontalière italienne, la perspective d'une amélioration salariale représente un élément important dans la planification de leur parcours professionnel. La possibilité de compter sur une reconnaissance économique adéquate peut influencer positivement la décision de rester liés au marché du travail domestique.
-
-Les implications pratiques d'une telle mesure se répercutent non seulement sur les salariés individuels, mais aussi sur les entreprises locales qui opèrent dans les zones frontalières. Ces dernières rencontrent souvent des difficultés à recruter et à retenir du personnel qualifié, en raison de la forte concurrence exercée par les réalités économiques suisses.
-
-L'analyse des mesures annoncées met en évidence la complexité d'intervenir sur un marché du travail fortement interconnecté avec l'économie suisse, où chaque initiative de soutien économique doit se confronter aux exigences réelles de compétitivité des entreprises et aux attentes salariales des travailleurs.
-
-## Outils utiles pour protéger votre net
-Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
-La traduction opérationnelle des intentions exprimées par le parlementaire de Fratelli d'Italia nécessite le suivi des étapes institutionnelles et normatives nécessaires pour rendre effectif le fonctionnement du fonds. Dans les zones frontalières, les opérateurs économiques et les travailleurs suivent avec attention l'évolution des mesures destinées à impacter les rémunérations locales.
-
-### Étapes institutionnelles et procédures
-La phase d'application d'instruments de soutien économique tels que celui spécifié par le parlementaire de Fratelli d'Italia prévoit habituellement un processus administratif complexe, qui implique différents niveaux de gouvernement et d'administration. Pour les travailleurs concernés, comprendre les délais et les modalités d'accès aux ressources représente un aspect fondamental pour évaluer concrètement les opportunités offertes.
-
-Les institutions locales et les partenaires sociaux jouent un rôle de premier plan dans la définition et le suivi des procédures, afin que les ressources allouées puissent atteindre efficacement les destinataires finals prévus par la mesure. La transparence dans les critères d'attribution constitue un élément essentiel pour garantir la correcte application des dispositions.
-
-### Informations et approfondissements
-Pour rester constamment informés des nouveautés relatives au marché du travail dans les zones frontières et des initiatives institutionnelles qui concernent les travailleurs, il est possible de consulter les sections dédiées aux services pour l'emploi présentes sur le portail de référence pour les frontaliers. L'accès à des informations détaillées et vérifiées permet de s'orienter au mieux parmi les changements normatifs et économiques qui caractérisent la zone transfrontalière.
-
-La consultation régulière des mises à jour opérationnelles et la vérification des dispositions officielles représentent des outils utiles pour tous ceux qui opèrent dans la zone frontalière et souhaitent suivre de près l'évolution des politiques du travail et des interventions économiques sur le territoire.
-
-*Source: [varesenews.it](https://www.varesenews.it/2026/09/pellicini-fdi-indennita-di-frontiera-misura-storica-25-miliardi-nei-prossimi-anni/2684206/)*]]></content:encoded>
-      <pubDate>Mon, 21 Sep 2026 00:21:17 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/pellicini-fdi-indennita-frontiera</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/pellicini-fdi-indennita-frontiera.webp" medium="image"/>
     </item>
   </channel>
 </rss>

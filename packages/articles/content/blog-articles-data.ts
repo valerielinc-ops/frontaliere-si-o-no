@@ -36108,6 +36108,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'telelavoro-frontalieri-limite-italia',
+ category: 'fiscale',
+ date: '2026-09-26T06:53:27.900Z',
+ image: '/images/blog/telelavoro-frontalieri-limite-italia.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
