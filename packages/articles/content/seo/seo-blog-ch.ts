@@ -87575,6 +87575,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-voto-settembre-integrazione-2026': {
+    title: 'Consiglio federale: voto e decisioni 2026 | Frontaliere Ticino',
+    description: 'Votazione del 27 settembre 2026, fondi per l\'integrazione, pigioni, cibersicurezza e pacchetto Svizzera-UE: i dossier del Consiglio federale. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, voto, decisioni',
+    ogTitle: 'Le decisioni del Consiglio federale per il 2026',
+    ogDescription: 'Il 27 settembre 2026 si vota su neutralità e alimentazione. Intanto il Consiglio federale chiede 334,5 milioni per l\'integrazione, propone un controprogetto sulle pigioni, prepara una legge sulla cibersicurezza e segue il pacchetto Svizzera-UE.',
+    canonicalPath: '/articoli-svizzera/voto-settembre-integrazione-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale: voto e decisioni 2026",
+      "description": "Votazione del 27 settembre 2026, fondi per l'integrazione, pigioni, cibersicurezza e pacchetto Svizzera-UE: i dossier del Consiglio federale. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/voto-settembre-integrazione-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti sulle decisioni federali svizzere e una scheda per la votazione del 27 settembre 2026"
+      },
+      "datePublished": "2026-09-26T06:34:33+00:00",
+      "dateModified": "2026-09-26T06:34:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/voto-settembre-integrazione-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

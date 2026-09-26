@@ -6755,6 +6755,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.seco-commercio-misure-2026.title': 'SECO: dazi USA fino al 12,5% e dimissioni',
     'blog.article.seco-commercio-misure-2026.excerpt': 'Dazi USA fino al 12,5% per le importazioni svizzere; Helene Budliger Artieda lascerà la SECO a fine marzo 2027.',
     'blog.article.seco-commercio-misure-2026.imageAlt': 'Edificio amministrativo svizzero e documenti sul commercio internazionale',
+    'blog.article.voto-settembre-integrazione-2026.title': 'Consiglio federale: voto e decisioni 2026',
+    'blog.article.voto-settembre-integrazione-2026.excerpt': 'Il 27 settembre 2026 si voterà su neutralità e alimentazione. Sul tavolo anche integrazione, pigioni, cibersicurezza e accordi con l\'UE.',
+    'blog.article.voto-settembre-integrazione-2026.imageAlt': 'Documenti sulle decisioni federali svizzere e una scheda per la votazione del 27 settembre 2026',
 };
 
 export default blogMetaChIt;

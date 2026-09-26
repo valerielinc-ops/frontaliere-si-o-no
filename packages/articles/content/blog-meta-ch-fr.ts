@@ -6755,6 +6755,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.seco-commercio-misure-2026.title': 'SECO : droits de douane américains jusqu\'à 12,5 % et démission',
     'blog.article.seco-commercio-misure-2026.excerpt': 'Droits de douane américains allant jusqu’à 12,5% pour les importations suisses; Helene Budliger Artieda quittera le SECO fin mars 2027.',
     'blog.article.seco-commercio-misure-2026.imageAlt': 'Bâtiment administratif suisse et documents sur le commerce international',
+    'blog.article.voto-settembre-integrazione-2026.title': 'Conseil fédéral : vote et décisions 2026',
+    'blog.article.voto-settembre-integrazione-2026.excerpt': 'Le 27 septembre 2026, on votera sur la neutralité et l’alimentation. À l’ordre du jour également : l’intégration, les loyers, la cybersécurité et les accords avec l’UE.',
+    'blog.article.voto-settembre-integrazione-2026.imageAlt': 'Documents sur les décisions fédérales suisses et bulletin pour le 27 septembre 2026',
 };
 
 export default blogMetaChFr;
