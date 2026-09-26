@@ -43,6 +43,10 @@ import {
 import { normalizeInspectionUrl } from './lib/url-normalize.mjs';
 import { sleep, fetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
 import {
+  EMPLOYER_INSIGHTS_GA4_CUSTOM_DIMENSIONS,
+  ensureGa4CustomDimensions,
+} from './lib/ga4-employer-insights-dimensions.mjs';
+import {
   engagementConsistency,
   dailyEngagementConsistency,
   engagementUnreliableNoteFromReason,
@@ -1747,9 +1751,7 @@ async function reportGA4(token) {
     // queries these parameters as customEvent dimensions; emission_id is the
     // D18 evidence probe that the fail-closed refresh gate requires (#9403).
     // Already-registered parameters are skipped, so listing them is idempotent.
-    { parameterName: 'employer_key', displayName: 'Employer Key', description: 'Stable employer key attached to job and employer-profile events' },
-    { parameterName: 'job_slug', displayName: 'Job Slug', description: 'Job ad slug attached to job detail and apply events' },
-    { parameterName: 'emission_id', displayName: 'Analytics Emission ID', description: 'Per-emission analytics identifier used to deduplicate employer-insights events' },
+    ...EMPLOYER_INSIGHTS_GA4_CUSTOM_DIMENSIONS,
   ];
 
   try {
@@ -1759,53 +1761,19 @@ async function reportGA4(token) {
       'https://www.googleapis.com/auth/analytics.edit',
       'https://www.googleapis.com/auth/analytics.readonly',
     ], { logInfo: (msg) => log('ℹ️', msg), logError: (msg) => log('⚠️', msg) });
-    const adminHeaders = adminToken
-      ? { Authorization: `Bearer ${adminToken}`, 'Content-Type': 'application/json' }
-      : headers; // fallback to OAuth2 (will fail with 403 if scopes are insufficient)
 
-    // List existing custom dimensions
-    const dimsRes = await fetchRetry(
-      `https://analyticsadmin.googleapis.com/v1beta/${propertyId}/customDimensions?pageSize=200`,
-      { headers: adminHeaders }
-    );
-    const existingDims = new Set();
-    if (dimsRes.ok) {
-      const dimsData = await dimsRes.json();
-      for (const dim of dimsData.customDimensions || []) {
-        existingDims.add(dim.parameterName);
-      }
+    const registration = await ensureGa4CustomDimensions({
+      propertyId,
+      token: adminToken || token,
+      dimensions: REQUIRED_CUSTOM_DIMS,
+      fetchImpl: fetchRetry,
+    });
+    for (const parameterName of registration.registered) {
+      log('✅', `Registered GA4 custom dimension: ${parameterName}`);
     }
-
-    // Register missing dimensions
-    let registered = 0;
-    for (const dim of REQUIRED_CUSTOM_DIMS) {
-      if (existingDims.has(dim.parameterName)) continue;
-      const createRes = await fetchRetry(
-        `https://analyticsadmin.googleapis.com/v1beta/${propertyId}/customDimensions`,
-        {
-          method: 'POST',
-          headers: adminHeaders,
-          body: JSON.stringify({
-            parameterName: dim.parameterName,
-            displayName: dim.displayName,
-            description: dim.description,
-            scope: 'EVENT',
-          }),
-        }
-      );
-      if (createRes.ok) {
-        registered++;
-        log('✅', `Registered GA4 custom dimension: ${dim.parameterName}`);
-      } else {
-        const errText = await createRes.text().catch(() => '');
-        // 409 = already exists (race condition), skip silently
-        if (createRes.status !== 409) {
-          log('⚠️', `Failed to register ${dim.parameterName}: ${createRes.status} ${errText.slice(0, 100)}`);
-        }
-      }
-    }
-    if (registered > 0) {
-      log('ℹ️', `Registered ${registered} new GA4 custom dimensions. Data will appear in the NEXT report.`);
+    for (const failure of registration.failures) log('⚠️', failure);
+    if (registration.registered.length > 0) {
+      log('ℹ️', `Registered ${registration.registered.length} new GA4 custom dimensions. Data will appear in the NEXT report.`);
     }
   } catch (e) {
     log('⚠️', `GA4 custom dimension auto-registration: ${e.message}`);
