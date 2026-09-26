@@ -6734,6 +6734,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.carenze-medicinali-svizzera-2026.title': 'Medicine shortages: 700 products at risk in Switzerland',
     'blog.article.carenze-medicinali-svizzera-2026.excerpt': 'Drugshortage.ch reports 67 medicines in critical shortage involving 42 active ingredients. The National Council supports the counterproposal.',
     'blog.article.carenze-medicinali-svizzera-2026.imageAlt': 'Swiss hospital pharmacy shelf with medicines and tablet for stock monitoring',
+    'blog.article.kof-consensus-forecast-pil-2026.title': 'KOF: Swiss GDP 2026 at +1,7%, inflation at 0,6%',
+    'blog.article.kof-consensus-forecast-pil-2026.excerpt': 'The KOF\'s 123rd Consensus Forecast reveals 1,7% growth for 2026 and expected inflation of 0,6%.',
+    'blog.article.kof-consensus-forecast-pil-2026.imageAlt': 'View of a modern building in Zurich with economic charts in the background',
 };
 
 export default blogMetaChEn;

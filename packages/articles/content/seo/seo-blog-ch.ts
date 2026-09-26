@@ -87302,6 +87302,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-kof-consensus-forecast-pil-2026': {
+    title: 'KOF: PIL svizzera 2026 al +1,7%, inflazione al 0,6%',
+    description: 'La 123esima Consensus Forecast del KOF prevede un PIL svizzero al +1,7% nel 2026 e un\'inflazione dello 0,6%. Dettagli su prezzi e lavoro. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, inflazione, 123esima, consensus, forecast',
+    ogTitle: 'KOF: PIL svizzero 2026 al +1,7%, inflazione al 0,6%',
+    ogDescription: 'Il KOF del Politecnico di Zurigo ha rivisto al rialzo le previsioni per il 2026: PIL al +1,7% e inflazione allo 0,6%. Scopri i dettagli della 123esima Consensus Forecast e l\'impatto su prezzi e mercato del lavoro.',
+    canonicalPath: '/articoli-svizzera/kof-consensus-forecast-pil-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "KOF: PIL svizzera 2026 al +1,7%, inflazione al 0,6%",
+      "description": "La 123esima Consensus Forecast del KOF prevede un PIL svizzero al +1,7% nel 2026 e un'inflazione dello 0,6%. Dettagli su prezzi e lavoro. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/kof-consensus-forecast-pil-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di un edificio moderno a Zurigo con grafici economici sullo sfondo"
+      },
+      "datePublished": "2026-09-26T01:18:48+00:00",
+      "dateModified": "2026-09-26T01:18:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/kof-consensus-forecast-pil-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
