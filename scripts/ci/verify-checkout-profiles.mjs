@@ -34,6 +34,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import YAML from 'yaml';
 import { analyzeWorkflow, transitiveClosure, ROOT, BUCKETS, CROSSOVER_MB, TREE_MB } from './checkout-profile-analyzer.mjs';
+import { missingGlobalTestsSparsePaths } from './apply-checkout-profiles.mjs';
 
 const WF_DIR = path.join(ROOT, '.github/workflows');
 
@@ -224,6 +225,9 @@ export function verifyCheckoutProfiles() {
     const raw = fs.readFileSync(full, 'utf8');
     let doc;
     try { doc = YAML.parse(raw, { logLevel: 'silent' }); } catch (e) { problems.push(`${f}: YAML illeggibile — ${e.message}`); continue; }
+    for (const missing of missingGlobalTestsSparsePaths(raw, f)) {
+      problems.push(`${missing}: il profilo non materializza un input runtime del build globale`);
+    }
     const analysis = analyzeWorkflow(full, pkg.scripts);
 
     for (const job of analysis.jobs) {
