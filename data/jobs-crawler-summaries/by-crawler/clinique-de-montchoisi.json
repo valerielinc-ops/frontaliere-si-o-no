@@ -1,21 +1,21 @@
 {
   "key": "clinique-de-montchoisi",
   "label": "Clinique de Montchoisi",
-  "generatedAt": "2026-09-25T14:54:46.250Z",
-  "total": 2,
+  "generatedAt": "2026-09-26T14:09:31.114Z",
+  "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
-  "written": 2,
+  "written": 1,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 8724,
-  "avgDurationMs": 8724,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5630,
+  "avgDurationMs": 5630,
   "durationHistory": [
-    8724
+    5630
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149376088-assc",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:54:33.069Z",
+      "crawledAt": "2026-09-26T14:09:20.481Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -58,8 +58,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "clinique-de-montchoisi-433e3e343f9a",
       "slug": "cm-segreteria-responsabile-radiologia-clinique-de-montchoisi-lausanne",
@@ -102,5 +101,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
