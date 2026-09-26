@@ -72,6 +72,18 @@ describe('search-index gating of the lazy corpus-fetch tiers', () => {
     expect(body).toContain('searchIndexPending,');
   });
 
+  it('lets a canton-scoped search finish its same-locale broaden before Tier 4', () => {
+    const body = effectBodyAfter('if (crossLocaleFetchAttempted.current) return;');
+    expect(body).toContain('const cantonScopedSearch');
+    expect(body).toContain('!searchBroadenSettled');
+    expect(body).toContain('searchBroadenSettled,');
+  });
+
+  it('marks the same-locale broaden terminal on empty and error paths', () => {
+    const body = effectBodyAfter('if (searchBroadenFetchAttempted.current) return;');
+    expect(body).toContain('setSearchBroadenSettled(true)');
+  });
+
   it('gates the same-locale cross-canton broaden on it', () => {
     const body = effectBodyAfter('if (searchBroadenFetchAttempted.current) return;');
     expect(body).toContain('if (searchIndexPending) return;');

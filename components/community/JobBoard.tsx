@@ -2452,6 +2452,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // can fill the page. Closes the gap left by `unscopedJobs` (populated only via
  // the legacy path) for the healthy-shard search case. One-shot per mount.
  const searchBroadenFetchAttempted = useRef(false);
+ // A canton-scoped thin search must finish its same-locale pool attempt before
+ // Tier 4 decides that the query is empty. Without this terminal bit, the two
+ // effects can observe the same provisional zero and fetch the IT pool plus
+ // all three other locale pools at once; the cross-canton tier usually makes
+ // the latter work unnecessary.
+ const [searchBroadenSettled, setSearchBroadenSettled] = useState(false);
  const [jobsLoading, setJobsLoading] = useState(true);
  // In-flight count of the lazy broaden / cross-locale fallback fetches. A thin
  // canton-scoped search/company page reads `filteredJobs.length === 0` after the
@@ -4744,6 +4750,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (strictFilteredJobs.length > 0) return;
  if (orFallbackInCantonJobs.length > 0) return;
  if (crossCantonFallbackJobs.length > 0) return;
+ // On a canton-scoped search, let the same-locale broaden answer first. It
+ // either populates `unscopedJobs` (so Tier 3 can return) or settles empty /
+ // failed, in which case Tier 4 remains the correct terminal fallback. The
+ // aggregate board and company+search path intentionally skip this gate:
+ // neither path owns a same-locale search-broaden fetch.
+ const cantonScopedSearch =
+   !companySlugFilter
+   && (initialFilterCanton || getDefaultCantonForVisit()) !== AGGREGATE_CANTON_CODE;
+ if (cantonScopedSearch && unscopedJobs.length === 0 && !searchBroadenSettled) return;
  crossLocaleFetchAttempted.current = true;
  setPendingFallbacks((n) => n + 1);
  let cancelled = false;
@@ -4790,7 +4805,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [
  deferredSearchQuery, jobsLoading, locale,
  strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length,
- unscopedJobs, sortedJobs,
+ unscopedJobs, sortedJobs, initialFilterCanton, companySlugFilter, searchBroadenSettled,
  // Load-bearing: on a search that is genuinely empty, the tier counts above
  // never change when the index completes, so without this dep the effect
  // would not re-run and the fallback would never fire at all.
@@ -4879,6 +4894,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  reportCaughtError(err, 'jobBoard.loadJobs.searchBroaden');
  } finally {
  setPendingFallbacks((n) => n - 1);
+ // Mark the same-locale attempt terminal even when the index is empty, failed,
+ // or the user changed query while it was in flight; otherwise that one-shot
+ // request could leave Tier 4 waiting forever on the next query.
+ setSearchBroadenSettled(true);
  }
  })();
  return () => { cancelled = true; };
