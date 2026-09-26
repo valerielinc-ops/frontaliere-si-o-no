@@ -1,6 +1,6 @@
 {
   "crawlerKey": "patek-philippe",
-  "assembledAt": "2026-09-25T14:41:15.248Z",
+  "assembledAt": "2026-09-26T13:57:25.416Z",
   "jobs": [
     {
       "id": "patek-philippe-15f6ed9a1583",
@@ -33,7 +33,7 @@
       "url": "https://careers.patek.com/job/La-Chaux-de-Fonds-Sertisseur-baguette-%28HF%29/1359382355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:41:08.168Z",
+      "crawledAt": "2026-09-26T13:57:20.469Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
@@ -61,6 +61,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:12:08.354Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -106,7 +107,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Technicien-Contr%C3%B4le-3D-%28HF%29/1367011355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:41:07.721Z",
+      "crawledAt": "2026-09-26T13:57:19.923Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -140,6 +141,7 @@
         ]
       },
       "firstSeenAt": "2026-09-02T23:11:25.604Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -185,7 +187,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Dessinateur-%28HF%29/1351586455/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:41:07.263Z",
+      "crawledAt": "2026-09-26T13:57:19.420Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -275,7 +277,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Contr%C3%B4le-Qualit%C3%A9-%28HF%29/1367187155/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:41:06.790Z",
+      "crawledAt": "2026-09-26T13:57:18.900Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -295,6 +297,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-03T13:35:00.365Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -340,7 +343,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Rouages-Sp%C3%A9ciaux-%28HF%29/1359898855/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:41:06.338Z",
+      "crawledAt": "2026-09-26T13:57:18.391Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -426,7 +429,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Horloger-de-Sp%C3%A9cialit%C3%A9-Organe-R%C3%A9glant-%28HF%29/1363272155/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:41:05.879Z",
+      "crawledAt": "2026-09-26T13:57:17.887Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -479,85 +482,6 @@
       }
     },
     {
-      "id": "patek-philippe-d80d35e1bc80",
-      "slug": "abbigliamento-dresser-m-f-patek-philippe-alle",
-      "slugByLocale": {
-        "it": "abbigliamento-dresser-m-f-patek-philippe-alle",
-        "en": "watchmaker-dresser-m-f-patek-philippe-alle",
-        "de": "uhrmacherkleid-m-w-patek-philippe-alle",
-        "fr": "horloger-rhabilleur-h-f-patek-philippe-alle"
-      },
-      "company": "Patek Philippe",
-      "companyKey": "patek-philippe",
-      "companyDomain": "patek.com",
-      "title": "Horloger Rhabilleur (H/F)",
-      "titleByLocale": {
-        "it": "Abbigliamento Dresser (M/F)",
-        "en": "Watchmaker Dresser (M/F)",
-        "de": "Uhrmacherkleid (M/W)",
-        "fr": "Horloger Rhabilleur (H/F)"
-      },
-      "description": "Mission\n\nDans le cadre de cette fonction, rattachée au Service Client International de notre site de Alle, vous assurerez l’entretien et la réparation des montres modernes, produites de 1980 à nos jours.\n\nResponsabilités\n\n• Réaliser le démontage, l’assemblage, le huilage, le réglage spiral plat et spiral Breguet, la retouche dynamique, le posage cadrans et aiguilles et l’emboîtage.\n\n• Identifier l’origine des pannes.\n\n• Assurer l’entretien et la réparation des montres modernes, mécaniques à remontage manuel, automatique et quartz.\n\n• Participer au bon fonctionnement de l’atelier.\n\nProfil recherché\n\n• CFC d’Horloger Rhabilleur.\n\n• 2 ans d'expérience minimum en rhabillage de produits haut de gamme.\n\n• Maîtrise confirmée du montage, de l’aiguillage, du réglage et de l'emboîtage.\n\n• Excellent sens de l’analyse, rigueur et précision.\n\n• Autonomie, dynamisme.\n\n• Esprit d’équipe, capacité à travailler en équipe, ouverture au changement.\n\nRéférence du poste\n\n3763",
-      "descriptionByLocale": {
-        "it": "Missione\n\nNell'ambito di questa funzione, allegata al Servizio Clienti Internazionale del nostro sito Alle, garantirai la manutenzione e la riparazione di orologi moderni, prodotti dal 1980 al giorno presente.\n\nresponsabilità\n\n• Per eseguire smontaggio, assemblaggio, oliatura, regolazione a spirale piatta e spirale Breguet, ritocco dinamico, punzonatura di quadretti e mani e boxe.\n\n• Identificare l'origine dei guasti.\n\n• Assicurare la manutenzione e la riparazione di orologi meccanici moderni con avvolgimento manuale, automatico e quarzo.\n\n• Partecipa al corretto funzionamento del laboratorio.\n\nProfilo ricercato\n\n• Comò da orologio CFC.\n\n• 2 anni di esperienza minima nella vestibilità del prodotto di alta gamma.\n\n• Confermata padronanza di montaggio, interruttore, regolazione e custodia.\n\n• Ottimo senso di analisi, rigore e precisione.\n\n• Autonomia, dinamismo.\n\n• Spirito di squadra, capacità di lavorare come squadra, apertura al cambiamento.\n\nRiferimenti\n\n3763",
-        "en": "Mission\n\nAs part of this function, attached to the International Customer Service of our Alle site, you will ensure the maintenance and repair of modern watches, produced from 1980 to the present day.\n\nResponsibilities\n\n• To perform disassembly, assembly, oiling, flat spiral adjustment and Breguet spiral, dynamic retouching, punching dials and hands and boxing.\n\n• Identify the origin of breakdowns.\n\n• Ensure maintenance and repair of modern, mechanical watches with manual, automatic and quartz winding.\n\n• Participate in the proper functioning of the workshop.\n\nProfile sought\n\n• CFC watch dresser.\n\n• 2 years of minimum experience in top-of-the-range product dressing.\n\n• Confirmed mastery of assembly, switch, adjustment and enclosure.\n\n• Excellent sense of analysis, rigour and accuracy.\n\n• Autonomy, dynamism.\n\n• Team spirit, ability to work as a team, openness to change.\n\nPost reference\n\n3763",
-        "de": "Mission\n\nAls Teil dieser Funktion, die dem internationalen Kundenservice unserer Alle-Website beigefügt ist, stellen Sie die Wartung und Reparatur moderner Uhren sicher, die von 1980 bis heute hergestellt wurden.\n\nZuständigkeiten\n\n• Um Demontage, Montage, Ölen, flache Spiralanpassung und Breguet Spirale, dynamische Retusche, Stanzen Zifferblätter und Hände und Boxen durchzuführen.\n\n• Geben Sie den Ursprung der Untergliederungen an.\n\n• Gewährleistung der Wartung und Reparatur moderner, mechanischer Uhren mit manueller, automatischer und Quarzwicklung.\n\n• Nehmen Sie am ordnungsgemäßen Funktionieren des Workshops teil.\n\nProfil gesucht\n\n• CFC-Wachkommode.\n\n• 2 Jahre Mindesterfahrung im Top-of-the-Range-Produktdressing.\n\n• Bestätigte Beherrschung der Montage, des Schalters, der Einstellung und des Gehäuses.\n\n• Ausgezeichneter Sinn für Analyse, Strenge und Genauigkeit.\n\n• Autonomie, Dynamik.\n\n• Teamgeist, Teamfähigkeit, Offenheit für Veränderungen.\n\nPostleitzahl\n\n3763",
-        "fr": "Mission\n\nDans le cadre de cette fonction, rattachée au Service Client International de notre site de Alle, vous assurerez l’entretien et la réparation des montres modernes, produites de 1980 à nos jours.\n\nResponsabilités\n\n• Réaliser le démontage, l’assemblage, le huilage, le réglage spiral plat et spiral Breguet, la retouche dynamique, le posage cadrans et aiguilles et l’emboîtage.\n\n• Identifier l’origine des pannes.\n\n• Assurer l’entretien et la réparation des montres modernes, mécaniques à remontage manuel, automatique et quartz.\n\n• Participer au bon fonctionnement de l’atelier.\n\nProfil recherché\n\n• CFC d’Horloger Rhabilleur.\n\n• 2 ans d'expérience minimum en rhabillage de produits haut de gamme.\n\n• Maîtrise confirmée du montage, de l’aiguillage, du réglage et de l'emboîtage.\n\n• Excellent sens de l’analyse, rigueur et précision.\n\n• Autonomie, dynamisme.\n\n• Esprit d’équipe, capacité à travailler en équipe, ouverture au changement.\n\nRéférence du poste\n\n3763"
-      },
-      "location": "Alle",
-      "canton": "JU",
-      "url": "https://careers.patek.com/job/Alle-Horloger-Rhabilleur-%28HF%29/1367491655/",
-      "source": "Patek Philippe Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:41:05.421Z",
-      "hiringOrganization": "Patek Philippe SA",
-      "addressLocality": "Alle",
-      "addressRegion": "JU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Luxury / Watchmaking (Manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-07",
-      "applyUrl": "https://careers.patek.com/job/Alle-Horloger-Rhabilleur-%28HF%29/1367491655/",
-      "jobReqId": "1367491655",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "horloger-rhabilleur-h-f-patek-philippe-alle",
-        "abbigliamento-dresser-m-f-patek-philippe-alle"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "horloger-rhabilleur-h-f-patek-philippe-alle",
-          "abbigliamento-dresser-m-f-patek-philippe-alle"
-        ],
-        "en": [
-          "horloger-rhabilleur-h-f-patek-philippe-alle"
-        ],
-        "de": [
-          "horloger-rhabilleur-h-f-patek-philippe-alle"
-        ]
-      },
-      "firstSeenAt": "2026-09-07T23:29:06.318Z",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 71000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "patek-philippe-d20884e1117f",
       "slug": "bracciale-da-laboratorio-responsabile-m-f-patek-philippe-plan-les-ouates",
       "slugByLocale": {
@@ -588,7 +512,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Atelier-Bracelet-%28HF%29/1367485555/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:41:04.965Z",
+      "crawledAt": "2026-09-26T13:57:17.397Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -639,6 +563,85 @@
       }
     },
     {
+      "id": "patek-philippe-d80d35e1bc80",
+      "slug": "abbigliamento-dresser-m-f-patek-philippe-alle",
+      "slugByLocale": {
+        "it": "abbigliamento-dresser-m-f-patek-philippe-alle",
+        "en": "watchmaker-dresser-m-f-patek-philippe-alle",
+        "de": "uhrmacherkleid-m-w-patek-philippe-alle",
+        "fr": "horloger-rhabilleur-h-f-patek-philippe-alle"
+      },
+      "company": "Patek Philippe",
+      "companyKey": "patek-philippe",
+      "companyDomain": "patek.com",
+      "title": "Horloger Rhabilleur (H/F)",
+      "titleByLocale": {
+        "it": "Abbigliamento Dresser (M/F)",
+        "en": "Watchmaker Dresser (M/F)",
+        "de": "Uhrmacherkleid (M/W)",
+        "fr": "Horloger Rhabilleur (H/F)"
+      },
+      "description": "Mission\n\nDans le cadre de cette fonction, rattachée au Service Client International de notre site de Alle, vous assurerez l’entretien et la réparation des montres modernes, produites de 1980 à nos jours.\n\nResponsabilités\n\n• Réaliser le démontage, l’assemblage, le huilage, le réglage spiral plat et spiral Breguet, la retouche dynamique, le posage cadrans et aiguilles et l’emboîtage.\n\n• Identifier l’origine des pannes.\n\n• Assurer l’entretien et la réparation des montres modernes, mécaniques à remontage manuel, automatique et quartz.\n\n• Participer au bon fonctionnement de l’atelier.\n\nProfil recherché\n\n• CFC d’Horloger Rhabilleur.\n\n• 2 ans d'expérience minimum en rhabillage de produits haut de gamme.\n\n• Maîtrise confirmée du montage, de l’aiguillage, du réglage et de l'emboîtage.\n\n• Excellent sens de l’analyse, rigueur et précision.\n\n• Autonomie, dynamisme.\n\n• Esprit d’équipe, capacité à travailler en équipe, ouverture au changement.\n\nRéférence du poste\n\n3763",
+      "descriptionByLocale": {
+        "it": "Missione\n\nNell'ambito di questa funzione, allegata al Servizio Clienti Internazionale del nostro sito Alle, garantirai la manutenzione e la riparazione di orologi moderni, prodotti dal 1980 al giorno presente.\n\nresponsabilità\n\n• Per eseguire smontaggio, assemblaggio, oliatura, regolazione a spirale piatta e spirale Breguet, ritocco dinamico, punzonatura di quadretti e mani e boxe.\n\n• Identificare l'origine dei guasti.\n\n• Assicurare la manutenzione e la riparazione di orologi meccanici moderni con avvolgimento manuale, automatico e quarzo.\n\n• Partecipa al corretto funzionamento del laboratorio.\n\nProfilo ricercato\n\n• Comò da orologio CFC.\n\n• 2 anni di esperienza minima nella vestibilità del prodotto di alta gamma.\n\n• Confermata padronanza di montaggio, interruttore, regolazione e custodia.\n\n• Ottimo senso di analisi, rigore e precisione.\n\n• Autonomia, dinamismo.\n\n• Spirito di squadra, capacità di lavorare come squadra, apertura al cambiamento.\n\nRiferimenti\n\n3763",
+        "en": "Mission\n\nAs part of this function, attached to the International Customer Service of our Alle site, you will ensure the maintenance and repair of modern watches, produced from 1980 to the present day.\n\nResponsibilities\n\n• To perform disassembly, assembly, oiling, flat spiral adjustment and Breguet spiral, dynamic retouching, punching dials and hands and boxing.\n\n• Identify the origin of breakdowns.\n\n• Ensure maintenance and repair of modern, mechanical watches with manual, automatic and quartz winding.\n\n• Participate in the proper functioning of the workshop.\n\nProfile sought\n\n• CFC watch dresser.\n\n• 2 years of minimum experience in top-of-the-range product dressing.\n\n• Confirmed mastery of assembly, switch, adjustment and enclosure.\n\n• Excellent sense of analysis, rigour and accuracy.\n\n• Autonomy, dynamism.\n\n• Team spirit, ability to work as a team, openness to change.\n\nPost reference\n\n3763",
+        "de": "Mission\n\nAls Teil dieser Funktion, die dem internationalen Kundenservice unserer Alle-Website beigefügt ist, stellen Sie die Wartung und Reparatur moderner Uhren sicher, die von 1980 bis heute hergestellt wurden.\n\nZuständigkeiten\n\n• Um Demontage, Montage, Ölen, flache Spiralanpassung und Breguet Spirale, dynamische Retusche, Stanzen Zifferblätter und Hände und Boxen durchzuführen.\n\n• Geben Sie den Ursprung der Untergliederungen an.\n\n• Gewährleistung der Wartung und Reparatur moderner, mechanischer Uhren mit manueller, automatischer und Quarzwicklung.\n\n• Nehmen Sie am ordnungsgemäßen Funktionieren des Workshops teil.\n\nProfil gesucht\n\n• CFC-Wachkommode.\n\n• 2 Jahre Mindesterfahrung im Top-of-the-Range-Produktdressing.\n\n• Bestätigte Beherrschung der Montage, des Schalters, der Einstellung und des Gehäuses.\n\n• Ausgezeichneter Sinn für Analyse, Strenge und Genauigkeit.\n\n• Autonomie, Dynamik.\n\n• Teamgeist, Teamfähigkeit, Offenheit für Veränderungen.\n\nPostleitzahl\n\n3763",
+        "fr": "Mission\n\nDans le cadre de cette fonction, rattachée au Service Client International de notre site de Alle, vous assurerez l’entretien et la réparation des montres modernes, produites de 1980 à nos jours.\n\nResponsabilités\n\n• Réaliser le démontage, l’assemblage, le huilage, le réglage spiral plat et spiral Breguet, la retouche dynamique, le posage cadrans et aiguilles et l’emboîtage.\n\n• Identifier l’origine des pannes.\n\n• Assurer l’entretien et la réparation des montres modernes, mécaniques à remontage manuel, automatique et quartz.\n\n• Participer au bon fonctionnement de l’atelier.\n\nProfil recherché\n\n• CFC d’Horloger Rhabilleur.\n\n• 2 ans d'expérience minimum en rhabillage de produits haut de gamme.\n\n• Maîtrise confirmée du montage, de l’aiguillage, du réglage et de l'emboîtage.\n\n• Excellent sens de l’analyse, rigueur et précision.\n\n• Autonomie, dynamisme.\n\n• Esprit d’équipe, capacité à travailler en équipe, ouverture au changement.\n\nRéférence du poste\n\n3763"
+      },
+      "location": "Alle",
+      "canton": "JU",
+      "url": "https://careers.patek.com/job/Alle-Horloger-Rhabilleur-%28HF%29/1367491655/",
+      "source": "Patek Philippe Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-26T13:57:16.897Z",
+      "hiringOrganization": "Patek Philippe SA",
+      "addressLocality": "Alle",
+      "addressRegion": "JU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Luxury / Watchmaking (Manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-07",
+      "applyUrl": "https://careers.patek.com/job/Alle-Horloger-Rhabilleur-%28HF%29/1367491655/",
+      "jobReqId": "1367491655",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "horloger-rhabilleur-h-f-patek-philippe-alle",
+        "abbigliamento-dresser-m-f-patek-philippe-alle"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "horloger-rhabilleur-h-f-patek-philippe-alle",
+          "abbigliamento-dresser-m-f-patek-philippe-alle"
+        ],
+        "en": [
+          "horloger-rhabilleur-h-f-patek-philippe-alle"
+        ],
+        "de": [
+          "horloger-rhabilleur-h-f-patek-philippe-alle"
+        ]
+      },
+      "firstSeenAt": "2026-09-07T23:29:06.318Z",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "patek-philippe-e2d4eb47555e",
       "slug": "product-quality-improvement-manager-m-f-patek-philippe-plan-les-ouates",
       "slugByLocale": {
@@ -669,7 +672,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-d'Am%C3%A9lioration-Qualit%C3%A9-Produit-%28HF%29/1367761655/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:41:04.511Z",
+      "crawledAt": "2026-09-26T13:57:16.382Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -712,6 +715,7 @@
         ]
       },
       "firstSeenAt": "2026-09-09T23:06:51.259Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -757,7 +761,7 @@
       "url": "https://careers.patek.com/job/La-Chaux-de-Fonds-Apprenti-Termineur-en-Habillage-Horloger-%28HF%29/1368154355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:41:04.055Z",
+      "crawledAt": "2026-09-26T13:57:15.885Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
@@ -820,7 +824,7 @@
       "title": "Chargé de Process Performance Industrielle (H/F)",
       "titleByLocale": {
         "it": "Gestione delle prestazioni di processo industriale (M/F)",
-        "en": "Industrial Process Performance Manager (M/F)",
+        "en": "Chargé de Process Performance Industrielle (H/F)",
         "de": "Industrial Process Performance Manager (M/W)",
         "fr": "Chargé de Process Performance Industrielle (H/F)"
       },
@@ -836,7 +840,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-Process-Performance-Industrielle-%28HF%29/1368593655/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:41:03.599Z",
+      "crawledAt": "2026-09-26T13:57:15.391Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -872,6 +876,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:51:20.874Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 92000,
       "salarySource": "estimated",
@@ -917,7 +922,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-d'Atelier-UAP-%28Unit%C3%A9-Autonome-de-Production%29-en-Haute-Horlogerie-%28HF%29/1368823355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:41:03.157Z",
+      "crawledAt": "2026-09-26T13:57:14.875Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -998,7 +1003,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Assistant-en-Traitement-de-Surface-%28HF%29/1368883255/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:41:02.706Z",
+      "crawledAt": "2026-09-26T13:57:14.220Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -1028,6 +1033,84 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:51:19.860Z",
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "patek-philippe-dc428e3f2275",
+      "slug": "applichi-di-posizionamento-dell-operatore-m-f-patek-philippe-saint-imier",
+      "slugByLocale": {
+        "it": "applichi-di-posizionamento-dell-operatore-m-f-patek-philippe-saint-imier",
+        "en": "operator-positioning-applics-m-f-patek-philippe-saint-imier",
+        "de": "betreiberpositionierungsgerate-m-w-patek-philippe-saint-imier",
+        "fr": "operateur-pose-appliques-h-f-patek-philippe-saint-imier"
+      },
+      "company": "Patek Philippe",
+      "companyKey": "patek-philippe",
+      "companyDomain": "patek.com",
+      "title": "Opérateur Pose Appliques (H/F)",
+      "titleByLocale": {
+        "it": "Applichi di posizionamento dell'operatore (M/F)",
+        "en": "Operator Positioning Applics (M/F)",
+        "de": "Betreiberpositionierungsgeräte (M/W)",
+        "fr": "Opérateur Pose Appliques (H/F)"
+      },
+      "description": "Mission\n\nDans le cadre de cette fonction, rattachée à l’atelier Finition Cadrans de Cadrans Flückiger à Saint Imier, vous garantirez en toute autonomie la réalisation d’un ensemble d’opérations complexes se rapportant à la pose d’appliques, d’index, de sertissures, etc. sur des cadrans terminés dans le respect nos standards de production et de qualité.\n\nResponsabilités\n\n• Réaliser la pose d’appliques, d’index, de sertissures, etc. sur des cadrans terminés.\n\n• Assurer le rhabillage des cadrans terminés.\n\n• Réaliser les opérations finales telles que le pointage, le collage, le coupage et le rivetage des pieds.\n\n• Contrôler ses travaux selon les standards définis.\n\n• Détecter les dérives esthétiques pouvant intervenir en cours de production, les corriger, et en cas de problème, alerter son responsable.\n\nProfil recherché\n\n• 1 à 3 ans d’expérience dans un poste similaire.\n\n• Expérience préalable en horlogerie haut de gamme souhaitée.\n\n• Très bonne acuité visuelle (travail avec le micros).\n\n• Très bonne habileté manuelle dont travail à la brucelle.\n\n• Rigueur et précision.\n\n• Capacité de concentration.\n\n• Capacité d’adaptation.\n\n• Esprit d'équipe\n\nRéférence du poste\n\n3778",
+      "descriptionByLocale": {
+        "it": "Missione\n\nNell'ambito di questa funzione, allegata al Flückiger Dials Finishing workshop di Saint Imier, garantirai in completa autonomia la realizzazione di un complesso insieme di operazioni relative all'installazione di appliqués, index, crimps, ecc. sui quadranti completati nel rispetto dei nostri standard di produzione e qualità.\n\nresponsabilità\n\n• Fare l'installazione di appliqués, indice, crimps, ecc su quadranti finiti.\n\n• Assicurare la riparazione dei quadranti finiti.\n\n• Eseguire operazioni finali come puntamento, collage, taglio e rivetto di piedi.\n\n• Controllare il suo lavoro secondo gli standard definiti.\n\n• Rileva le derive estetiche che possono verificarsi durante la produzione, correggerle, e in caso di problema, avvisare la persona responsabile.\n\nProfilo ricercato\n\n• Da 1 a 3 anni di esperienza in una posizione simile.\n\n• Esperienza prioritaria nell'orologeria di fascia alta.\n\n• Acuità visiva molto buona (lavorando con il microfono).\n\n• Molto buona abilità manuale tra cui lavoro brucella.\n\n• Rigor e precisione.\n\n• Capacità di concentrazione.\n\n• Adattabilità.\n\n• Spirito di squadra\n\nRiferimenti\n\n3778",
+        "en": "Mission\n\nWithin the framework of this function, attached to the Flückiger Dials Dials Finishing workshop in Saint Imier, you will guarantee in complete autonomy the realization of a complex set of operations relating to the installation of appliqués, index, crimps, etc. on dials completed in compliance with our production and quality standards.\n\nResponsibilities\n\n• Make installation of appliqués, index, crimps, etc. on finished dials.\n\n• Ensure the repair of finished dials.\n\n• Perform final operations such as pointing, collage, cutting and riveting of feet.\n\n• Control its work according to defined standards.\n\n• Detect aesthetic drifts that can occur during production, correct them, and in case of problem, alert the person in charge.\n\nProfile sought\n\n• 1 to 3 years of experience in a similar position.\n\n• Prior experience in high-end watchmaking.\n\n• Very good visual acuity (working with the microphone).\n\n• Very good manual skill including brucella work.\n\n• Rigor and accuracy.\n\n• Concentration capacity.\n\n• Adaptability.\n\n• Team spirit\n\nPost reference\n\n3778",
+        "de": "Mission\n\nIm Rahmen dieser Funktion, verbunden mit der Flückiger Dials Dials Finishing Werkstatt in Saint Imier, garantieren Sie in völliger Autonomie die Realisierung einer komplexen Reihe von Operationen im Zusammenhang mit der Installation von Anwendungen, Index, Crimps usw. auf Zifferblättern, die in Übereinstimmung mit unseren Produktions- und Qualitätsstandards fertiggestellt wurden.\n\nZuständigkeiten\n\n• Installieren Sie Appliqués, Index, Crimps usw. auf fertigen Zifferblättern.\n\n• Stellen Sie sicher, dass die fertigen Zifferblätter repariert werden.\n\n• Führen Sie abschließende Operationen wie Zeigen, Collagen, Schneiden und Nieten von Füßen durch.\n\n• Kontrolle seiner Arbeit nach definierten Standards.\n\n• Erkennen Sie ästhetische Drifte, die während der Produktion auftreten können, korrigieren Sie sie und alarmieren Sie im Falle eines Problems die verantwortliche Person.\n\nProfil gesucht\n\n• 1 bis 3 Jahre Erfahrung in einer ähnlichen Position.\n\n• Vorherige Erfahrung in der High-End-Uhrmacherei.\n\n• Sehr gute Sehschärfe (Arbeiten mit dem Mikrofon).\n\n• Sehr gutes manuelles Geschick einschließlich Brucella Arbeit.\n\n• Strenge und Genauigkeit.\n\n• Konzentrationskapazität.\n\n• Anpassungsfähigkeit.\n\n• Teamgeist\n\nPostleitzahl\n\n3778",
+        "fr": "Mission\n\nDans le cadre de cette fonction, rattachée à l’atelier Finition Cadrans de Cadrans Flückiger à Saint Imier, vous garantirez en toute autonomie la réalisation d’un ensemble d’opérations complexes se rapportant à la pose d’appliques, d’index, de sertissures, etc. sur des cadrans terminés dans le respect nos standards de production et de qualité.\n\nResponsabilités\n\n• Réaliser la pose d’appliques, d’index, de sertissures, etc. sur des cadrans terminés.\n\n• Assurer le rhabillage des cadrans terminés.\n\n• Réaliser les opérations finales telles que le pointage, le collage, le coupage et le rivetage des pieds.\n\n• Contrôler ses travaux selon les standards définis.\n\n• Détecter les dérives esthétiques pouvant intervenir en cours de production, les corriger, et en cas de problème, alerter son responsable.\n\nProfil recherché\n\n• 1 à 3 ans d’expérience dans un poste similaire.\n\n• Expérience préalable en horlogerie haut de gamme souhaitée.\n\n• Très bonne acuité visuelle (travail avec le micros).\n\n• Très bonne habileté manuelle dont travail à la brucelle.\n\n• Rigueur et précision.\n\n• Capacité de concentration.\n\n• Capacité d’adaptation.\n\n• Esprit d'équipe\n\nRéférence du poste\n\n3778"
+      },
+      "location": "Saint-Imier",
+      "canton": "BE",
+      "url": "https://careers.patek.com/job/Saint-Imier-Op%C3%A9rateur-Pose-Appliques-%28HF%29/1369580655/",
+      "source": "Patek Philippe Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-26T13:57:13.540Z",
+      "hiringOrganization": "Patek Philippe SA",
+      "addressLocality": "Saint-Imier",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Luxury / Watchmaking (Manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-25",
+      "applyUrl": "https://careers.patek.com/job/Saint-Imier-Op%C3%A9rateur-Pose-Appliques-%28HF%29/1369580655/",
+      "jobReqId": "1369580655",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-25T14:41:01.587Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operateur-pose-appliques-h-f-patek-philippe-saint-imier"
+        ],
+        "en": [
+          "operateur-pose-appliques-h-f-patek-philippe-saint-imier"
+        ],
+        "de": [
+          "operateur-pose-appliques-h-f-patek-philippe-saint-imier"
+        ]
+      },
+      "previousSlugs": [
+        "operateur-pose-appliques-h-f-patek-philippe-saint-imier"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1115,72 +1198,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "patek-philippe-dc428e3f2275",
-      "slug": "operateur-pose-appliques-h-f-patek-philippe-saint-imier",
-      "slugByLocale": {
-        "fr": "operateur-pose-appliques-h-f-patek-philippe-saint-imier",
-        "it": "operateur-pose-appliques-h-f-patek-philippe-saint-imier",
-        "en": "operateur-pose-appliques-h-f-patek-philippe-saint-imier",
-        "de": "operateur-pose-appliques-h-f-patek-philippe-saint-imier"
       },
-      "company": "Patek Philippe",
-      "companyKey": "patek-philippe",
-      "companyDomain": "patek.com",
-      "title": "Opérateur Pose Appliques (H/F)",
-      "titleByLocale": {
-        "fr": "Opérateur Pose Appliques (H/F)",
-        "it": "Applichi di posizionamento dell'operatore (M/F)",
-        "en": "Operator Positioning Applics (M/F)",
-        "de": "Betreiberpositionierungsgeräte (M/W)"
-      },
-      "description": "Mission\n\nDans le cadre de cette fonction, rattachée à l’atelier Finition Cadrans de Cadrans Flückiger à Saint Imier, vous garantirez en toute autonomie la réalisation d’un ensemble d’opérations complexes se rapportant à la pose d’appliques, d’index, de sertissures, etc. sur des cadrans terminés dans le respect nos standards de production et de qualité.\n\nResponsabilités\n\n• Réaliser la pose d’appliques, d’index, de sertissures, etc. sur des cadrans terminés.\n\n• Assurer le rhabillage des cadrans terminés.\n\n• Réaliser les opérations finales telles que le pointage, le collage, le coupage et le rivetage des pieds.\n\n• Contrôler ses travaux selon les standards définis.\n\n• Détecter les dérives esthétiques pouvant intervenir en cours de production, les corriger, et en cas de problème, alerter son responsable.\n\nProfil recherché\n\n• 1 à 3 ans d’expérience dans un poste similaire.\n\n• Expérience préalable en horlogerie haut de gamme souhaitée.\n\n• Très bonne acuité visuelle (travail avec le micros).\n\n• Très bonne habileté manuelle dont travail à la brucelle.\n\n• Rigueur et précision.\n\n• Capacité de concentration.\n\n• Capacité d’adaptation.\n\n• Esprit d'équipe\n\nRéférence du poste\n\n3778",
-      "descriptionByLocale": {
-        "fr": "Mission\n\nDans le cadre de cette fonction, rattachée à l’atelier Finition Cadrans de Cadrans Flückiger à Saint Imier, vous garantirez en toute autonomie la réalisation d’un ensemble d’opérations complexes se rapportant à la pose d’appliques, d’index, de sertissures, etc. sur des cadrans terminés dans le respect nos standards de production et de qualité.\n\nResponsabilités\n\n• Réaliser la pose d’appliques, d’index, de sertissures, etc. sur des cadrans terminés.\n\n• Assurer le rhabillage des cadrans terminés.\n\n• Réaliser les opérations finales telles que le pointage, le collage, le coupage et le rivetage des pieds.\n\n• Contrôler ses travaux selon les standards définis.\n\n• Détecter les dérives esthétiques pouvant intervenir en cours de production, les corriger, et en cas de problème, alerter son responsable.\n\nProfil recherché\n\n• 1 à 3 ans d’expérience dans un poste similaire.\n\n• Expérience préalable en horlogerie haut de gamme souhaitée.\n\n• Très bonne acuité visuelle (travail avec le micros).\n\n• Très bonne habileté manuelle dont travail à la brucelle.\n\n• Rigueur et précision.\n\n• Capacité de concentration.\n\n• Capacité d’adaptation.\n\n• Esprit d'équipe\n\nRéférence du poste\n\n3778",
-        "it": "Missione\n\nNell'ambito di questa funzione, allegata al Flückiger Dials Finishing workshop di Saint Imier, garantirai in completa autonomia la realizzazione di un complesso insieme di operazioni relative all'installazione di appliqués, index, crimps, ecc. sui quadranti completati nel rispetto dei nostri standard di produzione e qualità.\n\nresponsabilità\n\n• Fare l'installazione di appliqués, indice, crimps, ecc su quadranti finiti.\n\n• Assicurare la riparazione dei quadranti finiti.\n\n• Eseguire operazioni finali come puntamento, collage, taglio e rivetto di piedi.\n\n• Controllare il suo lavoro secondo gli standard definiti.\n\n• Rileva le derive estetiche che possono verificarsi durante la produzione, correggerle, e in caso di problema, avvisare la persona responsabile.\n\nProfilo ricercato\n\n• Da 1 a 3 anni di esperienza in una posizione simile.\n\n• Esperienza prioritaria nell'orologeria di fascia alta.\n\n• Acuità visiva molto buona (lavorando con il microfono).\n\n• Molto buona abilità manuale tra cui lavoro brucella.\n\n• Rigor e precisione.\n\n• Capacità di concentrazione.\n\n• Adattabilità.\n\n• Spirito di squadra\n\nRiferimenti\n\n3778",
-        "en": "Mission\n\nWithin the framework of this function, attached to the Flückiger Dials Dials Finishing workshop in Saint Imier, you will guarantee in complete autonomy the realization of a complex set of operations relating to the installation of appliqués, index, crimps, etc. on dials completed in compliance with our production and quality standards.\n\nResponsibilities\n\n• Make installation of appliqués, index, crimps, etc. on finished dials.\n\n• Ensure the repair of finished dials.\n\n• Perform final operations such as pointing, collage, cutting and riveting of feet.\n\n• Control its work according to defined standards.\n\n• Detect aesthetic drifts that can occur during production, correct them, and in case of problem, alert the person in charge.\n\nProfile sought\n\n• 1 to 3 years of experience in a similar position.\n\n• Prior experience in high-end watchmaking.\n\n• Very good visual acuity (working with the microphone).\n\n• Very good manual skill including brucella work.\n\n• Rigor and accuracy.\n\n• Concentration capacity.\n\n• Adaptability.\n\n• Team spirit\n\nPost reference\n\n3778",
-        "de": "Mission\n\nIm Rahmen dieser Funktion, verbunden mit der Flückiger Dials Dials Finishing Werkstatt in Saint Imier, garantieren Sie in völliger Autonomie die Realisierung einer komplexen Reihe von Operationen im Zusammenhang mit der Installation von Anwendungen, Index, Crimps usw. auf Zifferblättern, die in Übereinstimmung mit unseren Produktions- und Qualitätsstandards fertiggestellt wurden.\n\nZuständigkeiten\n\n• Installieren Sie Appliqués, Index, Crimps usw. auf fertigen Zifferblättern.\n\n• Stellen Sie sicher, dass die fertigen Zifferblätter repariert werden.\n\n• Führen Sie abschließende Operationen wie Zeigen, Collagen, Schneiden und Nieten von Füßen durch.\n\n• Kontrolle seiner Arbeit nach definierten Standards.\n\n• Erkennen Sie ästhetische Drifte, die während der Produktion auftreten können, korrigieren Sie sie und alarmieren Sie im Falle eines Problems die verantwortliche Person.\n\nProfil gesucht\n\n• 1 bis 3 Jahre Erfahrung in einer ähnlichen Position.\n\n• Vorherige Erfahrung in der High-End-Uhrmacherei.\n\n• Sehr gute Sehschärfe (Arbeiten mit dem Mikrofon).\n\n• Sehr gutes manuelles Geschick einschließlich Brucella Arbeit.\n\n• Strenge und Genauigkeit.\n\n• Konzentrationskapazität.\n\n• Anpassungsfähigkeit.\n\n• Teamgeist\n\nPostleitzahl\n\n3778"
-      },
-      "location": "Saint-Imier",
-      "canton": "BE",
-      "url": "https://careers.patek.com/job/Saint-Imier-Op%C3%A9rateur-Pose-Appliques-%28HF%29/1369580655/",
-      "source": "Patek Philippe Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:41:01.587Z",
-      "hiringOrganization": "Patek Philippe SA",
-      "addressLocality": "Saint-Imier",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Luxury / Watchmaking (Manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-25",
-      "applyUrl": "https://careers.patek.com/job/Saint-Imier-Op%C3%A9rateur-Pose-Appliques-%28HF%29/1369580655/",
-      "jobReqId": "1369580655",
-      "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-25T14:41:01.587Z"
+      "crawlerMissStreak": 1
     }
   ]
 }
