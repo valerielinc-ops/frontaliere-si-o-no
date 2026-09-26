@@ -335,6 +335,8 @@ export const RC_TO_ENV = {
 
   // Feature flags
   ENABLE_JOB_ALERTS:              ['ENABLE_JOB_ALERTS'],
+  // Exact-job application-intent ranking (#9934); absent/false stays control.
+  APPLICATION_INTENT_RANKING_ENABLED: ['APPLICATION_INTENT_RANKING_ENABLED'],
   // Job-email ranking (#7922). Keep the complete tuning surface in Remote
   // Config so the experiment can be reduced or disabled without a deploy.
   JOB_EMAIL_RANKING_ENABLED:      ['JOB_EMAIL_RANKING_ENABLED'],

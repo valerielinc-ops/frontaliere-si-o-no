@@ -575,6 +575,8 @@ const App: React.FC = () => {
  const [userProfile, setUserProfile] = useState<UserProfileData | null>(null);
  const [contactPrefill, setContactPrefill] = useState<ContactPrefill | null>(null);
  const [enablePersonalization, setEnablePersonalization] = useState(false);
+ const [enableApplicationIntentRanking, setEnableApplicationIntentRanking] = useState(false);
+ const [behaviorHydrationRevision, setBehaviorHydrationRevision] = useState(0);
  const [adminGoogleButtonReady, setAdminGoogleButtonReady] = useState(false);
  const adminGoogleButtonRef = useRef<HTMLDivElement | null>(null);
  const [linkedInCallbackProcessing, setLinkedInCallbackProcessing] = useState(false);
@@ -1391,21 +1393,31 @@ const App: React.FC = () => {
 
  // ── Personalization feature flag (Firebase Remote Config) ──
  useEffect(() => {
- import('@/services/firebase').then(({ getConfigValue }) =>
- getConfigValue('ENABLE_JOB_PERSONALIZATION').then((v) => setEnablePersonalization(v === 'true'))
- ).catch(() => {});
+ import('@/services/firebase').then(({ getConfigValue }) => Promise.all([
+  getConfigValue('ENABLE_JOB_PERSONALIZATION').catch(() => 'false'),
+  getConfigValue('APPLICATION_INTENT_RANKING_ENABLED').catch(() => 'false'),
+ ])).then(([personalization, applicationIntentRanking]) => {
+  setEnablePersonalization(personalization === 'true');
+  setEnableApplicationIntentRanking(applicationIntentRanking === 'true');
+ }).catch(() => {});
  }, []);
 
  // ── Personalization: Firestore sync on auth ──
  useEffect(() => {
- if (!enablePersonalization || !authEmail) return;
+ if ((!enablePersonalization && !enableApplicationIntentRanking) || !authEmail) return;
+ let cancelled = false;
  let cleanup: (() => void) | undefined;
  import('@/services/behaviorTracker').then(({ hydrateFromFirestore, syncToFirestore, startSyncInterval }) => {
- hydrateFromFirestore(authEmail).then(() => syncToFirestore(authEmail)).catch(() => {});
- cleanup = startSyncInterval(authEmail);
+  if (cancelled) return;
+  hydrateFromFirestore(authEmail).then(async (hydrated) => {
+   if (cancelled) return;
+   setBehaviorHydrationRevision((revision) => revision + 1);
+   if (hydrated) await syncToFirestore(authEmail);
+   if (!cancelled) cleanup = startSyncInterval(authEmail, hydrated);
+  }).catch(() => {});
  }).catch(() => {});
- return () => { cleanup?.(); };
- }, [enablePersonalization, authEmail]);
+ return () => { cancelled = true; cleanup?.(); };
+ }, [enablePersonalization, enableApplicationIntentRanking, authEmail]);
 
  useEffect(() => {
  let cancelled = false;
@@ -3115,6 +3127,8 @@ const App: React.FC = () => {
  authUser={authUser}
  authLoading={authLoading}
  enablePersonalization={enablePersonalization}
+ enableApplicationIntentRanking={enableApplicationIntentRanking}
+ behaviorHydrationRevision={behaviorHydrationRevision}
  userProfile={userProfile}
  onGoogleAuthRequired={googleSignIn}
  onFacebookAuthRequired={facebookSignIn}
