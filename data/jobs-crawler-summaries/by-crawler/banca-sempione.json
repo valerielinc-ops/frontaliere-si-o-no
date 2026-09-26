@@ -1,16 +1,16 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-09-26T14:05:22.129Z",
+  "generatedAt": "2026-09-26T23:41:26.156Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4127,
-  "avgDurationMs": 4127,
+  "durationMs": 4513,
+  "avgDurationMs": 4513,
   "durationHistory": [
-    4127
+    4513
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -160,14 +160,15 @@
       "slug": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
       "sourceLang": "it",
       "id": "banca-sempione-a117dec221e9",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T21:11:04.811Z",
       "crawledAt": "",
       "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-consulente-alla-clientela-private-banker/",
-      "_qualityScore": 75,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 25,
+        "translation": 23,
         "completeness": 11
       }
     },
