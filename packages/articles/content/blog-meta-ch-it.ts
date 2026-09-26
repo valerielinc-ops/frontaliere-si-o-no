@@ -6809,6 +6809,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.risarcimenti-grandine-svizzera-2026.title': 'Assicurazione grandine: risarcimenti fino a 170 milioni',
     'blog.article.risarcimenti-grandine-svizzera-2026.excerpt': 'Grandine Svizzera prevede risarcimenti fino a 170 milioni di franchi nel 2026. Adrian Aebi avverte: i premi potrebbero diventare insostenibili.',
     'blog.article.risarcimenti-grandine-svizzera-2026.imageAlt': 'Campo agricolo svizzero con colture di mais e patate',
+    'blog.article.onere-premi-cassa-malati-nzz.title': 'Premi cassa malati: l\'onere netto è rimasto stabile',
+    'blog.article.onere-premi-cassa-malati-nzz.excerpt': 'Analisi NZZ su 300\'000 famiglie: tra il 2016 e il 2023 il carico netto dei premi è rimasto stabile grazie a sussidi e crescita dei redditi.',
+    'blog.article.onere-premi-cassa-malati-nzz.imageAlt': 'Vista urbana della Svizzera, simbolo del costo della vita e delle spese familiari',
 };
 
 export default blogMetaChIt;

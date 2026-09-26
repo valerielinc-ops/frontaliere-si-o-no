@@ -6809,6 +6809,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.risarcimenti-grandine-svizzera-2026.title': 'Hail insurance: compensation up to 170 million',
     'blog.article.risarcimenti-grandine-svizzera-2026.excerpt': 'Grandine Svizzera expects compensation payments of up to 170 million francs in 2026. Adrian Aebi warns: premiums could become unaffordable.',
     'blog.article.risarcimenti-grandine-svizzera-2026.imageAlt': 'Swiss agricultural field with corn and potato crops',
+    'blog.article.onere-premi-cassa-malati-nzz.title': 'Health insurance premiums: the net burden remained stable',
+    'blog.article.onere-premi-cassa-malati-nzz.excerpt': 'NZZ analysis of 300\'000 families: between 2016 and 2023, the net burden of premiums remained stable thanks to subsidies and income growth.',
+    'blog.article.onere-premi-cassa-malati-nzz.imageAlt': 'Urban view of Switzerland, symbolizing cost of living and family expenses',
 };
 
 export default blogMetaChEn;

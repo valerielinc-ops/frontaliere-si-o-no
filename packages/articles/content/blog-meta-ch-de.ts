@@ -6809,6 +6809,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.risarcimenti-grandine-svizzera-2026.title': 'Hagelversicherung: Entschädigungen bis zu 170 Millionen',
     'blog.article.risarcimenti-grandine-svizzera-2026.excerpt': 'Grandine Svizzera erwartet Entschädigungszahlungen von bis zu 170 Millionen Franken im Jahr 2026. Adrian Aebi warnt: Die Prämien könnten untragbar werden.',
     'blog.article.risarcimenti-grandine-svizzera-2026.imageAlt': 'Schweizer landwirtschaftliches Feld mit Mais- und Kartoffelkulturen',
+    'blog.article.onere-premi-cassa-malati-nzz.title': 'Krankenkassenprämien: Die Nettobelastung blieb stabil',
+    'blog.article.onere-premi-cassa-malati-nzz.excerpt': 'NZZ-Analyse zu 300\'000 Familien: Zwischen 2016 und 2023 blieb die Nettobelastung durch Prämien dank Subventionen und Einkommenswachstum stabil.',
+    'blog.article.onere-premi-cassa-malati-nzz.imageAlt': 'Städtische Ansicht der Schweiz, Symbol für Lebenskosten und Familienausgaben',
 };
 
 export default blogMetaChDe;

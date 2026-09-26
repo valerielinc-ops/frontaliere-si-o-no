@@ -6809,6 +6809,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.risarcimenti-grandine-svizzera-2026.title': 'Assurance contre la grêle : indemnisations jusqu’à 170 millions',
     'blog.article.risarcimenti-grandine-svizzera-2026.excerpt': 'Grandine Svizzera prévoit des indemnisations pouvant atteindre 170 millions de francs en 2026. Adrian Aebi avertit : les primes pourraient devenir insoutenables.',
     'blog.article.risarcimenti-grandine-svizzera-2026.imageAlt': 'Champ agricole suisse avec cultures de maïs et de pommes de terre',
+    'blog.article.onere-premi-cassa-malati-nzz.title': 'Primes des caisses-maladie : la charge nette est restée stable',
+    'blog.article.onere-premi-cassa-malati-nzz.excerpt': 'Analyse de la NZZ sur 300\'000 familles : entre 2016 et 2023, la charge nette des primes est restée stable grâce aux subventions et à la croissance des revenus.',
+    'blog.article.onere-premi-cassa-malati-nzz.imageAlt': 'Vue urbaine de la Suisse, symbolisant le coût de la vie et les dépenses familiales',
 };
 
 export default blogMetaChFr;
