@@ -4,11 +4,11 @@
   "generatorSha256": "6f2cd09fca08906ae233f535997403217908d5d4fc55160cc318563846ca2320",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "478c42cb69ba164469b811032d4bbb1bb6a978a7",
+  "sourceCommit": "1d2d665a26218b7c5a8ffa98761e63a1dd1c435c",
   "artifactObservation": {
     "generatorSha256": "6f2cd09fca08906ae233f535997403217908d5d4fc55160cc318563846ca2320",
     "sourceRef": "main",
-    "sourceCommit": "478c42cb69ba164469b811032d4bbb1bb6a978a7"
+    "sourceCommit": "1d2d665a26218b7c5a8ffa98761e63a1dd1c435c"
   },
   "groupCount": 24,
   "artifactCount": 25,
@@ -17,7 +17,7 @@
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:c04f2bcd64d2bb605195bd7dd14918390cec3ab1a702cc7147d482abd86a89fc",
+    "rosterDigest": "sha256:955c0cc302f3930558ab5e17058bb87590c9f22ee0c9062bf5b2b6547a8aaf63",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -1436,8 +1436,8 @@
     {
       "file": "crawler-group-23.yml",
       "sourceLogic": "crawler-group-23-logic.yml",
-      "sourceSha256": "3f28dc199e312f6ce7f07302224cb074cf1fef63a2f2755a27a2119484bc7cf6",
-      "artifactSha256": "e3f1c6b13e059270ee9e7fc95cf42726bd7ac7ce890fe539d9e0ca1041995519",
+      "sourceSha256": "8d7981e4ed0e1337cf4cb9f3a2d72f8927013ec2867d2e1402fe461001242c15",
+      "artifactSha256": "3ee83fe775b447c777f21c788f73e2122318043a218ce8d3ea128d810858c905",
       "generatorSha256": "6f2cd09fca08906ae233f535997403217908d5d4fc55160cc318563846ca2320",
       "members": [
         "albergo-gardenia",
@@ -1452,14 +1452,15 @@
         "postch",
         "brefispersonal",
         "ecam",
-        "christinavassalli"
+        "christinavassalli",
+        "premiumpflege24"
       ]
     },
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "d35307811316a7da075b37900368e6883cf28e6c3b5936510de4baeaba0af70b",
-      "artifactSha256": "05ba6b519758011932d2107933133525a1ceeed2c2beb31d356f097af0c6b118",
+      "sourceSha256": "862c4577b0aebcb6086fbfc637affcc3f4d205af553b7c8b9568521889def738",
+      "artifactSha256": "5b0033beee43dc6b4e2806b8d24a4cf6282088101f5b51fcc54c622c00e96bd0",
       "generatorSha256": "6f2cd09fca08906ae233f535997403217908d5d4fc55160cc318563846ca2320",
       "members": [
         "mcdonald-s-switzerland",
@@ -1474,8 +1475,7 @@
         "tpl-lugano",
         "capri-holdings",
         "confederazione",
-        "protectas",
-        "premiumpflege24"
+        "protectas"
       ]
     },
     {

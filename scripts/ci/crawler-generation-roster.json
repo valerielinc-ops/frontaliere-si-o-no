@@ -409,7 +409,8 @@
       "migros-hq",
       "nestle",
       "posta-svizzera-centro-regionale",
-      "postauto"
+      "postauto",
+      "premiumpflege24"
     ],
     "24": [
       "anicura",
@@ -422,7 +423,6 @@
       "mcdonald-s-switzerland",
       "pole-sante-pays-enhaut",
       "postfinance",
-      "premiumpflege24",
       "protectas",
       "tpl-lugano",
       "tsmg"
@@ -1306,5 +1306,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:c04f2bcd64d2bb605195bd7dd14918390cec3ab1a702cc7147d482abd86a89fc"
+  "digest": "sha256:955c0cc302f3930558ab5e17058bb87590c9f22ee0c9062bf5b2b6547a8aaf63"
 }
