@@ -13,6 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { hardenJobsWithStructuredSalary } from './structured-salary.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
@@ -183,8 +184,11 @@ export async function fetchAllChristinavassalliJobs() {
       addressRegion: normalizeSpace(listing.addressRegion || canton),
       addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
       country: normalizeSpace(listing.addressCountry || 'CH'),
-      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
-      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
+      // Keep mandatory address keys on every row; the job-page JSON-LD
+      // normalizer supplies safe fallbacks when the source omits them.
+      postalCode: normalizeSpace(listing.postalCode || ''),
+      streetAddress: normalizeSpace(listing.streetAddress || ''),
+      baseSalary: null,
       category: detectCategory(title),
       contract: employmentType === 'PART_TIME'
         ? 'part-time'
@@ -206,5 +210,5 @@ export async function fetchAllChristinavassalliJobs() {
   }
 
   console.log(`\n📋 Total CHRISTINA VASSALLI Services, Inhaberin Denise Tschäppät jobs discovered: ${jobs.length}`);
-  return jobs;
+  return hardenJobsWithStructuredSalary(jobs).jobs;
 }
