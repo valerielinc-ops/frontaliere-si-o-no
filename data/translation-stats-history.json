@@ -1,88 +1,5 @@
 [
   {
-    "timestamp": "2026-09-08T05:02:15.318Z",
-    "label": "before",
-    "total": 28831,
-    "needsRetranslation": 8115,
-    "suppressed": 113,
-    "incomplete": 8940,
-    "complete": 19891,
-    "slotsPresent": 19891,
-    "flaggedAmongSlotsPresent": 0,
-    "verifiedTranslated": 19891,
-    "sourceCopyExcused": 701,
-    "slotsPresentByLength": 28672,
-    "languageVerified": 20840,
-    "missingByLocale": {
-      "it": 113,
-      "en": 88,
-      "de": 98,
-      "fr": 125
-    },
-    "queueAge": {
-      "count": 8115,
-      "withTimestamp": 8115,
-      "oldestAgeDays": 147.8,
-      "p50AgeDays": 17.3,
-      "p90AgeDays": 68.3,
-      "buckets": {
-        "0-1d": 299,
-        "1-2d": 106,
-        "2-7d": 1570,
-        "0-7d": 1975,
-        "7-30d": 3102,
-        "30-90d": 2565,
-        "90-180d": 473,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "completionAge": null,
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1193
-      },
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 889
-      },
-      {
-        "company": "Roche",
-        "pending": 495
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 321
-      },
-      {
-        "company": "BKW",
-        "pending": 240
-      },
-      {
-        "company": "PEMSA",
-        "pending": 194
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 191
-      },
-      {
-        "company": "Migrol AG",
-        "pending": 170
-      },
-      {
-        "company": "JUMBO",
-        "pending": 166
-      },
-      {
-        "company": "Sulzer",
-        "pending": 166
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-08T06:07:47.597Z",
     "label": "after",
     "total": 28831,
@@ -19490,6 +19407,100 @@
       {
         "company": "Stadt Zürich",
         "pending": 94
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-26T01:49:23.457Z",
+    "label": "before",
+    "total": 26379,
+    "needsRetranslation": 10346,
+    "suppressed": 272,
+    "incomplete": 4601,
+    "complete": 21778,
+    "slotsPresent": 21778,
+    "flaggedAmongSlotsPresent": 6396,
+    "verifiedTranslated": 15382,
+    "sourceCopyExcused": 704,
+    "slotsPresentByLength": 26255,
+    "languageVerified": 22209,
+    "missingByLocale": {
+      "it": 835,
+      "en": 572,
+      "de": 205,
+      "fr": 567
+    },
+    "queueAge": {
+      "count": 10346,
+      "withTimestamp": 10346,
+      "oldestAgeDays": 501.1,
+      "p50AgeDays": 32.7,
+      "p90AgeDays": 128.8,
+      "buckets": {
+        "0-1d": 368,
+        "1-2d": 203,
+        "2-7d": 1760,
+        "0-7d": 2331,
+        "7-30d": 2543,
+        "30-90d": 3368,
+        "90-180d": 2103,
+        "180d+": 1
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 2369,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "topPending": [
+      {
+        "company": "PEMSA",
+        "pending": 257
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 209
+      },
+      {
+        "company": "VOLG",
+        "pending": 173
+      },
+      {
+        "company": "Roche",
+        "pending": 160
+      },
+      {
+        "company": "Manor AG",
+        "pending": 149
+      },
+      {
+        "company": "Fresh Food & Beverage Group",
+        "pending": 143
+      },
+      {
+        "company": "Hirslanden Klinik",
+        "pending": 110
+      },
+      {
+        "company": "Anker Swiss Ticino AG",
+        "pending": 106
+      },
+      {
+        "company": "Sulzer",
+        "pending": 104
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 92
       }
     ]
   }

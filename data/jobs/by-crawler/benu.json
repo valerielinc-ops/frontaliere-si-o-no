@@ -68,7 +68,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T16:00:38.955Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -149,7 +148,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T16:00:38.953Z",
-      "needsRetranslation": true,
       "salaryMin": 23000,
       "salaryMax": 34800,
       "salarySource": "estimated",
@@ -230,7 +228,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T16:00:38.949Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -392,7 +389,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T16:00:38.938Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -548,8 +544,7 @@
         }
       },
       "sourceIdentity": "url:https://job.benu.ch/de/jobs/8059265-data-engineer-microsoft-fabric-w-m-80-100-de",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }

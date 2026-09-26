@@ -67,7 +67,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:44:47.743Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -144,7 +143,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:44:47.250Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -173,7 +171,7 @@
       "companyDomain": "pictet.com",
       "title": "Junior Researcher (fixed-term contract - 2 years programme)",
       "titleByLocale": {
-        "it": "Junior Researcher (fixed-term contract - 2 years programme)",
+        "it": "Junior Researcher (contratto a tempo determinato - programma 2 anni)",
         "en": "Junior Researcher (fixed-term contract - 2 years programme)",
         "de": "Junior Researcher (Befristungsvertrag - 2 Jahre Programm)",
         "fr": "Chercheur junior (contrat à durée déterminée - programme de 2 ans)"
@@ -218,7 +216,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:44:45.090Z",
-      "needsRetranslation": true,
       "salaryMin": 57000,
       "salaryMax": 97000,
       "salarySource": "estimated",
@@ -247,7 +244,7 @@
       "companyDomain": "pictet.com",
       "title": "Collaborateur/trice Production Support",
       "titleByLocale": {
-        "it": "Collaborateur/trice Production Support",
+        "it": "Supporto per la produzione",
         "en": "Collaborator Production Support",
         "de": "Collaborator Produktionsunterstützung",
         "fr": "Collaborateur/trice Production Support"
@@ -292,7 +289,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:44:43.680Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -576,7 +572,6 @@
       "jobReqId": "125084",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:44:46.807Z",
       "previousSlugsByLocale": {
         "it": [
@@ -683,8 +678,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "pictet-cbbe78a67824",
