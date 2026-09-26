@@ -30,6 +30,12 @@
  * wall-clock; it does NOT lower any gate's pass/fail threshold — see
  * AGENTS.md non-negotiable #1 and the rationale in audit-runner.mjs.
  *
+ * Reassembled corpus mode (post-deploy only):
+ *   AUDIT_REASSEMBLED_CORPUS=1 npm run audit:all
+ * This opt-in applies the historical-corpus rate ratchet only to the
+ * single-H1 auditor. The default remains strict so local/source validation
+ * cannot accidentally inherit a published-corpus allowance.
+ *
  * Exit codes:
  *   0 — every audit passed
  *   1 — one or more audits failed (gate or threshold)
@@ -119,6 +125,7 @@ const verbose = !args.includes('--quiet');
 // unsetting the CI env var; both default to "off" (full scan).
 const sampleRate = Number(getArg('sample-rate', process.env.AUDIT_SAMPLE_RATE ?? '1'));
 const sampleSalt = Number(getArg('sample-salt', process.env.AUDIT_SAMPLE_SALT ?? '0'));
+const reassembledCorpus = process.env.AUDIT_REASSEMBLED_CORPUS === '1';
 
 async function main() {
   const s = await stat(distArg).catch(() => null);
@@ -139,7 +146,11 @@ async function main() {
   // corpus-exact", which is an affirmatively false statement in the field that
   // exists to prevent that exact misreading. Auditors that do not take the
   // option ignore it.
-  const auditors = REGISTRY.map((r) => r.factory({ sampleRate }));
+  const auditors = REGISTRY.map((r) =>
+    r.name === 'single-h1-per-page'
+      ? r.factory({ sampleRate, historicalCorpus: reassembledCorpus })
+      : r.factory({ sampleRate }),
+  );
 
   // Optional filter
   const selected = filterAuditors(auditors, auditFilter);
@@ -152,6 +163,7 @@ async function main() {
     console.log(`audit-all: running ${selected.length} of ${auditors.length} registered auditors`);
     console.log(`audit-all: dist = ${distArg}`);
     console.log(`audit-all: auditors = ${selected.map((a) => a.name).join(', ')}`);
+    if (reassembledCorpus) console.log('audit-all: reassembled corpus mode = single-H1 historical rate ratchet');
   }
 
   const result = await runAudits({ distDir: distArg, auditors: selected, verbose, writeReports: true, sampleRate, sampleSalt });

@@ -138,7 +138,7 @@ describe('seo defect ledger — structure', () => {
 
   it('zero-tolerance families keep ceiling 0 and do NOT read the ledger', () => {
     // The invariant that makes this PR additive rather than a relaxation: the
-    // five families already at zero keep their untouched hard gate. Asserted on
+    // the remaining families already at zero keep their untouched hard gate. Asserted on
     // the source, because a future edit wiring one of them to the ratchet would
     // silently turn a zero-tolerance gate into a ceiling gate.
     for (const [name, e] of families) {
