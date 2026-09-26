@@ -39,6 +39,10 @@ function firstApiString(record, keys) {
   for (const key of keys) {
     const value = record?.[key];
     if (typeof value === 'string' && normalizeSpace(value)) return value;
+    if (value && typeof value === 'object') {
+      const nested = firstApiString(value, ['href', 'Href', 'url', 'Url', 'URL', 'value']);
+      if (nested) return nested;
+    }
   }
   return '';
 }
@@ -118,7 +122,24 @@ const LISTING_URL = 'https://www.bls.ch/en/unternehmen/jobs-und-karriere/offene-
 const JOBS_BASE = 'https://jobs.bls.ch';
 // The listing widget publishes its current POST endpoint in the page markup.
 const API_RESPONSE_KEYS = ['', 'data', 'Data', 'result', 'Result', 'd', 'payload'];
-const API_JOB_ARRAY_KEYS = ['Jobs', 'jobs', 'JobListings', 'jobListings', 'Items', 'items'];
+const API_JOB_ARRAY_KEYS = [
+  'Jobs', 'jobs',
+  'JobListings', 'jobListings',
+  'Items', 'items',
+  'Results', 'results',
+  'Vacancies', 'vacancies',
+  'Offers', 'offers',
+  'Records', 'records',
+];
+const API_JOB_URL_KEYS = [
+  'URL', 'Url', 'url',
+  'JobUrl', 'JobURL', 'jobUrl', 'jobURL',
+  'JobDetailUrl', 'JobDetailURL', 'jobDetailUrl', 'jobDetailURL',
+  'DetailUrl', 'DetailURL', 'detailUrl', 'detailURL',
+  'Link', 'link', 'Href', 'href', 'Path', 'path',
+];
+const JOBS_SEARCH_URL = 'https://www.bls.ch/api/JobPortal/JobsSearch?sc_lang=en';
+const JOBS_INIT_URL = 'https://www.bls.ch/api/JobPortal/JobsInit?sc_lang=en';
 
 function extractJobsSearchUrl(html = '') {
   const match = String(html).match(/\bdata-api-url-jobs-search\s*=\s*["']([^"']+)["']/i);
@@ -126,7 +147,10 @@ function extractJobsSearchUrl(html = '') {
 
   try {
     const url = new URL(match[1].replace(/&amp;/gi, '&'), LISTING_URL);
-    if (url.origin !== new URL(LISTING_URL).origin) return '';
+    // The widget may publish the API on the jobs.bls.ch host instead of the
+    // corporate www host. Keep the trust boundary at BLS-owned subdomains,
+    // rather than rejecting a valid cross-origin JobsPortal endpoint.
+    if (!isTrustedDomain(url.href)) return '';
     return url.href;
   } catch {
     return '';
@@ -135,14 +159,28 @@ function extractJobsSearchUrl(html = '') {
 
 function extractApiJobRecords(json) {
   for (const responseKey of API_RESPONSE_KEYS) {
-    const container = responseKey ? json?.[responseKey] : json;
+    const rawContainer = responseKey ? json?.[responseKey] : json;
+    const container = typeof rawContainer === 'string'
+      ? parseEmbeddedJson(rawContainer)
+      : rawContainer;
     if (Array.isArray(container)) return container;
 
     for (const jobKey of API_JOB_ARRAY_KEYS) {
-      if (Array.isArray(container?.[jobKey])) return container[jobKey];
+      const rawJobs = container?.[jobKey];
+      const jobs = typeof rawJobs === 'string' ? parseEmbeddedJson(rawJobs) : rawJobs;
+      if (Array.isArray(jobs)) return jobs;
     }
   }
   return [];
+}
+
+function parseEmbeddedJson(value) {
+  try {
+    const parsed = JSON.parse(value);
+    return parsed && typeof parsed === 'object' ? parsed : null;
+  } catch {
+    return null;
+  }
 }
 
 function normalizeApiJobUrl(rawUrl = '') {
@@ -266,7 +304,7 @@ export function parseJobsApiResponse(json) {
   const entries = [];
 
   for (const j of rawJobs) {
-    const url = normalizeApiJobUrl(firstApiString(j, ['URL', 'Url', 'url', 'JobUrl', 'jobUrl', 'Link', 'link']));
+    const url = normalizeApiJobUrl(firstApiString(j, API_JOB_URL_KEYS));
     // Keep extraction aligned with normalizeApiJobUrl(): the BLS route
     // validator intentionally accepts case variants from the API.
     const match = url.match(/\/offene-stellen\/([^/]+)\/([^/?#]+)/i);
@@ -399,27 +437,29 @@ export async function fetchAllBlsJobs() {
   console.log('🔍 Fetching BLS AG jobs');
   console.log('   Listing:  ' + LISTING_URL);
   console.log('   Detail:   ' + JOBS_BASE + '/offene-stellen/{slug}/{uuid}');
-  console.log('   Strategy: listing widget JobsSearch POST → filter Switzerland → detail JSON-LD');
+  console.log('   Strategy: listing widget/API fallback → filter Switzerland → detail JSON-LD');
 
   const listingHtml = await fetchHtml(LISTING_URL);
   const jobsSearchUrl = extractJobsSearchUrl(listingHtml);
   let allEntries = [];
-  if (jobsSearchUrl) {
+  const apiUrls = [...new Set([jobsSearchUrl, JOBS_SEARCH_URL, JOBS_INIT_URL].filter(Boolean))];
+  for (const apiUrl of apiUrls) {
     try {
-      const apiJson = await fetchJson(jobsSearchUrl, {
-        method: 'POST',
+      const isJobsInit = /\/JobsInit(?:[/?]|$)/i.test(apiUrl);
+      const apiJson = await fetchJson(apiUrl, {
+        ...(isJobsInit ? {} : { method: 'POST' }),
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
           Referer: LISTING_URL,
         },
-        body: '',
+        ...(isJobsInit ? {} : { body: '' }),
       });
       allEntries = parseJobsApiResponse(apiJson);
+      if (allEntries.length > 0) break;
+      console.warn(`  ⚠️ BLS API returned no parseable jobs: ${apiUrl}`);
     } catch (err) {
-      console.warn('  ⚠️ JobsSearch API fetch failed: ' + (err?.message || err));
+      console.warn(`  ⚠️ BLS API fetch failed (${apiUrl}): ${err?.message || err}`);
     }
-  } else {
-    console.warn('  ⚠️ Listing page did not advertise a same-origin JobsSearch endpoint.');
   }
 
   if (allEntries.length === 0) {
