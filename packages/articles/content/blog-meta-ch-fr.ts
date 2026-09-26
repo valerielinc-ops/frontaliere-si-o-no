@@ -6788,6 +6788,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-cassa-malati-stabilita-famiglie.title': 'Les primes des caisses-maladie augmentent, mais la charge familiale reste stable',
     'blog.article.premi-cassa-malati-stabilita-famiglie.excerpt': 'De 2016 à 2023, la charge nette des ménages est restée stable : la prime standard a augmenté de 19 %, mais la part du revenu moyen est passée de 6,5 % à 6,4 % grâce à une augmentation des subventions d’environ 440 francs.',
     'blog.article.premi-cassa-malati-stabilita-famiglie.imageAlt': 'Vue urbaine suisse avec hôpital moderne, symbole des caisses maladie',
+    'blog.article.protesta-asilo-berna-diritti.title': 'Berne : protestation contre les durcissements du droit d\'asile',
+    'blog.article.protesta-asilo-berna-diritti.excerpt': 'Plusieurs milliers de personnes sur la Place fédérale pour demander la santé, le travail et l’éducation indépendamment du statut de séjour et de l’origine.',
+    'blog.article.protesta-asilo-berna-diritti.imageAlt': 'Manifestation sur la Place Fédérale à Berne contre le durcissement du droit d\'asile',
 };
 
 export default blogMetaChFr;

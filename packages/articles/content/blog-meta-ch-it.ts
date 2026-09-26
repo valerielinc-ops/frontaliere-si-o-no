@@ -6788,6 +6788,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-cassa-malati-stabilita-famiglie.title': 'Premi casse malati salgono, ma il peso familiare è stabile',
     'blog.article.premi-cassa-malati-stabilita-famiglie.excerpt': 'Dal 2016 al 2023 il carico netto delle famiglie è rimasto stabile: il premio standard è aumentato del 19%, ma la quota sul reddito medio è passata dal 6,5% al 6,4% grazie a un aumento dei sussidi di circa 440 franchi.',
     'blog.article.premi-cassa-malati-stabilita-famiglie.imageAlt': 'Vista urbana svizzera con ospedale moderno, simbolo delle casse malati',
+    'blog.article.protesta-asilo-berna-diritti.title': 'Berna: protesta contro gli inasprimenti del diritto d\'asilo',
+    'blog.article.protesta-asilo-berna-diritti.excerpt': 'Diverse migliaia di persone in Piazza Federale per chiedere salute, lavoro e istruzione indipendentemente dallo statuto di soggiorno e dalla provenienza.',
+    'blog.article.protesta-asilo-berna-diritti.imageAlt': 'Manifestazione a Berna in Piazza Federale contro gli inasprimenti del diritto d\'asilo',
 };
 
 export default blogMetaChIt;

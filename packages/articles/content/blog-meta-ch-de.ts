@@ -6788,6 +6788,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-cassa-malati-stabilita-famiglie.title': 'Krankenkassenprämien steigen, aber das Familiengewicht ist stabil',
     'blog.article.premi-cassa-malati-stabilita-famiglie.excerpt': 'Von 2016 bis 2023 blieb die Nettobelastung der Haushalte stabil: Die Standardprämie stieg um 19%, aber der Anteil am durchschnittlichen Einkommen sank dank einer Erhöhung der Subventionen um etwa 440 Franken von 6,5% auf 6,4%.',
     'blog.article.premi-cassa-malati-stabilita-famiglie.imageAlt': 'Schweizer Stadtansicht mit modernem Krankenhaus, Symbol für Krankenkassen',
+    'blog.article.protesta-asilo-berna-diritti.title': 'Bern: Protest gegen die Verschärfungen des Asylrechts',
+    'blog.article.protesta-asilo-berna-diritti.excerpt': 'Mehrere Tausend Menschen auf dem Bundesplatz, um Gesundheit, Arbeit und Bildung unabhängig vom Aufenthaltsstatus und der Herkunft zu fordern.',
+    'blog.article.protesta-asilo-berna-diritti.imageAlt': 'Demonstration auf dem Bundesplatz in Bern gegen die Verschärfung des Asylrechts',
 };
 
 export default blogMetaChDe;

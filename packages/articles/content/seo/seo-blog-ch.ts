@@ -88004,6 +88004,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-protesta-asilo-berna-diritti': {
+    title: 'Berna: protesta contro gli inasprimenti del diritto d\'asilo',
+    description: 'Migliaia di persone a Berna contro gli inasprimenti del diritto d\'asilo. Richieste di salute, lavoro e istruzione per tutti i residenti. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, berna, protesta, contro, inasprimenti',
+    ogTitle: 'Berna: migliaia in piazza per il diritto d\'asilo',
+    ogDescription: 'Solidarité sans frontières e cento organizzazioni protestano a Berna contro la Strategia d\'asilo 2027 e l\'iniziativa UDC, chiedendo diritti fondamentali per tutti.',
+    canonicalPath: '/articoli-svizzera/protesta-asilo-berna-diritti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Berna: protesta contro gli inasprimenti del diritto d'asilo",
+      "description": "Migliaia di persone a Berna contro gli inasprimenti del diritto d'asilo. Richieste di salute, lavoro e istruzione per tutti i residenti. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/protesta-asilo-berna-diritti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione a Berna in Piazza Federale contro gli inasprimenti del diritto d'asilo"
+      },
+      "datePublished": "2026-09-26T15:55:24+00:00",
+      "dateModified": "2026-09-26T15:55:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/protesta-asilo-berna-diritti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

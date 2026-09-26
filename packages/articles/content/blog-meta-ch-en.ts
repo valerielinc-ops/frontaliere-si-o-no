@@ -6788,6 +6788,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-cassa-malati-stabilita-famiglie.title': 'Health insurance premiums rise, but the burden on families remains stable',
     'blog.article.premi-cassa-malati-stabilita-famiglie.excerpt': 'From 2016 to 2023, the net burden on households remained stable: the standard premium increased by 19%, but its share of average income fell from 6,5% to 6,4% thanks to an increase in subsidies of approximately 440 francs.',
     'blog.article.premi-cassa-malati-stabilita-famiglie.imageAlt': 'Swiss urban view with a modern hospital, representing health insurance',
+    'blog.article.protesta-asilo-berna-diritti.title': 'Bern: protest against the tightening of asylum law',
+    'blog.article.protesta-asilo-berna-diritti.excerpt': 'Several thousand people in Federal Square calling for health, work and education regardless of residence status and origin.',
+    'blog.article.protesta-asilo-berna-diritti.imageAlt': 'Demonstration in Bern\'s Federal Square against the tightening of asylum laws',
 };
 
 export default blogMetaChEn;
