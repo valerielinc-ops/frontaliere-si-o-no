@@ -6,19 +6,24 @@ import { useApplicationOfferBackdropDismiss } from '@/components/community/useAp
 import {
   ASSISTED_APPLICATION_REWARDED_AD_UNIT_PATH,
   REWARDED_WEB_AD_FORMAT,
+  disposeRewardedWebAd,
+  isRewardedWebAdEligible,
 } from '@/services/rewardedWebAd';
 import {
   grantRewardedApplicationAccess,
+  REWARDED_APPLICATION_ACCESS_TTL_HOURS,
 } from '@/services/rewardedApplicationAccess';
 import {
   offerwallGateStatus,
   releaseHeldOfferwall,
+  type OfferwallAppearTimeoutDecision,
   type OfferwallGateStatus,
   type OfferwallReleaseResult,
 } from '@/services/offerwallClickGate';
 import {
   trackAssistedApplicationEvent,
 } from '@/services/assistedApplicationExperiment';
+import { useTranslation } from '@/services/i18n';
 import { POPUP_PRIORITY } from '@/services/popupQueue';
 import { usePopupSlot } from '@/hooks/usePopupSlot';
 
@@ -40,12 +45,25 @@ const OFFERWALL_FORMAT = 'offerwall';
  */
 export const GPT_OPT_IN_READY_TIMEOUT_MS = 4000;
 
-/** Neutral copy: the loading screen never mentions ads, videos or Google. */
-const LOADING_TEXT = 'Apertura dell’offerta…';
-const REDIRECT_TEXT = 'Ti portiamo all’offerta…';
+/**
+ * Longest job title quoted in this overlay's own copy; a longer one is cut
+ * with an ellipsis so the loading line and the opt-in title stay short.
+ */
+export const REWARDED_OFFER_TITLE_MAX_CHARS = 60;
+
+/** Collapse whitespace and shorten a job title for the overlay copy. */
+export function shortenRewardedOfferJobTitle(title: string | null | undefined): string {
+  const clean = String(title ?? '').replace(/\s+/g, ' ').trim();
+  const chars = Array.from(clean);
+  if (chars.length <= REWARDED_OFFER_TITLE_MAX_CHARS) return clean;
+  return `${chars.slice(0, REWARDED_OFFER_TITLE_MAX_CHARS - 1).join('').trimEnd()}…`;
+}
 
 /**
  * `offerwall`: the held AdSense Offerwall has been released and may render.
+ * When it is late (OFFERWALL_SLOW_MS) a GPT rewarded slot is prepared,
+ * hidden, as its fallback; at the appear timeout the offer moves to `gpt`
+ * or `gpt_ready` while a late Offerwall is still followed.
  * `offerwall_visible`: it is on screen, so this overlay steps out of its way.
  * `offerwall_verifying`: it closed; waiting for Google's entitlement.
  * `offerwall_done`: reward granted, the visitor is on the way to the employer.
@@ -77,6 +95,12 @@ const NOT_HELD_REASON: Record<Exclude<OfferwallGateStatus, 'held'>, string> = {
 
 const now = () => (typeof performance !== 'undefined' ? performance.now() : Date.now());
 
+/**
+ * `t()` interpolates with String.prototype.replace, where `$&`, `$1`... in the
+ * replacement are patterns: escape `$` so a title is always inserted verbatim.
+ */
+const replacementSafe = (value: string) => value.replace(/\$/g, '$$$$');
+
 export interface RewardedApplicationOfferProps {
   jobId: string;
   companyId: string;
@@ -94,6 +118,13 @@ export interface RewardedApplicationOfferProps {
  * and the reward sends the visitor on to the employer with no further click.
  * Only the GPT fallback shows copy of its own: a GPT rewarded ad needs an
  * explicit opt-in with a clear value exchange, so it never starts by itself.
+ * The GPT path runs when no Offerwall was held for the page view, and as the
+ * fallback of a released Offerwall that does not appear (the AdSense
+ * experiment keeps a "no message" holdout of visitors): the slot is prepared
+ * while the Offerwall is late and offered at its appear timeout, and an
+ * Offerwall that still appears before the video starts takes over again.
+ * Every text is localized and names the job (the Offerwall's own text is
+ * Google's and cannot take parameters).
  *
  * The job detail remains the canonical page. This overlay only appears after
  * a visitor asks to apply; it never owns a URL, SEO metadata,
@@ -103,10 +134,12 @@ export default function RewardedApplicationOffer({
   jobId,
   companyId,
   companyName,
+  jobTitle,
   onContinue,
   onUnavailable,
   onDismiss,
 }: RewardedApplicationOfferProps) {
+  const { t } = useTranslation();
   const [retryToken, setRetryToken] = useState(0);
   // The AdSense Offerwall is the site's only rewarded demand: when Funding
   // Choices holds one for this page view, the click releases it first.
@@ -121,6 +154,16 @@ export default function RewardedApplicationOffer({
   const openedAtRef = useRef(now());
   const mountedRef = useRef(true);
   const offerwallStartedRef = useRef(false);
+  // Late-Offerwall fallback: the GPT slot prepared (hidden) while the
+  // released Offerwall has not appeared yet, then offered at its timeout.
+  const [fallbackPreparing, setFallbackPreparing] = useState(false);
+  const fallbackStartedRef = useRef(false);
+  const fallbackEndedRef = useRef(false);
+  const fallbackReadyRef = useRef(false);
+  const fallbackShownRef = useRef(false);
+  const gptVideoStartedRef = useRef(false);
+  const appearTimeoutTrackedRef = useRef(false);
+  const offerwallWatchRef = useRef<AbortController | null>(null);
   const loadingRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const dismissFromBackdrop = useApplicationOfferBackdropDismiss(onDismiss);
@@ -151,8 +194,42 @@ export default function RewardedApplicationOffer({
     mountedRef.current = true;
     return () => {
       mountedRef.current = false;
+      // A late-Offerwall watch must not outlive the offer.
+      offerwallWatchRef.current?.abort();
     };
   }, []);
+
+  const fallbackActive = () => fallbackStartedRef.current && !fallbackEndedRef.current;
+  // The fallback stepped aside before its video started (the Offerwall took
+  // over, or the slot failed early): its GPT callbacks no longer count.
+  const fallbackDiscarded = () => fallbackStartedRef.current && fallbackEndedRef.current && !gptVideoStartedRef.current;
+
+  // Escape and the backdrop close the overlay only while nothing irrevocable
+  // is in flight. The neutral loading screen of the late-Offerwall fallback
+  // is not one of those moments: the released Offerwall may still render.
+  const canDismissNow = () => DISMISSIBLE_PHASES.has(phaseRef.current)
+    && !(phaseRef.current === 'gpt' && fallbackActive());
+
+  // The fallback stops being an option: tear its slot down (unless its video
+  // already ran) and say why.
+  const abortFallback = (reason: string, extra: Record<string, unknown> = {}) => {
+    if (!fallbackActive()) return;
+    fallbackEndedRef.current = true;
+    setFallbackPreparing(false);
+    if (!gptVideoStartedRef.current) disposeRewardedWebAd(ASSISTED_APPLICATION_REWARDED_AD_UNIT_PATH);
+    trackAssistedApplicationEvent('rewarded_offerwall_gpt_fallback_aborted', {
+      ...eventContext(),
+      reason,
+      ...extra,
+    });
+  };
+
+  // The opt-in card of the fallback is on screen for the first time.
+  const markFallbackShown = () => {
+    if (!fallbackActive() || fallbackShownRef.current) return;
+    fallbackShownRef.current = true;
+    trackAssistedApplicationEvent('rewarded_offerwall_gpt_fallback_shown', eventContext());
+  };
 
   useEffect(() => {
     trackAssistedApplicationEvent('rewarded_application_offer_viewed', eventContext());
@@ -172,7 +249,7 @@ export default function RewardedApplicationOffer({
     // irrevocable is in flight. A released Offerwall cannot be taken back,
     // and its own appear timeout (5 s) or the redirect ends that screen.
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && DISMISSIBLE_PHASES.has(phaseRef.current)) onDismiss?.();
+      if (event.key === 'Escape' && canDismissNow()) onDismiss?.();
     };
     document.addEventListener('keydown', handleKeyDown);
     return () => {
@@ -190,22 +267,25 @@ export default function RewardedApplicationOffer({
   }, [phase]);
 
   const handleBackdropClick: typeof dismissFromBackdrop = (event) => {
-    if (DISMISSIBLE_PHASES.has(phaseRef.current)) dismissFromBackdrop(event);
+    if (canDismissNow()) dismissFromBackdrop(event);
   };
 
   // Only Google's rewardedSlotGranted reaches this handler (directly, or via
   // the granted bit of the close event that follows it). The reward is the
   // end of the step: the visitor goes on to the employer with no further click.
   const handleGranted = (info?: GptRewardedAdCallbackInfo) => {
-    if (grantedRef.current || gptSettledRef.current) return;
+    if (grantedRef.current || gptSettledRef.current || fallbackDiscarded()) return;
     grantedRef.current = true;
     const accessExpiresAt = grantRewardedApplicationAccess();
     setPhase('gpt_done');
     trackAssistedApplicationEvent('rewarded_ad_granted', eventContext(info));
+    if (fallbackActive()) {
+      trackAssistedApplicationEvent('rewarded_offerwall_gpt_fallback_granted', eventContext(info));
+    }
     trackAssistedApplicationEvent('rewarded_application_access_granted', {
       ...eventContext(info),
       access_expires_at: accessExpiresAt,
-      access_ttl_hours: 12,
+      access_ttl_hours: REWARDED_APPLICATION_ACCESS_TTL_HOURS,
     });
     onContinue();
   };
@@ -231,7 +311,7 @@ export default function RewardedApplicationOffer({
     trackAssistedApplicationEvent('rewarded_application_access_granted', {
       ...offerwallContext(),
       access_expires_at: accessExpiresAt,
-      access_ttl_hours: 12,
+      access_ttl_hours: REWARDED_APPLICATION_ACCESS_TTL_HOURS,
     });
     onContinue();
   };
@@ -250,9 +330,55 @@ export default function RewardedApplicationOffer({
     if (phase !== 'offerwall' || offerwallStartedRef.current) return;
     offerwallStartedRef.current = true;
     trackAssistedApplicationEvent('rewarded_offerwall_released', offerwallContext());
+    const watch = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    offerwallWatchRef.current = watch;
     void releaseHeldOfferwall({
+      ...(watch ? { signal: watch.signal } : {}),
+      // The Offerwall is late: prepare the GPT fallback, hidden, so it can be
+      // offered at the appear timeout without a further wait.
+      onSlow: ({ elapsedMs }) => {
+        if (!mountedRef.current || phaseRef.current !== 'offerwall' || fallbackStartedRef.current) return;
+        // Bots, missing ad consent, non-production hosts: no GPT request.
+        if (!isRewardedWebAdEligible()) return;
+        fallbackStartedRef.current = true;
+        setFallbackPreparing(true);
+        trackAssistedApplicationEvent('rewarded_offerwall_gpt_fallback_started', {
+          ...eventContext(),
+          offerwall_wait_ms: elapsedMs,
+        });
+      },
+      onAppearTimeout: (): OfferwallAppearTimeoutDecision => {
+        appearTimeoutTrackedRef.current = true;
+        trackAssistedApplicationEvent('rewarded_offerwall_not_shown', {
+          ...offerwallContext(),
+          reason: 'appear_timeout',
+        });
+        if (!mountedRef.current || !fallbackActive()) return 'resolve';
+        // Keep following a late Offerwall while the fallback is offered. A
+        // slot already ready becomes the opt-in card now; otherwise the `gpt`
+        // loading phase gives it GPT_OPT_IN_READY_TIMEOUT_MS more.
+        setFallbackPreparing(false);
+        if (fallbackReadyRef.current) {
+          setPhase('gpt_ready');
+          markFallbackShown();
+        } else {
+          setPhase('gpt');
+        }
+        return 'keep_watching';
+      },
       onShown: ({ shownMs, root }) => {
         if (!mountedRef.current) return;
+        // Once the visitor opted in to the GPT video, GPT is authoritative:
+        // a late Offerwall report (a callback already queued, or a browser
+        // without AbortController) must not take this flow over.
+        if (gptVideoStartedRef.current) return;
+        // Google's Offerwall won the race: the GPT fallback (prepared, or
+        // offered but not started) steps aside for it.
+        if (fallbackActive()) {
+          abortFallback(phaseRef.current === 'offerwall' ? 'offerwall_shown' : 'offerwall_shown_late', {
+            offerwall_shown_ms: shownMs,
+          });
+        }
         setPhase('offerwall_visible');
         trackAssistedApplicationEvent('rewarded_offerwall_shown', {
           ...offerwallContext(),
@@ -261,12 +387,14 @@ export default function RewardedApplicationOffer({
         });
       },
       onClosed: () => {
-        if (!mountedRef.current) return;
+        if (!mountedRef.current || gptVideoStartedRef.current) return;
         setPhase('offerwall_verifying');
       },
       onStalled: ({ shownMs, root }) => {
         // Telemetry only: the observer keeps following the Offerwall, and
-        // time on screen never counts as a reward.
+        // time on screen never counts as a reward. After the GPT opt-in a
+        // late Offerwall is not this offer's flow: no stall to report.
+        if (gptVideoStartedRef.current) return;
         trackAssistedApplicationEvent('rewarded_offerwall_timed_out', {
           ...offerwallContext(),
           shown_ms: shownMs,
@@ -275,10 +403,16 @@ export default function RewardedApplicationOffer({
       },
     }).then((result) => {
       if (!mountedRef.current) return;
+      // After the GPT opt-in the GPT flow is the only one: no Offerwall
+      // outcome (a late one, when the watch could not be aborted) acts on it.
+      if (gptVideoStartedRef.current) return;
       if (result.outcome === 'completed') {
         handleOfferwallCompleted(result);
         return;
       }
+      // The watch was ended by this offer (its GPT fallback video started,
+      // or the fallback handed off): nothing more on the Offerwall side.
+      if (result.outcome === 'not_shown' && result.reason === 'aborted') return;
       if (result.outcome === 'closed_without_reward') {
         // Closed with no entitlement from Google: nothing to unlock, and no
         // second ad after this one. Direct employer hand-off.
@@ -291,15 +425,17 @@ export default function RewardedApplicationOffer({
         onUnavailable('offerwall_closed_without_reward');
         return;
       }
-      trackAssistedApplicationEvent('rewarded_offerwall_not_shown', {
-        ...offerwallContext(),
-        reason: result.reason,
-      });
+      if (!(result.reason === 'appear_timeout' && appearTimeoutTrackedRef.current)) {
+        trackAssistedApplicationEvent('rewarded_offerwall_not_shown', {
+          ...offerwallContext(),
+          reason: result.reason,
+        });
+      }
       if (result.reason === 'appear_timeout') {
         // Released but not rendered in time (Google's frequency, experiment
-        // group, or access already granted). The release cannot be taken back,
-        // so no GPT request may follow it: a late Offerwall would overlap a
-        // second ad. Direct employer hand-off, which leaves this page.
+        // group, or access already granted) and no GPT fallback to offer
+        // (ineligible, or its slot already failed): direct employer hand-off,
+        // which leaves this page.
         onUnavailable('offerwall_not_shown');
         return;
       }
@@ -311,8 +447,20 @@ export default function RewardedApplicationOffer({
   }, [phase]);
 
   const handleUnavailable = (reason = 'unavailable', info?: GptRewardedAdCallbackInfo) => {
-    if (gptSettledRef.current || grantedRef.current) return;
+    // A fallback that already stepped aside reports nothing more.
+    if (gptSettledRef.current || grantedRef.current || fallbackDiscarded()) return;
+    const gptDetail = { gpt_reason: reason, ...(info?.detail ? { detail: info.detail } : {}) };
+    if (fallbackActive() && phaseRef.current === 'offerwall') {
+      // The prepared fallback failed before the appear timeout: drop it and
+      // keep waiting for the Offerwall, whose timeout then hands off as usual.
+      abortFallback('gpt_unavailable', gptDetail);
+      return;
+    }
     gptSettledRef.current = true;
+    if (fallbackActive()) {
+      abortFallback('gpt_unavailable', gptDetail);
+      offerwallWatchRef.current?.abort();
+    }
     trackAssistedApplicationEvent('rewarded_ad_unavailable', {
       ...eventContext(info),
       reason,
@@ -344,8 +492,23 @@ export default function RewardedApplicationOffer({
   }, [phase, retryToken]);
 
   const handleReady = () => {
-    if (gptSettledRef.current || grantedRef.current || phaseRef.current !== 'gpt') return;
+    if (gptSettledRef.current || grantedRef.current || fallbackDiscarded()) return;
+    if (phaseRef.current === 'offerwall') {
+      // Prepared fallback: remembered, offered only at the appear timeout.
+      if (fallbackActive()) fallbackReadyRef.current = true;
+      return;
+    }
+    if (phaseRef.current !== 'gpt') return;
     setPhase('gpt_ready');
+    markFallbackShown();
+  };
+
+  // The visitor chose the GPT video: from here on a late Offerwall must not
+  // take over, so its watch ends.
+  const handleOptIn = (info: GptRewardedAdCallbackInfo) => {
+    gptVideoStartedRef.current = true;
+    if (fallbackActive()) offerwallWatchRef.current?.abort();
+    trackAssistedApplicationEvent('rewarded_ad_opt_in', eventContext(info));
   };
 
   const handleVideoCompleted = () => {
@@ -354,6 +517,7 @@ export default function RewardedApplicationOffer({
   };
 
   const handleClosed = (grantedByEvent: boolean, info?: GptRewardedAdCallbackInfo) => {
+    if (fallbackDiscarded()) return;
     // `grantedByEvent` is true only when rewardedSlotGranted already fired for
     // this request; it just guards against the close being delivered first.
     if (grantedByEvent && !grantedRef.current) {
@@ -378,8 +542,22 @@ export default function RewardedApplicationOffer({
     setPhase('gpt');
   };
 
-  const gptMounted = phase === 'gpt' || phase === 'gpt_ready';
-  const loadingText = phase === 'offerwall_done' || phase === 'gpt_done' ? REDIRECT_TEXT : LOADING_TEXT;
+  const gptMounted = phase === 'gpt' || phase === 'gpt_ready' || (phase === 'offerwall' && fallbackPreparing);
+  const shortTitle = replacementSafe(shortenRewardedOfferJobTitle(jobTitle));
+  const titled = (key: string, genericKey: string) => (shortTitle ? t(key, { jobTitle: shortTitle }) : t(genericKey));
+  // Neutral copy: the loading screen never mentions ads, videos or Google.
+  const loadingLabel = titled('jobBoard.rewardedOffer.loadingJob', 'jobBoard.rewardedOffer.loading');
+  const redirectLabel = titled('jobBoard.rewardedOffer.redirectJob', 'jobBoard.rewardedOffer.redirect');
+  const optInTitle = titled('jobBoard.rewardedOffer.optInTitleJob', 'jobBoard.rewardedOffer.optInTitle');
+  // The GPT grant unlocks the same site access as the Offerwall reward.
+  const optInSubtitle = t(
+    REWARDED_APPLICATION_ACCESS_TTL_HOURS === 1
+      ? 'jobBoard.rewardedOffer.optInSubtitleOne'
+      : 'jobBoard.rewardedOffer.optInSubtitleOther',
+    { hours: REWARDED_APPLICATION_ACCESS_TTL_HOURS },
+  );
+  const closeLabel = t('jobBoard.rewardedOffer.close');
+  const loadingText = phase === 'offerwall_done' || phase === 'gpt_done' ? redirectLabel : loadingLabel;
   const showLoading = phase !== 'gpt_ready' && phase !== 'gpt_retry';
 
   const cardClass = 'w-full max-w-sm space-y-4 rounded-stripe border border-edge bg-surface p-5 shadow-stripe-lg focus:outline-none';
@@ -421,18 +599,21 @@ export default function RewardedApplicationOffer({
           <div>
             <p className="text-xs font-semibold text-accent">{companyName}</p>
             <h2 id="rewarded-application-offer-title" className="mt-1 text-base font-semibold font-display text-heading">
-              Guarda un breve video per aprire l’offerta
+              {optInTitle}
             </h2>
+            <p className="mt-1 text-sm text-body" data-testid="rewarded-application-opt-in-subtitle">
+              {optInSubtitle}
+            </p>
           </div>
           <GptRewardedAd
-            label="Guarda il video"
-            loadingLabel={LOADING_TEXT}
-            showingLabel="Video in riproduzione…"
-            unavailableLabel="Il video non è disponibile in questo momento."
+            label={t('jobBoard.rewardedOffer.watch')}
+            loadingLabel={loadingLabel}
+            showingLabel={t('jobBoard.rewardedOffer.playing')}
+            unavailableLabel={t('jobBoard.rewardedOffer.unavailable')}
             showUnavailableMessage={false}
             retryToken={retryToken}
             onReady={handleReady}
-            onOptIn={(info) => trackAssistedApplicationEvent('rewarded_ad_opt_in', eventContext(info))}
+            onOptIn={handleOptIn}
             onGranted={handleGranted}
             onVideoCompleted={handleVideoCompleted}
             onClosed={handleClosed}
@@ -444,7 +625,7 @@ export default function RewardedApplicationOffer({
             className={secondaryButtonClass}
             data-testid="rewarded-application-offer-close"
           >
-            Chiudi
+            {closeLabel}
           </button>
         </div>
       )}
@@ -460,7 +641,7 @@ export default function RewardedApplicationOffer({
           data-testid="rewarded-application-retry"
         >
           <p id="rewarded-application-offer-retry-title" className="text-sm leading-relaxed text-body">
-            Il video è stato chiuso prima della fine: guardalo fino in fondo per aprire l’offerta.
+            {t('jobBoard.rewardedOffer.retryText')}
           </p>
           <button
             type="button"
@@ -468,7 +649,7 @@ export default function RewardedApplicationOffer({
             className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-stripe bg-accent px-4 py-3 text-sm font-semibold text-on-accent shadow-stripe-sm transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
           >
             <RefreshCw className="h-4 w-4" aria-hidden="true" />
-            Riprova
+            {t('jobBoard.rewardedOffer.retry')}
           </button>
           <button
             type="button"
@@ -476,7 +657,7 @@ export default function RewardedApplicationOffer({
             className={secondaryButtonClass}
             data-testid="rewarded-application-offer-close"
           >
-            Chiudi
+            {closeLabel}
           </button>
         </div>
       )}

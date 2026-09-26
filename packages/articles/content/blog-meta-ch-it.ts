@@ -6800,6 +6800,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ubs-sede-elvetica-costi.title': 'Ubs: trasferimento sede poco probabile per Keller-Sutter',
     'blog.article.ubs-sede-elvetica-costi.excerpt': 'Secondo Karin Keller‑Sutter, spostare la sede di Ubs all’estero sarebbe molto più costoso e giuridicamente complesso; il Consiglio federale ha già concesso agevolazioni sull’ordinanza sui fondi propri.',
     'blog.article.ubs-sede-elvetica-costi.imageAlt': 'Edificio della sede di Ubs nel distretto finanziario svizzero',
+    'blog.article.sanzioni-finanziarie-onu-2026.title': 'Sanzioni ONU: il Consiglio federale aggiorna quattro ordinanze',
+    'blog.article.sanzioni-finanziarie-onu-2026.excerpt': 'Decisione del 25 settembre 2026 per uniformare le disposizioni finanziarie su terrorismo e proliferazione, con esenzioni specifiche per l\'Iran.',
+    'blog.article.sanzioni-finanziarie-onu-2026.imageAlt': 'Palazzo Federale a Berna, sede del Consiglio federale',
 };
 
 export default blogMetaChIt;
