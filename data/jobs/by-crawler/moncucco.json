@@ -47,8 +47,6 @@
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
       "crawledAt": "2026-09-26T13:53:17.641Z",
-      "firstSeenAt": "2026-09-25T14:43:35.632Z",
-      "needsRetranslation": true,
       "salaryMin": 70500,
       "salaryMax": 98500,
       "currency": "CHF",
@@ -62,7 +60,9 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-25T14:43:35.632Z",
+      "needsRetranslation": true
     },
     {
       "id": "moncucco-8b751476ca5b",

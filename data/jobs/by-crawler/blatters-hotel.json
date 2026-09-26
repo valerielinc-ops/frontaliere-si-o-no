@@ -6,9 +6,9 @@
       "id": "blatters-hotel-5d3058d2cec9",
       "slug": "chef-de-rang-m-w-d-per-la-wintersaison-blatter-arosa",
       "slugByLocale": {
+        "de": "chef-de-rang-m-w-fur-die-wintersaison-arosa-blatters-hotel-ch",
         "it": "chef-de-rang-m-w-d-per-la-wintersaison-blatter-arosa",
         "en": "chef-de-rang-m-f-for-the-winter-season-blatter-arosa",
-        "de": "chef-de-rang-m-w-fur-die-wintersaison-arosa-blatters-hotel-ch",
         "fr": "chef-de-rang-h-f-pour-la-saison-hivernale-blatter-arosa"
       },
       "company": "Blatter",
@@ -49,10 +49,6 @@
       "applyUrl": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/chef-de-rang-f%C3%BCr-die-wintersaison-3926747?rltr=comp",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "chef-de-rang-m-w-fur-die-wintersaison-arosa-blatters-hotel-ch",
-        "chef-de-rang-m-w-d-per-la-wintersaison-blatter-arosa"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "chef-de-rang-m-w-fur-die-wintersaison-arosa-blatters-hotel-ch",
@@ -65,7 +61,10 @@
           "chef-de-rang-m-w-fur-die-wintersaison-arosa-blatters-hotel-ch"
         ]
       },
-      "firstSeenAt": "2026-09-25T14:42:51.132Z",
+      "previousSlugs": [
+        "chef-de-rang-m-w-fur-die-wintersaison-arosa-blatters-hotel-ch",
+        "chef-de-rang-m-w-d-per-la-wintersaison-blatter-arosa"
+      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -78,7 +77,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-25T14:42:51.132Z"
     },
     {
       "id": "blatters-hotel-3f516cbf4992",
@@ -128,13 +128,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-partie-m-w-wintersaison-2026-27-arosa-blatters-hotel-ch",
-        "chef-de-partie-m-w-wintersaison-2026-27-blatter-arosa"
+        "chef-de-partie-m-w-wintersaison-2026-27-arosa-blatters-hotel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-partie-m-w-wintersaison-2026-27-arosa-blatters-hotel-ch",
-          "chef-de-partie-m-w-wintersaison-2026-27-blatter-arosa"
+          "chef-de-partie-m-w-wintersaison-2026-27-arosa-blatters-hotel-ch"
         ],
         "en": [
           "chef-de-partie-m-w-wintersaison-2026-27-arosa-blatters-hotel-ch"
@@ -144,7 +142,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T19:52:06.106Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -157,7 +154,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }

@@ -60,13 +60,11 @@
         "publishEndDate": "2026-10-31T11:22:00.000Z"
       },
       "previousSlugs": [
-        "welcome-agent-intern-w-verbier-marriott-verbier",
-        "welcome-agent-tirocinante-w-verbier-marriott-international-verbier"
+        "welcome-agent-intern-w-verbier-marriott-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "welcome-agent-intern-w-verbier-marriott-verbier",
-          "welcome-agent-tirocinante-w-verbier-marriott-international-verbier"
+          "welcome-agent-intern-w-verbier-marriott-verbier"
         ],
         "de": [
           "welcome-agent-intern-w-verbier-marriott-verbier"
@@ -149,13 +147,11 @@
         "publishEndDate": ""
       },
       "previousSlugs": [
-        "white-elephant-service-marriott-zurich",
-        "servizio-elefante-bianco-marriott-international-zurich"
+        "white-elephant-service-marriott-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "white-elephant-service-marriott-zurich",
-          "servizio-elefante-bianco-marriott-international-zurich"
+          "white-elephant-service-marriott-zurich"
         ],
         "de": [
           "white-elephant-service-marriott-zurich"
@@ -165,7 +161,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:20:39.384Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -179,14 +174,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "marriott-30d4872bc4e6",
       "slug": "cameriera-hostess-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
-        "it": "cameriera-hostess-inverno-26-27-w-verbier-marriott-international-verbier",
         "en": "waitress-hostess-winter-26-27-w-verbier-marriott-verbier",
+        "it": "cameriera-hostess-inverno-26-27-w-verbier-marriott-international-verbier",
         "de": "kellnerin-gastgeberin-winter-26-27-w-verbier-marriott-international-verbier",
         "fr": "serveuse-hotesse-hiver-26-27-w-verbier-marriott-international-verbier"
       },
@@ -238,6 +234,20 @@
         "accountName": "",
         "publishEndDate": "2026-11-08T14:22:00.000Z"
       },
+      "salaryMin": 53500,
+      "salaryMax": 67000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 53500,
+          "maxValue": 67000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "WALLI",
       "firstSeenAt": "2026-09-25T15:12:25.069Z",
       "previousSlugsByLocale": {
         "it": [
@@ -252,21 +262,7 @@
       },
       "previousSlugs": [
         "waitress-hostess-winter-26-27-w-verbier-marriott-verbier"
-      ],
-      "salaryMin": 53500,
-      "salaryMax": 67000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 53500,
-          "maxValue": 67000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "WALLI"
+      ]
     },
     {
       "id": "marriott-535f8194dc78",
@@ -334,8 +330,7 @@
         "waiter-tress-morning-winter-26-27-w-verbier-marriott-verbier",
         "serveur-serveuse-matin-hiver-26-27-w-verbier-marriott-international-verbier",
         "waiter-tress-morning-winter-26-27-w-verbier-marriott-international-verbier",
-        "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
-        "cameriera-tress-brasserie-u-yama-inverno-26-27-w-verbier-marriott-international-verbier"
+        "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -347,15 +342,13 @@
           "waiter-tress-morning-winter-26-27-w-verbier-marriott-verbier",
           "serveur-serveuse-matin-hiver-26-27-w-verbier-marriott-international-verbier",
           "waiter-tress-morning-winter-26-27-w-verbier-marriott-international-verbier",
-          "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
-          "cameriera-tress-brasserie-u-yama-inverno-26-27-w-verbier-marriott-international-verbier"
+          "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
         ],
         "fr": [
           "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
         ]
       },
       "firstSeenAt": "2026-09-19T23:20:39.383Z",
-      "needsRetranslation": true,
       "salaryMin": 53500,
       "salaryMax": 67000,
       "salarySource": "estimated",
@@ -369,7 +362,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "WALLI"
+      "addressRegion": "WALLI",
+      "needsRetranslation": true
     },
     {
       "id": "marriott-6b3ffd8150bb",
@@ -503,13 +497,11 @@
         "publishEndDate": ""
       },
       "previousSlugs": [
-        "university-intern-europe-marriott-zurich",
-        "university-tirocinante-europe-marriott-international-zurich"
+        "university-intern-europe-marriott-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "university-intern-europe-marriott-zurich",
-          "university-tirocinante-europe-marriott-international-zurich"
+          "university-intern-europe-marriott-zurich"
         ],
         "de": [
           "university-intern-europe-marriott-zurich"
@@ -592,20 +584,17 @@
         "publishEndDate": "2026-10-22T14:56:00.000Z"
       },
       "previousSlugs": [
-        "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier",
-        "spa-terapeuta-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier"
+        "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier",
-          "spa-terapeuta-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier"
+          "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier"
         ],
         "fr": [
           "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier"
         ]
       },
       "firstSeenAt": "2026-09-19T23:20:39.380Z",
-      "needsRetranslation": true,
       "salaryMin": 53500,
       "salaryMax": 67000,
       "salarySource": "estimated",
@@ -619,7 +608,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "WALLI"
+      "addressRegion": "WALLI",
+      "needsRetranslation": true
     },
     {
       "id": "marriott-a2cfe8c852ba",
@@ -829,13 +819,11 @@
         "publishEndDate": ""
       },
       "previousSlugs": [
-        "night-auditor-marriott-geneva",
-        "auditore-notturno-marriott-international-geneva"
+        "night-auditor-marriott-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "night-auditor-marriott-geneva",
-          "auditore-notturno-marriott-international-geneva"
+          "night-auditor-marriott-geneva"
         ],
         "de": [
           "night-auditor-marriott-geneva"
@@ -1015,13 +1003,11 @@
         "publishEndDate": ""
       },
       "previousSlugs": [
-        "night-audit-clerk-marriott-zurich",
-        "notte-audit-clerk-marriott-international-zurich"
+        "night-audit-clerk-marriott-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "night-audit-clerk-marriott-zurich",
-          "notte-audit-clerk-marriott-international-zurich"
+          "night-audit-clerk-marriott-zurich"
         ],
         "de": [
           "night-audit-clerk-marriott-zurich"
@@ -1031,7 +1017,6 @@
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:41.777Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -1045,7 +1030,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "marriott-a6062b8c940b",
@@ -1343,26 +1329,23 @@
       },
       "previousSlugs": [
         "f-b-service-shiftleader-marriott-zurich",
-        "f-b-dienstleistungsfuhrer-marriott-international-zurich",
-        "leader-del-servizio-f-b-marriott-international-zurich-a5cad7",
-        "f-b-service-shiftleader-marriott-international-zurich"
+        "f-b-service-shiftleader-marriott-international-zurich",
+        "f-b-dienstleistungsfuhrer-marriott-international-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "f-b-service-shiftleader-marriott-zurich",
-          "leader-del-servizio-f-b-marriott-international-zurich-a5cad7"
+          "f-b-service-shiftleader-marriott-zurich"
         ],
         "de": [
           "f-b-service-shiftleader-marriott-zurich",
-          "f-b-dienstleistungsfuhrer-marriott-international-zurich",
-          "f-b-service-shiftleader-marriott-international-zurich"
+          "f-b-service-shiftleader-marriott-international-zurich",
+          "f-b-dienstleistungsfuhrer-marriott-international-zurich"
         ],
         "fr": [
           "f-b-service-shiftleader-marriott-zurich"
         ]
       },
       "firstSeenAt": "2026-09-19T23:20:39.373Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1376,7 +1359,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "marriott-96b1ff964283",
@@ -1440,14 +1424,12 @@
         "servizio-eventi-shiftleader-marriott-international-zurich",
         "schichtleiter-im-veranstaltungsdienst-marriott-international-zurich",
         "chef-de-quart-de-service-d-evenement-marriott-international-zurich",
-        "ereignisdienst-schichtleiter-marriott-international-zurich",
-        "servizio-eventi-shiftleader-marriott-international-zurich-9b19fa"
+        "ereignisdienst-schichtleiter-marriott-international-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "event-service-shiftleader-marriott-zurich",
-          "servizio-eventi-shiftleader-marriott-international-zurich",
-          "servizio-eventi-shiftleader-marriott-international-zurich-9b19fa"
+          "servizio-eventi-shiftleader-marriott-international-zurich"
         ],
         "de": [
           "schichtleiter-im-veranstaltungsdienst-marriott-international-zurich",
@@ -1533,13 +1515,11 @@
         "publishEndDate": "2026-10-24T08:39:00.000Z"
       },
       "previousSlugs": [
-        "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier",
-        "commissione-di-cucina-inverno-26-27-w-verbier-marriott-international-verbier"
+        "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier",
-          "commissione-di-cucina-inverno-26-27-w-verbier-marriott-international-verbier"
+          "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier"
         ],
         "de": [
           "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier"
@@ -1633,8 +1613,7 @@
         "revenue-manager-marriott-zurich",
         "einnahmenmanager-marriott-international-zurich",
         "directeur-des-recettes-marriott-international-zurich",
-        "gestionnaire-des-recettes-marriott-international-zurich",
-        "gestione-eventi-marriott-international-zurich"
+        "gestionnaire-des-recettes-marriott-international-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1647,8 +1626,7 @@
           "revenue-manager-marriott-zurich",
           "einnahmenmanager-marriott-international-zurich",
           "directeur-des-recettes-marriott-international-zurich",
-          "gestionnaire-des-recettes-marriott-international-zurich",
-          "gestione-eventi-marriott-international-zurich"
+          "gestionnaire-des-recettes-marriott-international-zurich"
         ],
         "en": [
           "revenue-manager-marriott-zurich"
@@ -1738,13 +1716,11 @@
         "publishEndDate": ""
       },
       "previousSlugs": [
-        "commis-de-cuisine-a-la-carte-echo-marriott-zurich",
-        "commissione-di-cucina-a-la-carte-marriott-international-zurich-fe85fb"
+        "commis-de-cuisine-a-la-carte-echo-marriott-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "commis-de-cuisine-a-la-carte-echo-marriott-zurich",
-          "commissione-di-cucina-a-la-carte-marriott-international-zurich-fe85fb"
+          "commis-de-cuisine-a-la-carte-echo-marriott-zurich"
         ]
       },
       "firstSeenAt": "2026-09-19T23:20:39.357Z",
@@ -1827,8 +1803,7 @@
         "commissione-de-cuisine-banquets-marriott-international-zurich-m9fjx4",
         "commis-de-cuisine-banquets-marriott-zurich-m9fjx4",
         "banquets-della-cucina-marriott-international-zurich",
-        "kochen-clerk-bankette-marriott-international-zurich",
-        "commissione-de-cuisine-banquets-marriott-international-zurich"
+        "kochen-clerk-bankette-marriott-international-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1836,8 +1811,7 @@
           "commissione-de-cuisine-banquets-marriott-international-zurich-m9fjx4",
           "commis-de-cuisine-banquets-marriott-zurich-m9fjx4",
           "banquets-della-cucina-marriott-international-zurich",
-          "kochen-clerk-bankette-marriott-international-zurich",
-          "commissione-de-cuisine-banquets-marriott-international-zurich"
+          "kochen-clerk-bankette-marriott-international-zurich"
         ],
         "de": [
           "commis-de-cuisine-bankette-marriott-international-zurich"
@@ -1847,7 +1821,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:20:39.355Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1861,7 +1834,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "marriott-938d115338c0",
@@ -1921,17 +1895,14 @@
         "publishEndDate": "2026-10-02T07:55:00.000Z"
       },
       "previousSlugs": [
-        "chef-de-rang-brasserie-1519-long-term-w-verbier-marriott-verbier",
-        "chef-de-rang-brasserie-1519-lungo-termine-w-verbier-marriott-international-verbier"
+        "chef-de-rang-brasserie-1519-long-term-w-verbier-marriott-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-rang-brasserie-1519-long-term-w-verbier-marriott-verbier",
-          "chef-de-rang-brasserie-1519-lungo-termine-w-verbier-marriott-international-verbier"
+          "chef-de-rang-brasserie-1519-long-term-w-verbier-marriott-verbier"
         ]
       },
       "firstSeenAt": "2026-09-19T23:20:39.352Z",
-      "needsRetranslation": true,
       "salaryMin": 53500,
       "salaryMax": 67000,
       "salarySource": "estimated",
@@ -1945,7 +1916,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "WALLI"
+      "addressRegion": "WALLI",
+      "needsRetranslation": true
     },
     {
       "id": "marriott-f01cc1814464",
@@ -2080,17 +2052,14 @@
         "publishEndDate": "2026-10-04T16:40:00.000Z"
       },
       "previousSlugs": [
-        "chef-de-rang-sommelier-long-term-w-verbier-marriott-verbier",
-        "chef-de-rang-sommelier-lungo-termine-w-verbier-marriott-international-verbier"
+        "chef-de-rang-sommelier-long-term-w-verbier-marriott-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-rang-sommelier-long-term-w-verbier-marriott-verbier",
-          "chef-de-rang-sommelier-lungo-termine-w-verbier-marriott-international-verbier"
+          "chef-de-rang-sommelier-long-term-w-verbier-marriott-verbier"
         ]
       },
       "firstSeenAt": "2026-09-19T23:20:39.351Z",
-      "needsRetranslation": true,
       "salaryMin": 53500,
       "salaryMax": 67000,
       "salarySource": "estimated",
@@ -2104,7 +2073,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "WALLI"
+      "addressRegion": "WALLI",
+      "needsRetranslation": true
     }
   ]
 }
