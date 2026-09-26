@@ -18,16 +18,20 @@
  *        - `hreflang="en"`   → path MUST start with `/en/`
  *        - `hreflang="de"`   → path MUST start with `/de/`
  *        - `hreflang="fr"`   → path MUST start with `/fr/`
- *   4. Every hreflang target MUST exist as a file in `dist/` (so Google
- *      doesn't hit a 404 when following the link).
+ *   4. Every hreflang target on an indexable page MUST exist as a file in
+ *      `dist/` (so Google doesn't hit a 404 when following the link). For the
+ *      post-deploy dist assembled from shards, a missing target on an explicit
+ *      noindex historical page is retained as an advisory corpus measurement;
+ *      it never masks a defect on an indexable page.
  *
  * Pages without ANY hreflang tags are skipped — many utility pages (404.html,
  * bridge redirects, etc.) legitimately have none. Missing-hreflang checks
  * for indexable pages are enforced separately by `validate-hreflang.mjs`
  * (sitemap-driven) and `tests/post-build/hreflang-consistency.test.ts`.
  *
- * Exit codes: 0 on success, 1 on any failure. Fails fast with a summary
- * grouped by invariant so CI logs are readable.
+ * Exit codes: 0 on success, 1 on any blocking failure. Fails fast with a
+ * summary grouped by invariant so CI logs are readable; advisory historical
+ * findings include their page-rate and corpus-rate in stdout and the report.
  *
  * Intentionally a .mjs Node script (not TypeScript) so CI can run it without
  * transpilation after `vite build`.
