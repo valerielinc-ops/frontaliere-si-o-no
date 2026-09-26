@@ -12027,6 +12027,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incidente-lozza-gazzada-vedano.title': 'Accident between Lozza and Gazzada: queues as far as Vedano',
     'blog.article.incidente-lozza-gazzada-vedano.excerpt': 'Incident between Lozza and Gazzada Schianno on September 23: according to initial information, there are reportedly no injuries. Queues and traffic as far as the Vedano bridge.',
     'blog.article.incidente-lozza-gazzada-vedano.imageAlt': 'Cars queued on a provincial road near a roundabout',
+    'blog.article.aggressioni-notte-lugano.title': 'Assaults and violent nights: young people from Ticino tell their stories',
+    'blog.article.aggressioni-notte-lugano.excerpt': 'On 1 August 2025, a 19-year-old from Bellinzona was beaten under Mario Botta’s shelter; in 2024, the juvenile justice system opened 912 case files; Taha, 24, is awaiting deportation after a sentence of 2 years and 6 months in Kloten prison.',
+    'blog.article.aggressioni-notte-lugano.imageAlt': 'Night view of Mario Botta bus shelter in Lugano, site of the August 1 2025 assault.',
 };
 
 export default blogMetaEn;

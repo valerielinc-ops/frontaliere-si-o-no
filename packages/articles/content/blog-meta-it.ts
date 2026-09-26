@@ -12028,6 +12028,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incidente-lozza-gazzada-vedano.title': 'Incidente tra Lozza e Gazzada: code fino a Vedano',
     'blog.article.incidente-lozza-gazzada-vedano.excerpt': 'Incidente tra Lozza e Gazzada Schianno il 23 settembre: secondo le prime informazioni non ci sarebbero feriti. Code e traffico fino al ponte di Vedano.',
     'blog.article.incidente-lozza-gazzada-vedano.imageAlt': 'Auto in coda su una strada provinciale vicino a una rotonda',
+    'blog.article.aggressioni-notte-lugano.title': 'Aggressioni e notti violente: giovani ticinesi raccontano',
+    'blog.article.aggressioni-notte-lugano.excerpt': 'Il 1° agosto 2025 un 19enne bellinzonese è stato pestato sotto la pensilina di Mario Botta; nel 2024 la magistratura minorile ha aperto 912 incarti; Taha, 24 anni, attende l\'espulsione dopo una condanna a 2 anni e 6 mesi nel carcere di Kloten.',
+    'blog.article.aggressioni-notte-lugano.imageAlt': 'Visione notturna della pensilina di Mario Botta a Lugano, luogo dell\'aggressione del 1° agosto 2025.',
 };
 
 export default blogMetaIt;
