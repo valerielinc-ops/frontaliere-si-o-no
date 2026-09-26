@@ -6806,6 +6806,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.jans-monaco-lotta-trafficanti.title': 'Beat Jans à Munich : lutte contre les trafiquants d\'êtres humains',
     'blog.article.jans-monaco-lotta-trafficanti.excerpt': 'Le conseiller fédéral Beat Jans mise sur la coopération européenne et des procédures rapides pour les renvois lors du sommet de Munich avec 18 États.',
     'blog.article.jans-monaco-lotta-trafficanti.imageAlt': 'Bâtiment gouvernemental suisse avec drapeau national',
+    'blog.article.risarcimenti-grandine-svizzera-2026.title': 'Assurance contre la grêle : indemnisations jusqu’à 170 millions',
+    'blog.article.risarcimenti-grandine-svizzera-2026.excerpt': 'Grandine Svizzera prévoit des indemnisations pouvant atteindre 170 millions de francs en 2026. Adrian Aebi avertit : les primes pourraient devenir insoutenables.',
+    'blog.article.risarcimenti-grandine-svizzera-2026.imageAlt': 'Champ agricole suisse avec cultures de maïs et de pommes de terre',
 };
 
 export default blogMetaChFr;
