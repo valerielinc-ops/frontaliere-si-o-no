@@ -1,21 +1,21 @@
 {
   "key": "gavi",
   "label": "Gavi, the Vaccine Alliance",
-  "generatedAt": "2026-09-25T14:43:05.858Z",
-  "total": 2,
+  "generatedAt": "2026-09-26T13:52:41.949Z",
+  "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
-  "written": 2,
+  "written": 1,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4578,
-  "avgDurationMs": 4578,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4439,
+  "avgDurationMs": 4439,
   "durationHistory": [
-    4578
+    4439
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2526&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T14:42:55.135Z",
+      "crawledAt": "2026-09-26T13:52:35.414Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -58,8 +58,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "gavi-46907ae4fc28",
       "slug": "direttore-governance-gavi-the-vaccine-alliance-le-grand-saconnex",
@@ -102,5 +101,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

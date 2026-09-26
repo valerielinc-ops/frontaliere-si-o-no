@@ -57,10 +57,10 @@ describe('application-intent privacy gates', () => {
  });
 
  it('blocks reminder and ranking use after opt-out, tombstone or retention expiry', () => {
-  const now = Date.parse('2026-09-26T00:00:00.000Z');
+  const now = Date.now();
   const intent = {
    userId: 'uid-1',
-   occurred_at: '2026-09-01T00:00:00.000Z',
+   occurred_at: new Date(now - 25 * 86400000).toISOString(),
   };
   expect(canSendApplicationIntentReminder({
    profile: { applicationIntent: { optedOut: false } },
@@ -82,7 +82,22 @@ describe('application-intent privacy gates', () => {
   })).toBe(false);
   expect(canUseApplicationIntentForRanking({
    profile: { applicationIntent: { optedOut: false } },
-   intent: { ...intent, occurred_at: '2025-01-01T00:00:00.000Z' },
+   intent: { ...intent, occurred_at: new Date(now - 400 * 86400000).toISOString() },
+   userId: 'uid-1',
+   now,
+  })).toBe(false);
+ });
+
+ it('rejects every conflicting account identity field, including accountUid', () => {
+  const now = Date.now();
+  const retainedIntent = {
+   userId: 'uid-1',
+   accountUid: 'uid-2',
+   occurred_at: new Date(now - 1000).toISOString(),
+  };
+  expect(canUseApplicationIntentForRanking({
+   profile: { applicationIntent: { optedOut: false } },
+   intent: retainedIntent,
    userId: 'uid-1',
    now,
   })).toBe(false);
@@ -90,7 +105,8 @@ describe('application-intent privacy gates', () => {
 
  it('keeps the deletion boundary durable and rejects late writes', async () => {
   const { db, store } = createTombstoneDb();
-  const tombstone = buildApplicationIntentAccountTombstone('uid-1', '2026-09-26T00:00:00.000Z');
+  const stamp = new Date().toISOString();
+  const tombstone = buildApplicationIntentAccountTombstone('uid-1', stamp);
   expect(tombstone).toMatchObject({ status: 'account_deleted', userId: 'uid-1' });
   await db.collection(APPLICATION_INTENT_ACCOUNT_TOMBSTONES_COLLECTION).doc('uid-1').set(tombstone!);
 
@@ -102,10 +118,10 @@ describe('application-intent privacy gates', () => {
   expect(await canSendApplicationIntentReminderForAccount(db as never, {
    userId: 'uid-1',
    profile: { applicationIntent: { optedOut: false } },
-   intent: { userId: 'uid-1', occurred_at: '2026-09-20T00:00:00.000Z' },
+   intent: { userId: 'uid-1', occurred_at: new Date(Date.now() - 6 * 86400000).toISOString() },
   })).toBe(false);
   expect(store.get(`${APPLICATION_INTENT_ACCOUNT_TOMBSTONES_COLLECTION}/uid-1`)).toMatchObject({
-   account_deleted_at: '2026-09-26T00:00:00.000Z',
+   account_deleted_at: stamp,
   });
  });
 });

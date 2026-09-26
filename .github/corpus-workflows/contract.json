@@ -4,20 +4,20 @@
   "generatorSha256": "6f2cd09fca08906ae233f535997403217908d5d4fc55160cc318563846ca2320",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "c44e8d65b2ca3f647927657ead8a55b8957c41d9",
+  "sourceCommit": "4f4099c8654694791ef508d476c398e313bc2f61",
   "artifactObservation": {
     "generatorSha256": "6f2cd09fca08906ae233f535997403217908d5d4fc55160cc318563846ca2320",
     "sourceRef": "main",
-    "sourceCommit": "c44e8d65b2ca3f647927657ead8a55b8957c41d9"
+    "sourceCommit": "4f4099c8654694791ef508d476c398e313bc2f61"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 624,
+  "crawlerCount": 626,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:fafef249451f285254d1a3603cb5adcb48f1832e95cd412a3f3bbc8dba7b415e",
+    "rosterDigest": "sha256:955c0cc302f3930558ab5e17058bb87590c9f22ee0c9062bf5b2b6547a8aaf63",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -141,6 +141,7 @@
     "scripts/update-cham-swiss-properties-jobs.mjs",
     "scripts/update-chicco-doro-jobs.mjs",
     "scripts/update-chopard-jobs.mjs",
+    "scripts/update-christinavassalli-jobs.mjs",
     "scripts/update-cippatrasporti-jobs.mjs",
     "scripts/update-city-pop-jobs.mjs",
     "scripts/update-claraspital-jobs.mjs",
@@ -402,6 +403,7 @@
     "scripts/update-planzer-jobs.mjs",
     "scripts/update-pole-sante-pays-enhaut-jobs.mjs",
     "scripts/update-postauto-jobs.mjs",
+    "scripts/update-premiumpflege24-jobs.mjs",
     "scripts/update-privatklinik-bethanien-jobs.mjs",
     "scripts/update-privatklinik-hohenegg-jobs.mjs",
     "scripts/update-privatklinik-meiringen-jobs.mjs",
@@ -1434,8 +1436,8 @@
     {
       "file": "crawler-group-23.yml",
       "sourceLogic": "crawler-group-23-logic.yml",
-      "sourceSha256": "84e3e1f7c8284487f914cb0d8138ffd41d1806760f0f95c44de8656835f80c92",
-      "artifactSha256": "1679c07e5c3c3b12720eeea8bbb2aa36206d23a6d079fc6b4469c00fbb6261b3",
+      "sourceSha256": "8d7981e4ed0e1337cf4cb9f3a2d72f8927013ec2867d2e1402fe461001242c15",
+      "artifactSha256": "3ee83fe775b447c777f21c788f73e2122318043a218ce8d3ea128d810858c905",
       "generatorSha256": "6f2cd09fca08906ae233f535997403217908d5d4fc55160cc318563846ca2320",
       "members": [
         "albergo-gardenia",
@@ -1449,7 +1451,9 @@
         "postauto",
         "postch",
         "brefispersonal",
-        "ecam"
+        "ecam",
+        "christinavassalli",
+        "premiumpflege24"
       ]
     },
     {

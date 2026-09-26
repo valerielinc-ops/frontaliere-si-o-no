@@ -40,8 +40,12 @@ export const ACCOUNT_DELETED_STATUS = 'account_deleted';
 
 function applicationIntentBelongsToUid(data, uid) {
  if (!data || typeof data !== 'object') return false;
- return [data.userId, data.uid, data.accountUid]
+ const explicitUid = [data.userId, data.uid, data.accountUid]
   .some((candidate) => typeof candidate === 'string' && candidate.trim() === uid);
+ const canonicalUid = data.identifierType === 'firebase_uid'
+  && typeof data.identifier === 'string'
+  && data.identifier.trim() === uid;
+ return explicitUid || canonicalUid;
 }
 
 async function collectApplicationIntentRefs(db, uid) {
@@ -59,12 +63,12 @@ async function collectApplicationIntentRefs(db, uid) {
  const direct = await root.doc(uid).get();
  if (direct.exists) addDocs({ docs: [direct] }, false);
  if (typeof root.where === 'function') {
-  // Single-field queries avoid a composite index and cover both shapes used
-  // by early writers (`userId`) and callback migrations (`uid`/`accountUid`).
+  // Single-field queries avoid a composite index and cover explicit identity
+  // fields plus the canonical writer's verified Firebase uid identifier.
   const snapshots = await Promise.all(
-   ['userId', 'uid', 'accountUid'].map((field) => root.where(field, '==', uid).get()),
+   ['userId', 'uid', 'accountUid', 'identifier'].map((field) => root.where(field, '==', uid).get()),
   );
-  snapshots.forEach((snapshot) => addDocs(snapshot, false));
+  snapshots.forEach((snapshot) => addDocs(snapshot));
  } else if (typeof root.limit === 'function') {
   // The small fake/in-memory adapters used by tests do not implement where;
   // filter their bounded collection scan locally rather than weakening the
@@ -75,7 +79,7 @@ async function collectApplicationIntentRefs(db, uid) {
  // Also cover a user-scoped collection. It is tombstoned before users/{uid}
  // is deleted, so a late callback cannot find surviving personal fields there.
  const nested = db.collection('users').doc(uid).collection(APPLICATION_INTENTS_COLLECTION);
- if (typeof nested.limit === 'function') addDocs(await nested.limit(DELETE_PAGE_SIZE).get());
+ if (typeof nested.limit === 'function') addDocs(await nested.limit(DELETE_PAGE_SIZE).get(), false);
 
  return [...refs.values()];
 }

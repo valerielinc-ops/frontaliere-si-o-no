@@ -135,12 +135,16 @@ export function firstEventImageUrl(value, baseUrl) {
 /**
  * Normalize schema.org organizer/performer values while preserving the source
  * entity type and URL when present. A singular source value stays singular;
- * arrays stay arrays so the dataset does not invent cardinality.
+ * arrays stay arrays so the dataset does not invent cardinality. When a
+ * caller supplies `fallbackUrl`, it is the verified page that published the
+ * named entity (never a guessed organization homepage) and is used only when
+ * the source omitted the entity URL.
  */
-export function normalizeEventPeople(value, baseUrl) {
+export function normalizeEventPeople(value, baseUrl, fallbackUrl) {
   if (value === undefined || value === null) return undefined;
   const inputWasArray = Array.isArray(value);
   const entries = inputWasArray ? value : [value];
+  const normalizedFallbackUrl = absoluteHttpUrl(fallbackUrl, baseUrl);
   const seen = new Set();
   const people = [];
 
@@ -148,7 +152,7 @@ export function normalizeEventPeople(value, baseUrl) {
     const rawName = typeof entry === 'string' ? entry : entry?.name;
     const name = typeof rawName === 'string' ? rawName.replace(/\s+/g, ' ').trim() : '';
     if (!name) continue;
-    const url = absoluteHttpUrl(typeof entry === 'object' ? entry?.url : undefined, baseUrl);
+    const url = absoluteHttpUrl(typeof entry === 'object' ? entry?.url : undefined, baseUrl) || normalizedFallbackUrl;
     const key = `${name.toLowerCase()}|${url || ''}`;
     if (seen.has(key)) continue;
     seen.add(key);
@@ -162,6 +166,42 @@ export function normalizeEventPeople(value, baseUrl) {
 
   if (!people.length) return undefined;
   return inputWasArray ? people : people[0];
+}
+
+/** Return true only when every normalized named entity has a usable URL. */
+export function hasCompleteEventPeopleUrls(value) {
+  if (value === undefined || value === null) return false;
+  const entries = Array.isArray(value) ? value : [value];
+  return entries.length > 0 && entries.every((entry) => typeof entry?.url === 'string' && /^https?:\/\//i.test(entry.url));
+}
+
+function eventPersonNameKey(value) {
+  return typeof value?.name === 'string' ? value.name.replace(/\s+/g, ' ').trim().toLowerCase() : '';
+}
+
+/** Merge source-backed URLs into matching primary people without dropping entries. */
+export function mergeEventPeopleUrls(primary, candidate) {
+  if (primary === undefined || primary === null) return candidate;
+  if (candidate === undefined || candidate === null) return primary;
+  const primaryWasArray = Array.isArray(primary);
+  const primaryEntries = primaryWasArray ? primary : [primary];
+  const candidateEntries = Array.isArray(candidate) ? candidate : [candidate];
+  const merged = primaryEntries.map((entry) => (
+    entry && typeof entry === 'object' ? { ...entry } : entry
+  ));
+
+  for (const candidateEntry of candidateEntries) {
+    const candidateName = eventPersonNameKey(candidateEntry);
+    if (!candidateName || typeof candidateEntry?.url !== 'string') continue;
+    const index = merged.findIndex((entry) => eventPersonNameKey(entry) === candidateName);
+    if (index < 0) continue;
+    const current = merged[index];
+    if (current && typeof current === 'object' && !current.url) {
+      merged[index] = { ...current, url: candidateEntry.url };
+    }
+  }
+
+  return primaryWasArray ? merged : merged[0];
 }
 
 function sourceText(value) {

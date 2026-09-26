@@ -183,7 +183,18 @@ describe('cleanupUserDataForDeletedAccount', () => {
         email: EMAIL,
         ip_anonymized: '198.51.100.0',
         user_agent: 'browser-details-that-must-not-survive',
-        occurred_at: '2026-09-20T00:00:00.000Z',
+        occurred_at: new Date(Date.now() - 6 * 86400000).toISOString(),
+      },
+      [`application_intents/intent-canonical`]: {
+        identifierType: 'firebase_uid',
+        identifier: UID,
+        email: EMAIL,
+        user_agent: 'canonical-user-agent-that-must-not-survive',
+      },
+      [`users/${UID}/application_intents/intent-nested-legacy`]: {
+        email: EMAIL,
+        ip_anonymized: '198.51.100.0',
+        user_agent: 'nested-user-agent-that-must-not-survive',
       },
     });
 
@@ -193,7 +204,7 @@ describe('cleanupUserDataForDeletedAccount', () => {
     expect(result.tombstonedNewsletter).toBe(true);
     expect(result.tombstonedJobAlert).toBe(true);
     expect(result.deletedPetitionSignature).toBe(true);
-    expect(result.tombstonedApplicationIntents).toBe(1);
+    expect(result.tombstonedApplicationIntents).toBe(3);
     expect(result.tombstonedApplicationIntentAccount).toBe(true);
     expect(db.store[`petition_signatures/${UID}`]).toBeUndefined();
     expect(db.store[`users/${UID}`]).toBeUndefined();
@@ -219,6 +230,10 @@ describe('cleanupUserDataForDeletedAccount', () => {
     expect(db.store[`application_intents/intent-1`]).not.toHaveProperty('email');
     expect(db.store[`application_intents/intent-1`]).not.toHaveProperty('ip_anonymized');
     expect(db.store[`application_intents/intent-1`]).not.toHaveProperty('user_agent');
+    expect(db.store[`application_intents/intent-canonical`]).toMatchObject({ status: 'account_deleted' });
+    expect(db.store[`application_intents/intent-canonical`]).not.toHaveProperty('email');
+    expect(db.store[`users/${UID}/application_intents/intent-nested-legacy`]).toMatchObject({ status: 'account_deleted' });
+    expect(db.store[`users/${UID}/application_intents/intent-nested-legacy`]).not.toHaveProperty('email');
   });
 
   it('writes a tombstone even when no subscriber docs existed, so a later create is an update', async () => {

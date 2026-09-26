@@ -12063,6 +12063,21 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.arresto-mente-bennet-tavernola.title': 'Rapina al Bennet: arrestata la presunta mente in Ticino',
     'blog.article.arresto-mente-bennet-tavernola.excerpt': 'Un 32enne residente nel Bellinzonese e un 25enne di Monza sono stati arrestati per la rapina alla gioielleria Stroili del Bennet di Tavernola.',
     'blog.article.arresto-mente-bennet-tavernola.imageAlt': 'Arrestata la presunta mente della rapina al Bennet di Tavernola, residente nel Bellinzonese',
+    'blog.article.protesta-impianto-betonaggio-intelvi.title': 'Protesta a Castiglione d\'Intelvi per impianto betonaggio',
+    'blog.article.protesta-impianto-betonaggio-intelvi.excerpt': 'Oltre 750 firme raccolte in sei giorni contro l\'impianto di betonaggio e frantoio previsti a Castiglione d\'Intelvi per la Variante della Tremezzina.',
+    'blog.article.protesta-impianto-betonaggio-intelvi.imageAlt': 'Paesaggio della Valle d\'Intelvi con strade strette e tortuose',
+    'blog.article.merone-pendolare-frontiera-ch.title': 'Vivere a Merone e lavorare in Ticino da frontaliere',
+    'blog.article.merone-pendolare-frontiera-ch.excerpt': 'Vivere a Merone e lavorare in Ticino: cosa cambia per imposta alla fonte, franchigie di 7.500 e 10.000 euro, AVS, LPP e LAMal.',
+    'blog.article.merone-pendolare-frontiera-ch.imageAlt': 'Strada mattutina in Ticino per chi vive a Merone e lavora oltreconfine',
+    'blog.article.rapina-como-residente-ticino.title': 'Rapina a Como: arrestato residente in Ticino',
+    'blog.article.rapina-como-residente-ticino.excerpt': 'Il 32enne italiano, residente nel Bellinzonese, è tra i due arrestati per la rapina da 90\'000 euro del 24 aprile.',
+    'blog.article.rapina-como-residente-ticino.imageAlt': 'Polizia e gioielleria a Como dopo la rapina del 24 aprile; arrestato un residente nel Bellinzonese.',
+    'blog.article.cantieri-reti-gas-acqua-varese.title': 'Varese: cantieri gas e acqua in tre vie fino ad aprile 2027',
+    'blog.article.cantieri-reti-gas-acqua-varese.excerpt': 'Dal 28 settembre 2026 iniziano i lavori di Lereti (Gruppo Acinque) in via Masolino da Panicale, Pagliano e Giovannini. Divieto di transito e sosta.',
+    'blog.article.cantieri-reti-gas-acqua-varese.imageAlt': 'Lavori di rinnovamento reti gas e acqua a Varese',
+    'blog.article.erba-punto-nascita-interrogazione-lega.title': 'Chiusura punto nascita Erba: interrogazione Lega',
+    'blog.article.erba-punto-nascita-interrogazione-lega.excerpt': 'Eugenio Zoffili interroga il ministro Schillaci e chiede tavoli tecnici e deroghe per mantenere operativo il punto nascita di Erba.',
+    'blog.article.erba-punto-nascita-interrogazione-lega.imageAlt': 'Ospedale di Erba al centro della discussione sulla chiusura del punto nascita',
 };
 
 export default blogMetaIt;

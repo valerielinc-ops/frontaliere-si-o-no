@@ -407,6 +407,21 @@ const INTRA_FIELD_SEP = '(?:[^\\S\\n]|[-–—/_.]){1,3}';
  */
 const CYBER_QUALIFIER_SRC = '(?:\\binformation|\\bit\\b|\\bcloud|\\bnetwork|\\bcyber)';
 
+/**
+ * Qualifiers that turn a security-system phrase into cyber or occupational
+ * safety terminology. The same veto is applied to every language-specific
+ * physical-systems alternative below: otherwise a new qualifier can turn
+ * only one locale into a duplicate landing.
+ */
+const SECURITY_SYSTEM_PREFIX_VETO_SRC =
+  `(?:${CYBER_QUALIFIER_SRC}|\\binformations?|\\barbeit(?:s)?)`;
+const SECURITY_SYSTEM_SUFFIX_VETO_SRC =
+  `(?:${CYBER_QUALIFIER_SRC}|informat\\w*`
+  + `|(?:sul|sulla|del)${INTRA_FIELD_SEP}lavoro`
+  + `|(?:au|du)${INTRA_FIELD_SEP}travail`
+  + `|arbeit\\w*`
+  + `|(?:am|zur|f[uü]r)${INTRA_FIELD_SEP}arbeit\\w*)`;
+
 export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   infermieri: /infermier|infermiere|pfleger|pflegepersonal|pflegefach|krankenpfleg|krankensch|nurse|nursing|infirmier|infirmi[eè]re/i,
   // NOTE: do NOT add 3-letter abbreviations like \bris\b or \blis\b here —
@@ -513,7 +528,7 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
     /\bcameri[eè]r|\bkellner|\bwaiter\b|\bwaitress\b|\bserveur|\bserveuse|\bservice[ -]de[ -]table|\bbarista\b|\bbarman\b|\bbartender\b|\b(?:impiegat|collaborat)\S*\s+(?:di|della)\s+ristorazione/i,
   hotel: /\bhotel\b|\balbergh|\bhotelfach|\bhospitality\b|\breceptionist|\brezeption|\bconcierge\b|\bgouvernante\b|\bh[oô]tellerie|\bgovernante\b/i,
   pulizie: /\bpulizi|\breinigung|\bcleaning\b|\bnettoyage\b|\bputzfrau|\braumpfleg|\baddetto[ -]alle[ -]pulizie|\bagent[ -]d.entretien|\bfacility[ -]cleaning/i,
-  // Sicurezza FISICA. Il lookbehind tiene fuori `Information/IT/Cloud/Network/
+  // Sicurezza FISICA e sistemi di sicurezza. Il lookbehind tiene fuori `Information/IT/Cloud/Network/
   // Cyber Security Officer`, che non e' un guardiano ma un ruolo cyber: senza,
   // l'allargamento del lessico `cybersecurity` sopra lo farebbe comparire su
   // ENTRAMBE le landing. Il separatore del lookbehind e' `INTRA_FIELD_SEP`: un
@@ -535,6 +550,21 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
     + '|\\bsicherheitsdienst|\\bwachmann|\\bvigilanz'
     + '|\\bguardia' + SEC_SEP + 'giurat'
     + '|\\bagent' + SEC_SEP + 'de' + SEC_SEP + 's[eé]curit'
+    // The TI corpus also contains project and technician roles for physical
+    // security systems (access control, video surveillance and intrusion
+    // alarms). They are physical-security jobs even when the title has no
+    // guard/officer noun (#9938); keep the phrases explicit so generic
+    // occupational-safety and cyber titles remain out of this hub.
+    + `|(?<!${SECURITY_SYSTEM_PREFIX_VETO_SRC}${INTRA_FIELD_SEP})`
+      + '\\bsistem[ai]' + INTRA_FIELD_SEP + 'di' + INTRA_FIELD_SEP + 'sicurezza'
+      + `(?!${INTRA_FIELD_SEP}${SECURITY_SYSTEM_SUFFIX_VETO_SRC})`
+    + `|(?<!${SECURITY_SYSTEM_PREFIX_VETO_SRC}${INTRA_FIELD_SEP})`
+      + '\\bsicherheits(?:systeme?|technik)\\b'
+      + `(?!${INTRA_FIELD_SEP}${SECURITY_SYSTEM_SUFFIX_VETO_SRC})`
+    + `|(?<!${SECURITY_SYSTEM_PREFIX_VETO_SRC}${INTRA_FIELD_SEP})`
+      + '\\bsyst[eè]mes?' + INTRA_FIELD_SEP + 'de' + INTRA_FIELD_SEP + 's[eé]curit[eé]'
+      + `(?!${INTRA_FIELD_SEP}${SECURITY_SYSTEM_SUFFIX_VETO_SRC})`
+    + '|\\bphysical' + INTRA_FIELD_SEP + 'security'
     + '|\\bsorvegli',
     'i',
   ),

@@ -87887,6 +87887,240 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dertour-suisse-ripresa-fatturato': {
+    title: 'Dertour Suisse punta a superare il miliardo di fatturato',
+    description: 'Dertour Suisse mira a oltre 1 miliardo di franchi di fatturato grazie all\'acquisizione di Hotelplan; le prenotazioni estive 2026 mostrano il 14% per mete',
+    keywords: 'frontalieri, ticino, svizzera, italia, dertour, suisse, punta, superare',
+    ogTitle: 'Dertour Suisse punta a superare il miliardo di fatturato',
+    ogDescription: 'Dertour Suisse, principale tour operator svizzero, annuncia l\'obiettivo di superare il miliardo di franchi di fatturato dopo l\'acquisizione di Hotelplan. Le prenotazioni sono tornate sopra i livelli dell\'anno precedente e il 14% delle prenotazioni',
+    canonicalPath: '/articoli-svizzera/dertour-suisse-ripresa-fatturato/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dertour Suisse punta a superare il miliardo di fatturato",
+      "description": "Dertour Suisse mira a oltre 1 miliardo di franchi di fatturato grazie all'acquisizione di Hotelplan; le prenotazioni estive 2026 mostrano il 14% per mete",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dertour-suisse-ripresa-fatturato.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago Lugano con barche a vela e montagne sullo sfondo, simbolo del turismo svizzero."
+      },
+      "datePublished": "2026-09-26T12:56:20+00:00",
+      "dateModified": "2026-09-26T12:56:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dertour-suisse-ripresa-fatturato/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzera-auto-elettriche-classifica': {
+    title: 'Auto elettriche: Svizzera scende al 16° posto in Europa',
+    description: 'La Svizzera è passata dal 5° al 16° posto nella classifica europea di elettrificazione; un SUV elettrico può costare fino a 1\'000 franchi in più di tasse',
+    keywords: 'frontalieri, ticino, svizzera, italia, auto, elettriche, scende, posto',
+    ogTitle: 'Auto elettriche: Svizzera scende al 16° posto in Europa',
+    ogDescription: 'Secondo Helmut Ruhl di Amag, la Svizzera ha perso terreno nella classifica europea di elettrificazione, scivolando dal 5° posto nel 2019 al 16° a metà 2026. Le imposte cantonali possono far pagare fino a 1\'000 franchi in più all\'anno per un SUV',
+    canonicalPath: '/articoli-svizzera/svizzera-auto-elettriche-classifica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Auto elettriche: Svizzera scende al 16° posto in Europa",
+      "description": "La Svizzera è passata dal 5° al 16° posto nella classifica europea di elettrificazione; un SUV elettrico può costare fino a 1'000 franchi in più di tasse",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-auto-elettriche-classifica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "SUV elettrico moderno parcheggiato accanto a una stazione di ricarica in una località alpina svizzera."
+      },
+      "datePublished": "2026-09-26T13:50:34+00:00",
+      "dateModified": "2026-09-26T13:50:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-auto-elettriche-classifica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-premi-cassa-malati-stabilita-famiglie': {
+    title: 'Premi casse malati salgono, ma il peso familiare è stabile',
+    description: 'Dal 2016 al 2023 il carico netto delle famiglie svizzere è rimasto stabile: il premio standard è salito del 19%, ma la quota sul reddito medio è passata',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, casse, malati, salgono',
+    ogTitle: 'Premi casse malati in crescita, ma carico familiare stabile',
+    ogDescription: 'L\'analisi di circa 300.000 famiglie mostra che, nonostante l\'aumento del 19% del premio standard e un incremento medio dei premi lordi del 11%, il peso netto sul reddito è rimasto stabile grazie a sussidi più consistenti. La previsione per il 2027',
+    canonicalPath: '/articoli-svizzera/premi-cassa-malati-stabilita-famiglie/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi casse malati salgono, ma il peso familiare è stabile",
+      "description": "Dal 2016 al 2023 il carico netto delle famiglie svizzere è rimasto stabile: il premio standard è salito del 19%, ma la quota sul reddito medio è passata",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-cassa-malati-stabilita-famiglie.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista urbana svizzera con ospedale moderno, simbolo delle casse malati"
+      },
+      "datePublished": "2026-09-26T14:59:40+00:00",
+      "dateModified": "2026-09-26T14:59:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-cassa-malati-stabilita-famiglie/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-protesta-asilo-berna-diritti': {
+    title: 'Berna: protesta contro gli inasprimenti del diritto d\'asilo',
+    description: 'Migliaia di persone a Berna contro gli inasprimenti del diritto d\'asilo. Richieste di salute, lavoro e istruzione per tutti i residenti. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, berna, protesta, contro, inasprimenti',
+    ogTitle: 'Berna: migliaia in piazza per il diritto d\'asilo',
+    ogDescription: 'Solidarité sans frontières e cento organizzazioni protestano a Berna contro la Strategia d\'asilo 2027 e l\'iniziativa UDC, chiedendo diritti fondamentali per tutti.',
+    canonicalPath: '/articoli-svizzera/protesta-asilo-berna-diritti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Berna: protesta contro gli inasprimenti del diritto d'asilo",
+      "description": "Migliaia di persone a Berna contro gli inasprimenti del diritto d'asilo. Richieste di salute, lavoro e istruzione per tutti i residenti. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/protesta-asilo-berna-diritti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione a Berna in Piazza Federale contro gli inasprimenti del diritto d'asilo"
+      },
+      "datePublished": "2026-09-26T15:55:24+00:00",
+      "dateModified": "2026-09-26T15:55:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/protesta-asilo-berna-diritti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avenergy-lobby-clima': {
+    title: 'Avenergy e la lobby del petrolio: clima in Svizzera',
+    description: 'Avenergy, associazione degli importatori di petrolio, è al centro di uno studio sulla comunicazione e sulla rete di interessi che arriva al Consiglio federale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, avenergy, lobby, petrolio, clima',
+    ogTitle: 'Avenergy, petrolio e clima: la rete in Svizzera',
+    ogDescription: 'Uno studio ricostruisce la comunicazione di Avenergy, associazione degli importatori di petrolio, nel quadro di una rete di interessi che arriva in Consiglio federale. La fonte colloca l\'analisi nel dibattito sul clima in Svizzera.',
+    canonicalPath: '/articoli-svizzera/avenergy-lobby-clima/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Avenergy e la lobby del petrolio: clima in Svizzera",
+      "description": "Avenergy, associazione degli importatori di petrolio, è al centro di uno studio sulla comunicazione e sulla rete di interessi che arriva al Consiglio federale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avenergy-lobby-clima.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona e le montagne svizzere sotto un cielo nuvoloso, immagine sul clima nazionale"
+      },
+      "datePublished": "2026-09-26T16:40:49+00:00",
+      "dateModified": "2026-09-26T16:40:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avenergy-lobby-clima/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-assicurazione-grandine-2026': {
+    title: 'Assicurazione grandine: premi a rischio nel 2026',
+    description: 'Nel 2026 Grandine Svizzera prevede perdite e risarcimenti fino a 170 milioni di franchi, con raccolti di barbabietole, patate e mais in calo fino al 30%. Aebi',
+    keywords: 'frontalieri, ticino, svizzera, italia, assicurazione, grandine, premi, rischio',
+    ogTitle: 'Assicurazione grandine: premi a rischio nel 2026',
+    ogDescription: 'Grandine Svizzera, principale assicuratrice europea per rischi agricoli, avverte che nel 2026 potrebbe dover pagare fino a 170 milioni di franchi di risarcimenti a causa di grandinate che hanno ridotto le rese di barbabietole, patate e mais fino',
+    canonicalPath: '/articoli-svizzera/assicurazione-grandine-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assicurazione grandine: premi a rischio nel 2026",
+      "description": "Nel 2026 Grandine Svizzera prevede perdite e risarcimenti fino a 170 milioni di franchi, con raccolti di barbabietole, patate e mais in calo fino al 30%. Aebi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assicurazione-grandine-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campo agricolo svizzero colpito da grandine con nuvole minacciose"
+      },
+      "datePublished": "2026-09-26T17:26:33+00:00",
+      "dateModified": "2026-09-26T17:26:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assicurazione-grandine-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

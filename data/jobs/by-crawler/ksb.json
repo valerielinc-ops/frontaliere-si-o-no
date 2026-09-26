@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksb",
-  "assembledAt": "2026-09-25T15:02:41.091Z",
+  "assembledAt": "2026-09-26T14:19:08.573Z",
   "jobs": [
     {
       "id": "ksb-9648f99f541a",
@@ -34,7 +34,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Spontanbewerbungen-rztInnen_R1896",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:27.527Z",
+      "crawledAt": "2026-09-26T14:18:57.428Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -53,14 +53,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "spontanbewerbungen-facharztinnen-kantonsspital-baden-ksb-baden",
-        "spontanbewerbungen-facharztinnen-ksb-ch",
-        "applicazioni-spontanee-kantonsspital-baden-ksb-baden"
+        "spontanbewerbungen-facharztinnen-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spontanbewerbungen-facharztinnen-kantonsspital-baden-ksb-baden",
-          "spontanbewerbungen-facharztinnen-ksb-ch",
-          "applicazioni-spontanee-kantonsspital-baden-ksb-baden"
+          "spontanbewerbungen-facharztinnen-ksb-ch"
         ],
         "en": [
           "spontanbewerbungen-facharztinnen-kantonsspital-baden-ksb-baden"
@@ -119,7 +117,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachmann-frau-Operationstechnik-iA_R2689",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:26.265Z",
+      "crawledAt": "2026-09-26T14:18:56.008Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -138,14 +136,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachmann-frau-operationstechnik-i-a-ksb-ch",
-        "fachmann-frau-operationstechnik-i-a-kantonsspital-baden-ksb-baden",
-        "operazioni-professionali-moglie-ingegneria-i-a-kantonsspital-baden-ksb-baden"
+        "fachmann-frau-operationstechnik-i-a-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachmann-frau-operationstechnik-i-a-ksb-ch",
-          "fachmann-frau-operationstechnik-i-a-kantonsspital-baden-ksb-baden",
-          "operazioni-professionali-moglie-ingegneria-i-a-kantonsspital-baden-ksb-baden"
+          "fachmann-frau-operationstechnik-i-a-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "fachmann-frau-operationstechnik-i-a-ksb-ch"
@@ -200,7 +196,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Biomedizinische-r-Analytiker-in-iA_R2703-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:25.381Z",
+      "crawledAt": "2026-09-26T14:18:55.246Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -219,14 +215,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "biomedizinische-r-analytiker-in-i-a-kantonsspital-baden-ksb-baden",
-        "biomedizinische-r-analytiker-in-i-a-ksb-ch",
-        "biomedicale-analyst-in-i-a-kantonsspital-baden-ksb-baden"
+        "biomedizinische-r-analytiker-in-i-a-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "biomedizinische-r-analytiker-in-i-a-kantonsspital-baden-ksb-baden",
-          "biomedizinische-r-analytiker-in-i-a-ksb-ch",
-          "biomedicale-analyst-in-i-a-kantonsspital-baden-ksb-baden"
+          "biomedizinische-r-analytiker-in-i-a-ksb-ch"
         ],
         "en": [
           "biomedizinische-r-analytiker-in-i-a-kantonsspital-baden-ksb-baden"
@@ -251,7 +245,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-1493d7e3b8a5",
@@ -285,7 +280,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Unterassistent-in-Pdiatrie_R2466",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:23.891Z",
+      "crawledAt": "2026-09-26T14:18:54.111Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -307,8 +302,7 @@
         "sostante-in-anestesia-100-kantonsspital-baden-ksb-baden",
         "subassistent-in-anesthesia-100-kantonsspital-baden-ksb-baden",
         "unterassistent-in-anasthesie-100-ksb-ch",
-        "insistance-dans-l-anesthesie-100-kantonsspital-baden-ksb-baden",
-        "sostante-a-paediatric-100-kantonsspital-baden-ksb-baden"
+        "insistance-dans-l-anesthesie-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -316,8 +310,7 @@
           "sostante-in-anestesia-100-kantonsspital-baden-ksb-baden",
           "subassistent-in-anesthesia-100-kantonsspital-baden-ksb-baden",
           "unterassistent-in-anasthesie-100-ksb-ch",
-          "insistance-dans-l-anesthesie-100-kantonsspital-baden-ksb-baden",
-          "sostante-a-paediatric-100-kantonsspital-baden-ksb-baden"
+          "insistance-dans-l-anesthesie-100-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "unterassistent-in-padiatrie-100-ksb-ch",
@@ -378,7 +371,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/UnterassistentIn-Gynkologie-und-Geburtshilfe_R2468",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:22.799Z",
+      "crawledAt": "2026-09-26T14:18:53.327Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -397,14 +390,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "unterassistent-in-gynakologie-und-geburtshilfe-100-ksb-ch",
-        "unterassistent-in-gynakologie-e-geburtshilfe-100-kantonsspital-baden-ksb-baden",
-        "sostante-in-ginecologia-e-ostetricia-100-kantonsspital-baden-ksb-baden"
+        "unterassistent-in-gynakologie-e-geburtshilfe-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterassistent-in-gynakologie-und-geburtshilfe-100-ksb-ch",
-          "unterassistent-in-gynakologie-e-geburtshilfe-100-kantonsspital-baden-ksb-baden",
-          "sostante-in-ginecologia-e-ostetricia-100-kantonsspital-baden-ksb-baden"
+          "unterassistent-in-gynakologie-e-geburtshilfe-100-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "unterassistent-in-gynakologie-und-geburtshilfe-100-ksb-ch"
@@ -459,7 +450,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Spontanbewerbungen-AA-Pdiatrie_R1845",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:21.899Z",
+      "crawledAt": "2026-09-26T14:18:52.531Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -477,13 +468,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenzarzt-arztin-padiatrie-ksb-ch",
-        "assistente-medico-padiatrie-kantonsspital-baden-ksb-baden"
+        "assistenzarzt-arztin-padiatrie-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-arztin-padiatrie-ksb-ch",
-          "assistente-medico-padiatrie-kantonsspital-baden-ksb-baden"
+          "assistenzarzt-arztin-padiatrie-ksb-ch"
         ],
         "en": [
           "assistenzarzt-arztin-padiatrie-ksb-ch"
@@ -505,7 +494,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-3fe86ee8bd81",
@@ -538,7 +528,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Unterassistent--in-Chirurgie_R2666",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:21.036Z",
+      "crawledAt": "2026-09-26T14:18:51.726Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -561,8 +551,7 @@
         "specialist-care-surgery-100-kantonsspital-baden-ksb-baden",
         "fachexpertin-experte-pflege-urologie-oder-orthopadie-100-ksb-ch",
         "chirurgie-de-soins-specialises-100-kantonsspital-baden-ksb-baden",
-        "fachexpertin-experte-pflege-chirurgie-100-ksb-ch",
-        "chirurgia-100-kantonsspital-baden-ksb-baden"
+        "fachexpertin-experte-pflege-chirurgie-100-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -571,8 +560,7 @@
           "specialist-care-surgery-100-kantonsspital-baden-ksb-baden",
           "fachexpertin-experte-pflege-urologie-oder-orthopadie-100-ksb-ch",
           "chirurgie-de-soins-specialises-100-kantonsspital-baden-ksb-baden",
-          "fachexpertin-experte-pflege-chirurgie-100-ksb-ch",
-          "chirurgia-100-kantonsspital-baden-ksb-baden"
+          "fachexpertin-experte-pflege-chirurgie-100-ksb-ch"
         ],
         "en": [
           "unterassistent-in-chirurgie-100-ksb-ch",
@@ -599,7 +587,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-dcc94e08a2ba",
@@ -615,7 +604,7 @@
       "companyDomain": "ksb.ch",
       "title": "Dipl. Pflegefachmann_frau Bronchoskopie 60-100%",
       "titleByLocale": {
-        "it": "Infermiere diplomato_donna broncoscopia 60-100%",
+        "it": "Dipl. Pflegefachmann_frau Bronchoskopie 60-100%",
         "en": "Dipl. Care professional bronchoscopy 60-100 %",
         "de": "Dipl. Pflegefachmann_frau Bronchoskopie 60-100%",
         "fr": "Dipl. Bronchoscopie professionnelle de soins 60-100 %"
@@ -632,7 +621,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachmann-frau-Endoskopie-60-100-_R10123",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:20.119Z",
+      "crawledAt": "2026-09-26T14:18:50.936Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -651,14 +640,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachmann-frau-bronchoskopie-60-100-ksb-ch",
-        "dipl-pflegefachmann-frau-bronchoskopie-60-100-kantonsspital-baden-ksb-baden",
-        "dipl-infermieristica-donna-professionale-broncoscopia-60-100-kantonsspital-baden-ksb-baden"
+        "dipl-pflegefachmann-frau-bronchoskopie-60-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-frau-bronchoskopie-60-100-ksb-ch",
-          "dipl-pflegefachmann-frau-bronchoskopie-60-100-kantonsspital-baden-ksb-baden",
-          "dipl-infermieristica-donna-professionale-broncoscopia-60-100-kantonsspital-baden-ksb-baden"
+          "dipl-pflegefachmann-frau-bronchoskopie-60-100-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "dipl-pflegefachmann-frau-bronchoskopie-60-100-ksb-ch"
@@ -680,7 +667,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-cb2e2052a3c3",
@@ -714,7 +702,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Oberarzt---Oberrztin-Pdiatrie-60-100-_R10149",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:19.167Z",
+      "crawledAt": "2026-09-26T14:18:50.137Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -736,13 +724,11 @@
         "medico-senior-neurology-40-100-kantonsspital-baden-ksb-baden",
         "senior-physician-neurology-40-100-kantonsspital-baden-ksb-baden",
         "oberarztin-arzt-neurologie-40-100-ksb-ch",
-        "medecin-principal-neurologie-40-100-kantonsspital-baden-ksb-baden",
-        "medico-senior-padiatrie-80-100-kantonsspital-baden-ksb-baden"
+        "medecin-principal-neurologie-40-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-arzt-padiatrie-80-100-ksb-ch",
-          "medico-senior-padiatrie-80-100-kantonsspital-baden-ksb-baden"
+          "oberarztin-arzt-padiatrie-80-100-ksb-ch"
         ],
         "en": [
           "oberarztin-arzt-padiatrie-80-100-ksb-ch"
@@ -798,7 +784,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Unterassistent--in_R2246",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:18.285Z",
+      "crawledAt": "2026-09-26T14:18:49.322Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -816,13 +802,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "unterassistent-in-innere-medizin-100-ksb-ch",
-        "sostante-in-medicina-interna-100-kantonsspital-baden-ksb-baden"
+        "unterassistent-in-innere-medizin-100-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-innere-medizin-100-ksb-ch",
-          "sostante-in-medicina-interna-100-kantonsspital-baden-ksb-baden"
+          "unterassistent-in-innere-medizin-100-ksb-ch"
         ],
         "en": [
           "unterassistent-in-innere-medizin-100-ksb-ch"
@@ -878,7 +862,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Physiotherapeut-in-100-_R8164",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:17.359Z",
+      "crawledAt": "2026-09-26T14:18:48.500Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -897,14 +881,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "physiotherapeut-in-mit-wunschpensum-baden-oder-limmatfeld-ksb-ch",
-        "physiotherapeut-in-con-wunschpensum-baden-o-limmatfeld-kantonsspital-baden-ksb-baden",
-        "physiotherapeut-in-con-pensum-desiderato-campo-di-calce-o-calce-kantonsspital-baden-ksb-baden"
+        "physiotherapeut-in-con-wunschpensum-baden-o-limmatfeld-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeut-in-mit-wunschpensum-baden-oder-limmatfeld-ksb-ch",
-          "physiotherapeut-in-con-wunschpensum-baden-o-limmatfeld-kantonsspital-baden-ksb-baden",
-          "physiotherapeut-in-con-pensum-desiderato-campo-di-calce-o-calce-kantonsspital-baden-ksb-baden"
+          "physiotherapeut-in-con-wunschpensum-baden-o-limmatfeld-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "physiotherapeut-in-mit-wunschpensum-baden-oder-limmatfeld-ksb-ch"
@@ -960,7 +942,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Unterassistent--in_R2247",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:16.421Z",
+      "crawledAt": "2026-09-26T14:18:47.705Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -978,13 +960,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "unterassistent-in-interdisziplinares-notfallzentrum-100-ksb-ch",
-        "subassistente-nel-centro-di-emergenza-interdisciplinare-100-kantonsspital-baden-ksb-baden"
+        "unterassistent-in-interdisziplinares-notfallzentrum-100-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-interdisziplinares-notfallzentrum-100-ksb-ch",
-          "subassistente-nel-centro-di-emergenza-interdisciplinare-100-kantonsspital-baden-ksb-baden"
+          "unterassistent-in-interdisziplinares-notfallzentrum-100-ksb-ch"
         ],
         "en": [
           "unterassistent-in-interdisziplinares-notfallzentrum-100-ksb-ch"
@@ -1040,7 +1020,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Oberrztin-arzt-Allgemeine-Innere-Medizin-80-100-_R1890",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:15.488Z",
+      "crawledAt": "2026-09-26T14:18:46.922Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1058,13 +1038,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-arzt-allgemeine-innere-medizin-80-100-ksb-ch",
-        "medicina-interna-generale-80-100-kantonsspital-baden-ksb-baden"
+        "oberarztin-arzt-allgemeine-innere-medizin-80-100-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-arzt-allgemeine-innere-medizin-80-100-ksb-ch",
-          "medicina-interna-generale-80-100-kantonsspital-baden-ksb-baden"
+          "oberarztin-arzt-allgemeine-innere-medizin-80-100-ksb-ch"
         ],
         "en": [
           "oberarztin-arzt-allgemeine-innere-medizin-80-100-ksb-ch"
@@ -1120,7 +1098,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Praktikant-in-Logistik-100---1-Jahr-_R11755",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:14.593Z",
+      "crawledAt": "2026-09-26T14:18:46.132Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1142,13 +1120,11 @@
         "interno-in-logistik-100-1-anno-kantonsspital-baden-ksb-baden",
         "intern-in-logistik-100-1-year-kantonsspital-baden-ksb-baden-2a5ce9",
         "stagiaire-en-logistik-100-1-an-kantonsspital-baden-ksb-baden-2a5ce9",
-        "praktikant-in-logistik-100-1-jahr-ksb-ch-2",
-        "praktikant-in-logistica-al-100-1-anno-kantonsspital-baden-ksb-baden"
+        "praktikant-in-logistik-100-1-jahr-ksb-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-logistik-100-1-jahr-ksb-ch",
-          "praktikant-in-logistica-al-100-1-anno-kantonsspital-baden-ksb-baden"
+          "praktikant-in-logistik-100-1-jahr-ksb-ch"
         ],
         "en": [
           "praktikant-in-logistik-100-1-jahr-ksb-ch"
@@ -1204,7 +1180,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Unterassistent--in-Urologie_R5055",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:13.678Z",
+      "crawledAt": "2026-09-26T14:18:45.161Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1222,13 +1198,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "unterassistent-in-urologie-100-offen-ksb-ch",
-        "sostante-in-urologia-100-offen-kantonsspital-baden-ksb-baden"
+        "unterassistent-in-urologie-100-offen-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-urologie-100-offen-ksb-ch",
-          "sostante-in-urologia-100-offen-kantonsspital-baden-ksb-baden"
+          "unterassistent-in-urologie-100-offen-ksb-ch"
         ],
         "en": [
           "unterassistent-in-urologie-100-offen-ksb-ch"
@@ -1284,7 +1258,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Spontanbewerbungen-PflegepraktikantInnen_R1788",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:12.448Z",
+      "crawledAt": "2026-09-26T14:18:44.361Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1303,14 +1277,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "spontanbewerbungen-pflegepraktikanten-kantonsspital-baden-ksb-baden",
-        "spontanbewerbungen-pflegepraktikanten-ksb-ch",
-        "applicazioni-spontanee-interni-di-cura-kantonsspital-baden-ksb-baden"
+        "spontanbewerbungen-pflegepraktikanten-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spontanbewerbungen-pflegepraktikanten-kantonsspital-baden-ksb-baden",
-          "spontanbewerbungen-pflegepraktikanten-ksb-ch",
-          "applicazioni-spontanee-interni-di-cura-kantonsspital-baden-ksb-baden"
+          "spontanbewerbungen-pflegepraktikanten-ksb-ch"
         ],
         "en": [
           "spontanbewerbungen-pflegepraktikanten-kantonsspital-baden-ksb-baden"
@@ -1351,7 +1323,7 @@
       "companyDomain": "ksb.ch",
       "title": "Dipl. Pflegefachfrau_mann Endoskopie 80-100%",
       "titleByLocale": {
-        "it": "Infermiere diplomato_uomo Endoscopia 80-100%",
+        "it": "Dipl. Pflegefachfrau_mann Endoskopie 80-100%",
         "en": "Dipl. Nursing Woman mann Endoscopy 80-100 %",
         "de": "Dipl. Pflegefachfrau_mann Endoskopie 80-100%",
         "fr": "Dipl. Infirmière endoscopie en manns 80-100 %"
@@ -1368,7 +1340,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-Endoskopie-80-100-_R11967-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:11.566Z",
+      "crawledAt": "2026-09-26T14:18:43.586Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1387,14 +1359,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-endoskopie-80-100-ksb-ch",
-        "dipl-pflegefachfrau-mann-endoskopie-80-100-kantonsspital-baden-ksb-baden",
-        "dipl-infermiera-mann-endoscopia-80-100-kantonsspital-baden-ksb-baden"
+        "dipl-pflegefachfrau-mann-endoskopie-80-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-endoskopie-80-100-ksb-ch",
-          "dipl-pflegefachfrau-mann-endoskopie-80-100-kantonsspital-baden-ksb-baden",
-          "dipl-infermiera-mann-endoscopia-80-100-kantonsspital-baden-ksb-baden"
+          "dipl-pflegefachfrau-mann-endoskopie-80-100-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-endoskopie-80-100-ksb-ch"
@@ -1416,7 +1386,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-0f003f9040be",
@@ -1433,7 +1404,7 @@
       "title": "Ergotherapeut_in Handtherapie 80-100%",
       "titleByLocale": {
         "it": "Ergotherapeut in Handtherapy 80-100 %",
-        "en": "Occupational therapist in hand therapy 80-100 %",
+        "en": "Ergotherapeut_in Handtherapie 80-100%",
         "de": "Ergotherapeut_in Handtherapie 80-100%",
         "fr": "Ergotherapeut en thérapie manuelle 80-100 %"
       },
@@ -1449,7 +1420,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Ergotherapeut-in-Handtherapie-80-100-_R12127",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:10.647Z",
+      "crawledAt": "2026-09-26T14:18:42.806Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1470,14 +1441,12 @@
         "ergotherapeut-in-handtherapie-80-100-ksb-ch",
         "ergoterapista-in-terapia-della-mano-80-100-kantonsspital-baden-ksb-baden",
         "ergotherapeut-in-handtherapie-80-100-kantonsspital-baden-ksb-baden",
-        "ergotherapeute-en-therapie-de-la-main-80-100-kantonsspital-baden-ksb-baden",
-        "ergotherapeut-in-handtherapy-80-100-kantonsspital-baden-ksb-baden"
+        "ergotherapeute-en-therapie-de-la-main-80-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ergotherapeut-in-handtherapie-80-100-ksb-ch",
-          "ergoterapista-in-terapia-della-mano-80-100-kantonsspital-baden-ksb-baden",
-          "ergotherapeut-in-handtherapy-80-100-kantonsspital-baden-ksb-baden"
+          "ergoterapista-in-terapia-della-mano-80-100-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "ergotherapeut-in-handtherapie-80-100-kantonsspital-baden-ksb-baden",
@@ -1500,7 +1469,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-ac41c43c4958",
@@ -1516,7 +1486,7 @@
       "companyDomain": "ksb.ch",
       "title": "Hotelier-Gastronom_in i.A.",
       "titleByLocale": {
-        "it": "Albergatore-gastronomo_in i.A.",
+        "it": "Hotelier-Gastronom_in i.A.",
         "en": "Hotel Gastronomy Manager",
         "de": "Hotelier-Gastronom_in i.A.",
         "fr": "Directeur d'Hôtel en Gastronomie"
@@ -1534,7 +1504,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Htelier-ire---Restaurateur-trice-iA_R2701",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:09.769Z",
+      "crawledAt": "2026-09-26T14:18:41.976Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1552,13 +1522,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hotelier-gastronom-in-i-a-ksb-ch",
-        "hotelier-gastronom-in-i-a-kantonsspital-baden-ksb-baden"
+        "hotelier-gastronom-in-i-a-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hotelier-gastronom-in-i-a-ksb-ch",
-          "hotelier-gastronom-in-i-a-kantonsspital-baden-ksb-baden"
+          "hotelier-gastronom-in-i-a-ksb-ch"
         ]
       },
       "firstSeenAt": "2026-05-19T15:19:53.019Z",
@@ -1607,7 +1575,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Spontanbewerbungen-AssistenzrztInnen_R1785",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:08.877Z",
+      "crawledAt": "2026-09-26T14:18:41.206Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1626,13 +1594,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "spontanbewerbungen-assistenzarztinnen-ksb-ch",
-        "spontanbewerbungen-assistenzarztinnen-kantonsspital-baden-ksb-baden",
-        "candidature-spontanee-medici-specializzandi-kantonsspital-baden-ksb-baden"
+        "spontanbewerbungen-assistenzarztinnen-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spontanbewerbungen-assistenzarztinnen-ksb-ch",
-          "candidature-spontanee-medici-specializzandi-kantonsspital-baden-ksb-baden"
+          "spontanbewerbungen-assistenzarztinnen-ksb-ch"
         ],
         "de": [
           "spontanbewerbungen-assistenzarztinnen-kantonsspital-baden-ksb-baden"
@@ -1651,7 +1617,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-edd2790bbe95",
@@ -1684,7 +1651,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Assistent-in-Gesundheit-und-Soziales-iA_R12220",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:07.925Z",
+      "crawledAt": "2026-09-26T14:18:40.431Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1712,13 +1679,11 @@
         ]
       },
       "previousSlugs": [
-        "assistent-in-gesundheit-und-soziales-i-a-ksb-ch",
-        "assistente-in-salute-e-sociale-kantonsspital-baden-ksb-baden"
+        "assistent-in-gesundheit-und-soziales-i-a-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-gesundheit-und-soziales-i-a-ksb-ch",
-          "assistente-in-salute-e-sociale-kantonsspital-baden-ksb-baden"
+          "assistent-in-gesundheit-und-soziales-i-a-ksb-ch"
         ]
       },
       "firstSeenAt": "2026-05-19T15:19:34.102Z",
@@ -1734,7 +1699,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-86e48467c7a4",
@@ -1768,7 +1734,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Teamleiter-in-Medizinische-Applikationen-80-100-_R12010",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:06.967Z",
+      "crawledAt": "2026-09-26T14:18:39.621Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1786,13 +1752,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-in-medizinische-applikationen-80-100-ksb-ch",
-        "teamleiter-in-applicazioni-mediche-80-100-kantonsspital-baden-ksb-baden"
+        "teamleiter-in-medizinische-applikationen-80-100-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-medizinische-applikationen-80-100-ksb-ch",
-          "teamleiter-in-applicazioni-mediche-80-100-kantonsspital-baden-ksb-baden"
+          "teamleiter-in-medizinische-applikationen-80-100-ksb-ch"
         ],
         "en": [
           "teamleiter-in-medizinische-applikationen-80-100-ksb-ch"
@@ -1831,7 +1795,7 @@
       "title": "Koch/Köchin i.A.",
       "titleByLocale": {
         "it": "Cook i.A.",
-        "en": "Cook i.A.",
+        "en": "Koch/Köchin i.A.",
         "de": "Koch/Köchin i.A.",
         "fr": "Chef/cuisinier i.A."
       },
@@ -1847,7 +1811,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Koch-Kchin-iA_R12233",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:05.986Z",
+      "crawledAt": "2026-09-26T14:18:38.810Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1872,13 +1836,11 @@
         "koch-kochin-100-limite-a-2-mois-kantonsspital-baden-ksb-baden",
         "koch-kochin-100-limitato-2-mesi-kantonsspital-baden-ksb-baden",
         "cuoco-cuoca-100-kantonsspital-baden-ksb-baden",
-        "koch-kochin-100-ksb-ch",
-        "cook-i-a-kantonsspital-baden-ksb-baden"
+        "koch-kochin-100-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "koch-kochin-i-a-ksb-ch",
-          "cook-i-a-kantonsspital-baden-ksb-baden"
+          "koch-kochin-i-a-ksb-ch"
         ],
         "en": [
           "koch-kochin-i-a-ksb-ch"
@@ -1900,7 +1862,8 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-19a42f356ddb",
@@ -1934,7 +1897,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachmann-frau-Betreuung-Kinder-iA_R12241",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:04.904Z",
+      "crawledAt": "2026-09-26T14:18:38.038Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2012,7 +1975,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachmann-frau-Betriebsunterhalt-Werkdienst-iA_R12247",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:04.045Z",
+      "crawledAt": "2026-09-26T14:18:37.270Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2090,7 +2053,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachmann-frau-Gesundheit-iA_R12219",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:02.814Z",
+      "crawledAt": "2026-09-26T14:18:36.485Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2111,14 +2074,12 @@
         "fachmann-frau-gesundheit-i-a-ksb-ch",
         "specialista-in-salute-i-a-kantonsspital-baden-ksb-baden",
         "health-care-assistant-kantonsspital-baden-ksb-baden",
-        "assistant-en-soins-de-sante-kantonsspital-baden-ksb-baden",
-        "professionista-donna-salute-i-a-kantonsspital-baden-ksb-baden"
+        "assistant-en-soins-de-sante-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachmann-frau-gesundheit-i-a-ksb-ch",
-          "specialista-in-salute-i-a-kantonsspital-baden-ksb-baden",
-          "professionista-donna-salute-i-a-kantonsspital-baden-ksb-baden"
+          "specialista-in-salute-i-a-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "health-care-assistant-kantonsspital-baden-ksb-baden"
@@ -2174,7 +2135,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachmann-frau-Hotellerie-Hauswirtschaft-iA--Fachrichtung-Hotellerie_R12254",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:01.833Z",
+      "crawledAt": "2026-09-26T14:18:35.686Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2195,16 +2156,14 @@
         "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hotellerie-ksb-ch",
         "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hauswirtschaft-ksb-ch",
         "industrie-hoteliere-professionnelle-femme-i-a-domaine-d-expertise-kantonsspital-baden-ksb-baden-324cba",
-        "professional-woman-hotel-industry-i-a-field-of-expertise-hotel-industry-kantonsspital-baden-ksb-baden-324cba",
-        "fachmann-frau-hotellerie-hauswirtschaft-i-a-specializzazione-hotellerie-kantonsspital-baden-ksb-baden"
+        "professional-woman-hotel-industry-i-a-field-of-expertise-hotel-industry-kantonsspital-baden-ksb-baden-324cba"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hotellerie-ksb-ch",
           "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hauswirtschaft-ksb-ch",
           "industrie-hoteliere-professionnelle-femme-i-a-domaine-d-expertise-kantonsspital-baden-ksb-baden-324cba",
-          "professional-woman-hotel-industry-i-a-field-of-expertise-hotel-industry-kantonsspital-baden-ksb-baden-324cba",
-          "fachmann-frau-hotellerie-hauswirtschaft-i-a-specializzazione-hotellerie-kantonsspital-baden-ksb-baden"
+          "professional-woman-hotel-industry-i-a-field-of-expertise-hotel-industry-kantonsspital-baden-ksb-baden-324cba"
         ],
         "en": [
           "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hotellerie-ksb-ch"
@@ -2260,7 +2219,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Ergotherapeut-in-stationres-Setting---Wunschpensum_R12685",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:02:00.893Z",
+      "crawledAt": "2026-09-26T14:18:34.891Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2278,13 +2237,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ergotherapeut-in-stationares-setting-wunschpensum-ksb-ch",
-        "terapista-occupazionale-in-posizione-stazionaria-carico-di-lavoro-desiderabile-kantonsspital-baden-ksb-baden"
+        "ergotherapeut-in-stationares-setting-wunschpensum-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapeut-in-stationares-setting-wunschpensum-ksb-ch",
-          "terapista-occupazionale-in-posizione-stazionaria-carico-di-lavoro-desiderabile-kantonsspital-baden-ksb-baden"
+          "ergotherapeut-in-stationares-setting-wunschpensum-ksb-ch"
         ],
         "en": [
           "ergotherapeut-in-stationares-setting-wunschpensum-ksb-ch"
@@ -2334,12 +2291,13 @@
         "de": "Sie fungieren Sie als Bindeglied zwischen den klinischen Fachabteilungen, den administrativen Einheiten und Digitalisierung & ICT. Sie analysieren Prozesse, erkennen Optimierungspotenziale und treiben die Digitalisierung von Abläufen und IT-Lösungen im Spitalumfeld aktiv voran. Durch Ihre Arbeit leisten Sie einen wichtigen Beitrag zur Steigerung von Effizienz, Qualität und Anwenderzufriedenheit. Die Stelle ist per sofort oder nach Vereinbarung verfügbar.\n\nIhre Aufgaben:\n\n• Sie analysieren, dokumentieren und optimieren klinische sowie administrative Prozesse.\n\n• Sie erheben, strukturieren und priorisieren Anforderungen aus den Fachbereichen.\n\n• Sie beraten Fachabteilungen bei der Digitalisierung und Weiterentwicklung ihrer Arbeitsabläufe.\n\n• Sie erstellen Fachkonzepte, Prozessbeschreibungen und Anforderungsdokumentationen.\n\n• Sie wirken bei der Evaluation und Weiterentwicklung von IT-Systemen mit.\n\n• Sie koordinieren die Zusammenarbeit zwischen Fachbereichen, Informatik, Lieferanten und externen Partnern.\n\n• Sie erkennen Verbesserungspotenziale und gestalten die digitale Transformation aktiv mit.\n\n• Sie kommunizieren adressatengerecht mit verschiedenen Anspruchsgruppen und Hierarchiestufen.\n\nIhr Profil:\n\n• Sie verfügen über einen Fach- oder Hochschulabschluss in Wirtschaftsinformatik, Medizininformatik oder eine gleichwertige Ausbildung.\n\n• Eine Weiterbildung im Bereich Business Analyse, Prozessmanagement oder Projektmanagement ist von Vorteil.\n\n• Sie bringen mehrjährige Erfahrung in Digitalisierungsprojekten im Gesundheitswesen mit.\n\n• Sie kennen klinische und administrative Spitalprozesse oder sind bereit, sich rasch in diese einzuarbeiten.\n\n• Sie verstehen die Zusammenhänge zwischen ICT-Architektur, Applikationen, Schnittstellen und Prozessen. Idealerweise sind Ihnen Standards wie HL7, FHIR und DICOM vertraut.\n\n• Sie verfügen über Erfahrung in der Analyse und Modellierung von Geschäftsprozessen sowie ein gutes Verständnis für IT-Systeme und digitale Workflows.\n\n• Sie arbeiten strukturiert und methodisch und können komplexe Anforderungen verständlich dokumentieren und vermitteln.\n\nIhre Vorteile:\n\nDas KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen.\nDie vollständige Übersicht der Benefits gibt es HIER .\n\nFragen zum Bewerbungsablauf beantwortet Ihnen gerne Katharina Sanna unter der Telefonnummer +41 56 486 12 40.",
         "fr": "Vous agissez comme un lien entre les départements cliniques, les unités administratives et la numérisation et les TIC. Ils analysent les processus, identifient les possibilités d'optimisation et encouragent activement la numérisation des processus et des solutions informatiques dans l'environnement hospitalier. Grâce à votre travail, vous contribuez grandement à accroître l'efficacité, la qualité et la satisfaction des utilisateurs. Le poste est disponible immédiatement ou par accord. Leurs tâches:\n• Ils analysent, documentent et optimisent les processus cliniques et administratifs.\n• Ils recueillent, structurent et hiérarchisent les besoins dans les domaines spécialisés.\n• Ils conseillent les départements spécialisés sur la numérisation et le développement de leurs processus de travail.\n• Vous créez des concepts spécialisés, des descriptions de processus et de la documentation sur les exigences.\n• Ils participent à l'évaluation et au développement des systèmes informatiques.\n• Ils coordonnent la coopération entre les départements, l'informatique, les fournisseurs et les partenaires extérieurs.\n• Ils reconnaissent le potentiel d'amélioration et façonnent activement la transformation numérique.\n• Ils communiquent adéquatement avec les différents intervenants et niveaux hiérarchiques. Votre profil:\n• Ils ont un diplôme spécialisé ou universitaire en informatique des affaires, en informatique médicale ou en formation équivalente.\n• Une formation plus poussée en analyse d'entreprise, gestion de processus ou gestion de projet est un avantage.\n• Vous apportez plusieurs années d'expérience dans les projets de numérisation dans le secteur de la santé.\n• Ils connaissent bien les processus cliniques et administratifs des hôpitaux ou sont prêts à se familiariser rapidement avec eux.\n• Ils comprennent les relations entre l'architecture, les applications, les interfaces et les processus des TIC. Idéalement, vous connaissez des normes telles que HL7, FHIR et DICOM.\n• Vous avez une expérience dans l'analyse et la modélisation des processus d'affaires ainsi qu'une bonne compréhension des systèmes informatiques et des flux de travail numériques.\n• Ils fonctionnent de manière structurée et méthodique et peuvent documenter et transmettre des exigences complexes de manière compréhensible. Leurs avantages: Le KSB offre plus qu'un lieu de travail passionnant avec de bonnes conditions de travail. La liste complète des prestations est disponible ICI. Katharina Sanna sera heureuse de répondre aux questions sur le processus de candidature en composant le +41 56 486 12 40."
       },
+      "needsRetranslation": true,
       "location": "Baden",
       "canton": "AG",
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/ICT-Business-Analyst-in-80-100---m-w-d-_R12802-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:58.610Z",
+      "crawledAt": "2026-09-26T14:18:33.006Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2402,7 +2360,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-Kardiologie-50-70-_R12742",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:57.729Z",
+      "crawledAt": "2026-09-26T14:18:32.222Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2421,14 +2379,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-kardiologie-50-70-ksb-ch",
-        "dipl-pflegefachfrau-mann-kardiologie-50-70-kantonsspital-baden-ksb-baden",
-        "dipl-infermiera-cardiologia-50-70-kantonsspital-baden-ksb-baden"
+        "dipl-pflegefachfrau-mann-kardiologie-50-70-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-kardiologie-50-70-ksb-ch",
-          "dipl-pflegefachfrau-mann-kardiologie-50-70-kantonsspital-baden-ksb-baden",
-          "dipl-infermiera-cardiologia-50-70-kantonsspital-baden-ksb-baden"
+          "dipl-pflegefachfrau-mann-kardiologie-50-70-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-kardiologie-50-70-ksb-ch"
@@ -2450,7 +2406,8 @@
           "maxValue": 86100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-a94dffe947c9",
@@ -2483,7 +2440,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Chefarzt-rztin-Angiologie-80-100-_R12755-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:56.791Z",
+      "crawledAt": "2026-09-26T14:18:31.399Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2501,13 +2458,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chefarzt-arztin-angiologie-80-100-ksb-ch",
-        "principale-medico-angiologia-80-100-kantonsspital-baden-ksb-baden"
+        "chefarzt-arztin-angiologie-80-100-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chefarzt-arztin-angiologie-80-100-ksb-ch",
-          "principale-medico-angiologia-80-100-kantonsspital-baden-ksb-baden"
+          "chefarzt-arztin-angiologie-80-100-ksb-ch"
         ],
         "en": [
           "chefarzt-arztin-angiologie-80-100-ksb-ch"
@@ -2529,7 +2484,8 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-838f5c097819",
@@ -2563,7 +2519,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Mitglied-Leitungsteam-Physiotherapie-und-Ergotherapie-80-100-_R12734",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:55.897Z",
+      "crawledAt": "2026-09-26T14:18:30.606Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2582,13 +2538,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "physiotherapeut-in-ergotherpeut-in-leitungsteam-80-100-ksb-ch",
-          "mitglied-leitungsteam-physiotherapie-und-ergotherapie-80-100-ksb-ch"
+          "physiotherapeut-in-ergotherpeut-in-leitungsteam-80-100-ksb-ch"
         ],
         "it": [
           "mitglied-leitungsteam-physiotherapie-und-ergotherapie-80-100-ksb-ch",
-          "physiotherapeut-in-ergotherpeut-in-leitungsteam-80-100-ksb-ch",
-          "mitglied-leitungsteam-physiotherapie-e-ergotherapie-80-100-kantonsspital-baden-ksb-baden"
+          "physiotherapeut-in-ergotherpeut-in-leitungsteam-80-100-ksb-ch"
         ],
         "en": [
           "mitglied-leitungsteam-physiotherapie-und-ergotherapie-80-100-ksb-ch"
@@ -2599,8 +2553,7 @@
       },
       "previousSlugs": [
         "mitglied-leitungsteam-physiotherapie-und-ergotherapie-80-100-ksb-ch",
-        "physiotherapeut-in-ergotherpeut-in-leitungsteam-80-100-ksb-ch",
-        "mitglied-leitungsteam-physiotherapie-e-ergotherapie-80-100-kantonsspital-baden-ksb-baden"
+        "physiotherapeut-in-ergotherpeut-in-leitungsteam-80-100-ksb-ch"
       ],
       "firstSeenAt": "2026-07-08T22:09:00.958Z",
       "salaryMin": 88000,
@@ -2648,7 +2601,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Logistiker-in-iA_R12234",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:54.971Z",
+      "crawledAt": "2026-09-26T14:18:29.820Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2667,14 +2620,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "logistiker-in-i-a-ksb-ch",
-        "logistiker-in-i-a-kantonsspital-baden-ksb-baden",
-        "logisticista-i-a-kantonsspital-baden-ksb-baden"
+        "logistiker-in-i-a-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-i-a-ksb-ch",
-          "logistiker-in-i-a-kantonsspital-baden-ksb-baden",
-          "logisticista-i-a-kantonsspital-baden-ksb-baden"
+          "logistiker-in-i-a-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "logistiker-in-i-a-kantonsspital-baden-ksb-baden"
@@ -2696,7 +2647,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-8a1d2c88501c",
@@ -2729,7 +2681,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Med-Praxisassistent-in-iA_R12385",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:54.112Z",
+      "crawledAt": "2026-09-26T14:18:29.031Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2753,16 +2705,14 @@
         "medicament-assistant-pratique-sans-bm-kantonsspital-baden-ksb-baden",
         "med-praxisassistent-in-i-a-mit-bm-kantonsspital-baden-ksb-baden",
         "med-praxisassistent-in-i-a-mit-bm-ksb-ch",
-        "med-praxissing-in-i-a-avec-bm-kantonsspital-baden-ksb-baden",
-        "med-praxisassistent-in-i-a-senza-bm-kantonsspital-baden-ksb-baden"
+        "med-praxissing-in-i-a-avec-bm-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistent-in-i-a-ohne-bm-ksb-ch",
           "med-praxisassistent-in-i-a-mit-bm-kantonsspital-baden-ksb-baden",
           "med-praxisassistent-in-i-a-mit-bm-ksb-ch",
-          "med-praxissing-in-i-a-avec-bm-kantonsspital-baden-ksb-baden",
-          "med-praxisassistent-in-i-a-senza-bm-kantonsspital-baden-ksb-baden"
+          "med-praxissing-in-i-a-avec-bm-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "med-praxisassistent-in-i-a-ohne-bm-ksb-ch",
@@ -2788,7 +2738,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-182d1956b1e3",
@@ -2821,7 +2772,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Medizinproduktetechnologe-in-iA_R12243",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:52.559Z",
+      "crawledAt": "2026-09-26T14:18:27.814Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2840,14 +2791,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medizinproduktetechnologe-in-i-a-ksb-ch",
-        "medizinproduktetechnologe-in-i-a-kantonsspital-baden-ksb-baden",
-        "tecnologo-dei-dispositivi-medici-kantonsspital-baden-ksb-baden"
+        "medizinproduktetechnologe-in-i-a-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinproduktetechnologe-in-i-a-ksb-ch",
-          "medizinproduktetechnologe-in-i-a-kantonsspital-baden-ksb-baden",
-          "tecnologo-dei-dispositivi-medici-kantonsspital-baden-ksb-baden"
+          "medizinproduktetechnologe-in-i-a-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "medizinproduktetechnologe-in-i-a-kantonsspital-baden-ksb-baden"
@@ -2869,7 +2818,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-6f405e45472c",
@@ -2903,7 +2853,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Radiologiefachfrau-mann-100-_R12977",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:51.680Z",
+      "crawledAt": "2026-09-26T14:18:27.002Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2975,12 +2925,13 @@
         "de": "In unserem polyvalenten Zentrallabor mit den Fachbereichen Hämatologie, Klinische Chemie, Gerinnung, Urin-/Punktatdiagnostik und Immunhämatologie leistest Du einen zentralen Beitrag zur diagnostischen Versorgung unseres Spitals. Du bringst Dein Fachwissen in einem breiten Analysespektrum ein. Es erwartet Dich ein abwechslungsreiches Umfeld mit moderner Infrastruktur und einem engagierten Team.\n\nIhre Aufgaben:\n\n• Du übernimmst anspruchsvolle Laborarbeiten in einem polyvalenten 24/7-Betrieb.\n\n• Du analysierst und validierst Laborresultate im Rahmen medizinisch-analytischer Befunde, mehrheitlich selbstständig.\n\n• Du arbeitest turnusgemäss in allen Fachbereichen und sammelst so vielseitige Erfahrung.\n\n• Du beteiligst Dich am Schicht,- und Wochenendbetrieb und leistest Nachtdienst.\n\nIhr Profil:\n\n• Du verfügst über eine abgeschlossene Berufsausbildung als BMA HF oder eine äquivalente Ausbildung (bei ausländischem Diplom zwingend mit SRK-Anerkennung).\n\n• Du bringst idealerweise Berufserfahrung in einem polyvalenten Spital- oder Privatlabor mit.\n\n• Du bist eine engagierte, selbständige sowie teamfähige Persönlichkeit und freust Dich auf die Arbeit in einem innovativen Labor.\n\n• Du verfügst über gute Deutschkenntnisse in Wort und Schrift.\n\nIhre Vorteile:\n\nDas KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen.\nDie vollständige Übersicht der Benefits gibt es HIER .\n\nFragen zum Bewerbungsablauf beantwortet Ihnen gerne Fabian Ben Fredj unter der Telefonnummer +41 56 486 12 53.",
         "fr": "Dans notre laboratoire central polyvalent dans les domaines de l'hématologie, de la chimie clinique, de la coagulation, du diagnostic d'urine/point et de l'immunohématologie Vous êtes une contribution centrale aux soins diagnostiques de notre hôpital. Vous apportez votre expertise à un large éventail d'analyses. Un environnement varié avec une infrastructure moderne et une équipe dédiée vous attend.\n\nLeurs tâches:\n\n• Vous effectuez des travaux de laboratoire exigeants dans une opération polyvalente 24/7.\n\n• Vous analysez et validez les résultats de laboratoire dans le cadre des résultats d'analyse médicale, principalement indépendamment.\n\n• Vous travaillez sur une base régulière dans tous les domaines et ainsi acquérir une expérience polyvalente.\n\n• Vous participez au travail posté, le week-end et la nuit.\n\nVotre profil:\n\n• Vous avez suivi une formation professionnelle comme BMA HF ou un enseignement équivalent (pour un diplôme étranger, obligatoire avec reconnaissance SRK).\n\n• Idéalement, vous aurez une expérience professionnelle dans un hôpital polyvalent ou un laboratoire privé.\n\n• Vous êtes une personnalité engagée, indépendante et capable d'équipe et vous êtes impatient de travailler dans un laboratoire innovant.\n\n• Vous avez une bonne connaissance de l'allemand en paroles et en écriture.\n\nLeurs avantages:\n\nLe KSB offre plus qu'un lieu de travail passionnant avec de bonnes conditions de travail.\nLa liste complète des prestations est disponible ICI.\n\nFabian Ben Fredj peut répondre aux questions concernant le processus de candidature au numéro de téléphone +41 56 486 12 53."
       },
+      "needsRetranslation": true,
       "location": "Baden",
       "canton": "AG",
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/BMA-HF-fr-polyvalentes-Spitallabor-80-100-_R13005",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:50.804Z",
+      "crawledAt": "2026-09-26T14:18:26.109Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3058,7 +3009,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Mitarbeiter-in-Laborinformatik-80-100-_R12963-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:49.932Z",
+      "crawledAt": "2026-09-26T14:18:25.255Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3118,7 +3069,7 @@
       "companyDomain": "ksb.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH Urologisches Ambulatorium 100%",
       "titleByLocale": {
-        "it": "Dipl. Specialista HF/FH Urological Ambulatorium 100%",
+        "it": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH Urologisches Ambulatorium 100%",
         "en": "Dipl. Nursing specialist mann HF/FH Urological Ambulatorium 100%",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH Urologisches Ambulatorium 100%",
         "fr": "Dipl. Spécialiste des soins infirmiers mann HF/FH Urological Ambulatorium 100%"
@@ -3135,7 +3086,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-HF-FH-Urologisches-Ambulatorium-100-_R12869",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:49.046Z",
+      "crawledAt": "2026-09-26T14:18:24.436Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3154,13 +3105,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-urologisches-ambulatorium-100-ksb-ch",
-          "dipl-pflegefachfrau-mann-hf-fh-urologisches-ambulatorium-100-ksb-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-urologisches-ambulatorium-100-ksb-ch"
         ],
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-urologisches-ambulatorium-100-ksb-ch",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-urologisches-ambulatorium-100-ksb-ch",
-          "dipl-pflegefachfrau-mann-hf-fh-urologisches-ambulatorium-100-kantonsspital-baden-ksb-baden"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-urologisches-ambulatorium-100-ksb-ch"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-fh-urologisches-ambulatorium-100-ksb-ch"
@@ -3171,8 +3120,7 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-fh-urologisches-ambulatorium-100-ksb-ch",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-urologisches-ambulatorium-100-ksb-ch",
-        "dipl-pflegefachfrau-mann-hf-fh-urologisches-ambulatorium-100-kantonsspital-baden-ksb-baden"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-urologisches-ambulatorium-100-ksb-ch"
       ],
       "firstSeenAt": "2026-08-20T21:39:21.559Z",
       "salaryMin": 88000,
@@ -3187,7 +3135,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-00065522a79c",
@@ -3221,7 +3170,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/MPA-Innere-Medizin-50-_R12959-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:48.150Z",
+      "crawledAt": "2026-09-26T14:18:23.641Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3243,8 +3192,7 @@
         "assistente-medico-medicina-interna-kantonsspital-baden-ksb-baden",
         "assistant-physician-internal-medicine-kantonsspital-baden-ksb-baden",
         "assistenzarzt-arztin-innere-medizin-ksb-ch",
-        "medecin-adjoint-medecine-interne-kantonsspital-baden-ksb-baden",
-        "medicina-interna-mpa-50-kantonsspital-baden-ksb-baden"
+        "medecin-adjoint-medecine-interne-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3252,8 +3200,7 @@
           "assistente-medico-medicina-interna-kantonsspital-baden-ksb-baden",
           "assistant-physician-internal-medicine-kantonsspital-baden-ksb-baden",
           "assistenzarzt-arztin-innere-medizin-ksb-ch",
-          "medecin-adjoint-medecine-interne-kantonsspital-baden-ksb-baden",
-          "medicina-interna-mpa-50-kantonsspital-baden-ksb-baden"
+          "medecin-adjoint-medecine-interne-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "mpa-innere-medizin-50-ksb-ch",
@@ -3314,7 +3261,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-HF-FH-Gefss-Chirurgie_R9854",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:47.233Z",
+      "crawledAt": "2026-09-26T14:18:22.669Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3344,8 +3291,7 @@
         "dipl-nurse-mann-hf-fh-recovery-room-40-50-kantonsspital-baden-ksb-baden",
         "dipl-pflegefachfrau-mann-hf-fh-aufwachraum-40-50-ksb-ch",
         "dipl-infirmiere-en-salle-de-recuperation-hf-fh-40-50-kantonsspital-baden-ksb-baden",
-        "dipl-pflegefachfrau-mann-hf-fh-aufwachraum-40-50-kantonsspital-baden-ksb-baden",
-        "dipl-infermiere-a-hf-fh-chirurgia-vascolare-e-spinale-kantonsspital-baden-ksb-baden"
+        "dipl-pflegefachfrau-mann-hf-fh-aufwachraum-40-50-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3360,8 +3306,7 @@
           "dipl-nurse-mann-hf-fh-recovery-room-40-50-kantonsspital-baden-ksb-baden",
           "dipl-pflegefachfrau-mann-hf-fh-aufwachraum-40-50-ksb-ch",
           "dipl-infirmiere-en-salle-de-recuperation-hf-fh-40-50-kantonsspital-baden-ksb-baden",
-          "dipl-pflegefachfrau-mann-hf-fh-aufwachraum-40-50-kantonsspital-baden-ksb-baden",
-          "dipl-infermiere-a-hf-fh-chirurgia-vascolare-e-spinale-kantonsspital-baden-ksb-baden"
+          "dipl-pflegefachfrau-mann-hf-fh-aufwachraum-40-50-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "dipl-nurse-mann-hf-fh-surgery-kantonsspital-baden-ksb-baden"
@@ -3404,7 +3349,7 @@
       "title": "Dipl. Pflegefachfrau_mann mbV für Support chir. Bettenstationen 50 - 100%",
       "titleByLocale": {
         "it": "Dipl. Infermieristica specialista mann mbV per supporto chir. Bed Stations 50 - 100%",
-        "en": "Dipl. Pflegefachfrau_mann mbV for Support chir. Wards 50 - 100%",
+        "en": "Dipl. Pflegefachfrau_mann mbV für Support chir. Bettenstationen 50 - 100%",
         "de": "Dipl. Pflegefachfrau_mann mbV für Support chir. Bettenstationen 50 - 100%",
         "fr": "Dipl. Soins infirmiers professionnels IMC / IPS pour le chir de soutien. Stations de Lit 50 - 100%"
       },
@@ -3421,7 +3366,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-IMC---IPS-fr-Support-chir-Bettenstationen-50---100-_R12867",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:46.324Z",
+      "crawledAt": "2026-09-26T14:18:21.875Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3440,13 +3385,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachfrau-mann-mbv-fur-support-chir-bettenstationen-50-100-ksb-ch",
-          "dipl-pflegefachfrau-mann-imc-ips-fur-support-chir-bettenstationen-50-100-ksb-ch"
+          "dipl-pflegefachfrau-mann-mbv-fur-support-chir-bettenstationen-50-100-ksb-ch"
         ],
         "it": [
           "dipl-pflegefachfrau-mann-imc-ips-fur-support-chir-bettenstationen-50-100-ksb-ch",
-          "dipl-pflegefachfrau-mann-mbv-fur-support-chir-bettenstationen-50-100-ksb-ch",
-          "dipl-pflegefachfrau-mann-imc-ips-per-support-chir-bettenstationen-50-100-kantonsspital-baden-ksb-baden"
+          "dipl-pflegefachfrau-mann-mbv-fur-support-chir-bettenstationen-50-100-ksb-ch"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-imc-ips-fur-support-chir-bettenstationen-50-100-ksb-ch"
@@ -3457,8 +3400,7 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-imc-ips-fur-support-chir-bettenstationen-50-100-ksb-ch",
-        "dipl-pflegefachfrau-mann-mbv-fur-support-chir-bettenstationen-50-100-ksb-ch",
-        "dipl-pflegefachfrau-mann-imc-ips-per-support-chir-bettenstationen-50-100-kantonsspital-baden-ksb-baden"
+        "dipl-pflegefachfrau-mann-mbv-fur-support-chir-bettenstationen-50-100-ksb-ch"
       ],
       "firstSeenAt": "2026-07-17T21:54:29.705Z",
       "salaryMin": 88000,
@@ -3490,7 +3432,7 @@
       "title": "Dipl. Pflegefachfrau_mann HF/FH Viszeralchirurgie 80-100%",
       "titleByLocale": {
         "it": "Dipl. Specializzato per l'allattamento HF/FH Chirurgia Viscerale 80-100 %",
-        "en": "Dipl. Pflegefachfrau_mann HF/FH Visceral Surgery 80-100%",
+        "en": "Dipl. Pflegefachfrau_mann HF/FH Viszeralchirurgie 80-100%",
         "de": "Dipl. Pflegefachfrau_mann HF/FH Viszeralchirurgie 80-100%",
         "fr": "Dipl. Médecin spécialiste en soins infirmiers HF/FH Chirurgie viscérale 80-100 %"
       },
@@ -3507,7 +3449,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-HF-FH-Viszeralchirurgie-80-100-_R12912-29",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:45.445Z",
+      "crawledAt": "2026-09-26T14:18:21.087Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3532,8 +3474,7 @@
         "dipl-pflegefachfrau-mann-hf-fh-stroke-neurologie-100-ksb-ch",
         "dipl-infirmiere-infirmiere-hf-fh-accidents-cerebrovasculaires-et-neurologie-100-kantonsspital-baden-ksb-baden",
         "dipl-pflegefachfrau-mann-hf-fh-stroke-neurology-100-kantonsspital-baden-ksb-baden",
-        "dipl-infirmiere-et-infirmiere-hf-fh-accidents-cerebrovasculaires-et-neurologie-100-kantonsspital-baden-ksb-baden",
-        "dipl-specializzato-per-l-allattamento-hf-fh-chirurgia-viscerale-80-100-kantonsspital-baden-ksb-baden"
+        "dipl-infirmiere-et-infirmiere-hf-fh-accidents-cerebrovasculaires-et-neurologie-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3544,8 +3485,7 @@
           "dipl-pflegefachfrau-mann-hf-fh-stroke-neurologie-100-ksb-ch",
           "dipl-infirmiere-infirmiere-hf-fh-accidents-cerebrovasculaires-et-neurologie-100-kantonsspital-baden-ksb-baden",
           "dipl-pflegefachfrau-mann-hf-fh-stroke-neurology-100-kantonsspital-baden-ksb-baden",
-          "dipl-infirmiere-et-infirmiere-hf-fh-accidents-cerebrovasculaires-et-neurologie-100-kantonsspital-baden-ksb-baden",
-          "dipl-specializzato-per-l-allattamento-hf-fh-chirurgia-viscerale-80-100-kantonsspital-baden-ksb-baden"
+          "dipl-infirmiere-et-infirmiere-hf-fh-accidents-cerebrovasculaires-et-neurologie-100-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-fh-viszeralchirurgie-80-100-ksb-ch",
@@ -3579,7 +3519,7 @@
       "slug": "specialista-in-medicina-60-70-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "it": "specialista-in-medicina-60-70-kantonsspital-baden-ksb-baden",
-        "en": "pflegeexpert-in-medizin-60-70-kantonsspital-baden-ksb-baden",
+        "en": "care-expert-in-medicine-60-70-kantonsspital-baden-ksb-baden",
         "de": "pflegeexpert-in-medizin-60-70-ksb-ch",
         "fr": "expert-en-medecine-60-70-kantonsspital-baden-ksb-baden"
       },
@@ -3589,7 +3529,7 @@
       "title": "Pflegeexpert_in Medizin 60-70%",
       "titleByLocale": {
         "it": "Specialista in medicina 60-70 %",
-        "en": "Pflegeexpert_in Medicine 60-70%",
+        "en": "Pflegeexpert_in Medizin 60-70%",
         "de": "Pflegeexpert_in Medizin 60-70%",
         "fr": "Expert en médecine 60-70 %"
       },
@@ -3606,7 +3546,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Pflegeexpert-in-Chirurgie-70-100---Offen-_R8465",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:44.560Z",
+      "crawledAt": "2026-09-26T14:18:20.297Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3625,17 +3565,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegeexpert-in-medizin-60-70-ksb-ch",
-        "care-expert-in-medicine-60-70-kantonsspital-baden-ksb-baden",
-        "specialista-in-medicina-60-70-kantonsspital-baden-ksb-baden",
         "pflegeexpert-in-medizin-60-70-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegeexpert-in-medizin-60-70-ksb-ch",
-          "specialista-in-medicina-60-70-kantonsspital-baden-ksb-baden"
+          "pflegeexpert-in-medizin-60-70-ksb-ch"
         ],
         "en": [
-          "care-expert-in-medicine-60-70-kantonsspital-baden-ksb-baden",
           "pflegeexpert-in-medizin-60-70-kantonsspital-baden-ksb-baden"
         ],
         "fr": [
@@ -3672,7 +3608,7 @@
       "title": "Dipl. Pflegefachfrau_mann HF/FH Pädiatrie 60 -100%",
       "titleByLocale": {
         "it": "Dipl. Infermieristica Donna mann HF/FH Paediatrics 60 -100 %",
-        "en": "Qualified nurse_man HF/FH Pediatrics 60 -100%",
+        "en": "Dipl. Pflegefachfrau_mann HF/FH Pädiatrie 60 -100%",
         "de": "Dipl. Pflegefachfrau_mann HF/FH Pädiatrie 60 -100%",
         "fr": "Dipl. Femmes allaitantes en HF/FH pédiatrie 60 -100 %"
       },
@@ -3688,7 +3624,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-HF-FH-Pdiatrie--60--100-_R10471-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:43.588Z",
+      "crawledAt": "2026-09-26T14:18:19.480Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3707,14 +3643,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-fh-padiatrie-60-100-ksb-ch",
-        "dipl-pflegefachfrau-mann-hf-fh-padiatrie-60-100-kantonsspital-baden-ksb-baden",
-        "dipl-infermieristica-donna-mann-hf-fh-paediatrics-60-100-kantonsspital-baden-ksb-baden"
+        "dipl-pflegefachfrau-mann-hf-fh-padiatrie-60-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-padiatrie-60-100-ksb-ch",
-          "dipl-pflegefachfrau-mann-hf-fh-padiatrie-60-100-kantonsspital-baden-ksb-baden",
-          "dipl-infermieristica-donna-mann-hf-fh-paediatrics-60-100-kantonsspital-baden-ksb-baden"
+          "dipl-pflegefachfrau-mann-hf-fh-padiatrie-60-100-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-fh-padiatrie-60-100-ksb-ch"
@@ -3736,7 +3670,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-c2fb6b3c8aeb",
@@ -3770,7 +3705,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Nachdiplomstudium--NDS-HF--Notfallpflege-Schwerpunkt-Pdiatrie_R12766",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:42.459Z",
+      "crawledAt": "2026-09-26T14:18:18.656Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3789,14 +3724,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "nachdiplomstudium-nds-hf-notfallpflege-schwerpunkt-padiatrie-ksb-ch",
-        "studi-post-laurea-nds-hf-la-cura-di-emergenza-si-concentra-sulla-pediatrica-kantonsspital-baden-ksb-baden",
-        "studi-post-laurea-nds-hf-infermieristica-d-emergenza-con-un-focus-sulla-pediatria-kantonsspital-baden-ksb-baden"
+        "studi-post-laurea-nds-hf-la-cura-di-emergenza-si-concentra-sulla-pediatrica-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "nachdiplomstudium-nds-hf-notfallpflege-schwerpunkt-padiatrie-ksb-ch",
-          "studi-post-laurea-nds-hf-la-cura-di-emergenza-si-concentra-sulla-pediatrica-kantonsspital-baden-ksb-baden",
-          "studi-post-laurea-nds-hf-infermieristica-d-emergenza-con-un-focus-sulla-pediatria-kantonsspital-baden-ksb-baden"
+          "studi-post-laurea-nds-hf-la-cura-di-emergenza-si-concentra-sulla-pediatrica-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "nachdiplomstudium-nds-hf-notfallpflege-schwerpunkt-padiatrie-ksb-ch"
@@ -3851,7 +3784,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Expert-in-Notfallpflege-oder-Dipl-Pflegefachfrau-mann-fr-Notfall-Kinder-und-Jugendliche-80-100-_R10768",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:41.556Z",
+      "crawledAt": "2026-09-26T14:18:17.847Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3888,13 +3821,11 @@
         ]
       },
       "previousSlugs": [
-        "dipl-expert-in-notfallpflege-oder-dipl-pflegefachfrau-mann-fur-notfall-kinder-und",
-        "esperto-a-di-infermieristica-di-emergenza-o-infermiere-a-specializzato-a-in-emergenze-pediatriche-50-70-kantonsspital"
+        "dipl-expert-in-notfallpflege-oder-dipl-pflegefachfrau-mann-fur-notfall-kinder-und"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expert-in-notfallpflege-oder-dipl-pflegefachfrau-mann-fur-notfall-kinder-und",
-          "esperto-a-di-infermieristica-di-emergenza-o-infermiere-a-specializzato-a-in-emergenze-pediatriche-50-70-kantonsspital"
+          "dipl-expert-in-notfallpflege-oder-dipl-pflegefachfrau-mann-fur-notfall-kinder-und"
         ]
       },
       "firstSeenAt": "2026-05-19T15:19:45.758Z",
@@ -3910,7 +3841,8 @@
           "maxValue": 86100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-9a851b7ceb79",
@@ -3944,7 +3876,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-HF-FH-oder-Hebamme-Wochenbett---Prnatal-80--100-_R12388",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:40.554Z",
+      "crawledAt": "2026-09-26T14:18:17.010Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4021,7 +3953,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachfrau-mann-Operationstechnik-HF_R10159",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:39.658Z",
+      "crawledAt": "2026-09-26T14:18:16.191Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4062,13 +3994,11 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-operationstechnik-hf-ksb-ch",
-        "tecnico-a-di-sala-operatoria-hf-kantonsspital-baden-ksb-baden"
+        "fachfrau-mann-operationstechnik-hf-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-operationstechnik-hf-ksb-ch",
-          "tecnico-a-di-sala-operatoria-hf-kantonsspital-baden-ksb-baden"
+          "fachfrau-mann-operationstechnik-hf-ksb-ch"
         ]
       },
       "firstSeenAt": "2026-05-19T15:19:53.991Z",
@@ -4084,7 +4014,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-26864f9d4f05",
@@ -4101,7 +4032,7 @@
       "title": "Dipl. Fachfrau_mann Operationstechnik HF im Stundenlohn",
       "titleByLocale": {
         "it": "Tecnico/a di sala operatoria dipl. HF a ore",
-        "en": "Qualified specialist in surgical technology HF in hourly wage",
+        "en": "Dipl. Fachfrau_mann Operationstechnik HF im Stundenlohn",
         "de": "Dipl. Fachfrau_mann Operationstechnik HF im Stundenlohn",
         "fr": "Technicien/ne en salle d'opération diplômé/e HF à l'heure"
       },
@@ -4117,7 +4048,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Fachfrau-mann-Operationstechnik-HF-im-Stundenlohn_R12224",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:38.751Z",
+      "crawledAt": "2026-09-26T14:18:15.395Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4162,13 +4093,11 @@
         ]
       },
       "previousSlugs": [
-        "dipl-fachfrau-mann-operationstechnik-hf-im-stundenlohn-ksb-ch",
-        "tecnico-a-di-sala-operatoria-dipl-hf-a-ore-kantonsspital-baden-ksb-baden"
+        "dipl-fachfrau-mann-operationstechnik-hf-im-stundenlohn-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-fachfrau-mann-operationstechnik-hf-im-stundenlohn-ksb-ch",
-          "tecnico-a-di-sala-operatoria-dipl-hf-a-ore-kantonsspital-baden-ksb-baden"
+          "dipl-fachfrau-mann-operationstechnik-hf-im-stundenlohn-ksb-ch"
         ],
         "en": [
           "dipl-fachfrau-mann-operationstechnik-hf-im-stundenlohn-ksb-ch"
@@ -4187,7 +4116,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-ed7336cce01b",
@@ -4203,7 +4133,7 @@
       "companyDomain": "ksb.ch",
       "title": "Dipl. Pflegefachfrau_mann Dialyse 80-100%",
       "titleByLocale": {
-        "it": "Dialisi Pflegefachfrau_mann dipl. 80-100%",
+        "it": "Dipl. Pflegefachfrau_mann Dialyse 80-100%",
         "en": "Dipl. Care specialist mann Dialysis 80-100 %",
         "de": "Dipl. Pflegefachfrau_mann Dialyse 80-100%",
         "fr": "Dipl. Médecin spécialisé en dialyse 80-100 %"
@@ -4221,7 +4151,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-Dialyse-80-100-_R8373",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:37.831Z",
+      "crawledAt": "2026-09-26T14:18:14.610Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4244,8 +4174,7 @@
         "dipl-pflegefachfrau-mann-imc-70-100-kantonsspital-baden-ksb-baden",
         "dipl-care-specialist-imc-70-100-kantonsspital-baden-ksb-baden",
         "dipl-pflegefachfrau-mann-imc-70-100-ksb-ch",
-        "dipl-specialiste-des-soins-imc-70-100-kantonsspital-baden-ksb-baden",
-        "dipl-specialita-di-cura-mann-dialisi-80-100-kantonsspital-baden-ksb-baden"
+        "dipl-specialiste-des-soins-imc-70-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4254,8 +4183,7 @@
           "dipl-pflegefachfrau-mann-imc-70-100-kantonsspital-baden-ksb-baden",
           "dipl-care-specialist-imc-70-100-kantonsspital-baden-ksb-baden",
           "dipl-pflegefachfrau-mann-imc-70-100-ksb-ch",
-          "dipl-specialiste-des-soins-imc-70-100-kantonsspital-baden-ksb-baden",
-          "dipl-specialita-di-cura-mann-dialisi-80-100-kantonsspital-baden-ksb-baden"
+          "dipl-specialiste-des-soins-imc-70-100-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-dialyse-80-100-ksb-ch",
@@ -4315,7 +4243,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-HF-FH-Pflegepool-Dialyse-im-Stundenlohn_R11657",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:36.930Z",
+      "crawledAt": "2026-09-26T14:18:13.820Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4334,14 +4262,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-fh-pflegepool-dialyse-im-stundenlohn-ksb-ch",
-        "dipl-pflegefachfrau-mann-hf-fh-pflegepool-dialyse-im-stundenlohn-kantonsspital-baden-ksb-baden",
-        "dipl-infermieristica-donna-mann-hf-fh-care-pool-dialisi-nel-salario-orario-kantonsspital-baden-ksb-baden"
+        "dipl-pflegefachfrau-mann-hf-fh-pflegepool-dialyse-im-stundenlohn-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-pflegepool-dialyse-im-stundenlohn-ksb-ch",
-          "dipl-pflegefachfrau-mann-hf-fh-pflegepool-dialyse-im-stundenlohn-kantonsspital-baden-ksb-baden",
-          "dipl-infermieristica-donna-mann-hf-fh-care-pool-dialisi-nel-salario-orario-kantonsspital-baden-ksb-baden"
+          "dipl-pflegefachfrau-mann-hf-fh-pflegepool-dialyse-im-stundenlohn-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-fh-pflegepool-dialyse-im-stundenlohn-ksb-ch"
@@ -4363,7 +4289,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-8fbc6f7546e6",
@@ -4379,7 +4306,7 @@
       "companyDomain": "ksb.ch",
       "title": "Dipl. Pflegefachfrau_mann HF/FH zentraler Pflegepool 50% - 100%",
       "titleByLocale": {
-        "it": "Infermiera dipl. man SSS/SUP pool di assistenza centrale 50% - 100%",
+        "it": "Dipl. Pflegefachfrau_mann HF/FH zentraler Pflegepool 50% - 100%",
         "en": "Dipl. Nursing Professional HF/FH Central Nursing Pool 50% - 100%",
         "de": "Dipl. Pflegefachfrau_mann HF/FH zentraler Pflegepool 50% - 100%",
         "fr": "Diplômé(e) en soins infirmiers HF/FH - Pool de soins central 50% - 100%"
@@ -4396,7 +4323,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachfrau-mann-Gesundheit-EFZ-zentraler-Pflegepool-60----80-_R8868",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:35.564Z",
+      "crawledAt": "2026-09-26T14:18:12.604Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4441,14 +4368,12 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-fh-zentraler-pflegepool-50-100-ksb-ch",
-        "dipl-pflegefachfrau-mann-hf-fh-zentraler-pflegepool-50-100-kantonsspital-baden-ksb-baden",
-        "dipl-infermieristica-specialistica-mann-hf-fh-piscina-centrale-50-100-kantonsspital-baden-ksb-baden"
+        "dipl-pflegefachfrau-mann-hf-fh-zentraler-pflegepool-50-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-zentraler-pflegepool-50-100-ksb-ch",
-          "dipl-pflegefachfrau-mann-hf-fh-zentraler-pflegepool-50-100-kantonsspital-baden-ksb-baden",
-          "dipl-infermieristica-specialistica-mann-hf-fh-piscina-centrale-50-100-kantonsspital-baden-ksb-baden"
+          "dipl-pflegefachfrau-mann-hf-fh-zentraler-pflegepool-50-100-kantonsspital-baden-ksb-baden"
         ]
       },
       "firstSeenAt": "2026-05-19T15:19:40.789Z",
@@ -4464,7 +4389,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-70186c627244",
@@ -4480,7 +4406,7 @@
       "companyDomain": "ksb.ch",
       "title": "Nachdiplomstudium Notfallpflege 100%",
       "titleByLocale": {
-        "it": "Cura di emergenza post-laurea 100%",
+        "it": "Nachdiplomstudium Notfallpflege 100%",
         "en": "Postgraduate studies Emergency care 100%",
         "de": "Nachdiplomstudium Notfallpflege 100%",
         "fr": "Études supérieures Soins d'urgence 100%"
@@ -4497,7 +4423,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Expertin-Notfallpflege-NDS-HF-100--im-Nachdiplomstudiengang_R5977",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:34.646Z",
+      "crawledAt": "2026-09-26T14:18:11.815Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4515,13 +4441,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "nachdiplomstudium-notfallpflege-100-ksb-ch",
-        "cura-di-emergenza-post-laurea-100-kantonsspital-baden-ksb-baden"
+        "nachdiplomstudium-notfallpflege-100-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nachdiplomstudium-notfallpflege-100-ksb-ch",
-          "cura-di-emergenza-post-laurea-100-kantonsspital-baden-ksb-baden"
+          "nachdiplomstudium-notfallpflege-100-ksb-ch"
         ]
       },
       "firstSeenAt": "2026-05-28T13:13:48.921Z",
@@ -4537,7 +4461,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-fad6b65e2b2b",
@@ -4570,7 +4495,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Assistenzarzt-rztin-INZ-60-100-_R11393",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:33.522Z",
+      "crawledAt": "2026-09-26T14:18:11.004Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4592,8 +4517,7 @@
         "assistente-medico-inz-80-100-dal-settembre-2026-kantonsspital-baden-ksb-baden",
         "assistant-doctor-inz-80-100-from-september-2026-kantonsspital-baden-ksb-baden",
         "assistenzarzt-arztin-inz-80-100-ab-september-2026-ksb-ch",
-        "docteur-adjoint-inz-80-100-a-partir-de-septembre-2026-kantonsspital-baden-ksb-baden",
-        "assistente-medico-inz-60-100-kantonsspital-baden-ksb-baden"
+        "docteur-adjoint-inz-80-100-a-partir-de-septembre-2026-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4601,8 +4525,7 @@
           "assistente-medico-inz-80-100-dal-settembre-2026-kantonsspital-baden-ksb-baden",
           "assistant-doctor-inz-80-100-from-september-2026-kantonsspital-baden-ksb-baden",
           "assistenzarzt-arztin-inz-80-100-ab-september-2026-ksb-ch",
-          "docteur-adjoint-inz-80-100-a-partir-de-septembre-2026-kantonsspital-baden-ksb-baden",
-          "assistente-medico-inz-60-100-kantonsspital-baden-ksb-baden"
+          "docteur-adjoint-inz-80-100-a-partir-de-septembre-2026-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "assistenzarzt-arztin-inz-60-100-ksb-ch",
@@ -4629,7 +4552,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-d915ef23b4bd",
@@ -4663,7 +4587,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Experte-Expertin-Intensivpflege-NDS-HF-100--im-Nachdiplomstudiengang_R5988",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:32.514Z",
+      "crawledAt": "2026-09-26T14:18:10.112Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4681,13 +4605,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "nachdiplomstudium-intensivpflege-100-ksb-ch",
-        "studi-post-laurea-cura-intensiva-100-kantonsspital-baden-ksb-baden"
+        "nachdiplomstudium-intensivpflege-100-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nachdiplomstudium-intensivpflege-100-ksb-ch",
-          "studi-post-laurea-cura-intensiva-100-kantonsspital-baden-ksb-baden"
+          "nachdiplomstudium-intensivpflege-100-ksb-ch"
         ],
         "en": [
           "nachdiplomstudium-intensivpflege-100-ksb-ch"
@@ -4726,7 +4648,7 @@
       "title": "Dipl. Expert_in Notfallpflege NDS HF 50-100%",
       "titleByLocale": {
         "it": "Dipl. Esperto nella cura di emergenza NDS HF 50-100 %",
-        "en": "Dipl. Expert in Emergency Care NDS HF 50-100%",
+        "en": "Dipl. Expert_in Notfallpflege NDS HF 50-100%",
         "de": "Dipl. Expert_in Notfallpflege NDS HF 50-100%",
         "fr": "Dipl. Expert en soins d'urgence NDS HF 50-100 %"
       },
@@ -4742,7 +4664,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Expert-in-Notfallpflege-NDS-HF-50-100-_R9720",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:31.640Z",
+      "crawledAt": "2026-09-26T14:18:09.285Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4762,15 +4684,13 @@
       "previousSlugs": [
         "dipl-expert-in-notfallpflege-nds-hf-50-100-ksb-ch",
         "dipl-esperto-in-anestesia-nds-hf-80-100-kantonsspital-baden-ksb-baden",
-        "dipl-expert-in-anasthesie-nds-hf-80-100-ksb-ch",
-        "dipl-esperto-nella-cura-di-emergenza-nds-hf-50-100-kantonsspital-baden-ksb-baden"
+        "dipl-expert-in-anasthesie-nds-hf-80-100-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-expert-in-notfallpflege-nds-hf-50-100-ksb-ch",
           "dipl-esperto-in-anestesia-nds-hf-80-100-kantonsspital-baden-ksb-baden",
-          "dipl-expert-in-anasthesie-nds-hf-80-100-ksb-ch",
-          "dipl-esperto-nella-cura-di-emergenza-nds-hf-50-100-kantonsspital-baden-ksb-baden"
+          "dipl-expert-in-anasthesie-nds-hf-80-100-ksb-ch"
         ],
         "fr": [
           "dipl-expert-in-notfallpflege-nds-hf-50-100-ksb-ch",
@@ -4790,7 +4710,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-53bf65db8d3a",
@@ -4818,12 +4739,13 @@
         "de": "Wir sind da, wenn Unvorhergesehenes passiert.\nMit klarer Triage, abgestimmten Prozessen und moderner Infrastruktur behältst du auch in komplexen Situationen den Überblick.\n\nIhre Aufgaben:\n\n• Patienten im Fokus: Ganzheitliche Betreuung und Überwachung.\n\n• Sicher handeln: Notfälle erkennen und professionell meistern.\n\n• Qualität leben: Pflegeprozesse verantwortungsvoll gestalten.\n\n• Gemeinsam stark: Teamarbeit über Berufsgruppen hinweg.\n\n• Zukunft mitgestalten: Unser Notfallzentrum aktiv weiterentwickeln.\n\n• Interdisziplinär arbeiten: Gemeinsam mit Dipl. Expertinen Notfallpflege, mit Ärzten und Pflegefachpersonen die beste Versorgung sicherstellen\n\nIhr Profil:\n\n• Ausbildung: Diplom als dipl. Pflegefachfrau/-mann HF/FH (SRK-Anerkennung bei ausländischem Abschluss).\n\n• Weiterentwicklung: Besitz des erfolgreich abgeschlossenen IMC-Kurses.\n\n• Drive: Engagierte, flexible Persönlichkeit mit Freude am Notfallalltag.\n\n• Stärken: Sozialkompetenz, rasche Auffassungsgabe und lösungsorientiertes Denken.\n\n• Haltung: Professioneller, respektvoller und empathischer Umgang mit Patient:innen und Kolleg:innen.\n\n• Teamspirit: Zusammenarbeit auf Augenhöhe macht dir Freude.\n\nWas dich bei uns erwartet? Ein Team, das zusammenhält, einander vertraut und Herausforderungen gemeinsam meistert. Klingt nach deinem nächsten Job? Dann freuen wir uns darauf, dich kennenzulernen.\n\nFür diese Stelle werden Bewerbungen von Personaldienstleistenden entgegengenommen.\nBitte reichen Sie Kandidatendossiers ausschliesslich über Ihren Account ein. Sie haben noch keinen Account? Bitte wenden Sie sich an recruiting@ksb.ch .\n\nIhre Vorteile:\n\nDas KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen.\nDie vollständige Übersicht der Benefits gibt es HIER .\n\nFragen zum Bewerbungsablauf beantwortet Ihnen gerne Lakshiya Vigneswaran unter der Telefonnummer +41 56 486 12 50.",
         "fr": "Nous sommes là quand l'inattendu arrive. Avec un triage clair, des processus coordonnés et une infrastructure moderne, vous pouvez également suivre les situations complexes. Leurs tâches:\n• Patients en bref: soins holistiques et surveillance.\n• Agissez en toute sécurité : reconnaissez les urgences et maîtrisez-les professionnellement.\n• Qualité de vie : Concevoir les processus de soins de façon responsable.\n• Forts ensemble : Travail d'équipe entre groupes professionnels.\n• Façonner l'avenir : développer activement notre centre d'urgence.\n• Travail interdisciplinaire : avec Dipl. Experts en soins d'urgence, avec médecins et infirmières assurant les meilleurs soins Votre profil:\n• Diplôme d ' études secondaires Spécialiste des soins infirmiers HF/FH (reconnaissance SRC pour un diplôme étranger).\n• Développement ultérieur: Posséder le cours IMC réussi.\n• Conduire: Personnalité engagée et flexible avec joie dans la vie d'urgence quotidienne.\n• Points forts: Compétences sociales, compréhension rapide et pensée orientée vers la solution.\n• Attitude: Traitement professionnel, respectueux et empathique des patients:à l'intérieur et des collègues:à l'intérieur.\n• Esprit d'équipe : La collaboration au niveau des yeux vous rend heureux. Qu'est-ce qui vous attend ? Une équipe qui s'unit, se fait confiance et maîtrise les défis ensemble. C'est ton prochain boulot ? Alors nous avons hâte de vous rencontrer. Les candidatures à ce poste sont reçues des prestataires de services. Veuillez soumettre les dossiers des candidats exclusivement via votre compte. Vous n'avez pas encore de compte ? Veuillez contacter recruitment@ksb.ch. Leurs avantages: Le KSB offre plus qu'un lieu de travail passionnant avec de bonnes conditions de travail. La liste complète des prestations est disponible ICI. Les questions sur le processus de candidature peuvent être répondues par Lakshiya Vigneswaran en composant le +41 56 486 12 50."
       },
+      "needsRetranslation": true,
       "location": "Baden",
       "canton": "AG",
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfau-mann-50-100--IMC-fr-interdisziplinres-Notfallzentrum_R12801-26",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:30.737Z",
+      "crawledAt": "2026-09-26T14:18:08.479Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4883,7 +4805,7 @@
       "companyDomain": "ksb.ch",
       "title": "Dipl. Pflegefachfrau_mann HF/FH Medizin",
       "titleByLocale": {
-        "it": "Infermiera dipl._mann HF/FH Medizin",
+        "it": "Dipl. Pflegefachfrau_mann HF/FH Medizin",
         "en": "Diploma in Nursing HF/FH Medicine",
         "de": "Dipl. Pflegefachfrau_mann HF/FH Medizin",
         "fr": "Diplômé(e) en soins infirmiers HF/FH en médecine"
@@ -4900,7 +4822,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-HF-FH-Medizin_R9874",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:29.670Z",
+      "crawledAt": "2026-09-26T14:18:07.669Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4934,14 +4856,12 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-fh-medizin-ksb-ch",
-        "dipl-pflegefachfrau-mann-hf-fh-medizin-kantonsspital-baden-ksb-baden",
-        "dipl-infermiera-hf-fh-medizin-kantonsspital-baden-ksb-baden"
+        "dipl-pflegefachfrau-mann-hf-fh-medizin-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-medizin-ksb-ch",
-          "dipl-pflegefachfrau-mann-hf-fh-medizin-kantonsspital-baden-ksb-baden",
-          "dipl-infermiera-hf-fh-medizin-kantonsspital-baden-ksb-baden"
+          "dipl-pflegefachfrau-mann-hf-fh-medizin-kantonsspital-baden-ksb-baden"
         ]
       },
       "firstSeenAt": "2026-05-19T15:19:48.565Z",
@@ -4957,7 +4877,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-efc026f8f5e2",
@@ -4990,7 +4911,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Stationsassistent-in--MPA--FaGe--PharmaAss--auf-der-Medizin_R12437",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:28.757Z",
+      "crawledAt": "2026-09-26T14:18:06.871Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5013,8 +4934,7 @@
         "station-assistant-50-80-private-surgery-station-kantonsspital-baden-ksb-baden",
         "stationsassistent-in-80-100-privatstation-chirurgie-ksb-ch",
         "assistant-de-station-dans-50-80-chirurgie-de-station-privee-kantonsspital-baden-ksb-baden",
-        "stationsassistent-in-50-80-privatstation-chirurgie-ksb-ch",
-        "assistente-di-stazione-in-medicina-kantonsspital-baden-ksb-baden"
+        "stationsassistent-in-50-80-privatstation-chirurgie-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5023,8 +4943,7 @@
           "station-assistant-50-80-private-surgery-station-kantonsspital-baden-ksb-baden",
           "stationsassistent-in-80-100-privatstation-chirurgie-ksb-ch",
           "assistant-de-station-dans-50-80-chirurgie-de-station-privee-kantonsspital-baden-ksb-baden",
-          "stationsassistent-in-50-80-privatstation-chirurgie-ksb-ch",
-          "assistente-di-stazione-in-medicina-kantonsspital-baden-ksb-baden"
+          "stationsassistent-in-50-80-privatstation-chirurgie-ksb-ch"
         ],
         "en": [
           "stationsassistent-in-auf-der-medizin-ksb-ch",
@@ -5051,7 +4970,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-ba8d4d98f0b6",
@@ -5085,7 +5005,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-Onkologie-und-Palliativ-Care_R9875",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:27.839Z",
+      "crawledAt": "2026-09-26T14:18:06.069Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5163,7 +5083,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-HF-FH-Kardiologie-Nephrologie-Infektiologie_R10055",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:26.872Z",
+      "crawledAt": "2026-09-26T14:18:05.267Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5182,14 +5102,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-fh-kardiologie-nephrologie-infektiologie-ksb-ch",
-        "dipl-pflegefachfrau-mann-hf-fh-kardiologie-nephrologie-infektiologie-kantonsspital-baden-ksb-baden",
-        "dipl-career-donna-mann-hf-fh-cardiologia-nephrology-infectiology-kantonsspital-baden-ksb-baden"
+        "dipl-pflegefachfrau-mann-hf-fh-kardiologie-nephrologie-infektiologie-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-kardiologie-nephrologie-infektiologie-ksb-ch",
-          "dipl-pflegefachfrau-mann-hf-fh-kardiologie-nephrologie-infektiologie-kantonsspital-baden-ksb-baden",
-          "dipl-career-donna-mann-hf-fh-cardiologia-nephrology-infectiology-kantonsspital-baden-ksb-baden"
+          "dipl-pflegefachfrau-mann-hf-fh-kardiologie-nephrologie-infektiologie-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-fh-kardiologie-nephrologie-infektiologie-ksb-ch"
@@ -5227,7 +5145,7 @@
       "companyDomain": "ksb.ch",
       "title": "Dipl. Pflegefachfrau_mann HF/FH Akutgeriaterie 100%",
       "titleByLocale": {
-        "it": "Infermiera dipl._mann HF/FH geriatria acuta 100%",
+        "it": "Dipl. Pflegefachfrau_mann HF/FH Akutgeriaterie 100%",
         "en": "Diploma in Nursing HF/FH Acute Geriatrics 100%",
         "de": "Dipl. Pflegefachfrau_mann HF/FH Akutgeriaterie 100%",
         "fr": "Dipl. Médecin spécialiste des soins infirmiers HF/FH Akutgeriatrie 100%"
@@ -5239,12 +5157,13 @@
         "de": "Der Mensch steht bei uns im Mittelpunkt – in jeder Lebensphase.\n\nIn der Akutgeriatrie begleiten wir Menschen mit Lebenserfahrung mit Fachkompetenz, Respekt und einem ganzheitlichen Blick. Unser Ziel: Selbstständigkeit fördern und Lebensqualität erhalten.\nWir suchen engagierte Persönlichkeiten, die Verantwortung übernehmen, im Team arbeiten und ihre Stärken einbringen. Ob mit Erfahrung oder am Anfang deiner Laufbahn – bei uns findest du ein wertschätzendes Umfeld mit Entwicklungsmöglichkeiten.\nWerde Teil unseres Teams – wir freuen uns auf dich!\n\nIhre Aufgaben:\n\nEmpathische Patientenbetreuung: Du bist die vertrauensvolle Ansprechperson für unsere Patientinnen und Patienten sowie deren Angehörige und begleitest sie mit Fachwissen und Einfühlungsvermögen.\n\nQualitätssicherung: Du sorgst dafür, dass unsere individuellen Pflegepläne umgesetzt werden – Qualität hat bei uns eine hohe Priorität!\n\nProaktive Verantwortung: Im Rahmen unseres Lean Managements übernimmst du die Verantwortung für deinen Bereich und trägst aktiv zur kontinuierlichen Verbesserung unserer Prozesse bei.\n\nInnovative Mitgestaltung: Deine Ideen sind gefragt! Gemeinsam entwickeln wir den Schichtbetrieb weiter und stärken die interdisziplinäre Zusammenarbeit.\n\nIhr Profil:\n\nAusbildung: Du bringst einen Abschluss als Dipl. Pflegefachfrau/mann HF/FH mit (für ausländische Diplome: SRK-Anerkennung).\n\nErfahrungsschatz: Wenn du bereits Erfahrung in der Akutpflege mitbringst, ist das dein Ticket ganz oben auf unsere Liste – wir freuen uns auf deine Expertise!\n\nEchter Teamplayer: Ein respektvolles, unterstützendes Miteinander ist dir wichtig. Du suchst ein Team, in dem man aufeinander schaut und sich gegenseitig den Rücken stärkt. Besonders hilfsbereit bist du gegenüber Studierenden und Lernenden, um deren Entwicklung zu unterstützen.\n\nWunsch-Faktor: Wir nehmen deine Bedürfnisse ernst! Sag uns, was dir wichtig ist, damit wir gemeinsam die beste Lösung für deine Work-Life-Balance finden.\n\nNeugierig geworden?\nWenn du Teil eines Teams werden möchtest, das nicht nur zusammenarbeitet, sondern auch zusammenwächst, dann zögere nicht! Wir freuen uns auf deine Bewerbung und darauf, gemeinsam mit dir die Pflege von morgen zu gestalten.\n\nFür diese Stelle werden Bewerbungen von Personaldienstleistenden entgegengenommen.\nBitte reichen Sie Kandidatendossiers ausschliesslich über Ihren Account ein. Sie haben noch keinen Account? Bitte wenden Sie sich an recruiting@ksb.ch .\n\nIhre Vorteile:\n\nDas KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen.\nDie vollständige Übersicht der Benefits gibt es HIER .\n\nFragen zum Bewerbungsablauf beantwortet Ihnen gerne Lakshiya Vigneswaran unter der Telefonnummer +41 56 486 12 50.",
         "fr": "Les gens sont notre priorité – à chaque étape de la vie. En gériatrie aiguë, nous accompagnons les personnes ayant une expérience de vie avec expertise, respect et vision holistique. Notre objectif : favoriser l’autonomie et maintenir la qualité de vie. Nous recherchons des personnes engagées qui assument des responsabilités, travaillent en équipe et mettent leurs forces à profit. Que vous ayez de l’expérience ou que vous soyez au début de votre carrière, vous trouverez chez nous un environnement valorisant avec des opportunités d’évolution. Devenez membre de notre équipe – nous avons hâte de vous voir !\n• Vos tâches : Soins empathiques aux patients : Vous êtes l'interlocuteur de confiance pour nos patients et leurs proches et les soutenez avec vos connaissances spécialisées et votre empathie. Assurance qualité : Vous veillez à ce que nos plans de soins individuels soient mis en œuvre - la qualité est pour nous une priorité absolue ! Responsabilité proactive : Dans le cadre de notre lean management, vous assumez la responsabilité de votre secteur et contribuez activement à l'amélioration continue de nos processus. Participation innovante : vos idées sont recherchées ! Ensemble, nous développerons davantage les opérations postées et renforcerons la collaboration interdisciplinaire.\n• Votre profil : Formation : Vous êtes titulaire d'un diplôme d'infirmière spécialisée (HF/FH) (pour les diplômes étrangers : reconnaissance SRK). Richesse d'expérience : Si vous avez déjà de l'expérience dans le domaine des soins aigus, voici votre place en tête de notre liste - nous attendons avec impatience votre expertise ! Véritable joueur d'équipe : une coopération respectueuse et solidaire est importante pour vous. Vous recherchez une équipe dans laquelle les gens veillent les uns sur les autres et se soutiennent mutuellement. Vous êtes particulièrement utile envers les étudiants et les apprenants afin de soutenir leur développement. Facteur désir : Nous prenons vos besoins au sérieux ! Dites-nous ce qui est important pour vous afin que nous puissions trouver ensemble la meilleure solution pour votre équilibre travail-vie personnelle. Curieux? Si vous souhaitez faire partie d'une équipe qui non seulement travaille ensemble mais qui grandit également ensemble, alors n'hésitez pas ! Nous sommes impatients de recevoir votre candidature et de travailler avec vous pour façonner les soins de demain. Vos avantages : La KSB offre bien plus qu'un lieu de travail passionnant avec de bonnes conditions de travail. L’aperçu complet des avantages peut être trouvé ICI. Lakshiya Vigneswaran se fera un plaisir de répondre à toutes vos questions sur le processus de candidature au 41 56 486 12 50."
       },
+      "needsRetranslation": true,
       "location": "Baden",
       "canton": "AG",
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-HF-FH-Akutgeriaterie-100-_R12280",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:25.691Z",
+      "crawledAt": "2026-09-26T14:18:04.451Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5344,7 +5263,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Oberrztin-arzt-Neurologie-50-70-_R12891",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:24.728Z",
+      "crawledAt": "2026-09-26T14:18:03.644Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5362,13 +5281,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-arzt-neurologie-50-70-ksb-ch",
-        "medico-senior-neurology-50-70-kantonsspital-baden-ksb-baden"
+        "oberarztin-arzt-neurologie-50-70-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-arzt-neurologie-50-70-ksb-ch",
-          "medico-senior-neurology-50-70-kantonsspital-baden-ksb-baden"
+          "oberarztin-arzt-neurologie-50-70-ksb-ch"
         ],
         "en": [
           "oberarztin-arzt-neurologie-50-70-ksb-ch"
@@ -5390,7 +5307,8 @@
           "maxValue": 116200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-3bb41db63e66",
@@ -5424,7 +5342,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/MPA-Gefsszentrum-60-80-_R12737",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:23.784Z",
+      "crawledAt": "2026-09-26T14:18:02.820Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5442,13 +5360,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mpa-fage-gefasszentrum-60-80-ksb-ch",
-        "mpa-fage-centro-vascolare-60-80-kantonsspital-baden-ksb-baden"
+        "mpa-fage-gefasszentrum-60-80-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mpa-fage-gefasszentrum-60-80-ksb-ch",
-          "mpa-fage-centro-vascolare-60-80-kantonsspital-baden-ksb-baden"
+          "mpa-fage-gefasszentrum-60-80-ksb-ch"
         ],
         "en": [
           "mpa-fage-gefasszentrum-60-80-ksb-ch"
@@ -5503,7 +5419,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Koch-Kchin-EFZ-100-_R13002",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:22.888Z",
+      "crawledAt": "2026-09-26T14:18:01.990Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5521,13 +5437,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "koch-kochin-efz-100-ksb-ch",
-        "koch-kochin-cfc-100-kantonsspital-baden-ksb-baden"
+        "koch-kochin-efz-100-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "koch-kochin-efz-100-ksb-ch",
-          "koch-kochin-cfc-100-kantonsspital-baden-ksb-baden"
+          "koch-kochin-efz-100-ksb-ch"
         ],
         "en": [
           "koch-kochin-efz-100-ksb-ch"
@@ -5549,7 +5463,8 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-8669da340b1e",
@@ -5583,7 +5498,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Praktikant-in-Kita-100-_R12906",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:21.918Z",
+      "crawledAt": "2026-09-26T14:18:01.183Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5630,7 +5545,7 @@
       "title": "Dipl. Pflegefachfrau_mann Privatstation Medizin HF/FH 60% - 100%",
       "titleByLocale": {
         "it": "Dipl. Infermiere/a Privata Stazione HF/FH 60% - 100%",
-        "en": "Qualified nurse_man Private ward Medicine HF/FH 60% - 100%",
+        "en": "Dipl. Pflegefachfrau_mann Privatstation Medizin HF/FH 60% - 100%",
         "de": "Dipl. Pflegefachfrau_mann Privatstation Medizin HF/FH 60% - 100%",
         "fr": "Diplômé(e) en soins infirmiers en station privée HF/FH 60% - 100%"
       },
@@ -5646,7 +5561,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dipl-Pflegefachfrau-mann-Privatstation-HF-FH-100-_R11288",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:20.965Z",
+      "crawledAt": "2026-09-26T14:18:00.388Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5692,14 +5607,12 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-privatstation-hf-fh-60-100-ksb-ch",
-        "dipl-pflegefachfrau-mann-privatstation-medizin-hf-fh-60-100-ksb-ch",
-        "dipl-infermiere-a-privata-stazione-hf-fh-60-100-kantonsspital-baden-ksb-baden"
+        "dipl-pflegefachfrau-mann-privatstation-medizin-hf-fh-60-100-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-privatstation-hf-fh-60-100-ksb-ch",
-          "dipl-pflegefachfrau-mann-privatstation-medizin-hf-fh-60-100-ksb-ch",
-          "dipl-infermiere-a-privata-stazione-hf-fh-60-100-kantonsspital-baden-ksb-baden"
+          "dipl-pflegefachfrau-mann-privatstation-medizin-hf-fh-60-100-ksb-ch"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-privatstation-hf-fh-60-100-ksb-ch"
@@ -5718,7 +5631,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-b33d5eee0de9",
@@ -5751,7 +5665,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Mitarbeiter-in-Service-Hotellerie-40-50-_R11510",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:20.043Z",
+      "crawledAt": "2026-09-26T14:17:59.571Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5776,8 +5690,7 @@
         "mitarbeiter-in-service-hotellerie-70-ksb-ch",
         "employes-dans-l-hotellerie-de-service-70-kantonsspital-baden-ksb-baden",
         "mitarbeiter-in-service-hotellerie-70-kantonsspital-baden-ksb-baden",
-        "mitarbeiter-in-service-hotellerie-privatstation-30-50-ksb-ch",
-        "dipendenti-nell-industria-alberghiera-di-servizio-40-kantonsspital-baden-ksb-baden"
+        "mitarbeiter-in-service-hotellerie-privatstation-30-50-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5788,8 +5701,7 @@
           "mitarbeiter-in-service-hotellerie-70-ksb-ch",
           "employes-dans-l-hotellerie-de-service-70-kantonsspital-baden-ksb-baden",
           "mitarbeiter-in-service-hotellerie-70-kantonsspital-baden-ksb-baden",
-          "mitarbeiter-in-service-hotellerie-privatstation-30-50-ksb-ch",
-          "dipendenti-nell-industria-alberghiera-di-servizio-40-kantonsspital-baden-ksb-baden"
+          "mitarbeiter-in-service-hotellerie-privatstation-30-50-ksb-ch"
         ],
         "en": [
           "mitarbeiter-in-service-hotellerie-40-ksb-ch",
@@ -5817,7 +5729,8 @@
           "maxValue": 42300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-941660310b56",
@@ -5851,7 +5764,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Oberarzt-rztin-Kardio-Onkologie-80-100---Fellowship-_R12413-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:19.042Z",
+      "crawledAt": "2026-09-26T14:17:58.773Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5869,13 +5782,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarzt-arztin-kardio-onkologie-80-100-fellowship-ksb-ch",
-        "medico-senior-cardiooncologia-80-100-fellowship-kantonsspital-baden-ksb-baden"
+        "oberarzt-arztin-kardio-onkologie-80-100-fellowship-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-arztin-kardio-onkologie-80-100-fellowship-ksb-ch",
-          "medico-senior-cardiooncologia-80-100-fellowship-kantonsspital-baden-ksb-baden"
+          "oberarzt-arztin-kardio-onkologie-80-100-fellowship-ksb-ch"
         ],
         "en": [
           "oberarzt-arztin-kardio-onkologie-80-100-fellowship-ksb-ch"
@@ -5931,7 +5842,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Nurse-Clinical-Practitioner--NCP--80-100-_R12961",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:18.113Z",
+      "crawledAt": "2026-09-26T14:17:58.007Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5949,13 +5860,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "nurse-clinical-practitioner-ncp-80-100-ksb-ch",
-        "infermiera-practitioner-clinico-ncp-80-100-kantonsspital-baden-ksb-baden"
+        "nurse-clinical-practitioner-ncp-80-100-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nurse-clinical-practitioner-ncp-80-100-ksb-ch",
-          "infermiera-practitioner-clinico-ncp-80-100-kantonsspital-baden-ksb-baden"
+          "nurse-clinical-practitioner-ncp-80-100-ksb-ch"
         ],
         "fr": [
           "nurse-clinical-practitioner-ncp-80-100-ksb-ch"
@@ -6008,7 +5917,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Oberarzt-rztin-Intensivmedizin-80-100-_R13101",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:17.187Z",
+      "crawledAt": "2026-09-26T14:17:57.210Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6026,13 +5935,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarzt-arztin-intensivmedizin-80-100-ksb-ch",
-        "medico-medico-senior-medicina-intensiva-80-100-kantonsspital-baden-ksb-baden"
+        "oberarzt-arztin-intensivmedizin-80-100-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-arztin-intensivmedizin-80-100-ksb-ch",
-          "medico-medico-senior-medicina-intensiva-80-100-kantonsspital-baden-ksb-baden"
+          "oberarzt-arztin-intensivmedizin-80-100-ksb-ch"
         ],
         "en": [
           "oberarzt-arztin-intensivmedizin-80-100-ksb-ch"
@@ -6088,7 +5995,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachfrau-mann-Gesundheit-interdisziplinrer-Notfall--70-100-_R10913",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:16.306Z",
+      "crawledAt": "2026-09-26T14:17:56.426Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6107,14 +6014,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-mann-gesundheit-interdisziplinarer-notfall-70-100-ksb-ch",
-        "fachfrau-mann-gesundheit-interdisziplinarer-notfall-70-100-kantonsspital-baden-ksb-baden",
-        "emergenza-interdisciplinare-sanitaria-70-100-kantonsspital-baden-ksb-baden"
+        "fachfrau-mann-gesundheit-interdisziplinarer-notfall-70-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-interdisziplinarer-notfall-70-100-ksb-ch",
-          "fachfrau-mann-gesundheit-interdisziplinarer-notfall-70-100-kantonsspital-baden-ksb-baden",
-          "emergenza-interdisciplinare-sanitaria-70-100-kantonsspital-baden-ksb-baden"
+          "fachfrau-mann-gesundheit-interdisziplinarer-notfall-70-100-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "fachfrau-mann-gesundheit-interdisziplinarer-notfall-70-100-ksb-ch"
@@ -6170,7 +6075,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachrztin-arzt-fr-Kinder--und-Jugendpsychiatrie-und--psychotherapie-40-60-_R11363-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:15.137Z",
+      "crawledAt": "2026-09-26T14:17:55.615Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6189,14 +6094,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "facharztin-arzt-fur-kinder-und-jugendpsychiatrie-und-psychotherapie-40-60-ksb-ch",
-        "facharztin-arzt-per-kinder-e-jugendpsychiatrie-e-psychotherapie-40-60-kantonsspital-baden-ksb-baden",
-        "medico-per-bambini-e-psichiatria-giovanile-e-psicoterapia-40-60-kantonsspital-baden-ksb-baden"
+        "facharztin-arzt-per-kinder-e-jugendpsychiatrie-e-psychotherapie-40-60-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "facharztin-arzt-fur-kinder-und-jugendpsychiatrie-und-psychotherapie-40-60-ksb-ch",
-          "facharztin-arzt-per-kinder-e-jugendpsychiatrie-e-psychotherapie-40-60-kantonsspital-baden-ksb-baden",
-          "medico-per-bambini-e-psichiatria-giovanile-e-psicoterapia-40-60-kantonsspital-baden-ksb-baden"
+          "facharztin-arzt-per-kinder-e-jugendpsychiatrie-e-psychotherapie-40-60-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "facharztin-arzt-fur-kinder-und-jugendpsychiatrie-und-psychotherapie-40-60-ksb-ch"
@@ -6252,7 +6155,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Ernhrungsberater-in-40-100-_R12971",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:14.191Z",
+      "crawledAt": "2026-09-26T14:17:54.773Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6272,15 +6175,13 @@
       "previousSlugs": [
         "ernahrungsberater-in-40-100-ksb-ch",
         "ernahrungsberater-in-40-100-kantonsspital-baden-ksb-baden",
-        "ernahrungsberater-in-akutgeriatrie-40-100-ksb-ch",
-        "nutrizionista-in-40-100-kantonsspital-baden-ksb-baden"
+        "ernahrungsberater-in-akutgeriatrie-40-100-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ernahrungsberater-in-40-100-ksb-ch",
           "ernahrungsberater-in-40-100-kantonsspital-baden-ksb-baden",
-          "ernahrungsberater-in-akutgeriatrie-40-100-ksb-ch",
-          "nutrizionista-in-40-100-kantonsspital-baden-ksb-baden"
+          "ernahrungsberater-in-akutgeriatrie-40-100-ksb-ch"
         ],
         "en": [
           "ernahrungsberater-in-40-100-kantonsspital-baden-ksb-baden"
@@ -6340,7 +6241,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/R4115-Dipl-Pflegefachfrau-HF-FH-Onkologie-und-Hmatologie-60-100-_R8430",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:13.304Z",
+      "crawledAt": "2026-09-26T14:17:53.977Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6404,7 +6305,7 @@
       "companyDomain": "ksb.ch",
       "title": "MPA Notfallpraxis 50%",
       "titleByLocale": {
-        "it": "Pratica di emergenza MPA 50%",
+        "it": "MPA Notfallpraxis 50%",
         "en": "MPA Emergency Practice 50%",
         "de": "MPA Notfallpraxis 50%",
         "fr": "Pratique d'urgence de la ZPM 50 %"
@@ -6421,7 +6322,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/MPA-Notfallpraxis-50-_R13103-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:12.099Z",
+      "crawledAt": "2026-09-26T14:17:52.730Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6441,15 +6342,13 @@
       "previousSlugs": [
         "mpa-notfallpraxis-50-ksb-ch",
         "mpa-notfallpraxis-60-100-ksb-ch",
-        "mpa-notfallpraxis-50-kantonsspital-baden-ksb-baden",
-        "pratica-di-emergenza-mpa-50-kantonsspital-baden-ksb-baden"
+        "mpa-notfallpraxis-50-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mpa-notfallpraxis-50-ksb-ch",
           "mpa-notfallpraxis-60-100-ksb-ch",
-          "mpa-notfallpraxis-50-kantonsspital-baden-ksb-baden",
-          "pratica-di-emergenza-mpa-50-kantonsspital-baden-ksb-baden"
+          "mpa-notfallpraxis-50-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "mpa-notfallpraxis-50-ksb-ch"
@@ -6471,7 +6370,8 @@
           "maxValue": 61500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-81d924e4294f",
@@ -6487,7 +6387,7 @@
       "companyDomain": "ksb.ch",
       "title": "MPA Notfallpraxis 80%",
       "titleByLocale": {
-        "it": "Pratica di emergenza MPA 80%",
+        "it": "MPA Notfallpraxis 80%",
         "en": "MPA Emergency Practice 80%",
         "de": "MPA Notfallpraxis 80%",
         "fr": "Pratique d'urgence de la ZPM 80%"
@@ -6504,7 +6404,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/MPA-Notfallpraxis-80-_R13079",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:11.169Z",
+      "crawledAt": "2026-09-26T14:17:51.905Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6523,14 +6423,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mpa-notfallpraxis-80-ksb-ch",
-        "mpa-notfallpraxis-80-kantonsspital-baden-ksb-baden",
-        "pratica-di-emergenza-mpa-80-kantonsspital-baden-ksb-baden"
+        "mpa-notfallpraxis-80-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mpa-notfallpraxis-80-ksb-ch",
-          "mpa-notfallpraxis-80-kantonsspital-baden-ksb-baden",
-          "pratica-di-emergenza-mpa-80-kantonsspital-baden-ksb-baden"
+          "mpa-notfallpraxis-80-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "mpa-notfallpraxis-80-ksb-ch"
@@ -6552,7 +6450,8 @@
           "maxValue": 98400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-02e37dd7c43a",
@@ -6585,7 +6484,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Senior-Data-Platform-Engineer--Azure---Databricks--80-100-_R13068",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:10.251Z",
+      "crawledAt": "2026-09-26T14:17:51.109Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6603,13 +6502,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-data-platform-engineer-azure-databricks-80-100-ksb-ch",
-        "senior-data-platform-ingegnere-azure-databricks-80-100-kantonsspital-baden-ksb-baden"
+        "senior-data-platform-engineer-azure-databricks-80-100-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-data-platform-engineer-azure-databricks-80-100-ksb-ch",
-          "senior-data-platform-ingegnere-azure-databricks-80-100-kantonsspital-baden-ksb-baden"
+          "senior-data-platform-engineer-azure-databricks-80-100-ksb-ch"
         ],
         "fr": [
           "senior-data-platform-engineer-azure-databricks-80-100-ksb-ch"
@@ -6628,7 +6525,8 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-31e6ad0ba6c0",
@@ -6661,7 +6559,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Stationsassistent-in-80---100--Privatstation-Chirurgie_R12712-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:09.303Z",
+      "crawledAt": "2026-09-26T14:17:50.188Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6680,13 +6578,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "stationsassistent-in-50-80-chirurgie-ksb-ch",
-          "stationsassistent-in-80-100-privatstation-chirurgie-ksb-ch"
+          "stationsassistent-in-50-80-chirurgie-ksb-ch"
         ],
         "it": [
           "stationsassistent-in-50-80-chirurgie-ksb-ch",
-          "stationsassistent-in-50-80-privatstation-chirurgie-kantonsspital-baden-ksb-baden",
-          "assistente-di-stazione-in-50-80-di-stazione-chirurgica-privata-kantonsspital-baden-ksb-baden"
+          "stationsassistent-in-50-80-privatstation-chirurgie-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "stationsassistent-in-50-80-chirurgie-kantonsspital-baden-ksb-baden"
@@ -6695,9 +6591,7 @@
       "previousSlugs": [
         "stationsassistent-in-50-80-chirurgie-ksb-ch",
         "stationsassistent-in-50-80-privatstation-chirurgie-kantonsspital-baden-ksb-baden",
-        "stationsassistent-in-50-80-chirurgie-kantonsspital-baden-ksb-baden",
-        "stationsassistent-in-80-100-privatstation-chirurgie-ksb-ch",
-        "assistente-di-stazione-in-50-80-di-stazione-chirurgica-privata-kantonsspital-baden-ksb-baden"
+        "stationsassistent-in-50-80-chirurgie-kantonsspital-baden-ksb-baden"
       ],
       "firstSeenAt": "2026-09-08T23:35:11.267Z",
       "salaryMin": 70400,
@@ -6712,7 +6606,8 @@
           "maxValue": 98400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-48e185104441",
@@ -6746,7 +6641,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/MPA---Arztsekretr-in-Rheumatologie-Baden---Brugg-100-_R13129",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:08.365Z",
+      "crawledAt": "2026-09-26T14:17:49.365Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6764,13 +6659,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mpa-arztsekretar-in-rheumatologie-baden-brugg-100-ksb-ch",
-        "mpa-segretario-medico-in-rheumatology-baden-brugg-100-kantonsspital-baden-ksb-baden"
+        "mpa-arztsekretar-in-rheumatologie-baden-brugg-100-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mpa-arztsekretar-in-rheumatologie-baden-brugg-100-ksb-ch",
-          "mpa-segretario-medico-in-rheumatology-baden-brugg-100-kantonsspital-baden-ksb-baden"
+          "mpa-arztsekretar-in-rheumatologie-baden-brugg-100-ksb-ch"
         ],
         "en": [
           "mpa-arztsekretar-in-rheumatologie-baden-brugg-100-ksb-ch"
@@ -6823,7 +6716,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Verantwortliche-r-Business-Continuity-Management-100-_R13089-1",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:07.251Z",
+      "crawledAt": "2026-09-26T14:17:48.541Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6841,13 +6734,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verantwortliche-r-business-continuity-management-100-ksb-ch",
-        "responsible-r-business-continuity-management-100-kantonsspital-baden-ksb-baden"
+        "verantwortliche-r-business-continuity-management-100-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verantwortliche-r-business-continuity-management-100-ksb-ch",
-          "responsible-r-business-continuity-management-100-kantonsspital-baden-ksb-baden"
+          "verantwortliche-r-business-continuity-management-100-ksb-ch"
         ],
         "en": [
           "verantwortliche-r-business-continuity-management-100-ksb-ch"
@@ -6894,12 +6785,13 @@
         "de": "Empathisch, dynamisch und bestens organisiert? Werde das Rückgrat unseres Teams!\nFür unsere pädiatrische Notfallstation sowie die Neonatologie suchen wir per sofort oder nach Vereinbarung eine engagierte Verstärkung. In dieser vielseitigen Schnittstellenfunktion hältst du dem pflegerischen Team den Rücken frei und trägst massgeblich zu einer optimalen Versorgung unserer kleinsten Patientinnen und Patienten bei.\n\nIhre Aufgaben:\n\n• Organisation & Administration: Du stellst einen reibungslosen Stationsablauf sicher und übernimmst organisatorische, administrative sowie logistische Sekretariatsaufgaben.\n\n• Medizintechnik: Du kümmerst dich verlässlich um die Gerätewartung und Materialbereitschaft.\n\n• Delegierte Pflege: Nach Anweisung unterstützt du das Pflegteam bei medizinischen Verrichtungen (z. B. Blutentnahmen, Vitalzeichenkontrollen).\n\n• Flexibler Einsatz: Deine Arbeitszeiten liegen zwischen 07:30 und 14:00 Uhr, unregelmässig auf 7 Tage verteilt.\n\nIhr Profil:\n\n• Qualifikation: Abgeschlossene Ausbildung als Medizinische/r Praxisassistent/in (MPA EFZ).\n\n• Persönlichkeit: Hohe Belastbarkeit, Teamgeist und Flexibilität in einem dynamischen Akutumfeld.\n\n• Arbeitsweise: Vernetztes Denken, schnelle Auffassungsgabe und eine ausgeprägte Dienstleistungsorientierung.\n\nWas dich erwartet:\n\n• Eine sinnstiftende und abwechslungsreiche Aufgabe in einem motivierten, interdisziplinären Team.\n\n• Planbare Halbtagesschichten im Frühbereich.\n\n• Zeitgemässe Anstellungsbedingungen und Entwicklungsspielraum.\n\nFür diese Stelle werden Bewerbungen von Personaldienstleistenden entgegengenommen.\nBitte reichen Sie Kandidatendossiers ausschliesslich über Ihren Account ein. Sie haben noch keinen Account? Bitte wenden Sie sich an recruiting@ksb.ch .\n\nIhre Vorteile:\n\nDas KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen.\nDie vollständige Übersicht der Benefits gibt es HIER .\n\nFragen zum Bewerbungsablauf beantwortet Ihnen gerne Lakshiya Vigneswaran unter der Telefonnummer +41 56 486 12 50.",
         "fr": "Empathique, dynamique et bien organisé ? Devenez l'épine dorsale de notre équipe !\nPour notre service d'urgence pédiatrique et néonatologie, nous cherchons un renforcement engagé immédiatement ou d'un commun accord. Dans cette fonction d'interface polyvalente, vous gardez votre dos sur l'équipe infirmière et contribuez de manière significative aux soins optimaux de nos plus petits patients.\n\nLeurs tâches:\n\n• Organisation et administration: Vous assurez un flux de station en douceur et assumez des tâches organisationnelles, administratives et de secrétariat logistique.\n\n• Technologie médicale: Vous vous occupez de façon fiable de l'entretien de l'équipement et de la préparation matérielle.\n\n• Soins délégués : Comme indiqué, vous aidez l'équipe de soins dans les tâches médicales (p. ex. prélèvement de sang, vérification des signes vitaux).\n\n• Utilisation flexible : Vos heures de travail se situent entre 7h30 et 14h00, réparties irrégulièrement sur 7 jours.\n\nVotre profil:\n\n• Qualification: Formation complète en tant qu'assistant médical (MPA EFZ).\n\n• Personnalité : Haute résilience, esprit d'équipe et flexibilité dans un environnement dynamique aigu.\n\n• Méthode de travail : pensée en réseau, compréhension rapide et orientation de service prononcée.\n\nÀ quoi s'attendre :\n\n• Une tâche significative et variée dans une équipe interdisciplinaire motivée.\n\n• Des équipes d'une demi-journée planifiées au début.\n\n• Conditions d'emploi contemporaines et perspectives de développement.\n\nLes candidatures à ce poste sont reçues des prestataires de services.\nVeuillez soumettre les dossiers des candidats exclusivement via votre compte. Vous n'avez pas encore de compte ? Veuillez contacter recruitment@ksb.ch.\n\nLeurs avantages:\n\nLe KSB offre plus qu'un lieu de travail passionnant avec de bonnes conditions de travail.\nLa liste complète des prestations est disponible ICI.\n\nLes questions sur le processus de candidature peuvent être répondues par Lakshiya Vigneswaran en composant le +41 56 486 12 50."
       },
+      "needsRetranslation": true,
       "location": "Baden",
       "canton": "AG",
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Stationsassistent-in-Notfall-fr-Kinder-und-Jugendliche-und-Neonatologie-40-_R9857",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:06.291Z",
+      "crawledAt": "2026-09-26T14:17:47.739Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6977,7 +6869,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Ernhrungsberater-in-Innere-Medizin-40-80-_R13179",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:05.311Z",
+      "crawledAt": "2026-09-26T14:17:46.945Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6995,13 +6887,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ernahrungsberater-in-innere-medizin-40-80-ksb-ch",
-        "medicina-interna-nutrizionale-40-80-kantonsspital-baden-ksb-baden"
+        "ernahrungsberater-in-innere-medizin-40-80-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ernahrungsberater-in-innere-medizin-40-80-ksb-ch",
-          "medicina-interna-nutrizionale-40-80-kantonsspital-baden-ksb-baden"
+          "ernahrungsberater-in-innere-medizin-40-80-ksb-ch"
         ],
         "en": [
           "ernahrungsberater-in-innere-medizin-40-80-ksb-ch"
@@ -7040,7 +6930,7 @@
       "title": "Physiotherapeut_in Physiozentrum Limmatfeld 50-100%",
       "titleByLocale": {
         "it": "Fisioterapista a Physiozentrum Limmatfeld 50-100 %",
-        "en": "Physiotherapist in Physiozentrum Limmatfeld 50-100 %",
+        "en": "Physiotherapeut_in Physiozentrum Limmatfeld 50-100%",
         "de": "Physiotherapeut_in Physiozentrum Limmatfeld 50-100%",
         "fr": "Physiothérapeute en Physiozentrum Limmatfeld 50-100 %"
       },
@@ -7056,7 +6946,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Dietikon/Physiotherapeut-in-Physiozentrum-Limmatfeld-50-100-_R11641",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:04.419Z",
+      "crawledAt": "2026-09-26T14:17:46.136Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7074,13 +6964,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "physiotherapeut-in-physiozentrum-limmatfeld-50-100-ksb-ch",
-        "fisioterapista-in-centro-fisioterapico-limmatfeld-50-100-kantonsspital-baden-ksb-dietikon"
+        "physiotherapeut-in-physiozentrum-limmatfeld-50-100-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-physiozentrum-limmatfeld-50-100-ksb-ch",
-          "fisioterapista-in-centro-fisioterapico-limmatfeld-50-100-kantonsspital-baden-ksb-dietikon"
+          "physiotherapeut-in-physiozentrum-limmatfeld-50-100-ksb-ch"
         ]
       },
       "firstSeenAt": "2026-09-19T23:07:58.302Z",
@@ -7096,7 +6984,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-662e12b7bf81",
@@ -7124,12 +7013,13 @@
         "de": "Du arbeitest gerne praktisch, hast ein geschicktes Händchen und Lust auf einen vielseitigen Job, bei dem kein Tag ganz gleich ist? Dann bist du bei uns genau richtig!\n\nWerde Teil unseres Gipszimmer-Teams und bringe deine praktischen Fähigkeiten, deine Erfahrung und deine Persönlichkeit bei uns ein. Wir freuen uns, dich kennenzulernen!\n\nIhre Aufgaben:\n\n• Du legst Stützverbände aus Kunststoff an.\n\n• Du betreust und berätst unsere Patientinnen und Patienten.\n\n• Du führst Wundbehandlungen durch und übernimmst die Nachbetreuung nach Operationen.\n\n• Du organisierst und begleitest die orthopädische Gipssprechstunde.\n\n• Du assistierst bei ärztlichen Verrichtungen und Infiltrationen.\n\nIhr Profil:\n\n• Du hast eine Ausbildung als FaGe, Pflegefachfrau/-mann HF oder MPA.\n\n• Du bringst manuelles Geschick mit und hast Freude an praktischen Tätigkeiten.\n\n• Du hast idealerweise Erfahrung mit Stützverbänden und im Bereich Orthopädie.\n\n• Du bist teamfähig, arbeitest eigeninitiativ und zuverlässig.\n\nDich erwartet ein kleines, herzliches und eingespieltes Team, eine abwechslungsreiche Tätigkeit mit viel Eigenverantwortung, eine strukturierte Einführung mit attraktiven Weiterbildungsmöglichkeiten sowie regelmässige Arbeitszeiten von Montag bis Freitag.\n\nFür diese Stelle werden Bewerbungen von Personaldienstleistenden entgegengenommen.\nBitte reichen Sie Kandidatendossiers ausschliesslich über Ihren Account ein. Sie haben noch keinen Account? Bitte wenden Sie sich an recruiting@ksb.ch .\n\nIhre Vorteile:\n\nDas KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen.\nDie vollständige Übersicht der Benefits gibt es HIER .\n\nFragen zum Bewerbungsablauf beantwortet Ihnen gerne Lakshiya Vigneswaran unter der Telefonnummer +41 56 486 12 50.",
         "fr": "Vous aimez travailler pratiquement, avoir une main habile et vouloir un travail polyvalent où aucun jour n'est tout à fait le même? Alors tu as raison avec nous !\n\nFaites partie de notre équipe et apportez vos compétences pratiques, votre expérience et votre personnalité. Nous sommes impatients de vous rencontrer!\n\nLeurs tâches:\n\n• Tu mets des bandages en plastique.\n\n• Vous vous occupez et conseillez nos patients.\n\n• Vous effectuez des traitements de plaie et prenez soin du suivi après les opérations.\n\n• Vous organisez et accompagnez la séance de plâtre orthopédique.\n\n• Vous aidez aux procédures médicales et aux infiltrations.\n\nVotre profil:\n\n• Vous avez une formation en FaGe, infirmière HF ou MPA.\n\n• Vous apportez des compétences manuelles et profitez d'activités pratiques.\n\n• Idéalement, vous avez de l'expérience avec des groupes de soutien et dans le domaine de l'orthopédie.\n\n• Vous êtes capable de travailler en équipe, de travailler de façon indépendante et fiable.\n\nVous pouvez vous attendre à une petite équipe chaleureuse et expérimentée, une activité variée avec beaucoup de responsabilité personnelle, une introduction structurée avec des possibilités de formation attrayantes et des heures de travail régulières du lundi au vendredi.\n\nLes candidatures à ce poste sont reçues des prestataires de services.\nVeuillez soumettre les dossiers des candidats exclusivement via votre compte. Vous n'avez pas encore de compte ? Veuillez contacter recruitment@ksb.ch.\n\nLeurs avantages:\n\nLe KSB offre plus qu'un lieu de travail passionnant avec de bonnes conditions de travail.\nLa liste complète des prestations est disponible ICI.\n\nLes questions sur le processus de candidature peuvent être répondues par Lakshiya Vigneswaran en composant le +41 56 486 12 50."
       },
+      "needsRetranslation": true,
       "location": "Baden",
       "canton": "AG",
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Mitarbeiter-in-Gipszimmer-50-100--_R13286",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:03.523Z",
+      "crawledAt": "2026-09-26T14:17:45.344Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7207,7 +7097,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachfrau-mann-OP-Lagerung-50--100-_R8845",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:02.539Z",
+      "crawledAt": "2026-09-26T14:17:44.406Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7225,13 +7115,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-op-lagerung-80-100-ksb-ch",
-        "specialista-op-lagerazione-60-100-kantonsspital-baden-ksb-baden"
+        "fachfrau-mann-op-lagerung-80-100-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-op-lagerung-80-100-ksb-ch",
-          "specialista-op-lagerazione-60-100-kantonsspital-baden-ksb-baden"
+          "fachfrau-mann-op-lagerung-80-100-ksb-ch"
         ],
         "de": [
           "fachfrau-mann-op-lagerung-80-100-ksb-ch"
@@ -7284,7 +7172,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Dauernachtwache-Dipl-Pflegefachfrau-mann-HF-FH-auf-der-Chirurgie-50---100--_R13296-57",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:01.475Z",
+      "crawledAt": "2026-09-26T14:17:43.553Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7303,14 +7191,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dauernachtwache-dipl-pflegefachfrau-mann-hf-fh-auf-der-chirurgie-50-100-ksb-ch",
-        "dauernachtwache-dipl-pflegefachfrau-mann-hf-fh-auf-der-chirurgie-50-100-kantonsspital-baden-ksb-baden",
-        "guardia-notturna-permanente-dipl-infermieristica-hf-fh-su-chirurgia-50-100-kantonsspital-baden-ksb-baden"
+        "dauernachtwache-dipl-pflegefachfrau-mann-hf-fh-auf-der-chirurgie-50-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dauernachtwache-dipl-pflegefachfrau-mann-hf-fh-auf-der-chirurgie-50-100-ksb-ch",
-          "dauernachtwache-dipl-pflegefachfrau-mann-hf-fh-auf-der-chirurgie-50-100-kantonsspital-baden-ksb-baden",
-          "guardia-notturna-permanente-dipl-infermieristica-hf-fh-su-chirurgia-50-100-kantonsspital-baden-ksb-baden"
+          "dauernachtwache-dipl-pflegefachfrau-mann-hf-fh-auf-der-chirurgie-50-100-kantonsspital-baden-ksb-baden"
         ],
         "en": [
           "dauernachtwache-dipl-pflegefachfrau-mann-hf-fh-auf-der-chirurgie-50-100-ksb-ch"
@@ -7366,7 +7252,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Fachspezialist-in-Corporate-Affairs---Quality-100-_R13189",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:01:00.564Z",
+      "crawledAt": "2026-09-26T14:17:42.749Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7384,13 +7270,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachspezialist-in-corporate-affairs-quality-100-ksb-ch",
-        "specialista-affari-aziendali-qualita-100-kantonsspital-baden-ksb-baden"
+        "fachspezialist-in-corporate-affairs-quality-100-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-corporate-affairs-quality-100-ksb-ch",
-          "specialista-affari-aziendali-qualita-100-kantonsspital-baden-ksb-baden"
+          "fachspezialist-in-corporate-affairs-quality-100-ksb-ch"
         ],
         "fr": [
           "fachspezialist-in-corporate-affairs-quality-100-ksb-ch"
@@ -7442,7 +7326,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Arztsekretr-in-Radiologie-80-100-_R12882",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:00:59.621Z",
+      "crawledAt": "2026-09-26T14:17:41.945Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7464,8 +7348,7 @@
         "medical-secretary-writing-pool-80-100-kantonsspital-baden-ksb-baden",
         "arztsekretar-in-schreibpool-80-100-ksb-ch",
         "medecin-secretaire-ecrivant-pool-80-100-kantonsspital-baden-ksb-baden",
-        "arztsekretar-in-radiologie-80-100-ksb-ch",
-        "segretario-medico-in-radiologia-80-100-kantonsspital-baden-ksb-baden"
+        "arztsekretar-in-radiologie-80-100-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7473,8 +7356,7 @@
           "medical-secretary-writing-pool-80-100-kantonsspital-baden-ksb-baden",
           "arztsekretar-in-schreibpool-80-100-ksb-ch",
           "medecin-secretaire-ecrivant-pool-80-100-kantonsspital-baden-ksb-baden",
-          "arztsekretar-in-radiologie-80-100-ksb-ch",
-          "segretario-medico-in-radiologia-80-100-kantonsspital-baden-ksb-baden"
+          "arztsekretar-in-radiologie-80-100-ksb-ch"
         ],
         "en": [
           "medical-secretary-writing-pool-80-100-kantonsspital-baden-ksb-baden",
@@ -7501,15 +7383,16 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksb-e82da1a20539",
       "slug": "arztsekretar-in-administration-leitstelle-brugg-60-ksb-ch",
       "slugByLocale": {
-        "de": "arztsekretar-in-administration-leitstelle-brugg-60-ksb-ch",
         "it": "arztsekretar-in-administration-leitstelle-brugg-60-ksb-ch",
         "en": "arztsekretar-in-administration-leitstelle-brugg-60-ksb-ch",
+        "de": "arztsekretar-in-administration-leitstelle-brugg-60-ksb-ch",
         "fr": "arztsekretar-in-administration-leitstelle-brugg-60-ksb-ch"
       },
       "company": "Kantonsspital Baden (KSB)",
@@ -7517,16 +7400,16 @@
       "companyDomain": "ksb.ch",
       "title": "Arztsekretär_in Administration Leitstelle Brugg 60%",
       "titleByLocale": {
-        "de": "Arztsekretär_in Administration Leitstelle Brugg 60%",
         "it": "Arztsekretär_in Administration Leitstelle Brugg 60%",
         "en": "Arztsekretär_in Administration Leitstelle Brugg 60%",
+        "de": "Arztsekretär_in Administration Leitstelle Brugg 60%",
         "fr": "Arztsekretär_in Administration Leitstelle Brugg 60%"
       },
       "description": "Du bist organisiert, kommunikativ und hast Freude daran, Patientinnen und Patienten freundlich zu empfangen und ihnen weiterzuhelfen? Du arbeitest gerne selbstständig, bist flexibel und schätzt ein eingespieltes Team mit einer persönlichen Arbeitsatmosphäre? Dann freuen wir uns, dich kennenzulernen. Die Stelle ist per sofort oder nach Vereinbarung verfügbar. An unserem Aussenstandort in Brugg erwartet dich ein abwechslungsreicher Arbeitsalltag in einem überschaubaren Umfeld. Hier geht es persönlich und unkompliziert zu – du kennst dein Team und bist gleichzeitig Teil eines professionellen radiologischen Umfelds.\n\nIhre Aufgaben:\n\n• Du empfängst ambulante Patientinnen und Patienten und sorgst dafür, dass sie sich bei uns gut aufgehoben fühlen.\n\n• Du bearbeitest die tägliche Post und E-Mails und leitest Informationen zuverlässig an die zuständigen Mitarbeitenden weiter.\n\n• Du erfasst externe Zuweisungen und Patientendaten sorgfältig und korrekt.\n\n• Du planst radiologische Untersuchungen an allen Modalitäten telefonisch und schriftlich.\n\n• Du bereitest die Untersuchungsunterlagen vor und organisierst Voraufnahmen, Blutwerte, Vorbefunde und weitere wichtige Informationen.\n\n• Du versendest Bildlinks und Befunde an Patientinnen und Patienten sowie an Zuweisende.\n\nIhr Profil:\n\n• Du verfügst über eine Ausbildung als Arztsekretär/in sowie langjährige Erfahrung in diesem Bereich oder in der Disposition wie auch im Dienstleistungsbereich.\n\n• Du arbeitest sorgfältig, zuverlässig und selbstständig und behältst auch dann den Überblick, wenn es einmal etwas hektischer wird.\n\n• Du bist kommunikativ, dienstleistungsorientiert und gehst gerne auf Patientinnen und Patienten ein.\n\n• Du arbeitest gerne im Team und schätzt eine offene und unkomplizierte Zusammenarbeit.\n\n• Du bringst gute Deutschkenntnisse mit und kommunizierst sicher und freundlich.\n\n• Du gehst routiniert mit digitalen Anwendungen und administrativen Systemen um.\n\n• Du bist flexibel und bereit, deine Arbeitstage nach Möglichkeit an die Bedürfnisse des Teams und des Betriebs anzupassen.\n\nIhre Vorteile:\n\nDas KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen.\nDie vollständige Übersicht der Benefits gibt es HIER .\n\nFragen zum Bewerbungsablauf beantwortet Ihnen gerne Bianca Brunner unter der Telefonnummer +41 56 486 12 28.",
       "descriptionByLocale": {
-        "de": "Du bist organisiert, kommunikativ und hast Freude daran, Patientinnen und Patienten freundlich zu empfangen und ihnen weiterzuhelfen? Du arbeitest gerne selbstständig, bist flexibel und schätzt ein eingespieltes Team mit einer persönlichen Arbeitsatmosphäre? Dann freuen wir uns, dich kennenzulernen. Die Stelle ist per sofort oder nach Vereinbarung verfügbar. An unserem Aussenstandort in Brugg erwartet dich ein abwechslungsreicher Arbeitsalltag in einem überschaubaren Umfeld. Hier geht es persönlich und unkompliziert zu – du kennst dein Team und bist gleichzeitig Teil eines professionellen radiologischen Umfelds.\n\nIhre Aufgaben:\n\n• Du empfängst ambulante Patientinnen und Patienten und sorgst dafür, dass sie sich bei uns gut aufgehoben fühlen.\n\n• Du bearbeitest die tägliche Post und E-Mails und leitest Informationen zuverlässig an die zuständigen Mitarbeitenden weiter.\n\n• Du erfasst externe Zuweisungen und Patientendaten sorgfältig und korrekt.\n\n• Du planst radiologische Untersuchungen an allen Modalitäten telefonisch und schriftlich.\n\n• Du bereitest die Untersuchungsunterlagen vor und organisierst Voraufnahmen, Blutwerte, Vorbefunde und weitere wichtige Informationen.\n\n• Du versendest Bildlinks und Befunde an Patientinnen und Patienten sowie an Zuweisende.\n\nIhr Profil:\n\n• Du verfügst über eine Ausbildung als Arztsekretär/in sowie langjährige Erfahrung in diesem Bereich oder in der Disposition wie auch im Dienstleistungsbereich.\n\n• Du arbeitest sorgfältig, zuverlässig und selbstständig und behältst auch dann den Überblick, wenn es einmal etwas hektischer wird.\n\n• Du bist kommunikativ, dienstleistungsorientiert und gehst gerne auf Patientinnen und Patienten ein.\n\n• Du arbeitest gerne im Team und schätzt eine offene und unkomplizierte Zusammenarbeit.\n\n• Du bringst gute Deutschkenntnisse mit und kommunizierst sicher und freundlich.\n\n• Du gehst routiniert mit digitalen Anwendungen und administrativen Systemen um.\n\n• Du bist flexibel und bereit, deine Arbeitstage nach Möglichkeit an die Bedürfnisse des Teams und des Betriebs anzupassen.\n\nIhre Vorteile:\n\nDas KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen.\nDie vollständige Übersicht der Benefits gibt es HIER .\n\nFragen zum Bewerbungsablauf beantwortet Ihnen gerne Bianca Brunner unter der Telefonnummer +41 56 486 12 28.",
         "it": "Sei organizzato, comunicativo e godere di ricevere pazienti in modo amichevole e aiutarli? Ti piace lavorare in modo indipendente, sei flessibile e apprezzi un team consolidato con un'atmosfera di lavoro personale? Allora non vediamo l'ora di incontrarti. La posizione è disponibile immediatamente o con accordo. Nella nostra posizione a Brugg, ci si può aspettare un vario lavoro quotidiano in un ambiente gestibile. Questo è personale e semplice – conoscete il vostro team e siete allo stesso tempo parte di un ambiente radiologico professionale.\n\nI loro compiti:\n\n• Ricevete pazienti e assicuratevi che si sentano in buone mani con noi.\n\n• Elabori la posta quotidiana e le e-mail e indichi in modo affidabile informazioni ai dipendenti responsabili.\n\n• Raccogliere incarichi esterni e dati del paziente con attenzione e correttamente.\n\n• Pianifichi esami radiologici di tutte le modalità per telefono e per iscritto.\n\n• Si preparano i documenti di esame e organizzano immagini preliminari, valori del sangue, risultati preliminari e altre informazioni importanti.\n\n• Invii link di immagine e risultati a pazienti e referees.\n\nIl tuo profilo:\n\n• Hai la formazione come segretaria medica, così come molti anni di esperienza in questo settore o a disposizione, così come nel settore dei servizi.\n\n• Si lavora con attenzione, in modo affidabile e indipendente e tenere traccia anche se diventa un po ' frenetico.\n\n• Siete comunicativi, orientati al servizio e felici di rispondere ai pazienti.\n\n• Ti piace lavorare in un team e apprezzare una collaborazione aperta e semplice.\n\n• Porti buona conoscenza del tedesco e comunichi in modo sicuro e amichevole.\n\n• Si tratta di routine con applicazioni digitali e sistemi amministrativi.\n\n• Sei flessibile e disposto ad adattare le tue giornate lavorative alle esigenze del team e alle operazioni dove possibile.\n\nI loro vantaggi:\n\nIl KSB offre più di un posto di lavoro emozionante con buone condizioni di lavoro.\nLa panoramica completa dei benefici è disponibile QUI.\n\nLe domande sul processo di applicazione possono essere risolte da Bianca Brunner al numero di telefono +41 56 486 12 28.",
         "en": "Are you organized, communicative and enjoy receiving patients in a friendly way and helping them? You like to work independently, are flexible and appreciate a well-established team with a personal working atmosphere? Then we look forward to meeting you. The position is available immediately or by agreement. At our location in Brugg, you can expect a varied day-to-day work in a manageable environment. This is personal and uncomplicated – you know your team and are at the same time part of a professional radiological environment.\n\nTheir tasks:\n\n• You receive outpatients and ensure that they feel in good hands with us.\n\n• You process the daily mail and e-mails and reliably forward information to the responsible employees.\n\n• You collect external assignments and patient data carefully and correctly.\n\n• You plan radiological examinations of all modalities by telephone and in writing.\n\n• You prepare the examination documents and organize preliminary pictures, blood values, preliminary findings and other important information.\n\n• You send image links and findings to patients and referees.\n\nYour profile:\n\n• You have training as a medical secretary as well as many years of experience in this area or in disposition as well as in the service sector.\n\n• You work carefully, reliably and independently and keep track even if it gets a bit hectic.\n\n• You are communicative, service-oriented and happy to respond to patients.\n\n• You enjoy working in a team and appreciate an open and uncomplicated cooperation.\n\n• You bring good knowledge of German and communicate safely and friendly.\n\n• You routinely deal with digital applications and administrative systems.\n\n• You are flexible and willing to adapt your working days to the needs of the team and the operations where possible.\n\nTheir advantages:\n\nThe KSB offers more than an exciting workplace with good working conditions.\nThe full overview of the benefits is available HERE.\n\nQuestions about the application process can be answered by Bianca Brunner on the phone number +41 56 486 12 28.",
+        "de": "Du bist organisiert, kommunikativ und hast Freude daran, Patientinnen und Patienten freundlich zu empfangen und ihnen weiterzuhelfen? Du arbeitest gerne selbstständig, bist flexibel und schätzt ein eingespieltes Team mit einer persönlichen Arbeitsatmosphäre? Dann freuen wir uns, dich kennenzulernen. Die Stelle ist per sofort oder nach Vereinbarung verfügbar. An unserem Aussenstandort in Brugg erwartet dich ein abwechslungsreicher Arbeitsalltag in einem überschaubaren Umfeld. Hier geht es persönlich und unkompliziert zu – du kennst dein Team und bist gleichzeitig Teil eines professionellen radiologischen Umfelds.\n\nIhre Aufgaben:\n\n• Du empfängst ambulante Patientinnen und Patienten und sorgst dafür, dass sie sich bei uns gut aufgehoben fühlen.\n\n• Du bearbeitest die tägliche Post und E-Mails und leitest Informationen zuverlässig an die zuständigen Mitarbeitenden weiter.\n\n• Du erfasst externe Zuweisungen und Patientendaten sorgfältig und korrekt.\n\n• Du planst radiologische Untersuchungen an allen Modalitäten telefonisch und schriftlich.\n\n• Du bereitest die Untersuchungsunterlagen vor und organisierst Voraufnahmen, Blutwerte, Vorbefunde und weitere wichtige Informationen.\n\n• Du versendest Bildlinks und Befunde an Patientinnen und Patienten sowie an Zuweisende.\n\nIhr Profil:\n\n• Du verfügst über eine Ausbildung als Arztsekretär/in sowie langjährige Erfahrung in diesem Bereich oder in der Disposition wie auch im Dienstleistungsbereich.\n\n• Du arbeitest sorgfältig, zuverlässig und selbstständig und behältst auch dann den Überblick, wenn es einmal etwas hektischer wird.\n\n• Du bist kommunikativ, dienstleistungsorientiert und gehst gerne auf Patientinnen und Patienten ein.\n\n• Du arbeitest gerne im Team und schätzt eine offene und unkomplizierte Zusammenarbeit.\n\n• Du bringst gute Deutschkenntnisse mit und kommunizierst sicher und freundlich.\n\n• Du gehst routiniert mit digitalen Anwendungen und administrativen Systemen um.\n\n• Du bist flexibel und bereit, deine Arbeitstage nach Möglichkeit an die Bedürfnisse des Teams und des Betriebs anzupassen.\n\nIhre Vorteile:\n\nDas KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen.\nDie vollständige Übersicht der Benefits gibt es HIER .\n\nFragen zum Bewerbungsablauf beantwortet Ihnen gerne Bianca Brunner unter der Telefonnummer +41 56 486 12 28.",
         "fr": "Êtes-vous organisé, communicatif et aimez-vous recevoir les patients de façon amicale et les aider? Vous aimez travailler de façon indépendante, être flexible et apprécier une équipe bien établie avec une atmosphère de travail personnelle? Alors nous avons hâte de vous rencontrer. Le poste est disponible immédiatement ou par accord. Sur notre site à Brugg, vous pouvez vous attendre à un travail quotidien varié dans un environnement gérable. C'est personnel et non compliqué – vous connaissez votre équipe et faites en même temps partie d'un environnement radiologique professionnel.\n\nLeurs tâches :\n\n• Vous recevez des patients externes et vous assurez qu'ils se sentent en bonnes mains avec nous.\n\n• Vous traitez le courrier quotidien et les courriels et transmettez de façon fiable les informations aux employés responsables.\n\n• Vous recueillez les missions externes et les données du patient avec soin et correctement.\n\n• Vous prévoyez des examens radiologiques de toutes les modalités par téléphone et par écrit.\n\n• Vous préparez les documents d'examen et organisez des photos préliminaires, des valeurs sanguines, des résultats préliminaires et d'autres informations importantes.\n\n• Vous envoyez des liens d'image et des résultats aux patients et aux arbitres.\n\nVotre profil:\n\n• Vous avez une formation de secrétaire médical ainsi que de nombreuses années d'expérience dans ce domaine ou dans la disposition ainsi que dans le secteur des services.\n\n• Vous travaillez avec soin, de façon fiable et indépendante et gardez la trace même si elle devient un peu agitée.\n\n• Vous êtes communicatif, orienté vers le service et heureux de répondre aux patients.\n\n• Vous aimez travailler en équipe et apprécier une coopération ouverte et simple.\n\n• Vous apportez une bonne connaissance de l'allemand et de communiquer en toute sécurité et amical.\n\n• Vous traitez régulièrement des applications numériques et des systèmes administratifs.\n\n• Vous êtes flexible et prêt à adapter vos journées de travail aux besoins de l'équipe et aux opérations lorsque c'est possible.\n\nLeurs avantages:\n\nLe KSB offre plus qu'un lieu de travail passionnant avec de bonnes conditions de travail.\nL'aperçu complet des prestations est disponible ICI.\n\nBianca Brunner peut répondre aux questions concernant le processus de candidature au numéro de téléphone +41 56 486 12 28."
       },
       "needsRetranslation": true,
@@ -7535,7 +7418,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Brugg/Arztsekretr-in-Administration-Leitstelle-Brugg-60-_R13038",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:00:58.811Z",
+      "crawledAt": "2026-09-26T14:17:41.039Z",
       "addressLocality": "Brugg",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7551,9 +7434,8 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Brugg/Arztsekretr-in-Administration-Leitstelle-Brugg-60-_R13038",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-25T15:00:58.811Z",
       "salaryMin": 52800,
       "salaryMax": 73800,
       "salarySource": "estimated",
@@ -7566,41 +7448,41 @@
           "maxValue": 73800,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-25T15:00:58.811Z"
+      }
     },
     {
       "id": "ksb-61b42eb6af7e",
-      "slug": "mpa-fage-urologie-100-ksb-ch",
+      "slug": "mpa-fage-urology-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
+        "it": "mpa-fage-urology-100-kantonsspital-baden-ksb-baden",
+        "en": "mpa-fage-urology-100-kantonsspital-baden-ksb-baden",
         "de": "mpa-fage-urologie-100-ksb-ch",
-        "it": "mpa-fage-urologie-100-ksb-ch",
-        "en": "mpa-fage-urologie-100-ksb-ch",
-        "fr": "mpa-fage-urologie-100-ksb-ch"
+        "fr": "mpa-fage-urology-100-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
       "companyDomain": "ksb.ch",
       "title": "MPA / FaGe Urologie 100%",
       "titleByLocale": {
-        "de": "MPA / FaGe Urologie 100%",
         "it": "MPA / FaGe Urology 100%",
         "en": "MPA / FaGe Urology 100%",
+        "de": "MPA / FaGe Urologie 100%",
         "fr": "MPA / FaGe Urology 100%"
       },
       "description": "Im urologischen Ambulatorium begleiten Sie Patientinnen und Patienten durch diagnostische und therapeutische Eingriffe – von der Vorbereitung bis zur Nachsorge. Sie unterstützen das Ärzteteam im Alltag, behalten den Überblick im Sprechstundenbetrieb und bringen Ihr technisches Geschick bei kleinen Eingriffen ein. Die Stelle ist per sofort oder nach Vereinbarung verfügbar.\n\nIhre Aufgaben:\n\n• Sie begleiten gemeinsam mit dem Ärzteteam die urologische Interventionen unter abwechslungsreichen Bedingungen – ob mit oder ohne Röntgen oder Narkose und sorgen für einen reibungslosen Ablauf.\n\n• Sie entnehmen Proben, bereiten diese fachgerecht auf und leiten sie zuverlässig zur Analyse weiter.\n\n• Sie gestalten mit Ihrem Organisationstalent den abwechslungsreichen Alltag, bereiten Konsultationen vor, übernehmen Verantwortung im Tagesgeschäft und schaffen damit einen reibungslosen Ablauf.\n\n• Sie triagieren in Zusammenarbeit mit dem Ärzteteam sämtliche Notfälle sowie Konsilien und integrieren alles strukturiert in den Tagesablauf.\n\n• Sie unterstützen das Ärzteteam in der Sprechstunde und führen kleinere medizinische Massnahmen eigenständig durch.\n\nIhr Profil:\n\n• Sie verfügen über eine abgeschlossene Ausbildung als medizinische/r Praxisassistent/in oder Fachfrau/mann Gesundheit.\n\n• Sie bevorzugen eine geregelte Tätigkeit von Montag bis Freitag.\n\n• Sie bringen eine rasche Auffassungsgabe, technisches Flair und manuelles Geschick mit.\n\n• Erfahrung im Umgang mit Endoskopen ist von Vorteil – oder Sie sind bereit, sich einzuarbeiten.\n\n• Sie sind flexibel, kommunikativ und gehen auf unterschiedliche Menschen und Situationen empathisch ein.\n\n• Sie schätzen ein familiäres Team und arbeiten gerne interdisziplinär.\n\nIhre Vorteile:\n\nDas KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen.\nDie vollständige Übersicht der Benefits gibt es HIER .\n\nFragen zum Bewerbungsablauf beantwortet Ihnen gerne Fabian Ben Fredj unter der Telefonnummer +41 56 486 12 53.",
       "descriptionByLocale": {
-        "de": "Im urologischen Ambulatorium begleiten Sie Patientinnen und Patienten durch diagnostische und therapeutische Eingriffe – von der Vorbereitung bis zur Nachsorge. Sie unterstützen das Ärzteteam im Alltag, behalten den Überblick im Sprechstundenbetrieb und bringen Ihr technisches Geschick bei kleinen Eingriffen ein. Die Stelle ist per sofort oder nach Vereinbarung verfügbar.\n\nIhre Aufgaben:\n\n• Sie begleiten gemeinsam mit dem Ärzteteam die urologische Interventionen unter abwechslungsreichen Bedingungen – ob mit oder ohne Röntgen oder Narkose und sorgen für einen reibungslosen Ablauf.\n\n• Sie entnehmen Proben, bereiten diese fachgerecht auf und leiten sie zuverlässig zur Analyse weiter.\n\n• Sie gestalten mit Ihrem Organisationstalent den abwechslungsreichen Alltag, bereiten Konsultationen vor, übernehmen Verantwortung im Tagesgeschäft und schaffen damit einen reibungslosen Ablauf.\n\n• Sie triagieren in Zusammenarbeit mit dem Ärzteteam sämtliche Notfälle sowie Konsilien und integrieren alles strukturiert in den Tagesablauf.\n\n• Sie unterstützen das Ärzteteam in der Sprechstunde und führen kleinere medizinische Massnahmen eigenständig durch.\n\nIhr Profil:\n\n• Sie verfügen über eine abgeschlossene Ausbildung als medizinische/r Praxisassistent/in oder Fachfrau/mann Gesundheit.\n\n• Sie bevorzugen eine geregelte Tätigkeit von Montag bis Freitag.\n\n• Sie bringen eine rasche Auffassungsgabe, technisches Flair und manuelles Geschick mit.\n\n• Erfahrung im Umgang mit Endoskopen ist von Vorteil – oder Sie sind bereit, sich einzuarbeiten.\n\n• Sie sind flexibel, kommunikativ und gehen auf unterschiedliche Menschen und Situationen empathisch ein.\n\n• Sie schätzen ein familiäres Team und arbeiten gerne interdisziplinär.\n\nIhre Vorteile:\n\nDas KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen.\nDie vollständige Übersicht der Benefits gibt es HIER .\n\nFragen zum Bewerbungsablauf beantwortet Ihnen gerne Fabian Ben Fredj unter der Telefonnummer +41 56 486 12 53.",
         "it": "Nell'ambulatorio urologico, accompagni i pazienti attraverso interventi diagnostici e terapeutici – dalla preparazione alla cura del follow-up. Sosteni il team medico nella vita quotidiana, tieni una panoramica delle ore di ufficio e contribuisci alle tue competenze tecniche alle piccole procedure. La posizione è disponibile immediatamente o con accordo.\n\nI loro compiti:\n\n• Insieme al team medico, accompagnano gli interventi urologici in varie condizioni – sia con o senza raggi X o anestesia e garantiscono un processo liscio.\n\n• Assumono campioni, li preparano professionalmente e in modo affidabile per l'analisi.\n\n• Progettare la varia vita quotidiana con il vostro talento organizzativo, preparare le consultazioni, prendersi la responsabilità nel business quotidiano e quindi creare un processo liscio.\n\n• In collaborazione con il team medico, triage tutte le emergenze e le consultazioni e integrare tutto nella routine quotidiana in modo strutturato.\n\n• Sostengono il team medico durante la consultazione e effettuano misure mediche minori indipendentemente.\n\nIl tuo profilo:\n\n• Hai completato la formazione come assistente medico o specialista di salute.\n\n• Preferiscono un'attività regolamentata dal lunedì al venerdì.\n\n• Portano una rapida comprensione, un tocco tecnico e un'abilità manuale.\n\n• L'esperienza nel trattare con gli endoscopi è un vantaggio – o siete pronti per essere coinvolti.\n\n• Sono flessibili, comunicativi e rispondono empaticamente a diverse persone e situazioni.\n\n• Apprezzano un team di famiglia e amano lavorare interdisciplinari.\n\nI loro vantaggi:\n\nIl KSB offre più di un posto di lavoro emozionante con buone condizioni di lavoro.\nLa panoramica completa dei benefici è disponibile QUI.\n\nLe domande sul processo di applicazione possono essere risolte da Fabian Ben Fredj al numero di telefono +41 56 486 12 53.",
         "en": "In the urological ambulatory, you accompany patients through diagnostic and therapeutic interventions – from preparation to follow-up care. You support the medical team in everyday life, keep an overview of the office hours and contribute your technical skills to small procedures. The position is available immediately or by agreement.\n\nTheir tasks:\n\n• Together with the medical team, they accompany the urological interventions under varied conditions – whether with or without X-rays or anesthesia and ensure a smooth process.\n\n• They take samples, prepare them professionally and reliably forward them for analysis.\n\n• You design the varied everyday life with your organizational talent, prepare consultations, take responsibility in day-to-day business and thus create a smooth process.\n\n• In cooperation with the medical team, they triage all emergencies and consultancies and integrate everything into the daily routine in a structured manner.\n\n• They support the medical team during the consultation and carry out minor medical measures independently.\n\nYour profile:\n\n• You have completed training as a medical assistant or health specialist.\n\n• They prefer a regulated activity from Monday to Friday.\n\n• They bring a quick comprehension, technical flair and manual skill.\n\n• Experience in dealing with endoscopes is an advantage – or you are ready to get involved.\n\n• They are flexible, communicative and respond empathetically to different people and situations.\n\n• They value a family team and like to work interdisciplinary.\n\nTheir advantages:\n\nThe KSB offers more than an exciting workplace with good working conditions.\nThe full overview of the benefits is available HERE.\n\nQuestions about the application process can be answered by Fabian Ben Fredj on the phone number +41 56 486 12 53.",
+        "de": "Im urologischen Ambulatorium begleiten Sie Patientinnen und Patienten durch diagnostische und therapeutische Eingriffe – von der Vorbereitung bis zur Nachsorge. Sie unterstützen das Ärzteteam im Alltag, behalten den Überblick im Sprechstundenbetrieb und bringen Ihr technisches Geschick bei kleinen Eingriffen ein. Die Stelle ist per sofort oder nach Vereinbarung verfügbar.\n\nIhre Aufgaben:\n\n• Sie begleiten gemeinsam mit dem Ärzteteam die urologische Interventionen unter abwechslungsreichen Bedingungen – ob mit oder ohne Röntgen oder Narkose und sorgen für einen reibungslosen Ablauf.\n\n• Sie entnehmen Proben, bereiten diese fachgerecht auf und leiten sie zuverlässig zur Analyse weiter.\n\n• Sie gestalten mit Ihrem Organisationstalent den abwechslungsreichen Alltag, bereiten Konsultationen vor, übernehmen Verantwortung im Tagesgeschäft und schaffen damit einen reibungslosen Ablauf.\n\n• Sie triagieren in Zusammenarbeit mit dem Ärzteteam sämtliche Notfälle sowie Konsilien und integrieren alles strukturiert in den Tagesablauf.\n\n• Sie unterstützen das Ärzteteam in der Sprechstunde und führen kleinere medizinische Massnahmen eigenständig durch.\n\nIhr Profil:\n\n• Sie verfügen über eine abgeschlossene Ausbildung als medizinische/r Praxisassistent/in oder Fachfrau/mann Gesundheit.\n\n• Sie bevorzugen eine geregelte Tätigkeit von Montag bis Freitag.\n\n• Sie bringen eine rasche Auffassungsgabe, technisches Flair und manuelles Geschick mit.\n\n• Erfahrung im Umgang mit Endoskopen ist von Vorteil – oder Sie sind bereit, sich einzuarbeiten.\n\n• Sie sind flexibel, kommunikativ und gehen auf unterschiedliche Menschen und Situationen empathisch ein.\n\n• Sie schätzen ein familiäres Team und arbeiten gerne interdisziplinär.\n\nIhre Vorteile:\n\nDas KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen.\nDie vollständige Übersicht der Benefits gibt es HIER .\n\nFragen zum Bewerbungsablauf beantwortet Ihnen gerne Fabian Ben Fredj unter der Telefonnummer +41 56 486 12 53.",
         "fr": "Dans l'ambulatoire urologique, vous accompagnez les patients par des interventions diagnostiques et thérapeutiques – de la préparation aux soins de suivi. Vous aidez l'équipe médicale dans la vie quotidienne, gardez une vue d'ensemble des heures de bureau et apportez vos compétences techniques à de petites procédures. Le poste est disponible immédiatement ou par accord.\n\nLeurs tâches :\n\n• Avec l'équipe médicale, ils accompagnent les interventions urologiques dans des conditions variées, qu'elles soient avec ou sans radiographie ou anesthésie et assurent un processus fluide.\n\n• Ils prennent des échantillons, les préparent professionnellement et les transmettent de façon fiable pour analyse.\n\n• Vous concevez la vie quotidienne variée avec votre talent organisationnel, préparez des consultations, prenez la responsabilité dans les affaires quotidiennes et créez ainsi un processus harmonieux.\n\n• En collaboration avec l'équipe médicale, ils trient toutes les urgences et les consultations et intègrent tout dans la routine quotidienne de manière structurée.\n\n• Ils soutiennent l'équipe médicale pendant la consultation et exécutent des mesures médicales mineures indépendamment.\n\nVotre profil:\n\n• Vous avez suivi une formation d'assistant médical ou de spécialiste de la santé.\n\n• Ils préfèrent une activité réglementée du lundi au vendredi.\n\n• Ils apportent une compréhension rapide, un style technique et une compétence manuelle.\n\n• L'expérience dans le traitement des endoscopes est un avantage – ou vous êtes prêt à vous impliquer.\n\n• Ils sont flexibles, communicatifs et répondent empathiquement à différentes personnes et situations.\n\n• Ils apprécient une équipe familiale et aiment travailler interdisciplinaire.\n\nLeurs avantages:\n\nLe KSB offre plus qu'un lieu de travail passionnant avec de bonnes conditions de travail.\nL'aperçu complet des prestations est disponible ICI.\n\nFabian Ben Fredj peut répondre aux questions concernant le processus de candidature au numéro de téléphone +41 56 486 12 53."
       },
+      "needsRetranslation": false,
       "location": "Baden",
       "canton": "AG",
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/MPA---FaGe-Urologie-100-_R13298",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:00:57.903Z",
+      "crawledAt": "2026-09-26T14:17:40.276Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7616,9 +7498,22 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/MPA---FaGe-Urologie-100-_R13298",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-25T15:00:57.903Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-fage-urologie-100-ksb-ch"
+        ],
+        "en": [
+          "mpa-fage-urologie-100-ksb-ch"
+        ],
+        "fr": [
+          "mpa-fage-urologie-100-ksb-ch"
+        ]
       },
+      "previousSlugs": [
+        "mpa-fage-urologie-100-ksb-ch"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -7631,16 +7526,15 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-25T15:00:57.903Z"
+      }
     },
     {
       "id": "ksb-2d9d5fa22bf7",
       "slug": "radiologiefachfrau-mann-leuggern-80-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "de": "radiologiefachfrau-mann-leuggern-80-100-ksb-ch",
         "it": "radiologiefachfrau-mann-leuggern-80-100-kantonsspital-baden-ksb-baden",
         "en": "radiologiefachfrau-mann-leuggern-80-100-ksb-ch",
+        "de": "radiologiefachfrau-mann-leuggern-80-100-ksb-ch",
         "fr": "radiologiefachfrau-mann-leuggern-80-100-ksb-ch"
       },
       "company": "Kantonsspital Baden (KSB)",
@@ -7648,16 +7542,16 @@
       "companyDomain": "ksb.ch",
       "title": "Radiologiefachfrau_mann Leuggern 80-100%",
       "titleByLocale": {
-        "de": "Radiologiefachfrau_mann Leuggern 80-100%",
         "it": "Radiologiefachfrau_mann Leuggern 80-100%",
         "en": "Radiologiefachfrau_mann Leuggern 80-100%",
+        "de": "Radiologiefachfrau_mann Leuggern 80-100%",
         "fr": "Radiologiefachfrau_mann Leuggern 80-100%"
       },
       "description": "Bildgebende Verfahren anwenden, Patientinnen und Patienten professionell begleiten und den sicheren Ablauf im Untersuchungsalltag gewährleisten: Die Radiologie ist breit aufgestellt und technisch auf dem neuesten Stand. Bei uns setzt du dein Fachwissen in allen Bereichen der modernen Bildgebung ein und leistest einen wichtigen Beitrag zur präzisen Diagnostik. Die Stelle ist per sofort oder nach Vereinbarung verfügbar.\n\nIhre Aufgaben:\n\n• Du führst Untersuchungen in der konventionellen Radiologie, der Mammografie, der Computertomografie sowie in der Sonografie durch.\n\n• Du unterstützt das Team bei der Magnetresonanztomografie sowie bei Durchleuchtungsuntersuchungen.\n\n• Du übernimmst Einsätze in verschiedenen Arbeitsbereichen und bringst deine Erfahrungen in innerbetriebliche Rotationen ein.\n\nIhr Profil:\n\n• Du hast eine Ausbildung als dipl. Radiologiefachperson abgeschlossen (inkl. positivem SRK Pre-Check bei Ausbildungen aus dem Ausland).\n\n• Du arbeitest gerne im Team und schätzt den engen Austausch mit Kolleginnen und Kollegen aus unterschiedlichen Fachbereichen.\n\n• Du bist zuverlässig, behältst auch in hektischen Situationen den Überblick und bringst dich aktiv ein.\n\nIhre Vorteile:\n\nDas KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen.\nDie vollständige Übersicht der Benefits gibt es HIER .\n\nFragen zum Bewerbungsablauf beantwortet Ihnen gerne Bianca Brunner unter der Telefonnummer +41 56 486 12 28.",
       "descriptionByLocale": {
-        "de": "Bildgebende Verfahren anwenden, Patientinnen und Patienten professionell begleiten und den sicheren Ablauf im Untersuchungsalltag gewährleisten: Die Radiologie ist breit aufgestellt und technisch auf dem neuesten Stand. Bei uns setzt du dein Fachwissen in allen Bereichen der modernen Bildgebung ein und leistest einen wichtigen Beitrag zur präzisen Diagnostik. Die Stelle ist per sofort oder nach Vereinbarung verfügbar.\n\nIhre Aufgaben:\n\n• Du führst Untersuchungen in der konventionellen Radiologie, der Mammografie, der Computertomografie sowie in der Sonografie durch.\n\n• Du unterstützt das Team bei der Magnetresonanztomografie sowie bei Durchleuchtungsuntersuchungen.\n\n• Du übernimmst Einsätze in verschiedenen Arbeitsbereichen und bringst deine Erfahrungen in innerbetriebliche Rotationen ein.\n\nIhr Profil:\n\n• Du hast eine Ausbildung als dipl. Radiologiefachperson abgeschlossen (inkl. positivem SRK Pre-Check bei Ausbildungen aus dem Ausland).\n\n• Du arbeitest gerne im Team und schätzt den engen Austausch mit Kolleginnen und Kollegen aus unterschiedlichen Fachbereichen.\n\n• Du bist zuverlässig, behältst auch in hektischen Situationen den Überblick und bringst dich aktiv ein.\n\nIhre Vorteile:\n\nDas KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen.\nDie vollständige Übersicht der Benefits gibt es HIER .\n\nFragen zum Bewerbungsablauf beantwortet Ihnen gerne Bianca Brunner unter der Telefonnummer +41 56 486 12 28.",
         "it": "Applicare tecniche di imaging, accompagnare i pazienti professionalmente e garantire la sequenza sicura negli esami quotidiani: La radiologia è ampiamente basata e tecnicamente aggiornata. Con noi, si applica la vostra esperienza in tutte le aree di imaging moderno e dare un contributo importante per la diagnostica precisa. La posizione è disponibile immediatamente o con accordo.\n\nI loro compiti:\n\n• Lei effettua indagini in radiologia convenzionale, mammografia, tomografia computerizzata e sonografia.\n\n• Supporti il team nell'imaging di risonanza magnetica e negli esami di fluoroscopia.\n\n• Assumete incarichi in varie aree di lavoro e portate le vostre esperienze in rotazioni interne.\n\nIl tuo profilo:\n\n• Hai un'educazione come dipl. Specialista di radiologia completato (compreso il pre-check SRK positivo per la formazione dall'estero).\n\n• Ti piace lavorare in un team e apprezzare lo scambio ravvicinato con colleghi di diverse aree specializzate.\n\n• Sei affidabile, tenere traccia anche in situazioni frenetiche e partecipare attivamente.\n\nI loro vantaggi:\n\nIl KSB offre più di un posto di lavoro emozionante con buone condizioni di lavoro.\nLa panoramica completa dei benefici è disponibile QUI.\n\nLe domande sul processo di applicazione possono essere risolte da Bianca Brunner al numero di telefono +41 56 486 12 28.",
         "en": "Applying imaging techniques, accompanying patients professionally and ensuring the safe sequence in everyday examinations: Radiology is broadly based and technically up-to-date. With us, you apply your expertise in all areas of modern imaging and make an important contribution to precise diagnostics. The position is available immediately or by agreement.\n\nTheir tasks:\n\n• You carry out investigations in conventional radiology, mammography, computed tomography and sonography.\n\n• You support the team in magnetic resonance imaging as well as in fluoroscopy examinations.\n\n• You take on assignments in various work areas and bring your experiences into internal rotations.\n\nYour profile:\n\n• You have an education as a dipl. Radiology specialist completed (including positive SRK pre-check for training from abroad).\n\n• You enjoy working in a team and appreciate the close exchange with colleagues from different specialist areas.\n\n• You are reliable, keep track even in hectic situations and actively participate.\n\nTheir advantages:\n\nThe KSB offers more than an exciting workplace with good working conditions.\nThe full overview of the benefits is available HERE.\n\nQuestions about the application process can be answered by Bianca Brunner on the phone number +41 56 486 12 28.",
+        "de": "Bildgebende Verfahren anwenden, Patientinnen und Patienten professionell begleiten und den sicheren Ablauf im Untersuchungsalltag gewährleisten: Die Radiologie ist breit aufgestellt und technisch auf dem neuesten Stand. Bei uns setzt du dein Fachwissen in allen Bereichen der modernen Bildgebung ein und leistest einen wichtigen Beitrag zur präzisen Diagnostik. Die Stelle ist per sofort oder nach Vereinbarung verfügbar.\n\nIhre Aufgaben:\n\n• Du führst Untersuchungen in der konventionellen Radiologie, der Mammografie, der Computertomografie sowie in der Sonografie durch.\n\n• Du unterstützt das Team bei der Magnetresonanztomografie sowie bei Durchleuchtungsuntersuchungen.\n\n• Du übernimmst Einsätze in verschiedenen Arbeitsbereichen und bringst deine Erfahrungen in innerbetriebliche Rotationen ein.\n\nIhr Profil:\n\n• Du hast eine Ausbildung als dipl. Radiologiefachperson abgeschlossen (inkl. positivem SRK Pre-Check bei Ausbildungen aus dem Ausland).\n\n• Du arbeitest gerne im Team und schätzt den engen Austausch mit Kolleginnen und Kollegen aus unterschiedlichen Fachbereichen.\n\n• Du bist zuverlässig, behältst auch in hektischen Situationen den Überblick und bringst dich aktiv ein.\n\nIhre Vorteile:\n\nDas KSB bietet mehr als einen spannenden Arbeitsplatz bei guten Arbeitsbedingungen.\nDie vollständige Übersicht der Benefits gibt es HIER .\n\nFragen zum Bewerbungsablauf beantwortet Ihnen gerne Bianca Brunner unter der Telefonnummer +41 56 486 12 28.",
         "fr": "Appliquer des techniques d'imagerie, accompagner professionnellement les patients et assurer la séquence sûre dans les examens quotidiens: La radiologie est largement basée et techniquement à jour. Avec nous, vous appliquez votre expertise dans tous les domaines de l'imagerie moderne et apportez une contribution importante à des diagnostics précis. Le poste est disponible immédiatement ou par accord.\n\nLeurs tâches :\n\n• Vous effectuez des recherches en radiologie conventionnelle, en mammographie, en tomographie et en sonographie.\n\n• Vous soutenez l'équipe dans l'imagerie par résonance magnétique ainsi que dans les examens de fluoroscopie.\n\n• Vous effectuez des tâches dans différents domaines de travail et apportez vos expériences dans les rotations internes.\n\nVotre profil:\n\n• Vous avez une éducation en tant que dipl. Spécialiste de radiologie complété (y compris la prévérification positive de SRK pour la formation de l'étranger).\n\n• Vous aimez travailler en équipe et apprécier les échanges étroits avec des collègues de différents domaines spécialisés.\n\n• Vous êtes fiable, faites le suivi même dans des situations agitées et participez activement.\n\nLeurs avantages:\n\nLe KSB offre plus qu'un lieu de travail passionnant avec de bonnes conditions de travail.\nL'aperçu complet des prestations est disponible ICI.\n\nBianca Brunner peut répondre aux questions concernant le processus de candidature au numéro de téléphone +41 56 486 12 28."
       },
       "needsRetranslation": true,
@@ -7666,7 +7560,7 @@
       "url": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Radiologiefachfrau-mann-Leuggern-80-100-_R12804",
       "source": "Kantonsspital Baden (KSB) Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:00:56.858Z",
+      "crawledAt": "2026-09-26T14:17:39.489Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -7682,17 +7576,16 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://kantonsspitalbaden.wd3.myworkdayjobs.com/en/ksb-careers/job/Baden/Radiologiefachfrau-mann-Leuggern-80-100-_R12804",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "radiologiefachfrau-mann-leuggern-80-100-ksb-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "radiologiefachfrau-mann-leuggern-80-100-ksb-ch"
         ]
       },
-      "previousSlugs": [
-        "radiologiefachfrau-mann-leuggern-80-100-ksb-ch"
-      ],
+      "firstSeenAt": "2026-09-25T15:00:56.858Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -7705,8 +7598,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-25T15:00:56.858Z"
+      }
     },
     {
       "id": "ksb-de0f63fc07c0",
@@ -7789,7 +7681,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "ksb-e4af11f9f60d",
@@ -7869,7 +7762,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "ksb-5309f499de67",
@@ -7948,7 +7842,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

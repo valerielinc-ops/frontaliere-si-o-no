@@ -1,6 +1,6 @@
 {
   "crawlerKey": "aldi-suisse",
-  "assembledAt": "2026-09-25T14:55:50.316Z",
+  "assembledAt": "2026-09-26T14:08:59.135Z",
   "jobs": [
     {
       "id": "aldi-suisse-9e420fe21829",
@@ -80,15 +80,13 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1389180133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:32.384Z",
+      "crawledAt": "2026-09-26T14:08:40.896Z",
       "previousSlugs": [
-        "stellvertretender-filialleiter-m-w-d-aldi-suisse",
-        "direttore-aggiunto-m-f-d-aldi-suisse-sempach-station"
+        "stellvertretender-filialleiter-m-w-d-aldi-suisse"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretender-filialleiter-m-w-d-aldi-suisse",
-          "direttore-aggiunto-m-f-d-aldi-suisse-sempach-station"
+          "stellvertretender-filialleiter-m-w-d-aldi-suisse"
         ],
         "en": [
           "stellvertretender-filialleiter-m-w-d-aldi-suisse"
@@ -110,7 +108,8 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-73f67bec30e8",
@@ -186,15 +185,13 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1440794733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:32.378Z",
+      "crawledAt": "2026-09-26T14:08:40.891Z",
       "previousSlugs": [
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich-0f7c10"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich-0f7c10"
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
@@ -216,16 +213,17 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-f90710b70d17",
       "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-regensdorf",
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-regensdorf",
-        "en": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "en": "sales-associate-m-w-d-aldi-suisse-regensdorf",
         "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "fr": "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        "fr": "vendeur-se-m-w-d-aldi-suisse-regensdorf"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -233,15 +231,15 @@
       "title": "Mitarbeiter Verkauf (m/w/d)",
       "titleByLocale": {
         "it": "Addetto/a alle vendite (m/w/d)",
-        "de": "Mitarbeiter Verkauf (m/w/d)",
         "en": "Sales Associate (m/w/d)",
+        "de": "Mitarbeiter Verkauf (m/w/d)",
         "fr": "Vendeur/se (m/w/d)"
       },
       "description": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibilität betreffend der Einsatzzeiten\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​8105 Regensdorf, Feldstrasse 32​\nArbeitsbeginn​ab sofort​\nJetzt direkt auf die Stelle bewerbenHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
       "descriptionByLocale": {
         "it": "Compiti\n• Presentazione delle merci\n\n• Cassiere\n\n• Pane da forno nella Panetteria\n\n• Supporto per i clienti\n\n• Servizi di pulizia del ramo\n\n• Collaborazione nel lavoro nascente\nProfilo\n• Esperienza professionale nelle vendite o in un ambiente simile\n\n• Formazione professionale completata idealmente nel commercio al dettaglio o nel settore alimentare\n\n• Comportamento orientato al cliente e aspetto ben curato\n\n• Alta motivazione, impegno e resilienza\n\n• Flessibilità rispetto ai periodi di utilizzo\n\n• Buona conoscenza del tedesco\nLa nostra offerta\n• Attività varie\n\n• Giorni lavorativi temporanei\n\n• Lavorare in un team gestibile e forte\n\n• Uno stipendio superiore alla media e benefici sociali molto buoni\nLuogo di lavoro 8105 Regensdorf, Feldstrasse 32\nInizio del lavoro immediatamente\nApplicare ora direttamente al jobNote per i fornitori di servizi del personale\nPer questa posizione, consideriamo solo applicazioni dirette.\nRifiutiamo pertanto ogni responsabilità per le applicazioni non richieste e i loro termini e condizioni. Grazie per la vostra comprensione.",
-        "de": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibilität betreffend der Einsatzzeiten\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​8105 Regensdorf, Feldstrasse 32​\nArbeitsbeginn​ab sofort​\nJetzt direkt auf die Stelle bewerbenHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
         "en": "Tasks\n• Presentation of goods\n\n• Cashiers\n\n• Baking bread in the Panetteria\n\n• Support for customers\n\n• Branch cleaning services\n\n• Collaboration in arising work\nProfile\n• Professional experience in sales or a similar environment\n\n• Ideally completed vocational training in the retail trade or food sector\n\n• Customer-oriented behavior and well-groomed appearance\n\n• High motivation, commitment and resilience\n\n• Flexibility regarding periods of use\n\n• Good knowledge of German\nOur offer\n• Varied tasks\n\n• Temporary working days\n\n• Working in a manageable and strong team\n\n• An above-average salary and very good social benefits\nPlace of work 8105 Regensdorf, Feldstrasse 32\nStart of work immediately\nApply now directly to the jobNote for personnel service providers\nFor this position, we only consider direct applications.\nWe therefore reject any responsibility for unsolicited applications and their terms and conditions. Thank you for your understanding.",
+        "de": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibilität betreffend der Einsatzzeiten\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​8105 Regensdorf, Feldstrasse 32​\nArbeitsbeginn​ab sofort​\nJetzt direkt auf die Stelle bewerbenHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
         "fr": "Tâches\n• Présentation des biens\n\n• Trésoriers\n\n• Pain au four dans la Panetteria\n\n• Soutien aux clients\n\n• Services de nettoyage des succursales\n\n• Collaboration dans les travaux en cours\nProfil\n• Expérience professionnelle en vente ou dans un environnement similaire\n\n• Une formation professionnelle idéalement complétée dans le secteur du commerce de détail ou de l'alimentation\n\n• Comportement orienté client et apparence soignée\n\n• Haute motivation, engagement et résilience\n\n• Flexibilité concernant les périodes d'utilisation\n\n• Bonne connaissance de l'allemand\nNotre offre\n• Tâches variées\n\n• Jours de travail temporaires\n\n• Travailler dans une équipe gérable et forte\n\n• Un salaire supérieur à la moyenne et de très bons avantages sociaux\nLieu de travail 8105 Regensdorf, Feldstrasse 32\nDébut des travaux immédiatement\nPostulez directement à l'emploiNote pour les fournisseurs de services au personnel\nPour cette position, nous ne considérons que les demandes directes.\nNous rejetons donc toute responsabilité pour les demandes non sollicitées et leurs modalités. Merci de votre compréhension."
       },
       "requirements": [
@@ -271,15 +269,7 @@
           "Reinigung der Filiale",
           "Mitarbeit bei anfallenden Arbeiten",
           "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
-          "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich",
-          "Kundenorientiertes Verhalten und gepflegtes Auftreten",
-          "Hohe Motivation, Einsatzbereitschaft und Belastbarkeit",
-          "Flexibilität betreffend der Einsatzzeiten",
-          "Gute Deutschkenntnisse",
-          "Abwechslungsreiche Aufgaben",
-          "Kurzweilige Arbeitstage",
-          "Arbeiten in einem überschaubaren und starken Team",
-          "Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen"
+          "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich"
         ]
       },
       "location": "Regensdorf",
@@ -300,16 +290,24 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1440325033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:30.941Z",
+      "crawledAt": "2026-09-26T14:08:39.542Z",
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+          "addetto-a-alle-vendite-m-w-d-aldi-suisse-regensdorf"
+        ],
+        "en": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ],
+        "fr": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-regensdorf"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -324,7 +322,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:51:36.452Z"
+      "firstSeenAt": "2026-09-23T23:51:36.452Z",
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-7b73257d4139",
@@ -400,19 +399,17 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1432775933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:30.935Z",
+      "crawledAt": "2026-09-26T14:08:39.538Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-4",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-3",
-        "addetto-a-alle-vendite-m-w-d-aldi-suisse-wittenbach"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-3"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
           "mitarbeiter-verkauf-m-w-d-aldi-suisse-4",
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse-3",
-          "addetto-a-alle-vendite-m-w-d-aldi-suisse-wittenbach"
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-3"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
@@ -434,7 +431,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-5e2570e46bcc",
@@ -510,22 +508,20 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1431008633",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:30.930Z",
+      "crawledAt": "2026-09-26T14:08:39.536Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-5",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-4",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-b9j5lz",
-        "addetto-a-alle-vendite-m-w-d-aldi-suisse-st-gallen-13dee5"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-b9j5lz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
           "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
           "mitarbeiter-verkauf-m-w-d-aldi-suisse-5",
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse-4",
-          "addetto-a-alle-vendite-m-w-d-aldi-suisse-st-gallen-13dee5"
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-4"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
@@ -551,7 +547,115 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
+    },
+    {
+      "id": "aldi-suisse-07c8a39ce5fb",
+      "slug": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+      "slugByLocale": {
+        "it": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "en": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "fr": "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+      },
+      "company": "ALDI SUISSE",
+      "companyKey": "aldi-suisse",
+      "companyDomain": "aldi.ch",
+      "title": "Mitarbeiter Verkauf (m/w/d)",
+      "titleByLocale": {
+        "it": "Addetto/a alle vendite (m/w/d)",
+        "de": "Mitarbeiter Verkauf (m/w/d)",
+        "en": "Sales Associate (m/w/d)",
+        "fr": "Vendeur/se (m/w/d)"
+      },
+      "description": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibilität betreffend der Einsatzzeiten\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​9016 St. Gallen, Lerchentalstrasse 14​\nArbeitsbeginn​ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister:\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
+      "descriptionByLocale": {
+        "it": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibilität betreffend der Einsatzzeiten\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​9016 St. Gallen, Lerchentalstrasse 14​\nArbeitsbeginn​ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister:\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
+        "de": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibilität betreffend der Einsatzzeiten\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​9016 St. Gallen, Lerchentalstrasse 14​\nArbeitsbeginn​ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister:\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
+        "en": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibilität betreffend der Einsatzzeiten\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​9016 St. Gallen, Lerchentalstrasse 14​\nArbeitsbeginn​ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister:\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
+        "fr": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibilität betreffend der Einsatzzeiten\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​9016 St. Gallen, Lerchentalstrasse 14​\nArbeitsbeginn​ab sofort oder nach Vereinbarung​\nJetzt direkt auf die Stelle bewerben\nHinweis für Personaldienstleister:\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis."
+      },
+      "requirements": [
+        "Warenbereitstellung",
+        "Kassieren",
+        "Brot backen in der Panetteria",
+        "Unterstützung der Kunden",
+        "Reinigung der Filiale",
+        "Mitarbeit bei anfallenden Arbeiten",
+        "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
+        "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich",
+        "Kundenorientiertes Verhalten und gepflegtes Auftreten",
+        "Hohe Motivation, Einsatzbereitschaft und Belastbarkeit",
+        "Flexibilität betreffend der Einsatzzeiten",
+        "Gute Deutschkenntnisse",
+        "Abwechslungsreiche Aufgaben",
+        "Kurzweilige Arbeitstage",
+        "Arbeiten in einem überschaubaren und starken Team",
+        "Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Warenbereitstellung",
+          "Kassieren",
+          "Brot backen in der Panetteria",
+          "Unterstützung der Kunden",
+          "Reinigung der Filiale",
+          "Mitarbeit bei anfallenden Arbeiten",
+          "Berufserfahrung im Verkauf oder einem ähnlichen Umfeld",
+          "Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich",
+          "Kundenorientiertes Verhalten und gepflegtes Auftreten",
+          "Hohe Motivation, Einsatzbereitschaft und Belastbarkeit",
+          "Flexibilität betreffend der Einsatzzeiten",
+          "Gute Deutschkenntnisse",
+          "Abwechslungsreiche Aufgaben",
+          "Kurzweilige Arbeitstage",
+          "Arbeiten in einem überschaubaren und starken Team",
+          "Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen"
+        ]
+      },
+      "location": "St. Gallen",
+      "postalCode": "9016",
+      "canton": "SG",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "streetAddress": "Lerchentalstrasse 14",
+      "employmentType": "PART_TIME",
+      "category": "retail",
+      "contract": "full-time",
+      "workPercentage": "50-60%",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-26",
+      "url": "https://www.jobs.aldi.ch/job/1429640633",
+      "applyUrl": "https://www.jobs.aldi.ch/job/1429640633",
+      "source": "ALDI Suisse Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T14:08:37.896Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-5"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-5"
+      ],
+      "salaryMin": 68500,
+      "salaryMax": 105000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 105000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-23T23:51:36.452Z"
     },
     {
       "id": "aldi-suisse-0eeb651ef869",
@@ -624,16 +728,14 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1427689233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:26.678Z",
+      "crawledAt": "2026-09-26T14:08:35.225Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse",
-        "lernender-detailhandel-m-w-d-aldi-suisse-k37c6b",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-wolhusen"
+        "lernender-detailhandel-m-w-d-aldi-suisse-k37c6b"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernender-detailhandel-m-w-d-aldi-suisse",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-wolhusen"
+          "lernender-detailhandel-m-w-d-aldi-suisse"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -659,7 +761,8 @@
           "maxValue": 95500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-7097738c56ce",
@@ -732,19 +835,17 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1425979333",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:26.677Z",
+      "crawledAt": "2026-09-26T14:08:35.222Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-2",
-        "lernender-detailhandel-m-w-d-aldi-suisse-3",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-ostermundigen"
+        "lernender-detailhandel-m-w-d-aldi-suisse-3"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-detailhandel-m-w-d-aldi-suisse",
           "lernender-detailhandel-m-w-d-aldi-suisse-2",
-          "lernender-detailhandel-m-w-d-aldi-suisse-3",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-ostermundigen"
+          "lernender-detailhandel-m-w-d-aldi-suisse-3"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -766,7 +867,8 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-0a6c8395bcf3",
@@ -839,20 +941,18 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1425967933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:26.675Z",
+      "crawledAt": "2026-09-26T14:08:35.217Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-2",
         "lernender-detailhandel-m-w-d-aldi-suisse-3",
-        "lernender-detailhandel-m-w-d-aldi-suisse-mz4akf",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-heimberg"
+        "lernender-detailhandel-m-w-d-aldi-suisse-mz4akf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-detailhandel-m-w-d-aldi-suisse",
           "lernender-detailhandel-m-w-d-aldi-suisse-2",
-          "lernender-detailhandel-m-w-d-aldi-suisse-3",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-heimberg"
+          "lernender-detailhandel-m-w-d-aldi-suisse-3"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -878,7 +978,8 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-391002a5fcbf",
@@ -951,19 +1052,17 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1412308533",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:25.256Z",
+      "crawledAt": "2026-09-26T14:08:33.743Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-3",
-        "lernender-detailhandel-m-w-d-aldi-suisse-4",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-landquart"
+        "lernender-detailhandel-m-w-d-aldi-suisse-4"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-detailhandel-m-w-d-aldi-suisse",
           "lernender-detailhandel-m-w-d-aldi-suisse-3",
-          "lernender-detailhandel-m-w-d-aldi-suisse-4",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-landquart"
+          "lernender-detailhandel-m-w-d-aldi-suisse-4"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -985,7 +1084,8 @@
           "maxValue": 82500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-22c81a039b15",
@@ -1058,22 +1158,20 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1412267233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:25.254Z",
+      "crawledAt": "2026-09-26T14:08:33.738Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-2",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-4",
         "lernender-detailhandel-m-w-d-aldi-suisse-5",
-        "lernender-detailhandel-m-w-d-aldi-suisse-hu3iv1",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-wetzikon"
+        "lernender-detailhandel-m-w-d-aldi-suisse-hu3iv1"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-detailhandel-m-w-d-aldi-suisse-2",
           "lernender-detailhandel-m-w-d-aldi-suisse",
           "lernender-detailhandel-m-w-d-aldi-suisse-4",
-          "lernender-detailhandel-m-w-d-aldi-suisse-5",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-wetzikon"
+          "lernender-detailhandel-m-w-d-aldi-suisse-5"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -1099,7 +1197,8 @@
           "maxValue": 100500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-a9057891683d",
@@ -1172,22 +1271,20 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1412286433",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:23.717Z",
+      "crawledAt": "2026-09-26T14:08:32.408Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-3",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-5",
         "lernender-detailhandel-m-w-d-aldi-suisse-6",
-        "lernender-detailhandel-m-w-d-aldi-suisse-hv6ijm",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-volketswil"
+        "lernender-detailhandel-m-w-d-aldi-suisse-hv6ijm"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-detailhandel-m-w-d-aldi-suisse-3",
           "lernender-detailhandel-m-w-d-aldi-suisse",
           "lernender-detailhandel-m-w-d-aldi-suisse-5",
-          "lernender-detailhandel-m-w-d-aldi-suisse-6",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-volketswil"
+          "lernender-detailhandel-m-w-d-aldi-suisse-6"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -1213,7 +1310,8 @@
           "maxValue": 100500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-73c79c6f97d4",
@@ -1286,22 +1384,20 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1412191533",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:22.058Z",
+      "crawledAt": "2026-09-26T14:08:31.010Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-4",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-6",
         "lernender-detailhandel-m-w-d-aldi-suisse-7",
-        "lernender-detailhandel-m-w-d-aldi-suisse-heliju",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-arbon"
+        "lernender-detailhandel-m-w-d-aldi-suisse-heliju"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-detailhandel-m-w-d-aldi-suisse-4",
           "lernender-detailhandel-m-w-d-aldi-suisse",
           "lernender-detailhandel-m-w-d-aldi-suisse-6",
-          "lernender-detailhandel-m-w-d-aldi-suisse-7",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-arbon"
+          "lernender-detailhandel-m-w-d-aldi-suisse-7"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -1327,7 +1423,8 @@
           "maxValue": 82500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-8585008029dd",
@@ -1400,22 +1497,20 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1412286933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:22.055Z",
+      "crawledAt": "2026-09-26T14:08:31.006Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-5",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-7",
         "lernender-detailhandel-m-w-d-aldi-suisse-8",
-        "lernender-detailhandel-m-w-d-aldi-suisse-hv6m93",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-turbenthal"
+        "lernender-detailhandel-m-w-d-aldi-suisse-hv6m93"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-detailhandel-m-w-d-aldi-suisse-5",
           "lernender-detailhandel-m-w-d-aldi-suisse",
           "lernender-detailhandel-m-w-d-aldi-suisse-7",
-          "lernender-detailhandel-m-w-d-aldi-suisse-8",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-turbenthal"
+          "lernender-detailhandel-m-w-d-aldi-suisse-8"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -1441,7 +1536,8 @@
           "maxValue": 100500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-fcdff86c74c5",
@@ -1514,21 +1610,19 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1412264633",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:22.053Z",
+      "crawledAt": "2026-09-26T14:08:31.003Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-6",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-8",
-        "lernender-detailhandel-m-w-d-aldi-suisse-9",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-bischofszell"
+        "lernender-detailhandel-m-w-d-aldi-suisse-9"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-detailhandel-m-w-d-aldi-suisse-6",
           "lernender-detailhandel-m-w-d-aldi-suisse",
           "lernender-detailhandel-m-w-d-aldi-suisse-8",
-          "lernender-detailhandel-m-w-d-aldi-suisse-9",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-bischofszell"
+          "lernender-detailhandel-m-w-d-aldi-suisse-9"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -1550,125 +1644,8 @@
           "maxValue": 82500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "aldi-suisse-a4c8d04cd830",
-      "slug": "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-zurich",
-      "slugByLocale": {
-        "it": "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-zurich",
-        "en": "retail-apprentice-m-w-d-aldi-suisse-zurich",
-        "de": "lernender-detailhandel-m-w-d-aldi-suisse-zurich",
-        "fr": "apprenti-e-commerce-de-detail-m-w-d-aldi-suisse-zurich"
       },
-      "company": "ALDI SUISSE",
-      "companyKey": "aldi-suisse",
-      "companyDomain": "aldi.ch",
-      "title": "Lernender Detailhandel (m/w/d)",
-      "titleByLocale": {
-        "it": "Apprendista commercio al dettaglio (m/w/d)",
-        "en": "Retail Apprentice (m/w/d)",
-        "de": "Lernender Detailhandel (m/w/d)",
-        "fr": "Apprenti/e commerce de détail (m/w/d)"
-      },
-      "description": "Aufgaben\n• Alle anfallenden Arbeiten in der Filiale\n\n• Verantwortungsvolles Kassieren\n\n• Warenpräsentation und –bereitstellung\n\n• Sammeln von Führungserfahrung ab dem 3. Lehrjahr\nProfil\n• Freude am Umgang mit Food & Non-Food Artikeln\n\n• Verlässlichkeit\n\n• Einsatzbereitschaft und Teamgeist\n\n• Kontaktfreude und freundliches Auftreten\nUnser Angebot\n• Eine hervorragende Ausbildung in einem wachsenden Unternehmen\n\n• Karriereaussichten bis zum Filialleiter\n\n• Ein überdurchschnittliches Salär inklusive Halbtaxabonnement\n\n• 6 Wochen Ferien\n\n• Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!\nArbeitsort8005 Zürich, Zollstrasse 58​\nArbeitsbeginn​01.08.2027​\nJetzt direkt auf die Stelle bewerben",
-      "descriptionByLocale": {
-        "it": "Compiti\n• Tutto il lavoro nel ramo\n\n• Incassamento responsabile\n\n• Presentazione e fornitura di beni\n\n• Ottenere esperienza di leadership dal terzo anno di formazione\nProfilo\n• Gioia nel trattare con gli articoli alimentari e non alimentari\n\n• Affidabilità\n\n• Impegno e spirito di squadra\n\n• Contatto e aspetto amichevole\nLa nostra offerta\n• Una formazione eccellente in una società in crescita\n\n• Prospettive di carriera fino a branch manager\n\n• Uno stipendio superiore alla media, compreso l'abbonamento a mezza tassa\n\n• 6 settimane di vacanza\n\n• E soprattutto: nessuna noia - perché c'è sempre qualcosa che sta succedendo con noi!\nLuogo di lavoro8005 Zurigo, Zollstrasse 58\nInizio del lavoro 01.08.2027\nOra applicare direttamente al lavoro",
-        "en": "Tasks\n• All work in the branch\n\n• Responsible cashing\n\n• Presentation and provision of goods\n\n• Gaining leadership experience from the third year of training\nProfile\n• Joy in dealing with food & non-food articles\n\n• Reliability\n\n• Commitment and team spirit\n\n• Contact and friendly appearance\nOur offer\n• An excellent education in a growing company\n\n• Career prospects up to branch manager\n\n• An above-average salary including half tax subscription\n\n• 6 weeks holiday\n\n• And above all: No boredom - because there is always something going on with us!\nPlace of work8005 Zurich, Zollstrasse 58\nStart of work 01.08.2027\nNow apply directly to the job",
-        "de": "Aufgaben\n• Alle anfallenden Arbeiten in der Filiale\n\n• Verantwortungsvolles Kassieren\n\n• Warenpräsentation und –bereitstellung\n\n• Sammeln von Führungserfahrung ab dem 3. Lehrjahr\nProfil\n• Freude am Umgang mit Food & Non-Food Artikeln\n\n• Verlässlichkeit\n\n• Einsatzbereitschaft und Teamgeist\n\n• Kontaktfreude und freundliches Auftreten\nUnser Angebot\n• Eine hervorragende Ausbildung in einem wachsenden Unternehmen\n\n• Karriereaussichten bis zum Filialleiter\n\n• Ein überdurchschnittliches Salär inklusive Halbtaxabonnement\n\n• 6 Wochen Ferien\n\n• Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!\nArbeitsort8005 Zürich, Zollstrasse 58​\nArbeitsbeginn​01.08.2027​\nJetzt direkt auf die Stelle bewerben",
-        "fr": "Tâche\n• Tous les travaux dans la branche\n\n• Encaissement responsable\n\n• Présentation et fourniture de biens\n\n• Acquérir une expérience de leadership dès la troisième année de formation\nProfil\n• La joie de traiter des articles alimentaires et non alimentaires\n\n• Fiabilité\n\n• Engagement et esprit d'équipe\n\n• Contact et apparence amicale\nNotre offre\n• Une excellente éducation dans une entreprise en croissance\n\n• Perspectives de carrière jusqu'au directeur de branche\n\n• Un salaire supérieur à la moyenne incluant la moitié de l'abonnement fiscal\n\n• 6 semaines de vacances\n\n• Et surtout : pas d'ennui - parce qu'il se passe toujours quelque chose avec nous !\nLieu de travail8005 Zurich, Zollstrasse 58\nDébut des travaux 01.08.2027\nMaintenant postuler directement à l'emploi"
-      },
-      "requirements": [
-        "Alle anfallenden Arbeiten in der Filiale",
-        "Verantwortungsvolles Kassieren",
-        "Warenpräsentation und –bereitstellung",
-        "Sammeln von Führungserfahrung ab dem 3. Lehrjahr",
-        "Freude am Umgang mit Food & Non-Food Artikeln",
-        "Verlässlichkeit",
-        "Einsatzbereitschaft und Teamgeist",
-        "Kontaktfreude und freundliches Auftreten",
-        "Eine hervorragende Ausbildung in einem wachsenden Unternehmen",
-        "Karriereaussichten bis zum Filialleiter",
-        "Ein überdurchschnittliches Salär inklusive Halbtaxabonnement",
-        "6 Wochen Ferien",
-        "Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Alle anfallenden Arbeiten in der Filiale",
-          "Verantwortungsvolles Kassieren",
-          "Warenpräsentation und –bereitstellung",
-          "Sammeln von Führungserfahrung ab dem 3. Lehrjahr",
-          "Freude am Umgang mit Food & Non-Food Artikeln",
-          "Verlässlichkeit",
-          "Einsatzbereitschaft und Teamgeist",
-          "Kontaktfreude und freundliches Auftreten"
-        ]
-      },
-      "location": "Zürich",
-      "postalCode": "8005",
-      "canton": "ZH",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "streetAddress": "Zollstrasse 58",
-      "employmentType": "FULL_TIME",
-      "category": "retail",
-      "contract": "full-time",
-      "workPercentage": "EFZ/EBA",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-04",
-      "url": "https://www.jobs.aldi.ch/job/1412299333",
-      "applyUrl": "https://www.jobs.aldi.ch/job/1412299333",
-      "source": "ALDI Suisse Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:20.704Z",
-      "previousSlugs": [
-        "lernender-detailhandel-m-w-d-aldi-suisse-8",
-        "lernender-detailhandel-m-w-d-aldi-suisse",
-        "lernender-detailhandel-m-w-d-aldi-suisse-9",
-        "lernender-detailhandel-m-w-d-aldi-suisse-11",
-        "lernender-detailhandel-m-w-d-aldi-suisse-10",
-        "lernender-detailhandel-m-w-d-aldi-suisse-12",
-        "lernender-detailhandel-m-w-d-aldi-suisse-hvs7cv",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lernender-detailhandel-m-w-d-aldi-suisse-8",
-          "lernender-detailhandel-m-w-d-aldi-suisse",
-          "lernender-detailhandel-m-w-d-aldi-suisse-9",
-          "lernender-detailhandel-m-w-d-aldi-suisse-11",
-          "lernender-detailhandel-m-w-d-aldi-suisse-10",
-          "lernender-detailhandel-m-w-d-aldi-suisse-12",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-zurich"
-        ],
-        "en": [
-          "lernender-detailhandel-m-w-d-aldi-suisse"
-        ],
-        "de": [
-          "lernender-detailhandel-m-w-d-aldi-suisse",
-          "lernender-detailhandel-m-w-d-aldi-suisse-hvs7cv"
-        ],
-        "fr": [
-          "lernender-detailhandel-m-w-d-aldi-suisse"
-        ]
-      },
-      "firstSeenAt": "2026-08-04T11:55:48.355Z",
-      "salaryMin": 65500,
-      "salaryMax": 100500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 65500,
-          "maxValue": 100500,
-          "unitText": "YEAR"
-        }
-      }
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-a7e762900225",
@@ -1741,15 +1718,14 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1412271933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:20.704Z",
+      "crawledAt": "2026-09-26T14:08:29.685Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-7",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-9",
         "lernender-detailhandel-m-w-d-aldi-suisse-10",
         "lernender-detailhandel-m-w-d-aldi-suisse-11",
-        "lernender-detailhandel-m-w-d-aldi-suisse-hujmq3",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-zumikon"
+        "lernender-detailhandel-m-w-d-aldi-suisse-hujmq3"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1757,8 +1733,7 @@
           "lernender-detailhandel-m-w-d-aldi-suisse",
           "lernender-detailhandel-m-w-d-aldi-suisse-9",
           "lernender-detailhandel-m-w-d-aldi-suisse-10",
-          "lernender-detailhandel-m-w-d-aldi-suisse-11",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-zumikon"
+          "lernender-detailhandel-m-w-d-aldi-suisse-11"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -1784,7 +1759,125 @@
           "maxValue": 100500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
+    },
+    {
+      "id": "aldi-suisse-a4c8d04cd830",
+      "slug": "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-zurich",
+      "slugByLocale": {
+        "it": "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-zurich",
+        "en": "retail-apprentice-m-w-d-aldi-suisse-zurich",
+        "de": "lernender-detailhandel-m-w-d-aldi-suisse-zurich",
+        "fr": "apprenti-e-commerce-de-detail-m-w-d-aldi-suisse-zurich"
+      },
+      "company": "ALDI SUISSE",
+      "companyKey": "aldi-suisse",
+      "companyDomain": "aldi.ch",
+      "title": "Lernender Detailhandel (m/w/d)",
+      "titleByLocale": {
+        "it": "Apprendista commercio al dettaglio (m/w/d)",
+        "en": "Retail Apprentice (m/w/d)",
+        "de": "Lernender Detailhandel (m/w/d)",
+        "fr": "Apprenti/e commerce de détail (m/w/d)"
+      },
+      "description": "Aufgaben\n• Alle anfallenden Arbeiten in der Filiale\n\n• Verantwortungsvolles Kassieren\n\n• Warenpräsentation und –bereitstellung\n\n• Sammeln von Führungserfahrung ab dem 3. Lehrjahr\nProfil\n• Freude am Umgang mit Food & Non-Food Artikeln\n\n• Verlässlichkeit\n\n• Einsatzbereitschaft und Teamgeist\n\n• Kontaktfreude und freundliches Auftreten\nUnser Angebot\n• Eine hervorragende Ausbildung in einem wachsenden Unternehmen\n\n• Karriereaussichten bis zum Filialleiter\n\n• Ein überdurchschnittliches Salär inklusive Halbtaxabonnement\n\n• 6 Wochen Ferien\n\n• Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!\nArbeitsort8005 Zürich, Zollstrasse 58​\nArbeitsbeginn​01.08.2027​\nJetzt direkt auf die Stelle bewerben",
+      "descriptionByLocale": {
+        "it": "Compiti\n• Tutto il lavoro nel ramo\n\n• Incassamento responsabile\n\n• Presentazione e fornitura di beni\n\n• Ottenere esperienza di leadership dal terzo anno di formazione\nProfilo\n• Gioia nel trattare con gli articoli alimentari e non alimentari\n\n• Affidabilità\n\n• Impegno e spirito di squadra\n\n• Contatto e aspetto amichevole\nLa nostra offerta\n• Una formazione eccellente in una società in crescita\n\n• Prospettive di carriera fino a branch manager\n\n• Uno stipendio superiore alla media, compreso l'abbonamento a mezza tassa\n\n• 6 settimane di vacanza\n\n• E soprattutto: nessuna noia - perché c'è sempre qualcosa che sta succedendo con noi!\nLuogo di lavoro8005 Zurigo, Zollstrasse 58\nInizio del lavoro 01.08.2027\nOra applicare direttamente al lavoro",
+        "en": "Tasks\n• All work in the branch\n\n• Responsible cashing\n\n• Presentation and provision of goods\n\n• Gaining leadership experience from the third year of training\nProfile\n• Joy in dealing with food & non-food articles\n\n• Reliability\n\n• Commitment and team spirit\n\n• Contact and friendly appearance\nOur offer\n• An excellent education in a growing company\n\n• Career prospects up to branch manager\n\n• An above-average salary including half tax subscription\n\n• 6 weeks holiday\n\n• And above all: No boredom - because there is always something going on with us!\nPlace of work8005 Zurich, Zollstrasse 58\nStart of work 01.08.2027\nNow apply directly to the job",
+        "de": "Aufgaben\n• Alle anfallenden Arbeiten in der Filiale\n\n• Verantwortungsvolles Kassieren\n\n• Warenpräsentation und –bereitstellung\n\n• Sammeln von Führungserfahrung ab dem 3. Lehrjahr\nProfil\n• Freude am Umgang mit Food & Non-Food Artikeln\n\n• Verlässlichkeit\n\n• Einsatzbereitschaft und Teamgeist\n\n• Kontaktfreude und freundliches Auftreten\nUnser Angebot\n• Eine hervorragende Ausbildung in einem wachsenden Unternehmen\n\n• Karriereaussichten bis zum Filialleiter\n\n• Ein überdurchschnittliches Salär inklusive Halbtaxabonnement\n\n• 6 Wochen Ferien\n\n• Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!\nArbeitsort8005 Zürich, Zollstrasse 58​\nArbeitsbeginn​01.08.2027​\nJetzt direkt auf die Stelle bewerben",
+        "fr": "Tâche\n• Tous les travaux dans la branche\n\n• Encaissement responsable\n\n• Présentation et fourniture de biens\n\n• Acquérir une expérience de leadership dès la troisième année de formation\nProfil\n• La joie de traiter des articles alimentaires et non alimentaires\n\n• Fiabilité\n\n• Engagement et esprit d'équipe\n\n• Contact et apparence amicale\nNotre offre\n• Une excellente éducation dans une entreprise en croissance\n\n• Perspectives de carrière jusqu'au directeur de branche\n\n• Un salaire supérieur à la moyenne incluant la moitié de l'abonnement fiscal\n\n• 6 semaines de vacances\n\n• Et surtout : pas d'ennui - parce qu'il se passe toujours quelque chose avec nous !\nLieu de travail8005 Zurich, Zollstrasse 58\nDébut des travaux 01.08.2027\nMaintenant postuler directement à l'emploi"
+      },
+      "requirements": [
+        "Alle anfallenden Arbeiten in der Filiale",
+        "Verantwortungsvolles Kassieren",
+        "Warenpräsentation und –bereitstellung",
+        "Sammeln von Führungserfahrung ab dem 3. Lehrjahr",
+        "Freude am Umgang mit Food & Non-Food Artikeln",
+        "Verlässlichkeit",
+        "Einsatzbereitschaft und Teamgeist",
+        "Kontaktfreude und freundliches Auftreten",
+        "Eine hervorragende Ausbildung in einem wachsenden Unternehmen",
+        "Karriereaussichten bis zum Filialleiter",
+        "Ein überdurchschnittliches Salär inklusive Halbtaxabonnement",
+        "6 Wochen Ferien",
+        "Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Alle anfallenden Arbeiten in der Filiale",
+          "Verantwortungsvolles Kassieren",
+          "Warenpräsentation und –bereitstellung",
+          "Sammeln von Führungserfahrung ab dem 3. Lehrjahr",
+          "Freude am Umgang mit Food & Non-Food Artikeln",
+          "Verlässlichkeit",
+          "Einsatzbereitschaft und Teamgeist",
+          "Kontaktfreude und freundliches Auftreten"
+        ]
+      },
+      "location": "Zürich",
+      "postalCode": "8005",
+      "canton": "ZH",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "streetAddress": "Zollstrasse 58",
+      "employmentType": "FULL_TIME",
+      "category": "retail",
+      "contract": "full-time",
+      "workPercentage": "EFZ/EBA",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-04",
+      "url": "https://www.jobs.aldi.ch/job/1412299333",
+      "applyUrl": "https://www.jobs.aldi.ch/job/1412299333",
+      "source": "ALDI Suisse Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T14:08:29.684Z",
+      "previousSlugs": [
+        "lernender-detailhandel-m-w-d-aldi-suisse-8",
+        "lernender-detailhandel-m-w-d-aldi-suisse",
+        "lernender-detailhandel-m-w-d-aldi-suisse-9",
+        "lernender-detailhandel-m-w-d-aldi-suisse-11",
+        "lernender-detailhandel-m-w-d-aldi-suisse-10",
+        "lernender-detailhandel-m-w-d-aldi-suisse-12",
+        "lernender-detailhandel-m-w-d-aldi-suisse-hvs7cv"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lernender-detailhandel-m-w-d-aldi-suisse-8",
+          "lernender-detailhandel-m-w-d-aldi-suisse",
+          "lernender-detailhandel-m-w-d-aldi-suisse-9",
+          "lernender-detailhandel-m-w-d-aldi-suisse-11",
+          "lernender-detailhandel-m-w-d-aldi-suisse-10",
+          "lernender-detailhandel-m-w-d-aldi-suisse-12"
+        ],
+        "en": [
+          "lernender-detailhandel-m-w-d-aldi-suisse"
+        ],
+        "de": [
+          "lernender-detailhandel-m-w-d-aldi-suisse",
+          "lernender-detailhandel-m-w-d-aldi-suisse-hvs7cv"
+        ],
+        "fr": [
+          "lernender-detailhandel-m-w-d-aldi-suisse"
+        ]
+      },
+      "firstSeenAt": "2026-08-04T11:55:48.355Z",
+      "salaryMin": 65500,
+      "salaryMax": 100500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 65500,
+          "maxValue": 100500,
+          "unitText": "YEAR"
+        }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-00e953ce9317",
@@ -1857,15 +1950,14 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421214533",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:20.703Z",
+      "crawledAt": "2026-09-26T14:08:29.682Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-9",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-10",
         "lernender-detailhandel-m-w-d-aldi-suisse-8",
         "lernender-detailhandel-m-w-d-aldi-suisse-11",
-        "lernender-detailhandel-m-w-d-aldi-suisse-12",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-visp-eyholz"
+        "lernender-detailhandel-m-w-d-aldi-suisse-12"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1874,8 +1966,7 @@
           "lernender-detailhandel-m-w-d-aldi-suisse-10",
           "lernender-detailhandel-m-w-d-aldi-suisse-8",
           "lernender-detailhandel-m-w-d-aldi-suisse-11",
-          "lernender-detailhandel-m-w-d-aldi-suisse-12",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-visp-eyholz"
+          "lernender-detailhandel-m-w-d-aldi-suisse-12"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -1897,7 +1988,8 @@
           "maxValue": 87500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-209242d66fcb",
@@ -1970,15 +2062,14 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421207733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:19.309Z",
+      "crawledAt": "2026-09-26T14:08:28.281Z",
       "previousSlugs": [
         "apprenti-ventelernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-10",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "apprenti-ventelernender-commercio-al-dettaglio-m-w-d-aldi-suisse-belp",
         "lernender-detailhandel-m-w-d-aldi-suisse-12",
-        "lernender-detailhandel-m-w-d-aldi-suisse-13",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-belp"
+        "lernender-detailhandel-m-w-d-aldi-suisse-13"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1987,8 +2078,7 @@
           "lernender-detailhandel-m-w-d-aldi-suisse",
           "apprenti-ventelernender-commercio-al-dettaglio-m-w-d-aldi-suisse-belp",
           "lernender-detailhandel-m-w-d-aldi-suisse-12",
-          "lernender-detailhandel-m-w-d-aldi-suisse-13",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-belp"
+          "lernender-detailhandel-m-w-d-aldi-suisse-13"
         ],
         "en": [
           "apprenti-ventelernender-detailhandel-m-w-d-aldi-suisse"
@@ -2013,7 +2103,8 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-4a0ca7749cd0",
@@ -2086,7 +2177,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421207033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:19.308Z",
+      "crawledAt": "2026-09-26T14:08:28.280Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-10",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -2095,8 +2186,7 @@
         "lernender-detailhandel-m-w-d-aldi-suisse-13",
         "lernender-detailhandel-m-w-d-aldi-suisse-14",
         "lernender-detailhandel-m-w-d-aldi-suisse-15",
-        "lernender-detailhandel-m-w-d-aldi-suisse-vw0wnn",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-koniz"
+        "lernender-detailhandel-m-w-d-aldi-suisse-vw0wnn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2106,8 +2196,7 @@
           "lernender-detailhandel-m-w-d-aldi-suisse-11",
           "lernender-detailhandel-m-w-d-aldi-suisse-13",
           "lernender-detailhandel-m-w-d-aldi-suisse-14",
-          "lernender-detailhandel-m-w-d-aldi-suisse-15",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-koniz"
+          "lernender-detailhandel-m-w-d-aldi-suisse-15"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -2133,7 +2222,8 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-68065d906854",
@@ -2206,7 +2296,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421281433",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:19.307Z",
+      "crawledAt": "2026-09-26T14:08:28.279Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-11",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -2214,8 +2304,7 @@
         "lernender-detailhandel-m-w-d-aldi-suisse-14",
         "lernender-detailhandel-m-w-d-aldi-suisse-15",
         "lernender-detailhandel-m-w-d-aldi-suisse-16",
-        "lernender-detailhandel-m-w-d-aldi-suisse-w0big5",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-grenchen"
+        "lernender-detailhandel-m-w-d-aldi-suisse-w0big5"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2224,8 +2313,7 @@
           "lernender-detailhandel-m-w-d-aldi-suisse-12",
           "lernender-detailhandel-m-w-d-aldi-suisse-14",
           "lernender-detailhandel-m-w-d-aldi-suisse-15",
-          "lernender-detailhandel-m-w-d-aldi-suisse-16",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-grenchen"
+          "lernender-detailhandel-m-w-d-aldi-suisse-16"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -2251,7 +2339,8 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-bc945c16f2bb",
@@ -2324,15 +2413,14 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421212133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:17.931Z",
+      "crawledAt": "2026-09-26T14:08:26.925Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-12",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-13",
         "lernender-detailhandel-m-w-d-aldi-suisse-15",
         "lernender-detailhandel-m-w-d-aldi-suisse-16",
-        "lernender-detailhandel-m-w-d-aldi-suisse-vwhj22",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-worb"
+        "lernender-detailhandel-m-w-d-aldi-suisse-vwhj22"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2340,8 +2428,7 @@
           "lernender-detailhandel-m-w-d-aldi-suisse",
           "lernender-detailhandel-m-w-d-aldi-suisse-13",
           "lernender-detailhandel-m-w-d-aldi-suisse-15",
-          "lernender-detailhandel-m-w-d-aldi-suisse-16",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-worb"
+          "lernender-detailhandel-m-w-d-aldi-suisse-16"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -2367,7 +2454,8 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-d62e689ca929",
@@ -2440,7 +2528,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421211533",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:17.930Z",
+      "crawledAt": "2026-09-26T14:08:26.924Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-13",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -2448,8 +2536,7 @@
         "lernender-detailhandel-m-w-d-aldi-suisse-17",
         "lernender-detailhandel-m-w-d-aldi-suisse-16",
         "lernender-detailhandel-m-w-d-aldi-suisse-18",
-        "lernender-detailhandel-m-w-d-aldi-suisse-vwgz1b",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-bern"
+        "lernender-detailhandel-m-w-d-aldi-suisse-vwgz1b"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2458,8 +2545,7 @@
           "lernender-detailhandel-m-w-d-aldi-suisse-14",
           "lernender-detailhandel-m-w-d-aldi-suisse-17",
           "lernender-detailhandel-m-w-d-aldi-suisse-16",
-          "lernender-detailhandel-m-w-d-aldi-suisse-18",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-bern"
+          "lernender-detailhandel-m-w-d-aldi-suisse-18"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -2485,7 +2571,8 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-ca6a8c073eac",
@@ -2558,15 +2645,14 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421209133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:17.927Z",
+      "crawledAt": "2026-09-26T14:08:26.921Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-14",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-15",
         "lernender-detailhandel-m-w-d-aldi-suisse-16",
         "lernender-detailhandel-m-w-d-aldi-suisse-17",
-        "lernender-detailhandel-m-w-d-aldi-suisse-18",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-dudingen"
+        "lernender-detailhandel-m-w-d-aldi-suisse-18"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2575,8 +2661,7 @@
           "lernender-detailhandel-m-w-d-aldi-suisse-15",
           "lernender-detailhandel-m-w-d-aldi-suisse-16",
           "lernender-detailhandel-m-w-d-aldi-suisse-17",
-          "lernender-detailhandel-m-w-d-aldi-suisse-18",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-dudingen"
+          "lernender-detailhandel-m-w-d-aldi-suisse-18"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -2598,7 +2683,8 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-91b3c81e89f5",
@@ -2671,15 +2757,14 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421282133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:16.647Z",
+      "crawledAt": "2026-09-26T14:08:25.487Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-15",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-16",
         "lernender-detailhandel-m-w-d-aldi-suisse-18",
         "lernender-detailhandel-m-w-d-aldi-suisse-19",
-        "lernender-detailhandel-m-w-d-aldi-suisse-w0c37l",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-biberist"
+        "lernender-detailhandel-m-w-d-aldi-suisse-w0c37l"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2687,8 +2772,7 @@
           "lernender-detailhandel-m-w-d-aldi-suisse",
           "lernender-detailhandel-m-w-d-aldi-suisse-16",
           "lernender-detailhandel-m-w-d-aldi-suisse-18",
-          "lernender-detailhandel-m-w-d-aldi-suisse-19",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-biberist"
+          "lernender-detailhandel-m-w-d-aldi-suisse-19"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -2714,7 +2798,8 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-a41eb027769a",
@@ -2787,15 +2872,14 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421211133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:16.646Z",
+      "crawledAt": "2026-09-26T14:08:25.486Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-16",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-17",
         "lernender-detailhandel-m-w-d-aldi-suisse-19",
         "lernender-detailhandel-m-w-d-aldi-suisse-20",
-        "lernender-detailhandel-m-w-d-aldi-suisse-vwgw2j",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-munsingen"
+        "lernender-detailhandel-m-w-d-aldi-suisse-vwgw2j"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2803,8 +2887,7 @@
           "lernender-detailhandel-m-w-d-aldi-suisse",
           "lernender-detailhandel-m-w-d-aldi-suisse-17",
           "lernender-detailhandel-m-w-d-aldi-suisse-19",
-          "lernender-detailhandel-m-w-d-aldi-suisse-20",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-munsingen"
+          "lernender-detailhandel-m-w-d-aldi-suisse-20"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -2830,7 +2913,8 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-822e1efb1759",
@@ -2903,15 +2987,14 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410321233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:16.643Z",
+      "crawledAt": "2026-09-26T14:08:25.482Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-17",
         "lernender-detailhandel-m-w-d-aldi-suisse-18",
         "lernender-detailhandel-m-w-d-aldi-suisse-20",
         "lernender-detailhandel-m-w-d-aldi-suisse-21",
-        "lernender-detailhandel-m-w-d-aldi-suisse-b3yfhg",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-wadenswil-au"
+        "lernender-detailhandel-m-w-d-aldi-suisse-b3yfhg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2919,8 +3002,7 @@
           "lernender-detailhandel-m-w-d-aldi-suisse-17",
           "lernender-detailhandel-m-w-d-aldi-suisse-18",
           "lernender-detailhandel-m-w-d-aldi-suisse-20",
-          "lernender-detailhandel-m-w-d-aldi-suisse-21",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-wadenswil-au"
+          "lernender-detailhandel-m-w-d-aldi-suisse-21"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -2946,7 +3028,8 @@
           "maxValue": 100500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-b067adc4eddc",
@@ -3019,7 +3102,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410325833",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:15.261Z",
+      "crawledAt": "2026-09-26T14:08:24.079Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-2",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -3027,8 +3110,7 @@
         "lernender-detailhandel-m-w-d-aldi-suisse-19",
         "lernender-detailhandel-m-w-d-aldi-suisse-21",
         "lernender-detailhandel-m-w-d-aldi-suisse-22",
-        "lernender-detailhandel-m-w-d-aldi-suisse-b3vr36",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-duggingen"
+        "lernender-detailhandel-m-w-d-aldi-suisse-b3vr36"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3037,8 +3119,7 @@
           "lernender-detailhandel-m-w-d-aldi-suisse-18",
           "lernender-detailhandel-m-w-d-aldi-suisse-19",
           "lernender-detailhandel-m-w-d-aldi-suisse-21",
-          "lernender-detailhandel-m-w-d-aldi-suisse-22",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-duggingen"
+          "lernender-detailhandel-m-w-d-aldi-suisse-22"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -3064,7 +3145,8 @@
           "maxValue": 89500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-c6e738256555",
@@ -3137,15 +3219,14 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410322333",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:15.257Z",
+      "crawledAt": "2026-09-26T14:08:24.076Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-19",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-20",
         "lernender-detailhandel-m-w-d-aldi-suisse-22",
         "lernender-detailhandel-m-w-d-aldi-suisse-23",
-        "lernender-detailhandel-m-w-d-aldi-suisse-b3xrr8",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-egerkingen"
+        "lernender-detailhandel-m-w-d-aldi-suisse-b3xrr8"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3153,8 +3234,7 @@
           "lernender-detailhandel-m-w-d-aldi-suisse",
           "lernender-detailhandel-m-w-d-aldi-suisse-20",
           "lernender-detailhandel-m-w-d-aldi-suisse-22",
-          "lernender-detailhandel-m-w-d-aldi-suisse-23",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-egerkingen"
+          "lernender-detailhandel-m-w-d-aldi-suisse-23"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -3180,7 +3260,8 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-1ceb6e303cc7",
@@ -3253,15 +3334,14 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410319933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:15.255Z",
+      "crawledAt": "2026-09-26T14:08:24.075Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-20",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-21",
         "lernender-detailhandel-m-w-d-aldi-suisse-23",
         "lernender-detailhandel-m-w-d-aldi-suisse-24",
-        "lernender-detailhandel-m-w-d-aldi-suisse-b4cyzq",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-allschwil"
+        "lernender-detailhandel-m-w-d-aldi-suisse-b4cyzq"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3269,8 +3349,7 @@
           "lernender-detailhandel-m-w-d-aldi-suisse",
           "lernender-detailhandel-m-w-d-aldi-suisse-21",
           "lernender-detailhandel-m-w-d-aldi-suisse-23",
-          "lernender-detailhandel-m-w-d-aldi-suisse-24",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-allschwil"
+          "lernender-detailhandel-m-w-d-aldi-suisse-24"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -3296,7 +3375,8 @@
           "maxValue": 89500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-85b62df41742",
@@ -3369,7 +3449,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410313133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:13.856Z",
+      "crawledAt": "2026-09-26T14:08:22.665Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-20",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -3378,8 +3458,7 @@
         "lernender-detailhandel-m-w-d-aldi-suisse-23",
         "lernender-detailhandel-m-w-d-aldi-suisse-24",
         "lernender-detailhandel-m-w-d-aldi-suisse-25",
-        "lernender-detailhandel-m-w-d-aldi-suisse-b4gyug",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-niederlenz"
+        "lernender-detailhandel-m-w-d-aldi-suisse-b4gyug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3389,8 +3468,7 @@
           "lernender-detailhandel-m-w-d-aldi-suisse-22",
           "lernender-detailhandel-m-w-d-aldi-suisse-23",
           "lernender-detailhandel-m-w-d-aldi-suisse-24",
-          "lernender-detailhandel-m-w-d-aldi-suisse-25",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-niederlenz"
+          "lernender-detailhandel-m-w-d-aldi-suisse-25"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -3416,7 +3494,8 @@
           "maxValue": 89500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-0095ef29aecd",
@@ -3489,15 +3568,14 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410697333",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:13.853Z",
+      "crawledAt": "2026-09-26T14:08:22.661Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-22",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-23",
         "lernender-detailhandel-m-w-d-aldi-suisse-25",
         "lernender-detailhandel-m-w-d-aldi-suisse-26",
-        "lernender-detailhandel-m-w-d-aldi-suisse-9kv5hh",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-schlieren"
+        "lernender-detailhandel-m-w-d-aldi-suisse-9kv5hh"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3505,8 +3583,7 @@
           "lernender-detailhandel-m-w-d-aldi-suisse",
           "lernender-detailhandel-m-w-d-aldi-suisse-23",
           "lernender-detailhandel-m-w-d-aldi-suisse-25",
-          "lernender-detailhandel-m-w-d-aldi-suisse-26",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-schlieren"
+          "lernender-detailhandel-m-w-d-aldi-suisse-26"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -3532,7 +3609,8 @@
           "maxValue": 100500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-3c5feb5c157d",
@@ -3605,15 +3683,14 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410315233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:13.851Z",
+      "crawledAt": "2026-09-26T14:08:22.660Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-23",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-24",
         "lernender-detailhandel-m-w-d-aldi-suisse-26",
         "lernender-detailhandel-m-w-d-aldi-suisse-27",
-        "lernender-detailhandel-m-w-d-aldi-suisse-b4fo4p",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-frick"
+        "lernender-detailhandel-m-w-d-aldi-suisse-b4fo4p"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3621,8 +3698,7 @@
           "lernender-detailhandel-m-w-d-aldi-suisse",
           "lernender-detailhandel-m-w-d-aldi-suisse-24",
           "lernender-detailhandel-m-w-d-aldi-suisse-26",
-          "lernender-detailhandel-m-w-d-aldi-suisse-27",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-frick"
+          "lernender-detailhandel-m-w-d-aldi-suisse-27"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -3648,7 +3724,8 @@
           "maxValue": 89500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-fd24a6b2a2d2",
@@ -3721,7 +3798,7 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410325133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:12.413Z",
+      "crawledAt": "2026-09-26T14:08:21.330Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-24",
         "lernender-detailhandel-m-w-d-aldi-suisse",
@@ -3729,8 +3806,7 @@
         "lernender-detailhandel-m-w-d-aldi-suisse-27",
         "lernender-detailhandel-m-w-d-aldi-suisse-28",
         "lernender-detailhandel-m-w-d-aldi-suisse-29",
-        "lernender-detailhandel-m-w-d-aldi-suisse-b3vwa1",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-cham-ii"
+        "lernender-detailhandel-m-w-d-aldi-suisse-b3vwa1"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3739,8 +3815,7 @@
           "lernender-detailhandel-m-w-d-aldi-suisse-25",
           "lernender-detailhandel-m-w-d-aldi-suisse-27",
           "lernender-detailhandel-m-w-d-aldi-suisse-28",
-          "lernender-detailhandel-m-w-d-aldi-suisse-29",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-cham-ii"
+          "lernender-detailhandel-m-w-d-aldi-suisse-29"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -3766,7 +3841,8 @@
           "maxValue": 95500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-2fd3b68ad878",
@@ -3839,15 +3915,14 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410321833",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:12.410Z",
+      "crawledAt": "2026-09-26T14:08:21.325Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-26",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-28",
         "lernender-detailhandel-m-w-d-aldi-suisse-27",
         "lernender-detailhandel-m-w-d-aldi-suisse-29",
-        "lernender-detailhandel-m-w-d-aldi-suisse-b3yb1a",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-richterswil"
+        "lernender-detailhandel-m-w-d-aldi-suisse-b3yb1a"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3855,8 +3930,7 @@
           "lernender-detailhandel-m-w-d-aldi-suisse",
           "lernender-detailhandel-m-w-d-aldi-suisse-28",
           "lernender-detailhandel-m-w-d-aldi-suisse-27",
-          "lernender-detailhandel-m-w-d-aldi-suisse-29",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-richterswil"
+          "lernender-detailhandel-m-w-d-aldi-suisse-29"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -3882,7 +3956,8 @@
           "maxValue": 100500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-5fce437a2d87",
@@ -3955,22 +4030,20 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410323133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:12.409Z",
+      "crawledAt": "2026-09-26T14:08:21.324Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-29",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-30",
         "lernender-detailhandel-m-w-d-aldi-suisse-31",
-        "lernender-detailhandel-m-w-d-aldi-suisse-b3x693",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-dietikon"
+        "lernender-detailhandel-m-w-d-aldi-suisse-b3x693"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-detailhandel-m-w-d-aldi-suisse-29",
           "lernender-detailhandel-m-w-d-aldi-suisse",
           "lernender-detailhandel-m-w-d-aldi-suisse-30",
-          "lernender-detailhandel-m-w-d-aldi-suisse-31",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-dietikon"
+          "lernender-detailhandel-m-w-d-aldi-suisse-31"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -3996,7 +4069,8 @@
           "maxValue": 100500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-99405ea92560",
@@ -4069,14 +4143,13 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410313833",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:10.966Z",
+      "crawledAt": "2026-09-26T14:08:19.973Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-30",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-31",
         "lernender-detailhandel-m-w-d-aldi-suisse-29",
-        "lernender-detailhandel-m-w-d-aldi-suisse-32",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-buchs"
+        "lernender-detailhandel-m-w-d-aldi-suisse-32"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4084,8 +4157,7 @@
           "lernender-detailhandel-m-w-d-aldi-suisse",
           "lernender-detailhandel-m-w-d-aldi-suisse-31",
           "lernender-detailhandel-m-w-d-aldi-suisse-29",
-          "lernender-detailhandel-m-w-d-aldi-suisse-32",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-buchs"
+          "lernender-detailhandel-m-w-d-aldi-suisse-32"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -4107,7 +4179,109 @@
           "maxValue": 82500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
+    },
+    {
+      "id": "aldi-suisse-20cfc28559a4",
+      "slug": "lernender-detailhandel-m-w-d-aldi-suisse",
+      "slugByLocale": {
+        "it": "lernender-detailhandel-m-w-d-aldi-suisse",
+        "en": "lernender-detailhandel-m-w-d-aldi-suisse",
+        "de": "lernender-detailhandel-m-w-d-aldi-suisse",
+        "fr": "lernender-detailhandel-m-w-d-aldi-suisse"
+      },
+      "company": "ALDI SUISSE",
+      "companyKey": "aldi-suisse",
+      "companyDomain": "aldi.ch",
+      "title": "Lernender Detailhandel (m/w/d)",
+      "titleByLocale": {
+        "it": "Apprendista commercio al dettaglio (m/w/d)",
+        "de": "Lernender Detailhandel (m/w/d)",
+        "en": "Retail Apprentice (m/w/d)",
+        "fr": "Apprenti/e commerce de détail (m/w/d)"
+      },
+      "description": "Aufgaben\n• Alle anfallenden Arbeiten in der Filiale\n\n• Verantwortungsvolles Kassieren\n\n• Warenpräsentation und –bereitstellung\n\n• Sammeln von Führungserfahrung ab dem 3. Lehrjahr\nProfil\n• Freude am Umgang mit Food & Non-Food Artikeln\n\n• Verlässlichkeit\n\n• Einsatzbereitschaft und Teamgeist\n\n• Kontaktfreude und freundliches Auftreten\nUnser Angebot\n• Eine hervorragende Ausbildung in einem wachsenden Unternehmen\n\n• Karriereaussichten bis zum Filialleiter\n\n• Ein überdurchschnittliches Salär inklusive Halbtaxabonnement\n\n• 6 Wochen Ferien\n\n• Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!\nArbeitsort8952 Schlieren, Wagistrasse 20​\nArbeitsbeginn​01.08.2027​\nJetzt direkt auf die Stelle bewerben",
+      "descriptionByLocale": {
+        "it": "Aufgaben\n• Alle anfallenden Arbeiten in der Filiale\n\n• Verantwortungsvolles Kassieren\n\n• Warenpräsentation und –bereitstellung\n\n• Sammeln von Führungserfahrung ab dem 3. Lehrjahr\nProfil\n• Freude am Umgang mit Food & Non-Food Artikeln\n\n• Verlässlichkeit\n\n• Einsatzbereitschaft und Teamgeist\n\n• Kontaktfreude und freundliches Auftreten\nUnser Angebot\n• Eine hervorragende Ausbildung in einem wachsenden Unternehmen\n\n• Karriereaussichten bis zum Filialleiter\n\n• Ein überdurchschnittliches Salär inklusive Halbtaxabonnement\n\n• 6 Wochen Ferien\n\n• Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!\nArbeitsort8952 Schlieren, Wagistrasse 20​\nArbeitsbeginn​01.08.2027​\nJetzt direkt auf die Stelle bewerben",
+        "de": "Aufgaben\n• Alle anfallenden Arbeiten in der Filiale\n\n• Verantwortungsvolles Kassieren\n\n• Warenpräsentation und –bereitstellung\n\n• Sammeln von Führungserfahrung ab dem 3. Lehrjahr\nProfil\n• Freude am Umgang mit Food & Non-Food Artikeln\n\n• Verlässlichkeit\n\n• Einsatzbereitschaft und Teamgeist\n\n• Kontaktfreude und freundliches Auftreten\nUnser Angebot\n• Eine hervorragende Ausbildung in einem wachsenden Unternehmen\n\n• Karriereaussichten bis zum Filialleiter\n\n• Ein überdurchschnittliches Salär inklusive Halbtaxabonnement\n\n• 6 Wochen Ferien\n\n• Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!\nArbeitsort8952 Schlieren, Wagistrasse 20​\nArbeitsbeginn​01.08.2027​\nJetzt direkt auf die Stelle bewerben",
+        "en": "Aufgaben\n• Alle anfallenden Arbeiten in der Filiale\n\n• Verantwortungsvolles Kassieren\n\n• Warenpräsentation und –bereitstellung\n\n• Sammeln von Führungserfahrung ab dem 3. Lehrjahr\nProfil\n• Freude am Umgang mit Food & Non-Food Artikeln\n\n• Verlässlichkeit\n\n• Einsatzbereitschaft und Teamgeist\n\n• Kontaktfreude und freundliches Auftreten\nUnser Angebot\n• Eine hervorragende Ausbildung in einem wachsenden Unternehmen\n\n• Karriereaussichten bis zum Filialleiter\n\n• Ein überdurchschnittliches Salär inklusive Halbtaxabonnement\n\n• 6 Wochen Ferien\n\n• Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!\nArbeitsort8952 Schlieren, Wagistrasse 20​\nArbeitsbeginn​01.08.2027​\nJetzt direkt auf die Stelle bewerben",
+        "fr": "Aufgaben\n• Alle anfallenden Arbeiten in der Filiale\n\n• Verantwortungsvolles Kassieren\n\n• Warenpräsentation und –bereitstellung\n\n• Sammeln von Führungserfahrung ab dem 3. Lehrjahr\nProfil\n• Freude am Umgang mit Food & Non-Food Artikeln\n\n• Verlässlichkeit\n\n• Einsatzbereitschaft und Teamgeist\n\n• Kontaktfreude und freundliches Auftreten\nUnser Angebot\n• Eine hervorragende Ausbildung in einem wachsenden Unternehmen\n\n• Karriereaussichten bis zum Filialleiter\n\n• Ein überdurchschnittliches Salär inklusive Halbtaxabonnement\n\n• 6 Wochen Ferien\n\n• Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!\nArbeitsort8952 Schlieren, Wagistrasse 20​\nArbeitsbeginn​01.08.2027​\nJetzt direkt auf die Stelle bewerben"
+      },
+      "requirements": [
+        "Alle anfallenden Arbeiten in der Filiale",
+        "Verantwortungsvolles Kassieren",
+        "Warenpräsentation und –bereitstellung",
+        "Sammeln von Führungserfahrung ab dem 3. Lehrjahr",
+        "Freude am Umgang mit Food & Non-Food Artikeln",
+        "Verlässlichkeit",
+        "Einsatzbereitschaft und Teamgeist",
+        "Kontaktfreude und freundliches Auftreten",
+        "Eine hervorragende Ausbildung in einem wachsenden Unternehmen",
+        "Karriereaussichten bis zum Filialleiter",
+        "Ein überdurchschnittliches Salär inklusive Halbtaxabonnement",
+        "6 Wochen Ferien",
+        "Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Alle anfallenden Arbeiten in der Filiale",
+          "Verantwortungsvolles Kassieren",
+          "Warenpräsentation und –bereitstellung",
+          "Sammeln von Führungserfahrung ab dem 3. Lehrjahr",
+          "Freude am Umgang mit Food & Non-Food Artikeln",
+          "Verlässlichkeit",
+          "Einsatzbereitschaft und Teamgeist",
+          "Kontaktfreude und freundliches Auftreten",
+          "Eine hervorragende Ausbildung in einem wachsenden Unternehmen",
+          "Karriereaussichten bis zum Filialleiter",
+          "Ein überdurchschnittliches Salär inklusive Halbtaxabonnement",
+          "6 Wochen Ferien",
+          "Und vor allem: Keine Langeweile - denn bei uns ist immer etwas los!"
+        ]
+      },
+      "location": "Schlieren",
+      "postalCode": "8952",
+      "canton": "ZH",
+      "addressLocality": "Schlieren",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "streetAddress": "Wagistrasse 20",
+      "employmentType": "FULL_TIME",
+      "category": "retail",
+      "contract": "full-time",
+      "workPercentage": "EFZ/EBA",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-26",
+      "url": "https://www.jobs.aldi.ch/job/1410322733",
+      "applyUrl": "https://www.jobs.aldi.ch/job/1410322733",
+      "source": "ALDI Suisse Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-26T14:08:19.970Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "lernender-detailhandel-m-w-d-aldi-suisse-32"
+        ]
+      },
+      "previousSlugs": [
+        "lernender-detailhandel-m-w-d-aldi-suisse-32"
+      ],
+      "salaryMin": 65500,
+      "salaryMax": 100500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 65500,
+          "maxValue": 100500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-26T10:33:21.181Z"
     },
     {
       "id": "aldi-suisse-f437ab73dfa2",
@@ -4180,20 +4354,18 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410309733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:10.957Z",
+      "crawledAt": "2026-09-26T14:08:19.968Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-32",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-33",
-        "lernender-detailhandel-m-w-d-aldi-suisse-b4wt2h",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-gretzenbach"
+        "lernender-detailhandel-m-w-d-aldi-suisse-b4wt2h"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-detailhandel-m-w-d-aldi-suisse-32",
           "lernender-detailhandel-m-w-d-aldi-suisse",
-          "lernender-detailhandel-m-w-d-aldi-suisse-33",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-gretzenbach"
+          "lernender-detailhandel-m-w-d-aldi-suisse-33"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -4219,7 +4391,8 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-a8d5596f0292",
@@ -4292,20 +4465,18 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410247033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:09.580Z",
+      "crawledAt": "2026-09-26T14:08:18.628Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-34",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-35",
-        "lernender-detailhandel-m-w-d-aldi-suisse-bjso95",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-gebenstorf"
+        "lernender-detailhandel-m-w-d-aldi-suisse-bjso95"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-detailhandel-m-w-d-aldi-suisse-34",
           "lernender-detailhandel-m-w-d-aldi-suisse",
-          "lernender-detailhandel-m-w-d-aldi-suisse-35",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-gebenstorf"
+          "lernender-detailhandel-m-w-d-aldi-suisse-35"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -4331,7 +4502,8 @@
           "maxValue": 89500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-7849988cdb5c",
@@ -4404,22 +4576,20 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1420613033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:08.157Z",
+      "crawledAt": "2026-09-26T14:08:17.235Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-37",
         "lernender-detailhandel-m-w-d-aldi-suisse-dietikon",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-36",
-        "lernender-detailhandel-m-w-d-aldi-suisse-j4acnn",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-frenkendorf"
+        "lernender-detailhandel-m-w-d-aldi-suisse-j4acnn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-detailhandel-m-w-d-aldi-suisse-37",
           "lernender-detailhandel-m-w-d-aldi-suisse-dietikon",
           "lernender-detailhandel-m-w-d-aldi-suisse",
-          "lernender-detailhandel-m-w-d-aldi-suisse-36",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-frenkendorf"
+          "lernender-detailhandel-m-w-d-aldi-suisse-36"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -4445,7 +4615,8 @@
           "maxValue": 89500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-2d4bd26f9fa0",
@@ -4518,20 +4689,18 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410320233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:08.155Z",
+      "crawledAt": "2026-09-26T14:08:17.233Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-38",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-37",
-        "lernender-detailhandel-m-w-d-aldi-suisse-b3z2gz",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-villmergen"
+        "lernender-detailhandel-m-w-d-aldi-suisse-b3z2gz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-detailhandel-m-w-d-aldi-suisse-38",
           "lernender-detailhandel-m-w-d-aldi-suisse",
-          "lernender-detailhandel-m-w-d-aldi-suisse-37",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-villmergen"
+          "lernender-detailhandel-m-w-d-aldi-suisse-37"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -4557,7 +4726,8 @@
           "maxValue": 89500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-f93179880f8b",
@@ -4630,20 +4800,18 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410317633",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:08.152Z",
+      "crawledAt": "2026-09-26T14:08:17.231Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-39",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-38",
-        "lernender-detailhandel-m-w-d-aldi-suisse-b4eb6v",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-dierikon"
+        "lernender-detailhandel-m-w-d-aldi-suisse-b4eb6v"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-detailhandel-m-w-d-aldi-suisse-39",
           "lernender-detailhandel-m-w-d-aldi-suisse",
-          "lernender-detailhandel-m-w-d-aldi-suisse-38",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-dierikon"
+          "lernender-detailhandel-m-w-d-aldi-suisse-38"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -4669,7 +4837,8 @@
           "maxValue": 95500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-0cc94e42ddff",
@@ -4742,19 +4911,17 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410317233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:06.756Z",
+      "crawledAt": "2026-09-26T14:08:15.713Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-40",
         "lernender-detailhandel-m-w-d-aldi-suisse",
-        "lernender-detailhandel-m-w-d-aldi-suisse-39",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-oensingen"
+        "lernender-detailhandel-m-w-d-aldi-suisse-39"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-detailhandel-m-w-d-aldi-suisse-40",
           "lernender-detailhandel-m-w-d-aldi-suisse",
-          "lernender-detailhandel-m-w-d-aldi-suisse-39",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-oensingen"
+          "lernender-detailhandel-m-w-d-aldi-suisse-39"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -4776,7 +4943,8 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-4b9e0c467d3b",
@@ -4849,21 +5017,19 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410315833",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:06.754Z",
+      "crawledAt": "2026-09-26T14:08:15.709Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-42",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-41",
-        "lernender-detailhandel-m-w-d-aldi-suisse-40",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-rothenburg"
+        "lernender-detailhandel-m-w-d-aldi-suisse-40"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-detailhandel-m-w-d-aldi-suisse-42",
           "lernender-detailhandel-m-w-d-aldi-suisse",
           "lernender-detailhandel-m-w-d-aldi-suisse-41",
-          "lernender-detailhandel-m-w-d-aldi-suisse-40",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-rothenburg"
+          "lernender-detailhandel-m-w-d-aldi-suisse-40"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -4885,7 +5051,8 @@
           "maxValue": 95500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-e0fadef05430",
@@ -4958,21 +5125,19 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410311433",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:06.751Z",
+      "crawledAt": "2026-09-26T14:08:15.704Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-43",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-42",
-        "lernender-detailhandel-m-w-d-aldi-suisse-41",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-feusisberg"
+        "lernender-detailhandel-m-w-d-aldi-suisse-41"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-detailhandel-m-w-d-aldi-suisse-43",
           "lernender-detailhandel-m-w-d-aldi-suisse",
           "lernender-detailhandel-m-w-d-aldi-suisse-42",
-          "lernender-detailhandel-m-w-d-aldi-suisse-41",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-feusisberg"
+          "lernender-detailhandel-m-w-d-aldi-suisse-41"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -4994,7 +5159,8 @@
           "maxValue": 95500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-b3c0894c51f1",
@@ -5067,21 +5233,19 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1410316733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:05.280Z",
+      "crawledAt": "2026-09-26T14:08:14.199Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse-45",
         "lernender-detailhandel-m-w-d-aldi-suisse",
         "lernender-detailhandel-m-w-d-aldi-suisse-44",
-        "lernender-detailhandel-m-w-d-aldi-suisse-43",
-        "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-otelfingen"
+        "lernender-detailhandel-m-w-d-aldi-suisse-43"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-detailhandel-m-w-d-aldi-suisse-45",
           "lernender-detailhandel-m-w-d-aldi-suisse",
           "lernender-detailhandel-m-w-d-aldi-suisse-44",
-          "lernender-detailhandel-m-w-d-aldi-suisse-43",
-          "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-otelfingen"
+          "lernender-detailhandel-m-w-d-aldi-suisse-43"
         ],
         "en": [
           "lernender-detailhandel-m-w-d-aldi-suisse"
@@ -5103,13 +5267,14 @@
           "maxValue": 100500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-37fc8ced2038",
-      "slug": "collaborateur-de-vente-m-f-d-aldi-suisse-crans-montana",
+      "slug": "collaboratore-di-vendita-m-f-d-aldi-suisse-crans-montana",
       "slugByLocale": {
-        "it": "collaborateur-de-vente-m-f-d-aldi-suisse-crans-montana",
+        "it": "collaboratore-di-vendita-m-f-d-aldi-suisse-crans-montana",
         "en": "sales-collaborator-m-f-d-aldi-suisse-crans-montana",
         "de": "vertriebsmitarbeiter-m-w-d-aldi-suisse-crans-montana",
         "fr": "collaborateur-de-vente-m-f-d-aldi-suisse"
@@ -5119,7 +5284,7 @@
       "companyDomain": "aldi.ch",
       "title": "Collaborateur de vente (m/f/d)",
       "titleByLocale": {
-        "it": "Collaboratore di vendita (m/f/d)",
+        "it": "Collaborateur de vente (m/f/d)",
         "en": "Sales Collaborator (m/f/d)",
         "de": "Vertriebsmitarbeiter (m/w/d)",
         "fr": "Collaborateur de vente (m/f/d)"
@@ -5179,17 +5344,17 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1437388833",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:55:03.605Z",
+      "crawledAt": "2026-09-26T14:08:12.823Z",
       "previousSlugs": [
         "collaborateur-de-vente-m-f-d-aldi-suisse",
         "collaborateur-de-vente-m-w-d-aldi-suisse-crans-montana",
-        "collaboratore-di-vendita-m-f-d-aldi-suisse-crans-montana"
+        "collaborateur-de-vente-m-f-d-aldi-suisse-crans-montana"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-de-vente-m-f-d-aldi-suisse",
           "collaborateur-de-vente-m-w-d-aldi-suisse-crans-montana",
-          "collaboratore-di-vendita-m-f-d-aldi-suisse-crans-montana"
+          "collaborateur-de-vente-m-f-d-aldi-suisse-crans-montana"
         ],
         "en": [
           "collaborateur-de-vente-m-f-d-aldi-suisse"
@@ -5211,7 +5376,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-9bfd15eb8630",
@@ -5259,19 +5425,17 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1428694033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:03.601Z",
+      "crawledAt": "2026-09-26T14:08:12.803Z",
       "previousSlugs": [
         "aushilfe-verkauf-m-w-d-aldi-suisse",
         "aushilfe-vendita-m-w-d-aldi-suisse-zweisimmen",
         "aushilfe-sales-m-w-d-aldi-suisse-zweisimmen",
-        "aushilfe-vente-m-w-d-aldi-suisse-zweisimmen",
-        "aiuto-in-vendita-m-f-d-aldi-suisse-zweisimmen"
+        "aushilfe-vente-m-w-d-aldi-suisse-zweisimmen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aushilfe-verkauf-m-w-d-aldi-suisse",
-          "aushilfe-vendita-m-w-d-aldi-suisse-zweisimmen",
-          "aiuto-in-vendita-m-f-d-aldi-suisse-zweisimmen"
+          "aushilfe-vendita-m-w-d-aldi-suisse-zweisimmen"
         ],
         "en": [
           "aushilfe-verkauf-m-w-d-aldi-suisse",
@@ -5295,7 +5459,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-e6598d383728",
@@ -5354,21 +5519,19 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1425567733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:01.941Z",
+      "crawledAt": "2026-09-26T14:08:11.413Z",
       "previousSlugs": [
         "aushilfe-verkauf-m-w-d-aldi-suisse",
         "aushilfe-verkauf-m-w-d-aldi-suisse-2",
         "aushilfe-vendita-m-w-d-aldi-suisse-oberentfelden",
         "aushilfe-sales-m-w-d-aldi-suisse-oberentfelden",
-        "aushilfe-vente-m-w-d-aldi-suisse-oberentfelden",
-        "aiuto-in-vendita-m-f-d-aldi-suisse-oberentfelden"
+        "aushilfe-vente-m-w-d-aldi-suisse-oberentfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aushilfe-verkauf-m-w-d-aldi-suisse",
           "aushilfe-verkauf-m-w-d-aldi-suisse-2",
-          "aushilfe-vendita-m-w-d-aldi-suisse-oberentfelden",
-          "aiuto-in-vendita-m-f-d-aldi-suisse-oberentfelden"
+          "aushilfe-vendita-m-w-d-aldi-suisse-oberentfelden"
         ],
         "en": [
           "aushilfe-verkauf-m-w-d-aldi-suisse",
@@ -5392,7 +5555,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-eef1c216aa95",
@@ -5465,15 +5629,13 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1426391533",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:55:01.935Z",
+      "crawledAt": "2026-09-26T14:08:11.407Z",
       "previousSlugs": [
-        "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
-        "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-bulle"
+        "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
-          "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-bulle"
+          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
         ],
         "en": [
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
@@ -5495,7 +5657,8 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-b84f88e5d0a8",
@@ -5568,18 +5731,16 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421214233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:55:00.344Z",
+      "crawledAt": "2026-09-26T14:08:10.117Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-2",
-        "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-vwitrt",
-        "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-collombey"
+        "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-vwitrt"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
-          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-2",
-          "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-collombey"
+          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-2"
         ],
         "en": [
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
@@ -5605,7 +5766,8 @@
           "maxValue": 87500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-c91e6bbfea7e",
@@ -5678,22 +5840,20 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421215833",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:55:00.343Z",
+      "crawledAt": "2026-09-26T14:08:10.114Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-2",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-3",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-4",
-        "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-vwjl7i",
-        "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-lausanne"
+        "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-vwjl7i"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-2",
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-3",
-          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-4",
-          "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-lausanne"
+          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-4"
         ],
         "en": [
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
@@ -5719,7 +5879,8 @@
           "maxValue": 87500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-09126b389207",
@@ -5792,20 +5953,18 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421219733",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:55:00.339Z",
+      "crawledAt": "2026-09-26T14:08:10.109Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-3",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-4",
-        "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-vwm4ex",
-        "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-vich"
+        "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-vwm4ex"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-3",
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
-          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-4",
-          "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-vich"
+          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-4"
         ],
         "en": [
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
@@ -5831,7 +5990,8 @@
           "maxValue": 87500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-7ee28d18c751",
@@ -5904,22 +6064,20 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421214033",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:54:58.916Z",
+      "crawledAt": "2026-09-26T14:08:08.764Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-4",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-5",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-6",
-        "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-vwisaf",
-        "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-sion"
+        "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-vwisaf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-4",
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-5",
-          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-6",
-          "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-sion"
+          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-6"
         ],
         "en": [
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
@@ -5945,7 +6103,8 @@
           "maxValue": 87500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-3cf969335f77",
@@ -6018,23 +6177,21 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421220833",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:54:58.913Z",
+      "crawledAt": "2026-09-26T14:08:08.759Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-5",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
         "lehrlingsausbildung-im-einzelhandel-cfc-oder-afp-aldi-suisse-bussigny",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-4",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-6",
-        "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-vx06v8",
-        "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-bussigny"
+        "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-vx06v8"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-5",
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-4",
-          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-6",
-          "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-bussigny"
+          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-6"
         ],
         "en": [
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
@@ -6061,7 +6218,8 @@
           "maxValue": 87500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-bdf3aecc735a",
@@ -6134,20 +6292,18 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421215133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:54:58.907Z",
+      "crawledAt": "2026-09-26T14:08:08.753Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-6",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-7",
-        "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-vwjg0n",
-        "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-penthalaz"
+        "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-vwjg0n"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-6",
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
-          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-7",
-          "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-penthalaz"
+          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-7"
         ],
         "en": [
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
@@ -6173,7 +6329,8 @@
           "maxValue": 87500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-b678db8da4ef",
@@ -6246,19 +6403,17 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421213133",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:54:57.421Z",
+      "crawledAt": "2026-09-26T14:08:07.364Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-7",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
-        "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-8",
-        "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-martigny"
+        "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-8"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-7",
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
-          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-8",
-          "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-martigny"
+          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-8"
         ],
         "en": [
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
@@ -6280,7 +6435,8 @@
           "maxValue": 87500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-ab52f65e4c90",
@@ -6353,19 +6509,17 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1421220233",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:54:57.419Z",
+      "crawledAt": "2026-09-26T14:08:07.362Z",
       "previousSlugs": [
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-8",
         "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
-        "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-9",
-        "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-morges"
+        "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-9"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-8",
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse",
-          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-9",
-          "apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-morges"
+          "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-9"
         ],
         "en": [
           "apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse"
@@ -6387,7 +6541,8 @@
           "maxValue": 87500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-9695b2cd5ad6",
@@ -6460,8 +6615,9 @@
       "applyUrl": "https://www.jobs.aldi.ch/job/1427296933",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-25T14:54:55.857Z",
+      "crawledAt": "2026-09-26T14:08:05.968Z",
       "firstSeenAt": "2026-08-18T10:19:27.720Z",
+      "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 71500,
       "salarySource": "estimated",
@@ -6608,7 +6764,8 @@
         }
       },
       "sourceIdentity": "url:https://www.jobs.aldi.ch/job/1429450133",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "aldi-suisse-924d9877e02b",
@@ -6720,7 +6877,8 @@
         }
       },
       "sourceIdentity": "url:https://www.jobs.aldi.ch/job/1410316433",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }

@@ -14,6 +14,7 @@ export const APPLICATION_INTENT_ACCOUNT_DELETED_STATUS = 'account_deleted';
 export const APPLICATION_INTENT_RETENTION_DAYS = 90;
 
 const RETENTION_MS = APPLICATION_INTENT_RETENTION_DAYS * 24 * 60 * 60 * 1000;
+const INTENT_IDENTITY_FIELDS = Object.freeze(['userId', 'uid', 'accountUid']);
 
 function normalizeUid(value) {
   const uid = typeof value === 'string' ? value.trim() : '';
@@ -72,22 +73,42 @@ function isWithinApplicationIntentRetention(record, now = Date.now()) {
   return occurredAt !== null && now < occurredAt + RETENTION_MS;
 }
 
-function canUseApplicationIntent({ profile, intent, identity, accountDeleted = false, now = Date.now(), requireRetention = false }) {
+function hasConflictingApplicationIntentIdentity(intent, resolvedUid) {
+  if (!intent || typeof intent !== 'object') return false;
+  const explicitConflict = INTENT_IDENTITY_FIELDS.some((field) => {
+    if (!Object.prototype.hasOwnProperty.call(intent, field)) return false;
+    const claimedUid = normalizeUid(intent[field]);
+    return !claimedUid || claimedUid !== resolvedUid;
+  });
+  if (explicitConflict) return true;
+  if (intent.identifierType != null && intent.identifierType !== 'firebase_uid') return true;
+  if (intent.identifierType === 'firebase_uid') {
+    return normalizeUid(intent.identifier) !== resolvedUid;
+  }
+  return false;
+}
+
+function canUseApplicationIntent({
+  profile,
+  intent,
+  identity,
+  accountDeleted = false,
+  now = Date.now(),
+  requireRetention = false,
+}) {
   if (accountDeleted || isApplicationIntentOptedOut(profile) || isApplicationIntentTombstone(intent)) {
     return false;
   }
   const resolved = resolveApplicationIntentIdentity(identity || intent);
   if (!resolved) return false;
-  if (intent && (intent.userId || intent.uid) && resolveApplicationIntentIdentity(intent)?.userId !== resolved.userId) {
-    return false;
-  }
+  if (hasConflictingApplicationIntentIdentity(intent, resolved.userId)) return false;
   return !requireRetention || isWithinApplicationIntentRetention(intent, now);
 }
 
 /**
- * Registration gate.  Callers should pass the authenticated uid and the
- * user's profile; an anonymous caller is rejected and therefore cannot cause
- * a reminder/ranking record containing personal data to be created.
+ * Account-linked registration gate. Callers should pass the authenticated
+ * uid and profile. Anonymous click records stay anonymous in the producer and
+ * never enter the account-linked reminder or ranking paths.
  */
 export function canRegisterApplicationIntent({ profile, userId, accountDeleted = false } = {}) {
   return canUseApplicationIntent({
@@ -99,10 +120,10 @@ export function canRegisterApplicationIntent({ profile, userId, accountDeleted =
 
 /** Gate for an application-intent reminder sender. */
 export function canSendApplicationIntentReminder({ profile, intent, userId, accountDeleted = false, now = Date.now() } = {}) {
- return canUseApplicationIntent({
-  profile,
-  intent,
-  identity: userId ? { userId } : intent,
+  return canUseApplicationIntent({
+    profile,
+    intent,
+    identity: userId ? { userId } : intent,
     accountDeleted,
     now,
     requireRetention: true,
@@ -111,10 +132,10 @@ export function canSendApplicationIntentReminder({ profile, intent, userId, acco
 
 /** Gate for ranking application-intent signals. */
 export function canUseApplicationIntentForRanking({ profile, intent, userId, accountDeleted = false, now = Date.now() } = {}) {
- return canUseApplicationIntent({
-  profile,
-  intent,
-  identity: userId ? { userId } : intent,
+  return canUseApplicationIntent({
+    profile,
+    intent,
+    identity: userId ? { userId } : intent,
     accountDeleted,
     now,
     requireRetention: true,
@@ -125,36 +146,45 @@ export function canUseApplicationIntentForRanking({ profile, intent, userId, acc
  * Read the durable account-deletion boundary before a provider callback or a
  * late write.  Read failures intentionally propagate so callers fail closed.
  */
-export async function isApplicationIntentAccountDeleted(db, rawUid) {
+export async function isApplicationIntentAccountDeleted(db, rawUid, transaction = null) {
   const uid = normalizeUid(rawUid);
   if (!uid) return true;
-  const snapshot = await db
+  const tombstoneRef = db
     .collection(APPLICATION_INTENT_ACCOUNT_TOMBSTONES_COLLECTION)
-    .doc(uid)
-    .get();
+    .doc(uid);
+  const snapshot = transaction
+    ? await transaction.get(tombstoneRef)
+    : await tombstoneRef.get();
   return snapshot.exists && isApplicationIntentTombstone(snapshot.data());
 }
 
 /**
- * Combined server-side write gate.  Future registration/callback handlers can
- * use this single predicate so the preference and deletion tombstone cannot
- * drift apart.
+ * Combined server-side write gate. Registration and callback handlers use
+ * this predicate so the preference and deletion tombstone cannot drift apart.
  */
-export async function canWriteApplicationIntentForAccount(db, { uid, profile } = {}) {
- if (!canRegisterApplicationIntent({ profile, userId: uid })) return false;
- return !(await isApplicationIntentAccountDeleted(db, uid));
+export async function canWriteApplicationIntentForAccount(db, { uid, profile, transaction = null } = {}) {
+  if (!canRegisterApplicationIntent({ profile, userId: uid })) return false;
+  return !(await isApplicationIntentAccountDeleted(db, uid, transaction));
 }
 
 /** Account-aware reminder gate: the deletion boundary is read fail-closed. */
 export async function canSendApplicationIntentReminderForAccount(db, args = {}) {
- const accountDeleted = await isApplicationIntentAccountDeleted(db, args.userId || args.intent?.userId || args.intent?.uid);
- return canSendApplicationIntentReminder({ ...args, accountDeleted });
+  const uid = args.userId
+    || args.intent?.userId
+    || args.intent?.uid
+    || args.intent?.accountUid;
+  const accountDeleted = await isApplicationIntentAccountDeleted(db, uid);
+  return canSendApplicationIntentReminder({ ...args, accountDeleted });
 }
 
 /** Account-aware ranking gate: callers cannot accidentally omit the tombstone check. */
 export async function canUseApplicationIntentForRankingForAccount(db, args = {}) {
- const accountDeleted = await isApplicationIntentAccountDeleted(db, args.userId || args.intent?.userId || args.intent?.uid);
- return canUseApplicationIntentForRanking({ ...args, accountDeleted });
+  const uid = args.userId
+    || args.intent?.userId
+    || args.intent?.uid
+    || args.intent?.accountUid;
+  const accountDeleted = await isApplicationIntentAccountDeleted(db, uid);
+  return canUseApplicationIntentForRanking({ ...args, accountDeleted });
 }
 
 /** Build the metadata retained after account-linked intent data is erased. */

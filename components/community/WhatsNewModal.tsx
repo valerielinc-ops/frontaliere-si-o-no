@@ -40,9 +40,20 @@ export const RELEASES: Release[] = [
     titleKey: 'whatsNew.v3968.title',
     items: [
       {
-        type: 'feature',
+        type: 'improvement',
         titleKey: 'whatsNew.v3968.applicationIntent.title',
         descKey: 'whatsNew.v3968.applicationIntent.desc',
+        link: { tab: 'job-board' },
+      },
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3968.applicationIntentPrivacy.title',
+        descKey: 'whatsNew.v3968.applicationIntentPrivacy.desc',
+      },
+      {
+        type: 'improvement',
+        titleKey: 'whatsNew.v3968.applicationIntentDigest.title',
+        descKey: 'whatsNew.v3968.applicationIntentDigest.desc',
       },
     ],
   },

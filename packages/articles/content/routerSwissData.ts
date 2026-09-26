@@ -2282,6 +2282,12 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'valutazione-universitaria-intelligenza-artificiale': { it: 'valutazione-universitaria-intelligenza-artificiale', en: 'university-assessment-artificial-intelligence', de: 'universitaetsbewertung-kuenstliche-intelligenz', fr: 'evaluation-universitaire-intelligence-artificielle' },
  'iniziativa-congedo-parentale-quorum': { it: 'iniziativa-congedo-parentale-quorum', en: 'parental-leave-initiative-quorum', de: 'elternurlaub-initiative-quorum', fr: 'initiative-conge-parental-quorum' },
  'mobilitazione-esercito-ponte': { it: 'mobilitazione-esercito-ponte', en: 'swiss-army-rapid-mobilization', de: 'schnelle-mobilisierung-armee', fr: 'mobilisation-rapide-armee-suisse' },
+ 'dertour-suisse-ripresa-fatturato': { it: 'dertour-suisse-ripresa-fatturato', en: 'dertour-suisse-aims-to-surpass-one-billion-in-revenue', de: 'dertour-suisse-will-die-umsatzmilliarde-ubertreffen', fr: 'dertour-suisse-vise-a-depasser-le-milliard-de-chiffre-d-affaires' },
+ 'svizzera-auto-elettriche-classifica': { it: 'svizzera-auto-elettriche-classifica', en: 'switzerland-electric-cars-ranking', de: 'schweiz-elektroautos-rangliste', fr: 'suisse-voitures-electriques-classement' },
+ 'premi-cassa-malati-stabilita-famiglie': { it: 'premi-cassa-malati-stabilita-famiglie', en: 'health-insurance-premiums-stable-family-burden', de: 'krankenversicherungspraemen-stabile-familienbelastung', fr: 'primes-assurance-sante-charge-familiale-stable' },
+ 'protesta-asilo-berna-diritti': { it: 'protesta-asilo-berna-diritti', en: 'asylum-rights-protest-bern', de: 'asylrecht-protest-bern', fr: 'protestation-droit-asile-berne' },
+ 'avenergy-lobby-clima': { it: 'avenergy-lobby-clima', en: 'avenergy-oil-lobby-climate-switzerland', de: 'avenergy-oellobby-klima-schweiz', fr: 'avenergy-lobby-petrole-climat-suisse' },
+ 'assicurazione-grandine-2026': { it: 'assicurazione-grandine-2026', en: 'hail-insurance-2026', de: 'hagelversicherung-2026', fr: 'assurance-grele-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

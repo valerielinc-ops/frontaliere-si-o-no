@@ -12064,6 +12064,21 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.arresto-mente-bennet-tavernola.title': 'Vol au Bennet : l\'esprit présumé arrêté au Tessin',
     'blog.article.arresto-mente-bennet-tavernola.excerpt': 'Un homme de 32 ans résidant dans la région de Bellinzone et un homme de 25 ans de Monza ont été arrêtés pour le braquage de la bijouterie Stroili du Bennet de Tavernola.',
     'blog.article.arresto-mente-bennet-tavernola.imageAlt': 'Un suspect du Bellinzonese arrêté après le braquage de la bijouterie de Tavernola',
+    'blog.article.protesta-impianto-betonaggio-intelvi.title': 'Protestation à Castiglione d\'Intelvi pour l\'installation de bétonnage',
+    'blog.article.protesta-impianto-betonaggio-intelvi.excerpt': 'Plus de 750 signatures recueillies en six jours contre l\'installation de bétonnage et de concassage prévue à Castiglione d\'Intelvi pour la variante Tremezzina.',
+    'blog.article.protesta-impianto-betonaggio-intelvi.imageAlt': 'Paysage de la Vallée d\'Intelvi avec des routes étroites et sinueuses',
+    'blog.article.merone-pendolare-frontiera-ch.title': 'Vivre à Mérone et travailler au Tessin en tant que frontalier',
+    'blog.article.merone-pendolare-frontiera-ch.excerpt': 'Vivre à Merone et travailler au Tessin : ce qui change par impôt à la source, franchises de 7 500 et 10 000 euros, AVS, LPP et LAMal.',
+    'blog.article.merone-pendolare-frontiera-ch.imageAlt': 'Route matinale au Tessin pour une personne vivant à Merone et travaillant de l\'autre côté de la frontière',
+    'blog.article.rapina-como-residente-ticino.title': 'Braquage à Côme : un résident du Tessin arrêté',
+    'blog.article.rapina-como-residente-ticino.excerpt': 'L\'Italien de 32 ans, résidant dans la région de Bellinzone, figure parmi les deux personnes arrêtées pour le braquage de 90\'000 euro du 24 avril.',
+    'blog.article.rapina-como-residente-ticino.imageAlt': 'Enquête à Côme après le braquage du 24 avril; un résident de la région de Bellinzone a été arrêté. (Como)',
+    'blog.article.cantieri-reti-gas-acqua-varese.title': 'Varese : chantiers de gaz et d’eau dans trois rues jusqu’en avril 2027',
+    'blog.article.cantieri-reti-gas-acqua-varese.excerpt': 'À partir du 28 septembre 2026, les travaux de Lereti (Gruppo Acinque) commencent via Masolino da Panicale, Pagliano et Giovannini. Interdiction de circulation et de stationnement.',
+    'blog.article.cantieri-reti-gas-acqua-varese.imageAlt': 'Travaux de rénovation des réseaux de gaz et d\'eau à Varese',
+    'blog.article.erba-punto-nascita-interrogazione-lega.title': 'Fermeture de la maternité d’Erba : question de la Lega',
+    'blog.article.erba-punto-nascita-interrogazione-lega.excerpt': 'Eugenio Zoffili interroge le ministre Schillaci et demande des tables techniques et des dérogations pour maintenir opérationnel le service de maternité d’Erba.',
+    'blog.article.erba-punto-nascita-interrogazione-lega.imageAlt': 'L’hôpital d’Erba au cœur du débat sur la fermeture de la maternité',
 };
 
 export default blogMetaFr;

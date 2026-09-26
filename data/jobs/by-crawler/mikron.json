@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mikron",
-  "assembledAt": "2026-09-25T14:56:13.611Z",
+  "assembledAt": "2026-09-26T14:14:23.156Z",
   "jobs": [
     {
       "url": "https://www.mikron.com/en/polymecanic-team-leader",
@@ -58,6 +58,271 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "url": "https://www.mikron.com/en/controls-engineer-specialist-mfd",
+      "applyUrl": "https://www.mikron.com/en/controls-engineer-specialist-mfd",
+      "title": "Controls Engineer Specialist (m/f/d)",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Boudry",
+      "canton": "NE",
+      "country": "CH",
+      "postalCode": "2017",
+      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
+      "description": "Controls Engineer Specialist (m/f/d) Apply Division Automation Function Engineering Related location Switzerland, Boudry En tant que Controls Engineer Specialist, vous jouez un rôle de référent technique dans le développement et la réalisation de solutions d’automation innovantes pour nos clients internationaux. Vous contribuez activement à la réussite des projets tout au long de leur cycle de vie. Vos activités principales\n• Concevoir et développer des solutions d’automation innovantes pour nos machines d’assemblage.\n• Programmer, mettre en service et valider les systèmes automatisés.\n• Agir comme référent technique et soutenir les équipes projets.\n• Participer à l’amélioration continue de nos standards et outils d’automation.\n• Assurer des interventions ponctuelles auprès de nos clients en Suisse et à l’international (20 à 30%) Compétences relationnelles clés\n• Expertise technique\n• Respect des engagements\n• Orientation solutions\n• Intégrité des données\n• Atteinte des objectifs Compétences techniques\n• Autonomie\n• Communication & Feedback\n• Sens des responsabilités\n• Optimisation des produits et des processus\n• Gestion du temps\n• Résolution de problèmes Votre profil\n• Formation supérieure en automation, génie électrique, informatique industrielle (ES, HES, EPF) ou formation jugée équivalente\n• Expérience confirmée (3 à 5 ans) dans le développement de systèmes d’automation industrielle\n• Maîtrise de la programmation sur automates et PC industriels (Siemens, Allen-Bradley, B&R)\n• Excellentes connaissances en programmation orientée objet (C++, C#)\n• Connaissances des normes et standards machines\n• Très bonnes connaissances du français, et de l’anglais\n• Esprit analytique, autonomie et orientation solution\n• Excellentes capacités de communication et de collaboration.\n• Disponibilité pour des déplacements professionnels (20-30%) Apply",
+      "descriptionByLocale": {
+        "en": "Controls Engineer Specialist (m/f/d) Apply Division Automation Function Engineering Related location Switzerland, Boudry En tant que Controls Engineer Specialist, vous jouez un rôle de référent technique dans le développement et la réalisation de solutions d’automation innovantes pour nos clients internationaux. Vous contribuez activement à la réussite des projets tout au long de leur cycle de vie. Vos activités principales\n• Concevoir et développer des solutions d’automation innovantes pour nos machines d’assemblage.\n• Programmer, mettre en service et valider les systèmes automatisés.\n• Agir comme référent technique et soutenir les équipes projets.\n• Participer à l’amélioration continue de nos standards et outils d’automation.\n• Assurer des interventions ponctuelles auprès de nos clients en Suisse et à l’international (20 à 30%) Compétences relationnelles clés\n• Expertise technique\n• Respect des engagements\n• Orientation solutions\n• Intégrité des données\n• Atteinte des objectifs Compétences techniques\n• Autonomie\n• Communication & Feedback\n• Sens des responsabilités\n• Optimisation des produits et des processus\n• Gestion du temps\n• Résolution de problèmes Votre profil\n• Formation supérieure en automation, génie électrique, informatique industrielle (ES, HES, EPF) ou formation jugée équivalente\n• Expérience confirmée (3 à 5 ans) dans le développement de systèmes d’automation industrielle\n• Maîtrise de la programmation sur automates et PC industriels (Siemens, Allen-Bradley, B&R)\n• Excellentes connaissances en programmation orientée objet (C++, C#)\n• Connaissances des normes et standards machines\n• Très bonnes connaissances du français, et de l’anglais\n• Esprit analytique, autonomie et orientation solution\n• Excellentes capacités de communication et de collaboration.\n• Disponibilité pour des déplacements professionnels (20-30%) Apply",
+        "it": "Posizione aperta: Controls Engineer Specialist (m/f/d) presso Mikron Group a Boudry. Divisione: Automation.\n\nMikron Group è un leader globale nella produzione di precisione e automazione, con sede a Bienne (Svizzera) e diverse sedi operative nel Paese. Le attività svizzere includono Mikron Machining ad Agno (TI) e Mikron Automation a Boudry (NE), con sistemi di lavorazione ad alta precisione per l'industria automobilistica, medicale, elettronica e dell'orologeria. L'azienda offre un ambiente di lavoro dinamico, possibilità di crescita professionale, una cultura aziendale positiva con forte spirito di squadra, e una retribuzione competitiva con eccellenti prestazioni sociali."
+      },
+      "titleByLocale": {
+        "en": "Controls Engineer Specialist (m/f/d)"
+      },
+      "slug": "controls-engineer-specialist-m-f-d-mikron",
+      "slugByLocale": {
+        "en": "controls-engineer-specialist-m-f-d-mikron",
+        "it": "controls-engineer-specialist-m-f-d-mikron"
+      },
+      "sourceLang": "fr",
+      "category": "technology",
+      "datePosted": "2026-09-26",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "NE",
+        "location": "Boudry"
+      },
+      "addressLocality": "Boudry",
+      "addressRegion": "NE",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-26T14:14:20.306Z"
+    },
+    {
+      "url": "https://www.mikron.com/en/product-conformity-specialist",
+      "applyUrl": "https://www.mikron.com/en/product-conformity-specialist",
+      "title": "Product Conformity Specialist",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Boudry",
+      "canton": "NE",
+      "country": "CH",
+      "postalCode": "2017",
+      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
+      "description": "Product Conformity Specialist Apply Division Automation Function Engineering Related location Switzerland, Boudry En tant que Product Conformity Specialist, vous êtes le garant de la conformité et de la sécurité de nos produits tout au long de leur cycle de vie. Grâce à votre expertise en sécurité des machines et en réglementation, vous accompagnez les équipes projets dans la définition de solutions conformes et durables. Par votre rôle de référent et de coordinateur, vous contribuez à la maîtrise des risques, à la standardisation de nos pratiques et à l'excellence de nos réalisations. Vos activités principales\n• Garantir la conformité des produits, projets et équipements aux réglementations applicables et aux standards de sécurité Mikron.\n• Définir, maintenir et promouvoir les méthodologies, standards et bonnes pratiques en matière de sécurité des machines.\n• Assurer une veille réglementaire et normative afin de garantir la conformité continue de nos solutions.\n• Apporter son expertise lors de la conception et de la réalisation des projets, notamment pour les concepts de sécurité, les analyses de risques et les évaluations de conformité.\n• Développer et promouvoir des solutions de sécurité standardisées et réutilisables à l'échelle de l'entreprise.\n• Coordonner les activités liées à la sécurité des machines entre les différents métiers, équipes internes et partenaires externes.\n• Animer le groupe technique « Certification CE & Safety » et assurer le partage des connaissances et des évolutions réglementaires.\n• Former et accompagner les collaborateurs afin de développer les compétences en matière de sécurité des machines et de conformité produit. Compétences relationnelles clés\n• Orientation client et partenariat\n• Partage de l'expérience et des connaissances\n• Amélioration continue\n• Sens de la sécurité\n• Comformité et comportement éthique Compétences techniques\n• Optimisation des produits et des processus\n• Planification et coordination\n• Esprit analytique et critique\n• Gestion de la complexité\n• Gestion des relations\n• Autonomie Votre profil\n• Formation supérieure (HES, EPF ou équivalent) en ingénierie, idéalement spécialisée en sécurité des machines ou ingénierie des systèmes.\n• Solides connaissances des réglementations, normes et méthodes liées à la sécurité des machines et à la conformité produit.\n• Connaissances en automation ; la cybersécurité industrielle constitue un atout.\n• Expérience en analyses de risques et en évaluation de la conformité.\n• Très bonnes connaissances du français et bonnes connaissances de l'anglais ; l'allemand est un atout.\n• Esprit analytique, orientation solutions et intérêt pour les technologies industrielles. Nous vous offrons\n• L’opportunité de relever des défis variés ainsi que de participer à l’amélioration continue d’une société internationale axée sur le marché et la satisfaction clients dans un environnement technique en constante évolution\n• Une gestion de projets centrée sur l’humain et des équipes pluridisciplinaires favorisant l’échange de connaissances et le développement tant personnel que professionnel\n• Un environnement international, moderne, agile, multiculturel et dynamique axé sur le travail d'équipe\n• Un poste avec des possibilités de progression au sein d’une société attentive aux besoins de formation continue de ses collaborateurs\n• Un équilibre vie privée et vie professionnelle Apply",
+      "descriptionByLocale": {
+        "en": "Product Conformity Specialist Apply Division Automation Function Engineering Related location Switzerland, Boudry En tant que Product Conformity Specialist, vous êtes le garant de la conformité et de la sécurité de nos produits tout au long de leur cycle de vie. Grâce à votre expertise en sécurité des machines et en réglementation, vous accompagnez les équipes projets dans la définition de solutions conformes et durables. Par votre rôle de référent et de coordinateur, vous contribuez à la maîtrise des risques, à la standardisation de nos pratiques et à l'excellence de nos réalisations. Vos activités principales\n• Garantir la conformité des produits, projets et équipements aux réglementations applicables et aux standards de sécurité Mikron.\n• Définir, maintenir et promouvoir les méthodologies, standards et bonnes pratiques en matière de sécurité des machines.\n• Assurer une veille réglementaire et normative afin de garantir la conformité continue de nos solutions.\n• Apporter son expertise lors de la conception et de la réalisation des projets, notamment pour les concepts de sécurité, les analyses de risques et les évaluations de conformité.\n• Développer et promouvoir des solutions de sécurité standardisées et réutilisables à l'échelle de l'entreprise.\n• Coordonner les activités liées à la sécurité des machines entre les différents métiers, équipes internes et partenaires externes.\n• Animer le groupe technique « Certification CE & Safety » et assurer le partage des connaissances et des évolutions réglementaires.\n• Former et accompagner les collaborateurs afin de développer les compétences en matière de sécurité des machines et de conformité produit. Compétences relationnelles clés\n• Orientation client et partenariat\n• Partage de l'expérience et des connaissances\n• Amélioration continue\n• Sens de la sécurité\n• Comformité et comportement éthique Compétences techniques\n• Optimisation des produits et des processus\n• Planification et coordination\n• Esprit analytique et critique\n• Gestion de la complexité\n• Gestion des relations\n• Autonomie Votre profil\n• Formation supérieure (HES, EPF ou équivalent) en ingénierie, idéalement spécialisée en sécurité des machines ou ingénierie des systèmes.\n• Solides connaissances des réglementations, normes et méthodes liées à la sécurité des machines et à la conformité produit.\n• Connaissances en automation ; la cybersécurité industrielle constitue un atout.\n• Expérience en analyses de risques et en évaluation de la conformité.\n• Très bonnes connaissances du français et bonnes connaissances de l'anglais ; l'allemand est un atout.\n• Esprit analytique, orientation solutions et intérêt pour les technologies industrielles. Nous vous offrons\n• L’opportunité de relever des défis variés ainsi que de participer à l’amélioration continue d’une société internationale axée sur le marché et la satisfaction clients dans un environnement technique en constante évolution\n• Une gestion de projets centrée sur l’humain et des équipes pluridisciplinaires favorisant l’échange de connaissances et le développement tant personnel que professionnel\n• Un environnement international, moderne, agile, multiculturel et dynamique axé sur le travail d'équipe\n• Un poste avec des possibilités de progression au sein d’une société attentive aux besoins de formation continue de ses collaborateurs\n• Un équilibre vie privée et vie professionnelle Apply",
+        "it": "Posizione aperta: Product Conformity Specialist presso Mikron Group a Boudry. Divisione: Automation.\n\nMikron Group è un leader globale nella produzione di precisione e automazione, con sede a Bienne (Svizzera) e diverse sedi operative nel Paese. Le attività svizzere includono Mikron Machining ad Agno (TI) e Mikron Automation a Boudry (NE), con sistemi di lavorazione ad alta precisione per l'industria automobilistica, medicale, elettronica e dell'orologeria. L'azienda offre un ambiente di lavoro dinamico, possibilità di crescita professionale, una cultura aziendale positiva con forte spirito di squadra, e una retribuzione competitiva con eccellenti prestazioni sociali."
+      },
+      "titleByLocale": {
+        "en": "Product Conformity Specialist"
+      },
+      "slug": "product-conformity-specialist-mikron",
+      "slugByLocale": {
+        "en": "product-conformity-specialist-mikron",
+        "it": "product-conformity-specialist-mikron"
+      },
+      "sourceLang": "fr",
+      "category": "production",
+      "datePosted": "2026-09-26",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "NE",
+        "location": "Boudry"
+      },
+      "addressLocality": "Boudry",
+      "addressRegion": "NE",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-26T14:14:20.306Z"
+    },
+    {
+      "url": "https://www.mikron.com/en/product-care-leader-mfd",
+      "applyUrl": "https://www.mikron.com/en/product-care-leader-mfd",
+      "title": "Software Product Care Leader",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Boudry",
+      "canton": "NE",
+      "country": "CH",
+      "postalCode": "2017",
+      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
+      "description": "Software Product Care Leader Apply Division Automation Function Engineering Related location Switzerland, Boudry En tant que Software Product Care Leader, vous assurez le suivi et l'amélioration continue de nos produits utilisant notre système logiciel interne. Vous coordonnez les activités de support, de maintenance et de déploiement afin de garantir la fiabilité et la stabilité des produits et des lignes installées. Par votre expertise et votre approche orientée solutions, vous contribuez à la qualité de nos produits et à la satisfaction de nos clients. Vos activités principales\n• Concevoir et développer des solutions d’automation innovantes pour nos machines d’assemblage.\n• Assurer le leadership opérationnel de l’équipe MOOS Product Care\n• Prioriser et coordonner les activités de support et de maintenance\n• Garantir la résolution rapide et efficace des incidents et bugs\n• Organiser le déploiement des nouvelles versions\n• Suivre les utilisateurs clés (Key-Users) interne et collecter des feedbacks terrain\n• Participer aux revues des processus critiques et identifier des axes d’amélioration\n• Suivre les KPIs (temps de résolution, qualité, stabilité produit)\n• Gérer les activités de développement lié aux produits mécaniques\n• Mettre en place des améliorations continues sur le support et les processus Compétences relationnelles clés\n• Expertise technique\n• Orientation client et partenariat\n• Précision et exactitude\n• Respect des engagements\n• Orientation résultats Compétences techniques\n• Amélioration de la productivité\n• Créativité et pensée disruptive\n• Sens des responsabilités\n• Gestion de la complexité\n• Inclusion et collaboration\n• Autonomie Compétence de leadership\n• Leadership par l’exemple\n• Développement des équipes Votre profil\n• Formation de niveau HES ou formation jugée équivalente, axée sur l’ingénierie de la programmation industrielle\n• Maîtrise de la programmation C++ et/ou C# attestée para une expérience d’au moins 5 ans\n• Expérience d’au moins 2 ans en leadership technique et humain\n• Expérience en milieu industrielle et particulièrement en fabrication de machines\n• Expérience en tant que Scrum Master (certification PSM/CSM, un atout)\n• Très bonnes connaissances du français, bonnes connaissances de l’anglais (et de l’allemand, un atout)\n• Excellente communication avec profils techniques, Key Users et direction\n• Agilité et flexibilité Nous vous offrons\n• L’opportunité de relever des défis variés ainsi que de participer à l’amélioration continue d’une société internationale axée sur le marché et la satisfaction clients dans un environnement technique en constante évolution\n• Une gestion de projets centrée sur l’humain et des équipes pluridisciplinaires favorisant l’échange de connaissances et le développement tant personnel que professionnel\n• Un environnement international, moderne, agile, multiculturel et dynamique axé sur le travail d'équipe\n• Un poste avec des possibilités de progression au sein d’une société attentive aux besoins de formation continue de ses collaborateurs\n• Un équilibre vie privée et vie professionnelle Apply",
+      "descriptionByLocale": {
+        "en": "Software Product Care Leader Apply Division Automation Function Engineering Related location Switzerland, Boudry En tant que Software Product Care Leader, vous assurez le suivi et l'amélioration continue de nos produits utilisant notre système logiciel interne. Vous coordonnez les activités de support, de maintenance et de déploiement afin de garantir la fiabilité et la stabilité des produits et des lignes installées. Par votre expertise et votre approche orientée solutions, vous contribuez à la qualité de nos produits et à la satisfaction de nos clients. Vos activités principales\n• Concevoir et développer des solutions d’automation innovantes pour nos machines d’assemblage.\n• Assurer le leadership opérationnel de l’équipe MOOS Product Care\n• Prioriser et coordonner les activités de support et de maintenance\n• Garantir la résolution rapide et efficace des incidents et bugs\n• Organiser le déploiement des nouvelles versions\n• Suivre les utilisateurs clés (Key-Users) interne et collecter des feedbacks terrain\n• Participer aux revues des processus critiques et identifier des axes d’amélioration\n• Suivre les KPIs (temps de résolution, qualité, stabilité produit)\n• Gérer les activités de développement lié aux produits mécaniques\n• Mettre en place des améliorations continues sur le support et les processus Compétences relationnelles clés\n• Expertise technique\n• Orientation client et partenariat\n• Précision et exactitude\n• Respect des engagements\n• Orientation résultats Compétences techniques\n• Amélioration de la productivité\n• Créativité et pensée disruptive\n• Sens des responsabilités\n• Gestion de la complexité\n• Inclusion et collaboration\n• Autonomie Compétence de leadership\n• Leadership par l’exemple\n• Développement des équipes Votre profil\n• Formation de niveau HES ou formation jugée équivalente, axée sur l’ingénierie de la programmation industrielle\n• Maîtrise de la programmation C++ et/ou C# attestée para une expérience d’au moins 5 ans\n• Expérience d’au moins 2 ans en leadership technique et humain\n• Expérience en milieu industrielle et particulièrement en fabrication de machines\n• Expérience en tant que Scrum Master (certification PSM/CSM, un atout)\n• Très bonnes connaissances du français, bonnes connaissances de l’anglais (et de l’allemand, un atout)\n• Excellente communication avec profils techniques, Key Users et direction\n• Agilité et flexibilité Nous vous offrons\n• L’opportunité de relever des défis variés ainsi que de participer à l’amélioration continue d’une société internationale axée sur le marché et la satisfaction clients dans un environnement technique en constante évolution\n• Une gestion de projets centrée sur l’humain et des équipes pluridisciplinaires favorisant l’échange de connaissances et le développement tant personnel que professionnel\n• Un environnement international, moderne, agile, multiculturel et dynamique axé sur le travail d'équipe\n• Un poste avec des possibilités de progression au sein d’une société attentive aux besoins de formation continue de ses collaborateurs\n• Un équilibre vie privée et vie professionnelle Apply",
+        "it": "Posizione aperta: Software Product Care Leader presso Mikron Group a Boudry. Divisione: Automation.\n\nMikron Group è un leader globale nella produzione di precisione e automazione, con sede a Bienne (Svizzera) e diverse sedi operative nel Paese. Le attività svizzere includono Mikron Machining ad Agno (TI) e Mikron Automation a Boudry (NE), con sistemi di lavorazione ad alta precisione per l'industria automobilistica, medicale, elettronica e dell'orologeria. L'azienda offre un ambiente di lavoro dinamico, possibilità di crescita professionale, una cultura aziendale positiva con forte spirito di squadra, e una retribuzione competitiva con eccellenti prestazioni sociali."
+      },
+      "titleByLocale": {
+        "en": "Software Product Care Leader"
+      },
+      "slug": "software-product-care-leader-mikron",
+      "slugByLocale": {
+        "en": "software-product-care-leader-mikron",
+        "it": "software-product-care-leader-mikron"
+      },
+      "sourceLang": "fr",
+      "category": "technology",
+      "datePosted": "2026-09-26",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "NE",
+        "location": "Boudry"
+      },
+      "addressLocality": "Boudry",
+      "addressRegion": "NE",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-26T14:14:20.306Z"
+    },
+    {
+      "url": "https://www.mikron.com/en/hardware-engineer-specialist-mfd-0",
+      "applyUrl": "https://www.mikron.com/en/hardware-engineer-specialist-mfd-0",
+      "title": "Hardware Engineer Specialist (m/f/d)",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Boudry",
+      "canton": "NE",
+      "country": "CH",
+      "postalCode": "2017",
+      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
+      "description": "Hardware Engineer Specialist (m/f/d) Apply Division Automation Function Engineering Related location Switzerland, Boudry En tant que Hardware Engineer Specialist, vous jouez un rôle clé dans la conception électrique de nos systèmes d'assemblage destinés à une clientèle internationale. Grâce à votre expertise technique, vous développez des solutions fiables et performantes, accompagnez les équipes projets dans les choix techniques et contribuez à l'amélioration continue de nos produits Responsabilités principales\n• Concevoir les systèmes électriques de nos machines d'assemblage selon les objectifs de qualité, coûts et délais définis pour les projets\n• Coordonner les activités de conception électrique au sein des équipes projets\n• Réaliser les schémas électriques et assurer la documentation technique associée\n• Identifier les problématiques techniques, développer des solutions adaptées et les communiquer aux équipes projets\n• Sélectionner les composants électriques et assurer le suivi des commandes de matériel\n• Accompagner et soutenir les activités de montage électrique\n• Contribuer à l'amélioration continue et à l'industrialisation de nos produits standards Compétences relationnelles clés\n• Expertise technique\n• Orientation solutions\n• Précision et exactitude\n• Intégrité des données\n• Atteinte des objectifs Compétences techniques\n• Autonomie\n• Efficacité opérationnelle\n• Force de proposition\n• Planification et coordination\n• Résolution de problems Profil\n• Formation électrique de niveau ES, HES ou jugée équivalente\n• Bonnes connaissances du logiciel ePLAN\n• Connaissance des directives et des normes\n• Très bonnes connaissances du français, connaissances de l’anglais\n• Esprit d’analyse et de synthèse\n• Vision objectif et gestion des priorités Nous vous offrons\n• L’opportunité de relever des défis variés ainsi que de participer à l’amélioration continue d’une société internationale axée sur le marché et la satisfaction clients dans un environnement technique en constante évolution\n• Une gestion de projets centrée sur l’humain et des équipes pluridisciplinaires favorisant l’échange de connaissances et le développement tant personnel que professionnel\n• Un environnement international, moderne, agile, multiculturel et dynamique axé sur le travail d'équipe\n• Un poste avec des possibilités de progression au sein d’une société attentive aux besoins de formation continue de ses collaborateurs\n• Un équilibre vie privée et vie professionnelle Apply",
+      "descriptionByLocale": {
+        "en": "Hardware Engineer Specialist (m/f/d) Apply Division Automation Function Engineering Related location Switzerland, Boudry En tant que Hardware Engineer Specialist, vous jouez un rôle clé dans la conception électrique de nos systèmes d'assemblage destinés à une clientèle internationale. Grâce à votre expertise technique, vous développez des solutions fiables et performantes, accompagnez les équipes projets dans les choix techniques et contribuez à l'amélioration continue de nos produits Responsabilités principales\n• Concevoir les systèmes électriques de nos machines d'assemblage selon les objectifs de qualité, coûts et délais définis pour les projets\n• Coordonner les activités de conception électrique au sein des équipes projets\n• Réaliser les schémas électriques et assurer la documentation technique associée\n• Identifier les problématiques techniques, développer des solutions adaptées et les communiquer aux équipes projets\n• Sélectionner les composants électriques et assurer le suivi des commandes de matériel\n• Accompagner et soutenir les activités de montage électrique\n• Contribuer à l'amélioration continue et à l'industrialisation de nos produits standards Compétences relationnelles clés\n• Expertise technique\n• Orientation solutions\n• Précision et exactitude\n• Intégrité des données\n• Atteinte des objectifs Compétences techniques\n• Autonomie\n• Efficacité opérationnelle\n• Force de proposition\n• Planification et coordination\n• Résolution de problems Profil\n• Formation électrique de niveau ES, HES ou jugée équivalente\n• Bonnes connaissances du logiciel ePLAN\n• Connaissance des directives et des normes\n• Très bonnes connaissances du français, connaissances de l’anglais\n• Esprit d’analyse et de synthèse\n• Vision objectif et gestion des priorités Nous vous offrons\n• L’opportunité de relever des défis variés ainsi que de participer à l’amélioration continue d’une société internationale axée sur le marché et la satisfaction clients dans un environnement technique en constante évolution\n• Une gestion de projets centrée sur l’humain et des équipes pluridisciplinaires favorisant l’échange de connaissances et le développement tant personnel que professionnel\n• Un environnement international, moderne, agile, multiculturel et dynamique axé sur le travail d'équipe\n• Un poste avec des possibilités de progression au sein d’une société attentive aux besoins de formation continue de ses collaborateurs\n• Un équilibre vie privée et vie professionnelle Apply",
+        "it": "Posizione aperta: Hardware Engineer Specialist (m/f/d) presso Mikron Group a Boudry. Divisione: Automation.\n\nMikron Group è un leader globale nella produzione di precisione e automazione, con sede a Bienne (Svizzera) e diverse sedi operative nel Paese. Le attività svizzere includono Mikron Machining ad Agno (TI) e Mikron Automation a Boudry (NE), con sistemi di lavorazione ad alta precisione per l'industria automobilistica, medicale, elettronica e dell'orologeria. L'azienda offre un ambiente di lavoro dinamico, possibilità di crescita professionale, una cultura aziendale positiva con forte spirito di squadra, e una retribuzione competitiva con eccellenti prestazioni sociali."
+      },
+      "titleByLocale": {
+        "en": "Hardware Engineer Specialist (m/f/d)"
+      },
+      "slug": "hardware-engineer-specialist-m-f-d-mikron",
+      "slugByLocale": {
+        "en": "hardware-engineer-specialist-m-f-d-mikron",
+        "it": "hardware-engineer-specialist-m-f-d-mikron"
+      },
+      "sourceLang": "fr",
+      "category": "technology",
+      "datePosted": "2026-09-26",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "NE",
+        "location": "Boudry"
+      },
+      "addressLocality": "Boudry",
+      "addressRegion": "NE",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-26T14:14:20.306Z"
+    },
+    {
+      "url": "https://www.mikron.com/en/marketing-generalist-mwd-mit-deutscher-muttersprache",
+      "applyUrl": "https://www.mikron.com/en/marketing-generalist-mwd-mit-deutscher-muttersprache",
+      "title": "Marketing Generalist (m/w/d) mit deutscher Muttersprache",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Agno",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6982",
+      "streetAddress": "Via Ginnasio 17, 6982 Agno",
+      "description": "Marketing Generalist (m/w/d) mit deutscher Muttersprache Apply Division Tool Function Sales/Marketing Related location Switzerland, Agno Mehr als nur Werkzeuge Mikron Tool ist ein international führendes Unternehmen in der Entwicklung und Herstellung von Hartmetall-Schneidwerkzeugen. Wir sind ein stetig wachsendes Schweizer Unternehmen, das sich für Innovation und Technologie begeistert. Wir sind spezialisiert auf die Herstellung kleiner und mittelgroßer Hochleistungswerkzeuge für die Bearbeitung schwierigster Werkstoffe wie rostfreier Stähle, hitzebeständiger Legierungen und Titan. In einem der modernsten Technologiezentren für die Mikrobearbeitung werden zudem ganzheitliche Bearbeitungsprozesse entwickelt, auch im Rahmen von Kundenprojekten. Dank unseres Know-hows entwickeln wir nachhaltige, effiziente und geradezu „crazy“ Bearbeitungslösungen mit hohem Mehrwert für unsere Kunden. Zur Verstärkung unseres Marketing-Teams am Standort Agno suchen wir einen dynamischen und gut organisierten Marketing Generalist, der die Marketing- und Kommunikationsaktivitäten auf nationaler und internationaler Ebene unterstützt, mit verschiedenen Unternehmensbereichen zusammenarbeitet und zur Entwicklung der Tool-Division beiträgt. Ihre Hauptaufgaben\n• Verwaltung und Weiterentwicklung des unternehmensweiten CRM unter Gewährleistung der Datenqualität und der kontinuierlichen Prozessverbesserung\n• Koordination und Umsetzung der internen und externen Kommunikationsmaßnahmen der Division\n• Erstellung, Aktualisierung und Verwaltung von Präsentationen, Marketingmaterialien und Vertriebsunterstützungsinstrumenten\n• Koordination und Verwaltung der Übersetzungen von Dokumentationen und Marketinginhalten in Zusammenarbeit mit den internationalen Standorten\n• Organisation und Unterstützung von Messen, Kundenveranstaltungen und Werbeaktionen\n• Unterstützung bei der Organisation von internen Veranstaltungen, Schulungen und Betriebsbesichtigungen am Standort Agno\n• Koordination von Werbegeschenken, Werbematerial und grafischen Inhalten unter Einhaltung der Corporate Identity des Unternehmens\n• An Marketingprojekten mitwirken und zur Entwicklung und Umsetzung neuer Initiativen beitragen\n• Administrative und operative Unterstützung des Managements und der internationalen Organisationen der Division leisten Ihr Profil\n• Hochschulabschluss oder 1–3 Jahre Berufserfahrung im Bereich B2B-Marketing\n• Deutsch als Muttersprache\n• Sehr gute Englischkenntnisse (mindestens Niveau B2)\n• Gute Italienischkenntnisse; Französischkenntnisse sind von Vorteil\n• Gute Kenntnisse im Umgang mit Microsoft 365 und Outlook\n• Kenntnisse in Adobe InDesign; Erfahrung mit Salesforce, CMS oder digitalen Marketing-Tools sind von Vorteil\n• Hervorragende organisatorische, kommunikative und zwischenmenschliche Fähigkeiten in internationalen Kontexten\n• Proaktive Einstellung, Lösungsorientierung und die Fähigkeit, mehrere Aufgaben gleichzeitig zu bewältigen\n• Genauigkeit, Liebe zum Detail und Interesse am Marketing im industriellen und technologischen Umfeld Was wir bieten\n• Eine abwechslungsreiche Tätigkeit mit hoher operativer Eigenverantwortung in einem internationalen und dynamischen Umfeld\n• Die Möglichkeit, mit internationalen Teams und Niederlassungen der Tool-Division zusammenzuarbeiten\n• Direkte Mitwirkung an Projekten in den Bereichen Marketing, Kommunikation, CRM und Veranstaltungen\n• Chancen für berufliches Wachstum und kontinuierliche Weiterentwicklung der Kompetenzen\n• Ein innovatives Umfeld, das auf kontinuierliche Verbesserung ausgerichtet ist\n• Attraktive Vergütung und hervorragende Sozialleistungen innerhalb einer soliden Schweizer Unternehmensgruppe mit globaler Präsenz\n• Die Möglichkeit, aktiv zur Kommunikation und zum Wachstum einer international anerkannten Marke beizutragen Apply",
+      "descriptionByLocale": {
+        "en": "Marketing Generalist (m/w/d) mit deutscher Muttersprache Apply Division Tool Function Sales/Marketing Related location Switzerland, Agno Mehr als nur Werkzeuge Mikron Tool ist ein international führendes Unternehmen in der Entwicklung und Herstellung von Hartmetall-Schneidwerkzeugen. Wir sind ein stetig wachsendes Schweizer Unternehmen, das sich für Innovation und Technologie begeistert. Wir sind spezialisiert auf die Herstellung kleiner und mittelgroßer Hochleistungswerkzeuge für die Bearbeitung schwierigster Werkstoffe wie rostfreier Stähle, hitzebeständiger Legierungen und Titan. In einem der modernsten Technologiezentren für die Mikrobearbeitung werden zudem ganzheitliche Bearbeitungsprozesse entwickelt, auch im Rahmen von Kundenprojekten. Dank unseres Know-hows entwickeln wir nachhaltige, effiziente und geradezu „crazy“ Bearbeitungslösungen mit hohem Mehrwert für unsere Kunden. Zur Verstärkung unseres Marketing-Teams am Standort Agno suchen wir einen dynamischen und gut organisierten Marketing Generalist, der die Marketing- und Kommunikationsaktivitäten auf nationaler und internationaler Ebene unterstützt, mit verschiedenen Unternehmensbereichen zusammenarbeitet und zur Entwicklung der Tool-Division beiträgt. Ihre Hauptaufgaben\n• Verwaltung und Weiterentwicklung des unternehmensweiten CRM unter Gewährleistung der Datenqualität und der kontinuierlichen Prozessverbesserung\n• Koordination und Umsetzung der internen und externen Kommunikationsmaßnahmen der Division\n• Erstellung, Aktualisierung und Verwaltung von Präsentationen, Marketingmaterialien und Vertriebsunterstützungsinstrumenten\n• Koordination und Verwaltung der Übersetzungen von Dokumentationen und Marketinginhalten in Zusammenarbeit mit den internationalen Standorten\n• Organisation und Unterstützung von Messen, Kundenveranstaltungen und Werbeaktionen\n• Unterstützung bei der Organisation von internen Veranstaltungen, Schulungen und Betriebsbesichtigungen am Standort Agno\n• Koordination von Werbegeschenken, Werbematerial und grafischen Inhalten unter Einhaltung der Corporate Identity des Unternehmens\n• An Marketingprojekten mitwirken und zur Entwicklung und Umsetzung neuer Initiativen beitragen\n• Administrative und operative Unterstützung des Managements und der internationalen Organisationen der Division leisten Ihr Profil\n• Hochschulabschluss oder 1–3 Jahre Berufserfahrung im Bereich B2B-Marketing\n• Deutsch als Muttersprache\n• Sehr gute Englischkenntnisse (mindestens Niveau B2)\n• Gute Italienischkenntnisse; Französischkenntnisse sind von Vorteil\n• Gute Kenntnisse im Umgang mit Microsoft 365 und Outlook\n• Kenntnisse in Adobe InDesign; Erfahrung mit Salesforce, CMS oder digitalen Marketing-Tools sind von Vorteil\n• Hervorragende organisatorische, kommunikative und zwischenmenschliche Fähigkeiten in internationalen Kontexten\n• Proaktive Einstellung, Lösungsorientierung und die Fähigkeit, mehrere Aufgaben gleichzeitig zu bewältigen\n• Genauigkeit, Liebe zum Detail und Interesse am Marketing im industriellen und technologischen Umfeld Was wir bieten\n• Eine abwechslungsreiche Tätigkeit mit hoher operativer Eigenverantwortung in einem internationalen und dynamischen Umfeld\n• Die Möglichkeit, mit internationalen Teams und Niederlassungen der Tool-Division zusammenzuarbeiten\n• Direkte Mitwirkung an Projekten in den Bereichen Marketing, Kommunikation, CRM und Veranstaltungen\n• Chancen für berufliches Wachstum und kontinuierliche Weiterentwicklung der Kompetenzen\n• Ein innovatives Umfeld, das auf kontinuierliche Verbesserung ausgerichtet ist\n• Attraktive Vergütung und hervorragende Sozialleistungen innerhalb einer soliden Schweizer Unternehmensgruppe mit globaler Präsenz\n• Die Möglichkeit, aktiv zur Kommunikation und zum Wachstum einer international anerkannten Marke beizutragen Apply",
+        "it": "Posizione aperta: Marketing Generalist (m/w/d) mit deutscher Muttersprache presso Mikron Group a Agno. Divisione: Tool.\n\nMikron Group è un leader globale nella produzione di precisione e automazione, con sede a Bienne (Svizzera) e diverse sedi operative nel Paese. Le attività svizzere includono Mikron Machining ad Agno (TI) e Mikron Automation a Boudry (NE), con sistemi di lavorazione ad alta precisione per l'industria automobilistica, medicale, elettronica e dell'orologeria. L'azienda offre un ambiente di lavoro dinamico, possibilità di crescita professionale, una cultura aziendale positiva con forte spirito di squadra, e una retribuzione competitiva con eccellenti prestazioni sociali."
+      },
+      "titleByLocale": {
+        "en": "Marketing Generalist (m/w/d) mit deutscher Muttersprache"
+      },
+      "slug": "marketing-generalist-m-w-d-mit-deutscher-muttersprache-mikron",
+      "slugByLocale": {
+        "en": "marketing-generalist-m-w-d-mit-deutscher-muttersprache-mikron",
+        "it": "marketing-generalist-m-w-d-mit-deutscher-muttersprache-mikron"
+      },
+      "sourceLang": "de",
+      "category": "technology",
+      "datePosted": "2026-09-26",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Agno"
+      },
+      "addressLocality": "Agno",
+      "addressRegion": "TI",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51500,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-26T14:14:20.306Z"
     }
   ]
 }

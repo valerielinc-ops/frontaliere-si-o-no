@@ -1,6 +1,6 @@
 {
   "crawlerKey": "matterhorn-gotthard-bahn",
-  "assembledAt": "2026-09-26T09:44:19.791Z",
+  "assembledAt": "2026-09-26T14:10:58.731Z",
   "jobs": [
     {
       "id": "matterhorn-gotthard-bahn-a68c8f09f3d3",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bvzholding.ch/Techniker-Fahrzeuginstandhaltung-mwd-de-j728.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:24.369Z",
+      "crawledAt": "2026-09-26T14:10:53.827Z",
       "addressLocality": "Andermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -76,13 +76,11 @@
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
       "previousSlugs": [
-        "techniker-fahrzeuginstandhaltung-m-w-d-matterhorn-gotthard-bahn-ch",
-        "manutenzione-del-veicolo-tecnico-m-f-d-matterhorn-gotthard-bahn-andermatt"
+        "techniker-fahrzeuginstandhaltung-m-w-d-matterhorn-gotthard-bahn-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "techniker-fahrzeuginstandhaltung-m-w-d-matterhorn-gotthard-bahn-ch",
-          "manutenzione-del-veicolo-tecnico-m-f-d-matterhorn-gotthard-bahn-andermatt"
+          "techniker-fahrzeuginstandhaltung-m-w-d-matterhorn-gotthard-bahn-ch"
         ],
         "en": [
           "techniker-fahrzeuginstandhaltung-m-w-d-matterhorn-gotthard-bahn-ch"
@@ -105,7 +103,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "UR"
+      "addressRegion": "UR",
+      "needsRetranslation": true
     },
     {
       "id": "matterhorn-gotthard-bahn-9428927fd6a7",
@@ -138,7 +137,7 @@
       "url": "https://jobs.bvzholding.ch/Teamleiter-Fahrzeugtechnik-mwd-de-j706.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:23.418Z",
+      "crawledAt": "2026-09-26T14:10:52.997Z",
       "addressLocality": "Brig, Glis (Glisergrund)",
       "addressCountry": "CH",
       "country": "CH",
@@ -182,13 +181,11 @@
       },
       "previousSlugs": [
         "teamleiter-fahrzeugtechnik-m-w-d-matterhorn-gotthard-bahn-ch",
-        "teamleiter-fahrzeugtechnik-m-w-d-matterhorn-gotthard-bahn-brig-glis-glisergrund",
-        "team-leader-tecnologia-dei-veicoli-m-f-d-matterhorn-gotthard-bahn-brig-glis-glisergrund"
+        "teamleiter-fahrzeugtechnik-m-w-d-matterhorn-gotthard-bahn-brig-glis-glisergrund"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-fahrzeugtechnik-m-w-d-matterhorn-gotthard-bahn-ch",
-          "team-leader-tecnologia-dei-veicoli-m-f-d-matterhorn-gotthard-bahn-brig-glis-glisergrund"
+          "teamleiter-fahrzeugtechnik-m-w-d-matterhorn-gotthard-bahn-ch"
         ],
         "fr": [
           "teamleiter-fahrzeugtechnik-m-w-d-matterhorn-gotthard-bahn-brig-glis-glisergrund"
@@ -208,7 +205,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "matterhorn-gotthard-bahn-955195a86d5e",
@@ -241,7 +239,7 @@
       "url": "https://jobs.bvzholding.ch/Lokfuehrerin-MGBahn-mwd-de-j725.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:21.198Z",
+      "crawledAt": "2026-09-26T14:10:52.063Z",
       "addressLocality": "Brig, Zermatt, Oberwald, Andermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -278,13 +276,11 @@
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
       "previousSlugs": [
-        "lokfuhrer-in-mgbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-        "driver-del-treno-mgbahn-m-f-d-matterhorn-gotthard-bahn-brig-zermatt-oberwald-andermatt"
+        "lokfuhrer-in-mgbahn-m-w-d-matterhorn-gotthard-bahn-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lokfuhrer-in-mgbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-          "driver-del-treno-mgbahn-m-f-d-matterhorn-gotthard-bahn-brig-zermatt-oberwald-andermatt"
+          "lokfuhrer-in-mgbahn-m-w-d-matterhorn-gotthard-bahn-ch"
         ],
         "en": [
           "lokfuhrer-in-mgbahn-m-w-d-matterhorn-gotthard-bahn-ch"
@@ -307,7 +303,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "matterhorn-gotthard-bahn-9945615ea358",
@@ -324,7 +321,7 @@
       "title": "Leiter Supply Chain Management (m/w/d) 80-100%",
       "titleByLocale": {
         "it": "Responsabile gestione della catena di fornitura (m/f/d) 80-100 %",
-        "en": "Head of Supply Chain Management (m/f/d) 80-100 %",
+        "en": "Leiter Supply Chain Management (m/w/d) 80-100%",
         "de": "Leiter Lieferkette Management (m/w/d) 80-100%",
         "fr": "Responsable de la gestion de la chaîne d'approvisionnement (h/f/d) 80-100 %"
       },
@@ -340,7 +337,7 @@
       "url": "https://jobs.bvzholding.ch/Leiter-Supply-Chain-Management-mwd-80-100-de-j727.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:20.248Z",
+      "crawledAt": "2026-09-26T14:10:51.225Z",
       "addressLocality": "Glis (Glisergrund)",
       "addressCountry": "CH",
       "country": "CH",
@@ -377,14 +374,12 @@
       "previousSlugs": [
         "leiter-supply-chain-management-m-w-d-80-100-matterhorn-gotthard-bahn-ch",
         "leiter-supply-chain-management-m-w-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund",
-        "leiter-chaine-d-approvisionnement-management-m-w-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund",
-        "responsabile-gestione-della-catena-di-fornitura-m-f-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund"
+        "leiter-chaine-d-approvisionnement-management-m-w-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-supply-chain-management-m-w-d-80-100-matterhorn-gotthard-bahn-ch",
-          "leiter-supply-chain-management-m-w-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund",
-          "responsabile-gestione-della-catena-di-fornitura-m-f-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund"
+          "leiter-supply-chain-management-m-w-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund"
         ],
         "fr": [
           "leiter-supply-chain-management-m-w-d-80-100-matterhorn-gotthard-bahn-ch",
@@ -405,7 +400,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "matterhorn-gotthard-bahn-0faaff93f37f",
@@ -438,7 +434,7 @@
       "url": "https://jobs.bvzholding.ch/Leiter-Mattertal-Tunnel-mwd-80-100-de-j726.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:19.275Z",
+      "crawledAt": "2026-09-26T14:10:50.374Z",
       "addressLocality": "Glis (Glisergrund), Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -475,14 +471,12 @@
       },
       "previousSlugs": [
         "leiter-mattertal-tunnel-m-w-d-80-100-matterhorn-gotthard-bahn-ch",
-        "leiter-mattertal-tunnel-m-w-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund-zermatt",
-        "testa-di-tunnel-mattertale-m-f-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund-zermatt"
+        "leiter-mattertal-tunnel-m-w-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund-zermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-mattertal-tunnel-m-w-d-80-100-matterhorn-gotthard-bahn-ch",
-          "leiter-mattertal-tunnel-m-w-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund-zermatt",
-          "testa-di-tunnel-mattertale-m-f-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund-zermatt"
+          "leiter-mattertal-tunnel-m-w-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund-zermatt"
         ],
         "fr": [
           "leiter-mattertal-tunnel-m-w-d-80-100-matterhorn-gotthard-bahn-ch"
@@ -502,7 +496,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "matterhorn-gotthard-bahn-419f36eae83f",
@@ -535,7 +530,7 @@
       "url": "https://jobs.bvzholding.ch/Leiter-Digitalisierung-mwd-80-100-de-j729.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:18.309Z",
+      "crawledAt": "2026-09-26T14:10:49.527Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -573,14 +568,12 @@
       },
       "previousSlugs": [
         "leiter-digitalisierung-m-w-d-80-100-matterhorn-gotthard-bahn-ch",
-        "leiter-digitalisierung-m-w-d-80-100-matterhorn-gotthard-bahn-brig",
-        "testa-di-digitalizzazione-m-f-d-80-100-matterhorn-gotthard-bahn-brig"
+        "leiter-digitalisierung-m-w-d-80-100-matterhorn-gotthard-bahn-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-digitalisierung-m-w-d-80-100-matterhorn-gotthard-bahn-ch",
-          "leiter-digitalisierung-m-w-d-80-100-matterhorn-gotthard-bahn-brig",
-          "testa-di-digitalizzazione-m-f-d-80-100-matterhorn-gotthard-bahn-brig"
+          "leiter-digitalisierung-m-w-d-80-100-matterhorn-gotthard-bahn-brig"
         ],
         "en": [
           "leiter-digitalisierung-m-w-d-80-100-matterhorn-gotthard-bahn-ch"
@@ -603,7 +596,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "matterhorn-gotthard-bahn-f35332cd9cf0",
@@ -636,7 +630,7 @@
       "url": "https://jobs.bvzholding.ch/Lehrstelle-Polymechaniker-mwd-in-Andermatt-de-j719.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:17.201Z",
+      "crawledAt": "2026-09-26T14:10:48.592Z",
       "addressLocality": "Andermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -678,13 +672,11 @@
       },
       "previousSlugs": [
         "lehrstelle-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-ch",
-        "lehrstelle-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-andermatt",
-        "apprendistato-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-andermatt"
+        "lehrstelle-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-andermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-ch",
-          "apprendistato-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-andermatt"
+          "lehrstelle-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-ch"
         ],
         "en": [
           "lehrstelle-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-andermatt"
@@ -707,7 +699,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "UR"
+      "addressRegion": "UR",
+      "needsRetranslation": true
     },
     {
       "id": "matterhorn-gotthard-bahn-7eee07610c32",
@@ -740,7 +733,7 @@
       "url": "https://jobs.bvzholding.ch/Lehrstelle-Logistiker-EFZ-Lager-mwd-de-j710.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:16.057Z",
+      "crawledAt": "2026-09-26T14:10:47.652Z",
       "addressLocality": "Glis (Glisergrund)",
       "addressCountry": "CH",
       "country": "CH",
@@ -779,13 +772,11 @@
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
       "previousSlugs": [
-        "lehrstelle-logistiker-efz-lager-m-w-d-matterhorn-gotthard-bahn-ch",
-        "apprendistato-logistiker-cfc-magazzino-m-w-d-matterhorn-gotthard-bahn-glis-glisergrund"
+        "lehrstelle-logistiker-efz-lager-m-w-d-matterhorn-gotthard-bahn-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-logistiker-efz-lager-m-w-d-matterhorn-gotthard-bahn-ch",
-          "apprendistato-logistiker-cfc-magazzino-m-w-d-matterhorn-gotthard-bahn-glis-glisergrund"
+          "lehrstelle-logistiker-efz-lager-m-w-d-matterhorn-gotthard-bahn-ch"
         ]
       },
       "firstSeenAt": "2026-09-04T13:48:34.523Z",
@@ -802,7 +793,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "matterhorn-gotthard-bahn-898a02655d97",
@@ -810,32 +802,32 @@
       "slugByLocale": {
         "de": "lehrstelle-automatiker-efz-m-w-d-matterhorn-gotthard-bahn-ch",
         "it": "apprendistato-automatiker-cfc-m-w-d-matterhorn-gotthard-bahn-brig",
-        "en": "lehrstelle-automatiker-efz-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fr": "lehrstelle-automatiker-efz-m-w-d-matterhorn-gotthard-bahn-ch"
+        "en": "automatic-trainer-efz-m-f-d-matterhorn-gotthard-bahn-brig",
+        "fr": "trainer-automatique-efz-h-f-d-matterhorn-gotthard-bahn-brig"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
       "companyDomain": "bvzholding.ch",
       "title": "Lehrstelle Automatiker EFZ (m/w/d)",
       "titleByLocale": {
-        "de": "Lehrstelle Automatiker EFZ (m/w/d)",
         "it": "Apprendistato Automatiker CFC (m/w/d)",
         "en": "Automatic trainer EFZ (m/f/d)",
+        "de": "Lehrstelle Automatiker EFZ (m/w/d)",
         "fr": "Trainer automatique EFZ (h/f/d)"
       },
       "description": "Dein Antrieb\n Das Herzstück der BVZ Holding bilden das Bahnunternehmen Matterhorn Gotthard Bahn und die internationalen Top Marken Gornergrat Bahn und Glacier Express. Leidenschaftliche und qualifizierte Mitarbeitende bilden die Grundlage unseres Erfolges. Täglich engagieren sich rund 700 Mitarbeitende, um unseren Gästen ein erstklassiges Erlebnis zu bieten. Wir leben Vielfalt und haben eines gemeinsam:\n Emotionen sind unser Antrieb. Was ist dein Antrieb?\n\nAb Lehrbeginn 1. August 2027 suchen wir einen Lernenden in unserer Polywerkstatt im Glisergrund.\n Dein Wirkungsfeld\n\n• Du entdeckst die spannende Welt der Fahrzeugtechnik und arbeitest von Anfang an im Team mit\n\n• Du hilfst bei Unterhalts-, Reparatur- und Servicearbeiten an unseren Fahrzeugen mit\n\n• Du suchst gemeinsam mit erfahrenen Fachpersonen die Ursache von Störungen am Rollmaterial und bringst unsere Lokomotiven und Triebzüge wieder zum Laufen\n\n• Du montierst, prüfst und verdrahtest elektrische Komponenten\n\n• Du übernimmst mit zunehmender Erfahrung selbstständig kleinere Aufträge und Projekte\n Dein Profil\n\n• Du tüftelst gerne und interessierst dich für Technik\n\n• Züge und die Welt des öffentlichen Verkehrs faszinieren dich\n\n• Du arbeitest gerne mit Werkzeugen und packst praktisch mit an\n\n• Du bist motiviert Neues zu lernen und möchtest wissen, wie Dinge funktionieren\n\n• Auf dich ist Verlass und du arbeitest sowohl selbstständig als auch im Team gut mit\n Deine Vorteile\n\n• Abwechslungsreicher und spannender Einstieg in die Berufswelt\n\n• Praxisnahe Ausbildung mit verantwortungsvollen, interessanten Arbeiten\n\n• Gratis-GA und weitere attraktive Benefits entlang unserer Bahnstrecke\n\n• Jährlicher Lernendenausflug und Teamevents\n\n• Finanzielle Beteiligung am Handyabo sowie am privaten Laptop für die Berufsschule\n\n• 6 Wochen Ferien im Jahr während deiner Lehrzeit",
       "descriptionByLocale": {
-        "de": "Dein Antrieb\n Das Herzstück der BVZ Holding bilden das Bahnunternehmen Matterhorn Gotthard Bahn und die internationalen Top Marken Gornergrat Bahn und Glacier Express. Leidenschaftliche und qualifizierte Mitarbeitende bilden die Grundlage unseres Erfolges. Täglich engagieren sich rund 700 Mitarbeitende, um unseren Gästen ein erstklassiges Erlebnis zu bieten. Wir leben Vielfalt und haben eines gemeinsam:\n Emotionen sind unser Antrieb. Was ist dein Antrieb?\n\nAb Lehrbeginn 1. August 2027 suchen wir einen Lernenden in unserer Polywerkstatt im Glisergrund.\n Dein Wirkungsfeld\n\n• Du entdeckst die spannende Welt der Fahrzeugtechnik und arbeitest von Anfang an im Team mit\n\n• Du hilfst bei Unterhalts-, Reparatur- und Servicearbeiten an unseren Fahrzeugen mit\n\n• Du suchst gemeinsam mit erfahrenen Fachpersonen die Ursache von Störungen am Rollmaterial und bringst unsere Lokomotiven und Triebzüge wieder zum Laufen\n\n• Du montierst, prüfst und verdrahtest elektrische Komponenten\n\n• Du übernimmst mit zunehmender Erfahrung selbstständig kleinere Aufträge und Projekte\n Dein Profil\n\n• Du tüftelst gerne und interessierst dich für Technik\n\n• Züge und die Welt des öffentlichen Verkehrs faszinieren dich\n\n• Du arbeitest gerne mit Werkzeugen und packst praktisch mit an\n\n• Du bist motiviert Neues zu lernen und möchtest wissen, wie Dinge funktionieren\n\n• Auf dich ist Verlass und du arbeitest sowohl selbstständig als auch im Team gut mit\n Deine Vorteile\n\n• Abwechslungsreicher und spannender Einstieg in die Berufswelt\n\n• Praxisnahe Ausbildung mit verantwortungsvollen, interessanten Arbeiten\n\n• Gratis-GA und weitere attraktive Benefits entlang unserer Bahnstrecke\n\n• Jährlicher Lernendenausflug und Teamevents\n\n• Finanzielle Beteiligung am Handyabo sowie am privaten Laptop für die Berufsschule\n\n• 6 Wochen Ferien im Jahr während deiner Lehrzeit",
-        "it": "Il tuo drive\n Il cuore di BVZ Holding è la compagnia ferroviaria Matterhorn Gotthard Bahn e le migliori marche internazionali Gornergrat Bahn e Glacier Express. Dipendenti appassionati e qualificati costituiscono la base del nostro successo. Ogni giorno circa 700 dipendenti si impegnano a offrire ai nostri ospiti un'esperienza di prima classe. Viviamo la diversità e abbiamo una cosa in comune:\n Le emozioni sono la nostra guida. Qual e' la tua macchina?\n\nDall'inizio della formazione. Agosto 2027 stiamo cercando un apprendista nel nostro Polywerkstatt im Glisergrund.\n Il tuo campo di attività\n\n• Scoprirete l'emozionante mondo della tecnologia dei veicoli e del lavoro nel team fin dall'inizio\n\n• Ti aiuterà con manutenzione, riparazione e lavoro di servizio sui nostri veicoli\n\n• Insieme a esperti esperti, troverete la causa di difetti sul materiale rotabile e ottenere le nostre locomotive e treni che funzionano di nuovo\n\n• assemblare, testare e cablare componenti elettrici\n\n• Si prende su ordini e progetti più piccoli indipendentemente con l'esperienza crescente\n Il tuo profilo\n\n• Ti piace lavorare e sono interessati alla tecnologia\n\n• I treni e il mondo dei trasporti pubblici ti affascinano\n\n• Ti piace lavorare con gli strumenti e ottenere pratico\n\n• Sei motivato ad imparare cose nuove e vuoi sapere come funzionano le cose\n\n• Affidati a te e lavori bene sia indipendentemente che in squadra\n I vantaggi\n\n• Variato ed emozionante ingresso nel mondo professionale\n\n• Formazione pratica con lavoro responsabile e interessante\n\n• Gratis GA e altri benefici interessanti lungo la nostra linea ferroviaria\n\n• Apprendistato annuale ed eventi di squadra\n\n• Partecipazione finanziaria all'abbonamento mobile e al portatile privato per la scuola professionale\n\n• 6 settimane di vacanza all'anno durante il vostro apprendistato",
-        "en": "Your drive\n The heart of BVZ Holding is the railway company Matterhorn Gotthard Bahn and the international top brands Gornergrat Bahn and Glacier Express. Passionate and qualified employees form the basis of our success. Every day, around 700 employees are committed to offering our guests a first-class experience. We live diversity and have one thing in common:\n Emotions are our drive. What is your drive?\n\nFrom the beginning of the training. August 2027 we are looking for a learner in our Polywerkstatt im Glisergrund.\n Your field of activity\n\n• You will discover the exciting world of vehicle technology and work in the team right from the start\n\n• You will help with maintenance, repair and service work on our vehicles\n\n• Together with experienced experts, you will find the cause of faults on the rolling stock and get our locomotives and trainsets running again\n\n• You assemble, test and wire electrical components\n\n• You take on smaller orders and projects independently with increasing experience\n Your profile\n\n• You like to work and are interested in technology\n\n• Trains and the world of public transport fascinate you\n\n• You like to work with tools and get practical\n\n• You are motivated to learn new things and want to know how things work\n\n• Rely on you and you work well both independently and in the team\n Your advantages\n\n• Varied and exciting entry into the professional world\n\n• Practical training with responsible, interesting work\n\n• Free GA and other attractive benefits along our railway line\n\n• Annual apprenticeship and team events\n\n• Financial participation in the mobile subscription and the private laptop for the vocational school\n\n• 6 weeks of vacation a year during your apprenticeship",
-        "fr": "Votre disque\n Le cœur de BVZ Holding est la compagnie ferroviaire Matterhorn Gotthard Bahn et les grandes marques internationales Gornergrat Bahn et Glacier Express. Des employés passionnés et qualifiés constituent la base de notre succès. Chaque jour, environ 700 employés s'engagent à offrir à leurs clients une expérience de première classe. Nous vivons la diversité et avons une chose en commun:\n Les émotions sont notre moteur. Quelle est votre conduite ?\n\nDès le début de la formation. Août 2027 nous recherchons un apprenant dans notre Polywerkstatt im Glisergrund.\n Votre domaine d'activité\n\n• Vous découvrirez le monde passionnant de la technologie des véhicules et travailler dans l'équipe dès le départ\n\n• Vous aiderez à l'entretien, la réparation et le service de nos véhicules\n\n• Avec des experts expérimentés, vous trouverez la cause des pannes sur le matériel roulant et de faire fonctionner à nouveau nos locomotives et rames\n\n• Vous assemblez, testez et filez des composants électriques\n\n• Vous prenez des commandes et des projets plus petits indépendamment avec l'expérience croissante\n Votre profil\n\n• Vous aimez travailler et êtes intéressé par la technologie\n\n• Les trains et le monde des transports en commun vous fascinent\n\n• Vous aimez travailler avec des outils et devenir pratique\n\n• Vous êtes motivé à apprendre de nouvelles choses et voulez savoir comment les choses fonctionnent\n\n• Faites confiance à vous et vous travaillez bien, indépendamment et dans l'équipe\n Vos avantages\n\n• Entrée variée et passionnante dans le monde professionnel\n\n• Formation pratique avec un travail responsable et intéressant\n\n• Gratuit GA et autres avantages attrayants le long de notre ligne de chemin de fer\n\n• Apprentissage annuel et événements en équipe\n\n• Participation financière à l'abonnement mobile et à l'ordinateur portable privé pour l'école professionnelle\n\n• 6 semaines de vacances par an pendant votre apprentissage"
+        "it": "Il tuo drive\nIl cuore di BVZ Holding è la compagnia ferroviaria Matterhorn Gotthard Bahn e le migliori marche internazionali Gornergrat Bahn e Glacier Express. Dipendenti appassionati e qualificati costituiscono la base del nostro successo. Ogni giorno circa 700 dipendenti si impegnano a offrire ai nostri ospiti un'esperienza di prima classe. Viviamo la diversità e abbiamo una cosa in comune:\nLe emozioni sono la nostra guida. Qual e' la tua macchina?\n\nDall'inizio della formazione. Agosto 2027 stiamo cercando un apprendista nel nostro Polywerkstatt im Glisergrund.\nIl tuo campo di attività\n\n• Scoprirete l'emozionante mondo della tecnologia dei veicoli e del lavoro nel team fin dall'inizio\n\n• Ti aiuterà con manutenzione, riparazione e lavoro di servizio sui nostri veicoli\n\n• Insieme a esperti esperti, troverete la causa di difetti sul materiale rotabile e ottenere le nostre locomotive e treni che funzionano di nuovo\n\n• assemblare, testare e cablare componenti elettrici\n\n• Si prende su ordini e progetti più piccoli indipendentemente con l'esperienza crescente\nIl tuo profilo\n\n• Ti piace lavorare e sono interessati alla tecnologia\n\n• I treni e il mondo dei trasporti pubblici ti affascinano\n\n• Ti piace lavorare con gli strumenti e ottenere pratico\n\n• Sei motivato ad imparare cose nuove e vuoi sapere come funzionano le cose\n\n• Affidati a te e lavori bene sia indipendentemente che in squadra\nI vantaggi\n\n• Variato ed emozionante ingresso nel mondo professionale\n\n• Formazione pratica con lavoro responsabile e interessante\n\n• Gratis GA e altri benefici interessanti lungo la nostra linea ferroviaria\n\n• Apprendistato annuale ed eventi di squadra\n\n• Partecipazione finanziaria all'abbonamento mobile e al portatile privato per la scuola professionale\n\n• 6 settimane di vacanza all'anno durante il vostro apprendistato",
+        "en": "Your drive\nThe heart of BVZ Holding is the railway company Matterhorn Gotthard Bahn and the international top brands Gornergrat Bahn and Glacier Express. Passionate and qualified employees form the basis of our success. Every day, around 700 employees are committed to offering our guests a first-class experience. We live diversity and have one thing in common:\nEmotions are our drive. What is your drive?\n\nFrom the beginning of the training. August 2027 we are looking for a learner in our Polywerkstatt im Glisergrund.\nYour field of activity\n\n• You will discover the exciting world of vehicle technology and work in the team right from the start\n\n• You will help with maintenance, repair and service work on our vehicles\n\n• Together with experienced experts, you will find the cause of faults on the rolling stock and get our locomotives and trainsets running again\n\n• You assemble, test and wire electrical components\n\n• You take on smaller orders and projects independently with increasing experience\nYour profile\n\n• You like to work and are interested in technology\n\n• Trains and the world of public transport fascinate you\n\n• You like to work with tools and get practical\n\n• You are motivated to learn new things and want to know how things work\n\n• Rely on you and you work well both independently and in the team\nYour advantages\n\n• Varied and exciting entry into the professional world\n\n• Practical training with responsible, interesting work\n\n• Free GA and other attractive benefits along our railway line\n\n• Annual apprenticeship and team events\n\n• Financial participation in the mobile subscription and the private laptop for the vocational school\n\n• 6 weeks of vacation a year during your apprenticeship",
+        "de": "Dein Antrieb\nDas Herzstück der BVZ Holding bilden das Bahnunternehmen Matterhorn Gotthard Bahn und die internationalen Top Marken Gornergrat Bahn und Glacier Express. Leidenschaftliche und qualifizierte Mitarbeitende bilden die Grundlage unseres Erfolges. Täglich engagieren sich rund 700 Mitarbeitende, um unseren Gästen ein erstklassiges Erlebnis zu bieten. Wir leben Vielfalt und haben eines gemeinsam:\nEmotionen sind unser Antrieb. Was ist dein Antrieb?\n\nAb Lehrbeginn 1. August 2027 suchen wir einen Lernenden in unserer Polywerkstatt im Glisergrund.\nDein Wirkungsfeld\n\n• Du entdeckst die spannende Welt der Fahrzeugtechnik und arbeitest von Anfang an im Team mit\n\n• Du hilfst bei Unterhalts-, Reparatur- und Servicearbeiten an unseren Fahrzeugen mit\n\n• Du suchst gemeinsam mit erfahrenen Fachpersonen die Ursache von Störungen am Rollmaterial und bringst unsere Lokomotiven und Triebzüge wieder zum Laufen\n\n• Du montierst, prüfst und verdrahtest elektrische Komponenten\n\n• Du übernimmst mit zunehmender Erfahrung selbstständig kleinere Aufträge und Projekte\nDein Profil\n\n• Du tüftelst gerne und interessierst dich für Technik\n\n• Züge und die Welt des öffentlichen Verkehrs faszinieren dich\n\n• Du arbeitest gerne mit Werkzeugen und packst praktisch mit an\n\n• Du bist motiviert Neues zu lernen und möchtest wissen, wie Dinge funktionieren\n\n• Auf dich ist Verlass und du arbeitest sowohl selbstständig als auch im Team gut mit\nDeine Vorteile\n\n• Abwechslungsreicher und spannender Einstieg in die Berufswelt\n\n• Praxisnahe Ausbildung mit verantwortungsvollen, interessanten Arbeiten\n\n• Gratis-GA und weitere attraktive Benefits entlang unserer Bahnstrecke\n\n• Jährlicher Lernendenausflug und Teamevents\n\n• Finanzielle Beteiligung am Handyabo sowie am privaten Laptop für die Berufsschule\n\n• 6 Wochen Ferien im Jahr während deiner Lehrzeit",
+        "fr": "Votre disque\nLe cœur de BVZ Holding est la compagnie ferroviaire Matterhorn Gotthard Bahn et les grandes marques internationales Gornergrat Bahn et Glacier Express. Des employés passionnés et qualifiés constituent la base de notre succès. Chaque jour, environ 700 employés s'engagent à offrir à leurs clients une expérience de première classe. Nous vivons la diversité et avons une chose en commun:\nLes émotions sont notre moteur. Quelle est votre conduite ?\n\nDès le début de la formation. Août 2027 nous recherchons un apprenant dans notre Polywerkstatt im Glisergrund.\nVotre domaine d'activité\n\n• Vous découvrirez le monde passionnant de la technologie des véhicules et travailler dans l'équipe dès le départ\n\n• Vous aiderez à l'entretien, la réparation et le service de nos véhicules\n\n• Avec des experts expérimentés, vous trouverez la cause des pannes sur le matériel roulant et de faire fonctionner à nouveau nos locomotives et rames\n\n• Vous assemblez, testez et filez des composants électriques\n\n• Vous prenez des commandes et des projets plus petits indépendamment avec l'expérience croissante\nVotre profil\n\n• Vous aimez travailler et êtes intéressé par la technologie\n\n• Les trains et le monde des transports en commun vous fascinent\n\n• Vous aimez travailler avec des outils et devenir pratique\n\n• Vous êtes motivé à apprendre de nouvelles choses et voulez savoir comment les choses fonctionnent\n\n• Faites confiance à vous et vous travaillez bien, indépendamment et dans l'équipe\nVos avantages\n\n• Entrée variée et passionnante dans le monde professionnel\n\n• Formation pratique avec un travail responsable et intéressant\n\n• Gratuit GA et autres avantages attrayants le long de notre ligne de chemin de fer\n\n• Apprentissage annuel et événements en équipe\n\n• Participation financière à l'abonnement mobile et à l'ordinateur portable privé pour l'école professionnelle\n\n• 6 semaines de vacances par an pendant votre apprentissage"
       },
       "location": "Brig",
       "canton": "VS",
       "url": "https://jobs.bvzholding.ch/Lehrstelle-Automatiker-EFZ-mwd-de-j730.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:14.928Z",
+      "crawledAt": "2026-09-26T14:10:46.698Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -864,7 +856,10 @@
           "Züge und die Welt des öffentlichen Verkehrs faszinieren dich",
           "Du arbeitest gerne mit Werkzeugen und packst praktisch mit an",
           "Du bist motiviert Neues zu lernen und möchtest wissen, wie Dinge funktionieren",
-          "Auf dich ist Verlass und du arbeitest sowohl selbstständig als auch im Team gut mit"
+          "Auf dich ist Verlass und du arbeitest sowohl selbstständig als auch im Team gut mit",
+          "Du t ftelst gerne und interessierst dich f r Technik",
+          "Z ge und die Welt des ffentlichen Verkehrs faszinieren dich",
+          "Du bist motiviert Neues zu lernen und m chtest wissen, wie Dinge funktionieren"
         ]
       },
       "_mgbMeta": {
@@ -874,11 +869,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-automatiker-efz-m-w-d-matterhorn-gotthard-bahn-ch",
+          "apprendistato-automatiker-cfc-m-w-d-matterhorn-gotthard-bahn-brig"
+        ],
+        "en": [
+          "lehrstelle-automatiker-efz-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "fr": [
           "lehrstelle-automatiker-efz-m-w-d-matterhorn-gotthard-bahn-ch"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-automatiker-efz-m-w-d-matterhorn-gotthard-bahn-ch"
+        "lehrstelle-automatiker-efz-m-w-d-matterhorn-gotthard-bahn-ch",
+        "apprendistato-automatiker-cfc-m-w-d-matterhorn-gotthard-bahn-brig"
       ],
       "salaryMin": 49000,
       "salaryMax": 74500,
@@ -894,7 +897,8 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-09-25T14:55:14.928Z"
+      "firstSeenAt": "2026-09-25T14:55:14.928Z",
+      "needsRetranslation": true
     },
     {
       "id": "matterhorn-gotthard-bahn-7b524ff6c89e",
@@ -927,7 +931,7 @@
       "url": "https://jobs.bvzholding.ch/Ingenieur-Bahninfrastruktur-mwd-de-j731.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:13.955Z",
+      "crawledAt": "2026-09-26T14:10:45.867Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -961,13 +965,11 @@
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
       "previousSlugs": [
-        "ingenieur-bahninfrastruktur-m-w-d-matterhorn-gotthard-bahn-ch",
-        "infrastruttura-ferroviaria-ingegnere-m-f-d-matterhorn-gotthard-bahn-brig"
+        "ingenieur-bahninfrastruktur-m-w-d-matterhorn-gotthard-bahn-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-bahninfrastruktur-m-w-d-matterhorn-gotthard-bahn-ch",
-          "infrastruttura-ferroviaria-ingegnere-m-f-d-matterhorn-gotthard-bahn-brig"
+          "ingenieur-bahninfrastruktur-m-w-d-matterhorn-gotthard-bahn-ch"
         ],
         "en": [
           "ingenieur-bahninfrastruktur-m-w-d-matterhorn-gotthard-bahn-ch"
@@ -990,13 +992,14 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "matterhorn-gotthard-bahn-41586bb36b7c",
       "slug": "filettaio-network-elettrico-m-w-d-matterhorn-gotthard-bahn-brig",
       "slugByLocale": {
-        "it": "filettaio-network-elettrico-m-w-d-matterhorn-gotthard-bahn-brig",
+        "it": "elettricista-m-f-d-matterhorn-gotthard-bahn-brig",
         "en": "catenary-fitter-network-electrician-m-f-d-matterhorn-gotthard-bahn-brig",
         "de": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
         "fr": "electricien-du-reseau-installateur-catenaire-m-f-d-matterhorn-gotthard-bahn-brig"
@@ -1023,7 +1026,7 @@
       "url": "https://jobs.bvzholding.ch/Fahrleitungsmonteur-Netzelektriker-mwd-de-j689.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:12.995Z",
+      "crawledAt": "2026-09-26T14:10:45.034Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -1064,16 +1067,12 @@
       },
       "previousSlugs": [
         "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig",
-        "elettricista-m-f-d-matterhorn-gotthard-bahn-brig",
-        "filettaio-network-elettrico-m-w-d-matterhorn-gotthard-bahn-brig"
+        "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig",
-          "elettricista-m-f-d-matterhorn-gotthard-bahn-brig",
-          "filettaio-network-elettrico-m-w-d-matterhorn-gotthard-bahn-brig"
+          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig"
         ]
       },
       "firstSeenAt": "2026-09-07T15:24:41.109Z",
@@ -1090,7 +1089,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "matterhorn-gotthard-bahn-062e2c43af0e",
@@ -1123,7 +1123,7 @@
       "url": "https://jobs.bvzholding.ch/Elektroinstallateur-Fachspezialist-Elektro-und-Sicherungsa-de-j624.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:55:12.031Z",
+      "crawledAt": "2026-09-26T14:10:44.193Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -1166,13 +1166,11 @@
       },
       "previousSlugs": [
         "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard",
-        "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard-bahn-zermatt",
-        "installatore-trice-elettrico-a-fachspezialist-elektro-e-sicherungsanlagen-m-w-d-matterhorn-gotthard-bahn-zermatt"
+        "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard-bahn-zermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard",
-          "installatore-trice-elettrico-a-fachspezialist-elektro-e-sicherungsanlagen-m-w-d-matterhorn-gotthard-bahn-zermatt"
+          "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard"
         ],
         "en": [
           "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard-bahn-zermatt"
@@ -1195,7 +1193,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     }
   ]
 }

@@ -94336,6 +94336,201 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-protesta-impianto-betonaggio-intelvi': {
+    title: 'Protesta a Castiglione d\'Intelvi per impianto betonaggio',
+    description: 'Oltre 750 firme contro l\'impianto di betonaggio e frantoio a Castiglione d\'Intelvi. Timori per ambiente, salute e traffico pesante nella Valle d\'Intelvi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, protesta, castiglione, intelvi, impianto',
+    ogTitle: 'No a l\'impianto di betonaggio a Castiglione d\'Intelvi',
+    ogDescription: 'Oltre 750 firme raccolte in sei giorni. I cittadini della Valle d\'Intelvi protestano contro la localizzazione di un impianto di betonaggio e frantoio, temendo inquinamento e traffico pesante.',
+    canonicalPath: '/articoli-frontaliere/protesta-impianto-betonaggio-intelvi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Protesta a Castiglione d'Intelvi per impianto betonaggio",
+      "description": "Oltre 750 firme contro l'impianto di betonaggio e frantoio a Castiglione d'Intelvi. Timori per ambiente, salute e traffico pesante nella Valle d'Intelvi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/protesta-impianto-betonaggio-intelvi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio della Valle d'Intelvi con strade strette e tortuose"
+      },
+      "datePublished": "2026-09-26T13:24:58+00:00",
+      "dateModified": "2026-09-26T13:24:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/protesta-impianto-betonaggio-intelvi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-merone-pendolare-frontiera-ch': {
+    title: 'Vivere a Merone e lavorare in Ticino da frontaliere',
+    description: 'Merone-Ticino da frontaliere: regole dell\'Accordo 2024, franchigie di 7.500 e 10.000 euro, imposta alla fonte svizzera, AVS, LPP, LAMal e doppia imposizione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, merone, lavorare, cosa',
+    ogTitle: 'Vivere a Merone e lavorare in Ticino da frontaliere',
+    ogDescription: 'Vivere a Merone e lavorare nel Canton Ticino richiede di distinguere vecchi e nuovi frontalieri, credito nel quadro CE del 730, trattenute svizzere, AVS, LPP e diritto d\'opzione LAMal. L\'Accordo è firmato nel 2020 e in vigore dal 2024.',
+    canonicalPath: '/articoli-frontaliere/merone-pendolare-frontiera-ch',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Merone e lavorare in Ticino da frontaliere",
+      "description": "Merone-Ticino da frontaliere: regole dell'Accordo 2024, franchigie di 7.500 e 10.000 euro, imposta alla fonte svizzera, AVS, LPP, LAMal e doppia imposizione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/merone-pendolare-frontiera-ch.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada mattutina in Ticino per chi vive a Merone e lavora oltreconfine"
+      },
+      "datePublished": "2026-09-26T14:33:31+00:00",
+      "dateModified": "2026-09-26T14:33:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/merone-pendolare-frontiera-ch/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-rapina-como-residente-ticino': {
+    title: 'Rapina a Como: arrestato residente in Ticino | Frontaliere Ticino',
+    description: 'Arrestato a Como un 32enne italiano residente nel Bellinzonese: è uno dei due fermati per la rapina in gioielleria del 24 aprile, con un bottino da 90\'000 euro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rapina, como, arrestato, residente',
+    ogTitle: 'Rapina a Como, arrestato residente in Ticino',
+    ogDescription: 'A Como, la Polizia di Stato ha arrestato gli ultimi due latitanti della rapina a mano armata in via Asiago. Tra loro un 32enne italiano residente nel Bellinzonese; l\'inchiesta della Squadra Mobile ha portato anche al recupero di parte',
+    canonicalPath: '/articoli-frontaliere/rapina-como-residente-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rapina a Como: arrestato residente in Ticino",
+      "description": "Arrestato a Como un 32enne italiano residente nel Bellinzonese: è uno dei due fermati per la rapina in gioielleria del 24 aprile, con un bottino da 90'000 euro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rapina-como-residente-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Polizia e gioielleria a Como dopo la rapina del 24 aprile; arrestato un residente nel Bellinzonese."
+      },
+      "datePublished": "2026-09-26T15:24:58+00:00",
+      "dateModified": "2026-09-26T15:24:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rapina-como-residente-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cantieri-reti-gas-acqua-varese': {
+    title: 'Varese: cantieri gas e acqua in tre vie fino ad aprile 2027',
+    description: 'Lavori di rinnovamento reti gas e acqua a Varese in via Masolino da Panicale, Pagliano e Giovannini. Divieto di transito e sosta fino al 2 aprile 2027.',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, cantieri, acqua, fino',
+    ogTitle: 'Varese: cantieri gas e acqua in tre vie fino ad aprile 2027',
+    ogDescription: 'Al via i lavori di rinnovamento delle reti di distribuzione gas e acqua a Varese. Scopri le date e le vie interessate: Masolino da Panicale, Pagliano e Giovannini.',
+    canonicalPath: '/articoli-frontaliere/cantieri-reti-gas-acqua-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: cantieri gas e acqua in tre vie fino ad aprile 2027",
+      "description": "Lavori di rinnovamento reti gas e acqua a Varese in via Masolino da Panicale, Pagliano e Giovannini. Divieto di transito e sosta fino al 2 aprile 2027.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cantieri-reti-gas-acqua-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavori di rinnovamento reti gas e acqua a Varese"
+      },
+      "datePublished": "2026-09-26T16:24:18+00:00",
+      "dateModified": "2026-09-26T16:24:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cantieri-reti-gas-acqua-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-erba-punto-nascita-interrogazione-lega': {
+    title: 'Chiusura punto nascita Erba: interrogazione Lega',
+    description: 'La prossima chiusura del punto nascita di Erba arriva in Parlamento: Eugenio Zoffili chiede tavoli tecnici e deroghe al ministro Schillaci. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiusura, punto, nascita, erba',
+    ogTitle: 'Chiusura punto nascita Erba: interrogazione Lega',
+    ogDescription: 'Il deputato comasco Eugenio Zoffili contesta la prossima chiusura del punto nascita dell’Ospedale di Erba e propone un confronto tra Governo, Regione Lombardia e territorio per valutare deroghe e condizioni di continuità.',
+    canonicalPath: '/articoli-frontaliere/erba-punto-nascita-interrogazione-lega',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiusura punto nascita Erba: interrogazione Lega",
+      "description": "La prossima chiusura del punto nascita di Erba arriva in Parlamento: Eugenio Zoffili chiede tavoli tecnici e deroghe al ministro Schillaci. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/erba-punto-nascita-interrogazione-lega.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale di Erba al centro della discussione sulla chiusura del punto nascita"
+      },
+      "datePublished": "2026-09-26T17:11:15+00:00",
+      "dateModified": "2026-09-26T17:11:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/erba-punto-nascita-interrogazione-lega/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
