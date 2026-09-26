@@ -305,6 +305,37 @@ describe('jobAlertMatching — explicit location/canton is a HARD filter', () =>
     const zurichJob = job({ location: 'Zurich', addressLocality: 'Zurich', addressRegion: 'ZH', canton: 'ZH' });
     expect(score(zurichJob, { keywords: ['engineer'] }, sub)).toBeGreaterThan(0);
   });
+
+  it('backfilled source-job location stays soft and does not hard-filter related jobs', () => {
+    const subscriber = {
+      job_location: 'Lugano',
+      job_category: 'health',
+      source_channel: 'job_gate',
+    };
+    const alert = buildAlertPayload(
+      'a@b.ch',
+      {
+        job_search_query: 'fisioterapista',
+        job_category: 'health',
+        job_location: 'Lugano',
+        source_channel: 'job_gate',
+      },
+      null,
+    );
+    const relatedJobOutsideSourceCity = job({
+      title: 'Fisioterapista',
+      description: 'Cerchiamo un fisioterapista a Zurich.',
+      location: 'Zurich',
+      addressLocality: 'Zurich',
+      addressRegion: 'ZH',
+      canton: 'ZH',
+      sector: 'Sanità',
+      category: 'Cura',
+    });
+
+    expect(alert.locations).toEqual([]);
+    expect(score(relatedJobOutsideSourceCity, alert, subscriber)).toBeGreaterThan(0);
+  });
 });
 
 describe('jobAlertMatching — job-specific scope (per-job / per-employer alert)', () => {

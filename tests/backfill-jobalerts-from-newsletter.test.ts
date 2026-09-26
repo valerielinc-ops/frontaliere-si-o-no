@@ -413,7 +413,7 @@ describe('backfill-jobalerts-from-newsletter — buildAlertPayload', () => {
     expect(payload.sectors).toEqual(['health']);
   });
 
-  it('keeps the source offer title soft instead of making it an exact hard keyword', () => {
+  it('keeps source-offer title and location soft instead of making them hard criteria', () => {
     const payload = buildAlertPayload(
       'a@b.ch',
       {
@@ -427,8 +427,40 @@ describe('backfill-jobalerts-from-newsletter — buildAlertPayload', () => {
 
     expect(payload.keywords).toEqual([]);
     expect(payload.sourceJobTitle).toBe('Senior Fisioterapista');
-    expect(payload.locations).toEqual(['Lugano']);
+    expect(payload.locations).toEqual([]);
     expect(payload.sectors).toEqual(['health']);
+  });
+
+  it('migrates an untouched legacy source location but preserves edited alert locations', () => {
+    const source = {
+      job_category: 'health',
+      job_location: 'Lugano',
+      source_channel: 'job_gate',
+    };
+
+    expect(buildAlertPayload(
+      'a@b.ch',
+      source,
+      { locations: ['Lugano'] },
+    ).locations).toEqual([]);
+    expect(buildAlertPayload(
+      'a@b.ch',
+      source,
+      { locations: ['Lugano', 'Bellinzona'] },
+    ).locations).toEqual(['Lugano', 'Bellinzona']);
+  });
+
+  it('preserves a legacy location edited by whitespace or casing', () => {
+    const payload = buildAlertPayload(
+      'a@b.ch',
+      {
+        job_location: 'Lugano',
+        source_channel: 'job_gate',
+      },
+      { locations: [' Lugano '] },
+    );
+
+    expect(payload.locations).toEqual([' Lugano ']);
   });
 
   it('does not promote a recovered source title to a hard keyword', () => {
