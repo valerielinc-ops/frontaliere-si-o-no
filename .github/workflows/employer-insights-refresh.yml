@@ -102,6 +102,7 @@ jobs:
           esac
 
       - name: Provision Employer Insights GA4 dimensions
+        if: env.INSIGHTS_SOURCE == 'ga4'
         run: node scripts/provision-employer-insights-ga4-dimensions.mjs
 
       - name: Count current employer snapshots
