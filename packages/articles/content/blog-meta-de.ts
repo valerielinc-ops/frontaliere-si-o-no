@@ -12082,6 +12082,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.m5s-vco-tavolo-frontalieri.title': 'Grenzgänger, M5S VCO fordert Antworten zu NASpI und Gesundheit',
     'blog.article.m5s-vco-tavolo-frontalieri.excerpt': 'Nach dem Treffen am 17 settembre in Rom fordert der M5S VCO einen verbindlichen Zeitplan für den Gesundheitsbeitrag, NASpI und die Steueroption.',
     'blog.article.m5s-vco-tavolo-frontalieri.imageAlt': 'Blick auf Lugano mit modernen Gebäuden und See',
+    'blog.article.derby-lugano-ambri-settembre-2026.title': 'Ambrì besiegt Lugano im ersten Derby der Saison mit 5:3',
+    'blog.article.derby-lugano-ambri-settembre-2026.excerpt': 'L\'Ambrì bezwingt die Cornèr Arena mit einem 5:3, das im zweiten Drittel entschieden wurde. Die Biancoblù kommen auf 11 Punkte, während Lugano mit 5 Punkten Letzter bleibt.',
+    'blog.article.derby-lugano-ambri-settembre-2026.imageAlt': 'Corner Arena in Lugano während des Hockey-Derbys zwischen Lugano und Ambrì',
 };
 
 export default blogMetaDe;

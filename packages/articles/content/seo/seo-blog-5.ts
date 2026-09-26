@@ -94609,6 +94609,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-derby-lugano-ambri-settembre-2026': {
+    title: 'L\'Ambrì batte il Lugano 5-3 nel primo derby stagionale',
+    description: 'L\'Ambrì espugna la Cornèr Arena battendo il Lugano 5-3. Analisi del match, marcatori e impatto sulla classifica del campionato di hockey. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, ambrì, batte, lugano, primo',
+    ogTitle: 'L\'Ambrì sbanca Lugano: vittoria 5-3 nel primo derby',
+    ogDescription: 'L\'Ambrì vince 5-3 contro il Lugano alla Cornèr Arena. I biancoblù salgono a 11 punti in 6 partite, mentre i bianconeri restano ultimi con 5 punti in 4 gare.',
+    canonicalPath: '/articoli-frontaliere/derby-lugano-ambri-settembre-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L'Ambrì batte il Lugano 5-3 nel primo derby stagionale",
+      "description": "L'Ambrì espugna la Cornèr Arena battendo il Lugano 5-3. Analisi del match, marcatori e impatto sulla classifica del campionato di hockey. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/derby-lugano-ambri-settembre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cornèr Arena di Lugano durante il derby di hockey tra Lugano e Ambrì"
+      },
+      "datePublished": "2026-09-26T21:00:58+00:00",
+      "dateModified": "2026-09-26T21:00:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/derby-lugano-ambri-settembre-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
