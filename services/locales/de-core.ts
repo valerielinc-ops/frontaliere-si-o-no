@@ -5,6 +5,8 @@ const deCore: Record<string, string> = {
  'whatsNew.v3968.title': 'Mehr Transparenz beim Bewerben',
  'whatsNew.v3968.applicationIntent.title': 'Klare Zustimmung beim Klick auf «Bewerben»',
  'whatsNew.v3968.applicationIntent.desc': 'Bevor du zur Arbeitgeberseite weitergeleitet wirst, erklären wir, was der Klick speichert, und unterscheiden Interesse von einer abgeschlossenen Bewerbung.',
+ 'whatsNew.v3968.applicationIntentDigest.title': 'Bewerbungserinnerungen im Wochen-Digest',
+ 'whatsNew.v3968.applicationIntentDigest.desc': 'Der Digest kann dich an Stellen erinnern, an denen du Interesse gezeigt hast, ohne eine abgeschickte Bewerbung zu unterstellen.',
  'whatsNew.v3966.title': 'Eine nützlichere Jobsuche',
  'whatsNew.v3966.jobSearchLoop.title': 'Neue Stellen, Kategorien und Alerts',
  'whatsNew.v3966.jobSearchLoop.desc': 'Setzen Sie Ihre Suche bei den letzten Besuchen fort, folgen Sie einer Kategorie und wechseln Sie zwischen verwandten Kategorien, Arbeitgebern sowie neuen Seiten für Deutschkenntnisse oder Berufseinstieg.',
