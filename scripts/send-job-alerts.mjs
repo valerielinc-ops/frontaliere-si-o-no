@@ -256,18 +256,24 @@ async function inspectLiveJobs(
       cache.set(url, await check(url));
     });
   }
-  const results = withUrls.map(({ job, url }) => ({ job, live: !url || cache.get(url) !== false }));
-  const checked = results.length;
-  const liveCount = results.filter((r) => r.live).length;
+  const results = withUrls.map(({ job, url }) => {
+    const known = !url || cache.has(url);
+    return { job, url, known, live: known && (!url || cache.get(url) !== false) };
+  });
+  const knownResults = results.filter((result) => result.known);
+  const knownLiveJobs = knownResults.filter((result) => result.live).map((result) => result.job);
+  const unknownJobs = results.filter((result) => !result.known).map((result) => result.job);
+  const checked = knownResults.length;
+  const liveCount = knownLiveJobs.length;
   if (checked >= JOB_LIVE_CHECK_FAIL_OPEN_MIN_SAMPLE && liveCount / checked < JOB_LIVE_CHECK_FAIL_OPEN_LIVE_RATIO) {
     console.warn(`   ⚠️  Live-link check: only ${liveCount}/${checked} job page(s) resolved live — suspected transient network issue, failing open (sending unfiltered) rather than emptying the alert`);
-    return { jobs, failOpen: true };
+    return { jobs, knownLiveJobs, unknownJobs, failOpen: true };
   }
   const deadCount = checked - liveCount;
   if (deadCount > 0) {
     console.log(`   🔗 Live-link check: ${deadCount}/${checked} job(s) filtered out (dead link — pulled/expired or not yet deployed)`);
   }
-  return { jobs: results.filter((r) => r.live).map((r) => r.job), failOpen: false };
+  return { jobs: knownLiveJobs, knownLiveJobs, unknownJobs, failOpen: false };
 }
 
 async function filterLiveJobs(jobs, locale, cache) {
@@ -334,7 +340,21 @@ async function rankLiveJobsForEmail(
       // than triggering another network scan. This keeps the replacement pool
       // live-orderable without reintroducing the pre-#9314 fan-out.
       const fullResult = await inspectWithinBudget(matched);
-      if (fullResult.failOpen) return rankEmailJobs(fullResult.jobs, { ...rankingOptions, limit });
+      if (fullResult.failOpen) {
+        const knownDeadUrls = new Set(
+          matched
+            .map((job) => jobPageUrl(job, locale))
+            .filter((url) => url && cache.get(url) === false),
+        );
+        const fallbackCandidates = [...fullResult.knownLiveJobs, ...fullResult.unknownJobs].filter((job) => {
+          const url = jobPageUrl(job, locale);
+          return !url || !knownDeadUrls.has(url);
+        });
+        return rankEmailJobs(
+          fallbackCandidates.length > 0 ? fallbackCandidates : fullResult.jobs,
+          { ...rankingOptions, limit },
+        );
+      }
       ranked = rankEmailJobs(fullResult.jobs, { ...rankingOptions, limit });
       continue;
     }

@@ -598,4 +598,35 @@ describe('bounded live-link shortlist (#9314)', () => {
     expect(live.map((job) => job.id)).toEqual(expected.map((job) => job.id));
     expect(checked).toHaveLength(5);
   });
+
+  it('does not rank the uncached tail after a bounded full-pool classification', async () => {
+    const matched = rankedJobs(20);
+    const cache = new Map(
+      matched.slice(0, 5).map((job) => [
+        `https://frontaliereticino.ch/cerca-lavoro-ticino/${job.slug}`,
+        true,
+      ]),
+    );
+    const checked = [];
+    const live = await rankLiveJobsForEmail(
+      matched,
+      'it',
+      cache,
+      rankingOptions,
+      {
+        limit: 10,
+        initialRanked: matched.slice(5, 10),
+        check: async (url) => {
+          checked.push(url);
+          return false;
+        },
+      },
+    );
+
+    expect(live.map((job) => job.id)).toEqual(
+      Array.from({ length: 5 }, (_, index) => `bounded-${index}`),
+    );
+    expect(live.every((job) => Number(job.id.replace('bounded-', '')) < 5)).toBe(true);
+    expect(checked).toHaveLength(5);
+  });
 });
