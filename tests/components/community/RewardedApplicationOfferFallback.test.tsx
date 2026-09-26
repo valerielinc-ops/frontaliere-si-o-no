@@ -352,6 +352,60 @@ describe('RewardedApplicationOffer — GPT fallback of a late Offerwall', () => 
     expect(screen.getByTestId('rewarded-application-retry')).toBeInTheDocument();
   });
 
+  // The phase is read from the DOM: `offerwall_visible` renders nothing,
+  // `offerwall_verifying` shows the loader without the GPT slot, and the GPT
+  // flow keeps the opt-in card with its slot mounted and no loader.
+  const expectGptFlowOnly = () => {
+    expect(screen.getByTestId('rewarded-application-offer')).toBeInTheDocument();
+    expect(screen.getByTestId('rewarded-application-opt-in')).toBeInTheDocument();
+    expect(screen.getByTestId('mock-google-rewarded')).toBeInTheDocument();
+    expect(screen.queryByTestId('rewarded-application-loading')).not.toBeInTheDocument();
+    expect(mocks.disposeRewardedWebAd).not.toHaveBeenCalled();
+  };
+
+  it('does not switch to offerwall_visible when a late Offerwall appears after the GPT video started', () => {
+    render(<RewardedApplicationOffer {...props} />);
+    slow();
+    callGpt('onReady', { requestId: 28 } satisfies Info);
+    appearTimeout();
+    callGpt('onOptIn', { requestId: 28 } satisfies Info);
+
+    // Only onShown: the report of a late Offerwall, with no close yet.
+    showOfferwall(7_400);
+    expectGptFlowOnly();
+    expect(tracked('rewarded_offerwall_shown')).toEqual([]);
+
+    callGpt('onGranted', { requestId: 28 } satisfies Info);
+    expect(props.onContinue).toHaveBeenCalledTimes(1);
+    expect(tracked('rewarded_offerwall_gpt_fallback_granted')).toHaveLength(1);
+  });
+
+  it('does not switch to offerwall_verifying when a late Offerwall closes after the GPT video started', () => {
+    // As on a browser without AbortController: the observer keeps reporting.
+    mocks.resolveOnAbort = false;
+    render(<RewardedApplicationOffer {...props} />);
+    slow();
+    callGpt('onReady', { requestId: 29 } satisfies Info);
+    appearTimeout();
+    callGpt('onOptIn', { requestId: 29 } satisfies Info);
+
+    // A close queued without its onShown, then a full appear-and-close.
+    act(() => {
+      mocks.releaseOptions?.onClosed?.({ shownMs: 7_000, closedMs: 8_000, root: 'fc-message-root' });
+    });
+    expectGptFlowOnly();
+    showOfferwall(8_200);
+    act(() => {
+      mocks.releaseOptions?.onClosed?.({ shownMs: 8_200, closedMs: 9_500, root: 'fc-message-root' });
+    });
+    expectGptFlowOnly();
+    expect(tracked('rewarded_offerwall_shown')).toEqual([]);
+
+    callGpt('onGranted', { requestId: 29 } satisfies Info);
+    expect(props.onContinue).toHaveBeenCalledTimes(1);
+    expect(tracked('rewarded_offerwall_gpt_fallback_granted')).toHaveLength(1);
+  });
+
   it('destroys a prepared slot when the Offerwall appears before the timeout', () => {
     render(<RewardedApplicationOffer {...props} />);
     slow();
