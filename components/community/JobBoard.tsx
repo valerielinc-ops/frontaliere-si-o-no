@@ -7174,14 +7174,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // click that reached the page behind the dialog): one gesture, one offer.
   if (applicationOfferOpenRef.current) return;
   const isExternal = isExternalApplicationJob(job);
+  // Keep anonymous job-board visitors on the sign-in/subscription funnel.
+  // The detail view is the only surface allowed to request the rewarded ad
+  // before sign-in, because it owns the canonical rewarded offer host.
+  recordJobApplicationIntent(job, surface);
   if (isExternal && assistedApplicationVariant === 'rewarded_ad' && !authUser?.uid && !isJobDetailView) {
-   // Keep anonymous job-board visitors on the sign-in/subscription funnel.
-   // The detail view is the only surface allowed to request the rewarded ad
-   // before sign-in, because it owns the canonical rewarded offer host.
    onRequireAuth?.();
    return;
   }
-  recordJobApplicationIntent(job, surface);
   const rewardedAccessExpiresAt = isExternal && assistedApplicationVariant === 'rewarded_ad'
    ? getRewardedApplicationAccessExpiresAt()
    : null;
