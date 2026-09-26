@@ -12,7 +12,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
 type Info = { requestId: number; detail?: string };
 
@@ -31,9 +31,12 @@ vi.mock('@/components/shared/GptRewardedAd', () => ({
 vi.mock('@/services/rewardedWebAd', () => ({
   ASSISTED_APPLICATION_REWARDED_AD_UNIT_PATH: '/23355151813/rewarded-application-video',
   REWARDED_WEB_AD_FORMAT: 'rewarded_web',
+  disposeRewardedWebAd: vi.fn(),
+  isRewardedWebAdEligible: () => true,
 }));
 vi.mock('@/services/rewardedApplicationAccess', () => ({
   grantRewardedApplicationAccess: mocks.grantRewardedApplicationAccess,
+  REWARDED_APPLICATION_ACCESS_TTL_HOURS: 1,
 }));
 vi.mock('@/services/assistedApplicationExperiment', () => ({
   trackAssistedApplicationEvent: mocks.trackAssistedApplicationEvent,
@@ -41,6 +44,7 @@ vi.mock('@/services/assistedApplicationExperiment', () => ({
 
 import RewardedApplicationOffer, { GPT_OPT_IN_READY_TIMEOUT_MS } from '@/components/community/RewardedApplicationOffer';
 import { isActive, POPUP_PRIORITY, releaseSlot, requestSlot } from '@/services/popupQueue';
+import { itReady } from '@/services/i18n';
 
 const callProp = <T extends unknown[]>(name: string, ...args: T) => {
   act(() => {
@@ -70,6 +74,10 @@ const defaultProps = {
   onUnavailable: vi.fn(),
 };
 
+beforeAll(async () => {
+  await itReady;
+});
+
 beforeEach(() => {
   mocks.props = null;
   vi.clearAllMocks();
@@ -96,7 +104,7 @@ describe('RewardedApplicationOffer — GPT path (no Offerwall held)', () => {
 
     const loading = screen.getByTestId('rewarded-application-loading');
     expect(loading).toHaveAttribute('role', 'status');
-    expect(loading).toHaveTextContent('Apertura dell’offerta…');
+    expect(loading).toHaveTextContent('Apertura di «Fisioterapista diplomato»…');
     expect(loading.textContent).not.toMatch(/video|google|pubblicit/i);
     expect(document.activeElement).toBe(loading);
     // Mounted (the request runs) but hidden until the slot is ready.
@@ -114,7 +122,8 @@ describe('RewardedApplicationOffer — GPT path (no Offerwall held)', () => {
     const card = screen.getByTestId('rewarded-application-opt-in');
     expect(card).not.toHaveClass('hidden');
     expect(card).toHaveAttribute('role', 'dialog');
-    expect(card).toHaveTextContent('Guarda un breve video per aprire l’offerta');
+    expect(card).toHaveTextContent('Guarda un breve video per candidarti a «Fisioterapista diplomato»');
+    expect(screen.getByTestId('rewarded-application-opt-in-subtitle')).toHaveTextContent('Poi 1 ora di candidature senza video');
     expect(mocks.props?.label).toBe('Guarda il video');
     expect(screen.queryByTestId('rewarded-application-loading')).not.toBeInTheDocument();
     expect(document.activeElement).toBe(card);
@@ -239,7 +248,7 @@ describe('RewardedApplicationOffer — GPT path (no Offerwall held)', () => {
     expect(mocks.grantRewardedApplicationAccess).toHaveBeenCalledTimes(1);
     expect(onContinue).toHaveBeenCalledTimes(1);
     expect(tracked('rewarded_ad_granted')).toEqual([expect.objectContaining({ ...adContext, request_id: 9 })]);
-    expect(screen.getByTestId('rewarded-application-loading')).toHaveTextContent('Ti portiamo all’offerta…');
+    expect(screen.getByTestId('rewarded-application-loading')).toHaveTextContent('Ti portiamo a «Fisioterapista diplomato»…');
     expect(screen.queryByRole('button')).not.toBeInTheDocument();
 
     // The close that follows the grant does not continue twice.
@@ -274,7 +283,7 @@ describe('RewardedApplicationOffer — GPT path (no Offerwall held)', () => {
     // A retry is a new request behind the same loading screen, and again
     // waits for an explicit opt-in.
     fireEvent.click(screen.getByRole('button', { name: 'Riprova' }));
-    expect(screen.getByTestId('rewarded-application-loading')).toHaveTextContent('Apertura dell’offerta…');
+    expect(screen.getByTestId('rewarded-application-loading')).toHaveTextContent('Apertura di «Fisioterapista diplomato»…');
     expect(mocks.props?.retryToken).toBe(1);
     expect(mocks.props?.autoStart).toBeUndefined();
 

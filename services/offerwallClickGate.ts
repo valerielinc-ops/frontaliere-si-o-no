@@ -23,8 +23,12 @@
  *
  * A release cannot be taken back: once the held call proceeds, Google may
  * still render the Offerwall later. So the observer never gives up on an
- * Offerwall that is on screen, and a caller must not start a second rewarded
- * flow after `appear_timeout` while it stays on this page.
+ * Offerwall that is on screen. A caller that offers another rewarded ad when
+ * the Offerwall is late (the AdSense experiment's "no message" holdout, a
+ * slow Funding Choices) asks, through `onAppearTimeout`, to keep watching
+ * after the timeout: a late Offerwall then still reaches `onShown` and the
+ * normal completion, and the caller ends the wait with `signal` once its own
+ * ad has started. Without that callback `appear_timeout` resolves as before.
  */
 
 export interface OfferwallGateState {
@@ -40,6 +44,12 @@ declare global {
 
 /** Time the Offerwall has to render after the release (2.0-2.8 s live). */
 export const OFFERWALL_APPEAR_TIMEOUT_MS = 5000;
+/**
+ * Nothing on screen yet this long after the release: reported once through
+ * `onSlow`, so a caller can prepare a fallback before the appear timeout.
+ * Most Offerwalls render by then (1.5-3.5 s live).
+ */
+export const OFFERWALL_SLOW_MS = 2500;
 /** Time on screen after which a stall is reported; the observer keeps going. */
 export const OFFERWALL_STALL_REPORT_MS = 10 * 60 * 1000;
 /** Cookie Funding Choices sets once the Offerwall's reward is granted. */
@@ -66,7 +76,14 @@ export type OfferwallReleaseResult =
     root: string;
   }
   | { outcome: 'closed_without_reward'; shownMs: number; closedMs: number; root: string }
-  | { outcome: 'not_shown'; reason: 'not_held' | 'release_refused' | 'appear_timeout' };
+  | { outcome: 'not_shown'; reason: 'not_held' | 'release_refused' | 'appear_timeout' | 'aborted' };
+
+/**
+ * Answer of `onAppearTimeout`: `keep_watching` keeps following a late
+ * Offerwall until it shows or `signal` aborts; anything else resolves
+ * `not_shown/appear_timeout`.
+ */
+export type OfferwallAppearTimeoutDecision = 'keep_watching' | 'resolve';
 
 export interface ReleaseHeldOfferwallOptions {
   onShown?: (info: { shownMs: number; root: string }) => void;
@@ -74,7 +91,14 @@ export interface ReleaseHeldOfferwallOptions {
   onClosed?: (info: { shownMs: number; closedMs: number; root: string }) => void;
   /** Still on screen after `stallReportMs`; reported once, observation continues. */
   onStalled?: (info: { shownMs: number; root: string }) => void;
+  /** Nothing on screen after `slowMs`; reported once, the wait continues. */
+  onSlow?: (info: { elapsedMs: number }) => void;
+  /** Nothing on screen after `appearTimeoutMs`; see OfferwallAppearTimeoutDecision. */
+  onAppearTimeout?: (info: { elapsedMs: number }) => OfferwallAppearTimeoutDecision | void;
+  /** Stops the observer; a pending wait resolves `not_shown/aborted`. */
+  signal?: AbortSignal;
   appearTimeoutMs?: number;
+  slowMs?: number;
   stallReportMs?: number;
   entitlementGraceMs?: number;
   win?: Window;
@@ -134,12 +158,14 @@ export function releaseHeldOfferwall(options: ReleaseHeldOfferwallOptions = {}):
   const win = options.win ?? window;
   const doc = win.document;
   const appearTimeoutMs = options.appearTimeoutMs ?? OFFERWALL_APPEAR_TIMEOUT_MS;
+  const slowMs = options.slowMs ?? OFFERWALL_SLOW_MS;
   const stallReportMs = options.stallReportMs ?? OFFERWALL_STALL_REPORT_MS;
   const entitlementGraceMs = options.entitlementGraceMs ?? OFFERWALL_ENTITLEMENT_GRACE_MS;
   const gate = win.__ftOfferwallGate;
   if (!isOfferwallHeld(win) || !gate?.release) {
     return Promise.resolve({ outcome: 'not_shown', reason: 'not_held' });
   }
+  if (options.signal?.aborted) return Promise.resolve({ outcome: 'not_shown', reason: 'aborted' });
 
   const before = new Set(visibleRoots(doc));
   const entitlementBefore = readCookie(doc, FC_OFFERWALL_ENTITLEMENT_COOKIE);
@@ -156,8 +182,15 @@ export function releaseHeldOfferwall(options: ReleaseHeldOfferwallOptions = {}):
     let shown: { el: HTMLElement; root: string; shownMs: number } | null = null;
     let closedMs: number | null = null;
     let stallReported = false;
+    let slowReported = false;
+    let appearTimedOut = false;
+    let done = false;
+    const onAbort = () => finish({ outcome: 'not_shown', reason: 'aborted' });
     const finish = (result: OfferwallReleaseResult) => {
+      if (done) return;
+      done = true;
       win.clearInterval(timer);
+      options.signal?.removeEventListener('abort', onAbort);
       resolve(result);
     };
     const timer = win.setInterval(() => {
@@ -169,7 +202,15 @@ export function releaseHeldOfferwall(options: ReleaseHeldOfferwallOptions = {}):
           options.onShown?.({ shownMs: elapsed, root: shown.root });
           return;
         }
-        if (elapsed >= appearTimeoutMs) finish({ outcome: 'not_shown', reason: 'appear_timeout' });
+        if (!slowReported && elapsed >= slowMs && elapsed < appearTimeoutMs) {
+          slowReported = true;
+          options.onSlow?.({ elapsedMs: elapsed });
+        }
+        if (!appearTimedOut && elapsed >= appearTimeoutMs) {
+          appearTimedOut = true;
+          if (options.onAppearTimeout?.({ elapsedMs: elapsed }) === 'keep_watching') return;
+          finish({ outcome: 'not_shown', reason: 'appear_timeout' });
+        }
         return;
       }
       const entitlement = readCookie(doc, FC_OFFERWALL_ENTITLEMENT_COOKIE);
@@ -211,5 +252,6 @@ export function releaseHeldOfferwall(options: ReleaseHeldOfferwallOptions = {}):
         finish({ outcome: 'closed_without_reward', shownMs: shown.shownMs, closedMs, root: shown.root });
       }
     }, POLL_MS);
+    options.signal?.addEventListener('abort', onAbort);
   });
 }

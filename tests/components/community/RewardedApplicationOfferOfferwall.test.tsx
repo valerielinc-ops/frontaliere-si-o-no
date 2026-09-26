@@ -10,7 +10,7 @@
  * released.
  */
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
 type ReleaseOptions = {
   onShown?: (info: { shownMs: number; root: string }) => void;
@@ -44,9 +44,12 @@ vi.mock('@/components/shared/GptRewardedAd', () => ({
 vi.mock('@/services/rewardedWebAd', () => ({
   ASSISTED_APPLICATION_REWARDED_AD_UNIT_PATH: '/23355151813/rewarded-application-video',
   REWARDED_WEB_AD_FORMAT: 'rewarded_web',
+  disposeRewardedWebAd: vi.fn(),
+  isRewardedWebAdEligible: () => true,
 }));
 vi.mock('@/services/rewardedApplicationAccess', () => ({
   grantRewardedApplicationAccess: mocks.grantRewardedApplicationAccess,
+  REWARDED_APPLICATION_ACCESS_TTL_HOURS: 1,
 }));
 vi.mock('@/services/assistedApplicationExperiment', () => ({
   trackAssistedApplicationEvent: mocks.trackAssistedApplicationEvent,
@@ -57,6 +60,7 @@ vi.mock('@/services/offerwallClickGate', () => ({
 }));
 
 import RewardedApplicationOffer from '@/components/community/RewardedApplicationOffer';
+import { itReady } from '@/services/i18n';
 
 const tracked = (name: string) => mocks.trackAssistedApplicationEvent.mock.calls
   .filter(([eventName]) => eventName === name)
@@ -93,6 +97,10 @@ const showOfferwall = (shownMs = 800) => {
     mocks.releaseOptions?.onShown?.({ shownMs, root: 'fc-message-root' });
   });
 };
+
+beforeAll(async () => {
+  await itReady;
+});
 
 beforeEach(() => {
   vi.clearAllMocks();
@@ -148,7 +156,7 @@ describe('RewardedApplicationOffer — click-only Offerwall', () => {
     const loading = screen.getByTestId('rewarded-application-loading');
     expect(loading).toHaveAttribute('role', 'status');
     expect(loading).toHaveAttribute('aria-live', 'polite');
-    expect(loading).toHaveTextContent('Apertura dell’offerta…');
+    expect(loading).toHaveTextContent('Apertura di «Fisioterapista diplomato»…');
     expect(document.activeElement).toBe(loading);
     expect(tracked('rewarded_offerwall_released')).toEqual([expect.objectContaining(offerwallContext)]);
   });
@@ -158,7 +166,7 @@ describe('RewardedApplicationOffer — click-only Offerwall', () => {
     render(<RewardedApplicationOffer {...props} />);
 
     const overlay = screen.getByTestId('rewarded-application-offer');
-    expect(overlay.textContent).not.toMatch(/video|google|pubblicit|annunc|monetizz|12 ore/i);
+    expect(overlay.textContent).not.toMatch(/video|google|pubblicit|annunc|monetizz|\bore\b|\bora\b/i);
     expect(screen.queryByRole('button')).not.toBeInTheDocument();
     expect(overlay.querySelector('svg')).toHaveClass('animate-spin', 'motion-reduce:animate-none');
   });
@@ -191,7 +199,7 @@ describe('RewardedApplicationOffer — click-only Offerwall', () => {
 
     expect(props.onContinue).toHaveBeenCalledTimes(1);
     expect(mocks.grantRewardedApplicationAccess).toHaveBeenCalledTimes(1);
-    expect(screen.getByTestId('rewarded-application-loading')).toHaveTextContent('Ti portiamo all’offerta…');
+    expect(screen.getByTestId('rewarded-application-loading')).toHaveTextContent('Ti portiamo a «Fisioterapista diplomato»…');
     const [completed] = tracked('rewarded_offerwall_completed');
     expect(completed).toEqual(expect.objectContaining({
       ...offerwallContext,
@@ -215,7 +223,7 @@ describe('RewardedApplicationOffer — click-only Offerwall', () => {
     act(() => {
       mocks.releaseOptions?.onClosed?.({ shownMs: 800, closedMs: 31_000, root: 'fc-message-root' });
     });
-    expect(screen.getByTestId('rewarded-application-loading')).toHaveTextContent('Apertura dell’offerta…');
+    expect(screen.getByTestId('rewarded-application-loading')).toHaveTextContent('Apertura di «Fisioterapista diplomato»…');
     expect(props.onContinue).not.toHaveBeenCalled();
 
     await settle({
@@ -228,7 +236,7 @@ describe('RewardedApplicationOffer — click-only Offerwall', () => {
     });
 
     expect(props.onContinue).toHaveBeenCalledTimes(1);
-    expect(screen.getByTestId('rewarded-application-loading')).toHaveTextContent('Ti portiamo all’offerta…');
+    expect(screen.getByTestId('rewarded-application-loading')).toHaveTextContent('Ti portiamo a «Fisioterapista diplomato»…');
     expect(screen.queryByRole('button')).not.toBeInTheDocument();
     expect(screen.queryByTestId('mock-google-rewarded')).not.toBeInTheDocument();
     expect(mocks.grantRewardedApplicationAccess).toHaveBeenCalledTimes(1);
@@ -242,7 +250,7 @@ describe('RewardedApplicationOffer — click-only Offerwall', () => {
       }),
     ]);
     expect(tracked('rewarded_application_access_granted')).toEqual([
-      expect.objectContaining({ ...offerwallContext, access_expires_at: 1_900_000_000_000, access_ttl_hours: 12 }),
+      expect.objectContaining({ ...offerwallContext, access_expires_at: 1_900_000_000_000, access_ttl_hours: 1 }),
     ]);
     // The GPT reward event stays reserved to rewardedSlotGranted.
     expect(tracked('rewarded_ad_granted')).toEqual([]);
