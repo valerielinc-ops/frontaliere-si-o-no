@@ -186,6 +186,12 @@ function pdfToText(bytes, source) {
   }
 }
 
+function describeError(error) {
+  const message = error instanceof Error ? error.message : String(error);
+  const causeCode = error?.cause?.code ? ` (${error.cause.code})` : '';
+  return message + causeCode;
+}
+
 export async function loadSourceText(source, fixtureDir, { fetchImpl = fetch } = {}) {
   if (fixtureDir) {
     const fixturePath = source.fixturePath || source.key;
@@ -209,8 +215,8 @@ export async function loadSourceText(source, fixtureDir, { fetchImpl = fetch } =
         officialError,
       };
     } catch (mirrorError) {
-      const officialMessage = officialError instanceof Error ? officialError.message : String(officialError);
-      const mirrorMessage = mirrorError instanceof Error ? mirrorError.message : String(mirrorError);
+      const officialMessage = describeError(officialError);
+      const mirrorMessage = describeError(mirrorError);
       throw new Error(`${officialMessage}; VCO mirror failed: ${mirrorMessage}`);
     }
   }
@@ -333,14 +339,12 @@ export async function importItalyPharmacyDuties({
       bucket.push(...parsed.errors.map((error) => `${source.key}: ${error}`));
       allWarnings.push(...parsed.warnings.map((warning) => `${source.key}: ${warning}`));
       if (loaded.fetchedVia === 'vco-mirror') {
-        const detail = loaded.officialError instanceof Error ? ` after official fetch failure (${loaded.officialError.message})` : '';
+        const detail = loaded.officialError ? ` after official fetch failure (${describeError(loaded.officialError)})` : '';
         allWarnings.push(`${source.key}: fetched via configured vcoMirrorUrl${detail}`);
       }
       statuses.push(sourceStatus(source, parsed, attemptedAt, loaded.fetchedVia));
     } catch (error) {
-      const baseMessage = error instanceof Error ? error.message : String(error);
-      const causeCode = error?.cause?.code ? ' (' + error.cause.code + ')' : '';
-      const message = source.key + ': ' + baseMessage + causeCode;
+      const message = source.key + ': ' + describeError(error);
       const publication = sourcePublicationClass(source);
       (publication === 'best-effort' ? allBestEffortErrors : allErrors).push(message);
       statuses.push({
