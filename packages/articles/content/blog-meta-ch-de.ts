@@ -6752,6 +6752,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.keiser-stop-promozione-zugo.title': 'Zug: Stopp Wirtschaftsförderung, 272 Wohnungen unter 1800 Franken',
     'blog.article.keiser-stop-promozione-zugo.excerpt': 'Urban Keiser (Korporation Zug) fordert, die Wirtschaftsförderung zu stoppen: unhaltbares Wachstum, Mieten auf astronomischem Niveau. 272 Wohnungen für <1800 CHF, lange Warteliste. Wahlen 4 ottobre.',
     'blog.article.keiser-stop-promozione-zugo.imageAlt': 'Luftaufnahme von Zug mit See, Bergen und Baustellen',
+    'blog.article.seco-commercio-misure-2026.title': 'SECO: US-Zölle bis zu 12,5% und Rücktritte',
+    'blog.article.seco-commercio-misure-2026.excerpt': 'US-Zölle von bis zu 12,5 % auf Schweizer Importe; Helene Budliger Artieda wird die SECO Ende März 2027 verlassen.',
+    'blog.article.seco-commercio-misure-2026.imageAlt': 'Schweizer Verwaltungsgebäude und Dokumente zum internationalen Handel',
 };
 
 export default blogMetaChDe;

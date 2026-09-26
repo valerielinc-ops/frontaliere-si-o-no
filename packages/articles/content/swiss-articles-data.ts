@@ -20282,6 +20282,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'seco-commercio-misure-2026',
+    category: 'novita',
+    date: '2026-09-26T05:54:33.126Z',
+    image: '/images/blog/seco-commercio-misure-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
