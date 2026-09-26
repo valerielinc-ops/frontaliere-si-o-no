@@ -91,6 +91,7 @@ describe('summarizeZeroMatchPlans', () => {
       alertCount: 3,
       evaluatedAlertCount: 2,
       noEligibleCandidateCount: 1,
+      emptyProfileCount: 0,
       zeroMatchCount: 1,
       zeroMatchRate: 0.5,
       zeroMatchByCause: { [ZERO_MATCH_CAUSES.SOFT_PROFILE_NARROW]: 1 },
@@ -107,8 +108,32 @@ describe('summarizeZeroMatchPlans', () => {
     ])).toMatchObject({
       evaluatedAlertCount: 0,
       noEligibleCandidateCount: 1,
+      emptyProfileCount: 0,
       zeroMatchCount: 0,
       zeroMatchRate: null,
+    });
+  });
+
+  it('excludes intentional empty profiles from matcher health while keeping them observable', () => {
+    expect(summarizeZeroMatchPlans([
+      {
+        candidateCount: 6,
+        rankedCount: 0,
+        zeroCause: ZERO_MATCH_CAUSES.EMPTY_PROFILE,
+      },
+      {
+        candidateCount: 6,
+        rankedCount: 0,
+        zeroCause: ZERO_MATCH_CAUSES.KEYWORD_NARROW,
+      },
+    ])).toEqual({
+      alertCount: 2,
+      evaluatedAlertCount: 1,
+      noEligibleCandidateCount: 0,
+      emptyProfileCount: 1,
+      zeroMatchCount: 1,
+      zeroMatchRate: 1,
+      zeroMatchByCause: { [ZERO_MATCH_CAUSES.KEYWORD_NARROW]: 1 },
     });
   });
 });

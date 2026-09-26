@@ -40,6 +40,29 @@ describe('jobAlertMatching — explicit keyword contract (legacy preserved)', ()
     expect(score(job(), { keywords: ['idraulico'] })).toBe(0);
   });
 
+  it.each([
+    ['Tecnologia', 'IT', 'Software'],
+    ['Technology', 'IT', 'Software'],
+    ['Gesundheit', 'Healthcare', 'Medical'],
+    ['Santé', 'Healthcare', 'Medical'],
+  ])('matches the persisted %s board label against structured job taxonomy', (label, sector, category) => {
+    const categorizedJob = job({
+      title: 'Project Manager',
+      description: 'Ruolo di coordinamento e pianificazione.',
+      sector,
+      category,
+    });
+    const unrelatedJob = job({
+      title: 'Project Manager',
+      description: 'Ruolo di coordinamento e pianificazione.',
+      sector: 'Fashion',
+      category: 'Retail',
+    });
+
+    expect(score(categorizedJob, { keywords: [label] })).toBeGreaterThan(0);
+    expect(score(unrelatedJob, { keywords: [label] })).toBe(0);
+  });
+
   it('matches a profession keyword across the shared cross-locale taxonomy', () => {
     const italianNurse = job({
       title: 'Infermiere',
