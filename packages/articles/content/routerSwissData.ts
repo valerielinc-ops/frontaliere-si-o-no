@@ -2272,6 +2272,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'destra-ticino-elezioni-aprile': { it: 'destra-ticino-elezioni-aprile', en: 'ticino-right-elections-april', de: 'tessin-rechte-wahlen-april', fr: 'tessin-droite-elections-avril' },
  'carburante-sgravio-berna': { it: 'carburante-sgravio-berna', en: 'no-fuel-discount-bern-confirms-full-price', de: 'keine-entlastung-beim-treibstoff-bern-bestatigt-das-teure-tanken', fr: 'aucun-allegement-sur-le-carburant-berne-confirme-le-plein-hors-de-prix' },
  'portali-cv-lucerna': { it: 'portali-cv-lucerna', en: 'swiss-job-search-lucerne-2026', de: 'arbeitssuche-schweiz-luzern-2026', fr: 'recherche-emploi-suisse-lucerne-2026' },
+ 'keiser-stop-promozione-zugo': { it: 'keiser-stop-promozione-zugo', en: 'keiser-stop-economic-promotion-zug', de: 'keiser-stop-wirtschaftsfoerderung-zug', fr: 'keiser-arret-promotion-economique-zoug' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
