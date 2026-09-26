@@ -6779,6 +6779,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mobilitazione-esercito-ponte.title': 'L\'esercito svizzero testa la mobilitazione rapida',
     'blog.article.mobilitazione-esercito-ponte.excerpt': 'MOBILO 26 ha coinvolto circa 3\'000 militari, 300 veicoli su ruote e 50 blindati da Bière a Frauenfeld, con un ponte galleggiante.',
     'blog.article.mobilitazione-esercito-ponte.imageAlt': 'Militari svizzeri assemblano un ponte galleggiante durante MOBILO 26',
+    'blog.article.dertour-suisse-ripresa-fatturato.title': 'Dertour Suisse punta a superare il miliardo di fatturato',
+    'blog.article.dertour-suisse-ripresa-fatturato.excerpt': 'Dertour Suisse punta a superare 1 miliardo di franchi, le prenotazioni estive 2026 vedono il 14% per mete moderate e prevede oltre il 20% in 4‑6 anni; filiali 124, dipendenti 1750, taglio 250 posti entro fine 2027.',
+    'blog.article.dertour-suisse-ripresa-fatturato.imageAlt': 'Lago Lugano con barche a vela e montagne sullo sfondo, simbolo del turismo svizzero.',
 };
 
 export default blogMetaChIt;
