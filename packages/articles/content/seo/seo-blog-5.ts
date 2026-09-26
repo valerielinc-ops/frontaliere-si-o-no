@@ -93673,6 +93673,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cattura-latitante-provincia-como': {
+    title: 'Como, arrestato il latitante della rapina a Campione',
+    description: 'I Carabinieri di Como hanno arrestato Dario De Bernardi, latitante dal 2011: oltre 19 anni di pena e la rapina da 750.000 franchi al Casinò di Campione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, arrestato, latitante, rapina',
+    ogTitle: 'Catturato a Como il ricercato della rapina a Campione',
+    ogDescription: 'Il Nucleo Investigativo ha individuato e fermato Dario De Bernardi, 55 anni. Nella perquisizione di un’abitazione usata di recente in provincia di Como sono stati trovati un fucile da caccia detenuto illegalmente e 98.000 euro.',
+    canonicalPath: '/articoli-frontaliere/cattura-latitante-provincia-como',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como, arrestato il latitante della rapina a Campione",
+      "description": "I Carabinieri di Como hanno arrestato Dario De Bernardi, latitante dal 2011: oltre 19 anni di pena e la rapina da 750.000 franchi al Casinò di Campione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cattura-latitante-provincia-como.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Mendrisio per una notizia di cronaca sul caso del Casinò di Campione"
+      },
+      "datePublished": "2026-09-26T01:02:44+00:00",
+      "dateModified": "2026-09-26T01:02:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cattura-latitante-provincia-como/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
