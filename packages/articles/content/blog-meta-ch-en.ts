@@ -6800,6 +6800,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ubs-sede-elvetica-costi.title': 'Ubs: relocation of headquarters unlikely, according to Keller-Sutter',
     'blog.article.ubs-sede-elvetica-costi.excerpt': 'According to Karin Keller‑Sutter, moving Ubs’s headquarters abroad would be much more costly and legally complex; the Federal Council has already granted concessions regarding the Capital Adequacy Ordinance.',
     'blog.article.ubs-sede-elvetica-costi.imageAlt': 'Ubs headquarters building in the Swiss financial district',
+    'blog.article.sanzioni-finanziarie-onu-2026.title': 'UN sanctions: the Federal Council updates four ordinances',
+    'blog.article.sanzioni-finanziarie-onu-2026.excerpt': 'Decision of 25 September 2026 to harmonize financial provisions on terrorism and proliferation, with specific exemptions for Iran.',
+    'blog.article.sanzioni-finanziarie-onu-2026.imageAlt': 'Federal Palace in Bern, seat of the Federal Council',
 };
 
 export default blogMetaChEn;

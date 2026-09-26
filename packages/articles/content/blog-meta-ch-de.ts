@@ -6800,6 +6800,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ubs-sede-elvetica-costi.title': 'UBS: Standortverlegung für Keller-Sutter unwahrscheinlich',
     'blog.article.ubs-sede-elvetica-costi.excerpt': 'Laut Karin Keller‑Sutter wäre eine Verlegung des Sitzes von Ubs ins Ausland deutlich kostspieliger und rechtlich komplex; der Bundesrat hat bereits Erleichterungen bei der Eigenmittelverordnung gewährt.',
     'blog.article.ubs-sede-elvetica-costi.imageAlt': 'Ubs‑Hauptsitz im schweizerischen Finanzdistrict',
+    'blog.article.sanzioni-finanziarie-onu-2026.title': 'UN-Sanktionen: Der Bundesrat aktualisiert vier Verordnungen',
+    'blog.article.sanzioni-finanziarie-onu-2026.excerpt': 'Entscheidung vom 25. September 2026 zur Vereinheitlichung der Finanzbestimmungen zu Terrorismus und Proliferation, mit spezifischen Ausnahmen für den Iran.',
+    'blog.article.sanzioni-finanziarie-onu-2026.imageAlt': 'Bundeshaus in Bern, Sitz des Bundesrates',
 };
 
 export default blogMetaChDe;
