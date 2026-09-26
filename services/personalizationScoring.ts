@@ -58,6 +58,8 @@ export interface PersonalScore {
 
 export interface PersonalScoringOptions {
  applicationIntentRankingEnabled?: boolean;
+ /** Keep the application-intent treatment isolated from general personalization. */
+ personalizationEnabled?: boolean;
  now?: number;
 }
 
@@ -137,6 +139,16 @@ export function createPersonalScorer(
  jobMatchProfile: JobMatchProfileData | null = null,
  options: PersonalScoringOptions = {},
 ): PersonalScorer {
+ const applicationIntentJobKeys = options.applicationIntentRankingEnabled
+ ? activeApplicationIntentJobKeys(behavior.applicationIntent, options.now)
+ : new Set<string>();
+
+ if (options.personalizationEnabled === false) {
+  return (job) => applicationIntentJobKeys.has(buildApplicationIntentJobKey(job))
+   ? { score: PERSONAL_APPLICATION_INTENT_BOOST, topSignal: 'application_intent' }
+   : { score: 0, topSignal: '' };
+ }
+
  const viewedJobs = behavior.viewedJobs;
  const viewedCompanies = new Set(viewedJobs.map((v) => normalizeSearchText(v.company)));
  const viewedCategories = new Set(viewedJobs.map((v) => v.category));
@@ -181,10 +193,6 @@ export function createPersonalScorer(
  const matchCanton = jobMatchProfile?.canton || '';
  const matchCantonNorm = matchCanton ? normalizeSearchText(matchCanton) : '';
  const experienceLevel = jobMatchProfile?.experienceLevel || '';
- const applicationIntentJobKeys = options.applicationIntentRankingEnabled
- ? activeApplicationIntentJobKeys(behavior.applicationIntent, options.now)
- : new Set<string>();
-
  // The list repeats a few hundred localities and a couple of thousand
  // companies across ~12k rows: normalize each distinct raw value once per
  // scorer, and resolve the viewed-locations scan (up to 100 whole-token

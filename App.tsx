@@ -576,6 +576,7 @@ const App: React.FC = () => {
  const [contactPrefill, setContactPrefill] = useState<ContactPrefill | null>(null);
  const [enablePersonalization, setEnablePersonalization] = useState(false);
  const [enableApplicationIntentRanking, setEnableApplicationIntentRanking] = useState(false);
+ const [behaviorHydrationRevision, setBehaviorHydrationRevision] = useState(0);
  const [adminGoogleButtonReady, setAdminGoogleButtonReady] = useState(false);
  const adminGoogleButtonRef = useRef<HTMLDivElement | null>(null);
  const [linkedInCallbackProcessing, setLinkedInCallbackProcessing] = useState(false);
@@ -1393,8 +1394,8 @@ const App: React.FC = () => {
  // ── Personalization feature flag (Firebase Remote Config) ──
  useEffect(() => {
  import('@/services/firebase').then(({ getConfigValue }) => Promise.all([
-  getConfigValue('ENABLE_JOB_PERSONALIZATION'),
-  getConfigValue('APPLICATION_INTENT_RANKING_ENABLED'),
+  getConfigValue('ENABLE_JOB_PERSONALIZATION').catch(() => 'false'),
+  getConfigValue('APPLICATION_INTENT_RANKING_ENABLED').catch(() => 'false'),
  ])).then(([personalization, applicationIntentRanking]) => {
   setEnablePersonalization(personalization === 'true');
   setEnableApplicationIntentRanking(applicationIntentRanking === 'true');
@@ -1404,12 +1405,18 @@ const App: React.FC = () => {
  // ── Personalization: Firestore sync on auth ──
  useEffect(() => {
  if ((!enablePersonalization && !enableApplicationIntentRanking) || !authEmail) return;
+ let cancelled = false;
  let cleanup: (() => void) | undefined;
  import('@/services/behaviorTracker').then(({ hydrateFromFirestore, syncToFirestore, startSyncInterval }) => {
- hydrateFromFirestore(authEmail).then(() => syncToFirestore(authEmail)).catch(() => {});
+ if (cancelled) return;
+ hydrateFromFirestore(authEmail).then(() => {
+  if (cancelled) return;
+  setBehaviorHydrationRevision((revision) => revision + 1);
+  return syncToFirestore(authEmail);
+ }).catch(() => {});
  cleanup = startSyncInterval(authEmail);
  }).catch(() => {});
- return () => { cleanup?.(); };
+ return () => { cancelled = true; cleanup?.(); };
  }, [enablePersonalization, enableApplicationIntentRanking, authEmail]);
 
  useEffect(() => {
@@ -3121,6 +3128,7 @@ const App: React.FC = () => {
  authLoading={authLoading}
  enablePersonalization={enablePersonalization}
  enableApplicationIntentRanking={enableApplicationIntentRanking}
+ behaviorHydrationRevision={behaviorHydrationRevision}
  userProfile={userProfile}
  onGoogleAuthRequired={googleSignIn}
  onFacebookAuthRequired={facebookSignIn}

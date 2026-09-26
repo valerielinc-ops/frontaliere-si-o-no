@@ -14,6 +14,7 @@ import { PUBLIC_CONFIG_KEYS } from '../functions/src/publicConfigKeys.js';
 const NOW = Date.parse('2026-09-26T12:00:00.000Z');
 const RETENTION_MS = 90 * 24 * 60 * 60 * 1000;
 const FIREBASE_SOURCE = readFileSync(new URL('../services/firebase.ts', import.meta.url), 'utf8');
+const RC_LOADER_SOURCE = readFileSync(new URL('../scripts/load-rc-env.mjs', import.meta.url), 'utf8');
 const JOB_BOARD_SOURCE = readFileSync(new URL('../components/community/JobBoard.tsx', import.meta.url), 'utf8');
 
 function emptyBehavior(): BehaviorData {
@@ -64,6 +65,7 @@ function job(overrides: Record<string, unknown> = {}) {
 describe('application-intent ranking — bounded control/treatment', () => {
   it('defaults the Firebase flag off and exposes only a Firebase-Analytics experiment arm', () => {
     expect(FIREBASE_SOURCE).toMatch(/APPLICATION_INTENT_RANKING_ENABLED:\s*'false'/);
+    expect(RC_LOADER_SOURCE).toMatch(/APPLICATION_INTENT_RANKING_ENABLED:\s*\['APPLICATION_INTENT_RANKING_ENABLED'\]/);
     expect(PUBLIC_CONFIG_KEYS).toContain('APPLICATION_INTENT_RANKING_ENABLED');
     const event = JOB_BOARD_SOURCE.match(
       /Analytics\.trackExperimentEvent\('application_intent_ranking_exposure',\s*\{([\s\S]*?)\}\);/,
@@ -106,6 +108,33 @@ describe('application-intent ranking — bounded control/treatment', () => {
 
     expect(control).toEqual(baseline);
     expect(treatment).toEqual({ score: 8, topSignal: 'application_intent' });
+  });
+
+  it('keeps the treatment isolated from general personalization when that flag is off', () => {
+    const target = job();
+    const sameCategory = job({
+      id: 'job-2',
+      slug: 'another-software-role',
+      companyKey: 'other',
+    });
+    const behavior = emptyBehavior();
+    behavior.viewedJobs = [{
+      slug: 'previous-software-role',
+      company: 'Acme SA',
+      location: 'Lugano',
+      category: 'Software',
+      ts: NOW - 1000,
+    }];
+    behavior.applicationIntent = intentState('acme:software-engineer-lugano') as BehaviorData['applicationIntent'];
+
+    const scorer = createPersonalScorer(behavior, null, null, {
+      applicationIntentRankingEnabled: true,
+      personalizationEnabled: false,
+      now: NOW,
+    });
+
+    expect(scorer(target as never)).toEqual({ score: 8, topSignal: 'application_intent' });
+    expect(scorer(sameCategory as never)).toEqual({ score: 0, topSignal: '' });
   });
 
   it.each([

@@ -691,6 +691,8 @@ interface JobBoardProps {
  enablePersonalization?: boolean;
  /** Exact-job application-intent ranking flag (off by default). */
  enableApplicationIntentRanking?: boolean;
+ /** Refresh local behavior after the account's private Firestore profile hydrates. */
+ behaviorHydrationRevision?: number;
  /** User profile data for personalization scoring */
  userProfile?: import('@/components/pages/UserProfile').UserProfileData | null;
  /**
@@ -2317,6 +2319,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onRequireAuth,
  enablePersonalization = false,
  enableApplicationIntentRanking = false,
+ behaviorHydrationRevision = 0,
  userProfile = null,
  initialFilterCanton = null,
 }) => {
@@ -2700,16 +2703,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // stays in React state for this board session, so later SPA updates to
  // behaviorData cannot make the counter compare against "now".
  useEffect(() => {
- if ((!enablePersonalization && !enableApplicationIntentRanking) || visitCapturedRef.current) return;
- visitCapturedRef.current = true;
- if (enablePersonalization) {
+ if (!enablePersonalization && !enableApplicationIntentRanking) return;
+ if (enablePersonalization && !visitCapturedRef.current) {
+  visitCapturedRef.current = true;
   const { data, previousLastVisit } = readBehaviorAndMarkVisit();
   setBehaviorData(data);
   setLastVisitTimestamp(previousLastVisit);
  } else {
   setBehaviorData(getBehaviorData());
  }
- }, [enablePersonalization, enableApplicationIntentRanking]);
+ }, [enablePersonalization, enableApplicationIntentRanking, behaviorHydrationRevision]);
 
  // Load survey-derived job-match profile (sector/canton/experience level).
  // Independent of behaviorData: a user who only completed SalarySurvey (no
@@ -2899,7 +2902,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
   deferredBehaviorData,
   deferredUserProfile ?? null,
   deferredJobMatchProfile,
-  { applicationIntentRankingEnabled: enableApplicationIntentRanking },
+  {
+   applicationIntentRankingEnabled: enableApplicationIntentRanking,
+   personalizationEnabled: enablePersonalization,
+  },
  ));
  }, [enablePersonalization, enableApplicationIntentRanking, deferredBehaviorData, jobs, deferredUserProfile, deferredJobMatchProfile]);
  const matchedJobCount = useMemo(() => {
