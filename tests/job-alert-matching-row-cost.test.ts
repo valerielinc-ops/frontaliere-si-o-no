@@ -51,6 +51,10 @@ import {
   planAlertMatch,
   rankLiveJobsForEmail,
 } from '../scripts/send-job-alerts.mjs';
+import {
+  JOB_EMAIL_RANKING_DEFAULTS,
+  rankEmailJobs,
+} from '../functions/src/lib/jobEmailRanking.js';
 import { nlNormLocale } from '../services/newsletter-template.mjs';
 import { OWNER_EMAIL, isOwnerEmail } from '../scripts/lib/canaryAd.mjs';
 
@@ -566,5 +570,32 @@ describe('bounded live-link shortlist (#9314)', () => {
       Array.from({ length: 10 }, (_, index) => `bounded-${index + 10}`),
     );
     expect(checked).toHaveLength(100);
+  });
+
+  it('keeps ranked order when the full-pool fail-open guard trips', async () => {
+    const matched = rankedJobs(20).reverse();
+    const treatmentRankingOptions = {
+      ...rankingOptions,
+      variant: 'treatment',
+      config: { ...JOB_EMAIL_RANKING_DEFAULTS, rollout: 1, epsilon: 0 },
+    };
+    const expected = rankEmailJobs(matched, { ...treatmentRankingOptions, limit: 10 });
+    const checked = [];
+    const live = await rankLiveJobsForEmail(
+      matched,
+      'it',
+      new Map(),
+      treatmentRankingOptions,
+      {
+        limit: 10,
+        check: async (url) => {
+          checked.push(url);
+          return false;
+        },
+      },
+    );
+
+    expect(live.map((job) => job.id)).toEqual(expected.map((job) => job.id));
+    expect(checked).toHaveLength(20);
   });
 });

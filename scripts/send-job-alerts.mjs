@@ -308,7 +308,7 @@ async function rankLiveJobsForEmail(
       // behaviour for an outage while preventing dead cards from winning over
       // live replacements.
       const fullResult = await inspectLiveJobs(matched, locale, cache, { check });
-      if (fullResult.failOpen) return fullResult.jobs;
+      if (fullResult.failOpen) return rankEmailJobs(fullResult.jobs, { ...rankingOptions, limit });
       ranked = rankEmailJobs(fullResult.jobs, { ...rankingOptions, limit });
       continue;
     }
