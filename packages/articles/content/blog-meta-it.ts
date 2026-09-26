@@ -12090,6 +12090,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.parita-salariale-carta-ticino.title': 'Parità salariale nel pubblico ticinese: prossimi passi',
     'blog.article.parita-salariale-carta-ticino.excerpt': 'Oltre trenta Comuni ticinesi hanno aderito alla Carta per la parità salariale; nel 2024 la differenza nel settore pubblico era di 847 franchi e Locarno investe oltre 3,2 milioni l’anno in misure di conciliazione lavoro‑famiglia.',
     'blog.article.parita-salariale-carta-ticino.imageAlt': 'Facade del comune di Locarno con impiegati ticinesi che camminano, sole e atmosfera professionale',
+    'blog.article.manfrinati-sentenza-varese.title': 'Varese, marco manfrinati condannato all\'ergastolo',
+    'blog.article.manfrinati-sentenza-varese.excerpt': 'La Corte d\'Assise di Varese ha condannato all\'ergastolo Marco Manfrinati per l\'omicidio di Fabio Limido e il tentato omicidio di Lavinia Limido.',
+    'blog.article.manfrinati-sentenza-varese.imageAlt': 'Cronaca locale a Varese: strada urbana evocativa della vicenda di via Ciro Menotti',
 };
 
 export default blogMetaIt;
