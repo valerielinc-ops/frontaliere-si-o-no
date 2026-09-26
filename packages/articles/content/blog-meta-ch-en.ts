@@ -6767,6 +6767,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.importazione-granoturco-foraggio-proroga.title': 'Extension of duty exemption for fodder maize until April 2027',
     'blog.article.importazione-granoturco-foraggio-proroga.excerpt': 'The DEFR extends until 30 April 2027 the duty exemption for fresh or silage maize with dry matter ≤60%, intended for animal feed; from 1 October 2026 duty reduction for fibre-rich fodder.',
     'blog.article.importazione-granoturco-foraggio-proroga.imageAlt': 'Forage corn exempt from customs duty for animal feed in Switzerland',
+    'blog.article.bns-inflazione-pil-previsioni-2026.title': 'SNB leaves rate at 0%, GDP 2026 at 1.5-2%',
+    'blog.article.bns-inflazione-pil-previsioni-2026.excerpt': 'Unchanged rate at 0%, 2026 inflation at 0.7%, revised GDP growth between 1.5% and 2.0%. SNB ready to intervene on foreign exchange.',
+    'blog.article.bns-inflazione-pil-previsioni-2026.imageAlt': 'Swiss National Bank headquarters in Zurich with Swiss flag',
 };
 
 export default blogMetaChEn;

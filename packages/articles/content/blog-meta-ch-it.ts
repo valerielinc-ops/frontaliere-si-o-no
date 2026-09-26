@@ -6767,6 +6767,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.importazione-granoturco-foraggio-proroga.title': 'Proroga esenzione dazi granoturco foraggio fino aprile 2027',
     'blog.article.importazione-granoturco-foraggio-proroga.excerpt': 'Il DEFR proroga fino al 30 aprile 2027 l\'esenzione dazi per granoturco fresco o insilato con sostanza secca ≤60%, destinato all\'alimentazione animale; dal 1 ottobre 2026 riduzione dazi per foraggi ricchi di fibre.',
     'blog.article.importazione-granoturco-foraggio-proroga.imageAlt': 'Mais da foraggio esente da dazio per alimentazione animale in Svizzera',
+    'blog.article.bns-inflazione-pil-previsioni-2026.title': 'BNS lascia tasso allo 0%, PIL 2026 all\'1,5-2%',
+    'blog.article.bns-inflazione-pil-previsioni-2026.excerpt': 'Tasso invariato allo 0%, inflazione 2026 allo 0,7%, crescita PIL rivista tra 1,5% e 2,0%. BNS pronta a intervenire sui cambi.',
+    'blog.article.bns-inflazione-pil-previsioni-2026.imageAlt': 'Sede della Banca nazionale svizzera a Zurigo con bandiera elvetica',
 };
 
 export default blogMetaChIt;

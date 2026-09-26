@@ -87731,6 +87731,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bns-inflazione-pil-previsioni-2026': {
+    title: 'BNS lascia tasso allo 0%, PIL 2026 all\'1,5-2% | Frontaliere Ticino',
+    description: 'La BNS mantiene il tasso di riferimento allo 0% il 24 settembre 2026. Inflazione 2026 allo 0,7%, PIL rivisto tra 1,5% e 2,0%. Differenze con Fed e BCE.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lascia, tasso, allo, invariato',
+    ogTitle: 'BNS conferma tasso allo 0%: crescita rivista al rialzo, inflazione sotto controllo',
+    ogDescription: 'Il 24 settembre 2026 la Banca nazionale svizzera ha lasciato invariato il tasso di riferimento allo 0%. Le stime sul PIL 2026 salgono all\'1,5-2,0%, inflazione allo 0,7%. La BNS si distingue da Fed e BCE che hanno alzato i tassi. Petrolio, cambi',
+    canonicalPath: '/articoli-svizzera/bns-inflazione-pil-previsioni-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BNS lascia tasso allo 0%, PIL 2026 all'1,5-2%",
+      "description": "La BNS mantiene il tasso di riferimento allo 0% il 24 settembre 2026. Inflazione 2026 allo 0,7%, PIL rivisto tra 1,5% e 2,0%. Differenze con Fed e BCE.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bns-inflazione-pil-previsioni-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede della Banca nazionale svizzera a Zurigo con bandiera elvetica"
+      },
+      "datePublished": "2026-09-26T09:28:08+00:00",
+      "dateModified": "2026-09-26T09:28:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bns-inflazione-pil-previsioni-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
