@@ -12044,6 +12044,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.iwt-pharma-casale-litta-ampliamento.title': 'IWT Pharma weiht neues Gebäude in Casale Litta ein',
     'blog.article.iwt-pharma-casale-litta-ampliamento.excerpt': 'Erweiterung um etwa 9.000 m², Investition von 15 Millionen Euro, Ziel ist es, Kapazität und Umsatz innerhalb von fünf Jahren zu verdoppeln.',
     'blog.article.iwt-pharma-casale-litta-ampliamento.imageAlt': 'Modernes Industriegebäude mit Solarpaneelen und Ladestationen für Elektrofahrzeuge neben einem Fluss in einer grünen Landschaft',
+    'blog.article.bollettino-frontaliere-2026-09-26.title': 'Grenzgänger-Tagesbulletin – 26. September 2026: 769 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-09-26.excerpt': 'Die Zahlen von heute, 26. September 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-26.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 26. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-09-26.seoDescription': 'Grenzgänger-Bulletin vom 26. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-09-26.ogDescription': 'Die Zahlen vom 26. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;
