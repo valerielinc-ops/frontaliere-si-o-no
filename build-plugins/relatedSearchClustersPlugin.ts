@@ -473,9 +473,8 @@ function shardFilename(index: number): string {
 function clearStaleClusterSitemaps(distDir: string): string[] {
   const removed: string[] = [];
   if (!fs.existsSync(distDir)) return removed;
-  const re = new RegExp(`^${SITEMAP_SHARD_PREFIX}(?:-\\d+)?\\.xml$`);
   for (const file of fs.readdirSync(distDir)) {
-    if (!re.test(file)) continue;
+    if (!CLUSTER_SITEMAP_FILE_RE.test(file)) continue;
     try {
       fs.unlinkSync(path.join(distDir, file));
       removed.push(file);
