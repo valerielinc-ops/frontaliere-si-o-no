@@ -1547,9 +1547,9 @@ describe('generation checkpoint and preflight', () => {
     expect(sleeps).toEqual(PREFLIGHT_ALIGNMENT_BACKOFF_MS);
   });
 
-  it('fails closed immediately when the pinned corpus tree also has different workflow bytes', async () => {
-    // Run 36074224339: the site contract was at generator ca6de7…, while the
-    // pinned corpus contract was at 9fb227… and group 24 had older bytes.
+  it('reconciles transient pinned workflow-byte skew before deciding the crawler wave', async () => {
+    // Dopo un aggiornamento del generatore il corpus può avere, per qualche
+    // minuto, un contratto e byte di workflow coerenti ma precedenti.
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-preflight-artifact-lineage-'));
     tempRoots.push(root);
     const observer = Buffer.from('observer-workflow\n');
@@ -1575,6 +1575,75 @@ describe('generation checkpoint and preflight', () => {
     fs.writeFileSync(contractPath, JSON.stringify(localContract));
     fs.writeFileSync(observerPath, observer);
     const sleeps: number[] = [];
+    const notices: any[] = [];
+    let contractReads = 0;
+    const request = vi.fn(async (input: any) => {
+      if (input.path.includes('/generator/data/crawler-cross-repo-contract.json?')) {
+        const contract = contractReads++ === 0 ? staleRemoteContract : localContract;
+        return {
+          status: 200,
+          body: {
+            encoding: 'base64',
+            content: Buffer.from(JSON.stringify(contract)).toString('base64'),
+          },
+        };
+      }
+      const artifacts = contractReads === 1 ? remoteArtifacts : localArtifacts;
+      return preflightResponse(input, localContract, observer, artifacts);
+    });
+
+    await expect(runPreflight({
+      request,
+      contractPath,
+      observerPath,
+      sleep: async (milliseconds) => { sleeps.push(milliseconds); },
+      onTransientMismatch: (notice) => { notices.push(notice); },
+    })).resolves.toMatchObject({
+      ready: true,
+      dispatchMode: 'shadow',
+      corpusCodeCommit,
+      reasons: [],
+      warnings: [],
+      reconciliation: {
+        status: 'aligned_after_retry',
+        attempts: 2,
+        maxAttempts: PREFLIGHT_ALIGNMENT_BACKOFF_MS.length + 1,
+      },
+    });
+    expect(sleeps).toEqual([PREFLIGHT_ALIGNMENT_BACKOFF_MS[0]]);
+    expect(contractReads).toBe(2);
+    expect(notices).toMatchObject([{
+      attempt: 1,
+      nextAttempt: 2,
+      maxAttempts: PREFLIGHT_ALIGNMENT_BACKOFF_MS.length + 1,
+      reasons: ['contract_mismatch', 'crawler_artifact_lineage_mismatch'],
+    }]);
+  });
+
+  it('keeps persistent pinned workflow-byte skew blocked after bounded reconciliation', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-preflight-artifact-lineage-exhausted-'));
+    tempRoots.push(root);
+    const observer = Buffer.from('observer-workflow\n');
+    const localArtifacts = groupArtifactFixture();
+    const remoteArtifacts = {
+      ...localArtifacts,
+      'crawler-group-24.yml': Buffer.from('name: crawler-group-24 (historical)\n'),
+    };
+    const localContract = {
+      ...preflightFixture(observer, localArtifacts),
+      sourceRepository: 'valerielinc-ops/frontaliere-si-o-no',
+      generatorSha256: 'd'.repeat(64),
+    };
+    const staleRemoteContract = {
+      ...preflightFixture(observer, remoteArtifacts),
+      sourceRepository: 'valerielinc-ops/frontaliere-si-o-no',
+      generatorSha256: 'c'.repeat(64),
+    };
+    const contractPath = path.join(root, 'contract.json');
+    const observerPath = path.join(root, 'observer.yml');
+    fs.writeFileSync(contractPath, JSON.stringify(localContract));
+    fs.writeFileSync(observerPath, observer);
+    const sleeps: number[] = [];
     const request = vi.fn(async (input: any) => (
       preflightResponse(input, staleRemoteContract, observer, remoteArtifacts)
     ));
@@ -1584,15 +1653,18 @@ describe('generation checkpoint and preflight', () => {
       contractPath,
       observerPath,
       sleep: async (milliseconds) => { sleeps.push(milliseconds); },
-    })).resolves.toEqual({
+    })).resolves.toMatchObject({
       ready: false,
       dispatchMode: 'blocked',
       corpusCodeCommit: null,
       reasons: ['contract_mismatch', 'crawler_artifact_lineage_mismatch'],
-      warnings: [],
+      reconciliation: {
+        status: 'exhausted',
+        attempts: PREFLIGHT_ALIGNMENT_BACKOFF_MS.length + 1,
+        maxAttempts: PREFLIGHT_ALIGNMENT_BACKOFF_MS.length + 1,
+      },
     });
-    expect(sleeps).toEqual([]);
-    expect(request.mock.calls.filter(([input]) => input.path.includes('/commits/main'))).toHaveLength(1);
+    expect(sleeps).toEqual(PREFLIGHT_ALIGNMENT_BACKOFF_MS);
   });
 
   it('fails closed without reconciliation when the remote source repository is different', async () => {
