@@ -192,6 +192,46 @@ function describeError(error) {
   return message + causeCode;
 }
 
+const OFFICIAL_TRANSPORT_ERROR_CODES = new Set([
+  'ABORT_ERR',
+  'ECONNABORTED',
+  'ECONNREFUSED',
+  'ECONNRESET',
+  'EHOSTUNREACH',
+  'EAI_AGAIN',
+  'ENETDOWN',
+  'ENETUNREACH',
+  'ENOTFOUND',
+  'EPIPE',
+  'ETIMEDOUT',
+  'ERR_SOCKET_TIMEOUT',
+  'UND_ERR_ABORTED',
+  'UND_ERR_BODY_TIMEOUT',
+  'UND_ERR_CONNECT_TIMEOUT',
+  'UND_ERR_HEADERS_TIMEOUT',
+  'UND_ERR_SOCKET',
+]);
+
+const OFFICIAL_TRANSPORT_ERROR_NAMES = new Set([
+  'AbortError',
+  'BodyTimeoutError',
+  'ConnectTimeoutError',
+  'HeadersTimeoutError',
+  'SocketError',
+  'TimeoutError',
+]);
+
+function isOfficialTransportError(error, seen = new Set()) {
+  if (!error || typeof error !== 'object' || seen.has(error)) return false;
+  seen.add(error);
+  if (OFFICIAL_TRANSPORT_ERROR_NAMES.has(error.name)) return true;
+  if (typeof error.code === 'string' && OFFICIAL_TRANSPORT_ERROR_CODES.has(error.code)) return true;
+  // Node's native fetch reports an unwrapped network failure as this exact
+  // TypeError; when available, its `cause.code` is checked above/below.
+  if (error instanceof TypeError && error.message === 'fetch failed') return true;
+  return isOfficialTransportError(error.cause, seen);
+}
+
 export async function loadSourceText(source, fixtureDir, { fetchImpl = fetch } = {}) {
   if (fixtureDir) {
     const fixturePath = source.fixturePath || source.key;
@@ -208,6 +248,7 @@ export async function loadSourceText(source, fixtureDir, { fetchImpl = fetch } =
   } catch (officialError) {
     if (vcoMirrorUrlError(source)) throw officialError;
     if (!source.vcoMirrorUrl) throw officialError;
+    if (!isOfficialTransportError(officialError)) throw officialError;
     try {
       return {
         text: await fetchMirrorText(source, { fetchImpl }),
