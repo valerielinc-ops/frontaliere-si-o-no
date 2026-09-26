@@ -106,6 +106,8 @@ export function evaluateRepairPolicy({
   cooldownMs = RUNTIME_CIRCUIT_COOLDOWN_MS,
 } = {}) {
   const fingerprint = probe?.fingerprint || runtimeFailureFingerprint(probe);
+  const markerAllowsPurge = probe?.markerState === 'coherent'
+    || probe?.markerState === 'rollout_in_progress';
   const previousAt = Date.parse(previousState?.lastActionAt || '');
   const sameFailure = previousState?.fingerprint === fingerprint;
   const cooldownActive = sameFailure
@@ -114,10 +116,10 @@ export function evaluateRepairPolicy({
     && nowMs - previousAt < Math.max(0, Number(cooldownMs) || 0);
   if (!probe?.purgeUrls?.length) {
     return {
-      action: probe?.markerState === 'coherent' ? 'none' : 'blocked_marker',
+      action: markerAllowsPurge ? 'none' : 'blocked_marker',
       circuit: 'closed',
       fingerprint,
-      reason: probe?.markerState === 'coherent' ? 'no_targeted_assets' : 'marker_not_coherent',
+      reason: markerAllowsPurge ? 'no_targeted_assets' : 'marker_not_coherent',
     };
   }
   if (cooldownActive) {
@@ -445,6 +447,11 @@ export function formatIssueDescription(final, { first = null, runUrl = '' } = {}
     const count = (first?.purgeUrls || []).length;
     lines.push(`- Repair: ${repair.action}${repair.action === 'purge' ? ` of ${count} URL(s) (exact files, both cache variants)` : ''} — ${repair.reason}`);
   }
+  const verificationRepair = final?.repair;
+  if (verificationRepair) {
+    const count = verificationRepair.urls ?? (final?.purgeUrls || []).length;
+    lines.push(`- Verification repair: ${verificationRepair.action}${verificationRepair.action === 'purge' ? ` of ${count} URL(s) (exact files, both cache variants)` : ''} — ${verificationRepair.reason}`);
+  }
   lines.push('', '### Reasons', '');
   for (const reason of final?.reasons || []) lines.push(`- ${reason}`);
   if (!(final?.reasons || []).length) lines.push('- (none recorded)');
@@ -469,10 +476,11 @@ export function formatIssueDescription(final, { first = null, runUrl = '' } = {}
       lines.push(`- \`${pathOf(b.from)}\` imports \`${b.name}\` from \`${pathOf(b.to)}\`, which does not export it (${b.variant} variant)`);
     }
   }
-  lines.push(
-    '',
-    'The watchdog purged only exact CDN URLs (scripts/cf-purge-cache.mjs `--files=`, batches of at most 30, both cache variants). No zone-wide purge was performed.',
-  );
+  const targetedPurgeAttempted = [repair, verificationRepair]
+    .some((attempt) => attempt?.action === 'purge');
+  lines.push('', targetedPurgeAttempted
+    ? 'The watchdog attempted only exact CDN URL purges (scripts/cf-purge-cache.mjs `--files=`, batches of at most 30, both cache variants). No zone-wide purge was performed.'
+    : 'The watchdog did not perform a targeted purge. No zone-wide purge was performed.');
   return lines.join('\n');
 }
 

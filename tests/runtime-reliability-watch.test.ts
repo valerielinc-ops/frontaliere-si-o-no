@@ -77,6 +77,24 @@ describe('runtime reliability watchdog', () => {
     expect(runtimeFailureFingerprint(probe)).toBe(probe.fingerprint);
   });
 
+  it('does not call an authorized rollout marker blocked when no purge is needed', () => {
+    const probe = evaluateProbe({
+      siteCached: { body: '1789724819997', status: 200, ok: true },
+      siteFresh: { body: '1789724819997', status: 200, ok: true },
+      cdnMarker: { body: '1789734217605', status: 200, ok: true },
+      assets: [{
+        path: '/assets/App.js',
+        cached: { status: 200, ok: true, bytes: 3, hash: 'same' },
+        fresh: { status: 200, ok: true, bytes: 3, hash: 'same' },
+      }],
+    });
+    expect(probe.markerState).toBe('rollout_in_progress');
+    expect(evaluateRepairPolicy({ probe })).toMatchObject({
+      action: 'none',
+      reason: 'no_targeted_assets',
+    });
+  });
+
   it('riapre il purge dopo il cooldown e blocca un marker che regredisce', () => {
     const stale = evaluateProbe({
       siteCached: { body: '1789306155656', status: 200, ok: true },
@@ -317,6 +335,8 @@ describe('runtime reliability watchdog', () => {
 
     it('purges from the report file in batches, never via one --files list or purge_everything', () => {
       expect(workflow).toContain('node scripts/runtime-reliability-watch.mjs --purge-from runtime-reliability.json');
+      expect(workflow).toContain('node scripts/runtime-reliability-watch.mjs --purge-from runtime-reliability-final.json');
+      expect(workflow).toContain('final_probe_retry');
       expect(workflow).not.toContain('PURGE_URLS');
       expect(workflow).not.toContain('scripts/cf-purge-cache.mjs');
       expect(workflow).not.toContain('CF_PURGE_ZONE_WIDE');
