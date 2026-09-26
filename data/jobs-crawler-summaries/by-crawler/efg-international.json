@@ -1,77 +1,19 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-09-26T13:55:01.529Z",
+  "generatedAt": "2026-09-26T23:34:01.804Z",
   "total": 30,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 29,
-  "durationMs": 15241,
-  "avgDurationMs": 15241,
+  "unchangedCount": 30,
+  "durationMs": 14317,
+  "avgDurationMs": 14317,
   "durationHistory": [
-    15241
+    14317
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "efg-5984",
-      "slug": "operatore-di-commutazione-efg-international-ag-lugano",
-      "company": "EFG International AG",
-      "title": "Switchboard operator",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5984",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span><br><br><strong>Job Description</strong></p><p>The position of Switchboard Operator is based in Lugano. The role includes answering and managing incoming calls, providing information in line with internal and external guidelines, and transferring calls to the appropriate contacts and/or taking accurate messages when required. The candidate must be fluent in English, Italian, French and German.</p><p><span><strong>Main responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Answer incoming calls, greeting callers, providing information, transferring calls, or taking messages as necessary</span></li><li><span>Perform various data entry or word processing tasks, such as updating phone directories</span></li><li><span>Performing general administrative duties</span></li><li><span>Handle sensitive information in a confidential manner</span></li></ul><p> </p><p><span><strong>Skills and experience</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Successfully completed commercial education</span></li><li><span>Fluency in English and national languages</span></li><li><span>Around 2-4 years of working experience as Switchboard operator</span></li><li><span>Excellent time management skills, ability to multitask and prioritize request from various sources, work under pressure</span></li><li><span>Active Listening: Giving full attention to what other people are saying, taking time to understand the points being made, asking questions as appropriate, and not interrupting at inappropriate times</span></li><li><span>Knowledge of the Microsoft Office package </span></li><li><span>Communicative, trustworthy presence, politeness</span></li><li><span>Ability to work in a team and listening skills</span></li><li><span>Actively looking for ways to help people</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><p><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></p><p><span><strong>Passionate</strong>: Being committed and striving for excellence</span></p><p><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 2
-          }
-        }
-      },
-      "crawledAt": "2026-08-25T09:44:22.596Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-07-10",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "firstSeenAt": "2026-07-10T10:26:15.024Z",
-      "salarySource": "estimated",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/5984",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -157,7 +99,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-26T13:54:53.299Z",
+      "crawledAt": "2026-09-26T23:33:52.910Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-14",
@@ -211,7 +153,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-26T13:54:53.297Z",
+      "crawledAt": "2026-09-26T23:33:52.908Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-13",
@@ -376,7 +318,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-26T13:54:53.296Z",
+      "crawledAt": "2026-09-26T23:33:52.907Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-25",
@@ -486,7 +428,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-26T13:54:53.293Z",
+      "crawledAt": "2026-09-26T23:33:52.905Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-07-23",
@@ -616,7 +558,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-26T13:54:53.291Z",
+      "crawledAt": "2026-09-26T23:33:52.904Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -673,7 +615,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-26T13:54:53.290Z",
+      "crawledAt": "2026-09-26T23:33:52.902Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28",
@@ -800,7 +742,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-26T13:54:53.288Z",
+      "crawledAt": "2026-09-26T23:33:52.900Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -857,7 +799,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-26T13:54:53.286Z",
+      "crawledAt": "2026-09-26T23:33:52.899Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -987,7 +929,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-26T13:54:53.283Z",
+      "crawledAt": "2026-09-26T23:33:52.896Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1045,7 +987,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-26T13:54:53.281Z",
+      "crawledAt": "2026-09-26T23:33:52.890Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-09-03",
@@ -1181,7 +1123,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-26T13:54:53.279Z",
+      "crawledAt": "2026-09-26T23:33:52.888Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-09-16",
@@ -1205,7 +1147,7 @@
     },
     {
       "id": "efg-6490",
-      "slug": "digital-marketing-manager-campaigns-efg-zurich",
+      "slug": "digital-marketing-manager-campagne-efg-international-ag-zurich",
       "company": "EFG International AG",
       "title": "Digital Marketing Manager - Campaigns",
       "location": "Zurich",
@@ -1306,7 +1248,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-26T13:54:53.259Z",
+      "crawledAt": "2026-09-26T23:33:52.868Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-09-25",
@@ -1616,6 +1558,7 @@
       "salarySource": "reported",
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6210",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2099,12 +2042,71 @@
       "salarySource": "reported",
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/4543",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
         "completeness": 22
+      }
+    },
+    {
+      "id": "efg-5984",
+      "slug": "switchboard-operator-efg-international-ag-lugano",
+      "company": "EFG International AG",
+      "title": "Switchboard operator",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-10",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5984",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span><br><br><strong>Job Description</strong></p><p>The position of Switchboard Operator is based in Lugano. The role includes answering and managing incoming calls, providing information in line with internal and external guidelines, and transferring calls to the appropriate contacts and/or taking accurate messages when required. The candidate must be fluent in English, Italian, French and German.</p><p><span><strong>Main responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Answer incoming calls, greeting callers, providing information, transferring calls, or taking messages as necessary</span></li><li><span>Perform various data entry or word processing tasks, such as updating phone directories</span></li><li><span>Performing general administrative duties</span></li><li><span>Handle sensitive information in a confidential manner</span></li></ul><p> </p><p><span><strong>Skills and experience</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Successfully completed commercial education</span></li><li><span>Fluency in English and national languages</span></li><li><span>Around 2-4 years of working experience as Switchboard operator</span></li><li><span>Excellent time management skills, ability to multitask and prioritize request from various sources, work under pressure</span></li><li><span>Active Listening: Giving full attention to what other people are saying, taking time to understand the points being made, asking questions as appropriate, and not interrupting at inappropriate times</span></li><li><span>Knowledge of the Microsoft Office package </span></li><li><span>Communicative, trustworthy presence, politeness</span></li><li><span>Ability to work in a team and listening skills</span></li><li><span>Actively looking for ways to help people</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><p><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></p><p><span><strong>Passionate</strong>: Being committed and striving for excellence</span></p><p><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 2
+          }
+        }
+      },
+      "crawledAt": "2026-08-25T09:44:22.596Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-07-10",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "country": "CH",
+      "firstSeenAt": "2026-07-10T10:26:15.024Z",
+      "salarySource": "estimated",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/5984",
+      "needsRetranslation": true,
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
