@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bobst",
-  "assembledAt": "2026-09-24T14:45:59.330Z",
+  "assembledAt": "2026-09-26T12:17:23.649Z",
   "jobs": [
     {
       "id": "bobst-6b9490c1deb3",
@@ -72,7 +72,8 @@
         }
       },
       "addressRegion": "VD",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/4997/description/2"
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/4997/description/2",
+      "needsRetranslation": true
     },
     {
       "id": "bobst-602bfc3d2267",
@@ -169,14 +170,15 @@
         }
       },
       "addressRegion": "VD",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/6868/description/2"
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/6868/description/2",
+      "needsRetranslation": true
     },
     {
       "id": "bobst-81f8bbcbde85",
       "slug": "servizio-di-campo-tecnico-m-f-d-bobst-germany-bielefeld",
       "slugByLocale": {
         "it": "servizio-di-campo-tecnico-m-f-d-bobst-germany-bielefeld",
-        "en": "automotive-technician-m-f-d-bobst-germany-bielefeld",
+        "en": "field-service-technician-m-w-d-bobst-germany-bielefeld",
         "de": "field-service-technician-m-w-d-bobst-ch",
         "fr": "field-service-technician-m-f-d-bobst-germany-bielefeld"
       },
@@ -186,7 +188,7 @@
       "title": "Field Service Technician (m/w/d)",
       "titleByLocale": {
         "it": "Servizio di campo tecnico (m/f/d)",
-        "en": "Field Service Technician (m/f/d)",
+        "en": "Field Service Technician (m/w/d)",
         "de": "Field Service Techniker (m/w/d)",
         "fr": "Field Service Technicien (m/w/d)"
       },
@@ -254,7 +256,8 @@
         "feldservicetechniker-m-w-d-bobst-germany-bielefeld",
         "tecnico-di-servizio-campo-m-f-d-bobst-germany-bielefeld",
         "technicien-de-service-sur-site-h-f-bobst-germany-bielefeld",
-        "field-service-technician-m-w-d-bobst-germany-bielefeld"
+        "field-service-technician-m-w-d-bobst-germany-bielefeld",
+        "automotive-technician-m-f-d-bobst-germany-bielefeld"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -264,7 +267,7 @@
         ],
         "en": [
           "field-service-technician-m-w-d-bobst-ch",
-          "field-service-technician-m-w-d-bobst-germany-bielefeld"
+          "automotive-technician-m-f-d-bobst-germany-bielefeld"
         ],
         "de": [
           "feldservicetechniker-m-w-d-bobst-germany-bielefeld"
@@ -305,7 +308,7 @@
       "title": "Field Service Technician (m/w/d)",
       "titleByLocale": {
         "it": "Servizio di campo tecnico (m/f/d)",
-        "en": "Field Service Technician (m/f/d)",
+        "en": "Field Service Technician (m/w/d)",
         "de": "Field Service Techniker (m/w/d)",
         "fr": "Field Service Technicien (m/w/d)"
       },
@@ -639,7 +642,7 @@
       "title": "Technical Support Specialist 100% - Maschinen- & Anlagenbau",
       "titleByLocale": {
         "it": "Specialista di Supporto Tecnico al 100% - Ingegneria Meccanica e Impianti",
-        "en": "Technical Support Specialist 100% - Mechanical & Plant Engineering",
+        "en": "Technical Support Specialist 100% - Maschinen- & Anlagenbau",
         "de": "Technical Support Spezialist 100% - Maschinen- & Anlagenbau",
         "fr": "Spécialiste Support Technique 100% - Machines et Installations"
       },
@@ -749,7 +752,7 @@
       "title": "Field Application Engineer 100% – Kaschierprozesse & -anlagen",
       "titleByLocale": {
         "it": "Field Application Engineer 100% – Processi e impianti di laminazione",
-        "en": "Field Application Engineer 100% – Laminating Processes & Facilities",
+        "en": "Field Application Engineer 100% – Kaschierprozesse & -anlagen",
         "de": "Field Application Ingenieur 100% – Kaschierprozesse & -anlagen",
         "fr": "Field Application Engineer 100% – Processus et installations de contrecollage"
       },
@@ -846,7 +849,8 @@
         }
       },
       "addressRegion": "SO",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/7706/description/2"
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/7706/description/2",
+      "needsRetranslation": true
     },
     {
       "id": "bobst-a50d899700e3",
@@ -1119,7 +1123,7 @@
         "it": "direttore-della-tecnologia-iot-bobst-switzerland-mex",
         "en": "iot-technology-director-bobst-ch",
         "de": "iot-technologiedirektor-bobst-switzerland-mex",
-        "fr": "directeur-de-la-technologie-iot-bobst-switzerland-mex"
+        "fr": "iot-technology-director-bobst-switzerland-mex"
       },
       "company": "Bobst",
       "companyKey": "bobst",
@@ -1129,7 +1133,7 @@
         "it": "Direttore della tecnologia IoT",
         "en": "IoT Technology Director",
         "de": "IoT-Technologiedirektor",
-        "fr": "Directeur de la technologie IoT"
+        "fr": "IoT Technology Director"
       },
       "description": "IoT Technology Director BSA - Bobst Mex SA Apply now Shape the Future of Connected Packaging Industry At BOBST, we are transforming the packaging world through digitalization, connectivity and data-driven services. Our IoT ecosystem, BOBST Connect , enables customers worldwide to optimize performance, increase productivity and unlock the power of their data. To support our ambitious growth journey, we are looking for an IoT Technology Director to lead the development of our cloud platform, data capabilities and operations teams. This is a high-impact leadership role at the crossroads of technology, innovation and business transformation. You will lead a multidisciplinary organization of more than 40 engineers and specialists and play a key role in defining the future of BOBST's digital solutions. Your Mission As a member of the IoT Leadership Team, you will drive the technology strategy, architecture and delivery of the BOBST Connect platform while partnering closely with the Iot Product Director to bring innovative solutions to market. You will lead teams based in Switzerland and Morocco and report directly to the Chief Technology Officer (CTO). Key responsibilities Lead and inspire Lead, develop and grow multidisciplinary IoT, Data Science and Operations teams (+40 people).\n\nFoster a culture of agility, collaboration, innovation and continuous improvement.\n\nCoach leaders and technical experts, ensuring the organization is equipped to deliver on its ambitions.\n\nOwn the technology roadmap and execution of the BOBST Connect platform together with the Iot Product Director.\n\nDefine architecture, technology stack, cybersecurity and cloud strategies that ensure scalability, reliability and performance.\n\nPromote modern engineering practices including Agile, DevSecOps, CI/CD and AI-enabled development approaches.\n\nPartner with Product Lines, Business Units and commercial teams to maximize customer value.\n\nTranslate business needs into innovative digital solutions and services.",
       "descriptionByLocale": {
@@ -1184,7 +1188,7 @@
         "iot-technology-director-bobst-ch",
         "iot-technology-direktor-bobst-switzerland-mex",
         "iot-technology-direttore-bobst-switzerland-mex",
-        "iot-technology-director-bobst-switzerland-mex"
+        "directeur-de-la-technologie-iot-bobst-switzerland-mex"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1195,7 +1199,7 @@
           "iot-technology-direktor-bobst-switzerland-mex"
         ],
         "fr": [
-          "iot-technology-director-bobst-switzerland-mex"
+          "directeur-de-la-technologie-iot-bobst-switzerland-mex"
         ]
       },
       "firstSeenAt": "2026-07-03T21:32:40.522Z",
@@ -1213,7 +1217,8 @@
         }
       },
       "addressRegion": "VD",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9073/description/2"
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9073/description/2",
+      "needsRetranslation": true
     },
     {
       "id": "bobst-aa776ad9783b",
@@ -1229,7 +1234,7 @@
       "companyDomain": "bobst.com",
       "title": "IT Test & Release Manager",
       "titleByLocale": {
-        "it": "IT Test &amp; Release Manager",
+        "it": "IT Test & Release Manager",
         "en": "IT Test & Release Manager",
         "de": "IT-Test- und Release-Manager",
         "fr": "Gestionnaire de test et de sortie IT"
@@ -1285,7 +1290,8 @@
         }
       },
       "addressRegion": "VD",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9034/description/2"
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9034/description/2",
+      "needsRetranslation": true
     },
     {
       "id": "bobst-42d29368f8b4",
@@ -1396,7 +1402,7 @@
       "title": "Account Manager (m/w/d) - Corrugated Board (w/m/d)",
       "titleByLocale": {
         "it": "Account Manager - Cartone Ondulato",
-        "en": "Account Manager (m/f/d) - Corrugated Board (m/f/d)",
+        "en": "Account Manager (m/w/d) - Corrugated Board (w/m/d)",
         "de": "Account Manager (m/w/d) - Corrugated Board (w/m/d)",
         "fr": "Account Manager - Carton Ondulé"
       },
@@ -1565,7 +1571,8 @@
         }
       },
       "addressRegion": "VD",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/8728/description/3"
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/8728/description/3",
+      "needsRetranslation": true
     },
     {
       "id": "bobst-596ff28a5bae",
@@ -1582,7 +1589,7 @@
       "title": "Customer Care Specialist (m/w/d)",
       "titleByLocale": {
         "it": "Customer Care Specialista (m/w/d)",
-        "en": "Customer Care Specialist (m/f/d)",
+        "en": "Customer Care Specialist (m/w/d)",
         "de": "Customer Care Spezialist (m/w/d)",
         "fr": "Customer Care Spécialiste (m/w/d)"
       },
@@ -1666,7 +1673,8 @@
         }
       },
       "addressRegion": "VD",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/6329/description/2"
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/6329/description/2",
+      "needsRetranslation": true
     },
     {
       "id": "bobst-bdedce751de6",
@@ -1675,7 +1683,7 @@
         "it": "apprendista-automatista-bobst-switzerland-mex",
         "en": "apprentice-automation-technician-bobst-switzerland-mex",
         "de": "lehrling-automatiker-in-bobst-switzerland-mex",
-        "fr": "apprenti-automaticien-ne-bobst-ch"
+        "fr": "apprenti-automaticien-ne-bobst-switzerland-mex"
       },
       "company": "Bobst",
       "companyKey": "bobst",
@@ -1747,8 +1755,7 @@
       },
       "department": "Apprenticeship",
       "previousSlugs": [
-        "apprenti-automaticien-ne-bobst-ch",
-        "apprenti-automaticien-ne-bobst-switzerland-mex"
+        "apprenti-automaticien-ne-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1761,7 +1768,7 @@
           "apprenti-automaticien-ne-bobst-ch"
         ],
         "fr": [
-          "apprenti-automaticien-ne-bobst-switzerland-mex"
+          "apprenti-automaticien-ne-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-08-31T17:34:29.136Z",
@@ -1779,7 +1786,8 @@
         }
       },
       "addressRegion": "VD",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9221/description/3"
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9221/description/3",
+      "needsRetranslation": true
     },
     {
       "id": "bobst-855585a4eeb5",
@@ -1867,7 +1875,7 @@
         "it": "apprendista-polimeccanico-a-bobst-switzerland-mex",
         "en": "apprentice-polymechanic-bobst-switzerland-mex",
         "de": "lehrling-polymechaniker-in-bobst-switzerland-mex",
-        "fr": "apprenti-polymecanicien-ne-bobst-ch"
+        "fr": "apprenti-polymecanicien-ne-bobst-switzerland-mex"
       },
       "company": "Bobst",
       "companyKey": "bobst",
@@ -1909,8 +1917,7 @@
       "requirementsByLocale": {},
       "department": "Apprenticeship",
       "previousSlugs": [
-        "apprenti-polymecanicien-ne-bobst-ch",
-        "apprenti-polymecanicien-ne-bobst-switzerland-mex"
+        "apprenti-polymecanicien-ne-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1923,7 +1930,7 @@
           "apprenti-polymecanicien-ne-bobst-ch"
         ],
         "fr": [
-          "apprenti-polymecanicien-ne-bobst-switzerland-mex"
+          "apprenti-polymecanicien-ne-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-08-31T17:34:27.665Z",
@@ -2144,7 +2151,7 @@
         "it": "apprendista-mediamatico-bobst-switzerland-mex",
         "en": "media-designer-apprentice-bobst-switzerland-mex",
         "de": "mediamatiker-in-lernende-r-bobst-switzerland-mex",
-        "fr": "apprenti-mediamaticien-ne-bobst-ch"
+        "fr": "apprenti-mediamaticien-ne-bobst-switzerland-mex"
       },
       "company": "Bobst",
       "companyKey": "bobst",
@@ -2204,8 +2211,7 @@
       },
       "department": "Apprenticeship",
       "previousSlugs": [
-        "apprenti-mediamaticien-ne-bobst-ch",
-        "apprenti-mediamaticien-ne-bobst-switzerland-mex"
+        "apprenti-mediamaticien-ne-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2218,7 +2224,7 @@
           "apprenti-mediamaticien-ne-bobst-ch"
         ],
         "fr": [
-          "apprenti-mediamaticien-ne-bobst-switzerland-mex"
+          "apprenti-mediamaticien-ne-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-08-31T17:34:25.314Z",
@@ -2739,9 +2745,9 @@
     },
     {
       "id": "bobst-8f20598bb0d7",
-      "slug": "collaudatore-meccanico-bobst-ch",
+      "slug": "collaudatore-meccanico-bobst-italy-san-giorgio-monferrato",
       "slugByLocale": {
-        "it": "collaudatore-meccanico-bobst-ch",
+        "it": "collaudatore-meccanico-bobst-italy-san-giorgio-monferrato",
         "en": "mechanical-tester-bobst-italy-san-giorgio-monferrato",
         "de": "mechanisches-prufgerat-bobst-italy-san-giorgio-monferrato",
         "fr": "testeur-mecanique-bobst-italy-san-giorgio-monferrato"
@@ -2786,11 +2792,11 @@
       "requirementsByLocale": {},
       "department": "Research & Development (R&D)",
       "previousSlugs": [
-        "collaudatore-meccanico-bobst-italy-san-giorgio-monferrato"
+        "collaudatore-meccanico-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaudatore-meccanico-bobst-italy-san-giorgio-monferrato"
+          "collaudatore-meccanico-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-09-03T13:47:58.313Z",
@@ -2812,9 +2818,9 @@
     },
     {
       "id": "bobst-587cfc23736f",
-      "slug": "auxiliary-system-engineer-bobst-ch",
+      "slug": "auxiliary-system-ingegnere-bobst-italy-san-giorgio-monferrato",
       "slugByLocale": {
-        "it": "auxiliary-system-engineer-bobst-ch",
+        "it": "auxiliary-system-ingegnere-bobst-italy-san-giorgio-monferrato",
         "en": "auxiliary-system-engineer-bobst-italy-san-giorgio-monferrato",
         "de": "auxiliary-system-ingenieur-bobst-italy-san-giorgio-monferrato",
         "fr": "auxiliary-system-ingenieur-bobst-italy-san-giorgio-monferrato"
@@ -2858,12 +2864,12 @@
       "requirementsByLocale": {},
       "department": "Engineering",
       "previousSlugs": [
-        "auxiliary-system-ingegnere-bobst-italy-san-giorgio-monferrato",
-        "auili-bobst-italy-san-giorgio-monferrato"
+        "auili-bobst-italy-san-giorgio-monferrato",
+        "auxiliary-system-engineer-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "auxiliary-system-ingegnere-bobst-italy-san-giorgio-monferrato"
+          "auxiliary-system-engineer-bobst-ch"
         ],
         "en": [
           "auili-bobst-italy-san-giorgio-monferrato"
@@ -3035,7 +3041,8 @@
         }
       },
       "addressRegion": "VD",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9247/description/2"
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9247/description/2",
+      "needsRetranslation": true
     },
     {
       "id": "bobst-54b2a93e6104",
@@ -3044,7 +3051,7 @@
         "it": "apprendistato-bobst-switzerland-mex",
         "en": "apprenticeship-bobst-switzerland-mex",
         "de": "ausbildung-bobst-switzerland-mex",
-        "fr": "apprenti-logisitcien-ne-bobst-ch"
+        "fr": "apprenti-logisitcien-ne-bobst-switzerland-mex"
       },
       "company": "Bobst",
       "companyKey": "bobst",
@@ -3086,8 +3093,7 @@
       "requirementsByLocale": {},
       "department": "Apprenticeship",
       "previousSlugs": [
-        "apprenti-logisitcien-ne-bobst-ch",
-        "apprenti-logisitcien-ne-bobst-switzerland-mex"
+        "apprenti-logisitcien-ne-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3100,7 +3106,7 @@
           "apprenti-logisitcien-ne-bobst-ch"
         ],
         "fr": [
-          "apprenti-logisitcien-ne-bobst-switzerland-mex"
+          "apprenti-logisitcien-ne-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-09-09T13:55:57.177Z",
@@ -3122,9 +3128,9 @@
     },
     {
       "id": "bobst-e9c812ae01cf",
-      "slug": "quality-assurance-engineer-bobst-ch",
+      "slug": "quality-assurance-ingegnere-bobst-italy-san-giorgio-monferrato",
       "slugByLocale": {
-        "it": "quality-assurance-engineer-bobst-ch",
+        "it": "quality-assurance-ingegnere-bobst-italy-san-giorgio-monferrato",
         "en": "quality-assurance-engineer-bobst-ch",
         "de": "qualitat-assurance-ingenieur-bobst-italy-san-giorgio-monferrato",
         "fr": "qualite-assurance-ingenieur-bobst-italy-san-giorgio-monferrato"
@@ -3135,7 +3141,7 @@
       "title": "Quality Assurance Engineer",
       "titleByLocale": {
         "it": "Quality Assurance Ingegnere",
-        "en": "Quality Asoxo Engineer",
+        "en": "Quality Assurance Engineer",
         "de": "Qualität Assurance Ingenieur",
         "fr": "Qualité Assurance Ingénieur"
       },
@@ -3168,11 +3174,11 @@
       "requirementsByLocale": {},
       "department": "Production",
       "previousSlugs": [
-        "quality-assurance-ingegnere-bobst-italy-san-giorgio-monferrato"
+        "quality-assurance-engineer-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quality-assurance-ingegnere-bobst-italy-san-giorgio-monferrato"
+          "quality-assurance-engineer-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-09-09T13:55:56.352Z",
@@ -3194,9 +3200,9 @@
     },
     {
       "id": "bobst-9635b9290290",
-      "slug": "machines-safety-specialist-bobst-ch",
+      "slug": "machines-safety-specialista-bobst-italy-san-giorgio-monferrato",
       "slugByLocale": {
-        "it": "machines-safety-specialist-bobst-ch",
+        "it": "machines-safety-specialista-bobst-italy-san-giorgio-monferrato",
         "en": "machines-safety-specialist-bobst-ch",
         "de": "machines-safety-spezialist-bobst-italy-san-giorgio-monferrato",
         "fr": "machines-safety-specialiste-bobst-italy-san-giorgio-monferrato"
@@ -3271,11 +3277,11 @@
       "department": "Engineering",
       "previousSlugs": [
         "spezialist-fur-maschinensicherheit-bobst-italy-san-giorgio-monferrato",
-        "machines-safety-specialista-bobst-italy-san-giorgio-monferrato"
+        "machines-safety-specialist-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "machines-safety-specialista-bobst-italy-san-giorgio-monferrato"
+          "machines-safety-specialist-bobst-ch"
         ],
         "de": [
           "spezialist-fur-maschinensicherheit-bobst-italy-san-giorgio-monferrato"
@@ -3374,13 +3380,14 @@
         }
       },
       "addressRegion": "VD",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9218/description/2"
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9218/description/2",
+      "needsRetranslation": true
     },
     {
       "id": "bobst-a969237c576e",
-      "slug": "supplier-quality-engineer-bobst-ch",
+      "slug": "supplier-quality-ingegnere-bobst-italy-san-giorgio-monferrato",
       "slugByLocale": {
-        "it": "supplier-quality-engineer-bobst-ch",
+        "it": "supplier-quality-ingegnere-bobst-italy-san-giorgio-monferrato",
         "en": "supplier-quality-engineer-bobst-ch",
         "de": "supplier-qualitat-ingenieur-bobst-italy-san-giorgio-monferrato",
         "fr": "supplier-qualite-ingenieur-bobst-italy-san-giorgio-monferrato"
@@ -3391,7 +3398,7 @@
       "title": "Supplier Quality Engineer",
       "titleByLocale": {
         "it": "Supplier Quality Ingegnere",
-        "en": "1. Quality Engineer",
+        "en": "Supplier Quality Engineer",
         "de": "Supplier Qualität Ingenieur",
         "fr": "Supplier Qualité Ingénieur"
       },
@@ -3424,11 +3431,11 @@
       "requirementsByLocale": {},
       "department": "Production",
       "previousSlugs": [
-        "supplier-quality-ingegnere-bobst-italy-san-giorgio-monferrato"
+        "supplier-quality-engineer-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "supplier-quality-ingegnere-bobst-italy-san-giorgio-monferrato"
+          "supplier-quality-engineer-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-09-19T23:08:17.434Z",
@@ -3524,7 +3531,8 @@
         }
       },
       "addressRegion": "VD",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9150/description/2"
+      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9150/description/2",
+      "needsRetranslation": true
     },
     {
       "id": "bobst-a19a24184b89",
@@ -3677,79 +3685,6 @@
       },
       "addressRegion": "VD",
       "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9212/description/2"
-    },
-    {
-      "id": "bobst-fedd51a0b72b",
-      "slug": "field-service-engineer-nmw-digital-bobst-ch-2",
-      "slugByLocale": {
-        "it": "field-service-engineer-nmw-digital-bobst-ch-2",
-        "en": "field-service-engineer-nmw-digital-bobst-ch",
-        "de": "field-service-engineer-nmw-digital-bobst-ch-2",
-        "fr": "field-service-engineer-nmw-digital-bobst-ch-2"
-      },
-      "company": "Bobst",
-      "companyKey": "bobst",
-      "companyDomain": "bobst.com",
-      "title": "Field Service Engineer, NMW, Digital",
-      "titleByLocale": {
-        "it": "Field Service Ingegnere, NMW, Digital",
-        "en": "Field Service Engineer, NMW, Digital",
-        "de": "Field Service Ingenieur, NMW, Digital",
-        "fr": "Field Service Ingénieur, NMW, Digital"
-      },
-      "description": "Field Service Engineer, NMW, Digital BNA - Bobst North America Apply now Bobst North America named to Forbes Best Midsize Employers List 3 years in a row! Do you want to be a part of a global organization within the packaging industry? Did you know that around half of the packaging used today has been touched by a BOBST machine? At BOBST we put customer service at the heart of everything we do, and we are looking for a new team member to join us to provide world class service for world class machines! About the Role We are expanding our team to support our growing customer base and installation needs. If you enjoy travel, sharing technical expertise, and working hands-on with advanced machinery, this is the perfect opportunity for you! As a Field Service Engineer , you will: Perform service, repairs, and installations of Bobst machinery.\n\nRelocate existing equipment and conduct preventive maintenance.\n\nProvide customer training and implement productivity improvement programs.\n\nTroubleshoot technical issues and offer solutions.\n\nBe on call for after-hours support on a rotating basis.\n\nOffer technical support to customers, service centers, and technicians.\n\n5-10 years of experience in a Field Service role.\n\nStrong troubleshooting and analytical skills.",
-      "descriptionByLocale": {
-        "it": "Field Service Engineer, NMW, Digital BNA - Bobst North America Applicare ora Bobst Nord America denominato Forbes Best Midsize Employers Lista 3 anni di fila! Vuoi far parte di un'organizzazione globale nel settore dell'imballaggio? Sapevate che circa la metà dell'imballaggio utilizzato oggi è stato toccato da una macchina BOBST? A BOBST mettiamo il servizio clienti al centro di tutto quello che facciamo, e stiamo cercando un nuovo membro del team per unirsi a noi per fornire il servizio di classe mondiale per le macchine di classe mondiale! Stiamo espandendo il nostro team per supportare le nostre crescenti esigenze di base e installazione dei clienti. Se ti piace viaggiare, condividere competenze tecniche e lavorare con macchinari avanzati, questa è l'occasione perfetta per te! Come ingegnere di servizio di campo , si sarà: Eseguire il servizio, le riparazioni e le installazioni di macchinari Bobst.\n\nRilocare le attrezzature esistenti e condurre la manutenzione preventiva.\n\nFornire la formazione del cliente e implementare programmi di miglioramento della produttività.\n\nRisoluzione dei problemi tecnici e soluzioni di offerta.\n\nEssere su richiesta per il supporto post-ora su una base rotante.\n\nOffri supporto tecnico a clienti, centri di servizio e tecnici.\n\n5-10 anni di esperienza in un ruolo di Field Service.\n\nForte risoluzione dei problemi e abilità analitiche.",
-        "en": "Field Service Engineer, NMW, Digital BNA - Bobst North America Apply now Bobst North America named to Forbes Best Midsize Employers List 3 years in a row! Do you want to be a part of a global organization within the packaging industry? Did you know that around half of the packaging used today has been touched by a BOBST machine? At BOBST we put customer service at the heart of everything we do, and we are looking for a new team member to join us to provide world class service for world class machines! About the Role We are expanding our team to support our growing customer base and installation needs. If you enjoy travel, sharing technical expertise, and working hands-on with advanced machinery, this is the perfect opportunity for you! As a Field Service Engineer , you will: Perform service, repairs, and installations of Bobst machinery.\n\nRelocate existing equipment and conduct preventive maintenance.\n\nProvide customer training and implement productivity improvement programs.\n\nTroubleshoot technical issues and offer solutions.\n\nBe on call for after-hours support on a rotating basis.\n\nOffer technical support to customers, service centers, and technicians.\n\n5-10 years of experience in a Field Service role.\n\nStrong troubleshooting and analytical skills.",
-        "de": "Field Service Engineer, NMW, Digital BNA - Bobst North America Beantragen Sie jetzt Bobst North America als Forbes Best Midsize Employers List 3 Jahre in Folge! Möchten Sie Teil einer globalen Organisation in der Verpackungsindustrie sein? Wussten Sie, dass etwa die Hälfte der heute verwendeten Verpackungen von einer BOBST-Maschine berührt wurde? Bei BOBST stellen wir den Kundenservice in den Mittelpunkt von allem, was wir tun, und wir suchen ein neues Teammitglied, das sich uns anschließt, um Weltklasse-Service für Weltklasse-Maschinen zu bieten! Über die Rolle Wir erweitern unser Team, um unseren wachsenden Kundenstamm und unsere Installationsbedürfnisse zu unterstützen. Wenn Sie gerne reisen, technisches Know-how teilen und mit fortschrittlichen Maschinen arbeiten, ist dies die perfekte Gelegenheit für Sie! Als Field Service Engineer werden Sie: Service, Reparaturen und Installationen von Bobst Maschinen durchführen.\n\nVerlagerung vorhandener Geräte und vorbeugende Wartung.\n\nBereitstellung von Kundenschulungen und Implementierung von Produktivitätsverbesserungsprogrammen.\n\nBeheben Sie technische Probleme und bieten Sie Lösungen an.\n\nSeien Sie auf Abruf für After-Hours-Support auf einer rotierenden Basis.\n\nBieten Sie technische Unterstützung für Kunden, Servicezentren und Techniker.\n\n5-10 Jahre Erfahrung in einer Field Service Rolle.\n\nStarke Fehlersuche und analytische Fähigkeiten.",
-        "fr": "Engineer Service Field, NMW, Digital BNA - Bobst North America Postulez Bobst North America nommé à Forbes Best Midsize Employers List 3 ans de suite! Voulez-vous faire partie d'une organisation mondiale au sein de l'industrie de l'emballage? Saviez-vous qu'environ la moitié des emballages utilisés aujourd'hui ont été touchés par une machine BOBST? Chez BOBST, nous mettons le service à la clientèle au cœur de tout ce que nous faisons, et nous cherchons un nouveau membre de l'équipe pour nous rejoindre pour fournir un service de classe mondiale pour les machines de classe mondiale! À propos du rôle Nous élargissons notre équipe pour soutenir notre clientèle croissante et les besoins d'installation. Si vous aimez voyager, partager l'expertise technique et travailler avec des machines de pointe, c'est l'occasion parfaite pour vous! En tant qu'ingénieur du Service mobile, vous: Effectuez le service, les réparations et les installations des machines Bobst.\n\nDéménagement du matériel existant et entretien préventif.\n\nOffrir une formation aux clients et mettre en oeuvre des programmes d'amélioration de la productivité.\n\nDépanner les problèmes techniques et proposer des solutions.\n\nSoyez sur demande pour le soutien après les heures de travail sur une base tournante.\n\nOffrez un soutien technique aux clients, aux centres de service et aux techniciens.\n\n5 à 10 ans d'expérience dans le domaine du Service mobile.\n\nForte capacité de dépannage et d'analyse."
-      },
-      "needsRetranslation": false,
-      "location": "USA (Parsippany)",
-      "canton": "VD",
-      "url": "https://jobs.bobst.com/Vacancies/9210/Description/2",
-      "source": "Bobst Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:45:19.171Z",
-      "addressLocality": "USA (Parsippany)",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "17.09.2026",
-      "applyUrl": "https://jobs.bobst.com/Vacancies/9210/Description/2",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Customer Service",
-      "previousSlugs": [
-        "field-service-engineer-nmw-digital-bobst-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "field-service-engineer-nmw-digital-bobst-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T23:08:14.396Z",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 71000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VD",
-      "sourceIdentity": "url:https://jobs.bobst.com/vacancies/9210/description/2"
     },
     {
       "id": "bobst-4d339b477ea5",

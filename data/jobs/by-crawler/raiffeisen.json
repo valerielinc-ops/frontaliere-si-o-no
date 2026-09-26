@@ -1,6 +1,6 @@
 {
   "crawlerKey": "raiffeisen",
-  "assembledAt": "2026-09-25T14:48:46.492Z",
+  "assembledAt": "2026-09-26T12:20:22.251Z",
   "jobs": [
     {
       "id": "raiffeisen-7b1087e49b95",
@@ -53,13 +53,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "consultant-en-biens-raiffeisen-savosa",
-        "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
+        "consultant-en-biens-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "consultant-en-biens-raiffeisen-savosa",
-          "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
+          "consultant-en-biens-raiffeisen-savosa"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.430Z",
@@ -132,8 +130,7 @@
         "consulente-clienti-privato-raiffeisen-nyon",
         "private-client-advisor-raiffeisen-nyon",
         "privatkundenberater-raiffeisen-nyon",
-        "conseiller-ere-clientele-privee-raiffeisen-nyon",
-        "consulente-cliente-individuale-f-m-d-raiffeisen-thusis"
+        "conseiller-ere-clientele-privee-raiffeisen-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -141,8 +138,7 @@
           "consulente-clienti-privato-raiffeisen-nyon",
           "private-client-advisor-raiffeisen-nyon",
           "privatkundenberater-raiffeisen-nyon",
-          "conseiller-ere-clientele-privee-raiffeisen-nyon",
-          "consulente-cliente-individuale-f-m-d-raiffeisen-thusis"
+          "conseiller-ere-clientele-privee-raiffeisen-nyon"
         ],
         "en": [
           "private-client-advisor-raiffeisen-nyon"
@@ -220,13 +216,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprenti-e-employe-e-de-commerce-cfc-banque-pour-aout-2027-raiffeisen-porrentruy",
-        "apprendista-commerciale-cfc-bank-agosto-2027-raiffeisen-porrentruy"
+        "apprenti-e-employe-e-de-commerce-cfc-banque-pour-aout-2027-raiffeisen-porrentruy"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-e-employe-e-de-commerce-cfc-banque-pour-aout-2027-raiffeisen-porrentruy",
-          "apprendista-commerciale-cfc-bank-agosto-2027-raiffeisen-porrentruy"
+          "apprenti-e-employe-e-de-commerce-cfc-banque-pour-aout-2027-raiffeisen-porrentruy"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.418Z",
@@ -295,13 +289,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hypothekarspezialist-in-raiffeisen-frick",
-        "specialista-mortgage-in-raiffeisen-frick"
+        "hypothekarspezialist-in-raiffeisen-frick"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hypothekarspezialist-in-raiffeisen-frick",
-          "specialista-mortgage-in-raiffeisen-frick"
+          "hypothekarspezialist-in-raiffeisen-frick"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.301Z",
@@ -370,14 +362,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen",
-        "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-4",
-        "apprendistato-come-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-unterageri"
+        "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-4"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen",
-          "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-4",
-          "apprendistato-come-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-unterageri"
+          "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-4"
         ],
         "en": [
           "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-4"
@@ -399,7 +389,8 @@
           "maxValue": 108000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-96444ff29007",
@@ -464,8 +455,7 @@
         "individual-private-customer-advisor-h-f-raiffeisen-saignelegier",
         "privatkundenberater-h-f-raiffeisen-saignelegier",
         "conseiller-a-la-clientele-privee-individuelle-h-f-raiffeisen-saignelegier",
-        "privatkundenberater-raiffeisen-gordola",
-        "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
+        "privatkundenberater-raiffeisen-gordola"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -488,8 +478,7 @@
           "privatkundenberater-raiffeisen-poschiavo",
           "privatkundenberater-m-w-d-raiffeisen-thierrens",
           "privatkundenberater-h-f-raiffeisen-saignelegier",
-          "privatkundenberater-raiffeisen-gordola",
-          "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
+          "privatkundenberater-raiffeisen-gordola"
         ],
         "fr": [
           "conseiller-client-prive-individuel-raiffeisen-poschiavo",
@@ -563,13 +552,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "privatkundenberater-in-w-m-d-raiffeisen-nesslau",
-        "consulente-clienti-privato-in-f-m-d-raiffeisen-nesslau"
+        "privatkundenberater-in-w-m-d-raiffeisen-nesslau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "privatkundenberater-in-w-m-d-raiffeisen-nesslau",
-          "consulente-clienti-privato-in-f-m-d-raiffeisen-nesslau"
+          "privatkundenberater-in-w-m-d-raiffeisen-nesslau"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.400Z",
@@ -638,13 +625,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kmu-firmenkundenberater-in-w-m-d-raiffeisen-nesslau",
-        "consulente-cliente-aziendale-in-f-m-d-raiffeisen-nesslau"
+        "kmu-firmenkundenberater-in-w-m-d-raiffeisen-nesslau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kmu-firmenkundenberater-in-w-m-d-raiffeisen-nesslau",
-          "consulente-cliente-aziendale-in-f-m-d-raiffeisen-nesslau"
+          "kmu-firmenkundenberater-in-w-m-d-raiffeisen-nesslau"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.380Z",
@@ -716,8 +701,7 @@
         "consulente-clientela-aziendale-raiffeisen-bellinzona",
         "corporate-customer-advisor-raiffeisen-bellinzona",
         "conseiller-client-d-entreprise-raiffeisen-bellinzona",
-        "corporate-customer-advisor-raiffeisen-savosa",
-        "firmenkundenberater-raiffeisen-savosa"
+        "corporate-customer-advisor-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -727,8 +711,7 @@
         ],
         "de": [
           "corporate-customer-advisor-raiffeisen-bellinzona",
-          "corporate-customer-advisor-raiffeisen-savosa",
-          "firmenkundenberater-raiffeisen-savosa"
+          "corporate-customer-advisor-raiffeisen-savosa"
         ],
         "fr": [
           "conseiller-client-d-entreprise-raiffeisen-bellinzona"
@@ -802,16 +785,14 @@
         "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen",
         "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-7",
         "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-tsgi49",
-        "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-lehrbeginn-august-2027-raiffe-tsgi49",
-        "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-zweisimmen"
+        "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-lehrbeginn-august-2027-raiffe-tsgi49"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen",
           "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-7",
           "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-tsgi49",
-          "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-lehrbeginn-august-2027-raiffe-tsgi49",
-          "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-zweisimmen"
+          "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-lehrbeginn-august-2027-raiffe-tsgi49"
         ],
         "en": [
           "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-7"
@@ -833,7 +814,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-6f93c19ab091",
@@ -888,15 +870,13 @@
       "previousSlugs": [
         "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
         "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-        "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen",
-        "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen"
+        "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
           "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-          "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen",
-          "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen"
+          "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.336Z",
@@ -964,13 +944,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bankeinstieg-nach-matura-bem-beginn-1-september-2027-raiffeisen-fulenbach-kestenholz",
-        "entrata-bancaria-a-matura-bem-inizio-1-settembre-2027-raiffeisen-fulenbach-kestenholz-langenthal-murgenthal-wolfwil"
+        "bankeinstieg-nach-matura-bem-beginn-1-september-2027-raiffeisen-fulenbach-kestenholz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bankeinstieg-nach-matura-bem-beginn-1-september-2027-raiffeisen-fulenbach-kestenholz",
-          "entrata-bancaria-a-matura-bem-inizio-1-settembre-2027-raiffeisen-fulenbach-kestenholz-langenthal-murgenthal-wolfwil"
+          "bankeinstieg-nach-matura-bem-beginn-1-september-2027-raiffeisen-fulenbach-kestenholz"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.267Z",
@@ -986,7 +964,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-5ba466fff3f4",
@@ -1039,14 +1018,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen",
-        "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-12",
-        "apprendistato-come-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-fulenbach-kestenholz-langenthal-murgenthal-wolfwil"
+        "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-12"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen",
-          "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-12",
-          "apprendistato-come-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-fulenbach-kestenholz-langenthal-murgenthal-wolfwil"
+          "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-12"
         ],
         "en": [
           "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-12"
@@ -1068,7 +1045,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-51e4884dfcb5",
@@ -1121,13 +1099,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachspezialist-firmenkunden-w-m-d-raiffeisen-eschenbach-sg",
-        "clienti-aziendali-specializzati-f-m-d-raiffeisen-eschenbach-sg"
+        "fachspezialist-firmenkunden-w-m-d-raiffeisen-eschenbach-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-firmenkunden-w-m-d-raiffeisen-eschenbach-sg",
-          "clienti-aziendali-specializzati-f-m-d-raiffeisen-eschenbach-sg"
+          "fachspezialist-firmenkunden-w-m-d-raiffeisen-eschenbach-sg"
         ]
       },
       "firstSeenAt": "2026-07-05T23:41:22.400Z",
@@ -1195,13 +1171,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verwaltungsrat-ratin-raiffeisenbank-pilatus-raiffeisen-kriens",
-        "consiglio-di-amministrazione-consiglio-raiffeisenbank-pilatus-raiffeisen-kriens"
+        "verwaltungsrat-ratin-raiffeisenbank-pilatus-raiffeisen-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verwaltungsrat-ratin-raiffeisenbank-pilatus-raiffeisen-kriens",
-          "consiglio-di-amministrazione-consiglio-raiffeisenbank-pilatus-raiffeisen-kriens"
+          "verwaltungsrat-ratin-raiffeisenbank-pilatus-raiffeisen-kriens"
         ],
         "en": [
           "verwaltungsrat-ratin-raiffeisenbank-pilatus-raiffeisen-kriens"
@@ -1223,7 +1197,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-85368960db39",
@@ -1275,13 +1250,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "privatkundenberater-w-m-d-raiffeisen-wetzikon",
-        "consulenti-al-dettaglio-f-m-d-raiffeisen-wetzikon"
+        "privatkundenberater-w-m-d-raiffeisen-wetzikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "privatkundenberater-w-m-d-raiffeisen-wetzikon",
-          "consulenti-al-dettaglio-f-m-d-raiffeisen-wetzikon"
+          "privatkundenberater-w-m-d-raiffeisen-wetzikon"
         ],
         "en": [
           "privatkundenberater-w-m-d-raiffeisen-wetzikon"
@@ -1303,7 +1276,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-6dac32201a02",
@@ -1356,13 +1330,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich",
-        "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich-8xyruc",
-        "avaloq-application-developer-f-m-d-raiffeisen-zurich"
+        "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich-8xyruc"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich",
-          "avaloq-application-developer-f-m-d-raiffeisen-zurich"
+          "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
         ],
         "en": [
           "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
@@ -1387,7 +1359,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-da0034c74a62",
@@ -1440,13 +1413,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "firmenkundenberater-in-80-100-raiffeisen-stans",
-        "consulente-cliente-aziendale-in-80-100-raiffeisen-stans"
+        "firmenkundenberater-in-80-100-raiffeisen-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "firmenkundenberater-in-80-100-raiffeisen-stans",
-          "consulente-cliente-aziendale-in-80-100-raiffeisen-stans"
+          "firmenkundenberater-in-80-100-raiffeisen-stans"
         ],
         "en": [
           "firmenkundenberater-in-80-100-raiffeisen-stans"
@@ -1521,14 +1492,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-2",
-        "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen",
-        "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-oberlunkhofen"
+        "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-2",
-          "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen",
-          "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-oberlunkhofen"
+          "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen"
         ],
         "en": [
           "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-2"
@@ -1550,7 +1519,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-50cd083cb973",
@@ -1606,8 +1576,7 @@
         "senior-fund-manager-shares-svizzera-f-m-d-raiffeisen-zurich",
         "senior-fund-manager-shares-switzerland-f-m-d-raiffeisen-zurich",
         "senior-fondsmanager-aktien-schweiz-w-m-d-raiffeisen-zurich",
-        "parts-du-gestionnaire-principal-de-fonds-en-suisse-f-m-d-raiffeisen-zurich",
-        "senior-fund-manager-shares-global-f-m-d-raiffeisen-zurich"
+        "parts-du-gestionnaire-principal-de-fonds-en-suisse-f-m-d-raiffeisen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1615,8 +1584,7 @@
           "senior-fund-manager-shares-svizzera-f-m-d-raiffeisen-zurich",
           "senior-fund-manager-shares-switzerland-f-m-d-raiffeisen-zurich",
           "senior-fondsmanager-aktien-schweiz-w-m-d-raiffeisen-zurich",
-          "parts-du-gestionnaire-principal-de-fonds-en-suisse-f-m-d-raiffeisen-zurich",
-          "senior-fund-manager-shares-global-f-m-d-raiffeisen-zurich"
+          "parts-du-gestionnaire-principal-de-fonds-en-suisse-f-m-d-raiffeisen-zurich"
         ],
         "en": [
           "senior-fondsmanager-aktien-global-w-m-d-raiffeisen-zurich",
@@ -1643,7 +1611,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-8627e1e6d1db",
@@ -1696,13 +1665,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "finanzplaner-in-raiffeisen-frick",
-        "pianificatore-finanziario-in-raiffeisen-frick"
+        "finanzplaner-in-raiffeisen-frick"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "finanzplaner-in-raiffeisen-frick",
-          "pianificatore-finanziario-in-raiffeisen-frick"
+          "finanzplaner-in-raiffeisen-frick"
         ],
         "en": [
           "finanzplaner-in-raiffeisen-frick"
@@ -1777,13 +1744,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "vermogensberater-in-nachfolgeregelung-raiffeisen-einsiedeln",
-        "consulente-finanziario-schema-di-successione-raiffeisen-einsiedeln"
+        "vermogensberater-in-nachfolgeregelung-raiffeisen-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vermogensberater-in-nachfolgeregelung-raiffeisen-einsiedeln",
-          "consulente-finanziario-schema-di-successione-raiffeisen-einsiedeln"
+          "vermogensberater-in-nachfolgeregelung-raiffeisen-einsiedeln"
         ],
         "en": [
           "vermogensberater-in-nachfolgeregelung-raiffeisen-einsiedeln"
@@ -1861,8 +1826,7 @@
         "senior-rechtskonsulent-per-finanztransaktionen-im-firmenkundengeschaft-m-w-d-raiffeisen-lausanne",
         "senior-legal-consultant-for-financial-transactions-in-corporate-banking-f-m-d-raiffeisen-lausanne",
         "senior-rechtskonsulent-fur-finanztransaktionen-im-firmenkundengeschaft-w-m-d-raiffeisen",
-        "conseiller-juridique-principal-pour-les-operations-financieres-dans-le-secteur-bancaire-des-entreprises-f-m-d-raiffeisen",
-        "consigliere-legale-senior-in-operazioni-finanziarie-con-clienti-aziendali-m-f-d-raiffeisen-lausanne"
+        "conseiller-juridique-principal-pour-les-operations-financieres-dans-le-secteur-bancaire-des-entreprises-f-m-d-raiffeisen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1870,8 +1834,7 @@
           "senior-rechtskonsulent-per-finanztransaktionen-im-firmenkundengeschaft-m-w-d-raiffeisen-lausanne",
           "senior-legal-consultant-for-financial-transactions-in-corporate-banking-f-m-d-raiffeisen-lausanne",
           "senior-rechtskonsulent-fur-finanztransaktionen-im-firmenkundengeschaft-w-m-d-raiffeisen",
-          "conseiller-juridique-principal-pour-les-operations-financieres-dans-le-secteur-bancaire-des-entreprises-f-m-d-raiffeisen",
-          "consigliere-legale-senior-in-operazioni-finanziarie-con-clienti-aziendali-m-f-d-raiffeisen-lausanne"
+          "conseiller-juridique-principal-pour-les-operations-financieres-dans-le-secteur-bancaire-des-entreprises-f-m-d-raiffeisen"
         ],
         "en": [
           "senior-legal-consultant-for-financial-transactions-in-corporate-banking-f-m-d-raiffeisen-lausanne"
@@ -1896,7 +1859,8 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-3a4b1495ad9e",
@@ -1949,13 +1913,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-kauffrau-kaufmann-bank-lehrbeginn-august-2027-raiffeisen-adligenswil",
-        "apprendistato-come-kauffrau-kaufmann-bank-lehrbeginn-august-2027-raiffeisen-adligenswil"
+        "lehrstelle-als-kauffrau-kaufmann-bank-lehrbeginn-august-2027-raiffeisen-adligenswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kauffrau-kaufmann-bank-lehrbeginn-august-2027-raiffeisen-adligenswil",
-          "apprendistato-come-kauffrau-kaufmann-bank-lehrbeginn-august-2027-raiffeisen-adligenswil"
+          "lehrstelle-als-kauffrau-kaufmann-bank-lehrbeginn-august-2027-raiffeisen-adligenswil"
         ],
         "en": [
           "lehrstelle-als-kauffrau-kaufmann-bank-lehrbeginn-august-2027-raiffeisen-adligenswil"
@@ -2031,14 +1993,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach-snnf11",
-        "mitarbeiter-kreditadministration-m-w-d-raiffeisen-egnach",
-        "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach"
+        "mitarbeiter-kreditadministration-m-w-d-raiffeisen-egnach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach-snnf11",
-          "mitarbeiter-kreditadministration-m-w-d-raiffeisen-egnach",
-          "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach"
+          "mitarbeiter-kreditadministration-m-w-d-raiffeisen-egnach"
         ],
         "en": [
           "mitarbeiter-kreditadministration-m-w-d-raiffeisen-egnach"
@@ -2125,8 +2085,7 @@
         "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-mi12y2",
         "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-qv5kay",
         "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-qwwam7",
-        "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-wkv3be",
-        "apprendistato-come-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-sennwald"
+        "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-wkv3be"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2143,8 +2102,7 @@
           "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-qwwam7",
           "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-wkv3be",
           "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen",
-          "apprendistato-come-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-rotkreuz",
-          "apprendistato-come-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-sennwald"
+          "apprendistato-come-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-rotkreuz"
         ],
         "en": [
           "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen"
@@ -2166,7 +2124,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-f22fdd1e5df9",
@@ -2219,13 +2178,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich",
-        "avaloq-applicazione-sviluppatore-m-f-d-raiffeisen-zurich"
+        "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich",
-          "avaloq-applicazione-sviluppatore-m-f-d-raiffeisen-zurich"
+          "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
         ],
         "en": [
           "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
@@ -2300,13 +2257,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kundenberater-w-m-d-raiffeisen-schoftland",
-        "servizio-clienti-m-f-d-raiffeisen-schoftland"
+        "kundenberater-w-m-d-raiffeisen-schoftland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-w-m-d-raiffeisen-schoftland",
-          "servizio-clienti-m-f-d-raiffeisen-schoftland"
+          "kundenberater-w-m-d-raiffeisen-schoftland"
         ],
         "en": [
           "kundenberater-w-m-d-raiffeisen-schoftland"
@@ -2382,13 +2337,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-kreditsupport-raiffeisen-lutzelfluh-goldbach",
-        "appui-aux-employes-credits-raiffeisen-lutzelfluh-goldbach",
-        "collaboratore-trice-kreditsupport-raiffeisen-lutzelfluh-goldbach"
+        "appui-aux-employes-credits-raiffeisen-lutzelfluh-goldbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-kreditsupport-raiffeisen-lutzelfluh-goldbach",
-          "collaboratore-trice-kreditsupport-raiffeisen-lutzelfluh-goldbach"
+          "mitarbeiter-in-kreditsupport-raiffeisen-lutzelfluh-goldbach"
         ],
         "en": [
           "mitarbeiter-in-kreditsupport-raiffeisen-lutzelfluh-goldbach"
@@ -2469,8 +2422,7 @@
         "apprenticeship-as-merchant-cooperative-efz-branche-bank-f-m-d-apprenticeship-start-august-2027-raiffeisen-mannedorf",
         "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-w-m-d-lehrbeginn-august-2027-raiffeisen",
         "apprentissage-en-tant-que-negociant-cooperative-efz-branche-bank-f-m-d-apprentissage-debut-aout-2027-raiffeisen",
-        "apprendistato-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-cazis",
-        "apprendistato-come-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-burgdorf"
+        "apprendistato-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2480,8 +2432,7 @@
           "apprenticeship-as-merchant-cooperative-efz-branche-bank-f-m-d-apprenticeship-start-august-2027-raiffeisen-mannedorf",
           "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-w-m-d-lehrbeginn-august-2027-raiffeisen",
           "apprentissage-en-tant-que-negociant-cooperative-efz-branche-bank-f-m-d-apprentissage-debut-aout-2027-raiffeisen",
-          "apprendistato-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-cazis",
-          "apprendistato-come-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-burgdorf"
+          "apprendistato-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-cazis"
         ],
         "en": [
           "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen",
@@ -2508,7 +2459,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-235a9ff047cc",
@@ -2566,8 +2518,7 @@
         "private-client-services-raiffeisen-langnau-im-emmental",
         "services-a-la-clientele-privee-raiffeisen-langnau-im-emmental",
         "conseil-aux-clients-prives-raiffeisen-langnau-im-emmental",
-        "privatkundenberatung-raiffeisen-langnau-im-emmental-29yawi",
-        "servizi-client-privati-raiffeisen-langnau-im-emmental-0683b1"
+        "privatkundenberatung-raiffeisen-langnau-im-emmental-29yawi"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2576,8 +2527,7 @@
           "private-client-services-raiffeisen-langnau-im-emmental",
           "services-a-la-clientele-privee-raiffeisen-langnau-im-emmental",
           "conseil-aux-clients-prives-raiffeisen-langnau-im-emmental",
-          "privatkundenberatung-raiffeisen-langnau-im-emmental-29yawi",
-          "servizi-client-privati-raiffeisen-langnau-im-emmental-0683b1"
+          "privatkundenberatung-raiffeisen-langnau-im-emmental-29yawi"
         ],
         "en": [
           "privatkundenberatung-raiffeisen-langnau-im-emmental",
@@ -2654,13 +2604,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-credit-office-br-mit-perspektive-auf-fuhrungsfunktion-raiffeisen",
-        "collaboratore-trice-credit-office-br-con-perspektive-auf-fuhrungsfunktion-raiffeisen-steffisburg"
+        "mitarbeiter-in-credit-office-br-mit-perspektive-auf-fuhrungsfunktion-raiffeisen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-credit-office-br-mit-perspektive-auf-fuhrungsfunktion-raiffeisen",
-          "collaboratore-trice-credit-office-br-con-perspektive-auf-fuhrungsfunktion-raiffeisen-steffisburg"
+          "mitarbeiter-in-credit-office-br-mit-perspektive-auf-fuhrungsfunktion-raiffeisen"
         ],
         "en": [
           "mitarbeiter-in-credit-office-br-mit-perspektive-auf-fuhrungsfunktion-raiffeisen"
@@ -2735,13 +2683,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-privat-und-firmenkundenberatung-raiffeisen-horw",
-        "responsabile-privat-e-firmenkundenberatung-raiffeisen-horw"
+        "leiter-in-privat-und-firmenkundenberatung-raiffeisen-horw"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-privat-und-firmenkundenberatung-raiffeisen-horw",
-          "responsabile-privat-e-firmenkundenberatung-raiffeisen-horw"
+          "leiter-in-privat-und-firmenkundenberatung-raiffeisen-horw"
         ],
         "en": [
           "leiter-in-privat-und-firmenkundenberatung-raiffeisen-horw"
@@ -2816,13 +2762,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kreditberater-privatkunden-w-m-d-raiffeisen-aarau",
-        "consigliere-di-credito-privato-m-f-d-raiffeisen-aarau"
+        "kreditberater-privatkunden-w-m-d-raiffeisen-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kreditberater-privatkunden-w-m-d-raiffeisen-aarau",
-          "consigliere-di-credito-privato-m-f-d-raiffeisen-aarau"
+          "kreditberater-privatkunden-w-m-d-raiffeisen-aarau"
         ],
         "en": [
           "kreditberater-privatkunden-w-m-d-raiffeisen-aarau"
@@ -2976,13 +2920,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "vorsitz-der-bankleitung-w-m-d-raiffeisen-horw",
-        "presidente-della-direzione-banca-m-f-d-raiffeisen-horw"
+        "vorsitz-der-bankleitung-w-m-d-raiffeisen-horw"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsitz-der-bankleitung-w-m-d-raiffeisen-horw",
-          "presidente-della-direzione-banca-m-f-d-raiffeisen-horw"
+          "vorsitz-der-bankleitung-w-m-d-raiffeisen-horw"
         ],
         "en": [
           "vorsitz-der-bankleitung-w-m-d-raiffeisen-horw"
@@ -3061,8 +3003,7 @@
         "private-customer-advisor-raiffeisen-lausanne",
         "privater-kundenberater-raiffeisen-lausanne",
         "conseillere-ou-conseiller-clientele-privee-raiffeisen-mezieres",
-        "conseillere-ou-conseiller-clientele-privee-raiffeisen-lausanne",
-        "advisor-core-private-client-advisor-raiffeisen-nyon"
+        "conseillere-ou-conseiller-clientele-privee-raiffeisen-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3071,8 +3012,7 @@
           "private-customer-advisor-raiffeisen-lausanne",
           "privater-kundenberater-raiffeisen-lausanne",
           "conseillere-ou-conseiller-clientele-privee-raiffeisen-mezieres",
-          "conseillere-ou-conseiller-clientele-privee-raiffeisen-lausanne",
-          "advisor-core-private-client-advisor-raiffeisen-nyon"
+          "conseillere-ou-conseiller-clientele-privee-raiffeisen-lausanne"
         ],
         "en": [
           "conseiller-conseillere-clientele-privee-de-base-raiffeisen-nyon",
@@ -3099,7 +3039,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-089c5fa46d4d",
@@ -3118,7 +3059,7 @@
         "it": "Responsabile della conformità (m/f/d)",
         "en": "Compliance Officer (m/f/d)",
         "de": "Stv. Compliance-Beauftragter (w/m/d)",
-        "fr": "Agent de conformité Stv. (h/f/d)"
+        "fr": "Stv. Compliance-Beauftragter (w/m/d)"
       },
       "description": "Die Erlebnisbank Raiffeisen Mischabel-Matterhorn setzt sich mit über 100 Mitarbeitenden an 12 Standorten im Saaser-, Matter- und Vispertal mit viel Herzblut und Leidenschaft für ihre Kunden ein.<br/><br/>Bist du interessiert an einem Arbeitsumfeld, welches Zusammenhalt, spannende Aufgaben und attraktive Arbeitsbedingungen vereint? Dann freuen wir uns sehr auf deine Bewerbung!\n\nAufgaben:\n• Du liebst es, den Dingen auf den Grund zu gehen, stellst die richtigen Fragen und findest gemeinsam mit unseren Fachstellen praxisnahe Lösungen für regulatorische Herausforderungen.\n\n• Du bearbeitest Compliance-Fälle eigenständig, übernimmst Verantwortung und bringst deine Fachkompetenz dort ein, wo sie gebraucht wird.\n\n• Du arbeitest eng mit unserer Compliance-Beauftragten zusammen, stellst die Einhaltung gesetzlicher, regulatorischer und interner Vorgaben sicher und führst 2nd-Line-Kontrollen im Bereich Geldwäscherei, VSB und FATCA durch.\n\n• Du hast Transaktionen im Blick, analysierst Auffälligkeiten und bearbeitest Verdachtsmeldungen sowie Anfragen von Behörden sorgfältig und lösungsorientiert.\n\n• Du bist eine kompetente und unkomplizierte Anlaufstelle für unsere Mitarbeitenden bei Fragen rund um die Geldwäscherei und untersützt unsere Geldwäscherei-Beauftragte bei ihren Fachaufgaben.\n\n• Du bringst dich bei Datenschutzfragen aktiv ein und trägst dazu bei, dass die gesetzlichen Vorgaben, insbesondere die DSGVO, im Arbeitsalltag gelebt und eingehalten wird.\n\nAnforderungen:\n• Idealerweise verfügst du über eine abgeschlossene Bankausbildung und/oder juristische Ausbildung.\n\n• Du verfügst über mehrjährige Berufserfahrung in den Bereichen Compliance und Geldwäscherei.\n\n• Du hast Freude daran, Verantwortung zu übernehmen und arbeitest selbstständig und exakt.\n\n• Du weisst dich durchzusetzen und erledigst deine Aufgaben zuverlässig.\n\nWir bieten:\nDie genossenschaftlichen Werte sind unsere Grundpfeiler: Miteinander. Füreinander. Sie prägen unsere Zusammenarbeit und unseren Umgang miteinander. Die Du-Kultur schafft persönliche Nähe und Augenhöhe über alle Funktionsstufen hinweg.",
       "descriptionByLocale": {
@@ -3158,8 +3099,7 @@
         "it": [
           "stv-compliance-beauftragter-w-m-d-raiffeisen-sankt-niklaus",
           "stv-compliance-beauftrager-w-m-d-raiffeisen-sankt-niklaus",
-          "stv-compliance-beauftragter-w-m-d-raiffeisen-st-niklaus",
-          "responsabile-della-conformita-m-f-d-raiffeisen-sankt-niklaus"
+          "stv-compliance-beauftragter-w-m-d-raiffeisen-st-niklaus"
         ],
         "en": [
           "stv-compliance-beauftrager-w-m-d-raiffeisen-sankt-niklaus"
@@ -3173,8 +3113,7 @@
         "stv-compliance-beauftragter-w-m-d-raiffeisen-sankt-niklaus",
         "stv-agent-de-conformite-h-f-d-raiffeisen-sankt-niklaus",
         "stv-compliance-beauftrager-w-m-d-raiffeisen-sankt-niklaus",
-        "stv-compliance-beauftragter-w-m-d-raiffeisen-st-niklaus",
-        "responsabile-della-conformita-m-f-d-raiffeisen-sankt-niklaus"
+        "stv-compliance-beauftragter-w-m-d-raiffeisen-st-niklaus"
       ],
       "firstSeenAt": "2026-08-28T05:23:24.606Z",
       "salaryMin": 116500,
@@ -3242,13 +3181,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bi-spezialist-im-risikodatenmanagement-w-m-d-raiffeisen-st-gallen",
-        "specialista-bi-nella-gestione-dei-dati-di-rischio-m-f-d-raiffeisen-st-gallen"
+        "bi-spezialist-im-risikodatenmanagement-w-m-d-raiffeisen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bi-spezialist-im-risikodatenmanagement-w-m-d-raiffeisen-st-gallen",
-          "specialista-bi-nella-gestione-dei-dati-di-rischio-m-f-d-raiffeisen-st-gallen"
+          "bi-spezialist-im-risikodatenmanagement-w-m-d-raiffeisen-st-gallen"
         ],
         "en": [
           "bi-spezialist-im-risikodatenmanagement-w-m-d-raiffeisen-st-gallen"
@@ -3410,13 +3347,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-kundenberater-basis-raiffeisen-untersiggenthal",
-        "consulente-clienti-senior-raiffeisen-untersiggenthal"
+        "senior-kundenberater-basis-raiffeisen-untersiggenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-kundenberater-basis-raiffeisen-untersiggenthal",
-          "consulente-clienti-senior-raiffeisen-untersiggenthal"
+          "senior-kundenberater-basis-raiffeisen-untersiggenthal"
         ],
         "en": [
           "senior-kundenberater-basis-raiffeisen-untersiggenthal"
@@ -3491,13 +3426,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprenti-e-employe-e-de-commerce-profil-m-aout-2027-raiffeisen-neuchatel-et-vallees",
-        "apprentice-trade-employee-profile-m-agosto-2027-raiffeisen-neuchatel-et-vallees"
+        "apprenti-e-employe-e-de-commerce-profil-m-aout-2027-raiffeisen-neuchatel-et-vallees"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-e-employe-e-de-commerce-profil-m-aout-2027-raiffeisen-neuchatel-et-vallees",
-          "apprentice-trade-employee-profile-m-agosto-2027-raiffeisen-neuchatel-et-vallees"
+          "apprenti-e-employe-e-de-commerce-profil-m-aout-2027-raiffeisen-neuchatel-et-vallees"
         ],
         "en": [
           "apprenti-e-employe-e-de-commerce-profil-m-aout-2027-raiffeisen-neuchatel-et-vallees"
@@ -3572,13 +3505,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "membre-de-la-direction-f-h-raiffeisen-neuchatel",
-        "membro-della-direzione-m-f-raiffeisen-neuchatel"
+        "membre-de-la-direction-f-h-raiffeisen-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "membre-de-la-direction-f-h-raiffeisen-neuchatel",
-          "membro-della-direzione-m-f-raiffeisen-neuchatel"
+          "membre-de-la-direction-f-h-raiffeisen-neuchatel"
         ],
         "en": [
           "membre-de-la-direction-f-h-raiffeisen-neuchatel"
@@ -3617,7 +3548,7 @@
       "title": "Un·e Relationship Manager Private Banking / Conseiller·ère en Gestion de Fortune",
       "titleByLocale": {
         "it": "Un·e Relationship Manager Private Banking / Fortune Management Advisor",
-        "en": "Un·e Relationship Manager Private Banking / Fortune Management Advisor",
+        "en": "Un·e Relationship Manager Private Banking / Conseiller·ère en Gestion de Fortune",
         "de": "Un·e Relationship Manager Private Banking / Fortune Management Advisor",
         "fr": "Un·e Relationship Manager Private Banking / Conseiller·ère en Gestion de Fortune"
       },
@@ -3652,13 +3583,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-e-relationship-manager-private-banking-conseiller-ere-en-gestion-de-fortune-raiffeisen",
-        "un-e-relationship-manager-private-banking-fortune-management-advisor-raiffeisen-lausanne"
+        "un-e-relationship-manager-private-banking-conseiller-ere-en-gestion-de-fortune-raiffeisen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-e-relationship-manager-private-banking-conseiller-ere-en-gestion-de-fortune-raiffeisen",
-          "un-e-relationship-manager-private-banking-fortune-management-advisor-raiffeisen-lausanne"
+          "un-e-relationship-manager-private-banking-conseiller-ere-en-gestion-de-fortune-raiffeisen"
         ],
         "de": [
           "un-e-relationship-manager-private-banking-conseiller-ere-en-gestion-de-fortune-raiffeisen"
@@ -3677,7 +3606,8 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-f2561f6f3bb3",
@@ -3730,14 +3660,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-raiffeisen-schwyz",
-        "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-raiffeisen-schwyz",
-        "apprendistato-come-donna-d-affari-uomo-d-affari-efz-branche-bank-raiffeisen-schwyz"
+        "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-raiffeisen-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-raiffeisen-schwyz",
-          "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-raiffeisen-schwyz",
-          "apprendistato-come-donna-d-affari-uomo-d-affari-efz-branche-bank-raiffeisen-schwyz"
+          "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-raiffeisen-schwyz"
         ],
         "en": [
           "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-raiffeisen-schwyz"
@@ -3759,7 +3687,8 @@
           "maxValue": 108000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-fc46fd57e361",
@@ -3776,7 +3705,7 @@
       "title": "Threat Intelligence Analyst (w/m/d)",
       "titleByLocale": {
         "it": "Analista di Intelligence sulle Minacce (m/f/d)",
-        "en": "Threat intelligence analyst (m/f/d)",
+        "en": "Threat Intelligence Analyst (w/m/d)",
         "de": "Threat Intelligence Analyst (w/m/d)",
         "fr": "Analyste en renseignement sur les menaces (h/f/d)"
       },
@@ -3811,13 +3740,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "threat-intelligence-analyst-w-m-d-raiffeisen-st-gallen",
-        "threat-intelligence-analista-w-m-d-raiffeisen-st-gallen"
+        "threat-intelligence-analyst-w-m-d-raiffeisen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "threat-intelligence-analyst-w-m-d-raiffeisen-st-gallen",
-          "threat-intelligence-analista-w-m-d-raiffeisen-st-gallen"
+          "threat-intelligence-analyst-w-m-d-raiffeisen-st-gallen"
         ],
         "fr": [
           "threat-intelligence-analyst-w-m-d-raiffeisen-st-gallen"
@@ -3888,13 +3815,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kundenberaterin-basis-w-m-d-raiffeisen-altnau",
-        "base-di-consulenza-clienti-m-f-d-raiffeisen-altnau"
+        "kundenberaterin-basis-w-m-d-raiffeisen-altnau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberaterin-basis-w-m-d-raiffeisen-altnau",
-          "base-di-consulenza-clienti-m-f-d-raiffeisen-altnau"
+          "kundenberaterin-basis-w-m-d-raiffeisen-altnau"
         ],
         "en": [
           "kundenberaterin-basis-w-m-d-raiffeisen-altnau"
@@ -3916,7 +3841,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-6701e6d03b63",
@@ -3968,13 +3894,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-services-m-w-d-raiffeisen-pfaffikon-sz",
-        "team-leader-services-m-f-d-raiffeisen-pfaffikon-sz"
+        "teamleiter-services-m-w-d-raiffeisen-pfaffikon-sz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-services-m-w-d-raiffeisen-pfaffikon-sz",
-          "team-leader-services-m-f-d-raiffeisen-pfaffikon-sz"
+          "teamleiter-services-m-w-d-raiffeisen-pfaffikon-sz"
         ],
         "en": [
           "teamleiter-services-m-w-d-raiffeisen-pfaffikon-sz"
@@ -3996,7 +3920,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-378e1fd1e42a",
@@ -4048,13 +3973,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-clientele-privee-de-base-cpb-raiffeisen-le-locle",
-        "core-private-client-advisor-cpb-raiffeisen-le-locle"
+        "conseiller-ere-clientele-privee-de-base-cpb-raiffeisen-le-locle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-clientele-privee-de-base-cpb-raiffeisen-le-locle",
-          "core-private-client-advisor-cpb-raiffeisen-le-locle"
+          "conseiller-ere-clientele-privee-de-base-cpb-raiffeisen-le-locle"
         ],
         "en": [
           "conseiller-ere-clientele-privee-de-base-cpb-raiffeisen-le-locle"
@@ -4076,7 +3999,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-1171a27363f5",
@@ -4130,15 +4054,13 @@
       "previousSlugs": [
         "collaboratore-trice-services-m-w-d-raiffeisen-obergosgen-red4iq",
         "mitarbeiter-services-w-m-d-raiffeisen-obergosgen",
-        "mitarbeiter-services-w-m-d-raiffeisen-obergosgen-2",
-        "collaboratore-trice-services-m-w-d-raiffeisen-obergosgen"
+        "mitarbeiter-services-w-m-d-raiffeisen-obergosgen-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-services-m-w-d-raiffeisen-obergosgen-red4iq",
           "mitarbeiter-services-w-m-d-raiffeisen-obergosgen",
-          "mitarbeiter-services-w-m-d-raiffeisen-obergosgen-2",
-          "collaboratore-trice-services-m-w-d-raiffeisen-obergosgen"
+          "mitarbeiter-services-w-m-d-raiffeisen-obergosgen-2"
         ],
         "en": [
           "mitarbeiter-services-w-m-d-raiffeisen-obergosgen",
@@ -4161,7 +4083,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-b07a587092ef",
@@ -4214,13 +4137,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-clientele-privee-raiffeisen-nyon",
-        "consulente-clienti-privato-raiffeisen-nyon"
+        "conseiller-ere-clientele-privee-raiffeisen-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-clientele-privee-raiffeisen-nyon",
-          "consulente-clienti-privato-raiffeisen-nyon"
+          "conseiller-ere-clientele-privee-raiffeisen-nyon"
         ],
         "en": [
           "conseiller-ere-clientele-privee-raiffeisen-nyon"
@@ -4296,14 +4217,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "privatkundenberater-individual-w-m-d-raiffeisen-wurenlos",
-        "privatkundenberater-individual-w-m-d-raiffeisen-wurenlos-524l7k",
-        "consulente-clienti-privato-individuale-m-f-d-raiffeisen-wurenlos"
+        "privatkundenberater-individual-w-m-d-raiffeisen-wurenlos-524l7k"
       ],
       "previousSlugsByLocale": {
         "it": [
           "privatkundenberater-individual-w-m-d-raiffeisen-wurenlos",
-          "privatkundenberater-individual-w-m-d-raiffeisen-wurenlos-524l7k",
-          "consulente-clienti-privato-individuale-m-f-d-raiffeisen-wurenlos"
+          "privatkundenberater-individual-w-m-d-raiffeisen-wurenlos-524l7k"
         ],
         "en": [
           "privatkundenberater-individual-w-m-d-raiffeisen-wurenlos"
@@ -4389,8 +4308,7 @@
         "funding-advisor-era-raiffeisen-montagny-pres-yverdon",
         "forderberater-zeitalter-raiffeisen-montagny-pres-yverdon",
         "conseiller-ere-en-financement-raiffeisen-montagny-pres-yverdon",
-        "conseiller-ere-a-la-clientele-raiffeisen-belfaux",
-        "consulente-cliente-raiffeisen-belfaux"
+        "conseiller-ere-a-la-clientele-raiffeisen-belfaux"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4402,8 +4320,7 @@
           "funding-advisor-era-raiffeisen-montagny-pres-yverdon",
           "forderberater-zeitalter-raiffeisen-montagny-pres-yverdon",
           "conseiller-ere-en-financement-raiffeisen-montagny-pres-yverdon",
-          "conseiller-ere-a-la-clientele-raiffeisen-belfaux",
-          "consulente-cliente-raiffeisen-belfaux"
+          "conseiller-ere-a-la-clientele-raiffeisen-belfaux"
         ],
         "en": [
           "client-advisor-age-raiffeisen-montagny-pres-yverdon",
@@ -4483,13 +4400,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachspezialist-kreditverarbeitung-firmenkunden-w-m-d-raiffeisen-zurich",
-        "clienti-specializzati-della-societa-di-elaborazione-del-credito-m-f-d-raiffeisen-zurich"
+        "fachspezialist-kreditverarbeitung-firmenkunden-w-m-d-raiffeisen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-kreditverarbeitung-firmenkunden-w-m-d-raiffeisen-zurich",
-          "clienti-specializzati-della-societa-di-elaborazione-del-credito-m-f-d-raiffeisen-zurich"
+          "fachspezialist-kreditverarbeitung-firmenkunden-w-m-d-raiffeisen-zurich"
         ],
         "en": [
           "fachspezialist-kreditverarbeitung-firmenkunden-w-m-d-raiffeisen-zurich"
@@ -4565,14 +4480,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-versichertenberatung-pensionskasse-w-m-d-raiffeisen-st-gallen",
-        "collaboratore-trice-versichertenberatung-pensionskasse-m-w-d-raiffeisen-st-gallen",
-        "employee-insurance-advisory-pension-fund-m-f-d-raiffeisen-st-gallen"
+        "collaboratore-trice-versichertenberatung-pensionskasse-m-w-d-raiffeisen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-versichertenberatung-pensionskasse-w-m-d-raiffeisen-st-gallen",
-          "collaboratore-trice-versichertenberatung-pensionskasse-m-w-d-raiffeisen-st-gallen",
-          "employee-insurance-advisory-pension-fund-m-f-d-raiffeisen-st-gallen"
+          "collaboratore-trice-versichertenberatung-pensionskasse-m-w-d-raiffeisen-st-gallen"
         ],
         "en": [
           "mitarbeiter-versichertenberatung-pensionskasse-w-m-d-raiffeisen-st-gallen"
@@ -4647,13 +4560,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistent-vertrieb-w-m-d-raiffeisen-meilen",
-        "assistente-vendite-m-f-d-raiffeisen-meilen"
+        "assistent-vertrieb-w-m-d-raiffeisen-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-vertrieb-w-m-d-raiffeisen-meilen",
-          "assistente-vendite-m-f-d-raiffeisen-meilen"
+          "assistent-vertrieb-w-m-d-raiffeisen-meilen"
         ],
         "en": [
           "assistent-vertrieb-w-m-d-raiffeisen-meilen"
@@ -4737,8 +4648,7 @@
         "consulente-di-asset-senior-f-m-d-raiffeisen-zurich",
         "senior-asset-advisor-f-m-d-raiffeisen-zurich",
         "senior-vermogensberater-w-m-d-raiffeisen-zurich",
-        "conseiller-principal-en-biens-f-m-d-raiffeisen-zurich",
-        "senior-private-client-advisor-immobiliare-m-f-d-raiffeisen-zurich"
+        "conseiller-principal-en-biens-f-m-d-raiffeisen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4752,8 +4662,7 @@
           "consulente-di-asset-senior-f-m-d-raiffeisen-zurich",
           "senior-asset-advisor-f-m-d-raiffeisen-zurich",
           "senior-vermogensberater-w-m-d-raiffeisen-zurich",
-          "conseiller-principal-en-biens-f-m-d-raiffeisen-zurich",
-          "senior-private-client-advisor-immobiliare-m-f-d-raiffeisen-zurich"
+          "conseiller-principal-en-biens-f-m-d-raiffeisen-zurich"
         ],
         "en": [
           "senior-private-client-advisor-real-estate-f-m-d-raiffeisen-zurich",
@@ -4782,7 +4691,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-c85219dc38ba",
@@ -4839,14 +4749,12 @@
         "team-management-individual-client-advice-f-m-d-raiffeisen-tagerwilen",
         "teamleitung-individualkundenberatung-w-m-d-raiffeisen-tagerwilen",
         "gestion-de-l-equipe-conseils-individuels-aux-clients-f-m-d-raiffeisen-tagerwilen",
-        "individualkundenberatung-w-m-d-raiffeisen-tagerwilen",
-        "servizi-client-individuali-m-f-d-raiffeisen-tagerwilen"
+        "individualkundenberatung-w-m-d-raiffeisen-tagerwilen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulenza-clienti-individuale-f-m-d-raiffeisen-tagerwilen",
-          "individualkundenberatung-w-m-d-raiffeisen-tagerwilen",
-          "servizi-client-individuali-m-f-d-raiffeisen-tagerwilen"
+          "individualkundenberatung-w-m-d-raiffeisen-tagerwilen"
         ],
         "en": [
           "team-management-individual-client-advice-f-m-d-raiffeisen-tagerwilen",
@@ -4926,13 +4834,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-kundenberatung-w-m-d-raiffeisen-aarau",
-        "team-leader-servizi-clienti-m-f-d-raiffeisen-aarau"
+        "teamleiter-kundenberatung-w-m-d-raiffeisen-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-kundenberatung-w-m-d-raiffeisen-aarau",
-          "team-leader-servizi-clienti-m-f-d-raiffeisen-aarau"
+          "teamleiter-kundenberatung-w-m-d-raiffeisen-aarau"
         ],
         "en": [
           "teamleiter-kundenberatung-w-m-d-raiffeisen-aarau"
@@ -5007,14 +4913,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leiter-credit-office-w-m-d-raiffeisen-hochdorf",
-        "leiter-credit-office-m-w-d-raiffeisen-hochdorf",
-        "capo-ufficio-di-credito-m-f-d-raiffeisen-hochdorf"
+        "leiter-credit-office-m-w-d-raiffeisen-hochdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-credit-office-w-m-d-raiffeisen-hochdorf",
-          "leiter-credit-office-m-w-d-raiffeisen-hochdorf",
-          "capo-ufficio-di-credito-m-f-d-raiffeisen-hochdorf"
+          "leiter-credit-office-m-w-d-raiffeisen-hochdorf"
         ],
         "en": [
           "leiter-credit-office-w-m-d-raiffeisen-hochdorf"
@@ -5036,7 +4940,8 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-afce4cec8fca",
@@ -5091,14 +4996,12 @@
       "previousSlugs": [
         "kundenberater-in-m-w-d-raiffeisen-lyss",
         "consulente-clienti-in-m-f-d-raiffeisen-lyss",
-        "customer-advisor-in-m-f-d-raiffeisen-lyss",
-        "servizio-clienti-m-f-d-raiffeisen-lyss"
+        "customer-advisor-in-m-f-d-raiffeisen-lyss"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-in-m-w-d-raiffeisen-lyss",
-          "consulente-clienti-in-m-f-d-raiffeisen-lyss",
-          "servizio-clienti-m-f-d-raiffeisen-lyss"
+          "consulente-clienti-in-m-f-d-raiffeisen-lyss"
         ],
         "en": [
           "kundenberater-in-m-w-d-raiffeisen-lyss",
@@ -5173,13 +5076,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-en-gestion-de-fortune-amp-prevoyance-f-h-raiffeisen-monthey",
-        "asset-management-provident-advisor-m-f-raiffeisen-monthey"
+        "conseiller-ere-en-gestion-de-fortune-amp-prevoyance-f-h-raiffeisen-monthey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-en-gestion-de-fortune-amp-prevoyance-f-h-raiffeisen-monthey",
-          "asset-management-provident-advisor-m-f-raiffeisen-monthey"
+          "conseiller-ere-en-gestion-de-fortune-amp-prevoyance-f-h-raiffeisen-monthey"
         ],
         "de": [
           "conseiller-ere-en-gestion-de-fortune-amp-prevoyance-f-h-raiffeisen-monthey"
@@ -5198,7 +5099,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-86ed063fba57",
@@ -5253,16 +5155,14 @@
         "kundenberater-in-oder-privatkundenberater-in-mit-schaltertatigkeit-raiffeisen-menzingen",
         "customer-consultant-or-private-client-consultant-with-switch-work-raiffeisen-menzingen",
         "consultant-client-ou-consultant-client-prive-avec-travail-de-commutation-raiffeisen-menzingen",
-        "kundenberater-in-o-privatkundenberater-in-con-schaltertatigkeit-raiffeisen-menzingen",
-        "consulente-clienti-o-consulente-cliente-privato-con-lavoro-di-commutazione-raiffeisen-menzingen"
+        "kundenberater-in-o-privatkundenberater-in-con-schaltertatigkeit-raiffeisen-menzingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-in-oder-privatkundenberater-in-mit-schaltertatigkeit-raiffeisen-menzingen",
           "customer-consultant-or-private-client-consultant-with-switch-work-raiffeisen-menzingen",
           "consultant-client-ou-consultant-client-prive-avec-travail-de-commutation-raiffeisen-menzingen",
-          "kundenberater-in-o-privatkundenberater-in-con-schaltertatigkeit-raiffeisen-menzingen",
-          "consulente-clienti-o-consulente-cliente-privato-con-lavoro-di-commutazione-raiffeisen-menzingen"
+          "kundenberater-in-o-privatkundenberater-in-con-schaltertatigkeit-raiffeisen-menzingen"
         ],
         "en": [
           "kundenberater-in-oder-privatkundenberater-in-mit-schaltertatigkeit-raiffeisen-menzingen"
@@ -5284,7 +5184,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-63d5f8ebc5d8",
@@ -5336,13 +5237,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "finanzplaner-w-m-d-raiffeisen-wunnewil-flamatt",
-        "pianificatore-finanziario-m-f-d-raiffeisen-wunnewil-flamatt"
+        "finanzplaner-w-m-d-raiffeisen-wunnewil-flamatt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "finanzplaner-w-m-d-raiffeisen-wunnewil-flamatt",
-          "pianificatore-finanziario-m-f-d-raiffeisen-wunnewil-flamatt"
+          "finanzplaner-w-m-d-raiffeisen-wunnewil-flamatt"
         ],
         "en": [
           "finanzplaner-w-m-d-raiffeisen-wunnewil-flamatt"
@@ -5364,7 +5263,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-4b7e2ac9eb8a",
@@ -5417,13 +5317,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "wirtschaftspraktikant-in-raiffeisen-baden",
-        "professionista-in-raiffeisen-baden"
+        "wirtschaftspraktikant-in-raiffeisen-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wirtschaftspraktikant-in-raiffeisen-baden",
-          "professionista-in-raiffeisen-baden"
+          "wirtschaftspraktikant-in-raiffeisen-baden"
         ],
         "en": [
           "wirtschaftspraktikant-in-raiffeisen-baden"
@@ -5498,14 +5396,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-kauffrau-kaufmann-efz-raiffeisen-uster",
-        "apprendistato-come-kauffrau-kaufmann-cfc-raiffeisen-uster",
-        "apprendistato-come-un-commerciante-commerciante-efz-raiffeisen-uster"
+        "apprendistato-come-kauffrau-kaufmann-cfc-raiffeisen-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-kauffrau-kaufmann-efz-raiffeisen-uster",
-          "apprendistato-come-kauffrau-kaufmann-cfc-raiffeisen-uster",
-          "apprendistato-come-un-commerciante-commerciante-efz-raiffeisen-uster"
+          "apprendistato-come-kauffrau-kaufmann-cfc-raiffeisen-uster"
         ],
         "en": [
           "lehrstelle-als-kauffrau-kaufmann-efz-raiffeisen-uster"
@@ -5527,7 +5423,8 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-8d4f03758bbd",
@@ -5580,13 +5477,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-clientele-privee-individuelle-f-h-raiffeisen-monthey",
-        "consulente-clienti-individuale-privato-m-f-raiffeisen-monthey"
+        "conseiller-ere-clientele-privee-individuelle-f-h-raiffeisen-monthey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-clientele-privee-individuelle-f-h-raiffeisen-monthey",
-          "consulente-clienti-individuale-privato-m-f-raiffeisen-monthey"
+          "conseiller-ere-clientele-privee-individuelle-f-h-raiffeisen-monthey"
         ],
         "en": [
           "conseiller-ere-clientele-privee-individuelle-f-h-raiffeisen-monthey"
@@ -5665,8 +5560,7 @@
         "consulente-cliente-individuale-f-m-d-raiffeisen-baden",
         "individual-client-advisor-f-m-d-raiffeisen-baden",
         "conseiller-client-individuel-f-m-d-raiffeisen-baden",
-        "individualkundenberater-w-m-d-raiffeisen-baden-imsk2k",
-        "consulente-cliente-individuale-m-f-d-raiffeisen-baden"
+        "individualkundenberater-w-m-d-raiffeisen-baden-imsk2k"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5674,8 +5568,7 @@
           "consulente-cliente-individuale-f-m-d-raiffeisen-baden",
           "individual-client-advisor-f-m-d-raiffeisen-baden",
           "conseiller-client-individuel-f-m-d-raiffeisen-baden",
-          "individualkundenberater-w-m-d-raiffeisen-baden-imsk2k",
-          "consulente-cliente-individuale-m-f-d-raiffeisen-baden"
+          "individualkundenberater-w-m-d-raiffeisen-baden-imsk2k"
         ],
         "en": [
           "individualkundenberater-w-m-d-raiffeisen-baden",
@@ -5752,13 +5645,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kundenberater-w-m-d-raiffeisen-zurich",
-        "servizio-clienti-m-f-d-raiffeisen-zurich"
+        "kundenberater-w-m-d-raiffeisen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-w-m-d-raiffeisen-zurich",
-          "servizio-clienti-m-f-d-raiffeisen-zurich"
+          "kundenberater-w-m-d-raiffeisen-zurich"
         ],
         "en": [
           "kundenberater-w-m-d-raiffeisen-zurich"
@@ -5833,13 +5724,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaborateur-trice-administration-financement-f-h-raiffeisen-monthey",
-        "collaboratore-funding-administration-m-f-raiffeisen-monthey"
+        "collaborateur-trice-administration-financement-f-h-raiffeisen-monthey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-administration-financement-f-h-raiffeisen-monthey",
-          "collaboratore-funding-administration-m-f-raiffeisen-monthey"
+          "collaborateur-trice-administration-financement-f-h-raiffeisen-monthey"
         ],
         "en": [
           "collaborateur-trice-administration-financement-f-h-raiffeisen-monthey"
@@ -5917,16 +5806,14 @@
         "privatkundenberater-fokus-finanzieren-w-m-d-raiffeisen-menzingen",
         "consulenti-privati-focus-finanziamento-f-m-d-raiffeisen-menzingen",
         "private-client-consultants-focus-financing-f-m-d-raiffeisen-menzingen",
-        "consultants-clients-prives-orientation-financement-f-m-d-raiffeisen-menzingen",
-        "consulenti-clienti-privati-focus-finanziamento-m-f-d-raiffeisen-menzingen"
+        "consultants-clients-prives-orientation-financement-f-m-d-raiffeisen-menzingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "privatkundenberater-fokus-finanzieren-w-m-d-raiffeisen-menzingen",
           "consulenti-privati-focus-finanziamento-f-m-d-raiffeisen-menzingen",
           "private-client-consultants-focus-financing-f-m-d-raiffeisen-menzingen",
-          "consultants-clients-prives-orientation-financement-f-m-d-raiffeisen-menzingen",
-          "consulenti-clienti-privati-focus-finanziamento-m-f-d-raiffeisen-menzingen"
+          "consultants-clients-prives-orientation-financement-f-m-d-raiffeisen-menzingen"
         ],
         "en": [
           "privatkundenberater-fokus-finanzieren-w-m-d-raiffeisen-menzingen",
@@ -6003,13 +5890,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-a-la-clientele-privee-et-entreprises-raiffeisen-belfaux",
-        "consulenza-per-clienti-privati-e-aziendali-raiffeisen-belfaux"
+        "conseiller-ere-a-la-clientele-privee-et-entreprises-raiffeisen-belfaux"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-a-la-clientele-privee-et-entreprises-raiffeisen-belfaux",
-          "consulenza-per-clienti-privati-e-aziendali-raiffeisen-belfaux"
+          "conseiller-ere-a-la-clientele-privee-et-entreprises-raiffeisen-belfaux"
         ],
         "en": [
           "conseiller-ere-a-la-clientele-privee-et-entreprises-raiffeisen-belfaux"
@@ -6048,7 +5933,7 @@
       "title": "Middleware- Platform Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Middleware- Platform Ingegnere (m/w/d)",
-        "en": "Middleware Platform Engineer (m/f/d)",
+        "en": "Middleware- Platform Engineer (m/w/d)",
         "de": "Middleware- Platform Ingenieur (m/w/d)",
         "fr": "Middleware- Platform Ingénieur (m/w/d)"
       },
@@ -6083,13 +5968,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "middleware-platform-engineer-m-w-d-raiffeisen-st-gallen",
-        "middleware-platform-ingegnere-m-w-d-raiffeisen-st-gallen"
+        "middleware-platform-engineer-m-w-d-raiffeisen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "middleware-platform-engineer-m-w-d-raiffeisen-st-gallen",
-          "middleware-platform-ingegnere-m-w-d-raiffeisen-st-gallen"
+          "middleware-platform-engineer-m-w-d-raiffeisen-st-gallen"
         ],
         "fr": [
           "middleware-platform-engineer-m-w-d-raiffeisen-st-gallen"
@@ -6161,13 +6044,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kundenberater-w-m-d-raiffeisen-buchs",
-        "servizio-clienti-m-f-d-raiffeisen-buchs"
+        "kundenberater-w-m-d-raiffeisen-buchs"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-w-m-d-raiffeisen-buchs",
-          "servizio-clienti-m-f-d-raiffeisen-buchs"
+          "kundenberater-w-m-d-raiffeisen-buchs"
         ],
         "en": [
           "kundenberater-w-m-d-raiffeisen-buchs"
@@ -6243,14 +6124,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-leiter-kreditverarbeitung-w-m-d-raiffeisen-kolliken",
-        "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-kolliken",
-        "stv-responsabile-dell-elaborazione-del-credito-m-f-d-raiffeisen-kolliken"
+        "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-kolliken"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-leiter-kreditverarbeitung-w-m-d-raiffeisen-kolliken",
-          "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-kolliken",
-          "stv-responsabile-dell-elaborazione-del-credito-m-f-d-raiffeisen-kolliken"
+          "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-kolliken"
         ],
         "en": [
           "stv-leiter-kreditverarbeitung-w-m-d-raiffeisen-kolliken"
@@ -6331,8 +6210,7 @@
         "bureau-du-credit-aux-employes-f-m-d-raiffeisen-aadorf",
         "collaboratore-trice-credit-office-m-w-d-raiffeisen-warth-weiningen",
         "mitarbeiter-credit-office-w-m-d-raiffeisen-warth-weiningen",
-        "bureau-du-credit-aux-employes-f-m-d-raiffeisen-warth-weiningen",
-        "collaboratore-trice-credit-office-m-w-d-raiffeisen-schiers"
+        "bureau-du-credit-aux-employes-f-m-d-raiffeisen-warth-weiningen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6343,8 +6221,7 @@
           "bureau-du-credit-aux-employes-f-m-d-raiffeisen-aadorf",
           "collaboratore-trice-credit-office-m-w-d-raiffeisen-warth-weiningen",
           "mitarbeiter-credit-office-w-m-d-raiffeisen-warth-weiningen",
-          "bureau-du-credit-aux-employes-f-m-d-raiffeisen-warth-weiningen",
-          "collaboratore-trice-credit-office-m-w-d-raiffeisen-schiers"
+          "bureau-du-credit-aux-employes-f-m-d-raiffeisen-warth-weiningen"
         ],
         "en": [
           "employee-credit-office-f-m-d-raiffeisen-aadorf",
@@ -6372,7 +6249,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-f667272feb13",
@@ -6428,16 +6306,14 @@
         "kundenberater-basis-w-m-d-raiffeisen-mettmenstetten",
         "base-di-consulenza-clienti-f-m-d-raiffeisen-mettmenstetten",
         "customer-advisor-basis-f-m-d-raiffeisen-mettmenstetten",
-        "conseiller-a-la-clientele-f-m-d-raiffeisen-mettmenstetten",
-        "consulente-clienti-basis-m-f-d-raiffeisen-mettmenstetten"
+        "conseiller-a-la-clientele-f-m-d-raiffeisen-mettmenstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-basis-w-m-d-raiffeisen-mettmenstetten",
           "base-di-consulenza-clienti-f-m-d-raiffeisen-mettmenstetten",
           "customer-advisor-basis-f-m-d-raiffeisen-mettmenstetten",
-          "conseiller-a-la-clientele-f-m-d-raiffeisen-mettmenstetten",
-          "consulente-clienti-basis-m-f-d-raiffeisen-mettmenstetten"
+          "conseiller-a-la-clientele-f-m-d-raiffeisen-mettmenstetten"
         ],
         "en": [
           "kundenberater-basis-w-m-d-raiffeisen-mettmenstetten",
@@ -6514,13 +6390,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-vermogensberater-finanzieren-w-m-d-raiffeisen-cham",
-        "consulenti-di-investimento-senior-finanziano-m-f-d-raiffeisen-cham"
+        "senior-vermogensberater-finanzieren-w-m-d-raiffeisen-cham"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-vermogensberater-finanzieren-w-m-d-raiffeisen-cham",
-          "consulenti-di-investimento-senior-finanziano-m-f-d-raiffeisen-cham"
+          "senior-vermogensberater-finanzieren-w-m-d-raiffeisen-cham"
         ],
         "en": [
           "senior-vermogensberater-finanzieren-w-m-d-raiffeisen-cham"
@@ -6595,13 +6469,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "firmenkundenberater-w-m-d-raiffeisen-wunnewil-flamatt",
-        "consulente-clienti-aziendale-m-f-d-raiffeisen-wunnewil-flamatt"
+        "firmenkundenberater-w-m-d-raiffeisen-wunnewil-flamatt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "firmenkundenberater-w-m-d-raiffeisen-wunnewil-flamatt",
-          "consulente-clienti-aziendale-m-f-d-raiffeisen-wunnewil-flamatt"
+          "firmenkundenberater-w-m-d-raiffeisen-wunnewil-flamatt"
         ],
         "en": [
           "firmenkundenberater-w-m-d-raiffeisen-wunnewil-flamatt"
@@ -6676,13 +6548,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-clientele-en-financement-hypothecaire-raiffeisen-carouge",
-        "consulente-finanziario-mortgage-raiffeisen-carouge"
+        "conseiller-ere-clientele-en-financement-hypothecaire-raiffeisen-carouge"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-clientele-en-financement-hypothecaire-raiffeisen-carouge",
-          "consulente-finanziario-mortgage-raiffeisen-carouge"
+          "conseiller-ere-clientele-en-financement-hypothecaire-raiffeisen-carouge"
         ],
         "en": [
           "conseiller-ere-clientele-en-financement-hypothecaire-raiffeisen-carouge"
@@ -6756,13 +6626,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "finanzplaner-w-m-d-raiffeisen-winterthur",
-        "pianificatore-finanziario-m-f-d-raiffeisen-winterthur"
+        "finanzplaner-w-m-d-raiffeisen-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "finanzplaner-w-m-d-raiffeisen-winterthur",
-          "pianificatore-finanziario-m-f-d-raiffeisen-winterthur"
+          "finanzplaner-w-m-d-raiffeisen-winterthur"
         ],
         "en": [
           "finanzplaner-w-m-d-raiffeisen-winterthur"
@@ -6784,7 +6652,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-7e3b554d4cd3",
@@ -6837,13 +6706,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "firmenkundenberater-w-m-d-raiffeisen-untersiggenthal",
-        "consulente-clienti-aziendale-m-f-d-raiffeisen-untersiggenthal"
+        "firmenkundenberater-w-m-d-raiffeisen-untersiggenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "firmenkundenberater-w-m-d-raiffeisen-untersiggenthal",
-          "consulente-clienti-aziendale-m-f-d-raiffeisen-untersiggenthal"
+          "firmenkundenberater-w-m-d-raiffeisen-untersiggenthal"
         ],
         "en": [
           "firmenkundenberater-w-m-d-raiffeisen-untersiggenthal"
@@ -6918,13 +6785,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "privatkundenberater-in-individual-m-w-d-raiffeisen-visp",
-        "consulente-clienti-privato-individuale-m-f-d-raiffeisen-visp"
+        "privatkundenberater-in-individual-m-w-d-raiffeisen-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "privatkundenberater-in-individual-m-w-d-raiffeisen-visp",
-          "consulente-clienti-privato-individuale-m-f-d-raiffeisen-visp"
+          "privatkundenberater-in-individual-m-w-d-raiffeisen-visp"
         ],
         "en": [
           "privatkundenberater-in-individual-m-w-d-raiffeisen-visp"
@@ -7000,14 +6865,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leiter-in-fachverarbeitung-m-w-d-raiffeisen-lyss",
-        "responsabile-fachverarbeitung-m-w-d-raiffeisen-lyss",
-        "responsabile-del-trattamento-tecnico-m-f-d-raiffeisen-lyss"
+        "responsabile-fachverarbeitung-m-w-d-raiffeisen-lyss"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-fachverarbeitung-m-w-d-raiffeisen-lyss",
-          "responsabile-fachverarbeitung-m-w-d-raiffeisen-lyss",
-          "responsabile-del-trattamento-tecnico-m-f-d-raiffeisen-lyss"
+          "responsabile-fachverarbeitung-m-w-d-raiffeisen-lyss"
         ],
         "en": [
           "leiter-in-fachverarbeitung-m-w-d-raiffeisen-lyss"
@@ -7082,13 +6945,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "privatkundenberater-in-individualkunden-raiffeisen-schaffhausen",
-        "consulenti-individuali-dei-clienti-raiffeisen-schaffhausen"
+        "privatkundenberater-in-individualkunden-raiffeisen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "privatkundenberater-in-individualkunden-raiffeisen-schaffhausen",
-          "consulenti-individuali-dei-clienti-raiffeisen-schaffhausen"
+          "privatkundenberater-in-individualkunden-raiffeisen-schaffhausen"
         ],
         "en": [
           "privatkundenberater-in-individualkunden-raiffeisen-schaffhausen"
@@ -7164,14 +7025,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leiter-in-geschaftsstelle-raiffeisen-neunkirch",
-        "responsabile-geschaftsstelle-raiffeisen-neunkirch",
-        "responsabile-amministrazione-raiffeisen-neunkirch"
+        "responsabile-geschaftsstelle-raiffeisen-neunkirch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-geschaftsstelle-raiffeisen-neunkirch",
-          "responsabile-geschaftsstelle-raiffeisen-neunkirch",
-          "responsabile-amministrazione-raiffeisen-neunkirch"
+          "responsabile-geschaftsstelle-raiffeisen-neunkirch"
         ],
         "en": [
           "leiter-in-geschaftsstelle-raiffeisen-neunkirch"
@@ -7245,13 +7104,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-mitarbeiter-in-front-office-raiffeisen-frick",
-        "senior-collaboratore-trice-front-office-raiffeisen-frick"
+        "senior-mitarbeiter-in-front-office-raiffeisen-frick"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-mitarbeiter-in-front-office-raiffeisen-frick",
-          "senior-collaboratore-trice-front-office-raiffeisen-frick"
+          "senior-mitarbeiter-in-front-office-raiffeisen-frick"
         ],
         "fr": [
           "senior-mitarbeiter-in-front-office-raiffeisen-frick"
@@ -7270,7 +7127,8 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-e343c7e51475",
@@ -7324,14 +7182,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kredit-und-hypothekarberater-w-m-d-raiffeisen-kaisten",
-        "kredit-e-hypothekarberater-m-w-d-raiffeisen-kaisten",
-        "consulente-prestiti-e-mutui-m-f-d-raiffeisen-kaisten"
+        "kredit-e-hypothekarberater-m-w-d-raiffeisen-kaisten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kredit-und-hypothekarberater-w-m-d-raiffeisen-kaisten",
-          "kredit-e-hypothekarberater-m-w-d-raiffeisen-kaisten",
-          "consulente-prestiti-e-mutui-m-f-d-raiffeisen-kaisten"
+          "kredit-e-hypothekarberater-m-w-d-raiffeisen-kaisten"
         ],
         "en": [
           "kredit-und-hypothekarberater-w-m-d-raiffeisen-kaisten"
@@ -7370,7 +7226,7 @@
       "title": "DevOps Engineer Data Warehouse (w/m/d)",
       "titleByLocale": {
         "it": "Data Warehouse Ingegnere DevOps (m/f/d)",
-        "en": "DevOps Engineer Data Warehouse (m/f/d)",
+        "en": "DevOps Engineer Data Warehouse (w/m/d)",
         "de": "DevOps Ingenieur Data Warehouse (w/m/d)",
         "fr": "Entrepôt de données ingénieur DevOps (h/f/d)"
       },
@@ -7470,13 +7326,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-a-la-clientele-raiffeisen-geneve",
-        "consulente-clienti-raiffeisen-geneve"
+        "conseiller-ere-a-la-clientele-raiffeisen-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-a-la-clientele-raiffeisen-geneve",
-          "consulente-clienti-raiffeisen-geneve"
+          "conseiller-ere-a-la-clientele-raiffeisen-geneve"
         ],
         "en": [
           "conseiller-ere-a-la-clientele-raiffeisen-geneve"
@@ -7551,13 +7405,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kundenberater-in-raiffeisen-schanis",
-        "consulenti-clienti-raiffeisen-schanis"
+        "kundenberater-in-raiffeisen-schanis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-raiffeisen-schanis",
-          "consulenti-clienti-raiffeisen-schanis"
+          "kundenberater-in-raiffeisen-schanis"
         ],
         "en": [
           "kundenberater-in-raiffeisen-schanis"
@@ -7632,13 +7484,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitglied-des-verwaltungsrates-der-raiffeisenbank-st-gallen-br-mit-unternehmerischem-profil",
-        "membro-del-consiglio-di-amministrazione-di-raiffeisenbank-st-gallen-raiffeisen-st-gallen"
+        "mitglied-des-verwaltungsrates-der-raiffeisenbank-st-gallen-br-mit-unternehmerischem-profil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitglied-des-verwaltungsrates-der-raiffeisenbank-st-gallen-br-mit-unternehmerischem-profil",
-          "membro-del-consiglio-di-amministrazione-di-raiffeisenbank-st-gallen-raiffeisen-st-gallen"
+          "mitglied-des-verwaltungsrates-der-raiffeisenbank-st-gallen-br-mit-unternehmerischem-profil"
         ],
         "en": [
           "mitglied-des-verwaltungsrates-der-raiffeisenbank-st-gallen-br-mit-unternehmerischem-profil"
@@ -7677,7 +7527,7 @@
       "title": "Mitglied des Verwaltungsrates der Raiffeisenbank St.Gallen<br/>mit Banking-Profil",
       "titleByLocale": {
         "it": "Membro del Consiglio di Amministrazione di Raiffeisenbank St.Gallen",
-        "en": "Member of the Board of Directors of Raiffeisenbank St.Gallen<br/>with banking profile",
+        "en": "Mitglied des Verwaltungsrates der Raiffeisenbank St.Gallen<br/>mit Banking-Profil",
         "de": "Mitglied des Verwaltungsrates der Raiffeisenbank St.Gallen<br/>mit Banking-Profil",
         "fr": "Membre du conseil d'administration de Raiffeisenbank St.Gallen<br/>avec profil bancaire"
       },
@@ -7713,13 +7563,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitglied-des-verwaltungsrates-der-raiffeisenbank-st-gallen-br-mit-banking-profil",
-        "mitglied-des-verwaltungsrates-der-raiffeisenbank-st-gallen-br-mit-banking-profil-raiffeisen-st-gallen",
-        "membro-del-consiglio-di-amministrazione-di-raiffeisenbank-st-gallen-raiffeisen-st-gallen-b24db9"
+        "mitglied-des-verwaltungsrates-der-raiffeisenbank-st-gallen-br-mit-banking-profil-raiffeisen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitglied-des-verwaltungsrates-der-raiffeisenbank-st-gallen-br-mit-banking-profil",
-          "membro-del-consiglio-di-amministrazione-di-raiffeisenbank-st-gallen-raiffeisen-st-gallen-b24db9"
+          "mitglied-des-verwaltungsrates-der-raiffeisenbank-st-gallen-br-mit-banking-profil"
         ],
         "en": [
           "mitglied-des-verwaltungsrates-der-raiffeisenbank-st-gallen-br-mit-banking-profil",
@@ -7759,7 +7607,7 @@
       "title": "Senior Analyst Schweizer Aktien (Buy-Side) (w/m/d)",
       "titleByLocale": {
         "it": "Senior Analista Schweizer Aktien (Buy-Side) (w/m/d)",
-        "en": "Senior Analyst Swiss Stocks (Buy-Side) (m/f/d)",
+        "en": "Senior Analyst Schweizer Aktien (Buy-Side) (w/m/d)",
         "de": "Senior Analyst Schweizer Aktien (Buy-Side) (w/m/d)",
         "fr": "Senior Analyste Schweizer Aktien (Buy-Side) (w/m/d)"
       },
@@ -7859,13 +7707,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "privatkundenberater-mit-entwicklungspotenzial-zum-stellvertreter-geschaftsstellenleitung",
-        "consulente-cliente-privato-con-potenziale-di-sviluppo-come-vice-capo-ufficio-hombrechtikon-m-f-d-raiffeisen"
+        "privatkundenberater-mit-entwicklungspotenzial-zum-stellvertreter-geschaftsstellenleitung"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "privatkundenberater-mit-entwicklungspotenzial-zum-stellvertreter-geschaftsstellenleitung",
-          "consulente-cliente-privato-con-potenziale-di-sviluppo-come-vice-capo-ufficio-hombrechtikon-m-f-d-raiffeisen"
+          "privatkundenberater-mit-entwicklungspotenzial-zum-stellvertreter-geschaftsstellenleitung"
         ],
         "en": [
           "privatkundenberater-mit-entwicklungspotenzial-zum-stellvertreter-geschaftsstellenleitung"
@@ -7940,14 +7786,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-frontsupport-mit-fokus-telefonie-w-m-d-raiffeisen-birmensdorf-zh",
-        "mitarbeiter-frontsupport-w-m-d-raiffeisen-birmensdorf-zh",
-        "collaboratore-trice-frontsupport-con-fokus-telefonie-m-w-d-raiffeisen-birmensdorf-zh"
+        "mitarbeiter-frontsupport-w-m-d-raiffeisen-birmensdorf-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-frontsupport-mit-fokus-telefonie-w-m-d-raiffeisen-birmensdorf-zh",
-          "mitarbeiter-frontsupport-w-m-d-raiffeisen-birmensdorf-zh",
-          "collaboratore-trice-frontsupport-con-fokus-telefonie-m-w-d-raiffeisen-birmensdorf-zh"
+          "mitarbeiter-frontsupport-w-m-d-raiffeisen-birmensdorf-zh"
         ],
         "en": [
           "mitarbeiter-frontsupport-mit-fokus-telefonie-w-m-d-raiffeisen-birmensdorf-zh"
@@ -8022,13 +7866,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "strategischer-berater-w-m-d-raiffeisen-st-gallen",
-        "consigliere-strategico-m-f-d-raiffeisen-st-gallen"
+        "strategischer-berater-w-m-d-raiffeisen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "strategischer-berater-w-m-d-raiffeisen-st-gallen",
-          "consigliere-strategico-m-f-d-raiffeisen-st-gallen"
+          "strategischer-berater-w-m-d-raiffeisen-st-gallen"
         ],
         "en": [
           "strategischer-berater-w-m-d-raiffeisen-st-gallen"
@@ -8168,13 +8010,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verwaltungsrat-ratin-raiffeisenbank-nidwalden-raiffeisen-stans",
-        "consiglio-di-amministrazione-consiglio-raiffeisenbank-nidwalden-raiffeisen-stans"
+        "verwaltungsrat-ratin-raiffeisenbank-nidwalden-raiffeisen-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verwaltungsrat-ratin-raiffeisenbank-nidwalden-raiffeisen-stans",
-          "consiglio-di-amministrazione-consiglio-raiffeisenbank-nidwalden-raiffeisen-stans"
+          "verwaltungsrat-ratin-raiffeisenbank-nidwalden-raiffeisen-stans"
         ],
         "en": [
           "verwaltungsrat-ratin-raiffeisenbank-nidwalden-raiffeisen-stans"
@@ -8249,13 +8089,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-a-la-clientele-experimente-f-h-raiffeisen-sion-et-region",
-        "consulente-clienti-esperto-m-f-raiffeisen-sion-et-region"
+        "conseiller-a-la-clientele-experimente-f-h-raiffeisen-sion-et-region"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-a-la-clientele-experimente-f-h-raiffeisen-sion-et-region",
-          "consulente-clienti-esperto-m-f-raiffeisen-sion-et-region"
+          "conseiller-a-la-clientele-experimente-f-h-raiffeisen-sion-et-region"
         ],
         "en": [
           "conseiller-a-la-clientele-experimente-f-h-raiffeisen-sion-et-region"
@@ -8294,7 +8132,7 @@
       "title": "Welcome Manager (m/w/d) mit Basisberatung",
       "titleByLocale": {
         "it": "Welcome Manager (m/f/d) con consulenza di base",
-        "en": "Welcome Manager (m/f/d) with basic consulting",
+        "en": "Welcome Manager (m/w/d) mit Basisberatung",
         "de": "Welcome Manager (m/w/d) mit Basisberatung",
         "fr": "Welcome Manager (h/f/d) avec consultation de base"
       },
@@ -8329,13 +8167,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "welcome-manager-m-w-d-mit-basisberatung-raiffeisen-wollerau",
-        "welcome-manager-m-f-d-con-consulenza-di-base-raiffeisen-wollerau"
+        "welcome-manager-m-w-d-mit-basisberatung-raiffeisen-wollerau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "welcome-manager-m-w-d-mit-basisberatung-raiffeisen-wollerau",
-          "welcome-manager-m-f-d-con-consulenza-di-base-raiffeisen-wollerau"
+          "welcome-manager-m-w-d-mit-basisberatung-raiffeisen-wollerau"
         ],
         "en": [
           "welcome-manager-m-w-d-mit-basisberatung-raiffeisen-wollerau"
@@ -8357,7 +8193,8 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-9f99b30692d1",
@@ -8411,14 +8248,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leiter-kundenberatung-w-m-d-raiffeisen-gebenstorf",
-        "leiter-kundenberatung-m-w-d-raiffeisen-gebenstorf",
-        "responsabile-servizi-clienti-m-f-d-raiffeisen-gebenstorf"
+        "leiter-kundenberatung-m-w-d-raiffeisen-gebenstorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-kundenberatung-w-m-d-raiffeisen-gebenstorf",
-          "leiter-kundenberatung-m-w-d-raiffeisen-gebenstorf",
-          "responsabile-servizi-clienti-m-f-d-raiffeisen-gebenstorf"
+          "leiter-kundenberatung-m-w-d-raiffeisen-gebenstorf"
         ],
         "en": [
           "leiter-kundenberatung-w-m-d-raiffeisen-gebenstorf"
@@ -8493,13 +8328,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-mann-kundendialog-efz-lehrbeginn-august-2027-raiffeisen-st-gallen",
-        "apprendistato-come-fachfrau-mann-kundendialog-cfc-lehrbeginn-august-2027-raiffeisen-st-gallen"
+        "lehrstelle-als-fachfrau-mann-kundendialog-efz-lehrbeginn-august-2027-raiffeisen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-mann-kundendialog-efz-lehrbeginn-august-2027-raiffeisen-st-gallen",
-          "apprendistato-come-fachfrau-mann-kundendialog-cfc-lehrbeginn-august-2027-raiffeisen-st-gallen"
+          "lehrstelle-als-fachfrau-mann-kundendialog-efz-lehrbeginn-august-2027-raiffeisen-st-gallen"
         ],
         "en": [
           "lehrstelle-als-fachfrau-mann-kundendialog-efz-lehrbeginn-august-2027-raiffeisen-st-gallen"
@@ -8581,8 +8414,7 @@
         "corporate-client-advisor-f-m-d-raiffeisen-oberlunkhofen",
         "firmenkundenberater-w-m-d-raiffeisen-oberlunkhofen",
         "conseiller-ministeriel-aupres-des-clients-f-m-d-raiffeisen-oberlunkhofen",
-        "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen",
-        "consulente-clienti-privato-m-f-d-raiffeisen-oberlunkhofen"
+        "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8593,8 +8425,7 @@
           "corporate-client-advisor-f-m-d-raiffeisen-oberlunkhofen",
           "firmenkundenberater-w-m-d-raiffeisen-oberlunkhofen",
           "conseiller-ministeriel-aupres-des-clients-f-m-d-raiffeisen-oberlunkhofen",
-          "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen",
-          "consulente-clienti-privato-m-f-d-raiffeisen-oberlunkhofen"
+          "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen"
         ],
         "en": [
           "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen"
@@ -8669,13 +8500,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bankeinstieg-nach-wms-1-august-2027-31-juli-2029-raiffeisen-frick",
-        "ingresso-bancario-secondo-wms-1-agosto-2027-31-luglio-2029-raiffeisen-frick"
+        "bankeinstieg-nach-wms-1-august-2027-31-juli-2029-raiffeisen-frick"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bankeinstieg-nach-wms-1-august-2027-31-juli-2029-raiffeisen-frick",
-          "ingresso-bancario-secondo-wms-1-agosto-2027-31-luglio-2029-raiffeisen-frick"
+          "bankeinstieg-nach-wms-1-august-2027-31-juli-2029-raiffeisen-frick"
         ],
         "en": [
           "bankeinstieg-nach-wms-1-august-2027-31-juli-2029-raiffeisen-frick"
@@ -8749,13 +8578,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-finanzplaner-w-m-d-raiffeisen-tagerwilen",
-        "pianificatore-finanziario-senior-m-f-d-raiffeisen-tagerwilen"
+        "senior-finanzplaner-w-m-d-raiffeisen-tagerwilen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-finanzplaner-w-m-d-raiffeisen-tagerwilen",
-          "pianificatore-finanziario-senior-m-f-d-raiffeisen-tagerwilen"
+          "senior-finanzplaner-w-m-d-raiffeisen-tagerwilen"
         ],
         "en": [
           "senior-finanzplaner-w-m-d-raiffeisen-tagerwilen"
@@ -8777,7 +8604,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-bec607157b18",
@@ -8794,7 +8622,7 @@
       "title": "Credit-Officer (w/m/d)",
       "titleByLocale": {
         "it": "Agente di credito (m/f/d)",
-        "en": "Credit Officer (m/f/d)",
+        "en": "Credit-Officer (w/m/d)",
         "de": "Credit-Officer (w/m/d)",
         "fr": "Agent de crédit (h/f/d)"
       },
@@ -8829,13 +8657,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "credit-officer-w-m-d-raiffeisen-interlaken",
-        "agente-di-credito-m-f-d-raiffeisen-interlaken"
+        "credit-officer-w-m-d-raiffeisen-interlaken"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "credit-officer-w-m-d-raiffeisen-interlaken",
-          "agente-di-credito-m-f-d-raiffeisen-interlaken"
+          "credit-officer-w-m-d-raiffeisen-interlaken"
         ],
         "fr": [
           "credit-officer-w-m-d-raiffeisen-interlaken"
@@ -8906,13 +8732,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kundenberater-w-m-d-raiffeisen-rapperswil-jona",
-        "servizio-clienti-m-f-d-raiffeisen-rapperswil-jona"
+        "kundenberater-w-m-d-raiffeisen-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-w-m-d-raiffeisen-rapperswil-jona",
-          "servizio-clienti-m-f-d-raiffeisen-rapperswil-jona"
+          "kundenberater-w-m-d-raiffeisen-rapperswil-jona"
         ],
         "en": [
           "kundenberater-w-m-d-raiffeisen-rapperswil-jona"
@@ -8992,8 +8816,7 @@
         "conseiller-a-la-clientele-f-m-d-raiffeisen-fislisbach",
         "kundenberater-basis-w-m-d-raiffeisen-fislisbach-irt01n",
         "base-du-conseiller-client-h-f-d-raiffeisen-fislisbach",
-        "kundenberater-basis-w-m-d-raiffeisen-fislisbach",
-        "consulente-clienti-basis-m-f-d-raiffeisen-fislisbach"
+        "kundenberater-basis-w-m-d-raiffeisen-fislisbach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9001,8 +8824,7 @@
           "customer-advisor-basis-f-m-d-raiffeisen-fislisbach",
           "conseiller-a-la-clientele-f-m-d-raiffeisen-fislisbach",
           "kundenberater-basis-w-m-d-raiffeisen-fislisbach-irt01n",
-          "kundenberater-basis-w-m-d-raiffeisen-fislisbach",
-          "consulente-clienti-basis-m-f-d-raiffeisen-fislisbach"
+          "kundenberater-basis-w-m-d-raiffeisen-fislisbach"
         ],
         "en": [
           "kundenberater-basis-w-m-d-raiffeisen-fislisbach"
@@ -9083,16 +8905,14 @@
         "conseillers-clients-raiffeisen-davos",
         "customer-advisor-in-raiffeisen-davos",
         "conseiller-client-in-raiffeisen-davos",
-        "kundenberater-in-raiffeisen-davos",
-        "consulenti-clienti-raiffeisen-davos"
+        "kundenberater-in-raiffeisen-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-clienti-in-raiffeisen-davos",
           "client-advisors-raiffeisen-davos",
           "conseillers-clients-raiffeisen-davos",
-          "kundenberater-in-raiffeisen-davos",
-          "consulenti-clienti-raiffeisen-davos"
+          "kundenberater-in-raiffeisen-davos"
         ],
         "en": [
           "customer-advisor-in-raiffeisen-davos",
@@ -9168,13 +8988,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-en-gestion-de-fortune-h-f-raiffeisen-vernier",
-        "assistente-di-gestione-della-fortuna-m-f-raiffeisen-vernier"
+        "assistant-en-gestion-de-fortune-h-f-raiffeisen-vernier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-en-gestion-de-fortune-h-f-raiffeisen-vernier",
-          "assistente-di-gestione-della-fortuna-m-f-raiffeisen-vernier"
+          "assistant-en-gestion-de-fortune-h-f-raiffeisen-vernier"
         ]
       },
       "firstSeenAt": "2026-09-19T23:02:14.231Z",
@@ -9190,7 +9008,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-d1980b518625",
@@ -9243,13 +9062,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-vermogensberater-w-m-d-raiffeisen-zurich",
-        "consigliere-di-investimento-senior-m-f-d-raiffeisen-zurich"
+        "senior-vermogensberater-w-m-d-raiffeisen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-vermogensberater-w-m-d-raiffeisen-zurich",
-          "consigliere-di-investimento-senior-m-f-d-raiffeisen-zurich"
+          "senior-vermogensberater-w-m-d-raiffeisen-zurich"
         ],
         "en": [
           "senior-vermogensberater-w-m-d-raiffeisen-zurich"
@@ -9323,13 +9140,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-firmenkundenberater-w-m-d-raiffeisen-zurich",
-        "senior-corporate-client-advisor-m-f-d-raiffeisen-zurich"
+        "senior-firmenkundenberater-w-m-d-raiffeisen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-firmenkundenberater-w-m-d-raiffeisen-zurich",
-          "senior-corporate-client-advisor-m-f-d-raiffeisen-zurich"
+          "senior-firmenkundenberater-w-m-d-raiffeisen-zurich"
         ],
         "en": [
           "senior-firmenkundenberater-w-m-d-raiffeisen-zurich"
@@ -9351,7 +9166,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-8242706626b0",
@@ -9415,7 +9231,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-5ab6b65d5b4f",
@@ -9475,8 +9292,7 @@
         "apprenticeship-as-a-merchant-merchant-br-efz-u-o-berufsmatur-branche-bank-br-start-of-apprenticeship-august-2027",
         "lehrstelle-als-kauffrau-kaufmann-br-efz-u-o-berufsmatur-branche-bank-br-lehrbeginn-august",
         "apprentissage-en-tant-que-marchand-marchand-br-efz-u-o-berufsmatur-branche-bank-br-debut-de-l-apprentissage-aout-2027",
-        "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-br-lehrbeginn-august-2027-raiffeisen-murten",
-        "apprendistato-come-donna-d-affari-businessman-efz-branche-bank-br-apprendistato-inizio-agosto-2027-raiffeisen-murten"
+        "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-br-lehrbeginn-august-2027-raiffeisen-murten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9488,8 +9304,7 @@
           "apprenticeship-as-a-merchant-merchant-br-efz-u-o-berufsmatur-branche-bank-br-start-of-apprenticeship-august-2027",
           "lehrstelle-als-kauffrau-kaufmann-br-efz-u-o-berufsmatur-branche-bank-br-lehrbeginn-august",
           "apprentissage-en-tant-que-marchand-marchand-br-efz-u-o-berufsmatur-branche-bank-br-debut-de-l-apprentissage-aout-2027",
-          "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-br-lehrbeginn-august-2027-raiffeisen-murten",
-          "apprendistato-come-donna-d-affari-businessman-efz-branche-bank-br-apprendistato-inizio-agosto-2027-raiffeisen-murten"
+          "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-br-lehrbeginn-august-2027-raiffeisen-murten"
         ],
         "en": [
           "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-br-lehrbeginn-august-2027-raiffeisen"
@@ -9512,7 +9327,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-867fab15a2ae",
@@ -9571,8 +9387,7 @@
         "apprenticeship-kaufmann-kauffrau-efz-branche-bank-apprenticeship-start-august-2027-raiffeisen-cazis",
         "apprentissage-kauffrau-kaufmann-efz-branche-bank-debut-de-l-apprentissage-aout-2027-raiffeisen-andelfingen",
         "apprentissage-kaufmann-kauffrau-efz-branche-bank-debut-de-l-apprentissage-aout-2027-raiffeisen-cazis",
-        "apprendistato-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-cazis",
-        "apprendistato-kauffrau-kaufmann-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-zeiningen"
+        "apprendistato-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9582,8 +9397,7 @@
           "apprenticeship-kaufmann-kauffrau-efz-branche-bank-apprenticeship-start-august-2027-raiffeisen-cazis",
           "apprentissage-kauffrau-kaufmann-efz-branche-bank-debut-de-l-apprentissage-aout-2027-raiffeisen-andelfingen",
           "apprentissage-kaufmann-kauffrau-efz-branche-bank-debut-de-l-apprentissage-aout-2027-raiffeisen-cazis",
-          "apprendistato-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-cazis",
-          "apprendistato-kauffrau-kaufmann-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-zeiningen"
+          "apprendistato-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-cazis"
         ],
         "en": [
           "apprenticeship-kauffrau-kaufmann-efz-branche-bank-apprenticeship-start-august-2027-raiffeisen-zeiningen",
@@ -9660,13 +9474,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-credit-office-w-m-d-raiffeisen-dulliken",
-        "responsabile-credit-office-m-w-d-raiffeisen-dulliken"
+        "leiter-in-credit-office-w-m-d-raiffeisen-dulliken"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-credit-office-w-m-d-raiffeisen-dulliken",
-          "responsabile-credit-office-m-w-d-raiffeisen-dulliken"
+          "leiter-in-credit-office-w-m-d-raiffeisen-dulliken"
         ],
         "fr": [
           "leiter-in-credit-office-w-m-d-raiffeisen-dulliken"
@@ -9738,13 +9550,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-kreditverarbeitung-raiffeisen-lutzelfluh-goldbach",
-        "responsabile-kreditverarbeitung-raiffeisen-lutzelfluh-goldbach"
+        "leiter-in-kreditverarbeitung-raiffeisen-lutzelfluh-goldbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-kreditverarbeitung-raiffeisen-lutzelfluh-goldbach",
-          "responsabile-kreditverarbeitung-raiffeisen-lutzelfluh-goldbach"
+          "leiter-in-kreditverarbeitung-raiffeisen-lutzelfluh-goldbach"
         ],
         "en": [
           "leiter-in-kreditverarbeitung-raiffeisen-lutzelfluh-goldbach"
@@ -9819,13 +9629,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kundenberatung-raiffeisen-lutzelfluh-goldbach",
-        "servizi-clienti-raiffeisen-lutzelfluh-goldbach"
+        "kundenberatung-raiffeisen-lutzelfluh-goldbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberatung-raiffeisen-lutzelfluh-goldbach",
-          "servizi-clienti-raiffeisen-lutzelfluh-goldbach"
+          "kundenberatung-raiffeisen-lutzelfluh-goldbach"
         ],
         "en": [
           "kundenberatung-raiffeisen-lutzelfluh-goldbach"
@@ -9900,13 +9708,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kundenberater-w-m-d-raiffeisen-eschenbach-lu",
-        "servizio-clienti-m-f-d-raiffeisen-eschenbach-lu"
+        "kundenberater-w-m-d-raiffeisen-eschenbach-lu"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-w-m-d-raiffeisen-eschenbach-lu",
-          "servizio-clienti-m-f-d-raiffeisen-eschenbach-lu"
+          "kundenberater-w-m-d-raiffeisen-eschenbach-lu"
         ],
         "en": [
           "kundenberater-w-m-d-raiffeisen-eschenbach-lu"
@@ -10060,16 +9866,14 @@
         "consulente-clienti-aziendale-raiffeisen-aadorf",
         "corporate-client-advisor-raiffeisen-aadorf",
         "conseiller-general-aupres-des-clients-raiffeisen-aadorf",
-        "firmenkundenberater-in-raiffeisen-aadorf",
-        "clienti-aziendali-raiffeisen-aadorf"
+        "firmenkundenberater-in-raiffeisen-aadorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-clienti-aziendale-raiffeisen-aadorf",
           "corporate-client-advisor-raiffeisen-aadorf",
           "conseiller-general-aupres-des-clients-raiffeisen-aadorf",
-          "firmenkundenberater-in-raiffeisen-aadorf",
-          "clienti-aziendali-raiffeisen-aadorf"
+          "firmenkundenberater-in-raiffeisen-aadorf"
         ],
         "en": [
           "corporate-client-advisor-raiffeisen-aadorf",
@@ -10146,13 +9950,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "individualkundenberater-w-m-d-raiffeisen-amriswil",
-        "consulente-cliente-individuale-m-f-d-raiffeisen-amriswil"
+        "individualkundenberater-w-m-d-raiffeisen-amriswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "individualkundenberater-w-m-d-raiffeisen-amriswil",
-          "consulente-cliente-individuale-m-f-d-raiffeisen-amriswil"
+          "individualkundenberater-w-m-d-raiffeisen-amriswil"
         ],
         "en": [
           "individualkundenberater-w-m-d-raiffeisen-amriswil"
@@ -10178,12 +9980,12 @@
     },
     {
       "id": "raiffeisen-e96ffbcc5de1",
-      "slug": "kundenberater-w-m-d-raiffeisen-rothenburg",
+      "slug": "servizio-clienti-m-f-d-raiffeisen-rothenburg",
       "slugByLocale": {
         "de": "kundenberater-w-m-d-raiffeisen-rothenburg",
-        "it": "kundenberater-w-m-d-raiffeisen-rothenburg",
-        "en": "kundenberater-w-m-d-raiffeisen-rothenburg",
-        "fr": "kundenberater-w-m-d-raiffeisen-rothenburg"
+        "it": "servizio-clienti-m-f-d-raiffeisen-rothenburg",
+        "en": "customer-service-provider-m-f-d-raiffeisen-rothenburg",
+        "fr": "fournisseur-de-services-a-la-clientele-h-f-d-raiffeisen-rothenburg"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -10240,7 +10042,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T14:47:18.099Z"
+      "firstSeenAt": "2026-09-25T14:47:18.099Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-w-m-d-raiffeisen-rothenburg"
+        ],
+        "en": [
+          "kundenberater-w-m-d-raiffeisen-rothenburg"
+        ],
+        "fr": [
+          "kundenberater-w-m-d-raiffeisen-rothenburg"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-w-m-d-raiffeisen-rothenburg"
+      ]
     },
     {
       "id": "raiffeisen-4f89108e8d45",
@@ -10293,13 +10109,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "privatkundenberater-w-m-d-raiffeisen-schwyz",
-        "consulente-clienti-privato-m-f-d-raiffeisen-schwyz-49ebe7"
+        "privatkundenberater-w-m-d-raiffeisen-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "privatkundenberater-w-m-d-raiffeisen-schwyz",
-          "consulente-clienti-privato-m-f-d-raiffeisen-schwyz-49ebe7"
+          "privatkundenberater-w-m-d-raiffeisen-schwyz"
         ],
         "en": [
           "privatkundenberater-w-m-d-raiffeisen-schwyz"
@@ -10373,13 +10187,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "finanzplaner-w-m-d-raiffeisen-schwyz",
-        "pianificatore-finanziario-m-f-d-raiffeisen-schwyz"
+        "finanzplaner-w-m-d-raiffeisen-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "finanzplaner-w-m-d-raiffeisen-schwyz",
-          "pianificatore-finanziario-m-f-d-raiffeisen-schwyz"
+          "finanzplaner-w-m-d-raiffeisen-schwyz"
         ],
         "en": [
           "finanzplaner-w-m-d-raiffeisen-schwyz"
@@ -10401,7 +10213,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-cd8d485aa9e8",
@@ -10454,13 +10267,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialiste-planification-financiere-h-f-raiffeisen-assens",
-        "specialista-di-pianificazione-finanziaria-m-f-raiffeisen-assens"
+        "specialiste-planification-financiere-h-f-raiffeisen-assens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-planification-financiere-h-f-raiffeisen-assens",
-          "specialista-di-pianificazione-finanziaria-m-f-raiffeisen-assens"
+          "specialiste-planification-financiere-h-f-raiffeisen-assens"
         ],
         "en": [
           "specialiste-planification-financiere-h-f-raiffeisen-assens"
@@ -10535,13 +10346,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiterin-administration-frontsupport-raiffeisen-dornach",
-        "amministrazione-dipendenti-supporto-anteriore-raiffeisen-dornach"
+        "mitarbeiterin-administration-frontsupport-raiffeisen-dornach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-administration-frontsupport-raiffeisen-dornach",
-          "amministrazione-dipendenti-supporto-anteriore-raiffeisen-dornach"
+          "mitarbeiterin-administration-frontsupport-raiffeisen-dornach"
         ],
         "en": [
           "mitarbeiterin-administration-frontsupport-raiffeisen-dornach"
@@ -10632,12 +10441,12 @@
     },
     {
       "id": "raiffeisen-43790fd50245",
-      "slug": "kundenberater-w-m-d-raiffeisen-vechigen",
+      "slug": "servizio-clienti-m-f-d-raiffeisen-vechigen",
       "slugByLocale": {
         "de": "kundenberater-w-m-d-raiffeisen-vechigen",
-        "it": "kundenberater-w-m-d-raiffeisen-vechigen",
-        "en": "kundenberater-w-m-d-raiffeisen-vechigen",
-        "fr": "kundenberater-w-m-d-raiffeisen-vechigen"
+        "it": "servizio-clienti-m-f-d-raiffeisen-vechigen",
+        "en": "customer-service-provider-m-f-d-raiffeisen-vechigen",
+        "fr": "fournisseur-de-services-a-la-clientele-h-f-d-raiffeisen-vechigen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -10694,7 +10503,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T14:47:18.070Z"
+      "firstSeenAt": "2026-09-25T14:47:18.070Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-w-m-d-raiffeisen-vechigen"
+        ],
+        "en": [
+          "kundenberater-w-m-d-raiffeisen-vechigen"
+        ],
+        "fr": [
+          "kundenberater-w-m-d-raiffeisen-vechigen"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-w-m-d-raiffeisen-vechigen"
+      ]
     },
     {
       "id": "raiffeisen-89cca83d0704",
@@ -10758,7 +10581,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-db5f29bdd82c",
@@ -10822,7 +10646,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-6ef2d0a0b75a",
@@ -10875,13 +10700,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-kreditverarbeitung-w-m-d-raiffeisen-gossau",
-        "collaboratore-trice-kreditverarbeitung-m-w-d-raiffeisen-gossau"
+        "mitarbeiter-kreditverarbeitung-w-m-d-raiffeisen-gossau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-kreditverarbeitung-w-m-d-raiffeisen-gossau",
-          "collaboratore-trice-kreditverarbeitung-m-w-d-raiffeisen-gossau"
+          "mitarbeiter-kreditverarbeitung-w-m-d-raiffeisen-gossau"
         ],
         "en": [
           "mitarbeiter-kreditverarbeitung-w-m-d-raiffeisen-gossau"
@@ -10920,7 +10743,7 @@
       "title": "Produktspezialist Vendor Leasing Senior (w/m/d)",
       "titleByLocale": {
         "it": "Specialista del prodotto Leasing Senior (m/f/d)",
-        "en": "Product specialist Vendor Leasing Senior (m/f/d)",
+        "en": "Produktspezialist Vendor Leasing Senior (w/m/d)",
         "de": "Produktspezialist Vendor Leasing Senior (w/m/d)",
         "fr": "Spécialiste des produits Vendeur Leasing Senior (h/f/d)"
       },
@@ -10955,13 +10778,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "produktspezialist-vendor-leasing-senior-w-m-d-raiffeisen-st-gallen",
-        "specialista-del-prodotto-leasing-senior-m-f-d-raiffeisen-st-gallen"
+        "produktspezialist-vendor-leasing-senior-w-m-d-raiffeisen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "produktspezialist-vendor-leasing-senior-w-m-d-raiffeisen-st-gallen",
-          "specialista-del-prodotto-leasing-senior-m-f-d-raiffeisen-st-gallen"
+          "produktspezialist-vendor-leasing-senior-w-m-d-raiffeisen-st-gallen"
         ],
         "fr": [
           "produktspezialist-vendor-leasing-senior-w-m-d-raiffeisen-st-gallen"
@@ -11033,13 +10854,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kundenberater-in-basis-raiffeisen-laufen",
-        "consulente-clienti-raiffeisen-laufen"
+        "kundenberater-in-basis-raiffeisen-laufen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-basis-raiffeisen-laufen",
-          "consulente-clienti-raiffeisen-laufen"
+          "kundenberater-in-basis-raiffeisen-laufen"
         ],
         "en": [
           "kundenberater-in-basis-raiffeisen-laufen"
@@ -11114,13 +10933,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "prasidentin-prasident-des-verwaltungsrates-der-raiffeisenbank-mohlin-raiffeisen-mohlin",
-        "presidente-presidente-del-consiglio-di-amministrazione-di-raiffeisenbank-mohlin-raiffeisen-mohlin"
+        "prasidentin-prasident-des-verwaltungsrates-der-raiffeisenbank-mohlin-raiffeisen-mohlin"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "prasidentin-prasident-des-verwaltungsrates-der-raiffeisenbank-mohlin-raiffeisen-mohlin",
-          "presidente-presidente-del-consiglio-di-amministrazione-di-raiffeisenbank-mohlin-raiffeisen-mohlin"
+          "prasidentin-prasident-des-verwaltungsrates-der-raiffeisenbank-mohlin-raiffeisen-mohlin"
         ],
         "en": [
           "prasidentin-prasident-des-verwaltungsrates-der-raiffeisenbank-mohlin-raiffeisen-mohlin"
@@ -11195,13 +11012,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleitung-credit-office-jobsharing-moglich-w-m-d-raiffeisen-tagerwilen",
-        "gestione-del-team-credit-office-possibilita-di-condivisione-del-lavoro-m-f-d-raiffeisen-tagerwilen"
+        "teamleitung-credit-office-jobsharing-moglich-w-m-d-raiffeisen-tagerwilen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleitung-credit-office-jobsharing-moglich-w-m-d-raiffeisen-tagerwilen",
-          "gestione-del-team-credit-office-possibilita-di-condivisione-del-lavoro-m-f-d-raiffeisen-tagerwilen"
+          "teamleitung-credit-office-jobsharing-moglich-w-m-d-raiffeisen-tagerwilen"
         ],
         "en": [
           "teamleitung-credit-office-jobsharing-moglich-w-m-d-raiffeisen-tagerwilen"
@@ -11227,12 +11042,12 @@
     },
     {
       "id": "raiffeisen-5d569c040d58",
-      "slug": "hauswart-fachperson-betriebsunterhalt-m-w-d-raiffeisen-schotz",
+      "slug": "housekeeper-manutenzione-operativa-specializzata-m-f-d-raiffeisen-schotz",
       "slugByLocale": {
         "de": "hauswart-fachperson-betriebsunterhalt-m-w-d-raiffeisen-schotz",
-        "it": "hauswart-fachperson-betriebsunterhalt-m-w-d-raiffeisen-schotz",
-        "en": "hauswart-fachperson-betriebsunterhalt-m-w-d-raiffeisen-schotz",
-        "fr": "hauswart-fachperson-betriebsunterhalt-m-w-d-raiffeisen-schotz"
+        "it": "housekeeper-manutenzione-operativa-specializzata-m-f-d-raiffeisen-schotz",
+        "en": "housekeeper-specialist-operating-maintenance-m-f-d-raiffeisen-schotz",
+        "fr": "menage-entretien-d-exploitation-specialise-h-f-d-raiffeisen-schotz"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11289,7 +11104,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T14:47:18.040Z"
+      "firstSeenAt": "2026-09-25T14:47:18.040Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hauswart-fachperson-betriebsunterhalt-m-w-d-raiffeisen-schotz"
+        ],
+        "en": [
+          "hauswart-fachperson-betriebsunterhalt-m-w-d-raiffeisen-schotz"
+        ],
+        "fr": [
+          "hauswart-fachperson-betriebsunterhalt-m-w-d-raiffeisen-schotz"
+        ]
+      },
+      "previousSlugs": [
+        "hauswart-fachperson-betriebsunterhalt-m-w-d-raiffeisen-schotz"
+      ]
     },
     {
       "id": "raiffeisen-4e842296f7cb",
@@ -11342,13 +11171,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kundenberater-in-raiffeisen-windisch",
-        "consulenti-clienti-raiffeisen-windisch"
+        "kundenberater-in-raiffeisen-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-raiffeisen-windisch",
-          "consulenti-clienti-raiffeisen-windisch"
+          "kundenberater-in-raiffeisen-windisch"
         ],
         "en": [
           "kundenberater-in-raiffeisen-windisch"
@@ -11423,13 +11250,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "finanzberater-w-m-d-raiffeisen-kaisten",
-        "consigliere-finanziario-m-f-d-raiffeisen-kaisten"
+        "finanzberater-w-m-d-raiffeisen-kaisten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "finanzberater-w-m-d-raiffeisen-kaisten",
-          "consigliere-finanziario-m-f-d-raiffeisen-kaisten"
+          "finanzberater-w-m-d-raiffeisen-kaisten"
         ],
         "en": [
           "finanzberater-w-m-d-raiffeisen-kaisten"
@@ -11459,8 +11284,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-schotz",
         "it": "apprendistato-come-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-schotz",
-        "en": "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-schotz",
-        "fr": "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-schotz"
+        "en": "apprenticeship-as-a-businessman-businesswoman-efz-branche-bank-apprenticeship-start-august-2027-raiffeisen-schotz",
+        "fr": "apprentissage-en-tant-qu-homme-d-affaires-femme-d-affaires-efz-branche-bank-debut-de-l-apprentissage-aout-2027"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11507,6 +11332,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-schotz"
+        ],
+        "en": [
+          "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-schotz"
+        ],
+        "fr": [
           "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-schotz"
         ]
       },
@@ -11597,12 +11428,12 @@
     },
     {
       "id": "raiffeisen-fcfc34505a82",
-      "slug": "finanzplaner-w-m-d-raiffeisen-basel",
+      "slug": "pianifica-finanziaria-m-f-d-raiffeisen-basel",
       "slugByLocale": {
         "de": "finanzplaner-w-m-d-raiffeisen-basel",
-        "it": "finanzplaner-w-m-d-raiffeisen-basel",
-        "en": "finanzplaner-w-m-d-raiffeisen-basel",
-        "fr": "finanzplaner-w-m-d-raiffeisen-basel"
+        "it": "pianifica-finanziaria-m-f-d-raiffeisen-basel",
+        "en": "financial-planner-m-f-d-raiffeisen-basel",
+        "fr": "planificateur-financier-h-f-d-raiffeisen-basel"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11659,16 +11490,31 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T14:47:18.016Z"
+      "firstSeenAt": "2026-09-25T14:47:18.016Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "finanzplaner-w-m-d-raiffeisen-basel"
+        ],
+        "en": [
+          "finanzplaner-w-m-d-raiffeisen-basel"
+        ],
+        "fr": [
+          "finanzplaner-w-m-d-raiffeisen-basel"
+        ]
+      },
+      "previousSlugs": [
+        "finanzplaner-w-m-d-raiffeisen-basel"
+      ]
     },
     {
       "id": "raiffeisen-0c6ac8df1cf7",
-      "slug": "privatkundenberater-w-m-d-raiffeisen-biglen",
+      "slug": "consulente-clienti-privato-m-f-d-raiffeisen-biglen",
       "slugByLocale": {
         "de": "privatkundenberater-w-m-d-raiffeisen-biglen",
-        "it": "privatkundenberater-w-m-d-raiffeisen-biglen",
-        "en": "privatkundenberater-w-m-d-raiffeisen-biglen",
-        "fr": "privatkundenberater-w-m-d-raiffeisen-biglen"
+        "it": "consulente-clienti-privato-m-f-d-raiffeisen-biglen",
+        "en": "private-client-advisor-m-f-d-raiffeisen-biglen",
+        "fr": "conseiller-client-prive-h-f-d-raiffeisen-biglen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11725,16 +11571,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T14:47:18.014Z"
+      "firstSeenAt": "2026-09-25T14:47:18.014Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "privatkundenberater-w-m-d-raiffeisen-biglen"
+        ],
+        "en": [
+          "privatkundenberater-w-m-d-raiffeisen-biglen"
+        ],
+        "fr": [
+          "privatkundenberater-w-m-d-raiffeisen-biglen"
+        ]
+      },
+      "previousSlugs": [
+        "privatkundenberater-w-m-d-raiffeisen-biglen"
+      ]
     },
     {
       "id": "raiffeisen-a24f0aa06558",
-      "slug": "kundenberater-bank-w-m-d-raiffeisen-bern",
+      "slug": "servizio-clienti-banca-m-f-d-raiffeisen-bern",
       "slugByLocale": {
         "de": "kundenberater-bank-w-m-d-raiffeisen-bern",
-        "it": "kundenberater-bank-w-m-d-raiffeisen-bern",
-        "en": "kundenberater-bank-w-m-d-raiffeisen-bern",
-        "fr": "kundenberater-bank-w-m-d-raiffeisen-bern"
+        "it": "servizio-clienti-banca-m-f-d-raiffeisen-bern",
+        "en": "customer-service-bank-m-f-d-raiffeisen-bern",
+        "fr": "banque-de-service-a-la-clientele-h-f-d-raiffeisen-bern"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11791,16 +11651,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:45:49.174Z"
+      "firstSeenAt": "2026-09-23T23:45:49.174Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-bank-w-m-d-raiffeisen-bern"
+        ],
+        "en": [
+          "kundenberater-bank-w-m-d-raiffeisen-bern"
+        ],
+        "fr": [
+          "kundenberater-bank-w-m-d-raiffeisen-bern"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-bank-w-m-d-raiffeisen-bern"
+      ]
     },
     {
       "id": "raiffeisen-2d16d1944c52",
-      "slug": "firmenkundenberater-w-m-d-raiffeisen-andelfingen",
+      "slug": "consulente-clienti-aziendale-m-f-d-raiffeisen-andelfingen",
       "slugByLocale": {
         "de": "firmenkundenberater-w-m-d-raiffeisen-andelfingen",
-        "it": "firmenkundenberater-w-m-d-raiffeisen-andelfingen",
-        "en": "firmenkundenberater-w-m-d-raiffeisen-andelfingen",
-        "fr": "firmenkundenberater-w-m-d-raiffeisen-andelfingen"
+        "it": "consulente-clienti-aziendale-m-f-d-raiffeisen-andelfingen",
+        "en": "corporate-client-advisor-m-f-d-raiffeisen-andelfingen",
+        "fr": "conseiller-client-d-entreprise-h-f-d-raiffeisen-andelfingen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11857,7 +11731,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T14:47:18.011Z"
+      "firstSeenAt": "2026-09-25T14:47:18.011Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "firmenkundenberater-w-m-d-raiffeisen-andelfingen"
+        ],
+        "en": [
+          "firmenkundenberater-w-m-d-raiffeisen-andelfingen"
+        ],
+        "fr": [
+          "firmenkundenberater-w-m-d-raiffeisen-andelfingen"
+        ]
+      },
+      "previousSlugs": [
+        "firmenkundenberater-w-m-d-raiffeisen-andelfingen"
+      ]
     },
     {
       "id": "raiffeisen-6ef4b0e580ae",
@@ -11865,8 +11753,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-basissupport-raiffeisen-thun",
         "it": "collaboratore-trice-basissupport-raiffeisen-thun",
-        "en": "mitarbeiter-in-basissupport-raiffeisen-thun",
-        "fr": "mitarbeiter-in-basissupport-raiffeisen-thun"
+        "en": "associate-basissupport-raiffeisen-thun",
+        "fr": "collaborateur-trice-basissupport-raiffeisen-thun"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11913,6 +11801,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-basissupport-raiffeisen-thun"
+        ],
+        "en": [
+          "mitarbeiter-in-basissupport-raiffeisen-thun"
+        ],
+        "fr": [
+          "mitarbeiter-in-basissupport-raiffeisen-thun"
         ]
       },
       "previousSlugs": [
@@ -11931,7 +11825,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T14:47:18.005Z"
+      "firstSeenAt": "2026-09-25T14:47:18.005Z",
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-3e6a52a9b0f1",
@@ -12076,12 +11971,12 @@
     },
     {
       "id": "raiffeisen-4c79e5eecbd1",
-      "slug": "privatkundenberater-individual-m-w-d-raiffeisen-muttenz",
+      "slug": "consulente-clienti-privato-individuale-m-f-d-raiffeisen-muttenz",
       "slugByLocale": {
         "de": "privatkundenberater-individual-m-w-d-raiffeisen-muttenz",
-        "it": "privatkundenberater-individual-m-w-d-raiffeisen-muttenz",
-        "en": "privatkundenberater-individual-m-w-d-raiffeisen-muttenz",
-        "fr": "privatkundenberater-individual-m-w-d-raiffeisen-muttenz"
+        "it": "consulente-clienti-privato-individuale-m-f-d-raiffeisen-muttenz",
+        "en": "private-client-advisor-individual-m-f-d-raiffeisen-muttenz",
+        "fr": "conseiller-client-prive-individuel-h-f-d-raiffeisen-muttenz"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12138,16 +12033,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-04T12:06:05.432Z"
+      "firstSeenAt": "2026-07-04T12:06:05.432Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "privatkundenberater-individual-m-w-d-raiffeisen-muttenz"
+        ],
+        "en": [
+          "privatkundenberater-individual-m-w-d-raiffeisen-muttenz"
+        ],
+        "fr": [
+          "privatkundenberater-individual-m-w-d-raiffeisen-muttenz"
+        ]
+      },
+      "previousSlugs": [
+        "privatkundenberater-individual-m-w-d-raiffeisen-muttenz"
+      ]
     },
     {
       "id": "raiffeisen-d095a4277f5e",
-      "slug": "firmenkundenberater-w-m-d-raiffeisen-murten",
+      "slug": "consulente-clienti-aziendale-m-f-d-raiffeisen-murten",
       "slugByLocale": {
         "de": "firmenkundenberater-w-m-d-raiffeisen-murten",
-        "it": "firmenkundenberater-w-m-d-raiffeisen-murten",
-        "en": "firmenkundenberater-w-m-d-raiffeisen-murten",
-        "fr": "firmenkundenberater-w-m-d-raiffeisen-murten"
+        "it": "consulente-clienti-aziendale-m-f-d-raiffeisen-murten",
+        "en": "corporate-client-advisor-m-f-d-raiffeisen-murten",
+        "fr": "conseiller-client-d-entreprise-h-f-d-raiffeisen-murten"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12204,16 +12113,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T14:47:17.996Z"
+      "firstSeenAt": "2026-09-25T14:47:17.996Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "firmenkundenberater-w-m-d-raiffeisen-murten"
+        ],
+        "en": [
+          "firmenkundenberater-w-m-d-raiffeisen-murten"
+        ],
+        "fr": [
+          "firmenkundenberater-w-m-d-raiffeisen-murten"
+        ]
+      },
+      "previousSlugs": [
+        "firmenkundenberater-w-m-d-raiffeisen-murten"
+      ]
     },
     {
       "id": "raiffeisen-92c5d2588175",
-      "slug": "kundenberater-w-m-d-raiffeisen-mannedorf",
+      "slug": "servizio-clienti-m-f-d-raiffeisen-mannedorf",
       "slugByLocale": {
         "de": "kundenberater-w-m-d-raiffeisen-mannedorf",
-        "it": "kundenberater-w-m-d-raiffeisen-mannedorf",
-        "en": "kundenberater-w-m-d-raiffeisen-mannedorf",
-        "fr": "kundenberater-w-m-d-raiffeisen-mannedorf"
+        "it": "servizio-clienti-m-f-d-raiffeisen-mannedorf",
+        "en": "customer-service-provider-m-f-d-raiffeisen-mannedorf",
+        "fr": "fournisseur-de-services-a-la-clientele-h-f-d-raiffeisen-mannedorf"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12270,7 +12193,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T14:47:17.993Z"
+      "firstSeenAt": "2026-09-25T14:47:17.993Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-w-m-d-raiffeisen-mannedorf"
+        ],
+        "en": [
+          "kundenberater-w-m-d-raiffeisen-mannedorf"
+        ],
+        "fr": [
+          "kundenberater-w-m-d-raiffeisen-mannedorf"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-w-m-d-raiffeisen-mannedorf"
+      ]
     },
     {
       "id": "raiffeisen-237f5b1e7b25",
@@ -12349,12 +12286,12 @@
     },
     {
       "id": "raiffeisen-ea1b0b887dc5",
-      "slug": "kundenservice-amp-bankallrounder-w-m-d-raiffeisen-eschenbach-sg",
+      "slug": "servizio-clienti-e-allrounder-bancario-m-f-d-raiffeisen-eschenbach-sg",
       "slugByLocale": {
         "de": "kundenservice-amp-bankallrounder-w-m-d-raiffeisen-eschenbach-sg",
-        "it": "kundenservice-amp-bankallrounder-w-m-d-raiffeisen-eschenbach-sg",
-        "en": "kundenservice-amp-bankallrounder-w-m-d-raiffeisen-eschenbach-sg",
-        "fr": "kundenservice-amp-bankallrounder-w-m-d-raiffeisen-eschenbach-sg"
+        "it": "servizio-clienti-e-allrounder-bancario-m-f-d-raiffeisen-eschenbach-sg",
+        "en": "customer-service-and-bank-allrounder-m-f-d-raiffeisen-eschenbach-sg",
+        "fr": "service-clientele-et-banque-allrounder-h-f-d-raiffeisen-eschenbach-sg"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12411,7 +12348,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T14:47:17.968Z"
+      "firstSeenAt": "2026-09-25T14:47:17.968Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenservice-amp-bankallrounder-w-m-d-raiffeisen-eschenbach-sg"
+        ],
+        "en": [
+          "kundenservice-amp-bankallrounder-w-m-d-raiffeisen-eschenbach-sg"
+        ],
+        "fr": [
+          "kundenservice-amp-bankallrounder-w-m-d-raiffeisen-eschenbach-sg"
+        ]
+      },
+      "previousSlugs": [
+        "kundenservice-amp-bankallrounder-w-m-d-raiffeisen-eschenbach-sg"
+      ]
     },
     {
       "id": "raiffeisen-09e41a5756be",
@@ -12419,8 +12371,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-fachverarbeitung-m-w-d-raiffeisen-lyss",
         "it": "collaboratore-trice-fachverarbeitung-m-w-d-raiffeisen-lyss",
-        "en": "mitarbeiter-in-fachverarbeitung-m-w-d-raiffeisen-lyss",
-        "fr": "mitarbeiter-in-fachverarbeitung-m-w-d-raiffeisen-lyss"
+        "en": "associate-fachverarbeitung-m-w-d-raiffeisen-lyss",
+        "fr": "collaborateur-trice-fachverarbeitung-m-w-d-raiffeisen-lyss"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12467,6 +12419,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-fachverarbeitung-m-w-d-raiffeisen-lyss"
+        ],
+        "en": [
+          "mitarbeiter-in-fachverarbeitung-m-w-d-raiffeisen-lyss"
+        ],
+        "fr": [
           "mitarbeiter-in-fachverarbeitung-m-w-d-raiffeisen-lyss"
         ]
       },
@@ -12645,7 +12603,6 @@
           "kundenberater-in-basis-w-m-d-raiffeisen-zofingen"
         ],
         "de": [
-          "kundenberater-in-basis-w-m-d-raiffeisen-zofingen",
           "kundenberater-in-basis-w-m-d-raiffeisen-zofingen-2jnrou"
         ]
       },
@@ -12731,7 +12688,6 @@
           "kundenberater-bank-w-m-d-raiffeisen-bern"
         ],
         "de": [
-          "kundenberater-bank-w-m-d-raiffeisen-bern",
           "kundenberater-bank-w-m-d-raiffeisen-bern-ezl85b"
         ]
       },
@@ -12822,7 +12778,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-29a8d38637ff",
@@ -12901,7 +12858,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-9468383b0ee7",
@@ -13204,8 +13162,7 @@
           "kundenberater-in-basis-w-m-d-raiffeisen-zofingen"
         ],
         "de": [
-          "kundenberater-in-basis-w-m-d-raiffeisen-zofingen-spiqzh",
-          "kundenberater-in-basis-w-m-d-raiffeisen-zofingen"
+          "kundenberater-in-basis-w-m-d-raiffeisen-zofingen-spiqzh"
         ]
       },
       "firstSeenAt": "2026-08-24T21:42:33.560Z",
@@ -13228,7 +13185,7 @@
       "id": "raiffeisen-3811e1e270cf",
       "slug": "collaborateur-trice-infrastructures-raiffeisen-aigle",
       "slugByLocale": {
-        "it": "collaboratore-di-infrastrutture-raiffeisen-aigle",
+        "it": "collaborateur-trice-infrastructures-raiffeisen-aigle",
         "en": "infrastructure-collaborator-raiffeisen-aigle",
         "de": "infrastrukturmitarbeiter-raiffeisen-aigle",
         "fr": "collaborateur-trice-infrastructures-raiffeisen-aigle"
@@ -13238,7 +13195,7 @@
       "companyDomain": "raiffeisen.ch",
       "title": "Collaborateur-trice infrastructures",
       "titleByLocale": {
-        "it": "Dipendente delle infrastrutture",
+        "it": "Collaborateur-trice infrastructures",
         "en": "Infrastructure Collaborator",
         "de": "Infrastrukturmitarbeiter",
         "fr": "Collaborateur-trice infrastructures"
@@ -13290,97 +13247,13 @@
       "crawlerMissStreak": 2,
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-infrastructures-raiffeisen-aigle"
+          "collaboratore-di-infrastrutture-raiffeisen-aigle"
         ]
       },
       "previousSlugs": [
-        "collaborateur-trice-infrastructures-raiffeisen-aigle"
-      ]
-    },
-    {
-      "id": "raiffeisen-1f5a50e27c33",
-      "slug": "servizio-clienti-banca-m-f-d-raiffeisen-bern",
-      "slugByLocale": {
-        "it": "servizio-clienti-banca-m-f-d-raiffeisen-bern",
-        "en": "customer-service-bank-m-f-d-raiffeisen-bern",
-        "de": "kundenberater-bank-w-m-d-raiffeisen-bern",
-        "fr": "banque-de-service-a-la-clientele-h-f-d-raiffeisen-bern"
-      },
-      "company": "Raiffeisen",
-      "companyKey": "raiffeisen",
-      "companyDomain": "raiffeisen.ch",
-      "title": "Kundenberater Bank (w/m/d)",
-      "titleByLocale": {
-        "it": "Servizio clienti Banca (m/f/d)",
-        "en": "Customer Service Bank (m/f/d)",
-        "de": "Kundenberater Bank (w/m/d)",
-        "fr": "Banque de service à la clientèle (h/f/d)"
-      },
-      "description": "Für die Raiffeisenbank Bern, eine erfolgreiche und lokal ausgerichtete Bank mit Geschäftsstellen am Waisenhausplatz und in Muri b. Bern, suchen wir eine engagierte, verkaufs- und dienstleistungsorientierte Persönlichkeit als Kundenberater (w/m/d) 60-100%.\n\nAufgaben:\n• Gesamtheitliche Beratung und Betreuung der Kunden in den Basisprodukten \"Zahlen, Sparen, Anlegen, Vorsorgen\"\n\n• Erkennen und Ausschöpfen des Kundenpotenzials durch aktive und kontinuierliche Betreuung des Teamkundenportefeuilles sowie Akquisition von Neukunden\n\n• Erarbeitung von bedürfnisgerechten Lösungen unter Einbezug der individuellen Wünsche, Ziele und Lebenssituationen der Kunden\n\n• Mitarbeit bei Marktbearbeitungsmassnahmen wie Kontaktkampagnen und/oder Anlässen\n\n• Bewirtschaftung der Geldein- und Ausgabegeräte\n\nAnforderungen:\n• Abgeschlossene Bankausbildung\n\n• Erfahrung im Finanzdienstleistungssektor\n\n• Verkäuferisches Flair und sympathisches, gewinnendes Auftreten\n\n• Freude am proaktiven Kundenkontakt mit ausgeprägter Kundenorientierung\n\n• Sehr gute Deutschkenntnisse, Französischkenntnisse von Vorteil\n\nWir bieten:\nDie genossenschaftlichen Werte sind unsere Grundpfeiler: Miteinander. Füreinander. Sie prägen unsere Zusammenarbeit und unseren Umgang miteinander. Die Du-Kultur schafft persönliche Nähe und Augenhöhe über alle Funktionsstufen hinweg.",
-      "descriptionByLocale": {
-        "it": "Per Raiffeisenbank Bern, una banca di successo e orientata a livello locale con uffici in Piazza Orphanage e a Muri b. Berna, stiamo cercando una personalità impegnata, orientata alle vendite e ai servizi come consulente clienti (m/f/d) 80-100%.\n\nCompiti:\n• Consulenza e supporto completo dei clienti nei prodotti di base \"Paga, salva, investe, fornire\"\n\n• Riconoscere e sfruttare il potenziale del cliente attraverso il supporto attivo e continuo del portafoglio clienti del team e l'acquisizione di nuovi clienti\n\n• Sviluppo di soluzioni basate sulle esigenze tenendo conto dei singoli desideri, degli obiettivi e delle situazioni di vita dei clienti\n\n• Cooperazione in misure di sviluppo del mercato, come campagne di contatto e/o eventi\n\n• Gestione dell'input del denaro e delle attrezzature di uscita\n\nRequisiti\n• Formazione bancaria completa\n\n• Esperienza nel settore dei servizi finanziari\n\n• Vendimentale e piacevole, aspetto vincente\n\n• Godere di un contatto proattivo con un forte orientamento del cliente\n\n• Conoscenza molto buona del tedesco, conoscenza del francese vantaggioso\n\nOffriamo:\nI valori cooperativi sono i nostri pilastri fondamentali: insieme. Per l'un l'altro. Formano la nostra cooperazione e la nostra interazione tra di loro. La cultura Du crea la vicinanza personale e il livello degli occhi su tutti i livelli funzionali.",
-        "en": "For Raiffeisenbank Bern, a successful and locally oriented bank with offices at the Orphanage Square and in Muri b. Bern, we are looking for a committed, sales- and service-oriented personality as customer advisor (m/f/d) 80-100%.\n\nTasks:\n• Comprehensive advice and support of customers in the basic products \"Pay, save, invest, provide\"\n\n• Recognizing and exploiting customer potential through active and continuous support of the team customer portfolio and acquisition of new customers\n\n• Development of needs-based solutions taking into account the individual wishes, goals and life situations of the customers\n\n• Cooperation in market development measures such as contact campaigns and/or events\n\n• Management of money input and output equipment\n\nRequirements\n• Completed banking training\n\n• Experience in the financial services sector\n\n• Salesmanlike flair and likeable, winning appearance\n\n• Enjoying proactive customer contact with a strong customer orientation\n\n• Very good knowledge of German, knowledge of French advantageous\n\nWe offer:\nCooperative values are our fundamental pillars: togetherness. For each other. They shape our cooperation and our interaction with each other. The Du culture creates personal closeness and eye level across all functional levels.",
-        "de": "Für die Raiffeisenbank Bern, eine erfolgreiche und lokal ausgerichtete Bank mit Geschäftsstellen am Waisenhausplatz und in Muri b. Bern, suchen wir eine engagierte, verkaufs- und dienstleistungsorientierte Persönlichkeit als Kundenberater (w/m/d) 60-100%.\n\nAufgaben:\n• Gesamtheitliche Beratung und Betreuung der Kunden in den Basisprodukten \"Zahlen, Sparen, Anlegen, Vorsorgen\"\n\n• Erkennen und Ausschöpfen des Kundenpotenzials durch aktive und kontinuierliche Betreuung des Teamkundenportefeuilles sowie Akquisition von Neukunden\n\n• Erarbeitung von bedürfnisgerechten Lösungen unter Einbezug der individuellen Wünsche, Ziele und Lebenssituationen der Kunden\n\n• Mitarbeit bei Marktbearbeitungsmassnahmen wie Kontaktkampagnen und/oder Anlässen\n\n• Bewirtschaftung der Geldein- und Ausgabegeräte\n\nAnforderungen:\n• Abgeschlossene Bankausbildung\n\n• Erfahrung im Finanzdienstleistungssektor\n\n• Verkäuferisches Flair und sympathisches, gewinnendes Auftreten\n\n• Freude am proaktiven Kundenkontakt mit ausgeprägter Kundenorientierung\n\n• Sehr gute Deutschkenntnisse, Französischkenntnisse von Vorteil\n\nWir bieten:\nDie genossenschaftlichen Werte sind unsere Grundpfeiler: Miteinander. Füreinander. Sie prägen unsere Zusammenarbeit und unseren Umgang miteinander. Die Du-Kultur schafft persönliche Nähe und Augenhöhe über alle Funktionsstufen hinweg.",
-        "fr": "Pour Raiffeisenbank Bern, une banque réussie et orientée localement avec des bureaux à l'Orphanage Square et à Muri b. Bern, nous recherchons une personnalité engagée, orientée ventes et service en tant que conseiller client (h/f/d) 80-100%.\n\nTâches:\n• Conseils et soutien complets des clients dans les produits de base \"Payez, économisez, investissez, fournissez\"\n\n• Reconnaître et exploiter le potentiel des clients grâce au soutien actif et continu du portefeuille client de l'équipe et à l'acquisition de nouveaux clients\n\n• Développement de solutions basées sur les besoins en tenant compte des souhaits, objectifs et situations de vie individuels des clients\n\n• Coopération dans les mesures de développement du marché telles que les campagnes de contact et/ou les manifestations\n\n• Gestion du matériel d'entrée et de sortie\n\nExigences\n• Formation bancaire terminée\n\n• Expérience dans le secteur des services financiers\n\n• L'aspect de vente et sympathique, l'apparence gagnante\n\n• Profitez d'un contact client proactif avec une forte orientation client\n\n• Très bonne connaissance de l'allemand, connaissance du français avantageux\n\nNous offrons:\nLes valeurs coopératives sont nos piliers fondamentaux: l'unité. Pour l'autre. Ils façonnent notre coopération et notre interaction. La culture Du crée une proximité personnelle et un niveau oculaire à tous les niveaux fonctionnels."
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.raiffeisen.ch/offene-stellen/kundenberater-bank-w-m-d/3c09cfdb-2682-4d88-ab52-1862061a4068",
-      "source": "Raiffeisen Dedicated Parser (Prospective medium 1950)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:02:14.728Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3011",
-      "streetAddress": "Waisenhausplatz 26",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://raiffeisen.wd3.myworkdayjobs.com/jobs-raiffeisen/job/Bern-Waisenhausplatz/Kundenberater--w-m-d--80-100-_R0010729",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "kundenberater-bank-w-m-d-raiffeisen-bern",
-        "kundenberater-bank-w-m-d-raiffeisen-bern-gy97kd"
+        "collaboratore-di-infrastrutture-raiffeisen-aigle"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kundenberater-bank-w-m-d-raiffeisen-bern"
-        ],
-        "en": [
-          "kundenberater-bank-w-m-d-raiffeisen-bern"
-        ],
-        "fr": [
-          "kundenberater-bank-w-m-d-raiffeisen-bern"
-        ],
-        "de": [
-          "kundenberater-bank-w-m-d-raiffeisen-bern-gy97kd",
-          "kundenberater-bank-w-m-d-raiffeisen-bern"
-        ]
-      },
-      "firstSeenAt": "2026-08-24T10:13:20.219Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
+      "needsRetranslation": true
     }
   ]
 }

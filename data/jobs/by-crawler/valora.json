@@ -1,6 +1,6 @@
 {
   "crawlerKey": "valora",
-  "assembledAt": "2026-09-25T14:44:22.642Z",
+  "assembledAt": "2026-09-26T12:21:39.057Z",
   "jobs": [
     {
       "id": "valora-fe3aaf06b9b5",
@@ -53,13 +53,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "agenturpartnerin-agenturpartner-kanton-graubunden-valora-muttenz",
-        "agenturpartnerin-agenturpartner-kanton-grigio-valora-group-muttenz"
+        "agenturpartnerin-agenturpartner-kanton-graubunden-valora-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agenturpartnerin-agenturpartner-kanton-graubunden-valora-muttenz",
-          "agenturpartnerin-agenturpartner-kanton-grigio-valora-group-muttenz"
+          "agenturpartnerin-agenturpartner-kanton-graubunden-valora-muttenz"
         ],
         "fr": [
           "agenturpartnerin-agenturpartner-kanton-graubunden-valora-muttenz"
@@ -198,13 +196,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkaufer-avec-8-6-std-valora-bern",
-        "venditore-venditore-avec-8-6-ore-valora-group-bern"
+        "verkauferin-verkaufer-avec-8-6-std-valora-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-avec-8-6-std-valora-bern",
-          "venditore-venditore-avec-8-6-ore-valora-group-bern"
+          "verkauferin-verkaufer-avec-8-6-std-valora-bern"
         ],
         "en": [
           "verkauferin-verkaufer-avec-8-6-std-valora-bern"
@@ -281,13 +277,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "consumer-finance-specialist-w-m-d-valora-zurich",
-        "financial-applications-specialist-m-f-d-valora-group-zurich",
-        "consumer-finanza-specialista-w-m-d-valora-group-zurich"
+        "financial-applications-specialist-m-f-d-valora-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "consumer-finance-specialist-w-m-d-valora-zurich",
-          "consumer-finanza-specialista-w-m-d-valora-group-zurich"
+          "consumer-finance-specialist-w-m-d-valora-zurich"
         ],
         "en": [
           "consumer-finance-specialist-w-m-d-valora-zurich",
@@ -364,13 +358,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
-        "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-jo1dne",
-        "venditore-k-chiosco-15-ore-valora-group-uetendorf"
+        "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-jo1dne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
-          "venditore-k-chiosco-15-ore-valora-group-uetendorf"
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
         ],
         "en": [
           "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
@@ -453,8 +445,7 @@
         "seller-seller-k-kiosk-13-hours-valora-group-biberist-d6764a",
         "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist",
         "vendeur-vendeur-k-kiosque-13-heures-valora-group-biberist-d6764a",
-        "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist-2",
-        "venditore-venditore-k-kiosk-13-ore-valora-group-derendingen"
+        "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -463,8 +454,7 @@
           "seller-seller-k-kiosk-13-hours-valora-group-biberist-d6764a",
           "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist",
           "vendeur-vendeur-k-kiosque-13-heures-valora-group-biberist-d6764a",
-          "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist-2",
-          "venditore-venditore-k-kiosk-13-ore-valora-group-derendingen"
+          "verkauferin-verkaufer-k-kiosk-13-std-valora-biberist-2"
         ],
         "en": [
           "verkauferin-verkaufer-k-kiosk-13-std-valora-derendingen",
@@ -507,7 +497,7 @@
       "companyDomain": "valora.com",
       "title": "barista Caffè Spettacolo - 16.4 h (h/f/x)",
       "titleByLocale": {
-        "it": "barista Caffè Spettacolo - 16,4 ore (m/f/x)",
+        "it": "barista Caffè Spettacolo - 16.4 h (h/f/x)",
         "en": "Barista Caffè Spettacolo - 16.4 hours (m/f/x)",
         "de": "Barista Caffè Spettacolo - 16,4 Std. (m/w/d)",
         "fr": "barista Caffè Spettacolo - 16.4 h (h/f/x)"
@@ -564,7 +554,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "valora-1ba64f9f6328",
@@ -580,7 +571,7 @@
       "companyDomain": "valora.com",
       "title": "barista Caffè Spettacolo - 16.4 h (h/f/x)",
       "titleByLocale": {
-        "it": "barista Caffè Spettacolo - 16,4 ore (m/f/x)",
+        "it": "barista Caffè Spettacolo - 16.4 h (h/f/x)",
         "en": "Barista Caffè Spettacolo - 16.4 hours (m/f/x)",
         "de": "Barista Caffè Spettacolo - 16,4 Std. (m/w/d)",
         "fr": "barista Caffè Spettacolo - 16.4 h (h/f/x)"
@@ -629,7 +620,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "valora-a82733abdd4b",
@@ -645,7 +637,7 @@
       "companyDomain": "valora.com",
       "title": "barista Caffè Spettacolo - 16.4 h (h/f/x)",
       "titleByLocale": {
-        "it": "barista Caffè Spettacolo - 16,4 ore (m/f/x)",
+        "it": "barista Caffè Spettacolo - 16.4 h (h/f/x)",
         "en": "Barista Caffè Spettacolo - 16.4 hours (m/f/x)",
         "de": "Barista Caffè Spettacolo - 16,4 Std. (m/w/d)",
         "fr": "barista Caffè Spettacolo - 16.4 h (h/f/x)"
@@ -702,7 +694,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "valora-d13e479f3783",
@@ -719,7 +712,7 @@
       "title": "Manager Integration Services (w/m/d)",
       "titleByLocale": {
         "it": "Servizi di Integrazione Manager (f/m/d)",
-        "en": "Manager Integration Services (m/f/d)",
+        "en": "Manager Integration Services (w/m/d)",
         "de": "Manager Integration Services (w/m/d)",
         "fr": "Gestionnaire, Services d'intégration (f/m/d)"
       },
@@ -755,13 +748,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manager-integration-services-w-m-d-valora-muttenz",
-        "servizi-di-integrazione-manager-f-m-d-valora-group-muttenz-4db532"
+        "manager-integration-services-w-m-d-valora-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-integration-services-w-m-d-valora-muttenz",
-          "servizi-di-integrazione-manager-f-m-d-valora-group-muttenz-4db532"
+          "manager-integration-services-w-m-d-valora-muttenz"
         ],
         "fr": [
           "manager-integration-services-w-m-d-valora-muttenz"
@@ -780,7 +771,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "valora-773ba873c128",
@@ -833,13 +825,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manager-integration-services-f-m-d-valora-muttenz",
-        "servizi-di-integrazione-manager-f-m-d-valora-group-muttenz"
+        "manager-integration-services-f-m-d-valora-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-integration-services-f-m-d-valora-muttenz",
-          "servizi-di-integrazione-manager-f-m-d-valora-group-muttenz"
+          "manager-integration-services-f-m-d-valora-muttenz"
         ],
         "de": [
           "manager-integration-services-f-m-d-valora-muttenz"
@@ -861,7 +851,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "valora-4189d7d3e44c",
@@ -877,7 +868,7 @@
       "companyDomain": "valora.com",
       "title": "Barista Caffè Spettacolo - 32 Std. (w/m/d)",
       "titleByLocale": {
-        "it": "Barista Caffè Spettacolo - 32 ore. (m/f/d)",
+        "it": "Barista Caffè Spettacolo - 32 Std. (w/m/d)",
         "en": "Barista Caffè Spettacolo - 32 hours (f/m/d)",
         "de": "Barista Caffè Spettacolo - 32 Std. (w/m/d)",
         "fr": "Barista Caffè Spettacolo - 32 heures (f/m/d)"
@@ -914,13 +905,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "barista-caffe-spettacolo-32-std-w-m-d-valora-solothurn",
-        "barista-caffe-spettacolo-32-ore-f-m-d-valora-group-solothurn"
+        "barista-caffe-spettacolo-32-std-w-m-d-valora-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "barista-caffe-spettacolo-32-std-w-m-d-valora-solothurn",
-          "barista-caffe-spettacolo-32-ore-f-m-d-valora-group-solothurn"
+          "barista-caffe-spettacolo-32-std-w-m-d-valora-solothurn"
         ],
         "en": [
           "barista-caffe-spettacolo-32-std-w-m-d-valora-solothurn"
@@ -955,7 +944,7 @@
       "companyDomain": "valora.com",
       "title": "barista Caffè Spettacolo - 16.4 h (h/f/x)",
       "titleByLocale": {
-        "it": "barista Caffè Spettacolo - 16,4 ore (m/f/x)",
+        "it": "barista Caffè Spettacolo - 16.4 h (h/f/x)",
         "en": "Barista Caffè Spettacolo - 16.4 hours (m/f/x)",
         "de": "Barista Caffè Spettacolo - 16,4 Std. (m/w/d)",
         "fr": "barista Caffè Spettacolo - 16.4 h (h/f/x)"
@@ -1012,7 +1001,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "valora-f4bb81a139ca",
@@ -1028,7 +1018,7 @@
       "companyDomain": "valora.com",
       "title": "Barista Caffè Spettacolo - 24 Std. (w/m/d)",
       "titleByLocale": {
-        "it": "Barista Caffè Spettacolo - 24 ore. (m/f/d)",
+        "it": "Barista Caffè Spettacolo - 24 Std. (w/m/d)",
         "en": "Barista Caffè Spettacolo - 24 hours (f/m/d)",
         "de": "Barista Caffè Spettacolo - 24 Std. (w/m/d)",
         "fr": "Barista Caffè Spettacolo - 24 heures (f/m/j)"
@@ -1065,13 +1055,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "barista-caffe-spettacolo-24-std-w-m-d-valora-solothurn",
-        "barista-caffe-spettacolo-24-ore-f-m-d-valora-group-solothurn"
+        "barista-caffe-spettacolo-24-std-w-m-d-valora-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "barista-caffe-spettacolo-24-std-w-m-d-valora-solothurn",
-          "barista-caffe-spettacolo-24-ore-f-m-d-valora-group-solothurn"
+          "barista-caffe-spettacolo-24-std-w-m-d-valora-solothurn"
         ],
         "en": [
           "barista-caffe-spettacolo-24-std-w-m-d-valora-solothurn"
@@ -1143,13 +1131,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkauferin-k-kiosk-10-std-valora-lauterbrunnen",
-        "venditore-venditore-k-kiosk-10-ore-valora-group-lauterbrunnen"
+        "verkauferin-verkauferin-k-kiosk-10-std-valora-lauterbrunnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkauferin-k-kiosk-10-std-valora-lauterbrunnen",
-          "venditore-venditore-k-kiosk-10-ore-valora-group-lauterbrunnen"
+          "verkauferin-verkauferin-k-kiosk-10-std-valora-lauterbrunnen"
         ],
         "en": [
           "verkauferin-verkauferin-k-kiosk-10-std-valora-lauterbrunnen"
@@ -1225,13 +1211,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "mitarbeiter-instandhaltung-w-m-d-valora-emmenbrucke",
-          "teamlead-instandhaltung-w-m-d-valora-emmenbrucke"
+          "mitarbeiter-instandhaltung-w-m-d-valora-emmenbrucke"
         ],
         "it": [
           "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
-          "mitarbeiter-instandhaltung-w-m-d-valora-emmenbrucke",
-          "manutenzione-del-manubrio-f-m-d-valora-group-emmenbrucke"
+          "mitarbeiter-instandhaltung-w-m-d-valora-emmenbrucke"
         ],
         "en": [
           "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
@@ -1240,17 +1224,14 @@
         "fr": [
           "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
           "mitarbeiter-instandhaltung-m-w-d-valora-group-emmenbrucke",
-          "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke",
-          "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
+          "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke"
         ]
       },
       "previousSlugs": [
         "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
         "mitarbeiter-instandhaltung-w-m-d-valora-emmenbrucke",
         "mitarbeiter-instandhaltung-m-w-d-valora-group-emmenbrucke",
-        "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke",
-        "manutenzione-del-manubrio-f-m-d-valora-group-emmenbrucke",
-        "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
+        "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke"
       ],
       "firstSeenAt": "2026-07-22T22:06:00.739Z",
       "salaryMin": 69500,
@@ -1318,13 +1299,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkaufer-k-kiosk-15-std-valora-kandersteg",
-        "venditore-venditore-k-kiosk-15-ore-valora-group-kandersteg"
+        "verkauferin-verkaufer-k-kiosk-15-std-valora-kandersteg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-k-kiosk-15-std-valora-kandersteg",
-          "venditore-venditore-k-kiosk-15-ore-valora-group-kandersteg"
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-kandersteg"
         ],
         "en": [
           "verkauferin-verkaufer-k-kiosk-15-std-valora-kandersteg"
@@ -1399,13 +1378,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkaufer-k-kiosk-10-std-valora-oberhofen",
-        "venditore-venditore-k-kiosk-10-ore-valora-group-oberhofen"
+        "verkauferin-verkaufer-k-kiosk-10-std-valora-oberhofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-k-kiosk-10-std-valora-oberhofen",
-          "venditore-venditore-k-kiosk-10-ore-valora-group-oberhofen"
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-oberhofen"
         ],
         "en": [
           "verkauferin-verkaufer-k-kiosk-10-std-valora-oberhofen"
@@ -1446,7 +1423,7 @@
         "it": "Agenturpartnerin / Agenturpartner Kanton Soletta",
         "en": "Agenturpartnerin / Agenturpartner Kanton Solothurn",
         "de": "Agenturpartnerin / Agenturpartner Kanton Solothurn",
-        "fr": "Agenturpartnerin / Agenturpartner Kanton Soleure"
+        "fr": "Agenturpartnerin / Agenturpartner Kanton Solothurn"
       },
       "description": "As an established provider of convenience and food services, Valora is offering you the opportunity to become self-employed. Using a tried-and-tested turnkey business model, we will help you open your own store. We will also support you beyond this stage so that you not only get off to a successful start but also feel confident as an agency partner over the long term. You can choose which of our first-class formats suits you best. Choose from avec, Press & Books or k kiosk (at highly frequented locations, such as train stations, airports or petrol stations). You have a welcoming disposition and offer your customers a special shopping experience – from presenting goods in the most appealing way possible to offering comprehensive advice and support. You have very strong communication skills, are open-minded and enjoy meeting people. You are creative, reliable and have a good eye for detail. You are able to inspire and convince others through your passion for food and convenience services. You are an excellent role model for your team and are always willing to pitch in yourself. As a leader with a sensitive mindset, you take care of your employees and help them develop. Become part of the Valora network and brighten up our customers’ day.",
       "descriptionByLocale": {
@@ -1546,13 +1523,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "agenturpartnerin-agenturpartner-kanton-bern-valora-bern",
-        "agenturpartnerin-agenturpartner-canton-berna-valora-group-bern"
+        "agenturpartnerin-agenturpartner-kanton-bern-valora-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agenturpartnerin-agenturpartner-kanton-bern-valora-bern",
-          "agenturpartnerin-agenturpartner-canton-berna-valora-group-bern"
+          "agenturpartnerin-agenturpartner-kanton-bern-valora-bern"
         ]
       },
       "needsRetranslation": true,
@@ -1622,13 +1597,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg",
-        "venditore-venditore-k-kiosk-20-ore-valora-group-kandersteg"
+        "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg",
-          "venditore-venditore-k-kiosk-20-ore-valora-group-kandersteg"
+          "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg"
         ],
         "en": [
           "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg"
@@ -1781,14 +1754,12 @@
       "previousSlugs": [
         "stv-geschaftsfuhrerin-stv-geschaftsfuhrer-80-valora-bagnes",
         "stv-amministratore-delegato-stv-managing-director-80-valora-group-bagnes",
-        "stv-administrateur-delegue-stv-administrateur-delegue-80-valora-group-bagnes",
-        "amministratore-delegato-80-valora-group-bagnes"
+        "stv-administrateur-delegue-stv-administrateur-delegue-80-valora-group-bagnes"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-geschaftsfuhrerin-stv-geschaftsfuhrer-80-valora-bagnes",
-          "stv-amministratore-delegato-stv-managing-director-80-valora-group-bagnes",
-          "amministratore-delegato-80-valora-group-bagnes"
+          "stv-amministratore-delegato-stv-managing-director-80-valora-group-bagnes"
         ],
         "en": [
           "stv-geschaftsfuhrerin-stv-geschaftsfuhrer-80-valora-bagnes"
@@ -1864,13 +1835,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich",
-        "venditore-venditore-backwerk-24-6-ore-valora-group-zurich"
+        "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich",
-          "venditore-venditore-backwerk-24-6-ore-valora-group-zurich"
+          "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich"
         ],
         "en": [
           "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich"
@@ -1949,8 +1918,7 @@
         "seller-seller-press-books-50-valora-group-bern",
         "verkauferin-verkaufer-press-amp-books-50-valora-bern",
         "vendeur-vendeur-presse-livres-50-valora-group-bern",
-        "verkauferin-verkaufer-press-amp-books-21-5-std-valora-basel",
-        "vendita-vendita-presse-e-libri-21-5-ore-valora-group-basel"
+        "verkauferin-verkaufer-press-amp-books-21-5-std-valora-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1958,8 +1926,7 @@
           "seller-seller-press-books-50-valora-group-bern",
           "verkauferin-verkaufer-press-amp-books-50-valora-bern",
           "vendeur-vendeur-presse-livres-50-valora-group-bern",
-          "verkauferin-verkaufer-press-amp-books-21-5-std-valora-basel",
-          "vendita-vendita-presse-e-libri-21-5-ore-valora-group-basel"
+          "verkauferin-verkaufer-press-amp-books-21-5-std-valora-basel"
         ],
         "en": [
           "seller-seller-press-books-50-valora-group-bern",
@@ -2039,13 +2006,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lead-expansion-amp-lease-switzerland-valora-muttenz",
-        "expansion-lease-svizzera-valora-group-muttenz"
+        "lead-expansion-amp-lease-switzerland-valora-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-expansion-amp-lease-switzerland-valora-muttenz",
-          "expansion-lease-svizzera-valora-group-muttenz"
+          "lead-expansion-amp-lease-switzerland-valora-muttenz"
         ],
         "fr": [
           "lead-expansion-amp-lease-switzerland-valora-muttenz"
@@ -2119,14 +2084,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkauferin-verkaufer-press-amp-books-22-std-valora-bern",
-        "verkauferin-verkaufer-press-amp-books-22-std-valora-bern-2",
-        "venditore-venditore-press-books-22-ore-valora-group-bern"
+        "verkauferin-verkaufer-press-amp-books-22-std-valora-bern-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkauferin-verkaufer-press-amp-books-22-std-valora-bern",
-          "verkauferin-verkaufer-press-amp-books-22-std-valora-bern-2",
-          "venditore-venditore-press-books-22-ore-valora-group-bern"
+          "verkauferin-verkaufer-press-amp-books-22-std-valora-bern-2"
         ],
         "en": [
           "verkauferin-verkaufer-press-amp-books-22-std-valora-bern"
@@ -2202,14 +2165,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-kaufmann-frau-efz-dienstleistung-und-administration-lt-br-gt-valora-muttenz",
-        "apprendistato-kaufmann-frau-cfc-dienstleistung-e-administration-br-valora-group-muttenz",
-        "apprendistato-uomo-d-affari-donna-efz-servizio-e-amministrazione-valora-group-muttenz"
+        "apprendistato-kaufmann-frau-cfc-dienstleistung-e-administration-br-valora-group-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-kaufmann-frau-efz-dienstleistung-und-administration-lt-br-gt-valora-muttenz",
-          "apprendistato-kaufmann-frau-cfc-dienstleistung-e-administration-br-valora-group-muttenz",
-          "apprendistato-uomo-d-affari-donna-efz-servizio-e-amministrazione-valora-group-muttenz"
+          "apprendistato-kaufmann-frau-cfc-dienstleistung-e-administration-br-valora-group-muttenz"
         ],
         "en": [
           "lehrstelle-kaufmann-frau-efz-dienstleistung-und-administration-lt-br-gt-valora-muttenz"
@@ -2231,7 +2192,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "valora-5d8a7d108673",
@@ -2287,15 +2249,13 @@
         "verkauferin-verkaufer-press-amp-books-22-std-valora-bern-2",
         "verkauferin-verkaufer-press-amp-books-22-std-valora-bern",
         "verkauferin-verkaufer-press-books-22-std-valora-group-bern",
-        "verkauferin-verkaufer-press-amp-books-22-std-valora-bern-jo0syc",
-        "venditore-venditore-press-books-22-ore-valora-group-bern-a25f1b"
+        "verkauferin-verkaufer-press-amp-books-22-std-valora-bern-jo0syc"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkauferin-verkaufer-press-amp-books-22-std-valora-bern-2",
           "verkauferin-verkaufer-press-amp-books-22-std-valora-bern",
-          "verkauferin-verkaufer-press-books-22-std-valora-group-bern",
-          "venditore-venditore-press-books-22-ore-valora-group-bern-a25f1b"
+          "verkauferin-verkaufer-press-books-22-std-valora-group-bern"
         ],
         "en": [
           "verkauferin-verkaufer-press-books-22-std-valora-group-bern"
@@ -2398,8 +2358,7 @@
         "seller-seller-k-kiosk-10-hours-valora-group-bern",
         "verkauferin-verkaufer-k-kiosk-32-std-valora-bern",
         "vendeur-vendeur-k-kiosque-32-heures-valora-group-bern",
-        "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern",
-        "venditore-venditore-k-chiosco-8-6-ore-valora-group-bern"
+        "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2421,8 +2380,7 @@
           "vendeur-vendeur-k-kiosque-20-heures-valora-group-bern-1f2c53",
           "venditore-venditore-k-kiosk-32-ore-valora-group-bern",
           "venditore-venditore-k-kiosk-10-ore-valora-group-bern",
-          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern",
-          "venditore-venditore-k-chiosco-8-6-ore-valora-group-bern"
+          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
         ],
         "en": [
           "seller-seller-k-kiosk-32-hours-valora-group-bern",
@@ -2508,13 +2466,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
-        "venditore-k-chiosco-15-ore-valora-group-uetendorf-71987a"
+        "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
-          "venditore-k-chiosco-15-ore-valora-group-uetendorf-71987a"
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
         ],
         "en": [
           "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
@@ -2589,13 +2545,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkaufer-k-kiosk-20-std-valora-grenchen",
-        "venditore-venditore-k-kiosk-20-ore-valora-group-grenchen"
+        "verkauferin-verkaufer-k-kiosk-20-std-valora-grenchen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-k-kiosk-20-std-valora-grenchen",
-          "venditore-venditore-k-kiosk-20-ore-valora-group-grenchen"
+          "verkauferin-verkaufer-k-kiosk-20-std-valora-grenchen"
         ],
         "en": [
           "verkauferin-verkaufer-k-kiosk-20-std-valora-grenchen"
@@ -2676,8 +2630,7 @@
         "venditore-venditore-k-kiosk-10-ore-valora-group-bern-5de493",
         "seller-seller-k-kiosk-10-hours-valora-group-bern-5de493",
         "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern-5de493",
-        "verkauferin-verkaufer-k-kiosk-10-std-valora-bern",
-        "venditore-venditore-k-kiosk-10-ore-valora-group-bern"
+        "verkauferin-verkaufer-k-kiosk-10-std-valora-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2687,8 +2640,7 @@
           "venditore-venditore-k-kiosk-10-ore-valora-group-bern-5de493",
           "seller-seller-k-kiosk-10-hours-valora-group-bern-5de493",
           "vendeur-vendeur-k-kiosque-10-heures-valora-group-bern-5de493",
-          "verkauferin-verkaufer-k-kiosk-10-std-valora-bern",
-          "venditore-venditore-k-kiosk-10-ore-valora-group-bern"
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-bern"
         ],
         "en": [
           "verkauferin-verkaufer-k-kiosk-10-std-valora-bern"
@@ -2727,7 +2679,7 @@
       "title": "Business Information Security Officer (w/m/d)",
       "titleByLocale": {
         "it": "Business Information Security Officer (m/f/d)",
-        "en": "Business Information Security Officer (m/f/d)",
+        "en": "Business Information Security Officer (w/m/d)",
         "de": "Business Information Security Officer (w/m/d)",
         "fr": "Agent de sécurité de l'information des entreprises (h/f/d)"
       },
@@ -2829,13 +2781,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkaufer-press-amp-books-21-5-std-valora-bern",
-        "vendita-vendita-presse-e-libri-21-5-ore-valora-group-bern"
+        "verkauferin-verkaufer-press-amp-books-21-5-std-valora-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-press-amp-books-21-5-std-valora-bern",
-          "vendita-vendita-presse-e-libri-21-5-ore-valora-group-bern"
+          "verkauferin-verkaufer-press-amp-books-21-5-std-valora-bern"
         ],
         "en": [
           "verkauferin-verkaufer-press-amp-books-21-5-std-valora-bern"
@@ -2916,8 +2866,7 @@
         "seller-seller-backwerk-24-6-hours-valora-group-basel",
         "vendeur-vendeur-retourwerk-24-6-heures-valora-group-basel",
         "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-3",
-        "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-jo0t2r",
-        "venditore-venditore-backwerk-24-6-ore-valora-group-basel-299208"
+        "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-jo0t2r"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2927,8 +2876,7 @@
           "seller-seller-backwerk-24-6-hours-valora-group-basel",
           "vendeur-vendeur-retourwerk-24-6-heures-valora-group-basel",
           "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-3",
-          "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-jo0t2r",
-          "venditore-venditore-backwerk-24-6-ore-valora-group-basel-299208"
+          "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-jo0t2r"
         ],
         "en": [
           "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-4",
@@ -3005,13 +2953,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkaufer-k-kiosk-8-std-valora-bern",
-        "venditore-venditore-k-kiosk-8-ore-valora-group-bern"
+        "verkauferin-verkaufer-k-kiosk-8-std-valora-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-k-kiosk-8-std-valora-bern",
-          "venditore-venditore-k-kiosk-8-ore-valora-group-bern"
+          "verkauferin-verkaufer-k-kiosk-8-std-valora-bern"
         ],
         "en": [
           "verkauferin-verkaufer-k-kiosk-8-std-valora-bern"
@@ -3086,13 +3032,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-software-engineer-fullstack-f-m-d-valora-zurich",
-        "senior-software-ingegnere-fullstack-f-m-d-valora-group-zurich"
+        "senior-software-engineer-fullstack-f-m-d-valora-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-fullstack-f-m-d-valora-zurich",
-          "senior-software-ingegnere-fullstack-f-m-d-valora-group-zurich"
+          "senior-software-engineer-fullstack-f-m-d-valora-zurich"
         ],
         "de": [
           "senior-software-engineer-fullstack-f-m-d-valora-zurich"
@@ -3114,7 +3058,8 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "valora-ffa0b6e1b2f5",
@@ -3130,7 +3075,7 @@
       "companyDomain": "valora.com",
       "title": "barista Caffè Spettacolo - 26.4 h (h/f/x)",
       "titleByLocale": {
-        "it": "barista Caffè Spettacolo - 26.4 h (m/f/x)",
+        "it": "barista Caffè Spettacolo - 26.4 h (h/f/x)",
         "en": "barista Caffè Spettacolo - 26.4 h (m/f/x)",
         "de": "barista Caffè Spettacolo - 26,4 h (m/w/x)",
         "fr": "barista Caffè Spettacolo - 26.4 h (h/f/x)"
@@ -3179,7 +3124,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "valora-2f2fcbde5876",
@@ -3187,7 +3133,7 @@
       "slugByLocale": {
         "it": "dipendenti-di-produzione-m-f-d-valora-group-emmenbrucke",
         "en": "production-employees-m-f-d-valora-group-emmenbrucke",
-        "de": "produktionsmitarbeiter-w-m-d-valora-emmenbrucke",
+        "de": "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke",
         "fr": "employes-de-production-h-f-d-valora-group-emmenbrucke"
       },
       "company": "Valora Group",
@@ -3238,8 +3184,7 @@
         "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke-jo0vus",
         "production-staff-f-m-d-valora-group-emmenbrucke-927157",
         "personnel-de-production-f-m-d-valora-group-emmenbrucke-927157",
-        "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke",
-        "dipendenti-di-produzione-m-f-d-valora-group-emmenbrucke"
+        "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3249,14 +3194,16 @@
           "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke-jo0vus",
           "production-staff-f-m-d-valora-group-emmenbrucke-927157",
           "personnel-de-production-f-m-d-valora-group-emmenbrucke-927157",
-          "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke",
-          "dipendenti-di-produzione-m-f-d-valora-group-emmenbrucke"
+          "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
         ],
         "en": [
           "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
         ],
         "fr": [
           "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
+        ],
+        "de": [
+          "produktionsmitarbeiter-w-m-d-valora-emmenbrucke"
         ]
       },
       "firstSeenAt": "2026-09-23T23:35:45.536Z",
@@ -3275,92 +3222,13 @@
       }
     },
     {
-      "id": "valora-654b82e41e12",
-      "slug": "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke",
-      "slugByLocale": {
-        "de": "produktionsmitarbeiter-w-m-d-valora-emmenbrucke",
-        "it": "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke",
-        "en": "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke",
-        "fr": "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke"
-      },
-      "company": "Valora Group",
-      "companyKey": "valora",
-      "companyDomain": "valora.com",
-      "title": "Produktionsmitarbeiter (w/m/d)",
-      "titleByLocale": {
-        "de": "Produktionsmitarbeiter (w/m/d)",
-        "it": "Dipendenti di produzione (m/f/d)",
-        "en": "Production employees (m/f/d)",
-        "fr": "Employés de production (h/f/d)"
-      },
-      "description": "Du suchst eine abwechslungsreiche Tätigkeit in der Produktion und möchtest unser Team in Emmenbrücke mit einem Pensum von 21 Stunden pro Woche im Stundenlohn unterstützen? Dann freuen wir uns darauf, dich kennenzulernen. Aufgaben, die Dir gefallen werden\n• Teig nach Vorgaben herstellen\n• Produktionsanlagen bedienen\n• Produkte verpacken\n• Sicherstellung und Einhaltung unserer Qualitätsstandards\n• Arbeiten gemäss Hygiene- und Sicherheitsrichtlinien Voraussetzungen, die Du mitbringst\n• Bereit für 3-Schichtarbeit und flexible Einsätze (Montag bis Freitag, bei Bedarf auch am Wochenende)\n• Gute Deutschkenntnisse (mindestens Niveau B1)\n• Erfahrung in der Produktion, idealerweise in der Lebensmittelbranche\n• Körperlich fit und belastbar\n• Du arbeitest zuverlässig und selbständig Vorteile, die wir Dir bieten\n• Vielseitiges und spannendes Arbeitsumfeld\n• Attraktive Rabatte bei den Valora Formaten\n• Direkter Austausch und eine offene Du-Kultur\n• Täglich frische Brezeln und guter italienischer Caffè\n• Faire Anstellungsbedingungen\n• Gemeinsame Firmen-Events",
-      "descriptionByLocale": {
-        "de": "Du suchst eine abwechslungsreiche Tätigkeit in der Produktion und möchtest unser Team in Emmenbrücke mit einem Pensum von 21 Stunden pro Woche im Stundenlohn unterstützen? Dann freuen wir uns darauf, dich kennenzulernen. Aufgaben, die Dir gefallen werden\n• Teig nach Vorgaben herstellen\n• Produktionsanlagen bedienen\n• Produkte verpacken\n• Sicherstellung und Einhaltung unserer Qualitätsstandards\n• Arbeiten gemäss Hygiene- und Sicherheitsrichtlinien Voraussetzungen, die Du mitbringst\n• Bereit für 3-Schichtarbeit und flexible Einsätze (Montag bis Freitag, bei Bedarf auch am Wochenende)\n• Gute Deutschkenntnisse (mindestens Niveau B1)\n• Erfahrung in der Produktion, idealerweise in der Lebensmittelbranche\n• Körperlich fit und belastbar\n• Du arbeitest zuverlässig und selbständig Vorteile, die wir Dir bieten\n• Vielseitiges und spannendes Arbeitsumfeld\n• Attraktive Rabatte bei den Valora Formaten\n• Direkter Austausch und eine offene Du-Kultur\n• Täglich frische Brezeln und guter italienischer Caffè\n• Faire Anstellungsbedingungen\n• Gemeinsame Firmen-Events",
-        "it": "Stai cercando un lavoro variegato in produzione e vuoi sostenere il nostro team di Emmenbrücke con un carico di lavoro di 21 ore a settimana in salari orali? Allora non vediamo l'ora di incontrarti. Compiti che ti piacerà\n• Preparare la pasta secondo le specifiche\n• Servire impianti di produzione\n• Imballaggio dei prodotti\n• Garantire e rispettare i nostri standard di qualità\n• Lavorare secondo i requisiti di igiene e sicurezza che portate con voi\n• Pronti per il lavoro a 3 turni e assegnazioni flessibili (da lunedì a venerdì, se necessario)\n• Buona conoscenza del tedesco (almeno livello B1)\n• Esperienza nella produzione, idealmente nel settore alimentare\n• Vestibilità fisica e resiliente\n• Lavori in modo affidabile e indipendente vantaggi che offriamo\n• Ambiente di lavoro versatile ed emozionante\n• Sconti interessanti nei formati Valora\n• Scambio diretto e una cultura aperta\n• Pretzel freschi giornalieri e buon caffè italiano\n• Condizioni dell'occupazione\n• Eventi aziendali comuni",
-        "en": "Are you looking for a varied job in production and would like to support our team in Emmenbrücke with a workload of 21 hours per week in hourly wages? Then we look forward to meeting you. Tasks you will like\n• Prepare dough according to specifications\n• Serving production facilities\n• Packaging of products\n• Ensuring and complying with our quality standards\n• Work according to the hygiene and safety guidelines requirements that you bring with you\n• Ready for 3-shift work and flexible assignments (Monday to Friday, weekend if required)\n• Good knowledge of German (at least level B1)\n• Experience in production, ideally in the food industry\n• Physically fit and resilient\n• You work reliably and independently advantages that we offer you\n• Versatile and exciting working environment\n• Attractive discounts in the Valora formats\n• Direct exchange and an open du-culture\n• Daily fresh pretzels and good Italian caffè\n• Fair employment conditions\n• Joint company events",
-        "fr": "Vous cherchez un emploi varié dans la production et souhaitez soutenir notre équipe à Emmenbrücke avec une charge de travail de 21 heures par semaine en salaire horaire? Alors nous avons hâte de vous rencontrer. Tâches que vous aimerez\n• Préparer la pâte selon les spécifications\n• Servir les installations de production\n• Emballage des produits\n• Assurer et respecter nos normes de qualité\n• Travaillez selon les directives d'hygiène et de sécurité que vous apportez avec vous\n• Prêt pour un travail en 3 équipes et des affectations flexibles (du lundi au vendredi, week-end si nécessaire)\n• Bonne connaissance de l'allemand (au moins niveau B1)\n• Expérience dans la production, idéalement dans l'industrie alimentaire\n• En forme physique et résilient\n• Vous travaillez de manière fiable et indépendante avantages que nous vous offrons\n• Environnement de travail polyvalent et passionnant\n• Réductions attractives dans les formats Valora\n• Échange direct et une du-culture ouverte\n• Les bretzels frais quotidiens et le bon caffè italien\n• Conditions d'emploi équitables\n• Manifestations des sociétés communes"
-      },
-      "location": "Emmenbrücke",
-      "canton": "LU",
-      "url": "https://career.valora.com/en/job/6566/produktionsmitarbeiter-w-m-d",
-      "source": "Valora Group Dedicated Parser (Custom)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:44:17.795Z",
-      "addressLocality": "Emmenbrücke",
-      "addressRegion": "Luzern",
-      "streetAddress": "Neuenkirchstrasse 91",
-      "postalCode": "6020",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail / Foodvenience",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-22",
-      "applyUrl": "https://career.valora.com/en/job/6566/produktionsmitarbeiter-w-m-d",
-      "jobReqId": "21265",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "produktionsmitarbeiter-w-m-d-valora-emmenbrucke-2",
-          "produktionsmitarbeiter-w-m-d-valora-emmenbrucke",
-          "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke-jo0s7q"
-        ]
-      },
-      "previousSlugs": [
-        "produktionsmitarbeiter-w-m-d-valora-emmenbrucke-2",
-        "produktionsmitarbeiter-w-m-d-valora-emmenbrucke",
-        "produktionsmitarbeiter-w-m-d-valora-group-emmenbrucke-jo0s7q"
-      ],
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-23T23:35:45.536Z"
-    },
-    {
       "id": "valora-2ffeb5d946b0",
       "slug": "agenturpartnerin-agenturpartner-kanton-san-gallo-valora-group-muttenz",
       "slugByLocale": {
         "it": "agenturpartnerin-agenturpartner-kanton-san-gallo-valora-group-muttenz",
         "en": "agenturpartnerin-agenturpartner-kanton-st-gallen-valora-muttenz",
         "de": "agenturpartnerin-agenturpartner-kanton-st-gallen-valora-muttenz",
-        "fr": "agenturpartnerin-agenturpartner-canton-de-saint-gall-valora-group-muttenz"
+        "fr": "agenturpartnerin-agenturpartner-kanton-st-gallen-valora-group-muttenz"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -3370,7 +3238,7 @@
         "it": "Agenturpartnerin / Agenturpartner Kanton San Gallo",
         "en": "Agenturpartnerin / Agenturpartner Kanton St. Gallen",
         "de": "Agenturpartnerin / Agenturpartner Kanton St. Gallen",
-        "fr": "Agenturpartnerin / Agenturpartner Canton de Saint-Gall"
+        "fr": "Agenturpartnerin / Agenturpartner Kanton St. Gallen"
       },
       "description": "As an established provider of convenience and food services, Valora is offering you the opportunity to become self-employed. Using a tried-and-tested turnkey business model, we will help you open your own store. We will also support you beyond this stage so that you not only get off to a successful start but also feel confident as an agency partner over the long term. You can choose which of our first-class formats suits you best. Choose from avec, Press & Books or k kiosk (at highly frequented locations, such as train stations, airports or petrol stations). You have a welcoming disposition and offer your customers a special shopping experience – from presenting goods in the most appealing way possible to offering comprehensive advice and support. You have very strong communication skills, are open-minded and enjoy meeting people. You are creative, reliable and have a good eye for detail. You are able to inspire and convince others through your passion for food and convenience services. You are an excellent role model for your team and are always willing to pitch in yourself. As a leader with a sensitive mindset, you take care of your employees and help them develop. Become part of the Valora network and brighten up our customers’ day.",
       "descriptionByLocale": {
@@ -3405,15 +3273,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "agenturpartnerin-agenturpartner-kanton-st-gallen-valora-muttenz",
-        "agenturpartnerin-agenturpartner-kanton-san-gallo-valora-group-muttenz"
+        "agenturpartnerin-agenturpartner-canton-de-saint-gall-valora-group-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agenturpartnerin-agenturpartner-kanton-st-gallen-valora-muttenz",
-          "agenturpartnerin-agenturpartner-kanton-san-gallo-valora-group-muttenz"
+          "agenturpartnerin-agenturpartner-kanton-st-gallen-valora-muttenz"
         ],
         "fr": [
-          "agenturpartnerin-agenturpartner-kanton-st-gallen-valora-muttenz"
+          "agenturpartnerin-agenturpartner-kanton-st-gallen-valora-muttenz",
+          "agenturpartnerin-agenturpartner-canton-de-saint-gall-valora-group-muttenz"
         ]
       },
       "needsRetranslation": true,
@@ -3446,7 +3314,7 @@
       "companyDomain": "valora.com",
       "title": "Agenturpartnerin / Agenturpartner Kanton Basel-Stadt/Baselland",
       "titleByLocale": {
-        "it": "Agenturpartnerin / Agenturpartner Kanton Basilea-Stadt/Baselland",
+        "it": "Agenturpartnerin / Agenturpartner Kanton Basel-Stadt/Baselland",
         "en": "Agenturpartnerin / Agenturpartner Kanton Basel-Stadt/Baselland",
         "de": "Agenturpartnerin / Agenturpartner Kanton Basel-Stadt",
         "fr": "Agenturpartnerin / Agenturpartner Kanton Basel-Stadt/Baslland"
@@ -3515,7 +3383,7 @@
         "it": "Agente partner / Agente partner Sarganserland",
         "en": "Agenturpartnerin / Agenturpartner Sarganserland",
         "de": "Agenturpartnerin / Agenturpartner1977anserland",
-        "fr": "Agenturpartner dans / Agenturpartner Sarganserland"
+        "fr": "Agenturpartnerin / Agenturpartner Sarganserland"
       },
       "description": "As an established provider of convenience and food services, Valora is offering you the opportunity to become self-employed. Using a tried-and-tested turnkey business model, we will help you open your own store. We will also support you beyond this stage so that you not only get off to a successful start but also feel confident as an agency partner over the long term. You can choose which of our first-class formats suits you best. Choose from avec, Press & Books or k kiosk (at highly frequented locations, such as train stations, airports or petrol stations). You have a welcoming disposition and offer your customers a special shopping experience – from presenting goods in the most appealing way possible to offering comprehensive advice and support. You have very strong communication skills, are open-minded and enjoy meeting people. You are creative, reliable and have a good eye for detail. You are able to inspire and convince others through your passion for food and convenience services. You are an excellent role model for your team and are always willing to pitch in yourself. As a leader with a sensitive mindset, you take care of your employees and help them develop. Become part of the Valora network and brighten up our customers’ day.",
       "descriptionByLocale": {
@@ -3549,13 +3417,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "agenturpartnerin-agenturpartner-sarganserland-valora-muttenz",
-        "agente-partner-agente-partner-sarganserland-valora-group-muttenz"
+        "agenturpartnerin-agenturpartner-sarganserland-valora-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agenturpartnerin-agenturpartner-sarganserland-valora-muttenz",
-          "agente-partner-agente-partner-sarganserland-valora-group-muttenz"
+          "agenturpartnerin-agenturpartner-sarganserland-valora-muttenz"
         ],
         "de": [
           "agenturpartnerin-agenturpartner-sarganserland-valora-muttenz"
@@ -3693,13 +3559,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "agenturpartnerin-agenturpartner-region-berner-oberland-valora-muttenz",
-        "agenturpartnerin-agenturpartner-regione-berner-oberland-valora-group-muttenz"
+        "agenturpartnerin-agenturpartner-region-berner-oberland-valora-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agenturpartnerin-agenturpartner-region-berner-oberland-valora-muttenz",
-          "agenturpartnerin-agenturpartner-regione-berner-oberland-valora-group-muttenz"
+          "agenturpartnerin-agenturpartner-region-berner-oberland-valora-muttenz"
         ]
       },
       "needsRetranslation": true,
@@ -3735,7 +3599,7 @@
         "it": "Agenturpartnerin / Agenturpartner Regione Oberwallis",
         "en": "Agenturpartnerin / Agenturpartner Region Oberwallis",
         "de": "Agenturpartnerin/Agenturpartner Region Oberwallis",
-        "fr": "Agenturpartnerin / Agenturpartner Région Oberwallis"
+        "fr": "Agenturpartnerin / Agenturpartner Region Oberwallis"
       },
       "description": "As an established provider of convenience and food services, Valora is offering you the opportunity to become self-employed. Using a tried-and-tested turnkey business model, we will help you open your own store. We will also support you beyond this stage so that you not only get off to a successful start but also feel confident as an agency partner over the long term. You can choose which of our first-class formats suits you best. Choose from avec, Press & Books or k kiosk (at highly frequented locations, such as train stations, airports or petrol stations). You have a welcoming disposition and offer your customers a special shopping experience – from presenting goods in the most appealing way possible to offering comprehensive advice and support. You have very strong communication skills, are open-minded and enjoy meeting people. You are creative, reliable and have a good eye for detail. You are able to inspire and convince others through your passion for food and convenience services. You are an excellent role model for your team and are always willing to pitch in yourself. As a leader with a sensitive mindset, you take care of your employees and help them develop. Become part of the Valora network and brighten up our customers’ day.",
       "descriptionByLocale": {
@@ -3769,13 +3633,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "agenturpartnerin-agenturpartner-region-oberwallis-valora-muttenz",
-        "agenturpartnerin-agenturpartner-regione-oberwallis-valora-group-muttenz"
+        "agenturpartnerin-agenturpartner-region-oberwallis-valora-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agenturpartnerin-agenturpartner-region-oberwallis-valora-muttenz",
-          "agenturpartnerin-agenturpartner-regione-oberwallis-valora-group-muttenz"
+          "agenturpartnerin-agenturpartner-region-oberwallis-valora-muttenz"
         ]
       },
       "needsRetranslation": true,
@@ -3796,12 +3658,12 @@
     },
     {
       "id": "valora-4d9385130ab4",
-      "slug": "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-2",
+      "slug": "venditore-seller-backwerk-24-6-h-valora-group-basel",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-backwerk-24-6-std-valora-basel",
-        "it": "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-2",
-        "en": "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-2",
-        "fr": "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-2"
+        "it": "venditore-seller-backwerk-24-6-h-valora-group-basel",
+        "en": "seller-seller-backwerk-24-6-h-valora-group-basel",
+        "fr": "vendeur-vendeur-retourwerk-24-6-h-valora-group-basel"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -3862,21 +3724,29 @@
       "firstSeenAt": "2026-09-16T23:44:47.492Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-backwerk-24-6-std-valora-basel"
+          "verkauferin-verkaufer-backwerk-24-6-std-valora-basel",
+          "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-2"
+        ],
+        "en": [
+          "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-2"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-2"
         ]
       },
       "previousSlugs": [
-        "verkauferin-verkaufer-backwerk-24-6-std-valora-basel"
+        "verkauferin-verkaufer-backwerk-24-6-std-valora-basel",
+        "verkauferin-verkaufer-backwerk-24-6-std-valora-basel-2"
       ]
     },
     {
       "id": "valora-afd7a3aab424",
-      "slug": "business-partner-agenturen-w-m-d-valora-muttenz",
+      "slug": "agenzie-partner-commerciali-m-f-d-valora-group-muttenz",
       "slugByLocale": {
         "de": "business-partner-agenturen-w-m-d-valora-muttenz",
-        "it": "business-partner-agenturen-w-m-d-valora-muttenz",
-        "en": "business-partner-agenturen-w-m-d-valora-muttenz",
-        "fr": "business-partner-agenturen-w-m-d-valora-muttenz"
+        "it": "agenzie-partner-commerciali-m-f-d-valora-group-muttenz",
+        "en": "business-partner-agencies-m-f-d-valora-group-muttenz",
+        "fr": "agences-partenaires-d-affaires-h-f-d-valora-group-muttenz"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -3933,7 +3803,22 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "business-partner-agenturen-w-m-d-valora-muttenz"
+        ],
+        "en": [
+          "business-partner-agenturen-w-m-d-valora-muttenz"
+        ],
+        "fr": [
+          "business-partner-agenturen-w-m-d-valora-muttenz"
+        ]
+      },
+      "previousSlugs": [
+        "business-partner-agenturen-w-m-d-valora-muttenz"
+      ]
     },
     {
       "id": "valora-3b37c26b9ac1",
