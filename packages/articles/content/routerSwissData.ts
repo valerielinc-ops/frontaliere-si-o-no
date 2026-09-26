@@ -2283,6 +2283,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'iniziativa-congedo-parentale-quorum': { it: 'iniziativa-congedo-parentale-quorum', en: 'parental-leave-initiative-quorum', de: 'elternurlaub-initiative-quorum', fr: 'initiative-conge-parental-quorum' },
  'mobilitazione-esercito-ponte': { it: 'mobilitazione-esercito-ponte', en: 'swiss-army-rapid-mobilization', de: 'schnelle-mobilisierung-armee', fr: 'mobilisation-rapide-armee-suisse' },
  'dertour-suisse-ripresa-fatturato': { it: 'dertour-suisse-ripresa-fatturato', en: 'dertour-suisse-aims-to-surpass-one-billion-in-revenue', de: 'dertour-suisse-will-die-umsatzmilliarde-ubertreffen', fr: 'dertour-suisse-vise-a-depasser-le-milliard-de-chiffre-d-affaires' },
+ 'svizzera-auto-elettriche-classifica': { it: 'svizzera-auto-elettriche-classifica', en: 'switzerland-electric-cars-ranking', de: 'schweiz-elektroautos-rangliste', fr: 'suisse-voitures-electriques-classement' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
