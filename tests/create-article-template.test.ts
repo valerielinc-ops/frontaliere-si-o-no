@@ -172,6 +172,14 @@ describe('hasAiSearchOptimization()', () => {
     expect(hasAiSearchOptimization('## Auf einen Blick\n- a\n## Wichtige Fakten\n- a')).toBe(true);
     expect(hasAiSearchOptimization('## En bref\n- a\n## Faits clés\n- a')).toBe(true);
   });
+
+  it('does not treat a complete block in another locale as optimized', () => {
+    const italian = '## In breve\n- a\n## Fatti chiave\n- a';
+    expect(hasAiSearchOptimization(italian, 'it')).toBe(true);
+    expect(hasAiSearchOptimization(italian, 'en')).toBe(false);
+    expect(hasAiSearchOptimization(italian, 'de')).toBe(false);
+    expect(hasAiSearchOptimization(italian, 'fr')).toBe(false);
+  });
 });
 
 describe('prependAiSearchToBody1()', () => {
@@ -194,6 +202,13 @@ describe('prependAiSearchToBody1()', () => {
     const once = prependAiSearchToBody1(body1, { tldr, keyFacts });
     const twice = prependAiSearchToBody1(once, { tldr, keyFacts });
     expect(twice).toBe(once);
+  });
+
+  it('uses the requested locale when checking an existing block', () => {
+    const italian = prependAiSearchToBody1('Lead originale.', { tldr, keyFacts, locale: 'it' });
+    const english = prependAiSearchToBody1(italian, { tldr, keyFacts, locale: 'en' });
+    expect(english).toContain('## TL;DR');
+    expect(english).toContain('## Key facts');
   });
 });
 
