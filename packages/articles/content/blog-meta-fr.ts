@@ -12070,6 +12070,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.merone-pendolare-frontiera-ch.title': 'Vivre à Mérone et travailler au Tessin en tant que frontalier',
     'blog.article.merone-pendolare-frontiera-ch.excerpt': 'Vivre à Merone et travailler au Tessin : ce qui change par impôt à la source, franchises de 7 500 et 10 000 euros, AVS, LPP et LAMal.',
     'blog.article.merone-pendolare-frontiera-ch.imageAlt': 'Route matinale au Tessin pour une personne vivant à Merone et travaillant de l\'autre côté de la frontière',
+    'blog.article.rapina-como-residente-ticino.title': 'Braquage à Côme : un résident du Tessin arrêté',
+    'blog.article.rapina-como-residente-ticino.excerpt': 'L\'Italien de 32 ans, résidant dans la région de Bellinzone, figure parmi les deux personnes arrêtées pour le braquage de 90\'000 euro du 24 avril.',
+    'blog.article.rapina-como-residente-ticino.imageAlt': 'Enquête à Côme après le braquage du 24 avril; un résident de la région de Bellinzone a été arrêté. (Como)',
 };
 
 export default blogMetaFr;

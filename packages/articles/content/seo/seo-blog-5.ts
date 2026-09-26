@@ -94414,6 +94414,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rapina-como-residente-ticino': {
+    title: 'Rapina a Como: arrestato residente in Ticino | Frontaliere Ticino',
+    description: 'Arrestato a Como un 32enne italiano residente nel Bellinzonese: è uno dei due fermati per la rapina in gioielleria del 24 aprile, con un bottino da 90\'000 euro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rapina, como, arrestato, residente',
+    ogTitle: 'Rapina a Como, arrestato residente in Ticino',
+    ogDescription: 'A Como, la Polizia di Stato ha arrestato gli ultimi due latitanti della rapina a mano armata in via Asiago. Tra loro un 32enne italiano residente nel Bellinzonese; l\'inchiesta della Squadra Mobile ha portato anche al recupero di parte',
+    canonicalPath: '/articoli-frontaliere/rapina-como-residente-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rapina a Como: arrestato residente in Ticino",
+      "description": "Arrestato a Como un 32enne italiano residente nel Bellinzonese: è uno dei due fermati per la rapina in gioielleria del 24 aprile, con un bottino da 90'000 euro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rapina-como-residente-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Polizia e gioielleria a Como dopo la rapina del 24 aprile; arrestato un residente nel Bellinzonese."
+      },
+      "datePublished": "2026-09-26T15:24:58+00:00",
+      "dateModified": "2026-09-26T15:24:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rapina-como-residente-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

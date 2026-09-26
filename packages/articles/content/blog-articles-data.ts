@@ -36207,6 +36207,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'rapina-como-residente-ticino',
+ category: 'novita',
+ date: '2026-09-26T15:24:58.017Z',
+ image: '/images/blog/rapina-como-residente-ticino.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
