@@ -12017,6 +12017,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cavalcavia-boesio-chiusura-lavori-2026.title': 'Sperrung der Überführung Boesio Laveno Mombello 25 settembre 2026',
     'blog.article.cavalcavia-boesio-chiusura-lavori-2026.excerpt': 'Freitag, 25. September 2026, von 9:00 bis 17:00 Uhr, vollständige Schließung der Boesischen Überführung (S.P. 32 und S.P. 69) für die Installation von drei Begrenzungsportalen; nach den Arbeiten Grenze 3,5 t, 3,5 m und 30 km/h.',
     'blog.article.cavalcavia-boesio-chiusura-lavori-2026.imageAlt': 'Sperrung des Cavalcavia Boesio bei Laveno Mombello mit Umleitungen auf Gemeindewegen',
+    'blog.article.simex-26-emergenza-agno.title': 'Simulierter Flugunfall am Flughafen Agno',
+    'blog.article.simex-26-emergenza-agno.excerpt': 'SIMEX 26 hat in Agno Alarme, Rettungseinsätze, Kommunikation und die Koordination zwischen dem Flughafen und den Organisationen der Ersthilfe getestet.',
+    'blog.article.simex-26-emergenza-agno.imageAlt': 'Flughafen Agno während einer Notfallübung',
 };
 
 export default blogMetaDe;
