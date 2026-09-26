@@ -1,21 +1,21 @@
 {
   "key": "scandit",
   "label": "Scandit AG",
-  "generatedAt": "2026-09-25T15:03:46.786Z",
-  "total": 2,
+  "generatedAt": "2026-09-26T14:27:29.252Z",
+  "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
-  "written": 2,
+  "written": 1,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2301,
-  "avgDurationMs": 2301,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 2430,
+  "avgDurationMs": 2430,
   "durationHistory": [
-    2301
+    2430
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=8143595",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-25T15:03:39.470Z",
+      "crawledAt": "2026-09-26T14:27:21.088Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -54,8 +54,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "scandit-11d5976f7463",
       "slug": "senior-computer-vision-ingegnere-scandit-ag-zurich",
@@ -95,5 +94,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
