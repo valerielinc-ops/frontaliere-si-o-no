@@ -311,6 +311,27 @@ describe.each(COPIES)('%s', (_name, src) => {
     expect(win.__ftOfferwallGate?.state).toBe('off_board');
     expect(win.googlefc!.controlledMessagingFunction).toBe(callback);
   });
+
+  it('reacquires the off-board Offerwall callback when entering the job board', () => {
+    const win = install(src, '/');
+    const callback = win.googlefc!.controlledMessagingFunction!;
+
+    const first = message();
+    callback(first);
+    expect(first.calls).toEqual([[true]]);
+
+    win.googlefc!.MessageTypeEnum = ENUM;
+    const offerwall = message();
+    callback(offerwall);
+    expect(offerwall.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
+    expect(win.__ftOfferwallGate?.state).toBe('off_board');
+
+    win.history.pushState({}, '', '/it/cerca-lavoro-ticino/');
+    expect(win.__ftOfferwallGate?.state).toBe('held');
+    expect(win.__ftOfferwallGate!.release!()).toBe(true);
+    expect(offerwall.calls).toEqual([[false, [ENUM.OFFERWALL]], [true]]);
+    expect(offerwall.calls.filter(([proceed]) => proceed === true)).toHaveLength(1);
+  });
 });
 
 /** The path regex literal a gate copy tests `pathname` against. */

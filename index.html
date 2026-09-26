@@ -524,15 +524,50 @@
           var p = window.location && window.location.pathname || '';
           return /^(?:\/(?:it|en|de|fr))?\/(?:cerca-lavoro|find-jobs|trouver-emploi|jobs-in|jobs-im)-[a-z][a-z-]*(?:\/|$)/.test(p);
         }
+        function hasConsentDecision(){
+          var d = false;
+          try { d = !!window.localStorage.getItem('frontaliere_ads_consent'); } catch (e) {}
+          if (d) {
+            var c = (window.document && window.document.cookie || '').match(/(?:^|;\s*)FCCDCF=([^;]*)/), v = '';
+            try { v = c ? decodeURIComponent(c[1]) : ''; } catch (e) {}
+            d = /"C[A-Za-z0-9_-]{20,}/.test(v);
+          }
+          return d;
+        }
+        function hold(w, message, offerwall){
+          w.held = w.held || [];
+          w.held.push(message);
+          w.offerwall = offerwall;
+          w.state = 'held';
+          w.release = function(){
+            if (w.state !== 'held') return false;
+            w.state = 'released';
+            w.reacquired = false;
+            var h = w.held.splice(0);
+            for (var i = 0; i < h.length; i++) {
+              try { h[i].proceed(true); } catch (e) {}
+            }
+            return true;
+          };
+        }
         function syncRoute(){
           var w = window.__ftOfferwallGate;
           if (!w) return;
           if (isJobBoardPath()) {
             if (w.state === 'off_board') {
-              w.state = 'idle';
-              w.held = [];
-              w.release = undefined;
-              w.offerwall = undefined;
+              var message = w.reacquire;
+              w.reacquire = undefined;
+              if (message && hasConsentDecision()) {
+                w.held = [];
+                hold(w, message, (g.MessageTypeEnum || {}).OFFERWALL);
+                w.reacquired = true;
+              } else {
+                w.state = message ? 'suppressed' : 'idle';
+                w.held = [];
+                w.release = undefined;
+                w.offerwall = undefined;
+                w.reacquired = false;
+              }
             }
             return;
           }
@@ -550,6 +585,8 @@
           w.held = [];
           w.release = undefined;
           w.offerwall = undefined;
+          w.reacquire = undefined;
+          w.reacquired = false;
         }
         function watchRoutes(){
           var h = window.history;
@@ -581,6 +618,7 @@
           // this call also carries still show.
           if (!isJobBoardPath()) {
             window.__ftOfferwallGate = window.__ftOfferwallGate || { state: 'off_board', held: [] };
+            window.__ftOfferwallGate.reacquire = message;
             message.proceed(false, [E.OFFERWALL]);
             return;
           }
@@ -589,14 +627,7 @@
           // TC string in Funding Choices' own FCCDCF cookie (a TCF v2 string
           // starts with "C"). Otherwise the CMP must show now: suppress only
           // the Offerwall for this page view instead of holding everything.
-          var d = false;
-          try { d = !!window.localStorage.getItem('frontaliere_ads_consent'); } catch (e) {}
-          if (d) {
-            var c = (window.document && window.document.cookie || '').match(/(?:^|;\s*)FCCDCF=([^;]*)/), v = '';
-            try { v = c ? decodeURIComponent(c[1]) : ''; } catch (e) {}
-            d = /"C[A-Za-z0-9_-]{20,}/.test(v);
-          }
-          if (!d) {
+          if (!hasConsentDecision()) {
             window.__ftOfferwallGate = window.__ftOfferwallGate || { state: 'suppressed', held: [] };
             message.proceed(false, [E.OFFERWALL]);
             return;
@@ -606,18 +637,11 @@
             message.proceed(true);
             return;
           }
-          w.held.push(message);
-          w.offerwall = E.OFFERWALL;
-          w.state = 'held';
-          w.release = function(){
-            if (w.state !== 'held') return false;
-            w.state = 'released';
-            var h = w.held.splice(0);
-            for (var i = 0; i < h.length; i++) {
-              try { h[i].proceed(true); } catch (e) {}
-            }
-            return true;
-          };
+          if (w.reacquired) {
+            w.held = [];
+            w.reacquired = false;
+          }
+          hold(w, message, E.OFFERWALL);
         };
         watchRoutes();
       })();
