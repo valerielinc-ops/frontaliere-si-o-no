@@ -5617,7 +5617,7 @@
       "slugByLocale": {
         "it": "manager-tassa-sulle-operazioni-fusioni-e-acquisizioni-pwc-switzerland-zurich",
         "en": "manager-deals-tax-mergers-and-acquisitions-pwc-zurich",
-        "de": "manager-transaktionssteuer-fusionen-und-ubernahmen-pwc-switzerland-zurich",
+        "de": "manager-deals-tax-mergers-and-acquisitions-pwc-zurich",
         "fr": "gestionnaire-taxe-des-transactions-fusions-et-acquisitions-pwc-switzerland-zurich"
       },
       "id": "pwc-b3069d6d2adc",
@@ -5643,14 +5643,16 @@
           "manager-deals-tax-mergers-and-acquisitions-pwc-zurich"
         ],
         "de": [
-          "manager-deals-tax-mergers-and-acquisitions-pwc-zurich"
+          "manager-deals-tax-mergers-and-acquisitions-pwc-zurich",
+          "manager-transaktionssteuer-fusionen-und-ubernahmen-pwc-switzerland-zurich"
         ],
         "fr": [
           "manager-deals-tax-mergers-and-acquisitions-pwc-zurich"
         ]
       },
       "previousSlugs": [
-        "manager-deals-tax-mergers-and-acquisitions-pwc-zurich"
+        "manager-deals-tax-mergers-and-acquisitions-pwc-zurich",
+        "manager-transaktionssteuer-fusionen-und-ubernahmen-pwc-switzerland-zurich"
       ]
     },
     {
@@ -5692,7 +5694,7 @@
         "it": "senior-associate-audit-servizi-finanziari-asset-management-pwc-switzerland-geneva",
         "en": "senior-associate-audit-financial-services-asset-management-pwc-geneva",
         "de": "senior-associate-prufung-finanzdienstleistungen-vermogensverwaltung-pwc-switzerland-geneva",
-        "fr": "associe-principal-audit-services-financiers-gestion-d-actifs-pwc-switzerland-geneva"
+        "fr": "senior-associate-audit-financial-services-asset-management-pwc-geneva"
       },
       "id": "pwc-6408e0db5b60",
       "salaryMin": 68000,
@@ -5717,14 +5719,16 @@
           "senior-associate-audit-financial-services-asset-management-pwc-geneva"
         ],
         "fr": [
-          "senior-associate-audit-financial-services-asset-management-pwc-geneva"
+          "senior-associate-audit-financial-services-asset-management-pwc-geneva",
+          "associe-principal-audit-services-financiers-gestion-d-actifs-pwc-switzerland-geneva"
         ],
         "de": [
           "senior-associate-audit-financial-services-asset-management-pwc-geneva"
         ]
       },
       "previousSlugs": [
-        "senior-associate-audit-financial-services-asset-management-pwc-geneva"
+        "senior-associate-audit-financial-services-asset-management-pwc-geneva",
+        "associe-principal-audit-services-financiers-gestion-d-actifs-pwc-switzerland-geneva"
       ]
     },
     {
