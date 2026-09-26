@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
   POSTAUTO_KEY,
   POSTAUTO_COMPANY_NAME,
@@ -117,7 +117,7 @@ describe('PostAuto crawler parser', () => {
         return {
           ok: true,
           status: 200,
-          json: async () => ({
+          text: async () => JSON.stringify({
             totalJobs: body.pageNumber === 0 ? 40 : 0,
             jobSearchResult: body.pageNumber === 0 ? pageRecords : [],
           }),
@@ -147,7 +147,7 @@ describe('PostAuto crawler parser', () => {
         return {
           ok: true,
           status: 200,
-          json: async () => ({
+          text: async () => JSON.stringify({
             totalJobs: 2,
             jobSearchResult: body.pageNumber === 0
               ? [{ response: firstRecord }]
@@ -176,7 +176,7 @@ describe('PostAuto crawler parser', () => {
         return {
           ok: true,
           status: 200,
-          json: async () => ({
+          text: async () => JSON.stringify({
             totalJobs: 4,
             jobSearchResult: body.pageNumber === 0
               ? [{ response: firstRecord }, { response: secondRecord }]
@@ -198,6 +198,40 @@ describe('PostAuto crawler parser', () => {
         ]);
         expect(requestedPages).not.toContain(2);
       } finally {
+        vi.unstubAllGlobals();
+      }
+    });
+
+    it('retries a transient API connection before reporting connection_error', async () => {
+      const record = { id: 'postauto-retried', cust_brandCompanyJobSearch: ['PostAuto'] };
+      const previousRetryBase = process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+      process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
+      let attempts = 0;
+      const fetchMock = vi.fn(async (_url: string, init?: RequestInit) => {
+        attempts += 1;
+        if (attempts === 1) {
+          throw Object.assign(new TypeError('fetch failed'), { cause: { code: 'ECONNRESET' } });
+        }
+        const body = JSON.parse(String(init?.body || '{}')) as { locale?: string };
+        return {
+          ok: true,
+          status: 200,
+          text: async () => JSON.stringify({
+            totalJobs: body.locale === 'de_DE' ? 1 : 0,
+            jobSearchResult: body.locale === 'de_DE' ? [{ response: record }] : [],
+          }),
+        };
+      });
+      vi.stubGlobal('fetch', fetchMock);
+
+      try {
+        const listings = await postAutoTestables.fetchPostAutoListings(1000);
+        expect(listings.fetchOutcome).toBe('ok');
+        expect(listings.map((listing) => listing.id)).toEqual(['postauto-retried']);
+        expect(fetchMock).toHaveBeenCalledTimes(5);
+      } finally {
+        if (previousRetryBase === undefined) delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+        else process.env.JOBS_CRAWLER_RETRY_BASE_MS = previousRetryBase;
         vi.unstubAllGlobals();
       }
     });

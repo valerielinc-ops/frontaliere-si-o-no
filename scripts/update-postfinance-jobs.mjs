@@ -72,7 +72,7 @@ import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parsePostJobDetail } from './lib/postch-job-parser.mjs';
 import {  inferAnyCanton  } from './lib/target-swiss-locations.mjs';
 import { normalizeCantonCode } from './lib/target-swiss-locations.mjs';
-import { exitCrawlerOnError, stripScriptsAndStyles } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchJson, stripScriptsAndStyles } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { readAttr, readMetaContent } from './lib/html-attr.mjs';
@@ -200,36 +200,28 @@ async function fetchPage(url, timeoutMs = 15000) {
  * Returns the parsed response body, or null on failure.
  */
 async function fetchRecruitingApiPage(pageNumber, { locale = 'de_DE', brand = '', timeoutMs = 15000 } = {}) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(RECRUITING_API_URL, {
+    return await fetchJson(RECRUITING_API_URL, {
       method: 'POST',
-      signal: controller.signal,
+      timeoutMs,
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
         'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
           'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
-      body: JSON.stringify({
+      body: {
         locale,
         pageNumber,
         pageSize: RECRUITING_API_PAGE_SIZE,
         sortBy: 'date',
         ...(brand ? { brand } : {}),
-      }),
+      },
+      label: `PostFinance recruiting API (page ${pageNumber})`,
     });
-    if (!res.ok) {
-      console.warn(`⚠️ HTTP ${res.status} for recruiting API page ${pageNumber}`);
-      return null;
-    }
-    return await res.json();
   } catch (err) {
     console.warn(`⚠️ Recruiting API fetch failed (page ${pageNumber}): ${err.message}`);
     return null;
-  } finally {
-    clearTimeout(timer);
   }
 }
 
