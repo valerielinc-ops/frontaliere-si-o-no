@@ -6776,6 +6776,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.iniziativa-congedo-parentale-quorum.title': 'Congedo parentale: l\'iniziativa raggiunge il quorum',
     'blog.article.iniziativa-congedo-parentale-quorum.excerpt': 'Raccolte 136\'000 firme per l\'iniziativa «Società ed economia forti grazie al congedo parentale»: proposta 18 settimane retribuite per madri e padri.',
     'blog.article.iniziativa-congedo-parentale-quorum.imageAlt': 'Palazzo Federale a Berna, sede della Cancelleria federale',
+    'blog.article.mobilitazione-esercito-ponte.title': 'L\'esercito svizzero testa la mobilitazione rapida',
+    'blog.article.mobilitazione-esercito-ponte.excerpt': 'MOBILO 26 ha coinvolto circa 3\'000 militari, 300 veicoli su ruote e 50 blindati da Bière a Frauenfeld, con un ponte galleggiante.',
+    'blog.article.mobilitazione-esercito-ponte.imageAlt': 'Militari svizzeri assemblano un ponte galleggiante durante MOBILO 26',
 };
 
 export default blogMetaChIt;

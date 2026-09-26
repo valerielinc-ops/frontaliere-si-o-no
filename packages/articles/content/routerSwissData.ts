@@ -2281,6 +2281,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'bns-inflazione-pil-previsioni-2026': { it: 'bns-inflazione-pil-previsioni-2026', en: 'bns-inflation-gdp-forecasts-2026', de: 'bns-inflation-bip-prognosen-2026', fr: 'bns-inflation-pib-previsions-2026' },
  'valutazione-universitaria-intelligenza-artificiale': { it: 'valutazione-universitaria-intelligenza-artificiale', en: 'university-assessment-artificial-intelligence', de: 'universitaetsbewertung-kuenstliche-intelligenz', fr: 'evaluation-universitaire-intelligence-artificielle' },
  'iniziativa-congedo-parentale-quorum': { it: 'iniziativa-congedo-parentale-quorum', en: 'parental-leave-initiative-quorum', de: 'elternurlaub-initiative-quorum', fr: 'initiative-conge-parental-quorum' },
+ 'mobilitazione-esercito-ponte': { it: 'mobilitazione-esercito-ponte', en: 'swiss-army-rapid-mobilization', de: 'schnelle-mobilisierung-armee', fr: 'mobilisation-rapide-armee-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

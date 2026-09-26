@@ -6776,6 +6776,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.iniziativa-congedo-parentale-quorum.title': 'Parental leave: initiative reaches quorum',
     'blog.article.iniziativa-congedo-parentale-quorum.excerpt': '136\'000 signatures collected for the initiative «Strong society and economy thanks to parental leave»: 18 weeks of paid leave proposed for mothers and fathers.',
     'blog.article.iniziativa-congedo-parentale-quorum.imageAlt': 'Federal Palace in Bern, seat of the Federal Chancery',
+    'blog.article.mobilitazione-esercito-ponte.title': 'The Swiss army tests rapid mobilization',
+    'blog.article.mobilitazione-esercito-ponte.excerpt': 'MOBILO 26 involved approximately 3\'000 soldiers, 300 wheeled vehicles and 50 armored vehicles from Bière to Frauenfeld, with a floating bridge.',
+    'blog.article.mobilitazione-esercito-ponte.imageAlt': 'Swiss soldiers assemble a floating bridge during exercise MOBILO 26',
 };
 
 export default blogMetaChEn;
