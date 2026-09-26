@@ -2269,6 +2269,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'carenze-medicinali-svizzera-2026': { it: 'carenze-medicinali-svizzera-2026', en: 'medicines-shortages-switzerland-2026', de: 'arzneimittel-mangel-schweiz-2026', fr: 'penurie-medicaments-suisse-2026' },
  'kof-consensus-forecast-pil-2026': { it: 'kof-consensus-forecast-pil-2026', en: 'kof-forecast-swiss-gdp-2026', de: 'kof-vorhersage-schweizer-bip-2026', fr: 'kof-prevision-pib-suisse-2026' },
  'voci-morgan-stanley-ubs': { it: 'voci-morgan-stanley-ubs', en: 'ubs-morgan-stanley-merger-rumors', de: 'ubs-morgan-stanley-fusionsgeruechte', fr: 'rumeurs-fusion-ubs-morgan-stanley' },
+ 'destra-ticino-elezioni-aprile': { it: 'destra-ticino-elezioni-aprile', en: 'ticino-right-elections-april', de: 'tessin-rechte-wahlen-april', fr: 'tessin-droite-elections-avril' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

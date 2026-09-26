@@ -6740,6 +6740,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.voci-morgan-stanley-ubs.title': 'Rumeurs sur Morgan Stanley, UBS gagne plus de 3 %',
     'blog.article.voci-morgan-stanley-ubs.excerpt': 'Les actions UBS progressent de plus de 3% à Zurich et frôlent les 41 francs après des rumeurs d’une possible fusion avec Morgan Stanley.',
     'blog.article.voci-morgan-stanley-ubs.imageAlt': 'Écrans boursiers à Zurich durant la hausse de l\'action UBS',
+    'blog.article.destra-ticino-elezioni-aprile.title': 'Droite unie au Tessin : élections cantonales 2027',
+    'blog.article.destra-ticino-elezioni-aprile.excerpt': 'Au Tessin, les deux factions de droite se présenteront ensemble aux élections cantonales prévues pour avril 2027, après une rupture qui dure depuis des mois.',
+    'blog.article.destra-ticino-elezioni-aprile.imageAlt': 'Élections cantonales tessinoises prévues en avril 2027',
 };
 
 export default blogMetaChFr;

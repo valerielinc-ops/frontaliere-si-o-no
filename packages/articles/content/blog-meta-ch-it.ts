@@ -6740,6 +6740,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.voci-morgan-stanley-ubs.title': 'Voci su Morgan Stanley, UBS sale oltre il 3%',
     'blog.article.voci-morgan-stanley-ubs.excerpt': 'Le azioni UBS salgono oltre il 3% a Zurigo e sfiorano 41 franchi dopo le voci su una possibile fusione con Morgan Stanley.',
     'blog.article.voci-morgan-stanley-ubs.imageAlt': 'Schermi di borsa a Zurigo durante il rialzo del titolo UBS',
+    'blog.article.destra-ticino-elezioni-aprile.title': 'Destra unita in Ticino: elezioni cantonali 2027',
+    'blog.article.destra-ticino-elezioni-aprile.excerpt': 'In Ticino le due fazioni di destra correranno insieme alle elezioni cantonali previste per aprile 2027, dopo uno strappo in corso da mesi.',
+    'blog.article.destra-ticino-elezioni-aprile.imageAlt': 'Elezioni cantonali in Ticino previste per aprile 2027',
 };
 
 export default blogMetaChIt;
