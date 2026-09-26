@@ -128,12 +128,12 @@ describe('search-landing hreflang: alternates never outrun emitted pages (#5114)
 });
 
 describe('search-landing emitters route every hreflang block through the shared builder', () => {
-  // Source guard. Pre-fix, the three search-landing emit sites in
-  // jobsSeoPagesPlugin each carried their own `localeList.map(...)` +
-  // `<link rel="alternate" ...>` template — that is what made the defect
-  // expressible, and three literal copies are exactly the drift AGENTS.md #6
-  // forbids. These assertions FAIL on the pre-fix file (0 calls, and the
-  // alternate set taken straight from `localeList`).
+  // Source guard. Pre-fix, the search-landing emit sites in
+  // jobsSeoPagesPlugin carried their own `localeList.map(...)` +
+  // `<link rel="alternate" ...>` template; the active-job emitter had the
+  // same unsafe shape even though its missing-locale condition came from
+  // slug deduplication. These assertions fail on the pre-fix file (only
+  // three calls, and the active-job set taken straight from `localeList`).
   //
   // Scoped to `buildLocaleAlternateBlock` call sites on purpose: this file
   // holds ~38 hreflang <link> literals belonging to OTHER page families
