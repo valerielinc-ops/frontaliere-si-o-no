@@ -6758,6 +6758,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.voto-settembre-integrazione-2026.title': 'Bundesrat: Abstimmung und Entscheidungen 2026',
     'blog.article.voto-settembre-integrazione-2026.excerpt': 'Am 27. September 2026 wird über Neutralität und Ernährung abgestimmt. Ebenfalls auf dem Tisch: Integration, Mieten, Cybersicherheit und Abkommen mit der EU.',
     'blog.article.voto-settembre-integrazione-2026.imageAlt': 'Dokumente zu Schweizer Bundesentscheiden und ein Stimmzettel für den 27. September 2026',
+    'blog.article.integrazione-pic4-fondi-2028-2032.title': 'Bundesrat: 334,5 Millionen für Integration 2028-2032',
+    'blog.article.integrazione-pic4-fondi-2028-2032.excerpt': 'Verpflichtungskredit von 334,5 Mio. für PIC 4 und nationale Programme. 66,9 Mio./Jahr an die Kantone für Sprache, Ausbildung und Arbeit. Beschäftigungsquote der Einwanderer bei 77 % laut OECD.',
+    'blog.article.integrazione-pic4-fondi-2028-2032.imageAlt': 'Bundeshaus in Bern mit Schweizer Flaggen',
 };
 
 export default blogMetaChDe;

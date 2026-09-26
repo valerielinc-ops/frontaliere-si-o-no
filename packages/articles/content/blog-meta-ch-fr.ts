@@ -6758,6 +6758,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.voto-settembre-integrazione-2026.title': 'Conseil fédéral : vote et décisions 2026',
     'blog.article.voto-settembre-integrazione-2026.excerpt': 'Le 27 septembre 2026, on votera sur la neutralité et l’alimentation. À l’ordre du jour également : l’intégration, les loyers, la cybersécurité et les accords avec l’UE.',
     'blog.article.voto-settembre-integrazione-2026.imageAlt': 'Documents sur les décisions fédérales suisses et bulletin pour le 27 septembre 2026',
+    'blog.article.integrazione-pic4-fondi-2028-2032.title': 'Conseil fédéral : 334,5 millions pour l\'intégration 2028-2032',
+    'blog.article.integrazione-pic4-fondi-2028-2032.excerpt': 'Crédit d’engagement de 334,5 millions pour le PIC 4 et les programmes nationaux. 66,9 millions/an aux cantons pour la langue, la formation et le travail. Emploi des immigrés à 77 % selon l’OCDE.',
+    'blog.article.integrazione-pic4-fondi-2028-2032.imageAlt': 'Palais fédéral à Berne avec drapeaux suisses',
 };
 
 export default blogMetaChFr;

@@ -6758,6 +6758,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.voto-settembre-integrazione-2026.title': 'Federal Council: vote and decisions 2026',
     'blog.article.voto-settembre-integrazione-2026.excerpt': 'On September 27, 2026, voters will vote on neutrality and food. Also on the agenda: integration, rents, cybersecurity and agreements with the EU.',
     'blog.article.voto-settembre-integrazione-2026.imageAlt': 'Documents on Swiss federal decisions and a ballot for the vote on 27 September 2026',
+    'blog.article.integrazione-pic4-fondi-2028-2032.title': 'Federal Council: 334,5 million for integration 2028-2032',
+    'blog.article.integrazione-pic4-fondi-2028-2032.excerpt': 'Commitment credit of 334,5 mln for PIC 4 and national programmes. 66,9 mln/year to the Cantons for language, education and employment. Immigrant employment at 77% OECD.',
+    'blog.article.integrazione-pic4-fondi-2028-2032.imageAlt': 'Federal Palace in Bern with Swiss flags',
 };
 
 export default blogMetaChEn;
