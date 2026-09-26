@@ -2540,6 +2540,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // run must not emit a second apply/offer event pair (or a second rewarded
  // request) for the same gesture.
  const applicationOfferOpenRef = useRef(false);
+ const applicationIntentReadyRef = useRef<Promise<boolean> | null>(null);
  useEffect(() => {
   if (!rewardedApplicationJob && !assistedApplicationJob) applicationOfferOpenRef.current = false;
  }, [assistedApplicationJob, rewardedApplicationJob]);
@@ -7076,8 +7077,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onJobRouteChange?.(undefined);
  };
 
- const recordJobApplicationIntent = (job: JobListing, surface: string): void => {
-  void recordApplicationIntent({
+ const recordJobApplicationIntent = (job: JobListing, surface: string): Promise<boolean> => {
+  const ready = recordApplicationIntent({
    job: {
     id: job.id,
     slug: job.slug,
@@ -7090,6 +7091,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
    consentText: t('jobBoard.applicationIntent.disclosure'),
    authUser,
   });
+  applicationIntentReadyRef.current = ready;
+  return ready;
  };
 
   const trackPublisherApplySignals = (
@@ -7118,7 +7121,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return eventId;
  };
 
- const redirectExternalApplication = (
+ const redirectExternalApplication = async (
   job: JobListing,
   surface: string,
   trackHandoff: boolean,
@@ -7138,6 +7141,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
    { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, ...extraParams },
   );
   if (sameTab) {
+   try {
+    await applicationIntentReadyRef.current;
+   } catch {
+    // Telemetry must never strand the user before the external handoff.
+   }
    window.location.assign(applyDestination);
   } else {
    window.open(applyDestination, '_blank', 'noopener,noreferrer');

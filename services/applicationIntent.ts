@@ -1,6 +1,6 @@
 import { RECORD_APPLICATION_INTENT_URL } from './functionsBase';
 import { buildApplicationIntentJobKey } from './applicationIntentRanking.mjs';
-import { trackApplicationIntent } from './behaviorTracker';
+import { syncToFirestore, trackApplicationIntent } from './behaviorTracker';
 
 export { buildApplicationIntentJobKey };
 
@@ -23,11 +23,26 @@ export interface RecordApplicationIntentInput {
   origin: string;
   surface: string;
   consentText: string;
-  authUser?: { uid?: string | null; getIdToken?: () => Promise<string> } | null;
+  authUser?: {
+    uid?: string | null;
+    email?: string | null;
+    providerData?: Array<{ email?: string | null }> | null;
+    getIdToken?: () => Promise<string>;
+  } | null;
 }
 
 function clean(value: unknown): string {
   return typeof value === 'string' ? value.trim() : '';
+}
+
+function authenticatedUserEmail(user: RecordApplicationIntentInput['authUser']): string {
+  const direct = clean(user?.email);
+  if (direct) return direct;
+  for (const provider of user?.providerData || []) {
+    const email = clean(provider?.email);
+    if (email) return email;
+  }
+  return '';
 }
 
 function randomVisitorId(): string {
@@ -68,6 +83,12 @@ export async function recordApplicationIntent({
 }: RecordApplicationIntentInput): Promise<boolean> {
   const jobKey = buildApplicationIntentJobKey(job);
   trackApplicationIntent(jobKey);
+
+  // The alert sender reads this profile directly. A same-tab handoff can unload
+  // the page before the normal five-minute/auth lifecycle sync, so flush the
+  // authenticated projection before allowing the handoff to continue.
+  const email = authenticatedUserEmail(authUser);
+  if (clean(authUser?.uid) && email) await syncToFirestore(email);
 
   const payload = {
     jobKey,
