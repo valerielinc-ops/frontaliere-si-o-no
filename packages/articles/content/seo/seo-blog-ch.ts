@@ -87770,6 +87770,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-valutazione-universitaria-intelligenza-artificiale': {
+    title: 'Università svizzere: l\'IA cambia la valutazione delle tesi',
+    description: 'Università di Zurigo, ZHAW e SUPSI cambiano i metodi di valutazione delle tesi a causa dell\'IA: più orali e focus sul processo di studio. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, università, svizzere, cambia, valutazione',
+    ogTitle: 'Università svizzere: l\'IA cambia la valutazione delle tesi',
+    ogDescription: 'L\'Università di Zurigo, la ZHAW e la SUPSI rivedono i criteri di valutazione: meno peso al prodotto finale e più attenzione al percorso, con l\'introduzione di discussioni orali e trasparenza nell\'uso dell\'IA.',
+    canonicalPath: '/articoli-svizzera/valutazione-universitaria-intelligenza-artificiale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Università svizzere: l'IA cambia la valutazione delle tesi",
+      "description": "Università di Zurigo, ZHAW e SUPSI cambiano i metodi di valutazione delle tesi a causa dell'IA: più orali e focus sul processo di studio. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/valutazione-universitaria-intelligenza-artificiale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studente universitario svizzero al lavoro con laptop e libri"
+      },
+      "datePublished": "2026-09-26T10:40:51+00:00",
+      "dateModified": "2026-09-26T10:40:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/valutazione-universitaria-intelligenza-artificiale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

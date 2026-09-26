@@ -60,7 +60,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { fetchJson, slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { parsePostJobDetail, extractPostJobIdFromUrl } from './postch-job-parser.mjs';
 import { dedicatedPostOwner } from './crawler-company-ownership.mjs';
@@ -221,12 +221,10 @@ export function resolveAddress(cityRaw = '', _regionRaw = '') {
  * @returns {Promise<{totalJobs:number|null, jobs:object[], fetchOutcome:string}>}
  */
 async function fetchJobsApiPage(locale, pageNumber, timeoutMs) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(JOBS_API_URL, {
+    const data = await fetchJson(JOBS_API_URL, {
       method: 'POST',
-      signal: controller.signal,
+      timeoutMs,
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
@@ -236,17 +234,9 @@ async function fetchJobsApiPage(locale, pageNumber, timeoutMs) {
         'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
           'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
-      body: JSON.stringify({ locale, pageNumber, sortBy: 'date' }),
+      body: { locale, pageNumber, sortBy: 'date' },
+      label: `PostAuto jobs API (${locale} page ${pageNumber})`,
     });
-    if (!res.ok) {
-      console.warn(`⚠️ HTTP ${res.status} for jobs API (${locale} page ${pageNumber})`);
-      return {
-        totalJobs: null,
-        jobs: [],
-        fetchOutcome: res.status === 403 || res.status === 429 ? 'anti_bot_block' : 'feed_endpoint_unavailable',
-      };
-    }
-    const data = await res.json();
     if (!Array.isArray(data?.jobSearchResult)) {
       console.warn(`⚠️ Jobs API response changed for ${locale} page ${pageNumber} (missing jobSearchResult)`);
       return { totalJobs: null, jobs: [], fetchOutcome: 'selector_miss' };
@@ -259,10 +249,14 @@ async function fetchJobsApiPage(locale, pageNumber, timeoutMs) {
       fetchOutcome: 'ok',
     };
   } catch (err) {
+    const status = Number(err?.status);
+    const fetchOutcome = status === 403 || status === 429
+      ? 'anti_bot_block'
+      : Number.isFinite(status)
+        ? 'feed_endpoint_unavailable'
+        : 'connection_error';
     console.warn(`⚠️ Jobs API fetch failed (${locale} page ${pageNumber}): ${err.message}`);
-    return { totalJobs: null, jobs: [], fetchOutcome: 'connection_error' };
-  } finally {
-    clearTimeout(timer);
+    return { totalJobs: null, jobs: [], fetchOutcome };
   }
 }
 

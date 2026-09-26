@@ -12054,6 +12054,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-biglietto-a-bordo-doppio.title': 'Varese, biglietto a bordo costa il doppio: la testimonianza',
     'blog.article.varese-biglietto-a-bordo-doppio.excerpt': 'Una studentessa dell\'Università dell\'Insubria ha pagato 3,20 euro per un biglietto autobus a bordo, il doppio del prezzo normale secondo la sua testimonianza, dopo che il pagamento con carta non funzionava.',
     'blog.article.varese-biglietto-a-bordo-doppio.imageAlt': 'Autobus urbano alla fermata in un contesto ticinese, passeggeri in attesa',
+    'blog.article.cotonificio-liuc-industrial-quest.title': 'Cotonificio LIUC protagonista di Industrial Quest 2026',
+    'blog.article.cotonificio-liuc-industrial-quest.excerpt': 'Il 12‑13 settembre 2026, Castellanza ha rappresentato l’Italia nella prima edizione di Industrial Quest: 46 siti in 15 Paesi, 5 squadre al Cotonificio Cantoni LIUC, Zamponari 40 punti, Gli stranieri 35.',
+    'blog.article.cotonificio-liuc-industrial-quest.imageAlt': 'Vista del lago di Lugano con le montagne sullo sfondo, luce del mattino',
 };
 
 export default blogMetaIt;
