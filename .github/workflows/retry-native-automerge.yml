@@ -53,9 +53,13 @@ jobs:
       - name: Validate trusted native auto-merge source
         env:
           NATIVE_AUTOMERGE_SOURCE_ROOT: ${{ github.workspace }}/native-automerge-main
-        run: node "$NATIVE_AUTOMERGE_SOURCE_ROOT/scripts/ci/native-automerge-source.mjs"
+        run: |
+          set -euo pipefail
+          node "$NATIVE_AUTOMERGE_SOURCE_ROOT/scripts/ci/native-automerge-source.mjs"
+          echo "NATIVE_AUTOMERGE_BOOTSTRAP_READY=true" >> "$GITHUB_ENV"
 
       - name: Prepare Firebase credentials
+        if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -67,9 +71,11 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load PAT from Remote Config
+        if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'
         run: node "$NATIVE_AUTOMERGE_SOURCE_ROOT/scripts/load-rc-env.mjs"
 
       - name: Retry bounded native auto-merge opt-in
+        if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'
         env:
           REPOSITORY: ${{ github.repository }}
           MAX_PR_SCAN: '100'

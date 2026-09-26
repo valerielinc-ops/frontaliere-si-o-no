@@ -956,7 +956,8 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     // confonderebbe quella prosa con la configurazione.
     expect(Object.keys((YAML.parse(workflow) as { on?: Record<string, unknown> }).on ?? {}))
       .toEqual(['workflow_dispatch']);
-    expect(workflow).not.toContain('NATIVE_AUTOMERGE_BOOTSTRAP_READY');
+    expect(workflow).toContain('echo "NATIVE_AUTOMERGE_BOOTSTRAP_READY=true" >> "$GITHUB_ENV"');
+    expect(workflow).toContain("if: env.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'");
     expect(workflow).not.toContain('Static control-plane bootstrap guard');
     expect(workflow).not.toContain('control-plane path');
     expect(workflow).not.toContain('CONTROL_PLANE_GUARD_VERSION');
@@ -968,7 +969,7 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     expect(workflow).toContain('native-automerge-source.mjs');
     expect(workflow).not.toContain('contents/');
     expect(workflow).not.toContain('native-automerge-gate.mjs.tmp');
-    expect(workflow).not.toContain('if: env.NATIVE_AUTOMERGE_');
+    expect(workflow.match(/if: env\.NATIVE_AUTOMERGE_BOOTSTRAP_READY == 'true'/gu)).toHaveLength(3);
     expect(workflow).toContain('native-automerge-gate.mjs');
     expect(workflow).not.toContain('gh pr merge "$PR_NUMBER"');
   });
