@@ -6770,6 +6770,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bns-inflazione-pil-previsioni-2026.title': 'SNB leaves rate at 0%, GDP 2026 at 1.5-2%',
     'blog.article.bns-inflazione-pil-previsioni-2026.excerpt': 'Unchanged rate at 0%, 2026 inflation at 0.7%, revised GDP growth between 1.5% and 2.0%. SNB ready to intervene on foreign exchange.',
     'blog.article.bns-inflazione-pil-previsioni-2026.imageAlt': 'Swiss National Bank headquarters in Zurich with Swiss flag',
+    'blog.article.valutazione-universitaria-intelligenza-artificiale.title': 'Swiss universities: AI changes the assessment of theses',
+    'blog.article.valutazione-universitaria-intelligenza-artificiale.excerpt': 'University of Zurich, ZHAW and SUPSI review examination methods, focusing on oral exams and transparency in the use of artificial intelligence.',
+    'blog.article.valutazione-universitaria-intelligenza-artificiale.imageAlt': 'Swiss university student working with laptop and books',
 };
 
 export default blogMetaChEn;
