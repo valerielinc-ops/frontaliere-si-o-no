@@ -26,6 +26,12 @@ const DATE_RE = /^\d{4}-(?:0[1-9]|1[0-2])-\d{2}$/;
 const MONTH_SHARD_RE = /^(\d{4}-(?:0[1-9]|1[0-2]))\.json$/;
 const DAY_SHARD_RE = /^(\d{4}-(?:0[1-9]|1[0-2])-\d{2})\.json$/;
 
+export function isJobStatsHistoryDailyShardPath(filePath) {
+  const normalized = String(filePath).replace(/\\/g, '/');
+  const prefix = `${JOB_STATS_HISTORY_SHARD_DIR}/`;
+  return normalized.startsWith(prefix) && DAY_SHARD_RE.test(normalized.slice(prefix.length));
+}
+
 /**
  * Hard ceiling for one shard file, below GitHub's 100 MB per-file push limit.
  * A single verbose day weighs ~20 MB (2026-09), so a daily shard stays far
@@ -342,6 +348,40 @@ function preservesCompactionPayload(previous = {}, next = {}) {
   });
 }
 
+/**
+ * Prove that a compacted historical rewrite preserves the logical counters
+ * and every action-bearing payload. Descriptor-only title rows may be
+ * re-keyed or collapsed during locale migration; they are not consumed by
+ * the history leaders and therefore are not part of the retained payload.
+ *
+ * This predicate is shared with the post-push byte guard. Keeping the proof
+ * in one place prevents a semantically safe locale migration from being
+ * written by the producer and then auto-reverted by the generic detector.
+ */
+export function isSafeJobStatsHistoryRewrite(previous = {}, next = {}) {
+  return DATE_RE.test(String(previous.date || ''))
+    && hasSameHistoryCounters(previous, next)
+    && isCompactedHistoryEntry(next)
+    && preservesCompactionPayload(previous, next);
+}
+
+export function isSafeJobStatsHistoryShardRewrite(previousRaw, nextRaw) {
+  try {
+    const previousDocument = JSON.parse(String(previousRaw));
+    const nextDocument = JSON.parse(String(nextRaw));
+    if (!Array.isArray(previousDocument?.entries) || previousDocument.entries.length !== 1) return false;
+    if (!Array.isArray(nextDocument?.entries) || nextDocument.entries.length !== 1) return false;
+
+    const previousEntries = historyEntries(previousDocument);
+    const nextEntries = historyEntries(nextDocument);
+    if (previousEntries.length !== 1 || nextEntries.length !== 1) return false;
+
+    return isSafeJobStatsHistoryRewrite(previousEntries[0], nextEntries[0]);
+  } catch {
+    return false;
+  }
+}
+
 function readShardedHistory(rootDir) {
   const entriesByDate = new Map();
   for (const filePath of listJobStatsHistoryShardFiles(rootDir)) {
@@ -452,9 +492,7 @@ export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), opt
     const existingEntry = existing.entries.find((item) => item.date === date);
     const isControlledHistoricalRewrite = date < currentDate
       && existing.ok
-      && hasSameHistoryCounters(existingEntry || {}, entry)
-      && isCompactedHistoryEntry(entry)
-      && preservesCompactionPayload(existingEntry || {}, entry);
+      && isSafeJobStatsHistoryRewrite(existingEntry || {}, entry);
     if (fs.existsSync(shardFile) && !isControlledHistoricalRewrite) {
       assertAccumulatorByteFloor(
         fs.statSync(shardFile).size,

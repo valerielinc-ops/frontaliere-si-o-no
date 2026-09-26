@@ -38,6 +38,7 @@ describe('guard-data-integrity — main() detects a catastrophic shrink', () => 
   const BEFORE = 'aaa0000';
   const AFTER = 'bbb1111';
   const BIG_FILE = 'data/seo-404-compat-paths.json';
+  const JOB_STATS_FILE = 'data/jobs-stats-history/2026-09-24.json';
 
   beforeEach(() => {
     process.argv[2] = BEFORE;
@@ -77,6 +78,99 @@ describe('guard-data-integrity — main() detects a catastrophic shrink', () => 
       if (args[0] === 'cat-file') {
         const ref = args[2].split(':')[0];
         return ref === BEFORE ? '500000' : '1000'; // big % shrink, but small file
+      }
+      return '';
+    });
+    const writeSpy = vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+
+    const { main } = await import('../scripts/ci/guard-data-integrity.mjs');
+    main();
+
+    const written = writeSpy.mock.calls.map((c) => c[0]).join('');
+    expect(JSON.parse(written)).toEqual([]);
+    writeSpy.mockRestore();
+  });
+
+  it('ignores a proven-safe historical job-stats locale rewrite', async () => {
+    const previousShard = JSON.stringify({ entries: [{
+      date: '2026-09-24',
+      totalJobs: 10,
+      added: 1,
+      updated: 2,
+      removed: 0,
+      addedKeys: ['url:added'],
+      updatedKeys: [],
+      removedKeys: [],
+      companyStats: [{
+        key: 'company',
+        name: 'Company',
+        addedKeys: ['url:added'],
+        updatedKeys: [],
+        removedKeys: [],
+        updatedCount: 2,
+      }],
+      locationStats: [{
+        key: 'location',
+        name: 'Location',
+        addedKeys: [],
+        updatedKeys: [],
+        removedKeys: [],
+        updatedCount: 2,
+      }],
+      titleStats: [{
+        key: 'raw-title',
+        name: 'Raw title',
+        addedKeys: [],
+        updatedKeys: [],
+        removedKeys: [],
+      }],
+    }] });
+    const nextShard = JSON.stringify({ entries: [{
+      date: '2026-09-24',
+      totalJobs: 10,
+      added: 1,
+      updated: 2,
+      removed: 0,
+      addedKeys: ['url:added'],
+      updatedKeys: [],
+      removedKeys: [],
+      companyStats: [{
+        key: 'company',
+        name: 'Company',
+        addedKeys: ['url:added'],
+        updatedKeys: [],
+        removedKeys: [],
+        updatedCount: 2,
+      }],
+      locationStats: [{
+        key: 'location',
+        name: 'Location',
+        addedKeys: [],
+        updatedKeys: [],
+        removedKeys: [],
+        updatedCount: 2,
+      }],
+      titleStats: [{
+        key: 'titolo-italiano',
+        name: 'Titolo italiano',
+        addedKeys: [],
+        updatedKeys: [],
+        removedKeys: [],
+      }],
+    }] });
+
+    process.argv[2] = BEFORE;
+    process.argv[3] = AFTER;
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'merge-base') return '';
+      if (args[0] === 'diff') return `${JOB_STATS_FILE}\n`;
+      if (args[0] === 'cat-file' && args[1] === '-s') {
+        const ref = args[2].split(':')[0];
+        return ref === BEFORE ? '8451534' : '2086213';
+      }
+      if (args[0] === 'cat-file' && args[1] === 'blob') {
+        const ref = args[2].split(':')[0];
+        return ref === BEFORE ? previousShard : nextShard;
       }
       return '';
     });
