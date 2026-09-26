@@ -71,8 +71,11 @@ function blobAt(ref, file) {
   }
 }
 
-function isSafeJobStatsHistoryRewriteAtRefs(beforeSha, afterSha, file) {
+function isSafeJobStatsHistoryRewriteAtRefs(beforeSha, afterSha, file, currentDate) {
   if (!isJobStatsHistoryDailyShardPath(file)) return false;
+  const shardName = String(file).replace(/\\/g, '/').split('/').at(-1) || '';
+  const shardDate = shardName.slice(0, -'.json'.length);
+  if (shardDate >= currentDate) return false;
   const previousRaw = blobAt(beforeSha, file);
   const nextRaw = blobAt(afterSha, file);
   return previousRaw !== null
@@ -120,6 +123,7 @@ export function main() {
     return;
   }
 
+  const currentDate = new Date().toISOString().slice(0, 10);
   const violations = [];
   for (const file of changed) {
     const prevBytes = sizeAt(beforeSha, file);
@@ -132,7 +136,7 @@ export function main() {
       // The writer intentionally compacts/re-keys historical title descriptors
       // only after proving that all counters and action-bearing payload survive.
       // Keep the generic byte guard fail-closed for every other data path.
-      if (isSafeJobStatsHistoryRewriteAtRefs(beforeSha, afterSha, file)) continue;
+      if (isSafeJobStatsHistoryRewriteAtRefs(beforeSha, afterSha, file, currentDate)) continue;
       const shrinkPct = accumulatorShrinkPct(prevBytes, newBytes);
       violations.push({
         file,
