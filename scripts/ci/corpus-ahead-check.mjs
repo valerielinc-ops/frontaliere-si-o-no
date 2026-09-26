@@ -367,6 +367,47 @@ export function undeclaredRelativeImports({ entries, read, isDeclared, exists })
   return out;
 }
 
+/**
+ * I gemelli su cui gira il guard, con il path di QUESTO repo.
+ *
+ * Ambito: i soli `identical`. Un `adapted` diverge per costruzione — il gemello
+ * di la' puo' legittimamente non avere quell'import, ed e' proprio il caso di
+ * `atomic-write-json.mjs`, che sul corpus e' `adapted` PERCHE' lascia cadere
+ * `./slug-preservation-guard.mjs`. Allargare a `adapted` produrrebbe 31 righe
+ * di cui quasi nessuna e' un difetto, cioe' un report che nessuno legge.
+ *
+ * @param {{files: Array<{path: string, sitePath?: string, mode?: string}>}} manifest
+ * @returns {Array<{path: string, mode: string}>}
+ */
+export function identicalTwinEntries(manifest) {
+  return manifest.files
+    .filter((f) => f.mode === 'identical')
+    .map((f) => ({ path: f.sitePath || f.path, mode: f.mode }));
+}
+
+/**
+ * I path di questo repo che esisteranno anche di la': ogni voce del manifest
+ * del corpus che non sia `corpus-only*`, piu' la consegna del transport.
+ *
+ * «Dichiarato» include il manifest del transport, non solo quello del corpus:
+ * la domanda vera non e' «e' registrato in QUESTO elenco» ma «esistera' di la'
+ * quando ci arrivera' chi lo importa», e i due elenchi sono due canali di
+ * consegna dello stesso file.
+ *
+ * @param {{files: Array<{path: string, sitePath?: string, mode?: string}>}} manifest
+ * @param {Iterable<string>} [transportPaths] i path di `transportManifestPaths()`.
+ * @returns {Set<string>}
+ */
+export function declaredTwinPaths(manifest, transportPaths = []) {
+  const declared = new Set(
+    manifest.files
+      .filter((f) => f.mode !== 'corpus-only' && f.mode !== 'corpus-only-pending')
+      .map((f) => f.sitePath || f.path),
+  );
+  for (const rel of transportPaths) declared.add(rel);
+  return declared;
+}
+
 /** L'altro elenco di consegna: la MOVE set che il transport copia sotto `generator/`. */
 export const TRANSPORT_MANIFEST = '.github/transport/nanako-generator-manifest.txt';
 
@@ -586,33 +627,14 @@ async function main() {
 
   // Il guard di chiusura (vedi il blocco sopra `relativeImportSpecifiers`). Gira
   // qui, non in un branch a parte, perche' il manifest e' gia' in mano e la
-  // risposta e' locale: nessuna fetch in piu'.
-  //
-  // Ambito: i soli `identical`. Un `adapted` diverge per costruzione — il gemello
-  // di la' puo' legittimamente non avere quell'import, ed e' proprio il caso di
-  // `atomic-write-json.mjs`, che sul corpus e' `adapted` PERCHE' lascia cadere
-  // `./slug-preservation-guard.mjs`. Allargare a `adapted` produrrebbe 31 righe
-  // di cui quasi nessuna e' un difetto, cioe' un report che nessuno legge.
-  //
-  // «Dichiarato» include il manifest del transport, non solo quello del corpus:
-  // la domanda vera non e' «e' registrato in QUESTO elenco» ma «esistera' di la'
-  // quando ci arrivera' chi lo importa», e i due elenchi sono due canali di
-  // consegna dello stesso file.
-  const declared = new Set(
-    manifest.files
-      .filter((f) => f.mode !== 'corpus-only' && f.mode !== 'corpus-only-pending')
-      .map((f) => f.sitePath || f.path),
-  );
-  for (const rel of transportManifestPaths()) declared.add(rel);
+  // risposta e' locale: nessuna fetch in piu'. Ambito e insieme dei dichiarati
+  // stanno in `identicalTwinEntries`/`declaredTwinPaths`, condivisi con il
+  // cancello di PR `identical-twin-import-gate.mjs`.
+  const declared = declaredTwinPaths(manifest, transportManifestPaths());
 
   const importHazards = undeclaredRelativeImports({
-    entries: manifest.files
-      .filter((f) => f.mode === 'identical')
-      .map((f) => ({ path: f.sitePath || f.path, mode: f.mode })),
-    read: (rel) => {
-      const buf = siteContent(rel);
-      return buf === null ? null : buf.toString('utf8');
-    },
+    entries: identicalTwinEntries(manifest),
+    read: readSiteText,
     isDeclared: (rel) => declared.has(rel),
   }).map((h) => ({
     path: h.from,

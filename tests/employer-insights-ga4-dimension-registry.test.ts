@@ -3,6 +3,10 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 import { buildGa4EventQueryBody } from '../scripts/build-employer-insights.mjs';
+import {
+  EMPLOYER_INSIGHTS_GA4_CUSTOM_DIMENSIONS,
+  ensureGa4CustomDimensions,
+} from '../scripts/lib/ga4-employer-insights-dimensions.mjs';
 
 // #9403: the GA4 Data API rejects a `customEvent:<param>` dimension until the
 // event parameter is registered as a custom dimension on the property. The
@@ -15,6 +19,10 @@ import { buildGa4EventQueryBody } from '../scripts/build-employer-insights.mjs';
 describe('employer insights GA4 custom dimensions (#9403)', () => {
   const analyticsReport = readFileSync(
     resolve(import.meta.dirname, '../scripts/analytics-report.mjs'),
+    'utf8',
+  );
+  const refreshWorkflow = readFileSync(
+    resolve(import.meta.dirname, '../.github/workflows/employer-insights-refresh.yml'),
     'utf8',
   );
   const window = {
@@ -34,20 +42,61 @@ describe('employer insights GA4 custom dimensions (#9403)', () => {
     expect(new Set(requestedParameters)).toEqual(new Set(['employer_key', 'job_slug', 'emission_id']));
   });
 
-  const registrarStart = analyticsReport.indexOf('const REQUIRED_CUSTOM_DIMS = [');
-  const registrarEnd = analyticsReport.indexOf('\n  ];', registrarStart);
   const registered = new Set(
-    [...analyticsReport.slice(registrarStart, registrarEnd).matchAll(/parameterName: '([a-z0-9_]+)'/g)]
-      .map((match) => match[1]),
+    EMPLOYER_INSIGHTS_GA4_CUSTOM_DIMENSIONS.map(({ parameterName }) => parameterName),
   );
 
-  it('finds the event-scoped registrar list', () => {
-    expect(registrarStart).toBeGreaterThan(-1);
-    expect(registrarEnd).toBeGreaterThan(registrarStart);
-    expect(registered.has('metric_name')).toBe(true);
+  it('shares the employer dimension registry with the weekly analytics registrar', () => {
+    expect(analyticsReport).toContain('...EMPLOYER_INSIGHTS_GA4_CUSTOM_DIMENSIONS');
+    expect(analyticsReport).toContain('ensureGa4CustomDimensions');
+    expect([...registered].sort()).toEqual(['emission_id', 'employer_key', 'job_slug']);
+  });
+
+  it('provisions dimensions before the refresh queries GA4', () => {
+    const provision = refreshWorkflow.indexOf('node scripts/provision-employer-insights-ga4-dimensions.mjs');
+    const build = refreshWorkflow.indexOf('node scripts/build-employer-insights.mjs');
+    expect(provision).toBeGreaterThan(-1);
+    expect(build).toBeGreaterThan(provision);
+  });
+
+  it('treats existing and concurrent dimensions as idempotent success', async () => {
+    const response = (status: number, body: unknown) => ({
+      ok: status >= 200 && status < 300,
+      status,
+      statusText: `S${status}`,
+      json: async () => body,
+    });
+    const responses = [
+      response(200, { customDimensions: [{ parameterName: 'employer_key' }] }),
+      response(200, {}),
+      response(409, {}),
+    ];
+    const calls: Array<{ url: string; options: { method?: string; body?: string } }> = [];
+    const result = await ensureGa4CustomDimensions({
+      propertyId: '123456789',
+      token: 'test-token',
+      fetchImpl: async (url: string, options: { method?: string; body?: string } = {}) => {
+        calls.push({ url, options });
+        return responses.shift();
+      },
+    });
+
+    expect(result).toEqual({
+      registered: ['job_slug'],
+      alreadyPresent: ['employer_key'],
+      raced: ['emission_id'],
+      failures: [],
+    });
+    expect(calls).toHaveLength(3);
+    expect(calls[0].url).toContain('/properties/123456789/customDimensions?pageSize=200');
+    expect(JSON.parse(calls[1].options.body || '{}')).toMatchObject({
+      parameterName: 'job_slug',
+      scope: 'EVENT',
+    });
+    expect(JSON.parse(calls[2].options.body || '{}').parameterName).toBe('emission_id');
   });
 
   it.each([...new Set(requestedParameters)])('the analytics report registers %s', (parameter) => {
-    expect(registered.has(parameter), `${parameter} missing from REQUIRED_CUSTOM_DIMS`).toBe(true);
+    expect(registered.has(parameter), `${parameter} missing from employer-insights GA4 registry`).toBe(true);
   });
 });
