@@ -78,8 +78,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "benu-3bbaab4e3b94",
@@ -157,8 +156,7 @@
           "maxValue": 34800,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "benu-3d9a49208e5e",
@@ -236,8 +234,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "benu-39541b7789ac",
@@ -394,8 +391,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "benu-3f9eaf424ad7",
@@ -460,7 +456,6 @@
         }
       },
       "firstSeenAt": "2026-09-25T14:46:01.997Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "hr-service-specialist-w-m-60-100-koniz-berne-benu-ch",
@@ -552,8 +547,7 @@
         }
       },
       "sourceIdentity": "url:https://job.benu.ch/de/jobs/8059265-data-engineer-microsoft-fabric-w-m-80-100-de",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }
