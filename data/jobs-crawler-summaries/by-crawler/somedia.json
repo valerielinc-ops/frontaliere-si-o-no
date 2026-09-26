@@ -1,7 +1,7 @@
 {
   "key": "somedia",
   "label": "Somedia AG",
-  "generatedAt": "2026-09-25T14:47:57.020Z",
+  "generatedAt": "2026-09-26T14:03:42.020Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -12,10 +12,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5490,
-  "avgDurationMs": 5490,
+  "durationMs": 6223,
+  "avgDurationMs": 6223,
   "durationHistory": [
-    5490
+    6223
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://jobs.somedia.ch/Sales-Managerin-Aussendienst-80-100-de-j416.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:47:46.246Z",
+      "crawledAt": "2026-09-26T14:03:33.377Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -52,6 +52,7 @@
         "identifier": "",
         "hiringOrganization": "Somedia Promotion AG"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:15:11.091Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -73,7 +74,7 @@
       "url": "https://jobs.somedia.ch/Redaktorin-Video-40-de-j415.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:47:47.243Z",
+      "crawledAt": "2026-09-26T14:03:34.537Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -94,6 +95,7 @@
         "identifier": "",
         "hiringOrganization": "Südostschweiz TV AG"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T14:17:28.751Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
