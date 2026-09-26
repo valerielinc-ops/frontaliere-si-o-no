@@ -29,6 +29,40 @@ export const TYPECHECK_REQUIRED_SPARSE_PATHS = [
   '/packages/articles/content/blog-articles-data.ts',
 ];
 
+/**
+ * Input letti dal build globale mentre gira nel job `vitest`.
+ *
+ * I primi due nomi sono symlink: Git deve materializzare sia il link sotto
+ * `data/` sia il bersaglio reale nel package degli articoli. Gli altri file
+ * sono sorgenti letti da Vite/build-plugin a runtime, quindi non bastano la
+ * chiusura degli import statici né un profilo che guarda solo il typecheck.
+ * Tenere il contratto qui, accanto al generatore dei profili, evita che
+ * `tests.yml`, il verifier e i test possano divergere.
+ */
+export const GLOBAL_TESTS_REQUIRED_SPARSE_PATHS = Object.freeze([
+  '/data/blog-articles-data.ts',
+  '/data/swiss-articles-data.ts',
+  '/public/data/fuel-prices.json',
+  '/packages/articles/content/blog-articles-data.ts',
+  '/packages/articles/content/swiss-articles-data.ts',
+  '/packages/articles/content/blogArticleIds.ts',
+  '/packages/articles/content/routerBlogData.ts',
+  '/packages/articles/content/routerSwissData.ts',
+  '/packages/articles/content/blogImageCdnMirror.ts',
+  '/packages/articles/content/blog-meta-it.ts',
+  '/packages/articles/content/blog-meta-en.ts',
+  '/packages/articles/content/blog-meta-de.ts',
+  '/packages/articles/content/blog-meta-fr.ts',
+  '/packages/articles/content/blog-meta-ch-it.ts',
+  '/packages/articles/content/blog-meta-ch-en.ts',
+  '/packages/articles/content/blog-meta-ch-de.ts',
+  '/packages/articles/content/blog-meta-ch-fr.ts',
+  '/packages/articles/content/seo/seo-blog.ts',
+  '/packages/articles/content/seo/seo-blog-7.ts',
+  '/packages/articles/content/seo/seo-blog-ch.ts',
+  '/packages/articles/content/seo/seoMetadataType.ts',
+]);
+
 /** Righe dei pattern sparse per una lista di bucket da escludere. */
 export function sparsePatterns(exclude, include = []) {
   return ['/*', ...exclude.map((id) => '!/' + id), ...include];
@@ -45,7 +79,7 @@ function sparsePatternMatches(pattern, target) {
   return target === normalized || target.startsWith(normalized + '/');
 }
 
-function sparseIncludesPath(raw, target) {
+export function sparseIncludesPath(raw, target) {
   let included = false;
   for (const line of String(raw ?? '').split('\n')) {
     const trimmed = line.trim();
@@ -55,6 +89,28 @@ function sparseIncludesPath(raw, target) {
     included = !excluded;
   }
   return included;
+}
+
+/**
+ * Verifica gli input runtime non chiudibili dal grafo statico del job globale.
+ * Un checkout pieno (o un profilo senza sparse-checkout) e' sicuro per
+ * costruzione; qui si controlla solo il job `vitest` con un allow-list.
+ */
+export function missingGlobalTestsSparsePaths(text, file = 'workflow.yml') {
+  let doc;
+  try { doc = YAML.parse(text, { logLevel: 'silent' }); } catch { return []; }
+  const job = doc?.jobs?.vitest;
+  if (!job) return [];
+  const checkout = (job.steps ?? []).find(
+    (step) => typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'),
+  );
+  const sparse = checkout?.with?.['sparse-checkout'];
+  if (sparse === undefined) return [];
+  const checkoutPath = String(checkout?.with?.path ?? '').replace(/^\.?\/?/, '').replace(/\/+$/, '');
+  if (checkoutPath !== '') return [];
+  return GLOBAL_TESTS_REQUIRED_SPARSE_PATHS
+    .filter((target) => !sparseIncludesPath(sparse, target.slice(1)))
+    .map((target) => `${file}:vitest:${target}`);
 }
 
 /**

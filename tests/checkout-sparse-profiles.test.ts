@@ -38,6 +38,8 @@ import {
 } from '../scripts/ci/checkout-profile-analyzer.mjs';
 import {
   computeProfiledText,
+  GLOBAL_TESTS_REQUIRED_SPARSE_PATHS,
+  missingGlobalTestsSparsePaths,
   missingTypecheckSparsePaths,
   TYPECHECK_REQUIRED_SPARSE_PATHS,
 } from '../scripts/ci/apply-checkout-profiles.mjs';
@@ -116,6 +118,20 @@ describe('profili di sparse-checkout', () => {
       '/data/blog-articles-data.ts',
       '/packages/articles/content/blog-articles-data.ts',
     ]);
+  });
+
+  it('il profilo globale materializza tutti gli input runtime del build', () => {
+    const source = fs.readFileSync(path.join(WF_DIR, 'tests.yml'), 'utf8');
+    expect(missingGlobalTestsSparsePaths(source, 'tests.yml')).toEqual([]);
+    expect(GLOBAL_TESTS_REQUIRED_SPARSE_PATHS).toContain('/public/data/fuel-prices.json');
+    expect(GLOBAL_TESTS_REQUIRED_SPARSE_PATHS).toContain('/data/swiss-articles-data.ts');
+    expect(GLOBAL_TESTS_REQUIRED_SPARSE_PATHS).toContain('/packages/articles/content/seo/seo-blog-7.ts');
+  });
+
+  it('se il profilo globale perde un artefatto, il verifier lo segnala', () => {
+    const source = `jobs:\n  vitest:\n    steps:\n      - uses: actions/checkout@v5\n        with:\n          sparse-checkout: |\n            /scripts/\n            /data/\n            /packages/articles/content/blog-articles-data.ts\n            /packages/articles/content/swiss-articles-data.ts\n            /packages/articles/content/blogArticleIds.ts\n            /packages/articles/content/routerBlogData.ts\n            /packages/articles/content/routerSwissData.ts\n            /packages/articles/content/blogImageCdnMirror.ts\n            /packages/articles/content/blog-meta-*.ts\n            /packages/articles/content/seo/seo-blog*.ts\n            /packages/articles/content/seo/seoMetadataType.ts\n          sparse-checkout-cone-mode: false\n`;
+    const missing = missingGlobalTestsSparsePaths(source, 'synthetic.yml');
+    expect(missing).toContain('synthetic.yml:vitest:/public/data/fuel-prices.json');
   });
 
   it('se un profilo typecheck esclude il target, --check lo segnala esplicitamente', () => {
