@@ -12066,6 +12066,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.protesta-impianto-betonaggio-intelvi.title': 'Protesta a Castiglione d\'Intelvi per impianto betonaggio',
     'blog.article.protesta-impianto-betonaggio-intelvi.excerpt': 'Oltre 750 firme raccolte in sei giorni contro l\'impianto di betonaggio e frantoio previsti a Castiglione d\'Intelvi per la Variante della Tremezzina.',
     'blog.article.protesta-impianto-betonaggio-intelvi.imageAlt': 'Paesaggio della Valle d\'Intelvi con strade strette e tortuose',
+    'blog.article.merone-pendolare-frontiera-ch.title': 'Vivere a Merone e lavorare in Ticino da frontaliere',
+    'blog.article.merone-pendolare-frontiera-ch.excerpt': 'Vivere a Merone e lavorare in Ticino: cosa cambia per imposta alla fonte, franchigie di 7.500 e 10.000 euro, AVS, LPP e LAMal.',
+    'blog.article.merone-pendolare-frontiera-ch.imageAlt': 'Strada mattutina in Ticino per chi vive a Merone e lavora oltreconfine',
 };
 
 export default blogMetaIt;

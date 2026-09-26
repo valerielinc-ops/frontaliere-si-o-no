@@ -94375,6 +94375,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-merone-pendolare-frontiera-ch': {
+    title: 'Vivere a Merone e lavorare in Ticino da frontaliere',
+    description: 'Merone-Ticino da frontaliere: regole dell\'Accordo 2024, franchigie di 7.500 e 10.000 euro, imposta alla fonte svizzera, AVS, LPP, LAMal e doppia imposizione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, merone, lavorare, cosa',
+    ogTitle: 'Vivere a Merone e lavorare in Ticino da frontaliere',
+    ogDescription: 'Vivere a Merone e lavorare nel Canton Ticino richiede di distinguere vecchi e nuovi frontalieri, credito nel quadro CE del 730, trattenute svizzere, AVS, LPP e diritto d\'opzione LAMal. L\'Accordo è firmato nel 2020 e in vigore dal 2024.',
+    canonicalPath: '/articoli-frontaliere/merone-pendolare-frontiera-ch',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Merone e lavorare in Ticino da frontaliere",
+      "description": "Merone-Ticino da frontaliere: regole dell'Accordo 2024, franchigie di 7.500 e 10.000 euro, imposta alla fonte svizzera, AVS, LPP, LAMal e doppia imposizione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/merone-pendolare-frontiera-ch.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada mattutina in Ticino per chi vive a Merone e lavora oltreconfine"
+      },
+      "datePublished": "2026-09-26T14:33:31+00:00",
+      "dateModified": "2026-09-26T14:33:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/merone-pendolare-frontiera-ch/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

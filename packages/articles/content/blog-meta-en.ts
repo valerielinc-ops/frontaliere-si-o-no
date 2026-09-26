@@ -12065,6 +12065,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.protesta-impianto-betonaggio-intelvi.title': 'Protest in Castiglione d\'Intelvi over concrete batching plant',
     'blog.article.protesta-impianto-betonaggio-intelvi.excerpt': 'Over 750 signatures collected in six days against the concrete batching plant and crusher planned in Castiglione d\'Intelvi for the Tremezzina Bypass.',
     'blog.article.protesta-impianto-betonaggio-intelvi.imageAlt': 'Landscape of the Intelvi Valley with narrow winding roads',
+    'blog.article.merone-pendolare-frontiera-ch.title': 'Living in Merone and working in Ticino as a cross-border commuter',
+    'blog.article.merone-pendolare-frontiera-ch.excerpt': 'Living in Merone and working in Ticino: what changes regarding withholding tax, deductibles of 7.500 and 10.000 euro, AVS, LPP and LAMal.',
+    'blog.article.merone-pendolare-frontiera-ch.imageAlt': 'Morning road in Ticino for someone living in Merone and working across the border',
 };
 
 export default blogMetaEn;
