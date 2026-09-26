@@ -94180,6 +94180,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-biglietto-a-bordo-doppio': {
+    title: 'Varese, biglietto a bordo costa il doppio: la testimonianza',
+    description: 'Una studentessa dell\'Università dell\'Insubria ha pagato 3,20 euro per un biglietto autobus a bordo, il doppio del prezzo normale, dopo il guasto del pagamento',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, biglietto, bordo, costa',
+    ogTitle: 'Varese, biglietto a bordo costa il doppio: la testimonianza',
+    ogDescription: 'Il caso della studentessa universitaria di Varese che ha dovuto pagare 3,20 euro per un biglietto autobus acquistato a bordo, il doppio del costo abituale, a causa del malfunzionamento del lettore di carte. L\'articolo riporta le sue dichiarazioni',
+    canonicalPath: '/articoli-frontaliere/varese-biglietto-a-bordo-doppio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese, biglietto a bordo costa il doppio: la testimonianza",
+      "description": "Una studentessa dell'Università dell'Insubria ha pagato 3,20 euro per un biglietto autobus a bordo, il doppio del prezzo normale, dopo il guasto del pagamento",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/varese-biglietto-a-bordo-doppio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autobus urbano alla fermata in un contesto ticinese, passeggeri in attesa"
+      },
+      "datePublished": "2026-09-26T09:58:17+00:00",
+      "dateModified": "2026-09-26T09:58:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-biglietto-a-bordo-doppio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_SEO_METADATA_5;

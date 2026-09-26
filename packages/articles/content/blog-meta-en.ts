@@ -12050,6 +12050,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-26.imageAlt': 'The day\'s numbers for cross-border commuters – September 26, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-09-26.seoDescription': 'Cross-border brief, September 26, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-09-26.ogDescription': 'The numbers for September 26, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.varese-biglietto-a-bordo-doppio.title': 'Varese, onboard ticket costs twice as much: the testimony',
+    'blog.article.varese-biglietto-a-bordo-doppio.excerpt': 'A student at Università dell\'Insubria paid 3,20 euro for an onboard bus ticket, twice the normal price according to her testimony, after card payment did not work.',
+    'blog.article.varese-biglietto-a-bordo-doppio.imageAlt': 'City bus at a stop in a Ticino setting, passengers waiting',
 };
 
 export default blogMetaEn;

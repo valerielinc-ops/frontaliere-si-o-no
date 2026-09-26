@@ -12051,6 +12051,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-26.imageAlt': 'I numeri del giorno per i frontalieri – 26 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-09-26.seoDescription': 'Bollettino frontalieri del 26 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-09-26.ogDescription': 'I numeri del 26 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.varese-biglietto-a-bordo-doppio.title': 'Varese, biglietto a bordo costa il doppio: la testimonianza',
+    'blog.article.varese-biglietto-a-bordo-doppio.excerpt': 'Una studentessa dell\'Università dell\'Insubria ha pagato 3,20 euro per un biglietto autobus a bordo, il doppio del prezzo normale secondo la sua testimonianza, dopo che il pagamento con carta non funzionava.',
+    'blog.article.varese-biglietto-a-bordo-doppio.imageAlt': 'Autobus urbano alla fermata in un contesto ticinese, passeggeri in attesa',
 };
 
 export default blogMetaIt;

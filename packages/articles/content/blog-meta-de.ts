@@ -12049,6 +12049,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-26.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 26. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-09-26.seoDescription': 'Grenzgänger-Bulletin vom 26. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-09-26.ogDescription': 'Die Zahlen vom 26. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.varese-biglietto-a-bordo-doppio.title': 'Varese, das Ticket an Bord kostet das Doppelte: der Erfahrungsbericht',
+    'blog.article.varese-biglietto-a-bordo-doppio.excerpt': 'Eine Studentin der Universität Insubrien bezahlte 3,20 Euro für ein Busticket an Bord, doppelt so viel wie der Normalpreis nach ihrer Aussage, nachdem die Kartenzahlung nicht funktionierte.',
+    'blog.article.varese-biglietto-a-bordo-doppio.imageAlt': 'Stadtbus an einer Haltestelle in einem tessiner Umfeld, wartende Personen',
 };
 
 export default blogMetaDe;
