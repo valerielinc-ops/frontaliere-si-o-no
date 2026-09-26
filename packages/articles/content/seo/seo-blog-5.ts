@@ -94102,6 +94102,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iwt-pharma-casale-litta-ampliamento': {
+    title: 'IWT Pharma inaugura nuovo building a Casale Litta',
+    description: 'IWT Pharma inaugura a Casale Litta un nuovo building di circa 9.000 mq aggiuntivi, con investimento di 15 milioni di euro, puntando a raddoppiare capacità',
+    keywords: 'frontalieri, ticino, svizzera, italia, pharma, inaugura, nuovo, building',
+    ogTitle: 'IWT Pharma inaugura nuovo building a Casale Litta',
+    ogDescription: 'Il nuovo building di IWT Pharma a Casale Litta aggiunge circa 9.000 metri quadrati agli esistenti 12.000, per un totale oltre 21.000 mq. L\'investimento è di circa 15 milioni di euro e prevede pannelli fotovoltaici, colonnine di ricarica elettrica',
+    canonicalPath: '/articoli-frontaliere/iwt-pharma-casale-litta-ampliamento',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "IWT Pharma inaugura nuovo building a Casale Litta",
+      "description": "IWT Pharma inaugura a Casale Litta un nuovo building di circa 9.000 mq aggiuntivi, con investimento di 15 milioni di euro, puntando a raddoppiare capacità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/iwt-pharma-casale-litta-ampliamento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio industriale moderno con pannelli fotovoltaici e colonnine di ricarica elettrica vicino a un fiume circondato da verde"
+      },
+      "datePublished": "2026-09-26T09:04:11+00:00",
+      "dateModified": "2026-09-26T09:04:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iwt-pharma-casale-litta-ampliamento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

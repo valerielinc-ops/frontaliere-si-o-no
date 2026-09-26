@@ -36135,6 +36135,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'iwt-pharma-casale-litta-ampliamento',
+ category: 'novita',
+ date: '2026-09-26T09:04:11.071Z',
+ image: '/images/blog/iwt-pharma-casale-litta-ampliamento.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

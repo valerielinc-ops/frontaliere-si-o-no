@@ -12044,6 +12044,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.eco-barriere-statale-707.title': 'Barrières phonoabsorbantes : bruit sur la bretelle de Varese',
     'blog.article.eco-barriere-statale-707.excerpt': 'La lettre d’un lecteur signale un écho ou une vibration à chaque passage de voiture sur la route nationale 707, audible dans trois zones de Varese, et demande à ANAS quand cela sera résolu.',
     'blog.article.eco-barriere-statale-707.imageAlt': 'Barrières antibruit au bord d\'une route, image illustrative de la bretelle de Varèse (Varese)',
+    'blog.article.iwt-pharma-casale-litta-ampliamento.title': 'IWT Pharma inaugure un nouveau bâtiment à Casale Litta',
+    'blog.article.iwt-pharma-casale-litta-ampliamento.excerpt': 'Agrandissement d\'environ 9.000 m², investissement de 15 millions d\'euros, objectif de doubler la capacité et le chiffre d\'affaires d\'ici cinq ans.',
+    'blog.article.iwt-pharma-casale-litta-ampliamento.imageAlt': 'Bâtiment industriel moderne avec panneaux photovoltaïques et bornes de recharge électrique près d\'une rivière entourée de verdure',
 };
 
 export default blogMetaFr;
