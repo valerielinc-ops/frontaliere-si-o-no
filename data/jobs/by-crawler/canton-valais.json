@@ -1,6 +1,6 @@
 {
   "crawlerKey": "canton-valais",
-  "assembledAt": "2026-09-26T14:11:05.213Z",
+  "assembledAt": "2026-09-26T23:49:12.733Z",
   "jobs": [
     {
       "id": "canton-valais-8a2f8b1405e5",
@@ -33,7 +33,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20555?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:10:59.775Z",
+      "crawledAt": "2026-09-26T23:49:07.205Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112987&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:10:58.968Z",
+      "crawledAt": "2026-09-26T23:49:06.436Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -193,7 +193,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101098&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:10:58.361Z",
+      "crawledAt": "2026-09-26T23:49:05.842Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -272,7 +272,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108447&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:10:57.761Z",
+      "crawledAt": "2026-09-26T23:49:05.255Z",
       "addressLocality": "Monthey",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -351,7 +351,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113758&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:10:57.143Z",
+      "crawledAt": "2026-09-26T23:49:04.612Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -430,7 +430,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114612&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:10:56.526Z",
+      "crawledAt": "2026-09-26T23:49:03.989Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -509,7 +509,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114611&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:10:55.880Z",
+      "crawledAt": "2026-09-26T23:49:03.378Z",
       "addressLocality": "St-Gingolph",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -588,7 +588,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114614&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:10:55.241Z",
+      "crawledAt": "2026-09-26T23:49:02.546Z",
       "addressLocality": "St-Gingolph",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -622,6 +622,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:06:25.916Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -667,7 +668,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114613&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:10:54.593Z",
+      "crawledAt": "2026-09-26T23:49:01.870Z",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -701,6 +702,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:06:25.295Z",
+      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "salarySource": "estimated",
@@ -746,7 +748,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=109601&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:10:53.972Z",
+      "crawledAt": "2026-09-26T23:49:01.238Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -793,8 +795,8 @@
         "un-apprenti-informaticien-ou-une-apprentie-informaticienne-cfc-option-exploitation-et",
         "un-apprendista-it-cfc-opzione-tecnica-dei-sistemi-canton-du-valais-sion"
       ],
-      "firstSeenAt": "2026-09-19T23:06:24.690Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:06:24.690Z",
       "salaryMin": 51000,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -840,7 +842,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108627&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:10:53.371Z",
+      "crawledAt": "2026-09-26T23:49:00.638Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -919,7 +921,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=110102&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:10:52.778Z",
+      "crawledAt": "2026-09-26T23:49:00.061Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -998,7 +1000,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101386&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:10:52.175Z",
+      "crawledAt": "2026-09-26T23:48:59.473Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1077,7 +1079,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108633&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:10:51.574Z",
+      "crawledAt": "2026-09-26T23:48:58.883Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1156,7 +1158,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108924&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:10:46.640Z",
+      "crawledAt": "2026-09-26T23:48:53.978Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1235,7 +1237,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113332&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:10:46.030Z",
+      "crawledAt": "2026-09-26T23:48:53.413Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1287,34 +1289,34 @@
       "id": "canton-valais-6166feaf8135",
       "slug": "un-ou-une-amenagiste-urbaniste-80-100-canton-valais-ch",
       "slugByLocale": {
-        "fr": "un-ou-une-amenagiste-urbaniste-80-100-canton-valais-ch",
         "it": "un-ou-une-amenagiste-urbaniste-80-100-canton-valais-ch",
         "en": "un-ou-une-amenagiste-urbaniste-80-100-canton-valais-ch",
-        "de": "un-ou-une-amenagiste-urbaniste-80-100-canton-valais-ch"
+        "de": "un-ou-une-amenagiste-urbaniste-80-100-canton-valais-ch",
+        "fr": "un-ou-une-amenagiste-urbaniste-80-100-canton-valais-ch"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
       "companyDomain": "vs.ch",
       "title": "Un ou une aménagiste-urbaniste (80-100%)",
       "titleByLocale": {
-        "fr": "Un ou une aménagiste-urbaniste (80-100%)",
         "it": "Un ou une aménagiste-urbaniste (80-100%)",
         "en": "Un ou une aménagiste-urbaniste (80-100%)",
-        "de": "Un ou une aménagiste-urbaniste (80-100%)"
+        "de": "Un ou une aménagiste-urbaniste (80-100%)",
+        "fr": "Un ou une aménagiste-urbaniste (80-100%)"
       },
       "description": "Un ou une aménagiste-urbaniste (80-100%) auprès du Service du développement territorial à Sion Le Service du développement territorial a comme mission globale d’assurer la coordination des activités humaines à incidence territoriale en planifiant l’évolution du territoire cantonal et en accompagnant les parties prenantes.\n\nVos tâches:\n• Vous contribuez à la mise en œuvre et au développement du plan directeur cantonal, notamment en ce qui concerne les projets de collaboration intercommunaux (projets d’agglomérations, Plans directeurs intercommunaux, etc.) Vous contribuez à l’évolution des bases légales cantonales Vous contribuez, selon les différents rôles du SDT (pilotage, coordination, accompagnement), à l’élaboration des instruments de planification (plans, rapports, règlements) fédéraux, cantonaux, intercommunaux et communaux ainsi que des guides, des recommandations ou des études de base Vous élaborez dans le cadre de procédures de consultation de dossiers des préavis, sous l'angle de la légalité et de l'opportunité Vous conseillez, sur la base d’une analyse de leur part, les communes et leurs mandataires (urbanistes, architectes, …) et les tiers (propriétaires, entreprises, …) dans leurs réflexions sur des instruments de planification\n• Vous garantissez la cohérence des projets à incidence territoriale et la conformité des instruments de planification aux lois fédérales et cantonales, ainsi qu’aux plans sectoriels fédéraux et au plan directeur cantonal Vous assurez la coordination entre les différents partenaires (Offices fédéraux, communes, mandataires, services de l'Etat) dans le cadre du traitement ou de l’élaboration des instruments de planification\n\nVotre profil:\n• Vous êtes titulaire d'un diplôme universitaire en géographie, en ingénierie, en architecture ou d'une formation équivalente Vous disposez d’une expérience de plusieurs années dans un bureau privé ou une administration Vous avez le sens de la collaboration interdisciplinaire et du travail en équipe, ainsi que de l'autonomie et de l'initiative Vous êtes capable de penser de manière conceptuelle et analytique Vous êtes prêt à développer vos compétences spécifiques Vous êtes résistant au stress et ne vous laissez pas déstabiliser par les conditions difficiles d'un environnement en constante évolution De bonnes connaissances des méthodes de planification et du SIT sont un atout Vous parlez français ou allemand avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• décembre 2026 ou à convenir\n\nInformations:\nRenseignements sur le poste : Service du développement territorial, M. Adrian Zumstein, Chef de service, (027 606 32 55) Postulation en ligne souhaitée : www.vs.ch/job ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 9 octobre 2026 / Numéro de référence : 101166",
       "descriptionByLocale": {
-        "fr": "Un ou une aménagiste-urbaniste (80-100%) auprès du Service du développement territorial à Sion Le Service du développement territorial a comme mission globale d’assurer la coordination des activités humaines à incidence territoriale en planifiant l’évolution du territoire cantonal et en accompagnant les parties prenantes.\n\nVos tâches:\n• Vous contribuez à la mise en œuvre et au développement du plan directeur cantonal, notamment en ce qui concerne les projets de collaboration intercommunaux (projets d’agglomérations, Plans directeurs intercommunaux, etc.) Vous contribuez à l’évolution des bases légales cantonales Vous contribuez, selon les différents rôles du SDT (pilotage, coordination, accompagnement), à l’élaboration des instruments de planification (plans, rapports, règlements) fédéraux, cantonaux, intercommunaux et communaux ainsi que des guides, des recommandations ou des études de base Vous élaborez dans le cadre de procédures de consultation de dossiers des préavis, sous l'angle de la légalité et de l'opportunité Vous conseillez, sur la base d’une analyse de leur part, les communes et leurs mandataires (urbanistes, architectes, …) et les tiers (propriétaires, entreprises, …) dans leurs réflexions sur des instruments de planification\n• Vous garantissez la cohérence des projets à incidence territoriale et la conformité des instruments de planification aux lois fédérales et cantonales, ainsi qu’aux plans sectoriels fédéraux et au plan directeur cantonal Vous assurez la coordination entre les différents partenaires (Offices fédéraux, communes, mandataires, services de l'Etat) dans le cadre du traitement ou de l’élaboration des instruments de planification\n\nVotre profil:\n• Vous êtes titulaire d'un diplôme universitaire en géographie, en ingénierie, en architecture ou d'une formation équivalente Vous disposez d’une expérience de plusieurs années dans un bureau privé ou une administration Vous avez le sens de la collaboration interdisciplinaire et du travail en équipe, ainsi que de l'autonomie et de l'initiative Vous êtes capable de penser de manière conceptuelle et analytique Vous êtes prêt à développer vos compétences spécifiques Vous êtes résistant au stress et ne vous laissez pas déstabiliser par les conditions difficiles d'un environnement en constante évolution De bonnes connaissances des méthodes de planification et du SIT sont un atout Vous parlez français ou allemand avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• décembre 2026 ou à convenir\n\nInformations:\nRenseignements sur le poste : Service du développement territorial, M. Adrian Zumstein, Chef de service, (027 606 32 55) Postulation en ligne souhaitée : www.vs.ch/job ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 9 octobre 2026 / Numéro de référence : 101166",
         "it": "Un ou une aménagiste-urbaniste (80-100%) auprès du Service du développement territorial à Sion Le Service du développement territorial a comme mission globale d’assurer la coordination des activités humaines à incidence territoriale en planifiant l’évolution du territoire cantonal et en accompagnant les parties prenantes.\n\nVos tâches:\n• Vous contribuez à la mise en œuvre et au développement du plan directeur cantonal, notamment en ce qui concerne les projets de collaboration intercommunaux (projets d’agglomérations, Plans directeurs intercommunaux, etc.) Vous contribuez à l’évolution des bases légales cantonales Vous contribuez, selon les différents rôles du SDT (pilotage, coordination, accompagnement), à l’élaboration des instruments de planification (plans, rapports, règlements) fédéraux, cantonaux, intercommunaux et communaux ainsi que des guides, des recommandations ou des études de base Vous élaborez dans le cadre de procédures de consultation de dossiers des préavis, sous l'angle de la légalité et de l'opportunité Vous conseillez, sur la base d’une analyse de leur part, les communes et leurs mandataires (urbanistes, architectes, …) et les tiers (propriétaires, entreprises, …) dans leurs réflexions sur des instruments de planification\n• Vous garantissez la cohérence des projets à incidence territoriale et la conformité des instruments de planification aux lois fédérales et cantonales, ainsi qu’aux plans sectoriels fédéraux et au plan directeur cantonal Vous assurez la coordination entre les différents partenaires (Offices fédéraux, communes, mandataires, services de l'Etat) dans le cadre du traitement ou de l’élaboration des instruments de planification\n\nVotre profil:\n• Vous êtes titulaire d'un diplôme universitaire en géographie, en ingénierie, en architecture ou d'une formation équivalente Vous disposez d’une expérience de plusieurs années dans un bureau privé ou une administration Vous avez le sens de la collaboration interdisciplinaire et du travail en équipe, ainsi que de l'autonomie et de l'initiative Vous êtes capable de penser de manière conceptuelle et analytique Vous êtes prêt à développer vos compétences spécifiques Vous êtes résistant au stress et ne vous laissez pas déstabiliser par les conditions difficiles d'un environnement en constante évolution De bonnes connaissances des méthodes de planification et du SIT sont un atout Vous parlez français ou allemand avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• décembre 2026 ou à convenir\n\nInformations:\nRenseignements sur le poste : Service du développement territorial, M. Adrian Zumstein, Chef de service, (027 606 32 55) Postulation en ligne souhaitée : www.vs.ch/job ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 9 octobre 2026 / Numéro de référence : 101166",
         "en": "Un ou une aménagiste-urbaniste (80-100%) auprès du Service du développement territorial à Sion Le Service du développement territorial a comme mission globale d’assurer la coordination des activités humaines à incidence territoriale en planifiant l’évolution du territoire cantonal et en accompagnant les parties prenantes.\n\nVos tâches:\n• Vous contribuez à la mise en œuvre et au développement du plan directeur cantonal, notamment en ce qui concerne les projets de collaboration intercommunaux (projets d’agglomérations, Plans directeurs intercommunaux, etc.) Vous contribuez à l’évolution des bases légales cantonales Vous contribuez, selon les différents rôles du SDT (pilotage, coordination, accompagnement), à l’élaboration des instruments de planification (plans, rapports, règlements) fédéraux, cantonaux, intercommunaux et communaux ainsi que des guides, des recommandations ou des études de base Vous élaborez dans le cadre de procédures de consultation de dossiers des préavis, sous l'angle de la légalité et de l'opportunité Vous conseillez, sur la base d’une analyse de leur part, les communes et leurs mandataires (urbanistes, architectes, …) et les tiers (propriétaires, entreprises, …) dans leurs réflexions sur des instruments de planification\n• Vous garantissez la cohérence des projets à incidence territoriale et la conformité des instruments de planification aux lois fédérales et cantonales, ainsi qu’aux plans sectoriels fédéraux et au plan directeur cantonal Vous assurez la coordination entre les différents partenaires (Offices fédéraux, communes, mandataires, services de l'Etat) dans le cadre du traitement ou de l’élaboration des instruments de planification\n\nVotre profil:\n• Vous êtes titulaire d'un diplôme universitaire en géographie, en ingénierie, en architecture ou d'une formation équivalente Vous disposez d’une expérience de plusieurs années dans un bureau privé ou une administration Vous avez le sens de la collaboration interdisciplinaire et du travail en équipe, ainsi que de l'autonomie et de l'initiative Vous êtes capable de penser de manière conceptuelle et analytique Vous êtes prêt à développer vos compétences spécifiques Vous êtes résistant au stress et ne vous laissez pas déstabiliser par les conditions difficiles d'un environnement en constante évolution De bonnes connaissances des méthodes de planification et du SIT sont un atout Vous parlez français ou allemand avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• décembre 2026 ou à convenir\n\nInformations:\nRenseignements sur le poste : Service du développement territorial, M. Adrian Zumstein, Chef de service, (027 606 32 55) Postulation en ligne souhaitée : www.vs.ch/job ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 9 octobre 2026 / Numéro de référence : 101166",
-        "de": "Un ou une aménagiste-urbaniste (80-100%) auprès du Service du développement territorial à Sion Le Service du développement territorial a comme mission globale d’assurer la coordination des activités humaines à incidence territoriale en planifiant l’évolution du territoire cantonal et en accompagnant les parties prenantes.\n\nVos tâches:\n• Vous contribuez à la mise en œuvre et au développement du plan directeur cantonal, notamment en ce qui concerne les projets de collaboration intercommunaux (projets d’agglomérations, Plans directeurs intercommunaux, etc.) Vous contribuez à l’évolution des bases légales cantonales Vous contribuez, selon les différents rôles du SDT (pilotage, coordination, accompagnement), à l’élaboration des instruments de planification (plans, rapports, règlements) fédéraux, cantonaux, intercommunaux et communaux ainsi que des guides, des recommandations ou des études de base Vous élaborez dans le cadre de procédures de consultation de dossiers des préavis, sous l'angle de la légalité et de l'opportunité Vous conseillez, sur la base d’une analyse de leur part, les communes et leurs mandataires (urbanistes, architectes, …) et les tiers (propriétaires, entreprises, …) dans leurs réflexions sur des instruments de planification\n• Vous garantissez la cohérence des projets à incidence territoriale et la conformité des instruments de planification aux lois fédérales et cantonales, ainsi qu’aux plans sectoriels fédéraux et au plan directeur cantonal Vous assurez la coordination entre les différents partenaires (Offices fédéraux, communes, mandataires, services de l'Etat) dans le cadre du traitement ou de l’élaboration des instruments de planification\n\nVotre profil:\n• Vous êtes titulaire d'un diplôme universitaire en géographie, en ingénierie, en architecture ou d'une formation équivalente Vous disposez d’une expérience de plusieurs années dans un bureau privé ou une administration Vous avez le sens de la collaboration interdisciplinaire et du travail en équipe, ainsi que de l'autonomie et de l'initiative Vous êtes capable de penser de manière conceptuelle et analytique Vous êtes prêt à développer vos compétences spécifiques Vous êtes résistant au stress et ne vous laissez pas déstabiliser par les conditions difficiles d'un environnement en constante évolution De bonnes connaissances des méthodes de planification et du SIT sont un atout Vous parlez français ou allemand avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• décembre 2026 ou à convenir\n\nInformations:\nRenseignements sur le poste : Service du développement territorial, M. Adrian Zumstein, Chef de service, (027 606 32 55) Postulation en ligne souhaitée : www.vs.ch/job ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 9 octobre 2026 / Numéro de référence : 101166"
+        "de": "Un ou une aménagiste-urbaniste (80-100%) auprès du Service du développement territorial à Sion Le Service du développement territorial a comme mission globale d’assurer la coordination des activités humaines à incidence territoriale en planifiant l’évolution du territoire cantonal et en accompagnant les parties prenantes.\n\nVos tâches:\n• Vous contribuez à la mise en œuvre et au développement du plan directeur cantonal, notamment en ce qui concerne les projets de collaboration intercommunaux (projets d’agglomérations, Plans directeurs intercommunaux, etc.) Vous contribuez à l’évolution des bases légales cantonales Vous contribuez, selon les différents rôles du SDT (pilotage, coordination, accompagnement), à l’élaboration des instruments de planification (plans, rapports, règlements) fédéraux, cantonaux, intercommunaux et communaux ainsi que des guides, des recommandations ou des études de base Vous élaborez dans le cadre de procédures de consultation de dossiers des préavis, sous l'angle de la légalité et de l'opportunité Vous conseillez, sur la base d’une analyse de leur part, les communes et leurs mandataires (urbanistes, architectes, …) et les tiers (propriétaires, entreprises, …) dans leurs réflexions sur des instruments de planification\n• Vous garantissez la cohérence des projets à incidence territoriale et la conformité des instruments de planification aux lois fédérales et cantonales, ainsi qu’aux plans sectoriels fédéraux et au plan directeur cantonal Vous assurez la coordination entre les différents partenaires (Offices fédéraux, communes, mandataires, services de l'Etat) dans le cadre du traitement ou de l’élaboration des instruments de planification\n\nVotre profil:\n• Vous êtes titulaire d'un diplôme universitaire en géographie, en ingénierie, en architecture ou d'une formation équivalente Vous disposez d’une expérience de plusieurs années dans un bureau privé ou une administration Vous avez le sens de la collaboration interdisciplinaire et du travail en équipe, ainsi que de l'autonomie et de l'initiative Vous êtes capable de penser de manière conceptuelle et analytique Vous êtes prêt à développer vos compétences spécifiques Vous êtes résistant au stress et ne vous laissez pas déstabiliser par les conditions difficiles d'un environnement en constante évolution De bonnes connaissances des méthodes de planification et du SIT sont un atout Vous parlez français ou allemand avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• décembre 2026 ou à convenir\n\nInformations:\nRenseignements sur le poste : Service du développement territorial, M. Adrian Zumstein, Chef de service, (027 606 32 55) Postulation en ligne souhaitée : www.vs.ch/job ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 9 octobre 2026 / Numéro de référence : 101166",
+        "fr": "Un ou une aménagiste-urbaniste (80-100%) auprès du Service du développement territorial à Sion Le Service du développement territorial a comme mission globale d’assurer la coordination des activités humaines à incidence territoriale en planifiant l’évolution du territoire cantonal et en accompagnant les parties prenantes.\n\nVos tâches:\n• Vous contribuez à la mise en œuvre et au développement du plan directeur cantonal, notamment en ce qui concerne les projets de collaboration intercommunaux (projets d’agglomérations, Plans directeurs intercommunaux, etc.) Vous contribuez à l’évolution des bases légales cantonales Vous contribuez, selon les différents rôles du SDT (pilotage, coordination, accompagnement), à l’élaboration des instruments de planification (plans, rapports, règlements) fédéraux, cantonaux, intercommunaux et communaux ainsi que des guides, des recommandations ou des études de base Vous élaborez dans le cadre de procédures de consultation de dossiers des préavis, sous l'angle de la légalité et de l'opportunité Vous conseillez, sur la base d’une analyse de leur part, les communes et leurs mandataires (urbanistes, architectes, …) et les tiers (propriétaires, entreprises, …) dans leurs réflexions sur des instruments de planification\n• Vous garantissez la cohérence des projets à incidence territoriale et la conformité des instruments de planification aux lois fédérales et cantonales, ainsi qu’aux plans sectoriels fédéraux et au plan directeur cantonal Vous assurez la coordination entre les différents partenaires (Offices fédéraux, communes, mandataires, services de l'Etat) dans le cadre du traitement ou de l’élaboration des instruments de planification\n\nVotre profil:\n• Vous êtes titulaire d'un diplôme universitaire en géographie, en ingénierie, en architecture ou d'une formation équivalente Vous disposez d’une expérience de plusieurs années dans un bureau privé ou une administration Vous avez le sens de la collaboration interdisciplinaire et du travail en équipe, ainsi que de l'autonomie et de l'initiative Vous êtes capable de penser de manière conceptuelle et analytique Vous êtes prêt à développer vos compétences spécifiques Vous êtes résistant au stress et ne vous laissez pas déstabiliser par les conditions difficiles d'un environnement en constante évolution De bonnes connaissances des méthodes de planification et du SIT sont un atout Vous parlez français ou allemand avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• décembre 2026 ou à convenir\n\nInformations:\nRenseignements sur le poste : Service du développement territorial, M. Adrian Zumstein, Chef de service, (027 606 32 55) Postulation en ligne souhaitée : www.vs.ch/job ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 9 octobre 2026 / Numéro de référence : 101166"
       },
       "location": "Sion",
       "canton": "VS",
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101166&publication=2639",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:10:45.433Z",
+      "crawledAt": "2026-09-26T23:48:52.840Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1330,10 +1332,9 @@
       "postedDate": "2026-09-26",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101166&publication=2639",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T14:10:45.433Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1346,16 +1347,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-26T14:10:45.433Z"
+      }
     },
     {
       "id": "canton-valais-f29b28f39f05",
       "slug": "fachtechnische-r-collaboratore-trice-betriebselektrikerin-80-100-canton-du-valais-brig",
       "slugByLocale": {
-        "de": "fachtechnische-r-mitarbeiter-in-betriebselektrikerin-80-100-canton-valais-ch",
         "it": "fachtechnische-r-collaboratore-trice-betriebselektrikerin-80-100-canton-du-valais-brig",
         "en": "fachtechnische-r-mitarbeiter-in-betriebselektrikerin-80-100-canton-valais-ch",
+        "de": "fachtechnische-r-mitarbeiter-in-betriebselektrikerin-80-100-canton-valais-ch",
         "fr": "fachtechnische-r-mitarbeiter-in-betriebselektrikerin-80-100-canton-valais-ch"
       },
       "company": "Canton du Valais",
@@ -1363,16 +1363,16 @@
       "companyDomain": "vs.ch",
       "title": "Fachtechnische/r Mitarbeiter/in-Betriebselektrikerin (80-100%)",
       "titleByLocale": {
-        "de": "Fachtechnische/r Mitarbeiter/in-Betriebselektrikerin (80-100%)",
         "it": "Fachtechnische/r Collaboratore/trice-Betriebselektrikerin (80-100%)",
         "en": "Fachtechnische/r Mitarbeiter/in-Betriebselektrikerin (80-100%)",
+        "de": "Fachtechnische/r Mitarbeiter/in-Betriebselektrikerin (80-100%)",
         "fr": "Fachtechnische/r Mitarbeiter/in-Betriebselektrikerin (80-100%)"
       },
       "description": "Fachtechnische/r Mitarbeiter/in-Betriebselektrikerin (80-100%) bei der Dienststelle Gebietseinheit III in Brig Die Dienststelle Gebietseinheit III (DGE III) ist eine von elf Einheiten in der Schweiz, die für den Unterhalt der Nationalstrassen zuständig sind. Rund 110 Mitarbeitende sorgen im Wallis tagtäglich – und rund um die Uhr – für einen sicheren und reibungslosen Betrieb des Nationalstrassennetzes. Dieses erstreckt sich über 186 Kilometer, vom Autobahnanschluss A9 bei Bex-Nord bis nach Gondo.\n\nIhre Aufgaben:\n• Sie gewährleisten den Betrieb, die Wartung und die Instandhaltung der elektrischen und elektronischen Installationen des Strassennetzes des Sektors (Tunnel und gedeckte Galerien) Sie führen periodische Messungen und Funktionskontrollen bei den Installationen und Sicherheitsausrüstungen durch Sie unterstützen die Bauleitung bei den Unterhaltsarbeiten und bei der Erneuerung der elektromechanischen Anlagen\n• Sie gewährleisten im gesamten Einsatzgebiet der DGE III Bereitschafts- und Überwachungsdienst\n\nIhr Profil:\n• Sie verfügen über ein EFZ als Elektriker/ Elektroinstallateur, Automatiker oder über eine gleichwertige Ausbildung Sie haben praktische Erfahrung in Schwach- und Starkstrominstallationen und industrieller Automationstechnik Sie haben Erfahrung in der Störungsbehebung Sie erfüllen die Anforderungen zur Erteilung einer Betriebselektrikerbewilligung (gemäss NIV Art. 13) oder einer Anschlussbewilligung (gemäss NIV Art. 15) Sie sind im Umgang mit den gängigen Informatiktools sattelfest\n• Sie sind flexibel (unregelmässige Arbeitszeiten und Bereitschaftsdienst) Sie ergreifen gerne die Initiative und sind verantwortungsbewusst Sie sind teamfähig, sind es sich aber auch gewöhnt, selbständig zu arbeiten Sie verfügen über eine gute körperliche Verfassung Ihre Muttersprache ist Deutsch mit Grundkenntnissen in Französisch Wohnort In einem Perimeter von +/- 20 km des Arbeitsortes entfernt Stellenantritt – besondere Bedingungen Stellenantritt: 1. August 2026 oder nach Vereinbarung Festanstellung, aber unter Vorbehalt der Finanzierung durch den Bund\n\nInformationen:\nAuskunft zur Stelle: Dienststelle Gebietseinheit III (027 606 97 84) Online-Bewerbungen erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sion Eingabefrist: 9. Oktober 2026 / Referenznummer: 114416",
       "descriptionByLocale": {
-        "de": "Fachtechnische/r Mitarbeiter/in-Betriebselektrikerin (80-100%) bei der Dienststelle Gebietseinheit III in Brig Die Dienststelle Gebietseinheit III (DGE III) ist eine von elf Einheiten in der Schweiz, die für den Unterhalt der Nationalstrassen zuständig sind. Rund 110 Mitarbeitende sorgen im Wallis tagtäglich – und rund um die Uhr – für einen sicheren und reibungslosen Betrieb des Nationalstrassennetzes. Dieses erstreckt sich über 186 Kilometer, vom Autobahnanschluss A9 bei Bex-Nord bis nach Gondo.\n\nIhre Aufgaben:\n• Sie gewährleisten den Betrieb, die Wartung und die Instandhaltung der elektrischen und elektronischen Installationen des Strassennetzes des Sektors (Tunnel und gedeckte Galerien) Sie führen periodische Messungen und Funktionskontrollen bei den Installationen und Sicherheitsausrüstungen durch Sie unterstützen die Bauleitung bei den Unterhaltsarbeiten und bei der Erneuerung der elektromechanischen Anlagen\n• Sie gewährleisten im gesamten Einsatzgebiet der DGE III Bereitschafts- und Überwachungsdienst\n\nIhr Profil:\n• Sie verfügen über ein EFZ als Elektriker/ Elektroinstallateur, Automatiker oder über eine gleichwertige Ausbildung Sie haben praktische Erfahrung in Schwach- und Starkstrominstallationen und industrieller Automationstechnik Sie haben Erfahrung in der Störungsbehebung Sie erfüllen die Anforderungen zur Erteilung einer Betriebselektrikerbewilligung (gemäss NIV Art. 13) oder einer Anschlussbewilligung (gemäss NIV Art. 15) Sie sind im Umgang mit den gängigen Informatiktools sattelfest\n• Sie sind flexibel (unregelmässige Arbeitszeiten und Bereitschaftsdienst) Sie ergreifen gerne die Initiative und sind verantwortungsbewusst Sie sind teamfähig, sind es sich aber auch gewöhnt, selbständig zu arbeiten Sie verfügen über eine gute körperliche Verfassung Ihre Muttersprache ist Deutsch mit Grundkenntnissen in Französisch Wohnort In einem Perimeter von +/- 20 km des Arbeitsortes entfernt Stellenantritt – besondere Bedingungen Stellenantritt: 1. August 2026 oder nach Vereinbarung Festanstellung, aber unter Vorbehalt der Finanzierung durch den Bund\n\nInformationen:\nAuskunft zur Stelle: Dienststelle Gebietseinheit III (027 606 97 84) Online-Bewerbungen erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sion Eingabefrist: 9. Oktober 2026 / Referenznummer: 114416",
         "it": "Fachtechnische/r Mitarbeiter/in-Betriebselektrikerin (80-100%) bei der Dienststelle Gebietseinheit III in Brig Die Dienststelle Gebietseinheit III (DGE III) ist eine von elf Einheiten in der Schweiz, die für den Unterhalt der Nationalstrassen zuständig sind. Rund 110 Mitarbeitende sorgen im Wallis tagtäglich – und rund um die Uhr – für einen sicheren und reibungslosen Betrieb des Nationalstrassennetzes. Dieses erstreckt sich über 186 Kilometer, vom Autobahnanschluss A9 bei Bex-Nord bis nach Gondo.\n\nIhre Aufgaben:\n• Sie gewährleisten den Betrieb, die Wartung und die Instandhaltung der elektrischen und elektronischen Installationen des Strassennetzes des Sektors (Tunnel und gedeckte Galerien) Sie führen periodische Messungen und Funktionskontrollen bei den Installationen und Sicherheitsausrüstungen durch Sie unterstützen die Bauleitung bei den Unterhaltsarbeiten und bei der Erneuerung der elektromechanischen Anlagen\n• Sie gewährleisten im gesamten Einsatzgebiet der DGE III Bereitschafts- und Überwachungsdienst\n\nIhr Profil:\n• Sie verfügen über ein EFZ als Elektriker/ Elektroinstallateur, Automatiker oder über eine gleichwertige Ausbildung Sie haben praktische Erfahrung in Schwach- und Starkstrominstallationen und industrieller Automationstechnik Sie haben Erfahrung in der Störungsbehebung Sie erfüllen die Anforderungen zur Erteilung einer Betriebselektrikerbewilligung (gemäss NIV Art. 13) oder einer Anschlussbewilligung (gemäss NIV Art. 15) Sie sind im Umgang mit den gängigen Informatiktools sattelfest\n• Sie sind flexibel (unregelmässige Arbeitszeiten und Bereitschaftsdienst) Sie ergreifen gerne die Initiative und sind verantwortungsbewusst Sie sind teamfähig, sind es sich aber auch gewöhnt, selbständig zu arbeiten Sie verfügen über eine gute körperliche Verfassung Ihre Muttersprache ist Deutsch mit Grundkenntnissen in Französisch Wohnort In einem Perimeter von +/- 20 km des Arbeitsortes entfernt Stellenantritt – besondere Bedingungen Stellenantritt: 1. August 2026 oder nach Vereinbarung Festanstellung, aber unter Vorbehalt der Finanzierung durch den Bund\n\nInformationen:\nAuskunft zur Stelle: Dienststelle Gebietseinheit III (027 606 97 84) Online-Bewerbungen erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sion Eingabefrist: 9. Oktober 2026 / Referenznummer: 114416",
         "en": "Fachtechnische/r Mitarbeiter/in-Betriebselektrikerin (80-100%) bei der Dienststelle Gebietseinheit III in Brig Die Dienststelle Gebietseinheit III (DGE III) ist eine von elf Einheiten in der Schweiz, die für den Unterhalt der Nationalstrassen zuständig sind. Rund 110 Mitarbeitende sorgen im Wallis tagtäglich – und rund um die Uhr – für einen sicheren und reibungslosen Betrieb des Nationalstrassennetzes. Dieses erstreckt sich über 186 Kilometer, vom Autobahnanschluss A9 bei Bex-Nord bis nach Gondo.\n\nIhre Aufgaben:\n• Sie gewährleisten den Betrieb, die Wartung und die Instandhaltung der elektrischen und elektronischen Installationen des Strassennetzes des Sektors (Tunnel und gedeckte Galerien) Sie führen periodische Messungen und Funktionskontrollen bei den Installationen und Sicherheitsausrüstungen durch Sie unterstützen die Bauleitung bei den Unterhaltsarbeiten und bei der Erneuerung der elektromechanischen Anlagen\n• Sie gewährleisten im gesamten Einsatzgebiet der DGE III Bereitschafts- und Überwachungsdienst\n\nIhr Profil:\n• Sie verfügen über ein EFZ als Elektriker/ Elektroinstallateur, Automatiker oder über eine gleichwertige Ausbildung Sie haben praktische Erfahrung in Schwach- und Starkstrominstallationen und industrieller Automationstechnik Sie haben Erfahrung in der Störungsbehebung Sie erfüllen die Anforderungen zur Erteilung einer Betriebselektrikerbewilligung (gemäss NIV Art. 13) oder einer Anschlussbewilligung (gemäss NIV Art. 15) Sie sind im Umgang mit den gängigen Informatiktools sattelfest\n• Sie sind flexibel (unregelmässige Arbeitszeiten und Bereitschaftsdienst) Sie ergreifen gerne die Initiative und sind verantwortungsbewusst Sie sind teamfähig, sind es sich aber auch gewöhnt, selbständig zu arbeiten Sie verfügen über eine gute körperliche Verfassung Ihre Muttersprache ist Deutsch mit Grundkenntnissen in Französisch Wohnort In einem Perimeter von +/- 20 km des Arbeitsortes entfernt Stellenantritt – besondere Bedingungen Stellenantritt: 1. August 2026 oder nach Vereinbarung Festanstellung, aber unter Vorbehalt der Finanzierung durch den Bund\n\nInformationen:\nAuskunft zur Stelle: Dienststelle Gebietseinheit III (027 606 97 84) Online-Bewerbungen erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sion Eingabefrist: 9. Oktober 2026 / Referenznummer: 114416",
+        "de": "Fachtechnische/r Mitarbeiter/in-Betriebselektrikerin (80-100%) bei der Dienststelle Gebietseinheit III in Brig Die Dienststelle Gebietseinheit III (DGE III) ist eine von elf Einheiten in der Schweiz, die für den Unterhalt der Nationalstrassen zuständig sind. Rund 110 Mitarbeitende sorgen im Wallis tagtäglich – und rund um die Uhr – für einen sicheren und reibungslosen Betrieb des Nationalstrassennetzes. Dieses erstreckt sich über 186 Kilometer, vom Autobahnanschluss A9 bei Bex-Nord bis nach Gondo.\n\nIhre Aufgaben:\n• Sie gewährleisten den Betrieb, die Wartung und die Instandhaltung der elektrischen und elektronischen Installationen des Strassennetzes des Sektors (Tunnel und gedeckte Galerien) Sie führen periodische Messungen und Funktionskontrollen bei den Installationen und Sicherheitsausrüstungen durch Sie unterstützen die Bauleitung bei den Unterhaltsarbeiten und bei der Erneuerung der elektromechanischen Anlagen\n• Sie gewährleisten im gesamten Einsatzgebiet der DGE III Bereitschafts- und Überwachungsdienst\n\nIhr Profil:\n• Sie verfügen über ein EFZ als Elektriker/ Elektroinstallateur, Automatiker oder über eine gleichwertige Ausbildung Sie haben praktische Erfahrung in Schwach- und Starkstrominstallationen und industrieller Automationstechnik Sie haben Erfahrung in der Störungsbehebung Sie erfüllen die Anforderungen zur Erteilung einer Betriebselektrikerbewilligung (gemäss NIV Art. 13) oder einer Anschlussbewilligung (gemäss NIV Art. 15) Sie sind im Umgang mit den gängigen Informatiktools sattelfest\n• Sie sind flexibel (unregelmässige Arbeitszeiten und Bereitschaftsdienst) Sie ergreifen gerne die Initiative und sind verantwortungsbewusst Sie sind teamfähig, sind es sich aber auch gewöhnt, selbständig zu arbeiten Sie verfügen über eine gute körperliche Verfassung Ihre Muttersprache ist Deutsch mit Grundkenntnissen in Französisch Wohnort In einem Perimeter von +/- 20 km des Arbeitsortes entfernt Stellenantritt – besondere Bedingungen Stellenantritt: 1. August 2026 oder nach Vereinbarung Festanstellung, aber unter Vorbehalt der Finanzierung durch den Bund\n\nInformationen:\nAuskunft zur Stelle: Dienststelle Gebietseinheit III (027 606 97 84) Online-Bewerbungen erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sion Eingabefrist: 9. Oktober 2026 / Referenznummer: 114416",
         "fr": "Fachtechnische/r Mitarbeiter/in-Betriebselektrikerin (80-100%) bei der Dienststelle Gebietseinheit III in Brig Die Dienststelle Gebietseinheit III (DGE III) ist eine von elf Einheiten in der Schweiz, die für den Unterhalt der Nationalstrassen zuständig sind. Rund 110 Mitarbeitende sorgen im Wallis tagtäglich – und rund um die Uhr – für einen sicheren und reibungslosen Betrieb des Nationalstrassennetzes. Dieses erstreckt sich über 186 Kilometer, vom Autobahnanschluss A9 bei Bex-Nord bis nach Gondo.\n\nIhre Aufgaben:\n• Sie gewährleisten den Betrieb, die Wartung und die Instandhaltung der elektrischen und elektronischen Installationen des Strassennetzes des Sektors (Tunnel und gedeckte Galerien) Sie führen periodische Messungen und Funktionskontrollen bei den Installationen und Sicherheitsausrüstungen durch Sie unterstützen die Bauleitung bei den Unterhaltsarbeiten und bei der Erneuerung der elektromechanischen Anlagen\n• Sie gewährleisten im gesamten Einsatzgebiet der DGE III Bereitschafts- und Überwachungsdienst\n\nIhr Profil:\n• Sie verfügen über ein EFZ als Elektriker/ Elektroinstallateur, Automatiker oder über eine gleichwertige Ausbildung Sie haben praktische Erfahrung in Schwach- und Starkstrominstallationen und industrieller Automationstechnik Sie haben Erfahrung in der Störungsbehebung Sie erfüllen die Anforderungen zur Erteilung einer Betriebselektrikerbewilligung (gemäss NIV Art. 13) oder einer Anschlussbewilligung (gemäss NIV Art. 15) Sie sind im Umgang mit den gängigen Informatiktools sattelfest\n• Sie sind flexibel (unregelmässige Arbeitszeiten und Bereitschaftsdienst) Sie ergreifen gerne die Initiative und sind verantwortungsbewusst Sie sind teamfähig, sind es sich aber auch gewöhnt, selbständig zu arbeiten Sie verfügen über eine gute körperliche Verfassung Ihre Muttersprache ist Deutsch mit Grundkenntnissen in Französisch Wohnort In einem Perimeter von +/- 20 km des Arbeitsortes entfernt Stellenantritt – besondere Bedingungen Stellenantritt: 1. August 2026 oder nach Vereinbarung Festanstellung, aber unter Vorbehalt der Finanzierung durch den Bund\n\nInformationen:\nAuskunft zur Stelle: Dienststelle Gebietseinheit III (027 606 97 84) Online-Bewerbungen erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sion Eingabefrist: 9. Oktober 2026 / Referenznummer: 114416"
       },
       "location": "Brig",
@@ -1380,7 +1380,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114416&publication=2639",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:10:44.798Z",
+      "crawledAt": "2026-09-26T23:48:52.234Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1396,18 +1396,19 @@
       "postedDate": "2026-09-26",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114416&publication=2639",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachtechnische-r-mitarbeiter-in-betriebselektrikerin-80-100-canton-valais-ch",
+        "fachtechnische-r-collaboratore-trice-betriebselektrikerin-80-100-canton-du-valais-brig"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "fachtechnische-r-mitarbeiter-in-betriebselektrikerin-80-100-canton-valais-ch"
+          "fachtechnische-r-mitarbeiter-in-betriebselektrikerin-80-100-canton-valais-ch",
+          "fachtechnische-r-collaboratore-trice-betriebselektrikerin-80-100-canton-du-valais-brig"
         ]
       },
-      "previousSlugs": [
-        "fachtechnische-r-mitarbeiter-in-betriebselektrikerin-80-100-canton-valais-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T14:10:44.798Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1420,41 +1421,40 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-26T14:10:44.798Z"
+      }
     },
     {
       "id": "canton-valais-8e31db8032f1",
       "slug": "un-chef-ou-une-cheffe-de-l-arrondissement-regional-de-gendarmerie-du-valais-central-canton",
       "slugByLocale": {
-        "fr": "un-chef-ou-une-cheffe-de-l-arrondissement-regional-de-gendarmerie-du-valais-central-canton",
         "it": "un-chef-ou-une-cheffe-de-l-arrondissement-regional-de-gendarmerie-du-valais-central-canton",
         "en": "un-chef-ou-une-cheffe-de-l-arrondissement-regional-de-gendarmerie-du-valais-central-canton",
-        "de": "un-chef-ou-une-cheffe-de-l-arrondissement-regional-de-gendarmerie-du-valais-central-canton"
+        "de": "un-chef-ou-une-cheffe-de-l-arrondissement-regional-de-gendarmerie-du-valais-central-canton",
+        "fr": "un-chef-ou-une-cheffe-de-l-arrondissement-regional-de-gendarmerie-du-valais-central-canton"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
       "companyDomain": "vs.ch",
       "title": "Un chef ou une cheffe de l'arrondissement régional de gendarmerie du Valais central",
       "titleByLocale": {
-        "fr": "Un chef ou une cheffe de l'arrondissement régional de gendarmerie du Valais central",
         "it": "Un chef ou une cheffe de l'arrondissement régional de gendarmerie du Valais central",
         "en": "Un chef ou une cheffe de l'arrondissement régional de gendarmerie du Valais central",
-        "de": "Un chef ou une cheffe de l'arrondissement régional de gendarmerie du Valais central"
+        "de": "Un chef ou une cheffe de l'arrondissement régional de gendarmerie du Valais central",
+        "fr": "Un chef ou une cheffe de l'arrondissement régional de gendarmerie du Valais central"
       },
       "description": "Un chef ou une cheffe de l'arrondissement régional de gendarmerie du Valais central auprès de la Police cantonale, à Sion\n\nVos tâches:\n• Diriger l’arrondissement régional de gendarmerie du Valais central dans les domaines de la sécurité publique, des tâches de police judiciaire dévolues à la gendarmerie, de la lutte contre la criminalité, de la police de proximité et de la circulation routière\n• Coordonner son action avec les autres arrondissements et sections de la Gendarmerie ainsi qu’avec la Police judiciaire et les partenaires Gérer les aspects RH, administratifs et financiers de l’arrondissement Planifier et conduire des actions préventives et répressives Conduire des opérations d’envergure et des engagements de maintien de l’ordre Garantir la qualité du travail au service des citoyens ainsi que le respect des bases légales, directives internes et objectifs fixés par le Commandement Assurer l'exécution des requêtes des autorités cantonales, nationales et internationales\n• Participer à des commissions de travail cantonales et intercantonales Fonctionner comme piquet de conduite\n\nVotre profil:\n• Formation complète de policier (CC II effectué) Avoir suivi ou disposé à suivre la formation CAS CEP Plusieurs années d'expérience de commandement dans un corps de police, notamment dans la planification et la conduite d’engagements et d’interventions majeures Très bonnes connaissances des procédures, de l’activité et du fonctionnement de la gendarmerie et plus largement de la Police cantonale valaisanne Expérience et compétences en matière de police judiciaire ainsi que dans le domaine de la sécurité publique et du maintien de l’ordre (cadre en fonction dans le MO) Sens développé des relations humaines, de la communication et aptitudes dans la gestion des conflits Intérêt pour la formation continue Flexibilité, autonomie et grande disponibilité Capacité à collaborer et à travailler en état-major Faculté d'adaptation, grande capacité de travail et très bonne résistance au stress Esprit d'analyse, de synthèse et aisance rédactionnelle Langue maternelle française ou parfaitement bilingue\n\nEntrée en fonction:\n1\n\n• er\n• avril 2027\n\nInformations:\nRenseignements sur le poste : Police cantonale, le Chef Gendarmerie (027 606 56 02 / yves-antoine.mayoraz@police.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 9 octobre 2026 / Numéro de référence : 102224",
       "descriptionByLocale": {
-        "fr": "Un chef ou une cheffe de l'arrondissement régional de gendarmerie du Valais central auprès de la Police cantonale, à Sion\n\nVos tâches:\n• Diriger l’arrondissement régional de gendarmerie du Valais central dans les domaines de la sécurité publique, des tâches de police judiciaire dévolues à la gendarmerie, de la lutte contre la criminalité, de la police de proximité et de la circulation routière\n• Coordonner son action avec les autres arrondissements et sections de la Gendarmerie ainsi qu’avec la Police judiciaire et les partenaires Gérer les aspects RH, administratifs et financiers de l’arrondissement Planifier et conduire des actions préventives et répressives Conduire des opérations d’envergure et des engagements de maintien de l’ordre Garantir la qualité du travail au service des citoyens ainsi que le respect des bases légales, directives internes et objectifs fixés par le Commandement Assurer l'exécution des requêtes des autorités cantonales, nationales et internationales\n• Participer à des commissions de travail cantonales et intercantonales Fonctionner comme piquet de conduite\n\nVotre profil:\n• Formation complète de policier (CC II effectué) Avoir suivi ou disposé à suivre la formation CAS CEP Plusieurs années d'expérience de commandement dans un corps de police, notamment dans la planification et la conduite d’engagements et d’interventions majeures Très bonnes connaissances des procédures, de l’activité et du fonctionnement de la gendarmerie et plus largement de la Police cantonale valaisanne Expérience et compétences en matière de police judiciaire ainsi que dans le domaine de la sécurité publique et du maintien de l’ordre (cadre en fonction dans le MO) Sens développé des relations humaines, de la communication et aptitudes dans la gestion des conflits Intérêt pour la formation continue Flexibilité, autonomie et grande disponibilité Capacité à collaborer et à travailler en état-major Faculté d'adaptation, grande capacité de travail et très bonne résistance au stress Esprit d'analyse, de synthèse et aisance rédactionnelle Langue maternelle française ou parfaitement bilingue\n\nEntrée en fonction:\n1\n\n• er\n• avril 2027\n\nInformations:\nRenseignements sur le poste : Police cantonale, le Chef Gendarmerie (027 606 56 02 / yves-antoine.mayoraz@police.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 9 octobre 2026 / Numéro de référence : 102224",
         "it": "Un chef ou une cheffe de l'arrondissement régional de gendarmerie du Valais central auprès de la Police cantonale, à Sion\n\nVos tâches:\n• Diriger l’arrondissement régional de gendarmerie du Valais central dans les domaines de la sécurité publique, des tâches de police judiciaire dévolues à la gendarmerie, de la lutte contre la criminalité, de la police de proximité et de la circulation routière\n• Coordonner son action avec les autres arrondissements et sections de la Gendarmerie ainsi qu’avec la Police judiciaire et les partenaires Gérer les aspects RH, administratifs et financiers de l’arrondissement Planifier et conduire des actions préventives et répressives Conduire des opérations d’envergure et des engagements de maintien de l’ordre Garantir la qualité du travail au service des citoyens ainsi que le respect des bases légales, directives internes et objectifs fixés par le Commandement Assurer l'exécution des requêtes des autorités cantonales, nationales et internationales\n• Participer à des commissions de travail cantonales et intercantonales Fonctionner comme piquet de conduite\n\nVotre profil:\n• Formation complète de policier (CC II effectué) Avoir suivi ou disposé à suivre la formation CAS CEP Plusieurs années d'expérience de commandement dans un corps de police, notamment dans la planification et la conduite d’engagements et d’interventions majeures Très bonnes connaissances des procédures, de l’activité et du fonctionnement de la gendarmerie et plus largement de la Police cantonale valaisanne Expérience et compétences en matière de police judiciaire ainsi que dans le domaine de la sécurité publique et du maintien de l’ordre (cadre en fonction dans le MO) Sens développé des relations humaines, de la communication et aptitudes dans la gestion des conflits Intérêt pour la formation continue Flexibilité, autonomie et grande disponibilité Capacité à collaborer et à travailler en état-major Faculté d'adaptation, grande capacité de travail et très bonne résistance au stress Esprit d'analyse, de synthèse et aisance rédactionnelle Langue maternelle française ou parfaitement bilingue\n\nEntrée en fonction:\n1\n\n• er\n• avril 2027\n\nInformations:\nRenseignements sur le poste : Police cantonale, le Chef Gendarmerie (027 606 56 02 / yves-antoine.mayoraz@police.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 9 octobre 2026 / Numéro de référence : 102224",
         "en": "Un chef ou une cheffe de l'arrondissement régional de gendarmerie du Valais central auprès de la Police cantonale, à Sion\n\nVos tâches:\n• Diriger l’arrondissement régional de gendarmerie du Valais central dans les domaines de la sécurité publique, des tâches de police judiciaire dévolues à la gendarmerie, de la lutte contre la criminalité, de la police de proximité et de la circulation routière\n• Coordonner son action avec les autres arrondissements et sections de la Gendarmerie ainsi qu’avec la Police judiciaire et les partenaires Gérer les aspects RH, administratifs et financiers de l’arrondissement Planifier et conduire des actions préventives et répressives Conduire des opérations d’envergure et des engagements de maintien de l’ordre Garantir la qualité du travail au service des citoyens ainsi que le respect des bases légales, directives internes et objectifs fixés par le Commandement Assurer l'exécution des requêtes des autorités cantonales, nationales et internationales\n• Participer à des commissions de travail cantonales et intercantonales Fonctionner comme piquet de conduite\n\nVotre profil:\n• Formation complète de policier (CC II effectué) Avoir suivi ou disposé à suivre la formation CAS CEP Plusieurs années d'expérience de commandement dans un corps de police, notamment dans la planification et la conduite d’engagements et d’interventions majeures Très bonnes connaissances des procédures, de l’activité et du fonctionnement de la gendarmerie et plus largement de la Police cantonale valaisanne Expérience et compétences en matière de police judiciaire ainsi que dans le domaine de la sécurité publique et du maintien de l’ordre (cadre en fonction dans le MO) Sens développé des relations humaines, de la communication et aptitudes dans la gestion des conflits Intérêt pour la formation continue Flexibilité, autonomie et grande disponibilité Capacité à collaborer et à travailler en état-major Faculté d'adaptation, grande capacité de travail et très bonne résistance au stress Esprit d'analyse, de synthèse et aisance rédactionnelle Langue maternelle française ou parfaitement bilingue\n\nEntrée en fonction:\n1\n\n• er\n• avril 2027\n\nInformations:\nRenseignements sur le poste : Police cantonale, le Chef Gendarmerie (027 606 56 02 / yves-antoine.mayoraz@police.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 9 octobre 2026 / Numéro de référence : 102224",
-        "de": "Un chef ou une cheffe de l'arrondissement régional de gendarmerie du Valais central auprès de la Police cantonale, à Sion\n\nVos tâches:\n• Diriger l’arrondissement régional de gendarmerie du Valais central dans les domaines de la sécurité publique, des tâches de police judiciaire dévolues à la gendarmerie, de la lutte contre la criminalité, de la police de proximité et de la circulation routière\n• Coordonner son action avec les autres arrondissements et sections de la Gendarmerie ainsi qu’avec la Police judiciaire et les partenaires Gérer les aspects RH, administratifs et financiers de l’arrondissement Planifier et conduire des actions préventives et répressives Conduire des opérations d’envergure et des engagements de maintien de l’ordre Garantir la qualité du travail au service des citoyens ainsi que le respect des bases légales, directives internes et objectifs fixés par le Commandement Assurer l'exécution des requêtes des autorités cantonales, nationales et internationales\n• Participer à des commissions de travail cantonales et intercantonales Fonctionner comme piquet de conduite\n\nVotre profil:\n• Formation complète de policier (CC II effectué) Avoir suivi ou disposé à suivre la formation CAS CEP Plusieurs années d'expérience de commandement dans un corps de police, notamment dans la planification et la conduite d’engagements et d’interventions majeures Très bonnes connaissances des procédures, de l’activité et du fonctionnement de la gendarmerie et plus largement de la Police cantonale valaisanne Expérience et compétences en matière de police judiciaire ainsi que dans le domaine de la sécurité publique et du maintien de l’ordre (cadre en fonction dans le MO) Sens développé des relations humaines, de la communication et aptitudes dans la gestion des conflits Intérêt pour la formation continue Flexibilité, autonomie et grande disponibilité Capacité à collaborer et à travailler en état-major Faculté d'adaptation, grande capacité de travail et très bonne résistance au stress Esprit d'analyse, de synthèse et aisance rédactionnelle Langue maternelle française ou parfaitement bilingue\n\nEntrée en fonction:\n1\n\n• er\n• avril 2027\n\nInformations:\nRenseignements sur le poste : Police cantonale, le Chef Gendarmerie (027 606 56 02 / yves-antoine.mayoraz@police.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 9 octobre 2026 / Numéro de référence : 102224"
+        "de": "Un chef ou une cheffe de l'arrondissement régional de gendarmerie du Valais central auprès de la Police cantonale, à Sion\n\nVos tâches:\n• Diriger l’arrondissement régional de gendarmerie du Valais central dans les domaines de la sécurité publique, des tâches de police judiciaire dévolues à la gendarmerie, de la lutte contre la criminalité, de la police de proximité et de la circulation routière\n• Coordonner son action avec les autres arrondissements et sections de la Gendarmerie ainsi qu’avec la Police judiciaire et les partenaires Gérer les aspects RH, administratifs et financiers de l’arrondissement Planifier et conduire des actions préventives et répressives Conduire des opérations d’envergure et des engagements de maintien de l’ordre Garantir la qualité du travail au service des citoyens ainsi que le respect des bases légales, directives internes et objectifs fixés par le Commandement Assurer l'exécution des requêtes des autorités cantonales, nationales et internationales\n• Participer à des commissions de travail cantonales et intercantonales Fonctionner comme piquet de conduite\n\nVotre profil:\n• Formation complète de policier (CC II effectué) Avoir suivi ou disposé à suivre la formation CAS CEP Plusieurs années d'expérience de commandement dans un corps de police, notamment dans la planification et la conduite d’engagements et d’interventions majeures Très bonnes connaissances des procédures, de l’activité et du fonctionnement de la gendarmerie et plus largement de la Police cantonale valaisanne Expérience et compétences en matière de police judiciaire ainsi que dans le domaine de la sécurité publique et du maintien de l’ordre (cadre en fonction dans le MO) Sens développé des relations humaines, de la communication et aptitudes dans la gestion des conflits Intérêt pour la formation continue Flexibilité, autonomie et grande disponibilité Capacité à collaborer et à travailler en état-major Faculté d'adaptation, grande capacité de travail et très bonne résistance au stress Esprit d'analyse, de synthèse et aisance rédactionnelle Langue maternelle française ou parfaitement bilingue\n\nEntrée en fonction:\n1\n\n• er\n• avril 2027\n\nInformations:\nRenseignements sur le poste : Police cantonale, le Chef Gendarmerie (027 606 56 02 / yves-antoine.mayoraz@police.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 9 octobre 2026 / Numéro de référence : 102224",
+        "fr": "Un chef ou une cheffe de l'arrondissement régional de gendarmerie du Valais central auprès de la Police cantonale, à Sion\n\nVos tâches:\n• Diriger l’arrondissement régional de gendarmerie du Valais central dans les domaines de la sécurité publique, des tâches de police judiciaire dévolues à la gendarmerie, de la lutte contre la criminalité, de la police de proximité et de la circulation routière\n• Coordonner son action avec les autres arrondissements et sections de la Gendarmerie ainsi qu’avec la Police judiciaire et les partenaires Gérer les aspects RH, administratifs et financiers de l’arrondissement Planifier et conduire des actions préventives et répressives Conduire des opérations d’envergure et des engagements de maintien de l’ordre Garantir la qualité du travail au service des citoyens ainsi que le respect des bases légales, directives internes et objectifs fixés par le Commandement Assurer l'exécution des requêtes des autorités cantonales, nationales et internationales\n• Participer à des commissions de travail cantonales et intercantonales Fonctionner comme piquet de conduite\n\nVotre profil:\n• Formation complète de policier (CC II effectué) Avoir suivi ou disposé à suivre la formation CAS CEP Plusieurs années d'expérience de commandement dans un corps de police, notamment dans la planification et la conduite d’engagements et d’interventions majeures Très bonnes connaissances des procédures, de l’activité et du fonctionnement de la gendarmerie et plus largement de la Police cantonale valaisanne Expérience et compétences en matière de police judiciaire ainsi que dans le domaine de la sécurité publique et du maintien de l’ordre (cadre en fonction dans le MO) Sens développé des relations humaines, de la communication et aptitudes dans la gestion des conflits Intérêt pour la formation continue Flexibilité, autonomie et grande disponibilité Capacité à collaborer et à travailler en état-major Faculté d'adaptation, grande capacité de travail et très bonne résistance au stress Esprit d'analyse, de synthèse et aisance rédactionnelle Langue maternelle française ou parfaitement bilingue\n\nEntrée en fonction:\n1\n\n• er\n• avril 2027\n\nInformations:\nRenseignements sur le poste : Police cantonale, le Chef Gendarmerie (027 606 56 02 / yves-antoine.mayoraz@police.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 9 octobre 2026 / Numéro de référence : 102224"
       },
       "location": "Sion",
       "canton": "VS",
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=102224&publication=2639",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T14:10:44.159Z",
+      "crawledAt": "2026-09-26T23:48:51.605Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1470,10 +1470,9 @@
       "postedDate": "2026-09-26",
       "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=102224&publication=2639",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T14:10:44.159Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1486,8 +1485,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-26T14:10:44.159Z"
+      }
     },
     {
       "id": "canton-valais-75827ba05c43",
@@ -1552,7 +1550,8 @@
         }
       },
       "sourceIdentity": "url:https://otb.apps.vs.ch/svc/api/joboffersdocument/20495?language=fr",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "canton-valais-6cc4b6cb23ed",
@@ -1633,7 +1632,7 @@
         }
       },
       "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=101498&publication=2637",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "canton-valais-c4954ae9663d",
@@ -1714,7 +1713,8 @@
         }
       },
       "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=113843&publication=2637",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "canton-valais-dfa3f0179697",
@@ -1849,7 +1849,7 @@
         }
       },
       "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=112661&publication=2637",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "canton-valais-9ba17730dfdd",
@@ -1930,7 +1930,7 @@
         }
       },
       "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=106436&publication=2637",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "canton-valais-72bad1dbb9e5",
@@ -2011,7 +2011,7 @@
         }
       },
       "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=111534&publication=2638",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

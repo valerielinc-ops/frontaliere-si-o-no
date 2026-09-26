@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-09-26T14:13:39.998Z",
-  "total": 12,
+  "generatedAt": "2026-09-26T23:51:14.584Z",
+  "total": 11,
   "newCount": 0,
   "updatedCount": 11,
-  "removedCount": 2,
-  "unchangedCount": 1,
-  "durationMs": 99312,
-  "avgDurationMs": 99312,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 110646,
+  "avgDurationMs": 110646,
   "durationHistory": [
-    99312
+    110646
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -81,13 +81,13 @@
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-economics-market-design.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-economics-market-design.pdf",
-      "title": "Bando per la presentazione delle candidature per una posizione di docente a contratto in Economia e Progettazione dei Mercati",
+      "title": "Bando di concorso per una posizione di docente a contratto in Economia e progettazione dei mercati",
       "company": "USI – Università della Svizzera italiana",
       "companyKey": "usi-universita-della-svizzera-italiana",
       "location": "Lugano",
       "canton": "TI",
       "country": "CH",
-      "slug": "bando-per-la-presentazione-delle-candidature-per-una-posizione-di-docente-a-contratto-in-economia-e-progettazione-dei-mercati-usi-lugano",
+      "slug": "bando-di-concorso-per-una-posizione-di-docente-a-contratto-in-economia-e-progettazione-dei-mercati-usi-lugano",
       "department": "Faculty of Economics",
       "category": "staff",
       "datePosted": "2026-03-29",
@@ -180,13 +180,13 @@
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/ials/ials-idsia-phd-saturna-2026.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/ials/ials-idsia-phd-saturna-2026.pdf",
-      "title": "Posizioni per studenti di dottorato",
+      "title": "Posizioni per dottorandi",
       "company": "USI – Università della Svizzera italiana",
       "companyKey": "usi-universita-della-svizzera-italiana",
       "location": "Lugano",
       "canton": "TI",
       "country": "CH",
-      "slug": "posizioni-per-studenti-di-dottorato-usi-lugano",
+      "slug": "posizioni-di-dottorandi-usi-lugano",
       "department": "Institute of Argumentation, Linguistics and Semiotics – Dalle Molle Institute for Artificial Intelligence",
       "category": "phd",
       "datePosted": "2026-05-27",
@@ -212,7 +212,7 @@
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-bmed-iph-242869_phd_17.07.2026.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-bmed-iph-242869_phd_17.07.2026.pdf",
-      "title": "Posizione per dottorando presso l'Istituto di sanità pubblica",
+      "title": "Posizione per dottorando presso l'Istituto di Sanità Pubblica",
       "company": "USI – Università della Svizzera italiana",
       "companyKey": "usi-universita-della-svizzera-italiana",
       "location": "Lugano",
@@ -372,86 +372,6 @@
   ],
   "removedJobs": [
     {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/icup/icup-phd-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/icup/icup-phd-2026.pdf",
-      "title": "Posizione di dottorato in Architettura e Studi Ambientali",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "posizione-di-dottorato-in-architettura-e-studi-ambientali-usi-mendrisio",
-      "department": "Academy of Architecture – Institute of Urban and Landscape Studies (ISUP)",
-      "category": "phd",
-      "datePosted": "2026-04-29",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
-      },
-      "id": "usi-universita-della-svizzera-italiana-0c041bfbbfc0",
-      "sourceLang": "it",
-      "firstSeenAt": "2026-04-29T22:47:38.313Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-call_intern_living_walls_accademia_mendrisio_fmaa_2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-call_intern_living_walls_accademia_mendrisio_fmaa_2026.pdf",
-      "title": "Tirocinio",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "tirocinio-usi-mendrisio",
-      "department": "Academy of Architecture",
-      "category": "internship",
-      "datePosted": "2026-07-10",
-      "source": "usi-drupal-crawler",
-      "employmentType": "INTERN",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
-      },
-      "id": "usi-universita-della-svizzera-italiana-4bd022dc1bdc",
-      "sourceLang": "it",
-      "firstSeenAt": "2026-07-10T10:25:30.321Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
-  "unchangedJobs": [
-    {
       "url": "https://www.irsol.usi.ch/storage/app/media/Open%20Positions/2026_08_secretary.pdf",
       "applyUrl": "https://www.irsol.usi.ch/storage/app/media/Open%20Positions/2026_08_secretary.pdf",
       "title": "Segretario/a Amministrativo/a",
@@ -490,5 +410,6 @@
         "completeness": 14
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
