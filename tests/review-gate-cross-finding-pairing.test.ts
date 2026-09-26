@@ -1,8 +1,10 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
   classifyReview,
   historicalImportantFindings,
   importantFindings,
+  partitionHistoricalImportantFindings,
   runReviewGate,
 } from '../scripts/ci/review-gate.mjs';
 
@@ -10,8 +12,8 @@ import {
 //
 // Replay delle quattro review reali di valerielinc-ops/frontaliere-si-o-no#9968.
 // Un finding a citazione singola (A: `L378`) e uno a due citazioni sullo
-// stesso file (B: `L374` + `L391`, più la riga del ledger che il parser legge
-// come C: `L374`) restavano aperti per sempre: il ramo «stable line order»
+// stesso file (B: `L374` + `L391`; la riga del ledger che il parser leggeva
+// come un terzo finding C: `L374` non e' piu' un finding) restavano aperti per sempre: il ramo «stable line order»
 // considerava solo i finding a citazione singola e il pairing per cardinalità
 // di #9341 saltava B perché A citava lo stesso path. Due `## LGTM` con
 // `Important: 0` e il gate BLOCKING invariato su c99766c6 ed ed4e4abe.
@@ -122,13 +124,15 @@ const gate = (reviews: Array<{ commit_id: string }>) => runReviewGate({
 });
 
 describe('review gate: pairing per cardinalità fra finding sullo stesso path (#9968)', () => {
-  it('legge le citazioni reali: A a citazione singola, B a due, C dal ledger', () => {
+  it('legge le citazioni reali: A a citazione singola, B a due, il ledger non è un finding', () => {
     expect(importantFindings(reviewA.body).map((finding) => finding.citations)).toEqual([
       [{ path: FILE, line: 378 }],
     ]);
+    // La riga `- \`eabf305bc1f8\` **open** — …: 🔴 Important: …` sotto
+    // `## Findings ledger` è la copia del ledger, non un rilievo nuovo: prima
+    // diventava un finding C con testo `- \`eabf305bc1f8\` **open** — …`.
     expect(importantFindings(reviewB.body).map((finding) => finding.citations)).toEqual([
       [{ path: FILE, line: 374 }, { path: FILE, line: 391 }],
-      [{ path: FILE, line: 374 }],
     ]);
   });
 
@@ -176,7 +180,7 @@ describe('review gate: pairing per cardinalità fra finding sullo stesso path (#
       [`${FILE}:L372`, `${FILE}:L388`, `${FILE}:L400`, `${FILE}:L410`],
       SHA.third,
     );
-    expect(openAfter([reviewA, reviewB, tooMany])).toHaveLength(3);
+    expect(openAfter([reviewA, reviewB, tooMany])).toHaveLength(2);
     const result = await gate([reviewA, reviewB, tooMany]);
     expect(result.approved).toBe(false);
   });
@@ -238,5 +242,82 @@ describe('review gate: pairing per cardinalità fra finding sullo stesso path (#
     const moved = confirmationReview([`${FILE}:L372`, `${FILE}:L388`], SHA.fourth);
     const remaining = openAfter([reviewA, reviewB, exactOnly, reraised, moved]);
     expect(remaining.length).toBeGreaterThan(0);
+  });
+});
+
+// Companion senza riga nominato come lettore del dato (#9965).
+//
+// Replay delle review reali di valerielinc-ops/frontaliere-si-o-no#9965. Il
+// primo 🔴 è ancorato a `services/applicationIntent.ts:L70` e cita nel testo
+// `scripts/send-job-alerts.mjs` («letto da»), il consumer che legge il
+// profilo, senza riga. La review 5326904148 (`## LGTM`, `Important: 0`)
+// conferma `services/applicationIntent.ts:L91`, la riga spostata dell'anchor.
+// Il companion esiste nel tree, nessuno lo conferma mai: il finding restava
+// aperto e il gate di main dava OPEN=2 prima ancora della riapertura falsa.
+describe('review gate: companion senza riga come contesto dopo un LGTM (#9965)', () => {
+  const pages9965 = JSON.parse(readFileSync(
+    new URL('./fixtures/review-replay/pr-9965-reviews.json', import.meta.url), 'utf8',
+  )) as Array<Array<{ id: number; body: string; submitted_at: string; commit_id: string }>>;
+  const TREE = [
+    'App.tsx',
+    'scripts/send-job-alerts.mjs',
+    'services/applicationIntent.ts',
+    'services/behaviorTracker.ts',
+  ];
+  // Fino alla review 6: prima della riapertura falsa (5327178068).
+  const beforeReopen = pages9965.map((page) => page.filter((review) => review.submitted_at < '2026-09-26T19:30:00Z'));
+  const all = beforeReopen.flat();
+  const opened = all[0];
+  const approving = all[1];
+  const intentOpen = (reviews: unknown[], options: Record<string, unknown> = { repositoryPaths: TREE }) =>
+    historicalImportantFindings(reviews, { includeLatest: true, ...options })
+      .filter((finding) => finding.citations.some((citation) => citation.path === 'services/applicationIntent.ts' && citation.line === 70));
+  const withBody = (review: { body: string }, body: string) => ({ ...review, body });
+
+  it('legge l’anchor preciso e il companion senza riga', () => {
+    expect(importantFindings(opened.body)[0].citations).toEqual([
+      { path: 'services/applicationIntent.ts', line: 70 },
+      { path: 'scripts/send-job-alerts.mjs', line: null },
+    ]);
+  });
+
+  it('replay #9965: l’LGTM che conferma l’anchor preciso chiude il finding, resta aperto solo il 🔴 mai confermato', () => {
+    const { open, confirmed } = partitionHistoricalImportantFindings(beforeReopen, { includeLatest: true, repositoryPaths: TREE });
+    expect(open.map((finding) => finding.citations[0])).toEqual([{ path: 'services/behaviorTracker.ts', line: 316 }]);
+    expect(confirmed.map((finding) => finding.citations[0])).toEqual([{ path: 'services/applicationIntent.ts', line: 70 }]);
+  });
+
+  it('resta aperto se la review che conferma non è approvante', () => {
+    const notApproving = withBody(approving, approving.body
+      .replace('## Findings (Important: 0, Nit: 0)', '## Findings (Important: 1, Nit: 0)')
+      .replace('## LGTM', 'services/other.ts:L1: 🔴 Important: [funnel] altro rilievo.'));
+    expect(intentOpen([opened, notApproving])).toHaveLength(1);
+  });
+
+  it('resta aperto se l’anchor preciso non è confermato', () => {
+    const elsewhere = withBody(approving, approving.body.replace('services/applicationIntent.ts:L91', 'services/behaviorTracker.ts:L91'));
+    expect(intentOpen([opened, elsewhere])).toHaveLength(1);
+  });
+
+  it('resta aperto quando il companion è l’unico anchor', () => {
+    const onlyCompanion = withBody(opened, opened.body.replace(
+      'services/applicationIntent.ts:L70: 🔴 Important:',
+      '🔴 Important:',
+    ));
+    expect(importantFindings(onlyCompanion.body)[0].citations).toEqual([{ path: 'scripts/send-job-alerts.mjs', line: null }]);
+    expect(historicalImportantFindings([onlyCompanion, approving], { includeLatest: true, repositoryPaths: TREE })).toHaveLength(1);
+  });
+
+  it('resta aperto quando il finding chiede di correggere anche il companion', () => {
+    const fixCompanion = withBody(opened, opened.body.replace(
+      'Persistere il profilo',
+      'Correggi anche `scripts/send-job-alerts.mjs`. Persistere il profilo',
+    ));
+    expect(intentOpen([fixCompanion, approving])).toHaveLength(1);
+  });
+
+  it('resta aperto senza tree autorevole: assente o di fallback', () => {
+    expect(intentOpen([opened, approving], {})).toHaveLength(1);
+    expect(intentOpen([opened, approving], { repositoryPaths: TREE, repositoryPathsFromFallback: true })).toHaveLength(1);
   });
 });
