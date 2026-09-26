@@ -39,7 +39,7 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, m
 import { parsePostJobDetail, extractPostJobIdFromUrl } from './lib/postch-job-parser.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { inferAnyCanton, normalizeCantonCode } from './lib/target-swiss-locations.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchJson } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { isDedicatedPostBrand } from './lib/crawler-company-ownership.mjs';
@@ -186,12 +186,10 @@ async function fetchPage(url, timeoutMs = 15000) {
  *   on an empty page before reaching a declared total.
  */
 async function fetchJobsApiPage(locale, pageNumber, timeoutMs = 20000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(JOBS_API_URL, {
+    const data = await fetchJson(JOBS_API_URL, {
       method: 'POST',
-      signal: controller.signal,
+      timeoutMs,
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
@@ -201,13 +199,9 @@ async function fetchJobsApiPage(locale, pageNumber, timeoutMs = 20000) {
         'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
           'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
-      body: JSON.stringify({ locale, pageNumber, sortBy: 'date' }),
+      body: { locale, pageNumber, sortBy: 'date' },
+      label: `Post.ch jobs API (${locale} page ${pageNumber})`,
     });
-    if (!res.ok) {
-      console.warn(`⚠️ HTTP ${res.status} for jobs API (${locale} page ${pageNumber})`);
-      return { totalJobs: null, jobs: [], error: `HTTP ${res.status}` };
-    }
-    const data = await res.json();
     const rawJobs = data?.jobSearchResult;
     assertJsonListShape(data, { key: 'jobSearchResult', source: 'postch', lang: locale });
     if (!Array.isArray(rawJobs)) {
@@ -235,8 +229,6 @@ async function fetchJobsApiPage(locale, pageNumber, timeoutMs = 20000) {
   } catch (err) {
     console.warn(`⚠️ Jobs API fetch failed (${locale} page ${pageNumber}): ${err.message}`);
     return { totalJobs: null, jobs: [], error: err.message };
-  } finally {
-    clearTimeout(timer);
   }
 }
 
