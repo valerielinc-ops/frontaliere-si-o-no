@@ -6797,6 +6797,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assicurazione-grandine-2026.title': 'Hagelversicherung: Prämien 2026 in Gefahr',
     'blog.article.assicurazione-grandine-2026.excerpt': 'Im Jahr 2026 erwartet Grandine Svizzera finanzielle Verluste und Entschädigungen von bis zu 170 Millionen Franken, wobei die Ernten von Zuckerrüben, Kartoffeln und Mais um bis zu 30% zurückgehen.',
     'blog.article.assicurazione-grandine-2026.imageAlt': 'Schweizer landwirtschaftliches Feld, das von Hagel betroffen ist, mit drohenden Wolken',
+    'blog.article.ubs-sede-elvetica-costi.title': 'UBS: Standortverlegung für Keller-Sutter unwahrscheinlich',
+    'blog.article.ubs-sede-elvetica-costi.excerpt': 'Laut Karin Keller‑Sutter wäre eine Verlegung des Sitzes von Ubs ins Ausland deutlich kostspieliger und rechtlich komplex; der Bundesrat hat bereits Erleichterungen bei der Eigenmittelverordnung gewährt.',
+    'blog.article.ubs-sede-elvetica-costi.imageAlt': 'Ubs‑Hauptsitz im schweizerischen Finanzdistrict',
 };
 
 export default blogMetaChDe;
