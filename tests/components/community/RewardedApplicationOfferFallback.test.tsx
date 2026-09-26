@@ -40,6 +40,7 @@ const mocks = vi.hoisted(() => ({
   grantRewardedApplicationAccess: vi.fn(() => 1_900_000_000_000),
   disposeRewardedWebAd: vi.fn(),
   eligible: true,
+  resolveOnAbort: true,
   gptProps: null as Record<string, unknown> | null,
 }));
 
@@ -132,6 +133,7 @@ beforeAll(async () => {
 beforeEach(() => {
   vi.clearAllMocks();
   mocks.eligible = true;
+  mocks.resolveOnAbort = true;
   mocks.gptProps = null;
   mocks.releaseOptions = null;
   mocks.resolveRelease = null;
@@ -139,7 +141,9 @@ beforeEach(() => {
     mocks.releaseOptions = options;
     return new Promise<ReleaseResult>((resolve) => {
       mocks.resolveRelease = resolve;
-      options.signal?.addEventListener('abort', () => resolve({ outcome: 'not_shown', reason: 'aborted' }));
+      options.signal?.addEventListener('abort', () => {
+        if (mocks.resolveOnAbort) resolve({ outcome: 'not_shown', reason: 'aborted' });
+      });
     });
   });
 });
@@ -303,8 +307,13 @@ describe('RewardedApplicationOffer — GPT fallback of a late Offerwall', () => 
     appearTimeout();
     callGpt('onOptIn', { requestId: 26 } satisfies Info);
 
-    // A report already queued before the watch ended (or no AbortController).
+    // Reports already queued before the watch ended (or no AbortController):
+    // the late Offerwall appears and closes while the GPT video plays.
     showOfferwall(7_200);
+    act(() => {
+      mocks.releaseOptions?.onClosed?.({ shownMs: 7_200, closedMs: 9_000, root: 'fc-message-root' });
+    });
+    expect(screen.queryByTestId('rewarded-application-loading')).not.toBeInTheDocument();
 
     expect(screen.getByTestId('rewarded-application-offer')).toBeInTheDocument();
     expect(screen.getByTestId('mock-google-rewarded')).toBeInTheDocument();
@@ -315,6 +324,27 @@ describe('RewardedApplicationOffer — GPT fallback of a late Offerwall', () => 
     callGpt('onGranted', { requestId: 26 } satisfies Info);
     expect(props.onContinue).toHaveBeenCalledTimes(1);
     expect(tracked('rewarded_offerwall_gpt_fallback_granted')).toHaveLength(1);
+  });
+
+  it('ignores every late Offerwall outcome once the GPT video started', async () => {
+    // As on a browser without AbortController: the observer is not stopped.
+    mocks.resolveOnAbort = false;
+    render(<RewardedApplicationOffer {...props} />);
+    slow();
+    callGpt('onReady', { requestId: 27 } satisfies Info);
+    appearTimeout();
+    callGpt('onOptIn', { requestId: 27 } satisfies Info);
+
+    // Only reachable when the watch could not be aborted: the outcome still
+    // arrives, and must neither hand off nor grant on the Offerwall path.
+    await settle({ outcome: 'closed_without_reward', shownMs: 7_000, closedMs: 9_000, root: 'fc-message-root' });
+    expect(props.onUnavailable).not.toHaveBeenCalled();
+    expect(tracked('rewarded_offerwall_closed_without_reward')).toEqual([]);
+    expect(screen.getByTestId('mock-google-rewarded')).toBeInTheDocument();
+
+    // The GPT video closed without its reward: the GPT retry card, not an Offerwall hand-off.
+    callGpt('onClosed', false, { requestId: 27 } satisfies Info);
+    expect(screen.getByTestId('rewarded-application-retry')).toBeInTheDocument();
   });
 
   it('destroys a prepared slot when the Offerwall appears before the timeout', () => {

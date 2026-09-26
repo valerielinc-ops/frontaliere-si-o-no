@@ -387,7 +387,7 @@ export default function RewardedApplicationOffer({
         });
       },
       onClosed: () => {
-        if (!mountedRef.current) return;
+        if (!mountedRef.current || gptVideoStartedRef.current) return;
         setPhase('offerwall_verifying');
       },
       onStalled: ({ shownMs, root }) => {
@@ -401,6 +401,9 @@ export default function RewardedApplicationOffer({
       },
     }).then((result) => {
       if (!mountedRef.current) return;
+      // After the GPT opt-in the GPT flow is the only one: no Offerwall
+      // outcome (a late one, when the watch could not be aborted) acts on it.
+      if (gptVideoStartedRef.current) return;
       if (result.outcome === 'completed') {
         handleOfferwallCompleted(result);
         return;
