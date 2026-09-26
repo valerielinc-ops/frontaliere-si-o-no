@@ -463,8 +463,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "belimo-1f407073f538",
@@ -611,8 +610,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "belimo-8138923e62a6",
@@ -873,8 +871,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "belimo-69556757d32e",
@@ -1135,7 +1132,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-08T23:17:44.746Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1402,7 +1398,6 @@
         ]
       },
       "firstSeenAt": "2026-07-26T22:07:56.558Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -2204,8 +2199,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "belimo-bd30b8fedbcd",
@@ -2286,8 +2280,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "belimo-42abfdc1ecb4",
@@ -2394,8 +2387,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "belimo-6993f5b55a7a",
@@ -2489,8 +2481,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "belimo-60735f1b118c",
@@ -2791,8 +2782,7 @@
         }
       },
       "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-lehrstelle-als-polymechanikerin-efz-z%c3%bcri-8340/1165049655",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

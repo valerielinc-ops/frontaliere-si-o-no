@@ -6803,6 +6803,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sanzioni-finanziarie-onu-2026.title': 'UN sanctions: the Federal Council updates four ordinances',
     'blog.article.sanzioni-finanziarie-onu-2026.excerpt': 'Decision of 25 September 2026 to harmonize financial provisions on terrorism and proliferation, with specific exemptions for Iran.',
     'blog.article.sanzioni-finanziarie-onu-2026.imageAlt': 'Federal Palace in Bern, seat of the Federal Council',
+    'blog.article.jans-monaco-lotta-trafficanti.title': 'Beat Jans in Munich: Fighting human traffickers',
+    'blog.article.jans-monaco-lotta-trafficanti.excerpt': 'Federal Councillor Beat Jans focuses on European cooperation and fast-track return procedures during the Munich summit with 18 states.',
+    'blog.article.jans-monaco-lotta-trafficanti.imageAlt': 'Swiss government building with national flag',
 };
 
 export default blogMetaChEn;
