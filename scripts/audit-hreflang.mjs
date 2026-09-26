@@ -277,19 +277,9 @@ async function main() {
       const historical = isNoindexPage(html);
       if (historical) historicalPagesWithHreflang.add(rel);
 
-      const recordFailure = (kind, message) => {
-        if (isHistoricalMissingTarget(html, kind)) {
-          historicalFailures[kind].push(flatString(message));
-          historicalPagesWithFailure.add(rel);
-          return;
-        }
-        failures[kind].push(flatString(message));
-      };
-
       if (alternates.size < 5) {
-        recordFailure(
-          'tooFew',
-          `${rel}: has only ${alternates.size} hreflang entries (need 4 locales + x-default)`,
+        failures.tooFew.push(
+          flatString(`${rel}: has only ${alternates.size} hreflang entries (need 4 locales + x-default)`),
         );
       }
 
@@ -299,7 +289,7 @@ async function main() {
         if (error) {
           // flatString: `error` embeds `href` (and slices of it), which are
           // captures INTO the page HTML — see the block above `failures`.
-          recordFailure('invalidPair', `${rel}: ${error}`);
+          failures.invalidPair.push(flatString(`${rel}: ${error}`));
         }
       }
 
@@ -307,9 +297,8 @@ async function main() {
       const itHref = alternates.get('it');
       const xDefault = alternates.get('x-default');
       if (itHref && xDefault && normaliseHref(itHref) !== normaliseHref(xDefault)) {
-        recordFailure(
-          'xDefaultMismatch',
-          `${rel}: x-default "${xDefault}" does not match IT hreflang "${itHref}"`,
+        failures.xDefaultMismatch.push(
+          flatString(`${rel}: x-default "${xDefault}" does not match IT hreflang "${itHref}"`),
         );
       }
 
@@ -317,7 +306,16 @@ async function main() {
       for (const [hreflang, href] of alternates) {
         if (!href.startsWith(BASE_URL)) continue;
         if (!targetExists(href, distFiles)) {
-          recordFailure('missingTarget', `${rel}: hreflang="${hreflang}" target not found in dist/ (${href})`);
+          if (isHistoricalMissingTarget(html, 'missingTarget')) {
+            historicalFailures.missingTarget.push(
+              flatString(`${rel}: hreflang="${hreflang}" target not found in dist/ (${href})`),
+            );
+            historicalPagesWithFailure.add(rel);
+          } else {
+            failures.missingTarget.push(
+              flatString(`${rel}: hreflang="${hreflang}" target not found in dist/ (${href})`),
+            );
+          }
         }
       }
     }
