@@ -6761,6 +6761,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.integrazione-pic4-fondi-2028-2032.title': 'Federal Council: 334,5 million for integration 2028-2032',
     'blog.article.integrazione-pic4-fondi-2028-2032.excerpt': 'Commitment credit of 334,5 mln for PIC 4 and national programmes. 66,9 mln/year to the Cantons for language, education and employment. Immigrant employment at 77% OECD.',
     'blog.article.integrazione-pic4-fondi-2028-2032.imageAlt': 'Federal Palace in Bern with Swiss flags',
+    'blog.article.indennita-infermiere-bregaglia.title': 'Bregaglia, compensation for four dismissed nurses',
+    'blog.article.indennita-infermiere-bregaglia.excerpt': 'CSB awards compensation to four nurses dismissed in February 2025 following a settlement before the District Court.',
+    'blog.article.indennita-infermiere-bregaglia.imageAlt': 'Healthcare center in Bregaglia linked to an agreement for four dismissed nurses.',
 };
 
 export default blogMetaChEn;

@@ -6761,6 +6761,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.integrazione-pic4-fondi-2028-2032.title': 'Bundesrat: 334,5 Millionen für Integration 2028-2032',
     'blog.article.integrazione-pic4-fondi-2028-2032.excerpt': 'Verpflichtungskredit von 334,5 Mio. für PIC 4 und nationale Programme. 66,9 Mio./Jahr an die Kantone für Sprache, Ausbildung und Arbeit. Beschäftigungsquote der Einwanderer bei 77 % laut OECD.',
     'blog.article.integrazione-pic4-fondi-2028-2032.imageAlt': 'Bundeshaus in Bern mit Schweizer Flaggen',
+    'blog.article.indennita-infermiere-bregaglia.title': 'Bregaglia, Abfindung für vier entlassene Krankenschwestern',
+    'blog.article.indennita-infermiere-bregaglia.excerpt': 'Das CSB zahlt vier im Februar 2025 entlassenen Krankenschwestern nach einem Vergleich vor der Pretura Entschädigungen.',
+    'blog.article.indennita-infermiere-bregaglia.imageAlt': 'Gesundheitszentrum in Bregaglia im Fall von vier entlassenen Pflegefachfrauen.',
 };
 
 export default blogMetaChDe;
