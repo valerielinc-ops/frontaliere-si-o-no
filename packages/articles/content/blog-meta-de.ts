@@ -12032,6 +12032,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.saronno-lavori-via-volonterio.title': 'Saronno, Arbeiten in der Via Volonterio: veränderter Verkehr',
     'blog.article.saronno-lavori-via-volonterio.excerpt': 'Ab Montag, dem 28. September, arbeiten Sie an den Bürgersteigen in der Via Volonterio: Haltestelle verboten, Einbahnstraße in Richtung Via Varese und Umwege bis zum 16. Oktober.',
     'blog.article.saronno-lavori-via-volonterio.imageAlt': 'Strassenarbeiten und Verkehrsaenderungen in einem Stadtgebiet bei Saronno',
+    'blog.article.telelavoro-frontalieri-limite-italia.title': 'Homeoffice für Grenzgänger: Grenze von 25 % der Arbeitstage',
+    'blog.article.telelavoro-frontalieri-limite-italia.excerpt': 'Die steuerliche Schwelle für Smart Working aus Italien beträgt 25%; sie trat am 9 febbraio 2026 in Kraft und gilt rückwirkend ab dem 1 gennaio 2024. Ein Tag von fünf entspricht 20%.',
+    'blog.article.telelavoro-frontalieri-limite-italia.imageAlt': 'Grenzgänger, der im Homeoffice Smart Working macht mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

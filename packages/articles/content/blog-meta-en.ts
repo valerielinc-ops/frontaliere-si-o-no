@@ -12033,6 +12033,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.saronno-lavori-via-volonterio.title': 'Saronno, roadworks on Via Volonterio: traffic changes',
     'blog.article.saronno-lavori-via-volonterio.excerpt': 'Starting Monday, September 28, sidewalk work on Via Volonterio: no parking, one-way traffic toward Via Varese, and detours until October 16.',
     'blog.article.saronno-lavori-via-volonterio.imageAlt': 'Roadworks and traffic changes in an urban area near Saronno',
+    'blog.article.telelavoro-frontalieri-limite-italia.title': 'Smart working for cross-border workers: 25% limit on days',
+    'blog.article.telelavoro-frontalieri-limite-italia.excerpt': 'The tax threshold for smart working from Italy is 25%; entered into force on 9 febbraio 2026, retroactive application from 1 gennaio 2024. One day out of five is 20%.',
+    'blog.article.telelavoro-frontalieri-limite-italia.imageAlt': 'Cross-border worker doing smart working from home with a view of Lake Lugano',
 };
 
 export default blogMetaEn;

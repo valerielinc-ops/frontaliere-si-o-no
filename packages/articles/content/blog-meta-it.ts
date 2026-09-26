@@ -12034,6 +12034,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.saronno-lavori-via-volonterio.title': 'Saronno, lavori in via Volonterio: traffico modificato',
     'blog.article.saronno-lavori-via-volonterio.excerpt': 'Da lunedì 28 settembre lavori ai marciapiedi in via Volonterio: sosta vietata, senso unico verso via Varese e deviazioni fino al 16 ottobre.',
     'blog.article.saronno-lavori-via-volonterio.imageAlt': 'Lavori stradali e deviazioni del traffico in un\'area urbana del Saronnese',
+    'blog.article.telelavoro-frontalieri-limite-italia.title': 'Smart working frontalieri: limite 25% dalle giornate',
+    'blog.article.telelavoro-frontalieri-limite-italia.excerpt': 'La soglia fiscale per lo smart working dall\'Italia è 25%; entrata in vigore il 9 febbraio 2026, applicazione retroattiva dal 1 gennaio 2024. Una giornata su cinque vale 20%.',
+    'blog.article.telelavoro-frontalieri-limite-italia.imageAlt': 'Lavoratore frontaliere che svolge smart working da casa con vista sul lago di Lugano',
 };
 
 export default blogMetaIt;

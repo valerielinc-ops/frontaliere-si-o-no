@@ -93985,6 +93985,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-telelavoro-frontalieri-limite-italia': {
+    title: 'Smart working frontalieri: limite 25% dalle giornate',
+    description: 'Scopri la soglia fiscale del 25% per lo smart working dei frontalieri: entrata in vigore il 9 febbraio 2026, retroattiva dal 1 gennaio 2024. Esempi di calcolo',
+    keywords: 'frontalieri, ticino, svizzera, italia, smart, working, limite, dalle',
+    ogTitle: 'Smart working frontalieri: limite 25% dalle giornate',
+    ogDescription: 'La soglia fiscale per lo smart working dei frontalieri è fissata al 25% del tempo di lavoro. Scopri come calcolare le giornate consentite, le date di entrata in vigore del protocollo (9 febbraio 2026, retroattivo dal 1 gennaio 2024) e cosa prevede',
+    canonicalPath: '/articoli-frontaliere/telelavoro-frontalieri-limite-italia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Smart working frontalieri: limite 25% dalle giornate",
+      "description": "Scopri la soglia fiscale del 25% per lo smart working dei frontalieri: entrata in vigore il 9 febbraio 2026, retroattiva dal 1 gennaio 2024. Esempi di calcolo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/telelavoro-frontalieri-limite-italia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratore frontaliere che svolge smart working da casa con vista sul lago di Lugano"
+      },
+      "datePublished": "2026-09-26T06:53:27+00:00",
+      "dateModified": "2026-09-26T06:53:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/telelavoro-frontalieri-limite-italia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
