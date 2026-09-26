@@ -120,6 +120,7 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
     && !result.blockedByRobots
     && !result.status
     && Boolean(result.transportError);
+  const antiBotResponse = directChallenge || WAF_IP_BLOCK_STATUS.has(Number(result.status));
 
   // A WAF may answer HTTP 200 with an interstitial instead of a hard block.
   // Treat that response like the existing 403/406/415/451 rescue path: a
@@ -140,7 +141,7 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
   // confirmed anti-bot response is marked as such; a transport failure stays
   // a transport failure so the standard pipeline preserves the prior slice.
   if (!result.policyBlocked && !result.blockedByRobots
-    && (connectionLevelFailure || directChallenge || WAF_IP_BLOCK_STATUS.has(Number(result.status)))
+    && (connectionLevelFailure || antiBotResponse)
     && runtime.disableWafProxy !== true) {
     const proxiedBody = await fetchHtmlViaJinaWithRetry(url, {
       timeoutMs: runtime.timeoutMs,
@@ -163,7 +164,7 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
     // challenge variants are valid-looking 200 bodies. Keep the same
     // anti-bot safe-fail semantics for those variants instead of parsing a
     // challenge as an empty listing page.
-    wafProxyExhausted = true;
+    wafProxyExhausted = antiBotResponse;
   } else if (directChallenge) {
     // Proxy rescue was disabled or the response was otherwise not eligible;
     // the body is still a confirmed anti-bot fence, not an empty source.
