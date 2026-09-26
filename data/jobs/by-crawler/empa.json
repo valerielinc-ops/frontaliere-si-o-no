@@ -1,6 +1,6 @@
 {
   "crawlerKey": "empa",
-  "assembledAt": "2026-09-24T14:44:50.445Z",
+  "assembledAt": "2026-09-26T14:11:49.200Z",
   "jobs": [
     {
       "id": "empa-8d5a51c62388",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/673276/2176/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:44:45.771Z",
+      "crawledAt": "2026-09-26T14:11:44.302Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -54,11 +54,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-researcher-on-co2-solid-adsorbent-shaping-and-degradation-empa-dubendorf"
+        "postdoctoral-researcher-on-co2-solid-adsorbent-shaping-and-degradation-empa-dubendorf",
+        "ricercatore-post-dottorato-sulla-modellatura-e-degradazione-degli-adsorbenti-solidi-di-co2-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-researcher-on-co2-solid-adsorbent-shaping-and-degradation-empa-dubendorf"
+          "postdoctoral-researcher-on-co2-solid-adsorbent-shaping-and-degradation-empa-dubendorf",
+          "ricercatore-post-dottorato-sulla-modellatura-e-degradazione-degli-adsorbenti-solidi-di-co2-empa-dubendorf"
         ],
         "de": [
           "postdoctoral-researcher-on-co2-solid-adsorbent-shaping-and-degradation-empa-dubendorf"
@@ -80,8 +82,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://apply.refline.ch/673276/2176/pub/1/index.html"
+      }
     },
     {
       "id": "empa-e0a720ff6929",
@@ -114,7 +115,7 @@
       "url": "https://apply.refline.ch/673276/2181/pub/4/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:44:45.770Z",
+      "crawledAt": "2026-09-26T14:11:44.301Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -135,11 +136,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf"
+        "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf",
+        "posizione-postdoc-in-elettrocatalisi-co2-in-condizioni-realistiche-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf"
+          "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf",
+          "posizione-postdoc-in-elettrocatalisi-co2-in-condizioni-realistiche-empa-dubendorf"
         ],
         "de": [
           "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf"
@@ -149,6 +152,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:39:25.182Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -161,8 +165,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://apply.refline.ch/673276/2181/pub/4/index.html"
+      }
     },
     {
       "id": "empa-e5605f1e4107",
@@ -195,7 +198,7 @@
       "url": "https://apply.refline.ch/673276/2199/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:44:45.769Z",
+      "crawledAt": "2026-09-26T14:11:44.300Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -237,12 +240,14 @@
       },
       "previousSlugs": [
         "lernende-r-fachperson-betriebsunterhalt-efz-oder-eba-a-empa-dubendorf",
-        "apprendista-fachperson-betriebsunterhalt-cfc-o-afp-a-empa-dubendorf"
+        "apprendista-fachperson-betriebsunterhalt-cfc-o-afp-a-empa-dubendorf",
+        "apprendista-a-specialista-in-manutenzione-edifici-afc-o-cfp-a-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-r-fachperson-betriebsunterhalt-efz-oder-eba-a-empa-dubendorf",
-          "apprendista-fachperson-betriebsunterhalt-cfc-o-afp-a-empa-dubendorf"
+          "apprendista-fachperson-betriebsunterhalt-cfc-o-afp-a-empa-dubendorf",
+          "apprendista-a-specialista-in-manutenzione-edifici-afc-o-cfp-a-empa-dubendorf"
         ],
         "en": [
           "lernende-r-fachperson-betriebsunterhalt-efz-oder-eba-a-empa-dubendorf"
@@ -252,6 +257,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:39:25.178Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -264,8 +270,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://apply.refline.ch/673276/2199/pub/1/index.html"
+      }
     },
     {
       "id": "empa-0f9fc065f003",
@@ -298,7 +303,7 @@
       "url": "https://apply.refline.ch/673276/2206/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:44:45.768Z",
+      "crawledAt": "2026-09-26T14:11:44.299Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -353,12 +358,14 @@
         "lernende-r-polymechaniker-in-a-empa-dubendorf",
         "apprendista-polymechaniker-in-a-empa-dubendorf",
         "apprentice-polymechaniker-in-a-empa-dubendorf",
-        "apprenti-e-polymechaniker-in-a-empa-dubendorf"
+        "apprenti-e-polymechaniker-in-a-empa-dubendorf",
+        "apprendista-politecnico-meccanico-a-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-r-polymechaniker-in-a-empa-dubendorf",
-          "apprendista-polymechaniker-in-a-empa-dubendorf"
+          "apprendista-polymechaniker-in-a-empa-dubendorf",
+          "apprendista-politecnico-meccanico-a-empa-dubendorf"
         ],
         "en": [
           "lernende-r-polymechaniker-in-a-empa-dubendorf",
@@ -370,6 +377,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:39:25.167Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -382,8 +390,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://apply.refline.ch/673276/2206/pub/1/index.html"
+      }
     },
     {
       "id": "empa-572878c968c5",
@@ -416,7 +423,7 @@
       "url": "https://apply.refline.ch/673276/2207/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:44:45.767Z",
+      "crawledAt": "2026-09-26T14:11:44.297Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -450,7 +457,7 @@
           "unitText": "YEAR"
         }
       },
-      "sourceIdentity": "url:https://apply.refline.ch/673276/2207/pub/1/index.html"
+      "needsRetranslation": true
     },
     {
       "id": "empa-18740ead79ed",
@@ -459,17 +466,17 @@
         "it": "apprendista-tecnico-di-laboratorio-fisico-a-empa-thun",
         "en": "apprentice-physics-laboratory-technician-a-empa-thun",
         "de": "lernende-r-physiklaborant-in-a-empa-thun",
-        "fr": "laboratoire-d-apprentissage-de-physique-a-empa-thun"
+        "fr": "lernende-r-physiklaborant-in-a-empa-thun"
       },
       "company": "Empa",
       "companyKey": "empa",
       "companyDomain": "empa.ch",
       "title": "Lernende/r Physiklaborant/in (a)",
       "titleByLocale": {
-        "it": "Apprendista Tecnico di Laboratorio Fisico (a)",
-        "en": "Trainee in physics laboratory (a)",
-        "de": "L 347 vom 20.12.2013, S. 671.",
-        "fr": "Assistant de laboratoire de physique apprenti (a)"
+        "de": "Lernende/r Physiklaborant/in (a)",
+        "fr": "Lernende/r Physiklaborant/in (a)",
+        "it": "Apprendista Physiklaborant/in (a)",
+        "en": "Apprentice Physiklaborant/in (a)"
       },
       "description": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nLernende/r Physiklaborant/in (a)\n\nFür August 2027 bieten wir in der Abteilung Werkstoff- und Nanomechanik in Thun einen anspruchsvollen Ausbildungsplatz in einem faszinierenden Forschungsumfeld.\n\nWas erwartet dich\n\nAn einem ETH Forschungsinstitut tätig zu sein, bringt viel Abwechslung in den Berufsalltag. Wenn du Interesse an Physik, Elektronik, Technik und Werkstoffen hast, garantieren wir dir spannende Aufgaben in einem internationalen Umfeld der Forschung. Zudem liebst du das Tüfteln und Werken.\n\nWas bringst du mit\n\n• Sekundarschule A mit sehr guten Leistungen in den naturwissenschaftlichen, mathematischen und sprachlichen Fächern - Englisch ist bei uns Alltagssprache\n\n• Theoretisches und praktisches Interesse für Physik, Chemie, Werkstoffe, Elektronik sowie Informatik und an technischen Systemen\n\n• Abstraktes Denken und methodisches Vorgehen, technisches Verständnis und manuelle Geschicklichkeit\n\n• Gute Beobachtungs- und Auffassungsgabe, Sorgfalt, verantwortungsvolles und zuverlässiges Arbeiten\n\n• Freude an einer hoch technisierten und komplexen Arbeitsumgebung\n\n• Hohe Kompetenzen in der Kommunikation und Zusammenarbeit mit Menschen\n Du bist zudem überzeugt, deine Zukunft mit einer Berufslehre zu starten.\n\nWas wir dir bieten\n\n• Du untersuchst die physikalische und chemische Integrität von metallischen Werkstoffen und ihren Bauteilen, wie sie z.B. in Gebäuden, Brücken, Tunnels, Produktionsanlagen, im Maschinenbau sowie der Energie-, Bahn- und Medizinaltechnik angewendet werden\n\n• Du ermittelst Werkstoffkennwerte mittels modernster analytischer Methoden und führst physikalische Messungen und Versuchsreihen mit Werkstoffen und Systemen durch\n\n• Du tüftelst an Versuchsanlagen, bereitest Versuche vor, führst sie durch und dokumentierst sie anschliessend\n\n• Du besuchst die Berufsschule in Zürich. Der Besuch der BMS wird unterstützt.\n Wir bieten eine spannende und vielseitige Grundausbildung Ausbildung mit modernster Technik. Die Empa ist ein lebendiges und innovatives Forschungsumfeld mit internationalem Flair und hervorragenden Anstellungsbedingungen in der Agglomeration Zürich.\n\n«a» steht in unseren Stelleninseraten für «alle». Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\nWir freuen uns auf deine vollständige Online-Bewerbung inkl. Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome und Kontaktdaten von zwei Referenzpersonen. Bitte reiche diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
       "descriptionByLocale": {
@@ -483,7 +490,7 @@
       "url": "https://apply.refline.ch/673276/2197/pub/2/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:44:45.766Z",
+      "crawledAt": "2026-09-26T14:11:44.296Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -530,6 +537,7 @@
           "Goût pour le bricolage et le travail manuel"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "lernende-r-physiklaborant-in-a-empa-thun",
         "laboratoire-d-apprentissage-de-physique-a-empa-thun-fb5508",
@@ -538,14 +546,17 @@
         "apprendista-physiklaborant-in-a-empa-thun-fb5508",
         "apprentice-physiklaborant-in-a-empa-thun-fb5508",
         "apprentissage-laboratoire-de-physique-en-a-empa-thun",
-        "laboratoire-d-apprentissage-et-de-physique-a-empa-thun"
+        "laboratoire-d-apprentissage-et-de-physique-a-empa-thun",
+        "laboratoire-d-apprentissage-de-physique-a-empa-thun",
+        "apprendista-tecnico-di-laboratorio-fisico-a-empa-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-r-physiklaborant-in-a-empa-thun",
           "apprendista-physiklaborant-in-a-empa-thun",
           "apprentice-physiklaborant-in-a-empa-thun",
-          "apprendista-physiklaborant-in-a-empa-thun-fb5508"
+          "apprendista-physiklaborant-in-a-empa-thun-fb5508",
+          "apprendista-tecnico-di-laboratorio-fisico-a-empa-thun"
         ],
         "en": [
           "lernende-r-physiklaborant-in-a-empa-thun",
@@ -555,9 +566,13 @@
           "laboratoire-d-apprentissage-de-physique-a-empa-thun-fb5508",
           "apprentissage-laboratoire-de-physique-en-a-empa-thun",
           "laboratoire-d-apprentissage-et-de-physique-a-empa-thun",
+          "laboratoire-d-apprentissage-de-physique-a-empa-thun",
           "lernende-r-physiklaborant-in-a-empa-thun"
         ]
       },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2927,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-07T22:14:30.867Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -571,11 +586,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "sourceIdentity": "url:https://apply.refline.ch/673276/2197/pub/2/index.html",
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2927
+      }
     },
     {
       "id": "empa-91dfe92ee2a7",
@@ -608,7 +619,7 @@
       "url": "https://apply.refline.ch/673276/2218/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:44:45.765Z",
+      "crawledAt": "2026-09-26T14:11:44.294Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -642,7 +653,7 @@
           "unitText": "YEAR"
         }
       },
-      "sourceIdentity": "url:https://apply.refline.ch/673276/2218/pub/1/index.html"
+      "needsRetranslation": true
     },
     {
       "id": "empa-d5c944130420",
@@ -675,7 +686,7 @@
       "url": "https://apply.refline.ch/673276/2220/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:44:45.762Z",
+      "crawledAt": "2026-09-26T14:11:44.292Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -727,12 +738,14 @@
       "previousSlugs": [
         "gruppenleiter-in-elektro-80-100-a-empa-dubendorf",
         "gruppo-leader-in-electric-80-100-a-empa-dubendorf",
-        "leader-du-groupe-en-electric-80-100-a-empa-dubendorf"
+        "leader-du-groupe-en-electric-80-100-a-empa-dubendorf",
+        "responsabile-di-gruppo-elettrico-80-100-a-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gruppenleiter-in-elektro-80-100-a-empa-dubendorf",
-          "gruppo-leader-in-electric-80-100-a-empa-dubendorf"
+          "gruppo-leader-in-electric-80-100-a-empa-dubendorf",
+          "responsabile-di-gruppo-elettrico-80-100-a-empa-dubendorf"
         ],
         "en": [
           "gruppenleiter-in-elektro-80-100-a-empa-dubendorf"
@@ -743,6 +756,7 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:49:43.418Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -755,8 +769,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://apply.refline.ch/673276/2220/pub/1/index.html"
+      }
     },
     {
       "id": "empa-0b9d9a1440ab",
@@ -772,7 +785,7 @@
       "companyDomain": "empa.ch",
       "title": "Postdoctoral Researcher in Ceramic Proton Conductors and Semiconductor Photoelectrochemistry",
       "titleByLocale": {
-        "it": "Ricercatore post-dottorato in ceramica Proton Conductors e Semiconduttore Fotoelettrochimica",
+        "it": "Postdoctoral Researcher in Ceramic Proton Conductors and Semiconductor Photoelectrochemistry",
         "en": "Postdoctoral Researcher in Ceramic Proton Conductors and Semiconductor Photoelectrochemistry",
         "de": "Postdoktorand(in) in Keramischen Protonenleitern und Halbleiter-Photoelektrochemie",
         "fr": "Chercheur(se) Postdoctoral(e) en Conducteurs Protoniques Céramiques et Photoélectrochimie des Semiconducteurs"
@@ -789,7 +802,7 @@
       "url": "https://apply.refline.ch/673276/2221/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:44:45.761Z",
+      "crawledAt": "2026-09-26T14:11:44.290Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -844,12 +857,14 @@
         "postdoctoral-researcher-in-ceramic-proton-conductors-and-semiconductor",
         "postdoktorand-in-keramik-protonenleiter-und-halbleiter-photoelektrochemie-empa-dubendorf",
         "chercheur-postdoctoral-en-ceramique-proton-conducteurs-et-semi-conducteur-photoelectrochimie-empa-dubendorf",
-        "postdoctoral-researcher-in-ceramic-proton-conductors-and-semiconductor-photoelectrochemistry-empa-dubendorf"
+        "postdoctoral-researcher-in-ceramic-proton-conductors-and-semiconductor-photoelectrochemistry-empa-dubendorf",
+        "ricercatore-post-dottorato-in-ceramica-proton-conductors-e-semiconduttore-fotoelettrochimica-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postdoctoral-researcher-in-ceramic-proton-conductors-and-semiconductor",
-          "postdoctoral-researcher-in-ceramic-proton-conductors-and-semiconductor-photoelectrochemistry-empa-dubendorf"
+          "postdoctoral-researcher-in-ceramic-proton-conductors-and-semiconductor-photoelectrochemistry-empa-dubendorf",
+          "ricercatore-post-dottorato-in-ceramica-proton-conductors-e-semiconduttore-fotoelettrochimica-empa-dubendorf"
         ],
         "de": [
           "postdoctoral-researcher-in-ceramic-proton-conductors-and-semiconductor",
@@ -861,6 +876,7 @@
         ]
       },
       "firstSeenAt": "2026-08-12T22:09:11.999Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -873,8 +889,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://apply.refline.ch/673276/2221/pub/1/index.html"
+      }
     },
     {
       "id": "empa-684bd7cd8e78",
@@ -907,7 +922,7 @@
       "url": "https://apply.refline.ch/673276/2223/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:44:45.759Z",
+      "crawledAt": "2026-09-26T14:11:44.289Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -959,11 +974,13 @@
         ]
       },
       "previousSlugs": [
-        "lernende-r-elektroinstallateur-in-a-empa-dubendorf"
+        "lernende-r-elektroinstallateur-in-a-empa-dubendorf",
+        "apprendista-installatore-trice-elettrico-a-in-a-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-elektroinstallateur-in-a-empa-dubendorf"
+          "lernende-r-elektroinstallateur-in-a-empa-dubendorf",
+          "apprendista-installatore-trice-elettrico-a-in-a-empa-dubendorf"
         ],
         "en": [
           "lernende-r-elektroinstallateur-in-a-empa-dubendorf"
@@ -973,6 +990,7 @@
         ]
       },
       "firstSeenAt": "2026-08-19T10:17:17.406Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -985,8 +1003,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://apply.refline.ch/673276/2223/pub/1/index.html"
+      }
     },
     {
       "id": "empa-551ce77de7a9",
@@ -1019,7 +1036,7 @@
       "url": "https://apply.refline.ch/673276/2204/pub/2/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:44:45.757Z",
+      "crawledAt": "2026-09-26T14:11:44.287Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1072,12 +1089,14 @@
       },
       "previousSlugs": [
         "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen",
-        "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen"
+        "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen",
+        "apprendista-laboratore-trice-afc-indirizzo-tessile-a-empa-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen",
-          "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen"
+          "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen",
+          "apprendista-laboratore-trice-afc-indirizzo-tessile-a-empa-st-gallen"
         ],
         "en": [
           "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen"
@@ -1087,6 +1106,7 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:51:51.012Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -1099,8 +1119,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://apply.refline.ch/673276/2204/pub/2/index.html"
+      }
     },
     {
       "id": "empa-7f9454ea111f",
@@ -1133,7 +1152,7 @@
       "url": "https://apply.refline.ch/673276/2224/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:44:45.755Z",
+      "crawledAt": "2026-09-26T14:11:44.285Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -1179,11 +1198,13 @@
         ]
       },
       "previousSlugs": [
-        "tenure-track-group-leader-position-metal-additive-manufacturing-empa-thun"
+        "tenure-track-group-leader-position-metal-additive-manufacturing-empa-thun",
+        "posizione-di-group-leader-a-tempo-indeterminato-in-additive-manufacturing-dei-metalli-empa-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tenure-track-group-leader-position-metal-additive-manufacturing-empa-thun"
+          "tenure-track-group-leader-position-metal-additive-manufacturing-empa-thun",
+          "posizione-di-group-leader-a-tempo-indeterminato-in-additive-manufacturing-dei-metalli-empa-thun"
         ],
         "de": [
           "tenure-track-group-leader-position-metal-additive-manufacturing-empa-thun"
@@ -1193,6 +1214,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:33:57.028Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1205,8 +1227,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://apply.refline.ch/673276/2224/pub/1/index.html"
+      }
     },
     {
       "id": "empa-46b7ef97e349",
@@ -1239,7 +1260,7 @@
       "url": "https://apply.refline.ch/673276/2225/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:44:45.753Z",
+      "crawledAt": "2026-09-26T14:11:44.283Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1260,11 +1281,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-student-in-the-synthesis-of-polymeric-materials-empa-dubendorf"
+        "phd-student-in-the-synthesis-of-polymeric-materials-empa-dubendorf",
+        "studente-di-dottorato-nella-sintesi-di-materiali-polimerici-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-student-in-the-synthesis-of-polymeric-materials-empa-dubendorf"
+          "phd-student-in-the-synthesis-of-polymeric-materials-empa-dubendorf",
+          "studente-di-dottorato-nella-sintesi-di-materiali-polimerici-empa-dubendorf"
         ],
         "de": [
           "phd-student-in-the-synthesis-of-polymeric-materials-empa-dubendorf"
@@ -1286,8 +1309,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://apply.refline.ch/673276/2225/pub/1/index.html"
+      }
     },
     {
       "id": "empa-96321f4a5541",
@@ -1320,7 +1342,7 @@
       "url": "https://apply.refline.ch/673276/2226/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:44:45.752Z",
+      "crawledAt": "2026-09-26T14:11:44.282Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1341,11 +1363,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-position-on-nanozyme-based-coating-for-antimicrobial-implants-empa-st-gallen"
+        "phd-position-on-nanozyme-based-coating-for-antimicrobial-implants-empa-st-gallen",
+        "phd-posizione-sul-rivestimento-a-base-di-nanozyme-per-impianti-antimicrobici-empa-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-position-on-nanozyme-based-coating-for-antimicrobial-implants-empa-st-gallen"
+          "phd-position-on-nanozyme-based-coating-for-antimicrobial-implants-empa-st-gallen",
+          "phd-posizione-sul-rivestimento-a-base-di-nanozyme-per-impianti-antimicrobici-empa-st-gallen"
         ],
         "de": [
           "phd-position-on-nanozyme-based-coating-for-antimicrobial-implants-empa-st-gallen"
@@ -1367,8 +1391,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://apply.refline.ch/673276/2226/pub/1/index.html"
+      }
     },
     {
       "id": "empa-0af71a5099a5",
@@ -1401,7 +1424,7 @@
       "url": "https://apply.refline.ch/673276/2229/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:44:45.749Z",
+      "crawledAt": "2026-09-26T14:11:44.280Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1422,11 +1445,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoc-position-on-redox-targeted-flow-batteries-empa-dubendorf"
+        "postdoc-position-on-redox-targeted-flow-batteries-empa-dubendorf",
+        "posizione-postdoc-sulle-batterie-di-flusso-arrossate-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoc-position-on-redox-targeted-flow-batteries-empa-dubendorf"
+          "postdoc-position-on-redox-targeted-flow-batteries-empa-dubendorf",
+          "posizione-postdoc-sulle-batterie-di-flusso-arrossate-empa-dubendorf"
         ],
         "de": [
           "postdoc-position-on-redox-targeted-flow-batteries-empa-dubendorf"
@@ -1436,6 +1461,7 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:47:24.050Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1448,8 +1474,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://apply.refline.ch/673276/2229/pub/1/index.html"
+      }
     },
     {
       "id": "empa-916a5cd93e8a",
@@ -1482,7 +1507,7 @@
       "url": "https://apply.refline.ch/673276/2228/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:44:45.748Z",
+      "crawledAt": "2026-09-26T14:11:44.278Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1503,11 +1528,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technician-in-electron-microscopy-80-100-empa-dubendorf"
+        "technician-in-electron-microscopy-80-100-empa-dubendorf",
+        "tecnico-in-microscopia-elettronica-80-100-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technician-in-electron-microscopy-80-100-empa-dubendorf"
+          "technician-in-electron-microscopy-80-100-empa-dubendorf",
+          "tecnico-in-microscopia-elettronica-80-100-empa-dubendorf"
         ]
       },
       "firstSeenAt": "2026-09-07T23:40:02.816Z",
@@ -1523,8 +1550,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://apply.refline.ch/673276/2228/pub/1/index.html"
+      }
     },
     {
       "id": "empa-ba09f35f5dd0",
@@ -1557,7 +1583,7 @@
       "url": "https://apply.refline.ch/673276/2231/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:44:45.746Z",
+      "crawledAt": "2026-09-26T14:11:44.276Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1578,11 +1604,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-position-in-the-development-of-life-like-materials-that-learn-remember-and-forget-for"
+        "phd-position-in-the-development-of-life-like-materials-that-learn-remember-and-forget-for",
+        "posizione-di-dottorato-nello-sviluppo-di-materiali-simili-alla-vita-che-imparano-ricordano-e-dimenticano-per-l-uso-in"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-position-in-the-development-of-life-like-materials-that-learn-remember-and-forget-for"
+          "phd-position-in-the-development-of-life-like-materials-that-learn-remember-and-forget-for",
+          "posizione-di-dottorato-nello-sviluppo-di-materiali-simili-alla-vita-che-imparano-ricordano-e-dimenticano-per-l-uso-in"
         ],
         "de": [
           "phd-position-in-the-development-of-life-like-materials-that-learn-remember-and-forget-for"
@@ -1604,8 +1632,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://apply.refline.ch/673276/2231/pub/1/index.html"
+      }
     },
     {
       "id": "empa-5f3ee2d4ffd3",
@@ -1638,7 +1665,7 @@
       "url": "https://apply.refline.ch/673276/2230/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:44:45.745Z",
+      "crawledAt": "2026-09-26T14:11:44.275Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1659,11 +1686,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-position-titled-human-heat-stress-management-in-various-applications-empa-st-gallen"
+        "phd-position-titled-human-heat-stress-management-in-various-applications-empa-st-gallen",
+        "posizione-del-dottorato-intitolato-gestione-dello-stress-termico-umano-in-varie-applicazioni-empa-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-position-titled-human-heat-stress-management-in-various-applications-empa-st-gallen"
+          "phd-position-titled-human-heat-stress-management-in-various-applications-empa-st-gallen",
+          "posizione-del-dottorato-intitolato-gestione-dello-stress-termico-umano-in-varie-applicazioni-empa-st-gallen"
         ],
         "de": [
           "phd-position-titled-human-heat-stress-management-in-various-applications-empa-st-gallen"
@@ -1673,6 +1702,7 @@
         ]
       },
       "firstSeenAt": "2026-09-08T23:33:50.106Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1685,8 +1715,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://apply.refline.ch/673276/2230/pub/1/index.html"
+      }
     },
     {
       "id": "empa-3fa00ba46829",
@@ -1719,7 +1748,7 @@
       "url": "https://apply.refline.ch/673276/2233/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:44:45.743Z",
+      "crawledAt": "2026-09-26T14:11:44.273Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1740,11 +1769,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-researcher-in-tabular-foundation-models-for-building-and-district-energy"
+        "postdoctoral-researcher-in-tabular-foundation-models-for-building-and-district-energy",
+        "ricercatore-post-dottorale-in-modelli-tabular-foundation-per-sistemi-di-energia-edili-e-distrettuali-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-researcher-in-tabular-foundation-models-for-building-and-district-energy"
+          "postdoctoral-researcher-in-tabular-foundation-models-for-building-and-district-energy",
+          "ricercatore-post-dottorale-in-modelli-tabular-foundation-per-sistemi-di-energia-edili-e-distrettuali-empa-dubendorf"
         ],
         "de": [
           "postdoctoral-researcher-in-tabular-foundation-models-for-building-and-district-energy"
@@ -1766,8 +1797,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://apply.refline.ch/673276/2233/pub/1/index.html"
+      }
     },
     {
       "id": "empa-9df9ad0ef261",
@@ -1800,7 +1830,7 @@
       "url": "https://apply.refline.ch/673276/2232/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:44:45.740Z",
+      "crawledAt": "2026-09-26T14:11:44.270Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1821,11 +1851,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-position-multi-scale-modelling-and-experimental-assessment-of-volumetrically"
+        "phd-position-multi-scale-modelling-and-experimental-assessment-of-volumetrically",
+        "posizione-del-dottorato-modellazione-multiscala-e-valutazione-sperimentale-del-calcestruzzo-prestressato-volumetrica"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-position-multi-scale-modelling-and-experimental-assessment-of-volumetrically"
+          "phd-position-multi-scale-modelling-and-experimental-assessment-of-volumetrically",
+          "posizione-del-dottorato-modellazione-multiscala-e-valutazione-sperimentale-del-calcestruzzo-prestressato-volumetrica"
         ],
         "de": [
           "phd-position-multi-scale-modelling-and-experimental-assessment-of-volumetrically"
@@ -1835,6 +1867,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:08:47.417Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1847,14 +1880,13 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://apply.refline.ch/673276/2232/pub/1/index.html"
+      }
     },
     {
       "id": "empa-cdaf38788288",
       "slug": "postdoctoral-researcher-in-organic-light-emitting-devices-oleds-empa-dubendorf",
       "slugByLocale": {
-        "it": "ricercatore-post-dottorato-in-dispositivi-di-emissione-luminosa-organica-oled-empa-dubendorf",
+        "it": "postdoctoral-researcher-in-organic-light-emitting-devices-oleds-empa-dubendorf",
         "en": "postdoctoral-researcher-in-organic-light-emitting-devices-oleds-empa-dubendorf",
         "de": "postdoktorand-in-organischen-lichtemittierenden-geraten-oleds-empa-dubendorf",
         "fr": "chercheur-postdoctoral-dans-les-dispositifs-electroluminescents-organiques-empa-dubendorf"
@@ -1864,7 +1896,7 @@
       "companyDomain": "empa.ch",
       "title": "Postdoctoral Researcher in organic light-emitting devices (OLEDs)",
       "titleByLocale": {
-        "it": "Ricercatore post-dottorato in dispositivi di emissione luminosa organica (OLED)",
+        "it": "Postdoctoral Researcher in organic light-emitting devices (OLEDs)",
         "en": "Postdoctoral Researcher in organic light-emitting devices (OLEDs)",
         "de": "Postdoktorand in organischen lichtemittierenden Geräten (OLEDs)",
         "fr": "Chercheur postdoctoral dans les dispositifs électroluminescents organiques"
@@ -1881,7 +1913,7 @@
       "url": "https://apply.refline.ch/673276/2227/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:44:45.737Z",
+      "crawledAt": "2026-09-26T14:11:44.267Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1901,7 +1933,18 @@
       "jobReqId": "2227",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "ricercatore-post-dottorato-in-dispositivi-di-emissione-luminosa-organica-oled-empa-dubendorf",
+        "postdoctoral-researcher-in-organic-light-emitting-devices-oleds-empa-dubendorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ricercatore-post-dottorato-in-dispositivi-di-emissione-luminosa-organica-oled-empa-dubendorf",
+          "postdoctoral-researcher-in-organic-light-emitting-devices-oleds-empa-dubendorf"
+        ]
+      },
       "firstSeenAt": "2026-09-19T23:08:47.414Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1914,16 +1957,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "postdoctoral-researcher-in-organic-light-emitting-devices-oleds-empa-dubendorf"
-        ]
-      },
-      "previousSlugs": [
-        "postdoctoral-researcher-in-organic-light-emitting-devices-oleds-empa-dubendorf"
-      ],
-      "sourceIdentity": "url:https://apply.refline.ch/673276/2227/pub/1/index.html"
+      }
     },
     {
       "id": "empa-606a70e8b53e",
@@ -1956,7 +1990,7 @@
       "url": "https://apply.refline.ch/673276/2234/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T14:44:45.735Z",
+      "crawledAt": "2026-09-26T14:11:44.265Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1977,11 +2011,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-researcher-in-the-development-of-thin-films-and-deposition-processes-using"
+        "postdoctoral-researcher-in-the-development-of-thin-films-and-deposition-processes-using",
+        "ricercatore-post-dottorato-nello-sviluppo-di-pellicole-sottili-e-processi-di-deposizione-utilizzando-intelligenza"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-researcher-in-the-development-of-thin-films-and-deposition-processes-using"
+          "postdoctoral-researcher-in-the-development-of-thin-films-and-deposition-processes-using",
+          "ricercatore-post-dottorato-nello-sviluppo-di-pellicole-sottili-e-processi-di-deposizione-utilizzando-intelligenza"
         ],
         "de": [
           "postdoctoral-researcher-in-the-development-of-thin-films-and-deposition-processes-using"
@@ -2003,8 +2039,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://apply.refline.ch/673276/2234/pub/1/index.html"
+      }
     },
     {
       "id": "empa-e05199f1b17e",
@@ -2037,7 +2072,7 @@
       "url": "https://apply.refline.ch/673276/2236/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-24T14:44:45.731Z",
+      "crawledAt": "2026-09-26T14:11:44.261Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -2057,18 +2092,21 @@
       "jobReqId": "2236",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-23T23:52:11.703Z",
+      "previousSlugs": [
+        "specialist-hr-administration-hr-it-80-100-empa-dubendorf",
+        "specialista-risorse-umane-administration-risorse-umane-it-80-100-empa-dubendorf"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "specialist-hr-administration-hr-it-80-100-empa-dubendorf"
+          "specialist-hr-administration-hr-it-80-100-empa-dubendorf",
+          "specialista-risorse-umane-administration-risorse-umane-it-80-100-empa-dubendorf"
         ],
         "fr": [
           "specialist-hr-administration-hr-it-80-100-empa-dubendorf"
         ]
       },
-      "previousSlugs": [
-        "specialist-hr-administration-hr-it-80-100-empa-dubendorf"
-      ],
+      "firstSeenAt": "2026-09-23T23:52:11.703Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2081,8 +2119,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://apply.refline.ch/673276/2236/pub/1/index.html"
+      }
     }
   ]
 }
