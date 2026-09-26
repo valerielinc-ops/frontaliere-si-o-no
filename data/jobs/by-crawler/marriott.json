@@ -1459,7 +1459,6 @@
           "chef-de-quart-de-service-d-evenement-marriott-international-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:20:39.372Z",
       "salaryMin": 97500,
       "salaryMax": 122500,
@@ -1533,7 +1532,6 @@
         "accountName": "",
         "publishEndDate": "2026-10-24T08:39:00.000Z"
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier",
         "commissione-di-cucina-inverno-26-27-w-verbier-marriott-international-verbier"
@@ -2007,7 +2005,6 @@
         "publishEndDate": "2026-10-22T14:57:00.000Z"
       },
       "firstSeenAt": "2026-09-19T23:20:39.353Z",
-      "needsRetranslation": true,
       "salaryMin": 53500,
       "salaryMax": 67000,
       "salarySource": "estimated",
@@ -2021,7 +2018,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "WALLI"
+      "addressRegion": "WALLI",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "marriott-5a0c47490982",
