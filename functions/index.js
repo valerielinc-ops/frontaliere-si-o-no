@@ -73,6 +73,7 @@ import { handleCreateConsultingCheckout, handleConsultingDetailsSubmitted } from
 import { handleCreateAssistedApplicationCheckout } from './src/assistedApplicationCheckout.js';
 import { recordApplicationIntent as handleRecordApplicationIntent } from './src/applicationIntentCore.js';
 import { purgeExpiredAssistedApplicationFiles } from './src/assistedApplicationRetention.js';
+import { purgeExpiredApplicationIntents } from './src/applicationIntentRetention.js';
 import { reapStalePendingPayments } from './src/publisherPendingReapCore.js';
 import { onDocumentCreated, onDocumentWritten } from 'firebase-functions/v2/firestore';
 import * as functionsV1 from 'firebase-functions/v1';
@@ -2170,6 +2171,27 @@ export const purgeAssistedApplicationFiles = onSchedule(
         '[purgeAssistedApplicationFiles]',
         error instanceof Error ? error.message : String(error),
       );
+    }
+  },
+);
+
+// GDPR retention for application-intent consent/audit records. The expiry is
+// written by the server; this daily job only deletes records whose explicit
+// expiry is already demonstrably reached and remains retry-safe.
+export const purgeApplicationIntents = onSchedule(
+  { region: 'europe-west6', schedule: 'every 24 hours', timeZone: 'Europe/Zurich' },
+  async () => {
+    try {
+      const result = await purgeExpiredApplicationIntents();
+      if (result.purged > 0 || result.skipped > 0) {
+        console.log('[purgeApplicationIntents]', result);
+      }
+    } catch (error) {
+      console.error(
+        '[purgeApplicationIntents]',
+        error instanceof Error ? error.message : String(error),
+      );
+      throw error;
     }
   },
 );
