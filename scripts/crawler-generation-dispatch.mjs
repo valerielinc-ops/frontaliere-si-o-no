@@ -824,11 +824,11 @@ function crawlerArtifactLineageMatches(localContract, remoteArtifacts, groupIds)
 // che stiamo per pinnare: è quel tree che eseguirà, quindi è contro di lui che
 // vanno verificati gli hash di ogni artifact di gruppo e dell'observer (binding integrity,
 // #6806/#6933 — invariata, anzi ora verificata sull'oggetto giusto). Il mirror
-// locale resta l'ancora di LINEAGE: uno skew è tollerato solo se il contratto
-// remoto dichiara lo stesso `sourceRepository` e lo stesso `generatorSha256`
-// del nostro, cioè è una generazione precedente prodotta dallo STESSO
-// generatore che abbiamo in checkout. Qualsiasi altra divergenza resta
-// fail-closed come prima.
+// locale resta l'ancora di LINEAGE: uno skew con lo stesso
+// `sourceRepository` e `generatorSha256` è compatibile; uno skew di generatore
+// resta bloccato nel singolo snapshot e viene eventualmente riconciliato dal
+// chiamante entro una finestra bounded. Qualsiasi altro motivo di divergenza
+// resta fail-closed come prima.
 export function evaluateCrawlerGenerationPreflight({
   corpusCodeCommit,
   localContract,
@@ -945,10 +945,18 @@ export async function mapWithConcurrency(items, concurrency, mapper) {
 }
 
 function isPotentialTransientLineageMismatch(result, localContract, remoteContract) {
+  const reasons = new Set(Array.isArray(result?.reasons) ? result.reasons : []);
+  const isContractOnlySkew = reasons.size === 1 && reasons.has('contract_mismatch');
+  const isArtifactLineageSkew = reasons.size === 2
+    && reasons.has('contract_mismatch')
+    && reasons.has('crawler_artifact_lineage_mismatch');
+  // A generator change can legitimately make every generated workflow byte
+  // change before the site->corpus lockstep catches up. The artifact-lineage
+  // reason is retryable only in this exact shape: evaluate... has already
+  // verified the pinned remote contract, observer, workflow set and artifact
+  // hashes, and there are no other blocking reasons to hide.
   return result?.ready === false
-    && Array.isArray(result.reasons)
-    && result.reasons.length === 1
-    && result.reasons[0] === 'contract_mismatch'
+    && (isContractOnlySkew || isArtifactLineageSkew)
     && localContract?.sourceRepository === SITE_REPOSITORY
     && remoteContract?.sourceRepository === SITE_REPOSITORY
     && SHA256_RE.test(localContract?.generatorSha256 ?? '')
