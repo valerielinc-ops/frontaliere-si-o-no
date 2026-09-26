@@ -765,7 +765,7 @@ const deCore: Record<string, string> = {
  'jobBoard.requirementsHeading': 'Erforderliche Kompetenzen',
  'jobBoard.faq.title': 'Häufig gestellte Fragen zu dieser Stelle',
  'jobBoard.apply': 'Bewerben',
- 'jobBoard.applicationIntent.disclosure': 'Mit «Bewerben» stimmst du zu, dass wir dein Interesse an dieser Stelle speichern. Wir erfassen den Klick und notwendige technische Daten; dies bedeutet nicht, dass die Bewerbung abgeschlossen wurde.',
+ 'jobBoard.applicationIntentConsent': 'Mit «Bewerben» stimmst du zu, dass wir dein Interesse an dieser Stelle speichern. Wir erfassen den Klick und notwendige technische Daten; dies bedeutet nicht, dass die Bewerbung abgeschlossen wurde.',
  'jobBoard.assisted.title': 'Möchtest du diese Bewerbung delegieren?',
  'jobBoard.assisted.body': 'Sende uns deinen Lebenslauf und die nötigen Angaben: Wir bereiten die Bewerbung vor und senden sie manuell für diese Stelle, wenn der Prozess des Unternehmens dies zulässt.',
  'jobBoard.assisted.stepsLabel': 'So funktioniert es',
