@@ -20,7 +20,9 @@
  *   shows at once (holding it kept the CMP off screen in the live probe), and
  *   mark the gate `suppressed`.
  * The first, enum-less call proceeds at once everywhere (holding it delayed
- * the display ads in the live probe).
+ * the display ads in the live probe). If a later call is still enum-less, it
+ * fails closed because the Offerwall cannot be suppressed by type without its
+ * enum value.
  */
 import { readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
@@ -62,6 +64,7 @@ type FakeWindow = {
   googlefc?: {
     MessageTypeEnum?: Record<string, number>;
     controlledMessagingFunction?: (message: FakeMessage) => void;
+    __ftOfferwallBootstrapComplete?: boolean;
   };
   __ftOfferwallGate?: { state?: string; release?: () => boolean };
 };
@@ -179,15 +182,39 @@ describe.each(COPIES)('%s', (_name, src) => {
   });
 
   it.each(['/articoli/fisco/', '/cerca-lavoro-ticino/tutti/page-2/', '/de/jobs-in-aargau/'])(
-    'proceeds the first, enum-less call at once (%s)',
+    'allows only the first enum-less call for bootstrap (%s)',
     (path) => {
       const win = install(src, path);
-      const m = message();
-      win.googlefc!.controlledMessagingFunction!(m);
-      expect(m.calls).toEqual([[true]]);
+      const bootstrap = message();
+      win.googlefc!.controlledMessagingFunction!(bootstrap);
+      expect(bootstrap.calls).toEqual([[true]]);
+      expect(win.googlefc!.__ftOfferwallBootstrapComplete).toBe(true);
+      expect(win.__ftOfferwallGate).toBeUndefined();
+
+      const unclassifiedOfferwall = message();
+      win.googlefc!.controlledMessagingFunction!(unclassifiedOfferwall);
+      expect(unclassifiedOfferwall.calls).toEqual([[false]]);
       expect(win.__ftOfferwallGate).toBeUndefined();
     },
   );
+
+  it.each(['/articoli/fisco/', '/cerca-lavoro-ticino/tutti/page-2/'])('uses the typed gate after bootstrap (%s)', (path) => {
+    const win = install(src, path);
+    const bootstrap = message();
+    win.googlefc!.controlledMessagingFunction!(bootstrap);
+    expect(bootstrap.calls).toEqual([[true]]);
+
+    win.googlefc!.MessageTypeEnum = ENUM;
+    const typed = message();
+    win.googlefc!.controlledMessagingFunction!(typed);
+    if (isJobBoardSectionPathname(path)) {
+      expect(typed.calls).toEqual([]);
+      expect(win.__ftOfferwallGate?.state).toBe('held');
+    } else {
+      expect(typed.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
+      expect(win.__ftOfferwallGate?.state).toBe('off_board');
+    }
+  });
 
   it.each([
     ['no decision anywhere', { consent: null, cookie: cookieWith(FCCDCF_BEFORE_CONSENT) }],

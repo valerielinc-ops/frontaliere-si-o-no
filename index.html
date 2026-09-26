@@ -523,8 +523,15 @@
         g.controlledMessagingFunction = function(message){
           var E = g.MessageTypeEnum || {};
           // The first call arrives with an empty enum and must proceed at
-          // once: holding it delays the CMP and the display ads.
-          if (E.OFFERWALL === undefined) {
+          // once: holding it delays the CMP and the display ads. If a later
+          // call is still unclassified, fail closed because the Offerwall
+          // cannot be suppressed by type without its enum value.
+          if (typeof E.OFFERWALL !== 'number') {
+            if (g.__ftOfferwallBootstrapComplete) {
+              message.proceed(false);
+              return;
+            }
+            g.__ftOfferwallBootstrapComplete = true;
             message.proceed(true);
             return;
           }
