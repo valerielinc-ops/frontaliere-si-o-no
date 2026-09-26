@@ -292,6 +292,7 @@ export function updateLastVisit(): void {
 let _db: Firestore | null = null;
 let _dbInit = false;
 let _syncTimer: ReturnType<typeof setInterval> | null = null;
+let _firestoreSyncQueue: Promise<void> = Promise.resolve();
 
 async function getDb(): Promise<Firestore | null> {
  if (!_dbInit) {
@@ -314,37 +315,42 @@ async function getDb(): Promise<Firestore | null> {
 }
 
 /** Sync behavior data to Firestore (newsletter_subscribers/{email}/private/personalization). */
-export async function syncToFirestore(email: string): Promise<boolean> {
- if (!email || !available()) return false;
- try {
+export function syncToFirestore(email: string): Promise<boolean> {
+ if (!email || !available()) return Promise.resolve(false);
  const normalizedEmail = email.trim().toLowerCase();
- const db = await getDb();
- if (!db) return false;
- const data = getBehaviorData();
- const { doc, setDoc } = await resilientImport(
- () => import('firebase/firestore'),
- (m) => typeof m.doc === 'function',
- );
- await setDoc(
- doc(db, 'newsletter_subscribers', normalizedEmail, 'private', 'personalization'),
- {
- viewedJobs: data.viewedJobs,
- searches: data.searches,
- filterUsage: data.filterUsage,
- ...(data.applicationIntent ? { applicationIntent: data.applicationIntent } : {}),
- lastSynced: new Date(),
- },
- { merge: true },
- );
- // Mark sync time locally
- const updated = readRaw();
- updated.syncedAt = Date.now();
- writeRaw(updated);
- return true;
- } catch {
- // Firestore unavailable — silent, localStorage-only mode
- return false;
- }
+ const operation = _firestoreSyncQueue.then(async () => {
+  try {
+   const db = await getDb();
+   if (!db) return false;
+   // Read at execution time so a queued click flush includes newer local intent.
+   const data = getBehaviorData();
+   const { doc, setDoc } = await resilientImport(
+    () => import('firebase/firestore'),
+    (m) => typeof m.doc === 'function',
+   );
+   await setDoc(
+    doc(db, 'newsletter_subscribers', normalizedEmail, 'private', 'personalization'),
+    {
+     viewedJobs: data.viewedJobs,
+     searches: data.searches,
+     filterUsage: data.filterUsage,
+     ...(data.applicationIntent ? { applicationIntent: data.applicationIntent } : {}),
+     lastSynced: new Date(),
+    },
+    { merge: true },
+   );
+   // Mark sync time locally
+   const updated = readRaw();
+   updated.syncedAt = Date.now();
+   writeRaw(updated);
+   return true;
+  } catch {
+   // Firestore unavailable — silent, localStorage-only mode
+   return false;
+  }
+ });
+ _firestoreSyncQueue = operation.then(() => undefined, () => undefined);
+ return operation;
 }
 
 /** Hydrate behavior data from Firestore and merge with localStorage. */

@@ -31,6 +31,7 @@ vi.mock('firebase/firestore', () => ({
 vi.mock('@/services/firebase', () => ({ app: { __testApp: true } }));
 
 import { recordApplicationIntent } from '@/services/applicationIntent';
+import { syncToFirestore, trackApplicationIntent } from '@/services/behaviorTracker';
 
 const email = 'applicant@example.test';
 const profilePath = `newsletter_subscribers/${email}/private/personalization`;
@@ -159,5 +160,41 @@ describe('authenticated application-intent persistence', () => {
     expect(firestore.writes).toHaveLength(0);
     expect(JSON.parse(localStorage.getItem('frontaliere_job_personalization') || '{}')
       .applicationIntent).toBeUndefined();
+  });
+
+  it('serializes profile writes so a stale snapshot cannot erase a later click intent', async () => {
+    let releaseOlderWrite!: () => void;
+    let markOlderWriteStarted!: () => void;
+    const olderWriteStarted = new Promise<void>((resolve) => {
+      markOlderWriteStarted = resolve;
+    });
+    const writesBefore = firestore.setDoc.mock.calls.length;
+    const olderWriteGate = new Promise<void>((resolve) => {
+      releaseOlderWrite = resolve;
+    });
+    firestore.setDoc.mockImplementationOnce(async (ref, data) => {
+      firestore.writes.push({ path: ref.path, data });
+      markOlderWriteStarted();
+      await olderWriteGate;
+      firestore.docs[ref.path] = { ...(firestore.docs[ref.path] || {}), ...data };
+    });
+
+    const olderSync = syncToFirestore(email);
+    await olderWriteStarted;
+    expect(firestore.setDoc).toHaveBeenCalledOnce();
+    expect(firestore.setDoc.mock.calls[0][1].applicationIntent).toBeUndefined();
+    expect(trackApplicationIntent('acme:software-engineer-lugano')).toBe(true);
+    const clickSync = syncToFirestore(email);
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    expect(firestore.setDoc).toHaveBeenCalledTimes(writesBefore + 1);
+    releaseOlderWrite();
+    await expect(Promise.all([olderSync, clickSync])).resolves.toEqual([true, true]);
+
+    expect(firestore.setDoc).toHaveBeenCalledTimes(2);
+    expect((firestore.setDoc.mock.calls[1][1].applicationIntent as { intents: Array<{ jobKey: string }> }).intents)
+      .toEqual([expect.objectContaining({ jobKey: 'acme:software-engineer-lugano' })]);
+    expect((firestore.docs[profilePath].applicationIntent as { intents: Array<{ jobKey: string }> }).intents)
+      .toEqual([expect.objectContaining({ jobKey: 'acme:software-engineer-lugano' })]);
   });
 });
