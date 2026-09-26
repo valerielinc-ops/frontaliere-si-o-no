@@ -36162,6 +36162,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cotonificio-liuc-industrial-quest',
+ category: 'novita',
+ date: '2026-09-26T11:03:12.252Z',
+ image: '/images/blog/cotonificio-liuc-industrial-quest.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
