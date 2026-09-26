@@ -9,12 +9,14 @@
  *      for a locale this shard does not own but still contributes that
  *      locale's `<loc>`s so the it/main shard ships a complete sitemap.
  *
- * Producer 2 cannot be backstopped after the fact: `dropOverwrittenLocs` vets a
- * loc by re-reading its HTML in dist/, and for a non-owned locale there is no
- * HTML on this shard by design — its cross-shard branch keeps those locs
- * unconditionally (pinned in `tests/sitemap-clusters-shard-keep.test.ts`, and
- * that KEEP is correct: removing it truncates the merged sitemap to IT-only).
- * So whatever producer 2 pushes, ships.
+ * The initial `dropOverwrittenLocs` pass cannot vet a non-owned locale: there
+ * is no HTML on this shard by design, so its cross-shard branch keeps those
+ * locs unconditionally (pinned in `tests/sitemap-clusters-shard-keep.test.ts`,
+ * and that KEEP is correct: removing it truncates the merged sitemap to
+ * IT-only). The final serialized `sitemapAliasPlugin` pass can re-check URLs
+ * owned by the current shard after later emitters finish, but producer 2 must
+ * still use the shared decision because the final pass preserves cross-shard
+ * locs by construction.
  *
  * This has broken twice, the same way both times:
  *
