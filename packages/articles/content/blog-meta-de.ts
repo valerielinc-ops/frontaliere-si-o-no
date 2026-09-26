@@ -12038,6 +12038,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.castronno-chiusure-notturni-ottobre-2026.title': 'Nächtliche Sperrungen der SS 341 und A8 in Castronno im Oktober 2026',
     'blog.article.castronno-chiusure-notturni-ottobre-2026.excerpt': 'In den Nächten vom 5‑6 und 6‑7 Oktober 2026, von 21:00 bis 05:00 Uhr, werden die SS 341 und der Abschnitt A8 bei Castronno gleichzeitig gesperrt sein, wobei sich der Beginn der Sperrung der Staatsstraße möglicherweise um einige Dutzend Minuten verzögert.',
     'blog.article.castronno-chiusure-notturni-ottobre-2026.imageAlt': 'Nachtsperre der SS 341 und A8 bei Castronno mit Umleitungsschildern und Baulichtern',
+    'blog.article.eco-barriere-statale-707.title': 'Lärmschutzwände: Lärm auf der Umgehungsstraße von Varese',
+    'blog.article.eco-barriere-statale-707.excerpt': 'Der Brief eines Lesers weist auf ein Echo oder eine Vibration bei jedem Auto auf der Staatsstraße 707 hin, die in drei Bereichen von Varese hörbar ist, und fragt ANAS, wann das Problem behoben sein wird.',
+    'blog.article.eco-barriere-statale-707.imageAlt': 'Lärmschutzwände an einer Straße, Symbolbild für die Umfahrung von Varese',
 };
 
 export default blogMetaDe;

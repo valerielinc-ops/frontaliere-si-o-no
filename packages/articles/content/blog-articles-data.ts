@@ -36126,6 +36126,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'eco-barriere-statale-707',
+ category: 'pratico',
+ date: '2026-09-26T08:22:21.959Z',
+ image: '/images/blog/eco-barriere-statale-707.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

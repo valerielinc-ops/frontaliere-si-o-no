@@ -94063,6 +94063,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-eco-barriere-statale-707': {
+    title: 'Barriere fonoassorbenti: rumore sulla bretella di Varese',
+    description: 'Un lettore segnala un eco o una vibrazione a ogni auto sulla strada statale 707, udibile in via Goldoni, viale Borri e largo Flaiano, e chiede risposte ad ANAS.',
+    keywords: 'frontalieri, ticino, svizzera, italia, barriere, fonoassorbenti, rumore, sulla',
+    ogTitle: 'Barriere fonoassorbenti: rumore sulla bretella di Varese',
+    ogDescription: 'Le barriere installate da ANAS sulla strada statale 707 dovevano ridurre il rumore. Un lettore denuncia invece un suono fastidioso a ogni passaggio delle auto, udibile in tre luoghi di Varese, e chiede quando il problema sarà risolto.',
+    canonicalPath: '/articoli-frontaliere/eco-barriere-statale-707',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Barriere fonoassorbenti: rumore sulla bretella di Varese",
+      "description": "Un lettore segnala un eco o una vibrazione a ogni auto sulla strada statale 707, udibile in via Goldoni, viale Borri e largo Flaiano, e chiede risposte ad ANAS.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/eco-barriere-statale-707.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Barriere fonoassorbenti lungo una strada, immagine illustrativa per la bretella di Varese"
+      },
+      "datePublished": "2026-09-26T08:22:22+00:00",
+      "dateModified": "2026-09-26T08:22:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/eco-barriere-statale-707/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
