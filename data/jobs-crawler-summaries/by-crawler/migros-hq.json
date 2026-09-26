@@ -1,7 +1,7 @@
 {
   "key": "migros-hq",
   "label": "Migros HQ Zürich",
-  "generatedAt": "2026-09-26T14:23:29.760Z",
+  "generatedAt": "2026-09-26T15:37:43.355Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -12,10 +12,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6980,
-  "avgDurationMs": 6980,
+  "durationMs": 6011,
+  "avgDurationMs": 6011,
   "durationHistory": [
-    6980
+    6011
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-servicenow-plattform-basis-wmd/5ebe9a24-db13-4fee-a3b1-b041531b7f2b",
       "source": "Migros-Genossenschafts-Bund National Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:23:22.334Z",
+      "crawledAt": "2026-09-26T15:37:36.498Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8005",
@@ -47,6 +47,7 @@
       "featured": false,
       "postedDate": "2026-07-06",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-servicenow-plattform-basis-wmd/5ebe9a24-db13-4fee-a3b1-b041531b7f2b",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-08T11:17:49.437Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -68,7 +69,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-it-service-management-prozesse-wmd/1154b515-4e45-4735-a454-ac9d1965f08c",
       "source": "Migros-Genossenschafts-Bund National Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:23:22.361Z",
+      "crawledAt": "2026-09-26T15:37:36.524Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8005",
@@ -84,6 +85,7 @@
       "featured": false,
       "postedDate": "2026-07-06",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-it-service-management-prozesse-wmd/1154b515-4e45-4735-a454-ac9d1965f08c",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-08T11:17:49.448Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -105,7 +107,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/senior-fullstack-software-engineer-wmd/09ccf7b4-dac3-4044-8c6b-e99ce019a15e",
       "source": "Migros-Genossenschafts-Bund National Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T14:23:22.365Z",
+      "crawledAt": "2026-09-26T15:37:36.531Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8005",
@@ -121,6 +123,7 @@
       "featured": false,
       "postedDate": "2026-07-06",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/senior-fullstack-software-engineer-wmd/09ccf7b4-dac3-4044-8c6b-e99ce019a15e",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T11:17:49.458Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
