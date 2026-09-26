@@ -9,7 +9,7 @@
  * its API, no SSR — see #3337). Any profession/sector whose local
  * employers aren't individually onboarded shows 0 real matches, in ANY
  * canton. That is the root cause behind issue #4824
- * ("/cerca-lavoro-ticino/camerieri/" 0 match) — but it was only VISIBLE
+ * ("camerieri" TI sector: 0 match) — but it was only VISIBLE
  * for Ticino because only a TI-only monitor existed. Identical gaps in
  * GR/VS/VD/ZH/etc were invisible to CI. This script generalizes detection
  * to every canton×profession page family so the class of bug (not just
