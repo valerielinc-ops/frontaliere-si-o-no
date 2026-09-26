@@ -235,7 +235,7 @@ export const checkJobPageLive = checkPageBodyLive;
  * aren't re-checked). Jobs with no resolvable slug fall back to the site root
  * in the email (always live) and are never filtered. Exported for tests.
  */
-async function filterLiveJobs(jobs, locale, cache) {
+async function inspectLiveJobs(jobs, locale, cache, { check = checkJobPageLive } = {}) {
   const withUrls = jobs.map((job) => ({ job, url: jobPageUrl(job, locale) }));
   // Dedupe by URL both across calls (via the shared `cache`) AND within this
   // single call (two jobs — e.g. two locale variants — can resolve to the
@@ -244,7 +244,7 @@ async function filterLiveJobs(jobs, locale, cache) {
   const uniqueToCheck = [...new Set(withUrls.map(({ url }) => url).filter((url) => url && !cache.has(url)))];
   if (uniqueToCheck.length > 0) {
     await runWithConcurrency(uniqueToCheck, JOB_LIVE_CHECK_CONCURRENCY, async (url) => {
-      cache.set(url, await checkJobPageLive(url));
+      cache.set(url, await check(url));
     });
   }
   const results = withUrls.map(({ job, url }) => ({ job, live: !url || cache.get(url) !== false }));
@@ -252,13 +252,65 @@ async function filterLiveJobs(jobs, locale, cache) {
   const liveCount = results.filter((r) => r.live).length;
   if (checked >= JOB_LIVE_CHECK_FAIL_OPEN_MIN_SAMPLE && liveCount / checked < JOB_LIVE_CHECK_FAIL_OPEN_LIVE_RATIO) {
     console.warn(`   ⚠️  Live-link check: only ${liveCount}/${checked} job page(s) resolved live — suspected transient network issue, failing open (sending unfiltered) rather than emptying the alert`);
-    return jobs;
+    return { jobs, failOpen: true };
   }
   const deadCount = checked - liveCount;
   if (deadCount > 0) {
     console.log(`   🔗 Live-link check: ${deadCount}/${checked} job(s) filtered out (dead link — pulled/expired or not yet deployed)`);
   }
-  return results.filter((r) => r.live).map((r) => r.job);
+  return { jobs: results.filter((r) => r.live).map((r) => r.job), failOpen: false };
+}
+
+async function filterLiveJobs(jobs, locale, cache) {
+  return (await inspectLiveJobs(jobs, locale, cache)).jobs;
+}
+
+/**
+ * Rank first, then live-check only the candidates that can fill this email.
+ *
+ * The old pipeline live-checked every item in `matched` before asking the
+ * ranking layer for its ten cards. On the 26/09 run that was 470,653 matched
+ * rows and 52,526 distinct page URLs. Ranking the complete list is cheap and
+ * deterministic; liveness is not. This loop checks the ranked shortlist,
+ * removes any dead URL, and re-ranks only when a replacement is needed. When
+ * the shortlist is live, the result is exactly the old
+ * `rankEmailJobs(filterLiveJobs(matched))` result without fetching the unused
+ * tail of the pool. The existing fail-open rule remains attached to every
+ * checked shortlist.
+ */
+async function rankLiveJobsForEmail(
+  matched,
+  locale,
+  cache,
+  rankingOptions,
+  { limit = MAX_JOB_CARDS, initialRanked = null, check = checkJobPageLive } = {},
+) {
+  const excludedUrls = new Set();
+  let ranked = initialRanked;
+
+  while (true) {
+    if (!ranked) {
+      const candidates = matched.filter((job) => {
+        const url = jobPageUrl(job, locale);
+        return !url || !excludedUrls.has(url);
+      });
+      ranked = rankEmailJobs(candidates, { ...rankingOptions, limit });
+    }
+    if (ranked.length === 0) return [];
+
+    const result = await inspectLiveJobs(ranked, locale, cache, { check });
+    if (result.failOpen) return result.jobs;
+
+    const deadUrls = new Set(
+      ranked
+        .map((job) => jobPageUrl(job, locale))
+        .filter((url) => url && cache.get(url) === false),
+    );
+    if (deadUrls.size === 0) return result.jobs;
+
+    for (const url of deadUrls) excludedUrls.add(url);
+    ranked = null;
+  }
 }
 
 /**
@@ -2398,8 +2450,30 @@ async function main() {
       now,
       featureCache,
     });
-    plans.push(plan);
-    if (plan.matched.length > 0) livenessPrefetcher.enqueue(plan.matched, nlNormLocale(alert.locale));
+    const rankingVariant = assignJobRankingVariant({
+      subjectId: alert.email,
+      surface: 'job_alert',
+      campaignId: TODAY_ISO,
+      config: JOB_EMAIL_RANKING_CONFIG,
+    });
+    const rankingOptions = {
+      statsByJob: embeddedAlertRankingStats(alert),
+      variant: rankingVariant,
+      surface: 'job_alert',
+      surfaceId: alert.id,
+      campaignId: TODAY_ISO,
+      randomSeed: alert.email,
+      config: JOB_EMAIL_RANKING_CONFIG,
+      nowMs: now,
+    };
+    // Prefetch only the current ranking shortlist. If a page is dead,
+    // rankLiveJobsForEmail expands it one replacement at a time after the
+    // shared pool has drained.
+    const preflightRanked = plan.matched.length > 0
+      ? rankEmailJobs(plan.matched, { ...rankingOptions, limit: MAX_JOB_CARDS })
+      : [];
+    plans.push({ ...plan, rankingVariant, rankingOptions, preflightRanked });
+    if (preflightRanked.length > 0) livenessPrefetcher.enqueue(preflightRanked, nlNormLocale(alert.locale));
     await new Promise((resolve) => setImmediate(resolve));
   }
   // #9314: `Capacity check` → `Total` mixes CPU (planning) and network (the
@@ -2414,7 +2488,16 @@ async function main() {
   const zeroMatchSummary = summarizeZeroMatchPlans(plans);
 
   // 3b. Build, in the original alert order, with the same logs and counters.
-  for (const { alert, rankedCount, zeroCause, sentMap, matched } of plans) {
+  for (const {
+    alert,
+    rankedCount,
+    zeroCause,
+    sentMap,
+    matched,
+    rankingVariant,
+    rankingOptions,
+    preflightRanked,
+  } of plans) {
     if (rankedCount === 0) {
       console.log(`   ⏭️ Alert ${alert.id}: 0 matches (${zeroCause}) → skip`);
       continue;
@@ -2428,36 +2511,28 @@ async function main() {
     // it gets baked into the email — data/jobs.json is a crawl snapshot and
     // can lag the job actually being pulled/expired, or the deploy of its
     // per-locale SSG page.
-    const liveMatched = await filterLiveJobs(matched, nlNormLocale(alert.locale), jobLiveCheckCache);
-    if (liveMatched.length === 0) {
+    const rankedForEmail = await rankLiveJobsForEmail(
+      matched,
+      nlNormLocale(alert.locale),
+      jobLiveCheckCache,
+      rankingOptions,
+      { initialRanked: preflightRanked },
+    );
+    if (rankedForEmail.length === 0) {
       console.log(`   ⏭️  Alert ${alert.id}: ${matched.length} matches, all failed the live-link check → skip`);
       continue;
     }
 
-    totalMatches += liveMatched.length;
-    const rankingVariant = assignJobRankingVariant({
-      subjectId: alert.email,
-      surface: 'job_alert',
-      campaignId: TODAY_ISO,
-      config: JOB_EMAIL_RANKING_CONFIG,
-    });
+    // This counter now reflects live candidates selected for the email. An
+    // exact count of every live item in the unused tail would recreate the
+    // network work this bounded preflight removes.
+    totalMatches += rankedForEmail.length;
     const rankingDeliveryId = buildJobEmailDeliveryId({
       surface: 'job_alert',
       surfaceId: alert.id,
       recipientId: alert.email,
       campaignId: TODAY_ISO,
       runId: JOB_EMAIL_RANKING_RUN_ID,
-    });
-    const rankedForEmail = rankEmailJobs(liveMatched, {
-      statsByJob: embeddedAlertRankingStats(alert),
-      variant: rankingVariant,
-      surface: 'job_alert',
-      surfaceId: alert.id,
-      campaignId: TODAY_ISO,
-      randomSeed: alert.email,
-      limit: MAX_JOB_CARDS,
-      config: JOB_EMAIL_RANKING_CONFIG,
-      nowMs: now,
     });
     const autologinEnabled = !autologinDisabledSet.has(alert.email.toLowerCase());
     const { subject, html, text, unsubscribeUrl } = buildAlertEmail(
@@ -2875,4 +2950,11 @@ if (isEntryPoint) {
   });
 }
 
-export { buildAlertEmail, filterLiveJobs, jobPageUrl, createJobLivenessPrefetcher, planAlertMatch };
+export {
+  buildAlertEmail,
+  filterLiveJobs,
+  jobPageUrl,
+  createJobLivenessPrefetcher,
+  planAlertMatch,
+  rankLiveJobsForEmail,
+};

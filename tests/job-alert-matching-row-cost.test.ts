@@ -46,7 +46,11 @@ import {
   createJobAlertCandidateSelector,
   selectJobAlertCandidates,
 } from '../scripts/lib/job-alert-newness.mjs';
-import { createJobLivenessPrefetcher, planAlertMatch } from '../scripts/send-job-alerts.mjs';
+import {
+  createJobLivenessPrefetcher,
+  planAlertMatch,
+  rankLiveJobsForEmail,
+} from '../scripts/send-job-alerts.mjs';
 import { nlNormLocale } from '../services/newsletter-template.mjs';
 import { OWNER_EMAIL, isOwnerEmail } from '../scripts/lib/canaryAd.mjs';
 
@@ -481,5 +485,63 @@ describe('live-link prefetch stats (#9314 matching split log)', () => {
     release();
     await prefetcher.drain();
     expect(prefetcher.stats()).toEqual({ queued, pending: 0 });
+  });
+});
+
+describe('bounded live-link shortlist (#9314)', () => {
+  const rankingOptions = {
+    statsByJob: new Map(),
+    variant: 'control',
+    surface: 'job_alert',
+    surfaceId: 'bounded-live-check',
+    campaignId: '2026-09-26',
+    randomSeed: 'bounded@example.test',
+    config: { enabled: false },
+    nowMs: NOW,
+  };
+
+  function rankedJobs(count = 30) {
+    return Array.from({ length: count }, (_, index) => ({
+      id: `bounded-${index}`,
+      slug: `bounded-${index}`,
+      location: 'Lugano',
+      canton: 'TI',
+      company: `Company ${index}`,
+      relevanceScore: count - index,
+    }));
+  }
+
+  it('checks only the ranked card shortlist when every page is live', async () => {
+    const checked = [];
+    const live = await rankLiveJobsForEmail(
+      rankedJobs(),
+      'it',
+      new Map(),
+      rankingOptions,
+      { limit: 3, check: async (url) => { checked.push(url); return true; } },
+    );
+
+    expect(live.map((job) => job.id)).toEqual(['bounded-0', 'bounded-1', 'bounded-2']);
+    expect(checked).toHaveLength(3);
+  });
+
+  it('re-ranks only when a dead shortlist page needs a replacement', async () => {
+    const checked = [];
+    const live = await rankLiveJobsForEmail(
+      rankedJobs(),
+      'it',
+      new Map(),
+      rankingOptions,
+      {
+        limit: 3,
+        check: async (url) => {
+          checked.push(url);
+          return !url.endsWith('/bounded-0');
+        },
+      },
+    );
+
+    expect(live.map((job) => job.id)).toEqual(['bounded-1', 'bounded-2', 'bounded-3']);
+    expect(checked).toHaveLength(4);
   });
 });
