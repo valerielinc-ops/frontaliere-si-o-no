@@ -1738,15 +1738,15 @@ jobs:
           RUN_INPUT_INJECTION: ${{ steps.body_contract.outcome != 'failure' }}
           RUN_LOCALE_SEGMENTS: ${{ steps.body_contract.outcome != 'failure' }}
           RUN_EVERGREEN_TOPICS: ${{ steps.body_contract.outcome != 'failure' }}
-          # Solo sulle PR e nella merge queue. Su una PR il checkout e'
-          # `refs/pull/N/merge` e il cancello confronta HEAD con HEAD^1, la punta
-          # di main (senza --base pretende un merge commit); nella merge queue
-          # la base e' `merge_group.base_sha`. Un gemello `identical` che
-          # acquista un import che il corpus non ha rompe il trasporto (corpus
-          # #1890); su main il difetto e' gia' entrato e lo segnala il controllo
-          # giornaliero corpus-ahead-check.
+          # Solo sulle PR e nella merge queue, con la base passata esplicitamente:
+          # `pull_request.base.sha` sulle PR, `merge_group.base_sha` nella coda,
+          # cosi' il confronto copre tutti i commit della PR qualunque sia la
+          # forma del checkout. Un gemello `identical` che acquista un import che
+          # il corpus non ha rompe il trasporto (corpus #1890); su main il
+          # difetto e' gia' entrato e lo segnala il controllo giornaliero
+          # corpus-ahead-check.
           RUN_TWIN_IMPORTS: ${{ steps.body_contract.outcome != 'failure' && (github.event_name == 'pull_request' || github.event_name == 'merge_group') }}
-          TWIN_GATE_BASE: ${{ github.event.merge_group.base_sha }}
+          TWIN_GATE_BASE: ${{ github.event.pull_request.base.sha || github.event.merge_group.base_sha }}
         run: |
           set -euo pipefail
           state_dir="${RUNNER_TEMP}/tests-independent-gates"

@@ -232,6 +232,10 @@ describe('identical-twin-import-gate.mjs end-to-end', () => {
     const { status, out } = run(root, manifest);
     expect(status).toBe(1);
     expect(out).toContain('1 introdotti da questa PR');
+    // La forma dell'invocazione di tests.yml: base passata esplicitamente.
+    const explicit = run(root, manifest, ['--base', sha(root, 'HEAD^1')]);
+    expect(explicit.status).toBe(1);
+    expect(explicit.out).toContain('1 introdotti da questa PR');
   });
 
   it('senza --base un HEAD con un solo genitore e\' un rosso esplicito; con --base il confronto e\' esatto', () => {
@@ -293,7 +297,9 @@ describe('tests.yml', () => {
     expect(workflow).toContain(
       `start_gate twin-imports 'node scripts/ci/identical-twin-import-gate.mjs \${TWIN_GATE_BASE:+--base "$TWIN_GATE_BASE"}'`,
     );
-    expect(workflow).toContain('TWIN_GATE_BASE: ${{ github.event.merge_group.base_sha }}');
+    expect(workflow).toContain(
+      'TWIN_GATE_BASE: ${{ github.event.pull_request.base.sha || github.event.merge_group.base_sha }}',
+    );
     expect(workflow).toMatch(
       /RUN_TWIN_IMPORTS: \$\{\{ steps\.body_contract\.outcome != 'failure' && \(github\.event_name == 'pull_request' \|\| github\.event_name == 'merge_group'\) \}\}/,
     );

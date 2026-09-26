@@ -25,10 +25,11 @@
  *   base, dove «assente» si misura con l'albero E con le dichiarazioni della
  *   base. La PR puo' introdurlo aggiungendo l'import, aggiungendo il file
  *   importato, o togliendo una riga del transport manifest che lo copriva.
- * - La base: sul checkout di `tests.yml` HEAD e' `refs/pull/N/merge` e `HEAD^1`
- *   e' la punta di main, quindi il diff copre tutti i commit della PR. Senza
- *   `--base` un HEAD con un solo genitore e' un errore, non un'ipotesi; la merge
- *   queue passa `merge_group.base_sha`.
+ * - La base: `tests.yml` la passa sempre con `--base` (`pull_request.base.sha`
+ *   sulle PR, `merge_group.base_sha` nella coda), quindi il diff copre tutti i
+ *   commit della PR. Senza `--base` vale `HEAD^1` solo se HEAD e' un merge
+ *   commit (la forma di `refs/pull/N/merge`); un HEAD con un solo genitore e'
+ *   un errore, non un'ipotesi.
  * - Un pericolo gia' presente sulla base resta un `::warning::`. Bloccarlo
  *   renderebbe rossa ogni PR che tocca quel gemello per un difetto che non ha
  *   introdotto; peggio, una voce tolta dal manifest del CORPUS renderebbe rosse
