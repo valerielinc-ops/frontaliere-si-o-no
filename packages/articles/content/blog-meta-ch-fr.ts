@@ -6776,6 +6776,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.iniziativa-congedo-parentale-quorum.title': 'Congé parental : l’initiative atteint le quorum',
     'blog.article.iniziativa-congedo-parentale-quorum.excerpt': '136 000 signatures recueillies pour l\'initiative « Une société et une économie fortes grâce au congé parental » : proposition de 18 semaines payées pour les mères et les pères.',
     'blog.article.iniziativa-congedo-parentale-quorum.imageAlt': 'Palais fédéral à Berne, siège de la Chancellerie fédérale',
+    'blog.article.mobilitazione-esercito-ponte.title': 'L\'armée suisse teste la mobilisation rapide',
+    'blog.article.mobilitazione-esercito-ponte.excerpt': 'MOBILO 26 a mobilisé environ 3\'000 militaires, 300 véhicules à roues et 50 véhicules blindés de Bière à Frauenfeld, avec un pont flottant.',
+    'blog.article.mobilitazione-esercito-ponte.imageAlt': 'Des militaires suisses assemblent un pont flottant pendant MOBILO 26',
 };
 
 export default blogMetaChFr;
