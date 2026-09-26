@@ -646,7 +646,7 @@ function reconcile({ apply = false } = {}) {
     const ownerPredicate = item.broad === 'migros-ticino'
       ? (job) => dedicatedMigrosOwner(job) === item.dedicated
       : item.broad === 'posta-svizzera-centro-regionale'
-        ? (job) => dedicatedPostOwner(job.company) === item.dedicated
+        ? (job) => dedicatedPostOwner(job) === item.dedicated
         : item.broad === 'etat-de-fribourg'
           ? (job) => dedicatedFribourgOwner(job) === item.dedicated
           : item.broad === 'amministrazione-cantonale-ti'
