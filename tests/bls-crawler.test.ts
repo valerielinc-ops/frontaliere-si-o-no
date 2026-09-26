@@ -1,7 +1,8 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
   BLS_KEY,
   BLS_COMPANY_NAME,
+  fetchAllBlsJobs,
   isBlsJob,
   isTrustedDomain,
   parseJobsApiResponse,
@@ -60,7 +61,7 @@ describe('BLS AG crawler parser', () => {
     });
   });
 
-  // ── parseJobsApiResponse (JobsInit JSON API — #4523 fix) ──
+  // ── parseJobsApiResponse (BLS JobsSearch JSON API) ──
   describe('parseJobsApiResponse', () => {
     it('parses Jobs[] entries into listing-entry shape', () => {
       const json = {
@@ -149,6 +150,62 @@ describe('BLS AG crawler parser', () => {
       expect(parseJobsApiResponse(null)).toEqual([]);
       expect(parseJobsApiResponse({ Jobs: null })).toEqual([]);
     });
+  });
+
+  it('uses the listing widget JobsSearch POST endpoint and parses its jobs', async () => {
+    const searchUrl = 'https://www.bls.ch/api/JobPortal/JobsSearch?sc_lang=en';
+    const detailUrl = 'https://jobs.bls.ch/offene-stellen/mechaniker-schienenfahrzeuge/2a7b3bed-4367-4ac7-b091-f2a5cbb4e352';
+    const listingHtml = '<div data-init="jobs" data-api-url-jobs-search="/api/JobPortal/JobsSearch?sc_lang=en"></div>';
+    const apiResponse = [{
+      Title: 'Mechaniker:in Schienenfahrzeuge',
+      Lead: 'Bönigen, 80-100%',
+      Category: 'Skilled manual jobs',
+      Region: 'Bönigen',
+      URL: detailUrl,
+    }];
+    const detailJsonLd = {
+      '@type': 'JobPosting',
+      title: 'Mechaniker:in Schienenfahrzeuge',
+      description: 'Wartung und Instandhaltung von Schienenfahrzeugen.',
+      jobLocation: { address: { addressLocality: 'Bönigen', addressCountry: 'CH' } },
+    };
+    const fetchSpy = vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+      const url = String(input);
+      if (url === 'https://www.bls.ch/en/unternehmen/jobs-und-karriere/offene-stellen') {
+        return new Response(listingHtml, { status: 200 });
+      }
+      if (url === searchUrl) return new Response(JSON.stringify(apiResponse), { status: 200 });
+      if (url === detailUrl) {
+        return new Response(`<script type="application/ld+json">${JSON.stringify(detailJsonLd)}</script>`, { status: 200 });
+      }
+      throw new Error(`Unexpected BLS fetch: ${url}`);
+    });
+
+    try {
+      const jobs = await fetchAllBlsJobs();
+
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({
+        companyKey: 'bls',
+        title: 'Mechaniker:in Schienenfahrzeuge',
+        location: 'Bönigen',
+        addressCountry: 'CH',
+        url: detailUrl,
+      });
+      expect(fetchSpy).toHaveBeenCalledTimes(3);
+      const [, postOptions] = fetchSpy.mock.calls[1];
+      expect(String(fetchSpy.mock.calls[1][0])).toBe(searchUrl);
+      expect(postOptions).toMatchObject({
+        method: 'POST',
+        body: '',
+        headers: expect.objectContaining({
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Referer: 'https://www.bls.ch/en/unternehmen/jobs-und-karriere/offene-stellen',
+        }),
+      });
+    } finally {
+      fetchSpy.mockRestore();
+    }
   });
 
   // ── slugify (imported from crawler-template) ──
