@@ -1,6 +1,6 @@
 {
   "crawlerKey": "benu",
-  "assembledAt": "2026-09-25T14:46:06.874Z",
+  "assembledAt": "2026-09-26T13:57:37.357Z",
   "jobs": [
     {
       "id": "benu-546b3c2e5a16",
@@ -33,7 +33,7 @@
       "url": "https://job.benu.ch/de/jobs/7666453-apotheker-w-m-80-100-benu-luzern-bahnhof",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:46:02.017Z",
+      "crawledAt": "2026-09-26T13:57:31.938Z",
       "addressLocality": "Luzern",
       "addressRegion": "Lucerne",
       "addressCountry": "CH",
@@ -68,6 +68,7 @@
         ]
       },
       "firstSeenAt": "2026-09-21T16:00:38.955Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -113,7 +114,7 @@
       "url": "https://job.benu.ch/de/jobs/7820959-pharma-assistent-in-w-m-bis-zu-40-im-stundenlohn-benu-rheineck",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:46:02.016Z",
+      "crawledAt": "2026-09-26T13:57:31.936Z",
       "addressLocality": "Rheineck",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -148,6 +149,7 @@
         ]
       },
       "firstSeenAt": "2026-09-21T16:00:38.953Z",
+      "needsRetranslation": true,
       "salaryMin": 23000,
       "salaryMax": 34800,
       "salarySource": "estimated",
@@ -193,7 +195,7 @@
       "url": "https://job.benu.ch/de/jobs/8044173-verantwortlicher-apotheker-w-m-80-100-benu-schwerzenbach",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:46:02.005Z",
+      "crawledAt": "2026-09-26T13:57:31.933Z",
       "addressLocality": "Schwerzenbach",
       "addressRegion": "Zurich",
       "addressCountry": "CH",
@@ -228,6 +230,7 @@
         ]
       },
       "firstSeenAt": "2026-09-21T16:00:38.949Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -273,7 +276,7 @@
       "url": "https://job.benu.ch/de/jobs/8053586-pharma-assistent-w-m-40-80-benu-baden-schlossberg",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:46:02.003Z",
+      "crawledAt": "2026-09-26T13:57:31.930Z",
       "addressLocality": "Baden",
       "addressRegion": "Argovie",
       "addressCountry": "CH",
@@ -354,7 +357,7 @@
       "url": "https://job.benu.ch/de/jobs/8292047-kosmetiker-in-efz-w-m-60-100-benu-luzern-bahnhof",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:46:02.000Z",
+      "crawledAt": "2026-09-26T13:57:31.925Z",
       "addressLocality": "Luzern",
       "addressRegion": "Lucerne",
       "addressCountry": "CH",
@@ -389,6 +392,7 @@
         ]
       },
       "firstSeenAt": "2026-09-21T16:00:38.938Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -405,28 +409,28 @@
     },
     {
       "id": "benu-3f9eaf424ad7",
-      "slug": "hr-service-specialist-w-m-60-100-koniz-berne-benu-ch",
+      "slug": "risorse-umane-service-specialista-w-m-60-100-benu-koniz",
       "slugByLocale": {
-        "de": "hr-service-specialist-w-m-60-100-koniz-berne-benu-ch",
-        "it": "hr-service-specialist-w-m-60-100-koniz-berne-benu-ch",
+        "it": "risorse-umane-service-specialista-w-m-60-100-benu-koniz",
         "en": "hr-service-specialist-w-m-60-100-koniz-berne-benu-ch",
-        "fr": "hr-service-specialist-w-m-60-100-koniz-berne-benu-ch"
+        "de": "hr-service-specialist-w-m-60-100-koniz-berne-benu-ch",
+        "fr": "ressources-humaines-service-specialiste-w-m-60-100-benu-koniz"
       },
       "company": "benu",
       "companyKey": "benu",
       "companyDomain": "job.benu.ch",
       "title": "HR Service Specialist (w/m) 60-100%",
       "titleByLocale": {
-        "de": "Personalwesen Service Spezialist (w/m) 60-100%",
-        "en": "HR Service Specialist (m/f) 60-100 %",
         "it": "Risorse Umane Service Specialista (w/m) 60-100%",
+        "en": "HR Service Specialist (w/m) 60-100%",
+        "de": "Personalwesen Service Spezialist (w/m) 60-100%",
         "fr": "Ressources Humaines Service Spécialiste (w/m) 60-100%"
       },
       "description": "<p></p><figure><img src=\"https://images.teamtailor-cdn.com/images/s3/teamtailor-production/gallery_picture-v6/image_uploads/eac9df3c-90c4-40df-bce2-d3b25f16662a/original.jpeg\" alt=\"BENU_2024_02_PHOENIX_German_Head_Office_3x1_slogan.jpg\" title=\"\"></figure><h6><strong>Arbeite im Herzen des Gesundheitswesens und werde Teil des #teamBENU !</strong></h6><p></p><p>Jeden Tag haben wir bei <strong>PHOENIX Pharma Switzerland</strong> eine wichtige Aufgabe: Millionen von Menschen mit Medikamenten und Gesundheitsprodukten zu versorgen. Mit unserem Team aus 1000 engagierten Mitarbeitern sorgen wir dafür, dass diese Produkte zuverlässig und kontinuierlich in der ganzen Schweiz vertrieben werden. Unsere verschiedenen Geschäftseinheiten leisten einen aktiven Beitrag zur Gesundheit, und hier kommt deine Rolle voll zum Tragen. Unser Erfolg beruht auf der Professionalität und dem Engagement unserer Mitarbeitenden, die unsere Unternehmenskultur verkörpern. <strong>Be the heartbeat of healthcare.</strong></p><h3 style=\"text-align:center;\"><strong>HR Service Specialist (w/m) 60–100%</strong></h3><p style=\"text-align:center;\"></p><p>Suchst du einen Job, bei dem jeder Tag anders ist? Dann suche nicht weiter! Hier schätzen wir dein Engagement und deine Fähigkeiten.</p><h5><strong>Das Herzstück deiner Arbeit:</strong></h5><p>In deiner Funktion als HR Service Specialist (w/m) 60-100% bist du verantwortlich für:</p><ul><li><p><span>Sicherstellen der vollständigen Betreuung des Mitarbeiterlebenszyklus, von der Einstellung bis zum Austritt.</span></p></li><li><p><span>Verantwortung für die Lohnverarbeitung eines definierten Mitarbeiterportfolios, inklusive Bearbeitung der Variablen und Vorbereitung der Daten für die Auszahlung.</span></p></li><li><p><span>Übernahme des Absenzenmanagements sowie Betreuung der Sozialversicherungen (Meldungen, Nachverfolgung, Koordination und Monitoring der Fälle).</span></p></li><li><p><span>Gewährleistung der Qualität und Zuverlässigkeit der HR-Daten in den internen Systemen.</span></p></li><li><p><span>Erstellung von Berichten und Statistiken für die Finanzabteilung (HR Controlling).</span></p></li><li><p><span>Durchführung der Kontenabstimmungen in Zusammenarbeit mit der Accounting-Abteilung.</span></p></li><li><p><span>Unterstützung der Führungskräfte bei der Vorbereitung und Nachverfolgung von HR-Gesprächen sowie Sicherstellung eines reibungslosen Onboardings und Offboardings.</span></p></li><li><p><span>Aktive Mitarbeit an HR-Projekten, insbesondere bei der Optimierung von Prozessen, Tools und Systemen.</span></p></li></ul><h5>Was unser Herz höher schlagen lässt:</h5><ul><li><p><span>Kaufmännische Ausbildung, ergänzt durch ein Zertifikat als HR-Fachfrau/HR-Fachmann HRSE und/oder durch den eidgenössischen Fachausweis in Human Resources (Option A).</span></p></li><li><p><span>Mehr als 3 Jahre Erfahrung in der HR-Administration und in der Lohnverarbeitung.</span></p></li><li><p><span>Prozessorientierung und ausgeprägtes Detailbewusstsein, fundierte HR-Fachkompetenz sowie eine sehr gute Prioritäten- und Terminkontrolle.</span></p></li><li><p><span>Digitale Kompetenzen oder Kenntnisse im Bereich künstliche Intelligenz im HR sind ein echtes Plus.</span></p></li><li><p><span>Eine zuverlässige, lösungsorientierte, proaktive und selbstständige Persönlichkeit mit grossem Interesse an administrativen \n• Aufgaben und kontinuierlicher Verbesserung.</span></p></li><li><p><span>Sehr gute Kenntnisse in MS Office, in HR-Software (Abacus) sowie in Zeiterfassungssystemen (OnTime).</span></p></li><li><p><span>Idealerweise zweisprachig (Französisch/Deutsch), alternativ muttersprachliche Kompetenz in einer der beiden Sprachen und mindestens Niveau B2 in der anderen. Englisch mindestens Niveau B2.</span></p></li></ul><h5>Was uns am Herzen liegt:</h5><ul><li><p><strong>Eine Branche mit Zukunft:</strong> Wir verzeichnen ein starkes Wachstum und sind einer der Marktführer.</p></li><li><p><strong>Massgeschneiderte Vorteile:</strong> \n• Wir bieten dir 6 Wochen Urlaub und weitere Benefits (Mitarbeitervergünstigungen, flexible Arbeitszeiten etc.).</p></li><li><p><strong>Vereinbarkeit von Privat- und Berufsleben:</strong> Profitiere von bis zu 20% Mobile Office.</p></li><li><p><strong>Weiterbildung:</strong> Schliesse dich der PHOENIX Academy an, um Weiterbildungen zu absolvieren, die auf deine Bedürfnisse zugeschnitten sind.</p></li><li><p><strong>Karriere:</strong> Du hast die Möglichkeit, dich innerhalb der PHOENIX-Gruppe weiterzuentwickeln.</p></li><li><p><strong>Teamgeist:</strong> Teamspirit ist uns wichtig. Wir fördern diesen mit regelmässigen kleinen und grossen Events.</p></li></ul><h5>Haben wir dein Interesse geweckt?</h5><p>Klicke auf den Button unten.<br><strong><br>Lass dein Herz für die Gesundheit schlagen und werde Teil des #teamBENU!</strong> </p><figure><img src=\"https://images.teamtailor-cdn.com/images/s3/teamtailor-production/gallery_picture-v6/image_uploads/e2e320e2-29fa-4715-867f-39eacd8e4fca/original.jpeg\" alt=\"BENU_2024_RH_bandeau_phoenix_group.jpg\" title=\"\"></figure>",
       "descriptionByLocale": {
-        "de": "<p></p><figure><img src=\"https://images.teamtailor-cdn.com/images/s3/teamtailor-production/gallery_picture-v6/image_uploads/eac9df3c-90c4-40df-bce2-d3b25f16662a/original.jpeg\" alt=\"BENU_2024_02_PHOENIX_German_Head_Office_3x1_slogan.jpg\" title=\"\"></figure><h6><strong>Arbeite im Herzen des Gesundheitswesens und werde Teil des #teamBENU !</strong></h6><p></p><p>Jeden Tag haben wir bei <strong>PHOENIX Pharma Switzerland</strong> eine wichtige Aufgabe: Millionen von Menschen mit Medikamenten und Gesundheitsprodukten zu versorgen. Mit unserem Team aus 1000 engagierten Mitarbeitern sorgen wir dafür, dass diese Produkte zuverlässig und kontinuierlich in der ganzen Schweiz vertrieben werden. Unsere verschiedenen Geschäftseinheiten leisten einen aktiven Beitrag zur Gesundheit, und hier kommt deine Rolle voll zum Tragen. Unser Erfolg beruht auf der Professionalität und dem Engagement unserer Mitarbeitenden, die unsere Unternehmenskultur verkörpern. <strong>Be the heartbeat of healthcare.</strong></p><h3 style=\"text-align:center;\"><strong>HR Service Specialist (w/m) 60–100%</strong></h3><p style=\"text-align:center;\"></p><p>Suchst du einen Job, bei dem jeder Tag anders ist? Dann suche nicht weiter! Hier schätzen wir dein Engagement und deine Fähigkeiten.</p><h5><strong>Das Herzstück deiner Arbeit:</strong></h5><p>In deiner Funktion als HR Service Specialist (w/m) 60-100% bist du verantwortlich für:</p><ul><li><p><span>Sicherstellen der vollständigen Betreuung des Mitarbeiterlebenszyklus, von der Einstellung bis zum Austritt.</span></p></li><li><p><span>Verantwortung für die Lohnverarbeitung eines definierten Mitarbeiterportfolios, inklusive Bearbeitung der Variablen und Vorbereitung der Daten für die Auszahlung.</span></p></li><li><p><span>Übernahme des Absenzenmanagements sowie Betreuung der Sozialversicherungen (Meldungen, Nachverfolgung, Koordination und Monitoring der Fälle).</span></p></li><li><p><span>Gewährleistung der Qualität und Zuverlässigkeit der HR-Daten in den internen Systemen.</span></p></li><li><p><span>Erstellung von Berichten und Statistiken für die Finanzabteilung (HR Controlling).</span></p></li><li><p><span>Durchführung der Kontenabstimmungen in Zusammenarbeit mit der Accounting-Abteilung.</span></p></li><li><p><span>Unterstützung der Führungskräfte bei der Vorbereitung und Nachverfolgung von HR-Gesprächen sowie Sicherstellung eines reibungslosen Onboardings und Offboardings.</span></p></li><li><p><span>Aktive Mitarbeit an HR-Projekten, insbesondere bei der Optimierung von Prozessen, Tools und Systemen.</span></p></li></ul><h5>Was unser Herz höher schlagen lässt:</h5><ul><li><p><span>Kaufmännische Ausbildung, ergänzt durch ein Zertifikat als HR-Fachfrau/HR-Fachmann HRSE und/oder durch den eidgenössischen Fachausweis in Human Resources (Option A).</span></p></li><li><p><span>Mehr als 3 Jahre Erfahrung in der HR-Administration und in der Lohnverarbeitung.</span></p></li><li><p><span>Prozessorientierung und ausgeprägtes Detailbewusstsein, fundierte HR-Fachkompetenz sowie eine sehr gute Prioritäten- und Terminkontrolle.</span></p></li><li><p><span>Digitale Kompetenzen oder Kenntnisse im Bereich künstliche Intelligenz im HR sind ein echtes Plus.</span></p></li><li><p><span>Eine zuverlässige, lösungsorientierte, proaktive und selbstständige Persönlichkeit mit grossem Interesse an administrativen \n• Aufgaben und kontinuierlicher Verbesserung.</span></p></li><li><p><span>Sehr gute Kenntnisse in MS Office, in HR-Software (Abacus) sowie in Zeiterfassungssystemen (OnTime).</span></p></li><li><p><span>Idealerweise zweisprachig (Französisch/Deutsch), alternativ muttersprachliche Kompetenz in einer der beiden Sprachen und mindestens Niveau B2 in der anderen. Englisch mindestens Niveau B2.</span></p></li></ul><h5>Was uns am Herzen liegt:</h5><ul><li><p><strong>Eine Branche mit Zukunft:</strong> Wir verzeichnen ein starkes Wachstum und sind einer der Marktführer.</p></li><li><p><strong>Massgeschneiderte Vorteile:</strong> \n• Wir bieten dir 6 Wochen Urlaub und weitere Benefits (Mitarbeitervergünstigungen, flexible Arbeitszeiten etc.).</p></li><li><p><strong>Vereinbarkeit von Privat- und Berufsleben:</strong> Profitiere von bis zu 20% Mobile Office.</p></li><li><p><strong>Weiterbildung:</strong> Schliesse dich der PHOENIX Academy an, um Weiterbildungen zu absolvieren, die auf deine Bedürfnisse zugeschnitten sind.</p></li><li><p><strong>Karriere:</strong> Du hast die Möglichkeit, dich innerhalb der PHOENIX-Gruppe weiterzuentwickeln.</p></li><li><p><strong>Teamgeist:</strong> Teamspirit ist uns wichtig. Wir fördern diesen mit regelmässigen kleinen und grossen Events.</p></li></ul><h5>Haben wir dein Interesse geweckt?</h5><p>Klicke auf den Button unten.<br><strong><br>Lass dein Herz für die Gesundheit schlagen und werde Teil des #teamBENU!</strong> </p><figure><img src=\"https://images.teamtailor-cdn.com/images/s3/teamtailor-production/gallery_picture-v6/image_uploads/e2e320e2-29fa-4715-867f-39eacd8e4fca/original.jpeg\" alt=\"BENU_2024_RH_bandeau_phoenix_group.jpg\" title=\"\"></figure>",
         "it": "< > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > Lavorare nel cuore dell'assistenza sanitaria e diventare parte di #teamBENU! Con il nostro team di 1000 dipendenti dedicati, garantiamo che questi prodotti siano distribuiti in modo affidabile e continuo in tutta la Svizzera. Le nostre varie unità di business danno un contributo attivo alla salute, e questo è dove il vostro ruolo entra in pieno vigore. Il nostro successo si basa sulla professionalità e l'impegno dei nostri dipendenti, che incarnano la nostra cultura aziendale. > Sii il cuore della salute. </strong> </p> < h3 style=\"text-align:center;\"> Stai cercando un lavoro dove ogni giorno è diverso? Allora non guardare oltre! Qui apprezziamo il vostro impegno e le vostre competenze. </p> Il cuore del vostro lavoro: Nel vostro ruolo di HR Service Specialist (m/f) 60-100% siete responsabili di: Garantire il pieno sostegno del ciclo di vita dei dipendenti, dall'assunzione all'uscita. </span> </p> </li> < < < > < > < > > responsabilità per l'elaborazione salariale di un portafoglio di dipendenti definito, compreso il trattamento delle variabili e la preparazione dei dati per il pagamento. </span> > > > > > > > > Assumere la gestione delle assenze e il sostegno dell'assicurazione sociale (relazione, monitoraggio, coordinamento e monitoraggio dei casi). Garantire la qualità e l'affidabilità dei dati HR nei sistemi interni. </span> > > > > > > > > Preparazione di rapporti e statistiche per il dipartimento finanziario (HR Controlling). </span> > > > > > > > > Attuazione delle conciliazioni dei conti in collaborazione con il dipartimento contabile. </span> > > > > > > > > Supporto dei manager nella preparazione e nel follow-up delle conversazioni HR, oltre a garantire l'imbarco e il fuoribordo senza intoppi. </span> > > > > > > > > Partecipazione attiva ai progetti HR, soprattutto nell'ottimizzazione di processi, strumenti e sistemi. < / > > > > > > > > > > Ciò che rende il nostro cuore più veloce: Istruzione commerciale, completata da un certificato come HR specialista HRSE e/o dalla Swiss Federal Professional Card in Human Resources (Opzione A). Più di 3 anni di esperienza nell'amministrazione delle risorse umane e nell'elaborazione dei contratti. </span> </p> < </li> < < < > < > < < > < < > < < > < > < > < > < < > < > < > < > > > > > > > > > > > > > > > > > > < > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > </span> > > > > > > > > Le competenze digitali o le conoscenze nel campo dell'intelligenza artificiale nelle risorse umane sono un vantaggio reale. </span> > > > > > > > > Una personalità affidabile, orientata alla soluzione, proattiva e indipendente con un grande interesse amministrativo\n• Compiti e miglioramento continuo. </span> > > > > > > > > Conoscenza molto buona di MS Office, software HR (Abacus) e sistemi di registrazione del tempo (OnTime). </span> > > > > > > > > Idealmente bilingue (francese/tedesco), in alternativa competenze linguistiche in una delle due lingue e almeno livello B2 nell'altra. Inglese almeno livello B2. Cosa ci interessa: Un'industria con un futuro: Stiamo sperimentando una forte crescita e siamo uno dei leader di mercato. </p>\n• Vi offriamo 6 settimane di vacanza e altri benefici (benefici del dipendente, ore di lavoro flessibili, ecc.). Ha l'opportunità di svilupparsi ulteriormente all'interno del Gruppo PHOENIX. </p> ι> Lo spirito di squadra è importante per noi. Lo promuoviamo con regolari piccoli e grandi eventi. Abbiamo suscitato il vostro interesse? </h5> > Click sul pulsante qui sotto.",
         "en": "<p></p><figure><img src=\"https://images.teamtailor-cdn.com/images/s3/teamtailor-production/gallery picture-v6/image uploads/eac9df3c-90c4-40df-bce2-d3b25f16662a/original.jpeg\" alt=\"BENU 2024 02 PHOENIX Head Office 3x1 slogan.jpg\" title=\"></figure><h6><strong>Work in the heart of health care and become part of #teamBENU!</strong></h6><p><p><p>Every day we at <strong>PHOENIX Pharma Switzerland</strong> have an important task: to provide medicines and health products to millions of people. With our team of 1000 dedicated employees, we ensure that these products are reliably and continuously distributed throughout Switzerland. Our various business units make an active contribution to health, and this is where your role comes into full force. Our success is based on the professionalism and commitment of our employees, who embody our corporate culture. <strong>Be the heartbeat of healthcare. </strong></p><h3 style=\"text-align:center;\"><strong>HR Service Specialist (m/f) 60–100%</strong></h3><p style=\"text-align:center;\"></p><p>Are you looking for a job where every day is different? Then look no further! Here we appreciate your commitment and skills. </p><h5><strong>The heart of your work:</strong></h5><p>In your role as HR Service Specialist (m/f) 60-100% you are responsible for:</p><ul><li><p><span>Securing the full support of the employee life cycle, from hiring to leaving. </span></p></li><li><p><span>responsibility for the wage processing of a defined employee portfolio, including processing of variables and preparation of data for the payment. </span></p></li><li><p><span>Assume the management of absences and support of social insurance (reporting, tracking, coordination and monitoring of cases).</span></p></li><li><p><span>Guarantee the quality and reliability of HR data in the internal systems. </span></p></li><li><p><span>Preparation of reports and statistics for the financial department (HR Controlling). </span></p></li><li><p><span>Implementation of account reconciliations in cooperation with the accounting department. </span></p></li><li><p><span>Support of managers in the preparation and follow-up of HR conversations as well as ensuring smooth onboarding and offboarding. </span></p></li><li><p><span>Active participation in HR projects, especially in the optimization of processes, tools and systems. </span></p></li></ul><h5>What makes our heart beat faster:</h5><ul><p><p><span>Commercial education, supplemented by a certificate as HR specialist HRSE and/or by the Swiss Federal Professional Card in Human Resources (Option A).</span></p></li><p><span>More than 3 years of experience in HR administration and in contract processing. </span></p></li><li><p><span>process orientation and pronounced awareness of detail, well-founded HR expertise as well as very good priority and appointment control. </span></p></li><li><p><span>Digital skills or knowledge in the field of artificial intelligence in HR are a real plus. </span></p></li><li><p><span>A reliable, solution-oriented, proactive and independent personality with a great interest in administrative\n• Tasks and continuous improvement. </span></p></li><li><p><span>Very good knowledge of MS Office, HR software (Abacus) and time recording systems (OnTime). </span></p></li><li><p><span>Ideally bilingual (French/German), alternatively native language competence in one of the two languages and at least level B2 in the other. English at least level B2.</span></p></li></ul><h5>What we care about:</h5><ul><li><p><strong>An industry with a future:</strong> We are experiencing strong growth and are one of the market leaders. </p></li><li><p><strong>tailor-made advantages:</strong>\n• We offer you 6 weeks of vacation and other benefits (employee benefits, flexible working hours, etc.).</p></li><li><p><strong>Compatibility of private and professional life:</strong> Benefit from up to 20% Mobile Office. </p></li><li><p><strong>Further education:</strong> Join the PHOENIX Academy for further education tailored to your needs. </p></li><li><p><strong>Career:</strong> You have the opportunity to develop further within the PHOENIX Group. </p></li><li><p><strong>Team spirit:</strong> Team spirit is important to us. We promote this with regular small and large events.</p></li></ul><h5>Have we aroused your interest? </h5><p>Click on the button below.<br><strong><br>Let your heart beat for health!</strong></p><figure><img src=\"https://images.teamtailor-cdn.com/images/s3/teamtailor-production/gallery picture-v6/image uploads/e2e320e2-29fa-4715-867f-39eacd8e4fca/original.jpeg\" alt=\"BENU 2024 RH bandeau phoenix group.jpg\"title=\"\"</figure>",
+        "de": "<p></p><figure><img src=\"https://images.teamtailor-cdn.com/images/s3/teamtailor-production/gallery_picture-v6/image_uploads/eac9df3c-90c4-40df-bce2-d3b25f16662a/original.jpeg\" alt=\"BENU_2024_02_PHOENIX_German_Head_Office_3x1_slogan.jpg\" title=\"\"></figure><h6><strong>Arbeite im Herzen des Gesundheitswesens und werde Teil des #teamBENU !</strong></h6><p></p><p>Jeden Tag haben wir bei <strong>PHOENIX Pharma Switzerland</strong> eine wichtige Aufgabe: Millionen von Menschen mit Medikamenten und Gesundheitsprodukten zu versorgen. Mit unserem Team aus 1000 engagierten Mitarbeitern sorgen wir dafür, dass diese Produkte zuverlässig und kontinuierlich in der ganzen Schweiz vertrieben werden. Unsere verschiedenen Geschäftseinheiten leisten einen aktiven Beitrag zur Gesundheit, und hier kommt deine Rolle voll zum Tragen. Unser Erfolg beruht auf der Professionalität und dem Engagement unserer Mitarbeitenden, die unsere Unternehmenskultur verkörpern. <strong>Be the heartbeat of healthcare.</strong></p><h3 style=\"text-align:center;\"><strong>HR Service Specialist (w/m) 60–100%</strong></h3><p style=\"text-align:center;\"></p><p>Suchst du einen Job, bei dem jeder Tag anders ist? Dann suche nicht weiter! Hier schätzen wir dein Engagement und deine Fähigkeiten.</p><h5><strong>Das Herzstück deiner Arbeit:</strong></h5><p>In deiner Funktion als HR Service Specialist (w/m) 60-100% bist du verantwortlich für:</p><ul><li><p><span>Sicherstellen der vollständigen Betreuung des Mitarbeiterlebenszyklus, von der Einstellung bis zum Austritt.</span></p></li><li><p><span>Verantwortung für die Lohnverarbeitung eines definierten Mitarbeiterportfolios, inklusive Bearbeitung der Variablen und Vorbereitung der Daten für die Auszahlung.</span></p></li><li><p><span>Übernahme des Absenzenmanagements sowie Betreuung der Sozialversicherungen (Meldungen, Nachverfolgung, Koordination und Monitoring der Fälle).</span></p></li><li><p><span>Gewährleistung der Qualität und Zuverlässigkeit der HR-Daten in den internen Systemen.</span></p></li><li><p><span>Erstellung von Berichten und Statistiken für die Finanzabteilung (HR Controlling).</span></p></li><li><p><span>Durchführung der Kontenabstimmungen in Zusammenarbeit mit der Accounting-Abteilung.</span></p></li><li><p><span>Unterstützung der Führungskräfte bei der Vorbereitung und Nachverfolgung von HR-Gesprächen sowie Sicherstellung eines reibungslosen Onboardings und Offboardings.</span></p></li><li><p><span>Aktive Mitarbeit an HR-Projekten, insbesondere bei der Optimierung von Prozessen, Tools und Systemen.</span></p></li></ul><h5>Was unser Herz höher schlagen lässt:</h5><ul><li><p><span>Kaufmännische Ausbildung, ergänzt durch ein Zertifikat als HR-Fachfrau/HR-Fachmann HRSE und/oder durch den eidgenössischen Fachausweis in Human Resources (Option A).</span></p></li><li><p><span>Mehr als 3 Jahre Erfahrung in der HR-Administration und in der Lohnverarbeitung.</span></p></li><li><p><span>Prozessorientierung und ausgeprägtes Detailbewusstsein, fundierte HR-Fachkompetenz sowie eine sehr gute Prioritäten- und Terminkontrolle.</span></p></li><li><p><span>Digitale Kompetenzen oder Kenntnisse im Bereich künstliche Intelligenz im HR sind ein echtes Plus.</span></p></li><li><p><span>Eine zuverlässige, lösungsorientierte, proaktive und selbstständige Persönlichkeit mit grossem Interesse an administrativen \n• Aufgaben und kontinuierlicher Verbesserung.</span></p></li><li><p><span>Sehr gute Kenntnisse in MS Office, in HR-Software (Abacus) sowie in Zeiterfassungssystemen (OnTime).</span></p></li><li><p><span>Idealerweise zweisprachig (Französisch/Deutsch), alternativ muttersprachliche Kompetenz in einer der beiden Sprachen und mindestens Niveau B2 in der anderen. Englisch mindestens Niveau B2.</span></p></li></ul><h5>Was uns am Herzen liegt:</h5><ul><li><p><strong>Eine Branche mit Zukunft:</strong> Wir verzeichnen ein starkes Wachstum und sind einer der Marktführer.</p></li><li><p><strong>Massgeschneiderte Vorteile:</strong> \n• Wir bieten dir 6 Wochen Urlaub und weitere Benefits (Mitarbeitervergünstigungen, flexible Arbeitszeiten etc.).</p></li><li><p><strong>Vereinbarkeit von Privat- und Berufsleben:</strong> Profitiere von bis zu 20% Mobile Office.</p></li><li><p><strong>Weiterbildung:</strong> Schliesse dich der PHOENIX Academy an, um Weiterbildungen zu absolvieren, die auf deine Bedürfnisse zugeschnitten sind.</p></li><li><p><strong>Karriere:</strong> Du hast die Möglichkeit, dich innerhalb der PHOENIX-Gruppe weiterzuentwickeln.</p></li><li><p><strong>Teamgeist:</strong> Teamspirit ist uns wichtig. Wir fördern diesen mit regelmässigen kleinen und grossen Events.</p></li></ul><h5>Haben wir dein Interesse geweckt?</h5><p>Klicke auf den Button unten.<br><strong><br>Lass dein Herz für die Gesundheit schlagen und werde Teil des #teamBENU!</strong> </p><figure><img src=\"https://images.teamtailor-cdn.com/images/s3/teamtailor-production/gallery_picture-v6/image_uploads/e2e320e2-29fa-4715-867f-39eacd8e4fca/original.jpeg\" alt=\"BENU_2024_RH_bandeau_phoenix_group.jpg\" title=\"\"></figure>",
         "fr": "<p></p><figure><img src=\"https://images.teamtailor-cdn.com/images/s3/teamtailor-production/gallery picture-v6/images uploads/eac9df3c-90c4-40df-bce2-d3b25f16662a/original.jpeg\" alt=\"BENU 2024 02 PHOENIX Siège social 3x1 slogan.jpg\" title=\"></figure><h6><strong> Travailler au cœur des soins de santé et faire partie de #teamBENU!</strong></h6><p><p><p>Chaque jour, chez <strong>PHOENIX Pharma Suisse</strong> a une tâche importante: fournir des médicaments et des produits de santé à des millions de personnes. Avec notre équipe de 1000 collaborateurs dédiés, nous veillons à ce que ces produits soient distribués de manière fiable et continue dans toute la Suisse. Nos différentes unités d'affaires contribuent activement à la santé, et c'est là que votre rôle entre en vigueur. Notre succès repose sur le professionnalisme et l'engagement de nos employés, qui incarnent notre culture d'entreprise. <fort> Soyez le battement de cœur des soins de santé. </strong></p><h3 style=\"text-align:center;\"><strong> Spécialiste des services de RH (h/f) 60–100%</strong></h3><p style=\"text-align:center;\"></p><p> Vous cherchez un emploi où chaque jour est différent? Alors ne cherchez pas plus loin! Ici, nous apprécions votre engagement et vos compétences. Le cœur de votre travail:</strong></h5><p> Dans votre rôle de spécialiste des services RH (h/f) 60-100%, vous êtes responsable de:</p><ul><li><p><span> Assurer le plein soutien du cycle de vie des employés, de l'embauche jusqu'au départ. </span></p></li><li><p><span>responsabilité pour le traitement des salaires d'un portefeuille d'employés défini, y compris le traitement des variables et la préparation des données pour le paiement. </span></p></li><li><p><span> Assumer la gestion des absences et le soutien de l'assurance sociale (déclaration, suivi, coordination et surveillance des cas).</span></p></li><li><p><span> Garantir la qualité et la fiabilité des données RH dans les systèmes internes. </span></p></li><li><p><span> Élaboration de rapports et de statistiques pour le département financier (contrôle des ressources humaines). </span></p></li><li><p><span> Mise en oeuvre de rapprochements de comptes en collaboration avec le service comptable. </span></p></li><li><p><span> Soutien des gestionnaires à la préparation et au suivi des conversations sur les RH ainsi qu'à la mise à bord et au hors-bord en douceur. </span></p></li><li><p><span> Participation active aux projets RH, en particulier à l'optimisation des processus, des outils et des systèmes. </span></p></li></ul><h5> Ce qui rend notre rythme cardiaque plus rapide:</h5><ul><p><p><span> Formation commerciale, complétée par un certificat de spécialiste en RH RHSE et/ou par la carte professionnelle fédérale suisse en ressources humaines (option A).</span></p></li><p><span> Plus de 3 ans d'expérience en administration des RH et en traitement des contrats. </span></p></li><li><p><span>Orientation du processus et sensibilisation marquée aux détails, à l'expertise en RH bien fondée ainsi qu'à une très bonne priorité et au contrôle des nominations. </span></p></li><li><p><span> Les compétences numériques ou les connaissances dans le domaine de l'intelligence artificielle en RH sont un véritable atout. </span></p></li><li><p><span> Une personnalité fiable, orientée vers la solution, proactive et indépendante avec un grand intérêt pour l'administration\n• Tâches et amélioration continue. </span></p></li><li><p><span> Très bonne connaissance des logiciels MS Office, HR (Abacus) et des systèmes d'enregistrement du temps (OnTime). </span></p></li><li><p><span> Idéalement bilingue (français/allemand), alternativement langue maternelle compétence dans l'une des deux langues et au moins niveau B2 dans l'autre. Anglais au moins B2.</span></p></li></ul><h5> Ce qui nous intéresse:</h5><ul><li><p><strong> Une industrie avec un avenir:</strong> Nous connaissons une forte croissance et sommes l'un des leaders du marché. </p></li><li><p><strong>Avantages faits sur mesure:</strong>\n• Nous vous offrons 6 semaines de vacances et d'autres avantages (avantages sociaux, horaires de travail flexibles, etc.).</p></li><li><p><strong>Compatibilité de la vie privée et professionnelle:</strong> Bénéficiez d'un maximum de 20 % de services mobiles. </p></li><li><p><strong>Enseignement complémentaire:</strong> Rejoignez l'Académie PHOENIX pour de plus amples études adaptées à vos besoins. </p><li><p><strong>Carrière:</strong> Vous avez la possibilité de développer davantage au sein du groupe PHOENIX. </p></li><li><p><strong>Esprit d'équipe:</strong> L'esprit d'équipe est important pour nous. Nous en faisons la promotion avec des événements réguliers de petite et de grande envergure.</p></li></ul><h5> Avez-vous suscité votre intérêt? </h5><p>Cliquez sur le bouton ci-dessous.<br><strong><br>Laissez votre cœur battre pour la santé!</strong></p><figure><img src=\"https://images.teamtailor-cdn.com/images/s3/teamtailor-production/gallery picture-v6/image uploads/e2e320e2-29fa-4715-867f-39eacd8e4fca/original.jpeg\" alt=\"BENU 2024 RH bandeau phoenix group.jpg\"title=\"</figure>"
       },
       "location": "Köniz, Berne",
@@ -434,7 +438,7 @@
       "url": "https://job.benu.ch/de/jobs/7378437-hr-service-specialist-w-m-60-100",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-25T14:46:01.997Z",
+      "crawledAt": "2026-09-26T13:57:31.921Z",
       "addressLocality": "Köniz",
       "addressRegion": "Berne",
       "addressCountry": "CH",
@@ -451,9 +455,20 @@
       "postedDate": "2026-09-25",
       "applyUrl": "https://job.benu.ch/de/jobs/7378437-hr-service-specialist-w-m-60-100",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-25T14:46:01.997Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-service-specialist-w-m-60-100-koniz-berne-benu-ch"
+        ],
+        "fr": [
+          "hr-service-specialist-w-m-60-100-koniz-berne-benu-ch"
+        ]
       },
+      "previousSlugs": [
+        "hr-service-specialist-w-m-60-100-koniz-berne-benu-ch"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -466,8 +481,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-25T14:46:01.997Z"
+      }
     },
     {
       "id": "benu-4e3422604298",
@@ -484,7 +498,7 @@
       "title": "Data Engineer – Microsoft Fabric (w/m) 80 - 100% / DE",
       "titleByLocale": {
         "it": "Data Ingegnere – Microsoft Fabric (w/m) 80 - 100% / DE",
-        "en": "Data Engineer - Microsoft Fabric (m/f) 80 - 100% / EN",
+        "en": "Data Engineer – Microsoft Fabric (w/m) 80 - 100% / DE",
         "de": "Data Ingenieur – Microsoft Fabric (w/m) 80 - 100% / DE",
         "fr": "Data Ingénieur – Microsoft Fabric (w/m) 80 - 100% / DE"
       },
@@ -544,7 +558,8 @@
         }
       },
       "sourceIdentity": "url:https://job.benu.ch/de/jobs/8059265-data-engineer-microsoft-fabric-w-m-80-100-de",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
