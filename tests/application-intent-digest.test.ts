@@ -41,6 +41,7 @@ function intentSnapshot(overrides: Record<string, unknown> = {}) {
       timestamp: new Date(NOW - 2 * DAY),
       consentVersion: 'application-intent-v1',
       consentText: 'Ho cliccato su Candidati e accetto il promemoria.',
+      consentGiven: true,
       origin: 'job_board',
       ...overrides,
     }),
@@ -66,6 +67,12 @@ describe('saved-jobs digest — application intent source', () => {
     expect(isApplicationIntentEligible(intentSnapshot({ timestamp: new Date(NOW - (APPLICATION_INTENT_RETENTION_DAYS + 1) * DAY) }).data(), NOW)).toBe(false);
     expect(isApplicationIntentEligible(intentSnapshot({ completedAt: new Date(NOW - DAY) }).data(), NOW)).toBe(false);
     expect(isApplicationIntentEligible(intentSnapshot({ consentText: '' }).data(), NOW)).toBe(false);
+    expect(isApplicationIntentEligible({
+      timestamp: 1700000000000,
+      consentVersion: 'v1',
+      consentText: 'shown',
+      consentGiven: false,
+    }, 1700000000000)).toBe(false);
     expect(isApplicationIntentEligible(intentSnapshot({ deletedAt: new Date(NOW - DAY) }).data(), NOW)).toBe(false);
   });
 

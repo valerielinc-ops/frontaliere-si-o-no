@@ -203,6 +203,11 @@ const APPLICATION_INTENT_CONSENT_TEXT_FIELDS = Object.freeze([
   'shownText',
 ]);
 
+const APPLICATION_INTENT_CONSENT_ACCEPTANCE_FIELDS = Object.freeze([
+  'consentGiven',
+  'consent_given',
+]);
+
 const APPLICATION_INTENT_JOB_ID_FIELDS = Object.freeze([
   'jobId',
   'job_id',
@@ -259,6 +264,10 @@ export function applicationIntentTimestamp(data) {
 }
 
 function hasApplicationIntentConsent(data) {
+  const hasExplicitNegative = APPLICATION_INTENT_CONSENT_ACCEPTANCE_FIELDS.some((field) => data?.[field] === false);
+  if (hasExplicitNegative) return false;
+  const hasExplicitPositive = APPLICATION_INTENT_CONSENT_ACCEPTANCE_FIELDS.some((field) => data?.[field] === true);
+  if (!hasExplicitPositive) return false;
   const hasVersion = APPLICATION_INTENT_CONSENT_VERSION_FIELDS.some((field) => isNonEmpty(data?.[field]));
   const hasText = APPLICATION_INTENT_CONSENT_TEXT_FIELDS.some((field) => isNonEmpty(data?.[field]));
   return hasVersion && hasText;
