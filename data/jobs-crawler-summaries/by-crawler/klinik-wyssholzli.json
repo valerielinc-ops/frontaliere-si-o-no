@@ -1,18 +1,19 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-09-25T15:00:07.591Z",
+  "generatedAt": "2026-09-26T14:17:46.775Z",
   "total": 6,
-  "newCount": 2,
-  "updatedCount": 3,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 5,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5322,
-  "avgDurationMs": 5322,
+  "durationMs": 4714,
+  "avgDurationMs": 4714,
   "durationHistory": [
-    5322
+    4714
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Psychiater In Ambulatorium Bern 2026 Ab 10",
       "slug": "psychiater-in-ambulatorium-bern-2026-ab-10-klinik-wyssholzli",
@@ -40,51 +41,16 @@
       "_meta": {
         "sourceFilename": "Inserat-Psychiater_in-Ambulatorium-Bern_2026_ab-10.pdf"
       },
-      "_qualityScore": 64,
+      "id": "klinik-wyssholzli-478e6191e986",
+      "firstSeenAt": "2026-09-25T15:00:02.770Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
-    {
-      "title": "Psychologin Psychotherapeutin 01.2027–60% 09/2026",
-      "slug": "psychologin-psychotherapeutin-01-2027-60-09-2026-klinik-wyssholzli",
-      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Psychologin_Psychotherapeutin_01.2027_60_09_2026.pdf",
-      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
-      "company": "Klinik Wysshölzli",
-      "companyKey": "klinik-wyssholzli",
-      "companyDomain": "wysshoelzli.ch",
-      "location": "Herzogenbuchsee",
-      "addressLocality": "Herzogenbuchsee",
-      "addressRegion": "BE",
-      "postalCode": "3360",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "health",
-      "sector": "Psychiatrie und Psychotherapie",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "klinik-wyssholzli-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-25",
-      "validThrough": "",
-      "needsRetranslation": true,
-      "_meta": {
-        "sourceFilename": "Psychologin_Psychotherapeutin_01.2027_60_09_2026.pdf"
-      },
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 17
-      }
-    }
-  ],
-  "updatedJobs": [
     {
       "title": "Chefpsychologin 06/2026",
       "slug": "chefpsychologin-06-2026-klinik-wyssholzli",
@@ -160,6 +126,43 @@
       }
     },
     {
+      "title": "Psychologin Psychotherapeutin 01.2027–60% 09/2026",
+      "slug": "psychologin-psychotherapeutin-01-2027-60-09-2026-klinik-wyssholzli",
+      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Psychologin_Psychotherapeutin_01.2027_60_09_2026.pdf",
+      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
+      "company": "Klinik Wysshölzli",
+      "companyKey": "klinik-wyssholzli",
+      "companyDomain": "wysshoelzli.ch",
+      "location": "Herzogenbuchsee",
+      "addressLocality": "Herzogenbuchsee",
+      "addressRegion": "BE",
+      "postalCode": "3360",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "health",
+      "sector": "Psychiatrie und Psychotherapie",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "klinik-wyssholzli-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-25",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "_meta": {
+        "sourceFilename": "Psychologin_Psychotherapeutin_01.2027_60_09_2026.pdf"
+      },
+      "id": "klinik-wyssholzli-7ae216cba293",
+      "firstSeenAt": "2026-09-25T15:00:02.770Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
       "title": "Praktikantin 2025",
       "slug": "praktikantin-2025-klinik-wyssholzli",
       "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Praktikantin_2025.pdf",
@@ -197,49 +200,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Psychologin Psychotherapeutin 11.2026–60% 70 07/2026",
-      "slug": "psicologo-psicoterapeuta-11-2026-60-70-07-2026-klinik-wyssholzli-herzogenbuchsee",
-      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Psychologin_Psychotherapeutin_11.2026_60-70-_07_2026.pdf",
-      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
-      "company": "Klinik Wysshölzli",
-      "companyKey": "klinik-wyssholzli",
-      "companyDomain": "wysshoelzli.ch",
-      "location": "Herzogenbuchsee",
-      "addressLocality": "Herzogenbuchsee",
-      "addressRegion": "BE",
-      "postalCode": "3360",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "health",
-      "sector": "Psychiatrie und Psychotherapie",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "klinik-wyssholzli-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-31",
-      "validThrough": "",
-      "_meta": {
-        "sourceFilename": "Psychologin_Psychotherapeutin_11.2026_60-70-_07_2026.pdf"
-      },
-      "id": "klinik-wyssholzli-210f47a91d1c",
-      "firstSeenAt": "2026-07-31T11:36:25.178Z",
-      "salaryMin": 51000,
-      "salaryMax": 71400,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Psychiater In Ambulant 2025–60% 80",
@@ -273,7 +234,7 @@
       "salaryMax": 71400,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
