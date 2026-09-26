@@ -88082,6 +88082,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assicurazione-grandine-2026': {
+    title: 'Assicurazione grandine: premi a rischio nel 2026',
+    description: 'Nel 2026 Grandine Svizzera prevede perdite e risarcimenti fino a 170 milioni di franchi, con raccolti di barbabietole, patate e mais in calo fino al 30%. Aebi',
+    keywords: 'frontalieri, ticino, svizzera, italia, assicurazione, grandine, premi, rischio',
+    ogTitle: 'Assicurazione grandine: premi a rischio nel 2026',
+    ogDescription: 'Grandine Svizzera, principale assicuratrice europea per rischi agricoli, avverte che nel 2026 potrebbe dover pagare fino a 170 milioni di franchi di risarcimenti a causa di grandinate che hanno ridotto le rese di barbabietole, patate e mais fino',
+    canonicalPath: '/articoli-svizzera/assicurazione-grandine-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assicurazione grandine: premi a rischio nel 2026",
+      "description": "Nel 2026 Grandine Svizzera prevede perdite e risarcimenti fino a 170 milioni di franchi, con raccolti di barbabietole, patate e mais in calo fino al 30%. Aebi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assicurazione-grandine-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campo agricolo svizzero colpito da grandine con nuvole minacciose"
+      },
+      "datePublished": "2026-09-26T17:26:33+00:00",
+      "dateModified": "2026-09-26T17:26:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assicurazione-grandine-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

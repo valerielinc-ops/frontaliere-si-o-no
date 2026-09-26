@@ -6794,6 +6794,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avenergy-lobby-clima.title': 'Avenergy et le lobby du pétrole : climat en Suisse',
     'blog.article.avenergy-lobby-clima.excerpt': 'Une étude reconstitue la communication d’Avenergy, association des importateurs de pétrole, et le réseau d’intérêts qui remonte jusqu’au Conseil fédéral.',
     'blog.article.avenergy-lobby-clima.imageAlt': 'Bellinzone et montagnes suisses sous un ciel nuageux, image du débat climatique national',
+    'blog.article.assicurazione-grandine-2026.title': 'Assurance grêle : primes à risque en 2026',
+    'blog.article.assicurazione-grandine-2026.excerpt': 'En 2026, Grandine Svizzera prévoit des pertes financières et des indemnisations pouvant atteindre 170 millions de francs, avec des récoltes de betteraves, de pommes de terre et de maïs en baisse jusqu\'à 30%.',
+    'blog.article.assicurazione-grandine-2026.imageAlt': 'Champ agricole suisse touché par la grêle sous des nuages menaçants',
 };
 
 export default blogMetaChFr;
