@@ -1,6 +1,6 @@
 {
   "crawlerKey": "neoproconseils",
-  "assembledAt": "2026-09-25T14:42:23.039Z",
+  "assembledAt": "2026-09-26T13:54:33.835Z",
   "jobs": [
     {
       "id": "neoproconseils-14fdde329346",
@@ -33,7 +33,7 @@
       "url": "https://neoproconseils.ch/emplois/macon-genie-civil-h-f-ref-75114/",
       "source": "NEO Pro conseils SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:42:18.346Z",
+      "crawledAt": "2026-09-26T13:54:29.422Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "Suisse",
@@ -95,7 +95,7 @@
       "companyDomain": "neoproconseils.ch",
       "title": "Installateur électricien (H/F)",
       "titleByLocale": {
-        "it": "Installatore elettrico (M/F)",
+        "it": "Installateur électricien (H/F)",
         "en": "Electrical installer (M/F)",
         "de": "Elektroinstallateur (M/W)",
         "fr": "Installateur électricien (H/F)"
@@ -112,7 +112,7 @@
       "url": "https://neoproconseils.ch/emplois/installateur-electricien-h-f-ref-75124/",
       "source": "NEO Pro conseils SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-25T14:42:18.344Z",
+      "crawledAt": "2026-09-26T13:54:29.420Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "Suisse",
@@ -132,13 +132,15 @@
       "previousSlugs": [
         "installateur-electricien-h-f-geneve-ge-neoproconseils-ch",
         "installateur-electricien-h-f-neo-pro-conseils-sa-geneve",
-        "installatore-elettrico-m-f-neo-pro-conseils-sa-geneve-ge"
+        "installatore-elettrico-m-f-neo-pro-conseils-sa-geneve-ge",
+        "installateur-electricien-m-w-d-neo-pro-conseils-sa-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "installateur-electricien-h-f-geneve-ge-neoproconseils-ch",
           "installateur-electricien-h-f-neo-pro-conseils-sa-geneve",
-          "installatore-elettrico-m-f-neo-pro-conseils-sa-geneve-ge"
+          "installatore-elettrico-m-f-neo-pro-conseils-sa-geneve-ge",
+          "installateur-electricien-m-w-d-neo-pro-conseils-sa-geneve"
         ],
         "en": [
           "installateur-electricien-h-f-geneve-ge-neoproconseils-ch"
@@ -148,6 +150,7 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:35:57.252Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
