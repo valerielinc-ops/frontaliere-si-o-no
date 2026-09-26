@@ -81,6 +81,27 @@ function createFakeDb(seed: Record<string, Record<string, unknown>> = {}) {
     add: async (data: Record<string, unknown>) => {
       store[`${colPath}/auto-${++autoId}`] = data;
     },
+    where: (field: string, operator: string, value: unknown) => ({
+      get: async () => {
+        if (operator !== '==') throw new Error(`unsupported fake query operator: ${operator}`);
+        const prefix = `${colPath}/`;
+        const depth = colPath.split('/').length + 1;
+        const ids = Object.keys(store).filter(
+          (key) => key.startsWith(prefix)
+            && key.split('/').length === depth
+            && store[key]?.[field] === value,
+        );
+        return {
+          empty: ids.length === 0,
+          size: ids.length,
+          docs: ids.map((key) => ({
+            id: key.split('/').pop(),
+            ref: makeDoc(key),
+            data: () => store[key],
+          })),
+        };
+      },
+    }),
     orderBy: () => ({
       limit: () => ({
         get: async () => ({ docs: [] }),
