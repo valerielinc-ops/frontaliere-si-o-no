@@ -6797,6 +6797,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assicurazione-grandine-2026.title': 'Assurance grêle : primes à risque en 2026',
     'blog.article.assicurazione-grandine-2026.excerpt': 'En 2026, Grandine Svizzera prévoit des pertes financières et des indemnisations pouvant atteindre 170 millions de francs, avec des récoltes de betteraves, de pommes de terre et de maïs en baisse jusqu\'à 30%.',
     'blog.article.assicurazione-grandine-2026.imageAlt': 'Champ agricole suisse touché par la grêle sous des nuages menaçants',
+    'blog.article.ubs-sede-elvetica-costi.title': 'Ubs : transfert du siège peu probable pour Keller-Sutter',
+    'blog.article.ubs-sede-elvetica-costi.excerpt': 'Selon Karin Keller‑Sutter, déplacer le siège d’Ubs à l’étranger serait beaucoup plus coûteux et juridiquement complexe ; le Conseil fédéral a déjà accordé des allègements concernant l’ordonnance sur les fonds propres.',
+    'blog.article.ubs-sede-elvetica-costi.imageAlt': 'Siège de l\'Ubs dans le district financier suisse',
 };
 
 export default blogMetaChFr;
