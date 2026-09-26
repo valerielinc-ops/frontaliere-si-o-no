@@ -298,6 +298,9 @@ const BROADEN_BELOW = 10;
 // above jobs that merely mention the city in their description). Large enough to
 // dominate token-hit score so city-relevant listings lead the broadened tail.
 const CITY_MATCH_BOOST = 1000;
+function makeSearchBroadenKey(locale: Locale, query: string): string {
+ return `${locale}\u001f${query}`;
+}
 
 // Memoized stemmed haystack for the broaden tiers (cross-canton / cross-locale).
 // Those tiers scan the locale-wide unscoped pool (thousands of jobs) and used to
@@ -2451,8 +2454,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // (< BROADEN_BELOW) we lazy-load the locale-wide pool so the cross-canton tier
  // can fill the page. Closes the gap left by `unscopedJobs` (populated only via
  // the legacy path) for the healthy-shard search case. Track attempts per
- // query: a new thin query must not inherit the terminal state of the query
- // that was visible when the previous request started.
+ // (locale, query): a new thin query or locale must not inherit the terminal
+ // state of the pair that was visible when the previous request started.
  const searchBroadenAttemptedQueries = useRef<Set<string>>(new Set());
  // The pool is query-independent. Share the in-flight request across rapid
  // query changes so the per-query correctness guard does not create duplicate
@@ -2462,8 +2465,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
    promise: Promise<JobListing[] | null>;
  } | null>(null);
  // A canton-scoped thin search must finish its same-locale pool attempt before
- // Tier 4 decides that the query is empty. This is the query whose attempt has
- // reached a terminal state, not a mount-wide boolean.
+ // Tier 4 decides that the query is empty. This is the (locale, query) pair
+ // whose attempt has reached a terminal state, not a mount-wide boolean.
  const [searchBroadenSettledQueries, setSearchBroadenSettledQueries] = useState<ReadonlySet<string>>(() => new Set());
  const [jobsLoading, setJobsLoading] = useState(true);
  // In-flight count of the lazy broaden / cross-locale fallback fetches. A thin
@@ -4765,7 +4768,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const cantonScopedSearch =
    !companySlugFilter
    && (initialFilterCanton || getDefaultCantonForVisit()) !== AGGREGATE_CANTON_CODE;
- if (cantonScopedSearch && unscopedJobs.length === 0 && !searchBroadenSettledQueries.has(q)) return;
+ const searchBroadenKey = makeSearchBroadenKey(locale, q);
+ if (cantonScopedSearch && unscopedJobs.length === 0 && !searchBroadenSettledQueries.has(searchBroadenKey)) return;
  crossLocaleFetchAttempted.current = true;
  setPendingFallbacks((n) => n + 1);
  let cancelled = false;
@@ -4891,10 +4895,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // strict + OR-fill tail (the fill excludes strict ids, so no double count).
  const inCantonCount = strictFilteredJobs.length + orFallbackInCantonJobs.length;
  if (inCantonCount >= BROADEN_BELOW) return; // enough in-canton results already
- const alreadyAttempted = searchBroadenAttemptedQueries.current.has(query);
- if (alreadyAttempted && searchBroadenSettledQueries.has(query)) return;
+ const queryKey = makeSearchBroadenKey(locale, query);
+ const alreadyAttempted = searchBroadenAttemptedQueries.current.has(queryKey);
+ if (alreadyAttempted && searchBroadenSettledQueries.has(queryKey)) return;
  if (!alreadyAttempted) {
-   searchBroadenAttemptedQueries.current.add(query);
+   searchBroadenAttemptedQueries.current.add(queryKey);
    setPendingFallbacks((n) => n + 1);
  }
  (async () => {
@@ -4904,8 +4909,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  searchBroadenPoolPromiseRef.current = { locale, promise };
  const pool = await promise;
  // The pool is query-independent. An observer from an earlier query must still
- // publish it
- // when this is the current locale request, otherwise A→B→A can leave the
+ // publish it when this is the current locale request, otherwise A→B→A can leave the
  // final A waiter with a terminal marker but no same-locale pool in state.
  const currentRequest = searchBroadenPoolPromiseRef.current;
  if (!pool || currentRequest?.locale !== locale || currentRequest.promise !== promise) return;
@@ -4914,12 +4918,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  reportCaughtError(err, 'jobBoard.loadJobs.searchBroaden');
  } finally {
  if (!alreadyAttempted) setPendingFallbacks((n) => n - 1);
- // Mark THIS query terminal even when the index is empty, failed, or the user
- // changed query while it was in flight. A later query has its own gate.
+ // Mark THIS (locale, query) pair terminal even when the index is empty, failed,
+ // or the user changed query while it was in flight. A later pair has its own gate.
  setSearchBroadenSettledQueries((previous) => {
-   if (previous.has(query)) return previous;
+   if (previous.has(queryKey)) return previous;
    const next = new Set(previous);
-   next.add(query);
+   next.add(queryKey);
    return next;
  });
  }
