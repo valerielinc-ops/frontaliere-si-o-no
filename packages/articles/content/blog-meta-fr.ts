@@ -12026,6 +12026,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bilaterali-tre-primo-test.title': 'Bilatérales III : lundi le test au Conseil des Etats',
     'blog.article.bilaterali-tre-primo-test.excerpt': 'Le paquet d\'accords Suisse-UE arrive dès lundi au Conseil des Etats : la source prévoit un débat fleuve, avec des étincelles dans la confrontation.',
     'blog.article.bilaterali-tre-primo-test.imageAlt': 'Bellinzone et les montagnes tessinoises sur les accords bilatéraux III',
+    'blog.article.incidente-lozza-gazzada-vedano.title': 'Accident entre Lozza et Gazzada : bouchons jusqu\'à Vedano',
+    'blog.article.incidente-lozza-gazzada-vedano.excerpt': 'Accident entre Lozza et Gazzada Schianno le 23 septembre : selon les premières informations, il n’y aurait pas de blessés. Embouteillages et circulation jusqu’au pont de Vedano.',
+    'blog.article.incidente-lozza-gazzada-vedano.imageAlt': 'Voitures en file sur une route provinciale près d\'un rond-point',
 };
 
 export default blogMetaFr;

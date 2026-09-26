@@ -36081,6 +36081,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'incidente-lozza-gazzada-vedano',
+ category: 'novita',
+ date: '2026-09-26T04:55:11.363Z',
+ image: '/images/blog/incidente-lozza-gazzada-vedano.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

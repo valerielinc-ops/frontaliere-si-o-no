@@ -12023,6 +12023,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bilaterali-tre-primo-test.title': 'Bilaterale III: Test am Montag im Ständerat',
     'blog.article.bilaterali-tre-primo-test.excerpt': 'Das Paket der Abkommen zwischen der Schweiz und der EU kommt seit Montag im Ständerat an: Die Quelle sieht eine Flussdebatte vor, mit Funken im Vergleich.',
     'blog.article.bilaterali-tre-primo-test.imageAlt': 'Bellinzona und die Tessiner Berge zum Thema Bilaterale III',
+    'blog.article.incidente-lozza-gazzada-vedano.title': 'Unfall zwischen Lozza und Gazzada: Stau bis Vedano',
+    'blog.article.incidente-lozza-gazzada-vedano.excerpt': 'Unfall zwischen Lozza und Gazzada Schianno am 23. September: Nach ersten Informationen soll es keine Verletzten geben. Staus und Verkehr bis zur Brücke von Vedano.',
+    'blog.article.incidente-lozza-gazzada-vedano.imageAlt': 'Autoschlange auf einer Provinzstrasse nahe einem Kreisverkehr',
 };
 
 export default blogMetaDe;

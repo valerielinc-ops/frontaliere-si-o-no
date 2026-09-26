@@ -12025,6 +12025,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bilaterali-tre-primo-test.title': 'Bilaterali III: lunedì il test al Consiglio degli Stati',
     'blog.article.bilaterali-tre-primo-test.excerpt': 'Il pacchetto di accordi Svizzera-Ue arriva da lunedì al Consiglio degli Stati: la fonte prevede un dibattito fiume, con scintille nel confronto.',
     'blog.article.bilaterali-tre-primo-test.imageAlt': 'Bellinzona e le montagne ticinesi in un\'immagine per i Bilaterali III',
+    'blog.article.incidente-lozza-gazzada-vedano.title': 'Incidente tra Lozza e Gazzada: code fino a Vedano',
+    'blog.article.incidente-lozza-gazzada-vedano.excerpt': 'Incidente tra Lozza e Gazzada Schianno il 23 settembre: secondo le prime informazioni non ci sarebbero feriti. Code e traffico fino al ponte di Vedano.',
+    'blog.article.incidente-lozza-gazzada-vedano.imageAlt': 'Auto in coda su una strada provinciale vicino a una rotonda',
 };
 
 export default blogMetaIt;
