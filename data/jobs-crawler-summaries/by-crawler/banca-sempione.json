@@ -1,18 +1,19 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-09-24T14:25:14.833Z",
+  "generatedAt": "2026-09-26T14:05:22.129Z",
   "total": 7,
-  "newCount": 1,
-  "updatedCount": 6,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4605,
-  "avgDurationMs": 4605,
+  "durationMs": 4127,
+  "avgDurationMs": 4127,
   "durationHistory": [
-    4605
+    4127
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Stage Amministrazione Crediti – Banca del Sempione (Lugano)",
       "company": "Banca del Sempione",
@@ -27,17 +28,18 @@
       "source": "company-website",
       "slug": "banca-del-sempione-junior-amministrazione-crediti-banca-del-sempione-lugano",
       "sourceLang": "it",
+      "id": "banca-sempione-4e013f27b2b5",
+      "firstSeenAt": "2026-09-24T14:25:08.686Z",
       "crawledAt": "",
-      "_qualityScore": 52,
+      "applyUrl": "https://www.bancasempione.ch/job/junior-amministrazione-crediti-banca-del-sempione-lugano/",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 2,
+        "translation": 25,
         "completeness": 11
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Junior Legal – Banca del Sempione (Lugano)",
       "company": "Banca del Sempione",
@@ -55,6 +57,7 @@
       "id": "banca-sempione-00a6adcf50af",
       "firstSeenAt": "2026-09-19T23:02:49.693Z",
       "crawledAt": "",
+      "applyUrl": "https://www.bancasempione.ch/job/junior-legal-banca-del-sempione-lugano/",
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -80,6 +83,7 @@
       "id": "banca-sempione-f1f2cedfa71f",
       "firstSeenAt": "2026-08-21T22:03:26.436Z",
       "crawledAt": "",
+      "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-assistente-alla-consulenza-lugano/",
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -103,8 +107,9 @@
       "slug": "banca-del-sempione-responsabile-compliance-e-am-banca-del-sempione-milano-branch",
       "sourceLang": "it",
       "id": "banca-sempione-f74739997e11",
-      "firstSeenAt": "2026-07-06T22:38:18.264Z",
+      "firstSeenAt": "2026-06-12T11:43:52.286Z",
       "crawledAt": "",
+      "applyUrl": "https://www.bancasempione.ch/job/responsabile-compliance-e-am-banca-del-sempione-milano-branch/",
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -128,13 +133,15 @@
       "slug": "banca-del-sempione-global-wealth-management-private-banker-zurich-2",
       "sourceLang": "it",
       "id": "banca-sempione-f9feccc2fb3b",
-      "firstSeenAt": "2026-07-06T22:38:18.264Z",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-05-11T21:32:17.504Z",
       "crawledAt": "",
-      "_qualityScore": 75,
+      "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-private-banker-zurich-2/",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 25,
+        "translation": 23,
         "completeness": 11
       }
     },
@@ -153,8 +160,9 @@
       "slug": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
       "sourceLang": "it",
       "id": "banca-sempione-a117dec221e9",
-      "firstSeenAt": "2026-07-06T22:38:18.264Z",
+      "firstSeenAt": "2026-04-13T21:11:04.811Z",
       "crawledAt": "",
+      "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-consulente-alla-clientela-private-banker/",
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -178,8 +186,9 @@
       "slug": "global-wealth-management-assistente-private-banking-zurigo-banca-del-sempione-zurich",
       "sourceLang": "en",
       "id": "banca-sempione-f45acac33926",
-      "firstSeenAt": "2026-07-06T22:38:18.264Z",
+      "firstSeenAt": "2026-05-11T21:32:17.504Z",
       "crawledAt": "",
+      "applyUrl": "https://www.bancasempione.ch/job/private-banking-assistant/",
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
