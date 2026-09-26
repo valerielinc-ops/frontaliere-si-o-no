@@ -2,12 +2,9 @@
 /**
  * BLS AG job parser — Fetcher and job builder.
  *
- * Listing source: https://www.bls.ch/api/JobPortal/JobsInit (JSON — see
- *   JOBS_API_URL below). The corporate page itself
- *   (https://www.bls.ch/en/unternehmen/jobs-und-karriere/offene-stellen)
- *   migrated to a JS-hydrated widget that reads this endpoint client-side;
- *   parseListingPage() (HTML anchor scrape) is kept as a fallback only
- *   (2026-07, #4523).
+ * Listing source: the JobsSearch endpoint advertised by the corporate page's
+ * JavaScript-hydrated widget. parseListingPage() remains as a fallback for
+ * cached or older HTML that still contains job anchors.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllBlsJobs()  — Fetch and parse all jobs
@@ -119,14 +116,22 @@ function detectEmploymentType(text = '') {
 
 const LISTING_URL = 'https://www.bls.ch/en/unternehmen/jobs-und-karriere/offene-stellen';
 const JOBS_BASE = 'https://jobs.bls.ch';
-// The corporate listing page migrated from server-rendered `<a href>` anchors
-// to a JS-hydrated widget (`data-init="jobs"`) that reads this JSON endpoint
-// client-side — the initial HTML no longer contains any job links, so
-// parseListingPage() below matched 0 entries (2026-07, #4523). This endpoint
-// is what the widget itself calls and returns the full job list as JSON.
-const JOBS_API_URL = 'https://www.bls.ch/api/JobPortal/JobsInit?sc_lang=en';
+// The listing widget publishes its current POST endpoint in the page markup.
 const API_RESPONSE_KEYS = ['', 'data', 'Data', 'result', 'Result', 'd', 'payload'];
 const API_JOB_ARRAY_KEYS = ['Jobs', 'jobs', 'JobListings', 'jobListings', 'Items', 'items'];
+
+function extractJobsSearchUrl(html = '') {
+  const match = String(html).match(/\bdata-api-url-jobs-search\s*=\s*["']([^"']+)["']/i);
+  if (!match) return '';
+
+  try {
+    const url = new URL(match[1].replace(/&amp;/gi, '&'), LISTING_URL);
+    if (url.origin !== new URL(LISTING_URL).origin) return '';
+    return url.href;
+  } catch {
+    return '';
+  }
+}
 
 function extractApiJobRecords(json) {
   for (const responseKey of API_RESPONSE_KEYS) {
@@ -250,8 +255,8 @@ export function parseListingPage(html = '') {
 }
 
 /**
- * Parse the `/api/JobPortal/JobsInit` JSON response (see JOBS_API_URL above)
- * into the same entry shape as parseListingPage(): { url, slug, uuid, title,
+ * Parse the JobsSearch JSON response into the same entry shape as
+ * parseListingPage(): { url, slug, uuid, title,
  * locationRaw, pensum }. The endpoint has returned `Jobs[]` and equivalent
  * lower-case/nested variants over time; each item's `Lead` field packs
  * "<location>, <pensum>%" (e.g. "Frutigen, 80-100%").
@@ -380,7 +385,7 @@ function detectBlsEmploymentType(jsonLdType = '', pensum = '') {
 /**
  * Fetch all BLS AG jobs in Switzerland.
  * Strategy:
- *   1. Fetch the BLS listing page (inline HTML with job links)
+ *   1. Fetch the BLS listing page and its advertised JobsSearch endpoint
  *   2. Filter for Swiss locations
  *   3. Fetch each detail page at jobs.bls.ch for JSON-LD data
  *   4. Build ParsedJob objects
@@ -391,17 +396,30 @@ function detectBlsEmploymentType(jsonLdType = '', pensum = '') {
  * by the AI localization step and translate-pending pipeline.
  */
 export async function fetchAllBlsJobs() {
-  console.log(`🔍 Fetching BLS AG jobs`);
-  console.log(`   Jobs API: ${JOBS_API_URL}`);
-  console.log(`   Detail:   ${JOBS_BASE}/offene-stellen/{slug}/{uuid}`);
-  console.log(`   Strategy: JobsInit API → filter Switzerland → detail JSON-LD\n`);
+  console.log('🔍 Fetching BLS AG jobs');
+  console.log('   Listing:  ' + LISTING_URL);
+  console.log('   Detail:   ' + JOBS_BASE + '/offene-stellen/{slug}/{uuid}');
+  console.log('   Strategy: listing widget JobsSearch POST → filter Switzerland → detail JSON-LD');
 
+  const listingHtml = await fetchHtml(LISTING_URL);
+  const jobsSearchUrl = extractJobsSearchUrl(listingHtml);
   let allEntries = [];
-  try {
-    const apiJson = await fetchJson(JOBS_API_URL);
-    allEntries = parseJobsApiResponse(apiJson);
-  } catch (err) {
-    console.warn(`  ⚠️ JobsInit API fetch failed: ${err?.message || err}`);
+  if (jobsSearchUrl) {
+    try {
+      const apiJson = await fetchJson(jobsSearchUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Referer: LISTING_URL,
+        },
+        body: '',
+      });
+      allEntries = parseJobsApiResponse(apiJson);
+    } catch (err) {
+      console.warn('  ⚠️ JobsSearch API fetch failed: ' + (err?.message || err));
+    }
+  } else {
+    console.warn('  ⚠️ Listing page did not advertise a same-origin JobsSearch endpoint.');
   }
 
   if (allEntries.length === 0) {
@@ -409,7 +427,6 @@ export async function fetchAllBlsJobs() {
     // the anchors (pre-migration cache, CDN edge case) — try that too before
     // giving up.
     console.warn('  ⚠️ Falling back to listing-page HTML scrape');
-    const listingHtml = await fetchHtml(LISTING_URL);
     allEntries = parseListingPage(listingHtml);
   }
   console.log(`  📋 Total jobs found: ${allEntries.length}`);
