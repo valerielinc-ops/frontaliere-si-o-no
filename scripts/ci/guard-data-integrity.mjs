@@ -30,10 +30,16 @@ import {
   accumulatorShrinkPct,
   isCatastrophicAccumulatorShrink,
 } from '../lib/accumulator-byte-floor-guard.mjs';
+import {
+  isJobStatsHistoryDailyShardPath,
+  isSafeJobStatsHistoryShardRewrite,
+} from '../lib/job-stats-history-store.mjs';
 
 // Path-glob dei file-dati protetti. I file che cambiano size legittimamente
 // (snapshot rigenerati, cache volatili) restano coperti: la soglia size+pct li
-// salva dai falsi positivi; un crollo >70% di un file >1MB non è mai "normale".
+// salva dai falsi positivi. L'unica eccezione semantica è la migrazione di uno
+// shard storico job-stats: viene ammessa solo dopo la stessa prova di
+// contatori/payload usata dal writer.
 const DATA_PREFIXES = ['data/', 'public/data/'];
 
 function git(args) {
@@ -52,6 +58,29 @@ function sizeAt(ref, file) {
   } catch {
     return null; // path assente a quel ref (file nuovo / cancellato)
   }
+}
+
+function blobAt(ref, file) {
+  try {
+    return execFileSync('git', ['cat-file', 'blob', `${ref}:${file}`], {
+      encoding: 'utf8',
+      maxBuffer: 256 * 1024 * 1024,
+    });
+  } catch {
+    return null;
+  }
+}
+
+function isSafeJobStatsHistoryRewriteAtRefs(beforeSha, afterSha, file, currentDate) {
+  if (!isJobStatsHistoryDailyShardPath(file)) return false;
+  const shardName = String(file).replace(/\\/g, '/').split('/').at(-1) || '';
+  const shardDate = shardName.slice(0, -'.json'.length);
+  if (shardDate >= currentDate) return false;
+  const previousRaw = blobAt(beforeSha, file);
+  const nextRaw = blobAt(afterSha, file);
+  return previousRaw !== null
+    && nextRaw !== null
+    && isSafeJobStatsHistoryShardRewrite(previousRaw, nextRaw);
 }
 
 export function main() {
@@ -94,6 +123,7 @@ export function main() {
     return;
   }
 
+  const currentDate = new Date().toISOString().slice(0, 10);
   const violations = [];
   for (const file of changed) {
     const prevBytes = sizeAt(beforeSha, file);
@@ -103,6 +133,10 @@ export function main() {
       floorBytes: ACCUMULATOR_SANITY_FLOOR_BYTES,
       maxShrinkPct: ACCUMULATOR_MAX_SHRINK_PCT,
     })) {
+      // The writer intentionally compacts/re-keys historical title descriptors
+      // only after proving that all counters and action-bearing payload survive.
+      // Keep the generic byte guard fail-closed for every other data path.
+      if (isSafeJobStatsHistoryRewriteAtRefs(beforeSha, afterSha, file, currentDate)) continue;
       const shrinkPct = accumulatorShrinkPct(prevBytes, newBytes);
       violations.push({
         file,
