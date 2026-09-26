@@ -391,7 +391,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:10:09.898Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -572,8 +571,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-b3b57204b5ab",
@@ -1119,8 +1117,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-41b6ed4e3495",
@@ -1197,8 +1194,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-3c2d5897965a",
@@ -1943,8 +1939,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-a55bc3513d55",
@@ -2019,8 +2014,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-10f3340c15de",
@@ -2429,8 +2423,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-870c0ee46fa5",
@@ -2726,17 +2719,27 @@
       "unit": "Sonderpädagogik",
       "referenceNumber": "49739",
       "previousSlugs": [
-        "sozialpadagog-in-stadt-zuerich-zurigo-49739"
+        "sozialpadagog-in-stadt-zuerich-zurigo-49739",
+        "sozialpadagog-in-stadt-zuerich-zurigo-51327",
+        "istruzione-sociale-stadt-zurich-zurich-f6ja8i",
+        "sozialpadagog-in-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagog-in-stadt-zuerich-zurigo-49739"
+          "sozialpadagog-in-stadt-zuerich-zurigo-49739",
+          "sozialpadagog-in-stadt-zuerich-zurigo-51327",
+          "istruzione-sociale-stadt-zurich-zurich-f6ja8i",
+          "sozialpadagog-in-stadt-zurich"
         ],
         "en": [
-          "sozialpadagog-in-stadt-zuerich-zurigo-49739"
+          "sozialpadagog-in-stadt-zuerich-zurigo-49739",
+          "sozialpadagog-in-stadt-zurich"
         ],
         "fr": [
           "sozialpadagog-in-stadt-zuerich-zurigo-49739"
+        ],
+        "de": [
+          "sozialpadagog-in-stadt-zuerich-zurigo-51327"
         ]
       },
       "firstSeenAt": "2026-09-19T23:10:09.896Z",
@@ -3085,8 +3088,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-971a700812b8",
@@ -3794,8 +3796,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-682f929dfdaf",
@@ -3803,8 +3804,8 @@
       "slugByLocale": {
         "de": "kindheitspadagog-in-hf-stadt-zuerich-zurigo-50694",
         "it": "insegnante-di-infanzia-in-hf-stadt-zurich-zurich",
-        "en": "kindheitspadagog-in-hf-stadt-zurich",
-        "fr": "kindheitspadagog-in-hf-stadt-zurich"
+        "en": "kindheitspadagog-in-hf-stadt-zurich-et7nyg",
+        "fr": "kindheitspadagog-in-hf-stadt-zurich-et7nyg"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -3856,16 +3857,19 @@
           "kindheitspadagog-in-hf-stadt-zuerich-zurigo-50694"
         ],
         "en": [
-          "childhood-teacher-in-hf-stadt-zurich-zurich"
+          "childhood-teacher-in-hf-stadt-zurich-zurich",
+          "kindheitspadagog-in-hf-stadt-zurich"
         ],
         "fr": [
-          "professeur-d-enfance-en-hf-stadt-zurich-zurich"
+          "professeur-d-enfance-en-hf-stadt-zurich-zurich",
+          "kindheitspadagog-in-hf-stadt-zurich"
         ]
       },
       "previousSlugs": [
         "kindheitspadagog-in-hf-stadt-zuerich-zurigo-50694",
         "childhood-teacher-in-hf-stadt-zurich-zurich",
-        "professeur-d-enfance-en-hf-stadt-zurich-zurich"
+        "professeur-d-enfance-en-hf-stadt-zurich-zurich",
+        "kindheitspadagog-in-hf-stadt-zurich"
       ],
       "needsRetranslation": true,
       "salaryMin": 73500,
@@ -5570,8 +5574,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-ed4eadfba327",
@@ -6068,8 +6071,7 @@
           "maxValue": 104900,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-c346622e3ec0",
@@ -6234,8 +6236,7 @@
           "maxValue": 151500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-772257c7028d",
@@ -7916,8 +7917,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-88f3df40f97b",
@@ -9030,11 +9030,22 @@
       "referenceNumber": "51056",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056"
+          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056",
+          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zurich-zurich",
+          "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-un5tny",
+          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043",
+          "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-coayc5"
+        ],
+        "de": [
+          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056"
+        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056",
+        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zurich-zurich",
+        "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-un5tny",
+        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043",
+        "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-coayc5"
       ],
       "needsRetranslation": true,
       "salaryMin": 53500,
@@ -9633,8 +9644,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-65648e3a4c3a",
@@ -9801,8 +9811,7 @@
           "maxValue": 81600,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-3d0a5b39b546",
@@ -10452,8 +10461,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-8b2e0d4cce88",
@@ -10528,8 +10536,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-eeccc142ea6f",
@@ -10689,8 +10696,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T15:03:48.456Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-09-25T15:03:48.456Z"
     },
     {
       "id": "stadt-zuerich-84e9bd0010eb",
@@ -11086,7 +11092,6 @@
         ]
       },
       "firstSeenAt": "2026-09-24T14:43:19.009Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -12245,8 +12250,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-bb8490356341",
@@ -12321,8 +12325,7 @@
           "maxValue": 175500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-99fe35525769",
@@ -12953,8 +12956,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-25T15:03:48.456Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-09-25T15:03:48.456Z"
     },
     {
       "id": "stadt-zuerich-ccf082fb37e2",
@@ -13671,8 +13673,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-caf4c91d43cb",
@@ -13747,8 +13748,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-8a7df42aa5e7",
@@ -13823,8 +13823,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-429516abeb15",
@@ -13899,8 +13898,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-b034f4847ff7",
@@ -16475,8 +16473,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-cd3e6b6ea98f",
@@ -16551,8 +16548,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-eccfd9fbe90f",
@@ -16705,8 +16701,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-690738f6cef5",
@@ -16952,8 +16947,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-b61f3a4b0797",
@@ -17030,8 +17024,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-40ce212b98e1",
@@ -17265,8 +17258,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-424168fc48ff",
@@ -17567,8 +17559,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-ebe0e147c966",
@@ -17759,8 +17750,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-e9caaedba0e4",
@@ -17957,8 +17947,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-ca936cc9eb21",
@@ -18404,8 +18393,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-59d0772b4095",
@@ -18850,8 +18838,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-f9dfadf84b61",
@@ -18933,8 +18920,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-7aadf973320c",
@@ -19033,8 +19019,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-e25b917ad8e9",
@@ -19132,8 +19117,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-acb5576b08d6",
@@ -19301,8 +19285,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-c02c071a2b43",
@@ -19384,8 +19367,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-f327bfbed31b",
@@ -19468,8 +19450,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-1fbe6444fa3a",
@@ -19552,8 +19533,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-9a1dfe7215b0",
@@ -20388,8 +20368,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-738bca364331",
@@ -20509,8 +20488,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-672f8640b677",
@@ -20683,8 +20661,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-d689fa857744",
@@ -20878,8 +20855,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-c52bada36802",
@@ -21084,8 +21060,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-9242878c4c8b",
@@ -21169,8 +21144,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-c25ac9f42369",
@@ -21491,8 +21465,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-920d4577dce5",
@@ -21837,8 +21810,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-299207b9eef3",
@@ -22154,8 +22126,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-e7f5ebc7c209",
@@ -22661,8 +22632,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-284f79674e71",
@@ -22831,8 +22801,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-155ce518031f",
@@ -23848,8 +23817,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-17f11823b5b1",
@@ -24156,8 +24124,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-dafd9f8cfc60",
@@ -24233,8 +24200,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-42830ec294f7",
@@ -24310,8 +24276,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-506f3b51469d",
@@ -24571,8 +24536,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-244a04506aa1",
@@ -24648,8 +24612,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-9a3b848017e2",
@@ -24934,8 +24897,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-499ffd8cab29",
@@ -25335,8 +25297,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-60d96fcc8242",
@@ -25720,8 +25681,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-82f9f169f016",
@@ -26897,8 +26857,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-a947fdb4e9c2",
@@ -27548,8 +27507,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-77654ad55727",
@@ -27971,8 +27929,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-9de2b345709c",
@@ -28315,8 +28272,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-796465311cea",
@@ -28845,8 +28801,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-4c2861306edf",
@@ -29356,8 +29311,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-aa968d5fd5c3",
@@ -29940,8 +29894,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-7af3996a5b3e",
@@ -30297,8 +30250,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-7d7cbf07ec3e",
@@ -30378,8 +30330,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-1e8f77f7dbee",
@@ -30457,8 +30408,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-1d0f5a03960f",
@@ -30538,8 +30488,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-8a507d0c470f",
@@ -30698,8 +30647,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-c96311261391",
@@ -31536,8 +31484,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-d0cc6b3cf010",
@@ -31882,8 +31829,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-3fae445fcaf2",
@@ -31968,8 +31914,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-61cdf15e7c50",
@@ -32457,8 +32402,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-c768466d5d0c",
@@ -32692,8 +32636,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-1d08f1409d65",
@@ -32855,8 +32798,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-d7ef9b432c1b",
@@ -32934,8 +32876,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-2d1987e291ba",
@@ -34044,8 +33985,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-5233d430dc9a",
@@ -34212,8 +34152,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-2a6d77410995",
@@ -34380,8 +34319,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-da7628e37d72",
@@ -35969,8 +35907,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-694154bc3ea3",
@@ -36052,8 +35989,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-0520b53e9f36",
@@ -36367,8 +36303,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "stadt-zuerich-50335e171c57",
@@ -36843,8 +36778,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stadt-zuerich-d777a0107b35",

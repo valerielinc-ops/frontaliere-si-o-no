@@ -622,7 +622,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:06:25.916Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -702,7 +701,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:06:25.295Z",
-      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "salarySource": "estimated",
@@ -1554,8 +1552,7 @@
         }
       },
       "sourceIdentity": "url:https://otb.apps.vs.ch/svc/api/joboffersdocument/20495?language=fr",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "canton-valais-6cc4b6cb23ed",
@@ -1717,8 +1714,7 @@
         }
       },
       "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=113843&publication=2637",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "canton-valais-dfa3f0179697",

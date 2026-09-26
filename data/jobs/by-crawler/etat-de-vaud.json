@@ -179,7 +179,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -417,7 +416,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.866Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -498,7 +496,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.866Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -579,7 +576,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.866Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1005,7 +1001,7 @@
         "it": "ufficiale-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "en": "legal-officer-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "de": "juriste-etat-de-vaud-lausanne-j6x9me",
-        "fr": "juriste-etat-de-vaud-lausanne"
+        "fr": "juriste-etat-de-vaud-lausanne-j6x9me"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -1066,7 +1062,8 @@
           "juriste-etat-de-vaud-lausanne"
         ],
         "fr": [
-          "juriste-etat-de-vaud-lausanne-j6x9me"
+          "juriste-etat-de-vaud-lausanne-j6x9me",
+          "juriste-etat-de-vaud-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-05T11:22:25.780Z",
@@ -1312,7 +1309,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.041Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1390,7 +1386,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.041Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1711,7 +1706,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.041Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -2437,7 +2431,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -2976,7 +2969,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -3059,7 +3051,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -3142,7 +3133,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -3379,8 +3369,7 @@
         }
       },
       "sourceIdentity": "url:https://offres-emploi.vd.ch/",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "etat-de-vaud-5723",
@@ -3540,8 +3529,7 @@
         }
       },
       "sourceIdentity": "url:https://offres-emploi.vd.ch/",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "etat-de-vaud-5876",

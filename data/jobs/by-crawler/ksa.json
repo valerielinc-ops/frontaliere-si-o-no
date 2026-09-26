@@ -375,7 +375,7 @@
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -425,10 +425,14 @@
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       ],
       "needsRetranslation": true,
       "salaryMin": 88000,
@@ -453,7 +457,7 @@
         "de": "med-praxisassistent-in-kinderwunsch-sprechstunde-ksa-ch",
         "it": "med-assistente-pratico-in-consulenza-per-l-infanzia-kantonsspital-aarau-ksa-aarau",
         "en": "med-practical-assistant-in-child-wishing-consultation-kantonsspital-aarau-ksa-aarau",
-        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztmlg"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -505,12 +509,14 @@
           "med-praxisassistent-in-ksa-ch"
         ],
         "fr": [
-          "medicament-assistante-pratique-consultation-pour-les-enfants-kantonsspital-aarau-ksa-aarau"
+          "medicament-assistante-pratique-consultation-pour-les-enfants-kantonsspital-aarau-ksa-aarau",
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "previousSlugs": [
         "med-praxisassistent-in-ksa-ch",
-        "medicament-assistante-pratique-consultation-pour-les-enfants-kantonsspital-aarau-ksa-aarau"
+        "medicament-assistante-pratique-consultation-pour-les-enfants-kantonsspital-aarau-ksa-aarau",
+        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
       ],
       "needsRetranslation": true,
       "salaryMin": 88000,
@@ -533,7 +539,7 @@
       "slug": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "med-praxisassistent-in-ksa-ch",
-        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
+        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty",
         "it": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau",
         "en": "med-practical-assistant-kantonsspital-aarau-ksa-aarau"
       },
@@ -582,10 +588,14 @@
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistent-in-ksa-ch"
+        ],
+        "fr": [
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "previousSlugs": [
-        "med-praxisassistent-in-ksa-ch"
+        "med-praxisassistent-in-ksa-ch",
+        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
       ],
       "needsRetranslation": true,
       "salaryMin": 88000,
@@ -944,8 +954,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-e64a36808add",
@@ -1531,8 +1540,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-61d690690298",
@@ -1707,7 +1715,7 @@
       "slugByLocale": {
         "it": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau-ca1a26",
         "en": "med-practical-assistant-kantonsspital-aarau-ksa-aarau-ca1a26",
-        "de": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
+        "de": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztly5",
         "fr": "med-assistant-pratique-kantonsspital-aarau-ksa-aarau-ca1a26"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -1753,7 +1761,8 @@
       "previousSlugsByLocale": {
         "de": [
           "med-praxisassistent-in-ksa-ch",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztly5"
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztly5",
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ],
         "it": [
           "med-praxisassistent-in-ksa-ch",
@@ -1784,8 +1793,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-b17df214a77f",
@@ -2046,7 +2054,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:54:11.993Z",
-      "needsRetranslation": true,
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
@@ -3388,8 +3395,8 @@
       "slugByLocale": {
         "de": "med-praxisassistent-in-ksa-ch",
         "it": "assistente-alla-pratica-medica-kantonsspital-aarau-ksa-aarau",
-        "en": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
-        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        "en": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlsy",
+        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlsy"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3438,16 +3445,19 @@
           "med-praxisassistent-in-ksa-ch"
         ],
         "en": [
-          "medical-practice-assistant-kantonsspital-aarau-ksa-aarau"
+          "medical-practice-assistant-kantonsspital-aarau-ksa-aarau",
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "assistant-en-pratique-medicale-kantonsspital-aarau-ksa-aarau"
+          "assistant-en-pratique-medicale-kantonsspital-aarau-ksa-aarau",
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "previousSlugs": [
         "med-praxisassistent-in-ksa-ch",
         "medical-practice-assistant-kantonsspital-aarau-ksa-aarau",
-        "assistant-en-pratique-medicale-kantonsspital-aarau-ksa-aarau"
+        "assistant-en-pratique-medicale-kantonsspital-aarau-ksa-aarau",
+        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
       ],
       "needsRetranslation": true,
       "salaryMin": 88000,
@@ -3789,8 +3799,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-484d7d3e014c",
@@ -4753,8 +4762,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-455217732b9e",
@@ -4908,8 +4916,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-0b6c3dd0024c",
@@ -6542,8 +6549,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-8c5006bcec5f",

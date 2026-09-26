@@ -95,8 +95,7 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "gz-dielsdorf-4e58a1a56018",
@@ -176,8 +175,7 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "gz-dielsdorf-a8aa31ab3419",
@@ -257,8 +255,7 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "gz-dielsdorf-d510e8c5305b",
@@ -338,8 +335,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "gz-dielsdorf-14ce8bb850dd",
@@ -600,7 +596,7 @@
       "slugByLocale": {
         "it": "dipl-professionista-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
         "en": "dipl-care-professional-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
-        "de": "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
+        "de": "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf-b76p58",
         "fr": "dipl-soins-professionnels-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
@@ -652,6 +648,9 @@
         "it": [
           "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
           "dipl-pflegefachperson-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf"
+        ],
+        "de": [
+          "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf"
         ]
       },
       "firstSeenAt": "2026-08-26T10:13:16.563Z",
@@ -673,7 +672,7 @@
       "id": "gz-dielsdorf-8a6581967ffa",
       "slug": "professionista-della-salute-efz-gesundheitszentrum-dielsdorf-regensdorf",
       "slugByLocale": {
-        "de": "fachperson-gesundheit-efz-gz-dielsdorf-regensdorf",
+        "de": "fachperson-gesundheit-efz-gz-dielsdorf-regensdorf-ap6my0",
         "it": "professionista-della-salute-efz-gesundheitszentrum-dielsdorf-regensdorf",
         "en": "health-professional-efz-gesundheitszentrum-dielsdorf-regensdorf",
         "fr": "professionnels-de-la-sante-efz-gesundheitszentrum-dielsdorf-regensdorf"
@@ -723,6 +722,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-gesundheit-efz-gz-dielsdorf-regensdorf"
+        ],
+        "de": [
           "fachperson-gesundheit-efz-gz-dielsdorf-regensdorf"
         ]
       },
@@ -825,8 +827,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "gz-dielsdorf-e1db42728d12",
@@ -1087,7 +1088,7 @@
       "slugByLocale": {
         "it": "salute-professionale-efz-spitex-gesundheitszentrum-dielsdorf-regensdorf-40455b",
         "en": "health-professional-efz-spitex-gesundheitszentrum-dielsdorf-regensdorf-40455b",
-        "de": "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf",
+        "de": "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf-yyorzn",
         "fr": "professionnels-de-la-sante-efz-spitex-gesundheitszentrum-dielsdorf-regensdorf-40455b"
       },
       "company": "Gesundheitszentrum Dielsdorf",
@@ -1142,6 +1143,9 @@
         ],
         "fr": [
           "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf"
+        ],
+        "de": [
+          "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf"
         ]
       },
       "firstSeenAt": "2026-09-18T14:20:10.585Z",
@@ -1157,8 +1161,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "gz-dielsdorf-2ae3e085d18f",
@@ -1236,8 +1239,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "gz-dielsdorf-4b685baadaef",
@@ -1317,8 +1319,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "gz-dielsdorf-d040264e32e6",
@@ -1692,8 +1693,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

@@ -312,8 +312,7 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-14f167caa17b",
@@ -571,8 +570,7 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-b24044f1e140",
@@ -762,8 +760,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-ab995e1a1426",
@@ -1128,15 +1125,14 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-5986878715da",
       "slug": "medico-associato-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "medico-associato-kantonsspital-winterthur-ksw-winterthur",
-        "en": "physician-associate-kantonsspital-winterthur-ksw-winterthur",
+        "en": "physician-associate-kantonsspital-winterthur-ksw-winterthur-b4roy5",
         "de": "physician-associate-ksw-ch",
         "fr": "medecin-associe-kantonsspital-winterthur-ksw-winterthur"
       },
@@ -1201,7 +1197,8 @@
         ],
         "en": [
           "medical-coder-medical-coder-kantonsspital-winterthur-ksw-winterthur",
-          "physician-associate-kantonsspital-winterthur-ksw-winterthur-b4roy5"
+          "physician-associate-kantonsspital-winterthur-ksw-winterthur-b4roy5",
+          "physician-associate-kantonsspital-winterthur-ksw-winterthur"
         ],
         "de": [
           "medizinische-kodiererin-medizinischer-kodierer-ksw-ch"
@@ -1477,8 +1474,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-b2d121d0c956",
@@ -1910,8 +1906,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-67d0a4e982b5",
@@ -2090,8 +2085,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-0f2d1493a5c6",
@@ -2177,8 +2171,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-734b1c46e588",
@@ -2264,8 +2257,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-675230c4266f",
@@ -2343,8 +2335,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-75902fcce428",
@@ -2585,8 +2576,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-986457572f92",
@@ -2988,8 +2978,7 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-fa0fc8e5280d",
@@ -3344,8 +3333,7 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-2dfd45ab55e8",
@@ -3958,8 +3946,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-22fa6081987c",
@@ -4342,7 +4329,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-27T00:33:05.561Z"
+      "firstSeenAt": "2026-08-27T00:33:05.561Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "expert-expert-emergency-care-nds-hf-kantonsspital-winterthur-ksw-winterthur",
+          "expert-expert-soins-d-urgence-nds-hf-kantonsspital-winterthur-ksw-winterthur",
+          "esperto-a-in-formazione-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur",
+          "professional-training-expert-expert-emergency-care-nds-hf-kantonsspital-winterthur-ksw-winterthur",
+          "weiterbildung-expertin-experte-notfallpflege-nds-hf-ksw-ch",
+          "specialiste-en-formation-d-urgence-nds-hf-kantonsspital-winterthur-ksw-winterthur",
+          "esperto-in-cure-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "fr": [
+          "expert-expert-soins-d-urgence-nds-hf-kantonsspital-winterthur-ksw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "expert-expert-emergency-care-nds-hf-kantonsspital-winterthur-ksw-winterthur",
+        "expert-expert-soins-d-urgence-nds-hf-kantonsspital-winterthur-ksw-winterthur",
+        "esperto-a-in-formazione-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur",
+        "professional-training-expert-expert-emergency-care-nds-hf-kantonsspital-winterthur-ksw-winterthur",
+        "weiterbildung-expertin-experte-notfallpflege-nds-hf-ksw-ch",
+        "specialiste-en-formation-d-urgence-nds-hf-kantonsspital-winterthur-ksw-winterthur",
+        "esperto-in-cure-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur"
+      ]
     },
     {
       "id": "ksw-ccc6e1d74dec",
@@ -4586,8 +4596,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-2804d52fb092",
@@ -4823,8 +4832,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-d755fe6c842b",

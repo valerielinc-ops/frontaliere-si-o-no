@@ -74,7 +74,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T23:26:15.153Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -615,7 +614,7 @@
       "slugByLocale": {
         "it": "gestione-del-caso-amministrativo-etat-de-fribourg-fribourg",
         "en": "administrative-case-handler-etat-de-fribourg-fribourg",
-        "de": "verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
+        "de": "verwaltungssachbearbeiter-in-etat-de-fribourg-ch-h4hx4q",
         "fr": "gestionnaire-de-dossiers-administratifs-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
@@ -673,6 +672,9 @@
           "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
         ],
         "fr": [
+          "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+        ],
+        "de": [
           "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
         ]
       },
@@ -1285,7 +1287,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T23:25:57.109Z",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -1725,7 +1726,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:21:54.730Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -1810,7 +1810,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:21:54.082Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -1981,7 +1980,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:21:47.633Z",
-      "needsRetranslation": true,
       "salaryMin": 29500,
       "salaryMax": 54300,
       "salarySource": "estimated",
@@ -2331,8 +2329,7 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR",
-      "needsRetranslation": true
+      "addressRegion": "FR"
     },
     {
       "id": "etat-de-fribourg-2bf26840e738",
@@ -2402,7 +2399,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:21:50.253Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2676,7 +2672,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:21:46.330Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -3368,8 +3363,7 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR",
-      "needsRetranslation": true
+      "addressRegion": "FR"
     },
     {
       "id": "etat-de-fribourg-ae4d9b23dc44",
@@ -4107,7 +4101,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:06:10.813Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -4763,7 +4756,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:06:07.632Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -5636,7 +5628,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:26:36.386Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -5736,7 +5727,6 @@
         "laboratorio-posizione-tecnica-in-farmacologia-etat-de-fribourg-fribourg"
       ],
       "firstSeenAt": "2026-07-04T10:41:33.426Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -6198,7 +6188,7 @@
       "id": "etat-de-fribourg-89cf35da00e5",
       "slug": "employe-e-d-administration-etat-de-fribourg-ch-2",
       "slugByLocale": {
-        "fr": "employe-e-d-administration-etat-de-fribourg-ch",
+        "fr": "employe-e-d-administration-etat-de-fribourg-ch-zhwlp1",
         "it": "employe-e-d-administration-etat-de-fribourg-ch-2",
         "en": "employe-e-d-administration-etat-de-fribourg-ch-2",
         "de": "employe-e-d-administration-etat-de-fribourg-ch-2"
@@ -6262,7 +6252,15 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-07-23T22:26:37.065Z"
+      "firstSeenAt": "2026-07-23T22:26:37.065Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "employe-e-d-administration-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "employe-e-d-administration-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-22c8c8074c9b",
@@ -6542,7 +6540,78 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-07-04T10:41:36.656Z"
+      "firstSeenAt": "2026-07-04T10:41:36.656Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratore-scientifico-etat-de-fribourg-givisiez",
+          "scientific-collaborator-etat-de-fribourg-givisiez",
+          "wissenschaftlicher-mitarbeiter-etat-de-fribourg-givisiez",
+          "collaboratore-amministrativo-etat-de-fribourg-fribourg",
+          "collaborateur-trice-administratif-ve-etat-de-fribourg-fribourg",
+          "collaboratore-scientifico-etat-de-fribourg-fribourg",
+          "scientific-collaborator-etat-de-fribourg-fribourg",
+          "wissenschaftlicher-mitarbeiter-etat-de-fribourg-fribourg",
+          "collaborateur-trice-scientifique-etat-de-fribourg-ch",
+          "collaboratore-scientifico-valutazione-dei-dati-etat-de-fribourg-fribourg",
+          "scientific-collaborator-data-valuation-etat-de-fribourg-fribourg",
+          "wissenschaftlicher-mitarbeiter-datenbewertung-etat-de-fribourg-fribourg",
+          "collaborateur-trice-scientifique-valorisation-des-donnees-etat-de-fribourg-ch",
+          "collaboratore-amministrativo-nella-sezione-mercato-del-lavoro-etat-de-fribourg-fribourg",
+          "administrative-collaborator-ve-in-the-labour-market-section-etat-de-fribourg-fribourg",
+          "administrative-collaborator-ve-in-der-sektion-arbeitsmarkt-etat-de-fribourg-fribourg",
+          "collaborateur-trice-administratif-ve-a-la-section-marche-du-travail-etat-de-fribourg-ch",
+          "collaborateur-trice-administratif-ve-etat-de-fribourg",
+          "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-2",
+          "associato-amministrativo-etat-de-fribourg-fribourg-c4b769"
+        ],
+        "en": [
+          "administrative-collaborator-ve-etat-de-fribourg-fribourg"
+        ],
+        "de": [
+          "verwaltungsmitarbeiter-vereinigung-etat-de-fribourg-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-3",
+        "associato-amministrativo-etat-de-fribourg-fribourg",
+        "administrative-collaborator-etat-de-fribourg-fribourg",
+        "verwaltungsmitarbeiter-etat-de-fribourg-fribourg",
+        "assistente-amministrativo-graduato-etat-de-fribourg-fribourg",
+        "administrative-collaborator-graduate-etat-de-fribourg-fribourg",
+        "verwaltungsmitarbeiter-graduate-etat-de-fribourg-fribourg",
+        "collaborateur-trice-administratif-ve-diplome-e-etat-de-fribourg-ch",
+        "associato-amministrativo-etat-de-fribourg-fribourg-c09884",
+        "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-4",
+        "associato-amministrativo-etat-de-fribourg-fribourg-c961d8",
+        "administrative-collaborator-ve-etat-de-fribourg",
+        "verwaltungsmitarbeiter-vereinigung-etat-de-fribourg",
+        "collaboratore-amministrativo-etat-de-fribourg-estavayer-le-lac",
+        "collaborateur-trice-administratif-ve-etat-de-fribourg-estavayer-le-lac",
+        "administrative-collaborator-ve-etat-de-fribourg-estavayer-le-lac",
+        "verwaltungsmitarbeiter-vereinigung-etat-de-fribourg-estavayer-le-lac",
+        "collaboratore-scientifico-etat-de-fribourg-givisiez",
+        "scientific-collaborator-etat-de-fribourg-givisiez",
+        "wissenschaftlicher-mitarbeiter-etat-de-fribourg-givisiez",
+        "administrative-collaborator-ve-etat-de-fribourg-fribourg",
+        "verwaltungsmitarbeiter-vereinigung-etat-de-fribourg-fribourg",
+        "collaboratore-amministrativo-etat-de-fribourg-fribourg",
+        "collaborateur-trice-administratif-ve-etat-de-fribourg-fribourg",
+        "collaboratore-scientifico-etat-de-fribourg-fribourg",
+        "scientific-collaborator-etat-de-fribourg-fribourg",
+        "wissenschaftlicher-mitarbeiter-etat-de-fribourg-fribourg",
+        "collaborateur-trice-scientifique-etat-de-fribourg-ch",
+        "collaboratore-scientifico-valutazione-dei-dati-etat-de-fribourg-fribourg",
+        "scientific-collaborator-data-valuation-etat-de-fribourg-fribourg",
+        "wissenschaftlicher-mitarbeiter-datenbewertung-etat-de-fribourg-fribourg",
+        "collaborateur-trice-scientifique-valorisation-des-donnees-etat-de-fribourg-ch",
+        "collaboratore-amministrativo-nella-sezione-mercato-del-lavoro-etat-de-fribourg-fribourg",
+        "administrative-collaborator-ve-in-the-labour-market-section-etat-de-fribourg-fribourg",
+        "administrative-collaborator-ve-in-der-sektion-arbeitsmarkt-etat-de-fribourg-fribourg",
+        "collaborateur-trice-administratif-ve-a-la-section-marche-du-travail-etat-de-fribourg-ch",
+        "collaborateur-trice-administratif-ve-etat-de-fribourg",
+        "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-2",
+        "associato-amministrativo-etat-de-fribourg-fribourg-c4b769"
+      ]
     },
     {
       "id": "etat-de-fribourg-1a4dae371c6f",
@@ -6705,9 +6774,9 @@
       "description": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDas Friedensgericht ist die Kindes- und Erwachsenenschutzbehörde. In dieser Funktion wird es auf Antrag oder von Amtes wegen tätig. Nach Abschluss des Verfahrens wird entschieden, ob eine Schutzmassnahme angeordnet wird oder nicht. Die Friedensrichterin bzw. der Friedensrichter ist zudem in Erbschaftsangelegenheiten sowie im Bereich der gerichtlichen Verbote (Bannverfügungen) zuständig.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nIhre Aufgaben\n\n• Gesamtverantwortung des Sektors und Leitung des Teams der Buchhaltung (Ferienplanung, ZEB, usw.)\n\n• Organisation, Planung und Durchführung der Rechnungsprüfungen\n\n• Kontierung der Kreditoren und Weiterverrechnung, Erstellen der Zahlungsaufträgen\n\n• Erstellung von Steuerinventaren\n\n• Kontrolle der Anfangsinventare und Rechnungen über die Vermögensverwaltung, welche von den Beiständen eingereicht wurden\n\n• Monatliche Erstellung der Abrechnungen für die Entlöhnung der Beisitzer-/innen und Dolmetscher-/innen\n\n• Verfassen von Entscheiden zur Genehmigung über die Rechnung über die Vermögensverwaltung auf Französisch und Deutsch\n\n• Ansprechperson für interne und externe Dienste\n\n• Verwaltung des E-Mail-Postfaches der Buchhaltungsabteilung\n\n• Überwachung und Erklärung des Budgets des Friedensgerichts des Saanebezirks\n\n• Aktualisierung der verschiedenen Dateien und Dokumente\n\nGewünschtes Profil\n\n• KV-Abschluss oder Ausbildung im Bereich Rechnungswesen und Finanzen oder als gleichwertig anerkannte Ausbildung\n\n• Nachgewiesene Erfahrung in einer ähnlichen Position\n\n• Flexibilität, Verantwortungsbewusstsein, Diskretion und Führungskompetenz\n\n• Beherrschen der gängigen Informatiktools; Kenntnisse der Software Tribuna V3 und SAP sind von Vorteil\n\n• Sehr gute Kenntnisse der französischen oder deutschen Sprache sowie sehr gute Kenntnisse der jeweils anderen Sprache (min B2)\n\nAngaben der Kontaktpersonen\n\nLaetitia Perrin, Stellvertretende Führungskraft, Laetitia.Perrin@fr.ch, T +41 26 305 86 00",
       "descriptionByLocale": {
         "de": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDas Friedensgericht ist die Kindes- und Erwachsenenschutzbehörde. In dieser Funktion wird es auf Antrag oder von Amtes wegen tätig. Nach Abschluss des Verfahrens wird entschieden, ob eine Schutzmassnahme angeordnet wird oder nicht. Die Friedensrichterin bzw. der Friedensrichter ist zudem in Erbschaftsangelegenheiten sowie im Bereich der gerichtlichen Verbote (Bannverfügungen) zuständig.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nIhre Aufgaben\n\n• Gesamtverantwortung des Sektors und Leitung des Teams der Buchhaltung (Ferienplanung, ZEB, usw.)\n\n• Organisation, Planung und Durchführung der Rechnungsprüfungen\n\n• Kontierung der Kreditoren und Weiterverrechnung, Erstellen der Zahlungsaufträgen\n\n• Erstellung von Steuerinventaren\n\n• Kontrolle der Anfangsinventare und Rechnungen über die Vermögensverwaltung, welche von den Beiständen eingereicht wurden\n\n• Monatliche Erstellung der Abrechnungen für die Entlöhnung der Beisitzer-/innen und Dolmetscher-/innen\n\n• Verfassen von Entscheiden zur Genehmigung über die Rechnung über die Vermögensverwaltung auf Französisch und Deutsch\n\n• Ansprechperson für interne und externe Dienste\n\n• Verwaltung des E-Mail-Postfaches der Buchhaltungsabteilung\n\n• Überwachung und Erklärung des Budgets des Friedensgerichts des Saanebezirks\n\n• Aktualisierung der verschiedenen Dateien und Dokumente\n\nGewünschtes Profil\n\n• KV-Abschluss oder Ausbildung im Bereich Rechnungswesen und Finanzen oder als gleichwertig anerkannte Ausbildung\n\n• Nachgewiesene Erfahrung in einer ähnlichen Position\n\n• Flexibilität, Verantwortungsbewusstsein, Diskretion und Führungskompetenz\n\n• Beherrschen der gängigen Informatiktools; Kenntnisse der Software Tribuna V3 und SAP sind von Vorteil\n\n• Sehr gute Kenntnisse der französischen oder deutschen Sprache sowie sehr gute Kenntnisse der jeweils anderen Sprache (min B2)\n\nAngaben der Kontaktpersonen\n\nLaetitia Perrin, Stellvertretende Führungskraft, Laetitia.Perrin@fr.ch, T +41 26 305 86 00",
-        "it": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDas Friedensgericht ist die Kindes- und Erwachsenenschutzbehörde. In dieser Funktion wird es auf Antrag oder von Amtes wegen tätig. Nach Abschluss des Verfahrens wird entschieden, ob eine Schutzmassnahme angeordnet wird oder nicht. Die Friedensrichterin bzw. der Friedensrichter ist zudem in Erbschaftsangelegenheiten sowie im Bereich der gerichtlichen Verbote (Bannverfügungen) zuständig.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nIhre Aufgaben\n\n• Gesamtverantwortung des Sektors und Leitung des Teams der Buchhaltung (Ferienplanung, ZEB, usw.)\n\n• Organisation, Planung und Durchführung der Rechnungsprüfungen\n\n• Kontierung der Kreditoren und Weiterverrechnung, Erstellen der Zahlungsaufträgen\n\n• Erstellung von Steuerinventaren\n\n• Kontrolle der Anfangsinventare und Rechnungen über die Vermögensverwaltung, welche von den Beiständen eingereicht wurden\n\n• Monatliche Erstellung der Abrechnungen für die Entlöhnung der Beisitzer-/innen und Dolmetscher-/innen\n\n• Verfassen von Entscheiden zur Genehmigung über die Rechnung über die Vermögensverwaltung auf Französisch und Deutsch\n\n• Ansprechperson für interne und externe Dienste\n\n• Verwaltung des E-Mail-Postfaches der Buchhaltungsabteilung\n\n• Überwachung und Erklärung des Budgets des Friedensgerichts des Saanebezirks\n\n• Aktualisierung der verschiedenen Dateien und Dokumente\n\nGewünschtes Profil\n\n• KV-Abschluss oder Ausbildung im Bereich Rechnungswesen und Finanzen oder als gleichwertig anerkannte Ausbildung\n\n• Nachgewiesene Erfahrung in einer ähnlichen Position\n\n• Flexibilität, Verantwortungsbewusstsein, Diskretion und Führungskompetenz\n\n• Beherrschen der gängigen Informatiktools; Kenntnisse der Software Tribuna V3 und SAP sind von Vorteil\n\n• Sehr gute Kenntnisse der französischen oder deutschen Sprache sowie sehr gute Kenntnisse der jeweils anderen Sprache (min B2)\n\nAngaben der Kontaktpersonen\n\nLaetitia Perrin, Stellvertretende Führungskraft, Laetitia.Perrin@fr.ch, T +41 26 305 86 00",
-        "en": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDas Friedensgericht ist die Kindes- und Erwachsenenschutzbehörde. In dieser Funktion wird es auf Antrag oder von Amtes wegen tätig. Nach Abschluss des Verfahrens wird entschieden, ob eine Schutzmassnahme angeordnet wird oder nicht. Die Friedensrichterin bzw. der Friedensrichter ist zudem in Erbschaftsangelegenheiten sowie im Bereich der gerichtlichen Verbote (Bannverfügungen) zuständig.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nIhre Aufgaben\n\n• Gesamtverantwortung des Sektors und Leitung des Teams der Buchhaltung (Ferienplanung, ZEB, usw.)\n\n• Organisation, Planung und Durchführung der Rechnungsprüfungen\n\n• Kontierung der Kreditoren und Weiterverrechnung, Erstellen der Zahlungsaufträgen\n\n• Erstellung von Steuerinventaren\n\n• Kontrolle der Anfangsinventare und Rechnungen über die Vermögensverwaltung, welche von den Beiständen eingereicht wurden\n\n• Monatliche Erstellung der Abrechnungen für die Entlöhnung der Beisitzer-/innen und Dolmetscher-/innen\n\n• Verfassen von Entscheiden zur Genehmigung über die Rechnung über die Vermögensverwaltung auf Französisch und Deutsch\n\n• Ansprechperson für interne und externe Dienste\n\n• Verwaltung des E-Mail-Postfaches der Buchhaltungsabteilung\n\n• Überwachung und Erklärung des Budgets des Friedensgerichts des Saanebezirks\n\n• Aktualisierung der verschiedenen Dateien und Dokumente\n\nGewünschtes Profil\n\n• KV-Abschluss oder Ausbildung im Bereich Rechnungswesen und Finanzen oder als gleichwertig anerkannte Ausbildung\n\n• Nachgewiesene Erfahrung in einer ähnlichen Position\n\n• Flexibilität, Verantwortungsbewusstsein, Diskretion und Führungskompetenz\n\n• Beherrschen der gängigen Informatiktools; Kenntnisse der Software Tribuna V3 und SAP sind von Vorteil\n\n• Sehr gute Kenntnisse der französischen oder deutschen Sprache sowie sehr gute Kenntnisse der jeweils anderen Sprache (min B2)\n\nAngaben der Kontaktpersonen\n\nLaetitia Perrin, Stellvertretende Führungskraft, Laetitia.Perrin@fr.ch, T +41 26 305 86 00",
-        "fr": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDas Friedensgericht ist die Kindes- und Erwachsenenschutzbehörde. In dieser Funktion wird es auf Antrag oder von Amtes wegen tätig. Nach Abschluss des Verfahrens wird entschieden, ob eine Schutzmassnahme angeordnet wird oder nicht. Die Friedensrichterin bzw. der Friedensrichter ist zudem in Erbschaftsangelegenheiten sowie im Bereich der gerichtlichen Verbote (Bannverfügungen) zuständig.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nIhre Aufgaben\n\n• Gesamtverantwortung des Sektors und Leitung des Teams der Buchhaltung (Ferienplanung, ZEB, usw.)\n\n• Organisation, Planung und Durchführung der Rechnungsprüfungen\n\n• Kontierung der Kreditoren und Weiterverrechnung, Erstellen der Zahlungsaufträgen\n\n• Erstellung von Steuerinventaren\n\n• Kontrolle der Anfangsinventare und Rechnungen über die Vermögensverwaltung, welche von den Beiständen eingereicht wurden\n\n• Monatliche Erstellung der Abrechnungen für die Entlöhnung der Beisitzer-/innen und Dolmetscher-/innen\n\n• Verfassen von Entscheiden zur Genehmigung über die Rechnung über die Vermögensverwaltung auf Französisch und Deutsch\n\n• Ansprechperson für interne und externe Dienste\n\n• Verwaltung des E-Mail-Postfaches der Buchhaltungsabteilung\n\n• Überwachung und Erklärung des Budgets des Friedensgerichts des Saanebezirks\n\n• Aktualisierung der verschiedenen Dateien und Dokumente\n\nGewünschtes Profil\n\n• KV-Abschluss oder Ausbildung im Bereich Rechnungswesen und Finanzen oder als gleichwertig anerkannte Ausbildung\n\n• Nachgewiesene Erfahrung in einer ähnlichen Position\n\n• Flexibilität, Verantwortungsbewusstsein, Diskretion und Führungskompetenz\n\n• Beherrschen der gängigen Informatiktools; Kenntnisse der Software Tribuna V3 und SAP sind von Vorteil\n\n• Sehr gute Kenntnisse der französischen oder deutschen Sprache sowie sehr gute Kenntnisse der jeweils anderen Sprache (min B2)\n\nAngaben der Kontaktpersonen\n\nLaetitia Perrin, Stellvertretende Führungskraft, Laetitia.Perrin@fr.ch, T +41 26 305 86 00"
+        "it": "Nomina autorità / unità amministrativa / istituzione\n\nLa Corte della Pace è l'autorità per la protezione dei bambini e degli adulti. In questa capacità, essa agisce su richiesta o su propria iniziativa. Dopo il completamento della procedura, si decide se una misura di protezione è ordinata o meno. La giustizia della pace è anche responsabile per le questioni di successione e nel campo dei divieti giudiziari (o ordini banani).\n\nDiventa parte della nostra squadra!\n\nCi concentriamo sulla complementarità delle competenze e sulla diversità delle prospettive, perché è la vasta gamma di carriere e profili che costituiscono la forza dello stato di Friburgo. Promuoviamo la riconciliazione della vita professionale e privata e le condizioni di lavoro flessibili. Per saperne di più, segui questo link.\n\nI loro compiti\n\n• Responsabilità complessiva del settore e della gestione del team contabile (pianificazione del giorno, ZEB, ecc.)\n\n• Organizzazione, pianificazione e conduzione degli audit\n\n• Contabilità dei creditori e ripristino, preparazione degli ordini di pagamento\n\n• Preparazione degli inventari fiscali\n\n• Controllo degli inventari di gestione patrimoniale iniziali e dei conti presentati dai consulenti\n\n• Preparazione mensile dei conti per la remunerazione degli assistenti e degli interpreti\n\n• Decisioni di redazione per approvazione della fattura di gestione patrimoniale in francese e tedesco\n\n• Persona di contatto per servizi interni ed esterni\n\n• Gestione della casella di posta elettronica del reparto contabilità\n\n• Monitoraggio e spiegazione del bilancio della Corte di Pace del Distretto di Saane\n\n• Aggiornamento dei vari file e documenti\n\nProfilo desiderato\n\n• Laurea in contabilità e finanza o formazione riconosciuta come equivalente\n\n• Esperienza dimostrata in una posizione simile\n\n• Flessibilità, responsabilità, discrezione e capacità di leadership\n\n• masterizzazione di strumenti informatici comuni; La conoscenza del software Tribuna V3 e SAP è un vantaggio\n\n• Ottima conoscenza della lingua francese o tedesca, nonché buona conoscenza dell'altra lingua (min B2)\n\nInformazioni di contatto\n\nLaetitia Perrin, Vice Esecutivo, Laetitia.Perrin@fr.ch, T +41 26 305 86 00",
+        "en": "Appointing authority / administrative unit / institution\n\nThe Peace Court is the child and adult protection authority. In this capacity, it shall act on request or on its own initiative. After completion of the procedure, a decision is made as to whether a protective measure is ordered or not. The justice of the peace is also responsible for inheritance matters and in the area of judicial prohibitions (ban orders).\n\nBecome part of our team!\n\nWe focus on the complementarity of competences and the diversity of perspectives, because it is the wide range of careers and profiles that makes up the strength of the state of Freiburg. We promote the reconciliation of professional and private life as well as flexible working conditions. To learn more, follow this link.\n\nTheir tasks\n\n• Overall responsibility of the sector and management of the accounting team (holiday planning, ZEB, etc.)\n\n• Organisation, planning and conduct of audits\n\n• Accounting of creditors and resetting, preparation of payment orders\n\n• Preparation of tax inventories\n\n• Control of initial asset management inventories and accounts submitted by the advisors\n\n• Monthly preparation of accounts for the remuneration of assistants and interpreters\n\n• Drafting decisions for approval of the asset management invoice in French and German\n\n• Contact person for internal and external services\n\n• Management of the accounting department’s e-mail box\n\n• Monitoring and explaining the budget of the Saane District Peace Court\n\n• Updating the various files and documents\n\nDesired profile\n\n• CV degree or training in accounting and finance or training recognised as equivalent\n\n• Proven experience in a similar position\n\n• Flexibility, responsibility, discretion and leadership skills\n\n• mastering common computer science tools; Knowledge of Tribuna V3 and SAP software is an advantage\n\n• Very good knowledge of the French or German language as well as very good knowledge of the other language (min B2)\n\nContact details\n\nLaetitia Perrin, Deputy Executive, Laetitia.Perrin@fr.ch, T +41 26 305 86 00",
+        "fr": "Pouvoir de nomination / unité administrative / institution\n\nLe tribunal pour la paix est l'autorité de protection des enfants et des adultes. En cette qualité, elle agit sur demande ou de sa propre initiative. Une fois la procédure terminée, il est décidé si une mesure de protection est ordonnée ou non. La justice de paix est également responsable des questions de succession et des interdictions judiciaires (ordonnances d'interdiction).\n\nFaites partie de notre équipe !\n\nNous nous concentrons sur la complémentarité des compétences et la diversité des perspectives, car c'est le large éventail de carrières et de profils qui constitue la force de l'état de Fribourg. Nous favorisons la conciliation de la vie professionnelle et privée ainsi que des conditions de travail flexibles. Pour en savoir plus, suivez ce lien.\n\nLeurs tâches\n\n• Responsabilité globale du secteur et gestion de l'équipe comptable (planification des vacances, ZEB, etc.)\n\n• Organisation, planification et conduite des audits\n\n• Comptabilité des créanciers et reconstitution, préparation des ordres de paiement\n\n• Établissement des stocks fiscaux\n\n• Contrôle des stocks et comptes initiaux de gestion des actifs présentés par les conseillers\n\n• Établissement mensuel des comptes de rémunération des assistants et interprètes\n\n• Décisions de rédaction pour approbation de la facture de gestion d'actifs en français et en allemand\n\n• Personne-ressource pour les services internes et externes\n\n• Gestion du département de comptabilité\n\n• Suivi et explication du budget du tribunal de paix du district de Saane\n\n• Mise à jour des différents dossiers et documents\n\nProfil désiré\n\n• Diplôme de CV ou formation en comptabilité et finances ou formation reconnue comme équivalente\n\n• Expérience éprouvée dans une position similaire\n\n• Flexibilité, responsabilité, discrétion et compétences en leadership\n\n• Maîtriser des outils informatiques communs; Connaissance des logiciels Tribuna V3 et SAP est un avantage\n\n• Très bonne connaissance de la langue française ou allemande ainsi que très bonne connaissance de l'autre langue (min B2)\n\nCoordonnées\n\nLaetitia Perrin, Directrice générale adjointe, Laetitia.Perrin@fr.ch, T +41 26 305 86 00"
       },
       "location": "Fribourg",
       "canton": "FR",
@@ -7114,7 +7183,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:52.923Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -7205,7 +7273,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:52.274Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -7305,7 +7372,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T10:17:13.880Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -7419,7 +7485,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:33.382Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -7532,7 +7597,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:39.225Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -7640,7 +7704,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:41.822Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -7756,7 +7819,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:34.039Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -7871,7 +7933,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:41.180Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -7986,7 +8047,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:35.983Z",
-      "needsRetranslation": true,
       "salaryMin": 66000,
       "salaryMax": 112000,
       "salarySource": "estimated",
@@ -8103,7 +8163,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:38.580Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -8313,8 +8372,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "sourceIdentity": "url:https://jobs.fr.ch/job/fribourg%2c-ch-assesseur-e-s-aupr%c3%a8s-de-la-justice-de-paix-de-la-sarine-sari/1370544957",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "etat-de-fribourg-60746eb1ddbd",
@@ -8400,8 +8458,7 @@
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
       "sourceIdentity": "url:https://jobs.fr.ch/job/fribourg%2c-ch-leiterin-finanzdienst-saan/1370919157",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "etat-de-fribourg-f0a8162646ea",
