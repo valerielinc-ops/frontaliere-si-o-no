@@ -544,4 +544,27 @@ describe('bounded live-link shortlist (#9314)', () => {
     expect(live.map((job) => job.id)).toEqual(['bounded-1', 'bounded-2', 'bounded-3']);
     expect(checked).toHaveLength(4);
   });
+
+  it('checks the full pool before failing open on an entirely dead shortlist', async () => {
+    const checked = [];
+    const live = await rankLiveJobsForEmail(
+      rankedJobs(100),
+      'it',
+      new Map(),
+      rankingOptions,
+      {
+        limit: 10,
+        check: async (url) => {
+          checked.push(url);
+          const index = Number(url.match(/bounded-(\d+)$/)?.[1]);
+          return index >= 10;
+        },
+      },
+    );
+
+    expect(live.map((job) => job.id)).toEqual(
+      Array.from({ length: 10 }, (_, index) => `bounded-${index + 10}`),
+    );
+    expect(checked).toHaveLength(100);
+  });
 });

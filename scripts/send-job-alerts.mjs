@@ -275,8 +275,9 @@ async function filterLiveJobs(jobs, locale, cache) {
  * removes any dead URL, and re-ranks only when a replacement is needed. When
  * the shortlist is live, the result is exactly the old
  * `rankEmailJobs(filterLiveJobs(matched))` result without fetching the unused
- * tail of the pool. The existing fail-open rule remains attached to every
- * checked shortlist.
+ * tail of the pool. If a shortlist looks like a network-wide failure, the
+ * existing fail-open rule is re-evaluated against the full matched pool before
+ * deciding whether to preserve the shortlist or choose live replacements.
  */
 async function rankLiveJobsForEmail(
   matched,
@@ -299,7 +300,18 @@ async function rankLiveJobsForEmail(
     if (ranked.length === 0) return [];
 
     const result = await inspectLiveJobs(ranked, locale, cache, { check });
-    if (result.failOpen) return result.jobs;
+    if (result.failOpen) {
+      // A dead top-ten shortlist is not enough evidence of a transient
+      // network failure: the lower-ranked pool may contain the live cards
+      // needed to replace it. Reuse the existing ratio guard on the full pool
+      // before returning anything unfiltered. This keeps true fail-open
+      // behaviour for an outage while preventing dead cards from winning over
+      // live replacements.
+      const fullResult = await inspectLiveJobs(matched, locale, cache, { check });
+      if (fullResult.failOpen) return fullResult.jobs;
+      ranked = rankEmailJobs(fullResult.jobs, { ...rankingOptions, limit });
+      continue;
+    }
 
     const deadUrls = new Set(
       ranked
