@@ -3,6 +3,8 @@ import {
   ADS_CONSENT_GRANTED,
   ADS_CONSENT_STORAGE_KEY,
 } from '../services/adsConsent';
+import { FC_JOBBOARD_OFFERWALL_GATE_JS } from './constants';
+import { isJobBoardSectionPathname } from '../scripts/lib/jobBoardSections.mjs';
 
 /** The GPT library required by Google Ad Manager Offerwall. */
 export const GPT_SCRIPT_SRC = 'https://securepubads.g.doubleclick.net/tag/js/gpt.js';
@@ -13,9 +15,12 @@ export const GPT_LOADER_FILENAME = 'gpt-loader.js';
 /** Synchronous bootstrap: it queues GPT before Funding Choices evaluates Offerwall. */
 export const GPT_BOOTSTRAP_TAG = `<script src="/assets/${GPT_LOADER_FILENAME}"></script>`;
 
-const JOB_BOARD_PATH_RX = /^(?:\/cerca-lavoro-[^/]+|\/(?:en\/find-jobs|de\/jobs-(?:im|in)|fr\/trouver-emploi)-[^/]+)(?:\/|$)/;
-
-/** Whether a URL belongs to one of the four localized job-board sections. */
+/**
+ * Whether a URL belongs to a job-board section (every canton, the Switzerland
+ * aggregator, every locale). Same shared matcher as the click-only Offerwall
+ * gate and JobBoard's rewarded surface, so GPT is bootstrapped on exactly the
+ * pages where "Candidati" runs the rewarded flow.
+ */
 export function isJobBoardPageUrl(value: string): boolean {
   let pathname = value;
   try {
@@ -23,7 +28,7 @@ export function isJobBoardPageUrl(value: string): boolean {
   } catch {
     pathname = value.split(/[?#]/, 1)[0] ?? value;
   }
-  return JOB_BOARD_PATH_RX.test(pathname);
+  return isJobBoardSectionPathname(pathname);
 }
 
 const scriptSrc = JSON.stringify(GPT_SCRIPT_SRC);
@@ -38,8 +43,15 @@ const consentGranted = JSON.stringify(ADS_CONSENT_GRANTED);
  * explicit ads-consent decision and enables the shared framework so Offerwall
  * can detect GPT on first entry. The React slot components remain responsible
  * for lazy slot display.
+ *
+ * It starts with FC_JOBBOARD_OFFERWALL_GATE_JS. This file is synchronous and
+ * can inject gpt.js during parsing, before the deferred adsense-loader.js
+ * (the gate's usual carrier on these pages) runs; with AdSense covering the
+ * whole site a Funding Choices instance reached through GPT must still find
+ * the gate installed, or the Offerwall would show on entry. The gate is
+ * idempotent: the first copy on the page installs it.
  */
-export const GPT_LOADER_CONTENT = `(function(){
+export const GPT_LOADER_CONTENT = `${FC_JOBBOARD_OFFERWALL_GATE_JS}(function(){
   var SCRIPT_SRC=${scriptSrc};
   var CONSENT_EVENT=${consentEvent};
   var CONSENT_KEY=${consentKey};

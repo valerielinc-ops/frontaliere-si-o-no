@@ -109,10 +109,16 @@ describe('assisted application JobBoard handoff', () => {
     expect(jobBoardSource).not.toMatch(/rewarded-frontaliere-house|\.mp4\b/i);
   });
 
-  it('forces the rewarded treatment on the Italian Ticino job-board surface', () => {
-    expect(jobBoardSource).toMatch(
-      /function isAlwaysRewardedApplicationSurface\(\): boolean[\s\S]*\/\^\\\/cerca-lavoro-ticino\(\?:\\\/\|\$\)\//,
+  it('forces the rewarded treatment on every job-board section', () => {
+    // Same shared matcher as the click-only Offerwall gate (owner decision
+    // 2026-09-26: every canton, the Switzerland aggregator, every locale).
+    expect(jobBoardSource).toContain(
+      "import { isJobBoardSectionPathname } from '../../scripts/lib/jobBoardSections.mjs';",
     );
+    expect(jobBoardSource).toMatch(
+      /function isAlwaysRewardedApplicationSurface\(\): boolean \{[^}]*return isJobBoardSectionPathname\(window\.location\.pathname\);\s*\}/,
+    );
+    expect(jobBoardSource).not.toMatch(/cerca-lavoro-ticino\(\?:/);
     expect(jobBoardSource).toMatch(
       /const assistedApplicationVariant = shouldBypassAssistedApplicationExperiment[\s\S]*\? 'control'[\s\S]*: alwaysRewardedApplicationSurface[\s\S]*'rewarded_ad'/,
     );

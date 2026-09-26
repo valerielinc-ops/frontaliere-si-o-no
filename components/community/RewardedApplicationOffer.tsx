@@ -40,6 +40,7 @@ type OfferPhase = 'offerwall' | 'offerwall_visible' | 'offerwall_verifying' | 'o
 /** Why no Offerwall was waiting for this click (tracked before the GPT path). */
 const NOT_HELD_REASON: Record<Exclude<OfferwallGateStatus, 'held'>, string> = {
   suppressed: 'no_consent_decision',
+  off_board: 'off_board_page',
   released: 'already_released',
   absent: 'not_held',
 };

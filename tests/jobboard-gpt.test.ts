@@ -8,6 +8,7 @@ import {
   GPT_SCRIPT_SRC,
   isJobBoardPageUrl,
 } from '@/build-plugins/jobBoardGpt';
+import { FC_JOBBOARD_OFFERWALL_GATE_JS } from '@/build-plugins/constants';
 import {
   ADS_CONSENT_CHANGE_EVENT,
   ADS_CONSENT_GRANTED,
@@ -42,6 +43,8 @@ describe('job-board GPT bootstrap', () => {
     expect(isJobBoardPageUrl('/')).toBe(false);
     expect(isJobBoardPageUrl('/articoli-frontaliere/')).toBe(false);
     expect(isJobBoardPageUrl('/en/find-jobs/')).toBe(false);
+    expect(isJobBoardPageUrl('/jobs-lugano-infermiere/')).toBe(false);
+    expect(isJobBoardPageUrl('/blog/cerca-lavoro-ticino/')).toBe(false);
   });
 
   it('loads GPT only after the explicit advertising-consent event', () => {
@@ -61,5 +64,18 @@ describe('job-board GPT bootstrap', () => {
     expect(GPT_LOADER_CONTENT).toContain('collapseDiv');
     expect(GPT_LOADER_CONTENT).not.toContain('adsbygoogle');
     expect(GPT_LOADER_CONTENT).not.toContain('<ins');
+  });
+
+  it('installs the click-only Offerwall gate before it can inject GPT', () => {
+    // Synchronous, so it runs before the deferred adsense-loader.js.
+    expect(GPT_LOADER_CONTENT.startsWith(FC_JOBBOARD_OFFERWALL_GATE_JS)).toBe(true);
+    const win = window as unknown as { googlefc?: { controlledMessagingFunction?: unknown } };
+    delete win.googlefc;
+    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED);
+    // eslint-disable-next-line no-new-func
+    new Function(GPT_LOADER_CONTENT)();
+    expect(typeof win.googlefc?.controlledMessagingFunction).toBe('function');
+    expect(document.querySelector(GPT_SELECTOR)).not.toBeNull();
+    delete win.googlefc;
   });
 });

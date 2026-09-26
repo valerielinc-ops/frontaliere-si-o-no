@@ -17,6 +17,7 @@ import { classifyFeature } from '../../scripts/audit-title-length.mjs';
 import {
   isJobBoardContentPath,
   isJobBoardSectionPath,
+  isJobBoardSectionPathname,
   JOB_BOARD_PROFESSION_CITY_RX,
   JOB_BOARD_SECTION_RX,
 } from '../../scripts/lib/jobBoardSections.mjs';
@@ -114,5 +115,52 @@ describe('job-board section matcher', () => {
     'de/jobs-in-aargau/index.html',
   ])('validator form: "/" + %s matches the job-board section', (p) => {
     expect(isJobBoardSectionPath('/' + p)).toBe(true);
+  });
+});
+
+// Runtime form: `window.location.pathname`, used by JobBoard's rewarded
+// "Candidati" surface and by the click-only Offerwall gate (owner decision
+// 2026-09-26: every job-board section, all cantons, the aggregator, it/en/de/fr).
+describe('job-board section pathname matcher (runtime)', () => {
+  it.each([
+    '/cerca-lavoro-ticino',
+    '/cerca-lavoro-ticino/',
+    '/cerca-lavoro-ticino/stagista-supsi/',
+    '/cerca-lavoro-argovia/wettingen/',
+    '/cerca-lavoro-san-gallo/',
+    '/cerca-lavoro-svizzera/',
+    '/en/find-jobs-ticino/',
+    '/en/find-jobs-geneva/head-of-clinic-100-hug/',
+    '/en/find-jobs-switzerland',
+    '/de/jobs-im-tessin/',
+    '/de/jobs-in-aargau/',
+    '/de/jobs-in-der-waadt/stelle/',
+    '/de/jobs-in-schweiz/',
+    '/fr/trouver-emploi-tessin/',
+    '/fr/trouver-emploi-suisse/emploi/',
+    // Optional `/it/` prefix, aligned with jobBoardSeoPure's CANTON_LANDING_RE.
+    '/it/cerca-lavoro-ticino/',
+    '/it/cerca-lavoro-ticino/slug/',
+  ])('%s is inside a job-board section', (pathname) => {
+    expect(isJobBoardSectionPathname(pathname)).toBe(true);
+  });
+
+  it.each([
+    '',
+    '/',
+    '/cerca-lavoro/',
+    '/articoli-frontaliere/permesso-g/',
+    '/lavoro/',
+    '/lavoro/infermiere-lugano/',
+    '/jobs-lugano-infermiere/',
+    '/en/jobs-lugano-nurse/',
+    '/de/arbeit-lugano-pflege/',
+    '/blog/cerca-lavoro-ticino/',
+    '/it/',
+    '/es/cerca-lavoro-ticino/',
+    '/aziende/eoc/',
+    '/cerca-lavoro-1/',
+  ])('%s is not a job-board section page', (pathname) => {
+    expect(isJobBoardSectionPathname(pathname)).toBe(false);
   });
 });
