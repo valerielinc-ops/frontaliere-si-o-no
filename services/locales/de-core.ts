@@ -1,4 +1,7 @@
 const deCore: Record<string, string> = {
+ 'whatsNew.v3968.title': 'Mehr Kontrolle über Bewerbungssignale',
+ 'whatsNew.v3968.applicationIntent.title': 'Eigener Opt-out für Bewerbungsinteressen',
+ 'whatsNew.v3968.applicationIntent.desc': 'In deinem Profil kannst du Bewerbungssignale separat sperren; bei der Kontolöschung werden verbundene Daten entfernt oder unbrauchbar gemacht.',
  'whatsNew.v3967.title': 'Ein nationales Fahrzeugobservatorium',
  'whatsNew.v3967.vehicleObservatory.title': 'ASTRA: Kantone, Tessin und Neuzulassungen',
  'whatsNew.v3967.vehicleObservatory.desc': 'Vergleiche den Fahrzeugbestand aller 26 Kantone, verfolge das wöchentliche Tempo im Tessin und trenne Bestand, Neuzulassungen, Gebrauchtimporte und Treibstoffe.',

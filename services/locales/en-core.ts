@@ -1,4 +1,7 @@
 const enCore: Record<string, string> = {
+ 'whatsNew.v3968.title': 'More control over application-intent signals',
+ 'whatsNew.v3968.applicationIntent.title': 'A separate opt-out for application interest',
+ 'whatsNew.v3968.applicationIntent.desc': 'Your profile now lets you separately block application-intent signals, and account deletion removes or disables linked data.',
  'whatsNew.v3967.title': 'A national vehicle observatory',
  'whatsNew.v3967.vehicleObservatory.title': 'ASTRA: cantons, Ticino and new registrations',
  'whatsNew.v3967.vehicleObservatory.desc': 'Compare the vehicle fleet across all 26 cantons, follow Ticino’s weekly pace, and separate stock, new registrations, used imports and fuel types.',

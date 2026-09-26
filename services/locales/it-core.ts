@@ -1,5 +1,8 @@
 // Italian translations — core page chunk
 const translations: Record<string, string> = {
+ 'whatsNew.v3968.title': 'Più controllo sui segnali di candidatura',
+ 'whatsNew.v3968.applicationIntent.title': 'Opt-out separato per l’interesse a candidarti',
+ 'whatsNew.v3968.applicationIntent.desc': 'Dal profilo puoi impedire separatamente l’uso del segnale di candidatura e, se cancelli l’account, i dati collegati vengono rimossi o resi inutilizzabili.',
  'whatsNew.v3967.title': 'Un osservatorio nazionale dei veicoli',
  'whatsNew.v3967.vehicleObservatory.title': 'ASTRA: cantoni, Ticino e nuove immatricolazioni',
  'whatsNew.v3967.vehicleObservatory.desc': 'Confronta il parco veicoli di tutti i 26 cantoni, segui il ritmo settimanale del Ticino e distingui stock, nuove immatricolazioni, import usati e alimentazioni.',

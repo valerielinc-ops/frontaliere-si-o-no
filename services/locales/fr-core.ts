@@ -1,4 +1,7 @@
 const frCore: Record<string, string> = {
+ 'whatsNew.v3968.title': 'Plus de contrôle sur les signaux de candidature',
+ 'whatsNew.v3968.applicationIntent.title': 'Un opt-out distinct pour l’intérêt de candidature',
+ 'whatsNew.v3968.applicationIntent.desc': 'Depuis votre profil, vous pouvez bloquer séparément les signaux de candidature ; la suppression du compte efface ou désactive les données liées.',
  'whatsNew.v3967.title': 'Un observatoire national des véhicules',
  'whatsNew.v3967.vehicleObservatory.title': 'ASTRA : cantons, Tessin et nouvelles immatriculations',
  'whatsNew.v3967.vehicleObservatory.desc': 'Comparez le parc des 26 cantons, suivez le rythme hebdomadaire du Tessin et distinguez stock, nouvelles immatriculations, importations d’occasion et carburants.',
