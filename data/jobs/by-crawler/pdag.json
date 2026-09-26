@@ -17,7 +17,7 @@
       "title": "Ergotherapeutin / Ergotherapeut Neuropsychiatrie - mit Perspektive Tiergestützte Therapie",
       "titleByLocale": {
         "it": "terapeuta professionale / neuropsichiatria occupazionale - con una prospettiva animale-assistito terapia",
-        "en": "Ergotherapeutin / Ergotherapeut Neuropsychiatrie - mit Perspektive Tiergestützte Therapie",
+        "en": "Occupational therapist / Occupational neuropsychiatry - with a perspective animal-assisted therapy",
         "de": "Ergotherapeutin / Ergotherapeut Neuropsychiatrie - mit Perspektive Tiergestützte Therapie",
         "fr": "Ergothérapie / neuropsychiatrie au travail - avec une perspective thérapie assistée par des animaux"
       },
@@ -95,7 +95,7 @@
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF Akutstation Psychose und Diagnostik",
       "titleByLocale": {
         "it": "Dipl. Infermieristica professionale / Dipl. Infermieristica specialista HF stazione acuta psicosi e diagnosi",
-        "en": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF Akutstation Psychose und Diagnostik",
+        "en": "Dipl. Nursing professional / Dipl. Nursing specialist HF acute station psychosis and diagnosis",
         "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF Akutstation Psychose und Diagnostik",
         "fr": "Infirmière diplômée Unité de soins aigus Psychose et diagnostics"
       },
@@ -162,8 +162,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "pdag-77995ec85c41",
@@ -437,7 +436,7 @@
       "title": "Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF Akutstation Psychose",
       "titleByLocale": {
         "it": "Infermiera laureata in Infermiere Infiocardio Psicosi Acuta del reparto",
-        "en": "Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF Akutstation Psychose",
+        "en": "Dipl. Care specialist HF / Dipl. Care professional HF acute station psychosis",
         "de": "Dipl. Pflegefachfrau HF / Dipl. Pflegefachmann HF Akutstation Psychose",
         "fr": "Infirmière diplômée en HF Psychose aiguë du service"
       },
@@ -521,8 +520,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "pdag-1ae288edef32",
@@ -539,7 +537,7 @@
       "title": "Dipl. Pflegefachfrau Dipl. Pflegefachmann HF Semi-Akutstation",
       "titleByLocale": {
         "it": "Dipl. Specialista Dipl. Specialista HF Semi-Acute Station",
-        "en": "Dipl. Pflegefachfrau Dipl. Pflegefachmann HF Semi-Akutstation",
+        "en": "Dipl. Care specialist Dipl. Care specialist HF Semi-Acute Station",
         "de": "Dipl. Pflegefachfrau Dipl. Pflegefachmann HF Semi-Akutstation",
         "fr": "Dipl. Spécialiste des soins Dipl. Spécialiste des soins HF semi-acute Station"
       },
@@ -1031,7 +1029,7 @@
       "companyDomain": "pdag.ch",
       "title": "Dipl. Pflegefachfrau/ Pflegefachmann HF/FH Demenz/ Delir",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/ Pflegefachmann HF/FH Demenz/ Delir",
+        "it": "Dipl. Infermieristica professionale HF/FH Demenza/Delior",
         "en": "Dipl. Nursing professional HF/FH Dementia/Delior",
         "de": "Dipl. Pflegefachfrau/ Pflegefachmann HF/FH Demenz/ Delir",
         "fr": "Dipl. Démence/délai professionnel des soins infirmiers"
@@ -1110,7 +1108,7 @@
       "title": "Psychomotoriktherapeutin / Psychomotoriktherapeut",
       "titleByLocale": {
         "it": "Terapeuta psicomotore / terapeuta psicomotore",
-        "en": "Psychomotoriktherapeutin / Psychomotoriktherapeut",
+        "en": "Psychomotor therapist/psychomotor therapist",
         "de": "Psychomotoriktherapeutin / Psychomotoriktherapeut",
         "fr": "Psychomothérapeute/psychomothérapeute"
       },
@@ -1182,8 +1180,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "pdag-50f3a64c9ff9",
@@ -1704,7 +1701,7 @@
       "title": "Ergotherapeutin / Ergotherapeut",
       "titleByLocale": {
         "it": "Terapista occupazionale",
-        "en": "Ergotherapeutin / Ergotherapeut",
+        "en": "Occupational therapist",
         "de": "Ergotherapeutin / Ergotherapeut",
         "fr": "Ergothérapeute"
       },
@@ -1768,8 +1765,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "pdag-e3f33772def2",
@@ -2787,7 +2783,7 @@
         "it": "Dipl. Infermieristica professionale / Dipl. Infermieristica specialista HF principalmente servizio notturno psicosi acuta",
         "en": "Dipl. Nursing professional / Dipl. Nursing specialist HF mainly night service acute psychosis",
         "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF vorwiegend Nachtdienst Akutstation Psychose",
-        "fr": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF vorwiegend Nachtdienst Akutstation Psychose"
+        "fr": "Dipl. Professionnels des soins infirmiers / Dipl. Spécialiste des soins infirmiers HF principalement service de nuit psychose aiguë"
       },
       "description": "Zur Verstärkung unseres Teams suchen wir für die mehrheitlich offene Akutstation KPP-4 mit Schwerpunkt Psychose per sofort oder nach Vereinbarung Dich als\n\nAufgaben:\n• Du unterstützt und förderst im Rahmen der Nachtarbeit die sozialen Fähigkeiten und Fertigkeiten der Patientinnen und Patienten im milieutherapeutischen Setting\n\n• Du setzt den Pflegeprozess kompetent um und förderst die Gesundheit und die Ressourcen der Patientinnen und Patienten\n\n• In Krisensituationen handelst Du entsprechend kompetent und vermittelst den Patientinnen und Patienten Sicherheit\n\n• Du verstehst Dich als Teil eines interprofessionellen Behandlungsteams mit Verantwortung für die optimale Umsetzung des Konzepts sowie Leitbildes der PDAG\n\n• Du erhältst eine Akut-Zulage (bei Einsatz in zwei verschiedenen Diensten)\n\nAnforderungen:\n• Diplomierte Pflegefachperson (HF), vorzugsweise mit Berufserfahrung in der (Akut-) Psychiatrie\n\n• Du bist eine begeisterungsfähige Fachperson mit hoher Fach-, Sozial- sowie Selbstkompetenz und interessiert mit uns das Behandlungskonzept aktiv weiterzuentwickeln\n\n• Du verfügst über ein ressourcen- und lösungsorientiertes Pflegeverständnis\n\nWir bieten:\nUnsere Mitarbeitenden sind das Herz unseres Unternehmens. Genau deshalb bieten wir Ihnen auch sehr viel:\n\nWeiterbildungen werden bei uns stark gefördert. Ebenfalls investieren wir viel in den Teamzusammenhalt und bieten allen unseren Teams den Zugang zur Software \"Moodtalk\" an, mit der die Teamkommunikation gestärkt wird. Daneben bieten wir attraktive Vergünstigungen bei bekannten Marken wie Ikea, Zalando, Coop, Lidl und vielen mehr. Mitarbeitende, die mit den öffentlichen Verkehrsmitteln zu uns pendeln, erhalten am Ende des Jahres einen stattlichen Öko-Bonus ausbezahlt.\n\nZusätzlich bieten wir eine attraktive Pensionskassenlösung an. Auch die Work-Life-Balance wird bei uns gefördert: Wir sind jederzeit offen für Teilzeitarbeit und offerieren die Möglichkeit zum Ferienkauf.",
       "descriptionByLocale": {
@@ -3764,83 +3760,6 @@
       }
     },
     {
-      "id": "pdag-384e29984b85",
-      "slug": "principale-medico-principal-medico-psychiatrische-dienste-aargau-pdag-windisch",
-      "slugByLocale": {
-        "it": "principale-medico-principal-medico-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "senior-physician-psychiatrische-dienste-aargau-pdag-windisch-81f126",
-        "de": "leitende-arztin-leitender-arzt-pdag-windisch",
-        "fr": "medecin-principal-psychiatrische-dienste-aargau-pdag-windisch"
-      },
-      "company": "Psychiatrische Dienste Aargau (PDAG)",
-      "companyKey": "pdag",
-      "companyDomain": "pdag.ch",
-      "title": "Leitende Ärztin / Leitender Arzt",
-      "titleByLocale": {
-        "it": "Medico Senior",
-        "en": "Senior Physician",
-        "de": "Leitende Ärztin / Leitender Arzt",
-        "fr": "Médecin principal"
-      },
-      "description": "Für unsere schweizweit einzigartiges Zentrum für Entwicklungs- und Neuropsychiatrie (Behandlungen für Menschen mit intellektueller Entwicklungsstörung 18+) am attraktiven Standort Windisch suchen wir per September oder gemäss Vereinbarung eine geeignete Verstärkung als\n\nAufgaben:\n• Gewährleistung einer qualitativ hochstehenden und zeitgemässen psychiatrisch-psychotherapeutischen Versorgung auf der Grundlage von gesetzlichen und betrieblichen Rahmenbedingungen sowie Fachempfehlungen (stationär, aufsuchend und ambulant)\n\n• Führung des multiprofessionellen und interdisziplinären Teams unter Berücksichtigung der Werte und Führungsgrundsätze der PDAG\n\n• Gewährleistung der Zielerreichung aktueller Jahresziele sowie weiterer quantitativen und qualitativen Ziele der Organisationseinheit\n\n• Gewährleistung einer sorgfältigen strukturierten Falldokumentation\n\n• Gewährleistung der fachlichen Weiterbildung bzw. des \"on-the-job Training\" der unterstellten Mitarbeitenden sowie Weiterbildungssupervisionen\n\n• Zusammenarbeit im multiprofessionellen und interdisziplinären Team\n\n• Mitwirkung an Aus-, Weiter- und Fortbildungsangeboten der PDAG\n\n• Öffentlichkeitsarbeit und Netzwerkpflege im Kontext unterschiedlicher Anlässe\n\n• Mitwirkung an Projekten, Aufträgen und Anpassungen gemäss Klinikleitung\n\n• Mitwirkung im Dienstsystem PDAG\n\nAnforderungen:\n• Abgeschlossene Weiterbildung zum Facharzttitel Psychiatrie und Psychotherapie\n\n• Interesse am Spezialbereich Entwicklungs- und Neuropsychiatrie\n\n• Verantwortungsbewusstsein, Zuverlässigkeit und Teamfähigkeit\n\n• Hohe Sozialkompetenzen, selbständiger und effizienter Arbeitsstil sowie hohe Belastbarkeit\n\n• Freude an der multiprofessionellen und interdisziplinären Zusammenarbeit\n\n• Identifikation mit unseren Unternehmenswerten: Mut, Engagement und Vertrauen\n\n• Sehr gute Führungskompetenzen (CAS Leadership)\n\n• Strategische und betriebswirtschaftliche Kompetenzen\n\nWir bieten:\nUnsere Mitarbeitenden sind das Herz unseres Unternehmens. Genau deshalb bieten wir Ihnen auch sehr viel:\n\nWeiterbildungen werden bei uns stark gefördert. Ebenfalls investieren wir viel in den Teamzusammenhalt und bieten allen unseren Teams den Zugang zur Software \"Moodtalk\" an, mit der die Teamkommunikation gestärkt wird. Daneben bieten wir attraktive Vergünstigungen bei bekannten Marken wie Ikea, Zalando, Coop, Lidl und vielen mehr. Mitarbeitende, die mit den öffentlichen Verkehrsmitteln zu uns pendeln, erhalten am Ende des Jahres einen stattlichen Öko-Bonus ausbezahlt.\n\nZusätzlich bieten wir eine attraktive Pensionskassenlösung an. Auch die Work-Life-Balance wird bei uns gefördert: Wir sind jederzeit offen für Teilzeitarbeit und offerieren die Möglichkeit zum Ferienkauf.",
-      "descriptionByLocale": {
-        "it": "Per il nostro centro unico in Svizzera di neuropsichiatria dello sviluppo e neuropsichiatria (trattamenti per persone con disabilità dello sviluppo intellettivo 18+), nell'attraente sede di Windisch, cerchiamo un adeguato rinforzo a settembre o come concordato. I nostri compiti sono:\n• Garantire un'assistenza psichiatrica e psicoterapeutica moderna e di alta qualità sulla base delle condizioni quadro legali e operative nonché delle raccomandazioni specialistiche (stazionarie, ambulatoriali e ambulatoriali)\n• Guidare il team multiprofessionale e interdisciplinare, tenendo conto dei valori e dei principi gestionali della PDAG\n• Garantire il raggiungimento degli attuali obiettivi annuali e di altri obiettivi quantitativi e qualitativi dell'unità organizzativa\n• Garantire una documentazione attenta e strutturata dei casi\n• Garantire la formazione professionale continua o la \"formazione sul posto di lavoro\" dei dipendenti subordinati nonché l'assistenza alla formazione continua\n• Collaborazione in un team multiprofessionale e interdisciplinare\n• Partecipazione alle offerte di formazione, perfezionamento e perfezionamento della PDAG\n• Relazioni pubbliche e mantenimento della rete nell'ambito di diverse occasioni\n• Partecipazione a progetti, ordini e adattamenti in base alla direzione della clinica\n• Partecipazione al sistema di servizi PDAG Requisiti:\n• Completamento della formazione continua per diventare specialista in psichiatria e psicoterapia\n• Interesse per l'area specialistica di sviluppo e psicoterapia Neuropsichiatria\n• Senso di responsabilità, affidabilità e capacità di lavorare in squadra\n• Elevate competenze sociali, stile di lavoro indipendente ed efficiente nonché elevata resilienza\n• Piacere della collaborazione multiprofessionale e interdisciplinare\n• Identificazione con i nostri valori aziendali: coraggio, impegno e fiducia\n• Ottime capacità di leadership (CAS Leadership)\n• Capacità di gestione strategica e aziendale Offriamo: I nostri dipendenti sono il cuore della nostra azienda. Proprio per questo ti offriamo molto: incoraggiamo fortemente la formazione continua. Investiamo molto anche nella coesione del team e offriamo a tutti i nostri team l'accesso al software \"Moodtalk\", che rafforza la comunicazione del team. Offriamo anche sconti interessanti su marchi rinomati come Ikea, Zalando, Coop, Lidl e molti altri. I dipendenti che si spostano da noi con i mezzi pubblici ricevono a fine anno un impressionante ecobonus. Offriamo anche un'interessante soluzione di cassa pensione. Promuoviamo inoltre l'equilibrio tra lavoro e vita privata: siamo sempre aperti al lavoro part-time e offriamo la possibilità di acquistare una vacanza.",
-        "en": "For our center for developmental and neuropsychiatry (treatments for people with intellectual developmental disabilities 18+), which is unique in Switzerland, at the attractive location in Windisch, we are looking for suitable reinforcement in September or as agreed. Our tasks will be:\n• Ensuring high-quality and contemporary psychiatric-psychotherapeutic care based on legal and operational framework conditions as well as specialist recommendations (inpatient, outpatient and outpatient)\n• Leading the multi-professional and interdisciplinary team, taking values into account and management principles of the PDAG\n• Ensuring the achievement of current annual goals as well as other quantitative and qualitative goals of the organizational unit\n• Ensuring careful, structured case documentation\n• Ensuring professional further training or the \"on-the-job training\" of the subordinate employees as well as further training supervision\n• Collaboration in a multi-professional and interdisciplinary team\n• Participation in PDAG training, further education and training offers\n• Public relations and network maintenance in the context of various occasions\n• Participation in projects, orders and adjustments according to the clinic management\n• Participation in the PDAG service system Requirements:\n• Completed further training to become a specialist in psychiatry and psychotherapy\n• Interest in the specialist area of developmental and psychotherapy Neuropsychiatry\n• Sense of responsibility, reliability and ability to work in a team\n• High social skills, independent and efficient working style as well as high resilience\n• Enjoyment of multi-professional and interdisciplinary collaboration\n• Identification with our company values: courage, commitment and trust\n• Very good leadership skills (CAS Leadership)\n• Strategic and business management skills We offer: Our employees are the heart of our company. That's exactly why we offer you a lot: we strongly encourage further training. We also invest a lot in team cohesion and offer all of our teams access to the “Moodtalk” software, which strengthens team communication. We also offer attractive discounts on well-known brands such as Ikea, Zalando, Coop, Lidl and many more. Employees who commute to us by public transport receive an impressive eco-bonus at the end of the year. We also offer an attractive pension fund solution. We also promote work-life balance: We are always open to part-time work and offer the opportunity to buy a holiday.",
-        "de": "Für unsere schweizweit einzigartiges Zentrum für Entwicklungs- und Neuropsychiatrie (Behandlungen für Menschen mit intellektueller Entwicklungsstörung 18+) am attraktiven Standort Windisch suchen wir per September oder gemäss Vereinbarung eine geeignete Verstärkung als\n\nAufgaben:\n• Gewährleistung einer qualitativ hochstehenden und zeitgemässen psychiatrisch-psychotherapeutischen Versorgung auf der Grundlage von gesetzlichen und betrieblichen Rahmenbedingungen sowie Fachempfehlungen (stationär, aufsuchend und ambulant)\n\n• Führung des multiprofessionellen und interdisziplinären Teams unter Berücksichtigung der Werte und Führungsgrundsätze der PDAG\n\n• Gewährleistung der Zielerreichung aktueller Jahresziele sowie weiterer quantitativen und qualitativen Ziele der Organisationseinheit\n\n• Gewährleistung einer sorgfältigen strukturierten Falldokumentation\n\n• Gewährleistung der fachlichen Weiterbildung bzw. des \"on-the-job Training\" der unterstellten Mitarbeitenden sowie Weiterbildungssupervisionen\n\n• Zusammenarbeit im multiprofessionellen und interdisziplinären Team\n\n• Mitwirkung an Aus-, Weiter- und Fortbildungsangeboten der PDAG\n\n• Öffentlichkeitsarbeit und Netzwerkpflege im Kontext unterschiedlicher Anlässe\n\n• Mitwirkung an Projekten, Aufträgen und Anpassungen gemäss Klinikleitung\n\n• Mitwirkung im Dienstsystem PDAG\n\nAnforderungen:\n• Abgeschlossene Weiterbildung zum Facharzttitel Psychiatrie und Psychotherapie\n\n• Interesse am Spezialbereich Entwicklungs- und Neuropsychiatrie\n\n• Verantwortungsbewusstsein, Zuverlässigkeit und Teamfähigkeit\n\n• Hohe Sozialkompetenzen, selbständiger und effizienter Arbeitsstil sowie hohe Belastbarkeit\n\n• Freude an der multiprofessionellen und interdisziplinären Zusammenarbeit\n\n• Identifikation mit unseren Unternehmenswerten: Mut, Engagement und Vertrauen\n\n• Sehr gute Führungskompetenzen (CAS Leadership)\n\n• Strategische und betriebswirtschaftliche Kompetenzen\n\nWir bieten:\nUnsere Mitarbeitenden sind das Herz unseres Unternehmens. Genau deshalb bieten wir Ihnen auch sehr viel:\n\nWeiterbildungen werden bei uns stark gefördert. Ebenfalls investieren wir viel in den Teamzusammenhalt und bieten allen unseren Teams den Zugang zur Software \"Moodtalk\" an, mit der die Teamkommunikation gestärkt wird. Daneben bieten wir attraktive Vergünstigungen bei bekannten Marken wie Ikea, Zalando, Coop, Lidl und vielen mehr. Mitarbeitende, die mit den öffentlichen Verkehrsmitteln zu uns pendeln, erhalten am Ende des Jahres einen stattlichen Öko-Bonus ausbezahlt.\n\nZusätzlich bieten wir eine attraktive Pensionskassenlösung an. Auch die Work-Life-Balance wird bei uns gefördert: Wir sind jederzeit offen für Teilzeitarbeit und offerieren die Möglichkeit zum Ferienkauf.",
-        "fr": "Pour notre centre de développement et de neuropsychiatrie (traitements pour personnes ayant une déficience intellectuelle du développement de 18 ans et plus), unique en Suisse, situé sur le site attrayant de Windisch, nous recherchons un renfort approprié en septembre ou comme convenu. Nos tâches seront les suivantes :\n• Assurer des soins psychiatriques et psychothérapeutiques contemporains et de haute qualité, sur la base des conditions-cadres juridiques et opérationnelles ainsi que des recommandations des spécialistes (hospitalisés, ambulatoires et ambulatoires)\n• Diriger l'équipe multiprofessionnelle et interdisciplinaire en tenant compte des valeurs et des principes de gestion du PDAG\n• Garantir la réalisation des objectifs annuels actuels ainsi que d'autres objectifs quantitatifs et qualitatifs de l'unité organisationnelle\n• Assurer une documentation de cas minutieuse et structurée\n• Assurer une formation professionnelle continue ou la \"formation sur le terrain\" des collaborateurs subordonnés ainsi que l'encadrement de la formation continue\n• Collaboration au sein d'une équipe multiprofessionnelle et interdisciplinaire\n• Participation aux offres de formation, de formation continue et de formation PDAG\n• Relations publiques et entretien du réseau dans le cadre de diverses occasions\n• Participation à des projets, commandes et adaptations selon la direction de la clinique\n• Participation au système de services PDAG Exigences :\n• Formation continue complète pour devenir spécialiste en psychiatrie et psychothérapie\n• Intérêt pour le domaine spécialisé de la neuropsychiatrie du développement et de la psychothérapie\n• Sens des responsabilités, fiabilité et capacité à travailler en équipe\n• Compétences sociales élevées, style de travail indépendant et efficace ainsi qu'une grande résilience\n• Appréciation de la collaboration multiprofessionnelle et interdisciplinaire\n• Identification aux valeurs de notre entreprise : courage, engagement et confiance\n• Très bonnes compétences en leadership (CAS Leadership)\n• Compétences en matière de stratégie et de gestion d'entreprise Nous offrons : Nos employés sont le cœur de notre entreprise. C'est exactement pourquoi nous vous proposons beaucoup : nous encourageons fortement la formation continue. Nous investissons également beaucoup dans la cohésion d’équipe et proposons à toutes nos équipes l’accès au logiciel « Moodtalk » qui renforce la communication en équipe. Nous proposons également des réductions intéressantes sur des marques connues telles que Ikea, Zalando, Coop, Lidl et bien d'autres encore. Les collaborateurs qui se rendent chez nous en transports en commun reçoivent un éco-bonus impressionnant à la fin de l'année. Nous proposons également une solution de prévoyance attractive. Nous promouvons également l'équilibre entre vie professionnelle et vie privée : nous sommes toujours ouverts au travail à temps partiel et offrons la possibilité d'acheter des vacances."
-      },
-      "location": "Windisch",
-      "canton": "AG",
-      "url": "https://jobs.pdag.ch/offene-stellen/leitende-aerztin-leitender-arzt/bbfaabdc-3515-437c-9cc0-6c704a1ab7a4",
-      "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:08:58.930Z",
-      "addressLocality": "Windisch",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5210",
-      "streetAddress": "Königsfelderstrasse 1",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-17",
-      "applyUrl": "https://jobs.pdag.ch/offene-stellen/leitende-aerztin-leitender-arzt/bbfaabdc-3515-437c-9cc0-6c704a1ab7a4",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "leitende-arztin-leitender-arzt-pdag-windisch",
-        "leitende-arztin-leitender-arzt-pdag-windisch-xsqv7c"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leitende-arztin-leitender-arzt-pdag-windisch"
-        ],
-        "de": [
-          "leitende-arztin-leitender-arzt-pdag-windisch-xsqv7c"
-        ]
-      },
-      "firstSeenAt": "2026-06-11T13:15:23.523Z",
-      "salaryMin": 119000,
-      "salaryMax": 166000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 119000,
-          "maxValue": 166000,
-          "unitText": "YEAR"
-        }
-      },
-      "needsRetranslation": true
-    },
-    {
       "id": "pdag-c9dbd6ed65a5",
       "slug": "squadra-di-guardia-notturna-specialista-della-salute-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
@@ -4656,7 +4575,7 @@
       "companyDomain": "pdag.ch",
       "title": "Psychologin / Psychologe Ambulatorium",
       "titleByLocale": {
-        "it": "Psychologin / Psychologe Ambulatorium",
+        "it": "Psicologo/psicologo Ambulatorium",
         "en": "Psychologist/psychologist Ambulatorium",
         "de": "Psychologin / Psychologe Ambulatorium",
         "fr": "Psychologue/psychologue Ambulatoire"
@@ -4712,8 +4631,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "pdag-c6ced0282782",
@@ -5051,7 +4969,7 @@
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Akutstation KJP",
       "titleByLocale": {
         "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Akutstation KJP",
-        "en": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Akutstation KJP",
+        "en": "Dipl. Nursing professional / Dipl. Care specialist acute care unit KJP",
         "it": "Dipl. Infermieristica professionale / Dipl. Cura specialista unità di cura acuta KJP",
         "fr": "Dipl. Professionnels des soins infirmiers / Dipl. Unité de soins actifs KJP"
       },
@@ -5111,80 +5029,6 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-dipl-pflegefachmann-akutstation-kjp-pdag-windisch"
-      ]
-    },
-    {
-      "id": "pdag-fec4674b62bd",
-      "slug": "oberarztin-oberarzt-pdag-windisch-2",
-      "slugByLocale": {
-        "de": "oberarztin-oberarzt-pdag-windisch",
-        "it": "oberarztin-oberarzt-pdag-windisch-2",
-        "en": "oberarztin-oberarzt-pdag-windisch-2",
-        "fr": "oberarztin-oberarzt-pdag-windisch-2"
-      },
-      "company": "Psychiatrische Dienste Aargau (PDAG)",
-      "companyKey": "pdag",
-      "companyDomain": "pdag.ch",
-      "title": "Oberärztin / Oberarzt",
-      "titleByLocale": {
-        "de": "Oberärztin / Oberarzt",
-        "it": "medico senior / medico senior",
-        "en": "Senior physician / senior physician",
-        "fr": "Médecin supérieur / Médecin supérieur"
-      },
-      "description": "Für unsere Station KJP-1 (Akutbereich und Bereich für START NOW Behandlung) suchen wir per sofort oder nach Vereinbarung Sie als\n\nAufgaben:\n• Sie leiten die Akutstation und stellen den Betrieb fachlich, administrativ und betriebswirtschaftlich sicher\n\n• Gemeinsam mit dem Co-Leitungsteam Pflege/Sozialpädagogik führen Sie personell und fachlich ein interdisziplinäres Team mit einer ärztlichen, psychologischen, pflegerischen und sozialpädagogischen Belegschaft\n\n• Sie stellen neue Mitarbeitende an, unterstützen, entwickeln und qualifizieren ihr Team\n\n• Sie arbeiten mit der Gesamtleitung des stationären Bereichs zusammen, sowie weiteren Abteilungen der KJP und externen Partnern\n\n• Sie arbeiten an der übergeordneten Entwicklung von institutionellen und fachlichen Haltungen mit und setzen diese in Ihrem Team um\n\n• Sie beteiligen sich am Hintergrund-Notfalldienst der Klinik für Kinder- und Jugendpsychiatrie und Psychotherapie\n\nAnforderungen:\n• Sie verfügen über einen Facharzttitel für Kinder- und Jugendpsychiatrie und Psychotherapie FMH, befinden sich kurz vor dessen Abschluss oder haben einen äquivalenten MEBEKO anerkannten Abschluss\n\n• Sie haben eine Führungsausbildung oder sind bereit, eine solche zu absolvieren\n\n• Sie fördern interdisziplinäres Arbeiten und sind offen für integrative Therapiekonzepte\n\n• Sie zeichnen sich durch Eigeninitiative, hohe Sozialkompetenz und situationsgerechte Kommunikation wie auch Flexibilität und Belastbarkeit aus\n\nWir bieten:\nUnsere Mitarbeitenden sind das Herz unseres Unternehmens. Genau deshalb bieten wir Ihnen auch sehr viel:\n\nWeiterbildungen werden bei uns stark gefördert. Ebenfalls investieren wir viel in den Teamzusammenhalt und bieten allen unseren Teams den Zugang zur Software \"Moodtalk\" an, mit der die Teamkommunikation gestärkt wird. Daneben bieten wir attraktive Vergünstigungen bei bekannten Marken wie Ikea, Zalando, Coop, Lidl und vielen mehr. Mitarbeitende, die mit den öffentlichen Verkehrsmitteln zu uns pendeln, erhalten am Ende des Jahres einen stattlichen Öko-Bonus ausbezahlt.\n\nZusätzlich bieten wir eine attraktive Pensionskassenlösung an. Auch die Work-Life-Balance wird bei uns gefördert: Wir sind jederzeit offen für Teilzeitarbeit und offerieren die Möglichkeit zum Ferienkauf.",
-      "descriptionByLocale": {
-        "de": "Für unsere Station KJP-1 (Akutbereich und Bereich für START NOW Behandlung) suchen wir per sofort oder nach Vereinbarung Sie als\n\nAufgaben:\n• Sie leiten die Akutstation und stellen den Betrieb fachlich, administrativ und betriebswirtschaftlich sicher\n\n• Gemeinsam mit dem Co-Leitungsteam Pflege/Sozialpädagogik führen Sie personell und fachlich ein interdisziplinäres Team mit einer ärztlichen, psychologischen, pflegerischen und sozialpädagogischen Belegschaft\n\n• Sie stellen neue Mitarbeitende an, unterstützen, entwickeln und qualifizieren ihr Team\n\n• Sie arbeiten mit der Gesamtleitung des stationären Bereichs zusammen, sowie weiteren Abteilungen der KJP und externen Partnern\n\n• Sie arbeiten an der übergeordneten Entwicklung von institutionellen und fachlichen Haltungen mit und setzen diese in Ihrem Team um\n\n• Sie beteiligen sich am Hintergrund-Notfalldienst der Klinik für Kinder- und Jugendpsychiatrie und Psychotherapie\n\nAnforderungen:\n• Sie verfügen über einen Facharzttitel für Kinder- und Jugendpsychiatrie und Psychotherapie FMH, befinden sich kurz vor dessen Abschluss oder haben einen äquivalenten MEBEKO anerkannten Abschluss\n\n• Sie haben eine Führungsausbildung oder sind bereit, eine solche zu absolvieren\n\n• Sie fördern interdisziplinäres Arbeiten und sind offen für integrative Therapiekonzepte\n\n• Sie zeichnen sich durch Eigeninitiative, hohe Sozialkompetenz und situationsgerechte Kommunikation wie auch Flexibilität und Belastbarkeit aus\n\nWir bieten:\nUnsere Mitarbeitenden sind das Herz unseres Unternehmens. Genau deshalb bieten wir Ihnen auch sehr viel:\n\nWeiterbildungen werden bei uns stark gefördert. Ebenfalls investieren wir viel in den Teamzusammenhalt und bieten allen unseren Teams den Zugang zur Software \"Moodtalk\" an, mit der die Teamkommunikation gestärkt wird. Daneben bieten wir attraktive Vergünstigungen bei bekannten Marken wie Ikea, Zalando, Coop, Lidl und vielen mehr. Mitarbeitende, die mit den öffentlichen Verkehrsmitteln zu uns pendeln, erhalten am Ende des Jahres einen stattlichen Öko-Bonus ausbezahlt.\n\nZusätzlich bieten wir eine attraktive Pensionskassenlösung an. Auch die Work-Life-Balance wird bei uns gefördert: Wir sind jederzeit offen für Teilzeitarbeit und offerieren die Möglichkeit zum Ferienkauf.",
-        "it": "Per la nostra stazione KJP-1 (area di ingresso e area per il trattamento START NOW) stiamo cercando come\n\nCompiti:\n• Gestisci l'unità di cura acuta e assicurati l'operazione in modo professionale, amministrativo ed economico\n\n• Insieme alla pedagogia infermieristica/sociale, guidate un team interdisciplinare con una forza lavoro medica, psicologica, infermieristica e socio-pedagogica.\n\n• Assumono nuovi dipendenti, supportano, sviluppano e qualificano il loro team\n\n• Lavorano insieme alla gestione complessiva dell'area stazionaria, così come altri dipartimenti del KJP e dei partner esterni\n\n• Si lavora sullo sviluppo eccessivo di atteggiamenti istituzionali e professionali e implementarli nel vostro team\n\n• Partecipate al servizio di emergenza di fondo della clinica per la psichiatria infantile e adolescente e la psicoterapia\n\nRequisiti\n• Hai un titolo specialistico in psichiatria infantile e adolescente e psicoterapia FMH, sono vicino alla laurea o hanno un equivalente MEBEKO riconosciuto grado\n\n• Hai una formazione di leadership o sei pronto a completare uno\n\n• Promuovano il lavoro interdisciplinare e sono aperti ai concetti di terapia integrativa\n\n• Esse sono caratterizzate da una propria iniziativa, da un'alta capacità sociale e da una comunicazione situosa, dalla flessibilità e dalla resilienza.\n\nOffriamo:\nI nostri dipendenti sono il cuore della nostra azienda. Ecco perché vi offriamo molto:\n\nL'istruzione superiore è fortemente incoraggiata qui. Investiamo anche molto nella coesione del team e offriamo a tutti i nostri team l'accesso al software \"Moodtalk\", che rafforza la comunicazione del team. Inoltre, offriamo interessanti sconti per marchi noti come Ikea, Zalando, Coop, Lidl e molti altri. I dipendenti che ci commutano con i mezzi pubblici riceveranno un bel bonus ecologico alla fine dell'anno.\n\nInoltre, offriamo una soluzione di fondo pensione attraente. Promuoviamo anche l'equilibrio della vita lavorativa: Siamo sempre aperti al lavoro part-time e offriamo l'opportunità di acquistare vacanze.",
-        "en": "For our station KJP-1 (acute area and area for START NOW treatment) we are looking for you as\n\nTasks:\n• You manage the acute care unit and ensure the operation professionally, administratively and economically\n\n• Together with the co-leading team nursing/social pedagogy, you lead an interdisciplinary team with a medical, psychological, nursing and socio-pedagogical workforce.\n\n• They hire new employees, support, develop and qualify their team\n\n• They work together with the overall management of the stationary area, as well as other departments of the KJP and external partners\n\n• You work on the overarching development of institutional and professional attitudes and implement them in your team\n\n• You participate in the background emergency service of the clinic for child and adolescent psychiatry and psychotherapy\n\nRequirements\n• You have a specialist title in child and adolescent psychiatry and psychotherapy FMH, are close to graduation or have an equivalent MEBEKO recognised degree\n\n• You have a leadership education or are ready to complete one\n\n• They promote interdisciplinary work and are open to integrative therapy concepts\n\n• They are characterised by their own initiative, high social skills and situational communication as well as flexibility and resilience.\n\nWe offer:\nOur employees are the heart of our company. This is why we offer you a lot:\n\nFurther education is strongly encouraged here. We also invest a lot in team cohesion and offer all our teams access to the software \"Moodtalk\", which strengthens team communication. In addition, we offer attractive discounts for well-known brands such as Ikea, Zalando, Coop, Lidl and many more. Employees who commute to us by public transport will receive a handsome eco bonus at the end of the year.\n\nIn addition, we offer an attractive pension fund solution. We also promote work-life balance: We are always open to part-time work and offer the opportunity to buy holidays.",
-        "fr": "Pour notre station KJP-1 (zone d'aiguë et zone pour le traitement START NOW), nous vous recherchons comme\n\nTâches :\n• Vous gérez l'unité de soins actifs et assurez l'opération professionnellement, administrativement et économiquement\n\n• En collaboration avec l'équipe codirigeante infirmière/pédagogie sociale, vous dirigez une équipe interdisciplinaire avec une main-d'œuvre médicale, psychologique, infirmière et sociopédagogique.\n\n• Ils embauchent de nouveaux employés, soutiennent, développent et qualifient leur équipe\n\n• Ils travaillent en collaboration avec la gestion globale de la zone stationnaire, ainsi qu'avec d'autres départements du KJP et des partenaires externes.\n\n• Vous travaillez sur le développement global des attitudes institutionnelles et professionnelles et les mettre en œuvre dans votre équipe\n\n• Vous participez au service d'urgence de la clinique de psychiatrie et de psychothérapie pour enfants et adolescents\n\nExigences\n• Vous avez un titre spécialisé en psychiatrie de l'enfant et de l'adolescent et psychothérapie FMH, êtes proche de l'obtention du diplôme ou avez un diplôme MEBEKO équivalent reconnu\n\n• Vous avez une formation en leadership ou êtes prêt à en terminer une\n\n• Ils favorisent le travail interdisciplinaire et sont ouverts aux concepts de thérapie intégrative\n\n• Ils se caractérisent par leur propre initiative, des compétences sociales élevées et la communication situationnelle ainsi que la flexibilité et la résilience.\n\nNous offrons:\nNos employés sont au cœur de notre entreprise. C'est pourquoi nous vous offrons beaucoup:\n\nLa formation continue est fortement encouragée ici. Nous investissons également beaucoup dans la cohésion d'équipe et offrons à toutes nos équipes un accès au logiciel \"Moodtalk\", qui renforce la communication d'équipe. En outre, nous offrons des réductions attrayantes pour des marques bien connues telles que Ikea, Zalando, Coop, Lidl et bien d'autres. Les employés qui voyagent vers nous en transport public recevront un beau bonus écologique à la fin de l'année.\n\nEn outre, nous offrons une solution attrayante de fonds de pension. Nous favorisons également l'équilibre entre le travail et la vie personnelle : Nous sommes toujours ouverts au travail à temps partiel et offrons la possibilité d'acheter des vacances."
-      },
-      "location": "Windisch",
-      "canton": "AG",
-      "url": "https://jobs.pdag.ch/offene-stellen/oberaerztin-oberarzt/9833f6bf-9a58-4c52-a805-bf7088491f36",
-      "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Prospective medium 1000003)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-25T15:08:58.897Z",
-      "addressLocality": "Windisch",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5210",
-      "streetAddress": "Königsfelderstrasse 1",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-24",
-      "applyUrl": "https://jobs.pdag.ch/offene-stellen/oberaerztin-oberarzt/9833f6bf-9a58-4c52-a805-bf7088491f36",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-06-11T11:20:03.561Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "oberarztin-oberarzt-pdag-windisch"
-        ]
-      },
-      "previousSlugs": [
-        "oberarztin-oberarzt-pdag-windisch"
       ]
     },
     {

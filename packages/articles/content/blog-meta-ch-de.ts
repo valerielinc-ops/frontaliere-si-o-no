@@ -6779,6 +6779,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mobilitazione-esercito-ponte.title': 'Die Schweizer Armee testet die schnelle Mobilisierung',
     'blog.article.mobilitazione-esercito-ponte.excerpt': 'MOBILO 26 umfasste rund 3\'000 Angehörige der Armee, 300 Radfahrzeuge und 50 Panzerfahrzeuge von Bière nach Frauenfeld mit einer schwimmenden Brücke.',
     'blog.article.mobilitazione-esercito-ponte.imageAlt': 'Schweizer Soldaten bauen bei MOBILO 26 eine schwimmende Brücke',
+    'blog.article.dertour-suisse-ripresa-fatturato.title': 'Dertour Suisse will die Umsatzmilliarde übertreffen',
+    'blog.article.dertour-suisse-ripresa-fatturato.excerpt': 'Dertour Suisse strebt an, 1 Milliarde Franken zu überschreiten, bei den Sommerbuchungen 2026 entfallen 14% auf gemäßigte Reiseziele und in 4‑6 Jahren werden über 20% erwartet; 124 Filialen, 1750 Mitarbeitende, Abbau von 250 Stellen bis Ende 2027.',
+    'blog.article.dertour-suisse-ripresa-fatturato.imageAlt': 'Der Luganer See mit Segelbooten und Alpen im Hintergrund, Symbol des schweizerischen Tourismus.',
+    'blog.article.svizzera-auto-elettriche-classifica.title': 'Elektroautos: Die Schweiz fällt in Europa auf den 16. Platz',
+    'blog.article.svizzera-auto-elettriche-classifica.excerpt': '2019 lag die Schweiz bei der Elektrifizierung an fünfter Stelle, Ende 2025 am 13. und Mitte 2026 am 16.; ein Viertel der Neuzulassungen ist rein elektrisch.',
+    'blog.article.svizzera-auto-elettriche-classifica.imageAlt': 'Modernes Elektro‑SUV neben einer Ladestation in einer Schweizer Alpenlandschaft geparkt.',
 };
 
 export default blogMetaChDe;

@@ -275,6 +275,7 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(launchScript).toContain('expected_labels+=(input-injection)');
     expect(launchScript).toContain('expected_labels+=(locale-segments)');
     expect(launchScript).toContain('expected_labels+=(evergreen-topics)');
+    expect(launchScript).toContain('expected_labels+=(twin-imports)');
     expect(launchScript).not.toContain('>> "$state_dir/labels"');
     expect(collectScript).toContain('expected_file="$state_dir/expected-labels"');
     expect(collectScript).toContain('expected roster is missing or empty');

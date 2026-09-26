@@ -6779,6 +6779,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mobilitazione-esercito-ponte.title': 'L\'armée suisse teste la mobilisation rapide',
     'blog.article.mobilitazione-esercito-ponte.excerpt': 'MOBILO 26 a mobilisé environ 3\'000 militaires, 300 véhicules à roues et 50 véhicules blindés de Bière à Frauenfeld, avec un pont flottant.',
     'blog.article.mobilitazione-esercito-ponte.imageAlt': 'Des militaires suisses assemblent un pont flottant pendant MOBILO 26',
+    'blog.article.dertour-suisse-ripresa-fatturato.title': 'Dertour Suisse vise à dépasser le milliard de chiffre d\'affaires',
+    'blog.article.dertour-suisse-ripresa-fatturato.excerpt': 'Dertour Suisse vise à dépasser 1 milliard de francs, les réservations estivales 2026 affichent 14 % pour des destinations tempérées et prévoit plus de 20 % dans 4‑6 ans ; 124 agences, 1750 employés, suppression de 250 postes d’ici fin 2027.',
+    'blog.article.dertour-suisse-ripresa-fatturato.imageAlt': 'Le lac de Lugano avec des voiliers et des montagnes en arrière-plan, symbole du tourisme suisse.',
+    'blog.article.svizzera-auto-elettriche-classifica.title': 'Voitures électriques : la Suisse descend à la 16e place en Europe',
+    'blog.article.svizzera-auto-elettriche-classifica.excerpt': 'En 2019, la Suisse était cinquième pour l\'électrification, fin 2025 au 13e et mi-2026 au 16e ; un quart des nouvelles immatriculations est purement électrique.',
+    'blog.article.svizzera-auto-elettriche-classifica.imageAlt': 'SUV électrique moderne garé près d\'une station de recharge dans un décor alpin suisse.',
 };
 
 export default blogMetaChFr;

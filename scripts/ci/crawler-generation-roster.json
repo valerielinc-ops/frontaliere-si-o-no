@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 624,
+  "crawlerCount": 626,
   "groups": {
     "10": [
       "atec-personal",
@@ -400,6 +400,7 @@
       "albergo-gardenia",
       "artificialy",
       "brefispersonal",
+      "christinavassalli",
       "csd-engineers",
       "ecam",
       "fust",
@@ -408,7 +409,8 @@
       "migros-hq",
       "nestle",
       "posta-svizzera-centro-regionale",
-      "postauto"
+      "postauto",
+      "premiumpflege24"
     ],
     "24": [
       "anicura",
@@ -782,6 +784,7 @@
     "cham-swiss-properties": "data/jobs/by-crawler/cham-swiss-properties.json",
     "chicco-doro": "data/jobs/by-crawler/chicco-doro.json",
     "chopard": "data/jobs/by-crawler/chopard.json",
+    "christinavassalli": "data/jobs/by-crawler/christinavassalli.json",
     "cippatrasporti": "data/jobs/by-crawler/cippatrasporti.json",
     "citta-di-bellinzona": "data/jobs/by-crawler/citta-di-bellinzona.json",
     "citta-di-locarno": "data/jobs/by-crawler/citta-di-locarno.json",
@@ -1111,6 +1114,7 @@
     "postauto": "data/jobs/by-crawler/postauto.json",
     "postfinance": "data/jobs/by-crawler/postfinance.json",
     "prada": "data/jobs/by-crawler/prada.json",
+    "premiumpflege24": "data/jobs/by-crawler/premiumpflege24.json",
     "privatklinik-bethanien": "data/jobs/by-crawler/privatklinik-bethanien.json",
     "privatklinik-hohenegg": "data/jobs/by-crawler/privatklinik-hohenegg.json",
     "privatklinik-meiringen": "data/jobs/by-crawler/privatklinik-meiringen.json",
@@ -1302,5 +1306,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:fafef249451f285254d1a3603cb5adcb48f1832e95cd412a3f3bbc8dba7b415e"
+  "digest": "sha256:955c0cc302f3930558ab5e17058bb87590c9f22ee0c9062bf5b2b6547a8aaf63"
 }

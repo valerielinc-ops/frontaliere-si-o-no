@@ -6779,6 +6779,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mobilitazione-esercito-ponte.title': 'The Swiss army tests rapid mobilization',
     'blog.article.mobilitazione-esercito-ponte.excerpt': 'MOBILO 26 involved approximately 3\'000 soldiers, 300 wheeled vehicles and 50 armored vehicles from Bière to Frauenfeld, with a floating bridge.',
     'blog.article.mobilitazione-esercito-ponte.imageAlt': 'Swiss soldiers assemble a floating bridge during exercise MOBILO 26',
+    'blog.article.dertour-suisse-ripresa-fatturato.title': 'Dertour Suisse aims to surpass one billion in revenue',
+    'blog.article.dertour-suisse-ripresa-fatturato.excerpt': 'Dertour Suisse aims to exceed 1 billion francs, summer 2026 bookings show 14% for moderate destinations and it expects over 20% in 4‑6 years; branches 124, employees 1750, 250 positions to be cut by the end of 2027.',
+    'blog.article.dertour-suisse-ripresa-fatturato.imageAlt': 'Lake Lugano with sailboats and mountains in the background, symbol of Swiss tourism.',
+    'blog.article.svizzera-auto-elettriche-classifica.title': 'Electric cars: Switzerland drops to 16th place in Europe',
+    'blog.article.svizzera-auto-elettriche-classifica.excerpt': 'In 2019, Switzerland ranked fifth for electrification, by the end of 2025 it was 13th and by mid-2026 16th; one quarter of new registrations are fully electric.',
+    'blog.article.svizzera-auto-elettriche-classifica.imageAlt': 'Modern electric SUV parked beside a charging station in a Swiss Alpine setting.',
 };
 
 export default blogMetaChEn;

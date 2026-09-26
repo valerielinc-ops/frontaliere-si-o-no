@@ -28,6 +28,45 @@ export const ITALY_DUTY_MINIMUM_CALENDAR_DAYS = 300;
  */
 export const ITALY_DUTY_COVERAGE_MODELS = Object.freeze(['full-calendar', 'corrections-only']);
 export const ITALY_DUTY_PUBLICATION_CLASSES = Object.freeze(['required', 'best-effort']);
+export const VCO_MIRROR_READER_HOST = 'r.jina.ai';
+
+/**
+ * The VCO PDF is official, but its host is unreachable from GitHub Actions
+ * egress.  Keep the configured rescue path narrow: it must be the existing
+ * Jina Reader endpoint and it must target the same official ASL document.
+ * Returning an error instead of silently accepting an arbitrary proxy keeps
+ * the source registry fail-closed.
+ */
+export function vcoMirrorUrlError(source) {
+  if (source?.province !== 'VB') {
+    return source?.vcoMirrorUrl === undefined
+      ? null
+      : 'vcoMirrorUrl is only allowed for the VB source';
+  }
+  if (typeof source?.vcoMirrorUrl !== 'string' || !source.vcoMirrorUrl.trim()) {
+    return 'vcoMirrorUrl is required for the VB source';
+  }
+  try {
+    const official = new URL(source.officialSourceUrl);
+    const mirror = new URL(source.vcoMirrorUrl);
+    if (mirror.protocol !== 'https:' || mirror.hostname !== VCO_MIRROR_READER_HOST) {
+      return `vcoMirrorUrl must use HTTPS ${VCO_MIRROR_READER_HOST}`;
+    }
+    const targetText = decodeURIComponent(mirror.pathname.slice(1));
+    const target = new URL(targetText);
+    if (!['http:', 'https:'].includes(target.protocol)
+      || target.hostname !== official.hostname
+      || target.pathname !== official.pathname) {
+      return 'vcoMirrorUrl must target the official VCO document path';
+    }
+    if (mirror.search || mirror.hash || target.search || target.hash) {
+      return 'vcoMirrorUrl must not carry proxy or target query parameters';
+    }
+  } catch {
+    return 'vcoMirrorUrl is not a valid Jina Reader URL';
+  }
+  return null;
+}
 
 /** Modello di copertura dichiarato dalla fonte; default fail-closed. */
 export function sourceCoverageModel(source) {
@@ -307,6 +346,7 @@ function validOfficialSource(source) {
     && typeof source.format === 'string'
     && ITALY_DUTY_COVERAGE_MODELS.includes(sourceCoverageModel(source))
     && ITALY_DUTY_PUBLICATION_CLASSES.includes(sourcePublicationClass(source))
+    && !vcoMirrorUrlError(source)
     // Il minimo in giorni-calendario vale solo per una fonte che PUBBLICA un
     // calendario completo. Una fonte corrections-only non puo' soddisfarlo per
     // costruzione, quindi pretenderlo la rendeva "invalid official source".

@@ -20363,6 +20363,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'dertour-suisse-ripresa-fatturato',
+    category: 'novita',
+    date: '2026-09-26T12:56:20.054Z',
+    image: '/images/blog/dertour-suisse-ripresa-fatturato.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'svizzera-auto-elettriche-classifica',
+    category: 'pratico',
+    date: '2026-09-26T13:50:34.383Z',
+    image: '/images/blog/svizzera-auto-elettriche-classifica.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

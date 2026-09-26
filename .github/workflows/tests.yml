@@ -1744,6 +1744,15 @@ jobs:
           RUN_INPUT_INJECTION: ${{ steps.body_contract.outcome != 'failure' }}
           RUN_LOCALE_SEGMENTS: ${{ steps.body_contract.outcome != 'failure' }}
           RUN_EVERGREEN_TOPICS: ${{ steps.body_contract.outcome != 'failure' }}
+          # Solo sulle PR e nella merge queue, con la base passata esplicitamente:
+          # `pull_request.base.sha` sulle PR, `merge_group.base_sha` nella coda,
+          # cosi' il confronto copre tutti i commit della PR qualunque sia la
+          # forma del checkout. Un gemello `identical` che acquista un import che
+          # il corpus non ha rompe il trasporto (corpus #1890); su main il
+          # difetto e' gia' entrato e lo segnala il controllo giornaliero
+          # corpus-ahead-check.
+          RUN_TWIN_IMPORTS: ${{ steps.body_contract.outcome != 'failure' && (github.event_name == 'pull_request' || github.event_name == 'merge_group') }}
+          TWIN_GATE_BASE: ${{ github.event.pull_request.base.sha || github.event.merge_group.base_sha }}
         run: |
           set -euo pipefail
           state_dir="${RUNNER_TEMP}/tests-independent-gates"
@@ -1766,6 +1775,9 @@ jobs:
           fi
           if [ "$RUN_EVERGREEN_TOPICS" = "true" ]; then
             expected_labels+=(evergreen-topics)
+          fi
+          if [ "$RUN_TWIN_IMPORTS" = "true" ]; then
+            expected_labels+=(twin-imports)
           fi
           if [ "${#expected_labels[@]}" -eq 0 ]; then
             echo "::error::independent gate roster is empty"
@@ -1818,6 +1830,12 @@ jobs:
           fi
           if [ "$RUN_EVERGREEN_TOPICS" = "true" ]; then
             start_gate evergreen-topics 'npm run check:evergreen-comune-topics'
+          fi
+          if [ "$RUN_TWIN_IMPORTS" = "true" ]; then
+            # Apici singoli voluti: TWIN_GATE_BASE si espande quando il gate gira
+            # in background, dall'env dello step, non qui.
+            # shellcheck disable=SC2016
+            start_gate twin-imports 'node scripts/ci/identical-twin-import-gate.mjs ${TWIN_GATE_BASE:+--base "$TWIN_GATE_BASE"}'
           fi
 
       # ══════════════════════════════════════════════════════════════════════
@@ -3316,16 +3334,138 @@ jobs:
             echo "::error::Claude review aborted on a 429 (quota/rate-limit) without posting a review — failing so stale-pr-rescuer can re-run the completed run. No shared quota lease blocked this review."
             exit 1
           fi
+          # A provider may wrap the terminal marker in a structured envelope
+          # (or add a nested error record) without changing the action's
+          # compatibility output. Inspect the records before the generic
+          # action-failure branch below: otherwise a retryable 429/5xx marker
+          # is treated as non-retryable and the stale-review recovery path is
+          # never armed. Keep `rate_limit_info.status` authoritative for quota
+          # markers; `overageStatus` alone is not a terminal 429.
+          structured_marker=$(
+            EXEC_FILE="${EXEC_FILE:-}" node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+
+          const file = process.env.EXEC_FILE || '';
+          if (!file || !fs.existsSync(file)) process.exit(0);
+
+          let raw = '';
+          try {
+            raw = fs.readFileSync(file, 'utf8');
+          } catch {
+            process.exit(0);
+          }
+
+          const records = [];
+          const addRecord = (value) => {
+            if (value && typeof value === 'object') records.push(value);
+          };
+
+          for (const line of raw.split(/\r?\n/u)) {
+            const text = line.trim();
+            if (!text) continue;
+            try {
+              addRecord(JSON.parse(text));
+            } catch {
+              // A truncated NDJSON line is handled by the remaining records and the
+              // legacy grep fallback below.
+            }
+          }
+          if (records.length === 0) {
+            try {
+              addRecord(JSON.parse(raw));
+            } catch {
+              process.exit(0);
+            }
+          }
+
+          const statusKeys = new Set([
+            'status',
+            'statuscode',
+            'httpstatus',
+            'httpstatuscode',
+            'apierrorstatus',
+          ]);
+          const textKeys = new Set([
+            'code',
+            'classification',
+            'detail',
+            'error',
+            'kind',
+            'marker',
+            'message',
+            'reason',
+            'subtype',
+            'type',
+          ]);
+          let rateLimit = false;
+          let retryable5xx = false;
+          const seen = new Set();
+
+          function normalizedKey(key) {
+            return String(key).toLowerCase().replaceAll('_', '').replaceAll('-', '');
+          }
+
+          function visit(value) {
+            if (!value || typeof value !== 'object' || seen.has(value)) return;
+            seen.add(value);
+            if (Array.isArray(value)) {
+              for (const child of value) visit(child);
+              return;
+            }
+
+            const record = /** @type {Record<string, unknown>} */ (value);
+            const info = record.rate_limit_info;
+            if (info && typeof info === 'object' && info.status === 'rejected') {
+              rateLimit = true;
+            }
+
+            for (const [key, child] of Object.entries(record)) {
+              const normalized = normalizedKey(key);
+              if (statusKeys.has(normalized)) {
+                const status = Number(child);
+                if (Number.isInteger(status)) {
+                  if (status === 429) rateLimit = true;
+                  if (status >= 500 && status <= 599) retryable5xx = true;
+                }
+              }
+              if (typeof child === 'string' && textKeys.has(normalized)) {
+                const text = child.toLowerCase();
+                if (text === 'rate_limit' || text === 'rate-limit') rateLimit = true;
+                if (/overloaded|server_error|internal server error|api error:\s*5/u.test(text)) {
+                  retryable5xx = true;
+                }
+              }
+              visit(child);
+            }
+          }
+
+          for (const record of records) visit(record);
+          if (rateLimit) process.stdout.write('rate_limit\n');
+          else if (retryable5xx) process.stdout.write('retryable_5xx\n');
+          NODE
+          )
+          case "${structured_marker:-}" in
+            rate_limit)
+              echo "::error::Claude review aborted on a structured 429/rate-limit marker — failing so stale-pr-rescuer can re-run the completed run."
+              exit 1
+              ;;
+            retryable_5xx)
+              echo "::error::Claude review aborted on a structured transient 5xx marker — failing so stale-pr-rescuer can re-run the completed run."
+              exit 1
+              ;;
+          esac
+          # Preserve the older textual 5xx shape for action versions that did
+          # not emit a parseable JSON record. This must also precede the generic
+          # failure branch, otherwise REVIEW_OUTCOME=failure masks the retry.
+          if [ -n "${EXEC_FILE:-}" ] && [ -f "${EXEC_FILE}" ] \
+             && grep -qE '"is_error"[[:space:]]*:[[:space:]]*true' "${EXEC_FILE}" \
+             && grep -qiE '"api_error_status"[[:space:]]*:[[:space:]]*5[0-9][0-9]|overloaded|server_error|internal server error|api error: 5' "${EXEC_FILE}"; then
+            echo "::error::Claude review aborted on a transient 5xx API error without posting a review — re-run this job."
+            exit 1
+          fi
           if [ "${REVIEW_OUTCOME}" = "failure" ]; then
             echo "::error::Codex review action failed (outcome=failure) — re-run this job."
             exit 1
-          fi
-          if [ -n "${EXEC_FILE:-}" ] && [ -f "${EXEC_FILE}" ]; then
-            if grep -qE '"is_error"[[:space:]]*:[[:space:]]*true' "${EXEC_FILE}" \
-               && grep -qiE '"api_error_status"[[:space:]]*:[[:space:]]*5[0-9][0-9]|overloaded|server_error|internal server error|api error: 5' "${EXEC_FILE}"; then
-              echo "::error::Codex review aborted on a transient 5xx API error without posting a review — re-run this job."
-              exit 1
-            fi
           fi
           echo "Review step completed without an unrecovered transient API error."
 

@@ -12058,6 +12058,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incendio-capannone-turate.title': 'Brand in Turate, Angst um die Tiere in der Lagerhalle',
     'blog.article.incendio-capannone-turate.excerpt': 'Brand in einem landwirtschaftlichen Betrieb von Turate: Rauch kilometerweit sichtbar, Verkehr zwischen Turate und Cislago verlangsamt und möglicherweise Tiere in der Halle.',
     'blog.article.incendio-capannone-turate.imageAlt': 'Dichter Rauch über einem Landwirtschaftsbetrieb beim Brand in Turate',
+    'blog.article.arresto-mente-bennet-tavernola.title': 'Raubüberfall bei Bennet: mutmaßlicher Drahtzieher im Tessin festgenommen',
+    'blog.article.arresto-mente-bennet-tavernola.excerpt': 'Ein 32-jähriger Einwohner von Bellinzona und ein 25-jähriger aus Monza wurden für den Raubüberfall im Juweliergeschäft Stroili del Bennet in Tavernola verhaftet.',
+    'blog.article.arresto-mente-bennet-tavernola.imageAlt': 'Verdächtiger aus der Region Bellinzona wegen Juwelierraub in Tavernola festgenommen',
+    'blog.article.protesta-impianto-betonaggio-intelvi.title': 'Protest in Castiglione d\'Intelvi gegen Betonmischanlage',
+    'blog.article.protesta-impianto-betonaggio-intelvi.excerpt': 'Mehr als 750 Unterschriften in sechs Tagen gegen die in Castiglione d\'Intelvi für die Variante der Tremezzina geplante Betonmischanlage und Brecheranlage.',
+    'blog.article.protesta-impianto-betonaggio-intelvi.imageAlt': 'Landschaft des Intelvi-Tals mit engen, gewundenen Straßen',
 };
 
 export default blogMetaDe;
