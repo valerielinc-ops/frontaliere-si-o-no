@@ -392,7 +392,9 @@ export default function RewardedApplicationOffer({
       },
       onStalled: ({ shownMs, root }) => {
         // Telemetry only: the observer keeps following the Offerwall, and
-        // time on screen never counts as a reward.
+        // time on screen never counts as a reward. After the GPT opt-in a
+        // late Offerwall is not this offer's flow: no stall to report.
+        if (gptVideoStartedRef.current) return;
         trackAssistedApplicationEvent('rewarded_offerwall_timed_out', {
           ...offerwallContext(),
           shown_ms: shownMs,

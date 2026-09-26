@@ -15,6 +15,7 @@ type Decision = 'keep_watching' | 'resolve' | void;
 type ReleaseOptions = {
   onShown?: (info: { shownMs: number; root: string }) => void;
   onClosed?: (info: { shownMs: number; closedMs: number; root: string }) => void;
+  onStalled?: (info: { shownMs: number; root: string }) => void;
   onSlow?: (info: { elapsedMs: number }) => void;
   onAppearTimeout?: (info: { elapsedMs: number }) => Decision;
   signal?: AbortSignal;
@@ -313,7 +314,11 @@ describe('RewardedApplicationOffer — GPT fallback of a late Offerwall', () => 
     act(() => {
       mocks.releaseOptions?.onClosed?.({ shownMs: 7_200, closedMs: 9_000, root: 'fc-message-root' });
     });
+    act(() => {
+      mocks.releaseOptions?.onStalled?.({ shownMs: 7_200, root: 'fc-message-root' });
+    });
     expect(screen.queryByTestId('rewarded-application-loading')).not.toBeInTheDocument();
+    expect(tracked('rewarded_offerwall_timed_out')).toEqual([]);
 
     expect(screen.getByTestId('rewarded-application-offer')).toBeInTheDocument();
     expect(screen.getByTestId('mock-google-rewarded')).toBeInTheDocument();
