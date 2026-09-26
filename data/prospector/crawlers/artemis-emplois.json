@@ -1,0 +1,24 @@
+{
+  "companyKey": "artemis-emplois",
+  "companyName": "Artemis Emplois Sàrl",
+  "companyHost": "artemis-emplois.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://artemis-emplois.ch/offres-d-emploi/"
+  ],
+  "detailTemplate": "/poste/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "Secrétaire d’avocat à 50%-60% <div class=\"",
+    "Secrétaire d’avocat à 60%-80% (CDD –> CDI)",
+    "Secrétaire de notaire à 80% <div class=\"job-loca",
+    "Secrétaire de notaire à 50%-60% <div class=\"job-",
+    "Secrétaire de notaires à 50%-80% <div class=\"job"
+  ],
+  "canton": "VD",
+  "sourceLang": "fr",
+  "learnedAt": "2026-09-26T10:32:35.286Z"
+}
