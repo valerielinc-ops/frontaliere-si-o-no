@@ -6791,6 +6791,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.protesta-asilo-berna-diritti.title': 'Bern: Protest gegen die Verschärfungen des Asylrechts',
     'blog.article.protesta-asilo-berna-diritti.excerpt': 'Mehrere Tausend Menschen auf dem Bundesplatz, um Gesundheit, Arbeit und Bildung unabhängig vom Aufenthaltsstatus und der Herkunft zu fordern.',
     'blog.article.protesta-asilo-berna-diritti.imageAlt': 'Demonstration auf dem Bundesplatz in Bern gegen die Verschärfung des Asylrechts',
+    'blog.article.avenergy-lobby-clima.title': 'Avenergy und die Erdöllobby: Klima in der Schweiz',
+    'blog.article.avenergy-lobby-clima.excerpt': 'Eine Studie zeichnet die Kommunikation von Avenergy, dem Verband der Erdölimporteure, und das Interessennetzwerk nach, das bis in den Bundesrat reicht.',
+    'blog.article.avenergy-lobby-clima.imageAlt': 'Bellinzona und Schweizer Berge unter wolkigem Himmel zum nationalen Klimadiskurs',
 };
 
 export default blogMetaChDe;

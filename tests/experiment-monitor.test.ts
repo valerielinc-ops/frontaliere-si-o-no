@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import YAML from 'yaml';
 
 import {
@@ -22,7 +22,7 @@ import {
 } from '../scripts/lib/experiment-monitor.mjs';
 import { buildExperimentReadout } from '../scripts/lib/experiment-stats.mjs';
 import { JOBGATE_V3_PLAN } from '../scripts/experiments/jobgate-v3-plan.mjs';
-import { ISSUE_TITLES, rcStateFromValues, resolvePlan } from '../scripts/experiments/jobgate-v3-monitor.mjs';
+import { ISSUE_TITLES, mayPublishPromotion, rcStateFromValues, resolvePlan, runMonitor } from '../scripts/experiments/jobgate-v3-monitor.mjs';
 
 const PLAN = JOBGATE_V3_PLAN;
 const WEIGHTS = { control: 25, similar_alerts: 25, social_first: 25, email_first: 25 };
@@ -254,6 +254,8 @@ describe('stato persistito e report', () => {
     expect(md).toContain('Braccio peggiore del control');
     expect(md).toContain('✅ (d) vincente sulla CR primaria');
     expect(md).toContain('Promozione di `email_first` pronta');
+    expect(md).toContain('servono `--apply --approve-promotion`');
+    expect(md).toContain('via `workflow_dispatch`');
     expect(md).toContain('**Robot esclusi:** 9 persone');
     expect(md).toContain('**Data prevista della decisione:** finestra fino al **2026-11-20**');
     expect(readMonitorState(md)).toEqual(state);
@@ -270,6 +272,15 @@ describe('stato persistito e report', () => {
   it('titoli delle issue distinti nei primi 60 caratteri (chiave di dedup)', () => {
     const prefixes = Object.values(ISSUE_TITLES).map((t) => t.slice(0, 60));
     expect(new Set(prefixes).size).toBe(prefixes.length);
+  });
+
+  it('richiede approvazione esplicita e rifiuta ogni evento GitHub non manuale', () => {
+    expect(mayPublishPromotion({ apply: true, approvePromotion: false, eventName: 'workflow_dispatch' })).toBe(false);
+    expect(mayPublishPromotion({ apply: false, approvePromotion: true, eventName: 'workflow_dispatch' })).toBe(false);
+    expect(mayPublishPromotion({ apply: true, approvePromotion: true, eventName: 'schedule' })).toBe(false);
+    expect(mayPublishPromotion({ apply: true, approvePromotion: true, eventName: 'workflow_run' })).toBe(false);
+    expect(mayPublishPromotion({ apply: true, approvePromotion: true, eventName: 'workflow_dispatch' })).toBe(true);
+    expect(mayPublishPromotion({ apply: true, approvePromotion: true })).toBe(true);
   });
 });
 
@@ -294,6 +305,21 @@ describe('CLI jobgate-v3-monitor (fixture, nessuna rete)', () => {
   const rcOn = { JOBGATE_EXPERIMENT_ENABLED: 'true', JOBGATE_EXPERIMENT_ARMS: ARMS_JSON, JOBGATE_EXPERIMENT_FORCE: '' };
   const winning = payload(56, { control: flat(10000, 0.033), similar_alerts: flat(10000, 0.034), social_first: flat(10000, 0.032), email_first: flat(10000, 0.045) });
 
+  async function runWithPublisher(extra: string[], eventName: string) {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'jobgate-monitor-publish-test-'));
+    const rcPath = path.join(dir, 'rc.json');
+    const statusPath = path.join(dir, 'status.json');
+    fs.writeFileSync(rcPath, JSON.stringify(rcOn));
+    fs.writeFileSync(statusPath, JSON.stringify(winning));
+    const publishRc = vi.fn();
+    const result = await runMonitor([
+      '--rc-json', rcPath,
+      '--status-json', statusPath,
+      ...extra,
+    ], { eventName, publishRc });
+    return { result, publishRc };
+  }
+
   it('dry-run di default: promozione pronta, comando stampato e non eseguito', () => {
     const { res, json } = run({ 'rc-json': rcOn, 'status-json': winning });
     expect(res.status).toBe(0);
@@ -302,6 +328,23 @@ describe('CLI jobgate-v3-monitor (fixture, nessuna rete)', () => {
     expect(res.stderr).toContain('--force-arm email_first');
     expect(res.stderr).toContain(`--arms '${ARMS_JSON}'`);
     expect(res.stdout).toContain('Promozione di `email_first` pronta');
+  });
+
+  it('non invoca Remote Config senza approvazione esplicita o da un evento schedulato', async () => {
+    const noApproval = await runWithPublisher(['--apply'], 'workflow_dispatch');
+    expect(noApproval.result.state).toMatchObject({ action: 'promote', applied: null });
+    expect(noApproval.publishRc).not.toHaveBeenCalled();
+
+    const scheduled = await runWithPublisher(['--apply', '--approve-promotion'], 'schedule');
+    expect(scheduled.result.state).toMatchObject({ action: 'promote', applied: null });
+    expect(scheduled.publishRc).not.toHaveBeenCalled();
+  });
+
+  it('invoca il publisher solo con input manuale approvato (publisher sostituito nel test)', async () => {
+    const approved = await runWithPublisher(['--apply', '--approve-promotion'], 'workflow_dispatch');
+    expect(approved.result.state).toMatchObject({ action: 'promote', applied: true });
+    expect(approved.publishRc).toHaveBeenCalledOnce();
+    expect(approved.publishRc.mock.calls[0][0]).toContain('--apply');
   });
 
   it('FORCE già pubblicato: nessuna azione (non ripubblica)', () => {
@@ -347,10 +390,11 @@ describe('workflow jobgate-experiment-monitor', () => {
     expect(wf.permissions).toEqual({ contents: 'read', issues: 'write' });
   });
 
-  it('pubblica solo dal run schedulato o con apply=true esplicito (default manuale: dry-run)', () => {
+  it('il cron non scrive su Remote Config; solo apply=true nel dispatch manuale passa entrambe le guardie', () => {
     expect(wf.on.workflow_dispatch.inputs.apply.default).toBe('false');
-    expect(run.env.APPLY).toBe("${{ github.event_name == 'schedule' && 'true' || inputs.apply }}");
-    expect(run.run).toContain('if [ "${APPLY}" = "true" ]; then flags+=(--apply); fi');
+    expect(wf.on.workflow_dispatch.inputs.apply.description).toContain('Conferma manualmente');
+    expect(run.env.APPLY).toBe("${{ github.event_name == 'workflow_dispatch' && inputs.apply == 'true' && 'true' || 'false' }}");
+    expect(run.run).toContain('if [ "${APPLY}" = "true" ]; then flags+=(--apply --approve-promotion); fi');
     expect(run.run).toContain('node scripts/experiments/jobgate-v3-monitor.mjs "${flags[@]}"');
     expect(run.run).toContain('--issues');
   });
