@@ -18,6 +18,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   buildListingHubTitle,
+  buildCantonLandingTitle,
   buildCityHubTitle,
   buildRoleHubTitle,
   buildEmployerHubTitle,
@@ -127,6 +128,42 @@ describe('buildListingHubTitle — listing hub (home)', () => {
       sample.add(buildListingHubTitle({ locale, count: 1200, year: YEAR }));
     }
     expect(sample.size).toBe(LOCALES.length);
+  });
+});
+
+describe('buildCantonLandingTitle — per-canton job-board hub', () => {
+  const CANTONS: Record<JobPageLocale, string> = {
+    it: 'Zurigo',
+    en: 'Zurich',
+    de: 'Zürich',
+    fr: 'Zurich',
+  };
+
+  it('includes the live count and year for every locale', () => {
+    for (const locale of LOCALES) {
+      const title = buildCantonLandingTitle({
+        locale,
+        cantonDisplay: CANTONS[locale],
+        count: 137,
+        year: YEAR,
+      });
+      expect(title, `${locale}: ${title}`).toContain('137');
+      expect(title, `${locale}: ${title}`).toContain(String(YEAR));
+      expect(isValidTitleLength(title), `${locale}: ${title}`).toBe(true);
+    }
+  });
+
+  it('keeps long canton labels complete while staying in the SERP budget', () => {
+    for (const locale of LOCALES) {
+      const title = buildCantonLandingTitle({
+        locale,
+        cantonDisplay: locale === 'it' ? 'Appenzello Esterno' : 'Appenzell Rhodes-Extérieures',
+        count: 137,
+        year: YEAR,
+      });
+      expect(isValidTitleLength(title), `${locale}: ${title}`).toBe(true);
+      expect(title).toContain(locale === 'it' ? 'Appenzello Esterno' : 'Appenzell Rhodes-Extérieures');
+    }
   });
 });
 

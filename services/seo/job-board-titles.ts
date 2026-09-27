@@ -56,11 +56,6 @@ export const TITLE_MAX_CHARS = 66;
 /** Minimum active jobs above which we append 🔥 to boost CTR. */
 export const FIRE_EMOJI_THRESHOLD = 500;
 
-/** Build the Italian title used by per-canton job-board landing pages. */
-export function buildItalianCantonLandingTitle(cantonDisplay: string): string {
-  return buildTitleWithBrand(`Offerte di lavoro in ${cantonDisplay}`);
-}
-
 /**
  * Count visible characters (code points), which is what Google displays
  * in SERP. Using plain `.length` over-counts astral emojis.
@@ -128,6 +123,108 @@ function withFire(title: string, count: number): string {
   if (count < FIRE_EMOJI_THRESHOLD) return title;
   const candidate = `${title} 🔥`;
   return visibleLength(candidate) <= TITLE_MAX_CHARS ? candidate : title;
+}
+
+interface CantonLandingArgs {
+  locale: JobPageLocale;
+  /** Already-localized canton (or country) display name, e.g. "Zurigo". */
+  cantonDisplay: string;
+  count: number;
+  year: number;
+}
+
+function germanCantonTitlePlace(display: string): string {
+  if (['Tessin', 'Wallis', 'Jura'].includes(display)) return `im ${display}`;
+  if (display === 'Schweiz') return 'in der Schweiz';
+  return `in ${display}`;
+}
+
+function frenchCantonTitlePlace(display: string): string {
+  if (display === 'Suisse') return 'en Suisse';
+  if (display === 'Tessin' || display === 'Jura') return `au ${display}`;
+  if (display === 'Grisons') return `aux ${display}`;
+  if (display === 'Valais') return `en ${display}`;
+  return `dans le canton de ${display}`;
+}
+
+/**
+ * Build a live, SERP-focused title for a per-canton job-board landing.
+ *
+ * The non-Ticino canton pages previously used a static place-only title while
+ * their meta description already carried the live listing count. That made
+ * `/cerca-lavoro-zurigo/` and every sibling canton look stale in the result
+ * page. Keep the count/year/freshness signal in the shared title generator so
+ * all four locale variants receive the same fix; compact fallbacks preserve a
+ * complete place name when a long canton label would exceed the title cap.
+ */
+export function buildCantonLandingTitle({
+  locale,
+  cantonDisplay,
+  count,
+  year,
+}: CantonLandingArgs): string {
+  const n = safeCount(count);
+  const place = String(cantonDisplay || '').trim();
+  const location = locale === 'de'
+    ? germanCantonTitlePlace(place)
+    : locale === 'fr'
+      ? frenchCantonTitlePlace(place)
+      : place;
+
+  let dynamic: string;
+  let fresh: string;
+  let compact: string;
+  let fallback: string;
+  let qualifier: string;
+  switch (locale) {
+    case 'it':
+      dynamic = n > 0
+        ? `Offerte di lavoro in ${location} ${year} — ${n} posti oggi`
+        : `Offerte di lavoro in ${location} ${year} — Aggiornate ogni giorno`;
+      fresh = `Offerte di lavoro in ${location} ${year} — Aggiornate ogni giorno`;
+      compact = `Offerte di lavoro in ${location} ${year}`;
+      fallback = `Offerte di lavoro in ${location}`;
+      qualifier = 'in Svizzera';
+      break;
+    case 'en':
+      dynamic = n > 0
+        ? `Jobs in ${location} ${year} — ${n} openings today`
+        : `Jobs in ${location} ${year} — Updated daily`;
+      fresh = `Jobs in ${location} ${year} — Updated daily`;
+      compact = `Jobs in ${location} ${year}`;
+      fallback = `Jobs in ${location}`;
+      qualifier = 'Switzerland';
+      break;
+    case 'de':
+      dynamic = n > 0
+        ? `Grenzgänger-Jobs ${location} ${year} — ${n} Stellen heute`
+        : `Grenzgänger-Jobs ${location} ${year} — Täglich aktualisiert`;
+      fresh = `Grenzgänger-Jobs ${location} ${year} — Täglich aktualisiert`;
+      compact = `Grenzgänger-Jobs ${location} ${year}`;
+      fallback = `Grenzgänger-Jobs ${location}`;
+      qualifier = 'Schweiz';
+      break;
+    case 'fr':
+    default:
+      dynamic = n > 0
+        ? `Emploi ${location} ${year} — ${n} postes aujourd'hui`
+        : `Emploi ${location} ${year} — Mises à jour quotidiennes`;
+      fresh = `Emploi ${location} ${year} — Mises à jour quotidiennes`;
+      compact = `Emploi ${location} ${year}`;
+      fallback = `Emploi ${location}`;
+      qualifier = 'Suisse';
+      break;
+  }
+
+  const candidates = n > 0
+    ? [withFire(dynamic, n), dynamic, fresh, compact, fallback]
+    : [dynamic, fresh, compact, fallback];
+  const selected = candidates.find((candidate) => visibleLength(candidate) <= TITLE_MAX_CHARS)
+    ?? fallback;
+  const padded = visibleLength(selected) < TITLE_MIN_CHARS
+    ? padToMin(selected, qualifier)
+    : selected;
+  return buildTitleWithBrand(padded, undefined, TITLE_MAX_CHARS, visibleLength);
 }
 
 // ────────────────────────────────────────────────────────────────

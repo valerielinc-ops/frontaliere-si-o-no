@@ -47,7 +47,8 @@ describe('jobsSeoPagesPlugin static payload budget', () => {
   it('uses job-offer intent for Italian canton landing titles', () => {
     const source = readFileSync(resolve(__dirname, '../build-plugins/jobsSeoPagesPlugin.ts'), 'utf8');
 
-    expect(source).toContain('title: buildItalianCantonLandingTitle(display),');
+    expect(source).toContain('const title = buildCantonLandingTitle({ locale, cantonDisplay: display, count, year });');
+    expect(source).toContain('const labels = buildCantonLocaleLabels(entry.locale, display, cantonCount, currentYear);');
   });
 
   it('does not inline the remote Google Fonts loader on every job detail page', () => {
