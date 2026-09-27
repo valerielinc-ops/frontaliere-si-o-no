@@ -172,16 +172,14 @@ come "Pre-existing / out of scope".
 
 ## Identità di un finding
 
-Ogni 🔴 ha id stabile `(path, simbolo, classe)`, calcolato da
+Ogni 🔴 ha id stabile `(path, simbolo, classe, prosa)`, calcolato da
 `scripts/ci/lib/review-findings.mjs` → `stableFindingId()` senza numero di riga:
 spostare `path:Lline` non cambia il rilievo.
 
-- `path`: primo path (`PR body` per il body).
-- `simbolo`: primo identificatore in backtick non-path (`parseFoo()`, `NONCODE_RE`),
-  altrimenti prosa normalizzata.
-- `classe`: subito dopo il marker, es. `🔴 Important: [regression] <problema>`;
-  ammesse `regression`, `correctness`, `contract`, `funnel`, `process`, `other`
-  (default anche per classi ignote).
+- `path`: primo path (o `PR body`).
+- `simbolo`: primo identificatore in backtick non-path (`parseFoo()`).
+- `classe`: dopo il marker, es. `🔴 Important: [regression] <problema>`:
+  `regression`, `correctness`, `contract`, `funnel`, `process`, `other` (default).
 
 Nel `## Findings ledger (id stabile + stato)`: `open` con id/testo invariati,
 `needs-verification` da verificare all'HEAD, mai rialzare i `confirmed-fixed`.
@@ -212,8 +210,9 @@ Dopo prima review:
   `Fix di \`path:L<linea corrente>\`: ok.` prima di `Important: 0` + `## LGTM`.
 - `needs-verification`: apri l'anchor all'HEAD; fix presente → `Fix di`; 🔴 solo
   con evidenza dal codice attuale.
-- 🔴 senza file: se risolto, conferma «Fix di `<testo normalizzato>`: ok.» senza
-  backtick interni.
+- 🔴 senza file né `PR body:L<n>`: se risolto, «Fix di `<id del ledger>`: ok.».
+  Mai un 🔴 sul ledger/bundle (voce `open` senza testo o anchor): non è un
+  difetto della PR.
 - No rilanciare nit già detti.
 - Se c'è `## Risposta del 🔴-fixer`: prima dei 🔴 nuovi e del riporto per anchor giudica ogni voce, anche a codice invariato. `fixed`: regge l'Accettazione, o la proposta del fixer? `disputed`: regge l'evidenza? Sì → `Fix di \`path:L<n>\`: ok` (+ `(ritirato: <motivo>)`); no → 🔴 e `Replica: <cosa manca>`, mai identico.
 
