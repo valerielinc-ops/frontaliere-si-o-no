@@ -173,6 +173,17 @@ describe('convit-job-parser / parseConvitDetailPage', () => {
     it('location is extracted from DOM', () => {
       expect(result.location).toBe('Caslano');
     });
+
+    it('uses the target zone from the title when the detail address is generic', () => {
+      const html = careersPageDetailHtml({
+        title: 'Consulente previdenziale (zona Chiasso)',
+        location: 'Via al Mulino 22a',
+        descriptionHtml: CONVIT_VECCHIAIA_DESC_HTML,
+      });
+      const genericAddressResult = parseConvitDetailPage(html, '');
+
+      expect(genericAddressResult.location).toBe('Chiasso');
+    });
   });
 
   describe('when JSON-LD description is short (< 350 chars)', () => {
