@@ -1,6 +1,6 @@
 {
   "crawlerKey": "alcon",
-  "assembledAt": "2026-09-26T23:57:27.645Z",
+  "assembledAt": "2026-09-27T15:20:56.996Z",
   "jobs": [
     {
       "id": "alcon-7e8db3a81169",
@@ -34,7 +34,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Manager--Accounting---Reporting_R-2026-49365-2",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T23:57:24.111Z",
+      "crawledAt": "2026-09-27T15:20:54.002Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/International-Accounting-and-Reporting-Director_R-2026-46854",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T23:57:23.471Z",
+      "crawledAt": "2026-09-27T15:20:53.170Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -166,8 +166,8 @@
       "id": "alcon-bca0aa103326",
       "slug": "direttore-compensation-alcon-geneva",
       "slugByLocale": {
-        "en": "director-compensation-alcon-ch",
         "it": "direttore-compensation-alcon-geneva",
+        "en": "director-compensation-alcon-ch",
         "de": "direktor-compensation-alcon-geneva",
         "fr": "directeur-compensation-alcon-geneva"
       },
@@ -194,7 +194,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Geneva-Switzerland/Director--Compensation_R-2026-49416-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T23:57:22.832Z",
+      "crawledAt": "2026-09-27T15:20:52.521Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -211,6 +211,23 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-2026-49416",
+      "previousSlugs": [
+        "director-compensation-alcon-ch",
+        "direttore-compensation-alcon-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "director-compensation-alcon-ch",
+          "direttore-compensation-alcon-geneva"
+        ],
+        "de": [
+          "director-compensation-alcon-ch"
+        ],
+        "fr": [
+          "director-compensation-alcon-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-26T14:28:28.399Z",
       "salaryMin": 116500,
       "salaryMax": 162500,
       "salarySource": "estimated",
@@ -223,22 +240,7 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-26T14:28:28.399Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "director-compensation-alcon-ch"
-        ],
-        "de": [
-          "director-compensation-alcon-ch"
-        ],
-        "fr": [
-          "director-compensation-alcon-ch"
-        ]
-      },
-      "previousSlugs": [
-        "director-compensation-alcon-ch"
-      ]
+      }
     },
     {
       "id": "alcon-e8f5eb7c664a",
@@ -272,7 +274,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Practice-Solution-Manager--PSM----Strategic-Account-Manager--m-w-d---80-100--_R-2026-49838-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T23:57:22.181Z",
+      "crawledAt": "2026-09-27T15:20:51.708Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
