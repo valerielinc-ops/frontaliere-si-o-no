@@ -6830,6 +6830,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.manifestazione-diritti-migranti-berna.title': 'Demonstration in Bern für die Rechte von Migranten',
     'blog.article.manifestazione-diritti-migranti-berna.excerpt': 'Mehrere tausend Menschen haben in Bern gegen die Verschärfung des Asylrechts demonstriert und dabei Grundrechte und Bewegungsfreiheit gefordert.',
     'blog.article.manifestazione-diritti-migranti-berna.imageAlt': 'Demonstration in Bern für Migrantenrechte vor dem Bundesplatz',
+    'blog.article.voti-federali-neutralita-alimentazione.title': 'Eidgenössische Abstimmungen: Neutralität und Versorgung an der Urne',
+    'blog.article.voti-federali-neutralita-alimentazione.excerpt': 'Die Schweizer Bevölkerung stimmt heute über Neutralität und Ernährung ab. Die wichtigsten Daten, Umfragen und die Position der Bundesinstitutionen.',
+    'blog.article.voti-federali-neutralita-alimentazione.imageAlt': 'Stimmzettel für die eidgenössischen Volksinitiativen zu Neutralität und Ernährung',
 };
 
 export default blogMetaChDe;

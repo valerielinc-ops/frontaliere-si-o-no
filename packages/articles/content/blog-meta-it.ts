@@ -12120,6 +12120,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.villa-mirabello-tre-valli.title': 'Villa mirabello: mostra tre valli varesine e solidarietà',
     'blog.article.villa-mirabello-tre-valli.excerpt': 'A Villa Mirabello, Varese, la mostra ‘Tre Valli Varesine. Quando il ciclismo è passione’ è aperta con ingresso libero fino all’11 ottobre e l’iniziativa solidale ‘Scatto d’autore, gesto d’amore’ sostiene Il Pane di Sant\'Antonio ODV.',
     'blog.article.villa-mirabello-tre-valli.imageAlt': 'Mostra fotografica Tre Valli Varesine a Villa Mirabello, Varese',
+    'blog.article.svizzera-voto-neutralita-alimentazione.title': 'Svizzera vota su neutralità e alimentazione',
+    'blog.article.svizzera-voto-neutralita-alimentazione.excerpt': 'Oggi la Svizzera vota su neutralità e iniziativa alimentare (70% autosufficienza in 10 anni); nove cantoni decidono anche su temi cantonali, tra cui mobilità transfrontaliera.',
+    'blog.article.svizzera-voto-neutralita-alimentazione.imageAlt': 'Elezione in Ticino con schede e urne',
 };
 
 export default blogMetaIt;

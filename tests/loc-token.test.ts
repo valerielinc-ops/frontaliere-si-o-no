@@ -35,6 +35,13 @@ describe('locTokenHit — whole-token geo match (#2630)', () => {
     expect(locTokenHit('genève ge', 'geneve')).toBe(true);
   });
 
+  it('matches the multilingual GR city names used by alerts and crawlers', () => {
+    expect(locTokenHit('Chur GR', 'Coira')).toBe(true);
+    expect(locTokenHit('Coire GR', 'Chur')).toBe(true);
+    expect(locTokenHit('Cuira GR', 'Coira')).toBe(true);
+    expect(locTokenHit('Churwalden GR', 'Coira')).toBe(false);
+  });
+
   it('collapses whitespace and hyphens in the needle', () => {
     expect(locTokenHit('san gallo sg', 'san-gallo')).toBe(true);
     expect(locTokenHit('san gallo sg', 'san  gallo')).toBe(true);
