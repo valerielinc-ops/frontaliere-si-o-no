@@ -84,7 +84,8 @@ function slugify(value = '') {
 }
 
 /**
- * Parse the listing page HTML and return an array of { title, code, detailUrl }
+ * Recognize the employer's listing document before treating an empty page as
+ * the terminal pagination page. This rejects generic challenge/error pages.
  */
 export function isConvitListingPage(html = '') {
   const document = new JSDOM(html).window.document;
@@ -103,6 +104,9 @@ export function isConvitListingPage(html = '') {
   return source.includes(COMPANY_SLUG) || /convit\s+holding(?:\s+gmbh)?/i.test(source);
 }
 
+/**
+ * Parse the listing page HTML and return an array of { title, code, detailUrl }
+ */
 export function parseConvitListingPage(html = '') {
   const document = new JSDOM(html).window.document;
   const anchors = [...document.querySelectorAll('a[href]')];
