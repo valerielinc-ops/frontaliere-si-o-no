@@ -870,6 +870,54 @@ describe('vacancy extraction', () => {
     expect(jobs.every((job) => job.sourceUrl === pageUrl)).toBe(true);
   });
 
+  it('keeps structured discriminators in URL-less identities while ignoring freshness fields', () => {
+    const pageUrl = 'https://x.example/stellen/';
+    const posting = (identifier: string, dateModified: string) => ({
+      '@type': 'JobPosting',
+      title: 'Fachperson Betreuung',
+      description: 'Eine ausreichend lange Stellenbeschreibung mit mehreren Worten und konkreten Aufgaben für die ausgeschriebene Position.',
+      datePosted: '2026-09-10',
+      dateModified,
+      validThrough: '2026-12-31',
+      identifier: { name: 'requisition', value: identifier },
+      employmentType: 'FULL_TIME',
+      hiringOrganization: { name: 'Grischa Personal AG' },
+      jobLocation: { address: { addressLocality: 'Chur', addressCountry: 'CH' } },
+    });
+    const html = [
+      posting('REQ-100', '2026-09-11'),
+      posting('REQ-100', '2026-09-12'),
+      posting('REQ-200', '2026-09-11'),
+    ].map((node) => `<script type="application/ld+json">${JSON.stringify(node)}</script>`).join('');
+
+    const jobs = extractJsonLd(html, pageUrl);
+    expect(jobs[0].url).toBe(jobs[1].url);
+    expect(jobs[0].url).not.toBe(jobs[2].url);
+  });
+
+  it('selects the matching inline record when a detail fetch returns the shared source page', () => {
+    const pageUrl = 'https://x.example/stellen/';
+    const posting = (identifier: string, title: string, location: string, description: string) => ({
+      '@type': 'JobPosting',
+      title,
+      description,
+      identifier,
+      jobLocation: { address: { addressLocality: location, addressCountry: 'CH' } },
+    });
+    const html = [
+      posting('REQ-100', 'Fachperson Betreuung', 'Chur', 'Erste Beschreibung mit eigenen Aufgaben und eigener Ortsangabe.'),
+      posting('REQ-200', 'Sachbearbeiter Einkauf', 'Zürich', 'Zweite Beschreibung mit anderen Aufgaben und anderer Ortsangabe.'),
+    ].map((node) => `<script type="application/ld+json">${JSON.stringify(node)}</script>`).join('');
+    const [first, second] = extractJsonLd(html, pageUrl);
+
+    const detail = extractRuntimeDetailFields({}, html, pageUrl, { recordUrl: second.url });
+    expect(detail.title).toBe('Sachbearbeiter Einkauf');
+    expect(detail.location).toBe('Zürich');
+    expect(detail.description).toContain('Zweite Beschreibung');
+    expect(detail.description).not.toContain('Erste Beschreibung');
+    expect(first.url).not.toBe(second.url);
+  });
+
   it('preserves country evidence and every JSON-LD job location', () => {
     const html = `<script type="application/ld+json">${JSON.stringify({
       '@type': 'JobPosting',

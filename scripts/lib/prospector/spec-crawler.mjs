@@ -441,6 +441,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
           // Same extractor the validator grades with — see detail-extract.mjs.
           const detail = extractRuntimeDetailFields(spec, page.body, page.url || detailUrl, {
             detailExtractor: runtime.detailExtractor,
+            recordUrl: row.url,
           });
           const decision = resolveDetailOrListingSwissGeography(detail, row);
           const geography = geographyFieldsForDecision(decision);
