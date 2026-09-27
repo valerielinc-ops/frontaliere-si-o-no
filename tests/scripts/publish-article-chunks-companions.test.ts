@@ -52,7 +52,7 @@ describe('publish-article-chunks — registry never ships ahead of its translati
     // client holds translations for articles it cannot see yet — invisible),
     // registries-first fails exactly the way production did.
     const companionLoop = src.indexOf('for (const companion of selected.companions)');
-    const registryLoop = src.indexOf('for (const registry of REGISTRIES)');
+    const registryLoop = src.indexOf('for (const registry of selected.registries)');
     expect(companionLoop).toBeGreaterThan(-1);
     expect(registryLoop).toBeGreaterThan(-1);
     expect(companionLoop).toBeLessThan(registryLoop);
