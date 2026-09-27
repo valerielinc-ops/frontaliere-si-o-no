@@ -8,7 +8,7 @@
  * `followup-has-candidates.mjs` arrivavano dopo aver già speso una run, oppure il
  * triage girava a vuoto). Sulla quota Max OAuth CONDIVISA con la sessione interattiva
  * owner (AGENTS.md § frugalità) è il #2 consumatore. Questo script converte il modello
- * a SCHEDULED-BATCH: una sola sessione ogni ~3h triagia tutte le PR mergiate dalla
+ * a SCHEDULED-BATCH: una sola sessione ogni ~2h (era ~3h) triagia tutte le PR mergiate dalla
  * finestra precedente.
  *
  * SICUREZZA > VELOCITÀ — mai perdere un follow-up:
@@ -87,21 +87,24 @@ export function positiveHours(raw, fallback) {
   return Number.isFinite(n) && n > 0 ? n : fallback;
 }
 const SEARCH_PAGE_SIZE = 100;
-// Capacità della sessione provider: 16 PR (era 4, 2026-09-27).
-// Il 4 nasceva dalla run 34602892494, arrivata al tetto provider di allora (32
-// minuti) su una finestra di 36 PR. Con 4 la coda non si smaltiva: cadenza reale
-// ~5 run/giorno (cron ogni 3h, gap mediano misurato 4,9h) = ~20 PR/giorno,
-// contro 33-124 merge/giorno qui (~72% passa i gate) e rinvii di 65-146 PR a
-// OGNI run (36112598869..36325938055); ciò che resta oltre il lookback di 48h
-// esce dalla finestra non triagiato.
-// Tempo per PR misurato con 4 PR in sessione (include il bootstrap fisso): qui
-// 32-259 s/PR, sul gemello corpus 144-399 s/PR. 16 x 399 s = 106 min sotto il
-// watchdog Codex da 115 min, step 120 (il tetto per gli step agentici) e job
-// 140: vedi post-merge-followup.yml. Misure reali su batch più grandi di 16,
-// stesso provider (Codex, effort max), prima del cap: qui 34602590662, batch 19,
-// sessione 1106 s (~58 s/PR); corpus 34602892494, batch 36, 21 PR commentate in
-// 1792 s (~85 s/PR). Il bootstrap è condiviso, quindi il costo per PR scende
-// con il batch. Il gemello corpus è `adapted`: stesso valore in entrambi.
+// Capacità della sessione provider: 14 PR (era 4, 2026-09-27), con cron ogni
+// 2h (era 3h). Il 4 nasceva dalla run 34602892494, arrivata al tetto provider di
+// allora (32 minuti) su una finestra di 36 PR. Con 4 la coda non si smaltiva:
+// cadenza reale ~5,1 run/giorno sul cron da 3h (gap mediano 4,9h: GitHub ne
+// esegue ~62% del nominale) = ~20 PR/giorno, contro 33-124 merge/giorno qui
+// (~72% passa i gate) e rinvii di 65-146 PR a OGNI run
+// (36112598869..36325938055); ciò che resta oltre il lookback di 48h esce dalla
+// finestra non triagiato.
+// Il cap è dimensionato sul CASO PEGGIORE misurato, non sul tipico: >=451 s/PR
+// (corpus 36009410204, 4 PR uccise dal watchdog a 1803 s, bootstrap incluso).
+// 14 x 451 s = 6314 s, sotto il watchdog Codex da 114 min (6840 s, ~8% di
+// margine); 6840 s + setup/kill grace/coda (300 s) = 7140 s < step da 120 min
+// (il tetto per gli step agentici). 15 x 451 = 6765 s lascerebbe 75 s. La
+// capacità mancante la dà la cadenza: 12 cron/giorno x 62% = ~7,4 run reali x
+// 14 = ~104 PR/giorno, oltre il picco di ~80 candidati/giorno. Il tipico è molto
+// più basso: qui 32-259 s/PR con 4 PR e ~58 s/PR sul batch da 19 di 34602590662;
+// ~85 s/PR sul batch da 36 del corpus (34602892494): il bootstrap è condiviso.
+// Il gemello corpus è `adapted`: stesso cap, watchdog e cadenza.
 //
 // Una finestra più larga del cap NON è un errore di raccolta: è un rinvio
 // PIANIFICATO. Il troncamento viene dichiarato in `deferred_count`, mentre
@@ -111,7 +114,7 @@ const SEARCH_PAGE_SIZE = 100;
 // deve tenere il watermark indietro, un rinvio pianificato deve lasciarlo
 // avanzare, altrimenti il residuo non si drena mai. Confuse, producevano il
 // ratchet documentato sopra (35 run rosse consecutive, 161,6 h).
-export const FOLLOWUP_SESSION_BATCH_LIMIT = 16;
+export const FOLLOWUP_SESSION_BATCH_LIMIT = 14;
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
