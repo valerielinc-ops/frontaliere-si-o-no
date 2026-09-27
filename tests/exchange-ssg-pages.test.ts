@@ -30,6 +30,7 @@ import {
 import { generateExchangePages } from '../build-plugins/exchangeRatePagesPlugin';
 import { countHtmlBodyWords, MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
 import { resolveSearchConsoleCompatTarget } from '../build-plugins/searchConsoleCompat';
+import { fingerprintPage, scoreCohorts } from '../scripts/lib/informationGain.mjs';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const SNAPSHOT: ExchangeSnapshot = {
@@ -139,6 +140,26 @@ describe('exchange page generation', () => {
     expect(pages.length).toBe(84);
     const rels = new Set(pages.map((p) => p.relPath));
     expect(rels.size).toBe(pages.length); // no duplicate paths
+  });
+
+  it('gives every locale amount cohort editorial information gain', () => {
+    const hubPaths = new Set(EXCHANGE_LOCALES.map((locale) => buildExchangeHubPath(locale)));
+    const fingerprints = pages
+      .filter((page) => !hubPaths.has(page.relPath))
+      .map((page) => {
+        const relPath = `${page.relPath.substring(1, page.relPath.length - 1)}/index.html`;
+        return fingerprintPage(relPath, page.html);
+      });
+    const { cohorts } = scoreCohorts(fingerprints, {
+      minCohortPages: EXCHANGE_AMOUNTS.length,
+    });
+
+    expect(cohorts).toHaveLength(EXCHANGE_LOCALES.length);
+    for (const cohort of cohorts) {
+      expect(cohort.pages).toBe(EXCHANGE_AMOUNTS.length);
+      expect(cohort.medianIgs).toBeGreaterThanOrEqual(5);
+      expect(cohort.zeroGainPages).toBe(0);
+    }
   });
 
   it('every page clears MIN_INDEXABLE_WORDS and is indexable with large image previews', () => {

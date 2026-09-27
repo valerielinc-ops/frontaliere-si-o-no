@@ -128,6 +128,22 @@ const LOW_COST_PCT = Math.min(...EXCHANGE_REFERRAL_PARTNERS.map(p => p.typicalCo
 const NET_BAND_LOW = 0.76;
 const NET_BAND_HIGH = 0.84;
 
+/**
+ * Editorial salary bands give each amount page a useful, non-numeric budget
+ * context. The labels are deliberately derived from the curated amount set,
+ * while the copy explains a practical decision for that band instead of
+ * repeating the conversion figures.
+ */
+type ExchangeAmountBand = 'entry' | 'essential' | 'standard' | 'family' | 'upper';
+
+function amountBandFor(amount: number): ExchangeAmountBand {
+  if (amount <= 2000) return 'entry';
+  if (amount <= 3200) return 'essential';
+  if (amount <= 4000) return 'standard';
+  if (amount <= 5000) return 'family';
+  return 'upper';
+}
+
 // ── Formatting helpers ───────────────────────────────────────────────────────
 
 function fmtNum(locale: ExchangeLocale, n: number, digits = 0): string {
@@ -165,6 +181,11 @@ function fmtDate(locale: ExchangeLocale, iso: string): string {
 }
 
 // ── Localised copy ───────────────────────────────────────────────────────────
+
+interface ExchangeAmountProfile {
+  title: string;
+  body: string;
+}
 
 interface ExchangeCopy {
   breadcrumbHome: string;
@@ -248,6 +269,7 @@ interface ExchangeCopy {
   netScenarioTitle: string;
   netScenarioBody: (amount: string, netLow: string, netHigh: string, netLowEur: string, netHighEur: string) => string;
   netScenarioCta: string;
+  amountProfile: Record<ExchangeAmountBand, ExchangeAmountProfile>;
   amountFaq: (
     amount: string,
     eur: string,
@@ -376,6 +398,28 @@ const COPY: Record<ExchangeLocale, ExchangeCopy> = {
     netScenarioBody: (amount, netLow, netHigh, netLowEur, netHighEur) =>
       `Se ${amount} CHF è il tuo stipendio lordo mensile in Svizzera, il netto tipico di un frontaliere — dopo imposta alla fonte, AVS/AI/IPG, disoccupazione e cassa pensione — si colloca tra ${netLow} e ${netHigh} franchi, cioè tra circa ${netLowEur} e ${netHighEur} euro al tasso attuale. La forbice dipende da cantone, stato civile, figli a carico e franchigia: il calcolatore la restringe alla tua situazione reale in un minuto.`,
     netScenarioCta: 'Calcola il tuo netto esatto',
+    amountProfile: {
+      entry: {
+        title: 'Fascia di ingresso: proteggere le spese essenziali',
+        body: 'Con uno stipendio in questa fascia, il cambio dovrebbe coprire prima affitto, trasporti e spesa senza impegnare tutto il margine. Fissa una quota mensile in euro e lascia il resto in franchi per evitare che lo spread eroda il budget.',
+      },
+      essential: {
+        title: 'Fascia essenziale: bilanciare casa e trasferimento',
+        body: 'A questo livello il risultato del cambio dipende soprattutto dalle uscite ricorrenti della famiglia e dal costo del tragitto. Confronta il costo complessivo del canale e programma la conversione dopo aver separato le bollette, invece di scegliere solo il tasso visualizzato.',
+      },
+      standard: {
+        title: 'Fascia tipica del frontaliere: separare le voci',
+        body: 'Per un reddito tipico da frontaliere, una parte del cambio può finanziare le spese italiane e un’altra restare come riserva in CHF. Un piano con una quota per la casa, una per il viaggio e una per il risparmio rende più leggibile l’effetto delle commissioni.',
+      },
+      family: {
+        title: 'Fascia familiare: misurare il costo annuale',
+        body: 'Quando il reddito sostiene più persone, il confronto non si ferma al controvalore di una singola operazione. Calcola il costo del cambio sul budget ricorrente e verifica se uno spread ridotto protegge meglio le spese scolastiche, abitative e quotidiane.',
+      },
+      upper: {
+        title: 'Fascia alta: ottimizzare liquidità e riserva',
+        body: 'Su un reddito più alto la scelta non è soltanto quanti euro ricevere oggi, ma quanta liquidità convertire e quanta riserva mantenere in CHF. Dividere il trasferimento tra spese, investimenti e cuscinetto aiuta a non pagare spread su denaro che non serve subito.',
+      },
+    },
     amountFaq: (amount, eur, rate, lowNet, bankNet, netLow, netHigh) => [
       {
         q: `Quanto valgono ${amount} franchi svizzeri in euro?`,
@@ -511,6 +555,28 @@ const COPY: Record<ExchangeLocale, ExchangeCopy> = {
     netScenarioBody: (amount, netLow, netHigh, netLowEur, netHighEur) =>
       `If ${amount} CHF is your gross monthly Swiss salary, the typical cross-border net — after source tax, AHV/IV/EO, unemployment insurance and pension fund — lands between ${netLow} and ${netHigh} francs, i.e. roughly ${netLowEur} to ${netHighEur} euro at today's rate. The band depends on canton, marital status, children and deductible: the calculator narrows it to your real situation in a minute.`,
     netScenarioCta: 'Compute your exact net salary',
+    amountProfile: {
+      entry: {
+        title: 'Entry band: protect essential spending',
+        body: 'At this salary level, the exchange should first cover rent, transport and groceries without consuming the whole margin. Set a monthly euro allowance and keep the rest in francs so the spread does not quietly shrink the budget.',
+      },
+      essential: {
+        title: 'Essential band: balance home and commuting',
+        body: 'At this level, the result depends mainly on recurring household costs and the price of the commute. Compare the full channel cost and schedule the conversion after setting aside bills, instead of choosing only the rate shown on screen.',
+      },
+      standard: {
+        title: 'Typical cross-border band: separate the buckets',
+        body: 'For a typical cross-border salary, one part of the exchange can fund spending in Italy while another stays as a CHF reserve. A plan for housing, travel and saving makes the effect of fees easier to see.',
+      },
+      family: {
+        title: 'Family band: measure the yearly cost',
+        body: 'When the salary supports more than one person, the comparison is not limited to the euro value of one transfer. Measure exchange costs against the recurring budget and check whether a smaller spread better protects school, housing and daily expenses.',
+      },
+      upper: {
+        title: 'Upper band: optimise liquidity and reserves',
+        body: 'With a higher salary, the decision is not only how many euro to receive today, but how much liquidity to exchange and how much to keep in CHF. Split the transfer between spending, investment and a safety buffer so you do not pay a spread on money you do not need yet.',
+      },
+    },
     amountFaq: (amount, eur, rate, lowNet, bankNet, netLow, netHigh) => [
       {
         q: `How much is ${amount} Swiss francs in euro?`,
@@ -646,6 +712,28 @@ const COPY: Record<ExchangeLocale, ExchangeCopy> = {
     netScenarioBody: (amount, netLow, netHigh, netLowEur, netHighEur) =>
       `Wenn ${amount} CHF Ihr Schweizer Bruttomonatslohn ist, liegt das typische Grenzgänger-Netto — nach Quellensteuer, AHV/IV/EO, Arbeitslosenversicherung und Pensionskasse — zwischen ${netLow} und ${netHigh} Franken, also etwa ${netLowEur} bis ${netHighEur} Euro zum aktuellen Kurs. Die Spanne hängt von Kanton, Zivilstand, Kindern und Franchise ab: Der Rechner grenzt sie in einer Minute auf Ihre reale Situation ein.`,
     netScenarioCta: 'Ihr exaktes Netto berechnen',
+    amountProfile: {
+      entry: {
+        title: 'Einstiegsstufe: Grundausgaben absichern',
+        body: 'Bei einem Lohn in dieser Stufe sollte der Wechsel zuerst Miete, Fahrtkosten und Lebensmittel abdecken, ohne die gesamte Reserve aufzubrauchen. Legen Sie einen monatlichen Euro-Bedarf fest und lassen Sie den Rest in Franken, damit der Spread das Budget nicht unnötig verkleinert.',
+      },
+      essential: {
+        title: 'Grundstufe: Haushalt und Arbeitsweg ausbalancieren',
+        body: 'In dieser Stufe hängt das Ergebnis vor allem von den regelmässigen Haushaltskosten und dem Arbeitsweg ab. Vergleichen Sie die gesamten Kosten des Anbieters und planen Sie den Wechsel erst nach den Rechnungen, statt nur auf den angezeigten Kurs zu schauen.',
+      },
+      standard: {
+        title: 'Typische Grenzgänger-Stufe: Budgets trennen',
+        body: 'Bei einem typischen Grenzgängerlohn kann ein Teil des gewechselten Geldes die Ausgaben in Italien decken, während ein anderer Teil als CHF-Reserve bleibt. Ein Plan für Wohnen, Fahrt und Sparen macht die Gebührenwirkung sichtbar.',
+      },
+      family: {
+        title: 'Familienstufe: Jahreskosten messen',
+        body: 'Wenn der Lohn mehrere Personen trägt, zählt nicht nur der Euro-Gegenwert einer einzelnen Überweisung. Messen Sie die Wechselkosten am regelmässigen Haushaltsbudget und prüfen Sie, ob ein kleinerer Spread Schul-, Wohn- und Alltagsausgaben besser schützt.',
+      },
+      upper: {
+        title: 'Obere Stufe: Liquidität und Reserve planen',
+        body: 'Bei einem höheren Lohn geht es nicht nur darum, heute möglichst viele Euro zu erhalten, sondern auch um die richtige Liquidität und CHF-Reserve. Teilen Sie die Überweisung auf Ausgaben, Investitionen und einen Puffer auf, damit Sie keinen Spread für sofort nicht benötigtes Geld zahlen.',
+      },
+    },
     amountFaq: (amount, eur, rate, lowNet, bankNet, netLow, netHigh) => [
       {
         q: `Wie viel sind ${amount} Schweizer Franken in Euro?`,
@@ -781,6 +869,28 @@ const COPY: Record<ExchangeLocale, ExchangeCopy> = {
     netScenarioBody: (amount, netLow, netHigh, netLowEur, netHighEur) =>
       `Si ${amount} CHF est votre salaire brut mensuel suisse, le net typique d'un frontalier — après impôt à la source, AVS/AI/APG, assurance chômage et caisse de pension — se situe entre ${netLow} et ${netHigh} francs, soit environ ${netLowEur} à ${netHighEur} euros au taux actuel. La fourchette dépend du canton, de l'état civil, des enfants et de la franchise : le calculateur la resserre sur votre situation réelle en une minute.`,
     netScenarioCta: 'Calculer votre net exact',
+    amountProfile: {
+      entry: {
+        title: 'Palier de départ : protéger les dépenses essentielles',
+        body: 'À ce niveau de salaire, le change doit d’abord couvrir le loyer, les transports et les courses sans absorber toute la marge. Fixez une enveloppe mensuelle en euros et gardez le reste en francs pour que le spread ne réduise pas discrètement le budget.',
+      },
+      essential: {
+        title: 'Palier essentiel : équilibrer logement et trajet',
+        body: 'À ce niveau, le résultat dépend surtout des charges récurrentes du foyer et du coût du trajet. Comparez le coût total du canal et programmez la conversion après avoir isolé les factures, plutôt que de choisir seulement le taux affiché.',
+      },
+      standard: {
+        title: 'Palier courant du frontalier : séparer les enveloppes',
+        body: 'Pour un salaire frontalier courant, une partie du change peut financer les dépenses en Italie tandis qu’une autre reste en réserve CHF. Un plan pour le logement, les trajets et l’épargne rend l’effet des frais plus lisible.',
+      },
+      family: {
+        title: 'Palier familial : mesurer le coût annuel',
+        body: 'Quand le salaire fait vivre plusieurs personnes, la comparaison ne se limite pas à la contre-valeur d’une seule opération. Rapportez le coût du change au budget récurrent et vérifiez si un spread plus faible protège mieux les dépenses scolaires, de logement et du quotidien.',
+      },
+      upper: {
+        title: 'Palier supérieur : organiser liquidités et réserve',
+        body: 'Avec un salaire plus élevé, il ne s’agit pas seulement de recevoir davantage d’euros aujourd’hui, mais de choisir la liquidité à convertir et la réserve à garder en CHF. Répartir le transfert entre dépenses, investissements et coussin évite de payer un spread sur l’argent qui ne sert pas encore.',
+      },
+    },
     amountFaq: (amount, eur, rate, lowNet, bankNet, netLow, netHigh) => [
       {
         q: `Combien valent ${amount} francs suisses en euros ?`,
@@ -1145,6 +1255,7 @@ function generateAmountPage(
   const title = copy.amountTitle(amountStr, eurNowStr);
   const description = copy.amountDescription(amountStr, eurNowStr, rateStr, dateStr);
   const faq = copy.amountFaq(amountStr, eurNowStr, rateStr, lowNetStr, bankNetStr, netLowStr, netHighStr);
+  const amountProfile = copy.amountProfile[amountBandFor(amount)];
 
   const breadcrumbHtml = renderBreadcrumb([
     { label: copy.breadcrumbHome, href: HOME_PATH[locale] },
@@ -1229,6 +1340,11 @@ ${conversionRows}
   <h2 style="${H2_STYLE}">${esc(copy.netScenarioTitle)}</h2>
   <p style="${BODY_STYLE}">${esc(copy.netScenarioBody(amountStr, netLowStr, netHighStr, netLowEurStr, netHighEurStr))}</p>
   <p style="margin:14px 0 0"><a href="${calcPrefill}" class="${CTA_PRIMARY_CLASS}">${esc(copy.netScenarioCta)}</a></p>
+</section>
+
+<section style="margin:32px 0 0">
+  <h2 style="${H2_STYLE}">${esc(amountProfile.title)}</h2>
+  <p style="${BODY_STYLE}">${esc(amountProfile.body)}</p>
 </section>
 
 ${renderFaqSection(copy, faq)}
