@@ -128,9 +128,37 @@ function createFakeDb(seed: Record<string, Record<string, unknown>> = {}) {
     }),
   });
 
+  const makeCollectionGroup = (collectionId: string): any => {
+    const getDocs = (field?: string, value?: unknown) => {
+      const docs = Object.keys(store)
+        .filter((key) => {
+          const parts = key.split('/');
+          return parts.length >= 2
+            && parts[parts.length - 2] === collectionId
+            && (!field || store[key]?.[field] === value);
+        })
+        .map((key) => ({
+          id: key.split('/').pop(),
+          ref: makeDoc(key),
+          data: () => store[key],
+        }));
+      return { empty: docs.length === 0, size: docs.length, docs };
+    };
+    return {
+      where: (field: string, operator: string, value: unknown) => ({
+        get: async () => {
+          if (operator !== '==') throw new Error(`unsupported fake query operator: ${operator}`);
+          return getDocs(field, value);
+        },
+      }),
+      get: async () => getDocs(),
+    };
+  };
+
   return {
     store,
     collection: (name: string) => makeCollection(name),
+    collectionGroup: (name: string) => makeCollectionGroup(name),
     batch() {
       const ops: Array<() => void> = [];
       return {
@@ -168,6 +196,10 @@ function seedDeletedUser(extra: Record<string, Record<string, unknown>> = {}) {
     [`users/${UID}/savedJobs/job-a`]: { jobId: 'job-a' },
     [`users/${UID}/savedJobs/job-b`]: { jobId: 'job-b' },
     [`newsletter_subscribers/${EMAIL}`]: { status: 'pending', isActive: false, email: EMAIL },
+    [`newsletter_subscribers/${EMAIL}/private/personalization`]: {
+      applicationIntentAuthUid: UID,
+      applicationIntent: { intents: [{ jobKey: 'acme:old-role' }] },
+    },
     [`job_alert_subscribers/${EMAIL}`]: { status: 'active', isActive: true, email: EMAIL },
     ...extra,
   });
@@ -231,6 +263,7 @@ describe('cleanupUserDataForDeletedAccount', () => {
     expect(db.store[`users/${UID}`]).toBeUndefined();
     expect(db.store[`users/${UID}/savedJobs/job-a`]).toBeUndefined();
     expect(db.store[`users/${UID}/savedJobs/job-b`]).toBeUndefined();
+    expect(db.store[`newsletter_subscribers/${EMAIL}/private/personalization`]).toBeUndefined();
 
     const newsletter = db.store[`newsletter_subscribers/${EMAIL}`];
     expect(isAccountDeletedTombstone(newsletter)).toBe(true);
@@ -269,6 +302,37 @@ describe('cleanupUserDataForDeletedAccount', () => {
     expect(isAccountDeletedTombstone(db.store[`job_alert_subscribers/${EMAIL}`])).toBe(true);
   });
 
+  it('finds and cleans subscriber/private projections from a historical email', async () => {
+    const { cleanupUserDataForDeletedAccount, isAccountDeletedTombstone } = await import(
+      '../functions/src/authAccountCleanup.js'
+    );
+    const oldEmail = 'old-address@example.com';
+    const db = seedDeletedUser({
+      [`newsletter_subscribers/${oldEmail}`]: {
+        email: oldEmail,
+        user_id: UID,
+        status: 'confirmed',
+        isActive: true,
+      },
+      [`newsletter_subscribers/${oldEmail}/private/personalization`]: {
+        applicationIntentAuthUid: UID,
+        applicationIntent: { intents: [{ jobKey: 'acme:old-address-role' }] },
+      },
+      [`job_alert_subscribers/${oldEmail}`]: {
+        email: oldEmail,
+        userId: UID,
+        status: 'active',
+        isActive: true,
+      },
+    });
+
+    await cleanupUserDataForDeletedAccount({ uid: UID, email: EMAIL }, db as never);
+
+    expect(isAccountDeletedTombstone(db.store[`newsletter_subscribers/${oldEmail}`])).toBe(true);
+    expect(isAccountDeletedTombstone(db.store[`job_alert_subscribers/${oldEmail}`])).toBe(true);
+    expect(db.store[`newsletter_subscribers/${oldEmail}/private/personalization`]).toBeUndefined();
+  });
+
   it('still wipes saved jobs when the Auth user has no email', async () => {
     const { cleanupUserDataForDeletedAccount } = await import(
       '../functions/src/authAccountCleanup.js'
@@ -278,8 +342,8 @@ describe('cleanupUserDataForDeletedAccount', () => {
     const result = await cleanupUserDataForDeletedAccount({ uid: UID, email: null }, db as never);
 
     expect(result.deletedSavedJobs).toBe(2);
-    expect(result.tombstonedNewsletter).toBe(false);
-    expect(db.store[`newsletter_subscribers/${EMAIL}`].status).toBe('pending');
+    expect(result.tombstonedNewsletter).toBe(true);
+    expect(db.store[`newsletter_subscribers/${EMAIL}`].status).toBe('unsubscribed');
   });
 
   it('keeps the tombstones when saved-job cleanup fails, so retries remain safe', async () => {

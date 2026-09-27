@@ -28,6 +28,12 @@ import {
 
 export const APPLICATION_INTENT_CONSENT_VERSION = 'application-intent-v1';
 export const APPLICATION_INTENT_STATUS = 'redirect_only';
+export const APPLICATION_INTENT_APPLICATION_MODES = Object.freeze([
+  'external',
+  'in_house',
+  'forward_email',
+]);
+export const APPLICATION_INTENT_REMINDER_DELAY_MS = 48 * 60 * 60 * 1000;
 export { APPLICATION_INTENTS_COLLECTION, APPLICATION_INTENT_RETENTION_DAYS };
 
 // These limits are part of the storage contract. They bound attacker-controlled
@@ -59,6 +65,15 @@ function requiredBounded(value, max) {
 function optionalBounded(value, max) {
   const normalized = trimmedString(value);
   return normalized ? normalized.slice(0, max) : null;
+}
+
+function normalizeApplicationMode(value) {
+  const mode = trimmedString(value);
+  return APPLICATION_INTENT_APPLICATION_MODES.includes(mode) ? mode : 'external';
+}
+
+function applicationStatusForMode(mode) {
+  return mode === 'external' ? APPLICATION_INTENT_STATUS : 'pending';
 }
 
 function sha256(value) {
@@ -168,6 +183,7 @@ export function normalizeApplicationIntentRequest(body = {}) {
       jobSlug: optionalBounded(source.jobSlug, APPLICATION_INTENT_LIMITS.jobSlug),
       companyKey: optionalBounded(source.companyKey, APPLICATION_INTENT_LIMITS.companyKey),
       jobTitle: optionalBounded(source.jobTitle, APPLICATION_INTENT_LIMITS.jobTitle),
+      applicationMode: normalizeApplicationMode(source.applicationMode),
       origin,
       surface,
       consentVersion,
@@ -192,6 +208,7 @@ export function buildApplicationIntentRecord({ req, token, input, now = Date.now
   const expiresAt = new Date(
     Number(now) + APPLICATION_INTENT_RETENTION_DAYS * 24 * 60 * 60 * 1000,
   );
+  const reminderDueAt = new Date(Number(now) + APPLICATION_INTENT_REMINDER_DELAY_MS);
 
   return {
     intentId,
@@ -199,13 +216,22 @@ export function buildApplicationIntentRecord({ req, token, input, now = Date.now
     jobSlug: input.jobSlug,
     companyKey: input.companyKey,
     jobTitle: input.jobTitle,
+    application_mode: input.applicationMode,
     origin: input.origin,
     surface: input.surface,
     identifier: identity.identifier,
     identifierType: identity.identifierType,
     consentVersion: input.consentVersion,
     consentText: input.consentText,
-    application_status: APPLICATION_INTENT_STATUS,
+    application_status: applicationStatusForMode(input.applicationMode),
+    reminder: {
+      enabled: true,
+      dueAt: reminderDueAt,
+      state: 'pending',
+    },
+    completion: {
+      state: 'unknown',
+    },
     timestamp: FieldValue.serverTimestamp(),
     createdAt: FieldValue.serverTimestamp(),
     updatedAt: FieldValue.serverTimestamp(),
@@ -298,7 +324,7 @@ export async function handleRecordApplicationIntent({
       intentId: record.intentId,
       recorded: result.recorded,
       duplicate: result.duplicate,
-      application_status: APPLICATION_INTENT_STATUS,
+      application_status: record.application_status,
     },
   };
 }

@@ -65,6 +65,7 @@ const SENDERS: Array<{ file: string; kind: 'recurring' | 'transactional' | 'outr
   { file: 'services/dormantWinbackStage1Email.mjs', kind: 'recurring', what: 'dormant win-back stage 1' },
   { file: 'services/companyAlertEmail.mjs', kind: 'recurring', what: 'followed-employer alert' },
   { file: 'scripts/send-saved-jobs-digest.mjs', kind: 'recurring', what: 'saved-jobs digest' },
+  { file: 'scripts/send-application-intent-reminders.mjs', kind: 'recurring', what: 'application-intent reminder' },
   // Reclassified `outreach` → `recurring` by #5759. It is a subscriber-facing
   // channel with its own optional advertising purpose and preference-centre
   // control; the channel's email must carry a link back to that control.
@@ -115,6 +116,11 @@ const CHANNELS: Array<{ what: string; controlStrings: string[]; sender: string }
     sender: 'scripts/send-saved-jobs-digest.mjs',
   },
   {
+    what: 'application-intent reminder',
+    controlStrings: ['applicationReminderTitle', 'authSetApplicationIntentReminderOptOut', 'handleToggleApplicationReminder'],
+    sender: 'scripts/send-application-intent-reminders.mjs',
+  },
+  {
     // #5759. Listed here as a subscriber-facing channel with a separate,
     // affirmative advertising purpose. Its switch must remain available even
     // while the sender is suspended, so a future reactivation cannot treat an
@@ -142,7 +148,7 @@ describe('#5684 point 1 — every recurring channel has a switch in the preferen
     // is a key translated everywhere. A key added to `it` alone would not
     // typecheck, but a key added to the interface and then left out of the
     // rendered card would — this pins the rendered side.
-    for (const key of ['newsletterTitle', 'briefTitle', 'alertsTitle', 'digestTitle', 'adsTitle']) {
+    for (const key of ['newsletterTitle', 'briefTitle', 'alertsTitle', 'digestTitle', 'applicationReminderTitle', 'adsTitle']) {
       const occurrences = controllerSrc.split(`${key}:`).length - 1;
       // once in the interface declaration + once per locale
       expect(occurrences, `${key} should be declared once and translated ${LOCALES.length}×`).toBe(
@@ -245,6 +251,7 @@ describe('#5684 point 2 — what "off" means is stated, and the all-off case is 
     const body = stopAll.slice(0, stopAll.indexOf('\n const handleTogglePause'));
     expect(body, 'the token-mode call').toContain('setAdvertisingEnabled(email, token, false)');
     expect(body, 'the auth-mode call').toContain('authSetAdvertisingOptOut(email, false)');
+    expect(body, 'the application-reminder call').toContain('authSetApplicationIntentReminderOptOut(userId, true)');
     for (const marker of [
       'annunci di inserzionisti',
       'advertiser announcements',

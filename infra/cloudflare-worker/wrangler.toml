@@ -178,6 +178,11 @@ routes = [
   # a non-wildcard route would silently miss all real traffic (#2611).
   # Look-alike paths rejected by the in-code guard.
   { pattern = "frontaliereticino.ch/disiscrivi-promemoria-salvati*", zone_name = "frontaliereticino.ch" },
+  # Application-intent reminder one-click unsubscribe (RFC 8058). Scoped to
+  # `users/{uid}.applicationIntentReminder`, never the saved-jobs digest or
+  # the underlying application-intent signal. Wildcard preserves uid/email/
+  # token query parameters for GET and one-click POST requests.
+  { pattern = "frontaliereticino.ch/disiscrivi-promemoria-candidature*", zone_name = "frontaliereticino.ch" },
   # Pushable-origin edge file, rollout step 1 of N (issue #4881 Fase 3, see
   # locale-router.js EDGE_PUSHED_FILES). Adding the next pushed path is a
   # one-line addition here + one object-literal entry in EDGE_PUSHED_FILES, no
@@ -295,4 +300,3 @@ routes = [
 [observability]
 enabled = true
 head_sampling_rate = 1
-

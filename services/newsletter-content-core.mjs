@@ -28,6 +28,11 @@ import { companyDisplayIdentityKeys } from '../build-plugins/shared/companyProfi
 import { JOB_BOARD_SECTION_RX } from '../scripts/lib/jobBoardSections.mjs';
 import { nlNormLocale } from './newsletter-template.mjs';
 import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
+import {
+  activeApplicationIntentJobKeys,
+  buildApplicationIntentJobKey,
+  PERSONAL_APPLICATION_INTENT_BOOST,
+} from './applicationIntentRanking.mjs';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -458,9 +463,16 @@ function parseSourceField(source) {
  * @param {string[]} subscriberLocationTokens normalized location aliases.
  * @returns {number}
  */
-function keywordRelevanceScore(entry, subscriberKeywords, subscriberCompanyKeys, subscriberLocationTokens) {
-  if (subscriberKeywords.size === 0 && subscriberCompanyKeys === null && subscriberLocationTokens.length === 0) return 0;
+function keywordRelevanceScore(entry, subscriberKeywords, subscriberCompanyKeys, subscriberLocationTokens, applicationIntentJobKeys = new Set()) {
+  if (subscriberKeywords.size === 0 && subscriberCompanyKeys === null && subscriberLocationTokens.length === 0 && applicationIntentJobKeys.size === 0) return 0;
   let score = 0;
+
+  // An exact application-intent source job is stronger than passive browsing,
+  // but remains a single bounded boost. The profile helper already enforces
+  // the opt-out and 90-day retention boundary.
+  if (applicationIntentJobKeys.has(buildApplicationIntentJobKey(entry.job))) {
+    score += PERSONAL_APPLICATION_INTENT_BOOST;
+  }
 
   // Company match: strong signal. Compare canonical display identities only:
   // one crawler key can cover unrelated employer labels (e.g. Migros/Galaxus).
@@ -772,6 +784,16 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
   const sourceJobCategoryKeywords = sourceJob?.category || sourceJob?.sector
     ? extractKeywords(`${sourceJob.category || ''} ${sourceJob.sector || ''}`)
     : new Set();
+  const applicationIntentJobKeys = activeApplicationIntentJobKeys(subscriber?.applicationIntent);
+  const applicationIntentSourceJobs = context.entries
+    .filter((entry) => applicationIntentJobKeys.has(buildApplicationIntentJobKey(entry.job)))
+    .map((entry) => entry.job);
+  const applicationIntentKeywords = new Set();
+  for (const job of applicationIntentSourceJobs) {
+    for (const keyword of extractKeywords(`${job.titleByLocale?.it || job.title || ''} ${job.category || ''} ${job.sector || ''}`)) {
+      applicationIntentKeywords.add(keyword);
+    }
+  }
   const parsedSource = parseSourceField(sourceField);
   const sourceTitleKeywords = parsedSource?.title ? extractKeywords(parsedSource.title) : new Set();
   // Merge all keyword sources (slug is primary, source title is secondary).
@@ -783,12 +805,19 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
     ...sourceJobTitleKeywords,
     ...sourceJobCategoryKeywords,
     ...sourceTitleKeywords,
+    ...applicationIntentKeywords,
   ]);
   // Company from the explicit field or the parsed legacy source string.
   const subscriberCompany = jobCompany || parsedSource?.company || '';
   const hasInterestProfile = subscriberKeywords.size > 0 || subscriberCompany;
 
-  const savedJobLocation = subscriber?.job_location || sourceJob?.location || sourceJob?.addressLocality || '';
+  const applicationIntentLocation = applicationIntentSourceJobs[0]?.location
+    || applicationIntentSourceJobs[0]?.addressLocality
+    || '';
+  const savedJobLocation = subscriber?.job_location
+    || sourceJob?.location
+    || sourceJob?.addressLocality
+    || applicationIntentLocation;
   const location = String(subscriber?.locationInterest || savedJobLocation || '').toLowerCase().trim();
   const sector = String(subscriber?.sectorInterest || jobCategory || '').toLowerCase().trim();
   const usableSector = sector && sector !== 'other';
@@ -812,7 +841,7 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
   const scored = candidateEntries.map((entry) => ({
     job: entry.job,
     relevance: hasInterestProfile
-      ? keywordRelevanceScore(entry, subscriberKeywords, subscriberCompanyKeys, subscriberLocationTokens)
+      ? keywordRelevanceScore(entry, subscriberKeywords, subscriberCompanyKeys, subscriberLocationTokens, applicationIntentJobKeys)
       : 0,
     decayedViews: entry.decayedViews,
     date: entry.date,

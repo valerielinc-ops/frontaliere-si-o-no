@@ -1406,21 +1406,27 @@ const App: React.FC = () => {
  }, []);
 
  // ── Personalization: Firestore sync on auth ──
+ const authUid = authUser?.uid || null;
  useEffect(() => {
- if ((!enablePersonalization && !enableApplicationIntentRanking) || !authEmail) return;
+ if (!enablePersonalization && !enableApplicationIntentRanking) return;
  let cancelled = false;
  let cleanup: (() => void) | undefined;
- import('@/services/behaviorTracker').then(({ hydrateFromFirestore, syncToFirestore, startSyncInterval }) => {
+ import('@/services/behaviorTracker').then(({ hydrateFromFirestore, syncToFirestore, startSyncInterval, setApplicationIntentAccount }) => {
   if (cancelled) return;
-  hydrateFromFirestore(authEmail).then(async (hydrated) => {
+  setApplicationIntentAccount(authUid);
+  if (!authEmail) {
+   setBehaviorHydrationRevision((revision) => revision + 1);
+   return;
+  }
+  hydrateFromFirestore(authEmail, authUid).then(async (hydrated) => {
    if (cancelled) return;
    setBehaviorHydrationRevision((revision) => revision + 1);
-   if (hydrated) await syncToFirestore(authEmail);
-   if (!cancelled) cleanup = startSyncInterval(authEmail, hydrated);
+   if (hydrated) await syncToFirestore(authEmail, authUid);
+   if (!cancelled) cleanup = startSyncInterval(authEmail, hydrated, authUid);
   }).catch(() => {});
  }).catch(() => {});
  return () => { cancelled = true; cleanup?.(); };
- }, [enablePersonalization, enableApplicationIntentRanking, authEmail]);
+ }, [enablePersonalization, enableApplicationIntentRanking, authEmail, authUid]);
 
  useEffect(() => {
  let cancelled = false;

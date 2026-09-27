@@ -904,7 +904,13 @@ function clickedJobMeta(lastClickedUrl, locationIndex) {
 // use; `searches[].query` + viewed-job categories add intent tokens.
 function behaviorSignals(personalization) {
   if (!personalization || typeof personalization !== 'object') {
-    return { behaviorLocations: [], behaviorTokens: [], filterLocations: [], applicationIntent: null };
+    return {
+      behaviorLocations: [],
+      behaviorTokens: [],
+      filterLocations: [],
+      applicationIntent: null,
+      applicationIntentAuthUid: null,
+    };
   }
   const viewedJobs = Array.isArray(personalization.viewedJobs) ? personalization.viewedJobs : [];
   const searches = Array.isArray(personalization.searches) ? personalization.searches : [];
@@ -927,6 +933,9 @@ function behaviorSignals(personalization) {
     behaviorTokens,
     filterLocations,
     applicationIntent: personalization.applicationIntent || null,
+    applicationIntentAuthUid: typeof personalization.applicationIntentAuthUid === 'string'
+      ? personalization.applicationIntentAuthUid.trim()
+      : null,
   };
 }
 
@@ -1921,6 +1930,7 @@ function planAlertMatch(alert, {
   locationIndex,
   cityToCanton,
   subscriberProfiles,
+  applicationIntentAccountProfiles = new Map(),
   recentJobs,
   now,
   featureCache = null,
@@ -1934,6 +1944,12 @@ function planAlertMatch(alert, {
   // the soft location boost (strongest intent; #3025).
   const clicked = clickedJobMeta(lastClickedUrlByEmail.get(alert.email.toLowerCase()), locationIndex);
   const sourceJobLocations = sourceJobLocationsFor(alert, locationIndex);
+  const accountProfile = applicationIntentAccountProfiles.get(alert.email.toLowerCase());
+  const applicationIntent = accountProfile
+    && accountProfile.uid === behavior.applicationIntentAuthUid
+    && accountProfile.optedOut !== true
+    ? behavior.applicationIntent
+    : null;
   const extras = {
     behaviorLocations: [...(behavior.behaviorLocations || []), ...clicked.locations],
     behaviorTokens: behavior.behaviorTokens || [],
@@ -1947,7 +1963,7 @@ function planAlertMatch(alert, {
       ...sourceJobLocations,
     ],
     cityToCanton,
-    applicationIntent: behavior.applicationIntent,
+    applicationIntent,
     now,
   };
   const profile = buildAlertProfile(
@@ -2233,6 +2249,11 @@ async function main() {
   // read before (newsletter_subscribers/{email}/private/personalization), which
   // is why precise location data was "missing" from alerts (issue #2993).
   const behaviorProfiles = new Map();
+  // Application-intent ranking is allowed only when the private projection is
+  // explicitly bound to the subscriber's Auth uid and the current users/{uid}
+  // purpose preference permits it. Missing/erroring profile reads leave this
+  // map empty, which is the intentional fail-closed behavior.
+  const applicationIntentAccountProfiles = new Map();
   // Raw personalization subdoc + whether the parent doc exists, kept so the
   // post-send enrichment step (section 6 below) can consolidate every signal
   // back into the flat profile fields (no-clobber).
@@ -2327,6 +2348,51 @@ async function main() {
     const before = alerts.length;
     alerts = alerts.filter((a) => !suppressionLookupFailedEmails.has(a.email.toLowerCase()));
     console.warn(`   ⏳ Subscriber suppression lookup failed; ${before - alerts.length} alert(s) deferred for the next run.`);
+  }
+
+  try {
+    const uidByEmail = new Map();
+    for (const [email, behavior] of behaviorProfiles) {
+      const newsletter = subscriberProfiles.get(email) || {};
+      const alertSubscriber = jobAlertProfiles.get(email) || {};
+      const uid = [
+        newsletter.user_id,
+        newsletter.userId,
+        newsletter.uid,
+        alertSubscriber.user_id,
+        alertSubscriber.userId,
+        alertSubscriber.uid,
+      ].find((candidate) => typeof candidate === 'string' && candidate.trim());
+      const normalizedUid = typeof uid === 'string' ? uid.trim() : '';
+      if (normalizedUid && normalizedUid === behavior.applicationIntentAuthUid) {
+        uidByEmail.set(email, normalizedUid);
+      }
+    }
+    const uids = [...new Set(uidByEmail.values())];
+    if (uids.length > 0) {
+      if (typeof db.getAll !== 'function') throw new Error('batched users profile lookup unavailable');
+      const accountProfiles = new Map();
+      const PROFILE_CHUNK_SIZE = 200;
+      for (let i = 0; i < uids.length; i += PROFILE_CHUNK_SIZE) {
+        const chunk = uids.slice(i, i + PROFILE_CHUNK_SIZE);
+        const snapshots = await db.getAll(...chunk.map((uid) => db.collection('users').doc(uid)));
+        snapshots.forEach((snapshot, index) => {
+          const exists = typeof snapshot?.exists === 'function' ? snapshot.exists() : snapshot?.exists === true;
+          if (!exists) return;
+          const data = snapshot.data() || {};
+          accountProfiles.set(chunk[index], { optedOut: data.applicationIntent?.optedOut === true });
+        });
+      }
+      for (const [email, uid] of uidByEmail) {
+        const account = accountProfiles.get(uid);
+        if (account && !account.optedOut) applicationIntentAccountProfiles.set(email, { uid, optedOut: false });
+      }
+    }
+  } catch (err) {
+    // The alert audience and suppression path remain usable, but application
+    // intent must not be used without a current, readable account profile.
+    applicationIntentAccountProfiles.clear();
+    console.warn(`   ⚠️  Application-intent account preference lookup failed; ranking signal disabled: ${err?.message || err}`);
   }
   if (suppressedEmails.size > 0) {
     const before = alerts.length;
@@ -2538,6 +2604,7 @@ async function main() {
       locationIndex,
       cityToCanton,
       subscriberProfiles,
+      applicationIntentAccountProfiles,
       // `planAlertMatch` keeps its historical property name for the test
       // oracle, but the value is now the recipient-aware candidate pool.
       recentJobs: candidateWindow.jobs,

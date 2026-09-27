@@ -99,7 +99,7 @@ export const CLICK_TRACKER_HOSTS = ['click.frontaliereticino.ch'];
  * UNSUB_PROXIES keys, and fails when the two lists disagree — the same
  * technique route-slugs-no-drift.test.ts uses for the functions-side slug table.
  *
- * There are FOUR of them, not one: the newsletter is only the best known.
+ * There are FIVE of them, not one: the newsletter is only the best known.
  * scripts/send-saved-jobs-digest.mjs and scripts/send-job-alerts.mjs each have
  * their own endpoint and their own token scheme, and an audit that knew only
  * about /disiscrivi-newsletter/ would have declared their (perfectly good)
@@ -110,6 +110,7 @@ export const ONE_CLICK_UNSUBSCRIBE_PATHS = [
   '/disiscrivi-outreach',
   '/disiscrivi-newsletter',
   '/disiscrivi-promemoria-salvati',
+  '/disiscrivi-promemoria-candidature',
 ];
 
 /** The newsletter one, in the trailing-slash form newsletterUrls.js builds
@@ -252,7 +253,7 @@ export function classifyEmailLink(href) {
   const params = u.searchParams;
 
   if (isOneClickPath(path)) {
-    // The four endpoints do NOT agree on the query-param name for the
+    // The five endpoints do NOT agree on the query-param name for the
     // signature: newsletter/job-alert/saved-jobs use `token`, outreach uses `t`
     // (scripts/lib/outreach-unsubscribe-token.mjs). Accepting only `token`
     // would have reported the cold-email channel's perfectly good opt-out link

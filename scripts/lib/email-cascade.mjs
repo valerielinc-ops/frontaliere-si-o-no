@@ -66,6 +66,7 @@ export const MASS_EMAIL_CHANNELS = {
   'send-job-alerts.mjs': { id: 'job-alert', requireUnsubscribe: true },
   'send-onboarding-drip.mjs': { id: 'onboarding-drip', requireUnsubscribe: true },
   'send-saved-jobs-digest.mjs': { id: 'saved-jobs-digest', requireUnsubscribe: true },
+  'send-application-intent-reminders.mjs': { id: 'application-intent-reminder', requireUnsubscribe: true },
   'send-company-alerts.mjs': { id: 'company-alert', requireUnsubscribe: true },
   'send-cold-emails.mjs': { id: 'cold-email', requireUnsubscribe: true },
   'newsletter-winback-campaign.mjs': { id: 'winback', requireUnsubscribe: true },

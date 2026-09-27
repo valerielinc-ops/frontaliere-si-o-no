@@ -12,6 +12,8 @@ import {
   getLastVisitTimestamp,
   updateLastVisit,
   mergeBehavior,
+  setApplicationIntentAccount,
+  setApplicationIntentOptOut,
   type BehaviorData,
 } from '@/services/behaviorTracker';
 
@@ -114,6 +116,25 @@ describe('application-intent ranking projection', () => {
     expect(trackApplicationIntent('acme:software-engineer-lugano')).toBe(false);
     expect(getBehaviorData().applicationIntent?.optedOut).toBe(true);
     expect(getBehaviorData().applicationIntent?.intents).toEqual([]);
+  });
+
+  it('clears anonymous and previous-account signals at an Auth boundary', () => {
+    expect(trackApplicationIntent('anonymous:role', Date.now())).toBe(true);
+    setApplicationIntentAccount('uid-current');
+    expect(getBehaviorData().applicationIntent).toBeUndefined();
+    expect(getBehaviorData().applicationIntentAuthUid).toBe('uid-current');
+
+    expect(trackApplicationIntent('current:role', Date.now(), 'uid-current')).toBe(true);
+    setApplicationIntentAccount('uid-other');
+    expect(getBehaviorData().applicationIntent).toBeUndefined();
+    expect(getBehaviorData().applicationIntentAuthUid).toBe('uid-other');
+  });
+
+  it('applies the account opt-out locally and clears ranking signals', () => {
+    expect(trackApplicationIntent('acme:role', Date.now(), 'uid-current')).toBe(true);
+    setApplicationIntentOptOut(true, 'uid-current');
+    expect(trackApplicationIntent('acme:another-role', Date.now(), 'uid-current')).toBe(false);
+    expect(getBehaviorData().applicationIntent).toEqual({ optedOut: true, intents: [] });
   });
 
   it('prunes expired application intents while merging opt-out fail-closed', () => {

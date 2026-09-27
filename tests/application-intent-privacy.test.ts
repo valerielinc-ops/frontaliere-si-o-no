@@ -9,6 +9,7 @@ import {
  canUseApplicationIntentForRanking,
  canWriteApplicationIntentForAccount,
  isApplicationIntentAccountDeleted,
+ isApplicationIntentReminderOptedOut,
  resolveApplicationIntentIdentity,
 } from '../functions/src/applicationIntentPrivacy.js';
 
@@ -62,8 +63,24 @@ describe('application-intent privacy gates', () => {
    userId: 'uid-1',
    occurred_at: new Date(now - 25 * 86400000).toISOString(),
   };
-  expect(canSendApplicationIntentReminder({
+ expect(canSendApplicationIntentReminder({
    profile: { applicationIntent: { optedOut: false } },
+   intent,
+   userId: 'uid-1',
+   now,
+  })).toBe(true);
+  expect(canSendApplicationIntentReminder({
+   profile: { applicationIntent: { optedOut: false }, applicationIntentReminder: { optedOut: true } },
+   intent,
+   userId: 'uid-1',
+   now,
+  })).toBe(false);
+  expect(isApplicationIntentReminderOptedOut({
+   applicationIntent: { optedOut: false },
+   applicationIntentReminder: { optedOut: true },
+  })).toBe(true);
+  expect(canUseApplicationIntentForRanking({
+   profile: { applicationIntent: { optedOut: false }, applicationIntentReminder: { optedOut: true } },
    intent,
    userId: 'uid-1',
    now,

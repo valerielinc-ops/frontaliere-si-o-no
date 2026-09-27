@@ -3,7 +3,7 @@
  *
  * THE DEFECT. Cloud Run writes `httpRequest.requestUrl` — the whole URL, query
  * string included — for every invocation, into the `_Default` bucket that
- * anybody with `logging.viewer` can read. The four newsletter endpoints were
+ * anybody with `logging.viewer` can read. The five newsletter endpoints were
  * called with `?email=…&token=…`, so the log held an ADDRESS and a CREDENTIAL,
  * appaired, per request. Remeasured on 2026-08-13 over seven days: 3.131 such
  * requests, 995 distinct real addresses, across
@@ -27,7 +27,7 @@
  *
  * WHICH SHAPES A NARROWER TEST WOULD NEVER HAVE SEEN (#5764)
  *
- *  - ALL FOUR endpoints, not just the one the issue's title names. The three
+ *  - ALL FIVE endpoints, not just the one the issue's title names. The three
  *    small ones are 5,4% of the volume and the same class of credential, and two
  *    of them are exit paths — the thing the LPD complaint was about;
  *  - every `action` in the measured table, `get_full_status` and `update_alert`
@@ -119,7 +119,14 @@ function savedJobsDigestUnsubUrl(uid: string, email: string, token: string): str
   return `https://frontaliereticino.ch${pathMatch[1]}${query}`;
 }
 
-// ─── The four proxied endpoints, built by their real senders ─────────────────
+function applicationIntentReminderUnsubUrl(uid: string, email: string, token: string): string {
+  const src = read('scripts/send-application-intent-reminders.mjs');
+  const pathMatch = src.match(/const UNSUB_PATH = '([^']+)'/);
+  if (!pathMatch) throw new Error('application-intent reminder unsubscribe path not found');
+  return `https://frontaliereticino.ch${pathMatch[1]}?uid=${encodeURIComponent(uid)}&email=${encodeURIComponent(email)}&token=${token}`;
+}
+
+// ─── The five proxied endpoints, built by their real senders ────────────────
 
 type ProxiedCase = {
   endpoint: string;
@@ -157,6 +164,13 @@ const PROXIED_CASES: ProxiedCase[] = [
     endpoint: 'savedJobsDigestUnsubscribe',
     what: 'the saved-jobs digest unsubscribe (5 requests)',
     url: () => savedJobsDigestUnsubUrl(UID, EMAIL, 'a'.repeat(64)),
+    credential: (url) => new URL(url).searchParams.get('token') || '',
+    keeps: ['uid'],
+  },
+  {
+    endpoint: 'applicationIntentReminderUnsubscribe',
+    what: 'the application-intent reminder unsubscribe',
+    url: () => applicationIntentReminderUnsubUrl(UID, EMAIL, 'b'.repeat(64)),
     credential: (url) => new URL(url).searchParams.get('token') || '',
     keeps: ['uid'],
   },
@@ -468,7 +482,7 @@ describe('#5746 — the SPA puts nothing identifying on the query string', () =>
   });
 });
 
-describe('#5746 — every one of the four entrypoints reads the shared resolver', () => {
+describe('#5746 — every one of the five entrypoints reads the shared resolver', () => {
   // The narrow fix this guards against is the one the issue's remeasurement
   // names: applying the change to `newsletterManageSubscription` alone and
   // leaving 173 requests on the three small endpoints exactly as they were.
@@ -476,6 +490,7 @@ describe('#5746 — every one of the four entrypoints reads the shared resolver'
     'newsletterManageSubscription',
     'jobAlertUnsubscribe',
     'savedJobsDigestUnsubscribe',
+    'applicationIntentReminderUnsubscribe',
     'outreachUnsubscribe',
   ];
 

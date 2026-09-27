@@ -1,0 +1,122 @@
+name: Send Application Intent Reminders
+
+on:
+  schedule:
+    # Daily, separate from the Monday saved-jobs digest. The sender's dueAt
+    # gate is the authoritative 48-hour quiet period.
+    - cron: '17 8 * * *'
+  workflow_dispatch:
+    inputs:
+      target_email:
+        description: 'Limit send to a single verified account email (test mode).'
+        required: false
+        default: ''
+        type: string
+      dry_run:
+        description: 'Build reminders but do not claim or send them.'
+        required: false
+        default: true
+        type: boolean
+
+concurrency:
+  group: application-intent-reminders
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  send-reminders:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from Remote Config
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: node scripts/load-rc-env.mjs
+
+      - name: Compute assemble-jobs cache key
+        id: assemble_cache_key
+        uses: ./.github/actions/assemble-jobs-cache-key
+
+      - name: Restore assemble-jobs cache
+        id: assemble_cache
+        if: steps.assemble_cache_key.outputs.key != ''
+        uses: actions/cache/restore@v5
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-reminders-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+
+      - name: Assemble jobs dataset
+        id: assemble
+        run: node scripts/assemble-jobs-dataset.mjs
+
+      - name: Save assemble-jobs cache
+        if: steps.assemble.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true'
+        continue-on-error: true
+        uses: actions/cache/save@v5
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-reminders-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+
+      - name: Send application-intent reminders
+        continue-on-error: true
+        id: send-reminders
+        env:
+          TARGET_EMAIL: ${{ inputs.target_email }}
+          ALLOW_SIDE_EFFECT: 'true'
+          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
+        run: |
+          if [ "$EFFECTIVE_DRY_RUN" = "true" ]; then
+            node scripts/send-application-intent-reminders.mjs --dry-run
+          else
+            node scripts/send-application-intent-reminders.mjs
+          fi
+
+      - name: Report failure to GitHub Issues
+        if: steps.send-reminders.outcome == 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "CI Failure: ${{ github.workflow }}" \
+            --description "## Application-intent reminder invio fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Branch:** ${{ github.ref_name }}
+          **Trigger:** ${{ github.event_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
+
+      - name: Fail job if the send step failed
+        if: steps.send-reminders.outcome == 'failure'
+        run: |
+          echo "::error::invio dei reminder candidature fallito — vedi l'issue aperta sopra."
+          exit 1

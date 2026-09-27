@@ -2,18 +2,19 @@
 /**
  * send-saved-jobs-digest.mjs — weekly reminder email for users' saved jobs.
  *
- * Queries the `savedJobs` and `application_intents` collection groups, groups
- * authenticated application intents by uid, and sends one email per user
- * listing what they saved and the live jobs for which they clicked to apply —
- * with an "expired" badge for listings pruned from data/jobs.json since —
- * plus a small "potrebbero interessarti anche" block derived from the same
- * dominant category/canton used by the in-app nudge
- * (services/savedJobsAlertCriteria.ts, shared with the browser bundle).
+ * Queries the `savedJobs` collection group and sends one email per user listing
+ * what they saved — with an "expired" badge for listings pruned from
+ * data/jobs.json since — plus a small "potrebbero interessarti anche" block.
+ * Application intents are deliberately not cards in this channel anymore: the
+ * separate application-intent sender owns that one-shot lifecycle. When an
+ * account also has a consented application intent, the signal may still feed
+ * recommendation ranking below, without activating or changing this channel.
  *
- * Saving jobs / accepting the saved-jobs prompt or recording a consented
- * application intent activates this channel; an explicit channel opt-out still
- * wins. Delivery additionally requires the central subscriber record and
- * shared suppression predicate, but never a second double-opt-in proof.
+ * Saving jobs / accepting the saved-jobs prompt activates this channel; an
+ * explicit channel opt-out still wins. Delivery additionally requires the
+ * central subscriber record and shared suppression predicate, but never a
+ * second double-opt-in proof. An application intent is only a recommendation
+ * signal here and cannot activate this recurring digest.
  *
  * The channel-specific preference stays on the user document and must never
  * mutate `newsletter_subscribers` or `job_alert_subscribers/*`. An explicit
@@ -54,7 +55,6 @@ import {
   APPLICATION_INTENTS_COLLECTION,
 } from '../functions/src/applicationIntentCore.js';
 import {
-  canSendApplicationIntentReminder,
   canUseApplicationIntentForRanking,
   isApplicationIntentAccountDeleted,
 } from '../functions/src/applicationIntentPrivacy.js';
@@ -62,6 +62,7 @@ import {
 // the implementation is the canonical shared helper (also used by
 // send-newsletter.mjs, send-job-alerts.mjs, AGENTS.md #6).
 import { localePathPrefix } from './lib/articleContent.mjs';
+import { rankSimilarApplicationJobs } from './lib/applicationIntentReminder.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -81,13 +82,13 @@ export const APPLICATION_INTENT_COLLECTION = APPLICATION_INTENTS_COLLECTION;
  *
  * The user profile is the channel activation/opt-out source; the email-keyed
  * subscriber is the registration/suppression source. An explicit
- * `savedJobsDigest.optedIn` activation or a consented application intent is
- * required; merely having a saved-job record is not an activation.
+ * `savedJobsDigest.optedIn` activation is required; neither a saved-job record
+ * nor an application intent is an activation.
  */
-export function isSavedJobsDigestEligible(userData, subscriberData, { hasApplicationIntent = false } = {}) {
+export function isSavedJobsDigestEligible(userData, subscriberData, _legacyOptions = undefined) {
   const digest = userData?.savedJobsDigest || {};
   if (digest.optedOut === true) return false;
-  if (digest.optedIn !== true && !hasApplicationIntent) return false;
+  if (digest.optedIn !== true) return false;
   if (!subscriberData || isCrossChannelStop(subscriberData)) {
     return false;
   }
@@ -420,6 +421,8 @@ export function buildApplicationIntentEntry(documentSnapshot, jobsById, locale, 
     currency: job.currency || null,
     baseSalary: job.baseSalary || null,
     contract: job.contract || null,
+    sourceJob: job,
+    applicationMode: data.application_mode || job.applyMode || 'external',
   };
 }
 
@@ -1086,15 +1089,15 @@ async function main() {
   // share it, same convention as send-newsletter.mjs's weekly_{monday}.
   const campaignId = `saved-jobs-digest-${new Date(nowMs).toISOString().split('T')[0]}`;
 
-  console.log('📌 Saved-jobs digest — querying saved jobs and application intents…');
+  console.log('📌 Saved-jobs digest — querying saved jobs…');
   const [savedSnap, intentSnap] = await Promise.all([
     db.collectionGroup('savedJobs').get(),
     db.collectionGroup(APPLICATION_INTENT_COLLECTION).get(),
   ]);
   const savedDocs = savedSnap.docs || [];
   const intentDocs = intentSnap.docs || [];
-  if (savedDocs.length === 0 && intentDocs.length === 0) {
-    console.log('   No saved jobs or application intents found — nothing to send.');
+  if (savedDocs.length === 0) {
+    console.log('   No saved jobs found — nothing to send.');
     return;
   }
 
@@ -1105,27 +1108,22 @@ async function main() {
     if (!byUid.has(uid)) byUid.set(uid, []);
     byUid.get(uid).push({ id: docSnap.id, ...docSnap.data() });
   }
+  const intentsByUid = new Map();
   for (const docSnap of intentDocs) {
     const uid = applicationIntentUid(docSnap);
     if (!uid) continue;
-    if (!byUid.has(uid)) byUid.set(uid, []);
-    byUid.get(uid).push({ __applicationIntentSnapshot: docSnap });
+    if (!intentsByUid.has(uid)) intentsByUid.set(uid, []);
+    intentsByUid.get(uid).push(docSnap);
   }
 
-  console.log(`   ${byUid.size} user(s) with saved jobs and/or application intents`);
+  console.log(`   ${byUid.size} user(s) with saved jobs`);
 
   let sentCount = 0;
   let skippedCount = 0;
 
   for (const [uid, sources] of byUid) {
-    const savedSourceEntries = sources.filter((entry) => !entry.__applicationIntentSnapshot);
-    const intentSnapshots = sources
-      .map((entry) => entry.__applicationIntentSnapshot)
-      .filter(Boolean);
-    if (savedSourceEntries.length === 0 && intentSnapshots.length === 0) {
-      skippedCount++;
-      continue;
-    }
+    const savedSourceEntries = sources;
+    const intentSnapshots = intentsByUid.get(uid) || [];
 
     const userDoc = await db.collection('users').doc(uid).get();
     if (!userDoc.exists) {
@@ -1155,17 +1153,9 @@ async function main() {
         continue;
       }
     }
-    const applicationIntentEntries = [];
     const rankingIntentEntries = [];
     for (const snapshot of intentSnapshots) {
       const intent = snapshot.data() || {};
-      const reminderAllowed = canSendApplicationIntentReminder({
-        profile: userData,
-        intent,
-        userId: uid,
-        accountDeleted,
-        now: nowMs,
-      });
       const rankingAllowed = canUseApplicationIntentForRanking({
         profile: userData,
         intent,
@@ -1173,11 +1163,10 @@ async function main() {
         accountDeleted,
         now: nowMs,
       });
-      if (!reminderAllowed && !rankingAllowed) continue;
+      if (!rankingAllowed) continue;
       const entry = buildApplicationIntentEntry(snapshot, jobsById, locale, nowMs);
       if (!entry) continue;
-      if (reminderAllowed) applicationIntentEntries.push(entry);
-      if (rankingAllowed) rankingIntentEntries.push(entry);
+      rankingIntentEntries.push(entry);
     }
     const savedCardCandidates = savedSourceEntries.map((entry) => {
       const job = jobsById.get(entry.id);
@@ -1219,20 +1208,20 @@ async function main() {
         contract: job.contract || null,
       };
     });
-    const selected = mergeDigestEntries(savedCardCandidates, applicationIntentEntries);
-    if (selected.savedEntries.length === 0 && selected.applicationIntentEntries.length === 0) {
+    // Application-intent cards belong to the dedicated reminder flow. Passing
+    // an empty second source keeps the old pure helper available to callers
+    // while making the runtime separation explicit.
+    const selected = mergeDigestEntries(savedCardCandidates, []);
+    if (selected.savedEntries.length === 0) {
       skippedCount++;
       continue;
     }
 
-    // Explicit saved-jobs activation or a consented application intent activates
-    // this existing channel. An explicit channel opt-out and the shared
-    // address/global suppression predicate still win.
+    // This channel requires its own saved-jobs activation. An application
+    // intent can improve recommendations, but must never activate this digest.
     const subscriberDoc = await db.collection('newsletter_subscribers').doc(email.toLowerCase()).get();
     const subscriberData = subscriberDoc.exists ? subscriberDoc.data() || {} : null;
-    if (!isSavedJobsDigestEligible(userData, subscriberData, {
-      hasApplicationIntent: selected.applicationIntentEntries.length > 0,
-    })) {
+    if (!isSavedJobsDigestEligible(userData, subscriberData)) {
       skippedCount++;
       continue;
     }
@@ -1244,10 +1233,33 @@ async function main() {
     );
     const savedIds = new Set([...savedCardCandidates, ...rankingIntentEntries].map((entry) => entry.id));
     const recommendations = [];
+    const intentSourceJobs = rankingIntentEntries.map((entry) => entry.sourceJob).filter(Boolean);
+    for (const job of rankSimilarApplicationJobs(intentSourceJobs, [...jobsById.values()], {
+      max: MAX_RECOMMENDATIONS,
+      excludedJobIds: savedIds,
+    })) {
+      recommendations.push({
+        id: job.id,
+        title: jobTitle(job, locale),
+        company: job.company,
+        canton: job.canton,
+        location: job.location || job.addressLocality || null,
+        postedDate: job.postedDate || null,
+        sector: job.sector || job.category || null,
+        companyKey: job.companyKey || null,
+        url: jobPageUrl(job, locale),
+        firstSeenAt: job.firstSeenAt || null,
+        salaryMin: job.salaryMin ?? null,
+        salaryMax: job.salaryMax ?? null,
+        currency: job.currency || null,
+        baseSalary: job.baseSalary || null,
+        contract: job.contract || null,
+      });
+    }
     if (criteria.category || criteria.cantonCode) {
       for (const job of jobsById.values()) {
         if (recommendations.length >= MAX_RECOMMENDATIONS) break;
-        if (savedIds.has(job.id)) continue;
+        if (savedIds.has(job.id) || recommendations.some((entry) => entry.id === job.id)) continue;
         const categoryMatch = criteria.category ? job.category === criteria.category : true;
         const cantonMatch = criteria.cantonCode ? job.canton === criteria.cantonCode : true;
         if (categoryMatch && cantonMatch) {
@@ -1278,14 +1290,14 @@ async function main() {
       continue;
     }
 
-    console.log(`   ✉️  ${email} (${locale}) — ${selected.savedEntries.length} saved, ${selected.applicationIntentEntries.length} application reminder(s), ${recommendations.length} recommended`);
+    console.log(`   ✉️  ${email} (${locale}) — ${selected.savedEntries.length} saved, ${recommendations.length} recommended`);
     const result = await sendDigest({
       db,
       uid,
       email,
       locale,
       savedEntries: selected.savedEntries,
-      applicationIntentEntries: selected.applicationIntentEntries,
+      applicationIntentEntries: [],
       recommendations,
       campaignId,
     });

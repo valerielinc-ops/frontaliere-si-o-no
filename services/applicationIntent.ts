@@ -1,6 +1,11 @@
 import { RECORD_APPLICATION_INTENT_URL } from './functionsBase';
 import { buildApplicationIntentJobKey } from './applicationIntentRanking.mjs';
-import { hydrateFromFirestore, syncToFirestore, trackApplicationIntent } from './behaviorTracker';
+import {
+ hydrateFromFirestore,
+ isApplicationIntentOptedOut,
+ syncToFirestore,
+ trackApplicationIntent,
+} from './behaviorTracker';
 
 export { buildApplicationIntentJobKey };
 
@@ -20,6 +25,7 @@ export interface ApplicationIntentJob {
 
 export interface RecordApplicationIntentInput {
   job: ApplicationIntentJob;
+  applicationMode?: 'external' | 'in_house' | 'forward_email';
   origin: string;
   surface: string;
   consentText: string;
@@ -77,6 +83,7 @@ function visitorIdentifier(): string {
  */
 export async function recordApplicationIntent({
   job,
+  applicationMode = 'external',
   origin,
   surface,
   consentText,
@@ -85,21 +92,24 @@ export async function recordApplicationIntent({
 }: RecordApplicationIntentInput): Promise<boolean> {
   const jobKey = buildApplicationIntentJobKey(job);
   const email = clean(authEmail || authenticatedUserEmail(authUser)).toLowerCase();
-  const hasAuthenticatedUser = Boolean(clean(authUser?.uid));
+  const accountUid = clean(authUser?.uid);
+  const hasAuthenticatedUser = Boolean(accountUid);
   const hasAuthenticatedProfile = hasAuthenticatedUser && Boolean(email);
   // Read the authenticated profile first so a remote opt-out is merged locally
   // before this click can add a ranking key or write the profile back. If the
   // account has no usable email, fail closed because its opt-out cannot be read.
   const profileReady = hasAuthenticatedUser
-    ? hasAuthenticatedProfile && await hydrateFromFirestore(email)
+    ? hasAuthenticatedProfile && await hydrateFromFirestore(email, accountUid)
     : true;
-  const recorded = profileReady && trackApplicationIntent(jobKey);
+  const recorded = profileReady && trackApplicationIntent(jobKey, Date.now(), accountUid || null);
+  if (profileReady && isApplicationIntentOptedOut()) return false;
 
   const payload = {
     jobKey,
     jobSlug: clean(job.slugByLocale?.it) || clean(job.slug) || clean(job.id),
     companyKey: clean(job.companyKey) || null,
     jobTitle: clean(job.title) || null,
+    applicationMode,
     origin: clean(origin) || '/',
     surface: clean(surface) || 'job_board_apply',
     consentVersion: APPLICATION_INTENT_CONSENT_VERSION,
@@ -130,5 +140,5 @@ export async function recordApplicationIntent({
   if (!hasAuthenticatedProfile) return true;
   // setDoc resolves after the private personalization profile is persisted;
   // callers that navigate in the same tab can await this promise first.
-  return syncToFirestore(email);
+  return syncToFirestore(email, accountUid);
 }

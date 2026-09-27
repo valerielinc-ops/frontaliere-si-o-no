@@ -56,6 +56,10 @@ export function subscriberFromFirestoreRow(row) {
   const firstName = resolveFirstName(row, parsed);
   return {
     email,
+    // Auth uid is the only safe bridge to private application-intent
+    // personalization. Anonymous producer identifiers are intentionally not
+    // projected here and must never be joined by email alone.
+    userId: row.user_id || row.userId || row.uid || null,
     name: row.name || parsed.displayName || null,
     // Greeting first name (high-confidence or null → generic greeting).
     firstName,

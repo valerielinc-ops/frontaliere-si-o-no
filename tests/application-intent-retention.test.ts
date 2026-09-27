@@ -4,13 +4,17 @@ import { describe, expect, it, vi } from 'vitest';
 const fake = vi.hoisted(() => {
   const state: {
     docs: Map<string, Record<string, unknown>>;
+    deliveryClaims: Map<string, Record<string, unknown>>;
     commits: number;
+    batchSizes: number[];
     queryCalls: string[];
     queryCutoffs: number[];
     deleted: string[];
   } = {
     docs: new Map(),
+    deliveryClaims: new Map(),
     commits: 0,
+    batchSizes: [],
     queryCalls: [],
     queryCutoffs: [],
     deleted: [],
@@ -31,7 +35,7 @@ const fake = vi.hoisted(() => {
   }
 
   const db = {
-    collection() {
+    collection(collectionName = 'application_intents') {
       return {
         where(field: string, _operator: string, cutoff: { toMillis: () => number }) {
           let cursor: { millis: number | null; id: string } | null = null;
@@ -82,6 +86,9 @@ const fake = vi.hoisted(() => {
           };
           return query;
         },
+        doc(id: string) {
+          return { path: `${collectionName}/${id}` };
+        },
       };
     },
     batch() {
@@ -92,9 +99,14 @@ const fake = vi.hoisted(() => {
         },
         async commit() {
           state.commits += 1;
+          state.batchSizes.push(deletes.length);
           for (const ref of deletes) {
             const id = ref.path.split('/').at(-1) || '';
-            state.docs.delete(id);
+            if (ref.path.startsWith('application_intent_reminder_deliveries/')) {
+              state.deliveryClaims.delete(id);
+            } else {
+              state.docs.delete(id);
+            }
             state.deleted.push(id);
           }
         },
@@ -122,7 +134,9 @@ const functionsIndexSource = readFileSync(new URL('../functions/index.js', impor
 
 function reset(entries: Array<[string, Record<string, unknown>]>) {
   fake.state.docs = new Map(entries);
+  fake.state.deliveryClaims = new Map();
   fake.state.commits = 0;
+  fake.state.batchSizes = [];
   fake.state.queryCalls = [];
   fake.state.queryCutoffs = [];
   fake.state.deleted = [];
@@ -181,6 +195,23 @@ describe('application-intent retention', () => {
     expect(first.pages).toBe(2);
     expect(second.purged).toBe(0);
     expect(fake.state.docs.size).toBe(0);
-    expect(fake.state.commits).toBe(2);
+    expect(fake.state.commits).toBe(3);
+  });
+
+  it('splits source and delivery-claim deletes below Firestore batch capacity', async () => {
+    const entries = Array.from({ length: APPLICATION_INTENT_RETENTION_PAGE_SIZE }, (_, index) => [
+      `claimed-${String(index).padStart(3, '0')}`,
+      { expiresAt: fake.timestamp(NOW - 1) },
+    ] as [string, Record<string, unknown>]);
+    reset(entries);
+    for (const [id] of entries) fake.state.deliveryClaims.set(id, {});
+
+    const result = await purgeExpiredApplicationIntents(90, NOW, fake.firestore() as never);
+
+    expect(result.purged).toBe(APPLICATION_INTENT_RETENTION_PAGE_SIZE);
+    expect(fake.state.docs.size).toBe(0);
+    expect(fake.state.deliveryClaims.size).toBe(0);
+    expect(fake.state.batchSizes).toEqual([500, 400]);
+    expect(Math.max(...fake.state.batchSizes)).toBeLessThanOrEqual(500);
   });
 });
