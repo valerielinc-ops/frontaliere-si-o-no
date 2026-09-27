@@ -12100,6 +12100,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.finissage-turner-como.title': 'Turner à Côme : finissage en soirée gratuit le 27 septembre',
     'blog.article.finissage-turner-como.excerpt': 'Le 27 septembre 2026 à Como le finissage des Chefs-d\' œuvre de la Tate : entrée libre de 18h à 21h, dernière entrée à 20h30.',
     'blog.article.finissage-turner-como.imageAlt': 'Finissage nocturne gratuit des chefs-d\'oeuvre de la Tate à Côme (Como)',
+    'blog.article.incidente-micromobilita-tradate.title': 'Tradate, accident avec un véhicule électrique : un blessé',
+    'blog.article.incidente-micromobilita-tradate.excerpt': 'Accident à 7h01 via Bruno Passerini au Tradate : impliqué un jeune homme de 25 ans. Sur place ambulance, secours avancé et carabiniers.',
+    'blog.article.incidente-micromobilita-tradate.imageAlt': 'Route urbaine et moyen de micromobilité électrique dans une scène locale',
 };
 
 export default blogMetaFr;
