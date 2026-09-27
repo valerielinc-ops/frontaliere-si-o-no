@@ -246,6 +246,35 @@ main:not(.seo-static-content):not(.cluster-seo-prose) { display: block !importan
 @media (min-width: 1800px) {
   main:not(.seo-static-content):not(.cluster-seo-prose) { max-width: calc(100vw - 420px) !important; }
 }
+
+/* Static reading-page rails: the 160px tier fits beside the 1120px content
+   container on ordinary desktop widths; the existing xlw utilities take over
+   with 300px rails at 1400px. */
+.ft-static-rail-stack,
+.ft-static-rail-panel { display: none; }
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  .ft-rail-grid {
+    display: grid;
+    grid-template-columns: 160px minmax(0, 1fr) 160px;
+    gap: 1rem;
+    margin-inline: auto;
+    max-width: 1768px;
+  }
+  .ft-rail-grid > .ft-rail-aside {
+    display: flex;
+    flex-direction: column;
+    min-height: 600px;
+  }
+}
+@media (min-width: 1200px) {
+  .ft-static-rail-stack {
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .ft-static-rail-panel { display: block; }
+}
 /* Inside the SPA rail grid the side tracks already reserve the rail width, so
    the viewport-based cap above would double-reserve — leaving blank margins
    when a rail collapses (unfilled) and the track frees its space. Let main fill
@@ -654,6 +683,29 @@ body.modal-open .google-auto-placed {
   max-height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Static manual AdSense slots reserve their height in the emitted HTML before
+   React exists. The static loader adds this marker only after an explicit
+   `unfilled` answer or the shared fill timeout, so a real creative keeps its
+   footprint. The parent rule also removes the wrapper's margin, otherwise a
+   failed 1100px drive-by slot would leave a misleading band around the zeroed
+   <ins>. */
+ins.adsbygoogle[data-ft-static-ad-collapsed] {
+  min-height: 0 !important;
+  max-height: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  display: block !important;
+}
+:where(div, li, section):has(> ins.adsbygoogle[data-ft-static-ad-collapsed]) {
+  height: 0 !important;
+  min-height: 0 !important;
+  margin-block: 0 !important;
+  padding-block: 0 !important;
   overflow: hidden !important;
 }
 

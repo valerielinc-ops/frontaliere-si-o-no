@@ -2254,7 +2254,7 @@ const App: React.FC = () => {
  }, []);
 
  // Same collapse-on-empty behaviour as the SPA rail above, applied to the
- // staticOverlay 300px rail gutter. `.ft-rail-grid` is build-time HTML
+ // staticOverlay rail gutter. `.ft-rail-grid` is build-time HTML
  // outside #root (build-plugins/shared/railGutters.ts), not a React element,
  // so the width is driven by direct DOM mutation instead of a style prop.
  // Scoped out as a follow-up when the SPA rails were fixed — #2830: "300px
@@ -2264,7 +2264,13 @@ const App: React.FC = () => {
  if (!staticOverlay) return;
  const grid = document.querySelector<HTMLElement>('.ft-rail-grid');
  if (!grid) return;
- grid.style.gridTemplateColumns = `${railsCollapsed.left ? '0px' : '300px'} minmax(0,1fr) ${railsCollapsed.right ? '0px' : '300px'}`;
+ const applyRailColumns = () => {
+   const railWidth = window.innerWidth >= 1400 ? '300px' : '160px';
+   grid.style.gridTemplateColumns = `${railsCollapsed.left ? '0px' : railWidth} minmax(0,1fr) ${railsCollapsed.right ? '0px' : railWidth}`;
+ };
+ applyRailColumns();
+ window.addEventListener('resize', applyRailColumns);
+ return () => window.removeEventListener('resize', applyRailColumns);
  }, [staticOverlay, railsCollapsed]);
 
  return (
@@ -3309,16 +3315,16 @@ const App: React.FC = () => {
    * #rail-right-root gutter asides emitted by build-plugins/htmlTemplate.ts
    * (same portal mechanism as the footer below). Reuses ArticleRailAdStack so
    * the GAM rail units + Remote Config kill-switch match the article/job rails.
-   * Both the static aside and the stack itself are CSS-gated to ≥1400px (xlw),
-   * so narrower viewports render a single unchanged column. */}
+   * The static aside and stack are enabled from 1200px; the 1200–1399px tier
+   * uses 160px creatives and the ≥1400px tier uses the full 300px rail. */}
  {staticOverlay && (() => {
    const leftTarget = document.getElementById('rail-left-root');
    const rightTarget = document.getElementById('rail-right-root');
    if (!leftTarget && !rightTarget) return null;
    return (
  <SafeLazy boundary="rail-ad-static">
- {leftTarget && createPortal(<ArticleRailAdStack side="left" onEmptyResolved={handleLeftRailEmpty} />, leftTarget)}
- {rightTarget && createPortal(<ArticleRailAdStack side="right" onEmptyResolved={handleRightRailEmpty} />, rightTarget)}
+ {leftTarget && createPortal(<ArticleRailAdStack side="left" desktopRail onEmptyResolved={handleLeftRailEmpty} />, leftTarget)}
+ {rightTarget && createPortal(<ArticleRailAdStack side="right" desktopRail onEmptyResolved={handleRightRailEmpty} />, rightTarget)}
  </SafeLazy>
    );
  })()}
