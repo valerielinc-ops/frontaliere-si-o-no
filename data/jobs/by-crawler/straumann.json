@@ -1,13 +1,13 @@
 {
   "crawlerKey": "straumann",
-  "assembledAt": "2026-09-26T13:55:09.625Z",
+  "assembledAt": "2026-09-26T23:34:00.347Z",
   "jobs": [
     {
       "id": "straumann-4134dd862955",
       "slug": "assistente-amministrativo-ip-temporaneo-tempo-parziale-50-straumann-basel",
       "slugByLocale": {
-        "en": "ip-administrative-assistant-temporary-part-time-50-straumann-ch",
         "it": "assistente-amministrativo-ip-temporaneo-tempo-parziale-50-straumann-basel",
+        "en": "ip-administrative-assistant-temporary-part-time-50-straumann-ch",
         "de": "ip-administrative-assistent-temporary-teilzeit-50-straumann-basel",
         "fr": "assistant-administratif-de-pi-temporaire-temps-partiel-50-straumann-basel"
       },
@@ -33,7 +33,7 @@
       "url": "https://careers.straumann.com/global/en/job/22089/ip-administrative-assistant-temporary-part-time-50",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-26T13:55:04.561Z",
+      "crawledAt": "2026-09-26T23:33:55.277Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -50,7 +50,24 @@
       "applyUrl": "https://careers.straumann.com/global/en/job/22089/ip-administrative-assistant-temporary-part-time-50",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "ip-administrative-assistant-temporary-part-time-50-straumann-ch",
+        "assistente-amministrativo-ip-temporaneo-tempo-parziale-50-straumann-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ip-administrative-assistant-temporary-part-time-50-straumann-ch",
+          "assistente-amministrativo-ip-temporaneo-tempo-parziale-50-straumann-basel"
+        ],
+        "de": [
+          "ip-administrative-assistant-temporary-part-time-50-straumann-ch"
+        ],
+        "fr": [
+          "ip-administrative-assistant-temporary-part-time-50-straumann-ch"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-25T14:40:47.072Z",
       "salaryMin": 31000,
       "salaryMax": 47000,
       "salarySource": "estimated",
@@ -63,22 +80,7 @@
           "maxValue": 47000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-25T14:40:47.072Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "ip-administrative-assistant-temporary-part-time-50-straumann-ch"
-        ],
-        "de": [
-          "ip-administrative-assistant-temporary-part-time-50-straumann-ch"
-        ],
-        "fr": [
-          "ip-administrative-assistant-temporary-part-time-50-straumann-ch"
-        ]
-      },
-      "previousSlugs": [
-        "ip-administrative-assistant-temporary-part-time-50-straumann-ch"
-      ]
+      }
     },
     {
       "id": "straumann-ede36e57fc6e",
@@ -111,7 +113,7 @@
       "url": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-26T13:55:04.201Z",
+      "crawledAt": "2026-09-26T23:33:54.952Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -129,11 +131,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch"
+        "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch",
+        "apprendistato-come-interactive-media-designer-cfc-m-w-d-ab-august-2027-straumann-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch"
+          "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch",
+          "apprendistato-come-interactive-media-designer-cfc-m-w-d-ab-august-2027-straumann-basel"
         ],
         "fr": [
           "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch"
@@ -186,7 +190,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-26T13:55:03.844Z",
+      "crawledAt": "2026-09-26T23:33:54.607Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -203,11 +207,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch"
+        "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch",
+        "apprendistato-meccanico-di-produzione-e-polimeccanico-afc-straumann-villeret"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch"
+          "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch",
+          "apprendistato-meccanico-di-produzione-e-polimeccanico-afc-straumann-villeret"
         ]
       },
       "needsRetranslation": true,
