@@ -88628,6 +88628,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-urne-27-settembre-2026': {
+    title: 'Votazioni 27 settembre 2026: risultati e proiezioni',
+    description: 'Scopri i dati delle votazioni del 27 settembre 2026: proiezioni sulle iniziative federali, voto a 16 anni nei Grigioni e pianificazione locale a Poschiavo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, votazioni, settembre, risultati, proiezioni',
+    ogTitle: 'Risultati votazioni 27 settembre 2026 in Svizzera',
+    ogDescription: 'Analisi completa dei risultati e delle proiezioni del 27 settembre 2026: iniziative federali su neutralità e alimentazione, voto nei Grigioni e decisioni a Poschiavo.',
+    canonicalPath: '/articoli-svizzera/urne-27-settembre-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Votazioni 27 settembre 2026: risultati e proiezioni",
+      "description": "Scopri i dati delle votazioni del 27 settembre 2026: proiezioni sulle iniziative federali, voto a 16 anni nei Grigioni e pianificazione locale a Poschiavo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/urne-27-settembre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Urne e schede di voto per le votazioni federali e cantonali in Svizzera"
+      },
+      "datePublished": "2026-09-27T10:59:16+00:00",
+      "dateModified": "2026-09-27T10:59:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/urne-27-settembre-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

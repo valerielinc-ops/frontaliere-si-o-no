@@ -6836,6 +6836,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.guida-tirocinio-soletta.title': 'Apprenticeship and vocational training in the Canton of Solothurn',
     'blog.article.guida-tirocinio-soletta.excerpt': 'Guide to traineeship in the Canton of Solothurn: Swiss framework on minimum wage, hours, holidays, AVS/AI/IPG contributions and taxes.',
     'blog.article.guida-tirocinio-soletta.imageAlt': 'Apprentice in a Swiss workshop during vocational training',
+    'blog.article.urne-27-settembre-2026.title': 'Votes 27 September 2026: results and projections',
+    'blog.article.urne-27-settembre-2026.excerpt': 'The projections on federal initiatives, the vote in Graubünden, and local planning in Poschiavo on September 27, 2026.',
+    'blog.article.urne-27-settembre-2026.imageAlt': 'Ballot boxes and voting papers for federal and cantonal votes in Switzerland',
 };
 
 export default blogMetaChEn;
