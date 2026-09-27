@@ -36403,6 +36403,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'dumenza-furti-serata-settembre',
+ category: 'novita',
+ date: '2026-09-27T09:26:05.839Z',
+ image: '/images/blog/dumenza-furti-serata-settembre.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

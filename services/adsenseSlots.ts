@@ -145,7 +145,8 @@ export const AD_SLOTS = {
  placeholderMinHeight: 1100,
  },
  /** Drive-by SEO landings: above-the-fold display, right after the primary
-  *  data area (health premiums, fuel daily, border wait — DRIVEBY_AD_SNIPPET).
+  *  data area (health premiums, fuel daily, border wait, salary and profession
+  *  landings — DRIVEBY_AD_SNIPPET).
   *
   *  Dedicated unit so the drive-by RPM lift can be measured in isolation
   *  instead of aggregated with the homepage placement (issue #1911 item 1).

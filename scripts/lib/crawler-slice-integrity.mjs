@@ -6,6 +6,7 @@ import {
 import { ISO_ALPHA2_COUNTRY_CODES } from './prospector/country-inventory.mjs';
 
 const JOB_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/(?:by-crawler|expired\/by-crawler)\/[^/]+\.json$/;
+const ACTIVE_JOB_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/by-crawler\/[^/]+\.json$/;
 const SWISS_RE_SLICE_PATH_RE = /(?:^|\/)data\/jobs\/by-crawler\/swiss-re\.json$/;
 const TERMINAL_COUNTRY_RE = /,\s*([A-Za-z]{2})\s*$/;
 
@@ -38,6 +39,16 @@ function uniqueIdentities(jobs) {
     identities.add(identity);
   }
   return identities;
+}
+
+function normalizedJobField(value) {
+  return String(value ?? '').toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
+/** The same semantic key used by cleanup-jobs for cross-crawler dedup. */
+function titleCompanyLocationKey(job) {
+  const fields = [job?.title, job?.company, job?.location].map(normalizedJobField);
+  return fields.every(Boolean) ? fields.join('|') : null;
 }
 
 function terminalCountryCodes(location) {
@@ -98,11 +109,51 @@ export function isSafeSwissReForeignPrune(filePath, previousRaw, nextRaw) {
 }
 
 /**
+ * Prove the only intentional large shrink performed by prune-dedup-from-slices.
+ *
+ * That command receives the post-dedup assembled dataset, so the surviving
+ * duplicate can live in another crawler slice and will not be present in the
+ * file being written. The proof therefore requires every removed record to:
+ *   - be an unambiguous subset removal (no replacement or identity collision),
+ *   - be absent from the assembled reference by URL/id, and
+ *   - have its exact title+company+location key represented by a different
+ *     record in that reference.
+ *
+ * Without this explicit reference the generic accumulator guard stays closed.
+ */
+export function isProvenCrossCrawlerDedupPrune(filePath, previousRaw, nextRaw, referenceJobs) {
+  if (!ACTIVE_JOB_SLICE_PATH_RE.test(normalizedPath(filePath))) return false;
+  const previousJobs = parseJobs(previousRaw);
+  const nextJobs = parseJobs(nextRaw);
+  const reference = Array.isArray(referenceJobs) ? referenceJobs : parseJobs(referenceJobs);
+  if (!previousJobs || !nextJobs || !reference || previousJobs.length <= nextJobs.length || nextJobs.length === 0) {
+    return false;
+  }
+
+  const previousIds = uniqueIdentities(previousJobs);
+  const nextIds = uniqueIdentities(nextJobs);
+  if (!previousIds || !nextIds || [...nextIds].some((identity) => !previousIds.has(identity))) return false;
+
+  const removed = previousJobs.filter((job) => !nextIds.has(jobIdentity(job)));
+  if (removed.length !== previousJobs.length - nextJobs.length || removed.some((job) => !jobIdentity(job))) {
+    return false;
+  }
+
+  const referenceIds = new Set(reference.map(jobIdentity).filter(Boolean));
+  if (removed.some((job) => referenceIds.has(jobIdentity(job)))) return false;
+  const referenceKeys = new Set(reference.map(titleCompanyLocationKey).filter(Boolean));
+  return removed.every((job) => {
+    const key = titleCompanyLocationKey(job);
+    return key !== null && referenceKeys.has(key);
+  });
+}
+
+/**
  * Guard the final bytes written for a crawler slice. The semantic exception
  * is deliberately narrower than the byte guard and is shared by all writers
  * so a later merge/ownership step cannot reintroduce the false positive.
  */
-export function assertCrawlerSliceWriteSafe(filePath, previousRaw, nextRaw) {
+export function assertCrawlerSliceWriteSafe(filePath, previousRaw, nextRaw, { dedupReferenceJobs = null } = {}) {
   const previousBytes = Buffer.byteLength(String(previousRaw), 'utf8');
   const nextBytes = Buffer.byteLength(String(nextRaw), 'utf8');
   if (!isCatastrophicAccumulatorShrink(previousBytes, nextBytes)) {
@@ -110,6 +161,9 @@ export function assertCrawlerSliceWriteSafe(filePath, previousRaw, nextRaw) {
   }
   if (isSafeSwissReForeignPrune(filePath, previousRaw, nextRaw)) {
     return { previousBytes, nextBytes, reason: 'swiss-re-foreign-prune' };
+  }
+  if (isProvenCrossCrawlerDedupPrune(filePath, previousRaw, nextRaw, dedupReferenceJobs)) {
+    return { previousBytes, nextBytes, reason: 'proven-cross-crawler-dedup' };
   }
   assertAccumulatorByteFloor(previousBytes, nextBytes, { label: filePath });
   return { previousBytes, nextBytes, reason: null };

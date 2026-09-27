@@ -6,6 +6,7 @@ import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import {
   assertCrawlerSliceWriteSafe,
+  isProvenCrossCrawlerDedupPrune,
   isSafeSwissReForeignPrune,
 } from '../scripts/lib/crawler-slice-integrity.mjs';
 import { writeJsonAtomic } from '../scripts/lib/atomic-write-json.mjs';
@@ -15,6 +16,16 @@ function swissReJob(url: string, location: string, description: string) {
     url,
     companyKey: 'swiss-re',
     location,
+    description,
+  };
+}
+
+function dedupJob(url: string, title: string, description: string) {
+  return {
+    url,
+    title,
+    company: 'Bühler Group',
+    location: 'Uzwil, SG',
     description,
   };
 }
@@ -89,5 +100,55 @@ describe('crawler slice integrity guard', () => {
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
+  });
+
+  it('allows a large shrink only when the assembled reference proves cross-crawler duplicates', () => {
+    const duplicateA = dedupJob('https://buehler.example/a', 'Engineer', 'x'.repeat(700_000));
+    const duplicateB = dedupJob('https://buehler.example/b', 'Engineer', 'y'.repeat(700_000));
+    const retained = dedupJob('https://buehler.example/retained', 'Designer', 'z'.repeat(100_000));
+    const previous = json({ crawlerKey: 'buehler', jobs: [duplicateA, duplicateB, retained] });
+    const next = json({ crawlerKey: 'buehler', jobs: [retained] });
+    const reference = [
+      dedupJob('https://other-crawler.example/engineer', 'Engineer', 'kept elsewhere'),
+      retained,
+    ];
+
+    expect(isProvenCrossCrawlerDedupPrune('data/jobs/by-crawler/buehler.json', previous, next, reference)).toBe(true);
+    expect(() => assertCrawlerSliceWriteSafe('data/jobs/by-crawler/buehler.json', previous, next))
+      .toThrow(/catastrophic truncation avoided/);
+    expect(assertCrawlerSliceWriteSafe(
+      'data/jobs/by-crawler/buehler.json',
+      previous,
+      next,
+      { dedupReferenceJobs: reference },
+    ).reason).toBe('proven-cross-crawler-dedup');
+
+    const root = mkdtempSync(join(tmpdir(), 'crawler-slice-dedup-'));
+    const filePath = join(root, 'data/jobs/by-crawler/buehler.json');
+    try {
+      writeJsonAtomic(filePath, JSON.parse(previous));
+      expect(() => writeJsonAtomic(filePath, JSON.parse(next), { dedupReferenceJobs: reference })).not.toThrow();
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps an unreferenced large removal fail-closed', () => {
+    const removed = dedupJob('https://buehler.example/lost', 'Unique position', 'x'.repeat(1_400_000));
+    const retained = dedupJob('https://buehler.example/kept', 'Kept position', 'y'.repeat(100_000));
+    const previous = json({ crawlerKey: 'buehler', jobs: [removed, retained] });
+    const next = json({ crawlerKey: 'buehler', jobs: [retained] });
+    expect(isProvenCrossCrawlerDedupPrune(
+      'data/jobs/by-crawler/buehler.json',
+      previous,
+      next,
+      [retained],
+    )).toBe(false);
+    expect(() => assertCrawlerSliceWriteSafe(
+      'data/jobs/by-crawler/buehler.json',
+      previous,
+      next,
+      { dedupReferenceJobs: [retained] },
+    )).toThrow(/catastrophic truncation avoided/);
   });
 });

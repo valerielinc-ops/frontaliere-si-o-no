@@ -20,8 +20,9 @@ import type { Plugin } from 'vite';
 
 const __dirname_bfs = np.dirname(fileURLToPath(import.meta.url));
 
-import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
+import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords, DRIVEBY_AD_SNIPPET } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { adSlotHtml, endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { CALC_HREF } from './shared/calcHref';
 import { formatUpdatedDate } from './shared/humanDate';
@@ -499,6 +500,8 @@ function renderCommon(opts: {
     .map((r) => `<li style="margin:4px 0"><a href="${esc(r.href)}" style="${LINK_ACCENT_STYLE}">${esc(r.label)}</a></li>`)
     .join('');
 
+  const bfsSalaryInlineAd = `<div class="ad-unit">${adSlotHtml('ARTICLE_INLINE_MOBILE')}</div>`;
+
   const body = `
     ${styleBlock}
     <nav class="s-bcr">
@@ -515,10 +518,12 @@ function renderCommon(opts: {
     </header>
     <p class="text-sm font-medium text-accent mt-1">${esc(L.updatedLabel)}: ${esc(formatUpdatedDate(dateStamp, locale))}</p>
     ${statTilesHtml}
+    ${DRIVEBY_AD_SNIPPET}
     <div class="s-KZc0LQ"><a href="${esc(calcUrl)}" class="s-cta">${esc(L.ctaCalc)}</a></div>
     <section class="s-KZc0LQ">
       <p style="${BODY_STYLE};max-width:820px">${esc(intro)}</p>
     </section>
+    ${bfsSalaryInlineAd}
     <section class="s-KZc0LQ">
       <p style="${BODY_STYLE};max-width:820px">${esc(ctaLine)}</p>
       <p style="margin-top:10px"><a href="${esc(calcUrl)}" class="s-cta">${esc(L.ctaCalc)}</a></p>
@@ -535,15 +540,19 @@ function renderCommon(opts: {
       <ul style="list-style:none;padding:0;margin:0">${relatedHtml}</ul>
     </section>`;
 
-  const bodyHtml = `<main class="s-xzWvwM">${body}</main>`;
   const wordCount = countHtmlBodyWords(body);
+  const indexable = wordCount >= MIN_INDEXABLE_WORDS;
+  const indexableBody = indexable
+    ? body
+    : body.replace(DRIVEBY_AD_SNIPPET, '').replace(bfsSalaryInlineAd, '');
+  const bodyHtml = `<main class="s-xzWvwM">${indexableBody}${endOfContentMultiplexHtml({ indexable })}</main>`;
 
   const html = buildSeoPageHtml({
     locale,
     title,
     description,
     canonicalUrl,
-    robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
+    robots: indexable ? 'index,follow' : 'noindex,follow',
     ogType: 'article',
     ogLocale: OG_LOCALE[locale],
     hreflangHtml: alternates,
