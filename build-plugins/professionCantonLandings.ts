@@ -13,9 +13,9 @@ import type { Plugin } from 'vite';
 import fs from 'node:fs';
 import np from 'node:path';
 
-import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
+import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords, DRIVEBY_AD_SNIPPET } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
+import { adSlotHtml, endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { WriteCollector } from './batchWrite';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { buildDayStampIso } from './shared/buildDayStamp';
@@ -312,6 +312,8 @@ export function renderProfessionCantonPage(opts: {
     ctaLabel: c.cta(cantonName),
   });
 
+  const professionCantonInlineAd = `<div class="ad-unit">${adSlotHtml('ARTICLE_INLINE_MOBILE')}</div>`;
+
   // ── Il <title> va calcolato PRIMA dell'H1, non dopo ────────────────────
   //
   // `composePlaceTitle` sceglie il primo candidato che sta nei 66 caratteri.
@@ -366,10 +368,12 @@ export function renderProfessionCantonPage(opts: {
   const main = `<div class="cl-fun">${breadcrumb}
 ${header}
 ${tiles}
+${DRIVEBY_AD_SNIPPET}
 ${employers}
 ${peerComparison}
 <p class="my-4"><a href="${esc(ctaHref)}" class="${CTA_PRIMARY_CLASS}">${esc(c.cta(cantonName))} →</a></p>
 ${salaryLink}
+${professionCantonInlineAd}
 ${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
 
   const breadcrumbLd = {

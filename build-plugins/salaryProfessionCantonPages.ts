@@ -26,10 +26,10 @@ import type { Plugin } from 'vite';
 import fs from 'node:fs';
 import np from 'node:path';
 
-import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
+import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords, DRIVEBY_AD_SNIPPET } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
-import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
+import { adSlotHtml, endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { WriteCollector } from './batchWrite';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { buildDayStampIso } from './shared/buildDayStamp';
@@ -560,13 +560,21 @@ export function renderSalaryProfessionCantonPage(opts: {
     ctaLabel: c.hubCanton(cantonName),
   });
 
+  // Keep the salary-intent landing family aligned with the canton salary
+  // pages: one drive-by slot after the headline metrics, one inline slot after
+  // the data/CTA area, and the existing end multiplex. Each helper reserves
+  // its configured height so the static page does not shift as ads load.
+  const salaryProfessionInlineAd = `<div class="ad-unit">${adSlotHtml('ARTICLE_INLINE_MOBILE')}</div>`;
+
   const main = `<div class="cl-fun">${breadcrumb}
 ${header}
 ${tiles}
+${DRIVEBY_AD_SNIPPET}
 ${netBlock}
 ${compareTable}
 ${jobsSection}
 ${primaryCta}
+${salaryProfessionInlineAd}
 ${hubs}
 ${methodology}
 ${sourcesBlock}

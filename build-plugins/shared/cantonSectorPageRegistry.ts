@@ -3,12 +3,13 @@
  *
  * `jobsSeoPagesPlugin` emits a crawlable, self-canonical landing at
  * `/{section}/{sectorSlug}/` (e.g. `/cerca-lavoro-appenzello/infermieri/`) for
- * every non-TI canton × curated sector (`SECTOR_HUB_KEYS`) pair, unconditionally
- * — no job-count gate since 2026-07-16 (PR #4254 + follow-up removed the
- * MIN_JOBS_FOR_CANTON_PAGE / per-sector floor that used to decide this). The
- * registry still exists because emission order isn't guaranteed at the type
- * level (this module has no static list of "which pairs got a page" without
- * running the emitter), not because the gate result needs re-deriving.
+ * every non-TI canton and the Switzerland aggregate × curated sector
+ * (`SECTOR_HUB_KEYS`) pair, unconditionally — no job-count gate since
+ * 2026-07-16 (PR #4254 + follow-up removed the MIN_JOBS_FOR_CANTON_PAGE /
+ * per-sector floor that used to decide this). The registry still exists
+ * because emission order isn't guaranteed at the type level (this module has
+ * no static list of "which pairs got a page" without running the emitter),
+ * not because the gate result needs re-deriving.
  *
  * `seoHubsPlugin.emitThinCantonHubs` renders the canton `settori` hub and needs
  * to link each sector chip at a *crawlable* target — NOT a `?q=` keyword-search

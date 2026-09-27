@@ -12129,6 +12129,20 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dumenza-furti-serata-settembre.title': 'Dumenza, tre furti in casa e un colpo fallito',
     'blog.article.dumenza-furti-serata-settembre.excerpt': 'Tre abitazioni colpite in via Santuario, via Fiume e via Dante. In via XX Settembre i ladri sono fuggiti dopo aver sentito i proprietari.',
     'blog.article.dumenza-furti-serata-settembre.imageAlt': 'Via residenziale di un borgo vicino al confine tra Ticino e Italia al tramonto',
+    'blog.article.bollettino-frontaliere-2026-09-27.title': 'Bollettino del frontaliere – 27 settembre 2026: 3544 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-09-27.excerpt': 'I numeri di oggi, 27 settembre 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-09-27.imageAlt': 'I numeri del giorno per i frontalieri – 27 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-09-27.seoDescription': 'Bollettino frontalieri del 27 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-09-27.ogDescription': 'I numeri del 27 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.como-sinigaglia-eventi-privati.title': 'Como 1907 apre il Sinigaglia a eventi e riunioni private',
+    'blog.article.como-sinigaglia-eventi-privati.excerpt': 'Il club lancia la Corporate Collection: Trophy Room, terrazze, Club House e suite executive disponibili fuori dalle partite. Fino a 160 ospiti per spazio.',
+    'blog.article.como-sinigaglia-eventi-privati.imageAlt': 'Terrazza dello stadio Sinigaglia con vista sul Lago di Como durante evento aziendale',
+    'blog.article.doppio-assalto-bancomat-ossona-2026.title': 'Doppio assalto bancomat Ossona notte 25-26 settembre',
+    'blog.article.doppio-assalto-bancomat-ossona-2026.excerpt': 'Nella notte tra venerdì 25 e sabato 26 settembre, poco prima delle 4, due esplosioni hanno colpito il Banco Bpm in piazza Litta e il Postamat di via Baracca a Ossona. Indagano i carabinieri della Compagnia di Abbiategrasso.',
+    'blog.article.doppio-assalto-bancomat-ossona-2026.imageAlt': 'Notte silenziosa davanti a uno sportello automatico in una località di confine ticinese, luci della polizia sullo sfondo',
+    'blog.article.luvinate-scuola-sicurezza.title': 'Luvinate, scuola aperta tra sicurezza e prevenzione',
+    'blog.article.luvinate-scuola-sicurezza.excerpt': 'Alla primaria Pedotti di Luvinate, Festa dell\'Accoglienza con Polizia Scientifica, Croce Rossa, cyberbullismo, inglese e primo soccorso per i bambini in classe.',
+    'blog.article.luvinate-scuola-sicurezza.imageAlt': 'Bambini della primaria durante laboratori di sicurezza e prevenzione',
 };
 
 export default blogMetaIt;

@@ -12128,6 +12128,20 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dumenza-furti-serata-settembre.title': 'Dumenza, three home burglaries and a failed heist',
     'blog.article.dumenza-furti-serata-settembre.excerpt': 'Three homes were targeted on via Santuario, via Fiume and via Dante. On via XX Settembre, the thieves fled after hearing the owners.',
     'blog.article.dumenza-furti-serata-settembre.imageAlt': 'Residential street in a village near the Ticino-Italy border at dusk',
+    'blog.article.bollettino-frontaliere-2026-09-27.title': 'Cross-border daily brief – September 27, 2026: 3\'544 new job listings yesterday',
+    'blog.article.bollettino-frontaliere-2026-09-27.excerpt': 'Today\'s numbers, September 27, 2026, for cross-border commuters: the waits measured at every crossing this morning, the municipalities where fuel is cheapest, the franc-euro rate at yesterday\'s close and the jobs newly posted in Switzerland. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-27.imageAlt': 'The day\'s numbers for cross-border commuters – September 27, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.bollettino-frontaliere-2026-09-27.seoDescription': 'Cross-border brief, September 27, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-09-27.ogDescription': 'The numbers for September 27, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.como-sinigaglia-eventi-privati.title': 'Como 1907 opens the Sinigaglia to private events and meetings',
+    'blog.article.como-sinigaglia-eventi-privati.excerpt': 'The club launches the Corporate Collection: Trophy Room, terraces, Club House and executive suites available outside matchdays. Up to 160 guests per space.',
+    'blog.article.como-sinigaglia-eventi-privati.imageAlt': 'Sinigaglia stadium terrace overlooking Lake Como during corporate event',
+    'blog.article.doppio-assalto-bancomat-ossona-2026.title': 'Double ATM assault Ossona night 25-26 September',
+    'blog.article.doppio-assalto-bancomat-ossona-2026.excerpt': 'In the night between Friday 25 and Saturday 26 September, just before 4 am, two explosions hit the Banco Bpm in Piazza Litta and the Postamat in Via Baracca in Ossona. They investigate the Carabinieri of the Compagnia di Abbiategrasso.',
+    'blog.article.doppio-assalto-bancomat-ossona-2026.imageAlt': 'Quiet night scene in front of an ATM in a Ticino border town, police lights in the background',
+    'blog.article.luvinate-scuola-sicurezza.title': 'Luvinate, school open amid safety and prevention',
+    'blog.article.luvinate-scuola-sicurezza.excerpt': 'At the Pedotti primary school in Luvinate, Welcome Festival with Scientific Police, Red Cross, cyberbullying, English and first aid for children in the classroom.',
+    'blog.article.luvinate-scuola-sicurezza.imageAlt': 'Primary school children during safety and prevention workshops',
 };
 
 export default blogMetaEn;

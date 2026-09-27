@@ -1672,6 +1672,21 @@ export async function updateMetaTags(section: string): Promise<void> {
  // route-derived, so a soft navigation to an EN/DE/FR pharmacy page must not
  // leave the previous page's head in place while that locale chunk loads.
  const { route, locale: pathLocale } = parsePath(pathnameSnapshot);
+
+ // Static-overlay pages ship authoritative title, description, canonical,
+ // hreflang and structured data in the HTML emitted by the build plugins. The
+ // route only carries a generic section (for example `border`), so applying
+ // the SPA section metadata here would replace the page-specific head during
+ // hydration. Preserve the server-rendered head while its SEO content is in
+ // the document; this also covers direct visits to static landings whose
+ // route-specific slug is not represented in AppRoute.
+ if (route.staticOverlay && document.querySelector('main.seo-static-content')) {
+  if (document.documentElement.lang !== pathLocale) {
+   document.documentElement.lang = pathLocale;
+  }
+  return;
+ }
+
  removeStalePharmacyStructuredData();
  let pharmacyMetadata: ReturnType<PharmacyRuntimeSeoModule['resolvePharmacySeoMetadata']> | null = null;
  if (route.pharmacyPath) {

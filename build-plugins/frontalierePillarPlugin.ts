@@ -72,7 +72,7 @@ const OG_LOCALE: Record<FrontalierePillarLocale, string> = {
 
 const TILE_STYLES = [STAT_TILE_ACCENT, STAT_TILE_SUCCESS, STAT_TILE_BASE] as const;
 
-function renderPage(locale: FrontalierePillarLocale, dateStamp: string, distDir: string) {
+export function renderPage(locale: FrontalierePillarLocale, dateStamp: string, distDir: string) {
   const copy = FRONTALIERE_PILLAR_COPY[locale];
   // One description of the hero, used three times: the <img>, `Article.image`
   // and `og:image`. Declared up here rather than next to the JSON-LD because
@@ -165,11 +165,11 @@ ${breadcrumbHtml}
 <p style="${HERO_EYEBROW_STYLE}">${esc(copy.eyebrow)}</p>
 <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
 <p style="${LEDE_STYLE}">${esc(copy.lede)}</p>
-${renderSeoHeroImage(hero)}
 <div class="mt-4 grid gap-3 sm:grid-cols-3">
 ${tilesHtml}
 </div>
 <div class="s-KZc0LQ"><a href="${esc(copy.primaryCtaHref)}" class="s-cta">${esc(copy.primaryCtaLabel)} →</a></div>
+${renderSeoHeroImage(hero)}
 ${sectionsHtml}
 ${professionsHtml}
 ${faqHtml}
