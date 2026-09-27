@@ -298,6 +298,36 @@ export function isAggregateForAnalytics(title, body) {
   return isAggregateWithKeywordScope(title, body, { includeBodyKeywords: false });
 }
 
+// Issue di hand-off di pr-autorebase (`buildConflictHandoffIssue`): chiede di
+// riapplicare su main la PR #N andata in conflitto. Il testo dell'issue dice
+// gia' all'agente «se il conflitto e' gia' stato risolto sul branch originale,
+// chiudi senza PR», ma solo in prosa. Misurato il 27-09: #10123 e' stata
+// aggiornata con main alle 17:37Z e mergiata alle 17:57Z, e issue-fix ha
+// aperto comunque #10136 alle 18:00Z, un duplicato che e' andato subito in
+// conflitto e ha generato un secondo hand-off (#10137).
+const CONFLICT_HANDOFF_TITLE_RE = /^Conflitto con main(?: dopo LGTM)?: riapplicare la PR #(\d+) su main$/u;
+
+export function conflictHandoffOriginPr(title) {
+  const match = CONFLICT_HANDOFF_TITLE_RE.exec(String(title || '').trim());
+  return match ? Number(match[1]) : null;
+}
+
+/**
+ * Pure verdict on the origin PR of a conflict hand-off. `MERGED` means its
+ * content already landed; `OPEN` + `MERGEABLE` means the conflict was resolved
+ * on its own branch and the PR's own loop takes it from there. Anything else
+ * (still `CONFLICTING`, `UNKNOWN` mergeability, closed unmerged, unreadable)
+ * proceeds: a false short-circuit would drop a real reapply.
+ */
+export function handoffOriginVerdict(pr) {
+  const state = String(pr?.state || '').toUpperCase();
+  if (state === 'MERGED') return { resolved: true, reason: 'merged' };
+  if (state === 'OPEN' && String(pr?.mergeable || '').toUpperCase() === 'MERGEABLE') {
+    return { resolved: true, reason: 'conflict-resolved' };
+  }
+  return { resolved: false, reason: state ? `origin-${state.toLowerCase()}` : 'origin-unreadable' };
+}
+
 function main() {
   if (!ISSUE) {
     console.error('ISSUE_NUMBER not set — proceeding (no gate).');
@@ -327,6 +357,32 @@ function main() {
   if (String(iss.state || '').toUpperCase() === 'CLOSED') {
     console.log(`Issue #${ISSUE} is CLOSED — short-circuit, skip Claude fixer (no work on a closed issue).`);
     setOutput(true);
+    return;
+  }
+
+  // Conflict hand-offs carry no `follow-up` label, so they must be answered here,
+  // before the follow-up-only gate below lets them straight through.
+  const handoffOrigin = conflictHandoffOriginPr(iss.title);
+  if (handoffOrigin !== null) {
+    let origin = null;
+    try {
+      origin = JSON.parse(
+        gh(['pr', 'view', String(handoffOrigin), ...repoArgs, '--json', 'state,mergeable'], { allowFail: true }) || 'null',
+      );
+    } catch { origin = null; }
+    const verdict = handoffOriginVerdict(origin);
+    if (!verdict.resolved) {
+      console.log(`Conflict hand-off of PR #${handoffOrigin}: ${verdict.reason} — proceeding (reapply still needed).`);
+      setOutput(false);
+      return;
+    }
+    console.log(`Conflict hand-off of PR #${handoffOrigin}: ${verdict.reason} → short-circuit, no reapply PR.`);
+    shortCircuit(
+      verdict.reason === 'merged'
+        ? `⏭️ **Pre-flight (auto, zero-Claude)**: la PR di origine **#${handoffOrigin}** è **già mergiata**: il suo contenuto è su main e una PR di riapplicazione sarebbe un duplicato (caso #10136).`
+        : `⏭️ **Pre-flight (auto, zero-Claude)**: la PR di origine **#${handoffOrigin}** è aperta e di nuovo **MERGEABLE**: il conflitto è già stato risolto sul suo branch, che prosegue nel proprio ciclo di review e merge. Nessuna PR di riapplicazione.`,
+      `- PR di origine #${handoffOrigin}: ${verdict.reason}`,
+    );
     return;
   }
 

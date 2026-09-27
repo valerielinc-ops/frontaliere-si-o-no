@@ -1692,8 +1692,22 @@ export function groupIssueQueue(issues, {
  * @param {Map<number, {title:string, files:Set<string>}>} prFilesMap
  * @returns {{prNumber:number, prTitle:string, file:string}|null}
  */
-export function findOverlapFile(paths, prFilesMap) {
+// Titolo scritto da `buildConflictHandoffIssue` (scripts/ci/pr-autorebase.mjs)
+// quando una PR va in conflitto con main: la PR #N e' quella che il fixer deve
+// SOSTITUIRE (`Supersedes #N`). Resta aperta finche' la PR nuova non la chiude,
+// e tocca per costruzione gli stessi file che l'issue elenca come conflitto:
+// trattarla come overlap rinvia l'issue finche' #N resta aperta, cioe' per
+// sempre (#10131 su #10121, 27-09: `overlap-skip` e `fu-attempt:1`).
+const CONFLICT_HANDOFF_TITLE_RE = /^Conflitto con main(?: dopo LGTM)?: riapplicare la PR #(\d+) su main$/u;
+
+export function conflictHandoffOriginPr(title) {
+  const match = CONFLICT_HANDOFF_TITLE_RE.exec(String(title || '').trim());
+  return match ? Number(match[1]) : null;
+}
+
+export function findOverlapFile(paths, prFilesMap, { ignorePr = null } = {}) {
   for (const [prNumber, { title, files }] of prFilesMap) {
+    if (ignorePr !== null && Number(prNumber) === Number(ignorePr)) continue;
     for (const p of paths) {
       if (files.has(p)) return { prNumber, prTitle: String(title || ''), file: p };
     }
@@ -5250,7 +5264,9 @@ export function runDrain() {
         overlapSkipped++;
         continue;
       }
-      const overlap = findOverlapFile(candPaths, prFilesScan.map);
+      const overlap = findOverlapFile(candPaths, prFilesScan.map, {
+        ignorePr: conflictHandoffOriginPr(cand.title),
+      });
       if (overlap) {
         console.log(`OVERLAP-SKIP #${cand.number} (file \`${overlap.file}\` in-volo in PR #${overlap.prNumber} "${overlap.prTitle.slice(0, 40)}") → rinvio al prossimo tick`);
         overlapSkipped++;
