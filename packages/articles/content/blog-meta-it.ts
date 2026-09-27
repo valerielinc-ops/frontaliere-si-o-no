@@ -12137,6 +12137,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-sinigaglia-eventi-privati.title': 'Como 1907 apre il Sinigaglia a eventi e riunioni private',
     'blog.article.como-sinigaglia-eventi-privati.excerpt': 'Il club lancia la Corporate Collection: Trophy Room, terrazze, Club House e suite executive disponibili fuori dalle partite. Fino a 160 ospiti per spazio.',
     'blog.article.como-sinigaglia-eventi-privati.imageAlt': 'Terrazza dello stadio Sinigaglia con vista sul Lago di Como durante evento aziendale',
+    'blog.article.doppio-assalto-bancomat-ossona-2026.title': 'Doppio assalto bancomat Ossona notte 25-26 settembre',
+    'blog.article.doppio-assalto-bancomat-ossona-2026.excerpt': 'Nella notte tra venerdì 25 e sabato 26 settembre, poco prima delle 4, due esplosioni hanno colpito il Banco Bpm in piazza Litta e il Postamat di via Baracca a Ossona. Indagano i carabinieri della Compagnia di Abbiategrasso.',
+    'blog.article.doppio-assalto-bancomat-ossona-2026.imageAlt': 'Notte silenziosa davanti a uno sportello automatico in una località di confine ticinese, luci della polizia sullo sfondo',
 };
 
 export default blogMetaIt;

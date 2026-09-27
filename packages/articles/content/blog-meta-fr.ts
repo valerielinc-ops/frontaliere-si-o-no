@@ -12138,6 +12138,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-sinigaglia-eventi-privati.title': 'Como 1907 ouvre le Sinigaglia aux événements et aux réunions privées',
     'blog.article.como-sinigaglia-eventi-privati.excerpt': 'Le club lance la Corporate Collection : Trophy Room, terrasses, Club House et suites executive disponibles en dehors des matchs. Jusqu’à 160 invités par espace.',
     'blog.article.como-sinigaglia-eventi-privati.imageAlt': 'Terrasse du stade Sinigaglia surplombant le lac de Côme lors d\'un événement d\'entreprise (Como)',
+    'blog.article.doppio-assalto-bancomat-ossona-2026.title': 'Double attaque ATM Ossona nuit 25-26 septembre',
+    'blog.article.doppio-assalto-bancomat-ossona-2026.excerpt': 'Dans la nuit du vendredi 25 au samedi 26 septembre, peu avant 4 heures, deux explosions ont frappé le Banco Bpm sur la piazza Litta et le Postamat de la via Baracca à Ossona. Les carabiniers de la Compagnia di Abbiategrasso enquêtent.',
+    'blog.article.doppio-assalto-bancomat-ossona-2026.imageAlt': 'Scène nocturne calme devant un distributeur automatique dans une ville frontalière du Tessin, lumières de police en arrière-plan',
 };
 
 export default blogMetaFr;

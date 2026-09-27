@@ -95271,6 +95271,46 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-doppio-assalto-bancomat-ossona-2026': {
+    title: 'Doppio assalto bancomat Ossona notte 25-26 settembre',
+    description: 'Doppio assalto ai bancomat di Ossona nella notte 25-26 settembre: esplosioni poco prima delle 4 al Banco Bpm e al Postamat. Secondo le prime ricostruzioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, doppio, assalto, bancomat, ossona',
+    ogTitle: 'Doppio assalto bancomat Ossona 25-26 settembre',
+    ogDescription: 'Nella notte tra venerdì 25 e sabato 26 settembre, poco prima delle 4, due esplosioni hanno colpito il Banco Bpm in piazza Litta e il Postamat di via Baracca a Ossona, nell\'Altomilanese. L\'azione, attribuita a almeno due gruppi secondo le prime',
+    canonicalPath: '/articoli-frontaliere/doppio-assalto-bancomat-ossona-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Doppio assalto bancomat Ossona notte 25-26 settembre",
+      "description": "Doppio assalto ai bancomat di Ossona nella notte 25-26 settembre: esplosioni poco prima delle 4 al Banco Bpm e al Postamat. Secondo le prime ricostruzioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/doppio-assalto-bancomat-ossona-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Notte silenziosa davanti a uno sportello automatico in una località di confine ticinese, luci della polizia sullo sfondo"
+      },
+      "datePublished": "2026-09-27T11:21:41+00:00",
+      "dateModified": "2026-09-27T11:21:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/doppio-assalto-bancomat-ossona-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
