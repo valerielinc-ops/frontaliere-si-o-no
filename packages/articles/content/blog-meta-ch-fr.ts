@@ -6812,6 +6812,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.onere-premi-cassa-malati-nzz.title': 'Primes des caisses-maladie : la charge nette est restée stable',
     'blog.article.onere-premi-cassa-malati-nzz.excerpt': 'Analyse de la NZZ sur 300\'000 familles : entre 2016 et 2023, la charge nette des primes est restée stable grâce aux subventions et à la croissance des revenus.',
     'blog.article.onere-premi-cassa-malati-nzz.imageAlt': 'Vue urbaine de la Suisse, symbolisant le coût de la vie et les dépenses familiales',
+    'blog.article.congedo-parentale-136000-firme.title': 'Congé parental : 136\'000 signatures recueillies pour l\'initiative',
+    'blog.article.congedo-parentale-136000-firme.excerpt': '136\'000 abonnements à l\'initiative sur le congé parental ont été atteints. Le dépôt à la Chancellerie fédérale est prévu la semaine prochaine.',
+    'blog.article.congedo-parentale-136000-firme.imageAlt': 'Collecte de signatures pour l\'initiative sur le congé parental en Suisse',
 };
 
 export default blogMetaChFr;

@@ -77,6 +77,53 @@ export function commonUrlTemplate(urls = []) {
   return out.join('/');
 }
 
+// Hosted ATS vendors often expose every employer from an infrastructure label
+// such as `apply.refline.ch` or `jobs.vendor.example`. Using that label as the
+// crawler key collides with an existing hand-written crawler (and lets a later
+// synthesis overwrite its spec). Keep the tenant label for name-like hosts,
+// but derive the key from the employer name when the label is only platform
+// plumbing.
+const GENERIC_TENANT_LABELS = new Set([
+  'app', 'apps', 'apply', 'career', 'careers', 'job', 'jobboard',
+  'job-boards', 'jobs', 'karriere', 'portal', 'recruiting', 'recruitingapp',
+  'stellen', 'www',
+]);
+
+/**
+ * Turn a candidate-provided identity into the key form used by crawler files.
+ * Keeping the normalization in one place matters here: whitespace and names
+ * made only of punctuation must be rejected before the generic ATS fallback is
+ * selected, rather than becoming an empty key after the choice was made.
+ *
+ * @param {unknown} value
+ * @returns {string}
+ */
+function crawlerKeyToken(value) {
+  return String(value ?? '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+    .slice(0, 48);
+}
+
+/**
+ * The employer-owned domain is the safe identity fallback when an ATS tenant
+ * has no usable employer name. `registrableDomain` strips a vendor subdomain;
+ * preserve the complete normalized registrable domain so equal brand labels on
+ * different suffixes remain distinct crawler keys.
+ *
+ * @param {unknown} domain
+ * @returns {string}
+ */
+function employerDomainToken(domain) {
+  const normalized = registrableDomain(normalizeHost(String(domain ?? '')));
+  const labels = normalized.split('.');
+  if (!normalized || labels.some((label) => !/^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i.test(label))) return '';
+  return crawlerKeyToken(normalized);
+}
+
 /**
  * A crawler key that is stable, filesystem-safe and unique enough to sit
  * alongside the 580-odd existing crawler keys.
@@ -91,14 +138,17 @@ export function crawlerKeyFor(candidate) {
   // gruppi di workflow. Quando il vendor usa id anonimi, il nome dell'azienda
   // — che la pagina del tenant ci ha gia' dato — e' l'unica cosa leggibile.
   const opaqueLabel = /^[a-z]*[-_]?\d{2,}$/i.test(fromHost) || /^\d/.test(fromHost);
-  const preferred = opaqueLabel && candidate.name ? candidate.name : fromHost;
-  const base = preferred || candidate.domain?.split('.')[0] || candidate.name || 'unknown';
-  return String(base)
-    .toLowerCase()
-    .normalize('NFD').replace(/[̀-ͯ]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-|-$/g, '')
-    .slice(0, 48);
+  const genericLabel = GENERIC_TENANT_LABELS.has(fromHost.toLowerCase());
+  const nameKey = crawlerKeyToken(candidate.name);
+  const domainKey = employerDomainToken(candidate.domain);
+  const hasEmployerName = Boolean(nameKey
+    && nameKey !== fromHost.toLowerCase()
+    && !GENERIC_TENANT_LABELS.has(nameKey));
+  const preferred = opaqueLabel || genericLabel
+    ? (hasEmployerName ? nameKey : domainKey)
+    : crawlerKeyToken(fromHost);
+  const base = preferred || (!opaqueLabel && !genericLabel ? domainKey || nameKey : '') || 'unknown';
+  return crawlerKeyToken(base);
 }
 
 /**
