@@ -61,6 +61,7 @@ import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { isSafeSwissReForeignPruneJobs } from './lib/crawler-slice-integrity.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
@@ -2397,7 +2398,13 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   if (!process.env.SKIP_SHRINK_GUARD && !options.skipShrinkGuard && existingSlice && Array.isArray(existingSlice.jobs)) {
     const priorCount = existingSlice.jobs.length;
     const newCount = hardened.jobs.length;
-    if (shouldBlockShrink(priorCount, newCount)) {
+    const shrinkWouldBlock = shouldBlockShrink(priorCount, newCount);
+    const safeSwissReForeignPrune = shrinkWouldBlock && isSafeSwissReForeignPruneJobs(
+      slicePath,
+      existingSlice.jobs,
+      hardened.jobs,
+    );
+    if (shrinkWouldBlock && !safeSwissReForeignPrune) {
       const report = { crawlerKey, priorCount, newCount, ratio: newCount / priorCount };
       console.error(`\n🚨 Shrink guard FAILED for ${crawlerKey}: ${newCount}/${priorCount} jobs (${Math.round(report.ratio * 100)}% of prior) — refusing to persist, prior slice on disk kept\n`);
       _createShrinkGuardIssue(crawlerKey, report);
@@ -2419,6 +2426,13 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
         finalJobs: hardened.jobs,
       };
       throw shrinkErr;
+    }
+    if (safeSwissReForeignPrune) {
+      console.warn(
+        `  ✅ ${crawlerKey}: accepting the source-geography migration `
+        + `(${priorCount} → ${newCount}); retained jobs are explicit Swiss Re locations `
+        + `and removed rows match the proven legacy foreign/HQ-fallback signature.`,
+      );
     }
   }
 

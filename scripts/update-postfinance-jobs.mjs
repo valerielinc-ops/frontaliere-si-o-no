@@ -77,7 +77,10 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { readAttr, readMetaContent } from './lib/html-attr.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
-import { createMutableFeedPaginationTracker } from './lib/pagination-identity.mjs';
+import {
+  createMutableFeedPaginationTracker,
+  recordMutableFeedPageWithRetry,
+} from './lib/pagination-identity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -253,12 +256,37 @@ async function paginateRecruitingApi({ brand = '' } = {}) {
       const declared = Number(page.totalJobs);
       if (Number.isFinite(declared) && declared > 0) total = declared;
     }
-    const pageRecords = entries.map((entry) => entry?.response);
+    let pageRecords = entries.map((entry) => entry?.response);
     if (entries.length > 0 && pageRecords.some((record) => !record)) {
       throw new Error(`PostFinance API pagination failed at page ${pageNumber}: rows without a response identity.`);
     }
     if (pageRecords.length > 0) {
-      const pageIds = progress.record(pageRecords, pageNumber);
+      const recorded = await recordMutableFeedPageWithRetry({
+        tracker: progress,
+        items: pageRecords,
+        page: pageNumber,
+        reload: async () => {
+          const retryPage = await fetchRecruitingApiPage(pageNumber, { brand });
+          if (!retryPage) {
+            throw new Error(`PostFinance API pagination failed at page ${pageNumber}: no response received on retry.`);
+          }
+          if (!Array.isArray(retryPage.jobSearchResult)) {
+            throw new Error(`PostFinance API pagination failed at page ${pageNumber}: expected jobSearchResult array on retry.`);
+          }
+          const retryEntries = retryPage.jobSearchResult;
+          const retryRecords = retryEntries.map((entry) => entry?.response);
+          if (retryEntries.length > 0 && retryRecords.some((record) => !record)) {
+            throw new Error(`PostFinance API pagination failed at page ${pageNumber}: rows without a response identity on retry.`);
+          }
+          if (total === null) {
+            const declared = Number(retryPage.totalJobs);
+            if (Number.isFinite(declared) && declared > 0) total = declared;
+          }
+          return retryRecords;
+        },
+      });
+      pageRecords = recorded.items;
+      const pageIds = recorded.pageIdentities;
       for (const [index, record] of pageRecords.entries()) {
         const id = pageIds[index];
         if (!resultsById.has(id)) resultsById.set(id, record);
