@@ -204,14 +204,14 @@ Il body malformato viene scartato da `reviewBodyDefects()` con
 
 Dopo prima review:
 - Sopprimi 🟡. Posta solo 🔴.
-- Fix di `path:L<linea>` già applicato → conferma esplicitamente «Fix di `path:L<linea>`: ok.»
-- Riallineare la base non chiude un 🔴 `open`: riportalo se l'anchor resta;
-  se risolto, conferma ogni path citato (anche companion) con
-  `Fix di \`path:L<linea corrente>\`: ok.` prima di `Important: 0` + `## LGTM`.
+- 🔴 del ledger risolto → «Fix di `<id del ledger>`: ok.» più «Fix di
+  `path:L<linea attuale>`: ok.» per ogni file citato, prima di `Important: 0` +
+  `## LGTM`: l'id regge righe spostate e più 🔴 sullo stesso file; del body:
+  «Fix di `PR body:L<n>`: ok.».
+- Riallineare la base non chiude un 🔴 `open`: riportalo se l'anchor resta.
 - `needs-verification`: apri l'anchor all'HEAD; fix presente → `Fix di`; 🔴 solo
   con evidenza dal codice attuale.
-- 🔴 senza file né `PR body:L<n>`: se risolto, «Fix di `<id del ledger>`: ok.».
-  Mai un 🔴 sul ledger/bundle: con Accettazione verificabile solo lì è
+- Mai un 🔴 sul ledger/bundle: con Accettazione verificabile solo lì è
   `DECLASSIFIED-LEDGER`.
 - No rilanciare nit già detti.
 - Se c'è `## Risposta del 🔴-fixer`: prima dei 🔴 nuovi e del riporto per anchor giudica ogni voce, anche a codice invariato. `fixed`: regge l'Accettazione, o la proposta del fixer? `disputed`: regge l'evidenza? Sì → `Fix di \`path:L<n>\`: ok` (+ `(ritirato: <motivo>)`); no → 🔴 e `Replica: <cosa manca>`, mai identico.
