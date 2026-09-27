@@ -506,14 +506,18 @@ function renderPage(opts: RenderOpts): RenderResult {
     </section>`;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `<main class="s-xzWvwM">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</main>`;
+  const indexable = wordCount >= MIN_INDEXABLE_WORDS;
+  const indexableBody = indexable
+    ? body
+    : body.replace(DRIVEBY_AD_SNIPPET, '').replace(frSalaireInlineAd, '');
+  const bodyHtml = `<main class="s-xzWvwM">${indexableBody}${endOfContentMultiplexHtml({ indexable })}</main>`;
 
   const html = buildSeoPageHtml({
     locale: LOCALE,
     title: TITLE,
     description: META_DESCRIPTION,
     canonicalUrl,
-    robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
+    robots: indexable ? 'index,follow' : 'noindex,follow',
     ogType: 'article',
     ogLocale: OG_LOCALE,
     hreflangHtml,

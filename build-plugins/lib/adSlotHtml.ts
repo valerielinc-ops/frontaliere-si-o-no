@@ -6,7 +6,9 @@
  * and profession landings).
  * The original pattern lives in `build-plugins/salaryHubContent.ts` — keep this
  * helper byte-for-byte compatible so the rendered HTML and AdSense slot
- * configuration stay consistent across plugins.
+ * configuration stay consistent across plugins. Renderers may combine the
+ * helper into a multi-slot contract (drive-by, inline and end multiplex); the
+ * regression tests assert the exact contract per page family.
  *
  * Why a shared module: avoids drift between plugin copies and centralises the
  * attribute order so the regression test (`tests/regression/seo-static-ad-slots.test.ts`)
