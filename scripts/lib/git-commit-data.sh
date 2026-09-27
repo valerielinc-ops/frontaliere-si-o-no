@@ -1970,6 +1970,26 @@ commit_isolated_from_worktree() {
         fi
       fi
 
+      # Guard the exact blob that will enter the isolated commit, after the
+      # ownership filter and any 3-way merge. This closes the gap where a
+      # writer-level check passed but the final commit merge reintroduced a
+      # catastrophic accumulator shrink.
+      if [[ "$f" == data/jobs/by-crawler/*.json || "$f" == data/jobs/expired/by-crawler/*.json ]] \
+        && [ -n "$remote_blob" ]; then
+        integrity_dir="$merge_dir/integrity"
+        mkdir -p "$integrity_dir"
+        if ! git cat-file blob "$remote_blob" > "$integrity_dir/previous.json" \
+          || ! git cat-file blob "$blob_to_stage" > "$integrity_dir/next.json"; then
+          echo "❌ grouped-isolated: could not materialize crawler slice for integrity guard: $f"
+          return 1
+        fi
+        if ! node "$(dirname "$0")/crawler-slice-integrity.mjs" \
+          "$f" "$integrity_dir/previous.json" "$integrity_dir/next.json"; then
+          echo "❌ grouped-isolated: refusing catastrophic crawler slice shrink: $f"
+          return 1
+        fi
+      fi
+
       GIT_INDEX_FILE="$tmp_index" git update-index --add --cacheinfo "${mode_to_stage},${blob_to_stage},${f}"
     done
 
