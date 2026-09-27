@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stellenpartner",
-  "assembledAt": "2026-09-27T05:14:59.883Z",
+  "assembledAt": "2026-09-27T11:35:26.391Z",
   "jobs": [
     {
       "id": "stellenpartner-7adf9beaf8ef",
@@ -33,7 +33,7 @@
       "url": "https://www.stellenpartner.ch/stellen/anlagen-und-apparatebauer-in-bremgarten-temporaer-106635/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:14:54.992Z",
+      "crawledAt": "2026-09-27T11:35:22.025Z",
       "addressLocality": "Bremgarten",
       "addressRegion": "Aargau",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "url": "https://www.stellenpartner.ch/stellen/anlagen-und-apparatebauer-in-buelach-temporaer-107450/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:14:54.991Z",
+      "crawledAt": "2026-09-27T11:35:22.025Z",
       "addressLocality": "Bülach",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -184,7 +184,7 @@
       "url": "https://www.stellenpartner.ch/stellen/anlagen-und-apparatebauer-in-bremgarten-temporaer-106926/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:14:54.990Z",
+      "crawledAt": "2026-09-27T11:35:22.024Z",
       "addressLocality": "Bremgarten",
       "addressRegion": "Aargau",
       "addressCountry": "CH",
@@ -254,7 +254,7 @@
       "url": "https://www.stellenpartner.ch/stellen/anlagen-und-apparatebauer-in-schwyz-temporaer-107448/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:14:54.989Z",
+      "crawledAt": "2026-09-27T11:35:22.023Z",
       "addressLocality": "Schwyz",
       "addressRegion": "Schwyz",
       "addressCountry": "CH",
@@ -338,7 +338,7 @@
       "url": "https://www.stellenpartner.ch/stellen/anlagen-und-apparatebauer-in-hilfsarbeiter-in-baden-temporaer-108927/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:14:54.988Z",
+      "crawledAt": "2026-09-27T11:35:22.022Z",
       "addressLocality": "Baden",
       "addressRegion": "Aargau",
       "addressCountry": "CH",
@@ -381,6 +381,77 @@
       }
     },
     {
+      "id": "stellenpartner-ba6241df36d4",
+      "slug": "maler-in-per-kundenorientierte-malerarbeiten-stellenpartner-ag-affoltern-am-albis",
+      "slugByLocale": {
+        "it": "maler-in-per-kundenorientierte-malerarbeiten-stellenpartner-ag-affoltern-am-albis",
+        "en": "maler-in-fur-kundenorientierte-malerarbeiten-affoltern-am-albis-zurich-stellenpartner-ch",
+        "de": "maler-in-fur-kundenorientierte-malerarbeiten-affoltern-am-albis-zurich-stellenpartner-ch",
+        "fr": "maler-in-fur-kundenorientierte-malerarbeiten-affoltern-am-albis-zurich-stellenpartner-ch"
+      },
+      "company": "Stellenpartner AG",
+      "companyKey": "stellenpartner",
+      "companyDomain": "stellenpartner.ch",
+      "title": "Maler/in für kundenorientierte Malerarbeiten",
+      "titleByLocale": {
+        "it": "Maler/in per kundenorientierte Malerarbeiten",
+        "en": "Maler/in für kundenorientierte Malerarbeiten",
+        "de": "Maler/in für kundenorientierte Malerarbeiten",
+        "fr": "Maler/in für kundenorientierte Malerarbeiten"
+      },
+      "description": "Tätigkeiten Kundenmalerarbeiten bei Privatkundschaft Lackier- und Spritzarbeiten Dekorative Arbeiten \n• Anforderungen Abgeschlossene Lehre als Maler Fundierte Berufspraxis Exakte und speditive Arbeitsweise Kundenfreundliches Auftreten Führerausweis B von Vorteil Angebot Es erwartet Sie ein eingespieltes Team mit langjährigem Know-how, eine spannende Tätigkeit mit anspruchsvollen Projekten und ein attraktiver Stundenlohn.",
+      "descriptionByLocale": {
+        "it": "Lavoro di pittura del cliente per clienti privati Dipingere e spruzzare lavoro decorativo\n• Requisiti Completato l'apprendistato come pittore Ben fondata pratica professionale Metodo di lavoro Esatto e avanzato Apparenza amichevole cliente Patente di guida B di vantaggio offerta Si aspetta che tu sia un team esperto con molti anni di know-how, un lavoro emozionante con progetti impegnativi e un attraente salario orario.",
+        "en": "Customer painting work for private clients Painting and spraying decorative work\n• Requirements Completed apprenticeship as a painter Well-founded professional practice Exact and forward working method Customer-friendly appearance Driver's license B of advantage Offer It expected You are an experienced team with many years of know-how, an exciting job with challenging projects and an attractive hourly wage.",
+        "de": "Tätigkeiten Kundenmalerarbeiten bei Privatkundschaft Lackier- und Spritzarbeiten Dekorative Arbeiten \n• Anforderungen Abgeschlossene Lehre als Maler Fundierte Berufspraxis Exakte und speditive Arbeitsweise Kundenfreundliches Auftreten Führerausweis B von Vorteil Angebot Es erwartet Sie ein eingespieltes Team mit langjährigem Know-how, eine spannende Tätigkeit mit anspruchsvollen Projekten und ein attraktiver Stundenlohn.",
+        "fr": "Travaux de peinture pour clients privés Travaux de peinture et de pulvérisation\n• Exigences Apprentissage terminé en tant que peintre Pratique professionnelle bien fondée Méthode de travail exacte et avancée Apparition conviviale Licence de conducteur B d'avantage Offre Il est attendu Vous êtes une équipe expérimentée avec de nombreuses années de savoir-faire, un travail passionnant avec des projets difficiles et un salaire horaire attrayant."
+      },
+      "location": "Affoltern am Albis, Zürich",
+      "canton": "ZH",
+      "url": "https://www.stellenpartner.ch/stellen/maler-in-affoltern-am-albis-temporaer-108727/",
+      "source": "Stellenpartner AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-27T11:35:22.021Z",
+      "addressLocality": "Affoltern am Albis",
+      "addressRegion": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-25",
+      "applyUrl": "https://www.stellenpartner.ch/stellen/maler-in-affoltern-am-albis-temporaer-108727/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "maler-in-fur-kundenorientierte-malerarbeiten-affoltern-am-albis-zurich-stellenpartner-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "maler-in-fur-kundenorientierte-malerarbeiten-affoltern-am-albis-zurich-stellenpartner-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-25T14:52:25.484Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "stellenpartner-968dfbce35e3",
       "slug": "sanitarinstallateur-in-per-neu-e-umbauprojekte-stellenpartner-ag-luzern",
       "slugByLocale": {
@@ -411,7 +482,7 @@
       "url": "https://www.stellenpartner.ch/stellen/sanitaerinstallateur-in-luzern-temporaer-109078/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:14:54.987Z",
+      "crawledAt": "2026-09-27T11:35:22.021Z",
       "addressLocality": "Luzern",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -437,6 +508,77 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T14:52:25.485Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stellenpartner-b08ab16cabe8",
+      "slug": "schreiner-in-hilfsarbeiter-in-per-montage-e-spritzlackieren-stellenpartner-ag-schwyz",
+      "slugByLocale": {
+        "it": "schreiner-in-hilfsarbeiter-in-per-montage-e-spritzlackieren-stellenpartner-ag-schwyz",
+        "en": "schreiner-in-hilfsarbeiter-in-fur-montage-und-spritzlackieren-schwyz-schwyz-stellenpartner",
+        "de": "schreiner-in-hilfsarbeiter-in-fur-montage-und-spritzlackieren-schwyz-schwyz-stellenpartner",
+        "fr": "schreiner-in-hilfsarbeiter-in-fur-montage-und-spritzlackieren-schwyz-schwyz-stellenpartner"
+      },
+      "company": "Stellenpartner AG",
+      "companyKey": "stellenpartner",
+      "companyDomain": "stellenpartner.ch",
+      "title": "Schreiner/in (Hilfsarbeiter/in) für Montage und Spritzlackieren",
+      "titleByLocale": {
+        "it": "Schreiner/in (Hilfsarbeiter/in) per Montage e Spritzlackieren",
+        "en": "Schreiner/in (Hilfsarbeiter/in) für Montage und Spritzlackieren",
+        "de": "Schreiner/in (Hilfsarbeiter/in) für Montage und Spritzlackieren",
+        "fr": "Schreiner/in (Hilfsarbeiter/in) für Montage und Spritzlackieren"
+      },
+      "description": "Tätigkeiten Montage von Fenster und Jalousien, z.T. auch Fassaden, allgemeine Schreinerarbeiten, Werkstattarbeiten, Spritzlackieren von Fenster \n• Anforderungen Fundierte Berufspraxis Exakte und speditive Arbeitsweise Kundenfreundliches Auftreten Führerausweis B von Vorteil Angebot Professionell geführtes Unternehmen, arbeiten an modernen Betriebsmitteln, überdurchschnittliche Entlohnung",
+      "descriptionByLocale": {
+        "it": "Installazione di finestre e tende, in parte comprese facciate, carpenteria generale, lavori di officina, spruzzatura di finestre\n• Prestazioni Pratica professionale sana Metodo di lavoro accurato e avanzato Aspetto amichevole del cliente Patente di guida B di vantaggio Offrire società gestita professionalmente, lavoro su attrezzature moderne, remunerazione superiore alla media",
+        "en": "Installation of windows and blinds, partly including facades, general carpentry, workshop work, window spraying\n• Requirements Sound professional practice Accurate and forward working method Customer-friendly appearance Driver's license B of advantage Offer professionally managed company, work on modern equipment, above-average remuneration",
+        "de": "Tätigkeiten Montage von Fenster und Jalousien, z.T. auch Fassaden, allgemeine Schreinerarbeiten, Werkstattarbeiten, Spritzlackieren von Fenster \n• Anforderungen Fundierte Berufspraxis Exakte und speditive Arbeitsweise Kundenfreundliches Auftreten Führerausweis B von Vorteil Angebot Professionell geführtes Unternehmen, arbeiten an modernen Betriebsmitteln, überdurchschnittliche Entlohnung",
+        "fr": "Installation de fenêtres et stores, y compris les façades, menuiserie générale, travaux d'atelier, pulvérisation de fenêtres\n• Exigences Pratique professionnelle saine Méthode de travail précise et avancée Apparence conviviale Licence de conducteur B d'avantage Offre entreprise gérée professionnellement, travail sur des équipements modernes, rémunération supérieure à la moyenne"
+      },
+      "location": "Schwyz, Schwyz",
+      "canton": "SZ",
+      "url": "https://www.stellenpartner.ch/stellen/schreiner-in-hilfsarbeiter-in-schwyz-temporaer-108779/",
+      "source": "Stellenpartner AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-27T11:35:22.020Z",
+      "addressLocality": "Schwyz",
+      "addressRegion": "Schwyz",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-25",
+      "applyUrl": "https://www.stellenpartner.ch/stellen/schreiner-in-hilfsarbeiter-in-schwyz-temporaer-108779/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "schreiner-in-hilfsarbeiter-in-fur-montage-und-spritzlackieren-schwyz-schwyz-stellenpartner"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-in-hilfsarbeiter-in-fur-montage-und-spritzlackieren-schwyz-schwyz-stellenpartner"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-25T14:52:25.482Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -482,7 +624,7 @@
       "url": "https://www.stellenpartner.ch/stellen/gipser-in-weinfelden-temporaer-108825/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:14:54.986Z",
+      "crawledAt": "2026-09-27T11:35:22.020Z",
       "addressLocality": "Weinfelden",
       "addressRegion": "Thurgau",
       "addressCountry": "CH",
@@ -523,148 +665,6 @@
       }
     },
     {
-      "id": "stellenpartner-ba6241df36d4",
-      "slug": "maler-in-per-kundenorientierte-malerarbeiten-stellenpartner-ag-affoltern-am-albis",
-      "slugByLocale": {
-        "it": "maler-in-per-kundenorientierte-malerarbeiten-stellenpartner-ag-affoltern-am-albis",
-        "en": "maler-in-fur-kundenorientierte-malerarbeiten-affoltern-am-albis-zurich-stellenpartner-ch",
-        "de": "maler-in-fur-kundenorientierte-malerarbeiten-affoltern-am-albis-zurich-stellenpartner-ch",
-        "fr": "maler-in-fur-kundenorientierte-malerarbeiten-affoltern-am-albis-zurich-stellenpartner-ch"
-      },
-      "company": "Stellenpartner AG",
-      "companyKey": "stellenpartner",
-      "companyDomain": "stellenpartner.ch",
-      "title": "Maler/in für kundenorientierte Malerarbeiten",
-      "titleByLocale": {
-        "it": "Maler/in per kundenorientierte Malerarbeiten",
-        "en": "Maler/in für kundenorientierte Malerarbeiten",
-        "de": "Maler/in für kundenorientierte Malerarbeiten",
-        "fr": "Maler/in für kundenorientierte Malerarbeiten"
-      },
-      "description": "Tätigkeiten Kundenmalerarbeiten bei Privatkundschaft Lackier- und Spritzarbeiten Dekorative Arbeiten \n• Anforderungen Abgeschlossene Lehre als Maler Fundierte Berufspraxis Exakte und speditive Arbeitsweise Kundenfreundliches Auftreten Führerausweis B von Vorteil Angebot Es erwartet Sie ein eingespieltes Team mit langjährigem Know-how, eine spannende Tätigkeit mit anspruchsvollen Projekten und ein attraktiver Stundenlohn.",
-      "descriptionByLocale": {
-        "it": "Lavoro di pittura del cliente per clienti privati Dipingere e spruzzare lavoro decorativo\n• Requisiti Completato l'apprendistato come pittore Ben fondata pratica professionale Metodo di lavoro Esatto e avanzato Apparenza amichevole cliente Patente di guida B di vantaggio offerta Si aspetta che tu sia un team esperto con molti anni di know-how, un lavoro emozionante con progetti impegnativi e un attraente salario orario.",
-        "en": "Customer painting work for private clients Painting and spraying decorative work\n• Requirements Completed apprenticeship as a painter Well-founded professional practice Exact and forward working method Customer-friendly appearance Driver's license B of advantage Offer It expected You are an experienced team with many years of know-how, an exciting job with challenging projects and an attractive hourly wage.",
-        "de": "Tätigkeiten Kundenmalerarbeiten bei Privatkundschaft Lackier- und Spritzarbeiten Dekorative Arbeiten \n• Anforderungen Abgeschlossene Lehre als Maler Fundierte Berufspraxis Exakte und speditive Arbeitsweise Kundenfreundliches Auftreten Führerausweis B von Vorteil Angebot Es erwartet Sie ein eingespieltes Team mit langjährigem Know-how, eine spannende Tätigkeit mit anspruchsvollen Projekten und ein attraktiver Stundenlohn.",
-        "fr": "Travaux de peinture pour clients privés Travaux de peinture et de pulvérisation\n• Exigences Apprentissage terminé en tant que peintre Pratique professionnelle bien fondée Méthode de travail exacte et avancée Apparition conviviale Licence de conducteur B d'avantage Offre Il est attendu Vous êtes une équipe expérimentée avec de nombreuses années de savoir-faire, un travail passionnant avec des projets difficiles et un salaire horaire attrayant."
-      },
-      "location": "Affoltern am Albis, Zürich",
-      "canton": "ZH",
-      "url": "https://www.stellenpartner.ch/stellen/maler-in-affoltern-am-albis-temporaer-108727/",
-      "source": "Stellenpartner AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:14:54.986Z",
-      "addressLocality": "Affoltern am Albis",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-25",
-      "applyUrl": "https://www.stellenpartner.ch/stellen/maler-in-affoltern-am-albis-temporaer-108727/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "maler-in-fur-kundenorientierte-malerarbeiten-affoltern-am-albis-zurich-stellenpartner-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "maler-in-fur-kundenorientierte-malerarbeiten-affoltern-am-albis-zurich-stellenpartner-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-25T14:52:25.484Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stellenpartner-b08ab16cabe8",
-      "slug": "schreiner-in-hilfsarbeiter-in-per-montage-e-spritzlackieren-stellenpartner-ag-schwyz",
-      "slugByLocale": {
-        "it": "schreiner-in-hilfsarbeiter-in-per-montage-e-spritzlackieren-stellenpartner-ag-schwyz",
-        "en": "schreiner-in-hilfsarbeiter-in-fur-montage-und-spritzlackieren-schwyz-schwyz-stellenpartner",
-        "de": "schreiner-in-hilfsarbeiter-in-fur-montage-und-spritzlackieren-schwyz-schwyz-stellenpartner",
-        "fr": "schreiner-in-hilfsarbeiter-in-fur-montage-und-spritzlackieren-schwyz-schwyz-stellenpartner"
-      },
-      "company": "Stellenpartner AG",
-      "companyKey": "stellenpartner",
-      "companyDomain": "stellenpartner.ch",
-      "title": "Schreiner/in (Hilfsarbeiter/in) für Montage und Spritzlackieren",
-      "titleByLocale": {
-        "it": "Schreiner/in (Hilfsarbeiter/in) per Montage e Spritzlackieren",
-        "en": "Schreiner/in (Hilfsarbeiter/in) für Montage und Spritzlackieren",
-        "de": "Schreiner/in (Hilfsarbeiter/in) für Montage und Spritzlackieren",
-        "fr": "Schreiner/in (Hilfsarbeiter/in) für Montage und Spritzlackieren"
-      },
-      "description": "Tätigkeiten Montage von Fenster und Jalousien, z.T. auch Fassaden, allgemeine Schreinerarbeiten, Werkstattarbeiten, Spritzlackieren von Fenster \n• Anforderungen Fundierte Berufspraxis Exakte und speditive Arbeitsweise Kundenfreundliches Auftreten Führerausweis B von Vorteil Angebot Professionell geführtes Unternehmen, arbeiten an modernen Betriebsmitteln, überdurchschnittliche Entlohnung",
-      "descriptionByLocale": {
-        "it": "Installazione di finestre e tende, in parte comprese facciate, carpenteria generale, lavori di officina, spruzzatura di finestre\n• Prestazioni Pratica professionale sana Metodo di lavoro accurato e avanzato Aspetto amichevole del cliente Patente di guida B di vantaggio Offrire società gestita professionalmente, lavoro su attrezzature moderne, remunerazione superiore alla media",
-        "en": "Installation of windows and blinds, partly including facades, general carpentry, workshop work, window spraying\n• Requirements Sound professional practice Accurate and forward working method Customer-friendly appearance Driver's license B of advantage Offer professionally managed company, work on modern equipment, above-average remuneration",
-        "de": "Tätigkeiten Montage von Fenster und Jalousien, z.T. auch Fassaden, allgemeine Schreinerarbeiten, Werkstattarbeiten, Spritzlackieren von Fenster \n• Anforderungen Fundierte Berufspraxis Exakte und speditive Arbeitsweise Kundenfreundliches Auftreten Führerausweis B von Vorteil Angebot Professionell geführtes Unternehmen, arbeiten an modernen Betriebsmitteln, überdurchschnittliche Entlohnung",
-        "fr": "Installation de fenêtres et stores, y compris les façades, menuiserie générale, travaux d'atelier, pulvérisation de fenêtres\n• Exigences Pratique professionnelle saine Méthode de travail précise et avancée Apparence conviviale Licence de conducteur B d'avantage Offre entreprise gérée professionnellement, travail sur des équipements modernes, rémunération supérieure à la moyenne"
-      },
-      "location": "Schwyz, Schwyz",
-      "canton": "SZ",
-      "url": "https://www.stellenpartner.ch/stellen/schreiner-in-hilfsarbeiter-in-schwyz-temporaer-108779/",
-      "source": "Stellenpartner AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:14:54.985Z",
-      "addressLocality": "Schwyz",
-      "addressRegion": "Schwyz",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-25",
-      "applyUrl": "https://www.stellenpartner.ch/stellen/schreiner-in-hilfsarbeiter-in-schwyz-temporaer-108779/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "schreiner-in-hilfsarbeiter-in-fur-montage-und-spritzlackieren-schwyz-schwyz-stellenpartner"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "schreiner-in-hilfsarbeiter-in-fur-montage-und-spritzlackieren-schwyz-schwyz-stellenpartner"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-25T14:52:25.482Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "stellenpartner-dafe572765c2",
       "slug": "metallbauer-in-hilfsarbeiter-in-con-schwerpunkt-instandhaltung-stellenpartner-ag-bulach",
       "slugByLocale": {
@@ -695,7 +695,7 @@
       "url": "https://www.stellenpartner.ch/stellen/metallbauer-in-hilfsarbeiter-in-buelach-temporaer-108487/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:14:54.984Z",
+      "crawledAt": "2026-09-27T11:35:22.019Z",
       "addressLocality": "Bülach",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -768,7 +768,7 @@
       "url": "https://www.stellenpartner.ch/stellen/maler-in-muri-ag-temporaer-108783/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:14:54.984Z",
+      "crawledAt": "2026-09-27T11:35:22.019Z",
       "addressLocality": "Muri AG",
       "addressRegion": "Aargau",
       "addressCountry": "CH",
@@ -839,7 +839,7 @@
       "url": "https://www.stellenpartner.ch/stellen/maler-in-affoltern-am-albis-temporaer-108333/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:14:54.983Z",
+      "crawledAt": "2026-09-27T11:35:22.018Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -919,7 +919,7 @@
       "url": "https://www.stellenpartner.ch/stellen/maler-in-zofingen-temporaer-108473/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:14:54.982Z",
+      "crawledAt": "2026-09-27T11:35:22.018Z",
       "addressLocality": "Zofingen",
       "addressRegion": "Aargau",
       "addressCountry": "CH",
@@ -969,6 +969,86 @@
       }
     },
     {
+      "id": "stellenpartner-e69d6a8b795d",
+      "slug": "plaster-per-isolamento-facciale-e-parete-a-secco-stellenpartner-ag-frauenfeld-thurgau",
+      "slugByLocale": {
+        "it": "plaster-per-isolamento-facciale-e-parete-a-secco-stellenpartner-ag-frauenfeld-thurgau",
+        "en": "plaster-for-facade-insulation-and-drywall-stellenpartner-ag-frauenfeld",
+        "de": "gipser-in-fur-fassadenisolation-und-trockenbau-frauenfeld-thurgau-stellenpartner-ch",
+        "fr": "plastre-pour-isolation-de-facade-et-cloison-seche-stellenpartner-ag-frauenfeld"
+      },
+      "company": "Stellenpartner AG",
+      "companyKey": "stellenpartner",
+      "companyDomain": "stellenpartner.ch",
+      "title": "Gipser/in für Fassadenisolation und Trockenbau",
+      "titleByLocale": {
+        "it": "Plaster per isolamento facciale e parete a secco",
+        "en": "Plaster for facade insulation and drywall",
+        "de": "Gipser/in für Fassadenisolation und Trockenbau",
+        "fr": "Plastre pour isolation de façade et cloison sèche"
+      },
+      "description": "Tätigkeiten Ausführen von Grund- und Weissputzarbeiten Herstellen verschiedener Abriebflächen Montieren von Fassadenisolationen Erstellen von Konstruktionen im Trockenbau \n• Anforderungen Abgeschlossene Grundbildung als Gipserin oder Gipser Mehrjährige praktische Erfahrung im Gipserhandwerk Freude am Kontakt mit anspruchsvoller Kundschaft Selbständige Arbeitsweise mit hoher Genauigkeit Ausgeprägte Teamfähigkeit Angebot Vielseitiges Aufgabengebiet mit anspruchsvollen Einsätzen Sehr guter Stundenlohn",
+      "descriptionByLocale": {
+        "it": "Fabbricazione di varie superfici di abrasione Montaggio di isolamento della facciata Fabbricazione di strutture in cartongesso\n• Requisiti Allenamento di base completo come intonaco o intonaco Diversi anni di esperienza pratica nell'artigianato gesso Gioia di contatto con clienti esigenti Lavoro autonomo con alta precisione Forti competenze di squadra Offrire campo versatile di responsabilità con incarichi impegnativi Ottimo salario orario",
+        "en": "Activities Performing ground and white plaster work Manufacture of various abrasion surfaces Mounting of facade insulation Manufacture of structures in drywall\n• Requirements Completed basic training as a plasterer or plasterer Several years of practical experience in the plaster craft Joy of contact with demanding customers Self-employment work with high accuracy Strong team skills Offer versatile field of responsibility with demanding assignments Very good hourly wage",
+        "de": "Tätigkeiten Ausführen von Grund- und Weissputzarbeiten Herstellen verschiedener Abriebflächen Montieren von Fassadenisolationen Erstellen von Konstruktionen im Trockenbau \n• Anforderungen Abgeschlossene Grundbildung als Gipserin oder Gipser Mehrjährige praktische Erfahrung im Gipserhandwerk Freude am Kontakt mit anspruchsvoller Kundschaft Selbständige Arbeitsweise mit hoher Genauigkeit Ausgeprägte Teamfähigkeit Angebot Vielseitiges Aufgabengebiet mit anspruchsvollen Einsätzen Sehr guter Stundenlohn",
+        "fr": "Activités Ouvrages en plâtre blanc et au sol Fabrication de différentes surfaces d'abrasion Montage d'isolation de façade Fabrication de structures en cloison sèche\n• Exigences Formation de base terminée en tant que plâtrier ou plâtrier Plusieurs années d'expérience pratique dans l'artisanat en plâtre Joy de contact avec des clients exigeants Travail indépendant avec une grande précision Compétences d'équipe solides Offrez un champ de responsabilité polyvalent avec des tâches exigeantes Très bon salaire horaire"
+      },
+      "location": "Frauenfeld, Thurgau",
+      "canton": "TG",
+      "url": "https://www.stellenpartner.ch/stellen/gipser-in-frauenfeld-temporaer-108673/",
+      "source": "Stellenpartner AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-27T11:35:22.017Z",
+      "addressLocality": "Frauenfeld",
+      "addressRegion": "Thurgau",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-23",
+      "applyUrl": "https://www.stellenpartner.ch/stellen/gipser-in-frauenfeld-temporaer-108673/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "gipser-in-fur-fassadenisolation-und-trockenbau-frauenfeld-thurgau-stellenpartner-ch",
+        "gipser-in-per-fassadenisolation-e-trockenbau-stellenpartner-ag-frauenfeld",
+        "plaster-per-isolamento-facciale-e-parete-a-secco-stellenpartner-ag-frauenfeld-thurgau"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "gipser-in-fur-fassadenisolation-und-trockenbau-frauenfeld-thurgau-stellenpartner-ch",
+          "gipser-in-per-fassadenisolation-e-trockenbau-stellenpartner-ag-frauenfeld",
+          "plaster-per-isolamento-facciale-e-parete-a-secco-stellenpartner-ag-frauenfeld-thurgau"
+        ],
+        "en": [
+          "gipser-in-fur-fassadenisolation-und-trockenbau-frauenfeld-thurgau-stellenpartner-ch"
+        ],
+        "fr": [
+          "gipser-in-fur-fassadenisolation-und-trockenbau-frauenfeld-thurgau-stellenpartner-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-23T23:48:38.180Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "stellenpartner-bca04f6e9bd5",
       "slug": "pittori-che-lavorano-per-clienti-privati-stellenpartner-ag-willisau-luzern",
       "slugByLocale": {
@@ -999,7 +1079,7 @@
       "url": "https://www.stellenpartner.ch/stellen/maler-in-willisau-temporaer-108335/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:14:54.981Z",
+      "crawledAt": "2026-09-27T11:35:22.017Z",
       "addressLocality": "Willisau",
       "addressRegion": "Luzern",
       "addressCountry": "CH",
@@ -1079,7 +1159,7 @@
       "url": "https://www.stellenpartner.ch/stellen/gipser-in-wil-sg-temporaer-108639/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:14:54.980Z",
+      "crawledAt": "2026-09-27T11:35:22.015Z",
       "addressLocality": "Wil SG",
       "addressRegion": "St. Gallen",
       "addressCountry": "CH",
@@ -1120,37 +1200,37 @@
       }
     },
     {
-      "id": "stellenpartner-e69d6a8b795d",
-      "slug": "plaster-per-isolamento-facciale-e-parete-a-secco-stellenpartner-ag-frauenfeld-thurgau",
+      "id": "stellenpartner-71aefab5aa72",
+      "slug": "piani-lavoratori-ausiliari-per-facciate-e-muri-a-secco-stellenpartner-ag-frauenfeld-thurgau",
       "slugByLocale": {
-        "it": "plaster-per-isolamento-facciale-e-parete-a-secco-stellenpartner-ag-frauenfeld-thurgau",
-        "en": "plaster-for-facade-insulation-and-drywall-stellenpartner-ag-frauenfeld",
-        "de": "gipser-in-fur-fassadenisolation-und-trockenbau-frauenfeld-thurgau-stellenpartner-ch",
-        "fr": "plastre-pour-isolation-de-facade-et-cloison-seche-stellenpartner-ag-frauenfeld"
+        "it": "piani-lavoratori-ausiliari-per-facciate-e-muri-a-secco-stellenpartner-ag-frauenfeld-thurgau",
+        "en": "plasters-auxiliary-workers-for-facades-and-drywall-stellenpartner-ag-frauenfeld-thurgau",
+        "de": "gipser-in-hilfsarbeiter-in-fur-fassaden-und-trockenbau-frauenfeld-thurgau-stellenpartner",
+        "fr": "plastres-auxiliaires-pour-facades-et-murs-secs-stellenpartner-ag-frauenfeld-thurgau"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
       "companyDomain": "stellenpartner.ch",
-      "title": "Gipser/in für Fassadenisolation und Trockenbau",
+      "title": "Gipser/in (Hilfsarbeiter/in) für Fassaden und Trockenbau",
       "titleByLocale": {
-        "it": "Plaster per isolamento facciale e parete a secco",
-        "en": "Plaster for facade insulation and drywall",
-        "de": "Gipser/in für Fassadenisolation und Trockenbau",
-        "fr": "Plastre pour isolation de façade et cloison sèche"
+        "it": "Piani (lavoratori ausiliari) per facciate e muri a secco",
+        "en": "Plasters (auxiliary workers) for facades and drywall",
+        "de": "Gipser/in (Hilfsarbeiter/in) für Fassaden und Trockenbau",
+        "fr": "Plastres (auxiliaires) pour façades et murs secs"
       },
-      "description": "Tätigkeiten Ausführen von Grund- und Weissputzarbeiten Herstellen verschiedener Abriebflächen Montieren von Fassadenisolationen Erstellen von Konstruktionen im Trockenbau \n• Anforderungen Abgeschlossene Grundbildung als Gipserin oder Gipser Mehrjährige praktische Erfahrung im Gipserhandwerk Freude am Kontakt mit anspruchsvoller Kundschaft Selbständige Arbeitsweise mit hoher Genauigkeit Ausgeprägte Teamfähigkeit Angebot Vielseitiges Aufgabengebiet mit anspruchsvollen Einsätzen Sehr guter Stundenlohn",
+      "description": "Tätigkeiten Ausführen von Grund- und Weissputzarbeiten Abrieb fachgerecht anbringen Wärmedämmungen an Fassaden montieren Trockenbauarbeiten selbständig umsetzen \n• Anforderungen Mehrjährige Praxis im Gipserhandwerk Sorgfältige und eigenverantwortliche Arbeitsweise Zuverlässigkeit und gute Zusammenarbeit im Team Freude am Kontakt mit anspruchsvoller Kundschaft Angebot Breit gefächertes Aufgabengebiet Sehr guter Stundenlohn",
       "descriptionByLocale": {
-        "it": "Fabbricazione di varie superfici di abrasione Montaggio di isolamento della facciata Fabbricazione di strutture in cartongesso\n• Requisiti Allenamento di base completo come intonaco o intonaco Diversi anni di esperienza pratica nell'artigianato gesso Gioia di contatto con clienti esigenti Lavoro autonomo con alta precisione Forti competenze di squadra Offrire campo versatile di responsabilità con incarichi impegnativi Ottimo salario orario",
-        "en": "Activities Performing ground and white plaster work Manufacture of various abrasion surfaces Mounting of facade insulation Manufacture of structures in drywall\n• Requirements Completed basic training as a plasterer or plasterer Several years of practical experience in the plaster craft Joy of contact with demanding customers Self-employment work with high accuracy Strong team skills Offer versatile field of responsibility with demanding assignments Very good hourly wage",
-        "de": "Tätigkeiten Ausführen von Grund- und Weissputzarbeiten Herstellen verschiedener Abriebflächen Montieren von Fassadenisolationen Erstellen von Konstruktionen im Trockenbau \n• Anforderungen Abgeschlossene Grundbildung als Gipserin oder Gipser Mehrjährige praktische Erfahrung im Gipserhandwerk Freude am Kontakt mit anspruchsvoller Kundschaft Selbständige Arbeitsweise mit hoher Genauigkeit Ausgeprägte Teamfähigkeit Angebot Vielseitiges Aufgabengebiet mit anspruchsvollen Einsätzen Sehr guter Stundenlohn",
-        "fr": "Activités Ouvrages en plâtre blanc et au sol Fabrication de différentes surfaces d'abrasion Montage d'isolation de façade Fabrication de structures en cloison sèche\n• Exigences Formation de base terminée en tant que plâtrier ou plâtrier Plusieurs années d'expérience pratique dans l'artisanat en plâtre Joy de contact avec des clients exigeants Travail indépendant avec une grande précision Compétences d'équipe solides Offrez un champ de responsabilité polyvalent avec des tâches exigeantes Très bon salaire horaire"
+        "it": "Esecuzione del lavoro di intonaco di base e bianco Abrasion professionalmente Installare l'isolamento termico sulle facciate\n• Requisiti Diversi anni di pratica nel commercio gesso Attenzione e auto-responsabile metodo di lavoro Affidabilità e buona cooperazione nel team Gioia di contatto con i clienti esigenti Offrire una vasta gamma di compiti Ottimo salario orario",
+        "en": "Activities Execution of basic and white plaster work Abrasion professionally Install thermal insulation on facades Mount drywall work independently implement\n• Requirements Several years of practice in the gypsum trade Careful and self-responsible working method Reliability and good cooperation in the team Joy of contact with demanding customers Offer wide range of tasks Very good hourly wage",
+        "de": "Tätigkeiten Ausführen von Grund- und Weissputzarbeiten Abrieb fachgerecht anbringen Wärmedämmungen an Fassaden montieren Trockenbauarbeiten selbständig umsetzen \n• Anforderungen Mehrjährige Praxis im Gipserhandwerk Sorgfältige und eigenverantwortliche Arbeitsweise Zuverlässigkeit und gute Zusammenarbeit im Team Freude am Kontakt mit anspruchsvoller Kundschaft Angebot Breit gefächertes Aufgabengebiet Sehr guter Stundenlohn",
+        "fr": "Activités Exécution des travaux de base et de plâtre blanc Abrasion professionnelle Installer l'isolation thermique sur les façades Montage des murs secs\n• Exigences Plusieurs années de pratique dans le commerce du gypse Méthode de travail attentive et auto-responsable Fiabilité et bonne coopération dans l'équipe Joy de contact avec les clients exigeants Offrir un large éventail de tâches Très bon salaire horaire"
       },
       "location": "Frauenfeld, Thurgau",
       "canton": "TG",
-      "url": "https://www.stellenpartner.ch/stellen/gipser-in-frauenfeld-temporaer-108673/",
+      "url": "https://www.stellenpartner.ch/stellen/gipser-in-hilfsarbeiter-in-frauenfeld-temporaer-108671/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:14:54.980Z",
+      "crawledAt": "2026-09-27T11:35:22.014Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "Thurgau",
       "addressCountry": "CH",
@@ -1163,28 +1243,28 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-09-23",
-      "applyUrl": "https://www.stellenpartner.ch/stellen/gipser-in-frauenfeld-temporaer-108673/",
+      "applyUrl": "https://www.stellenpartner.ch/stellen/gipser-in-hilfsarbeiter-in-frauenfeld-temporaer-108671/",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gipser-in-fur-fassadenisolation-und-trockenbau-frauenfeld-thurgau-stellenpartner-ch",
-        "gipser-in-per-fassadenisolation-e-trockenbau-stellenpartner-ag-frauenfeld",
-        "plaster-per-isolamento-facciale-e-parete-a-secco-stellenpartner-ag-frauenfeld-thurgau"
+        "gipser-in-hilfsarbeiter-in-fur-fassaden-und-trockenbau-frauenfeld-thurgau-stellenpartner",
+        "gipser-in-hilfsarbeiter-in-per-fassaden-e-trockenbau-stellenpartner-ag-frauenfeld",
+        "piani-lavoratori-ausiliari-per-facciate-e-muri-a-secco-stellenpartner-ag-frauenfeld-thurgau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gipser-in-fur-fassadenisolation-und-trockenbau-frauenfeld-thurgau-stellenpartner-ch",
-          "gipser-in-per-fassadenisolation-e-trockenbau-stellenpartner-ag-frauenfeld",
-          "plaster-per-isolamento-facciale-e-parete-a-secco-stellenpartner-ag-frauenfeld-thurgau"
+          "gipser-in-hilfsarbeiter-in-fur-fassaden-und-trockenbau-frauenfeld-thurgau-stellenpartner",
+          "gipser-in-hilfsarbeiter-in-per-fassaden-e-trockenbau-stellenpartner-ag-frauenfeld",
+          "piani-lavoratori-ausiliari-per-facciate-e-muri-a-secco-stellenpartner-ag-frauenfeld-thurgau"
         ],
         "en": [
-          "gipser-in-fur-fassadenisolation-und-trockenbau-frauenfeld-thurgau-stellenpartner-ch"
+          "gipser-in-hilfsarbeiter-in-fur-fassaden-und-trockenbau-frauenfeld-thurgau-stellenpartner"
         ],
         "fr": [
-          "gipser-in-fur-fassadenisolation-und-trockenbau-frauenfeld-thurgau-stellenpartner-ch"
+          "gipser-in-hilfsarbeiter-in-fur-fassaden-und-trockenbau-frauenfeld-thurgau-stellenpartner"
         ]
       },
-      "firstSeenAt": "2026-09-23T23:48:38.180Z",
+      "firstSeenAt": "2026-09-23T23:48:38.177Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1230,7 +1310,7 @@
       "url": "https://www.stellenpartner.ch/stellen/gipser-in-hilfsarbeiter-in-arbon-temporaer-108637/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:14:54.979Z",
+      "crawledAt": "2026-09-27T11:35:22.014Z",
       "addressLocality": "Arbon",
       "addressRegion": "Thurgau",
       "addressCountry": "CH",
@@ -1281,86 +1361,6 @@
       }
     },
     {
-      "id": "stellenpartner-71aefab5aa72",
-      "slug": "piani-lavoratori-ausiliari-per-facciate-e-muri-a-secco-stellenpartner-ag-frauenfeld-thurgau",
-      "slugByLocale": {
-        "it": "piani-lavoratori-ausiliari-per-facciate-e-muri-a-secco-stellenpartner-ag-frauenfeld-thurgau",
-        "en": "plasters-auxiliary-workers-for-facades-and-drywall-stellenpartner-ag-frauenfeld-thurgau",
-        "de": "gipser-in-hilfsarbeiter-in-fur-fassaden-und-trockenbau-frauenfeld-thurgau-stellenpartner",
-        "fr": "plastres-auxiliaires-pour-facades-et-murs-secs-stellenpartner-ag-frauenfeld-thurgau"
-      },
-      "company": "Stellenpartner AG",
-      "companyKey": "stellenpartner",
-      "companyDomain": "stellenpartner.ch",
-      "title": "Gipser/in (Hilfsarbeiter/in) für Fassaden und Trockenbau",
-      "titleByLocale": {
-        "it": "Piani (lavoratori ausiliari) per facciate e muri a secco",
-        "en": "Plasters (auxiliary workers) for facades and drywall",
-        "de": "Gipser/in (Hilfsarbeiter/in) für Fassaden und Trockenbau",
-        "fr": "Plastres (auxiliaires) pour façades et murs secs"
-      },
-      "description": "Tätigkeiten Ausführen von Grund- und Weissputzarbeiten Abrieb fachgerecht anbringen Wärmedämmungen an Fassaden montieren Trockenbauarbeiten selbständig umsetzen \n• Anforderungen Mehrjährige Praxis im Gipserhandwerk Sorgfältige und eigenverantwortliche Arbeitsweise Zuverlässigkeit und gute Zusammenarbeit im Team Freude am Kontakt mit anspruchsvoller Kundschaft Angebot Breit gefächertes Aufgabengebiet Sehr guter Stundenlohn",
-      "descriptionByLocale": {
-        "it": "Esecuzione del lavoro di intonaco di base e bianco Abrasion professionalmente Installare l'isolamento termico sulle facciate\n• Requisiti Diversi anni di pratica nel commercio gesso Attenzione e auto-responsabile metodo di lavoro Affidabilità e buona cooperazione nel team Gioia di contatto con i clienti esigenti Offrire una vasta gamma di compiti Ottimo salario orario",
-        "en": "Activities Execution of basic and white plaster work Abrasion professionally Install thermal insulation on facades Mount drywall work independently implement\n• Requirements Several years of practice in the gypsum trade Careful and self-responsible working method Reliability and good cooperation in the team Joy of contact with demanding customers Offer wide range of tasks Very good hourly wage",
-        "de": "Tätigkeiten Ausführen von Grund- und Weissputzarbeiten Abrieb fachgerecht anbringen Wärmedämmungen an Fassaden montieren Trockenbauarbeiten selbständig umsetzen \n• Anforderungen Mehrjährige Praxis im Gipserhandwerk Sorgfältige und eigenverantwortliche Arbeitsweise Zuverlässigkeit und gute Zusammenarbeit im Team Freude am Kontakt mit anspruchsvoller Kundschaft Angebot Breit gefächertes Aufgabengebiet Sehr guter Stundenlohn",
-        "fr": "Activités Exécution des travaux de base et de plâtre blanc Abrasion professionnelle Installer l'isolation thermique sur les façades Montage des murs secs\n• Exigences Plusieurs années de pratique dans le commerce du gypse Méthode de travail attentive et auto-responsable Fiabilité et bonne coopération dans l'équipe Joy de contact avec les clients exigeants Offrir un large éventail de tâches Très bon salaire horaire"
-      },
-      "location": "Frauenfeld, Thurgau",
-      "canton": "TG",
-      "url": "https://www.stellenpartner.ch/stellen/gipser-in-hilfsarbeiter-in-frauenfeld-temporaer-108671/",
-      "source": "Stellenpartner AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:14:54.978Z",
-      "addressLocality": "Frauenfeld",
-      "addressRegion": "Thurgau",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-23",
-      "applyUrl": "https://www.stellenpartner.ch/stellen/gipser-in-hilfsarbeiter-in-frauenfeld-temporaer-108671/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "gipser-in-hilfsarbeiter-in-fur-fassaden-und-trockenbau-frauenfeld-thurgau-stellenpartner",
-        "gipser-in-hilfsarbeiter-in-per-fassaden-e-trockenbau-stellenpartner-ag-frauenfeld",
-        "piani-lavoratori-ausiliari-per-facciate-e-muri-a-secco-stellenpartner-ag-frauenfeld-thurgau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "gipser-in-hilfsarbeiter-in-fur-fassaden-und-trockenbau-frauenfeld-thurgau-stellenpartner",
-          "gipser-in-hilfsarbeiter-in-per-fassaden-e-trockenbau-stellenpartner-ag-frauenfeld",
-          "piani-lavoratori-ausiliari-per-facciate-e-muri-a-secco-stellenpartner-ag-frauenfeld-thurgau"
-        ],
-        "en": [
-          "gipser-in-hilfsarbeiter-in-fur-fassaden-und-trockenbau-frauenfeld-thurgau-stellenpartner"
-        ],
-        "fr": [
-          "gipser-in-hilfsarbeiter-in-fur-fassaden-und-trockenbau-frauenfeld-thurgau-stellenpartner"
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:48:38.177Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "stellenpartner-7d4b112e42aa",
       "slug": "carpentieri-lavoratori-ausiliari-per-la-lavorazione-delle-superfici-stellenpartner-ag-schwyz-schwyz",
       "slugByLocale": {
@@ -1391,7 +1391,7 @@
       "url": "https://www.stellenpartner.ch/stellen/schreiner-in-hilfsarbeiter-in-schwyz-temporaer-108503/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:14:54.977Z",
+      "crawledAt": "2026-09-27T11:35:22.013Z",
       "addressLocality": "Schwyz",
       "addressRegion": "Schwyz",
       "addressCountry": "CH",
@@ -1471,7 +1471,7 @@
       "url": "https://www.stellenpartner.ch/stellen/maler-in-zug-temporaer-108453/",
       "source": "Stellenpartner AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-27T05:14:54.975Z",
+      "crawledAt": "2026-09-27T11:35:22.011Z",
       "addressLocality": "Zug",
       "addressRegion": "Zug",
       "addressCountry": "CH",
