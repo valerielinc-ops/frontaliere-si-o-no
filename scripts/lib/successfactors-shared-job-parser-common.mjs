@@ -43,7 +43,11 @@ import {
 } from './dedicated-crawler-common.mjs';
 import { isChCountry } from './ch-country-guard.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
-import { inferSwissTargetCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
+import {
+  inferSwissTargetCanton,
+  normalizeCantonCode,
+  rescueSwissCityFromText,
+} from './target-swiss-locations.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -431,9 +435,15 @@ export function parseCsbDetailPage(html) {
   else if (!city) city = microdataLocation?.city || '';
   if (!region) region = microdataLocation?.region || '';
   if (!postalCode) postalCode = microdataLocation?.postalCode || '';
+  // Some CSB tenants leave the structured city field blank while placing the
+  // source-backed office in the posting body (e.g. "Männedorf, Zürich" or
+  // "in Basel"). Reuse the guarded free-text rescue only as a last resort;
+  // it rejects the common-word municipality collisions documented by the
+  // location module and never replaces an explicit structured location.
+  if (!city) city = rescueSwissCityFromText(descriptionText, { foreignContext: true });
   const locationFirstLine = canonicalLoc
     ? canonicalLoc[0]
-    : (locationRaw.split(/\n/)[0] || microdataLocation?.location || '');
+    : (locationRaw.split(/\n/)[0] || microdataLocation?.location || [city, region].filter(Boolean).join(', '));
 
   // Customfield5 is usually "Workload" on CSB sites (e.g. "100%", "80–100%")
   const rateHtml = readPropertyBlock(html, 'customfield5');
@@ -718,6 +728,8 @@ export function createSuccessFactorsParser(config) {
           .split(',')
           .slice(1)
           .map((segment) => segment.trim());
+      const listingHasSwissCountry = isChCountry(listing.location)
+        || listingSegments.some((segment) => isChCountry(segment));
       // A detail page may omit `addressCountry` while the search row still
       // exposes an explicit foreign country (e.g. `Zürich, Germany`). Do not
       // let the Swiss-looking city win that negative evidence and infer a
@@ -733,14 +745,18 @@ export function createSuccessFactorsParser(config) {
         continue;
       }
       const sourceCountry = String(detail?.country || '').trim();
-      const detailHasSwissCountry = Boolean(sourceCountry && isChCountry(sourceCountry));
+      // The Tecan tenant currently emits the non-standard country token "Sw"
+      // on detail pages, while the listing row says "Switzerland". Accept it
+      // only with that independent listing evidence so a bare ambiguous token
+      // cannot turn a foreign posting into a Swiss one.
+      const detailHasSwissCountry = Boolean(sourceCountry && (
+        isChCountry(sourceCountry)
+        || (normalize(sourceCountry) === 'sw' && listingHasSwissCountry)
+      ));
       if (sourceCountry && !detailHasSwissCountry) {
         console.warn(`  ⏭️ Skipping non-CH detail location (${sourceCountry}) for ${listing.title} (${listing.jobId})`);
         continue;
       }
-      const listingHasSwissCountry = listingSegments.some((segment) =>
-        isChCountry(segment),
-      );
       // A two-segment listing such as "NotARealCity, FR" is not evidence that
       // FR is a Swiss canton. Normalize listing regions only after a detail or
       // listing country field explicitly establishes Switzerland.
