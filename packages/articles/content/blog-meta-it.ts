@@ -12123,6 +12123,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-voto-neutralita-alimentazione.title': 'Svizzera vota su neutralità e alimentazione',
     'blog.article.svizzera-voto-neutralita-alimentazione.excerpt': 'Oggi la Svizzera vota su neutralità e iniziativa alimentare (70% autosufficienza in 10 anni); nove cantoni decidono anche su temi cantonali, tra cui mobilità transfrontaliera.',
     'blog.article.svizzera-voto-neutralita-alimentazione.imageAlt': 'Elezione in Ticino con schede e urne',
+    'blog.article.ottobre-millestrade-professioni-ticino.title': 'Ottobre con Millestrade: porte aperte, stage e TicinoSkills',
+    'blog.article.ottobre-millestrade-professioni-ticino.excerpt': 'Dal 3 ottobre a Gordola parte il mese di orientamento con Millestrade: visite ai centri, stage tecnici e campionati TicinoSkills per giovani e famiglie.',
+    'blog.article.ottobre-millestrade-professioni-ticino.imageAlt': 'Giovani visitano i laboratori del Centro di formazione di Gordola durante TicinoSkills',
 };
 
 export default blogMetaIt;

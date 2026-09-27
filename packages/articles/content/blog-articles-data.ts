@@ -36394,6 +36394,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ottobre-millestrade-professioni-ticino',
+ category: 'pratico',
+ date: '2026-09-27T08:14:21.548Z',
+ image: '/images/blog/ottobre-millestrade-professioni-ticino.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

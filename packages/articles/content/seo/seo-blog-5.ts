@@ -95116,6 +95116,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ottobre-millestrade-professioni-ticino': {
+    title: 'Ottobre con Millestrade: porte aperte, stage e TicinoSkills',
+    description: 'Calendario ottobre Millestrade: 3 ottobre apertura a Gordola con TicinoSkills, visite centri formazione, stage AGIE Charmilles, RSI e UBS. Iscrizioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, ottobre, millestrade, porte, aperte',
+    ogTitle: 'Ottobre Millestrade: porte aperte, stage e TicinoSkills in Ticino',
+    ogDescription: 'Scopri il programma completo di ottobre con Millestrade: dal 3 ottobre a Gordola per i TicinoSkills e i 50 anni del Centro SSIC, fino a visite a Bellinzona, Locarno, Lodrino, Losone. Stage tecnici, giornate RSI, apprendistati UBS e Polizia cantonale',
+    canonicalPath: '/articoli-frontaliere/ottobre-millestrade-professioni-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ottobre con Millestrade: porte aperte, stage e TicinoSkills",
+      "description": "Calendario ottobre Millestrade: 3 ottobre apertura a Gordola con TicinoSkills, visite centri formazione, stage AGIE Charmilles, RSI e UBS. Iscrizioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ottobre-millestrade-professioni-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovani visitano i laboratori del Centro di formazione di Gordola durante TicinoSkills"
+      },
+      "datePublished": "2026-09-27T08:14:21+00:00",
+      "dateModified": "2026-09-27T08:14:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ottobre-millestrade-professioni-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
