@@ -1,3 +1,5 @@
+import { isJobBoardSectionPathname } from '../scripts/lib/jobBoardSections.mjs';
+
 /**
  * Click-only AdSense Offerwall on the job board.
  *
@@ -116,6 +118,15 @@ export type OfferwallGateStatus = 'held' | 'released' | 'suppressed' | 'off_boar
 
 export function offerwallGateStatus(win: Window = window): OfferwallGateStatus {
   const gate = win.__ftOfferwallGate;
+  // Funding Choices may have marked the page `off_board` before the SPA
+  // crossed into a job-board section. The static gate normally reconciles
+  // this through its history listeners; repair the observable state here too
+  // because this function is the synchronous boundary read by the click UI.
+  // Keep the gate idle until a fresh Funding Choices callback arrives: there
+  // is no safe Offerwall release function to invent from the route alone.
+  if (gate?.state === 'off_board' && isJobBoardSectionPathname(win.location?.pathname)) {
+    gate.state = 'idle';
+  }
   if (gate?.state === 'held' && typeof gate.release === 'function') return 'held';
   if (gate?.state === 'released' || gate?.state === 'suppressed' || gate?.state === 'off_board') return gate.state;
   return 'absent';

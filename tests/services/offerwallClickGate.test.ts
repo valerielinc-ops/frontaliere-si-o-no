@@ -63,6 +63,22 @@ describe('offerwallClickGate', () => {
     expect(isOfferwallHeld()).toBe(true);
   });
 
+  it('reconciles a stale off-board marker after SPA navigation onto the job board', () => {
+    window.history.pushState({}, '', '/en/find-jobs-geneva/role/');
+    window.__ftOfferwallGate = { state: 'off_board' };
+
+    expect(offerwallGateStatus()).toBe('absent');
+    expect(window.__ftOfferwallGate?.state).toBe('idle');
+  });
+
+  it('keeps off-board status on a non-job-board route', () => {
+    window.history.pushState({}, '', '/articoli/fisco/');
+    window.__ftOfferwallGate = { state: 'off_board' };
+
+    expect(offerwallGateStatus()).toBe('off_board');
+    expect(window.__ftOfferwallGate?.state).toBe('off_board');
+  });
+
   it('reports not_held when Funding Choices never held an Offerwall on this page', async () => {
     expect(isOfferwallHeld()).toBe(false);
     await expect(releaseHeldOfferwall()).resolves.toEqual({ outcome: 'not_shown', reason: 'not_held' });
