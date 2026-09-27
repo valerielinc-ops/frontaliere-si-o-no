@@ -21,8 +21,10 @@ export const PROTECTAS_COMPANY_DOMAIN = 'protectas.com';
 export const PROTECTAS_TARGET_CANTON = 'TI';
 export const PROTECTAS_CAREER_URL = 'https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/';
 
-const DETAIL_PATH_RE = /\/(?:offerte-di-lavoro|offres-d-emploi|stellenangebote)\/\d{8,}(?:\/|$)/i;
-const LISTING_PATH_RE = /\/(?:it-ch\/carriere\/offerte-di-lavoro|fr-ch\/carriere\/offres-d-emploi|de-ch\/karriere\/stellenangebote)\/?$/i;
+const DETAIL_PATH_RE = /\/(?:careers?\/job-offers|carriere\/offerte-di-lavoro|carrieres?\/offres-d-emploi|karriere\/stellenangebote|offerte-di-lavoro|offres-d-emploi|stellenangebote|job-offers)\/\d{8,}(?:\/|$)/i;
+const LISTING_PATH_RE = /\/(?:careers?\/job-offers|carriere\/offerte-di-lavoro|carrieres?\/offres-d-emploi|karriere\/stellenangebote|offerte-di-lavoro|offres-d-emploi|stellenangebote|job-offers)\/?$/i;
+const ABSOLUTE_URL_RE = /(?:https?:)?\/\/[^"'<>\\\s,)\]}]+/gi;
+const RELATIVE_VACANCY_URL_RE = /(?:^|["'`=:(,])(\/(?:[a-z]{2}-ch\/)?(?:careers?\/job-offers|carriere\/offerte-di-lavoro|carrieres?\/offres-d-emploi|karriere\/stellenangebote|offerte-di-lavoro|offres-d-emploi|stellenangebote|job-offers)\/\d{8,}(?:\/|(?=[?#"'<>\\\s,)}])))/gi;
 const SWISS_COUNTRIES = new Set(['ch', 'switzerland', 'schweiz', 'suisse', 'svizzera']);
 const PHYSICAL_SECURITY_TITLE_RE = /\b(?:agente(?:\s+di)?\s+sicurezza|guardia(?:\s+giurata)?|security\s+(?:guard|officer)|security\s+agent|sicherheitsdienst|sicherheitsmitarbeiter|wachmann|agent(?:e)?\s+de\s+s[ée]curit(?:e|é)|surveill(?:ance|ant)|vigilanz|ronde|gardien)\b/i;
 const CYBER_OR_TECH_SECURITY_RE = /\b(?:cyber|cybers[eé]curit|sicurezza\s+informatica|s[ée]curit[ée]\s+informatique|information\s+security|it[-\s]?security|it[-\s]?sicherheitsmitarbeiter|infosec|security\s+(?:engineer|architect|analyst|specialist|consultant)|soc\s+analyst|penetration\s+test|application\s+security|cloud\s+security|network\s+security|gouvernance\s+(?:de\s+la\s+)?s[eé]curit)\b/i;
@@ -62,7 +64,11 @@ function scalarText(value) {
 }
 
 function toProtectasUrl(rawUrl, baseUrl = PROTECTAS_CAREER_URL) {
-  const candidate = decodeHtml(rawUrl).replace(/\\u002f/gi, '/').replace(/\\u0026/gi, '&').trim();
+  const candidate = decodeHtml(rawUrl)
+    .replace(/\\u002f/gi, '/')
+    .replace(/\\u0026/gi, '&')
+    .replace(/\\\//g, '/')
+    .trim();
   if (!candidate) return '';
   try {
     const url = new URL(candidate, baseUrl);
@@ -199,8 +205,14 @@ export function extractProtectasVacancyUrls(html = '', baseUrl = PROTECTAS_CAREE
   }
 
   // Some career-page widgets keep the same links in a JSON state blob rather
-  // than in anchors. Keep the host/path allow-list identical to the anchor path.
-  for (const match of String(html).matchAll(/(?:https?:)?\/\/[^"'<>\\\s]+/gi)) add(match[0]);
+  // than in anchors. Normalize JSON-escaped slashes before scanning, and keep
+  // the host/path allow-list identical to the anchor path.
+  const normalizedMarkup = decodeHtml(html)
+    .replace(/\\u002f/gi, '/')
+    .replace(/\\u0026/gi, '&')
+    .replace(/\\\//g, '/');
+  for (const match of normalizedMarkup.matchAll(ABSOLUTE_URL_RE)) add(match[0]);
+  for (const match of normalizedMarkup.matchAll(RELATIVE_VACANCY_URL_RE)) add(match[1]);
   return [...found];
 }
 
