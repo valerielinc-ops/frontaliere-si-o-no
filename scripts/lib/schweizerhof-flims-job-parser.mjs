@@ -2,7 +2,7 @@
 /**
  * Schweizerhof job parser — Fetcher and job builder.
  *
- * Source: https://www.hotelcareer.ch/jobs/romantik-hotel-schweizerhof-11933
+ * Source: https://www.romantikhotels.com/de/romantik-jobs/jobs/
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllSchweizerhofFlimsJobs()  — Fetch and parse all jobs
@@ -21,9 +21,10 @@ import { resolveSourceBackedSwissGeography } from './prospector/location-evidenc
 
 export const SCHWEIZERHOF_FLIMS_KEY = 'schweizerhof-flims';
 export const SCHWEIZERHOF_FLIMS_COMPANY_NAME = 'Schweizerhof';
-export const SCHWEIZERHOF_FLIMS_COMPANY_DOMAIN = 'hotelcareer.ch';
+export const SCHWEIZERHOF_FLIMS_COMPANY_DOMAIN = 'romantikhotels.com';
 
-const CAREER_URL = 'https://www.hotelcareer.ch/jobs/romantik-hotel-schweizerhof-11933';
+const CAREER_URL = 'https://www.romantikhotels.com/de/romantik-jobs/jobs/';
+const LEGACY_SOURCE_DOMAIN = 'hotelcareer.ch';
 const SCHWEIZERHOF_FLIMS_PATH = '/jobs/romantik-hotel-schweizerhof-11933';
 
 /* ── Helpers ───────────────────────────────────────────────── */
@@ -41,7 +42,7 @@ function isSchweizerhofFlimsListingUrl(rawUrl = '') {
     const url = new URL(rawUrl);
     const host = url.hostname.toLowerCase();
     const path = url.pathname.toLowerCase();
-    return (host === SCHWEIZERHOF_FLIMS_COMPANY_DOMAIN || host.endsWith(`.${SCHWEIZERHOF_FLIMS_COMPANY_DOMAIN}`))
+    return (host === LEGACY_SOURCE_DOMAIN || host.endsWith(`.${LEGACY_SOURCE_DOMAIN}`))
       && (path === SCHWEIZERHOF_FLIMS_PATH || path.startsWith(`${SCHWEIZERHOF_FLIMS_PATH}/`));
   } catch {
     return false;
@@ -77,7 +78,12 @@ export function isSchweizerhofFlimsJob(job) {
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'hotelcareer.ch' || host.endsWith('.hotelcareer.ch');
+    return (
+      host === LEGACY_SOURCE_DOMAIN
+      || host.endsWith(`.${LEGACY_SOURCE_DOMAIN}`)
+      || host === SCHWEIZERHOF_FLIMS_COMPANY_DOMAIN
+      || host.endsWith(`.${SCHWEIZERHOF_FLIMS_COMPANY_DOMAIN}`)
+    );
   } catch {
     return false;
   }

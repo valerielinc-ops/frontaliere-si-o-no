@@ -53,6 +53,10 @@ describe('Schweizerhof crawler parser', () => {
       expect(isTrustedDomain('https://careers.hotelcareer.ch/job/456')).toBe(true);
     });
 
+    it('trusts the official Romantik jobs source', () => {
+      expect(isTrustedDomain('https://www.romantikhotels.com/de/romantik-jobs/jobs/job/146/')).toBe(true);
+    });
+
     it('rejects other domains', () => {
       expect(isTrustedDomain('https://example.com/jobs')).toBe(false);
     });
