@@ -317,6 +317,20 @@ describe('jobAlertMatching — explicit location/canton is a HARD filter', () =>
     expect(score(luganoParadiso, { keywords: ['engineer'], locations: ['Lugano'] })).toBeGreaterThan(0);
   });
 
+  it('treats Coira and Chur as the same explicit location across locale labels', () => {
+    const churJob = job({
+      title: 'Software Engineer',
+      location: 'Chur', addressLocality: 'Chur', addressRegion: 'GR', canton: 'GR',
+    });
+    const coiraJob = job({
+      title: 'Software Engineer',
+      location: 'Coira', addressLocality: 'Coira', addressRegion: 'GR', canton: 'GR',
+    });
+
+    expect(score(churJob, { keywords: ['engineer'], locations: ['Coira'] })).toBeGreaterThan(0);
+    expect(score(coiraJob, { keywords: ['engineer'], locations: ['Chur'] })).toBeGreaterThan(0);
+  });
+
   it('a matching canton satisfies the geo filter when alert locations are empty', () => {
     expect(score(job(), { keywords: ['engineer'], cantonFilter: ['TI'] })).toBeGreaterThan(0);
   });

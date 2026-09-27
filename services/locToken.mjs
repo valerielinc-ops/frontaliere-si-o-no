@@ -35,16 +35,38 @@ export function normalizeLocToken(value) {
     .trim();
 }
 
+// Some Swiss cities are stored under the local-language name by crawlers while
+// the alert UI stores the Italian name. Keep this list deliberately explicit:
+// it covers the GR names emitted by the corpus and the "Coira / Chur" choice
+// shown by JobAlertForm without turning arbitrary words into aliases.
+const LOCATION_TOKEN_ALIAS_GROUPS = Object.freeze([
+  Object.freeze(['coira', 'chur', 'coire', 'cuira']),
+]);
+const LOCATION_TOKEN_ALIASES = new Map(
+  LOCATION_TOKEN_ALIAS_GROUPS.flatMap((group) => group.map((name) => [name, group])),
+);
+
+/**
+ * Return the normalized spelling variants for a location token.
+ *
+ * @param {string} value
+ * @returns {string[]}
+ */
+export function locationTokenVariants(value) {
+  const normalized = normalizeLocToken(value);
+  if (!normalized) return [];
+  return LOCATION_TOKEN_ALIASES.get(normalized) || [normalized];
+}
+
 // @param {string} haystack lowercased joined job-location text
 // @param {string} needle   lowercased alert/profile/subscriber location token
 // @returns {boolean}
 export function locTokenHit(haystack, needle) {
-  const n = normalizeLocToken(needle);
-  if (!n) return false;
   const h = normalizeLocToken(haystack);
   if (!h) return false;
   // After normalization both sides are single-space-delimited ASCII tokens, so a
   // space-padded boundary test is a correct word-boundary match and still finds
   // multi-word phrases ("san gallo") and hyphen-joined cities ("lugano paradiso").
-  return ` ${h} `.includes(` ${n} `);
+  const paddedHaystack = ` ${h} `;
+  return locationTokenVariants(needle).some((variant) => paddedHaystack.includes(` ${variant} `));
 }

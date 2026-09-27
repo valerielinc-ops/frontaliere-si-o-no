@@ -41,7 +41,7 @@ import {
   canonicalCompanyProfileSlug,
   companyDisplayIdentityKeys,
 } from '../build-plugins/shared/companyProfileSlug.mjs';
-import { normalizeLocToken } from './locToken.mjs';
+import { locationTokenVariants, normalizeLocToken } from './locToken.mjs';
 import { municipalityToCantons } from './provinceCantonAffinity.ts';
 import {
  activeApplicationIntentJobKeys,
@@ -584,8 +584,11 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
     // A raw 2-letter canton code (from a source/clicked job's geography) resolves
     // to itself; a city is mapped through the jobs-derived city→canton index.
     if (t.length === 2 && SWISS_CANTONS.has(t)) return t;
-    const mapped = cityToCanton instanceof Map ? cityToCanton.get(t) : cityToCanton[t];
-    return mapped ? String(mapped).toLowerCase() : '';
+    for (const candidate of [t, ...locationTokenVariants(t)]) {
+      const mapped = cityToCanton instanceof Map ? cityToCanton.get(candidate) : cityToCanton[candidate];
+      if (mapped) return String(mapped).toLowerCase();
+    }
+    return '';
   };
   const preferredCantons = uniq([
     ...preferredLocations.map(lookupCanton),
@@ -726,9 +729,15 @@ function paddedLocHaystack(jobLoc) {
  */
 function paddedLocNeedles(needles) {
   const out = [];
+  const seen = new Set();
   for (const needle of needles || []) {
-    const n = normalizeLocToken(needle);
-    if (n) out.push(` ${n} `);
+    for (const variant of locationTokenVariants(needle)) {
+      const padded = ` ${variant} `;
+      if (!seen.has(padded)) {
+        seen.add(padded);
+        out.push(padded);
+      }
+    }
   }
   return out;
 }

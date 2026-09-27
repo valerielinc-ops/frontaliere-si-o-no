@@ -85,6 +85,25 @@ describe('prepareNewsletterJobContext', () => {
     }
   });
 
+  it('matches the Italian Coira preference against crawler jobs named Chur', () => {
+    const jobs = [
+      {
+        ...JOBS[0],
+        title: 'Software Engineer',
+        location: 'Chur', canton: 'GR', slug: 'software-engineer-chur',
+      },
+      {
+        ...JOBS[1],
+        location: 'Lugano', slug: 'tecnico-sistemi-lugano',
+      },
+    ];
+
+    const matched = matchJobsForSubscriber({ locationInterest: 'Coira' }, jobs, 1, 'it');
+
+    expect(matched).toHaveLength(1);
+    expect(matched[0].location).toBe('Chur');
+  });
+
   it('costruisce una sola volta slug, hub e campi normalizzati', () => {
     const prepared = prepareNewsletterJobContext(JOBS, []);
 

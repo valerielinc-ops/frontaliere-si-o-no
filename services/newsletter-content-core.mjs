@@ -22,7 +22,7 @@
 
 import { readNewsletterDataset } from './newsletter-datasets.mjs';
 import { getVariantStyleDirective } from './newsletter-subject-variants.mjs';
-import { normalizeLocToken } from './locToken.mjs';
+import { locationTokenVariants, normalizeLocToken } from './locToken.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 import { companyDisplayIdentityKeys } from '../build-plugins/shared/companyProfileSlug.mjs';
 import { JOB_BOARD_SECTION_RX } from '../scripts/lib/jobBoardSections.mjs';
@@ -448,18 +448,18 @@ function parseSourceField(source) {
  * answers — title/category tokens, normalized location (`entry.locationSearch`),
  * display-identity keys — are computed once per entry for the whole run
  * instead of once per subscriber, and the subscriber side once per subscriber
- * (`subscriberCompanyKeys`, `subscriberLocationToken`). The score is the one
+ * (`subscriberCompanyKeys`, `subscriberLocationTokens`). The score is the one
  * the previous per-call `extractKeywords` / `locTokenHit` /
  * `sameCompanyDisplayIdentity` produced.
  *
  * @param {object} entry Entry of {@link prepareNewsletterJobContext}.
  * @param {Set<string>} subscriberKeywords
  * @param {string[]} subscriberCompanyKeys `companyDisplayIdentityKeys(subscriberCompany)`.
- * @param {string} subscriberLocationToken `normalizeLocToken(subscriberLocation)`.
+ * @param {string[]} subscriberLocationTokens normalized location aliases.
  * @returns {number}
  */
-function keywordRelevanceScore(entry, subscriberKeywords, subscriberCompanyKeys, subscriberLocationToken) {
-  if (subscriberKeywords.size === 0 && subscriberCompanyKeys === null && !subscriberLocationToken) return 0;
+function keywordRelevanceScore(entry, subscriberKeywords, subscriberCompanyKeys, subscriberLocationTokens) {
+  if (subscriberKeywords.size === 0 && subscriberCompanyKeys === null && subscriberLocationTokens.length === 0) return 0;
   let score = 0;
 
   // Company match: strong signal. Compare canonical display identities only:
@@ -494,8 +494,8 @@ function keywordRelevanceScore(entry, subscriberKeywords, subscriberCompanyKeys,
   // here lets same-town jobs win over far ones when the pre-filter is skipped
   // (too few in-location results to fill the limit). Same test as
   // `locTokenHit(jobLoc, subscriberLocation)`, with both sides pre-normalized.
-  if (subscriberLocationToken && entry.locationSearch
-    && ` ${entry.locationSearch} `.includes(` ${subscriberLocationToken} `)) {
+  if (subscriberLocationTokens.length > 0 && entry.locationSearch
+    && subscriberLocationTokens.some((token) => ` ${entry.locationSearch} `.includes(` ${token} `))) {
     score += 2;
   }
 
@@ -707,10 +707,13 @@ function locationMatches(context, rawLocation) {
   const query = normalizeLocToken(rawLocation);
   if (!query) return null;
   return memoizedMatchSet(context.locationMatchesByQuery, query, () => {
-    const needle = ` ${query} `;
+    const needles = locationTokenVariants(query).map((variant) => ` ${variant} `);
     return new Set(
       context.entries
-        .filter((entry) => ` ${entry.locationSearch} `.includes(needle))
+        .filter((entry) => {
+          const haystack = ` ${entry.locationSearch} `;
+          return needles.some((needle) => haystack.includes(needle));
+        })
         .map((entry) => entry.job),
     );
   });
@@ -805,11 +808,11 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
   // Score: subscriber relevance, age-decayed popularity, then recency.
   // Subscriber-side answers once per subscriber (#9314), see keywordRelevanceScore.
   const subscriberCompanyKeys = subscriberCompany ? companyDisplayIdentityKeys(subscriberCompany) : null;
-  const subscriberLocationToken = location ? normalizeLocToken(location) : '';
+  const subscriberLocationTokens = location ? locationTokenVariants(location) : [];
   const scored = candidateEntries.map((entry) => ({
     job: entry.job,
     relevance: hasInterestProfile
-      ? keywordRelevanceScore(entry, subscriberKeywords, subscriberCompanyKeys, subscriberLocationToken)
+      ? keywordRelevanceScore(entry, subscriberKeywords, subscriberCompanyKeys, subscriberLocationTokens)
       : 0,
     decayedViews: entry.decayedViews,
     date: entry.date,
