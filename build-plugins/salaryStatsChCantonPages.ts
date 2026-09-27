@@ -15,10 +15,10 @@ import type { Plugin } from 'vite';
 import fs from 'node:fs';
 import np from 'node:path';
 
-import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
+import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords, DRIVEBY_AD_SNIPPET } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
-import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
+import { adSlotHtml, endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { WriteCollector } from './batchWrite';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { buildDayStampIso } from './shared/buildDayStamp';
@@ -339,14 +339,23 @@ export function renderSalaryStatsPage(opts: {
     ctaLabel: c.cta,
   });
 
+  // Keep the salary landing family aligned with the other static data pages:
+  // an above-the-fold drive-by slot after the headline metrics, an inline
+  // slot between the data and editorial blocks, and the existing multiplex
+  // slot at the very end. Every slot reserves its configured height to avoid
+  // layout shift.
+  const salaryStatsInlineAd = `<div class="ad-unit">${adSlotHtml('ARTICLE_INLINE_MOBILE')}</div>`;
+
   // `cl-fun` wrapper turns on the shared micro-interaction layer (tile rise +
   // hover pop, CTA glow, emoji wave, FAQ chevron) — all gated behind
   // `prefers-reduced-motion: reduce` in seo-static.css.
   const main = `<div class="cl-fun">${breadcrumb}
 ${header}
 ${tiles}
+${DRIVEBY_AD_SNIPPET}
 ${sectorTable}
 ${netBlock}
+${salaryStatsInlineAd}
 ${cta}
 ${methodology}
 ${sourcesBlock}
