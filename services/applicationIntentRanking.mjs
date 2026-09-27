@@ -27,6 +27,12 @@ function toEpochMs(value) {
   return NaN;
 }
 
+function applicationIntentExpiry(intent) {
+  return Object.prototype.hasOwnProperty.call(intent || {}, 'expiresAt')
+    ? toEpochMs(intent.expiresAt)
+    : toEpochMs(intent?.retentionUntil);
+}
+
 /** Stable identity shared by the apply-click writer and ranking consumers. */
 export function buildApplicationIntentJobKey(job = {}) {
   const companyKey = clean(job.companyKey) || 'unknown-company';
@@ -50,11 +56,11 @@ export function activeApplicationIntentJobKeys(applicationIntent, now = Date.now
     if (!intent || intent.application_status !== 'redirect_only') continue;
     const jobKey = clean(intent.jobKey);
     const timestamp = toEpochMs(intent.timestamp ?? intent.ts ?? intent.createdAt);
-    const retentionUntil = toEpochMs(intent.retentionUntil);
+    const expiresAt = applicationIntentExpiry(intent);
     if (!jobKey || jobKey.length > MAX_JOB_KEY_LENGTH) continue;
     if (!Number.isFinite(timestamp) || timestamp > now || now - timestamp > APPLICATION_INTENT_RETENTION_MS) continue;
-    if (!Number.isFinite(retentionUntil) || retentionUntil <= now) continue;
-    if (retentionUntil > timestamp + APPLICATION_INTENT_RETENTION_MS) continue;
+    if (!Number.isFinite(expiresAt) || expiresAt <= now) continue;
+    if (expiresAt > timestamp + APPLICATION_INTENT_RETENTION_MS) continue;
     validKeys.push(jobKey);
   }
   const keys = new Set(validKeys.slice(-MAX_APPLICATION_INTENT_SIGNALS));
@@ -72,13 +78,13 @@ export function recordApplicationIntentSignal(applicationIntent, jobKey, now = D
   const intents = existing.filter((intent) => {
     if (!intent || intent.application_status !== 'redirect_only') return false;
     const timestamp = toEpochMs(intent.timestamp ?? intent.ts ?? intent.createdAt);
-    const retentionUntil = toEpochMs(intent.retentionUntil);
+    const expiresAt = applicationIntentExpiry(intent);
     return Number.isFinite(timestamp)
       && timestamp <= now
       && timestamp > cutoff
-      && Number.isFinite(retentionUntil)
-      && retentionUntil > now
-      && retentionUntil <= timestamp + APPLICATION_INTENT_RETENTION_MS
+      && Number.isFinite(expiresAt)
+      && expiresAt > now
+      && expiresAt <= timestamp + APPLICATION_INTENT_RETENTION_MS
       && clean(intent.jobKey).length <= MAX_JOB_KEY_LENGTH;
   });
 

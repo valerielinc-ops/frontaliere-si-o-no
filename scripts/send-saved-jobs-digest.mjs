@@ -272,6 +272,16 @@ export function applicationIntentTimestamp(data) {
   return null;
 }
 
+function applicationIntentExpiry(data) {
+  if (Object.prototype.hasOwnProperty.call(data || {}, 'expiresAt')) {
+    return timestampMillis(data.expiresAt);
+  }
+  if (Object.prototype.hasOwnProperty.call(data || {}, 'retentionUntil')) {
+    return timestampMillis(data.retentionUntil);
+  }
+  return null;
+}
+
 function hasApplicationIntentConsent(data) {
   const hasExplicitNegative = APPLICATION_INTENT_CONSENT_ACCEPTANCE_FIELDS.some((field) => data?.[field] === false);
   if (hasExplicitNegative) return false;
@@ -319,6 +329,14 @@ export function isApplicationIntentEligible(data, nowMs = Date.now()) {
 
   const occurredAt = applicationIntentTimestamp(data);
   if (occurredAt === null || occurredAt > nowMs) return false;
+  const hasExplicitExpiry = Object.prototype.hasOwnProperty.call(data, 'expiresAt')
+    || Object.prototype.hasOwnProperty.call(data, 'retentionUntil');
+  if (hasExplicitExpiry) {
+    const expiresAt = applicationIntentExpiry(data);
+    if (expiresAt === null || expiresAt <= nowMs) return false;
+    if (expiresAt > occurredAt + APPLICATION_INTENT_RETENTION_DAYS * 86400000) return false;
+    return true;
+  }
   return nowMs - occurredAt <= APPLICATION_INTENT_RETENTION_DAYS * 86400000;
 }
 

@@ -21,11 +21,14 @@ import {
   canRegisterApplicationIntent,
   canWriteApplicationIntentForAccount,
 } from './applicationIntentPrivacy.js';
+import {
+  APPLICATION_INTENTS_COLLECTION,
+  APPLICATION_INTENT_RETENTION_DAYS,
+} from './applicationIntentRetention.js';
 
-export const APPLICATION_INTENTS_COLLECTION = 'application_intents';
 export const APPLICATION_INTENT_CONSENT_VERSION = 'application-intent-v1';
 export const APPLICATION_INTENT_STATUS = 'redirect_only';
-export const APPLICATION_INTENT_RETENTION_DAYS = 90;
+export { APPLICATION_INTENTS_COLLECTION, APPLICATION_INTENT_RETENTION_DAYS };
 
 // These limits are part of the storage contract. They bound attacker-controlled
 // strings and keep a consent proof useful without turning it into an arbitrary
@@ -186,7 +189,7 @@ export function buildApplicationIntentRecord({ req, token, input, now = Date.now
   const intentId = buildApplicationIntentId({ identityKey: identity.identityKey, jobKey: input.jobKey });
   if (!intentId) return null;
 
-  const retentionUntil = new Date(
+  const expiresAt = new Date(
     Number(now) + APPLICATION_INTENT_RETENTION_DAYS * 24 * 60 * 60 * 1000,
   );
 
@@ -206,7 +209,7 @@ export function buildApplicationIntentRecord({ req, token, input, now = Date.now
     timestamp: FieldValue.serverTimestamp(),
     createdAt: FieldValue.serverTimestamp(),
     updatedAt: FieldValue.serverTimestamp(),
-    retentionUntil,
+    expiresAt,
     retryCount: 0,
     ipAnonymized,
     userAgent,
