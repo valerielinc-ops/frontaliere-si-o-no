@@ -94,7 +94,10 @@ for (const file of sliceFiles) {
     if (prunedJobs.length > 5) {
       console.log(`   ... and ${prunedJobs.length - 5} more`);
     }
-    writeJson(slicePath, { ...slice, jobs: kept });
+    // The assembled dataset is the evidence that the removed records were
+    // cross-crawler duplicates. Pass it to the shared byte guard explicitly;
+    // an ordinary crawler write remains fail-closed on the same shrink.
+    writeJson(slicePath, { ...slice, jobs: kept }, { dedupReferenceJobs: assembled });
     modifiedSlices++;
     totalPruned += pruned;
   }
