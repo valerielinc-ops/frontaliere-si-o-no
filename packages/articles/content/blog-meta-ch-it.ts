@@ -6812,6 +6812,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.onere-premi-cassa-malati-nzz.title': 'Premi cassa malati: l\'onere netto è rimasto stabile',
     'blog.article.onere-premi-cassa-malati-nzz.excerpt': 'Analisi NZZ su 300\'000 famiglie: tra il 2016 e il 2023 il carico netto dei premi è rimasto stabile grazie a sussidi e crescita dei redditi.',
     'blog.article.onere-premi-cassa-malati-nzz.imageAlt': 'Vista urbana della Svizzera, simbolo del costo della vita e delle spese familiari',
+    'blog.article.congedo-parentale-136000-firme.title': 'Congedo parentale: raccolte 136\'000 firme per l\'iniziativa',
+    'blog.article.congedo-parentale-136000-firme.excerpt': 'Raggiunte 136\'000 sottoscrizioni per l\'iniziativa sul congedo parentale. Il deposito alla Cancelleria federale è previsto la prossima settimana.',
+    'blog.article.congedo-parentale-136000-firme.imageAlt': 'Raccolta firme per l\'iniziativa sul congedo parentale in Svizzera',
 };
 
 export default blogMetaChIt;
