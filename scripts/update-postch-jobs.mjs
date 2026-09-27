@@ -44,7 +44,10 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { isDedicatedPostBrand } from './lib/crawler-company-ownership.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
-import { createMutableFeedPaginationTracker } from './lib/pagination-identity.mjs';
+import {
+  createMutableFeedPaginationTracker,
+  recordMutableFeedPageWithRetry,
+} from './lib/pagination-identity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -409,8 +412,28 @@ async function fetchPostJobs() {
         }
         break;
       }
-      const pageIds = progress.record(jobs, pageNumber);
-      for (const [index, j] of jobs.entries()) {
+      const recorded = await recordMutableFeedPageWithRetry({
+        tracker: progress,
+        items: jobs,
+        page: pageNumber,
+        reload: async () => {
+          const retry = await fetchJobsApiPage(apiLocale, pageNumber);
+          if (retry.error) {
+            throw new Error(`Post.ch ${apiLocale} pagination failed at page ${pageNumber}: ${retry.error}`);
+          }
+          if (retry.totalJobs !== null) {
+            if (totalJobs !== null && totalJobs !== retry.totalJobs) {
+              throw new Error(
+                `Post.ch ${apiLocale} pagination failed: declared total changed from ${totalJobs} to ${retry.totalJobs}.`,
+              );
+            }
+            totalJobs = retry.totalJobs;
+          }
+          return retry.jobs;
+        },
+      });
+      const pageIds = recorded.pageIdentities;
+      for (const [index, j] of recorded.items.entries()) {
         const id = pageIds[index];
         if (!byId.has(id)) byId.set(id, j);
       }

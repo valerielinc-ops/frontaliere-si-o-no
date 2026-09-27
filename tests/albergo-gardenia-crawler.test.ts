@@ -23,7 +23,7 @@ import {
 } from '../scripts/lib/albergo-gardenia-job-parser.mjs';
 import { buildExpiredEntry } from '../scripts/lib/expired-jobs-archive.mjs';
 import { HOST_DELAY_MS } from '../scripts/lib/prospector/config.mjs';
-import { isConnectionLevelFetchError } from '../scripts/lib/transient-fetch.mjs';
+import { isConnectionLevelFetchError, WAF_IP_BLOCK_STATUS } from '../scripts/lib/transient-fetch.mjs';
 import { expiredJobSlugVariants } from '../build-plugins/shared/expiredSlugVariants';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -298,6 +298,43 @@ describe('Albergo Gardenia authoritative crawler', () => {
     });
     expect(assertCompleteAlbergoGardeniaSnapshot(jobs)).toBe(true);
     expect(fetchPage).toHaveBeenCalledTimes(2);
+    expect(browserFetchPage).toHaveBeenCalledOnce();
+    expect(cleanEgressFetchPage).toHaveBeenCalledTimes(41);
+  });
+
+  it('routes a Chromium WAF response through clean egress', async () => {
+    const sitemap = representativeSitemap();
+    const failed = (url: string) => ({
+      ok: false,
+      status: 0,
+      url,
+      body: '',
+      host: new URL(url).hostname,
+    });
+    const fetchPage = vi.fn(async (url: string) => failed(url));
+    const browserFetchPage = vi.fn(async (url: string) => ({
+      ok: false,
+      status: 415,
+      url,
+      body: '',
+      host: new URL(url).hostname,
+    }));
+    const cleanEgressFetchPage = vi.fn(async (url: string) => ({
+      ok: true,
+      status: 200,
+      url,
+      body: new URL(url).pathname === '/sitemap.xml' ? sitemap : gardeniaPage(),
+      host: new URL(url).hostname,
+    }));
+
+    expect(WAF_IP_BLOCK_STATUS.has(415)).toBe(true);
+    const jobs = await fetchAllAlbergoGardeniaJobs({
+      fetchPage,
+      browserFetchPage,
+      cleanEgressFetchPage,
+    });
+
+    expect(assertCompleteAlbergoGardeniaSnapshot(jobs)).toBe(true);
     expect(browserFetchPage).toHaveBeenCalledOnce();
     expect(cleanEgressFetchPage).toHaveBeenCalledTimes(41);
   });

@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import {
   createMutableFeedPaginationTracker,
+  recordMutableFeedPageWithRetry,
   recordUniquePageProgress,
 } from '../scripts/lib/pagination-identity.mjs';
 
@@ -79,21 +80,77 @@ describe('pagination source identity contract', () => {
     expect(tracker.hasReached(5)).toBe(false);
   });
 
+  it('re-reads a semantic no-progress page with a bounded retry', async () => {
+    const tracker = createMutableFeedPaginationTracker({
+      getIdentity: (item: { id: string }) => item.id,
+      source: 'mutable feed',
+    });
+    tracker.record([{ id: 'a' }, { id: 'b' }], 0);
+    let reloads = 0;
+
+    const result = await recordMutableFeedPageWithRetry({
+      tracker,
+      items: [{ id: 'a' }, { id: 'b' }],
+      page: 1,
+      retryDelayMs: 0,
+      reload: async () => {
+        reloads += 1;
+        return [{ id: 'b' }, { id: 'c' }];
+      },
+    });
+
+    expect(result).toMatchObject({
+      items: [{ id: 'b' }, { id: 'c' }],
+      pageIdentities: ['b', 'c'],
+      retries: 1,
+    });
+    expect(reloads).toBe(1);
+    expect(tracker.scannedRows).toBe(4);
+  });
+
+  it('keeps failing closed after the bounded no-progress retries', async () => {
+    const tracker = createMutableFeedPaginationTracker({
+      getIdentity: (item: { id: string }) => item.id,
+      source: 'mutable feed',
+    });
+    tracker.record([{ id: 'a' }], 0);
+    let reloads = 0;
+
+    await expect(recordMutableFeedPageWithRetry({
+      tracker,
+      items: [{ id: 'a' }],
+      page: 1,
+      retryDelayMs: 0,
+      maxRetries: 2,
+      reload: async () => {
+        reloads += 1;
+        return [{ id: 'a' }];
+      },
+    })).rejects.toMatchObject({
+      code: 'ERR_PAGINATION_NO_UNIQUE_PROGRESS',
+    });
+    expect(reloads).toBe(2);
+    expect(tracker.scannedRows).toBe(1);
+  });
+
   it('is wired into every Post Group pagination loop', () => {
     const postch = readFileSync(new URL('../scripts/update-postch-jobs.mjs', import.meta.url), 'utf8');
     const postauto = readFileSync(new URL('../scripts/lib/postauto-job-parser.mjs', import.meta.url), 'utf8');
     const confederazione = readFileSync(new URL('../scripts/update-confederazione-jobs.mjs', import.meta.url), 'utf8');
 
     expect(postch).toContain('createMutableFeedPaginationTracker({');
+    expect(postch).toContain('recordMutableFeedPageWithRetry({');
     expect(postch).toContain('progress.hasReached(totalJobs)');
     expect(postauto).toContain('createMutableFeedPaginationTracker({');
+    expect(postauto).toContain('recordMutableFeedPageWithRetry({');
     expect(postauto).toContain('progress.hasReached(totalJobs)');
     expect(confederazione).toContain('recordUniquePageProgress(sourceIdentities, items');
     expect(confederazione).toContain('sourceIdentities.size >= declaredTotal');
     const postfinance = readFileSync(new URL('../scripts/update-postfinance-jobs.mjs', import.meta.url), 'utf8');
     expect(postfinance).toContain('createMutableFeedPaginationTracker({');
+    expect(postfinance).toContain('recordMutableFeedPageWithRetry({');
     expect(postfinance).toContain('progress.hasReached(total)');
-    expect(postfinance).toContain('const pageRecords = entries.map((entry) => entry?.response);');
+    expect(postfinance).toContain('let pageRecords = entries.map((entry) => entry?.response);');
     expect(postfinance).toContain('pageRecords.some((record) => !record)');
     expect(postfinance).toContain('if (!paginationComplete && pageNumber >= RECRUITING_API_MAX_PAGES)');
     expect(postfinance).toContain('if (!page) {');
