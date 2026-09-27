@@ -19,7 +19,7 @@ Iniettato in ogni sessione agent. Detail durevole nei docs, carica on-demand.
 
 ## Privacy
 
-- Git identity canonica: `Valerie Linc <valerielinc@gmail.com>`. Mai altre identità.
+- Git identity canonica dei commit = l'app installata sul repo, mai personale: sito/root `frontaliere-automation[bot] <296434481+frontaliere-automation[bot]@users.noreply.github.com>`; corpus (app non installata) `github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>`. Verifica `git config user.email` prima del commit; se diverge, `git -c user.name=… -c user.email=… commit`. Non riguarda gli script con identità propria (push shard, newsletter).
 - Pre-commit PII scan against the untracked, per-clone blocklist. Resolve its
   path with Git in every checkout/worktree:
   `BL="$(git rev-parse --git-path info/pii-blocklist.txt)"; test -f "$BL"`.
@@ -27,7 +27,7 @@ Iniettato in ogni sessione agent. Detail durevole nei docs, carica on-demand.
   `.git/info/pii-blocklist.txt` is invalid even when the blocklist exists.
   - Scan: `git diff --cached | grep -niE -f "$BL"` + same per commit-msg file.
   - Match → abort + chiedi sanitize.
-- Strip `Co-authored-by:` con email non canonica.
+- Strip `Co-authored-by:` con email non canonica (es. personale); eccezione: il trailer dell'agente `<noreply@anthropic.com>`.
 - Mai committare absolute home `/Users/<anyone>/...`. Usa relative, `$HOME`, `~`, `git rev-parse --show-toplevel`, env.
 - Mai hard-code personal email in code/config/data. Usa env (`process.env.*`) o canonical.
 - Stringa in diff dubbia → chiedi user.
