@@ -77,6 +77,9 @@ function lineFor(source, needle) {
 
   // Workflow files are generated in the hundreds of kilobytes and this helper
   // is called once per step, including for steps that produce no finding. The
+  // old slice+split rescanned the whole prefix for every call (quadratic in the
+  // number of steps); retain one file-local index and resolve each match with
+  // a binary search instead.
   // shared helper indexes each source once and resolves matches with a binary
   // search instead of rescanning the whole prefix for every call.
   return lineAt(source, index);
