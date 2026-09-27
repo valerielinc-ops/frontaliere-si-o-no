@@ -69,7 +69,13 @@
 import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { isReviewerBot, REDFLAG_IMPORTANT_RE, VITEST_CHECK_NAME } from './lib/constants.mjs';
+import {
+  CODEX_FALLBACK_REVIEW_MARKER,
+  isCodexFallbackReview,
+  isReviewerBot,
+  REDFLAG_IMPORTANT_RE,
+  VITEST_CHECK_NAME,
+} from './lib/constants.mjs';
 import {
   isTerminalReviewState,
   normalizeReviewBody,
@@ -91,7 +97,7 @@ export const ORPHANED_LABEL = 'orphaned';
 export const AUTOFIX_LABEL = 'agent:autofix';
 export const NEEDS_HUMAN_LABEL = 'needs-human';
 export const OUT_OF_SCOPE_MARKER = '<!-- REDFLAG_OUT_OF_SCOPE -->';
-export const CODEX_FALLBACK_MARKER = '<!-- CODEX_FALLBACK_REVIEW -->';
+export const CODEX_FALLBACK_MARKER = CODEX_FALLBACK_REVIEW_MARKER;
 
 const SHA_RE = /^[0-9a-f]{40}$/i;
 const TRUSTED_COMMENTER_RE = /^(github-actions\[bot\]|frontaliere-automation(\[bot\])?|claude(\[bot\])?|nanakokyobashi-rgb|valerielinc-ops)$/i;
@@ -156,10 +162,11 @@ function isManagedReview(review) {
   // Escludere PENDING e DISMISSED lasciava passare come gestita una review
   // con stato vuoto o sconosciuto.
   if (!isTerminalReviewState(review.state)) return false;
-  // Stessa allowlist dei gate (constants.mjs di ciascun repo); il marker Codex
-  // resta locale perche' solo il corpus lo esporta.
+  // Stessa allowlist dei gate, incluso il fallback Codex marcato: il REST API
+  // non garantisce un `user.type` stabile, quindi il contratto condiviso usa
+  // login esatto + marker e resta fail-closed sui look-alike.
   if (isReviewerBot(review.user)) return true;
-  return review.user?.login === 'github-actions[bot]' && String(review.body || '').includes(CODEX_FALLBACK_MARKER);
+  return isCodexFallbackReview(review);
 }
 
 export function hasImportantFinding(body) {

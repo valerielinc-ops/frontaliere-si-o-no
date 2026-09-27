@@ -44,4 +44,20 @@ describe('orphan-pr-custodian — reviewer identity', () => {
       expect(decision.action).toBe('adopt');
     }
   });
+
+  it('riconosce il fallback Codex marcato per entrambe le identità senza user.type', () => {
+    for (const login of ['github-actions[bot]', 'frontaliere-automation[bot]']) {
+      const decision = classifyOrphan({
+        pr: pr(),
+        checkRuns: [],
+        reviews: [{
+          ...review({ login }),
+          body: `<!-- CODEX_FALLBACK_REVIEW -->\n${IMPORTANT}`,
+        }],
+        comments: [],
+        nowS: NOW_S,
+      });
+      expect(decision.action).toBe('adopt');
+    }
+  });
 });
