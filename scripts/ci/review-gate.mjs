@@ -43,6 +43,7 @@ import {
   changedLinesFromPatch,
   dedupeFindingsById,
   isMalformedReviewBody,
+  isExplicitNonFunnelDisposition,
   reviewBodyDefects,
   stableFindingId,
   unchangedLineImportants,
@@ -62,9 +63,6 @@ const NEGATIVE_IMPORTANT_SUMMARY_PREFIX_RE = /^\s*(?:[-*+>]\s*)?(?:nessun[oa]?|n
 const IMPORTANT_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?:[:—-]\s*|(?=\s+\S))/u;
 const FINDING_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?:[:—-]|(?=\s+\S))|🔴|🟡\s*\*{0,2}\s*Nit\s*\*{0,2}(?:[:—-]|(?=\s+\S))|🟣\s*\*{0,2}\s*Pre-existing\s*\*{0,2}(?:[:—-]|(?=\s+\S))|❓\s*q\s*:/gu;
 const QUESTION_MARKER_RE = /❓\s*q\s*:/iu;
-// A question is disposable only with the explicit review suffix used by the
-// contract. Words such as "deferred" inside the question itself stay open.
-const NON_FUNNEL_QUESTION_RE = /(?:^|[—–])\s*(?:deferred\s*,\s*)?(?:non[-\s]?funnel(?:[-\s]?critical)?|not[-\s]?funnel(?:[-\s]?critical)?|deferred)\s*[.!]?\s*$/iu;
 const REVIEWER_LOGIN_RE = /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])$/iu;
 // This is deliberately narrower than REVIEWER_LOGIN_RE and is accepted only
 // together with a validated Codex evidence file plus an exact HEAD commit and
@@ -343,7 +341,7 @@ function emptyClassification(findings = []) {
 // explicitly disposes of every question as non-funnel/deferred.
 function hasUnresolvedFunnelQuestion(body) {
   return normalizeReviewBody(body).split(/\r?\n/u).some((line) =>
-    QUESTION_MARKER_RE.test(line) && !NON_FUNNEL_QUESTION_RE.test(line));
+    QUESTION_MARKER_RE.test(line) && !isExplicitNonFunnelDisposition(line));
 }
 
 /**

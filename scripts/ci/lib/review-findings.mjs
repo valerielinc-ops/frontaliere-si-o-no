@@ -53,6 +53,16 @@ const EXTENSION_RE = /\.(?:cjs|css|html|js|json|md|mjs|rules|sh|ts|tsx|txt|toml|
 const BACKTICK_RE = /`([^`\n]{1,120})`/gu;
 const MARKER_RE = /(?:🔴|🟡|🟣|❓)[^\n]*/u;
 
+// A reviewer may explicitly dispose of a non-funnel Nit/question with the
+// contract suffix below. Keep this predicate shared by the review gate and
+// the lessons harvester: counting a Nit that the review contract already says
+// is deferred as a recurring rule failure creates a false escalation.
+const NON_FUNNEL_DISPOSITION_RE = /(?:^|[—–])\s*deferred\s*,\s*non\s+funnel-critical\.\s*$/iu;
+
+export function isExplicitNonFunnelDisposition(text) {
+  return NON_FUNNEL_DISPOSITION_RE.test(String(text || ''));
+}
+
 /**
  * Classe dichiarata dal reviewer. Assente o sconosciuta → `other`: una classe
  * inventata non deve comprare l'eccezione riservata a `regression`.
