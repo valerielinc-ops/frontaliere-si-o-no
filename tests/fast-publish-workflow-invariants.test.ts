@@ -54,6 +54,35 @@ describe('fast-publish workflow invariants', () => {
       "steps.publish_chunks.outcome == 'success'",
     );
   });
+
+  it('holds an atomic section lock from registry publication through shard push', () => {
+    const acquireIdx = workflow.indexOf('Acquire article chunk section lock');
+    const publishIdx = workflow.indexOf('Publish client article chunks');
+    const pushIdx = workflow.indexOf('Push locale shards');
+    const releaseIdx = workflow.indexOf('Release article chunk section lock');
+    expect(workflow).toContain('scripts/lib/r2-section-lock.mjs acquire');
+    expect(workflow).toContain('scripts/lib/r2-section-lock.mjs release');
+    expect(acquireIdx).toBeGreaterThan(-1);
+    expect(acquireIdx).toBeLessThan(publishIdx);
+    expect(publishIdx).toBeLessThan(pushIdx);
+    expect(pushIdx).toBeLessThan(releaseIdx);
+    expect(workflow.slice(releaseIdx, releaseIdx + 260)).toContain('always()');
+  });
+});
+
+describe('resync CDN article chunks workflow invariants', () => {
+  const workflow = read('.github/workflows/resync-cdn-article-chunks.yml');
+
+  it('shares both section locks with fast-publish and releases them after the strict publish', () => {
+    const acquireIdx = workflow.indexOf('Acquire article chunk section locks');
+    const publishIdx = workflow.indexOf('Publish article chunks');
+    const releaseIdx = workflow.indexOf('Release article chunk section locks');
+    expect(workflow).toContain('scripts/lib/r2-section-lock.mjs acquire --section frontaliere,svizzera');
+    expect(workflow).toContain('scripts/lib/r2-section-lock.mjs release --section frontaliere,svizzera');
+    expect(acquireIdx).toBeLessThan(publishIdx);
+    expect(publishIdx).toBeLessThan(releaseIdx);
+    expect(workflow.slice(releaseIdx, releaseIdx + 280)).toContain('always()');
+  });
 });
 
 describe('push-article-shard-incremental.sh invariants', () => {

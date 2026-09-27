@@ -68,11 +68,15 @@ on:
 # same starvation that motivated the whole feature: deploy.yml's own
 # `pages-build-run` group dropped 12 consecutive queued runs on 2026-07-28.
 #
-# Concurrent runs for DIFFERENT articles are safe against the same shard repo:
-# push-article-shard-incremental.sh never force-pushes and builds its commit on
-# the remote tip, so a loser gets a non-fast-forward, re-clones onto the new tip
-# and rebuilds (exercised by its concurrent-writer test). Two runs for the SAME
-# article still serialize here, which is the only race worth preventing.
+# Concurrent runs for DIFFERENT articles may still render at the same time and
+# safely race the same shard repo: push-article-shard-incremental.sh never
+# force-pushes and builds its commit on the remote tip, so a loser gets a
+# non-fast-forward, re-clones onto the new tip and rebuilds (exercised by its
+# concurrent-writer test). The shared client registry has a separate R2 lease
+# below, held from companion publication through the corresponding shard push.
+# Two runs for the SAME article still serialize here, which avoids duplicate
+# work without turning a burst of different articles into a one-pending-run
+# GitHub concurrency queue.
 concurrency:
   group: fast-publish-${{ inputs.section }}-${{ inputs.article_id }}
   cancel-in-progress: false
@@ -178,6 +182,19 @@ jobs:
           done
           exit "$fail"
 
+      # GitHub's per-section concurrency group cannot be used here: it keeps
+      # only one pending run and cancels the previous pending run. The lease is
+      # therefore an atomic R2 object. It protects both the whole-registry
+      # upload and the following shard push, while different articles can keep
+      # rendering concurrently.
+      - name: Acquire article chunk section lock
+        id: acquire_chunk_lock
+        if: steps.render.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          ARTICLE_SECTION: ${{ inputs.section }}
+          LOCK_OWNER: ${{ github.run_id }}/${{ github.run_attempt }}
+        run: node scripts/lib/r2-section-lock.mjs acquire --section "$ARTICLE_SECTION" --owner "$LOCK_OWNER"
+
       # The article hub shard and the client registry are two representations
       # of the same publish. Publish the section's companions first, then its
       # named-export registry, and only then push the HTML shard. The strict
@@ -186,7 +203,7 @@ jobs:
       # ahead of the client again (#5819).
       - name: Publish client article chunks
         id: publish_chunks
-        if: steps.render.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: steps.render.outcome == 'success' && steps.acquire_chunk_lock.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           ARTICLE_SECTION: ${{ inputs.section }}
         run: npx -y tsx@4 scripts/publish-article-chunks.mjs --section "$ARTICLE_SECTION" --strict --no-ticker
@@ -208,7 +225,7 @@ jobs:
       # uppercasing that exact token, so the two scripts resolve the SAME
       # deploy-key secret for the SAME shard repo.
       - name: Push locale shards (parallel, fault-tolerant)
-        if: steps.render.outcome == 'success' && steps.publish_chunks.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: steps.render.outcome == 'success' && steps.acquire_chunk_lock.outcome == 'success' && steps.publish_chunks.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
@@ -269,6 +286,16 @@ jobs:
           echo "FAST_PUBLISH_PUSHED_LOCALES=$PUSHED_CSV" >> "$GITHUB_ENV"
           echo "📦 Shard pushes confirmed landed for locale(s): ${PUSHED_CSV:-<none>}"
           exit "$fail"
+
+      # Keep the lease through the entire shard push above. If publication or
+      # a locale push fails, always release it so the next article can retry;
+      # an interrupted runner is covered by the 30-minute lease expiry.
+      - name: Release article chunk section lock
+        if: always() && steps.acquire_chunk_lock.outcome == 'success'
+        env:
+          ARTICLE_SECTION: ${{ inputs.section }}
+          LOCK_OWNER: ${{ github.run_id }}/${{ github.run_attempt }}
+        run: node scripts/lib/r2-section-lock.mjs release --section "$ARTICLE_SECTION" --owner "$LOCK_OWNER"
 
       # Only pings search engines once the pages are CONFIRMED live — never
       # before. This is the exact ordering bug fast-publish-article.yml fixes

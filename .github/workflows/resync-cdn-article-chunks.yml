@@ -69,35 +69,34 @@ jobs:
             echo "::warning::FIREBASE_SERVICE_ACCOUNT_JSON unset — Remote Config secrets unavailable"
           fi
 
-      # Serialize against in-flight fast-publish runs WITHOUT forcing them to
-      # share a concurrency group: fast-publish-article.yml is deliberately
-      # keyed per-article (#4874 — a per-section group silently dropped queued
-      # runs), so a shared group would regress it. The hazard is narrow and
-      # one-directional: a resync started on a slightly older `main` whose
-      # companion upload lands AFTER a fast-publish's registry upload would
-      # recreate the very divergence this workflow exists to repair. Waiting
-      # here closes it at the only point where both can overlap.
-      - name: Wait for in-flight fast-publish runs
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          for i in $(seq 1 30); do
-            n="$(gh run list --workflow fast-publish-article.yml --status in_progress --json databaseId --jq 'length' 2>/dev/null || echo 0)"
-            q="$(gh run list --workflow fast-publish-article.yml --status queued --json databaseId --jq 'length' 2>/dev/null || echo 0)"
-            total=$(( n + q ))
-            if [ "$total" -eq 0 ]; then echo "no fast-publish in flight — proceeding"; exit 0; fi
-            echo "waiting: $total fast-publish run(s) in flight (attempt $i/30)"
-            sleep 20
-          done
-          echo "::warning::fast-publish still in flight after 10 min — proceeding anyway; a stale overwrite stays possible but the next run reconciles"
-
       - name: Load secrets from Remote Config (R2 + CF)
         run: node scripts/load-rc-env.mjs
+
+      # A resync writes BOTH section registries, so acquire both R2 leases in
+      # the stable order used by the lock helper. This participates in the same
+      # mutex as fast-publish without using a GitHub section concurrency group
+      # that could cancel a pending article run.
+      - name: Acquire article chunk section locks
+        id: acquire_chunk_locks
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          LOCK_OWNER: resync-${{ github.run_id }}/${{ github.run_attempt }}
+        run: node scripts/lib/r2-section-lock.mjs acquire --section frontaliere,svizzera --owner "$LOCK_OWNER"
 
       # Publish the named-export registry and all of its translation/slug
       # companions in strict mode. The script validates the standalone ESM
       # contract, observes each R2 upload's success marker, and requires the
       # targeted purge before declaring the resync complete (#5819).
       - name: Publish article chunks
+        if: inputs.dry_run == true || inputs.dry_run == 'true' || steps.acquire_chunk_locks.outcome == 'success'
         run: |
           npx -y tsx@4 scripts/publish-article-chunks.mjs --strict ${{ inputs.dry_run && '--dry-run' || '' }}
+
+      # Release both leases even when strict publication fails. If the runner
+      # is interrupted before this post-step, the lock helper's lease expires
+      # after 30 minutes and another run can safely take it over with If-Match.
+      - name: Release article chunk section locks
+        if: always() && steps.acquire_chunk_locks.outcome == 'success'
+        env:
+          LOCK_OWNER: resync-${{ github.run_id }}/${{ github.run_attempt }}
+        run: node scripts/lib/r2-section-lock.mjs release --section frontaliere,svizzera --owner "$LOCK_OWNER"
