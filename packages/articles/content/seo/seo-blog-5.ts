@@ -95311,6 +95311,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-luvinate-scuola-sicurezza': {
+    title: 'Luvinate, scuola aperta tra sicurezza e prevenzione',
+    description: 'Alla primaria Pedotti di Luvinate, Festa dell\'Accoglienza con Polizia Scientifica, Croce Rossa, cyberbullismo, inglese e primo soccorso per i bambini in classe.',
+    keywords: 'frontalieri, ticino, svizzera, italia, luvinate, scuola, aperta, sicurezza',
+    ogTitle: 'Luvinate, scuola aperta tra sicurezza e prevenzione',
+    ogDescription: 'Una mattinata senza lezioni classiche alla primaria Pedotti di Luvinate: laboratori con Polizia Scientifica, Croce Rossa, Carabinieri, Protezione Civile Intercomunale e Polizia Locale, tra primo soccorso, cyberbullismo, inglese e cittadinanza attiva.',
+    canonicalPath: '/articoli-frontaliere/luvinate-scuola-sicurezza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Luvinate, scuola aperta tra sicurezza e prevenzione",
+      "description": "Alla primaria Pedotti di Luvinate, Festa dell'Accoglienza con Polizia Scientifica, Croce Rossa, cyberbullismo, inglese e primo soccorso per i bambini in classe.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/luvinate-scuola-sicurezza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bambini della primaria durante laboratori di sicurezza e prevenzione"
+      },
+      "datePublished": "2026-09-27T12:10:53+00:00",
+      "dateModified": "2026-09-27T12:10:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/luvinate-scuola-sicurezza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
