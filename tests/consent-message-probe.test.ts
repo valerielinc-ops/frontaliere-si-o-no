@@ -21,6 +21,7 @@ import {
   FC_PREVIEW_QUERY,
   bestVerdict,
   classifyConsentProbe,
+  navigationErrorVerdict,
 } from '../scripts/lib/consent-message-probe.mjs';
 import { probeUrl } from '../scripts/probe-live-consent-message.mjs';
 
@@ -161,11 +162,22 @@ describe('classifyConsentProbe', () => {
     expect(classifyConsentProbe({ calls: [refusedBootstrap], fcRequested: true, dialogVisible: true }).verdict).toBe('pass');
   });
 
-  it('keeps the best attempt, so a retry clears a flake but not a steady fail', () => {
+  it('aggregates attempts failure-sticky: only a pass clears a fail', () => {
     const fail = { verdict: 'fail' as const, reason: 'blanket_suppression', detail: '' };
     const pass = { verdict: 'pass' as const, reason: 'consent_visible', detail: '' };
+    const unsure = { verdict: 'inconclusive' as const, reason: 'no_message_offered', detail: '' };
     expect(bestVerdict([fail, pass])).toBe(pass);
     expect(bestVerdict([fail, fail])).toBe(fail);
+    expect(bestVerdict([fail, unsure])).toBe(fail);
+    expect(bestVerdict([unsure, fail])).toBe(fail);
+    expect(bestVerdict([unsure, unsure])).toBe(unsure);
+  });
+
+  it('fails a page that could not be loaded or observed', () => {
+    const v = navigationErrorVerdict(new Error('net::ERR_CONNECTION_REFUSED at http://127.0.0.1:9/'));
+    expect(v).toMatchObject({ verdict: 'fail', reason: 'navigation_error' });
+    expect(v.detail).toContain('ERR_CONNECTION_REFUSED');
+    expect(bestVerdict([v, v]).verdict).toBe('fail');
   });
 });
 
@@ -186,5 +198,7 @@ describe('post-deploy-validate-live.yml', () => {
     expect(step).toContain('node scripts/probe-live-consent-message.mjs');
     expect(step).toContain('PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright');
     expect(step).not.toMatch(/continue-on-error:\s*true/);
+    // Worst case inside the probe: 3 pages x 2 attempts x (60s navigation + 30s wait).
+    expect(step).toMatch(/timeout-minutes:\s*\d+/);
   });
 });

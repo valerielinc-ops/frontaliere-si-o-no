@@ -386,6 +386,7 @@ jobs:
       # scripts/lib/consent-message-probe.mjs, tests/consent-message-probe.test.ts.
       - name: Consent message reaches new visitors (Funding Choices gate)
         id: consent-gate
+        timeout-minutes: 15
         env:
           PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
           LIVE_BASE_URL: https://frontaliereticino.ch

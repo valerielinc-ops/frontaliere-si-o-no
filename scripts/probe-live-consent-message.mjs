@@ -44,6 +44,7 @@ import {
   FC_PREVIEW_QUERY,
   bestVerdict,
   classifyConsentProbe,
+  navigationErrorVerdict,
 } from './lib/consent-message-probe.mjs';
 
 const DEFAULT_PATHS = ['/', '/cerca-lavoro-ticino/', '/cerca-lavoro-zurigo/'];
@@ -130,7 +131,7 @@ async function main() {
         try {
           attempts.push({ url, ...(await probeOnce(browser, userAgent, url)) });
         } catch (error) {
-          attempts.push({ url, verdict: 'inconclusive', reason: 'navigation_error', detail: String(error?.message || error).slice(0, 300), calls: [], fcRequested: false, dialogVisible: false });
+          attempts.push({ url, ...navigationErrorVerdict(error), calls: [], fcRequested: false, dialogVisible: false });
         }
         if (attempts[attempts.length - 1].verdict === 'pass') break;
       }

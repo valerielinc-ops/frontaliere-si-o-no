@@ -119,9 +119,27 @@ export function classifyConsentProbe({ calls = [], fcRequested = false, dialogVi
   };
 }
 
-const RANK = { pass: 2, inconclusive: 1, fail: 0 };
+/**
+ * A page that could not be loaded or observed was not verified: that is a
+ * fail, never a warning, or an unreachable page would pass the gate.
+ */
+export function navigationErrorVerdict(error) {
+  return {
+    verdict: 'fail',
+    reason: 'navigation_error',
+    detail: `The page could not be loaded or observed, so the consent message was not verified: ${String(error?.message || error).slice(0, 300)}`,
+  };
+}
 
-/** Best of the attempts on one page: a retry clears a flake, never a real fail. */
+/**
+ * Verdict of one page over its attempts, failure-sticky: a pass on any attempt
+ * clears a flake; otherwise a fail on any attempt stands, whatever the other
+ * attempts said. Only attempts that are all inconclusive stay a warning.
+ */
 export function bestVerdict(verdicts) {
-  return verdicts.reduce((best, v) => (RANK[v.verdict] > RANK[best.verdict] ? v : best));
+  return (
+    verdicts.find((v) => v.verdict === 'pass') ??
+    verdicts.find((v) => v.verdict === 'fail') ??
+    verdicts[verdicts.length - 1]
+  );
 }
