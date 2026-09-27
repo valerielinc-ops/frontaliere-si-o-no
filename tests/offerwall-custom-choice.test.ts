@@ -59,7 +59,7 @@ describe('Offerwall controlled messaging — held until "Candidati"', () => {
 
   it('allows only the bootstrap callback when the Funding Choices enum is unavailable', () => {
     expect(CONTROLLED_MESSAGING_BLOCK).not.toContain('E.OFFERWALL === undefined');
-    expect(CONTROLLED_MESSAGING_BLOCK).toContain("typeof E.OFFERWALL !== 'number'");
+    expect(CONTROLLED_MESSAGING_BLOCK).toContain("typeof E.OFFERWALL !== 'number' && typeof E.OFFERWALL !== 'string'");
     expect(CONTROLLED_MESSAGING_BLOCK).toContain('__ftOfferwallBootstrapComplete');
     expect(CONTROLLED_MESSAGING_BLOCK).toContain('message.proceed(false)');
     expect(CONTROLLED_MESSAGING_BLOCK).toContain('message.proceed(true)');

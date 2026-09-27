@@ -165,6 +165,58 @@ describe('PostAuto crawler parser', () => {
       }
     });
 
+    it('re-reads a mutable no-progress page before failing the feed', async () => {
+      const firstRecord = { id: 'postauto-retry-first', cust_brandCompanyJobSearch: ['PostAuto'] };
+      const secondRecord = { id: 'postauto-retry-second', cust_brandCompanyJobSearch: ['PostAuto'] };
+      const thirdRecord = { id: 'postauto-retry-third', cust_brandCompanyJobSearch: ['PostAuto'] };
+      let pageOneReads = 0;
+      const fetchMock = vi.fn(async (_url: string, init?: RequestInit) => {
+        const body = JSON.parse(String(init?.body || '{}')) as { locale?: string; pageNumber?: number };
+        if (body.locale !== 'de_DE') {
+          return {
+            ok: true,
+            status: 200,
+            text: async () => JSON.stringify({ totalJobs: 0, jobSearchResult: [] }),
+          };
+        }
+        if (body.pageNumber === 0) {
+          return {
+            ok: true,
+            status: 200,
+            text: async () => JSON.stringify({
+              totalJobs: 3,
+              jobSearchResult: [{ response: firstRecord }, { response: secondRecord }],
+            }),
+          };
+        }
+        pageOneReads += 1;
+        return {
+          ok: true,
+          status: 200,
+          text: async () => JSON.stringify({
+            totalJobs: 3,
+            jobSearchResult: pageOneReads === 1
+              ? [{ response: firstRecord }, { response: secondRecord }]
+              : [{ response: secondRecord }, { response: thirdRecord }],
+          }),
+        };
+      });
+      vi.stubGlobal('fetch', fetchMock);
+
+      try {
+        const listings = await postAutoTestables.fetchPostAutoListings(1000);
+        expect(listings.fetchOutcome).toBe('ok');
+        expect(listings.map((listing) => listing.id)).toEqual([
+          'postauto-retry-first',
+          'postauto-retry-second',
+          'postauto-retry-third',
+        ]);
+        expect(pageOneReads).toBe(2);
+      } finally {
+        vi.unstubAllGlobals();
+      }
+    });
+
     it('stops at the declared row count instead of requesting the out-of-range page', async () => {
       const firstRecord = { id: 'postauto-row-one', cust_brandCompanyJobSearch: ['PostAuto'] };
       const secondRecord = { id: 'postauto-row-two', cust_brandCompanyJobSearch: ['PostAuto'] };
