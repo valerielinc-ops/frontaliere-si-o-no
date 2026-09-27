@@ -188,8 +188,8 @@ jobs:
         id: publish_chunks
         if: steps.render.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
         env:
-          INPUT_SECTION: ${{ inputs.section }}
-        run: npx -y tsx@4 scripts/publish-article-chunks.mjs --section "$INPUT_SECTION" --strict --no-ticker
+          ARTICLE_SECTION: ${{ inputs.section }}
+        run: npx -y tsx@4 scripts/publish-article-chunks.mjs --section "$ARTICLE_SECTION" --strict --no-ticker
 
       # Mirrors the fault-tolerant parallel-push pattern at deploy.yml
       # (`push-section-shard.sh` fan-out, since #5130 driven by
@@ -311,10 +311,13 @@ jobs:
           fi
           exit "$code"
 
-      # The registry was published before the shards above. Keep the ticker
-      # refresh after live verification because it is a separate JSON contract;
-      # a delayed Pages propagation must not advertise a page whose bytes are not
-      # served yet.
+      # The old #4959 path rewrote the dynamic site to
+      # `.then(m => m.blogArticlesData)`. A standalone
+      # esbuild registry is safe now because every live consumer reads the
+      # named export directly, and the client registry was published before the
+      # shards above. Keep the ticker refresh after live verification because it
+      # is a separate JSON contract; a delayed Pages propagation must not
+      # advertise a page whose bytes are not served yet.
       - name: Publish news-ticker payload
         if: steps.verify.outcome == 'success' && steps.verify.outputs.delayed != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         continue-on-error: true

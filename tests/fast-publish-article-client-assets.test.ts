@@ -22,7 +22,7 @@ describe('fast-publish article workflow', () => {
     expect(publishIdx).toBeGreaterThan(-1);
     expect(publishIdx).toBeLessThan(pushIdx);
     const publishBlock = workflow.slice(publishIdx, pushIdx);
-    expect(publishBlock).toContain('--section "$INPUT_SECTION"');
+    expect(publishBlock).toContain('--section "$ARTICLE_SECTION"');
     expect(publishBlock).toContain('--strict');
     expect(publishBlock).toContain('--no-ticker');
     expect(workflow.slice(pushIdx, workflow.indexOf('Verify shard URLs are live'))).toContain(
