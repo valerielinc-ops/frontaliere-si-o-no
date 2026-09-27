@@ -31,7 +31,13 @@
  * `nanakokyobashi-rgb/frontaliere-articles` (node:test), stessi casi.
  */
 import { describe, it, expect } from 'vitest';
-import { bucketFinding, stripNegatedImpactClauses, tallyFindings, isGenuinePrBodyContractViolation } from '../scripts/ci/harvest-agent-lessons.mjs';
+import {
+  bucketFinding,
+  stripNegatedImpactClauses,
+  tallyFindings,
+  isGenuinePrBodyContractViolation,
+  isGenuineCanonicalSitemapFinding,
+} from '../scripts/ci/harvest-agent-lessons.mjs';
 
 // Verbatim dalle review claude delle PR citate in #901.
 const RICOGNIZIONI_NEGATE: Array<[string, string]> = [
@@ -122,6 +128,37 @@ describe('bucketFinding — la ricognizione negata non fa punteggio', () => {
     }));
     const { counts } = tallyFindings(prs);
     expect(counts['canonical-sitemap'] ?? 0).toBe(0);
+  });
+});
+
+describe('bucketFinding — canonical-sitemap richiede un segnale SEO, non il solo token canonical', () => {
+  const NON_SEO_CANONICAL_MENTIONS: Array<[string, string]> = [
+    ['#10097', 'Build listedKeys from every canonical vacancy link independently of title extraction before using it as shrink evidence.'],
+    ['#10088', 'Il nuovo canonicalizer runs only in the manual conflict loop, so clean semantic merges can still publish duplicate historical routes.'],
+    ['#9890', 'readShardDocument drops invalid date records that are absent from the canonical history before the deletion guard runs.'],
+    ['#9890', 'isControlledHistoricalRewrite trusts the canonical replacement but never proves that the compaction payload survives.'],
+    ['#9895', 'Il cap limita il canonical-fallback-pre-pass a un worker, ma manca una misura post-change di performance.'],
+    ['#9482', 'The canonical Italian duty URL is parsed as italy-duty-hub, but the static emitter and SPA render different components.'],
+  ];
+
+  for (const [pr, line] of NON_SEO_CANONICAL_MENTIONS) {
+    it(`${pr}: ${line.slice(0, 54)}… resta fuori dal topic SEO`, () => {
+      expect(isGenuineCanonicalSitemapFinding(line)).toBe(false);
+      expect(bucketFinding(`🔴 Important: ${line}`)).not.toBe('canonical-sitemap');
+    });
+  }
+
+  it('mantiene i difetti SEO espliciti anche quando il testo contiene canonical', () => {
+    const findings = [
+      '🔴 Important: an empty canonical href is accepted as self-canonical; report canonical-missing instead.',
+      '🔴 Important: the sitemap inventory accepts an empty root and silently reports a clean crawl.',
+      '🔴 Important: the page does not emit the canonical when the locale is missing.',
+      '🔴 Important: a sitemap URL has noindex and must be removed from the published sitemap.',
+    ];
+    for (const line of findings) {
+      expect(isGenuineCanonicalSitemapFinding(line), line).toBe(true);
+      expect(bucketFinding(line), line).toBe('canonical-sitemap');
+    }
   });
 });
 
