@@ -2,7 +2,8 @@
  * Shared AdSense `<ins>` markup generator for build-plugin static HTML pages.
  *
  * Mirrors the runtime `<AdSenseBanner>` React component but emits raw HTML
- * for static SEO pages (F2 health-premiums, F5 weekly-employers, F6 fuel-daily).
+ * for static SEO pages (health premiums, weekly employers, fuel daily, salary
+ * and profession landings).
  * The original pattern lives in `build-plugins/salaryHubContent.ts` — keep this
  * helper byte-for-byte compatible so the rendered HTML and AdSense slot
  * configuration stay consistent across plugins.
@@ -75,8 +76,8 @@ export function infeedAdGridBlockHtml(opts?: { experimentVariant?: InfeedAdVaria
 /**
  * End-of-content multiplex ad for the static SSG "family" landing pages that
  * previously ran Auto Ads only — events, career, cost-of-living, comparisons,
- * FAQ, pillar, exchange-rate, employer-profile and profession×canton
- * (issue #4485). Emitted ONCE, at the very bottom of the page content, after
+ * FAQ, pillar, exchange-rate, employer-profile, profession and salary
+ * landings (issue #4485). Emitted ONCE, at the very bottom of the page content, after
  * all editorial / data sections. `SSG_END_MULTIPLEX` is `autorelaxed`
  * (multiplex), the proven high-RPM manual format (in-page multiplex €6.64 vs
  * €0.20 display).
