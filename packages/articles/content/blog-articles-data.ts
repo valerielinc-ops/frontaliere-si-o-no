@@ -36421,6 +36421,15 @@ const RAW_ARTICLES = [
  authorSlug: 'samuele-valente',
  authorName: 'Samuele Valente',
  },
+ {
+ id: 'como-sinigaglia-eventi-privati',
+ category: 'novita',
+ date: '2026-09-27T10:42:29.430Z',
+ image: '/images/blog/como-sinigaglia-eventi-privati.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

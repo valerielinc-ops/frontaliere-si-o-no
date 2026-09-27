@@ -12133,6 +12133,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-27.imageAlt': 'The day\'s numbers for cross-border commuters – September 27, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-09-27.seoDescription': 'Cross-border brief, September 27, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-09-27.ogDescription': 'The numbers for September 27, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.como-sinigaglia-eventi-privati.title': 'Como 1907 opens the Sinigaglia to private events and meetings',
+    'blog.article.como-sinigaglia-eventi-privati.excerpt': 'The club launches the Corporate Collection: Trophy Room, terraces, Club House and executive suites available outside matchdays. Up to 160 guests per space.',
+    'blog.article.como-sinigaglia-eventi-privati.imageAlt': 'Sinigaglia stadium terrace overlooking Lake Como during corporate event',
 };
 
 export default blogMetaEn;

@@ -95233,6 +95233,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-como-sinigaglia-eventi-privati': {
+    title: 'Como 1907 apre il Sinigaglia a eventi e riunioni private',
+    description: 'La Sinigaglia Corporate Collection mette a disposizione spazi storici dello stadio per riunioni, cene ed eventi fino a 160 ospiti. Parcheggio interno e servizi',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, apre, sinigaglia, eventi',
+    ogTitle: 'Como 1907: lo stadio Sinigaglia diventa location per eventi esclusivi',
+    ogDescription: 'Il Como 1907 presenta la Sinigaglia Corporate Collection: Trophy Room, terrazze con vista lago, Club House e suite executive storiche disponibili per meeting, cene ed eventi privati fuori dalle giornate di campionato. Un\'esperienza unica tra storia',
+    canonicalPath: '/articoli-frontaliere/como-sinigaglia-eventi-privati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como 1907 apre il Sinigaglia a eventi e riunioni private",
+      "description": "La Sinigaglia Corporate Collection mette a disposizione spazi storici dello stadio per riunioni, cene ed eventi fino a 160 ospiti. Parcheggio interno e servizi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/como-sinigaglia-eventi-privati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Terrazza dello stadio Sinigaglia con vista sul Lago di Como durante evento aziendale"
+      },
+      "datePublished": "2026-09-27T10:42:29+00:00",
+      "dateModified": "2026-09-27T10:42:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-sinigaglia-eventi-privati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_SEO_METADATA_5;
