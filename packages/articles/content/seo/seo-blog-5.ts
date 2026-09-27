@@ -95077,6 +95077,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-voto-neutralita-alimentazione': {
+    title: 'Svizzera vota su neutralità e alimentazione | Frontaliere Ticino',
+    description: 'In Svizzera si vota oggi su due iniziative federali: neutralità, che limita le sanzioni alle decisioni ONU, e alimentazione, che punta al 70% di autosufficienza',
+    keywords: 'frontalieri, ticino, svizzera, italia, vota, neutralità, alimentazione, oggi',
+    ogTitle: 'Svizzera vota su neutralità e autosufficienza alimentare',
+    ogDescription: 'Gli elettori svizzeri sono chiamati oggi a decidere su due importanti iniziative federali: la neutralità, che vuole legare le sanzioni economiche esclusivamente alle decisioni del Consiglio di sicurezza dell\'ONU, e l\'alimentazione, che chiede almeno',
+    canonicalPath: '/articoli-frontaliere/svizzera-voto-neutralita-alimentazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera vota su neutralità e alimentazione",
+      "description": "In Svizzera si vota oggi su due iniziative federali: neutralità, che limita le sanzioni alle decisioni ONU, e alimentazione, che punta al 70% di autosufficienza",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-voto-neutralita-alimentazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Elezione in Ticino con schede e urne"
+      },
+      "datePublished": "2026-09-27T07:14:14+00:00",
+      "dateModified": "2026-09-27T07:14:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-voto-neutralita-alimentazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

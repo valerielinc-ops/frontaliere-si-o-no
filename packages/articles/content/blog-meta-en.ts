@@ -12119,6 +12119,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.villa-mirabello-tre-valli.title': 'Villa mirabello: shows three valleys of Varese and solidarity',
     'blog.article.villa-mirabello-tre-valli.excerpt': 'At Villa Mirabello, Varese, the exhibition ‘Tre Valli Varesine. When cycling is passion’ is open with free admission until October 11, and the charitable initiative ‘Author’s shot, gesture of love’ supports Il Pane di Sant\'Antonio ODV.',
     'blog.article.villa-mirabello-tre-valli.imageAlt': 'Tre Valli Varesine photography exhibition at Villa Mirabello, Varese',
+    'blog.article.svizzera-voto-neutralita-alimentazione.title': 'Switzerland votes on neutrality and food',
+    'blog.article.svizzera-voto-neutralita-alimentazione.excerpt': 'Today Switzerland votes on neutrality and a food initiative (70% self-sufficiency in 10 years); nine cantons are also deciding on cantonal issues, including cross-border mobility.',
+    'blog.article.svizzera-voto-neutralita-alimentazione.imageAlt': 'Voting station in Ticino with ballots and ballot box',
 };
 
 export default blogMetaEn;
