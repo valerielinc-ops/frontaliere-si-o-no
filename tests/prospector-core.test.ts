@@ -1292,7 +1292,15 @@ describe('crawler synthesis', () => {
       domain: 'leitpuls.example',
       name,
     }));
-    expect(keys).toEqual(['leitpuls', 'leitpuls', 'leitpuls', 'leitpuls']);
+    expect(keys).toEqual(['leitpuls-example', 'leitpuls-example', 'leitpuls-example', 'leitpuls-example']);
+  });
+
+  it('keeps the registrable-domain suffix in generic fallback keys', () => {
+    const acmeCh = crawlerKeyFor({ tenantHost: 'apply.refline.ch', domain: 'acme.ch' });
+    const acmeCom = crawlerKeyFor({ tenantHost: 'apply.refline.ch', domain: 'acme.com' });
+    expect(acmeCh).toBe('acme-ch');
+    expect(acmeCom).toBe('acme-com');
+    expect(acmeCh).not.toBe(acmeCom);
   });
 
   it('finds the template shared by a listing', () => {

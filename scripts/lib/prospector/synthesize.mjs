@@ -110,17 +110,18 @@ function crawlerKeyToken(value) {
 
 /**
  * The employer-owned domain is the safe identity fallback when an ATS tenant
- * has no usable employer name. `registrableDomain` strips a vendor subdomain
- * and the first label is the validated employer token used by the key contract.
+ * has no usable employer name. `registrableDomain` strips a vendor subdomain;
+ * preserve the complete normalized registrable domain so equal brand labels on
+ * different suffixes remain distinct crawler keys.
  *
  * @param {unknown} domain
  * @returns {string}
  */
 function employerDomainToken(domain) {
   const normalized = registrableDomain(normalizeHost(String(domain ?? '')));
-  const token = normalized.split('.')[0] || '';
-  if (!/^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i.test(token)) return '';
-  return crawlerKeyToken(token);
+  const labels = normalized.split('.');
+  if (!normalized || labels.some((label) => !/^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i.test(label))) return '';
+  return crawlerKeyToken(normalized);
 }
 
 /**
