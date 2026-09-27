@@ -149,11 +149,11 @@ describe('PSI provider failures — gate inconclusive, not CLS regression', () =
 });
 
 describe('PSI response streams', () => {
-  it('retries a terminated response body before reporting a provider failure', async () => {
+  it('survives repeated terminated response bodies within the bounded retry budget', async () => {
     let attempts = 0;
     const fetchImpl = async () => {
       attempts += 1;
-      if (attempts === 1) {
+      if (attempts <= 4) {
         return {
           ok: true,
           text: async () => { throw new TypeError('terminated'); },
@@ -169,9 +169,9 @@ describe('PSI response streams', () => {
       };
     };
 
-    const result = await runPsiRequest('https://example.test', 'desktop', '', fetchImpl);
+    const result = await runPsiRequest('https://example.test', 'desktop', '', fetchImpl, async () => {});
 
-    expect(attempts).toBe(2);
+    expect(attempts).toBe(5);
     expect(result.effective).toBe(0.12);
     expect(result.source).toBe('lab');
   });
@@ -184,7 +184,7 @@ describe('PSI response streams', () => {
     };
 
     await expect(
-      runPsiRequest('https://example.test', 'desktop', '', fetchImpl),
+      runPsiRequest('https://example.test', 'desktop', '', fetchImpl, async () => {}),
     ).rejects.toThrow('PSI malformed JSON');
     expect(attempts).toBe(1);
   });
