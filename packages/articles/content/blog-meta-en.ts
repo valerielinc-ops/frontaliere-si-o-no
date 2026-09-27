@@ -12125,6 +12125,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ottobre-millestrade-professioni-ticino.title': 'October with Millestrade: open doors, internships and TicinoSkills',
     'blog.article.ottobre-millestrade-professioni-ticino.excerpt': 'The orientation month with Millestrade starts from 3 October in Gordola: visits to the centres, technical internships and TicinoSkills championships for young people and families.',
     'blog.article.ottobre-millestrade-professioni-ticino.imageAlt': 'Young people visiting Gordola training center workshops during TicinoSkills',
+    'blog.article.dumenza-furti-serata-settembre.title': 'Dumenza, three home burglaries and a failed heist',
+    'blog.article.dumenza-furti-serata-settembre.excerpt': 'Three homes were targeted on via Santuario, via Fiume and via Dante. On via XX Settembre, the thieves fled after hearing the owners.',
+    'blog.article.dumenza-furti-serata-settembre.imageAlt': 'Residential street in a village near the Ticino-Italy border at dusk',
 };
 
 export default blogMetaEn;

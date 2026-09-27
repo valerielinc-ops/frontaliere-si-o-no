@@ -95155,6 +95155,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dumenza-furti-serata-settembre': {
+    title: 'Dumenza, tre furti in casa e un colpo fallito | Frontaliere Ticino',
+    description: 'Tre furti a Dumenza in una sera: colpite tre vie, con 600 euro, oro e denaro sottratti. Fallito il colpo in via XX Settembre dopo aver sentito i proprietari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dumenza, furti, casa, colpo',
+    ogTitle: 'Dumenza, tre furti e un quarto colpo fallito',
+    ogDescription: 'Tre furti a Dumenza in una sola sera: colpite abitazioni in via Santuario, via Fiume e via Dante, con contanti, oro e denaro sottratti. In via XX Settembre i ladri sono fuggiti sentendo i proprietari.',
+    canonicalPath: '/articoli-frontaliere/dumenza-furti-serata-settembre',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dumenza, tre furti in casa e un colpo fallito",
+      "description": "Tre furti a Dumenza in una sera: colpite tre vie, con 600 euro, oro e denaro sottratti. Fallito il colpo in via XX Settembre dopo aver sentito i proprietari.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dumenza-furti-serata-settembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Via residenziale di un borgo vicino al confine tra Ticino e Italia al tramonto"
+      },
+      "datePublished": "2026-09-27T09:26:05+00:00",
+      "dateModified": "2026-09-27T09:26:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dumenza-furti-serata-settembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
