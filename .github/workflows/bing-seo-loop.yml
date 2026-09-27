@@ -217,3 +217,174 @@ jobs:
       - name: Report unresolved live findings
         if: steps.audit.outcome == 'failure'
         run: echo "::warning::La superficie live ha ancora finding; il report è allegato e il ciclo successivo riverificherà dopo il deploy delle PR."
+
+  # Bing's private Site Explorer folder endpoints are not a supported CI
+  # contract. Keep the complete sitemap graph as our immutable input instead:
+  # every URL is assigned to exactly one deterministic partition, so the
+  # matrix below really covers the full published tree rather than a sample.
+  tree-inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout crawler
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout: |
+            /scripts/seo/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Enumerate the complete sitemap graph
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          node scripts/seo/bing-site-explorer-crawl.mjs \
+            --inventory-only \
+            --base-url https://frontaliereticino.ch \
+            --sitemap https://frontaliereticino.ch/sitemap.xml \
+            --out "$RUNNER_TEMP/bing-site-tree-manifest.json"
+
+      - name: Upload immutable tree manifest
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: bing-site-tree-manifest
+          path: ${{ runner.temp }}/bing-site-tree-manifest.json
+          if-no-files-found: error
+
+  tree-crawl:
+    needs: tree-inventory
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        # Keep this list explicit: coverage aggregation can fail closed if a
+        # partition is ever omitted from a future edit.
+        partition: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+    steps:
+      - name: Checkout crawler
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout: |
+            /scripts/seo/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Download tree manifest
+        uses: actions/download-artifact@v7
+        with:
+          name: bing-site-tree-manifest
+          path: ${{ runner.temp }}/bing-site-tree-manifest
+
+      - name: Crawl URL partition ${{ matrix.partition }}
+        run: |
+          set -euo pipefail
+          node scripts/seo/bing-site-explorer-crawl.mjs \
+            --manifest-file "$RUNNER_TEMP/bing-site-tree-manifest/bing-site-tree-manifest.json" \
+            --partition "${{ matrix.partition }}" \
+            --partitions 24 \
+            --concurrency 8 \
+            --timeout-ms 30000 \
+            --retries 2 \
+            --out "$RUNNER_TEMP/partition-${{ matrix.partition }}.json"
+
+      - name: Upload partition report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: bing-site-tree-partition-${{ matrix.partition }}
+          path: ${{ runner.temp }}/partition-${{ matrix.partition }}.json
+          if-no-files-found: error
+
+  tree-report:
+    needs: [tree-inventory, tree-crawl]
+    if: ${{ always() && needs.tree-inventory.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout reporter
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout: |
+            /scripts/seo/
+            /scripts/lib/github-issue-creator.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Download tree manifest
+        uses: actions/download-artifact@v7
+        with:
+          name: bing-site-tree-manifest
+          path: ${{ runner.temp }}/bing-site-tree-manifest
+
+      - name: Download partition reports
+        continue-on-error: true
+        uses: actions/download-artifact@v7
+        with:
+          pattern: bing-site-tree-partition-*
+          path: ${{ runner.temp }}/bing-site-tree-reports
+          merge-multiple: true
+
+      - name: Ensure report directory exists
+        run: mkdir -p "$RUNNER_TEMP/bing-site-tree-reports"
+
+      - name: Aggregate coverage and findings
+        id: report
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          node scripts/seo/bing-site-explorer-report.mjs \
+            --reports-dir "$RUNNER_TEMP/bing-site-tree-reports" \
+            --manifest "$RUNNER_TEMP/bing-site-tree-manifest/bing-site-tree-manifest.json" \
+            --out "$RUNNER_TEMP/bing-site-tree-summary.json" \
+            --issue-body "$RUNNER_TEMP/bing-site-tree-issue.md"
+
+      - name: Upload full-tree report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: bing-site-tree-report
+          path: |
+            ${{ runner.temp }}/bing-site-tree-summary.json
+            ${{ runner.temp }}/bing-site-tree-issue.md
+          if-no-files-found: warn
+
+      - name: Create or update SEO backlog issue
+        if: steps.report.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          node scripts/lib/github-issue-creator.mjs \
+            --title 'SEO: Bing-compatible full-tree crawl findings' \
+            --description "$(cat "$RUNNER_TEMP/bing-site-tree-issue.md")" \
+            --priority 2 \
+            --label funnel-seo \
+            --workflow 'Bing SEO closed loop — full sitemap tree'
+
+      - name: Resolve recovered SEO backlog issue
+        if: steps.report.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --resolve \
+            --title 'SEO: Bing-compatible full-tree crawl findings' \
+            --workflow 'Bing SEO closed loop — full sitemap tree'

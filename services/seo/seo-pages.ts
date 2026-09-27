@@ -4749,6 +4749,82 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  }
  },
 
+ 'for-employers': {
+ title: 'Pubblica offerte di lavoro per frontalieri | Frontaliere Ticino',
+ description: 'Raggiungi i frontalieri che cercano lavoro in Ticino: pubblica un’offerta con pagina SEO dedicata, presenza su Google for Jobs e promozione newsletter.',
+ keywords: 'pubblicare offerte lavoro ticino, assumere frontalieri, annunci lavoro ticino, recruiting frontalieri, pubblica offerta ticino',
+ ogTitle: 'Pubblica offerte di lavoro per frontalieri',
+ ogDescription: 'Raggiungi i candidati Italia–Ticino con un annuncio gratuito o sponsorizzato.',
+ h1: 'Raggiungi i frontalieri che cercano lavoro in Ticino',
+ canonicalPath: '/per-le-aziende/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "name": "Pubblicazione offerte di lavoro per frontalieri",
+ "url": `${BASE_URL}/per-le-aziende/`,
+ "description": "Servizio per pubblicare offerte di lavoro e raggiungere candidati frontalieri tra Italia e Ticino.",
+ "provider": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/` },
+ "areaServed": "CH-TI"
+ }
+ },
+
+ 'for-employers-en': {
+ title: 'Post jobs for cross-border workers | Frontaliere Ticino',
+ description: 'Reach cross-border workers looking for jobs in Ticino: publish a listing with a dedicated SEO page, Google for Jobs presence and newsletter promotion.',
+ keywords: 'post jobs Ticino, hire cross-border workers, Ticino job ads, cross-border recruitment',
+ ogTitle: 'Post jobs for cross-border workers',
+ ogDescription: 'Reach Italy–Ticino candidates with a free or sponsored job listing.',
+ h1: 'Reach the cross-border workers looking for jobs in Ticino',
+ canonicalPath: '/en/for-employers/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "name": "Job advertising for cross-border workers",
+ "url": `${BASE_URL}/en/for-employers/`,
+ "description": "A service for publishing job listings and reaching cross-border candidates between Italy and Ticino.",
+ "provider": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/en/` },
+ "areaServed": "CH-TI"
+ }
+ },
+
+ 'for-employers-de': {
+ title: 'Stellen für Grenzgänger ausschreiben | Frontaliere Ticino',
+ description: 'Erreichen Sie Grenzgänger auf Jobsuche im Tessin: Schalten Sie eine Anzeige mit eigener SEO-Seite, Google-for-Jobs-Präsenz und Newsletter-Promotion.',
+ keywords: 'Stellen ausschreiben Tessin, Grenzgänger einstellen, Stellenanzeigen Tessin, Recruiting Grenzgänger',
+ ogTitle: 'Stellen für Grenzgänger ausschreiben',
+ ogDescription: 'Erreichen Sie Kandidaten zwischen Italien und dem Tessin mit einer kostenlosen oder gesponserten Anzeige.',
+ h1: 'Erreichen Sie die Grenzgänger, die im Tessin Arbeit suchen',
+ canonicalPath: '/de/fuer-unternehmen/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "name": "Stellenanzeigen für Grenzgänger",
+ "url": `${BASE_URL}/de/fuer-unternehmen/`,
+ "description": "Service zum Veröffentlichen von Stellenanzeigen für Grenzgänger zwischen Italien und dem Tessin.",
+ "provider": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/de/` },
+ "areaServed": "CH-TI"
+ }
+ },
+
+ 'for-employers-fr': {
+ title: 'Publiez des offres pour les frontaliers | Frontaliere Ticino',
+ description: 'Touchez les frontaliers à la recherche d’un emploi au Tessin : publiez une annonce avec page SEO dédiée, présence Google for Jobs et promotion newsletter.',
+ keywords: 'publier offre emploi Tessin, recruter frontaliers, annonces emploi Tessin, recrutement frontalier',
+ ogTitle: 'Publiez des offres pour les frontaliers',
+ ogDescription: 'Touchez les candidats Italie–Tessin avec une annonce gratuite ou sponsorisée.',
+ h1: 'Touchez les frontaliers à la recherche d’un emploi au Tessin',
+ canonicalPath: '/fr/pour-les-entreprises/',
+ structuredData: {
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "name": "Publication d’offres pour les frontaliers",
+ "url": `${BASE_URL}/fr/pour-les-entreprises/`,
+ "description": "Service pour publier des offres d’emploi et toucher les candidats frontaliers entre l’Italie et le Tessin.",
+ "provider": { "@type": "Organization", "name": "Frontaliere Ticino", "url": `${BASE_URL}/fr/` },
+ "areaServed": "CH-TI"
+ }
+ },
+
  consulting: {
  title: 'Consulenza Fiscale Frontalieri | Tasse CH-IT 2026',
  description: 'Consulenza fiscale per frontalieri: ottimizzazione tasse Svizzera-Italia, dichiarazione redditi, scelta regime fiscale nuovo accordo 2026.',

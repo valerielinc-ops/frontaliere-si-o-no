@@ -40,4 +40,24 @@ export const BING_INDEXNOW_REMEDIATION_URLS = [
   BING_SEO_BASE_URL + '/eventi/basilea/basel/top-secret-friends-2026-2026-09-10/',
 ];
 
+// Route-level contracts for URLs surfaced by the Bing audit. These stay
+// outside the sitemap crawl: retired aliases and edge redirects are checked
+// for their HTTP status, while the employer landing is checked as indexable.
+export const BING_ROUTE_CONTRACTS = [
+  { path: '/jobs-im-tessin/', expectedStatus: 301, location: '/de/jobs-im-tessin/' },
+  { path: '/grenzgaenger-artikel/', expectedStatus: 301, location: '/de/grenzgaenger-artikel/' },
+  { path: '/trouver-emploi-tessin/', expectedStatus: 301, location: '/fr/trouver-emploi-tessin/' },
+  { path: '/nav:pension/', expectedStatus: 301, location: '/tasse-e-pensione/calcola-previdenza/' },
+  { path: '/servizi-partner/', expectedStatus: 301, location: '/' },
+  { path: '/en/partner-services/', expectedStatus: 301, location: '/en/' },
+  { path: '/de/partner-dienste/', expectedStatus: 301, location: '/de/' },
+  { path: '/fr/services-partenaires/', expectedStatus: 301, location: '/fr/' },
+  { path: '/job-board/', expectedStatus: 301, location: '/cerca-lavoro-svizzera/' },
+  { path: '/calcolatore-5x1000/', expectedStatus: 410 },
+  { path: '/per-le-aziende/', expectedStatus: 200 },
+  { path: '/en/for-employers/', expectedStatus: 200 },
+  { path: '/de/fuer-unternehmen/', expectedStatus: 200 },
+  { path: '/fr/pour-les-entreprises/', expectedStatus: 200 },
+].map((contract) => ({ ...contract, url: BING_SEO_BASE_URL + contract.path }));
+
 export const BING_HOMEPAGE_URL = BING_SEO_BASE_URL + '/';
