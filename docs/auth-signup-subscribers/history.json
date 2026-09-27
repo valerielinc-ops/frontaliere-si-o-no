@@ -43,6 +43,20 @@
       "findings": [
         "created_at_missing"
       ]
+    },
+    {
+      "date": "2026-09-27",
+      "windowHours": 24,
+      "subscribersCreated": 67,
+      "authSubscribers": 27,
+      "accountsTotal": 68,
+      "accountClasses": {
+        "subscribed": 67,
+        "stub": 0,
+        "missing": 1
+      },
+      "subscribedWithoutCreatedAt": 0,
+      "findings": []
     }
   ]
 }
