@@ -384,6 +384,16 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain('tests/check-cron-count-literals.test.ts');
   }, 120_000);
 
+  it('un workflow o uno script cambiato trascina i lint dell\'albero dei sorgenti', () => {
+    // PR 9959: `--paginate --slurp --jq` nei due fixer, che il gh reale
+    // rifiuta. Il guard scandisce `.github`, `scripts` e `bin` per directory,
+    // quindi né il grafo né l'indice dei letterali lo sceglievano.
+    const guard = 'tests/gh-slurp-jq-guard.test.ts';
+    expect(selectionFor(['.github/workflows/pr-redflag-fixer.yml'])).toContain(guard);
+    expect(selectionFor(['scripts/ci/review-gate.mjs'])).toContain(guard);
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(guard);
+  }, 120_000);
+
   it('una modifica a vitest.config.ts seleziona la suite globale senza le esclusioni deliberate', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'related-vitest-config-'));
     try {
