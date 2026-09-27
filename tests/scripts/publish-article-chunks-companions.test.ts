@@ -20,7 +20,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { COMPANION_CHUNKS, REGISTRIES } from '../../scripts/publish-article-chunks.mjs';
+import { chunksForSection, COMPANION_CHUNKS, REGISTRIES } from '../../scripts/publish-article-chunks.mjs';
 import { SKIP_LIVE_DATA } from '../helpers/live-data';
 
 const ROOT = resolve(__dirname, '..', '..');
@@ -88,5 +88,17 @@ describe('publish-article-chunks — registry never ships ahead of its translati
 
   it('REGISTRIES still covers both sections', () => {
     expect(REGISTRIES.map((r) => r.exportName).sort()).toEqual(['ARTICLES', 'SWISS_ARTICLES']);
+  });
+
+  it('section selection keeps the registry and its own companions together', () => {
+    const frontaliere = chunksForSection('frontaliere');
+    expect(frontaliere.registries.map((r) => r.exportName)).toEqual(['ARTICLES']);
+    expect(frontaliere.companions.every((chunk) => !chunk.cdnKey.includes('blog-meta-ch-'))).toBe(true);
+    expect(frontaliere.companions.map((chunk) => chunk.cdnKey)).toContain('assets/routerBlogData.js');
+
+    const svizzera = chunksForSection('svizzera');
+    expect(svizzera.registries.map((r) => r.exportName)).toEqual(['SWISS_ARTICLES']);
+    expect(svizzera.companions.every((chunk) => !chunk.cdnKey.match(/blog-meta-(?!ch-)/))).toBe(true);
+    expect(svizzera.companions.map((chunk) => chunk.cdnKey)).toContain('assets/routerSwissData.js');
   });
 });

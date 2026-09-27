@@ -41,6 +41,19 @@ describe('fast-publish workflow invariants', () => {
     const notifyBlock = workflow.slice(notifyIdx, notifyIdx + 400);
     expect(notifyBlock).toMatch(/steps\.verify\.outcome\s*==\s*'success'/);
   });
+
+  it('publishes client article chunks before any locale shard', () => {
+    const clientIdx = workflow.indexOf('Publish client article chunks');
+    const pushIdx = workflow.indexOf('Push locale shards');
+    expect(clientIdx).toBeGreaterThan(-1);
+    expect(clientIdx).toBeLessThan(pushIdx);
+    const clientBlock = workflow.slice(clientIdx, pushIdx);
+    expect(clientBlock).toContain('--strict');
+    expect(clientBlock).toContain('--no-ticker');
+    expect(workflow.slice(pushIdx, workflow.indexOf('Verify shard URLs are live'))).toContain(
+      "steps.publish_chunks.outcome == 'success'",
+    );
+  });
 });
 
 describe('push-article-shard-incremental.sh invariants', () => {
