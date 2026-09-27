@@ -6863,6 +6863,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.zurigo-suicidio-assistito.title': 'Zurich, oui au suicide assisté dans les établissements de santé',
     'blog.article.zurigo-suicidio-assistito.excerpt': 'À Zurich, 68,1% approuvent le suicide assisté dans les établissements de santé. Participation 47,6%; la loi sur les enseignants rejetée à 59,2%.',
     'blog.article.zurigo-suicidio-assistito.imageAlt': 'Vote à Zurich sur le suicide assisté dans les structures sanitaires',
+    'blog.article.sanita-alta-engadina-samedan.title': 'Upper Engadine Healthcare : accords approuvés jusqu\'en 2029',
+    'blog.article.sanita-alta-engadina-samedan.excerpt': 'Le vote des onze communes assure près de 28,5 millions de francs pour l’hôpital de Samedan, les maisons de retraite, Spitex et l’organisme Sanadura de 2027 à 2029.',
+    'blog.article.sanita-alta-engadina-samedan.imageAlt': 'Établissement de santé dans un environnement alpin suisse',
 };
 
 export default blogMetaChFr;
