@@ -56,7 +56,10 @@ jobs:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     # 30→40 (2026-07-17): headroom per il cap turni dinamico alzato (max 80→240).
-    timeout-minutes: 40 # batch di N PR in una sessione (era 10 per una sola PR)
+    # 40→140 (2026-09-27): il cap di sessione passa da 4 a 16 PR
+    # (FOLLOWUP_SESSION_BATCH_LIMIT). 140 = step Codex 120 + pre-step misurato
+    # (checkout+collect fino a ~10 min con ~200 PR in finestra) + coda ~1 min.
+    timeout-minutes: 140 # batch di N PR in una sessione (era 10 per una sola PR)
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -235,12 +238,15 @@ jobs:
 
       - name: Run Codex Luna Max follow-up triage (batch)
         # Tetto sullo step: senza, l'unico limite era il cap del job
-        # (40min) e la run ci moriva `cancelled` — che NON fa scattare
+        # (ora 140min) e la run ci moriva `cancelled` — che NON fa scattare
         # nessun `if: failure()` e si vede solo dallo scan periodico
         # (`scripts/ci/scan-job-timeouts.mjs`). Stessa classe di #7310.
-        # 32min = cap del job meno il setup pre-provider misurato (~98s
-        # sulle ultime run) e una coda per gli step `if: always()`.
-        timeout-minutes: 32
+        # 120min (era 32) = il tetto massimo per uno step agentico, lo stesso
+        # del gemello corpus (claude-step-timeout.test.mjs): watchdog Codex
+        # 115 min + setup Codex (~2-4 min) + kill grace + finalize ci stanno
+        # dentro, e resta sotto il job da 140 min con il pre-step e la coda
+        # degli step `if: always()`.
+        timeout-minutes: 120
         id: followup
         # Gira SOLO se il batch ha almeno una PR. Per le altre run (finestra vuota /
         # tutte già-triagiate / tutte scartate dai gate) la sessione del provider è
@@ -282,7 +288,11 @@ jobs:
           # evitando che il watchdog diventi un cap più basso del collector.
           # Benchmark batch_count=27: provider+setup post 1.816.453 ms (30,27 min),
           # watchdog 31 min e step 32 min non attivati; margine watchdog 43.547 ms.
-          exec_timeout_minutes: "31"
+          # 31→115 min (2026-09-27, cap di sessione 4→16 PR): con 4 PR le
+          # sessioni misurate qui vanno da 129 s a 1036 s (32-259 s/PR, bootstrap
+          # incluso; run 36112598869..36325938055), sul corpus fino a 399 s/PR.
+          # 16 x 399 s = 106 min sotto i 115 min; 16 x 259 s = 69 min.
+          exec_timeout_minutes: "115"
           prompt: |
             Triage automatico follow-up in BATCH (${{ github.event_name }}).
             PR da processare (CSV): ${{ steps.collect.outputs.batch_prs }}
