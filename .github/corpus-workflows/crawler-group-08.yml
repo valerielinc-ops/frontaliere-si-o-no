@@ -4,16 +4,19 @@
 # Hash-bound site runtime dependencies used transitively by this workflow:
 # - functions/src/githubApiHeaders.js
 # - scripts/crawler-group-generation-finalizer.mjs
+# - scripts/lib/accumulator-byte-floor-guard.mjs
 # - scripts/lib/atomic-write-json.mjs
 # - scripts/lib/canonical-json-digest.mjs
 # - scripts/lib/crawler-generation-contract.mjs
 # - scripts/lib/crawler-generation-group-ids.mjs
 # - scripts/lib/crawler-generation-receipt.mjs
 # - scripts/lib/crawler-generation-token.mjs
+# - scripts/lib/crawler-slice-integrity.mjs
 # - scripts/lib/global-data-pipeline-lease.mjs
 # - scripts/lib/job-match-key.mjs
 # - scripts/lib/job-url-key.mjs
 # - scripts/lib/locale-map-diff.mjs
+# - scripts/lib/prospector/country-inventory.mjs
 # - scripts/lib/slug-history-journal.mjs
 # - scripts/lib/slug-preservation-guard.mjs
 
