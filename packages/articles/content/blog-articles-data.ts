@@ -36466,6 +36466,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'sagra-uva-mendrisio-bilancio',
+ category: 'novita',
+ date: '2026-09-27T18:44:48.773Z',
+ image: '/images/blog/sagra-uva-mendrisio-bilancio.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

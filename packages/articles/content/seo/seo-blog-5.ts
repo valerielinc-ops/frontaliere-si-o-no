@@ -95428,6 +95428,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sagra-uva-mendrisio-bilancio': {
+    title: 'Sagra dell\'uva a Mendrisio: bilancio positivo | Frontaliere Ticino',
+    description: 'La 70ª Sagra dell\'uva a Mendrisio chiude con un bilancio positivo e 20-25mila presenze stimate. Nessun intervento di rilievo per la sicurezza. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, sagra, dell, mendrisio, bilancio',
+    ogTitle: 'Sagra dell\'uva, 20-25mila persone a Mendrisio',
+    ogDescription: 'Bilancio positivo per la 70ª Sagra dell\'uva di Mendrisio: le presenze sono state stimate tra 20 e 25mila. Sul fronte della sicurezza non ci sono stati interventi di rilievo; annunciate nuove riflessioni sul mercatino.',
+    canonicalPath: '/articoli-frontaliere/sagra-uva-mendrisio-bilancio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sagra dell'uva a Mendrisio: bilancio positivo",
+      "description": "La 70ª Sagra dell'uva a Mendrisio chiude con un bilancio positivo e 20-25mila presenze stimate. Nessun intervento di rilievo per la sicurezza. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sagra-uva-mendrisio-bilancio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Visitatori alla Sagra dell'uva nel centro di Mendrisio"
+      },
+      "datePublished": "2026-09-27T18:44:48+00:00",
+      "dateModified": "2026-09-27T18:44:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sagra-uva-mendrisio-bilancio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
