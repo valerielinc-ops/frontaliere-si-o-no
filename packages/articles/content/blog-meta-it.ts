@@ -12134,6 +12134,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-27.imageAlt': 'I numeri del giorno per i frontalieri – 27 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-09-27.seoDescription': 'Bollettino frontalieri del 27 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-09-27.ogDescription': 'I numeri del 27 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.como-sinigaglia-eventi-privati.title': 'Como 1907 apre il Sinigaglia a eventi e riunioni private',
+    'blog.article.como-sinigaglia-eventi-privati.excerpt': 'Il club lancia la Corporate Collection: Trophy Room, terrazze, Club House e suite executive disponibili fuori dalle partite. Fino a 160 ospiti per spazio.',
+    'blog.article.como-sinigaglia-eventi-privati.imageAlt': 'Terrazza dello stadio Sinigaglia con vista sul Lago di Como durante evento aziendale',
 };
 
 export default blogMetaIt;

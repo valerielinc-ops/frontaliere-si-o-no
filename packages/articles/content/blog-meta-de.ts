@@ -12132,6 +12132,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-27.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 27. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-09-27.seoDescription': 'Grenzgänger-Bulletin vom 27. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-09-27.ogDescription': 'Die Zahlen vom 27. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.como-sinigaglia-eventi-privati.title': 'Como 1907 öffnet das Sinigaglia für Veranstaltungen und private Zusammenkünfte',
+    'blog.article.como-sinigaglia-eventi-privati.excerpt': 'Der Club lanciert die Corporate Collection: Trophy Room, Terrassen, Club House und Executive-Suiten sind außerhalb der Spieltage verfügbar. Bis zu 160 Gäste pro Raum.',
+    'blog.article.como-sinigaglia-eventi-privati.imageAlt': 'Sinigaglia-Stadionterrasse mit Blick auf den Comer See bei Firmenveranstaltung (Como)',
 };
 
 export default blogMetaDe;
